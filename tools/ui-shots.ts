@@ -21,13 +21,18 @@ await page.goto('http://localhost:4319/?' + base);
 await page.waitForFunction(() => document.body.dataset.ready === '1', null, { timeout: 300000 });
 console.log('ready in', Date.now() - t0, 'ms');
 for (const s of plan) {
+  const pop = await page.$('.catch'); if (pop) await pop.click({ position: { x: 5, y: 300 } }).catch(() => {}); // close an open KPI popover
   await page.evaluate((s: any) => {
     const q = (window as any).__qa; q.details.close();
     q.ui.set({ screen: 'map', region: null, regionDetail: false, ...(s.set ?? {}) });
     if (s.go) q.ui.go(s.go[0], s.go[1]);
   }, s);
   await page.waitForTimeout(400);
-  if (s.click) { const el = await page.$(s.click); if (el) await el.click(); else console.log('MISSING', s.name, s.click); }
+  if (s.click) {
+    const el = await page.$(s.click);
+    if (!el) console.log('MISSING', s.name, s.click);
+    else await el.click({ timeout: 8000 }).catch((e: Error) => console.log('CLICK FAILED', s.name, e.message.split('\n')[0]));
+  }
   await page.waitForTimeout(s.wait ?? 2500);
   await page.screenshot({ path: `${outDir}/${s.name}_${orient}.png` });
   console.log('shot', s.name, Date.now() - t0, 'ms');

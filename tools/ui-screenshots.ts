@@ -1,5 +1,5 @@
 // Captures screenshots of the real app (production build served by `vite preview`) at Android phone sizes.
-// Usage: npx vite build && npx tsx tools/ui-screenshots.ts [outDir]
+// Usage: npx vite build && npx tsx tools/ui-screenshots.ts [outDir] [name,name… to capture only those]
 // Viewports: 412×915 / 915×412 dp (iQOO Z10 Turbo class, logical size) at 2× pixel density.
 import { createRequire } from 'node:module';
 import path from 'node:path';
@@ -28,12 +28,14 @@ const SHOTS: { name: string; q: string; orient: 'P' | 'L' | 'both' }[] = [
   { name: '16_new_game', q: '', orient: 'both' },
 ];
 
+const only = process.argv[3] ? new Set(process.argv[3].split(',')) : null;
 const server = await preview({ preview: { port: 4317, strictPort: true }, logLevel: 'warn' });
 const url = `http://localhost:4317/`;
 const { chromium } = createRequire(import.meta.url)('playwright') as any;
 const browser = await chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
 const errors: string[] = [];
 for (const s of SHOTS) {
+  if (only && !only.has(s.name)) continue;
   for (const o of s.orient === 'both' ? ['P', 'L'] : [s.orient]) {
     const vp = o === 'P' ? { width: 412, height: 915 } : { width: 915, height: 412 };
     const page = await browser.newPage({ viewport: vp, deviceScaleFactor: 2, hasTouch: true, isMobile: true });

@@ -41,7 +41,7 @@ export function MapView(p: Props) {
   };
   const cam = (): Camera & { cx: number; cy: number } => {
     const s = R.current.size; let c = ui.get().camera;
-    if (!c) { c = defaultCamera(props.current.st, grid, s.w, s.h); ui.get().camera = c; }
+    if (!c) { c = defaultCamera(props.current.st, grid, s.w, s.h); c.cx -= ((insets.l - insets.r) / 2) * c.scale; c.cy -= ((insets.t - insets.b) / 2) * c.scale; ui.get().camera = c; }
     clampCam(c);
     return { cx: c.cx, cy: c.cy, scale: c.scale, x0: c.cx - (s.w * c.scale) / 2, y0: c.cy - (s.h * c.scale) / 2 };
   };

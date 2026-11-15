@@ -137,14 +137,30 @@ function GoodDetail({ st, mk, g }: { st: GameState; mk: string; g: Good }) {
       </Sec>
       {(makers.length > 0 || users.length > 0) && (
         <Sec title="Chuỗi sản xuất">
-          {makers.map((b) => <div class="kv" key={b}><span class="k">Sản xuất bởi</span><span class="v">{BUILD_VI[b]} · {fmt(regs.reduce((t, x) => t + x.buildings[b], 0))} cấp trong nước</span></div>)}
+          {makers.map((b) => <div class="kv" key={b}><span class="k">Sản xuất bởi</span><span class="v"><a class="lnk" onClick={() => { ui.tab('economy', 'buildings'); openBuilding(st, b, `economy:buildings:${ui.get().country ?? ''}`); }}>{BUILD_VI[b]} ›</a> · {fmt(regs.reduce((t, x) => t + x.buildings[b], 0))} cấp trong nước</span></div>)}
           {makers.map((b) => Object.entries(RECIPES[b]!.inputs).map(([ig, q]) => <div class="kv" key={b + ig}><span class="k">Đầu vào / đơn vị</span><span class="v">{GOOD_VI[ig]} × {fmt(q as number, 2)}</span></div>))}
-          {users.map((b) => <div class="kv" key={b}><span class="k">Nguyên liệu của</span><span class="v">{BUILD_VI[b]} (× {fmt(RECIPES[b]!.inputs[g] as number, 2)})</span></div>)}
+          {users.map((b) => <div class="kv" key={b}><span class="k">Nguyên liệu của</span><span class="v"><a class="lnk" onClick={() => { ui.tab('economy', 'buildings'); openBuilding(st, b, `economy:buildings:${ui.get().country ?? ''}`); }}>{BUILD_VI[b]} ›</a> (× {fmt(RECIPES[b]!.inputs[g] as number, 2)})</span></div>)}
         </Sec>
       )}
       <div class="note">Mô phỏng không lưu lịch sử giá theo tháng, nên không có biểu đồ giá.</div>
     </div>
   );
+}
+
+/** Building detail window (levels by region, product, inputs). Also opened from a good's production chain. */
+export function openBuilding(st: GameState, b: Building, scope?: string) {
+  const id = viewedId(st); const regs = st.regions.filter((r) => r.owner === id && r.buildings[b] > 0).sort((x, y) => y.buildings[b] - x.buildings[b]);
+  const levels = regs.reduce((s, r) => s + r.buildings[b], 0);
+  details.toggle({ key: `bld:${b}`, title: BUILD_VI[b], ctx: `${fmt(levels)} cấp · ${regs.length} vùng`, scope, body: () => (
+    <div>
+      <div class="kv"><span class="k">Sản phẩm</span><span class="v">{outText(b)}</span></div>
+      {RECIPES[b] && <div class="kv"><span class="k">Đầu vào / đơn vị</span><span class="v">{Object.entries(RECIPES[b]!.inputs).map(([g, q]) => `${GOOD_VI[g]} × ${fmt(q as number, 2)}`).join(' · ')}</span></div>}
+      {b !== 'railway' && b !== 'university' && <div class="kv"><span class="k">Việc làm</span><span class="v num">{compact(levels * LEVEL_WORKERS)}</span></div>}
+      <Sec title="Theo vùng" x="chạm để xem trên bản đồ">
+        {regs.length ? regs.map((r) => <div class="row tap" key={r.id} onClick={() => focusRegion(r.id)}><div class="grow"><div class="t sm">{regionName(r.id)}</div></div><span class="num">cấp {r.buildings[b]}</span></div>) : <div class="empty sm">Quốc gia chưa có công trình này.</div>}
+      </Sec>
+    </div>
+  ) });
 }
 
 // ---------------------------------------------------------------- buildings
@@ -154,16 +170,7 @@ export function BuildingsTab({ st }: { st: GameState }) {
   const types = BUILDINGS.map((b) => ({ b, levels: regs.reduce((s, r) => s + r.buildings[b], 0), regs: regs.filter((r) => r.buildings[b] > 0).sort((x, y) => y.buildings[b] - x.buildings[b]) })).filter((t) => t.levels > 0);
   if (!types.length) return <div class="pad"><div class="empty">Quốc gia này chưa có công trình nào.</div></div>;
   const sectors = [...new Set(types.map((t) => SECTOR[t.b]))];
-  const open = (t: (typeof types)[number]) => details.toggle({ key: `bld:${t.b}`, title: BUILD_VI[t.b], ctx: `${fmt(t.levels)} cấp · ${t.regs.length} vùng`, body: () => (
-    <div>
-      <div class="kv"><span class="k">Sản phẩm</span><span class="v">{outText(t.b)}</span></div>
-      {RECIPES[t.b] && <div class="kv"><span class="k">Đầu vào / đơn vị</span><span class="v">{Object.entries(RECIPES[t.b]!.inputs).map(([g, q]) => `${GOOD_VI[g]} × ${fmt(q as number, 2)}`).join(' · ')}</span></div>}
-      {t.b !== 'railway' && t.b !== 'university' && <div class="kv"><span class="k">Việc làm</span><span class="v num">{compact(t.levels * LEVEL_WORKERS)}</span></div>}
-      <Sec title="Theo vùng" x="chạm để xem trên bản đồ">
-        {t.regs.map((r) => <div class="row tap" key={r.id} onClick={() => focusRegion(r.id)}><div class="grow"><div class="t sm">{regionName(r.id)}</div></div><span class="num">cấp {r.buildings[t.b]}</span></div>)}
-      </Sec>
-    </div>
-  ) });
+  const open = (t: (typeof types)[number]) => openBuilding(st, t.b);
   return (
     <div class="pad" ref={ref}>
       <table class="dt">
