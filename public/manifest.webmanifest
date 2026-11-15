@@ -1,0 +1,11 @@
+{
+  "name": "Dòng chảy Lịch sử",
+  "short_name": "Dòng chảy",
+  "lang": "vi",
+  "start_url": "./",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#0b1215",
+  "theme_color": "#101923",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

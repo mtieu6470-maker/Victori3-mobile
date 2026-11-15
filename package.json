@@ -18,15 +18,20 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@capacitor/android": "^7.6.10",
+    "@capacitor/core": "^7.6.10",
+    "@fontsource/eb-garamond": "^5.3.0",
+    "@fontsource/source-sans-3": "^5.3.1",
     "preact": "^10.24.3"
   },
   "devDependencies": {
+    "@capacitor/cli": "^7.6.10",
     "@preact/preset-vite": "^2.9.1",
-    "@types/node": "^22.9.0",
-    "d3-geo": "^3.1.1",
     "@types/d3-geo": "^3.1.0",
-    "topojson-client": "^3.1.0",
+    "@types/node": "^22.9.0",
     "@types/topojson-client": "^3.1.5",
+    "d3-geo": "^3.1.1",
+    "topojson-client": "^3.1.0",
     "tsx": "^4.19.2",
     "typescript": "^5.6.3",
     "vite": "^5.4.11",
