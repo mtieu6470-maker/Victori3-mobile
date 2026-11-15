@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Dòng chảy Lịch sử</string>
+    <string name="title_activity_main">Dòng chảy Lịch sử</string>
+    <string name="package_name">vn.dongchaylichsu.game</string>
+    <string name="custom_url_scheme">vn.dongchaylichsu.game</string>
+</resources>

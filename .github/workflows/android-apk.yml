@@ -1,0 +1,39 @@
+# Builds an installable debug APK of the game (offline web build packaged with Capacitor).
+# The debug APK is signed with Gradle's auto-generated debug key: no signing secrets are stored in the repository.
+name: Android APK (debug)
+
+on:
+  push:
+    branches: ['**']
+  workflow_dispatch:
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build data, map and web app
+        run: npm run build
+      - name: Unit and simulation tests
+        run: npx vitest run
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: android-actions/setup-android@v3
+      - name: Sync web build into the Android project
+        run: npx cap sync android
+      - name: Assemble debug APK
+        working-directory: android
+        run: ./gradlew assembleDebug --no-daemon
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dong-chay-lich-su-debug-apk
+          path: android/app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
