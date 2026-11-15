@@ -47,6 +47,8 @@ export interface Country {
   igs: Record<IG, { clout: number; approval: number }>;
   treasury: number; debt: number; taxRate: number; budget: Budget;
   gdp: number; gdpHistory?: number; income: number; expense: number; tariffIncome: number; productivity: number;
+  /** Last month's budget lines (same figures that make up income and expense); absent before the first month. */
+  finance?: { tax: number; tariff: number; army: number; navy: number; admin: number; education: number; health: number; construction: number; interest: number };
   techs: string[]; research: { current: string | null; progress: number };
   army: Army; navy: Navy;
   prestige: number; infamy: number; warExhaustion: number; lastWarLost: number | null;

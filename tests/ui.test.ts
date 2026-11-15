@@ -17,7 +17,9 @@ describe('map labels (Europe 1836 — many small German and Italian states)', ()
   const st = fresh('historical', 1, 'GBR');
   setOwnerLookup(grid, st);
   const cands = buildCandidates(st, ['GBR', 'FRA', 'RUS', 'AUS', 'PRU'], 'GBR');
-  const views = { portrait: { w: 412, h: 653, cx: 730, cy: 150, scale: 0.19 }, landscape: { w: 855, h: 366, cx: 712, cy: 140, scale: 0.234 }, zoomedOut: { w: 855, h: 366, cx: 720, cy: 300, scale: 1.2 } };
+  // cameras defined geographically (centre lon/lat, degrees per CSS px) and converted to grid cells
+  const cam0 = (w: number, h: number, lon: number, lat: number, degPerPx: number) => ({ w, h, cx: (lon + 180) * grid.cpd, cy: (grid.lat0 - lat) * grid.cpd, scale: degPerPx * grid.cpd });
+  const views = { portrait: cam0(412, 653, 2.5, 47.5, 0.0475), landscape: cam0(855, 366, -2, 50, 0.0585), zoomedOut: cam0(855, 366, 0, 10, 0.3) };
   for (const [name, v] of Object.entries(views)) {
     const cam = { x0: v.cx - (v.w * v.scale) / 2, y0: v.cy - (v.h * v.scale) / 2, scale: v.scale };
     const placed = layoutLabels(cands, cam, v.w, v.h, grid, measure, st);
@@ -59,5 +61,18 @@ describe('market statistics persisted for the Market screen', () => {
     const back = deserialize(serialize(st)); expect(back.marketStats.GBR.grain.demand).toBeCloseTo(st.marketStats.GBR.grain.demand);
     const old = JSON.parse(serialize(st)); delete old.state.marketStats;
     const loaded = deserialize(JSON.stringify(old)); expect(loaded.marketStats).toEqual({}); stepMonth(loaded); expect(Object.keys(loaded.marketStats).length).toBeGreaterThan(50);
+  });
+});
+
+describe('budget lines shown by the Budget tab', () => {
+  it('monthly finance lines add up to the income and expense the engine applied', () => {
+    const st = fresh('historical', 3, 'FRA'); stepMonth(st); stepMonth(st);
+    const withLines = Object.values(st.countries).filter((x) => x.alive && x.finance);
+    expect(withLines.length).toBeGreaterThan(50);
+    for (const c of withLines) {
+      const f = c.finance!;
+      expect(f.tax + f.tariff).toBeCloseTo(c.income, 3);
+      expect(f.army + f.navy + f.admin + f.education + f.health + f.construction + f.interest).toBeCloseTo(c.expense, 3);
+    }
   });
 });

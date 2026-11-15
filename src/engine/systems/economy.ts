@@ -235,6 +235,7 @@ function financeMonth(st: GameState, c: Country, gdpYear: number, pop: number, i
   const interest = (c.debt * 0.05) / 12;
   const expense = armyCost + navyCost + civil + construction + interest;
   c.income = income; c.expense = expense;
+  c.finance = { tax, tariff, army: armyCost, navy: navyCost, admin: income * c.budget.admin, education: income * c.budget.education, health: income * c.budget.health, construction, interest };
   c.treasury += income - expense + construction; // construction money is held in the treasury for projects
   (c as any).statePool = ((c as any).statePool ?? 0) + construction;
   if (c.treasury < 0) { c.debt += -c.treasury; c.treasury = 0; }
