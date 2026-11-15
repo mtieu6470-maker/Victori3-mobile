@@ -4,6 +4,7 @@ import { LAW_GROUPS, type LawGroup } from '../data/dbTypes';
 import { IGS, S, type Country, type GameState, type IG } from '../types';
 import { clamp, chance, log, rand } from '../core';
 import { coreNationOf } from './population';
+import { regionsOf, bordersOf } from '../cache';
 
 /** Law preferences of interest groups (+ supports, - opposes). Same table in both modes. */
 export const IG_PREFS: Record<IG, Partial<Record<string, number>>> = {
@@ -33,7 +34,7 @@ export function igApproval(c: Country, ig: IG, laws = c.laws): number {
 }
 
 export function updatePolitics(st: GameState, c: Country, init = false) {
-  const regs = st.regions.filter((r) => r.owner === c.id);
+  const regs = regionsOf(st, c.id);
   const pop = regs.reduce((s, r) => s + r.pop, 0);
   if (pop <= 0) return;
   const st_ = (i: number) => regs.reduce((s, r) => s + r.pop * r.strata[i] * (0.3 + r.literacy), 0) / pop;
@@ -59,7 +60,7 @@ export function updatePolitics(st: GameState, c: Country, init = false) {
   }
   // legitimacy: approval of the powerful, tradition of the governance form, prestige and recent defeats
   const tradition = c.laws.governance === 'monarchy' || c.laws.governance === 'theocracy' ? 8 : 4;
-  const target = clamp(42 + legitTarget * 2.2 + tradition + clamp(c.prestige, -50, 100) * 0.08 - (c.lastWarLost !== null && st.tick - c.lastWarLost < 60 ? 15 : 0) - c.famine * 30, 5, 100);
+  const target = clamp(30 + legitTarget * 2.4 + tradition + clamp(c.prestige, -50, 100) * 0.08 - (c.lastWarLost !== null && st.tick - c.lastWarLost < 60 ? 15 : 0) - c.famine * 30, 5, 100);
   c.legitimacy = init ? target : c.legitimacy + (target - c.legitimacy) * 0.05;
   // radicalism per region
   let radPop = 0;
@@ -117,14 +118,14 @@ export function politicsMonth(st: GameState) {
 
 /** Revolutions emerge from radicalism and low legitimacy (same rule in both modes). */
 function revolutionCheck(st: GameState, c: Country) {
-  if (c.decentralized || c.radicalism < 0.22 || c.legitimacy > 40) return;
-  const p = (c.radicalism - 0.2) * (45 - c.legitimacy) * 0.0025;
+  if (c.decentralized || c.radicalism < 0.16 || c.legitimacy > 50) return;
+  const p = (c.radicalism - 0.14) * (55 - c.legitimacy) * 0.003;
   if (!chance(st, p)) return;
   const armyLoyalty = c.igs.armed_forces.approval;
   const crushChance = clamp(0.45 + armyLoyalty * 0.05 + (c.army.quality - 1) * 0.3 - c.radicalism, 0.1, 0.9);
   if (rand(st) < crushChance) {
     log(st, { type: 'revolution', text: `A revolution in ${c.name} is crushed.`, textVi: `Cách mạng ở ${c.nameVi} bị dập tắt.`, actors: [c.id] });
-    for (const r of st.regions) if (r.owner === c.id) { r.radical *= 0.6; r.pop *= 0.998; }
+    for (const r of regionsOf(st, c.id)) { r.radical *= 0.6; r.pop *= 0.998; }
     c.legitimacy = clamp(c.legitimacy - 5, 0, 100);
     return;
   }
@@ -142,20 +143,13 @@ function revolutionCheck(st: GameState, c: Country) {
   c.leader = { name: generatedName(st, c, before.governance !== c.laws.governance ? 'president' : 'ruler'), born: st.date.y - 45 - Math.floor(rand(st) * 15), since: st.date.y, historical: false };
   c.heir = null;
   c.legitimacy = 55; c.reform = null;
-  for (const r of st.regions) if (r.owner === c.id) r.radical *= 0.4;
+  for (const r of regionsOf(st, c.id)) r.radical *= 0.4;
   log(st, { type: 'revolution', text: `Revolution in ${c.name}: the old regime falls.`, textVi: `Cách mạng ở ${c.nameVi}: chế độ cũ sụp đổ.`, actors: [c.id] });
   // contagion: neighbours with radical populations become more restless
-  for (const o of Object.values(st.countries)) if (o.alive && o.id !== c.id && sharesBorder(st, c.id, o.id)) for (const r of st.regions) if (r.owner === o.id) r.radical = clamp(r.radical + 0.04, 0, 0.9);
+  for (const oid of bordersOf(st, c.id)) for (const r of regionsOf(st, oid)) r.radical = clamp(r.radical + 0.04, 0, 0.9);
 }
 
-export function sharesBorder(st: GameState, a: string, b: string): boolean {
-  const d = data();
-  for (let i = 0; i < st.regions.length; i++) {
-    if (st.regions[i].owner !== a) continue;
-    for (const n of d.landNeighbors[i]) if (st.regions[d.regionIndex.get(n)!].owner === b) return true;
-  }
-  return false;
-}
+export function sharesBorder(st: GameState, a: string, b: string): boolean { return bordersOf(st, a).has(b); }
 
 const NAME_POOL = ['Albrecht', 'Carlos', 'Dmitri', 'Edmund', 'Farid', 'Gustav', 'Henri', 'Ismail', 'Jorge', 'Karl', 'Luis', 'Mehmed', 'Nikolai', 'Otto', 'Pedro', 'Rashid', 'Stefan', 'Tomás', 'Viktor', 'Wilhelm', 'Yusuf', 'Zhang', 'Nguyễn', 'Hiroshi', 'Kwame', 'Amir'];
 export function generatedName(st: GameState, c: Country, role: string): string {

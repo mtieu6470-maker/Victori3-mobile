@@ -13,6 +13,7 @@ import { techCost } from '../systems/technology';
 import { allied, allianceAcceptance, declareRivalry, declareWar, formAlliance, greatPowers, guarantee, improveRelations, joinCustomsUnion, powerScore, rivals } from '../systems/diplomacy';
 import { armyStrength, atWar, enemiesOf, navalStrength } from '../systems/military';
 import { coreNationOf } from '../systems/population';
+import { regionsOf, bordersOf } from '../cache';
 
 const LAW_ALTERNATIVES: Record<LawGroup, string[]> = Object.fromEntries(LAW_GROUPS.map((g) => [g, []])) as any;
 LAW_ALTERNATIVES.power = ['autocracy', 'oligarchy', 'census_suffrage', 'universal_male_suffrage'];
@@ -44,10 +45,11 @@ export function aiMonth(st: GameState) {
 // ---------------------------------------------------------------- budget
 function threatLevel(st: GameState, c: Country): number {
   let t = 0; const mine = armyStrength(st, c) + 1;
-  for (const o of Object.values(st.countries)) {
-    if (!o.alive || o.id === c.id || o.decentralized) continue;
-    const hostile = rivals(st, c.id, o.id) || getRel(st, c.id, o.id) < -40 || enemiesOf(st, c.id).includes(o.id);
-    if (hostile && sharesBorder(st, c.id, o.id)) t += armyStrength(st, o) / mine;
+  const enemies = enemiesOf(st, c.id);
+  for (const oid of bordersOf(st, c.id)) {
+    const o = st.countries[oid]; if (!o?.alive || o.decentralized) continue;
+    const hostile = rivals(st, c.id, o.id) || getRel(st, c.id, o.id) < -40 || enemies.includes(o.id);
+    if (hostile) t += armyStrength(st, o) / mine;
   }
   return clamp(t, 0, 3);
 }
@@ -90,8 +92,8 @@ function constructionAI(st: GameState, c: Country) {
   const pool = (c as any).statePool ?? 0; if (pool <= 0) return;
   const threat = threatLevel(st, c);
   let best: { r: number; b: Building; v: number } | null = null;
-  for (let i = 0; i < st.regions.length; i++) {
-    const r = st.regions[i]; if (r.owner !== c.id) continue;
+  for (const r of regionsOf(st, c.id)) {
+    const i = data().regionIndex.get(r.id)!;
     for (const b of BUILDINGS) {
       if (b === 'university' && r.id !== c.capital) continue;
       if (!canBuild(st, c, r, b)) continue;
@@ -145,8 +147,11 @@ function diplomacyAI(st: GameState, c: Country) {
   // alliances: seek partners sharing a rival or threatened by the same neighbour
   if (st.treaties.filter((t) => t.type === 'alliance' && t.members.includes(c.id)).length < 3) {
     let best: string | null = null; let bv = 0;
-    for (const o of Object.values(st.countries)) {
-      if (!o.alive || o.id === c.id || o.decentralized || allied(st, c.id, o.id) || o.overlord) continue;
+    const pool = new Set<string>([...bordersOf(st, c.id), ...gps]);
+    for (const k of Object.keys(st.relations)) if (st.relations[k] > 30 && k.includes(c.id)) for (const x of k.split('|')) pool.add(x);
+    for (const oid of pool) {
+      const o = st.countries[oid];
+      if (!o?.alive || o.id === c.id || o.decentralized || allied(st, c.id, o.id) || o.overlord) continue;
       if ((c.ai.cooldowns[`ally:${o.id}`] ?? 0) > st.tick) continue;
       const v = allianceAcceptance(st, c.id, o.id) + historicalBias(st, c, 'ally', o.id) * 3;
       if (v > bv) { bv = v; best = o.id; }
@@ -172,18 +177,14 @@ function diplomacyAI(st: GameState, c: Country) {
   }
   // improve relations with the most useful partner
   let target: string | null = null; let tv = -Infinity;
-  for (const o of Object.values(st.countries)) if (o.alive && o.id !== c.id && !o.decentralized && sharesBorder(st, c.id, o.id)) { const v = -Math.abs(getRel(st, c.id, o.id) - 30) + historicalBias(st, c, 'ally', o.id) * 50; if (v > tv) { tv = v; target = o.id; } }
+  for (const oid of bordersOf(st, c.id)) { const o = st.countries[oid]; if (!o?.alive || o.decentralized) continue; const v = -Math.abs(getRel(st, c.id, o.id) - 30) + historicalBias(st, c, 'ally', o.id) * 50; if (v > tv) { tv = v; target = o.id; } }
   if (target) { improveRelations(st, c.id, target); count(st, 'improve_relations', c.id); }
 }
 
 // ---------------------------------------------------------------- war (targets, expected value, restraint)
 function neighboursOf(st: GameState, c: Country): Set<string> {
-  const d = data(); const out = new Set<string>();
-  for (let i = 0; i < st.regions.length; i++) {
-    if (st.regions[i].owner !== c.id) continue;
-    for (const n of d.landNeighbors[i]) { const o = st.regions[d.regionIndex.get(n)!].owner; if (o !== c.id) out.add(o); }
-    if (navalStrength(c) > 5) for (const s of d.seaNeighbors[i]) if (s.km < 600) { const o = st.regions[d.regionIndex.get(s.r)!].owner; if (o !== c.id) out.add(o); }
-  }
+  const d = data(); const out = new Set<string>(bordersOf(st, c.id));
+  if (navalStrength(c) > 5) for (const r of regionsOf(st, c.id)) { const i = d.regionIndex.get(r.id)!; for (const s of d.seaNeighbors[i]) if (s.km < 600) { const o = st.regions[d.regionIndex.get(s.r)!].owner; if (o !== c.id) out.add(o); } }
   return out;
 }
 
@@ -200,7 +201,7 @@ function warAI(st: GameState, c: Country) {
     const t = st.countries[tid]; if (!t?.alive || tid === c.overlord || t.overlord === c.id || allied(st, c.id, tid)) continue;
     if (c.decentralized && t.decentralized) continue; // placeholder polities do not conquer each other
     if (st.player === tid && st.tick < 24) continue; // grace period for the player
-    const tRegions = st.regions.filter((r) => r.owner === tid);
+    const tRegions = regionsOf(st, tid);
     const reachable = tRegions.filter((r) => { const i = d.regionIndex.get(r.id)!; return d.landNeighbors[i].some((n) => st.regions[d.regionIndex.get(n)!].owner === c.id) || (navalStrength(c) > 5 && d.seaNeighbors[i].some((s) => st.regions[d.regionIndex.get(s.r)!].owner === c.id)) || c.claims.includes(r.id); });
     if (!reachable.length) continue;
     // goal regions: claimed, same nation, historically prioritised, or (vs decentralized) adjacent land
@@ -219,11 +220,11 @@ function warAI(st: GameState, c: Country) {
     for (const gp of greatPowers(st)) if (gp !== c.id && rivals(st, gp, c.id) && getRel(st, gp, tid) > 10) enemy += armyStrength(st, st.countries[gp]) * 0.35;
     const ratio = mine / Math.max(1, enemy);
     const pWin = clamp((ratio - 0.6) / 1.4, 0, 0.95);
-    const cost = 0.8 + c.warExhaustion / 50 + (t.decentralized ? 0.2 + (['ju', 'sa'].includes(goalRegs[0]?.terrain ?? '') && !c.techs.includes('quinine_prophylaxis') ? 0.6 : 0) : 0.5) + c.infamy / 25 + historicalBias(st, c, 'avoid_war', tid) * 3 - historicalBias(st, c, 'contain', tid) * 0.6;
+    const cost = 0.55 + c.warExhaustion / 50 + (t.decentralized ? 0.2 + (['ju', 'sa'].includes(goalRegs[0]?.terrain ?? '') && !c.techs.includes('quinine_prophylaxis') ? 0.6 : 0) : 0.5) + c.infamy / 25 + historicalBias(st, c, 'avoid_war', tid) * 3 - historicalBias(st, c, 'contain', tid) * 0.6;
     const u = pWin * value - (1 - pWin) * 0.8 - cost + (c.personality.aggression - 0.4) * 0.8 + (c.personality.expansionism - 0.4) * 0.6;
     if (!best || u > best.u) best = { target: tid, goals, u, kind: t.decentralized ? 'colonial' : 'conquest' };
   }
-  const threshold = 0.35 + (1 - c.personality.risk) * 0.4;
+  const threshold = 0.2 + (1 - c.personality.risk) * 0.35;
   if (best && best.u > threshold) {
     if (declareWar(st, c.id, best.target, best.goals, undefined, best.kind)) { count(st, 'declare_war', c.id); c.ai.cooldowns.war = st.tick + 24; }
   } else c.ai.cooldowns.war = st.tick + 6;

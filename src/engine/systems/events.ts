@@ -108,7 +108,8 @@ function succession(st: GameState, c: Country) {
   let next: Country['leader'] | null = null;
   if (mode.historicalSuccession && !c.regimeChangedAt) {
     const recs = d.leadersOf(c.id);
-    const rec = recs.find((l) => l.governance === c.laws.governance && l.from.slice(0, 7) >= iso.slice(0, 7) && Number(l.from.slice(0, 4)) - st.date.y <= 2 && !l.after_regime_change);
+    const base = (n: string) => n.split(' (')[0];
+    const rec = recs.filter((l) => l.governance === c.laws.governance && !l.after_regime_change && base(l.name) !== base(L.name) && l.to.slice(0, 7) > iso.slice(0, 7) && Number(l.from.slice(0, 4)) - st.date.y <= 2).sort((a, b) => a.from.localeCompare(b.from))[0];
     if (rec) next = { name: rec.name, born: rec.born ? Number(rec.born.slice(0, 4)) : null, since: st.date.y, historical: true, diesOn: rec.died ?? null, female: /Victoria|Isabella|Maria|Wilhelmina/.test(rec.name) };
   }
   if (!next && heir && (heir.born === null || heir.born <= st.date.y - 10)) next = { name: heir.name, born: heir.born, since: st.date.y, historical: true, female: heir.female, diesOn: null };

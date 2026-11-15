@@ -13,8 +13,12 @@ export const rivals = (st: GameState, a: string, b: string) => st.rivalries.incl
 export function powerScore(st: GameState, c: Country): number {
   return Math.sqrt(Math.max(0, c.gdp) / 1e9) * 10 + armyStrength(st, c) / 20000 + c.navy.strength * c.navy.quality * 0.6 + c.prestige * 0.2;
 }
+let gpCache: { st: GameState; tick: number; list: string[] } | null = null;
 export function greatPowers(st: GameState): string[] {
-  return Object.values(st.countries).filter((c) => c.alive && !c.decentralized && !c.overlord).sort((a, b) => powerScore(st, b) - powerScore(st, a)).slice(0, 8).map((c) => c.id);
+  if (gpCache && gpCache.st === st && gpCache.tick === st.tick) return gpCache.list;
+  const list = Object.values(st.countries).filter((c) => c.alive && !c.decentralized && !c.overlord).map((c) => ({ id: c.id, p: powerScore(st, c) })).sort((a, b) => b.p - a.p).slice(0, 8).map((x) => x.id);
+  gpCache = { st, tick: st.tick, list };
+  return list;
 }
 
 export function diplomacyMonth(st: GameState) {

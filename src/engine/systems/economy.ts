@@ -3,6 +3,7 @@
 import { data } from '../data/db';
 import { GOODS, S, type Country, type GameState, type Good, type Region, type Building } from '../types';
 import { clamp, log } from '../core';
+import { regionsOf } from '../cache';
 
 export const OPENNESS: Record<string, number> = { isolationism: 0.03, protectionism: 0.3, free_trade: 0.7 };
 const TARIFF: Record<string, number> = { isolationism: 0.35, protectionism: 0.2, free_trade: 0.04 };
@@ -210,7 +211,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const pop = (regionsBy[c.id] ?? []).reduce((s, r) => s + r.pop, 0);
     const famine = (regionsBy[c.id] ?? []).reduce((s, r) => s + ((r as any).famine ?? 0) * r.pop, 0) / Math.max(1, pop);
     c.famine = famine;
-    financeMonth(st, c, g, pop, marketImports[marketOf(st, c)] * (marketOf(st, c) === c.id ? 1 : 0.2));
+    financeMonth(st, c, g, pop, (marketImports[marketOf(st, c)] ?? 0) * (marketOf(st, c) === c.id ? 1 : 0.2));
   }
 }
 
@@ -218,7 +219,7 @@ const SOLDIER_COST = (gdpPc: number) => 0.35 * gdpPc + 20;
 export const SHIP_COST = 150000;
 
 function financeMonth(st: GameState, c: Country, gdpYear: number, pop: number, importsValue: number) {
-  const gdpPc = gdpYear / Math.max(1, pop);
+  const gdpPc = pop > 0 ? gdpYear / pop : 0;
   const taxEff = clamp(0.45 + 1.4 * c.budget.admin + 0.1 * (c.laws.power === 'autocracy' ? 0 : 1) + techEffect(c, 'admin_efficiency'), 0.25, 1.05);
   const tax = (c.taxRate * gdpYear * taxEff) / 12;
   const tariff = (importsValue * (TARIFF[c.laws.trade] ?? 0.2)) / 12;
@@ -289,8 +290,7 @@ export function privateInvestment(st: GameState, c: Country) {
   let tries = 0;
   while (((c as any).privatePool ?? 0) > 0 && tries++ < 3) {
     let best: { r: Region; b: Building; v: number } | null = null;
-    for (const r of st.regions) {
-      if (r.owner !== c.id) continue;
+    for (const r of regionsOf(st, c.id)) {
       for (const b of ['textile_mill', 'ironworks', 'tool_works', 'mine', 'plantation', 'logging', 'luxury_workshop', 'railway'] as Building[]) {
         if (!canBuild(st, c, r, b)) continue;
         if (b === 'plantation' && c.laws.labor !== 'slavery' && r.strata[S.laborers] < 0.05) continue;

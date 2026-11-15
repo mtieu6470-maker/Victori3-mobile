@@ -4,6 +4,7 @@ import { data } from '../data/db';
 import { S, type Country, type GameState, type Region } from '../types';
 import { clamp } from '../core';
 import { techEffect, LEVEL_WORKERS } from './economy';
+import { regionsOf } from '../cache';
 
 export function populationMonth(st: GameState) {
   const d = data();
@@ -14,9 +15,9 @@ export function populationMonth(st: GameState) {
     const urban = r.strata[S.workers] + r.strata[S.middle] + r.strata[S.capitalists] * 0.5;
     const density = r.pop / Math.max(50, r.area);
     const frontier = clamp(1 - density / 30, 0, 1);
-    const birth = 0.038 - 0.008 * r.literacy - 0.006 * urban + 0.012 * frontier;
+    const birth = 0.037 - 0.008 * r.literacy - 0.006 * urban + 0.012 * frontier + ((c as any).fertilityAdj ?? 0);
     const epi = r.epidemic && r.epidemic.until > st.tick ? r.epidemic.rate * 12 : 0;
-    let death = 0.034 - 0.04 * (r.sol - 0.5) + techEffect(c, 'mortality') * 0.1 - c.budget.health * 0.02 + famine * 0.16 + epi + r.devastation * 0.02;
+    let death = 0.033 - 0.02 * (r.sol - 0.5) + techEffect(c, 'mortality') * 0.1 - c.budget.health * 0.02 + famine * 0.16 + epi + r.devastation * 0.02;
     if (r.terrain === 'ju' || r.terrain === 'ma') death += 0.002;
     death = Math.max(0.011, death);
     r.pop = Math.max(100, r.pop * (1 + (birth - death) / 12));
@@ -43,7 +44,7 @@ export function populationMonth(st: GameState) {
     const dests: { c: Country; w: number; regions: Region[] }[] = [];
     for (const c of Object.values(st.countries)) {
       if (!c.alive || c.decentralized || c.laws.trade === 'isolationism') continue;
-      const regs = st.regions.filter((r) => r.owner === c.id && r.controller === c.id);
+      const regs = regionsOf(st, c.id).filter((r) => r.controller === c.id);
       if (!regs.length) continue;
       const sol = regs.reduce((s, r) => s + r.sol * r.pop, 0) / Math.max(1, regs.reduce((s, r) => s + r.pop, 0));
       const space = regs.reduce((s, r) => s + Math.max(0, 1 - r.pop / Math.max(50, r.area) / 25) * r.area, 0);

@@ -146,6 +146,7 @@ export function createGame(opts: NewGameOptions): GameState {
   }
 
   computeEconomy(st, true);
+  calibrateDemography(st);
   for (const id of Object.keys(st.countries)) updatePolitics(st, st.countries[id], true);
   sampleYear(st);
   return st;
@@ -201,4 +202,28 @@ function termEndFor(id: string, name?: string): string | null {
   if (!name) return null;
   const rec = data().leadersOf(id).find((l) => l.name === name || name.startsWith(l.name));
   return rec && rec.end === 'term' ? rec.to : null;
+}
+
+/** Initial fertility regime: calibrated so that the model's natural growth at start equals the documented
+ * 1820-1836 growth of the CoW population series (pre-start data only: no information after 1836 is used). */
+function calibrateDemography(st: GameState) {
+  const d = data();
+  const series = new Map<string, Record<string, number>>();
+  for (const b of d.db.benchmarks) if (b.field === 'population.total' && Number(b.date) <= 1836) (series.get(b.entity) ?? series.set(b.entity, {}).get(b.entity)!)[b.date] = b.value;
+  for (const [id, s] of series) {
+    const c = st.countries[id]; if (!c || !s['1836']) continue;
+    const y0 = s['1820'] ? 1820 : s['1830'] ? 1830 : null; if (!y0) continue;
+    const r = Math.pow(s['1836'] / s[String(y0)], 1 / (1836 - y0)) - 1;
+    if (!(r > -0.01 && r < 0.04)) continue;
+    const regs = st.regions.filter((x) => x.owner === id);
+    let model = 0, pop = 0;
+    for (const x of regs) {
+      const urban = x.strata[S.workers] + x.strata[S.middle] + x.strata[S.capitalists] * 0.5;
+      const frontier = clamp(1 - x.pop / Math.max(50, x.area) / 30, 0, 1);
+      const b = 0.037 - 0.008 * x.literacy - 0.006 * urban + 0.012 * frontier;
+      const dd = Math.max(0.011, 0.033 - 0.02 * (x.sol - 0.5));
+      model += (b - dd) * x.pop; pop += x.pop;
+    }
+    (c as any).fertilityAdj = clamp(r - model / Math.max(1, pop), -0.012, 0.012);
+  }
 }

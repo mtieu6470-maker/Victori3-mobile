@@ -1,11 +1,12 @@
 // Yearly statistics (used by charts, rankings, tests and reports).
 import type { GameState } from './types';
 import { powerScore } from './systems/diplomacy';
+import { regionsOf } from './cache';
 
 export function sampleYear(st: GameState) {
   for (const c of Object.values(st.countries)) {
     if (!c.alive || c.decentralized) continue;
-    const regions = st.regions.filter((r) => r.owner === c.id);
+    const regions = regionsOf(st, c.id);
     const arr = (st.history[c.id] ??= []);
     if (arr.length && arr[arr.length - 1].y === st.date.y) continue;
     arr.push({ y: st.date.y, pop: Math.round(c.stats.pop), gdp: Math.round(c.gdp), army: Math.round(c.army.manpower), navy: Math.round(c.navy.strength * 10) / 10, literacy: Math.round(c.stats.literacy * 1000) / 1000, power: Math.round(powerScore(st, c) * 10) / 10, regions: regions.length, legitimacy: Math.round(c.legitimacy) });

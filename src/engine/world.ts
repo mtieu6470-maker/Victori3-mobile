@@ -4,12 +4,13 @@ import type { Country, GameState } from './types';
 import { IGS } from './types';
 import { dateStr, log, relKey, setRel, newId } from './core';
 import { updatePolitics } from './systems/politics';
+import { invalidate } from './cache';
 
 export function transferRegion(st: GameState, regionId: string, to: string, cause: string) {
   const d = data();
   const idx = d.regionIndex.get(regionId)!; const r = st.regions[idx];
   const from = r.owner; if (from === to) return;
-  r.owner = to; r.controller = to;
+  r.owner = to; r.controller = to; invalidate();
   const histOwner = d.historicalOwner(regionId, dateStr(st.date));
   const match = d.equivalent(histOwner, to);
   st.territoryLog.push({ tick: st.tick, date: dateStr(st.date), region: regionId, from, to, cause, historicalMatch: match });
