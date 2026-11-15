@@ -6,7 +6,7 @@ import { createRequire } from 'node:module';
 import { readFileSync, mkdirSync } from 'node:fs';
 import { preview } from 'vite';
 const [outDir, orient, base, planFile] = process.argv.slice(2);
-const plan = JSON.parse(readFileSync(planFile, 'utf8')) as { name: string; go?: [string, string?]; click?: string; tap?: [number, number]; set?: Record<string, unknown>; post?: Record<string, unknown>; wait?: number }[];
+const plan = JSON.parse(readFileSync(planFile, 'utf8')) as { name: string; go?: [string, string?]; click?: string; tap?: [number, number]; tapRegion?: string; set?: Record<string, unknown>; post?: Record<string, unknown>; wait?: number }[];
 mkdirSync(outDir, { recursive: true });
 const server = await preview({ preview: { port: 4319, strictPort: true }, logLevel: 'warn' });
 const { chromium } = createRequire(import.meta.url)('playwright') as any;
@@ -30,6 +30,10 @@ for (const s of plan) {
   }, s);
   await page.waitForTimeout(400);
   if (s.tap) await page.touchscreen.tap(s.tap[0], s.tap[1]);
+  if (s.tapRegion) {
+    const pt = await page.evaluate((id: string) => { const q = (window as any).__qa; const d = q.data(); const r = d.map.regions[d.regionIndex.get(id)]; const c = q.ui.get().camera; return { x: (r.label[0] - c.cx) / c.scale + innerWidth / 2, y: (r.label[1] - c.cy) / c.scale + innerHeight / 2 }; }, s.tapRegion);
+    await page.touchscreen.tap(pt.x, pt.y);
+  }
   if (s.click) {
     const el = await page.$(s.click);
     if (!el) console.log('MISSING', s.name, s.click);

@@ -26,11 +26,11 @@ export function WorldScreen({ st }: { st: GameState }) {
         <Metric label="Chiến tranh" icon="military" value={fmt(st.wars.length)} d={<span class="dim">{fmt(st.territoryLog.length)} lần đổi chủ lãnh thổ</span>} />
       </div>
       <table class="dt" style="margin-top:8px">
-        <thead><tr><th class="r">#</th><th>Quốc gia</th>{th('power', 'Sức mạnh', 'r')}{th('gdp', 'GDP', 'r')}{w >= 470 && th('pop', 'Dân số', 'r')}{w >= 560 && th('pc', 'GDP/người', 'r')}{w >= 640 && th('regions', 'Vùng', 'r')}</tr></thead>
+        <thead><tr><th class="r">#</th><th>Quốc gia</th>{th('power', 'Sức mạnh', 'r')}{w >= 430 && th('gdp', 'GDP', 'r')}{w >= 470 && th('pop', 'Dân số', 'r')}{w >= 560 && th('pc', 'GDP/người', 'r')}{w >= 640 && th('regions', 'Vùng', 'r')}</tr></thead>
         <tbody>{rows.map((r) => (
           <tr key={r.id} class={r.id === followed ? 'on' : ''} onClick={() => ui.set({ country: r.id, screen: 'country', tabs: { ...ui.get().tabs, country: 'overview' }, ...(st.player ? {} : { follow: r.id }) })}>
-            <td class="r num dim">{r.rank}</td><td><span class="cell-ic"><Flag c={st.countries[r.id]} sm /><span class="nm">{shortName(st, r.id)}</span></span></td>
-            <td class="r num">{fmt(r.power)}</td><td class="r num">{money(r.gdp)}</td>{w >= 470 && <td class="r num">{compact(r.pop)}</td>}{w >= 560 && <td class="r num">{fmt(r.pc, 1)}</td>}{w >= 640 && <td class="r num">{r.regions}</td>}
+            <td class="r num dim">{r.rank}</td><td><span class="cell-ic"><Flag c={st.countries[r.id]} sm /><span><div class="nm">{shortName(st, r.id)}</div>{w < 430 && <div class="sub num">GDP {money(r.gdp)} · {compact(r.pop)} dân</div>}</span></span></td>
+            <td class="r num">{fmt(r.power)}</td>{w >= 430 && <td class="r num">{money(r.gdp)}</td>}{w >= 470 && <td class="r num">{compact(r.pop)}</td>}{w >= 560 && <td class="r num">{fmt(r.pc, 1)}</td>}{w >= 640 && <td class="r num">{r.regions}</td>}
           </tr>))}</tbody>
       </table>
       {!st.player && <div class="note">Chế độ quan sát: chạm một quốc gia để theo dõi số liệu của nước đó trên thanh trên cùng.</div>}

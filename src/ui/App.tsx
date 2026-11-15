@@ -125,7 +125,9 @@ export function App({ assets }: { assets: MapAssets }) {
   const card = !!u.region && !!pick && !u.regionDetail && hud;
   const cardW = portrait ? vw - 16 : 304, cardH = 168;
   rects.legend.y = freeB - (portrait ? 8 : 10) - rects.legend.h - (card && portrait ? cardH + 8 : 0);
-  const dockShown = portrait || freeW >= dockW + 20 || !winOpen;
+  // portrait: map controls sit at the top of the map and hide when a sheet rises over them
+  const dockShown = portrait ? freeB - top > 8 + 42 + 16 : freeW >= dockW + 20 || !winOpen;
+  const zoomShown = portrait && freeB - top > 8 + 122 + 16;
   // the legend sits bottom-left of the free map; if the dock would hit it, it stacks above the dock instead
   if (!portrait && dockShown && rects.legend.x + rects.legend.w + 8 > rects.dock.x) rects.legend.y = rects.dock.y - 8 - rects.legend.h;
   const legendShown = hud && freeB - top > 220 && freeW > 250 && rects.legend.y > top + GAP + 40 + (showOutliner && !reg && rects.legend.x + rects.legend.w > rects.outl.x ? 250 : 0);
@@ -133,7 +135,7 @@ export function App({ assets }: { assets: MapAssets }) {
   const avoid = (): Rect[] => {
     const a: Rect[] = [{ x: 0, y: 0, w: vw, h: top }];
     if (!portrait && hud) a.push({ x: 0, y: top, w: railR, h: 8 * 43 + 12 });
-    if (dockShown) a.push(rects.dock); a.push(rects.zoom);
+    if (dockShown) a.push(rects.dock); if (zoomShown) a.push(rects.zoom);
     if (legendShown) a.push(rects.legend);
     if (showOutliner && !reg) a.push(rects.outl);
     for (const r of [main, side, reg]) if (r) a.push(r);
@@ -158,7 +160,7 @@ export function App({ assets }: { assets: MapAssets }) {
         </nav>
       )}
       {legendShown && <Legend x={rects.legend.x} y={rects.legend.y} />}
-      {portrait && <ZoomBar x={rects.zoom.x} y={rects.zoom.y} />}
+      {zoomShown && <ZoomBar x={rects.zoom.x} y={rects.zoom.y} />}
       {dockShown && <MapDock rect={rects.dock} wide={wideDock} portrait={portrait} />}
       {showOutliner && !reg && <Outliner x={rects.outl.x} y={rects.outl.y} />}
       {hover && !pick && !portrait && <MapTip id={hover.id} x={hover.x} y={hover.y} />}
@@ -302,6 +304,7 @@ function MapDock({ rect, wide, portrait }: { rect: Rect; wide: boolean; portrait
       {zoom}
       <button class="lsel" aria-haspopup="menu" aria-expanded={openMenu} onClick={() => setOpen(!openMenu)}><Mdl icon={LENS_ICON[u.lens]} size="sm" /><span class="ellipsis" style="max-width:110px">{lens.name}</span><span class="car">{portrait ? '▾' : '▴'}</span></button>
       {!portrait && <button class={`ib${u.fullMap ? ' on' : ''}`} style="border-left:1px solid var(--line-2)" aria-label="Bản đồ toàn màn hình" title="Bản đồ toàn màn hình" onClick={() => ui.set({ fullMap: !u.fullMap, region: null })}><Icon name="fullscreen" class="i" /></button>}
+      {openMenu && <div class="catch" onClick={() => setOpen(false)} />}
       {openMenu && (
         <div class={`layermenu${portrait ? ' down' : ''}`} role="menu" style={portrait ? 'left:-1px;right:auto' : ''}>
           {LENSES.map((l) => <button key={l.id} role="menuitemradio" aria-checked={u.lens === l.id} class={u.lens === l.id ? 'on' : ''} onClick={() => { ui.set({ lens: l.id }); setOpen(false); }}><Mdl icon={LENS_ICON[l.id]} size="sm" /><span><b>{l.name}</b><small>{l.desc}</small></span></button>)}

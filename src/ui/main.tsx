@@ -11,7 +11,7 @@ import '@fontsource/source-sans-3/700.css';
 import './styles/theme.css';
 import dbJson from '../generated/db.json';
 import mapJson from '../generated/map.json';
-import { HistoricalData, setData, type MapTopology } from '../engine/data/db';
+import { HistoricalData, setData, data, type MapTopology } from '../engine/data/db';
 import type { HistoricalDB } from '../engine/data/dbTypes';
 import { loadGrid } from './map/mapData';
 import { loadVectors } from './map/vectors';
@@ -45,7 +45,7 @@ async function boot() {
     render(<App assets={assets} />, root);
     await game.fastForward(months);
     // QA hook for scripted screenshots (tools/ui-shots.ts); only present when the page is opened with QA parameters
-    (window as any).__qa = { ui, game, details, modals, mapControls };
+    (window as any).__qa = { ui, game, details, modals, mapControls, data };
     document.body.dataset.ready = '1';
     return;
   }
