@@ -1,83 +1,101 @@
-# UI DESIGN SYSTEM — "Ledger & Atlas" v2 (bản đã triển khai)
+# UI DESIGN SYSTEM — "Imperial Ledger" v3 (bản đã triển khai)
 
-> Nguồn sự thật là mã: `src/ui/styles/theme.css` (token, thành phần), `src/ui/components/ui.tsx` (cửa sổ, bảng, tooltip, số liệu), `src/ui/App.tsx` (bố cục), `src/ui/map/*` (bản đồ). Khi tài liệu lệch mã, mã thắng.
-> Tên làm việc: **Dòng chảy Lịch sử**. Tham chiếu thiết kế: gói nghiên cứu Pass 16, chương 13, 17, 38, 57, 59, 61 (đọc ngày 15/11/2026).
+> Nguồn sự thật là mã: `src/ui/styles/theme.css` (token, thành phần), `src/ui/components/ui.tsx` (cửa sổ, plaque, biểu đồ, tooltip), `src/ui/components/icons.tsx` (biểu tượng), `src/ui/App.tsx` (bố cục), `src/ui/map/*` (bản đồ). Khi tài liệu lệch mã, mã thắng. Phân tích tham chiếu: `V3_REFERENCE_ANALYSIS.md`.
 
-## 1. Định hướng v2
+## 1. Nguyên tắc
 
-v1 thay "skin" (nút tròn viền vàng, khung dày, bóng, mọi thứ là thẻ). v2 thay **cấu trúc**:
+1. **Bản đồ là nền.** Bản đồ chiến lược luôn tràn màn hình; mọi giao diện nổi lên trên và có thể thu gọn hoặc ẩn (chế độ toàn bản đồ).
+2. **Vật thể có khung, không phải trang web.** Cửa sổ, thanh, nút là "vật thể" có viền đồng, gradient kim loại, bóng đổ; nội dung chia bằng plaque có dải tiêu đề khắc.
+3. **Thứ bậc trước trang trí.** Một dải tiêu đề, một hình mờ, một vạch màu module cho mỗi cửa sổ; trang trí chỉ ở khung và tiêu đề.
+4. **Mọi con số từ engine.** Không có biểu đồ hay giá trị minh họa.
 
-- **Thứ bậc, không trang trí.** Mỗi cửa sổ có một băng tiêu đề màu rượu vang duy nhất; bên trong chỉ dùng đường kẻ mảnh, tiêu đề mục small-caps có đường kẻ chạy theo, bảng sổ cái. Không bo góc, không bóng trong nội dung.
-- **Điều hướng ≠ hành động.** Điều hướng là biểu tượng phẳng (thanh công cụ, tab gạch chân); hành động là nút chữ có viền (`.btn`), hành động mạnh dùng `.primary`/`.danger`, hành động không hoàn tác được phải giữ 0,7 s.
-- **Chữ:** EB Garamond (có chân) cho tiêu đề, tên riêng, tên luật, tên hàng hóa; Source Sans 3 (không chân, số dạng bảng) cho dữ liệu. Cả hai SIL OFL 1.1, đóng gói offline.
-- **Mỗi module một cấu trúc** (mục 5), không dùng chung một khuôn.
-- Không sao chép tài sản Victoria 3: biểu tượng SVG tự vẽ, bản đồ tự dựng từ Natural Earth (phạm vi công cộng).
+## 2. Bảng màu (`theme.css :root`)
 
-## 2. Token (theme.css `:root`)
+| Nhóm | Token | Giá trị | Dùng cho |
+|---|---|---|---|
+| Mực (bề mặt) | `--ink-0…4` | `#090e11` → `#26383f` | nền, thân cửa sổ, ô nổi |
+| Đường kẻ | `--line`, `--line-2`, `--line-3` | đồng 16% / 30% / 50% | kẻ mảnh, viền ô, kẻ tiêu đề bảng |
+| Đồng | `--gold-0…4` | `#5e4824` `#96773f` `#c9a45e` `#ecd39a` `#fff0c8` | viền, biểu tượng, tiêu đề, chữ nổi bật |
+| Chữ | `--text`, `--text-2`, `--text-3` | ngà `#ece3cd`, `#b8b09b`, `#857f6e` | chữ chính / phụ / chú thích |
+| Trạng thái | `--pos`, `--neg`, `--warn`, `--info` | `#8cc46b`, `#e2705a`, `#e6b450`, `#7fb2d6` | tốt/xấu/cảnh báo/thông tin — luôn kèm ký hiệu ▲▼◆ hoặc chữ |
+| Màu module | `--m-country`… `--m-system` | đồng, vàng ô liu, đất nung, đỏ rượu, ngọc lam, xanh lam, đỏ gạch, giấy cũ… | huy chương, vạch đầu cửa sổ, nút rail |
+| Bản đồ | `--map-sea`, `--map-sea-deep`, `--map-ink` | `#46727c`, `#1c3341`, `#a8c3c4` | biển nông, biển sâu, đường nước |
 
-| Token | Giá trị | Dùng cho |
+## 3. Chữ
+
+| Vai trò | Phông | Cỡ / kiểu |
 |---|---|---|
-| `--bg-app`, `--chrome`, `--chrome-2` | `#0d1416`, `#151f22`, `#1b272a` | nền, thanh trên/thanh công cụ |
-| `--win`, `--win-2`, `--win-3`, `--inset` | `#18242a` … `#121c1f` | thân cửa sổ, dòng nổi, vùng chìm |
-| `--head`, `--head-2` | `#4b1d27`, `#5d2532` | băng tiêu đề cửa sổ (gradient) |
-| `--rule`, `--rule-2` | ngà 12% / 24% | đường kẻ mảnh |
-| `--accent`, `--accent-hi` | `#c9a65e`, `#e8cf96` | lựa chọn, tiêu đề mục, gạch chân tab |
-| `--text`, `--text-2`, `--text-3` | `#ebe1c9`, `#b4ad98`, `#847e6d` | chữ |
-| `--pos`, `--neg`, `--warn`, `--info` | xanh lá, đỏ gạch, hổ phách, xanh lam | tốt/xấu/cảnh báo/thông tin — luôn kèm ký hiệu ▲▼■ hoặc chữ |
+| Tiêu đề cửa sổ | EB Garamond 600, small-caps, giãn 0,05em | 20 px, `--gold-4`, bóng chữ |
+| Tiêu đề banner (quốc gia, chính thể, vùng) | EB Garamond 600 | 20–23 px |
+| Tiêu đề plaque / mục | EB Garamond 600 small-caps | 14,5–15,5 px, `--gold-3` |
+| Tên riêng trong bảng, tên luật, tên hàng | EB Garamond 500–600 | 15–16,5 px |
+| Số liệu | Source Sans 3 600–700, tabular-nums | 13–22 px |
+| Tiêu đề cột bảng | Source Sans 3 600 chữ hoa giãn 0,05em | 11 px, `--gold-2`, được xuống dòng |
+| Nhãn quốc gia trên bản đồ | EB Garamond 600, **chữ hoa giãn 0,24em**, mực nâu + quầng ngà, uốn theo lãnh thổ | 11–34 px theo diện tích |
+| Nhãn biển | EB Garamond nghiêng chữ hoa, màu xanh nhạt trên biển sẫm | 11–20 px |
+| Nhãn bang (zoom gần) | EB Garamond nghiêng | 11,5 px |
 
-## 3. Thành phần (`src/ui/components/ui.tsx`, `theme.css`)
+## 4. Hệ biểu tượng
+
+- 24×24, **hai lớp**: lớp tô màu nhạt (16%) dưới nét vẽ tròn đầu 1,7 px (`icons.tsx`). ~70 biểu tượng (module, chỉ số, hàng hóa, địa hình, thao tác).
+- **Huy chương** (`Mdl`): vòng đồng kép, nền tối tỏa sáng giữa, biểu tượng màu module; cỡ 24/32/44 px. Dùng ở thanh tài nguyên, đầu cửa sổ, lưới luật, outliner, menu lớp bản đồ.
+- **Huy hiệu quốc gia** (`Flag`): khiên màu quốc gia, viền đồng, chữ cái đầu tên ngắn; cỡ nhỏ/thường/lớn.
+
+## 5. Cửa sổ và panel
 
 | Thành phần | Quy tắc |
 |---|---|
-| Cửa sổ (`.window` + `WinHead`) | Băng tiêu đề small-caps 19px + ngữ cảnh (nước · tháng/năm) + nút mở rộng/đóng phẳng. Dọc: có tay kéo, kéo để đổi độ cao hoặc đóng. |
-| Tab (`Tabs`) | Chữ có chân, gạch chân vàng cho tab chọn; cuộn ngang khi nhiều. |
-| Mục (`Sec`) | Tiêu đề small-caps + đường kẻ; tùy chọn chú thích phải (`x`) và liên kết `›` sang module khác. |
-| Dải số liệu (`Metric`) | Ô ngăn bằng đường kẻ mảnh (không phải thẻ): nhãn, giá trị lớn, biến động theo năm, đường xu hướng **chỉ khi có ≥ 3 mẫu năm thật**. 4 ô → lưới 2×2 khi hẹp, 4 cột khi rộng. |
-| Bảng sổ cái (`.dt`) | Tiêu đề dính, sắp xếp được (`useSort`), dòng nhóm (`tr.grp`), dòng chọn có vạch trái. **Cột chọn theo bề rộng thật** (`useWidth`): cột phụ ẩn khi hẹp, tên tự xuống dòng — không cắt cột, không cuộn ngang ngoài ý muốn. |
-| Thanh tỷ trọng (`StackBar`) | Tầng lớp, nhóm lợi ích: một thanh xếp chồng + chú giải có %. |
-| Thanh ngang (`HBars`) | Xếp hạng, phân bố, việc làm. |
-| Tooltip (`Tip`) | Di chuột trên thiết bị có hover; nhấn giữ 450 ms trên cảm ứng. Nội dung có tiêu đề, các dòng nhãn–giá trị, ghi chú. |
-| Popover KPI | Chạm KPI trên thanh trên → bảng phân rã có cấu trúc + nút "Mở …" (không phải tooltip chết). |
-| Cửa sổ chi tiết (`details`) | Mở cạnh cửa sổ chính (ngang) hoặc chồng lên với nút quay lại (dọc); tự đóng khi đổi tab. |
-| Ký hiệu độ tin cậy | ● ◆ ▲ ◇ ○ → chạm mở "Nguồn & độ tin cậy". |
+| Cửa sổ chính | Nổi, viền đồng 1 px + ngoặc góc đồng, bóng đổ sâu. Ngang: neo trái cạnh rail, rộng 380–560 px, cao trọn vùng dưới thanh trên trừ lề. Có **thu gọn** (chỉ còn dải tiêu đề), **mở rộng** (phủ bản đồ), **đóng**; nhấp đúp dải tiêu đề để thu gọn. |
+| Dải tiêu đề | 54 px: vạch màu module trên cùng, huy chương module, tiêu đề small-caps + dòng ngữ cảnh (quốc gia · tháng năm), hình mờ biểu tượng lớn, nút thao tác vuông. |
+| Tab | 40 px, biểu tượng + chữ có chân; tab chọn sáng nền + vạch sáng đáy phát sáng. |
+| Cửa sổ chi tiết | Mở cạnh cửa sổ chính (hàng hóa, công trình, luật, quốc gia ngoại giao, công nghệ, mục hồ sơ); tự đóng khi đổi tab. |
+| Cửa sổ Vùng | Neo phải; banner theo màu chủ sở hữu. |
+| Bottom sheet (dọc) | Ba độ cao (60% / 36% / toàn), kéo tay cầm để đổi, kéo xuống để đóng; thu gọn còn dải tiêu đề trên dock. |
+| Banner | Dải đầu nội dung nhuộm màu chủ thể (quốc gia/chính thể), vân chéo mờ, huy hiệu lớn. |
+| Plaque (`Sec`) | Ô có khung với dải tiêu đề khắc (biểu tượng, chú thích phải, mũi tên liên kết). |
+| Ô số liệu (`Metric`) | Tấm tối có góc đồng: nhãn có biểu tượng, giá trị 22 px, biến động, đường xu hướng (≥ 3 mẫu năm). 4 ô → 2×2 khi hẹp. |
+| Hộp thoại | Cùng khung cửa sổ, nền mờ phía sau; dùng cho xác nhận (xây, tuyên chiến) và thông báo. |
 
-## 4. Bố cục
+## 6. Nút và tab
 
-| | Ngang (915×412 dp) | Dọc (412×915 dp) |
+- **Hành động** `.btn`: tấm kim loại gradient, viền đồng, chữ có chân 15 px; `.primary` xanh (xác nhận), `.danger` đỏ (nguy hiểm, tuyên chiến phải giữ 0,7 s), `.sm` 32 px.
+- **Điều hướng** `.ib`: biểu tượng phẳng màu đồng, nền sáng khi rê/nhấn.
+- **Bộ lọc** `.seg`: nhóm nút liền, nút chọn sáng nền + vạch đáy.
+- **Rail** `.rbtn`: ô vuông kim loại 40–46 px, màu biểu tượng theo module, nút đang mở có viền sáng và mấu kim cương.
+
+## 7. Bảng và trực quan hóa dữ liệu
+
+- **Bảng sổ cái** `.dt`: tiêu đề dính, sắp xếp được; dòng nhóm có dải màu đồng; dòng xen kẽ; dòng chọn có vạch trái; **cột theo bề rộng thật** (`useWidth`) — tên và tiêu đề tự xuống dòng, không cắt cột; padding thu nhỏ trong cửa sổ hẹp (container query).
+- **Donut** (`Donut`): tỷ trọng (ảnh hưởng nhóm lợi ích, tầng lớp, văn hóa, tôn giáo, cơ cấu chi tiêu), số ở tâm, chú giải xếp giảm dần.
+- **Biểu đồ đường-vùng** (`LineChart`): mẫu năm thật, vùng tô gradient, điểm cuối, khung nền, nhãn trục.
+- **Thanh**: tiến độ (gradient đồng), lệch tâm (quan hệ, cán cân cung/cầu), thanh tỷ trọng ngang, đồng hồ đo (chất lượng, tinh thần, tiếp tế).
+
+## 8. Bản đồ
+
+- Lớp tô WebGL: màu chính trị nhân lớp phủ mặt đất Natural Earth I + bóng địa hình (mạnh hơn khi zoom gần, phẳng hơn khi zoom xa), dải đậm trong biên giới quốc gia, gạch chéo vùng bị chiếm; đại dương theo độ sâu với quầng nước nông, đường nước khắc, lưới kinh vĩ mờ.
+- Chế độ **Địa hình**: màu tự nhiên đã chỉnh độ bão hòa/tương phản, biên giới đỏ nâu.
+- Lớp vector: hồ, sông chính/phụ theo zoom, biên giới bang nét đứt (zoom gần), biên giới quốc gia (quầng + mực), bờ biển, viền chọn.
+- Ranh giới mịn khi phóng to (bầu chọn Gaussian 3×3).
+- **Chọn**: bang viền sáng kép, quốc gia viền vàng phát sáng, phần còn lại làm mờ; rê chuột làm sáng bang và hiện tooltip; chạm mở thẻ ngữ cảnh.
+- Nhãn: quốc gia chữ hoa giãn uốn cong, biển nghiêng, bang khi zoom gần; thủ đô thưa (≥ 26 px); tránh mọi phần HUD.
+
+## 9. Chuyển động
+
+| Chuyển động | Thời lượng | Ghi chú |
 |---|---|---|
-| Thanh trên | Nhận diện · 4 KPI thiết yếu (ngân khố, GDP, chính danh, hạng) · dải phụ ▾ (dân số, nghiên cứu, lục quân) · thông báo, Thế giới, Hệ thống · ngày · tốc độ · dừng/chạy | Hai hàng: nhận diện + thời gian; KPI |
-| Điều hướng | Thanh công cụ trái 52px, 8 biểu tượng phẳng có tooltip | Thanh đáy 6 mục có nhãn: Bản đồ, Kinh tế, Chính trị, Ngoại giao, Quân sự, Thêm |
-| Cửa sổ chính | Neo trái, rộng min(54%, 600px); mở rộng toàn ngang được | Bottom sheet 3 mức (66% / 40% / toàn màn) |
-| Cửa sổ chi tiết | Neo ngay phải cửa sổ chính, min(36%, 380px) | Chồng lên sheet, có nút quay lại |
-| Chọn vùng trên bản đồ | Cửa sổ Vùng neo phải (không phải thẻ nổi) | Sheet ở mức thấp |
-| Phần điều khiển bản đồ | Thanh lớp (trên trái vùng bản đồ trống), chú giải (dưới trái), zoom (dưới phải), "Theo dõi" (trên phải) — luôn đặt trong phần bản đồ còn trống và được báo cho bộ đặt nhãn để nhãn không bị che | Chọn lớp dạng menu thả; chú giải và zoom phía trên sheet |
+| Mở cửa sổ (ngang: trượt từ trái; dọc: trượt lên) | 200–220 ms | `cubic-bezier(.2,.8,.2,1)` |
+| Cửa sổ Vùng (trượt từ phải), thẻ ngữ cảnh/menu/popover (nổi lên) | 140–200 ms | |
+| Nội dung tab | 160 ms mờ dần | |
+| Camera bay tới vùng / zoom nút | 450 ms | nội suy zoom theo log, ease-out |
+| Ẩn/hiện giao diện (toàn bản đồ) | 200 ms | |
+| Tất cả | — | tắt khi hệ điều hành bật *giảm chuyển động* |
 
-## 5. Cấu trúc theo module
+## 10. Bố cục
 
-| Module | Cấu trúc |
-|---|---|
-| Quốc gia | Khối nhận diện (cờ, tên đầy đủ, chính thể, nguyên thủ, thủ đô, hạng) · dải 6 số liệu có xu hướng · sổ hai cột: Chính quyền (+ tỷ trọng nhóm lợi ích), Kinh tế & xã hội, Đối ngoại, Vị thế thế giới (xếp hạng thanh), Lãnh thổ · Sự kiện gần đây có biểu tượng loại. Thẻ "Hồ sơ lịch sử" tách riêng dữ liệu 1836 và mức hoàn thiện nghiên cứu. |
-| Kinh tế › Tổng quan | GDP, GDP/người, cán cân, ngân khố/nợ · biểu đồ GDP năm · việc làm theo công trình · vùng sản lượng cao nhất · tóm tắt thị trường. |
-| Kinh tế › Thị trường | Bảng nhóm theo loại hàng (nông sản, nguyên liệu, công nghiệp, tiêu dùng); cung/cầu dạng thanh lệch tâm + trạng thái; chạm → cửa sổ chi tiết hàng hóa (giá, giá thế giới, sản lượng, chuỗi sản xuất). |
-| Kinh tế › Công trình / Xây dựng / Ngân sách | Bảng theo ngành → cửa sổ chi tiết theo vùng · cơ hội xây xếp theo lợi suất engine, lọc theo ngành · dòng thu/chi thật của engine (`Country.finance`) + chính sách tài khóa. |
-| Dân số | Số liệu, tỷ trọng tầng lớp + bảng, phân bố mức sống và biết chữ theo dân số, dân số theo năm · bảng vùng sắp xếp được · văn hóa/tôn giáo. |
-| Chính trị | Chính phủ (chế độ, nguyên thủ, cải cách, tỷ trọng ảnh hưởng) · bảng nhóm lợi ích (ảnh hưởng, thái độ, sở thích luật) · lưới luật 3 lĩnh vực → cửa sổ chi tiết so sánh từng phương án với luật hiện hành bằng công thức ủng hộ của engine. |
-| Công nghệ | Cây theo cột niên đại, đường nối tiền đề (tô sáng khi chọn), 4 trạng thái nút, thanh tiến độ · chi tiết: hiệu ứng, tiền đề (khác nhánh được ghi), mở đường cho, lan tỏa, lý do bị chặn, nút nghiên cứu tiền đề. |
-| Ngoại giao | Bảng quan hệ có tìm kiếm, lọc láng giềng/quan hệ đặc biệt → cửa sổ quốc gia với các hành động engine cho phép; hiệp ước theo loại; chư hầu và đối thủ. Tuyên chiến: xem trước phe bằng `warSides()` + giữ để xác nhận. |
-| Quân sự | Đồng hồ đo chất lượng/tinh thần/tiếp tế, hải quân, chi quân sự, mục tiêu lực lượng, các lục quân mạnh nhất · thẻ chiến tranh: hai phe, mục tiêu, điểm, mệt mỏi, trận, vùng bị chiếm. |
-| Biên niên | Quyết định lịch sử với phương án lịch sử/rẽ nhánh + bảng trạng thái cửa sổ · nhật ký lọc theo loại có biểu tượng · bảng thay đổi lãnh thổ · mốc lịch sử và độ tương đồng. |
-
-## 6. Bản đồ (v2)
-
-- Nguồn: Natural Earth 1:10m ranh giới cấp 1 (tỉnh/bang), hồ, sông; 1:50m ảnh nổi địa hình. Ranh giới hiện đại là **xấp xỉ** cho năm 1836 (ghi trong Ghi công).
-- Lưới 8192×3868 (≈ 22,8 ô/độ); 662 vùng gán theo tỉnh; trường khoảng cách bờ biển cho đường nước khắc; biên giới vector làm mịn.
-- Phân cấp nét: biên giới quốc gia (quầng sáng + mực), vùng (nét đứt, chỉ khi zoom gần), bờ biển, sông chính/phụ, hồ.
-- Nhãn: đặt tại cực khó tiếp cận, uốn theo trục lãnh thổ, cỡ theo diện tích; tên vùng khi zoom gần; đảo/vùng ngoài gần lãnh thổ chính dùng chung nhãn; không đè lên điều khiển bản đồ (kiểm thử `tests/ui.test.ts`).
-- Thủ đô: chỉ khi zoom gần, nước lớn trước, cách nhau ≥ 26 px.
-- 9 lớp: Chính trị, Mật độ dân số, Kinh tế (sản lượng/người), Mức sống, Biết chữ, Tài nguyên, Ngoại giao, Quân sự, Thị trường — mỗi lớp có tên, đơn vị/khoảng và chú giải.
-
-## 7. Tương tác
-
-- Vùng chạm ≥ 40 px; nhấn giữ = tooltip; vuốt tay kéo sheet để đổi độ cao, kéo xuống dưới 80% để đóng.
-- Mọi lệnh đi qua engine; kết quả (thành công hoặc lý do bị từ chối) hiện thành thông báo nổi.
-- Bàn phím: Space dừng/chạy, 1–5 tốc độ, Esc đóng (chi tiết → vùng → cửa sổ).
+| | Ngang (ưu tiên, 915×412 dp) | Dọc (412×915 dp) |
+|---|---|---|
+| Thanh trên | 48 px: huy hiệu + tên · 4 chỉ số thiết yếu + dải phụ ▾ · thông báo · menu (Thế giới, Hệ thống, toàn bản đồ) · ngày · tốc độ · dừng/chạy | 2 hàng (85 px) |
+| Điều hướng | Rail trái nổi | Dock đáy 64 px |
+| Dock bản đồ | Dưới phải vùng bản đồ trống: zoom, 10 chế độ (thu gọn thành menu khi hẹp), toàn bản đồ | Trên trái: menu chế độ; zoom bên phải |
+| Theo dõi | Trên phải (khi vùng trống ≥ 560 px) | — |
+| Chú giải | Dưới trái vùng trống, xếp lên trên dock nếu chạm | Dưới trái trên sheet |

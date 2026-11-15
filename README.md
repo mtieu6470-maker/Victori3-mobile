@@ -27,11 +27,11 @@ Build cục bộ (cần Android SDK + JDK 21): `npm run build && npx cap sync an
 - `src/engine/` — engine mô phỏng (kinh tế, dân số, chính trị, ngoại giao, quân sự, công nghệ, AI tự trị, lớp lịch sử).
 - `historical_data/` — Cơ sở dữ liệu Lịch sử 1836 (nguồn, nhãn chất lượng); `tools/build-data.ts` biên dịch sang `src/generated/`.
 - `src/ui/` — giao diện (Preact + WebGL): bản đồ atlas, hệ thống cửa sổ, các module quản trị.
-- `docs/ui/` — hệ thống thiết kế v2, điều hướng, đặc tả màn hình, quy tắc tương tác, ảnh trước/sau (`V2_BEFORE_AFTER.md`).
+- `docs/ui/` — hệ thống thiết kế v3 (`UI_DESIGN_SYSTEM.md`), phân tích tham chiếu (`V3_REFERENCE_ANALYSIS.md`), nghiệm thu bằng ảnh chụp ứng dụng thật ở độ phân giải gốc (`V3_BEFORE_AFTER.md`), các đợt trước (`V2_BEFORE_AFTER.md`).
 - `docs/research/PASS16_REPO_AUDIT.md` — đối chiếu repository với ma trận tính năng của gói nghiên cứu Pass 16 (có/một phần/chưa có, kèm đường dẫn bằng chứng).
 
 ## Bản đồ
-Nguồn địa lý là Natural Earth (phạm vi công cộng): ranh giới cấp 1 tỷ lệ 1:10m, hồ, sông và ảnh nổi địa hình 1:50m. `tools/etl/fetch_natural_earth.sh` tải nguồn vào bộ đệm (không commit), `tools/etl/prepare_map_sources.ts` và `tools/etl/make_relief.py` tạo các tệp đã commit trong `assets/map/` và `public/map/`; `tools/build-map.ts` dựng lưới vùng 8192×3868, biên giới vector và trường khoảng cách bờ biển khi build — CI không cần tải gì thêm. Ranh giới hành chính hiện đại được dùng làm xấp xỉ cho địa lý năm 1836.
+Nguồn địa lý là Natural Earth (phạm vi công cộng): ranh giới cấp 1 tỷ lệ 1:10m, hồ, sông, ảnh nổi địa hình 1:50m và lớp phủ mặt đất màu Natural Earth I 1:50m (`tools/etl/make_terrain.py` → `public/map/terrain.jpg`). `tools/etl/fetch_natural_earth.sh` tải nguồn vào bộ đệm (không commit), `tools/etl/prepare_map_sources.ts` và `tools/etl/make_relief.py` tạo các tệp đã commit trong `assets/map/` và `public/map/`; `tools/build-map.ts` dựng lưới vùng 8192×3868, biên giới vector và trường khoảng cách bờ biển khi build — CI không cần tải gì thêm. Ranh giới hành chính hiện đại được dùng làm xấp xỉ cho địa lý năm 1836.
 
 ## Bản quyền tài sản
 Phông EB Garamond và Source Sans 3 (SIL OFL 1.1). Dữ liệu địa lý (ranh giới, sông, hồ, địa hình nổi): Natural Earth (phạm vi công cộng). Biểu tượng, bản đồ và giao diện do dự án tự thiết kế; không dùng tài sản của trò chơi thương mại nào.

@@ -1,6 +1,6 @@
 # ANDROID INTERACTION RULES — Quy tắc tương tác cảm ứng
 
-> **Cập nhật v2 (15/11/2026):** bố cục, điều hướng và thành phần đã đổi theo `UI_DESIGN_SYSTEM.md` (v2) — thanh công cụ/thanh đáy phẳng, cửa sổ chính + cửa sổ chi tiết, cửa sổ Vùng thay thẻ nổi, bottom sheet 3 mức, popover KPI. Phần dưới đây giữ nguyên như đặc tả v1; khi mâu thuẫn, `UI_DESIGN_SYSTEM.md` và mã nguồn được ưu tiên.
+> **Cập nhật v3 (15/11/2026):** kiến trúc đã đổi sang bản đồ toàn màn hình với cửa sổ nổi thu gọn/mở rộng/đóng, rail và dock kim loại, thẻ ngữ cảnh khi chạm bản đồ, chế độ toàn bản đồ — xem `UI_DESIGN_SYSTEM.md` (v3). Phần dưới đây giữ nguyên như đặc tả v1; khi mâu thuẫn, `UI_DESIGN_SYSTEM.md` và mã nguồn được ưu tiên.
 
 Áp dụng cho mọi màn hình trong SCREEN_SPECIFICATIONS. Thiết bị mục tiêu theo gói tài liệu: **iQOO Z10 Turbo** (màn hình ~6,8", tỷ lệ cao). Các con số dưới đây là quy tắc thiết kế; **chưa được đo trên thiết bị thật** — xem mục 10 về kiểm thử bắt buộc.
 
