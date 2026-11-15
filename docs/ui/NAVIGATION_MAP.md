@@ -1,5 +1,7 @@
 # NAVIGATION MAP — Sơ đồ điều hướng
 
+> **Cập nhật v2 (15/11/2026):** bố cục, điều hướng và thành phần đã đổi theo `UI_DESIGN_SYSTEM.md` (v2) — thanh công cụ/thanh đáy phẳng, cửa sổ chính + cửa sổ chi tiết, cửa sổ Vùng thay thẻ nổi, bottom sheet 3 mức, popover KPI. Phần dưới đây giữ nguyên như đặc tả v1; khi mâu thuẫn, `UI_DESIGN_SYSTEM.md` và mã nguồn được ưu tiên.
+
 ## 1. Nguyên tắc
 1. **Bản đồ là trang chủ.** Mọi màn hình quản trị là lớp phủ trên bản đồ (ngang) hoặc màn hình con có breadcrumb (dọc); nút Back luôn quay về bản đồ sau tối đa 3 bước.
 2. **Ba tầng**: Thế giới → Quốc gia → Vùng/Đối tượng (công trình, hàng hóa, nhóm lợi ích, quốc gia khác, cuộc chiến). Mỗi đối tượng có đúng **một** trang chi tiết dùng chung, mở được từ mọi nơi.

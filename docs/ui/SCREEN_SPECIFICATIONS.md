@@ -1,5 +1,7 @@
 # SCREEN SPECIFICATIONS — Đặc tả màn hình
 
+> **Cập nhật v2 (15/11/2026):** bố cục, điều hướng và thành phần đã đổi theo `UI_DESIGN_SYSTEM.md` (v2) — thanh công cụ/thanh đáy phẳng, cửa sổ chính + cửa sổ chi tiết, cửa sổ Vùng thay thẻ nổi, bottom sheet 3 mức, popover KPI. Phần dưới đây giữ nguyên như đặc tả v1; khi mâu thuẫn, `UI_DESIGN_SYSTEM.md` và mã nguồn được ưu tiên.
+
 Mỗi màn hình: **Mục đích · Dữ liệu (đường dẫn trong engine) · Trạng thái · Hành động (lệnh engine) · Điều hướng · Biến thể theo chế độ**.
 
 Ký hiệu sẵn sàng của engine (kiểm tra theo mã nguồn `src/engine/` hiện tại):
