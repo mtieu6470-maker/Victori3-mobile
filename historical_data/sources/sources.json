@@ -3,7 +3,8 @@
   "access_levels": {
    "dataset_processed": "Dataset downloaded and processed by tools/etl/extract_datasets.py. Values are copied; the dataset's own quality code is mapped to our quality scale.",
    "census_figure": "Official census total as reproduced in a standard statistical compendium. Used directly.",
-   "reference_work": "Standard scholarly reference cited at work level. The specific page was NOT checked in this build. Facts resting only on reference works are capped at quality 'supported'."
+   "reference_work": "Standard scholarly reference cited at work level. The specific page was NOT checked in this build. Facts resting only on reference works are capped at quality 'supported'.",
+   "web_checked": "Web page fetched on the access date; the specific value was read from the cited article (infobox or list table). Tertiary encyclopaedic source: facts resting only on it are capped at quality 'supported' and should be replaced by scholarly references."
   },
   "rule": "No source may be cited for a claim it does not cover. If a value could not be traced to any listed source it must be marked 'missing' or carry an explicit estimation method."
  },
@@ -631,6 +632,18 @@
    "access": "reference_work",
    "citation": "No source located. Used only on records with quality 'missing'.",
    "covers": []
+  },
+  {
+   "id": "wikipedia_en",
+   "type": "encyclopedia",
+   "access": "web_checked",
+   "citation": "Wikipedia, The Free Encyclopedia (English edition). Articles on individual rulers (infobox fields reign/term, predecessor, successor, birth and death dates) and lists of heads of state; the article used for each record is given as its locator. Accessed 15 November 2026.",
+   "url": "https://en.wikipedia.org/",
+   "covers": [
+    "heads of state",
+    "regnal and presidential terms",
+    "birth and death dates of rulers"
+   ]
   }
  ]
 }
