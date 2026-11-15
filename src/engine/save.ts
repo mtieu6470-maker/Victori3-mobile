@@ -12,5 +12,7 @@ export function deserialize(text: string): GameState {
   const o = JSON.parse(text);
   if (o.format !== SAVE_FORMAT) throw new Error('Not a save file of this game');
   if (o.version !== 1) throw new Error(`Unsupported save version ${o.version}`);
-  return o.state as GameState;
+  const st = o.state as GameState;
+  st.marketStats ??= {}; // saves written before market statistics were persisted: refilled on the next month
+  return st;
 }

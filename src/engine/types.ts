@@ -70,6 +70,9 @@ export interface Region {
   hiddenGold?: boolean;
 }
 
+/** supply/demand/imports in engine physical units; short = unmet share of demand (0..1). */
+export interface MarketGoodStats { supply: number; demand: number; imports: number; short: number }
+
 export interface WarSide { leader: string; members: string[] }
 export interface WarGoal { by: string; type: string; target: string; regions?: string[] }
 export interface War {
@@ -109,6 +112,8 @@ export interface GameState {
   rivalries: string[]; // "A|B"
   worldPrices: Record<Good, number>;
   marketPrices: Record<string, Record<Good, number>>;
+  /** Last month's market clearing per market and good (engine units; prices are indices, 1 = base price). */
+  marketStats: Record<string, Record<Good, MarketGoodStats>>;
   log: LogEntry[];
   territoryLog: TerritoryChange[];
   history: Record<string, YearStat[]>;

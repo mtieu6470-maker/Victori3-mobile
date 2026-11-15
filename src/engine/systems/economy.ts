@@ -1,7 +1,7 @@
 // Economy Engine (shared by both modes): production by sector, national/customs-union markets blended with a
 // world market, prices, food security, standard of living, state finance and private investment.
 import { data } from '../data/db';
-import { GOODS, S, type Country, type GameState, type Good, type Region, type Building } from '../types';
+import { GOODS, S, type Country, type GameState, type Good, type Region, type Building, type MarketGoodStats } from '../types';
 import { clamp, log } from '../core';
 import { regionsOf } from '../cache';
 
@@ -13,7 +13,7 @@ export const BUILD_COST: Record<Building, number> = {
   plantation: 4e6, mine: 6e6, logging: 3e6, textile_mill: 10e6, ironworks: 14e6, tool_works: 11e6, arms_works: 12e6, luxury_workshop: 8e6, railway: 25e6, university: 6e6,
 };
 /** Factory recipes: annual output per worker and inputs per unit of output. */
-const RECIPES: Partial<Record<Building, { out: Good; perWorker: number; inputs: Partial<Record<Good, number>> }>> = {
+export const RECIPES: Partial<Record<Building, { out: Good; perWorker: number; inputs: Partial<Record<Good, number>> }>> = {
   textile_mill: { out: 'textiles', perWorker: 1800, inputs: { cotton: 0.45, coal: 0.08 } },
   ironworks: { out: 'steel', perWorker: 1500, inputs: { iron: 0.5, coal: 0.4 } },
   tool_works: { out: 'tools', perWorker: 1700, inputs: { steel: 0.4, timber: 0.15 } },
@@ -145,6 +145,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
   for (const id of mIds) {
     const m = markets[id]; const prices = (st.marketPrices[id] ??= { ...st.worldPrices });
     const short = zero(); let importsValue = 0;
+    const stats = ((st.marketStats ??= {})[id] = {} as Record<Good, MarketGoodStats>);
     for (const g of GOODS) {
       const ws = world[g];
       const availRatio = ws.deficit > 0 ? clamp(ws.surplus / ws.deficit, 0, 1) : 1;
@@ -156,6 +157,8 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
       const local = clamp(Math.pow((m.dm[g] + 1) / (avail + 1), 0.5), 0.45, 3);
       const target = (1 - m.open) * local + m.open * st.worldPrices[g];
       prices[g] = calibrate ? target : prices[g] * 0.7 + target * 0.3;
+      // persisted for the UI (Market screen): the same quantities the clearing above used, in engine units
+      stats[g] = { supply: m.s[g], demand: m.dm[g], imports, short: short[g] };
     }
     marketShort[id] = short; marketImports[id] = importsValue;
   }
