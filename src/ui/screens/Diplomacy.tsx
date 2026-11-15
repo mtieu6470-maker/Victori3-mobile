@@ -106,9 +106,9 @@ function CountryActions({ st, target }: { st: GameState; target: string }) {
   );
   return (
     <div>
-      <div class="idblock">
+      <div class="banner-top" style={`--bc:${t.color}`}>
         <Flag c={t} lg />
-        <div style="min-width:0"><h3 style="font-size:19px">{fullName(st, target)}</h3><div class="meta">{govVi(t.govLabel)}{t.overlord ? ` · ${SUBJECT_VI[t.subjectType ?? ''] ?? 'chư hầu'} của ${shortName(st, t.overlord)}` : ''}</div></div>
+        <div style="min-width:0"><h3 style="font-size:20px">{fullName(st, target)}</h3><div class="meta">{govVi(t.govLabel)}{t.overlord ? ` · ${SUBJECT_VI[t.subjectType ?? ''] ?? 'chư hầu'} của ${shortName(st, t.overlord)}` : ''}</div></div>
       </div>
       <div class="metrics">
         <Metric label="Quan hệ với ta" value={<span class={rel > 0 ? 'pos' : rel < 0 ? 'neg' : ''}>{rel > 0 ? '+' : ''}{fmt(rel)}</span>} d={<DBar v={rel / 100} />} />
@@ -118,7 +118,7 @@ function CountryActions({ st, target }: { st: GameState; target: string }) {
       <div class="kv"><span class="k">Quan hệ đặc biệt</span><span class="v">{[isAlly && 'Đồng minh', isRiv && 'Đối thủ', atWarWith && 'Đang chiến tranh', sharesBorder(st, viewer, target) && 'Giáp biên'].filter(Boolean).join(' · ') || '—'}</span></div>
       <div class="btns" style="margin:10px 0 4px"><button class="btn sm" onClick={() => openCountry(target)}>Hồ sơ quốc gia</button></div>
       {mine && me !== target && (
-        <Sec title="Hành động ngoại giao">
+        <Sec title="Hành động ngoại giao" icon="diplomacy">
           {action('Cải thiện quan hệ', '+3 mỗi lần', 'Thực hiện', () => send({ type: 'improve_relations', target }, `Quan hệ với ${shortName(st, target)} được cải thiện`))}
           {isAlly ? action('Hủy liên minh', 'Giảm quan hệ và uy tín', 'Hủy', () => send({ type: 'break_alliance', target }, `Đã hủy liên minh với ${shortName(st, target)}`), { danger: true })
             : action('Đề nghị liên minh', subj ? 'Không thể: có quan hệ chư hầu' : `Đối phương ${acc >= 0 ? 'sẽ chấp nhận' : 'sẽ từ chối'} (${acc >= 0 ? '+' : '−'}${fmt(Math.abs(acc), 1)})`, 'Đề nghị', () => send({ type: 'propose_alliance', target }, `Liên minh với ${shortName(st, target)} được thiết lập`), { disabled: subj })}

@@ -32,8 +32,11 @@ export function send(cmd: Command, okText: string): boolean {
   else { const vi = REASONS_VI.find(([re]) => re.test(r.reason ?? ''))?.[1]; game.toast(vi ? `${vi}${r.reason && /\d/.test(r.reason) ? ` (${r.reason})` : ''}` : `Không thực hiện được: ${r.reason ?? 'lý do không rõ'}`, 'error'); }
   return r.ok;
 }
+/** Country emblem: a game heraldic shield in the country's map colour with the initial of its short name. It is a
+ *  game identity mark, deliberately not an imitation of a historical flag (flags are not in the database). */
 export function Flag({ c, sm, lg }: { c: Country | undefined; sm?: boolean; lg?: boolean }) {
-  return <span class={`flag${sm ? ' sm' : ''}${lg ? ' lg' : ''}`} style={`background:${c?.color ?? '#555'}`} />;
+  const init = c ? [...shortName(null, c.id)][0]?.toLocaleUpperCase('vi') ?? '?' : '?';
+  return <span class={`emblem-wrap${sm ? ' sm' : ''}${lg ? ' lg' : ''}`} aria-hidden="true"><span class="emblem" style={`--ec:${c?.color ?? '#555'}`}><b>{init}</b></span></span>;
 }
 export function openCountry(id: string) { modals.close(); ui.set({ country: id, screen: 'country', tabs: { ...ui.get().tabs, country: 'overview' } }); }
 export function CountryLink({ st, id }: { st: GameState; id: string }) {

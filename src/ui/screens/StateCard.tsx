@@ -24,14 +24,16 @@ export function RegionWindow({ st, id, style, portrait, onGrip }: { st: GameStat
   const mine = canCommand(st, r.owner);
   const ops = mine && owner ? BUILDINGS.filter((b) => b !== 'university' && canBuild(st, owner, r, b)).map((b) => ({ b, ret: buildingReturn(st, owner, r, b), cost: buildCost(owner, b, st) })).filter((o) => o.ret > 0).sort((a, b) => b.ret - a.ret).slice(0, 4) : [];
   return (
-    <section class="window side region" style={style} aria-label={dbr?.name ?? id}>
-      <WinHead title="Vùng" ctx={owner?.decentralized ? 'chính thể phi tập trung' : shortName(st, r.owner)} grip={portrait} onGrip={onGrip} onClose={close} />
+    <section class="window region frame surface" style={style} aria-label={dbr?.name ?? id}>
+      <WinHead title="Vùng" icon="pin" mod="country" ctx={owner?.decentralized ? 'chính thể phi tập trung' : shortName(st, r.owner)} grip={portrait} onGrip={onGrip} onClose={close} />
       <div class="win-body pad">
-        <h3 class="rname">{dbr?.name ?? id}</h3>
-        <div class="ownrow">
-          <Flag c={owner} />
-          <div class="grow"><div class="t-s">{owner?.decentralized ? 'Chính thể phi tập trung' : shortName(st, r.owner)}</div><div class="s">{r.id === owner?.capital ? 'Thủ đô · ' : ''}{TERRAIN_VI[r.terrain] ?? r.terrain}{r.coastal ? ' · ven biển' : ''} · {compact(r.area)} km²</div></div>
-          {occupied && <span class="tag down">bị {shortName(st, r.controller)} chiếm</span>}
+        <div class="banner-top" style={`--bc:${owner?.color ?? '#556677'}`}>
+          <Flag c={owner} lg />
+          <div class="grow">
+            <h3 style="font-size:20px">{dbr?.name ?? id}</h3>
+            <div class="meta">{owner?.decentralized ? 'Chính thể phi tập trung' : shortName(st, r.owner)}{r.id === owner?.capital ? ' · thủ đô' : ''}</div>
+            <div class="meta dim">{TERRAIN_VI[r.terrain] ?? r.terrain}{r.coastal ? ' · ven biển' : ''} · {compact(r.area)} km²{occupied ? ` · bị ${shortName(st, r.controller)} chiếm` : ''}</div>
+          </div>
         </div>
         <div class="metrics">
           <Metric label="Dân số" value={compact(r.pop)} q={dbr ? { quality: dbr.pop_quality } : null} />
@@ -44,7 +46,7 @@ export function RegionWindow({ st, id, style, portrait, onGrip }: { st: GameStat
           {owner && !owner.decentralized && st.player && r.owner !== st.player && <button class="btn sm" onClick={() => openCountryActions(st, r.owner)}>Ngoại giao</button>}
           <button class="btn sm" onClick={() => mapControls.focusRegion(id, 0.012)}>Phóng tới vùng</button>
         </div>
-        <Sec title="Xã hội">
+        <Sec title="Xã hội" icon="society">
           <div class="kv"><span class="k">Văn hóa</span><span class="v">{pretty(r.culture)}{r.culture2 ? ` · ${pretty(r.culture2)} (${pct(r.c2)})` : ''}</span></div>
           <div class="kv"><span class="k">Tôn giáo</span><span class="v">{pretty(r.religion)}</span></div>
           <div class="kv"><span class="k">Bất ổn · cực đoan · dân tộc</span><span class="v num">{pct(r.unrest)} · {pct(r.radical)} · {pct(r.nationalism)}</span></div>
@@ -53,12 +55,12 @@ export function RegionWindow({ st, id, style, portrait, onGrip }: { st: GameStat
           {r.blight && <div class="kv"><span class="k">Mất mùa</span><span class="v neg">mức {pct(r.blight.severity)}</span></div>}
           <div style="margin-top:8px"><div class="sub-t">Tầng lớp</div><StackBar parts={STRATA.map((s, i) => ({ label: STRATA_VI[s], v: r.strata[i], c: STRATA_COL[i] }))} /></div>
         </Sec>
-        <Sec title="Tài nguyên & công trình">
+        <Sec title="Tài nguyên & công trình" icon="factory">
           <div class="kv"><span class="k">Tài nguyên</span><span class="v" style="white-space:normal">{r.res.length ? r.res.map((x) => RES_VI[x] ?? x).join(', ') : '—'}</span></div>
           {blds.length ? blds.map((b) => <div class="kv" key={b}><span class="k">{BUILD_VI[b]}</span><span class="v num">cấp {r.buildings[b]}</span></div>) : <div class="empty sm">Chưa có công trình.</div>}
         </Sec>
         {ops.length > 0 && (
-          <Sec title="Có thể xây" go={() => ui.go('economy', 'construction')}>
+          <Sec title="Có thể xây" icon="construction" go={() => ui.go('economy', 'construction')}>
             {ops.map((o) => <div class="kv" key={o.b}><span class="k">{BUILD_VI[o.b]}</span><span class="v num">{money(o.cost)} · <span class="pos">{pct(o.ret, 1)}/năm</span></span></div>)}
           </Sec>
         )}

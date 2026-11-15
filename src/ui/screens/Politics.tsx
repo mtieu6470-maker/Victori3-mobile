@@ -5,7 +5,7 @@ import type { GameState, IG } from '../../engine/types';
 import { IGS } from '../../engine/types';
 import type { LawGroup } from '../../engine/data/dbTypes';
 import { IG_PREFS, igApproval, reformSupport } from '../../engine/systems/politics';
-import { Sec, Metric, Bar, StackBar, details, useWidth } from '../components/ui';
+import { Sec, Metric, Bar, Donut, Mdl, details, useWidth } from '../components/ui';
 import { Icon } from '../components/icons';
 import { IG_VI, GROUP_VI, LAW_OPTIONS, lawVi, govVi, fmt, pct } from '../i18n/vi';
 import { viewedId, canCommand, send, IG_COL, leaderName } from './common';
@@ -25,8 +25,8 @@ export function PoliticsScreen({ st, tab }: { st: GameState; tab: string }) {
   const year = (t: number) => Math.floor(t / 12) + 1836;
   return (
     <div class="pad">
-      <div class="idblock">
-        <span class="gico" style="width:44px;height:44px;color:var(--accent)"><Icon name="legitimacy" /></span>
+      <div class="banner-top" style="--bc:#7a2c36">
+        <Mdl icon="crown" size="lg" color="#ecd39a" />
         <div style="min-width:0"><h3>{govVi(c.govLabel)}</h3><div class="meta">{lawVi(c.laws.governance)} · {lawVi(c.laws.power)} · {lawVi(c.laws.army)}</div>{c.regimeChangedAt !== null && <div class="meta dim">Thay đổi chế độ gần nhất: {year(c.regimeChangedAt)}</div>}</div>
       </div>
       <div class="metrics">
@@ -35,7 +35,7 @@ export function PoliticsScreen({ st, tab }: { st: GameState; tab: string }) {
         <Metric label="Nhóm phẫn nộ" icon="people" value={fmt(angry.length)} d={<span class="dim">{angry.length ? angry.map((g) => IG_VI[g]).join(', ') : 'không có'}</span>} />
       </div>
       <div class="cols c2">
-        <Sec title="Nguyên thủ">
+        <Sec title="Nguyên thủ" icon="crown">
           <div class="kv"><span class="k">Họ tên</span><span class="v">{leaderName(c.leader.name)}</span></div>
           <div class="kv"><span class="k">Nguồn gốc</span><span class="v">{c.leader.historical ? 'Nhân vật lịch sử' : 'Nhân vật mô phỏng'}</span></div>
           <div class="kv"><span class="k">Tại vị từ</span><span class="v num">{c.leader.since}</span></div>
@@ -43,7 +43,7 @@ export function PoliticsScreen({ st, tab }: { st: GameState; tab: string }) {
           {c.leader.termEnds && <div class="kv"><span class="k">Hết nhiệm kỳ</span><span class="v num">{c.leader.termEnds.slice(0, 7)}</span></div>}
           <div class="kv"><span class="k">Người kế vị</span><span class="v">{c.heir ? `${c.heir.name}${c.heir.born ? ` (sinh ${c.heir.born})` : ''}` : '—'}</span></div>
         </Sec>
-        <Sec title="Cải cách" go={() => ui.tab('politics', 'laws')}>
+        <Sec title="Cải cách" icon="laws" go={() => ui.tab('politics', 'laws')}>
           {c.reform ? (
             <div>
               <div class="kv"><span class="k">{GROUP_VI[c.reform.group]}</span><span class="v">{lawVi(c.laws[c.reform.group])} → {lawVi(c.reform.value)}</span></div>
@@ -53,8 +53,8 @@ export function PoliticsScreen({ st, tab }: { st: GameState; tab: string }) {
           ) : <div class="empty sm">Không có cải cách nào đang tiến hành.</div>}
         </Sec>
       </div>
-      <Sec title="Cơ cấu ảnh hưởng" go={() => ui.tab('politics', 'igs')}>
-        <StackBar parts={igs.map((g) => ({ label: IG_VI[g], v: c.igs[g].clout, c: IG_COL[g] }))} h={14} />
+      <Sec title="Cơ cấu ảnh hưởng" icon="people" x="tỷ trọng ảnh hưởng (clout)" go={() => ui.tab('politics', 'igs')}>
+        <Donut parts={igs.map((g) => ({ label: `${IG_VI[g]}${c.igs[g].approval <= -5 ? ' — phẫn nộ' : c.igs[g].approval >= 5 ? ' — hài lòng' : ''}`, v: c.igs[g].clout, c: IG_COL[g] }))} size={120} center={pct(c.igs[igs[0]].clout)} sub={IG_VI[igs[0]].toUpperCase()} />
       </Sec>
     </div>
   );
@@ -95,7 +95,7 @@ function LawsTab({ st }: { st: GameState }) {
               const supporters = IGS.filter((ig) => (IG_PREFS[ig][c.laws[g]] ?? 0) > 0).length, opponents = IGS.filter((ig) => (IG_PREFS[ig][c.laws[g]] ?? 0) < 0).length;
               return (
                 <button key={g} class={`lawcell${sel === `law:${g}` ? ' on' : ''}${c.reform?.group === g ? ' reform' : ''}`} onClick={() => open(g)}>
-                  <span class="ic"><Icon name={LAW_ICON[g]} /></span>
+                  <Mdl icon={LAW_ICON[g]} />
                   <span class="txt"><span class="k">{GROUP_VI[g]}</span><span class="v">{lawVi(c.laws[g])}</span><span class="m">{supporters} nhóm ủng hộ · {opponents} phản đối</span></span>
                 </button>
               );

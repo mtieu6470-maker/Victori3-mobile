@@ -2,7 +2,7 @@
 // metric strips, charts and provenance marks. Every value shown comes from engine state or the Historical Database.
 import type { ComponentChildren, VNode } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
-import { Icon } from './icons';
+import { Icon, MODULE_COLOR } from './icons';
 import { QUALITY_VI, fmt } from '../i18n/vi';
 import { data } from '../../engine/data/db';
 
@@ -28,8 +28,8 @@ export function ModalHost() {
   return (
     <>
       <div class="scrim" onClick={() => modals.close()} />
-      <section class="dialog" role="dialog" aria-label={m.title} style={m.wide ? 'width:min(96vw,640px)' : ''}>
-        <WinHead title={m.title} onClose={() => modals.close()} />
+      <section class="dialog frame surface" role="dialog" aria-label={m.title} style={m.wide ? 'width:min(96vw,640px)' : ''}>
+        <WinHead title={m.title} icon="scroll" onClose={() => modals.close()} />
         <div class="win-body pad">{m.body()}</div>
       </section>
     </>
@@ -49,29 +49,42 @@ export const details = {
 };
 
 // ---------------------------------------------------------------- window chrome
-export function WinHead({ title, ctx, onClose, onExpand, onBack, grip, onGrip }: { title: string; ctx?: ComponentChildren; onClose?: () => void; onExpand?: () => void; onBack?: () => void; grip?: boolean; onGrip?: (e: PointerEvent) => void }) {
+/** Window title strip: module medallion, small-caps title with context line, faint module watermark and the
+ *  window actions (back, collapse, expand, close). `mod` picks the module accent colour. */
+export function WinHead({ title, ctx, icon, mod, onClose, onExpand, onCollapse, collapsed, expanded, onBack, grip, onGrip }: { title: string; ctx?: ComponentChildren; icon?: string; mod?: string; onClose?: () => void; onExpand?: () => void; onCollapse?: () => void; collapsed?: boolean; expanded?: boolean; onBack?: () => void; grip?: boolean; onGrip?: (e: PointerEvent) => void }) {
   const stop = (e: Event) => e.stopPropagation();
   return (
-    <header class="win-head" onPointerDown={onGrip as any}>
+    <header class="win-head" style={mod ? `--wc:${MODULE_COLOR[mod] ?? 'var(--gold-2)'}` : ''} onPointerDown={onGrip as any} onDblClick={onCollapse}>
       {grip && <span class="grip" />}
       {onBack && <button class="ib" aria-label="Quay lại" onClick={onBack} onPointerDown={stop}><Icon name="back" class="i" /></button>}
-      <h2>{title}</h2>
-      <span class="ctx">{ctx}</span>
-      {onExpand && <button class="ib" aria-label="Mở rộng hoặc thu gọn" onClick={onExpand} onPointerDown={stop}><Icon name="expand" class="i" /></button>}
-      {onClose && <button class="ib" aria-label="Đóng" onClick={onClose} onPointerDown={stop}><Icon name="close" class="i" /></button>}
+      {icon && <Mdl icon={icon} />}
+      {icon && <span class="wm" aria-hidden="true"><Icon name={icon} /></span>}
+      <div class="ttl"><h2>{title}</h2>{ctx && <span class="ctx">{ctx}</span>}</div>
+      {onCollapse && <button class="ib" aria-label={collapsed ? 'Mở lại' : 'Thu gọn'} title={collapsed ? 'Mở lại' : 'Thu gọn'} onClick={onCollapse} onPointerDown={stop}><Icon name={collapsed ? 'restore' : 'collapse'} class="i" /></button>}
+      {onExpand && <button class="ib" aria-label={expanded ? 'Thu hẹp' : 'Mở rộng'} title={expanded ? 'Thu hẹp' : 'Mở rộng'} onClick={onExpand} onPointerDown={stop}><Icon name="expand" class="i" /></button>}
+      {onClose && <button class="ib" aria-label="Đóng" title="Đóng" onClick={onClose} onPointerDown={stop}><Icon name="close" class="i" /></button>}
     </header>
   );
 }
-export function Tabs({ tabs, value, onChange }: { tabs: [string, string][]; value: string; onChange: (v: string) => void }) {
-  return <nav class="win-tabs" role="tablist">{tabs.map(([id, label]) => <button key={id} role="tab" aria-selected={id === value} class={`win-tab${id === value ? ' on' : ''}`} onClick={() => onChange(id)}>{label}</button>)}</nav>;
+/** Bronze medallion around an icon. */
+export function Mdl({ icon, size, color }: { icon: string; size?: 'sm' | 'lg'; color?: string }) {
+  return <span class={`mdl${size ? ' ' + size : ''}`} style={color ? `--mc:${color}` : ''}><Icon name={icon} /></span>;
 }
-export function Sec({ title, x, children, go }: { title: string; x?: ComponentChildren; children: ComponentChildren; go?: () => void }) {
+/** Framed group with an engraved header strip. */
+export function Plaque({ title, icon, x, go, children, pad = true }: { title: string; icon?: string; x?: ComponentChildren; go?: () => void; children: ComponentChildren; pad?: boolean }) {
   return (
-    <section class="sec">
-      <h4 class={`sec-t${go ? ' go' : ''}`} onClick={go}>{title}{x !== undefined && <span class="x">{x}</span>}{go && <span class="x">›</span>}</h4>
-      {children}
+    <section class="plaque">
+      <h4 class={`ph${go ? ' go' : ''}`} onClick={go} style="margin:0">{icon && <Icon name={icon} />}{title}{(x !== undefined || go) && <span class="x">{x}{go ? ' ›' : ''}</span>}</h4>
+      <div class={pad ? 'pb' : ''}>{children}</div>
     </section>
   );
+}
+export function Tabs({ tabs, value, onChange, icons }: { tabs: [string, string][]; value: string; onChange: (v: string) => void; icons?: Record<string, string> }) {
+  return <nav class="win-tabs" role="tablist">{tabs.map(([id, label]) => <button key={id} role="tab" aria-selected={id === value} class={`win-tab${id === value ? ' on' : ''}`} onClick={() => onChange(id)}>{icons?.[id] && <Icon name={icons[id]} />}{label}</button>)}</nav>;
+}
+/** Content section: a framed plaque with an engraved title strip (optional icon, note on the right, link arrow). */
+export function Sec({ title, x, children, go, icon }: { title: string; x?: ComponentChildren; children: ComponentChildren; go?: () => void; icon?: string }) {
+  return <Plaque title={title} x={x} go={go} icon={icon}>{children}</Plaque>;
 }
 /** Segmented filter. */
 export function Seg<T extends string>({ value, options, onChange }: { value: T; options: readonly (readonly [T, string])[]; onChange: (v: T) => void }) {
@@ -135,21 +148,50 @@ export function Spark({ values, color = 'var(--accent)' }: { values: number[]; c
   const pts = values.map((v, i) => `${(i / (values.length - 1)) * 100},${17 - ((v - lo) / sp) * 15}`).join(' ');
   return <svg class="spark" viewBox="0 0 100 18" preserveAspectRatio="none" aria-hidden="true"><polyline points={pts} fill="none" stroke={color} stroke-width="1.3" vector-effect="non-scaling-stroke" /></svg>;
 }
-/** Yearly line chart with axis labels and a legend; only real yearly samples are plotted. */
+/** Yearly chart (line + gradient area) with axis labels and a legend; only real yearly samples are plotted. */
+let chartSeq = 0;
 export function LineChart({ series, years, fmtY, height = 150 }: { series: { name: string; color: string; values: number[] }[]; years: number[]; fmtY: (v: number) => string; height?: number }) {
+  const gid = useRef(`g${++chartSeq}`).current;
   if (years.length < 2) return <div class="empty sm">Chưa đủ số liệu theo năm — mô phỏng ghi một mẫu vào ngày 1/1 hằng năm.</div>;
-  const all = series.flatMap((s) => s.values); const lo = Math.min(...all), hi = Math.max(...all); const sp = hi - lo || Math.abs(hi) || 1;
+  const all = series.flatMap((s) => s.values); const lo0 = Math.min(...all), hi0 = Math.max(...all); const pad0 = (hi0 - lo0) * 0.08 || Math.abs(hi0) * 0.05 || 1;
+  const lo = lo0 - pad0, hi = hi0 + pad0, sp = hi - lo;
   const W = 360, H = height, L = 50, B = 18, T = 8, Rr = 10;
   const x = (i: number) => L + (i / (years.length - 1)) * (W - L - Rr); const y = (v: number) => T + (1 - (v - lo) / sp) * (H - T - B);
-  const ticks = [lo, lo + sp / 2, hi];
+  const ticks = [lo0, (lo0 + hi0) / 2, hi0];
   return (
     <div>
       <svg class="chart" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={series.map((s) => s.name).join(', ')}>
-        {ticks.map((t, i) => <g key={i}><line x1={L} x2={W - Rr} y1={y(t)} y2={y(t)} stroke="rgba(222,205,160,.13)" /><text x={L - 6} y={y(t) + 3.5} text-anchor="end">{fmtY(t)}</text></g>)}
+        <defs>{series.map((s, k) => <linearGradient key={k} id={`${gid}-${k}`} x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color={s.color} stop-opacity={series.length > 1 ? 0.12 : 0.32} /><stop offset="1" stop-color={s.color} stop-opacity="0" /></linearGradient>)}</defs>
+        <rect x={L} y={T} width={W - L - Rr} height={H - T - B} fill="rgba(0,0,0,.18)" stroke="rgba(201,164,94,.18)" />
+        {ticks.map((t, i) => <g key={i}><line x1={L} x2={W - Rr} y1={y(t)} y2={y(t)} stroke="rgba(201,164,94,.12)" stroke-dasharray="2 3" /><text x={L - 6} y={y(t) + 3.5} text-anchor="end">{fmtY(t)}</text></g>)}
         <text x={L} y={H - 4}>{years[0]}</text><text x={W - Rr} y={H - 4} text-anchor="end">{years[years.length - 1]}</text>
-        {series.map((s) => <polyline key={s.name} fill="none" stroke={s.color} stroke-width="1.8" stroke-linejoin="round" points={s.values.map((v, i) => `${x(i)},${y(v)}`).join(' ')} />)}
+        {series.map((s, k) => { const pts = s.values.map((v, i) => `${x(i)},${y(v)}`).join(' '); return (
+          <g key={s.name}>
+            <polygon points={`${x(0)},${H - B} ${pts} ${x(s.values.length - 1)},${H - B}`} fill={`url(#${gid}-${k})`} />
+            <polyline fill="none" stroke={s.color} stroke-width="2" stroke-linejoin="round" points={pts} />
+            <circle cx={x(s.values.length - 1)} cy={y(s.values[s.values.length - 1])} r="3" fill={s.color} stroke="#0c1215" stroke-width="1.5" />
+          </g>); })}
       </svg>
       {series.length > 1 && <div class="chart-key">{series.map((s) => <span key={s.name}><i style={`background:${s.color}`} />{s.name}</span>)}</div>}
+    </div>
+  );
+}
+/** Donut chart of shares with a centre figure and a legend (largest first). */
+export function Donut({ parts, size = 112, center, sub, legend = true, max = 8 }: { parts: { label: string; v: number; c: string }[]; size?: number; center?: string; sub?: string; legend?: boolean; max?: number }) {
+  const tot = parts.reduce((t, p) => t + Math.max(0, p.v), 0) || 1; const R = size / 2 - 4, r0 = R * 0.62, C = size / 2;
+  let a = -Math.PI / 2; const arcs = parts.filter((p) => p.v > 0).map((p) => { const a0 = a; a += (p.v / tot) * Math.PI * 2; return { ...p, a0, a1: a }; });
+  const seg = (a0: number, a1: number) => { const lg = a1 - a0 > Math.PI ? 1 : 0; const p = (rr: number, t: number) => `${C + rr * Math.cos(t)},${C + rr * Math.sin(t)}`; return `M${p(R, a0)} A${R},${R} 0 ${lg} 1 ${p(R, a1)} L${p(r0, a1)} A${r0},${r0} 0 ${lg} 0 ${p(r0, a0)} Z`; };
+  const shown = [...parts].sort((x, y) => y.v - x.v).filter((p) => p.v / tot >= 0.005);
+  return (
+    <div class="donut-wrap">
+      <svg class="donut" width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label={parts.map((p) => `${p.label} ${fmt((p.v / tot) * 100)}%`).join(', ')}>
+        <circle cx={C} cy={C} r={R + 2} fill="none" stroke="rgba(201,164,94,.45)" stroke-width="1" />
+        {arcs.length === 1 ? <circle cx={C} cy={C} r={(R + r0) / 2} fill="none" stroke={arcs[0].c} stroke-width={R - r0} /> : arcs.map((p) => <path key={p.label} d={seg(p.a0, p.a1)} fill={p.c} stroke="#0e1518" stroke-width="1" />)}
+        <circle cx={C} cy={C} r={r0 - 1} fill="#0e1518" stroke="rgba(201,164,94,.35)" stroke-width="1" />
+        {center && <text class="c1" x={C} y={C + (sub ? 2 : 5)} text-anchor="middle">{center}</text>}
+        {sub && <text class="c2" x={C} y={C + 15} text-anchor="middle">{sub}</text>}
+      </svg>
+      {legend && <div class="lg">{shown.slice(0, max).map((p) => <div class="li" key={p.label}><i style={`background:${p.c}`} /><span class="ellipsis">{p.label}</span><b>{fmt((p.v / tot) * 100, (p.v / tot) < 0.1 ? 1 : 0)}%</b></div>)}{shown.length > max && <div class="li"><i style="background:#555" /><span>Khác ({shown.length - max})</span><b>{fmt((shown.slice(max).reduce((t, p) => t + p.v, 0) / tot) * 100, 1)}%</b></div>}</div>}
     </div>
   );
 }

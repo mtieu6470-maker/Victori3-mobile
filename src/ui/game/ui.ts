@@ -4,7 +4,7 @@ import { useEffect, useState } from 'preact/hooks';
 import { game } from './controller';
 
 export type ScreenId = 'map' | 'economy' | 'society' | 'diplomacy' | 'military' | 'politics' | 'tech' | 'chronicle' | 'world' | 'country' | 'system' | 'more' | 'inbox';
-export type LensId = 'political' | 'population' | 'economy' | 'sol' | 'literacy' | 'resources' | 'diplomacy' | 'military' | 'market';
+export type LensId = 'political' | 'terrain' | 'population' | 'economy' | 'sol' | 'literacy' | 'resources' | 'diplomacy' | 'military' | 'market';
 
 export interface UIState {
   started: boolean;
@@ -16,21 +16,23 @@ export interface UIState {
   lens: LensId;
   lensSheet: boolean;
   regionDetail: boolean;
-  panelWide: boolean; // landscape: panel expanded to full width
+  panelWide: boolean; // landscape: main window expanded across the map
+  winCollapsed: boolean; // main window reduced to its title strip (map fully visible)
+  fullMap: boolean; // interface hidden except map controls
   sheetSnap: 0 | 1 | 2; // portrait map sheet: peek / half / full
   camera: { cx: number; cy: number; scale: number } | null; // map centre (grid cells) and cells per CSS px
 }
 
 let state: UIState = {
   started: false, screen: 'map', tabs: {}, region: null, country: null, follow: null, lens: 'political', lensSheet: false,
-  regionDetail: false, panelWide: false, sheetSnap: 0, camera: null,
+  regionDetail: false, panelWide: false, winCollapsed: false, fullMap: false, sheetSnap: 0, camera: null,
 };
 const listeners = new Set<() => void>();
 export const ui = {
   get: () => state,
   set(p: Partial<UIState>) { state = { ...state, ...p }; for (const f of listeners) f(); },
   subscribe(f: () => void) { listeners.add(f); return () => { listeners.delete(f); }; },
-  go(screen: ScreenId, tab?: string) { ui.set({ screen, tabs: tab ? { ...state.tabs, [screen]: tab } : state.tabs, regionDetail: false, lensSheet: false }); },
+  go(screen: ScreenId, tab?: string) { ui.set({ screen, tabs: tab ? { ...state.tabs, [screen]: tab } : state.tabs, regionDetail: false, lensSheet: false, winCollapsed: false, fullMap: false }); },
   tab(screen: ScreenId, tab: string) { ui.set({ tabs: { ...state.tabs, [screen]: tab } }); },
 };
 

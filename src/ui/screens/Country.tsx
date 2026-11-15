@@ -7,7 +7,7 @@ import { data } from '../../engine/data/db';
 import { rankings } from '../../engine/metrics';
 import { rivals } from '../../engine/systems/diplomacy';
 import { techCost } from '../../engine/systems/technology';
-import { Sec, Metric, LineChart, QualityMark, HBars, StackBar, Bar, details } from '../components/ui';
+import { Sec, Metric, LineChart, QualityMark, HBars, Donut, details } from '../components/ui';
 import { Icon } from '../components/icons';
 import { govVi, lawVi, fmt, pct, money, compact, techName, SUBJECT_VI, IG_VI, LOG_TYPE_VI, GROUP_VI } from '../i18n/vi';
 import { fullName, shortName } from '../game/names';
@@ -36,7 +36,7 @@ export function CountryScreen({ st, id, tab }: { st: GameState; id: string; tab:
   const research = c.research.current ? Math.min(1, c.research.progress / techCost(st, c, c.research.current)) : null;
   return (
     <div class="pad">
-      <div class="idblock">
+      <div class="banner-top" style={`--bc:${c.color}`}>
         <Flag c={c} lg />
         <div style="min-width:0">
           <h3>{fullName(st, id)}</h3>
@@ -54,15 +54,15 @@ export function CountryScreen({ st, id, tab }: { st: GameState; id: string; tab:
       </div>
       <div class="cols c2">
         <div>
-          <Sec title="Chính quyền" go={() => ui.go('politics', 'gov')}>
+          <Sec title="Chính quyền" icon="politics" go={() => ui.go('politics', 'gov')}>
             <div class="kv"><span class="k">Chính thể</span><span class="v">{lawVi(c.laws.governance)} · {lawVi(c.laws.power)}</span></div>
             <div class="kv"><span class="k">Nguyên thủ</span><span class="v">{leaderName(c.leader.name)}</span></div>
             {c.heir && <div class="kv"><span class="k">Người kế vị</span><span class="v">{c.heir.name}</span></div>}
             <div class="kv"><span class="k">Cải cách</span><span class="v">{c.reform ? `${GROUP_VI[c.reform.group]} → ${lawVi(c.reform.value)} (${pct(c.reform.progress)})` : 'Không có'}</span></div>
-            <div style="margin-top:8px"><div class="sub-t">Ảnh hưởng nhóm lợi ích</div>
-              <StackBar parts={igs.map((g) => ({ label: IG_VI[g], v: c.igs[g].clout, c: IG_COL[g] }))} /></div>
+            <div style="margin-top:10px"><div class="sub-t">Ảnh hưởng nhóm lợi ích</div>
+              <Donut parts={igs.map((g) => ({ label: IG_VI[g], v: c.igs[g].clout, c: IG_COL[g] }))} size={104} center={pct(c.igs[igs[0]].clout)} sub="LỚN NHẤT" max={5} /></div>
           </Sec>
-          <Sec title="Kinh tế & xã hội" go={() => ui.go('economy', 'overview')}>
+          <Sec title="Kinh tế & xã hội" icon="economy" go={() => ui.go('economy', 'overview')}>
             <div class="kv"><span class="k">GDP / người</span><span class="v num">¤ {fmt(gdppc, 1)}</span></div>
             <div class="kv"><span class="k">Luật kinh tế · thương mại</span><span class="v">{lawVi(c.laws.economy)} · {lawVi(c.laws.trade)}</span></div>
             <div class="kv"><span class="k">Thuế suất</span><span class="v num">{pct(c.taxRate, 1)}</span></div>
@@ -73,17 +73,17 @@ export function CountryScreen({ st, id, tab }: { st: GameState; id: string; tab:
           </Sec>
         </div>
         <div>
-          <Sec title="Đối ngoại" go={() => ui.go('diplomacy', 'relations')}>
+          <Sec title="Đối ngoại" icon="diplomacy" go={() => ui.go('diplomacy', 'relations')}>
             <div class="kv"><span class="k">Đồng minh</span><span class="v links">{allies.length ? allies.slice(0, 4).map((a) => <CountryLink key={a} st={st} id={a} />) : '—'}{allies.length > 4 ? ` +${allies.length - 4}` : ''}</span></div>
             <div class="kv"><span class="k">Đối thủ</span><span class="v links">{riv.length ? riv.slice(0, 4).map((a) => <CountryLink key={a} st={st} id={a} />) : '—'}</span></div>
             <div class="kv"><span class="k">Chư hầu</span><span class="v">{subjects.length ? fmt(subjects.length) : '—'}</span></div>
             <div class="kv"><span class="k">Chiến tranh</span><span class="v">{wars.length ? wars.map((w) => w.name).join('; ') : 'Hòa bình'}</span></div>
             <div class="kv"><span class="k">Uy tín · tiếng xấu</span><span class="v num">{fmt(c.prestige)} · {fmt(c.infamy)}</span></div>
           </Sec>
-          <Sec title="Vị thế thế giới" x="điểm sức mạnh" go={() => ui.go('world')}>
+          <Sec title="Vị thế thế giới" icon="prestige" x="điểm sức mạnh" go={() => ui.go('world')}>
             <HBars rows={powRows} fmtV={(v) => fmt(v)} />
           </Sec>
-          <Sec title="Lãnh thổ" x={`${regs.length} vùng · ${compact(area)} km²`} go={() => ui.go('society', 'regions')}>
+          <Sec title="Lãnh thổ" icon="map" x={`${regs.length} vùng · ${compact(area)} km²`} go={() => ui.go('society', 'regions')}>
             {[...regs].sort((a, b) => b.pop - a.pop).slice(0, 5).map((r) => (
               <div class="row tap" key={r.id} onClick={() => focusRegion(r.id)}>
                 <div class="grow"><div class="t sm">{regionName(r.id)}{r.id === c.capital && <span class="dim"> · thủ đô</span>}</div></div>
@@ -93,10 +93,9 @@ export function CountryScreen({ st, id, tab }: { st: GameState; id: string; tab:
           </Sec>
         </div>
       </div>
-      <Sec title="Sự kiện gần đây" go={() => ui.go('chronicle', 'log')}>
+      <Sec title="Sự kiện gần đây" icon="journal" go={() => ui.go('chronicle', 'log')}>
         {events.length ? events.map((l, i) => <div class="logline" key={i}><span class="dt">{l.date.slice(0, 7)}</span><span title={LOG_TYPE_VI[l.type] ?? l.type}><Icon name={LOG_ICON[l.type] ?? 'scroll'} /></span><span>{l.textVi ?? l.text}{l.divergence && <span class="warn" title="Khác với lịch sử thực"> ⑂</span>}</span></div>) : <div class="empty sm">Chưa có sự kiện nào liên quan.</div>}
       </Sec>
-      {void Bar}
     </div>
   );
 }

@@ -1,4 +1,5 @@
-// Original line icons (24×24, round caps). Drawn for this project; no third-party icon assets.
+// Original icons (24×24): a tinted fill under a round-capped line drawing, two-tone. Drawn for this project; no
+// third-party icon assets. Shown bare, or inside a bronze medallion (components/ui.tsx `Mdl`).
 const P: Record<string, string> = {
   map: 'M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v14M15 6v14',
   economy: 'M12 3v18M6 21h12M5 7h14M5 7l-3 7a3 3 0 006 0zM19 7l-3 7a3 3 0 006 0z',
@@ -40,6 +41,15 @@ const P: Record<string, string> = {
   warning: 'M12 3l10 18H2zM12 10v5M12 18v.5',
   scroll: 'M7 4h11a2 2 0 010 4H9M7 4a2 2 0 00-2 2v12a2 2 0 002 2h11a2 2 0 002-2v-1H9v1a2 2 0 01-2 2',
   people: 'M9 10a3 3 0 100-6 3 3 0 000 6zM2 20c.5-4.5 3-7 7-7s6.5 2.5 7 7M17 10a2.5 2.5 0 100-5M18 13c2.4.4 3.6 2.6 4 6',
+  terrain: 'M2 19l6-10 4 6 3-4 7 8zM8 9l1.5 2.5M15 11l1 1.5',
+  fullscreen: 'M3 9V3h6M21 9V3h-6M3 15v6h6M21 15v6h-6M8 8l-4-4M16 8l4-4M8 16l-4 4M16 16l4 4',
+  collapse: 'M5 12h14',
+  restore: 'M5 9h14v10H5zM5 9V5h14v4',
+  crown: 'M3 18l2-10 5 5 2-8 2 8 5-5 2 10zM3 21h18',
+  coins: 'M9 8c0-1.7 2.7-3 6-3s6 1.3 6 3-2.7 3-6 3-6-1.3-6-3zM9 8v4c0 1.7 2.7 3 6 3s6-1.3 6-3V8M3 13c0-1.7 2.7-3 6-3M3 13v4c0 1.7 2.7 3 6 3 1.6 0 3-.3 4-.8M3 13c0 1.7 2.7 3 6 3',
+  factory: 'M3 21V11l6 4v-4l6 4V5h4v16zM6 21v-3M11 21v-3M16 21v-3',
+  anchor: 'M12 7a2 2 0 100-4 2 2 0 000 4zM12 7v14M7 11h10M4 14c0 4 3.6 7 8 7s8-3 8-7',
+  pin: 'M12 22s7-7.5 7-13a7 7 0 00-14 0c0 5.5 7 13 7 13zM12 12a3 3 0 100-6 3 3 0 000 6z',
   // goods
   grain: 'M12 21V8M12 8c-2-1-3-3-3-5 2 1 3 3 3 5zM12 8c2-1 3-3 3-5-2 1-3 3-3 5zM12 13c-2-1-3.5-3-3.5-5 2 1 3.5 3 3.5 5zM12 13c2-1 3.5-3 3.5-5-2 1-3.5 3-3.5 5zM12 18c-2-1-3.5-3-3.5-5 2 1 3.5 3 3.5 5zM12 18c2-1 3.5-3 3.5-5-2 1-3.5 3-3.5 5z',
   cash_crops: 'M5 19C5 10 11 5 20 4c-1 9-6 15-15 15zM5 19l8-8',
@@ -58,8 +68,15 @@ export function Icon({ name, size, class: cls }: { name: string; size?: number; 
   const d = P[name] ?? P.scroll;
   return (
     <svg class={cls} viewBox="0 0 24 24" width={size} height={size} fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d={d} fill="currentColor" fill-opacity="0.16" stroke="none" />
       <path d={d} />
     </svg>
   );
 }
 export const GOOD_COLOR: Record<string, string> = { grain: '#4b4a2a', cash_crops: '#2f4a2c', cotton: '#4a4a4a', timber: '#4a3a26', coal: '#2a2a2a', iron: '#3b3f44', steel: '#34404a', textiles: '#4a2f3c', tools: '#3f3a2c', arms: '#4a2c28', luxury: '#40305a', opium: '#4a2840' };
+
+/** Module accent colours (CSS variables in theme.css) used for medallions, rail buttons and window stripes. */
+export const MODULE_COLOR: Record<string, string> = {
+  country: 'var(--m-country)', economy: 'var(--m-economy)', society: 'var(--m-society)', politics: 'var(--m-politics)', tech: 'var(--m-tech)',
+  diplomacy: 'var(--m-diplomacy)', military: 'var(--m-military)', chronicle: 'var(--m-journal)', world: 'var(--m-world)', system: 'var(--m-system)', more: 'var(--gold-2)',
+};

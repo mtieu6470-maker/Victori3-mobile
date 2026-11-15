@@ -6,7 +6,7 @@ import { createRequire } from 'node:module';
 import { readFileSync, mkdirSync } from 'node:fs';
 import { preview } from 'vite';
 const [outDir, orient, base, planFile] = process.argv.slice(2);
-const plan = JSON.parse(readFileSync(planFile, 'utf8')) as { name: string; go?: [string, string?]; click?: string; set?: Record<string, unknown>; wait?: number }[];
+const plan = JSON.parse(readFileSync(planFile, 'utf8')) as { name: string; go?: [string, string?]; click?: string; tap?: [number, number]; set?: Record<string, unknown>; post?: Record<string, unknown>; wait?: number }[];
 mkdirSync(outDir, { recursive: true });
 const server = await preview({ preview: { port: 4319, strictPort: true }, logLevel: 'warn' });
 const { chromium } = createRequire(import.meta.url)('playwright') as any;
@@ -23,11 +23,13 @@ console.log('ready in', Date.now() - t0, 'ms');
 for (const s of plan) {
   const pop = await page.$('.catch'); if (pop) await pop.click({ position: { x: 5, y: 300 } }).catch(() => {}); // close an open KPI popover
   await page.evaluate((s: any) => {
-    const q = (window as any).__qa; q.details.close();
+    const q = (window as any).__qa; q.details.close(); q.modals?.close();
     q.ui.set({ screen: 'map', region: null, regionDetail: false, ...(s.set ?? {}) });
     if (s.go) q.ui.go(s.go[0], s.go[1]);
+    if (s.post) q.ui.set(s.post);
   }, s);
   await page.waitForTimeout(400);
+  if (s.tap) await page.touchscreen.tap(s.tap[0], s.tap[1]);
   if (s.click) {
     const el = await page.$(s.click);
     if (!el) console.log('MISSING', s.name, s.click);

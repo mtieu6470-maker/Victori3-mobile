@@ -6,7 +6,7 @@ import type { GameState, Good, Building, Region } from '../../engine/types';
 import { GOODS, BUILDINGS } from '../../engine/types';
 import { marketOf, buildCost, buildingReturn, canBuild, RECIPES, LEVEL_WORKERS } from '../../engine/systems/economy';
 import { Icon } from '../components/icons';
-import { Sec, Metric, Delta, DBar, Bar, HBars, LineChart, Seg, modals, details, useWidth, useSort } from '../components/ui';
+import { Sec, Metric, Delta, DBar, Bar, HBars, LineChart, Donut, Seg, modals, details, useWidth, useSort } from '../components/ui';
 import { GOOD_VI, GOOD_GROUP, BUILD_VI, lawVi, fmt, pct, money, compact } from '../i18n/vi';
 import { shortName } from '../game/names';
 import { viewedId, canCommand, send, CountryLink, monthYear, focusRegion, regionName } from './common';
@@ -49,16 +49,16 @@ function Overview({ st }: { st: GameState }) {
       </div>
       <div class="cols c2">
         <div>
-          <Sec title="GDP theo năm"><LineChart years={h.map((x) => x.y)} series={[{ name: 'GDP', color: '#93c47a', values: h.map((x) => x.gdp) }]} fmtY={compact} height={120} /></Sec>
-          <Sec title="Việc làm theo công trình" x="lao động">
+          <Sec title="GDP theo năm" icon="gdp"><LineChart years={h.map((x) => x.y)} series={[{ name: 'GDP', color: '#93c47a', values: h.map((x) => x.gdp) }]} fmtY={compact} height={120} /></Sec>
+          <Sec title="Việc làm theo công trình" icon="factory" x="lao động">
             {emp.length ? <HBars rows={emp.map((e) => ({ label: BUILD_VI[e.b], v: e.v, key: e.b }))} fmtV={compact} /> : <div class="empty sm">Chưa có công trình sản xuất.</div>}
           </Sec>
         </div>
         <div>
-          <Sec title="Vùng có sản lượng lớn nhất" x="giá trị gia tăng / tháng">
+          <Sec title="Vùng sản lượng lớn nhất" icon="map" x="¤ / tháng">
             {topOut.map((r) => <div class="row tap" key={r.id} onClick={() => focusRegion(r.id)}><div class="grow"><div class="t sm">{regionName(r.id)}</div><Bar frac={r.output / topOut[0].output} /></div><span class="num">¤ {compact(r.output)}</span><span class="num dim" style="width:44px;text-align:right">{pct(r.output / outSum)}</span></div>)}
           </Sec>
-          <Sec title="Thị trường" x={mk === id ? 'quốc gia' : `chung · ${shortName(st, mk)}`}>
+          <Sec title="Thị trường" icon="market" x={mk === id ? 'quốc gia' : `chung · ${shortName(st, mk)}`} go={() => ui.tab('economy', 'market')}>
             <div class="kv"><span class="k">Thiếu hụt</span><span class="v">{short.length ? short.slice(0, 4).map((r) => `${GOOD_VI[r.g]} ${pct(r.short ?? 0)}`).join(' · ') : 'Không'}</span></div>
             <div class="kv"><span class="k">Dư thừa</span><span class="v">{surplus.length ? surplus.slice(0, 4).map((r) => GOOD_VI[r.g]).join(' · ') : 'Không'}</span></div>
             <div class="kv"><span class="k">Giá cao nhất so với gốc</span><span class="v">{[...rows].sort((a, b) => b.price - a.price).slice(0, 2).map((r) => `${GOOD_VI[r.g]} ${fmt(r.price, 2)}`).join(' · ')}</span></div>
@@ -265,10 +265,13 @@ export function BudgetTab({ st }: { st: GameState }) {
         <Metric label="Thuế suất" icon="laws" value={pct(c.taxRate, 1)} d={<span class="dim">trên GDP</span>} />
       </div>
       <div class="cols c2">
-        <Sec title="Thu tháng" x={`¤ ${compact(c.income)}`}>{inc.map(([k, v]) => line(k, v, 1))}</Sec>
-        <Sec title="Chi tháng" x={`¤ ${compact(c.expense)}`}>{exp.length ? exp.map(([k, v]) => line(k, v, -1)) : <div class="empty sm">Phân rã chi tiêu có sau tháng mô phỏng đầu tiên.</div>}</Sec>
+        <Sec title="Thu tháng" icon="treasury" x={`¤ ${compact(c.income)}`}>{inc.map(([k, v]) => line(k, v, 1))}</Sec>
+        <Sec title="Chi tháng" icon="coins" x={`¤ ${compact(c.expense)}`}>{exp.length ? exp.map(([k, v]) => line(k, v, -1)) : <div class="empty sm">Phân rã chi tiêu có sau tháng mô phỏng đầu tiên.</div>}</Sec>
       </div>
-      <Sec title="Chính sách tài khóa">
+      {exp.length > 0 && <Sec title="Cơ cấu chi tiêu" icon="gdp" x="tỷ trọng trong tổng chi tháng">
+        <Donut parts={exp.map(([k, v], i) => ({ label: k, v, c: ['#cf6a5c', '#6c9dd0', '#c9a45e', '#5fb3ae', '#8cc46b', '#b48edb', '#9a9a9a'][i] }))} size={124} center={`¤${compact(c.expense)}`} sub="MỖI THÁNG" />
+      </Sec>}
+      <Sec title="Chính sách tài khóa" icon="laws">
         <div class="slider-row">
           <div class="lab"><span>Thuế suất trên GDP</span><b class="num">{pct(rate, 1)}</b></div>
           {mine ? <input type="range" min={0.01} max={0.3} step={0.005} value={rate} aria-label="Thuế suất" onInput={(e) => setRate(Number((e.target as HTMLInputElement).value))} onChange={(e) => send({ type: 'set_tax', rate: Number((e.target as HTMLInputElement).value) }, `Thuế suất mới: ${pct(Number((e.target as HTMLInputElement).value), 1)}`)} /> : <Bar frac={c.taxRate / 0.3} />}
