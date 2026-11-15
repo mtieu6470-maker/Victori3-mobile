@@ -26,7 +26,9 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
-      - uses: android-actions/setup-android@v3
+      # ubuntu-latest ships the Android SDK (ANDROID_HOME); point Gradle at it.
+      - name: Locate the preinstalled Android SDK
+        run: echo "sdk.dir=$ANDROID_HOME" > android/local.properties
       - name: Sync web build into the Android project
         run: npx cap sync android
       - name: Assemble debug APK
