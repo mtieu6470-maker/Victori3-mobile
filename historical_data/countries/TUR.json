@@ -1,0 +1,36 @@
+{
+  "id": "TUR", "as_of": "1836-01-01", "research_status": "partial",
+  "political": {
+    "government": {"value": "absolute_monarchy", "quality": "supported", "sources": ["shaw_1977"], "note": "Sultanate; centralising reforms of Mahmud II after the destruction of the Janissaries (1826)."},
+    "head_of_state": {"value": {"name": "Mahmud II", "title": "Sultan", "born": "1785-07-20", "since": "1808-07-28"}, "quality": "supported", "sources": ["shaw_1977"]},
+    "heir": {"value": {"name": "Abdülmecid", "born": "1823-04-25"}, "quality": "supported", "sources": ["shaw_1977"]},
+    "power_groups": [{"name": "Palace and reforming bureaucracy (Mustafa Reşid)", "in_government": true}, {"name": "Ulema", "in_government": true}, {"name": "Provincial notables (ayan) and Kurdish emirs", "in_government": false}, {"name": "Christian millets", "in_government": false}],
+    "laws": {"value": {"power": "autocracy", "governance": "monarchy", "economy": "traditionalism", "trade": "protectionism", "labor": "traditional_tenancy", "church": "state_religion", "press": "censorship", "education": "religious_schools", "army": "professional_army"},
+      "quality": "supported", "sources": ["shaw_1977"], "note": "Asakir-i Mansure-i Muhammediye (new army, 1826). Balta Liman commercial convention (1838) later lowered tariffs (future)."},
+    "reforms": [{"date": "1826-06-15", "name": "Abolition of the Janissary corps (Auspicious Incident)", "sources": ["shaw_1977"]}, {"date": "1839-11-03", "name": "Edict of Gülhane (Tanzimat) — future decision window", "sources": ["shaw_1977"]}],
+    "upheavals": [{"date": "1831-1833", "name": "First Egyptian-Ottoman War", "sources": ["cow_intrastate_v41"]}, {"date": "1836-1837", "name": "First Bosnian revolt", "sources": ["cow_intrastate_v41"]}]
+  },
+  "territory": {"capital": "TUR_IST", "claims": [{"region": "EGY_DAM", "basis": "Ottoman sovereignty over Syria (ceded to Ibrahim at Kütahya 1833)"}, {"region": "EGY_ALE"}, {"region": "EGY_ADA"}, {"region": "EGY_CRE"}, {"region": "EGY_HEJ"}, {"region": "EGY_PAL"}, {"region": "EGY_LEB"}],
+    "dependencies": ["EGY", "SER", "WAL", "MOL", "TUN"], "note": "Population total for the whole empire uncertain (see population totals: CoW 32.1M of unstated scope)."},
+  "economy": {"structure": {"value": "Agrarian empire; tax-farming (iltizam) widespread; guild manufacturing declining under European competition.", "quality": "supported", "sources": ["shaw_1977"]}, "industrialization_stage": {"value": "pre_industrial", "quality": "supported", "sources": ["shaw_1977"]}},
+  "society": {"literacy": {"value": 0.05, "range": [0.02, 0.1], "quality": "estimated", "sources": [], "needs_source": true}},
+  "diplomacy": {
+    "foreign_policy": {"value": "Survival between Russian protection (Hünkar İskelesi 1833) and British support; recovery of Syria from Muhammad Ali.", "quality": "supported", "sources": ["schroeder_1994", "shaw_1977"]},
+    "alliances_ref": ["cow_ally_14"],
+    "rivals": [{"entity": "EGY", "basis": "Muhammad Ali's challenge", "quality": "supported", "sources": ["fahmy_1997"]}],
+    "relations": [{"with": "EGY", "value": -60}, {"with": "RUS", "value": 20}, {"with": "GBR", "value": 20}, {"with": "FRA", "value": -10}, {"with": "AUS", "value": 20}, {"with": "GRE", "value": -40}, {"with": "SER", "value": -10}, {"with": "PRS", "value": -10}],
+    "relations_quality": "estimated", "relations_method": "Ordinal judgement."
+  },
+  "military": {"army_personnel": {"value": 129000, "quality": "supported", "sources": [{"id": "cow_nmc_v7", "locator": "milper TUR 1836 (Almanach de Gotha)"}]}, "doctrine": {"value": "New European-style army under construction with Prussian advisers (Moltke 1835-39).", "quality": "supported", "sources": ["shaw_1977"]}},
+  "technology": {"level": {"value": "behind_frontier", "quality": "supported", "sources": ["shaw_1977"]}},
+  "historical_ai": {
+    "strategic_priorities": [
+      {"id": "TUR_recover_syria", "goal": "conquer_region", "target": ["EGY_DAM", "EGY_ALE", "EGY_ADA", "EGY_PAL", "EGY_LEB", "EGY_CRE", "EGY_HEJ"], "weight": 0.9, "window": ["1838", "1841"], "rationale": "Second Egyptian-Ottoman war (1839) and the London settlement (1840-41).", "sources": ["cow_intrastate_v41", "fahmy_1997"]},
+      {"id": "TUR_tanzimat", "goal": "reform_law", "target": {"group": "economy", "value": "interventionism"}, "weight": 0.6, "window": ["1839", "1876"], "rationale": "Tanzimat reforms (1839, 1856).", "sources": ["shaw_1977"]},
+      {"id": "TUR_ally_britain", "goal": "alliance_with", "target": "GBR", "weight": 0.5, "window": ["1838", "1878"], "rationale": "British and French support in 1840 and 1853-56.", "sources": ["schroeder_1994"]},
+      {"id": "TUR_integrity", "goal": "contain_power", "target": "RUS", "weight": 0.6, "window": ["1841", "1914"], "rationale": "Defence against Russian expansion.", "sources": ["shaw_1977"]}
+    ],
+    "military_doctrine": "defensive_reforming_army"
+  },
+  "personality": {"aggression": 0.3, "expansionism": 0.3, "reformism": 0.4, "commerce": 0.3, "naval": 0.3, "isolationism": 0.2, "risk": 0.3, "rationale": "Beleaguered empire seeking centralisation and survival."}
+}

@@ -1,0 +1,636 @@
+{
+ "policy": {
+  "access_levels": {
+   "dataset_processed": "Dataset downloaded and processed by tools/etl/extract_datasets.py. Values are copied; the dataset's own quality code is mapped to our quality scale.",
+   "census_figure": "Official census total as reproduced in a standard statistical compendium. Used directly.",
+   "reference_work": "Standard scholarly reference cited at work level. The specific page was NOT checked in this build. Facts resting only on reference works are capped at quality 'supported'."
+  },
+  "rule": "No source may be cited for a claim it does not cover. If a value could not be traced to any listed source it must be marked 'missing' or carry an explicit estimation method."
+ },
+ "sources": [
+  {
+   "id": "cow_nmc_v7",
+   "type": "dataset",
+   "access": "dataset_processed",
+   "citation": "Singer, J. David, Stuart Bremer, and John Stuckey (1972). 'Capability Distribution, Uncertainty, and Major Power War, 1820-1965.' In Bruce Russett (ed.), Peace, War, and Numbers. Beverly Hills: Sage, 19-48. Dataset: Correlates of War Project, National Material Capabilities, version 7.0 (supplemental file with per-value sources and quality codes).",
+   "url": "https://correlatesofwar.org/data-sets/national-material-capabilities/",
+   "covers": [
+    "population",
+    "urban population",
+    "military personnel",
+    "military expenditure",
+    "iron and steel",
+    "energy"
+   ],
+   "period": "1816-2016"
+  },
+  {
+   "id": "cow_states_2024",
+   "type": "dataset",
+   "access": "dataset_processed",
+   "citation": "Correlates of War Project (2024). State System Membership List, v2024.",
+   "url": "https://correlatesofwar.org/data-sets/state-system-membership/",
+   "covers": [
+    "state membership dates"
+   ],
+   "period": "1816-2024"
+  },
+  {
+   "id": "cow_majors_2024",
+   "type": "dataset",
+   "access": "dataset_processed",
+   "citation": "Correlates of War Project (2024). Major Powers list, v2024.",
+   "url": "https://correlatesofwar.org/data-sets/state-system-membership/",
+   "covers": [
+    "major power status"
+   ],
+   "period": "1816-2024"
+  },
+  {
+   "id": "cow_alliances_v41",
+   "type": "dataset",
+   "access": "dataset_processed",
+   "citation": "Gibler, Douglas M. (2009). International Military Alliances, 1648-2008. Washington DC: CQ Press. Dataset: Correlates of War Formal Alliances v4.1.",
+   "url": "https://correlatesofwar.org/data-sets/formal-alliances/",
+   "covers": [
+    "formal alliances",
+    "defense pacts",
+    "ententes",
+    "neutrality pacts"
+   ],
+   "period": "1816-2012"
+  },
+  {
+   "id": "cow_interstate_v40",
+   "type": "dataset",
+   "access": "dataset_processed",
+   "citation": "Sarkees, Meredith Reid and Frank Wayman (2010). Resort to War: 1816-2007. Washington DC: CQ Press. Dataset: CoW Inter-State War Data v4.0.",
+   "url": "https://correlatesofwar.org/data-sets/cow-war/",
+   "covers": [
+    "inter-state wars"
+   ],
+   "period": "1816-2007"
+  },
+  {
+   "id": "cow_extrastate_v40",
+   "type": "dataset",
+   "access": "dataset_processed",
+   "citation": "Sarkees, Meredith Reid and Frank Wayman (2010). Resort to War: 1816-2007. CQ Press. Dataset: CoW Extra-State War Data v4.0.",
+   "url": "https://correlatesofwar.org/data-sets/cow-war/",
+   "covers": [
+    "colonial and imperial wars"
+   ],
+   "period": "1816-2007"
+  },
+  {
+   "id": "cow_intrastate_v41",
+   "type": "dataset",
+   "access": "dataset_processed",
+   "citation": "Dixon, Jeffrey and Meredith Reid Sarkees (2016). A Guide to Intra-state Wars. Thousand Oaks: CQ Press. Dataset: CoW Intra-State War Data v4.1.",
+   "url": "https://correlatesofwar.org/data-sets/cow-war/",
+   "covers": [
+    "civil wars",
+    "revolts"
+   ],
+   "period": "1816-2007"
+  },
+  {
+   "id": "cow_terrchange_v6",
+   "type": "dataset",
+   "access": "dataset_processed",
+   "citation": "Tir, Jaroslav, Philip Schafer, Paul F. Diehl, and Gary Goertz (1998). 'Territorial Changes, 1816-1996.' Conflict Management and Peace Science 16: 89-97. Dataset: CoW Territorial Change v6.",
+   "url": "https://correlatesofwar.org/data-sets/territorial-change/",
+   "covers": [
+    "territorial transfers"
+   ],
+   "period": "1816-2018"
+  },
+  {
+   "id": "maddison_2010",
+   "type": "dataset",
+   "access": "dataset_processed",
+   "citation": "Maddison, Angus (2010). Historical Statistics of the World Economy: 1-2008 AD (horizontal file, Groningen Growth and Development Centre). Figures refer to present-day territories.",
+   "url": "https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-database-2010",
+   "covers": [
+    "population",
+    "GDP",
+    "GDP per capita"
+   ],
+   "period": "1-2008"
+  },
+  {
+   "id": "mitchell_ihs_europe",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Mitchell, B. R. (2007). International Historical Statistics: Europe 1750-2005. 6th ed. Basingstoke: Palgrave Macmillan.",
+   "covers": [
+    "European censuses",
+    "railways",
+    "production"
+   ]
+  },
+  {
+   "id": "us_census_1830_1840",
+   "type": "census",
+   "access": "census_figure",
+   "citation": "U.S. Census Bureau. Fifth Census (1830): 12,866,020; Sixth Census (1840): 17,069,453 (resident population), as reproduced in Historical Statistics of the United States.",
+   "covers": [
+    "US population"
+   ]
+  },
+  {
+   "id": "uk_census_1831_1841",
+   "type": "census",
+   "access": "census_figure",
+   "citation": "Census of Great Britain 1831 and 1841; Census of Ireland 1831 and 1841, as reproduced in Mitchell, British Historical Statistics (Cambridge University Press, 1988).",
+   "covers": [
+    "UK population by nation"
+   ]
+  },
+  {
+   "id": "france_census_1836",
+   "type": "census",
+   "access": "census_figure",
+   "citation": "Recensement général de la population de 1836 (France), total 33.54 million, as reproduced in the Statistique générale de la France series.",
+   "covers": [
+    "French population"
+   ]
+  },
+  {
+   "id": "bairoch_1982",
+   "type": "article",
+   "access": "reference_work",
+   "citation": "Bairoch, Paul (1982). 'International Industrialization Levels from 1750 to 1980.' Journal of European Economic History 11: 269-333.",
+   "covers": [
+    "shares of world manufacturing output 1750-1980"
+   ]
+  },
+  {
+   "id": "kennedy_1987",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Kennedy, Paul (1987). The Rise and Fall of the Great Powers. New York: Random House.",
+   "covers": [
+    "great power military and economic comparison"
+   ]
+  },
+  {
+   "id": "schroeder_1994",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Schroeder, Paul W. (1994). The Transformation of European Politics 1763-1848. Oxford: Clarendon Press.",
+   "covers": [
+    "European diplomacy 1815-1848",
+    "Münchengrätz",
+    "Quadruple Alliance 1834",
+    "Eastern Question"
+   ]
+  },
+  {
+   "id": "hobsbawm_1962",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Hobsbawm, Eric (1962). The Age of Revolution: Europe 1789-1848. London: Weidenfeld & Nicolson.",
+   "covers": [
+    "European political economy 1789-1848"
+   ]
+  },
+  {
+   "id": "bayly_2004",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Bayly, C. A. (2004). The Birth of the Modern World 1780-1914. Oxford: Blackwell.",
+   "covers": [
+    "global history 1780-1914"
+   ]
+  },
+  {
+   "id": "osterhammel_2014",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Osterhammel, Jürgen (2014). The Transformation of the World: A Global History of the Nineteenth Century. Princeton: Princeton University Press.",
+   "covers": [
+    "global history of the 19th century"
+   ]
+  },
+  {
+   "id": "nipperdey_1996",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Nipperdey, Thomas (1996). Germany from Napoleon to Bismarck 1800-1866. Princeton: Princeton University Press.",
+   "covers": [
+    "German Confederation",
+    "Zollverein",
+    "German states"
+   ]
+  },
+  {
+   "id": "sheehan_1989",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Sheehan, James J. (1989). German History 1770-1866. Oxford: Clarendon Press.",
+   "covers": [
+    "German states",
+    "German Confederation"
+   ]
+  },
+  {
+   "id": "clark_2006",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Clark, Christopher (2006). Iron Kingdom: The Rise and Downfall of Prussia 1600-1947. London: Allen Lane.",
+   "covers": [
+    "Prussia"
+   ]
+  },
+  {
+   "id": "taylor_1954",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Taylor, A. J. P. (1954). The Struggle for Mastery in Europe 1848-1918. Oxford: Clarendon Press.",
+   "covers": [
+    "great power diplomacy 1848-1918"
+   ]
+  },
+  {
+   "id": "shaw_1977",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Shaw, Stanford J. and Ezel Kural Shaw (1977). History of the Ottoman Empire and Modern Turkey, Vol. II: Reform, Revolution, and Republic 1808-1975. Cambridge: Cambridge University Press.",
+   "covers": [
+    "Ottoman Empire 1808-1975",
+    "Tanzimat"
+   ]
+  },
+  {
+   "id": "karpat_1985",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Karpat, Kemal H. (1985). Ottoman Population 1830-1914: Demographic and Social Characteristics. Madison: University of Wisconsin Press.",
+   "covers": [
+    "Ottoman population"
+   ]
+  },
+  {
+   "id": "fahmy_1997",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Fahmy, Khaled (1997). All the Pasha's Men: Mehmed Ali, His Army and the Making of Modern Egypt. Cambridge: Cambridge University Press.",
+   "covers": [
+    "Egypt under Muhammad Ali",
+    "Egyptian army"
+   ]
+  },
+  {
+   "id": "spence_1990",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Spence, Jonathan D. (1990). The Search for Modern China. New York: W. W. Norton.",
+   "covers": [
+    "Qing China"
+   ]
+  },
+  {
+   "id": "ho_1959",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Ho, Ping-ti (1959). Studies on the Population of China, 1368-1953. Cambridge, MA: Harvard University Press.",
+   "covers": [
+    "Chinese population"
+   ]
+  },
+  {
+   "id": "jansen_2000",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Jansen, Marius B. (2000). The Making of Modern Japan. Cambridge, MA: Harvard University Press.",
+   "covers": [
+    "Tokugawa and Meiji Japan"
+   ]
+  },
+  {
+   "id": "taylor_k_2013",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Taylor, K. W. (2013). A History of the Vietnamese. Cambridge: Cambridge University Press.",
+   "covers": [
+    "Nguyễn dynasty Vietnam"
+   ]
+  },
+  {
+   "id": "woodside_1971",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Woodside, Alexander B. (1971). Vietnam and the Chinese Model: A Comparative Study of Nguyễn and Ch'ing Civil Government in the First Half of the Nineteenth Century. Cambridge, MA: Harvard University Press.",
+   "covers": [
+    "Minh Mạng administration"
+   ]
+  },
+  {
+   "id": "choi_2004",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Choi, Byung Wook (2004). Southern Vietnam under the Reign of Minh Mạng (1820-1841): Central Policies and Local Response. Ithaca: Cornell Southeast Asia Program.",
+   "covers": [
+    "Gia Định",
+    "Lê Văn Khôi revolt",
+    "Cambodia policy"
+   ]
+  },
+  {
+   "id": "baker_2009",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Baker, Chris and Pasuk Phongpaichit (2009). A History of Thailand. 2nd ed. Cambridge: Cambridge University Press.",
+   "covers": [
+    "Siam under Rama III",
+    "Lao and Cambodian vassalage"
+   ]
+  },
+  {
+   "id": "thant_2001",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Thant Myint-U (2001). The Making of Modern Burma. Cambridge: Cambridge University Press.",
+   "covers": [
+    "Konbaung Burma"
+   ]
+  },
+  {
+   "id": "lee_kb_1984",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Lee, Ki-baik (1984). A New History of Korea. Cambridge, MA: Harvard University Press.",
+   "covers": [
+    "Joseon Korea"
+   ]
+  },
+  {
+   "id": "amanat_2017",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Amanat, Abbas (2017). Iran: A Modern History. New Haven: Yale University Press.",
+   "covers": [
+    "Qajar Iran",
+    "Herat question"
+   ]
+  },
+  {
+   "id": "barfield_2010",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Barfield, Thomas (2010). Afghanistan: A Cultural and Political History. Princeton: Princeton University Press.",
+   "covers": [
+    "Afghanistan",
+    "Dost Mohammad",
+    "Anglo-Afghan war"
+   ]
+  },
+  {
+   "id": "levi_2017",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Levi, Scott C. (2017). The Rise and Fall of Khoqand, 1709-1876. Pittsburgh: University of Pittsburgh Press.",
+   "covers": [
+    "Kokand",
+    "Central Asian khanates"
+   ]
+  },
+  {
+   "id": "grewal_1990",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Grewal, J. S. (1990). The Sikhs of the Punjab. The New Cambridge History of India II.3. Cambridge: Cambridge University Press.",
+   "covers": [
+    "Sikh Empire"
+   ]
+  },
+  {
+   "id": "bayly_1988",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Bayly, C. A. (1988). Indian Society and the Making of the British Empire. The New Cambridge History of India II.1. Cambridge: Cambridge University Press.",
+   "covers": [
+    "Company rule in India",
+    "princely states"
+   ]
+  },
+  {
+   "id": "howe_2007",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Howe, Daniel Walker (2007). What Hath God Wrought: The Transformation of America, 1815-1848. New York: Oxford University Press.",
+   "covers": [
+    "United States 1815-1848",
+    "Texas",
+    "Jacksonian politics"
+   ]
+  },
+  {
+   "id": "bethell_1985",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Bethell, Leslie (ed.) (1985). The Cambridge History of Latin America, Vol. III: From Independence to c. 1870. Cambridge: Cambridge University Press.",
+   "covers": [
+    "Latin American states 1820-1870"
+   ]
+  },
+  {
+   "id": "costeloe_1993",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Costeloe, Michael P. (1993). The Central Republic in Mexico, 1835-1846. Cambridge: Cambridge University Press.",
+   "covers": [
+    "Mexico 1835-1846",
+    "Siete Leyes"
+   ]
+  },
+  {
+   "id": "barman_1988",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Barman, Roderick J. (1988). Brazil: The Forging of a Nation, 1798-1852. Stanford: Stanford University Press.",
+   "covers": [
+    "Brazilian Empire",
+    "Regency revolts"
+   ]
+  },
+  {
+   "id": "lynch_1981",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Lynch, John (1981). Argentine Dictator: Juan Manuel de Rosas 1829-1852. Oxford: Clarendon Press.",
+   "covers": [
+    "Argentine Confederation under Rosas"
+   ]
+  },
+  {
+   "id": "white_1978",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "White, Richard Alan (1978). Paraguay's Autonomous Revolution, 1810-1840. Albuquerque: University of New Mexico Press.",
+   "covers": [
+    "Paraguay under Francia"
+   ]
+  },
+  {
+   "id": "carr_1982",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Carr, Raymond (1982). Spain 1808-1975. 2nd ed. Oxford: Clarendon Press.",
+   "covers": [
+    "Spain",
+    "First Carlist War"
+   ]
+  },
+  {
+   "id": "riall_2009",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Riall, Lucy (2009). Risorgimento: The History of Italy from Napoleon to Nation-State. Basingstoke: Palgrave Macmillan.",
+   "covers": [
+    "Italian states",
+    "unification"
+   ]
+  },
+  {
+   "id": "clogg_2013",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Clogg, Richard (2013). A Concise History of Greece. 3rd ed. Cambridge: Cambridge University Press.",
+   "covers": [
+    "Greece under Otto"
+   ]
+  },
+  {
+   "id": "hitchins_1996",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Hitchins, Keith (1996). The Romanians, 1774-1866. Oxford: Clarendon Press.",
+   "covers": [
+    "Wallachia",
+    "Moldavia",
+    "Organic Statutes"
+   ]
+  },
+  {
+   "id": "petrovich_1976",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Petrovich, Michael Boro (1976). A History of Modern Serbia 1804-1918. New York: Harcourt Brace Jovanovich.",
+   "covers": [
+    "Principality of Serbia"
+   ]
+  },
+  {
+   "id": "iliffe_2007",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Iliffe, John (2007). Africans: The History of a Continent. 2nd ed. Cambridge: Cambridge University Press.",
+   "covers": [
+    "African states and societies"
+   ]
+  },
+  {
+   "id": "last_1967",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Last, Murray (1967). The Sokoto Caliphate. London: Longman.",
+   "covers": [
+    "Sokoto Caliphate"
+   ]
+  },
+  {
+   "id": "wilks_1975",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Wilks, Ivor (1975). Asante in the Nineteenth Century. Cambridge: Cambridge University Press.",
+   "covers": [
+    "Asante"
+   ]
+  },
+  {
+   "id": "laband_1995",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Laband, John (1995). Rope of Sand: The Rise and Fall of the Zulu Kingdom in the Nineteenth Century. Johannesburg: Jonathan Ball.",
+   "covers": [
+    "Zulu kingdom"
+   ]
+  },
+  {
+   "id": "campbell_2005",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Campbell, Gwyn (2005). An Economic History of Imperial Madagascar, 1750-1895. Cambridge: Cambridge University Press.",
+   "covers": [
+    "Merina kingdom"
+   ]
+  },
+  {
+   "id": "pankhurst_1998",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Pankhurst, Richard (1998). The Ethiopians: A History. Oxford: Blackwell.",
+   "covers": [
+    "Ethiopia",
+    "Zemene Mesafint"
+   ]
+  },
+  {
+   "id": "pennell_2003",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Pennell, C. R. (2003). Morocco: From Empire to Independence. Oxford: Oneworld.",
+   "covers": [
+    "Morocco"
+   ]
+  },
+  {
+   "id": "kuykendall_1938",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Kuykendall, Ralph S. (1938). The Hawaiian Kingdom, Vol. 1: 1778-1854. Honolulu: University of Hawaii Press.",
+   "covers": [
+    "Hawaiian Kingdom"
+   ]
+  },
+  {
+   "id": "dubois_2012",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Dubois, Laurent (2012). Haiti: The Aftershocks of History. New York: Metropolitan Books.",
+   "covers": [
+    "Haiti under Boyer"
+   ]
+  },
+  {
+   "id": "headrick_1981",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Headrick, Daniel R. (1981). The Tools of Empire: Technology and European Imperialism in the Nineteenth Century. New York: Oxford University Press.",
+   "covers": [
+    "steamships",
+    "quinine",
+    "breech-loaders",
+    "telegraph"
+   ]
+  },
+  {
+   "id": "landes_1969",
+   "type": "book",
+   "access": "reference_work",
+   "citation": "Landes, David S. (1969). The Unbound Prometheus: Technological Change and Industrial Development in Western Europe from 1750 to the Present. Cambridge: Cambridge University Press.",
+   "covers": [
+    "industrial technology diffusion"
+   ]
+  },
+  {
+   "id": "otherfacts_none",
+   "type": "placeholder",
+   "access": "reference_work",
+   "citation": "No source located. Used only on records with quality 'missing'.",
+   "covers": []
+  }
+ ]
+}

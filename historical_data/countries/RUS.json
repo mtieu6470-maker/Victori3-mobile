@@ -1,0 +1,51 @@
+{
+  "id": "RUS", "as_of": "1836-01-01", "research_status": "partial",
+  "political": {
+    "government": {"value": "absolute_monarchy", "quality": "supported", "sources": ["bayly_2004"], "note": "Autocracy; doctrine of Official Nationality (Orthodoxy, Autocracy, Nationality, Uvarov 1833)."},
+    "head_of_state": {"value": {"name": "Nicholas I", "title": "Emperor and Autocrat of All the Russias", "born": "1796-07-06", "since": "1825-12-01"}, "quality": "supported", "sources": ["bayly_2004"]},
+    "heir": {"value": {"name": "Tsesarevich Alexander Nikolaevich", "born": "1818-04-29"}, "quality": "supported", "sources": ["bayly_2004"]},
+    "head_of_government": {"value": {"name": "Karl Nesselrode", "title": "Foreign Minister (vice-chancellor)", "since": "1816"}, "quality": "supported", "sources": ["schroeder_1994"], "note": "No prime minister; ministers responsible to the emperor. Third Section (political police) since 1826."},
+    "power_groups": [{"name": "Landed nobility", "in_government": true}, {"name": "Bureaucracy and army", "in_government": true}, {"name": "Orthodox Church (Holy Synod)", "in_government": true}, {"name": "Slavophile and Westerniser intelligentsia", "in_government": false}],
+    "laws": {"value": {"power": "autocracy", "governance": "monarchy", "economy": "mercantilism", "trade": "protectionism", "labor": "serfdom", "church": "state_religion", "press": "censorship", "education": "religious_schools", "army": "feudal_levies"},
+      "quality": "supported", "sources": ["bayly_2004"],
+      "note": "Serfdom until 1861 (roughly half the peasantry privately owned serfs; the rest state peasants). Army raised by recruit levies with 25-year service => mapped to 'feudal_levies'. Cancrin tariff (1822) => protectionism."},
+    "reforms": [{"date": "1833", "name": "Codification of laws (Speransky's Digest)", "sources": ["bayly_2004"]}, {"date": "1837-1841", "name": "Kiselev reform of state peasants", "note": "future"}],
+    "upheavals": [{"date": "1825-12-26", "name": "Decembrist revolt"}, {"date": "1830-11 to 1831-10", "name": "November Uprising in Poland", "sources": ["cow_intrastate_v41"]}]
+  },
+  "territory": {"capital": "RUS_STP",
+    "claims": [{"region": "CIR_CIR", "basis": "Treaty of Adrianople (1829) Ottoman cession of the Circassian coast claim"}, {"region": "IMM_DAG", "basis": "Caucasian War"}],
+    "dependencies_note": "Congress Poland and Finland are modelled as Russian regions (registry entries POL_CONGRESS, FIN_GD)."},
+  "economy": {
+    "structure": {"value": "Overwhelmingly agrarian serf economy; Ural iron industry (in relative decline); cottage textiles in the Central Industrial Region; grain exports via Odessa.", "quality": "supported", "sources": ["landes_1969", "bayly_2004"]},
+    "manufacturing_share_world_1830": {"value": 5.6, "unit": "%", "quality": "supported", "sources": ["bairoch_1982", "kennedy_1987"]},
+    "iron_steel_kt": {"value": 181, "quality": "verified", "sources": [{"id": "cow_nmc_v7", "locator": "irst RUS 1836"}]},
+    "industrialization_stage": {"value": "pre_industrial", "quality": "supported", "sources": ["landes_1969"]}
+  },
+  "society": {"serfdom": {"value": "Private serfs c. 45% of the peasant population (estimated)", "quality": "estimated", "sources": [], "needs_source": true}, "literacy": {"value": 0.1, "range": [0.05, 0.15], "quality": "estimated", "sources": [], "needs_source": true}},
+  "diplomacy": {
+    "foreign_policy": {"value": "Legitimist solidarity with Austria and Prussia (Münchengrätz 1833), protectorate ambitions over the Ottoman Empire (Hünkar İskelesi 1833), Caucasus conquest, Persian influence.", "quality": "supported", "sources": ["schroeder_1994"]},
+    "alliances_ref": ["cow_ally_12", "cow_ally_14", "cow_ally_15", "cow_ally_16", "cow_ally_17", "cow_ally_18"],
+    "rivals": [{"entity": "GBR", "basis": "Eastern Question, Persia, Central Asia", "quality": "supported", "sources": ["schroeder_1994"]}],
+    "relations": [{"with": "AUS", "value": 50}, {"with": "PRU", "value": 60}, {"with": "TUR", "value": 20}, {"with": "GBR", "value": -30}, {"with": "FRA", "value": -25}, {"with": "PRS", "value": 30}, {"with": "WAL", "value": 40}, {"with": "MOL", "value": 40}, {"with": "SER", "value": 30}, {"with": "GRE", "value": 20}, {"with": "CIR", "value": -90}, {"with": "IMM", "value": -90}, {"with": "KHI", "value": -40}],
+    "relations_quality": "estimated", "relations_method": "Ordinal judgement from Schroeder (1994)."
+  },
+  "military": {
+    "army_personnel": {"value": 1020000, "quality": "verified", "sources": [{"id": "cow_nmc_v7", "locator": "milper RUS 1836 (Almanach de Gotha 1840)"}], "note": "Largest army in Europe on paper."},
+    "navy": {"value": "Baltic and Black Sea fleets of sailing ships.", "quality": "supported", "sources": ["kennedy_1987"]},
+    "doctrine": {"value": "Mass long-service army; Caucasus line warfare.", "quality": "supported", "sources": ["kennedy_1987"]},
+    "commanders": [{"name": "Ivan Paskevich", "role": "Viceroy of Poland, field marshal", "quality": "supported", "sources": ["bayly_2004"]}]
+  },
+  "technology": {"level": {"value": "behind_frontier", "quality": "supported", "sources": ["landes_1969"]}},
+  "historical_ai": {
+    "strategic_priorities": [
+      {"id": "RUS_caucasus", "goal": "conquer_region", "target": ["CIR_CIR", "IMM_DAG"], "weight": 0.9, "window": ["1817", "1864"], "rationale": "Caucasian War; Shamil captured 1859; Circassia subdued 1864.", "sources": ["cow_intrastate_v41"]},
+      {"id": "RUS_straits_balkans", "goal": "subjugate", "target": "TUR", "weight": 0.5, "window": ["1833", "1878"], "rationale": "Protectorate over Orthodox subjects; wars of 1853-56 and 1877-78.", "sources": ["schroeder_1994", "cow_interstate_v40"]},
+      {"id": "RUS_legitimism", "goal": "support_power", "target": "AUS", "weight": 0.6, "window": ["1833", "1853"], "rationale": "Münchengrätz; intervention in Hungary (1849).", "sources": ["schroeder_1994"]},
+      {"id": "RUS_central_asia", "goal": "conquer_region", "target": ["KHI_KHI", "KOK_TAS", "KOK_FER", "BUK_BUK", "DZ_SEMIRECHYE", "DZ_KYRGYZ", "DZ_TURKMEN"], "weight": 0.6, "window": ["1839", "1885"], "rationale": "Khiva expedition 1839; Tashkent 1865; Bukhara and Khiva protectorates 1868/1873.", "sources": ["levi_2017", "cow_extrastate_v40"]},
+      {"id": "RUS_amur", "goal": "conquer_region", "target": ["QNG_AMU"], "weight": 0.6, "window": ["1850", "1860"], "rationale": "Muravyov; treaties of Aigun (1858) and Peking (1860).", "sources": ["spence_1990"]},
+      {"id": "RUS_emancipation", "goal": "reform_law", "target": {"group": "labor", "value": "free_labor"}, "weight": 0.6, "window": ["1856", "1870"], "conditions": [{"type": "lost_war_recently", "entity": "RUS", "years": 6}], "rationale": "Defeat in Crimea preceded the Emancipation of 1861; condition makes the bias contingent.", "sources": ["bayly_2004"]}
+    ],
+    "military_doctrine": "mass_land_army"
+  },
+  "personality": {"aggression": 0.6, "expansionism": 0.8, "reformism": 0.2, "commerce": 0.3, "naval": 0.3, "isolationism": 0.1, "risk": 0.5, "rationale": "Expansive autocracy with continental and steppe frontiers."}
+}

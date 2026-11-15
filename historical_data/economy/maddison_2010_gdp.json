@@ -1,0 +1,5481 @@
+{
+ "dataset": "maddison_2010",
+ "territorial_basis": "present-day borders",
+ "records": [
+  {
+   "unit_name": "Austria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 1218.166,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Austria, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Austria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1830",
+   "value": 1398.53,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Austria, 1830"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Austria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1840",
+   "value": 1514.532,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Austria, 1840"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Austria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 1650.38,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Austria, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Austria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1860",
+   "value": 1777.568,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Austria, 1860"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Austria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 1862.59,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Austria, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Austria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 2078.838,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Austria, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Austria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 2443.356,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Austria, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Austria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 2881.807,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Austria, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Austria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 3465.494,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Austria, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Belgium",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 1318.87,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Belgium, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Belgium",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1830",
+   "value": 1354.133,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Belgium, 1830"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Belgium",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 1846.707,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Belgium, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Belgium",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1860",
+   "value": 2292.616,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Belgium, 1860"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Belgium",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 2691.523,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Belgium, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Belgium",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 3064.821,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Belgium, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Belgium",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 3427.848,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Belgium, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Belgium",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 3731.05,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Belgium, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Belgium",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 4219.541,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Belgium, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Denmark",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 1273.593,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Denmark, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Denmark",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1830",
+   "value": 1329.929,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Denmark, 1830"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Denmark",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1836",
+   "value": 1367.3,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Denmark, 1836"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Denmark",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1840",
+   "value": 1428.15,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Denmark, 1840"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Denmark",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 1767.178,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Denmark, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Denmark",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1860",
+   "value": 1741.156,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Denmark, 1860"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Denmark",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 2003.178,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Denmark, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Denmark",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 2181.466,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Denmark, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Denmark",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 2523.243,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Denmark, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Denmark",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 3016.611,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Denmark, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Denmark",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 3912.169,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Denmark, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Finland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 781.009,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Finland, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Finland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 910.934,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Finland, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Finland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1860",
+   "value": 959.148,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Finland, 1860"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Finland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 1139.681,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Finland, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Finland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 1154.827,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Finland, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Finland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 1381.04,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Finland, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Finland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 1668.48,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Finland, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Finland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 2110.671,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Finland, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "France",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 1134.976,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, France, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "France",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1830",
+   "value": 1190.841,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, France, 1830"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "France",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1836",
+   "value": 1310.872,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, France, 1836"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "France",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1840",
+   "value": 1427.736,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, France, 1840"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "France",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 1596.671,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, France, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "France",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1860",
+   "value": 1892.145,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, France, 1860"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "France",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 1875.651,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, France, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "France",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 2120.43,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, France, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "France",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 2376.012,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, France, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "France",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 2875.686,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, France, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "France",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 3484.77,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, France, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Germany",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 1076.852,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Germany, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Germany",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1830",
+   "value": 1328.222,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Germany, 1830"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Germany",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 1427.666,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Germany, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Germany",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1860",
+   "value": 1639.324,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Germany, 1860"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Germany",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 1839.08,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Germany, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Germany",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 1991.406,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Germany, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Germany",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 2427.809,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Germany, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Germany",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 2984.759,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Germany, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Germany",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 3648.006,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Germany, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Italy",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 1116.921,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Italy, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Italy",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 1349.918,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Italy, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Italy",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 1499.355,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Italy, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Italy",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 1580.879,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Italy, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Italy",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 1667.489,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Italy, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Italy",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 1785.27,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Italy, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Italy",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 2563.547,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Italy, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Netherlands",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 1837.977,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Netherlands, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Netherlands",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1830",
+   "value": 2012.913,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Netherlands, 1830"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Netherlands",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1836",
+   "value": 2165.098,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Netherlands, 1836"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Netherlands",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1840",
+   "value": 2282.744,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Netherlands, 1840"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Netherlands",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 2370.884,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Netherlands, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Netherlands",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1860",
+   "value": 2377.034,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Netherlands, 1860"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Netherlands",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 2756.787,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Netherlands, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Netherlands",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 3045.511,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Netherlands, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Netherlands",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 3323.043,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Netherlands, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Netherlands",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 3423.571,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Netherlands, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Netherlands",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 4048.507,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Netherlands, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Norway",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 801.031,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Norway, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Norway",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1830",
+   "value": 834.576,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Norway, 1830"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Norway",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1836",
+   "value": 856.02,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Norway, 1836"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Norway",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1840",
+   "value": 934.592,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Norway, 1840"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Norway",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 955.939,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Norway, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Norway",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1860",
+   "value": 1136.727,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Norway, 1860"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Norway",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 1360.144,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Norway, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Norway",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 1517.286,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Norway, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Norway",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 1709.487,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Norway, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Norway",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 1876.688,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Norway, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Norway",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 2447.065,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Norway, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Sweden",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 818.888,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Sweden, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Sweden",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1830",
+   "value": 869.958,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Sweden, 1830"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Sweden",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1836",
+   "value": 912.886,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Sweden, 1836"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Sweden",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1840",
+   "value": 925.072,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Sweden, 1840"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Sweden",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 1019.064,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Sweden, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Sweden",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1860",
+   "value": 1195.084,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Sweden, 1860"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Sweden",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 1359.03,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Sweden, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Sweden",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 1519.904,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Sweden, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Sweden",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 1769.038,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Sweden, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Sweden",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 2208.911,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Sweden, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Sweden",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 3072.941,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Sweden, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Switzerland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 1090.131,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Switzerland, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Switzerland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 1488.441,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Switzerland, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Switzerland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1860",
+   "value": 1744.622,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Switzerland, 1860"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Switzerland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 2102.072,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Switzerland, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Switzerland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 2449.806,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Switzerland, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Switzerland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 3181.633,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Switzerland, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Switzerland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 3833.03,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Switzerland, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Switzerland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 4265.787,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Switzerland, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United Kingdom",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 1705.918,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United Kingdom, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United Kingdom",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1830",
+   "value": 1749.368,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United Kingdom, 1830"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United Kingdom",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1836",
+   "value": 1956.601,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United Kingdom, 1836"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United Kingdom",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1840",
+   "value": 1990.428,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United Kingdom, 1840"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United Kingdom",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 2330.378,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United Kingdom, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United Kingdom",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1860",
+   "value": 2830.241,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United Kingdom, 1860"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United Kingdom",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 3190.434,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United Kingdom, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United Kingdom",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 3477.32,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United Kingdom, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United Kingdom",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 4008.789,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United Kingdom, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United Kingdom",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 4491.814,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United Kingdom, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United Kingdom",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 4920.546,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United Kingdom, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Ireland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 877.482,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Ireland, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Ireland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 1775.051,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Ireland, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Ireland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 2736.079,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Ireland, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Greece",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 641.003,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Greece, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Greece",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 816.032,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Greece, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Greece",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 879.956,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Greece, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Greece",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 1178.046,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Greece, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Greece",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 1351.068,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Greece, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Greece",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1591.705,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Greece, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Portugal",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 922.96,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Portugal, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Portugal",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 923.48,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Portugal, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Portugal",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 975.04,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Portugal, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Portugal",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 947.289,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Portugal, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Portugal",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 1127.884,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Portugal, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Portugal",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 1302.184,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Portugal, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Portugal",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1250.335,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Portugal, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Spain",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 1007.867,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Spain, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Spain",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 1078.689,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Spain, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Spain",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1860",
+   "value": 1236.159,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Spain, 1860"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Spain",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 1207.086,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Spain, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Spain",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 1646.005,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Spain, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Spain",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 1624.092,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Spain, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Spain",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 1786.276,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Spain, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Spain",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 2055.619,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Spain, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Australia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 517.964,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Australia, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Australia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1830",
+   "value": 848.485,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Australia, 1830"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Australia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1836",
+   "value": 1125.341,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Australia, 1836"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Australia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1840",
+   "value": 1373.81,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Australia, 1840"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Australia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 1975.207,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Australia, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Australia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1860",
+   "value": 2894.419,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Australia, 1860"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Australia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 3273.239,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Australia, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Australia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 4285.389,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Australia, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Australia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 4457.676,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Australia, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Australia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 4013.365,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Australia, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Australia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 5156.814,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Australia, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "New Zealand",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 400.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, New Zealand, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "New Zealand",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1830",
+   "value": 400.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, New Zealand, 1830"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "New Zealand",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1840",
+   "value": 400.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, New Zealand, 1840"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "New Zealand",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 1144.444,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, New Zealand, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "New Zealand",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1860",
+   "value": 2212.121,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, New Zealand, 1860"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "New Zealand",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 3099.656,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, New Zealand, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "New Zealand",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 3746.533,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, New Zealand, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "New Zealand",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 3755.477,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, New Zealand, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "New Zealand",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 4298.141,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, New Zealand, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "New Zealand",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 5152.406,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, New Zealand, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Canada",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 904.412,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Canada, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Canada",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1830",
+   "value": 1000.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Canada, 1830"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Canada",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1840",
+   "value": 1162.051,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Canada, 1840"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Canada",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 1329.577,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Canada, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Canada",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1860",
+   "value": 1450.579,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Canada, 1860"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Canada",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 1694.525,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Canada, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Canada",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 1815.887,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Canada, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Canada",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 2378.377,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Canada, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Canada",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 2911.266,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Canada, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Canada",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 4446.765,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Canada, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United States",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 1257.25,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United States, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United States",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1830",
+   "value": 1376.025,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United States, 1830"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United States",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1840",
+   "value": 1587.616,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United States, 1840"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United States",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 1805.916,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United States, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United States",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1860",
+   "value": 2178.027,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United States, 1860"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United States",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 2444.644,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United States, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United States",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 3183.955,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United States, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United States",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 3391.898,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United States, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United States",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 4090.787,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United States, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "United States",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 5300.729,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, United States, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Albania",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 446.103,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Albania, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Albania",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 597.796,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Albania, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Albania",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 685.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Albania, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Albania",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 810.69,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Albania, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Bulgaria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 839.907,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Bulgaria, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Bulgaria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 1130.914,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Bulgaria, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Bulgaria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 1223.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Bulgaria, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Bulgaria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1533.898,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Bulgaria, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Czechoslovakia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 849.027,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Czechoslovakia, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Czechoslovakia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 1079.027,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Czechoslovakia, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Czechoslovakia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 1163.959,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Czechoslovakia, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Czechoslovakia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 1505.021,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Czechoslovakia, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Czechoslovakia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 1729.04,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Czechoslovakia, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Czechoslovakia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 2095.541,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Czechoslovakia, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Hungary",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 1091.6,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Hungary, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Hungary",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 1472.516,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Hungary, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Hungary",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 1682.335,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Hungary, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Hungary",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 2097.875,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Hungary, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Poland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 945.983,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Poland, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Poland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 1284.02,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Poland, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Poland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 1536.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Poland, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Poland",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1739.012,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Poland, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Romania",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 931.038,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Romania, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Romania",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 1246.023,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Romania, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Romania",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 1415.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Romania, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Romania",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1741.039,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Romania, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Yugoslavia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 599.006,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Yugoslavia, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Yugoslavia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 843.034,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Yugoslavia, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Yugoslavia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 902.005,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Yugoslavia, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Yugoslavia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1056.954,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Yugoslavia, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Argentina",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 1310.626,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Argentina, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Argentina",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 2151.977,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Argentina, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Argentina",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 2755.558,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Argentina, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Argentina",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 3797.243,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Argentina, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Brazil",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 646.106,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Brazil, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Brazil",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 685.513,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Brazil, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Brazil",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 712.973,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Brazil, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Brazil",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 752.162,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Brazil, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Brazil",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 793.507,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Brazil, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Brazil",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 678.436,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Brazil, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Brazil",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 810.989,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Brazil, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Chile",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 693.735,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Chile, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Chile",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1830",
+   "value": 663.736,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Chile, 1830"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Chile",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1836",
+   "value": 693.17,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Chile, 1836"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Chile",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1840",
+   "value": 750.803,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Chile, 1840"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Chile",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 931.631,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Chile, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Chile",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1860",
+   "value": 1093.502,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Chile, 1860"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Chile",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 1290.251,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Chile, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Chile",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 1740.165,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Chile, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Chile",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 1966.447,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Chile, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Chile",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 2194.033,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Chile, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Chile",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 2988.345,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Chile, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Colombia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 973.152,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Colombia, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Colombia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1235.848,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Colombia, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Mexico",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 759.071,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Mexico, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Mexico",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 674.043,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Mexico, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Mexico",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 1011.169,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Mexico, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Mexico",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 1365.841,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Mexico, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Mexico",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1731.53,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Mexico, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Peru",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 685.855,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Peru, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Peru",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1032.363,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Peru, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Uruguay",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 2180.758,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Uruguay, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Uruguay",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 2081.897,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Uruguay, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Uruguay",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 2147.23,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Uruguay, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Uruguay",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 2218.579,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Uruguay, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Uruguay",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 3310.11,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Uruguay, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Venezuela",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 459.61,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Venezuela, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Venezuela",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 569.268,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Venezuela, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Venezuela",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 821.184,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Venezuela, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Venezuela",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1103.833,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Venezuela, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Jamaica",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 700.748,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Jamaica, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Jamaica",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 543.86,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Jamaica, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Jamaica",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 535.07,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Jamaica, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Jamaica",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 608.124,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Jamaica, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "China",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 600.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, China, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "China",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 600.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, China, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "China",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 530.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, China, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "China",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 540.471,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, China, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "China",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 545.385,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, China, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "China",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 552.297,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, China, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "India",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 533.096,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, India, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "India",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 532.998,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, India, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "India",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 533.13,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, India, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "India",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 584.141,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, India, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "India",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 599.178,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, India, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "India",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 672.512,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, India, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Indonesia (including Timor until 1999)",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 611.926,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Indonesia (including Timor until 1999), 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Indonesia (including Timor until 1999)",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 636.854,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Indonesia (including Timor until 1999), 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Indonesia (including Timor until 1999)",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 578.111,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Indonesia (including Timor until 1999), 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Indonesia (including Timor until 1999)",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 601.001,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Indonesia (including Timor until 1999), 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Indonesia (including Timor until 1999)",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 612.234,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Indonesia (including Timor until 1999), 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Indonesia (including Timor until 1999)",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 703.954,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Indonesia (including Timor until 1999), 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Indonesia (including Timor until 1999)",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 874.411,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Indonesia (including Timor until 1999), 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Japan",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 669.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Japan, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Japan",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 679.125,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Japan, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Japan",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 737.375,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Japan, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Japan",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 863.396,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Japan, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Japan",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 1011.942,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Japan, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Japan",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 1179.513,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Japan, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Japan",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1386.689,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Japan, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Philippines",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 584.099,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Philippines, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Philippines",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 623.938,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Philippines, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Philippines",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 988.065,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Philippines, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "South Korea",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 600.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, South Korea, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "South Korea",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 604.019,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, South Korea, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "South Korea",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 869.393,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, South Korea, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Thailand",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 569.989,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Thailand, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Thailand",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 607.965,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Thailand, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Thailand",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 783.958,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Thailand, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Thailand",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 840.603,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Thailand, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Taiwan",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 550.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Taiwan, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Taiwan",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 550.107,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Taiwan, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Taiwan",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 731.953,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Taiwan, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Burma",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 503.993,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Burma, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Burma",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 503.887,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Burma, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Burma",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 685.137,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Burma, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Hong Kong",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 615.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Hong Kong, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Hong Kong",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 682.927,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Hong Kong, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Hong Kong",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1279.261,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Hong Kong, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Malaysia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 602.787,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Malaysia, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Malaysia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 662.5,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Malaysia, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Malaysia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 900.13,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Malaysia, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Nepal",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 397.063,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Nepal, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Nepal",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 396.977,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Nepal, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Nepal",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 538.925,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Nepal, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Singapore",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 83.333,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Singapore, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Singapore",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 682.143,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Singapore, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Singapore",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1278.638,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Singapore, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Sri Lanka",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 549.876,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Sri Lanka, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Sri Lanka",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1850",
+   "value": 563.825,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Sri Lanka, 1850"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Sri Lanka",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 851.4,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Sri Lanka, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Sri Lanka",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1880",
+   "value": 830.52,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Sri Lanka, 1880"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Sri Lanka",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1890",
+   "value": 1045.169,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Sri Lanka, 1890"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Sri Lanka",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 1290.389,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Sri Lanka, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Sri Lanka",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1234.255,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Sri Lanka, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "North Korea",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 600.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, North Korea, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "North Korea",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 604.079,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, North Korea, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "North Korea",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 869.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, North Korea, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Vietnam",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 527.095,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Vietnam, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Vietnam",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 505.414,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Vietnam, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Vietnam",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 727.132,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Vietnam, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Iran",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 587.957,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Iran, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Iran",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 718.954,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Iran, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Iran",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1000.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Iran, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Iraq",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 588.289,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Iraq, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Iraq",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 718.987,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Iraq, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Iraq",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1000.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Iraq, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Jordan",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 589.862,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Jordan, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Jordan",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 718.045,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Jordan, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Jordan",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1000.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Jordan, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Lebanon",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 656.627,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Lebanon, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Lebanon",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 844.538,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Lebanon, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Lebanon",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1349.769,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Lebanon, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Syria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 658.19,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Syria, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Syria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 843.869,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Syria, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Syria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1350.05,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Syria, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Turkey",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 643.041,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Turkey, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Turkey",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 824.981,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Turkey, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Turkey",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1213.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Turkey, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "West Bank and Gaza",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 614.458,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, West Bank and Gaza, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "West Bank and Gaza",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 750.583,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, West Bank and Gaza, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "West Bank and Gaza",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1250.0,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, West Bank and Gaza, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Algeria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 430.271,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Algeria, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Algeria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 715.042,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Algeria, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Algeria",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1163.362,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Algeria, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Egypt",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 474.964,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Egypt, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Egypt",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 648.745,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Egypt, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Egypt",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 901.68,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Egypt, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Ghana",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 438.885,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Ghana, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Ghana",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 780.715,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Ghana, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Morocco",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 429.9,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Morocco, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Morocco",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 563.03,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Morocco, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Morocco",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 710.233,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Morocco, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "South Africa",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 414.839,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, South Africa, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "South Africa",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 857.872,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, South Africa, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "South Africa",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1601.983,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, South Africa, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Tunisia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 429.714,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Tunisia, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Tunisia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 632.653,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Tunisia, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "Tunisia",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 882.888,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, Tunisia, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "World Average",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1820",
+   "value": 665.735,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, World Average, 1820"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "World Average",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1870",
+   "value": 869.841,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, World Average, 1870"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "World Average",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1900",
+   "value": 1261.225,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, World Average, 1900"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  },
+  {
+   "unit_name": "World Average",
+   "field": "economy.gdp_per_capita_1990gk",
+   "date": "1913",
+   "value": 1524.431,
+   "unit": "1990 international Geary-Khamis dollars",
+   "quality": "estimated",
+   "sources": [
+    {
+     "id": "maddison_2010",
+     "locator": "md2010_horizontal.xlsx, sheet PerCapita GDP, World Average, 1913"
+    }
+   ],
+   "method": "Maddison estimate for the present-day territory of the named unit; not the 1836 polity. Used only as an input to documented allocations."
+  }
+ ]
+}

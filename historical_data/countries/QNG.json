@@ -1,0 +1,32 @@
+{
+  "id": "QNG", "as_of": "1836-01-01", "research_status": "partial",
+  "political": {
+    "government": {"value": "absolute_monarchy", "quality": "supported", "sources": ["spence_1990"], "note": "Manchu imperial autocracy with Confucian examination bureaucracy; Grand Council."},
+    "head_of_state": {"value": {"name": "Daoguang Emperor (Minning)", "title": "Emperor", "born": "1782-09-16", "since": "1820-10-03"}, "quality": "supported", "sources": ["spence_1990"]},
+    "power_groups": [{"name": "Manchu bannermen and imperial clan", "in_government": true}, {"name": "Scholar-gentry and examination officials", "in_government": true}, {"name": "Canton Hong merchants (Cohong)", "in_government": false}],
+    "laws": {"value": {"power": "autocracy", "governance": "monarchy", "economy": "traditionalism", "trade": "isolationism", "labor": "traditional_tenancy", "church": "state_religion", "press": "censorship", "education": "religious_schools", "army": "feudal_levies"},
+      "quality": "supported", "sources": ["spence_1990"], "note": "Canton System (1757-1842) => isolationism. Eight Banners and Green Standard Army => hereditary/levy forces. Education via private academies for the civil examinations (mapped to religious_schools, interpretive)."}
+  },
+  "territory": {"capital": "QNG_ZHI", "dependencies": ["TIB"], "tributaries_note": "Ritual tributaries (Korea, Ryukyu, Vietnam, Siam, Burma, Nepal) are not modelled as subjects."},
+  "economy": {
+    "structure": {"value": "Largest economy by output; commercialised agriculture, handicraft textiles, tea, silk and porcelain exports; silver outflow linked to opium imports in the 1830s.", "quality": "supported", "sources": ["spence_1990", "bairoch_1982"]},
+    "manufacturing_share_world_1830": {"value": 29.8, "unit": "%", "quality": "supported", "sources": ["bairoch_1982", "kennedy_1987"]},
+    "industrialization_stage": {"value": "pre_industrial", "quality": "supported", "sources": ["spence_1990"]},
+    "crises": [{"date": "1830s", "name": "Silver outflow and opium crisis", "quality": "supported", "sources": ["spence_1990"]}]
+  },
+  "society": {"literacy": {"value": 0.2, "range": [0.1, 0.3], "quality": "uncertain", "sources": [], "needs_source": true, "method": "Estimates of functional literacy in late imperial China vary widely, esp. for men vs. women."}},
+  "diplomacy": {"foreign_policy": {"value": "Tribute system; restriction of Western trade to Canton; prohibition of opium (enforced by Lin Zexu from 1839).", "quality": "supported", "sources": ["spence_1990"]},
+    "relations": [{"with": "GBR", "value": -15}, {"with": "RUS", "value": 0}, {"with": "KOR", "value": 50}, {"with": "VNM", "value": 30}, {"with": "JAP", "value": 0}, {"with": "KOK", "value": -20}],
+    "relations_quality": "estimated", "relations_method": "Ordinal judgement."},
+  "military": {"army_personnel": {"value": 800000, "range": [600000, 900000], "quality": "uncertain", "sources": ["spence_1990"], "note": "Banners (~200-250k) plus Green Standard (~600k) on paper; China not a CoW member before 1860."}, "doctrine": {"value": "Garrison armies; no modern navy.", "quality": "supported", "sources": ["spence_1990"]}},
+  "technology": {"level": {"value": "behind_frontier", "quality": "supported", "sources": ["headrick_1981"]}},
+  "historical_ai": {
+    "strategic_priorities": [
+      {"id": "QNG_canton_system", "goal": "keep_law", "target": {"group": "trade", "value": "isolationism"}, "weight": 0.8, "window": ["1757", "1842"], "rationale": "Defence of the Canton System; opium suppression.", "sources": ["spence_1990"]},
+      {"id": "QNG_internal_order", "goal": "suppress_rebels", "weight": 0.8, "window": ["1836", "1873"], "rationale": "Priority given to internal rebellions (Taiping, Nian, Muslim revolts).", "sources": ["spence_1990"]},
+      {"id": "QNG_self_strengthening", "goal": "industrialize", "weight": 0.5, "window": ["1861", "1895"], "conditions": [{"type": "lost_war_recently", "entity": "QNG", "years": 10}], "rationale": "Self-Strengthening Movement after the Second Opium War.", "sources": ["spence_1990"]}
+    ],
+    "military_doctrine": "garrison_army"
+  },
+  "personality": {"aggression": 0.2, "expansionism": 0.1, "reformism": 0.1, "commerce": 0.3, "naval": 0.1, "isolationism": 0.9, "risk": 0.2, "rationale": "Inward-looking imperial state in 1836."}
+}

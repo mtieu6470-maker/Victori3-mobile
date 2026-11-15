@@ -1,0 +1,28 @@
+{
+  "id": "JAP", "as_of": "1836-01-01", "research_status": "partial",
+  "political": {
+    "government": {"value": "feudal_shogunate", "quality": "supported", "sources": ["jansen_2000"], "note": "Bakuhan system: Tokugawa shogunate (bakufu) and ~260 daimyo domains; emperor at Kyoto without executive power."},
+    "head_of_state": {"value": {"name": "Tokugawa Ienari", "title": "Shogun", "born": "1773-11-18", "since": "1787-05-19"}, "quality": "supported", "sources": ["jansen_2000"], "note": "Retired 1837 in favour of Tokugawa Ieyoshi."},
+    "monarch": {"value": {"name": "Emperor Ninkō", "born": "1800-03-16", "since": "1817-10-31"}, "quality": "supported", "sources": ["jansen_2000"]},
+    "power_groups": [{"name": "Bakufu senior councillors (rōjū)", "in_government": true}, {"name": "Fudai daimyo", "in_government": true}, {"name": "Tozama domains (Satsuma, Chōshū, Tosa...)", "in_government": false}, {"name": "Kokugaku and Mito school scholars", "in_government": false}],
+    "laws": {"value": {"power": "oligarchy", "governance": "monarchy", "economy": "traditionalism", "trade": "isolationism", "labor": "traditional_tenancy", "church": "state_religion", "press": "censorship", "education": "religious_schools", "army": "feudal_levies"},
+      "quality": "supported", "sources": ["jansen_2000"], "note": "Sakoku: foreign trade limited to Dutch and Chinese at Nagasaki, Korea via Tsushima, Ryukyu via Satsuma. Edict to Repel Foreign Vessels (1825). Terakoya schools gave relatively high literacy."},
+    "upheavals": [{"date": "1833-1837", "name": "Tenpō famine", "quality": "supported", "sources": ["jansen_2000"]}, {"date": "1837-03", "name": "Ōshio Heihachirō's rising in Osaka (future)", "sources": ["jansen_2000"]}]
+  },
+  "territory": {"capital": "JAP_EDO", "dependencies": ["RYU"]},
+  "economy": {"structure": {"value": "Commercialised agrarian economy; Osaka rice market; proto-industrial textiles; domains in debt.", "quality": "supported", "sources": ["jansen_2000"]}, "manufacturing_share_world_1830": {"value": 2.8, "unit": "%", "quality": "supported", "sources": ["bairoch_1982", "kennedy_1987"]}, "industrialization_stage": {"value": "pre_industrial", "quality": "supported", "sources": ["jansen_2000"]}},
+  "society": {"literacy": {"value": 0.35, "range": [0.25, 0.45], "quality": "uncertain", "sources": ["jansen_2000"], "note": "Commonly cited estimates of 40-50% male and 15% female literacy at the end of the Tokugawa era; contested."}},
+  "diplomacy": {"foreign_policy": {"value": "Seclusion; repulsion of foreign ships.", "quality": "supported", "sources": ["jansen_2000"]}, "relations": [{"with": "QNG", "value": 0}, {"with": "KOR", "value": 20}, {"with": "NED", "value": 20}, {"with": "RUS", "value": -20}, {"with": "GBR", "value": -20}, {"with": "USA", "value": -10}], "relations_quality": "estimated", "relations_method": "Ordinal judgement."},
+  "military": {"army_personnel": {"value": 400000, "range": [300000, 500000], "quality": "uncertain", "sources": ["jansen_2000"], "note": "Samurai retainers of bakufu and domains; not a standing army in the modern sense."}, "doctrine": {"value": "Samurai levies; coastal defence debated after 1808 and 1837.", "quality": "supported", "sources": ["jansen_2000"]}},
+  "technology": {"level": {"value": "behind_frontier", "quality": "supported", "sources": ["jansen_2000"]}},
+  "historical_ai": {
+    "strategic_priorities": [
+      {"id": "JAP_sakoku", "goal": "keep_law", "target": {"group": "trade", "value": "isolationism"}, "weight": 0.9, "window": ["1639", "1854"], "rationale": "Seclusion maintained until the Perry expedition (1853-54).", "sources": ["jansen_2000"]},
+      {"id": "JAP_opening", "goal": "reform_law", "target": {"group": "trade", "value": "protectionism"}, "weight": 0.6, "window": ["1853", "1868"], "conditions": [{"type": "foreign_pressure", "entity": "JAP"}], "rationale": "Kanagawa (1854) and Harris (1858) treaties under naval pressure.", "sources": ["jansen_2000"]},
+      {"id": "JAP_meiji_modernization", "goal": "industrialize", "weight": 0.9, "window": ["1868", "1900"], "conditions": [{"type": "regime_changed_since_start", "entity": "JAP"}], "rationale": "Meiji modernisation followed regime change (1868); bias applies only if a regime change happened in the simulation.", "sources": ["jansen_2000"]},
+      {"id": "JAP_korea", "goal": "subjugate", "target": "KOR", "weight": 0.4, "window": ["1873", "1910"], "conditions": [{"type": "regime_changed_since_start", "entity": "JAP"}], "rationale": "Seikanron debate (1873), Ganghwa treaty (1876).", "sources": ["jansen_2000"]}
+    ],
+    "military_doctrine": "feudal_levies"
+  },
+  "personality": {"aggression": 0.2, "expansionism": 0.2, "reformism": 0.2, "commerce": 0.2, "naval": 0.2, "isolationism": 0.95, "risk": 0.2, "rationale": "Secluded shogunate in 1836."}
+}

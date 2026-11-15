@@ -1,0 +1,31 @@
+{
+  "description": "Law presets used where an entity's 1836 institutions have only been researched at the level of regime type. A profile that uses a preset gets laws quality 'estimated' with method 'preset mapping'; overrides record individually researched laws.",
+  "law_groups": {
+    "power": ["autocracy", "oligarchy", "census_suffrage", "universal_male_suffrage", "theocracy", "tribal_council"],
+    "governance": ["monarchy", "republic", "theocracy", "chiefdom", "colonial_company"],
+    "economy": ["traditionalism", "mercantilism", "interventionism", "laissez_faire"],
+    "trade": ["isolationism", "protectionism", "free_trade"],
+    "labor": ["slavery", "serfdom", "traditional_tenancy", "free_labor"],
+    "church": ["state_religion", "freedom_of_conscience", "secularism"],
+    "press": ["censorship", "limited_press", "free_press"],
+    "education": ["no_schools", "religious_schools", "public_schools"],
+    "army": ["feudal_levies", "professional_army", "mass_conscription"]
+  },
+  "labor_semantics": "'slavery' = chattel slavery legal somewhere in the state's territory (including colonies); 'serfdom' = hereditary bonded or corvée labour; 'traditional_tenancy' = customary/dues-based tenure without legal bondage.",
+  "presets": {
+    "german_constitutional": {"power": "census_suffrage", "governance": "monarchy", "economy": "mercantilism", "trade": "free_trade", "labor": "traditional_tenancy", "church": "state_religion", "press": "censorship", "education": "public_schools", "army": "mass_conscription"},
+    "german_absolute": {"power": "autocracy", "governance": "monarchy", "economy": "mercantilism", "trade": "free_trade", "labor": "traditional_tenancy", "church": "state_religion", "press": "censorship", "education": "public_schools", "army": "mass_conscription"},
+    "german_estates": {"power": "oligarchy", "governance": "monarchy", "economy": "traditionalism", "trade": "protectionism", "labor": "traditional_tenancy", "church": "state_religion", "press": "censorship", "education": "public_schools", "army": "mass_conscription"},
+    "free_city": {"power": "oligarchy", "governance": "republic", "economy": "laissez_faire", "trade": "free_trade", "labor": "free_labor", "church": "state_religion", "press": "censorship", "education": "public_schools", "army": "professional_army"},
+    "italian_absolute": {"power": "autocracy", "governance": "monarchy", "economy": "traditionalism", "trade": "protectionism", "labor": "traditional_tenancy", "church": "state_religion", "press": "censorship", "education": "religious_schools", "army": "professional_army"},
+    "islamic_monarchy": {"power": "autocracy", "governance": "monarchy", "economy": "traditionalism", "trade": "protectionism", "labor": "traditional_tenancy", "church": "state_religion", "press": "censorship", "education": "religious_schools", "army": "feudal_levies"},
+    "islamic_theocracy": {"power": "theocracy", "governance": "theocracy", "economy": "traditionalism", "trade": "protectionism", "labor": "slavery", "church": "state_religion", "press": "censorship", "education": "religious_schools", "army": "feudal_levies"},
+    "indian_princely": {"power": "autocracy", "governance": "monarchy", "economy": "traditionalism", "trade": "protectionism", "labor": "traditional_tenancy", "church": "state_religion", "press": "censorship", "education": "religious_schools", "army": "feudal_levies"},
+    "buddhist_monarchy": {"power": "autocracy", "governance": "monarchy", "economy": "traditionalism", "trade": "protectionism", "labor": "serfdom", "church": "state_religion", "press": "censorship", "education": "religious_schools", "army": "feudal_levies"},
+    "african_kingdom": {"power": "autocracy", "governance": "monarchy", "economy": "traditionalism", "trade": "protectionism", "labor": "slavery", "church": "state_religion", "press": "censorship", "education": "no_schools", "army": "feudal_levies"},
+    "latin_republic": {"power": "census_suffrage", "governance": "republic", "economy": "mercantilism", "trade": "protectionism", "labor": "free_labor", "church": "state_religion", "press": "limited_press", "education": "religious_schools", "army": "professional_army"},
+    "polynesian_kingdom": {"power": "autocracy", "governance": "monarchy", "economy": "traditionalism", "trade": "free_trade", "labor": "traditional_tenancy", "church": "state_religion", "press": "censorship", "education": "religious_schools", "army": "feudal_levies"},
+    "decentralized": {"power": "tribal_council", "governance": "chiefdom", "economy": "traditionalism", "trade": "protectionism", "labor": "traditional_tenancy", "church": "state_religion", "press": "censorship", "education": "no_schools", "army": "feudal_levies"},
+    "rebel_government": {"power": "oligarchy", "governance": "republic", "economy": "mercantilism", "trade": "protectionism", "labor": "free_labor", "church": "state_religion", "press": "limited_press", "education": "religious_schools", "army": "feudal_levies"}
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "USA", "as_of": "1836-01-01", "research_status": "partial",
+  "political": {
+    "government": {"value": "presidential_republic", "quality": "supported", "sources": ["howe_2007"], "note": "Federal republic of 24 states (Arkansas admitted June 1836, Michigan Jan 1837)."},
+    "head_of_state": {"value": {"name": "Andrew Jackson", "title": "President", "party": "Democratic", "born": "1767-03-15", "since": "1829-03-04"}, "quality": "supported", "sources": ["howe_2007"]},
+    "power_groups": [{"name": "Democrats (Jackson, Van Buren)", "in_government": true}, {"name": "Whigs (Clay, Webster)", "in_government": false}, {"name": "Southern planters", "in_government": true}, {"name": "Northern abolitionists (American Anti-Slavery Society 1833)", "in_government": false}],
+    "laws": {"value": {"power": "universal_male_suffrage", "governance": "republic", "economy": "laissez_faire", "trade": "protectionism", "labor": "slavery", "church": "secularism", "press": "free_press", "education": "public_schools", "army": "professional_army"},
+      "quality": "supported", "sources": ["howe_2007"], "note": "White male suffrage in nearly all states (women, enslaved people and most free Black men excluded). Compromise Tariff of 1833. Slavery legal in the southern states. Common schools spreading in the North (state level)."},
+    "reforms": [{"date": "1830-05-28", "name": "Indian Removal Act", "sources": ["howe_2007"]}, {"date": "1833-03-02", "name": "Compromise Tariff", "sources": ["howe_2007"]}, {"date": "1836-07-11", "name": "Specie Circular (future)", "sources": ["howe_2007"]}]
+  },
+  "territory": {"capital": "USA_MAR", "claims": [{"region": "DZ_OREGON", "basis": "Joint occupation with Britain"}, {"region": "DZ_PLAINS_N", "basis": "Louisiana Purchase"}, {"region": "DZ_PLAINS_C", "basis": "Louisiana Purchase"}, {"region": "DZ_PLAINS_UP", "basis": "Louisiana Purchase"}, {"region": "DZ_SEMINOLE", "basis": "Adams-Onís Treaty (1819)"}]},
+  "economy": {
+    "structure": {"value": "Agrarian expansion; cotton export economy based on slave labour in the South; textile mills and commerce in New England and the Mid-Atlantic; canals and early railroads.", "quality": "supported", "sources": ["howe_2007"]},
+    "manufacturing_share_world_1830": {"value": 2.4, "unit": "%", "quality": "supported", "sources": ["bairoch_1982", "kennedy_1987"]},
+    "iron_steel_kt": {"value": 280, "quality": "verified", "sources": [{"id": "cow_nmc_v7", "locator": "irst USA 1836"}]},
+    "industrialization_stage": {"value": "early_industrial", "quality": "supported", "sources": ["howe_2007"]},
+    "crises": [{"date": "1837-05", "name": "Panic of 1837 (future)", "sources": ["howe_2007"]}]
+  },
+  "society": {"enslaved_population_1840": {"value": 2487355, "quality": "supported", "sources": ["us_census_1830_1840"], "note": "Sixth census count; used to calibrate slave strata shares."}, "literacy": {"value": 0.75, "range": [0.65, 0.85], "quality": "estimated", "sources": [], "needs_source": true, "method": "White adult literacy high (1840 census); enslaved people mostly barred from literacy."}},
+  "diplomacy": {"foreign_policy": {"value": "Monroe Doctrine; westward expansion; recognition question of Texas (recognised March 1837).", "quality": "supported", "sources": ["howe_2007"]},
+    "relations": [{"with": "GBR", "value": 10}, {"with": "MEX", "value": -30}, {"with": "TEX", "value": 50}, {"with": "FRA", "value": 0}, {"with": "RUS", "value": 10}, {"with": "HAI", "value": -20}],
+    "relations_quality": "estimated", "relations_method": "Ordinal judgement from Howe (2007)."},
+  "military": {"army_personnel": {"value": 17000, "quality": "verified", "sources": [{"id": "cow_nmc_v7", "locator": "milper USA 1836"}]}, "doctrine": {"value": "Small regular army and militia; frontier wars (Second Seminole War from Dec 1835).", "quality": "supported", "sources": ["howe_2007"]}},
+  "technology": {"level": {"value": "advanced", "quality": "supported", "sources": ["landes_1969"]}},
+  "historical_ai": {
+    "strategic_priorities": [
+      {"id": "USA_texas", "goal": "annex_region", "target": ["TEX_TEX"], "weight": 0.7, "window": ["1836", "1846"], "conditions": [{"type": "exists", "entity": "TEX"}], "rationale": "Annexation of Texas (1845).", "sources": ["howe_2007", "cow_terrchange_v6"]},
+      {"id": "USA_manifest_destiny", "goal": "conquer_region", "target": ["MEX_CAL", "MEX_NMX", "DZ_GREATBASIN", "DZ_APACHERIA"], "weight": 0.7, "window": ["1844", "1854"], "rationale": "Mexican-American War and Mexican Cession (1848), Gadsden Purchase (1853).", "sources": ["cow_interstate_v40", "cow_terrchange_v6"]},
+      {"id": "USA_oregon", "goal": "conquer_region", "target": ["DZ_OREGON"], "weight": 0.6, "window": ["1836", "1846"], "rationale": "Oregon Treaty (1846).", "sources": ["howe_2007"]},
+      {"id": "USA_western_settlement", "goal": "colonize", "target": ["DZ_PLAINS_C", "DZ_PLAINS_N", "DZ_PLAINS_UP", "DZ_SEMINOLE", "DZ_COMANCHE"], "weight": 0.6, "window": ["1836", "1890"], "rationale": "Westward settlement and wars against Native nations.", "sources": ["howe_2007"]},
+      {"id": "USA_monroe", "goal": "contain_power", "target": "EUROPEAN_IN_AMERICAS", "weight": 0.4, "window": ["1823", "1914"], "rationale": "Monroe Doctrine.", "sources": ["howe_2007"]}
+    ],
+    "military_doctrine": "frontier_army"
+  },
+  "personality": {"aggression": 0.4, "expansionism": 0.8, "reformism": 0.5, "commerce": 0.7, "naval": 0.3, "isolationism": 0.4, "risk": 0.5, "rationale": "Expansionist republic avoiding European entanglements."}
+}

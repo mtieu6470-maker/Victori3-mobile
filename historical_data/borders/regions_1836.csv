@@ -1,0 +1,668 @@
+# Map regions at 1836-01-01. Separator ';'. pop_k = estimated population (thousands) of the region, used ONLY as allocation weights:
+# entity / group totals come from population/population_totals_1836.json (CoW, census, Maddison) and regions are scaled to them.
+# owner: entity id, or DZ:<group> for a decentralized polity of that registry group (the polity id is the region id).
+# controller: occupying/rebel entity at start (empty = owner). Terrain: pl plains, hi hills, mo mountains, fo forest, de desert, st steppe, ju jungle, tu tundra, ma marsh, sa savanna.
+# Coordinates are approximate centres of population, not surveyed boundaries. Region boundaries on the map are generated (nearest-centre on each landmass) and are approximate.
+id;name;lat;lon;owner;controller;culture;culture2;c2;religion;religion2;r2;terrain;pop_k;res;note
+GBR_LON;London and the Home Counties;51.45;-0.3;GBR;;english;;0;protestant;;0;pl;3400;grain|fish;
+GBR_SOU;Southern and South-West England;50.85;-2.9;GBR;;english;;0;protestant;;0;hi;2500;grain|live|fish;
+GBR_EAN;East Anglia;52.45;0.9;GBR;;english;;0;protestant;;0;pl;1100;grain|live;
+GBR_MID;English Midlands;52.6;-1.8;GBR;;english;;0;protestant;;0;pl;2600;coal|iron|grain;
+GBR_LAN;Lancashire and Cheshire;53.55;-2.6;GBR;;english;irish;0.08;protestant;catholic;0.1;pl;2000;coal;Cotton textile centre (raw cotton imported).
+GBR_YOR;Yorkshire and the North of England;54.1;-1.6;GBR;;english;;0;protestant;;0;hi;2450;coal|iron|live;
+GBR_WAL;Wales;52.3;-3.65;GBR;;welsh;english;0.3;protestant;;0;mo;850;coal|iron|live;
+GBR_SLO;Scottish Lowlands;55.85;-3.9;GBR;;scottish;irish;0.05;protestant;catholic;0.05;hi;1950;coal|iron|fish;
+GBR_SHI;Scottish Highlands and Islands;57.4;-4.7;GBR;;scottish;;0;protestant;;0;mo;550;live|fish|timb;
+GBR_DUB;Leinster;53.1;-7.0;GBR;;irish;english;0.1;catholic;protestant;0.12;pl;1950;grain|live;
+GBR_MUN;Munster;52.25;-8.6;GBR;;irish;;0;catholic;protestant;0.05;hi;2350;grain|live;
+GBR_ULS;Ulster;54.65;-6.75;GBR;;irish;scottish;0.4;catholic;protestant;0.48;hi;2350;grain|live;Linen industry.
+GBR_CON;Connacht;53.75;-9.0;GBR;;irish;;0;catholic;;0;hi;1400;grain;
+GBR_MLT;Malta;35.9;14.42;GBR;;maltese;;0;catholic;;0;hi;120;fish;
+HAN_HAN;Hanover;52.35;9.9;HAN;;german;;0;protestant;;0;pl;1150;grain|live|timb;
+HAN_OSN;East Frisia and Osnabrück;52.85;7.55;HAN;;german;;0;protestant;catholic;0.35;pl;550;grain|live;
+ION_COR;Ionian Islands;39.6;19.9;ION;;greek;italian;0.05;orthodox;catholic;0.05;hi;200;fish|cash;
+FRA_IDF;Île-de-France (Paris);48.85;2.35;FRA;;french;;0;catholic;;0;pl;1600;grain;
+FRA_NOR;Normandy;49.15;0.3;FRA;;french;;0;catholic;;0;pl;2500;grain|live|fish;
+FRA_BRE;Brittany;48.15;-2.9;FRA;;french;breton;0.45;catholic;;0;hi;2500;grain|fish;
+FRA_NRD;Nord and Picardy;50.2;2.85;FRA;;french;flemish;0.08;catholic;;0;pl;2400;coal|grain;
+FRA_CHA;Champagne;49.0;4.3;FRA;;french;;0;catholic;;0;pl;1100;grain|lux;
+FRA_LOR;Lorraine;48.85;6.2;FRA;;french;german;0.2;catholic;;0;hi;1500;iron|coal|grain;
+FRA_ALS;Alsace;48.4;7.5;FRA;;german;french;0.15;catholic;protestant;0.3;pl;1000;grain|lux;German (Alemannic) dialect speakers with French state identity.
+FRA_BUR;Burgundy and Franche-Comté;47.2;5.2;FRA;;french;;0;catholic;;0;hi;1900;grain|lux|timb;
+FRA_LYO;Lyonnais and Dauphiné;45.6;4.9;FRA;;french;;0;catholic;;0;mo;2500;coal|lux;Lyon silk industry.
+FRA_PRO;Provence;43.6;5.8;FRA;;french;;0;catholic;;0;hi;1500;lux|fish;Occitan (Provençal) speech widespread (not modelled separately).
+FRA_LAN;Languedoc;43.65;2.3;FRA;;french;;0;catholic;protestant;0.05;hi;2600;grain|lux;Occitan speech widespread (not modelled separately).
+FRA_AQU;Aquitaine and Gascony;44.4;-0.6;FRA;;french;basque;0.05;catholic;;0;pl;2500;lux|timb|grain;
+FRA_CEN;Centre and Loire;47.35;0.9;FRA;;french;;0;catholic;;0;pl;3000;grain|lux;
+FRA_POI;Poitou and Charentes;46.2;-0.4;FRA;;french;;0;catholic;protestant;0.05;pl;1700;grain|lux;
+FRA_AUV;Auvergne and Limousin;45.6;2.4;FRA;;french;;0;catholic;;0;mo;2200;live|coal;
+FRA_COR;Corsica;42.15;9.05;FRA;;corsican;;0;catholic;;0;mo;210;live;
+FRA_ALG;Algiers and the Mitidja (French);36.65;3.0;FRA;;maghrebi_arab;berber;0.3;sunni;;0;hi;300;grain;French conquest since 1830.
+FRA_ORA;Oran (French);35.7;-0.65;FRA;;maghrebi_arab;;0;sunni;;0;st;150;grain;
+FRA_SEN;Saint-Louis and Gorée (Senegal);16.03;-16.45;FRA;;wolof;;0;sunni;catholic;0.1;sa;20;cash;
+FRA_ANT;Martinique and Guadeloupe;14.65;-61.0;FRA;;afro_caribbean;french;0.1;catholic;;0;ju;230;cash;Slavery until 1848.
+FRA_GUY;French Guiana;4.9;-52.6;FRA;;afro_caribbean;;0;catholic;;0;ju;20;cash;
+FRA_REU;Bourbon (Réunion);-21.1;55.5;FRA;;mascarene_creole;;0;catholic;;0;mo;105;cash;
+SPA_MAD;New Castile (Madrid);40.0;-3.7;SPA;;castilian;;0;catholic;;0;pl;1300;grain;
+SPA_OLD;Old Castile and León;41.75;-4.75;SPA;;castilian;;0;catholic;;0;pl;1900;grain|live;
+SPA_GAL;Galicia;42.8;-8.0;SPA;;galician;;0;catholic;;0;hi;1450;grain|fish;
+SPA_AST;Asturias and Cantabria;43.3;-5.3;SPA;;castilian;;0;catholic;;0;mo;600;coal|iron;
+SPA_BAS;Basque Provinces and Navarre;42.95;-2.2;SPA;CAR;basque;castilian;0.45;catholic;;0;mo;750;iron;Carlist-held at start (First Carlist War).
+SPA_ARA;Aragon;41.6;-0.9;SPA;;castilian;;0;catholic;;0;mo;800;grain;
+SPA_CAT;Catalonia;41.7;1.8;SPA;;catalan;;0;catholic;;0;hi;1100;cott|lux;Catalan cotton manufacturing.
+SPA_VAL;Valencia and Murcia;39.0;-0.9;SPA;;catalan;castilian;0.45;catholic;;0;pl;1600;cash|lux;
+SPA_AND;Andalusia;37.45;-4.6;SPA;;castilian;;0;catholic;;0;hi;2400;grain|lux|silv;
+SPA_EXT;Extremadura;39.2;-6.2;SPA;;castilian;;0;catholic;;0;pl;550;live;
+SPA_BAL;Balearic Islands;39.6;2.95;SPA;;catalan;;0;catholic;;0;hi;230;fish;
+SPA_CAN;Canary Islands;28.3;-16.5;SPA;;castilian;;0;catholic;;0;mo;230;cash;
+SPA_CUB;Western Cuba (Havana);22.8;-82.2;SPA;;afro_caribbean;cuban;0.45;catholic;;0;pl;550;cash;Slave plantation economy (sugar).
+SPA_CUE;Eastern Cuba (Santiago);20.6;-76.4;SPA;;afro_caribbean;cuban;0.45;catholic;;0;hi;310;cash;
+SPA_PUR;Puerto Rico;18.22;-66.5;SPA;;puerto_rican;afro_caribbean;0.4;catholic;;0;hi;350;cash;
+SPA_PHL;Luzon (Manila);15.2;121.0;SPA;;filipino;;0;catholic;;0;ju;1700;cash|grain;
+SPA_VIS;Visayas;10.6;123.4;SPA;;filipino;;0;catholic;;0;ju;1050;cash|grain;
+POR_LIS;Lisbon and Estremadura;38.95;-9.0;POR;;portuguese;;0;catholic;;0;pl;900;lux|fish;
+POR_NOR;Northern Portugal (Porto, Minho);41.45;-8.0;POR;;portuguese;;0;catholic;;0;hi;1400;lux|grain;
+POR_CEN;Beira and Coimbra;40.4;-7.8;POR;;portuguese;;0;catholic;;0;mo;900;grain|live;
+POR_ALE;Alentejo and Algarve;37.9;-8.0;POR;;portuguese;;0;catholic;;0;pl;450;grain|lux;
+POR_AZO;Azores;37.78;-25.5;POR;;portuguese;;0;catholic;;0;hi;220;grain;
+POR_MAD;Madeira;32.72;-16.95;POR;;portuguese;;0;catholic;;0;mo;110;lux;
+POR_ANG;Angola (Luanda and presídios);-9.3;14.2;POR;;mbundu;portuguese;0.02;traditional;catholic;0.15;sa;350;cash;Effective control limited to the coast and river forts.
+POR_MOZ;Mozambique (coast and Zambezi prazos);-17.0;36.6;POR;;malawian;swahili;0.1;traditional;sunni;0.2;sa;300;gold|cash;
+POR_GOA;Goa;15.4;74.05;POR;;marathi;;0;catholic;hindu;0.45;ju;300;cash;
+POR_CPV;Cape Verde;15.1;-23.6;POR;;afro_caribbean;;0;catholic;;0;mo;60;cash;
+POR_GUI;Portuguese Guinea (Bissau, Cacheu);11.86;-15.6;POR;;west_atlantic;;0;traditional;;0;ju;20;cash;
+NED_HOL;Holland;52.25;4.65;NED;;dutch;;0;protestant;catholic;0.3;ma;1000;fish|live;
+NED_NOR;Northern Netherlands;52.9;6.3;NED;;dutch;;0;protestant;;0;pl;700;live|grain;
+NED_SOU;Southern Netherlands (Gelderland, Brabant);51.6;5.4;NED;;dutch;;0;catholic;protestant;0.35;pl;1100;grain;
+NED_JAW;West Java (Batavia);-6.6;107.0;NED;;sundanese;javanese;0.2;sunni;;0;ju;2500;cash;Cultivation System (Cultuurstelsel) since 1830.
+NED_JAE;Central and East Java;-7.4;111.0;NED;;javanese;;0;sunni;;0;ju;5500;cash|grain;
+NED_PAD;West Sumatra (Padang);-0.9;100.4;NED;;minangkabau;;0;sunni;;0;ju;600;cash|gold;Padri War (1821-1837) ongoing.
+NED_PLB;Palembang and South Sumatra;-3.3;104.0;NED;;malay;;0;sunni;;0;ju;400;cash;
+NED_MOL;Moluccas (Ambon, Ternate);-3.7;128.2;NED;;moluccan;;0;protestant;sunni;0.5;ju;250;cash;
+NED_MIN;Minahasa (Manado);1.35;124.85;NED;;moluccan;;0;protestant;traditional;0.5;ju;100;cash;
+NED_SUR;Suriname;5.2;-55.3;NED;;afro_caribbean;;0;protestant;traditional;0.3;ju;60;cash;
+NED_CUR;Curaçao and Dutch Antilles;12.17;-68.98;NED;;afro_caribbean;dutch;0.15;catholic;;0;de;20;;
+BEL_BRU;Brabant (Brussels);50.85;4.45;BEL;;flemish;walloon;0.45;catholic;;0;pl;600;grain;
+BEL_FLA;Flanders and Antwerp;51.1;3.9;BEL;;flemish;;0;catholic;;0;pl;2000;grain|lux;
+BEL_WAL;Wallonia (Liège, Hainaut, Namur);50.45;5.0;BEL;;walloon;;0;catholic;;0;hi;1300;coal|iron;
+BEL_LIM;Limburg (Belgian-administered);51.0;5.7;BEL;;flemish;dutch;0.3;catholic;;0;pl;300;coal;Eastern part claimed by the Netherlands (returned 1839).
+BEL_LUX;Luxembourg (Belgian-administered);49.8;5.95;BEL;;german;walloon;0.4;catholic;;0;hi;330;iron;De jure Grand Duchy of the Dutch king; partitioned 1839.
+SWI_ZUR;Northern Switzerland (Zürich, Basel);47.4;8.4;SWI;;swiss;;0;protestant;catholic;0.35;hi;800;lux;
+SWI_BER;Bern and Central Switzerland;46.9;7.8;SWI;;swiss;;0;protestant;catholic;0.4;mo;650;live;
+SWI_ROM;Romandy (Geneva, Vaud, Neuchâtel);46.6;6.7;SWI;;swiss;;0;protestant;catholic;0.35;mo;450;lux;French-speaking cantons. Neuchâtel also a Prussian principality until 1848.
+SWI_EAS;Eastern Switzerland and Ticino;46.6;9.4;SWI;;swiss;;0;catholic;protestant;0.4;mo;300;live;
+DEN_ZEA;Zealand and the Danish Islands;55.45;11.8;DEN;;danish;;0;protestant;;0;pl;500;grain|fish;
+DEN_JUT;Jutland;56.2;9.2;DEN;;danish;;0;protestant;;0;pl;480;grain|live;
+DEN_SCH;Duchy of Schleswig;54.65;9.3;DEN;;danish;german;0.5;protestant;;0;pl;340;grain|live;
+DEN_HOL;Duchies of Holstein and Lauenburg;54.1;10.0;DEN;;german;;0;protestant;;0;pl;470;grain|live;Members of the German Confederation.
+DEN_ICE;Iceland;64.9;-18.5;DEN;;icelandic;;0;protestant;;0;tu;57;fish|live;
+DEN_GRL;Greenland (Danish settlements);64.2;-51.7;DEN;;inuit;danish;0.03;protestant;traditional;0.3;tu;8;fish;
+DEN_DWI;Danish West Indies;17.73;-64.75;DEN;;afro_caribbean;;0;protestant;;0;hi;40;cash;
+SWE_STO;Svealand (Stockholm);59.5;16.8;SWE;;swedish;;0;protestant;;0;fo;900;iron|timb;Bergslagen iron.
+SWE_GOT;Götaland;57.4;13.6;SWE;;swedish;;0;protestant;;0;pl;1500;grain|timb;
+SWE_NOR;Norrland;63.6;17.0;SWE;;swedish;;0;protestant;;0;fo;450;timb|iron;
+NOR_OSL;Eastern Norway (Christiania);60.3;10.4;NOR;;norwegian;;0;protestant;;0;fo;650;timb;
+NOR_BER;Western Norway (Bergen);60.6;6.4;NOR;;norwegian;;0;protestant;;0;mo;350;fish|timb;
+NOR_NOR;Trøndelag and Northern Norway;65.8;13.8;NOR;;norwegian;;0;protestant;;0;tu;200;fish;
+RUS_STP;St Petersburg, Novgorod and Pskov;59.0;31.0;RUS;;russian;;0;orthodox;;0;fo;2600;timb|grain;
+RUS_MOS;Moscow and the Central Industrial Region;56.6;39.0;RUS;;russian;;0;orthodox;;0;fo;7000;timb|grain;Cottage textile industry.
+RUS_CBE;Central Black Earth (Tula, Orel, Kursk, Voronezh);52.5;38.3;RUS;;russian;;0;orthodox;;0;pl;9000;grain|iron;
+RUS_BAL;Baltic provinces (Estland, Livland, Courland);57.6;24.8;RUS;;latvian;estonian;0.4;protestant;;0;fo;1650;grain|timb;Baltic German nobility.
+RUS_VIL;Lithuania (Vilna, Kovno, Grodno);54.9;24.3;RUS;;lithuanian;polish;0.3;catholic;jewish;0.12;fo;2500;grain|timb;
+RUS_MIN;Belarus (Minsk, Vitebsk, Mogilev);54.0;28.6;RUS;;belarusian;jewish;0.12;orthodox;catholic;0.2;fo;3000;grain|timb;Greek Catholic (Uniate) church forcibly dissolved 1839.
+RUS_KIE;Right-Bank Ukraine (Kiev, Podolia, Volhynia);49.8;28.4;RUS;;ukrainian;polish;0.1;orthodox;jewish;0.12;pl;4500;grain;
+RUS_KHA;Left-Bank Ukraine (Poltava, Chernigov, Kharkov);50.2;34.2;RUS;;ukrainian;russian;0.15;orthodox;;0;pl;4500;grain|live;
+RUS_NRU;New Russia (Kherson, Ekaterinoslav, Odessa);47.4;33.0;RUS;;ukrainian;russian;0.35;orthodox;;0;st;1800;grain;
+RUS_CRI;Taurida (Crimea);45.1;34.2;RUS;;crimean_tatar;russian;0.4;sunni;orthodox;0.45;st;500;lux|fish;
+RUS_BES;Bessarabia;47.0;28.7;RUS;;romanian;ukrainian;0.2;orthodox;;0;pl;700;grain|lux;
+RUS_DON;Don Cossack Host;48.0;40.6;RUS;;russian;;0;orthodox;;0;st;650;grain|live|coal;
+RUS_VOL;Middle Volga (Kazan, Simbirsk, Nizhny Novgorod);55.0;47.6;RUS;;russian;volga_tatar;0.3;orthodox;sunni;0.3;fo;5500;grain|timb;
+RUS_LVO;Lower Volga (Saratov, Astrakhan);48.8;46.0;RUS;;russian;german;0.1;orthodox;;0;st;2000;grain|fish;
+RUS_URA;Urals (Perm, Vyatka, Orenburg, Ufa);56.8;56.0;RUS;;russian;bashkir;0.2;orthodox;sunni;0.25;fo;5000;iron|timb|gold;Ural ironworks.
+RUS_NOR;Russian North (Arkhangelsk, Vologda);62.5;40.5;RUS;;russian;;0;orthodox;;0;fo;1300;timb|fish;
+RUS_FIN;Southern Finland (Helsingfors, Åbo);61.0;24.6;RUS;;finnish;swedish;0.13;protestant;;0;fo;1000;timb;Grand Duchy of Finland.
+RUS_FIN2;Northern Finland (Uleåborg);65.0;26.0;RUS;;finnish;;0;protestant;;0;fo;350;timb;Grand Duchy of Finland.
+RUS_WAR;Congress Poland west (Warsaw, Kalisz, Płock);52.2;19.4;RUS;;polish;jewish;0.1;catholic;jewish;0.1;pl;2500;grain|coal;Kingdom of Poland.
+RUS_LUB;Congress Poland east (Lublin, Radom);51.1;22.0;RUS;;polish;jewish;0.1;catholic;jewish;0.1;pl;1700;grain;Kingdom of Poland.
+RUS_GEO;Georgia (Tiflis, Kutaisi);42.0;44.0;RUS;;georgian;armenian;0.15;orthodox;armenian_apostolic;0.15;mo;800;lux;
+RUS_ARM;Russian Armenia (Erivan);40.2;44.5;RUS;;armenian;azeri;0.3;armenian_apostolic;shia;0.3;mo;300;lux;Annexed 1828 (Treaty of Turkmenchay).
+RUS_AZE;Shirvan and Baku;40.5;48.0;RUS;;azeri;;0;shia;sunni;0.3;st;600;cott|lux;
+RUS_NCA;Caucasus Line (Stavropol, Kuban Cossacks);45.1;41.8;RUS;;russian;;0;orthodox;;0;st;450;grain|live;
+RUS_TOB;Western Siberia (Tobolsk, Omsk);57.5;68.5;RUS;;russian;siberian_native;0.1;orthodox;;0;fo;1000;grain|timb;
+RUS_TOM;Tomsk and the Altai;55.5;83.5;RUS;;russian;siberian_native;0.1;orthodox;;0;fo;700;silv|gold|timb;
+RUS_IRK;Eastern Siberia (Irkutsk, Yeniseisk);54.5;100.0;RUS;;russian;siberian_native;0.25;orthodox;vajrayana;0.15;fo;600;gold|timb;
+RUS_YAK;Yakutsk;62.0;129.7;RUS;;siberian_native;russian;0.1;traditional;orthodox;0.4;tu;230;gold;
+RUS_OKH;Okhotsk and Kamchatka;58.0;155.0;RUS;;siberian_native;russian;0.2;traditional;orthodox;0.3;tu;30;fish;
+RUS_CHU;Chukotka;66.0;172.0;RUS;;siberian_native;;0;traditional;;0;tu;12;fish;Chukchi largely outside effective Russian control.
+RUS_ALA;Russian America (Sitka, Kodiak, Cook Inlet);60.5;-150.0;RUS;;alaskan_native;russian;0.05;orthodox;traditional;0.5;tu;60;fish;Russian-American Company.
+RUS_KAZ;Kazakh Steppe (Junior and Middle Zhuz);50.0;62.0;RUS;;kazakh;;0;sunni;;0;st;1200;live;Nominal Russian administration; khan title abolished 1822/1824.
+CIR_CIR;Circassia;44.3;39.6;CIR;;circassian;;0;sunni;;0;mo;500;live|timb;
+IMM_DAG;Daghestan and Chechnya (Imamate);42.8;46.6;IMM;;north_caucasian;;0;sunni;;0;mo;450;live;
+KRA_KRA;Free City of Kraków;50.06;19.94;KRA;;polish;jewish;0.15;catholic;jewish;0.15;pl;140;coal;
+PRU_BRA;Brandenburg (Berlin);52.5;13.4;PRU;;german;;0;protestant;;0;pl;1850;grain;
+PRU_POM;Pomerania;53.8;15.0;PRU;;german;;0;protestant;;0;pl;1000;grain|timb;
+PRU_EPR;East Prussia;54.2;21.0;PRU;;german;polish;0.15;protestant;catholic;0.12;fo;1300;grain|timb;
+PRU_WPR;West Prussia (Danzig);53.7;18.5;PRU;;german;polish;0.45;catholic;protestant;0.45;pl;900;grain;
+PRU_POS;Grand Duchy of Posen;52.4;17.1;PRU;;polish;german;0.33;catholic;protestant;0.3;pl;1200;grain;
+PRU_SIL;Silesia;50.9;17.0;PRU;;german;polish;0.3;catholic;protestant;0.45;hi;2600;coal|iron|grain;
+PRU_SAX;Province of Saxony (Magdeburg);51.9;11.8;PRU;;german;;0;protestant;;0;pl;1550;grain|coal;
+PRU_WES;Westphalia;51.8;7.9;PRU;;german;;0;catholic;protestant;0.45;hi;1300;coal|iron;
+PRU_RHI;Rhine Province;50.6;6.9;PRU;;german;;0;catholic;protestant;0.25;hi;2400;coal|iron|lux;
+AUS_VIE;Lower Austria (Vienna);48.2;16.0;AUS;;german;czech;0.05;catholic;;0;hi;1400;grain|lux;
+AUS_UPA;Upper Austria and Salzburg;47.9;13.6;AUS;;german;;0;catholic;;0;mo;850;timb|live;
+AUS_STY;Styria and Carinthia;47.0;14.8;AUS;;german;slovene;0.3;catholic;;0;mo;1300;iron|timb;
+AUS_CAR;Carniola, Gorizia and the Littoral (Trieste);45.85;14.0;AUS;;slovene;italian;0.25;catholic;;0;mo;900;timb|fish;
+AUS_TYR;Tyrol and Vorarlberg;46.9;11.2;AUS;;german;italian;0.4;catholic;;0;mo;850;live|timb;
+AUS_BOH;Bohemia;49.9;14.5;AUS;;czech;german;0.38;catholic;;0;hi;4100;coal|iron|grain|lux;
+AUS_MOR;Moravia and Austrian Silesia;49.5;17.0;AUS;;czech;german;0.3;catholic;;0;hi;2200;coal|grain;
+AUS_GAL;West Galicia;50.0;21.5;AUS;;polish;jewish;0.1;catholic;jewish;0.1;pl;2000;grain;
+AUS_LEM;East Galicia (Lemberg);49.6;24.5;AUS;;ukrainian;polish;0.3;greek_catholic;catholic;0.3;pl;2600;grain|timb;
+AUS_BUK;Bukovina;48.0;25.8;AUS;;romanian;ukrainian;0.4;orthodox;;0;hi;300;timb;
+AUS_HUN;Central Hungary (Pest-Buda);47.3;19.5;AUS;;hungarian;german;0.12;catholic;protestant;0.25;pl;2800;grain|live;Kingdom of Hungary (own Diet).
+AUS_UPH;Upper Hungary;48.7;19.5;AUS;;slovak;hungarian;0.3;catholic;protestant;0.2;mo;2000;iron|silv|timb;Kingdom of Hungary.
+AUS_TIS;Tisza Plain and Eastern Hungary;47.5;21.6;AUS;;hungarian;romanian;0.15;protestant;catholic;0.4;pl;1800;grain|live;Kingdom of Hungary.
+AUS_TRW;Transdanubia (Western Hungary);46.8;17.6;AUS;;hungarian;german;0.15;catholic;;0;hi;2000;grain|lux;Kingdom of Hungary.
+AUS_BAN;Banat and Bačka;45.6;20.6;AUS;;serb;romanian;0.3;orthodox;catholic;0.4;pl;1300;grain;Kingdom of Hungary; mixed Serb, Romanian, German, Hungarian population.
+AUS_TRA;Transylvania;46.5;24.4;AUS;;romanian;hungarian;0.35;orthodox;protestant;0.25;mo;2000;gold|timb|grain;Grand Principality of Transylvania.
+AUS_CRO;Croatia-Slavonia;45.7;16.7;AUS;;croat;serb;0.15;catholic;orthodox;0.15;hi;900;grain;Kingdom of Croatia-Slavonia (Hungarian crown).
+AUS_MIL;Military Frontier;45.1;15.9;AUS;;croat;serb;0.45;catholic;orthodox;0.45;mo;1000;timb;Administered from Vienna by the Hofkriegsrat.
+AUS_DAL;Dalmatia;43.55;16.4;AUS;;croat;italian;0.1;catholic;orthodox;0.15;mo;380;fish|lux;
+AUS_LOM;Lombardy;45.5;9.6;AUS;;italian;;0;catholic;;0;pl;2500;grain|lux;Kingdom of Lombardy-Venetia.
+AUS_VEN;Venetia;45.6;12.0;AUS;;italian;;0;catholic;;0;pl;2100;grain|lux;Kingdom of Lombardy-Venetia.
+BAV_MUN;Old Bavaria (Munich);48.2;11.9;BAV;;german;;0;catholic;;0;hi;1800;grain|live;
+BAV_FRA;Franconia (Nuremberg, Würzburg);49.6;10.8;BAV;;german;;0;protestant;catholic;0.5;hi;1700;grain|lux;
+BAV_SWA;Bavarian Swabia (Augsburg);48.3;10.45;BAV;;german;;0;catholic;;0;pl;550;grain|cott;
+BAV_PAL;Rhenish Palatinate;49.3;7.85;BAV;;german;;0;protestant;catholic;0.45;hi;550;lux|grain;
+SAX_DRE;Kingdom of Saxony;51.0;13.2;SAX;;german;;0;protestant;;0;hi;1630;coal|silv|lux;Early textile and machine industry.
+WUR_STU;Württemberg;48.7;9.2;WUR;;german;;0;protestant;catholic;0.3;hi;1600;grain|lux;
+BAD_KAR;Baden;48.4;8.15;BAD;;german;;0;catholic;protestant;0.33;hi;1240;grain|lux|timb;
+HKA_KAS;Hesse-Kassel;51.0;9.4;HKA;;german;;0;protestant;;0;hi;710;grain|timb;
+HDA_DAR;Hesse-Darmstadt;49.9;8.6;HDA;;german;;0;protestant;catholic;0.3;hi;780;grain|lux;
+MSC_SCH;Mecklenburg-Schwerin;53.7;11.85;MSC;;german;;0;protestant;;0;pl;480;grain|live;
+MST_STR;Mecklenburg-Strelitz;53.4;13.1;MST;;german;;0;protestant;;0;pl;85;grain;
+OLD_OLD;Oldenburg;53.1;8.2;OLD;;german;;0;protestant;catholic;0.25;pl;260;live;
+BRU_BRU;Brunswick;52.2;10.5;BRU;;german;;0;protestant;;0;hi;250;grain|iron;
+NAS_WIE;Nassau;50.2;8.0;NAS;;german;;0;protestant;catholic;0.45;hi;370;lux|iron;
+SWM_WEI;Saxe-Weimar-Eisenach;50.98;11.3;SWM;;german;;0;protestant;;0;hi;245;grain;
+SCG_GOT;Saxe-Coburg and Gotha;50.95;10.7;SCG;;german;;0;protestant;;0;hi;135;timb;
+SMN_MEI;Saxe-Meiningen;50.57;10.4;SMN;;german;;0;protestant;;0;hi;150;timb;
+SAA_ALT;Saxe-Altenburg;50.99;12.43;SAA;;german;;0;protestant;;0;hi;115;grain;
+ADE_DES;Anhalt-Dessau;51.84;12.24;ADE;;german;;0;protestant;;0;pl;60;grain;
+AKO_KOT;Anhalt-Köthen;51.75;11.97;AKO;;german;;0;protestant;;0;pl;40;grain;
+ABE_BER;Anhalt-Bernburg;51.72;11.3;ABE;;german;;0;protestant;;0;hi;45;grain;
+SSO_SON;Schwarzburg-Sondershausen;51.37;10.87;SSO;;german;;0;protestant;;0;hi;55;timb;
+SRU_RUD;Schwarzburg-Rudolstadt;50.72;11.33;SRU;;german;;0;protestant;;0;hi;65;timb;
+RGR_GRE;Reuss-Greiz;50.66;12.2;RGR;;german;;0;protestant;;0;hi;30;lux;
+RSC_GER;Reuss-Schleiz (Gera);50.88;12.08;RSC;;german;;0;protestant;;0;hi;60;lux;
+RLE_LOB;Reuss-Lobenstein-Ebersdorf;50.45;11.64;RLE;;german;;0;protestant;;0;hi;25;timb;
+LIP_DET;Lippe;51.94;8.88;LIP;;german;;0;protestant;;0;hi;80;grain;
+SLI_BUC;Schaumburg-Lippe;52.28;9.05;SLI;;german;;0;protestant;;0;pl;26;coal;
+WLD_ARO;Waldeck and Pyrmont;51.3;8.95;WLD;;german;;0;protestant;;0;hi;56;timb;
+HHO_HOM;Hesse-Homburg;50.23;8.62;HHO;;german;;0;protestant;;0;hi;24;;
+HHE_HEC;Hohenzollern-Hechingen;48.35;8.96;HHE;;german;;0;catholic;;0;hi;21;;
+HSI_SIG;Hohenzollern-Sigmaringen;48.09;9.22;HSI;;german;;0;catholic;;0;hi;42;;
+LIE_VAD;Liechtenstein;47.14;9.52;LIE;;german;;0;catholic;;0;mo;6;;
+HAM_HAM;Free City of Hamburg;53.55;10.0;HAM;;german;;0;protestant;;0;pl;170;fish;
+BRE_BRE;Free City of Bremen;53.08;8.8;BRE;;german;;0;protestant;;0;pl;55;fish;
+LUB_LUB;Free City of Lübeck;53.87;10.69;LUB;;german;;0;protestant;;0;pl;45;fish;
+FRK_FRA;Free City of Frankfurt;50.11;8.68;FRK;;german;jewish;0.06;protestant;catholic;0.3;pl;60;;
+SAR_PIE;Piedmont;44.9;7.7;SAR;;italian;;0;catholic;;0;mo;2600;grain|lux;
+SAR_LIG;Liguria (Genoa);44.4;8.9;SAR;;italian;;0;catholic;;0;mo;650;fish;
+SAR_SAV;Savoy;45.5;6.4;SAR;;french;;0;catholic;;0;mo;560;live|timb;
+SAR_NIC;County of Nice;43.95;7.15;SAR;;italian;french;0.3;catholic;;0;mo;230;lux;
+SAR_SAR;Island of Sardinia;40.1;9.0;SAR;;italian;;0;catholic;;0;mo;525;live|silv;
+MCO_MCO;Monaco, Menton and Roquebrune;43.75;7.45;MCO;;italian;french;0.3;catholic;;0;mo;7;;
+SIC_NAP;Campania (Naples);40.9;14.6;SIC;;italian;;0;catholic;;0;hi;2400;grain|lux;
+SIC_ABR;Abruzzi and Molise;42.1;14.0;SIC;;italian;;0;catholic;;0;mo;1200;live;
+SIC_APU;Apulia;41.0;16.5;SIC;;italian;;0;catholic;;0;pl;1300;grain|lux;
+SIC_CAL;Calabria and Basilicata;39.5;16.3;SIC;;italian;;0;catholic;;0;mo;1400;grain|timb;
+SIC_SIC;Western Sicily (Palermo);37.85;13.4;SIC;;italian;;0;catholic;;0;hi;1100;grain|cash;Sulphur mining.
+SIC_SIE;Eastern Sicily (Catania, Messina);37.45;14.8;SIC;;italian;;0;catholic;;0;mo;900;grain|lux;
+PAP_ROM;Lazio (Rome);42.0;12.6;PAP;;italian;;0;catholic;;0;hi;800;grain;
+PAP_UMB;Umbria and the Marches;43.2;13.0;PAP;;italian;;0;catholic;;0;mo;1150;grain;
+PAP_ROG;Romagna and the Legations (Bologna);44.4;11.6;PAP;;italian;;0;catholic;;0;pl;950;grain|lux;
+TUS_FLO;Grand Duchy of Tuscany;43.5;11.1;TUS;;italian;;0;catholic;;0;hi;1440;grain|lux|iron;Elba iron.
+MOD_MOD;Modena, Reggio and Massa;44.6;10.9;MOD;;italian;;0;catholic;;0;hi;400;grain;
+PMA_PAR;Parma and Piacenza;44.85;9.95;PMA;;italian;;0;catholic;;0;pl;470;grain|live;
+LUC_LUC;Duchy of Lucca;43.85;10.5;LUC;;italian;;0;catholic;;0;hi;160;lux;
+SMR_SMR;San Marino;43.94;12.45;SMR;;italian;;0;catholic;;0;mo;7;;
+TUR_IST;Constantinople and Eastern Thrace;41.1;28.4;TUR;;turkish;greek;0.25;sunni;orthodox;0.35;hi;1300;fish|lux;
+TUR_ADR;Adrianople and Western Thrace;41.75;26.2;TUR;;turkish;bulgarian;0.35;sunni;orthodox;0.45;pl;900;grain;
+TUR_BUL;Danubian Bulgaria (Vidin, Ruse, Shumen);43.3;25.2;TUR;;bulgarian;turkish;0.3;orthodox;sunni;0.35;pl;1800;grain|live;
+TUR_SOF;Sofia and Upper Thrace (Philippopolis);42.4;24.2;TUR;;bulgarian;turkish;0.2;orthodox;sunni;0.25;hi;1300;grain|lux;
+TUR_MAC;Macedonia (Salonica, Monastir, Üsküb);41.25;22.0;TUR;;macedonian_slav;greek;0.25;orthodox;sunni;0.35;mo;1500;grain|cott|lux;
+TUR_ALB;Albania (Shkodra, Berat);41.0;20.0;TUR;;albanian;;0;sunni;orthodox;0.25;mo;900;live;
+TUR_EPI;Epirus and Thessaly (Ioannina, Larissa);39.6;21.6;TUR;;greek;albanian;0.25;orthodox;sunni;0.25;mo;700;grain|live;
+TUR_BOS;Bosnia and Herzegovina;44.0;17.8;TUR;;bosniak;serb;0.4;sunni;orthodox;0.42;mo;1100;timb|iron;First Bosnian revolt 1836-37 (CoW 528).
+TUR_KOS;Kosovo and the Sanjak of Novi Pazar;42.8;20.8;TUR;;albanian;serb;0.4;sunni;orthodox;0.35;mo;450;silv|live;
+TUR_ANW;Western Anatolia (Smyrna, Bursa);38.8;28.2;TUR;;turkish;greek;0.15;sunni;orthodox;0.15;hi;2600;cott|lux|grain;
+TUR_ANC;Central Anatolia (Ankara, Konya);39.0;33.0;TUR;;turkish;;0;sunni;;0;st;2400;grain|live;
+TUR_ANN;Northern Anatolia (Kastamonu, Sivas);40.8;35.6;TUR;;turkish;armenian;0.1;sunni;armenian_apostolic;0.1;mo;1900;grain|timb;
+TUR_TRE;Trebizond and Lazistan;40.85;39.7;TUR;;turkish;greek;0.25;sunni;orthodox;0.25;mo;700;lux|fish;
+TUR_ERZ;Erzurum and Kars;40.0;41.6;TUR;;armenian;kurdish;0.35;armenian_apostolic;sunni;0.6;mo;800;live;
+TUR_VAN;Kurdistan (Diyarbakır, Van, Bitlis);38.3;41.5;TUR;;kurdish;armenian;0.35;sunni;armenian_apostolic;0.3;mo;1300;live;Semi-autonomous Kurdish emirates (Soran, Bohtan) subdued 1834-1847.
+TUR_MOS;Mosul;36.3;43.1;TUR;;kurdish;iraqi_arab;0.4;sunni;;0;st;450;grain;
+TUR_BAG;Baghdad;33.3;44.4;TUR;;iraqi_arab;;0;shia;sunni;0.4;de;600;grain|cash;Direct Ottoman rule restored 1831 (end of Mamluk regime).
+TUR_BAS;Basra;30.5;47.8;TUR;;iraqi_arab;;0;shia;sunni;0.2;ma;300;cash;
+TUR_CYP;Cyprus;35.1;33.4;TUR;;greek;turkish;0.3;orthodox;sunni;0.3;hi;100;cott|lux;
+TUR_AEG;Aegean Islands (Rhodes, Chios, Lesbos, Samos);38.4;26.0;TUR;;greek;turkish;0.1;orthodox;sunni;0.1;hi;250;lux|fish;Samos an autonomous principality from 1834.
+TUR_TRI;Tripolitania;32.45;13.0;TUR;;maghrebi_arab;berber;0.3;sunni;;0;de;350;grain;Direct Ottoman rule restored 1835 (end of Karamanli dynasty).
+TUR_CYR;Cyrenaica (Benghazi);32.1;21.0;TUR;;maghrebi_arab;;0;sunni;;0;de;150;live;
+SER_BEL;Principality of Serbia;44.0;20.9;SER;;serb;;0;orthodox;;0;hi;680;live|grain;
+WAL_BUC;Muntenia (Bucharest);44.5;26.0;WAL;;romanian;;0;orthodox;;0;pl;1500;grain|live;
+WAL_OLT;Oltenia (Craiova);44.5;23.8;WAL;;romanian;;0;orthodox;;0;pl;500;grain;
+MOL_IAS;Principality of Moldavia;46.9;27.2;MOL;;romanian;jewish;0.07;orthodox;jewish;0.07;pl;1300;grain|live;
+MNT_CET;Montenegro;42.6;19.1;MNT;;serb;;0;orthodox;;0;mo;100;live;
+GRE_ATH;Attica and Central Greece;38.6;22.8;GRE;;greek;albanian;0.1;orthodox;;0;mo;300;lux;
+GRE_PEL;Peloponnese;37.5;22.3;GRE;;greek;;0;orthodox;;0;mo;400;lux|grain;
+GRE_CYC;Cyclades and Euboea;37.8;24.9;GRE;;greek;;0;orthodox;;0;hi;110;fish;
+EGY_CAI;Lower Egypt (Cairo, Alexandria, Delta);30.6;31.0;EGY;;egyptian_arab;;0;sunni;coptic_ethiopian;0.07;pl;3200;cott|grain;Long-staple cotton cash crop since the 1820s.
+EGY_UPP;Upper Egypt;26.5;31.6;EGY;;egyptian_arab;;0;sunni;coptic_ethiopian;0.1;de;1700;grain|cash;
+EGY_SUD;Egyptian Sudan (Khartoum, Sennar, Kordofan);14.5;32.2;EGY;;sudanese_arab;;0;sunni;traditional;0.15;sa;1500;gold|live;Conquered 1820-21.
+EGY_DAM;Damascus and Syria;33.7;36.6;EGY;;levantine_arab;;0;sunni;orthodox;0.15;de;600;grain|lux;Egyptian rule 1831-1840.
+EGY_ALE;Aleppo;36.15;37.3;EGY;;levantine_arab;turkish;0.1;sunni;orthodox;0.12;st;450;lux|grain;
+EGY_LEB;Mount Lebanon and Beirut;33.9;35.75;EGY;;levantine_arab;;0;maronite;druze;0.25;mo;250;lux;Emirate of Bashir II allied with Egypt.
+EGY_PAL;Palestine (Acre, Jerusalem, Gaza);32.0;35.1;EGY;;levantine_arab;jewish;0.03;sunni;orthodox;0.1;hi;330;grain|lux;
+EGY_ADA;Adana and Cilicia;37.0;35.3;EGY;;turkish;armenian;0.2;sunni;armenian_apostolic;0.2;pl;250;cott|timb;Ceded to Ibrahim Pasha at Kütahya (1833).
+EGY_CRE;Crete;35.25;24.9;EGY;;greek;turkish;0.3;orthodox;sunni;0.3;mo;250;lux;Egyptian administration 1830-1840.
+EGY_HEJ;Hejaz (Mecca, Medina);22.3;39.8;EGY;;peninsular_arab;;0;sunni;;0;de;400;;Egyptian occupation 1813-1840.
+EGY_TIH;Tihama (Yemeni coast);15.8;43.1;EGY;;peninsular_arab;;0;sunni;shia;0.3;de;300;cash;Egyptian occupation 1833-1840. Coffee trade (Mocha).
+MOR_FES;Fez and Meknes;34.0;-5.0;MOR;;maghrebi_arab;berber;0.35;sunni;jewish;0.03;hi;1300;grain|live;
+MOR_MAR;Marrakesh and the Sous;31.0;-8.4;MOR;;berber;maghrebi_arab;0.4;sunni;jewish;0.03;mo;1100;grain|live;
+MOR_RIF;Tangier, Tetuan and the Rif;35.15;-4.9;MOR;;berber;maghrebi_arab;0.4;sunni;;0;mo;400;live;
+MOR_ORI;Oriental and Tafilalt;33.0;-3.0;MOR;;berber;maghrebi_arab;0.45;sunni;;0;de;300;live;
+CON_CON;Constantine;36.3;6.6;CON;;maghrebi_arab;berber;0.4;sunni;;0;hi;900;grain;
+ABD_MAS;Western Algeria (Mascara, Tlemcen);35.1;-0.6;ABD;;maghrebi_arab;berber;0.3;sunni;;0;st;900;grain|live;Treaty of Desmichels (1834) recognised Abd al-Qadir; war resumed 1835.
+DZ_KABYLIA;Kabylia;36.6;4.3;DZ:DZ_KABYLIA;;berber;;0;sunni;;0;mo;400;live;
+DZ_ALG_S;Algerian oases (Mzab, Ouargla, Touat);30.0;2.0;DZ:DZ_SAHARA;;berber;maghrebi_arab;0.4;sunni;ibadi;0.3;de;150;;
+TUN_TUN;Beylik of Tunis;35.8;9.8;TUN;;maghrebi_arab;berber;0.1;sunni;jewish;0.03;st;880;grain|lux;
+DZ_SAHARA_W;Moorish emirates (Trarza, Brakna, Adrar);20.5;-12.0;DZ:DZ_SAHARA;;moorish;;0;sunni;;0;de;250;live;
+DZ_SAHARA_C;Tuareg confederations (Ahaggar, Aïr, Ajjer);21.5;6.5;DZ:DZ_SAHARA;;tuareg;;0;sunni;;0;de;200;live;
+DZ_FEZZAN;Fezzan;26.0;14.2;DZ:DZ_SAHARA;;maghrebi_arab;tuareg;0.2;sunni;;0;de;70;;Ottoman control established 1842.
+DZ_LIBYAN_DES;Libyan Desert and Kufra;24.5;24.0;DZ:DZ_SAHARA;;maghrebi_arab;;0;sunni;;0;de;20;;
+DZ_SENEGAMBIA;Wolof and Serer kingdoms (Cayor, Walo, Jolof);15.2;-16.0;DZ:DZ_WAFRICA;;wolof;;0;sunni;traditional;0.4;sa;600;cash;
+DZ_FUTATORO;Imamate of Futa Toro;15.9;-13.6;DZ:DZ_WAFRICA;;fula;;0;sunni;;0;sa;300;live;
+GBR_GAM;The Gambia (Bathurst);13.45;-16.6;GBR;;wolof;mande;0.4;sunni;;0;sa;10;cash;
+FJA_TIM;Futa Jallon;11.0;-12.0;FJA;;fula;mande;0.3;sunni;;0;hi;600;live;
+POR_GUI_X;Bijagós and Rio Grande peoples;11.3;-14.6;DZ:DZ_WAFRICA;;west_atlantic;;0;traditional;;0;ju;150;;
+GBR_SLE;Sierra Leone (Freetown);8.45;-13.15;GBR;;krio;west_atlantic;0.5;protestant;traditional;0.4;ju;40;;
+DZ_SLE_INT;Temne and Mende chiefdoms;8.6;-11.6;DZ:DZ_WAFRICA;;west_atlantic;;0;traditional;sunni;0.2;ju;600;;
+LIB_MON;Liberia (Monrovia);6.35;-10.75;LIB;;west_atlantic;americo_liberian;0.05;traditional;protestant;0.1;ju;30;cash;
+DZ_KRU;Kru and Grebo coast;5.8;-8.0;DZ:DZ_WAFRICA;;west_atlantic;;0;traditional;;0;ju;400;;
+DZ_KONG;Kong and Senufo states;9.2;-5.0;DZ:DZ_WAFRICA;;mande;;0;sunni;traditional;0.5;sa;500;gold;
+DZ_SEGOU;Bambara kingdoms of Ségou and Kaarta;13.4;-7.2;DZ:DZ_WAFRICA;;mande;;0;traditional;sunni;0.3;sa;800;grain|live;
+MAS_HAM;Massina (Hamdullahi, Timbuktu);14.6;-4.0;MAS;;fula;mande;0.3;sunni;;0;sa;600;grain|live;
+DZ_MOSSI;Mossi kingdoms (Ouagadougou, Yatenga);12.4;-1.6;DZ:DZ_WAFRICA;;mossi;;0;traditional;;0;sa;1200;grain|live;
+ASH_KUM;Metropolitan Asante (Kumasi);6.7;-1.6;ASH;;akan;;0;traditional;;0;ju;800;gold|timb;
+ASH_NOR;Asante northern tributaries (Gonja, Dagomba);9.4;-1.0;ASH;;mossi;akan;0.2;traditional;sunni;0.3;sa;500;live;
+DZ_FANTE;Fante states and the Gold Coast forts;5.3;-1.3;DZ:DZ_WAFRICA;;akan;;0;traditional;protestant;0.03;ju;400;gold;Informal British jurisdiction under George Maclean (1830-1844); Dutch and Danish forts.
+DAH_ABO;Dahomey (Abomey, Ouidah);7.2;2.0;DAH;;fon_ewe;;0;traditional;;0;sa;300;cash;Slave trade and later palm oil.
+OYO_OYO;Oyo and the Yoruba states;8.0;3.9;OYO;;yoruba;;0;traditional;sunni;0.15;sa;1500;grain|cash;
+DZ_BENIN;Kingdom of Benin and the Niger Delta states;5.9;6.0;DZ:DZ_WAFRICA;;edo_ijaw;;0;traditional;;0;ju;1200;cash;
+DZ_IGBO;Igbo communities and the Aro confederacy;5.7;7.6;DZ:DZ_WAFRICA;;igbo;;0;traditional;;0;ju;2000;cash;
+SOK_SOK;Sokoto and Gwandu;12.6;5.0;SOK;;hausa;fula;0.3;sunni;;0;sa;2000;grain|live;
+SOK_KAN;Kano and Katsina;12.0;8.5;SOK;;hausa;fula;0.15;sunni;;0;sa;2500;cott|grain;Kano textile and dyeing industry.
+SOK_ZAR;Zaria and Bauchi;10.6;9.0;SOK;;hausa;;0;sunni;traditional;0.3;sa;1500;grain;
+SOK_ADA;Adamawa;9.2;12.5;SOK;;fula;cameroon_peoples;0.5;sunni;traditional;0.4;sa;600;live;
+SOK_ILO;Nupe and Ilorin;8.9;5.4;SOK;;nupe;yoruba;0.4;sunni;traditional;0.4;sa;700;grain;
+BOR_KUK;Bornu;12.2;13.2;BOR;;kanuri;;0;sunni;;0;sa;1500;grain|live;
+DZ_BAGIRMI;Bagirmi Sultanate;11.4;16.6;DZ:DZ_WAFRICA;;sahelian;;0;sunni;traditional;0.4;sa;400;grain;
+WAD_ABE;Wadai;13.8;20.8;WAD;;sahelian;;0;sunni;;0;sa;700;live;
+DAR_FAS;Darfur;13.6;25.0;DAR;;fur;sudanese_arab;0.3;sunni;;0;sa;1000;live|grain;
+DZ_CAMEROON;Duala and Grassfields kingdoms;5.4;10.5;DZ:DZ_CAFRICA;;cameroon_peoples;;0;traditional;;0;ju;800;cash;
+DZ_GABON;Gabon coast and Ogooué peoples;0.0;11.0;DZ:DZ_CAFRICA;;bantu_central;;0;traditional;;0;ju;300;timb;
+DZ_LOANGO;Loango and Teke kingdoms;-3.0;13.8;DZ:DZ_CAFRICA;;bantu_central;;0;traditional;;0;ju;400;;
+DZ_KONGO;Kingdom of Kongo;-6.0;14.6;DZ:DZ_CAFRICA;;bantu_central;;0;catholic;traditional;0.5;sa;500;;
+DZ_KASANJE;Kasanje, Matamba and Mbundu states;-9.3;17.2;DZ:DZ_CAFRICA;;mbundu;;0;traditional;;0;sa;300;;
+DZ_OVIMBUNDU;Ovimbundu kingdoms (Bié, Bailundo);-12.4;16.3;DZ:DZ_CAFRICA;;ovimbundu;;0;traditional;;0;sa;600;;
+DZ_LUNDA;Lunda Empire (Mwata Yamvo);-8.5;22.8;DZ:DZ_CAFRICA;;bantu_central;;0;traditional;;0;sa;800;;
+DZ_LUBA;Luba Kingdom;-7.5;26.5;DZ:DZ_CAFRICA;;bantu_central;;0;traditional;;0;sa;700;iron;
+DZ_KUBA;Kuba and Kasai peoples;-4.6;22.0;DZ:DZ_CAFRICA;;bantu_central;;0;traditional;;0;ju;400;;
+DZ_CONGO_W;Middle Congo basin peoples;-1.0;19.0;DZ:DZ_CAFRICA;;bantu_central;;0;traditional;;0;ju;1000;timb;
+DZ_AZANDE;Azande and Ubangi-Uele peoples;4.0;25.5;DZ:DZ_CAFRICA;;azande;;0;traditional;;0;ju;800;;
+DZ_OVAMBO;Ovambo and Herero;-19.0;16.5;DZ:DZ_SAFRICA;;ovambo_herero;;0;traditional;;0;sa;200;live;
+DZ_NAMA;Nama and Oorlam;-25.5;17.5;DZ:DZ_SAFRICA;;khoekhoe;;0;traditional;protestant;0.1;de;60;live;
+GBR_CAP;Western Cape (Cape Town);-33.4;19.4;GBR;;afrikaner;cape_coloured;0.45;protestant;;0;hi;110;lux|grain;
+GBR_CAE;Eastern Cape (Albany, Graaff-Reinet);-32.6;25.4;GBR;;afrikaner;english;0.2;protestant;;0;st;60;live;Great Trek departures begin 1835-36.
+DZ_XHOSA;Xhosa chiefdoms;-32.5;27.6;DZ:DZ_SAFRICA;;xhosa;;0;traditional;;0;sa;300;live;Queen Adelaide Province annexed May 1835, abandoned Dec 1836 (not modelled).
+DZ_TSWANA;Tswana chiefdoms;-25.0;24.5;DZ:DZ_SAFRICA;;sotho_tswana;;0;traditional;;0;st;300;live;
+DZ_GRIQUA;Griqua and Korana (Orange River);-29.0;23.3;DZ:DZ_SAFRICA;;cape_coloured;khoekhoe;0.5;protestant;traditional;0.5;de;50;live;
+NDE_MOS;Ndebele (Mosega, western Transvaal);-25.6;26.0;NDE;;ndebele;;0;traditional;;0;st;100;live;
+DZ_PEDI;Pedi kingdom;-24.5;29.8;DZ:DZ_SAFRICA;;sotho_tswana;;0;traditional;;0;st;100;live;
+ZUL_MGU;Zulu Kingdom (uMgungundlovu);-28.4;31.2;ZUL;;zulu;;0;traditional;;0;sa;300;live;
+DZ_MPONDO;Mpondo kingdom;-31.3;29.6;DZ:DZ_SAFRICA;;xhosa;;0;traditional;;0;sa;200;live;
+BSO_THA;Basotho (Thaba Bosiu);-29.4;27.8;BSO;;sotho_tswana;;0;traditional;protestant;0.05;mo;80;live;
+DZ_SWAZI;Swazi kingdom;-26.5;31.5;DZ:DZ_SAFRICA;;swazi;;0;traditional;;0;hi;100;live;
+DZ_GAZA;Gaza kingdom (Soshangane);-22.5;33.3;DZ:DZ_SAFRICA;;tsonga;;0;traditional;;0;sa;300;live;
+DZ_SHONA;Shona states;-18.5;30.8;DZ:DZ_SAFRICA;;shona;;0;traditional;;0;sa;500;gold;
+DZ_LOZI;Lozi (Barotse) and the upper Zambezi;-15.5;23.5;DZ:DZ_SAFRICA;;lozi;;0;traditional;;0;sa;150;live;Kololo conquest c. 1838-40.
+DZ_YAO;Yao and Makua chiefdoms;-13.5;37.2;DZ:DZ_SAFRICA;;malawian;;0;traditional;sunni;0.2;sa;600;;
+DZ_MARAVI;Chewa and Maravi states;-13.6;33.7;DZ:DZ_SAFRICA;;malawian;;0;traditional;;0;sa;300;;
+DZ_SAKALAVA;Sakalava and southern Madagascar;-20.5;44.6;DZ:DZ_SAFRICA;;malagasy;;0;traditional;;0;sa;500;live;
+MER_CEN;Imerina and the central highlands;-19.3;47.2;MER;;malagasy;;0;traditional;protestant;0.02;hi;900;grain;Christianity proscribed by Ranavalona I (1835).
+MER_EAS;Merina-held east coast (Tamatave);-17.9;48.9;MER;;malagasy;;0;traditional;;0;ju;300;cash;
+GBR_MAU;Mauritius;-20.25;57.55;GBR;;mascarene_creole;;0;catholic;hindu;0.15;hi;100;cash;
+OMA_ZAN;Zanzibar and Pemba;-6.1;39.3;OMA;;swahili;omani_arab;0.1;sunni;ibadi;0.1;ju;150;cash;Clove plantations; Said bin Sultan moves court here 1840.
+OMA_SWA;Swahili coast (Kilwa, Bagamoyo, Tanga);-6.8;38.9;OMA;;swahili;;0;sunni;;0;ju;200;cash;
+DZ_MOMBASA;Mombasa (Mazrui);-4.05;39.6;DZ:DZ_EAFRICA;;swahili;;0;sunni;;0;ju;30;;Taken by Oman 1837.
+DZ_NYAMWEZI;Nyamwezi and the Tanganyika interior;-5.2;33.0;DZ:DZ_EAFRICA;;east_african_interior;;0;traditional;;0;sa;1500;;
+DZ_KENYA_INT;Kikuyu, Kamba and Maasai lands;-1.0;36.9;DZ:DZ_EAFRICA;;east_african_interior;;0;traditional;;0;sa;800;live;
+BUG_BUG;Buganda;0.3;32.5;BUG;;ganda;;0;traditional;;0;ju;600;grain;
+DZ_BUNYORO;Bunyoro and Toro;1.5;31.2;DZ:DZ_EAFRICA;;great_lakes_bantu;;0;traditional;;0;sa;400;;
+DZ_RWANDA;Kingdoms of Rwanda and Burundi;-2.4;29.8;DZ:DZ_EAFRICA;;great_lakes_bantu;;0;traditional;;0;hi;1500;live;
+DZ_OROMO;Oromo groups and the Gibe kingdoms;8.0;37.0;DZ:DZ_EAFRICA;;oromo;;0;traditional;sunni;0.3;hi;1500;cash;
+DZ_HARAR;Harar and the northern Somali clans;9.5;43.5;DZ:DZ_EAFRICA;;somali;;0;sunni;;0;st;400;live;
+DZ_SOMALI;Somali clans of the south and the Benadir;4.5;45.5;DZ:DZ_EAFRICA;;somali;;0;sunni;;0;st;600;live;
+DZ_AFAR;Afar (Aussa Sultanate);12.0;41.5;DZ:DZ_EAFRICA;;afar;;0;sunni;;0;de;100;live;
+ETH_GON;Gondar, Begemder and Gojjam;12.3;37.6;ETH;;amhara;;0;coptic_ethiopian;sunni;0.1;mo;1200;grain|live;
+ETH_TIG;Tigray and Semien;13.8;39.0;ETH;;tigrinya;;0;coptic_ethiopian;;0;mo;600;grain|live;De facto autonomous under Dejazmach Wube.
+SHE_ANK;Shewa (Ankober);9.6;39.6;SHE;;amhara;oromo;0.4;coptic_ethiopian;traditional;0.3;mo;600;grain;
+PRS_TEH;Tehran and Qazvin;35.4;50.7;PRS;;persian;azeri;0.15;shia;;0;st;1000;grain;
+PRS_AZB;Azerbaijan (Tabriz);38.1;46.3;PRS;;azeri;kurdish;0.1;shia;sunni;0.1;mo;1300;grain|live;
+PRS_ISF;Isfahan, Kashan and Yazd;32.7;52.2;PRS;;persian;;0;shia;;0;de;1100;lux|grain;
+PRS_FAR;Fars (Shiraz);29.6;52.6;PRS;;persian;;0;shia;;0;mo;800;lux|live;
+PRS_KHO;Khorasan (Mashhad);36.0;58.5;PRS;;persian;turkmen;0.2;shia;sunni;0.2;st;800;grain|live;
+PRS_GIL;Gilan and Mazandaran;36.9;51.4;PRS;;persian;;0;shia;;0;fo;700;lux|grain;Silk.
+PRS_KER;Kerman and Persian Baluchistan;29.3;57.8;PRS;;persian;baloch;0.3;shia;sunni;0.3;de;400;lux;
+PRS_KUR;Kermanshah, Kurdistan and Luristan;34.3;47.0;PRS;;kurdish;persian;0.3;shia;sunni;0.4;mo;800;live;
+PRS_KHU;Khuzestan (Arabistan);31.6;48.9;PRS;;iraqi_arab;persian;0.3;shia;;0;de;250;cash;
+AFG_KAB;Kabul and Ghazni;34.4;69.1;AFG;;pashtun;tajik;0.4;sunni;;0;mo;1300;live|grain;
+DZ_KUNDUZ;Uzbek khanates of Kunduz and Balkh;36.7;68.0;DZ:DZ_CASIA;;uzbek;tajik;0.4;sunni;;0;st;500;grain;
+HER_HER;Herat;34.35;62.2;HER;;tajik;pashtun;0.3;sunni;shia;0.1;st;400;grain;
+KAN_KAN;Kandahar;31.6;65.7;KAN;;pashtun;;0;sunni;;0;de;600;grain|live;
+DZ_HAZARA;Hazarajat;34.2;66.6;DZ:DZ_CASIA;;hazara;;0;shia;;0;mo;400;live;
+KAL_KAL;Khanate of Kalat (Baluchistan);28.6;65.8;KAL;;baloch;;0;sunni;;0;de;400;live;
+KHI_KHI;Khiva (Khwarazm);41.5;60.2;KHI;;uzbek;turkmen;0.3;sunni;;0;de;700;cott|grain;
+DZ_TURKMEN;Turkmen tribes (Merv, Akhal, Tejen);38.5;59.0;DZ:DZ_CASIA;;turkmen;;0;sunni;;0;de;500;live;
+BUK_BUK;Bukhara and Samarkand;39.6;65.6;BUK;;uzbek;tajik;0.45;sunni;;0;de;2000;cott|grain|lux;
+KOK_FER;Fergana Valley (Kokand);40.6;71.5;KOK;;uzbek;tajik;0.3;sunni;;0;pl;1000;cott|grain|lux;
+KOK_TAS;Tashkent and the Syr Darya;41.9;68.5;KOK;;uzbek;kazakh;0.4;sunni;;0;st;500;cott|grain;
+DZ_KYRGYZ;Kyrgyz tribes of the Tian Shan;41.8;75.3;DZ:DZ_CASIA;;kyrgyz;;0;sunni;;0;mo;200;live;
+DZ_SEMIRECHYE;Senior Zhuz Kazakhs (Semirechye);44.6;77.0;DZ:DZ_CASIA;;kazakh;;0;sunni;;0;st;400;live;
+NAJ_RIY;Nejd (Riyadh);24.7;46.0;NAJ;;peninsular_arab;;0;sunni;;0;de;500;live;Egyptian expedition into Nejd 1836-1838.
+NAJ_HAS;Al-Ahsa;25.4;49.3;NAJ;;peninsular_arab;;0;shia;sunni;0.4;de;150;cash;
+DZ_SHAMMAR;Jabal Shammar (Ha'il);27.5;41.7;DZ:DZ_ARABIA;;peninsular_arab;;0;sunni;;0;de;150;live;Rashidi emirate founded 1836.
+DZ_KUWAIT;Kuwait;29.35;47.7;DZ:DZ_ARABIA;;peninsular_arab;;0;sunni;;0;de;30;fish;
+DZ_TRUCIAL;Trucial sheikhdoms, Qatar and Bahrain;24.6;54.0;DZ:DZ_ARABIA;;peninsular_arab;;0;sunni;;0;de;100;fish;Pearl fisheries; maritime truces with Britain (1820, 1835).
+OMA_MUS;Oman (Muscat, Nizwa);22.8;57.8;OMA;;omani_arab;baloch;0.1;ibadi;sunni;0.3;de;400;fish|cash;
+YEM_SAN;Yemen highlands (Sana'a);15.4;44.2;YEM;;peninsular_arab;;0;shia;sunni;0.4;mo;1800;cash|grain;Zaydi Shia (shia category).
+DZ_ADEN;Sultanate of Lahej (Aden);13.0;45.0;DZ:DZ_ARABIA;;peninsular_arab;;0;sunni;;0;de;50;;Aden taken by the British (East India Company) January 1839.
+DZ_HADRAMAUT;Hadramawt;15.8;48.8;DZ:DZ_ARABIA;;peninsular_arab;;0;sunni;;0;de;300;;
+EIC_BEN;Lower Bengal (Calcutta, Dacca);23.5;89.3;EIC;;bengali;;0;hindu;sunni;0.45;ma;26000;cash|cott|grain|opium;Presidency capital Calcutta.
+EIC_BIH;Bihar and Benares;25.6;84.5;EIC;;hindustani;;0;hindu;sunni;0.13;pl;15000;opium|grain|cash;Bengal opium monopoly (Patna).
+EIC_ORI;Orissa and Chota Nagpur;21.6;85.0;EIC;;oriya;adivasi;0.3;hindu;traditional;0.2;hi;5000;grain|iron|coal;
+EIC_ASS;Assam and Cachar;26.3;92.2;EIC;;assamese;;0;hindu;traditional;0.2;ju;800;cash;Tea discovered 1823; Assam Company 1839.
+EIC_ARA;Arakan;20.4;93.2;EIC;;arakanese;bengali;0.2;theravada;sunni;0.25;ju;250;grain;Ceded by Burma 1826.
+EIC_TEN;Tenasserim (Moulmein);15.5;98.0;EIC;;mon;burman;0.3;theravada;;0;ju;100;timb;Ceded by Burma 1826.
+EIC_DEL;Delhi Territory and the Doab (Meerut, Agra);28.0;77.8;EIC;;hindustani;;0;hindu;sunni;0.2;pl;12000;grain|cott;
+EIC_ROH;Rohilkhand (Bareilly);28.6;79.4;EIC;;hindustani;;0;hindu;sunni;0.25;pl;6000;grain;
+EIC_ALL;Allahabad and Gorakhpur;25.9;82.5;EIC;;hindustani;;0;hindu;sunni;0.13;pl;7000;grain|opium;
+EIC_SAU;Saugor and Nerbudda Territories;23.2;79.5;EIC;;hindustani;adivasi;0.3;hindu;traditional;0.2;hi;2500;grain;
+EIC_MAD;Madras and the Carnatic;12.4;79.3;EIC;;tamil;telugu;0.2;hindu;sunni;0.06;pl;9000;cott|grain|cash;Presidency capital Madras.
+EIC_NSR;Northern Circars;17.3;82.2;EIC;;telugu;;0;hindu;;0;pl;3500;grain|cott;
+EIC_CED;Ceded Districts (Bellary, Cuddapah);15.0;78.0;EIC;;telugu;kannada;0.4;hindu;sunni;0.06;hi;3000;cott;
+EIC_MAL;Malabar and Canara;11.9;75.5;EIC;;malayali;kannada;0.35;hindu;sunni;0.25;ju;2000;cash|timb;
+EIC_SMD;Southern Madras (Madurai, Tinnevelly);9.6;78.0;EIC;;tamil;;0;hindu;catholic;0.05;pl;4000;cott|grain;
+EIC_MYS;Mysore (under Company commission);13.0;76.4;EIC;;kannada;;0;hindu;sunni;0.05;hi;3500;cash|grain;Wodeyar raja nominal; Company commissioners administered 1831-1881 (simplification: modelled as Company territory).
+EIC_BOM;Bombay and the Konkan;18.9;73.2;EIC;;marathi;gujarati;0.1;hindu;sunni;0.1;ju;2500;cott|cash;Presidency capital Bombay.
+EIC_DEC;Deccan (Poona, Ahmednagar, Khandesh);19.6;75.0;EIC;;marathi;;0;hindu;sunni;0.08;hi;4000;cott|grain;
+EIC_GUJ;British Gujarat (Surat, Broach, Ahmedabad);22.5;72.6;EIC;;gujarati;;0;hindu;sunni;0.1;pl;2500;cott|opium;
+EIC_SIN;Singapore;1.35;103.82;EIC;;han;malay;0.3;east_asian_syncretic;sunni;0.3;ju;30;;Straits Settlements.
+EIC_PEN;Penang and Province Wellesley;5.4;100.33;EIC;;malay;han;0.35;sunni;east_asian_syncretic;0.35;ju;80;cash;Straits Settlements.
+EIC_MLK;Malacca;2.2;102.25;EIC;;malay;han;0.25;sunni;east_asian_syncretic;0.25;ju;40;;Straits Settlements.
+HYD_HYD;Hyderabad (Nizam's Dominions);17.6;78.2;HYD;;telugu;marathi;0.25;hindu;sunni;0.12;hi;9000;cott|grain;
+NAG_NAG;Nagpur;21.15;79.6;NAG;;marathi;adivasi;0.25;hindu;traditional;0.15;hi;4000;cott|grain;
+AWA_LKO;Awadh (Lucknow);26.85;80.95;AWA;;hindustani;;0;hindu;sunni;0.12;pl;6000;grain;
+GWA_GWA;Gwalior (Scindia);25.0;77.0;GWA;;hindustani;marathi;0.05;hindu;;0;hi;3000;grain|cott;
+HOL_IND;Indore (Holkar);22.7;75.85;HOL;;hindustani;marathi;0.1;hindu;;0;hi;1000;opium|cott;Malwa opium.
+BRD_BRD;Baroda (Gaekwad);22.3;73.2;BRD;;gujarati;;0;hindu;;0;pl;1500;cott;
+TRV_TRV;Travancore (and Cochin);9.2;76.8;TRV;;malayali;tamil;0.1;hindu;catholic;0.2;ju;1200;cash|timb;
+PRI_RAJW;Western Rajputana (Marwar, Bikaner, Jaisalmer);27.0;72.0;PRI;;rajasthani;;0;hindu;sunni;0.08;de;3000;live;
+PRI_RAJE;Eastern Rajputana (Jaipur, Mewar, Kota, Bundi);25.8;75.3;PRI;;rajasthani;;0;hindu;;0;hi;5000;grain|lux;
+PRI_CIN;Central India states (Bhopal, Rewa, Bundelkhand);24.3;79.8;PRI;;hindustani;adivasi;0.15;hindu;sunni;0.08;hi;3500;grain|iron;
+PRI_CIS;Cis-Sutlej states (Patiala, Nabha, Jind);30.3;76.0;PRI;;punjabi;;0;sikh;hindu;0.4;pl;2000;grain;
+PRI_KTH;Kathiawar and Kutch states;22.2;70.4;PRI;;gujarati;;0;hindu;sunni;0.15;st;2000;cott;
+SIK_LAH;Lahore and Central Punjab (Amritsar);31.4;74.0;SIK;;punjabi;;0;sunni;sikh;0.3;pl;4000;grain|cott;Muslim majority population; Sikh ruling elite.
+SIK_MUL;Multan;30.2;71.5;SIK;;punjabi;;0;sunni;hindu;0.15;de;1000;cott|grain;
+SIK_PES;Peshawar and the Derajat;33.2;71.3;SIK;;pashtun;;0;sunni;;0;mo;800;grain;Taken by the Sikhs 1834.
+SIK_KAS;Kashmir;34.1;74.8;SIK;;kashmiri;;0;sunni;hindu;0.08;mo;800;lux;Kashmir shawls.
+SIK_JAM;Jammu and Ladakh (Dogra);33.3;76.0;SIK;;dogra;tibetan;0.15;hindu;vajrayana;0.15;mo;700;live;Dogra conquest of Ladakh 1834.
+SND_HYD;Sindh;25.8;68.7;SND;;sindhi;baloch;0.2;sunni;hindu;0.2;de;1200;grain|cott;
+NEP_KAT;Kathmandu and central Nepal;27.7;85.0;NEP;;nepali;;0;hindu;vajrayana;0.15;mo;2200;grain;
+NEP_WES;Western Nepal;28.8;82.0;NEP;;nepali;;0;hindu;;0;mo;1900;grain;
+BHU_PUN;Bhutan;27.4;90.4;BHU;;bhutia;;0;vajrayana;;0;mo;150;;
+SKM_GAN;Sikkim;27.5;88.5;SKM;;bhutia;nepali;0.3;vajrayana;hindu;0.3;mo;40;;Darjeeling granted to the Company 1835.
+GBR_CEY;Ceylon (Colombo, Kandy);7.2;80.3;GBR;;sinhala;tamil;0.1;theravada;hindu;0.12;ju;900;cash;
+GBR_JAF;Northern Ceylon (Jaffna, Trincomalee);9.2;80.4;GBR;;tamil;;0;hindu;;0;pl;300;cash;
+QNG_ZHI;Zhili (Beijing, Tianjin);38.6;116.0;QNG;;han;manchu;0.03;east_asian_syncretic;;0;pl;22000;grain;
+QNG_SHD;Shandong;36.4;118.0;QNG;;han;;0;east_asian_syncretic;;0;pl;31000;grain|cott;
+QNG_SHX;Shanxi;37.6;112.4;QNG;;han;;0;east_asian_syncretic;;0;mo;15000;coal|iron|grain;Shanxi banks.
+QNG_HEN;Henan;33.9;113.6;QNG;;han;;0;east_asian_syncretic;;0;pl;23000;grain|cott;
+QNG_JSU;Jiangsu (Nanjing, Suzhou);32.8;119.6;QNG;;han;;0;east_asian_syncretic;;0;pl;40000;cott|lux|grain;
+QNG_ANH;Anhui;31.8;117.2;QNG;;han;;0;east_asian_syncretic;;0;pl;35000;grain|cash;
+QNG_ZHE;Zhejiang (Hangzhou, Ningbo);29.3;120.3;QNG;;han;;0;east_asian_syncretic;;0;hi;29000;lux|cash|grain;Silk and tea.
+QNG_JXI;Jiangxi;27.6;115.7;QNG;;han;;0;east_asian_syncretic;;0;hi;23000;grain|lux;Jingdezhen porcelain.
+QNG_FUJ;Fujian;26.0;118.0;QNG;;han;;0;east_asian_syncretic;;0;mo;15000;cash|timb;Tea.
+QNG_TAI;Taiwan;23.5;120.6;QNG;;han;;0;east_asian_syncretic;traditional;0.05;hi;2000;cash;
+QNG_GDG;Guangdong (Canton);23.4;113.4;QNG;;han;;0;east_asian_syncretic;;0;hi;26000;lux|cash;Canton System: sole port for Western trade.
+QNG_HAI;Hainan;19.2;109.8;QNG;;han;;0;east_asian_syncretic;traditional;0.2;ju;1000;cash;
+QNG_GXI;Guangxi;23.8;108.8;QNG;;han;zhuang;0.4;east_asian_syncretic;traditional;0.3;hi;8000;grain;
+QNG_HUN;Hunan;27.6;111.7;QNG;;han;miao_yi;0.05;east_asian_syncretic;;0;hi;20000;grain;
+QNG_HUB;Hubei (Wuchang, Hankou);30.9;112.6;QNG;;han;;0;east_asian_syncretic;;0;pl;31000;grain|cott;
+QNG_SIW;Western Sichuan (Chengdu);30.6;103.9;QNG;;han;;0;east_asian_syncretic;;0;pl;22000;grain|lux;
+QNG_SIE;Eastern Sichuan (Chongqing);30.0;107.0;QNG;;han;;0;east_asian_syncretic;;0;hi;20000;grain|cash;
+QNG_YUN;Yunnan;25.0;102.0;QNG;;han;miao_yi;0.45;east_asian_syncretic;sunni;0.08;mo;7000;silv|opium;Copper mining; Hui minority.
+QNG_GZH;Guizhou;26.8;106.8;QNG;;han;miao_yi;0.45;east_asian_syncretic;traditional;0.35;mo;5000;grain;
+QNG_SHA;Shaanxi (Xi'an);34.6;108.9;QNG;;han;hui;0.1;east_asian_syncretic;sunni;0.1;hi;12000;grain;
+QNG_GAN;Gansu and Ningxia;36.0;104.0;QNG;;han;hui;0.25;east_asian_syncretic;sunni;0.25;st;13000;grain|live;
+QNG_QIN;Kokonor (Qinghai);35.5;97.0;QNG;;tibetan;mongol;0.3;vajrayana;;0;mo;300;live;
+QNG_SHE;Shengjing (Mukden, Liaodong);41.8;123.4;QNG;;han;manchu;0.3;east_asian_syncretic;;0;pl;2500;grain;
+QNG_JIL;Jilin;43.8;126.5;QNG;;manchu;han;0.4;east_asian_syncretic;;0;fo;400;timb|grain;Manchurian homeland; Han immigration restricted.
+QNG_HEI;Heilongjiang;47.5;127.0;QNG;;manchu;siberian_native;0.3;east_asian_syncretic;traditional;0.3;fo;200;timb;
+QNG_AMU;Outer Manchuria (Amur left bank, Ussuri);50.5;135.0;QNG;;siberian_native;manchu;0.1;traditional;;0;fo;30;timb|fish;Ceded to Russia by the treaties of Aigun (1858) and Peking (1860).
+QNG_INM;Inner Mongolia (Chahar, Hohhot);42.0;113.0;QNG;;mongol;han;0.3;vajrayana;;0;st;1200;live;
+QNG_OMN;Outer Mongolia (Khalkha, Urga);47.6;103.0;QNG;;mongol;;0;vajrayana;;0;st;600;live;
+QNG_KOB;Kobdo and Uliastai;48.0;93.0;QNG;;mongol;kazakh;0.1;vajrayana;;0;st;150;live;
+QNG_DZU;Dzungaria (Ili, Urumqi);44.0;85.0;QNG;;kazakh;han;0.3;sunni;east_asian_syncretic;0.3;st;400;live|grain;
+QNG_TAR;Altishahr / Tarim Basin (Kashgar, Yarkand);39.0;80.0;QNG;;uyghur;;0;sunni;;0;de;1000;cott|grain;
+TIB_LHA;Central Tibet (Ü-Tsang, Lhasa);29.8;90.0;TIB;;tibetan;;0;vajrayana;;0;mo;800;live;
+TIB_KHA;Kham (Chamdo);31.0;97.0;TIB;;tibetan;;0;vajrayana;;0;mo;500;live;Eastern Kham partly administered from Sichuan (gap).
+TIB_NGA;Ngari (Western Tibet);32.0;81.0;TIB;;tibetan;;0;vajrayana;;0;mo;100;live;Dogra invasion 1841.
+JAP_EDO;Kantō (Edo);35.9;139.6;JAP;;japanese;;0;shinto_buddhist;;0;pl;5000;grain|lux;Shogunal capital.
+JAP_TOH;Tōhoku;39.0;140.8;JAP;;japanese;;0;shinto_buddhist;;0;mo;4500;grain|timb;Tenpō famine 1833-1837.
+JAP_HOK;Hokuriku and Echigo (Kaga, Niigata);37.0;138.3;JAP;;japanese;;0;shinto_buddhist;;0;mo;3500;grain;
+JAP_TOK;Tōkai and Chūbu (Owari, Shinano);35.5;137.5;JAP;;japanese;;0;shinto_buddhist;;0;mo;4500;grain|lux;
+JAP_KIN;Kinai (Kyoto, Osaka);34.8;135.6;JAP;;japanese;;0;shinto_buddhist;;0;pl;3500;lux|grain;Imperial court at Kyoto; Osaka rice market.
+JAP_CHG;Chūgoku east (Okayama, Hiroshima);34.7;133.4;JAP;;japanese;;0;shinto_buddhist;;0;mo;3000;grain|iron;
+JAP_CHO;Chōshū domain (Hagi);34.2;131.5;JAP;;japanese;;0;shinto_buddhist;;0;mo;600;grain;Mōri domain; Tenpō reforms 1838-.
+JAP_SHI;Shikoku;33.7;133.5;JAP;;japanese;;0;shinto_buddhist;;0;mo;2200;grain;
+JAP_KYU;Northern Kyushu (Fukuoka, Hizen, Nagasaki);33.3;130.5;JAP;;japanese;;0;shinto_buddhist;;0;hi;2500;coal|grain;Dutch and Chinese trade at Nagasaki (Dejima).
+JAP_SAT;Satsuma domain (Kagoshima);31.7;130.6;JAP;;japanese;;0;shinto_buddhist;;0;mo;900;cash;Shimazu domain; controls Ryukyu trade.
+JAP_EZO;Ezo (Matsumae domain and Ainu lands);43.0;142.5;JAP;;ainu;japanese;0.4;traditional;shinto_buddhist;0.4;fo;80;fish|timb;
+RYU_SHU;Ryukyu Kingdom (Shuri);26.3;127.8;RYU;;ryukyuan;;0;shinto_buddhist;;0;hi;150;cash;
+DZ_SAKHALIN;Sakhalin (Ainu and Nivkh);50.5;142.8;DZ:DZ_OCEANIA;;ainu;siberian_native;0.4;traditional;;0;fo;10;fish;
+KOR_GYE;Gyeonggi and Chungcheong (Hanseong);37.0;127.2;KOR;;korean;;0;east_asian_syncretic;;0;hi;3500;grain;
+KOR_JEO;Jeolla;35.2;127.0;KOR;;korean;;0;east_asian_syncretic;;0;pl;2800;grain;
+KOR_GSA;Gyeongsang;35.7;128.7;KOR;;korean;;0;east_asian_syncretic;;0;mo;3300;grain;
+KOR_PYO;Pyeongan and Hwanghae;39.0;125.8;KOR;;korean;;0;east_asian_syncretic;;0;hi;2200;grain|gold;
+KOR_HAM;Hamgyong and Gangwon;40.4;128.6;KOR;;korean;;0;east_asian_syncretic;;0;mo;1800;timb|fish;
+VNM_HAN;Bắc Kỳ delta (Hà Nội, Nam Định, Hải Dương);20.8;106.0;VNM;;vietnamese;;0;east_asian_syncretic;catholic;0.05;pl;3500;grain;Catholic communities proscribed by the 1833 edict.
+VNM_TBC;Bắc Kỳ uplands (Tuyên Quang, Cao Bằng, Lạng Sơn);22.1;105.2;VNM;;tay_nung;vietnamese;0.2;traditional;east_asian_syncretic;0.3;mo;500;silv|timb;Nông Văn Vân revolt 1833-1835.
+VNM_THN;Thanh Hóa and Nghệ An;19.0;105.4;VNM;;vietnamese;;0;east_asian_syncretic;;0;hi;1300;grain;
+VNM_HUE;Kinh sư and Central Vietnam (Phú Xuân/Huế, Quảng Nam);16.4;107.5;VNM;;vietnamese;;0;east_asian_syncretic;;0;hi;900;grain|cash;Imperial capital.
+VNM_SCE;South-Central coast (Quảng Ngãi to Bình Thuận);13.6;109.0;VNM;;vietnamese;montagnard;0.05;east_asian_syncretic;;0;hi;700;grain|fish;
+VNM_GDI;Nam Kỳ (Gia Định, Vĩnh Long, An Giang);10.4;106.0;VNM;;vietnamese;khmer;0.15;east_asian_syncretic;theravada;0.15;ma;1100;grain;Lê Văn Khôi revolt suppressed Sept 1835.
+VNM_TTT;Trấn Tây Thành (Cambodia under Vietnamese administration);11.9;104.8;VNM;;khmer;vietnamese;0.05;theravada;;0;pl;1000;grain|fish;Vietnamese administration 1835-1841 (Queen Ang Mey as puppet).
+VNM_TNI;Trấn Ninh (Xieng Khouang);19.4;103.2;VNM;;lao;;0;theravada;;0;mo;60;;Muang Phuan annexed by Minh Mạng 1832.
+DZ_HIGHLANDS;Central Highlands peoples;13.8;108.0;DZ:DZ_SEASIA;;montagnard;;0;traditional;;0;fo;200;timb;
+SIA_BKK;Central Siam (Bangkok, Ayutthaya);14.3;100.4;SIA;;thai;han;0.08;theravada;;0;pl;2000;grain|cash;
+SIA_NOR;Lanna (Chiang Mai, vassal);18.8;99.0;SIA;;lanna;;0;theravada;;0;mo;500;timb;
+SIA_ISA;Khorat Plateau and Vientiane;16.4;103.0;SIA;;lao;thai;0.2;theravada;;0;pl;1200;grain;Vientiane kingdom destroyed 1827-28 after Anouvong's revolt.
+SIA_CHA;Champasak (vassal);15.1;105.8;SIA;;lao;;0;theravada;;0;pl;200;grain;
+SIA_BAT;Battambang and Siem Reap;13.3;103.3;SIA;;khmer;;0;theravada;;0;pl;200;grain;Under Siam since 1795.
+SIA_SOU;Southern Siam and Malay tributaries (Kedah, Patani);7.3;100.6;SIA;;malay;thai;0.4;sunni;theravada;0.4;ju;600;cash;
+MLY_KTR;Kelantan and Terengganu (Siamese tributaries);5.3;102.6;SIA;;malay;;0;sunni;;0;ju;150;cash;Tributary to Siam (bunga mas).
+LUA_LUA;Luang Prabang;19.9;102.1;LUA;;lao;;0;theravada;;0;mo;300;;
+BUR_AVA;Upper Burma (Ava);21.8;95.9;BUR;;burman;;0;theravada;;0;pl;2000;grain|lux;
+BUR_PEG;Lower Burma (Pegu, Rangoon);17.4;95.8;BUR;;burman;mon;0.25;theravada;;0;ma;1000;grain|timb;
+BUR_SHA;Shan States (tributary);21.0;98.0;BUR;;shan;;0;theravada;;0;mo;600;timb|silv;
+DZ_KACHIN;Kachin hills;25.5;97.4;DZ:DZ_SEASIA;;kachin;;0;traditional;;0;mo;150;;
+MLY_PER;Perak and Selangor;4.0;101.2;MLY;;malay;;0;sunni;;0;ju;150;cash;Tin.
+MLY_PAH;Pahang and Johor;2.9;103.2;MLY;;malay;;0;sunni;;0;ju;150;gold;
+BRN_BRN;Brunei;4.6;114.7;BRN;;malay;dayak;0.3;sunni;traditional;0.3;ju;100;cash;
+BRN_SAR;Sarawak (Bruneian);1.8;111.0;BRN;;malay;dayak;0.5;sunni;traditional;0.5;ju;150;;Revolt 1836-1840; James Brooke rajah 1841.
+DZ_SABAH;North Borneo (Sabah);5.5;117.0;DZ:DZ_SEASIA;;dayak;moro;0.3;traditional;sunni;0.3;ju;100;timb;
+DZ_DAYAK;Dayak peoples of interior Borneo;0.8;114.0;DZ:DZ_SEASIA;;dayak;;0;traditional;;0;ju;400;timb;
+DZ_PONTIANAK;Pontianak and the West Borneo kongsi;0.1;109.7;DZ:DZ_SEASIA;;malay;han;0.3;sunni;east_asian_syncretic;0.3;ju;200;gold;Lanfang kongsi (1777-1884).
+DZ_BANJAR;Banjarmasin and south Borneo;-2.6;114.8;DZ:DZ_SEASIA;;malay;dayak;0.3;sunni;traditional;0.3;ju;400;cash;
+SUL_JOL;Sulu (Jolo);6.0;121.0;SUL;;moro;;0;sunni;;0;ju;150;fish;
+DZ_MAGUINDANAO;Maguindanao and Lanao (Mindanao);7.3;124.4;DZ:DZ_SEASIA;;moro;;0;sunni;;0;ju;250;;
+ACE_KUT;Aceh;4.6;96.6;ACE;;acehnese;;0;sunni;;0;ju;400;cash;Pepper.
+DZ_BATAK;Batak lands (North Sumatra);2.4;99.0;DZ:DZ_SEASIA;;batak;;0;traditional;;0;ju;400;;
+DZ_CELEBES;Bugis-Makassar kingdoms (Bone, Gowa, Wajo);-4.3;120.0;DZ:DZ_SEASIA;;bugis;;0;sunni;;0;ju;1200;cash;Partial Dutch suzerainty from Makassar.
+DZ_BALI;Bali and Lombok kingdoms;-8.4;115.3;DZ:DZ_SEASIA;;balinese;;0;hindu;sunni;0.3;ju;900;grain;
+DZ_NUSA;Lesser Sunda states (Sumbawa, Flores, Timor);-8.7;120.8;DZ:DZ_SEASIA;;nusa_tenggara;;0;traditional;catholic;0.15;hi;700;;Portuguese and Dutch posts on Timor (not modelled).
+DZ_PNG_W;Western New Guinea;-3.8;137.5;DZ:DZ_OCEANIA;;papuan;;0;traditional;;0;ju;400;;
+DZ_PNG_E;Eastern New Guinea;-6.2;145.0;DZ:DZ_OCEANIA;;papuan;;0;traditional;;0;ju;800;;
+GBR_NSW;New South Wales (Sydney);-33.5;150.5;GBR;;english;irish;0.35;protestant;catholic;0.35;hi;75;live;1836 colonial census 77,096 (non-Aboriginal).
+GBR_VDL;Van Diemen's Land;-42.0;146.8;GBR;;english;irish;0.3;protestant;catholic;0.3;hi;40;live;
+GBR_SWR;Swan River Colony (Perth);-31.95;115.9;GBR;;english;;0;protestant;;0;st;2;;
+DZ_AUS_SA;Adelaide plains and the Murray mouth;-34.6;138.7;DZ:DZ_OCEANIA;;aboriginal_australian;;0;traditional;;0;st;10;;Province of South Australia proclaimed 28 December 1836.
+DZ_AUS_SE;Aboriginal nations of the south-east (Port Phillip, Murray);-36.8;144.0;DZ:DZ_OCEANIA;;aboriginal_australian;;0;traditional;;0;st;100;live;
+DZ_AUS_Q;Aboriginal nations of the north-east;-22.0;145.0;DZ:DZ_OCEANIA;;aboriginal_australian;;0;traditional;;0;sa;80;;
+DZ_AUS_N;Aboriginal nations of the north (Top End, Kimberley);-15.5;131.0;DZ:DZ_OCEANIA;;aboriginal_australian;;0;traditional;;0;sa;60;;
+DZ_AUS_C;Aboriginal nations of central Australia;-24.0;133.0;DZ:DZ_OCEANIA;;aboriginal_australian;;0;traditional;;0;de;20;;
+DZ_AUS_W;Aboriginal nations of the west;-26.5;120.5;DZ:DZ_OCEANIA;;aboriginal_australian;;0;traditional;;0;de;30;;
+MAO_NOR;North Island of New Zealand (United Tribes);-38.5;175.5;MAO;;maori;;0;traditional;protestant;0.1;hi;70;timb;
+DZ_NZ_S;South Island (Ngāi Tahu and southern iwi);-43.6;171.0;DZ:DZ_OCEANIA;;maori;;0;traditional;;0;mo;5;;
+HAW_OAH;Kingdom of Hawaii;21.3;-157.85;HAW;;hawaiian;;0;protestant;traditional;0.4;mo;110;cash;1836 census 108,579 (Kuykendall).
+TAH_TAH;Tahiti and the Society Islands;-17.65;-149.4;TAH;;polynesian;;0;protestant;;0;mo;10;;
+DZ_TONGA;Tonga;-21.2;-175.2;DZ:DZ_OCEANIA;;polynesian;;0;traditional;protestant;0.3;hi;20;;
+DZ_FIJI;Fiji;-17.8;178.0;DZ:DZ_OCEANIA;;melanesian;;0;traditional;;0;hi;130;;
+DZ_SAMOA;Samoa;-13.8;-172.0;DZ:DZ_OCEANIA;;polynesian;;0;traditional;protestant;0.2;hi;40;;
+USA_NEN;Southern New England (Massachusetts, Connecticut, Rhode Island);42.0;-71.8;USA;;anglo_american;;0;protestant;;0;hi;1000;fish|timb;Textile mills (Lowell).
+USA_NEM;Northern New England (Maine, New Hampshire, Vermont);44.3;-70.8;USA;;anglo_american;;0;protestant;;0;fo;1050;timb|fish;
+USA_NYS;New York;42.8;-75.5;USA;;anglo_american;;0;protestant;catholic;0.1;hi;2200;grain|timb;Erie Canal (1825).
+USA_NJE;New Jersey and Delaware;40.0;-74.7;USA;;anglo_american;;0;protestant;;0;pl;420;grain;
+USA_PEN;Pennsylvania;40.8;-77.6;USA;;anglo_american;german;0.15;protestant;;0;hi;1550;coal|iron|grain;Anthracite coal.
+USA_MAR;Maryland and the District of Columbia;39.1;-76.8;USA;;anglo_american;afro_american;0.3;protestant;catholic;0.15;pl;460;grain|cash;Federal capital Washington. Slavery legal.
+USA_VIR;Virginia;37.6;-78.8;USA;;anglo_american;afro_american;0.4;protestant;;0;hi;1230;cash|coal|grain;Slavery legal.
+USA_NCA;North Carolina;35.5;-79.2;USA;;anglo_american;afro_american;0.35;protestant;;0;hi;750;cash|timb;Slavery legal.
+USA_SCA;South Carolina;33.9;-80.9;USA;;afro_american;anglo_american;0.44;protestant;;0;pl;590;cott|cash;Enslaved majority. Slavery legal.
+USA_GEO;Georgia;32.7;-83.4;USA;;anglo_american;afro_american;0.42;protestant;;0;pl;640;cott;Cherokee Nation (removed 1838). Slavery legal.
+USA_FLA;Florida Territory;30.2;-83.0;USA;;anglo_american;afro_american;0.45;protestant;;0;ma;45;cott|timb;Second Seminole War from Dec 1835. Slavery legal.
+DZ_SEMINOLE;Seminole lands (central and south Florida);27.0;-81.2;DZ:DZ_AMERICAS;;eastern_nations;afro_american;0.15;traditional;;0;ma;5;;
+USA_ALA;Alabama;32.8;-86.8;USA;;anglo_american;afro_american;0.43;protestant;;0;pl;540;cott;Slavery legal.
+USA_MIS;Mississippi;32.7;-89.7;USA;;afro_american;anglo_american;0.48;protestant;;0;pl;270;cott;Slavery legal.
+USA_LOU;Louisiana;30.9;-91.9;USA;;anglo_american;afro_american;0.48;catholic;protestant;0.45;ma;300;cott|cash;New Orleans. Slavery legal.
+USA_TEN;Tennessee;35.8;-86.4;USA;;anglo_american;afro_american;0.23;protestant;;0;hi;780;grain|live;Slavery legal.
+USA_KEN;Kentucky;37.6;-85.3;USA;;anglo_american;afro_american;0.24;protestant;;0;hi;750;grain|cash|live;Slavery legal.
+USA_OHI;Ohio;40.3;-82.8;USA;;anglo_american;german;0.08;protestant;;0;pl;1350;grain|coal|iron;
+USA_IND;Indiana;39.9;-86.3;USA;;anglo_american;;0;protestant;;0;pl;560;grain;
+USA_ILL;Illinois;40.0;-89.2;USA;;anglo_american;;0;protestant;;0;pl;330;grain|coal;
+USA_MIC;Michigan;42.8;-84.6;USA;;anglo_american;;0;protestant;;0;fo;130;timb|grain;Statehood 26 Jan 1837.
+USA_MIO;Missouri;38.4;-92.4;USA;;anglo_american;afro_american;0.15;protestant;;0;pl;250;grain|iron;Slavery legal.
+USA_ARK;Arkansas;34.8;-92.4;USA;;anglo_american;afro_american;0.2;protestant;;0;fo;70;cott;Statehood 15 June 1836. Slavery legal.
+USA_WIS;Wisconsin and Iowa districts;43.5;-90.0;USA;;anglo_american;eastern_nations;0.3;protestant;traditional;0.3;fo;25;timb|iron;Wisconsin Territory organised July 1836.
+USA_INT;Indian Territory;35.5;-96.5;USA;;eastern_nations;;0;traditional;protestant;0.2;pl;60;grain;Destination of the removed Cherokee, Creek, Choctaw, Chickasaw and Seminole nations.
+DZ_PLAINS_N;Northern Plains (Lakota, Cheyenne, Arapaho);44.5;-102.0;DZ:DZ_AMERICAS;;plains_nations;;0;traditional;;0;st;60;live;Within the US Louisiana Purchase claim.
+DZ_PLAINS_C;Central Plains (Pawnee, Osage, Kansa);39.5;-98.5;DZ:DZ_AMERICAS;;plains_nations;;0;traditional;;0;st;40;live;
+DZ_PLAINS_UP;Upper Missouri (Blackfoot, Crow, Mandan);47.5;-108.0;DZ:DZ_AMERICAS;;plains_nations;;0;traditional;;0;st;40;live;
+DZ_GREATBASIN;Great Basin and the Rockies (Shoshone, Ute, Paiute);41.0;-113.5;DZ:DZ_AMERICAS;;great_basin_nations;;0;traditional;;0;de;30;;Nominally within Mexican Alta California and Nuevo México.
+DZ_OREGON;Oregon Country (joint British-American occupation);45.8;-120.5;DZ:DZ_AMERICAS;;pacific_nw_nations;;0;traditional;;0;fo;50;timb|fish;Joint occupation under the 1818/1827 conventions; HBC Fort Vancouver.
+DZ_NWCOAST;Pacific Northwest coast nations;53.5;-130.0;DZ:DZ_AMERICAS;;pacific_nw_nations;;0;traditional;;0;fo;40;fish|timb;
+DZ_COMANCHE;Comanchería (Comanche and Kiowa);34.0;-101.0;DZ:DZ_AMERICAS;;comanche;;0;traditional;;0;st;30;live;Major regional power; claimed by Mexico.
+DZ_APACHERIA;Apachería and Navajo lands;33.0;-109.0;DZ:DZ_AMERICAS;;apache_navajo;;0;traditional;;0;de;25;live;
+DZ_ALASKA;Interior and northern Alaska (Athabaskan, Iñupiat);65.0;-153.0;DZ:DZ_AMERICAS;;alaskan_native;;0;traditional;;0;tu;15;fish;
+DZ_ARCTIC;Inuit of the Arctic archipelago;72.0;-90.0;DZ:DZ_AMERICAS;;inuit;;0;traditional;;0;tu;3;fish;
+GBR_LCA;Lower Canada (Quebec, Montreal);46.5;-72.0;GBR;;french_canadian;anglo_canadian;0.2;catholic;protestant;0.2;fo;600;timb|grain;Rebellions of 1837-38.
+GBR_UCA;Upper Canada (Toronto);44.0;-79.0;GBR;;anglo_canadian;;0;protestant;;0;fo;370;grain|timb;
+GBR_NSC;Nova Scotia and Cape Breton;45.0;-63.0;GBR;;anglo_canadian;;0;protestant;catholic;0.3;fo;200;fish|coal|timb;
+GBR_NBR;New Brunswick and Prince Edward Island;46.4;-66.0;GBR;;anglo_canadian;;0;protestant;catholic;0.3;fo;150;timb|fish;
+GBR_NFL;Newfoundland;48.5;-56.0;GBR;;anglo_canadian;irish;0.4;protestant;catholic;0.45;tu;75;fish;
+GBR_RUP;Rupert's Land (Hudson's Bay Company);55.0;-95.0;GBR;;first_nations_north;;0;traditional;;0;fo;40;timb;HBC charter territory; Red River Colony.
+GBR_NWT;North-Western Territory and Athabasca (HBC licence);62.0;-115.0;GBR;;first_nations_north;;0;traditional;;0;tu;20;;
+GBR_LAB;Labrador and Ungava;54.0;-63.0;GBR;;first_nations_north;inuit;0.4;traditional;;0;tu;5;fish;
+GBR_NCA;New Caledonia (HBC, interior British Columbia);54.5;-124.5;GBR;;pacific_nw_nations;;0;traditional;;0;fo;30;timb;
+GBR_JAM;Jamaica;18.15;-77.3;GBR;;afro_caribbean;;0;protestant;;0;mo;380;cash;Apprenticeship system 1834-1838.
+GBR_BAR;Barbados and the Windward Islands;13.15;-59.55;GBR;;afro_caribbean;;0;protestant;;0;hi;220;cash;
+GBR_TRI;Trinidad and Tobago;10.45;-61.25;GBR;;afro_caribbean;;0;catholic;protestant;0.4;ju;45;cash;
+GBR_BAH;Bahamas;24.5;-77.5;GBR;;afro_caribbean;;0;protestant;;0;pl;20;fish;
+GBR_BLZ;British Honduras (Belize settlement);17.25;-88.7;GBR;;afro_caribbean;;0;protestant;;0;ju;5;timb;
+GBR_GUI;British Guiana;6.0;-58.4;GBR;;afro_caribbean;;0;protestant;;0;ju;100;cash;
+DZ_MOSQUITO;Mosquito Coast (Miskito kingdom);13.5;-84.0;DZ:DZ_AMERICAS;;miskito;;0;traditional;protestant;0.1;ju;15;timb;British protectorate claim.
+MEX_MEX;Valley of Mexico;19.4;-99.2;MEX;;mexican;nahua;0.4;catholic;;0;mo;1300;silv|grain;
+MEX_PUE;Puebla and Tlaxcala;19.0;-97.9;MEX;;mexican;nahua;0.45;catholic;;0;mo;700;grain|cott;Puebla cotton mills.
+MEX_VER;Veracruz;19.3;-96.4;MEX;;mexican;nahua;0.3;catholic;;0;ju;250;cash;
+MEX_OAX;Oaxaca;17.0;-96.7;MEX;;zapotec_mixtec;mexican;0.2;catholic;;0;mo;500;cash;
+MEX_CHI;Chiapas and Tabasco;17.2;-92.7;MEX;;maya;mexican;0.3;catholic;;0;ju;240;cash;
+MEX_YUC;Yucatán and Campeche;20.4;-89.0;MEX;;maya;mexican;0.3;catholic;;0;ju;550;cash;Seceded 1841-1848.
+MEX_GUA;Bajío (Guanajuato, Querétaro, Michoacán);20.3;-101.0;MEX;;mexican;;0;catholic;;0;mo;1100;silv|grain;
+MEX_JAL;Jalisco and Colima (Guadalajara);20.6;-103.6;MEX;;mexican;;0;catholic;;0;mo;700;grain|live;
+MEX_ZAC;Zacatecas and San Luis Potosí;22.6;-101.6;MEX;;mexican;;0;catholic;;0;de;650;silv;
+MEX_GRO;Southern Mexico (Acapulco, Tierra Caliente);17.6;-100.0;MEX;;mexican;nahua;0.4;catholic;;0;mo;350;cash;
+MEX_DUR;Durango;24.5;-104.7;MEX;;mexican;;0;catholic;;0;mo;160;silv|live;
+MEX_SIN;Sonora and Sinaloa;27.0;-109.0;MEX;;mexican;great_basin_nations;0.3;catholic;traditional;0.2;de;250;silv|live;Yaqui and Mayo peoples.
+MEX_CHH;Chihuahua;28.6;-106.0;MEX;;mexican;;0;catholic;;0;de;150;silv|live;
+MEX_COA;Coahuila;26.9;-101.4;MEX;;mexican;;0;catholic;;0;de;80;live;
+MEX_NLE;Nuevo León and Tamaulipas;24.8;-99.2;MEX;;mexican;;0;catholic;;0;st;200;live;
+MEX_NMX;Nuevo México (Santa Fe);35.7;-106.0;MEX;;mexican;great_basin_nations;0.3;catholic;traditional;0.3;de;60;live;
+MEX_CAL;Alta California;35.5;-119.8;MEX;;mexican;great_basin_nations;0.8;catholic;traditional;0.6;hi;100;live|gold;Gold discovered 1848 (not known in 1836).
+MEX_BCA;Baja California;27.8;-113.0;MEX;;mexican;;0;catholic;;0;de;10;fish;
+TEX_TEX;Texas (Coahuila y Tejas);30.0;-97.0;MEX;TEX;anglo_american;mexican;0.12;protestant;catholic;0.15;pl;40;cott|live;Texian rebels control the settled region at start.
+CAF_GUA;Guatemala;14.8;-91.0;CAF;;maya;central_american;0.35;catholic;;0;mo;700;cash;
+CAF_SAL;El Salvador;13.75;-88.9;CAF;;central_american;;0;catholic;;0;hi;310;cash;Indigo.
+CAF_HON;Honduras;14.8;-86.8;CAF;;central_american;;0;catholic;;0;mo;220;silv|live;
+CAF_NIC;Nicaragua;12.4;-85.8;CAF;;central_american;;0;catholic;;0;pl;240;cash|live;
+CAF_CRI;Costa Rica;9.95;-84.1;CAF;;central_american;;0;catholic;;0;mo;80;cash;Coffee exports begin 1830s.
+NGR_BOG;Cundinamarca and Boyacá (Bogotá);5.0;-73.8;NGR;;granadine;;0;catholic;;0;mo;650;grain;
+NGR_ANT;Antioquia and Chocó;6.5;-75.8;NGR;;granadine;;0;catholic;;0;mo;200;gold;
+NGR_CAR;Caribbean coast (Cartagena, Santa Marta);9.8;-75.0;NGR;;granadine;afro_caribbean;0.3;catholic;;0;pl;250;cash;
+NGR_CAU;Cauca and Pasto;2.5;-76.6;NGR;;granadine;quechua;0.2;catholic;;0;mo;350;gold;
+NGR_SAN;Santander and Socorro;7.0;-73.0;NGR;;granadine;;0;catholic;;0;mo;300;cash;
+NGR_PAN;Isthmus of Panama;8.7;-80.0;NGR;;granadine;;0;catholic;;0;ju;110;;
+NGR_LLA;Llanos and Casanare;4.6;-71.0;NGR;;granadine;;0;catholic;;0;sa;30;live;
+DZ_AMAZON_NW;Upper Amazon peoples (Putumayo, Caquetá, Napo);-1.0;-73.0;DZ:DZ_AMERICAS;;amazonian;;0;traditional;;0;ju;50;;Claimed by New Granada, Ecuador, Peru and Brazil.
+DZ_AMAZON_W;Western Amazon peoples (Maynas, Ucayali);-7.5;-74.5;DZ:DZ_AMERICAS;;amazonian;;0;traditional;;0;ju;60;;Claimed by Peru.
+VEN_CAR;Caracas and the coast;10.3;-67.0;VEN;;venezuelan;afro_caribbean;0.15;catholic;;0;mo;450;cash;Cacao and coffee.
+VEN_MAR;Maracaibo and the Andes (Mérida);9.0;-71.3;VEN;;venezuelan;;0;catholic;;0;mo;200;cash;
+VEN_LLA;Llanos and Guayana (Angostura);7.8;-65.5;VEN;;venezuelan;;0;catholic;;0;sa;250;live;
+ECU_QUI;Quito and the Sierra;-0.9;-78.6;ECU;;quechua;ecuadorian;0.4;catholic;;0;mo;450;grain;
+ECU_GUA;Guayaquil and the coast;-2.0;-79.9;ECU;;ecuadorian;;0;catholic;;0;ju;150;cash;Cacao.
+PEU_LIM;Lima and the central coast;-12.0;-76.9;PEU;;peruvian;quechua;0.3;catholic;;0;de;400;silv|cash;
+PEU_NOR;Northern Peru (Trujillo, Cajamarca);-7.2;-78.5;PEU;;peruvian;quechua;0.4;catholic;;0;mo;450;cash|silv;
+PEU_CUZ;Cuzco and the southern Sierra;-13.5;-72.0;PEU;;quechua;peruvian;0.25;catholic;;0;mo;500;grain|live;
+PEU_ARE;Arequipa and Puno;-16.0;-70.8;PEU;;quechua;aymara;0.3;catholic;;0;mo;350;live|silv;
+BOL_LPZ;La Paz and the Altiplano;-16.8;-68.0;BOL;;aymara;bolivian;0.25;catholic;;0;mo;450;silv|grain;
+BOL_POT;Potosí, Chuquisaca and Tarija;-19.8;-65.4;BOL;;quechua;bolivian;0.3;catholic;;0;mo;450;silv;Capital Chuquisaca (Sucre).
+BOL_COC;Cochabamba;-17.4;-66.2;BOL;;quechua;bolivian;0.3;catholic;;0;mo;250;grain;
+BOL_SCZ;Santa Cruz and Moxos;-16.5;-63.5;BOL;;bolivian;amazonian;0.4;catholic;;0;ju;100;live;
+BOL_LIT;Litoral (Cobija, Atacama);-22.5;-68.8;BOL;;bolivian;;0;catholic;;0;de;5;silv;
+DZ_CHACO;Gran Chaco peoples (Toba, Wichí);-23.0;-61.0;DZ:DZ_AMERICAS;;chaco_peoples;;0;traditional;;0;sa;60;;
+CHL_SAN;Santiago and Valparaíso;-33.6;-70.9;CHL;;chilean;;0;catholic;;0;mo;550;grain|silv;
+CHL_NOR;Norte Chico (Coquimbo, Copiapó);-29.5;-70.8;CHL;;chilean;;0;catholic;;0;de;130;silv;Chañarcillo silver strike 1832.
+CHL_CON;Concepción and Maule;-36.4;-72.2;CHL;;chilean;;0;catholic;;0;hi;350;grain;
+CHL_CHI;Valdivia and Chiloé;-41.0;-73.3;CHL;;chilean;mapuche;0.3;catholic;;0;fo;70;timb;
+DZ_ARAUCANIA;Araucanía (Mapuche);-38.6;-72.4;DZ:DZ_AMERICAS;;mapuche;;0;traditional;;0;fo;100;live;Independent de facto until the 1860s-1880s.
+ARG_BAI;Buenos Aires;-35.4;-59.3;ARG;;platine;;0;catholic;;0;pl;180;live;Hides and salted beef.
+ARG_LIT;Litoral (Santa Fe, Entre Ríos, Corrientes);-30.0;-59.5;ARG;;platine;;0;catholic;;0;pl;130;live;
+ARG_COR;Córdoba and Cuyo;-32.5;-65.5;ARG;;platine;;0;catholic;;0;pl;180;grain|live;
+ARG_NOA;Northwest (Tucumán, Salta, Jujuy);-26.5;-65.5;ARG;;platine;quechua;0.2;catholic;;0;mo;250;cash|live;
+DZ_PAMPAS;Pampas and northern Patagonia (Ranquel, Mapuche, Tehuelche);-39.5;-67.0;DZ:DZ_AMERICAS;;patagonian;mapuche;0.4;traditional;;0;st;40;live;
+DZ_PATAGONIA;Southern Patagonia and Tierra del Fuego;-48.5;-70.0;DZ:DZ_AMERICAS;;patagonian;;0;traditional;;0;st;10;;
+URU_MON;Uruguay;-33.0;-56.0;URU;;platine;;0;catholic;;0;pl;100;live;
+PAR_ASU;Paraguay;-25.4;-57.0;PAR;;paraguayan;;0;catholic;;0;ju;250;cash|grain;Yerba mate.
+BRA_RIO;Rio de Janeiro and Espírito Santo;-22.4;-42.9;BRA;;afro_brazilian;brazilian;0.45;catholic;;0;mo;700;cash;Coffee boom in the Paraíba valley.
+BRA_SPA;São Paulo;-22.5;-48.0;BRA;;brazilian;afro_brazilian;0.3;catholic;;0;hi;350;cash|grain;
+BRA_MIN;Minas Gerais;-19.0;-44.4;BRA;;brazilian;afro_brazilian;0.4;catholic;;0;mo;1000;gold|iron|grain;
+BRA_BAH;Bahia and Sergipe;-12.5;-40.5;BRA;;afro_brazilian;brazilian;0.4;catholic;;0;hi;850;cash;Sugar and tobacco. Malê revolt 1835.
+BRA_PER;Pernambuco, Paraíba and Alagoas;-8.3;-36.5;BRA;;brazilian;afro_brazilian;0.4;catholic;;0;hi;800;cash|cott;
+BRA_CEA;Ceará, Rio Grande do Norte and Piauí;-5.5;-40.0;BRA;;brazilian;;0;catholic;;0;st;450;live|cott;
+BRA_MAR;Maranhão;-4.5;-45.0;BRA;;brazilian;afro_brazilian;0.4;catholic;;0;ju;200;cott|cash;
+BRA_PAR;Grão-Pará (Belém);-2.3;-51.0;BRA;;brazilian;amazonian;0.4;catholic;;0;ju;150;cash;Cabanagem revolt 1835-1840 (CoW 525).
+BRA_AMZ;Upper Amazon (Rio Negro);-3.5;-63.0;BRA;;amazonian;brazilian;0.1;traditional;catholic;0.3;ju;60;;
+BRA_GOI;Goiás and Mato Grosso;-15.5;-52.0;BRA;;brazilian;amazonian;0.2;catholic;;0;sa;150;gold|live;
+BRA_RGS;Rio Grande do Sul;-30.0;-53.5;BRA;RGS;brazilian;;0;catholic;;0;pl;150;live;Farroupilha rebellion from Sept 1835.
+BRA_SCA;Santa Catarina and Curitiba;-27.0;-50.0;BRA;;brazilian;;0;catholic;;0;hi;100;timb|cash;
+HAI_HAI;Haiti (Port-au-Prince, Cap-Haïtien);18.9;-72.5;HAI;;haitian;;0;catholic;traditional;0.3;mo;750;cash;
+HAI_SDO;Santo Domingo (eastern Hispaniola);18.8;-70.2;HAI;;dominican;haitian;0.1;catholic;;0;mo;120;cash|live;Haitian rule 1822-1844.

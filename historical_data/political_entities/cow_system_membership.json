@@ -1,0 +1,1007 @@
+{
+ "dataset": "cow_states_2024",
+ "records": [
+  {
+   "entity": "USA",
+   "cow_ccode": 2,
+   "cow_name": "United States of America",
+   "member_from": "1816-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": null,
+   "cow_ccode": 40,
+   "cow_name": "Cuba",
+   "member_from": "1902-05-20",
+   "member_to": "1906-09-25",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": null,
+   "cow_ccode": 40,
+   "cow_name": "Cuba",
+   "member_from": "1909-01-23",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "HAI",
+   "cow_ccode": 41,
+   "cow_name": "Haiti",
+   "member_from": "1859-01-01",
+   "member_to": "1915-07-28",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "DOM",
+   "cow_ccode": 42,
+   "cow_name": "Dominican Republic",
+   "member_from": "1894-01-01",
+   "member_to": "1916-11-29",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "MEX",
+   "cow_ccode": 70,
+   "cow_name": "Mexico",
+   "member_from": "1831-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "GUA",
+   "cow_ccode": 90,
+   "cow_name": "Guatemala",
+   "member_from": "1868-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "HON",
+   "cow_ccode": 91,
+   "cow_name": "Honduras",
+   "member_from": "1899-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "ELS",
+   "cow_ccode": 92,
+   "cow_name": "El Salvador",
+   "member_from": "1875-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "NIC",
+   "cow_ccode": 93,
+   "cow_name": "Nicaragua",
+   "member_from": "1900-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": null,
+   "cow_ccode": 95,
+   "cow_name": "Panama",
+   "member_from": "1903-11-03",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "NGR",
+   "cow_ccode": 100,
+   "cow_name": "Colombia",
+   "member_from": "1831-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "VEN",
+   "cow_ccode": 101,
+   "cow_name": "Venezuela",
+   "member_from": "1841-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "ECU",
+   "cow_ccode": 130,
+   "cow_name": "Ecuador",
+   "member_from": "1854-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "PEU",
+   "cow_ccode": 135,
+   "cow_name": "Peru",
+   "member_from": "1839-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "BRA",
+   "cow_ccode": 140,
+   "cow_name": "Brazil",
+   "member_from": "1822-09-07",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "BOL",
+   "cow_ccode": 145,
+   "cow_name": "Bolivia",
+   "member_from": "1848-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "PAR",
+   "cow_ccode": 150,
+   "cow_name": "Paraguay",
+   "member_from": "1846-01-01",
+   "member_to": "1870-06-20",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "PAR",
+   "cow_ccode": 150,
+   "cow_name": "Paraguay",
+   "member_from": "1876-06-22",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "CHL",
+   "cow_ccode": 155,
+   "cow_name": "Chile",
+   "member_from": "1839-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "ARG",
+   "cow_ccode": 160,
+   "cow_name": "Argentina",
+   "member_from": "1841-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "URU",
+   "cow_ccode": 165,
+   "cow_name": "Uruguay",
+   "member_from": "1882-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "GBR",
+   "cow_ccode": 200,
+   "cow_name": "United Kingdom",
+   "member_from": "1816-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "NED",
+   "cow_ccode": 210,
+   "cow_name": "Netherlands",
+   "member_from": "1816-01-01",
+   "member_to": "1940-07-14",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "BEL",
+   "cow_ccode": 211,
+   "cow_name": "Belgium",
+   "member_from": "1830-12-20",
+   "member_to": "1940-05-28",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "FRA",
+   "cow_ccode": 220,
+   "cow_name": "France",
+   "member_from": "1816-01-01",
+   "member_to": "1942-11-11",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "SWI",
+   "cow_ccode": 225,
+   "cow_name": "Switzerland",
+   "member_from": "1816-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "SPA",
+   "cow_ccode": 230,
+   "cow_name": "Spain",
+   "member_from": "1816-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "POR",
+   "cow_ccode": 235,
+   "cow_name": "Portugal",
+   "member_from": "1816-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "HAN",
+   "cow_ccode": 240,
+   "cow_name": "Hanover",
+   "member_from": "1837-06-20",
+   "member_to": "1866-07-26",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "BAV",
+   "cow_ccode": 245,
+   "cow_name": "Bavaria",
+   "member_from": "1816-01-01",
+   "member_to": "1871-01-18",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "PRU",
+   "cow_ccode": 255,
+   "cow_name": "Germany",
+   "member_from": "1816-01-01",
+   "member_to": "1945-05-08",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "BAD",
+   "cow_ccode": 267,
+   "cow_name": "Baden",
+   "member_from": "1816-01-01",
+   "member_to": "1871-01-18",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "SAX",
+   "cow_ccode": 269,
+   "cow_name": "Saxony",
+   "member_from": "1816-01-01",
+   "member_to": "1867-04-17",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "WUR",
+   "cow_ccode": 271,
+   "cow_name": "Wuerttemburg",
+   "member_from": "1816-01-01",
+   "member_to": "1871-01-18",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "HKA",
+   "cow_ccode": 273,
+   "cow_name": "Hesse Electoral",
+   "member_from": "1816-01-01",
+   "member_to": "1866-07-26",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "HDA",
+   "cow_ccode": 275,
+   "cow_name": "Hesse Grand Ducal",
+   "member_from": "1816-01-01",
+   "member_to": "1867-04-17",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "MSC",
+   "cow_ccode": 280,
+   "cow_name": "Mecklenburg Schwerin",
+   "member_from": "1843-01-01",
+   "member_to": "1867-04-17",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "AUS",
+   "cow_ccode": 300,
+   "cow_name": "Austria-Hungary",
+   "member_from": "1816-01-01",
+   "member_to": "1918-11-12",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "SAR",
+   "cow_ccode": 325,
+   "cow_name": "Italy",
+   "member_from": "1816-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "PAP",
+   "cow_ccode": 327,
+   "cow_name": "Papal States",
+   "member_from": "1816-01-01",
+   "member_to": "1860-11-05",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "SIC",
+   "cow_ccode": 329,
+   "cow_name": "Two Sicilies",
+   "member_from": "1816-01-01",
+   "member_to": "1861-02-13",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "MOD",
+   "cow_ccode": 332,
+   "cow_name": "Modena",
+   "member_from": "1842-01-01",
+   "member_to": "1860-03-15",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "PMA",
+   "cow_ccode": 335,
+   "cow_name": "Parma",
+   "member_from": "1851-01-01",
+   "member_to": "1860-03-15",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "TUS",
+   "cow_ccode": 337,
+   "cow_name": "Tuscany",
+   "member_from": "1816-01-01",
+   "member_to": "1860-03-15",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": null,
+   "cow_ccode": 339,
+   "cow_name": "Albania",
+   "member_from": "1914-01-01",
+   "member_to": "1939-04-07",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "SER",
+   "cow_ccode": 345,
+   "cow_name": "Yugoslavia",
+   "member_from": "1878-07-13",
+   "member_to": "1941-04-20",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "GRE",
+   "cow_ccode": 350,
+   "cow_name": "Greece",
+   "member_from": "1828-01-01",
+   "member_to": "1941-04-23",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "BUL",
+   "cow_ccode": 355,
+   "cow_name": "Bulgaria",
+   "member_from": "1908-10-05",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "ROM",
+   "cow_ccode": 360,
+   "cow_name": "Romania",
+   "member_from": "1878-07-13",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "RUS",
+   "cow_ccode": 365,
+   "cow_name": "Russia",
+   "member_from": "1816-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "SWE",
+   "cow_ccode": 380,
+   "cow_name": "Sweden",
+   "member_from": "1816-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "NOR",
+   "cow_ccode": 385,
+   "cow_name": "Norway",
+   "member_from": "1905-06-07",
+   "member_to": "1940-04-30",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "DEN",
+   "cow_ccode": 390,
+   "cow_name": "Denmark",
+   "member_from": "1816-01-01",
+   "member_to": "1940-04-09",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "ETH",
+   "cow_ccode": 530,
+   "cow_name": "Ethiopia",
+   "member_from": "1898-01-01",
+   "member_to": "1936-05-05",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "MOR",
+   "cow_ccode": 600,
+   "cow_name": "Morocco",
+   "member_from": "1847-01-01",
+   "member_to": "1912-03-30",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "TUN",
+   "cow_ccode": 616,
+   "cow_name": "Tunisia",
+   "member_from": "1825-01-01",
+   "member_to": "1881-05-12",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "PRS",
+   "cow_ccode": 630,
+   "cow_name": "Iran",
+   "member_from": "1855-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "TUR",
+   "cow_ccode": 640,
+   "cow_name": "Turkey",
+   "member_from": "1816-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "EGY",
+   "cow_ccode": 651,
+   "cow_name": "Egypt",
+   "member_from": "1855-01-01",
+   "member_to": "1882-09-15",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "QNG",
+   "cow_ccode": 710,
+   "cow_name": "China",
+   "member_from": "1860-10-25",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "KOR",
+   "cow_ccode": 730,
+   "cow_name": "Korea",
+   "member_from": "1887-01-01",
+   "member_to": "1905-11-17",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "JAP",
+   "cow_ccode": 740,
+   "cow_name": "Japan",
+   "member_from": "1860-01-01",
+   "member_to": "1945-08-14",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "SIA",
+   "cow_ccode": 800,
+   "cow_name": "Thailand",
+   "member_from": "1887-01-01",
+   "member_to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_states_2024",
+     "locator": "statelist2024.csv"
+    }
+   ],
+   "quality": "verified"
+  }
+ ],
+ "major_powers": [
+  {
+   "entity": "USA",
+   "cow_ccode": 2,
+   "from": "1898-08-13",
+   "to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_majors_2024",
+     "locator": "majors2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "GBR",
+   "cow_ccode": 200,
+   "from": "1816-01-01",
+   "to": "2024-12-31",
+   "sources": [
+    {
+     "id": "cow_majors_2024",
+     "locator": "majors2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "FRA",
+   "cow_ccode": 220,
+   "from": "1816-01-01",
+   "to": "1940-06-22",
+   "sources": [
+    {
+     "id": "cow_majors_2024",
+     "locator": "majors2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "PRU",
+   "cow_ccode": 255,
+   "from": "1816-01-01",
+   "to": "1918-11-11",
+   "sources": [
+    {
+     "id": "cow_majors_2024",
+     "locator": "majors2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "AUS",
+   "cow_ccode": 300,
+   "from": "1816-01-01",
+   "to": "1918-11-03",
+   "sources": [
+    {
+     "id": "cow_majors_2024",
+     "locator": "majors2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "SAR",
+   "cow_ccode": 325,
+   "from": "1860-01-01",
+   "to": "1943-09-02",
+   "sources": [
+    {
+     "id": "cow_majors_2024",
+     "locator": "majors2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "RUS",
+   "cow_ccode": 365,
+   "from": "1816-01-01",
+   "to": "1917-12-05",
+   "sources": [
+    {
+     "id": "cow_majors_2024",
+     "locator": "majors2024.csv"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "entity": "JAP",
+   "cow_ccode": 740,
+   "from": "1895-04-01",
+   "to": "1945-08-14",
+   "sources": [
+    {
+     "id": "cow_majors_2024",
+     "locator": "majors2024.csv"
+    }
+   ],
+   "quality": "verified"
+  }
+ ]
+}

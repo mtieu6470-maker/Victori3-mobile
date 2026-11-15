@@ -1,0 +1,29 @@
+{
+  "id": "EGY", "as_of": "1836-01-01", "research_status": "partial",
+  "political": {
+    "government": {"value": "absolute_monarchy", "quality": "supported", "sources": ["fahmy_1997"], "note": "Personal rule of the wali Muhammad Ali, nominal Ottoman governor."},
+    "head_of_state": {"value": {"name": "Muhammad Ali Pasha", "title": "Wali of Egypt", "born": "1769-03-04", "since": "1805-05-17"}, "quality": "supported", "sources": ["fahmy_1997"]},
+    "heir": {"value": {"name": "Ibrahim Pasha", "born": "1789"}, "quality": "supported", "sources": ["fahmy_1997"], "note": "Commander in Syria; succession by seniority later agreed in the 1841 firman."},
+    "laws": {"value": {"power": "autocracy", "governance": "monarchy", "economy": "mercantilism", "trade": "protectionism", "labor": "traditional_tenancy", "church": "state_religion", "press": "censorship", "education": "public_schools", "army": "mass_conscription"},
+      "quality": "supported", "sources": ["fahmy_1997"], "note": "State monopolies over cotton and grain; state factories; conscription of fellahin since 1822; state technical schools and missions to Europe (mapped to public_schools, interpretive)."}
+  },
+  "territory": {"capital": "EGY_CAI", "note": "Holds Syria, Adana, Crete, Hejaz, Tihama and the Sudan in 1836."},
+  "economy": {"structure": {"value": "State-directed export agriculture (long-staple cotton) and state industrialisation (textile mills, arsenals).", "quality": "supported", "sources": ["fahmy_1997"]}, "industrialization_stage": {"value": "early_industrial", "quality": "estimated", "sources": ["fahmy_1997"], "note": "State factories of limited efficiency."}},
+  "diplomacy": {
+    "foreign_policy": {"value": "Seeks hereditary rule and independence from the Porte; French sympathy; British hostility to Egyptian control of Syria.", "quality": "supported", "sources": ["fahmy_1997", "schroeder_1994"]},
+    "relations": [{"with": "TUR", "value": -60}, {"with": "FRA", "value": 40}, {"with": "GBR", "value": -10}, {"with": "NAJ", "value": -40}, {"with": "RUS", "value": -20}],
+    "relations_quality": "estimated", "relations_method": "Ordinal judgement."
+  },
+  "military": {"army_personnel": {"value": 130000, "range": [100000, 160000], "quality": "uncertain", "sources": ["fahmy_1997"], "note": "Egypt is not a CoW system member before 1855; army size in the 1830s debated (Fahmy discusses figures well above 100,000)."}, "doctrine": {"value": "French-trained conscript nizam army.", "quality": "supported", "sources": ["fahmy_1997"]}},
+  "technology": {"level": {"value": "behind_frontier", "quality": "supported", "sources": ["fahmy_1997"]}},
+  "historical_ai": {
+    "strategic_priorities": [
+      {"id": "EGY_independence", "goal": "independence", "target": "TUR", "weight": 0.7, "window": ["1833", "1841"], "rationale": "Declared intention of independence in 1838.", "sources": ["fahmy_1997"]},
+      {"id": "EGY_hold_syria", "goal": "keep_region", "target": ["EGY_DAM", "EGY_ALE", "EGY_ADA", "EGY_PAL"], "weight": 0.8, "window": ["1833", "1841"], "rationale": "Syria as buffer and resource base.", "sources": ["fahmy_1997"]},
+      {"id": "EGY_arabia", "goal": "conquer_region", "target": ["NAJ_RIY", "NAJ_HAS"], "weight": 0.5, "window": ["1836", "1840"], "rationale": "Expedition against Faisal bin Turki (1836-38).", "sources": ["fahmy_1997"]},
+      {"id": "EGY_sudan", "goal": "conquer_region", "target": ["DAR_FAS"], "weight": 0.3, "window": ["1840", "1880"], "rationale": "Southward expansion (Darfur conquered 1874).", "sources": ["iliffe_2007"]}
+    ],
+    "military_doctrine": "conscript_army"
+  },
+  "personality": {"aggression": 0.7, "expansionism": 0.7, "reformism": 0.6, "commerce": 0.6, "naval": 0.4, "isolationism": 0.0, "risk": 0.6, "rationale": "Ambitious modernising autocrat with a large army."}
+}

@@ -1,0 +1,1968 @@
+{
+ "description": "Core Historical Country Profiles (tier B and C) for Europe at 1836-01-01. Fields: government, hos (head of state), hog (head of government), laws or preset+overrides, sources, notes, priorities (Historical Mode only), personality (both modes), relations (ordinal judgements, quality 'estimated'). Missing knowledge is written as null with quality 'missing'.",
+ "profiles": [
+  {
+   "id": "SPA",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "Isabella II",
+    "title": "Queen (regency of Maria Christina)",
+    "born": "1830-10-10",
+    "since": "1833-09-29"
+   },
+   "hos_q": "supported",
+   "hog": {
+    "name": "Juan Álvarez Mendizábal",
+    "title": "President of the Council of Ministers",
+    "since": "1835-09-25"
+   },
+   "laws": {
+    "power": "census_suffrage",
+    "governance": "monarchy",
+    "economy": "mercantilism",
+    "trade": "protectionism",
+    "labor": "slavery",
+    "church": "state_religion",
+    "press": "limited_press",
+    "education": "religious_schools",
+    "army": "mass_conscription"
+   },
+   "laws_q": "supported",
+   "sources": [
+    "carr_1982"
+   ],
+   "notes": "Royal Statute of 1834. First Carlist War (1833-40) under way. Mendizábal's disentailment decree Feb 1836 (future). Slavery legal in Cuba and Puerto Rico.",
+   "priorities": [
+    {
+     "id": "SPA_win_carlist_war",
+     "goal": "suppress_rebels",
+     "weight": 0.9,
+     "window": [
+      "1833",
+      "1840"
+     ],
+     "rationale": "Convention of Vergara (1839).",
+     "sources": [
+      "carr_1982",
+      "cow_intrastate_v41"
+     ]
+    },
+    {
+     "id": "SPA_keep_cuba",
+     "goal": "keep_region",
+     "target": [
+      "SPA_CUB",
+      "SPA_CUE",
+      "SPA_PUR"
+     ],
+     "weight": 0.7,
+     "window": [
+      "1836",
+      "1898"
+     ],
+     "rationale": "Retention of the Antilles.",
+     "sources": [
+      "carr_1982"
+     ]
+    },
+    {
+     "id": "SPA_morocco",
+     "goal": "conquer_region",
+     "target": [
+      "MOR_RIF"
+     ],
+     "weight": 0.3,
+     "window": [
+      "1859",
+      "1860"
+     ],
+     "rationale": "Hispano-Moroccan War (1859-60).",
+     "sources": [
+      "cow_interstate_v40"
+     ]
+    }
+   ],
+   "personality": {
+    "aggression": 0.3,
+    "expansionism": 0.3,
+    "reformism": 0.4,
+    "commerce": 0.4,
+    "naval": 0.4,
+    "isolationism": 0.1,
+    "risk": 0.3
+   },
+   "relations": [
+    {
+     "with": "CAR",
+     "value": -100
+    },
+    {
+     "with": "GBR",
+     "value": 30
+    },
+    {
+     "with": "FRA",
+     "value": 30
+    },
+    {
+     "with": "POR",
+     "value": 40
+    }
+   ]
+  },
+  {
+   "id": "CAR",
+   "government": "rebel_claimant",
+   "hos": {
+    "name": "Carlos María Isidro de Borbón ('Carlos V')",
+    "title": "Pretender",
+    "born": "1788-03-29",
+    "since": "1833-09-29"
+   },
+   "hos_q": "supported",
+   "preset": "rebel_government",
+   "law_overrides": {
+    "power": "autocracy",
+    "governance": "monarchy",
+    "economy": "traditionalism",
+    "labor": "traditional_tenancy"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "carr_1982"
+   ],
+   "notes": "Legitimist, Catholic and pro-fueros movement strongest in Navarre and the Basque provinces.",
+   "priorities": [
+    {
+     "id": "CAR_throne",
+     "goal": "overthrow",
+     "target": "SPA",
+     "weight": 0.9,
+     "window": [
+      "1833",
+      "1840"
+     ],
+     "rationale": "Dynastic war aim.",
+     "sources": [
+      "carr_1982"
+     ]
+    }
+   ],
+   "personality": {
+    "aggression": 0.8,
+    "expansionism": 0.0,
+    "reformism": 0.0,
+    "commerce": 0.1,
+    "naval": 0.0,
+    "isolationism": 0.3,
+    "risk": 0.7
+   }
+  },
+  {
+   "id": "POR",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "Maria II",
+    "title": "Queen",
+    "born": "1819-04-04",
+    "since": "1834-05-26"
+   },
+   "hos_q": "supported",
+   "hog": null,
+   "hog_q": "missing",
+   "laws": {
+    "power": "census_suffrage",
+    "governance": "monarchy",
+    "economy": "mercantilism",
+    "trade": "protectionism",
+    "labor": "slavery",
+    "church": "state_religion",
+    "press": "limited_press",
+    "education": "religious_schools",
+    "army": "professional_army"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "bethell_1985"
+   ],
+   "notes": "Constitutional Charter of 1826 restored after the Liberal Wars (1832-34). September Revolution 1836 (future). Slavery legal in the African colonies. Head of government on 1 Jan 1836 not yet verified (missing).",
+   "priorities": [
+    {
+     "id": "POR_africa",
+     "goal": "colonize",
+     "target": [
+      "DZ_KASANJE",
+      "DZ_OVIMBUNDU",
+      "DZ_YAO"
+     ],
+     "weight": 0.3,
+     "window": [
+      "1836",
+      "1890"
+     ],
+     "rationale": "Hinterland claims in Angola and Mozambique.",
+     "sources": [
+      "iliffe_2007"
+     ]
+    }
+   ],
+   "personality": {
+    "aggression": 0.2,
+    "expansionism": 0.3,
+    "reformism": 0.4,
+    "commerce": 0.5,
+    "naval": 0.5,
+    "isolationism": 0.1,
+    "risk": 0.2
+   },
+   "relations": [
+    {
+     "with": "GBR",
+     "value": 50
+    },
+    {
+     "with": "SPA",
+     "value": 40
+    }
+   ]
+  },
+  {
+   "id": "NED",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "William I",
+    "title": "King",
+    "born": "1772-08-24",
+    "since": "1815-03-16"
+   },
+   "hos_q": "supported",
+   "laws": {
+    "power": "oligarchy",
+    "governance": "monarchy",
+    "economy": "interventionism",
+    "trade": "protectionism",
+    "labor": "slavery",
+    "church": "freedom_of_conscience",
+    "press": "limited_press",
+    "education": "public_schools",
+    "army": "mass_conscription"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "osterhammel_2014"
+   ],
+   "notes": "Strong personal rule under the 1815 constitution; Cultivation System on Java (1830); slavery legal in Suriname and the Antilles until 1863; refuses to recognise Belgium until 1839.",
+   "priorities": [
+    {
+     "id": "NED_recover_belgium",
+     "goal": "conquer_region",
+     "target": [
+      "BEL_BRU",
+      "BEL_FLA",
+      "BEL_WAL",
+      "BEL_LIM",
+      "BEL_LUX"
+     ],
+     "weight": 0.4,
+     "window": [
+      "1830",
+      "1838"
+     ],
+     "rationale": "Non-recognition policy until the 1839 Treaty of London.",
+     "sources": [
+      "schroeder_1994"
+     ]
+    },
+    {
+     "id": "NED_indies",
+     "goal": "colonize",
+     "target": [
+      "DZ_BALI",
+      "DZ_BATAK",
+      "DZ_CELEBES",
+      "DZ_BANJAR",
+      "ACE_KUT"
+     ],
+     "weight": 0.5,
+     "window": [
+      "1836",
+      "1910"
+     ],
+     "rationale": "Outer island expansion (Bali 1846-49, Banjarmasin 1859, Aceh 1873-).",
+     "sources": [
+      "cow_extrastate_v40"
+     ]
+    }
+   ],
+   "personality": {
+    "aggression": 0.3,
+    "expansionism": 0.4,
+    "reformism": 0.3,
+    "commerce": 0.8,
+    "naval": 0.6,
+    "isolationism": 0.1,
+    "risk": 0.3
+   },
+   "relations": [
+    {
+     "with": "BEL",
+     "value": -60
+    },
+    {
+     "with": "GBR",
+     "value": 5
+    },
+    {
+     "with": "PRU",
+     "value": 20
+    }
+   ]
+  },
+  {
+   "id": "BEL",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "Leopold I",
+    "title": "King of the Belgians",
+    "born": "1790-12-16",
+    "since": "1831-07-21"
+   },
+   "hos_q": "supported",
+   "hog": {
+    "name": "Barthélémy de Theux de Meylandt",
+    "title": "Head of cabinet",
+    "since": "1834-08-04"
+   },
+   "laws": {
+    "power": "census_suffrage",
+    "governance": "monarchy",
+    "economy": "interventionism",
+    "trade": "protectionism",
+    "labor": "free_labor",
+    "church": "freedom_of_conscience",
+    "press": "free_press",
+    "education": "religious_schools",
+    "army": "mass_conscription"
+   },
+   "laws_q": "supported",
+   "sources": [
+    "osterhammel_2014",
+    "landes_1969"
+   ],
+   "notes": "Liberal constitution of 1831; state railway (Brussels-Mechelen 1835, first on the continent); rapid industrialisation in Wallonia.",
+   "priorities": [
+    {
+     "id": "BEL_recognition",
+     "goal": "seek_guarantee",
+     "target": "GBR",
+     "weight": 0.6,
+     "window": [
+      "1831",
+      "1839"
+     ],
+     "rationale": "Guaranteed neutrality (Treaty of London 1839).",
+     "sources": [
+      "schroeder_1994"
+     ]
+    },
+    {
+     "id": "BEL_industrialize",
+     "goal": "industrialize",
+     "weight": 0.6,
+     "window": [
+      "1835",
+      "1880"
+     ],
+     "rationale": "Coal, iron and railways.",
+     "sources": [
+      "landes_1969"
+     ]
+    }
+   ],
+   "personality": {
+    "aggression": 0.1,
+    "expansionism": 0.1,
+    "reformism": 0.6,
+    "commerce": 0.8,
+    "naval": 0.1,
+    "isolationism": 0.1,
+    "risk": 0.2
+   },
+   "relations": [
+    {
+     "with": "FRA",
+     "value": 50
+    },
+    {
+     "with": "GBR",
+     "value": 40
+    },
+    {
+     "with": "NED",
+     "value": -60
+    }
+   ]
+  },
+  {
+   "id": "SWI",
+   "government": "confederation",
+   "hos": {
+    "name": "Federal Diet (Tagsatzung), Vorort Bern",
+    "title": "Collective",
+    "since": "1835-01-01"
+   },
+   "hos_q": "estimated",
+   "laws": {
+    "power": "census_suffrage",
+    "governance": "republic",
+    "economy": "laissez_faire",
+    "trade": "free_trade",
+    "labor": "free_labor",
+    "church": "freedom_of_conscience",
+    "press": "limited_press",
+    "education": "public_schools",
+    "army": "mass_conscription"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "osterhammel_2014"
+   ],
+   "notes": "Federal Pact of 1815; liberal 'Regeneration' constitutions in many cantons after 1830; rotation of the Vorort (Bern for 1835-36) is supported but not page-verified.",
+   "priorities": [
+    {
+     "id": "SWI_federal_state",
+     "goal": "reform_law",
+     "target": {
+      "group": "power",
+      "value": "universal_male_suffrage"
+     },
+     "weight": 0.5,
+     "window": [
+      "1845",
+      "1848"
+     ],
+     "rationale": "Sonderbund War (1847) and the federal constitution of 1848.",
+     "sources": [
+      "cow_intrastate_v41"
+     ]
+    }
+   ],
+   "personality": {
+    "aggression": 0.05,
+    "expansionism": 0.0,
+    "reformism": 0.6,
+    "commerce": 0.7,
+    "naval": 0.0,
+    "isolationism": 0.4,
+    "risk": 0.1
+   }
+  },
+  {
+   "id": "DEN",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Frederick VI",
+    "title": "King",
+    "born": "1768-01-28",
+    "since": "1808-03-13"
+   },
+   "hos_q": "supported",
+   "laws": {
+    "power": "autocracy",
+    "governance": "monarchy",
+    "economy": "mercantilism",
+    "trade": "protectionism",
+    "labor": "slavery",
+    "church": "state_religion",
+    "press": "limited_press",
+    "education": "public_schools",
+    "army": "mass_conscription"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "osterhammel_2014"
+   ],
+   "notes": "Absolutism under the Kongelov; consultative provincial estates (1834); school acts of 1814; slavery in the Danish West Indies until 1848.",
+   "priorities": [
+    {
+     "id": "DEN_hold_duchies",
+     "goal": "keep_region",
+     "target": [
+      "DEN_SCH",
+      "DEN_HOL"
+     ],
+     "weight": 0.8,
+     "window": [
+      "1836",
+      "1864"
+     ],
+     "rationale": "Schleswig-Holstein question.",
+     "sources": [
+      "taylor_1954"
+     ]
+    }
+   ],
+   "personality": {
+    "aggression": 0.1,
+    "expansionism": 0.1,
+    "reformism": 0.3,
+    "commerce": 0.6,
+    "naval": 0.5,
+    "isolationism": 0.2,
+    "risk": 0.2
+   }
+  },
+  {
+   "id": "SWE",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "Charles XIV John (Jean-Baptiste Bernadotte)",
+    "title": "King of Sweden and Norway",
+    "born": "1763-01-26",
+    "since": "1818-02-05"
+   },
+   "hos_q": "supported",
+   "laws": {
+    "power": "oligarchy",
+    "governance": "monarchy",
+    "economy": "mercantilism",
+    "trade": "protectionism",
+    "labor": "free_labor",
+    "church": "state_religion",
+    "press": "limited_press",
+    "education": "religious_schools",
+    "army": "professional_army"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "osterhammel_2014"
+   ],
+   "notes": "Instrument of Government 1809; Riksdag of the Four Estates; allotment system (indelningsverket) army.",
+   "personality": {
+    "aggression": 0.1,
+    "expansionism": 0.1,
+    "reformism": 0.3,
+    "commerce": 0.5,
+    "naval": 0.4,
+    "isolationism": 0.3,
+    "risk": 0.2
+   }
+  },
+  {
+   "id": "NOR",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "Charles XIV John",
+    "title": "King of Norway",
+    "born": "1763-01-26",
+    "since": "1818-02-05"
+   },
+   "hos_q": "supported",
+   "laws": {
+    "power": "census_suffrage",
+    "governance": "monarchy",
+    "economy": "laissez_faire",
+    "trade": "protectionism",
+    "labor": "free_labor",
+    "church": "state_religion",
+    "press": "free_press",
+    "education": "religious_schools",
+    "army": "mass_conscription"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "osterhammel_2014"
+   ],
+   "notes": "Eidsvoll Constitution (1814) with a Storting elected on a comparatively broad property franchise.",
+   "personality": {
+    "aggression": 0.05,
+    "expansionism": 0.0,
+    "reformism": 0.5,
+    "commerce": 0.6,
+    "naval": 0.5,
+    "isolationism": 0.3,
+    "risk": 0.1
+   }
+  },
+  {
+   "id": "HAN",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "William IV",
+    "title": "King of Hanover",
+    "born": "1765-08-21",
+    "since": "1830-06-26"
+   },
+   "hos_q": "supported",
+   "hog": {
+    "name": "Prince Adolphus, Duke of Cambridge",
+    "title": "Viceroy",
+    "since": "1816"
+   },
+   "preset": "german_constitutional",
+   "law_overrides": {
+    "trade": "protectionism"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "nipperdey_1996"
+   ],
+   "notes": "Constitution of 1833 (revoked by Ernest Augustus in 1837 — Göttingen Seven). Steuerverein with Brunswick and Oldenburg, outside the Zollverein until 1854.",
+   "personality": {
+    "aggression": 0.1,
+    "expansionism": 0.0,
+    "reformism": 0.3,
+    "commerce": 0.4,
+    "naval": 0.1,
+    "isolationism": 0.2,
+    "risk": 0.1
+   }
+  },
+  {
+   "id": "BAV",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "Ludwig I",
+    "title": "King",
+    "born": "1786-08-25",
+    "since": "1825-10-13"
+   },
+   "hos_q": "supported",
+   "preset": "german_constitutional",
+   "law_overrides": {},
+   "laws_q": "estimated",
+   "sources": [
+    "nipperdey_1996"
+   ],
+   "notes": "Constitution of 1818; Zollverein member (1834); son Otto is King of Greece.",
+   "priorities": [
+    {
+     "id": "BAV_third_germany",
+     "goal": "keep_independence",
+     "weight": 0.6,
+     "window": [
+      "1815",
+      "1866"
+     ],
+     "rationale": "Trias policy between Austria and Prussia.",
+     "sources": [
+      "nipperdey_1996"
+     ]
+    }
+   ],
+   "personality": {
+    "aggression": 0.1,
+    "expansionism": 0.1,
+    "reformism": 0.3,
+    "commerce": 0.4,
+    "naval": 0.0,
+    "isolationism": 0.2,
+    "risk": 0.2
+   },
+   "relations": [
+    {
+     "with": "GRE",
+     "value": 60
+    },
+    {
+     "with": "AUS",
+     "value": 30
+    },
+    {
+     "with": "PRU",
+     "value": 30
+    }
+   ]
+  },
+  {
+   "id": "SAX",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "Anthony",
+    "title": "King (co-regent Prince Frederick Augustus)",
+    "born": "1755-12-27",
+    "since": "1827-05-05"
+   },
+   "hos_q": "supported",
+   "preset": "german_constitutional",
+   "law_overrides": {
+    "economy": "interventionism"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "nipperdey_1996"
+   ],
+   "notes": "Constitution of 1831. One of the most industrialised German states (textiles, machine building). King Anthony died 6 June 1836.",
+   "personality": {
+    "aggression": 0.05,
+    "expansionism": 0.0,
+    "reformism": 0.4,
+    "commerce": 0.6,
+    "naval": 0.0,
+    "isolationism": 0.1,
+    "risk": 0.1
+   }
+  },
+  {
+   "id": "WUR",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "William I",
+    "title": "King",
+    "born": "1781-09-27",
+    "since": "1816-10-30"
+   },
+   "hos_q": "supported",
+   "preset": "german_constitutional",
+   "laws_q": "estimated",
+   "sources": [
+    "nipperdey_1996"
+   ],
+   "notes": "Constitution of 1819."
+  },
+  {
+   "id": "BAD",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "Leopold",
+    "title": "Grand Duke",
+    "born": "1790-08-29",
+    "since": "1830-03-30"
+   },
+   "hos_q": "supported",
+   "preset": "german_constitutional",
+   "laws_q": "estimated",
+   "sources": [
+    "nipperdey_1996"
+   ],
+   "notes": "Constitution of 1818; liberal second chamber; joined the Zollverein 1835-36."
+  },
+  {
+   "id": "HKA",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "William II",
+    "title": "Elector (co-regent Frederick William since 1831)",
+    "born": "1777-07-28",
+    "since": "1821-02-27"
+   },
+   "hos_q": "supported",
+   "preset": "german_constitutional",
+   "laws_q": "estimated",
+   "sources": [
+    "nipperdey_1996"
+   ],
+   "notes": "Constitution of 1831."
+  },
+  {
+   "id": "HDA",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "Louis II",
+    "title": "Grand Duke",
+    "born": "1777-12-26",
+    "since": "1830-04-06"
+   },
+   "hos_q": "supported",
+   "preset": "german_constitutional",
+   "laws_q": "estimated",
+   "sources": [
+    "nipperdey_1996"
+   ],
+   "notes": "Constitution of 1820; customs union with Prussia since 1828."
+  },
+  {
+   "id": "MSC",
+   "government": "estates_monarchy",
+   "hos": {
+    "name": "Frederick Francis I",
+    "title": "Grand Duke",
+    "born": "1756-12-10",
+    "since": "1785-04-24"
+   },
+   "hos_q": "supported",
+   "preset": "german_estates",
+   "laws_q": "estimated",
+   "sources": [
+    "nipperdey_1996"
+   ],
+   "notes": "Feudal estates constitution of 1755 (Landesgrundgesetzlicher Erbvergleich); outside the Zollverein."
+  },
+  {
+   "id": "MST",
+   "government": "estates_monarchy",
+   "hos": {
+    "name": "George",
+    "title": "Grand Duke",
+    "born": "1779-08-12",
+    "since": "1816-11-06"
+   },
+   "hos_q": "supported",
+   "preset": "german_estates",
+   "laws_q": "estimated",
+   "sources": [
+    "nipperdey_1996"
+   ],
+   "notes": "Shares the Mecklenburg estates constitution; outside the Zollverein."
+  },
+  {
+   "id": "OLD",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Augustus",
+    "title": "Grand Duke",
+    "born": "1783-07-13",
+    "since": "1829-05-21"
+   },
+   "hos_q": "supported",
+   "preset": "german_absolute",
+   "law_overrides": {
+    "trade": "protectionism"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "nipperdey_1996"
+   ],
+   "notes": "No constitution until 1849; outside the Zollverein."
+  },
+  {
+   "id": "BRU",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "William",
+    "title": "Duke",
+    "born": "1806-04-25",
+    "since": "1831-04-20"
+   },
+   "hos_q": "supported",
+   "preset": "german_constitutional",
+   "law_overrides": {
+    "trade": "protectionism"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "nipperdey_1996"
+   ],
+   "notes": "Constitution of 1832; Steuerverein with Hanover."
+  },
+  {
+   "id": "NAS",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "William",
+    "title": "Duke",
+    "born": "1792-06-14",
+    "since": "1816-01-09"
+   },
+   "hos_q": "supported",
+   "preset": "german_constitutional",
+   "laws_q": "estimated",
+   "sources": [
+    "nipperdey_1996"
+   ],
+   "notes": "Constitution of 1814; joined the Zollverein 1836."
+  },
+  {
+   "id": "SWM",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "Charles Frederick",
+    "title": "Grand Duke",
+    "born": "1783-02-02",
+    "since": "1828-06-14"
+   },
+   "hos_q": "supported",
+   "preset": "german_constitutional",
+   "laws_q": "estimated",
+   "sources": [
+    "nipperdey_1996"
+   ],
+   "notes": "Constitution of 1816; Thuringian Customs Union within the Zollverein (1834)."
+  },
+  {
+   "id": "SCG",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "Ernest I",
+    "title": "Duke",
+    "born": "1784-01-02",
+    "since": "1826-11-12"
+   },
+   "hos_q": "supported",
+   "preset": "german_constitutional",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ],
+   "notes": "Brother of Leopold I of Belgium; Coburg constitution 1821; Gotha retained estates (gap)."
+  },
+  {
+   "id": "SMN",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "Bernhard II",
+    "title": "Duke",
+    "born": "1800-12-17",
+    "since": "1803-12-24"
+   },
+   "hos_q": "supported",
+   "preset": "german_constitutional",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ],
+   "notes": "Constitution of 1829."
+  },
+  {
+   "id": "SAA",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "Joseph",
+    "title": "Duke",
+    "born": "1789-08-27",
+    "since": "1834-09-29"
+   },
+   "hos_q": "supported",
+   "preset": "german_constitutional",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ],
+   "notes": "Constitution of 1831."
+  },
+  {
+   "id": "ADE",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Leopold IV Frederick",
+    "title": "Duke",
+    "born": "1794-10-01",
+    "since": "1817-08-09"
+   },
+   "hos_q": "supported",
+   "preset": "german_absolute",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ],
+   "notes": "In the Prussian customs system since 1828."
+  },
+  {
+   "id": "AKO",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Henry",
+    "title": "Duke",
+    "born": "1778-07-30",
+    "since": "1830-08-23"
+   },
+   "hos_q": "supported",
+   "preset": "german_absolute",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ],
+   "notes": "Line extinct 1847; inherited by Anhalt-Dessau."
+  },
+  {
+   "id": "ABE",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Alexander Charles",
+    "title": "Duke",
+    "born": "1805-03-02",
+    "since": "1834-03-24"
+   },
+   "hos_q": "supported",
+   "preset": "german_absolute",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ]
+  },
+  {
+   "id": "SSO",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "Günther Friedrich Carl II",
+    "title": "Prince",
+    "born": "1801-09-24",
+    "since": "1835-08-19"
+   },
+   "hos_q": "supported",
+   "preset": "german_constitutional",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ]
+  },
+  {
+   "id": "SRU",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "Friedrich Günther",
+    "title": "Prince",
+    "born": "1793-11-06",
+    "since": "1807-04-28"
+   },
+   "hos_q": "supported",
+   "preset": "german_constitutional",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ],
+   "notes": "Constitution of 1816."
+  },
+  {
+   "id": "RGR",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Heinrich XIX",
+    "title": "Prince",
+    "born": "1790-03-01",
+    "since": "1817-01-29"
+   },
+   "hos_q": "supported",
+   "preset": "german_absolute",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ],
+   "notes": "Died 31 Oct 1836; succeeded by Heinrich XX."
+  },
+  {
+   "id": "RSC",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Heinrich LXII",
+    "title": "Prince",
+    "born": "1785-05-31",
+    "since": "1818-04-17"
+   },
+   "hos_q": "supported",
+   "preset": "german_absolute",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ]
+  },
+  {
+   "id": "RLE",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Heinrich LXXII",
+    "title": "Prince",
+    "born": "1797-03-27",
+    "since": "1822-06-10"
+   },
+   "hos_q": "supported",
+   "preset": "german_absolute",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ]
+  },
+  {
+   "id": "LIP",
+   "government": "estates_monarchy",
+   "hos": {
+    "name": "Paul Alexander Leopold II",
+    "title": "Prince",
+    "born": "1796-11-06",
+    "since": "1802-04-04"
+   },
+   "hos_q": "supported",
+   "preset": "german_estates",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ],
+   "notes": "Joined the Zollverein 1842."
+  },
+  {
+   "id": "SLI",
+   "government": "estates_monarchy",
+   "hos": {
+    "name": "George William",
+    "title": "Prince",
+    "born": "1784-12-20",
+    "since": "1787-02-13"
+   },
+   "hos_q": "supported",
+   "preset": "german_estates",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ]
+  },
+  {
+   "id": "WLD",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "George II",
+    "title": "Prince",
+    "born": "1789-09-20",
+    "since": "1813-09-09"
+   },
+   "hos_q": "supported",
+   "preset": "german_constitutional",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ],
+   "notes": "Customs arrangement with Prussia (date not verified: uncertain)."
+  },
+  {
+   "id": "HHO",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Louis William",
+    "title": "Landgrave",
+    "born": "1770-08-29",
+    "since": "1829-01-19"
+   },
+   "hos_q": "supported",
+   "preset": "german_absolute",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ]
+  },
+  {
+   "id": "HHE",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Friedrich Hermann Otto",
+    "title": "Prince",
+    "born": "1776-07-22",
+    "since": "1810-11-02"
+   },
+   "hos_q": "supported",
+   "preset": "german_absolute",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ],
+   "notes": "Ceded to Prussia 1849-50."
+  },
+  {
+   "id": "HSI",
+   "government": "constitutional_monarchy",
+   "hos": {
+    "name": "Charles",
+    "title": "Prince",
+    "born": "1785-02-20",
+    "since": "1831-01-17"
+   },
+   "hos_q": "supported",
+   "preset": "german_constitutional",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ],
+   "notes": "Constitution of 1833; ceded to Prussia 1849-50."
+  },
+  {
+   "id": "LIE",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Johann I Joseph",
+    "title": "Prince",
+    "born": "1760-06-26",
+    "since": "1805-02-24"
+   },
+   "hos_q": "supported",
+   "preset": "german_absolute",
+   "law_overrides": {
+    "trade": "protectionism"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ],
+   "notes": "Died 20 April 1836; succeeded by Aloys II."
+  },
+  {
+   "id": "HAM",
+   "government": "city_republic",
+   "hos": null,
+   "hos_q": "missing",
+   "preset": "free_city",
+   "law_overrides": {
+    "trade": "free_trade"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ],
+   "notes": "Senate and Bürgerschaft; outside the Zollverein. Names of burgomasters not yet researched."
+  },
+  {
+   "id": "BRE",
+   "government": "city_republic",
+   "hos": null,
+   "hos_q": "missing",
+   "preset": "free_city",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ]
+  },
+  {
+   "id": "LUB",
+   "government": "city_republic",
+   "hos": null,
+   "hos_q": "missing",
+   "preset": "free_city",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ]
+  },
+  {
+   "id": "FRK",
+   "government": "city_republic",
+   "hos": null,
+   "hos_q": "missing",
+   "preset": "free_city",
+   "laws_q": "estimated",
+   "sources": [
+    "sheehan_1989"
+   ],
+   "notes": "Seat of the Federal Diet of the German Confederation; joined the Zollverein 1836."
+  },
+  {
+   "id": "KRA",
+   "government": "city_republic",
+   "hos": null,
+   "hos_q": "missing",
+   "preset": "free_city",
+   "law_overrides": {
+    "trade": "protectionism"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "schroeder_1994"
+   ],
+   "notes": "Senate under the residents of the three protecting powers."
+  },
+  {
+   "id": "SAR",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Charles Albert",
+    "title": "King of Sardinia",
+    "born": "1798-10-02",
+    "since": "1831-04-27"
+   },
+   "hos_q": "supported",
+   "laws": {
+    "power": "autocracy",
+    "governance": "monarchy",
+    "economy": "mercantilism",
+    "trade": "protectionism",
+    "labor": "traditional_tenancy",
+    "church": "state_religion",
+    "press": "censorship",
+    "education": "religious_schools",
+    "army": "mass_conscription"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "riall_2009"
+   ],
+   "notes": "Absolutism until the Statuto Albertino (4 March 1848).",
+   "priorities": [
+    {
+     "id": "SAR_lombardy",
+     "goal": "conquer_region",
+     "target": [
+      "AUS_LOM",
+      "AUS_VEN"
+     ],
+     "weight": 0.6,
+     "window": [
+      "1848",
+      "1866"
+     ],
+     "rationale": "Wars of independence 1848-49, 1859, 1866.",
+     "sources": [
+      "cow_interstate_v40",
+      "riall_2009"
+     ]
+    },
+    {
+     "id": "SAR_unify_italy",
+     "goal": "unify_nation",
+     "target": "italian",
+     "weight": 0.8,
+     "window": [
+      "1848",
+      "1870"
+     ],
+     "rationale": "Unification under Savoy (1859-1870).",
+     "sources": [
+      "riall_2009"
+     ]
+    },
+    {
+     "id": "SAR_statuto",
+     "goal": "reform_law",
+     "target": {
+      "group": "power",
+      "value": "census_suffrage"
+     },
+     "weight": 0.5,
+     "window": [
+      "1846",
+      "1849"
+     ],
+     "rationale": "Statuto Albertino 1848.",
+     "sources": [
+      "riall_2009"
+     ]
+    }
+   ],
+   "personality": {
+    "aggression": 0.4,
+    "expansionism": 0.5,
+    "reformism": 0.4,
+    "commerce": 0.4,
+    "naval": 0.3,
+    "isolationism": 0.1,
+    "risk": 0.5
+   },
+   "relations": [
+    {
+     "with": "AUS",
+     "value": 20
+    },
+    {
+     "with": "SIC",
+     "value": 30
+    },
+    {
+     "with": "FRA",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "id": "SIC",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Ferdinand II",
+    "title": "King of the Two Sicilies",
+    "born": "1810-01-12",
+    "since": "1830-11-08"
+   },
+   "hos_q": "supported",
+   "preset": "italian_absolute",
+   "laws_q": "estimated",
+   "sources": [
+    "riall_2009"
+   ],
+   "notes": "Naples-Portici railway 1839 (future). Sicilian separatism (1820, 1848).",
+   "priorities": [
+    {
+     "id": "SIC_order",
+     "goal": "keep_law",
+     "target": {
+      "group": "power",
+      "value": "autocracy"
+     },
+     "weight": 0.6,
+     "window": [
+      "1830",
+      "1860"
+     ],
+     "rationale": "Repression after 1848.",
+     "sources": [
+      "riall_2009"
+     ]
+    }
+   ],
+   "personality": {
+    "aggression": 0.1,
+    "expansionism": 0.0,
+    "reformism": 0.1,
+    "commerce": 0.3,
+    "naval": 0.3,
+    "isolationism": 0.3,
+    "risk": 0.1
+   }
+  },
+  {
+   "id": "PAP",
+   "government": "theocracy",
+   "hos": {
+    "name": "Gregory XVI",
+    "title": "Pope",
+    "born": "1765-09-18",
+    "since": "1831-02-02"
+   },
+   "hos_q": "supported",
+   "hog": {
+    "name": "Cardinal Tommaso Bernetti",
+    "title": "Cardinal Secretary of State",
+    "since": "1831"
+   },
+   "preset": "italian_absolute",
+   "law_overrides": {
+    "power": "theocracy",
+    "governance": "theocracy"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "riall_2009"
+   ],
+   "notes": "Austrian troops in the Legations (1832-38) and French at Ancona (1832-38).",
+   "priorities": [
+    {
+     "id": "PAP_temporal_power",
+     "goal": "keep_independence",
+     "weight": 0.8,
+     "window": [
+      "1815",
+      "1870"
+     ],
+     "rationale": "Defence of temporal power (French garrison 1849-1870).",
+     "sources": [
+      "riall_2009"
+     ]
+    }
+   ],
+   "personality": {
+    "aggression": 0.0,
+    "expansionism": 0.0,
+    "reformism": 0.1,
+    "commerce": 0.2,
+    "naval": 0.0,
+    "isolationism": 0.4,
+    "risk": 0.1
+   }
+  },
+  {
+   "id": "TUS",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Leopold II",
+    "title": "Grand Duke",
+    "born": "1797-10-03",
+    "since": "1824-06-18"
+   },
+   "hos_q": "supported",
+   "preset": "italian_absolute",
+   "law_overrides": {
+    "press": "limited_press"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "riall_2009"
+   ],
+   "notes": "Comparatively tolerant Habsburg-Lorraine regime."
+  },
+  {
+   "id": "MOD",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Francis IV",
+    "title": "Duke",
+    "born": "1779-10-06",
+    "since": "1814-07-14"
+   },
+   "hos_q": "supported",
+   "preset": "italian_absolute",
+   "laws_q": "estimated",
+   "sources": [
+    "riall_2009"
+   ]
+  },
+  {
+   "id": "PMA",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Marie Louise",
+    "title": "Duchess",
+    "born": "1791-12-12",
+    "since": "1814-04-11"
+   },
+   "hos_q": "supported",
+   "preset": "italian_absolute",
+   "laws_q": "estimated",
+   "sources": [
+    "riall_2009"
+   ],
+   "notes": "Former Empress of the French; reversion to the Bourbons of Lucca on her death (1847)."
+  },
+  {
+   "id": "LUC",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Charles Louis",
+    "title": "Duke",
+    "born": "1799-12-22",
+    "since": "1824-03-13"
+   },
+   "hos_q": "supported",
+   "preset": "italian_absolute",
+   "laws_q": "estimated",
+   "sources": [
+    "riall_2009"
+   ],
+   "notes": "Lucca passed to Tuscany in 1847."
+  },
+  {
+   "id": "SMR",
+   "government": "city_republic",
+   "hos": null,
+   "hos_q": "missing",
+   "preset": "free_city",
+   "law_overrides": {
+    "trade": "protectionism",
+    "army": "feudal_levies",
+    "church": "state_religion",
+    "education": "religious_schools"
+   },
+   "laws_q": "estimated",
+   "sources": [],
+   "notes": "Captains Regent for 1836 not yet researched."
+  },
+  {
+   "id": "MCO",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Honoré V",
+    "title": "Prince",
+    "born": "1778-05-13",
+    "since": "1819-10-02"
+   },
+   "hos_q": "supported",
+   "preset": "italian_absolute",
+   "laws_q": "estimated",
+   "sources": [],
+   "notes": "Source to be attached (needs_source)."
+  },
+  {
+   "id": "ION",
+   "government": "protectorate_republic",
+   "hos": {
+    "name": "Sir Howard Douglas",
+    "title": "Lord High Commissioner",
+    "since": "1835"
+   },
+   "hos_q": "supported",
+   "preset": "italian_absolute",
+   "law_overrides": {
+    "power": "oligarchy",
+    "governance": "republic",
+    "church": "state_religion"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "clogg_2013"
+   ],
+   "notes": "Senate and assembly under British tutelage (1817 constitution)."
+  },
+  {
+   "id": "SER",
+   "government": "autonomous_principality",
+   "hos": {
+    "name": "Miloš Obrenović",
+    "title": "Prince",
+    "born": "1780-03-17",
+    "since": "1815-04-23"
+   },
+   "hos_q": "supported",
+   "laws": {
+    "power": "autocracy",
+    "governance": "monarchy",
+    "economy": "traditionalism",
+    "trade": "protectionism",
+    "labor": "free_labor",
+    "church": "state_religion",
+    "press": "censorship",
+    "education": "religious_schools",
+    "army": "feudal_levies"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "petrovich_1976"
+   ],
+   "notes": "Hereditary prince by the 1830 hatt-i sharif; Sretenje Constitution (Feb 1835) suspended within weeks; Turkish constitution of 1838 (future). Feudal (spahi) obligations abolished 1830-33.",
+   "priorities": [
+    {
+     "id": "SER_independence",
+     "goal": "independence",
+     "target": "TUR",
+     "weight": 0.6,
+     "window": [
+      "1836",
+      "1878"
+     ],
+     "rationale": "Full independence at Berlin (1878).",
+     "sources": [
+      "petrovich_1976"
+     ]
+    },
+    {
+     "id": "SER_expand",
+     "goal": "conquer_region",
+     "target": [
+      "TUR_KOS",
+      "TUR_BOS"
+     ],
+     "weight": 0.4,
+     "window": [
+      "1844",
+      "1912"
+     ],
+     "rationale": "Načertanije (1844) programme.",
+     "sources": [
+      "petrovich_1976"
+     ]
+    }
+   ],
+   "personality": {
+    "aggression": 0.4,
+    "expansionism": 0.5,
+    "reformism": 0.3,
+    "commerce": 0.3,
+    "naval": 0.0,
+    "isolationism": 0.2,
+    "risk": 0.4
+   },
+   "relations": [
+    {
+     "with": "TUR",
+     "value": -10
+    },
+    {
+     "with": "RUS",
+     "value": 30
+    },
+    {
+     "with": "AUS",
+     "value": 0
+    }
+   ]
+  },
+  {
+   "id": "WAL",
+   "government": "autonomous_principality",
+   "hos": {
+    "name": "Alexandru II Ghica",
+    "title": "Prince (Domnitor)",
+    "born": "1796",
+    "since": "1834-04-01"
+   },
+   "hos_q": "supported",
+   "laws": {
+    "power": "oligarchy",
+    "governance": "monarchy",
+    "economy": "traditionalism",
+    "trade": "protectionism",
+    "labor": "serfdom",
+    "church": "state_religion",
+    "press": "censorship",
+    "education": "religious_schools",
+    "army": "feudal_levies"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "hitchins_1996"
+   ],
+   "notes": "Organic Regulation (1831): boyar assembly; peasant labour dues (clacă). Roma slavery legal until 1856 (not separately modelled).",
+   "priorities": [
+    {
+     "id": "WAL_union",
+     "goal": "unify_nation",
+     "target": "romanian",
+     "weight": 0.6,
+     "window": [
+      "1848",
+      "1862"
+     ],
+     "rationale": "Union with Moldavia under Cuza (1859).",
+     "sources": [
+      "hitchins_1996"
+     ]
+    }
+   ],
+   "personality": {
+    "aggression": 0.1,
+    "expansionism": 0.2,
+    "reformism": 0.3,
+    "commerce": 0.4,
+    "naval": 0.0,
+    "isolationism": 0.2,
+    "risk": 0.2
+   },
+   "relations": [
+    {
+     "with": "MOL",
+     "value": 60
+    },
+    {
+     "with": "RUS",
+     "value": 40
+    }
+   ]
+  },
+  {
+   "id": "MOL",
+   "government": "autonomous_principality",
+   "hos": {
+    "name": "Mihail Sturdza",
+    "title": "Prince (Domnitor)",
+    "born": "1794-04-24",
+    "since": "1834-04-01"
+   },
+   "hos_q": "supported",
+   "laws": {
+    "power": "oligarchy",
+    "governance": "monarchy",
+    "economy": "traditionalism",
+    "trade": "protectionism",
+    "labor": "serfdom",
+    "church": "state_religion",
+    "press": "censorship",
+    "education": "religious_schools",
+    "army": "feudal_levies"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "hitchins_1996"
+   ],
+   "notes": "Organic Regulation regime; Roma slavery legal until 1855.",
+   "priorities": [
+    {
+     "id": "MOL_union",
+     "goal": "unify_nation",
+     "target": "romanian",
+     "weight": 0.5,
+     "window": [
+      "1848",
+      "1862"
+     ],
+     "rationale": "Union of the Principalities (1859).",
+     "sources": [
+      "hitchins_1996"
+     ]
+    }
+   ],
+   "personality": {
+    "aggression": 0.1,
+    "expansionism": 0.1,
+    "reformism": 0.3,
+    "commerce": 0.4,
+    "naval": 0.0,
+    "isolationism": 0.2,
+    "risk": 0.2
+   },
+   "relations": [
+    {
+     "with": "WAL",
+     "value": 60
+    },
+    {
+     "with": "RUS",
+     "value": 40
+    }
+   ]
+  },
+  {
+   "id": "MNT",
+   "government": "theocracy",
+   "hos": {
+    "name": "Petar II Petrović-Njegoš",
+    "title": "Prince-Bishop (Vladika)",
+    "born": "1813-11-13",
+    "since": "1830-10-30"
+   },
+   "hos_q": "supported",
+   "preset": "decentralized",
+   "law_overrides": {
+    "power": "theocracy",
+    "governance": "theocracy"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "petrovich_1976"
+   ]
+  },
+  {
+   "id": "GRE",
+   "government": "absolute_monarchy",
+   "hos": {
+    "name": "Otto",
+    "title": "King of Greece",
+    "born": "1815-06-01",
+    "since": "1832-05-27"
+   },
+   "hos_q": "supported",
+   "hog": {
+    "name": "Josef Ludwig von Armansperg",
+    "title": "Arch-Chancellor",
+    "since": "1835-06-01"
+   },
+   "laws": {
+    "power": "autocracy",
+    "governance": "monarchy",
+    "economy": "traditionalism",
+    "trade": "protectionism",
+    "labor": "free_labor",
+    "church": "state_religion",
+    "press": "limited_press",
+    "education": "public_schools",
+    "army": "professional_army"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "clogg_2013"
+   ],
+   "notes": "Bavarian regency until 1835; autocephalous Church of Greece (1833); 3 September 1843 revolution forced a constitution (future).",
+   "priorities": [
+    {
+     "id": "GRE_megali_idea",
+     "goal": "unify_nation",
+     "target": "greek",
+     "weight": 0.6,
+     "window": [
+      "1844",
+      "1922"
+     ],
+     "rationale": "Megali Idea (Kolettis 1844).",
+     "sources": [
+      "clogg_2013"
+     ]
+    },
+    {
+     "id": "GRE_constitution",
+     "goal": "reform_law",
+     "target": {
+      "group": "power",
+      "value": "census_suffrage"
+     },
+     "weight": 0.4,
+     "window": [
+      "1840",
+      "1844"
+     ],
+     "rationale": "1843 revolution.",
+     "sources": [
+      "clogg_2013"
+     ]
+    }
+   ],
+   "personality": {
+    "aggression": 0.3,
+    "expansionism": 0.6,
+    "reformism": 0.3,
+    "commerce": 0.5,
+    "naval": 0.4,
+    "isolationism": 0.1,
+    "risk": 0.4
+   },
+   "relations": [
+    {
+     "with": "TUR",
+     "value": -40
+    },
+    {
+     "with": "BAV",
+     "value": 60
+    },
+    {
+     "with": "GBR",
+     "value": 20
+    },
+    {
+     "with": "RUS",
+     "value": 20
+    }
+   ]
+  },
+  {
+   "id": "CIR",
+   "government": "confederation_of_tribes",
+   "hos": null,
+   "hos_q": "missing",
+   "preset": "decentralized",
+   "laws_q": "estimated",
+   "sources": [
+    "osterhammel_2014"
+   ],
+   "notes": "Adyghe tribal assemblies; no single ruler.",
+   "personality": {
+    "aggression": 0.5,
+    "expansionism": 0.0,
+    "reformism": 0.1,
+    "commerce": 0.2,
+    "naval": 0.0,
+    "isolationism": 0.6,
+    "risk": 0.6
+   },
+   "relations": [
+    {
+     "with": "RUS",
+     "value": -90
+    },
+    {
+     "with": "TUR",
+     "value": 30
+    }
+   ]
+  },
+  {
+   "id": "IMM",
+   "government": "theocracy",
+   "hos": {
+    "name": "Shamil",
+    "title": "Imam",
+    "born": "1797-06-26",
+    "since": "1834-09-01"
+   },
+   "hos_q": "supported",
+   "preset": "islamic_theocracy",
+   "law_overrides": {
+    "labor": "traditional_tenancy"
+   },
+   "laws_q": "estimated",
+   "sources": [
+    "osterhammel_2014"
+   ],
+   "notes": "Third imam of Dagestan and Chechnya (1834-1859).",
+   "priorities": [
+    {
+     "id": "IMM_resist",
+     "goal": "keep_independence",
+     "weight": 0.8,
+     "window": [
+      "1834",
+      "1859"
+     ],
+     "rationale": "Resistance to Russian conquest.",
+     "sources": [
+      "cow_intrastate_v41"
+     ]
+    }
+   ],
+   "personality": {
+    "aggression": 0.6,
+    "expansionism": 0.2,
+    "reformism": 0.2,
+    "commerce": 0.1,
+    "naval": 0.0,
+    "isolationism": 0.6,
+    "risk": 0.6
+   },
+   "relations": [
+    {
+     "with": "RUS",
+     "value": -90
+    }
+   ]
+  }
+ ]
+}

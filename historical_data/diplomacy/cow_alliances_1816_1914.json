@@ -1,0 +1,3723 @@
+{
+ "dataset": "cow_alliances_v41",
+ "records": [
+  {
+   "id": "cow_ally_1",
+   "cow_version4id": 1,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": true,
+   "entente": false,
+   "start": "1386-05-09",
+   "end": null,
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1816-01-01",
+     "to": null
+    },
+    {
+     "entity": "POR",
+     "cow_ccode": 235,
+     "cow_name": "Portugal",
+     "from": "1816-01-01",
+     "to": null
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 1"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_2",
+   "cow_version4id": 2,
+   "type": "Type III: Entente",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1766-02-05",
+   "end": "1911-02-15",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1816-01-01",
+     "to": "1911-02-15"
+    },
+    {
+     "entity": "SWE",
+     "cow_ccode": 380,
+     "cow_name": "Sweden",
+     "from": "1816-01-01",
+     "to": "1911-02-15"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 2"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_3",
+   "cow_version4id": 3,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": true,
+   "entente": true,
+   "start": "1815-06-08",
+   "end": "1866-06-15",
+   "members": [
+    {
+     "entity": "HAN",
+     "cow_ccode": 240,
+     "cow_name": "Hanover",
+     "from": "1838-01-01",
+     "to": "1848-03-15"
+    },
+    {
+     "entity": "HAN",
+     "cow_ccode": 240,
+     "cow_name": "Hanover",
+     "from": "1850-11-29",
+     "to": "1866-06-15"
+    },
+    {
+     "entity": "BAV",
+     "cow_ccode": 245,
+     "cow_name": "Bavaria",
+     "from": "1816-01-01",
+     "to": "1848-03-15"
+    },
+    {
+     "entity": "BAV",
+     "cow_ccode": 245,
+     "cow_name": "Bavaria",
+     "from": "1850-11-29",
+     "to": "1866-06-15"
+    },
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1816-01-01",
+     "to": "1848-03-15"
+    },
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1850-11-29",
+     "to": "1866-06-15"
+    },
+    {
+     "entity": "BAD",
+     "cow_ccode": 267,
+     "cow_name": "Baden",
+     "from": "1816-01-01",
+     "to": "1848-03-15"
+    },
+    {
+     "entity": "BAD",
+     "cow_ccode": 267,
+     "cow_name": "Baden",
+     "from": "1850-11-29",
+     "to": "1866-06-15"
+    },
+    {
+     "entity": "SAX",
+     "cow_ccode": 269,
+     "cow_name": "Saxony",
+     "from": "1816-01-01",
+     "to": "1848-03-15"
+    },
+    {
+     "entity": "SAX",
+     "cow_ccode": 269,
+     "cow_name": "Saxony",
+     "from": "1850-11-29",
+     "to": "1866-06-15"
+    },
+    {
+     "entity": "WUR",
+     "cow_ccode": 271,
+     "cow_name": "Wuerttemburg",
+     "from": "1816-01-01",
+     "to": "1848-03-15"
+    },
+    {
+     "entity": "WUR",
+     "cow_ccode": 271,
+     "cow_name": "Wuerttemburg",
+     "from": "1850-11-29",
+     "to": "1866-06-15"
+    },
+    {
+     "entity": "HKA",
+     "cow_ccode": 273,
+     "cow_name": "Hesse Electoral",
+     "from": "1816-01-01",
+     "to": "1848-03-15"
+    },
+    {
+     "entity": "HKA",
+     "cow_ccode": 273,
+     "cow_name": "Hesse Electoral",
+     "from": "1850-11-29",
+     "to": "1866-06-15"
+    },
+    {
+     "entity": "HDA",
+     "cow_ccode": 275,
+     "cow_name": "Hesse Grand Ducal",
+     "from": "1816-01-01",
+     "to": "1848-03-15"
+    },
+    {
+     "entity": "HDA",
+     "cow_ccode": 275,
+     "cow_name": "Hesse Grand Ducal",
+     "from": "1850-11-29",
+     "to": "1866-06-15"
+    },
+    {
+     "entity": "MSC",
+     "cow_ccode": 280,
+     "cow_name": "Mecklenburg Schwerin",
+     "from": "1843-01-01",
+     "to": "1848-03-15"
+    },
+    {
+     "entity": "MSC",
+     "cow_ccode": 280,
+     "cow_name": "Mecklenburg Schwerin",
+     "from": "1850-11-29",
+     "to": "1866-06-15"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1816-01-01",
+     "to": "1848-03-15"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1850-11-29",
+     "to": "1866-06-15"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 3"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_4",
+   "cow_version4id": 4,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1815-06-12",
+   "end": "1820-07-13",
+   "members": [
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1816-01-01",
+     "to": "1820-07-13"
+    },
+    {
+     "entity": "SIC",
+     "cow_ccode": 329,
+     "cow_name": "Two Sicilies",
+     "from": "1816-01-01",
+     "to": "1820-07-13"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 4"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_5",
+   "cow_version4id": 5,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1815-06-12",
+   "end": "1848-03-29",
+   "members": [
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1816-01-01",
+     "to": "1848-03-29"
+    },
+    {
+     "entity": "TUS",
+     "cow_ccode": 337,
+     "cow_name": "Tuscany",
+     "from": "1816-01-01",
+     "to": "1848-03-29"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 5"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_6",
+   "cow_version4id": 6,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1815-11-20",
+   "end": "1822-10-31",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1816-01-01",
+     "to": "1822-10-31"
+    },
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1816-01-01",
+     "to": "1822-10-31"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1816-01-01",
+     "to": "1822-10-31"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1816-01-01",
+     "to": "1822-10-31"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 6"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_7",
+   "cow_version4id": 7,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1816-08-10",
+   "end": "1820-03-15",
+   "members": [
+    {
+     "entity": "NED",
+     "cow_ccode": 210,
+     "cow_name": "Netherlands",
+     "from": "1816-08-10",
+     "to": "1820-03-15"
+    },
+    {
+     "entity": "SPA",
+     "cow_ccode": 230,
+     "cow_name": "Spain",
+     "from": "1816-08-10",
+     "to": "1820-03-15"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 7"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_8",
+   "cow_version4id": 8,
+   "type": "Type III: Entente",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1827-07-06",
+   "end": "1829-09-14",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1827-07-06",
+     "to": "1829-09-14"
+    },
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1827-07-06",
+     "to": "1829-09-14"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1827-07-06",
+     "to": "1829-09-14"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 8"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_9",
+   "cow_version4id": 9,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1831-07-23",
+   "end": "1848-03-24",
+   "members": [
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1831-07-23",
+     "to": "1848-03-24"
+    },
+    {
+     "entity": "SAR",
+     "cow_ccode": 325,
+     "cow_name": "Italy",
+     "from": "1831-07-23",
+     "to": "1848-03-24"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 9"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_10",
+   "cow_version4id": 10,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1832-10-22",
+   "end": "1833-05-21",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1832-10-22",
+     "to": "1833-05-21"
+    },
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1832-10-22",
+     "to": "1833-05-21"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 10"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_11",
+   "cow_version4id": 11,
+   "type": "Type I: Defense Pact",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1832-11-10",
+   "end": "1833-05-21",
+   "members": [
+    {
+     "entity": "BEL",
+     "cow_ccode": 211,
+     "cow_name": "Belgium",
+     "from": "1832-11-10",
+     "to": "1833-05-21"
+    },
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1832-11-10",
+     "to": "1833-05-21"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 11"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_12",
+   "cow_version4id": 12,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1833-03-09",
+   "end": "1839-04-19",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1833-03-09",
+     "to": "1839-04-19"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1833-03-09",
+     "to": "1839-04-19"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1833-03-09",
+     "to": "1839-04-19"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 12"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_13",
+   "cow_version4id": 13,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1833-03-28",
+   "end": "1848-01-12",
+   "members": [
+    {
+     "entity": "SAR",
+     "cow_ccode": 325,
+     "cow_name": "Italy",
+     "from": "1833-03-28",
+     "to": "1848-01-12"
+    },
+    {
+     "entity": "SIC",
+     "cow_ccode": 329,
+     "cow_name": "Two Sicilies",
+     "from": "1833-03-28",
+     "to": "1848-01-12"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 13"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_14",
+   "cow_version4id": 14,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1833-07-08",
+   "end": "1841-07-13",
+   "members": [
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1833-07-08",
+     "to": "1841-07-13"
+    },
+    {
+     "entity": "TUR",
+     "cow_ccode": 640,
+     "cow_name": "Turkey",
+     "from": "1833-07-08",
+     "to": "1841-07-13"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 14"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_15",
+   "cow_version4id": 15,
+   "type": "Type III: Entente",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1833-09-18",
+   "end": "1853-07-02",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1833-10-15",
+     "to": "1853-07-02"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1833-09-18",
+     "to": "1853-07-02"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1833-09-18",
+     "to": "1853-07-02"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 15"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_16",
+   "cow_version4id": 16,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1833-09-19",
+   "end": "1853-07-02",
+   "members": [
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1833-09-19",
+     "to": "1853-07-02"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1833-09-19",
+     "to": "1853-07-02"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 16"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_17",
+   "cow_version4id": 17,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1833-10-15",
+   "end": "1848-03-21",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1833-10-15",
+     "to": "1848-03-21"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1833-10-15",
+     "to": "1848-03-21"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1833-10-15",
+     "to": "1848-03-21"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 17"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_18",
+   "cow_version4id": 18,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1833-10-16",
+   "end": "1848-03-21",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1833-10-16",
+     "to": "1848-03-21"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1833-10-16",
+     "to": "1848-03-21"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 18"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_19",
+   "cow_version4id": 19,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1834-04-22",
+   "end": "1839-08-31",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1834-04-22",
+     "to": "1839-08-31"
+    },
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1834-04-22",
+     "to": "1839-08-31"
+    },
+    {
+     "entity": "SPA",
+     "cow_ccode": 230,
+     "cow_name": "Spain",
+     "from": "1834-04-22",
+     "to": "1839-08-31"
+    },
+    {
+     "entity": "POR",
+     "cow_ccode": 235,
+     "cow_name": "Portugal",
+     "from": "1834-04-22",
+     "to": "1839-08-31"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 19"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_20",
+   "cow_version4id": 20,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1840-07-15",
+   "end": "1840-11-27",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1840-07-15",
+     "to": "1840-11-27"
+    },
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1840-07-15",
+     "to": "1840-11-27"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1840-07-15",
+     "to": "1840-11-27"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1840-07-15",
+     "to": "1840-11-27"
+    },
+    {
+     "entity": "TUR",
+     "cow_ccode": 640,
+     "cow_name": "Turkey",
+     "from": "1840-07-15",
+     "to": "1840-11-27"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 20"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_21",
+   "cow_version4id": 21,
+   "type": "Type III: Entente",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1844-05-22",
+   "end": "1846-06-29",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1844-05-22",
+     "to": "1846-06-29"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1844-05-22",
+     "to": "1846-06-29"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 21"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_22",
+   "cow_version4id": 22,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1847-05-21",
+   "end": "1847-08-15",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1847-05-21",
+     "to": "1847-08-15"
+    },
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1847-05-21",
+     "to": "1847-08-15"
+    },
+    {
+     "entity": "SPA",
+     "cow_ccode": 230,
+     "cow_name": "Spain",
+     "from": "1847-05-21",
+     "to": "1847-08-15"
+    },
+    {
+     "entity": "POR",
+     "cow_ccode": 235,
+     "cow_name": "Portugal",
+     "from": "1847-05-21",
+     "to": "1847-08-15"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 22"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_23",
+   "cow_version4id": 23,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1847-12-24",
+   "end": "1859-05-15",
+   "members": [
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1847-12-24",
+     "to": "1859-05-15"
+    },
+    {
+     "entity": "MOD",
+     "cow_ccode": 332,
+     "cow_name": "Modena",
+     "from": "1847-12-24",
+     "to": "1859-05-15"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 23"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_24",
+   "cow_version4id": 24,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1848-02-04",
+   "end": "1859-05-15",
+   "members": [
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1851-01-01",
+     "to": "1859-05-15"
+    },
+    {
+     "entity": "PMA",
+     "cow_ccode": 335,
+     "cow_name": "Parma",
+     "from": "1851-01-01",
+     "to": "1859-05-15"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 24"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_25",
+   "cow_version4id": 25,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1849-05-26",
+   "end": "1849-10-20",
+   "members": [
+    {
+     "entity": "HAN",
+     "cow_ccode": 240,
+     "cow_name": "Hanover",
+     "from": "1849-05-26",
+     "to": "1849-10-20"
+    },
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1849-05-26",
+     "to": "1849-10-20"
+    },
+    {
+     "entity": "SAX",
+     "cow_ccode": 269,
+     "cow_name": "Saxony",
+     "from": "1849-05-26",
+     "to": "1849-10-20"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 25"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_26",
+   "cow_version4id": 26,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1850-10-12",
+   "end": "1850-11-29",
+   "members": [
+    {
+     "entity": "BAV",
+     "cow_ccode": 245,
+     "cow_name": "Bavaria",
+     "from": "1850-10-12",
+     "to": "1850-11-29"
+    },
+    {
+     "entity": "WUR",
+     "cow_ccode": 271,
+     "cow_name": "Wuerttemburg",
+     "from": "1850-10-12",
+     "to": "1850-11-29"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1850-10-12",
+     "to": "1850-11-29"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 26"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_27",
+   "cow_version4id": 27,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1851-05-16",
+   "end": "1854-04-20",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1851-05-16",
+     "to": "1854-04-20"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1851-05-16",
+     "to": "1854-04-20"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 27"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_28",
+   "cow_version4id": 28,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1854-03-12",
+   "end": "1856-03-30",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1854-03-12",
+     "to": "1856-03-30"
+    },
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1854-03-12",
+     "to": "1856-03-30"
+    },
+    {
+     "entity": "SAR",
+     "cow_ccode": 325,
+     "cow_name": "Italy",
+     "from": "1855-03-15",
+     "to": "1856-03-30"
+    },
+    {
+     "entity": "TUR",
+     "cow_ccode": 640,
+     "cow_name": "Turkey",
+     "from": "1854-03-12",
+     "to": "1856-03-30"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 28"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_29",
+   "cow_version4id": 29,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1854-04-10",
+   "end": "1856-03-30",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1854-04-10",
+     "to": "1856-03-30"
+    },
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1854-04-10",
+     "to": "1856-03-30"
+    },
+    {
+     "entity": "SAR",
+     "cow_ccode": 325,
+     "cow_name": "Italy",
+     "from": "1855-01-26",
+     "to": "1856-03-30"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 29"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_30",
+   "cow_version4id": 30,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1854-04-20",
+   "end": "1856-03-30",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1854-04-20",
+     "to": "1856-03-30"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1854-04-20",
+     "to": "1856-03-30"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 30"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_31",
+   "cow_version4id": 31,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1854-06-14",
+   "end": "1856-03-30",
+   "members": [
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1854-06-14",
+     "to": "1856-03-30"
+    },
+    {
+     "entity": "TUR",
+     "cow_ccode": 640,
+     "cow_name": "Turkey",
+     "from": "1854-06-14",
+     "to": "1856-03-30"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 31"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_32",
+   "cow_version4id": 32,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1854-12-02",
+   "end": "1856-03-30",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1854-12-02",
+     "to": "1856-03-30"
+    },
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1854-12-02",
+     "to": "1856-03-30"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1854-12-02",
+     "to": "1856-03-30"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 32"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_33",
+   "cow_version4id": 33,
+   "type": "Type III: Entente",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1854-12-22",
+   "end": "1856-03-30",
+   "members": [
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1854-12-22",
+     "to": "1856-03-30"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1854-12-22",
+     "to": "1856-03-30"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 33"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_34",
+   "cow_version4id": 34,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1855-11-21",
+   "end": "1856-03-30",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1855-11-21",
+     "to": "1856-03-30"
+    },
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1855-11-21",
+     "to": "1856-03-30"
+    },
+    {
+     "entity": "SWE",
+     "cow_ccode": 380,
+     "cow_name": "Sweden",
+     "from": "1855-11-21",
+     "to": "1856-03-30"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 34"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_35",
+   "cow_version4id": 35,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1856-04-15",
+   "end": "1877-01-15",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1856-04-15",
+     "to": "1877-01-15"
+    },
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1856-04-15",
+     "to": "1877-01-15"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1856-04-15",
+     "to": "1877-01-15"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 35"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_36",
+   "cow_version4id": 36,
+   "type": "Type IIa: Non-Aggression Pact",
+   "defense": false,
+   "neutrality": true,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1856-07-29",
+   "end": "1862-07-29",
+   "members": [
+    {
+     "entity": "PAR",
+     "cow_ccode": 150,
+     "cow_name": "Paraguay",
+     "from": "1856-07-29",
+     "to": "1862-07-29"
+    },
+    {
+     "entity": "ARG",
+     "cow_ccode": 160,
+     "cow_name": "Argentina",
+     "from": "1856-07-29",
+     "to": "1862-07-29"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 36"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_37",
+   "cow_version4id": 37,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": true,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1859-01-02",
+   "end": "1864-09-14",
+   "members": [
+    {
+     "entity": "BRA",
+     "cow_ccode": 140,
+     "cow_name": "Brazil",
+     "from": "1859-01-02",
+     "to": "1864-09-14"
+    },
+    {
+     "entity": "ARG",
+     "cow_ccode": 160,
+     "cow_name": "Argentina",
+     "from": "1859-01-02",
+     "to": "1864-09-14"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 37"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_38",
+   "cow_version4id": 38,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1859-01-24",
+   "end": "1859-07-11",
+   "members": [
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1859-01-19",
+     "to": "1859-07-11"
+    },
+    {
+     "entity": "SAR",
+     "cow_ccode": 325,
+     "cow_name": "Italy",
+     "from": "1859-01-19",
+     "to": "1859-07-11"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 38"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_39",
+   "cow_version4id": 39,
+   "type": "Type IIa: Non-Aggression Pact",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1859-03-03",
+   "end": "1859-11-10",
+   "members": [
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1859-03-03",
+     "to": "1859-11-10"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1859-03-03",
+     "to": "1859-11-10"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 39"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_40",
+   "cow_version4id": 40,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": true,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1860-01-26",
+   "end": "1860-04-15",
+   "members": [
+    {
+     "entity": "ECU",
+     "cow_ccode": 130,
+     "cow_name": "Ecuador",
+     "from": "1860-01-26",
+     "to": "1860-04-15"
+    },
+    {
+     "entity": "PEU",
+     "cow_ccode": 135,
+     "cow_name": "Peru",
+     "from": "1860-01-26",
+     "to": "1860-04-15"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 40"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_41",
+   "cow_version4id": 41,
+   "type": "Type III: Entente",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1861-10-31",
+   "end": "1862-04-08",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1861-10-31",
+     "to": "1862-04-08"
+    },
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1861-10-31",
+     "to": "1862-04-08"
+    },
+    {
+     "entity": "SPA",
+     "cow_ccode": 230,
+     "cow_name": "Spain",
+     "from": "1861-10-31",
+     "to": "1862-04-08"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 41"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_42",
+   "cow_version4id": 42,
+   "type": "Type II: Neutrality",
+   "defense": false,
+   "neutrality": true,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1862-01-29",
+   "end": "1866-01-26",
+   "members": [
+    {
+     "entity": "HAN",
+     "cow_ccode": 240,
+     "cow_name": "Hanover",
+     "from": "1862-02-02",
+     "to": "1866-01-26"
+    },
+    {
+     "entity": "BAV",
+     "cow_ccode": 245,
+     "cow_name": "Bavaria",
+     "from": "1862-02-02",
+     "to": "1866-01-26"
+    },
+    {
+     "entity": "SAX",
+     "cow_ccode": 269,
+     "cow_name": "Saxony",
+     "from": "1862-02-02",
+     "to": "1866-01-26"
+    },
+    {
+     "entity": "WUR",
+     "cow_ccode": 271,
+     "cow_name": "Wuerttemburg",
+     "from": "1862-01-29",
+     "to": "1866-01-26"
+    },
+    {
+     "entity": "HDA",
+     "cow_ccode": 275,
+     "cow_name": "Hesse Grand Ducal",
+     "from": "1862-02-02",
+     "to": "1866-01-26"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1862-01-29",
+     "to": "1866-01-26"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 42"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_43",
+   "cow_version4id": 43,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1863-02-08",
+   "end": "1863-02-28",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1863-02-08",
+     "to": "1863-02-28"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1863-02-08",
+     "to": "1863-02-28"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 43"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_44",
+   "cow_version4id": 44,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": true,
+   "entente": false,
+   "start": "1863-11-05",
+   "end": "1873-02-06",
+   "members": [
+    {
+     "entity": "PEU",
+     "cow_ccode": 135,
+     "cow_name": "Peru",
+     "from": "1863-11-05",
+     "to": "1873-02-06"
+    },
+    {
+     "entity": "BOL",
+     "cow_ccode": 145,
+     "cow_name": "Bolivia",
+     "from": "1863-11-05",
+     "to": "1873-02-06"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 44"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_45",
+   "cow_version4id": 45,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": true,
+   "entente": false,
+   "start": "1864-01-01",
+   "end": "1866-01-30",
+   "members": [
+    {
+     "entity": "NGR",
+     "cow_ccode": 100,
+     "cow_name": "Colombia",
+     "from": "1864-01-01",
+     "to": "1866-01-30"
+    },
+    {
+     "entity": "ECU",
+     "cow_ccode": 130,
+     "cow_name": "Ecuador",
+     "from": "1864-01-01",
+     "to": "1866-01-30"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 45"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_46",
+   "cow_version4id": 46,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1864-01-16",
+   "end": "1866-06-06",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1864-01-16",
+     "to": "1866-06-06"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1864-01-16",
+     "to": "1866-06-06"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 46"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_47",
+   "cow_version4id": 47,
+   "type": "Type IIb: Non-Aggression Pact",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": true,
+   "entente": false,
+   "start": "1864-09-15",
+   "end": "1870-09-10",
+   "members": [
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1864-09-15",
+     "to": "1870-09-10"
+    },
+    {
+     "entity": "SAR",
+     "cow_ccode": 325,
+     "cow_name": "Italy",
+     "from": "1864-09-15",
+     "to": "1870-09-10"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 47"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_48",
+   "cow_version4id": 48,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1865-05-01",
+   "end": "1882-07-30",
+   "members": [
+    {
+     "entity": "BRA",
+     "cow_ccode": 140,
+     "cow_name": "Brazil",
+     "from": "1865-05-01",
+     "to": "1882-07-30"
+    },
+    {
+     "entity": "ARG",
+     "cow_ccode": 160,
+     "cow_name": "Argentina",
+     "from": "1865-05-01",
+     "to": "1882-07-30"
+    },
+    {
+     "entity": "URU",
+     "cow_ccode": 165,
+     "cow_name": "Uruguay",
+     "from": "1882-01-01",
+     "to": "1882-07-30"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 48"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_49",
+   "cow_version4id": 49,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1865-12-05",
+   "end": "1871-04-11",
+   "members": [
+    {
+     "entity": "ECU",
+     "cow_ccode": 130,
+     "cow_name": "Ecuador",
+     "from": "1866-01-30",
+     "to": "1871-04-11"
+    },
+    {
+     "entity": "PEU",
+     "cow_ccode": 135,
+     "cow_name": "Peru",
+     "from": "1865-12-05",
+     "to": "1871-04-11"
+    },
+    {
+     "entity": "BOL",
+     "cow_ccode": 145,
+     "cow_name": "Bolivia",
+     "from": "1866-04-11",
+     "to": "1871-04-11"
+    },
+    {
+     "entity": "CHL",
+     "cow_ccode": 155,
+     "cow_name": "Chile",
+     "from": "1865-12-05",
+     "to": "1871-04-11"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 49"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_50",
+   "cow_version4id": 50,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1866-04-08",
+   "end": "1866-07-26",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1866-04-08",
+     "to": "1866-07-26"
+    },
+    {
+     "entity": "SAR",
+     "cow_ccode": 325,
+     "cow_name": "Italy",
+     "from": "1866-04-08",
+     "to": "1866-07-26"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 50"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_51",
+   "cow_version4id": 51,
+   "type": "Type IIa: Non-Aggression Pact",
+   "defense": false,
+   "neutrality": true,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1866-06-12",
+   "end": "1866-08-23",
+   "members": [
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1866-06-12",
+     "to": "1866-08-23"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1866-06-12",
+     "to": "1866-08-23"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 51"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_52",
+   "cow_version4id": 52,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1866-08-13",
+   "end": "1870-11-25",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1866-08-13",
+     "to": "1870-11-25"
+    },
+    {
+     "entity": "WUR",
+     "cow_ccode": 271,
+     "cow_name": "Wuerttemburg",
+     "from": "1866-08-13",
+     "to": "1870-11-25"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 52"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_53",
+   "cow_version4id": 53,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1866-08-17",
+   "end": "1870-01-03",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1866-08-17",
+     "to": "1870-01-03"
+    },
+    {
+     "entity": "BAD",
+     "cow_ccode": 267,
+     "cow_name": "Baden",
+     "from": "1866-08-17",
+     "to": "1870-01-03"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 53"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_54",
+   "cow_version4id": 54,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1866-08-21",
+   "end": "1867-04-17",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1866-08-21",
+     "to": "1867-04-17"
+    },
+    {
+     "entity": "MSC",
+     "cow_ccode": 280,
+     "cow_name": "Mecklenburg Schwerin",
+     "from": "1866-08-21",
+     "to": "1867-04-17"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 54"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_55",
+   "cow_version4id": 55,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1866-08-22",
+   "end": "1870-11-23",
+   "members": [
+    {
+     "entity": "BAV",
+     "cow_ccode": 245,
+     "cow_name": "Bavaria",
+     "from": "1866-08-22",
+     "to": "1870-11-23"
+    },
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1866-08-22",
+     "to": "1870-11-23"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 55"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_56",
+   "cow_version4id": 56,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1867-04-11",
+   "end": "1871-01-17",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1867-04-11",
+     "to": "1871-01-17"
+    },
+    {
+     "entity": "HDA",
+     "cow_ccode": 275,
+     "cow_name": "Hesse Grand Ducal",
+     "from": "1867-04-11",
+     "to": "1871-01-17"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 56"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_57",
+   "cow_version4id": 57,
+   "type": "Type I: Defense Pact",
+   "defense": false,
+   "neutrality": true,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1870-08-09",
+   "end": "1872-05-23",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1870-08-09",
+     "to": "1872-05-23"
+    },
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1870-08-09",
+     "to": "1872-05-23"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 57"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_58",
+   "cow_version4id": 58,
+   "type": "Type I: Defense Pact",
+   "defense": false,
+   "neutrality": true,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1870-08-11",
+   "end": "1872-05-23",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1870-08-11",
+     "to": "1872-05-23"
+    },
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1870-08-11",
+     "to": "1872-05-23"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 58"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_59",
+   "cow_version4id": 59,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1873-02-06",
+   "end": "1883-10-20",
+   "members": [
+    {
+     "entity": "PEU",
+     "cow_ccode": 135,
+     "cow_name": "Peru",
+     "from": "1873-02-06",
+     "to": "1883-10-20"
+    },
+    {
+     "entity": "BOL",
+     "cow_ccode": 145,
+     "cow_name": "Bolivia",
+     "from": "1873-02-06",
+     "to": "1883-10-20"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 59"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_60",
+   "cow_version4id": 60,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1873-05-06",
+   "end": "1878-07-13",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1873-05-06",
+     "to": "1878-07-13"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1873-05-06",
+     "to": "1878-07-13"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 60"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_61",
+   "cow_version4id": 61,
+   "type": "Type III: Entente",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1873-05-25",
+   "end": "1878-07-13",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1873-10-22",
+     "to": "1878-07-13"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1873-05-25",
+     "to": "1878-07-13"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1873-05-25",
+     "to": "1878-07-13"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 61"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_62",
+   "cow_version4id": 62,
+   "type": "Type IIa: Non-Aggression Pact",
+   "defense": false,
+   "neutrality": true,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1877-01-15",
+   "end": "1878-03-03",
+   "members": [
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1877-01-15",
+     "to": "1878-03-03"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1877-01-15",
+     "to": "1878-03-03"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 62"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_63",
+   "cow_version4id": 63,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1878-06-04",
+   "end": "1880-11-25",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1878-06-04",
+     "to": "1880-11-25"
+    },
+    {
+     "entity": "TUR",
+     "cow_ccode": 640,
+     "cow_name": "Turkey",
+     "from": "1878-06-04",
+     "to": "1880-11-25"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 63"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_64",
+   "cow_version4id": 64,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": true,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1879-10-07",
+   "end": "1918-11-03",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1879-10-07",
+     "to": "1918-11-03"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1879-10-07",
+     "to": "1918-11-03"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 64"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_65",
+   "cow_version4id": 65,
+   "type": "Type IIa: Non-Aggression Pact",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1881-06-16",
+   "end": "1895-01-01",
+   "members": [
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1881-06-16",
+     "to": "1895-01-01"
+    },
+    {
+     "entity": "SER",
+     "cow_ccode": 345,
+     "cow_name": "Yugoslavia",
+     "from": "1881-06-16",
+     "to": "1895-01-01"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 65"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_66",
+   "cow_version4id": 66,
+   "type": "Type IIa: Non-Aggression Pact",
+   "defense": false,
+   "neutrality": true,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1881-06-18",
+   "end": "1887-06-18",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1881-06-18",
+     "to": "1887-06-18"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1881-06-18",
+     "to": "1887-06-18"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1881-06-18",
+     "to": "1887-06-18"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 66"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_67",
+   "cow_version4id": 67,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1882-05-20",
+   "end": "1918-11-03",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1882-05-20",
+     "to": "1918-11-03"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1882-05-20",
+     "to": "1918-11-03"
+    },
+    {
+     "entity": "SAR",
+     "cow_ccode": 325,
+     "cow_name": "Italy",
+     "from": "1882-05-20",
+     "to": "1915-05-03"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 67"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_68",
+   "cow_version4id": 68,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1883-10-30",
+   "end": "1918-11-03",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1883-10-30",
+     "to": "1918-11-03"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1883-10-30",
+     "to": "1918-11-03"
+    },
+    {
+     "entity": "SAR",
+     "cow_ccode": 325,
+     "cow_name": "Italy",
+     "from": "1888-05-15",
+     "to": "1915-05-23"
+    },
+    {
+     "entity": "ROM",
+     "cow_ccode": 360,
+     "cow_name": "Romania",
+     "from": "1883-10-30",
+     "to": "1916-08-16"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 68"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_69",
+   "cow_version4id": 69,
+   "type": "Type III: Entente",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1887-02-12",
+   "end": "1897-01-20",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1887-02-12",
+     "to": "1897-01-20"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1887-03-24",
+     "to": "1897-01-20"
+    },
+    {
+     "entity": "SAR",
+     "cow_ccode": 325,
+     "cow_name": "Italy",
+     "from": "1887-02-12",
+     "to": "1897-01-20"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 69"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_70",
+   "cow_version4id": 70,
+   "type": "Type IIb: Non-Aggression Pact",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": true,
+   "entente": false,
+   "start": "1887-05-04",
+   "end": "1895-05-04",
+   "members": [
+    {
+     "entity": "SPA",
+     "cow_ccode": 230,
+     "cow_name": "Spain",
+     "from": "1887-05-04",
+     "to": "1895-05-04"
+    },
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1887-05-21",
+     "to": "1895-05-04"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1887-05-21",
+     "to": "1895-05-04"
+    },
+    {
+     "entity": "SAR",
+     "cow_ccode": 325,
+     "cow_name": "Italy",
+     "from": "1887-05-04",
+     "to": "1895-05-04"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 70"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_71",
+   "cow_version4id": 71,
+   "type": "Type IIa: Non-Aggression Pact",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1887-06-18",
+   "end": "1890-06-18",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1887-06-18",
+     "to": "1890-06-18"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1887-06-18",
+     "to": "1890-06-18"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 71"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_72",
+   "cow_version4id": 72,
+   "type": "Type III: Entente",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1887-12-12",
+   "end": "1897-01-20",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1887-12-16",
+     "to": "1897-01-20"
+    },
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1887-12-16",
+     "to": "1897-01-20"
+    },
+    {
+     "entity": "SAR",
+     "cow_ccode": 325,
+     "cow_name": "Italy",
+     "from": "1887-12-16",
+     "to": "1897-01-20"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 72"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_73",
+   "cow_version4id": 73,
+   "type": "Type III: Entente",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1891-08-27",
+   "end": "1893-12-27",
+   "members": [
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1891-08-27",
+     "to": "1893-12-27"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1891-08-27",
+     "to": "1893-12-27"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 73"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_74",
+   "cow_version4id": 74,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1893-12-27",
+   "end": "1917-11-08",
+   "members": [
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1893-12-27",
+     "to": "1917-11-08"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1893-12-27",
+     "to": "1917-11-08"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 74"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_75",
+   "cow_version4id": 75,
+   "type": "Type I: Defense Pact",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1894-08-26",
+   "end": "1895-04-17",
+   "members": [
+    {
+     "entity": "KOR",
+     "cow_ccode": 730,
+     "cow_name": "Korea",
+     "from": "1894-08-26",
+     "to": "1895-04-17"
+    },
+    {
+     "entity": "JAP",
+     "cow_ccode": 740,
+     "cow_name": "Japan",
+     "from": "1894-08-26",
+     "to": "1895-04-17"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 75"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_76",
+   "cow_version4id": 76,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1896-06-03",
+   "end": "1900-06-17",
+   "members": [
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1896-06-03",
+     "to": "1900-06-17"
+    },
+    {
+     "entity": "QNG",
+     "cow_ccode": 710,
+     "cow_name": "China",
+     "from": "1896-06-03",
+     "to": "1900-06-17"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 76"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_77",
+   "cow_version4id": 77,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": true,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1902-01-30",
+   "end": "1921-12-13",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1902-01-30",
+     "to": "1921-12-13"
+    },
+    {
+     "entity": "JAP",
+     "cow_ccode": 740,
+     "cow_name": "Japan",
+     "from": "1902-01-30",
+     "to": "1921-12-13"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 77"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_78",
+   "cow_version4id": 78,
+   "type": "Type IIa: Non-Aggression Pact",
+   "defense": false,
+   "neutrality": true,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1902-11-01",
+   "end": "1918-11-15",
+   "members": [
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1902-11-01",
+     "to": "1918-11-15"
+    },
+    {
+     "entity": "SAR",
+     "cow_ccode": 325,
+     "cow_name": "Italy",
+     "from": "1902-11-01",
+     "to": "1918-11-15"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 78"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_79",
+   "cow_version4id": 79,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1904-03-30",
+   "end": "1909-03-30",
+   "members": [
+    {
+     "entity": "SER",
+     "cow_ccode": 345,
+     "cow_name": "Yugoslavia",
+     "from": "1908-01-01",
+     "to": "1909-03-30"
+    },
+    {
+     "entity": "BUL",
+     "cow_ccode": 355,
+     "cow_name": "Bulgaria",
+     "from": "1908-01-01",
+     "to": "1909-03-30"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 79"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_80",
+   "cow_version4id": 80,
+   "type": "Type III: Entente",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1904-10-03",
+   "end": "1907-05-16",
+   "members": [
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1904-10-03",
+     "to": "1907-05-16"
+    },
+    {
+     "entity": "SPA",
+     "cow_ccode": 230,
+     "cow_name": "Spain",
+     "from": "1904-10-03",
+     "to": "1907-05-16"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 80"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_81",
+   "cow_version4id": 81,
+   "type": "Type IIa: Non-Aggression Pact",
+   "defense": false,
+   "neutrality": true,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1904-10-15",
+   "end": "1908-10-06",
+   "members": [
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1904-10-15",
+     "to": "1908-10-06"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1904-10-15",
+     "to": "1908-10-06"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 81"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_82",
+   "cow_version4id": 82,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1905-07-24",
+   "end": "1905-12-02",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1905-07-24",
+     "to": "1905-12-02"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1905-07-24",
+     "to": "1905-12-02"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 82"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_83",
+   "cow_version4id": 83,
+   "type": "Type III: Entente",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1907-05-16",
+   "end": "1915-04-26",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1907-05-16",
+     "to": "1915-04-26"
+    },
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1907-05-16",
+     "to": "1915-04-26"
+    },
+    {
+     "entity": "SPA",
+     "cow_ccode": 230,
+     "cow_name": "Spain",
+     "from": "1907-05-16",
+     "to": "1915-04-26"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 83"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_84",
+   "cow_version4id": 84,
+   "type": "Type IIa: Non-Aggression Pact",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": true,
+   "entente": false,
+   "start": "1907-12-20",
+   "end": "1918-03-10",
+   "members": [
+    {
+     "entity": "GUA",
+     "cow_ccode": 90,
+     "cow_name": "Guatemala",
+     "from": "1907-12-20",
+     "to": "1918-03-10"
+    },
+    {
+     "entity": "HON",
+     "cow_ccode": 91,
+     "cow_name": "Honduras",
+     "from": "1907-12-20",
+     "to": "1918-03-10"
+    },
+    {
+     "entity": "ELS",
+     "cow_ccode": 92,
+     "cow_name": "El Salvador",
+     "from": "1907-12-20",
+     "to": "1918-03-10"
+    },
+    {
+     "entity": "NIC",
+     "cow_ccode": 93,
+     "cow_name": "Nicaragua",
+     "from": "1907-12-20",
+     "to": "1918-03-10"
+    },
+    {
+     "entity": "COS",
+     "cow_ccode": 94,
+     "cow_name": "Costa Rica",
+     "from": "1907-12-20",
+     "to": "1918-03-10"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 84"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_85",
+   "cow_version4id": 85,
+   "type": "Type III: Entente",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1908-11-30",
+   "end": "1910-07-04",
+   "members": [
+    {
+     "entity": "USA",
+     "cow_ccode": 2,
+     "cow_name": "United States of America",
+     "from": "1908-11-30",
+     "to": "1910-07-04"
+    },
+    {
+     "entity": "JAP",
+     "cow_ccode": 740,
+     "cow_name": "Japan",
+     "from": "1908-11-30",
+     "to": "1910-07-04"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 85"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_86",
+   "cow_version4id": 86,
+   "type": "Type III: Entente",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1909-10-24",
+   "end": "1917-08-11",
+   "members": [
+    {
+     "entity": "SAR",
+     "cow_ccode": 325,
+     "cow_name": "Italy",
+     "from": "1909-10-24",
+     "to": "1917-08-11"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1909-10-24",
+     "to": "1917-08-11"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 86"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_87",
+   "cow_version4id": 87,
+   "type": "Type III: Entente",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1910-07-04",
+   "end": "1916-07-03",
+   "members": [
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1910-07-04",
+     "to": "1916-07-03"
+    },
+    {
+     "entity": "JAP",
+     "cow_ccode": 740,
+     "cow_name": "Japan",
+     "from": "1910-07-04",
+     "to": "1916-07-03"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 87"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_88",
+   "cow_version4id": 88,
+   "type": "Type IIa: Non-Aggression Pact",
+   "defense": false,
+   "neutrality": true,
+   "nonaggression": true,
+   "entente": false,
+   "start": "1911-04-17",
+   "end": null,
+   "members": [
+    {
+     "entity": "ECU",
+     "cow_ccode": 130,
+     "cow_name": "Ecuador",
+     "from": "1911-04-17",
+     "to": null
+    },
+    {
+     "entity": "BOL",
+     "cow_ccode": 145,
+     "cow_name": "Bolivia",
+     "from": "1911-04-17",
+     "to": null
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 88"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_89",
+   "cow_version4id": 89,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": true,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1912-02-29",
+   "end": "1913-06-30",
+   "members": [
+    {
+     "entity": "SER",
+     "cow_ccode": 345,
+     "cow_name": "Yugoslavia",
+     "from": "1912-02-29",
+     "to": "1913-06-30"
+    },
+    {
+     "entity": "BUL",
+     "cow_ccode": 355,
+     "cow_name": "Bulgaria",
+     "from": "1912-02-29",
+     "to": "1913-06-30"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 89"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_90",
+   "cow_version4id": 90,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1912-05-16",
+   "end": "1913-06-30",
+   "members": [
+    {
+     "entity": "GRE",
+     "cow_ccode": 350,
+     "cow_name": "Greece",
+     "from": "1912-05-16",
+     "to": "1913-06-30"
+    },
+    {
+     "entity": "BUL",
+     "cow_ccode": 355,
+     "cow_name": "Bulgaria",
+     "from": "1912-05-16",
+     "to": "1913-06-30"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 90"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_91",
+   "cow_version4id": 91,
+   "type": "Type III: Entente",
+   "defense": false,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1912-11-23",
+   "end": "1918-11-11",
+   "members": [
+    {
+     "entity": "GBR",
+     "cow_ccode": 200,
+     "cow_name": "United Kingdom",
+     "from": "1912-11-23",
+     "to": "1918-11-11"
+    },
+    {
+     "entity": "FRA",
+     "cow_ccode": 220,
+     "cow_name": "France",
+     "from": "1912-11-23",
+     "to": "1918-11-11"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 91"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_92",
+   "cow_version4id": 92,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": true,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1913-05-19",
+   "end": "1918-11-11",
+   "members": [
+    {
+     "entity": "SER",
+     "cow_ccode": 345,
+     "cow_name": "Yugoslavia",
+     "from": "1913-05-19",
+     "to": "1918-11-11"
+    },
+    {
+     "entity": "GRE",
+     "cow_ccode": 350,
+     "cow_name": "Greece",
+     "from": "1913-05-19",
+     "to": "1918-11-11"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 92"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_93",
+   "cow_version4id": 93,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1914-08-02",
+   "end": "1918-10-30",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1914-08-02",
+     "to": "1918-10-30"
+    },
+    {
+     "entity": "TUR",
+     "cow_ccode": 640,
+     "cow_name": "Turkey",
+     "from": "1914-08-02",
+     "to": "1918-10-30"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 93"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_94",
+   "cow_version4id": 94,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": true,
+   "start": "1914-08-19",
+   "end": "1918-09-30",
+   "members": [
+    {
+     "entity": "BUL",
+     "cow_ccode": 355,
+     "cow_name": "Bulgaria",
+     "from": "1914-08-19",
+     "to": "1918-09-30"
+    },
+    {
+     "entity": "TUR",
+     "cow_ccode": 640,
+     "cow_name": "Turkey",
+     "from": "1914-08-19",
+     "to": "1918-09-30"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 94"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_95",
+   "cow_version4id": 95,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1914-09-06",
+   "end": "1918-09-30",
+   "members": [
+    {
+     "entity": "AUS",
+     "cow_ccode": 300,
+     "cow_name": "Austria-Hungary",
+     "from": "1914-08-19",
+     "to": "1918-09-30"
+    },
+    {
+     "entity": "BUL",
+     "cow_ccode": 355,
+     "cow_name": "Bulgaria",
+     "from": "1914-08-19",
+     "to": "1918-09-30"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 95"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_96",
+   "cow_version4id": 96,
+   "type": "Type I: Defense Pact",
+   "defense": true,
+   "neutrality": false,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1914-09-06",
+   "end": "1918-09-06",
+   "members": [
+    {
+     "entity": "PRU",
+     "cow_ccode": 255,
+     "cow_name": "Germany",
+     "from": "1914-09-06",
+     "to": "1918-09-06"
+    },
+    {
+     "entity": "BUL",
+     "cow_ccode": 355,
+     "cow_name": "Bulgaria",
+     "from": "1914-09-06",
+     "to": "1918-09-06"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 96"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_ally_97",
+   "cow_version4id": 97,
+   "type": "Type I: Defense Pact",
+   "defense": false,
+   "neutrality": true,
+   "nonaggression": false,
+   "entente": false,
+   "start": "1914-10-01",
+   "end": "1916-08-17",
+   "members": [
+    {
+     "entity": "ROM",
+     "cow_ccode": 360,
+     "cow_name": "Romania",
+     "from": "1914-10-01",
+     "to": "1916-08-17"
+    },
+    {
+     "entity": "RUS",
+     "cow_ccode": 365,
+     "cow_name": "Russia",
+     "from": "1914-10-01",
+     "to": "1916-08-17"
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_alliances_v41",
+     "locator": "alliance_v4.1_by_member.csv, version4id 97"
+    }
+   ],
+   "quality": "verified"
+  }
+ ]
+}

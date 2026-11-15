@@ -1,0 +1,78 @@
+{
+  "id": "GBR", "as_of": "1836-01-01", "research_status": "partial",
+  "political": {
+    "formation": {"value": "Acts of Union 1800 united Great Britain and Ireland from 1 January 1801.", "quality": "supported", "sources": ["bayly_2004"]},
+    "government": {"value": "constitutional_monarchy", "quality": "supported", "sources": ["hobsbawm_1962"], "note": "Parliamentary system; cabinet responsible to the Commons."},
+    "head_of_state": {"value": {"name": "William IV", "title": "King", "born": "1765-08-21", "since": "1830-06-26"}, "quality": "supported", "sources": ["bayly_2004"]},
+    "heir": {"value": {"name": "Princess Victoria of Kent", "born": "1819-05-24"}, "quality": "supported", "sources": ["bayly_2004"], "note": "Heir presumptive; Salic law separates Hanover on her accession."},
+    "head_of_government": {"value": {"name": "William Lamb, 2nd Viscount Melbourne", "title": "Prime Minister", "party": "Whig", "since": "1835-04-18"}, "quality": "supported", "sources": ["hobsbawm_1962"]},
+    "power_groups": [
+      {"name": "Whigs (with Radical and Irish allies, Lichfield House compact 1835)", "stance": "moderate reform", "in_government": true},
+      {"name": "Conservatives (Peel, Tamworth Manifesto 1834)", "stance": "conservative reform", "in_government": false},
+      {"name": "Radicals", "stance": "franchise extension, free trade", "in_government": false},
+      {"name": "Irish Repeal movement (O'Connell)", "stance": "repeal of the Union", "in_government": false}
+    ],
+    "laws": {"value": {"power": "census_suffrage", "governance": "monarchy", "economy": "laissez_faire", "trade": "protectionism", "labor": "free_labor", "church": "state_religion", "press": "limited_press", "education": "religious_schools", "army": "professional_army"},
+      "quality": "supported", "sources": ["hobsbawm_1962", "bayly_2004"],
+      "note": "Mapping to game law categories is interpretive: Corn Laws (1815-1846) and Navigation Acts (to 1849) => protectionism; newspaper stamp duty ('taxes on knowledge') => limited press; state grants to voluntary schools since 1833 => religious schools; slavery abolished from 1 Aug 1834 (apprenticeship to 1838)."},
+    "reforms": [
+      {"date": "1832-06-07", "name": "Representation of the People Act (Great Reform Act)", "sources": ["hobsbawm_1962"]},
+      {"date": "1833-08-28", "name": "Slavery Abolition Act (in force 1 Aug 1834)", "sources": ["bayly_2004"]},
+      {"date": "1834-08-14", "name": "Poor Law Amendment Act", "sources": ["hobsbawm_1962"]},
+      {"date": "1835-09-09", "name": "Municipal Corporations Act", "sources": ["hobsbawm_1962"]}
+    ],
+    "upheavals": [{"date": "1830", "name": "Swing Riots"}, {"date": "1838-1848", "name": "Chartism (after start date)", "note": "future; not pre-scripted"}]
+  },
+  "territory": {
+    "capital": "GBR_LON",
+    "dependencies": ["HAN", "ION", "EIC"],
+    "claims": [{"region": "DZ_OREGON", "basis": "Joint occupation conventions with the USA (1818, renewed 1827)", "quality": "supported", "sources": ["howe_2007"]}],
+    "disputes": [{"with": "USA", "subject": "Maine-New Brunswick boundary (settled 1842)"}, {"with": "CAF", "subject": "Belize and the Mosquito Coast"}],
+    "overseas_note": "Colonies modelled as GBR regions: BNA, Caribbean, Guiana, Belize, Cape, Sierra Leone, Gambia, Mauritius, Ceylon, Australian colonies, Malta. Gibraltar, Heligoland, Bermuda, St Helena, Falklands are not modelled (gap)."
+  },
+  "economy": {
+    "structure": {"value": "Most industrialised economy: mechanised cotton textiles, coal, iron, engineering; commercial agriculture; global shipping and finance.", "quality": "supported", "sources": ["landes_1969", "hobsbawm_1962"]},
+    "manufacturing_share_world_1830": {"value": 9.5, "unit": "% of world manufacturing output", "quality": "supported", "sources": ["bairoch_1982", "kennedy_1987"]},
+    "iron_steel_kt": {"value": 970, "quality": "verified", "sources": [{"id": "cow_nmc_v7", "locator": "irst UKG 1836"}]},
+    "industrialization_stage": {"value": "industrial", "quality": "supported", "sources": ["landes_1969"]},
+    "tax_system": {"value": "Customs and excise dominant; no income tax between 1816 and 1842.", "quality": "supported", "sources": ["hobsbawm_1962"]},
+    "crises": [{"date": "1837", "name": "Anglo-American Panic of 1837", "note": "future"}, {"date": "1845-1849", "name": "Great Famine in Ireland", "note": "future; exogenous potato blight + system response"}]
+  },
+  "society": {
+    "urban_population": {"value": 3258000, "quality": "supported", "sources": [{"id": "cow_nmc_v7", "locator": "upop UKG 1836"}], "note": "CoW urban threshold."},
+    "literacy": {"value": 0.58, "range": [0.5, 0.65], "quality": "estimated", "sources": [], "needs_source": true, "method": "Signature rates in English marriage registers c. 1840 (men ~2/3, women ~1/2); Scotland higher, Ireland lower. Source to be attached."},
+    "religion_note": "Established Church of England / Church of Ireland / Church of Scotland; Catholic Emancipation 1829; Irish Catholic majority."
+  },
+  "diplomacy": {
+    "foreign_policy": {"value": "Palmerston (Foreign Secretary 1835-41): balance of power, support for liberal constitutional regimes (Quadruple Alliance 1834), Ottoman integrity against Russia, suppression of the slave trade, expansion of commerce.", "quality": "supported", "sources": ["schroeder_1994"]},
+    "alliances_ref": ["cow_ally_1", "cow_ally_2", "cow_ally_19"],
+    "rivals": [{"entity": "RUS", "basis": "Eastern Question and Central Asia; Treaty of Hünkar İskelesi (1833)", "quality": "supported", "sources": ["schroeder_1994"]}],
+    "relations": [{"with": "FRA", "value": 35}, {"with": "RUS", "value": -30}, {"with": "USA", "value": 10}, {"with": "QNG", "value": -15}, {"with": "AUS", "value": 10}, {"with": "PRU", "value": 15}, {"with": "POR", "value": 50}, {"with": "SPA", "value": 30}, {"with": "TUR", "value": 20}, {"with": "EGY", "value": -10}, {"with": "NED", "value": 5}, {"with": "BEL", "value": 40}],
+    "relations_quality": "estimated", "relations_method": "Ordinal judgement from Schroeder (1994) on alignments in 1834-36, mapped to a -100..100 scale; not a measured quantity."
+  },
+  "military": {
+    "army_personnel": {"value": 143000, "quality": "supported", "sources": [{"id": "cow_nmc_v7", "locator": "milper UKG 1836"}], "note": "Excludes the East India Company's armies."},
+    "navy": {"value": "Largest navy in the world; numerous ships of the line in commission and in ordinary.", "quality": "supported", "sources": ["kennedy_1987"], "note": "Ship counts not yet researched (missing)."},
+    "doctrine": {"value": "Small long-service volunteer army officered by purchase; global naval supremacy; colonial garrisons.", "quality": "supported", "sources": ["kennedy_1987"]},
+    "commanders": [{"name": "Rowland Hill, 1st Viscount Hill", "role": "Commander-in-Chief of the Forces (1828-1842)", "quality": "supported", "sources": ["bayly_2004"]}]
+  },
+  "technology": {"level": {"value": "frontier", "quality": "supported", "sources": ["landes_1969"]}, "railways_km": {"value": 700, "range": [400, 1000], "quality": "uncertain", "sources": ["mitchell_ihs_europe"], "note": "Series value for 1836 not checked; range reflects 1835-1840 growth."}},
+  "historical_ai": {
+    "strategic_priorities": [
+      {"id": "GBR_naval_supremacy", "goal": "naval_power", "weight": 1.0, "window": ["1815", "1914"], "rationale": "Two-power naval standard as constant policy.", "sources": ["kennedy_1987"]},
+      {"id": "GBR_balance_of_power", "goal": "contain_power", "target": "STRONGEST_CONTINENTAL", "weight": 0.7, "window": ["1815", "1914"], "rationale": "Prevent a single continental hegemon.", "sources": ["schroeder_1994"]},
+      {"id": "GBR_ottoman_integrity", "goal": "support_power", "target": "TUR", "weight": 0.7, "window": ["1833", "1878"], "conditions": [{"type": "exists", "entity": "TUR"}, {"type": "exists", "entity": "RUS"}], "rationale": "Keep Russia from the Straits; supported the Porte in 1839-41 and 1853-56.", "sources": ["schroeder_1994", "shaw_1977"]},
+      {"id": "GBR_contain_russia", "goal": "contain_power", "target": "RUS", "weight": 0.6, "window": ["1833", "1907"], "rationale": "Eastern Question and the defence of India.", "sources": ["schroeder_1994"]},
+      {"id": "GBR_contain_egypt", "goal": "contain_power", "target": "EGY", "weight": 0.6, "window": ["1838", "1841"], "conditions": [{"type": "owns", "entity": "EGY", "region": "EGY_DAM"}], "rationale": "Oriental Crisis: Convention of London (1840) forced Muhammad Ali out of Syria.", "sources": ["schroeder_1994", "fahmy_1997"]},
+      {"id": "GBR_open_china", "goal": "force_open_market", "target": "QNG", "weight": 0.8, "window": ["1839", "1860"], "conditions": [{"type": "law", "entity": "QNG", "group": "trade", "value": "isolationism"}], "rationale": "Canton system and the opium dispute led to the First (1839-42) and Second (1856-60) Opium Wars.", "sources": ["spence_1990", "cow_extrastate_v40"]},
+      {"id": "GBR_free_trade", "goal": "reform_law", "target": {"group": "trade", "value": "free_trade"}, "weight": 0.6, "window": ["1842", "1860"], "rationale": "Peel's tariff reforms, Corn Law repeal (1846), Navigation Acts repeal (1849).", "sources": ["hobsbawm_1962"]},
+      {"id": "GBR_colonize_oceania", "goal": "colonize", "target": ["DZ_AUS_SA", "DZ_AUS_SE", "MAO_NOR", "DZ_NZ_S"], "weight": 0.5, "window": ["1836", "1860"], "rationale": "South Australia (1836), Port Phillip, New Zealand (1840).", "sources": ["bayly_2004", "cow_terrchange_v6"]},
+      {"id": "GBR_southern_africa", "goal": "colonize", "target": ["ZUL_MGU", "DZ_XHOSA"], "weight": 0.3, "window": ["1843", "1880"], "rationale": "Natal annexed 1843; British Kaffraria 1847.", "sources": ["iliffe_2007", "cow_terrchange_v6"]},
+      {"id": "GBR_oregon", "goal": "conquer_region", "target": ["DZ_OREGON"], "weight": 0.2, "window": ["1836", "1846"], "rationale": "Joint occupation, settled by partition in 1846 (Oregon Treaty).", "sources": ["howe_2007"]}
+    ],
+    "military_doctrine": "naval_first",
+    "notes": "Priorities bias the shared AI's utilities; none are executed automatically."
+  },
+  "personality": {"aggression": 0.4, "expansionism": 0.6, "reformism": 0.6, "commerce": 0.95, "naval": 1.0, "isolationism": 0.0, "risk": 0.4,
+    "rationale": "Derived from the 1836 profile: maritime commercial empire, gradual parliamentary reform, limited appetite for continental land war. Used in BOTH modes."}
+}

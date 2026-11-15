@@ -1,0 +1,432 @@
+{
+ "id": "FRA",
+ "as_of": "1836-01-01",
+ "research_status": "partial",
+ "political": {
+  "formation": {
+   "value": "July Monarchy established by the Revolution of July 1830 (Charter of 1830).",
+   "quality": "supported",
+   "sources": [
+    "hobsbawm_1962"
+   ]
+  },
+  "government": {
+   "value": "constitutional_monarchy",
+   "quality": "supported",
+   "sources": [
+    "hobsbawm_1962"
+   ]
+  },
+  "head_of_state": {
+   "value": {
+    "name": "Louis-Philippe I",
+    "title": "King of the French",
+    "born": "1773-10-06",
+    "since": "1830-08-09"
+   },
+   "quality": "supported",
+   "sources": [
+    "hobsbawm_1962"
+   ]
+  },
+  "heir": {
+   "value": {
+    "name": "Ferdinand-Philippe, Duke of Orléans",
+    "born": "1810-09-03"
+   },
+   "quality": "supported",
+   "sources": [
+    "bayly_2004"
+   ],
+   "note": "Died 13 July 1842 (carriage accident) — an exogenous event in Historical Mode only."
+  },
+  "head_of_government": {
+   "value": {
+    "name": "Victor, 3rd Duke of Broglie",
+    "title": "President of the Council",
+    "party": "Doctrinaires",
+    "since": "1835-03-12"
+   },
+   "quality": "supported",
+   "sources": [
+    "hobsbawm_1962"
+   ],
+   "note": "Replaced by Adolphe Thiers on 22 Feb 1836, then Count Molé (Sep 1836)."
+  },
+  "power_groups": [
+   {
+    "name": "Party of Resistance (Guizot, Broglie, Molé)",
+    "stance": "conservative liberal",
+    "in_government": true
+   },
+   {
+    "name": "Party of Movement (Thiers, Laffitte)",
+    "stance": "liberal",
+    "in_government": false
+   },
+   {
+    "name": "Legitimists (supporters of the Bourbon Count of Chambord)",
+    "stance": "reactionary",
+    "in_government": false
+   },
+   {
+    "name": "Republicans",
+    "stance": "radical",
+    "in_government": false
+   },
+   {
+    "name": "Bonapartists",
+    "stance": "authoritarian nationalist",
+    "in_government": false
+   }
+  ],
+  "laws": {
+   "value": {
+    "power": "census_suffrage",
+    "governance": "monarchy",
+    "economy": "interventionism",
+    "trade": "protectionism",
+    "labor": "slavery",
+    "church": "state_religion",
+    "press": "limited_press",
+    "education": "public_schools",
+    "army": "mass_conscription"
+   },
+   "quality": "supported",
+   "sources": [
+    "hobsbawm_1962"
+   ],
+   "note": "Electorate c. 170,000-200,000 (high tax qualification). Guizot Law (1833) required a primary school in every commune => public schools. September Laws (1835) restricted the press. Loi Soult (1832): conscription by lot with substitution => mass conscription (limited). Slavery legal in the colonies until 27 April 1848 => labor slavery (game semantics: legal anywhere in the state). Catholicism 'religion of the majority' under the 1830 Charter; mapped as state religion."
+  },
+  "reforms": [
+   {
+    "date": "1833-06-28",
+    "name": "Guizot Law on primary education",
+    "sources": [
+     "hobsbawm_1962"
+    ]
+   },
+   {
+    "date": "1835-09-09",
+    "name": "September Laws (press restrictions)",
+    "sources": [
+     "hobsbawm_1962"
+    ]
+   }
+  ],
+  "upheavals": [
+   {
+    "date": "1832-06",
+    "name": "June Rebellion (Paris)"
+   },
+   {
+    "date": "1834-04",
+    "name": "Canut revolt (Lyon)"
+   },
+   {
+    "date": "1835-07-28",
+    "name": "Fieschi attempt on the king"
+   }
+  ]
+ },
+ "territory": {
+  "capital": "FRA_IDF",
+  "claims": [
+   {
+    "region": "CON_CON",
+    "basis": "Conquest of Algeria since 1830"
+   },
+   {
+    "region": "ABD_MAS",
+    "basis": "Conquest of Algeria since 1830"
+   },
+   {
+    "region": "DZ_KABYLIA",
+    "basis": "Conquest of Algeria"
+   }
+  ],
+  "overseas_note": "Algiers and Oran, Senegal, Antilles, Guiana, Bourbon modelled. Pondichéry, Saint-Pierre et Miquelon, Gorée detail not modelled (gap)."
+ },
+ "economy": {
+  "structure": {
+   "value": "Mixed agrarian-industrial economy; peasant smallholding; textiles (Nord, Alsace, Lyon silk), early coal and iron in the Nord and Loire; high tariffs.",
+   "quality": "supported",
+   "sources": [
+    "landes_1969"
+   ]
+  },
+  "manufacturing_share_world_1830": {
+   "value": 5.2,
+   "unit": "%",
+   "quality": "supported",
+   "sources": [
+    "bairoch_1982",
+    "kennedy_1987"
+   ]
+  },
+  "iron_steel_kt": {
+   "value": 308,
+   "quality": "verified",
+   "sources": [
+    {
+     "id": "cow_nmc_v7",
+     "locator": "irst FRN 1836"
+    }
+   ]
+  },
+  "industrialization_stage": {
+   "value": "early_industrial",
+   "quality": "supported",
+   "sources": [
+    "landes_1969"
+   ]
+  }
+ },
+ "society": {
+  "urban_population": {
+   "value": 1193000,
+   "quality": "supported",
+   "sources": [
+    {
+     "id": "cow_nmc_v7",
+     "locator": "upop FRN 1836"
+    }
+   ]
+  },
+  "literacy": {
+   "value": 0.5,
+   "range": [
+    0.45,
+    0.6
+   ],
+   "quality": "estimated",
+   "sources": [],
+   "needs_source": true,
+   "method": "Signature rates (conscripts/marriage acts) of the 1830s; strong north-east/south-west divide."
+  }
+ },
+ "diplomacy": {
+  "foreign_policy": {
+   "value": "Seeks acceptance within the 1815 order and alignment with Britain (Quadruple Alliance 1834) while pursuing prestige in Algeria, Belgium and the Near East (support for Muhammad Ali).",
+   "quality": "supported",
+   "sources": [
+    "schroeder_1994"
+   ]
+  },
+  "alliances_ref": [
+   "cow_ally_19"
+  ],
+  "rivals": [
+   {
+    "entity": "AUS",
+    "basis": "Italian influence; conservative Eastern courts' distrust of the July Monarchy",
+    "quality": "supported",
+    "sources": [
+     "schroeder_1994"
+    ]
+   }
+  ],
+  "relations": [
+   {
+    "with": "GBR",
+    "value": 35
+   },
+   {
+    "with": "EGY",
+    "value": 40
+   },
+   {
+    "with": "BEL",
+    "value": 50
+   },
+   {
+    "with": "SPA",
+    "value": 30
+   },
+   {
+    "with": "AUS",
+    "value": -15
+   },
+   {
+    "with": "RUS",
+    "value": -25
+   },
+   {
+    "with": "PRU",
+    "value": -5
+   },
+   {
+    "with": "SAR",
+    "value": 5
+   },
+   {
+    "with": "MEX",
+    "value": -20
+   }
+  ],
+  "relations_quality": "estimated",
+  "relations_method": "Ordinal judgement from Schroeder (1994); not measured."
+ },
+ "military": {
+  "army_personnel": {
+   "value": 294000,
+   "quality": "supported",
+   "sources": [
+    {
+     "id": "cow_nmc_v7",
+     "locator": "milper FRN 1836"
+    }
+   ]
+  },
+  "navy": {
+   "value": "Second navy of Europe; steam experiments.",
+   "quality": "supported",
+   "sources": [
+    "kennedy_1987"
+   ]
+  },
+  "doctrine": {
+   "value": "Large conscript-professional army; colonial warfare in Algeria (Armée d'Afrique).",
+   "quality": "supported",
+   "sources": [
+    "kennedy_1987"
+   ]
+  },
+  "commanders": [
+   {
+    "name": "Thomas-Robert Bugeaud",
+    "role": "Algeria (governor-general 1840-1847)",
+    "quality": "supported",
+    "sources": [
+     "iliffe_2007"
+    ]
+   }
+  ]
+ },
+ "technology": {
+  "level": {
+   "value": "advanced",
+   "quality": "supported",
+   "sources": [
+    "landes_1969"
+   ]
+  }
+ },
+ "historical_ai": {
+  "strategic_priorities": [
+   {
+    "id": "FRA_algeria",
+    "goal": "conquer_region",
+    "target": [
+     "CON_CON",
+     "ABD_MAS",
+     "DZ_KABYLIA"
+    ],
+    "weight": 0.9,
+    "window": [
+     "1830",
+     "1857"
+    ],
+    "rationale": "Constantine taken 1837; Abd al-Qadir surrendered 1847; Kabylia 1857.",
+    "sources": [
+     "cow_extrastate_v40",
+     "iliffe_2007"
+    ]
+   },
+   {
+    "id": "FRA_prestige",
+    "goal": "prestige",
+    "weight": 0.5,
+    "window": [
+     "1830",
+     "1870"
+    ],
+    "rationale": "Revision of 1815 humiliation; sought influence in Belgium, Spain, Italy, the Levant.",
+    "sources": [
+     "schroeder_1994"
+    ]
+   },
+   {
+    "id": "FRA_support_egypt",
+    "goal": "support_power",
+    "target": "EGY",
+    "weight": 0.4,
+    "window": [
+     "1833",
+     "1841"
+    ],
+    "rationale": "French backing of Muhammad Ali until the 1840 crisis.",
+    "sources": [
+     "schroeder_1994"
+    ]
+   },
+   {
+    "id": "FRA_italy",
+    "goal": "contain_power",
+    "target": "AUS",
+    "weight": 0.5,
+    "window": [
+     "1856",
+     "1866"
+    ],
+    "conditions": [
+     {
+      "type": "gov_power",
+      "entity": "FRA",
+      "value": "autocracy"
+     }
+    ],
+    "rationale": "Napoleon III's Italian policy (1859).",
+    "sources": [
+     "taylor_1954"
+    ]
+   },
+   {
+    "id": "FRA_indochina",
+    "goal": "colonize",
+    "target": [
+     "VNM_GDI",
+     "VNM_TTT"
+    ],
+    "weight": 0.5,
+    "window": [
+     "1858",
+     "1885"
+    ],
+    "rationale": "Cochinchina campaign 1858-62, Cambodian protectorate 1863.",
+    "sources": [
+     "taylor_k_2013",
+     "cow_extrastate_v40"
+    ]
+   },
+   {
+    "id": "FRA_west_africa",
+    "goal": "colonize",
+    "target": [
+     "DZ_SENEGAMBIA",
+     "DZ_FUTATORO"
+    ],
+    "weight": 0.3,
+    "window": [
+     "1854",
+     "1890"
+    ],
+    "rationale": "Faidherbe's Senegal (1854-65).",
+    "sources": [
+     "iliffe_2007"
+    ]
+   }
+  ],
+  "military_doctrine": "land_and_colonial"
+ },
+ "personality": {
+  "aggression": 0.5,
+  "expansionism": 0.6,
+  "reformism": 0.4,
+  "commerce": 0.5,
+  "naval": 0.5,
+  "isolationism": 0.0,
+  "risk": 0.5,
+  "rationale": "Large continental power with colonial ambitions and a cautious regime."
+ }
+}

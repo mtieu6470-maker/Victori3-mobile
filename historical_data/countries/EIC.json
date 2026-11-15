@@ -1,0 +1,23 @@
+{
+  "id": "EIC", "as_of": "1836-01-01", "research_status": "partial",
+  "political": {
+    "government": {"value": "chartered_company_rule", "quality": "supported", "sources": ["bayly_1988"], "note": "Charter Act 1833 ended the Company's commercial functions; governs India under the Board of Control in London."},
+    "head_of_state": {"value": {"name": "Sir Charles Metcalfe", "title": "Acting Governor-General of India", "since": "1835-03-20"}, "quality": "supported", "sources": ["bayly_1988"], "note": "Lord Auckland took office 4 March 1836."},
+    "laws": {"value": {"power": "oligarchy", "governance": "colonial_company", "economy": "mercantilism", "trade": "free_trade", "labor": "traditional_tenancy", "church": "freedom_of_conscience", "press": "limited_press", "education": "religious_schools", "army": "professional_army"},
+      "quality": "estimated", "sources": ["bayly_1988"], "note": "Mapping interpretive. Permanent Settlement (Bengal) and ryotwari (Madras/Bombay) land revenue systems; Bengal opium monopoly; English Education Act 1835; Metcalfe freed the press in 1835."}
+  },
+  "territory": {"capital": "EIC_BEN", "dependencies": ["HYD", "NAG", "AWA", "GWA", "HOL", "BRD", "TRV", "PRI"]},
+  "economy": {"structure": {"value": "Agrarian; land revenue the main income; opium exported to China; deindustrialisation of handloom textiles under British competition.", "quality": "supported", "sources": ["bayly_1988"]}, "manufacturing_share_world_1830": {"value": 17.6, "unit": "% (India/Pakistan)", "quality": "supported", "sources": ["bairoch_1982", "kennedy_1987"]}},
+  "military": {"army_personnel": {"value": 220000, "range": [180000, 260000], "quality": "uncertain", "sources": ["bayly_1988"], "note": "Presidency armies (sepoys and European regiments); exact 1836 strength not researched."}},
+  "historical_ai": {
+    "strategic_priorities": [
+      {"id": "EIC_afghan_buffer", "goal": "subjugate", "target": "AFG", "weight": 0.6, "window": ["1838", "1842"], "rationale": "First Anglo-Afghan War (Simla Manifesto 1838).", "sources": ["barfield_2010", "cow_extrastate_v40"]},
+      {"id": "EIC_sindh", "goal": "conquer_region", "target": ["SND_HYD"], "weight": 0.6, "window": ["1839", "1843"], "rationale": "Annexation of Sindh (1843).", "sources": ["cow_extrastate_v40"]},
+      {"id": "EIC_punjab", "goal": "conquer_region", "target": ["SIK_LAH", "SIK_MUL", "SIK_PES", "SIK_KAS", "SIK_JAM"], "weight": 0.7, "window": ["1845", "1849"], "conditions": [{"type": "leader_changed_since_start", "entity": "SIK"}], "rationale": "Anglo-Sikh Wars followed the instability after Ranjit Singh's death (1839).", "sources": ["grewal_1990", "cow_extrastate_v40"]},
+      {"id": "EIC_doctrine_of_lapse", "goal": "annex_subjects", "target": ["NAG", "AWA"], "weight": 0.5, "window": ["1848", "1857"], "rationale": "Dalhousie annexations (Nagpur 1853, Awadh 1856).", "sources": ["bayly_1988"]},
+      {"id": "EIC_burma", "goal": "conquer_region", "target": ["BUR_PEG"], "weight": 0.5, "window": ["1852", "1853"], "rationale": "Second Anglo-Burmese War.", "sources": ["thant_2001", "cow_extrastate_v40"]}
+    ],
+    "military_doctrine": "colonial_professional_army"
+  },
+  "personality": {"aggression": 0.6, "expansionism": 0.7, "reformism": 0.3, "commerce": 0.8, "naval": 0.3, "isolationism": 0.0, "risk": 0.5, "rationale": "Militarised company-state on an expanding frontier."}
+}

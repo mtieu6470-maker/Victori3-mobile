@@ -1,0 +1,43 @@
+{
+  "id": "PRU", "as_of": "1836-01-01", "research_status": "partial",
+  "political": {
+    "government": {"value": "absolute_monarchy", "quality": "supported", "sources": ["clark_2006"], "note": "Bureaucratic absolutism; provincial diets (Provinziallandtage, 1823) but no national parliament until 1847-48."},
+    "head_of_state": {"value": {"name": "Frederick William III", "title": "King of Prussia", "born": "1770-08-03", "since": "1797-11-16"}, "quality": "supported", "sources": ["clark_2006"]},
+    "heir": {"value": {"name": "Crown Prince Frederick William (IV)", "born": "1795-10-15"}, "quality": "supported", "sources": ["clark_2006"]},
+    "power_groups": [{"name": "Junker landowners", "in_government": true}, {"name": "Reform bureaucracy", "in_government": true}, {"name": "Army officer corps", "in_government": true}, {"name": "Rhineland liberal bourgeoisie", "in_government": false}, {"name": "Catholic Rhineland/Posen", "in_government": false}],
+    "laws": {"value": {"power": "autocracy", "governance": "monarchy", "economy": "interventionism", "trade": "free_trade", "labor": "traditional_tenancy", "church": "state_religion", "press": "censorship", "education": "public_schools", "army": "mass_conscription"},
+      "quality": "supported", "sources": ["clark_2006", "nipperdey_1996"],
+      "note": "Stein-Hardenberg reforms (1807-1819) abolished hereditary serfdom but redemption of feudal dues continued to 1850 => traditional tenancy. Compulsory schooling; Boyen conscription law (1814) with Landwehr. Low-tariff Zollverein (1834) => mapped to free_trade relative to contemporaries."},
+    "reforms": [{"date": "1807-10-09", "name": "October Edict (end of hereditary serfdom)", "sources": ["clark_2006"]}, {"date": "1818-05-26", "name": "Prussian customs law", "sources": ["nipperdey_1996"]}, {"date": "1834-01-01", "name": "Zollverein in force", "sources": ["nipperdey_1996"]}]
+  },
+  "territory": {"capital": "PRU_BRA", "note": "Two blocs (east and Rhineland-Westphalia) separated by Hanover and Hesse. Principality of Neuchâtel (Swiss canton) also Prussian until 1848/1857 (not modelled)."},
+  "economy": {
+    "structure": {"value": "Agrarian east (grain estates), developing Rhenish-Westphalian and Silesian coal/iron/textiles; Zollverein customs union.", "quality": "supported", "sources": ["nipperdey_1996", "landes_1969"]},
+    "iron_steel_kt": {"value": 168, "quality": "verified", "sources": [{"id": "cow_nmc_v7", "locator": "irst GMY(=Prussia) 1836"}]},
+    "industrialization_stage": {"value": "early_industrial", "quality": "supported", "sources": ["landes_1969"]},
+    "customs_union": {"value": "Zollverein (with Bavaria, Württemberg, Saxony, Hesse-Darmstadt, Hesse-Kassel, Thuringian states; Baden and Nassau joined 1835-36)", "quality": "supported", "sources": ["nipperdey_1996"]}
+  },
+  "society": {"literacy": {"value": 0.75, "range": [0.65, 0.85], "quality": "estimated", "sources": [], "needs_source": true, "method": "Compulsory schooling gave Prussia among the highest literacy rates in Europe; figure to be sourced."}},
+  "diplomacy": {
+    "foreign_policy": {"value": "Conservative partnership with Austria and Russia in the German Confederation and the Holy Alliance; economic leadership of Germany via the Zollverein.", "quality": "supported", "sources": ["nipperdey_1996", "schroeder_1994"]},
+    "alliances_ref": ["cow_ally_3", "cow_ally_12", "cow_ally_15", "cow_ally_17", "cow_ally_18"],
+    "relations": [{"with": "RUS", "value": 60}, {"with": "AUS", "value": 40}, {"with": "GBR", "value": 15}, {"with": "FRA", "value": -5}, {"with": "BAV", "value": 30}, {"with": "SAX", "value": 30}, {"with": "HAN", "value": 0}],
+    "relations_quality": "estimated", "relations_method": "Ordinal judgement from Nipperdey (1996), Schroeder (1994)."
+  },
+  "military": {
+    "army_personnel": {"value": 134000, "quality": "supported", "sources": [{"id": "cow_nmc_v7", "locator": "milper GMY 1836"}]},
+    "doctrine": {"value": "Short-service conscription with Landwehr reserve; general staff tradition.", "quality": "supported", "sources": ["clark_2006"]}
+  },
+  "technology": {"level": {"value": "advanced", "quality": "supported", "sources": ["landes_1969"]}},
+  "historical_ai": {
+    "strategic_priorities": [
+      {"id": "PRU_zollverein", "goal": "customs_union", "target": "GERMAN_STATES", "weight": 0.8, "window": ["1834", "1867"], "rationale": "Expansion of the Zollverein (Hanover joined 1854).", "sources": ["nipperdey_1996"]},
+      {"id": "PRU_conservative_order", "goal": "support_power", "target": "AUS", "weight": 0.5, "window": ["1815", "1848"], "rationale": "Vormärz cooperation with Metternich.", "sources": ["sheehan_1989"]},
+      {"id": "PRU_kleindeutsch", "goal": "unify_nation", "target": "german", "weight": 0.8, "window": ["1848", "1871"], "conditions": [{"type": "rank_at_most", "entity": "PRU", "value": 6}], "rationale": "Erfurt Union (1849-50); Bismarck's wars 1864, 1866, 1870-71.", "sources": ["clark_2006", "taylor_1954"]},
+      {"id": "PRU_vs_austria", "goal": "contain_power", "target": "AUS", "weight": 0.6, "window": ["1850", "1866"], "rationale": "Dualism after Olmütz (1850) to Königgrätz (1866).", "sources": ["taylor_1954"]},
+      {"id": "PRU_schleswig", "goal": "conquer_region", "target": ["DEN_SCH", "DEN_HOL"], "weight": 0.5, "window": ["1848", "1864"], "rationale": "Schleswig-Holstein wars 1848-51 and 1864.", "sources": ["cow_interstate_v40"]}
+    ],
+    "military_doctrine": "conscript_staff_army"
+  },
+  "personality": {"aggression": 0.5, "expansionism": 0.6, "reformism": 0.5, "commerce": 0.6, "naval": 0.1, "isolationism": 0.0, "risk": 0.4, "rationale": "Militarised bureaucratic state with economic leadership in Germany; cautious under Frederick William III."}
+}

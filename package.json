@@ -1,0 +1,36 @@
+{
+  "name": "currents-of-history",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Mobile grand strategy game (1836–1936) with Historical and Alternate-History (Sandbox) modes sharing one simulation engine.",
+  "type": "module",
+  "scripts": {
+    "data": "tsx tools/build-data.ts",
+    "map": "tsx tools/build-map.ts",
+    "prepare-assets": "npm run data && npm run map",
+    "dev": "npm run prepare-assets && vite",
+    "build": "npm run prepare-assets && tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "npm run prepare-assets && vitest run",
+    "test:fast": "vitest run",
+    "sim": "tsx tools/sim-cli.ts",
+    "report": "npm run prepare-assets && tsx tools/report.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "preact": "^10.24.3"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.9.1",
+    "@types/node": "^22.9.0",
+    "d3-geo": "^3.1.1",
+    "@types/d3-geo": "^3.1.0",
+    "topojson-client": "^3.1.0",
+    "@types/topojson-client": "^3.1.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.5",
+    "world-atlas": "^2.0.2"
+  }
+}

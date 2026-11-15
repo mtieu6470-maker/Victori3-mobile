@@ -1,0 +1,196 @@
+{
+  "description": "Historical heads of state (and appointed colonial governors) 1836-1900 for Historical Mode succession. Rules applied by the engine: (1) 'died' dates are treated as exogenous biology in Historical Mode — the person dies on that date if still alive in the simulation; (2) end reasons 'abdicated', 'deposed', 'revolution' are NOT forced — they happen only if the simulation produces them; (3) a listed successor is used only if the country's governance matches the record's 'governance' and (for records flagged after_regime_change) the simulated country has itself undergone a regime change within ±4 years; otherwise a successor is generated. Sandbox Mode ignores this file except for the starting ruler and the heir recorded in the 1836 profile.",
+  "quality_default": "supported",
+  "sources_default": ["bayly_2004", "osterhammel_2014"],
+  "entities": {
+    "GBR": [
+      {"name": "William IV", "born": "1765-08-21", "died": "1837-06-20", "from": "1830-06-26", "to": "1837-06-20", "end": "death", "governance": "monarchy"},
+      {"name": "Victoria", "born": "1819-05-24", "died": "1901-01-22", "from": "1837-06-20", "to": "1901-01-22", "end": "death", "governance": "monarchy"}],
+    "HAN": [
+      {"name": "William IV", "born": "1765-08-21", "died": "1837-06-20", "from": "1830-06-26", "to": "1837-06-20", "end": "death", "governance": "monarchy"},
+      {"name": "Ernest Augustus", "born": "1771-06-05", "died": "1851-11-18", "from": "1837-06-20", "to": "1851-11-18", "end": "death", "governance": "monarchy", "note": "Separation of the crowns: personal union with Britain ends."},
+      {"name": "George V", "born": "1819-05-27", "died": "1878-06-12", "from": "1851-11-18", "to": "1866-09-20", "end": "deposed", "governance": "monarchy"}],
+    "FRA": [
+      {"name": "Louis-Philippe I", "born": "1773-10-06", "died": "1850-08-26", "from": "1830-08-09", "to": "1848-02-24", "end": "revolution", "governance": "monarchy"},
+      {"name": "Louis-Napoléon Bonaparte", "title": "President", "born": "1808-04-20", "died": "1873-01-09", "from": "1848-12-20", "to": "1852-12-02", "end": "regime_change", "governance": "republic", "after_regime_change": true},
+      {"name": "Napoleon III", "title": "Emperor", "born": "1808-04-20", "died": "1873-01-09", "from": "1852-12-02", "to": "1870-09-04", "end": "deposed", "governance": "monarchy", "after_regime_change": true},
+      {"name": "Adolphe Thiers", "title": "President", "born": "1797-04-15", "died": "1877-09-03", "from": "1871-08-31", "to": "1873-05-24", "end": "resigned", "governance": "republic", "after_regime_change": true},
+      {"name": "Patrice de MacMahon", "title": "President", "born": "1808-06-13", "died": "1893-10-17", "from": "1873-05-24", "to": "1879-01-30", "end": "resigned", "governance": "republic"},
+      {"name": "Jules Grévy", "title": "President", "born": "1807-08-15", "died": "1891-09-09", "from": "1879-01-30", "to": "1887-12-02", "end": "resigned", "governance": "republic"},
+      {"name": "Sadi Carnot", "title": "President", "born": "1837-08-11", "died": "1894-06-25", "from": "1887-12-03", "to": "1894-06-25", "end": "death", "governance": "republic"}],
+    "SPA": [
+      {"name": "Isabella II", "born": "1830-10-10", "died": "1904-04-09", "from": "1833-09-29", "to": "1868-09-30", "end": "deposed", "governance": "monarchy"},
+      {"name": "Amadeo I", "born": "1845-05-30", "died": "1890-01-18", "from": "1870-11-16", "to": "1873-02-11", "end": "abdicated", "governance": "monarchy", "after_regime_change": true},
+      {"name": "Alfonso XII", "born": "1857-11-28", "died": "1885-11-25", "from": "1874-12-29", "to": "1885-11-25", "end": "death", "governance": "monarchy", "after_regime_change": true},
+      {"name": "Alfonso XIII (regency of Maria Christina of Austria)", "born": "1886-05-17", "died": "1941-02-28", "from": "1886-05-17", "to": "1931-04-14", "end": "deposed", "governance": "monarchy"}],
+    "POR": [
+      {"name": "Maria II", "born": "1819-04-04", "died": "1853-11-15", "from": "1834-05-26", "to": "1853-11-15", "end": "death", "governance": "monarchy"},
+      {"name": "Pedro V", "born": "1837-09-16", "died": "1861-11-11", "from": "1853-11-15", "to": "1861-11-11", "end": "death", "governance": "monarchy"},
+      {"name": "Luís I", "born": "1838-10-31", "died": "1889-10-19", "from": "1861-11-11", "to": "1889-10-19", "end": "death", "governance": "monarchy"},
+      {"name": "Carlos I", "born": "1863-09-28", "died": "1908-02-01", "from": "1889-10-19", "to": "1908-02-01", "end": "death", "governance": "monarchy"}],
+    "NED": [
+      {"name": "William I", "born": "1772-08-24", "died": "1843-12-12", "from": "1815-03-16", "to": "1840-10-07", "end": "abdicated", "governance": "monarchy"},
+      {"name": "William II", "born": "1792-12-06", "died": "1849-03-17", "from": "1840-10-07", "to": "1849-03-17", "end": "death", "governance": "monarchy"},
+      {"name": "William III", "born": "1817-02-19", "died": "1890-11-23", "from": "1849-03-17", "to": "1890-11-23", "end": "death", "governance": "monarchy"},
+      {"name": "Wilhelmina", "born": "1880-08-31", "died": "1962-11-28", "from": "1890-11-23", "to": "1948-09-04", "end": "abdicated", "governance": "monarchy"}],
+    "BEL": [
+      {"name": "Leopold I", "born": "1790-12-16", "died": "1865-12-10", "from": "1831-07-21", "to": "1865-12-10", "end": "death", "governance": "monarchy"},
+      {"name": "Leopold II", "born": "1835-04-09", "died": "1909-12-17", "from": "1865-12-17", "to": "1909-12-17", "end": "death", "governance": "monarchy"}],
+    "DEN": [
+      {"name": "Frederick VI", "born": "1768-01-28", "died": "1839-12-03", "from": "1808-03-13", "to": "1839-12-03", "end": "death", "governance": "monarchy"},
+      {"name": "Christian VIII", "born": "1786-09-18", "died": "1848-01-20", "from": "1839-12-03", "to": "1848-01-20", "end": "death", "governance": "monarchy"},
+      {"name": "Frederick VII", "born": "1808-10-06", "died": "1863-11-15", "from": "1848-01-20", "to": "1863-11-15", "end": "death", "governance": "monarchy"},
+      {"name": "Christian IX", "born": "1818-04-08", "died": "1906-01-29", "from": "1863-11-15", "to": "1906-01-29", "end": "death", "governance": "monarchy"}],
+    "SWE": [
+      {"name": "Charles XIV John", "born": "1763-01-26", "died": "1844-03-08", "from": "1818-02-05", "to": "1844-03-08", "end": "death", "governance": "monarchy"},
+      {"name": "Oscar I", "born": "1799-07-04", "died": "1859-07-08", "from": "1844-03-08", "to": "1859-07-08", "end": "death", "governance": "monarchy"},
+      {"name": "Charles XV", "born": "1826-05-03", "died": "1872-09-18", "from": "1859-07-08", "to": "1872-09-18", "end": "death", "governance": "monarchy"},
+      {"name": "Oscar II", "born": "1829-01-21", "died": "1907-12-08", "from": "1872-09-18", "to": "1907-12-08", "end": "death", "governance": "monarchy"}],
+    "NOR": [
+      {"name": "Charles XIV John", "born": "1763-01-26", "died": "1844-03-08", "from": "1818-02-05", "to": "1844-03-08", "end": "death", "governance": "monarchy"},
+      {"name": "Oscar I", "born": "1799-07-04", "died": "1859-07-08", "from": "1844-03-08", "to": "1859-07-08", "end": "death", "governance": "monarchy"},
+      {"name": "Charles XV", "born": "1826-05-03", "died": "1872-09-18", "from": "1859-07-08", "to": "1872-09-18", "end": "death", "governance": "monarchy"},
+      {"name": "Oscar II", "born": "1829-01-21", "died": "1907-12-08", "from": "1872-09-18", "to": "1905-10-26", "end": "deposed", "governance": "monarchy"}],
+    "RUS": [
+      {"name": "Nicholas I", "born": "1796-07-06", "died": "1855-03-02", "from": "1825-12-01", "to": "1855-03-02", "end": "death", "governance": "monarchy"},
+      {"name": "Alexander II", "born": "1818-04-29", "died": "1881-03-13", "from": "1855-03-02", "to": "1881-03-13", "end": "death", "governance": "monarchy", "note": "Assassinated."},
+      {"name": "Alexander III", "born": "1845-03-10", "died": "1894-11-01", "from": "1881-03-13", "to": "1894-11-01", "end": "death", "governance": "monarchy"},
+      {"name": "Nicholas II", "born": "1868-05-18", "died": "1918-07-17", "from": "1894-11-01", "to": "1917-03-15", "end": "abdicated", "governance": "monarchy"}],
+    "PRU": [
+      {"name": "Frederick William III", "born": "1770-08-03", "died": "1840-06-07", "from": "1797-11-16", "to": "1840-06-07", "end": "death", "governance": "monarchy"},
+      {"name": "Frederick William IV", "born": "1795-10-15", "died": "1861-01-02", "from": "1840-06-07", "to": "1861-01-02", "end": "death", "governance": "monarchy"},
+      {"name": "William I", "born": "1797-03-22", "died": "1888-03-09", "from": "1861-01-02", "to": "1888-03-09", "end": "death", "governance": "monarchy"},
+      {"name": "Frederick III", "born": "1831-10-18", "died": "1888-06-15", "from": "1888-03-09", "to": "1888-06-15", "end": "death", "governance": "monarchy"},
+      {"name": "William II", "born": "1859-01-27", "died": "1941-06-04", "from": "1888-06-15", "to": "1918-11-28", "end": "abdicated", "governance": "monarchy"}],
+    "AUS": [
+      {"name": "Ferdinand I", "born": "1793-04-19", "died": "1875-06-29", "from": "1835-03-02", "to": "1848-12-02", "end": "abdicated", "governance": "monarchy"},
+      {"name": "Franz Joseph I", "born": "1830-08-18", "died": "1916-11-21", "from": "1848-12-02", "to": "1916-11-21", "end": "death", "governance": "monarchy"}],
+    "BAV": [
+      {"name": "Ludwig I", "born": "1786-08-25", "died": "1868-02-29", "from": "1825-10-13", "to": "1848-03-20", "end": "abdicated", "governance": "monarchy"},
+      {"name": "Maximilian II", "born": "1811-11-28", "died": "1864-03-10", "from": "1848-03-20", "to": "1864-03-10", "end": "death", "governance": "monarchy"},
+      {"name": "Ludwig II", "born": "1845-08-25", "died": "1886-06-13", "from": "1864-03-10", "to": "1886-06-10", "end": "deposed", "governance": "monarchy"}],
+    "SAX": [
+      {"name": "Anthony", "born": "1755-12-27", "died": "1836-06-06", "from": "1827-05-05", "to": "1836-06-06", "end": "death", "governance": "monarchy"},
+      {"name": "Frederick Augustus II", "born": "1797-05-18", "died": "1854-08-09", "from": "1836-06-06", "to": "1854-08-09", "end": "death", "governance": "monarchy"},
+      {"name": "John", "born": "1801-12-12", "died": "1873-10-29", "from": "1854-08-09", "to": "1873-10-29", "end": "death", "governance": "monarchy"},
+      {"name": "Albert", "born": "1828-04-23", "died": "1902-06-19", "from": "1873-10-29", "to": "1902-06-19", "end": "death", "governance": "monarchy"}],
+    "WUR": [
+      {"name": "William I", "born": "1781-09-27", "died": "1864-06-25", "from": "1816-10-30", "to": "1864-06-25", "end": "death", "governance": "monarchy"},
+      {"name": "Charles I", "born": "1823-03-06", "died": "1891-10-06", "from": "1864-06-25", "to": "1891-10-06", "end": "death", "governance": "monarchy"}],
+    "SAR": [
+      {"name": "Charles Albert", "born": "1798-10-02", "died": "1849-07-28", "from": "1831-04-27", "to": "1849-03-23", "end": "abdicated", "governance": "monarchy"},
+      {"name": "Victor Emmanuel II", "born": "1820-03-14", "died": "1878-01-09", "from": "1849-03-23", "to": "1878-01-09", "end": "death", "governance": "monarchy"},
+      {"name": "Umberto I", "born": "1844-03-14", "died": "1900-07-29", "from": "1878-01-09", "to": "1900-07-29", "end": "death", "governance": "monarchy"}],
+    "SIC": [
+      {"name": "Ferdinand II", "born": "1810-01-12", "died": "1859-05-22", "from": "1830-11-08", "to": "1859-05-22", "end": "death", "governance": "monarchy"},
+      {"name": "Francis II", "born": "1836-01-16", "died": "1894-12-27", "from": "1859-05-22", "to": "1861-03-20", "end": "deposed", "governance": "monarchy", "note": "Born after the campaign start date: unknown to the 1836 data."}],
+    "PAP": [
+      {"name": "Gregory XVI", "born": "1765-09-18", "died": "1846-06-01", "from": "1831-02-02", "to": "1846-06-01", "end": "death", "governance": "theocracy"},
+      {"name": "Pius IX", "born": "1792-05-13", "died": "1878-02-07", "from": "1846-06-16", "to": "1878-02-07", "end": "death", "governance": "theocracy"},
+      {"name": "Leo XIII", "born": "1810-03-02", "died": "1903-07-20", "from": "1878-02-20", "to": "1903-07-20", "end": "death", "governance": "theocracy"}],
+    "TUS": [{"name": "Leopold II", "born": "1797-10-03", "died": "1870-01-29", "from": "1824-06-18", "to": "1859-07-21", "end": "abdicated", "governance": "monarchy"}],
+    "TUR": [
+      {"name": "Mahmud II", "born": "1785-07-20", "died": "1839-07-01", "from": "1808-07-28", "to": "1839-07-01", "end": "death", "governance": "monarchy"},
+      {"name": "Abdülmecid I", "born": "1823-04-25", "died": "1861-06-25", "from": "1839-07-01", "to": "1861-06-25", "end": "death", "governance": "monarchy"},
+      {"name": "Abdülaziz", "born": "1830-02-08", "died": "1876-06-04", "from": "1861-06-25", "to": "1876-05-30", "end": "deposed", "governance": "monarchy"},
+      {"name": "Murad V", "born": "1840-09-21", "died": "1904-08-29", "from": "1876-05-30", "to": "1876-08-31", "end": "deposed", "governance": "monarchy"},
+      {"name": "Abdülhamid II", "born": "1842-09-21", "died": "1918-02-10", "from": "1876-08-31", "to": "1909-04-27", "end": "deposed", "governance": "monarchy"}],
+    "EGY": [
+      {"name": "Muhammad Ali", "born": "1769-03-04", "died": "1849-08-02", "from": "1805-05-17", "to": "1848-07-20", "end": "incapacity", "governance": "monarchy", "note": "Incapacity treated as political (not forced)."},
+      {"name": "Ibrahim", "born": "1789-01-01", "died": "1848-11-10", "from": "1848-07-20", "to": "1848-11-10", "end": "death", "governance": "monarchy", "note": "Birth year only (day unknown)."},
+      {"name": "Abbas I", "born": "1812-07-01", "died": "1854-07-13", "from": "1848-11-10", "to": "1854-07-13", "end": "death", "governance": "monarchy", "quality": "uncertain", "note": "Birth date uncertain."},
+      {"name": "Said", "born": "1822-03-17", "died": "1863-01-18", "from": "1854-07-13", "to": "1863-01-18", "end": "death", "governance": "monarchy"},
+      {"name": "Isma'il", "born": "1830-12-31", "died": "1895-03-02", "from": "1863-01-18", "to": "1879-06-26", "end": "deposed", "governance": "monarchy"}],
+    "GRE": [
+      {"name": "Otto", "born": "1815-06-01", "died": "1867-07-26", "from": "1832-05-27", "to": "1862-10-23", "end": "deposed", "governance": "monarchy"},
+      {"name": "George I", "born": "1845-12-24", "died": "1913-03-18", "from": "1863-03-30", "to": "1913-03-18", "end": "death", "governance": "monarchy", "after_regime_change": true}],
+    "SER": [
+      {"name": "Miloš Obrenović", "born": "1780-03-17", "died": "1860-09-26", "from": "1815-04-23", "to": "1839-06-25", "end": "abdicated", "governance": "monarchy", "sources": ["petrovich_1976"]},
+      {"name": "Mihailo Obrenović III", "born": "1823-09-16", "died": "1868-06-10", "from": "1839-07-08", "to": "1842-09-14", "end": "deposed", "governance": "monarchy", "sources": ["petrovich_1976"]},
+      {"name": "Alexander Karađorđević", "born": "1806-10-11", "died": "1885-05-03", "from": "1842-09-14", "to": "1858-12-23", "end": "deposed", "governance": "monarchy", "after_regime_change": true, "sources": ["petrovich_1976"]}],
+    "PRS": [
+      {"name": "Mohammad Shah Qajar", "born": "1808-01-05", "died": "1848-09-05", "from": "1834-10-23", "to": "1848-09-05", "end": "death", "governance": "monarchy", "sources": ["amanat_2017"]},
+      {"name": "Naser al-Din Shah", "born": "1831-07-16", "died": "1896-05-01", "from": "1848-09-05", "to": "1896-05-01", "end": "death", "governance": "monarchy", "sources": ["amanat_2017"]},
+      {"name": "Mozaffar ad-Din Shah", "born": "1853-03-23", "died": "1907-01-03", "from": "1896-05-01", "to": "1907-01-03", "end": "death", "governance": "monarchy", "sources": ["amanat_2017"]}],
+    "QNG": [
+      {"name": "Daoguang Emperor", "born": "1782-09-16", "died": "1850-02-25", "from": "1820-10-03", "to": "1850-02-25", "end": "death", "governance": "monarchy", "sources": ["spence_1990"]},
+      {"name": "Xianfeng Emperor", "born": "1831-07-17", "died": "1861-08-22", "from": "1850-02-25", "to": "1861-08-22", "end": "death", "governance": "monarchy", "sources": ["spence_1990"]},
+      {"name": "Tongzhi Emperor (regency of Cixi and Ci'an)", "born": "1856-04-27", "died": "1875-01-12", "from": "1861-08-22", "to": "1875-01-12", "end": "death", "governance": "monarchy", "sources": ["spence_1990"]},
+      {"name": "Guangxu Emperor", "born": "1871-08-14", "died": "1908-11-14", "from": "1875-01-12", "to": "1908-11-14", "end": "death", "governance": "monarchy", "sources": ["spence_1990"]}],
+    "JAP": [
+      {"name": "Tokugawa Ienari", "title": "Shogun", "born": "1773-11-18", "died": "1841-03-22", "from": "1787-05-19", "to": "1837-05-02", "end": "abdicated", "governance": "monarchy", "sources": ["jansen_2000"]},
+      {"name": "Tokugawa Ieyoshi", "title": "Shogun", "born": "1793-06-22", "died": "1853-07-27", "from": "1837-05-02", "to": "1853-07-27", "end": "death", "governance": "monarchy", "sources": ["jansen_2000"]},
+      {"name": "Tokugawa Iesada", "title": "Shogun", "born": "1824-05-06", "died": "1858-08-14", "from": "1853-07-27", "to": "1858-08-14", "end": "death", "governance": "monarchy", "sources": ["jansen_2000"]},
+      {"name": "Tokugawa Iemochi", "title": "Shogun", "born": "1846-07-17", "died": "1866-08-29", "from": "1858-08-14", "to": "1866-08-29", "end": "death", "governance": "monarchy", "sources": ["jansen_2000"]},
+      {"name": "Tokugawa Yoshinobu", "title": "Shogun", "born": "1837-10-28", "died": "1913-11-22", "from": "1867-01-10", "to": "1867-11-19", "end": "resigned", "governance": "monarchy", "sources": ["jansen_2000"]},
+      {"name": "Emperor Meiji", "title": "Emperor", "born": "1852-11-03", "died": "1912-07-30", "from": "1868-01-03", "to": "1912-07-30", "end": "death", "governance": "monarchy", "after_regime_change": true, "sources": ["jansen_2000"]}],
+    "KOR": [
+      {"name": "Heonjong", "born": "1827-07-08", "died": "1849-07-25", "from": "1834-11-13", "to": "1849-07-25", "end": "death", "governance": "monarchy", "sources": ["lee_kb_1984"]},
+      {"name": "Cheoljong", "born": "1831-07-25", "died": "1864-01-16", "from": "1849-07-25", "to": "1864-01-16", "end": "death", "governance": "monarchy", "sources": ["lee_kb_1984"]},
+      {"name": "Gojong (regency of the Heungseon Daewongun to 1873)", "born": "1852-07-25", "died": "1919-01-21", "from": "1864-01-16", "to": "1907-07-19", "end": "abdicated", "governance": "monarchy", "sources": ["lee_kb_1984"]}],
+    "VNM": [
+      {"name": "Minh Mạng", "born": "1791-05-25", "died": "1841-01-20", "from": "1820-02-14", "to": "1841-01-20", "end": "death", "governance": "monarchy", "sources": ["taylor_k_2013"]},
+      {"name": "Thiệu Trị", "born": "1807-06-16", "died": "1847-11-04", "from": "1841-02-11", "to": "1847-11-04", "end": "death", "governance": "monarchy", "sources": ["taylor_k_2013"]},
+      {"name": "Tự Đức", "born": "1829-09-22", "died": "1883-07-19", "from": "1847-11-10", "to": "1883-07-19", "end": "death", "governance": "monarchy", "sources": ["taylor_k_2013"]}],
+    "SIA": [
+      {"name": "Nangklao (Rama III)", "born": "1788-03-31", "died": "1851-04-02", "from": "1824-07-21", "to": "1851-04-02", "end": "death", "governance": "monarchy", "sources": ["baker_2009"]},
+      {"name": "Mongkut (Rama IV)", "born": "1804-10-18", "died": "1868-10-01", "from": "1851-04-02", "to": "1868-10-01", "end": "death", "governance": "monarchy", "sources": ["baker_2009"]},
+      {"name": "Chulalongkorn (Rama V)", "born": "1853-09-20", "died": "1910-10-23", "from": "1868-10-01", "to": "1910-10-23", "end": "death", "governance": "monarchy", "sources": ["baker_2009"]}],
+    "BUR": [
+      {"name": "Bagyidaw", "born": "1784-07-23", "died": "1846-10-15", "from": "1819-06-05", "to": "1837-04-01", "end": "deposed", "governance": "monarchy", "sources": ["thant_2001"]},
+      {"name": "Tharrawaddy", "born": "1787-01-14", "died": "1846-11-17", "from": "1837-04-01", "to": "1846-11-17", "end": "death", "governance": "monarchy", "sources": ["thant_2001"]},
+      {"name": "Pagan", "born": "1811-11-01", "died": "1880-03-14", "from": "1846-11-17", "to": "1853-02-18", "end": "deposed", "governance": "monarchy", "quality": "uncertain", "sources": ["thant_2001"]},
+      {"name": "Mindon", "born": "1808-07-08", "died": "1878-10-01", "from": "1853-02-18", "to": "1878-10-01", "end": "death", "governance": "monarchy", "sources": ["thant_2001"]}],
+    "SIK": [
+      {"name": "Ranjit Singh", "born": "1780-11-13", "died": "1839-06-27", "from": "1801-04-12", "to": "1839-06-27", "end": "death", "governance": "monarchy", "sources": ["grewal_1990"]},
+      {"name": "Kharak Singh", "born": "1801-12-22", "died": "1840-11-05", "from": "1839-06-27", "to": "1839-10-08", "end": "deposed", "governance": "monarchy", "sources": ["grewal_1990"]},
+      {"name": "Nau Nihal Singh", "born": "1821-02-11", "died": "1840-11-06", "from": "1839-10-08", "to": "1840-11-06", "end": "death", "governance": "monarchy", "sources": ["grewal_1990"]},
+      {"name": "Sher Singh", "born": "1807-12-04", "died": "1843-09-15", "from": "1841-01-18", "to": "1843-09-15", "end": "death", "governance": "monarchy", "sources": ["grewal_1990"]},
+      {"name": "Duleep Singh", "born": "1838-09-06", "died": "1893-10-22", "from": "1843-09-15", "to": "1849-03-29", "end": "deposed", "governance": "monarchy", "sources": ["grewal_1990"]}],
+    "AFG": [
+      {"name": "Dost Mohammad Khan", "born": "1793-12-23", "died": "1863-06-09", "from": "1826-01-01", "to": "1863-06-09", "end": "death", "governance": "monarchy", "sources": ["barfield_2010"], "note": "Deposed by the British 1839-1842 (not forced)."},
+      {"name": "Sher Ali Khan", "born": "1825-01-01", "died": "1879-02-21", "from": "1863-06-09", "to": "1879-02-21", "end": "death", "governance": "monarchy", "quality": "uncertain", "sources": ["barfield_2010"]}],
+    "HAW": [
+      {"name": "Kamehameha III", "born": "1813-03-17", "died": "1854-12-15", "from": "1825-06-06", "to": "1854-12-15", "end": "death", "governance": "monarchy", "sources": ["kuykendall_1938"]},
+      {"name": "Kamehameha IV", "born": "1834-02-09", "died": "1863-11-30", "from": "1854-12-15", "to": "1863-11-30", "end": "death", "governance": "monarchy", "sources": ["kuykendall_1938"]},
+      {"name": "Kamehameha V", "born": "1830-12-11", "died": "1872-12-11", "from": "1863-11-30", "to": "1872-12-11", "end": "death", "governance": "monarchy", "sources": ["kuykendall_1938"]}],
+    "BRA": [{"name": "Pedro II", "born": "1825-12-02", "died": "1891-12-05", "from": "1831-04-07", "to": "1889-11-15", "end": "deposed", "governance": "monarchy", "sources": ["barman_1988"]}],
+    "USA": [
+      {"name": "Andrew Jackson", "born": "1767-03-15", "died": "1845-06-08", "from": "1829-03-04", "to": "1837-03-04", "end": "term", "governance": "republic", "sources": ["howe_2007"]},
+      {"name": "Martin Van Buren", "born": "1782-12-05", "died": "1862-07-24", "from": "1837-03-04", "to": "1841-03-04", "end": "term", "governance": "republic", "sources": ["howe_2007"]},
+      {"name": "William Henry Harrison", "born": "1773-02-09", "died": "1841-04-04", "from": "1841-03-04", "to": "1841-04-04", "end": "death", "governance": "republic", "sources": ["howe_2007"]},
+      {"name": "John Tyler", "born": "1790-03-29", "died": "1862-01-18", "from": "1841-04-04", "to": "1845-03-04", "end": "term", "governance": "republic", "sources": ["howe_2007"]},
+      {"name": "James K. Polk", "born": "1795-11-02", "died": "1849-06-15", "from": "1845-03-04", "to": "1849-03-04", "end": "term", "governance": "republic", "sources": ["howe_2007"]},
+      {"name": "Zachary Taylor", "born": "1784-11-24", "died": "1850-07-09", "from": "1849-03-04", "to": "1850-07-09", "end": "death", "governance": "republic"},
+      {"name": "Millard Fillmore", "born": "1800-01-07", "died": "1874-03-08", "from": "1850-07-09", "to": "1853-03-04", "end": "term", "governance": "republic"},
+      {"name": "Franklin Pierce", "born": "1804-11-23", "died": "1869-10-08", "from": "1853-03-04", "to": "1857-03-04", "end": "term", "governance": "republic"},
+      {"name": "James Buchanan", "born": "1791-04-23", "died": "1868-06-01", "from": "1857-03-04", "to": "1861-03-04", "end": "term", "governance": "republic"},
+      {"name": "Abraham Lincoln", "born": "1809-02-12", "died": "1865-04-15", "from": "1861-03-04", "to": "1865-04-15", "end": "death", "governance": "republic", "note": "Assassinated."},
+      {"name": "Andrew Johnson", "born": "1808-12-29", "died": "1875-07-31", "from": "1865-04-15", "to": "1869-03-04", "end": "term", "governance": "republic"},
+      {"name": "Ulysses S. Grant", "born": "1822-04-27", "died": "1885-07-23", "from": "1869-03-04", "to": "1877-03-04", "end": "term", "governance": "republic"},
+      {"name": "Rutherford B. Hayes", "born": "1822-10-04", "died": "1893-01-17", "from": "1877-03-04", "to": "1881-03-04", "end": "term", "governance": "republic"},
+      {"name": "James A. Garfield", "born": "1831-11-19", "died": "1881-09-19", "from": "1881-03-04", "to": "1881-09-19", "end": "death", "governance": "republic", "note": "Assassinated."},
+      {"name": "Chester A. Arthur", "born": "1829-10-05", "died": "1886-11-18", "from": "1881-09-19", "to": "1885-03-04", "end": "term", "governance": "republic"},
+      {"name": "Grover Cleveland", "born": "1837-03-18", "died": "1908-06-24", "from": "1885-03-04", "to": "1889-03-04", "end": "term", "governance": "republic"},
+      {"name": "Benjamin Harrison", "born": "1833-08-20", "died": "1901-03-13", "from": "1889-03-04", "to": "1893-03-04", "end": "term", "governance": "republic"},
+      {"name": "Grover Cleveland", "born": "1837-03-18", "died": "1908-06-24", "from": "1893-03-04", "to": "1897-03-04", "end": "term", "governance": "republic"},
+      {"name": "William McKinley", "born": "1843-01-29", "died": "1901-09-14", "from": "1897-03-04", "to": "1901-09-14", "end": "death", "governance": "republic"}],
+    "CHL": [
+      {"name": "José Joaquín Prieto", "born": "1786-08-20", "died": "1854-11-22", "from": "1831-09-18", "to": "1841-09-18", "end": "term", "governance": "republic", "sources": ["bethell_1985"]},
+      {"name": "Manuel Bulnes", "born": "1799-12-25", "died": "1866-10-18", "from": "1841-09-18", "to": "1851-09-18", "end": "term", "governance": "republic", "sources": ["bethell_1985"]},
+      {"name": "Manuel Montt", "born": "1809-09-04", "died": "1880-09-21", "from": "1851-09-18", "to": "1861-09-18", "end": "term", "governance": "republic", "sources": ["bethell_1985"]}],
+    "ARG": [
+      {"name": "Juan Manuel de Rosas", "born": "1793-03-30", "died": "1877-03-14", "from": "1835-04-13", "to": "1852-02-03", "end": "deposed", "governance": "republic", "sources": ["lynch_1981"]},
+      {"name": "Justo José de Urquiza", "born": "1801-10-18", "died": "1870-04-11", "from": "1854-03-05", "to": "1860-03-05", "end": "term", "governance": "republic", "after_regime_change": true, "sources": ["bethell_1985"]},
+      {"name": "Bartolomé Mitre", "born": "1821-06-26", "died": "1906-01-19", "from": "1862-10-12", "to": "1868-10-12", "end": "term", "governance": "republic", "sources": ["bethell_1985"]},
+      {"name": "Domingo Faustino Sarmiento", "born": "1811-02-15", "died": "1888-09-11", "from": "1868-10-12", "to": "1874-10-12", "end": "term", "governance": "republic", "sources": ["bethell_1985"]}],
+    "EIC": [
+      {"name": "Sir Charles Metcalfe (acting)", "title": "Governor-General", "from": "1835-03-20", "to": "1836-03-04", "end": "appointment", "governance": "colonial_company", "sources": ["bayly_1988"]},
+      {"name": "George Eden, Lord Auckland", "title": "Governor-General", "from": "1836-03-04", "to": "1842-02-28", "end": "appointment", "governance": "colonial_company", "sources": ["bayly_1988"]},
+      {"name": "Edward Law, Lord Ellenborough", "title": "Governor-General", "from": "1842-02-28", "to": "1844-06-15", "end": "appointment", "governance": "colonial_company", "sources": ["bayly_1988"]},
+      {"name": "Sir Henry Hardinge", "title": "Governor-General", "from": "1844-07-23", "to": "1848-01-12", "end": "appointment", "governance": "colonial_company", "sources": ["bayly_1988"]},
+      {"name": "James Broun-Ramsay, Lord Dalhousie", "title": "Governor-General", "from": "1848-01-12", "to": "1856-02-28", "end": "appointment", "governance": "colonial_company", "sources": ["bayly_1988"]},
+      {"name": "Charles Canning", "title": "Governor-General", "from": "1856-02-28", "to": "1858-11-01", "end": "appointment", "governance": "colonial_company", "sources": ["bayly_1988"]}]
+  },
+  "not_researched": "MEX (frequent irregular changes 1835-1876), other Latin American republics after their 1836 incumbent, minor German, Italian, Indian, African and Southeast Asian successions. In Historical Mode these entities use generated successors after their 1836 ruler: this is reported as a gap."
+}

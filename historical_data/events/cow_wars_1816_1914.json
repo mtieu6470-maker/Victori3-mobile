@@ -1,0 +1,7883 @@
+{
+ "dataset": "cow_wars",
+ "outcome_codes": {
+  "inter-state": "1=winner, 2=loser, 3=compromise/tied, 4=transformed into another war type, 5=ongoing, 6=stalemate, 7=continuing",
+  "intra/extra-state": "1=side A wins, 2=side B wins, 3=compromise, 4=transformed, 5=ongoing, 6=stalemate, 7=conflict continues at below war level"
+ },
+ "records": [
+  {
+   "id": "cow_extra-state_300",
+   "cow_war_num": 300.0,
+   "name": "Allied Bombardment of Algiers",
+   "category": "extra-state",
+   "start": "1816-08-26",
+   "end": "1816-08-30",
+   "participants": [
+    {
+     "side_a": "Netherlands",
+     "side_a_entity": "NED",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 1
+    },
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Algeria",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 300"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_301",
+   "cow_war_num": 301.0,
+   "name": "Ottoman-Wahhabi",
+   "category": "extra-state",
+   "start": "1816-09-01",
+   "end": "1818-09-11",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Saudi Wahhabis",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 301"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_302",
+   "cow_war_num": 302.0,
+   "name": "Liberation of Chile",
+   "category": "extra-state",
+   "start": "1817-01-09",
+   "end": "1818-04-05",
+   "participants": [
+    {
+     "side_a": "Spain",
+     "side_a_entity": "SPA",
+     "side_b": "San Martin revolutionaries",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 302"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_303",
+   "cow_war_num": 303.0,
+   "name": "First Bolivar Expedition",
+   "category": "extra-state",
+   "start": "1817-04-11",
+   "end": "1819-08-10",
+   "participants": [
+    {
+     "side_a": "Spain",
+     "side_a_entity": "SPA",
+     "side_b": "New Granada",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 303"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_304",
+   "cow_war_num": 304.0,
+   "name": "Mexican Independence",
+   "category": "extra-state",
+   "start": "1817-08-15",
+   "end": "1818-01-01",
+   "participants": [
+    {
+     "side_a": "Spain",
+     "side_a_entity": "SPA",
+     "side_b": "Mina Expedition",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 304"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_305",
+   "cow_war_num": 305.0,
+   "name": "British-Kandyan",
+   "category": "extra-state",
+   "start": "1817-10-01",
+   "end": "1818-11-26",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Kandyan rebels",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 305"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_306",
+   "cow_war_num": 306.0,
+   "name": "British-Maratha",
+   "category": "extra-state",
+   "start": "1817-11-06",
+   "end": "1818-06-03",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Marathas",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 306"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_500",
+   "cow_war_num": 500.0,
+   "name": "First Caucasus",
+   "category": "intra-state",
+   "start": "1818-06-10",
+   "end": "1822-01-01",
+   "participants": [
+    {
+     "side_a": "Russia",
+     "side_a_entity": "RUS",
+     "side_b": "Georgians, Dhagestania, Chechens",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 500"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_307",
+   "cow_war_num": 307.0,
+   "name": "Ottoman Conquest of Sudan",
+   "category": "extra-state",
+   "start": "1820-01-01",
+   "end": "1821-06-01",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Sudan states",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 307"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_501",
+   "cow_war_num": 501.0,
+   "name": "Sidon-Damascus",
+   "category": "intra-state",
+   "start": "1820-06-01",
+   "end": "1821-07-21",
+   "participants": [
+    {
+     "side_a": "Sidon",
+     "side_a_entity": null,
+     "side_b": "Damascus & Aleppo",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 501"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_502",
+   "cow_war_num": 502.0,
+   "name": "First Two Sicilies",
+   "category": "intra-state",
+   "start": "1820-07-02",
+   "end": "1821-03-23",
+   "participants": [
+    {
+     "side_a": "Austria",
+     "side_a_entity": "AUS",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 1
+    },
+    {
+     "side_a": "Two Sicilies",
+     "side_a_entity": "SIC",
+     "side_b": "Liberals",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 502"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_505",
+   "cow_war_num": 505.0,
+   "name": "Sardinian Revolt",
+   "category": "intra-state",
+   "start": "1821-03-10",
+   "end": "1821-05-08",
+   "participants": [
+    {
+     "side_a": "Austria",
+     "side_a_entity": "AUS",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 1
+    },
+    {
+     "side_a": "Sardinia",
+     "side_a_entity": "SAR",
+     "side_b": "Carbonari",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 505"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_506",
+   "cow_war_num": 506.0,
+   "name": "Greek Independence",
+   "category": "intra-state",
+   "start": "1821-03-25",
+   "end": "1828-04-25",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Greeks",
+     "side_b_entity": null,
+     "outcome_code": 4
+    },
+    {
+     "side_a": "-8",
+     "side_a_entity": null,
+     "side_b": "United Kingdom",
+     "side_b_entity": "GBR",
+     "outcome_code": 4
+    },
+    {
+     "side_a": "-8",
+     "side_a_entity": null,
+     "side_b": "France",
+     "side_b_entity": "FRA",
+     "outcome_code": 4
+    },
+    {
+     "side_a": "-8",
+     "side_a_entity": null,
+     "side_b": "Russia",
+     "side_b_entity": "RUS",
+     "outcome_code": 4
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 506"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_308",
+   "cow_war_num": 308.0,
+   "name": "Second Bolivar Expedition",
+   "category": "extra-state",
+   "start": "1821-04-28",
+   "end": "1822-05-24",
+   "participants": [
+    {
+     "side_a": "Spain",
+     "side_a_entity": "SPA",
+     "side_b": "New Granada",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 308"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_309",
+   "cow_war_num": 309.0,
+   "name": "Turco-Persian",
+   "category": "extra-state",
+   "start": "1821-08-01",
+   "end": "1822-05-01",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Persia",
+     "side_b_entity": null,
+     "outcome_code": 6
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 309"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_503",
+   "cow_war_num": 503.0,
+   "name": "Spanish Royalists",
+   "category": "intra-state",
+   "start": "1821-12-01",
+   "end": "1823-04-06",
+   "participants": [
+    {
+     "side_a": "Spain",
+     "side_a_entity": "SPA",
+     "side_b": "Royalists",
+     "side_b_entity": null,
+     "outcome_code": 4
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 503"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_1",
+   "cow_war_num": 1,
+   "name": "Franco-Spanish War",
+   "category": "inter-state",
+   "start": "1823-04-07",
+   "end": "1823-11-13",
+   "participants": [
+    {
+     "entity": "SPA",
+     "cow_name": "Spain",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 600.0
+    },
+    {
+     "entity": "FRA",
+     "cow_name": "France",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 400.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 1"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_310",
+   "cow_war_num": 310.0,
+   "name": "First British-Burmese",
+   "category": "extra-state",
+   "start": "1823-09-24",
+   "end": "1826-02-24",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Burma",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 310"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_311",
+   "cow_war_num": 311.0,
+   "name": "First British-Ashanti",
+   "category": "extra-state",
+   "start": "1824-01-20",
+   "end": "1826-08-07",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Ashanti-Ghana",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 311"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_312",
+   "cow_war_num": 312.0,
+   "name": "Liberation of Peru",
+   "category": "extra-state",
+   "start": "1824-02-04",
+   "end": "1825-04-02",
+   "participants": [
+    {
+     "side_a": "Spain",
+     "side_a_entity": "SPA",
+     "side_b": "Latin American revolutionaries",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 312"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_507",
+   "cow_war_num": 507.0,
+   "name": "Egypt-Mehdi",
+   "category": "intra-state",
+   "start": "1824-03-20",
+   "end": "1824-04-01",
+   "participants": [
+    {
+     "side_a": "Egypt",
+     "side_a_entity": null,
+     "side_b": "Mehdi army",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 507"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_313",
+   "cow_war_num": 313.0,
+   "name": "Dutch - Javanese",
+   "category": "extra-state",
+   "start": "1825-07-23",
+   "end": "1830-03-28",
+   "participants": [
+    {
+     "side_a": "Netherlands",
+     "side_a_entity": "NED",
+     "side_b": "Javanese rebels",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 313"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_314",
+   "cow_war_num": 314.0,
+   "name": "British-Bharatpuran",
+   "category": "extra-state",
+   "start": "1825-11-23",
+   "end": "1826-01-18",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Bharatpuran rebels",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 314"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_315",
+   "cow_war_num": 315.0,
+   "name": "Brazil-Argentine",
+   "category": "extra-state",
+   "start": "1826-01-01",
+   "end": "1828-10-27",
+   "participants": [
+    {
+     "side_a": "Brazil",
+     "side_a_entity": "BRA",
+     "side_b": "Argentina",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 315"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_508",
+   "cow_war_num": 508.0,
+   "name": "Janissari Revolt",
+   "category": "intra-state",
+   "start": "1826-06-14",
+   "end": "1826-09-30",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Janissaries",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 508"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_316",
+   "cow_war_num": 316.0,
+   "name": "Russo-Persian",
+   "category": "extra-state",
+   "start": "1826-09-28",
+   "end": "1828-02-28",
+   "participants": [
+    {
+     "side_a": "Russia",
+     "side_a_entity": "RUS",
+     "side_b": "Persia",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 316"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_4",
+   "cow_war_num": 4,
+   "name": "First Russo-Turkish",
+   "category": "inter-state",
+   "start": "1828-04-26",
+   "end": "1829-09-14",
+   "participants": [
+    {
+     "entity": "TUR",
+     "cow_name": "Ottoman Empire",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 80000.0
+    },
+    {
+     "entity": "RUS",
+     "cow_name": "Russia",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 50000.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 4"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_510",
+   "cow_war_num": 510.0,
+   "name": "Miguelite War",
+   "category": "intra-state",
+   "start": "1828-07-11",
+   "end": "1834-05-26",
+   "participants": [
+    {
+     "side_a": "-8",
+     "side_a_entity": null,
+     "side_b": "United Kingdom",
+     "side_b_entity": "GBR",
+     "outcome_code": 2
+    },
+    {
+     "side_a": "Portugal",
+     "side_a_entity": "POR",
+     "side_b": "Constitutionalists",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 510"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_317",
+   "cow_war_num": 317.0,
+   "name": "Spanish Reconquest of Mexico",
+   "category": "extra-state",
+   "start": "1829-07-16",
+   "end": "1829-09-11",
+   "participants": [
+    {
+     "side_a": "Spain",
+     "side_a_entity": "SPA",
+     "side_b": "Mexico",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 317"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_511",
+   "cow_war_num": 511.0,
+   "name": "First Murid War",
+   "category": "intra-state",
+   "start": "1830-01-01",
+   "end": "1832-10-17",
+   "participants": [
+    {
+     "side_a": "Russia",
+     "side_a_entity": "RUS",
+     "side_b": "Ghazi Muhammad",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 511"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_512",
+   "cow_war_num": 512.0,
+   "name": "First Albanian Revolt",
+   "category": "intra-state",
+   "start": "1830-02-01",
+   "end": "1831-11-01",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Albanians",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 512"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_319",
+   "cow_war_num": 319.0,
+   "name": "French Occupation of Algiers",
+   "category": "extra-state",
+   "start": "1830-06-12",
+   "end": "1830-07-05",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Algeria",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 319"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_513",
+   "cow_war_num": 513.0,
+   "name": "First French Insurrection",
+   "category": "intra-state",
+   "start": "1830-07-25",
+   "end": "1830-07-29",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Liberals",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 513"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_515",
+   "cow_war_num": 515.0,
+   "name": "Belgian Independence",
+   "category": "intra-state",
+   "start": "1830-08-25",
+   "end": "1830-11-04",
+   "participants": [
+    {
+     "side_a": "Netherlands",
+     "side_a_entity": "NED",
+     "side_b": "Belgians",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 515"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_516",
+   "cow_war_num": 516.0,
+   "name": "Egyptian Taka Expedition",
+   "category": "intra-state",
+   "start": "1831-01-01",
+   "end": "1832-01-01",
+   "participants": [
+    {
+     "side_a": "Egypt",
+     "side_a_entity": null,
+     "side_b": "Hadendowa",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 516"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_517",
+   "cow_war_num": 517.0,
+   "name": "First Polish",
+   "category": "intra-state",
+   "start": "1831-02-07",
+   "end": "1831-10-18",
+   "participants": [
+    {
+     "side_a": "Russia",
+     "side_a_entity": "RUS",
+     "side_b": "Poles",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 517"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_518",
+   "cow_war_num": 518.0,
+   "name": "First Syrian",
+   "category": "intra-state",
+   "start": "1831-10-01",
+   "end": "1832-12-27",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Egyptians & Bashir",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 518"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_520",
+   "cow_war_num": 520.0,
+   "name": "First Mexican",
+   "category": "intra-state",
+   "start": "1832-01-02",
+   "end": "1832-12-11",
+   "participants": [
+    {
+     "side_a": "Mexico",
+     "side_a_entity": "MEX",
+     "side_b": "Liberals",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 520"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_320",
+   "cow_war_num": 320.0,
+   "name": "Ottoman-Bilmez-Asiri War",
+   "category": "extra-state",
+   "start": "1832-06-01",
+   "end": "1837-01-01",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Bilmez-Asiri",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 320"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_521",
+   "cow_war_num": 521.0,
+   "name": "Egypt- Palestinian Anti-Conscription Revolt",
+   "category": "intra-state",
+   "start": "1834-04-19",
+   "end": "1834-10-01",
+   "participants": [
+    {
+     "side_a": "Palestinians",
+     "side_a_entity": null,
+     "side_b": "Egypt",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 521"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_522",
+   "cow_war_num": 522.0,
+   "name": "First Carlist War",
+   "category": "intra-state",
+   "start": "1834-07-15",
+   "end": "1840-07-15",
+   "participants": [
+    {
+     "side_a": "Portugal",
+     "side_a_entity": "POR",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 1
+    },
+    {
+     "side_a": "Spain",
+     "side_a_entity": "SPA",
+     "side_b": "Carlists",
+     "side_b_entity": null,
+     "outcome_code": 1
+    },
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 1
+    },
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 522"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_523",
+   "cow_war_num": 523.0,
+   "name": "Second Murid",
+   "category": "intra-state",
+   "start": "1834-09-26",
+   "end": "1834-10-27",
+   "participants": [
+    {
+     "side_a": "Russia",
+     "side_a_entity": "RUS",
+     "side_b": "Shamil",
+     "side_b_entity": null,
+     "outcome_code": 7
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 523"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_525",
+   "cow_war_num": 525.0,
+   "name": "Cabanos Revolt",
+   "category": "intra-state",
+   "start": "1835-01-06",
+   "end": "1837-05-01",
+   "participants": [
+    {
+     "side_a": "Brazil",
+     "side_a_entity": "BRA",
+     "side_b": "Cabanos",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 525"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_526",
+   "cow_war_num": 526.0,
+   "name": "Farroupilha War",
+   "category": "intra-state",
+   "start": "1835-09-19",
+   "end": "1845-03-01",
+   "participants": [
+    {
+     "side_a": "Brazil",
+     "side_a_entity": "BRA",
+     "side_b": "Farrapos",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 526"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_527",
+   "cow_war_num": 527.0,
+   "name": "Texan",
+   "category": "intra-state",
+   "start": "1835-10-01",
+   "end": "1836-04-22",
+   "participants": [
+    {
+     "side_a": "Mexico",
+     "side_a_entity": "MEX",
+     "side_b": "Texans",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 527"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_528",
+   "cow_war_num": 528.0,
+   "name": "First Bosnian",
+   "category": "intra-state",
+   "start": "1836-01-01",
+   "end": "1837-01-01",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Bosnians",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 528"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_530",
+   "cow_war_num": 530.0,
+   "name": "Third Murid",
+   "category": "intra-state",
+   "start": "1836-07-01",
+   "end": "1852-01-01",
+   "participants": [
+    {
+     "side_a": "Russia",
+     "side_a_entity": "RUS",
+     "side_b": "Shamil",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 530"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_532",
+   "cow_war_num": 532.0,
+   "name": "Druze Rebellion",
+   "category": "intra-state",
+   "start": "1837-09-27",
+   "end": "1838-08-22",
+   "participants": [
+    {
+     "side_a": "Egypt & Bashir",
+     "side_a_entity": null,
+     "side_b": "Druze",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 532"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_531",
+   "cow_war_num": 531.0,
+   "name": "Sabinada Rebellion",
+   "category": "intra-state",
+   "start": "1837-11-07",
+   "end": "1838-03-13",
+   "participants": [
+    {
+     "side_a": "Brazil",
+     "side_a_entity": "BRA",
+     "side_b": "Bahian Sabinada",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 531"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_321",
+   "cow_war_num": 321.0,
+   "name": "First British-Zulu",
+   "category": "extra-state",
+   "start": "1838-04-17",
+   "end": "1838-04-01",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Zulu tribe",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 321"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_322",
+   "cow_war_num": 322.0,
+   "name": "First British-Afghan",
+   "category": "extra-state",
+   "start": "1839-02-14",
+   "end": "1842-10-12",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Afghanistan",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 322"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_533",
+   "cow_war_num": 533.0,
+   "name": "Second Syrian, Phase 1",
+   "category": "intra-state",
+   "start": "1839-06-10",
+   "end": "1839-06-24",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Egypt",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 533"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_323",
+   "cow_war_num": 323.0,
+   "name": "First Opium",
+   "category": "extra-state",
+   "start": "1839-09-04",
+   "end": "1842-08-29",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "China",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 323"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_324",
+   "cow_war_num": 324.0,
+   "name": "First Franco-Algerian",
+   "category": "extra-state",
+   "start": "1839-11-01",
+   "end": "1847-12-23",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Algerian forces",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 324"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_535",
+   "cow_war_num": 535.0,
+   "name": "Lebanon Insurgency",
+   "category": "intra-state",
+   "start": "1840-05-27",
+   "end": "1840-07-13",
+   "participants": [
+    {
+     "side_a": "Lebanese Maronites",
+     "side_a_entity": null,
+     "side_b": "Amir Bashir & Egypt",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 535"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_536",
+   "cow_war_num": 536.0,
+   "name": "First Colombian",
+   "category": "intra-state",
+   "start": "1840-07-15",
+   "end": "1842-07-15",
+   "participants": [
+    {
+     "side_a": "Colombia",
+     "side_a_entity": "NGR",
+     "side_b": "Progressives",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 536"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_537",
+   "cow_war_num": 537.0,
+   "name": "Second Syrian, Phase 2",
+   "category": "intra-state",
+   "start": "1840-09-09",
+   "end": "1840-11-27",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 1
+    },
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Egypt",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 537"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_538",
+   "cow_war_num": 538.0,
+   "name": "First Argentina War, Phase 2",
+   "category": "intra-state",
+   "start": "1841-01-01",
+   "end": "1842-12-06",
+   "participants": [
+    {
+     "side_a": "Argentina",
+     "side_a_entity": "ARG",
+     "side_b": "Unitarios",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 538"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_540",
+   "cow_war_num": 540.0,
+   "name": "Second Bosnian",
+   "category": "intra-state",
+   "start": "1841-01-01",
+   "end": "1841-01-01",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Bosnians",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 540"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_541",
+   "cow_war_num": 541.0,
+   "name": "Triangular Revolt",
+   "category": "intra-state",
+   "start": "1841-09-04",
+   "end": "1841-10-06",
+   "participants": [
+    {
+     "side_a": "Mexico",
+     "side_a_entity": "MEX",
+     "side_b": "Military",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 541"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_325",
+   "cow_war_num": 325.0,
+   "name": "Peru-Bolivian",
+   "category": "extra-state",
+   "start": "1841-10-19",
+   "end": "1841-11-28",
+   "participants": [
+    {
+     "side_a": "Peru",
+     "side_a_entity": "PEU",
+     "side_b": "Bolivia",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 325"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_542",
+   "cow_war_num": 542.0,
+   "name": "Karbala Revolt",
+   "category": "intra-state",
+   "start": "1842-12-19",
+   "end": "1843-01-13",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Karbala",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 542"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_326",
+   "cow_war_num": 326.0,
+   "name": "British-Sind",
+   "category": "extra-state",
+   "start": "1843-01-06",
+   "end": "1843-06-14",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Sind",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 326"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_327",
+   "cow_war_num": 327.0,
+   "name": "Uruguay War",
+   "category": "extra-state",
+   "start": "1843-02-16",
+   "end": "1851-07-18",
+   "participants": [
+    {
+     "side_a": "Argentina",
+     "side_a_entity": "ARG",
+     "side_b": "Uruguay",
+     "side_b_entity": null,
+     "outcome_code": 4
+    },
+    {
+     "side_a": "-8",
+     "side_a_entity": null,
+     "side_b": "United Kingdom",
+     "side_b_entity": "GBR",
+     "outcome_code": 4
+    },
+    {
+     "side_a": "-8",
+     "side_a_entity": null,
+     "side_b": "France",
+     "side_b_entity": "FRA",
+     "outcome_code": 4
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 327"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_329",
+   "cow_war_num": 329.0,
+   "name": "Gwalior",
+   "category": "extra-state",
+   "start": "1843-12-28",
+   "end": "1843-12-29",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Gwalior",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 329"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_330",
+   "cow_war_num": 330.0,
+   "name": "Franco-Moroccan",
+   "category": "extra-state",
+   "start": "1844-08-06",
+   "end": "1844-09-10",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Morocco",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 330"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_543",
+   "cow_war_num": 543.0,
+   "name": "First Maronite-Druze",
+   "category": "intra-state",
+   "start": "1845-04-30",
+   "end": "1845-05-31",
+   "participants": [
+    {
+     "side_a": "Maronites",
+     "side_a_entity": null,
+     "side_b": "Druze",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 543"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_331",
+   "cow_war_num": 331.0,
+   "name": "First British-Sikh",
+   "category": "extra-state",
+   "start": "1845-12-13",
+   "end": "1846-02-10",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Sikhs",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 331"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_332",
+   "cow_war_num": 332.0,
+   "name": "Cracow Revolt",
+   "category": "extra-state",
+   "start": "1846-02-01",
+   "end": "1846-03-03",
+   "participants": [
+    {
+     "side_a": "Russia",
+     "side_a_entity": "RUS",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 1
+    },
+    {
+     "side_a": "Prussia",
+     "side_a_entity": "PRU",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 1
+    },
+    {
+     "side_a": "Austria",
+     "side_a_entity": "AUS",
+     "side_b": "Cracow",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 332"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_333",
+   "cow_war_num": 333.0,
+   "name": "First British-Xhosa",
+   "category": "extra-state",
+   "start": "1846-04-16",
+   "end": "1847-12-23",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Khosa",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 333"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_7",
+   "cow_war_num": 7,
+   "name": "Mexican-American",
+   "category": "inter-state",
+   "start": "1846-04-25",
+   "end": "1847-09-14",
+   "participants": [
+    {
+     "entity": "MEX",
+     "cow_name": "Mexico",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 6000.0
+    },
+    {
+     "entity": "USA",
+     "cow_name": "United States of America",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 13283.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 7"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_545",
+   "cow_war_num": 545.0,
+   "name": "Mayan Caste War, Phase 1",
+   "category": "intra-state",
+   "start": "1847-01-15",
+   "end": "1848-08-16",
+   "participants": [
+    {
+     "side_a": "Mayans",
+     "side_a_entity": null,
+     "side_b": "Yucutan",
+     "side_b_entity": null,
+     "outcome_code": 4
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 545"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_546",
+   "cow_war_num": 546.0,
+   "name": "Second Carlist",
+   "category": "intra-state",
+   "start": "1847-05-15",
+   "end": "1849-05-01",
+   "participants": [
+    {
+     "side_a": "Spain",
+     "side_a_entity": "SPA",
+     "side_b": "Carlists",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 546"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_547",
+   "cow_war_num": 547.0,
+   "name": "Second Two Sicilies",
+   "category": "intra-state",
+   "start": "1848-01-12",
+   "end": "1848-01-27",
+   "participants": [
+    {
+     "side_a": "Two Sicilies",
+     "side_a_entity": "SIC",
+     "side_b": "Liberals",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 547"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_548",
+   "cow_war_num": 548.0,
+   "name": "First Venezuelan",
+   "category": "intra-state",
+   "start": "1848-02-04",
+   "end": "1849-08-15",
+   "participants": [
+    {
+     "side_a": "Venezuela",
+     "side_a_entity": "VEN",
+     "side_b": "Paez led Conservatives ",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 548"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_550",
+   "cow_war_num": 550.0,
+   "name": "Viennese Revolt",
+   "category": "intra-state",
+   "start": "1848-03-13",
+   "end": "1848-10-31",
+   "participants": [
+    {
+     "side_a": "Austria",
+     "side_a_entity": "AUS",
+     "side_b": "Viennese",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 550"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_551",
+   "cow_war_num": 551.0,
+   "name": "Milan Five Day Revolt",
+   "category": "intra-state",
+   "start": "1848-03-18",
+   "end": "1848-03-23",
+   "participants": [
+    {
+     "side_a": "Austria",
+     "side_a_entity": "AUS",
+     "side_b": "Milan",
+     "side_b_entity": null,
+     "outcome_code": 4
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 551"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_10",
+   "cow_war_num": 10,
+   "name": "Austro-Sardinian",
+   "category": "inter-state",
+   "start": "1848-03-24",
+   "end": "1848-08-09",
+   "participants": [
+    {
+     "entity": "TUS",
+     "cow_name": "Tuscany",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 100.0
+    },
+    {
+     "entity": "SAR",
+     "cow_name": "Italy",
+     "side": 2,
+     "initiator": true,
+     "outcome_code": 2,
+     "battle_deaths": 3400.0
+    },
+    {
+     "entity": "AUS",
+     "cow_name": "Austria",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 3927.0
+    },
+    {
+     "entity": "MOD",
+     "cow_name": "Modena",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 100.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 10"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_13",
+   "cow_war_num": 13,
+   "name": "First Schleswig-Holstein",
+   "category": "inter-state",
+   "start": "1848-04-10",
+   "end": "1848-08-26",
+   "participants": [
+    {
+     "entity": "PRU",
+     "cow_name": "Prussia",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 2500.0
+    },
+    {
+     "entity": "DEN",
+     "cow_name": "Denmark",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 3500.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 13"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_334",
+   "cow_war_num": 334.0,
+   "name": "First Dutch-Bali",
+   "category": "extra-state",
+   "start": "1848-04-12",
+   "end": "1848-06-21",
+   "participants": [
+    {
+     "side_a": "Netherlands",
+     "side_a_entity": "NED",
+     "side_b": "Bali",
+     "side_b_entity": null,
+     "outcome_code": 6
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 334"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_335",
+   "cow_war_num": 335.0,
+   "name": "Second British-Sikh",
+   "category": "extra-state",
+   "start": "1848-05-18",
+   "end": "1849-03-10",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Sikhs",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 335"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_552",
+   "cow_war_num": 552.0,
+   "name": "Second French Insurrection",
+   "category": "intra-state",
+   "start": "1848-06-23",
+   "end": "1848-06-26",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Radicals",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 552"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_553",
+   "cow_war_num": 553.0,
+   "name": "Mayan Caste War, Phase 2",
+   "category": "intra-state",
+   "start": "1848-08-17",
+   "end": "1855-03-04",
+   "participants": [
+    {
+     "side_a": "Mexico",
+     "side_a_entity": "MEX",
+     "side_b": "Yucatan Maya",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 553"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_554",
+   "cow_war_num": 554.0,
+   "name": "Hungarian",
+   "category": "intra-state",
+   "start": "1848-09-09",
+   "end": "1849-08-13",
+   "participants": [
+    {
+     "side_a": "Austria",
+     "side_a_entity": "AUS",
+     "side_b": "Hungary",
+     "side_b_entity": null,
+     "outcome_code": 1
+    },
+    {
+     "side_a": "Russia",
+     "side_a_entity": "RUS",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 554"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_16",
+   "cow_war_num": 16,
+   "name": "Roman Republic",
+   "category": "inter-state",
+   "start": "1849-04-30",
+   "end": "1849-07-02",
+   "participants": [
+    {
+     "entity": "FRA",
+     "cow_name": "France",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 1000.0
+    },
+    {
+     "entity": "SIC",
+     "cow_name": "Two Sicilies",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 100.0
+    },
+    {
+     "entity": "AUS",
+     "cow_name": "Austria",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 100.0
+    },
+    {
+     "entity": "PAP",
+     "cow_name": "Papal States",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 1400.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 16"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_336",
+   "cow_war_num": 336.0,
+   "name": "Chinese Pirates",
+   "category": "extra-state",
+   "start": "1849-10-20",
+   "end": "1849-10-22",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Chinese Pirates",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 336"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_337",
+   "cow_war_num": 337.0,
+   "name": "Second British-Xhosa",
+   "category": "extra-state",
+   "start": "1850-12-24",
+   "end": "1852-04-08",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Xhosa",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 337"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_338",
+   "cow_war_num": 338.0,
+   "name": "Ottoman-Yam",
+   "category": "extra-state",
+   "start": "1851-04-21",
+   "end": "1851-07-09",
+   "participants": [
+    {
+     "side_a": "Turkey/Ottoman Empire/Egypt",
+     "side_a_entity": "TUR",
+     "side_b": "Yam",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 338"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_19",
+   "cow_war_num": 19,
+   "name": "La Plata",
+   "category": "inter-state",
+   "start": "1851-07-19",
+   "end": "1852-02-03",
+   "participants": [
+    {
+     "entity": "ARG",
+     "cow_name": "Argentina",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 800.0
+    },
+    {
+     "entity": "BRA",
+     "cow_name": "Brazil",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 500.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 19"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_555",
+   "cow_war_num": 555.0,
+   "name": "First Chilean",
+   "category": "intra-state",
+   "start": "1851-09-05",
+   "end": "1851-12-15",
+   "participants": [
+    {
+     "side_a": "Chile",
+     "side_a_entity": "CHL",
+     "side_b": "Liberals",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 555"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_339",
+   "cow_war_num": 339.0,
+   "name": "Second British-Burmese",
+   "category": "extra-state",
+   "start": "1852-04-05",
+   "end": "1852-11-20",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Burma",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 339"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_556",
+   "cow_war_num": 556.0,
+   "name": "First Turco-Montenegrin",
+   "category": "intra-state",
+   "start": "1852-12-02",
+   "end": "1853-03-13",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Montenegro & Hercegovina",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 556"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_22",
+   "cow_war_num": 22,
+   "name": "Crimean",
+   "category": "inter-state",
+   "start": "1853-10-23",
+   "end": "1856-03-01",
+   "participants": [
+    {
+     "entity": "TUR",
+     "cow_name": "Turkey",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 45000.0
+    },
+    {
+     "entity": "SAR",
+     "cow_name": "Italy",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 2200.0
+    },
+    {
+     "entity": "FRA",
+     "cow_name": "France",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 95000.0
+    },
+    {
+     "entity": "GBR",
+     "cow_name": "United Kingdom",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 22000.0
+    },
+    {
+     "entity": "RUS",
+     "cow_name": "Russia",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 100000.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 22"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_557",
+   "cow_war_num": 557.0,
+   "name": "First Peru",
+   "category": "intra-state",
+   "start": "1853-12-21",
+   "end": "1855-01-07",
+   "participants": [
+    {
+     "side_a": "Peru",
+     "side_a_entity": "PEU",
+     "side_b": "Liberals",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 557"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_340",
+   "cow_war_num": 340.0,
+   "name": "French-Tukulor War",
+   "category": "extra-state",
+   "start": "1854-01-01",
+   "end": "1857-07-15",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Tukulor",
+     "side_b_entity": null,
+     "outcome_code": 6
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 340"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_341",
+   "cow_war_num": 341.0,
+   "name": "British-Santal",
+   "category": "extra-state",
+   "start": "1855-01-01",
+   "end": "1856-01-01",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Santal",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 341"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_558",
+   "cow_war_num": 558.0,
+   "name": "Puebla War",
+   "category": "intra-state",
+   "start": "1855-12-11",
+   "end": "1856-03-21",
+   "participants": [
+    {
+     "side_a": "Mexico",
+     "side_a_entity": "MEX",
+     "side_b": "Puebla",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 558"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_342",
+   "cow_war_num": 342.0,
+   "name": "Hodeida Seige",
+   "category": "extra-state",
+   "start": "1856-01-22",
+   "end": "1856-02-22",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Beni Aseer tribe",
+     "side_b_entity": null,
+     "outcome_code": 6
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 342"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_345",
+   "cow_war_num": 345.0,
+   "name": "French Conquest of Kabylia",
+   "category": "extra-state",
+   "start": "1856-05-17",
+   "end": "1857-12-01",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Kabylia",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 345"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_343",
+   "cow_war_num": 343.0,
+   "name": "Second Opium",
+   "category": "extra-state",
+   "start": "1856-10-22",
+   "end": "1860-10-24",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "China",
+     "side_b_entity": null,
+     "outcome_code": 1
+    },
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 343"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_25",
+   "cow_war_num": 25,
+   "name": "Anglo-Persian",
+   "category": "inter-state",
+   "start": "1856-10-25",
+   "end": "1857-04-05",
+   "participants": [
+    {
+     "entity": "GBR",
+     "cow_name": "United Kingdom",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 500.0
+    },
+    {
+     "entity": "PRS",
+     "cow_name": "Iran",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 1500.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 25"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_560",
+   "cow_war_num": 560.0,
+   "name": "Second Peru",
+   "category": "intra-state",
+   "start": "1856-10-31",
+   "end": "1858-03-07",
+   "participants": [
+    {
+     "side_a": "Peru",
+     "side_a_entity": "PEU",
+     "side_b": "Conservatives",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 560"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_347",
+   "cow_war_num": 347.0,
+   "name": "Indian Mutiny",
+   "category": "extra-state",
+   "start": "1857-05-10",
+   "end": "1859-04-07",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Indian sepoys",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 347"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_561",
+   "cow_war_num": 561.0,
+   "name": "Mexican Reform",
+   "category": "intra-state",
+   "start": "1858-02-15",
+   "end": "1861-01-01",
+   "participants": [
+    {
+     "side_a": "Mexico",
+     "side_a_entity": "MEX",
+     "side_b": "Liberals",
+     "side_b_entity": null,
+     "outcome_code": 4
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 561"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_562",
+   "cow_war_num": 562.0,
+   "name": "Second Turco-Montenegrin",
+   "category": "intra-state",
+   "start": "1858-05-04",
+   "end": "1859-06-01",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Montenegrins",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 562"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_349",
+   "cow_war_num": 349.0,
+   "name": "First Franco-Vietnamese",
+   "category": "extra-state",
+   "start": "1858-08-31",
+   "end": "1862-06-05",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Vietnam",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 349"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_563",
+   "cow_war_num": 563.0,
+   "name": "Second Venezuelan/Federalist",
+   "category": "intra-state",
+   "start": "1859-02-01",
+   "end": "1863-05-23",
+   "participants": [
+    {
+     "side_a": "Venezuela",
+     "side_a_entity": "VEN",
+     "side_b": "Liberals",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 563"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_350",
+   "cow_war_num": 350.0,
+   "name": "Netherlands-Bone",
+   "category": "extra-state",
+   "start": "1859-02-20",
+   "end": "1860-01-20",
+   "participants": [
+    {
+     "side_a": "Netherlands",
+     "side_a_entity": "NED",
+     "side_b": "Bone",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 350"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_28",
+   "cow_war_num": 28,
+   "name": "Italian Unification",
+   "category": "inter-state",
+   "start": "1859-04-29",
+   "end": "1859-07-12",
+   "participants": [
+    {
+     "entity": "SAR",
+     "cow_name": "Sardinia/Piedmont",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 2500.0
+    },
+    {
+     "entity": "AUS",
+     "cow_name": "Austria",
+     "side": 2,
+     "initiator": true,
+     "outcome_code": 2,
+     "battle_deaths": 12500.0
+    },
+    {
+     "entity": "FRA",
+     "cow_name": "France",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 7500.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 28"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_351",
+   "cow_war_num": 351.0,
+   "name": "Argentine-Buenos Aires",
+   "category": "extra-state",
+   "start": "1859-05-29",
+   "end": "1859-10-23",
+   "participants": [
+    {
+     "side_a": "Argentina",
+     "side_a_entity": "ARG",
+     "side_b": "Buenos Aires",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 351"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_31",
+   "cow_war_num": 31,
+   "name": "First Spanish-Moroccan",
+   "category": "inter-state",
+   "start": "1859-10-22",
+   "end": "1860-03-25",
+   "participants": [
+    {
+     "entity": "MOR",
+     "cow_name": "Morocco",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 6000.0
+    },
+    {
+     "entity": "SPA",
+     "cow_name": "Spain",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 4000.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 31"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_352",
+   "cow_war_num": 352.0,
+   "name": "Garibaldi Expedition",
+   "category": "extra-state",
+   "start": "1860-05-11",
+   "end": "1860-10-14",
+   "participants": [
+    {
+     "side_a": "Two Sicilies",
+     "side_a_entity": "SIC",
+     "side_b": "Red Shirts",
+     "side_b_entity": null,
+     "outcome_code": 4
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 352"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_565",
+   "cow_war_num": 565.0,
+   "name": "Second Colombian",
+   "category": "intra-state",
+   "start": "1860-05-15",
+   "end": "1861-07-18",
+   "participants": [
+    {
+     "side_a": "Colombia",
+     "side_a_entity": "NGR",
+     "side_b": "Liberals",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 565"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_566",
+   "cow_war_num": 566.0,
+   "name": "Second Maronite-Druze",
+   "category": "intra-state",
+   "start": "1860-05-26",
+   "end": "1860-07-12",
+   "participants": [
+    {
+     "side_a": "Maronites",
+     "side_a_entity": null,
+     "side_b": "Druze",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 566"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_34",
+   "cow_war_num": 34,
+   "name": "Italian-Roman",
+   "category": "inter-state",
+   "start": "1860-09-11",
+   "end": "1860-09-29",
+   "participants": [
+    {
+     "entity": "SAR",
+     "cow_name": "Sardinia/Piedmont",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 300.0
+    },
+    {
+     "entity": "PAP",
+     "cow_name": "Papal States",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 700.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 34"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_37",
+   "cow_war_num": 37,
+   "name": "Neapolitan",
+   "category": "inter-state",
+   "start": "1860-10-15",
+   "end": "1861-02-13",
+   "participants": [
+    {
+     "entity": "SIC",
+     "cow_name": "Two Sicilies",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 400.0
+    },
+    {
+     "entity": "SAR",
+     "cow_name": "Sardinia/Piedmont",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 600.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 37"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_570",
+   "cow_war_num": 570.0,
+   "name": "Miao Revolt Phase 2",
+   "category": "intra-state",
+   "start": "1860-10-25",
+   "end": "1872-05-01",
+   "participants": [
+    {
+     "side_a": "China",
+     "side_a_entity": "QNG",
+     "side_b": "Miaos",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 570"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_571",
+   "cow_war_num": 571.0,
+   "name": "Panthay Rebellion Phase 2",
+   "category": "intra-state",
+   "start": "1860-10-25",
+   "end": "1872-12-26",
+   "participants": [
+    {
+     "side_a": "China",
+     "side_a_entity": "QNG",
+     "side_b": "Muslims (Hui)",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 571"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_568",
+   "cow_war_num": 568.0,
+   "name": "Second Nien Revolt",
+   "category": "intra-state",
+   "start": "1860-10-25",
+   "end": "1868-08-16",
+   "participants": [
+    {
+     "side_a": "China",
+     "side_a_entity": "QNG",
+     "side_b": "Niens",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 568"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_567",
+   "cow_war_num": 567.0,
+   "name": "Taiping Rebellion, Phase 2",
+   "category": "intra-state",
+   "start": "1860-10-25",
+   "end": "1866-02-09",
+   "participants": [
+    {
+     "side_a": "China",
+     "side_a_entity": "QNG",
+     "side_b": "Taipings",
+     "side_b_entity": null,
+     "outcome_code": 1
+    },
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 567"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_572",
+   "cow_war_num": 572.0,
+   "name": "U.S. Civil War",
+   "category": "intra-state",
+   "start": "1861-04-10",
+   "end": "1865-04-09",
+   "participants": [
+    {
+     "side_a": "United States of America",
+     "side_a_entity": "USA",
+     "side_b": "Confederacy",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 572"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_573",
+   "cow_war_num": 573.0,
+   "name": "Third Buenos Aires",
+   "category": "intra-state",
+   "start": "1861-08-20",
+   "end": "1861-12-02",
+   "participants": [
+    {
+     "side_a": "Argentina",
+     "side_a_entity": "ARG",
+     "side_b": "Buenos Aires",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 573"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_575",
+   "cow_war_num": 575.0,
+   "name": "Third Turco-Montenegrin",
+   "category": "intra-state",
+   "start": "1861-12-01",
+   "end": "1862-08-31",
+   "participants": [
+    {
+     "side_a": "Turkey",
+     "side_a_entity": "TUR",
+     "side_b": "Montenegro",
+     "side_b_entity": null,
+     "outcome_code": 3
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 575"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_40",
+   "cow_war_num": 40,
+   "name": "Franco-Mexican",
+   "category": "inter-state",
+   "start": "1862-04-16",
+   "end": "1867-02-05",
+   "participants": [
+    {
+     "entity": "MEX",
+     "cow_name": "Mexico",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 4,
+     "battle_deaths": 12000.0
+    },
+    {
+     "entity": "FRA",
+     "cow_name": "France",
+     "side": 2,
+     "initiator": true,
+     "outcome_code": 4,
+     "battle_deaths": 8000.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 40"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_576",
+   "cow_war_num": 576.0,
+   "name": "Tungan Rebellion",
+   "category": "intra-state",
+   "start": "1862-05-01",
+   "end": "1873-10-24",
+   "participants": [
+    {
+     "side_a": "China",
+     "side_a_entity": "QNG",
+     "side_b": "Muslims  in Sinkiang",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 576"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_577",
+   "cow_war_num": 577.0,
+   "name": "Sioux-Minnesota",
+   "category": "intra-state",
+   "start": "1862-08-17",
+   "end": "1862-09-26",
+   "participants": [
+    {
+     "side_a": "Santee Sioux",
+     "side_a_entity": null,
+     "side_b": "Settlers & militia",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 577"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_578",
+   "cow_war_num": 578.0,
+   "name": "Bolivan Perez Rebellion",
+   "category": "intra-state",
+   "start": "1862-09-15",
+   "end": "1862-09-15",
+   "participants": [
+    {
+     "side_a": "Boliva",
+     "side_a_entity": "BOL",
+     "side_b": "Gregorio Perez's followers",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 578"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_580",
+   "cow_war_num": 580.0,
+   "name": "Second Polish",
+   "category": "intra-state",
+   "start": "1863-01-22",
+   "end": "1864-04-19",
+   "participants": [
+    {
+     "side_a": "Russia",
+     "side_a_entity": "RUS",
+     "side_b": "Poles",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 580"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_353",
+   "cow_war_num": 353.0,
+   "name": "Spanish-Santo Dominican",
+   "category": "extra-state",
+   "start": "1863-04-01",
+   "end": "1865-05-03",
+   "participants": [
+    {
+     "side_a": "Spain",
+     "side_a_entity": "SPA",
+     "side_b": "Santo Domingo",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 353"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_581",
+   "cow_war_num": 581.0,
+   "name": "Second Argentina",
+   "category": "intra-state",
+   "start": "1863-04-02",
+   "end": "1863-11-12",
+   "participants": [
+    {
+     "side_a": "Argentina",
+     "side_a_entity": "ARG",
+     "side_b": "Montoneros",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 581"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_355",
+   "cow_war_num": 355.0,
+   "name": "British-Maori",
+   "category": "extra-state",
+   "start": "1863-06-04",
+   "end": "1866-01-14",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "New Zealand Maori",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 355"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_356",
+   "cow_war_num": 356.0,
+   "name": "Shimonoseki War",
+   "category": "extra-state",
+   "start": "1863-06-25",
+   "end": "1864-09-07",
+   "participants": [
+    {
+     "side_a": "United States",
+     "side_a_entity": "USA",
+     "side_b": "Choshu Daimyo",
+     "side_b_entity": null,
+     "outcome_code": 1
+    },
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 1
+    },
+    {
+     "side_a": "Netherlands",
+     "side_a_entity": "NED",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 1
+    },
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 356"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_357",
+   "cow_war_num": 357.0,
+   "name": "British Umbeyla Campaign",
+   "category": "extra-state",
+   "start": "1863-10-20",
+   "end": "1863-12-21",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Pathan tribe",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 357"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_43",
+   "cow_war_num": 43,
+   "name": "Ecuadorian-Colombian",
+   "category": "inter-state",
+   "start": "1863-11-22",
+   "end": "1863-12-06",
+   "participants": [
+    {
+     "entity": "NGR",
+     "cow_name": "Colombia",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 300.0
+    },
+    {
+     "entity": "ECU",
+     "cow_name": "Ecuador",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 700.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 43"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_46",
+   "cow_war_num": 46,
+   "name": "Second Schleswig-Holstein",
+   "category": "inter-state",
+   "start": "1864-02-01",
+   "end": "1864-04-25",
+   "participants": [
+    {
+     "entity": "PRU",
+     "cow_name": "Germany",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 1048.0
+    },
+    {
+     "entity": "DEN",
+     "cow_name": "Denmark",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 2933.0
+    },
+    {
+     "entity": "AUS",
+     "cow_name": "Austria",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 500.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 46"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_359",
+   "cow_war_num": 359.0,
+   "name": "Russian-Kokand",
+   "category": "extra-state",
+   "start": "1864-04-24",
+   "end": "1865-06-17",
+   "participants": [
+    {
+     "side_a": "Russia",
+     "side_a_entity": "RUS",
+     "side_b": "Kokand",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 359"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_582",
+   "cow_war_num": 582.0,
+   "name": "Xinjiang Muslim Revolt",
+   "category": "intra-state",
+   "start": "1864-07-01",
+   "end": "1871-07-03",
+   "participants": [
+    {
+     "side_a": "Russia",
+     "side_a_entity": "RUS",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 2
+    },
+    {
+     "side_a": "China",
+     "side_a_entity": "QNG",
+     "side_b": "Muslims",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 582"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_49",
+   "cow_war_num": 49,
+   "name": "Lopez",
+   "category": "inter-state",
+   "start": "1864-11-12",
+   "end": "1870-03-01",
+   "participants": [
+    {
+     "entity": "ARG",
+     "cow_name": "Argentina",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 10000.0
+    },
+    {
+     "entity": "PAR",
+     "cow_name": "Paraguay",
+     "side": 2,
+     "initiator": true,
+     "outcome_code": 2,
+     "battle_deaths": 200000.0
+    },
+    {
+     "entity": "BRA",
+     "cow_name": "Brazil",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 100000.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 49"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_360",
+   "cow_war_num": 360.0,
+   "name": "British-Bhutanese",
+   "category": "extra-state",
+   "start": "1865-01-01",
+   "end": "1865-11-11",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Bhutan",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 360"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_52",
+   "cow_war_num": 52,
+   "name": "Naval War",
+   "category": "inter-state",
+   "start": "1865-09-25",
+   "end": "1866-05-09",
+   "participants": [
+    {
+     "entity": "CHL",
+     "cow_name": "Chile",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 100.0
+    },
+    {
+     "entity": "PEU",
+     "cow_name": "Peru",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 600.0
+    },
+    {
+     "entity": "SPA",
+     "cow_name": "Spain",
+     "side": 2,
+     "initiator": true,
+     "outcome_code": 2,
+     "battle_deaths": 300.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 52"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_361",
+   "cow_war_num": 361.0,
+   "name": "Russian-Bukharan",
+   "category": "extra-state",
+   "start": "1866-01-12",
+   "end": "1866-10-18",
+   "participants": [
+    {
+     "side_a": "Russia",
+     "side_a_entity": "RUS",
+     "side_b": "Bukhara",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 361"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_583",
+   "cow_war_num": 583.0,
+   "name": "First  Cretan",
+   "category": "intra-state",
+   "start": "1866-05-29",
+   "end": "1867-02-22",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Cretans",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 583"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_55",
+   "cow_war_num": 55,
+   "name": "Seven Weeks",
+   "category": "inter-state",
+   "start": "1866-06-15",
+   "end": "1866-07-26",
+   "participants": [
+    {
+     "entity": "SAR",
+     "cow_name": "Italy",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 4000.0
+    },
+    {
+     "entity": "HDA",
+     "cow_name": "Hesse Grand Ducal",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 100.0
+    },
+    {
+     "entity": "WUR",
+     "cow_name": "Wuerttemburg",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 100.0
+    },
+    {
+     "entity": "BAV",
+     "cow_name": "Bavaria",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 500.0
+    },
+    {
+     "entity": "AUS",
+     "cow_name": "Austria",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 28000.0
+    },
+    {
+     "entity": "PRU",
+     "cow_name": "Germany",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 10000.0
+    },
+    {
+     "entity": "MSC",
+     "cow_name": "Mecklenburg Schwerin",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 100.0
+    },
+    {
+     "entity": "HKA",
+     "cow_name": "Hesse Electoral",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 100.0
+    },
+    {
+     "entity": "SAX",
+     "cow_name": "Saxony",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 600.0
+    },
+    {
+     "entity": "BAD",
+     "cow_name": "Baden",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 100.0
+    },
+    {
+     "entity": "HAN",
+     "cow_name": "Hanover",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 500.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 55"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_585",
+   "cow_war_num": 585.0,
+   "name": "Yellow Cliff Revolt",
+   "category": "intra-state",
+   "start": "1866-10-01",
+   "end": null,
+   "participants": [
+    {
+     "side_a": "China",
+     "side_a_entity": "QNG",
+     "side_b": "Zhang Jizhong's followers",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 585"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_586",
+   "cow_war_num": 586.0,
+   "name": "Third Argentina",
+   "category": "intra-state",
+   "start": "1866-12-15",
+   "end": "1867-10-15",
+   "participants": [
+    {
+     "side_a": "Argentina",
+     "side_a_entity": "ARG",
+     "side_b": "Montoneros",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 586"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_587",
+   "cow_war_num": 587.0,
+   "name": "Queretaro",
+   "category": "intra-state",
+   "start": "1867-02-06",
+   "end": "1867-05-14",
+   "participants": [
+    {
+     "side_a": "Mexico",
+     "side_a_entity": "MEX",
+     "side_b": "Liberals",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 587"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_362",
+   "cow_war_num": 362.0,
+   "name": "British-Ethiopian",
+   "category": "extra-state",
+   "start": "1867-12-01",
+   "end": "1868-04-13",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Ethiopians",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 362"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_588",
+   "cow_war_num": 588.0,
+   "name": "Meiji Restoration",
+   "category": "intra-state",
+   "start": "1868-01-03",
+   "end": "1868-07-04",
+   "participants": [
+    {
+     "side_a": "Japan",
+     "side_a_entity": "JAP",
+     "side_b": "Tokugawa",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 588"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_590",
+   "cow_war_num": 590.0,
+   "name": "Third Venezuelan",
+   "category": "intra-state",
+   "start": "1868-01-11",
+   "end": "1868-08-14",
+   "participants": [
+    {
+     "side_a": "Venezuela",
+     "side_a_entity": "VEN",
+     "side_b": "Conservatives",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 590"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_591",
+   "cow_war_num": 591.0,
+   "name": "Spanish Liberals",
+   "category": "intra-state",
+   "start": "1868-09-18",
+   "end": "1868-09-29",
+   "participants": [
+    {
+     "side_a": "Spain",
+     "side_a_entity": "SPA",
+     "side_b": "Liberals",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 591"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_363",
+   "cow_war_num": 363.0,
+   "name": "First Spanish-Cuban",
+   "category": "extra-state",
+   "start": "1868-10-10",
+   "end": "1878-02-11",
+   "participants": [
+    {
+     "side_a": "Spain",
+     "side_a_entity": "SPA",
+     "side_b": "Cuba",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 363"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_364",
+   "cow_war_num": 364.0,
+   "name": "Attack on Bahr el-Ghazal",
+   "category": "extra-state",
+   "start": "1869-01-01",
+   "end": "1870-01-01",
+   "participants": [
+    {
+     "side_a": "Egypt",
+     "side_a_entity": "EGY",
+     "side_b": "Bahr el-Ghazal",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 364"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_592",
+   "cow_war_num": 592.0,
+   "name": "Guerre des Cacos",
+   "category": "intra-state",
+   "start": "1869-02-01",
+   "end": "1869-12-18",
+   "participants": [
+    {
+     "side_a": "Haiti",
+     "side_a_entity": "HAI",
+     "side_b": "Black peasants",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 592"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_593",
+   "cow_war_num": 593.0,
+   "name": "Fourth Argentina",
+   "category": "intra-state",
+   "start": "1870-05-20",
+   "end": "1871-03-13",
+   "participants": [
+    {
+     "side_a": "Argentina",
+     "side_a_entity": "ARG",
+     "side_b": "Entre Rios Province",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 593"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_58",
+   "cow_war_num": 58,
+   "name": "Franco-Prussian",
+   "category": "inter-state",
+   "start": "1870-07-19",
+   "end": "1871-02-26",
+   "participants": [
+    {
+     "entity": "WUR",
+     "cow_name": "Wuerttemburg",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 976.0
+    },
+    {
+     "entity": "BAD",
+     "cow_name": "Baden",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 956.0
+    },
+    {
+     "entity": "PRU",
+     "cow_name": "Germany",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 44781.0
+    },
+    {
+     "entity": "BAV",
+     "cow_name": "Bavaria",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 5600.0
+    },
+    {
+     "entity": "FRA",
+     "cow_name": "France",
+     "side": 2,
+     "initiator": true,
+     "outcome_code": 2,
+     "battle_deaths": 152000.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 58"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_595",
+   "cow_war_num": 595.0,
+   "name": "Bolivia-Criollos",
+   "category": "intra-state",
+   "start": "1870-11-24",
+   "end": "1871-01-15",
+   "participants": [
+    {
+     "side_a": "Bolivia",
+     "side_a_entity": "BOL",
+     "side_b": "Crillos",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 595"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_365",
+   "cow_war_num": 365.0,
+   "name": "Ottoman Conquest of Arabia",
+   "category": "extra-state",
+   "start": "1870-11-30",
+   "end": "1872-12-30",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Yemen, Asir, Hasa",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 365"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_366",
+   "cow_war_num": 366.0,
+   "name": "Second Franco-Algerian",
+   "category": "extra-state",
+   "start": "1871-03-01",
+   "end": "1872-01-01",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Algeria",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 366"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_596",
+   "cow_war_num": 596.0,
+   "name": "Paris Commune",
+   "category": "intra-state",
+   "start": "1871-04-02",
+   "end": "1871-05-29",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Communards",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 596"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_597",
+   "cow_war_num": 597.0,
+   "name": "Third Carlist",
+   "category": "intra-state",
+   "start": "1872-04-20",
+   "end": "1876-02-20",
+   "participants": [
+    {
+     "side_a": "Spain",
+     "side_a_entity": "SPA",
+     "side_b": "Carlists",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 597"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_367",
+   "cow_war_num": 367.0,
+   "name": "Second British-Ashanti",
+   "category": "extra-state",
+   "start": "1873-01-01",
+   "end": "1874-02-04",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Ashanti",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 367"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_370",
+   "cow_war_num": 370.0,
+   "name": "First Dutch-Achinese",
+   "category": "extra-state",
+   "start": "1873-03-26",
+   "end": "1878-10-13",
+   "participants": [
+    {
+     "side_a": "Netherlands",
+     "side_a_entity": "NED",
+     "side_b": "Aceh",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 370"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_369",
+   "cow_war_num": 369.0,
+   "name": "Second Franco-Vietnamese",
+   "category": "extra-state",
+   "start": "1873-11-20",
+   "end": "1874-01-01",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Vietnam",
+     "side_b_entity": null,
+     "outcome_code": 3
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 369"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_598",
+   "cow_war_num": 598.0,
+   "name": "Catonalist Uprising",
+   "category": "intra-state",
+   "start": "1874-01-01",
+   "end": "1875-01-01",
+   "participants": [
+    {
+     "side_a": "Spain",
+     "side_a_entity": "SPA",
+     "side_b": "Rebel cities (cantons)",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 598"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_600",
+   "cow_war_num": 600.0,
+   "name": "Fifth Argentina",
+   "category": "intra-state",
+   "start": "1874-09-01",
+   "end": "1874-11-06",
+   "participants": [
+    {
+     "side_a": "Argentina",
+     "side_a_entity": "ARG",
+     "side_b": "Mitre led Rebels",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 600"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_601",
+   "cow_war_num": 601.0,
+   "name": "Bosnia & Bulgaria Revolt",
+   "category": "intra-state",
+   "start": "1875-06-30",
+   "end": "1876-06-29",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Bosnia & Bulgaria",
+     "side_b_entity": null,
+     "outcome_code": 4
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 601"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_371",
+   "cow_war_num": 371.0,
+   "name": "Kokand Rebellion",
+   "category": "extra-state",
+   "start": "1875-08-09",
+   "end": "1876-02-28",
+   "participants": [
+    {
+     "side_a": "Russia",
+     "side_a_entity": "RUS",
+     "side_b": "Kokand",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 371"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_372",
+   "cow_war_num": 372.0,
+   "name": "Egyptian-Ethiopian",
+   "category": "extra-state",
+   "start": "1875-09-01",
+   "end": "1876-03-09",
+   "participants": [
+    {
+     "side_a": "Egypt",
+     "side_a_entity": "EGY",
+     "side_b": "Ethiopia",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 372"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_602",
+   "cow_war_num": 602.0,
+   "name": "Diaz Revolt",
+   "category": "intra-state",
+   "start": "1876-03-01",
+   "end": "1876-11-23",
+   "participants": [
+    {
+     "side_a": "Mexico",
+     "side_a_entity": "MEX",
+     "side_b": "Rebels",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 602"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_60",
+   "cow_war_num": 60,
+   "name": "First Central American",
+   "category": "inter-state",
+   "start": "1876-03-27",
+   "end": "1876-04-25",
+   "participants": [
+    {
+     "entity": "GUA",
+     "cow_name": "Guatemala",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 2000.0
+    },
+    {
+     "entity": "ELS",
+     "cow_name": "El Salvador",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 2000.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 60"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_603",
+   "cow_war_num": 603.0,
+   "name": "Defeat of Xinjiang Muslims",
+   "category": "intra-state",
+   "start": "1876-04-01",
+   "end": "1877-12-01",
+   "participants": [
+    {
+     "side_a": "China",
+     "side_a_entity": "QNG",
+     "side_b": "Muslims",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 603"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_373",
+   "cow_war_num": 373.0,
+   "name": "Serbian-Turkish",
+   "category": "extra-state",
+   "start": "1876-06-30",
+   "end": "1877-04-23",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Serbia, Montenegro",
+     "side_b_entity": null,
+     "outcome_code": 4
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 373"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_605",
+   "cow_war_num": 605.0,
+   "name": "Third Colombian",
+   "category": "intra-state",
+   "start": "1876-07-26",
+   "end": "1877-07-01",
+   "participants": [
+    {
+     "side_a": "Colombia",
+     "side_a_entity": "NGR",
+     "side_b": "Conservatives",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 605"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_607",
+   "cow_war_num": 607.0,
+   "name": "Satsuma Rebellion",
+   "category": "intra-state",
+   "start": "1877-01-29",
+   "end": "1877-09-24",
+   "participants": [
+    {
+     "side_a": "Japan",
+     "side_a_entity": "JAP",
+     "side_b": "Satsumas",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 607"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_61",
+   "cow_war_num": 61,
+   "name": "Second Russo-Turkish",
+   "category": "inter-state",
+   "start": "1877-04-24",
+   "end": "1878-01-31",
+   "participants": [
+    {
+     "entity": "TUR",
+     "cow_name": "Turkey",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 165000.0
+    },
+    {
+     "entity": "RUS",
+     "cow_name": "Russia",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 120000.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 61"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_374",
+   "cow_war_num": 374.0,
+   "name": "Third British-Xhosa",
+   "category": "extra-state",
+   "start": "1877-08-01",
+   "end": "1878-06-01",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "S. Africa Xhosa",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 374"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_375",
+   "cow_war_num": 375.0,
+   "name": "Egypt-Sudanese Slavers",
+   "category": "extra-state",
+   "start": "1878-02-01",
+   "end": "1879-07-01",
+   "participants": [
+    {
+     "side_a": "Egypt",
+     "side_a_entity": "EGY",
+     "side_b": "Sudanese Slavers",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 375"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_376",
+   "cow_war_num": 376.0,
+   "name": "Russo-Turkoman",
+   "category": "extra-state",
+   "start": "1878-05-01",
+   "end": "1881-01-24",
+   "participants": [
+    {
+     "side_a": "Russia",
+     "side_a_entity": "RUS",
+     "side_b": "Turkomans",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 376"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_377",
+   "cow_war_num": 377.0,
+   "name": "Austrian-Bosnian",
+   "category": "extra-state",
+   "start": "1878-07-29",
+   "end": "1878-10-01",
+   "participants": [
+    {
+     "side_a": "Austria-Hungary",
+     "side_a_entity": "AUS",
+     "side_b": "Bosnia",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 377"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_379",
+   "cow_war_num": 379.0,
+   "name": "Second British-Afghan",
+   "category": "extra-state",
+   "start": "1878-11-21",
+   "end": "1879-05-26",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Afghanistan",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 379"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_380",
+   "cow_war_num": 380.0,
+   "name": "Second British-Zulu",
+   "category": "extra-state",
+   "start": "1879-01-11",
+   "end": "1879-07-04",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Zulu",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 380"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_64",
+   "cow_war_num": 64,
+   "name": "War of the Pacific",
+   "category": "inter-state",
+   "start": "1879-02-14",
+   "end": "1883-12-11",
+   "participants": [
+    {
+     "entity": "CHL",
+     "cow_name": "Chile",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 3276.0
+    },
+    {
+     "entity": "PEU",
+     "cow_name": "Peru",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 9672.0
+    },
+    {
+     "entity": "BOL",
+     "cow_name": "Bolivia",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 920.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 64"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_608",
+   "cow_war_num": 608.0,
+   "name": "Argentine Indians",
+   "category": "intra-state",
+   "start": "1879-04-06",
+   "end": "1880-07-08",
+   "participants": [
+    {
+     "side_a": "Argentina",
+     "side_a_entity": "ARG",
+     "side_b": "Indians",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 608"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_610",
+   "cow_war_num": 610.0,
+   "name": "Fourth Buenos Aires",
+   "category": "intra-state",
+   "start": "1880-06-21",
+   "end": "1880-07-21",
+   "participants": [
+    {
+     "side_a": "Argentina",
+     "side_a_entity": "ARG",
+     "side_b": "Buenos Aires",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 610"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_381",
+   "cow_war_num": 381.0,
+   "name": "Gun War",
+   "category": "extra-state",
+   "start": "1880-09-01",
+   "end": "1881-04-01",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Basuto",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 381"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_382",
+   "cow_war_num": 382.0,
+   "name": "First Boer War",
+   "category": "extra-state",
+   "start": "1880-12-16",
+   "end": "1881-04-05",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Transvaal",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 382"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_383",
+   "cow_war_num": 383.0,
+   "name": "Franco-Tunisian",
+   "category": "extra-state",
+   "start": "1881-06-01",
+   "end": "1882-04-04",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Tunisia",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 383"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_384",
+   "cow_war_num": 384.0,
+   "name": "First British-Mahdi",
+   "category": "extra-state",
+   "start": "1881-08-01",
+   "end": "1885-03-22",
+   "participants": [
+    {
+     "side_a": "Egypt",
+     "side_a_entity": "EGY",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 2
+    },
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Mahdist Empire",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 384"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_385",
+   "cow_war_num": 385.0,
+   "name": "Third Franco-Vietnamese",
+   "category": "extra-state",
+   "start": "1882-04-25",
+   "end": "1884-06-14",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Vietnam, Black Flag",
+     "side_b_entity": null,
+     "outcome_code": 4
+    },
+    {
+     "side_a": "-8",
+     "side_a_entity": null,
+     "side_b": "China",
+     "side_b_entity": "QNG",
+     "outcome_code": 4
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 385"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_65",
+   "cow_war_num": 65,
+   "name": "Conquest of Egypt",
+   "category": "inter-state",
+   "start": "1882-07-11",
+   "end": "1882-09-15",
+   "participants": [
+    {
+     "entity": "EGY",
+     "cow_name": "Egypt",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 10000.0
+    },
+    {
+     "entity": "GBR",
+     "cow_name": "United Kingdom",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 79.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 65"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_611",
+   "cow_war_num": 611.0,
+   "name": "Haitian Civil War",
+   "category": "intra-state",
+   "start": "1883-03-27",
+   "end": "1884-01-08",
+   "participants": [
+    {
+     "side_a": "Haiti",
+     "side_a_entity": "HAI",
+     "side_b": "Liberals",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 611"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_386",
+   "cow_war_num": 386.0,
+   "name": "First Franco-Madagascan",
+   "category": "extra-state",
+   "start": "1883-05-07",
+   "end": "1885-12-12",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Madagasar",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 386"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_67",
+   "cow_war_num": 67,
+   "name": "Sino-French",
+   "category": "inter-state",
+   "start": "1884-06-15",
+   "end": "1885-06-09",
+   "participants": [
+    {
+     "entity": "FRA",
+     "cow_name": "France",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 2100.0
+    },
+    {
+     "entity": "QNG",
+     "cow_name": "China",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 10000.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 67"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_612",
+   "cow_war_num": 612.0,
+   "name": "Fourth Colombian",
+   "category": "intra-state",
+   "start": "1884-11-15",
+   "end": "1885-08-26",
+   "participants": [
+    {
+     "side_a": "Colombia",
+     "side_a_entity": "NGR",
+     "side_b": "Liberals",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 612"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_389",
+   "cow_war_num": 389.0,
+   "name": "French-Mandinka",
+   "category": "extra-state",
+   "start": "1885-01-01",
+   "end": "1886-01-01",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Mandinka",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 389"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_613",
+   "cow_war_num": 613.0,
+   "name": "Peru's National Problem",
+   "category": "intra-state",
+   "start": "1885-03-02",
+   "end": "1885-05-25",
+   "participants": [
+    {
+     "side_a": "Peru",
+     "side_a_entity": "PEU",
+     "side_b": "Indians",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 613"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_70",
+   "cow_war_num": 70,
+   "name": "Second Central American",
+   "category": "inter-state",
+   "start": "1885-03-28",
+   "end": "1885-04-15",
+   "participants": [
+    {
+     "entity": "ELS",
+     "cow_name": "El Salvador",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 200.0
+    },
+    {
+     "entity": "GUA",
+     "cow_name": "Guatemala",
+     "side": 2,
+     "initiator": true,
+     "outcome_code": 2,
+     "battle_deaths": 800.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 70"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_390",
+   "cow_war_num": 390.0,
+   "name": "Russo-Afghan",
+   "category": "extra-state",
+   "start": "1885-03-30",
+   "end": "1885-04-01",
+   "participants": [
+    {
+     "side_a": "Russia",
+     "side_a_entity": "RUS",
+     "side_b": "Afghanistan",
+     "side_b_entity": null,
+     "outcome_code": 3
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 390"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_391",
+   "cow_war_num": 391.0,
+   "name": "Serbian-Bulgarian",
+   "category": "extra-state",
+   "start": "1885-11-02",
+   "end": "1885-12-07",
+   "participants": [
+    {
+     "side_a": "Serbia",
+     "side_a_entity": "SER",
+     "side_b": "Bulgaria",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 391"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_387",
+   "cow_war_num": 387.0,
+   "name": "Third British-Burmese",
+   "category": "extra-state",
+   "start": "1885-11-10",
+   "end": "1889-01-01",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Burma",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 387"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_392",
+   "cow_war_num": 392.0,
+   "name": "First Italian-Ethiopian",
+   "category": "extra-state",
+   "start": "1887-01-24",
+   "end": "1887-03-01",
+   "participants": [
+    {
+     "side_a": "Italy",
+     "side_a_entity": "SAR",
+     "side_b": "Ethiopia",
+     "side_b_entity": null,
+     "outcome_code": 3
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 392"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_393",
+   "cow_war_num": 393.0,
+   "name": "Zambezi Conquest",
+   "category": "extra-state",
+   "start": "1888-01-01",
+   "end": "1888-01-01",
+   "participants": [
+    {
+     "side_a": "Portugal",
+     "side_a_entity": "POR",
+     "side_b": "Prazero da Cruz",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 393"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_394",
+   "cow_war_num": 394.0,
+   "name": "First Franco-Dahomeyan",
+   "category": "extra-state",
+   "start": "1890-03-01",
+   "end": "1890-04-20",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Dahomey",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 394"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_616",
+   "cow_war_num": 616.0,
+   "name": "First Yemen Rebellion",
+   "category": "intra-state",
+   "start": "1890-04-01",
+   "end": "1892-09-01",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Zaidi Imam",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 616"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_395",
+   "cow_war_num": 395.0,
+   "name": "Franco-Jolof",
+   "category": "extra-state",
+   "start": "1890-04-01",
+   "end": "1891-02-24",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Jolof/Tukulor",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 395"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_617",
+   "cow_war_num": 617.0,
+   "name": "Second Chilean",
+   "category": "intra-state",
+   "start": "1891-01-07",
+   "end": "1891-08-29",
+   "participants": [
+    {
+     "side_a": "Chile",
+     "side_a_entity": "CHL",
+     "side_b": "Congressists",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 617"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_618",
+   "cow_war_num": 618.0,
+   "name": "Zaili-Jinden Revolt",
+   "category": "intra-state",
+   "start": "1891-11-11",
+   "end": "1891-12-27",
+   "participants": [
+    {
+     "side_a": "China",
+     "side_a_entity": "QNG",
+     "side_b": "Zaili & Jindan Sects",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 618"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_396",
+   "cow_war_num": 396.0,
+   "name": "Second Franco-Dahomeyan",
+   "category": "extra-state",
+   "start": "1892-09-19",
+   "end": "1893-11-09",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Dahomey",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 396"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_397",
+   "cow_war_num": 397.0,
+   "name": "Belgian-Tib",
+   "category": "extra-state",
+   "start": "1892-10-01",
+   "end": "1894-02-01",
+   "participants": [
+    {
+     "side_a": "Belgium",
+     "side_a_entity": "BEL",
+     "side_b": "Tippu Tib Empire",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 397"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_620",
+   "cow_war_num": 620.0,
+   "name": "Brazil Federalists",
+   "category": "intra-state",
+   "start": "1893-02-02",
+   "end": "1894-08-31",
+   "participants": [
+    {
+     "side_a": "Brazil",
+     "side_a_entity": "BRA",
+     "side_b": "Rio Grande do Sul",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 620"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_621",
+   "cow_war_num": 621.0,
+   "name": "Brazil Naval",
+   "category": "intra-state",
+   "start": "1893-09-06",
+   "end": "1894-04-16",
+   "participants": [
+    {
+     "side_a": "Brazil",
+     "side_a_entity": "BRA",
+     "side_b": "Naval Royalists",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 621"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_398",
+   "cow_war_num": 398.0,
+   "name": "Third British-Ashanti",
+   "category": "extra-state",
+   "start": "1893-09-28",
+   "end": "1894-01-01",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Ashanti",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 398"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_399",
+   "cow_war_num": 399.0,
+   "name": "Melilla War",
+   "category": "extra-state",
+   "start": "1893-09-29",
+   "end": "1894-03-05",
+   "participants": [
+    {
+     "side_a": "Spain",
+     "side_a_entity": "SPA",
+     "side_b": "Rif tribes",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 399"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_400",
+   "cow_war_num": 400.0,
+   "name": "Mahdist-Italian",
+   "category": "extra-state",
+   "start": "1893-12-21",
+   "end": "1894-07-12",
+   "participants": [
+    {
+     "side_a": "Italy",
+     "side_a_entity": "SAR",
+     "side_b": "Mahdist Empire",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 400"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_623",
+   "cow_war_num": 623.0,
+   "name": "Tonghak Rebellion",
+   "category": "intra-state",
+   "start": "1894-02-29",
+   "end": "1894-11-28",
+   "participants": [
+    {
+     "side_a": "Japan",
+     "side_a_entity": "JAP",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 1
+    },
+    {
+     "side_a": "Korea",
+     "side_a_entity": "KOR",
+     "side_b": "Tonghak Society",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 623"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_401",
+   "cow_war_num": 401.0,
+   "name": "Second Franco-Madagascan",
+   "category": "extra-state",
+   "start": "1894-06-16",
+   "end": "1895-10-01",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Madagasar",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 401"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_402",
+   "cow_war_num": 402.0,
+   "name": "Second Dutch-Bali",
+   "category": "extra-state",
+   "start": "1894-07-01",
+   "end": "1894-11-22",
+   "participants": [
+    {
+     "side_a": "Netherlands",
+     "side_a_entity": "NED",
+     "side_b": "Bali",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 402"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_73",
+   "cow_war_num": 73,
+   "name": "First Sino-Japanese",
+   "category": "inter-state",
+   "start": "1894-07-25",
+   "end": "1895-03-30",
+   "participants": [
+    {
+     "entity": "QNG",
+     "cow_name": "China",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 10000.0
+    },
+    {
+     "entity": "JAP",
+     "cow_name": "Japan",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 5000.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 73"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_625",
+   "cow_war_num": 625.0,
+   "name": "Third Peru",
+   "category": "intra-state",
+   "start": "1894-10-15",
+   "end": "1895-03-19",
+   "participants": [
+    {
+     "side_a": "Peru",
+     "side_a_entity": "PEU",
+     "side_b": "Liberals",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 625"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_626",
+   "cow_war_num": 626.0,
+   "name": "Fifth Colombian",
+   "category": "intra-state",
+   "start": "1895-01-22",
+   "end": "1895-03-15",
+   "participants": [
+    {
+     "side_a": "Colombia",
+     "side_a_entity": "NGR",
+     "side_b": "Liberals",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 626"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_403",
+   "cow_war_num": 403.0,
+   "name": "Portuguese-Gaza Empire",
+   "category": "extra-state",
+   "start": "1895-02-01",
+   "end": "1895-12-28",
+   "participants": [
+    {
+     "side_a": "Portugal",
+     "side_a_entity": "POR",
+     "side_b": "Gaza Empire",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 403"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_627",
+   "cow_war_num": 627.0,
+   "name": "Ecuador Liberals",
+   "category": "intra-state",
+   "start": "1895-02-18",
+   "end": "1895-09-22",
+   "participants": [
+    {
+     "side_a": "Ecuador",
+     "side_a_entity": "ECU",
+     "side_b": "liberal caudillos",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 627"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_404",
+   "cow_war_num": 404.0,
+   "name": "Second Spanish-Cuban",
+   "category": "extra-state",
+   "start": "1895-02-24",
+   "end": "1898-04-21",
+   "participants": [
+    {
+     "side_a": "Spain",
+     "side_a_entity": "SPA",
+     "side_b": "Cuba",
+     "side_b_entity": null,
+     "outcome_code": 4
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 404"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_628",
+   "cow_war_num": 628.0,
+   "name": "First Gansu Muslim",
+   "category": "intra-state",
+   "start": "1895-04-01",
+   "end": "1896-04-01",
+   "participants": [
+    {
+     "side_a": "China",
+     "side_a_entity": "QNG",
+     "side_b": "Gansu Muslims",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 628"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_405",
+   "cow_war_num": 405.0,
+   "name": "Japan-Taiwanese",
+   "category": "extra-state",
+   "start": "1895-05-29",
+   "end": "1895-10-21",
+   "participants": [
+    {
+     "side_a": "Japan",
+     "side_a_entity": "JAP",
+     "side_b": "Taiwanese",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 405"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_406",
+   "cow_war_num": 406.0,
+   "name": "Mazrui Rebellion",
+   "category": "extra-state",
+   "start": "1895-07-03",
+   "end": "1896-04-21",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Mazrui clan of Kenya",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 406"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_630",
+   "cow_war_num": 630.0,
+   "name": "Druze-Turkish",
+   "category": "intra-state",
+   "start": "1895-10-01",
+   "end": "1896-01-01",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Druze",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 630"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_407",
+   "cow_war_num": 407.0,
+   "name": "Second Italian-Ethiopian",
+   "category": "extra-state",
+   "start": "1895-12-07",
+   "end": "1896-10-21",
+   "participants": [
+    {
+     "side_a": "Italy",
+     "side_a_entity": "SAR",
+     "side_b": "Ethiopia",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 407"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_631",
+   "cow_war_num": 631.0,
+   "name": "Second Cretan",
+   "category": "intra-state",
+   "start": "1896-03-10",
+   "end": "1897-02-14",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Cretan Muslims",
+     "side_b_entity": null,
+     "outcome_code": 4
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 631"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_409",
+   "cow_war_num": 409.0,
+   "name": "Second British-Mahdi",
+   "category": "extra-state",
+   "start": "1896-06-07",
+   "end": "1899-11-24",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Mahdist Empire",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 409"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_410",
+   "cow_war_num": 410.0,
+   "name": "Spanish-Philippine",
+   "category": "extra-state",
+   "start": "1896-08-30",
+   "end": "1898-05-01",
+   "participants": [
+    {
+     "side_a": "Spain",
+     "side_a_entity": "SPA",
+     "side_b": "Philippines",
+     "side_b_entity": null,
+     "outcome_code": 4
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 410"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_632",
+   "cow_war_num": 632.0,
+   "name": "Third Brazil-Canudos",
+   "category": "intra-state",
+   "start": "1896-10-01",
+   "end": "1897-10-05",
+   "participants": [
+    {
+     "side_a": "Brazil",
+     "side_a_entity": "BRA",
+     "side_b": "Canudos",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 632"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_411",
+   "cow_war_num": 411.0,
+   "name": "British-South Nigerian",
+   "category": "extra-state",
+   "start": "1897-01-06",
+   "end": "1897-02-25",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Nigeria",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 411"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_76",
+   "cow_war_num": 76,
+   "name": "Greco-Turkish",
+   "category": "inter-state",
+   "start": "1897-02-15",
+   "end": "1897-05-19",
+   "participants": [
+    {
+     "entity": "GRE",
+     "cow_name": "Greece",
+     "side": 2,
+     "initiator": true,
+     "outcome_code": 2,
+     "battle_deaths": 600.0
+    },
+    {
+     "entity": "TUR",
+     "cow_name": "Turkey",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 1400.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 76"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_412",
+   "cow_war_num": 412.0,
+   "name": "British-Pathan",
+   "category": "extra-state",
+   "start": "1897-07-26",
+   "end": "1898-03-07",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Pathans",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 412"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_413",
+   "cow_war_num": 413.0,
+   "name": "Hut Tax",
+   "category": "extra-state",
+   "start": "1898-02-01",
+   "end": "1898-05-01",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Sierra Leone rebels",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 413"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_79",
+   "cow_war_num": 79,
+   "name": "Spanish-American",
+   "category": "inter-state",
+   "start": "1898-04-22",
+   "end": "1898-08-12",
+   "participants": [
+    {
+     "entity": "SPA",
+     "cow_name": "Spain",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 775.0
+    },
+    {
+     "entity": "USA",
+     "cow_name": "United States of America",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 2910.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 79"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_414",
+   "cow_war_num": 414.0,
+   "name": "American-Philippine",
+   "category": "extra-state",
+   "start": "1899-02-04",
+   "end": "1902-07-04",
+   "participants": [
+    {
+     "side_a": "United States of America",
+     "side_a_entity": "USA",
+     "side_b": "Philippines",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 414"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_633",
+   "cow_war_num": 633.0,
+   "name": "Fourth Venezuelan",
+   "category": "intra-state",
+   "start": "1899-05-24",
+   "end": "1899-10-22",
+   "participants": [
+    {
+     "side_a": "Venezuela",
+     "side_a_entity": "VEN",
+     "side_b": "Castro Led Rebels",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 633"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_415",
+   "cow_war_num": 415.0,
+   "name": "French Conquest of Chad",
+   "category": "extra-state",
+   "start": "1899-07-17",
+   "end": "1900-04-22",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Rabih az-Zubayr",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 415"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_635",
+   "cow_war_num": 635.0,
+   "name": "Second Yaqui War",
+   "category": "intra-state",
+   "start": "1899-07-21",
+   "end": "1900-01-18",
+   "participants": [
+    {
+     "side_a": "Mexico",
+     "side_a_entity": "MEX",
+     "side_b": "Yaqui Indians",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 635"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_416",
+   "cow_war_num": 416.0,
+   "name": "Second Boer War",
+   "category": "extra-state",
+   "start": "1899-10-11",
+   "end": "1902-05-31",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Boer Republics",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 416"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_636",
+   "cow_war_num": 636.0,
+   "name": "Sixth Colombian (War of the 1000 Days)",
+   "category": "intra-state",
+   "start": "1899-10-17",
+   "end": "1902-11-21",
+   "participants": [
+    {
+     "side_a": "Colombia",
+     "side_a_entity": "NGR",
+     "side_b": "Liberals",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 636"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_417",
+   "cow_war_num": 417.0,
+   "name": "Last Ashanti War",
+   "category": "extra-state",
+   "start": "1900-04-02",
+   "end": "1900-09-30",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Ashanti",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 417"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_82",
+   "cow_war_num": 82,
+   "name": "Boxer Rebellion",
+   "category": "inter-state",
+   "start": "1900-06-17",
+   "end": "1900-08-14",
+   "participants": [
+    {
+     "entity": "RUS",
+     "cow_name": "Russia",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 302.0
+    },
+    {
+     "entity": "JAP",
+     "cow_name": "Japan",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 622.0
+    },
+    {
+     "entity": "USA",
+     "cow_name": "United States of America",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 21.0
+    },
+    {
+     "entity": "QNG",
+     "cow_name": "China",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 2000.0
+    },
+    {
+     "entity": "GBR",
+     "cow_name": "United Kingdom",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 34.0
+    },
+    {
+     "entity": "FRA",
+     "cow_name": "France",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 24.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 82"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_83",
+   "cow_war_num": 83,
+   "name": "Sino-Russian",
+   "category": "inter-state",
+   "start": "1900-07-17",
+   "end": "1900-10-10",
+   "participants": [
+    {
+     "entity": "RUS",
+     "cow_name": "Russia",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 242.0
+    },
+    {
+     "entity": "QNG",
+     "cow_name": "China",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 3758.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 83"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_419",
+   "cow_war_num": 419.0,
+   "name": "Somali Rebellion",
+   "category": "extra-state",
+   "start": "1901-03-22",
+   "end": "1904-04-21",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Mohammad Abdullah Hassans Dervishes",
+     "side_b_entity": null,
+     "outcome_code": 1
+    },
+    {
+     "side_a": "Ethiopia",
+     "side_a_entity": "ETH",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 419"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_638",
+   "cow_war_num": 638.0,
+   "name": "Fifth Venezuelan",
+   "category": "intra-state",
+   "start": "1901-12-19",
+   "end": "1903-07-19",
+   "participants": [
+    {
+     "side_a": "Venezuela",
+     "side_a_entity": "VEN",
+     "side_b": "Matos Led Rebels",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 638"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_420",
+   "cow_war_num": 420.0,
+   "name": "Bailundu Revolt",
+   "category": "extra-state",
+   "start": "1902-01-01",
+   "end": "1903-01-01",
+   "participants": [
+    {
+     "side_a": "Portugal",
+     "side_a_entity": "POR",
+     "side_b": "Bailundu of Angola",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 420"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_421",
+   "cow_war_num": 421.0,
+   "name": "Kuanhama Rebellion",
+   "category": "extra-state",
+   "start": "1902-01-01",
+   "end": "1904-01-01",
+   "participants": [
+    {
+     "side_a": "Portugal",
+     "side_a_entity": "POR",
+     "side_b": "Kuanhama of Angola",
+     "side_b_entity": null,
+     "outcome_code": 6
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 421"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_422",
+   "cow_war_num": 422.0,
+   "name": "British Conquest of Kano & Sokoto",
+   "category": "extra-state",
+   "start": "1903-01-29",
+   "end": "1903-07-27",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Kano & Sokoto",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 422"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_640",
+   "cow_war_num": 640.0,
+   "name": "Ilinden",
+   "category": "intra-state",
+   "start": "1903-08-02",
+   "end": "1903-11-02",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "IMRO Rebels",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 640"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_641",
+   "cow_war_num": 641.0,
+   "name": "First Uruguay",
+   "category": "intra-state",
+   "start": "1904-01-01",
+   "end": "1904-09-01",
+   "participants": [
+    {
+     "side_a": "Uruguay",
+     "side_a_entity": "URU",
+     "side_b": "Blancos",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 641"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_424",
+   "cow_war_num": 424.0,
+   "name": "Second Dutch-Achinese",
+   "category": "extra-state",
+   "start": "1904-01-01",
+   "end": "1907-12-01",
+   "participants": [
+    {
+     "side_a": "Netherlands",
+     "side_a_entity": "NED",
+     "side_b": "Aceh",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 424"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_423",
+   "cow_war_num": 423.0,
+   "name": "South West African Revolt",
+   "category": "extra-state",
+   "start": "1904-01-12",
+   "end": "1906-05-04",
+   "participants": [
+    {
+     "side_a": "Germany",
+     "side_a_entity": "PRU",
+     "side_b": "Herero & Nama",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 423"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_85",
+   "cow_war_num": 85,
+   "name": "Russo-Japanese",
+   "category": "inter-state",
+   "start": "1904-02-08",
+   "end": "1905-09-15",
+   "participants": [
+    {
+     "entity": "JAP",
+     "cow_name": "Japan",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 80378.0
+    },
+    {
+     "entity": "RUS",
+     "cow_name": "Russia",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 71453.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 85"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_425",
+   "cow_war_num": 425.0,
+   "name": "Younghusband Expedition",
+   "category": "extra-state",
+   "start": "1904-03-31",
+   "end": "1904-09-07",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Tibet",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 425"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_642",
+   "cow_war_num": 642.0,
+   "name": "Second Yemen Rebellion",
+   "category": "intra-state",
+   "start": "1904-11-08",
+   "end": "1906-01-10",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Imam Yahya's forces",
+     "side_b_entity": null,
+     "outcome_code": 6
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 642"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_643",
+   "cow_war_num": 643.0,
+   "name": "Bloody Sunday",
+   "category": "intra-state",
+   "start": "1905-01-22",
+   "end": "1906-01-01",
+   "participants": [
+    {
+     "side_a": "Russia",
+     "side_a_entity": "RUS",
+     "side_b": "Workers/Peasants",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 643"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_426",
+   "cow_war_num": 426.0,
+   "name": "Maji-Maji Revolt",
+   "category": "extra-state",
+   "start": "1905-07-31",
+   "end": "1906-06-01",
+   "participants": [
+    {
+     "side_a": "Germany",
+     "side_a_entity": "PRU",
+     "side_b": "Maji-Maji in Tanganyika",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 426"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_427",
+   "cow_war_num": 427.0,
+   "name": "Sokoto Uprising",
+   "category": "extra-state",
+   "start": "1906-01-01",
+   "end": "1906-03-10",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Mahdist rebels",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 427"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_429",
+   "cow_war_num": 429.0,
+   "name": "Third British-Zulu",
+   "category": "extra-state",
+   "start": "1906-03-05",
+   "end": "1906-06-10",
+   "participants": [
+    {
+     "side_a": "United Kingdom",
+     "side_a_entity": "GBR",
+     "side_b": "Zulu",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 429"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_88",
+   "cow_war_num": 88,
+   "name": "Third Central American",
+   "category": "inter-state",
+   "start": "1906-05-27",
+   "end": "1906-07-20",
+   "participants": [
+    {
+     "entity": "HON",
+     "cow_name": "Honduras",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 300.0
+    },
+    {
+     "entity": "ELS",
+     "cow_name": "El Salvador",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 300.0
+    },
+    {
+     "entity": "GUA",
+     "cow_name": "Guatemala",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 400.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 88"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_430",
+   "cow_war_num": 430.0,
+   "name": "Dembos War",
+   "category": "extra-state",
+   "start": "1907-01-01",
+   "end": "1910-01-01",
+   "participants": [
+    {
+     "side_a": "Portugal",
+     "side_a_entity": "POR",
+     "side_b": "Dembos",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 430"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_91",
+   "cow_war_num": 91,
+   "name": "Fourth Central American",
+   "category": "inter-state",
+   "start": "1907-02-19",
+   "end": "1907-04-23",
+   "participants": [
+    {
+     "entity": "NIC",
+     "cow_name": "Nicaragua",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 400.0
+    },
+    {
+     "entity": "ELS",
+     "cow_name": "El Salvador",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 300.0
+    },
+    {
+     "entity": "HON",
+     "cow_name": "Honduras",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 300.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 91"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_645",
+   "cow_war_num": 645.0,
+   "name": "Romanian Peasant Revolt",
+   "category": "intra-state",
+   "start": "1907-03-15",
+   "end": "1907-04-30",
+   "participants": [
+    {
+     "side_a": "Romania",
+     "side_a_entity": "ROM",
+     "side_b": "Peasants",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 645"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_431",
+   "cow_war_num": 431.0,
+   "name": "Anti-Foreign Revolt",
+   "category": "extra-state",
+   "start": "1907-07-30",
+   "end": "1910-01-01",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Sheikh Ma Al-Ainie",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 431"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_432",
+   "cow_war_num": 432.0,
+   "name": "Japan-Korean Guerrillas",
+   "category": "extra-state",
+   "start": "1907-08-01",
+   "end": "1910-08-16",
+   "participants": [
+    {
+     "side_a": "Japan",
+     "side_a_entity": "JAP",
+     "side_b": "Korea",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 432"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_646",
+   "cow_war_num": 646.0,
+   "name": "Overthrow of Abd el-Aziz",
+   "category": "intra-state",
+   "start": "1907-08-01",
+   "end": "1908-09-01",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 2
+    },
+    {
+     "side_a": "Morocco",
+     "side_a_entity": "MOR",
+     "side_b": "Mulai el-Hafid",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 646"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_647",
+   "cow_war_num": 647.0,
+   "name": "Iranian Constitution War",
+   "category": "intra-state",
+   "start": "1908-06-23",
+   "end": "1909-07-17",
+   "participants": [
+    {
+     "side_a": "Russia",
+     "side_a_entity": "RUS",
+     "side_b": "-8",
+     "side_b_entity": null,
+     "outcome_code": 2
+    },
+    {
+     "side_a": "Iran",
+     "side_a_entity": "PRS",
+     "side_b": "Constitutionalists",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 647"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_648",
+   "cow_war_num": 648.0,
+   "name": "Young Turks Counter-coup",
+   "category": "intra-state",
+   "start": "1909-04-14",
+   "end": "1909-04-28",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Anti-government troops",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 648"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_433",
+   "cow_war_num": 433.0,
+   "name": "French Conquest of Wadai",
+   "category": "extra-state",
+   "start": "1909-05-01",
+   "end": "1911-01-01",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Wadai sultanate",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 433"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_94",
+   "cow_war_num": 94,
+   "name": "Second Spanish-Moroccan",
+   "category": "inter-state",
+   "start": "1909-07-07",
+   "end": "1910-03-23",
+   "participants": [
+    {
+     "entity": "SPA",
+     "cow_name": "Spain",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 2000.0
+    },
+    {
+     "entity": "MOR",
+     "cow_name": "Morocco",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 8000.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 94"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_650",
+   "cow_war_num": 650.0,
+   "name": "Second Albanian Revolt",
+   "category": "intra-state",
+   "start": "1910-03-01",
+   "end": "1912-10-16",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Albania",
+     "side_b_entity": null,
+     "outcome_code": 4
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 650"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_651",
+   "cow_war_num": 651.0,
+   "name": "Asir-Yemen Revolt",
+   "category": "intra-state",
+   "start": "1910-10-15",
+   "end": "1911-10-09",
+   "participants": [
+    {
+     "side_a": "Ottoman Empire",
+     "side_a_entity": "TUR",
+     "side_b": "Yemen & Asir Imam Ibn Idris & Sayyid Muhammad",
+     "side_b_entity": null,
+     "outcome_code": 6
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 651"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_652",
+   "cow_war_num": 652.0,
+   "name": "Third Mexican",
+   "category": "intra-state",
+   "start": "1910-11-20",
+   "end": "1914-07-15",
+   "participants": [
+    {
+     "side_a": "Mexico",
+     "side_a_entity": "MEX",
+     "side_b": "Liberals & Radicals",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 652"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_656",
+   "cow_war_num": 656.0,
+   "name": "Paraguay",
+   "category": "intra-state",
+   "start": "1911-07-15",
+   "end": "1912-05-11",
+   "participants": [
+    {
+     "side_a": "Paraguay",
+     "side_a_entity": "PAR",
+     "side_b": "Radicals",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 656"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_97",
+   "cow_war_num": 97,
+   "name": "Italian-Turkish",
+   "category": "inter-state",
+   "start": "1911-09-29",
+   "end": "1912-10-18",
+   "participants": [
+    {
+     "entity": "SAR",
+     "cow_name": "Italy",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 6000.0
+    },
+    {
+     "entity": "TUR",
+     "cow_name": "Turkey",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 14000.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 97"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_657",
+   "cow_war_num": 657.0,
+   "name": "First Nationalist",
+   "category": "intra-state",
+   "start": "1911-10-11",
+   "end": "1911-12-31",
+   "participants": [
+    {
+     "side_a": "China",
+     "side_a_entity": "QNG",
+     "side_b": "Nat. Rel. Alliance",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 657"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_670",
+   "cow_war_num": 670.0,
+   "name": "Ecuadorian Civil War",
+   "category": "intra-state",
+   "start": "1912-01-01",
+   "end": "1914-01-01",
+   "participants": [
+    {
+     "side_a": "Ecuador",
+     "side_a_entity": "ECU",
+     "side_b": "Esmeraldas province",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 670"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_435",
+   "cow_war_num": 435.0,
+   "name": "First Sino-Tibetan",
+   "category": "extra-state",
+   "start": "1912-03-01",
+   "end": "1913-01-01",
+   "participants": [
+    {
+     "side_a": "China",
+     "side_a_entity": "QNG",
+     "side_b": "Tibet",
+     "side_b_entity": null,
+     "outcome_code": 2
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 435"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_434",
+   "cow_war_num": 434.0,
+   "name": "French-Berber",
+   "category": "extra-state",
+   "start": "1912-03-31",
+   "end": "1912-09-06",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Berbers",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 434"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_658",
+   "cow_war_num": 658.0,
+   "name": "Cuban Black Uprising",
+   "category": "intra-state",
+   "start": "1912-05-20",
+   "end": "1912-06-27",
+   "participants": [
+    {
+     "side_a": "Cuba",
+     "side_a_entity": null,
+     "side_b": "Patri do Indepentente",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 658"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_100",
+   "cow_war_num": 100,
+   "name": "First Balkan",
+   "category": "inter-state",
+   "start": "1912-10-17",
+   "end": "1913-04-19",
+   "participants": [
+    {
+     "entity": "TUR",
+     "cow_name": "Turkey",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 30000.0
+    },
+    {
+     "entity": "GRE",
+     "cow_name": "Greece",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 5000.0
+    },
+    {
+     "entity": "BUL",
+     "cow_name": "Bulgaria",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 32000.0
+    },
+    {
+     "entity": "SER",
+     "cow_name": "Yugoslavia",
+     "side": 1,
+     "initiator": true,
+     "outcome_code": 1,
+     "battle_deaths": 15000.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 100"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_436",
+   "cow_war_num": 436.0,
+   "name": "Moroccan Berber",
+   "category": "extra-state",
+   "start": "1913-03-26",
+   "end": "1915-05-16",
+   "participants": [
+    {
+     "side_a": "France",
+     "side_a_entity": "FRA",
+     "side_b": "Berbers",
+     "side_b_entity": null,
+     "outcome_code": 7
+    },
+    {
+     "side_a": "Spain",
+     "side_a_entity": "SPA",
+     "side_b": "Berbers",
+     "side_b_entity": null,
+     "outcome_code": 7
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 436"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_extra-state_437",
+   "cow_war_num": 437.0,
+   "name": "Moro Rebellion",
+   "category": "extra-state",
+   "start": "1913-06-11",
+   "end": "1913-10-22",
+   "participants": [
+    {
+     "side_a": "United States",
+     "side_a_entity": "USA",
+     "side_b": "Moro",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_extrastate_v40",
+     "locator": "Extra-StateWarData_v4.0.csv, WarNum 437"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_103",
+   "cow_war_num": 103,
+   "name": "Second Balkan",
+   "category": "inter-state",
+   "start": "1913-06-30",
+   "end": "1913-07-30",
+   "participants": [
+    {
+     "entity": "TUR",
+     "cow_name": "Turkey",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 20000.0
+    },
+    {
+     "entity": "SER",
+     "cow_name": "Yugoslavia",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 18500.0
+    },
+    {
+     "entity": "GRE",
+     "cow_name": "Greece",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 2500.0
+    },
+    {
+     "entity": "BUL",
+     "cow_name": "Bulgaria",
+     "side": 2,
+     "initiator": true,
+     "outcome_code": 2,
+     "battle_deaths": 18000.0
+    },
+    {
+     "entity": "ROM",
+     "cow_name": "Romania",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 1500.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 103"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_671",
+   "cow_war_num": 671.0,
+   "name": "Second Nationalist",
+   "category": "intra-state",
+   "start": "1913-07-12",
+   "end": "1913-09-01",
+   "participants": [
+    {
+     "side_a": "China",
+     "side_a_entity": "QNG",
+     "side_b": "Republicans",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 671"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_672",
+   "cow_war_num": 672.0,
+   "name": "China Pai Ling (White Wolf)",
+   "category": "intra-state",
+   "start": "1914-03-15",
+   "end": "1914-09-15",
+   "participants": [
+    {
+     "side_a": "China",
+     "side_a_entity": "QNG",
+     "side_b": "Pai-Lings",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 672"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_war_106",
+   "cow_war_num": 106,
+   "name": "World War I",
+   "category": "inter-state",
+   "start": "1914-07-29",
+   "end": "1918-11-11",
+   "participants": [
+    {
+     "entity": "SER",
+     "cow_name": "Yugoslavia",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 70000.0
+    },
+    {
+     "entity": "RUS",
+     "cow_name": "Russia",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 1700000.0
+    },
+    {
+     "entity": "GBR",
+     "cow_name": "United Kingdom",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 908371.0
+    },
+    {
+     "entity": "JAP",
+     "cow_name": "Japan",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 300.0
+    },
+    {
+     "entity": "TUR",
+     "cow_name": "Turkey",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 325000.0
+    },
+    {
+     "entity": "BEL",
+     "cow_name": "Belgium",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 13716.0
+    },
+    {
+     "entity": "PRU",
+     "cow_name": "Germany",
+     "side": 2,
+     "initiator": false,
+     "outcome_code": 2,
+     "battle_deaths": 1773700.0
+    },
+    {
+     "entity": "AUS",
+     "cow_name": "Austria-Hungary",
+     "side": 2,
+     "initiator": true,
+     "outcome_code": 2,
+     "battle_deaths": 1200000.0
+    },
+    {
+     "entity": "FRA",
+     "cow_name": "France",
+     "side": 1,
+     "initiator": false,
+     "outcome_code": 1,
+     "battle_deaths": 1385000.0
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_interstate_v40",
+     "locator": "Inter-StateWarData_v4.0.csv, WarNum 106"
+    }
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "cow_intra-state_673",
+   "cow_war_num": 673.0,
+   "name": "Fourth Mexican",
+   "category": "intra-state",
+   "start": "1914-11-19",
+   "end": "1920-07-28",
+   "participants": [
+    {
+     "side_a": "Mexico",
+     "side_a_entity": "MEX",
+     "side_b": "Conventionists",
+     "side_b_entity": null,
+     "outcome_code": 1
+    }
+   ],
+   "sources": [
+    {
+     "id": "cow_intrastate_v41",
+     "locator": "Intra-StateWarData_v4.1.csv, WarNum 673"
+    }
+   ],
+   "quality": "verified"
+  }
+ ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "AUS", "as_of": "1836-01-01", "research_status": "partial",
+  "political": {
+    "government": {"value": "absolute_monarchy", "quality": "supported", "sources": ["sheehan_1989"], "note": "Hungary and Croatia retained their Diet (Pressburg Diet 1832-36); Lombardy-Venetia under viceroy."},
+    "head_of_state": {"value": {"name": "Ferdinand I", "title": "Emperor of Austria (King Ferdinand V of Hungary)", "born": "1793-04-19", "since": "1835-03-02"}, "quality": "supported", "sources": ["sheehan_1989"], "note": "Incapacitated; government by the Secret State Conference (Archduke Ludwig, Metternich, Kolowrat)."},
+    "head_of_government": {"value": {"name": "Klemens von Metternich", "title": "State Chancellor", "since": "1821"}, "quality": "supported", "sources": ["schroeder_1994"]},
+    "power_groups": [{"name": "Dynasty and court", "in_government": true}, {"name": "Aristocracy", "in_government": true}, {"name": "Catholic Church", "in_government": true}, {"name": "Hungarian liberal nobility (Széchenyi, Kossuth)", "in_government": false}, {"name": "Italian and Polish nationalists", "in_government": false}],
+    "laws": {"value": {"power": "autocracy", "governance": "monarchy", "economy": "mercantilism", "trade": "protectionism", "labor": "serfdom", "church": "state_religion", "press": "censorship", "education": "religious_schools", "army": "professional_army"},
+      "quality": "supported", "sources": ["sheehan_1989"], "note": "Robot (labour dues) until 1848. Prohibitive tariffs."}
+  },
+  "territory": {"capital": "AUS_VIE", "note": "Presidency of the German Confederation; Lombardy-Venetia; protector of Kraków; garrisons and alliances in central Italy."},
+  "economy": {
+    "structure": {"value": "Agrarian empire with industry concentrated in Bohemia, Moravia, Lower Austria and Lombardy.", "quality": "supported", "sources": ["landes_1969"]},
+    "manufacturing_share_world_1830": {"value": 3.2, "unit": "%", "quality": "supported", "sources": ["bairoch_1982", "kennedy_1987"]},
+    "iron_steel_kt": {"value": 124, "quality": "verified", "sources": [{"id": "cow_nmc_v7", "locator": "irst AUH 1836"}]},
+    "industrialization_stage": {"value": "early_industrial", "quality": "supported", "sources": ["landes_1969"]}
+  },
+  "society": {"literacy": {"value": 0.3, "range": [0.2, 0.45], "quality": "estimated", "sources": [], "needs_source": true, "method": "Very uneven: high in Bohemia and Lower Austria, low in Galicia and Hungary."}},
+  "diplomacy": {
+    "foreign_policy": {"value": "Metternich system: preservation of the 1815 settlement, suppression of liberal and national movements, hegemony in Germany and Italy.", "quality": "supported", "sources": ["schroeder_1994"]},
+    "alliances_ref": ["cow_ally_3", "cow_ally_5", "cow_ally_9", "cow_ally_12", "cow_ally_15", "cow_ally_16", "cow_ally_17"],
+    "rivals": [{"entity": "FRA", "basis": "Revolutionary threat of the July Monarchy and Italian influence", "quality": "supported", "sources": ["schroeder_1994"]}],
+    "relations": [{"with": "RUS", "value": 50}, {"with": "PRU", "value": 40}, {"with": "FRA", "value": -15}, {"with": "GBR", "value": 10}, {"with": "SAR", "value": 20}, {"with": "TUS", "value": 60}, {"with": "MOD", "value": 70}, {"with": "PMA", "value": 70}, {"with": "PAP", "value": 50}, {"with": "SIC", "value": 30}, {"with": "BAV", "value": 30}, {"with": "TUR", "value": 20}],
+    "relations_quality": "estimated", "relations_method": "Ordinal judgement from Schroeder (1994)."
+  },
+  "military": {
+    "army_personnel": {"value": 281000, "quality": "supported", "sources": [{"id": "cow_nmc_v7", "locator": "milper AUH 1836"}]},
+    "commanders": [{"name": "Joseph Radetzky", "role": "Commander in Lombardy-Venetia", "quality": "supported", "sources": ["riall_2009"]}]
+  },
+  "technology": {"level": {"value": "behind_frontier", "quality": "supported", "sources": ["landes_1969"]}},
+  "historical_ai": {
+    "strategic_priorities": [
+      {"id": "AUS_status_quo", "goal": "keep_law", "target": {"group": "power", "value": "autocracy"}, "weight": 0.7, "window": ["1815", "1860"], "rationale": "Neo-absolutism after 1849 (Sylvester Patent 1851).", "sources": ["taylor_1954"]},
+      {"id": "AUS_italian_hegemony", "goal": "contain_power", "target": "SAR", "weight": 0.6, "window": ["1815", "1866"], "rationale": "Wars of 1848-49 and 1859.", "sources": ["cow_interstate_v40", "riall_2009"]},
+      {"id": "AUS_german_presidency", "goal": "contain_power", "target": "PRU", "weight": 0.5, "window": ["1848", "1866"], "rationale": "Großdeutsch rivalry with Prussia.", "sources": ["taylor_1954"]},
+      {"id": "AUS_balkans", "goal": "conquer_region", "target": ["TUR_BOS"], "weight": 0.3, "window": ["1866", "1908"], "rationale": "Occupation of Bosnia 1878.", "sources": ["cow_extrastate_v40"]},
+      {"id": "AUS_annex_krakow", "goal": "conquer_region", "target": ["KRA_KRA"], "weight": 0.4, "window": ["1836", "1848"], "rationale": "Annexed after the 1846 uprising.", "sources": ["cow_terrchange_v6"]}
+    ],
+    "military_doctrine": "dynastic_professional_army"
+  },
+  "personality": {"aggression": 0.3, "expansionism": 0.3, "reformism": 0.1, "commerce": 0.3, "naval": 0.2, "isolationism": 0.1, "risk": 0.3, "rationale": "Status quo great power, defensive, multinational."}
+}
