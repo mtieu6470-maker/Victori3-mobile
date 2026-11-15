@@ -17,7 +17,7 @@ import { loadGrid } from './map/mapData';
 import { loadVectors } from './map/vectors';
 import type { MapAssets } from './map/MapView';
 import { App } from './App';
-import { details } from './components/ui';
+import { details, modals } from './components/ui';
 import { mapControls } from './map/MapView';
 import { game } from './game/controller';
 import { ui, type LensId, type ScreenId } from './game/ui';
@@ -30,8 +30,8 @@ async function boot() {
   let assets: MapAssets;
   try {
     const img = (f: string) => { const i = new Image(); i.src = new URL(f, document.baseURI).href; return i.decode().then(() => i).catch(() => null); };
-    const [grid, vectors, relief, coastDist] = await Promise.all([loadGrid(new URL('generated/map.bin', document.baseURI).href), loadVectors(document.baseURI), img('map/relief.jpg'), img('generated/coastdist.png')]);
-    assets = { grid, vectors, relief, coastDist };
+    const [grid, vectors, relief, coastDist, terrain] = await Promise.all([loadGrid(new URL('generated/map.bin', document.baseURI).href), loadVectors(document.baseURI), img('map/relief.jpg'), img('generated/coastdist.png'), img('map/terrain.jpg')]);
+    assets = { grid, vectors, relief, coastDist, terrain };
   } catch (e) { root.innerHTML = `<div class="loading"><div class="box"><h1>Lỗi</h1><p>${(e as Error).message}</p></div></div>`; return; }
   await document.fonts?.ready;
   root.innerHTML = '';
@@ -45,7 +45,7 @@ async function boot() {
     render(<App assets={assets} />, root);
     await game.fastForward(months);
     // QA hook for scripted screenshots (tools/ui-shots.ts); only present when the page is opened with QA parameters
-    (window as any).__qa = { ui, game, details, mapControls };
+    (window as any).__qa = { ui, game, details, modals, mapControls };
     document.body.dataset.ready = '1';
     return;
   }

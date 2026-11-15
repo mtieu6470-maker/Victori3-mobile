@@ -1,9 +1,11 @@
 // WebGL map renderer — fills only. Lines (coasts, borders, rivers) and names are vectors drawn on the overlay canvas.
-// Inputs: region-index grid (8192×3868, two bytes per texel), a combined relief texture (land: shaded relief,
-// water: ocean-bottom relief; Natural Earth, public domain), a coast-distance field for engraved water lines, and a
+// Inputs (Natural Earth, public domain): region-index grid (8192×3868, two bytes per texel), relief (land: shaded
+// relief, water: ocean-bottom relief), colour land cover with shading (terrain.jpg), a coast-distance field, and a
 // per-region palette. The fragment shader picks the region with a categorical bilinear filter (smooth shapes at any
-// zoom), tints it with relief and a paper grain, adds a watercolour band inside national borders, hatches occupied
-// regions, and paints the sea by depth with water lines along the coasts and a graticule.
+// zoom) and paints either the political/data colour over the land cover (multiply blend, relief shading, a darker
+// band inside national borders) or the natural terrain (Terrain mode); the sea is painted by depth with a coastal
+// shallow glow, engraved water lines and a faint graticule. Selection: the selected country stays bright while the
+// rest of the world is dimmed; the selected and hovered regions are lifted.
 import type { MapGrid } from './mapData';
 
 export const PAL_W = 1024; // ≥ number of regions + 2; slot 1023 = land without a region
@@ -15,7 +17,8 @@ precision highp float;
 #else
 precision mediump float;
 #endif
-uniform sampler2D uGrid; uniform sampler2D uPal; uniform sampler2D uRelief; uniform sampler2D uDist;
+uniform sampler2D uGrid; uniform sampler2D uPal; uniform sampler2D uRelief; uniform sampler2D uDist; uniform sampler2D uTerrain;
+uniform float uMode; uniform float uFar; uniform float uHover; uniform float uDim;
 uniform vec2 uGridSize; uniform vec2 uTexSize; uniform vec3 uView; uniform vec2 uRes; uniform float uDpr;
 uniform vec3 uSeaShallow; uniform vec3 uSeaDeep; uniform vec3 uInk; uniform vec3 uNoRegion;
 uniform float uGridStep; uniform float uCpd; uniform float uLat0; uniform float uBand; uniform float uLines;
@@ -33,11 +36,33 @@ float regionAt(vec2 p){
   float sa = wa + (b == a ? wb : 0.0) + (c == a ? wc : 0.0) + (d == a ? wd : 0.0);
   float sb = wb + (a == b ? wa : 0.0) + (c == b ? wc : 0.0) + (d == b ? wd : 0.0);
   float sc = wc + (a == c ? wa : 0.0) + (b == c ? wb : 0.0) + (d == c ? wd : 0.0);
-  float sd = wd + (a == d ? wa : 0.0) + (b == d ? wb : 0.0) + (c == d ? wd : 0.0);
+  float sd = wd + (a == d ? wa : 0.0) + (b == d ? wb : 0.0) + (c == d ? wc : 0.0);
   float best = a; float bw = sa;
   if (sb > bw) { best = b; bw = sb; }
   if (sc > bw) { best = c; bw = sc; }
   if (sd > bw) { best = d; }
+  return best > 65534.0 ? ${NO_REGION}.0 : best;
+}
+// Gaussian-weighted vote over the 3×3 cells around p: smooth, curved boundaries when one cell spans several pixels.
+vec3 R0; vec3 R1; vec3 R2; vec3 W0; vec3 W1; vec3 W2;
+float vote(float c){ vec3 k = vec3(c); return dot(vec3(equal(R0, k)), W0) + dot(vec3(equal(R1, k)), W1) + dot(vec3(equal(R2, k)), W2); }
+vec3 gw(vec2 f, float j){ vec3 dx = vec3(f.x) - vec3(0.0, 1.0, 2.0); float dy = f.y - j; return exp(-(dx * dx + dy * dy) * 1.6); }
+float regionSmooth(vec2 p){
+  p *= uTexSize.x / uGridSize.x;
+  vec2 c0 = floor(p) - 1.0; vec2 f = p - c0 - 0.5;
+  R0 = vec3(idxAt(c0), idxAt(c0 + vec2(1.0, 0.0)), idxAt(c0 + vec2(2.0, 0.0)));
+  R1 = vec3(idxAt(c0 + vec2(0.0, 1.0)), idxAt(c0 + vec2(1.0, 1.0)), idxAt(c0 + vec2(2.0, 1.0)));
+  R2 = vec3(idxAt(c0 + vec2(0.0, 2.0)), idxAt(c0 + vec2(1.0, 2.0)), idxAt(c0 + vec2(2.0, 2.0)));
+  W0 = gw(f, 0.0); W1 = gw(f, 1.0); W2 = gw(f, 2.0);
+  float best = R1.y; float bw = vote(best); float t;
+  t = vote(R0.x); if (t > bw) { bw = t; best = R0.x; }
+  t = vote(R0.y); if (t > bw) { bw = t; best = R0.y; }
+  t = vote(R0.z); if (t > bw) { bw = t; best = R0.z; }
+  t = vote(R1.x); if (t > bw) { bw = t; best = R1.x; }
+  t = vote(R1.z); if (t > bw) { bw = t; best = R1.z; }
+  t = vote(R2.x); if (t > bw) { bw = t; best = R2.x; }
+  t = vote(R2.y); if (t > bw) { bw = t; best = R2.y; }
+  t = vote(R2.z); if (t > bw) { bw = t; best = R2.z; }
   return best > 65534.0 ? ${NO_REGION}.0 : best;
 }
 vec4 pal(float idx, float row){ return texture2D(uPal, vec2((idx + 0.5) / ${PAL_W}.0, (row + 0.5) / 4.0)); }
@@ -54,38 +79,56 @@ void main(){
   vec2 uv = vec2(mod(p.x, uGridSize.x), p.y) / uGridSize;
   float relief = texture2D(uRelief, uv).r;
   float grain = noise(p * 0.35) * 0.55 + noise(p * 2.3) * 0.45;
-  float r = regionAt(p);
+  float r = px < 0.45 ? regionSmooth(p) : regionAt(p);
+  float near = 1.0 - smoothstep(0.012, 0.05, px / uCpd * 1.0);  // 1 when zoomed in
   if (r == 0.0) {
     float depth = clamp((relief - 0.35) / 0.42, 0.0, 1.0);          // ocean-bottom relief: brighter = shallower
-    vec3 col = mix(uSeaDeep, uSeaShallow, smoothstep(0.15, 0.95, depth));
-    col *= 0.975 + grain * 0.045;
+    vec3 col = mix(uSeaDeep, uSeaShallow, smoothstep(0.1, 1.0, depth));
     float dist = texture2D(uDist, uv).r * 63.75;                      // Euclidean distance to land, in 4096-wide field cells
+    col = mix(col, uSeaShallow * 1.18, exp(-dist / 2.2) * 0.42);       // shallow glow along coasts
+    col *= 0.965 + grain * 0.06;
     float cellPx = (uGridSize.x / 4096.0) / px;                       // CSS px per field cell
     if (uLines > 0.5 && cellPx > 0.7) {
       float w = 0.5 / cellPx;
       float fade = smoothstep(0.7, 1.6, cellPx);
-      for (int i = 1; i <= 3; i++) { float d0 = float(i) * 1.6 + float(i * i) * 0.55; if (abs(dist - d0) < w) col = mix(col, uInk, (0.17 - float(i) * 0.035) * fade); }
+      for (int i = 1; i <= 3; i++) { float d0 = float(i) * 1.6 + float(i * i) * 0.55; if (abs(dist - d0) < w) col = mix(col, uInk, (0.2 - float(i) * 0.045) * fade); }
     }
     vec2 g = mod(p, uGridStep); float gw = px * 0.6;
-    if (g.x < gw || g.y < gw) col = mix(col, uInk, 0.13);
+    if (g.x < gw || g.y < gw) col = mix(col, uInk, 0.07);
+    if (uDim > 0.5) col *= 0.84;
     gl_FragColor = vec4(col, 1.0);
     return;
   }
-  vec3 col = r == ${NO_REGION}.0 ? uNoRegion : pal(r, 0.0).rgb;
+  vec3 terr = texture2D(uTerrain, uv).rgb;
+  float shade = clamp(1.0 + (relief - 0.82) * mix(1.3, 0.8, uFar), 0.6, 1.12);
+  vec3 base = r == ${NO_REGION}.0 ? uNoRegion : pal(r, 0.0).rgb;
   vec3 tint = pal(r, 3.0).rgb;
   float own = ownerOf(r); float fl = flagsOf(r);
-  if (bit(fl, 2.0)) col = mix(col, vec3(1.0), 0.16);
-  if (bit(fl, 4.0)) { float h = mod((frag.x + frag.y) / uDpr, 8.0); if (h < 2.4) col = pal(r, 2.0).rgb; }
-  if (bit(fl, 1.0)) col = mix(col, vec3(1.0), 0.26);
-  // watercolour band: deepen the colour just inside national borders
-  if (uBand > 0.0) {
-    float w2 = px * uBand;
-    float n1 = regionAt(p + vec2(w2, 0.0)); float n2 = regionAt(p - vec2(w2, 0.0)); float n3 = regionAt(p + vec2(0.0, w2)); float n4 = regionAt(p - vec2(0.0, w2));
-    bool edge = (n1 > 0.0 && ownerOf(n1) != own) || (n2 > 0.0 && ownerOf(n2) != own) || (n3 > 0.0 && ownerOf(n3) != own) || (n4 > 0.0 && ownerOf(n4) != own);
-    if (edge) col = mix(col, tint, 0.34);
+  vec3 col;
+  if (uMode > 0.5) {
+    float tl0 = dot(terr, vec3(0.299, 0.587, 0.114));               // natural land cover (already shaded), graded
+    vec3 tc = (mix(vec3(tl0), terr, 1.7) - 0.6) * 1.3 + 0.52;
+    col = tc * 0.92 * (0.97 + grain * 0.05) * mix(1.0, shade, 0.35);
+  } else {
+    if (bit(fl, 4.0)) { float h = mod((frag.x + frag.y) / uDpr, 8.0); if (h < 2.4) base = pal(r, 2.0).rgb; }
+    // multiply the country colour by the land cover, normalised so the country hue stays dominant
+    float tl = max(0.25, dot(terr, vec3(0.299, 0.587, 0.114)));
+    vec3 cover = terr / tl;
+    col = mix(base, base * cover * 0.98, mix(0.3, 0.5, near) * (1.0 - uFar * 0.6));
+    // darker band just inside national borders
+    if (uBand > 0.0) {
+      float w2 = px * uBand;
+      float n1 = regionAt(p + vec2(w2, 0.0)); float n2 = regionAt(p - vec2(w2, 0.0)); float n3 = regionAt(p + vec2(0.0, w2)); float n4 = regionAt(p - vec2(0.0, w2));
+      bool edge = (n1 > 0.0 && ownerOf(n1) != own) || (n2 > 0.0 && ownerOf(n2) != own) || (n3 > 0.0 && ownerOf(n3) != own) || (n4 > 0.0 && ownerOf(n4) != own);
+      if (edge) col = mix(col, tint, 0.42);
+    }
+    float fine = noise(p * 0.9) * 0.6 + noise(p * 3.1) * 0.4;           // sub-texel relief detail at close zoom
+    col *= shade * (0.955 + grain * 0.07) * (1.0 + (fine - 0.5) * 0.16 * near);
   }
-  float shade = clamp(1.0 + (relief - 0.82) * 1.05, 0.66, 1.1);
-  col *= shade * (0.955 + grain * 0.07);
+  bool selC = bit(fl, 2.0); bool selR = bit(fl, 1.0);
+  if (uDim > 0.5 && !selC && !selR) { float l = dot(col, vec3(0.299, 0.587, 0.114)); col = mix(col, vec3(l), 0.35) * 0.8; }
+  if (selR) col = mix(col, vec3(1.0, 0.97, 0.88), 0.26);
+  if (r == uHover && !selR) col = mix(col, vec3(1.0, 0.98, 0.9), 0.14);
   gl_FragColor = vec4(col, 1.0);
 }`;
 
@@ -97,9 +140,10 @@ export class MapRenderer {
   private prog: WebGLProgram;
   private palTex: WebGLTexture;
   private reliefTex: WebGLTexture;
+  private terrainTex: WebGLTexture;
   private u: Record<string, WebGLUniformLocation | null> = {};
   readonly texW: number;
-  constructor(private canvas: HTMLCanvasElement, private grid: MapGrid, relief: HTMLImageElement | null, coastDist: HTMLImageElement | null) {
+  constructor(private canvas: HTMLCanvasElement, private grid: MapGrid, relief: HTMLImageElement | null, coastDist: HTMLImageElement | null, terrain: HTMLImageElement | null) {
     const gl = canvas.getContext('webgl', { antialias: false, preserveDrawingBuffer: true, alpha: false });
     if (!gl) throw new Error('Thiết bị không hỗ trợ WebGL');
     this.gl = gl;
@@ -110,7 +154,7 @@ export class MapRenderer {
     const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
     const loc = gl.getAttribLocation(p, 'aPos'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-    for (const n of ['uGrid', 'uPal', 'uRelief', 'uDist', 'uGridSize', 'uTexSize', 'uView', 'uRes', 'uDpr', 'uSeaShallow', 'uSeaDeep', 'uInk', 'uNoRegion', 'uGridStep', 'uCpd', 'uLat0', 'uBand', 'uLines']) this.u[n] = gl.getUniformLocation(p, n);
+    for (const n of ['uGrid', 'uPal', 'uRelief', 'uDist', 'uTerrain', 'uMode', 'uFar', 'uHover', 'uDim', 'uGridSize', 'uTexSize', 'uView', 'uRes', 'uDpr', 'uSeaShallow', 'uSeaDeep', 'uInk', 'uNoRegion', 'uGridStep', 'uCpd', 'uLat0', 'uBand', 'uLines']) this.u[n] = gl.getUniformLocation(p, n);
     const tex = (unit: number, linear = false) => { const t = gl.createTexture()!; gl.activeTexture(gl.TEXTURE0 + unit); gl.bindTexture(gl.TEXTURE_2D, t); const f = linear ? gl.LINEAR : gl.NEAREST; for (const [k, v] of [[gl.TEXTURE_MIN_FILTER, f], [gl.TEXTURE_MAG_FILTER, f], [gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE], [gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE]]) gl.texParameteri(gl.TEXTURE_2D, k, v); return t; };
     // region grid: two bytes per texel (luminance = low byte, alpha = high byte); halve it on GPUs limited to 4096
     const maxTex = gl.getParameter(gl.MAX_TEXTURE_SIZE) as number;
@@ -130,22 +174,25 @@ export class MapRenderer {
     tex(3, true);
     if (coastDist) gl.texImage2D(gl.TEXTURE_2D, 0, gl.LUMINANCE, gl.LUMINANCE, gl.UNSIGNED_BYTE, coastDist);
     else gl.texImage2D(gl.TEXTURE_2D, 0, gl.LUMINANCE, 1, 1, 0, gl.LUMINANCE, gl.UNSIGNED_BYTE, new Uint8Array([255]));
-    gl.uniform1i(this.u.uGrid, 0); gl.uniform1i(this.u.uPal, 1); gl.uniform1i(this.u.uRelief, 2); gl.uniform1i(this.u.uDist, 3);
+    this.terrainTex = tex(4, true);
+    if (terrain) gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, terrain);
+    else gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, 1, 1, 0, gl.RGB, gl.UNSIGNED_BYTE, new Uint8Array([150, 160, 120]));
+    gl.uniform1i(this.u.uGrid, 0); gl.uniform1i(this.u.uPal, 1); gl.uniform1i(this.u.uRelief, 2); gl.uniform1i(this.u.uDist, 3); gl.uniform1i(this.u.uTerrain, 4);
     gl.uniform2f(this.u.uGridSize, grid.W, grid.H); gl.uniform2f(this.u.uTexSize, tw, th);
     gl.uniform1f(this.u.uCpd, grid.cpd); gl.uniform1f(this.u.uLat0, grid.lat0);
     const css = getComputedStyle(document.documentElement); const tok = (n: string, d: string) => (css.getPropertyValue(n).trim() || d);
-    gl.uniform3fv(this.u.uSeaShallow, hex3(tok('--map-sea', '#bccfc8')));
-    gl.uniform3fv(this.u.uSeaDeep, hex3(tok('--map-sea-deep', '#7f9fa3')));
-    gl.uniform3fv(this.u.uInk, hex3(tok('--map-ink', '#2f3c3c')));
+    gl.uniform3fv(this.u.uSeaShallow, hex3(tok('--map-sea', '#46727c')));
+    gl.uniform3fv(this.u.uSeaDeep, hex3(tok('--map-sea-deep', '#1c3341')));
+    gl.uniform3fv(this.u.uInk, hex3(tok('--map-ink', '#a8c3c4')));
     gl.uniform3fv(this.u.uNoRegion, hex3(tok('--map-noregion', '#e4dcc8')));
-    void this.reliefTex;
+    void this.reliefTex; void this.terrainTex;
   }
   /** Palette rows: 0 fill, 1 owner code (R,G) + flags (B: 1 selected region, 2 selected country, 4 hatched), 2 hatch colour, 3 border tint. */
   setPalette(pal: Uint8Array) {
     const gl = this.gl; gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, this.palTex);
     gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, PAL_W, 4, gl.RGBA, gl.UNSIGNED_BYTE, pal);
   }
-  draw(cam: Camera, cssW: number, cssH: number, dpr: number, opts: { band: boolean; lines: boolean }) {
+  draw(cam: Camera, cssW: number, cssH: number, dpr: number, opts: { band: boolean; lines: boolean; terrain: boolean; hover: number; dim: boolean }) {
     const gl = this.gl; const w = Math.round(cssW * dpr), h = Math.round(cssH * dpr);
     if (this.canvas.width !== w || this.canvas.height !== h) { this.canvas.width = w; this.canvas.height = h; }
     gl.viewport(0, 0, w, h); gl.useProgram(this.prog);
@@ -153,7 +200,9 @@ export class MapRenderer {
     gl.uniform2f(this.u.uRes, w, h); gl.uniform1f(this.u.uDpr, dpr);
     gl.uniform1f(this.u.uBand, opts.band ? 3.2 : 0);
     gl.uniform1f(this.u.uLines, opts.lines ? 1 : 0);
+    gl.uniform1f(this.u.uMode, opts.terrain ? 1 : 0); gl.uniform1f(this.u.uHover, opts.hover); gl.uniform1f(this.u.uDim, opts.dim ? 1 : 0);
     const deg = cam.scale / this.grid.cpd; // degrees per CSS px
+    gl.uniform1f(this.u.uFar, Math.min(1, Math.max(0, (deg - 0.06) / 0.12)));
     gl.uniform1f(this.u.uGridStep, (deg < 0.02 ? 5 : deg < 0.12 ? 10 : 30) * this.grid.cpd);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
   }

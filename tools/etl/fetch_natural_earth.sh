@@ -12,6 +12,8 @@ get "$GH/ne_10m_lakes.geojson" ne_10m_lakes.geojson
 get "$GH/ne_10m_rivers_lake_centerlines.geojson" ne_10m_rivers_lake_centerlines.geojson
 get "$CDN/50m/raster/SR_50M.zip" SR_50M.zip
 get "$CDN/50m/raster/OB_50M.zip" OB_50M.zip
+get "$CDN/50m/raster/NE1_50M_SR_W.zip" NE1_50M_SR_W.zip
 [ -s SR_50M/SR_50M.tif ] || (mkdir -p SR_50M && cd SR_50M && unzip -oq ../SR_50M.zip)
 [ -d OB_50M ] || (mkdir -p OB_50M && cd OB_50M && unzip -oq ../OB_50M.zip)
+[ -d NE1_50M_SR_W ] || (mkdir -p NE1_50M_SR_W && cd NE1_50M_SR_W && unzip -oq ../NE1_50M_SR_W.zip)
 ls -la . SR_50M OB_50M

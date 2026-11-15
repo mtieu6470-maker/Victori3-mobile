@@ -1,5 +1,6 @@
 // Interactive map: WebGL fill layer + 2D overlay (graticule labels, lakes, rivers, state/country borders, coasts,
-// capitals, names). Touch: drag to pan, pinch to zoom, tap to select, double-tap to zoom in; mouse wheel on desktop.
+// selection outlines, capitals, names). Touch: drag to pan, pinch to zoom, tap to select, double-tap to zoom in;
+// mouse: wheel zoom, hover highlight with tooltip. Camera moves to a target are animated (fly-to).
 import { useEffect, useRef } from 'preact/hooks';
 import { data } from '../../engine/data/db';
 import { rankings } from '../../engine/metrics';
@@ -11,8 +12,8 @@ import { cellAt, type MapGrid } from './mapData';
 import { buildPaths, type VectorData, type VectorPaths } from './vectors';
 import { ui, type LensId } from '../game/ui';
 
-export interface MapAssets { grid: MapGrid; relief: HTMLImageElement | null; coastDist: HTMLImageElement | null; vectors: VectorData | null }
-interface Props { assets: MapAssets; st: GameState; version: number; lens: LensId; focus: string | null; selRegion: string | null; selCountry: string | null; onSelect: (regionId: string | null) => void; insetLeft?: number; avoid?: (w: number, h: number) => Box[] }
+export interface MapAssets { grid: MapGrid; relief: HTMLImageElement | null; coastDist: HTMLImageElement | null; terrain: HTMLImageElement | null; vectors: VectorData | null }
+interface Props { assets: MapAssets; st: GameState; version: number; lens: LensId; focus: string | null; selRegion: string | null; selCountry: string | null; dim?: boolean; onSelect: (regionId: string | null, at?: { x: number; y: number }) => void; onHover?: (regionId: string | null, x: number, y: number) => void; insetLeft?: number; avoid?: (w: number, h: number) => Box[] }
 
 const MIN_DEG_PER_PX = 0.0045; // closest zoom (~0.5 km per CSS px)
 const SERIF = '"EB Garamond", "Noto Serif", Georgia, serif';
@@ -29,7 +30,7 @@ export function MapView(p: Props) {
   const wrap = useRef<HTMLDivElement>(null);
   const glc = useRef<HTMLCanvasElement>(null);
   const ovc = useRef<HTMLCanvasElement>(null);
-  const R = useRef<{ r: MapRenderer | null; cands: LabelCand[]; candKey: string; paths: VectorPaths | null; raf: number; size: { w: number; h: number }; err: string | null; moving: boolean; idle: number }>({ r: null, cands: [], candKey: '', paths: null, raf: 0, size: { w: 1, h: 1 }, err: null, moving: false, idle: 0 });
+  const R = useRef<{ r: MapRenderer | null; cands: LabelCand[]; candKey: string; paths: VectorPaths | null; raf: number; size: { w: number; h: number }; err: string | null; moving: boolean; idle: number; hover: number; sel: { key: string; region: Path2D | null; country: Path2D | null } }>({ r: null, cands: [], candKey: '', paths: null, raf: 0, size: { w: 1, h: 1 }, err: null, moving: false, idle: 0, hover: -1, sel: { key: '', region: null, country: null } });
   const props = useRef(p); props.current = p;
   const grid = p.assets.grid;
 
@@ -53,7 +54,8 @@ export function MapView(p: Props) {
     const { st, focus, selCountry } = props.current; const r = R.current.r; const s = R.current.size;
     if (!r || !ovc.current) return;
     const c = cam(); const dpr = Math.min(2, window.devicePixelRatio || 1); const deg = c.scale / grid.cpd;
-    r.draw(c, s.w, s.h, dpr, { band: !R.current.moving || deg > 0.05, lines: true });
+    const terrain = props.current.lens === 'terrain';
+    r.draw(c, s.w, s.h, dpr, { band: !terrain && (!R.current.moving || deg > 0.05), lines: true, terrain, hover: R.current.hover, dim: !!props.current.dim });
     const cv = ovc.current; const ctx = cv.getContext('2d')!;
     if (cv.width !== Math.round(s.w * dpr) || cv.height !== Math.round(s.h * dpr)) { cv.width = Math.round(s.w * dpr); cv.height = Math.round(s.h * dpr); }
     ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height);
@@ -62,23 +64,38 @@ export function MapView(p: Props) {
     const v = props.current.assets.vectors;
     if (v) {
       R.current.paths = buildPaths(v, st, R.current.paths); const P = R.current.paths;
+      const sr = props.current.selRegion, sc = props.current.selCountry; const skey = `${sr}|${sc}|${P.key.length}|${st.territoryLog.length}`;
+      if (R.current.sel.key !== skey) {
+        const d = data(); const ri = sr ? d.regionIndex.get(sr) ?? -9 : -9; const byId = new Map(st.regions.map((x) => [x.id, x.owner])); const own = d.map.regionIds.map((id) => byId.get(id) ?? '');
+        const reg = sr ? new Path2D() : null, cty = sc ? new Path2D() : null;
+        for (const line of v.lines) {
+          const [a, b] = v.pairs[line[0]];
+          if (reg && (a === ri || b === ri)) { reg.moveTo(line[1], line[2]); for (let i = 3; i < line.length; i += 2) reg.lineTo(line[i], line[i + 1]); }
+          if (cty && ((a >= 0 && own[a] === sc) !== (b >= 0 && own[b] === sc))) { cty.moveTo(line[1], line[2]); for (let i = 3; i < line.length; i += 2) cty.lineTo(line[i], line[i + 1]); }
+        }
+        R.current.sel = { key: skey, region: reg, country: cty };
+      }
+      const S = R.current.sel;
       const k = dpr / c.scale; const px = c.scale; // 1 CSS px in grid units
       const offs = [0]; if (c.x0 < 0) offs.push(-grid.W); if (c.x0 + s.w * c.scale > grid.W) offs.push(grid.W);
       for (const o of offs) {
         ctx.setTransform(k, 0, 0, k, (o - c.x0) * k, -c.y0 * k);
         ctx.lineJoin = 'round'; ctx.lineCap = 'round';
-        ctx.fillStyle = 'rgba(178,201,196,0.96)'; ctx.fill(P.lakes, 'evenodd'); ctx.strokeStyle = 'rgba(47,60,60,0.55)'; ctx.lineWidth = 0.7 * px; ctx.stroke(P.lakes);
-        if (deg < 0.16) { ctx.strokeStyle = 'rgba(64,107,122,0.62)'; ctx.lineWidth = (deg < 0.04 ? 1.3 : 0.9) * px; ctx.stroke(P.riversMajor); }
-        if (deg < 0.06) { ctx.strokeStyle = 'rgba(64,107,122,0.48)'; ctx.lineWidth = 0.7 * px; ctx.stroke(P.riversMinor); }
-        if (deg < 0.09) { ctx.strokeStyle = `rgba(52,44,34,${deg < 0.035 ? 0.42 : 0.26})`; ctx.lineWidth = 0.65 * px; ctx.setLineDash([3 * px, 2.2 * px]); ctx.stroke(P.state); ctx.setLineDash([]); }
-        ctx.strokeStyle = 'rgba(244,236,214,0.35)'; ctx.lineWidth = 2.6 * px; ctx.stroke(P.country);
-        ctx.strokeStyle = 'rgba(38,32,26,0.86)'; ctx.lineWidth = (deg > 0.2 ? 0.9 : 1.25) * px; ctx.stroke(P.country);
-        ctx.strokeStyle = 'rgba(40,52,54,0.78)'; ctx.lineWidth = (deg > 0.2 ? 0.7 : 1.0) * px; ctx.stroke(P.coast);
+        ctx.fillStyle = '#3d6974'; ctx.fill(P.lakes, 'evenodd'); ctx.strokeStyle = 'rgba(12,20,24,0.7)'; ctx.lineWidth = 0.8 * px; ctx.stroke(P.lakes);
+        if (deg < 0.16) { ctx.strokeStyle = 'rgba(78,128,150,0.85)'; ctx.lineWidth = (deg < 0.04 ? 1.5 : 1.0) * px; ctx.stroke(P.riversMajor); }
+        if (deg < 0.06) { ctx.strokeStyle = 'rgba(78,128,150,0.6)'; ctx.lineWidth = 0.8 * px; ctx.stroke(P.riversMinor); }
+        if (deg < 0.09) { ctx.strokeStyle = terrain ? `rgba(60,40,26,${deg < 0.035 ? 0.38 : 0.24})` : `rgba(40,30,20,${deg < 0.035 ? 0.46 : 0.3})`; ctx.lineWidth = 0.7 * px; ctx.setLineDash([3 * px, 2.2 * px]); ctx.stroke(P.state); ctx.setLineDash([]); }
+        ctx.strokeStyle = 'rgba(250,240,215,0.3)'; ctx.lineWidth = 2.8 * px; ctx.stroke(P.country);
+        ctx.strokeStyle = terrain ? 'rgba(70,22,18,0.85)' : 'rgba(22,16,10,0.88)'; ctx.lineWidth = (deg > 0.2 ? 1.0 : 1.35) * px; ctx.stroke(P.country);
+        ctx.strokeStyle = 'rgba(10,18,22,0.85)'; ctx.lineWidth = (deg > 0.2 ? 0.8 : 1.1) * px; ctx.stroke(P.coast);
+        // selection: the selected country's outline glows gold, the selected state gets a bright double rule
+        if (S.country) { ctx.strokeStyle = 'rgba(255,220,150,0.28)'; ctx.lineWidth = 6 * px; ctx.stroke(S.country); ctx.strokeStyle = 'rgba(255,232,180,0.95)'; ctx.lineWidth = 1.8 * px; ctx.stroke(S.country); }
+        if (S.region) { ctx.strokeStyle = 'rgba(255,255,255,0.45)'; ctx.lineWidth = 4.5 * px; ctx.stroke(S.region); ctx.strokeStyle = '#ffe9b0'; ctx.lineWidth = 1.7 * px; ctx.stroke(S.region); }
       }
     }
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     const step = (deg < 0.02 ? 5 : deg < 0.12 ? 10 : 30) * grid.cpd;
-    ctx.font = `italic 12px ${SERIF}`; ctx.fillStyle = 'rgba(44,58,60,0.72)'; ctx.textBaseline = 'top'; ctx.textAlign = 'left';
+    ctx.font = `italic 12px ${SERIF}`; ctx.fillStyle = 'rgba(176,204,208,0.6)'; ctx.textBaseline = 'top'; ctx.textAlign = 'left';
     for (let gx = Math.ceil(c.x0 / step) * step; gx < c.x0 + s.w * c.scale; gx += step) {
       const lon = Math.round(((((gx / grid.cpd) % 360) + 360) % 360) - 180); if (lon === -180) continue;
       const x = (gx - c.x0) / c.scale; if (x < inset + 16) continue; ctx.fillText(`${Math.abs(lon)}°${lon < 0 ? 'T' : lon > 0 ? 'Đ' : ''}`, x + 3, 3);
@@ -96,7 +113,7 @@ export function MapView(p: Props) {
         const x = ((((mr.label[0] - c.x0) % grid.W) + grid.W) % grid.W) / c.scale, y = (mr.label[1] - c.y0) / c.scale; if (x < inset || x > s.w || y < 0 || y > s.h) continue;
         if (placed.some(([px, py]) => Math.hypot(px - x, py - y) < 26) || boxes.some((b) => x > b.x && x < b.x + b.w && y > b.y && y < b.y + b.h)) continue;
         placed.push([x, y]);
-        ctx.fillStyle = '#2a221a'; ctx.beginPath(); ctx.arc(x, y, 3.4, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#f2e8cf'; ctx.beginPath(); ctx.arc(x, y, 1.7, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#1a140c'; ctx.beginPath(); ctx.arc(x, y, 3.8, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#ecd39a'; ctx.beginPath(); ctx.arc(x, y, 2.1, 0, Math.PI * 2); ctx.fill();
       }
     }
     const key = `${st.territoryLog.length}|${Object.values(st.countries).filter((x) => x.alive).length}|${focus}`;
@@ -106,10 +123,10 @@ export function MapView(p: Props) {
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.lineJoin = 'round';
     for (const l of labels) {
       ctx.font = l.kind === 'country' ? `600 ${l.size}px ${SERIF}` : `italic 500 ${l.size}px ${SERIF}`;
-      const fill = l.kind === 'sea' ? 'rgba(52,84,96,0.8)' : l.kind === 'state' ? 'rgba(46,38,28,0.78)' : l.owner === selCountry || l.owner === focus ? '#1b150e' : 'rgba(38,30,20,0.9)';
+      const fill = l.kind === 'sea' ? 'rgba(186,212,214,0.72)' : l.kind === 'state' ? 'rgba(40,30,20,0.8)' : l.owner === selCountry || l.owner === focus ? '#140f09' : 'rgba(30,22,14,0.9)';
       for (const g of l.glyphs) {
         ctx.save(); ctx.translate(g.x, g.y); ctx.rotate(g.a);
-        if (l.kind !== 'sea') { ctx.lineWidth = Math.max(2, l.size * (l.kind === 'state' ? 0.2 : 0.15)); ctx.strokeStyle = 'rgba(244,236,214,0.6)'; ctx.strokeText(g.ch, 0, 0); }
+        if (l.kind !== 'sea') { ctx.lineWidth = Math.max(2, l.size * (l.kind === 'state' ? 0.2 : 0.14)); ctx.strokeStyle = 'rgba(248,240,220,0.55)'; ctx.strokeText(g.ch, 0, 0); }
         ctx.fillStyle = fill; ctx.fillText(g.ch, 0, 0); ctx.restore();
       }
     }
@@ -117,7 +134,7 @@ export function MapView(p: Props) {
 
   useEffect(() => {
     const el = wrap.current!, cv = glc.current!;
-    try { R.current.r = new MapRenderer(cv, grid, p.assets.relief, p.assets.coastDist); } catch (e) { R.current.err = (e as Error).message; }
+    try { R.current.r = new MapRenderer(cv, grid, p.assets.relief, p.assets.coastDist, p.assets.terrain); } catch (e) { R.current.err = (e as Error).message; }
     const ro = new ResizeObserver(() => { const b = el.getBoundingClientRect(); R.current.size = { w: Math.max(1, b.width), h: Math.max(1, b.height) }; schedule(); });
     ro.observe(el); const b = el.getBoundingClientRect(); R.current.size = { w: Math.max(1, b.width), h: Math.max(1, b.height) };
     return () => { ro.disconnect(); if (R.current.raf) cancelAnimationFrame(R.current.raf); };
@@ -125,8 +142,9 @@ export function MapView(p: Props) {
   useEffect(() => {
     const r = R.current.r; if (!r) return;
     r.setPalette(buildPalette(p.st, lensById(p.lens), p.focus, p.selRegion, p.selCountry)); schedule();
-  }, [p.version, p.lens, p.focus, p.selRegion, p.selCountry, p.st]);
+  }, [p.version, p.lens, p.focus, p.selRegion, p.selCountry, p.st, p.dim]);
   useEffect(() => ui.subscribe(schedule), []);
+  useEffect(() => { kick = schedule; return () => { kick = null; }; }, []);
 
   useEffect(() => {
     const el = wrap.current!; const pts = new Map<number, { x: number; y: number; sx: number; sy: number }>();
@@ -137,7 +155,13 @@ export function MapView(p: Props) {
       const ns = c0.scale * f; ui.get().camera = clampCam({ scale: ns, cx: gx - (x - s.w / 2) * ns, cy: gy - (y - s.h / 2) * ns }); moving(); schedule();
     };
     const down = (e: PointerEvent) => { el.setPointerCapture(e.pointerId); const l = local(e); pts.set(e.pointerId, { x: l.x, y: l.y, sx: l.x, sy: l.y }); moved = false; if (pts.size === 2) { const [a, b] = [...pts.values()]; pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), mx: (a.x + b.x) / 2, my: (a.y + b.y) / 2 }; } };
+    const hoverAt = (x: number, y: number) => {
+      const c = cam(); const i = cellAt(grid, c.x0 + x * c.scale, c.y0 + y * c.scale); const h = i || -1;
+      if (h !== R.current.hover) { R.current.hover = h; schedule(); }
+      props.current.onHover?.(i ? data().map.regionIds[i - 1] ?? null : null, x, y);
+    };
     const move = (e: PointerEvent) => {
+      if (!pts.size && e.pointerType === 'mouse') { const l = local(e); hoverAt(l.x, l.y); return; }
       const q = pts.get(e.pointerId); if (!q) return; const l = local(e); const dx = l.x - q.x, dy = l.y - q.y; q.x = l.x; q.y = l.y;
       if (Math.hypot(q.x - q.sx, q.y - q.sy) > 8) moved = true;
       if (pts.size === 1 && moved) { const c = cam(); ui.get().camera = clampCam({ cx: c.cx - dx * c.scale, cy: c.cy - dy * c.scale, scale: c.scale }); moving(); schedule(); }
@@ -150,11 +174,12 @@ export function MapView(p: Props) {
       if (now - lastTap.t < 320 && Math.hypot(q.x - lastTap.x, q.y - lastTap.y) < 24) { zoomAt(q.x, q.y, 0.5); lastTap.t = 0; return; }
       lastTap = { t: now, x: q.x, y: q.y };
       const c = cam(); const i = cellAt(grid, c.x0 + q.x * c.scale, c.y0 + q.y * c.scale);
-      props.current.onSelect(i ? data().map.regionIds[i - 1] ?? null : null);
+      props.current.onSelect(i ? data().map.regionIds[i - 1] ?? null : null, { x: q.x, y: q.y });
     };
+    const leave = () => { if (R.current.hover !== -1) { R.current.hover = -1; schedule(); } props.current.onHover?.(null, 0, 0); };
     const wheel = (e: WheelEvent) => { e.preventDefault(); const l = local(e); zoomAt(l.x, l.y, e.deltaY > 0 ? 1.18 : 1 / 1.18); };
-    el.addEventListener('pointerdown', down); el.addEventListener('pointermove', move); el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up); el.addEventListener('wheel', wheel, { passive: false });
-    return () => { el.removeEventListener('pointerdown', down); el.removeEventListener('pointermove', move); el.removeEventListener('pointerup', up); el.removeEventListener('pointercancel', up); el.removeEventListener('wheel', wheel); };
+    el.addEventListener('pointerdown', down); el.addEventListener('pointermove', move); el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up); el.addEventListener('wheel', wheel, { passive: false }); el.addEventListener('pointerleave', leave);
+    return () => { el.removeEventListener('pointerleave', leave); el.removeEventListener('pointerdown', down); el.removeEventListener('pointermove', move); el.removeEventListener('pointerup', up); el.removeEventListener('pointercancel', up); el.removeEventListener('wheel', wheel); };
   }, []);
 
   return (
@@ -168,13 +193,28 @@ export function MapView(p: Props) {
 
 /** Camera helpers for buttons (zoom, recentre). Scales are grid cells per CSS px. */
 let insets = { l: 0, r: 0, t: 0, b: 0 };
+let kick: (() => void) | null = null;
+let flight = 0;
+/** Animates the camera to a target (ease-out, logarithmic zoom interpolation), ~0.45 s. */
+function flyTo(t: { cx: number; cy: number; scale: number }) {
+  const from = ui.get().camera; cancelAnimationFrame(flight);
+  if (!from || matchMedia('(prefers-reduced-motion: reduce)').matches) { ui.set({ camera: t }); return; }
+  const t0 = performance.now(), D = 450; const f = { ...from };
+  const step = () => {
+    const k = Math.min(1, (performance.now() - t0) / D); const e = 1 - Math.pow(1 - k, 3);
+    const cam = ui.get().camera!; cam.cx = f.cx + (t.cx - f.cx) * e; cam.cy = f.cy + (t.cy - f.cy) * e; cam.scale = Math.exp(Math.log(f.scale) + (Math.log(t.scale) - Math.log(f.scale)) * e);
+    kick?.();
+    if (k < 1) flight = requestAnimationFrame(step); else ui.set({ camera: { ...t } });
+  };
+  flight = requestAnimationFrame(step);
+}
 export const mapControls = {
   /** Parts of the map covered by windows (CSS px); used to centre targets in the visible area. */
   setInsets(i: { l: number; r: number; t: number; b: number }) { insets = i; },
-  zoom(f: number) { const c = ui.get().camera; if (c) ui.set({ camera: { ...c, scale: c.scale * f } }); },
+  zoom(f: number) { const c = ui.get().camera; if (c) flyTo({ ...c, scale: c.scale * f }); },
   focusRegion(regionId: string, degPerPx = 0.02) {
     const d = data(); const r = d.map.regions[d.regionIndex.get(regionId) ?? -1]; if (!r) return;
     const scale = degPerPx * d.map.cpd;
-    ui.set({ camera: { cx: r.label[0] - ((insets.l - insets.r) / 2) * scale, cy: r.label[1] - ((insets.t - insets.b) / 2) * scale, scale } });
+    flyTo({ cx: r.label[0] - ((insets.l - insets.r) / 2) * scale, cy: r.label[1] - ((insets.t - insets.b) / 2) * scale, scale });
   },
 };

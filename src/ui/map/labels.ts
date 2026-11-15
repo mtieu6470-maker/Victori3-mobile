@@ -143,11 +143,12 @@ export function layoutLabels(cands: LabelCand[], cam: Camera, vw: number, vh: nu
     if (sx < -300 || sx > vw + 300 || sy < -300 || sy > vh + 300) continue;
     const spanPx = cd.span / cam.scale; if (spanPx < 26) continue;
     let done = false;
-    for (const [text, minSize] of [[cd.text, 12], [cd.abbr, 11]] as const) {
-      if (done || (minSize === 11 && cd.abbr === cd.text)) continue;
-      const ls = (sz: number) => sz * 0.16;
+    for (const [raw, minSize] of [[cd.text, 11], [cd.abbr, 10]] as const) {
+      if (done || (minSize === 10 && cd.abbr === cd.text)) continue;
+      const text = raw.toLocaleUpperCase('vi'); // cartographic capitals, widely tracked
+      const ls = (sz: number) => sz * 0.24;
       const w10 = measure(text, 10) + (text.length - 1) * ls(10);
-      let size = Math.min(40, Math.max(minSize, (0.8 * spanPx / w10) * 10));
+      let size = Math.min(34, Math.max(minSize, (0.82 * spanPx / w10) * 10));
       for (let attempt = 0; attempt < 9 && !done; attempt++) {
         for (const bendScale of [1, 0]) {
           const lay = arc(text, sx, sy, cd.angle, cd.bend * cam.scale * bendScale, size, ls(size));

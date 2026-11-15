@@ -27,16 +27,22 @@ const hexToRgb = (h: string): RGB => {
 const rgbToHex = (c: RGB) => '#' + c.map((v) => Math.round(Math.max(0, Math.min(255, v))).toString(16).padStart(2, '0')).join('');
 const mixHex = (a: string, b: string, t: number) => { const x = hexToRgb(a), y = hexToRgb(b); return rgbToHex([x[0] + (y[0] - x[0]) * t, x[1] + (y[1] - x[1]) * t, x[2] + (y[2] - x[2]) * t]); };
 const PARCHMENT = '#efe6cf', INK = '#3a3226';
-/** Atlas pastel: the country's colour washed toward parchment, like a hand-coloured 19th-century map. */
+/** Colour of a land-cover sample after the Terrain-mode grading in the shader (saturation ×1.7, contrast ×1.3). */
+export function terrainSwatch(hex: string): string {
+  const c = hexToRgb(hex).map((v) => v / 255); const l = 0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2];
+  return rgbToHex(c.map((v) => ((l + (v - l) * 1.7 - 0.6) * 1.3 + 0.52) * 0.92 * 255) as RGB);
+}
+/** Political colour: the country's colour, moderately saturated and slightly warmed toward parchment so the land
+ *  cover and relief still read through it (the shader multiplies it by the land cover). */
 export function pastel(hex: string): string {
   let [r, g, b] = hexToRgb(hex).map((v) => v / 255);
   const max = Math.max(r, g, b), min = Math.min(r, g, b); let h = 0, s = 0; const l = (max + min) / 2;
   if (max !== min) { const d = max - min; s = l > 0.5 ? d / (2 - max - min) : d / (max + min); h = max === r ? (g - b) / d + (g < b ? 6 : 0) : max === g ? (b - r) / d + 2 : (r - g) / d + 4; h /= 6; }
-  s = Math.min(0.55, s * 0.8); const L = 0.62 + l * 0.2;
+  s = Math.min(0.62, s * 0.92); const L = 0.5 + l * 0.2;
   const q = L < 0.5 ? L * (1 + s) : L + s - L * s, p = 2 * L - q;
   const f = (t: number) => { t = (t + 1) % 1; return t < 1 / 6 ? p + (q - p) * 6 * t : t < 1 / 2 ? q : t < 2 / 3 ? p + (q - p) * (2 / 3 - t) * 6 : p; };
   [r, g, b] = s === 0 ? [L, L, L] : [f(h + 1 / 3), f(h), f(h - 1 / 3)];
-  return mixHex(rgbToHex([r * 255, g * 255, b * 255]), PARCHMENT, 0.18);
+  return mixHex(rgbToHex([r * 255, g * 255, b * 255]), PARCHMENT, 0.1);
 }
 /** Border shade: a darker, slightly inked version of a fill colour. */
 export const shade = (fill: string) => mixHex(fill, INK, 0.45);
@@ -51,6 +57,11 @@ export const LENSES: LensDef[] = [
     id: 'political', name: 'Chính trị', desc: 'Màu theo quốc gia sở hữu. Vùng bị chiếm đóng có gạch chéo theo màu bên chiếm.',
     color: (r, st) => { const c = st.countries[r.owner]; return !c || c.decentralized ? UNCLAIMED : mute(c.color); },
     legend: () => [{ color: '#c9b9d6', label: 'Màu = quốc gia sở hữu' }, { color: UNCLAIMED, label: 'Chính thể phi tập trung' }, { color: '#c98b7a', label: 'Đang bị chiếm đóng', pattern: 'hatch' }],
+  },
+  {
+    id: 'terrain', name: 'Địa hình', desc: 'Lớp phủ mặt đất và địa hình nổi (Natural Earth I, phạm vi công cộng) với biên giới quốc gia. Loại địa hình mô phỏng của mỗi vùng xem trong cửa sổ Vùng.',
+    color: (r, st) => { const c = st.countries[r.owner]; return !c || c.decentralized ? UNCLAIMED : mute(c.color); },
+    legend: () => [{ color: terrainSwatch('#acc8af'), label: 'Rừng nhiệt đới, rừng rậm' }, { color: terrainSwatch('#dee3bb'), label: 'Đồng bằng, đồng cỏ, đất canh tác' }, { color: terrainSwatch('#f3eeda'), label: 'Sa mạc, bán khô hạn' }, { color: terrainSwatch('#d4d5d6'), label: 'Núi cao, lãnh nguyên' }, { color: terrainSwatch('#e9eef4'), label: 'Băng tuyết' }],
   },
   {
     id: 'population', name: 'Mật độ dân số', unit: 'người/km²', desc: 'Dân số vùng chia diện tích (km²) theo mô phỏng hiện tại.',
