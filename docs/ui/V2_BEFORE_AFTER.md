@@ -5,6 +5,7 @@ cùng trạng thái ván chơi: chế độ Lịch sử, seed 1, Anh, sau 108 th
 
 - **Trước (v1):** `docs/ui/screenshots/after/` (đợt thiết kế lại trước) — và ảnh gốc của prototype trong `docs/ui/screenshots/before/`.
 - **Sau (v2):** `docs/ui/screenshots/v2/`, cùng tên tệp. Ảnh 17–29 là trạng thái mới chỉ có ở v2 (cửa sổ chi tiết, popover, menu lớp…).
+- Ảnh ghép so sánh: `docs/ui/screenshots/compare/v1_vs_v2_landscape.jpg` (thị trường, tổng quan quốc gia, bản đồ châu Âu, luật) và `v1_vs_v2_portrait.jpg` (thị trường, quốc gia, chọn vùng, chiến tranh, dân số).
 - Tái tạo: `npm run build && npx tsx tools/ui-screenshots.ts docs/ui/screenshots/v2` và `npx tsx tools/ui-shots.ts …` (kế hoạch chụp trong commit).
 
 | # | Màn hình | v1 | v2 | Thay đổi chính |
@@ -32,3 +33,17 @@ cùng trạng thái ván chơi: chế độ Lịch sử, seed 1, Anh, sau 108 th
 - Cờ là ô màu của quốc gia (chưa có cờ vẽ riêng).
 - Chưa có lens hành động trên bản đồ, hàng đợi nghiên cứu, phương pháp sản xuất, diplomatic play, front quân sự — vì engine chưa có các hệ thống này (xem `docs/research/PASS16_REPO_AUDIT.md`). Giao diện không giả lập chúng.
 - Ảnh chụp bằng trình duyệt giả lập trên máy chủ CI-like; chưa đo trên thiết bị Android thật (APK debug do GitHub Actions build).
+
+## Trạng thái chỉ có ở v2 (`docs/ui/screenshots/v2/`)
+
+| # | Ảnh | Nội dung |
+|---|---|---|
+| 17 | `17_market_good_detail_landscape` | Cửa sổ chi tiết hàng hóa mở cạnh bảng thị trường (liên kết sang công trình sản xuất/tiêu thụ). |
+| 18 | `18_law_detail_landscape` | Chi tiết luật: mức ủng hộ từng phương án và thay đổi thái độ của từng nhóm lợi ích. |
+| 19 | `19_kpi_breakdown_landscape` | Popover phân rã ngân khố từ thanh trên + "Theo dõi". |
+| 20 | `20_region_window_*` | Cửa sổ Vùng (ngang: neo phải; dọc: sheet thấp). |
+| 21 | `21_tech_detail_landscape` | Cây công nghệ + chi tiết công nghệ đang nghiên cứu. |
+| 22 | `22_budget_lines_landscape` | Dòng thu/chi thật của engine. |
+| 23 | `23_diplomacy_detail_landscape` | Bảng quan hệ + cửa sổ quốc gia với hành động. |
+| 24 | `24_military_forces_landscape` | Lực lượng: đồng hồ đo, chi quân sự. |
+| 25–29 | `*_portrait` | Menu lớp bản đồ, sheet nửa màn hình, dải KPI phụ, cây công nghệ dọc, bảng nhóm lợi ích dọc. |
