@@ -4,7 +4,7 @@ import { useEffect, useState } from 'preact/hooks';
 import { game } from './controller';
 
 export type ScreenId = 'map' | 'economy' | 'society' | 'diplomacy' | 'military' | 'politics' | 'tech' | 'chronicle' | 'world' | 'country' | 'system' | 'more' | 'inbox';
-export type LensId = 'political' | 'population' | 'sol' | 'literacy' | 'diplomacy' | 'market';
+export type LensId = 'political' | 'population' | 'economy' | 'sol' | 'literacy' | 'resources' | 'diplomacy' | 'military' | 'market';
 
 export interface UIState {
   started: boolean;

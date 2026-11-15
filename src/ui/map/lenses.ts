@@ -58,6 +58,11 @@ export const LENSES: LensDef[] = [
     legend: () => seqLegend(['< 5', '5–20', '20–50', '50–100', '≥ 100']),
   },
   {
+    id: 'economy', name: 'Kinh tế', unit: '¤ sản lượng / người / năm', desc: 'Giá trị gia tăng của vùng trong tháng gần nhất × 12, chia dân số (đơn vị tiền của mô phỏng, thang Maddison 1990 GK$).',
+    color: (r) => step((r.output * 12) / Math.max(1, r.pop), [400, 700, 1000, 1500]),
+    legend: () => seqLegend(['< 400', '400–700', '700–1.000', '1.000–1.500', '≥ 1.500']),
+  },
+  {
     id: 'sol', name: 'Mức sống', unit: 'chỉ số engine', desc: 'Chỉ số mức sống của dân cư trong vùng (thang của engine, ~0–1,2).',
     color: (r) => step(r.sol, [0.4, 0.55, 0.7, 0.85]),
     legend: () => seqLegend(['< 0,40', '0,40–0,55', '0,55–0,70', '0,70–0,85', '≥ 0,85']),
@@ -66,6 +71,11 @@ export const LENSES: LensDef[] = [
     id: 'literacy', name: 'Biết chữ', unit: '% dân số', desc: 'Tỷ lệ biết chữ của vùng theo mô phỏng hiện tại.',
     color: (r) => step(r.literacy, [0.1, 0.25, 0.4, 0.55]),
     legend: () => seqLegend(['< 10%', '10–25%', '25–40%', '40–55%', '≥ 55%']),
+  },
+  {
+    id: 'resources', name: 'Tài nguyên', desc: 'Tài nguyên nổi bật của vùng theo Cơ sở dữ liệu Lịch sử (ưu tiên khoáng sản, rồi cây công nghiệp; ngũ cốc khi không có gì khác).',
+    color: (r) => RES_COL[mainRes(r.res)] ?? UNCLAIMED,
+    legend: () => RES_ORDER.map((k) => ({ color: RES_COL[k], label: RES_VI[k] })),
   },
   {
     id: 'diplomacy', name: 'Ngoại giao', unit: 'quan hệ −100…+100', desc: 'Quan hệ của mỗi quốc gia với quốc gia đang chọn; đồng minh và kẻ thù đang giao chiến được tách riêng.',
@@ -82,11 +92,28 @@ export const LENSES: LensDef[] = [
     legend: () => [{ color: '#86bfb4', label: 'Quốc gia đang chọn' }, { color: '#9cc28a', label: 'Đồng minh' }, { color: '#cbd9a6', label: 'Quan hệ ≥ +30' }, { color: '#ddd4bf', label: 'Trung lập' }, { color: '#dba893', label: 'Quan hệ ≤ −30' }, { color: '#c4705f', label: 'Đang chiến tranh' }],
   },
   {
+    id: 'military', name: 'Quân sự', desc: 'Các cuộc chiến của quốc gia đang chọn: phe ta, đồng minh trong chiến tranh, kẻ thù; vùng bị chiếm có gạch chéo theo màu bên chiếm; vùng bị tàn phá tối hơn.',
+    color: (r, st, focus) => {
+      if (!focus) return UNCLAIMED;
+      const wars = st.wars.filter((w) => w.attackers.members.includes(focus) || w.defenders.members.includes(focus));
+      let base = r.owner === focus ? '#86bfb4' : UNCLAIMED;
+      for (const w of wars) { const mine = w.attackers.members.includes(focus) ? w.attackers.members : w.defenders.members; const foe = mine === w.attackers.members ? w.defenders.members : w.attackers.members;
+        if (r.owner !== focus && mine.includes(r.owner)) base = '#a9c99a'; if (foe.includes(r.owner)) base = '#d98b78'; }
+      if (base === UNCLAIMED && st.wars.some((w) => w.attackers.members.includes(r.owner) || w.defenders.members.includes(r.owner))) base = '#e2c9a6';
+      return r.devastation > 0.05 ? mixHex(base, '#3a3226', Math.min(0.45, r.devastation)) : base;
+    },
+    legend: () => [{ color: '#86bfb4', label: 'Quốc gia đang chọn' }, { color: '#a9c99a', label: 'Cùng phe trong chiến tranh' }, { color: '#d98b78', label: 'Kẻ thù' }, { color: '#e2c9a6', label: 'Nước khác đang có chiến tranh' }, { color: '#c98b7a', label: 'Vùng bị chiếm', pattern: 'hatch' }],
+  },
+  {
     id: 'market', name: 'Thị trường', desc: 'Mỗi màu là một thị trường (quốc gia hoặc liên minh thuế quan) dùng chung giá.',
     color: (r, st) => { const c = st.countries[r.owner]; if (!c || c.decentralized) return UNCLAIMED; const m = st.countries[marketOf(st, c)] ?? c; return mute(m.color); },
     legend: () => [{ color: '#c9b9d6', label: 'Màu = thị trường chung giá' }, { color: UNCLAIMED, label: 'Ngoài thị trường quốc gia' }],
   },
 ];
+const RES_ORDER = ['gold', 'silv', 'coal', 'iron', 'opium', 'cott', 'cash', 'lux', 'timb', 'live', 'fish', 'grain'];
+const RES_COL: Record<string, string> = { gold: '#e5c35c', silv: '#c8ccd2', coal: '#6d6a66', iron: '#9a7f72', opium: '#c49ab6', cott: '#efe9dc', cash: '#9fbf7d', lux: '#b59bd6', timb: '#7f9f6e', live: '#d6b48b', fish: '#8fb7c9', grain: '#e9dcae' };
+const RES_VI: Record<string, string> = { gold: 'Vàng', silv: 'Bạc', coal: 'Than', iron: 'Sắt', opium: 'Thuốc phiện', cott: 'Bông', cash: 'Cây công nghiệp', lux: 'Hàng xa xỉ', timb: 'Gỗ', live: 'Gia súc', fish: 'Cá', grain: 'Ngũ cốc' };
+const mainRes = (res: string[]) => RES_ORDER.find((k) => res.includes(k)) ?? 'grain';
 export const lensById = (id: LensId) => LENSES.find((l) => l.id === id) ?? LENSES[0];
 
 /** Builds the 4-row palette texture consumed by the shader (see renderer.ts). */
@@ -101,7 +128,7 @@ export function buildPalette(st: GameState, lens: LensDef, focus: string | null,
     const ownerFill = lens.id === 'political' || lens.id === 'market' ? fill : (st.countries[r.owner] && !st.countries[r.owner].decentralized ? pastel(st.countries[r.owner].color) : UNCLAIMED);
     const [sr, sg, sb] = hexToRgb(shade(ownerFill)); pal.set([sr, sg, sb, 255], (PAL_W * 3 + k) * 4);
     let code = ownerCode.get(r.owner); if (code === undefined) { code = next++; ownerCode.set(r.owner, code); }
-    const flags = (id === selRegion ? 1 : 0) | (selCountry && r.owner === selCountry ? 2 : 0) | (lens.id === 'political' && r.controller !== r.owner ? 4 : 0);
+    const flags = (id === selRegion ? 1 : 0) | (selCountry && r.owner === selCountry ? 2 : 0) | ((lens.id === 'political' || lens.id === 'military') && r.controller !== r.owner ? 4 : 0);
     pal.set([code & 255, code >> 8, flags, 255], (PAL_W + k) * 4);
     const ctrl = st.countries[r.controller]; const [hr, hg, hb] = hexToRgb(ctrl ? shade(pastel(ctrl.color)) : '#a0503f');
     pal.set([hr, hg, hb, 255], (PAL_W * 2 + k) * 4);

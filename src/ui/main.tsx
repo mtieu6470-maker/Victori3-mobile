@@ -14,7 +14,11 @@ import mapJson from '../generated/map.json';
 import { HistoricalData, setData, type MapTopology } from '../engine/data/db';
 import type { HistoricalDB } from '../engine/data/dbTypes';
 import { loadGrid } from './map/mapData';
+import { loadVectors } from './map/vectors';
+import type { MapAssets } from './map/MapView';
 import { App } from './App';
+import { details } from './components/ui';
+import { mapControls } from './map/MapView';
 import { game } from './game/controller';
 import { ui, type LensId, type ScreenId } from './game/ui';
 import type { GameMode } from '../engine/types';
@@ -23,24 +27,29 @@ async function boot() {
   const root = document.getElementById('app')!;
   root.innerHTML = '<div class="loading"><div class="box"><h1>Dòng chảy Lịch sử</h1><div class="muted serif">Đang mở bản đồ…</div></div></div>';
   setData(new HistoricalData(dbJson as unknown as HistoricalDB, mapJson as unknown as MapTopology));
-  let grid;
-  try { grid = await loadGrid(new URL('generated/map.bin', document.baseURI).href); }
-  catch (e) { root.innerHTML = `<div class="loading"><div class="box"><h1>Lỗi</h1><p>${(e as Error).message}</p></div></div>`; return; }
+  let assets: MapAssets;
+  try {
+    const img = (f: string) => { const i = new Image(); i.src = new URL(f, document.baseURI).href; return i.decode().then(() => i).catch(() => null); };
+    const [grid, vectors, relief, coastDist] = await Promise.all([loadGrid(new URL('generated/map.bin', document.baseURI).href), loadVectors(document.baseURI), img('map/relief.jpg'), img('generated/coastdist.png')]);
+    assets = { grid, vectors, relief, coastDist };
+  } catch (e) { root.innerHTML = `<div class="loading"><div class="box"><h1>Lỗi</h1><p>${(e as Error).message}</p></div></div>`; return; }
   await document.fonts?.ready;
   root.innerHTML = '';
   const q = new URLSearchParams(location.search);
   if (q.get('mode')) {
     const player = q.get('player'); const months = Number(q.get('months') ?? 0);
     game.newGame({ mode: (q.get('mode') as GameMode) ?? 'historical', seed: Number(q.get('seed') ?? 1), player: player && player !== 'observer' ? player : null });
-    ui.set({ started: true, screen: (q.get('screen') as ScreenId) ?? 'map', region: q.get('region'), lens: (q.get('lens') as LensId) ?? 'political', follow: q.get('follow'), country: q.get('country') });
+    ui.set({ started: true, screen: (q.get('screen') as ScreenId) ?? 'map', region: q.get('region'), regionDetail: !!q.get('region'), lens: (q.get('lens') as LensId) ?? 'political', follow: q.get('follow'), country: q.get('country') });
     if (q.get('tab')) ui.tab(ui.get().screen, q.get('tab')!);
     if (q.get('zoom')) { const [cx, cy, sc] = q.get('zoom')!.split(',').map(Number); ui.set({ camera: { cx, cy, scale: sc } }); }
-    render(<App grid={grid} />, root);
+    render(<App assets={assets} />, root);
     await game.fastForward(months);
+    // QA hook for scripted screenshots (tools/ui-shots.ts); only present when the page is opened with QA parameters
+    (window as any).__qa = { ui, game, details, mapControls };
     document.body.dataset.ready = '1';
     return;
   }
-  render(<App grid={grid} />, root);
+  render(<App assets={assets} />, root);
   document.body.dataset.ready = '1';
 }
 boot();
