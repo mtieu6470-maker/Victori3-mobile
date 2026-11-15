@@ -5,7 +5,7 @@ import type { Building, GameState, WarGoal } from './types';
 import { build, canBuild, buildCost } from './systems/economy';
 import { startReform, reformSupport } from './systems/politics';
 import { availableTechs } from './systems/technology';
-import { declareWar, formAlliance, breakAlliance, declareRivalry, guarantee, improveRelations, joinCustomsUnion, allianceAcceptance } from './systems/diplomacy';
+import { declareWar, formAlliance, breakAlliance, declareRivalry, guarantee, improveRelations, joinCustomsUnion, allianceAcceptance, boundSubject } from './systems/diplomacy';
 import { applyWindowOption } from './systems/events';
 import { endWar } from './systems/military';
 import { clamp, log } from './core';
@@ -47,7 +47,8 @@ export function execute(st: GameState, cmd: Command): CommandResult {
     }
     case 'set_research': if (!availableTechs(me).includes(cmd.tech)) return { ok: false, reason: 'Prerequisites missing or already known' }; me.research = { current: cmd.tech, progress: 0 }; return { ok: true };
     case 'improve_relations': improveRelations(st, me.id, cmd.target); return { ok: true };
-    case 'propose_alliance': return formAlliance(st, me.id, cmd.target) ? { ok: true } : { ok: false, reason: `Refused (acceptance ${allianceAcceptance(st, cmd.target, me.id).toFixed(1)})` };
+    case 'propose_alliance': if (boundSubject(me) || boundSubject(st.countries[cmd.target])) return { ok: false, reason: 'Subjects (other than tributaries) cannot form alliances' };
+      return formAlliance(st, me.id, cmd.target) ? { ok: true } : { ok: false, reason: `Refused (acceptance ${allianceAcceptance(st, me.id, cmd.target).toFixed(1)} < 0)` };
     case 'break_alliance': breakAlliance(st, me.id, cmd.target); return { ok: true };
     case 'declare_rival': declareRivalry(st, me.id, cmd.target); return { ok: true };
     case 'guarantee': guarantee(st, me.id, cmd.target); return { ok: true };

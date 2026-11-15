@@ -74,6 +74,8 @@ export function updatePolitics(st: GameState, c: Country, init = false) {
   }
   c.radicalism = radPop / pop;
   c.stats.pop = pop; c.stats.sol = sol; c.stats.literacy = regs.reduce((s, r) => s + r.literacy * r.pop, 0) / pop;
+  // industry: share of the population employed in manufacturing buildings (2,000 workers per level, as LEVEL_WORKERS in economy)
+  c.stats.industry = regs.reduce((s, r) => s + (r.buildings.textile_mill + r.buildings.ironworks + r.buildings.tool_works + r.buildings.arms_works + r.buildings.luxury_workshop) * 2000, 0) / pop;
 }
 
 /** Support for changing a law: clout-weighted change in approval. Positive = more support than opposition. */
@@ -151,9 +153,48 @@ function revolutionCheck(st: GameState, c: Country) {
 
 export function sharesBorder(st: GameState, a: string, b: string): boolean { return bordersOf(st, a).has(b); }
 
-const NAME_POOL = ['Albrecht', 'Carlos', 'Dmitri', 'Edmund', 'Farid', 'Gustav', 'Henri', 'Ismail', 'Jorge', 'Karl', 'Luis', 'Mehmed', 'Nikolai', 'Otto', 'Pedro', 'Rashid', 'Stefan', 'Tomás', 'Viktor', 'Wilhelm', 'Yusuf', 'Zhang', 'Nguyễn', 'Hiroshi', 'Kwame', 'Amir'];
+/**
+ * Name pools for generated (non-historical) leaders, chosen by the religion and language family of the capital region.
+ * These are generic given names, not research data: every generated leader is labelled "(…, generated)" in the UI and logs.
+ */
+const NAME_POOLS: Record<string, string[]> = {
+  islamic: ['Ahmad', 'Ali', 'Hasan', 'Ibrahim', 'Ismail', 'Mehmed', 'Mustafa', 'Rashid', 'Yusuf', 'Umar', 'Abbas', 'Karim'],
+  germanic: ['Albrecht', 'Friedrich', 'Heinrich', 'Karl', 'Otto', 'Wilhelm', 'Gustav', 'Johan', 'Willem', 'Edmund', 'Henry', 'Erik'],
+  romance: ['Carlos', 'Fernando', 'Luis', 'Pedro', 'Jorge', 'Tomás', 'Henri', 'Louis', 'Giuseppe', 'Vittorio', 'João', 'Miguel'],
+  slavic: ['Dmitri', 'Nikolai', 'Stefan', 'Viktor', 'Jan', 'Miloš', 'Aleksandar', 'Bogdan', 'Ivan', 'Kazimierz'],
+  uralic: ['Pál', 'László', 'Gábor', 'Antti', 'Juhan', 'Mihály'],
+  hellenic: ['Alexandros', 'Dimitrios', 'Georgios', 'Konstantinos', 'Nikolaos'],
+  caucasus: ['Davit', 'Giorgi', 'Levon', 'Tigran', 'Vakhtang'],
+  indic: ['Gopal', 'Pratap', 'Ram', 'Venkata', 'Krishna', 'Madhav', 'Shankar', 'Hari'],
+  sikh: ['Gurdit Singh', 'Hari Singh', 'Jaswant Singh', 'Kharak Singh'],
+  chinese: ['Wei', 'Ming', 'Zhao', 'Jun', 'Hong', 'Rui'],
+  japanese: ['Hiroshi', 'Tadashi', 'Yoshinori', 'Masahiro', 'Nobuhiro'],
+  korean: ['Hwan', 'Seong', 'Jin', 'Yeong'],
+  vietnamese: ['Phúc', 'Thành', 'Minh', 'Đức', 'Bảo'],
+  sea: ['Ang', 'Chakri', 'Thado', 'Sri', 'Mangku'],
+  inner_asia: ['Batu', 'Temur', 'Dorji', 'Galdan'],
+  african: ['Kwame', 'Kofi', 'Ade', 'Osei', 'Mensah', 'Chuma', 'Tafari', 'Lerato'],
+  generic: ['Arno', 'Tomas', 'Kaito', 'Lior', 'Malu', 'Toa', 'Inti', 'Nayra'],
+};
+const FAMILY_POOL: Record<string, string> = {
+  germanic: 'germanic', celtic: 'germanic', romance: 'romance', slavic: 'slavic', baltic: 'slavic', uralic: 'uralic', hellenic: 'hellenic', albanian: 'hellenic',
+  armenian: 'caucasus', kartvelian: 'caucasus', caucasian: 'caucasus', turkic: 'islamic', iranian: 'islamic', semitic: 'islamic', berber: 'islamic', afroasiatic: 'islamic', cushitic: 'african',
+  indo_aryan: 'indic', dravidian: 'indic', sino_tibetan: 'chinese', japonic: 'japanese', koreanic: 'korean', austroasiatic: 'sea', tai: 'sea', austronesian: 'sea',
+  mongolic: 'inner_asia', tungusic: 'inner_asia', niger_congo: 'african', nilo_saharan: 'african', khoe: 'african',
+};
+function namePool(st: GameState, c: Country): string[] {
+  const d = data();
+  const cap = st.regions.find((r) => r.id === c.capital) ?? regionsOf(st, c.id)[0];
+  if (!cap) return NAME_POOLS.generic;
+  if (['sunni', 'shia', 'ibadi'].includes(cap.religion)) return NAME_POOLS.islamic;
+  if (cap.religion === 'sikh') return NAME_POOLS.sikh;
+  if (cap.culture === 'vietnamese') return NAME_POOLS.vietnamese;
+  const fam = d.db.cultures.find((x) => x.id === cap.culture)?.family ?? '';
+  return NAME_POOLS[FAMILY_POOL[fam] ?? 'generic'];
+}
 export function generatedName(st: GameState, c: Country, role: string): string {
-  const base = NAME_POOL[Math.floor(rand(st) * NAME_POOL.length)];
+  const pool = namePool(st, c);
+  const base = pool[Math.floor(rand(st) * pool.length)];
   return `${base} (${role}, generated)`;
 }
 

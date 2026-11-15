@@ -55,7 +55,10 @@ export function allianceAcceptance(st: GameState, from: string, to: string): num
   if (atWar(st, from)) s -= 2;
   return s;
 }
+/** Subjects other than tributaries have no independent foreign policy (same rule for AI and player). */
+export const boundSubject = (c: Country | undefined) => !!c?.overlord && c.subjectType !== 'tributary';
 export function formAlliance(st: GameState, a: string, b: string): boolean {
+  if (boundSubject(st.countries[a]) || boundSubject(st.countries[b])) return false;
   if (allied(st, a, b) || allianceAcceptance(st, a, b) < 0) return false;
   st.treaties.push({ id: newId(st, 'ally'), type: 'alliance', members: [a, b], start: st.tick });
   addRel(st, a, b, 15);
@@ -83,27 +86,41 @@ export function joinCustomsUnion(st: GameState, c: Country, unionId: string): bo
 }
 
 /** Declares war with goals; resolves calls to arms and possible intervention by rival great powers. */
+/**
+ * Who would fight on each side if `attacker` declared war on `defender` now, and the infamy cost.
+ * Pure (no state change): used by declareWar itself and by the UI DecisionSheet, so the preview cannot drift from the rule.
+ */
+export function warSides(st: GameState, attacker: string, defender: string, goals: WarGoal[]) {
+  const a = st.countries[attacker], dC = st.countries[defender];
+  const defLeader = dC.overlord && st.countries[dC.overlord]?.alive && dC.subjectType !== 'tributary' ? dC.overlord : defender;
+  const attackers = [attacker];
+  const defenders = [...new Set([defender, defLeader])];
+  const joined: { id: string; reason: 'subject' | 'alliance' | 'guarantee' | 'great_power' }[] = [];
+  // subjects follow overlords
+  for (const c of Object.values(st.countries)) if (c.alive && c.overlord === attacker && c.subjectType !== 'tributary' && c.subjectType !== 'personal_union') { attackers.push(c.id); joined.push({ id: c.id, reason: 'subject' }); }
+  // defensive alliances and guarantees (a country already fighting for the attacker, e.g. its subject, cannot also defend)
+  for (const t of st.treaties) {
+    if (t.type === 'alliance' && t.members.includes(defender)) for (const m of t.members) if (m !== defender && !attackers.includes(m) && !defenders.includes(m) && st.countries[m]?.alive && !t.members.includes(attacker) && joinWillingness(st, m, attacker, defender) > 0) { defenders.push(m); joined.push({ id: m, reason: 'alliance' }); }
+    if (t.type === 'guarantee' && t.members[1] === defender && !attackers.includes(t.members[0]) && !defenders.includes(t.members[0])) { defenders.push(t.members[0]); joined.push({ id: t.members[0], reason: 'guarantee' }); }
+  }
+  // great-power intervention against an aggressive rival
+  for (const gp of greatPowers(st)) {
+    if (attackers.includes(gp) || defenders.includes(gp)) continue;
+    if ((rivals(st, gp, attacker) && getRel(st, gp, defender) > 10) || (st.countries[gp].ai.planTarget === `support:${defender}`)) {
+      if (joinWillingness(st, gp, attacker, defender) > 1.5) { defenders.push(gp); joined.push({ id: gp, reason: 'great_power' }); }
+    }
+  }
+  const infamy = goals.reduce((s, g) => s + (g.regions?.length ?? 1) * (g.type === 'colonize' ? 1 : 3), 0);
+  return { attackerLeader: attacker, defenderLeader: defLeader, attackers, defenders, joined, infamy, attackerName: a.name };
+}
+
 export function declareWar(st: GameState, attacker: string, defender: string, goals: WarGoal[], name?: string, kind: War['kind'] = 'conquest'): War | null {
   const a = st.countries[attacker], dC = st.countries[defender];
   if (!a?.alive || !dC?.alive || attacker === defender) return null;
   if (st.wars.some((w) => (w.attackers.members.includes(attacker) && w.defenders.members.includes(defender)) || (w.attackers.members.includes(defender) && w.defenders.members.includes(attacker)))) return null;
-  const defLeader = dC.overlord && st.countries[dC.overlord]?.alive && dC.subjectType !== 'tributary' ? dC.overlord : defender;
-  const w: War = { id: newId(st, 'war'), name: name ?? `${a.name}–${dC.name} War`, kind, attackers: { leader: attacker, members: [attacker] }, defenders: { leader: defLeader, members: [...new Set([defender, defLeader])] }, goals, start: st.tick, score: 0, occupied: [], battles: 0, exhaustion: { a: 0, d: 0 } };
-  // subjects follow overlords
-  for (const c of Object.values(st.countries)) if (c.alive && c.overlord === attacker && c.subjectType !== 'tributary' && c.subjectType !== 'personal_union') w.attackers.members.push(c.id);
-  // defensive alliances and guarantees
-  for (const t of st.treaties) {
-    if (t.type === 'alliance' && t.members.includes(defender)) for (const m of t.members) if (m !== defender && m !== attacker && !w.defenders.members.includes(m) && st.countries[m]?.alive && !t.members.includes(attacker) && joinWillingness(st, m, attacker, defender) > 0) w.defenders.members.push(m);
-    if (t.type === 'guarantee' && t.members[1] === defender && t.members[0] !== attacker && !w.defenders.members.includes(t.members[0])) w.defenders.members.push(t.members[0]);
-  }
-  // great-power intervention against an aggressive rival
-  for (const gp of greatPowers(st)) {
-    if (w.attackers.members.includes(gp) || w.defenders.members.includes(gp)) continue;
-    if ((rivals(st, gp, attacker) && getRel(st, gp, defender) > 10) || (st.countries[gp].ai.planTarget === `support:${defender}`)) {
-      if (joinWillingness(st, gp, attacker, defender) > 1.5) w.defenders.members.push(gp);
-    }
-  }
-  a.infamy += goals.reduce((s, g) => s + (g.regions?.length ?? 1) * (g.type === 'colonize' ? 1 : 3), 0);
+  const sides = warSides(st, attacker, defender, goals);
+  const w: War = { id: newId(st, 'war'), name: name ?? `${a.name}–${dC.name} War`, kind, attackers: { leader: attacker, members: sides.attackers }, defenders: { leader: sides.defenderLeader, members: sides.defenders }, goals, start: st.tick, score: 0, occupied: [], battles: 0, exhaustion: { a: 0, d: 0 } };
+  a.infamy += sides.infamy;
   for (const x of w.attackers.members) for (const y of w.defenders.members) st.relations[relKey(x, y)] = Math.min(st.relations[relKey(x, y)] ?? 0, -60);
   st.wars.push(w);
   if (!dC.decentralized || a.tier === 'A' || st.player === attacker || st.player === defender)
