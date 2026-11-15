@@ -56,3 +56,29 @@ describe('save/load', () => {
   });
   it('rejects foreign files', () => { expect(() => deserialize('{"format":"x"}')).toThrow(); });
 });
+
+describe('war support (Pass 16 pack, ch. 34/73: exhaustion alone does not capitulate)', () => {
+  it('an exhausted attacker that is winning stays in the war', async () => {
+    const { declareWar } = await import('../src/engine/systems/diplomacy');
+    const { militaryMonth } = await import('../src/engine/systems/military');
+    const st = fresh('sandbox', 5, null);
+    const a = 'FRA', d = 'SAR';
+    declareWar(st, a, d, [{ by: a, type: 'subjugate', target: d }], 'Test war');
+    const w = st.wars[st.wars.length - 1];
+    for (const m of w.attackers.members) st.countries[m].warExhaustion = 99;
+    w.score = 40;
+    militaryMonth(st);
+    expect(st.wars.some((x) => x.id === w.id)).toBe(true);
+  });
+  it('an exhausted attacker that is losing gives up', async () => {
+    const { declareWar } = await import('../src/engine/systems/diplomacy');
+    const { militaryMonth } = await import('../src/engine/systems/military');
+    const st = fresh('sandbox', 5, null);
+    declareWar(st, 'SAR', 'FRA', [{ by: 'SAR', type: 'subjugate', target: 'FRA' }], 'Test war 2');
+    const w = st.wars[st.wars.length - 1];
+    for (const m of w.attackers.members) st.countries[m].warExhaustion = 99;
+    w.score = -30;
+    militaryMonth(st);
+    expect(st.wars.some((x) => x.id === w.id)).toBe(false);
+  });
+});

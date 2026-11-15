@@ -122,7 +122,8 @@ function warMonth(st: GameState, w: War) {
   const months = st.tick - w.start;
   // peace logic (AI acceptance thresholds; player wars resolve the same way unless the player negotiates)
   if (w.score > 55 || (w.score > 25 && exD > 60) || (w.score > 10 && exD > 85)) return endWar(st, w, 'attackers', 'capitulation');
-  if (w.score < -45 || (w.score < -10 && exA > 60) || exA > 92) return endWar(st, w, 'defenders', 'defeat of the attackers');
+  // exhaustion alone never forces capitulation: an exhausted side gives up only while it is also losing
+  if (w.score < -45 || (w.score < -10 && exA > 60) || (w.score < 0 && exA > 92)) return endWar(st, w, 'defenders', 'defeat of the attackers');
   if (months > 72 && Math.abs(w.score) < 20) return endWar(st, w, 'white', 'stalemate');
   if (months > 144) return endWar(st, w, w.score > 0 ? 'attackers' : w.score < 0 ? 'defenders' : 'white', 'exhaustion after twelve years');
 }
