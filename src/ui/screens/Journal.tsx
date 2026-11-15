@@ -2,11 +2,11 @@
 import { useState } from 'preact/hooks';
 import type { GameState } from '../../engine/types';
 import { data } from '../../engine/data/db';
-import { Section, LineChart, modals } from '../components/ui';
+import { Sec, Metric, Seg, LineChart, modals, useWidth } from '../components/ui';
 import { Icon } from '../components/icons';
 import { LOG_TYPE_VI, GROUP_VI, lawVi, pct } from '../i18n/vi';
 import { shortName } from '../game/names';
-import { viewedId, send, canCommand } from './common';
+import { viewedId, send, canCommand, Flag, focusRegion, regionName, LOG_ICON } from './common';
 import { game } from '../game/controller';
 import type { LawGroup } from '../../engine/data/dbTypes';
 
@@ -27,65 +27,97 @@ const OPTION_VI: Record<string, string> = {
 const effText = (e: any) => e.type === 'set_law' ? `${GROUP_VI[e.group as LawGroup] ?? e.group} → ${lawVi(e.value)}` : e.type === 'relation' ? `Quan hệ ${shortName(null, e.a)}–${shortName(null, e.b)} ${e.delta > 0 ? '+' : ''}${e.delta}` : e.type === 'transfer_region' ? `Chuyển vùng ${data().region.get(e.region)?.name ?? e.region}` : e.type === 'drop_claims' ? 'Từ bỏ yêu sách lãnh thổ' : e.type.replace(/_/g, ' ');
 
 export function JournalScreen({ st, tab }: { st: GameState; tab: string }) {
-  const id = viewedId(st);
-  const [type, setType] = useState<string>('all'); const [mineOnly, setMineOnly] = useState(true);
-  if (tab === 'log') {
-    const types = ['all', 'war', 'diplomacy', 'law', 'succession', 'state', 'revolution'];
-    const list = st.log.filter((l) => (type === 'all' || l.type === type) && (!mineOnly || l.actors.includes(id))).slice(-200).reverse();
-    return (
-      <div>
-        <div class="seg" style="margin-bottom:4px;overflow-x:auto">{types.map((t) => <button class={type === t ? 'on' : ''} onClick={() => setType(t)} style="flex:0 0 auto;padding:0 10px">{t === 'all' ? 'Tất cả' : LOG_TYPE_VI[t] ?? t}</button>)}</div>
-        <div class="seg" style="margin-bottom:6px"><button class={mineOnly ? 'on' : ''} onClick={() => setMineOnly(true)}>Liên quan {shortName(st, id)}</button><button class={!mineOnly ? 'on' : ''} onClick={() => setMineOnly(false)}>Toàn thế giới</button></div>
-        {list.length ? list.map((l, i) => <div class="logline" key={i}><span class="dt">{l.date.slice(0, 7)}</span><span>{l.textVi ?? l.text}{l.divergence && <span class="warn" title="Khác với lịch sử thực"> ⑂</span>}</span></div>) : <div class="empty">Chưa có sự kiện nào.</div>}
-      </div>
-    );
-  }
-  if (tab === 'territory') {
-    const list = [...st.territoryLog].reverse().slice(0, 200);
-    return list.length ? (
-      <div>{list.map((t, i) => <div class="logline" key={i}><span class="dt">{t.date.slice(0, 7)}</span><span><b class="serif">{data().region.get(t.region)?.name ?? t.region}</b>: {shortName(st, t.from)} → {shortName(st, t.to)} <span class="dim">({t.cause})</span>{t.historicalMatch === true ? <span class="pos"> · đúng lịch sử</span> : t.historicalMatch === false ? <span class="warn"> · khác lịch sử</span> : ''}</span></div>)}</div>
-    ) : <div class="empty">Chưa có thay đổi lãnh thổ nào.</div>;
-  }
-  if (tab === 'history') {
-    const sim = st.divergence.similarity; const ms = data().db.milestones;
-    return (
-      <div>
-        <div class="note">{st.mode === 'sandbox' ? 'Sandbox: so sánh chỉ để tham khảo, không tác động mô phỏng.' : 'Lịch sử: mô phỏng không bị ép theo lịch sử; đây là mức độ trùng khớp đo được.'}</div>
-        <Section title="Mức tương đồng với lịch sử thực">
-          <LineChart years={sim.map((s) => Number(s.date.slice(0, 4)))} series={[{ name: 't', color: '#93bad6', values: sim.map((s) => s.territorial) }, { name: 'm', color: '#e3b65e', values: sim.map((s) => s.milestones) }, { name: 'c', color: '#93c47a', values: sim.map((s) => s.combined) }]} fmtY={(v) => pct(v)} />
-          <div class="rowline" style="gap:14px;font-size:12.5px"><span><i class="sw" style="display:inline-block;background:#93bad6" /> Lãnh thổ</span><span><i class="sw" style="display:inline-block;background:#e3b65e" /> Mốc lịch sử</span><span><i class="sw" style="display:inline-block;background:#93c47a" /> Tổng hợp</span></div>
-        </Section>
-        <Section title="Các mốc lịch sử" extra={`${ms.length} mốc`}>
-          {ms.map((m) => { const s = st.divergence.milestones[m.id]; const stt = s?.status ?? 'pending'; return <div class="rowline" key={m.id}><span class={stt === 'achieved' ? 'pos' : stt === 'missed' ? 'neg' : 'dim'} style="width:18px">{stt === 'achieved' ? '✓' : stt === 'missed' ? '✗' : '·'}</span><span class="grow" style="white-space:normal">{m.label}</span><span class="dim num">{m.check_date.slice(0, 4)}</span></div>; })}
-          <div class="note">Mô tả mốc hiển thị bằng tiếng Anh theo cơ sở dữ liệu.</div>
-        </Section>
-      </div>
-    );
-  }
-  // decisions
-  const pend = st.pendingPlayerDecisions;
+  if (tab === 'log') return <LogTab st={st} />;
+  if (tab === 'territory') return <TerritoryTab st={st} />;
+  if (tab === 'history') return <HistoryTab st={st} />;
+  return <Decisions st={st} />;
+}
+
+function Decisions({ st }: { st: GameState }) {
+  const id = viewedId(st); const pend = st.pendingPlayerDecisions; const mine = canCommand(st, id);
   const windows = data().db.decision_windows.filter((w) => w.entity === id);
+  const now = `${st.date.y}-${String(st.date.m).padStart(2, '0')}`;
+  const status = (w: (typeof windows)[number]) => (pend.some((p) => p.windowId === w.id) ? ['Đang chờ quyết định', 'warn'] : st.firedEvents.includes(w.id) ? ['Đã diễn ra', 'flat'] : now > w.window[1].slice(0, 7) ? ['Đã đóng', 'flat'] : now < w.window[0].slice(0, 7) ? ['Chưa mở', 'flat'] : ['Đang mở — chờ điều kiện', 'up']);
   return (
-    <div>
-      {st.mode === 'sandbox' && <div class="note box">Sandbox không có cửa sổ quyết định lịch sử; các biến cố xuất hiện ngẫu nhiên theo cùng hệ thống.</div>}
+    <div class="pad">
+      {st.mode === 'sandbox' && <div class="banner"><Icon name="scroll" /><div class="grow">Sandbox không có cửa sổ quyết định lịch sử; biến cố xuất hiện theo cùng hệ thống mô phỏng.</div></div>}
       {pend.map((p) => { const w = data().db.decision_windows.find((x) => x.id === p.windowId); if (!w) return null; return (
-        <Section key={p.id} title={DW_TITLE[w.id] ?? w.id} left extra={`hạn ${w.window[1].slice(0, 7)}`}>
-          <div class="plate">
-            <div class="muted" style="font-size:13px;margin-bottom:6px">Cửa sổ quyết định lịch sử của {shortName(st, w.entity)} · mở {w.window[0].slice(0, 7)} · sự kiện thực tế {w.date_historical}</div>
-            {w.options.map((o) => (
-              <div class="entry" key={o.id} style="cursor:default">
-                <span class="ico"><Icon name={o.historical ? 'scroll' : 'flag'} /></span>
-                <div class="main"><div class="cat">{o.historical ? 'Phương án đã xảy ra trong lịch sử' : 'Phương án rẽ nhánh'}</div><div class="ttl">{OPTION_VI[o.id] ?? o.id.replace(/_/g, ' ')}</div><div class="meta">{o.effects.length ? o.effects.map(effText).join(' · ') : 'Không thay đổi luật'}</div></div>
-                {canCommand(st, id) && <button class="btn sm" onClick={() => send({ type: 'decide', pendingId: p.id, option: o.id }, `Đã quyết định: ${OPTION_VI[o.id] ?? o.id}`)}>Chọn</button>}
-              </div>
-            ))}
-          </div>
-        </Section>); })}
-      {!pend.length && <div class="empty">Không có quyết định nào đang chờ.</div>}
-      {windows.length > 0 && <Section title="Các cửa sổ quyết định của quốc gia này">
-        {windows.map((w) => <div class="rowline" key={w.id}><span class="grow serif" style="font-size:15px">{DW_TITLE[w.id] ?? w.id}</span><span class="dim num">{w.window[0].slice(0, 4)}–{w.window[1].slice(0, 4)}</span></div>)}
+        <section class="journal" key={p.id}>
+          <header><Icon name="scroll" /><h4>{DW_TITLE[w.id] ?? w.id}</h4><span class="ctx">hạn {w.window[1].slice(0, 7)}</span></header>
+          <div class="s">Cửa sổ quyết định lịch sử của {shortName(st, w.entity)} · mở {w.window[0].slice(0, 7)} · sự kiện thực tế {w.date_historical}</div>
+          {w.options.map((o) => (
+            <div class="option" key={o.id}>
+              <div class="oh"><span class="ot">{OPTION_VI[o.id] ?? o.id.replace(/_/g, ' ')}</span><span class={`tag ${o.historical ? 'up' : 'flat'}`}>{o.historical ? 'Đã xảy ra trong lịch sử' : 'Rẽ nhánh'}</span></div>
+              <div class="s">{o.effects.length ? o.effects.map(effText).join(' · ') : 'Không thay đổi luật'}</div>
+              {mine && <div style="margin-top:6px"><button class="btn sm" onClick={() => send({ type: 'decide', pendingId: p.id, option: o.id }, `Đã quyết định: ${OPTION_VI[o.id] ?? o.id}`)}>Chọn</button></div>}
+            </div>
+          ))}
+        </section>); })}
+      {!pend.length && <div class="empty sm">Không có quyết định nào đang chờ.</div>}
+      {windows.length > 0 && <Sec title="Cửa sổ quyết định của quốc gia" x={`${windows.length}`}>
+        <table class="dt"><thead><tr><th>Quyết định</th><th class="r">Cửa sổ</th><th class="r">Trạng thái</th></tr></thead>
+          <tbody>{windows.map((w) => { const [t, cls] = status(w); return <tr key={w.id} style="cursor:default"><td style="white-space:normal"><div class="nm">{DW_TITLE[w.id] ?? w.id}</div><div class="sub">lịch sử: {w.date_historical}</div></td><td class="r num">{w.window[0].slice(0, 4)}–{w.window[1].slice(0, 4)}</td><td class="r"><span class={`tag ${cls}`}>{t}</span></td></tr>; })}</tbody></table>
         <div class="note">Cửa sổ chỉ mở khi điều kiện lịch sử thỏa mãn; phương án lịch sử không bị ép.</div>
-      </Section>}
+      </Sec>}
+    </div>
+  );
+}
+
+function LogTab({ st }: { st: GameState }) {
+  const id = viewedId(st); const [type, setType] = useState<string>('all'); const [mineOnly, setMineOnly] = useState<'mine' | 'world'>('mine');
+  const types = ['all', 'war', 'diplomacy', 'law', 'succession', 'state', 'revolution'];
+  const list = st.log.filter((l) => (type === 'all' || l.type === type) && (mineOnly === 'world' || l.actors.includes(id))).slice(-250).reverse();
+  return (
+    <div class="pad">
+      <div class="toolrow">
+        <Seg value={mineOnly} onChange={setMineOnly} options={[['mine', `Liên quan ${shortName(st, id)}`], ['world', 'Toàn thế giới']] as const} />
+        <div class="chips">{types.map((t) => <button key={t} class={`chip${type === t ? ' on' : ''}`} onClick={() => setType(t)}>{t !== 'all' && <Icon name={LOG_ICON[t] ?? 'scroll'} />}{t === 'all' ? 'Tất cả' : LOG_TYPE_VI[t] ?? t}</button>)}</div>
+      </div>
+      {list.length ? list.map((l, i) => <div class="logline" key={i}><span class="dt">{l.date.slice(0, 7)}</span><span title={LOG_TYPE_VI[l.type] ?? l.type}><Icon name={LOG_ICON[l.type] ?? 'scroll'} /></span><span>{l.textVi ?? l.text}{l.divergence && <span class="warn" title="Khác với lịch sử thực"> ⑂</span>}{l.historical && <span class="pos" title="Trùng với lịch sử"> ✓</span>}</span></div>) : <div class="empty">Chưa có sự kiện nào.</div>}
+      <div class="note">⑂ = khác với lịch sử thực · ✓ = trùng với lịch sử.</div>
+    </div>
+  );
+}
+
+function TerritoryTab({ st }: { st: GameState }) {
+  const list = [...st.territoryLog].reverse().slice(0, 250); const [ref, w] = useWidth<HTMLDivElement>();
+  if (!list.length) return <div class="pad"><div class="empty">Chưa có thay đổi lãnh thổ nào.</div></div>;
+  return (
+    <div class="pad" ref={ref}>
+      <table class="dt">
+        <thead><tr><th>Ngày</th><th>Vùng</th><th>Chuyển giao</th>{w >= 520 && <th>Nguyên nhân</th>}<th class="r">Lịch sử</th></tr></thead>
+        <tbody>{list.map((t, i) => (
+          <tr key={i} onClick={() => focusRegion(t.region)}>
+            <td class="num dim">{t.date.slice(0, 7)}</td>
+            <td><div class="nm ellipsis" style="max-width:180px">{regionName(t.region)}</div>{w < 520 && <div class="sub">{t.cause}</div>}</td>
+            <td><span class="cell-ic"><Flag c={st.countries[t.from]} sm />{shortName(st, t.from)} → <Flag c={st.countries[t.to]} sm />{shortName(st, t.to)}</span></td>
+            {w >= 520 && <td class="muted">{t.cause}</td>}
+            <td class="r">{t.historicalMatch === true ? <span class="tag up">đúng</span> : t.historicalMatch === false ? <span class="tag warn">khác</span> : <span class="dim">—</span>}</td>
+          </tr>))}</tbody>
+      </table>
+    </div>
+  );
+}
+
+function HistoryTab({ st }: { st: GameState }) {
+  const sim = st.divergence.similarity; const ms = data().db.milestones; const last = sim[sim.length - 1];
+  const done = ms.filter((m) => st.divergence.milestones[m.id]?.status === 'achieved').length, missed = ms.filter((m) => st.divergence.milestones[m.id]?.status === 'missed').length;
+  return (
+    <div class="pad">
+      <div class="note" style="margin-top:0">{st.mode === 'sandbox' ? 'Sandbox: so sánh chỉ để tham khảo, không tác động mô phỏng.' : 'Lịch sử: mô phỏng không bị ép theo lịch sử; đây là mức trùng khớp đo được.'}</div>
+      <div class="metrics">
+        <Metric label="Tương đồng lãnh thổ" value={last ? pct(last.territorial) : '—'} />
+        <Metric label="Mốc đạt / lỡ" value={`${done} / ${missed}`} d={<span class="dim">trên {ms.length} mốc</span>} />
+        <Metric label="Tổng hợp" value={last ? pct(last.combined) : '—'} />
+      </div>
+      <Sec title="Mức tương đồng theo thời gian">
+        <LineChart years={sim.map((s) => Number(s.date.slice(0, 4)))} series={[{ name: 'Lãnh thổ', color: '#93bad6', values: sim.map((s) => s.territorial) }, { name: 'Mốc lịch sử', color: '#e3b65e', values: sim.map((s) => s.milestones) }, { name: 'Tổng hợp', color: '#93c47a', values: sim.map((s) => s.combined) }]} fmtY={(v) => pct(v)} />
+      </Sec>
+      <Sec title="Các mốc lịch sử" x={`${ms.length} mốc`}>
+        <table class="dt"><thead><tr><th style="width:26px" /><th>Mốc</th><th class="r">Hạn</th></tr></thead>
+          <tbody>{ms.map((m) => { const s = st.divergence.milestones[m.id]; const stt = s?.status ?? 'pending'; return <tr key={m.id} style="cursor:default"><td class={stt === 'achieved' ? 'pos' : stt === 'missed' ? 'neg' : 'dim'}>{stt === 'achieved' ? '✓' : stt === 'missed' ? '✗' : '·'}</td><td style="white-space:normal">{m.label}{s?.date && <div class="sub">{stt === 'achieved' ? 'đạt' : 'lỡ'} {s.date.slice(0, 7)}</div>}</td><td class="r num dim">{m.check_date.slice(0, 4)}</td></tr>; })}</tbody></table>
+        <div class="note">Mô tả mốc hiển thị bằng tiếng Anh theo cơ sở dữ liệu.</div>
+      </Sec>
     </div>
   );
 }
@@ -96,8 +128,8 @@ export function InboxScreen({ st }: { st: GameState }) {
   const items = st.log.slice(since).filter((l) => l.actors.includes(id) || ['war', 'revolution', 'state'].includes(l.type)).reverse();
   return (
     <div>
-      {items.length ? items.map((l, i) => <div class="logline" key={i}><span class="dt">{l.date.slice(0, 7)}</span><span>{l.textVi ?? l.text}</span></div>) : <div class="empty">Không có thông báo mới.</div>}
-      <div class="btns" style="margin-top:8px"><button class="btn" onClick={() => { game.readLogCount = st.log.length; game.emit(); modals.close(); }}>Đánh dấu đã đọc</button></div>
+      {items.length ? items.map((l, i) => <div class="logline" key={i}><span class="dt">{l.date.slice(0, 7)}</span><span title={LOG_TYPE_VI[l.type] ?? l.type}><Icon name={LOG_ICON[l.type] ?? 'scroll'} /></span><span>{l.textVi ?? l.text}</span></div>) : <div class="empty">Không có thông báo mới.</div>}
+      <div class="btns" style="margin-top:10px"><button class="btn" onClick={() => { game.readLogCount = st.log.length; game.emit(); modals.close(); }}>Đánh dấu đã đọc</button></div>
     </div>
   );
 }

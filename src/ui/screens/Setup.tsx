@@ -26,24 +26,24 @@ export function Setup() {
     <div class="setup">
       <div class="inner">
         <h1>Dòng chảy Lịch sử</h1>
-        <div class="tag">Đại chiến lược 1836 — trên bản đồ thế giới thật</div>
-        {slots.length > 0 && <div class="plate" style="margin-bottom:10px"><div class="serif" style="font-size:16px;margin-bottom:6px">Tiếp tục ván đã lưu</div><div class="btns">{slots.slice(0, 3).map((s) => <button class="btn sm" key={s} onClick={() => cont(s)}>{s}</button>)}</div></div>}
-        <div class="shead">Chế độ thế giới</div>
+        <div class="tag2">Đại chiến lược 1836 — trên bản đồ thế giới thật</div>
+        {slots.length > 0 && <section class="sec"><h4 class="sec-t">Tiếp tục ván đã lưu</h4><div class="btns">{slots.slice(0, 3).map((s) => <button class="btn sm" key={s} onClick={() => cont(s)}>{s}</button>)}</div></section>}
+        <h4 class="sec-t" style="margin-top:16px">Chế độ thế giới</h4>
         <div class="modecards">
           <button class={`modecard${mode === 'historical' ? ' on' : ''}`} onClick={() => setMode('historical')}><h3>Lịch sử</h3><p>Dữ liệu 1836 có nguồn và nhãn độ tin cậy. Các quốc gia theo đuổi ưu tiên lịch sử và gặp cửa sổ quyết định đúng thời điểm — nhưng không bị ép: lịch sử có thể rẽ nhánh.</p></button>
           <button class={`modecard${mode === 'sandbox' ? ' on' : ''}`} onClick={() => setMode('sandbox')}><h3>Sandbox – Lịch sử thay thế</h3><p>Cùng thế giới xuất phát và cùng hệ thống mô phỏng, không có sự kiện lịch sử định sẵn. AI giữ tính cách từ dữ liệu lịch sử nhưng tự do tạo ra thế giới khác.</p></button>
         </div>
-        <div class="shead" style="margin-top:12px">Vai trò</div>
+        <h4 class="sec-t" style="margin-top:16px">Vai trò</h4>
         <div class="seg"><button class={!observer ? 'on' : ''} onClick={() => setObserver(false)}>Chơi một quốc gia</button><button class={observer ? 'on' : ''} onClick={() => setObserver(true)}>Quan sát thế giới</button></div>
         {!observer && <>
-          <div class="shead" style="margin-top:12px">Quốc gia ({ents.length} chính thể)</div>
+          <h4 class="sec-t" style="margin-top:16px">Quốc gia <span class="x">{ents.length} chính thể</span></h4>
           <input class="field" placeholder="Tìm theo tên tiếng Việt hoặc tiếng Anh…" value={q} onInput={(e) => setQ((e.target as HTMLInputElement).value)} />
-          <div class="tbl-wrap" style="max-height:44vh;overflow-y:auto;margin-top:6px">
-            <table class="ledger compact">
+          <div class="scrollbox" style="max-height:44vh;margin-top:6px">
+            <table class="dt">
               <thead><tr><th>Quốc gia</th><th class="r">Dân số 1836</th><th class="r">Hồ sơ</th></tr></thead>
               <tbody>{list.map((e) => (
                 <tr key={e.id} class={pick === e.id ? 'on' : ''} onClick={() => setPick(e.id)}>
-                  <td><span class="gi"><span class="flag sm" style={`background:${e.color}`} /><span class="nm" style="white-space:normal">{e.vi}</span></span></td>
+                  <td><span class="cell-ic"><span class="flag sm" style={`background:${e.color}`} /><span class="nm" style="white-space:normal">{e.vi}</span></span></td>
                   <td class="r num">{compact((e.population as any).value ?? 0)} <QualityMark quality={e.population.quality} sources={e.population.sources as any} method={e.population.method} /></td>
                   <td class="r num dim">{pct(e.research_completeness)}</td>
                 </tr>))}</tbody>
@@ -51,7 +51,7 @@ export function Setup() {
           </div>
           {sel && <div class="note">{sel.vi} — {govVi((sel as any).government ?? '')} · {TIER_VI[sel.tier] ?? sel.tier}. “Hồ sơ” là mức hoàn thiện nghiên cứu dữ liệu 1836 của quốc gia, không phải độ mạnh.</div>}
         </>}
-        <div class="shead" style="margin-top:12px">Hạt giống ngẫu nhiên</div>
+        <h4 class="sec-t" style="margin-top:16px">Hạt giống ngẫu nhiên</h4>
         <div style="display:flex;gap:8px"><input class="field num" type="number" value={seed} onInput={(e) => setSeed(Math.max(1, Number((e.target as HTMLInputElement).value) || 1))} /><button class="btn" onClick={() => setSeed(1 + Math.floor(Math.random() * 99999))}>Ngẫu nhiên</button></div>
       </div>
       <div class="startbar">

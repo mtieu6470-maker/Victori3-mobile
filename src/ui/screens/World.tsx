@@ -1,8 +1,8 @@
-// World ledger (rankings, wars) and the system menu (save, load, new game, credits).
+// World ledger (sortable rankings, world totals) and the system window (save, load, files, new game, credits).
 import { useEffect, useState } from 'preact/hooks';
 import type { GameState } from '../../engine/types';
 import { rankings } from '../../engine/metrics';
-import { Section, modals } from '../components/ui';
+import { Sec, Metric, modals, useWidth, useSort } from '../components/ui';
 import { fmt, compact, money } from '../i18n/vi';
 import { shortName } from '../game/names';
 import { Flag } from './common';
@@ -11,25 +11,28 @@ import { game } from '../game/controller';
 import { saveSlot, loadSlot, listSlots } from '../game/storage';
 
 export function WorldScreen({ st }: { st: GameState }) {
-  const rk = rankings(st);
-  const [by, setBy] = useState<'power' | 'gdp' | 'pop'>('power');
-  const rows = [...rk].sort((a, b) => b[by] - a[by]).slice(0, 60);
+  const rk = rankings(st); const [ref, w] = useWidth<HTMLDivElement>();
+  const { s, th } = useSort<'power' | 'gdp' | 'pop' | 'pc' | 'regions'>('power');
+  const regionsOf = new Map<string, number>(); for (const r of st.regions) regionsOf.set(r.owner, (regionsOf.get(r.owner) ?? 0) + 1);
+  const rows = rk.map((r, i) => ({ ...r, rank: i + 1, pc: r.gdp / Math.max(1, r.pop), regions: regionsOf.get(r.id) ?? 0 })).sort((a, b) => (a[s.k] - b[s.k]) * s.dir).slice(0, 80);
+  const worldPop = rk.reduce((t, r) => t + r.pop, 0), worldGdp = rk.reduce((t, r) => t + r.gdp, 0);
+  const followed = st.player ?? ui.get().follow;
   return (
-    <div>
-      <div class="plates c3">
-        <div class="plate stat"><div class="k">Quốc gia</div><div class="v num">{fmt(rk.length)}</div></div>
-        <div class="plate stat"><div class="k">Chiến tranh</div><div class="v num">{fmt(st.wars.length)}</div></div>
-        <div class="plate stat"><div class="k">Đổi chủ lãnh thổ</div><div class="v num">{fmt(st.territoryLog.length)}</div></div>
+    <div class="pad" ref={ref}>
+      <div class="metrics">
+        <Metric label="Quốc gia" icon="flag" value={fmt(rk.length)} />
+        <Metric label="Dân số thế giới" icon="population" value={compact(worldPop)} />
+        <Metric label="GDP thế giới" icon="gdp" value={money(worldGdp)} />
+        <Metric label="Chiến tranh" icon="military" value={fmt(st.wars.length)} d={<span class="dim">{fmt(st.territoryLog.length)} lần đổi chủ lãnh thổ</span>} />
       </div>
-      <div class="seg" style="margin:6px 0">{([['power', 'Sức mạnh'], ['gdp', 'GDP'], ['pop', 'Dân số']] as const).map(([k, l]) => <button class={by === k ? 'on' : ''} onClick={() => setBy(k)}>{l}</button>)}</div>
-      <div class="tbl-wrap"><table class="ledger">
-        <thead><tr><th class="r">#</th><th>Quốc gia</th><th class="r">Sức mạnh</th><th class="r">GDP</th><th class="r">Dân số</th></tr></thead>
-        <tbody>{rows.map((r, i) => (
-          <tr key={r.id} class={r.id === (st.player ?? ui.get().follow) ? 'on' : ''} onClick={() => ui.set({ country: r.id, screen: 'country', tabs: { ...ui.get().tabs, country: 'overview' }, ...(st.player ? {} : { follow: r.id }) })}>
-            <td class="r num dim">{i + 1}</td><td><span class="gi"><Flag c={st.countries[r.id]} sm /><span class="nm">{shortName(st, r.id)}</span></span></td>
-            <td class="r num">{fmt(r.power)}</td><td class="r num">{money(r.gdp)}</td><td class="r num">{compact(r.pop)}</td>
+      <table class="dt" style="margin-top:8px">
+        <thead><tr><th class="r">#</th><th>Quốc gia</th>{th('power', 'Sức mạnh', 'r')}{th('gdp', 'GDP', 'r')}{w >= 420 && th('pop', 'Dân số', 'r')}{w >= 520 && th('pc', 'GDP/người', 'r')}{w >= 600 && th('regions', 'Vùng', 'r')}</tr></thead>
+        <tbody>{rows.map((r) => (
+          <tr key={r.id} class={r.id === followed ? 'on' : ''} onClick={() => ui.set({ country: r.id, screen: 'country', tabs: { ...ui.get().tabs, country: 'overview' }, ...(st.player ? {} : { follow: r.id }) })}>
+            <td class="r num dim">{r.rank}</td><td><span class="cell-ic"><Flag c={st.countries[r.id]} sm /><span class="nm">{shortName(st, r.id)}</span></span></td>
+            <td class="r num">{fmt(r.power)}</td><td class="r num">{money(r.gdp)}</td>{w >= 420 && <td class="r num">{compact(r.pop)}</td>}{w >= 520 && <td class="r num">{fmt(r.pc, 1)}</td>}{w >= 600 && <td class="r num">{r.regions}</td>}
           </tr>))}</tbody>
-      </table></div>
+      </table>
       {!st.player && <div class="note">Chế độ quan sát: chạm một quốc gia để theo dõi số liệu của nước đó trên thanh trên cùng.</div>}
     </div>
   );
@@ -44,25 +47,24 @@ export function SystemScreen({ st }: { st: GameState }) {
   const exportFile = () => { const blob = new Blob([game.save()], { type: 'application/json' }); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `ban-luu-${st.date.y}-${String(st.date.m).padStart(2, '0')}.json`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); };
   const importFile = () => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.json,application/json'; i.onchange = async () => { const f = i.files?.[0]; if (!f) return; try { game.load(await f.text()); ui.set({ camera: null, region: null }); game.toast('Đã nhập bản lưu', 'ok'); } catch (e) { game.toast(`Tệp không hợp lệ: ${(e as Error).message}`, 'error'); } }; i.click(); };
   return (
-    <div>
-      <Section title="Ván chơi">
-        <div class="rowline"><span class="grow">Chế độ</span><b class="serif">{st.mode === 'historical' ? 'Lịch sử' : 'Sandbox – Lịch sử thay thế'}</b></div>
-        <div class="rowline"><span class="grow">Vai trò</span><b class="serif">{st.player ? shortName(st, st.player) : 'Quan sát (AI điều khiển tất cả)'}</b></div>
-        <div class="rowline"><span class="grow">Hạt giống ngẫu nhiên</span><b class="num">{st.seed}</b></div>
-      </Section>
-      <Section title="Lưu trên thiết bị">
-        <div class="btns" style="margin-bottom:6px"><button class="btn primary" onClick={() => doSave('Bản lưu nhanh')}>Lưu nhanh</button><button class="btn" onClick={() => doSave(`${shortName(st, st.player ?? 'GBR')} ${st.date.y}-${String(st.date.m).padStart(2, '0')}`)}>Lưu bản mới</button></div>
-        {slots?.length ? slots.map((s) => <div class="rowline" key={s}><span class="grow serif" style="font-size:15px">{s}</span><button class="btn sm" onClick={() => doLoad(s)}>Tải</button></div>) : <div class="empty">{slots === null ? 'Đang đọc…' : 'Chưa có bản lưu.'}</div>}
-      </Section>
-      <Section title="Tệp">
-        <div class="btns"><button class="btn" onClick={exportFile}>Xuất tệp</button><button class="btn" onClick={importFile}>Nhập tệp</button></div>
-      </Section>
-      <Section title="Ván mới">
-        <div class="btns"><button class="btn danger" onClick={() => { game.setPaused(true); ui.set({ started: false, camera: null, region: null, screen: 'map' }); }}>Về màn hình chọn ván</button></div>
-      </Section>
-      <Section title="Ghi công">
-        <div class="note">Phông chữ EB Garamond và Source Sans 3 (SIL Open Font License 1.1). Đường bờ biển: Natural Earth (phạm vi công cộng). Số liệu lịch sử: Correlates of War, Maddison Project và các nguồn ghi trong hồ sơ từng quốc gia. Biểu tượng, bản đồ và giao diện được thiết kế riêng cho dự án.</div>
-      </Section>
+    <div class="pad">
+      <div class="cols c2">
+        <Sec title="Ván chơi">
+          <div class="kv"><span class="k">Chế độ</span><span class="v">{st.mode === 'historical' ? 'Lịch sử' : 'Sandbox – Lịch sử thay thế'}</span></div>
+          <div class="kv"><span class="k">Vai trò</span><span class="v">{st.player ? shortName(st, st.player) : 'Quan sát (AI điều khiển tất cả)'}</span></div>
+          <div class="kv"><span class="k">Ngày</span><span class="v num">{st.date.m}/{st.date.y} · tháng thứ {st.tick}</span></div>
+          <div class="kv"><span class="k">Hạt giống ngẫu nhiên</span><span class="v num">{st.seed}</span></div>
+        </Sec>
+        <Sec title="Lưu trên thiết bị">
+          <div class="btns" style="margin-bottom:6px"><button class="btn primary sm" onClick={() => doSave('Bản lưu nhanh')}>Lưu nhanh</button><button class="btn sm" onClick={() => doSave(`${shortName(st, st.player ?? 'GBR')} ${st.date.y}-${String(st.date.m).padStart(2, '0')}`)}>Lưu bản mới</button></div>
+          {slots?.length ? slots.map((s) => <div class="row" key={s}><div class="grow"><div class="t sm">{s}</div></div><button class="btn sm" onClick={() => doLoad(s)}>Tải</button></div>) : <div class="empty sm">{slots === null ? 'Đang đọc…' : 'Chưa có bản lưu.'}</div>}
+        </Sec>
+      </div>
+      <Sec title="Tệp"><div class="btns"><button class="btn sm" onClick={exportFile}>Xuất tệp</button><button class="btn sm" onClick={importFile}>Nhập tệp</button></div></Sec>
+      <Sec title="Ván mới"><div class="btns"><button class="btn danger sm" onClick={() => { game.setPaused(true); ui.set({ started: false, camera: null, region: null, screen: 'map' }); }}>Về màn hình chọn ván</button></div></Sec>
+      <Sec title="Ghi công">
+        <div class="note" style="margin-top:0">Phông chữ EB Garamond và Source Sans 3 (SIL Open Font License 1.1). Địa lý: Natural Earth 1:10m (ranh giới hành chính cấp 1, sông, hồ) và ảnh nổi địa hình Natural Earth 1:50m — phạm vi công cộng; ranh giới hiện đại được dùng làm xấp xỉ cho địa lý năm 1836. Số liệu lịch sử: Correlates of War, Maddison Project và các nguồn ghi trong hồ sơ từng quốc gia. Biểu tượng, bản đồ và giao diện được thiết kế riêng cho dự án.</div>
+      </Sec>
     </div>
   );
 }

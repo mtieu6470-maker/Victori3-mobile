@@ -1,70 +1,69 @@
-// Selected region ("state") on the map: compact card + full region detail.
+// Region ("state") context window opened by selecting the map: docked at the right edge in landscape, a bottom
+// sheet in portrait. Everything shown is the region's current simulated state plus its 1836 provenance mark.
 import type { GameState } from '../../engine/types';
 import { STRATA, BUILDINGS } from '../../engine/types';
 import { data } from '../../engine/data/db';
-import { Icon } from '../components/icons';
-import { QualityMark, Section, modals } from '../components/ui';
-import { STRATA_VI, BUILD_VI, fmt, pct, compact } from '../i18n/vi';
+import { canBuild, buildingReturn, buildCost } from '../../engine/systems/economy';
+import { QualityMark, Sec, Metric, StackBar, WinHead } from '../components/ui';
+import { STRATA_VI, BUILD_VI, fmt, pct, compact, money } from '../i18n/vi';
 import { shortName } from '../game/names';
-import { Flag } from './common';
+import { Flag, openCountry, canCommand, STRATA_COL, regionName } from './common';
 import { ui } from '../game/ui';
+import { mapControls } from '../map/MapView';
 import { openCountryActions } from './Diplomacy';
 
 const RES_VI: Record<string, string> = { grain: 'Ngũ cốc', fish: 'Cá', live: 'Gia súc', coal: 'Than', iron: 'Sắt', timb: 'Gỗ', cash: 'Cây công nghiệp', lux: 'Hàng xa xỉ', cott: 'Bông', silv: 'Bạc', gold: 'Vàng', opium: 'Thuốc phiện' };
 const TERRAIN_VI: Record<string, string> = { pl: 'Đồng bằng', hi: 'Đồi', mo: 'Núi', st: 'Thảo nguyên', sa: 'Xavan', ju: 'Rừng nhiệt đới', ma: 'Đầm lầy', de: 'Sa mạc', tu: 'Lãnh nguyên', fo: 'Rừng' };
+const pretty = (s: string) => s.replace(/_/g, ' ').replace(/^./, (c) => c.toUpperCase());
 
-export function StateCard({ st, id, portrait }: { st: GameState; id: string; portrait: boolean }) {
+export function RegionWindow({ st, id, style, portrait, onGrip }: { st: GameState; id: string; style: string; portrait: boolean; onGrip?: (e: PointerEvent) => void }) {
   const r = st.regions.find((x) => x.id === id); if (!r) return null;
-  const dbr = data().region.get(id); const owner = st.countries[r.owner];
-  const occupied = r.controller !== r.owner;
-  return (
-    <div class="statecard" style={portrait ? 'left:6px;right:6px;bottom:6px' : 'right:10px;bottom:72px;width:min(340px,42%)'}>
-      <div class="sh">
-        <h3 class="ellipsis">{dbr?.name ?? id}</h3>
-        <button class="round sm" aria-label="Đóng" onClick={() => ui.set({ region: null, regionDetail: false })}><Icon name="close" /></button>
-      </div>
-      <div class="body">
-        <div class="own" style="margin-bottom:6px"><Flag c={owner} sm /><span>{owner?.decentralized ? 'Chính thể phi tập trung' : shortName(st, r.owner)}</span>{occupied && <span class="chip down">bị {shortName(st, r.controller)} chiếm</span>}</div>
-        <div class="kv">
-          <div><div class="k">Dân số</div><div class="v num">{compact(r.pop)} {dbr && <QualityMark quality={dbr.pop_quality} />}</div></div>
-          <div><div class="k">Mức sống</div><div class="v num">{fmt(r.sol, 2)}</div></div>
-          <div><div class="k">Biết chữ</div><div class="v num">{pct(r.literacy)}</div></div>
-        </div>
-        <div class="btns" style="margin-top:8px">
-          <button class="btn sm" onClick={() => modals.open(dbr?.name ?? id, () => <RegionDetail st={st} id={id} />)}>Chi tiết vùng</button>
-          {owner && !owner.decentralized && <button class="btn sm" onClick={() => r.owner === st.player ? ui.set({ country: r.owner, screen: 'country', tabs: { ...ui.get().tabs, country: 'overview' } }) : openCountryActions(st, r.owner)}>Quốc gia</button>}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function RegionDetail({ st, id }: { st: GameState; id: string }) {
-  const r = st.regions.find((x) => x.id === id); if (!r) return <div class="empty">Không tìm thấy vùng.</div>;
-  const dbr = data().region.get(id);
+  const dbr = data().region.get(id); const owner = st.countries[r.owner]; const occupied = r.controller !== r.owner;
+  const close = () => ui.set({ region: null, regionDetail: false });
   const blds = BUILDINGS.filter((b) => r.buildings[b] > 0);
+  const mine = canCommand(st, r.owner);
+  const ops = mine && owner ? BUILDINGS.filter((b) => b !== 'university' && canBuild(st, owner, r, b)).map((b) => ({ b, ret: buildingReturn(st, owner, r, b), cost: buildCost(owner, b, st) })).filter((o) => o.ret > 0).sort((a, b) => b.ret - a.ret).slice(0, 4) : [];
   return (
-    <div>
-      <div class="plates c3">
-        <div class="plate stat"><div class="k">Dân số {dbr && <QualityMark quality={dbr.pop_quality} />}</div><div class="v num">{compact(r.pop)}</div></div>
-        <div class="plate stat"><div class="k">Diện tích</div><div class="v num">{compact(r.area)} km²</div></div>
-        <div class="plate stat"><div class="k">Sản lượng tháng</div><div class="v num">¤ {compact(r.output)}</div></div>
+    <section class="window side region" style={style} aria-label={dbr?.name ?? id}>
+      <WinHead title="Vùng" ctx={owner?.decentralized ? 'chính thể phi tập trung' : shortName(st, r.owner)} grip={portrait} onGrip={onGrip} onClose={close} />
+      <div class="win-body pad">
+        <h3 class="rname">{dbr?.name ?? id}</h3>
+        <div class="ownrow">
+          <Flag c={owner} />
+          <div class="grow"><div class="t-s">{owner?.decentralized ? 'Chính thể phi tập trung' : shortName(st, r.owner)}</div><div class="s">{r.id === owner?.capital ? 'Thủ đô · ' : ''}{TERRAIN_VI[r.terrain] ?? r.terrain}{r.coastal ? ' · ven biển' : ''} · {compact(r.area)} km²</div></div>
+          {occupied && <span class="tag down">bị {shortName(st, r.controller)} chiếm</span>}
+        </div>
+        <div class="metrics">
+          <Metric label="Dân số" value={compact(r.pop)} q={dbr ? { quality: dbr.pop_quality } : null} />
+          <Metric label="Mức sống" value={fmt(r.sol, 2)} />
+          <Metric label="Biết chữ" value={pct(r.literacy)} />
+          <Metric label="Sản lượng" value={`¤ ${compact(r.output)}`} d={<span class="dim">/ tháng</span>} />
+        </div>
+        <div class="btns" style="margin:10px 0 2px">
+          {owner && !owner.decentralized && <button class="btn sm" onClick={() => openCountry(r.owner)}>Hồ sơ quốc gia</button>}
+          {owner && !owner.decentralized && st.player && r.owner !== st.player && <button class="btn sm" onClick={() => openCountryActions(st, r.owner)}>Ngoại giao</button>}
+          <button class="btn sm" onClick={() => mapControls.focusRegion(id, 0.012)}>Phóng tới vùng</button>
+        </div>
+        <Sec title="Xã hội">
+          <div class="kv"><span class="k">Văn hóa</span><span class="v">{pretty(r.culture)}{r.culture2 ? ` · ${pretty(r.culture2)} (${pct(r.c2)})` : ''}</span></div>
+          <div class="kv"><span class="k">Tôn giáo</span><span class="v">{pretty(r.religion)}</span></div>
+          <div class="kv"><span class="k">Bất ổn · cực đoan · dân tộc</span><span class="v num">{pct(r.unrest)} · {pct(r.radical)} · {pct(r.nationalism)}</span></div>
+          {r.devastation > 0.01 && <div class="kv"><span class="k">Tàn phá do chiến tranh</span><span class="v num neg">{pct(r.devastation)}</span></div>}
+          {r.epidemic && <div class="kv"><span class="k">Dịch bệnh</span><span class="v neg">đang diễn ra · tử vong {pct(r.epidemic.rate, 1)}/tháng</span></div>}
+          {r.blight && <div class="kv"><span class="k">Mất mùa</span><span class="v neg">mức {pct(r.blight.severity)}</span></div>}
+          <div style="margin-top:8px"><div class="sub-t">Tầng lớp</div><StackBar parts={STRATA.map((s, i) => ({ label: STRATA_VI[s], v: r.strata[i], c: STRATA_COL[i] }))} /></div>
+        </Sec>
+        <Sec title="Tài nguyên & công trình">
+          <div class="kv"><span class="k">Tài nguyên</span><span class="v" style="white-space:normal">{r.res.length ? r.res.map((x) => RES_VI[x] ?? x).join(', ') : '—'}</span></div>
+          {blds.length ? blds.map((b) => <div class="kv" key={b}><span class="k">{BUILD_VI[b]}</span><span class="v num">cấp {r.buildings[b]}</span></div>) : <div class="empty sm">Chưa có công trình.</div>}
+        </Sec>
+        {ops.length > 0 && (
+          <Sec title="Có thể xây" go={() => ui.go('economy', 'construction')}>
+            {ops.map((o) => <div class="kv" key={o.b}><span class="k">{BUILD_VI[o.b]}</span><span class="v num">{money(o.cost)} · <span class="pos">{pct(o.ret, 1)}/năm</span></span></div>)}
+          </Sec>
+        )}
+        <div class="note">Vùng: {regionName(id)}. Dân số khởi đầu có ký hiệu độ tin cậy; chạm ký hiệu để xem nguồn. {dbr && <QualityMark quality={dbr.pop_quality} />}</div>
       </div>
-      <Section title="Xã hội">
-        <div class="rowline"><span class="grow">Văn hóa</span><b class="serif">{r.culture.replace(/_/g, ' ')}{r.culture2 ? ` · ${r.culture2.replace(/_/g, ' ')} (${pct(r.c2)})` : ''}</b></div>
-        <div class="rowline"><span class="grow">Tôn giáo</span><b class="serif">{r.religion.replace(/_/g, ' ')}</b></div>
-        <div class="rowline"><span class="grow">Mức sống · biết chữ</span><b class="num">{fmt(r.sol, 2)} · {pct(r.literacy)}</b></div>
-        <div class="rowline"><span class="grow">Bất ổn · cực đoan · tinh thần dân tộc</span><b class="num">{pct(r.unrest)} · {pct(r.radical)} · {pct(r.nationalism)}</b></div>
-        {r.devastation > 0.01 && <div class="rowline"><span class="grow">Tàn phá do chiến tranh</span><b class="num neg">{pct(r.devastation)}</b></div>}
-        {r.epidemic && <div class="rowline"><span class="grow neg">Dịch bệnh đang diễn ra</span></div>}
-        {r.blight && <div class="rowline"><span class="grow neg">Mất mùa đang diễn ra</span></div>}
-      </Section>
-      <Section title="Tầng lớp">{STRATA.map((s, i) => r.strata[i] > 0.002 && <div class="rowline" key={s} style="min-height:30px"><span class="grow">{STRATA_VI[s]}</span><span class="num">{pct(r.strata[i], 1)}</span></div>)}</Section>
-      <Section title="Địa lý & tài nguyên">
-        <div class="rowline"><span class="grow">Địa hình</span><b class="serif">{TERRAIN_VI[r.terrain] ?? r.terrain}{r.coastal ? ' · ven biển' : ''}</b></div>
-        <div class="rowline"><span class="grow">Tài nguyên</span><b class="serif" style="white-space:normal;text-align:right">{r.res.length ? r.res.map((x) => RES_VI[x] ?? x).join(', ') : '—'}</b></div>
-      </Section>
-      <Section title="Công trình">{blds.length ? blds.map((b) => <div class="rowline" key={b}><span class="grow serif" style="font-size:15px">{BUILD_VI[b]}</span><b class="num">cấp {r.buildings[b]}</b></div>) : <div class="empty">Chưa có công trình.</div>}</Section>
-    </div>
+    </section>
   );
 }
