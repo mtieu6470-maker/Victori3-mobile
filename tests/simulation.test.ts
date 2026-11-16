@@ -636,9 +636,16 @@ describe("investment follows the firm's hiring outlook", () => {
       employmentTargetByBuilding: { textile_mill: 0.2 },
     };
     const reducedHiringReturn = buildingReturn(state, country, region, 'textile_mill');
+    region.popEconomy = {
+      ...region.popEconomy,
+      employmentTargetByBuilding: { textile_mill: 0.2 },
+      wageOfferByBuilding: { textile_mill: 1.5 },
+    };
+    const highWageReturn = buildingReturn(state, country, region, 'textile_mill');
 
     expect(fullHiringReturn).toBeGreaterThan(0);
     expect(reducedHiringReturn).toBeCloseTo(fullHiringReturn * 0.2, 8);
+    expect(highWageReturn).toBeLessThan(reducedHiringReturn);
   });
 });
 

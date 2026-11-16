@@ -299,17 +299,19 @@ export function calculatePopulationEconomy(
     const rawOffer = Number(wageOffers[building]);
     const offer = Number.isFinite(rawOffer) ? clamp(rawOffer, 0.75, 1.5) : 1;
     let wageUnits = 0;
+    let mappedWorkers = 0;
     for (const [stratumKey, rawWorkers] of Object.entries(mix ?? {})) {
       const stratum = Number(stratumKey);
       if (!Number.isInteger(stratum) || stratum < 0 || stratum >= STRATA.length) continue;
       const requested = Number(rawWorkers);
       const workers = Math.min(remainingEmployment[stratum], Number.isFinite(requested) ? Math.max(0, requested) : 0);
       remainingEmployment[stratum] -= workers;
+      mappedWorkers += workers;
       const multiplier = POP_WAGE_MULTIPLIER[stratum];
       wageWeights[stratum] += workers * multiplier * (offer - 1);
       wageUnits += workers * multiplier * offer;
     }
-    if (wageUnits > 0) buildingWageUnits[building] = wageUnits;
+    if (mappedWorkers > 0) buildingWageUnits[building] = wageUnits;
   }
   const ownerWeights = STRATA.map((_, i) => classPopulation[i] * POP_OWNER_MULTIPLIER[i]);
   let wageWeightTotal = wageWeights.reduce((sum, n) => sum + n, 0);
@@ -837,7 +839,7 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
     value = out * p[rec.out]
       - Object.entries(rec.inputs).reduce((sum, [good, quantity]) => sum + out * (quantity as number) * p[good as Good], 0)
       - Object.entries(method?.additionalInputs ?? {}).reduce((sum, [good, quantity]) => sum + out * (quantity as number) * p[good as Good], 0)
-      - plannedWorkers * 650 * A * p.grain * 0.5;
+      - plannedWorkers * 650 * A * p.grain * 0.5 * wageOffer(r, b);
   } else {
     const good: Good = b === 'mine'
       ? (r.res.includes('coal') ? 'coal' : r.res.includes('iron') ? 'iron' : 'luxury')
@@ -848,7 +850,7 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
           : r.res.includes('opium')
             ? 'opium'
             : 'cash_crops';
-    value = plannedWorkers * 900 * A * p[good] - plannedWorkers * 650 * A * p.grain * 0.6;
+    value = plannedWorkers * 900 * A * p[good] - plannedWorkers * 650 * A * p.grain * 0.6 * wageOffer(r, b);
   }
   return value / buildCost(c, b, st);
 }

@@ -178,14 +178,15 @@ export function openBuilding(st: GameState, b: Building, scope?: string) {
     : null;
   const wageRows = regs.map((region) => ({
     offer: region.popEconomy?.wageOfferByBuilding?.[b] ?? 1,
-    bill: region.popEconomy?.wageBillByBuilding?.[b] ?? 0,
+    bill: region.popEconomy?.wageBillByBuilding?.[b],
     workers: region.popEconomy?.employedByBuilding?.[b] ?? 0,
   })).filter((row) => row.workers > 0);
   const wageWorkers = wageRows.reduce((sum, row) => sum + row.workers, 0);
   const averageWageOffer = wageWorkers > 0
     ? wageRows.reduce((sum, row) => sum + row.offer * row.workers, 0) / wageWorkers
     : null;
-  const annualWageBill = wageRows.reduce((sum, row) => sum + row.bill, 0);
+  const hasCompleteWageBill = wageRows.length > 0 && wageRows.every((row) => row.bill !== undefined);
+  const annualWageBill = wageRows.reduce((sum, row) => sum + (row.bill ?? 0), 0);
   details.toggle({ key: `bld:${b}`, title: BUILD_VI[b], ctx: `${fmt(levels)} cấp · ${regs.length} vùng`, scope, body: () => (
     <div>
       <div class="kv"><span class="k">Sản phẩm</span><span class="v">{outText(b)}</span></div>
@@ -198,7 +199,7 @@ export function openBuilding(st: GameState, b: Building, scope?: string) {
           <div class="kv"><span class="k">Biên lợi nhuận sau nguyên liệu và lương</span><span class={`v num ${operatingMargin === null ? '' : operatingMargin >= 0 ? 'pos' : 'neg'}`}>{operatingMargin === null ? 'Chưa có dữ liệu' : pct(operatingMargin, 1)}</span></div>
           <div class="kv"><span class="k">Mục tiêu nhân sự của doanh nghiệp</span><span class="v num">{targetUtilization === null ? 'Chưa có dữ liệu' : pct(targetUtilization)}</span></div>
           <div class="kv"><span class="k">Mức lương chào so với nền vùng</span><span class="v num">{averageWageOffer === null ? 'Chưa có dữ liệu' : pct(averageWageOffer, 0)}</span></div>
-          <div class="kv"><span class="k">Quỹ lương năm ước tính (£)</span><span class="v num">{wageWorkers > 0 ? compact(annualWageBill) : 'Chưa có dữ liệu'}</span></div>
+          <div class="kv"><span class="k">Quỹ lương năm ước tính (£)</span><span class="v num">{hasCompleteWageBill ? compact(annualWageBill) : 'Chưa có dữ liệu'}</span></div>
           <div class="note">Doanh nghiệp có lợi nhuận và khó tuyển người có thể tăng lương chào để cạnh tranh. Mức lương được phân phối từ quỹ lương cố định của vùng, không tự tạo thêm tiền.</div>
         </Sec>
       )}
