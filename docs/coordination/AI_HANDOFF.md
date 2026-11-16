@@ -12,26 +12,25 @@
 | Coordination setup commit | `bd5787f3e1763170ec7e5ad448466a5cc57c2b40` |
 | Coordination correction commit | `6c4d02a36a30f7e82d973da59f569b379f85468d` |
 | Handoff update commit | Identified by GitHub commit metadata: the commit that introduced this revision of this file (`git log -1 -- docs/coordination/AI_HANDOFF.md`). Not written here, because a commit cannot contain its own SHA |
-| Canonical roadmap | `PENDING_OWNER_APPROVAL` — no canonical roadmap is committed. After owner approval it is added at `docs/roadmap/MASTER_ROADMAP.md` (or another owner-approved path) and its commit SHA is recorded here |
-| Pending roadmap/S0 proposal | `DECISIONS_AND_S0_REVISED_VI.v3.2.md` with `SOURCE_REGISTER.v3.2.md`, delivered by Claude in chat on 2026-11-16; **not in the repository and not approved** (review artifact only). SHA-256 as delivered: `208a08ef46f7623d6ebbec02765fc1c70cbfcee09af7b4555aa8f7fb85f7b3e8` / `1adc4fedb4311383723631fbe16ceaa92b54344223bda0f93ee2d8c8e06737a2` |
+| Canonical roadmap | `OWNER_APPROVED` (2026-11-16, OD-20261116-09): `docs/roadmap/DECISIONS_AND_S0_REVISED_VI.v3.2.md` with `docs/roadmap/SOURCE_REGISTER.v3.2.md`, committed verbatim in `574ddc7ac57267ecae2216cb9ee1d490f3b41626`. SHA-256 verified before and after commit: `208a08ef46f7623d6ebbec02765fc1c70cbfcee09af7b4555aa8f7fb85f7b3e8` / `1adc4fedb4311383723631fbe16ceaa92b54344223bda0f93ee2d8c8e06737a2`. The file's own header still says "S0 vẫn chờ phê duyệt" because it is the verbatim pre-approval text; the approval is recorded here |
+| Gate verdict vocabulary | Protocol "Status vocabulary" (`PASS`, `PARTIAL`, `BLOCKED`, `FAIL`, `NOT_TESTED`, `NOT_APPLICABLE`); where the approved S0 document writes "NOT TESTED" it means `NOT_TESTED` |
 | Legacy roadmaps and pre-protocol work | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` (historical evidence, not authorization) |
-| Current approved phase | NONE — awaiting final S0 specification approval |
-| Current task status | `READY_FOR_REVIEW` — task `COORDINATION-REVIEW-BD5787F` (documentation corrections); no phase task in progress |
-| S0 execution authorized | NO |
+| Current approved phase | **S0-A** (baseline as-is, `BASELINE_ORIGINAL`; approved document §6.3) — `AUTHORIZED` 2026-11-16 (OD-20261116-10) |
+| Current task status | S0-A `IN_PROGRESS`; `COORDINATION-REVIEW-BD5787F` `READY_FOR_REVIEW` |
+| S0 execution authorized | **S0-A only.** S0-B (B1–B7), S1 and every later phase: **NOT AUTHORIZED** |
 | Gameplay/engine/save changes authorized | NO |
 | Signing/keystore/Secrets changes authorized | NO |
 
 The SHA above is a historical observation. Re-check GitHub HEAD before every task.
 
-## 2. Current gate — do not start S0
+## 2. Current gate — S0-A only
 
-Until the owner explicitly approves the final S0 specification:
-- No S0 audit execution.
-- No Diagnostic UI, CI workflow, signing, keystore, or secret changes.
-- No gameplay, engine, data, UI, test, or save-format changes.
-- No S1 or later work.
-
-Documentation review is allowed only when separately requested.
+S0-A is authorized (OD-20261116-10) within the approved document §6.3 (A1–A5). Until the owner separately authorizes S0-B:
+- No S0-B work: no CI checksum workflow, C3 signing workflow, audit scripts, characterization tests or fixtures, Diagnostic UI.
+- No gameplay, engine, data, UI, test, save-format or migration changes.
+- No signing, keystore or GitHub Secrets changes.
+- S0-A commands that generate files run in a temporary worktree outside the main working tree; S0-A commits contain only reports and logs under `docs/audit/s0/` (plus this handoff).
+- No S1 or later work. After S0-A, stop for independent ChatGPT review; no self-acceptance and no phase transition.
 
 ## 3. Coordination tasks
 
@@ -63,11 +62,12 @@ Documentation review is allowed only when separately requested.
 
 | Phase | Status | Entry condition | Exit condition |
 |---|---|---|---|
-| S0 — Baseline audit and diagnostic tooling | `BLOCKED` | Owner approves final S0 specification and security design | All S0 gates evidenced; ChatGPT `REVIEW_PASS`; owner `ACCEPTED` |
+| S0-A — Baseline as-is (`BASELINE_ORIGINAL`), approved document §6.3 A1–A5 | `IN_PROGRESS` | Owner approval of the S0 v3.2 document and S0-A authorization (OD-20261116-09, -10) — met | S0-A evidence committed; ChatGPT review; owner decision |
+| S0-B — Audit tooling (`AUDIT_INSTRUMENTED`), approved document §6.3 B1–B7 | `NOT_STARTED` — not authorized | Separate owner authorization after S0-A review | All S0 gates G0.1–G0.9 evidenced; ChatGPT `REVIEW_PASS`; owner `ACCEPTED` |
 | S1 — Data architecture and save foundation | `NOT_STARTED` | S0 accepted and S1 scope separately approved | S1 acceptance criteria met; independent review; owner accepted |
 | S2+ | `NOT_STARTED` | Previous phase accepted and next scope approved | Phase-specific acceptance and owner approval |
 
-Detailed phase scope comes from the canonical roadmap, which is `PENDING_OWNER_APPROVAL` (section 1). Until it is committed, phase scope comes only from explicit owner authorizations. This table is not a substitute for that roadmap.
+Detailed phase scope comes from the canonical roadmap (section 1), within the limits of explicit owner authorizations. This table is not a substitute for that roadmap.
 
 Pre-protocol work:
 
@@ -78,6 +78,25 @@ Pre-protocol work:
 ## 5. Work log
 
 Append newest entries at the top. Do not overwrite earlier entries.
+
+### 2026-11-16 — S0-V3.2-APPROVED-DOCS
+
+- Date (UTC): 2026-11-16 (commit `574ddc7` at 06:26 UTC; this handoff update afterwards)
+- Task/phase: commit the owner-approved S0 v3.2 documents verbatim; record the approval and the S0-A authorization
+- Implementer: Claude Code
+- Base SHA: `c74b6068364db07f2b8d39bc64698001544cf468`
+- Head SHA: `574ddc7ac57267ecae2216cb9ee1d490f3b41626`, then this handoff update commit (GitHub commit metadata)
+- Changed files: `docs/roadmap/DECISIONS_AND_S0_REVISED_VI.v3.2.md` (new), `docs/roadmap/SOURCE_REGISTER.v3.2.md` (new); handoff update commit: `docs/coordination/AI_HANDOFF.md`, `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` (canonical roadmap pointer), `docs/architecture/PROVINCES_BUILDINGS_MILITARY.md` (roadmap status sentence in the notice only)
+- Summary: the two files were copied from the delivered versions; SHA-256 equal to the owner's values before commit (`sha256sum` on the working copies) and after commit (`git show HEAD:<path> | sha256sum`)
+- Commands and exit codes: `cp` (0), `sha256sum` + `diff` against the owner's values (0, identical), `git commit` (0), `git show HEAD:<path> | sha256sum` (0, identical), `git push -u origin claude/game-historical-sandbox-modes-kg7rj7` (0)
+- Test results (counts and failures): `NOT_APPLICABLE` — documentation only
+- CI run/jobs: push-triggered `.github/workflows/android-apk.yml`; not observed when this entry was written
+- Artifacts: none beyond the CI's automatic debug APK artifact
+- Device evidence: not applicable
+- Risks/limitations: the approved file's header keeps its pre-approval wording (verbatim requirement)
+- Claude status (unverified): `READY_FOR_REVIEW`
+- ChatGPT review:
+- Owner decision: approved (OD-20261116-09)
 
 ### 2026-11-16 — COORDINATION-REVIEW-BD5787F
 
@@ -156,6 +175,8 @@ Only explicit owner decisions may be recorded here. Recommendations are not appr
 | 2026-11-16 | OD-20261116-05 | Separate task lifecycle statuses from gate verdicts (`PASS`, `PARTIAL`, `BLOCKED`, `FAIL`, `NOT_TESTED`, `NOT_APPLICABLE`) | Protocol "Status vocabulary" | Same document, decision 5 |
 | 2026-11-16 | OD-20261116-06 | PRs only on explicit owner request and only with a distinct target branch; never merge without explicit owner approval | Protocol | Same document, decision 6 |
 | 2026-11-16 | OD-20261116-07 | Record the setup SHA in a second documentation-only commit; no self-referencing SHA; setup review state `CHANGES_REQUESTED` until corrected and independently reviewed; S0 execution authorized = NO | This handoff | Same document, decision 7 |
+| 2026-11-16 | OD-20261116-09 | Approve `DECISIONS_AND_S0_REVISED_VI.v3.2.md` and `SOURCE_REGISTER.v3.2.md` exactly as delivered (SHA-256 `208a08ef46f7623d6ebbec02765fc1c70cbfcee09af7b4555aa8f7fb85f7b3e8` / `1adc4fedb4311383723631fbe16ceaa92b54344223bda0f93ee2d8c8e06737a2`); commit them verbatim; stop if hashes differ | Canonical roadmap and S0 specification | Owner instruction in the Claude Code session, 2026-11-16; committed in `574ddc7ac57267ecae2216cb9ee1d490f3b41626` |
+| 2026-11-16 | OD-20261116-10 | Authorize S0-A only (audit and freeze the baseline, approved document §6.3); no gameplay, engine, data, UI, test, save-format or migration changes; S0-B, S1 and later not authorized; every result with evidence, log, SHA and a gate verdict; after S0-A update this handoff and stop for independent ChatGPT review; no self-acceptance or phase transition | S0-A | Owner instruction in the Claude Code session, 2026-11-16 |
 | 2026-11-16 | OD-20261116-08 | Canonical roadmap is `PENDING_OWNER_APPROVAL` until approved and committed; the currently available proposal is identified only as a pending proposal | This handoff, protocol, legacy index | Same document, "Additional source-of-truth correction" |
 
 ## 8. Update rules

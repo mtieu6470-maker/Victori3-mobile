@@ -6,9 +6,9 @@ Created 2026-11-16 by owner decision on the review of coordination commit `bd578
 
 | Field | Value |
 |---|---|
-| Canonical roadmap path | none committed |
-| Status | `PENDING_OWNER_APPROVAL` |
-| Next step | After owner approval, the roadmap is committed (proposed path `docs/roadmap/MASTER_ROADMAP.md`, or another owner-approved path) and its commit SHA is recorded here and in `AI_HANDOFF.md` |
+| Canonical roadmap path | `docs/roadmap/DECISIONS_AND_S0_REVISED_VI.v3.2.md` (sources: `docs/roadmap/SOURCE_REGISTER.v3.2.md`) |
+| Status | `OWNER_APPROVED` 2026-11-16 (was `PENDING_OWNER_APPROVAL` when this index was created) |
+| Commit | `574ddc7ac57267ecae2216cb9ee1d490f3b41626` — files byte-identical to the approved versions (SHA-256 `208a08ef46f7623d6ebbec02765fc1c70cbfcee09af7b4555aa8f7fb85f7b3e8` / `1adc4fedb4311383723631fbe16ceaa92b54344223bda0f93ee2d8c8e06737a2`); see `docs/coordination/AI_HANDOFF.md` |
 
 No document listed below is the canonical roadmap or a phase specification.
 

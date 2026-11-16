@@ -1,9 +1,9 @@
 > **LEGACY PROPOSAL — NOT AN APPROVED IMPLEMENTATION SPECIFICATION. Do not implement conflicting instructions from this file. Use the latest owner-approved canonical roadmap and phase specification.**
 >
-> **ĐỀ XUẤT CŨ — KHÔNG PHẢI ĐẶC TẢ TRIỂN KHAI ĐÃ DUYỆT.** Tài liệu được giữ làm tham khảo lịch sử (commit `2240a8f`, 2026-11-16). Phân loại theo quyết định của chủ dự án ngày 2026-11-16 (rà soát commit `bd5787f`). Roadmap chính thức hiện ở trạng thái `PENDING_OWNER_APPROVAL` — xem `docs/coordination/AI_HANDOFF.md` và `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md`.
+> **ĐỀ XUẤT CŨ — KHÔNG PHẢI ĐẶC TẢ TRIỂN KHAI ĐÃ DUYỆT.** Tài liệu được giữ làm tham khảo lịch sử (commit `2240a8f`, 2026-11-16). Phân loại theo quyết định của chủ dự án ngày 2026-11-16 (rà soát commit `bd5787f`). Roadmap chính thức: `docs/roadmap/DECISIONS_AND_S0_REVISED_VI.v3.2.md`, chủ dự án phê duyệt 2026-11-16 (commit `574ddc7`) — xem `docs/coordination/AI_HANDOFF.md` và `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md`.
 >
 > Các mâu thuẫn đã biết — **không** làm theo những điểm sau trong tài liệu này:
-> 1. **Đánh số lát cắt S1–S15** (mục 3, 7) là đánh số cục bộ, xung đột với roadmap tổng S0–S23 (đề xuất hiện tại, đang chờ chủ dự án phê duyệt); "S1", "S13"… ở đây **không** phải các giai đoạn cùng tên của roadmap.
+> 1. **Đánh số lát cắt S1–S15** (mục 3, 7) là đánh số cục bộ, xung đột với roadmap tổng S0–S23 của tài liệu đã phê duyệt; "S1", "S13"… ở đây **không** phải các giai đoạn cùng tên của roadmap.
 > 2. **Migration quân đội** (mục 2, bước v2 → v3) đổi quân số tổng thành các trung đoàn đặt tại thủ đô/vùng biên. Hướng đã duyệt: giữ `LegacyForcePool` có provenance; **không** tự tạo đội hình, chỉ huy, vị trí hay lịch sử đơn vị.
 > 3. **Chuyển mô phỏng sang Web Worker trước S13** (mục 5) xung đột với quyết định J: S2 đo runtime trước rồi mới quyết định có cần Worker hay không và ở đâu.
 > 4. **`AdministrativeUnit[]` lồng trực tiếp dưới `StrategicRegion`** (sơ đồ mục 1) không được ghi đè quan hệ đã duyệt: crosswalk không gian nhiều–nhiều giữa hình học hành chính hiện đại và vùng mô phỏng chiến lược.
