@@ -749,14 +749,44 @@ export function build(st: GameState, c: Country, r: Region, b: Building, pool: '
 export function buildingReturn(st: GameState, c: Country, r: Region, b: Building): number {
   const p = st.marketPrices[marketOf(st, c)] ?? st.worldPrices;
   const A = c.productivity;
-  const labour = r.pop * 0.45 * (b === 'mine' || b === 'logging' || b === 'plantation' ? r.strata[S.laborers] + r.strata[S.peasants] * 0.3 + r.strata[S.slaves] : r.strata[S.workers] + r.strata[S.peasants] * 0.2 + r.strata[S.artisans] * 0.5);
-  const used = LEVEL_WORKERS * (b === 'mine' ? r.buildings.mine : b === 'plantation' ? r.buildings.plantation : b === 'logging' ? r.buildings.logging : r.buildings.textile_mill + r.buildings.ironworks + r.buildings.tool_works + r.buildings.arms_works + r.buildings.luxury_workshop);
+  const extractive = b === 'mine' || b === 'logging' || b === 'plantation';
+  const labour = r.pop * 0.45 * (extractive ? r.strata[S.laborers] + r.strata[S.peasants] * 0.3 + r.strata[S.slaves] : r.strata[S.workers] + r.strata[S.peasants] * 0.2 + r.strata[S.artisans] * 0.5);
+  const competitors: Building[] = extractive
+    ? ['mine', 'plantation', 'logging']
+    : (Object.keys(RECIPES) as Building[]);
+  // Capacity already expected to be idle or staffed only to each firm's current hiring target.
+  const used = competitors.reduce(
+    (sum, building) => sum + Math.max(0, r.buildings[building]) * LEVEL_WORKERS * employmentTarget(r, building),
+    0,
+  );
   if (b !== 'railway' && b !== 'university' && labour - used < LEVEL_WORKERS * 0.5) return 0;
+
+  // A candidate in a currently loss-making industry should not be valued as if it
+  // could instantly fill every job. New levels inherit the regional firm's hiring outlook.
+  const plannedWorkers = LEVEL_WORKERS * employmentTarget(r, b);
   let value = 0;
   if (b === 'railway') value = (r.output * 12) * 0.05 + 2e5;
   else if (b === 'university') value = 0;
-  else if (RECIPES[b]) { const rec = RECIPES[b]!; const method = productionMethodFor(c, r, b); const out = LEVEL_WORKERS * rec.perWorker * (method?.outputMultiplier ?? 1) * A; value = out * p[rec.out] - Object.entries(rec.inputs).reduce((s, [g, q]) => s + out * (q as number) * p[g as Good], 0) - Object.entries(method?.additionalInputs ?? {}).reduce((s, [g, q]) => s + out * (q as number) * p[g as Good], 0) - LEVEL_WORKERS * 650 * A * p.grain * 0.5; }
-  else { const good: Good = b === 'mine' ? (r.res.includes('coal') ? 'coal' : r.res.includes('iron') ? 'iron' : 'luxury') : b === 'logging' ? 'timber' : r.res.includes('cott') ? 'cotton' : r.res.includes('opium') ? 'opium' : 'cash_crops'; value = LEVEL_WORKERS * 900 * A * p[good] - LEVEL_WORKERS * 650 * A * p.grain * 0.6; }
+  else if (RECIPES[b]) {
+    const rec = RECIPES[b]!;
+    const method = productionMethodFor(c, r, b);
+    const out = plannedWorkers * rec.perWorker * (method?.outputMultiplier ?? 1) * A;
+    value = out * p[rec.out]
+      - Object.entries(rec.inputs).reduce((sum, [good, quantity]) => sum + out * (quantity as number) * p[good as Good], 0)
+      - Object.entries(method?.additionalInputs ?? {}).reduce((sum, [good, quantity]) => sum + out * (quantity as number) * p[good as Good], 0)
+      - plannedWorkers * 650 * A * p.grain * 0.5;
+  } else {
+    const good: Good = b === 'mine'
+      ? (r.res.includes('coal') ? 'coal' : r.res.includes('iron') ? 'iron' : 'luxury')
+      : b === 'logging'
+        ? 'timber'
+        : r.res.includes('cott')
+          ? 'cotton'
+          : r.res.includes('opium')
+            ? 'opium'
+            : 'cash_crops';
+    value = plannedWorkers * 900 * A * p[good] - plannedWorkers * 650 * A * p.grain * 0.6;
+  }
   return value / buildCost(c, b, st);
 }
 

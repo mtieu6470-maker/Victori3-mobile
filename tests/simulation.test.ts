@@ -4,7 +4,7 @@ import { run, fresh, stepMonth } from './helpers';
 import { serialize, deserialize } from '../src/engine/save';
 import { data } from '../src/engine/data/db';
 import { BUILDINGS, STRATA } from '../src/engine/types';
-import { allocateCompetingWorkers, availableProductionMethods, calculatePopulationEconomy, calibrateCohortLivingStandards, factoryInputFulfillment, LEVEL_WORKERS, nextEmploymentTarget, populationConsumptionDemand, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
+import { allocateCompetingWorkers, availableProductionMethods, buildingReturn, calculatePopulationEconomy, calibrateCohortLivingStandards, factoryInputFulfillment, LEVEL_WORKERS, marketOf, nextEmploymentTarget, populationConsumptionDemand, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
 import { execute } from '../src/engine/commands';
 import { updatePolitics } from '../src/engine/systems/politics';
 import { effectiveBuildingLaborDemand, mixPopulationStrata, stratifiedNaturalChange } from '../src/engine/systems/population';
@@ -587,5 +587,45 @@ describe('employment-aware occupational transition', () => {
     expect(reduced.laborerWorkers).toBeLessThan(expected.laborerWorkers);
     expect(after.factoryWorkers).toBeCloseTo(expected.factoryWorkers, 8);
     expect(after.laborerWorkers).toBeCloseTo(expected.laborerWorkers, 8);
+  });
+});
+
+
+describe('investment follows the firm's hiring outlook', () => {
+  it('discounts the return of a new factory level when its local hiring target is low', () => {
+    const state = fresh('historical', 55, 'GBR');
+    const country = state.countries.GBR;
+    const region = state.regions.find((entry) => entry.owner === 'GBR' && entry.pop > 0)!;
+    region.pop = 1_000_000;
+    region.strata = [0.2, 0, 0.05, 0.05, 0.65, 0.02, 0.01, 0.01, 0.01];
+    for (const building of BUILDINGS) region.buildings[building] = 0;
+    const market = marketOf(state, country);
+    state.marketPrices[market] = {
+      ...(state.marketPrices[market] ?? state.worldPrices),
+      textiles: 8,
+      cotton: 0.05,
+      coal: 0.05,
+      grain: 0.05,
+      tools: 1,
+      steel: 1,
+    };
+    country.productivity = 2;
+
+    const ledger = region.popEconomy ?? {
+      employed: new Array(STRATA.length).fill(0),
+      incomePerCapita: new Array(STRATA.length).fill(0),
+      wagePerWorker: new Array(STRATA.length).fill(0),
+      sol: new Array(STRATA.length).fill(0),
+    };
+    region.popEconomy = { ...ledger };
+    const fullHiringReturn = buildingReturn(state, country, region, 'textile_mill');
+    region.popEconomy = {
+      ...region.popEconomy,
+      employmentTargetByBuilding: { textile_mill: 0.2 },
+    };
+    const reducedHiringReturn = buildingReturn(state, country, region, 'textile_mill');
+
+    expect(fullHiringReturn).toBeGreaterThan(0);
+    expect(reducedHiringReturn).toBeCloseTo(fullHiringReturn * 0.2, 8);
   });
 });
