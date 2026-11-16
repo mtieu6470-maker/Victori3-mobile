@@ -4,7 +4,7 @@
 import { useState } from 'preact/hooks';
 import type { GameState, Good, Building, Region } from '../../engine/types';
 import { GOODS, BUILDINGS } from '../../engine/types';
-import { marketOf, buildCost, buildingReturn, canBuild, RECIPES, LEVEL_WORKERS } from '../../engine/systems/economy';
+import { marketOf, buildCost, buildingReturn, canBuild, RECIPES, LEVEL_WORKERS, PRODUCTION_METHODS, availableProductionMethods, productionMethodFor } from '../../engine/systems/economy';
 import { Icon } from '../components/icons';
 import { Sec, Metric, Delta, DBar, Bar, HBars, LineChart, Donut, Seg, modals, details, useWidth, useSort } from '../components/ui';
 import { GOOD_VI, GOOD_GROUP, BUILD_VI, lawVi, fmt, pct, money, compact } from '../i18n/vi';
@@ -156,6 +156,27 @@ export function openBuilding(st: GameState, b: Building, scope?: string) {
       <div class="kv"><span class="k">Sản phẩm</span><span class="v">{outText(b)}</span></div>
       {RECIPES[b] && <div class="kv"><span class="k">Đầu vào / đơn vị</span><span class="v">{Object.entries(RECIPES[b]!.inputs).map(([g, q]) => `${GOOD_VI[g]} × ${fmt(q as number, 2)}`).join(' · ')}</span></div>}
       {b !== 'railway' && b !== 'university' && <div class="kv"><span class="k">Việc làm</span><span class="v num">{compact(levels * LEVEL_WORKERS)}</span></div>}
+      {PRODUCTION_METHODS[b]?.length ? (
+        <Sec title="Phương pháp sản xuất" x="theo từng vùng">
+          <div class="note" style="margin-top:0">Phương pháp tác động trực tiếp đến sản lượng và nhu cầu nguyên liệu. Nếu chưa chọn thủ công, vùng dùng phương pháp cao nhất mà quốc gia đã mở khóa bằng công nghệ.</div>
+          {regs.length ? regs.map((r) => {
+            const country = st.countries[id];
+            const active = productionMethodFor(country, r, b);
+            const options = availableProductionMethods(country, b);
+            const all = PRODUCTION_METHODS[b] ?? [];
+            const canEdit = canCommand(st, id) && options.length > 1;
+            return <div key={r.id} style="padding:8px 0;border-bottom:1px solid var(--line)">
+              <div class="row" style="padding:0">
+                <div class="grow"><div class="t sm">{regionName(r.id)}</div><div class="s">Cấp {r.buildings[b]} · {active?.name ?? 'Mặc định'}</div></div>
+                <button class="btn sm" onClick={() => focusRegion(r.id)}>Xem vùng</button>
+              </div>
+              {active && <div class="s" style="margin-top:3px">{active.description}</div>}
+              {canEdit && <div class="btns" style="margin-top:6px">{options.map((m) => <button key={m.id} class={`btn sm ${active?.id === m.id ? 'primary' : ''}`} aria-pressed={active?.id === m.id} onClick={() => send({ type: 'set_production_method', region: r.id, building: b, method: m.id }, `${regionName(r.id)}: ${m.name}`)}>{m.name}</button>)}</div>}
+              {canCommand(st, id) && all.filter((m) => m.requiresTech && !country.techs.includes(m.requiresTech)).map((m) => <div class="s warn" key={m.id}>Khóa: {m.name} · cần {m.requiresTech?.replace(/_/g, ' ')}</div>)}
+            </div>;
+          }) : <div class="empty sm">Quốc gia chưa có công trình này.</div>}
+        </Sec>
+      ) : null}
       <Sec title="Theo vùng" x="chạm để xem trên bản đồ">
         {regs.length ? regs.map((r) => <div class="row tap" key={r.id} onClick={() => focusRegion(r.id)}><div class="grow"><div class="t sm">{regionName(r.id)}</div></div><span class="num">cấp {r.buildings[b]}</span></div>) : <div class="empty sm">Quốc gia chưa có công trình này.</div>}
       </Sec>

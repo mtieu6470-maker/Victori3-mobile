@@ -66,7 +66,10 @@ export interface Region {
   id: string; owner: string; controller: string;
   pop: number; strata: number[]; culture: string; culture2: string | null; c2: number; religion: string;
   literacy: number; sol: number; unrest: number; radical: number; nationalism: number;
-  buildings: Record<Building, number>; res: string[]; terrain: string; coastal: boolean; area: number;
+  buildings: Record<Building, number>;
+  /** Player-selected production methods by building; absent values use the best method unlocked by technology. */
+  productionMethods?: Partial<Record<Building, string>>;
+  res: string[]; terrain: string; coastal: boolean; area: number;
   devastation: number; blight: { until: number; severity: number } | null; epidemic: { until: number; rate: number } | null;
   output: number; // value added last month (GBP-equivalent units)
   hiddenGold?: boolean;

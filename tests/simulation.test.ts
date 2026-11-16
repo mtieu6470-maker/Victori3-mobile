@@ -3,6 +3,8 @@ import { describe, it, expect } from 'vitest';
 import { run, fresh, stepMonth } from './helpers';
 import { serialize, deserialize } from '../src/engine/save';
 import { data } from '../src/engine/data/db';
+import { availableProductionMethods, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
+import { execute } from '../src/engine/commands';
 
 describe('economy and population sanity (40 years, both modes)', () => {
   for (const mode of ['historical', 'sandbox'] as const) {
@@ -80,5 +82,48 @@ describe('war support (Pass 16 pack, ch. 34/73: exhaustion alone does not capitu
     w.score = -30;
     militaryMonth(st);
     expect(st.wars.some((x) => x.id === w.id)).toBe(false);
+  });
+});
+
+
+describe('factory production methods', () => {
+  it('uses researched methods by default and persists explicit regional choices', () => {
+    const st = fresh('historical', 3, 'GBR');
+    const c = st.countries.GBR;
+    const r = st.regions.find((x) => x.owner === c.id && x.buildings.textile_mill > 0);
+    expect(r).toBeDefined();
+    const region = r!;
+    const options = availableProductionMethods(c, 'textile_mill');
+    expect(options.map((m) => m.id)).toContain('power_looms');
+    const baseMethod = options.find((m) => m.id === 'hand_looms')!;
+    const advancedMethod = options.find((m) => m.id === 'power_looms')!;
+    expect(productionMethodFor(c, region, 'textile_mill')?.id).toBe(advancedMethod.id);
+    expect(setProductionMethod(c, region, 'textile_mill', baseMethod.id)).toBe(true);
+    expect(productionMethodFor(c, region, 'textile_mill')?.id).toBe(baseMethod.id);
+    expect(region.productionMethods?.textile_mill).toBe(baseMethod.id);
+  });
+
+  it('rejects a technology-gated method when the required technology is absent', () => {
+    const st = fresh('historical', 4, 'GBR');
+    const c = st.countries.GBR;
+    const r = st.regions.find((x) => x.owner === c.id && x.buildings.textile_mill > 0)!;
+    c.techs = c.techs.filter((id) => id !== 'mechanized_spinning');
+    expect(availableProductionMethods(c, 'textile_mill').map((m) => m.id)).not.toContain('power_looms');
+    const result = execute(st, { type: 'set_production_method', region: r.id, building: 'textile_mill', method: 'power_looms' });
+    expect(result.ok).toBe(false);
+  });
+
+  it('loads saves both with and without per-region method fields', () => {
+    const st = fresh('historical', 3, 'GBR');
+    const c = st.countries.GBR;
+    const r = st.regions.find((x) => x.owner === c.id && x.buildings.textile_mill > 0)!;
+    setProductionMethod(c, r, 'textile_mill', 'hand_looms');
+    const loaded = deserialize(serialize(st));
+    const restored = loaded.regions.find((x) => x.id === r.id)!;
+    expect(restored.productionMethods?.textile_mill).toBe('hand_looms');
+    const legacy = JSON.parse(serialize(st));
+    for (const region of legacy.state.regions) delete region.productionMethods;
+    const old = deserialize(JSON.stringify(legacy));
+    expect(old.regions.every((x) => x.productionMethods === undefined)).toBe(true);
   });
 });

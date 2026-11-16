@@ -90,7 +90,7 @@ export function App({ assets }: { assets: MapAssets }) {
     if (g.paused) return;
 
     const preferences = loadPreferences().autoPause;
-    if (newDecision && preferences.decisions && st.player) {
+    if ((newDecision || st.pendingPlayerDecisions.length > 0) && preferences.decisions && st.player) {
       game.setPaused(true);
       game.toast('Đã tạm dừng: có quyết định đang chờ bạn.', 'info');
       return;

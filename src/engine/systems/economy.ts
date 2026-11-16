@@ -21,6 +21,51 @@ export const RECIPES: Partial<Record<Building, { out: Good; perWorker: number; i
   luxury_workshop: { out: 'luxury', perWorker: 1500, inputs: { cash_crops: 0.3 } },
 };
 
+export interface ProductionMethod {
+  id: string; name: string; description: string; requiresTech?: string;
+  outputMultiplier: number; additionalInputs?: Partial<Record<Good, number>>;
+}
+
+/** Regional factory methods: multipliers change output and additionalInputs change physical market demand. */
+export const PRODUCTION_METHODS: Partial<Record<Building, ProductionMethod[]>> = {
+  textile_mill: [
+    { id: 'hand_looms', name: 'Khung cửi thủ công', description: 'Sản xuất thủ công, không cần nhiên liệu bổ sung.', outputMultiplier: 1 },
+    { id: 'power_looms', name: 'Khung cửi cơ giới', description: 'Tăng sản lượng dệt, tiêu thụ thêm than.', requiresTech: 'mechanized_spinning', outputMultiplier: 1.2, additionalInputs: { coal: 0.08 } },
+  ],
+  ironworks: [
+    { id: 'charcoal_furnace', name: 'Lò luyện truyền thống', description: 'Lò luyện cơ bản với mức tiêu hao đầu vào hiện hành.', outputMultiplier: 1 },
+    { id: 'puddling_furnace', name: 'Lò luyện puddling', description: 'Cải thiện luyện sắt và tăng nhu cầu nhiên liệu.', requiresTech: 'puddling_iron', outputMultiplier: 1.12, additionalInputs: { coal: 0.1 } },
+    { id: 'coke_blast_furnace', name: 'Lò cao coke', description: 'Sản lượng thép cao hơn, đổi lại tiêu thụ nhiều than.', requiresTech: 'coke_smelting', outputMultiplier: 1.25, additionalInputs: { coal: 0.18 } },
+  ],
+  tool_works: [
+    { id: 'craft_tools', name: 'Chế tác dụng cụ', description: 'Dụng cụ được sản xuất theo phương pháp thủ công.', outputMultiplier: 1 },
+    { id: 'machine_tools', name: 'Máy công cụ chính xác', description: 'Tăng năng suất xưởng dụng cụ và tiêu thụ thêm thép.', requiresTech: 'interchangeable_parts', outputMultiplier: 1.2, additionalInputs: { steel: 0.08 } },
+  ],
+  arms_works: [
+    { id: 'artisan_armaments', name: 'Vũ khí thủ công', description: 'Vũ khí được lắp ráp thủ công.', outputMultiplier: 1 },
+    { id: 'rifle_assembly', name: 'Dây chuyền súng trường', description: 'Chuẩn hóa lắp ráp, tăng sản lượng nhưng cần thêm thép và dụng cụ.', requiresTech: 'breech_loading_rifles', outputMultiplier: 1.25, additionalInputs: { steel: 0.12, tools: 0.04 } },
+  ],
+};
+
+export function availableProductionMethods(c: Country, building: Building): ProductionMethod[] {
+  return (PRODUCTION_METHODS[building] ?? []).filter((m) => !m.requiresTech || hasTech(c, m.requiresTech));
+}
+
+/** Without an explicit choice, a region adopts its strongest currently researched method. */
+export function productionMethodFor(c: Country, r: Region, building: Building): ProductionMethod | null {
+  const methods = availableProductionMethods(c, building);
+  if (!methods.length) return null;
+  const selected = r.productionMethods?.[building];
+  return methods.find((m) => m.id === selected) ?? methods[methods.length - 1];
+}
+
+export function setProductionMethod(c: Country, r: Region, building: Building, methodId: string): boolean {
+  if (r.owner !== c.id || r.buildings[building] <= 0) return false;
+  if (!availableProductionMethods(c, building).some((m) => m.id === methodId)) return false;
+  r.productionMethods = { ...(r.productionMethods ?? {}), [building]: methodId };
+  return true;
+}
+
 export function techEffect(c: Country, key: string): number {
   const d = data(); let s = 0;
   for (const t of c.techs) { const v = d.tech.get(t)?.effects[key]; if (typeof v === 'number') s += v; }
@@ -91,9 +136,11 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
       const rec = RECIPES[b]!; const w = Math.min(r.buildings[b] * LEVEL_WORKERS, factoryWorkersLeft); factoryWorkersLeft -= w;
       if (w <= 0) continue;
       const eff = facEff * (1 + (b === 'textile_mill' ? techEffect(c, 'textile_efficiency') : b === 'ironworks' ? techEffect(c, 'iron_efficiency') + techEffect(c, 'steel_efficiency') : b === 'arms_works' ? techEffect(c, 'arms_efficiency') : 0));
-      const out = w * rec.perWorker * eff * Am * infra * dev * occupied;
+      const method = productionMethodFor(c, r, b);
+      const out = w * rec.perWorker * (method?.outputMultiplier ?? 1) * eff * Am * infra * dev * occupied;
       factoryOut[rec.out] += out;
       for (const [g, q] of Object.entries(rec.inputs)) inputsNeed[g as Good] += out * (q as number);
+      for (const [g, q] of Object.entries(method?.additionalInputs ?? {})) inputsNeed[g as Good] += out * (q as number);
     }
     // artisans (cottage industry)
     const art = LF * sh[S.artisans] * 700 * Am * dev * occupied;
@@ -285,7 +332,7 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
   let value = 0;
   if (b === 'railway') value = (r.output * 12) * 0.05 + 2e5;
   else if (b === 'university') value = 0;
-  else if (RECIPES[b]) { const rec = RECIPES[b]!; const out = LEVEL_WORKERS * rec.perWorker * A; value = out * p[rec.out] - Object.entries(rec.inputs).reduce((s, [g, q]) => s + out * (q as number) * p[g as Good], 0) - LEVEL_WORKERS * 650 * A * p.grain * 0.5; }
+  else if (RECIPES[b]) { const rec = RECIPES[b]!; const method = productionMethodFor(c, r, b); const out = LEVEL_WORKERS * rec.perWorker * (method?.outputMultiplier ?? 1) * A; value = out * p[rec.out] - Object.entries(rec.inputs).reduce((s, [g, q]) => s + out * (q as number) * p[g as Good], 0) - Object.entries(method?.additionalInputs ?? {}).reduce((s, [g, q]) => s + out * (q as number) * p[g as Good], 0) - LEVEL_WORKERS * 650 * A * p.grain * 0.5; }
   else { const good: Good = b === 'mine' ? (r.res.includes('coal') ? 'coal' : r.res.includes('iron') ? 'iron' : 'luxury') : b === 'logging' ? 'timber' : r.res.includes('cott') ? 'cotton' : r.res.includes('opium') ? 'opium' : 'cash_crops'; value = LEVEL_WORKERS * 900 * A * p[good] - LEVEL_WORKERS * 650 * A * p.grain * 0.6; }
   return value / buildCost(c, b, st);
 }
