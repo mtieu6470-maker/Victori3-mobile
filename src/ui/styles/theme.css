@@ -130,6 +130,23 @@ svg.i { width: 20px; height: 20px; flex: 0 0 auto; }
 .rbtn .lbl { position: absolute; left: 54px; top: 50%; transform: translateY(-50%); white-space: nowrap; pointer-events: none; opacity: 0; font: 600 13px var(--serif); padding: 4px 9px; background: #0c1215; border: 1px solid var(--gold-0); color: var(--gold-3); transition: opacity .12s; }
 .rbtn:hover .lbl { opacity: 1; }
 
+/* Short landscape phone screens: keep every strategy module legible without hover. */
+@media (max-height: 470px) and (orientation: landscape) {
+  .rail { gap: 2px; }
+  .rbtn { width: 48px; height: 38px; grid-template-rows: 20px 11px; align-content: center; gap: 0; }
+  .rbtn svg { width: 19px; height: 19px; }
+  .rbtn .lbl { position: static; display: block; max-width: 44px; overflow: hidden; text-overflow: ellipsis; transform: none; opacity: 1; padding: 0; border: 0; background: transparent; color: var(--text-2); font: 600 8px/11px var(--sans); }
+  .rbtn.on .lbl { color: var(--gold-4); }
+}
+
+/* Simulation controls stay readable and visibly stateful on touch devices. */
+.clock .speed { min-width: 48px; justify-content: center; align-items: center; gap: 4px; padding: 0 5px; }
+.speed-bars { display: flex; align-items: flex-end; gap: 2px; height: 22px; }
+.speed-value { color: var(--gold-4); font-size: 12px; font-variant-numeric: tabular-nums; }
+.sim-status { display: flex; align-items: center; gap: 5px; padding: 0 7px; white-space: nowrap; font: 700 9px/1 var(--sans); letter-spacing: .06em; color: var(--pos); }
+.sim-status::before { content: ""; width: 6px; height: 6px; flex: 0 0 auto; border-radius: 50%; background: currentColor; box-shadow: 0 0 7px currentColor; }
+.sim-status.paused { color: var(--warn); }
+
 /* ---------------------------------------------------------------- bottom dock (portrait navigation) */
 .dock { position: absolute; z-index: 30; left: 0; right: 0; bottom: 0; height: var(--dock-h); display: flex; align-items: stretch; gap: 4px; padding: 6px 6px calc(6px + env(safe-area-inset-bottom));
   background: linear-gradient(180deg, #1c262c, #0c1215); border-top: 1px solid var(--gold-0); box-shadow: 0 -1px 0 rgba(236, 211, 154, 0.12), 0 -6px 18px rgba(0, 0, 0, 0.5); }

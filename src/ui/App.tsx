@@ -233,8 +233,9 @@ function TopBar({ portrait }: { portrait: boolean }) {
     <div class="clock">
       <button class="ib" aria-label="Thông báo" title="Thông báo" onClick={() => modals.open('Thông báo', () => <InboxScreen st={st} />)}><Icon name="bell" class="i" />{unread > 0 && <span class="badge">{unread > 99 ? '99+' : unread}</span>}</button>
       <button class={`ib${menu ? ' on' : ''}`} aria-label="Menu" title="Thế giới, hệ thống, bản đồ toàn màn hình" onClick={(e) => { const r = (e.currentTarget as HTMLElement).getBoundingClientRect(); setMenu(menu ? null : { x: r.right, y: r.bottom }); }}><Icon name="menu" class="i" /></button>
-      <div class="datebox"><b class="num">{st.date.y}</b><span>{MONTH_VI[st.date.m - 1]}</span></div>
-      <Tip c={{ title: `Tốc độ ${g.speed} / 5`, note: 'Chạm để đổi tốc độ. Phím 1–5 trên bàn phím.' }}><button class="speed" aria-label={`Tốc độ ${g.speed}`} onClick={() => game.setSpeed(((g.speed % 5) + 1) as Speed)}>{[1, 2, 3, 4, 5].map((i) => <i key={i} class={i <= g.speed ? 'on' : ''} style={`height:${5 + i * 3}px`} />)}</button></Tip>
+      <div class="datebox" aria-label={`Thời gian mô phỏng: ${MONTH_VI[st.date.m - 1]} ${st.date.y}`}><b class="num">{st.date.y}</b><span>{MONTH_VI[st.date.m - 1]}</span></div>
+      <Tip c={{ title: `Tốc độ ${g.speed} / 5`, note: 'Chạm để đổi tốc độ. Phím 1–5 trên bàn phím.' }}><button class="speed" aria-label={`Tốc độ mô phỏng ${g.speed} trên 5`} onClick={() => game.setSpeed(((g.speed % 5) + 1) as Speed)}><span class="speed-bars">{[1, 2, 3, 4, 5].map((i) => <i key={i} class={i <= g.speed ? 'on' : ''} style={`height:${5 + i * 3}px`} />)}</span><b class="speed-value">×{g.speed}</b></button></Tip>
+      <div class={`sim-status ${g.paused ? 'paused' : 'running'}`} aria-live="polite">{g.paused ? 'TẠM DỪNG' : 'ĐANG CHẠY'}</div>
       <button class={`ib play${g.paused ? ' paused' : ''}`} aria-label={g.paused ? 'Tiếp tục' : 'Tạm dừng'} onClick={() => game.setPaused(!g.paused)}><Icon name={g.paused ? 'play' : 'pause'} class="i" /></button>
     </div>
   );
