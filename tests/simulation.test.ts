@@ -166,7 +166,7 @@ describe('monthly construction queue', () => {
   it('migrates saves written before constructionQueue existed', () => {
     const st = fresh('historical', 13, 'GBR');
     const legacy = JSON.parse(serialize(st));
-    for (const country of Object.values(legacy.state.countries)) delete country.constructionQueue;
+    for (const country of Object.values(legacy.state.countries) as Array<Record<string, unknown>>) delete country.constructionQueue;
     const loaded = deserialize(JSON.stringify(legacy));
     expect(Object.values(loaded.countries).every((country) => Array.isArray(country.constructionQueue))).toBe(true);
   });
