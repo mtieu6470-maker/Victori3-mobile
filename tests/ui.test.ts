@@ -8,6 +8,7 @@ import { buildCandidates, layoutLabels, setOwnerLookup, ownerAtCell } from '../s
 import { serialize, deserialize } from '../src/engine/save';
 import { GOODS } from '../src/engine/types';
 import { stepMonth } from '../src/engine/simulation';
+import { DEFAULT_PREFERENCES, parsePreferences } from '../src/ui/game/preferences';
 
 const bin = fs.readFileSync(path.resolve('public/generated/map.bin'));
 const grid = decodeGrid(bin.buffer.slice(bin.byteOffset, bin.byteOffset + bin.byteLength));
@@ -74,5 +75,21 @@ describe('budget lines shown by the Budget tab', () => {
       expect(f.tax + f.tariff).toBeCloseTo(c.income, 3);
       expect(f.army + f.navy + f.admin + f.education + f.health + f.construction + f.interest).toBeCloseTo(c.expense, 3);
     }
+  });
+});
+
+
+describe('offline gameplay preferences', () => {
+  it('uses safe defaults when there is no stored settings object', () => {
+    expect(parsePreferences(null)).toEqual(DEFAULT_PREFERENCES);
+  });
+  it('preserves explicit booleans and fills missing fields from defaults', () => {
+    expect(parsePreferences(JSON.stringify({ autoPause: { wars: false, disasters: true } }))).toEqual({
+      autoPause: { decisions: true, wars: false, revolutions: true, disasters: true },
+    });
+  });
+  it('recovers from malformed or wrong-shaped local data without throwing', () => {
+    expect(parsePreferences('{not-json')).toEqual(DEFAULT_PREFERENCES);
+    expect(parsePreferences(JSON.stringify({ autoPause: 'yes' }))).toEqual(DEFAULT_PREFERENCES);
   });
 });

@@ -31,6 +31,7 @@ import { JournalScreen, JOURNAL_TABS, InboxScreen } from './screens/Journal';
 import { WorldScreen, SystemScreen } from './screens/World';
 import { RegionWindow } from './screens/StateCard';
 import { saveSlot } from './game/storage';
+import { loadPreferences } from './game/preferences';
 
 type Meta = { title: string; icon: string; tabs?: [string, string][]; tabIcons?: Record<string, string>; hint: string };
 const SCREENS: Partial<Record<ScreenId, Meta>> = {
@@ -68,10 +69,44 @@ export function App({ assets }: { assets: MapAssets }) {
   const [pick, setPick] = useState<{ x: number; y: number } | null>(null);
   const [hover, setHover] = useState<{ id: string; x: number; y: number } | null>(null);
   const lastSave = useRef(-1);
+  const eventState = useRef<object | null>(null);
+  const eventCursor = useRef({ logCount: 0, decisionCount: 0 });
   const portraitNow = vw <= vh;
   const stageH = portraitNow ? vh - TOP_P - DOCK_P : vh - TOP_L;
   const regionGrip = useSheetDrag(stageH, () => ui.set({ region: null, regionDetail: false }));
   useEffect(() => { if (st && st.date.m === 1 && st.tick > 0 && st.tick !== lastSave.current && !game.busy) { lastSave.current = st.tick; saveSlot('Tự động lưu', game.save()).catch(() => game.toast('Không tự động lưu được (bộ nhớ thiết bị)', 'error')); } });
+  useEffect(() => {
+    if (!st) { eventState.current = null; eventCursor.current = { logCount: 0, decisionCount: 0 }; return; }
+    if (eventState.current !== st) {
+      eventState.current = st;
+      eventCursor.current = { logCount: st.log.length, decisionCount: st.pendingPlayerDecisions.length };
+      return;
+    }
+    const cursor = eventCursor.current;
+    const newEntries = st.log.slice(cursor.logCount);
+    const newDecision = st.pendingPlayerDecisions.length > cursor.decisionCount;
+    cursor.logCount = st.log.length;
+    cursor.decisionCount = st.pendingPlayerDecisions.length;
+    if (g.paused) return;
+
+    const preferences = loadPreferences().autoPause;
+    if (newDecision && preferences.decisions && st.player) {
+      game.setPaused(true);
+      game.toast('Đã tạm dừng: có quyết định đang chờ bạn.', 'info');
+      return;
+    }
+    const subject = st.player ?? viewedId(st);
+    const critical = newEntries.find((entry) => entry.actors.includes(subject) && (
+      (entry.type === 'war' && preferences.wars) ||
+      (entry.type === 'revolution' && preferences.revolutions) ||
+      (entry.type === 'disaster' && preferences.disasters)
+    ));
+    if (critical) {
+      game.setPaused(true);
+      const label = critical.type === 'war' ? 'chiến tranh' : critical.type === 'revolution' ? 'cách mạng' : 'thiên tai';
+      game.toast(`Đã tạm dừng: sự kiện ${label} liên quan đến quốc gia đang theo dõi.`, 'info');
+    }
+  }, [st?.tick, st?.log.length, st?.pendingPlayerDecisions.length, g.paused]);
   useEffect(() => {
     const k = (e: KeyboardEvent) => {
       if ((e.target as HTMLElement)?.tagName === 'INPUT') return;
@@ -392,6 +427,9 @@ function Outliner({ x, y }: { x: number; y: number }) {
   for (const w of st.wars.filter((x) => x.attackers.members.includes(id) || x.defenders.members.includes(id)).slice(0, 3)) { const sc = Math.round(w.attackers.members.includes(id) ? w.score : -w.score) || 0; items.push(<button class="oi" key={w.id} onClick={() => ui.go('military', 'wars')}><Mdl icon="military" color="#e38c7c" /><span class="grow"><span class="ot">{w.name}</span></span><span class={`num ${sc > 0 ? 'pos' : sc < 0 ? 'neg' : ''}`}>{sc > 0 ? '+' : ''}{fmt(sc)}</span></button>); }
   if (st.pendingPlayerDecisions.length && st.player === id) items.push(<button class="oi warn" key="d" onClick={() => ui.go('chronicle', 'decisions')}><Mdl icon="scroll" color="var(--warn)" /><span class="grow"><span class="ot">{st.pendingPlayerDecisions.length} quyết định đang chờ</span></span></button>);
   const stats = st.marketStats?.[marketOf(st, c)]; const short = stats ? Object.entries(stats).filter(([, v]) => v.short >= 0.1).sort((a, b) => b[1].short - a[1].short).slice(0, 2) : [];
+  if (c.famine >= 0.12) items.push(<button class="oi warn" key="famine" onClick={() => ui.go('society', 'pop')}><Mdl icon="grain" color="var(--neg)" /><span class="grow"><span class="ot">Thiếu lương thực nghiêm trọng</span></span><span class="num neg">{fmt(c.famine * 100, 0)}%</span></button>);
+  else if (c.radicalism >= 0.2) items.push(<button class="oi warn" key="radical" onClick={() => ui.go('politics', 'gov')}><Mdl icon="radical" color="var(--warn)" /><span class="grow"><span class="ot">Bất ổn chính trị cao</span></span><span class="num warn">{fmt(c.radicalism * 100, 0)}%</span></button>);
+  if (c.income > 0 && c.debt > c.income * 24) items.push(<button class="oi warn" key="debt" onClick={() => ui.go('economy', 'budget')}><Mdl icon="coins" color="var(--neg)" /><span class="grow"><span class="ot">Nợ công cần chú ý</span></span><span class="num neg">{compact(c.debt)}</span></button>);
   for (const [gd, v] of short) items.push(<button class="oi" key={`s${gd}`} onClick={() => ui.go('economy', 'market')}><Mdl icon={gd} color="#e9c46a" /><span class="grow"><span class="ot">Thiếu {GOOD_VI[gd].toLowerCase()}</span></span><span class="num neg">{pct(v.short)}</span></button>);
   return (
     <aside class="outliner hud-fade" style={`left:${x}px;top:${y}px`} aria-label="Theo dõi">

@@ -11,6 +11,7 @@ import { Flag } from './common';
 import { ui } from '../game/ui';
 import { game } from '../game/controller';
 import { saveSlot, loadSlot, listSlots } from '../game/storage';
+import { loadPreferences, savePreferences, type AutoPauseKey } from '../game/preferences';
 
 export function WorldScreen({ st }: { st: GameState }) {
   const rk = rankings(st); const [ref, w] = useWidth<HTMLDivElement>();
@@ -42,6 +43,11 @@ export function WorldScreen({ st }: { st: GameState }) {
 
 export function SystemScreen({ st }: { st: GameState }) {
   const [slots, setSlots] = useState<string[] | null>(null);
+  const [preferences, setPreferences] = useState(loadPreferences);
+  const toggleAutoPause = (key: AutoPauseKey) => setPreferences((current) => savePreferences({
+    ...current,
+    autoPause: { ...current.autoPause, [key]: !current.autoPause[key] },
+  }));
   const refresh = () => listSlots().then(setSlots).catch(() => setSlots([]));
   useEffect(() => { refresh(); }, []);
   const doSave = async (name: string) => { try { await saveSlot(name, game.save()); game.toast(`Đã lưu "${name}"`, 'ok'); refresh(); } catch (e) { game.toast(`Lưu thất bại: ${(e as Error).message}`, 'error'); } };
@@ -62,6 +68,20 @@ export function SystemScreen({ st }: { st: GameState }) {
           {slots?.length ? slots.map((s) => <div class="row" key={s}><div class="grow"><div class="t sm">{s}</div></div><button class="btn sm" onClick={() => doLoad(s)}>Tải</button></div>) : <div class="empty sm">{slots === null ? 'Đang đọc…' : 'Chưa có bản lưu.'}</div>}
         </Sec>
       </div>
+      <Sec title="Tạm dừng tự động" x="Lưu trên thiết bị">
+        <div class="note" style="margin-top:0">Tự dừng mô phỏng khi có sự kiện quan trọng liên quan đến nước bạn đang điều khiển hoặc theo dõi. Cài đặt này chỉ lưu trên điện thoại, không nằm trong tệp bản lưu.</div>
+        {([
+          ['decisions', 'Quyết định đang chờ', 'Dừng khi có quyết định lịch sử cần người chơi chọn.'],
+          ['wars', 'Chiến tranh', 'Dừng khi quốc gia đang theo dõi tuyên chiến hoặc chiến tranh kết thúc.'],
+          ['revolutions', 'Cách mạng', 'Dừng khi cách mạng nổ ra hoặc bị dập tắt tại quốc gia đang theo dõi.'],
+          ['disasters', 'Thiên tai và dịch bệnh', 'Dừng khi thiên tai hoặc dịch bệnh tác động đến lãnh thổ đang theo dõi.'],
+        ] as const).map(([key, title, note]) => (
+          <div class="row" key={key} style="min-height:48px;gap:10px">
+            <div class="grow"><div class="t sm">{title}</div><div class="s">{note}</div></div>
+            <button class={`btn sm ${preferences.autoPause[key] ? 'primary' : ''}`} aria-pressed={preferences.autoPause[key]} onClick={() => toggleAutoPause(key)}>{preferences.autoPause[key] ? 'Đang bật' : 'Đã tắt'}</button>
+          </div>
+        ))}
+      </Sec>
       <Sec title="Tệp"><div class="btns"><button class="btn sm" onClick={exportFile}>Xuất tệp</button><button class="btn sm" onClick={importFile}>Nhập tệp</button></div></Sec>
       <Sec title="Ván mới"><div class="btns"><button class="btn danger sm" onClick={() => { game.setPaused(true); ui.set({ started: false, camera: null, region: null, screen: 'map' }); }}>Về màn hình chọn ván</button></div></Sec>
       <ContentCredits />
