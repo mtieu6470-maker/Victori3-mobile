@@ -8,11 +8,12 @@ Match rules (evidence kept in the output):
   none    – anything else (the person stays unlinked and is listed).
 A candidate whose recorded birth or death year differs by more than 2 years is always rejected.
 
+Candidates come from batched Wikidata Query Service lookups (exact label or alias, humans only).
 Output: historical_data/identity/people_links.json      python3 tools/etl/link_people.py
 """
 import json, os, re, sys, unicodedata
 sys.path.insert(0, os.path.dirname(__file__))
-from wiki import api, entities, claim_values, year_of, iso_of
+from wiki import api
 
 ROOT = os.path.join(os.path.dirname(__file__), '..', '..')
 db = json.load(open(os.path.join(ROOT, 'src/generated/db.json'), encoding='utf-8'))
@@ -69,17 +70,70 @@ def variants(name):
     return [v for v in dict.fromkeys(out) if v]
 
 
-search = {}
-for p in people.values():
-    cands = []
-    for v in variants(p['name']):
-        for lang in ('en', 'vi') if re.search(r'[^\x00-\x7f]', v) else ('en',):
-            d = api('www.wikidata.org', action='wbsearchentities', search=v, language=lang, uselang='en', type='item', limit=8)
-            cands += [x['id'] for x in d.get('search', [])]
-    search[p['id']] = list(dict.fromkeys(cands))[:14]
+# Candidate lookup: one SPARQL query per batch of names (exact English/Vietnamese label or alias, humans only),
+# instead of one search request per name: the Wikidata API rate-limits shared addresses heavily.
+import time, urllib.parse, urllib.request, urllib.error
+from wiki import UA
+CACHE_Q = os.path.join(os.path.dirname(__file__), '.cache', 'people_sparql')
+os.makedirs(CACHE_Q, exist_ok=True)
+QUERY = """SELECT ?name ?item ?birth ?death ?image ?descEn ?descVi ?labelEn ?labelVi ?enwiki ?viwiki WHERE {
+ VALUES ?name { %s }
+ ?item rdfs:label|skos:altLabel ?name . ?item wdt:P31 wd:Q5 .
+ OPTIONAL { ?item wdt:P569 ?birth } OPTIONAL { ?item wdt:P570 ?death } OPTIONAL { ?item wdt:P18 ?image }
+ OPTIONAL { ?item schema:description ?descEn FILTER(LANG(?descEn) = "en") }
+ OPTIONAL { ?item schema:description ?descVi FILTER(LANG(?descVi) = "vi") }
+ OPTIONAL { ?item rdfs:label ?labelEn FILTER(LANG(?labelEn) = "en") }
+ OPTIONAL { ?item rdfs:label ?labelVi FILTER(LANG(?labelVi) = "vi") }
+ OPTIONAL { ?enwiki schema:about ?item ; schema:isPartOf <https://en.wikipedia.org/> }
+ OPTIONAL { ?viwiki schema:about ?item ; schema:isPartOf <https://vi.wikipedia.org/> }
+}"""
 
-allq = sorted({q for v in search.values() for q in v})
-ents = entities(allq, props='claims|labels|descriptions|sitelinks', languages='en|vi')
+
+def sparql(values, key):
+    path = os.path.join(CACHE_Q, key + '.json')
+    if os.path.exists(path):
+        return json.load(open(path))
+    body = urllib.parse.urlencode({'query': QUERY % values, 'format': 'json'}).encode()
+    for attempt in range(40):
+        try:
+            req = urllib.request.Request('https://query.wikidata.org/sparql', data=body, headers={'User-Agent': UA, 'Accept': 'application/sparql-results+json', 'Content-Type': 'application/x-www-form-urlencoded'})
+            rows = json.load(urllib.request.urlopen(req, timeout=120))['results']['bindings']
+            json.dump(rows, open(path, 'w'))
+            time.sleep(62)  # the query service currently allows about one request per minute
+            return rows
+        except urllib.error.HTTPError as e:
+            if e.code in (429, 500, 502, 503, 504):
+                time.sleep(65); continue
+            raise
+    raise RuntimeError('query service unavailable')
+
+
+def lit(s, lang):
+    return '"' + s.replace('\\', '\\\\').replace('"', '\\"') + '"@' + lang
+
+names = sorted({v for p in people.values() for v in variants(p['name'])})
+vals = []
+for n in names:
+    vals.append(lit(n, 'en'))
+    if re.search(r'[^\x00-\x7f]', n):
+        vals.append(lit(n, 'vi'))
+cand = {}   # name -> {qid: info}
+for i in range(0, len(vals), 160):
+    chunk = vals[i:i + 160]
+    for b in sparql(' '.join(chunk), f'batch_{i // 160}_{len(chunk)}'):
+        nm = b['name']['value']; q = b['item']['value'].rsplit('/', 1)[-1]
+        rec = cand.setdefault(nm, {}).setdefault(q, {'births': set(), 'deaths': set(), 'images': set()})
+        if 'birth' in b: rec['births'].add(b['birth']['value'][:10])
+        if 'death' in b: rec['deaths'].add(b['death']['value'][:10])
+        if 'image' in b: rec['images'].add(urllib.parse.unquote(b['image']['value'].rsplit('/', 1)[-1]).replace('_', ' '))
+        for k in ('descEn', 'descVi', 'labelEn', 'labelVi'):
+            if k in b: rec[k] = b[k]['value']
+        for k in ('enwiki', 'viwiki'):
+            if k in b: rec[k] = urllib.parse.unquote(b[k]['value'].rsplit('/wiki/', 1)[-1]).replace('_', ' ')
+
+def by(s):
+    m = re.match(r'^[+]?(-?\d{4})', s or '')
+    return int(m.group(1)) if m else None
 
 out = {}
 for p in people.values():
@@ -87,23 +141,21 @@ for p in people.values():
     start = min((yr(t['from']) for t in p['terms'] if yr(t['from'])), default=None)
     ent = E[p['entity']]
     words = {w.lower() for w in re.findall(r'[A-Za-zÀ-ỹ]{4,}', (ent['en'] or '') + ' ' + (p['title'] or '')) if w.lower() not in {'kingdom', 'empire', 'state', 'republic', 'principality', 'duchy', 'grand', 'free', 'city', 'under', 'with'}}
+    pool = {}
+    for v in variants(p['name']):
+        for q, info in cand.get(v, {}).items():
+            pool[q] = info
     best = None; humans = []
-    for q in search[p['id']]:
-        e = ents.get(q)
-        if not e or 'claims' not in e:
+    for q, info in pool.items():
+        bys = {by(x) for x in info['births'] if by(x)}; dys = {by(x) for x in info['deaths'] if by(x)}
+        if (eb and bys and min(abs(eb - b) for b in bys) > 2) or (ed and dys and min(abs(ed - d) for d in dys) > 2):
             continue
-        if not any(v.get('id') == 'Q5' for v, _, _ in claim_values(e, 'P31')):
-            continue
-        b = next((year_of(v) for v, _, _ in claim_values(e, 'P569') if year_of(v)), None)
-        d = next((year_of(v) for v, _, _ in claim_values(e, 'P570') if year_of(v)), None)
-        by, dy = (b[0] if b else None), (d[0] if d else None)
-        if (eb and by and abs(eb - by) > 2) or (ed and dy and abs(ed - dy) > 2):
-            continue
-        score = (3 if eb and by and abs(eb - by) <= 1 else 0) + (3 if ed and dy and abs(ed - dy) <= 1 else 0)
-        desc = (e.get('descriptions', {}).get('en', {}).get('value') or '').lower()
+        score = (3 if eb and bys and min(abs(eb - b) for b in bys) <= 1 else 0) + (3 if ed and dys and min(abs(ed - d) for d in dys) <= 1 else 0)
+        desc = (info.get('descEn') or '').lower()
         hit = any(w in desc for w in words)
-        alive = start is None or ((by is None or by < start) and (dy is None or dy >= start))
-        if alive and (by or dy):
+        b0 = min(bys) if bys else None; d0 = max(dys) if dys else None
+        alive = start is None or ((b0 is None or b0 < start) and (d0 is None or d0 >= start))
+        if alive and (b0 or d0):
             humans.append((q, hit))
         if score and (best is None or score > best[1]):
             best = (q, score, 'strong')
@@ -111,17 +163,15 @@ for p in people.values():
         hits = [q for q, h in humans if h]
         if len(hits) == 1:
             best = (hits[0], 1, 'weak')
-    rec = {**p, 'match': 'none', 'candidates': search[p['id']][:6]}
+    rec = {**p, 'match': 'none', 'candidates': sorted(pool)[:6]}
     if best:
-        e = ents[best[0]]
-        img = [v for v, _, r in claim_values(e, 'P18') if r != 'deprecated']
+        info = pool[best[0]]
         rec.update({
-            'match': best[2], 'qid': best[0],
-            'label_en': e.get('labels', {}).get('en', {}).get('value'), 'label_vi': e.get('labels', {}).get('vi', {}).get('value'),
-            'description_en': e.get('descriptions', {}).get('en', {}).get('value'), 'description_vi': e.get('descriptions', {}).get('vi', {}).get('value'),
-            'wd_born': next((iso_of(v) for v, _, _ in claim_values(e, 'P569')), None), 'wd_died': next((iso_of(v) for v, _, _ in claim_values(e, 'P570')), None),
-            'enwiki': e.get('sitelinks', {}).get('enwiki', {}).get('title'), 'viwiki': e.get('sitelinks', {}).get('viwiki', {}).get('title'),
-            'image': img[0] if img else None,
+            'match': best[2], 'qid': best[0], 'label_en': info.get('labelEn'), 'label_vi': info.get('labelVi'),
+            'description_en': info.get('descEn'), 'description_vi': info.get('descVi'),
+            'wd_born': min(info['births']) if info['births'] else None, 'wd_died': max(info['deaths']) if info['deaths'] else None,
+            'enwiki': info.get('enwiki'), 'viwiki': info.get('viwiki'),
+            'image': sorted(info['images'])[0] if info['images'] else None,
         })
         del rec['candidates']
     out[p['id']] = rec

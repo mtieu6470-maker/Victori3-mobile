@@ -58,8 +58,8 @@ def fetch_thumb(ii):
     (uncached renders and originals are what its rate limiter blocks first). Raises RateLimited if every size is
     blocked; the caller defers the file to a later run."""
     url = (ii.get('thumburl') or ii['url']).split('?')[0]
-    if '/thumb/' not in url:
-        return download(url)
+    if '/thumb/' not in url:   # small original: a single try, deferred if rate-limited (originals have long Retry-After)
+        return _get(url, binary=True, min_gap=1.2, attempts=1)
     head, tail = url.rsplit('/', 1)
     name = tail.split('px-', 1)[1]
     last = None
