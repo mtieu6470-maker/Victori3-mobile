@@ -57,7 +57,7 @@ for (const [pid, p] of Object.entries<any>(people)) {
 
 const out = {
   version: 1, generated: new Date().toISOString(),
-  licence_note: 'Images: licences per asset (public domain / CC0 / CC BY / CC BY-SA, Wikimedia Commons). Texts: Wikipedia leads, CC BY-SA 4.0, Wikipedia contributors. Identity links: Wikidata (CC0).',
+  licence_note: 'Hình ảnh: giấy phép ghi theo từng tệp (phạm vi công cộng / CC0 / CC BY / CC BY-SA, Wikimedia Commons). Văn bản: phần mở đầu bài Wikipedia, CC BY-SA 4.0, tác giả là cộng đồng Wikipedia. Liên kết danh tính: Wikidata (CC0).',
   counts: {
     assets: assets.length, bytes: assets.reduce((s, a) => s + a.bytes, 0),
     flags: assets.filter((a) => a.type === 'flag').length, arms: assets.filter((a) => a.type === 'coat_of_arms').length, portraits: assets.filter((a) => a.type === 'portrait').length,

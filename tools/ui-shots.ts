@@ -6,7 +6,7 @@ import { createRequire } from 'node:module';
 import { readFileSync, mkdirSync } from 'node:fs';
 import { preview } from 'vite';
 const [outDir, orient, base, planFile] = process.argv.slice(2);
-const plan = JSON.parse(readFileSync(planFile, 'utf8')) as { name: string; go?: [string, string?]; click?: string; tap?: [number, number]; tapRegion?: string; set?: Record<string, unknown>; post?: Record<string, unknown>; wait?: number }[];
+const plan = JSON.parse(readFileSync(planFile, 'utf8')) as { name: string; go?: [string, string?]; click?: string; tap?: [number, number]; tapRegion?: string; set?: Record<string, unknown>; post?: Record<string, unknown>; wait?: number; scrollTo?: string }[];
 mkdirSync(outDir, { recursive: true });
 const server = await preview({ preview: { port: 4319, strictPort: true }, logLevel: 'warn' });
 const { chromium } = createRequire(import.meta.url)('playwright') as any;
@@ -39,6 +39,7 @@ for (const s of plan) {
     if (!el) console.log('MISSING', s.name, s.click);
     else await el.click({ timeout: 8000 }).catch((e: Error) => console.log('CLICK FAILED', s.name, e.message.split('\n')[0]));
   }
+  if (s.scrollTo) { await page.waitForTimeout(600); const ok = await page.evaluate((sel: string) => { const el = document.querySelector(sel); if (!el) return false; el.scrollIntoView({ block: 'start' }); return true; }, s.scrollTo); if (!ok) console.log('MISSING', s.name, s.scrollTo); }
   await page.waitForTimeout(s.wait ?? 2500);
   await page.screenshot({ path: `${outDir}/${s.name}_${orient}.png` });
   console.log('shot', s.name, Date.now() - t0, 'ms');

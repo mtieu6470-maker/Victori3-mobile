@@ -16,7 +16,11 @@ export function fullName(st: GameState | null, id: string): string {
   const c = st?.countries[id]; if (c?.nameVi) return c.nameVi;
   return data().entity.get(id)?.vi ?? c?.name ?? id;
 }
+/** Short names that changed during 1836–1936, by the first year of each name (sources in historical_data/identity/local_names.json). */
+const DATED: Record<string, [number, string][]> = { VNM: [[1804, 'Việt Nam'], [1839, 'Đại Nam']] };
 export function shortName(st: GameState | null, id: string): string {
+  const dated = DATED[id];
+  if (dated) { const y = st?.date.y ?? 1836; return [...dated].reverse().find(([from]) => y >= from)?.[1] ?? dated[0][1]; }
   if (SHORT[id]) return SHORT[id];
   const full = fullName(st, id);
   return full.replace(/\s*\(.*\)$/, '').replace(PREFIX, '');
