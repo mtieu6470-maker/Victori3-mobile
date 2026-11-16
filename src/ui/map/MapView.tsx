@@ -11,9 +11,10 @@ import { buildCandidates, layoutLabels, setOwnerLookup, type Box, type LabelCand
 import { cellAt, type MapGrid } from './mapData';
 import { buildPaths, type VectorData, type VectorPaths } from './vectors';
 import { ui, type LensId } from '../game/ui';
+import { isLongPress } from './gestures';
 
 export interface MapAssets { grid: MapGrid; relief: HTMLImageElement | null; coastDist: HTMLImageElement | null; terrain: HTMLImageElement | null; vectors: VectorData | null }
-interface Props { assets: MapAssets; st: GameState; version: number; lens: LensId; focus: string | null; selRegion: string | null; selCountry: string | null; dim?: boolean; onSelect: (regionId: string | null, at?: { x: number; y: number }) => void; onHover?: (regionId: string | null, x: number, y: number) => void; insetLeft?: number; avoid?: (w: number, h: number) => Box[] }
+interface Props { assets: MapAssets; st: GameState; version: number; lens: LensId; focus: string | null; selRegion: string | null; selCountry: string | null; dim?: boolean; onSelect: (regionId: string | null, at?: { x: number; y: number }) => void; onLongPress?: (regionId: string, at: { x: number; y: number }) => void; onHover?: (regionId: string | null, x: number, y: number) => void; insetLeft?: number; avoid?: (w: number, h: number) => Box[] }
 
 const MIN_DEG_PER_PX = 0.0045; // closest zoom (~0.5 km per CSS px)
 const SERIF = '"EB Garamond", "Noto Serif", Georgia, serif';
@@ -147,14 +148,14 @@ export function MapView(p: Props) {
   useEffect(() => { kick = schedule; return () => { kick = null; }; }, []);
 
   useEffect(() => {
-    const el = wrap.current!; const pts = new Map<number, { x: number; y: number; sx: number; sy: number }>();
-    let pinch: { d: number; mx: number; my: number } | null = null; let lastTap = { t: 0, x: 0, y: 0 }; let moved = false;
+    const el = wrap.current!; const pts = new Map<number, { x: number; y: number; sx: number; sy: number; downAt: number; pointerType: string }>();
+    let pinch: { d: number; mx: number; my: number } | null = null; let lastTap = { t: 0, x: 0, y: 0 }; let moved = false; let multiPointer = false;
     const local = (e: PointerEvent | WheelEvent) => { const b = el.getBoundingClientRect(); return { x: e.clientX - b.left, y: e.clientY - b.top }; };
     const zoomAt = (x: number, y: number, f: number) => {
       const c0 = cam(); const gx = c0.x0 + x * c0.scale, gy = c0.y0 + y * c0.scale; const s = R.current.size;
       const ns = c0.scale * f; ui.get().camera = clampCam({ scale: ns, cx: gx - (x - s.w / 2) * ns, cy: gy - (y - s.h / 2) * ns }); moving(); schedule();
     };
-    const down = (e: PointerEvent) => { el.setPointerCapture(e.pointerId); const l = local(e); pts.set(e.pointerId, { x: l.x, y: l.y, sx: l.x, sy: l.y }); moved = false; if (pts.size === 2) { const [a, b] = [...pts.values()]; pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), mx: (a.x + b.x) / 2, my: (a.y + b.y) / 2 }; } };
+    const down = (e: PointerEvent) => { el.setPointerCapture(e.pointerId); const l = local(e); if (pts.size > 0) multiPointer = true; pts.set(e.pointerId, { x: l.x, y: l.y, sx: l.x, sy: l.y, downAt: performance.now(), pointerType: e.pointerType }); moved = false; if (pts.size === 2) { const [a, b] = [...pts.values()]; pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), mx: (a.x + b.x) / 2, my: (a.y + b.y) / 2 }; } };
     const hoverAt = (x: number, y: number) => {
       const c = cam(); const i = cellAt(grid, c.x0 + x * c.scale, c.y0 + y * c.scale); const h = i || -1;
       if (h !== R.current.hover) { R.current.hover = h; schedule(); }
@@ -169,12 +170,21 @@ export function MapView(p: Props) {
     };
     const up = (e: PointerEvent) => {
       const q = pts.get(e.pointerId); pts.delete(e.pointerId); if (pts.size < 2) pinch = null;
-      if (!q || moved || pts.size > 0) return;
+      const hadMultiplePointers = multiPointer;
+      if (pts.size === 0) multiPointer = false;
+      if (e.type === 'pointercancel' || !q || moved || pts.size > 0 || hadMultiplePointers) return;
       const now = performance.now();
+      const c = cam();
+      const i = cellAt(grid, c.x0 + q.x * c.scale, c.y0 + q.y * c.scale);
+      const regionId = i ? data().map.regionIds[i - 1] ?? null : null;
+      if (isLongPress(q, now, q.x, q.y)) {
+        if (regionId) props.current.onLongPress?.(regionId, { x: q.x, y: q.y });
+        lastTap.t = 0;
+        return;
+      }
       if (now - lastTap.t < 320 && Math.hypot(q.x - lastTap.x, q.y - lastTap.y) < 24) { zoomAt(q.x, q.y, 0.5); lastTap.t = 0; return; }
       lastTap = { t: now, x: q.x, y: q.y };
-      const c = cam(); const i = cellAt(grid, c.x0 + q.x * c.scale, c.y0 + q.y * c.scale);
-      props.current.onSelect(i ? data().map.regionIds[i - 1] ?? null : null, { x: q.x, y: q.y });
+      props.current.onSelect(regionId, { x: q.x, y: q.y });
     };
     const leave = () => { if (R.current.hover !== -1) { R.current.hover = -1; schedule(); } props.current.onHover?.(null, 0, 0); };
     const wheel = (e: WheelEvent) => { e.preventDefault(); const l = local(e); zoomAt(l.x, l.y, e.deltaY > 0 ? 1.18 : 1 / 1.18); };

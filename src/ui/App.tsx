@@ -186,7 +186,7 @@ export function App({ assets }: { assets: MapAssets }) {
     <div class={`app ${portrait ? 'portrait' : 'landscape'}${u.fullMap ? ' fullmap' : ''}`}>
       <main class="stage">
         <MapView assets={assets} st={st} version={g.version} lens={u.lens} focus={focus} selRegion={u.region} selCountry={selCountry} dim={!!u.region}
-          onSelect={select} onHover={(id, x, y) => setHover(id ? { id, x, y } : null)} insetLeft={0} avoid={avoid} />
+          onSelect={select} onLongPress={(id, at) => { setPick(at); ui.set({ region: id, regionDetail: true }); }} onHover={(id, x, y) => setHover(id ? { id, x, y } : null)} insetLeft={0} avoid={avoid} />
         <div class="mapshade" />
       </main>
       <div class="hud-fade"><TopBar portrait={portrait} /></div>

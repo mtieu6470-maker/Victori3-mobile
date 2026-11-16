@@ -9,6 +9,7 @@ import { serialize, deserialize } from '../src/engine/save';
 import { GOODS } from '../src/engine/types';
 import { stepMonth } from '../src/engine/simulation';
 import { DEFAULT_PREFERENCES, parsePreferences } from '../src/ui/game/preferences';
+import { isLongPress, LONG_PRESS_MS, LONG_PRESS_SLOP_PX } from '../src/ui/map/gestures';
 
 const bin = fs.readFileSync(path.resolve('public/generated/map.bin'));
 const grid = decodeGrid(bin.buffer.slice(bin.byteOffset, bin.byteOffset + bin.byteLength));
@@ -91,5 +92,20 @@ describe('offline gameplay preferences', () => {
   it('recovers from malformed or wrong-shaped local data without throwing', () => {
     expect(parsePreferences('{not-json')).toEqual(DEFAULT_PREFERENCES);
     expect(parsePreferences(JSON.stringify({ autoPause: 'yes' }))).toEqual(DEFAULT_PREFERENCES);
+  });
+});
+
+
+describe('map touch gestures', () => {
+  const press = { downAt: 1000, sx: 40, sy: 60, pointerType: 'touch' };
+
+  it('recognizes a stationary touch hold and rejects a short tap', () => {
+    expect(isLongPress(press, 1000 + LONG_PRESS_MS, 40, 60)).toBe(true);
+    expect(isLongPress(press, 1000 + LONG_PRESS_MS - 1, 40, 60)).toBe(false);
+  });
+
+  it('rejects holds that move beyond the touch slop or originate from a mouse', () => {
+    expect(isLongPress(press, 1000 + LONG_PRESS_MS, 40 + LONG_PRESS_SLOP_PX + 1, 60)).toBe(false);
+    expect(isLongPress({ ...press, pointerType: 'mouse' }, 1000 + LONG_PRESS_MS, 40, 60)).toBe(false);
   });
 });
