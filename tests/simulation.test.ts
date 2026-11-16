@@ -5,6 +5,7 @@ import { serialize, deserialize } from '../src/engine/save';
 import { data } from '../src/engine/data/db';
 import { availableProductionMethods, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
 import { execute } from '../src/engine/commands';
+import { advanceConstruction, cancelConstruction, queueConstruction, canBuild } from '../src/engine/systems/economy';
 
 describe('economy and population sanity (40 years, both modes)', () => {
   for (const mode of ['historical', 'sandbox'] as const) {
@@ -125,5 +126,48 @@ describe('factory production methods', () => {
     for (const region of legacy.state.regions) delete region.productionMethods;
     const old = deserialize(JSON.stringify(legacy));
     expect(old.regions.every((x) => x.productionMethods === undefined)).toBe(true);
+  });
+});
+
+
+describe('monthly construction queue', () => {
+  it('spends no more than monthly construction capacity and completes after adequate funding', () => {
+    const st = fresh('historical', 11, 'GBR');
+    const c = st.countries.GBR;
+    const region = st.regions.find((r) => r.owner === c.id && canBuild(st, c, r, 'textile_mill'))!;
+    expect(region).toBeDefined();
+    const before = region.buildings.textile_mill;
+    expect(queueConstruction(st, c, region, 'textile_mill')).toBe(true);
+    const project = c.constructionQueue[0];
+    (c as any).statePool = project.cost;
+    c.finance = { tax: 0, tariff: 0, army: 0, navy: 0, admin: 0, education: 0, health: 0, construction: project.cost / 3, interest: 0 };
+    advanceConstruction(st, c);
+    expect(c.constructionQueue[0].progress).toBeCloseTo(project.cost / 3);
+    expect(region.buildings.textile_mill).toBe(before);
+    c.finance.construction = project.cost;
+    advanceConstruction(st, c);
+    expect(c.constructionQueue.length).toBe(0);
+    expect(region.buildings.textile_mill).toBe(before + 1);
+  });
+
+  it('refunds invested money to the construction pool when a project is cancelled', () => {
+    const st = fresh('historical', 12, 'GBR');
+    const c = st.countries.GBR;
+    const region = st.regions.find((r) => r.owner === c.id && canBuild(st, c, r, 'textile_mill'))!;
+    expect(queueConstruction(st, c, region, 'textile_mill')).toBe(true);
+    const project = c.constructionQueue[0];
+    project.progress = 12345;
+    (c as any).statePool = 0;
+    expect(cancelConstruction(c, project.id)).toBe(true);
+    expect(c.constructionQueue.length).toBe(0);
+    expect((c as any).statePool).toBe(12345);
+  });
+
+  it('migrates saves written before constructionQueue existed', () => {
+    const st = fresh('historical', 13, 'GBR');
+    const legacy = JSON.parse(serialize(st));
+    for (const country of Object.values(legacy.state.countries)) delete country.constructionQueue;
+    const loaded = deserialize(JSON.stringify(legacy));
+    expect(Object.values(loaded.countries).every((country) => Array.isArray(country.constructionQueue))).toBe(true);
   });
 });

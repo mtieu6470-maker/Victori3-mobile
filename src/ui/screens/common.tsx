@@ -23,6 +23,8 @@ const REASONS_VI: [RegExp, string][] = [
   [/Not buildable/i, 'Không thể xây công trình này ở vùng này.'],
   [/Insufficient construction funds/i, 'Không đủ quỹ xây dựng.'],
   [/Production method/i, 'Phương pháp sản xuất chưa được mở khóa hoặc công trình không thuộc quyền sở hữu của bạn.'],
+  [/Construction queue/i, 'Hàng đợi đầy hoặc công trình không thể xây tại vùng này.'],
+  [/No such construction/i, 'Không tìm thấy dự án xây dựng cần hủy.'],
   [/Prerequisites/i, 'Chưa đủ công nghệ tiền đề hoặc đã nghiên cứu.'],
   [/Refused \(acceptance/i, 'Đối phương từ chối liên minh.'],
   [/Subjects/i, 'Chư hầu (trừ triều cống) không thể tự lập liên minh.'],

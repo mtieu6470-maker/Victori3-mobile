@@ -4,7 +4,7 @@
 import { useState } from 'preact/hooks';
 import type { GameState, Good, Building, Region } from '../../engine/types';
 import { GOODS, BUILDINGS } from '../../engine/types';
-import { marketOf, buildCost, buildingReturn, canBuild, RECIPES, LEVEL_WORKERS, PRODUCTION_METHODS, availableProductionMethods, productionMethodFor } from '../../engine/systems/economy';
+import { marketOf, buildCost, buildingReturn, canBuild, RECIPES, LEVEL_WORKERS, PRODUCTION_METHODS, availableProductionMethods, productionMethodFor, canQueueConstruction, MAX_CONSTRUCTION_QUEUE } from '../../engine/systems/economy';
 import { Icon } from '../components/icons';
 import { Sec, Metric, Delta, DBar, Bar, HBars, LineChart, Donut, Seg, modals, details, useWidth, useSort } from '../components/ui';
 import { GOOD_VI, GOOD_GROUP, BUILD_VI, lawVi, fmt, pct, money, compact } from '../i18n/vi';
@@ -226,13 +226,14 @@ export function ConstructionTab({ st }: { st: GameState }) {
   const cat = (b: Building) => (SECTOR[b] === 'Công nghiệp' ? 'industry' : SECTOR[b] === 'Hạ tầng & giáo dục' ? 'infra' : 'primary');
   const shown = ops.filter((o) => kind === 'all' || cat(o.b) === kind).slice(0, 60); const maxRet = Math.max(...ops.map((o) => o.ret), 1e-9);
   const statePool = (c as any).statePool ?? 0, privatePool = (c as any).privatePool ?? 0;
+  const queue = c.constructionQueue ?? [];
   const confirm = (o: (typeof ops)[number]) => modals.open(`Xây ${BUILD_VI[o.b]}`, () => (
     <div>
       <div class="t-s" style="margin-bottom:6px">{regionName(o.r.id)}</div>
       <Sec title="Chi phí"><div class="kv"><span class="k">Trích từ quỹ xây dựng nhà nước</span><span class="v num">{money(o.cost)}</span></div><div class="kv"><span class="k">Quỹ hiện có</span><span class={`v num${statePool < o.cost ? ' neg' : ''}`}>{money(statePool)}</span></div></Sec>
       <Sec title="Lợi ích dự kiến"><div class="kv"><span class="k">Lợi suất năm (theo giá hiện tại, ước tính)</span><span class="v num pos">{pct(o.ret, 1)}</span></div>{o.b !== 'railway' && <div class="kv"><span class="k">Việc làm</span><span class="v num">{fmt(LEVEL_WORKERS)}</span></div>}</Sec>
-      <div class="note">Công trình hoàn thành ngay khi trả đủ chi phí; chi phí không hoàn lại. Giá đầu vào và đầu ra thay đổi theo thị trường.</div>
-      <div class="btns" style="margin-top:10px"><button class="btn" onClick={() => modals.close()}>Hủy</button><button class="btn primary" disabled={statePool < o.cost} onClick={() => { if (send({ type: 'build', region: o.r.id, building: o.b }, `Đã xây ${BUILD_VI[o.b]} tại ${regionName(o.r.id)}`)) modals.close(); }}>Xây</button></div>
+      <div class="note">Dự án vào hàng đợi và thi công theo năng lực xây dựng từ ngân sách mỗi tháng. Chi phí ước tính được khóa tại thời điểm đặt dự án; vùng bị chiếm sẽ tạm dừng thi công.</div>
+      <div class="btns" style="margin-top:10px"><button class="btn" onClick={() => modals.close()}>Hủy</button><button class="btn primary" disabled={!canQueueConstruction(st, c, o.r, o.b)} onClick={() => { if (send({ type: 'queue_build', region: o.r.id, building: o.b }, `Đã xếp hàng ${BUILD_VI[o.b]} tại ${regionName(o.r.id)}`)) modals.close(); }}>Xếp hàng</button></div>
     </div>
   ));
   return (
@@ -241,6 +242,19 @@ export function ConstructionTab({ st }: { st: GameState }) {
         <Metric label="Quỹ xây dựng nhà nước" icon="construction" value={money(statePool)} d={<span class="dim">{pct(c.budget.construction)} thu nhập mỗi tháng</span>} tip={{ title: 'Quỹ xây dựng nhà nước', note: 'Tích lũy từ dòng “Xây dựng” của ngân sách; dùng cho các lệnh xây của người chơi.' }} />
         <Metric label="Quỹ đầu tư tư nhân" icon="treasury" value={money(privatePool)} d={<span class="dim">nhà đầu tư tự xây theo lợi suất</span>} tip={{ title: 'Đầu tư tư nhân', note: 'Tiết kiệm của các tầng lớp có tài sản; mức tích lũy phụ thuộc luật kinh tế.' }} />
       </div>
+      <Sec title="Hàng đợi xây dựng" x={`${queue.length}/${MAX_CONSTRUCTION_QUEUE} dự án`}>
+        {queue.length ? queue.map((project, index) => {
+          const target = st.regions.find((r) => r.id === project.region);
+          return <div class="row" key={project.id} style="padding:7px 0;border-bottom:1px solid var(--line);align-items:center">
+            <div class="grow"><div class="t sm">{BUILD_VI[project.building]} · {target ? regionName(target.id) : project.region}</div>
+              {index === 0 ? <><div class="s">Đang thi công · {money(project.progress)} / {money(project.cost)}</div><Bar frac={project.progress / Math.max(1, project.cost)} /></> : <div class="s">Đang chờ trong hàng đợi</div>}
+              {target && target.controller !== target.owner && <div class="s warn">Tạm dừng do vùng đang bị chiếm</div>}
+            </div>
+            {mine && <button class="btn sm" onClick={() => send({ type: 'cancel_construction', projectId: project.id }, 'Đã hủy dự án; phần vốn đã chi được hoàn lại.')}>Hủy</button>}
+          </div>;
+        }) : <div class="empty sm">Chưa có dự án nào trong hàng đợi.</div>}
+        <div class="note">Chỉ dự án đầu hàng đợi được thi công; mỗi tháng bị giới hạn bởi ngân sách xây dựng thực tế.</div>
+      </Sec>
       <div class="toolrow" style="margin-top:10px">
         <div class="grow t-s">Cơ hội xây dựng <span class="dim" style="font:13px var(--sans)">{ops.length} lựa chọn</span></div>
         <Seg value={kind} onChange={setKind} options={[['all', 'Tất cả'], ['primary', 'Khai thác'], ['industry', 'Công nghiệp'], ['infra', 'Hạ tầng']] as const} />
@@ -253,7 +267,7 @@ export function ConstructionTab({ st }: { st: GameState }) {
               <td><div class="nm">{BUILD_VI[o.b]}</div><div class="sub ellipsis" style="max-width:240px">{regionName(o.r.id)}{w < 400 ? ` · ${money(o.cost)}` : ''}</div></td>
               {w >= 400 && <td class="r num">{money(o.cost)}</td>}
               <td style="min-width:96px"><div class="bal"><span class="bar" style="width:60px"><i style={`width:${(o.ret / maxRet) * 100}%;background:var(--pos)`} /></span><span class="num">{pct(o.ret, 1)}</span></div></td>
-              {mine && <td class="r"><button class="btn sm" onClick={() => confirm(o)}>Xây</button></td>}
+              {mine && <td class="r"><button class="btn sm" disabled={!canQueueConstruction(st, c, o.r, o.b)} onClick={() => confirm(o)}>Xếp hàng</button></td>}
             </tr>))}</tbody>
         </table>
       ) : <div class="empty">Không có công trình nào sinh lời ở mức giá hiện tại.</div>}

@@ -2,7 +2,7 @@
 // The UI layer must only issue these commands (no rule logic in the UI).
 import type { LawGroup } from './data/dbTypes';
 import type { Building, GameState, WarGoal } from './types';
-import { build, canBuild, buildCost, setProductionMethod } from './systems/economy';
+import { build, canBuild, buildCost, setProductionMethod, queueConstruction, cancelConstruction } from './systems/economy';
 import { startReform, reformSupport } from './systems/politics';
 import { availableTechs } from './systems/technology';
 import { declareWar, formAlliance, breakAlliance, declareRivalry, guarantee, improveRelations, joinCustomsUnion, allianceAcceptance, boundSubject } from './systems/diplomacy';
@@ -18,6 +18,8 @@ export type Command =
   | { type: 'set_navy_target'; ships: number }
   | { type: 'start_reform'; group: LawGroup; value: string }
   | { type: 'build'; region: string; building: Building }
+  | { type: 'queue_build'; region: string; building: Building }
+  | { type: 'cancel_construction'; projectId: string }
   | { type: 'set_production_method'; region: string; building: Building; method: string }
   | { type: 'set_research'; tech: string }
   | { type: 'improve_relations'; target: string }
@@ -46,6 +48,15 @@ export function execute(st: GameState, cmd: Command): CommandResult {
       if (!r || !canBuild(st, me, r, cmd.building)) return { ok: false, reason: 'Not buildable here' };
       return build(st, me, r, cmd.building, 'statePool') ? { ok: true } : { ok: false, reason: `Insufficient construction funds (cost ${Math.round(buildCost(me, cmd.building, st))})` };
     }
+    case 'queue_build': {
+      const r = st.regions[data().regionIndex.get(cmd.region) ?? -1];
+      return r && queueConstruction(st, me, r, cmd.building)
+        ? { ok: true }
+        : { ok: false, reason: 'Construction queue is full or this building is not available here' };
+    }
+    case 'cancel_construction': return cancelConstruction(me, cmd.projectId)
+      ? { ok: true }
+      : { ok: false, reason: 'No such construction project' };
     case 'set_production_method': {
       const r = st.regions[data().regionIndex.get(cmd.region) ?? -1];
       if (!r || r.owner !== me.id || r.buildings[cmd.building] <= 0) return { ok: false, reason: 'Production method requires an owned building' };
