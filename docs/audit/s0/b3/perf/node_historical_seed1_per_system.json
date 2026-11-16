@@ -1,0 +1,283 @@
+{
+  "schema": "s0-perf-node-v1",
+  "label": "BASELINE_ORIGINAL",
+  "environment": {
+    "kind": "node_server",
+    "node": "v22.23.4",
+    "v8": "12.4.254.21-node.57",
+    "platform": "linux 6.18.44-fc-v470",
+    "arch": "x64",
+    "cpu_model": "Intel(R) Xeon(R) Processor @ 2.30GHz",
+    "logical_cpus": 4,
+    "total_mem_bytes": 16869146624,
+    "loadavg_at_start": [
+      0.87,
+      0.34,
+      0.12
+    ]
+  },
+  "build": {
+    "audited_head": "2240a8fb865e0021eec2f2f4f1c6803528be9e2c",
+    "db_json_sha256": "8155f470f9b8b3216ba68d1aa109907ba54d76e97d3747964decd355d25c164a",
+    "db_json_sha256_without_built_at": "3dc22a087647c172865c051d0342d06e23746fe391768640524a950b95c35d7d",
+    "map_json_sha256": "9a6a6979dd5e7adc9d5953fc5f089ac94dee4079433ed1d340535dcbe877a696",
+    "harness_sha256": "e37140ae8cb89c984bc7ec7027d7dcc1e3f42cb196011f90cb42bf26c8b8918c"
+  },
+  "run": {
+    "mode": "historical",
+    "seed": 1,
+    "player": null,
+    "months": 1200,
+    "per_system_wrappers": true,
+    "start_tick": 0,
+    "end_tick": 1200,
+    "end_date": "1936-01",
+    "started_at": "2026-11-16T10:28:02.131Z",
+    "countries_alive_at_end": 187
+  },
+  "setup_ms": {
+    "load_data": 47.686,
+    "create_game": 139.228
+  },
+  "group1_tick_duration_ms": {
+    "all": {
+      "n": 1200,
+      "mean": 21.972,
+      "p50": 20.529,
+      "p95": 30.126,
+      "p99": 42.704,
+      "max": 75.504
+    },
+    "excluding_first_12": {
+      "n": 1188,
+      "mean": 21.697,
+      "p50": 20.501,
+      "p95": 29.43,
+      "p99": 37.198,
+      "max": 57.547
+    },
+    "by_120_ticks": [
+      {
+        "ticks": "1-120",
+        "n": 120,
+        "mean": 26.004,
+        "p50": 22.617,
+        "p95": 46.217,
+        "p99": 70.47,
+        "max": 75.504
+      },
+      {
+        "ticks": "121-240",
+        "n": 120,
+        "mean": 21.194,
+        "p50": 19.998,
+        "p95": 29.118,
+        "p99": 31.776,
+        "max": 33.29
+      },
+      {
+        "ticks": "241-360",
+        "n": 120,
+        "mean": 20.892,
+        "p50": 19.763,
+        "p95": 25.7,
+        "p99": 55.477,
+        "max": 57.547
+      },
+      {
+        "ticks": "361-480",
+        "n": 120,
+        "mean": 21.62,
+        "p50": 20.103,
+        "p95": 30.57,
+        "p99": 39.146,
+        "max": 42.704
+      },
+      {
+        "ticks": "481-600",
+        "n": 120,
+        "mean": 21.309,
+        "p50": 20.423,
+        "p95": 28.56,
+        "p99": 31.626,
+        "max": 37.655
+      },
+      {
+        "ticks": "601-720",
+        "n": 120,
+        "mean": 21.639,
+        "p50": 20.793,
+        "p95": 28.677,
+        "p99": 33.755,
+        "max": 34.07
+      },
+      {
+        "ticks": "721-840",
+        "n": 120,
+        "mean": 21.843,
+        "p50": 20.588,
+        "p95": 28.976,
+        "p99": 30.661,
+        "max": 35.078
+      },
+      {
+        "ticks": "841-960",
+        "n": 120,
+        "mean": 21.412,
+        "p50": 20.277,
+        "p95": 26.572,
+        "p99": 32.299,
+        "max": 34.281
+      },
+      {
+        "ticks": "961-1080",
+        "n": 120,
+        "mean": 22.243,
+        "p50": 21.097,
+        "p95": 32.071,
+        "p99": 38.001,
+        "max": 40.342
+      },
+      {
+        "ticks": "1081-1200",
+        "n": 120,
+        "mean": 21.569,
+        "p50": 20.227,
+        "p95": 31.083,
+        "p99": 33.934,
+        "max": 49.069
+      }
+    ]
+  },
+  "group2_main_thread_block": "not_applicable (Node has no UI thread; see the desktop report)",
+  "group3_frames": "not_applicable (no rendering in Node)",
+  "group4_throughput": {
+    "months_per_second_back_to_back": 45.42,
+    "wall_ms": 26417.8,
+    "note": "upper bound of compute without UI; the baseline UI runs at most one tick per animation frame (src/ui/game/controller.ts:73-77)"
+  },
+  "save": [
+    {
+      "at": "start",
+      "tick": 0,
+      "date": "1836-01",
+      "bytes_utf8": 1448522,
+      "serialize_ms": 10.586,
+      "deserialize_ms": 8.985,
+      "roundtrip_equal": true
+    },
+    {
+      "at": "middle",
+      "tick": 600,
+      "date": "1886-01",
+      "bytes_utf8": 2695048,
+      "serialize_ms": 17.25,
+      "deserialize_ms": 9.952,
+      "roundtrip_equal": true
+    },
+    {
+      "at": "end",
+      "tick": 1200,
+      "date": "1936-01",
+      "bytes_utf8": 3617553,
+      "serialize_ms": 20.349,
+      "deserialize_ms": 12.975,
+      "roundtrip_equal": true
+    }
+  ],
+  "memory": {
+    "start": {
+      "heap_used_bytes": 13710368,
+      "rss_bytes": 133431296,
+      "after_forced_gc": true
+    },
+    "end": {
+      "heap_used_bytes": 18465312,
+      "rss_bytes": 247263232,
+      "after_forced_gc": true
+    },
+    "note": "V8 heap of this Node process; not comparable to Android WebView memory"
+  },
+  "per_system_ms": {
+    "economy": {
+      "n": 1200,
+      "mean": 10.045,
+      "p50": 9.438,
+      "p95": 14.848,
+      "p99": 20.645,
+      "max": 29.273
+    },
+    "population": {
+      "n": 1200,
+      "mean": 0.955,
+      "p50": 0.853,
+      "p95": 1.794,
+      "p99": 2.705,
+      "max": 5.153
+    },
+    "politics": {
+      "n": 1200,
+      "mean": 0.967,
+      "p50": 0.838,
+      "p95": 1.642,
+      "p99": 2.339,
+      "max": 8.451
+    },
+    "secession": {
+      "n": 1200,
+      "mean": 0.016,
+      "p50": 0.002,
+      "p95": 0.08,
+      "p99": 0.128,
+      "max": 0.298
+    },
+    "technology": {
+      "n": 1200,
+      "mean": 0.162,
+      "p50": 0.135,
+      "p95": 0.251,
+      "p99": 0.503,
+      "max": 4.91
+    },
+    "diplomacy": {
+      "n": 1200,
+      "mean": 0.471,
+      "p50": 0.001,
+      "p95": 1.479,
+      "p99": 2.308,
+      "max": 4.584
+    },
+    "military": {
+      "n": 1200,
+      "mean": 0.211,
+      "p50": 0.098,
+      "p95": 0.574,
+      "p99": 1.634,
+      "max": 6.959
+    },
+    "events": {
+      "n": 1200,
+      "mean": 0.187,
+      "p50": 0.159,
+      "p95": 0.311,
+      "p99": 0.717,
+      "max": 2.393
+    },
+    "ai": {
+      "n": 1200,
+      "mean": 8.802,
+      "p50": 8.045,
+      "p95": 13.216,
+      "p99": 18.539,
+      "max": 34.321
+    },
+    "divergence": {
+      "n": 1200,
+      "mean": 0.132,
+      "p50": 0.04,
+      "p95": 1.214,
+      "p99": 1.374,
+      "max": 4.579
+    }
+  }
+}

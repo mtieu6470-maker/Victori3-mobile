@@ -1,0 +1,169 @@
+{
+  "schema": "s0-asset-inventory-v1",
+  "files": 627,
+  "by_scope": {
+    "web_payload": 590,
+    "android_res": 35,
+    "build_input_not_shipped": 2
+  },
+  "by_category": {
+    "web_payload:font": 84,
+    "web_payload:app_bundle_js": 1,
+    "web_payload:app_bundle_css": 1,
+    "web_payload:coat_of_arms": 99,
+    "web_payload:flag": 176,
+    "web_payload:portrait": 217,
+    "web_payload:generated_content_index": 1,
+    "web_payload:generated_map": 3,
+    "web_payload:app_shell": 4,
+    "web_payload:map_raster_or_vector": 4,
+    "android_res:drawable/splash": 13,
+    "android_res:android_resource": 5,
+    "android_res:launcher_icon": 17,
+    "build_input_not_shipped:map_source": 2
+  },
+  "by_licence_status": {
+    "package_license_file": 84,
+    "project_authored_plus_packages": 2,
+    "recorded_not_reverified": 492,
+    "derived": 4,
+    "project_authored": 5,
+    "public_domain_dataset": 6,
+    "template_default": 34
+  },
+  "web_payload_bytes": 17764559,
+  "registry_asset_records": 502,
+  "registry_records_by_licence": {
+    "Public domain": 384,
+    "CC BY-SA 3.0": 34,
+    "CC BY-SA 2.5": 9,
+    "CC BY-SA 4.0": 54,
+    "CC0": 6,
+    "CC BY 3.0": 10,
+    "CC BY 2.5": 2,
+    "CC BY 4.0": 2,
+    "CC BY 2.0": 1
+  },
+  "registry_records_by_quality": {
+    "uncertain": 259,
+    "supported": 243
+  },
+  "registry_files_shared_by_several_records": [
+    {
+      "path": "content/portraits/ABE_frederick_i.webp",
+      "records": [
+        "portrait.ABE:frederick_i",
+        "portrait.ADE:frederick_i"
+      ]
+    },
+    {
+      "path": "content/portraits/BOL_andres_de_santa_cruz.webp",
+      "records": [
+        "portrait.BOL:andres_de_santa_cruz",
+        "portrait.PEU:andres_de_santa_cruz"
+      ]
+    },
+    {
+      "path": "content/portraits/FRA_louis_napoleon_bonaparte.webp",
+      "records": [
+        "portrait.FRA:louis_napoleon_bonaparte",
+        "portrait.FRA:napoleon_iii"
+      ]
+    },
+    {
+      "path": "content/portraits/GBR_princess_victoria_of_kent.webp",
+      "records": [
+        "portrait.GBR:princess_victoria_of_kent",
+        "portrait.GBR:victoria"
+      ]
+    },
+    {
+      "path": "content/portraits/GBR_william_iv.webp",
+      "records": [
+        "portrait.GBR:william_iv",
+        "portrait.HAN:william_iv"
+      ]
+    },
+    {
+      "path": "content/portraits/LUC_charles_louis.webp",
+      "records": [
+        "portrait.LUC:charles_louis",
+        "portrait.PMA:charles_louis"
+      ]
+    },
+    {
+      "path": "content/portraits/NOR_charles_xv.webp",
+      "records": [
+        "portrait.NOR:charles_xv",
+        "portrait.SWE:charles_xv"
+      ]
+    },
+    {
+      "path": "content/portraits/NOR_oscar_i.webp",
+      "records": [
+        "portrait.NOR:oscar_i",
+        "portrait.SWE:oscar_i"
+      ]
+    },
+    {
+      "path": "content/portraits/NOR_oscar_ii.webp",
+      "records": [
+        "portrait.NOR:oscar_ii",
+        "portrait.SWE:oscar_ii"
+      ]
+    },
+    {
+      "path": "content/portraits/TUR_abdulmecid.webp",
+      "records": [
+        "portrait.TUR:abdulmecid",
+        "portrait.TUR:abdulmecid_i"
+      ]
+    }
+  ],
+  "registry_paths_missing_in_dist": [],
+  "orphan_content_files": [],
+  "production_dependency_licences": [
+    {
+      "name": "@capacitor/android",
+      "version": "7.6.10",
+      "license": "MIT",
+      "licence_file": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "@capacitor/core",
+      "version": "7.6.10",
+      "license": "MIT",
+      "licence_file": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "@fontsource/eb-garamond",
+      "version": "5.3.0",
+      "license": "OFL-1.1",
+      "licence_file": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "@fontsource/source-sans-3",
+      "version": "5.3.1",
+      "license": "OFL-1.1",
+      "licence_file": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "preact",
+      "version": "10.29.8",
+      "license": "MIT",
+      "licence_file": [
+        "LICENSE"
+      ]
+    }
+  ],
+  "android_res_identical_to_capacitor_template": 34,
+  "android_res_total": 35
+}

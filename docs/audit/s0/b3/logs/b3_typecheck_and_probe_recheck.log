@@ -1,0 +1,7 @@
+# tsconfig.json includes tools/, so npm run build (and CI) typechecks tools/audit/s0. First run found 2 errors in probe_empty_pass.ts:28 (Set<unknown>); fixed by annotating Set<string> before the tools commit was pushed.
+$ npx tsc --noEmit   (repository at tools commit 3d63061e4bd5b3fdf7c636370da462a5b0f5d721)
+[exit 0]
+$ npx tsx tools/audit/s0/probe_empty_pass.ts <baseline worktree 2240a8f> > <tmp>/probe_recheck.json
+[exit 0]
+$ cmp <tmp>/probe_recheck.json docs/audit/s0/b3/probe_empty_pass.json
+[exit 0]

@@ -1,0 +1,54 @@
+$ npx tsx tools/audit/s0/test_catalog.ts --base <baseline worktree 2240a8f> --vitest-json docs/audit/s0/b3/vitest-results.json --assertions docs/audit/s0/b3/assertions.jsonl --annotations docs/audit/s0/b3/test_annotations.json --runs s0a_local_run_1=docs/audit/s0/logs/a2/07_npx_vitest_run_1.log --runs s0a_local_run_2=docs/audit/s0/logs/a2/08_npx_vitest_run_2.log --runs s0a_local_run_3=docs/audit/s0/logs/a2/09_npx_vitest_run_3.log --runs ci_run_43793446130_2240a8f=docs/audit/s0/logs/a1/ci_job_133056831671.log --runs b1_local_run_d6edfc1_candidate=docs/audit/s0/logs/b1/local_precommit/05_step07_real_tests.log --runs ci_run_43834719406_382aaa8=docs/audit/s0/logs/b1/ci_job_133188390842.log --runs b3_catalog_run_2240a8f=docs/audit/s0/b3/logs/b3_assertion_count_run.log --out docs/audit/s0/s0_test_catalog.json
+static it/test call sites: 51; runtime tests: 58; unmatched: 0; without analysis: 0
+tests/content.test.ts:18	identity content pack > every shipped image exists, has an allowed licence, an author or credit field, and a Commons source page
+tests/content.test.ts:28	identity content pack > assets, texts and characters only reference entities that exist in the database
+tests/content.test.ts:34	identity content pack > flags and arms are never shown outside 1836–1936 or outside their recorded period
+tests/content.test.ts:41	identity content pack > unqualified symbols of present-day states, peoples, regions and eras were rejected, not shipped
+tests/content.test.ts:50	identity content pack > every text carries article, URL, revision and the CC BY-SA licence
+tests/content.test.ts:61	identity content pack > linked polities passed the 1836 lifetime check (no silent mismatches)
+tests/content.test.ts:65	identity content pack > characters linked to Wikidata agree with the database on birth and death years (±2)
+tests/data.test.ts:11	database integrity and provenance > every source id cited by entities, groups and events exists
+tests/data.test.ts:23	database integrity and provenance > uses only the five quality labels
+tests/data.test.ts:28	database integrity and provenance > a "verified" population total always carries a source; missing data is flagged as a fallback, never verified
+tests/data.test.ts:37	database integrity and provenance > covers small states, not only great powers
+tests/data.test.ts:44	database integrity and provenance > every map region belongs to exactly one valid owner and is drawn on the map
+tests/data.test.ts:49	database integrity and provenance > world population at start is consistent with Maddison (~1.04 bn in 1820, ~1.26 bn in 1850)
+tests/data.test.ts:54	database integrity and provenance > records disagreement between sources instead of choosing silently (e.g. Mexico, Portugal, India)
+tests/data.test.ts:67	temporal integrity (no later-period information at start) > starting heads of state are those in office on 1 Jan 1836
+tests/data.test.ts:71	temporal integrity (no later-period information at start) > no leader or heir in the starting state took office or was born after the start date
+tests/data.test.ts:79	temporal integrity (no later-period information at start) > the historical ownership timeline is never applied to the simulation state
+tests/data.test.ts:84	temporal integrity (no later-period information at start) > initial alliances and wars come from CoW records active on the start date
+tests/data.test.ts:91	temporal integrity (no later-period information at start) > populations of benchmark groups match their sources
+tests/modes.test.ts:13	one engine, two modes > both modes run exactly the same systems the same number of times
+tests/modes.test.ts:18	one engine, two modes > mode configuration only toggles historical data layers (no rule or system switches)
+tests/modes.test.ts:22	one engine, two modes > AI activity is not reduced in either mode
+tests/modes.test.ts:30	one engine, two modes > the historical layer is active only in Historical Mode
+tests/modes.test.ts:42	Historical Mode follows history more closely, without railroading > mean milestone similarity is higher in Historical Mode than in Sandbox (paired seeds)
+tests/modes.test.ts:48	Historical Mode follows history more closely, without railroading > Historical Mode does not reproduce history exactly (some milestones are missed)
+tests/modes.test.ts:51	Historical Mode follows history more closely, without railroading > historical priorities stop applying when their prerequisites disappear
+tests/modes.test.ts:69	Sandbox Mode is free > different seeds produce different worlds
+tests/modes.test.ts:74	Sandbox Mode is free > wars, alliances, territorial and institutional changes emerge
+tests/modes.test.ts:82	Sandbox Mode is free > produces non-historical outcomes (territory changes that differ from the historical owner)
+tests/modes.test.ts:90	Observer Mode runs every country with the same AI > every surviving country — including the smallest — takes AI decisions
+tests/modes.test.ts:99	player intervention changes history > a non-historical war declared by the player creates divergence from the AI-only run
+tests/modes.test.ts:106	player intervention changes history > Observer Mode rejects player commands (no country under control)
+tests/modes.test.ts:114	historical succession is exogenous in Historical Mode only > Victoria succeeds William IV in June 1837 and Hanover separates (Salic law)
+tests/modes.test.ts:120	historical succession is exogenous in Historical Mode only > Sandbox Mode does not use recorded death dates (generated or heir successions only)
+tests/modes.test.ts:128	territorial similarity is measured identically in both modes > is 1.0 at start in both modes (same starting world)
+tests/simulation.test.ts:10	economy and population sanity (40 years, both modes) > ${mode}: no NaN/negative values in regions and countries
+tests/simulation.test.ts:14	economy and population sanity (40 years, both modes) > ${mode}: world population growth 1836-1876 is within a plausible band (0.2%-1.2% per year)
+tests/simulation.test.ts:21	economy and population sanity (40 years, both modes) > ${mode}: national trends stay within a factor of 2 of the 1870 benchmarks (population: CoW; not a script)
+tests/simulation.test.ts:34	AI does not get stuck in meaningless loops > no law flips back to a value it left within 15 years
+tests/simulation.test.ts:43	AI does not get stuck in meaningless loops > wars end: no war lasts more than 12 years
+tests/simulation.test.ts:44	AI does not get stuck in meaningless loops > countries keep researching and building over the whole period
+tests/simulation.test.ts:51	save/load > a loaded game continues exactly like the uninterrupted game
+tests/simulation.test.ts:57	save/load > rejects foreign files
+tests/simulation.test.ts:61	war support (Pass 16 pack, ch. 34/73: exhaustion alone does not capitulate) > an exhausted attacker that is winning stays in the war
+tests/simulation.test.ts:73	war support (Pass 16 pack, ch. 34/73: exhaustion alone does not capitulate) > an exhausted attacker that is losing gives up
+tests/ui.test.ts:26	map labels (Europe 1836 — many small German and Italian states) > ${name}: no two labels overlap and all stay on screen
+tests/ui.test.ts:37	map labels (Europe 1836 — many small German and Italian states) > ${name}: every country name is anchored inside its own country
+tests/ui.test.ts:41	map labels (Europe 1836 — many small German and Italian states) > the player country is labelled at the Europe zoom
+tests/ui.test.ts:48	market statistics persisted for the Market screen > every market with prices has per-good supply, demand, imports and shortage after a month
+tests/ui.test.ts:59	market statistics persisted for the Market screen > survives save/load, and saves written before the field existed still load
+tests/ui.test.ts:68	budget lines shown by the Budget tab > monthly finance lines add up to the income and expense the engine applied
+[exit 0]

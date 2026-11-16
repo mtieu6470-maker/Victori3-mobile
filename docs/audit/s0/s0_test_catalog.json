@@ -1,0 +1,3142 @@
+{
+  "schema": "s0-test-catalog-v1",
+  "audited_checkout": "<checkout>/base",
+  "static_call_sites": 51,
+  "runtime_tests": 58,
+  "unmatched_runtime_tests": [],
+  "tests_without_analysis": [],
+  "tests": [
+    {
+      "id": "tests/content.test.ts:18",
+      "file": "tests/content.test.ts",
+      "line": 18,
+      "describe": [
+        "identity content pack"
+      ],
+      "title": "every shipped image exists, has an allowed licence, an author or credit field, and a Commons source page",
+      "title_template": "every shipped image exists, has an allowed licence, an author or credit field, and a Commons source page",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 39.910611999999986,
+      "assertions_executed_in_catalog_run": 2510,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "content/licensing",
+      "checks": "For every asset in public/content/registry.json: the file exists under public/, licence matches the allow-list regex, source is a Wikimedia Commons URL, statement is wikidata Q#P41/P94/P18, size > 100 bytes.",
+      "inputs": "built registry.json (tools/build-content.ts)",
+      "pass_condition": "All per-asset expectations hold.",
+      "empty_pass_risk": "conditional",
+      "risk_note": "No assertion that pack.assets is non-empty; observed 2510 assertions (502 assets x 5).",
+      "limitations": "Checks registry metadata only, not the image content or the licence on the source page; the allow-list also accepts unversioned 'CC BY'."
+    },
+    {
+      "id": "tests/content.test.ts:28",
+      "file": "tests/content.test.ts",
+      "line": 28,
+      "describe": [
+        "identity content pack"
+      ],
+      "title": "assets, texts and characters only reference entities that exist in the database",
+      "title_template": "assets, texts and characters only reference entities that exist in the database",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 16.969634999999982,
+      "assertions_executed_in_catalog_run": 1249,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "content/integrity",
+      "checks": "Every asset, entity text and character in the content pack references an entity id present in the database.",
+      "inputs": "registry.json, db.json",
+      "pass_condition": "All ids exist.",
+      "empty_pass_risk": "conditional",
+      "risk_note": "No non-empty guard; observed 1249 assertions.",
+      "limitations": "Referential integrity only."
+    },
+    {
+      "id": "tests/content.test.ts:34",
+      "file": "tests/content.test.ts",
+      "line": 34,
+      "describe": [
+        "identity content pack"
+      ],
+      "title": "flags and arms are never shown outside 1836–1936 or outside their recorded period",
+      "title_template": "flags and arms are never shown outside 1836–1936 or outside their recorded period",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 2.8248140000000035,
+      "assertions_executed_in_catalog_run": 275,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "content/temporal validity",
+      "checks": "Every non-portrait asset (flag/arms) has a recorded period that overlaps 1836–1936.",
+      "inputs": "registry.json",
+      "pass_condition": "Overlap holds for every flag/arms asset.",
+      "empty_pass_risk": "conditional",
+      "risk_note": "No non-empty guard; observed 275 assertions (176 flags + 99 arms).",
+      "limitations": "The title says assets are 'never shown' outside their period; the test checks only the data overlap with the game span, not the UI date selection logic."
+    },
+    {
+      "id": "tests/content.test.ts:41",
+      "file": "tests/content.test.ts",
+      "line": 41,
+      "describe": [
+        "identity content pack"
+      ],
+      "title": "unqualified symbols of present-day states, peoples, regions and eras were rejected, not shipped",
+      "title_template": "unqualified symbols of present-day states, peoples, regions and eras were rejected, not shipped",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 1.2546090000000163,
+      "assertions_executed_in_catalog_run": 1,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "content/licensing",
+      "checks": "For linked entities of kind people/region/period, every shipped non-portrait asset has quality 'supported'; plus asset ids are unique.",
+      "inputs": "registry.json, historical_data/identity/wikidata_links.json",
+      "pass_condition": "Inner expectations hold; shipped.size equals asset count.",
+      "empty_pass_risk": "core_vacuous_observed",
+      "risk_note": "Observed 1 assertion (only the id-uniqueness check). The probe shows 68 targeted entities and 0 non-portrait assets shipped for them, so the quality check never ran. The property 'none shipped' holds, but the test cannot distinguish 'correctly rejected' from 'lookup returns nothing'.",
+      "limitations": "Does not assert that the expected rejections are recorded (historical_data/assets/review.json)."
+    },
+    {
+      "id": "tests/content.test.ts:50",
+      "file": "tests/content.test.ts",
+      "line": 50,
+      "describe": [
+        "identity content pack"
+      ],
+      "title": "every text carries article, URL, revision and the CC BY-SA licence",
+      "title_template": "every text carries article, URL, revision and the CC BY-SA licence",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 39.452759999999955,
+      "assertions_executed_in_catalog_run": 3185,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "content/licensing",
+      "checks": "Every entity and character text carries a vi/en Wikipedia URL, revision id > 0, licence 'CC BY-SA 4.0' and > 40 characters.",
+      "inputs": "registry.json",
+      "pass_condition": "All texts satisfy the fields; at least one text exists.",
+      "empty_pass_risk": "none",
+      "risk_note": "Guarded by expect(all.length) > 0; observed 3185 assertions.",
+      "limitations": "Checks attribution fields in data, not that the UI displays them (G-a requirement)."
+    },
+    {
+      "id": "tests/content.test.ts:61",
+      "file": "tests/content.test.ts",
+      "line": 61,
+      "describe": [
+        "identity content pack"
+      ],
+      "title": "linked polities passed the 1836 lifetime check (no silent mismatches)",
+      "title_template": "linked polities passed the 1836 lifetime check (no silent mismatches)",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 4.7828289999999924,
+      "assertions_executed_in_catalog_run": 266,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "content/temporal validity",
+      "checks": "Every linked polity's Wikidata 1836 lifetime check is 'ok' or 'not_applicable'.",
+      "inputs": "wikidata_links.json",
+      "pass_condition": "No other check value.",
+      "empty_pass_risk": "conditional",
+      "risk_note": "No guard; observed 266 assertions.",
+      "limitations": "Relies on the stored check result; does not re-query Wikidata."
+    },
+    {
+      "id": "tests/content.test.ts:65",
+      "file": "tests/content.test.ts",
+      "line": 65,
+      "describe": [
+        "identity content pack"
+      ],
+      "title": "characters linked to Wikidata agree with the database on birth and death years (±2)",
+      "title_template": "characters linked to Wikidata agree with the database on birth and death years (±2)",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 4.37760099999997,
+      "assertions_executed_in_catalog_run": 460,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "content/characters",
+      "checks": "For strongly matched characters, DB birth/death years are within ±2 of Wikidata; a declared portrait is a shipped asset of that character.",
+      "inputs": "registry.json",
+      "pass_condition": "All conditional checks hold.",
+      "empty_pass_risk": "conditional",
+      "risk_note": "All assertions are inside conditions (match==='strong', both dates present); observed 460 assertions.",
+      "limitations": "Weak/unmatched records are not checked."
+    },
+    {
+      "id": "tests/data.test.ts:11",
+      "file": "tests/data.test.ts",
+      "line": 11,
+      "describe": [
+        "database integrity and provenance"
+      ],
+      "title": "every source id cited by entities, groups and events exists",
+      "title_template": "every source id cited by entities, groups and events exists",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 20.41880900000001,
+      "assertions_executed_in_catalog_run": 1095,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "data/provenance",
+      "checks": "Every source id cited under entities, wars and decision windows exists in db.sources.",
+      "inputs": "db.json",
+      "pass_condition": "All cited ids exist.",
+      "empty_pass_risk": "conditional",
+      "risk_note": "No guard; observed 1095 assertions.",
+      "limitations": "Regions, benchmarks and other sections are not walked."
+    },
+    {
+      "id": "tests/data.test.ts:23",
+      "file": "tests/data.test.ts",
+      "line": 23,
+      "describe": [
+        "database integrity and provenance"
+      ],
+      "title": "uses only the five quality labels",
+      "title_template": "uses only the five quality labels",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 28.010696000000053,
+      "assertions_executed_in_catalog_run": 1210,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "data/quality labels",
+      "checks": "Region population quality, entity population quality and law quality use one of the five labels.",
+      "inputs": "db.json",
+      "pass_condition": "All labels valid.",
+      "empty_pass_risk": "none",
+      "risk_note": "Iterates 662 regions and 274 entities; observed 1210 assertions.",
+      "limitations": "Other quality-bearing fields are not checked."
+    },
+    {
+      "id": "tests/data.test.ts:28",
+      "file": "tests/data.test.ts",
+      "line": 28,
+      "describe": [
+        "database integrity and provenance"
+      ],
+      "title": "a \"verified\" population total always carries a source; missing data is flagged as a fallback, never verified",
+      "title_template": "a \"verified\" population total always carries a source; missing data is flagged as a fallback, never verified",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 3.1956199999999626,
+      "assertions_executed_in_catalog_run": 328,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "data/provenance",
+      "checks": "'verified' population totals have at least one source; 'missing' populations name a fallback method; missing GDP per capita is flagged as fallback.",
+      "inputs": "db.json",
+      "pass_condition": "Conditional checks hold.",
+      "empty_pass_risk": "conditional",
+      "risk_note": "Assertions are conditional on quality values; observed 328 assertions.",
+      "limitations": "Method text matched by regex; does not verify the source supports the value."
+    },
+    {
+      "id": "tests/data.test.ts:37",
+      "file": "tests/data.test.ts",
+      "line": 37,
+      "describe": [
+        "database integrity and provenance"
+      ],
+      "title": "covers small states, not only great powers",
+      "title_template": "covers small states, not only great powers",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.45904399999994894,
+      "assertions_executed_in_catalog_run": 11,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "data/global coverage",
+      "checks": "At least 145 playable entities; nine named small states exist; more than 90 decentralized entities.",
+      "inputs": "db.json",
+      "pass_condition": "Thresholds and ids.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 11 assertions.",
+      "limitations": "Counts, not data quality per region."
+    },
+    {
+      "id": "tests/data.test.ts:44",
+      "file": "tests/data.test.ts",
+      "line": 44,
+      "describe": [
+        "database integrity and provenance"
+      ],
+      "title": "every map region belongs to exactly one valid owner and is drawn on the map",
+      "title_template": "every map region belongs to exactly one valid owner and is drawn on the map",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 18.030465999999933,
+      "assertions_executed_in_catalog_run": 1325,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "data/map",
+      "checks": "Region count equals map region count; every region's owner exists and the region has at least one map cell.",
+      "inputs": "db.json, map.json",
+      "pass_condition": "All hold.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 1325 assertions (1 + 662 x 2).",
+      "limitations": "Does not check the 'exactly one owner' claim beyond the single owner field."
+    },
+    {
+      "id": "tests/data.test.ts:49",
+      "file": "tests/data.test.ts",
+      "line": 49,
+      "describe": [
+        "database integrity and provenance"
+      ],
+      "title": "world population at start is consistent with Maddison (~1.04 bn in 1820, ~1.26 bn in 1850)",
+      "title_template": "world population at start is consistent with Maddison (~1.04 bn in 1820, ~1.26 bn in 1850)",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.4561790000000201,
+      "assertions_executed_in_catalog_run": 2,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "data/population",
+      "checks": "Sum of region populations at start lies between 1.04 bn and 1.26 bn.",
+      "inputs": "db.json",
+      "pass_condition": "Range.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 2 assertions.",
+      "limitations": "Bounds are the Maddison 1820 and 1850 totals, not an 1836 point estimate."
+    },
+    {
+      "id": "tests/data.test.ts:54",
+      "file": "tests/data.test.ts",
+      "line": 54,
+      "describe": [
+        "database integrity and provenance"
+      ],
+      "title": "records disagreement between sources instead of choosing silently (e.g. Mexico, Portugal, India)",
+      "title_template": "records disagreement between sources instead of choosing silently (e.g. Mexico, Portugal, India)",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.447638999999981,
+      "assertions_executed_in_catalog_run": 4,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "data/provenance",
+      "checks": "Population method text of some entity mentions MEX, POR_home and SOUTH_ASIA; Mexico population quality is 'uncertain'.",
+      "inputs": "db.json",
+      "pass_condition": "Substrings found; MEX uncertain.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 4 assertions.",
+      "limitations": "Substring search in a free-text method field; does not check that both conflicting values are stored."
+    },
+    {
+      "id": "tests/data.test.ts:67",
+      "file": "tests/data.test.ts",
+      "line": 67,
+      "describe": [
+        "temporal integrity (no later-period information at start)"
+      ],
+      "title": "starting heads of state are those in office on 1 Jan 1836",
+      "title_template": "starting heads of state are those in office on 1 Jan 1836",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.5230179999999791,
+      "assertions_executed_in_catalog_run": 13,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "temporal integrity",
+      "checks": "Leaders of 13 named countries at the historical start are the 1 Jan 1836 office holders (name contains).",
+      "inputs": "createGame historical seed 1",
+      "pass_condition": "All 13 match.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 13 assertions.",
+      "limitations": "13 countries only."
+    },
+    {
+      "id": "tests/data.test.ts:71",
+      "file": "tests/data.test.ts",
+      "line": 71,
+      "describe": [
+        "temporal integrity (no later-period information at start)"
+      ],
+      "title": "no leader or heir in the starting state took office or was born after the start date",
+      "title_template": "no leader or heir in the starting state took office or was born after the start date",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 2.60096800000008,
+      "assertions_executed_in_catalog_run": 258,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "temporal integrity",
+      "checks": "Every starting leader took office ≤ 1836 and every heir born ≤ 1836; Francis II absent from Two Sicilies heir.",
+      "inputs": "createGame historical seed 1",
+      "pass_condition": "All hold.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 258 assertions.",
+      "limitations": "Year granularity; 1836 births after 1 Jan are allowed by '≤ 1836' except the named case."
+    },
+    {
+      "id": "tests/data.test.ts:79",
+      "file": "tests/data.test.ts",
+      "line": 79,
+      "describe": [
+        "temporal integrity (no later-period information at start)"
+      ],
+      "title": "the historical ownership timeline is never applied to the simulation state",
+      "title_template": "the historical ownership timeline is never applied to the simulation state",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.39552900000001046,
+      "assertions_executed_in_catalog_run": 3,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "temporal integrity",
+      "checks": "TEX_TEX owner MEX and controller TEX at start; the historical timeline says USA in 1846 but is not applied to state.",
+      "inputs": "createGame historical seed 1",
+      "pass_condition": "All hold.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 3 assertions.",
+      "limitations": "One region."
+    },
+    {
+      "id": "tests/data.test.ts:84",
+      "file": "tests/data.test.ts",
+      "line": 84,
+      "describe": [
+        "temporal integrity (no later-period information at start)"
+      ],
+      "title": "initial alliances and wars come from CoW records active on the start date",
+      "title_template": "initial alliances and wars come from CoW records active on the start date",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.6344119999999975,
+      "assertions_executed_in_catalog_run": 4,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "temporal integrity",
+      "checks": "Three named alliances active at start; three named wars active at start.",
+      "inputs": "createGame historical seed 1",
+      "pass_condition": "All present.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 4 assertions.",
+      "limitations": "Does not assert absence of alliances/wars that were not active in 1836."
+    },
+    {
+      "id": "tests/data.test.ts:91",
+      "file": "tests/data.test.ts",
+      "line": 91,
+      "describe": [
+        "temporal integrity (no later-period information at start)"
+      ],
+      "title": "populations of benchmark groups match their sources",
+      "title_template": "populations of benchmark groups match their sources",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.22829999999999018,
+      "assertions_executed_in_catalog_run": 2,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "data/population",
+      "checks": "Metropolitan France population ≈ 33,540,000 and USA ≈ 15,423,000 (±50).",
+      "inputs": "createGame historical seed 1",
+      "pass_condition": "Both within ±50.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 2 assertions.",
+      "limitations": "Two benchmark groups."
+    },
+    {
+      "id": "tests/modes.test.ts:13",
+      "file": "tests/modes.test.ts",
+      "line": 13,
+      "describe": [
+        "one engine, two modes"
+      ],
+      "title": "both modes run exactly the same systems the same number of times",
+      "title_template": "both modes run exactly the same systems the same number of times",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 5551.346093999993,
+      "assertions_executed_in_catalog_run": 2,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "modes/parity",
+      "checks": "Both modes run every system and the same number of times (10 years, seed 7).",
+      "inputs": "run historical/sandbox seed 7, 10 years",
+      "pass_condition": "Equal system-run counters.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 2 assertions.",
+      "limitations": "Counts runs, not identical rules inside systems."
+    },
+    {
+      "id": "tests/modes.test.ts:18",
+      "file": "tests/modes.test.ts",
+      "line": 18,
+      "describe": [
+        "one engine, two modes"
+      ],
+      "title": "mode configuration only toggles historical data layers (no rule or system switches)",
+      "title_template": "mode configuration only toggles historical data layers (no rule or system switches)",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.39232800000172574,
+      "assertions_executed_in_catalog_run": 1,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "modes/parity",
+      "checks": "The historical mode config has exactly the expected toggle keys.",
+      "inputs": "MODES.historical",
+      "pass_condition": "Key list equal.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 1 assertion.",
+      "limitations": "Checks key names, not values or how they are used."
+    },
+    {
+      "id": "tests/modes.test.ts:22",
+      "file": "tests/modes.test.ts",
+      "line": 22,
+      "describe": [
+        "one engine, two modes"
+      ],
+      "title": "AI activity is not reduced in either mode",
+      "title_template": "AI activity is not reduced in either mode",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.6147639999981038,
+      "assertions_executed_in_catalog_run": 20,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "modes/AI",
+      "checks": "Five AI action types occur in both modes with ratio 0.5–2.",
+      "inputs": "run seed 7, 10 years",
+      "pass_condition": "All ratios in range.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 20 assertions.",
+      "limitations": "One seed."
+    },
+    {
+      "id": "tests/modes.test.ts:30",
+      "file": "tests/modes.test.ts",
+      "line": 30,
+      "describe": [
+        "one engine, two modes"
+      ],
+      "title": "the historical layer is active only in Historical Mode",
+      "title_template": "the historical layer is active only in Historical Mode",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.3389619999943534,
+      "assertions_executed_in_catalog_run": 4,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "modes/historical layer",
+      "checks": "Historical bias and decision windows fire in Historical and never in Sandbox.",
+      "inputs": "run seed 7, 10 years",
+      "pass_condition": "Counters > 0 / = 0.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 4 assertions.",
+      "limitations": "One seed."
+    },
+    {
+      "id": "tests/modes.test.ts:42",
+      "file": "tests/modes.test.ts",
+      "line": 42,
+      "describe": [
+        "Historical Mode follows history more closely, without railroading"
+      ],
+      "title": "mean milestone similarity is higher in Historical Mode than in Sandbox (paired seeds)",
+      "title_template": "mean milestone similarity is higher in Historical Mode than in Sandbox (paired seeds)",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 1.0655549999937648,
+      "assertions_executed_in_catalog_run": 1,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "modes/divergence",
+      "checks": "Mean final milestone similarity (3 seeds, 40 years) is higher in Historical than Sandbox.",
+      "inputs": "seeds 1–3, 40 years, both modes",
+      "pass_condition": "Mean comparison.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 1 assertion.",
+      "limitations": "Three seeds; statistical claim without a margin."
+    },
+    {
+      "id": "tests/modes.test.ts:48",
+      "file": "tests/modes.test.ts",
+      "line": 48,
+      "describe": [
+        "Historical Mode follows history more closely, without railroading"
+      ],
+      "title": "Historical Mode does not reproduce history exactly (some milestones are missed)",
+      "title_template": "Historical Mode does not reproduce history exactly (some milestones are missed)",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.24007600000186358,
+      "assertions_executed_in_catalog_run": 3,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "modes/divergence",
+      "checks": "Each Historical run misses at least one milestone.",
+      "inputs": "seeds 1–3, 40 years",
+      "pass_condition": "Some 'missed'.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 3 assertions.",
+      "limitations": "—"
+    },
+    {
+      "id": "tests/modes.test.ts:51",
+      "file": "tests/modes.test.ts",
+      "line": 51,
+      "describe": [
+        "Historical Mode follows history more closely, without railroading"
+      ],
+      "title": "historical priorities stop applying when their prerequisites disappear",
+      "title_template": "historical priorities stop applying when their prerequisites disappear",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 80.00477400000091,
+      "assertions_executed_in_catalog_run": 3,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "modes/historical priorities",
+      "checks": "GBR_open_china priority is inactive when Qing is protectionist and active when isolationist.",
+      "inputs": "createGame historical seed 4 with edited state",
+      "pass_condition": "Toggle observed.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 3 assertions.",
+      "limitations": "One priority."
+    },
+    {
+      "id": "tests/modes.test.ts:69",
+      "file": "tests/modes.test.ts",
+      "line": 69,
+      "describe": [
+        "Sandbox Mode is free"
+      ],
+      "title": "different seeds produce different worlds",
+      "title_template": "different seeds produce different worlds",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.5555319999984931,
+      "assertions_executed_in_catalog_run": 1,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "modes/sandbox freedom",
+      "checks": "Region owners differ between some pair of seeds after 40 years.",
+      "inputs": "sandbox seeds 1–3, 40 years",
+      "pass_condition": "> 0 differing regions.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 1 assertion.",
+      "limitations": "—"
+    },
+    {
+      "id": "tests/modes.test.ts:74",
+      "file": "tests/modes.test.ts",
+      "line": 74,
+      "describe": [
+        "Sandbox Mode is free"
+      ],
+      "title": "wars, alliances, territorial and institutional changes emerge",
+      "title_template": "wars, alliances, territorial and institutional changes emerge",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.7907419999974081,
+      "assertions_executed_in_catalog_run": 12,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "modes/sandbox freedom",
+      "checks": "Each sandbox run has > 5 war declarations, > 5 alliances, > 3 territory changes, > 5 law changes.",
+      "inputs": "sandbox seeds 1–3, 40 years",
+      "pass_condition": "Thresholds.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 12 assertions.",
+      "limitations": "—"
+    },
+    {
+      "id": "tests/modes.test.ts:82",
+      "file": "tests/modes.test.ts",
+      "line": 82,
+      "describe": [
+        "Sandbox Mode is free"
+      ],
+      "title": "produces non-historical outcomes (territory changes that differ from the historical owner)",
+      "title_template": "produces non-historical outcomes (territory changes that differ from the historical owner)",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.18724500000826083,
+      "assertions_executed_in_catalog_run": 1,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "modes/sandbox freedom",
+      "checks": "At least one non-historical territory change across sandbox runs.",
+      "inputs": "sandbox seeds 1–3",
+      "pass_condition": "> 0.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 1 assertion.",
+      "limitations": "—"
+    },
+    {
+      "id": "tests/modes.test.ts:90",
+      "file": "tests/modes.test.ts",
+      "line": 90,
+      "describe": [
+        "Observer Mode runs every country with the same AI"
+      ],
+      "title": "every surviving country — including the smallest — takes AI decisions",
+      "title_template": "every surviving country — including the smallest — takes AI decisions",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.33064200000080746,
+      "assertions_executed_in_catalog_run": 6,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "AI coverage",
+      "checks": "Every alive country took at least one AI action in 8 years; five small countries took > 10 if alive.",
+      "inputs": "run historical seed 11, 8 years",
+      "pass_condition": "No idle country; thresholds.",
+      "empty_pass_risk": "conditional",
+      "risk_note": "Per-country checks conditional on alive; observed 6 assertions (all five alive).",
+      "limitations": "Counts actions, not quality of decisions."
+    },
+    {
+      "id": "tests/modes.test.ts:99",
+      "file": "tests/modes.test.ts",
+      "line": 99,
+      "describe": [
+        "player intervention changes history"
+      ],
+      "title": "a non-historical war declared by the player creates divergence from the AI-only run",
+      "title_template": "a non-historical war declared by the player creates divergence from the AI-only run",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 3402.3939309999987,
+      "assertions_executed_in_catalog_run": 2,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "player intervention",
+      "checks": "A scripted Prussian war on Bavaria is logged and changes some region owner/pop vs the AI-only run.",
+      "inputs": "historical seed 5, 6 years, scripted commands",
+      "pass_condition": "Log line and > 0 differences.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 2 assertions.",
+      "limitations": "Population difference > 1 counts as divergence."
+    },
+    {
+      "id": "tests/modes.test.ts:106",
+      "file": "tests/modes.test.ts",
+      "line": 106,
+      "describe": [
+        "player intervention changes history"
+      ],
+      "title": "Observer Mode rejects player commands (no country under control)",
+      "title_template": "Observer Mode rejects player commands (no country under control)",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 75.95389999999315,
+      "assertions_executed_in_catalog_run": 1,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "commands",
+      "checks": "In observer mode (no player) a set_tax command is rejected.",
+      "inputs": "createGame sandbox seed 1, player null",
+      "pass_condition": "ok === false.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 1 assertion.",
+      "limitations": "One command type."
+    },
+    {
+      "id": "tests/modes.test.ts:114",
+      "file": "tests/modes.test.ts",
+      "line": 114,
+      "describe": [
+        "historical succession is exogenous in Historical Mode only"
+      ],
+      "title": "Victoria succeeds William IV in June 1837 and Hanover separates (Salic law)",
+      "title_template": "Victoria succeeds William IV in June 1837 and Hanover separates (Salic law)",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 554.4448660000053,
+      "assertions_executed_in_catalog_run": 2,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "historical succession",
+      "checks": "Victoria leads GBR by Aug 1837 and Hanover has no overlord.",
+      "inputs": "historical seed 2",
+      "pass_condition": "Both hold.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 2 assertions.",
+      "limitations": "—"
+    },
+    {
+      "id": "tests/modes.test.ts:120",
+      "file": "tests/modes.test.ts",
+      "line": 120,
+      "describe": [
+        "historical succession is exogenous in Historical Mode only"
+      ],
+      "title": "Sandbox Mode does not use recorded death dates (generated or heir successions only)",
+      "title_template": "Sandbox Mode does not use recorded death dates (generated or heir successions only)",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 2967.8455879999965,
+      "assertions_executed_in_catalog_run": 1,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "historical succession",
+      "checks": "No GBR succession log entry in Sandbox is the recorded 1837-06-01 Victoria succession.",
+      "inputs": "run sandbox seed 2, 12 years",
+      "pass_condition": "No such entry.",
+      "empty_pass_risk": "conditional",
+      "risk_note": "Assertions only run per GBR succession entry; observed 1 assertion (one succession). With no succession the test would pass without asserting.",
+      "limitations": "GBR only."
+    },
+    {
+      "id": "tests/modes.test.ts:128",
+      "file": "tests/modes.test.ts",
+      "line": 128,
+      "describe": [
+        "territorial similarity is measured identically in both modes"
+      ],
+      "title": "is 1.0 at start in both modes (same starting world)",
+      "title_template": "is 1.0 at start in both modes (same starting world)",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 152.7853599999944,
+      "assertions_executed_in_catalog_run": 2,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "divergence metric",
+      "checks": "Territorial similarity is 1.0 at start in both modes.",
+      "inputs": "fresh historical/sandbox",
+      "pass_condition": "≈ 1.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 2 assertions.",
+      "limitations": "Start state only."
+    },
+    {
+      "id": "tests/simulation.test.ts:10 [historical]",
+      "file": "tests/simulation.test.ts",
+      "line": 10,
+      "describe": [
+        "economy and population sanity (40 years, both modes)"
+      ],
+      "title": "historical: no NaN/negative values in regions and countries",
+      "title_template": "${mode}: no NaN/negative values in regions and countries",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 37.06046499999866,
+      "assertions_executed_in_catalog_run": 3284,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "simulation sanity",
+      "checks": "After 40 years: every region pop finite > 0, standard of living in [0,1], output finite; every alive country GDP/treasury finite and legitimacy ≥ 0.",
+      "inputs": "run <mode> seed 1, 40 years (historical, sandbox)",
+      "pass_condition": "All hold.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 3284 (historical) and 3335 (sandbox) assertions.",
+      "limitations": "Final state only, not intermediate months."
+    },
+    {
+      "id": "tests/simulation.test.ts:14 [historical]",
+      "file": "tests/simulation.test.ts",
+      "line": 14,
+      "describe": [
+        "economy and population sanity (40 years, both modes)"
+      ],
+      "title": "historical: world population growth 1836-1876 is within a plausible band (0.2%-1.2% per year)",
+      "title_template": "${mode}: world population growth 1836-1876 is within a plausible band (0.2%-1.2% per year)",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 1.32306299999982,
+      "assertions_executed_in_catalog_run": 2,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "simulation/population",
+      "checks": "World population growth 1836–1876 is 0.2–1.2 %/year.",
+      "inputs": "run <mode> seed 1, 40 years",
+      "pass_condition": "Range.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 2 assertions per mode.",
+      "limitations": "Plausibility band, not a historical benchmark."
+    },
+    {
+      "id": "tests/simulation.test.ts:21 [historical]",
+      "file": "tests/simulation.test.ts",
+      "line": 21,
+      "describe": [
+        "economy and population sanity (40 years, both modes)"
+      ],
+      "title": "historical: national trends stay within a factor of 2 of the 1870 benchmarks (population: CoW; not a script)",
+      "title_template": "${mode}: national trends stay within a factor of 2 of the 1870 benchmarks (population: CoW; not a script)",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.4509169999982987,
+      "assertions_executed_in_catalog_run": 10,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "simulation/population",
+      "checks": "GBR, FRA, USA, RUS, SPA population after 40 years is within ×0.5–×2 of the 1875 CoW benchmark.",
+      "inputs": "run <mode> seed 1, 40 years; db.benchmarks date '1875'",
+      "pass_condition": "Ratios in range for countries that are alive and have a benchmark.",
+      "empty_pass_risk": "conditional",
+      "risk_note": "A 'continue' skips countries that are dead or lack a 1875 benchmark, so the test could pass while checking fewer than 5 (or 0) countries. Observed 10 assertions per mode = all 5 checked at seed 1. F5: the title and comment say '1870 benchmarks' but the query uses date '1875' (simulation.test.ts:21-22).",
+      "limitations": "Final year is 1876; benchmark year 1875."
+    },
+    {
+      "id": "tests/simulation.test.ts:10 [sandbox]",
+      "file": "tests/simulation.test.ts",
+      "line": 10,
+      "describe": [
+        "economy and population sanity (40 years, both modes)"
+      ],
+      "title": "sandbox: no NaN/negative values in regions and countries",
+      "title_template": "${mode}: no NaN/negative values in regions and countries",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 22.687031000001298,
+      "assertions_executed_in_catalog_run": 3335,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "simulation sanity",
+      "checks": "After 40 years: every region pop finite > 0, standard of living in [0,1], output finite; every alive country GDP/treasury finite and legitimacy ≥ 0.",
+      "inputs": "run <mode> seed 1, 40 years (historical, sandbox)",
+      "pass_condition": "All hold.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 3284 (historical) and 3335 (sandbox) assertions.",
+      "limitations": "Final state only, not intermediate months."
+    },
+    {
+      "id": "tests/simulation.test.ts:14 [sandbox]",
+      "file": "tests/simulation.test.ts",
+      "line": 14,
+      "describe": [
+        "economy and population sanity (40 years, both modes)"
+      ],
+      "title": "sandbox: world population growth 1836-1876 is within a plausible band (0.2%-1.2% per year)",
+      "title_template": "${mode}: world population growth 1836-1876 is within a plausible band (0.2%-1.2% per year)",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.35793700000067474,
+      "assertions_executed_in_catalog_run": 2,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "simulation/population",
+      "checks": "World population growth 1836–1876 is 0.2–1.2 %/year.",
+      "inputs": "run <mode> seed 1, 40 years",
+      "pass_condition": "Range.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 2 assertions per mode.",
+      "limitations": "Plausibility band, not a historical benchmark."
+    },
+    {
+      "id": "tests/simulation.test.ts:21 [sandbox]",
+      "file": "tests/simulation.test.ts",
+      "line": 21,
+      "describe": [
+        "economy and population sanity (40 years, both modes)"
+      ],
+      "title": "sandbox: national trends stay within a factor of 2 of the 1870 benchmarks (population: CoW; not a script)",
+      "title_template": "${mode}: national trends stay within a factor of 2 of the 1870 benchmarks (population: CoW; not a script)",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.3090330000013637,
+      "assertions_executed_in_catalog_run": 10,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "simulation/population",
+      "checks": "GBR, FRA, USA, RUS, SPA population after 40 years is within ×0.5–×2 of the 1875 CoW benchmark.",
+      "inputs": "run <mode> seed 1, 40 years; db.benchmarks date '1875'",
+      "pass_condition": "Ratios in range for countries that are alive and have a benchmark.",
+      "empty_pass_risk": "conditional",
+      "risk_note": "A 'continue' skips countries that are dead or lack a 1875 benchmark, so the test could pass while checking fewer than 5 (or 0) countries. Observed 10 assertions per mode = all 5 checked at seed 1. F5: the title and comment say '1870 benchmarks' but the query uses date '1875' (simulation.test.ts:21-22).",
+      "limitations": "Final year is 1876; benchmark year 1875."
+    },
+    {
+      "id": "tests/simulation.test.ts:34",
+      "file": "tests/simulation.test.ts",
+      "line": 34,
+      "describe": [
+        "AI does not get stuck in meaningless loops"
+      ],
+      "title": "no law flips back to a value it left within 15 years",
+      "title_template": "no law flips back to a value it left within 15 years",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.458504999998695,
+      "assertions_executed_in_catalog_run": 0,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "AI behaviour",
+      "checks": "No country re-adopts, within 180 ticks, a law value it had left (flip-back).",
+      "inputs": "run sandbox seed 1, 40 years",
+      "pass_condition": "No flip-back among same-group pairs closer than 180 ticks.",
+      "empty_pass_risk": "vacuous_observed",
+      "risk_note": "0 assertions executed. The AI never changes the same law group twice within 180 ticks (guard at src/engine/ai/ai.ts:119), so the pairs the test inspects never exist; the probe found 174 law changes and 0 same-group pairs within 180 ticks. The test cannot fail under the current engine and checks nothing at runtime.",
+      "limitations": "Vacuous; the behaviour is enforced by code, not verified by the test."
+    },
+    {
+      "id": "tests/simulation.test.ts:43",
+      "file": "tests/simulation.test.ts",
+      "line": 43,
+      "describe": [
+        "AI does not get stuck in meaningless loops"
+      ],
+      "title": "wars end: no war lasts more than 12 years",
+      "title_template": "wars end: no war lasts more than 12 years",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.09654399999999441,
+      "assertions_executed_in_catalog_run": 0,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "war resolution",
+      "checks": "Every war still active at the end of the run is at most 145 ticks old.",
+      "inputs": "run sandbox seed 1, 40 years",
+      "pass_condition": "st.tick - start ≤ 145 for wars in st.wars.",
+      "empty_pass_risk": "vacuous_observed",
+      "risk_note": "0 assertions executed: no war was active at the end (probe: 26 wars ended during the run, 0 active at tick 480). Ended wars are never inspected. The engine ends wars after 144 months (src/engine/systems/military.ts:128); the probe found the longest ended war lasted 145 months. The title says '12 years' while the bound is 145 ticks.",
+      "limitations": "Vacuous for this scenario."
+    },
+    {
+      "id": "tests/simulation.test.ts:44",
+      "file": "tests/simulation.test.ts",
+      "line": 44,
+      "describe": [
+        "AI does not get stuck in meaningless loops"
+      ],
+      "title": "countries keep researching and building over the whole period",
+      "title_template": "countries keep researching and building over the whole period",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.19172400000024936,
+      "assertions_executed_in_catalog_run": 2,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "AI behaviour",
+      "checks": "Total AI research actions > 100 and construction actions > 1000 over 40 years.",
+      "inputs": "run sandbox seed 1, 40 years",
+      "pass_condition": "Thresholds.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 2 assertions.",
+      "limitations": "Totals, not 'over the whole period' as the title says (no per-decade check)."
+    },
+    {
+      "id": "tests/simulation.test.ts:51",
+      "file": "tests/simulation.test.ts",
+      "line": 51,
+      "describe": [
+        "save/load"
+      ],
+      "title": "a loaded game continues exactly like the uninterrupted game",
+      "title_template": "a loaded game continues exactly like the uninterrupted game",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 2489.0797399999974,
+      "assertions_executed_in_catalog_run": 1,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "save/load determinism",
+      "checks": "Sandbox seed 21: after 30 months, serialize/deserialize; both copies step 30 more months; serialized outputs are identical strings.",
+      "inputs": "createGame sandbox seed 21, no player",
+      "pass_condition": "serialize(b) === serialize(a).",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 1 assertion; string equality of the full save covers the whole GameState including RNG.",
+      "limitations": "Only Sandbox, one seed, one split point (K=30, N=60), no commands, no Historical mode; no first-differing-path report. B4 (v3.2 §6.7) extends this."
+    },
+    {
+      "id": "tests/simulation.test.ts:57",
+      "file": "tests/simulation.test.ts",
+      "line": 57,
+      "describe": [
+        "save/load"
+      ],
+      "title": "rejects foreign files",
+      "title_template": "rejects foreign files",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.9052329999976791,
+      "assertions_executed_in_catalog_run": 1,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "save/load robustness",
+      "checks": "deserialize throws for a JSON object with a foreign format id.",
+      "inputs": "'{\"format\":\"x\"}'",
+      "pass_condition": "Throws.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 1 assertion.",
+      "limitations": "Does not cover non-JSON input, unsupported version, missing fields (v3.2 §6.7 item 8)."
+    },
+    {
+      "id": "tests/simulation.test.ts:61",
+      "file": "tests/simulation.test.ts",
+      "line": 61,
+      "describe": [
+        "war support (Pass 16 pack, ch. 34/73: exhaustion alone does not capitulate)"
+      ],
+      "title": "an exhausted attacker that is winning stays in the war",
+      "title_template": "an exhausted attacker that is winning stays in the war",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 82.69111899999916,
+      "assertions_executed_in_catalog_run": 1,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "war resolution",
+      "checks": "An attacker at 99 exhaustion with war score 40 stays in the war after one military month.",
+      "inputs": "fresh sandbox seed 5; FRA vs SAR",
+      "pass_condition": "War still present.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 1 assertion.",
+      "limitations": "One month, one pair."
+    },
+    {
+      "id": "tests/simulation.test.ts:73",
+      "file": "tests/simulation.test.ts",
+      "line": 73,
+      "describe": [
+        "war support (Pass 16 pack, ch. 34/73: exhaustion alone does not capitulate)"
+      ],
+      "title": "an exhausted attacker that is losing gives up",
+      "title_template": "an exhausted attacker that is losing gives up",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 83.03138299999773,
+      "assertions_executed_in_catalog_run": 1,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "war resolution",
+      "checks": "An attacker at 99 exhaustion with war score -30 leaves the war after one military month.",
+      "inputs": "fresh sandbox seed 5; SAR vs FRA",
+      "pass_condition": "War removed.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 1 assertion.",
+      "limitations": "One month, one pair."
+    },
+    {
+      "id": "tests/ui.test.ts:26 [portrait]",
+      "file": "tests/ui.test.ts",
+      "line": 26,
+      "describe": [
+        "map labels (Europe 1836 — many small German and Italian states)"
+      ],
+      "title": "portrait: no two labels overlap and all stay on screen",
+      "title_template": "${name}: no two labels overlap and all stay on screen",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 3.1458580000000893,
+      "assertions_executed_in_catalog_run": 61,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "UI/map labels",
+      "checks": "For three cameras (portrait, landscape, zoomed-out) at least three labels are placed, all inside the viewport, and no two overlap.",
+      "inputs": "fresh historical seed 1 GBR; decoded public/generated/map.bin",
+      "pass_condition": "All hold.",
+      "empty_pass_risk": "none",
+      "risk_note": "Guarded by placed.length > 2; observed 61 / 40 / 131 assertions.",
+      "limitations": "Uses a conservative width estimate, not real font metrics; headless."
+    },
+    {
+      "id": "tests/ui.test.ts:37 [portrait]",
+      "file": "tests/ui.test.ts",
+      "line": 37,
+      "describe": [
+        "map labels (Europe 1836 — many small German and Italian states)"
+      ],
+      "title": "portrait: every country name is anchored inside its own country",
+      "title_template": "${name}: every country name is anchored inside its own country",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.2771470000000136,
+      "assertions_executed_in_catalog_run": 7,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "UI/map labels",
+      "checks": "Each placed country label's anchor cell belongs to that country.",
+      "inputs": "same cameras",
+      "pass_condition": "Owner at anchor equals label owner.",
+      "empty_pass_risk": "conditional",
+      "risk_note": "Assertions per placed country label, no non-empty guard in this test; observed 7 / 5 / 11 assertions.",
+      "limitations": "Headless geometry only."
+    },
+    {
+      "id": "tests/ui.test.ts:26 [landscape]",
+      "file": "tests/ui.test.ts",
+      "line": 26,
+      "describe": [
+        "map labels (Europe 1836 — many small German and Italian states)"
+      ],
+      "title": "landscape: no two labels overlap and all stay on screen",
+      "title_template": "${name}: no two labels overlap and all stay on screen",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.551433999999972,
+      "assertions_executed_in_catalog_run": 40,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "UI/map labels",
+      "checks": "For three cameras (portrait, landscape, zoomed-out) at least three labels are placed, all inside the viewport, and no two overlap.",
+      "inputs": "fresh historical seed 1 GBR; decoded public/generated/map.bin",
+      "pass_condition": "All hold.",
+      "empty_pass_risk": "none",
+      "risk_note": "Guarded by placed.length > 2; observed 61 / 40 / 131 assertions.",
+      "limitations": "Uses a conservative width estimate, not real font metrics; headless."
+    },
+    {
+      "id": "tests/ui.test.ts:37 [landscape]",
+      "file": "tests/ui.test.ts",
+      "line": 37,
+      "describe": [
+        "map labels (Europe 1836 — many small German and Italian states)"
+      ],
+      "title": "landscape: every country name is anchored inside its own country",
+      "title_template": "${name}: every country name is anchored inside its own country",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.13345699999990757,
+      "assertions_executed_in_catalog_run": 5,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "UI/map labels",
+      "checks": "Each placed country label's anchor cell belongs to that country.",
+      "inputs": "same cameras",
+      "pass_condition": "Owner at anchor equals label owner.",
+      "empty_pass_risk": "conditional",
+      "risk_note": "Assertions per placed country label, no non-empty guard in this test; observed 7 / 5 / 11 assertions.",
+      "limitations": "Headless geometry only."
+    },
+    {
+      "id": "tests/ui.test.ts:26 [zoomedOut]",
+      "file": "tests/ui.test.ts",
+      "line": 26,
+      "describe": [
+        "map labels (Europe 1836 — many small German and Italian states)"
+      ],
+      "title": "zoomedOut: no two labels overlap and all stay on screen",
+      "title_template": "${name}: no two labels overlap and all stay on screen",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 2.9264870000000656,
+      "assertions_executed_in_catalog_run": 131,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "UI/map labels",
+      "checks": "For three cameras (portrait, landscape, zoomed-out) at least three labels are placed, all inside the viewport, and no two overlap.",
+      "inputs": "fresh historical seed 1 GBR; decoded public/generated/map.bin",
+      "pass_condition": "All hold.",
+      "empty_pass_risk": "none",
+      "risk_note": "Guarded by placed.length > 2; observed 61 / 40 / 131 assertions.",
+      "limitations": "Uses a conservative width estimate, not real font metrics; headless."
+    },
+    {
+      "id": "tests/ui.test.ts:37 [zoomedOut]",
+      "file": "tests/ui.test.ts",
+      "line": 37,
+      "describe": [
+        "map labels (Europe 1836 — many small German and Italian states)"
+      ],
+      "title": "zoomedOut: every country name is anchored inside its own country",
+      "title_template": "${name}: every country name is anchored inside its own country",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 0.20579699999996137,
+      "assertions_executed_in_catalog_run": 11,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "UI/map labels",
+      "checks": "Each placed country label's anchor cell belongs to that country.",
+      "inputs": "same cameras",
+      "pass_condition": "Owner at anchor equals label owner.",
+      "empty_pass_risk": "conditional",
+      "risk_note": "Assertions per placed country label, no non-empty guard in this test; observed 7 / 5 / 11 assertions.",
+      "limitations": "Headless geometry only."
+    },
+    {
+      "id": "tests/ui.test.ts:41",
+      "file": "tests/ui.test.ts",
+      "line": 41,
+      "describe": [
+        "map labels (Europe 1836 — many small German and Italian states)"
+      ],
+      "title": "the player country is labelled at the Europe zoom",
+      "title_template": "the player country is labelled at the Europe zoom",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 4.318993999999975,
+      "assertions_executed_in_catalog_run": 1,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "UI/map labels",
+      "checks": "The player country (GBR) is labelled at the Europe landscape camera.",
+      "inputs": "landscape camera",
+      "pass_condition": "Some label owned by GBR.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 1 assertion.",
+      "limitations": "—"
+    },
+    {
+      "id": "tests/ui.test.ts:48",
+      "file": "tests/ui.test.ts",
+      "line": 48,
+      "describe": [
+        "market statistics persisted for the Market screen"
+      ],
+      "title": "every market with prices has per-good supply, demand, imports and shortage after a month",
+      "title_template": "every market with prices has per-good supply, demand, imports and shortage after a month",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 465.235732,
+      "assertions_executed_in_catalog_run": 15489,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "UI/market data",
+      "checks": "After one month every market with prices has, per good, finite non-negative supply/demand, imports ≥ 0, shortage in [0,1] and imports ≤ unmet demand.",
+      "inputs": "fresh historical seed 1 GBR, 1 month",
+      "pass_condition": "All hold.",
+      "empty_pass_risk": "conditional",
+      "risk_note": "No guard on the number of markets; observed 15489 assertions.",
+      "limitations": "One month."
+    },
+    {
+      "id": "tests/ui.test.ts:59",
+      "file": "tests/ui.test.ts",
+      "line": 59,
+      "describe": [
+        "market statistics persisted for the Market screen"
+      ],
+      "title": "survives save/load, and saves written before the field existed still load",
+      "title_template": "survives save/load, and saves written before the field existed still load",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 2096.952454,
+      "assertions_executed_in_catalog_run": 3,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "save/load compatibility",
+      "checks": "marketStats survives save/load; a save without marketStats loads with {} and is refilled after one month.",
+      "inputs": "run historical seed 1 GBR, 2 years",
+      "pass_condition": "All hold.",
+      "empty_pass_risk": "none",
+      "risk_note": "Observed 3 assertions.",
+      "limitations": "One legacy field."
+    },
+    {
+      "id": "tests/ui.test.ts:68",
+      "file": "tests/ui.test.ts",
+      "line": 68,
+      "describe": [
+        "budget lines shown by the Budget tab"
+      ],
+      "title": "monthly finance lines add up to the income and expense the engine applied",
+      "title_template": "monthly finance lines add up to the income and expense the engine applied",
+      "status_in_catalog_run": "passed",
+      "duration_ms_in_catalog_run": 298.6585449999998,
+      "assertions_executed_in_catalog_run": 503,
+      "stability": {
+        "runs": 7,
+        "passed": 7,
+        "detail": [
+          {
+            "run": "s0a_local_run_1",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_2",
+            "passed": true
+          },
+          {
+            "run": "s0a_local_run_3",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43793446130_2240a8f",
+            "passed": true
+          },
+          {
+            "run": "b1_local_run_d6edfc1_candidate",
+            "passed": true
+          },
+          {
+            "run": "ci_run_43834719406_382aaa8",
+            "passed": true
+          },
+          {
+            "run": "b3_catalog_run_2240a8f",
+            "passed": true
+          }
+        ]
+      },
+      "area": "UI/budget data",
+      "checks": "For > 50 alive countries with finance lines, tax+tariff ≈ income and the seven expense lines ≈ expense after two months.",
+      "inputs": "fresh historical seed 3 FRA, 2 months",
+      "pass_condition": "Sums match to 3 decimals.",
+      "empty_pass_risk": "none",
+      "risk_note": "Guarded by withLines.length > 50; observed 503 assertions.",
+      "limitations": "—"
+    }
+  ]
+}

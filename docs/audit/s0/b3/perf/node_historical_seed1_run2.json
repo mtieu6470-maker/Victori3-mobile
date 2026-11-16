@@ -1,0 +1,202 @@
+{
+  "schema": "s0-perf-node-v1",
+  "label": "BASELINE_ORIGINAL",
+  "environment": {
+    "kind": "node_server",
+    "node": "v22.23.4",
+    "v8": "12.4.254.21-node.57",
+    "platform": "linux 6.18.44-fc-v470",
+    "arch": "x64",
+    "cpu_model": "Intel(R) Xeon(R) Processor @ 2.30GHz",
+    "logical_cpus": 4,
+    "total_mem_bytes": 16869146624,
+    "loadavg_at_start": [
+      0.7,
+      0.22,
+      0.07
+    ]
+  },
+  "build": {
+    "audited_head": "2240a8fb865e0021eec2f2f4f1c6803528be9e2c",
+    "db_json_sha256": "8155f470f9b8b3216ba68d1aa109907ba54d76e97d3747964decd355d25c164a",
+    "db_json_sha256_without_built_at": "3dc22a087647c172865c051d0342d06e23746fe391768640524a950b95c35d7d",
+    "map_json_sha256": "9a6a6979dd5e7adc9d5953fc5f089ac94dee4079433ed1d340535dcbe877a696",
+    "harness_sha256": "e37140ae8cb89c984bc7ec7027d7dcc1e3f42cb196011f90cb42bf26c8b8918c"
+  },
+  "run": {
+    "mode": "historical",
+    "seed": 1,
+    "player": null,
+    "months": 1200,
+    "per_system_wrappers": false,
+    "start_tick": 0,
+    "end_tick": 1200,
+    "end_date": "1936-01",
+    "started_at": "2026-11-16T10:27:07.804Z",
+    "countries_alive_at_end": 187
+  },
+  "setup_ms": {
+    "load_data": 45.583,
+    "create_game": 134.763
+  },
+  "group1_tick_duration_ms": {
+    "all": {
+      "n": 1200,
+      "mean": 22.113,
+      "p50": 20.743,
+      "p95": 32.002,
+      "p99": 39.366,
+      "max": 68.309
+    },
+    "excluding_first_12": {
+      "n": 1188,
+      "mean": 21.94,
+      "p50": 20.71,
+      "p95": 31.514,
+      "p99": 37.176,
+      "max": 47.888
+    },
+    "by_120_ticks": [
+      {
+        "ticks": "1-120",
+        "n": 120,
+        "mean": 25.75,
+        "p50": 22.729,
+        "p95": 39.853,
+        "p99": 53.414,
+        "max": 68.309
+      },
+      {
+        "ticks": "121-240",
+        "n": 120,
+        "mean": 22.599,
+        "p50": 21.426,
+        "p95": 31.331,
+        "p99": 36.689,
+        "max": 40.727
+      },
+      {
+        "ticks": "241-360",
+        "n": 120,
+        "mean": 22.508,
+        "p50": 20.996,
+        "p95": 31.514,
+        "p99": 34.116,
+        "max": 34.487
+      },
+      {
+        "ticks": "361-480",
+        "n": 120,
+        "mean": 20.311,
+        "p50": 18.998,
+        "p95": 27.384,
+        "p99": 32.804,
+        "max": 43.967
+      },
+      {
+        "ticks": "481-600",
+        "n": 120,
+        "mean": 21.167,
+        "p50": 19.908,
+        "p95": 30.182,
+        "p99": 34.925,
+        "max": 36.044
+      },
+      {
+        "ticks": "601-720",
+        "n": 120,
+        "mean": 23.568,
+        "p50": 21.987,
+        "p95": 35.803,
+        "p99": 38.534,
+        "max": 47.888
+      },
+      {
+        "ticks": "721-840",
+        "n": 120,
+        "mean": 21.248,
+        "p50": 20.13,
+        "p95": 25.39,
+        "p99": 36.596,
+        "max": 42.055
+      },
+      {
+        "ticks": "841-960",
+        "n": 120,
+        "mean": 21.162,
+        "p50": 20.135,
+        "p95": 25.701,
+        "p99": 30.486,
+        "max": 34.387
+      },
+      {
+        "ticks": "961-1080",
+        "n": 120,
+        "mean": 20.128,
+        "p50": 19.763,
+        "p95": 22.757,
+        "p99": 27.525,
+        "max": 28.704
+      },
+      {
+        "ticks": "1081-1200",
+        "n": 120,
+        "mean": 22.687,
+        "p50": 21.355,
+        "p95": 32.965,
+        "p99": 35.877,
+        "max": 39.785
+      }
+    ]
+  },
+  "group2_main_thread_block": "not_applicable (Node has no UI thread; see the desktop report)",
+  "group3_frames": "not_applicable (no rendering in Node)",
+  "group4_throughput": {
+    "months_per_second_back_to_back": 45.13,
+    "wall_ms": 26590.9,
+    "note": "upper bound of compute without UI; the baseline UI runs at most one tick per animation frame (src/ui/game/controller.ts:73-77)"
+  },
+  "save": [
+    {
+      "at": "start",
+      "tick": 0,
+      "date": "1836-01",
+      "bytes_utf8": 1448522,
+      "serialize_ms": 10.167,
+      "deserialize_ms": 6.288,
+      "roundtrip_equal": true
+    },
+    {
+      "at": "middle",
+      "tick": 600,
+      "date": "1886-01",
+      "bytes_utf8": 2695048,
+      "serialize_ms": 18.124,
+      "deserialize_ms": 12.081,
+      "roundtrip_equal": true
+    },
+    {
+      "at": "end",
+      "tick": 1200,
+      "date": "1936-01",
+      "bytes_utf8": 3617553,
+      "serialize_ms": 25.053,
+      "deserialize_ms": 12.76,
+      "roundtrip_equal": true
+    }
+  ],
+  "memory": {
+    "start": {
+      "heap_used_bytes": 13709032,
+      "rss_bytes": 132861952,
+      "after_forced_gc": true
+    },
+    "end": {
+      "heap_used_bytes": 18348584,
+      "rss_bytes": 262356992,
+      "after_forced_gc": true
+    },
+    "note": "V8 heap of this Node process; not comparable to Android WebView memory"
+  },
+  "per_system_ms": "not_measured_in_this_run"
+}

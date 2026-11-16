@@ -1,0 +1,14 @@
+{
+  "scenario": "run('sandbox', 1, 40) as in tests/simulation.test.ts",
+  "final_tick": 480,
+  "wars_active_at_end": 0,
+  "wars_ended_during_run": 26,
+  "longest_ended_war_months": 145,
+  "wars_ended_after_more_than_144_months": 3,
+  "max_simultaneous_wars": 18,
+  "law_history_entries": 174,
+  "law_pairs_same_group_within_180_ticks": 0,
+  "law_flip_backs_within_180_ticks": 0,
+  "identity_linked_entities_people_region_period": 68,
+  "identity_non_portrait_assets_for_them": 0
+}

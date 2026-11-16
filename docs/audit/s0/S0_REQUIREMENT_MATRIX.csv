@@ -1,0 +1,354 @@
+req_id,spec_section,requirement,status,code_evidence_2240a8f,runtime_path,test_evidence,severity,finding,roadmap_stage
+MS-0-01,§0,"Không đưa tên, số liệu, chữ trong ảnh concept (illustrations/) vào database lịch sử",Unverified,Thư mục illustrations/ không có trong repository baseline (find: 0 kết quả); db.json sinh từ historical_data/* qua tools/build-data.ts,build-time: npm run data,không có,P3,Không thể chứng minh phủ định bằng audit tĩnh; không có kiểm tra tự động,S1
+MS-0-02,§0,"Không sao chép mã, đồ họa, UI, dữ liệu độc quyền hoặc tài sản của Paradox",Unverified,"Asset manifest B3: 627 tệp, không tệp nào có nguồn gốc Paradox (docs/audit/s0/b3/asset_manifest.csv)",payload dist/ + android res,không có,P3,Tính độc lập của mã nguồn không được audit trong S0,S5
+MS-1.1-01,§1.1,Mô phỏng toàn thế giới trong giai đoạn 1836–1936,Partial,"src/engine/core.ts:30 (tickToDate, bắt đầu 1836); src/engine/init.ts:40 createGame; không có xử lý kết thúc năm 1936",controller.ts:66-81 vòng tick,tests/simulation.test.ts:10/14 (40 năm); harness Node B3 chạy 1200 tháng,P3,RM-F5: không có điểm kết thúc 1936; game tiếp tục sau tick 1200,S22
+MS-1.1-02,§1.1,Mỗi quốc gia có bản sắc và hoàn cảnh riêng,Partial,"db.json entities (personality, priorities, laws); public/content/registry.json (quốc kỳ/huy hiệu/văn bản cho 266/265 thực thể)",UI Country.tsx,tests/content.test.ts:28/61,P2,104 thực thể model placeholder (S0_GLOBAL_DATA_AUDIT §2.2),"S5, S22"
+MS-1.1-03,§1.1,"Mỗi tỉnh là đơn vị phát triển có địa lý, dân cư, tài nguyên và công trình",Partial,"src/engine/types.ts:65-73 Region (pop, strata, culture, religion, buildings, res, terrain, area)",stepMonth → economy/population,tests/data.test.ts:44,P2,Vùng chiến lược đóng vai tỉnh; không có đơn vị hành chính riêng,S3
+MS-1.1-04,§1.1,Mỗi thành phố là trung tâm dân cư và hoạt động,Missing,Không có kiểu settlement/city trong src/ (grep: 0 kết quả),không có,không có,P1,,S4
+MS-1.1-05,§1.1,"Mỗi công trình tuyển dụng, sản xuất, tiêu thụ đầu vào và thay đổi theo thời đại",Partial,"src/engine/systems/economy.ts:11 LEVEL_WORKERS, :16-22 RECIPES (một công thức cố định mỗi loại)",economy.ts:44 computeEconomy,không có,P2,Không có production method theo thời đại,"S10, S11"
+MS-1.1-06,§1.1,"Mỗi đơn vị quân sự có tổ chức, trang bị, chỉ huy, vị trí và hậu cần",Missing,src/engine/types.ts:25-26 Army/Navy là các số tổng mỗi nước,không có,không có,P1,,"S20, S21"
+MS-1.2-01,§1.2,"Bao phủ châu Âu, Đông Á, Nam Á, Đông Nam Á, Trung Á, Tây Á, Trung Đông, Bắc Phi, châu Phi hạ Sahara, Bắc Mỹ, Trung Mỹ, Nam Mỹ, châu Đại Dương",Partial,"tools/audit/regions.ts:13 (12 vùng vĩ mô; Tây Á và Trung Đông gộp); 274 thực thể, 0 không gán được",db.json,tests/data.test.ts:37,P1,Có thực thể ở mọi vùng nhưng độ sâu rất khác nhau (GD-F2),S22
+MS-1.2-02,§1.2,"Hỗ trợ quốc gia độc lập, đế quốc, vương quốc, công quốc, tiểu quốc và liên bang",Partial,"db.json entities: kind, government, tier; không có mô hình liên bang riêng",init.ts:163 makeCountry,tests/data.test.ts:37,P3,,S17
+MS-1.2-03,§1.2,"Hỗ trợ thuộc địa, bảo hộ, chư hầu, vùng phụ thuộc, công ty đặc quyền",Partial,"db.json subject types: princely_state 8, autonomous_vassal 5, protectorate 4, personal_union 2, tributary 2, chartered_company 1; src/engine/world.ts:65 makeSubject",diplomacy.ts:59 boundSubject,không có,P2,"Thuộc địa là lãnh thổ của chính quốc, không có mô hình thuộc địa riêng",S18
+MS-1.2-04,§1.2,"Hỗ trợ chính thể bản địa, phi tập trung và thực thể địa phương",Partial,db.json kind decentralized; tools/build-data.ts:288 (polity placeholder chưa nghiên cứu riêng),init.ts:171 (quân số mặc định decentral),tests/data.test.ts:37,P2,104 thực thể model placeholder,S22
+MS-1.2-05,§1.2,"Hỗ trợ chính quyền nổi dậy, ly khai, chính thể hình thành hoặc tan rã trong mô phỏng",Partial,"src/engine/world.ts:26 killCountry, :39 createNation; systems/politics.ts:122 revolutionCheck, :202 secessionCheck",simulation.ts SYSTEMS secession,tests/modes.test.ts:74 (chỉ kiểm chiến tranh/liên minh/lãnh thổ/luật),P3,Không test nào khẳng định có chính thể hình thành/tan rã,S17
+MS-1.2-06,§1.2,Không chỉ chăm cường quốc; mọi quốc gia đạt mức nội dung nền tảng và logic gameplay hợp lý,Partial,"S0_GLOBAL_DATA_AUDIT §2.2: châu Phi hạ Sahara 84,8 % dân số nhãn missing; research_completeness 0,029–0,272",db.json,tests/data.test.ts:37; tests/modes.test.ts:90,P1,GD-F2,S22
+MS-1.3-01,§1.3,"Mỗi chỉ số quan trọng có cơ chế tạo ra và nguyên nhân thay đổi; UI giải thích tình hình, xu hướng, nguyên nhân",Partial,Phân rã tài chính (economy.ts:224 financeMonth); tooltip KPI; Military.tsx:33 chỉ 1/4 chỉ số có tooltip,UI,tests/ui.test.ts:68,P2,,S23a
+MS-1.3-02,§1.3,"Không thay hệ thống thiếu bằng biểu đồ giả, văn bản trang trí, giá trị cố định hoặc nút không có hành vi",Unverified,"Không audit UI có hệ thống trong B3; các placeholder đã biết: MS-4.7-01, MS-7.4-01, MS-8.1-01, MS-12.4-01",UI,không có,P2,,S23a
+MS-1.4-01,§1.4,"Bản sắc, dữ liệu, hình ảnh và trải nghiệm riêng, phù hợp thao tác Android",Partial,UI riêng (src/ui); asset từ Commons/Natural Earth; icon/splash APK là placeholder Capacitor (AS-F4),APK,không có,P2,AS-F4,"S23a, S23b"
+MS-2.1-01,§2.1,Dữ kiện lịch sử có giá trị và đơn vị,Partial,"src/engine/data/dbTypes.ts:9-17 Fact<T> có value, không có trường unit",db.json,không có,P2,Đơn vị chỉ ngầm định theo tên trường,S1
+MS-2.1-02,§2.1,Dữ kiện có ngày hoặc khoảng thời gian hiệu lực,Partial,dbTypes.ts:9-17 Fact không có trường ngày; benchmarks có date (dbTypes.ts:118); Leader since/diesOn (types.ts:21-23),db.json,tests/data.test.ts:67/71,P2,Phần lớn dữ kiện ngầm định 1836,S1
+MS-2.1-03,§2.1,Dữ kiện gắn đối tượng áp dụng,Implemented,"Fact lồng trong bản ghi thực thể/vùng (dbTypes.ts EntityRecord, RegionRecord)",db.json,tests/data.test.ts:11 (nguồn được tham chiếu tồn tại),—,,S1
+MS-2.1-04,§2.1,Dữ kiện có nguồn tham khảo,Partial,Fact.sources (dbTypes.ts:12); 64 nguồn; văn hoá/tôn giáo/địa hình/tài nguyên vùng và tech_level/government không có nguồn,db.json,tests/data.test.ts:11,P2,GD-F4,S1
+MS-2.1-05,§2.1,Độ tin cậy 5 mức verified/supported/estimated/uncertain/missing,Implemented,dbTypes.ts:4-5 Quality,db.json,tests/data.test.ts:23,—,,S1
+MS-2.1-06,§2.1,Ghi phương pháp ước tính khi không có số liệu trực tiếp,Partial,Fact.method (dbTypes.ts:14). Trong db.json: 270/334 dữ kiện estimated và 18/62 uncertain không có method,db.json,không có,P2,RM-F1,S1
+MS-2.1-07,§2.1,Ghi chú tranh luận hoặc sai khác giữa các nguồn,Implemented,Fact.alternatives (dbTypes.ts:16),db.json,tests/data.test.ts:54,—,,S1
+MS-2.1-08,§2.1,Không biến ước lượng thành dữ kiện đã xác minh,Partial,"5 head_of_state nhãn supported không có nguồn (MCO, TUN, BRN, SUL, TAH)",db.json,tests/data.test.ts:28 (chỉ kiểm dân số verified),P2,GD-F1,S1
+MS-2.1-09,§2.1,Không gán số liệu hiện đại cho năm 1836 mà không ghi rõ hiệu chỉnh,Partial,Ranh giới admin-1 hiện đại ghi rõ là xấp xỉ (tools/build-map.ts:3-7; src/ui/screens/World.tsx:69); số liệu khác chưa kiểm,build-map,không có,P3,,"S1, S3"
+MS-2.2-01,§2.2,"Historical Mode dùng dữ liệu ban đầu, xu hướng, lợi ích và cửa sổ sự kiện có điều kiện",Implemented,"src/engine/systems/events.ts:13 eventsMonth (19 cửa sổ quyết định); src/engine/historical.ts:10 evalCondition, :44 activePriorities",SYSTEMS events,"tests/modes.test.ts:30, :51",—,,S22
+MS-2.2-02,§2.2,Kết quả lịch sử không hard-code; rẽ nhánh khi nguyên nhân thay đổi,Implemented,"historical.ts:56 historicalBias (thiên hướng, không ép); src/engine/divergence.ts",SYSTEMS divergence,"tests/modes.test.ts:48, :99, :51",—,,S22
+MS-2.3-01,§2.3,Ghi nhận rõ trường bị thiếu,Partial,"tools/build-data.ts:224 gaps, :288; :125 pop_quality missing; dbTypes.ts:122",db.json coverage,tests/data.test.ts:28,P2,Trường không có nhãn (GD-F4) không được ghi là thiếu,S1
+MS-2.3-02,§2.3,Khi thiếu dữ liệu: tìm nguồn phù hợp và ghi provenance,Partial,64 nguồn (db.json sources); dân số có nguồn cho 22/274 thực thể (S0_GLOBAL_DATA_AUDIT §2.1),db.json,tests/data.test.ts:11,P2,GD-F2,"S1, S22"
+MS-2.3-03,§2.3,"Nếu buộc phải ước lượng: ghi công thức, giả định, phạm vi và độ tin cậy",Partial,"Fact.range (dbTypes.ts:13), method (:14); chỉ 29 dữ kiện có range",db.json,không có,P2,RM-F1,S1
+MS-2.3-04,§2.3,"Fallback có giới hạn, không dùng dữ liệu mặc định chung gây sai lệch lớn",Partial,src/engine/init.ts:17 strataFor (cơ cấu tầng lớp chung theo giai đoạn); :34-37 literacy mặc định cho 265/274 thực thể; :170-171 quân số mặc định 242/274; tools/build-data.ts:198-199 GDP/người fallback,createGame,không có,P1,GD-F3,"S1, S6"
+MS-2.3-05,§2.3,Đưa độ phủ dữ liệu vào báo cáo audit,Implemented,"docs/audit/GLOBAL_COVERAGE.md, docs/audit/coverage.json (baseline); docs/audit/s0/S0_GLOBAL_DATA_AUDIT.md (B3)",tài liệu,b3/global_data_audit.json,—,,S0
+MS-3.1-01,§3.1,Phân lớp World → Political Entity → Administrative Unit → Settlement,Partial,Chỉ có thực thể (db entities) và vùng (types.ts:65-73),db.json,không có,P1,Thiếu cấp hành chính và settlement,"S3, S4"
+MS-3.1-02,§3.1,Strategic Region tách khỏi đơn vị hành chính lịch sử; giữ liên kết giữa các cấp,Missing,Vùng đóng cả hai vai; crosswalk B3: 34 admin-1 bị chia giữa nhiều vùng,map.bin,b3/region_admin1_crosswalk.csv,P1,,S3
+MS-3.1-03,§3.1,Không áp đặt một kiểu gọi đơn vị hành chính; số cấp khác nhau theo nước và thời kỳ,Missing,Không có mô hình đơn vị hành chính,không có,không có,P2,,S3
+MS-3.2-01,§3.2,"Tỉnh có ID ổn định, tên hiện tại, tên lịch sử, tên địa phương, loại đơn vị",Partial,"RegionRecord có id, name (dbTypes.ts:72); không có tên lịch sử/địa phương/loại",db.json regions,không có,P2,,"S3, S4"
+MS-3.2-02,§3.2,"Tỉnh có quốc gia sở hữu, đơn vị cấp trên, thời gian thành lập và chấm dứt",Partial,"Region.owner, controller (types.ts:65-73); không có parent/valid_from/valid_to",state,tests/data.test.ts:44,P2,,S3
+MS-3.2-03,§3.2,"Tỉnh có polygon ranh giới, diện tích, tọa độ trung tâm",Partial,Ranh giới raster (public/generated/map.bin) + vector (generated/borders.json); Region.area (types.ts:69); lat/lon,map,tests/data.test.ts:44,P3,Polygon dẫn xuất từ raster admin-1 hiện đại,S3
+MS-3.2-04,§3.2,"Tỉnh có thủ phủ, đô thị, thị trấn và làng",Missing,Chỉ có Country.capital là id vùng,không có,không có,P1,,S4
+MS-3.2-05,§3.2,"Tỉnh có địa hình, khí hậu, sông, hồ, bờ biển, đất canh tác và tài nguyên",Partial,"Region.terrain, coastal, res (types.ts:69); sông/hồ chỉ là lớp vẽ (public/map/rivers.json, lakes.json)",state,không có,P2,"Không có khí hậu, đất canh tác, sông theo vùng","S3, S10"
+MS-3.2-06,§3.2,"Tỉnh có dân số, văn hóa, tôn giáo, ngôn ngữ, tầng lớp, phân bố đô thị/nông thôn",Partial,"Region.pop, strata, culture/culture2, religion/religion2 (types.ts:67)",state,tests/simulation.test.ts:10,P2,"Không có ngôn ngữ, đô thị/nông thôn",S6
+MS-3.2-07,§3.2,"Tỉnh có kinh tế, ngành nghề, công trình, việc làm, sản lượng và hạ tầng",Partial,Region.buildings (types.ts:69); computeEconomy (economy.ts:44); hạ tầng chỉ là cấp railway,economy,tests/ui.test.ts:48,P2,,"S8, S11, S12"
+MS-3.2-08,§3.2,"Tỉnh có chính quyền địa phương, tự trị, năng lực hành chính, bất ổn, ly khai",Partial,"unrest, radical, nationalism theo vùng (types.ts:68); politics.ts:202 secessionCheck",politics,không có,P2,Không có chính quyền địa phương,S15
+MS-3.2-09,§3.2,"Tỉnh có công trình quân sự, đồn trú, kho, pháo đài, cảng, tuyến hậu cần",Missing,Không có trong Region,không có,không có,P2,,"S20, S21"
+MS-3.2-10,§3.2,Tỉnh có nguồn dữ liệu và độ tin cậy,Partial,pop_quality (dbTypes.ts:72) cho dân số; các trường khác không có,db.json,không có,P2,GD-F4,"S1, S3"
+MS-3.3-01,§3.3,"Thành phố là đối tượng dữ liệu độc lập (thủ đô, đô thị, cảng, thị trấn, làng…)",Missing,Không có,không có,không có,P1,,S4
+MS-3.3-02,§3.3,"Settlement có tên theo thời kỳ, tọa độ, đơn vị hành chính, loại, dân số, vai trò, hạ tầng, công trình, hình ảnh/mô tả",Missing,Không có,không có,không có,P1,,S4
+MS-3.3-03,§3.3,"Thành phố phát triển theo dân cư, việc làm, thương mại…; không tăng dân số vô hạn khi thiếu việc làm/nhà ở/lương thực/hạ tầng",Missing,Không có thành phố,không có,không có,P2,,S15
+MS-3.4-01,§3.4,Không dùng ranh giới hiện đại làm ranh giới 1836 mà không ghi rõ là xấp xỉ,Implemented,tools/build-map.ts:3-7; src/ui/screens/World.tsx:69 (ghi rõ xấp xỉ),UI World,N/A (yêu cầu công bố; bằng chứng mã và văn bản UI),—,,S3
+MS-3.4-02,§3.4,Phiên bản ranh giới có hiệu lực theo thời gian,Missing,Không có boundary_version,không có,không có,P1,,S3
+MS-3.4-03,§3.4,"Thành lập, giải thể, chia tách và sáp nhập tỉnh",Missing,Tập vùng cố định 662,không có,không có,P2,,S3
+MS-3.4-04,§3.4,"Chuyển giao lãnh thổ, chiếm đóng và khôi phục chủ quyền",Implemented,src/engine/world.ts:9-25 transferRegion + territoryLog; Region.controller (chiếm đóng); military.ts:151 applyGoal,SYSTEMS military,"tests/modes.test.ts:74, :82; tests/data.test.ts:44",—,,"S3, S21"
+MS-3.4-05,§3.4,"Đổi tên quốc gia, tỉnh và thành phố",Partial,Tên quốc gia theo năm chỉ ở UI (src/ui/game/names.ts:19); tỉnh/thành phố không đổi tên,UI,không có,P2,,"S3, S4"
+MS-3.4-06,§3.4,Thay đổi thủ đô và cơ cấu hành chính,Partial,world.ts:20 dời thủ đô khi mất vùng thủ đô; không có cơ cấu hành chính,transferRegion,không có,P3,,"S3, S15"
+MS-3.4-07,§3.4,"Thay đổi biên giới theo chiến tranh, hiệp ước hoặc cải cách",Partial,"Chiến tranh: military.ts:151 applyGoal; dòng thời gian lịch sử chỉ dùng để so sánh, không áp vào state (data.test.ts:79)",military,tests/data.test.ts:79; tests/modes.test.ts:82,P2,Không có hiệp ước/cải cách hành chính,"S3, S18"
+MS-3.4-08,§3.4,"Dữ liệu tối thiểu valid_from, valid_to, parent_id, owner_id, controller_id, boundary_version, historical_name, source_ids",Partial,Chỉ owner và controller (types.ts:65-73),state,không có,P1,,"S1, S3"
+MS-3.4-09,§3.4,"Đổi chủ bảo toàn lịch sử, không nhân đôi dân số/công trình, không phá save cũ",Partial,territoryLog (world.ts:16); vùng chuyển nguyên khối nên không nhân đôi,transferRegion,tests/data.test.ts:44; tests/simulation.test.ts:51,P2,Tương thích save cũ khi cấu trúc đổi: chưa kiểm (B4),"S1, S3"
+MS-3.5-01,§3.5,"World map: biên giới, chủ quyền, thủ đô, đô thị lớn, tuyến thương mại, vùng chiến lược",Partial,"src/ui/map/renderer.ts, MapView.tsx (biên giới, màu chủ quyền, nhãn)",UI map,"tests/ui.test.ts:26, :37, :41",P2,"Không có đô thị lớn, tuyến thương mại",S23a
+MS-3.5-02,§3.5,"Country map: tỉnh, thủ phủ, thành phố, địa hình, tài nguyên, dân cư, công trình, căn cứ",Partial,"Cùng một bản đồ liên tục có LOD; lớp tài nguyên/dân số (lenses.ts:67, :87)",UI map,không có,P2,,S23a
+MS-3.5-03,§3.5,"Province map: đơn vị cấp dưới, thành phố, làng, đường, cụm công nghiệp, mỏ, cảng",Missing,Không có,không có,không có,P2,,"S4, S23a"
+MS-3.5-04,§3.5,"Campaign map: đơn vị, đường hành quân, mặt trận, tiếp tế, pháo đài, bao vây",Missing,Không có,không có,không có,P2,,S21
+MS-3.6-01,§3.6,Lớp bản đồ chuyên biệt tối thiểu: chính trị,Partial,src/ui/map/lenses.ts:57 political,UI map,không có,P3,Có lớp; không có test hành vi lớp,S23a
+MS-3.6-02,§3.6,Lớp bản đồ chuyên biệt tối thiểu: địa hình,Partial,src/ui/map/lenses.ts:62 terrain,UI map,không có,P3,Có lớp; không có test,S23a
+MS-3.6-03,§3.6,Lớp bản đồ chuyên biệt tối thiểu: dân số,Partial,src/ui/map/lenses.ts:67 population (mật độ),UI map,không có,P3,"Chỉ có lớp mật độ, không có lớp dân số tổng",S23a
+MS-3.6-04,§3.6,Lớp bản đồ chuyên biệt tối thiểu: mật độ,Partial,src/ui/map/lenses.ts:67 population,UI map,không có,P3,Có lớp; không có test,S23a
+MS-3.6-05,§3.6,Lớp bản đồ chuyên biệt tối thiểu: văn hóa,Missing,Không có lớp,không có,không có,P2,,S23a
+MS-3.6-06,§3.6,Lớp bản đồ chuyên biệt tối thiểu: tôn giáo,Missing,Không có lớp,không có,không có,P2,,S23a
+MS-3.6-07,§3.6,Lớp bản đồ chuyên biệt tối thiểu: tài nguyên,Partial,src/ui/map/lenses.ts:87 resources,UI map,không có,P3,Có lớp; không có test,S23a
+MS-3.6-08,§3.6,Lớp bản đồ chuyên biệt tối thiểu: đất canh tác,Missing,Không có lớp; không có dữ liệu,không có,không có,P2,,S23a
+MS-3.6-09,§3.6,Lớp bản đồ chuyên biệt tối thiểu: công nghiệp,Missing,Không có lớp riêng (src/ui/map/lenses.ts:72 economy là tổng giá trị gia tăng),không có,không có,P2,,S23a
+MS-3.6-10,§3.6,Lớp bản đồ chuyên biệt tối thiểu: nông nghiệp,Missing,Không có lớp,không có,không có,P2,,S23a
+MS-3.6-11,§3.6,Lớp bản đồ chuyên biệt tối thiểu: đô thị hóa,Missing,Không có lớp; không có dữ liệu,không có,không có,P2,,S23a
+MS-3.6-12,§3.6,Lớp bản đồ chuyên biệt tối thiểu: hạ tầng,Missing,Không có lớp,không có,không có,P2,,S23a
+MS-3.6-13,§3.6,Lớp bản đồ chuyên biệt tối thiểu: đường sắt,Missing,Không có lớp (railway chỉ là cấp công trình),không có,không có,P2,,S23a
+MS-3.6-14,§3.6,Lớp bản đồ chuyên biệt tối thiểu: cảng,Missing,Không có lớp; không có cảng,không có,không có,P2,,S23a
+MS-3.6-15,§3.6,Lớp bản đồ chuyên biệt tối thiểu: thị trường,Partial,src/ui/map/lenses.ts:119 market,UI map,không có,P3,Có lớp; không có test,S23a
+MS-3.6-16,§3.6,Lớp bản đồ chuyên biệt tối thiểu: ngoại giao,Partial,src/ui/map/lenses.ts:92 diplomacy,UI map,không có,P3,Có lớp; không có test,S23a
+MS-3.6-17,§3.6,Lớp bản đồ chuyên biệt tối thiểu: quân sự,Partial,src/ui/map/lenses.ts:106 military,UI map,không có,P3,Có lớp; không có test,S23a
+MS-3.6-18,§3.6,Lớp bản đồ chuyên biệt tối thiểu: hậu cần,Missing,Không có lớp; không có hậu cần,không có,không có,P2,,S23a
+MS-3.6-19,§3.6,Lớp bản đồ chuyên biệt tối thiểu: chiến tranh,Partial,src/ui/map/lenses.ts:106 military (các cuộc chiến của nước đang chọn),UI map,không có,P3,,S23a
+MS-3.6-20,§3.6,Lớp bản đồ chuyên biệt tối thiểu: kiểm soát lãnh thổ,Partial,src/ui/map/lenses.ts:57 political (gạch chéo vùng bị chiếm),UI map,không có,P3,Không có lớp riêng,S23a
+MS-3.6-21,§3.6,"Mỗi lớp có chú giải, đơn vị đo, ngày dữ liệu và hành vi chọn đối tượng",Partial,lenses.ts:57-119 có desc/unit/legend; không hiển thị ngày dữ liệu,UI map,không có,P3,,S23a
+MS-4.1-01,§4.1,"Người chơi biết tỉnh sản xuất gì, công trình nào, ai làm ở đâu, tài nguyên từ đâu, hàng đi đâu, hạ tầng, nguyên nhân phát triển/suy thoái",Partial,"src/ui/screens/StateCard.tsx:19 RegionWindow (cấp công trình, tài nguyên, có thể xây)",UI,không có,P2,"Không có luồng hàng, việc làm theo công trình","S11, S23a"
+MS-4.1-02,§4.1,Cấp công trình đại diện năng lực sản xuất/dịch vụ; zoom gần thể hiện cụm kiến trúc,Partial,Region.buildings là số cấp (types.ts:69); không có hình ảnh công trình,economy,không có,P3,,"S10, S23b"
+MS-4.2-A1,§4.2 A,"Nông trại lúa gạo, lúa mì, ngô, kê, khoai và cây lương thực phù hợp địa phương",Missing,Lương thực tính từ lao động nông nghiệp × địa hình (economy.ts:66); không có công trình nông trại,economy,không có,P2,,S10
+MS-4.2-A2,§4.2 A,"Đồn điền bông, chè, cà phê, ca cao, mía, thuốc lá, thuốc phiện, cao su, tơ lụa… theo thời kỳ",Partial,plantation (types.ts:8) với tài nguyên cash/cotton/opium (economy.ts:258),economy,không có,P2,Hàng hóa gộp cash_crops,S10
+MS-4.2-A3,§4.2 A,"Chăn nuôi gia súc, cừu, ngựa, gia cầm",Missing,Chỉ có nhãn tài nguyên live làm hệ số lương thực (economy.ts:66),không có,không có,P3,,S10
+MS-4.2-A4,§4.2 A,"Lâm nghiệp, đánh bắt thủy sản, nuôi trồng, khai thác tự nhiên",Partial,logging (economy.ts:85-86); thủy sản chỉ là nhãn tài nguyên,economy,không có,P3,,S10
+MS-4.2-A5,§4.2 A,Trang trại tự cung tự cấp và kinh tế nông thôn truyền thống,Partial,"Sản xuất lương thực của nông dân (economy.ts:66, :77) không qua công trình",economy,không có,P3,,"S6, S10"
+MS-4.2-B1,§4.2 B,"Mỏ than, sắt, đồng, chì, thiếc, lưu huỳnh, vàng, bạc, đá và khoáng sản khác",Partial,mine với tài nguyên coal/iron/gold/silver (economy.ts:257),economy,không có,P2,"Không có đồng, chì, thiếc, lưu huỳnh, đá",S10
+MS-4.2-B2,§4.2 B,Giếng dầu khi công nghệ và lịch sử cho phép,Missing,Không có hàng hóa/công trình dầu,không có,không có,P3,,"S9, S10"
+MS-4.2-B3,§4.2 B,"Mỏ có trữ lượng, mức khai thác, chi phí, lao động, công nghệ, vận tải và suy giảm",Missing,Không có trữ lượng,không có,không có,P2,,"S10, S11"
+MS-4.2-B4,§4.2 B,Tài nguyên chưa phát hiện; thăm dò thành công phát sinh sự kiện phát hiện,Missing,Không có,không có,không có,P3,,S10
+MS-4.2-C,§4.2 C,"Công nghiệp nhẹ (dệt, quần áo, giấy, gỗ, thủy tinh, thực phẩm, đồ uống, tiêu dùng, thủ công)",Partial,"textile_mill, luxury_workshop (types.ts:8)",economy,không có,P2,,S10
+MS-4.2-D,§4.2 D,"Công nghiệp nặng (sắt, thép, công cụ, máy móc, động cơ, hóa chất, phân bón, vật liệu, năng lượng)",Partial,"ironworks, tool_works (types.ts:8)",economy,không có,P2,,S10
+MS-4.2-E,§4.2 E,"Công nghiệp quốc phòng (súng, đạn, pháo, thuốc nổ, quân nhu, sửa chữa, đóng tàu)",Partial,arms_works (types.ts:8),economy,không có,P2,Không có đóng tàu,"S10, S20"
+MS-4.2-F,§4.2 F,"Thương mại và dịch vụ (chợ, phân phối, kho, ngân hàng, tài chính)",Missing,Không có,không có,không có,P2,,"S10, S13"
+MS-4.2-G,§4.2 G,"Hạ tầng và giao thông (đường, cầu, đường sắt, ga, cảng, kênh, tưới tiêu, điện, bưu điện, điện báo)",Partial,"railway (types.ts:8; tối đa 5 cấp, economy.ts:256)",economy,không có,P2,,S8
+MS-4.2-H,§4.2 H,"Hành chính, giáo dục, xã hội (hành chính, thuế, trường, đại học, nghiên cứu, bệnh viện)",Partial,university (types.ts:8; tăng điểm nghiên cứu: technology.ts:27),technology,không có,P2,,S15
+MS-4.2-I,§4.2 I,"Công trình quân sự (doanh trại, tuyển quân, trường quân sự, kho, căn cứ, cảng quân sự, pháo đài)",Missing,Không có,không có,không có,P2,,S20
+MS-4.2-J,§4.2 J,"Văn hóa và công trình đặc biệt (cung điện, đền, nhà thờ, tượng đài, bảo tàng, kỳ quan…)",Missing,Không có,không có,không có,P3,,"S10, S15"
+MS-4.2-K,§4.2,"Không phải tỉnh nào cũng xây được mọi loại; điều kiện phản ánh địa hình, khí hậu, đất, tài nguyên, lao động, công nghệ, chính sách, vốn, hạ tầng, lịch sử",Partial,"economy.ts:254-264 canBuild: chủ quyền, tài nguyên, công nghệ; luxury_workshop/university không điều kiện",canBuild,không có,P2,Không có test cho canBuild,S10
+MS-4.3-01,§4.3,Phân biệt trạng thái cấp công trình: cấp đã xây,Partial,Region.buildings (types.ts:69),economy,không có,P2,Không có test riêng,S11
+MS-4.3-02,§4.3,Phân biệt trạng thái cấp công trình: cấp tối đa theo điều kiện hiện tại,Partial,Chỉ railway ≤ 5 (economy.ts:256),economy,không có,P2,,S11
+MS-4.3-03,§4.3,Phân biệt trạng thái cấp công trình: cấp đang hoạt động,Missing,Không lưu,không có,không có,P2,,S11
+MS-4.3-04,§4.3,Phân biệt trạng thái cấp công trình: cấp thiếu lao động,Partial,"economy.ts:88-91 factoryWorkersLeft (theo vùng, không lưu theo công trình)",economy,không có,P2,,S11
+MS-4.3-05,§4.3,Phân biệt trạng thái cấp công trình: cấp thiếu đầu vào,Partial,"economy.ts:87 (thiếu đầu vào áp sau khi cân bằng thị trường, theo vùng)",economy,không có,P2,,S11
+MS-4.3-06,§4.3,Phân biệt trạng thái cấp công trình: cấp thiếu hạ tầng,Missing,Không có,không có,không có,P2,,S11
+MS-4.3-07,§4.3,Phân biệt trạng thái cấp công trình: cấp hư hại,Missing,Không có,không có,không có,P2,,S11
+MS-4.3-08,§4.3,Phân biệt trạng thái cấp công trình: cấp đang xây,Missing,Xây tức thời (economy.ts:274),không có,không có,P2,,S14
+MS-4.3-09,§4.3,"Tăng cấp thay đổi công suất, lao động, đầu vào, sản lượng, chi phí, tác động xã hội",Partial,"Sản lượng và lao động tỉ lệ theo cấp (economy.ts:11, :16-22)",economy,không có,P2,Không có test,S11
+MS-4.4-01,§4.4,"Điều kiện xây dựng tự nhiên (đất, độ màu mỡ, khí hậu, mưa, địa hình, độ cao, sông, bờ biển, rừng, mỏ, trữ lượng)",Partial,canBuild dùng res của vùng (economy.ts:257-259),canBuild,không có,P2,,S10
+MS-4.4-02,§4.4,"Điều kiện xây dựng xã hội (dân số, lao động, tay nghề, giáo dục, lương, di cư, ổn định)",Missing,canBuild không xét,không có,không có,P2,,"S10, S12"
+MS-4.4-03,§4.4,"Điều kiện xây dựng kinh tế (vốn, ngân sách, giá, nguyên liệu, thị trường, lợi nhuận, vận tải, năng lực xây dựng)",Partial,"buildCost (economy.ts:265), buildingReturn (:279), quỹ đầu tư (:240, :245)",AI constructionAI ai.ts:91,không có,P2,,"S13, S14"
+MS-4.4-04,§4.4,Điều kiện xây dựng công nghệ,Partial,"canBuild dùng hasTech (economy.ts:256, :260-262)",canBuild,không có,P3,Không có test,"S9, S10"
+MS-4.4-05,§4.4,Không dùng giới hạn ô xây dựng vô lý; giới hạn có nguyên nhân từ tài nguyên và hạ tầng,Partial,"Không có giới hạn ô; trừ railway ≤ 5, các loại khác không có giới hạn cấp",canBuild,không có,P2,Không có giới hạn có nguyên nhân,S10
+MS-4.5-01,§4.5,"Production methods quyết định đầu vào, đầu ra, lao động, máy móc, chi phí, năng suất, tác động",Missing,Một công thức cố định mỗi loại (economy.ts:16-22 RECIPES),không có,không có,P1,,S10
+MS-4.5-02,§4.5,"Không tự nâng production method khi không đủ điều kiện; nâng cấp có chi phí, lợi ích, rủi ro",Missing,Không có,không có,không có,P2,,"S10, S11"
+MS-4.6-01,§4.6,Mỗi cấp công trình có nhu cầu lao động theo nghề,Partial,"LEVEL_WORKERS = 2000 mỗi cấp (economy.ts:11), lấy từ tầng lớp vùng",economy,không có,P2,,S12
+MS-4.6-02,§4.6,"Mô phỏng tuyển dụng, thiếu/dư lao động, tiền lương, tay nghề, năng suất, điều kiện làm việc, lợi nhuận, hài lòng",Partial,Thiếu lao động nhà máy (economy.ts:44-220); không có lương theo công trình,economy,không có,P2,,S12
+MS-4.7-01,§4.7,"Hỗ trợ sở hữu nhà nước, tư nhân, quý tộc, công ty, nhà đầu tư, hợp tác xã, cộng đồng, kết hợp",Placeholder,"statePool/privatePool (economy.ts:240, :245, :293); đặc tả 4.7 ghi rõ đây không phải hệ thống sở hữu",economy,không có,P1,,S13
+MS-4.7-02,§4.7,"Mỗi công trình lưu chủ sở hữu, tỷ lệ, vốn, doanh thu, chi phí, lương, lợi nhuận, cổ tức, thuế, trợ cấp",Missing,Không có sổ sở hữu,không có,không có,P1,,S13
+MS-4.7-03,§4.7,"Luật cho phép tư nhân hóa, quốc hữu hóa, chuyển giao, đầu tư nước ngoài, lập công ty",Missing,Không có,không có,không có,P2,,"S13, S17"
+MS-4.8-01,§4.8,Quy trình xây dựng: chọn tỉnh → loại → số cấp → xác thực → chi phí → xếp hàng → phân bổ năng lực → tiêu thụ vật liệu → hoàn thành → tuyển lao động → vận hành,Missing,"build() tăng cấp tức thời (economy.ts:269-277, :274)",commands.ts:34 execute,không có,P1,,S14
+MS-4.8-02,§4.8,"Hàng đợi quốc gia, ưu tiên, tiến độ, chi phí còn lại, vật liệu thiếu, thời gian dự kiến, tạm dừng, hủy, điều chỉnh",Missing,Không có,không có,không có,P1,,S14
+MS-4.8-03,§4.8,"Construction Capacity phụ thuộc công trình xây dựng, công nghệ, nhân công, máy móc, vật liệu, ngân sách, quản trị; không xây tức thời/vô hạn",Missing,economy.ts:274 tức thời,không có,không có,P1,,S14
+MS-4.9-01,§4.9,"Hạ tầng tạo năng lực; công trình tiêu thụ năng lực; thiếu hạ tầng làm tăng chi phí, giảm lưu thông và hiệu quả",Missing,Railway chỉ tăng giá trị vùng (economy.ts:279-290),không có,không có,P1,,S8
+MS-4.9-02,§4.9,"Phân biệt market access với chỉ số kết nối hình thức; mất cảng, chiến tranh, phong tỏa, phá đường sắt tác động thương mại và hậu cần",Partial,"economy.ts:31 marketOf (liên minh thuế quan), :33 openness",economy,tests/ui.test.ts:48,P2,"Không có phong tỏa, chi phí vận tải",S8
+MS-4.10-01,§4.10,"Chuỗi thép: quặng sắt + than → luyện sắt/thép → công cụ, máy móc → đường sắt, nhà máy, quốc phòng",Partial,RECIPES (economy.ts:16-22) qua thị trường,economy,tests/ui.test.ts:48,P2,Không có máy móc; không có vận chuyển giữa tỉnh,"S7, S10"
+MS-4.10-02,§4.10,Chuỗi cảng: hạ tầng cảng + lao động + kho → năng lực giao thương; chiến tranh phong tỏa/hư hại,Missing,Không có cảng,không có,không có,P2,,S8
+MS-4.10-03,§4.10,"Chuỗi đại học: giảng viên, tài chính → nhân lực → năng lực kỹ thuật và nghiên cứu",Partial,university tăng điểm nghiên cứu 20 %/cấp (technology.ts:27),technology,không có,P3,"Không có giảng viên, chi phí vận hành","S9, S15"
+MS-4.10-04,§4.10,"Chuỗi doanh trại: ngân sách, cơ sở, nhân lực → huấn luyện, đồn trú; không tự sinh quân vô hạn",Missing,Không có doanh trại,không có,không có,P2,,S20
+MS-4.11-01,§4.11,"Công trình làm thay đổi thành phố; thành phố suy thoái khi mất việc, thương mại, tài nguyên hoặc chiến tranh",Missing,Không có thành phố; chỉ dịch chuyển tầng lớp (population.ts:72 shiftStrata),không có,không có,P2,,S15
+MS-4.12-01,§4.12,Công trình độc nhất và di tích có giới hạn và hiệu ứng uy tín/văn hóa/quản trị,Missing,Không có,không có,không có,P3,,S10
+MS-5.1-01,§5.1,"Chia dân cư theo tầng lớp, nghề, văn hóa, tôn giáo, vùng, việc làm, mức sống (cohort tổng hợp)",Partial,types.ts:12 STRATA (9 tầng lớp) × vùng; culture/religion chính+phụ (types.ts:67),population,tests/simulation.test.ts:10,P1,"Không tách theo nghề, việc làm, mức sống",S6
+MS-5.2-01,§5.2,"Nhóm dân cư có quy mô, nhân khẩu, nghề, thu nhập, tài sản, nhu cầu, việc làm, thất nghiệp, mức sống, giáo dục, y tế, văn hóa, tôn giáo, ủng hộ chính trị, bất mãn, di cư",Partial,"Thuộc tính theo vùng: literacy, sol, unrest, radical, nationalism (types.ts:68)",population,không có,P2,Không có thu nhập/tài sản/thất nghiệp theo nhóm,"S6, S12"
+MS-5.3-01,§5.3,"Dân cư phản ứng với giá, thuế, lương, thất nghiệp, thiếu lương thực, chiến tranh, dịch bệnh, luật, giáo dục, công nghệ",Partial,src/engine/systems/population.ts:9 populationMonth; dịch bệnh ngoại sinh (events.ts:82),SYSTEMS population,"tests/simulation.test.ts:14, :21",P2,,S6
+MS-5.3-02,§5.3,"Hệ quả nối với tiêu dùng, cung lao động, chính trị, di cư, biểu tình, cách mạng, ly khai",Partial,Di cư (population.ts:24-60); cách mạng (politics.ts:122); ly khai (:202),SYSTEMS,không có,P2,"Không có biểu tình, đình công","S6, S17"
+MS-5.4-01,§5.4,Không ép mọi nước cùng cơ cấu tầng lớp; dữ liệu và điều kiện riêng theo khu vực,Placeholder,"init.ts:17 strataFor(stage, decentral): cơ cấu chung theo giai đoạn công nghiệp",createGame,không có,P1,Vi phạm trực tiếp §5.4,S6
+MS-6.1-01,§6.1,"Mô phỏng sản xuất, tiêu thụ, đầu vào, đầu ra, cung cầu, giá, thị trường quốc gia/quốc tế",Partial,economy.ts:44 computeEconomy; types.ts:5 GOODS (12 hàng hóa); worldPrices,SYSTEMS economy,tests/ui.test.ts:48,P2,,S7
+MS-6.1-02,§6.1,"Tồn kho, vận tải, sản phẩm phụ, thị trường địa phương, hạn chế tiếp cận thị trường",Missing,Không có,không có,không có,P1,,"S7, S8"
+MS-6.2-01,§6.2,Tổng GDP và GDP/người,Partial,"Country.stats GDP (economy.ts:44-220), metrics.ts:6 sampleYear",economy,không có,P3,Không có test GDP,S7
+MS-6.2-02,§6.2,Cơ cấu ngành,Unverified,Không xác minh được hiển thị cơ cấu ngành trong B3,UI Economy.tsx,không có,P3,,S7
+MS-6.2-03,§6.2,Năng lực công nghiệp,Partial,"stats.industry, industrialization (init.ts:27 stageOf)",economy,không có,P3,,S7
+MS-6.2-04,§6.2,Năng lực tài chính nhà nước,Partial,"treasury, debt, finance (economy.ts:224)",economy,tests/ui.test.ts:68,P3,,"S7, S13"
+MS-6.2-05,§6.2,Năng lực thương mại,Partial,importsValue (economy.ts:224),economy,không có,P3,,S8
+MS-6.2-06,§6.2,Thu nhập hộ gia đình,Missing,Không có,không có,không có,P2,,"S6, S12"
+MS-6.2-07,§6.2,Năng lực huy động thời chiến,Missing,Chỉ có hệ số MOBILIZATION (military.ts:10),không có,không có,P2,,S20
+MS-6.2-08,§6.2,Năng lực cung cấp quân nhu,Missing,Chỉ có supply suy từ giá vũ khí (military.ts:30),không có,không có,P2,,S21
+MS-6.3-01,§6.3,"Thuế, thuế quan, nợ, lãi suất, ngân sách, chi tiêu, trợ cấp, đầu tư",Implemented,economy.ts:224-250 financeMonth,SYSTEMS economy,tests/ui.test.ts:68,—,,S7
+MS-6.3-02,§6.3,"Vỡ nợ, tiền tệ và ngân hàng khi dữ liệu/thời kỳ cho phép",Missing,Không có,không có,không có,P3,,S13
+MS-6.3-03,§6.3,Dòng thu chi giải thích được và đối chiếu với hoạt động kinh tế,Implemented,finance lines (economy.ts:224-250),UI Economy,tests/ui.test.ts:68,—,,S7
+MS-6.4-01,§6.4,"Tuyến thương mại, cảng, phương tiện vận tải, hợp đồng",Missing,Không có,không có,không có,P2,,S8
+MS-6.4-02,§6.4,Thuế quan và liên minh thuế quan,Partial,diplomacy.ts:81 joinCustomsUnion; economy.ts:8 OPENNESS; db zollverein,economy,không có,P3,Không có test riêng,"S8, S18"
+MS-6.4-03,§6.4,"Phụ thuộc hàng hóa, phong tỏa, chiến tranh và rủi ro thương mại",Missing,Không có,không có,không có,P2,,"S8, S21"
+MS-7.1-01,§7.1,Thể chế và luật phù hợp từng nước,Partial,"government, laws theo thực thể (db.json); 262/274 bộ luật là estimated",politics,tests/modes.test.ts:74,P2,,S17
+MS-7.1-02,§7.1,"Người cai trị, nội các, quan chức",Partial,"Leader (types.ts:21-23): nguyên thủ, người kế vị, người đứng đầu chính phủ; không có nội các",events.ts:95 succession,"tests/modes.test.ts:114, :120",P2,,"S16, S17"
+MS-7.1-03,§7.1,"Nhóm lợi ích, phe phái, đảng phái khi phù hợp",Partial,types.ts:16 IGS (8 nhóm lợi ích chung toàn cầu); politics.ts:10 IG_PREFS,politics,không có,P2,Nhóm lợi ích đồng nhất toàn cầu; không có đảng,S17
+MS-7.1-04,§7.1,Quyền bầu cử và bầu cử thực sự khi thể chế cho phép,Partial,events.ts:27 bầu cử cộng hòa khi hết nhiệm kỳ,SYSTEMS events,không có,P2,Không có mô hình quyền bầu cử,S17
+MS-7.1-05,§7.1,"Cải cách, phong trào, biểu tình, đình công, cách mạng, ly khai, nội chiến",Partial,"politics.ts:88 startReform, :122 revolutionCheck, :202 secessionCheck",SYSTEMS politics,"tests/modes.test.ts:74; tests/simulation.test.ts:34 (VACUOUS, TC-F1)",P2,"Không có biểu tình, đình công",S17
+MS-7.2-01,§7.2,"Quản trị địa phương: quyền hạn trung ương/địa phương, năng lực hành chính, thu thuế, thực thi luật, trung thành",Missing,Không có,không có,không có,P2,,S15
+MS-7.3-01,§7.3,"Quan hệ song phương, liên minh, bảo hộ, chư hầu",Implemented,"diplomacy.ts:24 diplomacyMonth, :60 formAlliance, :77 guarantee; world.ts:65 makeSubject",SYSTEMS diplomacy,tests/modes.test.ts:74; tests/data.test.ts:84,—,,S18
+MS-7.3-02,§7.3,Ngoại giao: mục tiêu chiến lược,Partial,"priorities (historical.ts:44, chỉ Historical); claims (ai.ts:199)",SYSTEMS ai,tests/modes.test.ts:51,P2,,"S18, S19"
+MS-7.3-03,§7.3,Ngoại giao: hiệp ước,Partial,"Liên minh, bảo đảm, liên minh thuế quan (diplomacy.ts:60, :77, :81); hòa ước tự động (military.ts:131 endWar)",SYSTEMS diplomacy,tests/data.test.ts:84,P2,Không có điều khoản hiệp ước do các bên thương lượng,S18
+MS-7.3-04,§7.3,Ngoại giao: khủng hoảng,Missing,Không có,không có,không có,P2,,S18
+MS-7.3-05,§7.3,Ngoại giao: tối hậu thư,Missing,Không có,không có,không có,P2,,S18
+MS-7.3-06,§7.3,Ngoại giao: đàm phán,Missing,Hòa bình tự động theo điểm chiến tranh (military.ts:62-130),không có,không có,P2,,S18
+MS-7.3-07,§7.3,Ngoại giao: tranh chấp lãnh thổ,Partial,claims (db.json; ai.ts:199); lựa chọn drop_claims (events.ts:70),SYSTEMS ai,không có,P3,,S18
+MS-7.3-08,§7.3,Ngoại giao: thuộc địa,Partial,War goal colonize (military.ts:157; diplomacy.ts:113); viễn chinh của cường quốc (ai.ts:198),SYSTEMS military,không có,P2,,"S18, S21"
+MS-7.3-09,§7.3,Ngoại giao: trừng phạt và gây sức ép kinh tế,Missing,Không có,không có,không có,P2,,S18
+MS-7.3-10,§7.3,Ngoại giao: cân bằng quyền lực,Partial,"greatPowers và kình địch trong AI (ai.ts:139, :220)",SYSTEMS ai,không có,P3,Dựa trên powerScore (MS-7.4-01),"S18, S19"
+MS-7.3-11,§7.3,Ngoại giao: ảnh hưởng khu vực,Missing,Không có,không có,không có,P3,,S18
+MS-7.4-01,§7.4,Vector năng lực quốc gia giải thích được thay cho powerScore đơn,Placeholder,diplomacy.ts:13 powerScore (dùng cho xếp hạng và AI),"diplomacy, ai",không có,P1,Đặc tả cấm rõ,"S18, S19"
+MS-8.1-01,§8.1,"Quân đội không chỉ là manpower × quality × morale; có đơn vị, tổ chức, quân chủng, trang bị, chỉ huy, vị trí, sẵn sàng, tiếp tế, lịch sử",Placeholder,military.ts:19-20 armyStrength = manpower × quality × supply × morale; types.ts:25-26,SYSTEMS military,"tests/simulation.test.ts:61, :73",P1,Đúng mô hình đặc tả nói không chấp nhận,S20
+MS-8.1-02,§8.1,Cơ cấu và tên gọi thay đổi theo quốc gia và thời kỳ,Missing,Không có,không có,không có,P2,,S20
+MS-8.2-01,§8.2,"Lục quân nhiều binh chủng (bộ binh, kỵ binh, pháo binh, công binh, trinh sát, quân y, hậu cần, dân quân, dự bị…)",Missing,Lục quân là một số,không có,không có,P1,,S20
+MS-8.2-02,§8.2,Hải quân nhiều lớp tàu mở khóa đúng thời đại,Missing,"Navy {strength, target, quality} (types.ts:26)",không có,không có,P2,,"S20, S21c"
+MS-8.2-03,§8.2,"Không quân xuất hiện theo công nghệ, công nghiệp và thời gian",Missing,Không có,không có,không có,P3,,S20
+MS-8.2-04,§8.2,Lực lượng an ninh nội địa tách khỏi đơn vị chính quy,Missing,Không có,không có,không có,P3,,S20
+MS-8.3-01,§8.3,"Cây tổ chức lục quân linh hoạt, không giả định cấu trúc cố định",Missing,Không có,không có,không có,P1,,S20
+MS-8.4-01,§8.4,"Đơn vị có ID, tên, quốc gia, quân chủng, loại, cấp, cấp trên, chỉ huy, vị trí, quân số, biên chế, thành phần, trang bị, huấn luyện, kinh nghiệm, tinh thần, sẵn sàng, tiếp tế, tổn thất, lịch sử",Missing,Không có,không có,không có,P1,,S20
+MS-8.4-02,§8.4,"Sư đoàn không đồng nhất, có đơn vị hỗ trợ",Missing,Không có,không có,không có,P2,,S20
+MS-8.5-01,§8.5,"Chỉ huy các cấp có tiểu sử, chân dung, cấp bậc, kinh nghiệm, năng lực, phong cách, quan hệ, thành tích",Missing,Nhân vật chỉ gồm nguyên thủ/đứng đầu chính phủ/kế vị (registry characters),không có,không có,P2,,"S16, S20"
+MS-8.5-02,§8.5,"Chỉ huy ảnh hưởng kế hoạch, tổ chức, cơ động, tinh thần, phòng thủ, tổn thất, phối hợp",Missing,Không có,không có,không có,P2,,S21
+MS-8.6-01,§8.6,"Tuyển quân tình nguyện, nghĩa vụ, dự bị, dân quân, huy động thời chiến, huấn luyện, giải ngũ",Partial,"military.ts:9-10 ARMY_LAW, MOBILIZATION; :24-41 quân số tiến về mục tiêu, gấp đôi khi chiến tranh",SYSTEMS military,không có,P2,,S20
+MS-8.6-02,§8.6,"Giới hạn bởi dân số, luật, tài chính, trang bị, sĩ quan, cơ sở huấn luyện, hành chính, hậu cần",Partial,Dân số và luật (military.ts:24-41); chi phí từ ngân khố,military,không có,P2,"Không có sĩ quan, trang bị, cơ sở huấn luyện",S20
+MS-8.7-01,§8.7,"Trang bị có năm xuất hiện, công nghệ, nguyên liệu, chi phí, năng lực sản xuất; thiếu đạn/súng/vận tải ảnh hưởng tác chiến",Partial,Giá vũ khí → tiếp tế (military.ts:29-30); arms_works sản xuất vũ khí,military,không có,P2,"Không có loại trang bị, kho","S20, S21"
+MS-8.8-01,§8.8,Học thuyết quân sự,Missing,Không có,không có,không có,P3,,S20
+MS-8.9-01,§8.9,"Cấu trúc hạm đội; mỗi tàu có lớp, năm đóng, trọng tải, tốc độ, hỏa lực, giáp, tầm, thủy thủ, tình trạng, bảo dưỡng",Missing,Navy là số tàu tổng (types.ts:26),không có,không có,P2,,S21c
+MS-8.9-02,§8.9,"Nhiệm vụ hải quân (kiểm soát biển, tuần tra, hộ tống, vận tải, đổ bộ, phong tỏa, bảo vệ thương mại, trinh sát)",Partial,"navalStrength mở mặt trận hải ngoại (military.ts:22, :50 frontTargets)",military,không có,P2,,S21c
+MS-8.10-01,§8.10,"Cấp chiến lược: mục tiêu, liên minh, huy động, phân bổ lực lượng",Partial,"War goals (military.ts:151), warSides/joinWillingness (diplomacy.ts:93, :131), huy động (military.ts:10)",SYSTEMS military,"tests/simulation.test.ts:61, :73",P2,,S21
+MS-8.10-02,§8.10,"Cấp chiến dịch: tập đoàn quân, quân đoàn, hướng tiến công, tiếp tế, mục tiêu địa lý",Missing,Chiến tranh tính theo điểm mỗi tháng (military.ts:62 warMonth),không có,không có,P1,,S21a
+MS-8.10-03,§8.10,"Cấp trận đánh: lực lượng, thành phần, chỉ huy, trang bị, địa hình, thời tiết, tiếp tế, tinh thần, tổn thất",Missing,Không có trận đánh,không có,không có,P1,,S21b
+MS-8.10-04,§8.10,"Công thành: phòng thủ thành phố, pháo đài, bao vây, lương thực, đầu hàng",Missing,Không có,không có,không có,P2,,S21b
+MS-8.11-01,§8.11,"Hậu cần gồm lương thực, đạn, vũ khí, quân nhu, vận tải, kho, y tế, tuyến tiếp tế; hiệu quả theo khoảng cách, địa hình, đường, cảng…",Missing,supply là một hệ số (military.ts:30),không có,không có,P1,,S21a
+MS-8.11-02,§8.11,"Quân đi xa tuyến tiếp tế suy yếu; mất cảng, đường sắt, kho ảnh hưởng chiến dịch",Missing,Không có,không có,không có,P2,,S21a
+MS-8.12-01,§8.12,"UI quân sự: cây tổ chức, danh sách đơn vị, hồ sơ đơn vị, bản đồ vị trí, chỉ huy, trang bị, hậu cần, chiến dịch, nhật ký trận đánh",Placeholder,"src/ui/screens/Military.tsx:21-76 (số tổng, chiến tranh)",UI Military,không có,P1,,"S20, S23a"
+MS-8.12-02,§8.12,AI tự xếp đơn vị vào cấp trên; người chơi chỉnh sửa/khóa; tối ưu cho điện thoại,Missing,Không có,không có,không có,P2,,S20
+MS-8.13-01,§8.13,"Chiến tranh thay đổi tuyển quân, lao động, sản xuất, ngân sách, thuế, giá, thương mại, dân cư, ủng hộ",Partial,Huy động gấp đôi (military.ts:34); warExhaustion; cầu vũ khí,SYSTEMS,không có,P2,,S21
+MS-8.13-02,§8.13,"Hòa bình: giải ngũ, bổ sung kho, phục hồi công nghiệp dân sự, tái phân bổ ngân sách",Partial,Quân số giảm dần về mục tiêu sau chiến tranh (military.ts:34),SYSTEMS military,không có,P3,,S21
+MS-9.1-01,§9.1,"Nhân vật: nguyên thủ, quan chức, chính khách, tướng, đô đốc, nhà tư tưởng, nhân vật xã hội",Partial,"473 nhân vật (registry characters): nguyên thủ, đứng đầu chính phủ, người kế vị",UI Country,tests/content.test.ts:65,P2,"Không có tướng, đô đốc, nhà tư tưởng",S16
+MS-9.1-02,§9.1,Phân biệt nhân vật lịch sử có nguồn với nhân vật mô phỏng,Implemented,Leader.historical (types.ts:22); politics.ts:195 generatedName,events.ts:95 succession,tests/modes.test.ts:120; tests/data.test.ts:71,—,,S16
+MS-9.1-03,§9.1,Không gắn chân dung không đúng người,Partial,Chân dung liên kết qua Wikidata P18 (registry statement); 10 tệp dùng chung cho cùng một người ở 2 thực thể,UI identity.tsx,"tests/content.test.ts:65 (năm sinh/mất ±2, không kiểm trực tiếp danh tính ảnh)",P3,,"S5, S16"
+MS-9.2-01,§9.2,"Sự kiện có thời gian, địa điểm, hình ảnh, nhân vật, các bên, bối cảnh, nguyên nhân, diễn biến, lựa chọn, hệ quả, liên kết nhật ký và bản đồ",Partial,"19 cửa sổ quyết định có lựa chọn (events.ts:13, :62) + 9 sự kiện ngoại sinh (:82)",UI Journal.tsx,"tests/modes.test.ts:30, :51",P2,"Không có hình ảnh, mô tả bối cảnh/hệ quả",S22
+MS-9.3-01,§9.3,"Journal lưu quyết định, thay đổi lãnh thổ, chiến tranh, cải cách, phát minh, khủng hoảng, biến động dân cư",Partial,"log (core.ts:39-42), territoryLog (world.ts:16); src/ui/screens/Journal.tsx",UI Journal,tests/modes.test.ts:74,P2,RM-F2: log bị cắt ở 4000 mục (core.ts:38-42 LOG_CAP) → mục cũ bị xóa,"S1, S22"
+MS-9.3-02,§9.3,"Phân biệt sự kiện lịch sử thật, sự kiện mô phỏng và kết quả alternate history",Implemented,LogEntry.historical/divergence (types.ts:89); src/engine/divergence.ts:29,SYSTEMS divergence,"tests/modes.test.ts:99, :128",—,,S22
+MS-10.1-01,§10.1,"Historical, Sandbox, Observer dùng chung một engine; khác biệt ở dữ liệu, thiên hướng, quy tắc quyết định, vai trò người chơi",Implemented,src/engine/simulation.ts:30-38 stepMonth; src/engine/modes.ts:21 MODES,controller.ts → stepMonth,"tests/modes.test.ts:13, :18",—,,S19
+MS-10.2-01,§10.2,Historical Mode bắt đầu 01/01/1836 theo dữ liệu có nguồn,Implemented,db.meta.start_date 1836-01-01; init.ts:40,createGame,"tests/data.test.ts:67, :71, :84",—,,S22
+MS-10.2-02,§10.2,Sự kiện có điều kiện và cửa sổ thời gian; không bắt buộc kết quả; người chơi làm lịch sử rẽ nhánh,Implemented,events.ts:13; historical.ts:10,SYSTEMS events,"tests/modes.test.ts:48, :51, :99",—,,S22
+MS-10.3-01,§10.3,"Sandbox không ép kết quả; quốc gia tự lập mục tiêu, cải cách, công nghiệp hóa, tan rã, liên minh, chiến tranh",Implemented,modes.ts:21 (sandbox tắt lớp lịch sử),SYSTEMS ai,"tests/modes.test.ts:69, :74, :82",—,,S19
+MS-10.3-02,§10.3,Mọi biến động trong Sandbox có quan hệ nhân quả và tính nhất quán,Unverified,Không có kiểm tra tính nhân quả,không có,không có,P3,,"S19, S22"
+MS-10.4-01,§10.4,Observer: mọi quốc gia do AI điều hành; người chơi chỉ quan sát,Implemented,player null (init.ts:40); commands.ts:34 từ chối lệnh,controller.command,"tests/modes.test.ts:90, :106",—,,S19
+MS-10.4-02,§10.4,"Observer có timeline, báo cáo quốc gia, chiến tranh, thay đổi lãnh thổ và giải thích quyết định quan trọng",Partial,"Journal.tsx, World.tsx (bảng xếp hạng); không có giải thích quyết định",UI,không có,P2,,"S19, S23a"
+MS-10.5-01,§10.5,AI có hồ sơ lợi ích quốc gia và mục tiêu dài hạn,Partial,"personality, priorities (db.json); historical.ts:44 activePriorities (chỉ Historical)",ai.ts:31 aiMonth,tests/modes.test.ts:51,P2,,S19
+MS-10.5-02,§10.5,"AI đánh giá kinh tế, xã hội, chính trị, quân sự, ngoại giao",Partial,"ai.ts:46 threatLevel, :56 budgetAI, :111 reformAI",SYSTEMS ai,tests/modes.test.ts:22,P2,,S19
+MS-10.5-03,§10.5,"AI đánh giá láng giềng, đồng minh, đối thủ",Partial,"ai.ts:185 neighboursOf, :138 diplomacyAI",SYSTEMS ai,tests/modes.test.ts:74,P2,,S19
+MS-10.5-04,§10.5,"AI có kế hoạch xây dựng, ngân sách, công nghệ, nhân lực",Partial,"ai.ts:91 constructionAI, :56 budgetAI, :76 chooseResearch",SYSTEMS ai,tests/simulation.test.ts:44,P2,,S19
+MS-10.5-05,§10.5,AI có kế hoạch quân sự và hậu cần,Partial,ai.ts:191 warAI; không có hậu cần,SYSTEMS ai,tests/modes.test.ts:74,P2,,"S19, S21"
+MS-10.5-06,§10.5,AI có chiến lược ngoại giao,Partial,ai.ts:138 diplomacyAI,SYSTEMS ai,tests/modes.test.ts:74,P2,,S19
+MS-10.5-07,§10.5,AI điều chỉnh theo rủi ro và thay đổi hoàn cảnh,Partial,threatLevel (ai.ts:46) điều chỉnh ngân sách quân sự,SYSTEMS ai,không có,P3,,S19
+MS-10.5-08,§10.5,Lý do quyết định của AI xem được trong UI,Missing,ai.ts không ghi lý do (grep reason/why: 0),không có,không có,P2,,S19
+MS-10.5-09,§10.5,Không chỉ chọn hành động utility cao từng module; có chiến lược tổng thể,Partial,Các hàm AI độc lập theo module (ai.ts:31-237),SYSTEMS ai,không có,P2,Không có planner tổng thể,S19
+MS-10.5-10,§10.5,AI nước nhỏ hành động phù hợp nguồn lực và hoàn cảnh,Partial,aiMonth chạy cho mọi nước (ai.ts:31),SYSTEMS ai,tests/modes.test.ts:90 (chỉ kiểm có hoạt động),P3,,S19
+MS-11.1-01,§11.1,"Chân dung nguyên thủ, chính khách, tướng lĩnh, đô đốc, nhân vật lịch sử",Partial,217 tệp chân dung / 227 bản ghi (S0_ASSET_AUDIT §2),UI Country,tests/content.test.ts:18,P2,Chỉ nguyên thủ/đứng đầu chính phủ,"S5, S23b"
+MS-11.1-02,§11.1,"Quốc kỳ, huy hiệu, trang phục, kiến trúc, biểu tượng văn hóa",Partial,"176 quốc kỳ, 99 huy hiệu",UI,"tests/content.test.ts:18, :34",P2,"Không có trang phục, kiến trúc","S5, S23b"
+MS-11.1-03,§11.1,"Hình ảnh thành phố, thủ đô, cảng, làng, nhà máy, mỏ, nông trại, đường sắt, công trình",Missing,Không có,không có,không có,P2,,S23b
+MS-11.1-04,§11.1,"Hình ảnh dân cư, tầng lớp, nghề nghiệp, đời sống",Missing,Không có,không có,không có,P3,,S23b
+MS-11.1-05,§11.1,"Hình ảnh quân phục, vũ khí, tàu, pháo, công sự, chiến trường",Missing,Không có,không có,không có,P3,,S23b
+MS-11.1-06,§11.1,"Hình ảnh sự kiện lịch sử, hiệp ước, cách mạng, khủng hoảng, chiến tranh",Missing,Không có,không có,không có,P3,,"S22, S23b"
+MS-11.1-07,§11.1,Không dùng chung ảnh gây sai lệch; ưu tiên tài sản có giấy phép; ghi nguồn và điều kiện sử dụng,Partial,Giấy phép theo bản ghi (S0_ASSET_AUDIT AS-F1); 4 tài sản BY thiếu tác giả (AS-F2),UI identity.tsx,"tests/content.test.ts:18, :41 (CORE VACUOUS, TC-F3)",P1,"AS-F1, AS-F2",S5
+MS-11.2-01,§11.2,"Asset có ID, loại, tên, mô tả, liên kết, thời kỳ, nguồn, license, định dạng, độ phân giải, kích thước",Implemented,"public/content/registry.json (id, type, name, description, entity, period, source, license, path, w, h, bytes); tools/build-content.ts",UI content.ts,"tests/content.test.ts:18, :28, :34",—,Chân dung không có hiệu lực thời gian (AS-F7),S5
+MS-11.2-02,§11.2,"Asset có biến thể, asset fallback và checksum",Partial,Fallback: emblem sinh ra trong UI (src/ui/components/identity.tsx:25-35); không có checksum/biến thể trong registry,UI,không có,P2,Checksum chỉ có trong manifest S0 bên ngoài,S5
+MS-11.2-03,§11.2,"Nhiều độ phân giải, lazy loading, cache, gói tải nội dung, offline, kiểm tra tài sản thiếu",Partial,"loading=""lazy"" (identity.tsx:32); offline qua APK/service worker; kiểm tra tệp tồn tại (content.test.ts:18)",UI,tests/content.test.ts:18,P2,"Không có nhiều độ phân giải, gói tải","S5, S23b"
+MS-11.3-01,§11.3,Mô tả thực chất cho quốc gia và nhân vật,Partial,"407 đoạn văn cho 265 thực thể, 389 cho nhân vật (Wikipedia, CC BY-SA 4.0)",UI identity.tsx:38 SourcedText,tests/content.test.ts:50,P2,AS-F3 (thiếu liên kết giấy phép trên dòng nguồn),S5
+MS-11.3-02,§11.3,"Mô tả cho tỉnh, thành phố, công trình, đơn vị quân sự, công nghệ, sự kiện",Missing,Không có,không có,không có,P2,,S23b
+MS-11.4-01,§11.4,Ảnh illustrations chỉ hướng dẫn phong cách; screenshot thật dùng dữ liệu game có nguồn,Unverified,Không audit screenshot trong B3,không có,không có,P3,,S23a
+MS-12.1-01,§12.1,"Landscape: bản đồ trung tâm, thanh thời gian/tốc độ, rail chức năng, cửa sổ thu gọn/mở rộng, cửa sổ tỉnh, legend, lens, outliner",Partial,src/ui/App.tsx:71-113 bố cục; controller.ts:11 tốc độ,UI,"tests/ui.test.ts:26, :37 (chỉ bố trí nhãn bản đồ)",P2,Không có test hành vi UI; chưa kiểm trên thiết bị,S23a
+MS-12.2-01,§12.2,"Portrait riêng: dock, bottom sheet nhiều mức, tab theo ngữ cảnh, một tay, giữ bản đồ",Partial,"App.tsx:71-73 useSheetDrag, :98 DOCK_P",UI,"tests/ui.test.ts:26, :37 (portrait)",P2,Như trên,S23a
+MS-12.3-01,§12.3,"Màn hình tỉnh có tab Tổng quan, Địa lý, Dân cư, Công trình, Kinh tế, Hạ tầng, Chính trị/Quản trị, Quân sự, Lịch sử",Partial,StateCard.tsx:19 RegionWindow là một trang không chia tab,UI,không có,P2,,S23a
+MS-12.3-02,§12.3,"Trang Công trình có bộ lọc nhóm, trạng thái, cấp, lợi nhuận, sở hữu, việc làm",Missing,Không có,không có,không có,P2,,"S11, S23a"
+MS-12.3-03,§12.3,"Trang từng công trình: ảnh, mô tả, cấp, việc làm, nguyên liệu, sản lượng, doanh thu, chi phí, lợi nhuận, sở hữu, PM, hiệu suất, hạ tầng, cảnh báo",Missing,Không có,không có,không có,P2,,"S11, S23a"
+MS-12.4-01,§12.4,"Màn hình quân sự: cây tổ chức, roster, bản đồ đơn vị, chỉ huy, trang bị, học thuyết, kho, hậu cần, chiến dịch, trận đánh",Placeholder,Military.tsx:21-76 số tổng hợp; :77-84 chiến tranh,UI,không có,P1,,"S20, S23a"
+MS-12.4-02,§12.4,Mọi chỉ số quân sự có tooltip giải thích nguồn tính và tác động,Partial,Military.tsx:33: 1/4 chỉ số đầu có tooltip,UI,không có,P3,,S23a
+MS-12.5-01,§12.5,"Ảnh lớn ở hồ sơ, thumbnail ở danh sách, sprite/icon theo zoom; tránh giao diện nặng",Partial,Quốc kỳ/chân dung ở Country.tsx; không có sprite bản đồ,UI,không có,P3,,S23a
+MS-13.1-01,§13.1,"Domain registry (định hướng, không bắt buộc một class): PoliticalEntityRegistry",Partial,db.json entities; src/engine/data/db.ts:11 HistoricalData,db.json / state,"tests/data.test.ts:11, :37",P2,,S1
+MS-13.1-02,§13.1,"Domain registry (định hướng, không bắt buộc một class): AdministrativeUnitRegistry",Missing,Không có,không có,không có,P1,,S3
+MS-13.1-03,§13.1,"Domain registry (định hướng, không bắt buộc một class): StrategicRegionRegistry",Partial,db.json regions; src/generated/map.json,db.json / state,tests/data.test.ts:44,P2,,S3
+MS-13.1-04,§13.1,"Domain registry (định hướng, không bắt buộc một class): SettlementRegistry",Missing,Không có,không có,không có,P1,,S4
+MS-13.1-05,§13.1,"Domain registry (định hướng, không bắt buộc một class): BoundaryVersionRegistry",Missing,Không có,không có,không có,P1,,S3
+MS-13.1-06,§13.1,"Domain registry (định hướng, không bắt buộc một class): ResourceDepositRegistry",Missing,Region.res là danh sách nhãn (types.ts:69),không có,không có,P1,,S10
+MS-13.1-07,§13.1,"Domain registry (định hướng, không bắt buộc một class): BuildingTypeRegistry",Partial,"Hằng BUILDINGS (types.ts:8), BUILD_COST (economy.ts:12), RECIPES (:16-22)",db.json / state,không có,P2,,S10
+MS-13.1-08,§13.1,"Domain registry (định hướng, không bắt buộc một class): BuildingInstanceRegistry",Missing,Chỉ có số cấp theo vùng (types.ts:69),không có,không có,P1,,S11
+MS-13.1-09,§13.1,"Domain registry (định hướng, không bắt buộc một class): ProductionMethodRegistry",Missing,Không có,không có,không có,P1,,S10
+MS-13.1-10,§13.1,"Domain registry (định hướng, không bắt buộc một class): BuildingOwnershipRegistry",Missing,Không có,không có,không có,P1,,S13
+MS-13.1-11,§13.1,"Domain registry (định hướng, không bắt buộc một class): ConstructionQueueRegistry",Missing,Không có,không có,không có,P1,,S14
+MS-13.1-12,§13.1,"Domain registry (định hướng, không bắt buộc một class): InfrastructureRegistry",Missing,Không có,không có,không có,P1,,S8
+MS-13.1-13,§13.1,"Domain registry (định hướng, không bắt buộc một class): PopCohortRegistry",Partial,"Mảng strata theo vùng (types.ts:12, :67)",db.json / state,tests/simulation.test.ts:10,P2,,S6
+MS-13.1-14,§13.1,"Domain registry (định hướng, không bắt buộc một class): MarketRegistry",Partial,Thị trường suy ra từ marketOf (economy.ts:31); marketPrices/marketStats trong state,db.json / state,tests/ui.test.ts:48,P2,,"S7, S8"
+MS-13.1-15,§13.1,"Domain registry (định hướng, không bắt buộc một class): MilitaryUnitRegistry",Missing,Không có,không có,không có,P1,,S20
+MS-13.1-16,§13.1,"Domain registry (định hướng, không bắt buộc một class): MilitaryOrganizationRegistry",Missing,Không có,không có,không có,P1,,S20
+MS-13.1-17,§13.1,"Domain registry (định hướng, không bắt buộc một class): CharacterRegistry",Partial,registry.json characters (473); Leader trong state (types.ts:21-23),db.json / state,tests/content.test.ts:65; tests/data.test.ts:71,P2,,S16
+MS-13.1-18,§13.1,"Domain registry (định hướng, không bắt buộc một class): HistoricalEventRegistry",Partial,"db.json decision_windows (19), exogenous (9), milestones (40), historical_changes (71)",db.json / state,"tests/modes.test.ts:30, :51",P2,,S22
+MS-13.1-19,§13.1,"Domain registry (định hướng, không bắt buộc một class): AssetRegistry",Implemented,public/content/registry.json (502 bản ghi); tools/build-content.ts,db.json / state,"tests/content.test.ts:18, :28, :34",—,,S5
+MS-13.1-20,§13.1,"Domain registry (định hướng, không bắt buộc một class): SourceRegistry",Implemented,db.json sources (64),db.json / state,tests/data.test.ts:11,—,,S1
+MS-13.1-21,§13.1,Tách dữ liệu định nghĩa khỏi trạng thái mô phỏng,Implemented,src/engine/data/db.ts:11 HistoricalData (tĩnh) vs GameState (types.ts:103),loadNodeData / setData,tests/data.test.ts:79,—,,S1
+MS-13.2-01,§13.2,"Dữ liệu theo thời gian có ngày hiệu lực; không ghi đè lịch sử khi đổi tên, sáp nhập, đóng cửa, rời chức vụ",Partial,Leader since/diesOn; quốc kỳ theo period (content.ts:59 symbolFor); tên theo năm (names.ts:19); log bị cắt LOG_CAP (core.ts:38-42),state + UI,tests/content.test.ts:34; tests/data.test.ts:67,P2,RM-F2,S1
+MS-13.3-01,§13.3,Có version migration cho save,Partial,src/engine/save.ts:14 từ chối version ≠ 1; :16 chỉ điền mặc định marketStats,controller.load,tests/ui.test.ts:59; tests/simulation.test.ts:57,P1,Không có khung migration; đầu vào cho B4 (G0.6) và S1,S1
+MS-13.3-02,§13.3,Không thay ID ổn định tùy tiện,Unverified,Không có registry/kiểm tra độ ổn định ID,không có,không có,P2,,S1
+MS-13.3-03,§13.3,"Migration kiểm tra tỉnh/công trình/đơn vị bị xóa, hợp nhất hoặc đổi cấu trúc",Missing,Không có,không có,không có,P1,,S1
+MS-13.4-01,§13.4,Không tính mọi công trình/đơn vị mỗi frame; dùng tick mô phỏng,Partial,"Tick theo tháng (controller.ts:11, :66-81); ở tốc độ 5 mỗi frame chạy một tick đầy đủ cho mọi vùng",controller loop,harness Node B3 (S0_PERFORMANCE_BASELINE),P2,RM-F4: vòng lặp gắn với requestAnimationFrame,S2
+MS-13.4-02,§13.4,"Dirty flags, cache, batch update, dữ liệu compact, spatial index, culling, LOD",Partial,"src/engine/cache.ts:12 tickCache; LOD bản đồ (renderer.ts); không có dirty flags, spatial index",engine + map,không có,P2,,S2
+MS-13.4-03,§13.4,Duy trì tính xác định khi dùng RNG seed để save/load tiếp tục nhất quán,Partial,RNG trong state (types.ts:105; core.ts:4-17),save.ts,"tests/simulation.test.ts:51 (1 kịch bản Sandbox, TC-F5)",P1,Chưa kiểm đầy đủ: B4 (G0.6) chưa thực hiện; nếu G0.6 FAIL thì thành P0,"S0-B4, S1"
+MS-13.5-01,§13.5,"Chống ANR, memory leak, race condition, crash",Unverified,Chưa đo trên thiết bị (G0.7 phần iQOO BLOCKED),không có,không có,P1,,"S2, S23c"
+MS-13.5-02,§13.5,Tránh xử lý nặng trên UI thread,Partial,"stepMonth chạy đồng bộ trên luồng chính (controller.ts:66-81); Node: tick p95 ≈ 29–33 ms > 16,7 ms",controller loop,harness Node/desktop B3,P1,RM-F3,S2
+MS-13.5-03,§13.5,Giới hạn tải ảnh; giải phóng bitmap/texture,Unverified,lazy loading ảnh (identity.tsx:32); giải phóng texture WebGL không audit,không có,không có,P2,,S2
+MS-13.5-04,§13.5,Có trạng thái phục hồi khi tiến trình bị hệ điều hành thu hồi,Partial,Tự động lưu mỗi tháng Giêng vào IndexedDB (App.tsx:74; src/ui/game/storage.ts); MainActivity mặc định (android/.../MainActivity.java:10),UI App,không có,P1,Mất tối đa 11 tháng game; không có xử lý lifecycle,S2
+MS-13.5-05,§13.5,"Đo trên thiết bị Android thật, không suy diễn từ trình duyệt desktop",Missing,Chưa có số đo iQOO (G0.7 BLOCKED),không có,không có,P1,,"S2, S23c"
+MS-14-01,§14,"Mục tiêu tổng nội dung offline > 3 GB, không tạo dung lượng bằng ảnh trùng/dữ liệu rác",Missing,Payload web 17 764 559 byte (S0_ASSET_AUDIT),không có,không có,P3,"Mục tiêu ngân sách, không phải lỗi",S23b
+MS-14-02,§14,"Tách APK, gói bản đồ/dữ liệu, hình ảnh, âm thanh, nội dung lịch sử, ngôn ngữ",Missing,Mọi nội dung đóng trong APK; không có âm thanh,không có,không có,P2,,S23b
+MS-14-03,§14,"Tải một lần, chơi offline; hiển thị kích thước, checksum, trạng thái tải, dung lượng, tiếp tục tải",Partial,Offline vì nội dung nằm trong APK; service worker cho web (src/ui/main.tsx:57),APK,không có,P3,Không có UI gói tải,S23b
+MS-15.1-01,§15.1,Mỗi hệ thống được đánh dấu Implemented/Partial/Placeholder/Missing/Broken,Implemented,Ma trận này (S0_REQUIREMENT_MATRIX.csv); docs/audit/MASTER_SPEC_AUDIT.md (trước protocol),tài liệu,N/A (tài liệu audit),—,,S0
+MS-15.1-02,§15.1,"Mỗi phát hiện có file/line, bằng chứng, tác động, ưu tiên, cách sửa và tiêu chí nghiệm thu; không PASS chỉ vì có file",Partial,"Ma trận có file:dòng, bằng chứng, mức, stage; cách sửa và tiêu chí nghiệm thu chi tiết để cho kế hoạch từng stage",tài liệu,N/A,P3,,"S0, từng stage"
+MS-15.2-01,§15.2,"Global coverage audit cho mọi thực thể chính trị (nhận diện, lịch sử, địa lý, tỉnh, dân cư, kinh tế, chính trị, quân sự, ngoại giao, AI, hình ảnh, mô tả, sự kiện)",Partial,"docs/audit/GLOBAL_COVERAGE.md, coverage.json; S0_GLOBAL_DATA_AUDIT.md (6 trường × 274 thực thể × 12 vùng)",tài liệu,b3/global_data_audit.json,P2,"Chưa đo AI, sự kiện, tỉnh theo từng thực thể","S0, S22"
+MS-15.3-01,§15.3,"Administrative audit (ranh giới, tỉnh, cấp dưới, settlement, thủ phủ, tọa độ, tài nguyên, công trình, giao thông, lịch sử, nguồn)",Partial,Crosswalk admin-1 × 662 vùng (S0_GLOBAL_DATA_AUDIT §3); settlement/cấp dưới không tồn tại để audit,tài liệu,b3/region_admin1_crosswalk.csv,P2,,S3
+MS-15.4-01,§15.4,"Building audit: điều kiện, vị trí, cấp, xây dựng, đầu vào/ra, lao động, PM, sở hữu, chi phí/lợi nhuận, tác động, hình ảnh, test",Partial,Các dòng MS-4.* của ma trận này,tài liệu,N/A,P2,,S10–S14
+MS-15.5-01,§15.5,"Military audit: quân chủng, cơ cấu, quân số, trang bị, chỉ huy, tuyển quân, hậu cần, vị trí, cơ động, chiến dịch, trận đánh, hải quân, thời đại",Partial,Các dòng MS-8.* của ma trận này,tài liệu,N/A,P2,,S20–S21
+MS-15.6-01,§15.6,Test công trình bắt buộc #1: Xây nông trại tại tỉnh có đất phù hợp; từ chối/hạn chế khi không phù hợp,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống tương ứng phần lớn chưa có (MS-4.*),S10–S14
+MS-15.6-02,§15.6,Test công trình bắt buộc #2: Khai thác mỏ theo tài nguyên và trữ lượng,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống tương ứng phần lớn chưa có (MS-4.*),S10–S14
+MS-15.6-03,§15.6,Test công trình bắt buộc #3: Phát hiện tài nguyên mới,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống tương ứng phần lớn chưa có (MS-4.*),S10–S14
+MS-15.6-04,§15.6,Test công trình bắt buộc #4: Nhà máy dùng nguyên liệu từ tỉnh khác,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống tương ứng phần lớn chưa có (MS-4.*),S10–S14
+MS-15.6-05,§15.6,Test công trình bắt buộc #5: Thiếu đầu vào làm giảm sản xuất,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống tương ứng phần lớn chưa có (MS-4.*),S10–S14
+MS-15.6-06,§15.6,Test công trình bắt buộc #6: Thiếu lao động làm giảm công suất,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống tương ứng phần lớn chưa có (MS-4.*),S10–S14
+MS-15.6-07,§15.6,Test công trình bắt buộc #7: Đổi production method làm thay đổi đầu vào/đầu ra và nghề nghiệp,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống tương ứng phần lớn chưa có (MS-4.*),S10–S14
+MS-15.6-08,§15.6,Test công trình bắt buộc #8: Đường sắt/cảng cải thiện vận tải và tiếp cận thị trường,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống tương ứng phần lớn chưa có (MS-4.*),S10–S14
+MS-15.6-09,§15.6,Test công trình bắt buộc #9: Doanh trại hỗ trợ tổ chức lực lượng nhưng có chi phí,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống tương ứng phần lớn chưa có (MS-4.*),S10–S14
+MS-15.6-10,§15.6,Test công trình bắt buộc #10: Chiến tranh phá hủy công trình và gián đoạn sản xuất,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống tương ứng phần lớn chưa có (MS-4.*),S10–S14
+MS-15.6-11,§15.6,Test công trình bắt buộc #11: Hòa bình phục hồi công trình,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống tương ứng phần lớn chưa có (MS-4.*),S10–S14
+MS-15.6-12,§15.6,Test công trình bắt buộc #12: Thay đổi quyền sở hữu theo luật,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống tương ứng phần lớn chưa có (MS-4.*),S10–S14
+MS-15.6-13,§15.6,Test công trình bắt buộc #13: Save/load giữ nguyên trạng thái,Partial,save.ts:7-18,save/load,"tests/simulation.test.ts:51 (toàn bộ state gồm cấp công trình, 1 kịch bản)",P1,Đầu vào B4,"S1, S11"
+MS-15.7-01,§15.7,Test địa lý bắt buộc #1: Chọn quốc gia → xem tỉnh → xem thành phố → xem công trình,Missing,Xem MS-3.*,không có,không có,P2,Không có thành phố/trang công trình,"S3, S4"
+MS-15.7-02,§15.7,Test địa lý bắt buộc #2: Đổi chủ quyền,Partial,Xem MS-3.*,state,tests/modes.test.ts:82; tests/data.test.ts:44,P2,Gián tiếp qua mô phỏng; không có test đổi chủ có kiểm soát,"S3, S4"
+MS-15.7-03,§15.7,Test địa lý bắt buộc #3: Chia tách/sáp nhập,Missing,Xem MS-3.*,không có,không có,P2,,"S3, S4"
+MS-15.7-04,§15.7,Test địa lý bắt buộc #4: Đổi thủ đô,Missing,Xem MS-3.*,không có,không có,P2,"world.ts:20 có logic, không có test","S3, S4"
+MS-15.7-05,§15.7,Test địa lý bắt buộc #5: Đổi tên,Missing,Xem MS-3.*,không có,không có,P2,,"S3, S4"
+MS-15.7-06,§15.7,Test địa lý bắt buộc #6: Cải cách hành chính,Missing,Xem MS-3.*,không có,không có,P2,,"S3, S4"
+MS-15.7-07,§15.7,Test địa lý bắt buộc #7: Save/load bảo toàn ID và lịch sử,Partial,Xem MS-3.*,state,tests/simulation.test.ts:51,P2,territoryLog nằm trong state được so sánh; 1 kịch bản,"S3, S4"
+MS-15.8-01,§15.8,Test quân đội bắt buộc #1: Tạo đơn vị,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống quân sự chi tiết chưa có (MS-8.*),"S20, S21"
+MS-15.8-02,§15.8,Test quân đội bắt buộc #2: Xếp cấp tổ chức,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống quân sự chi tiết chưa có (MS-8.*),"S20, S21"
+MS-15.8-03,§15.8,Test quân đội bắt buộc #3: Bổ nhiệm chỉ huy,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống quân sự chi tiết chưa có (MS-8.*),"S20, S21"
+MS-15.8-04,§15.8,Test quân đội bắt buộc #4: Tuyển quân,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống quân sự chi tiết chưa có (MS-8.*),"S20, S21"
+MS-15.8-05,§15.8,Test quân đội bắt buộc #5: Trang bị,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống quân sự chi tiết chưa có (MS-8.*),"S20, S21"
+MS-15.8-06,§15.8,Test quân đội bắt buộc #6: Huy động,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống quân sự chi tiết chưa có (MS-8.*),"S20, S21"
+MS-15.8-07,§15.8,Test quân đội bắt buộc #7: Hành quân,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống quân sự chi tiết chưa có (MS-8.*),"S20, S21"
+MS-15.8-08,§15.8,Test quân đội bắt buộc #8: Cắt tuyến tiếp tế,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống quân sự chi tiết chưa có (MS-8.*),"S20, S21"
+MS-15.8-09,§15.8,Test quân đội bắt buộc #9: Công thành,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống quân sự chi tiết chưa có (MS-8.*),"S20, S21"
+MS-15.8-10,§15.8,Test quân đội bắt buộc #10: Đổ bộ,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống quân sự chi tiết chưa có (MS-8.*),"S20, S21"
+MS-15.8-11,§15.8,Test quân đội bắt buộc #11: Phong tỏa,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống quân sự chi tiết chưa có (MS-8.*),"S20, S21"
+MS-15.8-12,§15.8,Test quân đội bắt buộc #12: Chiến đấu,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống quân sự chi tiết chưa có (MS-8.*),"S20, S21"
+MS-15.8-13,§15.8,Test quân đội bắt buộc #13: Hòa ước,Partial,military.ts:131 endWar,SYSTEMS military,"tests/simulation.test.ts:61, :73; tests/simulation.test.ts:43 (VACUOUS, TC-F2)",P2,,S21
+MS-15.8-14,§15.8,Test quân đội bắt buộc #14: Giải ngũ,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống quân sự chi tiết chưa có (MS-8.*),"S20, S21"
+MS-15.8-15,§15.8,Test quân đội bắt buộc #15: Tái tổ chức,Missing,Không có test trong tests/ (S0_TEST_CATALOG),không có,không có,P2,Hệ thống quân sự chi tiết chưa có (MS-8.*),"S20, S21"
+MS-15.9-01,§15.9,"Bộ kiểm định lịch sử đa khu vực (Tây/Trung/Đông Âu, Đông Á, Nam Á, Đông Nam Á, Trung Đông, châu Phi, Bắc Mỹ, Trung/Nam Mỹ, châu Đại Dương)",Partial,db.json benchmarks: 2 356 mốc cho 59 thực thể nhiều vùng; 40 milestones thiên về châu Âu và thuộc địa,db.json,"tests/data.test.ts:91; tests/simulation.test.ts:21 (5 nước, TC-F4); tests/modes.test.ts:42",P2,,S22
+MS-15.9-02,§15.9,"Kiểm định dân số, kinh tế, công nghiệp hóa, chính trị, chiến tranh, ngoại giao, hình thành/tan rã quốc gia, AI",Partial,Chỉ dân số có benchmark kiểm bằng test; milestones dùng cho chỉ số tương đồng,divergence.ts:19,"tests/simulation.test.ts:14, :21; tests/modes.test.ts:42, :48",P2,,S22
+MS-15.10-01,§15.10,Android QA: Unit test,Partial,"58 test (S0_TEST_CATALOG); 2 pass rỗng (TC-F1, TC-F2)",CI / harness,"58 test (S0_TEST_CATALOG); 2 pass rỗng (TC-F1, TC-F2)",P2,,"S1, S22"
+MS-15.10-02,§15.10,Android QA: Integration test,Partial,"tests/modes.test.ts, tests/simulation.test.ts chạy engine đầy đủ",CI / harness,"tests/modes.test.ts, tests/simulation.test.ts chạy engine đầy đủ",P2,,"S1, S22"
+MS-15.10-03,§15.10,Android QA: Data integrity test,Implemented,"tests/data.test.ts (12 test), tests/content.test.ts (7 test; TC-F3)",CI / harness,"tests/data.test.ts (12 test), tests/content.test.ts (7 test; TC-F3)",—,,"S1, S22"
+MS-15.10-04,§15.10,Android QA: Long-term simulation test,Partial,Test chạy 40 năm (simulation.test.ts); 100 năm chỉ trong harness B3,CI / harness,Test chạy 40 năm (simulation.test.ts); 100 năm chỉ trong harness B3,P2,,"S1, S22"
+MS-15.10-05,§15.10,Android QA: Multi-seed sandbox test,Partial,"tests/modes.test.ts:42, :69",CI / harness,"tests/modes.test.ts:42, :69",P2,,"S1, S22"
+MS-15.10-06,§15.10,Android QA: Historical calibration test,Partial,Xem MS-15.9-*,CI / harness,Xem MS-15.9-*,P2,,"S1, S22"
+MS-15.10-07,§15.10,Android QA: Save/load test,Partial,"tests/simulation.test.ts:51, :57; tests/ui.test.ts:59 (TC-F5, TC-F6)",CI / harness,"tests/simulation.test.ts:51, :57; tests/ui.test.ts:59 (TC-F5, TC-F6)",P1,,"S1, S22"
+MS-15.10-08,§15.10,Android QA: UI test,Partial,"tests/ui.test.ts (nhãn bản đồ, dữ liệu thị trường, ngân sách)",CI / harness,"tests/ui.test.ts (nhãn bản đồ, dữ liệu thị trường, ngân sách)",P2,,"S1, S22"
+MS-15.10-09,§15.10,Android QA: Performance test,Partial,Harness Node/desktop B3; không có test hiệu năng trong CI,CI / harness,Harness Node/desktop B3; không có test hiệu năng trong CI,P2,,"S2, S23c"
+MS-15.10-10,§15.10,Android QA: Memory test,Missing,Không có,CI / harness,không có,P2,,"S2, S23c"
+MS-15.10-11,§15.10,Android QA: Battery test,Missing,Không có,CI / harness,không có,P2,,"S2, S23c"
+MS-15.10-12,§15.10,Android QA: Thermal test,Missing,Không có,CI / harness,không có,P2,,"S2, S23c"
+MS-15.10-13,§15.10,Android QA: Kiểm tra thiết bị Android thật; screenshot trình duyệt không thay thế,Missing,G0.7 phần iQOO BLOCKED,CI / harness,không có,P1,,"S2, S23c"
+MS-16-01,§16,"Triển khai theo lát cắt dọc có thể kiểm thử, không viết toàn bộ hệ thống cùng lúc",Partial,Roadmap docs/roadmap/DECISIONS_AND_S0_REVISED_VI.v3.2.md S0–S23 (chủ dự án đã duyệt); chưa triển khai stage nào sau S0,quy trình,N/A,P3,,S0–S23
+MS-16-02,§16,Bước 1: audit repository và xác định baseline,Partial,"S0-A, S0-B1 đã thực hiện; S0-B3 là tài liệu này; B4, B7 chưa",quy trình,docs/audit/s0/*,P3,,S0
+MS-16-03,§16,"Mỗi giai đoạn có commit riêng, danh sách file, migration, test, ảnh chụp ứng dụng thực, benchmark, danh sách việc còn thiếu",Partial,"docs/coordination/AI_COLLABORATION_PROTOCOL.md và AI_HANDOFF.md yêu cầu SHA, file, lệnh, kết quả; harness benchmark có từ B3",quy trình,N/A,P3,,mọi stage
+MS-16-04,§16,Không gộp thay đổi lớn thành một commit không thể review,Partial,Protocol hiện hành yêu cầu commit theo phạm vi được duyệt; lịch sử trước protocol không đánh giá,quy trình,N/A,P3,,mọi stage
+MS-17-01,§17,Điều kiện nghiệm thu cuối #1: Thế giới có độ phủ địa lý và nội dung toàn cầu,Partial,"Tổng hợp từ MS-1.2-*, S0_GLOBAL_DATA_AUDIT",tổng hợp,N/A,P2,,S22
+MS-17-02,§17,Điều kiện nghiệm thu cuối #2: Quốc gia có bản sắc và hành vi khác nhau,Partial,"Tổng hợp từ MS-1.1-02, MS-10.5-*",tổng hợp,N/A,P2,,"S19, S22"
+MS-17-03,§17,"Điều kiện nghiệm thu cuối #3: Người chơi đi được từ world map xuống tỉnh, thành phố, địa điểm và công trình",Missing,"Tổng hợp từ MS-3.3-*, MS-12.3-*",tổng hợp,N/A,P1,,"S4, S23a"
+MS-17-04,§17,"Điều kiện nghiệm thu cuối #4: Tỉnh có tiềm năng, công trình, dân cư, hạ tầng, thị trường và chính quyền địa phương",Partial,"Tổng hợp từ MS-3.2-*, MS-7.2-01",tổng hợp,N/A,P2,,"S3, S15"
+MS-17-05,§17,"Điều kiện nghiệm thu cuối #5: Công trình hoạt động qua lao động, nguyên liệu, production methods và ownership",Partial,"Tổng hợp từ MS-4.5-*, MS-4.6-*, MS-4.7-*",tổng hợp,N/A,P2,,S10–S13
+MS-17-06,§17,"Điều kiện nghiệm thu cuối #6: Xây dựng cần thời gian, vật liệu, năng lực và ngân sách",Missing,Tổng hợp từ MS-4.8-*,tổng hợp,N/A,P1,,S14
+MS-17-07,§17,"Điều kiện nghiệm thu cuối #7: Quân đội có đơn vị thật, tổ chức linh hoạt, trang bị, chỉ huy, hậu cần và chiến dịch",Missing,Tổng hợp từ MS-8.*,tổng hợp,N/A,P1,,"S20, S21"
+MS-17-08,§17,Điều kiện nghiệm thu cuối #8: AI điều hành mọi quốc gia với chiến lược và lý do có thể giải thích,Partial,Tổng hợp từ MS-10.5-*,tổng hợp,N/A,P2,,S19
+MS-17-09,§17,Điều kiện nghiệm thu cuối #9: Historical Mode không khóa kết quả; Sandbox có thế giới thay thế có nhân quả,Partial,"Tổng hợp từ MS-2.2-*, MS-10.3-*",tổng hợp,N/A,P2,,"S19, S22"
+MS-17-10,§17,"Điều kiện nghiệm thu cuối #10: Hình ảnh và mô tả phong phú, đúng vùng và thời đại, có nguồn/license",Partial,"Tổng hợp từ MS-11.*, S0_ASSET_AUDIT",tổng hợp,N/A,P2,,"S5, S23b"
+MS-17-11,§17,Điều kiện nghiệm thu cuối #11: Android hoạt động ổn định và được kiểm thử trên thiết bị thật,Unverified,Tổng hợp từ MS-13.5-*,tổng hợp,N/A,P1,,"S2, S23c"
+MS-17-12,§17,"Điều kiện nghiệm thu cuối #12: Save/load, migration và hiệu năng được đo lường",Partial,"Tổng hợp từ MS-13.3-*, MS-13.4-*, S0_PERFORMANCE_BASELINE",tổng hợp,N/A,P2,,"S1, S2"

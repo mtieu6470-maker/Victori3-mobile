@@ -1,0 +1,955 @@
+{
+  "schema": "s0-global-data-audit-v1",
+  "db_meta": {
+    "built_at_excluded": true,
+    "version": "0.1.0",
+    "start_date": "1836-01-01",
+    "counts": {
+      "entities": 274,
+      "regions": 662,
+      "sources": 64,
+      "alliances": 13
+    }
+  },
+  "categories": {
+    "sourced": "quality 'verified' or 'supported' with at least one source",
+    "estimated": "quality 'estimated' or 'uncertain' (method recorded; not counted as sourced)",
+    "default": "no researched value for the field; the engine derives a default",
+    "missing": "explicit quality 'missing'; a fallback value is used",
+    "labelled_without_source": "quality 'verified'/'supported' but no source listed (inconsistent label)"
+  },
+  "totals": {
+    "entities": 274,
+    "assigned": 274,
+    "map_regions": 662
+  },
+  "unassigned_entities": [],
+  "labelled_without_source": [
+    "MCO.head_of_state",
+    "TUN.head_of_state",
+    "BRN.head_of_state",
+    "SUL.head_of_state",
+    "TAH.head_of_state"
+  ],
+  "not_classifiable": [
+    "region culture/religion/terrain/resources (no quality labels in db.json)",
+    "entity tech_level and government (no quality labels)"
+  ],
+  "regions": {
+    "europe": {
+      "name_vi": "Châu Âu",
+      "entities": 75,
+      "by_kind": {
+        "sovereign": 55,
+        "subject": 11,
+        "rebel": 1,
+        "future": 7,
+        "de_facto_independent": 1
+      },
+      "by_model": {
+        "playable": 65,
+        "future": 7,
+        "part_of": 3
+      },
+      "fields": {
+        "population": {
+          "sourced": 19,
+          "estimated": 6,
+          "default": 0,
+          "missing": 50,
+          "labelled_without_source": 0
+        },
+        "head_of_state": {
+          "sourced": 57,
+          "estimated": 1,
+          "default": 0,
+          "missing": 16,
+          "labelled_without_source": 1
+        },
+        "army": {
+          "sourced": 21,
+          "estimated": 0,
+          "default": 54,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "literacy": {
+          "sourced": 0,
+          "estimated": 5,
+          "default": 70,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "laws": {
+          "sourced": 7,
+          "estimated": 68,
+          "default": 0,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "gdp_pc_1836": {
+          "sourced": 0,
+          "estimated": 65,
+          "default": 0,
+          "missing": 10,
+          "labelled_without_source": 0
+        }
+      },
+      "industrialization_researched": 5,
+      "map_regions": 196,
+      "map_region_pop_quality": {
+        "verified": 49,
+        "supported": 71,
+        "estimated": 13,
+        "uncertain": 15,
+        "missing": 48
+      },
+      "map_population_total": 233742854,
+      "map_population_by_quality": {
+        "verified": 85627000,
+        "supported": 105091097,
+        "estimated": 13612354,
+        "uncertain": 13386403,
+        "missing": 16026000
+      },
+      "research_completeness_mean": 0.164
+    },
+    "east_asia": {
+      "name_vi": "Đông Á",
+      "entities": 6,
+      "by_kind": {
+        "sovereign": 3,
+        "subject": 2,
+        "decentralized": 1
+      },
+      "by_model": {
+        "playable": 5,
+        "placeholder": 1
+      },
+      "fields": {
+        "population": {
+          "sourced": 0,
+          "estimated": 5,
+          "default": 0,
+          "missing": 1,
+          "labelled_without_source": 0
+        },
+        "head_of_state": {
+          "sourced": 4,
+          "estimated": 1,
+          "default": 0,
+          "missing": 1,
+          "labelled_without_source": 0
+        },
+        "army": {
+          "sourced": 0,
+          "estimated": 2,
+          "default": 4,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "literacy": {
+          "sourced": 0,
+          "estimated": 2,
+          "default": 4,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "laws": {
+          "sourced": 2,
+          "estimated": 4,
+          "default": 0,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "gdp_pc_1836": {
+          "sourced": 0,
+          "estimated": 5,
+          "default": 0,
+          "missing": 1,
+          "labelled_without_source": 0
+        }
+      },
+      "industrialization_researched": 2,
+      "map_regions": 54,
+      "map_region_pop_quality": {
+        "verified": 0,
+        "supported": 5,
+        "estimated": 18,
+        "uncertain": 30,
+        "missing": 1
+      },
+      "map_population_total": 423404780,
+      "map_population_by_quality": {
+        "verified": 0,
+        "supported": 1494747,
+        "estimated": 45537353,
+        "uncertain": 376362680,
+        "missing": 10000
+      },
+      "research_completeness_mean": 0.272
+    },
+    "south_asia": {
+      "name_vi": "Nam Á",
+      "entities": 18,
+      "by_kind": {
+        "subject": 9,
+        "sovereign": 7,
+        "aggregate": 1,
+        "decentralized": 1
+      },
+      "by_model": {
+        "playable": 16,
+        "part_of": 1,
+        "placeholder": 1
+      },
+      "fields": {
+        "population": {
+          "sourced": 0,
+          "estimated": 15,
+          "default": 0,
+          "missing": 3,
+          "labelled_without_source": 0
+        },
+        "head_of_state": {
+          "sourced": 14,
+          "estimated": 0,
+          "default": 0,
+          "missing": 4,
+          "labelled_without_source": 0
+        },
+        "army": {
+          "sourced": 0,
+          "estimated": 2,
+          "default": 16,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "literacy": {
+          "sourced": 0,
+          "estimated": 0,
+          "default": 18,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "laws": {
+          "sourced": 0,
+          "estimated": 18,
+          "default": 0,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "gdp_pc_1836": {
+          "sourced": 0,
+          "estimated": 15,
+          "default": 0,
+          "missing": 3,
+          "labelled_without_source": 0
+        }
+      },
+      "industrialization_researched": 0,
+      "map_regions": 45,
+      "map_region_pop_quality": {
+        "verified": 0,
+        "supported": 0,
+        "estimated": 4,
+        "uncertain": 39,
+        "missing": 2
+      },
+      "map_population_total": 229676909,
+      "map_population_by_quality": {
+        "verified": 0,
+        "supported": 0,
+        "estimated": 5236000,
+        "uncertain": 224250909,
+        "missing": 190000
+      },
+      "research_completeness_mean": 0.136
+    },
+    "southeast_asia": {
+      "name_vi": "Đông Nam Á",
+      "entities": 22,
+      "by_kind": {
+        "sovereign": 6,
+        "future": 1,
+        "subject": 1,
+        "aggregate": 1,
+        "decentralized": 13
+      },
+      "by_model": {
+        "playable": 8,
+        "future": 1,
+        "placeholder": 13
+      },
+      "fields": {
+        "population": {
+          "sourced": 0,
+          "estimated": 19,
+          "default": 0,
+          "missing": 3,
+          "labelled_without_source": 0
+        },
+        "head_of_state": {
+          "sourced": 3,
+          "estimated": 2,
+          "default": 0,
+          "missing": 15,
+          "labelled_without_source": 2
+        },
+        "army": {
+          "sourced": 0,
+          "estimated": 0,
+          "default": 22,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "literacy": {
+          "sourced": 0,
+          "estimated": 0,
+          "default": 22,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "laws": {
+          "sourced": 0,
+          "estimated": 22,
+          "default": 0,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "gdp_pc_1836": {
+          "sourced": 0,
+          "estimated": 8,
+          "default": 0,
+          "missing": 14,
+          "labelled_without_source": 0
+        }
+      },
+      "industrialization_researched": 0,
+      "map_regions": 54,
+      "map_region_pop_quality": {
+        "verified": 0,
+        "supported": 0,
+        "estimated": 45,
+        "uncertain": 6,
+        "missing": 3
+      },
+      "map_population_total": 81015058,
+      "map_population_by_quality": {
+        "verified": 0,
+        "supported": 0,
+        "estimated": 40432647,
+        "uncertain": 39652411,
+        "missing": 930000
+      },
+      "research_completeness_mean": 0.061
+    },
+    "central_asia": {
+      "name_vi": "Trung Á",
+      "entities": 8,
+      "by_kind": {
+        "sovereign": 5,
+        "decentralized": 3
+      },
+      "by_model": {
+        "playable": 5,
+        "placeholder": 3
+      },
+      "fields": {
+        "population": {
+          "sourced": 0,
+          "estimated": 3,
+          "default": 0,
+          "missing": 5,
+          "labelled_without_source": 0
+        },
+        "head_of_state": {
+          "sourced": 5,
+          "estimated": 0,
+          "default": 0,
+          "missing": 3,
+          "labelled_without_source": 0
+        },
+        "army": {
+          "sourced": 0,
+          "estimated": 0,
+          "default": 8,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "literacy": {
+          "sourced": 0,
+          "estimated": 0,
+          "default": 8,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "laws": {
+          "sourced": 0,
+          "estimated": 8,
+          "default": 0,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "gdp_pc_1836": {
+          "sourced": 0,
+          "estimated": 2,
+          "default": 0,
+          "missing": 6,
+          "labelled_without_source": 0
+        }
+      },
+      "industrialization_researched": 0,
+      "map_regions": 11,
+      "map_region_pop_quality": {
+        "verified": 0,
+        "supported": 2,
+        "estimated": 3,
+        "uncertain": 0,
+        "missing": 6
+      },
+      "map_population_total": 9333885,
+      "map_population_by_quality": {
+        "verified": 0,
+        "supported": 2091885,
+        "estimated": 2442000,
+        "uncertain": 0,
+        "missing": 4800000
+      },
+      "research_completeness_mean": 0.096
+    },
+    "west_asia": {
+      "name_vi": "Tây Á & Trung Đông",
+      "entities": 13,
+      "by_kind": {
+        "decentralized": 7,
+        "de_facto_independent": 1,
+        "sovereign": 5
+      },
+      "by_model": {
+        "playable": 7,
+        "placeholder": 6
+      },
+      "fields": {
+        "population": {
+          "sourced": 0,
+          "estimated": 6,
+          "default": 0,
+          "missing": 7,
+          "labelled_without_source": 0
+        },
+        "head_of_state": {
+          "sourced": 5,
+          "estimated": 0,
+          "default": 0,
+          "missing": 8,
+          "labelled_without_source": 0
+        },
+        "army": {
+          "sourced": 1,
+          "estimated": 0,
+          "default": 12,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "literacy": {
+          "sourced": 0,
+          "estimated": 1,
+          "default": 12,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "laws": {
+          "sourced": 1,
+          "estimated": 12,
+          "default": 0,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "gdp_pc_1836": {
+          "sourced": 0,
+          "estimated": 2,
+          "default": 0,
+          "missing": 11,
+          "labelled_without_source": 0
+        }
+      },
+      "industrialization_researched": 1,
+      "map_regions": 43,
+      "map_region_pop_quality": {
+        "verified": 0,
+        "supported": 7,
+        "estimated": 28,
+        "uncertain": 1,
+        "missing": 7
+      },
+      "map_population_total": 34509798,
+      "map_population_by_quality": {
+        "verified": 0,
+        "supported": 13930051,
+        "estimated": 18321647,
+        "uncertain": 473100,
+        "missing": 1785000
+      },
+      "research_completeness_mean": 0.126
+    },
+    "north_africa": {
+      "name_vi": "Bắc Phi",
+      "entities": 11,
+      "by_kind": {
+        "subject": 2,
+        "sovereign": 1,
+        "de_facto_independent": 2,
+        "decentralized": 6
+      },
+      "by_model": {
+        "playable": 5,
+        "placeholder": 6
+      },
+      "fields": {
+        "population": {
+          "sourced": 0,
+          "estimated": 7,
+          "default": 0,
+          "missing": 4,
+          "labelled_without_source": 0
+        },
+        "head_of_state": {
+          "sourced": 4,
+          "estimated": 0,
+          "default": 0,
+          "missing": 6,
+          "labelled_without_source": 1
+        },
+        "army": {
+          "sourced": 1,
+          "estimated": 1,
+          "default": 9,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "literacy": {
+          "sourced": 0,
+          "estimated": 0,
+          "default": 11,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "laws": {
+          "sourced": 1,
+          "estimated": 10,
+          "default": 0,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "gdp_pc_1836": {
+          "sourced": 0,
+          "estimated": 5,
+          "default": 0,
+          "missing": 6,
+          "labelled_without_source": 0
+        }
+      },
+      "industrialization_researched": 1,
+      "map_regions": 26,
+      "map_region_pop_quality": {
+        "verified": 0,
+        "supported": 1,
+        "estimated": 6,
+        "uncertain": 13,
+        "missing": 6
+      },
+      "map_population_total": 16882765,
+      "map_population_by_quality": {
+        "verified": 0,
+        "supported": 866169,
+        "estimated": 6371000,
+        "uncertain": 8705596,
+        "missing": 940000
+      },
+      "research_completeness_mean": 0.115
+    },
+    "subsaharan_africa": {
+      "name_vi": "Châu Phi hạ Sahara",
+      "entities": 65,
+      "by_kind": {
+        "sovereign": 15,
+        "de_facto_independent": 1,
+        "subject": 1,
+        "future": 2,
+        "decentralized": 46
+      },
+      "by_model": {
+        "playable": 17,
+        "future": 2,
+        "placeholder": 46
+      },
+      "fields": {
+        "population": {
+          "sourced": 0,
+          "estimated": 14,
+          "default": 0,
+          "missing": 51,
+          "labelled_without_source": 0
+        },
+        "head_of_state": {
+          "sourced": 14,
+          "estimated": 1,
+          "default": 0,
+          "missing": 50,
+          "labelled_without_source": 0
+        },
+        "army": {
+          "sourced": 0,
+          "estimated": 0,
+          "default": 65,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "literacy": {
+          "sourced": 0,
+          "estimated": 0,
+          "default": 65,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "laws": {
+          "sourced": 0,
+          "estimated": 65,
+          "default": 0,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "gdp_pc_1836": {
+          "sourced": 0,
+          "estimated": 0,
+          "default": 0,
+          "missing": 65,
+          "labelled_without_source": 0
+        }
+      },
+      "industrialization_researched": 0,
+      "map_regions": 81,
+      "map_region_pop_quality": {
+        "verified": 0,
+        "supported": 0,
+        "estimated": 8,
+        "uncertain": 9,
+        "missing": 64
+      },
+      "map_population_total": 47230899,
+      "map_population_by_quality": {
+        "verified": 0,
+        "supported": 0,
+        "estimated": 1816999,
+        "uncertain": 5363900,
+        "missing": 40050000
+      },
+      "research_completeness_mean": 0.037
+    },
+    "north_america": {
+      "name_vi": "Bắc Mỹ",
+      "entities": 16,
+      "by_kind": {
+        "sovereign": 2,
+        "rebel": 1,
+        "future": 2,
+        "decentralized": 11
+      },
+      "by_model": {
+        "playable": 3,
+        "future": 2,
+        "placeholder": 11
+      },
+      "fields": {
+        "population": {
+          "sourced": 1,
+          "estimated": 1,
+          "default": 0,
+          "missing": 14,
+          "labelled_without_source": 0
+        },
+        "head_of_state": {
+          "sourced": 2,
+          "estimated": 1,
+          "default": 0,
+          "missing": 13,
+          "labelled_without_source": 0
+        },
+        "army": {
+          "sourced": 2,
+          "estimated": 0,
+          "default": 14,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "literacy": {
+          "sourced": 0,
+          "estimated": 1,
+          "default": 15,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "laws": {
+          "sourced": 1,
+          "estimated": 15,
+          "default": 0,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "gdp_pc_1836": {
+          "sourced": 0,
+          "estimated": 3,
+          "default": 0,
+          "missing": 13,
+          "labelled_without_source": 0
+        }
+      },
+      "industrialization_researched": 1,
+      "map_regions": 65,
+      "map_region_pop_quality": {
+        "verified": 24,
+        "supported": 1,
+        "estimated": 9,
+        "uncertain": 18,
+        "missing": 13
+      },
+      "map_population_total": 23540245,
+      "map_population_by_quality": {
+        "verified": 15423000,
+        "supported": 57051,
+        "estimated": 1466001,
+        "uncertain": 6228193,
+        "missing": 366000
+      },
+      "research_completeness_mean": 0.071
+    },
+    "central_america": {
+      "name_vi": "Trung Mỹ & Caribe",
+      "entities": 9,
+      "by_kind": {
+        "sovereign": 2,
+        "future": 6,
+        "decentralized": 1
+      },
+      "by_model": {
+        "playable": 2,
+        "future": 6,
+        "placeholder": 1
+      },
+      "fields": {
+        "population": {
+          "sourced": 0,
+          "estimated": 2,
+          "default": 0,
+          "missing": 7,
+          "labelled_without_source": 0
+        },
+        "head_of_state": {
+          "sourced": 2,
+          "estimated": 0,
+          "default": 0,
+          "missing": 7,
+          "labelled_without_source": 0
+        },
+        "army": {
+          "sourced": 0,
+          "estimated": 0,
+          "default": 9,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "literacy": {
+          "sourced": 0,
+          "estimated": 0,
+          "default": 9,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "laws": {
+          "sourced": 0,
+          "estimated": 9,
+          "default": 0,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "gdp_pc_1836": {
+          "sourced": 0,
+          "estimated": 0,
+          "default": 0,
+          "missing": 9,
+          "labelled_without_source": 0
+        }
+      },
+      "industrialization_researched": 0,
+      "map_regions": 18,
+      "map_region_pop_quality": {
+        "verified": 0,
+        "supported": 1,
+        "estimated": 11,
+        "uncertain": 1,
+        "missing": 5
+      },
+      "map_population_total": 5252736,
+      "map_population_by_quality": {
+        "verified": 0,
+        "supported": 99931,
+        "estimated": 4142000,
+        "uncertain": 500805,
+        "missing": 510000
+      },
+      "research_completeness_mean": 0.029
+    },
+    "south_america": {
+      "name_vi": "Nam Mỹ",
+      "entities": 18,
+      "by_kind": {
+        "sovereign": 10,
+        "future": 1,
+        "rebel": 1,
+        "decentralized": 6
+      },
+      "by_model": {
+        "playable": 11,
+        "future": 1,
+        "placeholder": 6
+      },
+      "fields": {
+        "population": {
+          "sourced": 1,
+          "estimated": 10,
+          "default": 0,
+          "missing": 7,
+          "labelled_without_source": 0
+        },
+        "head_of_state": {
+          "sourced": 11,
+          "estimated": 0,
+          "default": 0,
+          "missing": 7,
+          "labelled_without_source": 0
+        },
+        "army": {
+          "sourced": 2,
+          "estimated": 0,
+          "default": 16,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "literacy": {
+          "sourced": 0,
+          "estimated": 0,
+          "default": 18,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "laws": {
+          "sourced": 0,
+          "estimated": 18,
+          "default": 0,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "gdp_pc_1836": {
+          "sourced": 0,
+          "estimated": 4,
+          "default": 0,
+          "missing": 14,
+          "labelled_without_source": 0
+        }
+      },
+      "industrialization_researched": 0,
+      "map_regions": 53,
+      "map_region_pop_quality": {
+        "verified": 0,
+        "supported": 6,
+        "estimated": 36,
+        "uncertain": 2,
+        "missing": 9
+      },
+      "map_population_total": 14621068,
+      "map_population_by_quality": {
+        "verified": 0,
+        "supported": 1617069,
+        "estimated": 12265999,
+        "uncertain": 318000,
+        "missing": 420000
+      },
+      "research_completeness_mean": 0.113
+    },
+    "oceania": {
+      "name_vi": "Châu Đại Dương",
+      "entities": 13,
+      "by_kind": {
+        "sovereign": 2,
+        "decentralized": 11
+      },
+      "by_model": {
+        "playable": 3,
+        "placeholder": 10
+      },
+      "fields": {
+        "population": {
+          "sourced": 1,
+          "estimated": 8,
+          "default": 0,
+          "missing": 4,
+          "labelled_without_source": 0
+        },
+        "head_of_state": {
+          "sourced": 1,
+          "estimated": 0,
+          "default": 0,
+          "missing": 11,
+          "labelled_without_source": 1
+        },
+        "army": {
+          "sourced": 0,
+          "estimated": 0,
+          "default": 13,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "literacy": {
+          "sourced": 0,
+          "estimated": 0,
+          "default": 13,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "laws": {
+          "sourced": 0,
+          "estimated": 13,
+          "default": 0,
+          "missing": 0,
+          "labelled_without_source": 0
+        },
+        "gdp_pc_1836": {
+          "sourced": 0,
+          "estimated": 0,
+          "default": 0,
+          "missing": 13,
+          "labelled_without_source": 0
+        }
+      },
+      "industrialization_researched": 0,
+      "map_regions": 16,
+      "map_region_pop_quality": {
+        "verified": 0,
+        "supported": 1,
+        "estimated": 0,
+        "uncertain": 11,
+        "missing": 4
+      },
+      "map_population_total": 760580,
+      "map_population_by_quality": {
+        "verified": 0,
+        "supported": 108579,
+        "estimated": 0,
+        "uncertain": 452001,
+        "missing": 200000
+      },
+      "research_completeness_mean": 0.03
+    }
+  }
+}

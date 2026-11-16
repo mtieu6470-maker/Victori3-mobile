@@ -1,0 +1,4 @@
+$ cd <baseline worktree 2240a8f> && npx tsx <repo>/tools/audit/s0/probe_empty_pass.ts $PWD
+# start 2026-11-16T10:11:34Z
+# exit code: 0
+# end 2026-11-16T10:11:49Z

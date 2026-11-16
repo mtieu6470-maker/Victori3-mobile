@@ -1,0 +1,17 @@
+$ npx tsx tools/audit/s0/perf_desktop.ts <baseline worktree 2240a8f, built> docs/audit/s0/b3/perf/desktop_observe.json --warmup 10 --measure 60 --speeds 1,2,3,4,5
+{"speed":1,"months_per_s":0.416,"fps":3.9,"longtasks":14,"tickcb_p95":null,"end":"1838-07"}
+{"speed":2,"months_per_s":0.467,"fps":1.18,"longtasks":8,"tickcb_p95":null,"end":"1838-12"}
+{"speed":3,"months_per_s":0.416,"fps":1.02,"longtasks":5,"tickcb_p95":null,"end":"1838-12"}
+{"speed":4,"months_per_s":0.433,"fps":1.07,"longtasks":8,"tickcb_p95":null,"end":"1838-11"}
+{"speed":5,"months_per_s":0.4,"fps":0.38,"longtasks":4,"tickcb_p95":null,"end":"1839-07"}
+done: 5 speeds; page errors 0
+[exit 0]
+$ npx tsx tools/audit/s0/perf_desktop.ts <baseline worktree 2240a8f, built> docs/audit/s0/b3/perf/desktop_wrap_raf.json --wrap-raf --warmup 10 --measure 60 --speeds 1,2,3,4,5
+{"speed":1,"months_per_s":0.449,"fps":7.49,"longtasks":11,"tickcb_p95":63.4,"end":"1838-08"}
+{"speed":2,"months_per_s":0.433,"fps":1.03,"longtasks":5,"tickcb_p95":45.8,"end":"1838-12"}
+{"speed":3,"months_per_s":0.4,"fps":1,"longtasks":5,"tickcb_p95":41,"end":"1838-11"}
+{"speed":4,"months_per_s":0.433,"fps":1.1,"longtasks":6,"tickcb_p95":43.9,"end":"1839-01"}
+{"speed":5,"months_per_s":0.366,"fps":0.37,"longtasks":3,"tickcb_p95":38.8,"end":"1839-03"}
+done: 5 speeds; page errors 0
+[exit 0]
+DONE

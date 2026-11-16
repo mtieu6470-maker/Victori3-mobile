@@ -1,0 +1,3 @@
+$ npx tsx tools/audit/s0/asset_inventory.ts <baseline worktree 2240a8f, built> <@capacitor/cli 7.6.10 android-template.tar.gz extracted> docs/audit/s0/b3/asset_manifest.csv docs/audit/s0/b3/asset_inventory_summary.json
+{"files":627,"by_scope":{"web_payload":590,"android_res":35,"build_input_not_shipped":2},"by_licence_status":{"package_license_file":84,"project_authored_plus_packages":2,"recorded_not_reverified":492,"derived":4,"project_authored":5,"public_domain_dataset":6,"template_default":34},"orphans":0,"missing":0}
+[exit 0]

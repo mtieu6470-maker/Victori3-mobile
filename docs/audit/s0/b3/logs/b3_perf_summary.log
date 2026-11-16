@@ -1,0 +1,3 @@
+$ npx tsx tools/audit/s0/perf_summary.ts docs/audit/s0/b3/perf docs/audit/s0/S0_PERFORMANCE_BASELINE.json
+node runs 6, per-system 2, desktop passes 2
+[exit 0]

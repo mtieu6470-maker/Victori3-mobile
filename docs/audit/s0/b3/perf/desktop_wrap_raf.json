@@ -1,0 +1,374 @@
+{
+  "schema": "s0-perf-desktop-v1",
+  "label": "BASELINE_ORIGINAL",
+  "pass": "wrap_raf (group 2 measured; requestAnimationFrame wrapped at runtime by the harness, observer overhead present)",
+  "environment": {
+    "kind": "desktop_browser_headless_swiftshader",
+    "representativeness": "Headless Chromium with SwiftShader (WebGL rendered on the CPU). Not representative of GPU-accelerated desktops and never a substitute for iQOO Z10 Turbo measurements.",
+    "chromium_version": "153.0.8010.12",
+    "executable": "/opt/pw-browsers/chromium-1243/chrome-linux64/chrome",
+    "headless": true,
+    "launch_args": [
+      "--use-gl=angle",
+      "--use-angle=swiftshader",
+      "--enable-unsafe-swiftshader"
+    ],
+    "viewport": {
+      "width": 915,
+      "height": 412
+    },
+    "device_scale_factor": 2,
+    "is_mobile": true,
+    "has_touch": true,
+    "host": {
+      "platform": "linux 6.18.44-fc-v470",
+      "cpu_model": "Intel(R) Xeon(R) Processor @ 2.30GHz",
+      "logical_cpus": 4,
+      "total_mem_bytes": 16869146624,
+      "node": "v22.23.4"
+    },
+    "page": {
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+      "webgl_vendor": "Google Inc. (Google)",
+      "webgl_renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "devicePixelRatio": 2,
+      "inner": [
+        915,
+        412
+      ],
+      "hardwareConcurrency": 4,
+      "performance_memory": "supported (quantized unless --enable-precise-memory-info)",
+      "longtask": "supported"
+    },
+    "refresh_rate": "no physical display (headless); the observed median frame interval is reported per speed",
+    "input_latency": "not_measured (no scripted input during the measurement windows)",
+    "group1_tick_duration": "unsupported in the browser without instrumenting the product; see the Node report"
+  },
+  "build": {
+    "audited_head": "2240a8fb865e0021eec2f2f4f1c6803528be9e2c",
+    "index_html_sha256": "28a99db998fddaab1d16af2700df1fed03c6756c7275e5f21f284c8885eb39ed",
+    "bundle": "assets/index-D-J0O6tc.js",
+    "bundle_sha256": "11dfc9c4b23f5345af8da7e857927dcd353ec1787ac09091c2f90c30dbd2c097",
+    "harness_sha256": "4d145bb185e07ab38535e9f4549d2f86b25dd8e674bfa6b3b63771251b209a5f"
+  },
+  "run": {
+    "mode": "historical",
+    "seed": 1,
+    "player": null,
+    "entry": "?mode=…&seed=…&player=observer&months=0 (product QA entry, src/ui/main.tsx:38-50)",
+    "speed_control": "__qa.game.setSpeed/setPaused (same controller methods as the speed buttons)",
+    "fresh_game_per_speed": true,
+    "warmup_s": 10,
+    "measure_s": 60,
+    "started_at": "2026-11-16T10:44:15.525Z",
+    "finished_at": "2026-11-16T10:53:09.483Z"
+  },
+  "speeds": [
+    {
+      "speed": 1,
+      "page_load_ms": 408,
+      "warmup_s": 10,
+      "measured_s": 60.069,
+      "start": {
+        "tick": 4,
+        "date": "1836-05",
+        "datebox": "1836tháng Năm",
+        "js_heap_used": 103000000
+      },
+      "end": {
+        "tick": 31,
+        "date": "1838-08",
+        "datebox": "1838tháng Tám",
+        "js_heap_used": 103000000
+      },
+      "beyond_1936": false,
+      "group3_frames": {
+        "frames": 450,
+        "fps": 7.49,
+        "interval_ms": {
+          "n": 449,
+          "mean": 131.769,
+          "p50": 16.7,
+          "p95": 50,
+          "p99": 4666.5,
+          "max": 4816.5
+        },
+        "late_frames_over_1_5x_median": 39,
+        "intervals_over_33_4ms": 29,
+        "intervals_over_50ms": 19
+      },
+      "group3_long_tasks": {
+        "count": 11,
+        "duration_ms": {
+          "n": 11,
+          "mean": 66.273,
+          "p50": 62,
+          "p95": 108,
+          "p99": 108,
+          "max": 108
+        },
+        "total_ms": 729
+      },
+      "group4": {
+        "months_advanced": 27,
+        "months_per_second": 0.449,
+        "ticks_per_frame": 0.06
+      },
+      "group2_tick_callback_ms": {
+        "n": 26,
+        "mean": 31.358,
+        "p50": 24.2,
+        "p95": 63.4,
+        "p99": 97.1,
+        "max": 97.1,
+        "over_50ms": 2,
+        "max_ticks_in_one_callback": 1
+      }
+    },
+    {
+      "speed": 2,
+      "page_load_ms": 422,
+      "warmup_s": 10,
+      "measured_s": 60.075,
+      "start": {
+        "tick": 9,
+        "date": "1836-10",
+        "datebox": "1836tháng Mười",
+        "js_heap_used": 116000000
+      },
+      "end": {
+        "tick": 35,
+        "date": "1838-12",
+        "datebox": "1838tháng Chạp",
+        "js_heap_used": 116000000
+      },
+      "beyond_1936": false,
+      "group3_frames": {
+        "frames": 62,
+        "fps": 1.03,
+        "interval_ms": {
+          "n": 61,
+          "mean": 906.248,
+          "p50": 33.3,
+          "p95": 4633.1,
+          "p99": 4849.7,
+          "max": 4849.7
+        },
+        "late_frames_over_1_5x_median": 18,
+        "intervals_over_33_4ms": 25,
+        "intervals_over_50ms": 17
+      },
+      "group3_long_tasks": {
+        "count": 5,
+        "duration_ms": {
+          "n": 5,
+          "mean": 62.6,
+          "p50": 60,
+          "p95": 73,
+          "p99": 73,
+          "max": 73
+        },
+        "total_ms": 313
+      },
+      "group4": {
+        "months_advanced": 26,
+        "months_per_second": 0.433,
+        "ticks_per_frame": 0.419
+      },
+      "group2_tick_callback_ms": {
+        "n": 25,
+        "mean": 27.176,
+        "p50": 23.6,
+        "p95": 45.8,
+        "p99": 60.9,
+        "max": 60.9,
+        "over_50ms": 1,
+        "max_ticks_in_one_callback": 1
+      }
+    },
+    {
+      "speed": 3,
+      "page_load_ms": 386,
+      "warmup_s": 10,
+      "measured_s": 60.044,
+      "start": {
+        "tick": 10,
+        "date": "1836-11",
+        "datebox": "1836tháng Mười một",
+        "js_heap_used": 116000000
+      },
+      "end": {
+        "tick": 34,
+        "date": "1838-11",
+        "datebox": "1838tháng Mười một",
+        "js_heap_used": 116000000
+      },
+      "beyond_1936": false,
+      "group3_frames": {
+        "frames": 60,
+        "fps": 1,
+        "interval_ms": {
+          "n": 59,
+          "mean": 868.327,
+          "p50": 33.3,
+          "p95": 4699.8,
+          "p99": 4849.9,
+          "max": 4849.9
+        },
+        "late_frames_over_1_5x_median": 19,
+        "intervals_over_33_4ms": 23,
+        "intervals_over_50ms": 15
+      },
+      "group3_long_tasks": {
+        "count": 5,
+        "duration_ms": {
+          "n": 5,
+          "mean": 63.4,
+          "p50": 64,
+          "p95": 75,
+          "p99": 75,
+          "max": 75
+        },
+        "total_ms": 317
+      },
+      "group4": {
+        "months_advanced": 24,
+        "months_per_second": 0.4,
+        "ticks_per_frame": 0.4
+      },
+      "group2_tick_callback_ms": {
+        "n": 24,
+        "mean": 27.946,
+        "p50": 25.9,
+        "p95": 41,
+        "p99": 45.9,
+        "max": 45.9,
+        "over_50ms": 0,
+        "max_ticks_in_one_callback": 1
+      }
+    },
+    {
+      "speed": 4,
+      "page_load_ms": 364,
+      "warmup_s": 10,
+      "measured_s": 60.018,
+      "start": {
+        "tick": 10,
+        "date": "1836-11",
+        "datebox": "1836tháng Mười một",
+        "js_heap_used": 116000000
+      },
+      "end": {
+        "tick": 36,
+        "date": "1839-01",
+        "datebox": "1839tháng Giêng",
+        "js_heap_used": 116000000
+      },
+      "beyond_1936": false,
+      "group3_frames": {
+        "frames": 66,
+        "fps": 1.1,
+        "interval_ms": {
+          "n": 65,
+          "mean": 845.351,
+          "p50": 33.3,
+          "p95": 4699.8,
+          "p99": 4783.2,
+          "max": 4783.2
+        },
+        "late_frames_over_1_5x_median": 20,
+        "intervals_over_33_4ms": 23,
+        "intervals_over_50ms": 19
+      },
+      "group3_long_tasks": {
+        "count": 6,
+        "duration_ms": {
+          "n": 6,
+          "mean": 69.167,
+          "p50": 65,
+          "p95": 79,
+          "p99": 79,
+          "max": 79
+        },
+        "total_ms": 415
+      },
+      "group4": {
+        "months_advanced": 26,
+        "months_per_second": 0.433,
+        "ticks_per_frame": 0.394
+      },
+      "group2_tick_callback_ms": {
+        "n": 26,
+        "mean": 26.558,
+        "p50": 24.6,
+        "p95": 43.9,
+        "p99": 62.4,
+        "max": 62.4,
+        "over_50ms": 1,
+        "max_ticks_in_one_callback": 1
+      }
+    },
+    {
+      "speed": 5,
+      "page_load_ms": 382,
+      "warmup_s": 10,
+      "measured_s": 60.046,
+      "start": {
+        "tick": 16,
+        "date": "1837-05",
+        "datebox": "1837tháng Năm",
+        "js_heap_used": 123000000
+      },
+      "end": {
+        "tick": 38,
+        "date": "1839-03",
+        "datebox": "1839tháng Ba",
+        "js_heap_used": 123000000
+      },
+      "beyond_1936": false,
+      "group3_frames": {
+        "frames": 22,
+        "fps": 0.37,
+        "interval_ms": {
+          "n": 21,
+          "mean": 2684.019,
+          "p50": 116.8,
+          "p95": 9149.6,
+          "p99": 9333,
+          "max": 9333
+        },
+        "late_frames_over_1_5x_median": 10,
+        "intervals_over_33_4ms": 13,
+        "intervals_over_50ms": 12
+      },
+      "group3_long_tasks": {
+        "count": 3,
+        "duration_ms": {
+          "n": 3,
+          "mean": 90.667,
+          "p50": 108,
+          "p95": 112,
+          "p99": 112,
+          "max": 112
+        },
+        "total_ms": 272
+      },
+      "group4": {
+        "months_advanced": 22,
+        "months_per_second": 0.366,
+        "ticks_per_frame": 1
+      },
+      "group2_tick_callback_ms": {
+        "n": 22,
+        "mean": 25.259,
+        "p50": 24,
+        "p95": 38.8,
+        "p99": 39.3,
+        "max": 39.3,
+        "over_50ms": 0,
+        "max_ticks_in_one_callback": 1
+      }
+    }
+  ],
+  "page_errors": []
+}

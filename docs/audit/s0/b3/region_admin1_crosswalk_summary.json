@@ -1,0 +1,162 @@
+{
+  "schema": "s0-admin1-crosswalk-v1",
+  "grid": {
+    "width": 8192,
+    "height": 3868,
+    "cells_per_degree": 22.755555555555556,
+    "lat0": 85,
+    "area_weight": "cos(latitude of cell centre), relative units"
+  },
+  "admin1_features_in_meta": 4596,
+  "admin1_features_with_land_cells": 4403,
+  "regions_in_topology": 662,
+  "regions_with_cells": 662,
+  "pairs": 4374,
+  "regions_per_admin1_histogram": {
+    "1": 4278,
+    "2": 20,
+    "3": 7,
+    "4": 4,
+    "5+": 3
+  },
+  "admin1_per_region_histogram": {
+    "1": 174,
+    "2": 77,
+    "3": 55,
+    "4": 48,
+    "5+": 308
+  },
+  "admin1_split_across_regions": 34,
+  "region_cells_without_admin1": 0,
+  "admin1_cells_without_region": 2214874,
+  "land_cells_unassigned_to_any_region": 2214874,
+  "land_unassigned_by_adm0": {
+    "ATA": {
+      "cells": 2197194,
+      "area_cos_lat": 472460
+    },
+    "NOR": {
+      "cells": 13321,
+      "area_cos_lat": 2572.9
+    },
+    "SLB": {
+      "cells": 1155,
+      "area_cos_lat": 1140.8
+    },
+    "NCL": {
+      "cells": 851,
+      "area_cos_lat": 792.8
+    },
+    "VUT": {
+      "cells": 540,
+      "area_cos_lat": 518.3
+    },
+    "PNG": {
+      "cells": 401,
+      "area_cos_lat": 398.7
+    },
+    "ECU": {
+      "cells": 325,
+      "area_cos_lat": 325
+    },
+    "ATF": {
+      "cells": 458,
+      "area_cos_lat": 299.7
+    },
+    "SGS": {
+      "cells": 287,
+      "area_cos_lat": 165.8
+    },
+    "PYF": {
+      "cells": 44,
+      "area_cos_lat": 43.4
+    },
+    "NZL": {
+      "cells": 54,
+      "area_cos_lat": 38.3
+    },
+    "KIR": {
+      "cells": 32,
+      "area_cos_lat": 31.9
+    },
+    "FSM": {
+      "cells": 29,
+      "area_cos_lat": 28.8
+    },
+    "MNP": {
+      "cells": 28,
+      "area_cos_lat": 26.9
+    },
+    "PLW": {
+      "cells": 23,
+      "area_cos_lat": 22.8
+    },
+    "GUM": {
+      "cells": 23,
+      "area_cos_lat": 22.4
+    },
+    "SYC": {
+      "cells": 20,
+      "area_cos_lat": 19.9
+    },
+    "HMD": {
+      "cells": 27,
+      "area_cos_lat": 16.2
+    },
+    "SHN": {
+      "cells": 17,
+      "area_cos_lat": 15
+    },
+    "MHL": {
+      "cells": 8,
+      "area_cos_lat": 7.9
+    },
+    "COK": {
+      "cells": 7,
+      "area_cos_lat": 6.6
+    },
+    "AUS": {
+      "cells": 9,
+      "area_cos_lat": 5.2
+    },
+    "PCN": {
+      "cells": 4,
+      "area_cos_lat": 3.6
+    },
+    "MDV": {
+      "cells": 3,
+      "area_cos_lat": 3
+    },
+    "NRU": {
+      "cells": 2,
+      "area_cos_lat": 2
+    },
+    "RUS": {
+      "cells": 5,
+      "area_cos_lat": 1.8
+    },
+    "NFK": {
+      "cells": 2,
+      "area_cos_lat": 1.7
+    },
+    "BMU": {
+      "cells": 2,
+      "area_cos_lat": 1.7
+    },
+    "IOT": {
+      "cells": 1,
+      "area_cos_lat": 1
+    },
+    "MUS": {
+      "cells": 1,
+      "area_cos_lat": 1
+    },
+    "UMI": {
+      "cells": 1,
+      "area_cos_lat": 0.9
+    }
+  },
+  "regions_with_cells_but_no_admin1": [],
+  "regions_without_cells": [],
+  "note": "Admin-1 boundaries are modern (Natural Earth); this is an approximate reference layer, not an 1836 historical boundary set."
+}

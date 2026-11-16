@@ -1,0 +1,2 @@
+$ npx tsx tools/audit/s0/admin1_crosswalk.ts <baseline worktree 2240a8f> docs/audit/s0/b3/region_admin1_crosswalk.csv docs/audit/s0/b3/region_admin1_crosswalk_summary.json
+[exit 0]

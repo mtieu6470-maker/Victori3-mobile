@@ -1,0 +1,25 @@
+$ node --expose-gc --import tsx tools/audit/s0/perf_node.ts <baseline worktree 2240a8f> historical 1 1200 docs/audit/s0/b3/perf/node_historical_seed1_run1.json
+{"mode":"historical","seed":1,"months":1200,"tick_ms":{"n":1200,"mean":22.218,"p50":20.609,"p95":32.451,"p99":41.446,"max":67.223},"months_per_s":44.92,"save":[["start",1448522,10.159,6.113,true],["middle",2695048,18.707,12.361,true],["end",3617553,20.416,14.41,true]]}
+[exit 0]
+$ node --expose-gc --import tsx tools/audit/s0/perf_node.ts <baseline worktree 2240a8f> historical 1 1200 docs/audit/s0/b3/perf/node_historical_seed1_run2.json
+{"mode":"historical","seed":1,"months":1200,"tick_ms":{"n":1200,"mean":22.113,"p50":20.743,"p95":32.002,"p99":39.366,"max":68.309},"months_per_s":45.13,"save":[["start",1448522,10.167,6.288,true],["middle",2695048,18.124,12.081,true],["end",3617553,25.053,12.76,true]]}
+[exit 0]
+$ node --expose-gc --import tsx tools/audit/s0/perf_node.ts <baseline worktree 2240a8f> historical 1 1200 docs/audit/s0/b3/perf/node_historical_seed1_run3.json
+{"mode":"historical","seed":1,"months":1200,"tick_ms":{"n":1200,"mean":22.349,"p50":21.022,"p95":32.307,"p99":39.855,"max":66.079},"months_per_s":44.64,"save":[["start",1448522,10.177,8.56,true],["middle",2695048,21.383,12.935,true],["end",3617553,25.951,13.336,true]]}
+[exit 0]
+$ node --expose-gc --import tsx tools/audit/s0/perf_node.ts <baseline worktree 2240a8f> historical 1 1200 docs/audit/s0/b3/perf/node_historical_seed1_per_system.json --per-system
+{"mode":"historical","seed":1,"months":1200,"tick_ms":{"n":1200,"mean":21.972,"p50":20.529,"p95":30.126,"p99":42.704,"max":75.504},"months_per_s":45.42,"save":[["start",1448522,10.586,8.985,true],["middle",2695048,17.25,9.952,true],["end",3617553,20.349,12.975,true]]}
+[exit 0]
+$ node --expose-gc --import tsx tools/audit/s0/perf_node.ts <baseline worktree 2240a8f> sandbox 1 1200 docs/audit/s0/b3/perf/node_sandbox_seed1_run1.json
+{"mode":"sandbox","seed":1,"months":1200,"tick_ms":{"n":1200,"mean":20.943,"p50":19.89,"p95":28.983,"p99":36.013,"max":56.889},"months_per_s":47.65,"save":[["start",1448519,9.618,5.851,true],["middle",2696497,17.533,12.322,true],["end",3658673,22.247,13.605,true]]}
+[exit 0]
+$ node --expose-gc --import tsx tools/audit/s0/perf_node.ts <baseline worktree 2240a8f> sandbox 1 1200 docs/audit/s0/b3/perf/node_sandbox_seed1_run2.json
+{"mode":"sandbox","seed":1,"months":1200,"tick_ms":{"n":1200,"mean":21.327,"p50":20.059,"p95":31.337,"p99":37.726,"max":56.712},"months_per_s":46.8,"save":[["start",1448519,9.846,6.539,true],["middle",2696497,16.987,11.641,true],["end",3658673,26.458,18.365,true]]}
+[exit 0]
+$ node --expose-gc --import tsx tools/audit/s0/perf_node.ts <baseline worktree 2240a8f> sandbox 1 1200 docs/audit/s0/b3/perf/node_sandbox_seed1_run3.json
+{"mode":"sandbox","seed":1,"months":1200,"tick_ms":{"n":1200,"mean":22.09,"p50":20.584,"p95":32.845,"p99":42.047,"max":77.176},"months_per_s":45.18,"save":[["start",1448519,12.279,6.707,true],["middle",2696497,17.423,12.258,true],["end",3658673,21.359,14.977,true]]}
+[exit 0]
+$ node --expose-gc --import tsx tools/audit/s0/perf_node.ts <baseline worktree 2240a8f> sandbox 1 1200 docs/audit/s0/b3/perf/node_sandbox_seed1_per_system.json --per-system
+{"mode":"sandbox","seed":1,"months":1200,"tick_ms":{"n":1200,"mean":21.843,"p50":20.468,"p95":31.95,"p99":38.894,"max":61.04},"months_per_s":45.69,"save":[["start",1448519,9.723,6.115,true],["middle",2696497,18.065,10.249,true],["end",3658673,22.373,13.275,true]]}
+[exit 0]
+DONE
