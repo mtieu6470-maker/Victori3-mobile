@@ -1,0 +1,6 @@
+# R7 check on the baseline worktree 2240a8f: lifecycle / process-death / WebGL context-loss handlers. grep exit 1 = no match.
+$ grep -rnE 'visibilitychange|pagehide|beforeunload|webglcontextlost|webglcontextrestored|onRenderProcessGone|appStateChange' src android/app/src/main/java
+[exit 1]
+$ grep -n 'saveSlot(' src/ui/App.tsx   # in-game autosave triggered by game date (each January), not by lifecycle events
+74:  useEffect(() => { if (st && st.date.m === 1 && st.tick > 0 && st.tick !== lastSave.current && !game.busy) { lastSave.current = st.tick; saveSlot('Tự động lưu', game.save()).catch(() => game
+[exit 0]

@@ -1,0 +1,10 @@
+$ npx tsx tools/audit/s0/global_data_audit.ts <baseline worktree 2240a8f> docs/audit/s0/b3/review1/global_data_audit.json
+entities 274 (assigned 274, unassigned 0); map regions 662; labelled-without-source 5
+[exit 0]
+$ python3 -I -c '<compare before (b3/global_data_audit.json) and after (b3/review1/global_data_audit.json)>'
+old top-level keys other than categories/regions equal: True ['schema', 'db_meta', 'totals', 'unassigned_entities', 'labelled_without_source', 'not_classifiable']
+per-group counts equal (ignoring added method_coverage): True | groups: 12
+added top-level keys: ['all_entity_facts', 'analysis_groups']
+categories changed: ['estimated']
+RM-F1 recount: {'facts': 334, 'with_method': 64, 'without_method': 270, 'with_range': 14} {'facts': 62, 'with_method': 44, 'without_method': 18, 'with_range': 15}
+[exit 0]

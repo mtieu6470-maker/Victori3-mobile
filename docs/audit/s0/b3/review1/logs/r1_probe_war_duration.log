@@ -1,0 +1,8 @@
+$ npx tsx tools/audit/s0/probe_war_duration.ts <baseline worktree 2240a8f> sandbox 1 40 > docs/audit/s0/b3/review1/probe_war_duration_sandbox_seed1_40y.json
+[exit 0]
+$ npx tsx tools/audit/s0/probe_war_duration.ts <baseline worktree 2240a8f> historical 1 40 > docs/audit/s0/b3/review1/probe_war_duration_historical_seed1_40y.json
+[exit 0]
+$ npx tsx tools/audit/s0/probe_war_duration.ts <baseline worktree 2240a8f> sandbox 1 100 > docs/audit/s0/b3/review1/probe_war_duration_sandbox_seed1_100y.json
+[exit 0]
+$ npx tsx tools/audit/s0/probe_war_duration.ts <baseline worktree 2240a8f> historical 1 100 > docs/audit/s0/b3/review1/probe_war_duration_historical_seed1_100y.json
+[exit 0]

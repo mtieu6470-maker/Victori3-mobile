@@ -7,6 +7,7 @@
 | Công cụ | `tools/audit/s0/global_data_audit.ts`; `tools/audit/s0/admin1_crosswalk.ts` (chỉ đọc; nằm ngoài mã sản phẩm). Gán vùng vĩ mô dùng **chính** `tools/audit/regions.ts` của baseline (thủ đô → trung bình vùng sở hữu → toạ độ cố định cho thực thể không có lãnh thổ; có 5 ngoại lệ quy ước TUR, RUS, EGY, TIB, DZ_KACHIN) |
 | Lệnh | `npx tsx tools/audit/s0/global_data_audit.ts <worktree baseline> docs/audit/s0/b3/global_data_audit.json` → exit 0<br>`npx tsx tools/audit/s0/admin1_crosswalk.ts <worktree baseline> docs/audit/s0/b3/region_admin1_crosswalk.csv docs/audit/s0/b3/region_admin1_crosswalk_summary.json` → exit 0<br>(`b3/logs/b3_global_data_audit.log`, `b3/logs/b3_admin1_crosswalk.log`) |
 | Đầu ra (SHA-256) | `b3/global_data_audit.json` `423473e2a8dcf50b2a22e44f9550bb11bceff43cce7e020b7276f9051ba50093`<br>`b3/region_admin1_crosswalk.csv` `965fa5cd23bba43aafdf6bd393b58a42ddcbccc93089499fb9874af74108f8c5`<br>`b3/region_admin1_crosswalk_summary.json` `e095200e5c09e989961681c98b645265f49937097190732f7d8f6a225604c6c1` |
+| Sửa sau review vòng 1 (CHANGES_REQUESTED, điểm A và B) | Công cụ chạy lại: `b3/review1/global_data_audit.json` (SHA-256 `e6b8a4b8911c40478f63b5ecaabf7ebf5e43c6ef8b274085e8308e9da898b6b3`), log `b3/review1/logs/r1_global_data_audit.log`. Bản trước được giữ nguyên ở `b3/global_data_audit.json`. Đối chiếu tự động: mọi số đếm của 12 nhóm không đổi; chỉ đổi mô tả nhóm `estimated` và thêm `method_coverage`, `all_entity_facts`, `analysis_groups` |
 | Nhãn | `BASELINE_ORIGINAL` |
 | Người lập | Claude Code, 2026-11-16 (tự đánh giá, **chưa được review độc lập**) |
 
@@ -17,7 +18,7 @@ Mỗi trường dữ liệu của thực thể được xếp vào **đúng mộ
 | Loại | Điều kiện trong `db.json` |
 |---|---|
 | `sourced` | Nhãn `verified` hoặc `supported` **và** có ít nhất một nguồn (`sources` không rỗng) |
-| `estimated` | Nhãn `estimated` hoặc `uncertain` (có phương pháp; không tính là có nguồn) |
+| `estimated` | Nhãn `estimated` hoặc `uncertain`. **Phân loại chỉ theo nhãn chất lượng.** Nhóm này **không** có nghĩa là mọi dữ kiện đều có phương pháp ước tính được ghi nhận; việc có hay không trường `method` được đếm riêng ở §2.3 (RM-F1). Không bao giờ tính là có nguồn |
 | `default` | Trường không có giá trị nghiên cứu; engine tự suy ra giá trị (ví dụ literacy: `src/engine/init.ts:33–36`; army: `init.ts:170–171`) |
 | `missing` | Nhãn `missing` rõ ràng; engine dùng giá trị dự phòng |
 | `labelled_without_source` | Nhãn `verified`/`supported` nhưng **không có nguồn**: nhãn không nhất quán |
@@ -39,6 +40,18 @@ Với 662 vùng bản đồ, công cụ đếm nhãn `pop_quality` của từng 
 - `tech_level` và `government` của thực thể.
 
 Các trường này được ghi là `not_classifiable`, không được coi là có nguồn.
+
+### 1.1. 12 nhóm phân tích và 13 khu vực của đặc tả
+
+`MASTER_SPEC_VI.md` §1.2 liệt kê **13** khu vực: châu Âu, Đông Á, Nam Á, Đông Nam Á, Trung Á, Tây Á, Trung Đông, Bắc Phi, châu Phi hạ Sahara, Bắc Mỹ, Trung Mỹ, Nam Mỹ và châu Đại Dương.
+
+Báo cáo này dùng **12 nhóm phân tích** của `tools/audit/regions.ts` (baseline):
+
+- Tây Á và Trung Đông được **gộp** thành một nhóm `west_asia` ("Tây Á & Trung Đông").
+- Báo cáo **không** phân tích hai khu vực này riêng rẽ.
+- Báo cáo **không** tuyên bố đã phân tích độc lập đủ 13 khu vực.
+- Cách phân nhóm và dữ liệu sản phẩm được giữ nguyên.
+- Nhóm "Trung Mỹ & Caribe" là tên nhóm của `regions.ts`.
 
 ## 2. Tổng quan
 
@@ -69,7 +82,7 @@ Các trường này được ghi là `not_classifiable`, không được coi là
 
 Như vậy chỉ **20,2 %** dân số khởi đầu có nhãn `verified`/`supported`.
 
-### 2.2. Theo 12 vùng vĩ mô
+### 2.2. Theo 12 nhóm phân tích (Tây Á và Trung Đông gộp)
 
 Các cột dân số, nguyên thủ và GDP/người ghi theo dạng `sourced / estimated / missing`.
 
@@ -89,6 +102,31 @@ Các cột dân số, nguyên thủ và GDP/người ghi theo dạng `sourced / 
 | Châu Đại Dương | 13 (3/10/0/0) | 1/8/4 | 1/0/11 (+1 không nguồn) | 0 | 13 | 0/0/13 | 16 | 14,3 | 26,3 | 0,030 |
 
 Phân bổ theo `kind`, số thực thể có `industrialization` nghiên cứu và đủ năm loại cho từng trường nằm trong `b3/global_data_audit.json` → `regions.<id>`.
+
+### 2.3. Độ phủ trường `method` của dữ kiện nhãn estimated/uncertain (sau review vòng 1)
+
+Số liệu theo 6 trường của §1, gộp 12 nhóm. Chi tiết từng nhóm nằm trong `b3/review1/global_data_audit.json` → `regions.<id>.method_coverage`.
+
+| Trường | Nhãn estimated | Nhãn uncertain | Có `method` | **Không có `method`** | Có `range` |
+|---|---|---|---|---|---|
+| population | 54 | 42 | 96 | 0 | 0 |
+| head_of_state | 1 | 5 | 0 | 6 | 0 |
+| army | 0 | 5 | 0 | 5 | 5 |
+| literacy | 7 | 2 | 6 | 3 | 9 |
+| laws | 262 | 0 | 0 | **262** | 0 |
+| gdp_pc_1836 | 109 | 0 | 109 | 0 | 0 |
+
+Trên **mọi** dữ kiện có nhãn bên trong 274 bản ghi thực thể (`all_entity_facts`; tái lập RM-F1 bằng công cụ, trước đây chỉ đếm bằng lệnh tạm):
+
+| Nhãn | Dữ kiện | Có `method` | Không có `method` | Có `range` |
+|---|---|---|---|---|
+| estimated | 334 | 64 | **270** | 14 |
+| uncertain | 62 | 44 | **18** | 15 |
+| supported | 294 | 15 | 279 | 0 |
+| verified | 17 | 7 | 10 | 0 |
+| missing | 297 | 156 | 141 | 0 |
+
+RM-F1 giữ nguyên: phần lớn dữ kiện nhãn estimated không ghi phương pháp. Riêng 262 bộ luật khởi đầu nhãn estimated không có `method`. Đây là phát hiện cho S1 (data contract: estimated/uncertain bắt buộc có `method`); S0 không sửa dữ liệu.
 
 ## 3. Crosswalk admin-1 × 662 vùng (raster)
 
@@ -137,9 +175,10 @@ Chi tiết nằm trong `b3/region_admin1_crosswalk_summary.json` → `land_unass
 | Tiêu chí (v3.2 §G0.5, v3.3 §3) | Trạng thái | Căn cứ |
 |---|---|---|
 | Độ phủ theo thực thể | Đạt | 274/274 thực thể, 6 trường × 5 loại |
-| Đủ 12 vùng vĩ mô | Đạt | §2.2; 0 thực thể không gán được |
+| Đủ nhóm khu vực | Đạt, với giới hạn đã nêu | §1.1, §2.2: 12 nhóm phân tích, Tây Á và Trung Đông gộp; 0 thực thể không gán được. Không tuyên bố phân tích độc lập 13 khu vực |
 | Crosswalk admin-1 × 662 vùng, không ép cha–con | Đạt | §3; 4 374 cặp, 0 vùng thiếu admin-1 |
 | Không nhầm default là sourced | Đạt | Tách `default`/`missing`/`labelled_without_source`; trường không có nhãn được ghi `not_classifiable` |
+| Không nhầm nhãn estimated với ước lượng có phương pháp | Đạt (sau review vòng 1) | §1, §2.3: nhóm theo nhãn; độ phủ `method` được đếm riêng |
 | **G0.5 tổng** | **PASS (tự đánh giá)** | Gate đánh giá **độ đầy đủ và trung thực của audit**, không phải chất lượng dữ liệu. Các thiếu hụt dữ liệu (GD-F1…F6) là phát hiện cho các giai đoạn sau, không được báo là "đã có nguồn" |
 
 ## 6. Tái lập
@@ -147,6 +186,6 @@ Chi tiết nằm trong `b3/region_admin1_crosswalk_summary.json` → `land_unass
 ```bash
 git worktree add --detach <tmp>/base 2240a8fb865e0021eec2f2f4f1c6803528be9e2c
 (cd <tmp>/base && npm ci && npm run build)
-npx tsx tools/audit/s0/global_data_audit.ts <tmp>/base docs/audit/s0/b3/global_data_audit.json
+npx tsx tools/audit/s0/global_data_audit.ts <tmp>/base docs/audit/s0/b3/review1/global_data_audit.json   # công cụ sau review vòng 1
 npx tsx tools/audit/s0/admin1_crosswalk.ts <tmp>/base docs/audit/s0/b3/region_admin1_crosswalk.csv docs/audit/s0/b3/region_admin1_crosswalk_summary.json
 ```

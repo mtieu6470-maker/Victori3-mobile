@@ -1,0 +1,732 @@
+{
+  "schema": "s0-probe-war-duration-v1",
+  "scenario": {
+    "mode": "sandbox",
+    "seed": 1,
+    "years": 100,
+    "final_tick": 1200
+  },
+  "system_order": [
+    "economy",
+    "population",
+    "politics",
+    "secession",
+    "technology",
+    "diplomacy",
+    "military",
+    "events",
+    "ai",
+    "divergence"
+  ],
+  "facts": {
+    "wars_seen": 57,
+    "wars_ended": 57,
+    "wars_active_at_final_tick": 0,
+    "declared_wars_with_firstSeen_equal_start": 49,
+    "declared_wars_ended": 49,
+    "initial_wars": [
+      {
+        "id": "war_carlist_1",
+        "name": "First Carlist War",
+        "start": -1
+      },
+      {
+        "id": "war_texas",
+        "name": "Texas Revolution",
+        "start": -1
+      },
+      {
+        "id": "war_farroupilha",
+        "name": "Ragamuffin (Farroupilha) War",
+        "start": -1
+      },
+      {
+        "id": "war_caucasus_imamate",
+        "name": "Murid War (Caucasian Imamate)",
+        "start": -1
+      },
+      {
+        "id": "war_circassia",
+        "name": "Russo-Circassian War",
+        "start": -1
+      },
+      {
+        "id": "war_algeria_abd",
+        "name": "French war against Abd al-Qadir",
+        "start": -1
+      },
+      {
+        "id": "war_seminole_2",
+        "name": "Second Seminole War",
+        "start": -1
+      },
+      {
+        "id": "war_xhosa_6",
+        "name": "Sixth Frontier War",
+        "start": -1
+      }
+    ],
+    "ended_by_cause": {
+      "capitulation": 52,
+      "collapse": 2,
+      "exhaustion after twelve years": 3
+    },
+    "max_monthsAtEnd": 145,
+    "max_activeMonthEnds": 144,
+    "exhaustion_rule_wars": [
+      {
+        "name": "First Carlist War",
+        "start": -1,
+        "endTick": 144,
+        "monthsAtEnd": 145,
+        "activeMonthEnds": 144
+      },
+      {
+        "name": "Texas Revolution",
+        "start": -1,
+        "endTick": 144,
+        "monthsAtEnd": 145,
+        "activeMonthEnds": 144
+      },
+      {
+        "name": "Ragamuffin (Farroupilha) War",
+        "start": -1,
+        "endTick": 144,
+        "monthsAtEnd": 145,
+        "activeMonthEnds": 144
+      }
+    ],
+    "wars_over_144_monthsAtEnd": 3,
+    "wars_over_145_monthsAtEnd": 0
+  },
+  "ended": [
+    {
+      "id": "war_caucasus_imamate",
+      "name": "Murid War (Caucasian Imamate)",
+      "start": -1,
+      "historicalSeed": true,
+      "firstSeen": 0,
+      "endTick": 5,
+      "monthsAtEnd": 6,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_circassia",
+      "name": "Russo-Circassian War",
+      "start": -1,
+      "historicalSeed": true,
+      "firstSeen": 0,
+      "endTick": 5,
+      "monthsAtEnd": 6,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_algeria_abd",
+      "name": "French war against Abd al-Qadir",
+      "start": -1,
+      "historicalSeed": true,
+      "firstSeen": 0,
+      "endTick": 5,
+      "monthsAtEnd": 6,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_seminole_2",
+      "name": "Second Seminole War",
+      "start": -1,
+      "historicalSeed": true,
+      "firstSeen": 0,
+      "endTick": 5,
+      "monthsAtEnd": 6,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_xhosa_6",
+      "name": "Sixth Frontier War",
+      "start": -1,
+      "historicalSeed": true,
+      "firstSeen": 0,
+      "endTick": 5,
+      "monthsAtEnd": 6,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_2",
+      "name": "Kingdom of Prussia–Grand Duchy of Mecklenburg-Schwerin War",
+      "start": 1,
+      "historicalSeed": false,
+      "firstSeen": 1,
+      "endTick": 6,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_4",
+      "name": "Egypt under Muhammad Ali–Oromo groups and the Gibe kingdoms War",
+      "start": 1,
+      "historicalSeed": false,
+      "firstSeen": 1,
+      "endTick": 6,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_6",
+      "name": "Emirate of Nejd (Second Saudi State)–Jabal Shammar (Ha'il) War",
+      "start": 1,
+      "historicalSeed": false,
+      "firstSeen": 1,
+      "endTick": 6,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_5",
+      "name": "Khanate of Kokand–Uzbek khanates of Kunduz and Balkh War",
+      "start": 1,
+      "historicalSeed": false,
+      "firstSeen": 1,
+      "endTick": 7,
+      "monthsAtEnd": 6,
+      "activeMonthEnds": 6,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_11",
+      "name": "Beylik of Constantine (Ahmed Bey)–Kabylia War",
+      "start": 2,
+      "historicalSeed": false,
+      "firstSeen": 2,
+      "endTick": 7,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_12",
+      "name": "Emirate of Kabul (Dost Mohammad Khan)–Hazarajat War",
+      "start": 2,
+      "historicalSeed": false,
+      "firstSeen": 2,
+      "endTick": 7,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_19",
+      "name": "Principality of Kandahar (Dil Khan sardars)–Hazarajat War",
+      "start": 4,
+      "historicalSeed": false,
+      "firstSeen": 4,
+      "endTick": 7,
+      "monthsAtEnd": 3,
+      "activeMonthEnds": 3,
+      "cause": "collapse"
+    },
+    {
+      "id": "war_20",
+      "name": "Emirate of Bukhara–Uzbek khanates of Kunduz and Balkh War",
+      "start": 4,
+      "historicalSeed": false,
+      "firstSeen": 4,
+      "endTick": 7,
+      "monthsAtEnd": 3,
+      "activeMonthEnds": 3,
+      "cause": "collapse"
+    },
+    {
+      "id": "war_17",
+      "name": "Zaydi Imamate of Yemen–Hadramawt War",
+      "start": 3,
+      "historicalSeed": false,
+      "firstSeen": 3,
+      "endTick": 8,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_15",
+      "name": "Kingdom of the Two Sicilies–Papal States War",
+      "start": 3,
+      "historicalSeed": false,
+      "firstSeen": 3,
+      "endTick": 9,
+      "monthsAtEnd": 6,
+      "activeMonthEnds": 6,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_43",
+      "name": "Kingdom of Prussia–Kingdom of Hanover War",
+      "start": 25,
+      "historicalSeed": false,
+      "firstSeen": 25,
+      "endTick": 32,
+      "monthsAtEnd": 7,
+      "activeMonthEnds": 7,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_carlist_1",
+      "name": "First Carlist War",
+      "start": -1,
+      "historicalSeed": true,
+      "firstSeen": 0,
+      "endTick": 144,
+      "monthsAtEnd": 145,
+      "activeMonthEnds": 144,
+      "cause": "exhaustion after twelve years"
+    },
+    {
+      "id": "war_texas",
+      "name": "Texas Revolution",
+      "start": -1,
+      "historicalSeed": true,
+      "firstSeen": 0,
+      "endTick": 144,
+      "monthsAtEnd": 145,
+      "activeMonthEnds": 144,
+      "cause": "exhaustion after twelve years"
+    },
+    {
+      "id": "war_farroupilha",
+      "name": "Ragamuffin (Farroupilha) War",
+      "start": -1,
+      "historicalSeed": true,
+      "firstSeen": 0,
+      "endTick": 144,
+      "monthsAtEnd": 145,
+      "activeMonthEnds": 144,
+      "cause": "exhaustion after twelve years"
+    },
+    {
+      "id": "war_162",
+      "name": "Kingdom of Prussia–Grand Duchy of Oldenburg War",
+      "start": 145,
+      "historicalSeed": false,
+      "firstSeen": 145,
+      "endTick": 152,
+      "monthsAtEnd": 7,
+      "activeMonthEnds": 7,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_166",
+      "name": "Kingdom of Prussia–Kingdom of Denmark War",
+      "start": 169,
+      "historicalSeed": false,
+      "firstSeen": 169,
+      "endTick": 175,
+      "monthsAtEnd": 6,
+      "activeMonthEnds": 6,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_171",
+      "name": "Russian Empire–Turkmen tribes (Merv, Akhal, Tejen) War",
+      "start": 216,
+      "historicalSeed": false,
+      "firstSeen": 216,
+      "endTick": 221,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_174",
+      "name": "Egypt under Muhammad Ali–Harar and the northern Somali clans War",
+      "start": 249,
+      "historicalSeed": false,
+      "firstSeen": 249,
+      "endTick": 254,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_175",
+      "name": "Egypt under Muhammad Ali–Somali clans of the south and the Benadir War",
+      "start": 273,
+      "historicalSeed": false,
+      "firstSeen": 273,
+      "endTick": 278,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_179",
+      "name": "Russian Empire–Senior Zhuz Kazakhs (Semirechye) War",
+      "start": 368,
+      "historicalSeed": false,
+      "firstSeen": 368,
+      "endTick": 373,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_181",
+      "name": "United States of America–Oregon Country (joint British-American occupation) War",
+      "start": 405,
+      "historicalSeed": false,
+      "firstSeen": 405,
+      "endTick": 410,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_182",
+      "name": "United States of America–Northern Plains (Lakota, Cheyenne, Arapaho) War",
+      "start": 525,
+      "historicalSeed": false,
+      "firstSeen": 525,
+      "endTick": 530,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_183",
+      "name": "Emirate of Nejd (Second Saudi State)–Trucial sheikhdoms, Qatar and Bahrain War",
+      "start": 713,
+      "historicalSeed": false,
+      "firstSeen": 713,
+      "endTick": 718,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_184",
+      "name": "Beylik of Constantine (Ahmed Bey)–Algerian oases (Mzab, Ouargla, Touat) War",
+      "start": 730,
+      "historicalSeed": false,
+      "firstSeen": 730,
+      "endTick": 735,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_185",
+      "name": "Egypt under Muhammad Ali–Kikuyu, Kamba and Maasai lands War",
+      "start": 745,
+      "historicalSeed": false,
+      "firstSeen": 745,
+      "endTick": 750,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_186",
+      "name": "Kingdom of the French (July Monarchy)–Wolof and Serer kingdoms (Cayor, Walo, Jolof) War",
+      "start": 755,
+      "historicalSeed": false,
+      "firstSeen": 755,
+      "endTick": 760,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_188",
+      "name": "Egypt under Muhammad Ali–Nyamwezi and the Tanganyika interior War",
+      "start": 769,
+      "historicalSeed": false,
+      "firstSeen": 769,
+      "endTick": 774,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_189",
+      "name": "Egypt under Muhammad Ali–Kingdoms of Rwanda and Burundi War",
+      "start": 793,
+      "historicalSeed": false,
+      "firstSeen": 793,
+      "endTick": 798,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_191",
+      "name": "Sokoto Caliphate–Mossi kingdoms (Ouagadougou, Yatenga) War",
+      "start": 825,
+      "historicalSeed": false,
+      "firstSeen": 825,
+      "endTick": 830,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_192",
+      "name": "United States of America–Central Plains (Pawnee, Osage, Kansa) War",
+      "start": 845,
+      "historicalSeed": false,
+      "firstSeen": 845,
+      "endTick": 850,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_194",
+      "name": "Egypt under Muhammad Ali–Luba Kingdom War",
+      "start": 865,
+      "historicalSeed": false,
+      "firstSeen": 865,
+      "endTick": 870,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_195",
+      "name": "United States of America–Upper Missouri (Blackfoot, Crow, Mandan) War",
+      "start": 869,
+      "historicalSeed": false,
+      "firstSeen": 869,
+      "endTick": 874,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_196",
+      "name": "Egypt under Muhammad Ali–Azande and Ubangi-Uele peoples War",
+      "start": 913,
+      "historicalSeed": false,
+      "firstSeen": 913,
+      "endTick": 918,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_197",
+      "name": "Egypt under Muhammad Ali–Middle Congo basin peoples War",
+      "start": 937,
+      "historicalSeed": false,
+      "firstSeen": 937,
+      "endTick": 942,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_198",
+      "name": "Russian Empire–Kyrgyz tribes of the Tian Shan War",
+      "start": 952,
+      "historicalSeed": false,
+      "firstSeen": 952,
+      "endTick": 957,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_199",
+      "name": "Egypt under Muhammad Ali–Lunda Empire (Mwata Yamvo) War",
+      "start": 961,
+      "historicalSeed": false,
+      "firstSeen": 961,
+      "endTick": 966,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_200",
+      "name": "Merina Kingdom of Madagascar–Sakalava and southern Madagascar War",
+      "start": 970,
+      "historicalSeed": false,
+      "firstSeen": 970,
+      "endTick": 975,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_201",
+      "name": "Egypt under Muhammad Ali–Duala and Grassfields kingdoms War",
+      "start": 985,
+      "historicalSeed": false,
+      "firstSeen": 985,
+      "endTick": 990,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_202",
+      "name": "Egypt under Muhammad Ali–Igbo communities and the Aro confederacy War",
+      "start": 1009,
+      "historicalSeed": false,
+      "firstSeen": 1009,
+      "endTick": 1014,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_203",
+      "name": "Kingdom of the French (July Monarchy)–Imamate of Futa Toro War",
+      "start": 1019,
+      "historicalSeed": false,
+      "firstSeen": 1019,
+      "endTick": 1024,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_204",
+      "name": "United Kingdom of Great Britain and Ireland–Temne and Mende chiefdoms War",
+      "start": 1025,
+      "historicalSeed": false,
+      "firstSeen": 1025,
+      "endTick": 1030,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_205",
+      "name": "Egypt under Muhammad Ali–Ovimbundu kingdoms (Bié, Bailundo) War",
+      "start": 1033,
+      "historicalSeed": false,
+      "firstSeen": 1033,
+      "endTick": 1038,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_206",
+      "name": "Kingdom of the French (July Monarchy)–Bambara kingdoms of Ségou and Kaarta War",
+      "start": 1043,
+      "historicalSeed": false,
+      "firstSeen": 1043,
+      "endTick": 1048,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_207",
+      "name": "United Kingdom of Great Britain and Ireland–Kong and Senufo states War",
+      "start": 1049,
+      "historicalSeed": false,
+      "firstSeen": 1049,
+      "endTick": 1054,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_208",
+      "name": "Egypt under Muhammad Ali–Shona states War",
+      "start": 1057,
+      "historicalSeed": false,
+      "firstSeen": 1057,
+      "endTick": 1062,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_212",
+      "name": "Egypt under Muhammad Ali–Kingdom of Benin and the Niger Delta states War",
+      "start": 1081,
+      "historicalSeed": false,
+      "firstSeen": 1081,
+      "endTick": 1086,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_213",
+      "name": "Sultanate of Wadai–Bagirmi Sultanate War",
+      "start": 1082,
+      "historicalSeed": false,
+      "firstSeen": 1082,
+      "endTick": 1087,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_214",
+      "name": "Egypt under Muhammad Ali–Kingdom of Kongo War",
+      "start": 1105,
+      "historicalSeed": false,
+      "firstSeen": 1105,
+      "endTick": 1110,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_216",
+      "name": "Egypt under Muhammad Ali–Bunyoro and Toro War",
+      "start": 1129,
+      "historicalSeed": false,
+      "firstSeen": 1129,
+      "endTick": 1134,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_217",
+      "name": "Egypt under Muhammad Ali–Tswana chiefdoms War",
+      "start": 1153,
+      "historicalSeed": false,
+      "firstSeen": 1153,
+      "endTick": 1158,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_218",
+      "name": "Kingdom of the French (July Monarchy)–Moorish emirates (Trarza, Brakna, Adrar) War",
+      "start": 1171,
+      "historicalSeed": false,
+      "firstSeen": 1171,
+      "endTick": 1176,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    },
+    {
+      "id": "war_219",
+      "name": "Egypt under Muhammad Ali–Kuba and Kasai peoples War",
+      "start": 1177,
+      "historicalSeed": false,
+      "firstSeen": 1177,
+      "endTick": 1182,
+      "monthsAtEnd": 5,
+      "activeMonthEnds": 5,
+      "cause": "capitulation"
+    }
+  ],
+  "active_at_final_tick": []
+}

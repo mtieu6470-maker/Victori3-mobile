@@ -1,0 +1,20 @@
+# Review round 1 checks (working tree on top of 1d8ad6e, before commit). For grep lines, exit 1 = no matching line. *.log files are git-ignored, so git status does not list them; they are committed with git add -f.
+$ npx tsc --noEmit
+[exit 0]
+$ git diff --quiet 2240a8fb865e0021eec2f2f4f1c6803528be9e2c -- . ':(exclude)docs' ':(exclude)README.md' ':(exclude).github/workflows/android-apk.yml' ':(exclude)tools/audit/s0'   # product source vs baseline, working tree
+[exit 0]
+$ git status --porcelain --untracked-files=all   # full list of changes
+ M docs/audit/s0/S0_B3_RESULTS.md
+ M docs/audit/s0/S0_GLOBAL_DATA_AUDIT.md
+ M docs/audit/s0/S0_REQUIREMENT_MATRIX.csv
+ M docs/audit/s0/S0_TEST_CATALOG.md
+ M tools/audit/s0/global_data_audit.ts
+?? docs/audit/s0/b3/review1/global_data_audit.json
+?? docs/audit/s0/b3/review1/probe_war_duration_historical_seed1_100y.json
+?? docs/audit/s0/b3/review1/probe_war_duration_historical_seed1_40y.json
+?? docs/audit/s0/b3/review1/probe_war_duration_sandbox_seed1_100y.json
+?? docs/audit/s0/b3/review1/probe_war_duration_sandbox_seed1_40y.json
+?? tools/audit/s0/probe_war_duration.ts
+[exit 0]
+$ grep -rIlE '<secret patterns: gmail, token=, sig=, X-Amz, Signature=, private key header, password>' docs/audit/s0/b3/review1 tools/audit/s0 docs/audit/s0/S0_B3_RESULTS.md docs/audit/s0/S0_GLOBAL_DATA_AUDIT.md docs/audit/s0/S0_TEST_CATALOG.md
+[exit 1]
