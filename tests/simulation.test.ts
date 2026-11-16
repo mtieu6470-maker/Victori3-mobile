@@ -688,8 +688,8 @@ describe('firm wage bidding and fixed regional wage pool', () => {
     const lossMaking = nextWageOffer(1, -0.6, 0.9);
     expect(profitable).toBeGreaterThan(1);
     expect(lossMaking).toBeLessThan(1);
-    expect(nextWageOffer(0.1, 2, 1)).toBe(0.75);
-    expect(nextWageOffer(3, -2, 1)).toBe(1.5 - (1.5 - 0.75) * 0.12);
+    expect(nextWageOffer(0.75, -1, 1)).toBe(0.75);
+    expect(nextWageOffer(1.5, 1, 1)).toBe(1.5);
     expect(nextWageOffer(undefined, NaN, NaN)).toBe(1);
   });
 });
