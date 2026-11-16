@@ -4,7 +4,7 @@ import { run, fresh, stepMonth } from './helpers';
 import { serialize, deserialize } from '../src/engine/save';
 import { data } from '../src/engine/data/db';
 import { BUILDINGS, STRATA } from '../src/engine/types';
-import { availableProductionMethods, calculatePopulationEconomy, calibrateCohortLivingStandards, factoryInputFulfillment, LEVEL_WORKERS, populationConsumptionDemand, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
+import { allocateCompetingWorkers, availableProductionMethods, calculatePopulationEconomy, calibrateCohortLivingStandards, factoryInputFulfillment, LEVEL_WORKERS, nextEmploymentTarget, populationConsumptionDemand, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
 import { execute } from '../src/engine/commands';
 import { updatePolitics } from '../src/engine/systems/politics';
 import { mixPopulationStrata, stratifiedNaturalChange } from '../src/engine/systems/population';
@@ -446,6 +446,64 @@ describe('building-level staffing ledger', () => {
       }
       const employedLabour = region.popEconomy!.employed.reduce((sum, value) => sum + value, 0);
       expect(totalBuildingStaff, region.id).toBeLessThanOrEqual(employedLabour + 1e-6);
+    }
+  });
+});
+
+
+describe('profit-driven building employment', () => {
+  it('moves hiring targets gradually toward partial-employment profitability equilibrium', () => {
+    const lossTarget = nextEmploymentTarget(0.9, -0.8);
+    const profitableTarget = nextEmploymentTarget(0.5, 0.8);
+    const neutralTarget = nextEmploymentTarget(0.55, 0);
+
+    expect(lossTarget).toBeLessThan(0.9);
+    expect(lossTarget).toBeGreaterThan(0.1);
+    expect(profitableTarget).toBeGreaterThan(0.5);
+    expect(neutralTarget).toBeGreaterThan(0.55);
+    expect(neutralTarget).toBeLessThan(0.62);
+    expect(nextEmploymentTarget(undefined, -5)).toBeGreaterThanOrEqual(0.1);
+    expect(nextEmploymentTarget(undefined, 5)).toBeLessThanOrEqual(1);
+  });
+
+  it('allocates scarce labor toward more attractive employers without exceeding demand', () => {
+    const allocated = allocateCompetingWorkers(1000, [
+      { building: 'mine', workersWanted: 1000, attractiveness: 1.8 },
+      { building: 'logging', workersWanted: 1000, attractiveness: 0.4 },
+    ]);
+    const mine = allocated.mine ?? 0;
+    const logging = allocated.logging ?? 0;
+
+    expect(mine).toBeGreaterThan(logging);
+    expect(mine + logging).toBeCloseTo(1000, 6);
+    expect(mine).toBeLessThanOrEqual(1000);
+    expect(logging).toBeLessThanOrEqual(1000);
+  });
+
+  it('keeps employment targets and realized margins finite in both simulation modes', () => {
+    for (const mode of ['historical', 'sandbox'] as const) {
+      const state = fresh(mode, 92, 'GBR');
+      stepMonth(state);
+      const regions = state.regions.filter((region) => region.owner === 'GBR' && region.pop > 0);
+      expect(regions.length).toBeGreaterThan(0);
+      for (const region of regions) {
+        const targets = region.popEconomy?.employmentTargetByBuilding;
+        expect(targets).toBeDefined();
+        for (const building of BUILDINGS) {
+          const target = targets?.[building];
+          if (target !== undefined) {
+            expect(Number.isFinite(target), region.id + ' ' + building).toBe(true);
+            expect(target).toBeGreaterThanOrEqual(0.1);
+            expect(target).toBeLessThanOrEqual(1);
+          }
+          const margin = region.popEconomy?.profitabilityByBuilding?.[building];
+          if (margin !== undefined) {
+            expect(Number.isFinite(margin), region.id + ' ' + building).toBe(true);
+            expect(margin).toBeGreaterThanOrEqual(-1);
+            expect(margin).toBeLessThanOrEqual(1);
+          }
+        }
+      }
     }
   });
 });

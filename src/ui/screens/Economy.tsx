@@ -163,6 +163,19 @@ export function openBuilding(st: GameState, b: Building, scope?: string) {
   const levels = regs.reduce((s, r) => s + r.buildings[b], 0);
   const capacity = levels * LEVEL_WORKERS;
   const actualEmployment = staffedWorkers(regs, b);
+  const marginRows = regs.map((region) => ({
+    margin: region.popEconomy?.profitabilityByBuilding?.[b],
+    workers: region.popEconomy?.employedByBuilding?.[b] ?? 0,
+  })).filter((row) => row.margin !== undefined && row.workers > 0);
+  const marginWorkers = marginRows.reduce((sum, row) => sum + row.workers, 0);
+  const operatingMargin = marginWorkers > 0
+    ? marginRows.reduce((sum, row) => sum + (row.margin ?? 0) * row.workers, 0) / marginWorkers
+    : null;
+  const targetRows = regs.filter((region) => region.popEconomy?.employmentTargetByBuilding?.[b] !== undefined);
+  const targetCapacity = targetRows.reduce((sum, region) => sum + region.buildings[b] * LEVEL_WORKERS, 0);
+  const targetUtilization = targetCapacity > 0
+    ? targetRows.reduce((sum, region) => sum + (region.popEconomy?.employmentTargetByBuilding?.[b] ?? 1) * region.buildings[b] * LEVEL_WORKERS, 0) / targetCapacity
+    : null;
   details.toggle({ key: `bld:${b}`, title: BUILD_VI[b], ctx: `${fmt(levels)} cấp · ${regs.length} vùng`, scope, body: () => (
     <div>
       <div class="kv"><span class="k">Sản phẩm</span><span class="v">{outText(b)}</span></div>
@@ -172,6 +185,9 @@ export function openBuilding(st: GameState, b: Building, scope?: string) {
           <div class="kv"><span class="k">Đang làm</span><span class="v num">{actualEmployment === null ? '—' : compact(actualEmployment)}</span></div>
           <div class="kv"><span class="k">Sức chứa tối đa</span><span class="v num">{compact(capacity)}</span></div>
           <div class="kv"><span class="k">Công suất sử dụng</span><span class="v num">{actualEmployment === null ? 'Chờ dữ liệu' : pct(actualEmployment / Math.max(1, capacity))}</span></div>
+          <div class="kv"><span class="k">Biên lợi nhuận sau nguyên liệu và lương</span><span class={`v num ${operatingMargin === null ? '' : operatingMargin >= 0 ? 'pos' : 'neg'}`}>{operatingMargin === null ? 'Chưa có dữ liệu' : pct(operatingMargin, 1)}</span></div>
+          <div class="kv"><span class="k">Mục tiêu nhân sự của doanh nghiệp</span><span class="v num">{targetUtilization === null ? 'Chưa có dữ liệu' : pct(targetUtilization)}</span></div>
+          <div class="note">Mục tiêu nhân sự thay đổi dần theo biên lợi nhuận. Số lao động thực tế còn bị giới hạn bởi nguồn lao động và mức cạnh tranh giữa các ngành.</div>
         </Sec>
       )}
       {PRODUCTION_METHODS[b]?.length ? (
@@ -200,11 +216,18 @@ export function openBuilding(st: GameState, b: Building, scope?: string) {
           const staffed = r.popEconomy?.employedByBuilding?.[b];
           const regionCapacity = r.buildings[b] * LEVEL_WORKERS;
           const hasStaffingModel = b !== 'railway' && b !== 'university';
+          const margin = r.popEconomy?.profitabilityByBuilding?.[b];
+          const target = r.popEconomy?.employmentTargetByBuilding?.[b];
+          const operatingText = [
+            margin === undefined ? null : 'biên ' + pct(margin, 1),
+            target === undefined ? null : 'mục tiêu ' + pct(target),
+          ].filter((value): value is string => value !== null).join(' · ');
           const staffingText = !hasStaffingModel
             ? 'chưa có mô hình nhân sự'
             : staffed === undefined
               ? 'chờ dữ liệu nhân công'
-              : compact(staffed) + ' / ' + compact(regionCapacity) + ' người · ' + pct(staffed / Math.max(1, regionCapacity));
+              : compact(staffed) + ' / ' + compact(regionCapacity) + ' người · ' + pct(staffed / Math.max(1, regionCapacity))
+                + (operatingText ? ' · ' + operatingText : '');
           return <div class="row tap" key={r.id} onClick={() => focusRegion(r.id)}>
             <div class="grow"><div class="t sm">{regionName(r.id)}</div><div class="s">Cấp {r.buildings[b]} · {staffingText}</div></div>
           </div>;
@@ -246,7 +269,7 @@ export function BuildingsTab({ st }: { st: GameState }) {
           ])}
         </tbody>
       </table>
-      <div class="note">Số đang làm là lao động engine thực tế phân bổ; sức chứa tối đa là {fmt(LEVEL_WORKERS)} người mỗi cấp. Đường sắt và đại học chưa có mô hình nhân sự riêng.</div>
+      <div class="note">Số đang làm là lao động engine thực tế phân bổ; doanh nghiệp điều chỉnh mục tiêu nhân sự theo lợi nhuận và cạnh tranh nguồn lao động. Sức chứa tối đa là {fmt(LEVEL_WORKERS)} người mỗi cấp. Đường sắt và đại học chưa có mô hình nhân sự riêng.</div>
     </div>
   );
 }

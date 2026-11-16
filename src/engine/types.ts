@@ -75,6 +75,10 @@ export interface PopulationEconomy {
   sol: number[]; // class standard of living, 0..1
   /** Actual staffed workers by productive building; absent in saves predating the staffing ledger. */
   employedByBuilding?: Partial<Record<Building, number>>;
+  /** Last realized operating margin after estimated material and wage costs, in [-1, 1]. */
+  profitabilityByBuilding?: Partial<Record<Building, number>>;
+  /** Smoothed target utilization for the next hiring cycle, in [0.1, 1]. */
+  employmentTargetByBuilding?: Partial<Record<Building, number>>;
 }
 
 export interface Region {

@@ -82,9 +82,92 @@ export function openness(c: Country, coastal: boolean): number {
   return clamp(o, 0.01, 0.92);
 }
 
-interface RegionCalc { supply: Record<Good, number>; demand: Record<Good, number>; services: number; inputsNeed: Record<Good, number>; factoryOut: Record<Good, number>; factoryInputs: Partial<Record<Good, Partial<Record<Good, number>>>>; employment: number[]; employedByBuilding: Partial<Record<Building, number>>; grainLocal: number; grainNeed: number }
+interface BuildingFlow {
+  outputs: Partial<Record<Good, number>>;
+  inputs: Partial<Record<Good, number>>;
+  workerMix: Partial<Record<number, number>>;
+}
+interface RegionCalc { supply: Record<Good, number>; demand: Record<Good, number>; services: number; inputsNeed: Record<Good, number>; factoryOut: Record<Good, number>; factoryInputs: Partial<Record<Good, Partial<Record<Good, number>>>>; employment: number[]; employedByBuilding: Partial<Record<Building, number>>; buildingFlows: Partial<Record<Building, BuildingFlow>>; grainLocal: number; grainNeed: number }
 
 const zero = () => Object.fromEntries(GOODS.map((g) => [g, 0])) as Record<Good, number>;
+
+const PRODUCTIVE_BUILDINGS: Building[] = [
+  'plantation', 'mine', 'logging', 'textile_mill', 'ironworks',
+  'tool_works', 'arms_works', 'luxury_workshop',
+];
+
+export interface LaborMarketJob {
+  building: Building;
+  workersWanted: number;
+  attractiveness?: number;
+}
+
+/**
+ * Allocate one finite occupational labor pool across competing employers.
+ * Higher profitability improves a building's share, but no job can exceed its demand.
+ */
+export function allocateCompetingWorkers(
+  availableWorkers: number,
+  jobs: LaborMarketJob[],
+): Partial<Record<Building, number>> {
+  const result: Partial<Record<Building, number>> = {};
+  const candidates = jobs.map((job) => {
+    const demand = Number.isFinite(job.workersWanted) ? Math.max(0, job.workersWanted) : 0;
+    result[job.building] = 0;
+    return {
+      building: job.building,
+      remaining: demand,
+      attractiveness: clamp(Number.isFinite(job.attractiveness ?? 1) ? (job.attractiveness ?? 1) : 1, 0.25, 2),
+      allocated: 0,
+    };
+  }).filter((job) => job.remaining > 1e-6);
+  let remainingWorkers = Number.isFinite(availableWorkers) ? Math.max(0, availableWorkers) : 0;
+
+  // Each pass redistributes labor that a capped employer could not absorb.
+  for (let pass = 0; pass <= candidates.length && remainingWorkers > 1e-6; pass++) {
+    const active = candidates.filter((job) => job.remaining > 1e-6);
+    if (!active.length) break;
+    const totalWeight = active.reduce((sum, job) => sum + job.remaining * job.attractiveness, 0);
+    if (totalWeight <= 1e-9) break;
+    const roundBudget = remainingWorkers;
+    let assignedThisPass = 0;
+    for (const job of active) {
+      const share = roundBudget * (job.remaining * job.attractiveness) / totalWeight;
+      const assigned = Math.min(job.remaining, Math.max(0, share));
+      job.remaining -= assigned;
+      job.allocated += assigned;
+      assignedThisPass += assigned;
+    }
+    remainingWorkers = Math.max(0, remainingWorkers - assignedThisPass);
+    if (assignedThisPass <= 1e-6) break;
+  }
+
+  for (const job of candidates) result[job.building] = job.allocated;
+  return result;
+}
+
+/** Smooth monthly adjustment toward a profitability-dependent partial-employment equilibrium. */
+export function nextEmploymentTarget(previousUtilization: number | undefined, profitMargin: number): number {
+  const previous = Number.isFinite(previousUtilization) ? clamp(previousUtilization as number, 0.1, 1) : 1;
+  const margin = Number.isFinite(profitMargin) ? clamp(profitMargin, -1, 1) : 0;
+  const desired = clamp(0.62 + margin * 0.72, 0.1, 1);
+  return clamp(previous + (desired - previous) * 0.16, 0.1, 1);
+}
+
+function employmentTarget(r: Region, building: Building): number {
+  const value = Number(r.popEconomy?.employmentTargetByBuilding?.[building]);
+  return Number.isFinite(value) ? clamp(value, 0.1, 1) : 1;
+}
+
+function laborAttractiveness(r: Region, building: Building): number {
+  const margin = Number(r.popEconomy?.profitabilityByBuilding?.[building]);
+  return Number.isFinite(margin) ? clamp(1 + margin * 1.2, 0.25, 2) : 1;
+}
+
+function addFlowAmount(flow: Partial<Record<Good, number>>, good: Good, amount: number): void {
+  if (!Number.isFinite(amount) || amount <= 0) return;
+  flow[good] = (flow[good] ?? 0) + amount;
+}
 
 /** Returns the share of planned factory output supported by that product's own input recipe. */
 export function factoryInputFulfillment(
@@ -240,6 +323,10 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const factoryInputs: Partial<Record<Good, Partial<Record<Good, number>>>> = {};
     const employment = new Array(STRATA.length).fill(0);
     const employedByBuilding: Partial<Record<Building, number>> = {};
+    const buildingFlows: Partial<Record<Building, BuildingFlow>> = {};
+    const flowFor = (building: Building): BuildingFlow => (
+      buildingFlows[building] ??= { outputs: {}, inputs: {}, workerMix: {} }
+    );
     // Every cohort has a finite labour pool. Allocate it once instead of allowing the
     // same labourers to be counted simultaneously by farms, plantations, mines and logging.
     employment[S.peasants] = LF * sh[S.peasants];
@@ -252,45 +339,91 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const agriWorkers = employment[S.peasants] + farmLaborers;
     const grain = agriWorkers * 650 * terr * (1 + (r.res.includes('grain') ? 0.15 : 0) + (r.res.includes('live') ? 0.05 : 0)) * (1 + techEffect(c, 'farm_efficiency')) * infra * A * dev * blight * occupied;
     supply.grain += grain;
-    // plantations
+    // Plantation slaves cannot freely choose another employer; the remaining laborer
+    // positions compete with mines and logging camps for the same finite workforce.
     const plantCap = r.buildings.plantation * LEVEL_WORKERS;
+    const plantationTarget = plantCap * employmentTarget(r, 'plantation');
     const slavePool = LF * sh[S.slaves];
-    const plantationSlaves = Math.min(plantCap, slavePool);
-    const plantationLaborers = Math.min(Math.max(0, plantCap - plantationSlaves), Math.min(laborersAvailable, LF * sh[S.laborers] * 0.25));
+    const plantationSlaves = Math.min(plantationTarget, slavePool);
+    const laborerJobs: LaborMarketJob[] = [
+      {
+        building: 'plantation',
+        workersWanted: Math.min(Math.max(0, plantationTarget - plantationSlaves), LF * sh[S.laborers] * 0.25),
+        attractiveness: laborAttractiveness(r, 'plantation'),
+      },
+      {
+        building: 'mine',
+        workersWanted: Math.min(r.buildings.mine * LEVEL_WORKERS * employmentTarget(r, 'mine'), LF * sh[S.laborers] * 0.6),
+        attractiveness: laborAttractiveness(r, 'mine'),
+      },
+      {
+        building: 'logging',
+        workersWanted: Math.min(r.buildings.logging * LEVEL_WORKERS * employmentTarget(r, 'logging'), LF * sh[S.laborers] * 0.4),
+        attractiveness: laborAttractiveness(r, 'logging'),
+      },
+    ];
+    const laborerAllocation = allocateCompetingWorkers(laborersAvailable, laborerJobs);
+    const plantationLaborers = laborerAllocation.plantation ?? 0;
+    const mineWorkers = laborerAllocation.mine ?? 0;
+    const logWorkers = laborerAllocation.logging ?? 0;
+    const usedLaborers = plantationLaborers + mineWorkers + logWorkers;
+    laborersAvailable = Math.max(0, laborersAvailable - usedLaborers);
+    employment[S.laborers] += usedLaborers;
+
     const plantWorkers = plantationSlaves + plantationLaborers;
     employedByBuilding.plantation = plantWorkers;
     employment[S.slaves] += plantationSlaves;
-    employment[S.laborers] += plantationLaborers;
-    laborersAvailable -= plantationLaborers;
     if (plantWorkers > 0) {
       const kinds: Good[] = []; if (r.res.includes('cott')) kinds.push('cotton'); if (r.res.includes('opium')) kinds.push('opium'); if (r.res.includes('cash')) kinds.push('cash_crops');
       if (!kinds.length) kinds.push('cash_crops');
-      for (const k of kinds) supply[k] += (plantWorkers * 900 * A * infra * dev * occupied) / kinds.length;
+      const flow = flowFor('plantation');
+      flow.workerMix[S.slaves] = plantationSlaves;
+      flow.workerMix[S.laborers] = plantationLaborers;
+      for (const k of kinds) {
+        const output = (plantWorkers * 900 * A * infra * dev * occupied) / kinds.length;
+        supply[k] += output;
+        addFlowAmount(flow.outputs, k, output);
+      }
     }
-    // slaves outside plantations work the fields
+    // Slaves outside plantations work the fields and remain in the agricultural ledger.
     const slaveFieldWorkers = Math.max(0, slavePool - plantationSlaves);
     employment[S.slaves] += slaveFieldWorkers;
     supply.grain += slaveFieldWorkers * 500 * terr * A * dev;
-    // mines and logging
-    const mineWorkers = Math.min(r.buildings.mine * LEVEL_WORKERS, LF * sh[S.laborers] * 0.6, laborersAvailable);
+
+    // Mines and logging compete with plantations for available laborers.
     employedByBuilding.mine = mineWorkers;
-    employment[S.laborers] += mineWorkers;
-    laborersAvailable -= mineWorkers;
     if (mineWorkers > 0) {
       const kinds: Good[] = []; if (r.res.includes('coal')) kinds.push('coal'); if (r.res.includes('iron')) kinds.push('iron'); if (r.res.includes('gold') || r.res.includes('silv')) kinds.push('luxury');
       if (!kinds.length) kinds.push('iron');
-      for (const k of kinds) supply[k] += (mineWorkers * 900 * (1 + techEffect(c, 'mine_efficiency')) * A * infra * dev * occupied) / kinds.length;
+      const flow = flowFor('mine');
+      flow.workerMix[S.laborers] = mineWorkers;
+      for (const k of kinds) {
+        const output = (mineWorkers * 900 * (1 + techEffect(c, 'mine_efficiency')) * A * infra * dev * occupied) / kinds.length;
+        supply[k] += output;
+        addFlowAmount(flow.outputs, k, output);
+      }
     }
-    const logWorkers = Math.min(r.buildings.logging * LEVEL_WORKERS, LF * sh[S.laborers] * 0.4, laborersAvailable);
     employedByBuilding.logging = logWorkers;
-    employment[S.laborers] += logWorkers;
-    laborersAvailable -= logWorkers;
-    supply.timber += logWorkers * 900 * A * dev * occupied + LF * sh[S.peasants] * 15 * A; // farm-side timber
-    // factories (input availability applied after market clearing)
-    let factoryWorkersLeft = LF * sh[S.workers];
+    if (logWorkers > 0) {
+      const flow = flowFor('logging');
+      flow.workerMix[S.laborers] = logWorkers;
+      const output = logWorkers * 900 * A * dev * occupied;
+      supply.timber += output;
+      addFlowAmount(flow.outputs, 'timber', output);
+    }
+    supply.timber += LF * sh[S.peasants] * 15 * A; // farm-side timber
+    // Factories recruit from one shared worker pool. Profitability from last month
+    // influences job attractiveness; the allocation still respects each building's capacity.
+    const factoryJobs = (Object.keys(RECIPES) as Building[]).map((building) => ({
+      building,
+      workersWanted: r.buildings[building] * LEVEL_WORKERS * employmentTarget(r, building),
+      attractiveness: laborAttractiveness(r, building),
+    }));
+    const factoryAllocation = allocateCompetingWorkers(LF * sh[S.workers], factoryJobs);
     const facEff = 1 + techEffect(c, 'factory_efficiency');
     for (const b of Object.keys(RECIPES) as Building[]) {
-      const rec = RECIPES[b]!; const w = Math.min(r.buildings[b] * LEVEL_WORKERS, factoryWorkersLeft); factoryWorkersLeft -= w;
+      const rec = RECIPES[b]!;
+      const w = factoryAllocation[b] ?? 0;
       employedByBuilding[b] = w;
       employment[S.workers] += w;
       if (w <= 0) continue;
@@ -298,17 +431,22 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
       const method = productionMethodFor(c, r, b);
       const out = w * rec.perWorker * (method?.outputMultiplier ?? 1) * eff * Am * infra * dev * occupied;
       factoryOut[rec.out] += out;
-      // Track inputs per output good. A shortage in one factory's recipe must not stall another sector.
+      const flow = flowFor(b);
+      flow.workerMix[S.workers] = w;
+      addFlowAmount(flow.outputs, rec.out, out);
+      // Track inputs per building and by output good; shortages remain sector-specific.
       const outputInputs = (factoryInputs[rec.out] ??= {});
       for (const [g, q] of Object.entries(rec.inputs)) {
         const need = out * (q as number);
         inputsNeed[g as Good] += need;
         outputInputs[g as Good] = (outputInputs[g as Good] ?? 0) + need;
+        addFlowAmount(flow.inputs, g as Good, need);
       }
       for (const [g, q] of Object.entries(method?.additionalInputs ?? {})) {
         const need = out * (q as number);
         inputsNeed[g as Good] += need;
         outputInputs[g as Good] = (outputInputs[g as Good] ?? 0) + need;
+        addFlowAmount(flow.inputs, g as Good, need);
       }
     }
     // artisans (cottage industry)
@@ -334,7 +472,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     demand.opium += householdDemand.opium;
     demand.tools += agriWorkers * 2 + (LF * sh[S.workers]) * 8 + mineWorkers * 6;
     for (const g of GOODS) { supply[g] += factoryOut[g]; demand[g] += inputsNeed[g]; }
-    calc[i] = { supply, demand, services: svc, inputsNeed, factoryOut, factoryInputs, employment, employedByBuilding, grainLocal: grain, grainNeed };
+    calc[i] = { supply, demand, services: svc, inputsNeed, factoryOut, factoryInputs, employment, employedByBuilding, buildingFlows, grainLocal: grain, grainNeed };
     const mk = marketOf(st, c);
     const m = (markets[mk] ??= { s: zero(), dm: zero(), open: 0, members: [] });
     for (const g of GOODS) { m.s[g] += supply[g]; m.dm[g] += demand[g]; }
@@ -424,7 +562,53 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const legacyRaw = 0.5 + 0.33 * Math.log(Math.max(1e-3, (legacyGdpPc * (1 - c.taxRate) * legacyLaborShare) / (legacyBasket * 2)));
     const legacyTarget = clamp(legacyRaw - famine * 0.6 - (c.laws.labor === 'serfdom' ? 0.05 : 0), 0, 1);
     const cohorts = calculatePopulationEconomy(r.pop, r.strata, k.employment, value, p, c.taxRate, famine, c.laws.labor);
-    r.popEconomy = { ...calibrateCohortLivingStandards(cohorts, r.strata, legacyTarget), employedByBuilding: k.employedByBuilding };
+    const profitabilityByBuilding: Partial<Record<Building, number>> = {
+      ...(r.popEconomy?.profitabilityByBuilding ?? {}),
+    };
+    const employmentTargetByBuilding: Partial<Record<Building, number>> = {};
+    for (const building of PRODUCTIVE_BUILDINGS) {
+      const previousTarget = r.popEconomy?.employmentTargetByBuilding?.[building];
+      employmentTargetByBuilding[building] = Number.isFinite(previousTarget)
+        ? clamp(previousTarget as number, 0.1, 1)
+        : 1;
+    }
+
+    // Evaluate each firm's annual operating margin after input costs and its workers' wages.
+    // The resulting target feeds next month's labor allocation, never the current month's output.
+    if (!calibrate) {
+      for (const building of PRODUCTIVE_BUILDINGS) {
+        const flow = k.buildingFlows[building];
+        const staffed = k.employedByBuilding[building] ?? 0;
+        if (!flow || staffed <= 0) continue;
+
+        const fulfillment = RECIPES[building]
+          ? factoryInputFulfillment(flow.inputs, short)
+          : 1;
+        let revenue = 0;
+        let inputCost = 0;
+        for (const [good, amount] of Object.entries(flow.outputs) as [Good, number][]) {
+          revenue += amount * fulfillment * p[good] * Av;
+        }
+        for (const [good, amount] of Object.entries(flow.inputs) as [Good, number][]) {
+          inputCost += amount * fulfillment * p[good] * Av;
+        }
+        const payroll = Object.entries(flow.workerMix).reduce((sum, [stratum, workers]) => {
+          const wage = cohorts.wagePerWorker[Number(stratum)] ?? 0;
+          return sum + Math.max(0, workers ?? 0) * Math.max(0, wage);
+        }, 0);
+        const margin = revenue > 0
+          ? clamp((revenue - inputCost - payroll) / revenue, -1, 1)
+          : -1;
+        profitabilityByBuilding[building] = margin;
+        employmentTargetByBuilding[building] = nextEmploymentTarget(employmentTargetByBuilding[building], margin);
+      }
+    }
+    r.popEconomy = {
+      ...calibrateCohortLivingStandards(cohorts, r.strata, legacyTarget),
+      employedByBuilding: k.employedByBuilding,
+      profitabilityByBuilding,
+      employmentTargetByBuilding,
+    };
     const target = r.strata.reduce((sum, share, index) => sum + clamp(share, 0, 1) * r.popEconomy!.sol[index], 0);
     r.sol = calibrate ? target : r.sol * 0.85 + target * 0.15;
     (r as Region & { famine?: number }).famine = famine;
