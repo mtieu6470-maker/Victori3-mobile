@@ -1,0 +1,1131 @@
+VICTORIA 3 MOBILE — EXPERIMENT BRANCH FILE INVENTORY
+Repository: https://github.com/mtieu6470-maker/Victori3-mobile
+Branch: experiment/vic3-visual-upgrade
+Snapshot commit: 5baf928830b13e8aaa442a9e7fdd5f1191fb39d3
+Generated: 2026-11-17
+Tracked files: 976
+
+PURPOSE
+This is the complete tracked-file path inventory for the experiment branch at the snapshot commit above.
+Use it as a navigation/index file when reviewing or replacing files one at a time with Gemini.
+The inventory is not a request to rewrite every file. Preserve existing architecture and contracts.
+
+SAFE FILE-BY-FILE WORKFLOW
+1. Work only on the experiment branch named above; never push to main.
+2. Before editing a file, inspect that file and its direct imports/callers/tests/data schema.
+3. Return the COMPLETE replacement file, not a patch fragment, unless explicitly asked otherwise.
+4. Keep the exact relative path and filename. Do not rename/move files without approval.
+5. Do not invent historical facts, leaders, borders, portraits, GDP values, or asset licences.
+6. For data changes, cite source/date/coverage/licence and keep machine-readable schema valid.
+7. Avoid mass rewrites. Change one file or one tightly coupled group at a time.
+8. After each group, run typecheck, unit/simulation tests, data/map/content builds and Android build as applicable.
+9. Do not edit generated build output, dependency caches, secrets, signing files or CI evidence unless specifically required.
+10. Ask for the current file contents when the inventory alone is insufficient; a path list is not source code.
+
+FILE COUNTS BY EXTENSION
+.webp              492
+.jpg               123
+.json              80
+.ts                68
+.log               41
+.md                35
+.txt               27
+.png               26
+.tsx               18
+.csv               14
+.py                13
+.xml               10
+.gradle            6
+.gitignore         3
+.java              3
+.properties        2
+.sh                2
+.bat               1
+.css               1
+.gz                1
+.html              1
+.jar               1
+.js                1
+.jsonl             1
+.mjs               1
+.pro               1
+.svg               1
+.webmanifest       1
+.yml               1
+[no extension]     1
+
+FILE COUNTS BY DIRECTORY
+   1  .github/workflows
+   9  [root]
+   8  android
+   4  android/app
+   1  android/app/src/androidTest/java/com/getcapacitor/myapp
+   1  android/app/src/main
+   1  android/app/src/main/java/vn/dongchaylichsu/game
+   2  android/app/src/main/res/drawable
+   1  android/app/src/main/res/drawable-land-hdpi
+   1  android/app/src/main/res/drawable-land-mdpi
+   1  android/app/src/main/res/drawable-land-xhdpi
+   1  android/app/src/main/res/drawable-land-xxhdpi
+   1  android/app/src/main/res/drawable-land-xxxhdpi
+   1  android/app/src/main/res/drawable-port-hdpi
+   1  android/app/src/main/res/drawable-port-mdpi
+   1  android/app/src/main/res/drawable-port-xhdpi
+   1  android/app/src/main/res/drawable-port-xxhdpi
+   1  android/app/src/main/res/drawable-port-xxxhdpi
+   1  android/app/src/main/res/drawable-v24
+   1  android/app/src/main/res/layout
+   2  android/app/src/main/res/mipmap-anydpi-v26
+   3  android/app/src/main/res/mipmap-hdpi
+   3  android/app/src/main/res/mipmap-mdpi
+   3  android/app/src/main/res/mipmap-xhdpi
+   3  android/app/src/main/res/mipmap-xxhdpi
+   3  android/app/src/main/res/mipmap-xxxhdpi
+   3  android/app/src/main/res/values
+   1  android/app/src/main/res/xml
+   1  android/app/src/test/java/com/getcapacitor/myapp
+   2  android/gradle/wrapper
+   2  assets/map
+   1  docs/architecture
+   6  docs/audit
+  12  docs/audit/s0
+  10  docs/audit/s0/a4
+   9  docs/audit/s0/b3
+  10  docs/audit/s0/b3/logs
+  10  docs/audit/s0/b3/perf
+   5  docs/audit/s0/b3/review1
+   4  docs/audit/s0/b3/review1/logs
+   1  docs/audit/s0/inputs
+   7  docs/audit/s0/logs/a1
+  23  docs/audit/s0/logs/a2
+   3  docs/audit/s0/logs/a4
+   8  docs/audit/s0/logs/b1
+  15  docs/audit/s0/logs/b1/ci_evidence_artifact
+   6  docs/audit/s0/logs/b1/local_precommit
+   2  docs/content
+  21  docs/content/screenshots
+   2  docs/coordination
+   1  docs/research
+   6  docs/roadmap
+   1  docs/spec
+   8  docs/ui
+  23  docs/ui/screenshots/after
+   6  docs/ui/screenshots/before
+   4  docs/ui/screenshots/compare
+  37  docs/ui/screenshots/v2
+  30  docs/ui/screenshots/v3
+   3  historical_data/assets
+   3  historical_data/borders
+  15  historical_data/countries
+   1  historical_data/diplomacy
+   2  historical_data/economy
+   3  historical_data/events
+   5  historical_data/identity
+   1  historical_data/leaders
+   1  historical_data/military
+   2  historical_data/political_entities
+   4  historical_data/population
+   1  historical_data/sources
+   1  historical_data/technologies
+   3  public
+  99  public/content/identity/arms
+ 176  public/content/identity/flags
+ 217  public/content/portraits
+   4  public/map
+  13  src/engine
+   1  src/engine/ai
+   2  src/engine/data
+   7  src/engine/systems
+   2  src/ui
+   3  src/ui/components
+   6  src/ui/game
+   1  src/ui/i18n
+   7  src/ui/map
+  12  src/ui/screens
+   1  src/ui/styles
+   7  tests
+   8  tools
+   4  tools/audit
+  11  tools/audit/s0
+  14  tools/etl
+
+COMPLETE TRACKED FILE LIST
+Format: <relative path> | <bytes> | <git blob SHA>
+.github/workflows/android-apk.yml | 19888 | 7a2639057272d2629f2d6b89cfc8fb07682dad31
+.gitignore | 145 | 4786e6b08a3a55993f7629115bb5d2c854303673
+android/.gitignore | 1824 | 48354a3dfc4ad41c5c7af1451315d335cda7d611
+android/app/.gitignore | 26 | 043df802a29f1f386a23cba600c84be8eee2a0c6
+android/app/build.gradle | 2158 | c27e2549c3cbeb1804a1466ca5872f56b9453103
+android/app/capacitor.build.gradle | 370 | bbfb44fad11c913927ea1a9851a85b82bbd9814a
+android/app/proguard-rules.pro | 751 | f1b424510da51fd82143bc74a0a801ae5a1e2fcd
+android/app/src/androidTest/java/com/getcapacitor/myapp/ExampleInstrumentedTest.java | 774 | f2c2217efa5a746f23ea722450a40fe0ca3db099
+android/app/src/main/AndroidManifest.xml | 1579 | 293e3fed0cb82c8b0570c9115276711f5930ce2d
+android/app/src/main/java/vn/dongchaylichsu/game/MainActivity.java | 1022 | 73469ff368e28e0d0ec4dd4a5498b4dcb01cd68a
+android/app/src/main/res/drawable-land-hdpi/splash.png | 7705 | e31573b4fc93e60d171f4046c0220e1463075d9e
+android/app/src/main/res/drawable-land-mdpi/splash.png | 4040 | f7a64923ea1a0565d25fa139c176d6bf42184e48
+android/app/src/main/res/drawable-land-xhdpi/splash.png | 9251 | 807725501bdd92e94e51e7b2b0006f69e0083a0b
+android/app/src/main/res/drawable-land-xxhdpi/splash.png | 13984 | 14c6c8fe39fcd51a0414866ad28cbe8ff3acb060
+android/app/src/main/res/drawable-land-xxxhdpi/splash.png | 17683 | 244ca2506dbe0fd8f6a05520ac7d1a629ea81438
+android/app/src/main/res/drawable-port-hdpi/splash.png | 7934 | 74faaa583c8221c27a8cb822c3fbe218bafa3299
+android/app/src/main/res/drawable-port-mdpi/splash.png | 4096 | e944f4ad4e1ca1c8cf9a87b366acc01c4e5c1616
+android/app/src/main/res/drawable-port-xhdpi/splash.png | 9875 | 564a82ff954aec267492467c0169a270c4e8fea9
+android/app/src/main/res/drawable-port-xxhdpi/splash.png | 13346 | bfabe6871a17a5e95b78fb30d49b7d2b4d2fe4c0
+android/app/src/main/res/drawable-port-xxxhdpi/splash.png | 17489 | 6929071268eb03ee0f088142b6523566b78550e2
+android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml | 1880 | c7bd21dbd86990cde81fea8abd3bf904b4546749
+android/app/src/main/res/drawable/ic_launcher_background.xml | 5606 | d5fccc538c179838bfdce779c26eebb4fa0b5ce9
+android/app/src/main/res/drawable/splash.png | 4040 | f7a64923ea1a0565d25fa139c176d6bf42184e48
+android/app/src/main/res/layout/activity_main.xml | 535 | b5ad1387011da0894cc1d91f44f3bd77f5403f5d
+android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml | 265 | 036d09bc5fd523323794379703c4a111d1e28a04
+android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml | 265 | 036d09bc5fd523323794379703c4a111d1e28a04
+android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png | 3450 | 2127973b2d318df7085734d236d0ec649a2b0292
+android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png | 4341 | b441f37d6a2a58cfdda841fbc8148a474a4ece3f
+android/app/src/main/res/mipmap-hdpi/ic_launcher.png | 2786 | c023e50595074292c7361183a64de08cf9686c9c
+android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png | 2110 | 8ed0605c27c764f865674ab0b14c859a1ba29ce6
+android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png | 2725 | 9502e47a2c575c50c925b987f397bc5244c57b90
+android/app/src/main/res/mipmap-mdpi/ic_launcher.png | 1869 | 72905b854cb4d39e8717090424302e370239a08e
+android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png | 5036 | df0f15880bee46332dfc6622583215194f948b0f
+android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png | 6593 | 853db043d8a21a3f2429bb521e373e8b1d39cacd
+android/app/src/main/res/mipmap-xhdpi/ic_launcher.png | 3981 | 4d1e077104cd61e6a4c3707e87363b523077245a
+android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png | 9793 | 2960cbb6104b915c84760f889deed9bff2b3e17a
+android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png | 10455 | 8e3093a86fffb4d02383785a46189822142d5607
+android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png | 6644 | 6cdf97c1196d48e9833487ff6de7c4cfc4e1232d
+android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png | 15529 | d2ea9abed395c5fb38369a54896c51c8e8bdff72
+android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png | 15916 | a40d73e9c68ea638c28c7b13e4bcd1e179a3a102
+android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png | 9441 | 46de6e255a95abb68a915d7cb45776d890768922
+android/app/src/main/res/values/ic_launcher_background.xml | 120 | c5d5899fdf0a1b144bf341b29e0c66ba50bbcedd
+android/app/src/main/res/values/strings.xml | 388 | 01169c10ac4c0124ece96222b05ce422b9d5f9df
+android/app/src/main/res/values/styles.xml | 823 | be874e54a4a64059503427dbefeabcee2989549d
+android/app/src/main/res/xml/file_paths.xml | 213 | bd0c4d80d0473953333d5adb0d38ac713d0d648b
+android/app/src/test/java/com/getcapacitor/myapp/ExampleUnitTest.java | 402 | 0297327842dfa194b316aec9730bb3c7349b7282
+android/build.gradle | 636 | f1b3b0e51e8d4b72a1be15ba722507fe70929732
+android/capacitor.settings.gradle | 207 | 9a5fa872e75f3ac9cb82951943ec4ce0ba50005e
+android/gradle.properties | 987 | 2e87c52f83c298527b1d1c747d496227dc0c6e71
+android/gradle/wrapper/gradle-wrapper.jar | 43583 | a4b76b9530d66f5e68d973ea569d8e19de379189
+android/gradle/wrapper/gradle-wrapper.properties | 253 | c1d5e0185987c556421e0c62058c16ab636e7940
+android/gradlew | 8762 | f5feea6d6b116baaca5a2642d4d9fa1f47d574a7
+android/gradlew.bat | 2966 | 9b42019c7915b971238526075306ffba3b666dd5
+android/settings.gradle | 208 | 3b4431d7724bd82d1aeb2ce59e7a0504b8869f81
+android/variables.gradle | 497 | 2c8e4083f67110c1eebf64291d6774481e1e5806
+assets/map/admin1_grid.bin.gz | 449335 | 11c3536a1cf9cc04b28f7a9fe27f1c998f769237
+assets/map/admin1_meta.json | 402185 | fb8082d1d96f06ab7b46904515a03185ff5134e9
+capacitor.config.ts | 404 | f78b91d4b160c7acfd4cacbe6b233f5daae2e13e
+docs/architecture/PROVINCES_BUILDINGS_MILITARY.md | 14720 | e3d4314ad0d242e5765b8d7f1b7e99dc03bf4eec
+docs/audit/catalogue_gaps.json | 126358 | cab55950c2357abd5a2686e84fdf326c9cfdac60
+docs/audit/CATALOGUE_GAPS.md | 65497 | 2b310aa8037a5f4477b81235b05e7fff52f1c9aa
+docs/audit/coverage.json | 403581 | 3f17959f54c4510791c48af8cb6d6abdd6b03400
+docs/audit/GLOBAL_COVERAGE.md | 52515 | f122573ea73a490716fb7da46c93648b4d99159f
+docs/audit/MASTER_SPEC_AUDIT.md | 17193 | 1239e23f87317c065c0e8cd283db08573a0433a4
+docs/audit/REPO_AUDIT_VS_SPEC.md | 8956 | e0dbabf9b3fce545091bb7ad77b9d7c0e8cab1aa
+docs/audit/s0/a4/android_public.csv | 65336 | 8077997c6fc04f96531597598d5b35d8377da353
+docs/audit/s0/a4/apk.csv | 65336 | 2bf7552f25d2fb2d4a82c6aa195524df341fe87b
+docs/audit/s0/a4/dist.csv | 65172 | f469a503dafaece85bdf9093b33f3be90f8859d3
+docs/audit/s0/a4/group1_exact_match.csv | 64899 | 1166cd6b7775b03a6d036e5e1d62ad3f6e13f2b0
+docs/audit/s0/a4/group2_in_apk_not_in_dist.txt | 55 | 89d8cd66afa876c5dd5dae9f5c66cb4757816be4
+docs/audit/s0/a4/group3_in_dist_not_in_apk.txt | 25 | 26d524bd04dad1b521887684137211b11bc5251d
+docs/audit/s0/a4/group4_same_path_differs.csv | 317 | f52a7ef6d742eecb88d22faabfbfb638f15c37fa
+docs/audit/s0/a4/tests_run_1.txt | 8327 | b0185b9651b635c5d4b290a71d0b4666590531bb
+docs/audit/s0/a4/tests_run_2.txt | 8327 | b0185b9651b635c5d4b290a71d0b4666590531bb
+docs/audit/s0/a4/tests_run_3.txt | 8327 | b0185b9651b635c5d4b290a71d0b4666590531bb
+docs/audit/s0/b3/assertions.jsonl | 14470 | 9ca836a892ef230e0016ce5eecae6584502c1038
+docs/audit/s0/b3/asset_inventory_summary.json | 4044 | a550c88333070bb553ad4e1acebf06ba0780702a
+docs/audit/s0/b3/asset_manifest.csv | 272248 | ce93a78ca281fa825c936b89a43c954b71b26c15
+docs/audit/s0/b3/global_data_audit.json | 23236 | 82a2c70ccac609c89cbb85e8a1aa2d511fb4b089
+docs/audit/s0/b3/logs/b3_admin1_crosswalk.log | 181 | a4e069301138017e39fcc6163a848051d460bea1
+docs/audit/s0/b3/logs/b3_assertion_count_run.log | 9833 | 0472989acb038295b53332cdb0aaf90ec9ec449c
+docs/audit/s0/b3/logs/b3_asset_inventory.log | 536 | 17cee8639ceb387fe4ad34826e7ff8d34ec38ee4
+docs/audit/s0/b3/logs/b3_global_data_audit.log | 209 | 916bea098f2d47b3b0b60348c2ed687c8baac117
+docs/audit/s0/b3/logs/b3_perf_desktop.log | 1332 | de886deb2e136511b26c60ae60997902af3e8917
+docs/audit/s0/b3/logs/b3_perf_node.log | 3514 | 6f7569fa153d651cba0b881299d05a2b3a707875
+docs/audit/s0/b3/logs/b3_perf_summary.log | 159 | d9e9b3bc10a99464db75cbaf04ecd255cc2b3696
+docs/audit/s0/b3/logs/b3_probe_empty_pass.log | 162 | 163fd68c8230591997c8e99f55b77c1b301145ad
+docs/audit/s0/b3/logs/b3_test_catalog_build.log | 7899 | 8aded3a13ffc35b415584ee976e13f0ee26f7737
+docs/audit/s0/b3/logs/b3_typecheck_and_probe_recheck.log | 509 | 1fa2c50bf54628057a07fe569064dc98f27300af
+docs/audit/s0/b3/perf/desktop_observe.json | 9025 | b183cf239d6679bb1f690100c805e07b295c85d6
+docs/audit/s0/b3/perf/desktop_wrap_raf.json | 9826 | cecd005c1649311cb682ba837c25323ee0106222
+docs/audit/s0/b3/perf/node_historical_seed1_per_system.json | 6151 | 3356938814fc93806d2ea80ade4f600daf58b60e
+docs/audit/s0/b3/perf/node_historical_seed1_run1.json | 4757 | fce51c6a9fdd8a9f1bda5c0acefba79cb980582c
+docs/audit/s0/b3/perf/node_historical_seed1_run2.json | 4755 | 2d494d29571c19c19f140ed0085623b557e281e0
+docs/audit/s0/b3/perf/node_historical_seed1_run3.json | 4754 | c21c446fe154f72cdd612f8a7214ec2cfb14f175
+docs/audit/s0/b3/perf/node_sandbox_seed1_per_system.json | 6149 | e954acd7ac8046f62107ec80e65e7facb61eb21c
+docs/audit/s0/b3/perf/node_sandbox_seed1_run1.json | 4753 | 8dc6644c9b07005fd905302160e25a816595bf7a
+docs/audit/s0/b3/perf/node_sandbox_seed1_run2.json | 4751 | cfdaef793835bbee3b27e0900fce51ac4711ab1f
+docs/audit/s0/b3/perf/node_sandbox_seed1_run3.json | 4753 | 925d8bff4b6c7a4a7f654b7abd2cdd7d0c83c6c5
+docs/audit/s0/b3/probe_empty_pass.json | 481 | 40ddade90be8155c0c0a37bacc71caf920b7f4dd
+docs/audit/s0/b3/region_admin1_crosswalk_summary.json | 3037 | 84c7718c4517013323c33a300992fe32b6c444fd
+docs/audit/s0/b3/region_admin1_crosswalk.csv | 311447 | da5f92b2411e53d9802319899790082548007053
+docs/audit/s0/b3/review1/global_data_audit.json | 42869 | a2e2e59a5156e8211600f7cdcee1a479a5d3b15e
+docs/audit/s0/b3/review1/logs/r1_checks.log | 1381 | b5f0ff37cfcaa823860ea9e6e8ca07a8a3fe26ea
+docs/audit/s0/b3/review1/logs/r1_global_data_audit.log | 832 | b3827ffb616602195d1acab2458fa7b55d8069e9
+docs/audit/s0/b3/review1/logs/r1_probe_war_duration.log | 680 | dc0487fafd35e512ccbd4b6c105e7b8ba9b6a8a9
+docs/audit/s0/b3/review1/logs/r1_r7_lifecycle_grep.log | 622 | 3b65d22fc49194172efb034d6fa071db097cfee9
+docs/audit/s0/b3/review1/probe_war_duration_historical_seed1_100y.json | 23130 | 8a8ad92c2f4cf57d167310f07e050c854640b386
+docs/audit/s0/b3/review1/probe_war_duration_historical_seed1_40y.json | 15725 | e4b41b64a93b0692300687e45ed901069ffbc359
+docs/audit/s0/b3/review1/probe_war_duration_sandbox_seed1_100y.json | 18712 | 825f20b61a3bc8f3d7464a40476575e5efabf4cb
+docs/audit/s0/b3/review1/probe_war_duration_sandbox_seed1_40y.json | 9474 | b7832263dd090af5ee4464f12af6ccc8e7270940
+docs/audit/s0/b3/test_annotations.json | 22357 | 7a5a42242d19e4e96b6b132f4cea0b04da9a2796
+docs/audit/s0/b3/vitest-results.json | 22110 | 6a1b9e661878e536160fb18d590f19ac5edff239
+docs/audit/s0/inputs/APK_BASELINE_WEB_ASSETS_SHA256.csv | 65978 | d02595c4d94b27fedfd281421ce25a445fc937ed
+docs/audit/s0/logs/a1/a1_artifact_verification.log | 2679 | 37e5d649eaa8684e071120089260b85269672293
+docs/audit/s0/logs/a1/a1_git.log | 5816 | 2849c4b8cd03227e5bcad9ba2bcad9087efad2e5
+docs/audit/s0/logs/a1/a1_toolchain_local.log | 1252 | 89c8e1a8006ef4d2f939a72c6df3612bc3537a17
+docs/audit/s0/logs/a1/ci_artifacts_run_43793446130.json | 588 | c702ebfe53358339827ff044c14cb292e7a3b275
+docs/audit/s0/logs/a1/ci_job_133056831671.json | 2438 | e31a89b68535c4ff08eb79ffe804ef76f4b54972
+docs/audit/s0/logs/a1/ci_job_133056831671.log | 61240 | 454b129ffbcea683a0f7c20c40f8b4a47aa6b4b7
+docs/audit/s0/logs/a1/ci_run_43793446130.json | 725 | 0ae30f6af86b941707192989d7fd6f5a29effd71
+docs/audit/s0/logs/a2/00_worktree_add.log | 152 | 5f8a593574fbec1348d8e66505639bdb882c1902
+docs/audit/s0/logs/a2/01_npm_ci.log | 458 | 96c698e07d26c84924e02a03fd937e811b343709
+docs/audit/s0/logs/a2/02_npm_run_data.log | 347 | a8f9a08ff8ea166f227f2ebf3dd54ad38af3b2cb
+docs/audit/s0/logs/a2/03_npm_run_map.log | 401 | 18b85a3d2754a9b1f23b94853c91d8fd3cf30abd
+docs/audit/s0/logs/a2/04_npm_run_content.log | 402 | 7ea3bdb97c12664908ec82e30df073027d0a75b2
+docs/audit/s0/logs/a2/05_npm_run_typecheck.log | 242 | 8f92b93ebac6a410a0e4ab9c92171f2ef7220cbc
+docs/audit/s0/logs/a2/06_npx_vite_build.log | 7176 | a1219d0cd69f9e3d8b218599a43da65e762df5fa
+docs/audit/s0/logs/a2/07_npx_vitest_run_1.log | 9539 | 8050598730cd9489afadeea63f14b6e216315bbb
+docs/audit/s0/logs/a2/08_npx_vitest_run_2.log | 9539 | 54f5651c9a2d13e7df6c0c32c681e58359b55629
+docs/audit/s0/logs/a2/09_npx_vitest_run_3.log | 9539 | cbbce6771b519ac0e85baf138709f6a924884b48
+docs/audit/s0/logs/a2/10_npm_audit.log | 1858 | fdf3a4c306019f586449020327bbb32a4c077d95
+docs/audit/s0/logs/a2/99_worktree_remove.log | 836 | 621ba5ce5edf491b8ff78aaed059d5ac4471dbfd
+docs/audit/s0/logs/a2/state_00_before.txt | 347 | 5f1f98c4c54dc01c3c3b3e13412548d1b1e418e0
+docs/audit/s0/logs/a2/state_after_01_npm_ci.txt | 370 | bcbefae3b0f08f7cd115979b1d23f136caab39c1
+docs/audit/s0/logs/a2/state_after_02_npm_run_data.txt | 458 | abf747a2b183dadea23e2a7997df4607d8fa7d4f
+docs/audit/s0/logs/a2/state_after_03_npm_run_map.txt | 730 | d1fb3a3e92cefb047e706ee1da8c2d7ff835fe12
+docs/audit/s0/logs/a2/state_after_04_npm_run_content.txt | 830 | 813ad9aa2d90af7ceaeeb49119d045fb83f3b53f
+docs/audit/s0/logs/a2/state_after_05_npm_run_typecheck.txt | 832 | ee8ea7215ec6a50d1b876d9ee687a11affdf49af
+docs/audit/s0/logs/a2/state_after_06_npx_vite_build.txt | 946 | b62383c2c9b31a5f51a4e63b1c056c60686198ea
+docs/audit/s0/logs/a2/state_after_07_npx_vitest_run_1.txt | 948 | 463a6847f5114ed30d8474ec98e0e5829152131f
+docs/audit/s0/logs/a2/state_after_08_npx_vitest_run_2.txt | 948 | dd329266fa75fbf6b68679a8167dd2dd3b7258dc
+docs/audit/s0/logs/a2/state_after_09_npx_vitest_run_3.txt | 948 | 813457f0f2fbe2534c7c9cb34bf466e2da9ace63
+docs/audit/s0/logs/a2/summary.txt | 446 | 31ab2f21aee503413ed98b9611b1b8ab581af29b
+docs/audit/s0/logs/a4/a4_payload_comparison.log | 7705 | 44a4b07b6e1d5f7650d0bf1f808b30c50b83f0f8
+docs/audit/s0/logs/a4/a4b_cap_sync_supplementary.log | 2384 | 9727e66557e1c603a9cf235a40c5000ba7db881d
+docs/audit/s0/logs/a4/ci_vs_ci_2240a8f_bd5787f.log | 3821 | 675eaca7fa3774389c1aa30b64f0ffa1ddeb1fc9
+docs/audit/s0/logs/b1/apk_manifest_recomputed.csv | 65385 | 85a259e699698a38daf1fd10b3f9469c67477047
+docs/audit/s0/logs/b1/b1_four_group_classification.log | 4200 | b447cc61a195c3d0423bd18254af8940eaada595
+docs/audit/s0/logs/b1/b1_independent_verification.log | 11966 | 4c848b165feb566aff2dce7016cfceeda6733ddb
+docs/audit/s0/logs/b1/ci_artifacts_run_43834719406.json | 977 | 9dccdf6dff5230464fdab7b7239b95dd36530185
+docs/audit/s0/logs/b1/ci_evidence_artifact/android_assets_public_manifest.csv | 65385 | 85a259e699698a38daf1fd10b3f9469c67477047
+docs/audit/s0/logs/b1/ci_evidence_artifact/apk_assets_public_manifest.csv | 65385 | 85a259e699698a38daf1fd10b3f9469c67477047
+docs/audit/s0/logs/b1/ci_evidence_artifact/apk_sha256.txt | 222 | ebe9aa6721f98a9927ad6023e79745e6c79b4f60
+docs/audit/s0/logs/b1/ci_evidence_artifact/apk_signing_certificate.txt | 8611 | 85ea6ed390d0063cb969479fb41638d937708a5c
+docs/audit/s0/logs/b1/ci_evidence_artifact/artifact_zip.txt | 193 | 3320230cd021b74a6a4c5fec24776bb4fa7362f4
+docs/audit/s0/logs/b1/ci_evidence_artifact/dist_manifest.csv | 65212 | 0c7cefb36e3e477061c1849f170e5641c17e6f6c
+docs/audit/s0/logs/b1/ci_evidence_artifact/generated_sha256.txt | 556 | d43134a0ec51f81512ffbeae7fe46913783f5e2f
+docs/audit/s0/logs/b1/ci_evidence_artifact/provenance.txt | 492 | dadfac285062709b87dad7f23a36453a51b5e232
+docs/audit/s0/logs/b1/ci_evidence_artifact/test_summary.txt | 450 | c5b66ce3322d52d323f5f347588e5a3c04fd4781
+docs/audit/s0/logs/b1/ci_evidence_artifact/toolchain.txt | 25 | c40f51031612e8bf5f3e63526aa7558d13f5c3d8
+docs/audit/s0/logs/b1/ci_evidence_artifact/vitest_exit_code.txt | 2 | 573541ac9702dd3969c9bc859d2b91ec1f7e6e56
+docs/audit/s0/logs/b1/ci_evidence_artifact/vitest-results.json | 21867 | 5128cf58379acc1044676a0b2aa2c2e870cb08bc
+docs/audit/s0/logs/b1/ci_evidence_artifact/vitest-tree-reporter.mjs | 3637 | be5d7cb4a605fee0b2fdbfa41288e54c9d77c27c
+docs/audit/s0/logs/b1/ci_evidence_artifact/vitest-tree-results.json | 9411 | 26f96f58f520f238c89214729350e722adec33f0
+docs/audit/s0/logs/b1/ci_evidence_artifact/vitest.log | 11481 | 60bcbcf50c3eb716c18cd73794f612951c112475
+docs/audit/s0/logs/b1/ci_job_133188390842.json | 2147 | 0c2406e31fcb2e4b350a002b26f3583adba3f2ce
+docs/audit/s0/logs/b1/ci_job_133188390842.log | 92812 | af4b7eb21874aa2bf57c33eecce6c7f7b30b8818
+docs/audit/s0/logs/b1/ci_run_43834719406.json | 684 | c84487cc2a96b92aeeea180e0f00e5c2e3c963d5
+docs/audit/s0/logs/b1/ci_tests.txt | 8327 | b0185b9651b635c5d4b290a71d0b4666590531bb
+docs/audit/s0/logs/b1/local_precommit/01_apply_and_diff_checks.log | 626 | 4b88154ae560851307715007cdeb07013c7dfddf
+docs/audit/s0/logs/b1/local_precommit/02_static_checks.log | 1403 | ff7c428198d352df60e1f4e74769d000ea6760fe
+docs/audit/s0/logs/b1/local_precommit/05_step07_real_tests.log | 9971 | 61dbd95aa6978369a5d18f59b5d2df2291b8c1b9
+docs/audit/s0/logs/b1/local_precommit/06_step07_failing_probe.log | 10753 | 594cab9facf6b34b9779e2f3dbc1007985e0e94f
+docs/audit/s0/logs/b1/local_precommit/test_summary_failing_probe.txt | 451 | 9f76f547430553d25cbfeb0e3ed3a68bcffd1b46
+docs/audit/s0/logs/b1/local_precommit/test_summary_real_run.txt | 450 | c5b66ce3322d52d323f5f347588e5a3c04fd4781
+docs/audit/s0/S0_A_RESULTS.md | 6192 | e742801edfd9caf34ad8b39f9a71d0416e18b713
+docs/audit/s0/S0_ASSET_AUDIT.md | 11777 | 4986392ab5956178bf67f0499f58712e8a77a293
+docs/audit/s0/S0_B1_CI_EVIDENCE.md | 6791 | 0ad5cc49828fba652ba97edfb770e5e78e597e91
+docs/audit/s0/S0_B3_RESULTS.md | 20503 | 5f6c0938969849ec055e1927ac4d267e01722b85
+docs/audit/s0/S0_BUILD_TEST_REPORT.md | 20560 | cf7d47b4a07ae7b04023fa6d658e631f8df4ae7d
+docs/audit/s0/S0_GLOBAL_DATA_AUDIT.md | 14935 | 338a624d6a3722fd45db7c529b99b7abe3503c1a
+docs/audit/s0/S0_PERFORMANCE_BASELINE.json | 37074 | 4efdcca34113d40398b69efbbd7bb223cea878f2
+docs/audit/s0/S0_PERFORMANCE_BASELINE.md | 11938 | 19f490ca6f1fbb9e355ccc60c13665158be35670
+docs/audit/s0/S0_REPOSITORY_SNAPSHOT.md | 8295 | eb84f8d848b14bc7d8bb492a75f65e8fd59763fa
+docs/audit/s0/S0_REQUIREMENT_MATRIX.csv | 82430 | 68f8ff31eed3491f192f36afd4ab285cb3ac4113
+docs/audit/s0/s0_test_catalog.json | 100895 | af15db2fbdf3faf26488973e053d3cb6585d4d95
+docs/audit/s0/S0_TEST_CATALOG.md | 17272 | 15f281805b9474f743d976c1517041ff91000c49
+docs/content/ASSET_REGISTRY.md | 5705 | f0344bdd764f2d4975a3bbff0ea87baf2f2edb64
+docs/content/PHASE_REPORT_IDENTITY.md | 6169 | 051f211e1d9eac6da1089a7d461890b4334b0b34
+docs/content/screenshots/C01_dai_nam_tong_quan_L.jpg | 307532 | 06c9caa4aed70a54f019c42be258081eb7fe2e2d
+docs/content/screenshots/C02_xiem_tong_quan_L.jpg | 306887 | d1ca766d1d2a9bca59b9f4305a7ed88ae8d1c082
+docs/content/screenshots/C03_ottoman_tong_quan_L.jpg | 307198 | 487c73229c0ce8b9efe0134c687cebdba1a08091
+docs/content/screenshots/C04_ba_tu_tong_quan_L.jpg | 311096 | 85204fafbaf29d4ddcdcdc1fcb20640f29c841fb
+docs/content/screenshots/C05_asante_tong_quan_L.jpg | 297674 | 838ebcaaec0850d01cfbf2ab214ac563ae2a5676
+docs/content/screenshots/C06_brazil_tong_quan_L.jpg | 318383 | d7b3a1692e769430e874b7659786e960d602f935
+docs/content/screenshots/C07_hawaii_tong_quan_L.jpg | 298484 | 5d6b77ff8bf8a215d1791caf829c48459a94afa8
+docs/content/screenshots/C08_kongo_phi_tap_trung_L.jpg | 310661 | 1b1b4afbeec945331b3ba433dfe5ac4ebe02fb07
+docs/content/screenshots/C09_anh_nhan_vat_L.jpg | 302233 | 1d665445522493159179e579bbd0097dd2f61def
+docs/content/screenshots/C10_dai_nam_nhan_vat_L.jpg | 289668 | 4782f78dc85efc81f830ac9f4c422748f10afae5
+docs/content/screenshots/C11_chi_tiet_nhan_vat_L.jpg | 325849 | 12e33436f3d787d70b2af041cde23ded536584aa
+docs/content/screenshots/C13_he_thong_ghi_cong_L.jpg | 272411 | a45b836cfecf0edd6122ee445b0d70bde62e34e8
+docs/content/screenshots/C14_nguon_quoc_ky_L.jpg | 395888 | 41f392bce23bd8f411f69f5c6d7c141120f6b258
+docs/content/screenshots/C15_the_gioi_quoc_ky_L.jpg | 274732 | abea7f237cee929e4a15bafd4f8511adf08234ce
+docs/content/screenshots/C16_dai_nam_boi_canh_L.jpg | 426622 | a4f5ad71feeeaee8424dbbeaaa1d029d652da8a4
+docs/content/screenshots/C17_asante_boi_canh_L.jpg | 418301 | 25f1542a1a23aa6ccb2dd3756e770c5c23f6314d
+docs/content/screenshots/C18_ban_do_the_ngu_canh_hue_L.jpg | 362895 | 334761e6214c82fb599002216eb088782f32ee34
+docs/content/screenshots/C19_ban_do_the_ngu_canh_xiem_L.jpg | 344195 | 78ddd0b9ec602948f2804f301dd564ad6d2b7556
+docs/content/screenshots/P01_dai_nam_tong_quan_P.jpg | 342850 | bb81f259466fae7b3168451bf67868afd1d18a4f
+docs/content/screenshots/P02_dai_nam_nhan_vat_P.jpg | 272004 | 56baaed9b6dddf180b1a5cf07f2257e550b540fc
+docs/content/screenshots/P03_xiem_boi_canh_P.jpg | 377117 | e96a6f495d44b5fdc1767feae9b7bff96d1abbe7
+docs/coordination/AI_COLLABORATION_PROTOCOL.md | 9459 | 5453f89b86f54a1b1c3adbdbdeae7f598ed32f8e
+docs/coordination/AI_HANDOFF.md | 37963 | f889a216f75475dc3e9122e3f3d7fa35ac3e9f5b
+docs/research/PASS16_REPO_AUDIT.md | 24537 | 15b316b9430db8a39bc7fddf6eb7fb9f1ca8a68f
+docs/roadmap/DECISIONS_AND_S0_REVISED_VI.v3.2.md | 95302 | 77f8f11040f416d9d420098548edd4e0f6765c5d
+docs/roadmap/LEGACY_DOCUMENTS_INDEX.md | 8192 | d1ae1d9b74722255607a0c3d8d010faa37dd0215
+docs/roadmap/S0_V3_3_GATE_RESTRUCTURE_PROPOSAL.md | 21502 | 170438364e0dd091a1d00a5a8396980ba49a2049
+docs/roadmap/S0_V3_3_OWNER_DECISION_AND_AMENDMENTS.md | 18012 | c5d8a2f9dad4f053f4a5860a3fcca27a209674d6
+docs/roadmap/SOURCE_REGISTER.v3.2.md | 12574 | 9c1094937ef3056e0dcc79ad984a03d793c819d4
+docs/roadmap/SOURCE_REGISTER.v3.3.md | 5446 | f732feb212256b172757cf3438163a8c1c59d815
+docs/spec/MASTER_SPEC_VI.md | 50355 | 7d3dd0b28a51a2adb69af816d017ac425acddf50
+docs/ui/ANDROID_INTERACTION_RULES.md | 7654 | 553636da79ec78e650b06ff8bbae1659210f1605
+docs/ui/NAVIGATION_MAP.md | 6062 | 74ac952d4a6efb04fa7172fb170f2c1bd5e33e51
+docs/ui/REFERENCE_SOURCE_LOG.md | 9286 | b1215518b18670660def8c7acf6f758462c83cc1
+docs/ui/SCREEN_SPECIFICATIONS.md | 16687 | 1e680ee56d81c0b017cad6f115f117f8c166a763
+docs/ui/screenshots/after/01_market_landscape.jpg | 226559 | 58a75f1fa7d8e301f4a48aca8f319160f7def010
+docs/ui/screenshots/after/01_market_portrait.jpg | 169038 | 798862c9c14d8fb3ae811bf7be21af2ad97d9733
+docs/ui/screenshots/after/02_country_overview_landscape.jpg | 222078 | fca6faa141e6ac31d9d5b84c709821a10f04dbee
+docs/ui/screenshots/after/02_country_overview_portrait.jpg | 161312 | 859945cd5f84e7cf458bc3f833107a7358871663
+docs/ui/screenshots/after/03_map_state_landscape.jpg | 209654 | 3fdfc5950422c0d1c0cb45742b4b6ef4c6b24a43
+docs/ui/screenshots/after/03_map_state_portrait.jpg | 205850 | 95bd82cf86dc4e1c1dab43d67db429887742b5e6
+docs/ui/screenshots/after/04_map_europe_labels_landscape.jpg | 224389 | bae39a56a1f538bb67a0bd05080c20a688f9b57c
+docs/ui/screenshots/after/04_map_europe_labels_portrait.jpg | 221199 | 24db81d756d41496303fc80b059e72216df4cbd8
+docs/ui/screenshots/after/05_laws_landscape.jpg | 210293 | 98316394d734587deb698e505e86dfafa187da5f
+docs/ui/screenshots/after/05_laws_portrait.jpg | 131259 | 6c483a2edba9efbfaf9a0dab02cb625b7020929f
+docs/ui/screenshots/after/06_interest_groups_portrait.jpg | 181357 | 8aacb65b005d98db81b41b8f611b01c68a5ac45c
+docs/ui/screenshots/after/07_buildings_landscape.jpg | 217802 | bb8d110e19140a4502273ac8e4caecbe37f859f5
+docs/ui/screenshots/after/08_construction_portrait.jpg | 174181 | 4bccb3a4739545427501e657e33bce870fb229da
+docs/ui/screenshots/after/09_population_portrait.jpg | 138892 | 8b4f883aee03ea917ec06a228837ce5594dbe041
+docs/ui/screenshots/after/10_technology_landscape.jpg | 221201 | f74beba13acb696c07185253759e96a42fb62284
+docs/ui/screenshots/after/11_diplomacy_landscape.jpg | 211304 | 6c0d06cf64d2febe8d853c9436fa15cd463bd899
+docs/ui/screenshots/after/12_military_wars_portrait.jpg | 165972 | c9ef252623c765b7a45a19fed18ba19f9708fc93
+docs/ui/screenshots/after/13_journal_decision_landscape.jpg | 228364 | 3395771f0b76585f8a0902c8baff99acaa24a887
+docs/ui/screenshots/after/13_journal_decision_portrait.jpg | 130311 | a5d48c197581a3194ea1bce6f31d98890c974d00
+docs/ui/screenshots/after/14_world_observer_landscape.jpg | 213950 | 1cb1900828e4f3c5fbb6a3892b5cca08ed313069
+docs/ui/screenshots/after/15_map_sol_layer_portrait.jpg | 205802 | 62c7e5700fe496e5e56437999f242a162cab1478
+docs/ui/screenshots/after/16_new_game_landscape.jpg | 129113 | 054c773edfaad3b3b1d9fb40210cfe38bf3f2f3b
+docs/ui/screenshots/after/16_new_game_portrait.jpg | 173793 | f3c7fb6e8d4dd3a7ae9209259013ad859654b703
+docs/ui/screenshots/before/01_portrait_market.jpg | 137392 | 032e1c2faf6dcd6faf9cdd41c6ee4e5b986f8a0c
+docs/ui/screenshots/before/02_landscape_market.jpg | 127133 | 18fd818f99963173af911950e15f3c66712986a2
+docs/ui/screenshots/before/03_portrait_country_overview.jpg | 123872 | 88ae26706da2515ca03af716a18ad82c9315ae32
+docs/ui/screenshots/before/04_landscape_country_overview.jpg | 134207 | a9bc7431eadfb5220264313a8fec2f68f2a23f17
+docs/ui/screenshots/before/05_portrait_map_state_card.jpg | 145918 | a92b6d0636c1754c883ee98215d958e1b4bf00c2
+docs/ui/screenshots/before/06_landscape_map_state_card.jpg | 151385 | 46f9866112ec06ead695f0a9d437a9cec1aa7145
+docs/ui/screenshots/compare/v1_vs_v2_landscape.jpg | 647893 | d47563e48fcb688119c49e4515a8bbc22631d127
+docs/ui/screenshots/compare/v1_vs_v2_portrait.jpg | 698426 | 1810617371074190fc35dda1754fd10300ee27e8
+docs/ui/screenshots/compare/v2_vs_v3_landscape.jpg | 619325 | c2dc63476c9e951058d8ae2f40f084d050ffbf23
+docs/ui/screenshots/compare/v2_vs_v3_portrait.jpg | 617059 | fe7608b818a385bc9ec53fe9f6d6988f546645da
+docs/ui/screenshots/v2/01_market_landscape.jpg | 226574 | dbb7fd7838a9d83756af77b66e57e70c1faac305
+docs/ui/screenshots/v2/01_market_portrait.jpg | 212191 | 5286e67f3cde34a1d5a316abf5c3ec4151c2ae2e
+docs/ui/screenshots/v2/02_country_overview_landscape.jpg | 227487 | 7db6689840318945281c07b0f71df14b9a0c2dbe
+docs/ui/screenshots/v2/02_country_overview_portrait.jpg | 211956 | d19df198db08eec2a66d11266b395da31bee78d6
+docs/ui/screenshots/v2/03_map_state_landscape.jpg | 240719 | 6e9d0f70aac9d471946e909574fae1f974a42b45
+docs/ui/screenshots/v2/03_map_state_portrait.jpg | 188914 | a4479c61b81a9aa7d37733151219892637c9a6b3
+docs/ui/screenshots/v2/04_map_europe_labels_landscape.jpg | 253448 | 498fd7fde24fd969dc59134c8f5758a4c78d04ec
+docs/ui/screenshots/v2/04_map_europe_labels_portrait.jpg | 269792 | 7d5d01ec56b78fdec01a962afb15b41dc9fedf58
+docs/ui/screenshots/v2/05_laws_landscape.jpg | 223096 | 9d3fe93e1e0b3f987d73caec66c7248b1e476e8e
+docs/ui/screenshots/v2/05_laws_portrait.jpg | 191142 | b4c12a9c970cb8828a1ad108d4c1fc94776edf3e
+docs/ui/screenshots/v2/06_interest_groups_portrait.jpg | 221898 | 85e8cfb6f21c2b539c3850cfcd647e676721ee29
+docs/ui/screenshots/v2/07_buildings_landscape.jpg | 210000 | e644f4ba60df369d49b9aec57b27d88b849b2893
+docs/ui/screenshots/v2/08_construction_portrait.jpg | 210549 | 6f82af2a6b58e082fb11c81bd3f59cf1840d9246
+docs/ui/screenshots/v2/09_population_portrait.jpg | 198632 | 18e312e2c409c71c3e7955ca97f09330e4bb8407
+docs/ui/screenshots/v2/10_technology_landscape.jpg | 227376 | 3113115048adbd4486296698136b6ca867948aef
+docs/ui/screenshots/v2/11_diplomacy_landscape.jpg | 209720 | b78a76b7b3dcabe13e1b048f2ea1ed6ad9843706
+docs/ui/screenshots/v2/12_military_wars_portrait.jpg | 203170 | a273b5f2bdacc3d7051b96f7930666b9f8b64f14
+docs/ui/screenshots/v2/13_journal_decision_landscape.jpg | 208572 | e7503982b57c6e5397defafb87286a8fd89a935e
+docs/ui/screenshots/v2/13_journal_decision_portrait.jpg | 202546 | 709088b1677bf376a3bb0306820affeb41406ea8
+docs/ui/screenshots/v2/14_world_observer_landscape.jpg | 170808 | adc4cac3586cd7ff472e4a038e2dc24fa52246e2
+docs/ui/screenshots/v2/15_map_sol_layer_portrait.jpg | 258771 | 9a47730ed5255d0ccbdc5580b57b1c26c5b7801e
+docs/ui/screenshots/v2/16_new_game_landscape.jpg | 116901 | c5a2f4c5cf8f3ebda05e3b461a96b67ea5b8765b
+docs/ui/screenshots/v2/16_new_game_portrait.jpg | 174342 | 4e0b991a8614e7b92cca087829bd787b5c54e0e3
+docs/ui/screenshots/v2/17_market_good_detail_landscape.jpg | 167546 | d7f04e98f0f0c166a7a65ca98f1cf1bcffd5b1f2
+docs/ui/screenshots/v2/18_law_detail_landscape.jpg | 176857 | 914e7f28167d9b501db340f5d40ecd67b852ed3d
+docs/ui/screenshots/v2/19_kpi_breakdown_landscape.jpg | 235342 | 8129b6ff84b5bc66fab942c5ff8c6e54913f5848
+docs/ui/screenshots/v2/20_region_window_landscape.jpg | 208683 | 416d88bd87c27aa2dd7789e633b6ca45007dacd2
+docs/ui/screenshots/v2/20_region_window_portrait.jpg | 202230 | 3570718da1627c5655c69d05805288661d8054f3
+docs/ui/screenshots/v2/21_tech_detail_landscape.jpg | 170674 | 6b620cdd6f8c5b042c20aff55b19df334091a69a
+docs/ui/screenshots/v2/22_budget_lines_landscape.jpg | 214081 | 48aaccdc2d4eb3cb909c1ca85b49b86113b061e5
+docs/ui/screenshots/v2/23_diplomacy_detail_landscape.jpg | 156569 | 12f3ac9106b86f990bf2861c1a6e3c4bd72b919d
+docs/ui/screenshots/v2/24_military_forces_landscape.jpg | 212062 | 3b11ed31e077bd0d86e18c9a3444ef9be63c1027
+docs/ui/screenshots/v2/25_layer_menu_portrait.jpg | 232298 | 97133bc3365dbf3206a59be98e662c6b0cd0ae7c
+docs/ui/screenshots/v2/26_market_half_sheet_portrait.jpg | 174893 | bb455fc2dd5767f1b075e5b741fe59b8ae5804ba
+docs/ui/screenshots/v2/27_kpi_ribbon_portrait.jpg | 217949 | 93ded098dd786f983d558727481fae76a2c85ca5
+docs/ui/screenshots/v2/28_tech_tree_portrait.jpg | 123155 | c948bf0918c53eb5990111c79f7e27b56181e7ed
+docs/ui/screenshots/v2/29_politics_igs_portrait.jpg | 163804 | d7d9f86ccc877eae8897b27c1db5bb62130fbe51
+docs/ui/screenshots/v3/L01_ban_do_chinh_landscape.jpg | 306797 | 87889f389367802174aa708713a9dd00770774fd
+docs/ui/screenshots/v3/L02_chon_quoc_gia_landscape.jpg | 274750 | 279779e1cf2830e529b91fa8a6ad08544cbc2ab5
+docs/ui/screenshots/v3/L03_tong_quan_quoc_gia_landscape.jpg | 328345 | 988b22ce56d217f49f2ec24d404c7cccde75a1d8
+docs/ui/screenshots/v3/L04_kinh_te_tong_quan_landscape.jpg | 306806 | d6a0c74423ccbba06d7ffdc56d53553abc00b05b
+docs/ui/screenshots/v3/L05_thi_truong_chi_tiet_landscape.jpg | 267855 | 676697fd0e5b4f6b24b51bc3d9d83e3b418a109d
+docs/ui/screenshots/v3/L06_xay_dung_landscape.jpg | 329407 | a866f6370618b5554b13c24fe9cc633c73a7e390
+docs/ui/screenshots/v3/L07_ngoai_giao_landscape.jpg | 272104 | 7b696f90aae59bce4d408b097455a5048bdb7abf
+docs/ui/screenshots/v3/L08_ban_do_toan_man_hinh_landscape.jpg | 295321 | 7a4112608c5e00e439812cd47dccaa4d37964373
+docs/ui/screenshots/v3/L09_chinh_phu_landscape.jpg | 318802 | 45ca8733b56f0a187735847c4bca80f62f13715c
+docs/ui/screenshots/v3/L10_luat_chi_tiet_landscape.jpg | 278146 | 078fbe1dbe56204ac302d98990f80c31dd85855b
+docs/ui/screenshots/v3/L11_dan_so_landscape.jpg | 306394 | 8587683a686cdb82345639bba404f909db502c62
+docs/ui/screenshots/v3/L12_chien_tranh_landscape.jpg | 302664 | e1c18da5c0a76d85b645c26889f8b1b078eb93bc
+docs/ui/screenshots/v3/L13_cong_nghe_landscape.jpg | 285753 | 9c5cb3f604d8dbcf0dba0403b6dc85e6266b8808
+docs/ui/screenshots/v3/L14_bien_nien_landscape.jpg | 339073 | 7babb771c82a68a87a7f6612fec5adaefec9959d
+docs/ui/screenshots/v3/L15_cua_so_vung_landscape.jpg | 261082 | 7a28b4a3ff1a8ed5cf08f21712f1bd42a60f77a4
+docs/ui/screenshots/v3/L16_ban_do_dia_hinh_landscape.jpg | 313197 | a2c86d9e4fa450e0a0d07bb35aba4d9d1a988761
+docs/ui/screenshots/v3/L17_cua_so_thu_gon_landscape.jpg | 311823 | 088dac72e9b35d2ce8a617367f9ba507b3968109
+docs/ui/screenshots/v3/L18_ngan_sach_landscape.jpg | 306546 | 096e40b670a79a140aac524be3f06da6e3114ec3
+docs/ui/screenshots/v3/L19_the_gioi_landscape.jpg | 305204 | f5b4e23d8e57b51fb4c0c930b91e9adf1ecd789a
+docs/ui/screenshots/v3/L20_chi_so_ngan_kho_landscape.jpg | 301338 | 30eb1989959793795beabf69db8048f26bdd7a24
+docs/ui/screenshots/v3/P01_ban_do_chinh_portrait.jpg | 315857 | 9db56a9d6efafdf73a2b24c1fec2eafa40c8b4f7
+docs/ui/screenshots/v3/P02_chon_quoc_gia_portrait.jpg | 296279 | 1db16f42f6a40f3c966f77b97fc44272c9bca46d
+docs/ui/screenshots/v3/P03_tong_quan_quoc_gia_portrait.jpg | 262255 | 12d06adbe99767b8d74e8c59a5c60ac6d4e54d77
+docs/ui/screenshots/v3/P04_thi_truong_portrait.jpg | 279538 | 4ca75c66b085eb2e176624801375064ac9ec9c00
+docs/ui/screenshots/v3/P05_xay_dung_portrait.jpg | 290271 | de77716cc3791b943a7ba3bfc83b379625515be3
+docs/ui/screenshots/v3/P06_ngoai_giao_portrait.jpg | 239743 | d545a4b0cb13fc39adc1bfd82843b527d5344c82
+docs/ui/screenshots/v3/P07_chinh_phu_portrait.jpg | 264619 | dbc2fd5a5a4f9825ea2d8fcf7de69461fdd9bf20
+docs/ui/screenshots/v3/P08_menu_lop_ban_do_portrait.jpg | 316644 | a266817a4cbfc0c545925e4c4222bcfb80c0b83f
+docs/ui/screenshots/v3/P09_cua_so_thu_gon_portrait.jpg | 313079 | 3b8250e12067d15e278b17a06cc00acb29d5f1e2
+docs/ui/screenshots/v3/P10_cua_so_vung_portrait.jpg | 243223 | 6c38d35bdd38ba51f638f61c8b66f34933a525ee
+docs/ui/UI_DESIGN_SYSTEM.md | 9836 | 16f163bc36a588f88e9a5aedae7ff93e15af0bc4
+docs/ui/V2_BEFORE_AFTER.md | 6325 | bea21d1c659da5eeba16ff931eb362ea6f6213f3
+docs/ui/V3_BEFORE_AFTER.md | 4319 | 31ca4b107eca302a61d97586d94123c37a49d51e
+docs/ui/V3_REFERENCE_ANALYSIS.md | 6313 | 39d9fc53f562165f073c73ba4befab3c9a3c0c47
+historical_data/assets/identity_assets.json | 342759 | b72e998decc6aa3714a1640f0c587d262e1f1440
+historical_data/assets/portrait_assets.json | 270351 | 3b1774b6159080cfb555ba23ba721e8c49903c54
+historical_data/assets/review.json | 4665 | 5d89941fd83c704b2c889d8692fdcb24863e8ce7
+historical_data/borders/cow_territorial_changes_1816_1914.json | 193860 | 1a8e3c71e7d9458ca34d7723d817d2b76a8cfe1e
+historical_data/borders/historical_ownership_changes.json | 12494 | dd02e1fd63c4c8aa54bb5952e4ceaa613ca3c491
+historical_data/borders/regions_1836.csv | 70970 | 904bae66f03c36821e4f32d7526c61bd779d5c42
+historical_data/countries/_core_profiles_americas.json | 11190 | 96d88453bd417dde6ef72d53c8ad7b068a244d2a
+historical_data/countries/_core_profiles_asia_africa.json | 26586 | a5b611b3c566884f6c58bea5ad57b4eaa07bdb5b
+historical_data/countries/_core_profiles_europe.json | 42265 | c7806a55c9f7f50c4be4176cac0021bb91b1b1c5
+historical_data/countries/_law_presets.json | 4979 | b4534f42c9b41a260acf3302440138a3c9131079
+historical_data/countries/AUS.json | 5281 | 626bd0c6b7c9e1b33760db075af75c50ec5a7cf8
+historical_data/countries/EGY.json | 3821 | 434808833809be55f6361776d179de980ee51582
+historical_data/countries/EIC.json | 3387 | e03611122a5b9c4d1fccaca7ec84d84d887e848e
+historical_data/countries/FRA.json | 9091 | 8089373404e843a264cb7df7c32cab6c20da961d
+historical_data/countries/GBR.json | 10469 | 02d15e5d5409fa141e011123ccaf9cee725b1139
+historical_data/countries/JAP.json | 4839 | 3867ef227024dfbbb4885277abd469448362dee7
+historical_data/countries/PRU.json | 5762 | 8312864c5d45814a4fccf7d4ad742445d2a8d628
+historical_data/countries/QNG.json | 4336 | d9eb3383c011afcd2025717b5ac8211f5a7384e2
+historical_data/countries/RUS.json | 7145 | 27f859d336f877f226cdfe1ae48e309228cf4a5f
+historical_data/countries/TUR.json | 5157 | f6a9af17ea38603fbde3076a0f399e52575cc768
+historical_data/countries/USA.json | 5549 | 1edd85ef2f280e6c55c733666b1865b6122b2f08
+historical_data/diplomacy/cow_alliances_1816_1914.json | 74874 | f910162407fd4cbdff6aea6a67e3f974dd9155bc
+historical_data/economy/cow_nmc_industry.json | 578874 | 2e2d293a53c5355c46084bb9d559307855348697
+historical_data/economy/maddison_2010_gdp.json | 181160 | e1e7f2582f05a5ffe0eae69af744bb4305a14992
+historical_data/events/cow_wars_1816_1914.json | 164072 | 79443344ad5a7a21ffc3d0afaab146214d69060e
+historical_data/events/historical_events.json | 20215 | 49fd720bca9eb86b705ad975b1edb9cf5d31a2e8
+historical_data/events/milestones.json | 9455 | b4282ec82a7c48d992d305b330bbc3aecb9b42d2
+historical_data/identity/local_names.json | 774 | b15ae32680d7cbbd8d3a920ec43a201df2d26f8a
+historical_data/identity/people_links.json | 301471 | 44549aceb066cef767ad4ea4fdb22dc7ffa9ea3e
+historical_data/identity/texts.json | 1110791 | 96ae76254ce24ed1d75dc924c0d0be6445949d0e
+historical_data/identity/wiki_titles.json | 18390 | 2757874bd5c6fee97a69a1f5dc56581245a2626b
+historical_data/identity/wikidata_links.json | 170680 | a7d2b7c359ba1c0cdab69866448488b1ff270b2d
+historical_data/leaders/heads_of_state.json | 99214 | 8b28e4477c41d853c091acb80231a7081d76182a
+historical_data/military/cow_nmc_military.json | 452799 | 4b02920a618c890d263f8130830e9f70550faa7b
+historical_data/political_entities/cow_system_membership.json | 18723 | 10149e2a0e81ef05743ea756a0d8354c81017201
+historical_data/political_entities/registry.json | 48727 | 97ba54d8d5547c2bbedfb4ed1a41833c7fe387ca
+historical_data/population/cow_nmc_population.json | 463096 | 27a3651048bce1e243f342d3767b12bd115585ec
+historical_data/population/cultures.json | 18912 | d15714eae5b37267c70e8fee9b3d475bd8b5466e
+historical_data/population/maddison_2010.json | 271870 | 50a1b69ff82155ad76b796263a835a6bea1e2f32
+historical_data/population/population_totals_1836.json | 27733 | c1f03b97f987cf6222118bcb57f7b91b6cf3258d
+historical_data/sources/sources.json | 20211 | 154f7d5f54cd2bd43d0adfcfb289fa7b75fefd84
+historical_data/technologies/technologies.json | 7814 | d8a15de578798ec14a51ea0af3db66c032bfe70d
+index.html | 520 | 21bd2867162cc813001c941a4dcc362020991b8a
+package-lock.json | 140760 | 29ac661a36bb03bae62a80ce7abf9af0c15bb168
+package.json | 1444 | 1d1ab22805f6db8a416b01f09c62cb7262b6ed0b
+public/content/identity/arms/ABE_0.webp | 15220 | f5bce04da696b6969e07cbb01acf4445a932224a
+public/content/identity/arms/ACE_0.webp | 2038 | 0da4aaa43b930e0a6986aa28a399c445b75f2e31
+public/content/identity/arms/ADE_0.webp | 15220 | f5bce04da696b6969e07cbb01acf4445a932224a
+public/content/identity/arms/ADE_1.webp | 24304 | a22d3d1232815d808d2d6bf75319299c429aa0f2
+public/content/identity/arms/AKO_0.webp | 14534 | 6076e52f0c63b5a997022e88f07a56993a53c74a
+public/content/identity/arms/ARG_0.webp | 27510 | 7e7b45f0dc6c4ab7ef38724e7d2bba7d40321612
+public/content/identity/arms/ARG_1.webp | 33130 | 6e94c56d9767eed8496f866e613b15a2e08ce552
+public/content/identity/arms/ARG_2.webp | 32018 | 22f2e5f47de40c48ccf198c9675fe07eed67c2fc
+public/content/identity/arms/ASH_0.webp | 11960 | 1cf0079edff918b9a9ef430d41a458256582d47e
+public/content/identity/arms/AUS_0.webp | 32390 | 183cda4e87409936e156fa0d6dd4d2625100b067
+public/content/identity/arms/BAD_0.webp | 20872 | bdf8ddaa37f260a9329b3d4c1560e44b041fe628
+public/content/identity/arms/BAV_0.webp | 21020 | 77da6b9abb5e3903bd2efc3ae94d7579c9e1becd
+public/content/identity/arms/BRA_0.webp | 23472 | 1516851713c9f0daa4695e324479665cebefd2b6
+public/content/identity/arms/BRU_0.webp | 24074 | fcd9cf90cf84adea6406bb6f0efd90bc17676649
+public/content/identity/arms/BRU_1.webp | 12954 | 91c061258af454511420c87432117007d72d12c7
+public/content/identity/arms/BUL_0.webp | 23490 | 8d36ef8499d5b80b1be49db69ca0a3a4edbebef3
+public/content/identity/arms/CAF_0.webp | 23802 | aa06c68f9e4e53044c091d2fc770fb6a28451310
+public/content/identity/arms/DZ_KONGO_0.webp | 35304 | 7a062692a03082c547e20193bd2db09735520da2
+public/content/identity/arms/EIC_0.webp | 32422 | 7104c78dc4d8189a9e78fbb90e369e8e0e3ee5e9
+public/content/identity/arms/FIN_GD_0.webp | 15778 | 2dfdf864139146337cb1b8a8f29b1c6072ed3177
+public/content/identity/arms/FIN_GD_1.webp | 18008 | c380a7de938a9299642818812ccffd4deb9bc2ca
+public/content/identity/arms/FRA_0.webp | 18320 | 0a68bd0399a95039666bc3cdfb0d063d887444cd
+public/content/identity/arms/FRK_0.webp | 21296 | 1658903a5551e2174a763fd9323287af92078c70
+public/content/identity/arms/GBR_0.webp | 32536 | 33f4cfab9f2ff28c92ad889fd64d35c73f21ca7d
+public/content/identity/arms/GBR_1.webp | 36948 | 8840b4cc794c15161f3a92b2e04fa7ad152ed65c
+public/content/identity/arms/GBR_2.webp | 36988 | eeea99179566598313aa19e5bd93dc75afee59f9
+public/content/identity/arms/GBR_3.webp | 34256 | 1977b991059a562332afa870dbb9dea082e5b973
+public/content/identity/arms/GER_0.webp | 29358 | a9df55bca787c7c2587c29ca4015d1c20b685ee2
+public/content/identity/arms/GER_1.webp | 26292 | d7914db1b4c738f77098719f8f5966a146cbf92d
+public/content/identity/arms/HAI_0.webp | 24170 | e3e88ab1bf32837d454278241a6573689da07bea
+public/content/identity/arms/HAN_0.webp | 21614 | 71cd906969b0c2f08557c6c75d0429f7b3bccd6d
+public/content/identity/arms/HAW_0.webp | 19672 | 89f0e82450440cdf1c9754cdd7b6e0e417ee7f95
+public/content/identity/arms/HDA_0.webp | 22906 | fddec19f8a93712993a7c0d5a9f3b867b8880c17
+public/content/identity/arms/HHE_0.webp | 19290 | e4f93ba87e7342467c01e672fcfa8b88c6a403cf
+public/content/identity/arms/HHO_0.webp | 12658 | 927ae622296e8bd0db8c6ff74fdbc0c0a0114e38
+public/content/identity/arms/HKA_0.webp | 13292 | 8ebe45c8a9d3a2204fbdb58d43fbe0f10560c853
+public/content/identity/arms/HUN_0.webp | 27590 | 9c7ddbe11876e31a08dfbb0bc79f84f095f28a96
+public/content/identity/arms/HYD_0.webp | 16468 | 0cd4448f0ca380655fee9974d335cb3b840924f5
+public/content/identity/arms/ION_0.webp | 50068 | e2b45381092d657148c35a5df401dfa15b9f04a7
+public/content/identity/arms/ITA_0.webp | 20162 | 9ec5ac1edf7e04fe95fd7d9a34d678489e418350
+public/content/identity/arms/JAP_0.webp | 27056 | 0eb85ce4586750e56d720da545c81a88c6c307d4
+public/content/identity/arms/KOR_0.webp | 23420 | cd86bac6f105a05676df01fd43ec132954b9413b
+public/content/identity/arms/KRA_0.webp | 17572 | f577e8345a34e4910b02cc5896d8b13aaf3a1d1c
+public/content/identity/arms/LIP_0.webp | 25132 | 7b5571d2064698c5ce7b7a67cf3accfd54aa2882
+public/content/identity/arms/LUB_0.webp | 16328 | 2763db76c04942a1eb37e0aeadab590a13299456
+public/content/identity/arms/LUB_1.webp | 33404 | 31f67b11b1650093ba31e56bb27974fad3e38a3a
+public/content/identity/arms/LUC_0.webp | 28782 | 06a347df606cfd2b4e4f123c38d01dcc8c6538a6
+public/content/identity/arms/LUX_0.webp | 22970 | 38f9772429dde71396e50c951593ea1ad12f8a3b
+public/content/identity/arms/MER_0.webp | 12474 | 9b42f4c8a9ba65f6dc9bcea166d59fc8df83eff3
+public/content/identity/arms/MEX_0.webp | 24018 | 096aedd91e9b054ebccbd473a8add6d91996f9db
+public/content/identity/arms/MNT_0.webp | 30310 | 32f12e4bebefaa652fc6f91875eede75bb8f8a64
+public/content/identity/arms/MOD_0.webp | 15918 | 39b502ecc0b66ebcbe26065a983590a8f7998cfa
+public/content/identity/arms/MOL_0.webp | 23978 | ba2a59a0e0a1c7da50e887122abeda2e217ad58a
+public/content/identity/arms/MSC_0.webp | 23390 | d3c2d813041273d921d8898e2c05bcac0ceaf2e5
+public/content/identity/arms/MST_0.webp | 22648 | 3d30610894df07bf944815eb7907eb60b9ca3116
+public/content/identity/arms/NAS_0.webp | 16962 | b1a3b5c3228a9293256fcc081f53b754df7d0e8b
+public/content/identity/arms/NED_0.webp | 22470 | 4e618178eb6fa71c58442eb627e444858115f894
+public/content/identity/arms/NGR_0.webp | 19640 | 43f1ad73a53c0b79418734fbb2a0b93040047866
+public/content/identity/arms/OFS_0.webp | 17350 | 45844c779f02635572a1d694ada1b4d38e2a1176
+public/content/identity/arms/OLD_0.webp | 23872 | 5efba0102c2ff9b63f7d10e10d835a0a36652b53
+public/content/identity/arms/PAP_0.webp | 13628 | 25944ca4be4212e6e69e012b7835cb02d68a20b4
+public/content/identity/arms/PAP_1.webp | 18148 | 155520e57b742adc8233b39dfc598eb9c1fe77dd
+public/content/identity/arms/PBC_0.webp | 27394 | 4874c30c37241b4b00bdb859e5bd4332e2afa0c7
+public/content/identity/arms/PMA_0.webp | 30118 | d357ee28ed2b28ad7d47fb9c6d95ceeba5baa41d
+public/content/identity/arms/POL_0.webp | 14206 | efa4a37f4e3f77c427ab8a37b1b48f1e603915c2
+public/content/identity/arms/POL_CONGRESS_0.webp | 11270 | f13e2a1975e56c94237c1f2b0cdf61673d576bdd
+public/content/identity/arms/POR_0.webp | 29924 | e4020edba1c7c222be0e99100a07a70647ea093b
+public/content/identity/arms/PRS_0.webp | 35238 | 6ecdac1b9bec7fae89956956d5d5486a9829367a
+public/content/identity/arms/PRU_0.webp | 23654 | 32e58d77552ede5227387c108428cbbecd83d92c
+public/content/identity/arms/PRU_1.webp | 30674 | a72d07d7240a390bc3abb99ad7a07742861949a5
+public/content/identity/arms/RGR_0.webp | 22596 | f2dc4592e299f42a58096c815269b128e3fcaf3b
+public/content/identity/arms/RGS_0.webp | 24446 | 51d007398e22b0dda5b187e7c60f4e03b2aeaa30
+public/content/identity/arms/ROM_0.webp | 21130 | f548465f9d4444994968cb357f81aaeba75b427b
+public/content/identity/arms/RSC_0.webp | 21972 | 1b076a346daac2075b2d7817bb1395880b158d67
+public/content/identity/arms/RUS_0.webp | 38468 | ec2d1f15168901bfc280c96b1a53ea567ddfddba
+public/content/identity/arms/RUS_1.webp | 27710 | 0669bf29b5d81a1b32ee422412f4dc2d7904bda8
+public/content/identity/arms/RYU_0.webp | 6192 | bfcf9330ddaa239dfa914e28bbabdcb7e88caa9b
+public/content/identity/arms/SAA_0.webp | 25046 | 4213eab76b63acc8e9c0168cde1bb4506b87a4c5
+public/content/identity/arms/SAM_0.webp | 17852 | 93f8df66e53bcce982e9965e45c3b6fc62edceed
+public/content/identity/arms/SAX_0.webp | 23774 | 65090e4fc6ccfcd1077e0c8b4ce501495622d66b
+public/content/identity/arms/SCG_0.webp | 19130 | 52e2e142a5e9464d8d3cffb146f57805ea80df93
+public/content/identity/arms/SER_0.webp | 19532 | 1db8ad7d4de31d1e9008f12c8b98c0d0d1beef54
+public/content/identity/arms/SIC_0.webp | 36572 | 686617407ff0690e56d2259875c7ba310590d780
+public/content/identity/arms/SKM_0.webp | 23194 | ac8a440968bf935c7a16399cf05234bc2071cb0c
+public/content/identity/arms/SLI_0.webp | 19050 | 62b94a1ebd606302ec4a3e7aecef52413516d7e7
+public/content/identity/arms/SMN_0.webp | 31028 | 6fa4544cfbcf35d36d81403c079a1d116964968f
+public/content/identity/arms/SRU_0.webp | 27988 | 683542a54efd0d326d3d8ca34adf4ec7e4b60346
+public/content/identity/arms/SSO_0.webp | 28366 | 553101013b5eed6e8b8c70bd3c023917b914eb9c
+public/content/identity/arms/SWM_0.webp | 23232 | bcf24954db84767c90a4524870c6f0541444c1ed
+public/content/identity/arms/TAH_0.webp | 6286 | 471b3450738d3ac05ba8c7ee90e49ec7565c02b8
+public/content/identity/arms/TEX_0.webp | 18010 | 91814842e442bc4902d56315ef0a9d2bf6f0c1f1
+public/content/identity/arms/TRN_0.webp | 27202 | 0757702b65e09c1b89816f1509290acc067849d2
+public/content/identity/arms/TUN_0.webp | 14706 | f6ba155001e1afd62c8036a0e7fa7b0910e50743
+public/content/identity/arms/TUR_0.webp | 37106 | 836d41b144ff7a05ebfc011ce44f4bcf803dd8db
+public/content/identity/arms/TUS_0.webp | 20772 | d3760f1811978a344d0c5013f672fb5b42b3d78b
+public/content/identity/arms/VEN_0.webp | 26818 | 88a3455c35a9d32e1fe37076b6b484f1db7427e8
+public/content/identity/arms/VNM_0.webp | 14584 | 4602601a23a8bc0e468d2ac6c6a180234e28e77b
+public/content/identity/arms/WLD_0.webp | 20376 | 020e8c751f026760627cf5433fe4e368dc6b2c63
+public/content/identity/arms/WUR_0.webp | 23956 | 38b0c597d8f1d4d57bd75bfc88a92c46cf03e630
+public/content/identity/flags/ABE_0.webp | 210 | aea74b27e86c62afb572604a7f1e71ff3c93a93d
+public/content/identity/flags/ACE_0.webp | 4116 | b6650c4198f015165b3afdc11c2f6c3ada95e7f7
+public/content/identity/flags/ADE_0.webp | 210 | aea74b27e86c62afb572604a7f1e71ff3c93a93d
+public/content/identity/flags/AKO_0.webp | 210 | aea74b27e86c62afb572604a7f1e71ff3c93a93d
+public/content/identity/flags/ARG_0.webp | 1806 | d840431513fdaf6f5a8749ecd762daa71cbea5b8
+public/content/identity/flags/ARG_1.webp | 3252 | 2ecbf87f06251fa7e030fa50fb04e6b5fc267b6f
+public/content/identity/flags/ARG_2.webp | 3128 | 75df27e794dab4380af6c8dafde035d1f66bced4
+public/content/identity/flags/AUS_0.webp | 278 | 98694d9f6b7b540742ff399ed67d90d3a6512e5b
+public/content/identity/flags/AWA_0.webp | 3444 | b62ba70d2333f7085493089ced2879dfaf1921db
+public/content/identity/flags/BAD_0.webp | 322 | 1d522691215ed14c278420ffb54542f89a0aeb6b
+public/content/identity/flags/BAV_0.webp | 280 | 17e2dce8046eaac40b28d7ccfdb2b98c9ce3c128
+public/content/identity/flags/BEL_0.webp | 276 | 48567bd1307435aa4249897913444a6afb87cd76
+public/content/identity/flags/BEL_1.webp | 300 | 49304c08730d8ee7be50ea515306259b94e06c7d
+public/content/identity/flags/BOL_0.webp | 2938 | c8ceff73617332f96dfb0b14607daabfb6210ccf
+public/content/identity/flags/BOR_0.webp | 1156 | d1f4b9a04a9178eec31cbe0defee88c8076277be
+public/content/identity/flags/BRA_0.webp | 8940 | d3f85a41137a45c01362e89cc404329d1d64ef75
+public/content/identity/flags/BRA_1.webp | 8918 | 4468485d196dd7cf3ddb3ec4615d52b354b4429a
+public/content/identity/flags/BRD_0.webp | 3776 | a2bbf5fdf9ca3fe08978be670bca7e43d8734905
+public/content/identity/flags/BRN_0.webp | 170 | 2eb14eea0636d0072b6055a459eca5a0f877ab6d
+public/content/identity/flags/BRU_0.webp | 282 | ae6538132d1408e78ef9e648c445e0ab236f5d3c
+public/content/identity/flags/BUK_0.webp | 14304 | 49754ad16835b3593d6d1a34381045faa32a5ce7
+public/content/identity/flags/BUL_0.webp | 296 | a2be9b29d7e7d12c1b3f179a6fcc3c7ddcf901ac
+public/content/identity/flags/BUR_0.webp | 6562 | 1733806235c4cc407211e6dc74174bb8764176f1
+public/content/identity/flags/CAF_0.webp | 1802 | 2c98571d4c01041644e5cb0f5517a4b638092b21
+public/content/identity/flags/COS_0.webp | 1736 | 51edc6e6d17e8c63b829ace8999e813790a2d7a8
+public/content/identity/flags/COS_1.webp | 456 | a95e83afcc8a3f90293afa19c0b75e8217ad7a0e
+public/content/identity/flags/COS_2.webp | 4062 | 918367ecdbc1bfe9a5583a07d0fa36e4bbe9082a
+public/content/identity/flags/COS_3.webp | 1938 | 5984c081771a86fb45dc11afa553812c11b68cb6
+public/content/identity/flags/COS_4.webp | 1936 | d6a4439c9d6144f11546a3389912c3ad21f68d83
+public/content/identity/flags/COS_5.webp | 3326 | 29d28f3183f8755556ab1f85d1fcf1ed7ff821b2
+public/content/identity/flags/CSA_0.webp | 4496 | 57b595a3dd8f1ed95f3bcb9beea2c4e504d3696e
+public/content/identity/flags/CSA_1.webp | 3272 | b80cc4aad450b8f50eaadabb1f86ed4d4324f769
+public/content/identity/flags/CSA_2.webp | 2144 | 3b61afb5ff8a2426a27ccae28b04ed08ce714f5f
+public/content/identity/flags/CSA_3.webp | 1930 | ab2355876509f98ef715a5b14fa0ddbb82eff600
+public/content/identity/flags/CSA_4.webp | 1634 | 58f5a4451e39481fb99c8d8b9239fc2d13c1d8fa
+public/content/identity/flags/DAH_0.webp | 4092 | ba678cfa751d2faa1c14b2cf40750c1a57f7edcf
+public/content/identity/flags/DZ_KONGO_0.webp | 3538 | cae07c3d8910936b001428e22ee57c2cce60b3e4
+public/content/identity/flags/DZ_KUWAIT_0.webp | 2318 | b913d040b045320c8788199ce4440a16457de5c5
+public/content/identity/flags/DZ_KUWAIT_1.webp | 1440 | 5a61b79b6f504beaeb8255a2d04ed888a2cbe3f3
+public/content/identity/flags/DZ_KUWAIT_2.webp | 2402 | 18aa12b4e8b45dd6c85f8acf63e13752b4f25441
+public/content/identity/flags/DZ_MOSQUITO_0.webp | 3292 | 2ba52fe56a2fe148667e826e6349505083cd4083
+public/content/identity/flags/DZ_SHAMMAR_0.webp | 2784 | 679f00a56a5c2321fa40b58ff25fdb174f8883bf
+public/content/identity/flags/ECU_0.webp | 2500 | b656b70fbb3819bdb44674e964e8ad63a50d1719
+public/content/identity/flags/ECU_1.webp | 362 | 8c2c0ac489d16bec4535c11a36f51b4329d6b248
+public/content/identity/flags/ECU_2.webp | 2116 | 36b08b81825bdbfb4e0c60ba8878dadbb48c1b45
+public/content/identity/flags/EIC_0.webp | 3692 | 75489ff26309f3e45a60a5617aefb783fc6a4f57
+public/content/identity/flags/ELS_0.webp | 1878 | 96c592d8835925c811356d47a33833214a3b4b98
+public/content/identity/flags/ELS_1.webp | 1618 | 7eaa4d96bc815a63c6b7282919f7cf73c71c3ef1
+public/content/identity/flags/ELS_2.webp | 1878 | 96c592d8835925c811356d47a33833214a3b4b98
+public/content/identity/flags/ELS_3.webp | 2740 | 8ec7dc3947da9afd3a39f001d91503d99e317434
+public/content/identity/flags/ELS_4.webp | 2682 | 60572298e4a3d7073febfe66ad2708412194ef30
+public/content/identity/flags/ELS_5.webp | 2550 | ff0ebe029843e1203ca9c53b4d213e4774207a6f
+public/content/identity/flags/ELS_6.webp | 2430 | 2e5cb536c126b35db1a7253fdc0c254d8a82b786
+public/content/identity/flags/ELS_7.webp | 2490 | 7c61e823d740cd6e690eb3d348f85bcbfef03ecb
+public/content/identity/flags/ELS_8.webp | 346 | c557ed6eca1ccea9271b1db1d92635be4288f79c
+public/content/identity/flags/ELS_9.webp | 1802 | 2c98571d4c01041644e5cb0f5517a4b638092b21
+public/content/identity/flags/FJA_0.webp | 6980 | d8c18ad3caff149f7e686703b712c2dba7f45e9d
+public/content/identity/flags/FRA_0.webp | 300 | c266ce4a28f85ecee6ca5a19da40a0d32002e92b
+public/content/identity/flags/FRK_0.webp | 5384 | 69915c4f5c5a7a0955fe7d97351a5dde0b463c11
+public/content/identity/flags/GBR_0.webp | 5544 | 1eaa09a0ed85f37ff9767c4e93870f0fe254130e
+public/content/identity/flags/GER_0.webp | 322 | 8d65df7cc9fbb5f469c29908393922b82f441694
+public/content/identity/flags/GWA_0.webp | 2298 | 1014b8f34af4a190516a92713be43ac592e9c402
+public/content/identity/flags/HAI_0.webp | 3796 | d6ce1a32b3385b81a6e45b189467b2c66eb252e9
+public/content/identity/flags/HAN_0.webp | 4594 | c7b8bfce0c6ebbd4919838f538b11dd954bd756f
+public/content/identity/flags/HDA_0.webp | 3886 | bf105503645a36c3be0c1c013b0f9e09d2490086
+public/content/identity/flags/HHE_0.webp | 3730 | 5672f754eb04e2af5f94292378eba072428342dc
+public/content/identity/flags/HHO_0.webp | 260 | f28ba045f8f595b0305268cf08e3304e44861745
+public/content/identity/flags/HKA_0.webp | 296 | a63607f392ce73e7db042d68900642d11f35fea1
+public/content/identity/flags/HOL_0.webp | 2380 | a89c1934796406405319d1e00783736e8031e8dc
+public/content/identity/flags/HON_0.webp | 1050 | a5e7e7386ea6e9a2188775f74ebf12d4258bee72
+public/content/identity/flags/HON_1.webp | 1320 | 40349bf2b10304b5ef5c34711c9cb02bbf6c859f
+public/content/identity/flags/HON_2.webp | 340 | 9aa6fe9db0fec80b65e0ee376fc46ed85c44545a
+public/content/identity/flags/HON_3.webp | 1802 | 2c98571d4c01041644e5cb0f5517a4b638092b21
+public/content/identity/flags/HSI_0.webp | 3730 | 5672f754eb04e2af5f94292378eba072428342dc
+public/content/identity/flags/HUN_0.webp | 3916 | 76ddc921f99cb006770b81add6f84c50bfe482bd
+public/content/identity/flags/HYD_0.webp | 3606 | a064889bb2c97c086dce70327add8c7b431f8c21
+public/content/identity/flags/IMM_0.webp | 3102 | 8314f3dce9c30300aefd278e602714e202b4f0fd
+public/content/identity/flags/ION_0.webp | 7016 | 2cd26b7397fa31abbe183b8f033eba4e17192f26
+public/content/identity/flags/ITA_0.webp | 1230 | a677a13b8ec1c16d93a089cc3b41f611e6b3c7de
+public/content/identity/flags/ITA_1.webp | 2636 | 1cbeccba4fec6e2700d3fa6f9aa718f3dcd52a51
+public/content/identity/flags/KAL_0.webp | 4078 | eb45f63cb39be275b05431b0f182ecd39ee03e37
+public/content/identity/flags/KOK_0.webp | 166 | e88a34e83db9ea5eb0b2f2eea40631259d3c0299
+public/content/identity/flags/KOR_0.webp | 11772 | fa83e3bbc81cd018f2a6c7060b8700afd5003df0
+public/content/identity/flags/KRA_0.webp | 290 | 73769187c5bdba6e34ffb73beb1b81ca51214093
+public/content/identity/flags/LIP_0.webp | 316 | 617f63330d60ddf4b72bc141e5b52967f21dd934
+public/content/identity/flags/LUA_0.webp | 4140 | 1e840819d5352d3ce6a0319ba47698116cb3563a
+public/content/identity/flags/LUB_0.webp | 368 | c9d711c509a494ca8a766f63ce05b85e4b3235df
+public/content/identity/flags/LUC_0.webp | 5544 | 349d0f071d57b73db30ccf4dfa502a3fad0e71db
+public/content/identity/flags/LUX_0.webp | 292 | c8673a244dbe421a6d1eaf64e4ef345efabd2bfd
+public/content/identity/flags/MAO_0.webp | 2100 | 50d2db3f0841750f8790b70876d35baba95b470b
+public/content/identity/flags/MAS_0.webp | 1992 | 828b7f428f80a68b0fbd1ab06eba02dddf7160dc
+public/content/identity/flags/MER_0.webp | 2408 | c494f741bb0eb966f58b0166aca3fbc75d4b0dae
+public/content/identity/flags/MER_1.webp | 272 | a02832b3886be1a30f8f65d5072c48ec27d61baf
+public/content/identity/flags/MEX_0.webp | 3698 | 958119b512c963d67fa990ea9153afa928199875
+public/content/identity/flags/MNT_0.webp | 1388 | b278093424212a5a8fe0d7b680675af0710d3c46
+public/content/identity/flags/MOD_0.webp | 3656 | ecf4fd0b1a2a3545033ccc79bb8d36f609f845b5
+public/content/identity/flags/MOL_0.webp | 5990 | 0df19e6849316e85c1caf752fc3bafa12a2da8bb
+public/content/identity/flags/MSC_0.webp | 442 | 28435c28812e670f8b7f919cfba9ab1399530bbc
+public/content/identity/flags/MST_0.webp | 442 | 28435c28812e670f8b7f919cfba9ab1399530bbc
+public/content/identity/flags/NAJ_0.webp | 3976 | dffe5fa5168c4b1ea1207ea19dea4addaa288f5a
+public/content/identity/flags/NAS_0.webp | 340 | eaf6889ea2da0f3db151a566ab57d33d28840a6c
+public/content/identity/flags/NED_0.webp | 358 | 312bab8828de1e982d96fc370825feab352cb32f
+public/content/identity/flags/NEP_0.webp | 4660 | 94adba47023f709f16cea4c3512b03935ede9e99
+public/content/identity/flags/NGR_0.webp | 328 | 9ae8d605c7d1f9b31876d7ce5e3c959527699b95
+public/content/identity/flags/NIC_0.webp | 1432 | e0180e14009e5aabe9a3f5431d7c2a4e79ca820f
+public/content/identity/flags/NIC_1.webp | 2008 | 8ba680915119c756b81683c6ab9a42096c99d98e
+public/content/identity/flags/NIC_2.webp | 360 | bbbd3cf7a0bf9c49e2dfdc48d83c3c9423d1c1ce
+public/content/identity/flags/NIC_3.webp | 470 | 3e939974fdef3bfbeac5cb86fac54a76fe8277f4
+public/content/identity/flags/NIC_4.webp | 360 | bbbd3cf7a0bf9c49e2dfdc48d83c3c9423d1c1ce
+public/content/identity/flags/NIC_5.webp | 322 | 94553d13d08a3bd8533403489a6badebadd10ea2
+public/content/identity/flags/NIC_6.webp | 1802 | 2c98571d4c01041644e5cb0f5517a4b638092b21
+public/content/identity/flags/NOR_0.webp | 846 | fdb6778c42e19f50a4833e27046a597ddec36e92
+public/content/identity/flags/OFS_0.webp | 842 | 4ba2a2473d9e30f4a5d6a14d4e298cc02def68a2
+public/content/identity/flags/OLD_0.webp | 588 | 9627f4a5272bba4a01e0b5aeb17a069f99c58485
+public/content/identity/flags/OMA_0.webp | 196 | 3ffc7f38053b06a58dcdc9a85f23dbaa5d50a5c8
+public/content/identity/flags/PAP_0.webp | 3800 | bfc108fde53bad4374745c9a59e08189c7748071
+public/content/identity/flags/PAR_0.webp | 590 | eba427741f9893576f763b8dc6d28a700753e6c6
+public/content/identity/flags/PAR_1.webp | 2326 | 3c78db0f90455e541bc5fbe81beb3d4c3ba1aea1
+public/content/identity/flags/PBC_0.webp | 3680 | e1d44e3e7158b5e0f22914006dae08cfd2c59659
+public/content/identity/flags/PMA_0.webp | 5416 | ef946dd1a1d7845673f157dcaa15ebf545300582
+public/content/identity/flags/POL_0.webp | 348 | e383f4a96891194a1bac02dea7b62585bc97db50
+public/content/identity/flags/POL_1.webp | 382 | 4123f1acb051ba8e8770bd2598108fdf29ff3de3
+public/content/identity/flags/POR_0.webp | 5216 | 469cc617c2c90cdf4789306e391a4ceef3bd3ef1
+public/content/identity/flags/QNG_0.webp | 9630 | 496db5a177f833b33866c5e929ab518bc049c870
+public/content/identity/flags/QNG_1.webp | 9178 | 4e29e0f16917c64460706732d1451bbf6f4251b3
+public/content/identity/flags/RGR_0.webp | 448 | 2999fa6bd9d738dff12113cd8abb270a3ac88c94
+public/content/identity/flags/RGS_0.webp | 1276 | 7078b2a9e360b67c666e3916e988275281c960b2
+public/content/identity/flags/ROM_0.webp | 364 | 5e7e36cc07484205309dfad9107dfede6fa46adf
+public/content/identity/flags/RSC_0.webp | 296 | 351930571ec0ad642965b122572f23edcd56640f
+public/content/identity/flags/RUS_0.webp | 372 | 172a55be34b065d108b375301782ed4d2fcdb921
+public/content/identity/flags/RUS_1.webp | 372 | 172a55be34b065d108b375301782ed4d2fcdb921
+public/content/identity/flags/RUS_2.webp | 348 | 92f96dc216455e5acc7cd443a2a18c69562fe29f
+public/content/identity/flags/RYU_0.webp | 9022 | 0917df796b03cb9b63931c11fe28908b99e79203
+public/content/identity/flags/SAA_0.webp | 272 | 977e57da595b1c5aedb058dd522c2e59825bfce7
+public/content/identity/flags/SAM_0.webp | 578 | 36456ce5ff407f3e7e49ccd41f1cf6e693b7c72d
+public/content/identity/flags/SAX_0.webp | 240 | b77b9e525ff752a45bc4b981f71f5bbf8fd7d105
+public/content/identity/flags/SCG_0.webp | 366 | 9252b4e037d236361a63ff39798c94cee8cb3a5a
+public/content/identity/flags/SER_0.webp | 2338 | 472889658e18be4f905acd0da93b9c955bdeaa14
+public/content/identity/flags/SIC_0.webp | 7942 | 7be933eb0f431249cae0d1a623c0cb51efdd6cb2
+public/content/identity/flags/SIC_1.webp | 3138 | 17795cab24705494a93d1685686eadf156f679a8
+public/content/identity/flags/SKM_0.webp | 22206 | 15d2455cc2b7e01fe87e37664700c89ebfac76eb
+public/content/identity/flags/SLI_0.webp | 316 | 4558146d02a65bb6217c9e81f55c4d45fa5997d4
+public/content/identity/flags/SMN_0.webp | 294 | 22707267d8236d7f80786f1a85de2197a04fec42
+public/content/identity/flags/SRU_0.webp | 308 | 9ae604f9049b4c4d753f2d772ad323578d5e47b9
+public/content/identity/flags/SSO_0.webp | 308 | 9ae604f9049b4c4d753f2d772ad323578d5e47b9
+public/content/identity/flags/SWM_0.webp | 360 | 70d1955a0561a29a6e1629a56d4fbd1cc7bd11ee
+public/content/identity/flags/SWM_1.webp | 442 | 7f478eef53caab70567abddae3e1494cadae1583
+public/content/identity/flags/TAH_0.webp | 384 | 9e7f00872aa0080e443822a4b5bc80aa0dc60ff8
+public/content/identity/flags/TEX_0.webp | 1112 | 75a35902df1c6fe747b5ad2adf9f2f8cdc6f8f08
+public/content/identity/flags/TEX_1.webp | 1706 | bf5cb63d3eac16d5815fb9a52f8b26e9d6892608
+public/content/identity/flags/TRN_0.webp | 396 | 8adc6222bc79217f2a9ffeacc632e95ca5975d32
+public/content/identity/flags/TRV_0.webp | 3648 | 00e788d1b4fa1265248dbce5b6cab5c85b59120a
+public/content/identity/flags/TUN_0.webp | 2312 | 8af3ca26146930a02bc7ca1bd4f063d655bc83f9
+public/content/identity/flags/TUR_0.webp | 2318 | b913d040b045320c8788199ce4440a16457de5c5
+public/content/identity/flags/TUS_0.webp | 8238 | 590dcf120eba765e712de65e03fa9da2a6c1d3ef
+public/content/identity/flags/USA_0.webp | 2904 | ffa281e4f85510314755b13951c8acdc1152aa64
+public/content/identity/flags/USA_1.webp | 2898 | 85b1f532474d8f7fa4ee5cc3b5bc495d585d5c9f
+public/content/identity/flags/USA_10.webp | 3446 | f6f46c14084c451e48435f8d250da4f10c10b4c6
+public/content/identity/flags/USA_11.webp | 3538 | 29448061aad43834ece33006e362e90bfbb63134
+public/content/identity/flags/USA_12.webp | 3814 | 029da5c38747287b2741b33fea8632bc2cc754ae
+public/content/identity/flags/USA_13.webp | 3774 | 9e131b855d6290fff92221326b2276b7a62e654b
+public/content/identity/flags/USA_14.webp | 4294 | 2c169a97282b1551a40b256c4a8bde5c88d0c53d
+public/content/identity/flags/USA_15.webp | 4282 | f9d7c7c6548266bdf62b8b624ad5890c97ae7875
+public/content/identity/flags/USA_16.webp | 4324 | 073896d51cab4756a66700ec6cfa732f5a0a5ef2
+public/content/identity/flags/USA_17.webp | 4418 | 90ec56c6c0003515fcd330752f72ba00bd19852c
+public/content/identity/flags/USA_18.webp | 4610 | dde42d34e1017d1b4f572caac1d6c3f7288fef54
+public/content/identity/flags/USA_2.webp | 2974 | 264247a56562d0a5512a130248e0551eaad98772
+public/content/identity/flags/USA_3.webp | 2932 | 1176620712dd6ffbfefe9d8424d6ab6c51a902be
+public/content/identity/flags/USA_4.webp | 3086 | 500eccf9891f22ec4559d458621206fa1e10001f
+public/content/identity/flags/USA_5.webp | 3256 | 353533c20a7889df6305c5603efd8adc08382bd8
+public/content/identity/flags/USA_6.webp | 3292 | 0f4af32fb2126792b3fbf0280407b2be1e530fa1
+public/content/identity/flags/USA_7.webp | 3234 | 8961d41c5719d5d11e1cbd087c9f45efff3ec634
+public/content/identity/flags/USA_8.webp | 3312 | 5779538bb327e60821e43a91294cbb684eeb63a3
+public/content/identity/flags/USA_9.webp | 3510 | bbf5ecd843cd382d1fd488079540e13ca72e6618
+public/content/identity/flags/VEN_0.webp | 2302 | 923e44b2fcbe7ad30577f51819da513302a99bb2
+public/content/identity/flags/WUR_0.webp | 262 | 18271b558e9950623cf30077d7c6b211202e0133
+public/content/portraits/ABE_alexander_charles.webp | 19858 | 70ebc80dde81bbc002e85a503b00d916d38153dc
+public/content/portraits/ABE_frederick_i.webp | 7450 | ea08a9d558b6882ec9b630f8d1f3426859a6fb3b
+public/content/portraits/AFG_dost_mohammad_khan.webp | 47544 | 59d8ea3a0b3b4f4ffeefaf1830c5dee7ca465ee3
+public/content/portraits/AFG_sher_ali_khan.webp | 19130 | 2f01979cd62ff865b17176d87295307a8aa4620c
+public/content/portraits/ARG_bartolome_mitre.webp | 25320 | 616b6909c2733d8790e05c6866ecd85079b34c9e
+public/content/portraits/ARG_domingo_faustino_sarmiento.webp | 23200 | 83c8b8eef3251aa1bdeeb2140f81d01979d12d21
+public/content/portraits/ARG_justo_jose_de_urquiza.webp | 36076 | 551569ffc5a93b3fa1cb6b1eb2bff9ff69a13da2
+public/content/portraits/AUS_ferdinand_i.webp | 28108 | 6a4603c029d221bf17b0c4aed519a6d27e6aa3fa
+public/content/portraits/AUS_franz_joseph_i.webp | 27994 | 30012338c821965d0f2308c54a9fda2f3e8d424a
+public/content/portraits/AUS_klemens_von_metternich.webp | 19634 | ff85106711c4da77943d180dc608c1197ed3ad05
+public/content/portraits/BAD_frederick_i.webp | 24872 | b09a3ca3c0bc0a456c5977893614b2463f1211b0
+public/content/portraits/BAV_maximilian_ii.webp | 24704 | 0b3d3327c0e2e03b729475b7664ecc136a1ed9ea
+public/content/portraits/BOL_adolfo_ballivian.webp | 9418 | 32c21d9a3665b8432af123198af55f46118df826
+public/content/portraits/BOL_agustin_morales.webp | 8702 | a3782fec73908c9e42353b236c62a5ffda9e91ab
+public/content/portraits/BOL_andres_de_santa_cruz.webp | 24446 | 46011d144d98e5339310fa7aa3aeb7e789f87341
+public/content/portraits/BOL_gregorio_pacheco.webp | 6974 | 929345056bac1ab2b35b259b6e8a3990a3bb03af
+public/content/portraits/BOL_hilarion_daza.webp | 14768 | d24059e99344d3f17cc6a43e50ed5f2fd9a24aac
+public/content/portraits/BOL_jose_ballivian.webp | 44596 | 9f9ebc9c89195c10cd830b0adbb737fa3b114d57
+public/content/portraits/BOL_jose_maria_de_acha.webp | 12884 | d9ea3b0762e710782646a5a72b5321c6906978d0
+public/content/portraits/BOL_jose_maria_linares.webp | 47934 | f7eb84d84f8a5a59dacbbea17be60dec138ee077
+public/content/portraits/BOL_jose_miguel_de_velasco.webp | 11600 | 287816b617f0070c8d79d54eec573ed9c42750eb
+public/content/portraits/BOL_manuel_isidoro_belzu.webp | 12118 | 265414690be33a6021fb1ea28f1efa5265206cd9
+public/content/portraits/BOL_mariano_melgarejo.webp | 10154 | 8eb887d13eff21cc4b54c76cc616581c8b929776
+public/content/portraits/BOL_narciso_campero.webp | 10572 | f5072746b0aa0bddd2d48e0218a940395868fda5
+public/content/portraits/BRA_pedro_ii.webp | 10722 | 7d69c60d32c0fd40d6ade1a07837616863c0d83f
+public/content/portraits/BRN_omar_ali_saifuddin_ii.webp | 38040 | 716d31de3841e10411e8dba5309f4547e7caaf23
+public/content/portraits/BSO_moshoeshoe_i.webp | 32418 | d9207c3542e3d2153a5f2648ea4aa1eaeb4fce79
+public/content/portraits/BUK_nasrullah_khan.webp | 37482 | 52c4985a62d797732f706d1ff30a64d7bd94f6b1
+public/content/portraits/CAF_francisco_morazan.webp | 14660 | a47d9c450c02638056733dff4d9681ddb34cd7c7
+public/content/portraits/CAR_carlos_maria_isidro_de_borbon.webp | 33518 | 0100c39cece54d884a01d85ad6f38ec8e89fc2ac
+public/content/portraits/CHL_jose_joaquin_prieto.webp | 40218 | 252405a85fd371d23cf46535b045b8a7e014ac10
+public/content/portraits/CHL_manuel_bulnes.webp | 42776 | a73742a7708643069710a0f9995e80c9068fac52
+public/content/portraits/CHL_manuel_montt.webp | 35704 | 4ed131b081dfbef3dce6fe0c39a2cd8e7256b207
+public/content/portraits/DAH_ghezo.webp | 30668 | 8fb9109937b16ef3f5038ecb07cf77b73097c386
+public/content/portraits/DEN_christian_ix.webp | 17426 | 66efd9cfd292cdf11aa47293cc7a3a8f69c16d4d
+public/content/portraits/DEN_christian_viii.webp | 22662 | d764c2ca3de3b4c4fb5e2a5a18a6521b1311c98d
+public/content/portraits/DEN_frederick_vii.webp | 23160 | f1a49cf8e5e1d1f43249175ce9745273289bff59
+public/content/portraits/ECU_antonio_borrero.webp | 16610 | 16536caa4be22fe50669526da63800b0e478aa19
+public/content/portraits/ECU_diego_noboa.webp | 23810 | 4c6cae7cc2332da301db9940bd8826b564501684
+public/content/portraits/ECU_francisco_robles.webp | 27274 | 76285166a709ef4246e75b68044cdb477670fac5
+public/content/portraits/ECU_gabriel_garcia_moreno.webp | 27604 | 51838c403a2b581a84fe1062bd646363da79a615
+public/content/portraits/ECU_ignacio_de_veintemilla.webp | 32418 | ee85a4eda1411121754db2f9b1ce5b0a0e28d369
+public/content/portraits/ECU_jeronimo_carrion.webp | 25510 | 6e42a5f8478a553961637fd231fffd6c7380f0e9
+public/content/portraits/ECU_jose_joaquin_de_olmedo.webp | 29612 | 4ad1c78f3dfa79fe9e46e3287e0f507b10293bd8
+public/content/portraits/ECU_juan_jose_flores.webp | 35198 | 8de79b48164911f25dfa6c0da7883ca9cc0b8553
+public/content/portraits/EGY_muhammad_ali.webp | 22400 | 4b27b474b6e7d0ae1fd20f895c3d0428db835f7a
+public/content/portraits/EIC_edward_law_lord_ellenborough.webp | 9522 | f1fe42a6b0130dfa87e2b165fff9a1e5d86b57ce
+public/content/portraits/FRA_adolphe_thiers.webp | 10640 | 3cbb8f667167e4d180a1ab55eccaffc0deac5e37
+public/content/portraits/FRA_jules_grevy.webp | 16372 | b7bd07dbe796b06fa81d86f7eb7333241c008e58
+public/content/portraits/FRA_louis_napoleon_bonaparte.webp | 15884 | dae17bf1eefba8070ecaf48750ee324916d317c1
+public/content/portraits/FRA_louis_philippe_i.webp | 30600 | 55eb3b5a3800799f2781d0c765c623a40ac6eee9
+public/content/portraits/FRA_patrice_de_macmahon.webp | 14482 | 4fac0d15794cd97195bee07e2230d439304f90bf
+public/content/portraits/GBR_princess_victoria_of_kent.webp | 30164 | e331a85a89c67595b4386b0516a3ef2332155d18
+public/content/portraits/GBR_william_iv.webp | 31244 | a4d618da0f8202f399fc94397641cad162cf94db
+public/content/portraits/GRE_george_i.webp | 19736 | 4a07ae7081d81cc16a1767afd2e29e7995ef1f88
+public/content/portraits/HAI_jean_pierre_boyer.webp | 16844 | f5c35d6fdc78f668d21c2e2b1e0a9e5c53c247ed
+public/content/portraits/HAN_prince_adolphus_duke_of_cambridge.webp | 7128 | 3329f2192e7dfa4b4b4a292741faad87a4f2ec34
+public/content/portraits/HAW_kalakaua.webp | 21106 | f29798814faa8e75e36c4f1dd7d4b117c61678d1
+public/content/portraits/HAW_kamehameha_iii.webp | 21618 | 1fef61548b727203330e06c4d2efd386e75dde61
+public/content/portraits/HAW_kamehameha_iv.webp | 25676 | 45a3c17ff8dffb4facf4dbd3d94a82d93052a4cd
+public/content/portraits/HAW_kamehameha_v.webp | 25524 | ac200c4cfb4413b88a6151f9109740eb6cabc9a5
+public/content/portraits/HAW_kinau.webp | 20306 | 2fa1007e524fb0841a9851e72e22a2befeebf002
+public/content/portraits/HAW_lunalilo.webp | 7934 | 298e231535deb7fcd015331c55c199fe0aadf043
+public/content/portraits/HDA_louis_ii.webp | 13020 | 58117cf866c5b54536c9027e7b15be9701f69fd7
+public/content/portraits/HDA_louis_iv.webp | 45664 | d7f6027adb30fec60bc5581d9cbfa231ff8c8a42
+public/content/portraits/HKA_frederick_william.webp | 16262 | 15c2465fd3a31d8b23fde956a193f667b317ad50
+public/content/portraits/HKA_william_ii.webp | 9740 | b811f698bc9f7a03021a63cfdfe5870ef8c963fd
+public/content/portraits/HOL_hari_rao_holkar.webp | 27816 | 4c2bdc107c7758756be0773a83b47f0420e02d5f
+public/content/portraits/HYD_afzal_ad_dawlah.webp | 17810 | ce04302c4d8ca61f2b5827a21586335b493fa4e0
+public/content/portraits/HYD_mahbub_ali_khan.webp | 50244 | 860babeb7f17dadf34bd3f8b64bf5fb468f7d67b
+public/content/portraits/HYD_nasir_ud_daula.webp | 14730 | 63075a2c7dbb1ec7c3c9c435626f90f82fc34db0
+public/content/portraits/IMM_shamil.webp | 19514 | a4b6fae7d54f8c41ef12f78897667c714c288ea0
+public/content/portraits/JAP_emperor_meiji.webp | 55166 | 5d3835d5c3781d7201daa6bacad9c434e1ea7ea6
+public/content/portraits/JAP_tokugawa_iemochi.webp | 22666 | 2b1c9860810c75d7e247b54bd3c83c2c36e862e2
+public/content/portraits/JAP_tokugawa_ienari.webp | 28628 | 28fe1524192d4c35fe2c0978d0c9cbfa72862713
+public/content/portraits/JAP_tokugawa_iesada.webp | 28368 | e42c46adc3f11e4d5139a5c1ab1b7d4f1c4e86ea
+public/content/portraits/JAP_tokugawa_ieyoshi.webp | 21966 | 32ac9f7ea594442eec1a0612d2d0f738cb37d667
+public/content/portraits/JAP_tokugawa_yoshinobu.webp | 31154 | f1cb2b4a950e67d9e98b2fb1df3d7b0a8102ad79
+public/content/portraits/LIE_johann_i_joseph.webp | 23028 | 81a3cd95df42f77602eac9cf3e755cb7426176f1
+public/content/portraits/LUC_charles_louis.webp | 26278 | dcab96c1dc2c2646d7dac49e50cf0bc09e1a20c4
+public/content/portraits/MCO_charles_iii.webp | 37140 | 6a4eafba426e04739a01758705b48c17a2a4abd9
+public/content/portraits/MER_ranavalona_i.webp | 39338 | 40a2d0f4857672cdb0e0b1a9ec17fd25f3f4df3c
+public/content/portraits/MEX_anastasio_bustamante.webp | 11004 | 0d374c74978cd2a01612c628ad3cdae26b09f6ae
+public/content/portraits/MEX_ignacio_comonfort.webp | 38166 | 5eb8e965603ac3a03aaffaf1221112b9f7059ae3
+public/content/portraits/MEX_jose_joaquin_de_herrera.webp | 23762 | 7425a5fc016b751c126a11c09b7394295128740b
+public/content/portraits/MEX_juan_n_mendez.webp | 30780 | afdc6ed2c556ba605afdd2dd28e2a2f59ed4c841
+public/content/portraits/MEX_mariano_paredes.webp | 44702 | da07a660a8ab5a7a1e467bbd4937cb54aa6676a1
+public/content/portraits/MEX_miguel_barragan.webp | 33910 | 178163b1db344f68c05a0839442b011dc0c7ad09
+public/content/portraits/MEX_nicolas_bravo.webp | 11980 | f0cf8ef38211c9ffab080d7155373248ee2e9e43
+public/content/portraits/MEX_porfirio_diaz.webp | 22474 | fa67526fe767d65090fb300b38cf52ed8059f4a9
+public/content/portraits/MEX_sebastian_lerdo_de_tejada.webp | 5396 | ef84d1f23a32efae47e60d4e4182e84a8ba5357c
+public/content/portraits/MNT_danilo_i.webp | 20302 | 1d9e72772508e6432713494796615623bce285a9
+public/content/portraits/MNT_petar_ii_petrovic_njegos.webp | 39180 | ba6ba27dc34bfb94c3dab6cb50f98a314148c80f
+public/content/portraits/MOL_mihail_sturdza.webp | 38060 | 66c7f9c454dcf687b3df5b7388a012a46b17190b
+public/content/portraits/MSC_frederick_francis_i.webp | 17694 | 280f8027aa58176884c4590466f05d1004b01278
+public/content/portraits/MSC_frederick_francis_ii.webp | 24394 | 1b03eac2338e4ccd2c29aa250be8bfd7da52bbf4
+public/content/portraits/MSC_frederick_francis_iii.webp | 18886 | 3b2bc3752215595a37a1cb10d21c007f409ef6a4
+public/content/portraits/MST_frederick_william.webp | 22722 | cdfc1ff221ab337ebd05607aecb6dbcccc317bca
+public/content/portraits/NDE_mzilikazi.webp | 25870 | 16da3803e758a0607d024efe429e089bf718530d
+public/content/portraits/NED_wilhelmina.webp | 21290 | 57ce187f8b7851bc4378d6ce8c813fde854cc4d0
+public/content/portraits/NED_william_ii.webp | 36682 | db702f7f3ef9d4641349db5ba5a8dfb17246433f
+public/content/portraits/NED_william_iii.webp | 23946 | 08549bba2c3a5450de27279d227dca1ac8cdea36
+public/content/portraits/NEP_bhimsen_thapa.webp | 21646 | 1b6327e65f507e3eb41df0b6738716ed955d07b7
+public/content/portraits/NEP_rajendra_bikram_shah.webp | 40282 | 9b87da37c0f0480ccac80e44b49db24bfbdf8e43
+public/content/portraits/NEP_surendra_bikram_shah.webp | 31262 | 325e6a8440fc56251f032bc6df947da21d63f326
+public/content/portraits/NGR_francisco_de_paula_santander.webp | 31992 | 14dc7424bd41258494e98ab821934a04633b03b7
+public/content/portraits/NOR_charles_xv.webp | 39170 | dc30926910af96638b31d228651b6d40abfebe1a
+public/content/portraits/NOR_oscar_i.webp | 21680 | 1b39230f25cadf3623877607ec7bc74871a5bc14
+public/content/portraits/NOR_oscar_ii.webp | 24558 | 4ccfa173882656cd4d7991c14a64def0f19fa738
+public/content/portraits/OMA_turki_bin_said.webp | 17820 | 993caa376f22ea56bf032aeec048d6f29ecddff3
+public/content/portraits/PAP_gregory_xvi.webp | 32584 | bc62267c71724536b614cfbe1bfbcd68f86f1d00
+public/content/portraits/PAP_leo_xiii.webp | 30930 | 100561c7ba5cf7cf23e91d8f8907ece929ed37cc
+public/content/portraits/PAP_pius_ix.webp | 27638 | 3b54623e98e56499fa554e568f00864e56219142
+public/content/portraits/PAR_bernardino_caballero.webp | 21316 | 2c211bf319252459956279ab465e311508bf78ea
+public/content/portraits/PAR_candido_bareiro.webp | 29282 | 636b3a33a98a99df6b1209675ad4eed26c8329b2
+public/content/portraits/PAR_carlos_antonio_lopez.webp | 19666 | 3397cec32b4ab78d9fda8e44bd2de001721cc9bf
+public/content/portraits/PAR_cirilo_antonio_rivarola.webp | 36152 | b2e9f68c1853da99f99b6bcb0ee0a6b251237cac
+public/content/portraits/PAR_francisco_solano_lopez.webp | 38732 | 0c1c4beb014a1feb51ceb26b4a3fec3bcc56ac63
+public/content/portraits/PAR_higinio_uriarte.webp | 27856 | 59a62304f5b4aa736d765f32e7d6076eb52328a8
+public/content/portraits/PAR_jose_gaspar_rodriguez_de_francia.webp | 21806 | ff76d13a07efa7c11d9fffc5fb4cd967afd1ce6e
+public/content/portraits/PAR_juan_bautista_gill.webp | 30254 | 581441561b4606a39849eb3e8e89aeb3399f5166
+public/content/portraits/PAR_manuel_antonio_ortiz.webp | 29118 | 4ba600d88edecd133bf410b8510980d54eff1a9a
+public/content/portraits/PAR_salvador_jovellanos.webp | 30076 | 846235b651b5777320ebc41b7af7312f1b3bd002
+public/content/portraits/PEU_agustin_gamarra.webp | 30520 | 60346dfe4148514cebc31525a77f6383544d8d0d
+public/content/portraits/PEU_jose_rufino_echenique.webp | 20716 | cda2da6fff3ce69c1b2e2e3d598b14158016f995
+public/content/portraits/PEU_juan_antonio_pezet.webp | 18864 | 17125e45cee092adf95cd473561e27e15c62535e
+public/content/portraits/PEU_luis_jose_de_orbegoso.webp | 51738 | c6dbd3f5c619e37691148217c51e5d8af445db36
+public/content/portraits/PEU_manuel_pardo.webp | 19754 | 558e40755a11820efcbba1f253b34fe97a433f7d
+public/content/portraits/PEU_miguel_de_san_roman.webp | 24118 | f9d93a084a616378c495d937cf4ffbdb6a185535
+public/content/portraits/PEU_miguel_iglesias.webp | 21096 | 3d88b8590e977e8995bccce0f91a7065b00def01
+public/content/portraits/PEU_pedro_diez_canseco.webp | 16920 | c7150b2cd1cc57d430029faceaef85aedd5677d9
+public/content/portraits/PMA_charles_iii.webp | 42950 | 8649f302d764e78312f52da04c5d5c72a675e52c
+public/content/portraits/PMA_marie_louise.webp | 27892 | b5d26455b2367925b179d6045721133c35ec425d
+public/content/portraits/PMA_robert_i.webp | 17712 | cd4da1fc0fc55d531eb49fc3bba7169fd7ea738f
+public/content/portraits/POR_luis_i.webp | 31832 | 898b2914041a3ea39e1a2dc9b957e4b6ca99770a
+public/content/portraits/PRS_mohammad_shah_qajar.webp | 31008 | 9c23ab8960f20659407f408294efced39c5965e4
+public/content/portraits/PRU_frederick_william_iii.webp | 30530 | a87609cb75ef491430ab4452091ec8d49cfdddc5
+public/content/portraits/PRU_frederick_william_iv.webp | 21606 | e7be79a007569e863a353c0410d75947f6553443
+public/content/portraits/PRU_william_ii.webp | 20778 | 56c972bac77b45eb146637ef2a8012e61f1f66e1
+public/content/portraits/QNG_daoguang_emperor.webp | 35034 | 89b0d96a7e5b220181d8c930fed8e37aa84486b8
+public/content/portraits/QNG_guangxu_emperor.webp | 46950 | a85cf0bf26e51ead0cae8a78edab82755d9f2a60
+public/content/portraits/QNG_tongzhi_emperor.webp | 46600 | 210e5c370a2f95d606033cf23a87c78bddf9f68d
+public/content/portraits/QNG_xianfeng_emperor.webp | 51878 | f789c78a433e1e3e4f2de243b35e86f67f4daadf
+public/content/portraits/RUS_alexander_iii.webp | 23158 | 4f68238a04146b2641597a2de79246e9147e5ce8
+public/content/portraits/RUS_karl_nesselrode.webp | 15658 | 845986122872819c9f38de71e09d8ad1dbd51f19
+public/content/portraits/RUS_nicholas_i.webp | 13610 | 1beb7ec01475d94f69dbe32abb277c9781e4a257
+public/content/portraits/RUS_nicholas_ii.webp | 29056 | 2f28352f4b390918ac14399308cbb7557f3af292
+public/content/portraits/RYU_sho_iku.webp | 44398 | 5b10b6b62e80609dcd5310c1eac1c06d1bd19b2e
+public/content/portraits/SAA_georg.webp | 12978 | 2b4e813300787debb101e37bcc6c2a3ea3c781ca
+public/content/portraits/SAR_charles_albert.webp | 33106 | 114ca9eb2b11071ed28cc6d8cec9221cc7e9f7c9
+public/content/portraits/SAR_umberto_i.webp | 33158 | 38282af9449041881db5c02b1895d5229cb2df71
+public/content/portraits/SCG_ernest_i.webp | 26396 | 0917b7106c2dcfa848faa0777520bc169eb41f12
+public/content/portraits/SER_mihailo_obrenovic_iii.webp | 23748 | cfe89379ce15e4e46655276340f1a9fe0720cce9
+public/content/portraits/SER_milan_obrenovic_ii.webp | 17610 | bda2da31d6ea0afe9388998f45b3ace557aa76c6
+public/content/portraits/SHE_sahle_selassie.webp | 36408 | f1b784e551a9c86258403dbe8218de2e891e6ed0
+public/content/portraits/SIA_chulalongkorn.webp | 34650 | 0218f4ca55cbbb23d310f19c4dae6891bffb8760
+public/content/portraits/SIA_mongkut.webp | 36144 | c44007cefdada45abb774c8489a8c5985d4820e8
+public/content/portraits/SIA_nangklao.webp | 38252 | 99a86785ebc75ffb4fb438c74bc31c64ba3f9fd5
+public/content/portraits/SIC_ferdinand_ii.webp | 47606 | d7dd3e60bad09c92e88571bf972230408953546c
+public/content/portraits/SIC_francis_ii.webp | 32048 | 7db7166a03dc1242914455b49162eccb4632c7a9
+public/content/portraits/SIK_ranjit_singh.webp | 54108 | 9a9d25294c18b091be15042cd26333c5dfb90751
+public/content/portraits/SIK_sher_singh.webp | 42838 | 0943097b37f6d48f2f0b41f2f3f11369b03cfb1d
+public/content/portraits/SMN_bernhard_ii.webp | 10640 | 7a5dac9b34b41d3b1acd1062634edece297b90ea
+public/content/portraits/SPA_alfonso_xiii.webp | 39006 | 72b83a25b55089d01e565016226fcfd8733aac5d
+public/content/portraits/SWE_charles_xiv_john.webp | 27520 | da7a44e8622be7f95fc73bb2ca11330a353b05b7
+public/content/portraits/SWM_charles_frederick.webp | 6800 | 34be07294c711ee78c39e6ed39ccf572a2ef846d
+public/content/portraits/TAH_pomare_iv.webp | 31556 | 7f64883a70dc7c315b56fa8073884c57e3306a72
+public/content/portraits/TAH_pomare_v.webp | 18594 | 629243c68af19cde8924ad28ea2c35978f89a2db
+public/content/portraits/TRV_ayilyam_thirunal_rama_varma.webp | 42860 | 0e1b92bdbe6694e5ca7a8fb3aa5ad41df522fd27
+public/content/portraits/TRV_swathi_thirunal_rama_varma.webp | 21638 | 0da400cfd59dc6c98fbc574ac8a14235c0e677b3
+public/content/portraits/TRV_visakham_thirunal_rama_varma.webp | 30634 | 4fad880fcfcef8e6e1ca393ab948b22b3276c77e
+public/content/portraits/TUR_abdulaziz.webp | 36456 | debe00555da2f198e0d81f5c42465e6925823bb0
+public/content/portraits/TUR_abdulmecid.webp | 25022 | 5538fd7e0f3428994a448fad33215feba9ca5de0
+public/content/portraits/TUR_mahmud_ii.webp | 33974 | d9d230bdd10081568b30cab7917f0ca333970303
+public/content/portraits/TUR_murad_v.webp | 27914 | 8fbf61f5aec668dacee4cc812d7d34e1dd847bb1
+public/content/portraits/TUS_leopold_ii.webp | 20670 | 7dd23af415be8c5f75809fd70f7557104c4ba77d
+public/content/portraits/URU_bernardo_prudencio_berro.webp | 22480 | 7584b4ba51965b35fb160b530eac5282452408ed
+public/content/portraits/URU_francisco_antonino_vidal.webp | 24402 | 4cf53f270c689ad4dcf21f27c112179fbbc4227d
+public/content/portraits/URU_fructuoso_rivera.webp | 33236 | 322751487c8fe1f156179d1a3bc2ad10a11298c8
+public/content/portraits/URU_joaquin_suarez.webp | 28016 | 6ed8f66b98a7794739b700db76c8346134f6a928
+public/content/portraits/URU_juan_francisco_giro.webp | 35222 | 563c803023f7aabdc97221228b8c4354f4967940
+public/content/portraits/URU_lorenzo_latorre.webp | 44848 | c9dd3367d819e20e6d1a4bdc8fd858ef501536ef
+public/content/portraits/URU_maximo_santos.webp | 21634 | 90da3aece79b9d3f6abf44e545dffe815404cc49
+public/content/portraits/URU_venancio_flores.webp | 29770 | 2545762400423cdeb7d346de0d238058b09872fb
+public/content/portraits/USA_abraham_lincoln.webp | 22210 | aebba028621f5b03255cdbd480e624115882b824
+public/content/portraits/USA_andrew_jackson.webp | 11712 | 583ddc3001b9e81d302214a3354947ee86d6e520
+public/content/portraits/USA_andrew_johnson.webp | 26624 | 5a2083ac06b354bbefe0645b2b9ddd4056684ccd
+public/content/portraits/USA_benjamin_harrison.webp | 29402 | 413631e713dbfde6f41792d37d14ec6b4986df60
+public/content/portraits/USA_chester_a_arthur.webp | 16706 | 5f39a7f33ac93b3c0cfebb42c014717d97caf26a
+public/content/portraits/USA_franklin_pierce.webp | 44142 | 65496e0b493e72ef5232c17e2bec0dde3351a1e3
+public/content/portraits/USA_grover_cleveland.webp | 25842 | 25ff6605f6948be5cef4e0836dd2cf42df3d7fdf
+public/content/portraits/USA_james_a_garfield.webp | 11900 | 770bd621f4af84e9a54d197e0ae365e6c05dfe24
+public/content/portraits/USA_james_buchanan.webp | 26954 | aa07289fa3f72e82e815442ab70c158a61d7f650
+public/content/portraits/USA_james_k_polk.webp | 21360 | b66b77e58be3c4705cd7e81a635318b9c0d23d31
+public/content/portraits/USA_john_tyler.webp | 19466 | 24f379c6bd0cf4c7b8f47be6d653919ca7158316
+public/content/portraits/USA_martin_van_buren.webp | 14608 | 590a967ef6e283ea5094474f3d64c1e2fcd21b61
+public/content/portraits/USA_millard_fillmore.webp | 31404 | f8323f45847dc68be90ef6b727ea675263d23c72
+public/content/portraits/USA_rutherford_b_hayes.webp | 17174 | c9f61c3daaf533d1bef9aa6520071a063ef72814
+public/content/portraits/USA_ulysses_s_grant.webp | 24562 | a9bd986266a33002ccdf72fe998f76da2deb5c24
+public/content/portraits/USA_william_henry_harrison.webp | 10572 | 1c38acb93b036d6f02aa4f302b1bbd27b5497c04
+public/content/portraits/USA_william_mckinley.webp | 17604 | 2f4d63023e2c7327c959360442501dde60715373
+public/content/portraits/USA_zachary_taylor.webp | 14554 | 5b9364597c70f8faf5ecf6c7d6a70c54f1e488e2
+public/content/portraits/VEN_andres_narvarte.webp | 37216 | 170f19c034b24e1ccacfaabc7e6d4b70970d6359
+public/content/portraits/VEN_antonio_guzman_blanco.webp | 48230 | 424d10544a8bb106f8080f4b4dd1b0c3db533fde
+public/content/portraits/VEN_carlos_soublette.webp | 4156 | a594b387d8b979bc822fddba1aa3995d84e46864
+public/content/portraits/VEN_francisco_linares_alcantara.webp | 49976 | 6585ebc4b6891160a564e3cc97fe25b188828d53
+public/content/portraits/VEN_joaquin_crespo.webp | 18194 | 6ffd51d0cffe19355406aadb7684a18201163c5b
+public/content/portraits/VEN_jose_antonio_paez.webp | 39504 | 3eb2ba0b6ddf5e67b0620096eb050f5639888c55
+public/content/portraits/VEN_jose_maria_vargas.webp | 11106 | 925a56189b59acb354b9da0c9388b5c214367867
+public/content/portraits/VEN_jose_tadeo_monagas.webp | 16290 | 2b66823ac2e493e709c18f3c9bcba7b1a3c87e07
+public/content/portraits/VEN_juan_crisostomo_falcon.webp | 34548 | d03a2bcb7ff90c73d632be2af0266f93cfe19840
+public/content/portraits/VEN_julian_castro.webp | 4830 | 9f89d4481fecff1196a4ff00923678c54c8c3e88
+public/content/portraits/VEN_manuel_felipe_de_tovar.webp | 32634 | d4669ae51e55b3a53f9c6a90b79f960b89945970
+public/content/portraits/VNM_tu_uc.webp | 38130 | cb79d5b1e7eb9fd1773cbb4e4579702ea9ed7a93
+public/content/portraits/WAL_alexandru_ii_ghica.webp | 16618 | bc2b66708cc42bea6de23f6423d32ba14b7f685e
+public/content/portraits/WLD_george_victor.webp | 41202 | 3e9d62a53c1b5652bef3c1121f7fa470e4c9744c
+public/content/portraits/ZUL_dingane_kasenzangakhona.webp | 12018 | 2d6bed036de5743bb61dc90bf08e4ade1b1a1616
+public/icon.svg | 514 | 117cde47081e1856661c15d8ef8d6d58ce4afbc5
+public/manifest.webmanifest | 317 | ad5c2e86311948c80c725fd07b3d902e1f674380
+public/map/lakes.json | 93492 | d78369d3fbace2cd40019771622459dc3dff39d3
+public/map/relief.jpg | 935316 | 353f4173067ddf69c7c366b7115deea1df1fa144
+public/map/rivers.json | 498843 | f752ce0da7cba58fba74f004dfa4477fdf15c1f3
+public/map/terrain.jpg | 215150 | 8465aeb1992927642e9e853c46a33f07367a8094
+public/sw.js | 939 | c0927040b8c9706b7cd925a4e6b6c1b22347f67a
+README.md | 3950 | f810e3779c120dd4c0952c836faa7f1103d80a36
+src/engine/ai/ai.ts | 17399 | 9d6351cf1c6a77e7c870ccb60a91cf0cba08d838
+src/engine/cache.ts | 1476 | 708bc492d78c1cf15188aa8c7b71d6b5dc3fa45f
+src/engine/commands.ts | 6614 | af61034b32f0ac0d42e590d578fd476c0cb2594f
+src/engine/core.ts | 3100 | b3eea8bcd2eb81ed17cd704973707e39142f080b
+src/engine/data/db.ts | 3752 | ae8aab53da7dd66a2b205b57905c8157c4b941e6
+src/engine/data/dbTypes.ts | 5979 | ba329e8078e08b80ba537fc3dfc017d2355767fe
+src/engine/divergence.ts | 2716 | 0cd5c488770449314595b08dff2e0ede94bfbd1a
+src/engine/historical.ts | 6762 | d3620bfc4f3a7fe6abd6dc713e4ac306aeeb9b2f
+src/engine/init.ts | 15933 | b17aa4345b8576ea386f856eb92d9f916125bddd
+src/engine/metrics.ts | 1085 | 255b3ee3603e7977574a602aba26d31184e8df29
+src/engine/modes.ts | 1527 | d80b607d7702f57ddbbfca31ed7e3a9d2bd26afa
+src/engine/node.ts | 737 | 2606f469ccd3e2387409947b73d2d372068c14b7
+src/engine/save.ts | 946 | eaff50ef9c5e64662b1fdfd58d2eade306b9e445
+src/engine/simulation.ts | 2684 | 19b6dd1e6487310e1694c56dc21c1daae9bcb422
+src/engine/systems/diplomacy.ts | 9977 | 4dc35fab32ffe36336e5e02c34523370fea90fa4
+src/engine/systems/economy.ts | 47665 | 33825425d22c67a4da263fa18d09df0e517d926d
+src/engine/systems/events.ts | 14118 | 423273bf9de8bbe12e887346dcc4cf9199c1323a
+src/engine/systems/military.ts | 13760 | 5b36260b2eeedfb8ae978307ea97518dc2380b20
+src/engine/systems/politics.ts | 16935 | 9180188249fb77d5447a9a1ffeaf7908930bea4a
+src/engine/systems/population.ts | 12486 | aef141066fb278499904b47cbee5f5e333a2fc6d
+src/engine/systems/technology.ts | 3188 | a2a0c34a1ed71e08794da34ac1fa49f05e33d4cc
+src/engine/types.ts | 8710 | f3062911854fa1c2c8525b4685830785042bf5b9
+src/engine/world.ts | 5831 | 4b240a89b9b216f42a75d091d9e72f3d3ed25394
+src/ui/App.tsx | 46225 | 271e562a68e6ca7f8d1bacd94d9ec1696ac41eb5
+src/ui/components/icons.tsx | 12498 | cdfb4c89be4ad0f09173c03dd8ab8c9b3cc1303c
+src/ui/components/identity.tsx | 3543 | 8fe3cfd92f3c534008bd13d8551dfe6c749fa90a
+src/ui/components/ui.tsx | 20227 | 26404f525b509ddc2b5cf5e5424fac9150889be3
+src/ui/game/content.ts | 5136 | 811118f336f3a46a061f2658b2bae086f5a95957
+src/ui/game/controller.ts | 4821 | 491625530308c0feeff3dbba7bec1cad8bf3d17e
+src/ui/game/names.ts | 2597 | a51296f1cb2348a815f078281a956c572a8a6d65
+src/ui/game/preferences.ts | 2070 | 9a92d12f1e8fd93401a6eb4fd1fd6ebe4ee09b58
+src/ui/game/storage.ts | 2002 | 826cba5c0b634ea752844af846719caef31da25b
+src/ui/game/ui.ts | 3024 | e9874455528480e55b6a218f44d81b90c6ea5988
+src/ui/i18n/vi.ts | 9740 | db82cd0df2adcc164acaa24f4f4ce58033ff74c3
+src/ui/main.tsx | 3715 | 6efee4ae04395f759434acd09e92b197acb7fe71
+src/ui/map/gestures.ts | 629 | c63530f5dd6e4a104abe928b6f128934417bf12c
+src/ui/map/labels.ts | 15385 | 42010a86bc64f915ba14f91361d1969f2fd5e0a4
+src/ui/map/lenses.ts | 12474 | 86ee15a7fc51f836a17fcdc298c663d0747896d7
+src/ui/map/mapData.ts | 1763 | 6707a11f1baf72e99cd5e273921a7fcc43162e0e
+src/ui/map/MapView.tsx | 20373 | 5681258e71ac391d0a401c43fab66da57f23b78e
+src/ui/map/renderer.ts | 14864 | a13a43d6f5cc5c2232ee3d541d5f334dc57c850b
+src/ui/map/vectors.ts | 2277 | a1f4be1ad841eb60c4e1bff3b3836a3e8099bb71
+src/ui/screens/common.tsx | 5665 | 5f3f1f56233b88d1154f1954a98f0f998266586f
+src/ui/screens/Country.tsx | 24983 | 34e47cf8812973c5385abc9ac616dfaf1008b128
+src/ui/screens/Diplomacy.tsx | 16038 | 8b04aafa53c97cf8e60ee1f84829f9aa023b4d70
+src/ui/screens/Economy.tsx | 37022 | 53d99d52121a18486c309597d8e81c3f6011d8c3
+src/ui/screens/Journal.tsx | 12833 | 6c2f76c20c8825e86f8fc46bbbbb80e33dfd0ff5
+src/ui/screens/Military.tsx | 10091 | a3759f9e08a639abeeda3fcc6f16f955fb99490c
+src/ui/screens/Politics.tsx | 11109 | e84630aceb4b9aac6882306b71563246866de8d8
+src/ui/screens/Setup.tsx | 5681 | 8031d3648e8ca75311463c009a2fea29c542ae60
+src/ui/screens/Society.tsx | 11178 | 54c6b2725cea4ce8cdee8f8ca69c1b53f232bfdd
+src/ui/screens/StateCard.tsx | 6302 | abbedb4aafa507f53b6b52b3ffabfbc5496d6e37
+src/ui/screens/Tech.tsx | 10586 | 5a8271e1742e508d48e7b2ebcf68886fd42944c4
+src/ui/screens/World.tsx | 12264 | 8d496f52d9c41b343539cd4917d22d4e3b1ffe2d
+src/ui/styles/theme.css | 63923 | 5cbc3e73bc8c80dad4ef99b806315e7c35aee9b7
+tests/content.test.ts | 4013 | c254970f569f795325e86e896011a1a0744ea86e
+tests/data.test.ts | 6757 | 01c0d7459383666f1b45a2bd4dc463c345abaf36
+tests/helpers.ts | 1156 | 2bb26d14e9375f829df00a8a959cbefe8c70eebc
+tests/modes.test.ts | 7474 | dbb71b59e2b4378e0045ba12f4a30c58516d9670
+tests/s0-save-determinism.test.ts | 4994 | ca6c31d58ae6558b8f912074bce5e8d011a0e389
+tests/simulation.test.ts | 35526 | 135f259b3cb08c36cdaa185418227062b7b7b85e
+tests/ui.test.ts | 6482 | 36de7c21d1d24b985d7ab5663686d3fa07171322
+tools/audit/catalogue_gaps.py | 6012 | 5a3b91db271105e0937c7ac2346660e534f6a08d
+tools/audit/coverage.ts | 11297 | 4cc5840ad7067bb66e20a930289f7668fab80731
+tools/audit/regions_py.py | 856 | c371f907aea088049e6c7fb27593d37d2367b71e
+tools/audit/regions.ts | 3637 | 1465e850779ce7d9bc933423bf0cc24a4410c731
+tools/audit/s0/admin1_crosswalk.ts | 6093 | ddde120862ed09ce6f988de05180ae5b233b7a47
+tools/audit/s0/asset_inventory.ts | 10098 | 1a9d507eb7ac7f3ff698a1c7b9483ddb0e62c181
+tools/audit/s0/global_data_audit.ts | 7318 | c6a5506a2708738625980d2516e7dfe9ea611359
+tools/audit/s0/perf_desktop.ts | 12412 | 120a586d9459715be04cef1611edccdbbb3ab692
+tools/audit/s0/perf_node.ts | 6573 | 977def206803efab12e537790f8849dc16379cef
+tools/audit/s0/perf_summary.ts | 3950 | dd280cf867602c92d091490f9696a54d232b8294
+tools/audit/s0/probe_empty_pass.ts | 3549 | bd75365a6b07d1d02282cd09fd2b5605de5825ce
+tools/audit/s0/probe_war_duration.ts | 4777 | e3ba1b227f28bccfb0038ac771fd8c7f347ae3da
+tools/audit/s0/test_catalog.ts | 6237 | 8f2c7590511babf97c1a07b70e00c1214785576d
+tools/audit/s0/vitest-assertion-counter.setup.ts | 1221 | c50c0a5b94128c5ab2116ac4dfdfea0dcbd27b2a
+tools/audit/s0/vitest.assertion-count.config.ts | 1108 | b55c80c1696b6634ac9f963d4d7caabc5def49b2
+tools/build-content.ts | 5205 | a54d9dfe2876c206557c22cd594c0822109749a1
+tools/build-data.ts | 29432 | 41220515bfeee08dfdffc9c1b258ff94b7bb3512
+tools/build-map.ts | 17322 | 3ec8d4f4226570d63b0d05133d3be74b54c8b467
+tools/etl/assets.py | 4360 | 2d1ee615cb4ba4d75ce864299c3f20f1ea08d843
+tools/etl/contact_sheet.py | 1826 | a6a16b4218a6c56ddac149b739cc25f9f9253116
+tools/etl/extract_datasets.py | 19135 | d831cb775ffaede6e31e9f7cd5a8687fb4daaf2e
+tools/etl/fetch_identity.py | 6766 | eb3323c41045a0c4541a91b3190809d21b48b850
+tools/etl/fetch_natural_earth.sh | 1135 | dba539eeb9f533e0ecbaece3df63158c685f530f
+tools/etl/fetch_portraits.py | 3476 | ef2af484f7280676b4ff857179d15a1a45632798
+tools/etl/fetch_sources.sh | 921 | 3d1b43e820cf7a3eedbe09f3ba3d8336c749c889
+tools/etl/fetch_texts.py | 5342 | 946a55217facc351e11875f0f69aae30db3ded6e
+tools/etl/link_entities.py | 5334 | e5a28a376da3bf4b86e716de7f59e5c38ed38268
+tools/etl/link_people.py | 10040 | c6400067adff712d9c18b1be2cb4623812b3d7a9
+tools/etl/make_relief.py | 1750 | 3267268577b09b235444e7f470406bc7e2311ec5
+tools/etl/make_terrain.py | 2682 | c8605594a2489de70fdc0416ac4d6378db708d0e
+tools/etl/prepare_map_sources.ts | 7078 | 24e49f4825502ab800933ca04119d986f58e019a
+tools/etl/wiki.py | 4878 | 90d08a1d69c7556e8ad93ff278ad7af1a2e2ab2b
+tools/profile-sim.ts | 1354 | 48101d3cc996653bc8d66449828b60827001a06e
+tools/sim-cli.ts | 2134 | d0b3b77300d16a71b889fd7ff37302534939293a
+tools/ui-one.ts | 1250 | b218400588423a4b80adf47bfc6589f0cc561a7a
+tools/ui-screenshots.ts | 3534 | f9d00ae2f4287de5c1260dcee64cead54d752431
+tools/ui-shots.ts | 3667 | 94e35fadaf3b311b8b653186b5cfcd9c56275d25
+tsconfig.json | 574 | 5f2a5765a62cac577411b57dd6b0398168cd1b76
+vite.config.ts | 326 | d8c01fc458dc5861f70ef15eb93e4847452c5af0
+vitest.config.ts | 203 | fb56062bd89c1c6f9f658c4d971a24c26d1fb0ab
+
+END OF INVENTORY
