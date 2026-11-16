@@ -52,10 +52,14 @@ for eid, l in linked.items():
             if hi < 1836 or lo > 1936:
                 rejected.append({'entity': eid, 'type': typ, 'file': val, 'reason': f'period {frm}-{to} outside 1836-1936'})
                 continue
-            if val in review['reject']:
-                rejected.append({'entity': eid, 'type': typ, 'file': val, 'reason': 'review: ' + review['reject'][val]})
-                continue
-            cands.append({'entity': eid, 'type': typ, 'file': val, 'from': frm, 'to': to, 'rank': rank, 'quality': quality,
+            note = None
+            if val in review.get('period', {}):
+                frm, to, note = review['period'][val]; quality = 'supported'
+                lo, hi = frm, to
+                if hi < 1836 or lo > 1936:
+                    rejected.append({'entity': eid, 'type': typ, 'file': val, 'reason': 'review period outside 1836-1936'}); continue
+            cands.append({'entity': eid, 'type': typ, 'file': val, 'from': frm, 'to': to, 'rank': rank, 'quality': quality, 'note': note,
+                          'review_reject': review['reject'].get(val),
                           'statement': f"wikidata:{l['qid']}#{pid}"})
 
 info = {}
@@ -64,6 +68,8 @@ for w, typ in ((320, 'flag'), (240, 'coat_of_arms')):
 
 assets, deferred = [], []
 for c in cands:
+    if c.pop('review_reject', None):
+        rejected.append({'entity': c['entity'], 'type': c['type'], 'file': c['file'], 'reason': 'review: ' + review['reject'][c['file']]}); continue
     ii = info.get((c['type'], c['file']))
     if not ii:
         rejected.append({**c, 'reason': 'file missing on Commons'}); continue
@@ -82,7 +88,7 @@ for c in cands:
         'id': aid, 'type': c['type'], 'entity': c['entity'],
         'name': ('Quốc kỳ' if c['type'] == 'flag' else 'Huy hiệu') + ' — ' + vi,
         'description': lic['description'] or ii['canonical'],
-        'period': {'from': c['from'], 'to': c['to']}, 'quality': c['quality'], 'rank': c['rank'],
+        'period': {'from': c['from'], 'to': c['to']}, 'quality': c['quality'], 'rank': c['rank'], 'review_note': c['note'],
         'source': {'repository': 'Wikimedia Commons', 'file': ii['canonical'], 'page': ii['descriptionurl'], 'statement': c['statement']},
         'license': {'short': lic['short'], 'url': lic['url'], 'attribution_required': lic['attribution_required']},
         'author': lic['author'], 'credit': lic['credit'], 'restrictions': lic['restrictions'] or None,
