@@ -13,6 +13,8 @@ import { govVi, lawVi, fmt, pct, money, compact, techName, SUBJECT_VI, IG_VI, LO
 import { fullName, shortName } from '../game/names';
 import { ui } from '../game/ui';
 import { Flag, CountryLink, YoY, IG_COL, LOG_ICON, focusRegion, regionName, leaderName } from './common';
+import { useContent, entityContent, symbolFor, characterByName, charactersOf, asset, type ContentCharacter } from '../game/content';
+import { AssetImg, SourcedText, AssetCredit } from '../components/identity';
 
 const SEC_VI: Record<string, string> = { political: 'Chính trị', territory: 'Lãnh thổ', economy: 'Kinh tế', society: 'Xã hội', diplomacy: 'Ngoại giao', military: 'Quân sự', technology: 'Khoa học – công nghệ', historical_ai: 'Ưu tiên lịch sử & tính cách AI' };
 const STATUS_VI: Record<string, string> = { complete: 'Đầy đủ', partial: 'Một phần', missing: 'Thiếu' };
@@ -21,6 +23,7 @@ export function CountryScreen({ st, id, tab }: { st: GameState; id: string; tab:
   const c = st.countries[id]; if (!c) return <div class="empty">Quốc gia không tồn tại.</div>;
   if (tab === 'dossier') return <Dossier st={st} id={id} />;
   if (tab === 'stats') return <YearStats st={st} id={id} />;
+  if (tab === 'people') return <People st={st} id={id} />;
   const h = st.history[id] ?? []; const ser = (k: 'gdp' | 'pop' | 'literacy' | 'legitimacy' | 'army') => h.map((x) => x[k]);
   const rk = rankings(st); const rank = rk.findIndex((r) => r.id === id) + 1;
   const regs = st.regions.filter((r) => r.owner === id); const area = regs.reduce((s, r) => s + r.area, 0);
@@ -36,14 +39,7 @@ export function CountryScreen({ st, id, tab }: { st: GameState; id: string; tab:
   const research = c.research.current ? Math.min(1, c.research.progress / techCost(st, c, c.research.current)) : null;
   return (
     <div class="pad">
-      <div class="banner-top" style={`--bc:${c.color}`}>
-        <Flag c={c} lg />
-        <div style="min-width:0">
-          <h3>{fullName(st, id)}</h3>
-          <div class="meta">{govVi(c.govLabel)} · {leaderName(c.leader.name)}{c.leader.historical ? '' : ' (nhân vật mô phỏng)'}, từ {c.leader.since}</div>
-          <div class="meta dim">Hạng sức mạnh #{rank || '—'} · thủ đô {regionName(c.capital)}{c.overlord ? <> · {SUBJECT_VI[c.subjectType ?? ''] ?? 'Chư hầu'} của <CountryLink st={st} id={c.overlord} /></> : ''}</div>
-        </div>
-      </div>
+      <IdentityHeader st={st} id={id} rank={rank} />
       <div class="metrics">
         <Metric label="GDP / năm" icon="gdp" value={money(c.gdp)} d={<YoY h={h} k="gdp" />} spark={ser('gdp')} tip={{ title: 'GDP / năm', lines: [['GDP / người', `¤ ${fmt(gdppc, 1)}`], ['Công nghiệp hóa', pct(c.stats.industry, 1)]], note: 'Giá trị gia tăng một năm theo giá thị trường của mô phỏng (thang ¤ ≈ GK$ 1990).' }} />
         <Metric label="Dân số" icon="population" value={compact(c.stats.pop)} d={<YoY h={h} k="pop" />} spark={ser('pop')} />
@@ -93,6 +89,7 @@ export function CountryScreen({ st, id, tab }: { st: GameState; id: string; tab:
           </Sec>
         </div>
       </div>
+      <Background id={id} />
       <Sec title="Sự kiện gần đây" icon="journal" go={() => ui.go('chronicle', 'log')}>
         {events.length ? events.map((l, i) => <div class="logline" key={i}><span class="dt">{l.date.slice(0, 7)}</span><span title={LOG_TYPE_VI[l.type] ?? l.type}><Icon name={LOG_ICON[l.type] ?? 'scroll'} /></span><span>{l.textVi ?? l.text}{l.divergence && <span class="warn" title="Khác với lịch sử thực"> ⑂</span>}</span></div>) : <div class="empty sm">Chưa có sự kiện nào liên quan.</div>}
       </Sec>
@@ -161,5 +158,130 @@ function YearStats({ st, id }: { st: GameState; id: string }) {
     </div>
   );
 }
-export const COUNTRY_TABS: [string, string][] = [['overview', 'Tổng quan'], ['dossier', 'Hồ sơ lịch sử'], ['stats', 'Chỉ số năm']];
+export const COUNTRY_TABS: [string, string][] = [['overview', 'Tổng quan'], ['people', 'Nhân vật'], ['dossier', 'Hồ sơ lịch sử'], ['stats', 'Chỉ số năm']];
 export { Flag };
+
+const LANG_VI: Record<string, string> = { lzh: 'chữ Hán', mnc: 'tiếng Mãn', vi: 'tiếng Việt', en: 'tiếng Anh', fr: 'tiếng Pháp', de: 'tiếng Đức', es: 'tiếng Tây Ban Nha', pt: 'tiếng Bồ Đào Nha', it: 'tiếng Ý', ru: 'tiếng Nga', ota: 'tiếng Ottoman', tr: 'tiếng Thổ', fa: 'tiếng Ba Tư', ar: 'tiếng Ả Rập', zh: 'tiếng Hán', 'zh-hant': 'chữ Hán phồn thể', ja: 'tiếng Nhật', ko: 'tiếng Triều Tiên', th: 'tiếng Thái', my: 'tiếng Miến', nl: 'tiếng Hà Lan', da: 'tiếng Đan Mạch', sv: 'tiếng Thụy Điển', nb: 'tiếng Na Uy', no: 'tiếng Na Uy', pl: 'tiếng Ba Lan', el: 'tiếng Hy Lạp', sr: 'tiếng Serbia', ro: 'tiếng Romania', hu: 'tiếng Hungary', la: 'tiếng Latinh', haw: 'tiếng Hawaii', mi: 'tiếng Māori', am: 'tiếng Amhara', sw: 'tiếng Swahili', ha: 'tiếng Hausa', ur: 'tiếng Urdu', hi: 'tiếng Hindi', pa: 'tiếng Punjab', ne: 'tiếng Nepal', bo: 'tiếng Tạng', mn: 'tiếng Mông Cổ', ms: 'tiếng Mã Lai', id: 'tiếng Indonesia', tl: 'tiếng Tagalog', km: 'tiếng Khmer', lo: 'tiếng Lào', ka: 'tiếng Gruzia', hy: 'tiếng Armenia', ps: 'tiếng Pashto', uz: 'tiếng Uzbek' };
+const ROLE_VI: Record<string, string> = { head_of_state: 'Nguyên thủ', head_of_government: 'Đứng đầu chính phủ', heir: 'Người kế vị' };
+const yr = (s: string | null | undefined) => (s ? s.slice(0, 4) : '?');
+const life = (c: ContentCharacter) => `${yr(c.born ?? c.wd_born)}–${c.died || c.wd_died ? yr(c.died ?? c.wd_died) : ''}`;
+const display = (c: ContentCharacter) => c.label_vi && c.label_vi !== c.name ? c.label_vi : c.name;
+
+function Monogram({ name, lg }: { name: string; lg?: boolean }) {
+  const init = name.replace(/\(.*?\)/g, '').trim().split(/\s+/).filter((w) => /^[A-ZÀ-Ỹ]/.test(w)).slice(0, 2).map((w) => w[0]).join('') || name[0];
+  return <span class={`monogram${lg ? ' lg' : ''}`} aria-hidden="true">{init}</span>;
+}
+
+function IdentityHeader({ st, id, rank }: { st: GameState; id: string; rank: number }) {
+  useContent();
+  const c = st.countries[id]; const y = st.date.y; const ec = entityContent(id);
+  const arms = symbolFor(id, 'coat_of_arms', y);
+  const names = (ec?.names ?? []).filter((n) => (n.from == null || n.from <= y) && (n.to == null || n.to >= y) && n.lang !== 'en').slice(0, 3);
+  const ruler = characterByName(id, c.leader.name);
+  return (
+    <div class="identity" style={`--bc:${c.color}`}>
+      <div class="id-symbols"><Flag c={c} lg />{arms && <AssetImg id={arms.id} cls="arms" />}</div>
+      <div class="id-main">
+        <h3>{fullName(st, id)}</h3>
+        {names.length > 0 && <div class="names">{names.map((n) => <span key={n.text} lang={n.lang}>{n.text}<i>{LANG_VI[n.lang] ?? n.lang}</i></span>)}</div>}
+        <div class="meta">{govVi(c.govLabel)} · thủ đô {regionName(c.capital)}</div>
+        <div class="meta dim">Hạng sức mạnh #{rank || '—'}{c.overlord ? <> · {SUBJECT_VI[c.subjectType ?? ''] ?? 'Chư hầu'} của <CountryLink st={st} id={c.overlord} /></> : ''}</div>
+      </div>
+      <button class="ruler" onClick={() => ruler && openCharacter(st, ruler)} disabled={!ruler} aria-label={`Nguyên thủ: ${leaderName(c.leader.name)}`}>
+        <AssetImg id={ruler?.portrait} cls="portrait" fallback={<Monogram name={c.leader.name} />} />
+        <span class="rt">
+          <span class="lbl">Nguyên thủ</span>
+          <b>{ruler ? display(ruler) : leaderName(c.leader.name)}</b>
+          <span class="s">{ruler?.title ? `${ruler.title} · ` : ''}từ {c.leader.since}{c.leader.historical ? '' : ' · nhân vật mô phỏng'}</span>
+        </span>
+      </button>
+    </div>
+  );
+}
+
+function Background({ id }: { id: string }) {
+  useContent();
+  const ec = entityContent(id);
+  if (!ec?.texts?.length) return null;
+  const note = ec.kind === 'people' ? 'Bài viết về cộng đồng dân cư của vùng — chính thể này trong game là tập hợp các cộng đồng tự trị.'
+    : ec.kind === 'region' ? 'Bài viết về vùng lịch sử mà chính thể này đại diện.'
+    : ec.kind === 'future' ? 'Quốc gia này chỉ có thể hình thành trong quá trình mô phỏng; bài viết mô tả hình thức lịch sử của nó.'
+    : ec.desc_override ? 'Bài viết về thời kỳ của quốc gia (bài về quốc gia mô tả chủ yếu thời hiện đại).' : null;
+  return (
+    <Sec title="Bối cảnh lịch sử" icon="scroll">
+      {note && <div class="s" style="margin-bottom:6px">{note}</div>}
+      <SourcedText texts={ec.texts} />
+    </Sec>
+  );
+}
+
+function status(st: GameState, id: string, ch: ContentCharacter): { t: string; cls: string } {
+  const c = st.countries[id]; const now = `${st.date.y}-${String(st.date.m).padStart(2, '0')}`;
+  if (c && characterByName(id, c.leader.name)?.id === ch.id) return { t: 'Đang tại vị', cls: 'pos' };
+  const t = ch.terms.find((x) => x.role === 'head_of_state');
+  if (ch.died && ch.died.slice(0, 7) < now) return { t: 'Đã mất', cls: 'dim' };
+  if (t && t.from.slice(0, 7) > now) return { t: st.mode === 'historical' ? `Lịch sử: lên ngôi ${t.from.slice(0, 4)}` : `Lịch sử: ${t.from.slice(0, 4)}`, cls: 'dim' };
+  return { t: ch.roles.map((r) => ROLE_VI[r] ?? r).join(', '), cls: 'dim' };
+}
+
+function People({ st, id }: { st: GameState; id: string }) {
+  const pack = useContent();
+  const list = charactersOf(id);
+  if (!pack) return <div class="pad"><div class="empty">Đang tải gói nội dung nhân vật…</div></div>;
+  if (!list.length) return <div class="pad"><div class="empty">Chưa có nhân vật lịch sử nào được nghiên cứu cho quốc gia này. Nguyên thủ trong ván chơi: {leaderName(st.countries[id]?.leader.name ?? '—')}.</div></div>;
+  const groups: [string, ContentCharacter[]][] = [['head_of_state', list.filter((c) => c.roles.includes('head_of_state'))], ['head_of_government', list.filter((c) => c.roles.includes('head_of_government') && !c.roles.includes('head_of_state'))], ['heir', list.filter((c) => c.roles.length === 1 && c.roles[0] === 'heir')]];
+  const withPortrait = list.filter((c) => c.portrait).length; const linked = list.filter((c) => c.qid).length;
+  return (
+    <div class="pad">
+      <div class="note" style="margin-top:0">{list.length} nhân vật · {linked} đã đối chiếu Wikidata (khớp năm sinh/mất) · {withPortrait} có chân dung được cấp phép. Nguyên thủ kế vị theo lịch sử chỉ được áp dụng ở chế độ Lịch sử khi điều kiện mô phỏng phù hợp.</div>
+      {groups.filter(([, l]) => l.length).map(([role, l]) => (
+        <Sec key={role} title={ROLE_VI[role]} x={`${l.length}`}>
+          <div class="people">
+            {l.map((ch) => { const s = status(st, id, ch); const t = ch.terms.find((x) => x.role === role) ?? ch.terms[0]; return (
+              <button class="person" key={ch.id} onClick={() => openCharacter(st, ch)}>
+                <AssetImg id={ch.portrait} cls="portrait sm" fallback={<Monogram name={ch.name} />} />
+                <span class="grow">
+                  <span class="t sm">{display(ch)}</span>
+                  <span class="s">{ch.title ? `${ch.title} · ` : ''}{life(ch)}{t ? ` · ${t.from.slice(0, 4)}–${t.to ? t.to.slice(0, 4) : ''}` : ''}</span>
+                  <span class={`s ${s.cls}`}>{s.t}</span>
+                </span>
+              </button>
+            ); })}
+          </div>
+        </Sec>
+      ))}
+    </div>
+  );
+}
+
+function openCharacter(st: GameState, ch: ContentCharacter) {
+  details.open({ key: 'char:' + ch.id, title: display(ch), ctx: shortNameOf(st, ch.entity), body: () => <CharacterDetail st={st} ch={ch} /> });
+}
+const shortNameOf = (st: GameState, id: string) => (st.countries[id] ? fullName(st, id) : id);
+
+function CharacterDetail({ st, ch }: { st: GameState; ch: ContentCharacter }) {
+  useContent();
+  const p = asset(ch.portrait); const s = status(st, ch.entity, ch);
+  const dbBorn = ch.born?.slice(0, 4), wdBorn = ch.wd_born?.slice(0, 4), dbDied = ch.died?.slice(0, 4), wdDied = ch.wd_died?.slice(0, 4);
+  return (
+    <div>
+      <div class="char-head">
+        <AssetImg id={ch.portrait} cls="portrait lg" fallback={<Monogram name={ch.name} lg />} />
+        <div style="min-width:0">
+          <div class="t">{display(ch)}</div>
+          {ch.label_vi && ch.label_vi !== ch.name && <div class="s">{ch.name}</div>}
+          <div class="s">{ch.title ?? ch.roles.map((r) => ROLE_VI[r] ?? r).join(', ')} · {life(ch)}</div>
+          <div class={`s ${s.cls}`}>{s.t}</div>
+          {(ch.description_vi || ch.description_en) && <div class="s" style="margin-top:4px">{ch.description_vi ?? ch.description_en}</div>}
+        </div>
+      </div>
+      <div class="sub-t">Nhiệm kỳ trong cơ sở dữ liệu</div>
+      {ch.terms.length ? ch.terms.map((t, i) => <div class="kv" key={i}><span class="k">{ROLE_VI[t.role] ?? t.role}</span><span class="v num">{t.from}{t.to ? ` → ${t.to}` : ''}</span></div>) : <div class="s">Không có nhiệm kỳ ghi nhận.</div>}
+      <div class="kv"><span class="k">Năm sinh · mất (CSDL)</span><span class="v num">{dbBorn ?? '?'} · {dbDied ?? '—'}</span></div>
+      {ch.qid && <div class="kv"><span class="k">Năm sinh · mất (Wikidata)</span><span class="v num">{wdBorn ?? '?'} · {wdDied ?? '—'}{(dbBorn && wdBorn && dbBorn !== wdBorn) || (dbDied && wdDied && dbDied !== wdDied) ? <span class="warn"> lệch</span> : ''}</span></div>}
+      <div class="kv"><span class="k">Đối chiếu danh tính</span><span class="v">{ch.match === 'strong' ? 'khớp năm sinh/mất' : ch.match === 'weak' ? 'khớp yếu (chưa có ngày trong CSDL)' : 'chưa đối chiếu'}{ch.qid && <> · <a href={`https://www.wikidata.org/wiki/${ch.qid}`} target="_blank" rel="noopener">{ch.qid}</a></>}</span></div>
+      {ch.texts.length > 0 && <><div class="sub-t">Tiểu sử</div><SourcedText texts={ch.texts} lines={8} /></>}
+      {p && <><div class="sub-t">Nguồn chân dung</div><AssetCredit a={p} /></>}
+    </div>
+  );
+}

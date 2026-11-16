@@ -12,14 +12,18 @@ os.makedirs(CACHE, exist_ok=True)
 _last = [0.0]
 
 
-def _get(url: str, binary=False, min_gap=1.0):
+class RateLimited(Exception):
+    pass
+
+
+def _get(url: str, binary=False, min_gap=1.0, attempts=8):
     key = hashlib.sha1(url.encode()).hexdigest()
     path = os.path.join(CACHE, key + ('.bin' if binary else '.json'))
     if os.path.exists(path):
         with open(path, 'rb') as f:
             data = f.read()
         return data if binary else json.loads(data)
-    for attempt in range(8):
+    for attempt in range(attempts):
         wait = _last[0] + min_gap - time.time()
         if wait > 0:
             time.sleep(wait)
@@ -33,8 +37,10 @@ def _get(url: str, binary=False, min_gap=1.0):
             return data if binary else json.loads(data)
         except urllib.error.HTTPError as e:
             if e.code in (429, 500, 502, 503, 504):
+                if attempt == attempts - 1:
+                    raise RateLimited(url)
                 ra = e.headers.get('retry-after') if e.headers else None
-                time.sleep(max(float(ra) if ra and ra.isdigit() else 0, 2 ** attempt * 2) + 1)
+                time.sleep(min(90, max(float(ra) if ra and ra.isdigit() else 0, 2 ** attempt * 2) + 1))
                 continue
             raise
         except (urllib.error.URLError, TimeoutError):
@@ -49,7 +55,7 @@ def api(host: str, **params):
 
 
 def download(url: str) -> bytes:
-    return _get(url, binary=True, min_gap=0.6)
+    return _get(url, binary=True, min_gap=1.5, attempts=4)
 
 
 def chunks(xs, n):

@@ -1,8 +1,10 @@
 // World ledger (sortable rankings, world totals) and the system window (save, load, files, new game, credits).
+import { useContent, contentFailed } from '../game/content';
+import { AssetCredit } from '../components/identity';
 import { useEffect, useState } from 'preact/hooks';
 import type { GameState } from '../../engine/types';
 import { rankings } from '../../engine/metrics';
-import { Sec, Metric, modals, useWidth, useSort } from '../components/ui';
+import { Sec, Metric, modals, useWidth, useSort, details } from '../components/ui';
 import { fmt, compact, money } from '../i18n/vi';
 import { shortName } from '../game/names';
 import { Flag } from './common';
@@ -62,9 +64,32 @@ export function SystemScreen({ st }: { st: GameState }) {
       </div>
       <Sec title="Tệp"><div class="btns"><button class="btn sm" onClick={exportFile}>Xuất tệp</button><button class="btn sm" onClick={importFile}>Nhập tệp</button></div></Sec>
       <Sec title="Ván mới"><div class="btns"><button class="btn danger sm" onClick={() => { game.setPaused(true); ui.set({ started: false, camera: null, region: null, screen: 'map' }); }}>Về màn hình chọn ván</button></div></Sec>
+      <ContentCredits />
       <Sec title="Ghi công">
         <div class="note" style="margin-top:0">Phông chữ EB Garamond và Source Sans 3 (SIL Open Font License 1.1). Địa lý: Natural Earth 1:10m (ranh giới hành chính cấp 1, sông, hồ) và ảnh nổi địa hình Natural Earth 1:50m — phạm vi công cộng; ranh giới hiện đại được dùng làm xấp xỉ cho địa lý năm 1836. Số liệu lịch sử: Correlates of War, Maddison Project và các nguồn ghi trong hồ sơ từng quốc gia. Biểu tượng, bản đồ và giao diện được thiết kế riêng cho dự án.</div>
       </Sec>
     </div>
+  );
+}
+
+/** Identity content pack: what is shipped and the attribution every licence requires. */
+function ContentCredits() {
+  const pack = useContent();
+  if (!pack) return <Sec title="Gói nội dung bản sắc"><div class="empty sm">{contentFailed() ? 'Không tải được gói nội dung (game vẫn chạy với huy hiệu do game tạo).' : 'Đang tải…'}</div></Sec>;
+  const n = pack.counts;
+  const open = (type: string, title: string) => details.open({ key: 'credits:' + type, title, ctx: 'Nguồn và giấy phép', body: () => (
+    <div>{pack.assets.filter((a) => a.type === type).map((a) => <div key={a.id} style="padding:6px 0;border-bottom:1px solid var(--line)"><AssetCredit a={a} /></div>)}</div>
+  ) });
+  return (
+    <Sec title="Gói nội dung bản sắc" x={`${(n.bytes / 1048576).toFixed(1)} MB`}>
+      <div class="kv"><span class="k">Quốc kỳ theo thời kỳ</span><span class="v num">{n.flags}</span></div>
+      <div class="kv"><span class="k">Huy hiệu</span><span class="v num">{n.arms}</span></div>
+      <div class="kv"><span class="k">Chân dung nhân vật</span><span class="v num">{n.portraits}</span></div>
+      <div class="kv"><span class="k">Thực thể liên kết Wikidata</span><span class="v num">{n.entities_linked}</span></div>
+      <div class="kv"><span class="k">Mô tả có trích dẫn</span><span class="v num">{n.entity_texts}</span></div>
+      <div class="kv"><span class="k">Nhân vật (đối chiếu được)</span><span class="v num">{n.characters} ({n.characters_linked})</span></div>
+      <div class="btns credits" style="margin-top:6px"><button class="btn sm" onClick={() => open('flag', 'Nguồn quốc kỳ')}>Nguồn quốc kỳ</button><button class="btn sm" onClick={() => open('coat_of_arms', 'Nguồn huy hiệu')}>Nguồn huy hiệu</button><button class="btn sm" onClick={() => open('portrait', 'Nguồn chân dung')}>Nguồn chân dung</button></div>
+      <div class="note">{pack.licence_note} Mỗi hình ảnh ghi tác giả, giấy phép và tệp gốc; văn bản ghi bài viết và bản sửa.</div>
+    </Sec>
   );
 }

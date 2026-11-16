@@ -7,3 +7,5 @@ public/generated/
 /tmp/
 coverage/
 tools/etl/.cache/
+public/content/registry.json
+__pycache__/

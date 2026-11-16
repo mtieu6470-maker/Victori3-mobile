@@ -11,10 +11,16 @@ import { macroRegion, MACRO_REGIONS, type MacroRegion } from './regions';
 const db: HistoricalDB = JSON.parse(readFileSync('src/generated/db.json', 'utf8'));
 const REG = 'public/content/registry.json';
 type Asset = { id: string; type: string; entity?: string; character?: string; license: string };
-type Character = { id: string; entity: string; role: string; portrait?: string; bio?: unknown };
-type Description = { entity: string; text: string; lang: string };
-const content: { assets: Asset[]; characters: Character[]; descriptions: Description[]; local_names?: Record<string, unknown> } =
-  existsSync(REG) ? JSON.parse(readFileSync(REG, 'utf8')) : { assets: [], characters: [], descriptions: [] };
+type Character = { id: string; entity: string; roles: string[]; portrait: string | null; qid: string | null; texts: unknown[] };
+type EntityContent = { qid: string | null; names?: { lang: string }[]; flags: string[]; arms: string[]; texts: { lang: string }[] };
+const pack: { assets: Asset[]; characters: Record<string, Character>; entities: Record<string, EntityContent> } =
+  existsSync(REG) ? JSON.parse(readFileSync(REG, 'utf8')) : { assets: [], characters: {}, entities: {} };
+const content = {
+  assets: pack.assets,
+  characters: Object.values(pack.characters),
+  descriptions: Object.entries(pack.entities).flatMap(([entity, e]) => e.texts.map((t) => ({ entity, lang: t.lang }))),
+  local_names: Object.fromEntries(Object.entries(pack.entities).filter(([, e]) => (e.names ?? []).some((n) => n.lang !== 'en')).map(([k, e]) => [k, e.names])),
+};
 
 type Status = 'sourced' | 'estimated' | 'derived' | 'missing';
 const SCORE: Record<Status, number> = { sourced: 1, estimated: 0.6, derived: 0.25, missing: 0 };
@@ -51,7 +57,7 @@ function audit(e: EntityRecord) {
   s.politics = e.laws ? q2s(e.laws.quality) : e.government ? 'estimated' : 'derived'; note.politics = e.government ?? 'mặc định';
   s.ruler = e.head_of_state?.value ? q2s(e.head_of_state.quality) : 'missing'; note.ruler = e.head_of_state?.value?.name ?? '—';
   const nLeaders = db.leaders[e.id]?.length ?? 0;
-  s.characters = chars.some((c) => c.portrait && c.bio) ? 'sourced' : chars.length || nLeaders ? 'estimated' : 'missing'; note.characters = `${nLeaders} nguyên thủ kế vị; ${chars.length} hồ sơ; ${chars.filter((c) => c.portrait).length} chân dung`;
+  s.characters = chars.some((c) => c.portrait && c.qid) ? 'sourced' : chars.length || nLeaders ? 'estimated' : 'missing'; note.characters = `${nLeaders} nguyên thủ kế vị; ${chars.length} hồ sơ (${chars.filter((c) => c.qid).length} đối chiếu); ${chars.filter((c) => c.portrait).length} chân dung`;
   s.military = e.army ? q2s(e.army.quality) : 'derived'; note.military = e.army ? `${e.army.value}` : 'ước lượng từ dân số';
   const allied = db.alliances.filter((a) => a.members.includes(e.id)).length;
   const wars = db.wars.filter((w) => w.attackers.includes(e.id) || w.defenders.includes(e.id)).length;

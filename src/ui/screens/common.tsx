@@ -8,6 +8,7 @@ import { data } from '../../engine/data/db';
 import { fullName, shortName } from '../game/names';
 import { modals, Delta } from '../components/ui';
 import { mapControls } from '../map/MapView';
+import { useContent, symbolFor } from '../game/content';
 
 /** The country whose data the national screens show: the player's, or in Observer Mode the followed one. */
 export function viewedId(st: GameState): string {
@@ -32,9 +33,17 @@ export function send(cmd: Command, okText: string): boolean {
   else { const vi = REASONS_VI.find(([re]) => re.test(r.reason ?? ''))?.[1]; game.toast(vi ? `${vi}${r.reason && /\d/.test(r.reason) ? ` (${r.reason})` : ''}` : `Không thực hiện được: ${r.reason ?? 'lý do không rõ'}`, 'error'); }
   return r.ok;
 }
-/** Country emblem: a game heraldic shield in the country's map colour with the initial of its short name. It is a
- *  game identity mark, deliberately not an imitation of a historical flag (flags are not in the database). */
+/** Country mark. When the identity content pack has a flag valid for the current game year (period from Wikidata
+ *  qualifiers, licensed file from Wikimedia Commons) the flag is shown; otherwise the game emblem: a heraldic shield in
+ *  the country's map colour with the initial of its short name — a game mark, not an imitation of a historical flag. */
 export function Flag({ c, sm, lg }: { c: Country | undefined; sm?: boolean; lg?: boolean }) {
+  useContent();
+  const year = game.st?.date.y ?? 1836;
+  const f = c ? symbolFor(c.id, 'flag', year) : undefined;
+  if (f) return <span class={`flagimg${sm ? ' sm' : ''}${lg ? ' lg' : ''}`} aria-hidden="true"><img src={f.path} alt="" loading="lazy" decoding="async" /></span>;
+  return <Emblem c={c} sm={sm} lg={lg} />;
+}
+export function Emblem({ c, sm, lg }: { c: Country | undefined; sm?: boolean; lg?: boolean }) {
   const init = c ? [...shortName(null, c.id)][0]?.toLocaleUpperCase('vi') ?? '?' : '?';
   return <span class={`emblem-wrap${sm ? ' sm' : ''}${lg ? ' lg' : ''}`} aria-hidden="true"><span class="emblem" style={`--ec:${c?.color ?? '#555'}`}><b>{init}</b></span></span>;
 }

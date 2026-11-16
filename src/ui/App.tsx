@@ -20,6 +20,7 @@ import { compact, fmt, pct, techName, govVi, lawVi, GOOD_VI } from './i18n/vi';
 import { viewedId, Flag, regionName, leaderName, openCountry } from './screens/common';
 import { Setup } from './screens/Setup';
 import { CountryScreen, COUNTRY_TABS } from './screens/Country';
+import { useContent, entityContent, bestText } from './game/content';
 import { EconomyScreen, ECONOMY_TABS } from './screens/Economy';
 import { SocietyScreen, SOCIETY_TABS } from './screens/Society';
 import { PoliticsScreen, POLITICS_TABS } from './screens/Politics';
@@ -33,7 +34,7 @@ import { saveSlot } from './game/storage';
 
 type Meta = { title: string; icon: string; tabs?: [string, string][]; tabIcons?: Record<string, string>; hint: string };
 const SCREENS: Partial<Record<ScreenId, Meta>> = {
-  country: { title: 'Quốc gia', icon: 'crown', tabs: COUNTRY_TABS, tabIcons: { overview: 'flag', dossier: 'scroll', stats: 'gdp' }, hint: 'Tổng quan quốc gia, hồ sơ lịch sử, chỉ số theo năm' },
+  country: { title: 'Quốc gia', icon: 'crown', tabs: COUNTRY_TABS, tabIcons: { overview: 'flag', people: 'people', dossier: 'scroll', stats: 'gdp' }, hint: 'Tổng quan quốc gia, hồ sơ lịch sử, chỉ số theo năm' },
   economy: { title: 'Kinh tế', icon: 'economy', tabs: ECONOMY_TABS, tabIcons: { overview: 'gdp', market: 'market', buildings: 'factory', construction: 'construction', budget: 'coins' }, hint: 'Thị trường, công trình, xây dựng, ngân sách' },
   society: { title: 'Dân số', icon: 'society', tabs: SOCIETY_TABS, tabIcons: { pop: 'population', regions: 'map', culture: 'people' }, hint: 'Tầng lớp, mức sống, biết chữ, vùng, văn hóa' },
   politics: { title: 'Chính trị', icon: 'politics', tabs: POLITICS_TABS, tabIcons: { gov: 'legitimacy', igs: 'people', laws: 'laws' }, hint: 'Chính phủ, nhóm lợi ích, luật pháp và cải cách' },
@@ -356,6 +357,7 @@ function ContextCard({ id, x, y, w }: { id: string; x: number; y: number; w: num
         <button class="ib" aria-label="Bỏ chọn" onClick={() => ui.set({ region: null })}><Icon name="close" class="i" /></button>
       </div>
       <div class="cb">
+        <OwnerLine id={r.owner} />
         <div class="stats">
           <div><div class="l">Dân số</div><div class="v num">{compact(r.pop)}</div></div>
           <div><div class="l">Mức sống</div><div class="v num">{fmt(r.sol, 2)}</div></div>
@@ -364,10 +366,19 @@ function ContextCard({ id, x, y, w }: { id: string; x: number; y: number; w: num
         <div class="btns">
           <button class="btn sm" onClick={() => ui.set({ regionDetail: true, sheetSnap: 0 })}><Icon name="pin" class="i" />Chi tiết vùng</button>
           {o && !o.decentralized && <button class="btn sm" onClick={() => (mine ? openCountry(r.owner) : openCountryActions(st, r.owner))}><Icon name={mine ? 'crown' : 'diplomacy'} class="i" />{mine ? 'Quốc gia' : 'Ngoại giao'}</button>}
+          {o && (o.decentralized || !mine) && <button class="btn sm" onClick={() => openCountry(r.owner)}><Icon name="scroll" class="i" />Hồ sơ</button>}
         </div>
       </div>
     </div>
   );
+}
+/** First sentence of the owner's sourced description (Wikipedia lead), so a tap on the map explains whose land it is. */
+function OwnerLine({ id }: { id: string }) {
+  useContent();
+  const t = bestText(entityContent(id)?.texts);
+  if (!t) return null;
+  const m = t.text.match(/^(.{40,220}?[.!?])(\s|$)/s); const first = m ? m[1] : t.text.slice(0, 200) + '…';
+  return <div class="ctxdesc" lang={t.lang}>{first} <span class="dim">— Wikipedia{t.lang === 'en' ? ' (tiếng Anh)' : ''}</span></div>;
 }
 /** Ongoing processes of the viewed country, each a jump link. */
 function Outliner({ x, y }: { x: number; y: number }) {

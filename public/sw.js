@@ -1,5 +1,6 @@
-// Offline cache for the browser build: cache-first for same-origin GET requests.
-const CACHE = 'dcls-v1';
+// Offline cache for the browser build: cache-first for same-origin GET requests. Content-pack images
+// (content/...) are cached the first time they are shown, so a viewed flag or portrait stays available offline.
+const CACHE = 'dcls-v2';
 self.addEventListener('install', (e) => { self.skipWaiting(); e.waitUntil(caches.open(CACHE).then((c) => c.addAll(['./', './index.html', './generated/map.bin']))); });
 self.addEventListener('activate', (e) => { e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== CACHE).map((k) => caches.delete(k))))); self.clients.claim(); });
 self.addEventListener('fetch', (e) => {
