@@ -1,0 +1,14 @@
+$ sha256sum .github/workflows/android-apk.yml
+82458e9cb4e1c7615d5a032d8e9b16195bbece314775fdfa2458d4f2795ffda6  .github/workflows/android-apk.yml
+$ git hash-object .github/workflows/android-apk.yml
+7a2639057272d2629f2d6b89cfc8fb07682dad31
+$ git diff --check
+[exit 0]
+$ git status --porcelain=v1
+ M .github/workflows/android-apk.yml
+$ git diff --stat
+ .github/workflows/android-apk.yml | 289 +++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 288 insertions(+), 1 deletion(-)
+$ cmp applied.diff reviewer final.diff
+IDENTICAL to S0_B1_android-apk.final.diff
+fe6115b2eccd8b9fe67a3af4376098f066bfe48dd0bcca27a527fecff16ff7c6

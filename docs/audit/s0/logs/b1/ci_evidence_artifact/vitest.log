@@ -1,0 +1,77 @@
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90m/home/runner/work/Victori3-mobile/Victori3-mobile[39m
+
+ [32m✓[39m tests/data.test.ts[2m > [22mdatabase integrity and provenance[2m > [22mevery source id cited by entities, groups and events exists
+ [32m✓[39m tests/data.test.ts[2m > [22mdatabase integrity and provenance[2m > [22muses only the five quality labels
+ [32m✓[39m tests/data.test.ts[2m > [22mdatabase integrity and provenance[2m > [22ma "verified" population total always carries a source; missing data is flagged as a fallback, never verified
+ [32m✓[39m tests/data.test.ts[2m > [22mdatabase integrity and provenance[2m > [22mcovers small states, not only great powers
+ [32m✓[39m tests/data.test.ts[2m > [22mdatabase integrity and provenance[2m > [22mevery map region belongs to exactly one valid owner and is drawn on the map
+ [32m✓[39m tests/data.test.ts[2m > [22mdatabase integrity and provenance[2m > [22mworld population at start is consistent with Maddison (~1.04 bn in 1820, ~1.26 bn in 1850)
+ [32m✓[39m tests/data.test.ts[2m > [22mdatabase integrity and provenance[2m > [22mrecords disagreement between sources instead of choosing silently (e.g. Mexico, Portugal, India)
+ [32m✓[39m tests/data.test.ts[2m > [22mtemporal integrity (no later-period information at start)[2m > [22mstarting heads of state are those in office on 1 Jan 1836
+ [32m✓[39m tests/data.test.ts[2m > [22mtemporal integrity (no later-period information at start)[2m > [22mno leader or heir in the starting state took office or was born after the start date
+ [32m✓[39m tests/data.test.ts[2m > [22mtemporal integrity (no later-period information at start)[2m > [22mthe historical ownership timeline is never applied to the simulation state
+ [32m✓[39m tests/data.test.ts[2m > [22mtemporal integrity (no later-period information at start)[2m > [22minitial alliances and wars come from CoW records active on the start date
+ [32m✓[39m tests/data.test.ts[2m > [22mtemporal integrity (no later-period information at start)[2m > [22mpopulations of benchmark groups match their sources
+ [32m✓[39m tests/ui.test.ts[2m > [22mmap labels (Europe 1836 — many small German and Italian states)[2m > [22mportrait: no two labels overlap and all stay on screen
+ [32m✓[39m tests/ui.test.ts[2m > [22mmap labels (Europe 1836 — many small German and Italian states)[2m > [22mportrait: every country name is anchored inside its own country
+ [32m✓[39m tests/ui.test.ts[2m > [22mmap labels (Europe 1836 — many small German and Italian states)[2m > [22mlandscape: no two labels overlap and all stay on screen
+ [32m✓[39m tests/ui.test.ts[2m > [22mmap labels (Europe 1836 — many small German and Italian states)[2m > [22mlandscape: every country name is anchored inside its own country
+ [32m✓[39m tests/ui.test.ts[2m > [22mmap labels (Europe 1836 — many small German and Italian states)[2m > [22mzoomedOut: no two labels overlap and all stay on screen
+ [32m✓[39m tests/ui.test.ts[2m > [22mmap labels (Europe 1836 — many small German and Italian states)[2m > [22mzoomedOut: every country name is anchored inside its own country
+ [32m✓[39m tests/ui.test.ts[2m > [22mmap labels (Europe 1836 — many small German and Italian states)[2m > [22mthe player country is labelled at the Europe zoom
+ [32m✓[39m tests/ui.test.ts[2m > [22mmarket statistics persisted for the Market screen[2m > [22mevery market with prices has per-good supply, demand, imports and shortage after a month[33m 547[2mms[22m[39m
+ [32m✓[39m tests/ui.test.ts[2m > [22mmarket statistics persisted for the Market screen[2m > [22msurvives save/load, and saves written before the field existed still load[33m 2272[2mms[22m[39m
+ [32m✓[39m tests/ui.test.ts[2m > [22mbudget lines shown by the Budget tab[2m > [22mmonthly finance lines add up to the income and expense the engine applied[33m 355[2mms[22m[39m
+ [32m✓[39m tests/content.test.ts[2m > [22midentity content pack[2m > [22mevery shipped image exists, has an allowed licence, an author or credit field, and a Commons source page
+ [32m✓[39m tests/content.test.ts[2m > [22midentity content pack[2m > [22massets, texts and characters only reference entities that exist in the database
+ [32m✓[39m tests/content.test.ts[2m > [22midentity content pack[2m > [22mflags and arms are never shown outside 1836–1936 or outside their recorded period
+ [32m✓[39m tests/content.test.ts[2m > [22midentity content pack[2m > [22munqualified symbols of present-day states, peoples, regions and eras were rejected, not shipped
+ [32m✓[39m tests/content.test.ts[2m > [22midentity content pack[2m > [22mevery text carries article, URL, revision and the CC BY-SA licence
+ [32m✓[39m tests/content.test.ts[2m > [22midentity content pack[2m > [22mlinked polities passed the 1836 lifetime check (no silent mismatches)
+ [32m✓[39m tests/content.test.ts[2m > [22midentity content pack[2m > [22mcharacters linked to Wikidata agree with the database on birth and death years (±2)
+[90mstdout[2m | tests/simulation.test.ts[2m > [22m[2meconomy and population sanity (40 years, both modes)[2m > [22m[2mhistorical: world population growth 1836-1876 is within a plausible band (0.2%-1.2% per year)
+[22m[39mhistorical world pop growth %/yr 0.78
+
+[90mstdout[2m | tests/simulation.test.ts[2m > [22m[2meconomy and population sanity (40 years, both modes)[2m > [22m[2msandbox: world population growth 1836-1876 is within a plausible band (0.2%-1.2% per year)
+[22m[39msandbox world pop growth %/yr 0.76
+
+ [32m✓[39m tests/simulation.test.ts[2m > [22meconomy and population sanity (40 years, both modes)[2m > [22mhistorical: no NaN/negative values in regions and countries
+ [32m✓[39m tests/simulation.test.ts[2m > [22meconomy and population sanity (40 years, both modes)[2m > [22mhistorical: world population growth 1836-1876 is within a plausible band (0.2%-1.2% per year)
+ [32m✓[39m tests/simulation.test.ts[2m > [22meconomy and population sanity (40 years, both modes)[2m > [22mhistorical: national trends stay within a factor of 2 of the 1870 benchmarks (population: CoW; not a script)
+ [32m✓[39m tests/simulation.test.ts[2m > [22meconomy and population sanity (40 years, both modes)[2m > [22msandbox: no NaN/negative values in regions and countries
+ [32m✓[39m tests/simulation.test.ts[2m > [22meconomy and population sanity (40 years, both modes)[2m > [22msandbox: world population growth 1836-1876 is within a plausible band (0.2%-1.2% per year)
+ [32m✓[39m tests/simulation.test.ts[2m > [22meconomy and population sanity (40 years, both modes)[2m > [22msandbox: national trends stay within a factor of 2 of the 1870 benchmarks (population: CoW; not a script)
+ [32m✓[39m tests/simulation.test.ts[2m > [22mAI does not get stuck in meaningless loops[2m > [22mno law flips back to a value it left within 15 years
+ [32m✓[39m tests/simulation.test.ts[2m > [22mAI does not get stuck in meaningless loops[2m > [22mwars end: no war lasts more than 12 years
+ [32m✓[39m tests/simulation.test.ts[2m > [22mAI does not get stuck in meaningless loops[2m > [22mcountries keep researching and building over the whole period
+ [32m✓[39m tests/simulation.test.ts[2m > [22msave/load[2m > [22ma loaded game continues exactly like the uninterrupted game[33m 2300[2mms[22m[39m
+ [32m✓[39m tests/simulation.test.ts[2m > [22msave/load[2m > [22mrejects foreign files
+ [32m✓[39m tests/simulation.test.ts[2m > [22mwar support (Pass 16 pack, ch. 34/73: exhaustion alone does not capitulate)[2m > [22man exhausted attacker that is winning stays in the war
+ [32m✓[39m tests/simulation.test.ts[2m > [22mwar support (Pass 16 pack, ch. 34/73: exhaustion alone does not capitulate)[2m > [22man exhausted attacker that is losing gives up
+[90mstdout[2m | tests/modes.test.ts[2m > [22m[2mHistorical Mode follows history more closely, without railroading[2m > [22m[2mmean milestone similarity is higher in Historical Mode than in Sandbox (paired seeds)
+[22m[39mmilestone similarity historical 0.445 sandbox 0.294
+
+ [32m✓[39m tests/modes.test.ts[2m > [22mone engine, two modes[2m > [22mboth modes run exactly the same systems the same number of times[33m 4281[2mms[22m[39m
+ [32m✓[39m tests/modes.test.ts[2m > [22mone engine, two modes[2m > [22mmode configuration only toggles historical data layers (no rule or system switches)
+ [32m✓[39m tests/modes.test.ts[2m > [22mone engine, two modes[2m > [22mAI activity is not reduced in either mode
+ [32m✓[39m tests/modes.test.ts[2m > [22mone engine, two modes[2m > [22mthe historical layer is active only in Historical Mode
+ [32m✓[39m tests/modes.test.ts[2m > [22mHistorical Mode follows history more closely, without railroading[2m > [22mmean milestone similarity is higher in Historical Mode than in Sandbox (paired seeds)
+ [32m✓[39m tests/modes.test.ts[2m > [22mHistorical Mode follows history more closely, without railroading[2m > [22mHistorical Mode does not reproduce history exactly (some milestones are missed)
+ [32m✓[39m tests/modes.test.ts[2m > [22mHistorical Mode follows history more closely, without railroading[2m > [22mhistorical priorities stop applying when their prerequisites disappear
+ [32m✓[39m tests/modes.test.ts[2m > [22mSandbox Mode is free[2m > [22mdifferent seeds produce different worlds
+ [32m✓[39m tests/modes.test.ts[2m > [22mSandbox Mode is free[2m > [22mwars, alliances, territorial and institutional changes emerge
+ [32m✓[39m tests/modes.test.ts[2m > [22mSandbox Mode is free[2m > [22mproduces non-historical outcomes (territory changes that differ from the historical owner)
+ [32m✓[39m tests/modes.test.ts[2m > [22mObserver Mode runs every country with the same AI[2m > [22mevery surviving country — including the smallest — takes AI decisions
+ [32m✓[39m tests/modes.test.ts[2m > [22mplayer intervention changes history[2m > [22ma non-historical war declared by the player creates divergence from the AI-only run[33m 2755[2mms[22m[39m
+ [32m✓[39m tests/modes.test.ts[2m > [22mplayer intervention changes history[2m > [22mObserver Mode rejects player commands (no country under control)
+ [32m✓[39m tests/modes.test.ts[2m > [22mhistorical succession is exogenous in Historical Mode only[2m > [22mVictoria succeeds William IV in June 1837 and Hanover separates (Salic law)[33m 397[2mms[22m[39m
+ [32m✓[39m tests/modes.test.ts[2m > [22mhistorical succession is exogenous in Historical Mode only[2m > [22mSandbox Mode does not use recorded death dates (generated or heir successions only)[33m 2422[2mms[22m[39m
+ [32m✓[39m tests/modes.test.ts[2m > [22mterritorial similarity is measured identically in both modes[2m > [22mis 1.0 at start in both modes (same starting world)
+
+[2m Test Files [22m [1m[32m5 passed[39m[22m[90m (5)[39m
+[2m      Tests [22m [1m[32m58 passed[39m[22m[90m (58)[39m
+[2m   Start at [22m 08:52:37
+[2m   Duration [22m 65.29s[2m (transform 310ms, setup 0ms, collect 75.91s, tests 16.08s, environment 1ms, prepare 363ms)[22m
+
+JSON report written to /home/runner/work/Victori3-mobile/Victori3-mobile/ci-evidence/vitest-results.json

@@ -1,0 +1,3 @@
+# GitHub artifact ZIP "dong-chay-lich-su-debug-apk" (this is NOT the APK file hash)
+artifact_id=14210308010
+artifact_zip_sha256=7717a2b79dd46fbf613845e33bac3a17634eae5b0c808328d8b21b5abc150ba0

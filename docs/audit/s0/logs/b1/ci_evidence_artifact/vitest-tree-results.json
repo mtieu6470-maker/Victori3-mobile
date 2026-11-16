@@ -1,0 +1,281 @@
+{
+  "schema": "vitest-2.1.9-task-tree-v1",
+  "fileCount": 5,
+  "counters": {
+    "numTotalTestSuites": 22,
+    "numPassedTestSuites": 22,
+    "numFailedTestSuites": 0,
+    "numPendingTestSuites": 0,
+    "numTotalTests": 58,
+    "numPassedTests": 58,
+    "numFailedTests": 0,
+    "numPendingTests": 0,
+    "numTodoTests": 0
+  },
+  "unhandledErrorCount": 0,
+  "invalidStates": [],
+  "files": [
+    {
+      "name": "/home/runner/work/Victori3-mobile/Victori3-mobile/tests/content.test.ts",
+      "status": "passed",
+      "assertions": [
+        {
+          "title": "every shipped image exists, has an allowed licence, an author or credit field, and a Commons source page",
+          "status": "passed"
+        },
+        {
+          "title": "assets, texts and characters only reference entities that exist in the database",
+          "status": "passed"
+        },
+        {
+          "title": "flags and arms are never shown outside 1836–1936 or outside their recorded period",
+          "status": "passed"
+        },
+        {
+          "title": "unqualified symbols of present-day states, peoples, regions and eras were rejected, not shipped",
+          "status": "passed"
+        },
+        {
+          "title": "every text carries article, URL, revision and the CC BY-SA licence",
+          "status": "passed"
+        },
+        {
+          "title": "linked polities passed the 1836 lifetime check (no silent mismatches)",
+          "status": "passed"
+        },
+        {
+          "title": "characters linked to Wikidata agree with the database on birth and death years (±2)",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "name": "/home/runner/work/Victori3-mobile/Victori3-mobile/tests/data.test.ts",
+      "status": "passed",
+      "assertions": [
+        {
+          "title": "every source id cited by entities, groups and events exists",
+          "status": "passed"
+        },
+        {
+          "title": "uses only the five quality labels",
+          "status": "passed"
+        },
+        {
+          "title": "a \"verified\" population total always carries a source; missing data is flagged as a fallback, never verified",
+          "status": "passed"
+        },
+        {
+          "title": "covers small states, not only great powers",
+          "status": "passed"
+        },
+        {
+          "title": "every map region belongs to exactly one valid owner and is drawn on the map",
+          "status": "passed"
+        },
+        {
+          "title": "world population at start is consistent with Maddison (~1.04 bn in 1820, ~1.26 bn in 1850)",
+          "status": "passed"
+        },
+        {
+          "title": "records disagreement between sources instead of choosing silently (e.g. Mexico, Portugal, India)",
+          "status": "passed"
+        },
+        {
+          "title": "starting heads of state are those in office on 1 Jan 1836",
+          "status": "passed"
+        },
+        {
+          "title": "no leader or heir in the starting state took office or was born after the start date",
+          "status": "passed"
+        },
+        {
+          "title": "the historical ownership timeline is never applied to the simulation state",
+          "status": "passed"
+        },
+        {
+          "title": "initial alliances and wars come from CoW records active on the start date",
+          "status": "passed"
+        },
+        {
+          "title": "populations of benchmark groups match their sources",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "name": "/home/runner/work/Victori3-mobile/Victori3-mobile/tests/modes.test.ts",
+      "status": "passed",
+      "assertions": [
+        {
+          "title": "both modes run exactly the same systems the same number of times",
+          "status": "passed"
+        },
+        {
+          "title": "mode configuration only toggles historical data layers (no rule or system switches)",
+          "status": "passed"
+        },
+        {
+          "title": "AI activity is not reduced in either mode",
+          "status": "passed"
+        },
+        {
+          "title": "the historical layer is active only in Historical Mode",
+          "status": "passed"
+        },
+        {
+          "title": "mean milestone similarity is higher in Historical Mode than in Sandbox (paired seeds)",
+          "status": "passed"
+        },
+        {
+          "title": "Historical Mode does not reproduce history exactly (some milestones are missed)",
+          "status": "passed"
+        },
+        {
+          "title": "historical priorities stop applying when their prerequisites disappear",
+          "status": "passed"
+        },
+        {
+          "title": "different seeds produce different worlds",
+          "status": "passed"
+        },
+        {
+          "title": "wars, alliances, territorial and institutional changes emerge",
+          "status": "passed"
+        },
+        {
+          "title": "produces non-historical outcomes (territory changes that differ from the historical owner)",
+          "status": "passed"
+        },
+        {
+          "title": "every surviving country — including the smallest — takes AI decisions",
+          "status": "passed"
+        },
+        {
+          "title": "a non-historical war declared by the player creates divergence from the AI-only run",
+          "status": "passed"
+        },
+        {
+          "title": "Observer Mode rejects player commands (no country under control)",
+          "status": "passed"
+        },
+        {
+          "title": "Victoria succeeds William IV in June 1837 and Hanover separates (Salic law)",
+          "status": "passed"
+        },
+        {
+          "title": "Sandbox Mode does not use recorded death dates (generated or heir successions only)",
+          "status": "passed"
+        },
+        {
+          "title": "is 1.0 at start in both modes (same starting world)",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "name": "/home/runner/work/Victori3-mobile/Victori3-mobile/tests/simulation.test.ts",
+      "status": "passed",
+      "assertions": [
+        {
+          "title": "historical: no NaN/negative values in regions and countries",
+          "status": "passed"
+        },
+        {
+          "title": "historical: world population growth 1836-1876 is within a plausible band (0.2%-1.2% per year)",
+          "status": "passed"
+        },
+        {
+          "title": "historical: national trends stay within a factor of 2 of the 1870 benchmarks (population: CoW; not a script)",
+          "status": "passed"
+        },
+        {
+          "title": "sandbox: no NaN/negative values in regions and countries",
+          "status": "passed"
+        },
+        {
+          "title": "sandbox: world population growth 1836-1876 is within a plausible band (0.2%-1.2% per year)",
+          "status": "passed"
+        },
+        {
+          "title": "sandbox: national trends stay within a factor of 2 of the 1870 benchmarks (population: CoW; not a script)",
+          "status": "passed"
+        },
+        {
+          "title": "no law flips back to a value it left within 15 years",
+          "status": "passed"
+        },
+        {
+          "title": "wars end: no war lasts more than 12 years",
+          "status": "passed"
+        },
+        {
+          "title": "countries keep researching and building over the whole period",
+          "status": "passed"
+        },
+        {
+          "title": "a loaded game continues exactly like the uninterrupted game",
+          "status": "passed"
+        },
+        {
+          "title": "rejects foreign files",
+          "status": "passed"
+        },
+        {
+          "title": "an exhausted attacker that is winning stays in the war",
+          "status": "passed"
+        },
+        {
+          "title": "an exhausted attacker that is losing gives up",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "name": "/home/runner/work/Victori3-mobile/Victori3-mobile/tests/ui.test.ts",
+      "status": "passed",
+      "assertions": [
+        {
+          "title": "portrait: no two labels overlap and all stay on screen",
+          "status": "passed"
+        },
+        {
+          "title": "portrait: every country name is anchored inside its own country",
+          "status": "passed"
+        },
+        {
+          "title": "landscape: no two labels overlap and all stay on screen",
+          "status": "passed"
+        },
+        {
+          "title": "landscape: every country name is anchored inside its own country",
+          "status": "passed"
+        },
+        {
+          "title": "zoomedOut: no two labels overlap and all stay on screen",
+          "status": "passed"
+        },
+        {
+          "title": "zoomedOut: every country name is anchored inside its own country",
+          "status": "passed"
+        },
+        {
+          "title": "the player country is labelled at the Europe zoom",
+          "status": "passed"
+        },
+        {
+          "title": "every market with prices has per-good supply, demand, imports and shortage after a month",
+          "status": "passed"
+        },
+        {
+          "title": "survives save/load, and saves written before the field existed still load",
+          "status": "passed"
+        },
+        {
+          "title": "monthly finance lines add up to the income and expense the engine applied",
+          "status": "passed"
+        }
+      ]
+    }
+  ]
+}

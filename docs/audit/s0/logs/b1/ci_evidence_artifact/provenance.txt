@@ -1,0 +1,9 @@
+commit_sha=382aaa84b2336854b4dbebfcdc719847ff463f41
+checked_out_head=382aaa84b2336854b4dbebfcdc719847ff463f41
+ref=refs/heads/claude/game-historical-sandbox-modes-kg7rj7
+event=push
+run_id=43834719406
+run_attempt=1
+evidence_pipeline=AUDIT_INSTRUMENTED (S0-B B1: evidence steps added to this workflow)
+product_build_commands=unchanged (npm ci; npm run build; npx cap sync android; ./gradlew assembleDebug)
+product_source_state=not asserted by CI; compare this commit with the baseline using git

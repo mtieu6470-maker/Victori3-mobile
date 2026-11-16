@@ -1,0 +1,38 @@
+YAML parse OK; triggers {'push': {'branches': ['**']}, 'workflow_dispatch': None} ; permissions {'contents': 'read'} ; steps 16
+01 actions/checkout@v4 
+02 Record provenance 
+03 actions/setup-node@v4 
+04 npm ci 
+05 Build data, map and web app 
+06 Hash generated data and web bundle 
+07 Unit and simulation tests 
+08 actions/setup-java@v4 
+09 Locate the preinstalled Android SDK 
+10 Sync web build into the Android project 
+11 Hash Android web assets 
+12 Assemble debug APK 
+13 Record APK checksum, payload manifest and signing certificate 
+14 actions/upload-artifact@v4 
+15 Record artifact ZIP digest and job summary | if=always()
+16 actions/upload-artifact@v4 | if=always()
+bash -n step02.sh: exit 0
+bash -n step04.sh: exit 0
+bash -n step05.sh: exit 0
+bash -n step06.sh: exit 0
+bash -n step07.sh: exit 0
+bash -n step09.sh: exit 0
+bash -n step10.sh: exit 0
+bash -n step11.sh: exit 0
+bash -n step12.sh: exit 0
+bash -n step13.sh: exit 0
+bash -n step15.sh: exit 0
+node --check reporter: exit 0
+node --check validator: exit 0
+--- forbidden tokens:
+none
+--- headers:
+59:          (cd dist && echo 'path_relative_to_dist,size_bytes,sha256' && find . -type f 
+266:          (cd "$d" && echo 'path_relative_to_assets_public,size_bytes,sha256' && find 
+284:          (cd "$tmp/assets/public" && echo 'path_relative_to_assets_public,size_bytes,
+--- product source vs 2240a8f (excl. docs, README, workflow):
+exit 0

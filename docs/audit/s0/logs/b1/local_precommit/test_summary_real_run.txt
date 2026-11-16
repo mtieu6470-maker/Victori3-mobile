@@ -1,0 +1,13 @@
+vitest_exit_code=0
+numTotalTestSuites=22
+numPassedTestSuites=22
+numFailedTestSuites=0
+numPendingTestSuites=0
+numTotalTests=58
+numPassedTests=58
+numFailedTests=0
+numPendingTests=0
+numTodoTests=0
+success=true
+derived_from_vitest_task_tree={"numTotalTestSuites":22,"numPassedTestSuites":22,"numFailedTestSuites":0,"numPendingTestSuites":0,"numTotalTests":58,"numPassedTests":58,"numFailedTests":0,"numPendingTests":0,"numTodoTests":0}
+report_valid=true

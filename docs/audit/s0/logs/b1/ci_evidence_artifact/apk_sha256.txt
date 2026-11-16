@@ -1,0 +1,4 @@
+# APK file app-debug.apk (this is NOT the artifact ZIP digest)
+apk_path=android/app/build/outputs/apk/debug/app-debug.apk
+apk_size_bytes=18042486
+apk_sha256=314c8ca11c1d747550bbdb982326675e5f9dbdac870f3fc1cf04b9de7c22585c

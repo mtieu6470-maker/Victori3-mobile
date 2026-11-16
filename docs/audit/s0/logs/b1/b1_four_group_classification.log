@@ -1,0 +1,65 @@
+# Four-group classification on the real B1 run 43834719406 (commit 382aaa8) — 2026-11-16T08:57:08Z
+
+### (i) APK payload of this run (ev/apk_assets_public_manifest.csv) vs baseline APK manifest (reviewer CSV, artifact 14193446122)
+reference files: 592  new files: 592
+group 1 exact match: 589
+group 2 in reference only: 1
+  assets/index-1X6Ixu45.js
+group 3 in new only: 1
+  assets/index-DBqUAOe4.js
+group 4 same path, different size/hash: 2
+  content/registry.json,1698193,6887c1a224d5939431531996ea4467eabf1051c5ddd3727586e586c47659fd77,1698193,ea4a3f729b0ed3ebcb1d34755577c079047e5f8f1318513f92d7f9f28abfe0d2
+  index.html,617,a4e027fc8082193601c2e6ddd29cc3354cd300fc8dbc6e21b3497b7b05ae217a,617,241920b9b6f1cb301e396284a8c4bb876fc8b61903876dfab75cb23e5254cdb9
+check: group1 + group2 + group4 = 592 (must equal reference count 592)
+
+### (ii) dist of this run (ev/dist_manifest.csv) vs S0-A local dist (docs/audit/s0/a4/dist.csv)
+reference files: 590  new files: 590
+group 1 exact match: 587
+group 2 in reference only: 1
+  assets/index-BK4lin7l.js
+group 3 in new only: 1
+  assets/index-DBqUAOe4.js
+group 4 same path, different size/hash: 2
+  content/registry.json,1698193,8155ed20078cba461dd864e4f667d4c23c3eddebf45d1326cfe529142e04ed7a,1698193,ea4a3f729b0ed3ebcb1d34755577c079047e5f8f1318513f92d7f9f28abfe0d2
+  index.html,617,93cd26c5e3be001581ab843cbc961f00fa636a0aba6aa6f12811552528f98430,617,241920b9b6f1cb301e396284a8c4bb876fc8b61903876dfab75cb23e5254cdb9
+check: group1 + group2 + group4 = 590 (must equal reference count 590)
+
+### (iii) Android assets after cap sync (ev/android_assets_public_manifest.csv) vs APK payload of the same run
+reference files: 592  new files: 592
+group 1 exact match: 592
+group 2 in reference only: 0
+group 3 in new only: 0
+group 4 same path, different size/hash: 0
+check: group1 + group2 + group4 = 592 (must equal reference count 592)
+
+### Explanation of every group 2-4 entry in (i), with real files (baseline APK payload vs this run's APK payload)
+entry scripts referenced by index.html: baseline assets/index-1X6Ixu45.js, run assets/index-DBqUAOe4.js
+10c10
+<     <script type="module" crossorigin src="./assets/index-1X6Ixu45.js"></script>
+---
+>     <script type="module" crossorigin src="./assets/index-DBqUAOe4.js"></script>
+cmp -l bytes differing in JS: 7
+<scratch>/s0a_artifact/apk_x/assets/public/assets/index-1X6Ixu45.js:built_at:"2026-11-16T02:39:10.863Z"
+<scratch>/b1_verify/apk_x/assets/public/assets/index-DBqUAOe4.js:built_at:"2026-11-16T08:52:24.165Z"
+74907bf91b66958c596d0ea0a6e04b77c4dc308f9b41f75dc6a5173db4b61616  -
+74907bf91b66958c596d0ea0a6e04b77c4dc308f9b41f75dc6a5173db4b61616  -
+cmp -l bytes differing in registry.json: 8
+<scratch>/s0a_artifact/apk_x/assets/public/content/registry.json:"generated":"2026-11-16T02:39:18.974Z"
+<scratch>/b1_verify/apk_x/assets/public/content/registry.json:"generated":"2026-11-16T08:52:29.611Z"
+5cb7b11ec57c4d092e5dcf0d97c6e7f0e33e7165763d9627735d77c89cf8e6e1  -
+5cb7b11ec57c4d092e5dcf0d97c6e7f0e33e7165763d9627735d77c89cf8e6e1  -
+7ba21c1150bc87a8bf5c666cd05c588242066d462c97d60ad3c9a10315f893b5  -
+7ba21c1150bc87a8bf5c666cd05c588242066d462c97d60ad3c9a10315f893b5  -
+
+### Generated files of this run vs S0-A (state_after_06)
+ea4a3f729b0ed3ebcb1d34755577c079047e5f8f1318513f92d7f9f28abfe0d2  public/content/registry.json
+04740d97b302f59c32a5e0edff78d935596000a59c3102b1f7b56a8e10c3b805  public/generated/borders.json
+2b564d2d0300fb432f620df6360aa9f17bf073fbb7fb2657865ea59690fc0da9  public/generated/coastdist.png
+ad225a022e088eba665e2577120622cba713bb72492f60b0fa1c85a5bb9dfd4b  public/generated/map.bin
+b0f6ae2c9bf528cbe31ebe22a5c5e17a3e4ff66f2d4852fb9189d4b5a83de5a1  src/generated/db.json
+9a6a6979dd5e7adc9d5953fc5f089ac94dee4079433ed1d340535dcbe877a696  src/generated/map.json
+9a6a6979dd5e7adc9d5953fc5f089ac94dee4079433ed1d340535dcbe877a696  112631  src/generated/map.json
+ad225a022e088eba665e2577120622cba713bb72492f60b0fa1c85a5bb9dfd4b  725272  public/generated/map.bin
+2b564d2d0300fb432f620df6360aa9f17bf073fbb7fb2657865ea59690fc0da9  867476  public/generated/coastdist.png
+04740d97b302f59c32a5e0edff78d935596000a59c3102b1f7b56a8e10c3b805  971674  public/generated/borders.json
+!! public/generated/
