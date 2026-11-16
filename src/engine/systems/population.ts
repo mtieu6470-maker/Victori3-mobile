@@ -1,7 +1,7 @@
 // Population Engine (shared): births/deaths, famine and epidemics, strata change following jobs and laws,
 // literacy, migration (internal and international) and nationalism.
 import { data } from '../data/db';
-import { S, STRATA, type Country, type GameState, type Region } from '../types';
+import { S, STRATA, type Building, type Country, type GameState, type Region } from '../types';
 import { clamp } from '../core';
 import { techEffect, LEVEL_WORKERS } from './economy';
 import { regionsOf } from '../cache';
@@ -170,10 +170,52 @@ export function coreNationOf(st: GameState, c: Country): string | undefined {
   return cap ? data().cultureNation.get(cap.culture) : undefined;
 }
 
+/**
+ * Effective jobs open to new workers after each firm's current profitability-driven
+ * staffing target is applied. Legacy saves without target data retain full nominal capacity.
+ */
+export function effectiveBuildingLaborDemand(r: Region, population = r.pop): {
+  factoryWorkers: number;
+  laborerWorkers: number;
+} {
+  const laborForce = Math.max(0, Number.isFinite(population) ? population * 0.45 : 0);
+  const shares = Array.isArray(r.strata) ? r.strata : [];
+  const laborerPool = laborForce * clamp(Number(shares[S.laborers] ?? 0), 0, 1);
+  const slavePool = laborForce * clamp(Number(shares[S.slaves] ?? 0), 0, 1);
+  const utilization = (building: Building): number => {
+    const stored = Number(r.popEconomy?.employmentTargetByBuilding?.[building]);
+    return Number.isFinite(stored) ? clamp(stored, 0.1, 1) : 1;
+  };
+
+  const factories: Building[] = ['textile_mill', 'ironworks', 'tool_works', 'arms_works', 'luxury_workshop'];
+  const factoryWorkers = factories.reduce(
+    (sum, building) => sum + Math.max(0, Number(r.buildings[building] ?? 0)) * LEVEL_WORKERS * utilization(building),
+    0,
+  );
+
+  const plantationCapacity = Math.max(0, Number(r.buildings.plantation ?? 0)) * LEVEL_WORKERS * utilization('plantation');
+  const plantationLaborers = Math.min(
+    Math.max(0, plantationCapacity - Math.min(plantationCapacity, slavePool)),
+    laborerPool * 0.25,
+  );
+  const mineWorkers = Math.min(
+    Math.max(0, Number(r.buildings.mine ?? 0)) * LEVEL_WORKERS * utilization('mine'),
+    laborerPool * 0.6,
+  );
+  const loggingWorkers = Math.min(
+    Math.max(0, Number(r.buildings.logging ?? 0)) * LEVEL_WORKERS * utilization('logging'),
+    laborerPool * 0.4,
+  );
+  // Thirty percent of the laborer pool remains assigned to subsistence farming first.
+  const laborerWorkers = Math.min(laborerPool * 0.7, plantationLaborers + mineWorkers + loggingWorkers);
+  return { factoryWorkers, laborerWorkers };
+}
+
 function shiftStrata(st: GameState, c: Country, r: Region) {
   const s = r.strata; const LF = r.pop * 0.45;
-  const factoryCap = (r.buildings.textile_mill + r.buildings.ironworks + r.buildings.tool_works + r.buildings.arms_works + r.buildings.luxury_workshop) * LEVEL_WORKERS;
-  const extractCap = (r.buildings.mine + r.buildings.logging + r.buildings.plantation) * LEVEL_WORKERS;
+  const laborDemand = effectiveBuildingLaborDemand(r);
+  const factoryCap = laborDemand.factoryWorkers;
+  const extractCap = laborDemand.laborerWorkers;
   const wTarget = clamp(factoryCap / Math.max(1, LF), 0, 0.6);
   const lTarget = clamp(extractCap / Math.max(1, LF) * 0.7 + 0.04, 0.02, 0.5);
   const gdpPc = (r.output * 12) / Math.max(1, r.pop);

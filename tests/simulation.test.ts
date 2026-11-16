@@ -7,7 +7,7 @@ import { BUILDINGS, STRATA } from '../src/engine/types';
 import { allocateCompetingWorkers, availableProductionMethods, calculatePopulationEconomy, calibrateCohortLivingStandards, factoryInputFulfillment, LEVEL_WORKERS, nextEmploymentTarget, populationConsumptionDemand, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
 import { execute } from '../src/engine/commands';
 import { updatePolitics } from '../src/engine/systems/politics';
-import { mixPopulationStrata, stratifiedNaturalChange } from '../src/engine/systems/population';
+import { effectiveBuildingLaborDemand, mixPopulationStrata, stratifiedNaturalChange } from '../src/engine/systems/population';
 import { advanceConstruction, cancelConstruction, queueConstruction, canBuild } from '../src/engine/systems/economy';
 
 describe('economy and population sanity (40 years, both modes)', () => {
@@ -505,5 +505,53 @@ describe('profit-driven building employment', () => {
         }
       }
     }
+  });
+});
+
+
+describe('employment-aware occupational transition', () => {
+  it('reduces future worker migration when factories lower their hiring targets', () => {
+    const state = fresh('historical', 93, 'GBR');
+    const region = state.regions.find((entry) => entry.owner === 'GBR' && entry.pop > 0)!;
+    region.buildings.textile_mill = 3;
+    region.buildings.ironworks = 2;
+    region.buildings.mine = 2;
+    region.buildings.logging = 1;
+    region.buildings.plantation = 1;
+
+    const fullCapacity = effectiveBuildingLaborDemand(region);
+    region.popEconomy = {
+      ...(region.popEconomy ?? {
+        employed: new Array(STRATA.length).fill(0),
+        incomePerCapita: new Array(STRATA.length).fill(0),
+        wagePerWorker: new Array(STRATA.length).fill(0),
+        sol: new Array(STRATA.length).fill(0),
+      }),
+      employmentTargetByBuilding: {
+        textile_mill: 0.25,
+        ironworks: 0.25,
+        mine: 0.3,
+        logging: 0.3,
+        plantation: 0.3,
+      },
+    };
+    const reducedCapacity = effectiveBuildingLaborDemand(region);
+
+    expect(reducedCapacity.factoryWorkers).toBeLessThan(fullCapacity.factoryWorkers);
+    expect(reducedCapacity.laborerWorkers).toBeLessThan(fullCapacity.laborerWorkers);
+    expect(reducedCapacity.factoryWorkers).toBeGreaterThanOrEqual(0);
+    expect(reducedCapacity.laborerWorkers).toBeGreaterThanOrEqual(0);
+  });
+
+  it('keeps full-capacity fallback for legacy saves with no hiring ledger', () => {
+    const state = fresh('historical', 94, 'GBR');
+    const region = state.regions.find((entry) => entry.owner === 'GBR' && entry.pop > 0)!;
+    region.buildings.textile_mill = 2;
+    region.buildings.mine = 1;
+    const before = effectiveBuildingLaborDemand(region);
+    if (region.popEconomy) delete region.popEconomy.employmentTargetByBuilding;
+    const after = effectiveBuildingLaborDemand(region);
+    expect(after.factoryWorkers).toBeCloseTo(before.factoryWorkers, 8);
+    expect(after.laborerWorkers).toBeCloseTo(before.laborerWorkers, 8);
   });
 });
