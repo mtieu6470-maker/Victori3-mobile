@@ -13,26 +13,36 @@
 | Coordination correction commit | `6c4d02a36a30f7e82d973da59f569b379f85468d` |
 | Handoff update commit | Identified by GitHub commit metadata: the commit that introduced this revision of this file (`git log -1 -- docs/coordination/AI_HANDOFF.md`). Not written here, because a commit cannot contain its own SHA |
 | Canonical roadmap | `OWNER_APPROVED` (2026-11-16, OD-20261116-09): `docs/roadmap/DECISIONS_AND_S0_REVISED_VI.v3.2.md` with `docs/roadmap/SOURCE_REGISTER.v3.2.md`, committed verbatim in `574ddc7ac57267ecae2216cb9ee1d490f3b41626`. SHA-256 verified before and after commit: `208a08ef46f7623d6ebbec02765fc1c70cbfcee09af7b4555aa8f7fb85f7b3e8` / `1adc4fedb4311383723631fbe16ceaa92b54344223bda0f93ee2d8c8e06737a2`. The file's own header still says "S0 vẫn chờ phê duyệt" because it is the verbatim pre-approval text; the approval is recorded here |
+| S0 v3.3 amendment | `OWNER_APPROVED` with amendments (2026-11-16, OD-20261116-11): `docs/roadmap/S0_V3_3_GATE_RESTRUCTURE_PROPOSAL.md` (SHA-256 `929c06f4b993a6c395d3633bcb8b207554c833d023debe073cb5252f51929cf5`) as amended by `docs/roadmap/S0_V3_3_OWNER_DECISION_AND_AMENDMENTS.md` (SHA-256 `582a8a4e3f0275f5b88debf8b90967c84c077684c104540fc6a5e961847267b6`); sources in `docs/roadmap/SOURCE_REGISTER.v3.3.md`. v3.2 stays canonical except the clauses v3.3 replaces. Both files are verbatim, so their headers still carry draft wording |
+| G0.4 requirement source | `docs/spec/MASTER_SPEC_VI.md` — byte-for-byte copy, SHA-256 `d7fa8995dee96046da79d23dd16b2c56c2e0acd0330b28e05d8a0a3ff6afc2f8`, 50 355 bytes, 753 lines; normative §§0–17 (OD-20261116-11 §4) |
 | Gate verdict vocabulary | Protocol "Status vocabulary" (`PASS`, `PARTIAL`, `BLOCKED`, `FAIL`, `NOT_TESTED`, `NOT_APPLICABLE`); where the approved S0 document writes "NOT TESTED" it means `NOT_TESTED` |
 | Legacy roadmaps and pre-protocol work | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` (historical evidence, not authorization) |
-| Current approved phase | **S0-A** (baseline as-is, `BASELINE_ORIGINAL`; approved document §6.3) — `AUTHORIZED` 2026-11-16 (OD-20261116-10) |
-| Current task status | S0-A `READY_FOR_REVIEW` (Claude, unverified; A5 `BLOCKED`); `COORDINATION-REVIEW-BD5787F` `READY_FOR_REVIEW` |
+| Current approved phase | **S0-B3 → S0-B4 → S0-B7, sequential** (OD-20261116-11). B4 starts only after B3 has `REVIEW_PASS` |
+| Current task status | S0-B3 `IN_PROGRESS`. S0-A `READY_FOR_REVIEW`: per the reviewer's next-step instruction, A1–A4 are conditionally accepted and A5 is `BLOCKED`; S0-A is not `ACCEPTED`. S0-B1 done: the reviewer's technical verdict is `PASS` (source: v3.3 proposal §2.1, accepted by OD-20261116-11). `COORDINATION-REVIEW-BD5787F` `READY_FOR_REVIEW` |
+| S0-B1 evidence | `docs/audit/s0/S0_B1_CI_EVIDENCE.md`, `docs/audit/s0/logs/b1/` (commit `e13d964f343ab1ba01fb705fbbd8bcac2674ea80`). B1 commit `382aaa84b2336854b4dbebfcdc719847ff463f41`; run `43834719406`, job `133188390842` success; 58/58 tests; `report_valid=true`; APK file SHA-256 `314c8ca11c1d747550bbdb982326675e5f9dbdac870f3fc1cf04b9de7c22585c`; artifact ZIP SHA-256 `7717a2b79dd46fbf613845e33bac3a17634eae5b0c808328d8b21b5abc150ba0` (a different file) |
 | S0-A evidence | `docs/audit/s0/S0_A_RESULTS.md` (summary and gate verdicts), `S0_REPOSITORY_SNAPSHOT.md`, `S0_BUILD_TEST_REPORT.md`, `logs/`, `a4/`, `inputs/` — commits `7d6eec9d0601a7d983679ec7792b1aa96b954ca0`, `d5b9820aae9a96d57e9486845c164ae591fa69de`, `8073fac029463c0685435985a2968cd5a3aba4ab` |
 | Pending owner action | Device steps 1–4 of approved document §6.5.1 on the installed baseline APK (listed in `docs/audit/s0/S0_A_RESULTS.md` §2); never paste secrets |
-| S0 execution authorized | **S0-A only.** S0-B (B1–B7), S1 and every later phase: **NOT AUTHORIZED** |
+| S0 execution authorized | S0-A done (awaiting review). S0-B1 done. **S0-B3, then B4, then B7** authorized by OD-20261116-11 (B4 only after B3 `REVIEW_PASS`). **NOT AUTHORIZED:** B2/C3, B5, B6, the G0.6 remediation task, S1 and every later phase |
 | Gameplay/engine/save changes authorized | NO |
 | Signing/keystore/Secrets changes authorized | NO |
 
 The SHA above is a historical observation. Re-check GitHub HEAD before every task.
 
-## 2. Current gate — S0-A only
+## 2. Current gate — S0-B3/B4/B7 under v3.3 (OD-20261116-11)
 
-S0-A is authorized (OD-20261116-10) within the approved document §6.3 (A1–A5). Until the owner separately authorizes S0-B:
-- No S0-B work: no CI checksum workflow, C3 signing workflow, audit scripts, characterization tests or fixtures, Diagnostic UI.
-- No gameplay, engine, data, UI, test, save-format or migration changes.
-- No signing, keystore or GitHub Secrets changes.
-- S0-A commands that generate files run in a temporary worktree outside the main working tree; S0-A commits contain only reports and logs under `docs/audit/s0/` (plus this handoff).
-- No S1 or later work. After S0-A, stop for independent ChatGPT review; no self-acceptance and no phase transition.
+Allowed:
+- Audit scripts, catalogs, crosswalk, inventories, fixtures and characterization tests; reports, handoff updates and the audit commits they need.
+- Work runs on the baseline `2240a8f` in a clean temporary worktree.
+- Harnesses stay outside the product code.
+- Order: B3, then stop for review, then B4, then B7.
+
+Not allowed:
+- No gameplay, engine logic, RNG, save serialization/schema, migration, shipped data, asset or content changes.
+- No B2/C3, B5, B6; no keystore, signing Environment or Secrets.
+- No uninstalling the baseline APK and no installing any APK on the iQOO (R14, O5).
+- If B4 finds G0.6 `FAIL`: stop and propose `PRE-S1-SAVE-DETERMINISM-REMEDIATION` (decision §3). Never fix inside S0.
+- No S1 before the bounded S1-entry package has ChatGPT `REVIEW_PASS` and owner `ACCEPTED`.
+- Never write `S0 = PASS` while any gate is `PARTIAL`, `BLOCKED`, `FAIL` or `NOT_TESTED`.
 
 ## 3. Coordination tasks
 
@@ -65,7 +75,11 @@ S0-A is authorized (OD-20261116-10) within the approved document §6.3 (A1–A5)
 | Phase | Status | Entry condition | Exit condition |
 |---|---|---|---|
 | S0-A — Baseline as-is (`BASELINE_ORIGINAL`), approved document §6.3 A1–A5 | `READY_FOR_REVIEW` (A1–A4 evidenced; A5 `BLOCKED`) | Owner approval of the S0 v3.2 document and S0-A authorization (OD-20261116-09, -10) — met | S0-A evidence committed; ChatGPT review; owner decision |
-| S0-B — Audit tooling (`AUDIT_INSTRUMENTED`), approved document §6.3 B1–B7 | `NOT_STARTED` — not authorized | Separate owner authorization after S0-A review | All S0 gates G0.1–G0.9 evidenced; ChatGPT `REVIEW_PASS`; owner `ACCEPTED` |
+| S0-B1 — CI checksums and test report | Done; reviewer technical verdict `PASS` (v3.3 §2.1) | Owner instruction for B1 (OD-20261116-10B) — met | Evidence committed (`e13d964`) |
+| S0-B3 — Audit scripts, catalog, coverage, crosswalk, asset inventory, Node/desktop harness | `IN_PROGRESS` | OD-20261116-11 — met | Reports committed; ChatGPT review (B4 waits for B3 `REVIEW_PASS`) |
+| S0-B4 — Characterization tests and fixtures (save/load determinism, v3.2 §6.7) | `NOT_STARTED` (authorized after B3 review) | B3 `REVIEW_PASS` | G0.6 verdict with evidence; `FAIL` leads to the decision §3 path |
+| S0-B7 — Risk register and signoff package | `NOT_STARTED` (authorized after B4) | B3 and B4 done | `S0_SIGNOFF.md`; G0.1–G0.9 ledger; exception requests limited to G0.7 (iQOO) and G0.8 (legacy licences) |
+| S0-B2 / B5 / B6 — signing, Diagnostic UI, instrumented measurements | `BLOCKED` / deferred | R14 proven on the baseline APK, O5 decided, protected `development-signing` Environment configured by the owner | Per v3.2 §4.1, §6.8 |
 | S1 — Data architecture and save foundation | `NOT_STARTED` | S0 accepted and S1 scope separately approved | S1 acceptance criteria met; independent review; owner accepted |
 | S2+ | `NOT_STARTED` | Previous phase accepted and next scope approved | Phase-specific acceptance and owner approval |
 
@@ -80,6 +94,54 @@ Pre-protocol work:
 ## 5. Work log
 
 Append newest entries at the top. Do not overwrite earlier entries.
+
+### 2026-11-16 — S0-V3.3-ACCEPTANCE-DOCS
+
+- Date (UTC): 2026-11-16 (this handoff update commit; GitHub commit metadata)
+- Task/phase: record OD-20261116-11; commit the v3.3 documents, the G0.4 source and the protocol sentence
+- Implementer: Claude Code
+- Base SHA: `e13d964f343ab1ba01fb705fbbd8bcac2674ea80`
+- Head SHA: this commit (GitHub commit metadata)
+- Changed files:
+  - `docs/roadmap/S0_V3_3_GATE_RESTRUCTURE_PROPOSAL.md` (new, verbatim);
+  - `docs/roadmap/S0_V3_3_OWNER_DECISION_AND_AMENDMENTS.md` (new, verbatim);
+  - `docs/roadmap/SOURCE_REGISTER.v3.3.md` (new);
+  - `docs/spec/MASTER_SPEC_VI.md` (new, byte-for-byte);
+  - `docs/coordination/AI_COLLABORATION_PROTOCOL.md` (one sentence, decision §2.2);
+  - `docs/coordination/AI_HANDOFF.md`.
+- Summary: the owner confirmed in the session that the uploaded decision document is the official OD-20261116-11. Files were copied unmodified and SHA-256 checked before commit (`929c06f4…`, `582a8a4e…`, `d7fa8995…`); the spec copy also matches its entry in the owner's handover ZIP
+- Commands and exit codes: `cp` (0); `sha256sum` (0, equal to the expected values); `git commit` (0); `git push` (0)
+- Test results (counts and failures): `NOT_APPLICABLE` — documentation only
+- CI run/jobs: push-triggered B1 workflow; not observed when this entry was written
+- Artifacts: none
+- Device evidence: not applicable
+- Risks/limitations: the verbatim headers still carry draft wording; acceptance is recorded here and in the source register
+- Claude status (unverified): `READY_FOR_REVIEW`
+- ChatGPT review:
+- Owner decision:
+
+### 2026-11-16 — S0-B1-CI-CHECKSUMS-TEST-REPORT
+
+- Date (UTC): 2026-11-16 (plan and revisions in the session; workflow commit 08:51; evidence commit 09:34)
+- Task/phase: S0-B1, authorized by the owner's B1 instructions (OD-20261116-10B); applied the reviewed candidate only
+- Implementer: Claude Code
+- Base SHA: `d6edfc1c008000b6048459b835dd0cf47f825f03`
+- Head SHA: `382aaa84b2336854b4dbebfcdc719847ff463f41` (workflow); `e13d964f343ab1ba01fb705fbbd8bcac2674ea80` (evidence)
+- Changed files: `.github/workflows/android-apk.yml` (+288/−1; SHA-256 `82458e9c…`; diff identical to the reviewed `fe6115b2…`); `docs/audit/s0/S0_B1_CI_EVIDENCE.md`, `docs/audit/s0/logs/b1/**`
+- Summary: the CI now records provenance, generated-data and web-bundle hashes, a Vitest JSON report cross-validated against a task-tree reporter, Android/APK payload manifests, the APK file SHA-256 and, separately, the artifact ZIP digest, in an evidence artifact. Pipeline label `AUDIT_INSTRUMENTED`; product source identical to `2240a8f`
+- Commands and exit codes: local pre-commit checks — `git diff --check` 0, YAML parse, `bash -n` ×11 0, `node --check` ×2 0, real suite 0, failing probe 1 (expected); `git commit`/`git push` 0
+- Test results (counts and failures): CI 58/58 (5 files), 0 failures, `report_valid=true`; JSON and task-tree counters equal (22 suites / 58 tests)
+- CI run/jobs: run `43834719406`, job `133188390842` success (17/17 steps); `GITHUB_TOKEN` Contents/Metadata read only
+- Artifacts:
+  - APK ZIP `14210308010`: ZIP SHA-256 `7717a2b7…`; APK file SHA-256 `314c8ca1…`, 18 042 486 bytes;
+  - evidence ZIP `14209784110`: SHA-256 `53cab2e3…`.
+  - All independently re-hashed after download.
+  - Four-group payload classification: every difference is `built_at`/`generated` or the bundle name.
+- Device evidence: none (`BLOCKED`)
+- Risks/limitations: CI failure path only probed locally; `actionlint` `NOT_TESTED`; debug key changes per run (F2)
+- Claude status (unverified): `READY_FOR_REVIEW`. The reviewer's technical verdict `PASS` is recorded from the v3.3 proposal §2.1
+- ChatGPT review:
+- Owner decision:
 
 ### 2026-11-16 — S0-A (baseline as-is)
 
@@ -208,6 +270,8 @@ Only explicit owner decisions may be recorded here. Recommendations are not appr
 | 2026-11-16 | OD-20261116-07 | Record the setup SHA in a second documentation-only commit; no self-referencing SHA; setup review state `CHANGES_REQUESTED` until corrected and independently reviewed; S0 execution authorized = NO | This handoff | Same document, decision 7 |
 | 2026-11-16 | OD-20261116-09 | Approve `DECISIONS_AND_S0_REVISED_VI.v3.2.md` and `SOURCE_REGISTER.v3.2.md` exactly as delivered (SHA-256 `208a08ef46f7623d6ebbec02765fc1c70cbfcee09af7b4555aa8f7fb85f7b3e8` / `1adc4fedb4311383723631fbe16ceaa92b54344223bda0f93ee2d8c8e06737a2`); commit them verbatim; stop if hashes differ | Canonical roadmap and S0 specification | Owner instruction in the Claude Code session, 2026-11-16; committed in `574ddc7ac57267ecae2216cb9ee1d490f3b41626` |
 | 2026-11-16 | OD-20261116-10 | Authorize S0-A only (audit and freeze the baseline, approved document §6.3); no gameplay, engine, data, UI, test, save-format or migration changes; S0-B, S1 and later not authorized; every result with evidence, log, SHA and a gate verdict; after S0-A update this handoff and stop for independent ChatGPT review; no self-acceptance or phase transition | S0-A | Owner instruction in the Claude Code session, 2026-11-16 |
+| 2026-11-16 | OD-20261116-10B | (ID assigned by Claude for traceability.) S0-B1 only: plan first, then the reviewed revisions, then apply the reviewed candidate workflow (SHA-256 `82458e9c…`) as a workflow-only commit, run CI, report and stop | S0-B1 | Owner instructions in the Claude Code session, 2026-11-16 (`CLAUDE_TASK_S0B_B1_NEXT_STEP.md`, `CLAUDE_B1_REVISION_REQUEST.md`, `CLAUDE_S0_B1_APPLY_TASK.md`) |
+| 2026-11-16 | OD-20261116-11 | Accept S0 v3.3 with amendments: B3/B4/B7 no longer wait for B2; B2/B5/B6 stay in the device/signing lane. Authorize B3, then B4 (after B3 `REVIEW_PASS`), then B7. S1 exceptions accepted in principle only for G0.7 (iQOO) and G0.8 (legacy licences). No waiver for G0.1–G0.6 or uncontrolled P0. G0.6 `FAIL` leads to a separate remediation proposal. G0.4 source is `MASTER_SPEC_VI.md` §§0–17. Commit v3.3, the spec copy, the source register and the protocol sentence. R7 interim containment recorded | S0-B3/B4/B7; S0 transition rules | `docs/roadmap/S0_V3_3_OWNER_DECISION_AND_AMENDMENTS.md`, confirmed by the owner in the Claude Code session on 2026-11-16 |
 | 2026-11-16 | OD-20261116-08 | Canonical roadmap is `PENDING_OWNER_APPROVAL` until approved and committed; the currently available proposal is identified only as a pending proposal | This handoff, protocol, legacy index | Same document, "Additional source-of-truth correction" |
 
 ## 8. Update rules

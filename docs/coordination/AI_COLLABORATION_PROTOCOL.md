@@ -134,6 +134,7 @@ The repository currently has one branch, `claude/game-historical-sandbox-modes-k
 - No gameplay, engine, or save-format changes during S0.
 - S0 cannot begin until the owner explicitly approves its final specification.
 - No later phase begins until the previous phase has `REVIEW_PASS` and owner `ACCEPTED`.
+- **For S0 under the approved v3.3 transition procedure, `REVIEW_PASS` may apply only to the bounded S1-entry evidence package with its explicitly listed exceptions; it does not certify that every S0 gate passed or that S0 is fully complete. The owner's `ACCEPTED` decision accepts only that limited transition and its stated S1 scope. The overall S0 gate verdict remains `PARTIAL`/`BLOCKED` until G0.1–G0.9 are all `PASS`.** (Added by owner decision OD-20261116-11; see `docs/roadmap/S0_V3_3_OWNER_DECISION_AND_AMENDMENTS.md` §2.2.)
 
 ## Uncertainty and disputes
 
