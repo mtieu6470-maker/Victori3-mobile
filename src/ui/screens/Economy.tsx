@@ -23,7 +23,7 @@ const B_ICON = (b: Building) => (b === 'railway' ? 'construction' : b === 'unive
 /** Actual employed headcount; null means a legacy region has not rebuilt its staffing ledger yet. */
 function staffedWorkers(regions: Region[], building: Building): number | null {
   const relevant = regions.filter((region) => region.buildings[building] > 0);
-  if (relevant.some((region) => !region.popEconomy?.employedByBuilding)) return null;
+  if (relevant.some((region) => !region.popEconomy?.employedByBuilding || !Object.prototype.hasOwnProperty.call(region.popEconomy.employedByBuilding, building))) return null;
   return relevant.reduce((sum, region) => sum + (region.popEconomy?.employedByBuilding?.[building] ?? 0), 0);
 }
 
@@ -168,10 +168,10 @@ export function openBuilding(st: GameState, b: Building, scope?: string) {
       <div class="kv"><span class="k">Sản phẩm</span><span class="v">{outText(b)}</span></div>
       {RECIPES[b] && <div class="kv"><span class="k">Đầu vào / đơn vị</span><span class="v">{Object.entries(RECIPES[b]!.inputs).map(([g, q]) => `${GOOD_VI[g]} × ${fmt(q as number, 2)}`).join(' · ')}</span></div>}
       {b !== 'railway' && b !== 'university' && (
-        <Sec title="Tình trạng tuyển dụng">
+        <Sec title="Phân bổ lao động">
           <div class="kv"><span class="k">Đang làm</span><span class="v num">{actualEmployment === null ? '—' : compact(actualEmployment)}</span></div>
           <div class="kv"><span class="k">Sức chứa tối đa</span><span class="v num">{compact(capacity)}</span></div>
-          <div class="kv"><span class="k">Tỷ lệ được tuyển</span><span class="v num">{actualEmployment === null ? 'Chờ dữ liệu' : pct(actualEmployment / Math.max(1, capacity))}</span></div>
+          <div class="kv"><span class="k">Công suất sử dụng</span><span class="v num">{actualEmployment === null ? 'Chờ dữ liệu' : pct(actualEmployment / Math.max(1, capacity))}</span></div>
         </Sec>
       )}
       {PRODUCTION_METHODS[b]?.length ? (
@@ -199,9 +199,12 @@ export function openBuilding(st: GameState, b: Building, scope?: string) {
         {regs.length ? regs.map((r) => {
           const staffed = r.popEconomy?.employedByBuilding?.[b];
           const regionCapacity = r.buildings[b] * LEVEL_WORKERS;
-          const staffingText = staffed === undefined
-            ? 'chờ dữ liệu nhân công'
-            : compact(staffed) + ' / ' + compact(regionCapacity) + ' người · ' + pct(staffed / Math.max(1, regionCapacity));
+          const hasStaffingModel = b !== 'railway' && b !== 'university';
+          const staffingText = !hasStaffingModel
+            ? 'chưa có mô hình nhân sự'
+            : staffed === undefined
+              ? 'chờ dữ liệu nhân công'
+              : compact(staffed) + ' / ' + compact(regionCapacity) + ' người · ' + pct(staffed / Math.max(1, regionCapacity));
           return <div class="row tap" key={r.id} onClick={() => focusRegion(r.id)}>
             <div class="grow"><div class="t sm">{regionName(r.id)}</div><div class="s">Cấp {r.buildings[b]} · {staffingText}</div></div>
           </div>;
