@@ -591,7 +591,7 @@ describe('employment-aware occupational transition', () => {
 });
 
 
-describe('investment follows the firm's hiring outlook', () => {
+describe("investment follows the firm's hiring outlook", () => {
   it('discounts the return of a new factory level when its local hiring target is low', () => {
     const state = fresh('historical', 55, 'GBR');
     const country = state.countries.GBR;
