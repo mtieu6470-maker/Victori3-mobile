@@ -1,7 +1,7 @@
 // GameController: owns the authoritative GameState in the client, runs the monthly tick loop and routes
 // player commands through the engine's own `execute` (the same functions the AI uses). The UI never edits state.
 import { createGame } from '../../engine/init';
-import { stepMonth } from '../../engine/simulation';
+import { stepMonth, isGameOver, GAME_END_YEAR } from '../../engine/simulation';
 import { execute, type Command } from '../../engine/commands';
 import { serialize, deserialize } from '../../engine/save';
 import type { GameMode, GameState } from '../../engine/types';
@@ -36,7 +36,7 @@ export class GameController {
   async fastForward(months: number) {
     if (!this.st || months <= 0) return;
     this.busy = { label: 'Đang mô phỏng', done: 0, total: months }; this.emit();
-    for (let i = 0; i < months; i++) {
+    for (let i = 0; i < months && !isGameOver(this.st); i++) {
       stepMonth(this.st);
       if (i % 6 === 5) { this.busy.done = i + 1; this.emit(); await new Promise((r) => setTimeout(r, 0)); }
     }
@@ -50,6 +50,7 @@ export class GameController {
 
   command(cmd: Command): { ok: boolean; reason?: string } {
     if (!this.st) return { ok: false, reason: 'Không có ván chơi' };
+    if (isGameOver(this.st)) return { ok: false, reason: `Chiến dịch đã kết thúc ở ${GAME_END_YEAR}.` };
     const r = execute(this.st, cmd);
     this.emit();
     return r;
@@ -60,9 +61,21 @@ export class GameController {
   }
 
   // ---------------------------------------------------------------- time
-  setPaused(p: boolean) { this.paused = p; if (p) this.stop(); else this.start(); this.emit(); }
+  setPaused(p: boolean) {
+    if (!p && this.st && isGameOver(this.st)) {
+      this.paused = true;
+      this.stop();
+      this.toast(this.st.date.y > GAME_END_YEAR
+        ? `Bản lưu này đã vượt khung chiến dịch ${GAME_END_YEAR}; hãy bắt đầu ván mới để chơi theo niên đại chuẩn.`
+        : `Chiến dịch 1836–${GAME_END_YEAR} đã kết thúc.`, 'info');
+      return;
+    }
+    this.paused = p;
+    if (p) this.stop(); else this.start();
+    this.emit();
+  }
   setSpeed(s: Speed) { this.speed = s; this.emit(); }
-  stepOnce() { if (this.st) { stepMonth(this.st); this.emit(); } }
+  stepOnce() { if (this.st && !isGameOver(this.st)) { stepMonth(this.st); this.emit(); } }
   private start() {
     if (this.raf) return;
     this.last = performance.now(); this.acc = 0;
@@ -74,6 +87,15 @@ export class GameController {
       if (this.acc >= need) {
         this.acc = need === 0 ? 0 : Math.min(this.acc - need, need);
         stepMonth(this.st);
+        if (isGameOver(this.st)) {
+          this.paused = true;
+          this.stop();
+          this.emit();
+          this.toast(this.st.date.y > GAME_END_YEAR
+            ? `Bản lưu đã vượt khung chiến dịch ${GAME_END_YEAR}; hãy tạo ván mới.`
+            : `Chiến dịch 1836–${GAME_END_YEAR} đã kết thúc.`, 'info');
+          return;
+        }
         this.emit();
       }
     };

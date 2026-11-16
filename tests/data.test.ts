@@ -2,7 +2,7 @@
 import { describe, it, expect } from 'vitest';
 import { data } from '../src/engine/data/db';
 import { QUALITY_ORDER } from '../src/engine/data/dbTypes';
-import { fresh } from './helpers';
+import { fresh, stepMonth } from './helpers';
 
 const d = data();
 const db = d.db;
@@ -76,10 +76,26 @@ describe('temporal integrity (no later-period information at start)', () => {
     // Francis II of the Two Sicilies (born 16 Jan 1836) must not appear at start
     expect(JSON.stringify(st.countries.SIC.heir ?? '')).not.toContain('Francis II');
   });
-  it('the historical ownership timeline is never applied to the simulation state', () => {
+  it('historical border changes are applied on their dated month, without overriding Sandbox or the player', () => {
     expect(st.regions.find((r) => r.id === 'TEX_TEX')!.owner).toBe('MEX');
     expect(st.regions.find((r) => r.id === 'TEX_TEX')!.controller).toBe('TEX');
     expect(d.historicalOwner('TEX_TEX', '1846-01-01')).toBe('USA');
+
+    const historical = fresh('historical', 4);
+    stepMonth(historical); // February 1836
+    expect(historical.regions.find((r) => r.id === 'TEX_TEX')!.owner).toBe('MEX');
+    stepMonth(historical); // March 1836: Texan independence
+    expect(historical.regions.find((r) => r.id === 'TEX_TEX')!.owner).toBe('TEX');
+    expect(historical.countries.TEX?.alive).toBe(true);
+    expect(historical.log.some((entry) => entry.historical && entry.type === 'territory' && entry.actors.includes('TEX'))).toBe(true);
+
+    const sandbox = fresh('sandbox', 4);
+    stepMonth(sandbox); stepMonth(sandbox);
+    expect(sandbox.regions.find((r) => r.id === 'TEX_TEX')!.owner).toBe('MEX');
+
+    const playerMexico = fresh('historical', 4, 'MEX');
+    stepMonth(playerMexico); stepMonth(playerMexico);
+    expect(playerMexico.regions.find((r) => r.id === 'TEX_TEX')!.owner).toBe('MEX');
   });
   it('initial alliances and wars come from CoW records active on the start date', () => {
     const ally = (a: string, b: string) => st.treaties.some((t) => t.type === 'alliance' && t.members.includes(a) && t.members.includes(b));

@@ -4,6 +4,7 @@ import { AssetCredit } from '../components/identity';
 import { useEffect, useState } from 'preact/hooks';
 import type { GameState } from '../../engine/types';
 import { rankings } from '../../engine/metrics';
+import { isGameOver, GAME_END_YEAR } from '../../engine/simulation';
 import { Sec, Metric, modals, useWidth, useSort, details } from '../components/ui';
 import { fmt, compact, money } from '../i18n/vi';
 import { shortName } from '../game/names';
@@ -22,6 +23,15 @@ export function WorldScreen({ st }: { st: GameState }) {
   const followed = st.player ?? ui.get().follow;
   return (
     <div class="pad" ref={ref}>
+      {isGameOver(st) && <div class="banner">
+        <div class="grow">
+          <b>{st.date.y > GAME_END_YEAR ? 'Bản lưu đã vượt niên đại chiến dịch' : 'Đã kết thúc chiến dịch 1836–1936'}</b>
+          <div class="s">{st.date.y > GAME_END_YEAR
+            ? `Tệp lưu này đã chạy tới ${st.date.y}, ngoài phạm vi dữ liệu lịch sử và thời hạn thiết kế. Không thể dựng ngược sự kiện vào giữa ván; hãy tạo ván mới để dùng bản sửa lịch sử.`
+            : 'Tháng 1/1936 là mốc kết thúc. Ván mới có thể bắt đầu ở chế độ Lịch sử hoặc Lịch sử thay thế.'}</div>
+        </div>
+        <button class="btn sm" onClick={() => { game.setPaused(true); ui.set({ started: false, camera: null, region: null, screen: 'map' }); }}>Ván mới</button>
+      </div>}
       <div class="metrics">
         <Metric label="Quốc gia" icon="flag" value={fmt(rk.length)} />
         <Metric label="Dân số thế giới" icon="population" value={compact(worldPop)} />
@@ -61,6 +71,8 @@ export function SystemScreen({ st }: { st: GameState }) {
           <div class="kv"><span class="k">Chế độ</span><span class="v">{st.mode === 'historical' ? 'Lịch sử' : 'Sandbox – Lịch sử thay thế'}</span></div>
           <div class="kv"><span class="k">Vai trò</span><span class="v">{st.player ? shortName(st, st.player) : 'Quan sát (AI điều khiển tất cả)'}</span></div>
           <div class="kv"><span class="k">Ngày</span><span class="v num">{st.date.m}/{st.date.y} · tháng thứ {st.tick}</span></div>
+          <div class="kv"><span class="k">Khung chiến dịch</span><span class="v">1836–{GAME_END_YEAR}</span></div>
+          {isGameOver(st) && <div class="note">Mô phỏng đã dừng; không thể tiếp tục sau năm {GAME_END_YEAR} trong bản chuẩn.</div>}
           <div class="kv"><span class="k">Hạt giống ngẫu nhiên</span><span class="v num">{st.seed}</span></div>
         </Sec>
         <Sec title="Lưu trên thiết bị">

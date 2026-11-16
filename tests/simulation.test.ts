@@ -1,6 +1,7 @@
 // Simulation sanity: economy and population stay plausible, AI does not get stuck, save/load is deterministic.
 import { describe, it, expect } from 'vitest';
 import { run, fresh, stepMonth } from './helpers';
+import { GAME_END_TICK, GAME_END_YEAR, isGameOver } from '../src/engine/simulation';
 import { serialize, deserialize } from '../src/engine/save';
 import { data } from '../src/engine/data/db';
 import { BUILDINGS, STRATA } from '../src/engine/types';
@@ -50,6 +51,31 @@ describe('AI does not get stuck in meaningless loops', () => {
   it('countries keep researching and building over the whole period', () => {
     expect(st.counters.aiActions.research).toBeGreaterThan(100);
     expect(st.counters.aiActions.construction).toBeGreaterThan(1000);
+  });
+});
+
+describe('official campaign end date', () => {
+  it('stops at January 1936 and leaves the final state frozen', () => {
+    const st = fresh('historical', 12);
+    st.tick = GAME_END_TICK - 1;
+    st.date = { y: GAME_END_YEAR - 1, m: 12 };
+    stepMonth(st);
+    expect(st.tick).toBe(GAME_END_TICK);
+    expect(st.date).toEqual({ y: GAME_END_YEAR, m: 1 });
+    expect(isGameOver(st)).toBe(true);
+    const frozen = serialize(st);
+    stepMonth(st);
+    expect(serialize(st)).toBe(frozen);
+  });
+
+  it('treats legacy saves already beyond 1936 as ended instead of simulating more months', () => {
+    const st = fresh('sandbox', 13);
+    st.tick = 1900 * 12;
+    st.date = { y: 2026, m: 1 };
+    const frozen = serialize(st);
+    expect(isGameOver(st)).toBe(true);
+    stepMonth(st);
+    expect(serialize(st)).toBe(frozen);
   });
 });
 
