@@ -1,7 +1,7 @@
 // Economy Engine (shared by both modes): production by sector, national/customs-union markets blended with a
 // world market, prices, food security, standard of living, state finance and private investment.
 import { data } from '../data/db';
-import { GOODS, S, type Country, type GameState, type Good, type Region, type Building, type MarketGoodStats } from '../types';
+import { GOODS, STRATA, S, type Country, type GameState, type Good, type Region, type Building, type MarketGoodStats, type PopulationEconomy } from '../types';
 import { clamp, log } from '../core';
 import { regionsOf } from '../cache';
 
@@ -82,7 +82,7 @@ export function openness(c: Country, coastal: boolean): number {
   return clamp(o, 0.01, 0.92);
 }
 
-interface RegionCalc { supply: Record<Good, number>; demand: Record<Good, number>; services: number; inputsNeed: Record<Good, number>; factoryOut: Record<Good, number>; factoryInputs: Partial<Record<Good, Partial<Record<Good, number>>>>; grainLocal: number; grainNeed: number }
+interface RegionCalc { supply: Record<Good, number>; demand: Record<Good, number>; services: number; inputsNeed: Record<Good, number>; factoryOut: Record<Good, number>; factoryInputs: Partial<Record<Good, Partial<Record<Good, number>>>>; employment: number[]; grainLocal: number; grainNeed: number }
 
 const zero = () => Object.fromEntries(GOODS.map((g) => [g, 0])) as Record<Good, number>;
 
@@ -97,6 +97,65 @@ export function factoryInputFulfillment(
     fulfilled = Math.min(fulfilled, 1 - clamp(shortages[good] ?? 0, 0, 1));
   }
   return clamp(fulfilled, 0, 1);
+}
+
+const POP_WAGE_MULTIPLIER = [0.72, 0.2, 0.86, 0.94, 1.08, 1.32, 1.02, 0, 0];
+const POP_OWNER_MULTIPLIER = [0, 0, 0, 0, 0, 0, 0, 1.15, 1.8];
+const POP_NEEDS_MULTIPLIER = [0.86, 1.3, 0.96, 1.02, 1, 1.22, 1.08, 1.42, 1.62];
+
+/**
+ * Distributes a region's value added to worker households and property-owning strata.
+ * This is an aggregate cohort model (not individual Pops): wages depend on staffed jobs,
+ * while aristocrats/capitalists receive the residual ownership income.
+ */
+export function calculatePopulationEconomy(
+  population: number,
+  strata: number[],
+  employment: number[],
+  annualValueAdded: number,
+  prices: Record<Good, number>,
+  taxRate: number,
+  famine: number,
+  laborLaw: string,
+): PopulationEconomy {
+  const pop = Math.max(0, Number.isFinite(population) ? population : 0);
+  const classPopulation = STRATA.map((_, i) => pop * clamp(Number(strata[i] ?? 0), 0, 1));
+  const employed = STRATA.map((_, i) => Math.min(classPopulation[i] * 0.45, Math.max(0, Number(employment[i] ?? 0))));
+  const wageWeights = STRATA.map((_, i) => employed[i] * POP_WAGE_MULTIPLIER[i]);
+  const ownerWeights = STRATA.map((_, i) => classPopulation[i] * POP_OWNER_MULTIPLIER[i]);
+  let wageWeightTotal = wageWeights.reduce((sum, n) => sum + n, 0);
+  let ownerWeightTotal = ownerWeights.reduce((sum, n) => sum + n, 0);
+  const value = Math.max(0, Number.isFinite(annualValueAdded) ? annualValueAdded : 0);
+
+  if (wageWeightTotal <= 0 && ownerWeightTotal <= 0) {
+    const fallback = classPopulation.findIndex((n) => n > 0);
+    if (fallback >= 0) { wageWeights[fallback] = classPopulation[fallback]; wageWeightTotal = wageWeights[fallback]; }
+  }
+  let wagePool = value * 0.68;
+  let ownerPool = value - wagePool;
+  if (wageWeightTotal <= 0) { wagePool = 0; ownerPool = value; }
+  if (ownerWeightTotal <= 0) { wagePool = value; ownerPool = 0; ownerWeightTotal = 0; }
+
+  const basket = Math.max(1, 200 * Math.max(0.01, prices.grain) + 12 * Math.max(0.01, prices.textiles));
+  const incomePerCapita = new Array(STRATA.length).fill(0);
+  const wagePerWorker = new Array(STRATA.length).fill(0);
+  const sol = new Array(STRATA.length).fill(0);
+  for (let i = 0; i < STRATA.length; i++) {
+    const wageIncome = wageWeightTotal > 0 ? wagePool * wageWeights[i] / wageWeightTotal : 0;
+    const ownerIncome = ownerWeightTotal > 0 ? ownerPool * ownerWeights[i] / ownerWeightTotal : 0;
+    const householdIncome = wageIncome + ownerIncome;
+    if (classPopulation[i] > 0) incomePerCapita[i] = householdIncome / classPopulation[i];
+    if (employed[i] > 0) wagePerWorker[i] = wageIncome / employed[i];
+
+    const labourShare = i === S.slaves ? 0.45 : 0.72;
+    const needCost = basket * POP_NEEDS_MULTIPLIER[i];
+    const afterTax = incomePerCapita[i] * (1 - clamp(taxRate, 0, 0.9));
+    const ratio = (afterTax * labourShare) / (needCost * 2);
+    const raw = 0.5 + 0.33 * Math.log(Math.max(1e-3, ratio));
+    const serfPenalty = laborLaw === 'serfdom' && (i === S.peasants || i === S.laborers) ? 0.05 : 0;
+    sol[i] = clamp(raw - clamp(famine, 0, 1) * 0.6 - serfPenalty, 0, 1);
+  }
+  return { employed, incomePerCapita, wagePerWorker, sol };
 }
 
 export function computeEconomy(st: GameState, calibrate = false, iter = 0): void {
@@ -119,35 +178,56 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const blight = r.blight && r.blight.until > st.tick ? 1 - r.blight.severity : 1;
     const supply = zero(), demand = zero(), inputsNeed = zero(), factoryOut = zero();
     const factoryInputs: Partial<Record<Good, Partial<Record<Good, number>>>> = {};
+    const employment = new Array(STRATA.length).fill(0);
+    // Every cohort has a finite labour pool. Allocate it once instead of allowing the
+    // same labourers to be counted simultaneously by farms, plantations, mines and logging.
+    employment[S.peasants] = LF * sh[S.peasants];
+    let laborersAvailable = LF * sh[S.laborers];
+    const farmLaborers = Math.min(laborersAvailable, LF * sh[S.laborers] * 0.3);
+    laborersAvailable -= farmLaborers;
+    employment[S.laborers] += farmLaborers;
     // agriculture
     const terr = TERRAIN_AGRI[r.terrain] ?? 0.8;
-    const agriWorkers = LF * (sh[S.peasants] + 0.3 * sh[S.laborers]);
+    const agriWorkers = employment[S.peasants] + farmLaborers;
     const grain = agriWorkers * 650 * terr * (1 + (r.res.includes('grain') ? 0.15 : 0) + (r.res.includes('live') ? 0.05 : 0)) * (1 + techEffect(c, 'farm_efficiency')) * infra * A * dev * blight * occupied;
     supply.grain += grain;
     // plantations
     const plantCap = r.buildings.plantation * LEVEL_WORKERS;
-    const plantWorkers = Math.min(plantCap, LF * (sh[S.slaves] + 0.25 * sh[S.laborers]));
+    const slavePool = LF * sh[S.slaves];
+    const plantationSlaves = Math.min(plantCap, slavePool);
+    const plantationLaborers = Math.min(Math.max(0, plantCap - plantationSlaves), Math.min(laborersAvailable, LF * sh[S.laborers] * 0.25));
+    const plantWorkers = plantationSlaves + plantationLaborers;
+    employment[S.slaves] += plantationSlaves;
+    employment[S.laborers] += plantationLaborers;
+    laborersAvailable -= plantationLaborers;
     if (plantWorkers > 0) {
       const kinds: Good[] = []; if (r.res.includes('cott')) kinds.push('cotton'); if (r.res.includes('opium')) kinds.push('opium'); if (r.res.includes('cash')) kinds.push('cash_crops');
       if (!kinds.length) kinds.push('cash_crops');
       for (const k of kinds) supply[k] += (plantWorkers * 900 * A * infra * dev * occupied) / kinds.length;
     }
     // slaves outside plantations work the fields
-    supply.grain += Math.max(0, LF * sh[S.slaves] - plantWorkers) * 500 * terr * A * dev;
+    const slaveFieldWorkers = Math.max(0, slavePool - plantationSlaves);
+    employment[S.slaves] += slaveFieldWorkers;
+    supply.grain += slaveFieldWorkers * 500 * terr * A * dev;
     // mines and logging
-    const mineWorkers = Math.min(r.buildings.mine * LEVEL_WORKERS, LF * sh[S.laborers] * 0.6);
+    const mineWorkers = Math.min(r.buildings.mine * LEVEL_WORKERS, LF * sh[S.laborers] * 0.6, laborersAvailable);
+    employment[S.laborers] += mineWorkers;
+    laborersAvailable -= mineWorkers;
     if (mineWorkers > 0) {
       const kinds: Good[] = []; if (r.res.includes('coal')) kinds.push('coal'); if (r.res.includes('iron')) kinds.push('iron'); if (r.res.includes('gold') || r.res.includes('silv')) kinds.push('luxury');
       if (!kinds.length) kinds.push('iron');
       for (const k of kinds) supply[k] += (mineWorkers * 900 * (1 + techEffect(c, 'mine_efficiency')) * A * infra * dev * occupied) / kinds.length;
     }
-    const logWorkers = Math.min(r.buildings.logging * LEVEL_WORKERS, LF * sh[S.laborers] * 0.4);
+    const logWorkers = Math.min(r.buildings.logging * LEVEL_WORKERS, LF * sh[S.laborers] * 0.4, laborersAvailable);
+    employment[S.laborers] += logWorkers;
+    laborersAvailable -= logWorkers;
     supply.timber += logWorkers * 900 * A * dev * occupied + LF * sh[S.peasants] * 15 * A; // farm-side timber
     // factories (input availability applied after market clearing)
     let factoryWorkersLeft = LF * sh[S.workers];
     const facEff = 1 + techEffect(c, 'factory_efficiency');
     for (const b of Object.keys(RECIPES) as Building[]) {
       const rec = RECIPES[b]!; const w = Math.min(r.buildings[b] * LEVEL_WORKERS, factoryWorkersLeft); factoryWorkersLeft -= w;
+      employment[S.workers] += w;
       if (w <= 0) continue;
       const eff = facEff * (1 + (b === 'textile_mill' ? techEffect(c, 'textile_efficiency') : b === 'ironworks' ? techEffect(c, 'iron_efficiency') + techEffect(c, 'steel_efficiency') : b === 'arms_works' ? techEffect(c, 'arms_efficiency') : 0));
       const method = productionMethodFor(c, r, b);
@@ -167,9 +247,13 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
       }
     }
     // artisans (cottage industry)
-    const art = LF * sh[S.artisans] * 700 * Am * dev * occupied;
+    const artisanWorkers = LF * sh[S.artisans];
+    employment[S.artisans] = artisanWorkers;
+    const art = artisanWorkers * 700 * Am * dev * occupied;
     supply.textiles += art * 0.55; supply.tools += art * 0.25; supply.luxury += art * 0.2;
-    // services
+    // Middle strata and clergy staff the service economy; upper strata participate as owners.
+    employment[S.middle] = LF * sh[S.middle];
+    employment[S.clergy] = LF * sh[S.clergy];
     const svc = LF * (sh[S.middle] + sh[S.capitalists] + sh[S.aristocrats] + sh[S.clergy]) * 1600 * Am * infra * occupied;
     // demand
     const wealth = Math.max(0.3, (r.output > 0 ? (r.output * 12) / Math.max(1, r.pop) : 600 * c.productivity) / 600);
@@ -182,7 +266,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     demand.coal += r.pop * 1.5 * wealth;
     demand.opium += r.pop * (c.id === 'QNG' ? 0.6 : 0.03);
     for (const g of GOODS) { supply[g] += factoryOut[g]; demand[g] += inputsNeed[g]; }
-    calc[i] = { supply, demand, services: svc, inputsNeed, factoryOut, factoryInputs, grainLocal: grain, grainNeed };
+    calc[i] = { supply, demand, services: svc, inputsNeed, factoryOut, factoryInputs, employment, grainLocal: grain, grainNeed };
     const mk = marketOf(st, c);
     const m = (markets[mk] ??= { s: zero(), dm: zero(), open: 0, members: [] });
     for (const g of GOODS) { m.s[g] += supply[g]; m.dm[g] += demand[g]; }
@@ -263,11 +347,10 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const access = clamp(0.25 + 0.12 * Math.min(5, r.buildings.railway) + (r.coastal ? 0.35 : 0) + 0.3 * openness(c, r.coastal), 0, 1);
     const localDef = Math.max(0, 1 - k.grainLocal / Math.max(1, k.grainNeed));
     const famine = clamp(short.grain + localDef * (1 - access) * 0.9 - (c.budget.health * 0.5), 0, 1);
-    const gdpPc = (value / Math.max(1, r.pop));
-    const basket = 200 * p.grain + 12 * p.textiles;
-    const laborShare = r.strata[S.slaves] > 0.3 ? 0.45 : 0.72;
-    const raw = 0.5 + 0.33 * Math.log(Math.max(1e-3, (gdpPc * (1 - c.taxRate) * laborShare) / (basket * 2)));
-    const target = clamp(raw - famine * 0.6 - (c.laws.labor === 'serfdom' ? 0.05 : 0), 0, 1);
+    // Convert value added into cohort wages and owner income. SoL is no longer a
+    // single GDP-per-capita proxy: every stratum has its own job, income and needs profile.
+    r.popEconomy = calculatePopulationEconomy(r.pop, r.strata, k.employment, value, p, c.taxRate, famine, c.laws.labor);
+    const target = r.strata.reduce((sum, share, index) => sum + clamp(share, 0, 1) * r.popEconomy!.sol[index], 0);
     r.sol = calibrate ? target : r.sol * 0.85 + target * 0.15;
     (r as Region & { famine?: number }).famine = famine;
   }

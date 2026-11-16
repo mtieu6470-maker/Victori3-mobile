@@ -67,6 +67,14 @@ export interface Country {
   stats: { pop: number; literacy: number; sol: number; industry: number };
 }
 
+/** Population-cohort economy. Arrays follow STRATA order; values are annual GBP-equivalent units. */
+export interface PopulationEconomy {
+  employed: number[]; // employed people by stratum
+  incomePerCapita: number[]; // household income per person, including dependents and ownership income
+  wagePerWorker: number[]; // average annual wage per employed worker; zero for pure owner strata
+  sol: number[]; // class standard of living, 0..1
+}
+
 export interface Region {
   id: string; owner: string; controller: string;
   pop: number; strata: number[]; culture: string; culture2: string | null; c2: number; religion: string;
@@ -74,6 +82,8 @@ export interface Region {
   buildings: Record<Building, number>;
   /** Player-selected production methods by building; absent values use the best method unlocked by technology. */
   productionMethods?: Partial<Record<Building, string>>;
+  /** Rebuilt by the monthly economy engine; absent in legacy saves until the next simulation tick. */
+  popEconomy?: PopulationEconomy;
   res: string[]; terrain: string; coastal: boolean; area: number;
   devastation: number; blight: { until: number; severity: number } | null; epidemic: { until: number; rate: number } | null;
   output: number; // value added last month (GBP-equivalent units)

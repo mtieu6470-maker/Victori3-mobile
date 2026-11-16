@@ -3,7 +3,8 @@ import { describe, it, expect } from 'vitest';
 import { run, fresh, stepMonth } from './helpers';
 import { serialize, deserialize } from '../src/engine/save';
 import { data } from '../src/engine/data/db';
-import { availableProductionMethods, factoryInputFulfillment, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
+import { STRATA } from '../src/engine/types';
+import { availableProductionMethods, calculatePopulationEconomy, factoryInputFulfillment, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
 import { execute } from '../src/engine/commands';
 import { advanceConstruction, cancelConstruction, queueConstruction, canBuild } from '../src/engine/systems/economy';
 
@@ -86,6 +87,65 @@ describe('war support (Pass 16 pack, ch. 34/73: exhaustion alone does not capitu
   });
 });
 
+
+describe('stratified employment and household income', () => {
+  it('allocates all regional value added to worker households and owners without losing income', () => {
+    const st = fresh('historical', 31, 'GBR');
+    const prices = st.marketPrices.GBR ?? st.worldPrices;
+    const shares = [0.4, 0.02, 0.2, 0.08, 0.12, 0.08, 0.03, 0.05, 0.02];
+    const population = 100000;
+    const employment = shares.map((share, i) => i >= 7 ? 0 : population * share * 0.45);
+    const valueAdded = 45_000_000;
+    const cohorts = calculatePopulationEconomy(population, shares, employment, valueAdded, prices, 0.07, 0.02, 'free_labor');
+
+    const distributedIncome = cohorts.incomePerCapita.reduce((sum, income, i) => sum + income * population * shares[i], 0);
+    expect(distributedIncome).toBeCloseTo(valueAdded, 3);
+    expect(cohorts.employed).toHaveLength(STRATA.length);
+    expect(cohorts.incomePerCapita).toHaveLength(STRATA.length);
+    expect(cohorts.wagePerWorker).toHaveLength(STRATA.length);
+    expect(cohorts.sol).toHaveLength(STRATA.length);
+    for (let i = 0; i < STRATA.length; i++) {
+      expect(Number.isFinite(cohorts.incomePerCapita[i])).toBe(true);
+      expect(cohorts.incomePerCapita[i]).toBeGreaterThanOrEqual(0);
+      expect(cohorts.sol[i]).toBeGreaterThanOrEqual(0);
+      expect(cohorts.sol[i]).toBeLessThanOrEqual(1);
+      if (i < 7) expect(cohorts.employed[i]).toBeLessThanOrEqual(population * shares[i] * 0.45 + 1e-6);
+    }
+    expect(new Set(cohorts.sol.map((v) => v.toFixed(3))).size).toBeGreaterThan(1);
+    expect(cohorts.wagePerWorker[STRATA.indexOf('workers')]).toBeGreaterThan(0);
+  });
+
+  it('builds cohort ledgers in both game modes and keeps employment below each class labour pool', () => {
+    for (const mode of ['historical', 'sandbox'] as const) {
+      const st = fresh(mode, 32, 'GBR');
+      const regions = st.regions.filter((r) => r.owner === 'GBR' && r.pop > 0);
+      expect(regions.length).toBeGreaterThan(0);
+      for (const region of regions) {
+        expect(region.popEconomy).toBeDefined();
+        const p = region.popEconomy!;
+        expect(p.employed).toHaveLength(STRATA.length);
+        expect(p.sol).toHaveLength(STRATA.length);
+        for (let i = 0; i < STRATA.length; i++) {
+          expect(Number.isFinite(p.employed[i])).toBe(true);
+          expect(p.employed[i]).toBeGreaterThanOrEqual(0);
+          if (i < 7) expect(p.employed[i]).toBeLessThanOrEqual(region.pop * region.strata[i] * 0.45 + 1e-5);
+        }
+        const averageIncome = p.incomePerCapita.reduce((sum, income, i) => sum + income * region.strata[i], 0);
+        expect(averageIncome * region.pop).toBeCloseTo(region.output * 12, 2);
+      }
+    }
+  });
+
+  it('rebuilds cohort data after loading a legacy save without the optional ledger', () => {
+    const state = fresh('historical', 33, 'GBR');
+    const legacy = JSON.parse(serialize(state));
+    for (const region of legacy.state.regions) delete region.popEconomy;
+    const restored = deserialize(JSON.stringify(legacy));
+    expect(restored.regions.every((region) => region.popEconomy === undefined)).toBe(true);
+    stepMonth(restored);
+    expect(restored.regions.every((region) => !!region.popEconomy)).toBe(true);
+  });
+});
 
 describe('factory input constraints', () => {
   it('does not let an unrelated sector shortage reduce factory output', () => {

@@ -23,6 +23,15 @@ export function SocietyScreen({ st, tab }: { st: GameState; tab: string }) {
   if (tab === 'culture') return <Culture st={st} />;
   const id = viewedId(st); const c = st.countries[id]; const regs = st.regions.filter((r) => r.owner === id); const pop = regs.reduce((s, r) => s + r.pop, 0) || 1;
   const strata = STRATA.map((_, i) => regs.reduce((s, r) => s + r.strata[i] * r.pop, 0) / pop);
+  const cohortEconomy = STRATA.map((_, i) => {
+    const size = regs.reduce((s, r) => s + r.pop * r.strata[i], 0);
+    const employed = regs.reduce((s, r) => s + (r.popEconomy?.employed[i] ?? 0), 0);
+    const wageBill = regs.reduce((s, r) => s + (r.popEconomy?.wagePerWorker[i] ?? 0) * (r.popEconomy?.employed[i] ?? 0), 0);
+    const income = regs.reduce((s, r) => s + (r.popEconomy?.incomePerCapita[i] ?? 0) * r.pop * r.strata[i], 0);
+    const living = regs.reduce((s, r) => s + (r.popEconomy?.sol[i] ?? r.sol) * r.pop * r.strata[i], 0);
+    return { size, employed, employmentRate: size > 0 ? employed / (size * 0.45) : 0, averageWage: employed > 0 ? wageBill / employed : 0, averageIncome: size > 0 ? income / size : 0, sol: size > 0 ? living / size : 0 };
+  });
+  const hasCohortEconomy = regs.some((r) => !!r.popEconomy);
   const h = st.history[id] ?? []; const e = data().entity.get(id);
   const sols = regs.map((r) => r.sol); const lo = Math.min(...sols), hi = Math.max(...sols);
   const step = (hi - lo) / 5 || 1; const solEdges = [0, 1, 2, 3, 4, 5].map((k) => lo + k * step); solEdges[5] = hi + 1e-9;
@@ -45,6 +54,23 @@ export function SocietyScreen({ st, tab }: { st: GameState; tab: string }) {
             <tr key={s} style="cursor:default"><td><span class="cell-ic"><span class="sw" style={`background:${STRATA_COL[i]}`} />{STRATA_VI[s]}</span></td><td class="r num">{compact(strata[i] * pop)}</td><td class="r num">{pct(strata[i], 1)}</td><td><span class="bar"><i style={`width:${(strata[i] / Math.max(...strata)) * 100}%;background:${STRATA_COL[i]}`} /></span></td></tr>
           ))}</tbody>
         </table>
+      </Sec>
+      <Sec title="Việc làm, tiền lương & mức sống" icon="society" x="mô phỏng theo tầng lớp">
+        {hasCohortEconomy ? STRATA.map((stratum, i) => {
+          const row = cohortEconomy[i];
+          if (row.size <= 0.5) return null;
+          const owner = i === 7 || i === 8;
+          const jobText = owner ? 'thu nhập từ sở hữu' : ('có việc ' + pct(row.employmentRate));
+          const wageText = owner || row.employed <= 0 ? 'không có lương công' : ('lương ' + compact(row.averageWage) + '/năm');
+          return <div class="row" key={stratum} style="min-height:50px">
+            <div class="grow" style="min-width:0">
+              <div class="t sm">{STRATA_VI[stratum]}</div>
+              <div class="s">{compact(row.size)} người · {jobText} · {wageText}</div>
+            </div>
+            <div class="end"><div class="num">¤ {compact(row.averageIncome)}/người</div><div class="s">Mức sống {fmt(row.sol, 2)}</div></div>
+          </div>;
+        }) : <div class="empty sm">Dữ liệu việc làm sẽ được tạo ở nhịp mô phỏng tiếp theo.</div>}
+        <div class="note">Thu nhập được chia từ giá trị gia tăng: người lao động nhận tiền lương, tầng lớp sở hữu nhận lợi nhuận. Tỷ lệ việc làm dùng giả định lực lượng lao động bằng 45% dân số mỗi tầng lớp; đây là mô hình cohort tổng hợp, không phải mô phỏng từng cá nhân.</div>
       </Sec>
       <div class="cols c2">
         <Sec title="Phân bố mức sống" icon="society" x="theo dân số">
