@@ -18,8 +18,8 @@
 | Gate verdict vocabulary | Protocol "Status vocabulary" (`PASS`, `PARTIAL`, `BLOCKED`, `FAIL`, `NOT_TESTED`, `NOT_APPLICABLE`); where the approved S0 document writes "NOT TESTED" it means `NOT_TESTED` |
 | Legacy roadmaps and pre-protocol work | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` (historical evidence, not authorization) |
 | Current approved phase | **S0-B3 → S0-B4 → S0-B7, sequential** (OD-20261116-11). B4 starts only after B3 has `REVIEW_PASS` |
-| Current task status | S0-B3 `READY_FOR_REVIEW` (Claude, unverified); stopped for ChatGPT review; B4 not started. S0-A `READY_FOR_REVIEW`: per the reviewer's next-step instruction, A1–A4 are conditionally accepted and A5 is `BLOCKED`; S0-A is not `ACCEPTED`. S0-B1 done: the reviewer's technical verdict is `PASS` (source: v3.3 proposal §2.1, accepted by OD-20261116-11). `COORDINATION-REVIEW-BD5787F` `READY_FOR_REVIEW` |
-| S0-B3 evidence | `docs/audit/s0/S0_B3_RESULTS.md` (summary, gate self-assessment, finding index) with `S0_TEST_CATALOG.md`, `s0_test_catalog.json`, `S0_REQUIREMENT_MATRIX.csv`, `S0_GLOBAL_DATA_AUDIT.md`, `S0_ASSET_AUDIT.md`, `S0_PERFORMANCE_BASELINE.md/.json`, `b3/**` — tools commit `3d63061e4bd5b3fdf7c636370da462a5b0f5d721`, reports commit `55331c2bf629bb631701ec82020c7f9deaa7da81` |
+| Current task status | S0-B3 `READY_FOR_REVIEW` round 2 (Claude, unverified): review round 1 was `CHANGES_REQUESTED` (points A–D, section 6); corrections committed in `ddea490` and `2c62b3d`; stopped for ChatGPT re-review; B4 not started. S0-A `READY_FOR_REVIEW`: per the reviewer's next-step instruction, A1–A4 are conditionally accepted and A5 is `BLOCKED`; S0-A is not `ACCEPTED`. S0-B1 done: the reviewer's technical verdict is `PASS` (source: v3.3 proposal §2.1, accepted by OD-20261116-11). `COORDINATION-REVIEW-BD5787F` `READY_FOR_REVIEW` |
+| S0-B3 evidence | `docs/audit/s0/S0_B3_RESULTS.md` (summary, gate self-assessment, finding index) with `S0_TEST_CATALOG.md`, `s0_test_catalog.json`, `S0_REQUIREMENT_MATRIX.csv`, `S0_GLOBAL_DATA_AUDIT.md`, `S0_ASSET_AUDIT.md`, `S0_PERFORMANCE_BASELINE.md/.json`, `b3/**` — tools commit `3d63061e4bd5b3fdf7c636370da462a5b0f5d721`, reports commit `55331c2bf629bb631701ec82020c7f9deaa7da81`; review-1 corrections: tools `ddea490`, reports and evidence `2c62b3d` (`b3/review1/**`; summary in `S0_B3_RESULTS.md` §8) |
 | S0-B1 evidence | `docs/audit/s0/S0_B1_CI_EVIDENCE.md`, `docs/audit/s0/logs/b1/` (commit `e13d964f343ab1ba01fb705fbbd8bcac2674ea80`). B1 commit `382aaa84b2336854b4dbebfcdc719847ff463f41`; run `43834719406`, job `133188390842` success; 58/58 tests; `report_valid=true`; APK file SHA-256 `314c8ca11c1d747550bbdb982326675e5f9dbdac870f3fc1cf04b9de7c22585c`; artifact ZIP SHA-256 `7717a2b79dd46fbf613845e33bac3a17634eae5b0c808328d8b21b5abc150ba0` (a different file) |
 | S0-A evidence | `docs/audit/s0/S0_A_RESULTS.md` (summary and gate verdicts), `S0_REPOSITORY_SNAPSHOT.md`, `S0_BUILD_TEST_REPORT.md`, `logs/`, `a4/`, `inputs/` — commits `7d6eec9d0601a7d983679ec7792b1aa96b954ca0`, `d5b9820aae9a96d57e9486845c164ae591fa69de`, `8073fac029463c0685435985a2968cd5a3aba4ab` |
 | Pending owner action | Device steps 1–4 of approved document §6.5.1 on the installed baseline APK (listed in `docs/audit/s0/S0_A_RESULTS.md` §2); never paste secrets |
@@ -77,7 +77,7 @@ Not allowed:
 |---|---|---|---|
 | S0-A — Baseline as-is (`BASELINE_ORIGINAL`), approved document §6.3 A1–A5 | `READY_FOR_REVIEW` (A1–A4 evidenced; A5 `BLOCKED`) | Owner approval of the S0 v3.2 document and S0-A authorization (OD-20261116-09, -10) — met | S0-A evidence committed; ChatGPT review; owner decision |
 | S0-B1 — CI checksums and test report | Done; reviewer technical verdict `PASS` (v3.3 §2.1) | Owner instruction for B1 (OD-20261116-10B) — met | Evidence committed (`e13d964`) |
-| S0-B3 — Audit scripts, catalog, coverage, crosswalk, asset inventory, Node/desktop harness | `READY_FOR_REVIEW` (Claude, unverified) | OD-20261116-11 — met | Reports committed (`3d63061`, `55331c2`); ChatGPT review (B4 waits for B3 `REVIEW_PASS`) |
+| S0-B3 — Audit scripts, catalog, coverage, crosswalk, asset inventory, Node/desktop harness | `READY_FOR_REVIEW` round 2 (Claude, unverified); round 1 `CHANGES_REQUESTED` | OD-20261116-11 — met | Reports committed (`3d63061`, `55331c2`; corrections `ddea490`, `2c62b3d`); ChatGPT re-review (B4 waits for B3 `REVIEW_PASS`) |
 | S0-B4 — Characterization tests and fixtures (save/load determinism, v3.2 §6.7) | `NOT_STARTED` (authorized after B3 review) | B3 `REVIEW_PASS` | G0.6 verdict with evidence; `FAIL` leads to the decision §3 path |
 | S0-B7 — Risk register and signoff package | `NOT_STARTED` (authorized after B4) | B3 and B4 done | `S0_SIGNOFF.md`; G0.1–G0.9 ledger; exception requests limited to G0.7 (iQOO) and G0.8 (legacy licences) |
 | S0-B2 / B5 / B6 — signing, Diagnostic UI, instrumented measurements | `BLOCKED` / deferred | R14 proven on the baseline APK, O5 decided, protected `development-signing` Environment configured by the owner | Per v3.2 §4.1, §6.8 |
@@ -95,6 +95,48 @@ Pre-protocol work:
 ## 5. Work log
 
 Append newest entries at the top. Do not overwrite earlier entries.
+
+### 2026-11-16 — S0-B3-REVIEW1-CORRECTIONS
+
+- Date (UTC): 2026-11-16 (after the owner relayed the ChatGPT round-1 review)
+- Task/phase: S0-B3 corrections for review round 1 (`CHANGES_REQUESTED`, points A–D in section 6). Audit tools and reports only
+- Implementer: Claude Code
+- Base SHA: `1d8ad6ec60923527cd86dd5b3d584913f3b9cd5f`. Audited code: `2240a8f` in a new clean temporary worktree (`npm ci` 0, `npm run build` 0)
+- Head SHAs:
+  - `ddea490` (tools);
+  - `2c62b3d` (reports and evidence);
+  - this handoff update (GitHub commit metadata).
+- Changed files:
+  - `tools/audit/s0/global_data_audit.ts`;
+  - `tools/audit/s0/probe_war_duration.ts` (new);
+  - `docs/audit/s0/S0_B3_RESULTS.md` (new §4.1, §8; P0 text in §4);
+  - `docs/audit/s0/S0_GLOBAL_DATA_AUDIT.md` (§1, §1.1, §2.2, §2.3, §5);
+  - `docs/audit/s0/S0_TEST_CATALOG.md` (TC-F2);
+  - `docs/audit/s0/S0_REQUIREMENT_MATRIX.csv` (row MS-13.5-04 only);
+  - `docs/audit/s0/b3/review1/**` (new);
+  - `docs/coordination/AI_HANDOFF.md`.
+- Summary:
+  - A: the `estimated` category is described as label-based. Method coverage is added: 262 initial law sets are estimated without a method. RM-F1 is reproduced by the tool (270/334 estimated, 18/62 uncertain without a method).
+  - B: 12 analysis groups, West Asia and Middle East merged; no claim of 13 independent regions.
+  - C: no new P0 in B3. R7 (P0, pre-identified) is still open: grep found no lifecycle or WebGL context-loss handlers; only a game-date January autosave exists.
+  - D: 145 is a counting convention. Initial wars are stored with `start = -1` (`init.ts:143`) and exist for exactly 144 month-ends; wars declared by the AI lasted at most 7–9 months in 4 scenarios.
+  - New findings: WD-F1 (P3, latent 145-month asymmetry for declared wars), WD-F2 (P3, real pre-1836 start dates dropped), WD-F3 (P2, 5 of 8 initial wars end by capitulation at tick 5 in every scenario).
+  - A proposed test is recorded; no test or engine change.
+- Commands and exit codes: see `docs/audit/s0/b3/review1/logs/`.
+  - Tool runs: all 0.
+  - Before/after comparison: per-group counts unchanged.
+  - `npx tsc --noEmit`: 0.
+  - Product-source `git diff --quiet` against `2240a8f`: 0.
+  - Secrets scan: no match.
+  - `git commit`: 0.
+- Test results (counts and failures): no product test run needed (no product or test change); CI on push
+- CI run/jobs: recorded after push in the reply to the owner
+- Artifacts: none
+- Device evidence: none (`BLOCKED`)
+- Risks/limitations: before-correction evidence kept at the old paths and in `55331c2`. The matrix row change was made through the same auditor-written source as before. WD-F3 is an observation from the engine and `db.wars`; historical end dates were not evaluated
+- Claude status (unverified): `READY_FOR_REVIEW` (round 2)
+- ChatGPT review:
+- Owner decision:
 
 ### 2026-11-16 — S0-B3-AUDIT-TOOLS-AND-REPORTS
 
@@ -296,9 +338,28 @@ Append newest entries at the top. Do not overwrite earlier entries.
 
 ## 6. Review findings
 
+Source of the rows below: ChatGPT review of S0-B3 round 1 (verdict `CHANGES_REQUESTED`), relayed by the owner in the session on 2026-11-16. Checked commits: `3d63061`, `55331c2`, `1d8ad6e`; CI run `43853414428` success. The reviewer confirmed the audit scope was respected.
+
+Gate results reported by the reviewer:
+
+| Gate | Result |
+|---|---|
+| G0.3 | `PASS` |
+| G0.4 | `PASS` |
+| G0.5 | `PASS`, with a note on the grouping |
+| G0.6 | `NOT_TESTED` (B4) |
+| G0.7 | `BLOCKED` (iQOO) |
+| G0.8 | `PARTIAL` |
+| G0.9 | `NOT_TESTED` (B7) |
+
+The Status column is Claude's claim, pending re-review.
+
 | ID | Severity | Finding | Evidence | Status | Required action |
 |---|---|---|---|---|---|
-| — | — | No findings recorded yet | — | — | — |
+| B3-R1-A | Change request | The `estimated` category is assigned by quality label without checking `method`, but the report described it as data with an estimation method | `tools/audit/s0/global_data_audit.ts`; `S0_GLOBAL_DATA_AUDIT.md` §1 | Addressed in `ddea490`/`2c62b3d` (Claude, unverified) | Correct the wording; keep RM-F1 and count missing `method`; no data change |
+| B3-R1-B | Change request | 12 statistical groups vs the 13 regions of MASTER_SPEC_VI §1.2 (West Asia and Middle East merged) | `tools/audit/regions.ts`; `S0_GLOBAL_DATA_AUDIT.md` | Addressed (Claude, unverified) | State 12 analysis groups and the merge; no claim of 13 independent regions; no partition change |
+| B3-R1-C | Change request | "No P0" must distinguish no new P0 in B3 from the pre-identified, still-open R7 | `S0_B3_RESULTS.md` §4 | Addressed (Claude, unverified) | Record that R7 remains open and is not considered resolved |
+| B3-R1-D | Change request | `tests/simulation.test.ts:43` runs 0 assertions; probe showed a longest war of 145 months while the engine ends wars at `months > 144` | `S0_B3_RESULTS.md` §4.1; `b3/review1/probe_war_duration_*.json` | Addressed (Claude, unverified): counting convention, findings WD-F1…F3, proposed test | Check `w.start`, `st.tick` and start/end timing; record a finding and a correct test; no engine or test change |
 
 ## 7. Owner decisions
 
