@@ -1,7 +1,7 @@
 // Interactive map: WebGL fill layer + 2D overlay (graticule labels, lakes, rivers, state/country borders, coasts,
 // selection outlines, capitals, names). Touch: drag to pan, pinch to zoom, tap to select, double-tap to zoom in;
 // mouse: wheel zoom, hover highlight with tooltip. Camera moves to a target are animated (fly-to).
-import { useEffect, useRef } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { data } from '../../engine/data/db';
 import { rankings } from '../../engine/metrics';
 import type { GameState } from '../../engine/types';
@@ -31,6 +31,7 @@ export function MapView(p: Props) {
   const wrap = useRef<HTMLDivElement>(null);
   const glc = useRef<HTMLCanvasElement>(null);
   const ovc = useRef<HTMLCanvasElement>(null);
+  const [renderError, setRenderError] = useState<string | null>(null);
   const R = useRef<{ r: MapRenderer | null; cands: LabelCand[]; candKey: string; paths: VectorPaths | null; raf: number; size: { w: number; h: number }; err: string | null; moving: boolean; idle: number; hover: number; sel: { key: string; region: Path2D | null; country: Path2D | null } }>({ r: null, cands: [], candKey: '', paths: null, raf: 0, size: { w: 1, h: 1 }, err: null, moving: false, idle: 0, hover: -1, sel: { key: '', region: null, country: null } });
   const props = useRef(p); props.current = p;
   const grid = p.assets.grid;
@@ -135,10 +136,60 @@ export function MapView(p: Props) {
 
   useEffect(() => {
     const el = wrap.current!, cv = glc.current!;
-    try { R.current.r = new MapRenderer(cv, grid, p.assets.relief, p.assets.coastDist, p.assets.terrain); } catch (e) { R.current.err = (e as Error).message; }
+    const onContextLost = (event: Event) => {
+      // Prevent the browser from discarding the context permanently; Android may reclaim it under memory pressure.
+      event.preventDefault();
+      if (R.current.raf) cancelAnimationFrame(R.current.raf);
+      R.current.raf = 0;
+      R.current.r = null;
+      const message = 'Bản đồ đang khôi phục đồ họa sau khi Android thu hồi WebGL…';
+      R.current.err = message;
+      setRenderError(message);
+    };
+    const onContextRestored = () => {
+      try {
+        const assets = props.current.assets;
+        const renderer = new MapRenderer(cv, grid, assets.relief, assets.coastDist, assets.terrain);
+        const current = props.current;
+        renderer.setPalette(buildPalette(current.st, lensById(current.lens), current.focus, current.selRegion, current.selCountry));
+        R.current.r = renderer;
+        R.current.err = null;
+        R.current.paths = null;
+        R.current.candKey = '';
+        R.current.sel = { key: '', region: null, country: null };
+        setRenderError(null);
+        schedule();
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Không thể khôi phục WebGL';
+        R.current.r = null;
+        R.current.err = message;
+        setRenderError(message);
+      }
+    };
+
+    cv.addEventListener('webglcontextlost', onContextLost);
+    cv.addEventListener('webglcontextrestored', onContextRestored);
+    try {
+      R.current.r = new MapRenderer(cv, grid, p.assets.relief, p.assets.coastDist, p.assets.terrain);
+      R.current.err = null;
+      setRenderError(null);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Không thể khởi tạo WebGL';
+      R.current.err = message;
+      setRenderError(message);
+    }
     const ro = new ResizeObserver(() => { const b = el.getBoundingClientRect(); R.current.size = { w: Math.max(1, b.width), h: Math.max(1, b.height) }; schedule(); });
-    ro.observe(el); const b = el.getBoundingClientRect(); R.current.size = { w: Math.max(1, b.width), h: Math.max(1, b.height) };
-    return () => { ro.disconnect(); if (R.current.raf) cancelAnimationFrame(R.current.raf); };
+    ro.observe(el);
+    const b = el.getBoundingClientRect();
+    R.current.size = { w: Math.max(1, b.width), h: Math.max(1, b.height) };
+    return () => {
+      cv.removeEventListener('webglcontextlost', onContextLost);
+      cv.removeEventListener('webglcontextrestored', onContextRestored);
+      ro.disconnect();
+      clearTimeout(R.current.idle);
+      if (R.current.raf) cancelAnimationFrame(R.current.raf);
+      R.current.raf = 0;
+    };
   }, []);
   useEffect(() => {
     const r = R.current.r; if (!r) return;
@@ -196,7 +247,7 @@ export function MapView(p: Props) {
     <div class="map-wrap" ref={wrap}>
       <canvas class="map-gl" ref={glc} />
       <canvas class="map-overlay" ref={ovc} />
-      {R.current.err && <div class="map-error">Không thể hiển thị bản đồ: {R.current.err}</div>}
+      {renderError && <div class="map-error" role="status">Không thể hiển thị bản đồ: {renderError}</div>}
     </div>
   );
 }

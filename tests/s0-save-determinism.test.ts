@@ -65,9 +65,14 @@ describe('S0-B4 save/load characterization — frozen baseline behavior', () => 
         expect(uninterrupted.regions.length).toBeGreaterThan(0);
         expect(stateHash(uninterrupted)).not.toBe(initialHash);
 
-        const difference = firstDifference(uninterrupted, restored);
-        expect(difference, difference ? `first differing state path: ${difference}` : 'states must match').toBeNull();
-        expect(stateHash(restored)).toBe(stateHash(uninterrupted));
+        // Compare the JSON-persisted shape, not in-memory properties whose value is undefined.
+        // JSON.stringify omits optional undefined fields (for example Country.group), by design.
+        const expected = JSON.parse(JSON.stringify(uninterrupted)) as GameState;
+        const actual = JSON.parse(JSON.stringify(restored)) as GameState;
+        const difference = firstDifference(expected, actual);
+        expect(difference, difference ? `first differing persisted state path: ${difference}` : 'persisted states must match').toBeNull();
+        expect(stateHash(actual)).toBe(stateHash(expected));
+        expect(serialize(restored)).toBe(serialize(uninterrupted));
       });
     }
   }

@@ -69,12 +69,70 @@ export function App({ assets }: { assets: MapAssets }) {
   const [pick, setPick] = useState<{ x: number; y: number } | null>(null);
   const [hover, setHover] = useState<{ id: string; x: number; y: number } | null>(null);
   const lastSave = useRef(-1);
+  const saveInFlight = useRef(false);
+  const saveQueued = useRef(false);
+  const saveSnapshotRef = useRef<() => void>(() => undefined);
   const eventState = useRef<object | null>(null);
   const eventCursor = useRef({ logCount: 0, decisionCount: 0 });
   const portraitNow = vw <= vh;
   const stageH = portraitNow ? vh - TOP_P - DOCK_P : vh - TOP_L;
   const regionGrip = useSheetDrag(stageH, () => ui.set({ region: null, regionDetail: false }));
-  useEffect(() => { if (st && st.date.m === 1 && st.tick > 0 && st.tick !== lastSave.current && !game.busy) { lastSave.current = st.tick; saveSlot('Tự động lưu', game.save()).catch(() => game.toast('Không tự động lưu được (bộ nhớ thiết bị)', 'error')); } });
+  const persistAutosave = () => {
+    const current = game.st;
+    if (!current || current.tick <= 0 || current.tick <= lastSave.current) return;
+    if (saveInFlight.current) {
+      saveQueued.current = true;
+      return;
+    }
+
+    let snapshot: string;
+    try {
+      snapshot = game.save();
+    } catch {
+      game.toast('Không thể tạo bản lưu tự động.', 'error');
+      return;
+    }
+
+    const savedTick = current.tick;
+    saveInFlight.current = true;
+    void saveSlot('Tự động lưu', snapshot)
+      .then(() => {
+        lastSave.current = Math.max(lastSave.current, savedTick);
+      })
+      .catch(() => {
+        game.toast('Không tự động lưu được (bộ nhớ thiết bị)', 'error');
+      })
+      .finally(() => {
+        saveInFlight.current = false;
+        if (saveQueued.current) {
+          saveQueued.current = false;
+          saveSnapshotRef.current();
+        }
+      });
+  };
+  saveSnapshotRef.current = persistAutosave;
+
+  // Checkpoint every three simulated months; lifecycle events create an additional checkpoint before backgrounding.
+  useEffect(() => {
+    if (st && st.tick > 0 && st.tick % 3 === 0) saveSnapshotRef.current();
+  }, [st?.tick]);
+  useEffect(() => {
+    const flushBeforeBackground = () => {
+      if (document.visibilityState !== 'hidden') return;
+      if (!game.paused) game.setPaused(true);
+      saveSnapshotRef.current();
+    };
+    const flushBeforePageHide = () => {
+      if (!game.paused) game.setPaused(true);
+      saveSnapshotRef.current();
+    };
+    document.addEventListener('visibilitychange', flushBeforeBackground);
+    window.addEventListener('pagehide', flushBeforePageHide);
+    return () => {
+      document.removeEventListener('visibilitychange', flushBeforeBackground);
+      window.removeEventListener('pagehide', flushBeforePageHide);
+    };
+  }, []);
   useEffect(() => {
     if (!st) { eventState.current = null; eventCursor.current = { logCount: 0, decisionCount: 0 }; return; }
     if (eventState.current !== st) {
