@@ -16,7 +16,9 @@
 | Gate verdict vocabulary | Protocol "Status vocabulary" (`PASS`, `PARTIAL`, `BLOCKED`, `FAIL`, `NOT_TESTED`, `NOT_APPLICABLE`); where the approved S0 document writes "NOT TESTED" it means `NOT_TESTED` |
 | Legacy roadmaps and pre-protocol work | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` (historical evidence, not authorization) |
 | Current approved phase | **S0-A** (baseline as-is, `BASELINE_ORIGINAL`; approved document §6.3) — `AUTHORIZED` 2026-11-16 (OD-20261116-10) |
-| Current task status | S0-A `IN_PROGRESS`; `COORDINATION-REVIEW-BD5787F` `READY_FOR_REVIEW` |
+| Current task status | S0-A `READY_FOR_REVIEW` (Claude, unverified; A5 `BLOCKED`); `COORDINATION-REVIEW-BD5787F` `READY_FOR_REVIEW` |
+| S0-A evidence | `docs/audit/s0/S0_A_RESULTS.md` (summary and gate verdicts), `S0_REPOSITORY_SNAPSHOT.md`, `S0_BUILD_TEST_REPORT.md`, `logs/`, `a4/`, `inputs/` — commits `7d6eec9d0601a7d983679ec7792b1aa96b954ca0`, `d5b9820aae9a96d57e9486845c164ae591fa69de`, `8073fac029463c0685435985a2968cd5a3aba4ab` |
+| Pending owner action | Device steps 1–4 of approved document §6.5.1 on the installed baseline APK (listed in `docs/audit/s0/S0_A_RESULTS.md` §2); never paste secrets |
 | S0 execution authorized | **S0-A only.** S0-B (B1–B7), S1 and every later phase: **NOT AUTHORIZED** |
 | Gameplay/engine/save changes authorized | NO |
 | Signing/keystore/Secrets changes authorized | NO |
@@ -62,7 +64,7 @@ S0-A is authorized (OD-20261116-10) within the approved document §6.3 (A1–A5)
 
 | Phase | Status | Entry condition | Exit condition |
 |---|---|---|---|
-| S0-A — Baseline as-is (`BASELINE_ORIGINAL`), approved document §6.3 A1–A5 | `IN_PROGRESS` | Owner approval of the S0 v3.2 document and S0-A authorization (OD-20261116-09, -10) — met | S0-A evidence committed; ChatGPT review; owner decision |
+| S0-A — Baseline as-is (`BASELINE_ORIGINAL`), approved document §6.3 A1–A5 | `READY_FOR_REVIEW` (A1–A4 evidenced; A5 `BLOCKED`) | Owner approval of the S0 v3.2 document and S0-A authorization (OD-20261116-09, -10) — met | S0-A evidence committed; ChatGPT review; owner decision |
 | S0-B — Audit tooling (`AUDIT_INSTRUMENTED`), approved document §6.3 B1–B7 | `NOT_STARTED` — not authorized | Separate owner authorization after S0-A review | All S0 gates G0.1–G0.9 evidenced; ChatGPT `REVIEW_PASS`; owner `ACCEPTED` |
 | S1 — Data architecture and save foundation | `NOT_STARTED` | S0 accepted and S1 scope separately approved | S1 acceptance criteria met; independent review; owner accepted |
 | S2+ | `NOT_STARTED` | Previous phase accepted and next scope approved | Phase-specific acceptance and owner approval |
@@ -78,6 +80,35 @@ Pre-protocol work:
 ## 5. Work log
 
 Append newest entries at the top. Do not overwrite earlier entries.
+
+### 2026-11-16 — S0-A (baseline as-is)
+
+- Date (UTC): 2026-11-16, 06:28–06:39 (commits `7d6eec9` 06:30, `d5b9820` 06:31, `8073fac` 06:39; this handoff update afterwards)
+- Task/phase: S0-A — approved document §6.3 A1–A5, authorized by OD-20261116-10
+- Implementer: Claude Code
+- Base SHA: `e4ef9539e97b15488394cea24e4ce5368d749368` (code baseline audited: `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`)
+- Head SHA: `8073fac029463c0685435985a2968cd5a3aba4ab`, then this handoff update commit (GitHub commit metadata)
+- Changed files: only under `docs/audit/s0/` — `S0_REPOSITORY_SNAPSHOT.md`, `S0_BUILD_TEST_REPORT.md`, `S0_A_RESULTS.md`, `logs/a1/` (7), `logs/a2/` (23), `logs/a4/` (3), `a4/` (10), `inputs/APK_BASELINE_WEB_ASSETS_SHA256.csv` (reviewer file, SHA-256 unchanged `78c4a21f…`); plus this handoff
+- Summary:
+  - A1: snapshot; artifact `14193446122` re-downloaded and hashed (ZIP/APK SHA-256 equal the recorded values; 592-file manifest equals the reviewer CSV).
+  - A2: clean build in a temporary worktree of `2240a8f`; all 9 standard commands exit 0; 58/58 tests ×3, identical test lists.
+  - A3: generated-file SHA-256 before/after every step; tests write nothing.
+  - A4: `web/data payload comparison completed` — 587 exact; the cordova files are written by Capacitor at packaging; three files differ only in `built_at`/`generated` and the bundle name, proven by diff.
+  - A5: `BLOCKED`.
+- Commands and exit codes: listed with their exit codes in `docs/audit/s0/logs/a1/*.log`, `logs/a2/summary.txt` and step logs, `logs/a4/*.log`; all build/test commands exit 0; `npm audit` exit 1 (findings, read-only)
+- Test results (counts and failures): 3 local runs, each `Test Files 5 passed (5)`, `Tests 58 passed (58)`; 0 failures; CI baseline job `133056831671` 58/58
+- CI run/jobs: documentation commits all `success` — `6c4d02a` run `43814947854`, `c74b606` run `43815102462`, `574ddc7` run `43816739598`, `e4ef953` run `43816839693`, `7d6eec9` run `43817262861`, `d5b9820` run `43817299052`; `8073fac` run `43818265471` was in progress when this entry was written
+- Artifacts: none produced by S0-A in the repository (APK/ZIP not committed; hashes and manifests recorded)
+- Device evidence: none yet — A5 device part `BLOCKED` pending owner (§6.5.1 steps 1–4)
+- Risks/limitations:
+  - F1: `npm audit` reports 6 dev/build-tool vulnerabilities, not fixed.
+  - F2: the CI debug key differs per run (verified on two runs; confirms R1).
+  - F4: `.gitignore` `*.log` required `git add -f`.
+  - No Android SDK, so APK signature v2/v3 was not checked.
+  - A5 Node/desktop needs the S0-B B3 harness (not authorized).
+- Claude status (unverified): `READY_FOR_REVIEW`. Gate verdicts (self-assessed): G0.1 `PASS`, G0.2 `PASS`, G0.3 `PARTIAL`, G0.4 `NOT_TESTED`, G0.5 `NOT_TESTED`, G0.6 `NOT_TESTED`, G0.7 `BLOCKED`, G0.8 `NOT_TESTED`, G0.9 `NOT_TESTED`; S0 overall not complete
+- ChatGPT review:
+- Owner decision:
 
 ### 2026-11-16 — S0-V3.2-APPROVED-DOCS
 
