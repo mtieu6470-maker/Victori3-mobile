@@ -1,0 +1,7146 @@
+{
+ "generated": "2026-11-16",
+ "source": "Wikidata Query Service (CC0)",
+ "candidates": [
+  {
+   "qid": "Q21075277",
+   "label": "Achrol",
+   "inception": "1600",
+   "dissolved": "2000",
+   "lat": 22.20775,
+   "lon": 76.97021,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q775550",
+   "label": "Adamawa Emirate",
+   "inception": "1809",
+   "dissolved": "1903",
+   "lat": 9.15,
+   "lon": 10.0,
+   "types": [
+    "historical country",
+    "vassal state"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q889",
+   "label": "Afghanistan",
+   "inception": "1709",
+   "dissolved": null,
+   "lat": 33.0,
+   "lon": 66.0,
+   "types": [
+    "country",
+    "sovereign state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q5301066",
+   "label": "Ajaigarh State",
+   "inception": "1765",
+   "dissolved": "1949",
+   "lat": 24.9,
+   "lon": 80.2667,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q412980",
+   "label": "Ajmer-Merwara",
+   "inception": "1818",
+   "dissolved": "1936",
+   "lat": 26.45,
+   "lon": 74.64,
+   "types": [
+    "historical country"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q3963975",
+   "label": "Akkalkot State",
+   "inception": "1725",
+   "dissolved": "1948",
+   "lat": 17.5223064,
+   "lon": 76.2048938,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q28137490",
+   "label": "Akora",
+   "inception": "1800",
+   "dissolved": "1849",
+   "lat": 33.532293,
+   "lon": 71.499972,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11910203",
+   "label": "Al-Busi",
+   "inception": "1800",
+   "dissolved": "1967",
+   "lat": 13.683333,
+   "lon": 44.716667,
+   "types": [
+    "historical country"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q2121839",
+   "label": "Alawi",
+   "inception": "1743",
+   "dissolved": "1967",
+   "lat": 13.468,
+   "lon": 44.656,
+   "types": [
+    "historical country"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q4726842",
+   "label": "Alipura State",
+   "inception": "1757",
+   "dissolved": "1947",
+   "lat": 25.17534,
+   "lon": 79.33549,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q4726858",
+   "label": "Alirajpur State",
+   "inception": "1437",
+   "dissolved": "1948",
+   "lat": 22.3053,
+   "lon": 74.3525,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1553143",
+   "label": "Alwar State",
+   "inception": "1770",
+   "dissolved": "1949",
+   "lat": 27.95,
+   "lon": 76.1,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11905286",
+   "label": "Ambliara State",
+   "inception": "1600",
+   "dissolved": "1943",
+   "lat": 23.2219,
+   "lon": 73.2167,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q228",
+   "label": "Andorra",
+   "inception": "1278",
+   "dissolved": null,
+   "lat": 42.5425,
+   "lon": 1.6,
+   "types": [
+    "country",
+    "sovereign state"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q1949848",
+   "label": "Angoche Sultanate",
+   "inception": "1485",
+   "dissolved": null,
+   "lat": -16.233333333,
+   "lon": 39.916666666,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q538636",
+   "label": "Ankole",
+   "inception": "1500",
+   "dissolved": "1967",
+   "lat": -0.613333,
+   "lon": 30.658333,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q2121850",
+   "label": "Aqrabi",
+   "inception": "1800",
+   "dissolved": "1967",
+   "lat": 12.53,
+   "lon": 44.5,
+   "types": [
+    "historical country"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q699964",
+   "label": "Archduchy of Austria",
+   "inception": "1358",
+   "dissolved": "1918",
+   "lat": 48.2167,
+   "lon": 16.3667,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q414",
+   "label": "Argentina",
+   "inception": "1816",
+   "dissolved": null,
+   "lat": -34.0,
+   "lon": -64.0,
+   "types": [
+    "country",
+    "sovereign state"
+   ],
+   "macro": "south_america"
+  },
+  {
+   "qid": "Q2634240",
+   "label": "Asahan Sultanate",
+   "inception": "1630",
+   "dissolved": "1946",
+   "lat": 3.0,
+   "lon": 99.1667,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q2869051",
+   "label": "Athgarh State",
+   "inception": "1178",
+   "dissolved": "1949",
+   "lat": 20.51666667,
+   "lon": 85.62666667,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q758709",
+   "label": "Audhali",
+   "inception": "1800",
+   "dissolved": "1967",
+   "lat": 13.54,
+   "lon": 45.52,
+   "types": [
+    "historical country"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q2871819",
+   "label": "Aundh State",
+   "inception": "1699",
+   "dissolved": "1948",
+   "lat": 17.54583333,
+   "lon": 74.375,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q2879034",
+   "label": "Baghal State",
+   "inception": "1310",
+   "dissolved": "1948",
+   "lat": 31.15,
+   "lon": 76.97,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q520403",
+   "label": "Baghat State",
+   "inception": "1600",
+   "dissolved": "1948",
+   "lat": 30.525,
+   "lon": 80.645,
+   "types": [
+    "princely state"
+   ],
+   "macro": "east_asia"
+  },
+  {
+   "qid": "Q800236",
+   "label": "Bahawalpur State",
+   "inception": "1690",
+   "dissolved": "1955",
+   "lat": 28.8333,
+   "lon": 71.7167,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q799040",
+   "label": "Bahdinan",
+   "inception": "1276",
+   "dissolved": null,
+   "lat": 37.05,
+   "lon": 43.15,
+   "types": [
+    "historical country"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q17061755",
+   "label": "Bahrain and its Dependencies",
+   "inception": "1783",
+   "dissolved": "1971",
+   "lat": 26.0675,
+   "lon": 50.551111,
+   "types": [
+    "historical country",
+    "khanate",
+    "kingdom"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q17514653",
+   "label": "Balasinor State",
+   "inception": "1758",
+   "dissolved": "1948",
+   "lat": 22.95,
+   "lon": 73.33,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q806019",
+   "label": "Bamra State",
+   "inception": "1545",
+   "dissolved": "1948",
+   "lat": 21.53,
+   "lon": 84.73,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q13389050",
+   "label": "Banganapalle State",
+   "inception": "1790",
+   "dissolved": "1948",
+   "lat": 15.3167,
+   "lon": 78.2333,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q4857117",
+   "label": "Bansda",
+   "inception": "1781",
+   "dissolved": "1948",
+   "lat": 20.78333333,
+   "lon": 73.46666667,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q806963",
+   "label": "Banswara State",
+   "inception": "1497",
+   "dissolved": "1949",
+   "lat": 23.55,
+   "lon": 74.45,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q918500",
+   "label": "Bantva Manavadar State",
+   "inception": "1760",
+   "dissolved": "1947",
+   "lat": 21.5,
+   "lon": 70.13,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q807068",
+   "label": "Baol",
+   "inception": "1555",
+   "dissolved": "1895",
+   "lat": 14.6,
+   "lon": -16.2,
+   "types": [
+    "historical country",
+    "kingdom"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q807069",
+   "label": "Baoni State",
+   "inception": "1784",
+   "dissolved": "1948",
+   "lat": 25.98,
+   "lon": 79.85,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q2883798",
+   "label": "Baramba State",
+   "inception": "1305",
+   "dissolved": "1949",
+   "lat": 20.4208,
+   "lon": 85.3781,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q807288",
+   "label": "Baraundha State",
+   "inception": "1169",
+   "dissolved": "1950",
+   "lat": 25.05,
+   "lon": 80.63333333,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q244",
+   "label": "Barbados",
+   "inception": "1623",
+   "dissolved": null,
+   "lat": 13.17,
+   "lon": -59.5525,
+   "types": [
+    "country",
+    "sovereign state"
+   ],
+   "macro": "central_america"
+  },
+  {
+   "qid": "Q2884562",
+   "label": "Baria State",
+   "inception": "1524",
+   "dissolved": "1948",
+   "lat": 22.7,
+   "lon": 73.91,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q16187935",
+   "label": "Barony of Castalla",
+   "inception": "1364",
+   "dissolved": "1889",
+   "lat": 38.556069444,
+   "lon": -0.624502777,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q809955",
+   "label": "Bashahr State",
+   "inception": "1412",
+   "dissolved": "1948",
+   "lat": 31.866666666,
+   "lon": 78.333333333,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q810432",
+   "label": "Basoda State",
+   "inception": "1753",
+   "dissolved": "1947",
+   "lat": 23.849379,
+   "lon": 77.937012,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q2902467",
+   "label": "Beja State",
+   "inception": "1800",
+   "dissolved": "1948",
+   "lat": 30.93333333,
+   "lon": 77.03333333,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1375154",
+   "label": "Benares State",
+   "inception": "1770",
+   "dissolved": "1948",
+   "lat": 25.282,
+   "lon": 82.9563,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11909106",
+   "label": "Beri State",
+   "inception": "1750",
+   "dissolved": "1950",
+   "lat": 25.91666667,
+   "lon": 79.9,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q64",
+   "label": "Berlin",
+   "inception": "1244",
+   "dissolved": null,
+   "lat": 52.516666666,
+   "lon": 13.383333333,
+   "types": [
+    "colony"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q11909259",
+   "label": "Bhaisunda",
+   "inception": "1812",
+   "dissolved": "1948",
+   "lat": 25.3,
+   "lon": 80.8,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q642037",
+   "label": "Bhajji State",
+   "inception": "1800",
+   "dissolved": "1948",
+   "lat": 31.4,
+   "lon": 77.2,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q854850",
+   "label": "Bharatpur State",
+   "inception": "1680",
+   "dissolved": "1948",
+   "lat": 27.22,
+   "lon": 77.48,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q854917",
+   "label": "Bhavnagar State",
+   "inception": "1723",
+   "dissolved": "1948",
+   "lat": 28.76,
+   "lon": 72.15,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q855044",
+   "label": "Bhopal State",
+   "inception": "1723",
+   "dissolved": "1947",
+   "lat": 23.25,
+   "lon": 77.4,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q855058",
+   "label": "Bhor State",
+   "inception": "1697",
+   "dissolved": "1948",
+   "lat": 18.16666667,
+   "lon": 73.85,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q4903979",
+   "label": "Bida Emirate",
+   "inception": "1531",
+   "dissolved": "1856",
+   "lat": 9.08333333,
+   "lon": 6.01666667,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q7905915",
+   "label": "Bijawar State",
+   "inception": "1765",
+   "dissolved": "1950",
+   "lat": 24.63,
+   "lon": 79.5,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q859966",
+   "label": "Bikaner State",
+   "inception": "1465",
+   "dissolved": "1947",
+   "lat": 28.01,
+   "lon": 73.3,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q557842",
+   "label": "Boina Kingdom",
+   "inception": "1690",
+   "dissolved": "1840",
+   "lat": -15.72,
+   "lon": 46.32,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q892061",
+   "label": "Bonai State",
+   "inception": "1200",
+   "dissolved": "1948",
+   "lat": 21.75,
+   "lon": 84.97,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q894030",
+   "label": "Bornu Empire",
+   "inception": "1387",
+   "dissolved": "1893",
+   "lat": 13.047222,
+   "lon": 12.227778,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q155",
+   "label": "Brazil",
+   "inception": "1822",
+   "dissolved": null,
+   "lat": -14.0,
+   "lon": -53.0,
+   "types": [
+    "country",
+    "emirate",
+    "sovereign state"
+   ],
+   "macro": "south_america"
+  },
+  {
+   "qid": "Q921",
+   "label": "Brunei",
+   "inception": "1368",
+   "dissolved": null,
+   "lat": 4.4,
+   "lon": 114.566667,
+   "types": [
+    "country",
+    "sovereign state",
+    "sultanate"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q4997536",
+   "label": "Bundi State",
+   "inception": "1342",
+   "dissolved": "1949",
+   "lat": 25.44,
+   "lon": 75.64,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q892272",
+   "label": "Bundu",
+   "inception": "1650",
+   "dissolved": "1890",
+   "lat": 14.347762,
+   "lon": -12.470621,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q1028095",
+   "label": "Cambay State",
+   "inception": "1730",
+   "dissolved": "1948",
+   "lat": 22.3,
+   "lon": 72.62,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q12172",
+   "label": "Canton of Basel-Stadt",
+   "inception": "1833",
+   "dissolved": null,
+   "lat": 47.566666666,
+   "lon": 7.6,
+   "types": [
+    "colony"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q370736",
+   "label": "Cape Colony",
+   "inception": "1795",
+   "dissolved": "1910",
+   "lat": -33.0,
+   "lon": 18.0,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q3277580",
+   "label": "Carnatic state",
+   "inception": "1692",
+   "dissolved": "1855",
+   "lat": 10.18,
+   "lon": 79.0,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q932370",
+   "label": "Changbhakar",
+   "inception": "1790",
+   "dissolved": "1948",
+   "lat": 23.73333333,
+   "lon": 81.81666667,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q2624304",
+   "label": "Charkhari State",
+   "inception": "1765",
+   "dissolved": "1947",
+   "lat": 25.4,
+   "lon": 79.75,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11927113",
+   "label": "Chaube Jagirs",
+   "inception": "1812",
+   "dissolved": "1948",
+   "lat": 25.0833,
+   "lon": 80.8333,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1071493",
+   "label": "Chhatarpur State",
+   "inception": "1785",
+   "dissolved": "1950",
+   "lat": 24.9157,
+   "lon": 79.5822,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q17986421",
+   "label": "Chhota Udaipur State",
+   "inception": "1743",
+   "dissolved": "1948",
+   "lat": 22.32,
+   "lon": 74.01,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q2963204",
+   "label": "Chhuikhadan State",
+   "inception": "1750",
+   "dissolved": "1950",
+   "lat": 21.53,
+   "lon": 80.98,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q298",
+   "label": "Chile",
+   "inception": "1810",
+   "dissolved": null,
+   "lat": -33.0,
+   "lon": -71.0,
+   "types": [
+    "country",
+    "sovereign state"
+   ],
+   "macro": "south_america"
+  },
+  {
+   "qid": "Q11317232",
+   "label": "Chitral State",
+   "inception": "1571",
+   "dissolved": "1969",
+   "lat": 35.837777777,
+   "lon": 71.783888888,
+   "types": [
+    "princely state"
+   ],
+   "macro": "central_asia"
+  },
+  {
+   "qid": "Q655092",
+   "label": "Cisrhenian Republic",
+   "inception": "1797",
+   "dissolved": null,
+   "lat": 50.936388888,
+   "lon": 6.952777777,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q739",
+   "label": "Colombia",
+   "inception": "1810",
+   "dissolved": null,
+   "lat": 4.0,
+   "lon": -73.25,
+   "types": [
+    "country",
+    "emirate",
+    "republic",
+    "sovereign state"
+   ],
+   "macro": "south_america"
+  },
+  {
+   "qid": "Q2526023",
+   "label": "Colony of Jamaica",
+   "inception": "1655",
+   "dissolved": "1962",
+   "lat": 17.983333333,
+   "lon": -76.8,
+   "types": [
+    "historical country"
+   ],
+   "macro": "central_america"
+  },
+  {
+   "qid": "Q509572",
+   "label": "Cooch Behar",
+   "inception": "1586",
+   "dissolved": "1949",
+   "lat": 26.2,
+   "lon": 89.0,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q825489",
+   "label": "County Pyrmont",
+   "inception": "1194",
+   "dissolved": "1922",
+   "lat": 51.9836,
+   "lon": 9.24836,
+   "types": [
+    "historical country",
+    "principality"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q953432",
+   "label": "Couto Misto",
+   "inception": "1000",
+   "dissolved": "1868",
+   "lat": 41.9015,
+   "lon": -7.8315,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q1720882",
+   "label": "Cutch State",
+   "inception": "1147",
+   "dissolved": "1948",
+   "lat": 23.915,
+   "lon": 70.367,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q17513023",
+   "label": "Danta State",
+   "inception": "1061",
+   "dissolved": "1948",
+   "lat": 24.20305556,
+   "lon": 72.74472222,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q21530380",
+   "label": "Dar Qimr",
+   "inception": "1700",
+   "dissolved": "1918",
+   "lat": 13.0,
+   "lon": 25.0,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q3016348",
+   "label": "Darkoti",
+   "inception": "1100",
+   "dissolved": "1948",
+   "lat": 31.0941021,
+   "lon": 77.5909424,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11916643",
+   "label": "Daspalla",
+   "inception": "1498",
+   "dissolved": "1948",
+   "lat": 20.35,
+   "lon": 84.85,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11916665",
+   "label": "Datarpur",
+   "inception": "1550",
+   "dissolved": "1849",
+   "lat": 31.82,
+   "lon": 75.66,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1172600",
+   "label": "Datia State",
+   "inception": "1626",
+   "dissolved": "1950",
+   "lat": 25.68333333,
+   "lon": 78.46666667,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q761103",
+   "label": "Dendi Kingdom",
+   "inception": "1591",
+   "dissolved": "1901",
+   "lat": 11.9,
+   "lon": 3.5,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q3025563",
+   "label": "Dewas Senior",
+   "inception": "1728",
+   "dissolved": "1948",
+   "lat": 22.9611,
+   "lon": 76.0517,
+   "types": [
+    "principality"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1207105",
+   "label": "Dewas State",
+   "inception": "1728",
+   "dissolved": "1948",
+   "lat": 22.96,
+   "lon": 76.06,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q3025690",
+   "label": "Dhami (state)",
+   "inception": "1815",
+   "dissolved": "1948",
+   "lat": 31.9765793,
+   "lon": 76.0507949,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1207561",
+   "label": "Dhar State",
+   "inception": "1728",
+   "dissolved": "1947",
+   "lat": 22.6,
+   "lon": 75.3,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q5269129",
+   "label": "Dharampur State",
+   "inception": "1262",
+   "dissolved": "1948",
+   "lat": 20.537,
+   "lon": 73.168,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1207641",
+   "label": "Dhenkanal State",
+   "inception": "1529",
+   "dissolved": "1948",
+   "lat": 20.6625,
+   "lon": 85.63777778,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q657861",
+   "label": "Dholpur State",
+   "inception": "1806",
+   "dissolved": "1948",
+   "lat": 26.7,
+   "lon": 77.9,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q18111824",
+   "label": "Dhrol State",
+   "inception": "1595",
+   "dissolved": "1948",
+   "lat": 22.5689,
+   "lon": 70.4125,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11917045",
+   "label": "Dhurwai",
+   "inception": "1690",
+   "dissolved": "1950",
+   "lat": 25.31666667,
+   "lon": 79.05,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q557210",
+   "label": "Duchy of Bielsko",
+   "inception": "1572",
+   "dissolved": null,
+   "lat": 49.8207,
+   "lon": 19.0429,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q1615433",
+   "label": "Duchy of Friedland",
+   "inception": "1627",
+   "dissolved": null,
+   "lat": 50.433333333,
+   "lon": 15.35,
+   "types": [
+    "duchy"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q570702",
+   "label": "Duchy of Nysa",
+   "inception": "1290",
+   "dissolved": "1850",
+   "lat": 50.466666666,
+   "lon": 17.333333333,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q697084",
+   "label": "Duchy of Oldenburg",
+   "inception": "1774",
+   "dissolved": "1918",
+   "lat": 53.143888888,
+   "lon": 8.213888888,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q534894",
+   "label": "Duchy of Oleśnica",
+   "inception": "1313",
+   "dissolved": "1884",
+   "lat": 51.2117,
+   "lon": 17.3902,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q566639",
+   "label": "Duchy of Opava",
+   "inception": "1269",
+   "dissolved": "1918",
+   "lat": 49.933333333,
+   "lon": 17.9,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q26167",
+   "label": "Duchy of Schleswig",
+   "inception": "1058",
+   "dissolved": "1866",
+   "lat": 55.166666666,
+   "lon": 9.25,
+   "types": [
+    "duchy"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q580447",
+   "label": "Duchy of Styria",
+   "inception": "1180",
+   "dissolved": "1918",
+   "lat": 47.066666666,
+   "lon": 15.433333333,
+   "types": [
+    "duchy"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q671899",
+   "label": "Duchy of Teschen",
+   "inception": "1281",
+   "dissolved": "1918",
+   "lat": 49.7498,
+   "lon": 18.6294,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q973433",
+   "label": "Dungarpur State",
+   "inception": "1197",
+   "dissolved": "1947",
+   "lat": 23.83,
+   "lon": 73.72,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q188161",
+   "label": "Dutch East Indies",
+   "inception": "1800",
+   "dissolved": "1949",
+   "lat": -5.0,
+   "lon": 120.0,
+   "types": [
+    "historical country"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q770776",
+   "label": "Dutch Gold Coast",
+   "inception": "1598",
+   "dissolved": "1872",
+   "lat": 5.1121,
+   "lon": -1.2511,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q20395973",
+   "label": "Emirate of Adrar",
+   "inception": "1732",
+   "dissolved": "1909",
+   "lat": 18.54656,
+   "lon": -11.5237,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q2485209",
+   "label": "Emirate of Beihan",
+   "inception": "1680",
+   "dissolved": "1967",
+   "lat": 13.4167,
+   "lon": 45.6667,
+   "types": [
+    "historical country"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q6415938",
+   "label": "Emirate of Dhala",
+   "inception": "1500",
+   "dissolved": "1967",
+   "lat": 13.69666667,
+   "lon": 44.73083333,
+   "types": [
+    "historical country"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q536476",
+   "label": "Empire Peul",
+   "inception": "1836",
+   "dissolved": "1893",
+   "lat": 13.4307,
+   "lon": -6.2663,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q207521",
+   "label": "Ethiopian Empire",
+   "inception": "1270",
+   "dissolved": "1975",
+   "lat": 12.6,
+   "lon": 37.466666666,
+   "types": [
+    "historical country"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q1396700",
+   "label": "Faridkot State",
+   "inception": "1803",
+   "dissolved": "1947",
+   "lat": 31.116666666,
+   "lon": 77.633333333,
+   "types": [
+    "historical country",
+    "princely state",
+    "principality"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q142",
+   "label": "France",
+   "inception": "1792",
+   "dissolved": null,
+   "lat": 47.0,
+   "lon": 2.0,
+   "types": [
+    "country",
+    "republic",
+    "sovereign state"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q115776867",
+   "label": "Free imperial city of Hamburg",
+   "inception": "1189",
+   "dissolved": "1866",
+   "lat": 53.55,
+   "lon": 10.0,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q179023",
+   "label": "French colonial empire",
+   "inception": "1534",
+   "dissolved": "1980",
+   "lat": 48.85,
+   "lon": -2.35,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q3557236",
+   "label": "Gambia Colony and Protectorate",
+   "inception": "1821",
+   "dissolved": "1965",
+   "lat": 13.4531,
+   "lon": -16.5775,
+   "types": [
+    "khanate"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q16838406",
+   "label": "Gangpur State",
+   "inception": "1821",
+   "dissolved": "1948",
+   "lat": 22.12,
+   "lon": 84.03,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1381495",
+   "label": "Garhwal Kingdom",
+   "inception": "1358",
+   "dissolved": "1949",
+   "lat": 30.38,
+   "lon": 78.48,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11923882",
+   "label": "Gaurihar State",
+   "inception": "1807",
+   "dissolved": "1950",
+   "lat": 25.2956,
+   "lon": 80.1747,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q503623",
+   "label": "Gold Coast Colony",
+   "inception": "1821",
+   "dissolved": "1957",
+   "lat": 5.55,
+   "lon": -0.2167,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q16839606",
+   "label": "Gondal State",
+   "inception": "1634",
+   "dissolved": "1949",
+   "lat": 21.97,
+   "lon": 70.8,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q692946",
+   "label": "Gorizia and Gradisca",
+   "inception": "1754",
+   "dissolved": "1919",
+   "lat": 45.9419,
+   "lon": 13.6206,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q41",
+   "label": "Greece",
+   "inception": "1821",
+   "dissolved": null,
+   "lat": 38.5,
+   "lon": 23.0,
+   "types": [
+    "country",
+    "sovereign state"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q153136",
+   "label": "Habsburg monarchy",
+   "inception": "1526",
+   "dissolved": "1918",
+   "lat": 48.2,
+   "lon": 16.36666667,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q790",
+   "label": "Haiti",
+   "inception": "1804",
+   "dissolved": null,
+   "lat": 19.0,
+   "lon": -72.8,
+   "types": [
+    "country",
+    "sovereign state"
+   ],
+   "macro": "central_america"
+  },
+  {
+   "qid": "Q17297442",
+   "label": "Hasht-Bhaiya",
+   "inception": "1690",
+   "dissolved": "1948",
+   "lat": 25.5,
+   "lon": 79.0,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11925661",
+   "label": "Hindol State",
+   "inception": "1554",
+   "dissolved": "1948",
+   "lat": 20.36,
+   "lon": 85.2,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11950515",
+   "label": "Hiraab Imamate",
+   "inception": "1700",
+   "dissolved": "1900",
+   "lat": 2.0392,
+   "lon": 45.3419,
+   "types": [
+    "sultanate"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q28",
+   "label": "Hungary",
+   "inception": "1000",
+   "dissolved": null,
+   "lat": 47.0,
+   "lon": 19.0,
+   "types": [
+    "country",
+    "sovereign state"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q14957246",
+   "label": "Hunza State",
+   "inception": "1600",
+   "dissolved": "1974",
+   "lat": 36.333,
+   "lon": 74.666,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "central_asia"
+  },
+  {
+   "qid": "Q649310",
+   "label": "Idar State",
+   "inception": "1257",
+   "dissolved": "1948",
+   "lat": 23.83,
+   "lon": 73.0,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q16849282",
+   "label": "Jafarabad State",
+   "inception": "1650",
+   "dissolved": "1948",
+   "lat": 20.8667,
+   "lon": 71.3667,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q6124144",
+   "label": "Jaipur State",
+   "inception": "1128",
+   "dissolved": "1949",
+   "lat": 26.985,
+   "lon": 75.85,
+   "types": [
+    "historical country"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1678787",
+   "label": "Jaitpur State",
+   "inception": "1731",
+   "dissolved": "1849",
+   "lat": 25.25972222,
+   "lon": 79.60694444,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q18126183",
+   "label": "Jalaun State",
+   "inception": "1806",
+   "dissolved": "1840",
+   "lat": 26.15,
+   "lon": 79.35,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1679856",
+   "label": "Jambi Sultanate",
+   "inception": "1615",
+   "dissolved": "1904",
+   "lat": -1.59,
+   "lon": 103.61,
+   "types": [
+    "sultanate"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q11927151",
+   "label": "Jambughoda State",
+   "inception": "1400",
+   "dissolved": "1948",
+   "lat": 22.3667,
+   "lon": 73.7167,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1681450",
+   "label": "Jamkhandi State",
+   "inception": "1811",
+   "dissolved": "1948",
+   "lat": 16.5167,
+   "lon": 75.3,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q18126222",
+   "label": "Janjira State",
+   "inception": "1489",
+   "dissolved": "1948",
+   "lat": 18.3,
+   "lon": 73.0,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1683106",
+   "label": "Jaora State",
+   "inception": "1817",
+   "dissolved": "1948",
+   "lat": 23.63,
+   "lon": 75.13,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1683756",
+   "label": "Jasdan State",
+   "inception": "1665",
+   "dissolved": "1948",
+   "lat": 22.03,
+   "lon": 71.2,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1683780",
+   "label": "Jashpur State",
+   "inception": "1800",
+   "dissolved": "1948",
+   "lat": 22.9,
+   "lon": 84.15,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11927206",
+   "label": "Jaso State",
+   "inception": "1732",
+   "dissolved": "1948",
+   "lat": 24.5,
+   "lon": 80.5,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q6164350",
+   "label": "Jaswan",
+   "inception": "1170",
+   "dissolved": "1849",
+   "lat": 30.484,
+   "lon": 76.594,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q933413",
+   "label": "Jath State",
+   "inception": "1642",
+   "dissolved": "1948",
+   "lat": 17.05,
+   "lon": 75.26666667,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11927430",
+   "label": "Jawhar State",
+   "inception": "1343",
+   "dissolved": "1947",
+   "lat": 19.93333333,
+   "lon": 73.26666667,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1688822",
+   "label": "Jhabua State",
+   "inception": "1584",
+   "dissolved": "1948",
+   "lat": 22.77,
+   "lon": 74.6,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11927544",
+   "label": "Jhansi State",
+   "inception": "1804",
+   "dissolved": "1853",
+   "lat": 25.458055555,
+   "lon": 78.575555555,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11927549",
+   "label": "Jigni State",
+   "inception": "1730",
+   "dissolved": "1950",
+   "lat": 25.75,
+   "lon": 79.41666667,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1252744",
+   "label": "Jind State",
+   "inception": "1763",
+   "dissolved": "1948",
+   "lat": 31.1167,
+   "lon": 77.6333,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q6206774",
+   "label": "Jobat State",
+   "inception": "1500",
+   "dissolved": "1948",
+   "lat": 22.42,
+   "lon": 74.57,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1150344",
+   "label": "Johor Sultanate",
+   "inception": "1528",
+   "dissolved": "1946",
+   "lat": 1.479444444,
+   "lon": 103.726388888,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q14491604",
+   "label": "Junagadh State",
+   "inception": "1748",
+   "dissolved": "1948",
+   "lat": 21.52,
+   "lon": 70.47,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1535236",
+   "label": "Kalahandi State",
+   "inception": "1005",
+   "dissolved": "1948",
+   "lat": 20.083,
+   "lon": 83.2,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q932359",
+   "label": "Kalsia State",
+   "inception": "1760",
+   "dissolved": "1948",
+   "lat": 30.25,
+   "lon": 77.37,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11929623",
+   "label": "Kamta-Rajaula",
+   "inception": "1812",
+   "dissolved": "1948",
+   "lat": 25.18333333,
+   "lon": 80.85,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q3192661",
+   "label": "Kangra-Lambagraon",
+   "inception": "1400",
+   "dissolved": "1948",
+   "lat": 32.1,
+   "lon": 76.2667,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11929645",
+   "label": "Kapshi Estate",
+   "inception": "1750",
+   "dissolved": "1956",
+   "lat": 16.334167,
+   "lon": 74.286111,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1728782",
+   "label": "Kapurthala State",
+   "inception": "1772",
+   "dissolved": "1947",
+   "lat": 31.3833,
+   "lon": 75.3833,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q6368814",
+   "label": "Karauli State",
+   "inception": "1348",
+   "dissolved": "1948",
+   "lat": 26.3,
+   "lon": 77.23,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q18126687",
+   "label": "Kawardha State",
+   "inception": "1751",
+   "dissolved": "1948",
+   "lat": 22.02,
+   "lon": 81.25,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q6389173",
+   "label": "Kengcheng",
+   "inception": "1800",
+   "dissolved": "1896",
+   "lat": 21.35,
+   "lon": 100.867,
+   "types": [
+    "historical country"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q19792051",
+   "label": "Keonjhar State",
+   "inception": "1200",
+   "dissolved": "1948",
+   "lat": 21.63333333,
+   "lon": 81.6,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q3195357",
+   "label": "Keonthal State",
+   "inception": "1800",
+   "dissolved": "1948",
+   "lat": 31.0333,
+   "lon": 77.3,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11929746",
+   "label": "Khairagarh State",
+   "inception": "1833",
+   "dissolved": "1948",
+   "lat": 21.42,
+   "lon": 80.97,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q3249587",
+   "label": "Khairpur State",
+   "inception": "1775",
+   "dissolved": "1955",
+   "lat": 27.31666667,
+   "lon": 68.46666667,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11929762",
+   "label": "Khandpara State",
+   "inception": "1599",
+   "dissolved": "1948",
+   "lat": 20.26388889,
+   "lon": 85.21416667,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q16852121",
+   "label": "Khaniadhana State",
+   "inception": "1724",
+   "dissolved": "1948",
+   "lat": 25.025,
+   "lon": 78.1917,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q18126780",
+   "label": "Kharsawan State",
+   "inception": "1650",
+   "dissolved": "1948",
+   "lat": 22.8,
+   "lon": 85.83,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q6401617",
+   "label": "Khilchipur State",
+   "inception": "1544",
+   "dissolved": "1948",
+   "lat": 24.03,
+   "lon": 76.57,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1629505",
+   "label": "Kingdom of Bamum",
+   "inception": "1394",
+   "dissolved": null,
+   "lat": 5.716667,
+   "lon": 10.916667,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q3446243",
+   "label": "Kingdom of Beni Abbas",
+   "inception": "1510",
+   "dissolved": "1872",
+   "lat": 36.2332,
+   "lon": 4.5813,
+   "types": [
+    "historical country"
+   ],
+   "macro": "north_africa"
+  },
+  {
+   "qid": "Q42585",
+   "label": "Kingdom of Bohemia",
+   "inception": "1198",
+   "dissolved": "1918",
+   "lat": 50.0875,
+   "lon": 14.421388888,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q1192936",
+   "label": "Kingdom of Burundi",
+   "inception": "1680",
+   "dissolved": "1966",
+   "lat": -3.666667,
+   "lon": 29.816667,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q17025489",
+   "label": "Kingdom of Chakla",
+   "inception": "1390",
+   "dissolved": "1900",
+   "lat": 29.999,
+   "lon": 101.957,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "east_asia"
+  },
+  {
+   "qid": "Q4202331",
+   "label": "Kingdom of Chiangmai",
+   "inception": "1802",
+   "dissolved": "1884",
+   "lat": 18.7889,
+   "lon": 98.9833,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q150056",
+   "label": "Kingdom of Cochin",
+   "inception": "1500",
+   "dissolved": "1949",
+   "lat": 9.952777777,
+   "lon": 76.338611111,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q2396442",
+   "label": "Kingdom of Galicia and Lodomeria",
+   "inception": "1772",
+   "dissolved": "1918",
+   "lat": 49.841888888,
+   "lon": 24.0315,
+   "types": [
+    "historical country",
+    "kingdom"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q1623936",
+   "label": "Kingdom of Garo",
+   "inception": "1567",
+   "dissolved": "1883",
+   "lat": 7.5,
+   "lon": 37.16666667,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q500965",
+   "label": "Kingdom of Gera",
+   "inception": "1835",
+   "dissolved": "1887",
+   "lat": 7.666667,
+   "lon": 36.25,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q1778868",
+   "label": "Kingdom of Gumma",
+   "inception": "1701",
+   "dissolved": "1899",
+   "lat": 8.216038,
+   "lon": 36.62805,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q171150",
+   "label": "Kingdom of Hungary",
+   "inception": "1000",
+   "dissolved": "1946",
+   "lat": 47.0,
+   "lon": 19.0,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q1117051",
+   "label": "Kingdom of Illyria",
+   "inception": "1816",
+   "dissolved": "1849",
+   "lat": 46.05,
+   "lon": 14.5,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q1678784",
+   "label": "Kingdom of Jaisalmer",
+   "inception": "1156",
+   "dissolved": "1947",
+   "lat": 26.92,
+   "lon": 70.9,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q16829581",
+   "label": "Kingdom of Jhalavad",
+   "inception": "1742",
+   "dissolved": "1948",
+   "lat": 22.98,
+   "lon": 71.47,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1759078",
+   "label": "Kingdom of Jimma",
+   "inception": "1790",
+   "dissolved": "1932",
+   "lat": 7.666667,
+   "lon": 36.833333,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q1462877",
+   "label": "Kingdom of Kaffa",
+   "inception": "1390",
+   "dissolved": "1897",
+   "lat": 7.27,
+   "lon": 36.24,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q48723590",
+   "label": "Kingdom of Limmu-Ennarea",
+   "inception": "1801",
+   "dissolved": "1891",
+   "lat": 8.2,
+   "lon": 36.933333,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q209857",
+   "label": "Kingdom of Lombardy–Venetia",
+   "inception": "1815",
+   "dissolved": "1866",
+   "lat": 45.466944444,
+   "lon": 9.19,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q6207845",
+   "label": "Kingdom of Marwar",
+   "inception": "1250",
+   "dissolved": "1949",
+   "lat": 26.4667,
+   "lon": 73.0333,
+   "types": [
+    "historical country"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q17319155",
+   "label": "Kingdom of Mewar",
+   "inception": "1666",
+   "dissolved": "1949",
+   "lat": 24.58,
+   "lon": 73.68,
+   "types": [
+    "historical country"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q266923",
+   "label": "Kingdom of Mysore",
+   "inception": "1399",
+   "dissolved": "1950",
+   "lat": 12.3,
+   "lon": 76.65,
+   "types": [
+    "historical country",
+    "kingdom",
+    "princely state",
+    "vassal state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q200262",
+   "label": "Kingdom of Navarre",
+   "inception": "1162",
+   "dissolved": "1841",
+   "lat": 42.816944444,
+   "lon": -1.642777777,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q145749",
+   "label": "Kingdom of Nri",
+   "inception": "1000",
+   "dissolved": "1911",
+   "lat": 6.15277778,
+   "lon": 7.03055556,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q3399982",
+   "label": "Kingdom of Spain",
+   "inception": "1700",
+   "dissolved": "1873",
+   "lat": 40.2,
+   "lon": -3.5,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q18524206",
+   "label": "Kingdom of Tallo",
+   "inception": "1500",
+   "dissolved": "1856",
+   "lat": -5.1214,
+   "lon": 119.4372,
+   "types": [
+    "historical country"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q1461024",
+   "label": "Kingdom of Yamma",
+   "inception": "1500",
+   "dissolved": "1894",
+   "lat": 7.85,
+   "lon": 37.516667,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q1796196",
+   "label": "Kingdom of the Algarve",
+   "inception": "1242",
+   "dissolved": "1910",
+   "lat": 37.183333,
+   "lon": -8.433333,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "north_africa"
+  },
+  {
+   "qid": "Q29999",
+   "label": "Kingdom of the Netherlands",
+   "inception": "1815",
+   "dissolved": null,
+   "lat": 52.366666666,
+   "lon": 4.883333333,
+   "types": [
+    "country",
+    "kingdom",
+    "realm",
+    "sovereign state"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q6416549",
+   "label": "Kishangarh State",
+   "inception": "1611",
+   "dissolved": "1947",
+   "lat": 26.57,
+   "lon": 74.87,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q657946",
+   "label": "Kolhapur State",
+   "inception": "1707",
+   "dissolved": "1949",
+   "lat": 16.683333333,
+   "lon": 74.233333333,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q6430555",
+   "label": "Kooki",
+   "inception": "1740",
+   "dissolved": "1896",
+   "lat": -0.716666666,
+   "lon": 31.4,
+   "types": [
+    "kingdom"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q1784316",
+   "label": "Koriya",
+   "inception": "1600",
+   "dissolved": "1948",
+   "lat": 23.7333,
+   "lon": 81.8167,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1785349",
+   "label": "Kota State",
+   "inception": "1613",
+   "dissolved": "1949",
+   "lat": 25.18,
+   "lon": 75.83,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q23136942",
+   "label": "Kothi State",
+   "inception": "1800",
+   "dissolved": "1950",
+   "lat": 24.76666667,
+   "lon": 80.76666667,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q7884947",
+   "label": "Kuroishi Domain",
+   "inception": "1809",
+   "dissolved": null,
+   "lat": 40.606944444,
+   "lon": 140.464444444,
+   "types": [
+    "principality"
+   ],
+   "macro": "east_asia"
+  },
+  {
+   "qid": "Q18127026",
+   "label": "Kurundvad Junior",
+   "inception": "1733",
+   "dissolved": "1948",
+   "lat": 16.6833,
+   "lon": 74.6333,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q18127028",
+   "label": "Kurundvad Senior",
+   "inception": "1733",
+   "dissolved": "1948",
+   "lat": 16.6833,
+   "lon": 74.6333,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q6447564",
+   "label": "Kurwai State",
+   "inception": "1707",
+   "dissolved": "1948",
+   "lat": 24.1172,
+   "lon": 78.0383,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q3200690",
+   "label": "Kuthar",
+   "inception": "1700",
+   "dissolved": "1900",
+   "lat": 30.973042,
+   "lon": 76.96764,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q15824804",
+   "label": "Kénédougou Kingdom",
+   "inception": "1650",
+   "dissolved": "1898",
+   "lat": 10.783333,
+   "lon": -6.916667,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q11931118",
+   "label": "Lakhtar State",
+   "inception": "1604",
+   "dissolved": "1947",
+   "lat": 22.85,
+   "lon": 71.83333333,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q686971",
+   "label": "Lands of the Bohemian Crown",
+   "inception": "1348",
+   "dissolved": "1918",
+   "lat": 50.08333333,
+   "lon": 14.41666667,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q3233989",
+   "label": "Lanfang Republic",
+   "inception": "1777",
+   "dissolved": "1884",
+   "lat": 0.348043,
+   "lon": 109.339994,
+   "types": [
+    "historical country"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q1806438",
+   "label": "Las Bela State",
+   "inception": "1742",
+   "dissolved": "1955",
+   "lat": 26.2,
+   "lon": 66.333333,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q6503547",
+   "label": "Lawa Thikana",
+   "inception": "1772",
+   "dissolved": "1947",
+   "lat": 26.36666667,
+   "lon": 75.55,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1014",
+   "label": "Liberia",
+   "inception": "1822",
+   "dissolved": null,
+   "lat": 6.533333,
+   "lon": -9.75,
+   "types": [
+    "country",
+    "sovereign state"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q3241025",
+   "label": "Limbdi State",
+   "inception": "1500",
+   "dissolved": "1947",
+   "lat": 22.56666667,
+   "lon": 71.88333333,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q3258086",
+   "label": "Loharu State",
+   "inception": "1806",
+   "dissolved": "1947",
+   "lat": 28.45,
+   "lon": 75.82,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q18127558",
+   "label": "Lunavada State",
+   "inception": "1434",
+   "dissolved": "1948",
+   "lat": 23.1333,
+   "lon": 73.65,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q14773",
+   "label": "Macau",
+   "inception": "1557",
+   "dissolved": null,
+   "lat": 22.19,
+   "lon": 113.538055555,
+   "types": [
+    "colony"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q6734208",
+   "label": "Mahlog State",
+   "inception": "1768",
+   "dissolved": "1948",
+   "lat": 31.1833,
+   "lon": 76.5667,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1885093",
+   "label": "Mahra Sultanate",
+   "inception": "1432",
+   "dissolved": "1967",
+   "lat": 15.8,
+   "lon": 51.7333,
+   "types": [
+    "historical country"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q999297",
+   "label": "Maihar State",
+   "inception": "1778",
+   "dissolved": "1948",
+   "lat": 24.0,
+   "lon": 80.75,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q18127719",
+   "label": "Makrai State",
+   "inception": "1663",
+   "dissolved": "1948",
+   "lat": 22.0667,
+   "lon": 77.1167,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11934705",
+   "label": "Malerkotla State",
+   "inception": "1657",
+   "dissolved": "1948",
+   "lat": 30.5333,
+   "lon": 75.9833,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q17618911",
+   "label": "Malpur State",
+   "inception": "1466",
+   "dissolved": "1943",
+   "lat": 23.3556,
+   "lon": 73.475,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q6747689",
+   "label": "Manda (zamindari)",
+   "inception": "1542",
+   "dissolved": "1947",
+   "lat": 25.45,
+   "lon": 81.85,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q6748050",
+   "label": "Mandi State",
+   "inception": "1290",
+   "dissolved": "1948",
+   "lat": 31.70694444,
+   "lon": 76.93166667,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q889030",
+   "label": "Manipur State",
+   "inception": "1110",
+   "dissolved": "1949",
+   "lat": 24.8167,
+   "lon": 93.95,
+   "types": [
+    "princely state"
+   ],
+   "macro": "east_asia"
+  },
+  {
+   "qid": "Q25272716",
+   "label": "Maore sultanate",
+   "inception": "1500",
+   "dissolved": "1841",
+   "lat": -12.7875,
+   "lon": 45.1028,
+   "types": [
+    "sultanate",
+    "vassal state"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q2670751",
+   "label": "Margraviate of Moravia",
+   "inception": "1182",
+   "dissolved": "1918",
+   "lat": 50.0,
+   "lon": 17.0,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q18127928",
+   "label": "Mayurbhanj State",
+   "inception": "1790",
+   "dissolved": "1949",
+   "lat": 21.94,
+   "lon": 86.72,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q835005",
+   "label": "Mecklenburg-Stargard",
+   "inception": "1352",
+   "dissolved": "1918",
+   "lat": 53.483333333,
+   "lon": 13.3,
+   "types": [
+    "duchy"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q96",
+   "label": "Mexico",
+   "inception": "1810",
+   "dissolved": null,
+   "lat": 23.0,
+   "lon": -102.0,
+   "types": [
+    "country",
+    "sovereign state"
+   ],
+   "macro": "north_america"
+  },
+  {
+   "qid": "Q3315863",
+   "label": "Miraj Junior",
+   "inception": "1820",
+   "dissolved": "1948",
+   "lat": 16.818672222,
+   "lon": 74.641405555,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q932487",
+   "label": "Miraj Senior",
+   "inception": "1820",
+   "dissolved": "1948",
+   "lat": 16.83333333,
+   "lon": 74.63333333,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11937172",
+   "label": "Mohanpur State",
+   "inception": "1227",
+   "dissolved": "1948",
+   "lat": 23.45,
+   "lon": 73.06666667,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q675065",
+   "label": "Mongkung State",
+   "inception": "1835",
+   "dissolved": "1959",
+   "lat": 21.6,
+   "lon": 97.5167,
+   "types": [
+    "historical country"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q540003",
+   "label": "Mongmit State",
+   "inception": "1238",
+   "dissolved": "1959",
+   "lat": 23.1167,
+   "lon": 96.6833,
+   "types": [
+    "historical country"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q922317",
+   "label": "Morvi State",
+   "inception": "1698",
+   "dissolved": "1948",
+   "lat": 22.82,
+   "lon": 70.83,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q6037274",
+   "label": "Mosquitia",
+   "inception": "1687",
+   "dissolved": "1894",
+   "lat": 12.013125,
+   "lon": -83.764911111,
+   "types": [
+    "historical country"
+   ],
+   "macro": "central_america"
+  },
+  {
+   "qid": "Q1951726",
+   "label": "Mudhol State",
+   "inception": "1465",
+   "dissolved": "1948",
+   "lat": 16.33055556,
+   "lon": 75.32222222,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q3675486",
+   "label": "Mukriyan",
+   "inception": "1500",
+   "dissolved": "1900",
+   "lat": 36.76305556,
+   "lon": 45.72222222,
+   "types": [
+    "historical country"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q11937876",
+   "label": "Muli State",
+   "inception": "1470",
+   "dissolved": "1953",
+   "lat": 22.63333333,
+   "lon": 71.5,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q929357",
+   "label": "Nabha State",
+   "inception": "1763",
+   "dissolved": "1947",
+   "lat": 30.37,
+   "lon": 76.15,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q372426",
+   "label": "Nagar State",
+   "inception": "1400",
+   "dissolved": "1974",
+   "lat": 35.4,
+   "lon": 73.8,
+   "types": [
+    "princely state"
+   ],
+   "macro": "central_asia"
+  },
+  {
+   "qid": "Q1963593",
+   "label": "Nagod State",
+   "inception": "1344",
+   "dissolved": "1950",
+   "lat": 24.57,
+   "lon": 80.6,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1682371",
+   "label": "Nalagarh",
+   "inception": "1100",
+   "dissolved": "1948",
+   "lat": 31.05,
+   "lon": 76.72,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1964552",
+   "label": "Nandgaon State",
+   "inception": "1833",
+   "dissolved": "1948",
+   "lat": 21.1,
+   "lon": 81.03,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q976913",
+   "label": "Narsinghgarh State",
+   "inception": "1681",
+   "dissolved": "1948",
+   "lat": 23.99,
+   "lon": 79.39,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q19669126",
+   "label": "Narsinghpur State",
+   "inception": "1292",
+   "dissolved": "1948",
+   "lat": 20.466666666,
+   "lon": 85.116666666,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1545942",
+   "label": "Nawanagar State",
+   "inception": "1540",
+   "dissolved": "1948",
+   "lat": 22.47,
+   "lon": 70.07,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q10797411",
+   "label": "Nayagarh State",
+   "inception": "1500",
+   "dissolved": "1948",
+   "lat": 20.1333,
+   "lon": 85.1,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q55",
+   "label": "Netherlands",
+   "inception": "1795",
+   "dissolved": null,
+   "lat": 52.316666666,
+   "lon": 5.55,
+   "types": [
+    "country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q7037080",
+   "label": "Nilgiri State",
+   "inception": "1125",
+   "dissolved": "1949",
+   "lat": 23.46,
+   "lon": 86.77,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q654766",
+   "label": "North Peru",
+   "inception": "1836",
+   "dissolved": "1839",
+   "lat": -12.046057,
+   "lon": -77.030534,
+   "types": [
+    "historical country"
+   ],
+   "macro": "south_america"
+  },
+  {
+   "qid": "Q668415",
+   "label": "Orchha State",
+   "inception": "1501",
+   "dissolved": "1950",
+   "lat": 25.35,
+   "lon": 78.64,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q8842946",
+   "label": "Oriental State of Uruguay",
+   "inception": "1830",
+   "dissolved": "1917",
+   "lat": -33.0,
+   "lon": -56.0,
+   "types": [
+    "historical country"
+   ],
+   "macro": "south_america"
+  },
+  {
+   "qid": "Q11939770",
+   "label": "Pahra",
+   "inception": "1812",
+   "dissolved": "1948",
+   "lat": 25.1,
+   "lon": 80.8,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q7126114",
+   "label": "Pal Lahara State",
+   "inception": "1100",
+   "dissolved": "1947",
+   "lat": 21.45,
+   "lon": 85.1833,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1237976",
+   "label": "Palanpur Agency",
+   "inception": "1819",
+   "dissolved": "1933",
+   "lat": 24.169308,
+   "lon": 72.436981,
+   "types": [
+    "historical country"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q7126720",
+   "label": "Palanpur State",
+   "inception": "1370",
+   "dissolved": "1948",
+   "lat": 24.17,
+   "lon": 72.43,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q7127047",
+   "label": "Paldeo State",
+   "inception": "1812",
+   "dissolved": "1948",
+   "lat": 25.1,
+   "lon": 80.83333333,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q7127625",
+   "label": "Palitana State",
+   "inception": "1194",
+   "dissolved": "1948",
+   "lat": 21.516666666,
+   "lon": 71.833333333,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1588594",
+   "label": "Panna State",
+   "inception": "1731",
+   "dissolved": "1950",
+   "lat": 24.27,
+   "lon": 80.17,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q584435",
+   "label": "Patani Kingdom",
+   "inception": "1516",
+   "dissolved": "1902",
+   "lat": 6.5,
+   "lon": 101.033333333,
+   "types": [
+    "historical country"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q17991935",
+   "label": "Pataudi",
+   "inception": "1804",
+   "dissolved": "1947",
+   "lat": 28.32,
+   "lon": 76.78,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q542168",
+   "label": "Pate Island",
+   "inception": "1300",
+   "dissolved": "1895",
+   "lat": -2.1,
+   "lon": 41.05,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q3428760",
+   "label": "Pathari state",
+   "inception": "1794",
+   "dissolved": "1948",
+   "lat": 23.93333333,
+   "lon": 78.2,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q917553",
+   "label": "Patiala State",
+   "inception": "1761",
+   "dissolved": "1947",
+   "lat": 31.1167,
+   "lon": 77.6333,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q2056970",
+   "label": "Patna State",
+   "inception": "1191",
+   "dissolved": "1948",
+   "lat": 20.72,
+   "lon": 83.48,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q19605411",
+   "label": "Pethapur State",
+   "inception": "1300",
+   "dissolved": "1940",
+   "lat": 23.216666666,
+   "lon": 72.55,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q7180358",
+   "label": "Phaltan State",
+   "inception": "1284",
+   "dissolved": "1948",
+   "lat": 17.99444444,
+   "lon": 78.68888889,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q7197455",
+   "label": "Piploda State",
+   "inception": "1547",
+   "dissolved": "1948",
+   "lat": 23.6,
+   "lon": 74.95,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q14552167",
+   "label": "Porbandar State",
+   "inception": "1193",
+   "dissolved": "1948",
+   "lat": 21.63,
+   "lon": 69.6,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q45",
+   "label": "Portugal",
+   "inception": "1128",
+   "dissolved": null,
+   "lat": 38.7,
+   "lon": -9.183333333,
+   "types": [
+    "country",
+    "sovereign state"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q200464",
+   "label": "Portuguese Empire",
+   "inception": "1415",
+   "dissolved": "1999",
+   "lat": 38.71666667,
+   "lon": -9.13333333,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q175934",
+   "label": "Pratapgarh State",
+   "inception": "1775",
+   "dissolved": "1949",
+   "lat": 24.05,
+   "lon": 74.8,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q2919545",
+   "label": "Principality of Svaneti",
+   "inception": "1463",
+   "dissolved": "1859",
+   "lat": 42.916388888,
+   "lon": 43.011388888,
+   "types": [
+    "historical country"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q389004",
+   "label": "Principality of Wallachia",
+   "inception": "1330",
+   "dissolved": "1859",
+   "lat": 44.416666666,
+   "lon": 26.1,
+   "types": [
+    "historical country",
+    "principality"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q3535371",
+   "label": "Pudukkottai State",
+   "inception": "1680",
+   "dissolved": "1948",
+   "lat": 10.3833,
+   "lon": 78.7833,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q18164260",
+   "label": "Radhanpur State",
+   "inception": "1787",
+   "dissolved": "1948",
+   "lat": 23.8333,
+   "lon": 71.6,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11944481",
+   "label": "Raghogarh State",
+   "inception": "1673",
+   "dissolved": "1947",
+   "lat": 24.43333333,
+   "lon": 77.25,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q140366816",
+   "label": "Rahua estate",
+   "inception": "1600",
+   "dissolved": "1947",
+   "lat": 27.532282,
+   "lon": 81.496705,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q2128542",
+   "label": "Rairakhol State",
+   "inception": "1200",
+   "dissolved": "1948",
+   "lat": 21.75,
+   "lon": 84.97,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q2128715",
+   "label": "Rajgarh State",
+   "inception": "1681",
+   "dissolved": "1948",
+   "lat": 24.0333,
+   "lon": 76.8833,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q2128743",
+   "label": "Rajkot State",
+   "inception": "1620",
+   "dissolved": "1948",
+   "lat": 22.3,
+   "lon": 70.7833,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q28179897",
+   "label": "Rajpara State",
+   "inception": "1811",
+   "dissolved": "1949",
+   "lat": 22.3621,
+   "lon": 69.1092,
+   "types": [
+    "princely state",
+    "principality"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q918204",
+   "label": "Rajpipla State",
+   "inception": "1340",
+   "dissolved": "1948",
+   "lat": 21.78,
+   "lon": 73.57,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1776972",
+   "label": "Ramdurg State",
+   "inception": "1742",
+   "dissolved": "1948",
+   "lat": 15.95,
+   "lon": 75.3,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q3454186",
+   "label": "Rampur State",
+   "inception": "1719",
+   "dissolved": "1949",
+   "lat": 28.8,
+   "lon": 79.0,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11944704",
+   "label": "Ranasan State",
+   "inception": "1700",
+   "dissolved": "1943",
+   "lat": 23.35,
+   "lon": 72.95,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q17399594",
+   "label": "Ranpur State",
+   "inception": "1700",
+   "dissolved": "1948",
+   "lat": 19.9,
+   "lon": 85.4167,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1604981",
+   "label": "Ratlam State",
+   "inception": "1652",
+   "dissolved": "1948",
+   "lat": 23.32,
+   "lon": 75.07,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1269910",
+   "label": "Republic of Madawaska",
+   "inception": "1827",
+   "dissolved": "1842",
+   "lat": 47.51,
+   "lon": -68.208,
+   "types": [
+    "historical country"
+   ],
+   "macro": "north_america"
+  },
+  {
+   "qid": "Q176466",
+   "label": "Rewa State",
+   "inception": "1755",
+   "dissolved": "1947",
+   "lat": 24.53,
+   "lon": 81.3,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q3503553",
+   "label": "Riau-Lingga Sultanate",
+   "inception": "1819",
+   "dissolved": "1911",
+   "lat": 0.981666,
+   "lon": 104.553183,
+   "types": [
+    "sultanate"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q218",
+   "label": "Romania",
+   "inception": "1330",
+   "dissolved": null,
+   "lat": 46.0,
+   "lon": 25.0,
+   "types": [
+    "country",
+    "sovereign state"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q159",
+   "label": "Russia",
+   "inception": "1263",
+   "dissolved": null,
+   "lat": 66.416666666,
+   "lon": 94.25,
+   "types": [
+    "country",
+    "emirate",
+    "sovereign state"
+   ],
+   "macro": "east_asia"
+  },
+  {
+   "qid": "Q1476723",
+   "label": "Sachin State",
+   "inception": "1791",
+   "dissolved": "1948",
+   "lat": 21.08,
+   "lon": 72.88,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1400780",
+   "label": "Sailana State",
+   "inception": "1736",
+   "dissolved": "1948",
+   "lat": 23.47,
+   "lon": 74.92,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q7403120",
+   "label": "Sakti State",
+   "inception": "1800",
+   "dissolved": "1948",
+   "lat": 22.03,
+   "lon": 82.97,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1471373",
+   "label": "Saloum",
+   "inception": "1494",
+   "dissolved": "1969",
+   "lat": 14.161389,
+   "lon": -16.030833,
+   "types": [
+    "historical country",
+    "khanate",
+    "kingdom"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q17315177",
+   "label": "Sambalpur District",
+   "inception": "1493",
+   "dissolved": "1848",
+   "lat": 21.47,
+   "lon": 83.97,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1261743",
+   "label": "Samthar State",
+   "inception": "1760",
+   "dissolved": "1950",
+   "lat": 25.85,
+   "lon": 78.9167,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q532048",
+   "label": "Sandur State",
+   "inception": "1713",
+   "dissolved": "1949",
+   "lat": 15.1,
+   "lon": 76.55,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q2221701",
+   "label": "Sangli State",
+   "inception": "1801",
+   "dissolved": "1948",
+   "lat": 16.867,
+   "lon": 74.567,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q17198610",
+   "label": "Sant State",
+   "inception": "1255",
+   "dissolved": "1948",
+   "lat": 23.1895,
+   "lon": 73.8928,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q7422962",
+   "label": "Saraikela State",
+   "inception": "1620",
+   "dissolved": "1948",
+   "lat": 22.69777778,
+   "lon": 85.97444444,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q7423761",
+   "label": "Sardargarh Bantva",
+   "inception": "1760",
+   "dissolved": "1947",
+   "lat": 25.2333,
+   "lon": 74.0,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q2225895",
+   "label": "Satara state",
+   "inception": "1818",
+   "dissolved": "1849",
+   "lat": 17.688423,
+   "lon": 73.99288,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q851",
+   "label": "Saudi Arabia",
+   "inception": "1727",
+   "dissolved": null,
+   "lat": 23.716667,
+   "lon": 44.116667,
+   "types": [
+    "country",
+    "kingdom",
+    "sovereign state"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q1607154",
+   "label": "Savanur State",
+   "inception": "1680",
+   "dissolved": "1948",
+   "lat": 14.967,
+   "lon": 75.35,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q18164343",
+   "label": "Sawantwadi State",
+   "inception": "1627",
+   "dissolved": "1948",
+   "lat": 16.0,
+   "lon": 73.75,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q2276431",
+   "label": "Shahpura State",
+   "inception": "1629",
+   "dissolved": "1949",
+   "lat": 25.63,
+   "lon": 74.93,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q21076366",
+   "label": "Shahrisabz beylik",
+   "inception": "1811",
+   "dissolved": "1870",
+   "lat": 39.15,
+   "lon": 66.833333333,
+   "types": [
+    "duchy",
+    "principality"
+   ],
+   "macro": "central_asia"
+  },
+  {
+   "qid": "Q2043564",
+   "label": "Shamkhalate of Tarki",
+   "inception": "1200",
+   "dissolved": "1867",
+   "lat": 42.947222,
+   "lon": 47.498611,
+   "types": [
+    "historical country"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q1081620",
+   "label": "Siam",
+   "inception": "1350",
+   "dissolved": "1939",
+   "lat": 13.75,
+   "lon": 100.516666666,
+   "types": [
+    "historical country"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q11949691",
+   "label": "Siba State",
+   "inception": "1450",
+   "dissolved": "1849",
+   "lat": 31.9199,
+   "lon": 76.1175,
+   "types": [
+    "princely state",
+    "principality"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q30059027",
+   "label": "Sierra Leone Colony and Protectorate",
+   "inception": "1808",
+   "dissolved": "1961",
+   "lat": 8.5,
+   "lon": -11.5,
+   "types": [
+    "khanate"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q1541353",
+   "label": "Sirmoor State",
+   "inception": "1616",
+   "dissolved": "1948",
+   "lat": 30.55,
+   "lon": 77.3,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q7530545",
+   "label": "Sirohi State",
+   "inception": "1405",
+   "dissolved": "1949",
+   "lat": 24.88333333,
+   "lon": 72.86666667,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q2290502",
+   "label": "Sitamau State",
+   "inception": "1701",
+   "dissolved": "1948",
+   "lat": 20.02,
+   "lon": 75.35,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q3488924",
+   "label": "Sohawal State",
+   "inception": "1550",
+   "dissolved": "1950",
+   "lat": 24.5703,
+   "lon": 80.7672,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1798703",
+   "label": "Sonepur State",
+   "inception": "1556",
+   "dissolved": "1948",
+   "lat": 20.83,
+   "lon": 83.92,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q2145402",
+   "label": "South Peru",
+   "inception": "1836",
+   "dissolved": "1839",
+   "lat": -18.055555555,
+   "lon": -70.248333333,
+   "types": [
+    "historical country"
+   ],
+   "macro": "south_america"
+  },
+  {
+   "qid": "Q29",
+   "label": "Spain",
+   "inception": "1516",
+   "dissolved": null,
+   "lat": 40.2,
+   "lon": -3.5,
+   "types": [
+    "country",
+    "realm",
+    "sovereign state"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q80702",
+   "label": "Spanish Empire",
+   "inception": "1402",
+   "dissolved": "1976",
+   "lat": 40.41666667,
+   "lon": -3.68333333,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q107380",
+   "label": "State of Lippe",
+   "inception": "1123",
+   "dissolved": "1946",
+   "lat": 51.9362,
+   "lon": 8.87796,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q1502813",
+   "label": "Sultanate of Agadez",
+   "inception": "1449",
+   "dissolved": "1900",
+   "lat": 19.508,
+   "lon": 9.558,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "north_africa"
+  },
+  {
+   "qid": "Q2030015",
+   "label": "Sultanate of Deli",
+   "inception": "1632",
+   "dissolved": "1946",
+   "lat": 2.0,
+   "lon": 99.0,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q25424205",
+   "label": "Sultanate of Mohéli",
+   "inception": "1830",
+   "dissolved": "1909",
+   "lat": -12.32,
+   "lon": 43.73,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q3109927",
+   "label": "Sultanate of Sambas",
+   "inception": "1609",
+   "dissolved": "1956",
+   "lat": 1.35,
+   "lon": 109.3,
+   "types": [
+    "sultanate"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q3503559",
+   "label": "Sultanate of Serdang",
+   "inception": "1723",
+   "dissolved": "1946",
+   "lat": 3.5674287,
+   "lon": 98.956266,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q11950520",
+   "label": "Sultanate of Tadjoura",
+   "inception": "1450",
+   "dissolved": "1884",
+   "lat": 11.78,
+   "lon": 42.88,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q11344632",
+   "label": "Sultanate of the Maldives",
+   "inception": "1153",
+   "dissolved": "1968",
+   "lat": 4.18,
+   "lon": 73.51,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q17298275",
+   "label": "Surgana State",
+   "inception": "1800",
+   "dissolved": "1948",
+   "lat": 20.57,
+   "lon": 73.62,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q2368545",
+   "label": "Surguja State",
+   "inception": "1613",
+   "dissolved": "1948",
+   "lat": 23.2,
+   "lon": 83.0333,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q391189",
+   "label": "Taiwan under Qing dynasty rule",
+   "inception": "1683",
+   "dissolved": "1895",
+   "lat": 24.0,
+   "lon": 121.0,
+   "types": [
+    "historical country"
+   ],
+   "macro": "east_asia"
+  },
+  {
+   "qid": "Q17244162",
+   "label": "Talcher State",
+   "inception": "1200",
+   "dissolved": "1948",
+   "lat": 20.95,
+   "lon": 85.216667,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q18008280",
+   "label": "Taraon State",
+   "inception": "1812",
+   "dissolved": "1948",
+   "lat": 24.9833,
+   "lon": 80.95,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q784604",
+   "label": "Tawngpeng State",
+   "inception": "1793",
+   "dissolved": "1959",
+   "lat": 22.95,
+   "lon": 97.15,
+   "types": [
+    "historical country"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q2029522",
+   "label": "Ternate Sultanate",
+   "inception": "1257",
+   "dissolved": "1946",
+   "lat": 0.783333333,
+   "lon": 127.366666666,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q869",
+   "label": "Thailand",
+   "inception": "1238",
+   "dissolved": null,
+   "lat": 14.0,
+   "lon": 101.0,
+   "types": [
+    "country",
+    "sovereign state"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q11951827",
+   "label": "Tigiria State",
+   "inception": "1600",
+   "dissolved": "1948",
+   "lat": 20.48333333,
+   "lon": 85.51666667,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q914031",
+   "label": "Tonk State",
+   "inception": "1817",
+   "dissolved": "1949",
+   "lat": 26.166666666,
+   "lon": 75.783333333,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11952191",
+   "label": "Tori Fatehpur",
+   "inception": "1690",
+   "dissolved": "1950",
+   "lat": 25.455,
+   "lon": 79.114166666,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q17342164",
+   "label": "Tripura",
+   "inception": "1809",
+   "dissolved": "1949",
+   "lat": 23.8333,
+   "lon": 91.2833,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q1457519",
+   "label": "Udaipur State",
+   "inception": "1818",
+   "dissolved": "1948",
+   "lat": 22.47,
+   "lon": 83.22,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q11953949",
+   "label": "Umri",
+   "inception": "1000",
+   "dissolved": "1948",
+   "lat": 24.75,
+   "lon": 77.31666667,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q62589",
+   "label": "Union between Sweden and Norway",
+   "inception": "1814",
+   "dissolved": "1905",
+   "lat": 62.232313,
+   "lon": 12.282477,
+   "types": [
+    "historical country"
+   ],
+   "macro": "europe"
+  },
+  {
+   "qid": "Q1641428",
+   "label": "Upper Aulaqi Sheikhdom",
+   "inception": "1800",
+   "dissolved": "1967",
+   "lat": 14.3,
+   "lon": 46.5,
+   "types": [
+    "historical country"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q1367119",
+   "label": "Upper Yafa",
+   "inception": "1800",
+   "dissolved": "1967",
+   "lat": 13.830833333,
+   "lon": 45.255555555,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q1534153",
+   "label": "Vallabhi",
+   "inception": "1740",
+   "dissolved": "1948",
+   "lat": 21.8878,
+   "lon": 71.8795,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q717",
+   "label": "Venezuela",
+   "inception": "1811",
+   "dissolved": null,
+   "lat": 8.0,
+   "lon": -67.0,
+   "types": [
+    "country",
+    "sovereign state"
+   ],
+   "macro": "south_america"
+  },
+  {
+   "qid": "Q17267634",
+   "label": "Vijaynagar State",
+   "inception": "1577",
+   "dissolved": "1948",
+   "lat": 23.6,
+   "lon": 72.95,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q206279",
+   "label": "Waalo",
+   "inception": "1287",
+   "dissolved": "1855",
+   "lat": 16.470888888,
+   "lon": -15.711638888,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q11954352",
+   "label": "Wadagam State",
+   "inception": "1800",
+   "dissolved": "1948",
+   "lat": 24.0833,
+   "lon": 72.4833,
+   "types": [
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q180235",
+   "label": "Wadhwan State",
+   "inception": "1630",
+   "dissolved": "1948",
+   "lat": 22.42,
+   "lon": 71.41,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q13375062",
+   "label": "Wahidi Azzan",
+   "inception": "1830",
+   "dissolved": "1881",
+   "lat": 14.3333,
+   "lon": 47.4333,
+   "types": [
+    "historical country"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q1897800",
+   "label": "Wahidi Balhaf",
+   "inception": "1830",
+   "dissolved": "1967",
+   "lat": 13.9667,
+   "lon": 48.1833,
+   "types": [
+    "historical country"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q739722",
+   "label": "Wahidi Bir Ali",
+   "inception": "1830",
+   "dissolved": "1967",
+   "lat": 14.025,
+   "lon": 48.3419,
+   "types": [
+    "historical country"
+   ],
+   "macro": "west_asia"
+  },
+  {
+   "qid": "Q2548416",
+   "label": "Wankaner State",
+   "inception": "1807",
+   "dissolved": "1947",
+   "lat": 22.62,
+   "lon": 70.93,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q8050352",
+   "label": "Yauri Emirate",
+   "inception": "1799",
+   "dissolved": "1904",
+   "lat": 10.7489,
+   "lon": 4.77778,
+   "types": [
+    "historical country"
+   ],
+   "macro": "subsaharan_africa"
+  },
+  {
+   "qid": "Q18750170",
+   "label": "Yawnghwe",
+   "inception": "1359",
+   "dissolved": "1959",
+   "lat": 20.663333333,
+   "lon": 96.935,
+   "types": [
+    "historical country"
+   ],
+   "macro": "southeast_asia"
+  },
+  {
+   "qid": "Q144395",
+   "label": "Zainabad",
+   "inception": "1300",
+   "dissolved": "1948",
+   "lat": 23.283333333,
+   "lon": 71.766666666,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "south_asia"
+  },
+  {
+   "qid": "Q20395996",
+   "label": "Al-Muntafiq",
+   "inception": "1530",
+   "dissolved": "1918",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q131429368",
+   "label": "Alawi Sultanate",
+   "inception": "1660",
+   "dissolved": "1912",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q25423827",
+   "label": "Anjuan Sultanate",
+   "inception": "1500",
+   "dissolved": "1891",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "sultanate"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q4778463",
+   "label": "Anziku Kingdom",
+   "inception": "1700",
+   "dissolved": "1892",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q638522",
+   "label": "Ardalan",
+   "inception": "1400",
+   "dissolved": "1867",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q2450154",
+   "label": "Avar Khanate",
+   "inception": "1101",
+   "dissolved": "1864",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q797579",
+   "label": "Baban",
+   "inception": "1600",
+   "dissolved": "1847",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q25462868",
+   "label": "Badung Kingdom",
+   "inception": "1788",
+   "dissolved": "1906",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "sultanate"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q4848487",
+   "label": "Bailundu",
+   "inception": "1700",
+   "dissolved": "1903",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q21843519",
+   "label": "Balkh Khanate",
+   "inception": "1526",
+   "dissolved": "1850",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q104152096",
+   "label": "Balladhdarh State",
+   "inception": "1710",
+   "dissolved": "1867",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q806233",
+   "label": "Banda",
+   "inception": "1790",
+   "dissolved": "1858",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q806435",
+   "label": "Bang Assu",
+   "inception": "1800",
+   "dissolved": "1890",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q507346",
+   "label": "Baté Empire",
+   "inception": "1800",
+   "dissolved": "1879",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q104152097",
+   "label": "Bhith Bhagwanpur State",
+   "inception": "1711",
+   "dissolved": "1948",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q25413868",
+   "label": "Bolivian State",
+   "inception": "1836",
+   "dissolved": "1839",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q871091",
+   "label": "British Malaya",
+   "inception": "1826",
+   "dissolved": "1957",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q2376315",
+   "label": "British rule in Myanmar",
+   "inception": "1824",
+   "dissolved": "1948",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "vassal state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q129799",
+   "label": "Bukey Horde",
+   "inception": "1801",
+   "dissolved": "1845",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q136389404",
+   "label": "Buraydah Emirate",
+   "inception": "1768",
+   "dissolved": "1908",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q25202872",
+   "label": "Bushi Kingdom",
+   "inception": "1380",
+   "dissolved": "1900",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q118906545",
+   "label": "Chagga states",
+   "inception": "1600",
+   "dissolved": "1963",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1357404",
+   "label": "Chiang Hung",
+   "inception": "1180",
+   "dissolved": "1847",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q2458078",
+   "label": "Cokossi",
+   "inception": "1700",
+   "dissolved": "1960",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q2980922",
+   "label": "Columbia District",
+   "inception": "1810",
+   "dissolved": "1858",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q736217",
+   "label": "County of Molise",
+   "inception": "1221",
+   "dissolved": "1861",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q21590889",
+   "label": "Dar al Kuti",
+   "inception": "1830",
+   "dissolved": "1912",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q140592609",
+   "label": "Denmark–Norway",
+   "inception": "1380",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q4167201",
+   "label": "Dosso Kingdom",
+   "inception": "1750",
+   "dissolved": "1890",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q14631244",
+   "label": "Duchy Saxony-Gotha",
+   "inception": "1826",
+   "dissolved": "1918",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "duchy",
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q4775",
+   "label": "Duchy of Aarschot",
+   "inception": "1532",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "duchy"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q59002265",
+   "label": "Duchy of Bragança",
+   "inception": "1442",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "duchy"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q2360973",
+   "label": "Duchy of Carniola",
+   "inception": "1364",
+   "dissolved": "1918",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "duchy",
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q3499401",
+   "label": "Duchy of Genoa",
+   "inception": "1815",
+   "dissolved": "1848",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "duchy"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1030288",
+   "label": "Duchy of Krosno",
+   "inception": "1251",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1615437",
+   "label": "Duchy of Löwenberg",
+   "inception": "1281",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "duchy"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q567609",
+   "label": "Duchy of Merania",
+   "inception": "1153",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "duchy"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q110918088",
+   "label": "Duchy of Reichstadt",
+   "inception": "1818",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "duchy"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q426025",
+   "label": "Duchy of Savoy",
+   "inception": "1416",
+   "dissolved": "1860",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q313175",
+   "label": "Duchy of Saxe-Lauenburg",
+   "inception": "1296",
+   "dissolved": "1876",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q3040826",
+   "label": "Duke of Coislin",
+   "inception": "1665",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "duchy"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q856984",
+   "label": "Duke of Lothier",
+   "inception": "1190",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "duchy"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q130654",
+   "label": "Dutch Empire",
+   "inception": "1624",
+   "dissolved": "1975",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q105633625",
+   "label": "Emirate of Bahrain (1783–1971)",
+   "inception": "1783",
+   "dissolved": "1971",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q12191529",
+   "label": "Emirate of Lengeh",
+   "inception": "1750",
+   "dissolved": "1899",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "country",
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q58053082",
+   "label": "Emirate of Liptako",
+   "inception": "1809",
+   "dissolved": "1897",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q95674639",
+   "label": "Emirate of Palu",
+   "inception": "1495",
+   "dissolved": "1850",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "vassal state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q25421257",
+   "label": "Emirate of Tagant",
+   "inception": "1700",
+   "dissolved": "1905",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1348316",
+   "label": "Erbfürstentum Münster",
+   "inception": "1803",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q131543233",
+   "label": "Gonja kingdom",
+   "inception": "1675",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "kingdom"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q703695",
+   "label": "Great Balhae Kingdom",
+   "inception": "1116",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1644002",
+   "label": "Gyaaman",
+   "inception": "1450",
+   "dissolved": "1895",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q107463552",
+   "label": "Hohenlohe-Weikersheim",
+   "inception": "1708",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1628300",
+   "label": "House of Hornes",
+   "inception": "1100",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q5995069",
+   "label": "Ijaiye",
+   "inception": "1836",
+   "dissolved": "1861",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1658023",
+   "label": "Ijebu Kingdom",
+   "inception": "1500",
+   "dissolved": "1892",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q105582386",
+   "label": "Isaaq chieftainship",
+   "inception": "1749",
+   "dissolved": "1884",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q28172756",
+   "label": "Jandol State",
+   "inception": "1830",
+   "dissolved": "1948",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q3187887",
+   "label": "Jubbal State",
+   "inception": "1815",
+   "dissolved": "1948",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q862478",
+   "label": "Kaabu",
+   "inception": "1537",
+   "dissolved": "1867",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q924833",
+   "label": "Kaarta",
+   "inception": "1753",
+   "dissolved": "1854",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q25460197",
+   "label": "Kasepuhan Sultanate",
+   "inception": "1679",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "sultanate"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1433867",
+   "label": "Kazakh Khanate",
+   "inception": "1465",
+   "dissolved": "1847",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q5675285",
+   "label": "Kazembe",
+   "inception": "1740",
+   "dissolved": "1899",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q4208290",
+   "label": "Kazikumukh Khanate",
+   "inception": "1642",
+   "dissolved": "1860",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1317579",
+   "label": "Kedah Sultanate",
+   "inception": "1136",
+   "dissolved": "1909",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q2989491",
+   "label": "Kharan State",
+   "inception": "1697",
+   "dissolved": "1955",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q3090194",
+   "label": "Khasso",
+   "inception": "1681",
+   "dissolved": "1857",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q100273061",
+   "label": "Kingdom of Allada",
+   "inception": "1620",
+   "dissolved": "1904",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q25459957",
+   "label": "Kingdom of Banggai",
+   "inception": "1500",
+   "dissolved": "1907",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q28677445",
+   "label": "Kingdom of Benguela",
+   "inception": "1580",
+   "dissolved": "1869",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "kingdom"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q48728257",
+   "label": "Kingdom of Besut Darul Iman",
+   "inception": "1780",
+   "dissolved": "1899",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q25459978",
+   "label": "Kingdom of Bolaang Mongondow",
+   "inception": "1670",
+   "dissolved": "1901",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1062415",
+   "label": "Kingdom of Champasak",
+   "inception": "1713",
+   "dissolved": "1904",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q623573",
+   "label": "Kingdom of Croatia",
+   "inception": "1527",
+   "dissolved": "1868",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "kingdom"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q122118517",
+   "label": "Kingdom of Gelgel",
+   "inception": "1265",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "kingdom"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q104191507",
+   "label": "Kingdom of Gibraltar",
+   "inception": "1462",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q501684",
+   "label": "Kingdom of Gomma",
+   "inception": "1780",
+   "dissolved": "1886",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q111777877",
+   "label": "Kingdom of Guatemala",
+   "inception": "1540",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q253094",
+   "label": "Kingdom of Hungary",
+   "inception": "1526",
+   "dissolved": "1867",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "kingdom"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q85774522",
+   "label": "Kingdom of Jeypore",
+   "inception": "1453",
+   "dissolved": "1947",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q16850784",
+   "label": "Kingdom of Jolof",
+   "inception": "1549",
+   "dissolved": "1890",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q369587",
+   "label": "Kingdom of Kakongo",
+   "inception": "1500",
+   "dissolved": "1885",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q132853243",
+   "label": "Kingdom of Khaza'il",
+   "inception": "1534",
+   "dissolved": "1921",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q6412616",
+   "label": "Kingdom of Koya",
+   "inception": "1505",
+   "dissolved": "1896",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q16188096",
+   "label": "Kingdom of Larantuka",
+   "inception": "1515",
+   "dissolved": "1904",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q136024327",
+   "label": "Kingdom of Marudu",
+   "inception": "1771",
+   "dissolved": "1845",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q102133106",
+   "label": "Kingdom of Nafana",
+   "inception": "1720",
+   "dissolved": "1848",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q11295580",
+   "label": "Kingdom of Nan",
+   "inception": "1727",
+   "dissolved": "1931",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "colony",
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q111628725",
+   "label": "Kingdom of Navarre",
+   "inception": "1512",
+   "dissolved": "1841",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1661321",
+   "label": "Kingdom of Niumi",
+   "inception": "1600",
+   "dissolved": "1897",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q4337218",
+   "label": "Kingdom of Orungu",
+   "inception": "1700",
+   "dissolved": "1927",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q7416493",
+   "label": "Kingdom of Reman",
+   "inception": "1810",
+   "dissolved": "1902",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1322953",
+   "label": "Kingdom of Sanwi",
+   "inception": "1700",
+   "dissolved": "1896",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q2577303",
+   "label": "Kingdom of Sardinia",
+   "inception": "1720",
+   "dissolved": "1861",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q55599391",
+   "label": "Kingdom of Sardinia",
+   "inception": "1324",
+   "dissolved": "1848",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q138133133",
+   "label": "Kingdom of Savé",
+   "inception": "1750",
+   "dissolved": "1855",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q42378126",
+   "label": "Kingdom of Setul Mambang Segara",
+   "inception": "1810",
+   "dissolved": "1916",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "kingdom"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q862467",
+   "label": "Kingdom of Sine",
+   "inception": "1350",
+   "dissolved": "1969",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "kingdom",
+    "vassal state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q3574793",
+   "label": "Kingdom of Tazeroualt",
+   "inception": "1600",
+   "dissolved": "1882",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q6412670",
+   "label": "Kingdom of Ugu",
+   "inception": "1300",
+   "dissolved": "1900",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q109534069",
+   "label": "Kingdom of Wolaita",
+   "inception": "1251",
+   "dissolved": "1897",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q6424763",
+   "label": "Koch Hajo",
+   "inception": "1581",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "kingdom"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q786080",
+   "label": "Kombo",
+   "inception": "1600",
+   "dissolved": "1875",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q104152099",
+   "label": "Kotharia State, Rajasthan",
+   "inception": "1527",
+   "dissolved": "2000",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q104152100",
+   "label": "Kotharia State, Rajkot",
+   "inception": "1733",
+   "dissolved": "2000",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q104152101",
+   "label": "Kulpahar State",
+   "inception": "1700",
+   "dissolved": "1858",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q104152102",
+   "label": "Kumharsain State",
+   "inception": "1500",
+   "dissolved": "1947",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q112682866",
+   "label": "Kyrgyz Khanate",
+   "inception": "1470",
+   "dissolved": "1842",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q129744749",
+   "label": "Ladwa State",
+   "inception": "1763",
+   "dissolved": "1846",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q19727609",
+   "label": "Landak Kingdom",
+   "inception": "1292",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "kingdom"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1615766",
+   "label": "Landgraviate of Hesse-Philippsthal-Barchfeld",
+   "inception": "1721",
+   "dissolved": "1866",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q104152103",
+   "label": "Lathi State",
+   "inception": "1340",
+   "dissolved": "1948",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q21075471",
+   "label": "Limbda",
+   "inception": "1780",
+   "dissolved": "1948",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state",
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q39908702",
+   "label": "Lordship of the Isles",
+   "inception": "1266",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q17057155",
+   "label": "Lyapin Principality",
+   "inception": "1401",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q6733951",
+   "label": "Mahi people",
+   "inception": "1700",
+   "dissolved": "1894",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q2989469",
+   "label": "Makran",
+   "inception": "1701",
+   "dissolved": "1955",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q96314579",
+   "label": "Mangbetu kingdom",
+   "inception": "1800",
+   "dissolved": "1880",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "kingdom"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1853386",
+   "label": "Mangkunegaran",
+   "inception": "1757",
+   "dissolved": "1945",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q6750512",
+   "label": "Mankessim Kingdom",
+   "inception": "1252",
+   "dissolved": "1844",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q140030295",
+   "label": "Maragheh Khanate",
+   "inception": "1610",
+   "dissolved": "1925",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "country",
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q17166174",
+   "label": "Mbunda Kingdom",
+   "inception": "1700",
+   "dissolved": "1914",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q3699102",
+   "label": "Medri Bahri",
+   "inception": "1137",
+   "dissolved": "1890",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q19746028",
+   "label": "Mempawah Kingdom",
+   "inception": "1740",
+   "dissolved": "1945",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q104152105",
+   "label": "Mohrampur Jagir State",
+   "inception": "1580",
+   "dissolved": "1948",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q302958",
+   "label": "Monarchy of the Netherlands",
+   "inception": "1815",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "form of government"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q7245108",
+   "label": "Mount Lebanon Emirate",
+   "inception": "1516",
+   "dissolved": "1840",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1186434",
+   "label": "Muang Phuan",
+   "inception": "1707",
+   "dissolved": "1949",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q6944004",
+   "label": "Mutondo",
+   "inception": "1700",
+   "dissolved": "1889",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q130749315",
+   "label": "Mwene Muji",
+   "inception": "1400",
+   "dissolved": "1900",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "kingdom"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q967246",
+   "label": "Ngoyo",
+   "inception": "1500",
+   "dissolved": "1885",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q118279244",
+   "label": "Ngwane kingdom",
+   "inception": "1740",
+   "dissolved": "1881",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q22684779",
+   "label": "Omani Empire",
+   "inception": "1692",
+   "dissolved": "1856",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q15221446",
+   "label": "Ottoman Arabia",
+   "inception": "1517",
+   "dissolved": "1918",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q48724193",
+   "label": "Pahang Kingdom",
+   "inception": "1770",
+   "dissolved": "1881",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q3446211",
+   "label": "Paser Sultanate",
+   "inception": "1516",
+   "dissolved": "1908",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q104152107",
+   "label": "Patan State, Rajasthan",
+   "inception": "1200",
+   "dissolved": "2000",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q11940483",
+   "label": "Patdi State",
+   "inception": "1741",
+   "dissolved": "1947",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q104152108",
+   "label": "Pathari State",
+   "inception": "1794",
+   "dissolved": "1948",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q12491400",
+   "label": "Pelalawan Sultanate",
+   "inception": "1725",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q3246273",
+   "label": "Phulra",
+   "inception": "1828",
+   "dissolved": "1950",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q47499498",
+   "label": "Pre-Colonial Basutoland",
+   "inception": "1822",
+   "dissolved": "1868",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q878818",
+   "label": "Principality of Bitlis",
+   "inception": "1182",
+   "dissolved": "1847",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q112042482",
+   "label": "Principality of Girona",
+   "inception": "1416",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1396642",
+   "label": "Principality of Hakkâri",
+   "inception": "1400",
+   "dissolved": "1900",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q119999864",
+   "label": "Principality of Hatuqay",
+   "inception": "1400",
+   "dissolved": "1864",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q7245107",
+   "label": "Principality of Krk",
+   "inception": "1451",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1311767",
+   "label": "Principality of Lübeck",
+   "inception": "1803",
+   "dissolved": "1918",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q7245110",
+   "label": "Principality of Mindelheim",
+   "inception": "1467",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q6086629",
+   "label": "Principality of Tarragona",
+   "inception": "1128",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q126685015",
+   "label": "Principality of Thurn and Taxis",
+   "inception": "1681",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q3113481",
+   "label": "Principality of Transylvania",
+   "inception": "1711",
+   "dissolved": "1867",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q125421609",
+   "label": "Principality of Waterloo",
+   "inception": "1815",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q38872",
+   "label": "Prussia",
+   "inception": "1525",
+   "dissolved": "1933",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q7286362",
+   "label": "Rajoli Zamindari Estate",
+   "inception": "1775",
+   "dissolved": "1948",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q2147037",
+   "label": "Rewa Kantha Agency",
+   "inception": "1811",
+   "dissolved": "1937",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q15921577",
+   "label": "Second Chui Volost",
+   "inception": "1717",
+   "dissolved": "1913",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q12183875",
+   "label": "Sharifian Empire",
+   "inception": "1510",
+   "dissolved": "1912",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q3482103",
+   "label": "Shilluk Kingdom",
+   "inception": "1490",
+   "dissolved": "1865",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "kingdom"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q20427320",
+   "label": "Soppeng Sultanate",
+   "inception": "1300",
+   "dissolved": "1940",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q16472864",
+   "label": "Soyo kingdom",
+   "inception": "1700",
+   "dissolved": "1885",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q65166389",
+   "label": "State of Ecuador",
+   "inception": "1830",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q68257522",
+   "label": "State of Guatemala",
+   "inception": "1824",
+   "dissolved": "1839",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q68253870",
+   "label": "State of Honduras",
+   "inception": "1824",
+   "dissolved": "1838",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q68257039",
+   "label": "State of Nicaragua",
+   "inception": "1824",
+   "dissolved": "1838",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q94995143",
+   "label": "State of Upper Peru",
+   "inception": "1825",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q24948695",
+   "label": "Sujrai State",
+   "inception": "1250",
+   "dissolved": "1949",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q3503548",
+   "label": "Sultanate of Bulungan",
+   "inception": "1731",
+   "dissolved": "1964",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q12491396",
+   "label": "Sultanate of Buton",
+   "inception": "1332",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q4154364",
+   "label": "Sultanate of Damagaram",
+   "inception": "1731",
+   "dissolved": "1899",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1408641",
+   "label": "Sultanate of Gowa",
+   "inception": "1320",
+   "dissolved": "1911",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1390749",
+   "label": "Sultanate of Rafai",
+   "inception": "1800",
+   "dissolved": "1909",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q2988765",
+   "label": "Sultanate of Siak Sri Indrapura",
+   "inception": "1723",
+   "dissolved": "1946",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm",
+    "sultanate"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q6637073",
+   "label": "Sultanate of Sintang",
+   "inception": "1365",
+   "dissolved": "1950",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "sultanate"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q4118614",
+   "label": "Sultanate of Tidore",
+   "inception": "1450",
+   "dissolved": "1904",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q18415401",
+   "label": "Sultanate of Tuggurt",
+   "inception": "1414",
+   "dissolved": "1881",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q11950532",
+   "label": "Sundem",
+   "inception": "1555",
+   "dissolved": "1935",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q2122499",
+   "label": "Surakarta Sunanate",
+   "inception": "1745",
+   "dissolved": "1946",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q7675292",
+   "label": "Tagmadert",
+   "inception": "1550",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1111926",
+   "label": "Taqali",
+   "inception": "1750",
+   "dissolved": "1969",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q21075365",
+   "label": "Tarauli",
+   "inception": "1690",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q11950939",
+   "label": "Tasik",
+   "inception": "1630",
+   "dissolved": "1946",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q3530610",
+   "label": "Thanjavur Maratha kingdom",
+   "inception": "1674",
+   "dissolved": "1855",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "kingdom",
+    "princely state",
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q22684352",
+   "label": "The Emirate of Zubarah",
+   "inception": "1766",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q889912",
+   "label": "Tooro Kingdom",
+   "inception": "1830",
+   "dissolved": "1967",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "realm"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q7825423",
+   "label": "Torawati",
+   "inception": "1200",
+   "dissolved": "2000",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1806491",
+   "label": "Transylvania Colony",
+   "inception": "1775",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q137517992",
+   "label": "Tui Manuʻa Confederacy",
+   "inception": "1000",
+   "dissolved": "1858",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q5915498",
+   "label": "Tulsipur State",
+   "inception": "1600",
+   "dissolved": "1859",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q136355443",
+   "label": "Unaizah Emirate",
+   "inception": "1768",
+   "dissolved": "1904",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q878461",
+   "label": "Unitary State",
+   "inception": "1814",
+   "dissolved": "1864",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q7903539",
+   "label": "Uukwaluudhi",
+   "inception": "1550",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q7903544",
+   "label": "Uukwanyama",
+   "inception": "1550",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q104152104",
+   "label": "Vallavpur State",
+   "inception": "1434",
+   "dissolved": "1949",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q104152246",
+   "label": "Vallbhapur State",
+   "inception": "1600",
+   "dissolved": "1948",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q104152343",
+   "label": "Vijaipur State",
+   "inception": "1542",
+   "dissolved": "1947",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q16258513",
+   "label": "Virpur-Kherdi State",
+   "inception": "1600",
+   "dissolved": "1948",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "princely state"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q7937982",
+   "label": "Viye",
+   "inception": "1750",
+   "dissolved": "1890",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q4105363",
+   "label": "Wahidi",
+   "inception": "1800",
+   "dissolved": "1963",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q3106846",
+   "label": "Wajo Kingdom",
+   "inception": "1500",
+   "dissolved": "1906",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "principality"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q889374",
+   "label": "Warsangali Sultanate",
+   "inception": "1218",
+   "dissolved": "1886",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q23668714",
+   "label": "Yatenga Kingdom",
+   "inception": "1400",
+   "dissolved": "1895",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q2114397",
+   "label": "Yogyakarta Sultanate",
+   "inception": "1755",
+   "dissolved": "1950",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country",
+    "sultanate"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q12678800",
+   "label": "Zamfara",
+   "inception": "1100",
+   "dissolved": "1903",
+   "lat": null,
+   "lon": null,
+   "types": [
+    "historical country"
+   ],
+   "macro": "unknown"
+  },
+  {
+   "qid": "Q1558448",
+   "label": "gynocracy",
+   "inception": "1612",
+   "dissolved": null,
+   "lat": null,
+   "lon": null,
+   "types": [
+    "form of government"
+   ],
+   "macro": "unknown"
+  }
+ ]
+}
