@@ -28,6 +28,7 @@ Build cục bộ (cần Android SDK + JDK 21): `npm run build && npx cap sync an
 - `historical_data/` — Cơ sở dữ liệu Lịch sử 1836 (nguồn, nhãn chất lượng); `tools/build-data.ts` biên dịch sang `src/generated/`.
 - `src/ui/` — giao diện (Preact + WebGL): bản đồ atlas, hệ thống cửa sổ, các module quản trị.
 - `docs/ui/` — hệ thống thiết kế v3 (`UI_DESIGN_SYSTEM.md`), phân tích tham chiếu (`V3_REFERENCE_ANALYSIS.md`), nghiệm thu bằng ảnh chụp ứng dụng thật ở độ phân giải gốc (`V3_BEFORE_AFTER.md`), các đợt trước (`V2_BEFORE_AFTER.md`).
+- `docs/coordination/` — quy trình phối hợp giữa chủ dự án, Claude Code và ChatGPT (`AI_COLLABORATION_PROTOCOL.md`) và bảng trạng thái/bàn giao chung (`AI_HANDOFF.md`); đọc cả hai trước mỗi nhiệm vụ.
 - `docs/research/PASS16_REPO_AUDIT.md` — đối chiếu repository với ma trận tính năng của gói nghiên cứu Pass 16 (có/một phần/chưa có, kèm đường dẫn bằng chứng).
 
 ## Bản đồ
