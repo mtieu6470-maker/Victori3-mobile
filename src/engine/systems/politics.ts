@@ -54,9 +54,9 @@ export function updatePolitics(st: GameState, c: Country, init = false) {
       ? Math.sqrt(Math.max(0, income ?? 0) / meanIncome)
       : 1;
     // Wealth is a secondary clout modifier, not a substitute for cohort size or law.
-    // A soft ±15% band preserves seed-driven AI variation and prevents one income
-    // estimate from overwhelming institutional representation.
-    const wealthPower = clamp(1 + (relative - 1) * 0.15, 0.85, 1.15);
+    // Keep it deliberately small: political feedback affects reforms and fertility
+    // over multi-decade runs, so larger weights can distort historical population bands.
+    const wealthPower = clamp(1 + (relative - 1) * 0.05, 0.95, 1.05);
     return sum + r.pop * r.strata[i] * (0.3 + r.literacy) * wealthPower;
   }, 0) / pop;
   const sol = regs.reduce((s, r) => s + r.sol * r.pop, 0) / pop;
