@@ -4,7 +4,7 @@ import { run, fresh, stepMonth } from './helpers';
 import { serialize, deserialize } from '../src/engine/save';
 import { data } from '../src/engine/data/db';
 import { STRATA } from '../src/engine/types';
-import { availableProductionMethods, calculatePopulationEconomy, calibrateCohortLivingStandards, factoryInputFulfillment, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
+import { availableProductionMethods, calculatePopulationEconomy, calibrateCohortLivingStandards, factoryInputFulfillment, populationConsumptionDemand, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
 import { execute } from '../src/engine/commands';
 import { advanceConstruction, cancelConstruction, queueConstruction, canBuild } from '../src/engine/systems/economy';
 
@@ -158,6 +158,44 @@ describe('stratified employment and household income', () => {
     expect(restored.regions.every((region) => region.popEconomy === undefined)).toBe(true);
     stepMonth(restored);
     expect(restored.regions.every((region) => !!region.popEconomy)).toBe(true);
+  });
+});
+
+describe('cohort-specific market demand', () => {
+  it('preserves the legacy aggregate demand curve when every stratum has equal income', () => {
+    const shares = [0.4, 0.02, 0.2, 0.08, 0.12, 0.08, 0.03, 0.05, 0.02];
+    const pop = 100000;
+    const wealth = 1.4;
+    const demand = populationConsumptionDemand(pop, shares, STRATA.map(() => 600 * wealth), 'GBR');
+    const luxuryShare = shares[5] * 0.4 + shares[7] + shares[8];
+    expect(demand.grain).toBeCloseTo(pop * 200 * (1 + 0.25 * Math.log(wealth)), 5);
+    expect(demand.textiles).toBeCloseTo(pop * 12 * Math.pow(wealth, 0.8), 5);
+    expect(demand.cash_crops).toBeCloseTo(pop * 6 * wealth, 5);
+    expect(demand.luxury).toBeCloseTo(pop * luxuryShare * 160 * wealth, 5);
+    expect(demand.coal).toBeCloseTo(pop * 1.5 * wealth, 5);
+  });
+
+  it('moves discretionary consumption toward richer strata while keeping basic needs universal', () => {
+    const shares = [0.4, 0.02, 0.2, 0.08, 0.12, 0.08, 0.03, 0.05, 0.02];
+    const equalIncome = STRATA.map(() => 600);
+    const richerOwners = [600, 600, 600, 600, 600, 600, 600, 2400, 3600];
+    const equal = populationConsumptionDemand(100000, shares, equalIncome, 'GBR');
+    const stratified = populationConsumptionDemand(100000, shares, richerOwners, 'GBR');
+
+    expect(stratified.luxury).toBeGreaterThan(equal.luxury);
+    expect(stratified.textiles).toBeGreaterThan(equal.textiles);
+    expect(stratified.grain).toBeCloseTo(equal.grain + 0, 0);
+    expect(populationConsumptionDemand(100000, shares, equalIncome, 'QNG').opium)
+      .toBeGreaterThan(populationConsumptionDemand(100000, shares, equalIncome, 'GBR').opium);
+  });
+
+  it('uses a safe legacy fallback when cohort incomes are absent or invalid', () => {
+    const shares = [0.4, 0.02, 0.2, 0.08, 0.12, 0.08, 0.03, 0.05, 0.02];
+    const fallback = populationConsumptionDemand(10000, shares, undefined, 'GBR', 1.2);
+    const invalid = populationConsumptionDemand(10000, shares, [NaN, -1], 'GBR', 1.2);
+    expect(invalid.grain).toBeCloseTo(fallback.grain, 5);
+    expect(invalid.textiles).toBeCloseTo(fallback.textiles, 5);
+    expect(invalid.luxury).toBeCloseTo(fallback.luxury, 5);
   });
 });
 

@@ -133,6 +133,41 @@ export function calibrateCohortLivingStandards(
   return { ...economy, sol: economy.sol.map((value) => clamp(value + shift, 0, 1)) };
 }
 
+const POP_LUXURY_PROPENSITY = [0, 0, 0, 0, 0, 0.4, 0, 1, 1];
+
+/**
+ * Monthly household buy orders. Equal cohort incomes reproduce the established regional
+ * demand curves; unequal incomes redistribute discretionary spending toward richer strata.
+ * This is still a national/regional aggregate market, not a fully simulated individual-Pop
+ * buy-order book.
+ */
+export function populationConsumptionDemand(
+  population: number,
+  strata: number[],
+  incomePerCapita?: number[],
+  countryId = '',
+  fallbackWealth = 1,
+): Record<Good, number> {
+  const demand = zero();
+  const pop = Math.max(0, Number.isFinite(population) ? population : 0);
+  const defaultIncome = 600 * clamp(Number.isFinite(fallbackWealth) ? fallbackWealth : 1, 0.3, 5);
+  for (let i = 0; i < STRATA.length; i++) {
+    const cohortPop = pop * clamp(Number(strata[i] ?? 0), 0, 1);
+    if (cohortPop <= 0) continue;
+    const rawIncome = Number(incomePerCapita?.[i]);
+    const income = Number.isFinite(rawIncome) && rawIncome >= 0 ? rawIncome : defaultIncome;
+    const wealth = clamp(income / 600, 0.3, 5);
+
+    demand.grain += cohortPop * 200 * (1 + 0.25 * Math.log(wealth));
+    demand.textiles += cohortPop * 12 * Math.pow(wealth, 0.8);
+    demand.cash_crops += cohortPop * 6 * wealth;
+    demand.luxury += cohortPop * POP_LUXURY_PROPENSITY[i] * 160 * wealth;
+    demand.coal += cohortPop * 1.5 * wealth;
+    demand.opium += cohortPop * (countryId === 'QNG' ? 0.6 : 0.03);
+  }
+  return demand;
+}
+
 export function calculatePopulationEconomy(
   population: number,
   strata: number[],
@@ -282,14 +317,17 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const svc = LF * (sh[S.middle] + sh[S.capitalists] + sh[S.aristocrats] + sh[S.clergy]) * 1600 * Am * infra * occupied;
     // demand
     const wealth = Math.max(0.3, (r.output > 0 ? (r.output * 12) / Math.max(1, r.pop) : 600 * c.productivity) / 600);
-    const grainNeed = r.pop * 200 * (1 + 0.25 * Math.log(wealth));
-    demand.grain += grainNeed;
-    demand.textiles += r.pop * 12 * Math.pow(wealth, 0.8);
-    demand.cash_crops += r.pop * 6 * wealth;
-    demand.luxury += r.pop * (sh[S.aristocrats] + sh[S.capitalists] + sh[S.middle] * 0.4) * 160 * wealth;
+    // Use last month's cohort incomes as current buy-order power. On first load / first
+    // calibration pass, fall back to the legacy regional wealth curve without a save migration.
+    const householdDemand = populationConsumptionDemand(r.pop, sh, r.popEconomy?.incomePerCapita, c.id, wealth);
+    const grainNeed = householdDemand.grain;
+    demand.grain += householdDemand.grain;
+    demand.textiles += householdDemand.textiles;
+    demand.cash_crops += householdDemand.cash_crops;
+    demand.luxury += householdDemand.luxury;
+    demand.coal += householdDemand.coal;
+    demand.opium += householdDemand.opium;
     demand.tools += agriWorkers * 2 + (LF * sh[S.workers]) * 8 + mineWorkers * 6;
-    demand.coal += r.pop * 1.5 * wealth;
-    demand.opium += r.pop * (c.id === 'QNG' ? 0.6 : 0.03);
     for (const g of GOODS) { supply[g] += factoryOut[g]; demand[g] += inputsNeed[g]; }
     calc[i] = { supply, demand, services: svc, inputsNeed, factoryOut, factoryInputs, employment, grainLocal: grain, grainNeed };
     const mk = marketOf(st, c);
