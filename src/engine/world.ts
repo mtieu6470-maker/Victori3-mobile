@@ -4,14 +4,24 @@ import type { Country, GameState } from './types';
 import { IGS } from './types';
 import { dateStr, log, relKey, setRel, newId } from './core';
 import { updatePolitics } from './systems/politics';
+import { makeHistoricalCountry } from './init';
 import { invalidate } from './cache';
 
-export function transferRegion(st: GameState, regionId: string, to: string, cause: string) {
+export function transferRegion(st: GameState, regionId: string, to: string, cause: string, historicalDate?: string): boolean {
   const d = data();
-  const idx = d.regionIndex.get(regionId)!; const r = st.regions[idx];
-  const from = r.owner; if (from === to) return;
+  const idx = d.regionIndex.get(regionId);
+  if (idx === undefined) return false;
+  const r = st.regions[idx];
+  if (!r || r.owner === to) return false;
+  let target = st.countries[to];
+  if (!target?.alive) {
+    target = makeHistoricalCountry(st, to, regionId) ?? undefined;
+    if (!target) return false;
+    st.countries[to] = target;
+  }
+  const from = r.owner;
   r.owner = to; r.controller = to; invalidate();
-  const histOwner = d.historicalOwner(regionId, dateStr(st.date));
+  const histOwner = d.historicalOwner(regionId, historicalDate ?? dateStr(st.date));
   const match = d.equivalent(histOwner, to);
   st.territoryLog.push({ tick: st.tick, date: dateStr(st.date), region: regionId, from, to, cause, historicalMatch: match });
   const fc = st.countries[from];
@@ -20,7 +30,12 @@ export function transferRegion(st: GameState, regionId: string, to: string, caus
     if (fc.capital === regionId) { const next = st.regions.find((x) => x.owner === from); if (next) fc.capital = next.id; }
     if (!st.regions.some((x) => x.owner === from)) killCountry(st, from, `annexed by ${to}`);
   }
-  const tc = st.countries[to]; if (tc) tc.claims = tc.claims.filter((x) => x !== regionId);
+  const tc = st.countries[to];
+  if (tc) {
+    tc.claims = tc.claims.filter((x) => x !== regionId);
+    updatePolitics(st, tc, true);
+  }
+  return true;
 }
 
 export function killCountry(st: GameState, id: string, why: string) {

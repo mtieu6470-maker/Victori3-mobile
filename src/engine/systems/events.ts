@@ -12,6 +12,7 @@ import type { LawGroup } from '../data/dbTypes';
 
 export function eventsMonth(st: GameState, decide: (c: Country, windowId: string, options: { id: string; historical: boolean }[], historicalWeight: number) => string | null) {
   const d = data(); const mode = MODES[st.mode]; const iso = dateStr(st.date);
+  applyHistoricalOwnershipChanges(st);
   // ---- exogenous shocks
   if (mode.datedExogenousEvents) {
     for (const x of d.db.exogenous) if (dateToTick(x.date) === st.tick) applyExogenous(st, x.id, x.type, x.regions, x.duration_months ?? 12, x.mortality, x.yield_loss, x.severity_by_region, x.resource);
@@ -77,6 +78,66 @@ export function applyWindowOption(st: GameState, windowId: string, optionId: str
   }
   log(st, { type: 'decision', text: `${c.name} decides: ${windowId} → ${optionId}.`, textVi: `${c.nameVi} quyết định: ${windowId} → ${optionId}.`, actors: [c.id], historical: o.historical, divergence: !o.historical });
   if (!o.historical) st.divergence.entries.push({ tick: st.tick, date: dateStr(st.date), kind: 'decision', text: `${c.name} chose the non-historical option '${optionId}' in ${windowId}`, actors: [c.id] });
+}
+
+/**
+ * Historical Mode applies documented border changes as dated historical outcomes, but only while
+ * the affected land still has its pre-event owner. Player-controlled countries and Sandbox are never
+ * auto-transferred, so player intervention can still create an alternate timeline.
+ */
+function applyHistoricalOwnershipChanges(st: GameState) {
+  if (st.mode !== 'historical') return;
+  const d = data();
+  for (const change of d.db.historical_changes) {
+    if (dateToTick(change.date) !== st.tick || change.partial) continue;
+    const key = `historical_border:${change.date}:${change.to}:${change.event}`;
+    if (st.firedEvents.includes(key)) continue;
+
+    const previousDate = new Date(Date.parse(`${change.date}T00:00:00Z`) - 86_400_000).toISOString().slice(0, 10);
+    const candidates = new Set<string>();
+    for (const entry of change.regions) {
+      if (entry.startsWith('*')) {
+        const priorOwner = entry.slice(1);
+        for (const region of st.regions) {
+          const expected = d.historicalOwner(region.id, previousDate);
+          if (d.equivalent(expected, priorOwner)) candidates.add(region.id);
+        }
+      } else if (d.regionIndex.has(entry)) {
+        candidates.add(entry);
+      }
+    }
+
+    const moved: string[] = [];
+    const oldOwners = new Set<string>();
+    for (const regionId of candidates) {
+      const index = d.regionIndex.get(regionId);
+      if (index === undefined) continue;
+      const region = st.regions[index];
+      const expectedBefore = d.historicalOwner(regionId, previousDate);
+      if (!d.equivalent(region.owner, expectedBefore)) continue;
+      if (region.controller !== region.owner && !d.equivalent(region.controller, change.to)) continue;
+      // Human-controlled countries decide their own wars, treaties and independence.
+      if (st.player && (d.equivalent(st.player, region.owner) || d.equivalent(st.player, change.to))) continue;
+
+      const from = region.owner;
+      if (!transferRegion(st, regionId, change.to, `Lịch sử: ${change.event}`, change.date)) continue;
+      moved.push(regionId);
+      oldOwners.add(from);
+    }
+    st.firedEvents.push(key);
+    if (moved.length) {
+      const fromNames = [...oldOwners].map((id) => st.countries[id]?.nameVi ?? id).join(', ');
+      const targetName = st.countries[change.to]?.nameVi ?? change.to;
+      const regionNames = moved.map((id) => d.region.get(id)?.name ?? id).join(', ');
+      log(st, {
+        type: 'territory',
+        text: `${change.event}: ${regionNames} transferred from ${[...oldOwners].join(', ')} to ${change.to}.`,
+        textVi: `Sự kiện lịch sử ${change.event}: ${regionNames} chuyển từ ${fromNames} sang ${targetName}.`,
+        actors: [...oldOwners, change.to],
+        historical: true,
+      });
+    }
+  }
 }
 
 function applyExogenous(st: GameState, id: string, type: string, regions: string[], months: number, mortality?: number, yieldLoss?: number, sev?: Record<string, number>, resource?: string) {

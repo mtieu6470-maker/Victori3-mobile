@@ -3,7 +3,7 @@
 import { data } from './data/db';
 import type { EntityRecord } from './data/dbTypes';
 import { GOODS, IGS, STRATA, S, type Country, type GameMode, type GameState, type Region, type Good, type Building, BUILDINGS } from './types';
-import { seedRng, relKey, clamp, dateToTick } from './core';
+import { seedRng, relKey, clamp, dateToTick, dateStr } from './core';
 import { computeEconomy } from './systems/economy';
 import { updatePolitics } from './systems/politics';
 import { sampleYear } from './metrics';
@@ -160,7 +160,7 @@ export function coreNation(st: GameState, countryId: string): string | undefined
 
 function femaleName(n: string) { return /\b(Princess|Queen|Maria|Isabella|Victoria|Ranavalona|Pōmare)\b/.test(n); }
 
-function makeCountry(st: GameState, e: EntityRecord): Country {
+function makeCountry(st: GameState, e: EntityRecord, capitalFallback?: string): Country {
   const d = data();
   const laws = { ...(e.laws?.value ?? d.db.entities.find((x) => x.kind === 'decentralized')!.laws!.value) };
   const hos = e.head_of_state?.value;
@@ -177,7 +177,7 @@ function makeCountry(st: GameState, e: EntityRecord): Country {
   const heir = e.heir ? { name: e.heir.name, born: e.heir.born ? Number(e.heir.born.slice(0, 4)) : null, female: femaleName(e.heir.name) } : null;
   return {
     id: e.id, name: e.en, nameVi: e.vi, color: e.color, kind: e.kind, tier: e.tier, alive: true, group: e.group, decentralized: decentral,
-    overlord: e.overlord ?? null, subjectType: e.subject_type ?? null, capital: e.capital && st.regions.some((r) => r.id === e.capital) ? e.capital : st.regions.find((r) => r.owner === e.id || r.controller === e.id)!.id,
+    overlord: e.overlord ?? null, subjectType: e.subject_type ?? null, capital: e.capital && st.regions.some((r) => r.id === e.capital) ? e.capital : capitalFallback ?? st.regions.find((r) => r.owner === e.id || r.controller === e.id)?.id ?? '',
     laws, reform: null, regimeChangedAt: null, govLabel: e.government ?? laws.governance,
     leader: { name: hos?.name ?? (decentral ? 'Council of chiefs' : 'Unknown (missing data)'), born: bornY, since: hos?.since ? Number(hos.since.slice(0, 4)) : 1836, historical: !!hos, female: hos ? femaleName(hos.name) : false, termEnds: termEndFor(e.id, hos?.name) },
     heir,
@@ -197,6 +197,45 @@ function makeCountry(st: GameState, e: EntityRecord): Country {
     priorities: e.priorities.map((p) => p.id), foreignPressure: 0, famine: 0,
     stats: { pop, literacy: 0, sol: 0.5, industry: 0 },
   };
+}
+
+/** Create a researched country that first appears after the 1836 start date. */
+export function makeHistoricalCountry(st: GameState, id: string, capitalRegion: string): Country | null {
+  const d = data();
+  const entity = d.entity.get(id);
+  if (!entity) return null;
+
+  const country = makeCountry(st, entity, capitalRegion);
+  const iso = dateStr(st.date);
+  const activeLeaders = d.leadersOf(id).filter((leader) => leader.from <= iso && leader.to >= iso);
+  const leader = activeLeaders.find((candidate) => candidate.governance === country.laws.governance) ?? activeLeaders[0];
+  if (leader) {
+    country.leader = {
+      name: leader.name,
+      born: leader.born ? Number(leader.born.slice(0, 4)) : null,
+      since: Number(leader.from.slice(0, 4)),
+      historical: true,
+      diesOn: leader.died ?? null,
+      female: femaleName(leader.name),
+      termEnds: leader.end === 'term' ? leader.to : null,
+    };
+  } else {
+    country.leader = {
+      name: 'Chưa có hồ sơ nguyên thủ cho thời kỳ này',
+      born: null,
+      since: st.date.y,
+      historical: false,
+    };
+  }
+  country.capital = capitalRegion;
+  country.formedAt = st.tick;
+  country.regimeChangedAt = st.tick;
+  country.reform = null;
+  country.constructionQueue = [];
+  country.claims = [];
+  country.customsUnion = null;
+  country.ai = { cooldowns: {}, lawHistory: [], recent: [], planTarget: null };
+  return country;
 }
 
 function termEndFor(id: string, name?: string): string | null {
