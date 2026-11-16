@@ -61,7 +61,9 @@ for eid in ids:
     inc = min((y for y, _ in filter(None, inc)), default=None)
     dis = max((y for y, _ in filter(None, dis)), default=None)
     kind = t['kind']
-    if kind in ('people', 'region', 'period', 'future', 'dynasty'):
+    if any('disambiguation' in label.get(v['id'], '') for v, _, _ in claim_values(e, 'P31')):
+        check = 'article is a disambiguation page'
+    elif kind in ('people', 'region', 'period', 'future', 'dynasty'):
         check = 'not_applicable'
     elif inc is not None and inc > START:
         check = f'inception {inc} after {START}'

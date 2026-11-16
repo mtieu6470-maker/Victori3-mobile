@@ -6172,15 +6172,15 @@
   "DZ_YAO": {
    "linked": true,
    "kind": "people",
-   "article": "Yao",
-   "asked": "Yao people",
-   "qid": "Q226232",
-   "label_en": "Yao",
-   "label_vi": null,
-   "description_en": "Wikimedia disambiguation page",
-   "viwiki": null,
+   "article": "Yao people (East Africa)",
+   "asked": "Yao people (East Africa)",
+   "qid": "Q1255780",
+   "label_en": "Yao people",
+   "label_vi": "Người Yao",
+   "description_en": "ethnic group in Malawi, Mozambique and Tanzania",
+   "viwiki": "Người Yao (Đông Phi)",
    "instance_of": [
-    "Wikimedia disambiguation page"
+    "ethnic group"
    ],
    "inception": null,
    "dissolved": null,
@@ -6906,15 +6906,16 @@
   "DZ_AUS_SE": {
    "linked": true,
    "kind": "people",
-   "article": "Kulin",
-   "asked": "Kulin",
-   "qid": "Q588509",
-   "label_en": "Kulin",
+   "article": "Kulin nation",
+   "asked": "Kulin nation",
+   "qid": "Q930202",
+   "label_en": "Kulin people",
    "label_vi": null,
-   "description_en": "Wikimedia disambiguation page",
+   "description_en": "Indigenous Australian ethnic group",
    "viwiki": null,
    "instance_of": [
-    "Wikimedia disambiguation page"
+    "ethnic group",
+    "Indigenous Australians"
    ],
    "inception": null,
    "dissolved": null,

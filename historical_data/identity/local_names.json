@@ -1,0 +1,9 @@
+{
+  "description": "Researched official / local names for entities whose Wikidata item has none, each with a source. Periods are years in which the name applies; the game shows the names valid for the current game year.",
+  "names": {
+    "VNM": [
+      { "text": "Việt Nam · 越南", "lang": "vi", "from": 1804, "to": 1838, "source": "vi.wikipedia.org 'Tên gọi Việt Nam' (rev. 75721751): quốc hiệu Việt Nam chính thức từ 1804 (Gia Long xin nhà Thanh công nhận)" },
+      { "text": "Đại Nam · 大南", "lang": "vi", "from": 1839, "to": 1945, "source": "vi.wikipedia.org 'Tên gọi Việt Nam' (rev. 75721751): Minh Mạng công bố quốc hiệu Đại Nam ngày 15/2/1839; 'Đại Nam' (rev. 75104622): quốc hiệu 1839–1945" }
+    ]
+  }
+}

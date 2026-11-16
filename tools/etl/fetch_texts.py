@@ -13,7 +13,8 @@ from wiki import api, chunks, resolve_titles, entities
 
 ROOT = os.path.join(os.path.dirname(__file__), '..', '..')
 links = json.load(open(os.path.join(ROOT, 'historical_data/identity/wikidata_links.json'), encoding='utf-8'))['links']
-people = json.load(open(os.path.join(ROOT, 'historical_data/identity/people_links.json'), encoding='utf-8'))['people']
+pl = os.path.join(ROOT, 'historical_data/identity/people_links.json')
+people = json.load(open(pl, encoding='utf-8'))['people'] if os.path.exists(pl) else {}
 LIMIT = 1400
 
 
@@ -27,8 +28,8 @@ def leads(titles, lang):
         for n in q.get('normalized', []) + q.get('redirects', []):
             back[n['to']] = back.get(n['from'], n['from'])
         for p in q['pages']:
-            if p.get('missing') or not p.get('extract'):
-                continue
+            if p.get('missing') or not p.get('extract') or re.search(r'may refer to:|có thể là:|có thể chỉ:', p['extract'][:300]):
+                continue  # missing page or disambiguation page
             src = back.get(p['title'], p['title'])
             for t in part:
                 if t == src or t == p['title']:
@@ -40,6 +41,8 @@ def leads(titles, lang):
 def cut(text):
     text = re.sub(r'\n{2,}', '\n', text).strip()
     text = re.sub(r'\s*\([^()]*(?:listen|pronunciation|IPA|/)[^()]*\)', '', text)  # pronunciation clutter
+    text = re.sub(r'\s*\(\s*[;,]?\s*\)', '', text)            # empty brackets left by removed pronunciations
+    text = re.sub(r'\(\s*[;,]\s*', '(', text)
     if len(text) <= LIMIT:
         return text, False
     s = text[:LIMIT]
@@ -69,8 +72,9 @@ for eid, l in links.items():
         ent_titles[eid] = (l['article'], l.get('viwiki'), False)
 per_titles = {k: (p.get('enwiki'), p.get('viwiki')) for k, p in people.items() if p.get('match') in ('strong', 'weak')}
 
-en = leads([t for t, _, _ in ent_titles.values()] + [t for t, _ in per_titles.values() if t], 'en')
-vi = leads([v for _, v, _ in ent_titles.values() if v] + [v for _, v in per_titles.values() if v], 'vi')
+# entity and person leads are requested separately so that re-runs reuse the cached entity batches
+en = leads([t for t, _, _ in ent_titles.values()], 'en'); en.update(leads([t for t, _ in per_titles.values() if t], 'en'))
+vi = leads([v for _, v, _ in ent_titles.values() if v], 'vi'); vi.update(leads([v for _, v in per_titles.values() if v], 'vi'))
 
 
 def texts(t_en, t_vi):
