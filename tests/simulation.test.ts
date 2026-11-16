@@ -184,7 +184,12 @@ describe('cohort-specific market demand', () => {
 
     expect(stratified.luxury).toBeGreaterThan(equal.luxury);
     expect(stratified.textiles).toBeGreaterThan(equal.textiles);
-    expect(stratified.grain).toBeCloseTo(equal.grain + 0, 0);
+    expect(stratified.grain).toBeGreaterThan(equal.grain);
+
+    const peasantsOnly = [1, 0, 0, 0, 0, 0, 0, 0, 0];
+    const poorStaples = populationConsumptionDemand(10000, peasantsOnly, STRATA.map(() => 0), 'GBR');
+    expect(poorStaples.grain).toBeGreaterThan(0);
+    expect(poorStaples.textiles).toBeGreaterThan(0);
     expect(populationConsumptionDemand(100000, shares, equalIncome, 'QNG').opium)
       .toBeGreaterThan(populationConsumptionDemand(100000, shares, equalIncome, 'GBR').opium);
   });
