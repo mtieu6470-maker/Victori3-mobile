@@ -3,8 +3,8 @@ import { describe, it, expect } from 'vitest';
 import { run, fresh, stepMonth } from './helpers';
 import { serialize, deserialize } from '../src/engine/save';
 import { data } from '../src/engine/data/db';
-import { STRATA } from '../src/engine/types';
-import { availableProductionMethods, calculatePopulationEconomy, calibrateCohortLivingStandards, factoryInputFulfillment, populationConsumptionDemand, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
+import { BUILDINGS, STRATA } from '../src/engine/types';
+import { availableProductionMethods, calculatePopulationEconomy, calibrateCohortLivingStandards, factoryInputFulfillment, LEVEL_WORKERS, populationConsumptionDemand, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
 import { execute } from '../src/engine/commands';
 import { updatePolitics } from '../src/engine/systems/politics';
 import { mixPopulationStrata, stratifiedNaturalChange } from '../src/engine/systems/population';
@@ -423,5 +423,29 @@ describe('cohort migration and malformed legacy mix', () => {
     expect(mixed[0]).toBeCloseTo(0.7, 10);
     expect(mixed[1]).toBeCloseTo(0.3, 10);
     expect(mixed.reduce((sum, value) => sum + value, 0)).toBeCloseTo(1, 10);
+  });
+});
+
+
+describe('building-level staffing ledger', () => {
+  it('records actual staffed workers by productive building without exceeding capacity', () => {
+    const st = fresh('historical', 87, 'GBR');
+    for (const region of st.regions) {
+      const ledger = region.popEconomy?.employedByBuilding;
+      expect(ledger, region.id).toBeDefined();
+      if (!ledger) continue;
+
+      let totalBuildingStaff = 0;
+      for (const building of BUILDINGS) {
+        const staffed = ledger[building] ?? 0;
+        const capacity = region.buildings[building] * LEVEL_WORKERS;
+        expect(Number.isFinite(staffed), region.id + ' ' + building).toBe(true);
+        expect(staffed, region.id + ' ' + building).toBeGreaterThanOrEqual(0);
+        expect(staffed, region.id + ' ' + building).toBeLessThanOrEqual(capacity + 1e-6);
+        totalBuildingStaff += staffed;
+      }
+      const employedLabour = region.popEconomy!.employed.reduce((sum, value) => sum + value, 0);
+      expect(totalBuildingStaff, region.id).toBeLessThanOrEqual(employedLabour + 1e-6);
+    }
   });
 });

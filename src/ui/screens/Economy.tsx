@@ -20,6 +20,13 @@ const PRIMARY_OUT: Partial<Record<Building, string>> = { plantation: 'Nông sả
 const outText = (b: Building) => (RECIPES[b] ? GOOD_VI[RECIPES[b]!.out] : PRIMARY_OUT[b] ?? '—');
 const B_ICON = (b: Building) => (b === 'railway' ? 'construction' : b === 'university' ? 'literacy' : 'buildings');
 
+/** Actual employed headcount; null means a legacy region has not rebuilt its staffing ledger yet. */
+function staffedWorkers(regions: Region[], building: Building): number | null {
+  const relevant = regions.filter((region) => region.buildings[building] > 0);
+  if (relevant.some((region) => !region.popEconomy?.employedByBuilding)) return null;
+  return relevant.reduce((sum, region) => sum + (region.popEconomy?.employedByBuilding?.[building] ?? 0), 0);
+}
+
 type Row = { g: Good; price: number; world: number; supply: number | null; demand: number | null; ratio: number | null; imports: number | null; short: number | null };
 function marketRows(st: GameState, mk: string): Row[] {
   const prices = st.marketPrices[mk] ?? st.worldPrices; const stats = st.marketStats?.[mk];
@@ -36,7 +43,7 @@ const status = (r: Row): { label: string; cls: string } | null => {
 function Overview({ st }: { st: GameState }) {
   const id = viewedId(st); const c = st.countries[id]; const regs = st.regions.filter((r) => r.owner === id);
   const h = st.history[id] ?? []; const bal = c.income - c.expense; const mk = marketOf(st, c);
-  const emp = BUILDINGS.filter((b) => RECIPES[b] || b === 'plantation' || b === 'mine' || b === 'logging').map((b) => ({ b, v: regs.reduce((s, r) => s + r.buildings[b], 0) * LEVEL_WORKERS })).filter((x) => x.v > 0).sort((a, b) => b.v - a.v);
+  const emp = BUILDINGS.filter((b) => RECIPES[b] || b === 'plantation' || b === 'mine' || b === 'logging').map((b) => ({ b, capacity: regs.reduce((s, r) => s + r.buildings[b], 0) * LEVEL_WORKERS, v: staffedWorkers(regs, b) })).filter((x) => x.capacity > 0).sort((a, b) => (b.v ?? -1) - (a.v ?? -1));
   const rows = marketRows(st, mk); const short = rows.filter((r) => (r.short ?? 0) >= 0.1).sort((a, b) => (b.short ?? 0) - (a.short ?? 0)); const surplus = rows.filter((r) => (r.ratio ?? 0) >= 1.5).sort((a, b) => (b.ratio ?? 0) - (a.ratio ?? 0));
   const topOut = [...regs].sort((a, b) => b.output - a.output).slice(0, 6); const outSum = regs.reduce((s, r) => s + r.output, 0) || 1;
   return (
@@ -50,8 +57,11 @@ function Overview({ st }: { st: GameState }) {
       <div class="cols c2">
         <div>
           <Sec title="GDP theo năm" icon="gdp"><LineChart years={h.map((x) => x.y)} series={[{ name: 'GDP', color: '#93c47a', values: h.map((x) => x.gdp) }]} fmtY={compact} height={120} /></Sec>
-          <Sec title="Việc làm theo công trình" icon="factory" x="lao động">
-            {emp.length ? <HBars rows={emp.map((e) => ({ label: BUILD_VI[e.b], v: e.v, key: e.b }))} fmtV={compact} /> : <div class="empty sm">Chưa có công trình sản xuất.</div>}
+          <Sec title="Lao động đang làm" icon="factory" x="nhân công thực tế">
+            {emp.length > 0 && emp.every((e) => e.v !== null)
+              ? <HBars rows={emp.map((e) => ({ label: BUILD_VI[e.b], v: e.v ?? 0, key: e.b }))} fmtV={compact} />
+              : <div class="empty sm">Chưa có sổ nhân công; chạy mô phỏng thêm một tháng để cập nhật dữ liệu cũ.</div>}
+            {emp.length > 0 && emp.every((e) => e.v !== null) && <div class="note">Số đang làm là lao động thực tế được engine phân bổ, không phải sức chứa tối đa.</div>}
           </Sec>
         </div>
         <div>
@@ -151,11 +161,19 @@ function GoodDetail({ st, mk, g }: { st: GameState; mk: string; g: Good }) {
 export function openBuilding(st: GameState, b: Building, scope?: string) {
   const id = viewedId(st); const regs = st.regions.filter((r) => r.owner === id && r.buildings[b] > 0).sort((x, y) => y.buildings[b] - x.buildings[b]);
   const levels = regs.reduce((s, r) => s + r.buildings[b], 0);
+  const capacity = levels * LEVEL_WORKERS;
+  const actualEmployment = staffedWorkers(regs, b);
   details.toggle({ key: `bld:${b}`, title: BUILD_VI[b], ctx: `${fmt(levels)} cấp · ${regs.length} vùng`, scope, body: () => (
     <div>
       <div class="kv"><span class="k">Sản phẩm</span><span class="v">{outText(b)}</span></div>
       {RECIPES[b] && <div class="kv"><span class="k">Đầu vào / đơn vị</span><span class="v">{Object.entries(RECIPES[b]!.inputs).map(([g, q]) => `${GOOD_VI[g]} × ${fmt(q as number, 2)}`).join(' · ')}</span></div>}
-      {b !== 'railway' && b !== 'university' && <div class="kv"><span class="k">Việc làm</span><span class="v num">{compact(levels * LEVEL_WORKERS)}</span></div>}
+      {b !== 'railway' && b !== 'university' && (
+        <Sec title="Tình trạng tuyển dụng">
+          <div class="kv"><span class="k">Đang làm</span><span class="v num">{actualEmployment === null ? '—' : compact(actualEmployment)}</span></div>
+          <div class="kv"><span class="k">Sức chứa tối đa</span><span class="v num">{compact(capacity)}</span></div>
+          <div class="kv"><span class="k">Tỷ lệ được tuyển</span><span class="v num">{actualEmployment === null ? 'Chờ dữ liệu' : pct(actualEmployment / Math.max(1, capacity))}</span></div>
+        </Sec>
+      )}
       {PRODUCTION_METHODS[b]?.length ? (
         <Sec title="Phương pháp sản xuất" x="theo từng vùng">
           <div class="note" style="margin-top:0">Phương pháp tác động trực tiếp đến sản lượng và nhu cầu nguyên liệu. Nếu chưa chọn thủ công, vùng dùng phương pháp cao nhất mà quốc gia đã mở khóa bằng công nghệ.</div>
@@ -178,7 +196,16 @@ export function openBuilding(st: GameState, b: Building, scope?: string) {
         </Sec>
       ) : null}
       <Sec title="Theo vùng" x="chạm để xem trên bản đồ">
-        {regs.length ? regs.map((r) => <div class="row tap" key={r.id} onClick={() => focusRegion(r.id)}><div class="grow"><div class="t sm">{regionName(r.id)}</div></div><span class="num">cấp {r.buildings[b]}</span></div>) : <div class="empty sm">Quốc gia chưa có công trình này.</div>}
+        {regs.length ? regs.map((r) => {
+          const staffed = r.popEconomy?.employedByBuilding?.[b];
+          const regionCapacity = r.buildings[b] * LEVEL_WORKERS;
+          const staffingText = staffed === undefined
+            ? 'chờ dữ liệu nhân công'
+            : compact(staffed) + ' / ' + compact(regionCapacity) + ' người · ' + pct(staffed / Math.max(1, regionCapacity));
+          return <div class="row tap" key={r.id} onClick={() => focusRegion(r.id)}>
+            <div class="grow"><div class="t sm">{regionName(r.id)}</div><div class="s">Cấp {r.buildings[b]} · {staffingText}</div></div>
+          </div>;
+        }) : <div class="empty sm">Quốc gia chưa có công trình này.</div>}
       </Sec>
     </div>
   ) });
@@ -188,14 +215,14 @@ export function openBuilding(st: GameState, b: Building, scope?: string) {
 export function BuildingsTab({ st }: { st: GameState }) {
   const id = viewedId(st); const regs = st.regions.filter((r) => r.owner === id); const sel = details.use()?.key;
   const [ref, w] = useWidth<HTMLDivElement>();
-  const types = BUILDINGS.map((b) => ({ b, levels: regs.reduce((s, r) => s + r.buildings[b], 0), regs: regs.filter((r) => r.buildings[b] > 0).sort((x, y) => y.buildings[b] - x.buildings[b]) })).filter((t) => t.levels > 0);
+  const types = BUILDINGS.map((b) => ({ b, levels: regs.reduce((s, r) => s + r.buildings[b], 0), regs: regs.filter((r) => r.buildings[b] > 0).sort((x, y) => y.buildings[b] - x.buildings[b]) })).filter((t) => t.levels > 0).map((t) => ({ ...t, capacity: t.levels * LEVEL_WORKERS, employed: staffedWorkers(t.regs, t.b) }));
   if (!types.length) return <div class="pad"><div class="empty">Quốc gia này chưa có công trình nào.</div></div>;
   const sectors = [...new Set(types.map((t) => SECTOR[t.b]))];
   const open = (t: (typeof types)[number]) => openBuilding(st, t.b);
   return (
     <div class="pad" ref={ref}>
       <table class="dt">
-        <thead><tr><th>Công trình</th><th class="r">Cấp</th><th class="r">Vùng</th>{w >= 390 && <th class="r">Việc làm</th>}{w >= 540 && <th>Sản phẩm</th>}</tr></thead>
+        <thead><tr><th>Công trình</th><th class="r">Cấp</th><th class="r">Vùng</th>{w >= 390 && <th class="r">Đang làm / sức chứa</th>}{w >= 540 && <th>Sản phẩm</th>}</tr></thead>
         <tbody>
           {sectors.map((sec) => [
             <tr class="grp" key={sec}><td colSpan={5}>{sec}</td></tr>,
@@ -203,14 +230,20 @@ export function BuildingsTab({ st }: { st: GameState }) {
               <tr key={t.b} class={sel === `bld:${t.b}` ? 'on' : ''} onClick={() => open(t)}>
                 <td><span class="cell-ic"><span class="gico" style="color:var(--accent)"><Icon name={B_ICON(t.b)} /></span><span class="nm">{BUILD_VI[t.b]}</span></span></td>
                 <td class="r num"><b>{fmt(t.levels)}</b></td><td class="r num">{t.regs.length}</td>
-                {w >= 390 && <td class="r num">{t.b === 'railway' || t.b === 'university' ? '—' : compact(t.levels * LEVEL_WORKERS)}</td>}
+                {w >= 390 && <td class="r">
+                  {t.b === 'railway' || t.b === 'university'
+                    ? <span class="dim">—</span>
+                    : t.employed === null
+                      ? <span class="dim">Chờ dữ liệu</span>
+                      : <><b class="num">{compact(t.employed)}</b><div class="sub">/ {compact(t.capacity)} · {pct(t.employed / Math.max(1, t.capacity))}</div></>}
+                </td>}
                 {w >= 540 && <td class="muted ellipsis" style="max-width:220px">{outText(t.b)}</td>}
               </tr>
             )),
           ])}
         </tbody>
       </table>
-      <div class="note">Mỗi cấp công trình sản xuất dùng {fmt(LEVEL_WORKERS)} lao động theo quy tắc của mô phỏng.</div>
+      <div class="note">Số đang làm là lao động engine thực tế phân bổ; sức chứa tối đa là {fmt(LEVEL_WORKERS)} người mỗi cấp. Đường sắt và đại học chưa có mô hình nhân sự riêng.</div>
     </div>
   );
 }
@@ -231,7 +264,7 @@ export function ConstructionTab({ st }: { st: GameState }) {
     <div>
       <div class="t-s" style="margin-bottom:6px">{regionName(o.r.id)}</div>
       <Sec title="Chi phí"><div class="kv"><span class="k">Trích từ quỹ xây dựng nhà nước</span><span class="v num">{money(o.cost)}</span></div><div class="kv"><span class="k">Quỹ hiện có</span><span class={`v num${statePool < o.cost ? ' neg' : ''}`}>{money(statePool)}</span></div></Sec>
-      <Sec title="Lợi ích dự kiến"><div class="kv"><span class="k">Lợi suất năm (theo giá hiện tại, ước tính)</span><span class="v num pos">{pct(o.ret, 1)}</span></div>{o.b !== 'railway' && <div class="kv"><span class="k">Việc làm</span><span class="v num">{fmt(LEVEL_WORKERS)}</span></div>}</Sec>
+      <Sec title="Lợi ích dự kiến"><div class="kv"><span class="k">Lợi suất năm (theo giá hiện tại, ước tính)</span><span class="v num pos">{pct(o.ret, 1)}</span></div>{o.b !== 'railway' && <div class="kv"><span class="k">Công suất việc làm tối đa</span><span class="v num">{fmt(LEVEL_WORKERS)}</span></div>}</Sec>
       <div class="note">Dự án vào hàng đợi và thi công theo năng lực xây dựng từ ngân sách mỗi tháng. Chi phí ước tính được khóa tại thời điểm đặt dự án; vùng bị chiếm sẽ tạm dừng thi công.</div>
       <div class="btns" style="margin-top:10px"><button class="btn" onClick={() => modals.close()}>Hủy</button><button class="btn primary" disabled={!canQueueConstruction(st, c, o.r, o.b)} onClick={() => { if (send({ type: 'queue_build', region: o.r.id, building: o.b }, `Đã xếp hàng ${BUILD_VI[o.b]} tại ${regionName(o.r.id)}`)) modals.close(); }}>Xếp hàng</button></div>
     </div>

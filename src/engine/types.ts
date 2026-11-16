@@ -73,6 +73,8 @@ export interface PopulationEconomy {
   incomePerCapita: number[]; // household income per person, including dependents and ownership income
   wagePerWorker: number[]; // average annual wage per employed worker; zero for pure owner strata
   sol: number[]; // class standard of living, 0..1
+  /** Actual staffed workers by productive building; absent in saves predating the staffing ledger. */
+  employedByBuilding?: Partial<Record<Building, number>>;
 }
 
 export interface Region {

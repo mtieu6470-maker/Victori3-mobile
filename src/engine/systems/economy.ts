@@ -82,7 +82,7 @@ export function openness(c: Country, coastal: boolean): number {
   return clamp(o, 0.01, 0.92);
 }
 
-interface RegionCalc { supply: Record<Good, number>; demand: Record<Good, number>; services: number; inputsNeed: Record<Good, number>; factoryOut: Record<Good, number>; factoryInputs: Partial<Record<Good, Partial<Record<Good, number>>>>; employment: number[]; grainLocal: number; grainNeed: number }
+interface RegionCalc { supply: Record<Good, number>; demand: Record<Good, number>; services: number; inputsNeed: Record<Good, number>; factoryOut: Record<Good, number>; factoryInputs: Partial<Record<Good, Partial<Record<Good, number>>>>; employment: number[]; employedByBuilding: Partial<Record<Building, number>>; grainLocal: number; grainNeed: number }
 
 const zero = () => Object.fromEntries(GOODS.map((g) => [g, 0])) as Record<Good, number>;
 
@@ -239,6 +239,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const supply = zero(), demand = zero(), inputsNeed = zero(), factoryOut = zero();
     const factoryInputs: Partial<Record<Good, Partial<Record<Good, number>>>> = {};
     const employment = new Array(STRATA.length).fill(0);
+    const employedByBuilding: Partial<Record<Building, number>> = {};
     // Every cohort has a finite labour pool. Allocate it once instead of allowing the
     // same labourers to be counted simultaneously by farms, plantations, mines and logging.
     employment[S.peasants] = LF * sh[S.peasants];
@@ -257,6 +258,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const plantationSlaves = Math.min(plantCap, slavePool);
     const plantationLaborers = Math.min(Math.max(0, plantCap - plantationSlaves), Math.min(laborersAvailable, LF * sh[S.laborers] * 0.25));
     const plantWorkers = plantationSlaves + plantationLaborers;
+    employedByBuilding.plantation = plantWorkers;
     employment[S.slaves] += plantationSlaves;
     employment[S.laborers] += plantationLaborers;
     laborersAvailable -= plantationLaborers;
@@ -271,6 +273,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     supply.grain += slaveFieldWorkers * 500 * terr * A * dev;
     // mines and logging
     const mineWorkers = Math.min(r.buildings.mine * LEVEL_WORKERS, LF * sh[S.laborers] * 0.6, laborersAvailable);
+    employedByBuilding.mine = mineWorkers;
     employment[S.laborers] += mineWorkers;
     laborersAvailable -= mineWorkers;
     if (mineWorkers > 0) {
@@ -279,6 +282,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
       for (const k of kinds) supply[k] += (mineWorkers * 900 * (1 + techEffect(c, 'mine_efficiency')) * A * infra * dev * occupied) / kinds.length;
     }
     const logWorkers = Math.min(r.buildings.logging * LEVEL_WORKERS, LF * sh[S.laborers] * 0.4, laborersAvailable);
+    employedByBuilding.logging = logWorkers;
     employment[S.laborers] += logWorkers;
     laborersAvailable -= logWorkers;
     supply.timber += logWorkers * 900 * A * dev * occupied + LF * sh[S.peasants] * 15 * A; // farm-side timber
@@ -287,6 +291,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const facEff = 1 + techEffect(c, 'factory_efficiency');
     for (const b of Object.keys(RECIPES) as Building[]) {
       const rec = RECIPES[b]!; const w = Math.min(r.buildings[b] * LEVEL_WORKERS, factoryWorkersLeft); factoryWorkersLeft -= w;
+      employedByBuilding[b] = w;
       employment[S.workers] += w;
       if (w <= 0) continue;
       const eff = facEff * (1 + (b === 'textile_mill' ? techEffect(c, 'textile_efficiency') : b === 'ironworks' ? techEffect(c, 'iron_efficiency') + techEffect(c, 'steel_efficiency') : b === 'arms_works' ? techEffect(c, 'arms_efficiency') : 0));
@@ -329,7 +334,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     demand.opium += householdDemand.opium;
     demand.tools += agriWorkers * 2 + (LF * sh[S.workers]) * 8 + mineWorkers * 6;
     for (const g of GOODS) { supply[g] += factoryOut[g]; demand[g] += inputsNeed[g]; }
-    calc[i] = { supply, demand, services: svc, inputsNeed, factoryOut, factoryInputs, employment, grainLocal: grain, grainNeed };
+    calc[i] = { supply, demand, services: svc, inputsNeed, factoryOut, factoryInputs, employment, employedByBuilding, grainLocal: grain, grainNeed };
     const mk = marketOf(st, c);
     const m = (markets[mk] ??= { s: zero(), dm: zero(), open: 0, members: [] });
     for (const g of GOODS) { m.s[g] += supply[g]; m.dm[g] += demand[g]; }
@@ -419,7 +424,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const legacyRaw = 0.5 + 0.33 * Math.log(Math.max(1e-3, (legacyGdpPc * (1 - c.taxRate) * legacyLaborShare) / (legacyBasket * 2)));
     const legacyTarget = clamp(legacyRaw - famine * 0.6 - (c.laws.labor === 'serfdom' ? 0.05 : 0), 0, 1);
     const cohorts = calculatePopulationEconomy(r.pop, r.strata, k.employment, value, p, c.taxRate, famine, c.laws.labor);
-    r.popEconomy = calibrateCohortLivingStandards(cohorts, r.strata, legacyTarget);
+    r.popEconomy = { ...calibrateCohortLivingStandards(cohorts, r.strata, legacyTarget), employedByBuilding: k.employedByBuilding };
     const target = r.strata.reduce((sum, share, index) => sum + clamp(share, 0, 1) * r.popEconomy!.sol[index], 0);
     r.sol = calibrate ? target : r.sol * 0.85 + target * 0.15;
     (r as Region & { famine?: number }).famine = famine;
