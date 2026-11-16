@@ -1,5 +1,8 @@
 # Builds an installable debug APK of the game (offline web build packaged with Capacitor).
 # The debug APK is signed with Gradle's auto-generated debug key: no signing secrets are stored in the repository.
+# S0-B B1: each run also uploads a separate evidence artifact (ci-evidence-<sha>-<attempt>) with the APK SHA-256,
+# the artifact ZIP digest (a different file), generated-data and web-bundle hashes and a validated test report.
+# The build commands themselves (npm ci, npm run build, cap sync, assembleDebug) are unchanged.
 name: Android APK (debug)
 
 on:
@@ -7,12 +10,33 @@ on:
     branches: ['**']
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   apk:
     runs-on: ubuntu-latest
     timeout-minutes: 40
+    env:
+      EVIDENCE: ci-evidence
     steps:
       - uses: actions/checkout@v4
+      - name: Record provenance
+        run: |
+          mkdir -p "$EVIDENCE"
+          head=$(git rev-parse HEAD)
+          if [ "$head" != "$GITHUB_SHA" ]; then echo "checked-out HEAD $head differs from GITHUB_SHA $GITHUB_SHA" >&2; exit 1; fi
+          {
+            echo "commit_sha=$GITHUB_SHA"
+            echo "checked_out_head=$head"
+            echo "ref=$GITHUB_REF"
+            echo "event=$GITHUB_EVENT_NAME"
+            echo "run_id=$GITHUB_RUN_ID"
+            echo "run_attempt=$GITHUB_RUN_ATTEMPT"
+            echo "evidence_pipeline=AUDIT_INSTRUMENTED (S0-B B1: evidence steps added to this workflow)"
+            echo "product_build_commands=unchanged (npm ci; npm run build; npx cap sync android; ./gradlew assembleDebug)"
+            echo "product_source_state=not asserted by CI; compare this commit with the baseline using git"
+          } > "$EVIDENCE/provenance.txt"
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -20,8 +44,212 @@ jobs:
       - run: npm ci
       - name: Build data, map and web app
         run: npm run build
+      - name: Hash generated data and web bundle
+        run: |
+          { echo "node $(node --version)"; echo "npm $(npm --version)"; } > "$EVIDENCE/toolchain.txt"
+          missing=0
+          for f in src/generated/db.json src/generated/map.json public/generated/map.bin public/generated/coastdist.png public/generated/borders.json public/content/registry.json; do
+            if [ ! -f "$f" ]; then echo "MISSING $f" | tee -a "$EVIDENCE/generated_missing.txt" >&2; missing=1; fi
+          done
+          if [ ! -d public/generated ]; then echo "MISSING directory public/generated" | tee -a "$EVIDENCE/generated_missing.txt" >&2; missing=1; fi
+          if [ ! -f dist/index.html ]; then echo "MISSING dist/index.html" | tee -a "$EVIDENCE/generated_missing.txt" >&2; missing=1; fi
+          if [ "$missing" -ne 0 ]; then exit 1; fi
+          # Every file the build generated (not only the expected list), sorted, with SHA-256.
+          find src/generated public/generated public/content/registry.json -type f -print0 | LC_ALL=C sort -z | xargs -0 sha256sum > "$EVIDENCE/generated_sha256.txt"
+          (cd dist && echo 'path_relative_to_dist,size_bytes,sha256' && find . -type f | sed 's#^\./##' | LC_ALL=C sort |
+            while IFS= read -r f; do printf '%s,%s,%s\n' "$f" "$(stat -c %s "$f")" "$(sha256sum "$f" | cut -d' ' -f1)"; done) > "$EVIDENCE/dist_manifest.csv"
       - name: Unit and simulation tests
-        run: npx vitest run
+        run: |
+          cat > "$EVIDENCE/vitest-tree-reporter.mjs" <<'REPORTER'
+          import fs from 'node:fs/promises';
+          import { getSuites, getTests } from '@vitest/runner/utils';
+
+          const VALID_STATES = new Set(['run', 'skip', 'only', 'todo', 'pass', 'fail']);
+          const STATUS_MAP = {
+            fail: 'failed', only: 'pending', pass: 'passed',
+            run: 'pending', skip: 'skipped', todo: 'todo',
+          };
+
+          export default class VitestTaskTreeReporter {
+            onInit(ctx) { this.ctx = ctx; }
+
+            async onFinished(files = this.ctx.state.getFiles(), errors = []) {
+              const suites = getSuites(files);
+              const tests = getTests(files);
+              const invalid = [];
+              const checkTask = (task, where) => {
+                if (!VALID_STATES.has(task.mode)) invalid.push(`${where}.mode=${JSON.stringify(task.mode)}`);
+                if (task.result && !VALID_STATES.has(task.result.state)) {
+                  invalid.push(`${where}.result.state=${JSON.stringify(task.result.state)}`);
+                }
+              };
+
+              suites.forEach((task, i) => {
+                checkTask(task, `suite[${i}]`);
+                if (task.mode === 'only' || task.result?.state === 'only') {
+                  invalid.push(`suite[${i}] uses unsupported focused-only state`);
+                }
+              });
+              tests.forEach((task, i) => {
+                checkTask(task, `test[${i}]`);
+                // Vitest 2.1.9's JSON reporter maps "only" to pending in assertion detail,
+                // but its aggregate numPendingTests calculation does not count state="only".
+                // Reject this edge case rather than accepting inconsistent summaries.
+                if (task.mode === 'only' || task.result?.state === 'only') {
+                  invalid.push(`test[${i}] uses unsupported focused-only state`);
+                }
+              });
+
+              const numTotalTestSuites = suites.length;
+              const numFailedTestSuites = suites.filter(s => s.result?.state === 'fail').length;
+              const numPendingTestSuites = suites.filter(
+                s => s.result?.state === 'run' || s.mode === 'todo',
+              ).length;
+              const numPassedTestSuites = numTotalTestSuites - numFailedTestSuites - numPendingTestSuites;
+              const numTotalTests = tests.length;
+              const numFailedTests = tests.filter(t => t.result?.state === 'fail').length;
+              const numPassedTests = tests.filter(t => t.result?.state === 'pass').length;
+              const numPendingTests = tests.filter(
+                t => t.result?.state === 'run' || t.mode === 'skip' || t.result?.state === 'skip',
+              ).length;
+              const numTodoTests = tests.filter(t => t.mode === 'todo').length;
+
+              const treeFiles = files.map((file, i) => {
+                const fileTests = getTests([file]);
+                const hasFailedTests = fileTests.some(t => t.result?.state === 'fail');
+                const status = file.result?.state === 'fail' || hasFailedTests ? 'failed' : 'passed';
+                const assertions = fileTests.map((test, j) => {
+                  const state = test.result?.state || test.mode;
+                  if (!Object.prototype.hasOwnProperty.call(STATUS_MAP, state)) {
+                    invalid.push(`file[${i}].test[${j}] status=${JSON.stringify(state)}`);
+                  }
+                  return { title: test.name, status: STATUS_MAP[state] || null };
+                });
+                return { name: file.filepath, status, assertions };
+              });
+
+              const report = {
+                schema: 'vitest-2.1.9-task-tree-v1',
+                fileCount: files.length,
+                counters: {
+                  numTotalTestSuites, numPassedTestSuites, numFailedTestSuites, numPendingTestSuites,
+                  numTotalTests, numPassedTests, numFailedTests, numPendingTests, numTodoTests,
+                },
+                unhandledErrorCount: Array.isArray(errors) ? errors.length : null,
+                invalidStates: invalid,
+                files: treeFiles,
+              };
+
+              const output = process.env.VITEST_TREE_REPORT;
+              if (!output) throw new Error('VITEST_TREE_REPORT is not set');
+              await fs.writeFile(output, JSON.stringify(report, null, 2) + '\n', 'utf8');
+            }
+          }
+          REPORTER
+
+          set +e
+          VITEST_TREE_REPORT="$EVIDENCE/vitest-tree-results.json" npx vitest run \
+            --reporter=verbose \
+            --reporter=json \
+            --reporter="./$EVIDENCE/vitest-tree-reporter.mjs" \
+            --outputFile="$EVIDENCE/vitest-results.json" 2>&1 | tee "$EVIDENCE/vitest.log"
+          rc=${PIPESTATUS[0]}
+          set -e
+          echo "$rc" > "$EVIDENCE/vitest_exit_code.txt"
+
+          vrc=0
+          node - "$EVIDENCE/vitest-results.json" "$EVIDENCE/vitest-tree-results.json" "$rc" "$EVIDENCE/test_summary.txt" <<'JS' || vrc=$?
+          const fs = require('fs');
+          const [jsonFile, treeFile, rcText, out] = process.argv.slice(2);
+          const rc = Number(rcText);
+          const problems = [];
+          const fail = (message) => problems.push(message);
+          const integer = value => Number.isInteger(value) && value >= 0;
+          const suiteCounters = ['numTotalTestSuites', 'numPassedTestSuites', 'numFailedTestSuites', 'numPendingTestSuites'];
+          const testCounters = ['numTotalTests', 'numPassedTests', 'numFailedTests', 'numPendingTests', 'numTodoTests'];
+          const counters = [...suiteCounters, ...testCounters];
+          const statusKeys = new Set(['passed', 'failed', 'skipped', 'pending', 'todo']);
+          let r = null, tree = null;
+
+          if (!/^\d+$/.test(rcText || '')) fail(`Vitest exit code is invalid: ${JSON.stringify(rcText)}`);
+          for (const [path, label] of [[jsonFile, 'JSON report'], [treeFile, 'task-tree report']]) {
+            if (!fs.existsSync(path)) { fail(`${label} missing: ${path}`); continue; }
+            try {
+              const parsed = JSON.parse(fs.readFileSync(path, 'utf8'));
+              if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) fail(`${label} is not a JSON object`);
+              else if (label === 'JSON report') r = parsed;
+              else tree = parsed;
+            } catch (error) { fail(`${label} does not parse: ${error.message}`); }
+          }
+
+          if (r) {
+            for (const key of counters) if (!integer(r[key])) fail(`JSON counter missing or invalid: ${key}=${JSON.stringify(r[key])}`);
+            if (typeof r.success !== 'boolean') fail(`JSON success missing or invalid: ${JSON.stringify(r.success)}`);
+            if (!Array.isArray(r.testResults)) fail('JSON testResults is missing or not an array');
+            if (counters.every(key => integer(r[key]))) {
+              const testSum = r.numPassedTests + r.numFailedTests + r.numPendingTests + r.numTodoTests;
+              if (testSum !== r.numTotalTests) fail(`JSON test counters sum ${testSum} != numTotalTests ${r.numTotalTests}`);
+              const suiteSum = r.numPassedTestSuites + r.numFailedTestSuites + r.numPendingTestSuites;
+              if (suiteSum !== r.numTotalTestSuites) fail(`JSON suite counters sum ${suiteSum} != numTotalTestSuites ${r.numTotalTestSuites}`);
+              const noFailures = r.numFailedTests === 0 && r.numFailedTestSuites === 0;
+              if (typeof r.success === 'boolean' && r.success !== noFailures) fail('JSON success disagrees with failure counters');
+              if (typeof r.success === 'boolean' && r.success !== (rc === 0)) fail(`JSON success=${r.success} disagrees with Vitest exit code=${rc}`);
+            }
+          }
+
+          if (tree) {
+            if (tree.schema !== 'vitest-2.1.9-task-tree-v1') fail(`Unsupported task-tree schema: ${JSON.stringify(tree.schema)}`);
+            if (!integer(tree.fileCount)) fail('Task-tree fileCount is missing or invalid');
+            if (!tree.counters || typeof tree.counters !== 'object' || Array.isArray(tree.counters)) fail('Task-tree counters are missing or invalid');
+            else for (const key of counters) if (!integer(tree.counters[key])) fail(`Task-tree counter missing or invalid: ${key}`);
+            if (!integer(tree.unhandledErrorCount)) fail('Task-tree unhandledErrorCount is missing or invalid');
+            else if (tree.unhandledErrorCount !== 0) fail(`Task tree reports ${tree.unhandledErrorCount} unhandled error(s)`);
+            if (!Array.isArray(tree.invalidStates)) fail('Task-tree invalidStates is missing or invalid');
+            else if (tree.invalidStates.length) fail(`Task tree has unsupported task states: ${tree.invalidStates.join('; ')}`);
+            if (!Array.isArray(tree.files)) fail('Task-tree files is missing or invalid');
+            if (integer(tree.fileCount) && Array.isArray(tree.files) && tree.fileCount !== tree.files.length) fail('Task-tree fileCount disagrees with files detail');
+          }
+
+          if (r && tree && Array.isArray(r.testResults) && tree.counters && Array.isArray(tree.files)) {
+            for (const key of counters) {
+              if (integer(r[key]) && integer(tree.counters[key]) && r[key] !== tree.counters[key]) {
+                fail(`${key}: JSON reported ${r[key]} != independently derived from Vitest task tree ${tree.counters[key]}`);
+              }
+            }
+            if (r.testResults.length !== tree.files.length) fail(`JSON file count ${r.testResults.length} != task-tree file count ${tree.files.length}`);
+            const fileCount = Math.min(r.testResults.length, tree.files.length);
+            for (let i = 0; i < fileCount; i++) {
+              const jsonFile = r.testResults[i], treeFile = tree.files[i];
+              if (!jsonFile || typeof jsonFile !== 'object' || !treeFile || typeof treeFile !== 'object') { fail(`File detail ${i} is invalid`); continue; }
+              if (jsonFile.name !== treeFile.name) fail(`File ${i} path differs between JSON and task tree`);
+              if (jsonFile.status !== treeFile.status) fail(`File ${i} status differs between JSON and task tree`);
+              if (!Array.isArray(jsonFile.assertionResults) || !Array.isArray(treeFile.assertions)) { fail(`File ${i} assertion details missing`); continue; }
+              if (jsonFile.assertionResults.length !== treeFile.assertions.length) fail(`File ${i} assertion count differs between JSON and task tree`);
+              const assertionCount = Math.min(jsonFile.assertionResults.length, treeFile.assertions.length);
+              for (let j = 0; j < assertionCount; j++) {
+                const a = jsonFile.assertionResults[j], t = treeFile.assertions[j];
+                if (!a || typeof a !== 'object' || !t || typeof t !== 'object') { fail(`File ${i} assertion ${j} is invalid`); continue; }
+                if (typeof a.status !== 'string' || !statusKeys.has(a.status)) fail(`File ${i} assertion ${j} has unsupported JSON status`);
+                if (a.title !== t.title) fail(`File ${i} assertion ${j} title differs between JSON and task tree`);
+                if (a.status !== t.status) fail(`File ${i} assertion ${j} status differs between JSON and task tree`);
+                if (!Array.isArray(a.ancestorTitles) || !a.ancestorTitles.every(title => typeof title === 'string')) fail(`File ${i} assertion ${j} ancestorTitles is invalid`);
+              }
+            }
+          } else if (r || tree) {
+            fail('Cross-validation against the independent Vitest task tree could not be completed');
+          }
+
+          const lines = [`vitest_exit_code=${rcText}`];
+          if (r) for (const key of [...counters, 'success']) lines.push(`${key}=${JSON.stringify(r[key])}`);
+          if (tree?.counters) lines.push(`derived_from_vitest_task_tree=${JSON.stringify(tree.counters)}`);
+          lines.push(`report_valid=${problems.length === 0}`);
+          for (const problem of problems) lines.push(`problem: ${problem}`);
+          fs.writeFileSync(out, lines.join('\n') + '\n');
+          console.log(lines.join('\n'));
+          process.exit(problems.length === 0 ? 0 : 3);
+          JS
+          if [ "$rc" -ne 0 ]; then exit "$rc"; fi
+          exit "$vrc"
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -31,11 +259,70 @@ jobs:
         run: echo "sdk.dir=$ANDROID_HOME" > android/local.properties
       - name: Sync web build into the Android project
         run: npx cap sync android
+      - name: Hash Android web assets
+        run: |
+          d=android/app/src/main/assets/public
+          if [ ! -d "$d" ] || [ -z "$(find "$d" -type f -print -quit)" ]; then echo "MISSING or empty $d" >&2; exit 1; fi
+          (cd "$d" && echo 'path_relative_to_assets_public,size_bytes,sha256' && find . -type f | sed 's#^\./##' | LC_ALL=C sort |
+            while IFS= read -r f; do printf '%s,%s,%s\n' "$f" "$(stat -c %s "$f")" "$(sha256sum "$f" | cut -d' ' -f1)"; done) > "$EVIDENCE/android_assets_public_manifest.csv"
       - name: Assemble debug APK
         working-directory: android
         run: ./gradlew assembleDebug --no-daemon
+      - name: Record APK checksum, payload manifest and signing certificate
+        run: |
+          apk=android/app/build/outputs/apk/debug/app-debug.apk
+          if [ ! -f "$apk" ]; then echo "MISSING $apk" >&2; exit 1; fi
+          {
+            echo "# APK file app-debug.apk (this is NOT the artifact ZIP digest)"
+            echo "apk_path=$apk"
+            echo "apk_size_bytes=$(stat -c %s "$apk")"
+            echo "apk_sha256=$(sha256sum "$apk" | cut -d' ' -f1)"
+          } > "$EVIDENCE/apk_sha256.txt"
+          tmp=$(mktemp -d)
+          unzip -q "$apk" 'assets/public/*' -d "$tmp"
+          if [ ! -d "$tmp/assets/public" ]; then echo "APK has no assets/public" >&2; exit 1; fi
+          (cd "$tmp/assets/public" && echo 'path_relative_to_assets_public,size_bytes,sha256' && find . -type f | sed 's#^\./##' | LC_ALL=C sort |
+            while IFS= read -r f; do printf '%s,%s,%s\n' "$f" "$(stat -c %s "$f")" "$(sha256sum "$f" | cut -d' ' -f1)"; done) > "$EVIDENCE/apk_assets_public_manifest.csv"
+          rm -rf "$tmp"
+          bt=$( (ls -d "${ANDROID_HOME:-/nonexistent}"/build-tools/* 2>/dev/null || true) | sort -V | tail -1)
+          if [ -n "$bt" ] && [ -x "$bt/apksigner" ]; then
+            arc=0; "$bt/apksigner" verify --verbose --print-certs "$apk" > "$EVIDENCE/apk_signing_certificate.txt" 2>&1 || arc=$?
+            echo "apksigner_exit_code=$arc ($bt/apksigner)" >> "$EVIDENCE/apk_signing_certificate.txt"
+          else
+            echo "apksigner: unsupported (not found under ANDROID_HOME/build-tools)" > "$EVIDENCE/apk_signing_certificate.txt"
+          fi
       - uses: actions/upload-artifact@v4
+        id: upload_apk
         with:
           name: dong-chay-lich-su-debug-apk
           path: android/app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
+      - name: Record artifact ZIP digest and job summary
+        if: always()
+        env:
+          ZIP_ID: ${{ steps.upload_apk.outputs.artifact-id }}
+          ZIP_DIGEST: ${{ steps.upload_apk.outputs.artifact-digest }}
+        run: |
+          mkdir -p "$EVIDENCE"
+          {
+            echo '# GitHub artifact ZIP "dong-chay-lich-su-debug-apk" (this is NOT the APK file hash)'
+            echo "artifact_id=${ZIP_ID:-unavailable}"
+            echo "artifact_zip_sha256=${ZIP_DIGEST:-unavailable}"
+          } > "$EVIDENCE/artifact_zip.txt"
+          apk_sha=$(sed -n 's/^apk_sha256=//p' "$EVIDENCE/apk_sha256.txt" 2>/dev/null || true)
+          {
+            echo "### S0-B B1 evidence"
+            echo "- Commit: \`$GITHUB_SHA\` (run $GITHUB_RUN_ID, attempt $GITHUB_RUN_ATTEMPT)"
+            echo "- APK file SHA-256 (app-debug.apk): \`${apk_sha:-unavailable}\`"
+            echo "- Artifact ZIP SHA-256 (dong-chay-lich-su-debug-apk.zip, a different file): \`${ZIP_DIGEST:-unavailable}\`"
+            echo "- Test report:"
+            echo '```'
+            cat "$EVIDENCE/test_summary.txt" 2>/dev/null || echo "test summary unavailable"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ci-evidence-${{ github.sha }}-${{ github.run_attempt }}
+          path: ci-evidence/
           if-no-files-found: error
