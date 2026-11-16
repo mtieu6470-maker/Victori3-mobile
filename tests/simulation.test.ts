@@ -555,10 +555,37 @@ describe('employment-aware occupational transition', () => {
     const region = state.regions.find((entry) => entry.owner === 'GBR' && entry.pop > 0)!;
     region.buildings.textile_mill = 2;
     region.buildings.mine = 1;
-    const before = effectiveBuildingLaborDemand(region);
-    if (region.popEconomy) delete region.popEconomy.employmentTargetByBuilding;
-    const after = effectiveBuildingLaborDemand(region);
-    expect(after.factoryWorkers).toBeCloseTo(before.factoryWorkers, 8);
-    expect(after.laborerWorkers).toBeCloseTo(before.laborerWorkers, 8);
+
+    // The reference legacy save has no target ledger, so every existing level
+    // defaults to full nominal capacity regardless of the fresh state's prior targets.
+    const legacyRegion = {
+      ...region,
+      popEconomy: region.popEconomy ? { ...region.popEconomy } : undefined,
+    };
+    if (legacyRegion.popEconomy) delete legacyRegion.popEconomy.employmentTargetByBuilding;
+    const expected = effectiveBuildingLaborDemand(legacyRegion);
+
+    const targetedRegion = {
+      ...region,
+      popEconomy: {
+        ...(region.popEconomy ?? {
+          employed: new Array(STRATA.length).fill(0),
+          incomePerCapita: new Array(STRATA.length).fill(0),
+          wagePerWorker: new Array(STRATA.length).fill(0),
+          sol: new Array(STRATA.length).fill(0),
+        }),
+        employmentTargetByBuilding: {
+          plantation: 0.25, mine: 0.25, logging: 0.25, textile_mill: 0.25,
+          ironworks: 0.25, tool_works: 0.25, arms_works: 0.25, luxury_workshop: 0.25,
+        },
+      },
+    };
+    const reduced = effectiveBuildingLaborDemand(targetedRegion);
+    const after = effectiveBuildingLaborDemand(legacyRegion);
+
+    expect(reduced.factoryWorkers).toBeLessThan(expected.factoryWorkers);
+    expect(reduced.laborerWorkers).toBeLessThan(expected.laborerWorkers);
+    expect(after.factoryWorkers).toBeCloseTo(expected.factoryWorkers, 8);
+    expect(after.laborerWorkers).toBeCloseTo(expected.laborerWorkers, 8);
   });
 });
