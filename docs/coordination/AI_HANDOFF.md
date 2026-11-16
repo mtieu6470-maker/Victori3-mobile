@@ -18,7 +18,8 @@
 | Gate verdict vocabulary | Protocol "Status vocabulary" (`PASS`, `PARTIAL`, `BLOCKED`, `FAIL`, `NOT_TESTED`, `NOT_APPLICABLE`); where the approved S0 document writes "NOT TESTED" it means `NOT_TESTED` |
 | Legacy roadmaps and pre-protocol work | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` (historical evidence, not authorization) |
 | Current approved phase | **S0-B3 → S0-B4 → S0-B7, sequential** (OD-20261116-11). B4 starts only after B3 has `REVIEW_PASS` |
-| Current task status | S0-B3 `IN_PROGRESS`. S0-A `READY_FOR_REVIEW`: per the reviewer's next-step instruction, A1–A4 are conditionally accepted and A5 is `BLOCKED`; S0-A is not `ACCEPTED`. S0-B1 done: the reviewer's technical verdict is `PASS` (source: v3.3 proposal §2.1, accepted by OD-20261116-11). `COORDINATION-REVIEW-BD5787F` `READY_FOR_REVIEW` |
+| Current task status | S0-B3 `READY_FOR_REVIEW` (Claude, unverified); stopped for ChatGPT review; B4 not started. S0-A `READY_FOR_REVIEW`: per the reviewer's next-step instruction, A1–A4 are conditionally accepted and A5 is `BLOCKED`; S0-A is not `ACCEPTED`. S0-B1 done: the reviewer's technical verdict is `PASS` (source: v3.3 proposal §2.1, accepted by OD-20261116-11). `COORDINATION-REVIEW-BD5787F` `READY_FOR_REVIEW` |
+| S0-B3 evidence | `docs/audit/s0/S0_B3_RESULTS.md` (summary, gate self-assessment, finding index) with `S0_TEST_CATALOG.md`, `s0_test_catalog.json`, `S0_REQUIREMENT_MATRIX.csv`, `S0_GLOBAL_DATA_AUDIT.md`, `S0_ASSET_AUDIT.md`, `S0_PERFORMANCE_BASELINE.md/.json`, `b3/**` — tools commit `3d63061e4bd5b3fdf7c636370da462a5b0f5d721`, reports commit `55331c2bf629bb631701ec82020c7f9deaa7da81` |
 | S0-B1 evidence | `docs/audit/s0/S0_B1_CI_EVIDENCE.md`, `docs/audit/s0/logs/b1/` (commit `e13d964f343ab1ba01fb705fbbd8bcac2674ea80`). B1 commit `382aaa84b2336854b4dbebfcdc719847ff463f41`; run `43834719406`, job `133188390842` success; 58/58 tests; `report_valid=true`; APK file SHA-256 `314c8ca11c1d747550bbdb982326675e5f9dbdac870f3fc1cf04b9de7c22585c`; artifact ZIP SHA-256 `7717a2b79dd46fbf613845e33bac3a17634eae5b0c808328d8b21b5abc150ba0` (a different file) |
 | S0-A evidence | `docs/audit/s0/S0_A_RESULTS.md` (summary and gate verdicts), `S0_REPOSITORY_SNAPSHOT.md`, `S0_BUILD_TEST_REPORT.md`, `logs/`, `a4/`, `inputs/` — commits `7d6eec9d0601a7d983679ec7792b1aa96b954ca0`, `d5b9820aae9a96d57e9486845c164ae591fa69de`, `8073fac029463c0685435985a2968cd5a3aba4ab` |
 | Pending owner action | Device steps 1–4 of approved document §6.5.1 on the installed baseline APK (listed in `docs/audit/s0/S0_A_RESULTS.md` §2); never paste secrets |
@@ -76,7 +77,7 @@ Not allowed:
 |---|---|---|---|
 | S0-A — Baseline as-is (`BASELINE_ORIGINAL`), approved document §6.3 A1–A5 | `READY_FOR_REVIEW` (A1–A4 evidenced; A5 `BLOCKED`) | Owner approval of the S0 v3.2 document and S0-A authorization (OD-20261116-09, -10) — met | S0-A evidence committed; ChatGPT review; owner decision |
 | S0-B1 — CI checksums and test report | Done; reviewer technical verdict `PASS` (v3.3 §2.1) | Owner instruction for B1 (OD-20261116-10B) — met | Evidence committed (`e13d964`) |
-| S0-B3 — Audit scripts, catalog, coverage, crosswalk, asset inventory, Node/desktop harness | `IN_PROGRESS` | OD-20261116-11 — met | Reports committed; ChatGPT review (B4 waits for B3 `REVIEW_PASS`) |
+| S0-B3 — Audit scripts, catalog, coverage, crosswalk, asset inventory, Node/desktop harness | `READY_FOR_REVIEW` (Claude, unverified) | OD-20261116-11 — met | Reports committed (`3d63061`, `55331c2`); ChatGPT review (B4 waits for B3 `REVIEW_PASS`) |
 | S0-B4 — Characterization tests and fixtures (save/load determinism, v3.2 §6.7) | `NOT_STARTED` (authorized after B3 review) | B3 `REVIEW_PASS` | G0.6 verdict with evidence; `FAIL` leads to the decision §3 path |
 | S0-B7 — Risk register and signoff package | `NOT_STARTED` (authorized after B4) | B3 and B4 done | `S0_SIGNOFF.md`; G0.1–G0.9 ledger; exception requests limited to G0.7 (iQOO) and G0.8 (legacy licences) |
 | S0-B2 / B5 / B6 — signing, Diagnostic UI, instrumented measurements | `BLOCKED` / deferred | R14 proven on the baseline APK, O5 decided, protected `development-signing` Environment configured by the owner | Per v3.2 §4.1, §6.8 |
@@ -94,6 +95,51 @@ Pre-protocol work:
 ## 5. Work log
 
 Append newest entries at the top. Do not overwrite earlier entries.
+
+### 2026-11-16 — S0-B3-AUDIT-TOOLS-AND-REPORTS
+
+- Date (UTC): 2026-11-16, about 09:45–10:57 (tools commit and reports commit pushed 10:57; this handoff update afterwards)
+- Task/phase: S0-B3 (v3.3 §3.1), authorized by OD-20261116-11; stopped at `READY_FOR_REVIEW`; B4 not started
+- Implementer: Claude Code
+- Base SHA: `9a602f3d60456c014fb33d4ebd83f174af299077`. Audited code: `2240a8fb865e0021eec2f2f4f1c6803528be9e2c` in a clean temporary worktree, `npm ci` + `npm run build`. The worktree's `git status --porcelain` was empty after all runs
+- Head SHAs:
+  - `3d63061e4bd5b3fdf7c636370da462a5b0f5d721` (tools);
+  - `55331c2bf629bb631701ec82020c7f9deaa7da81` (reports and evidence);
+  - this handoff update (GitHub commit metadata).
+- Changed files:
+  - `tools/audit/s0/` (10 new files, outside product code);
+  - `docs/audit/s0/`: `S0_B3_RESULTS.md`, `S0_TEST_CATALOG.md`, `s0_test_catalog.json`, `S0_REQUIREMENT_MATRIX.csv`, `S0_GLOBAL_DATA_AUDIT.md`, `S0_ASSET_AUDIT.md`, `S0_PERFORMANCE_BASELINE.md/.json`, `b3/**` (logs added with `-f`);
+  - `docs/coordination/AI_HANDOFF.md`.
+- Product source check: `git diff --quiet 2240a8f HEAD -- . ':(exclude)docs' ':(exclude)README.md' ':(exclude).github/workflows/android-apk.yml' ':(exclude)tools/audit/s0'` → exit 0. No product, test, generator, data, asset, save or RNG change
+- Summary (self-assessed gates, details in `S0_B3_RESULTS.md`):
+  - G0.3 test inventory `PASS`: 58/58 runtime tests catalogued with executed assertion counts and 7/7 stability.
+  - Empty-pass findings: TC-F1 `simulation.test.ts:34` and TC-F2 `simulation.test.ts:43` ran 0 assertions; TC-F3 `content.test.ts:41` is core-vacuous; TC-F4 is the 1870/1875 mismatch at `simulation.test.ts:21`.
+  - G0.4 requirement matrix `PASS`: 353 atomic requirements of MASTER_SPEC_VI §§0–17 — Implemented 24, Partial 173, Placeholder 6, Missing 140, Unverified 10, Broken 0; file:line re-verified at `2240a8f`.
+  - G0.5 global data `PASS`: 12 macro-regions; sourced/estimated/default/missing/labelled-without-source; admin-1 × 662-region crosswalk with 4 374 pairs.
+  - G0.8 asset/licence `PARTIAL`: 627-file SHA-256 manifest; 492 image licences recorded but not re-verified; 4 BY assets without author.
+  - G0.7 runtime/performance `BLOCKED` (device): Node `PASS`, tick p50 ≈ 20–21 ms, p95 29–33 ms over 1 200 months × 3 runs × 2 modes; desktop `PARTIAL`, headless Chromium + SwiftShader, throughput 0.37–0.47 months/s at every speed (frame production bound), tick callback p95 39–63 ms; iQOO `BLOCKED`.
+  - New findings RM-F1…F5 (P1: RM-F3, simulation on the main thread).
+  - No P0 found.
+- Commands and exit codes: every tool run is logged with `[exit N]` in `docs/audit/s0/b3/logs/` (all 0). Before push, `npx tsc --noEmit` found 2 type errors in the unpushed tools commit (`probe_empty_pass.ts:28`; `tsconfig.json` includes `tools/`); fixed with a type annotation and amended before the first push; `tsc` 0; probe re-run byte-identical. `git commit` 0; `git push` 0
+- Test results (counts and failures): baseline suite 58/58 passed in the catalog run (`b3/logs/b3_assertion_count_run.log`); no failures
+- CI run/jobs: push of `55331c2` triggered run `43853414428`, job `133251491545`: `success`, 10:57:23–11:00:44 UTC. All steps passed:
+  - build with `tsc` over `tools/`;
+  - unit and simulation tests with the B1 report validation;
+  - APK assembly, checksum and manifest recording;
+  - both artifact uploads (APK ZIP `14221065197`, digest `601c57b8…`; evidence ZIP `14220660343`, digest `7f3551f5…`).
+
+  The artifacts are not part of the B3 evidence and were not downloaded
+- Artifacts: none uploaded by B3; all evidence is committed under `docs/audit/s0/b3/`
+- Device evidence: none (`BLOCKED`)
+- Risks/limitations:
+  - `actionlint` `NOT_TESTED` (running the downloaded binary was denied; not worked around).
+  - Desktop numbers come from CPU-rendered WebGL; they are not representative and never substitute iQOO.
+  - Runtime display of CC BY-SA attribution `NOT_TESTED` (static only).
+  - Legacy licences not re-verified on Commons.
+  - The matrix is auditor-written.
+- Claude status (unverified): `READY_FOR_REVIEW`
+- ChatGPT review:
+- Owner decision:
 
 ### 2026-11-16 — S0-V3.3-ACCEPTANCE-DOCS
 
