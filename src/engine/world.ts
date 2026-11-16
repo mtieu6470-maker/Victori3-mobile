@@ -13,11 +13,12 @@ export function transferRegion(st: GameState, regionId: string, to: string, caus
   if (idx === undefined) return false;
   const r = st.regions[idx];
   if (!r || r.owner === to) return false;
-  let target = st.countries[to];
+  let target: Country | undefined = st.countries[to];
   if (!target?.alive) {
-    target = makeHistoricalCountry(st, to, regionId) ?? undefined;
-    if (!target) return false;
-    st.countries[to] = target;
+    const created = makeHistoricalCountry(st, to, regionId);
+    if (!created) return false;
+    target = created;
+    st.countries[to] = created;
   }
   const from = r.owner;
   r.owner = to; r.controller = to; invalidate();
