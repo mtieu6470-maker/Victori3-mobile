@@ -14,5 +14,6 @@ export function deserialize(text: string): GameState {
   if (o.version !== 1) throw new Error(`Unsupported save version ${o.version}`);
   const st = o.state as GameState;
   st.marketStats ??= {}; // saves written before market statistics were persisted: refilled on the next month
+  for (const c of Object.values(st.countries)) c.constructionQueue ??= [];
   return st;
 }

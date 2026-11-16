@@ -263,6 +263,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     c.famine = famine;
     financeMonth(st, c, g, pop, (marketImports[marketOf(st, c)] ?? 0) * (marketOf(st, c) === c.id ? 1 : 0.2));
   }
+  for (const c of Object.values(st.countries)) if (c.alive) advanceConstruction(st, c);
 }
 
 const SOLDIER_COST = (gdpPc: number) => 0.35 * gdpPc + 20;
@@ -295,6 +296,56 @@ function financeMonth(st: GameState, c: Country, gdpYear: number, pop: number, i
     c.debt *= 0.5; c.legitimacy = clamp(c.legitimacy - 15, 0, 100); c.prestige -= 10;
     log(st, { type: 'economy', text: `${c.name} defaults on its public debt.`, textVi: `${c.nameVi} vỡ nợ công.`, actors: [c.id] });
   }
+}
+
+export const MAX_CONSTRUCTION_QUEUE = 20;
+
+export function canQueueConstruction(st: GameState, c: Country, r: Region, b: Building): boolean {
+  if (c.constructionQueue.length >= MAX_CONSTRUCTION_QUEUE || !canBuild(st, c, r, b)) return false;
+  if (b === 'railway') {
+    const queued = c.constructionQueue.filter((p) => p.region === r.id && p.building === 'railway').length;
+    if (r.buildings.railway + queued >= 5) return false;
+  }
+  return true;
+}
+
+/** Queue a public project. Funds are charged gradually from the monthly construction allocation. */
+export function queueConstruction(st: GameState, c: Country, r: Region, b: Building): boolean {
+  if (!canQueueConstruction(st, c, r, b)) return false;
+  c.constructionQueue.push({ id: `construction-${st.nextId++}`, region: r.id, building: b, cost: buildCost(c, b, st), progress: 0, queuedAt: st.tick });
+  return true;
+}
+
+export function cancelConstruction(c: Country, projectId: string): boolean {
+  const index = c.constructionQueue.findIndex((p) => p.id === projectId);
+  if (index < 0) return false;
+  const [project] = c.constructionQueue.splice(index, 1);
+  (c as any).statePool = ((c as any).statePool ?? 0) + project.progress;
+  return true;
+}
+
+/** Advances one project per country each month, bounded by this month's budget contribution. */
+export function advanceConstruction(st: GameState, c: Country): void {
+  const project = c.constructionQueue[0];
+  if (!project) return;
+  const region = st.regions.find((r) => r.id === project.region);
+  if (!region || region.owner !== c.id) {
+    (c as any).statePool = ((c as any).statePool ?? 0) + project.progress;
+    c.constructionQueue.shift();
+    log(st, { type: 'economy', text: `Construction in ${project.region} cancelled after territory loss.`, textVi: `Dự án tại ${project.region} bị hủy do mất lãnh thổ; phần vốn đã chi được hoàn lại.`, actors: [c.id] });
+    return;
+  }
+  if (region.controller !== c.id || !canBuild(st, c, region, project.building)) return;
+  const pool = (c as any).statePool ?? 0;
+  const capacity = Math.max(0, c.finance?.construction ?? 0);
+  const spend = Math.min(pool, capacity, Math.max(0, project.cost - project.progress));
+  if (!(spend > 0)) return;
+  (c as any).statePool = pool - spend;
+  project.progress = Math.min(project.cost, project.progress + spend);
+  if (project.progress + 1e-6 < project.cost) return;
+  region.buildings[project.building] += 1;
+  c.constructionQueue.shift();
+  log(st, { type: 'economy', text: `${c.name} completes ${project.building} in ${project.region}.`, textVi: `${c.nameVi} hoàn thành ${project.building} tại ${project.region}.`, actors: [c.id] });
 }
 
 /** Builds one level of a building if affordable and allowed. Shared by AI, player and the private sector. */

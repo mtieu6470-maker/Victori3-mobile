@@ -184,6 +184,7 @@ function makeCountry(st: GameState, e: EntityRecord): Country {
     legitimacy: crisis ? 45 : 60, radicalism: 0.03,
     igs: Object.fromEntries(IGS.map((g) => [g, { clout: 0, approval: 0 }])) as Country['igs'],
     treasury: 0, debt: 0, taxRate: decentral ? 0.03 : TAX_BY_ECONOMY[laws.economy] ?? 0.07,
+    constructionQueue: [],
     budget: { military: 0.4, navy: navalP * 0.25, admin: 0.2, education: laws.education === 'public_schools' ? 0.08 : 0.03, health: 0.03, construction: 0.1 },
     gdp: 0, income: 0, expense: 0, tariffIncome: 0, productivity: 1,
     techs: [...(d.db.start_techs[e.id] ?? [])], research: { current: null, progress: 0 },

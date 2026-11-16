@@ -36,6 +36,10 @@ export interface AIMemory {
 
 export interface Reform { group: LawGroup; value: string; progress: number; startedTick: number }
 
+export interface ConstructionProject {
+  id: string; region: string; building: Building; cost: number; progress: number; queuedAt: number;
+}
+
 export interface Country {
   id: string; name: string; nameVi: string; color: string; kind: string; tier: string;
   alive: boolean; formedAt?: number; group?: string; decentralized: boolean;
@@ -46,6 +50,7 @@ export interface Country {
   legitimacy: number; radicalism: number; // 0..1 share of population radical
   igs: Record<IG, { clout: number; approval: number }>;
   treasury: number; debt: number; taxRate: number; budget: Budget;
+  constructionQueue: ConstructionProject[];
   gdp: number; gdpHistory?: number; income: number; expense: number; tariffIncome: number; productivity: number;
   /** Last month's budget lines (same figures that make up income and expense); absent before the first month. */
   finance?: { tax: number; tariff: number; army: number; navy: number; admin: number; education: number; health: number; construction: number; interest: number };
