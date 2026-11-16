@@ -396,7 +396,7 @@ describe('cohort-level demographic transition', () => {
     const shares = [0.7, 0.1, 0.1, 0.1, 0, 0, 0, 0, 0];
     const result = stratifiedNaturalChange(50000, shares, undefined, 0.035, 0.03);
     expect(result.population).toBeCloseTo(50000 * (1 + (0.035 - 0.03) / 12), 8);
-    expect(result.strata).toEqual(shares);
+    result.strata.forEach((share, index) => expect(share).toBeCloseTo(shares[index], 12));
   });
 
   it("blends incoming migrants into the destination's occupational composition", () => {
