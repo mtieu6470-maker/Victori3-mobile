@@ -541,6 +541,13 @@ describe('employment-aware occupational transition', () => {
     expect(reducedCapacity.laborerWorkers).toBeLessThan(fullCapacity.laborerWorkers);
     expect(reducedCapacity.factoryWorkers).toBeGreaterThanOrEqual(0);
     expect(reducedCapacity.laborerWorkers).toBeGreaterThanOrEqual(0);
+
+    // Open positions must still attract peasants even before a local laborer class exists.
+    const withoutLaborers = {
+      ...region,
+      strata: region.strata.map((share, index) => index === STRATA.indexOf('laborers') ? 0 : share),
+    };
+    expect(effectiveBuildingLaborDemand(withoutLaborers).laborerWorkers).toBeGreaterThan(0);
   });
 
   it('keeps full-capacity fallback for legacy saves with no hiring ledger', () => {

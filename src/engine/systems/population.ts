@@ -180,7 +180,6 @@ export function effectiveBuildingLaborDemand(r: Region, population = r.pop): {
 } {
   const laborForce = Math.max(0, Number.isFinite(population) ? population * 0.45 : 0);
   const shares = Array.isArray(r.strata) ? r.strata : [];
-  const laborerPool = laborForce * clamp(Number(shares[S.laborers] ?? 0), 0, 1);
   const slavePool = laborForce * clamp(Number(shares[S.slaves] ?? 0), 0, 1);
   const utilization = (building: Building): number => {
     const stored = Number(r.popEconomy?.employmentTargetByBuilding?.[building]);
@@ -193,22 +192,13 @@ export function effectiveBuildingLaborDemand(r: Region, population = r.pop): {
     0,
   );
 
+  // This is desired job capacity, not the number of workers currently available.
+  // Otherwise a region with few laborers could never attract peasants into these jobs.
   const plantationCapacity = Math.max(0, Number(r.buildings.plantation ?? 0)) * LEVEL_WORKERS * utilization('plantation');
-  const plantationLaborers = Math.min(
-    Math.max(0, plantationCapacity - Math.min(plantationCapacity, slavePool)),
-    laborerPool * 0.25,
-  );
-  const mineWorkers = Math.min(
-    Math.max(0, Number(r.buildings.mine ?? 0)) * LEVEL_WORKERS * utilization('mine'),
-    laborerPool * 0.6,
-  );
-  const loggingWorkers = Math.min(
-    Math.max(0, Number(r.buildings.logging ?? 0)) * LEVEL_WORKERS * utilization('logging'),
-    laborerPool * 0.4,
-  );
-  // Thirty percent of the laborer pool remains assigned to subsistence farming first.
-  const laborerWorkers = Math.min(laborerPool * 0.7, plantationLaborers + mineWorkers + loggingWorkers);
-  return { factoryWorkers, laborerWorkers };
+  const plantationLaborers = Math.max(0, plantationCapacity - Math.min(plantationCapacity, slavePool));
+  const mineWorkers = Math.max(0, Number(r.buildings.mine ?? 0)) * LEVEL_WORKERS * utilization('mine');
+  const loggingWorkers = Math.max(0, Number(r.buildings.logging ?? 0)) * LEVEL_WORKERS * utilization('logging');
+  return { factoryWorkers, laborerWorkers: plantationLaborers + mineWorkers + loggingWorkers };
 }
 
 function shiftStrata(st: GameState, c: Country, r: Region) {
