@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 import { run, fresh, stepMonth } from './helpers';
 import { serialize, deserialize } from '../src/engine/save';
 import { data } from '../src/engine/data/db';
-import { availableProductionMethods, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
+import { availableProductionMethods, factoryInputFulfillment, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
 import { execute } from '../src/engine/commands';
 import { advanceConstruction, cancelConstruction, queueConstruction, canBuild } from '../src/engine/systems/economy';
 
@@ -86,6 +86,23 @@ describe('war support (Pass 16 pack, ch. 34/73: exhaustion alone does not capitu
   });
 });
 
+
+describe('factory input constraints', () => {
+  it('does not let an unrelated sector shortage reduce factory output', () => {
+    const shortages = { steel: 0.8, tools: 0.4 };
+    const textileInputs = { cotton: 0.45, coal: 0.08 };
+    const armsInputs = { steel: 0.35, tools: 0.15 };
+
+    expect(factoryInputFulfillment(textileInputs, shortages)).toBe(1);
+    expect(factoryInputFulfillment(armsInputs, shortages)).toBeCloseTo(0.2);
+  });
+
+  it('limits a factory by the scarcest input in its own recipe', () => {
+    const ironworksInputs = { iron: 0.5, coal: 0.4 };
+    expect(factoryInputFulfillment(ironworksInputs, { iron: 0.1, coal: 0.25 })).toBeCloseTo(0.75);
+    expect(factoryInputFulfillment({}, { steel: 1 })).toBe(1);
+  });
+});
 
 describe('factory production methods', () => {
   it('uses researched methods by default and persists explicit regional choices', () => {

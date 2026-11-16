@@ -82,9 +82,22 @@ export function openness(c: Country, coastal: boolean): number {
   return clamp(o, 0.01, 0.92);
 }
 
-interface RegionCalc { supply: Record<Good, number>; demand: Record<Good, number>; services: number; inputsNeed: Record<Good, number>; factoryOut: Record<Good, number>; grainLocal: number; grainNeed: number }
+interface RegionCalc { supply: Record<Good, number>; demand: Record<Good, number>; services: number; inputsNeed: Record<Good, number>; factoryOut: Record<Good, number>; factoryInputs: Partial<Record<Good, Partial<Record<Good, number>>>>; grainLocal: number; grainNeed: number }
 
 const zero = () => Object.fromEntries(GOODS.map((g) => [g, 0])) as Record<Good, number>;
+
+/** Returns the share of planned factory output supported by that product's own input recipe. */
+export function factoryInputFulfillment(
+  inputs: Partial<Record<Good, number>>,
+  shortages: Partial<Record<Good, number>>,
+): number {
+  let fulfilled = 1;
+  for (const good of GOODS) {
+    if ((inputs[good] ?? 0) <= 0) continue;
+    fulfilled = Math.min(fulfilled, 1 - clamp(shortages[good] ?? 0, 0, 1));
+  }
+  return clamp(fulfilled, 0, 1);
+}
 
 export function computeEconomy(st: GameState, calibrate = false, iter = 0): void {
   const d = data();
@@ -105,6 +118,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const dev = 1 - r.devastation;
     const blight = r.blight && r.blight.until > st.tick ? 1 - r.blight.severity : 1;
     const supply = zero(), demand = zero(), inputsNeed = zero(), factoryOut = zero();
+    const factoryInputs: Partial<Record<Good, Partial<Record<Good, number>>>> = {};
     // agriculture
     const terr = TERRAIN_AGRI[r.terrain] ?? 0.8;
     const agriWorkers = LF * (sh[S.peasants] + 0.3 * sh[S.laborers]);
@@ -139,8 +153,18 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
       const method = productionMethodFor(c, r, b);
       const out = w * rec.perWorker * (method?.outputMultiplier ?? 1) * eff * Am * infra * dev * occupied;
       factoryOut[rec.out] += out;
-      for (const [g, q] of Object.entries(rec.inputs)) inputsNeed[g as Good] += out * (q as number);
-      for (const [g, q] of Object.entries(method?.additionalInputs ?? {})) inputsNeed[g as Good] += out * (q as number);
+      // Track inputs per output good. A shortage in one factory's recipe must not stall another sector.
+      const outputInputs = (factoryInputs[rec.out] ??= {});
+      for (const [g, q] of Object.entries(rec.inputs)) {
+        const need = out * (q as number);
+        inputsNeed[g as Good] += need;
+        outputInputs[g as Good] = (outputInputs[g as Good] ?? 0) + need;
+      }
+      for (const [g, q] of Object.entries(method?.additionalInputs ?? {})) {
+        const need = out * (q as number);
+        inputsNeed[g as Good] += need;
+        outputInputs[g as Good] = (outputInputs[g as Good] ?? 0) + need;
+      }
     }
     // artisans (cottage industry)
     const art = LF * sh[S.artisans] * 700 * Am * dev * occupied;
@@ -158,7 +182,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     demand.coal += r.pop * 1.5 * wealth;
     demand.opium += r.pop * (c.id === 'QNG' ? 0.6 : 0.03);
     for (const g of GOODS) { supply[g] += factoryOut[g]; demand[g] += inputsNeed[g]; }
-    calc[i] = { supply, demand, services: svc, inputsNeed, factoryOut, grainLocal: grain, grainNeed };
+    calc[i] = { supply, demand, services: svc, inputsNeed, factoryOut, factoryInputs, grainLocal: grain, grainNeed };
     const mk = marketOf(st, c);
     const m = (markets[mk] ??= { s: zero(), dm: zero(), open: 0, members: [] });
     for (const g of GOODS) { m.s[g] += supply[g]; m.dm[g] += demand[g]; }
@@ -217,16 +241,22 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const mk = marketOf(st, c); const p = st.marketPrices[mk]; const short = marketShort[mk];
     const Av = Math.pow(c.productivity, 0.45);
     let value = k.services * Math.pow(c.productivity, 0.5);
+    const factoryInputsUsed = zero();
     for (const g of GOODS) {
       let out = k.supply[g] - k.factoryOut[g];
-      // factory output scaled by the availability of inputs in the market
+      // Limit each factory output only by the goods in its own recipe.
       if (k.factoryOut[g] > 0) {
-        let avail = 1; for (const [ig] of Object.entries(k.inputsNeed)) if (k.inputsNeed[ig as Good] > 0) avail = Math.min(avail, 1 - short[ig as Good]);
-        out += k.factoryOut[g] * avail;
+        const recipeInputs = k.factoryInputs[g] ?? {};
+        const fulfilled = factoryInputFulfillment(recipeInputs, short);
+        out += k.factoryOut[g] * fulfilled;
+        for (const input of GOODS) {
+          factoryInputsUsed[input] += (recipeInputs[input] ?? 0) * fulfilled;
+        }
       }
       value += out * p[g] * Av;
     }
-    for (const g of GOODS) value -= k.inputsNeed[g] * p[g] * (1 - short[g]) * Av;
+    // Charge factories for inputs actually consumed by the output they can produce.
+    for (const g of GOODS) value -= factoryInputsUsed[g] * p[g] * Av;
     r.output = Math.max(0, value) / 12;
     gdp[r.owner] = (gdp[r.owner] ?? 0) + value;
     // food security: market shortage plus local deficit where transport access is poor
