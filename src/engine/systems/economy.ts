@@ -108,6 +108,31 @@ const POP_NEEDS_MULTIPLIER = [0.86, 1.3, 0.96, 1.02, 1, 1.22, 1.08, 1.42, 1.62];
  * This is an aggregate cohort model (not individual Pops): wages depend on staffed jobs,
  * while aristocrats/capitalists receive the residual ownership income.
  */
+/** Shift cohort SoL levels together so the population-weighted mean stays on the established macro calibration. */
+export function calibrateCohortLivingStandards(
+  economy: PopulationEconomy,
+  strata: number[],
+  targetMean: number,
+): PopulationEconomy {
+  const weights = STRATA.map((_, i) => Math.max(0, Number(strata[i] ?? 0)));
+  const weightTotal = weights.reduce((sum, value) => sum + value, 0);
+  if (weightTotal <= 0) return { ...economy, sol: economy.sol.map(() => clamp(targetMean, 0, 1)) };
+
+  const target = clamp(targetMean, 0, 1);
+  let low = -1, high = 1;
+  // Binary search an additive shift under the [0,1] bounds. This preserves cohort
+  // differences while preventing a new class model from silently changing the
+  // previously calibrated national/regional demographic trajectory.
+  for (let i = 0; i < 24; i++) {
+    const shift = (low + high) / 2;
+    const mean = economy.sol.reduce((sum, value, index) => sum + clamp(value + shift, 0, 1) * weights[index], 0) / weightTotal;
+    if (mean < target) low = shift;
+    else high = shift;
+  }
+  const shift = (low + high) / 2;
+  return { ...economy, sol: economy.sol.map((value) => clamp(value + shift, 0, 1)) };
+}
+
 export function calculatePopulationEconomy(
   population: number,
   strata: number[],
@@ -347,9 +372,16 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const access = clamp(0.25 + 0.12 * Math.min(5, r.buildings.railway) + (r.coastal ? 0.35 : 0) + 0.3 * openness(c, r.coastal), 0, 1);
     const localDef = Math.max(0, 1 - k.grainLocal / Math.max(1, k.grainNeed));
     const famine = clamp(short.grain + localDef * (1 - access) * 0.9 - (c.budget.health * 0.5), 0, 1);
-    // Convert value added into cohort wages and owner income. SoL is no longer a
-    // single GDP-per-capita proxy: every stratum has its own job, income and needs profile.
-    r.popEconomy = calculatePopulationEconomy(r.pop, r.strata, k.employment, value, p, c.taxRate, famine, c.laws.labor);
+    // Convert value added into cohort wages and owner income. Each stratum gets its own
+    // job, income and needs profile, while the weighted mean stays on the established
+    // demographic calibration so this feature does not rewrite 1836–1876 population history.
+    const legacyGdpPc = value / Math.max(1, r.pop);
+    const legacyBasket = 200 * p.grain + 12 * p.textiles;
+    const legacyLaborShare = r.strata[S.slaves] > 0.3 ? 0.45 : 0.72;
+    const legacyRaw = 0.5 + 0.33 * Math.log(Math.max(1e-3, (legacyGdpPc * (1 - c.taxRate) * legacyLaborShare) / (legacyBasket * 2)));
+    const legacyTarget = clamp(legacyRaw - famine * 0.6 - (c.laws.labor === 'serfdom' ? 0.05 : 0), 0, 1);
+    const cohorts = calculatePopulationEconomy(r.pop, r.strata, k.employment, value, p, c.taxRate, famine, c.laws.labor);
+    r.popEconomy = calibrateCohortLivingStandards(cohorts, r.strata, legacyTarget);
     const target = r.strata.reduce((sum, share, index) => sum + clamp(share, 0, 1) * r.popEconomy!.sol[index], 0);
     r.sol = calibrate ? target : r.sol * 0.85 + target * 0.15;
     (r as Region & { famine?: number }).famine = famine;

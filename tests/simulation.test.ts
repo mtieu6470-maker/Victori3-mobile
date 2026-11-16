@@ -4,7 +4,7 @@ import { run, fresh, stepMonth } from './helpers';
 import { serialize, deserialize } from '../src/engine/save';
 import { data } from '../src/engine/data/db';
 import { STRATA } from '../src/engine/types';
-import { availableProductionMethods, calculatePopulationEconomy, factoryInputFulfillment, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
+import { availableProductionMethods, calculatePopulationEconomy, calibrateCohortLivingStandards, factoryInputFulfillment, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
 import { execute } from '../src/engine/commands';
 import { advanceConstruction, cancelConstruction, queueConstruction, canBuild } from '../src/engine/systems/economy';
 
@@ -113,6 +113,20 @@ describe('stratified employment and household income', () => {
     }
     expect(new Set(cohorts.sol.map((v) => v.toFixed(3))).size).toBeGreaterThan(1);
     expect(cohorts.wagePerWorker[STRATA.indexOf('workers')]).toBeGreaterThan(0);
+  });
+
+  it('keeps the historical weighted SoL mean while retaining differences between strata', () => {
+    const st = fresh('historical', 34, 'GBR');
+    const prices = st.marketPrices.GBR ?? st.worldPrices;
+    const shares = [0.4, 0.02, 0.2, 0.08, 0.12, 0.08, 0.03, 0.05, 0.02];
+    const population = 100000;
+    const employment = shares.map((share, i) => i >= 7 ? 0 : population * share * 0.45);
+    const raw = calculatePopulationEconomy(population, shares, employment, 45_000_000, prices, 0.07, 0.02, 'free_labor');
+    const calibrated = calibrateCohortLivingStandards(raw, shares, 0.58);
+    const mean = calibrated.sol.reduce((sum, sol, i) => sum + sol * shares[i], 0);
+    expect(mean).toBeCloseTo(0.58, 5);
+    expect(new Set(calibrated.sol.map((sol) => sol.toFixed(4))).size).toBeGreaterThan(1);
+    expect(calibrated.sol.every((sol) => sol >= 0 && sol <= 1)).toBe(true);
   });
 
   it('builds cohort ledgers in both game modes and keeps employment below each class labour pool', () => {
