@@ -53,10 +53,10 @@ export function updatePolitics(st: GameState, c: Country, init = false) {
     const relative = meanIncome > 0 && Number.isFinite(income) && (income ?? 0) >= 0
       ? Math.sqrt(Math.max(0, income ?? 0) / meanIncome)
       : 1;
-    // Wealth is a secondary clout modifier, not a substitute for cohort size or law.
-    // Keep it deliberately small: political feedback affects reforms and fertility
-    // over multi-decade runs, so larger weights can distort historical population bands.
-    const wealthPower = clamp(1 + (relative - 1) * 0.05, 0.95, 1.05);
+    // Wealth is a tertiary clout modifier, not a substitute for cohort size or law.
+    // Keep the effect within ±1% until a dedicated historical calibration dataset exists:
+    // politics feeds back into reforms and demographic trajectories over 40-year runs.
+    const wealthPower = clamp(1 + (relative - 1) * 0.01, 0.99, 1.01);
     return sum + r.pop * r.strata[i] * (0.3 + r.literacy) * wealthPower;
   }, 0) / pop;
   const sol = regs.reduce((s, r) => s + r.sol * r.pop, 0) / pop;
