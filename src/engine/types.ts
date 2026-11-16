@@ -79,6 +79,10 @@ export interface PopulationEconomy {
   profitabilityByBuilding?: Partial<Record<Building, number>>;
   /** Smoothed target utilization for the next hiring cycle, in [0.1, 1]. */
   employmentTargetByBuilding?: Partial<Record<Building, number>>;
+  /** Smoothed firm wage offer relative to the regional base wage, in [0.75, 1.5]. */
+  wageOfferByBuilding?: Partial<Record<Building, number>>;
+  /** Estimated annual wage bill by staffed productive building, drawn from the fixed regional wage pool. */
+  wageBillByBuilding?: Partial<Record<Building, number>>;
 }
 
 export interface Region {

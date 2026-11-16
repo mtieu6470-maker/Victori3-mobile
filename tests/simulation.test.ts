@@ -4,7 +4,7 @@ import { run, fresh, stepMonth } from './helpers';
 import { serialize, deserialize } from '../src/engine/save';
 import { data } from '../src/engine/data/db';
 import { BUILDINGS, STRATA } from '../src/engine/types';
-import { allocateCompetingWorkers, availableProductionMethods, buildingReturn, calculatePopulationEconomy, calibrateCohortLivingStandards, factoryInputFulfillment, LEVEL_WORKERS, marketOf, nextEmploymentTarget, populationConsumptionDemand, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
+import { allocateCompetingWorkers, availableProductionMethods, buildingReturn, calculatePopulationEconomy, calibrateCohortLivingStandards, factoryInputFulfillment, LEVEL_WORKERS, marketOf, nextEmploymentTarget, nextWageOffer, populationConsumptionDemand, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
 import { execute } from '../src/engine/commands';
 import { updatePolitics } from '../src/engine/systems/politics';
 import { effectiveBuildingLaborDemand, mixPopulationStrata, stratifiedNaturalChange } from '../src/engine/systems/population';
@@ -502,6 +502,17 @@ describe('profit-driven building employment', () => {
             expect(margin).toBeGreaterThanOrEqual(-1);
             expect(margin).toBeLessThanOrEqual(1);
           }
+          const offer = region.popEconomy?.wageOfferByBuilding?.[building];
+          if (offer !== undefined) {
+            expect(Number.isFinite(offer), region.id + ' ' + building).toBe(true);
+            expect(offer).toBeGreaterThanOrEqual(0.75);
+            expect(offer).toBeLessThanOrEqual(1.5);
+          }
+          const wageBill = region.popEconomy?.wageBillByBuilding?.[building];
+          if (wageBill !== undefined) {
+            expect(Number.isFinite(wageBill), region.id + ' ' + building).toBe(true);
+            expect(wageBill).toBeGreaterThanOrEqual(0);
+          }
         }
       }
     }
@@ -628,5 +639,57 @@ describe("investment follows the firm's hiring outlook", () => {
 
     expect(fullHiringReturn).toBeGreaterThan(0);
     expect(reducedHiringReturn).toBeCloseTo(fullHiringReturn * 0.2, 8);
+  });
+});
+
+
+describe('firm wage bidding and fixed regional wage pool', () => {
+  it('redistributes wages toward higher offers without creating additional household income', () => {
+    const st = fresh('historical', 72, 'GBR');
+    const prices = st.marketPrices.GBR ?? st.worldPrices;
+    const shares = [0.4, 0.02, 0.2, 0.08, 0.12, 0.08, 0.03, 0.05, 0.02];
+    const population = 100000;
+    const employment = shares.map((share, index) => index >= 7 ? 0 : population * share * 0.45);
+    const workers = STRATA.indexOf('workers');
+    const laborers = STRATA.indexOf('laborers');
+    const workerMix = {
+      textile_mill: { [workers]: 1200 },
+      mine: { [laborers]: 900 },
+    };
+    const valueAdded = 45_000_000;
+    const standard = calculatePopulationEconomy(
+      population, shares, employment, valueAdded, prices, 0.07, 0.02, 'free_labor', workerMix, {},
+    );
+    const bidding = calculatePopulationEconomy(
+      population, shares, employment, valueAdded, prices, 0.07, 0.02, 'free_labor',
+      workerMix, { textile_mill: 1.5, mine: 0.75 },
+    );
+    const totalWages = (economy: typeof standard) => economy.wagePerWorker.reduce(
+      (sum, wage, index) => sum + wage * economy.employed[index],
+      0,
+    );
+    const totalIncome = (economy: typeof standard) => economy.incomePerCapita.reduce(
+      (sum, income, index) => sum + income * population * shares[index],
+      0,
+    );
+
+    expect(bidding.wageBillByBuilding?.textile_mill).toBeGreaterThan(standard.wageBillByBuilding?.textile_mill ?? 0);
+    expect(bidding.wageBillByBuilding?.mine).toBeLessThan(standard.wageBillByBuilding?.mine ?? 0);
+    expect(totalWages(bidding)).toBeCloseTo(valueAdded * 0.68, 5);
+    expect(totalWages(bidding)).toBeCloseTo(totalWages(standard), 5);
+    expect(totalIncome(bidding)).toBeCloseTo(valueAdded, 3);
+    expect(
+      Object.values(bidding.wageBillByBuilding ?? {}).reduce((sum, bill) => sum + (bill ?? 0), 0),
+    ).toBeLessThanOrEqual(totalWages(bidding) + 1e-6);
+  });
+
+  it('raises offers for profitable vacancies and lowers them for loss-making firms', () => {
+    const profitable = nextWageOffer(1, 0.6, 0.8);
+    const lossMaking = nextWageOffer(1, -0.6, 0.9);
+    expect(profitable).toBeGreaterThan(1);
+    expect(lossMaking).toBeLessThan(1);
+    expect(nextWageOffer(0.1, 2, 1)).toBe(0.75);
+    expect(nextWageOffer(3, -2, 1)).toBe(1.5 - (1.5 - 0.75) * 0.12);
+    expect(nextWageOffer(undefined, NaN, NaN)).toBe(1);
   });
 });

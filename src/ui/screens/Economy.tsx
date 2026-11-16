@@ -176,6 +176,16 @@ export function openBuilding(st: GameState, b: Building, scope?: string) {
   const targetUtilization = targetCapacity > 0
     ? targetRows.reduce((sum, region) => sum + (region.popEconomy?.employmentTargetByBuilding?.[b] ?? 1) * region.buildings[b] * LEVEL_WORKERS, 0) / targetCapacity
     : null;
+  const wageRows = regs.map((region) => ({
+    offer: region.popEconomy?.wageOfferByBuilding?.[b] ?? 1,
+    bill: region.popEconomy?.wageBillByBuilding?.[b] ?? 0,
+    workers: region.popEconomy?.employedByBuilding?.[b] ?? 0,
+  })).filter((row) => row.workers > 0);
+  const wageWorkers = wageRows.reduce((sum, row) => sum + row.workers, 0);
+  const averageWageOffer = wageWorkers > 0
+    ? wageRows.reduce((sum, row) => sum + row.offer * row.workers, 0) / wageWorkers
+    : null;
+  const annualWageBill = wageRows.reduce((sum, row) => sum + row.bill, 0);
   details.toggle({ key: `bld:${b}`, title: BUILD_VI[b], ctx: `${fmt(levels)} cấp · ${regs.length} vùng`, scope, body: () => (
     <div>
       <div class="kv"><span class="k">Sản phẩm</span><span class="v">{outText(b)}</span></div>
@@ -187,7 +197,9 @@ export function openBuilding(st: GameState, b: Building, scope?: string) {
           <div class="kv"><span class="k">Công suất sử dụng</span><span class="v num">{actualEmployment === null ? 'Chờ dữ liệu' : pct(actualEmployment / Math.max(1, capacity))}</span></div>
           <div class="kv"><span class="k">Biên lợi nhuận sau nguyên liệu và lương</span><span class={`v num ${operatingMargin === null ? '' : operatingMargin >= 0 ? 'pos' : 'neg'}`}>{operatingMargin === null ? 'Chưa có dữ liệu' : pct(operatingMargin, 1)}</span></div>
           <div class="kv"><span class="k">Mục tiêu nhân sự của doanh nghiệp</span><span class="v num">{targetUtilization === null ? 'Chưa có dữ liệu' : pct(targetUtilization)}</span></div>
-          <div class="note">Mục tiêu nhân sự thay đổi dần theo biên lợi nhuận. Số lao động thực tế còn bị giới hạn bởi nguồn lao động và mức cạnh tranh giữa các ngành.</div>
+          <div class="kv"><span class="k">Mức lương chào so với nền vùng</span><span class="v num">{averageWageOffer === null ? 'Chưa có dữ liệu' : pct(averageWageOffer, 0)}</span></div>
+          <div class="kv"><span class="k">Quỹ lương năm ước tính (£)</span><span class="v num">{wageWorkers > 0 ? compact(annualWageBill) : 'Chưa có dữ liệu'}</span></div>
+          <div class="note">Doanh nghiệp có lợi nhuận và khó tuyển người có thể tăng lương chào để cạnh tranh. Mức lương được phân phối từ quỹ lương cố định của vùng, không tự tạo thêm tiền.</div>
         </Sec>
       )}
       {PRODUCTION_METHODS[b]?.length ? (
@@ -218,9 +230,11 @@ export function openBuilding(st: GameState, b: Building, scope?: string) {
           const hasStaffingModel = b !== 'railway' && b !== 'university';
           const margin = r.popEconomy?.profitabilityByBuilding?.[b];
           const target = r.popEconomy?.employmentTargetByBuilding?.[b];
+          const offer = r.popEconomy?.wageOfferByBuilding?.[b];
           const operatingText = [
             margin === undefined ? null : 'biên ' + pct(margin, 1),
             target === undefined ? null : 'mục tiêu ' + pct(target),
+            offer === undefined ? null : 'lương chào ' + pct(offer, 0),
           ].filter((value): value is string => value !== null).join(' · ');
           const staffingText = !hasStaffingModel
             ? 'chưa có mô hình nhân sự'

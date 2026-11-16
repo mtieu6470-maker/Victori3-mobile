@@ -159,9 +159,32 @@ function employmentTarget(r: Region, building: Building): number {
   return Number.isFinite(value) ? clamp(value, 0.1, 1) : 1;
 }
 
+function wageOffer(r: Region, building: Building): number {
+  const value = Number(r.popEconomy?.wageOfferByBuilding?.[building]);
+  return Number.isFinite(value) ? clamp(value, 0.75, 1.5) : 1;
+}
+
+/**
+ * Firms with healthy margins can bid up wages when vacancies are hard to fill.
+ * Loss-making firms gradually lower offers; the smoothed, bounded index is relative
+ * to the region's base wage, not a second source of household income.
+ */
+export function nextWageOffer(
+  previousOffer: number | undefined,
+  profitMargin: number,
+  staffingGap: number,
+): number {
+  const previous = Number.isFinite(previousOffer) ? clamp(previousOffer as number, 0.75, 1.5) : 1;
+  const margin = Number.isFinite(profitMargin) ? clamp(profitMargin, -1, 1) : 0;
+  const gap = Number.isFinite(staffingGap) ? clamp(staffingGap, 0, 1) : 0;
+  const desired = clamp(1 + margin * 0.45 + Math.max(0, margin) * gap * 0.35, 0.75, 1.5);
+  return clamp(previous + (desired - previous) * 0.12, 0.75, 1.5);
+}
+
 function laborAttractiveness(r: Region, building: Building): number {
   const margin = Number(r.popEconomy?.profitabilityByBuilding?.[building]);
-  return Number.isFinite(margin) ? clamp(1 + margin * 1.2, 0.25, 2) : 1;
+  const profitFactor = Number.isFinite(margin) ? clamp(1 + margin * 1.2, 0.25, 2) : 1;
+  return clamp(profitFactor * wageOffer(r, building), 0.25, 2);
 }
 
 function addFlowAmount(flow: Partial<Record<Good, number>>, good: Good, amount: number): void {
@@ -260,11 +283,34 @@ export function calculatePopulationEconomy(
   taxRate: number,
   famine: number,
   laborLaw: string,
+  buildingWorkerMix: Partial<Record<Building, Partial<Record<number, number>>>> = {},
+  wageOffers: Partial<Record<Building, number>> = {},
 ): PopulationEconomy {
   const pop = Math.max(0, Number.isFinite(population) ? population : 0);
   const classPopulation = STRATA.map((_, i) => pop * clamp(Number(strata[i] ?? 0), 0, 1));
   const employed = STRATA.map((_, i) => Math.min(classPopulation[i] * 0.45, Math.max(0, Number(employment[i] ?? 0))));
   const wageWeights = STRATA.map((_, i) => employed[i] * POP_WAGE_MULTIPLIER[i]);
+  const buildingWageUnits: Partial<Record<Building, number>> = {};
+  const remainingEmployment = employed.slice();
+
+  // Each building can only bid for workers actually present in its staffing ledger.
+  // Wage offers redistribute the existing wage pool; they never increase that pool.
+  for (const [building, mix] of Object.entries(buildingWorkerMix) as [Building, Partial<Record<number, number>>][]) {
+    const rawOffer = Number(wageOffers[building]);
+    const offer = Number.isFinite(rawOffer) ? clamp(rawOffer, 0.75, 1.5) : 1;
+    let wageUnits = 0;
+    for (const [stratumKey, rawWorkers] of Object.entries(mix ?? {})) {
+      const stratum = Number(stratumKey);
+      if (!Number.isInteger(stratum) || stratum < 0 || stratum >= STRATA.length) continue;
+      const requested = Number(rawWorkers);
+      const workers = Math.min(remainingEmployment[stratum], Number.isFinite(requested) ? Math.max(0, requested) : 0);
+      remainingEmployment[stratum] -= workers;
+      const multiplier = POP_WAGE_MULTIPLIER[stratum];
+      wageWeights[stratum] += workers * multiplier * (offer - 1);
+      wageUnits += workers * multiplier * offer;
+    }
+    if (wageUnits > 0) buildingWageUnits[building] = wageUnits;
+  }
   const ownerWeights = STRATA.map((_, i) => classPopulation[i] * POP_OWNER_MULTIPLIER[i]);
   let wageWeightTotal = wageWeights.reduce((sum, n) => sum + n, 0);
   let ownerWeightTotal = ownerWeights.reduce((sum, n) => sum + n, 0);
@@ -283,6 +329,10 @@ export function calculatePopulationEconomy(
   const incomePerCapita = new Array(STRATA.length).fill(0);
   const wagePerWorker = new Array(STRATA.length).fill(0);
   const sol = new Array(STRATA.length).fill(0);
+  const wageBillByBuilding: Partial<Record<Building, number>> = {};
+  for (const [building, units] of Object.entries(buildingWageUnits) as [Building, number][]) {
+    wageBillByBuilding[building] = wageWeightTotal > 0 ? wagePool * units / wageWeightTotal : 0;
+  }
   for (let i = 0; i < STRATA.length; i++) {
     const wageIncome = wageWeightTotal > 0 ? wagePool * wageWeights[i] / wageWeightTotal : 0;
     const ownerIncome = ownerWeightTotal > 0 ? ownerPool * ownerWeights[i] / ownerWeightTotal : 0;
@@ -298,7 +348,7 @@ export function calculatePopulationEconomy(
     const serfPenalty = laborLaw === 'serfdom' && (i === S.peasants || i === S.laborers) ? 0.05 : 0;
     sol[i] = clamp(raw - clamp(famine, 0, 1) * 0.6 - serfPenalty, 0, 1);
   }
-  return { employed, incomePerCapita, wagePerWorker, sol };
+  return { employed, incomePerCapita, wagePerWorker, sol, wageBillByBuilding };
 }
 
 export function computeEconomy(st: GameState, calibrate = false, iter = 0): void {
@@ -561,7 +611,16 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const legacyLaborShare = r.strata[S.slaves] > 0.3 ? 0.45 : 0.72;
     const legacyRaw = 0.5 + 0.33 * Math.log(Math.max(1e-3, (legacyGdpPc * (1 - c.taxRate) * legacyLaborShare) / (legacyBasket * 2)));
     const legacyTarget = clamp(legacyRaw - famine * 0.6 - (c.laws.labor === 'serfdom' ? 0.05 : 0), 0, 1);
-    const cohorts = calculatePopulationEconomy(r.pop, r.strata, k.employment, value, p, c.taxRate, famine, c.laws.labor);
+    const wageOfferByBuilding: Partial<Record<Building, number>> = {};
+    const buildingWorkerMix: Partial<Record<Building, Partial<Record<number, number>>>> = {};
+    for (const building of PRODUCTIVE_BUILDINGS) {
+      wageOfferByBuilding[building] = wageOffer(r, building);
+      buildingWorkerMix[building] = k.buildingFlows[building]?.workerMix ?? {};
+    }
+    const cohorts = calculatePopulationEconomy(
+      r.pop, r.strata, k.employment, value, p, c.taxRate, famine, c.laws.labor,
+      buildingWorkerMix, wageOfferByBuilding,
+    );
     const profitabilityByBuilding: Partial<Record<Building, number>> = {
       ...(r.popEconomy?.profitabilityByBuilding ?? {}),
     };
@@ -592,15 +651,17 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
         for (const [good, amount] of Object.entries(flow.inputs) as [Good, number][]) {
           inputCost += amount * fulfillment * p[good] * Av;
         }
-        const payroll = Object.entries(flow.workerMix).reduce((sum, [stratum, workers]) => {
-          const wage = cohorts.wagePerWorker[Number(stratum)] ?? 0;
-          return sum + Math.max(0, workers ?? 0) * Math.max(0, wage);
-        }, 0);
+        const payroll = Math.max(0, cohorts.wageBillByBuilding?.[building] ?? 0);
         const margin = revenue > 0
           ? clamp((revenue - inputCost - payroll) / revenue, -1, 1)
           : -1;
         profitabilityByBuilding[building] = margin;
         employmentTargetByBuilding[building] = nextEmploymentTarget(employmentTargetByBuilding[building], margin);
+        const desiredWorkers = r.buildings[building] * LEVEL_WORKERS * employmentTargetByBuilding[building];
+        const staffingGap = desiredWorkers > 0
+          ? clamp((desiredWorkers - staffed) / desiredWorkers, 0, 1)
+          : 0;
+        wageOfferByBuilding[building] = nextWageOffer(wageOfferByBuilding[building], margin, staffingGap);
       }
     }
     r.popEconomy = {
@@ -608,6 +669,8 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
       employedByBuilding: k.employedByBuilding,
       profitabilityByBuilding,
       employmentTargetByBuilding,
+      wageOfferByBuilding,
+      wageBillByBuilding: cohorts.wageBillByBuilding,
     };
     const target = r.strata.reduce((sum, share, index) => sum + clamp(share, 0, 1) * r.popEconomy!.sol[index], 0);
     r.sol = calibrate ? target : r.sol * 0.85 + target * 0.15;
