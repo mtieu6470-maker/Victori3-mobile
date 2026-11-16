@@ -1,14 +1,104 @@
 // Population Engine (shared): births/deaths, famine and epidemics, strata change following jobs and laws,
 // literacy, migration (internal and international) and nationalism.
 import { data } from '../data/db';
-import { S, type Country, type GameState, type Region } from '../types';
+import { S, STRATA, type Country, type GameState, type Region } from '../types';
 import { clamp } from '../core';
 import { techEffect, LEVEL_WORKERS } from './economy';
 import { regionsOf } from '../cache';
 
+/**
+ * Distributes natural increase across population strata using their current cohort SoL.
+ * Better SoL lowers both fertility and mortality; mortality responds more strongly, so
+ * higher-SoL cohorts have a modestly higher net growth rate. Weighted mean multipliers
+ * are exactly 1, preserving the region's already-calibrated aggregate birth/death rates.
+ *
+ * The coefficients are intentionally conservative because this project has no age-structured
+ * population data. This is a cohort-level approximation, not an individual-pop simulation.
+ */
+export interface StratifiedNaturalChange {
+  population: number;
+  strata: number[];
+  births: number;
+  deaths: number;
+}
+
+export function stratifiedNaturalChange(
+  population: number,
+  strata: number[],
+  cohortSol: number[] | undefined,
+  annualBirthRate: number,
+  annualDeathRate: number,
+): StratifiedNaturalChange {
+  const pop = Number.isFinite(population) ? Math.max(0, population) : 0;
+  const rawShares = STRATA.map((_, i) => {
+    const value = Number(strata[i] ?? 0);
+    return Number.isFinite(value) ? Math.max(0, value) : 0;
+  });
+  const shareTotal = rawShares.reduce((sum, value) => sum + value, 0);
+  if (pop <= 0 || shareTotal <= 0) {
+    return { population: pop, strata: rawShares, births: 0, deaths: 0 };
+  }
+  const shares = rawShares.map((value) => value / shareTotal);
+  const sol = STRATA.map((_, i) => {
+    const value = Number(cohortSol?.[i]);
+    return Number.isFinite(value) ? clamp(value, 0, 1) : 0.5;
+  });
+  const meanSol = sol.reduce((sum, value, i) => sum + shares[i] * value, 0);
+  const birthRate = Number.isFinite(annualBirthRate) ? Math.max(0, annualBirthRate) : 0;
+  const deathRate = Number.isFinite(annualDeathRate) ? Math.max(0, annualDeathRate) : 0;
+  const birthWeight = sol.map((value) => clamp(1 - 0.04 * (value - meanSol), 0.9, 1.1));
+  const deathWeight = sol.map((value) => clamp(1 - 0.08 * (value - meanSol), 0.8, 1.2));
+  const birthNorm = birthWeight.reduce((sum, value, i) => sum + shares[i] * value, 0);
+  const deathNorm = deathWeight.reduce((sum, value, i) => sum + shares[i] * value, 0);
+
+  let births = 0;
+  let deaths = 0;
+  const nextCounts = shares.map((share, i) => {
+    const cohort = pop * share;
+    const b = cohort * birthRate * (birthWeight[i] / birthNorm) / 12;
+    const d = cohort * deathRate * (deathWeight[i] / deathNorm) / 12;
+    births += b;
+    deaths += d;
+    return Math.max(0, cohort + b - d);
+  });
+  const nextPopulation = nextCounts.reduce((sum, value) => sum + value, 0);
+  const nextStrata = nextPopulation > 0
+    ? nextCounts.map((value) => value / nextPopulation)
+    : shares;
+  return { population: nextPopulation, strata: nextStrata, births, deaths };
+}
+
+/** Combines resident and incoming population without discarding the migrants' class mix. */
+export function mixPopulationStrata(
+  residentPopulation: number,
+  residentStrata: number[],
+  incomingPopulation: number,
+  incomingStrata: number[],
+): number[] {
+  const resident = Number.isFinite(residentPopulation) ? Math.max(0, residentPopulation) : 0;
+  const incoming = Number.isFinite(incomingPopulation) ? Math.max(0, incomingPopulation) : 0;
+  const total = resident + incoming;
+  const normalize = (values: number[]) => {
+    const safe = STRATA.map((_, i) => {
+      const value = Number(values[i] ?? 0);
+      return Number.isFinite(value) ? Math.max(0, value) : 0;
+    });
+    const sum = safe.reduce((acc, value) => acc + value, 0);
+    return sum > 0 ? safe.map((value) => value / sum) : new Array(STRATA.length).fill(0);
+  };
+  const current = normalize(residentStrata);
+  const arrivals = normalize(incomingStrata);
+  if (total <= 0) return current;
+  if (incoming <= 0) return current;
+  if (resident <= 0) return arrivals;
+  return STRATA.map((_, i) => (
+    resident * current[i] + incoming * arrivals[i]
+  ) / total);
+}
+
 export function populationMonth(st: GameState) {
   const d = data();
-  const emig: { from: Region; n: number }[] = [];
+  const emig: { from: Region; n: number; strata: number[] }[] = [];
   for (const r of st.regions) {
     const c = st.countries[r.owner]; if (!c || r.pop <= 0) continue;
     const famine = (r as Region & { famine?: number }).famine ?? 0;
@@ -20,11 +110,13 @@ export function populationMonth(st: GameState) {
     let death = 0.033 - 0.02 * (r.sol - 0.5) + techEffect(c, 'mortality') * 0.1 - c.budget.health * 0.02 + famine * 0.16 + epi + r.devastation * 0.02;
     if (r.terrain === 'ju' || r.terrain === 'ma') death += 0.002;
     death = Math.max(0.011, death);
-    r.pop = Math.max(100, r.pop * (1 + (birth - death) / 12));
+    const natural = stratifiedNaturalChange(r.pop, r.strata, r.popEconomy?.sol, birth, death);
+    r.pop = Math.max(100, natural.population);
+    r.strata = natural.strata;
     // emigration from distress (coastal regions can reach overseas destinations)
     if ((r.sol < 0.42 || famine > 0.1) && r.coastal && c.laws.labor !== 'serfdom' && c.laws.trade !== 'isolationism') {
       const n = r.pop * ((Math.max(0, 0.42 - r.sol) * 0.004 + famine * 0.012) / 12);
-      if (n > 50) { r.pop -= n; emig.push({ from: r, n }); }
+      if (n > 50) { r.pop -= n; emig.push({ from: r, n, strata: [...r.strata] }); }
     }
     // literacy
     const edu = c.laws.education === 'public_schools' ? 0.012 : c.laws.education === 'religious_schools' ? 0.004 : 0.0005;
@@ -57,7 +149,9 @@ export function populationMonth(st: GameState) {
     if (tw > 0) for (const e of emig) for (const t of top) {
       const share = (e.n * t.w) / tw; const rs = t.regions;
       const tgt = rs[(st.tick + rs.length) % rs.length];
-      tgt.pop += share;
+      const residentPop = tgt.pop;
+      tgt.strata = mixPopulationStrata(residentPop, tgt.strata, share, e.strata);
+      tgt.pop = residentPop + share;
       if (tgt.culture !== e.from.culture && tgt.c2 < 0.5) { tgt.culture2 = tgt.culture2 ?? e.from.culture; tgt.c2 = clamp(tgt.c2 + share / tgt.pop * 0.5, 0, 0.5); }
     }
   }

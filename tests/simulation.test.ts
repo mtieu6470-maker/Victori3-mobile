@@ -7,6 +7,7 @@ import { STRATA } from '../src/engine/types';
 import { availableProductionMethods, calculatePopulationEconomy, calibrateCohortLivingStandards, factoryInputFulfillment, populationConsumptionDemand, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
 import { execute } from '../src/engine/commands';
 import { updatePolitics } from '../src/engine/systems/politics';
+import { mixPopulationStrata, stratifiedNaturalChange } from '../src/engine/systems/population';
 import { advanceConstruction, cancelConstruction, queueConstruction, canBuild } from '../src/engine/systems/economy';
 
 describe('economy and population sanity (40 years, both modes)', () => {
@@ -364,5 +365,46 @@ describe('monthly construction queue', () => {
     for (const country of Object.values(legacy.state.countries) as Array<Record<string, unknown>>) delete country.constructionQueue;
     const loaded = deserialize(JSON.stringify(legacy));
     expect(Object.values(loaded.countries).every((country) => Array.isArray(country.constructionQueue))).toBe(true);
+  });
+});
+
+
+describe('cohort-level demographic transition', () => {
+  it('higher-SoL cohorts gain net natural growth while regional aggregate rates stay calibrated', () => {
+    const shares = new Array(STRATA.length).fill(0);
+    const peasants = STRATA.indexOf('peasants');
+    const workers = STRATA.indexOf('workers');
+    shares[peasants] = 0.6;
+    shares[workers] = 0.4;
+    const equalSol = new Array(STRATA.length).fill(0.5);
+    const stratifiedSol = [...equalSol];
+    stratifiedSol[peasants] = 0.2;
+    stratifiedSol[workers] = 0.8;
+
+    const equal = stratifiedNaturalChange(100000, shares, equalSol, 0.036, 0.029);
+    const varied = stratifiedNaturalChange(100000, shares, stratifiedSol, 0.036, 0.029);
+    const expectedPopulation = 100000 * (1 + (0.036 - 0.029) / 12);
+
+    expect(equal.population).toBeCloseTo(expectedPopulation, 8);
+    expect(varied.population).toBeCloseTo(expectedPopulation, 8);
+    expect(varied.strata[workers]).toBeGreaterThan(equal.strata[workers]);
+    expect(varied.strata[peasants]).toBeLessThan(equal.strata[peasants]);
+    expect(varied.strata.reduce((sum, share) => sum + share, 0)).toBeCloseTo(1, 10);
+  });
+
+  it('retains the legacy aggregate rate when no cohort ledger exists', () => {
+    const shares = [0.7, 0.1, 0.1, 0.1, 0, 0, 0, 0, 0];
+    const result = stratifiedNaturalChange(50000, shares, undefined, 0.035, 0.03);
+    expect(result.population).toBeCloseTo(50000 * (1 + (0.035 - 0.03) / 12), 8);
+    expect(result.strata).toEqual(shares);
+  });
+
+  it('blends incoming migrants into the destination's occupational composition', () => {
+    const residents = [0.8, 0.2, 0, 0, 0, 0, 0, 0, 0];
+    const arrivals = [0.2, 0.8, 0, 0, 0, 0, 0, 0, 0];
+    const mixed = mixPopulationStrata(100, residents, 50, arrivals);
+    expect(mixed[0]).toBeCloseTo(0.6, 10);
+    expect(mixed[1]).toBeCloseTo(0.4, 10);
+    expect(mixed.reduce((sum, share) => sum + share, 0)).toBeCloseTo(1, 10);
   });
 });
