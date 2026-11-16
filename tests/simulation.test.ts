@@ -618,6 +618,7 @@ describe("investment follows the firm's hiring outlook", () => {
       sol: new Array(STRATA.length).fill(0),
     };
     region.popEconomy = { ...ledger };
+    if (region.popEconomy) delete region.popEconomy.employmentTargetByBuilding;
     const fullHiringReturn = buildingReturn(state, country, region, 'textile_mill');
     region.popEconomy = {
       ...region.popEconomy,
