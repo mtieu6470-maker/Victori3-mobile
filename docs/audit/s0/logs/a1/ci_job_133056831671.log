@@ -1,0 +1,598 @@
+﻿2026-11-16T02:39:01.1393098Z Current runner version: '2.338.2'
+2026-11-16T02:39:01.1418387Z ##[group]Runner Image Provisioner
+2026-11-16T02:39:01.1419219Z Hosted Compute Agent
+2026-11-16T02:39:01.1419737Z Version: 20261103.629
+2026-11-16T02:39:01.1420327Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-16T02:39:01.1421032Z Build Date: 2026-11-03T17:26:59Z
+2026-11-16T02:39:01.1421682Z Worker ID: {1b3e57b6-95a5-4000-bb71-7c4725ec2e5d}
+2026-11-16T02:39:01.1422331Z Region: westus3
+2026-11-16T02:39:01.1422818Z Cloud: Azure
+2026-11-16T02:39:01.1423374Z ##[endgroup]
+2026-11-16T02:39:01.1424795Z ##[group]Operating System
+2026-11-16T02:39:01.1425638Z Ubuntu
+2026-11-16T02:39:01.1426158Z 26.04.1
+2026-11-16T02:39:01.1426636Z LTS
+2026-11-16T02:39:01.1427116Z ##[endgroup]
+2026-11-16T02:39:01.1427633Z ##[group]Runner Image
+2026-11-16T02:39:01.1428187Z Image: ubuntu-26.04
+2026-11-16T02:39:01.1429036Z Version: 20261111.196.1
+2026-11-16T02:39:01.1430219Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-16T02:39:01.1431607Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+2026-11-16T02:39:01.1432479Z ##[endgroup]
+2026-11-16T02:39:01.1433561Z ##[group]GITHUB_TOKEN Permissions
+2026-11-16T02:39:01.1436013Z Contents: read
+2026-11-16T02:39:01.1436596Z Metadata: read
+2026-11-16T02:39:01.1437096Z Packages: read
+2026-11-16T02:39:01.1437596Z ##[endgroup]
+2026-11-16T02:39:01.1439737Z Secret source: Actions
+2026-11-16T02:39:01.1440602Z Cache mode: write
+2026-11-16T02:39:01.1441264Z Prepare workflow directory
+2026-11-16T02:39:01.1809406Z Prepare all required actions
+2026-11-16T02:39:01.1857920Z Getting action download info
+2026-11-16T02:39:01.5109397Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-16T02:39:01.5991922Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-11-16T02:39:01.6498163Z Download action repository 'actions/setup-java@v4' (SHA:cf277c60eb25467037889841efdb72551f06f6c3)
+2026-11-16T02:39:02.2760620Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-16T02:39:02.4483188Z Complete job name: apk
+2026-11-16T02:39:02.5425862Z ##[group]Run actions/checkout@v4
+2026-11-16T02:39:02.5426947Z with:
+2026-11-16T02:39:02.5427507Z   repository: mtieu6470-maker/Victori3-mobile
+2026-11-16T02:39:02.5431945Z   token: ***
+2026-11-16T02:39:02.5432424Z   ssh-strict: true
+2026-11-16T02:39:02.5432921Z   ssh-user: git
+2026-11-16T02:39:02.5433426Z   persist-credentials: true
+2026-11-16T02:39:02.5433967Z   clean: true
+2026-11-16T02:39:02.5434472Z   sparse-checkout-cone-mode: true
+2026-11-16T02:39:02.5435051Z   fetch-depth: 1
+2026-11-16T02:39:02.5435676Z   fetch-tags: false
+2026-11-16T02:39:02.5436180Z   show-progress: true
+2026-11-16T02:39:02.5436699Z   lfs: false
+2026-11-16T02:39:02.5437191Z   submodules: false
+2026-11-16T02:39:02.5437694Z   set-safe-directory: true
+2026-11-16T02:39:02.5438297Z   allow-unsafe-pr-checkout: false
+2026-11-16T02:39:02.5439174Z ##[endgroup]
+2026-11-16T02:39:02.7790037Z Syncing repository: mtieu6470-maker/Victori3-mobile
+2026-11-16T02:39:02.7793660Z ##[group]Getting Git version info
+2026-11-16T02:39:02.7795666Z Working directory is '/home/runner/work/Victori3-mobile/Victori3-mobile'
+2026-11-16T02:39:02.7798137Z [command]/usr/bin/git version
+2026-11-16T02:39:02.7799328Z git version 2.56.1
+2026-11-16T02:39:02.7812195Z ##[endgroup]
+2026-11-16T02:39:02.7829028Z Temporarily overriding HOME='/home/runner/work/_temp/99635d8e-a54b-42e2-885f-74a3bbfe1828' before making global git config changes
+2026-11-16T02:39:02.7831937Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-16T02:39:02.7835729Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Victori3-mobile/Victori3-mobile
+2026-11-16T02:39:02.7888963Z Deleting the contents of '/home/runner/work/Victori3-mobile/Victori3-mobile'
+2026-11-16T02:39:02.7894811Z ##[group]Initializing the repository
+2026-11-16T02:39:02.7900257Z [command]/usr/bin/git init /home/runner/work/Victori3-mobile/Victori3-mobile
+2026-11-16T02:39:02.7988480Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-16T02:39:02.7990305Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-16T02:39:02.7991496Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-16T02:39:02.7992690Z hint: call:
+2026-11-16T02:39:02.7993511Z hint:
+2026-11-16T02:39:02.7994652Z hint: 	git config --global init.defaultBranch <name>
+2026-11-16T02:39:02.7995895Z hint:
+2026-11-16T02:39:02.7996700Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-16T02:39:02.7998393Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-16T02:39:02.7999753Z hint:
+2026-11-16T02:39:02.8000723Z hint: 	git branch -m <name>
+2026-11-16T02:39:02.8001549Z hint:
+2026-11-16T02:39:02.8002292Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-16T02:39:02.8003516Z Initialized empty Git repository in /home/runner/work/Victori3-mobile/Victori3-mobile/.git/
+2026-11-16T02:39:02.8009413Z [command]/usr/bin/git remote add origin https://github.com/mtieu6470-maker/Victori3-mobile
+2026-11-16T02:39:02.8056069Z ##[endgroup]
+2026-11-16T02:39:02.8056971Z ##[group]Disabling automatic garbage collection
+2026-11-16T02:39:02.8061191Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-16T02:39:02.8091307Z ##[endgroup]
+2026-11-16T02:39:02.8092122Z ##[group]Setting up auth
+2026-11-16T02:39:02.8099947Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-16T02:39:02.8129676Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-16T02:39:02.8500418Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-16T02:39:02.8534754Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-16T02:39:02.8781121Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-16T02:39:02.8811652Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-16T02:39:02.9027561Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-16T02:39:02.9062321Z ##[endgroup]
+2026-11-16T02:39:02.9063213Z ##[group]Fetching the repository
+2026-11-16T02:39:02.9072031Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +2240a8fb865e0021eec2f2f4f1c6803528be9e2c:refs/remotes/origin/claude/game-historical-sandbox-modes-kg7rj7
+2026-11-16T02:39:05.5811144Z From https://github.com/mtieu6470-maker/Victori3-mobile
+2026-11-16T02:39:05.5813192Z  * [new ref]         2240a8fb865e0021eec2f2f4f1c6803528be9e2c -> origin/claude/game-historical-sandbox-modes-kg7rj7
+2026-11-16T02:39:05.5816310Z ##[endgroup]
+2026-11-16T02:39:05.5816982Z ##[group]Determining the checkout info
+2026-11-16T02:39:05.5817549Z ##[endgroup]
+2026-11-16T02:39:05.5822821Z [command]/usr/bin/git sparse-checkout disable
+2026-11-16T02:39:05.5863221Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-16T02:39:05.5887656Z ##[group]Checking out the ref
+2026-11-16T02:39:05.5892205Z [command]/usr/bin/git checkout --progress --force -B claude/game-historical-sandbox-modes-kg7rj7 refs/remotes/origin/claude/game-historical-sandbox-modes-kg7rj7
+2026-11-16T02:39:05.7677193Z Switched to a new branch 'claude/game-historical-sandbox-modes-kg7rj7'
+2026-11-16T02:39:05.7686898Z branch 'claude/game-historical-sandbox-modes-kg7rj7' set up to track 'origin/claude/game-historical-sandbox-modes-kg7rj7'.
+2026-11-16T02:39:05.7690202Z ##[endgroup]
+2026-11-16T02:39:05.7734169Z [command]/usr/bin/git log -1 --format=%H
+2026-11-16T02:39:05.7754452Z 2240a8fb865e0021eec2f2f4f1c6803528be9e2c
+2026-11-16T02:39:05.8012421Z ##[group]Run actions/setup-node@v4
+2026-11-16T02:39:05.8012808Z with:
+2026-11-16T02:39:05.8013070Z   node-version: 22
+2026-11-16T02:39:05.8013330Z   cache: npm
+2026-11-16T02:39:05.8013580Z   always-auth: false
+2026-11-16T02:39:05.8013856Z   check-latest: false
+2026-11-16T02:39:05.8016942Z   token: ***
+2026-11-16T02:39:05.8017195Z ##[endgroup]
+2026-11-16T02:39:05.9450945Z Found in cache @ /opt/hostedtoolcache/node/22.23.4/x64
+2026-11-16T02:39:05.9455427Z (node:2503) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-16T02:39:05.9456826Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-16T02:39:05.9458800Z ##[group]Environment details
+2026-11-16T02:39:06.3005982Z node: v22.23.4
+2026-11-16T02:39:06.3006639Z npm: 10.9.9
+2026-11-16T02:39:06.3007052Z yarn: 1.22.22
+2026-11-16T02:39:06.3008018Z ##[endgroup]
+2026-11-16T02:39:06.3032027Z [command]/opt/hostedtoolcache/node/22.23.4/x64/bin/npm config get cache
+2026-11-16T02:39:06.4036453Z /home/runner/.npm
+2026-11-16T02:39:06.6193946Z Cache hit for: node-cache-Linux-x64-npm-8422afe6651b652aa91a6767deda4eeb3526bbbb6a313245975d485164961ece
+2026-11-16T02:39:06.6307375Z (node:2503) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-16T02:39:07.8522597Z Received 38002870 of 38002870 (100.0%), 36.3 MBs/sec
+2026-11-16T02:39:07.8527905Z Cache Size: ~36 MB (38002870 B)
+2026-11-16T02:39:07.8549151Z [command]/usr/bin/tar -xf /home/runner/work/_temp/813a6a69-a38f-4491-b285-318dd3eaca40/cache.tzst -P -C /home/runner/work/Victori3-mobile/Victori3-mobile --use-compress-program unzstd
+2026-11-16T02:39:07.9239502Z Cache restored successfully
+2026-11-16T02:39:07.9255490Z Cache restored from key: node-cache-Linux-x64-npm-8422afe6651b652aa91a6767deda4eeb3526bbbb6a313245975d485164961ece
+2026-11-16T02:39:07.9403255Z ##[group]Run npm ci
+2026-11-16T02:39:07.9403549Z [36;1mnpm ci[0m
+2026-11-16T02:39:07.9445350Z shell: /usr/bin/bash -e {0}
+2026-11-16T02:39:07.9445634Z ##[endgroup]
+2026-11-16T02:39:10.2945818Z 
+2026-11-16T02:39:10.2951851Z added 220 packages, and audited 221 packages in 2s
+2026-11-16T02:39:10.2952185Z 
+2026-11-16T02:39:10.2952378Z 40 packages are looking for funding
+2026-11-16T02:39:10.2952677Z   run `npm fund` for details
+2026-11-16T02:39:10.3142642Z 
+2026-11-16T02:39:10.3143504Z 6 vulnerabilities (3 moderate, 1 high, 2 critical)
+2026-11-16T02:39:10.3143939Z 
+2026-11-16T02:39:10.3144343Z To address all issues (including breaking changes), run:
+2026-11-16T02:39:10.3144942Z   npm audit fix --force
+2026-11-16T02:39:10.3145375Z 
+2026-11-16T02:39:10.3145602Z Run `npm audit` for details.
+2026-11-16T02:39:10.3464026Z ##[group]Run npm run build
+2026-11-16T02:39:10.3464322Z [36;1mnpm run build[0m
+2026-11-16T02:39:10.3493507Z shell: /usr/bin/bash -e {0}
+2026-11-16T02:39:10.3493777Z ##[endgroup]
+2026-11-16T02:39:10.4377081Z 
+2026-11-16T02:39:10.4377804Z > currents-of-history@0.1.0 build
+2026-11-16T02:39:10.4378587Z > npm run prepare-assets && tsc --noEmit && vite build
+2026-11-16T02:39:10.4379002Z 
+2026-11-16T02:39:10.5311110Z 
+2026-11-16T02:39:10.5312055Z > currents-of-history@0.1.0 prepare-assets
+2026-11-16T02:39:10.5313053Z > npm run data && npm run map && npm run content
+2026-11-16T02:39:10.5313615Z 
+2026-11-16T02:39:10.6282362Z 
+2026-11-16T02:39:10.6283168Z > currents-of-history@0.1.0 data
+2026-11-16T02:39:10.6284122Z > tsx tools/build-data.ts
+2026-11-16T02:39:10.6284390Z 
+2026-11-16T02:39:10.8763637Z build-data: OK — 274 entities (104 placeholder polities), 662 regions, 13 active alliances, 0 warnings
+2026-11-16T02:39:10.9918031Z 
+2026-11-16T02:39:10.9918916Z > currents-of-history@0.1.0 map
+2026-11-16T02:39:10.9919943Z > tsx tools/build-map.ts
+2026-11-16T02:39:10.9920246Z 
+2026-11-16T02:39:18.6349789Z build-map: 8192x3868, 662 regions, 1426 land borders, 423 sea links, 2667 landmasses, 5024 boundary lines, 181318 runs; regions with a single cell: none (7.4 s)
+2026-11-16T02:39:18.7622370Z 
+2026-11-16T02:39:18.7623480Z > currents-of-history@0.1.0 content
+2026-11-16T02:39:18.7624456Z > tsx tools/build-content.ts
+2026-11-16T02:39:18.7624952Z 
+2026-11-16T02:39:18.9885652Z {"assets":502,"bytes":8715750,"flags":176,"arms":99,"portraits":227,"entities_linked":266,"entity_texts":265,"characters":473,"characters_linked":275}
+2026-11-16T02:39:24.8594681Z [36mvite v5.4.21 [32mbuilding for production...[36m[39m
+2026-11-16T02:39:24.9166100Z transforming...
+2026-11-16T02:39:26.1351444Z [32m✓[39m 65 modules transformed.
+2026-11-16T02:39:26.5162395Z rendering chunks...
+2026-11-16T02:39:26.5388760Z computing gzip size...
+2026-11-16T02:39:26.5656074Z [2mdist/[22m[32mindex.html                                                   [39m[1m[2m    0.61 kB[22m[1m[22m[2m │ gzip:   0.38 kB[22m
+2026-11-16T02:39:26.5657831Z [2mdist/[22m[2massets/[22m[32msource-sans-3-cyrillic-ext-600-normal-6AhwUnSr.woff2  [39m[1m[2m    5.52 kB[22m[1m[22m
+2026-11-16T02:39:26.5667818Z [2mdist/[22m[2massets/[22m[32msource-sans-3-cyrillic-ext-700-normal-BhUSqjb8.woff2  [39m[1m[2m    5.54 kB[22m[1m[22m
+2026-11-16T02:39:26.5670131Z [2mdist/[22m[2massets/[22m[32msource-sans-3-cyrillic-ext-400-normal-BwJdxs7r.woff2  [39m[1m[2m    5.58 kB[22m[1m[22m
+2026-11-16T02:39:26.5673145Z [2mdist/[22m[2massets/[22m[32msource-sans-3-greek-ext-600-normal-DynePNDL.woff2     [39m[1m[2m    5.94 kB[22m[1m[22m
+2026-11-16T02:39:26.5674910Z [2mdist/[22m[2massets/[22m[32msource-sans-3-greek-ext-700-normal-Dd6uIcuy.woff2     [39m[1m[2m    6.01 kB[22m[1m[22m
+2026-11-16T02:39:26.5677097Z [2mdist/[22m[2massets/[22m[32msource-sans-3-greek-ext-400-normal-CpIwTHMM.woff2     [39m[1m[2m    6.02 kB[22m[1m[22m
+2026-11-16T02:39:26.5679296Z [2mdist/[22m[2massets/[22m[32msource-sans-3-vietnamese-700-normal-Bgamivog.woff2    [39m[1m[2m    6.14 kB[22m[1m[22m
+2026-11-16T02:39:26.5681147Z [2mdist/[22m[2massets/[22m[32msource-sans-3-vietnamese-400-normal-CwtaIDr2.woff2    [39m[1m[2m    6.22 kB[22m[1m[22m
+2026-11-16T02:39:26.5682898Z [2mdist/[22m[2massets/[22m[32msource-sans-3-vietnamese-600-normal-B2sTNYey.woff2    [39m[1m[2m    6.22 kB[22m[1m[22m
+2026-11-16T02:39:26.5684608Z [2mdist/[22m[2massets/[22m[32meb-garamond-vietnamese-500-normal-BCT1_K6u.woff2      [39m[1m[2m    6.42 kB[22m[1m[22m
+2026-11-16T02:39:26.5686843Z [2mdist/[22m[2massets/[22m[32meb-garamond-vietnamese-600-normal-Dmi8L14S.woff2      [39m[1m[2m    6.45 kB[22m[1m[22m
+2026-11-16T02:39:26.5689001Z [2mdist/[22m[2massets/[22m[32meb-garamond-vietnamese-500-italic-DTf5CBKv.woff2      [39m[1m[2m    6.49 kB[22m[1m[22m
+2026-11-16T02:39:26.5691742Z [2mdist/[22m[2massets/[22m[32meb-garamond-greek-ext-500-normal-DkhmZW4r.woff2       [39m[1m[2m    6.80 kB[22m[1m[22m
+2026-11-16T02:39:26.5693942Z [2mdist/[22m[2massets/[22m[32meb-garamond-greek-ext-600-normal-B6KG6Acg.woff2       [39m[1m[2m    6.83 kB[22m[1m[22m
+2026-11-16T02:39:26.5696202Z [2mdist/[22m[2massets/[22m[32meb-garamond-greek-ext-500-italic-C9wqkm-R.woff2       [39m[1m[2m    7.02 kB[22m[1m[22m
+2026-11-16T02:39:26.5698296Z [2mdist/[22m[2massets/[22m[32msource-sans-3-cyrillic-ext-700-normal-COA7LiPB.woff   [39m[1m[2m    7.04 kB[22m[1m[22m
+2026-11-16T02:39:26.5700346Z [2mdist/[22m[2massets/[22m[32msource-sans-3-cyrillic-ext-600-normal-Cjpx_pje.woff   [39m[1m[2m    7.08 kB[22m[1m[22m
+2026-11-16T02:39:26.5702414Z [2mdist/[22m[2massets/[22m[32msource-sans-3-cyrillic-ext-400-normal-BqOlcezh.woff   [39m[1m[2m    7.11 kB[22m[1m[22m
+2026-11-16T02:39:26.5704529Z [2mdist/[22m[2massets/[22m[32msource-sans-3-greek-ext-700-normal-KTP46hTS.woff      [39m[1m[2m    7.97 kB[22m[1m[22m
+2026-11-16T02:39:26.5706965Z [2mdist/[22m[2massets/[22m[32msource-sans-3-greek-700-normal-C8Tp2qRF.woff2         [39m[1m[2m    7.98 kB[22m[1m[22m
+2026-11-16T02:39:26.5709054Z [2mdist/[22m[2massets/[22m[32meb-garamond-vietnamese-500-normal-B0TRhMco.woff       [39m[1m[2m    7.99 kB[22m[1m[22m
+2026-11-16T02:39:26.5711171Z [2mdist/[22m[2massets/[22m[32msource-sans-3-greek-ext-400-normal-CN4VBqpr.woff      [39m[1m[2m    7.99 kB[22m[1m[22m
+2026-11-16T02:39:26.5713479Z [2mdist/[22m[2massets/[22m[32msource-sans-3-greek-ext-600-normal-CnpzyT-3.woff      [39m[1m[2m    8.00 kB[22m[1m[22m
+2026-11-16T02:39:26.5715756Z [2mdist/[22m[2massets/[22m[32msource-sans-3-greek-400-normal-DZReXJla.woff2         [39m[1m[2m    8.02 kB[22m[1m[22m
+2026-11-16T02:39:26.5718022Z [2mdist/[22m[2massets/[22m[32msource-sans-3-greek-600-normal-BSO157bq.woff2         [39m[1m[2m    8.03 kB[22m[1m[22m
+2026-11-16T02:39:26.5720130Z [2mdist/[22m[2massets/[22m[32meb-garamond-vietnamese-600-normal-DgZMCD0h.woff       [39m[1m[2m    8.03 kB[22m[1m[22m
+2026-11-16T02:39:26.5722242Z [2mdist/[22m[2massets/[22m[32meb-garamond-vietnamese-500-italic-BFEHB_3a.woff       [39m[1m[2m    8.14 kB[22m[1m[22m
+2026-11-16T02:39:26.5724332Z [2mdist/[22m[2massets/[22m[32msource-sans-3-vietnamese-700-normal-W-J7ohm4.woff     [39m[1m[2m    8.25 kB[22m[1m[22m
+2026-11-16T02:39:26.5726385Z [2mdist/[22m[2massets/[22m[32msource-sans-3-vietnamese-600-normal-BzH4Q14_.woff     [39m[1m[2m    8.26 kB[22m[1m[22m
+2026-11-16T02:39:26.5728419Z [2mdist/[22m[2massets/[22m[32msource-sans-3-vietnamese-400-normal-eMQk7hmk.woff     [39m[1m[2m    8.28 kB[22m[1m[22m
+2026-11-16T02:39:26.5730493Z [2mdist/[22m[2massets/[22m[32meb-garamond-greek-ext-600-normal-DzPSPp8W.woff        [39m[1m[2m    8.72 kB[22m[1m[22m
+2026-11-16T02:39:26.5732512Z [2mdist/[22m[2massets/[22m[32meb-garamond-greek-ext-500-normal-CMJ7zNBO.woff        [39m[1m[2m    8.78 kB[22m[1m[22m
+2026-11-16T02:39:26.5734578Z [2mdist/[22m[2massets/[22m[32meb-garamond-greek-ext-500-italic-CuI3nqc3.woff        [39m[1m[2m    9.38 kB[22m[1m[22m
+2026-11-16T02:39:26.5736711Z [2mdist/[22m[2massets/[22m[32msource-sans-3-cyrillic-400-normal-DjhbW-4D.woff2      [39m[1m[2m    9.60 kB[22m[1m[22m
+2026-11-16T02:39:26.5739071Z [2mdist/[22m[2massets/[22m[32msource-sans-3-cyrillic-700-normal-CIuudVLB.woff2      [39m[1m[2m    9.60 kB[22m[1m[22m
+2026-11-16T02:39:26.5741198Z [2mdist/[22m[2massets/[22m[32msource-sans-3-cyrillic-600-normal-BnFu5nHC.woff2      [39m[1m[2m    9.64 kB[22m[1m[22m
+2026-11-16T02:39:26.5743308Z [2mdist/[22m[2massets/[22m[32msource-sans-3-greek-700-normal-C-sAg5NG.woff          [39m[1m[2m   10.10 kB[22m[1m[22m
+2026-11-16T02:39:26.5745532Z [2mdist/[22m[2massets/[22m[32msource-sans-3-greek-600-normal-B42bzTIr.woff          [39m[1m[2m   10.10 kB[22m[1m[22m
+2026-11-16T02:39:26.5748303Z [2mdist/[22m[2massets/[22m[32msource-sans-3-greek-400-normal-DyO2Yfz5.woff          [39m[1m[2m   10.12 kB[22m[1m[22m
+2026-11-16T02:39:26.5750598Z [2mdist/[22m[2massets/[22m[32meb-garamond-greek-500-italic-BGwAan3a.woff2           [39m[1m[2m   10.86 kB[22m[1m[22m
+2026-11-16T02:39:26.5752888Z [2mdist/[22m[2massets/[22m[32meb-garamond-greek-600-normal--vWuDlyL.woff2           [39m[1m[2m   11.09 kB[22m[1m[22m
+2026-11-16T02:39:26.5755301Z [2mdist/[22m[2massets/[22m[32meb-garamond-greek-500-normal-BtA0fbXC.woff2           [39m[1m[2m   11.10 kB[22m[1m[22m
+2026-11-16T02:39:26.5757380Z [2mdist/[22m[2massets/[22m[32msource-sans-3-cyrillic-700-normal-D_p3L75o.woff       [39m[1m[2m   12.00 kB[22m[1m[22m
+2026-11-16T02:39:26.5759478Z [2mdist/[22m[2massets/[22m[32msource-sans-3-cyrillic-400-normal-DkNBMcYd.woff       [39m[1m[2m   12.10 kB[22m[1m[22m
+2026-11-16T02:39:26.5761518Z [2mdist/[22m[2massets/[22m[32msource-sans-3-cyrillic-600-normal-CloKWf-q.woff       [39m[1m[2m   12.10 kB[22m[1m[22m
+2026-11-16T02:39:26.5763786Z [2mdist/[22m[2massets/[22m[32meb-garamond-greek-500-italic-BZsT-l1D.woff            [39m[1m[2m   12.78 kB[22m[1m[22m
+2026-11-16T02:39:26.5765994Z [2mdist/[22m[2massets/[22m[32meb-garamond-greek-500-normal-BjSCMh1N.woff            [39m[1m[2m   12.86 kB[22m[1m[22m
+2026-11-16T02:39:26.5767994Z [2mdist/[22m[2massets/[22m[32meb-garamond-greek-600-normal-JScKXZBq.woff            [39m[1m[2m   12.91 kB[22m[1m[22m
+2026-11-16T02:39:26.5770098Z [2mdist/[22m[2massets/[22m[32meb-garamond-cyrillic-500-normal-c5LjvaqX.woff2        [39m[1m[2m   14.41 kB[22m[1m[22m
+2026-11-16T02:39:26.5772241Z [2mdist/[22m[2massets/[22m[32meb-garamond-cyrillic-600-normal-CHfC3jm-.woff2        [39m[1m[2m   14.46 kB[22m[1m[22m
+2026-11-16T02:39:26.5774230Z [2mdist/[22m[2massets/[22m[32meb-garamond-cyrillic-500-italic-DL1k_-z8.woff2        [39m[1m[2m   14.75 kB[22m[1m[22m
+2026-11-16T02:39:26.5776352Z [2mdist/[22m[2massets/[22m[32msource-sans-3-latin-700-normal-CkzU-mV9.woff2         [39m[1m[2m   15.60 kB[22m[1m[22m
+2026-11-16T02:39:26.5778417Z [2mdist/[22m[2massets/[22m[32msource-sans-3-latin-600-normal-DeckBYAU.woff2         [39m[1m[2m   15.67 kB[22m[1m[22m
+2026-11-16T02:39:26.5780526Z [2mdist/[22m[2massets/[22m[32msource-sans-3-latin-400-normal-DQi5PRDE.woff2         [39m[1m[2m   15.70 kB[22m[1m[22m
+2026-11-16T02:39:26.5782578Z [2mdist/[22m[2massets/[22m[32meb-garamond-cyrillic-500-normal-CLHyttEY.woff         [39m[1m[2m   16.68 kB[22m[1m[22m
+2026-11-16T02:39:26.5784776Z [2mdist/[22m[2massets/[22m[32meb-garamond-cyrillic-600-normal-koFutDBv.woff         [39m[1m[2m   16.77 kB[22m[1m[22m
+2026-11-16T02:39:26.5786892Z [2mdist/[22m[2massets/[22m[32meb-garamond-cyrillic-500-italic-Bl4RSiNW.woff         [39m[1m[2m   17.50 kB[22m[1m[22m
+2026-11-16T02:39:26.5788957Z [2mdist/[22m[2massets/[22m[32meb-garamond-cyrillic-ext-500-normal-DcO3I2lp.woff2    [39m[1m[2m   18.83 kB[22m[1m[22m
+2026-11-16T02:39:26.5791141Z [2mdist/[22m[2massets/[22m[32meb-garamond-cyrillic-ext-600-normal-cjIjEMm6.woff2    [39m[1m[2m   18.86 kB[22m[1m[22m
+2026-11-16T02:39:26.5793241Z [2mdist/[22m[2massets/[22m[32meb-garamond-cyrillic-ext-500-italic-uF9N42ci.woff2    [39m[1m[2m   19.63 kB[22m[1m[22m
+2026-11-16T02:39:26.5795423Z [2mdist/[22m[2massets/[22m[32msource-sans-3-latin-700-normal-B-h9tW5h.woff          [39m[1m[2m   19.91 kB[22m[1m[22m
+2026-11-16T02:39:26.5797492Z [2mdist/[22m[2massets/[22m[32msource-sans-3-latin-600-normal-Ck0n4g8U.woff          [39m[1m[2m   19.99 kB[22m[1m[22m
+2026-11-16T02:39:26.5799742Z [2mdist/[22m[2massets/[22m[32msource-sans-3-latin-400-normal-RR2C27NP.woff          [39m[1m[2m   19.99 kB[22m[1m[22m
+2026-11-16T02:39:26.5801902Z [2mdist/[22m[2massets/[22m[32meb-garamond-cyrillic-ext-500-normal-I3TfTkSf.woff     [39m[1m[2m   22.35 kB[22m[1m[22m
+2026-11-16T02:39:26.5804392Z [2mdist/[22m[2massets/[22m[32meb-garamond-cyrillic-ext-600-normal-b6vuEf1e.woff     [39m[1m[2m   22.45 kB[22m[1m[22m
+2026-11-16T02:39:26.5806680Z [2mdist/[22m[2massets/[22m[32meb-garamond-cyrillic-ext-500-italic-DG1hthnQ.woff     [39m[1m[2m   23.96 kB[22m[1m[22m
+2026-11-16T02:39:26.5808816Z [2mdist/[22m[2massets/[22m[32meb-garamond-latin-500-normal-DehAIUv0.woff2           [39m[1m[2m   25.26 kB[22m[1m[22m
+2026-11-16T02:39:26.5810869Z [2mdist/[22m[2massets/[22m[32meb-garamond-latin-600-normal-DHwxsLHv.woff2           [39m[1m[2m   25.35 kB[22m[1m[22m
+2026-11-16T02:39:26.5812973Z [2mdist/[22m[2massets/[22m[32meb-garamond-latin-500-italic-FSVaZR0V.woff2           [39m[1m[2m   26.95 kB[22m[1m[22m
+2026-11-16T02:39:26.5815040Z [2mdist/[22m[2massets/[22m[32meb-garamond-latin-500-normal-DZU8xF9o.woff            [39m[1m[2m   30.21 kB[22m[1m[22m
+2026-11-16T02:39:26.5817716Z [2mdist/[22m[2massets/[22m[32meb-garamond-latin-600-normal-xCe6GkOx.woff            [39m[1m[2m   30.40 kB[22m[1m[22m
+2026-11-16T02:39:26.5819861Z [2mdist/[22m[2massets/[22m[32meb-garamond-latin-500-italic-DgyxMZyx.woff            [39m[1m[2m   32.51 kB[22m[1m[22m
+2026-11-16T02:39:26.5821036Z [2mdist/[22m[2massets/[22m[32msource-sans-3-latin-ext-600-normal-AEyhgUpm.woff2     [39m[1m[2m   32.70 kB[22m[1m[22m
+2026-11-16T02:39:26.5822165Z [2mdist/[22m[2massets/[22m[32msource-sans-3-latin-ext-700-normal-6Xi0A2be.woff2     [39m[1m[2m   32.96 kB[22m[1m[22m
+2026-11-16T02:39:26.5823278Z [2mdist/[22m[2massets/[22m[32msource-sans-3-latin-ext-400-normal-UNsKFIBq.woff2     [39m[1m[2m   33.02 kB[22m[1m[22m
+2026-11-16T02:39:26.5824389Z [2mdist/[22m[2massets/[22m[32msource-sans-3-latin-ext-700-normal-C1ecyfgK.woff      [39m[1m[2m   43.40 kB[22m[1m[22m
+2026-11-16T02:39:26.5825698Z [2mdist/[22m[2massets/[22m[32msource-sans-3-latin-ext-600-normal-D2VZAM8_.woff      [39m[1m[2m   43.50 kB[22m[1m[22m
+2026-11-16T02:39:26.5827616Z [2mdist/[22m[2massets/[22m[32msource-sans-3-latin-ext-400-normal-D5P-Ud2J.woff      [39m[1m[2m   43.74 kB[22m[1m[22m
+2026-11-16T02:39:26.5829211Z [2mdist/[22m[2massets/[22m[32meb-garamond-latin-ext-500-italic-C7s118Z8.woff2       [39m[1m[2m   49.26 kB[22m[1m[22m
+2026-11-16T02:39:26.5830300Z [2mdist/[22m[2massets/[22m[32meb-garamond-latin-ext-500-normal-BFuc0jzo.woff2       [39m[1m[2m   64.08 kB[22m[1m[22m
+2026-11-16T02:39:26.5831393Z [2mdist/[22m[2massets/[22m[32meb-garamond-latin-ext-600-normal-CrweTMKz.woff2       [39m[1m[2m   64.13 kB[22m[1m[22m
+2026-11-16T02:39:26.5832478Z [2mdist/[22m[2massets/[22m[32meb-garamond-latin-ext-500-italic-D8rZSVDp.woff        [39m[1m[2m   66.44 kB[22m[1m[22m
+2026-11-16T02:39:26.5833545Z [2mdist/[22m[2massets/[22m[32meb-garamond-latin-ext-500-normal-obw7ZvB_.woff        [39m[1m[2m   84.03 kB[22m[1m[22m
+2026-11-16T02:39:26.5834663Z [2mdist/[22m[2massets/[22m[32meb-garamond-latin-ext-600-normal-CoWPx8v4.woff        [39m[1m[2m   84.18 kB[22m[1m[22m
+2026-11-16T02:39:26.5836236Z [2mdist/[22m[2massets/[22m[35mindex-HljkG6qO.css                                    [39m[1m[2m   58.32 kB[22m[1m[22m[2m │ gzip:  11.58 kB[22m
+2026-11-16T02:39:26.5837349Z [2mdist/[22m[2massets/[22m[36mindex-1X6Ixu45.js                                     [39m[1m[2m1,673.44 kB[22m[1m[22m[2m │ gzip: 285.77 kB[22m
+2026-11-16T02:39:26.5838038Z [32m✓ built in 1.68s[39m
+2026-11-16T02:39:26.6048521Z ##[group]Run npx vitest run
+2026-11-16T02:39:26.6048815Z [36;1mnpx vitest run[0m
+2026-11-16T02:39:26.6077738Z shell: /usr/bin/bash -e {0}
+2026-11-16T02:39:26.6078013Z ##[endgroup]
+2026-11-16T02:39:27.1061956Z 
+2026-11-16T02:39:27.1063680Z [1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90m/home/runner/work/Victori3-mobile/Victori3-mobile[39m
+2026-11-16T02:39:27.1064386Z 
+2026-11-16T02:39:28.3069841Z  [32m✓[39m tests/data.test.ts[2m > [22mdatabase integrity and provenance[2m > [22mevery source id cited by entities, groups and events exists
+2026-11-16T02:39:28.3074931Z  [32m✓[39m tests/data.test.ts[2m > [22mdatabase integrity and provenance[2m > [22muses only the five quality labels
+2026-11-16T02:39:28.3077708Z  [32m✓[39m tests/data.test.ts[2m > [22mdatabase integrity and provenance[2m > [22ma "verified" population total always carries a source; missing data is flagged as a fallback, never verified
+2026-11-16T02:39:28.3080283Z  [32m✓[39m tests/data.test.ts[2m > [22mdatabase integrity and provenance[2m > [22mcovers small states, not only great powers
+2026-11-16T02:39:28.3082599Z  [32m✓[39m tests/data.test.ts[2m > [22mdatabase integrity and provenance[2m > [22mevery map region belongs to exactly one valid owner and is drawn on the map
+2026-11-16T02:39:28.3085428Z  [32m✓[39m tests/data.test.ts[2m > [22mdatabase integrity and provenance[2m > [22mworld population at start is consistent with Maddison (~1.04 bn in 1820, ~1.26 bn in 1850)
+2026-11-16T02:39:28.3101280Z  [32m✓[39m tests/data.test.ts[2m > [22mdatabase integrity and provenance[2m > [22mrecords disagreement between sources instead of choosing silently (e.g. Mexico, Portugal, India)
+2026-11-16T02:39:28.3104190Z  [32m✓[39m tests/data.test.ts[2m > [22mtemporal integrity (no later-period information at start)[2m > [22mstarting heads of state are those in office on 1 Jan 1836
+2026-11-16T02:39:28.3106840Z  [32m✓[39m tests/data.test.ts[2m > [22mtemporal integrity (no later-period information at start)[2m > [22mno leader or heir in the starting state took office or was born after the start date
+2026-11-16T02:39:28.3109110Z  [32m✓[39m tests/data.test.ts[2m > [22mtemporal integrity (no later-period information at start)[2m > [22mthe historical ownership timeline is never applied to the simulation state
+2026-11-16T02:39:28.3111345Z  [32m✓[39m tests/data.test.ts[2m > [22mtemporal integrity (no later-period information at start)[2m > [22minitial alliances and wars come from CoW records active on the start date
+2026-11-16T02:39:28.3113435Z  [32m✓[39m tests/data.test.ts[2m > [22mtemporal integrity (no later-period information at start)[2m > [22mpopulations of benchmark groups match their sources
+2026-11-16T02:39:33.5497815Z  [32m✓[39m tests/ui.test.ts[2m > [22mmap labels (Europe 1836 — many small German and Italian states)[2m > [22mportrait: no two labels overlap and all stay on screen
+2026-11-16T02:39:33.5561821Z  [32m✓[39m tests/ui.test.ts[2m > [22mmap labels (Europe 1836 — many small German and Italian states)[2m > [22mportrait: every country name is anchored inside its own country
+2026-11-16T02:39:33.5586264Z  [32m✓[39m tests/ui.test.ts[2m > [22mmap labels (Europe 1836 — many small German and Italian states)[2m > [22mlandscape: no two labels overlap and all stay on screen
+2026-11-16T02:39:33.5589053Z  [32m✓[39m tests/ui.test.ts[2m > [22mmap labels (Europe 1836 — many small German and Italian states)[2m > [22mlandscape: every country name is anchored inside its own country
+2026-11-16T02:39:33.5591360Z  [32m✓[39m tests/ui.test.ts[2m > [22mmap labels (Europe 1836 — many small German and Italian states)[2m > [22mzoomedOut: no two labels overlap and all stay on screen
+2026-11-16T02:39:33.5593715Z  [32m✓[39m tests/ui.test.ts[2m > [22mmap labels (Europe 1836 — many small German and Italian states)[2m > [22mzoomedOut: every country name is anchored inside its own country
+2026-11-16T02:39:33.5596678Z  [32m✓[39m tests/ui.test.ts[2m > [22mmap labels (Europe 1836 — many small German and Italian states)[2m > [22mthe player country is labelled at the Europe zoom
+2026-11-16T02:39:33.5599468Z  [32m✓[39m tests/ui.test.ts[2m > [22mmarket statistics persisted for the Market screen[2m > [22mevery market with prices has per-good supply, demand, imports and shortage after a month[33m 957[2mms[22m[39m
+2026-11-16T02:39:33.5602478Z  [32m✓[39m tests/ui.test.ts[2m > [22mmarket statistics persisted for the Market screen[2m > [22msurvives save/load, and saves written before the field existed still load[33m 3506[2mms[22m[39m
+2026-11-16T02:39:33.5605439Z  [32m✓[39m tests/ui.test.ts[2m > [22mbudget lines shown by the Budget tab[2m > [22mmonthly finance lines add up to the income and expense the engine applied[33m 505[2mms[22m[39m
+2026-11-16T02:39:34.0696133Z  [32m✓[39m tests/content.test.ts[2m > [22midentity content pack[2m > [22mevery shipped image exists, has an allowed licence, an author or credit field, and a Commons source page
+2026-11-16T02:39:34.0700138Z  [32m✓[39m tests/content.test.ts[2m > [22midentity content pack[2m > [22massets, texts and characters only reference entities that exist in the database
+2026-11-16T02:39:34.0701395Z  [32m✓[39m tests/content.test.ts[2m > [22midentity content pack[2m > [22mflags and arms are never shown outside 1836–1936 or outside their recorded period
+2026-11-16T02:39:34.0703055Z  [32m✓[39m tests/content.test.ts[2m > [22midentity content pack[2m > [22munqualified symbols of present-day states, peoples, regions and eras were rejected, not shipped
+2026-11-16T02:39:34.0704605Z  [32m✓[39m tests/content.test.ts[2m > [22midentity content pack[2m > [22mevery text carries article, URL, revision and the CC BY-SA licence
+2026-11-16T02:39:34.0706538Z  [32m✓[39m tests/content.test.ts[2m > [22midentity content pack[2m > [22mlinked polities passed the 1836 lifetime check (no silent mismatches)
+2026-11-16T02:39:34.0708569Z  [32m✓[39m tests/content.test.ts[2m > [22midentity content pack[2m > [22mcharacters linked to Wikidata agree with the database on birth and death years (±2)
+2026-11-16T02:40:02.8344241Z [90mstdout[2m | tests/simulation.test.ts[2m > [22m[2meconomy and population sanity (40 years, both modes)[2m > [22m[2mhistorical: world population growth 1836-1876 is within a plausible band (0.2%-1.2% per year)
+2026-11-16T02:40:02.8346366Z [22m[39mhistorical world pop growth %/yr 0.78
+2026-11-16T02:40:02.8364054Z 
+2026-11-16T02:40:02.8366209Z [90mstdout[2m | tests/simulation.test.ts[2m > [22m[2meconomy and population sanity (40 years, both modes)[2m > [22m[2msandbox: world population growth 1836-1876 is within a plausible band (0.2%-1.2% per year)
+2026-11-16T02:40:02.8367854Z [22m[39msandbox world pop growth %/yr 0.76
+2026-11-16T02:40:02.8368200Z 
+2026-11-16T02:40:02.8376449Z  [32m✓[39m tests/simulation.test.ts[2m > [22meconomy and population sanity (40 years, both modes)[2m > [22mhistorical: no NaN/negative values in regions and countries
+2026-11-16T02:40:02.8379143Z  [32m✓[39m tests/simulation.test.ts[2m > [22meconomy and population sanity (40 years, both modes)[2m > [22mhistorical: world population growth 1836-1876 is within a plausible band (0.2%-1.2% per year)
+2026-11-16T02:40:02.8381368Z  [32m✓[39m tests/simulation.test.ts[2m > [22meconomy and population sanity (40 years, both modes)[2m > [22mhistorical: national trends stay within a factor of 2 of the 1870 benchmarks (population: CoW; not a script)
+2026-11-16T02:40:02.8383474Z  [32m✓[39m tests/simulation.test.ts[2m > [22meconomy and population sanity (40 years, both modes)[2m > [22msandbox: no NaN/negative values in regions and countries
+2026-11-16T02:40:02.8386082Z  [32m✓[39m tests/simulation.test.ts[2m > [22meconomy and population sanity (40 years, both modes)[2m > [22msandbox: world population growth 1836-1876 is within a plausible band (0.2%-1.2% per year)
+2026-11-16T02:40:02.8388076Z  [32m✓[39m tests/simulation.test.ts[2m > [22meconomy and population sanity (40 years, both modes)[2m > [22msandbox: national trends stay within a factor of 2 of the 1870 benchmarks (population: CoW; not a script)
+2026-11-16T02:40:02.8389338Z  [32m✓[39m tests/simulation.test.ts[2m > [22mAI does not get stuck in meaningless loops[2m > [22mno law flips back to a value it left within 15 years
+2026-11-16T02:40:02.8390333Z  [32m✓[39m tests/simulation.test.ts[2m > [22mAI does not get stuck in meaningless loops[2m > [22mwars end: no war lasts more than 12 years
+2026-11-16T02:40:02.8391368Z  [32m✓[39m tests/simulation.test.ts[2m > [22mAI does not get stuck in meaningless loops[2m > [22mcountries keep researching and building over the whole period
+2026-11-16T02:40:02.8392454Z  [32m✓[39m tests/simulation.test.ts[2m > [22msave/load[2m > [22ma loaded game continues exactly like the uninterrupted game[33m 3625[2mms[22m[39m
+2026-11-16T02:40:02.8393451Z  [32m✓[39m tests/simulation.test.ts[2m > [22msave/load[2m > [22mrejects foreign files
+2026-11-16T02:40:02.8395108Z  [32m✓[39m tests/simulation.test.ts[2m > [22mwar support (Pass 16 pack, ch. 34/73: exhaustion alone does not capitulate)[2m > [22man exhausted attacker that is winning stays in the war
+2026-11-16T02:40:02.8397266Z  [32m✓[39m tests/simulation.test.ts[2m > [22mwar support (Pass 16 pack, ch. 34/73: exhaustion alone does not capitulate)[2m > [22man exhausted attacker that is losing gives up
+2026-11-16T02:41:07.8348702Z [90mstdout[2m | tests/modes.test.ts[2m > [22m[2mHistorical Mode follows history more closely, without railroading[2m > [22m[2mmean milestone similarity is higher in Historical Mode than in Sandbox (paired seeds)
+2026-11-16T02:41:07.8350102Z [22m[39mmilestone similarity historical 0.445 sandbox 0.294
+2026-11-16T02:41:07.8350363Z 
+2026-11-16T02:41:07.8356029Z  [32m✓[39m tests/modes.test.ts[2m > [22mone engine, two modes[2m > [22mboth modes run exactly the same systems the same number of times[33m 6546[2mms[22m[39m
+2026-11-16T02:41:07.8357837Z  [32m✓[39m tests/modes.test.ts[2m > [22mone engine, two modes[2m > [22mmode configuration only toggles historical data layers (no rule or system switches)
+2026-11-16T02:41:07.8359349Z  [32m✓[39m tests/modes.test.ts[2m > [22mone engine, two modes[2m > [22mAI activity is not reduced in either mode
+2026-11-16T02:41:07.8360897Z  [32m✓[39m tests/modes.test.ts[2m > [22mone engine, two modes[2m > [22mthe historical layer is active only in Historical Mode
+2026-11-16T02:41:07.8362858Z  [32m✓[39m tests/modes.test.ts[2m > [22mHistorical Mode follows history more closely, without railroading[2m > [22mmean milestone similarity is higher in Historical Mode than in Sandbox (paired seeds)
+2026-11-16T02:41:07.8365396Z  [32m✓[39m tests/modes.test.ts[2m > [22mHistorical Mode follows history more closely, without railroading[2m > [22mHistorical Mode does not reproduce history exactly (some milestones are missed)
+2026-11-16T02:41:07.8367334Z  [32m✓[39m tests/modes.test.ts[2m > [22mHistorical Mode follows history more closely, without railroading[2m > [22mhistorical priorities stop applying when their prerequisites disappear
+2026-11-16T02:41:07.8368351Z  [32m✓[39m tests/modes.test.ts[2m > [22mSandbox Mode is free[2m > [22mdifferent seeds produce different worlds
+2026-11-16T02:41:07.8369201Z  [32m✓[39m tests/modes.test.ts[2m > [22mSandbox Mode is free[2m > [22mwars, alliances, territorial and institutional changes emerge
+2026-11-16T02:41:07.8370235Z  [32m✓[39m tests/modes.test.ts[2m > [22mSandbox Mode is free[2m > [22mproduces non-historical outcomes (territory changes that differ from the historical owner)
+2026-11-16T02:41:07.8371386Z  [32m✓[39m tests/modes.test.ts[2m > [22mObserver Mode runs every country with the same AI[2m > [22mevery surviving country — including the smallest — takes AI decisions
+2026-11-16T02:41:07.8373391Z  [32m✓[39m tests/modes.test.ts[2m > [22mplayer intervention changes history[2m > [22ma non-historical war declared by the player creates divergence from the AI-only run[33m 4314[2mms[22m[39m
+2026-11-16T02:41:07.8375656Z  [32m✓[39m tests/modes.test.ts[2m > [22mplayer intervention changes history[2m > [22mObserver Mode rejects player commands (no country under control)
+2026-11-16T02:41:07.8377936Z  [32m✓[39m tests/modes.test.ts[2m > [22mhistorical succession is exogenous in Historical Mode only[2m > [22mVictoria succeeds William IV in June 1837 and Hanover separates (Salic law)[33m 631[2mms[22m[39m
+2026-11-16T02:41:07.8379516Z  [32m✓[39m tests/modes.test.ts[2m > [22mhistorical succession is exogenous in Historical Mode only[2m > [22mSandbox Mode does not use recorded death dates (generated or heir successions only)[33m 3777[2mms[22m[39m
+2026-11-16T02:41:07.8380826Z  [32m✓[39m tests/modes.test.ts[2m > [22mterritorial similarity is measured identically in both modes[2m > [22mis 1.0 at start in both modes (same starting world)
+2026-11-16T02:41:07.8623788Z 
+2026-11-16T02:41:07.8633875Z [2m Test Files [22m [1m[32m5 passed[39m[22m[90m (5)[39m
+2026-11-16T02:41:07.8634876Z [2m      Tests [22m [1m[32m58 passed[39m[22m[90m (58)[39m
+2026-11-16T02:41:07.8635742Z [2m   Start at [22m 02:39:27
+2026-11-16T02:41:07.8636988Z [2m   Duration [22m 100.76s[2m (transform 601ms, setup 0ms, collect 117.04s, tests 24.92s, environment 1ms, prepare 438ms)[22m
+2026-11-16T02:41:07.8637735Z 
+2026-11-16T02:41:07.8950651Z ##[group]Run actions/setup-java@v4
+2026-11-16T02:41:07.8950911Z with:
+2026-11-16T02:41:07.8951108Z   distribution: temurin
+2026-11-16T02:41:07.8951332Z   java-version: 21
+2026-11-16T02:41:07.8951533Z   java-package: jdk
+2026-11-16T02:41:07.8951859Z   check-latest: false
+2026-11-16T02:41:07.8952066Z   server-id: github
+2026-11-16T02:41:07.8952290Z   server-username: GITHUB_ACTOR
+2026-11-16T02:41:07.8952542Z   server-password: GITHUB_TOKEN
+2026-11-16T02:41:07.8952790Z   overwrite-settings: true
+2026-11-16T02:41:07.8953026Z   job-status: success
+2026-11-16T02:41:07.8956015Z   token: ***
+2026-11-16T02:41:07.8956223Z ##[endgroup]
+2026-11-16T02:41:08.0726605Z ##[warning]setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+2026-11-16T02:41:08.0738603Z ##[group]Installed distributions
+2026-11-16T02:41:08.0766835Z Resolved Java 21.0.13+9 from tool-cache
+2026-11-16T02:41:08.0767477Z Setting Java 21.0.13+9 as the default
+2026-11-16T02:41:08.0777106Z (node:3066) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-16T02:41:08.0778405Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-16T02:41:08.0781370Z Creating toolchains.xml for JDK version 21 from temurin
+2026-11-16T02:41:08.0850690Z Writing to /home/runner/.m2/toolchains.xml
+2026-11-16T02:41:08.0851083Z 
+2026-11-16T02:41:08.0852401Z Java configuration:
+2026-11-16T02:41:08.0852693Z   Distribution: temurin
+2026-11-16T02:41:08.0852956Z   Version: 21.0.13+9
+2026-11-16T02:41:08.0853330Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-9/x64
+2026-11-16T02:41:08.0853608Z 
+2026-11-16T02:41:08.0853938Z ##[endgroup]
+2026-11-16T02:41:08.0858085Z Creating settings.xml with server-id: github
+2026-11-16T02:41:08.0897760Z Writing to /home/runner/.m2/settings.xml
+2026-11-16T02:41:08.1077471Z ##[group]Run echo "sdk.dir=$ANDROID_HOME" > android/local.properties
+2026-11-16T02:41:08.1077967Z [36;1mecho "sdk.dir=$ANDROID_HOME" > android/local.properties[0m
+2026-11-16T02:41:08.1108026Z shell: /usr/bin/bash -e {0}
+2026-11-16T02:41:08.1108296Z env:
+2026-11-16T02:41:08.1108604Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-9/x64
+2026-11-16T02:41:08.1109104Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-9/x64
+2026-11-16T02:41:08.1109484Z ##[endgroup]
+2026-11-16T02:41:08.1222144Z ##[group]Run npx cap sync android
+2026-11-16T02:41:08.1222634Z [36;1mnpx cap sync android[0m
+2026-11-16T02:41:08.1281248Z shell: /usr/bin/bash -e {0}
+2026-11-16T02:41:08.1281541Z env:
+2026-11-16T02:41:08.1281858Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-9/x64
+2026-11-16T02:41:08.1282345Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-9/x64
+2026-11-16T02:41:08.1282719Z ##[endgroup]
+2026-11-16T02:41:08.8063483Z ✔ Copying web assets from dist to android/app/src/main/assets/public in 45.21ms
+2026-11-16T02:41:08.8071247Z ✔ Creating capacitor.config.json in android/app/src/main/assets in 584.42μs
+2026-11-16T02:41:08.8108387Z ✔ copy android in 57.56ms
+2026-11-16T02:41:08.8177257Z ✔ Updating Android plugins in 2.18ms
+2026-11-16T02:41:08.8348470Z ✔ update android in 21.51ms
+2026-11-16T02:41:08.8388317Z [info] Sync finished in 0.091s
+2026-11-16T02:41:08.8677048Z ##[group]Run ./gradlew assembleDebug --no-daemon
+2026-11-16T02:41:08.8677422Z [36;1m./gradlew assembleDebug --no-daemon[0m
+2026-11-16T02:41:08.8706988Z shell: /usr/bin/bash -e {0}
+2026-11-16T02:41:08.8707266Z env:
+2026-11-16T02:41:08.8707576Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-9/x64
+2026-11-16T02:41:08.8708079Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-9/x64
+2026-11-16T02:41:08.8708440Z ##[endgroup]
+2026-11-16T02:41:09.0804845Z Downloading https://services.gradle.org/distributions/gradle-8.11.1-all.zip
+2026-11-16T02:41:11.0132753Z .....................10%......................20%......................30%......................40%......................50%......................60%......................70%......................80%......................90%......................100%
+2026-11-16T02:41:13.7450162Z 
+2026-11-16T02:41:13.7450936Z Welcome to Gradle 8.11.1!
+2026-11-16T02:41:13.7452034Z 
+2026-11-16T02:41:13.7456661Z Here are the highlights of this release:
+2026-11-16T02:41:13.7457314Z  - Parallel load and store for Configuration Cache
+2026-11-16T02:41:13.7466230Z  - Java compilation errors at the end of the build output
+2026-11-16T02:41:13.7467394Z  - Consolidated report for warnings and deprecations
+2026-11-16T02:41:13.7467970Z 
+2026-11-16T02:41:13.7468772Z For more details see https://docs.gradle.org/8.11.1/release-notes.html
+2026-11-16T02:41:13.7469442Z 
+2026-11-16T02:41:13.8441962Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.11.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+2026-11-16T02:41:14.9436293Z Daemon will be stopped at the end of the build 
+2026-11-16T02:41:43.0436005Z 
+2026-11-16T02:41:43.0458529Z > Configure project :app
+2026-11-16T02:41:43.0463064Z WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+2026-11-16T02:41:44.9445914Z 
+2026-11-16T02:41:44.9476457Z > Configure project :capacitor-cordova-android-plugins
+2026-11-16T02:41:44.9489568Z WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+2026-11-16T02:41:47.7431187Z 
+2026-11-16T02:41:47.7432167Z > Task :app:preBuild UP-TO-DATE
+2026-11-16T02:41:47.7433245Z > Task :app:preDebugBuild UP-TO-DATE
+2026-11-16T02:41:47.7434130Z > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+2026-11-16T02:41:47.8432103Z > Task :app:javaPreCompileDebug
+2026-11-16T02:41:48.8439058Z > Task :capacitor-android:preBuild UP-TO-DATE
+2026-11-16T02:41:48.8440276Z > Task :capacitor-android:preDebugBuild UP-TO-DATE
+2026-11-16T02:41:48.9432279Z > Task :capacitor-cordova-android-plugins:preBuild UP-TO-DATE
+2026-11-16T02:41:48.9432814Z > Task :capacitor-android:writeDebugAarMetadata
+2026-11-16T02:41:49.1432642Z > Task :capacitor-cordova-android-plugins:preDebugBuild UP-TO-DATE
+2026-11-16T02:41:49.1433259Z > Task :capacitor-cordova-android-plugins:writeDebugAarMetadata
+2026-11-16T02:41:49.1433729Z > Task :app:generateDebugResValues
+2026-11-16T02:41:54.3431502Z > Task :app:checkDebugAarMetadata
+2026-11-16T02:41:54.3432647Z > Task :capacitor-android:generateDebugResValues
+2026-11-16T02:41:54.3433513Z > Task :capacitor-android:generateDebugResources
+2026-11-16T02:41:54.4436098Z > Task :capacitor-android:packageDebugResources
+2026-11-16T02:41:54.4437816Z > Task :capacitor-cordova-android-plugins:generateDebugResValues
+2026-11-16T02:41:54.4438905Z > Task :capacitor-cordova-android-plugins:generateDebugResources
+2026-11-16T02:41:54.4443034Z > Task :capacitor-cordova-android-plugins:packageDebugResources
+2026-11-16T02:41:54.5466627Z > Task :app:mapDebugSourceSetPaths
+2026-11-16T02:41:54.5467846Z > Task :app:generateDebugResources
+2026-11-16T02:41:55.2439810Z > Task :app:packageDebugResources
+2026-11-16T02:41:55.9436769Z > Task :app:createDebugCompatibleScreenManifests
+2026-11-16T02:41:55.9456301Z > Task :app:extractDeepLinksDebug
+2026-11-16T02:41:55.9457807Z > Task :capacitor-android:extractDeepLinksDebug
+2026-11-16T02:41:55.9458701Z > Task :capacitor-cordova-android-plugins:extractDeepLinksDebug
+2026-11-16T02:41:55.9459442Z > Task :app:mergeDebugResources
+2026-11-16T02:41:55.9459998Z > Task :app:parseDebugLocalResources
+2026-11-16T02:41:56.0432866Z > Task :capacitor-cordova-android-plugins:processDebugManifest
+2026-11-16T02:41:56.0433579Z > Task :capacitor-android:processDebugManifest
+2026-11-16T02:41:56.6432813Z > Task :capacitor-android:compileDebugLibraryResources
+2026-11-16T02:41:56.7431698Z > Task :app:processDebugMainManifest
+2026-11-16T02:41:56.9431815Z > Task :app:processDebugManifest
+2026-11-16T02:41:57.0446670Z > Task :app:processDebugManifestForPackage
+2026-11-16T02:41:57.0476422Z > Task :capacitor-android:parseDebugLocalResources
+2026-11-16T02:41:57.0477611Z > Task :capacitor-cordova-android-plugins:compileDebugLibraryResources
+2026-11-16T02:41:57.0498001Z > Task :capacitor-cordova-android-plugins:parseDebugLocalResources
+2026-11-16T02:41:57.0538971Z > Task :capacitor-android:javaPreCompileDebug
+2026-11-16T02:41:57.0556137Z > Task :capacitor-android:generateDebugRFile
+2026-11-16T02:41:57.0580184Z > Task :capacitor-cordova-android-plugins:javaPreCompileDebug
+2026-11-16T02:41:57.0581174Z > Task :capacitor-cordova-android-plugins:generateDebugRFile
+2026-11-16T02:41:57.0581856Z > Task :app:mergeDebugShaders
+2026-11-16T02:41:58.0433113Z > Task :app:processDebugResources
+2026-11-16T02:42:03.0439471Z 
+2026-11-16T02:42:03.0466700Z Note: Some input files use unchecked or unsafe operations.
+2026-11-16T02:42:03.0485853Z Note: Recompile with -Xlint:unchecked for details.
+2026-11-16T02:42:03.0486586Z > Task :capacitor-android:compileDebugJavaWithJavac
+2026-11-16T02:42:05.0431589Z 
+2026-11-16T02:42:05.0432925Z > Task :capacitor-cordova-android-plugins:compileDebugJavaWithJavac NO-SOURCE
+2026-11-16T02:42:05.0437422Z > Task :app:compileDebugShaders NO-SOURCE
+2026-11-16T02:42:05.0438343Z > Task :app:generateDebugAssets UP-TO-DATE
+2026-11-16T02:42:05.0439361Z > Task :capacitor-cordova-android-plugins:bundleLibCompileToJarDebug
+2026-11-16T02:42:05.0440353Z > Task :capacitor-android:bundleLibCompileToJarDebug
+2026-11-16T02:42:05.0467482Z > Task :capacitor-android:mergeDebugShaders
+2026-11-16T02:42:05.2439088Z > Task :app:compileDebugJavaWithJavac
+2026-11-16T02:42:05.2442478Z > Task :capacitor-android:compileDebugShaders NO-SOURCE
+2026-11-16T02:42:05.2444878Z > Task :capacitor-android:generateDebugAssets UP-TO-DATE
+2026-11-16T02:42:05.2447112Z > Task :capacitor-android:packageDebugAssets
+2026-11-16T02:42:05.2449070Z > Task :capacitor-cordova-android-plugins:mergeDebugShaders
+2026-11-16T02:42:05.2451307Z > Task :capacitor-cordova-android-plugins:compileDebugShaders NO-SOURCE
+2026-11-16T02:42:05.2453775Z > Task :capacitor-cordova-android-plugins:generateDebugAssets UP-TO-DATE
+2026-11-16T02:42:05.2456289Z > Task :capacitor-cordova-android-plugins:packageDebugAssets
+2026-11-16T02:42:05.5476647Z > Task :app:mergeDebugAssets
+2026-11-16T02:42:05.7466972Z > Task :capacitor-cordova-android-plugins:bundleLibRuntimeToJarDebug
+2026-11-16T02:42:05.7570080Z > Task :capacitor-android:bundleLibRuntimeToJarDebug
+2026-11-16T02:42:05.8431717Z > Task :app:compressDebugAssets
+2026-11-16T02:42:06.0486761Z > Task :app:desugarDebugFileDependencies
+2026-11-16T02:42:07.3436467Z > Task :app:dexBuilderDebug
+2026-11-16T02:42:07.4437229Z > Task :app:processDebugJavaRes NO-SOURCE
+2026-11-16T02:42:07.4459536Z > Task :capacitor-android:processDebugJavaRes NO-SOURCE
+2026-11-16T02:42:07.4476534Z > Task :capacitor-cordova-android-plugins:processDebugJavaRes NO-SOURCE
+2026-11-16T02:42:07.9463628Z > Task :app:mergeDebugJniLibFolders
+2026-11-16T02:42:07.9512023Z > Task :app:checkDebugDuplicateClasses
+2026-11-16T02:42:07.9556507Z > Task :capacitor-android:mergeDebugJniLibFolders
+2026-11-16T02:42:10.7476669Z > Task :app:mergeDebugJavaResource
+2026-11-16T02:42:31.7441385Z > Task :app:mergeDebugGlobalSynthetics
+2026-11-16T02:42:31.7476633Z > Task :capacitor-android:mergeDebugNativeLibs NO-SOURCE
+2026-11-16T02:42:31.8479640Z > Task :capacitor-android:copyDebugJniLibsProjectOnly
+2026-11-16T02:42:31.9456747Z > Task :capacitor-cordova-android-plugins:mergeDebugJniLibFolders
+2026-11-16T02:42:31.9476406Z > Task :capacitor-cordova-android-plugins:mergeDebugNativeLibs NO-SOURCE
+2026-11-16T02:42:32.0456714Z > Task :capacitor-cordova-android-plugins:copyDebugJniLibsProjectOnly
+2026-11-16T02:42:32.0473906Z > Task :app:mergeProjectDexDebug
+2026-11-16T02:42:32.0486204Z > Task :app:mergeLibDexDebug
+2026-11-16T02:42:32.1440807Z > Task :app:mergeDebugNativeLibs NO-SOURCE
+2026-11-16T02:42:32.2454288Z > Task :app:stripDebugDebugSymbols NO-SOURCE
+2026-11-16T02:42:34.2436561Z > Task :app:validateSigningDebug
+2026-11-16T02:42:34.2446362Z > Task :app:writeDebugAppMetadata
+2026-11-16T02:42:34.2497042Z > Task :app:mergeExtDexDebug
+2026-11-16T02:42:34.2526419Z > Task :app:writeDebugSigningConfigVersions
+2026-11-16T02:42:34.3432934Z > Task :capacitor-android:stripDebugDebugSymbols NO-SOURCE
+2026-11-16T02:42:34.3456837Z > Task :capacitor-android:copyDebugJniLibsProjectAndLocalJars
+2026-11-16T02:42:39.3445820Z > Task :capacitor-android:extractDebugAnnotations
+2026-11-16T02:42:39.3447129Z > Task :capacitor-android:extractDeepLinksForAarDebug
+2026-11-16T02:42:39.3448224Z > Task :capacitor-android:mergeDebugGeneratedProguardFiles
+2026-11-16T02:42:39.3449256Z > Task :capacitor-android:mergeDebugConsumerProguardFiles
+2026-11-16T02:42:39.3450162Z > Task :capacitor-android:prepareDebugArtProfile
+2026-11-16T02:42:39.3450932Z > Task :app:packageDebug
+2026-11-16T02:42:39.3451665Z > Task :app:createDebugApkListingFileRedirect
+2026-11-16T02:42:39.3452410Z > Task :app:assembleDebug
+2026-11-16T02:42:39.4451800Z > Task :capacitor-android:prepareLintJarForPublish
+2026-11-16T02:42:39.4509311Z > Task :capacitor-cordova-android-plugins:stripDebugDebugSymbols NO-SOURCE
+2026-11-16T02:42:39.4576500Z > Task :capacitor-android:mergeDebugJavaResource
+2026-11-16T02:42:39.4617091Z > Task :capacitor-cordova-android-plugins:copyDebugJniLibsProjectAndLocalJars
+2026-11-16T02:42:39.5444500Z > Task :capacitor-android:syncDebugLibJars
+2026-11-16T02:42:39.5445322Z > Task :capacitor-android:bundleDebugAar
+2026-11-16T02:42:39.5445935Z > Task :capacitor-android:assembleDebug
+2026-11-16T02:42:41.1447066Z > Task :capacitor-cordova-android-plugins:extractDebugAnnotations
+2026-11-16T02:42:41.1471752Z > Task :capacitor-cordova-android-plugins:extractDeepLinksForAarDebug
+2026-11-16T02:42:41.1486893Z > Task :capacitor-cordova-android-plugins:mergeDebugGeneratedProguardFiles
+2026-11-16T02:42:41.1488653Z > Task :capacitor-cordova-android-plugins:mergeDebugConsumerProguardFiles
+2026-11-16T02:42:41.1489975Z > Task :capacitor-cordova-android-plugins:prepareDebugArtProfile
+2026-11-16T02:42:41.1491191Z > Task :capacitor-cordova-android-plugins:prepareLintJarForPublish
+2026-11-16T02:42:41.1492421Z > Task :capacitor-cordova-android-plugins:mergeDebugJavaResource
+2026-11-16T02:42:41.2431690Z > Task :capacitor-cordova-android-plugins:syncDebugLibJars
+2026-11-16T02:42:41.2433194Z > Task :capacitor-cordova-android-plugins:bundleDebugAar
+2026-11-16T02:42:41.2434527Z > Task :capacitor-cordova-android-plugins:assembleDebug
+2026-11-16T02:42:41.2436479Z [Incubating] Problems report is available at: file:///home/runner/work/Victori3-mobile/Victori3-mobile/android/build/reports/problems/problems-report.html
+2026-11-16T02:42:41.2437752Z 
+2026-11-16T02:42:41.2438126Z BUILD SUCCESSFUL in 1m 32s
+2026-11-16T02:42:41.2438812Z 85 actionable tasks: 85 executed
+2026-11-16T02:42:41.3657895Z ##[group]Run actions/upload-artifact@v4
+2026-11-16T02:42:41.3658406Z with:
+2026-11-16T02:42:41.3658782Z   name: dong-chay-lich-su-debug-apk
+2026-11-16T02:42:41.3659329Z   path: android/app/build/outputs/apk/debug/*.apk
+2026-11-16T02:42:41.3659903Z   if-no-files-found: error
+2026-11-16T02:42:41.3660339Z   compression-level: 6
+2026-11-16T02:42:41.3660740Z   overwrite: false
+2026-11-16T02:42:41.3661129Z   include-hidden-files: false
+2026-11-16T02:42:41.3661609Z env:
+2026-11-16T02:42:41.3662142Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-9/x64
+2026-11-16T02:42:41.3663052Z   JAVA_HOME_21_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/21.0.13-9/x64
+2026-11-16T02:42:41.3663752Z ##[endgroup]
+2026-11-16T02:42:41.5336221Z (node:3406) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-16T02:42:41.5340863Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-16T02:42:41.5390063Z With the provided path, there will be 1 file uploaded
+2026-11-16T02:42:41.5396389Z Artifact name is valid!
+2026-11-16T02:42:41.5397229Z Root directory input is valid!
+2026-11-16T02:42:41.8913754Z Beginning upload of artifact content to blob storage
+2026-11-16T02:42:42.1646525Z (node:3406) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-16T02:42:42.7962859Z Uploaded bytes 8388608
+2026-11-16T02:42:43.1107873Z Uploaded bytes 16777216
+2026-11-16T02:42:43.1822445Z Uploaded bytes 17555158
+2026-11-16T02:42:43.2428284Z Finished uploading artifact content to blob storage!
+2026-11-16T02:42:43.2430431Z SHA256 digest of uploaded artifact zip is 8bad8d7efd055e16630dc0770ebd6cf811722eb8592c04a7fe1f6c291f852077
+2026-11-16T02:42:43.2431854Z Finalizing artifact upload
+2026-11-16T02:42:43.5966959Z Artifact dong-chay-lich-su-debug-apk.zip successfully finalized. Artifact ID 14193446122
+2026-11-16T02:42:43.5968035Z Artifact dong-chay-lich-su-debug-apk has been successfully uploaded! Final size is 17555158 bytes. Artifact ID is 14193446122
+2026-11-16T02:42:43.5972860Z Artifact download URL: https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/43793446130/artifacts/14193446122
+2026-11-16T02:42:43.6192884Z Post job cleanup.
+2026-11-16T02:42:43.7537883Z (node:3420) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-16T02:42:43.7539040Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-16T02:42:43.7677084Z Post job cleanup.
+2026-11-16T02:42:43.9001999Z (node:3430) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-16T02:42:43.9002770Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-16T02:42:43.9006063Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-8422afe6651b652aa91a6767deda4eeb3526bbbb6a313245975d485164961ece, not saving cache.
+2026-11-16T02:42:43.9126956Z Post job cleanup.
+2026-11-16T02:42:43.9996583Z [command]/usr/bin/git version
+2026-11-16T02:42:44.0045570Z git version 2.56.1
+2026-11-16T02:42:44.0095750Z Temporarily overriding HOME='/home/runner/work/_temp/af94cffb-028d-4bce-a41f-a74d51a75d12' before making global git config changes
+2026-11-16T02:42:44.0097711Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-16T02:42:44.0102525Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Victori3-mobile/Victori3-mobile
+2026-11-16T02:42:44.0141004Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-16T02:42:44.0173619Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-16T02:42:44.0413551Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-16T02:42:44.0437963Z http.https://github.com/.extraheader
+2026-11-16T02:42:44.0448232Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-16T02:42:44.0495120Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-16T02:42:44.0741781Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-16T02:42:44.0779838Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-16T02:42:44.1169060Z Cleaning up orphan processes
+2026-11-16T02:42:44.1491046Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

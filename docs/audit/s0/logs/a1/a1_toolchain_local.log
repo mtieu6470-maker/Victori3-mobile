@@ -1,0 +1,67 @@
+$ date -u
+Mon Nov 16 06:29:10 UTC 2026
+[exit 0]
+
+$ uname -srm
+Linux 6.18.44-fc-v470 x86_64
+[exit 0]
+
+$ grep -E "^(NAME|VERSION)=" /etc/os-release
+NAME="Ubuntu"
+VERSION="24.04.5 LTS (Noble Numbat)"
+[exit 0]
+
+$ nproc
+4
+[exit 0]
+
+$ grep -m1 "model name" /proc/cpuinfo
+model name	: Intel(R) Xeon(R) Processor @ 2.30GHz
+[exit 0]
+
+$ grep MemTotal /proc/meminfo
+MemTotal:       16473776 kB
+[exit 0]
+
+$ node --version
+v22.23.4
+[exit 0]
+
+$ npm --version
+10.9.9
+[exit 0]
+
+$ npx --version
+10.9.9
+[exit 0]
+
+$ java -version 2>&1 | grep -v JAVA_TOOL_OPTIONS
+openjdk version "21.0.12.1" 2026-08-18
+OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)
+OpenJDK 64-Bit Server VM (build 21.0.12.1+1-1-24.04.4-Ubuntu, mixed mode, sharing)
+[exit 0]
+
+$ python3 --version
+Python 3.13.18
+[exit 0]
+
+$ unzip -v | head -1
+UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.
+[exit 0]
+
+$ sha256sum --version | head -1
+sha256sum (GNU coreutils) 9.4
+[exit 0]
+
+$ echo "ANDROID_HOME=${ANDROID_HOME:-<empty>} ANDROID_SDK_ROOT=${ANDROID_SDK_ROOT:-<empty>}"
+ANDROID_HOME=<empty> ANDROID_SDK_ROOT=<empty>
+[exit 0]
+
+$ command -v apksigner || echo "apksigner: not found"
+apksigner: not found
+[exit 0]
+
+$ command -v adb || echo "adb: not found"
+adb: not found
+[exit 0]
+

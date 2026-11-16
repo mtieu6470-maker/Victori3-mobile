@@ -1,0 +1,109 @@
+$ date -u
+Mon Nov 16 06:28:55 UTC 2026
+
+$ git --version
+git version 2.43.0
+[exit 0]
+
+$ git rev-parse HEAD
+e4ef9539e97b15488394cea24e4ce5368d749368
+[exit 0]
+
+$ git rev-parse 2240a8fb865e0021eec2f2f4f1c6803528be9e2c^{commit}
+2240a8fb865e0021eec2f2f4f1c6803528be9e2c
+[exit 0]
+
+$ git rev-parse 2240a8fb865e0021eec2f2f4f1c6803528be9e2c^{tree}
+53b88f23928f4848d21d1be7c7865bac0cef5bf5
+[exit 0]
+
+$ git branch -vv
+* claude/game-historical-sandbox-modes-kg7rj7 e4ef953 [origin/claude/game-historical-sandbox-modes-kg7rj7] Handoff: S0 v3.2 owner-approved (574ddc7), S0-A authorized, S0-B not
+[exit 0]
+
+$ git status --porcelain=v1 --branch
+## claude/game-historical-sandbox-modes-kg7rj7...origin/claude/game-historical-sandbox-modes-kg7rj7
+[exit 0]
+
+$ git ls-remote --symref origin HEAD
+ref: refs/heads/claude/game-historical-sandbox-modes-kg7rj7	HEAD
+e4ef9539e97b15488394cea24e4ce5368d749368	HEAD
+[exit 0]
+
+$ git ls-remote --heads origin
+e4ef9539e97b15488394cea24e4ce5368d749368	refs/heads/claude/game-historical-sandbox-modes-kg7rj7
+[exit 0]
+
+$ git worktree list
+/home/user/Victori3-mobile  e4ef953 [claude/game-historical-sandbox-modes-kg7rj7]
+[exit 0]
+
+$ git log -20 --format=%H%x20%cI%x20%s
+e4ef9539e97b15488394cea24e4ce5368d749368 2026-11-16T06:27:06+00:00 Handoff: S0 v3.2 owner-approved (574ddc7), S0-A authorized, S0-B not
+574ddc7ac57267ecae2216cb9ee1d490f3b41626 2026-11-16T06:26:15+00:00 Add owner-approved S0 v3.2 design and source register (verbatim)
+c74b6068364db07f2b8d39bc64698001544cf468 2026-11-16T06:11:43+00:00 Handoff: record setup commit bd5787f, task states and owner decisions
+6c4d02a36a30f7e82d973da59f569b379f85468d 2026-11-16T06:10:14+00:00 Coordination review fixes: branch/PR policy, status vocabularies, legacy docs
+bd5787f3e1763170ec7e5ad448466a5cc57c2b40 2026-11-16T06:02:31+00:00 Add AI coordination protocol and shared handoff index
+2240a8fb865e0021eec2f2f4f1c6803528be9e2c 2026-11-16T02:38:53+00:00 Handover step 1: audit against MASTER_SPEC_VI and architecture proposal before coding
+26b6369fcaad9d342a9a62a03b07983321844670 2026-11-16T02:34:10+00:00 Phase report for identity content with native-resolution screenshots
+e9fcd4752d15e43dc54aa11ab82be4f8f35b2d06 2026-11-16T02:29:07+00:00 Merge duplicate person records (e.g. 'Minh Mang' and 'Minh Mang (Nguyen Phuc Dam)')
+3617c0a354d32c4f00faa945b3641b5c45e18b35 2026-11-16T02:23:51+00:00 Characters: 479 person records, 278 linked to Wikidata, 225 licensed portraits, biographies
+71ae0ee34ae895a929df863c5e9c56c1e4caf54c 2026-11-16T01:31:03+00:00 Date-aware name Viet Nam / Dai Nam (1839); Vietnamese licence note; scroll option for UI shots
+22e3f78ca027fab87e044f4956c8eeab7ab6758e 2026-11-16T01:23:17+00:00 Sourced descriptions for 265 entities (142 in Vietnamese); content integrity tests
+0d5f3f69b79c318987024673cb214d9eab23a491 2026-11-16T01:15:42+00:00 Identity content: 275 period-checked flags and coats of arms for 122 entities
+2f891970f536865e4b0714adc1c6ce300b48593f 2026-11-16T00:56:26+00:00 Content pack pipeline and identity UI (flags, arms, portraits, sourced texts)
+c0dd1e2f769c57b44ea6296346f6ce5fb143f8fd 2026-11-16T00:52:26+00:00 Phase 2 catalogue: link entities to Wikidata with 1836 checks; list catalogue gaps
+93c264b737e09366b1e3e5471b13f76463c1e5a2 2026-11-16T00:42:08+00:00 Phase 1 audit: global coverage report and repo audit against the restructuring spec
+2af632ad54d84df00d3996c5f0921b739a2f50e9 2026-11-16T00:13:48+00:00 Design system v4 spec and redrawn duotone icon set (24 grid, 1.6 stroke)
+5b40e15024878a4d444449ef3e505677a219e586 2026-11-15T16:03:01+00:00 Docs: v3 design system, Victoria 3 reference analysis, acceptance shots
+dfc934c289cdf5604c79880a491ea6426d3bebbb 2026-11-15T16:03:00+00:00 UI v3 fixes from native-resolution runtime checks
+90dd6c5f9a8781c105b381d6c14f09186bb23975 2026-11-15T15:49:13+00:00 UI v3: map-first shell, floating framed windows, new design system
+585dd677b844655109744f8095eed74e0ad50aa1 2026-11-15T15:49:13+00:00 Map v3: colour terrain, deep ocean, Terrain mode, selection and hover
+[exit 0]
+
+$ git diff --stat 2240a8fb865e0021eec2f2f4f1c6803528be9e2c HEAD
+ README.md                                         |   1 +
+ docs/architecture/PROVINCES_BUILDINGS_MILITARY.md |  13 +
+ docs/coordination/AI_COLLABORATION_PROTOCOL.md    | 149 ++++
+ docs/coordination/AI_HANDOFF.md                   | 190 +++++
+ docs/roadmap/DECISIONS_AND_S0_REVISED_VI.v3.2.md  | 844 ++++++++++++++++++++++
+ docs/roadmap/LEGACY_DOCUMENTS_INDEX.md            |  60 ++
+ docs/roadmap/SOURCE_REGISTER.v3.2.md              |  89 +++
+ 7 files changed, 1346 insertions(+)
+[exit 0]
+
+$ git diff --name-status 2240a8fb865e0021eec2f2f4f1c6803528be9e2c HEAD
+M	README.md
+M	docs/architecture/PROVINCES_BUILDINGS_MILITARY.md
+A	docs/coordination/AI_COLLABORATION_PROTOCOL.md
+A	docs/coordination/AI_HANDOFF.md
+A	docs/roadmap/DECISIONS_AND_S0_REVISED_VI.v3.2.md
+A	docs/roadmap/LEGACY_DOCUMENTS_INDEX.md
+A	docs/roadmap/SOURCE_REGISTER.v3.2.md
+[exit 0]
+
+
+$ git diff --stat 2240a8fb865e0021eec2f2f4f1c6803528be9e2c HEAD -- . ':(exclude)docs' ':(exclude)README.md'
+[exit 0]
+
+$ git diff --quiet 2240a8fb865e0021eec2f2f4f1c6803528be9e2c HEAD -- . ':(exclude)docs' ':(exclude)README.md'
+[exit 0]
+
+$ git ls-files | wc -l
+835
+[exit 0]
+
+$ git ls-tree -r --name-only 2240a8fb865e0021eec2f2f4f1c6803528be9e2c | wc -l
+830
+[exit 0]
+
+$ git check-ignore -v src/generated/db.json src/generated/map.json public/generated/map.bin public/content/registry.json dist/index.html
+.gitignore:3:src/generated/	src/generated/db.json
+.gitignore:3:src/generated/	src/generated/map.json
+.gitignore:4:public/generated/	public/generated/map.bin
+.gitignore:10:public/content/registry.json	public/content/registry.json
+.gitignore:2:dist/	dist/index.html
+[exit 0]
+
+$ git ls-files src/generated public/generated public/content/registry.json dist
+[exit 0]

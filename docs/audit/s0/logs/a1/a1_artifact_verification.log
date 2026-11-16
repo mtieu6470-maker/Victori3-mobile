@@ -1,0 +1,80 @@
+# A1 artifact verification — run by Claude Code, 2026-11-16T06:29:29Z
+# Artifact 14193446122 downloaded via GitHub API (actions/artifacts download); the temporary signed download URL is omitted from this log.
+# Working directory: <scratch>/s0a_artifact (outside the repository). Reviewer CSV: <scratch>/v32in/reference/APK_BASELINE_WEB_ASSETS_SHA256.csv
+
+$ stat -c "%s %n" dong-chay-lich-su-debug-apk.zip
+17555158 dong-chay-lich-su-debug-apk.zip
+[exit 0]
+
+$ sha256sum dong-chay-lich-su-debug-apk.zip
+8bad8d7efd055e16630dc0770ebd6cf811722eb8592c04a7fe1f6c291f852077  dong-chay-lich-su-debug-apk.zip
+[exit 0]
+
+$ unzip -l dong-chay-lich-su-debug-apk.zip
+Archive:  dong-chay-lich-su-debug-apk.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+ 18042511  2026-11-16 02:42   app-debug.apk
+---------                     -------
+ 18042511                     1 file
+[exit 0]
+
+$ stat -c "%s %n" zip_x/app-debug.apk
+18042511 zip_x/app-debug.apk
+[exit 0]
+
+$ sha256sum zip_x/app-debug.apk
+8a4beb6af4d033346dd8c58994df72f2a1bfe980e6ef0e10d57a9ff013d0846c  zip_x/app-debug.apk
+[exit 0]
+
+$ unzip -l zip_x/app-debug.apk | tail -1
+ 27408266                     1031 files
+[exit 0]
+
+$ keytool -printcert -jarfile zip_x/app-debug.apk 2>&1 | grep -v "^Picked up JAVA_TOOL_OPTIONS"
+Signer #1:
+
+Certificate #1:
+Owner: C=US, O=Android, CN=Android Debug
+Issuer: C=US, O=Android, CN=Android Debug
+Serial number: 1
+Valid from: Mon Nov 16 02:42:33 UTC 2026 until: Wed Nov 08 02:42:33 UTC 2056
+Certificate fingerprints:
+	 SHA1: 69:CD:0D:BF:E6:11:B0:6E:B4:48:24:F5:3D:85:9D:90:BB:22:43:7A
+	 SHA256: C5:D8:55:A7:EF:17:32:D6:0B:C2:C5:CF:E7:A7:05:F8:16:09:39:29:3F:A3:F6:1A:57:16:1C:9B:A6:89:E2:A0
+Signature algorithm name: SHA256withRSA
+Subject Public Key Algorithm: 2048-bit RSA key
+Version: 1
+
+[exit 0]
+
+$ find apk_x/assets/public -type f | wc -l
+592
+[exit 0]
+
+$ sha256sum "$CSV" | cut -d" " -f1
+78c4a21f06607c60cc721801fb0209ca1bace0386831d743e2c7a8891fb00eca
+[exit 0]
+
+$ wc -l < "$CSV"
+593
+[exit 0]
+
+$ file -b "$CSV"
+CSV ASCII text
+[exit 0]
+
+$ tr -d "\r" < "$CSV" | diff - apk_manifest_claude.csv && echo "IDENTICAL after CRLF->LF"
+IDENTICAL after CRLF->LF
+[exit 0]
+
+$ awk -F, "NR>1{n++; s+=\$2} END{print n\" files, \"s\" bytes\"}" apk_manifest_claude.csv
+592 files, 17764559 bytes
+[exit 0]
+
+# apk_manifest_claude.csv was produced with:
+#   cd apk_x/assets/public && { echo path_relative_to_assets_public,size_bytes,sha256; find . -type f | sed "s#^\./##" | LC_ALL=C sort | while IFS= read -r f; do printf "%s,%s,%s\n" "$f" "$(stat -c %s "$f")" "$(sha256sum "$f" | cut -d" " -f1)"; done; } > apk_manifest_claude.csv
+
+$ grep -c $'\r$' "$CSV"   # lines ending in CRLF
+593
+[exit 0]
