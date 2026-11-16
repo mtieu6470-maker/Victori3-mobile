@@ -399,12 +399,29 @@ describe('cohort-level demographic transition', () => {
     expect(result.strata).toEqual(shares);
   });
 
-  it('blends incoming migrants into the destination's occupational composition', () => {
+  it("blends incoming migrants into the destination's occupational composition", () => {
     const residents = [0.8, 0.2, 0, 0, 0, 0, 0, 0, 0];
     const arrivals = [0.2, 0.8, 0, 0, 0, 0, 0, 0, 0];
     const mixed = mixPopulationStrata(100, residents, 50, arrivals);
     expect(mixed[0]).toBeCloseTo(0.6, 10);
     expect(mixed[1]).toBeCloseTo(0.4, 10);
     expect(mixed.reduce((sum, share) => sum + share, 0)).toBeCloseTo(1, 10);
+  });
+});
+
+
+describe('cohort migration and malformed legacy mix', () => {
+  it('uses a stable fallback when an occupied region has no valid strata', () => {
+    const result = stratifiedNaturalChange(10000, [0, NaN, -1], undefined, 0.03, 0.02);
+    expect(result.population).toBeCloseTo(10000 * (1 + (0.03 - 0.02) / 12), 8);
+    expect(result.strata[STRATA.indexOf('peasants')]).toBeCloseTo(1, 10);
+    expect(result.strata.reduce((sum, value) => sum + value, 0)).toBeCloseTo(1, 10);
+  });
+
+  it('does not create a zero-sum destination mix when migrant data is invalid', () => {
+    const mixed = mixPopulationStrata(100, [0.7, 0.3], 20, [NaN, -1]);
+    expect(mixed[0]).toBeCloseTo(0.7, 10);
+    expect(mixed[1]).toBeCloseTo(0.3, 10);
+    expect(mixed.reduce((sum, value) => sum + value, 0)).toBeCloseTo(1, 10);
   });
 });

@@ -35,17 +35,22 @@ export function stratifiedNaturalChange(
     return Number.isFinite(value) ? Math.max(0, value) : 0;
   });
   const shareTotal = rawShares.reduce((sum, value) => sum + value, 0);
-  if (pop <= 0 || shareTotal <= 0) {
-    return { population: pop, strata: rawShares, births: 0, deaths: 0 };
+  if (pop <= 0) {
+    return { population: 0, strata: new Array(STRATA.length).fill(0), births: 0, deaths: 0 };
   }
-  const shares = rawShares.map((value) => value / shareTotal);
+  // A malformed or empty legacy cohort mix must not erase a live population.
+  const fallbackShares = new Array(STRATA.length).fill(0);
+  fallbackShares[S.peasants] = 1;
+  const shares = shareTotal > 0
+    ? rawShares.map((value) => value / shareTotal)
+    : fallbackShares;
   const sol = STRATA.map((_, i) => {
     const value = Number(cohortSol?.[i]);
     return Number.isFinite(value) ? clamp(value, 0, 1) : 0.5;
   });
   const meanSol = sol.reduce((sum, value, i) => sum + shares[i] * value, 0);
-  const birthRate = Number.isFinite(annualBirthRate) ? Math.max(0, annualBirthRate) : 0;
-  const deathRate = Number.isFinite(annualDeathRate) ? Math.max(0, annualDeathRate) : 0;
+  const birthRate = Number.isFinite(annualBirthRate) ? clamp(annualBirthRate, 0, 1) : 0;
+  const deathRate = Number.isFinite(annualDeathRate) ? clamp(annualDeathRate, 0, 1) : 0;
   const birthWeight = sol.map((value) => clamp(1 - 0.04 * (value - meanSol), 0.9, 1.1));
   const deathWeight = sol.map((value) => clamp(1 - 0.08 * (value - meanSol), 0.8, 1.2));
   const birthNorm = birthWeight.reduce((sum, value, i) => sum + shares[i] * value, 0);
@@ -78,16 +83,18 @@ export function mixPopulationStrata(
   const resident = Number.isFinite(residentPopulation) ? Math.max(0, residentPopulation) : 0;
   const incoming = Number.isFinite(incomingPopulation) ? Math.max(0, incomingPopulation) : 0;
   const total = resident + incoming;
-  const normalize = (values: number[]) => {
+  const normalize = (values: number[], fallback: number[]) => {
     const safe = STRATA.map((_, i) => {
       const value = Number(values[i] ?? 0);
       return Number.isFinite(value) ? Math.max(0, value) : 0;
     });
     const sum = safe.reduce((acc, value) => acc + value, 0);
-    return sum > 0 ? safe.map((value) => value / sum) : new Array(STRATA.length).fill(0);
+    return sum > 0 ? safe.map((value) => value / sum) : fallback;
   };
-  const current = normalize(residentStrata);
-  const arrivals = normalize(incomingStrata);
+  const peasantFallback = new Array(STRATA.length).fill(0);
+  peasantFallback[S.peasants] = 1;
+  const current = normalize(residentStrata, peasantFallback);
+  const arrivals = normalize(incomingStrata, current);
   if (total <= 0) return current;
   if (incoming <= 0) return current;
   if (resident <= 0) return arrivals;
