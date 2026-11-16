@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-16T02:23:42.535Z",
+ "generated": "2026-11-16T02:29:07.605Z",
  "dims": [
   [
    "identity",
@@ -241,7 +241,7 @@
     "economy": "GDP/người Maddison (proxy)",
     "politics": "chartered_company_rule",
     "ruler": "Sir Charles Metcalfe",
-    "characters": "6 nguyên thủ kế vị; 7 hồ sơ (1 đối chiếu); 1 chân dung",
+    "characters": "6 nguyên thủ kế vị; 6 hồ sơ (1 đối chiếu); 1 chân dung",
     "military": "220000",
     "diplomacy": "0 quan hệ, 0 liên minh, 0 chiến tranh",
     "history": "mô tả (en)",
@@ -701,7 +701,7 @@
     "economy": "GDP/người Maddison (proxy)",
     "politics": "constitutional_monarchy",
     "ruler": "Charles XIV John (Jean-Baptiste Bernadotte)",
-    "characters": "4 nguyên thủ kế vị; 5 hồ sơ (4 đối chiếu); 4 chân dung",
+    "characters": "4 nguyên thủ kế vị; 4 hồ sơ (4 đối chiếu); 4 chân dung",
     "military": "ước lượng từ dân số",
     "diplomacy": "0 quan hệ, 1 liên minh, 0 chiến tranh",
     "history": "mô tả (vi/en)",
@@ -3231,13 +3231,13 @@
     "economy": "GDP/người Maddison (proxy)",
     "politics": "autonomous_principality",
     "ruler": "Miloš Obrenović",
-    "characters": "7 nguyên thủ kế vị; 7 hồ sơ (3 đối chiếu); 3 chân dung",
+    "characters": "7 nguyên thủ kế vị; 5 hồ sơ (2 đối chiếu); 2 chân dung",
     "military": "ước lượng từ dân số",
     "diplomacy": "3 quan hệ, 0 liên minh, 0 chiến tranh",
     "history": "mô tả (vi/en)",
     "ai": "tính cách nghiên cứu; 2 ưu tiên",
     "events": "0 quyết định lịch sử, 0 sự kiện ngoại sinh, 0 chiến tranh",
-    "images": "5 tài sản"
+    "images": "4 tài sản"
    },
    "score": 0.73125
   },
@@ -3369,13 +3369,13 @@
     "economy": "GDP/người Maddison (proxy)",
     "politics": "theocracy",
     "ruler": "Petar II Petrović-Njegoš",
-    "characters": "3 nguyên thủ kế vị; 3 hồ sơ (2 đối chiếu); 1 chân dung",
+    "characters": "3 nguyên thủ kế vị; 3 hồ sơ (2 đối chiếu); 2 chân dung",
     "military": "ước lượng từ dân số",
     "diplomacy": "0 quan hệ, 0 liên minh, 0 chiến tranh",
     "history": "mô tả (vi/en)",
     "ai": "tính cách suy ra; 0 ưu tiên",
     "events": "0 quyết định lịch sử, 0 sự kiện ngoại sinh, 0 chiến tranh",
-    "images": "3 tài sản"
+    "images": "4 tài sản"
    },
    "score": 0.6125
   },
@@ -4289,13 +4289,13 @@
     "economy": "GDP/người Maddison (proxy)",
     "politics": "princely_state",
     "ruler": "Nasir-ud-Daula (Asaf Jah IV)",
-    "characters": "3 nguyên thủ kế vị; 3 hồ sơ (3 đối chiếu); 2 chân dung",
+    "characters": "3 nguyên thủ kế vị; 3 hồ sơ (3 đối chiếu); 3 chân dung",
     "military": "ước lượng từ dân số",
     "diplomacy": "0 quan hệ, 0 liên minh, 0 chiến tranh",
     "history": "mô tả (vi/en)",
     "ai": "tính cách suy ra; 0 ưu tiên",
     "events": "0 quyết định lịch sử, 1 sự kiện ngoại sinh, 0 chiến tranh",
-    "images": "4 tài sản"
+    "images": "5 tài sản"
    },
    "score": 0.709375
   },
@@ -4841,13 +4841,13 @@
     "economy": "GDP/người Maddison (proxy)",
     "politics": "absolute_monarchy",
     "ruler": "Daoguang Emperor (Minning)",
-    "characters": "4 nguyên thủ kế vị; 5 hồ sơ (5 đối chiếu); 5 chân dung",
+    "characters": "4 nguyên thủ kế vị; 4 hồ sơ (4 đối chiếu); 4 chân dung",
     "military": "800000",
     "diplomacy": "6 quan hệ, 0 liên minh, 0 chiến tranh",
     "history": "mô tả (vi/en)",
     "ai": "tính cách nghiên cứu; 3 ưu tiên",
     "events": "0 quyết định lịch sử, 2 sự kiện ngoại sinh, 0 chiến tranh",
-    "images": "7 tài sản"
+    "images": "6 tài sản"
    },
    "score": 0.8531249999999999
   },
@@ -5071,7 +5071,7 @@
     "economy": "GDP/người Maddison (proxy)",
     "politics": "absolute_monarchy",
     "ruler": "Minh Mạng (Nguyễn Phúc Đảm)",
-    "characters": "3 nguyên thủ kế vị; 4 hồ sơ (4 đối chiếu); 1 chân dung",
+    "characters": "3 nguyên thủ kế vị; 3 hồ sơ (3 đối chiếu); 1 chân dung",
     "military": "ước lượng từ dân số",
     "diplomacy": "4 quan hệ, 0 liên minh, 0 chiến tranh",
     "history": "mô tả (vi/en)",
@@ -6497,13 +6497,13 @@
     "economy": "GDP/người Maddison (proxy)",
     "politics": "presidential_republic",
     "ruler": "Miguel Barragán",
-    "characters": "33 nguyên thủ kế vị; 21 hồ sơ (16 đối chiếu); 8 chân dung",
+    "characters": "33 nguyên thủ kế vị; 21 hồ sơ (16 đối chiếu); 9 chân dung",
     "military": "25000",
     "diplomacy": "4 quan hệ, 0 liên minh, 1 chiến tranh",
     "history": "mô tả (vi/en)",
     "ai": "tính cách nghiên cứu; 2 ưu tiên",
     "events": "0 quyết định lịch sử, 1 sự kiện ngoại sinh, 1 chiến tranh",
-    "images": "10 tài sản"
+    "images": "11 tài sản"
    },
    "score": 0.8281249999999999
   },
@@ -6865,13 +6865,13 @@
     "economy": "GDP/người Maddison (proxy)",
     "politics": "presidential_republic",
     "ruler": "José Joaquín Prieto",
-    "characters": "3 nguyên thủ kế vị; 4 hồ sơ (4 đối chiếu); 2 chân dung",
+    "characters": "3 nguyên thủ kế vị; 4 hồ sơ (4 đối chiếu); 3 chân dung",
     "military": "ước lượng từ dân số",
     "diplomacy": "2 quan hệ, 0 liên minh, 0 chiến tranh",
     "history": "mô tả (en)",
     "ai": "tính cách nghiên cứu; 2 ưu tiên",
     "events": "0 quyết định lịch sử, 0 sự kiện ngoại sinh, 0 chiến tranh",
-    "images": "2 tài sản"
+    "images": "3 tài sản"
    },
    "score": 0.6968749999999999
   },

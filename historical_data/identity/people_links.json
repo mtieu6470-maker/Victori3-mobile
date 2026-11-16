@@ -5,15 +5,16 @@
   "license": "CC0-1.0"
  },
  "counts": {
-  "strong": 169,
+  "strong": 166,
   "weak": 109,
-  "none": 201
+  "none": 198
  },
  "people": {
   "GBR:william_iv": {
    "id": "GBR:william_iv",
    "entity": "GBR",
    "name": "William IV",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -26,12 +27,6 @@
      "from": "1830-06-26",
      "to": "1837-06-20",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1830-06-26",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -50,6 +45,7 @@
    "id": "GBR:victoria",
    "entity": "GBR",
    "name": "Victoria",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -80,6 +76,7 @@
    "id": "HAN:william_iv",
    "entity": "HAN",
    "name": "William IV",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -92,12 +89,6 @@
      "from": "1830-06-26",
      "to": "1837-06-20",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1830-06-26",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -116,6 +107,7 @@
    "id": "HAN:ernest_augustus",
    "entity": "HAN",
    "name": "Ernest Augustus",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -140,6 +132,7 @@
    "id": "HAN:george_v",
    "entity": "HAN",
    "name": "George V",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -163,6 +156,7 @@
    "id": "FRA:louis_philippe_i",
    "entity": "FRA",
    "name": "Louis-Philippe I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -175,12 +169,6 @@
      "from": "1830-08-09",
      "to": "1848-02-24",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1830-08-09",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -199,6 +187,7 @@
    "id": "FRA:louis_napoleon_bonaparte",
    "entity": "FRA",
    "name": "Louis-Napoléon Bonaparte",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -229,6 +218,7 @@
    "id": "FRA:napoleon_iii",
    "entity": "FRA",
    "name": "Napoleon III",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -259,6 +249,7 @@
    "id": "FRA:adolphe_thiers",
    "entity": "FRA",
    "name": "Adolphe Thiers",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -289,6 +280,7 @@
    "id": "FRA:patrice_de_macmahon",
    "entity": "FRA",
    "name": "Patrice de MacMahon",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -319,6 +311,7 @@
    "id": "FRA:jules_grevy",
    "entity": "FRA",
    "name": "Jules Grévy",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -349,6 +342,7 @@
    "id": "FRA:sadi_carnot",
    "entity": "FRA",
    "name": "Sadi Carnot",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -379,6 +373,7 @@
    "id": "SPA:isabella_ii",
    "entity": "SPA",
    "name": "Isabella II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -391,12 +386,6 @@
      "from": "1833-09-29",
      "to": "1868-09-30",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1833-09-29",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -408,6 +397,7 @@
    "id": "SPA:amadeo_i",
    "entity": "SPA",
    "name": "Amadeo I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -429,6 +419,7 @@
    "id": "SPA:alfonso_xii",
    "entity": "SPA",
    "name": "Alfonso XII",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -446,10 +437,11 @@
    "match": "none",
    "candidates": []
   },
-  "SPA:alfonso_xiii_regency_of_maria_christina_of_austria": {
-   "id": "SPA:alfonso_xiii_regency_of_maria_christina_of_austria",
+  "SPA:alfonso_xiii": {
+   "id": "SPA:alfonso_xiii",
    "entity": "SPA",
    "name": "Alfonso XIII (regency of Maria Christina of Austria)",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -480,6 +472,7 @@
    "id": "POR:maria_ii",
    "entity": "POR",
    "name": "Maria II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -492,12 +485,6 @@
      "from": "1834-05-26",
      "to": "1853-11-15",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1834-05-26",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -507,6 +494,7 @@
    "id": "POR:pedro_v",
    "entity": "POR",
    "name": "Pedro V",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -528,6 +516,7 @@
    "id": "POR:luis_i",
    "entity": "POR",
    "name": "Luís I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -558,6 +547,7 @@
    "id": "POR:carlos_i",
    "entity": "POR",
    "name": "Carlos I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -581,6 +571,7 @@
    "id": "NED:william_i",
    "entity": "NED",
    "name": "William I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -593,12 +584,6 @@
      "from": "1815-03-16",
      "to": "1840-10-07",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1815-03-16",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -615,6 +600,7 @@
    "id": "NED:william_ii",
    "entity": "NED",
    "name": "William II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -645,6 +631,7 @@
    "id": "NED:william_iii",
    "entity": "NED",
    "name": "William III",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -675,6 +662,7 @@
    "id": "NED:wilhelmina",
    "entity": "NED",
    "name": "Wilhelmina",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -705,6 +693,7 @@
    "id": "BEL:leopold_i",
    "entity": "BEL",
    "name": "Leopold I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -717,12 +706,6 @@
      "from": "1831-07-21",
      "to": "1865-12-10",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1831-07-21",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -732,6 +715,7 @@
    "id": "BEL:leopold_ii",
    "entity": "BEL",
    "name": "Leopold II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -758,6 +742,7 @@
    "id": "DEN:frederick_vi",
    "entity": "DEN",
    "name": "Frederick VI",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -770,12 +755,6 @@
      "from": "1808-03-13",
      "to": "1839-12-03",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1808-03-13",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -794,6 +773,7 @@
    "id": "DEN:christian_viii",
    "entity": "DEN",
    "name": "Christian VIII",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -824,6 +804,7 @@
    "id": "DEN:frederick_vii",
    "entity": "DEN",
    "name": "Frederick VII",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -854,6 +835,7 @@
    "id": "DEN:christian_ix",
    "entity": "DEN",
    "name": "Christian IX",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -884,10 +866,13 @@
    "id": "SWE:charles_xiv_john",
    "entity": "SWE",
    "name": "Charles XIV John",
+   "aliases": [
+    "Charles XIV John (Jean-Baptiste Bernadotte)"
+   ],
    "roles": [
     "head_of_state"
    ],
-   "title": null,
+   "title": "King of Sweden and Norway",
    "born": "1763-01-26",
    "died": "1844-03-08",
    "terms": [
@@ -898,13 +883,23 @@
      "source": "leaders"
     }
    ],
-   "match": "none",
-   "candidates": []
+   "match": "strong",
+   "qid": "Q52927",
+   "label_en": "Charles XIV John of Sweden",
+   "label_vi": "Karl XIV Johan của Thụy Điển",
+   "description_en": "King of Sweden and Norway between 1818–1844. Prince of Ponte Corvo 1806–1810 and French field marshal (1763–1844)",
+   "description_vi": "là Quốc vương Thụy Điển và Na Uy",
+   "wd_born": "1763-01-26",
+   "wd_died": "1844-03-08",
+   "enwiki": "Charles XIV John",
+   "viwiki": "Karl XIV Johan của Thụy Điển",
+   "image": "CarlXIVJohnSweden.jpg"
   },
   "SWE:oscar_i": {
    "id": "SWE:oscar_i",
    "entity": "SWE",
    "name": "Oscar I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -935,6 +930,7 @@
    "id": "SWE:charles_xv",
    "entity": "SWE",
    "name": "Charles XV",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -965,6 +961,7 @@
    "id": "SWE:oscar_ii",
    "entity": "SWE",
    "name": "Oscar II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -995,6 +992,7 @@
    "id": "NOR:charles_xiv_john",
    "entity": "NOR",
    "name": "Charles XIV John",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1007,12 +1005,6 @@
      "from": "1818-02-05",
      "to": "1844-03-08",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1818-02-05",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -1022,6 +1014,7 @@
    "id": "NOR:oscar_i",
    "entity": "NOR",
    "name": "Oscar I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1052,6 +1045,7 @@
    "id": "NOR:charles_xv",
    "entity": "NOR",
    "name": "Charles XV",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1082,6 +1076,7 @@
    "id": "NOR:oscar_ii",
    "entity": "NOR",
    "name": "Oscar II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1112,6 +1107,7 @@
    "id": "RUS:nicholas_i",
    "entity": "RUS",
    "name": "Nicholas I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1124,12 +1120,6 @@
      "from": "1825-12-01",
      "to": "1855-03-02",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1825-12-01",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -1148,6 +1138,7 @@
    "id": "RUS:alexander_ii",
    "entity": "RUS",
    "name": "Alexander II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1174,6 +1165,7 @@
    "id": "RUS:alexander_iii",
    "entity": "RUS",
    "name": "Alexander III",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1204,6 +1196,7 @@
    "id": "RUS:nicholas_ii",
    "entity": "RUS",
    "name": "Nicholas II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1234,6 +1227,7 @@
    "id": "PRU:frederick_william_iii",
    "entity": "PRU",
    "name": "Frederick William III",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1246,12 +1240,6 @@
      "from": "1797-11-16",
      "to": "1840-06-07",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1797-11-16",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -1270,6 +1258,7 @@
    "id": "PRU:frederick_william_iv",
    "entity": "PRU",
    "name": "Frederick William IV",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1300,6 +1289,7 @@
    "id": "PRU:william_i",
    "entity": "PRU",
    "name": "William I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1328,6 +1318,7 @@
    "id": "PRU:frederick_iii",
    "entity": "PRU",
    "name": "Frederick III",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1356,6 +1347,7 @@
    "id": "PRU:william_ii",
    "entity": "PRU",
    "name": "William II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1386,6 +1378,7 @@
    "id": "AUS:ferdinand_i",
    "entity": "AUS",
    "name": "Ferdinand I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1398,12 +1391,6 @@
      "from": "1835-03-02",
      "to": "1848-12-02",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1835-03-02",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -1422,6 +1409,7 @@
    "id": "AUS:franz_joseph_i",
    "entity": "AUS",
    "name": "Franz Joseph I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1452,6 +1440,7 @@
    "id": "BAV:ludwig_i",
    "entity": "BAV",
    "name": "Ludwig I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1464,12 +1453,6 @@
      "from": "1825-10-13",
      "to": "1848-03-20",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1825-10-13",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -1484,6 +1467,7 @@
    "id": "BAV:maximilian_ii",
    "entity": "BAV",
    "name": "Maximilian II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1514,6 +1498,7 @@
    "id": "BAV:ludwig_ii",
    "entity": "BAV",
    "name": "Ludwig II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1539,6 +1524,7 @@
    "id": "SAX:anthony",
    "entity": "SAX",
    "name": "Anthony",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1551,12 +1537,6 @@
      "from": "1827-05-05",
      "to": "1836-06-06",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1827-05-05",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -1573,6 +1553,7 @@
    "id": "SAX:frederick_augustus_ii",
    "entity": "SAX",
    "name": "Frederick Augustus II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1603,6 +1584,7 @@
    "id": "SAX:john",
    "entity": "SAX",
    "name": "John",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1631,6 +1613,7 @@
    "id": "SAX:albert",
    "entity": "SAX",
    "name": "Albert",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1659,6 +1642,7 @@
    "id": "WUR:william_i",
    "entity": "WUR",
    "name": "William I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1671,12 +1655,6 @@
      "from": "1816-10-30",
      "to": "1864-06-25",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1816-10-30",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -1693,6 +1671,7 @@
    "id": "WUR:charles_i",
    "entity": "WUR",
    "name": "Charles I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1720,6 +1699,7 @@
    "id": "SAR:charles_albert",
    "entity": "SAR",
    "name": "Charles Albert",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1732,12 +1712,6 @@
      "from": "1831-04-27",
      "to": "1849-03-23",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1831-04-27",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -1756,6 +1730,7 @@
    "id": "SAR:victor_emmanuel_ii",
    "entity": "SAR",
    "name": "Victor Emmanuel II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1777,6 +1752,7 @@
    "id": "SAR:umberto_i",
    "entity": "SAR",
    "name": "Umberto I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1807,6 +1783,7 @@
    "id": "SIC:ferdinand_ii",
    "entity": "SIC",
    "name": "Ferdinand II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1819,12 +1796,6 @@
      "from": "1830-11-08",
      "to": "1859-05-22",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1830-11-08",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -1843,6 +1814,7 @@
    "id": "SIC:francis_ii",
    "entity": "SIC",
    "name": "Francis II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1873,6 +1845,7 @@
    "id": "PAP:gregory_xvi",
    "entity": "PAP",
    "name": "Gregory XVI",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1885,12 +1858,6 @@
      "from": "1831-02-02",
      "to": "1846-06-01",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1831-02-02",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -1909,6 +1876,7 @@
    "id": "PAP:pius_ix",
    "entity": "PAP",
    "name": "Pius IX",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1939,6 +1907,7 @@
    "id": "PAP:leo_xiii",
    "entity": "PAP",
    "name": "Leo XIII",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1969,6 +1938,7 @@
    "id": "TUS:leopold_ii",
    "entity": "TUS",
    "name": "Leopold II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -1981,12 +1951,6 @@
      "from": "1824-06-18",
      "to": "1859-07-21",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1824-06-18",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -2005,6 +1969,7 @@
    "id": "TUS:ferdinand_iv",
    "entity": "TUS",
    "name": "Ferdinand IV",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2029,6 +1994,7 @@
    "id": "TUR:mahmud_ii",
    "entity": "TUR",
    "name": "Mahmud II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2041,12 +2007,6 @@
      "from": "1808-07-28",
      "to": "1839-07-01",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1808-07-28",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -2065,6 +2025,7 @@
    "id": "TUR:abdulmecid_i",
    "entity": "TUR",
    "name": "Abdülmecid I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2095,6 +2056,7 @@
    "id": "TUR:abdulaziz",
    "entity": "TUR",
    "name": "Abdülaziz",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2125,6 +2087,7 @@
    "id": "TUR:murad_v",
    "entity": "TUR",
    "name": "Murad V",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2155,6 +2118,7 @@
    "id": "TUR:abdulhamid_ii",
    "entity": "TUR",
    "name": "Abdülhamid II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2176,6 +2140,7 @@
    "id": "EGY:muhammad_ali",
    "entity": "EGY",
    "name": "Muhammad Ali",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2206,6 +2171,7 @@
    "id": "EGY:ibrahim",
    "entity": "EGY",
    "name": "Ibrahim",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2234,6 +2200,7 @@
    "id": "EGY:abbas_i",
    "entity": "EGY",
    "name": "Abbas I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2255,6 +2222,7 @@
    "id": "EGY:said",
    "entity": "EGY",
    "name": "Said",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2281,6 +2249,7 @@
    "id": "EGY:isma_il",
    "entity": "EGY",
    "name": "Isma'il",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2306,6 +2275,7 @@
    "id": "GRE:otto",
    "entity": "GRE",
    "name": "Otto",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2318,12 +2288,6 @@
      "from": "1832-05-27",
      "to": "1862-10-23",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1832-05-27",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -2340,6 +2304,7 @@
    "id": "GRE:george_i",
    "entity": "GRE",
    "name": "George I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2370,6 +2335,9 @@
    "id": "SER:milos_obrenovic",
    "entity": "SER",
    "name": "Miloš Obrenović",
+   "aliases": [
+    "Miloš Obrenović (second reign)"
+   ],
    "roles": [
     "head_of_state"
    ],
@@ -2385,9 +2353,9 @@
     },
     {
      "role": "head_of_state",
-     "from": "1815-04-23",
-     "to": null,
-     "source": "profile"
+     "from": "1858-12-23",
+     "to": "1860-09-26",
+     "source": "leaders"
     }
    ],
    "match": "none",
@@ -2400,6 +2368,7 @@
    "id": "SER:milan_obrenovic_ii",
    "entity": "SER",
    "name": "Milan Obrenović II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2430,6 +2399,9 @@
    "id": "SER:mihailo_obrenovic_iii",
    "entity": "SER",
    "name": "Mihailo Obrenović III",
+   "aliases": [
+    "Mihailo Obrenović III (second reign)"
+   ],
    "roles": [
     "head_of_state"
    ],
@@ -2442,76 +2414,7 @@
      "from": "1839-07-08",
      "to": "1842-09-14",
      "source": "leaders"
-    }
-   ],
-   "match": "strong",
-   "qid": "Q434252",
-   "label_en": "Mihailo Obrenović III",
-   "label_vi": null,
-   "description_en": "Prince of Serbia (1823-1868)",
-   "description_vi": null,
-   "wd_born": "1823-09-16",
-   "wd_died": "1868-06-10",
-   "enwiki": "Mihailo Obrenović, Prince of Serbia",
-   "viwiki": null,
-   "image": "Mihailo Obrenović III.jpg"
-  },
-  "SER:alexander_karaorevic": {
-   "id": "SER:alexander_karaorevic",
-   "entity": "SER",
-   "name": "Alexander Karađorđević",
-   "roles": [
-    "head_of_state"
-   ],
-   "title": null,
-   "born": "1806-10-11",
-   "died": "1885-05-03",
-   "terms": [
-    {
-     "role": "head_of_state",
-     "from": "1842-09-14",
-     "to": "1858-12-23",
-     "source": "leaders"
-    }
-   ],
-   "match": "none",
-   "candidates": []
-  },
-  "SER:milos_obrenovic_second_reign": {
-   "id": "SER:milos_obrenovic_second_reign",
-   "entity": "SER",
-   "name": "Miloš Obrenović (second reign)",
-   "roles": [
-    "head_of_state"
-   ],
-   "title": null,
-   "born": "1780-03-17",
-   "died": "1860-09-26",
-   "terms": [
-    {
-     "role": "head_of_state",
-     "from": "1858-12-23",
-     "to": "1860-09-26",
-     "source": "leaders"
-    }
-   ],
-   "match": "none",
-   "candidates": [
-    "Q102270987",
-    "Q12755452"
-   ]
-  },
-  "SER:mihailo_obrenovic_iii_second_reign": {
-   "id": "SER:mihailo_obrenovic_iii_second_reign",
-   "entity": "SER",
-   "name": "Mihailo Obrenović III (second reign)",
-   "roles": [
-    "head_of_state"
-   ],
-   "title": null,
-   "born": "1823-09-16",
-   "died": "1868-06-10",
-   "terms": [
+    },
     {
      "role": "head_of_state",
      "from": "1860-09-26",
@@ -2531,10 +2434,33 @@
    "viwiki": null,
    "image": "Mihailo Obrenović III.jpg"
   },
+  "SER:alexander_karaorevic": {
+   "id": "SER:alexander_karaorevic",
+   "entity": "SER",
+   "name": "Alexander Karađorđević",
+   "aliases": [],
+   "roles": [
+    "head_of_state"
+   ],
+   "title": null,
+   "born": "1806-10-11",
+   "died": "1885-05-03",
+   "terms": [
+    {
+     "role": "head_of_state",
+     "from": "1842-09-14",
+     "to": "1858-12-23",
+     "source": "leaders"
+    }
+   ],
+   "match": "none",
+   "candidates": []
+  },
   "SER:milan_obrenovic_iv": {
    "id": "SER:milan_obrenovic_iv",
    "entity": "SER",
    "name": "Milan Obrenović IV",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2556,6 +2482,7 @@
    "id": "PRS:mohammad_shah_qajar",
    "entity": "PRS",
    "name": "Mohammad Shah Qajar",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2568,12 +2495,6 @@
      "from": "1834-10-23",
      "to": "1848-09-05",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1834-10-23",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -2592,6 +2513,7 @@
    "id": "PRS:naser_al_din_shah",
    "entity": "PRS",
    "name": "Naser al-Din Shah",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2613,6 +2535,7 @@
    "id": "PRS:mozaffar_ad_din_shah",
    "entity": "PRS",
    "name": "Mozaffar ad-Din Shah",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2634,10 +2557,13 @@
    "id": "QNG:daoguang_emperor",
    "entity": "QNG",
    "name": "Daoguang Emperor",
+   "aliases": [
+    "Daoguang Emperor (Minning)"
+   ],
    "roles": [
     "head_of_state"
    ],
-   "title": null,
+   "title": "Emperor",
    "born": "1782-09-16",
    "died": "1850-02-25",
    "terms": [
@@ -2664,6 +2590,7 @@
    "id": "QNG:xianfeng_emperor",
    "entity": "QNG",
    "name": "Xianfeng Emperor",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2690,10 +2617,11 @@
    "viwiki": "Hàm Phong",
    "image": "《咸丰皇帝朝服像》.jpg"
   },
-  "QNG:tongzhi_emperor_regency_of_cixi_and_ci_an": {
-   "id": "QNG:tongzhi_emperor_regency_of_cixi_and_ci_an",
+  "QNG:tongzhi_emperor": {
+   "id": "QNG:tongzhi_emperor",
    "entity": "QNG",
    "name": "Tongzhi Emperor (regency of Cixi and Ci'an)",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2724,6 +2652,7 @@
    "id": "QNG:guangxu_emperor",
    "entity": "QNG",
    "name": "Guangxu Emperor",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2754,6 +2683,7 @@
    "id": "JAP:tokugawa_ienari",
    "entity": "JAP",
    "name": "Tokugawa Ienari",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2766,12 +2696,6 @@
      "from": "1787-05-19",
      "to": "1837-05-02",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1787-05-19",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -2790,6 +2714,7 @@
    "id": "JAP:tokugawa_ieyoshi",
    "entity": "JAP",
    "name": "Tokugawa Ieyoshi",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2820,6 +2745,7 @@
    "id": "JAP:tokugawa_iesada",
    "entity": "JAP",
    "name": "Tokugawa Iesada",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2850,6 +2776,7 @@
    "id": "JAP:tokugawa_iemochi",
    "entity": "JAP",
    "name": "Tokugawa Iemochi",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2880,6 +2807,7 @@
    "id": "JAP:tokugawa_yoshinobu",
    "entity": "JAP",
    "name": "Tokugawa Yoshinobu",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2910,6 +2838,7 @@
    "id": "JAP:emperor_meiji",
    "entity": "JAP",
    "name": "Emperor Meiji",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2940,6 +2869,7 @@
    "id": "KOR:heonjong",
    "entity": "KOR",
    "name": "Heonjong",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2952,12 +2882,6 @@
      "from": "1834-11-13",
      "to": "1849-07-25",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1834-11-13",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -2969,6 +2893,7 @@
    "id": "KOR:cheoljong",
    "entity": "KOR",
    "name": "Cheoljong",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -2986,10 +2911,11 @@
    "match": "none",
    "candidates": []
   },
-  "KOR:gojong_regency_of_the_heungseon_daewongun_to_1873": {
-   "id": "KOR:gojong_regency_of_the_heungseon_daewongun_to_1873",
+  "KOR:gojong": {
+   "id": "KOR:gojong",
    "entity": "KOR",
    "name": "Gojong (regency of the Heungseon Daewongun to 1873)",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3011,10 +2937,13 @@
    "id": "VNM:minh_mang",
    "entity": "VNM",
    "name": "Minh Mạng",
+   "aliases": [
+    "Minh Mạng (Nguyễn Phúc Đảm)"
+   ],
    "roles": [
     "head_of_state"
    ],
-   "title": null,
+   "title": "Emperor (Hoàng đế)",
    "born": "1791-05-25",
    "died": "1841-01-20",
    "terms": [
@@ -3041,6 +2970,7 @@
    "id": "VNM:thieu_tri",
    "entity": "VNM",
    "name": "Thiệu Trị",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3071,6 +3001,7 @@
    "id": "VNM:tu_uc",
    "entity": "VNM",
    "name": "Tự Đức",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3097,10 +3028,11 @@
    "viwiki": "Tự Đức",
    "image": "Vua Tu Duc.jpg"
   },
-  "SIA:nangklao_rama_iii": {
-   "id": "SIA:nangklao_rama_iii",
+  "SIA:nangklao": {
+   "id": "SIA:nangklao",
    "entity": "SIA",
    "name": "Nangklao (Rama III)",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3113,12 +3045,6 @@
      "from": "1824-07-21",
      "to": "1851-04-02",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1824-07-21",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -3133,10 +3059,11 @@
    "viwiki": "Rama III",
    "image": "King Rama III of Siam (Nangklao) Portrait.jpg"
   },
-  "SIA:mongkut_rama_iv": {
-   "id": "SIA:mongkut_rama_iv",
+  "SIA:mongkut": {
+   "id": "SIA:mongkut",
    "entity": "SIA",
    "name": "Mongkut (Rama IV)",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3163,10 +3090,11 @@
    "viwiki": "Rama IV",
    "image": "First King of Siam MET DP-573-001 (cropped).jpg"
   },
-  "SIA:chulalongkorn_rama_v": {
-   "id": "SIA:chulalongkorn_rama_v",
+  "SIA:chulalongkorn": {
+   "id": "SIA:chulalongkorn",
    "entity": "SIA",
    "name": "Chulalongkorn (Rama V)",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3197,6 +3125,7 @@
    "id": "BUR:bagyidaw",
    "entity": "BUR",
    "name": "Bagyidaw",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3209,12 +3138,6 @@
      "from": "1819-06-05",
      "to": "1837-04-01",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1819-06-05",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -3233,6 +3156,7 @@
    "id": "BUR:tharrawaddy",
    "entity": "BUR",
    "name": "Tharrawaddy",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3254,6 +3178,7 @@
    "id": "BUR:pagan",
    "entity": "BUR",
    "name": "Pagan",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3279,6 +3204,7 @@
    "id": "BUR:mindon",
    "entity": "BUR",
    "name": "Mindon",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3300,6 +3226,7 @@
    "id": "SIK:ranjit_singh",
    "entity": "SIK",
    "name": "Ranjit Singh",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3312,12 +3239,6 @@
      "from": "1801-04-12",
      "to": "1839-06-27",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1801-04-12",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -3336,6 +3257,7 @@
    "id": "SIK:kharak_singh",
    "entity": "SIK",
    "name": "Kharak Singh",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3366,6 +3288,7 @@
    "id": "SIK:nau_nihal_singh",
    "entity": "SIK",
    "name": "Nau Nihal Singh",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3396,6 +3319,7 @@
    "id": "SIK:sher_singh",
    "entity": "SIK",
    "name": "Sher Singh",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3426,6 +3350,7 @@
    "id": "SIK:duleep_singh",
    "entity": "SIK",
    "name": "Duleep Singh",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3447,6 +3372,7 @@
    "id": "AFG:dost_mohammad_khan",
    "entity": "AFG",
    "name": "Dost Mohammad Khan",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3459,12 +3385,6 @@
      "from": "1826-01-01",
      "to": "1863-06-09",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1826",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -3483,6 +3403,7 @@
    "id": "AFG:sher_ali_khan",
    "entity": "AFG",
    "name": "Sher Ali Khan",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3513,6 +3434,7 @@
    "id": "HAW:kamehameha_iii",
    "entity": "HAW",
    "name": "Kamehameha III",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3525,12 +3447,6 @@
      "from": "1825-06-06",
      "to": "1854-12-15",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1825-06-06",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -3549,6 +3465,7 @@
    "id": "HAW:kamehameha_iv",
    "entity": "HAW",
    "name": "Kamehameha IV",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3579,6 +3496,7 @@
    "id": "HAW:kamehameha_v",
    "entity": "HAW",
    "name": "Kamehameha V",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3609,6 +3527,7 @@
    "id": "HAW:lunalilo",
    "entity": "HAW",
    "name": "Lunalilo",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3639,6 +3558,7 @@
    "id": "HAW:kalakaua",
    "entity": "HAW",
    "name": "Kalākaua",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3669,6 +3589,7 @@
    "id": "BRA:pedro_ii",
    "entity": "BRA",
    "name": "Pedro II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3681,12 +3602,6 @@
      "from": "1831-04-07",
      "to": "1889-11-15",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1831-04-07",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -3705,6 +3620,7 @@
    "id": "USA:andrew_jackson",
    "entity": "USA",
    "name": "Andrew Jackson",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3717,12 +3633,6 @@
      "from": "1829-03-04",
      "to": "1837-03-04",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1829-03-04",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -3741,6 +3651,7 @@
    "id": "USA:martin_van_buren",
    "entity": "USA",
    "name": "Martin Van Buren",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3771,6 +3682,7 @@
    "id": "USA:william_henry_harrison",
    "entity": "USA",
    "name": "William Henry Harrison",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3801,6 +3713,7 @@
    "id": "USA:john_tyler",
    "entity": "USA",
    "name": "John Tyler",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3831,6 +3744,7 @@
    "id": "USA:james_k_polk",
    "entity": "USA",
    "name": "James K. Polk",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3861,6 +3775,7 @@
    "id": "USA:zachary_taylor",
    "entity": "USA",
    "name": "Zachary Taylor",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3891,6 +3806,7 @@
    "id": "USA:millard_fillmore",
    "entity": "USA",
    "name": "Millard Fillmore",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3921,6 +3837,7 @@
    "id": "USA:franklin_pierce",
    "entity": "USA",
    "name": "Franklin Pierce",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3951,6 +3868,7 @@
    "id": "USA:james_buchanan",
    "entity": "USA",
    "name": "James Buchanan",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -3981,6 +3899,7 @@
    "id": "USA:abraham_lincoln",
    "entity": "USA",
    "name": "Abraham Lincoln",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4011,6 +3930,7 @@
    "id": "USA:andrew_johnson",
    "entity": "USA",
    "name": "Andrew Johnson",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4041,6 +3961,7 @@
    "id": "USA:ulysses_s_grant",
    "entity": "USA",
    "name": "Ulysses S. Grant",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4071,6 +3992,7 @@
    "id": "USA:rutherford_b_hayes",
    "entity": "USA",
    "name": "Rutherford B. Hayes",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4101,6 +4023,7 @@
    "id": "USA:james_a_garfield",
    "entity": "USA",
    "name": "James A. Garfield",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4131,6 +4054,7 @@
    "id": "USA:chester_a_arthur",
    "entity": "USA",
    "name": "Chester A. Arthur",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4161,6 +4085,7 @@
    "id": "USA:grover_cleveland",
    "entity": "USA",
    "name": "Grover Cleveland",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4197,6 +4122,7 @@
    "id": "USA:benjamin_harrison",
    "entity": "USA",
    "name": "Benjamin Harrison",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4227,6 +4153,7 @@
    "id": "USA:william_mckinley",
    "entity": "USA",
    "name": "William McKinley",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4257,6 +4184,7 @@
    "id": "CHL:jose_joaquin_prieto",
    "entity": "CHL",
    "name": "José Joaquín Prieto",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4269,12 +4197,6 @@
      "from": "1831-09-18",
      "to": "1841-09-18",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1831-09-18",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -4293,6 +4215,7 @@
    "id": "CHL:manuel_bulnes",
    "entity": "CHL",
    "name": "Manuel Bulnes",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4323,6 +4246,7 @@
    "id": "CHL:manuel_montt",
    "entity": "CHL",
    "name": "Manuel Montt",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4353,6 +4277,7 @@
    "id": "ARG:juan_manuel_de_rosas",
    "entity": "ARG",
    "name": "Juan Manuel de Rosas",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4365,12 +4290,6 @@
      "from": "1835-04-13",
      "to": "1852-02-03",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1835-04-13",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -4380,6 +4299,7 @@
    "id": "ARG:justo_jose_de_urquiza",
    "entity": "ARG",
    "name": "Justo José de Urquiza",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4410,6 +4330,7 @@
    "id": "ARG:bartolome_mitre",
    "entity": "ARG",
    "name": "Bartolomé Mitre",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4440,6 +4361,7 @@
    "id": "ARG:domingo_faustino_sarmiento",
    "entity": "ARG",
    "name": "Domingo Faustino Sarmiento",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4466,10 +4388,13 @@
    "viwiki": null,
    "image": "Sarmiento.jpg"
   },
-  "EIC:sir_charles_metcalfe_acting": {
-   "id": "EIC:sir_charles_metcalfe_acting",
+  "EIC:sir_charles_metcalfe": {
+   "id": "EIC:sir_charles_metcalfe",
    "entity": "EIC",
    "name": "Sir Charles Metcalfe (acting)",
+   "aliases": [
+    "Sir Charles Metcalfe"
+   ],
    "roles": [
     "head_of_state"
    ],
@@ -4493,6 +4418,7 @@
    "id": "EIC:george_eden_lord_auckland",
    "entity": "EIC",
    "name": "George Eden, Lord Auckland",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4519,6 +4445,7 @@
    "id": "EIC:edward_law_lord_ellenborough",
    "entity": "EIC",
    "name": "Edward Law, Lord Ellenborough",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4549,6 +4476,7 @@
    "id": "EIC:sir_henry_hardinge",
    "entity": "EIC",
    "name": "Sir Henry Hardinge",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4570,6 +4498,7 @@
    "id": "EIC:james_broun_ramsay_lord_dalhousie",
    "entity": "EIC",
    "name": "James Broun-Ramsay, Lord Dalhousie",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4593,6 +4522,7 @@
    "id": "EIC:charles_canning",
    "entity": "EIC",
    "name": "Charles Canning",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4617,6 +4547,7 @@
    "id": "BAD:leopold",
    "entity": "BAD",
    "name": "Leopold",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4629,12 +4560,6 @@
      "from": "1830-03-30",
      "to": "1852-04-24",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1830-03-30",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -4651,6 +4576,7 @@
    "id": "BAD:louis_ii",
    "entity": "BAD",
    "name": "Louis II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4679,6 +4605,7 @@
    "id": "BAD:frederick_i",
    "entity": "BAD",
    "name": "Frederick I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4709,6 +4636,7 @@
    "id": "HKA:william_ii",
    "entity": "HKA",
    "name": "William II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4721,12 +4649,6 @@
      "from": "1821-02-27",
      "to": "1847-11-20",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1821-02-27",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -4745,6 +4667,7 @@
    "id": "HKA:frederick_william",
    "entity": "HKA",
    "name": "Frederick William",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4775,6 +4698,7 @@
    "id": "HDA:louis_ii",
    "entity": "HDA",
    "name": "Louis II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4787,12 +4711,6 @@
      "from": "1830-04-06",
      "to": "1848-06-16",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1830-04-06",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -4811,6 +4729,7 @@
    "id": "HDA:louis_iii",
    "entity": "HDA",
    "name": "Louis III",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4836,6 +4755,7 @@
    "id": "HDA:louis_iv",
    "entity": "HDA",
    "name": "Louis IV",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4866,6 +4786,7 @@
    "id": "NAS:william",
    "entity": "NAS",
    "name": "William",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4878,12 +4799,6 @@
      "from": "1816-03-24",
      "to": "1839-08-20",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1816-01-09",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -4900,6 +4815,7 @@
    "id": "NAS:adolphe",
    "entity": "NAS",
    "name": "Adolphe",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4924,6 +4840,7 @@
    "id": "OLD:augustus",
    "entity": "OLD",
    "name": "Augustus",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4936,12 +4853,6 @@
      "from": "1829-05-21",
      "to": "1853-02-27",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1829-05-21",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -4954,6 +4865,7 @@
    "id": "OLD:peter_ii",
    "entity": "OLD",
    "name": "Peter II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4978,6 +4890,7 @@
    "id": "HHO:louis_william",
    "entity": "HHO",
    "name": "Louis William",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -4990,12 +4903,6 @@
      "from": "1829-04-02",
      "to": "1839-01-19",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1829-01-19",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -5005,6 +4912,7 @@
    "id": "HHO:philip",
    "entity": "HHO",
    "name": "Philip",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5033,6 +4941,7 @@
    "id": "HHO:gustav",
    "entity": "HHO",
    "name": "Gustav",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5059,6 +4968,7 @@
    "id": "HHO:ferdinand",
    "entity": "HHO",
    "name": "Ferdinand",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5087,6 +4997,7 @@
    "id": "ADE:leopold_iv_frederick",
    "entity": "ADE",
    "name": "Leopold IV Frederick",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5099,12 +5010,6 @@
      "from": "1817-08-09",
      "to": "1871-05-22",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1817-08-09",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -5114,6 +5019,7 @@
    "id": "ADE:frederick_i",
    "entity": "ADE",
    "name": "Frederick I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5144,6 +5050,7 @@
    "id": "AKO:henry",
    "entity": "AKO",
    "name": "Henry",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5156,12 +5063,6 @@
      "from": "1830-08-23",
      "to": "1847-11-23",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1830-08-23",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -5174,10 +5075,11 @@
     "Q108478649"
    ]
   },
-  "AKO:leopold_iv_frederick_anhalt_dessau_kothen": {
-   "id": "AKO:leopold_iv_frederick_anhalt_dessau_kothen",
+  "AKO:leopold_iv_frederick": {
+   "id": "AKO:leopold_iv_frederick",
    "entity": "AKO",
    "name": "Leopold IV Frederick (Anhalt-Dessau-Köthen)",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5199,6 +5101,7 @@
    "id": "ABE:alexander_charles",
    "entity": "ABE",
    "name": "Alexander Charles",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5211,12 +5114,6 @@
      "from": "1834-03-24",
      "to": "1863-08-19",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1834-03-24",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -5231,10 +5128,11 @@
    "viwiki": "Alexander Karl xứ Anhalt-Bernburg",
    "image": "Alexander Karl, Duke of Anhalt-Bernburg (1805-1863).jpg"
   },
-  "ABE:leopold_iv_frederick_duke_of_anhalt": {
-   "id": "ABE:leopold_iv_frederick_duke_of_anhalt",
+  "ABE:leopold_iv_frederick": {
+   "id": "ABE:leopold_iv_frederick",
    "entity": "ABE",
    "name": "Leopold IV Frederick (Duke of Anhalt)",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5252,10 +5150,11 @@
    "match": "none",
    "candidates": []
   },
-  "ABE:frederick_i_duke_of_anhalt": {
-   "id": "ABE:frederick_i_duke_of_anhalt",
+  "ABE:frederick_i": {
+   "id": "ABE:frederick_i",
    "entity": "ABE",
    "name": "Frederick I (Duke of Anhalt)",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5286,6 +5185,7 @@
    "id": "SSO:gunther_friedrich_carl_ii",
    "entity": "SSO",
    "name": "Günther Friedrich Carl II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5298,12 +5198,6 @@
      "from": "1835-08-19",
      "to": "1880-07-17",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1835-08-19",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -5313,6 +5207,7 @@
    "id": "SRU:friedrich_gunther",
    "entity": "SRU",
    "name": "Friedrich Günther",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5325,12 +5220,6 @@
      "from": "1807-04-28",
      "to": "1867-06-28",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1807-04-28",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -5347,6 +5236,7 @@
    "id": "SRU:albert",
    "entity": "SRU",
    "name": "Albert",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5375,6 +5265,7 @@
    "id": "SRU:george_albert",
    "entity": "SRU",
    "name": "George Albert",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5399,6 +5290,7 @@
    "id": "SRU:gunther_victor",
    "entity": "SRU",
    "name": "Günther Victor",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5420,6 +5312,7 @@
    "id": "RGR:heinrich_xix",
    "entity": "RGR",
    "name": "Heinrich XIX",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5432,12 +5325,6 @@
      "from": "1817",
      "to": "1836-10-31",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1817-01-29",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -5447,6 +5334,7 @@
    "id": "RGR:heinrich_xx",
    "entity": "RGR",
    "name": "Heinrich XX",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5468,6 +5356,7 @@
    "id": "RGR:heinrich_xxii",
    "entity": "RGR",
    "name": "Heinrich XXII",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5489,6 +5378,7 @@
    "id": "RSC:heinrich_lxii",
    "entity": "RSC",
    "name": "Heinrich LXII",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5501,12 +5391,6 @@
      "from": "1818",
      "to": "1854-06-19",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1818-04-17",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -5516,6 +5400,7 @@
    "id": "RSC:heinrich_lxvii",
    "entity": "RSC",
    "name": "Heinrich LXVII",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5537,6 +5422,7 @@
    "id": "RSC:heinrich_xiv",
    "entity": "RSC",
    "name": "Heinrich XIV",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5560,6 +5446,7 @@
    "id": "RLE:heinrich_lxxii",
    "entity": "RLE",
    "name": "Heinrich LXXII",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5583,10 +5470,11 @@
    "match": "none",
    "candidates": []
   },
-  "RLE:heinrich_lxii_reuss_younger_line": {
-   "id": "RLE:heinrich_lxii_reuss_younger_line",
+  "RLE:heinrich_lxii": {
+   "id": "RLE:heinrich_lxii",
    "entity": "RLE",
    "name": "Heinrich LXII (Reuss Younger Line)",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5608,6 +5496,7 @@
    "id": "RLE:heinrich_lxvii",
    "entity": "RLE",
    "name": "Heinrich LXVII",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5629,6 +5518,7 @@
    "id": "RLE:heinrich_xiv",
    "entity": "RLE",
    "name": "Heinrich XIV",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5652,6 +5542,7 @@
    "id": "SCG:ernest_i",
    "entity": "SCG",
    "name": "Ernest I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5664,12 +5555,6 @@
      "from": "1826-11-12",
      "to": "1844-01-29",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1826-11-12",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -5688,6 +5573,7 @@
    "id": "SCG:ernest_ii",
    "entity": "SCG",
    "name": "Ernest II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5713,6 +5599,7 @@
    "id": "SAA:joseph",
    "entity": "SAA",
    "name": "Joseph",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5725,12 +5612,6 @@
      "from": "1834-09-29",
      "to": "1848-11-30",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1834-09-29",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -5747,6 +5628,7 @@
    "id": "SAA:georg",
    "entity": "SAA",
    "name": "Georg",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5777,6 +5659,7 @@
    "id": "SAA:ernst_i",
    "entity": "SAA",
    "name": "Ernst I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5800,6 +5683,7 @@
    "id": "SMN:bernhard_ii",
    "entity": "SMN",
    "name": "Bernhard II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5812,12 +5696,6 @@
      "from": "1803-12-24",
      "to": "1866-09-20",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1803-12-24",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -5836,6 +5714,7 @@
    "id": "SMN:georg_ii",
    "entity": "SMN",
    "name": "Georg II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5859,6 +5738,7 @@
    "id": "SWM:charles_frederick",
    "entity": "SWM",
    "name": "Charles Frederick",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5871,12 +5751,6 @@
      "from": "1828-06-14",
      "to": "1853-07-08",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1828-06-14",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -5895,6 +5769,7 @@
    "id": "SWM:charles_alexander",
    "entity": "SWM",
    "name": "Charles Alexander",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5923,6 +5798,7 @@
    "id": "MST:george",
    "entity": "MST",
    "name": "George",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5935,12 +5811,6 @@
      "from": "1816-11-06",
      "to": "1860-09-06",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1816-11-06",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -5957,6 +5827,7 @@
    "id": "MST:frederick_william",
    "entity": "MST",
    "name": "Frederick William",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -5987,6 +5858,7 @@
    "id": "MSC:frederick_francis_i",
    "entity": "MSC",
    "name": "Frederick Francis I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6023,6 +5895,7 @@
    "id": "MSC:paul_frederick",
    "entity": "MSC",
    "name": "Paul Frederick",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6047,6 +5920,7 @@
    "id": "MSC:frederick_francis_ii",
    "entity": "MSC",
    "name": "Frederick Francis II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6077,6 +5951,7 @@
    "id": "MSC:frederick_francis_iii",
    "entity": "MSC",
    "name": "Frederick Francis III",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6107,6 +5982,7 @@
    "id": "HHE:friedrich_hermann_otto",
    "entity": "HHE",
    "name": "Friedrich Hermann Otto",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6119,12 +5995,6 @@
      "from": "1810",
      "to": "1838-09-13",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1810-11-02",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -6134,6 +6004,7 @@
    "id": "HHE:constantine",
    "entity": "HHE",
    "name": "Constantine",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6162,6 +6033,7 @@
    "id": "HSI:charles",
    "entity": "HSI",
    "name": "Charles",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6174,12 +6046,6 @@
      "from": "1831-10-17",
      "to": "1848-08-27",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1831-01-17",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -6196,6 +6062,7 @@
    "id": "HSI:karl_anton",
    "entity": "HSI",
    "name": "Karl Anton",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6224,6 +6091,7 @@
    "id": "SLI:george_william",
    "entity": "SLI",
    "name": "George William",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6236,12 +6104,6 @@
      "from": "1787-02-13",
      "to": "1860-11-21",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1787-02-13",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -6258,6 +6120,7 @@
    "id": "SLI:adolf_i",
    "entity": "SLI",
    "name": "Adolf I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6282,6 +6145,7 @@
    "id": "SLI:george",
    "entity": "SLI",
    "name": "George",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6310,6 +6174,7 @@
    "id": "LIP:paul_alexander_leopold_ii",
    "entity": "LIP",
    "name": "Paul Alexander Leopold II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6322,12 +6187,6 @@
      "from": "1802-11-05",
      "to": "1851-01-01",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1802-04-04",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -6337,6 +6196,7 @@
    "id": "LIP:leopold_iii",
    "entity": "LIP",
    "name": "Leopold III",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6361,6 +6221,7 @@
    "id": "LIP:woldemar",
    "entity": "LIP",
    "name": "Woldemar",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6382,6 +6243,7 @@
    "id": "WLD:george_ii",
    "entity": "WLD",
    "name": "George II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6394,12 +6256,6 @@
      "from": "1813-09-09",
      "to": "1845-05-15",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1813-09-09",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -6411,6 +6267,7 @@
    "id": "WLD:george_victor",
    "entity": "WLD",
    "name": "George Victor",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6441,6 +6298,7 @@
    "id": "BRU:william",
    "entity": "BRU",
    "name": "William",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6475,6 +6333,7 @@
    "id": "LIE:johann_i_joseph",
    "entity": "LIE",
    "name": "Johann I Joseph",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6487,12 +6346,6 @@
      "from": "1805-03-24",
      "to": "1836-04-20",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1805-02-24",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -6511,6 +6364,7 @@
    "id": "LIE:aloys_ii",
    "entity": "LIE",
    "name": "Aloys II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6532,6 +6386,7 @@
    "id": "LIE:johann_ii",
    "entity": "LIE",
    "name": "Johann II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6559,6 +6414,7 @@
    "id": "MCO:honore_v",
    "entity": "MCO",
    "name": "Honoré V",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6571,12 +6427,6 @@
      "from": "1819-02-16",
      "to": "1841-10-02",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1819-10-02",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -6586,6 +6436,7 @@
    "id": "MCO:florestan",
    "entity": "MCO",
    "name": "Florestan",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6609,6 +6460,7 @@
    "id": "MCO:charles_iii",
    "entity": "MCO",
    "name": "Charles III",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6639,6 +6491,7 @@
    "id": "PMA:marie_louise",
    "entity": "PMA",
    "name": "Marie Louise",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6651,12 +6504,6 @@
      "from": "1814-04-11",
      "to": "1847-12-17",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1814-04-11",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -6675,6 +6522,7 @@
    "id": "PMA:charles_louis",
    "entity": "PMA",
    "name": "Charles Louis",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6705,6 +6553,7 @@
    "id": "PMA:charles_iii",
    "entity": "PMA",
    "name": "Charles III",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6735,6 +6584,7 @@
    "id": "PMA:robert_i",
    "entity": "PMA",
    "name": "Robert I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6765,6 +6615,7 @@
    "id": "MOD:francis_iv",
    "entity": "MOD",
    "name": "Francis IV",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6777,12 +6628,6 @@
      "from": "1814-07-14",
      "to": "1846-01-21",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1814-07-14",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -6792,6 +6637,7 @@
    "id": "MOD:francis_v",
    "entity": "MOD",
    "name": "Francis V",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6813,6 +6659,7 @@
    "id": "LUC:charles_louis",
    "entity": "LUC",
    "name": "Charles Louis",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6825,12 +6672,6 @@
      "from": "1824-03-13",
      "to": "1847-10-04",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1824-03-13",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -6849,6 +6690,7 @@
    "id": "SOK:muhammad_bello",
    "entity": "SOK",
    "name": "Muhammad Bello",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6861,12 +6703,6 @@
      "from": "1817-04-21",
      "to": "1837-10-25",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1817",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -6885,6 +6721,7 @@
    "id": "SOK:abubakar_i_atiku",
    "entity": "SOK",
    "name": "Abubakar I Atiku",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6906,6 +6743,7 @@
    "id": "SOK:ali_babba_bin_bello",
    "entity": "SOK",
    "name": "Ali Babba bin Bello",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6936,6 +6774,7 @@
    "id": "SOK:ahmadu_atiku",
    "entity": "SOK",
    "name": "Ahmadu Atiku",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6966,6 +6805,7 @@
    "id": "SOK:aliyu_karami",
    "entity": "SOK",
    "name": "Aliyu Karami",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -6987,6 +6827,7 @@
    "id": "SOK:ahmadu_rufai",
    "entity": "SOK",
    "name": "Ahmadu Rufai",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7010,6 +6851,7 @@
    "id": "SOK:abubakar_ii_atiku_na_raba",
    "entity": "SOK",
    "name": "Abubakar II Atiku na Raba",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7033,6 +6875,7 @@
    "id": "SOK:mu_azu",
    "entity": "SOK",
    "name": "Mu'azu",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7056,6 +6899,7 @@
    "id": "SOK:umaru_bin_ali",
    "entity": "SOK",
    "name": "Umaru bin Ali",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7086,6 +6930,7 @@
    "id": "SOK:abd_al_rahman_bin_atiku",
    "entity": "SOK",
    "name": "Abd al-Rahman bin Atiku",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7107,6 +6952,7 @@
    "id": "NEP:rajendra_bikram_shah",
    "entity": "NEP",
    "name": "Rajendra Bikram Shah",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7119,12 +6965,6 @@
      "from": "1816-11-20",
      "to": "1847-05-12",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1816-11-20",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -7143,6 +6983,7 @@
    "id": "NEP:surendra_bikram_shah",
    "entity": "NEP",
    "name": "Surendra Bikram Shah",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7173,6 +7014,7 @@
    "id": "NEP:prithvi_bir_bikram_shah",
    "entity": "NEP",
    "name": "Prithvi Bir Bikram Shah",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7199,10 +7041,11 @@
    "viwiki": null,
    "image": "Prithvi-bir-bikram-shah.jpg"
   },
-  "HYD:nasir_ud_daula_asaf_jah_iv": {
-   "id": "HYD:nasir_ud_daula_asaf_jah_iv",
+  "HYD:nasir_ud_daula": {
+   "id": "HYD:nasir_ud_daula",
    "entity": "HYD",
    "name": "Nasir-ud-Daula (Asaf Jah IV)",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7215,12 +7058,6 @@
      "from": "1829-05-24",
      "to": "1857-05-16",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1829-05-21",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -7239,6 +7076,7 @@
    "id": "HYD:afzal_ad_dawlah",
    "entity": "HYD",
    "name": "Afzal ad-Dawlah",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7269,6 +7107,7 @@
    "id": "HYD:mahbub_ali_khan",
    "entity": "HYD",
    "name": "Mahbub Ali Khan",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7299,6 +7138,7 @@
    "id": "TRV:swathi_thirunal_rama_varma",
    "entity": "TRV",
    "name": "Swathi Thirunal Rama Varma",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7335,6 +7175,7 @@
    "id": "TRV:uthram_thirunal_marthanda_varma",
    "entity": "TRV",
    "name": "Uthram Thirunal Marthanda Varma",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7365,6 +7206,7 @@
    "id": "TRV:ayilyam_thirunal_rama_varma",
    "entity": "TRV",
    "name": "Ayilyam Thirunal Rama Varma",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7395,6 +7237,7 @@
    "id": "TRV:visakham_thirunal_rama_varma",
    "entity": "TRV",
    "name": "Visakham Thirunal Rama Varma",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7425,6 +7268,7 @@
    "id": "TRV:sir_rama_varma_vi",
    "entity": "TRV",
    "name": "Sir Rama Varma VI",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7446,6 +7290,7 @@
    "id": "OMA:said_bin_sultan",
    "entity": "OMA",
    "name": "Said bin Sultan",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7458,12 +7303,6 @@
      "from": "1806",
      "to": "1856-10-19",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1806",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "none",
@@ -7473,6 +7312,7 @@
    "id": "OMA:thuwaini_bin_said",
    "entity": "OMA",
    "name": "Thuwaini bin Said",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7494,6 +7334,7 @@
    "id": "OMA:salim_bin_thuwaini",
    "entity": "OMA",
    "name": "Salim bin Thuwaini",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7515,6 +7356,7 @@
    "id": "OMA:azzan_bin_qais",
    "entity": "OMA",
    "name": "Azzan bin Qais",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7536,6 +7378,7 @@
    "id": "OMA:turki_bin_said",
    "entity": "OMA",
    "name": "Turki bin Said",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7562,10 +7405,11 @@
    "viwiki": null,
    "image": "Turki ibn Said.jpg"
   },
-  "CAR:carlos_maria_isidro_de_borbon_carlos_v": {
-   "id": "CAR:carlos_maria_isidro_de_borbon_carlos_v",
+  "CAR:carlos_maria_isidro_de_borbon": {
+   "id": "CAR:carlos_maria_isidro_de_borbon",
    "entity": "CAR",
    "name": "Carlos María Isidro de Borbón ('Carlos V')",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7578,12 +7422,6 @@
      "from": "1833-09-29",
      "to": "1845-05-18",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1833-09-29",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -7598,10 +7436,11 @@
    "viwiki": null,
    "image": "Carlos María Isidro de Borbón, por Vicente López.jpg"
   },
-  "CAR:carlos_luis_de_borbon_carlos_vi": {
-   "id": "CAR:carlos_luis_de_borbon_carlos_vi",
+  "CAR:carlos_luis_de_borbon": {
+   "id": "CAR:carlos_luis_de_borbon",
    "entity": "CAR",
    "name": "Carlos Luis de Borbón ('Carlos VI')",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7619,10 +7458,11 @@
    "match": "none",
    "candidates": []
   },
-  "CAR:juan_de_borbon_juan_iii": {
-   "id": "CAR:juan_de_borbon_juan_iii",
+  "CAR:juan_de_borbon": {
+   "id": "CAR:juan_de_borbon",
    "entity": "CAR",
    "name": "Juan de Borbón ('Juan III')",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7640,10 +7480,11 @@
    "match": "none",
    "candidates": []
   },
-  "CAR:carlos_de_borbon_carlos_vii": {
-   "id": "CAR:carlos_de_borbon_carlos_vii",
+  "CAR:carlos_de_borbon": {
+   "id": "CAR:carlos_de_borbon",
    "entity": "CAR",
    "name": "Carlos de Borbón ('Carlos VII')",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7667,6 +7508,7 @@
    "id": "MEX:miguel_barragan",
    "entity": "MEX",
    "name": "Miguel Barragán",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7679,12 +7521,6 @@
      "from": "1835-01-28",
      "to": "1836-02-27",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1835-01-28",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -7703,6 +7539,7 @@
    "id": "MEX:jose_justo_corro",
    "entity": "MEX",
    "name": "José Justo Corro",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7733,6 +7570,7 @@
    "id": "MEX:anastasio_bustamante",
    "entity": "MEX",
    "name": "Anastasio Bustamante",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7769,6 +7607,7 @@
    "id": "MEX:antonio_lopez_de_santa_anna",
    "entity": "MEX",
    "name": "Antonio López de Santa Anna",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7820,6 +7659,7 @@
    "id": "MEX:nicolas_bravo",
    "entity": "MEX",
    "name": "Nicolás Bravo",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7850,6 +7690,7 @@
    "id": "MEX:valentin_canalizo",
    "entity": "MEX",
    "name": "Valentín Canalizo",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7886,6 +7727,7 @@
    "id": "MEX:jose_joaquin_de_herrera",
    "entity": "MEX",
    "name": "José Joaquín de Herrera",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7922,6 +7764,7 @@
    "id": "MEX:mariano_paredes",
    "entity": "MEX",
    "name": "Mariano Paredes",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7952,6 +7795,7 @@
    "id": "MEX:jose_mariano_salas",
    "entity": "MEX",
    "name": "José Mariano Salas",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -7982,6 +7826,7 @@
    "id": "MEX:valentin_gomez_farias",
    "entity": "MEX",
    "name": "Valentín Gómez Farías",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8003,6 +7848,7 @@
    "id": "MEX:pedro_maria_de_anaya",
    "entity": "MEX",
    "name": "Pedro María de Anaya",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8014,12 +7860,6 @@
      "role": "head_of_state",
      "from": "1847-04-02",
      "to": "1847-05-20",
-     "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1847-11-13",
-     "to": "1848-01-08",
      "source": "leaders"
     }
    ],
@@ -8039,6 +7879,7 @@
    "id": "MEX:manuel_de_la_pena_y_pena",
    "entity": "MEX",
    "name": "Manuel de la Peña y Peña",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8075,6 +7916,7 @@
    "id": "MEX:mariano_arista",
    "entity": "MEX",
    "name": "Mariano Arista",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8105,6 +7947,7 @@
    "id": "MEX:manuel_maria_lombardini",
    "entity": "MEX",
    "name": "Manuel María Lombardini",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8135,6 +7978,7 @@
    "id": "MEX:juan_alvarez",
    "entity": "MEX",
    "name": "Juan Álvarez",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8163,6 +8007,7 @@
    "id": "MEX:ignacio_comonfort",
    "entity": "MEX",
    "name": "Ignacio Comonfort",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8193,6 +8038,7 @@
    "id": "MEX:benito_juarez",
    "entity": "MEX",
    "name": "Benito Juárez",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8214,6 +8060,7 @@
    "id": "MEX:sebastian_lerdo_de_tejada",
    "entity": "MEX",
    "name": "Sebastián Lerdo de Tejada",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8244,6 +8091,7 @@
    "id": "MEX:porfirio_diaz",
    "entity": "MEX",
    "name": "Porfirio Díaz",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8286,6 +8134,7 @@
    "id": "MEX:juan_n_mendez",
    "entity": "MEX",
    "name": "Juan N. Méndez",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8316,6 +8165,7 @@
    "id": "MEX:manuel_gonzalez",
    "entity": "MEX",
    "name": "Manuel González",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8344,6 +8194,7 @@
    "id": "ECU:vicente_rocafuerte",
    "entity": "ECU",
    "name": "Vicente Rocafuerte",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8356,12 +8207,6 @@
      "from": "1835-08-08",
      "to": "1839-01-31",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1835-08-10",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -8380,6 +8225,7 @@
    "id": "ECU:juan_jose_flores",
    "entity": "ECU",
    "name": "Juan José Flores",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8410,6 +8256,7 @@
    "id": "ECU:jose_joaquin_de_olmedo",
    "entity": "ECU",
    "name": "José Joaquín de Olmedo",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8440,6 +8287,7 @@
    "id": "ECU:vicente_ramon_roca",
    "entity": "ECU",
    "name": "Vicente Ramón Roca",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8470,6 +8318,7 @@
    "id": "ECU:manuel_de_ascasubi",
    "entity": "ECU",
    "name": "Manuel de Ascásubi",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8491,6 +8340,7 @@
    "id": "ECU:diego_noboa",
    "entity": "ECU",
    "name": "Diego Noboa",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8521,6 +8371,7 @@
    "id": "ECU:jose_maria_urvina",
    "entity": "ECU",
    "name": "José María Urvina",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8542,6 +8393,7 @@
    "id": "ECU:francisco_robles",
    "entity": "ECU",
    "name": "Francisco Robles",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8572,6 +8424,7 @@
    "id": "ECU:jeronimo_carrion",
    "entity": "ECU",
    "name": "Jerónimo Carrión",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8602,6 +8455,7 @@
    "id": "ECU:javier_espinosa",
    "entity": "ECU",
    "name": "Javier Espinosa",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8628,6 +8482,7 @@
    "id": "ECU:gabriel_garcia_moreno",
    "entity": "ECU",
    "name": "Gabriel García Moreno",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8658,6 +8513,7 @@
    "id": "ECU:antonio_borrero",
    "entity": "ECU",
    "name": "Antonio Borrero",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8688,6 +8544,7 @@
    "id": "ECU:ignacio_de_veintemilla",
    "entity": "ECU",
    "name": "Ignacio de Veintemilla",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8718,6 +8575,7 @@
    "id": "ECU:jose_placido_caamano",
    "entity": "ECU",
    "name": "José Plácido Caamaño",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8739,6 +8597,7 @@
    "id": "PEU:luis_jose_de_orbegoso",
    "entity": "PEU",
    "name": "Luis José de Orbegoso",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8775,6 +8634,7 @@
    "id": "PEU:andres_de_santa_cruz",
    "entity": "PEU",
    "name": "Andrés de Santa Cruz",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8805,6 +8665,7 @@
    "id": "PEU:agustin_gamarra",
    "entity": "PEU",
    "name": "Agustín Gamarra",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8835,6 +8696,7 @@
    "id": "PEU:manuel_menendez",
    "entity": "PEU",
    "name": "Manuel Menéndez",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8871,6 +8733,7 @@
    "id": "PEU:juan_crisostomo_torrico",
    "entity": "PEU",
    "name": "Juan Crisóstomo Torrico",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8901,6 +8764,7 @@
    "id": "PEU:juan_francisco_de_vidal",
    "entity": "PEU",
    "name": "Juan Francisco de Vidal",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8931,6 +8795,7 @@
    "id": "PEU:manuel_ignacio_de_vivanco",
    "entity": "PEU",
    "name": "Manuel Ignacio de Vivanco",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8961,6 +8826,7 @@
    "id": "PEU:ramon_castilla",
    "entity": "PEU",
    "name": "Ramón Castilla",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -8997,6 +8863,7 @@
    "id": "PEU:jose_rufino_echenique",
    "entity": "PEU",
    "name": "José Rufino Echenique",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9027,6 +8894,7 @@
    "id": "PEU:miguel_de_san_roman",
    "entity": "PEU",
    "name": "Miguel de San Román",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9057,6 +8925,7 @@
    "id": "PEU:pedro_diez_canseco",
    "entity": "PEU",
    "name": "Pedro Diez Canseco",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9093,6 +8962,7 @@
    "id": "PEU:juan_antonio_pezet",
    "entity": "PEU",
    "name": "Juan Antonio Pezet",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9123,6 +8993,7 @@
    "id": "PEU:mariano_ignacio_prado",
    "entity": "PEU",
    "name": "Mariano Ignacio Prado",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9159,6 +9030,7 @@
    "id": "PEU:jose_balta",
    "entity": "PEU",
    "name": "José Balta",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9189,6 +9061,7 @@
    "id": "PEU:manuel_pardo",
    "entity": "PEU",
    "name": "Manuel Pardo",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9219,6 +9092,7 @@
    "id": "PEU:nicolas_de_pierola",
    "entity": "PEU",
    "name": "Nicolás de Piérola",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9249,6 +9123,7 @@
    "id": "PEU:lizardo_montero",
    "entity": "PEU",
    "name": "Lizardo Montero",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9270,6 +9145,7 @@
    "id": "PEU:miguel_iglesias",
    "entity": "PEU",
    "name": "Miguel Iglesias",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9300,6 +9176,7 @@
    "id": "URU:manuel_oribe",
    "entity": "URU",
    "name": "Manuel Oribe",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9312,12 +9189,6 @@
      "from": "1835-03-01",
      "to": "1838-10-24",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1835-03-01",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -9336,6 +9207,7 @@
    "id": "URU:gabriel_antonio_pereira",
    "entity": "URU",
    "name": "Gabriel Antonio Pereira",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9372,6 +9244,7 @@
    "id": "URU:fructuoso_rivera",
    "entity": "URU",
    "name": "Fructuoso Rivera",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9402,6 +9275,7 @@
    "id": "URU:joaquin_suarez",
    "entity": "URU",
    "name": "Joaquín Suárez",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9432,6 +9306,7 @@
    "id": "URU:juan_francisco_giro",
    "entity": "URU",
    "name": "Juan Francisco Giró",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9462,6 +9337,7 @@
    "id": "URU:venancio_flores",
    "entity": "URU",
    "name": "Venancio Flores",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9498,6 +9374,7 @@
    "id": "URU:manuel_basilio_bustamante",
    "entity": "URU",
    "name": "Manuel Basilio Bustamante",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9528,6 +9405,7 @@
    "id": "URU:bernardo_prudencio_berro",
    "entity": "URU",
    "name": "Bernardo Prudencio Berro",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9558,6 +9436,7 @@
    "id": "URU:atanasio_cruz_aguirre",
    "entity": "URU",
    "name": "Atanasio Cruz Aguirre",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9579,6 +9458,7 @@
    "id": "URU:lorenzo_batlle",
    "entity": "URU",
    "name": "Lorenzo Batlle",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9600,6 +9480,7 @@
    "id": "URU:tomas_gomensoro",
    "entity": "URU",
    "name": "Tomás Gomensoro",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9621,6 +9502,7 @@
    "id": "URU:jose_eugenio_ellauri",
    "entity": "URU",
    "name": "José Eugenio Ellauri",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9651,6 +9533,7 @@
    "id": "URU:pedro_varela",
    "entity": "URU",
    "name": "Pedro Varela",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9681,6 +9564,7 @@
    "id": "URU:lorenzo_latorre",
    "entity": "URU",
    "name": "Lorenzo Latorre",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9711,6 +9595,7 @@
    "id": "URU:francisco_antonino_vidal",
    "entity": "URU",
    "name": "Francisco Antonino Vidal",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9741,6 +9626,7 @@
    "id": "URU:maximo_santos",
    "entity": "URU",
    "name": "Máximo Santos",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9771,6 +9657,7 @@
    "id": "PAR:jose_gaspar_rodriguez_de_francia",
    "entity": "PAR",
    "name": "José Gaspar Rodríguez de Francia",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9807,6 +9694,7 @@
    "id": "PAR:manuel_antonio_ortiz",
    "entity": "PAR",
    "name": "Manuel Antonio Ortiz",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9837,6 +9725,7 @@
    "id": "PAR:mariano_roque_alonzo",
    "entity": "PAR",
    "name": "Mariano Roque Alonzo",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9863,10 +9752,11 @@
    "viwiki": null,
    "image": "Mariano Roque Alonso.jpg"
   },
-  "PAR:carlos_antonio_lopez_and_mariano_roque_alonzo_consuls": {
-   "id": "PAR:carlos_antonio_lopez_and_mariano_roque_alonzo_consuls",
+  "PAR:carlos_antonio_lopez_and_mariano_roque_alonzo": {
+   "id": "PAR:carlos_antonio_lopez_and_mariano_roque_alonzo",
    "entity": "PAR",
    "name": "Carlos Antonio López and Mariano Roque Alonzo (consuls)",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9888,6 +9778,7 @@
    "id": "PAR:carlos_antonio_lopez",
    "entity": "PAR",
    "name": "Carlos Antonio López",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9918,6 +9809,7 @@
    "id": "PAR:francisco_solano_lopez",
    "entity": "PAR",
    "name": "Francisco Solano López",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9948,6 +9840,7 @@
    "id": "PAR:cirilo_antonio_rivarola",
    "entity": "PAR",
    "name": "Cirilo Antonio Rivarola",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -9978,6 +9871,7 @@
    "id": "PAR:salvador_jovellanos",
    "entity": "PAR",
    "name": "Salvador Jovellanos",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10008,6 +9902,7 @@
    "id": "PAR:juan_bautista_gill",
    "entity": "PAR",
    "name": "Juan Bautista Gill",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10038,6 +9933,7 @@
    "id": "PAR:higinio_uriarte",
    "entity": "PAR",
    "name": "Higinio Uriarte",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10068,6 +9964,7 @@
    "id": "PAR:candido_bareiro",
    "entity": "PAR",
    "name": "Cándido Bareiro",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10098,6 +9995,7 @@
    "id": "PAR:bernardino_caballero",
    "entity": "PAR",
    "name": "Bernardino Caballero",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10128,6 +10026,7 @@
    "id": "NGR:francisco_de_paula_santander",
    "entity": "NGR",
    "name": "Francisco de Paula Santander",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10140,12 +10039,6 @@
      "from": "1832-03-10",
      "to": "1837-04-01",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1832-10-07",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -10164,6 +10057,7 @@
    "id": "NGR:jose_ignacio_de_marquez",
    "entity": "NGR",
    "name": "José Ignacio de Márquez",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10187,6 +10081,7 @@
    "id": "NGR:pedro_alcantara_herran",
    "entity": "NGR",
    "name": "Pedro Alcántara Herrán",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10210,6 +10105,7 @@
    "id": "NGR:tomas_cipriano_de_mosquera",
    "entity": "NGR",
    "name": "Tomás Cipriano de Mosquera",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10245,6 +10141,7 @@
    "id": "NGR:jose_hilario_lopez",
    "entity": "NGR",
    "name": "José Hilario López",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10268,6 +10165,7 @@
    "id": "NGR:jose_maria_obando",
    "entity": "NGR",
    "name": "José María Obando",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10291,6 +10189,7 @@
    "id": "NGR:jose_maria_melo",
    "entity": "NGR",
    "name": "José María Melo",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10314,6 +10213,7 @@
    "id": "NGR:jose_de_obaldia",
    "entity": "NGR",
    "name": "José de Obaldía",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10337,6 +10237,7 @@
    "id": "NGR:manuel_maria_mallarino",
    "entity": "NGR",
    "name": "Manuel María Mallarino",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10360,6 +10261,7 @@
    "id": "NGR:mariano_ospina_rodriguez",
    "entity": "NGR",
    "name": "Mariano Ospina Rodríguez",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10383,6 +10285,7 @@
    "id": "NGR:bartolome_calvo",
    "entity": "NGR",
    "name": "Bartolomé Calvo",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10406,6 +10309,7 @@
    "id": "NGR:manuel_murillo_toro",
    "entity": "NGR",
    "name": "Manuel Murillo Toro",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10435,6 +10339,7 @@
    "id": "NGR:santos_acosta",
    "entity": "NGR",
    "name": "Santos Acosta",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10458,6 +10363,7 @@
    "id": "NGR:santos_gutierrez",
    "entity": "NGR",
    "name": "Santos Gutiérrez",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10482,6 +10388,7 @@
    "id": "NGR:eustorgio_salgar",
    "entity": "NGR",
    "name": "Eustorgio Salgar",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10505,6 +10412,7 @@
    "id": "NGR:santiago_perez",
    "entity": "NGR",
    "name": "Santiago Pérez",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10532,6 +10440,7 @@
    "id": "NGR:aquileo_parra",
    "entity": "NGR",
    "name": "Aquileo Parra",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10555,6 +10464,7 @@
    "id": "NGR:julian_trujillo",
    "entity": "NGR",
    "name": "Julián Trujillo",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10578,6 +10488,7 @@
    "id": "NGR:rafael_nunez",
    "entity": "NGR",
    "name": "Rafael Núñez",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10611,6 +10522,7 @@
    "id": "NGR:francisco_javier_zaldua",
    "entity": "NGR",
    "name": "Francisco Javier Zaldúa",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10634,6 +10546,7 @@
    "id": "NGR:jose_eusebio_otalora",
    "entity": "NGR",
    "name": "José Eusebio Otálora",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10655,6 +10568,7 @@
    "id": "SWI:federal_diet_tagsatzung_presidency_rotating_between_the_vororte",
    "entity": "SWI",
    "name": "Federal Diet (Tagsatzung), presidency rotating between the Vororte",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10672,10 +10586,11 @@
    "match": "none",
    "candidates": []
   },
-  "SWI:federal_council_collegial_executive": {
-   "id": "SWI:federal_council_collegial_executive",
+  "SWI:federal_council": {
+   "id": "SWI:federal_council",
    "entity": "SWI",
    "name": "Federal Council (collegial executive)",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10693,10 +10608,11 @@
    "match": "none",
    "candidates": []
   },
-  "SMR:captains_regent_two_elected_every_six_months": {
-   "id": "SMR:captains_regent_two_elected_every_six_months",
+  "SMR:captains_regent": {
+   "id": "SMR:captains_regent",
    "entity": "SMR",
    "name": "Captains Regent (two, elected every six months)",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10714,10 +10630,11 @@
    "match": "none",
    "candidates": []
   },
-  "HAM:senate_of_hamburg_first_mayor_rotating": {
-   "id": "HAM:senate_of_hamburg_first_mayor_rotating",
+  "HAM:senate_of_hamburg": {
+   "id": "HAM:senate_of_hamburg",
    "entity": "HAM",
    "name": "Senate of Hamburg (First Mayor rotating)",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10739,6 +10656,7 @@
    "id": "BRE:senate_of_bremen",
    "entity": "BRE",
    "name": "Senate of Bremen",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10760,6 +10678,7 @@
    "id": "LUB:senate_of_lubeck",
    "entity": "LUB",
    "name": "Senate of Lübeck",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10781,6 +10700,7 @@
    "id": "FRK:senate_of_the_free_city_of_frankfurt",
    "entity": "FRK",
    "name": "Senate of the Free City of Frankfurt",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10802,6 +10722,7 @@
    "id": "KRA:senate_of_the_free_city_of_krakow",
    "entity": "KRA",
    "name": "Senate of the Free City of Kraków",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10823,6 +10744,7 @@
    "id": "VEN:jose_maria_vargas",
    "entity": "VEN",
    "name": "José María Vargas",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10835,12 +10757,6 @@
      "from": "1835-08-20",
      "to": "1836-04-24",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1835-02-09",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -10859,6 +10775,7 @@
    "id": "VEN:andres_narvarte",
    "entity": "VEN",
    "name": "Andrés Narvarte",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10889,6 +10806,7 @@
    "id": "VEN:carlos_soublette",
    "entity": "VEN",
    "name": "Carlos Soublette",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10925,6 +10843,7 @@
    "id": "VEN:jose_antonio_paez",
    "entity": "VEN",
    "name": "José Antonio Páez",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -10961,6 +10880,7 @@
    "id": "VEN:jose_tadeo_monagas",
    "entity": "VEN",
    "name": "José Tadeo Monagas",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11003,6 +10923,7 @@
    "id": "VEN:jose_gregorio_monagas",
    "entity": "VEN",
    "name": "José Gregorio Monagas",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11033,6 +10954,7 @@
    "id": "VEN:julian_castro",
    "entity": "VEN",
    "name": "Julián Castro",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11063,6 +10985,7 @@
    "id": "VEN:manuel_felipe_de_tovar",
    "entity": "VEN",
    "name": "Manuel Felipe de Tovar",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11099,6 +11022,7 @@
    "id": "VEN:juan_crisostomo_falcon",
    "entity": "VEN",
    "name": "Juan Crisóstomo Falcón",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11129,6 +11053,7 @@
    "id": "VEN:jose_ruperto_monagas",
    "entity": "VEN",
    "name": "José Ruperto Monagas",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11159,6 +11084,7 @@
    "id": "VEN:antonio_guzman_blanco",
    "entity": "VEN",
    "name": "Antonio Guzmán Blanco",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11195,6 +11121,7 @@
    "id": "VEN:francisco_linares_alcantara",
    "entity": "VEN",
    "name": "Francisco Linares Alcántara",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11225,6 +11152,7 @@
    "id": "VEN:joaquin_crespo",
    "entity": "VEN",
    "name": "Joaquín Crespo",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11255,6 +11183,7 @@
    "id": "BOL:andres_de_santa_cruz",
    "entity": "BOL",
    "name": "Andrés de Santa Cruz",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11267,12 +11196,6 @@
      "from": "1829-05-24",
      "to": "1836-10-28",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1829-05-24",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -11291,6 +11214,7 @@
    "id": "BOL:mariano_enrique_calvo",
    "entity": "BOL",
    "name": "Mariano Enrique Calvo",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11312,6 +11236,7 @@
    "id": "BOL:jose_miguel_de_velasco",
    "entity": "BOL",
    "name": "José Miguel de Velasco",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11342,6 +11267,7 @@
    "id": "BOL:jose_ballivian",
    "entity": "BOL",
    "name": "José Ballivián",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11372,6 +11298,7 @@
    "id": "BOL:manuel_isidoro_belzu",
    "entity": "BOL",
    "name": "Manuel Isidoro Belzu",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11402,6 +11329,7 @@
    "id": "BOL:jorge_cordova",
    "entity": "BOL",
    "name": "Jorge Córdova",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11432,6 +11360,7 @@
    "id": "BOL:jose_maria_linares",
    "entity": "BOL",
    "name": "José María Linares",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11462,6 +11391,7 @@
    "id": "BOL:jose_maria_de_acha",
    "entity": "BOL",
    "name": "José María de Achá",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11492,6 +11422,7 @@
    "id": "BOL:mariano_melgarejo",
    "entity": "BOL",
    "name": "Mariano Melgarejo",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11522,6 +11453,7 @@
    "id": "BOL:agustin_morales",
    "entity": "BOL",
    "name": "Agustín Morales",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11552,6 +11484,7 @@
    "id": "BOL:tomas_frias",
    "entity": "BOL",
    "name": "Tomás Frías",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11579,6 +11512,7 @@
    "id": "BOL:adolfo_ballivian",
    "entity": "BOL",
    "name": "Adolfo Ballivián",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11609,6 +11543,7 @@
    "id": "BOL:hilarion_daza",
    "entity": "BOL",
    "name": "Hilarión Daza",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11639,6 +11574,7 @@
    "id": "BOL:narciso_campero",
    "entity": "BOL",
    "name": "Narciso Campero",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11669,6 +11605,7 @@
    "id": "BOL:gregorio_pacheco",
    "entity": "BOL",
    "name": "Gregorio Pacheco",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11699,6 +11636,7 @@
    "id": "MNT:petar_ii_petrovic_njegos",
    "entity": "MNT",
    "name": "Petar II Petrović-Njegoš",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11711,12 +11649,6 @@
      "from": "1830-10-30",
      "to": "1851-10-31",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1830-10-30",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -11735,6 +11667,7 @@
    "id": "MNT:danilo_i",
    "entity": "MNT",
    "name": "Danilo I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11765,6 +11698,7 @@
    "id": "MNT:nikola_i",
    "entity": "MNT",
    "name": "Nikola I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11786,6 +11720,7 @@
    "id": "TAH:pomare_iv",
    "entity": "TAH",
    "name": "Pōmare IV",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11798,12 +11733,6 @@
      "from": "1827-01-11",
      "to": "1877-09-17",
      "source": "leaders"
-    },
-    {
-     "role": "head_of_state",
-     "from": "1827-01-11",
-     "to": null,
-     "source": "profile"
     }
    ],
    "match": "strong",
@@ -11822,6 +11751,7 @@
    "id": "TAH:pomare_v",
    "entity": "TAH",
    "name": "Pōmare V",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11852,6 +11782,7 @@
    "id": "GBR:william_lamb_2nd_viscount_melbourne",
    "entity": "GBR",
    "name": "William Lamb, 2nd Viscount Melbourne",
+   "aliases": [],
    "roles": [
     "head_of_government"
    ],
@@ -11880,6 +11811,7 @@
    "id": "GBR:princess_victoria_of_kent",
    "entity": "GBR",
    "name": "Princess Victoria of Kent",
+   "aliases": [],
    "roles": [
     "heir"
    ],
@@ -11903,6 +11835,7 @@
    "id": "HAN:prince_adolphus_duke_of_cambridge",
    "entity": "HAN",
    "name": "Prince Adolphus, Duke of Cambridge",
+   "aliases": [],
    "roles": [
     "head_of_government"
    ],
@@ -11933,6 +11866,7 @@
    "id": "ION:sir_howard_douglas",
    "entity": "ION",
    "name": "Sir Howard Douglas",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -11950,33 +11884,11 @@
    "match": "none",
    "candidates": []
   },
-  "EIC:sir_charles_metcalfe": {
-   "id": "EIC:sir_charles_metcalfe",
-   "entity": "EIC",
-   "name": "Sir Charles Metcalfe",
-   "roles": [
-    "head_of_state"
-   ],
-   "title": "Acting Governor-General of India",
-   "born": null,
-   "died": null,
-   "terms": [
-    {
-     "role": "head_of_state",
-     "from": "1835-03-20",
-     "to": null,
-     "source": "profile"
-    }
-   ],
-   "match": "none",
-   "candidates": [
-    "Q18526869"
-   ]
-  },
   "FRA:victor_3rd_duke_of_broglie": {
    "id": "FRA:victor_3rd_duke_of_broglie",
    "entity": "FRA",
    "name": "Victor, 3rd Duke of Broglie",
+   "aliases": [],
    "roles": [
     "head_of_government"
    ],
@@ -12005,6 +11917,7 @@
    "id": "FRA:ferdinand_philippe_duke_of_orleans",
    "entity": "FRA",
    "name": "Ferdinand-Philippe, Duke of Orléans",
+   "aliases": [],
    "roles": [
     "heir"
    ],
@@ -12019,6 +11932,7 @@
    "id": "SPA:juan_alvarez_mendizabal",
    "entity": "SPA",
    "name": "Juan Álvarez Mendizábal",
+   "aliases": [],
    "roles": [
     "head_of_government"
    ],
@@ -12049,6 +11963,7 @@
    "id": "BEL:barthelemy_de_theux_de_meylandt",
    "entity": "BEL",
    "name": "Barthélémy de Theux de Meylandt",
+   "aliases": [],
    "roles": [
     "head_of_government"
    ],
@@ -12072,6 +11987,7 @@
    "id": "SWI:federal_diet_tagsatzung_vorort_bern",
    "entity": "SWI",
    "name": "Federal Diet (Tagsatzung), Vorort Bern",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12089,40 +12005,11 @@
    "match": "none",
    "candidates": []
   },
-  "SWE:charles_xiv_john_jean_baptiste_bernadotte": {
-   "id": "SWE:charles_xiv_john_jean_baptiste_bernadotte",
-   "entity": "SWE",
-   "name": "Charles XIV John (Jean-Baptiste Bernadotte)",
-   "roles": [
-    "head_of_state"
-   ],
-   "title": "King of Sweden and Norway",
-   "born": "1763-01-26",
-   "died": null,
-   "terms": [
-    {
-     "role": "head_of_state",
-     "from": "1818-02-05",
-     "to": null,
-     "source": "profile"
-    }
-   ],
-   "match": "strong",
-   "qid": "Q52927",
-   "label_en": "Charles XIV John of Sweden",
-   "label_vi": "Karl XIV Johan của Thụy Điển",
-   "description_en": "King of Sweden and Norway between 1818–1844. Prince of Ponte Corvo 1806–1810 and French field marshal (1763–1844)",
-   "description_vi": "là Quốc vương Thụy Điển và Na Uy",
-   "wd_born": "1763-01-26",
-   "wd_died": "1844-03-08",
-   "enwiki": "Charles XIV John",
-   "viwiki": "Karl XIV Johan của Thụy Điển",
-   "image": "CarlXIVJohnSweden.jpg"
-  },
   "RUS:karl_nesselrode": {
    "id": "RUS:karl_nesselrode",
    "entity": "RUS",
    "name": "Karl Nesselrode",
+   "aliases": [],
    "roles": [
     "head_of_government"
    ],
@@ -12153,6 +12040,7 @@
    "id": "RUS:tsesarevich_alexander_nikolaevich",
    "entity": "RUS",
    "name": "Tsesarevich Alexander Nikolaevich",
+   "aliases": [],
    "roles": [
     "heir"
    ],
@@ -12167,6 +12055,7 @@
    "id": "IMM:shamil",
    "entity": "IMM",
    "name": "Shamil",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12193,10 +12082,11 @@
    "viwiki": "Imam Shamil",
    "image": "Shamil by Denier.jpg"
   },
-  "PRU:crown_prince_frederick_william_iv": {
-   "id": "PRU:crown_prince_frederick_william_iv",
+  "PRU:crown_prince_frederick_william": {
+   "id": "PRU:crown_prince_frederick_william",
    "entity": "PRU",
    "name": "Crown Prince Frederick William (IV)",
+   "aliases": [],
    "roles": [
     "heir"
    ],
@@ -12211,6 +12101,7 @@
    "id": "AUS:klemens_von_metternich",
    "entity": "AUS",
    "name": "Klemens von Metternich",
+   "aliases": [],
    "roles": [
     "head_of_government"
    ],
@@ -12241,6 +12132,7 @@
    "id": "PAP:cardinal_tommaso_bernetti",
    "entity": "PAP",
    "name": "Cardinal Tommaso Bernetti",
+   "aliases": [],
    "roles": [
     "head_of_government"
    ],
@@ -12262,6 +12154,7 @@
    "id": "TUR:abdulmecid",
    "entity": "TUR",
    "name": "Abdülmecid",
+   "aliases": [],
    "roles": [
     "heir"
    ],
@@ -12285,6 +12178,7 @@
    "id": "EGY:muhammad_ali_pasha",
    "entity": "EGY",
    "name": "Muhammad Ali Pasha",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12308,6 +12202,7 @@
    "id": "EGY:ibrahim_pasha",
    "entity": "EGY",
    "name": "Ibrahim Pasha",
+   "aliases": [],
    "roles": [
     "heir"
    ],
@@ -12331,6 +12226,7 @@
    "id": "WAL:alexandru_ii_ghica",
    "entity": "WAL",
    "name": "Alexandru II Ghica",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12361,6 +12257,7 @@
    "id": "MOL:mihail_sturdza",
    "entity": "MOL",
    "name": "Mihail Sturdza",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12391,6 +12288,7 @@
    "id": "GRE:josef_ludwig_von_armansperg",
    "entity": "GRE",
    "name": "Josef Ludwig von Armansperg",
+   "aliases": [],
    "roles": [
     "head_of_government"
    ],
@@ -12414,6 +12312,7 @@
    "id": "TUN:mustafa_bey",
    "entity": "TUN",
    "name": "Mustafa Bey",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12435,6 +12334,7 @@
    "id": "MOR:abd_al_rahman_ibn_hisham",
    "entity": "MOR",
    "name": "Abd al-Rahman ibn Hisham",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12456,6 +12356,7 @@
    "id": "CON:ahmed_bey",
    "entity": "CON",
    "name": "Ahmed Bey",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12477,6 +12378,7 @@
    "id": "ABD:abd_al_qadir",
    "entity": "ABD",
    "name": "Abd al-Qadir",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12501,6 +12403,7 @@
    "id": "PRS:haji_mirza_aqasi",
    "entity": "PRS",
    "name": "Haji Mirza Aqasi",
+   "aliases": [],
    "roles": [
     "head_of_government"
    ],
@@ -12524,6 +12427,7 @@
    "id": "HER:kamran_shah_durrani",
    "entity": "HER",
    "name": "Kamran Shah Durrani",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12545,6 +12449,7 @@
    "id": "KAN:kohandil_khan",
    "entity": "KAN",
    "name": "Kohandil Khan",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12568,6 +12473,7 @@
    "id": "KHI:allah_quli_khan",
    "entity": "KHI",
    "name": "Allah Quli Khan",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12589,6 +12495,7 @@
    "id": "BUK:nasrullah_khan",
    "entity": "BUK",
    "name": "Nasrullah Khan",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12619,6 +12526,7 @@
    "id": "KOK:muhammad_ali_madali_khan",
    "entity": "KOK",
    "name": "Muhammad Ali (Madali) Khan",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12640,6 +12548,7 @@
    "id": "NAJ:faisal_bin_turki",
    "entity": "NAJ",
    "name": "Faisal bin Turki",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12660,10 +12569,11 @@
     "Q889847"
    ]
   },
-  "SND:talpur_mirs_collegial_rule_of_the_hyderabad_khairpur_and_mirpur_branches": {
-   "id": "SND:talpur_mirs_collegial_rule_of_the_hyderabad_khairpur_and_mirpur_branches",
+  "SND:talpur_mirs": {
+   "id": "SND:talpur_mirs",
    "entity": "SND",
    "name": "Talpur Mirs (collegial rule of the Hyderabad, Khairpur and Mirpur branches)",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12678,6 +12588,7 @@
    "id": "KAL:mehrab_khan_ii",
    "entity": "KAL",
    "name": "Mehrab Khan II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12699,6 +12610,7 @@
    "id": "NAG:raghoji_iii_bhonsle",
    "entity": "NAG",
    "name": "Raghoji III Bhonsle",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12720,6 +12632,7 @@
    "id": "AWA:nasir_ud_din_haidar_shah",
    "entity": "AWA",
    "name": "Nasir-ud-din Haidar Shah",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12741,6 +12654,7 @@
    "id": "GWA:jankoji_rao_scindia_ii",
    "entity": "GWA",
    "name": "Jankoji Rao Scindia II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12771,6 +12685,7 @@
    "id": "HOL:hari_rao_holkar",
    "entity": "HOL",
    "name": "Hari Rao Holkar",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12801,6 +12716,7 @@
    "id": "BRD:sayajirao_gaekwad_ii",
    "entity": "BRD",
    "name": "Sayajirao Gaekwad II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12822,6 +12738,7 @@
    "id": "NEP:bhimsen_thapa",
    "entity": "NEP",
    "name": "Bhimsen Thapa",
+   "aliases": [],
    "roles": [
     "head_of_government"
    ],
@@ -12852,6 +12769,7 @@
    "id": "SKM:tsugphud_namgyal",
    "entity": "SKM",
    "name": "Tsugphud Namgyal",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12869,40 +12787,11 @@
    "match": "none",
    "candidates": []
   },
-  "QNG:daoguang_emperor_minning": {
-   "id": "QNG:daoguang_emperor_minning",
-   "entity": "QNG",
-   "name": "Daoguang Emperor (Minning)",
-   "roles": [
-    "head_of_state"
-   ],
-   "title": "Emperor",
-   "born": "1782-09-16",
-   "died": null,
-   "terms": [
-    {
-     "role": "head_of_state",
-     "from": "1820-10-03",
-     "to": null,
-     "source": "profile"
-    }
-   ],
-   "match": "strong",
-   "qid": "Q334351",
-   "label_en": "Daoguang Emperor",
-   "label_vi": "Đạo Quang",
-   "description_en": "Qing-dynasty Chinese emperor (1782–1850)",
-   "description_vi": "Hoàng đế thứ 8 nhà Thanh (1782–1850)",
-   "wd_born": "1782-09-16",
-   "wd_died": "1850-02-25",
-   "enwiki": "Daoguang Emperor",
-   "viwiki": "Đạo Quang",
-   "image": "清人画旻宁朝服像轴.png"
-  },
   "TIB:tsultrim_gyatso_10th_dalai_lama": {
    "id": "TIB:tsultrim_gyatso_10th_dalai_lama",
    "entity": "TIB",
    "name": "Tsultrim Gyatso, 10th Dalai Lama",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12928,6 +12817,7 @@
    "id": "RYU:sho_iku",
    "entity": "RYU",
    "name": "Shō Iku",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -12954,40 +12844,11 @@
    "viwiki": "Shō Iku",
    "image": "Sho Iku Restitue (replica) 18th century.png"
   },
-  "VNM:minh_mang_nguyen_phuc_am": {
-   "id": "VNM:minh_mang_nguyen_phuc_am",
-   "entity": "VNM",
-   "name": "Minh Mạng (Nguyễn Phúc Đảm)",
-   "roles": [
-    "head_of_state"
-   ],
-   "title": "Emperor (Hoàng đế)",
-   "born": "1791-05-25",
-   "died": null,
-   "terms": [
-    {
-     "role": "head_of_state",
-     "from": "1820-02-14",
-     "to": null,
-     "source": "profile"
-    }
-   ],
-   "match": "strong",
-   "qid": "Q434419",
-   "label_en": "Minh Mạng",
-   "label_vi": "Minh Mạng",
-   "description_en": "Vietnamese emperor (1791–1841)",
-   "description_vi": "hoàng đế thứ hai của nhà Nguyễn",
-   "wd_born": "1791-05-25",
-   "wd_died": "1841-01-20",
-   "enwiki": "Minh Mạng",
-   "viwiki": "Minh Mạng",
-   "image": "Emperor Minh Mang.jpg"
-  },
   "LUA:manthaturath": {
    "id": "LUA:manthaturath",
    "entity": "LUA",
    "name": "Manthaturath",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13018,6 +12879,7 @@
    "id": "BRN:omar_ali_saifuddin_ii",
    "entity": "BRN",
    "name": "Omar Ali Saifuddin II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13048,6 +12910,7 @@
    "id": "SUL:jamalul_kiram_i",
    "entity": "SUL",
    "name": "Jamalul Kiram I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13071,6 +12934,7 @@
    "id": "ACE:alauddin_muhammad_da_ud_syah_i",
    "entity": "ACE",
    "name": "Alauddin Muhammad Da'ud Syah I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13097,10 +12961,11 @@
    "viwiki": null,
    "image": null
   },
-  "HAW:kinau_kaahumanu_ii": {
-   "id": "HAW:kinau_kaahumanu_ii",
+  "HAW:kinau": {
+   "id": "HAW:kinau",
    "entity": "HAW",
    "name": "Kīnaʻu (Kaʻahumanu II)",
+   "aliases": [],
    "roles": [
     "head_of_government"
    ],
@@ -13131,6 +12996,7 @@
    "id": "ETH:ras_ali_ii_of_yejju",
    "entity": "ETH",
    "name": "Ras Ali II of Yejju",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13152,6 +13018,7 @@
    "id": "SHE:sahle_selassie",
    "entity": "SHE",
    "name": "Sahle Selassie",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13182,6 +13049,7 @@
    "id": "BOR:muhammad_al_amin_al_kanemi",
    "entity": "BOR",
    "name": "Muhammad al-Amin al-Kanemi",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13203,6 +13071,7 @@
    "id": "WAD:muhammad_sharif",
    "entity": "WAD",
    "name": "Muhammad Sharif",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13231,6 +13100,7 @@
    "id": "DAR:muhammad_al_fadl",
    "entity": "DAR",
    "name": "Muhammad al-Fadl",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13261,6 +13131,7 @@
    "id": "ASH:kwaku_dua_i",
    "entity": "ASH",
    "name": "Kwaku Dua I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13282,6 +13153,7 @@
    "id": "DAH:ghezo",
    "entity": "DAH",
    "name": "Ghezo",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13308,10 +13180,11 @@
    "viwiki": null,
    "image": "Gezo (2).jpg"
   },
-  "MAS:seku_amadu_ahmadu_lobbo": {
-   "id": "MAS:seku_amadu_ahmadu_lobbo",
+  "MAS:seku_amadu": {
+   "id": "MAS:seku_amadu",
    "entity": "MAS",
    "name": "Seku Amadu (Ahmadu Lobbo)",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13342,6 +13215,7 @@
    "id": "ZUL:dingane_kasenzangakhona",
    "entity": "ZUL",
    "name": "Dingane kaSenzangakhona",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13372,6 +13246,7 @@
    "id": "NDE:mzilikazi",
    "entity": "NDE",
    "name": "Mzilikazi",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13402,6 +13277,7 @@
    "id": "BSO:moshoeshoe_i",
    "entity": "BSO",
    "name": "Moshoeshoe I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13432,6 +13308,7 @@
    "id": "MER:ranavalona_i",
    "entity": "MER",
    "name": "Ranavalona I",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13462,6 +13339,7 @@
    "id": "BUG:suna_ii",
    "entity": "BUG",
    "name": "Suna II",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13483,6 +13361,7 @@
    "id": "TEX:henry_smith",
    "entity": "TEX",
    "name": "Henry Smith",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13511,6 +13390,7 @@
    "id": "CAF:francisco_morazan",
    "entity": "CAF",
    "name": "Francisco Morazán",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13541,6 +13421,7 @@
    "id": "CHL:diego_portales",
    "entity": "CHL",
    "name": "Diego Portales",
+   "aliases": [],
    "roles": [
     "head_of_government"
    ],
@@ -13571,6 +13452,7 @@
    "id": "RGS:bento_goncalves_da_silva",
    "entity": "RGS",
    "name": "Bento Gonçalves da Silva",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],
@@ -13592,6 +13474,7 @@
    "id": "HAI:jean_pierre_boyer",
    "entity": "HAI",
    "name": "Jean-Pierre Boyer",
+   "aliases": [],
    "roles": [
     "head_of_state"
    ],

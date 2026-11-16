@@ -41,10 +41,10 @@
    "fallback": "monogram"
   },
   {
-   "id": "portrait.ABE:frederick_i_duke_of_anhalt",
+   "id": "portrait.ABE:frederick_i",
    "type": "portrait",
    "entity": "ABE",
-   "character": "ABE:frederick_i_duke_of_anhalt",
+   "character": "ABE:frederick_i",
    "name": "Chân dung — Friedrich I xứ Anhalt",
    "description": "Frederik I van Anhalt.",
    "date": "before 1904date QS:P,+1904-00-00T00:00:00Z/7,P1326,+1904-00-",
@@ -72,7 +72,7 @@
     "height": 324,
     "mime": "image/jpeg"
    },
-   "path": "content/portraits/ABE_frederick_i_duke_of_anhalt.webp",
+   "path": "content/portraits/ABE_frederick_i.webp",
    "width": 225,
    "height": 324,
    "bytes": 7450,
@@ -111,7 +111,7 @@
     "height": 324,
     "mime": "image/jpeg"
    },
-   "path": "content/portraits/ABE_frederick_i_duke_of_anhalt.webp",
+   "path": "content/portraits/ABE_frederick_i.webp",
    "width": 225,
    "height": 324,
    "bytes": 7450,
@@ -1172,10 +1172,10 @@
    "fallback": "monogram"
   },
   {
-   "id": "portrait.CAR:carlos_maria_isidro_de_borbon_carlos_v",
+   "id": "portrait.CAR:carlos_maria_isidro_de_borbon",
    "type": "portrait",
    "entity": "CAR",
-   "character": "CAR:carlos_maria_isidro_de_borbon_carlos_v",
+   "character": "CAR:carlos_maria_isidro_de_borbon",
    "name": "Chân dung — Carlos de Borbón y Borbón-Parma",
    "description": "Portrait of en:Infante Carlos María Isidro of Spain, by court painter en:Vicente López Portaña. Carlos was brother of en:Ferdinand VII of Spain, and his next in line in the Spanish en:Salic law of succession due to there being no direct male heir. However, when Ferdinand issued the en:Pragmatic Sanction of 1830, the succession then passed on to his daughter en:Isabella II of Spain as his first chi",
    "date": "first half of 19th centurydate QS:P571,+1850-00-00T00:00:00Z",
@@ -1203,10 +1203,49 @@
     "height": 1819,
     "mime": "image/jpeg"
    },
-   "path": "content/portraits/CAR_carlos_maria_isidro_de_borbon_carlos_v.webp",
+   "path": "content/portraits/CAR_carlos_maria_isidro_de_borbon.webp",
    "width": 330,
    "height": 429,
    "bytes": 33518,
+   "format": "webp",
+   "fallback": "monogram"
+  },
+  {
+   "id": "portrait.CHL:jose_joaquin_prieto",
+   "type": "portrait",
+   "entity": "CHL",
+   "character": "CHL:jose_joaquin_prieto",
+   "name": "Chân dung — José Joaquín Prieto",
+   "description": "Retrato del presidente chileno José Joaquín Prieto",
+   "date": "1838date QS:P571,+1838-00-00T00:00:00Z/9",
+   "period": {
+    "from": null,
+    "to": null
+   },
+   "quality": "supported",
+   "source": {
+    "repository": "Wikimedia Commons",
+    "file": "JJPrieto.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:JJPrieto.JPG",
+    "statement": "wikidata:Q1330#P18"
+   },
+   "license": {
+    "short": "Public domain",
+    "url": null,
+    "attribution_required": false
+   },
+   "author": "Manuel Palacios (attributed)",
+   "credit": "Museo Histórico Nacional de Chile",
+   "restrictions": null,
+   "original": {
+    "width": 400,
+    "height": 500,
+    "mime": "image/jpeg"
+   },
+   "path": "content/portraits/CHL_jose_joaquin_prieto.webp",
+   "width": 360,
+   "height": 450,
+   "bytes": 40218,
    "format": "webp",
    "fallback": "monogram"
   },
@@ -2498,10 +2537,10 @@
    "fallback": "monogram"
   },
   {
-   "id": "portrait.HAW:kinau_kaahumanu_ii",
+   "id": "portrait.HAW:kinau",
    "type": "portrait",
    "entity": "HAW",
-   "character": "HAW:kinau_kaahumanu_ii",
+   "character": "HAW:kinau",
    "name": "Chân dung — Kīnaʻu",
    "description": "Princess Kinau [of Hawaii], watercolor and ink wash over graphite by Barthélemy Lauvergne, 1836, Honolulu Academy of Arts",
    "date": "1836date QS:P571,+1836-00-00T00:00:00Z/9",
@@ -2529,7 +2568,7 @@
     "height": 866,
     "mime": "image/jpeg"
    },
-   "path": "content/portraits/HAW_kinau_kaahumanu_ii.webp",
+   "path": "content/portraits/HAW_kinau.webp",
    "width": 330,
    "height": 423,
    "bytes": 20306,
@@ -2771,6 +2810,45 @@
    "fallback": "monogram"
   },
   {
+   "id": "portrait.HYD:afzal_ad_dawlah",
+   "type": "portrait",
+   "entity": "HYD",
+   "character": "HYD:afzal_ad_dawlah",
+   "name": "Chân dung — Asaf Jah V of Hyderabad",
+   "description": "Afzal ud-Daula",
+   "date": "Unknown date",
+   "period": {
+    "from": null,
+    "to": null
+   },
+   "quality": "supported",
+   "source": {
+    "repository": "Wikimedia Commons",
+    "file": "Afzal ud-Daula.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Afzal_ud-Daula.jpg",
+    "statement": "wikidata:Q720313#P18"
+   },
+   "license": {
+    "short": "Public domain",
+    "url": null,
+    "attribution_required": false
+   },
+   "author": "Unknown authorUnknown author",
+   "credit": "http://www.royalark.net/India/hyder9.htm",
+   "restrictions": null,
+   "original": {
+    "width": 250,
+    "height": 470,
+    "mime": "image/jpeg"
+   },
+   "path": "content/portraits/HYD_afzal_ad_dawlah.webp",
+   "width": 245,
+   "height": 460,
+   "bytes": 17810,
+   "format": "webp",
+   "fallback": "monogram"
+  },
+  {
    "id": "portrait.HYD:mahbub_ali_khan",
    "type": "portrait",
    "entity": "HYD",
@@ -2810,10 +2888,10 @@
    "fallback": "monogram"
   },
   {
-   "id": "portrait.HYD:nasir_ud_daula_asaf_jah_iv",
+   "id": "portrait.HYD:nasir_ud_daula",
    "type": "portrait",
    "entity": "HYD",
-   "character": "HYD:nasir_ud_daula_asaf_jah_iv",
+   "character": "HYD:nasir_ud_daula",
    "name": "Chân dung — Asaf Jah IV of Hyderabad",
    "description": "Nasir_ud-Daula, Asaf Jah IV",
    "date": "Unknown date",
@@ -2841,7 +2919,7 @@
     "height": 430,
     "mime": "image/jpeg"
    },
-   "path": "content/portraits/HYD_nasir_ud_daula_asaf_jah_iv.webp",
+   "path": "content/portraits/HYD_nasir_ud_daula.webp",
    "width": 250,
    "height": 430,
    "bytes": 14730,
@@ -3317,6 +3395,45 @@
    "fallback": "monogram"
   },
   {
+   "id": "portrait.MEX:ignacio_comonfort",
+   "type": "portrait",
+   "entity": "MEX",
+   "character": "MEX:ignacio_comonfort",
+   "name": "Chân dung — Ignacio Comonfort",
+   "description": "Ignacio Comonfort, president of Mexico, 1856-58",
+   "date": null,
+   "period": {
+    "from": null,
+    "to": null
+   },
+   "quality": "uncertain",
+   "source": {
+    "repository": "Wikimedia Commons",
+    "file": "Ignacio Comonfort.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Ignacio_Comonfort.jpg",
+    "statement": "wikidata:Q449399#P18"
+   },
+   "license": {
+    "short": "Public domain",
+    "url": null,
+    "attribution_required": false
+   },
+   "author": "",
+   "credit": "http://www.latinamericanstudies.org/comonfort.htm",
+   "restrictions": null,
+   "original": {
+    "width": 437,
+    "height": 580,
+    "mime": "image/jpeg"
+   },
+   "path": "content/portraits/MEX_ignacio_comonfort.webp",
+   "width": 347,
+   "height": 460,
+   "bytes": 38166,
+   "format": "webp",
+   "fallback": "monogram"
+  },
+  {
    "id": "portrait.MEX:jose_joaquin_de_herrera",
    "type": "portrait",
    "entity": "MEX",
@@ -3586,6 +3703,45 @@
    "width": 321,
    "height": 460,
    "bytes": 5396,
+   "format": "webp",
+   "fallback": "monogram"
+  },
+  {
+   "id": "portrait.MNT:danilo_i",
+   "type": "portrait",
+   "entity": "MNT",
+   "character": "MNT:danilo_i",
+   "name": "Chân dung — Danilo I, Prince of Montenegro",
+   "description": "Knjaz Danilo Petrović, talbotipija Anastasa Jovanovića 1852 - 1853. godine",
+   "date": "between 1852 and 1853date QS:P,+1852-00-00T00:00:00Z/8,P1319",
+   "period": {
+    "from": null,
+    "to": null
+   },
+   "quality": "supported",
+   "source": {
+    "repository": "Wikimedia Commons",
+    "file": "Knjaz Danilo Petrović, talbotipija Anastasa Jovanovića 1852 - 1853. godine (1).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Knjaz_Danilo_Petrovi%C4%87,_talbotipija_Anastasa_Jovanovi%C4%87a_1852_-_1853._godine_(1).jpg",
+    "statement": "wikidata:Q1262875#P18"
+   },
+   "license": {
+    "short": "CC BY-SA 4.0",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "attribution_required": true
+   },
+   "author": "Anastas Jovanović",
+   "credit": "Unknown sourceUnknown source",
+   "restrictions": null,
+   "original": {
+    "width": 415,
+    "height": 569,
+    "mime": "image/jpeg"
+   },
+   "path": "content/portraits/MNT_danilo_i.webp",
+   "width": 336,
+   "height": 460,
+   "bytes": 20302,
    "format": "webp",
    "fallback": "monogram"
   },
@@ -5540,45 +5696,6 @@
    "fallback": "monogram"
   },
   {
-   "id": "portrait.QNG:daoguang_emperor_minning",
-   "type": "portrait",
-   "entity": "QNG",
-   "character": "QNG:daoguang_emperor_minning",
-   "name": "Chân dung — Đạo Quang",
-   "description": "清人画旻宁朝服像轴.png",
-   "date": "between 1820 and 1850 (Daoguang period)",
-   "period": {
-    "from": null,
-    "to": null
-   },
-   "quality": "supported",
-   "source": {
-    "repository": "Wikimedia Commons",
-    "file": "清人画旻宁朝服像轴.png",
-    "page": "https://commons.wikimedia.org/wiki/File:%E6%B8%85%E4%BA%BA%E7%94%BB%E6%97%BB%E5%AE%81%E6%9C%9D%E6%9C%8D%E5%83%8F%E8%BD%B4.png",
-    "statement": "wikidata:Q334351#P18"
-   },
-   "license": {
-    "short": "Public domain",
-    "url": null,
-    "attribution_required": false
-   },
-   "author": "Unknown authorUnknown author",
-   "credit": "https://digicol.dpm.org.cn/cultural/detail?id=4203de6a7e52458788362a27f7810e18",
-   "restrictions": null,
-   "original": {
-    "width": 2816,
-    "height": 4800,
-    "mime": "image/png"
-   },
-   "path": "content/portraits/QNG_daoguang_emperor.webp",
-   "width": 270,
-   "height": 460,
-   "bytes": 35034,
-   "format": "webp",
-   "fallback": "monogram"
-  },
-  {
    "id": "portrait.QNG:guangxu_emperor",
    "type": "portrait",
    "entity": "QNG",
@@ -5618,10 +5735,10 @@
    "fallback": "monogram"
   },
   {
-   "id": "portrait.QNG:tongzhi_emperor_regency_of_cixi_and_ci_an",
+   "id": "portrait.QNG:tongzhi_emperor",
    "type": "portrait",
    "entity": "QNG",
-   "character": "QNG:tongzhi_emperor_regency_of_cixi_and_ci_an",
+   "character": "QNG:tongzhi_emperor",
    "name": "Chân dung — Đồng Trị",
    "description": "\"Portrait of Emperor Muzong Tongzhi of the Qing Dynasty\"",
    "date": "Mid 19th Century",
@@ -5649,7 +5766,7 @@
     "height": 2467,
     "mime": "image/jpeg"
    },
-   "path": "content/portraits/QNG_tongzhi_emperor_regency_of_cixi_and_ci_an.webp",
+   "path": "content/portraits/QNG_tongzhi_emperor.webp",
    "width": 273,
    "height": 460,
    "bytes": 46600,
@@ -6086,45 +6203,6 @@
    "fallback": "monogram"
   },
   {
-   "id": "portrait.SER:mihailo_obrenovic_iii_second_reign",
-   "type": "portrait",
-   "entity": "SER",
-   "character": "SER:mihailo_obrenovic_iii_second_reign",
-   "name": "Chân dung — Mihailo Obrenović III",
-   "description": "Mihailo Obrenović III, Prince of Serbia (1823-1868)",
-   "date": null,
-   "period": {
-    "from": null,
-    "to": null
-   },
-   "quality": "supported",
-   "source": {
-    "repository": "Wikimedia Commons",
-    "file": "Mihailo Obrenović III.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File:Mihailo_Obrenovi%C4%87_III.jpg",
-    "statement": "wikidata:Q434252#P18"
-   },
-   "license": {
-    "short": "Public domain",
-    "url": null,
-    "attribution_required": false
-   },
-   "author": "Johann Böss",
-   "credit": "Johann Böss",
-   "restrictions": null,
-   "original": {
-    "width": 421,
-    "height": 597,
-    "mime": "image/jpeg"
-   },
-   "path": "content/portraits/SER_mihailo_obrenovic_iii.webp",
-   "width": 324,
-   "height": 460,
-   "bytes": 23748,
-   "format": "webp",
-   "fallback": "monogram"
-  },
-  {
    "id": "portrait.SER:milan_obrenovic_ii",
    "type": "portrait",
    "entity": "SER",
@@ -6203,10 +6281,10 @@
    "fallback": "monogram"
   },
   {
-   "id": "portrait.SIA:chulalongkorn_rama_v",
+   "id": "portrait.SIA:chulalongkorn",
    "type": "portrait",
    "entity": "SIA",
-   "character": "SIA:chulalongkorn_rama_v",
+   "character": "SIA:chulalongkorn",
    "name": "Chân dung — Rama V",
    "description": "King Chulalongkorn or Rama V of Thailand. Cropped image downloaded from the source listed below.",
    "date": "Date unknown, but subject died in 1910.",
@@ -6234,7 +6312,7 @@
     "height": 4036,
     "mime": "image/jpeg"
    },
-   "path": "content/portraits/SIA_chulalongkorn_rama_v.webp",
+   "path": "content/portraits/SIA_chulalongkorn.webp",
    "width": 330,
    "height": 420,
    "bytes": 34650,
@@ -6242,10 +6320,10 @@
    "fallback": "monogram"
   },
   {
-   "id": "portrait.SIA:mongkut_rama_iv",
+   "id": "portrait.SIA:mongkut",
    "type": "portrait",
    "entity": "SIA",
-   "character": "SIA:mongkut_rama_iv",
+   "character": "SIA:mongkut",
    "name": "Chân dung — Rama IV",
    "description": "Photograph; Photographs",
    "date": "1865date QS:P571,+1865-00-00T00:00:00Z/9",
@@ -6273,7 +6351,7 @@
     "height": 3142,
     "mime": "image/jpeg"
    },
-   "path": "content/portraits/SIA_mongkut_rama_iv.webp",
+   "path": "content/portraits/SIA_mongkut.webp",
    "width": 316,
    "height": 460,
    "bytes": 36144,
@@ -6281,10 +6359,10 @@
    "fallback": "monogram"
   },
   {
-   "id": "portrait.SIA:nangklao_rama_iii",
+   "id": "portrait.SIA:nangklao",
    "type": "portrait",
    "entity": "SIA",
-   "character": "SIA:nangklao_rama_iii",
+   "character": "SIA:nangklao",
    "name": "Chân dung — Rama III",
    "description": "Portrait of Nangklao (King Rama III of Siam), which is displayed in the Chakri Mahaprasat Hall at the Grand Palace, Bangkok. Portrait created during the reign of Chulalongkorn (King Rama V of Siam), meaning it was created no later than 1910.",
    "date": "before 1910",
@@ -6312,7 +6390,7 @@
     "height": 3940,
     "mime": "image/jpeg"
    },
-   "path": "content/portraits/SIA_nangklao_rama_iii.webp",
+   "path": "content/portraits/SIA_nangklao.webp",
    "width": 279,
    "height": 460,
    "bytes": 38252,
@@ -6515,10 +6593,10 @@
    "fallback": "monogram"
   },
   {
-   "id": "portrait.SPA:alfonso_xiii_regency_of_maria_christina_of_austria",
+   "id": "portrait.SPA:alfonso_xiii",
    "type": "portrait",
    "entity": "SPA",
-   "character": "SPA:alfonso_xiii_regency_of_maria_christina_of_austria",
+   "character": "SPA:alfonso_xiii",
    "name": "Chân dung — Alfonso XIII của Tây Ban Nha",
    "description": "Portrait of King Alfonso XIII of Spain.",
    "date": "1916",
@@ -6546,7 +6624,7 @@
     "height": 3000,
     "mime": "image/jpeg"
    },
-   "path": "content/portraits/SPA_alfonso_xiii_regency_of_maria_christina_of_austria.webp",
+   "path": "content/portraits/SPA_alfonso_xiii.webp",
    "width": 330,
    "height": 452,
    "bytes": 39006,
@@ -6554,10 +6632,10 @@
    "fallback": "monogram"
   },
   {
-   "id": "portrait.SWE:charles_xiv_john_jean_baptiste_bernadotte",
+   "id": "portrait.SWE:charles_xiv_john",
    "type": "portrait",
    "entity": "SWE",
-   "character": "SWE:charles_xiv_john_jean_baptiste_bernadotte",
+   "character": "SWE:charles_xiv_john",
    "name": "Chân dung — Karl XIV Johan của Thụy Điển",
    "description": "CarlXIVJohnSweden.jpg",
    "date": null,
@@ -6585,7 +6663,7 @@
     "height": 590,
     "mime": "image/jpeg"
    },
-   "path": "content/portraits/SWE_charles_xiv_john_jean_baptiste_bernadotte.webp",
+   "path": "content/portraits/SWE_charles_xiv_john.webp",
    "width": 346,
    "height": 460,
    "bytes": 27520,
@@ -8831,11 +8909,6 @@
    "reason": "download rate-limited by Wikimedia; re-run to fetch"
   },
   {
-   "person": "CHL:jose_joaquin_prieto",
-   "file": "JJPrieto.JPG",
-   "reason": "download rate-limited by Wikimedia; re-run to fetch"
-  },
-  {
    "person": "DEN:frederick_vi",
    "file": "Frederik6coronation.jpg",
    "reason": "download rate-limited by Wikimedia; re-run to fetch"
@@ -8848,16 +8921,6 @@
   {
    "person": "EGY:ibrahim_pasha",
    "file": "Ibrahim Pasha, Larivière.jpg",
-   "reason": "download rate-limited by Wikimedia; re-run to fetch"
-  },
-  {
-   "person": "HYD:afzal_ad_dawlah",
-   "file": "Afzal ud-Daula.jpg",
-   "reason": "download rate-limited by Wikimedia; re-run to fetch"
-  },
-  {
-   "person": "MEX:ignacio_comonfort",
-   "file": "Ignacio Comonfort.jpg",
    "reason": "download rate-limited by Wikimedia; re-run to fetch"
   },
   {
@@ -8893,11 +8956,6 @@
   {
    "person": "MEX:valentin_canalizo",
    "file": "Valentín Canalizo.jpg",
-   "reason": "download rate-limited by Wikimedia; re-run to fetch"
-  },
-  {
-   "person": "MNT:danilo_i",
-   "file": "Knjaz Danilo Petrović, talbotipija Anastasa Jovanovića 1852 - 1853. godine (1).jpg",
    "reason": "download rate-limited by Wikimedia; re-run to fetch"
   },
   {
@@ -9002,11 +9060,6 @@
   },
   {
    "person": "VNM:minh_mang",
-   "file": "Emperor Minh Mang.jpg",
-   "reason": "download rate-limited by Wikimedia; re-run to fetch"
-  },
-  {
-   "person": "VNM:minh_mang_nguyen_phuc_am",
    "file": "Emperor Minh Mang.jpg",
    "reason": "download rate-limited by Wikimedia; re-run to fetch"
   }

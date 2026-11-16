@@ -31,15 +31,21 @@ def yr(s):
 
 
 people = {}
+def base(name):
+    return re.sub(r'\s*\(.*\)\s*$', '', name).strip()
+
 def add(eid, name, role, title=None, born=None, died=None, frm=None, to=None, source=None):
+    """One record per person and entity: 'Minh Mạng' and 'Minh Mạng (Nguyễn Phúc Đảm)' are the same person."""
     if not name:
         return
-    k = key(eid, name)
-    p = people.setdefault(k, {'id': k, 'entity': eid, 'name': name, 'roles': [], 'title': title, 'born': born, 'died': died, 'terms': []})
+    k = key(eid, base(name))
+    p = people.setdefault(k, {'id': k, 'entity': eid, 'name': name, 'aliases': [], 'roles': [], 'title': title, 'born': born, 'died': died, 'terms': []})
+    if name != p['name'] and name not in p['aliases']:
+        p['aliases'].append(name)
     if role not in p['roles']:
         p['roles'].append(role)
     p['born'] = p['born'] or born; p['died'] = p['died'] or died; p['title'] = p['title'] or title
-    if frm:
+    if frm and not any(t['role'] == role and t['from'][:4] == str(frm)[:4] for t in p['terms']):
         p['terms'].append({'role': role, 'from': frm, 'to': to, 'source': source})
 
 for eid, recs in db['leaders'].items():
@@ -111,7 +117,7 @@ def sparql(values, key):
 def lit(s, lang):
     return '"' + s.replace('\\', '\\\\').replace('"', '\\"') + '"@' + lang
 
-names = sorted({v for p in people.values() for v in variants(p['name'])})
+names = sorted({v for p in people.values() for n in [p['name']] + p['aliases'] for v in variants(n)})
 vals = []
 for n in names:
     vals.append(lit(n, 'en'))
@@ -142,7 +148,7 @@ for p in people.values():
     ent = E[p['entity']]
     words = {w.lower() for w in re.findall(r'[A-Za-zÀ-ỹ]{4,}', (ent['en'] or '') + ' ' + (p['title'] or '')) if w.lower() not in {'kingdom', 'empire', 'state', 'republic', 'principality', 'duchy', 'grand', 'free', 'city', 'under', 'with'}}
     pool = {}
-    for v in variants(p['name']):
+    for v in [x for n in [p['name']] + p['aliases'] for x in variants(n)]:
         for q, info in cand.get(v, {}).items():
             pool[q] = info
     best = None; humans = []

@@ -6480,7 +6480,7 @@
     }
    ]
   },
-  "SPA:alfonso_xiii_regency_of_maria_christina_of_austria": {
+  "SPA:alfonso_xiii": {
    "texts": [
     {
      "lang": "vi",
@@ -6714,6 +6714,34 @@
      "url": "https://en.wikipedia.org/wiki/Christian_IX",
      "revid": 1385091399,
      "retrieved": "2026-11-11",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+     "author": "Wikipedia contributors"
+    }
+   ]
+  },
+  "SWE:charles_xiv_john": {
+   "texts": [
+    {
+     "lang": "vi",
+     "text": "Karl XIV Johan, tên khai sinh: Jean-Baptiste Bernadotte, về sau là Jean-Baptiste Jules Bernadotte (26 tháng 1 năm 1763 – 8 tháng 3 năm 1844), con trai thứ hai của luật sư Henri nhà Bernadotte, là Quốc vương Thụy Điển và Na Uy với các tước hiệu theo tiếng Thụy Điển là Karl XIV Johan và tiếng Na Uy là Karl III Johan từ năm 1818 đến khi băng hà. Sau khi lên ngôi hoàng đế, Napoleon đã phong Jean-Baptiste cùng 17 người khác làm Thống chế Pháp và đến năm 1805, ông được trao tước vị Thân vương xứ Pontecorvo. Năm 1810, ông được Napoleon thu xếp để trở thành người thừa kế của Karl XIII của Thụy Điển, đây là dấu mốc quan trọng để Vương tộc Bernadotte ra đời và trị vị Vương quốc Thụy Điển cho đến tận ngày nay.\nDù sinh ra tại nước Pháp, nhưng ông luôn bộc lộc tính cách khác hẳn với những người Pháp đương thời. Ông được cha đặt tên là Jean-Baptiste để phân biệt với người anh cả, Nam tước Jean-Évangeliste Bernadotte. Sau khi cha mất năm 1780, ông gia nhập quân ngũ và phục vụ cho trung đoàn 60 của Pháp. Theo ký ức của những người lính dưới quyền ông, Jean-Baptiste Jules Bernadotte là một người đàn ông cao lớn, đẹp trai: \"ông cao 5 feet, tóc đen, lông mày rậm, mắt nâu, mũi dài và nhọn, miệng nhỏ với đôi môi mỏng, cằm khuôn mặt tròn ngắn xung quanh và toàn thân, trán hẹp với hai vết sẹo, một ở giữa, một bên trên lông mày, gây ra bởi một viên đá nhỏ \".",
+     "truncated": true,
+     "article": "Karl XIV Johan của Thụy Điển",
+     "url": "https://vi.wikipedia.org/wiki/Karl_XIV_Johan_c%E1%BB%A7a_Th%E1%BB%A5y_%C4%90i%E1%BB%83n",
+     "revid": 74476600,
+     "retrieved": "2025-11-22",
+     "license": "CC BY-SA 4.0",
+     "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+     "author": "Wikipedia contributors"
+    },
+    {
+     "lang": "en",
+     "text": "Charles XIV John (Swedish: Karl XIV Johan; 26 January 1763 – 8 March 1844) was King of Sweden and Norway from 1818 until his death in 1844 and the first monarch of the Bernadotte dynasty. In Norway, he is known as Charles III John (Norwegian: Karl III Johan); before he became royalty in Sweden, his name was Jean-Baptiste Jules Bernadotte. During the Napoleonic Wars, he participated in battles as a Marshal of France.\nBorn in Pau in the region of southern France known as Béarn, Bernadotte joined the French Royal Army in 1780. Following the outbreak of the French Revolution, he demonstrated great military talent, rising rapidly through the ranks and becoming a brigadier general by 1794. He served with distinction in Italy and Germany, and was briefly Minister of War. His relationship with Napoleon was turbulent; nevertheless, Napoleon named him a Marshal of the Empire on the proclamation of the French Empire. Bernadotte played a significant role in the French victory at Austerlitz, and was made Prince of Pontecorvo as a reward. His marriage to Désirée Clary, whose sister was married to Joseph Bonaparte, made Bernadotte a member of the extended Imperial family.",
+     "truncated": true,
+     "article": "Charles XIV John",
+     "url": "https://en.wikipedia.org/wiki/Charles_XIV_John",
+     "revid": 1385467705,
+     "retrieved": "2026-11-13",
      "license": "CC BY-SA 4.0",
      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
      "author": "Wikipedia contributors"
@@ -7532,22 +7560,6 @@
     }
    ]
   },
-  "SER:mihailo_obrenovic_iii_second_reign": {
-   "texts": [
-    {
-     "lang": "en",
-     "text": "Mihailo Obrenović III (Serbian Cyrillic: Михаило Обреновић, romanized: Mihailo Obrenović; 16 September 1823 – 10 June 1868) was the ruling Prince of Serbia from 1839 to 1842 and again from 1860 to 1868.\nHis first reign ended when he was deposed in 1842, and his second ended when he was assassinated in 1868. He is considered to be a great reformer and the most enlightened ruler of modern Serbia, as one of the European enlightened absolute monarchs. He succeeded in negotiating a withdrawal of Ottoman troops from Serbian soil, while retaining certain Serbian ties to Constantinople. He advocated the idea of a Balkan federation against the Ottoman Empire.",
-     "truncated": false,
-     "article": "Mihailo Obrenović, Prince of Serbia",
-     "url": "https://en.wikipedia.org/wiki/Mihailo_Obrenovi%C4%87,_Prince_of_Serbia",
-     "revid": 1359726029,
-     "retrieved": "2026-06-16",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-     "author": "Wikipedia contributors"
-    }
-   ]
-  },
   "PRS:mohammad_shah_qajar": {
    "texts": [
     {
@@ -7632,7 +7644,7 @@
     }
    ]
   },
-  "QNG:tongzhi_emperor_regency_of_cixi_and_ci_an": {
+  "QNG:tongzhi_emperor": {
    "texts": [
     {
      "lang": "vi",
@@ -7928,7 +7940,7 @@
     }
    ]
   },
-  "SIA:nangklao_rama_iii": {
+  "SIA:nangklao": {
    "texts": [
     {
      "lang": "vi",
@@ -7956,7 +7968,7 @@
     }
    ]
   },
-  "SIA:mongkut_rama_iv": {
+  "SIA:mongkut": {
    "texts": [
     {
      "lang": "vi",
@@ -7984,7 +7996,7 @@
     }
    ]
   },
-  "SIA:chulalongkorn_rama_v": {
+  "SIA:chulalongkorn": {
    "texts": [
     {
      "lang": "vi",
@@ -9128,7 +9140,7 @@
     }
    ]
   },
-  "ABE:frederick_i_duke_of_anhalt": {
+  "ABE:frederick_i": {
    "texts": [
     {
      "lang": "vi",
@@ -9596,7 +9608,7 @@
     }
    ]
   },
-  "HYD:nasir_ud_daula_asaf_jah_iv": {
+  "HYD:nasir_ud_daula": {
    "texts": [
     {
      "lang": "en",
@@ -9736,7 +9748,7 @@
     }
    ]
   },
-  "CAR:carlos_maria_isidro_de_borbon_carlos_v": {
+  "CAR:carlos_maria_isidro_de_borbon": {
    "texts": [
     {
      "lang": "en",
@@ -11452,34 +11464,6 @@
     }
    ]
   },
-  "SWE:charles_xiv_john_jean_baptiste_bernadotte": {
-   "texts": [
-    {
-     "lang": "vi",
-     "text": "Karl XIV Johan, tên khai sinh: Jean-Baptiste Bernadotte, về sau là Jean-Baptiste Jules Bernadotte (26 tháng 1 năm 1763 – 8 tháng 3 năm 1844), con trai thứ hai của luật sư Henri nhà Bernadotte, là Quốc vương Thụy Điển và Na Uy với các tước hiệu theo tiếng Thụy Điển là Karl XIV Johan và tiếng Na Uy là Karl III Johan từ năm 1818 đến khi băng hà. Sau khi lên ngôi hoàng đế, Napoleon đã phong Jean-Baptiste cùng 17 người khác làm Thống chế Pháp và đến năm 1805, ông được trao tước vị Thân vương xứ Pontecorvo. Năm 1810, ông được Napoleon thu xếp để trở thành người thừa kế của Karl XIII của Thụy Điển, đây là dấu mốc quan trọng để Vương tộc Bernadotte ra đời và trị vị Vương quốc Thụy Điển cho đến tận ngày nay.\nDù sinh ra tại nước Pháp, nhưng ông luôn bộc lộc tính cách khác hẳn với những người Pháp đương thời. Ông được cha đặt tên là Jean-Baptiste để phân biệt với người anh cả, Nam tước Jean-Évangeliste Bernadotte. Sau khi cha mất năm 1780, ông gia nhập quân ngũ và phục vụ cho trung đoàn 60 của Pháp. Theo ký ức của những người lính dưới quyền ông, Jean-Baptiste Jules Bernadotte là một người đàn ông cao lớn, đẹp trai: \"ông cao 5 feet, tóc đen, lông mày rậm, mắt nâu, mũi dài và nhọn, miệng nhỏ với đôi môi mỏng, cằm khuôn mặt tròn ngắn xung quanh và toàn thân, trán hẹp với hai vết sẹo, một ở giữa, một bên trên lông mày, gây ra bởi một viên đá nhỏ \".",
-     "truncated": true,
-     "article": "Karl XIV Johan của Thụy Điển",
-     "url": "https://vi.wikipedia.org/wiki/Karl_XIV_Johan_c%E1%BB%A7a_Th%E1%BB%A5y_%C4%90i%E1%BB%83n",
-     "revid": 74476600,
-     "retrieved": "2025-11-22",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-     "author": "Wikipedia contributors"
-    },
-    {
-     "lang": "en",
-     "text": "Charles XIV John (Swedish: Karl XIV Johan; 26 January 1763 – 8 March 1844) was King of Sweden and Norway from 1818 until his death in 1844 and the first monarch of the Bernadotte dynasty. In Norway, he is known as Charles III John (Norwegian: Karl III Johan); before he became royalty in Sweden, his name was Jean-Baptiste Jules Bernadotte. During the Napoleonic Wars, he participated in battles as a Marshal of France.\nBorn in Pau in the region of southern France known as Béarn, Bernadotte joined the French Royal Army in 1780. Following the outbreak of the French Revolution, he demonstrated great military talent, rising rapidly through the ranks and becoming a brigadier general by 1794. He served with distinction in Italy and Germany, and was briefly Minister of War. His relationship with Napoleon was turbulent; nevertheless, Napoleon named him a Marshal of the Empire on the proclamation of the French Empire. Bernadotte played a significant role in the French victory at Austerlitz, and was made Prince of Pontecorvo as a reward. His marriage to Désirée Clary, whose sister was married to Joseph Bonaparte, made Bernadotte a member of the extended Imperial family.",
-     "truncated": true,
-     "article": "Charles XIV John",
-     "url": "https://en.wikipedia.org/wiki/Charles_XIV_John",
-     "revid": 1385467705,
-     "retrieved": "2026-11-13",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-     "author": "Wikipedia contributors"
-    }
-   ]
-  },
   "RUS:karl_nesselrode": {
    "texts": [
     {
@@ -11704,34 +11688,6 @@
     }
    ]
   },
-  "QNG:daoguang_emperor_minning": {
-   "texts": [
-    {
-     "lang": "vi",
-     "text": "Thanh Tuyên Tông (chữ Hán: 清宣宗, 16 tháng 9 năm 1782 – 26 tháng 2 năm 1850), Tây Tạng tôn vị Văn Thù Hoàng đế (文殊皇帝), là vị Hoàng đế thứ 8 của triều đại nhà Thanh, cai trị Trung Quốc từ năm 1820 đến 1850, tổng 30 năm. Cả triều đại của ông chỉ dùng niên hiệu Đạo Quang (道光), còn gọi là Đạo Quang Đế (道光帝).\nThời kỳ cai trị của ông gắn liền với sự kiện rất quan trọng trong lịch sử nhà Thanh đó là cuộc Chiến tranh Nha phiến và ngăn chặn truyền bá đạo Công giáo vào Trung Hoa. Cuộc chiến tranh này đã mở đầu cho việc các nước Phương Tây xâm nhập và xâu xé Trung Quốc.\nTrong 30 năm tại vị, Đạo Quang Đế lao tâm cần chính, một lòng vì nước vì dân, xứng đáng là vị vua cần kiệm thương dân. Nhưng ông sinh bất phùng thời, làm vua đúng lúc triều chính hủ bại, quan lại bất tài, giặc ngoài lấn lướt, vận nước lung lay, không đủ tài năng để xoay vần thế cục vô phương cứu vãn. Thời kỳ của ông cùng cha là Gia Khánh Đế báo hiệu sự suy vong của Đại Thanh, gọi là [Gia Đạo trung suy; 嘉道中衰].",
-     "truncated": false,
-     "article": "Đạo Quang",
-     "url": "https://vi.wikipedia.org/wiki/%C4%90%E1%BA%A1o_Quang",
-     "revid": 75575883,
-     "retrieved": "2026-09-21",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-     "author": "Wikipedia contributors"
-    },
-    {
-     "lang": "en",
-     "text": "The Daoguang Emperor (16 September 1782 – 26 February 1850), also known by his temple name Emperor Xuanzong of Qing, personal name Minning, was the seventh emperor of the Qing dynasty, and the sixth Qing emperor to rule over China proper. His reign was marked by external disaster and internal rebellion. These include the First Opium War and the beginning of the Taiping Rebellion which nearly brought down the dynasty. The historian Jonathan Spence characterizes the Daoguang Emperor as a well meaning but ineffective man who promoted officials who presented a purist view even if they had nothing to say about the domestic and foreign problems surrounding the dynasty.",
-     "truncated": false,
-     "article": "Daoguang Emperor",
-     "url": "https://en.wikipedia.org/wiki/Daoguang_Emperor",
-     "revid": 1376278117,
-     "retrieved": "2026-09-23",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-     "author": "Wikipedia contributors"
-    }
-   ]
-  },
   "RYU:sho_iku": {
    "texts": [
     {
@@ -11754,34 +11710,6 @@
      "url": "https://en.wikipedia.org/wiki/Sh%C5%8D_Iku",
      "revid": 1361979180,
      "retrieved": "2026-07-01",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-     "author": "Wikipedia contributors"
-    }
-   ]
-  },
-  "VNM:minh_mang_nguyen_phuc_am": {
-   "texts": [
-    {
-     "lang": "vi",
-     "text": "Minh Mạng hay Minh Mệnh (chữ Hán: 明命, 25 tháng 5 năm 1791 – 20 tháng 1 năm 1841), húy là Nguyễn Phúc Đảm (阮福膽), là vị hoàng đế thứ hai của triều Nguyễn trị vì từ năm 1820 đến khi qua đời, được truy tôn miếu hiệu là Nguyễn Thánh Tổ. Ông là vị vua đã thực hiện những cuộc chinh phạt về phía tây, đưa lãnh thổ Việt Nam đạt diện tích lớn nhất trong lịch sử, phía bắc giáp nhà Thanh, phía đông giáp biển, phía nam tới Vịnh Xiêm, phía tây vượt sông Mekong, bao trọn vùng hồ Tonle Sap. Trong thời kỳ của ông, Việt Nam đã đẩy mạnh thực thi chủ quyền ở biển Đông thông qua việc xuất bản Đại Nam nhất thống toàn đồ, cử lực lượng định kỳ ra Hoàng Sa và Trường Sa để đo đạc hải trình, dựng bia chủ quyền, trồng cây và lập miếu thờ.\nTrong 21 năm trị vì (1820-1841), Minh Mạng ban bố hàng loạt cải cách về hành chính. Ông đổi tên nước Việt Nam thành Đại Nam, lập thêm Nội các và Cơ mật viện, bãi bỏ chức Tổng trấn Bắc thành và Gia Định thành, đổi trấn thành tỉnh, củng cố chế độ lưu quan ở miền núi. Quân đội cũng được chú trọng xây dựng (do liên tục diễn ra nội loạn và chiến tranh giành lãnh thổ với lân bang). Minh Mạng còn cử quan đôn đốc khai hoang ở ven biển Bắc kỳ và Nam kỳ. Ngoài ra, ông rất quan tâm đến khoa cử Nho giáo, năm 1822 ông mở lại các kì thi Hội, thi Đình ở kinh đô để tuyển chọn nhân tài. Ông nghiêm cấm truyền bá đạo Cơ Đốc vì cho rằng đó là thứ tà đạo làm băng hoại truyền thống dân tộc.",
-     "truncated": true,
-     "article": "Minh Mạng",
-     "url": "https://vi.wikipedia.org/wiki/Minh_M%E1%BA%A1ng",
-     "revid": 75667191,
-     "retrieved": "2026-10-25",
-     "license": "CC BY-SA 4.0",
-     "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-     "author": "Wikipedia contributors"
-    },
-    {
-     "lang": "en",
-     "text": "Minh Mạng (Hanoi: [mïŋ˧ maːŋ˧˨ʔ]), also known as Minh Mệnh (Hanoi: [mïŋ˧ məjŋ̟˧˨ʔ],  \nchữ Hán:  明 命, lit. 'the bright favour of Heaven'; 25 May 1791 – 20 January 1841; born Nguyễn Phúc Đảm (阮福膽), also known as Nguyễn Phúc Kiểu), was the second emperor of the Nguyễn dynasty of Vietnam, reigning from 14 February 1820 until his death, on 20 January 1841. He was the fourth son of Emperor Gia Long, whose eldest son, Nguyễn Phúc Cảnh, had died in 1801. He was well known for his opposition to French involvement in Vietnam, completing the final Vietnamese conquest of Champa, temporary annexation of Cambodia, and his rigid Confucian orthodoxy.",
-     "truncated": false,
-     "article": "Minh Mạng",
-     "url": "https://en.wikipedia.org/wiki/Minh_M%E1%BA%A1ng",
-     "revid": 1384307433,
-     "retrieved": "2026-11-07",
      "license": "CC BY-SA 4.0",
      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
      "author": "Wikipedia contributors"
@@ -11848,7 +11776,7 @@
     }
    ]
   },
-  "HAW:kinau_kaahumanu_ii": {
+  "HAW:kinau": {
    "texts": [
     {
      "lang": "en",
@@ -11896,7 +11824,7 @@
     }
    ]
   },
-  "MAS:seku_amadu_ahmadu_lobbo": {
+  "MAS:seku_amadu": {
    "texts": [
     {
      "lang": "en",
