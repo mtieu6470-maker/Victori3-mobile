@@ -1,0 +1,9 @@
+# generated-file state: 00_before  2026-11-16T06:31:39Z
+ABSENT  -  src/generated/db.json
+ABSENT  -  src/generated/map.json
+ABSENT  -  public/generated/map.bin
+ABSENT  -  public/generated/coastdist.png
+ABSENT  -  public/generated/borders.json
+ABSENT  -  public/content/registry.json
+dist/: ABSENT
+--- git status --porcelain=v1 --ignored (worktree)

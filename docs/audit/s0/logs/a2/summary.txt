@@ -1,0 +1,11 @@
+worktree HEAD: 2240a8fb865e0021eec2f2f4f1c6803528be9e2c
+01_npm_ci exit=0 wall=4.993973556s
+02_npm_run_data exit=0 wall=.372699096s
+03_npm_run_map exit=0 wall=6.312176961s
+04_npm_run_content exit=0 wall=.304961735s
+05_npm_run_typecheck exit=0 wall=4.337465002s
+06_npx_vite_build exit=0 wall=2.141966505s
+07_npx_vitest_run_1 exit=0 wall=80.225656923s
+08_npx_vitest_run_2 exit=0 wall=82.480573138s
+09_npx_vitest_run_3 exit=0 wall=83.408582774s
+DONE

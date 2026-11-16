@@ -1,0 +1,78 @@
+# Supplementary CI-vs-CI comparison (BASELINE_ORIGINAL): artifact 14193446122 (run 43793446130, commit 2240a8f) vs artifact 14201681874 (run 43814108497, commit bd5787f = 2240a8f + documentation only). Both built by the unmodified workflow. Run by Claude Code 2026-11-16T06:32:00Z. Temporary signed download URLs omitted.
+# A = s0a_artifact/apk_x/assets/public ; B = s0a_artifact_bd5787f/apk_x/assets/public (paths relative to the scratch directory)
+
+$ sha256sum s0a_artifact/dong-chay-lich-su-debug-apk.zip s0a_artifact_bd5787f/dong-chay-lich-su-debug-apk.zip
+8bad8d7efd055e16630dc0770ebd6cf811722eb8592c04a7fe1f6c291f852077  s0a_artifact/dong-chay-lich-su-debug-apk.zip
+2b1cabe893509b3124e37428c4913d80331c4dcce955dc96fee0bf7dff4945c3  s0a_artifact_bd5787f/dong-chay-lich-su-debug-apk.zip
+[exit 0]
+
+$ sha256sum s0a_artifact/zip_x/app-debug.apk s0a_artifact_bd5787f/zip_x/app-debug.apk
+8a4beb6af4d033346dd8c58994df72f2a1bfe980e6ef0e10d57a9ff013d0846c  s0a_artifact/zip_x/app-debug.apk
+35cb919670e85489ddee7440b2c00436fb54467beea855dae8786a81ce22aaec  s0a_artifact_bd5787f/zip_x/app-debug.apk
+[exit 0]
+
+$ stat -c "%s %n" s0a_artifact/zip_x/app-debug.apk s0a_artifact_bd5787f/zip_x/app-debug.apk
+18042511 s0a_artifact/zip_x/app-debug.apk
+18042492 s0a_artifact_bd5787f/zip_x/app-debug.apk
+[exit 0]
+
+$ keytool -printcert -jarfile s0a_artifact_bd5787f/zip_x/app-debug.apk 2>&1 | grep -v "^Picked up JAVA_TOOL_OPTIONS"
+Signer #1:
+
+Certificate #1:
+Owner: C=US, O=Android, CN=Android Debug
+Issuer: C=US, O=Android, CN=Android Debug
+Serial number: 1
+Valid from: Mon Nov 16 06:05:32 UTC 2026 until: Wed Nov 08 06:05:32 UTC 2056
+Certificate fingerprints:
+	 SHA1: 40:D8:60:E7:1E:74:0A:2A:5C:8E:CC:CC:73:F5:D7:BC:C4:84:00:4E
+	 SHA256: C5:94:A7:EE:65:A1:90:74:3D:A9:E1:59:80:AC:E5:26:69:7B:75:0F:48:5B:7D:55:FE:8D:97:A6:83:C4:45:2D
+Signature algorithm name: SHA256withRSA
+Subject Public Key Algorithm: 2048-bit RSA key
+Version: 1
+
+[exit 0]
+
+$ diff <(tail -n +2 s0a_artifact/apk_manifest_claude.csv) s0a_artifact_bd5787f/manifest_body.csv
+43c43
+< assets/index-1X6Ixu45.js,1683725,07c7b79f96bffbf6eb0d7cc9d7581b97f6fa6b7550fa260a63c70668eb5109b9
+---
+> assets/index-BMiuqrML.js,1683725,d697f099991c1c7737015f4b33decc2e025916874ad6110954c00a4accdc042a
+579c579
+< content/registry.json,1698193,6887c1a224d5939431531996ea4467eabf1051c5ddd3727586e586c47659fd77
+---
+> content/registry.json,1698193,7efee2218ae5b767039986e2e49310b42c8164356faa2830c446efbbc34643a9
+586c586
+< index.html,617,a4e027fc8082193601c2e6ddd29cc3354cd300fc8dbc6e21b3497b7b05ae217a
+---
+> index.html,617,1f7d83815f77d8eb74ed01ab94994048d3b1e9c1dfb5b8b1cec745cb40d783bf
+[exit 1]
+
+$ diff $A/index.html $B/index.html
+10c10
+<     <script type="module" crossorigin src="./assets/index-1X6Ixu45.js"></script>
+---
+>     <script type="module" crossorigin src="./assets/index-BMiuqrML.js"></script>
+[exit 1]
+
+$ cmp -l $A/content/registry.json $B/content/registry.json | wc -l
+8
+[exit 0]
+
+$ grep -o "\"generated\":\"[^\"]*\"" $A/content/registry.json $B/content/registry.json
+s0a_artifact/apk_x/assets/public/content/registry.json:"generated":"2026-11-16T02:39:18.974Z"
+s0a_artifact_bd5787f/apk_x/assets/public/content/registry.json:"generated":"2026-11-16T06:02:54.603Z"
+[exit 0]
+
+$ cmp -l $A/assets/index-1X6Ixu45.js $B/assets/index-BMiuqrML.js | wc -l
+8
+[exit 0]
+
+$ grep -o "built_at:\"[^\"]*\"" $A/assets/index-1X6Ixu45.js $B/assets/index-BMiuqrML.js
+s0a_artifact/apk_x/assets/public/assets/index-1X6Ixu45.js:built_at:"2026-11-16T02:39:10.863Z"
+s0a_artifact_bd5787f/apk_x/assets/public/assets/index-BMiuqrML.js:built_at:"2026-11-16T06:02:48.709Z"
+[exit 0]
+
+$ cmp $A/assets/index-1X6Ixu45.js $B/assets/index-BMiuqrML.js
+s0a_artifact/apk_x/assets/public/assets/index-1X6Ixu45.js s0a_artifact_bd5787f/apk_x/assets/public/assets/index-BMiuqrML.js differ: char 11806, line 1
+[exit 1]

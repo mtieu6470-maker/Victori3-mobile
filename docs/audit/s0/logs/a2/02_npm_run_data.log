@@ -1,0 +1,10 @@
+$ cd <worktree of 2240a8fb865e0021eec2f2f4f1c6803528be9e2c> && npm run data
+# start 2026-11-16T06:31:44.478Z
+
+> currents-of-history@0.1.0 data
+> tsx tools/build-data.ts
+
+build-data: OK — 274 entities (104 placeholder polities), 662 regions, 13 active alliances, 0 warnings
+# end 2026-11-16T06:31:44.853Z
+# exit code: 0
+# wall time: .372699096 s

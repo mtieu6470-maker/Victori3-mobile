@@ -1,0 +1,28 @@
+# 2026-11-16T06:36:46Z — remove the temporary worktree after A2–A4 (all evidence already copied out of it)
+
+$ git worktree list
+/home/user/Victori3-mobile                                                                       d5b9820 [claude/game-historical-sandbox-modes-kg7rj7]
+<scratch>/s0a_wt  2240a8f (detached HEAD)
+[exit 0]
+
+$ git worktree remove --force <scratch>/s0a_wt
+[exit 0]
+
+$ git worktree prune
+[exit 0]
+
+$ git worktree list
+/home/user/Victori3-mobile  d5b9820 [claude/game-historical-sandbox-modes-kg7rj7]
+[exit 0]
+
+$ test -e <scratch>/s0a_wt && echo still-present || echo removed
+removed
+[exit 0]
+
+$ git status --porcelain=v1 --branch
+## claude/game-historical-sandbox-modes-kg7rj7...origin/claude/game-historical-sandbox-modes-kg7rj7
+[exit 0]
+
+$ git rev-parse HEAD
+d5b9820aae9a96d57e9486845c164ae591fa69de
+[exit 0]

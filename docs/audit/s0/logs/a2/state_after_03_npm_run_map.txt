@@ -1,0 +1,12 @@
+# generated-file state: after_03_npm_run_map  2026-11-16T06:31:51Z
+5bf57da6937e08788cafca074f79af27c190661cce57e7c8ea54e8ed601315b2  1402541  src/generated/db.json
+9a6a6979dd5e7adc9d5953fc5f089ac94dee4079433ed1d340535dcbe877a696  112631  src/generated/map.json
+ad225a022e088eba665e2577120622cba713bb72492f60b0fa1c85a5bb9dfd4b  725272  public/generated/map.bin
+2b564d2d0300fb432f620df6360aa9f17bf073fbb7fb2657865ea59690fc0da9  867476  public/generated/coastdist.png
+04740d97b302f59c32a5e0edff78d935596000a59c3102b1f7b56a8e10c3b805  971674  public/generated/borders.json
+ABSENT  -  public/content/registry.json
+dist/: ABSENT
+--- git status --porcelain=v1 --ignored (worktree)
+!! node_modules/
+!! public/generated/
+!! src/generated/

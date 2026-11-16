@@ -1,0 +1,9 @@
+$ cd <worktree of 2240a8fb865e0021eec2f2f4f1c6803528be9e2c> && npm run typecheck
+# start 2026-11-16T06:31:51.576Z
+
+> currents-of-history@0.1.0 typecheck
+> tsc --noEmit
+
+# end 2026-11-16T06:31:55.917Z
+# exit code: 0
+# wall time: 4.337465002 s

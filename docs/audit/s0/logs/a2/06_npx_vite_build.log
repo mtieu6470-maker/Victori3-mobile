@@ -1,0 +1,98 @@
+$ cd <worktree of 2240a8fb865e0021eec2f2f4f1c6803528be9e2c> && npx vite build
+# start 2026-11-16T06:31:55.961Z
+vite v5.4.21 building for production...
+transforming...
+✓ 65 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                                       0.61 kB │ gzip:   0.38 kB
+dist/assets/source-sans-3-cyrillic-ext-600-normal-6AhwUnSr.woff2      5.52 kB
+dist/assets/source-sans-3-cyrillic-ext-700-normal-BhUSqjb8.woff2      5.54 kB
+dist/assets/source-sans-3-cyrillic-ext-400-normal-BwJdxs7r.woff2      5.58 kB
+dist/assets/source-sans-3-greek-ext-600-normal-DynePNDL.woff2         5.94 kB
+dist/assets/source-sans-3-greek-ext-700-normal-Dd6uIcuy.woff2         6.01 kB
+dist/assets/source-sans-3-greek-ext-400-normal-CpIwTHMM.woff2         6.02 kB
+dist/assets/source-sans-3-vietnamese-700-normal-Bgamivog.woff2        6.14 kB
+dist/assets/source-sans-3-vietnamese-400-normal-CwtaIDr2.woff2        6.22 kB
+dist/assets/source-sans-3-vietnamese-600-normal-B2sTNYey.woff2        6.22 kB
+dist/assets/eb-garamond-vietnamese-500-normal-BCT1_K6u.woff2          6.42 kB
+dist/assets/eb-garamond-vietnamese-600-normal-Dmi8L14S.woff2          6.45 kB
+dist/assets/eb-garamond-vietnamese-500-italic-DTf5CBKv.woff2          6.49 kB
+dist/assets/eb-garamond-greek-ext-500-normal-DkhmZW4r.woff2           6.80 kB
+dist/assets/eb-garamond-greek-ext-600-normal-B6KG6Acg.woff2           6.83 kB
+dist/assets/eb-garamond-greek-ext-500-italic-C9wqkm-R.woff2           7.02 kB
+dist/assets/source-sans-3-cyrillic-ext-700-normal-COA7LiPB.woff       7.04 kB
+dist/assets/source-sans-3-cyrillic-ext-600-normal-Cjpx_pje.woff       7.08 kB
+dist/assets/source-sans-3-cyrillic-ext-400-normal-BqOlcezh.woff       7.11 kB
+dist/assets/source-sans-3-greek-ext-700-normal-KTP46hTS.woff          7.97 kB
+dist/assets/source-sans-3-greek-700-normal-C8Tp2qRF.woff2             7.98 kB
+dist/assets/eb-garamond-vietnamese-500-normal-B0TRhMco.woff           7.99 kB
+dist/assets/source-sans-3-greek-ext-400-normal-CN4VBqpr.woff          7.99 kB
+dist/assets/source-sans-3-greek-ext-600-normal-CnpzyT-3.woff          8.00 kB
+dist/assets/source-sans-3-greek-400-normal-DZReXJla.woff2             8.02 kB
+dist/assets/source-sans-3-greek-600-normal-BSO157bq.woff2             8.03 kB
+dist/assets/eb-garamond-vietnamese-600-normal-DgZMCD0h.woff           8.03 kB
+dist/assets/eb-garamond-vietnamese-500-italic-BFEHB_3a.woff           8.14 kB
+dist/assets/source-sans-3-vietnamese-700-normal-W-J7ohm4.woff         8.25 kB
+dist/assets/source-sans-3-vietnamese-600-normal-BzH4Q14_.woff         8.26 kB
+dist/assets/source-sans-3-vietnamese-400-normal-eMQk7hmk.woff         8.28 kB
+dist/assets/eb-garamond-greek-ext-600-normal-DzPSPp8W.woff            8.72 kB
+dist/assets/eb-garamond-greek-ext-500-normal-CMJ7zNBO.woff            8.78 kB
+dist/assets/eb-garamond-greek-ext-500-italic-CuI3nqc3.woff            9.38 kB
+dist/assets/source-sans-3-cyrillic-400-normal-DjhbW-4D.woff2          9.60 kB
+dist/assets/source-sans-3-cyrillic-700-normal-CIuudVLB.woff2          9.60 kB
+dist/assets/source-sans-3-cyrillic-600-normal-BnFu5nHC.woff2          9.64 kB
+dist/assets/source-sans-3-greek-700-normal-C-sAg5NG.woff             10.10 kB
+dist/assets/source-sans-3-greek-600-normal-B42bzTIr.woff             10.10 kB
+dist/assets/source-sans-3-greek-400-normal-DyO2Yfz5.woff             10.12 kB
+dist/assets/eb-garamond-greek-500-italic-BGwAan3a.woff2              10.86 kB
+dist/assets/eb-garamond-greek-600-normal--vWuDlyL.woff2              11.09 kB
+dist/assets/eb-garamond-greek-500-normal-BtA0fbXC.woff2              11.10 kB
+dist/assets/source-sans-3-cyrillic-700-normal-D_p3L75o.woff          12.00 kB
+dist/assets/source-sans-3-cyrillic-400-normal-DkNBMcYd.woff          12.10 kB
+dist/assets/source-sans-3-cyrillic-600-normal-CloKWf-q.woff          12.10 kB
+dist/assets/eb-garamond-greek-500-italic-BZsT-l1D.woff               12.78 kB
+dist/assets/eb-garamond-greek-500-normal-BjSCMh1N.woff               12.86 kB
+dist/assets/eb-garamond-greek-600-normal-JScKXZBq.woff               12.91 kB
+dist/assets/eb-garamond-cyrillic-500-normal-c5LjvaqX.woff2           14.41 kB
+dist/assets/eb-garamond-cyrillic-600-normal-CHfC3jm-.woff2           14.46 kB
+dist/assets/eb-garamond-cyrillic-500-italic-DL1k_-z8.woff2           14.75 kB
+dist/assets/source-sans-3-latin-700-normal-CkzU-mV9.woff2            15.60 kB
+dist/assets/source-sans-3-latin-600-normal-DeckBYAU.woff2            15.67 kB
+dist/assets/source-sans-3-latin-400-normal-DQi5PRDE.woff2            15.70 kB
+dist/assets/eb-garamond-cyrillic-500-normal-CLHyttEY.woff            16.68 kB
+dist/assets/eb-garamond-cyrillic-600-normal-koFutDBv.woff            16.77 kB
+dist/assets/eb-garamond-cyrillic-500-italic-Bl4RSiNW.woff            17.50 kB
+dist/assets/eb-garamond-cyrillic-ext-500-normal-DcO3I2lp.woff2       18.83 kB
+dist/assets/eb-garamond-cyrillic-ext-600-normal-cjIjEMm6.woff2       18.86 kB
+dist/assets/eb-garamond-cyrillic-ext-500-italic-uF9N42ci.woff2       19.63 kB
+dist/assets/source-sans-3-latin-700-normal-B-h9tW5h.woff             19.91 kB
+dist/assets/source-sans-3-latin-400-normal-RR2C27NP.woff             19.99 kB
+dist/assets/source-sans-3-latin-600-normal-Ck0n4g8U.woff             19.99 kB
+dist/assets/eb-garamond-cyrillic-ext-500-normal-I3TfTkSf.woff        22.35 kB
+dist/assets/eb-garamond-cyrillic-ext-600-normal-b6vuEf1e.woff        22.45 kB
+dist/assets/eb-garamond-cyrillic-ext-500-italic-DG1hthnQ.woff        23.96 kB
+dist/assets/eb-garamond-latin-500-normal-DehAIUv0.woff2              25.26 kB
+dist/assets/eb-garamond-latin-600-normal-DHwxsLHv.woff2              25.35 kB
+dist/assets/eb-garamond-latin-500-italic-FSVaZR0V.woff2              26.95 kB
+dist/assets/eb-garamond-latin-500-normal-DZU8xF9o.woff               30.21 kB
+dist/assets/eb-garamond-latin-600-normal-xCe6GkOx.woff               30.40 kB
+dist/assets/eb-garamond-latin-500-italic-DgyxMZyx.woff               32.51 kB
+dist/assets/source-sans-3-latin-ext-600-normal-AEyhgUpm.woff2        32.70 kB
+dist/assets/source-sans-3-latin-ext-700-normal-6Xi0A2be.woff2        32.96 kB
+dist/assets/source-sans-3-latin-ext-400-normal-UNsKFIBq.woff2        33.02 kB
+dist/assets/source-sans-3-latin-ext-700-normal-C1ecyfgK.woff         43.40 kB
+dist/assets/source-sans-3-latin-ext-600-normal-D2VZAM8_.woff         43.50 kB
+dist/assets/source-sans-3-latin-ext-400-normal-D5P-Ud2J.woff         43.74 kB
+dist/assets/eb-garamond-latin-ext-500-italic-C7s118Z8.woff2          49.26 kB
+dist/assets/eb-garamond-latin-ext-500-normal-BFuc0jzo.woff2          64.08 kB
+dist/assets/eb-garamond-latin-ext-600-normal-CrweTMKz.woff2          64.13 kB
+dist/assets/eb-garamond-latin-ext-500-italic-D8rZSVDp.woff           66.44 kB
+dist/assets/eb-garamond-latin-ext-500-normal-obw7ZvB_.woff           84.03 kB
+dist/assets/eb-garamond-latin-ext-600-normal-CoWPx8v4.woff           84.18 kB
+dist/assets/index-HljkG6qO.css                                       58.32 kB │ gzip:  11.58 kB
+dist/assets/index-BK4lin7l.js                                     1,673.44 kB │ gzip: 285.77 kB
+✓ built in 1.60s
+# end 2026-11-16T06:31:58.106Z
+# exit code: 0
+# wall time: 2.141966505 s

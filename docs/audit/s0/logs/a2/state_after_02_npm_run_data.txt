@@ -1,0 +1,11 @@
+# generated-file state: after_02_npm_run_data  2026-11-16T06:31:44Z
+5bf57da6937e08788cafca074f79af27c190661cce57e7c8ea54e8ed601315b2  1402541  src/generated/db.json
+ABSENT  -  src/generated/map.json
+ABSENT  -  public/generated/map.bin
+ABSENT  -  public/generated/coastdist.png
+ABSENT  -  public/generated/borders.json
+ABSENT  -  public/content/registry.json
+dist/: ABSENT
+--- git status --porcelain=v1 --ignored (worktree)
+!! node_modules/
+!! src/generated/

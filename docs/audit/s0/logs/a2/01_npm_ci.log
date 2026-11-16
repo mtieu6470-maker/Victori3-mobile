@@ -1,0 +1,17 @@
+$ cd <worktree of 2240a8fb865e0021eec2f2f4f1c6803528be9e2c> && npm ci
+# start 2026-11-16T06:31:39.460Z
+
+added 220 packages, and audited 221 packages in 5s
+
+40 packages are looking for funding
+  run `npm fund` for details
+
+6 vulnerabilities (3 moderate, 1 high, 2 critical)
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+# end 2026-11-16T06:31:44.457Z
+# exit code: 0
+# wall time: 4.993973556 s

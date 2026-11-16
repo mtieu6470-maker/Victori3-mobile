@@ -1,0 +1,10 @@
+$ cd <worktree of 2240a8fb865e0021eec2f2f4f1c6803528be9e2c> && npm run content
+# start 2026-11-16T06:31:51.224Z
+
+> currents-of-history@0.1.0 content
+> tsx tools/build-content.ts
+
+{"assets":502,"bytes":8715750,"flags":176,"arms":99,"portraits":227,"entities_linked":266,"entity_texts":265,"characters":473,"characters_linked":275}
+# end 2026-11-16T06:31:51.532Z
+# exit code: 0
+# wall time: .304961735 s
