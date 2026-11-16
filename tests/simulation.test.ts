@@ -6,6 +6,7 @@ import { data } from '../src/engine/data/db';
 import { STRATA } from '../src/engine/types';
 import { availableProductionMethods, calculatePopulationEconomy, calibrateCohortLivingStandards, factoryInputFulfillment, populationConsumptionDemand, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
 import { execute } from '../src/engine/commands';
+import { updatePolitics } from '../src/engine/systems/politics';
 import { advanceConstruction, cancelConstruction, queueConstruction, canBuild } from '../src/engine/systems/economy';
 
 describe('economy and population sanity (40 years, both modes)', () => {
@@ -87,6 +88,66 @@ describe('war support (Pass 16 pack, ch. 34/73: exhaustion alone does not capitu
   });
 });
 
+
+describe('wealth-weighted interest-group clout', () => {
+  const makeState = () => {
+    const state = fresh('historical', 61, 'GBR');
+    const country = state.countries.GBR;
+    country.techs = [...new Set([...country.techs, 'socialist_thought'])];
+    for (const region of state.regions) {
+      const economy = region.popEconomy ?? {
+        employed: new Array(STRATA.length).fill(0),
+        incomePerCapita: new Array(STRATA.length).fill(600),
+        wagePerWorker: new Array(STRATA.length).fill(0),
+        sol: new Array(STRATA.length).fill(region.sol),
+      };
+      region.popEconomy = { ...economy, incomePerCapita: new Array(STRATA.length).fill(600) };
+    }
+    return state;
+  };
+
+  it('gives a richer aristocracy more landowner clout at the same population size', () => {
+    const baseline = makeState();
+    updatePolitics(baseline, baseline.countries.GBR, true);
+    const baselineClout = baseline.countries.GBR.igs.landowners.clout;
+
+    const wealthy = makeState();
+    const aristocrats = STRATA.indexOf('aristocrats');
+    for (const region of wealthy.regions) {
+      if (!region.popEconomy) continue;
+      region.popEconomy.incomePerCapita[aristocrats] = 3000;
+    }
+    updatePolitics(wealthy, wealthy.countries.GBR, true);
+    expect(wealthy.countries.GBR.igs.landowners.clout).toBeGreaterThan(baselineClout);
+  });
+
+  it('makes a wealthier industrial workforce strengthen trade unions when unlocked', () => {
+    const baseline = makeState();
+    updatePolitics(baseline, baseline.countries.GBR, true);
+    const baselineClout = baseline.countries.GBR.igs.trade_unions.clout;
+
+    const wealthy = makeState();
+    const workers = STRATA.indexOf('workers');
+    const laborers = STRATA.indexOf('laborers');
+    for (const region of wealthy.regions) {
+      if (!region.popEconomy) continue;
+      region.popEconomy.incomePerCapita[workers] = 2400;
+      region.popEconomy.incomePerCapita[laborers] = 1800;
+    }
+    updatePolitics(wealthy, wealthy.countries.GBR, true);
+    expect(wealthy.countries.GBR.igs.trade_unions.clout).toBeGreaterThan(baselineClout);
+  });
+
+  it('keeps neutral political weight for legacy regions with no cohort income ledger', () => {
+    const baseline = makeState();
+    updatePolitics(baseline, baseline.countries.GBR, true);
+    const baselineClout = baseline.countries.GBR.igs.landowners.clout;
+    const legacy = makeState();
+    for (const region of legacy.regions) delete region.popEconomy;
+    updatePolitics(legacy, legacy.countries.GBR, true);
+    expect(legacy.countries.GBR.igs.landowners.clout).toBeCloseTo(baselineClout, 6);
+  });
+});
 
 describe('stratified employment and household income', () => {
   it('allocates all regional value added to worker households and owners without losing income', () => {

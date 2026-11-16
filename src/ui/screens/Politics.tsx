@@ -76,7 +76,7 @@ function IGTab({ st }: { st: GameState }) {
             {wide && <td class="muted" style="white-space:normal;font-size:13px">{con}</td>}
           </tr>); })}</tbody>
       </table>
-      <div class="note">Ảnh hưởng phụ thuộc cơ cấu dân cư và luật quyền lực; thái độ (−10…+10) tính theo luật hiện hành và mức sống. Ủng hộ/phản đối là sở thích luật của nhóm trong mô phỏng.</div>
+      <div class="note">Ảnh hưởng được tính từ quy mô tầng lớp, thu nhập tương đối, biết chữ và luật quyền lực. Nhóm giàu có thể có clout lớn hơn dù dân số nhỏ; thái độ (−10…+10) vẫn tính riêng theo luật và mức sống.</div>
     </div>
   );
 }

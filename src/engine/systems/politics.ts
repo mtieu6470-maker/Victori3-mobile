@@ -1,7 +1,7 @@
 // Political Engine (shared): interest groups, legitimacy, radicalism, law reforms, revolutions and secession.
 import { data } from '../data/db';
 import { LAW_GROUPS, type LawGroup } from '../data/dbTypes';
-import { IGS, S, type Country, type GameState, type IG } from '../types';
+import { IGS, STRATA, S, type Country, type GameState, type IG } from '../types';
 import { clamp, chance, log, rand } from '../core';
 import { coreNationOf } from './population';
 import { regionsOf, bordersOf } from '../cache';
@@ -37,7 +37,25 @@ export function updatePolitics(st: GameState, c: Country, init = false) {
   const regs = regionsOf(st, c.id);
   const pop = regs.reduce((s, r) => s + r.pop, 0);
   if (pop <= 0) return;
-  const st_ = (i: number) => regs.reduce((s, r) => s + r.pop * r.strata[i] * (0.3 + r.literacy), 0) / pop;
+  // Political strength starts with cohort size, then scales with income/wealth. This
+  // allows an aristocracy or capitalist class to exert more clout than an equally large
+  // but poor class. The square-root curve keeps population size primary and softens
+  // extreme income gaps. Legacy saves without a cohort ledger retain neutral weight.
+  const meanIncome = regs.reduce((sum, r) => {
+    const regionalIncome = STRATA.reduce((total, _, i) => {
+      const income = r.popEconomy?.incomePerCapita[i];
+      return total + r.pop * Math.max(0, Number(r.strata[i] ?? 0)) * (Number.isFinite(income) ? Math.max(0, income ?? 0) : 0);
+    }, 0);
+    return sum + regionalIncome;
+  }, 0) / Math.max(1, pop);
+  const st_ = (i: number) => regs.reduce((sum, r) => {
+    const income = r.popEconomy?.incomePerCapita[i];
+    const relative = meanIncome > 0 && Number.isFinite(income) && (income ?? 0) >= 0
+      ? Math.sqrt(Math.max(0, income ?? 0) / meanIncome)
+      : 1;
+    const wealthPower = clamp(relative, 0.5, 2.0);
+    return sum + r.pop * r.strata[i] * (0.3 + r.literacy) * wealthPower;
+  }, 0) / pop;
   const sol = regs.reduce((s, r) => s + r.sol * r.pop, 0) / pop;
   const raw: Record<IG, number> = {
     landowners: st_(S.aristocrats) * 40 + st_(S.peasants) * 0.2,
