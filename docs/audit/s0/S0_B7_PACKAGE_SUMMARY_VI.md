@@ -50,10 +50,21 @@ G0.1–G0.6 là trạng thái được đề xuất theo bằng chứng hiện c
 - **TC-F1/TC-F2:** hai test luật/chiến tranh có pass rỗng; green CI không chứng minh được các invariant đó.
 - **R5 / RM-F3 / RM-F4:** R5 (P1) cảnh báo số đo frame/FPS không tách được tick cost; callback `stepMonth + emit` trên desktop có p95 38,8–63,4 ms, max 97,1 ms, còn browser `stepMonth` riêng là unsupported. RM-F3 (P1) ghi mô phỏng đồng bộ trên main thread; RM-F4 (P2) ghi loop `requestAnimationFrame` giới hạn throughput. Đây là ba góc rủi ro liên quan nhưng không đồng nhất.
 - **R10:** cần ngân sách hiệu năng cho các lớp bản đồ mới ở các giai đoạn S4/S11/S20.
+- **R15 — mục tiêu 3–4 GB offline:** theo chỉ đạo ngày 17/11/2026, quy mô mục tiêu là tổng nội dung offline đã cài qua core + nhiều content pack, không phải một APK 3–4 GB hoặc 3–4 GB RAM. Baseline hiện chỉ có payload 17.764.559 byte/592 tệp; code boot vẫn import tĩnh DB/map, giải mã toàn bộ raster và nạp metadata identity registry trong một JSON. R15 ghi rủi ro lưu trữ/cập nhật/OOM/ANR và yêu cầu manifest, checksum, resume, free-space preflight, atomic update/rollback, lazy load + cache giới hạn; delivery thuộc S23b/S23c, không mở rộng S1. Google Play cần đánh giá AAB/PAD; sideload cần kênh pack riêng.
 
 ### Các finding đã được bổ sung hoặc bảo toàn
 
-Risk register giữ đầy đủ R1–R14, ghi R3 là CLOSED, và bao gồm TC-F1…F7, GD-F1…F6, AS-F1…F7, RM-F1…F5, WD-F1…F3 cùng B4-R1. TC-F5/TC-F6 được đánh dấu có bổ sung test coverage trong B4, nhưng lỗi missing-RNG vẫn được giữ riêng trong B4-R1.
+Risk register giữ đầy đủ R1–R14, ghi R3 là CLOSED, bổ sung risk mới R15 về mục tiêu offline 3–4 GB, và bao gồm TC-F1…F7, GD-F1…F6, AS-F1…F7, RM-F1…F5, WD-F1…F3 cùng B4-R1. TC-F5/TC-F6 được đánh dấu có bổ sung test coverage trong B4, nhưng lỗi missing-RNG vẫn được giữ riêng trong B4-R1.
+
+## 3.1. Mục tiêu dung lượng offline 3–4 GB
+
+Mục tiêu của chủ dự án là game có tổng nội dung offline khoảng 3–4 GB, ưu tiên ổn định. Đây là tổng footprint của ứng dụng lõi và content packs sau cài đặt/giải nén, không phải yêu cầu tạo một APK duy nhất có kích thước 3–4 GB, cũng không phải lượng RAM phải giữ thường trú.
+
+Roadmap v3.2 đã có quyết định H (offline >3 GB) và S23b dành cho hình ảnh/content packs/offline delivery. R15 trong Risk Register ghi nhận rủi ro mới và các tiêu chí cần có trước khi triển khai: manifest trung lập nhà cung cấp, version/hash/dependency, resume, kiểm tra dung lượng trống, xác minh SHA-256, cập nhật nguyên tử/rollback, lazy loading và cache ảnh/GPU có giới hạn.
+
+Google Play hiện giới hạn base module 500 MB, mỗi asset pack 1,5 GB, tổng install-time 4 GB và fast-follow/on-demand 30 GB; do đó cần đánh giá AAB/PAD. Với sideload, phải có kênh content pack riêng; PAD không tự phục vụ APK sideload. Không có nhà cung cấp hosting trả phí nào được chọn.
+
+Nguồn chính thức: [Google Play app size limits](https://support.google.com/googleplay/android-developer/answer/9859372), [Play Asset Delivery](https://developer.android.com/guide/playcore/asset-delivery).
 
 ## 4. B4 — bằng chứng test được xác minh lại
 
@@ -90,7 +101,7 @@ R14 tiếp tục BLOCKED. Không gỡ APK baseline, không cài APK khác chữ 
 2. [S0_GATE_LEDGER.csv](S0_GATE_LEDGER.csv) — trạng thái G0.1–G0.9 cùng giới hạn.
 3. [S0_SIGNOFF.md](S0_SIGNOFF.md) — đề xuất chuyển tiếp có ngoại lệ, xác nhận R7, phần independent reviewer và owner decision.
 4. [S0_B7_RESULTS.md](S0_B7_RESULTS.md) — kết quả và phạm vi công việc B7.
-5. [S0_B7_REVIEW_REQUEST.md](S0_B7_REVIEW_REQUEST.md) — 11 câu hỏi reviewer và danh sách file/log phải kiểm.
+5. [S0_B7_REVIEW_REQUEST.md](S0_B7_REVIEW_REQUEST.md) — 13 câu hỏi reviewer và danh sách file/log phải kiểm.
 6. [../b4/S0_B4_CHATGPT_TECHNICAL_SELF_AUDIT_2026-11-17.md](b4/S0_B4_CHATGPT_TECHNICAL_SELF_AUDIT_2026-11-17.md) — self-audit B4 và CI evidence.
 7. [../S0_B3_RESULTS.md](S0_B3_RESULTS.md) — audit B3, gate proposal và index findings.
 8. [../../coordination/AI_HANDOFF.md](../../coordination/AI_HANDOFF.md) — phase register, work log và trạng thái hiện hành.
