@@ -262,7 +262,7 @@ describe('S0-B4 — malformed, incomplete and legacy save characterization', () 
 
   it('legacy save without marketStats receives the current empty-object fallback and continues', () => {
     const state = createGame({ mode: 'historical', seed: SEED, player: 'GBR' });
-    const legacyState = cloneState(state) as GameState & { marketStats?: GameState['marketStats'] };
+    const legacyState = cloneState(state) as unknown as { version: number; marketStats?: GameState['marketStats'] };
     delete legacyState.marketStats;
 
     const legacyText = JSON.stringify({
