@@ -20,7 +20,7 @@ Do not modify the repository. Do not change product source, gameplay, engine, RN
 ## 2. Files to inspect
 
 - .github/workflows/b4-tests-only.yml — verify the tests-only boundary and absence of APK build/sign/upload steps.
-- docs/audit/s0/S0_B7_RESULTS.md — including the ChatGPT pre-review checks and §9 automatic APK-workflow incident record; these are not an independent verdict.
+- docs/audit/s0/S0_B7_RESULTS.md — including the ChatGPT pre-review checks, §9 automatic APK-workflow incident record and §11 owner 3–4 GB offline-content target; these are not an independent verdict.
 - docs/audit/s0/S0_B7_PACKAGE_SUMMARY_VI.md — Vietnamese index and scope/status summary.
 - docs/audit/s0/S0_RISK_REGISTER.md
 - docs/audit/s0/S0_GATE_LEDGER.csv
@@ -57,6 +57,7 @@ Do not modify the repository. Do not change product source, gameplay, engine, RN
 10. Check the S1 scope exactly matches v3.2/v3.3 data-contract/save-foundation constraints and includes no gameplay or runtime/performance work.
 11. Check risk-register coverage against all inherited v3.2 R1–R14 risks (including R3 as closed), B3 findings TC-F1…F7, GD-F1…F6, AS-F1…F7, RM-F1…F5, WD-F1…F3, and the B4 missing-RNG risk. Verify mitigated/closed entries do not erase the historical finding and that no priority has been silently lowered. Also verify R5 (frame-metric/tick-cost attribution), RM-F3 (synchronous main-thread tick cost) and RM-F4 (requestAnimationFrame throughput coupling) are distinct and not duplicated or severity-conflicted.
 12. Review the §9 governance incident: documentation-only pushes triggered the unchanged `android-apk.yml` workflow because `[skip ci]` was omitted. Verify the listed run statuses/artifacts and the HTTP 429 failure cause; confirm no APK was downloaded or installed on iQOO, no workflow file was modified, and do not treat these automatic debug builds as device acceptance or B4 tests-only evidence.
+13. Review new risk R15 and the owner target recorded in `S0_B7_RESULTS.md` §11: 3–4 GB is the expanded complete offline content footprint across core plus packs, not a monolithic APK size or RAM target. Verify the baseline size/load-path evidence, that the risk is assigned to S23b/S23c, that Play AAB/PAD and sideload pack delivery are not conflated, and that R15 does not silently expand S1 or authorize pack implementation.
 
 ## 4. Required reviewer response
 
