@@ -161,6 +161,47 @@ The project owner has now stated a product target of approximately **3–4 GB fo
 - Runtime controls: do not eagerly inflate the entire media library into WebView memory. Keep simulation-critical data distinct from optional narrative/media; use map tile/LOD packs and lazy image/audio loading; enforce bounded decoded-image/texture cache and evict unused assets safely.
 - Acceptance tests for the future delivery stage must cover interrupted/resumed download, low-storage refusal before mutation, corrupt/hash-mismatched packs, dependency/version mismatch, app process death during update, rollback to the previous valid pack set, missing optional content, no-network cold launch and complete offline play after all required packs are installed.
 
+### 11.3. Hai phương án giao nội dung để APK không còn bị hiểu nhầm là game đầy đủ
+
+**Phương án A — tải gói nén rồi giải nén (khuyến nghị cho bản sideload/GitHub trước mắt):**
+
+- APK chứa engine, UI, màn hình quản lý nội dung và manifest nhỏ. APK có thể vẫn chỉ vài chục/vài trăm MB; điều đó không còn có nghĩa game chỉ có từng ấy nội dung.
+- Khi người chơi chọn **Tải toàn bộ dữ liệu**, ứng dụng tải các archive của từng pack. Mỗi archive có ID/version, compressed size, expanded size, SHA-256, danh sách file và checksum từng file.
+- Chia thành nhiều archive độc lập; với GitHub Releases, giới hạn hiện hành là mỗi file asset phải **dưới 2 GiB**, tối đa 1.000 assets cho một release và tài liệu GitHub nêu không giới hạn tổng dung lượng/băng thông release. Có thể phát hành 3–4 archive ở cỡ thực tế phù hợp, không cần ép tất cả vào một file. Tính năng resume/Range phải được kiểm tra với URL redirect của từng asset trước khi cam kết.
+- Ứng dụng tải vào khu vực staging, xác minh SHA-256 archive, giải nén theo luồng (không đọc toàn bộ 3–4 GB vào RAM), kiểm tra checksum/tính toàn vẹn từng file, sau đó kích hoạt cả pack set bằng bước commit nguyên tử. Nếu tải/giải nén/kiểm tra lỗi thì xóa staging, giữ pack set cũ và không báo "đã cài đầy đủ".
+- Cần preflight dung lượng gồm archive tạm, vùng giải nén staging, bộ nội dung cũ để rollback và khoảng trống an toàn. Cập nhật pack lớn phải có thể từ chối an toàn khi thiếu chỗ, không ghi đè pack đang hoạt động.
+- Dùng Android native downloader (Android DownloadManager hoặc user-initiated data-transfer job phù hợp phiên bản hệ điều hành) cho tác vụ dài, không dùng một request JavaScript trong WebView làm downloader 3–4 GB. Android DownloadManager có cơ chế xử lý HTTP dài, retry khi lỗi/mất kết nối và qua lần khởi động lại thiết bị; tiến trình resume thực tế vẫn phải được integration-test với máy chủ/redirect được chọn.
+- Lưu nội dung đã xác minh trong thư mục app-private riêng. Để WebView đọc ảnh/âm thanh/tài nguyên từ thư mục này an toàn, dùng một đường dẫn HTTPS nội bộ qua AndroidX `WebViewAssetLoader.InternalStoragePathHandler`, chỉ ánh xạ đúng thư mục content công khai cho game; không bật file:// universal access và tuyệt đối không ánh xạ thư mục save/database/cache. Tài liệu Android cảnh báo chỉ expose một thư mục chuyên biệt trong internal storage vì tài nguyên tại đó có thể được truy cập bởi nội dung web cùng origin.
+
+**Phương án B — phát hành AAB + Play Asset Delivery (nếu sau này chọn Google Play):**
+
+- Base module giữ phần khởi chạy, engine và manifest thiết yếu.
+- Dùng install-time chỉ cho nội dung thật sự cần ngay; nội dung lớn chia thành fast-follow hoặc on-demand asset packs theo vùng/hệ thống.
+- Hướng dẫn hiện hành nêu base module tối đa 500 MB, mỗi asset pack tối đa 1,5 GB, tổng module + install-time packs tối đa 4 GB compressed download; fast-follow/on-demand packs có tổng giới hạn 30 GB compressed download. Đây là giới hạn download nén, không phải cam kết về kích thước sau giải nén.
+- Không dùng OBB như giải pháp mặc định cho AAB; tài liệu Android nói AAB không hỗ trợ APK expansion OBB. Tài nguyên do PAD quản lý phải được truy xuất theo API/location của PAD, không giả định một đường dẫn cố định.
+
+Hai phương án là hai adapter phân phối cùng một **provider-neutral pack manifest**, không tạo hai bộ dữ liệu khác nhau. Khi có điều kiện, người chơi chỉ cần một thao tác **Tải toàn bộ**; ứng dụng tự tuần tự tải pack, hiển thị tổng tiến độ và sau khi xác minh xong có thể chạy offline hoàn toàn. Người chơi cũng có thể tải từng khu vực để tiết kiệm dung lượng.
+
+### 11.4. Không chấp nhận "phình dung lượng giả" — tiêu chí nội dung thực
+
+Mục tiêu 3–4 GB chỉ được công nhận khi mỗi byte thuộc về tài nguyên có ích và đã qua kiểm tra:
+
+1. **Bản đồ có độ sâu thật:** dữ liệu địa lý có provenance, raster/vector nhiều mức chi tiết (LOD), địa hình/thủy hệ/biên giới/cửa sông/hải cảng và vùng bản đồ cần thiết; zoom xa dùng lớp tổng quát, zoom gần mới nạp tile/chi tiết, không giải mã toàn thế giới vào RAM.
+2. **Lịch sử có cấu trúc và có thể mô phỏng:** quốc gia/chính thể, vùng, tỉnh, thành phố/địa điểm, dân số/POP, nghề nghiệp, văn hóa, tôn giáo, tài nguyên, công nghiệp, luật, nhân vật, sự kiện, chiến tranh, liên minh, thương mại và mốc kinh tế theo năm/địa bàn; mỗi bộ dữ liệu có nguồn, thời kỳ, phương pháp, quality/uncertainty và không bịa số để lấp chỗ trống.
+3. **Tài sản hình ảnh được dùng trong gameplay/UI:** chân dung có niên đại, quốc kỳ/huy hiệu đúng thời kỳ, kiến trúc/nhà máy/công trình, tàu/đơn vị/quân phục, thành phố/cảng/đời sống và ảnh minh họa sự kiện. Mỗi tài sản có license, author/credit, nguồn, ID, thời kỳ và vị trí sử dụng. Tài sản bị trùng, sai niên đại hoặc không có nơi hiển thị sẽ không được tính vào mục tiêu.
+4. **Âm thanh có nội dung:** nhạc nền theo vùng/thời kỳ/tình huống, âm thanh môi trường thành phố/công nghiệp/chiến trường/biển, UI và hiệu ứng; mỗi track có loop/volume/metadata/license và được nghe kiểm tra. Không thêm tiếng im lặng hoặc audio lặp để đạt dung lượng.
+5. **Đa ngôn ngữ và nội dung biên soạn:** tên địa danh/nhân vật, mô tả, sự kiện, tooltip, hướng dẫn và bách khoa trong game phải có nguồn hoặc nhãn do biên tập; text không được sao chép/paraphrase trái điều kiện giấy phép.
+
+**Không được dùng** tệp rỗng, dữ liệu ngẫu nhiên, bản sao trùng, ảnh độ phân giải phóng to giả, âm thanh im lặng hoặc archive padding để chạm 3–4 GB. Không lấy kích thước node_modules, tài liệu phát triển, source code, screenshot QA hay cache build để cộng vào dung lượng sản phẩm.
+
+### 11.5. Quy tắc nén và ngưỡng "Full Offline Ready"
+
+- Nội dung dạng JSON/CSV/văn bản/geometry chưa nén có thể nén mạnh bằng archive (ví dụ Zstandard/Deflate) và mở rộng khi cài. Media đã nén như WebP/JPEG/AVIF, OGG/Opus và video thường không thể thu nhỏ 10 lần mà vẫn giữ nguyên chất lượng; vì vậy không cam kết 3–4 GB thành vài trăm MB khi chưa có đo thực tế.
+- Có thể cung cấp **hai lựa chọn người dùng**: "Tải gói dữ liệu nén" (tải ít byte hơn, cần thêm chỗ tạm để giải nén) hoặc "Tải/cài gói đầy đủ" theo nhiều pack. Dù archive nén hay pack trực tiếp, kết quả sau cài phải có footprint và manifest giống nhau về nội dung/phiên bản.
+- UI phải có trạng thái kiểm chứng được: `CORE_ONLY`, `DOWNLOADING`, `VERIFYING`, `FULL_OFFLINE_READY`, `MISSING_OR_CORRUPT_PACK`, `UPDATE_REQUIRED`. Chỉ được hiển thị **FULL OFFLINE READY** khi toàn bộ pack bắt buộc đã được tải/cài và hash/version/dependency đều hợp lệ. APK 18 MB không thể tự tuyên bố là bản đầy đủ khi thiếu pack.
+- Build/release pipeline phải xuất manifest tổng: phiên bản engine/data/content; tổng compressed bytes; tổng expanded bytes; dung lượng theo pack và theo loại tài sản; số file; orphan/duplicate/missing counts; checksum. Nếu release được gắn nhãn "Full Offline", CI/release audit phải fail khi pack bắt buộc thiếu, checksum sai hoặc coverage/size gate chưa đạt.
+- Chưa chốt phân bổ MB từng nhóm. Chỉ lập ngân sách sau khi có inventory thực tế; mọi số liệu dự toán phải có nguồn/tập tài sản đếm được và sample review.
+
 ### 11.3. Scope and reviewer disposition
 
 This target is recorded as new finding **R15** in the B7 risk register. It is a future P1 delivery/resource risk for S23b/S23c; it does not alter G0.7/G0.8/G0.9 or the current S1-entry scope. No 3–4 GB content was fabricated, downloaded or committed. No image, audio, historical dataset, pack installer, engine, save schema, workflow or APK was modified/generated for this task.
