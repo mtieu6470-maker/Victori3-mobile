@@ -55,7 +55,7 @@ Overall S0 remains PARTIAL/BLOCKED, not PASS.
 
 The B7 additions are documentation only. They do not alter gameplay, engine, RNG, save implementation/schema, migrations, historical source data, assets, Android resources, Gradle, signing or secrets. The prior B4 tests-only workflow remains separate from the APK workflow. The existing android-apk workflow is unchanged by this B7 task.
 
-No APK was built, downloaded, installed or tested on the iQOO as part of B7.
+No APK was intentionally built, downloaded or installed as part of the B7 task. However, later documentation-only pushes inadvertently triggered the unchanged Android APK workflow; see §9 for run IDs and artifact evidence. No APK was installed or tested on the iQOO.
 
 ## 6. Required next review and decision
 
@@ -82,7 +82,7 @@ This is a technical coordination/self-audit record, **not** an independent revie
 - **Role governance:** the owner-directed allocation dated 2026-11-17 is recorded in AI_COLLABORATION_PROTOCOL.md and AI_HANDOFF.md. ChatGPT is the technical lead/coordinator; Claude is the independent reviewer for work it did not author; Gemini Hydrogen supports research/content; DeepSeek may be an owner-assigned independent fallback only when it did not author the reviewed change. Historical B3 review records are unchanged.
 - **Remaining decision:** Claude must review the exact HEAD after these documentation updates and issue REVIEW_PASS or CHANGES_REQUESTED. The project owner must separately record ACCEPTED for the bounded S1-entry package, R7 residual exposure, EX-G07-01, EX-G08-01 and the exact S1 scope. Until both are recorded, S1 remains NOT_STARTED.
 
-No APK was built, downloaded, installed or tested on the iQOO as part of this pre-review check.
+No APK was intentionally built, downloaded or installed as part of the pre-review check. Documentation pushes inadvertently triggered automatic APK workflow runs; see §9. No APK was installed on the iQOO.
 
 ## 8. Revalidation after B7 documentation corrections — 2026-11-17
 
@@ -98,7 +98,7 @@ This section supersedes the earlier pre-review snapshot in §7 for the current r
 - **B4 evidence remains tied to the executed test revision:** run `44041104723`, job `133895641421`, checkout SHA `d2ae88e557e9895413462c5b069886bfc606adc7`, 6/6 suites and 70/70 tests passed; all four valid-save continuations MATCH with `firstDifferingPath=null`; missing RNG continuation remains a characterized TypeError. Run artifact list is empty. No new test run was necessary for this documentation-only correction.
 - **Final pre-review disposition:** B7 is `READY_FOR_REVIEW`, not REVIEW_PASS or ACCEPTED. Claude must independently review the current HEAD after re-fetching it. The project owner must then separately accept/reject R7 residual exposure, EX-G07-01, EX-G08-01 and the exact bounded S1 scope. S1 remains `NOT_STARTED`; overall S0 remains PARTIAL/BLOCKED.
 
-No APK was built, downloaded or installed. No iQOO device action was performed.
+No APK was intentionally built or installed; automatic APK workflow runs were triggered by documentation pushes as detailed in §9. No APK was downloaded or installed on the iQOO, and no iQOO device action was performed.
 
 ## 9. Governance incident — documentation pushes triggered the APK workflow
 
