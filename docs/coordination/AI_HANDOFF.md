@@ -107,6 +107,18 @@ Pre-protocol work:
 
 Append newest entries at the top. Do not overwrite earlier entries.
 
+### 2026-11-17 — OWNER-3-4GB-OFFLINE-CONTENT-TARGET-RECORDED
+
+- The project owner stated a target of approximately **3–4 GB for the complete game**, prioritizing stability. This is recorded as total verified expanded offline footprint across the core application and content packs, not one monolithic APK size or a runtime RAM target.
+- The target aligns with the existing v3.2 decision H (offline >3 GB, provider-neutral manifest/multiple packs) and S23b (image coverage, content packs and offline delivery). It does not open S1 or authorize S23b implementation.
+- New B7 P1 risk **R15** added to `S0_RISK_REGISTER.md`: 17,764,559-byte/592-file baseline payload; static DB/map imports at boot; full 8,192 × 3,868 raster decode; whole content registry JSON load; no existing multi-pack installer/resume/atomic-update system; risks include temporary storage, partial pack, WebView/GPU memory, OOM/ANR and offline completeness.
+- `S0_SIGNOFF.md` P1 owner/exit table now carries R15 for S23b/S23c only. `S0_B7_RESULTS.md` §11 records the owner target, repository evidence and delivery constraints. `S0_B7_REVIEW_REQUEST.md` now has question 13 requiring Claude to review R15 and ensure it does not expand S1. Vietnamese package summary includes the target and links to official Play Asset Delivery documentation.
+- Delivery guidance distinguishes compressed download size, expanded disk footprint and resident RAM. Google Play path must evaluate AAB/PAD; sideload path requires a separate content-pack channel. No paid provider/CDN/hosting service was selected. No image, audio or research data was added.
+- Current code observations: `src/ui/main.tsx` statically imports db/map JSON; `HistoricalData` indexes the full DB; `mapData.decodeGrid` allocates the entire grid; `content.ts` fetches the full metadata registry while image elements are lazy. This is an architecture risk to address through approved data/content contracts and later S23b/S23c, not a change made here.
+- No product code, assets, historical data, save schema, tests, Gradle or workflows changed. No build or APK workflow was triggered; all documentation commits used `[skip ci]`.
+- B7 remains `READY_FOR_REVIEW`; Claude must review the exact current HEAD, now including R15 and the 3–4 GB target. S1 remains `NOT_STARTED` pending independent `REVIEW_PASS` and owner `ACCEPTED`.
+
+
 ### 2026-11-17 — B7-UNINTENDED-APK-WORKFLOW-TRIGGER-INCIDENT
 
 - **Root cause:** documentation commits in the B7 work sequence were pushed without `[skip ci]`. The existing `android-apk.yml` push trigger has no docs-only path exclusion. This safeguard had already been documented in the earlier B4 handoff/self-audit; ChatGPT failed to apply it. This is a coordinator error.
