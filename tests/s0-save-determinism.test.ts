@@ -121,8 +121,21 @@ function firstDifference(a: unknown, b: unknown, path = '$'): string | null {
   return null;
 }
 
+function jsonRoundTrip(value: unknown): unknown {
+  // Compare the value that can actually survive the save serializer:
+  // undefined object values disappear, undefined array entries become null,
+  // non-finite numbers become null, and negative zero becomes zero.
+  const serialized = JSON.stringify(value);
+  return serialized === undefined ? undefined : JSON.parse(serialized) as unknown;
+}
+
 function firstJsonDifference(a: unknown, b: unknown): string | null {
-  return firstDifference(canonicalize(a), canonicalize(b));
+  // Normalize through the same JSON representation used by serialize(), then
+  // canonicalize object keys only. Arrays remain positional and order-sensitive.
+  return firstDifference(
+    canonicalize(jsonRoundTrip(a)),
+    canonicalize(jsonRoundTrip(b)),
+  );
 }
 
 function cloneState(state: GameState): GameState {
@@ -178,7 +191,7 @@ function assertNonVacuous(
 }
 
 describe('S0-B4 — JSON comparison semantics', () => {
-  it('ignores undefined object properties without reordering arrays', () => {
+  it('matches JSON semantics for omitted values and order-sensitive arrays', () => {
     const beforeSave = {
       countries: { ABD: { group: undefined } },
       orderedEvents: ['first', 'second'],
@@ -194,6 +207,19 @@ describe('S0-B4 — JSON comparison semantics', () => {
       { orderedEvents: ['second', 'first'] },
     )).toBe('$.orderedEvents[0]');
     expect(firstJsonDifference({ values: [undefined] }, { values: [null] })).toBeNull();
+  });
+
+  it('matches JSON numeric normalization for non-finite numbers and negative zero', () => {
+    expect(firstJsonDifference({ value: Number.NaN }, { value: null })).toBeNull();
+    expect(firstJsonDifference({ value: Number.POSITIVE_INFINITY }, { value: null })).toBeNull();
+    expect(firstJsonDifference({ value: Number.NEGATIVE_INFINITY }, { value: null })).toBeNull();
+    expect(firstJsonDifference({ value: -0 }, { value: 0 })).toBeNull();
+
+    expect(firstJsonDifference(
+      { values: [Number.NaN, Number.POSITIVE_INFINITY, -0, undefined] },
+      { values: [null, null, 0, null] },
+    )).toBeNull();
+    expect(firstJsonDifference({ value: Number.NaN }, { value: 0 })).toBe('$.value');
   });
 });
 
@@ -321,20 +347,23 @@ describe('S0-B4 — malformed, incomplete and legacy save characterization', () 
     const restored = deserialize(JSON.stringify(envelope));
     expect(restored.rng).toBeUndefined();
 
-    let continuation: 'no-throw' | 'throws' = 'no-throw';
-    let errorName: string | undefined;
+    let continuationError: unknown;
     try {
       stepMonth(restored);
     } catch (error) {
-      continuation = 'throws';
-      errorName = error instanceof Error ? error.name : typeof error;
+      continuationError = error;
     }
+
+    // Characterize the current baseline defect explicitly. Do not repair it in S0.
+    expect(continuationError).toBeInstanceOf(TypeError);
+    const errorName = continuationError instanceof Error ? continuationError.name : null;
+    expect(errorName).toBe('TypeError');
 
     console.info('[S0_B4_SAVE_COMPAT] ' + JSON.stringify({
       case: 'rng-missing',
       deserialize: 'loaded-with-rng-undefined',
-      oneMonthContinuation: continuation,
-      errorName: errorName ?? null,
+      oneMonthContinuation: continuationError === undefined ? 'no-throw' : 'throws',
+      errorName,
     }));
   });
 });
