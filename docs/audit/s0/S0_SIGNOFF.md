@@ -35,7 +35,7 @@
 | G0.8 Asset/licensing | **PARTIAL** | S0_ASSET_AUDIT.md: inventory/checksum PASS; 492 licence records unverified; authorship/attribution and runtime display gaps. | Request only v3.3 S1 exception; no unverified asset/text changes or new distribution during S1. |
 | G0.9 Risk/signoff | **PARTIAL — pending review/owner signoff** | S0_RISK_REGISTER.md and this draft record risks, owners, interim controls and closure stages. R7 is still open P0 with an owner-approved interim-control principle; R14/C3 and G0.7/G0.8 remain bounded residual risks. | Independent reviewer must verify the risk register and this signoff; owner must explicitly accept R7 residual exposure and any S1 exceptions/scope. |
 
-**Overall S0 verdict: PARTIAL/BLOCKED.** G0.7 is BLOCKED, G0.8 is PARTIAL and G0.9 is not accepted. The table does not declare S0 PASS.
+**Overall S0 verdict: PARTIAL/BLOCKED.** G0.7 is BLOCKED, G0.8 is PARTIAL and G0.9 remains BLOCKED for full S0 under v3.3 §2.1.1 because R14/C3 remain BLOCKED. A bounded S1-entry review is separate and does not change these gate verdicts. The table does not declare S0 PASS.
 
 ## 3. Proposed bounded S1 exceptions
 
