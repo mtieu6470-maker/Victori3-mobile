@@ -18,7 +18,7 @@
 - **P2:** significant quality, correctness, provenance, testing or delivery debt; must remain visible and assigned to a later stage.
 - **P3:** lower-priority or bounded issue; preserve in the register and close at the stated stage.
 
-“Mitigated” means the stated control reduces exposure; it does not mean the underlying defect is fixed. “Deferred” does not mean accepted as safe for all future phases. Risk IDs from v3.2 and B3 are retained where they exist; the new B4 observation is identified separately.
+“Mitigated” means the stated control reduces exposure; it does not mean the underlying defect is fixed. “Deferred” does not mean accepted as safe for all future phases. Risk IDs from v3.2 and B3 are retained where they exist; the B4 missing-RNG observation and the new owner-directed R15 offline-content risk are identified separately.
 
 ## 2. P0 — hard control
 
