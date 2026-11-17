@@ -3,6 +3,7 @@
 **Repository:** mtieu6470-maker/Victori3-mobile  
 **Branch:** claude/game-historical-sandbox-modes-kg7rj7  
 **Owner decision:** OD-20261116-11 (v3.3)  
+**Assigned independent reviewer:** Claude Code, per owner-directed role allocation dated 2026-11-17 (DeepSeek is a fallback only if owner-assigned and independent).  
 **Product baseline:** 2240a8fb865e0021eec2f2f4f1c6803528be9e2c  
 **B4 tested HEAD:** d2ae88e557e9895413462c5b069886bfc606adc7  
 **B4 CI:** run 44041104723, job 133895641421, 70/70 tests, 6/6 suites  
@@ -18,6 +19,9 @@ Do not modify the repository. Do not change product source, gameplay, engine, RN
 
 ## 2. Files to inspect
 
+- .github/workflows/b4-tests-only.yml — verify the tests-only boundary and absence of APK build/sign/upload steps.
+- docs/audit/s0/S0_B7_RESULTS.md — including the ChatGPT pre-review consistency check; this is not an independent verdict.
+- docs/audit/s0/S0_B7_PACKAGE_SUMMARY_VI.md — Vietnamese index and scope/status summary.
 - docs/audit/s0/S0_RISK_REGISTER.md
 - docs/audit/s0/S0_GATE_LEDGER.csv
 - docs/audit/s0/S0_SIGNOFF.md
