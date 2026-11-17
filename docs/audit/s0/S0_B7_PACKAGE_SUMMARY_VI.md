@@ -45,10 +45,10 @@ G0.1–G0.6 là trạng thái được đề xuất theo bằng chứng hiện c
 
 - **R1/R14:** rủi ro mất save khi thay APK; Export/Import chưa xác minh trên APK baseline iQOO. Giữ APK hiện tại, không gỡ/cài APK khác chữ ký.
 - **R13/C3:** chưa có development-signing Environment/workflow được cấu hình và kiểm tra an toàn; không tạo keystore/secret trong B7.
-- **R2/AS-F3 và AS-F1:** attribution CC BY-SA và giấy phép của 492 ảnh chưa được xác minh đầy đủ.
+- **R2 / AS-F3 / AS-F1:** R2 là rủi ro cấp nội dung do đang ship 796 đoạn trích CC BY-SA; AS-F3 là finding P2 riêng về dòng nguồn UI thiếu liên kết license và tác giả; AS-F1 là 492 hồ sơ giấy phép ảnh chưa được xác minh lại. Không gộp các mức độ này thành một finding.
 - **GD-F2:** độ phủ dữ liệu toàn cầu không đồng đều; Sub-Saharan Africa có 84,8% dân số vùng mang nhãn missing theo audit.
 - **TC-F1/TC-F2:** hai test luật/chiến tranh có pass rỗng; green CI không chứng minh được các invariant đó.
-- **RM-F3/R5:** mô phỏng đồng bộ trên main thread; tick p95 Node 29–33 ms, callback desktop 38,8–63,4 ms; loop bị gắn với requestAnimationFrame.
+- **R5 / RM-F3 / RM-F4:** R5 (P1) cảnh báo số đo frame/FPS không tách được tick cost; callback `stepMonth + emit` trên desktop có p95 38,8–63,4 ms, max 97,1 ms, còn browser `stepMonth` riêng là unsupported. RM-F3 (P1) ghi mô phỏng đồng bộ trên main thread; RM-F4 (P2) ghi loop `requestAnimationFrame` giới hạn throughput. Đây là ba góc rủi ro liên quan nhưng không đồng nhất.
 - **R10:** cần ngân sách hiệu năng cho các lớp bản đồ mới ở các giai đoạn S4/S11/S20.
 
 ### Các finding đã được bổ sung hoặc bảo toàn
