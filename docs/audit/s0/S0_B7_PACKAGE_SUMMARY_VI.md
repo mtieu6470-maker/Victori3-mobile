@@ -102,7 +102,7 @@ B7 chỉ thêm/cập nhật tài liệu audit và handoff. Đối chiếu từ H
 Workflow hiện hữu .github/workflows/android-apk.yml giữ nguyên blob SHA:
 7a2639057272d2629f2d6b89cfc8fb07682dad31.
 
-Không tạo APK, không cài APK, không tạo signing key hoặc secret trong B7.
+ChatGPT không chủ động yêu cầu/build APK hoặc cài APK; tuy nhiên các push tài liệu B7 đã vô tình kích hoạt workflow Android APK hiện hữu. Run và artifact được ghi tại `S0_B7_RESULTS.md` §9. Không APK nào được tải về hoặc cài lên iQOO; workflow APK không bị sửa. Không tạo signing key hoặc secret trong B7.
 
 ## 8. Việc cần làm tiếp theo
 
