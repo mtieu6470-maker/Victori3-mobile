@@ -224,3 +224,18 @@ This is the latest ChatGPT technical consistency check before independent review
 - **Disposition:** B7 is `READY_FOR_REVIEW`. Claude must re-fetch and review the exact latest HEAD after this report update. The owner must then separately record `ACCEPTED` or rejection. S1 remains `NOT_STARTED`; R15 does not authorize S23b or expand S1.
 
 No image, video, audio, historical dataset, asset pack, gameplay or product code was created or changed for this target. No product test/build or APK generation was intentionally run.
+
+## 13. Post-design consistency check — 2026-11-17
+
+After the §12 checkpoint, the owner clarified the delivery requirement further: no misleading "18 MB full game", and the 3–4 GB target must represent real historical/game content. The design was then expanded in §§11.3–11.5 and synchronized into the Risk Register R15, Signoff P1 table, Claude review question 13, Vietnamese summary §3.2 and AI Handoff.
+
+**Latest pre-this-entry branch HEAD fetched:** `698411c119bcd6a37182fd4cc6dc2f204f23a84f`.
+
+- GitHub compare from B7 preparation base `5d92101e56d6f60045f51f25f926b124eaf892ef` to that HEAD reports 66 commits and the same eight changed paths, all in `docs/audit/s0/` and `docs/coordination/`; no product source, engine, save schema, historical data, assets, Android resources, Gradle, tests or workflow path changed.
+- All 42 inherited risk identifiers still exist; R15 and B4-R1 are also present. The signoff still lists R15 only for S23b/S23c; S1 remains NOT_STARTED.
+- Review request question 13 now covers both delivery paths, archive/per-file hashes, resumable transfer tests, storage preflight, safe WebView exposure, atomic activation/rollback, FULL_OFFLINE_READY gating, genuine in-game content and evidence-based compression.
+- Official implementation references checked: Play base/asset-pack size limits; GitHub Release asset count and per-file limit; Android native long-running download options; WebViewAssetLoader internal-storage path handler. The report states which behaviors still require project-specific integration tests, particularly GitHub release redirect/range resume.
+- The APK workflow file remains unchanged at blob `7a2639057272d2629f2d6b89cfc8fb07682dad31`. At the latest Actions query there were 21 earlier accidental documentation-triggered runs (20 success, 1 failure) and zero new push runs after the `[skip ci]` containment time. The workflow has no docs-only path filter, so keep the marker on every future documentation push.
+- No product code, asset/media, content pack, tests, or APK was created or changed as part of this design update. This update is documentation and review preparation only; the independent reviewer must always fetch the branch's exact current HEAD (which will advance as this record is committed).
+
+**Disposition unchanged:** B7 READY_FOR_REVIEW; R7 open P0; R14/C3 blocked; G0.7 BLOCKED; G0.8 PARTIAL; full-S0 G0.9 BLOCKED; S1 NOT_STARTED. No S23b implementation is authorized by R15.
