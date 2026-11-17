@@ -6,14 +6,14 @@
 
 ## Review target
 
-- **Exact review commit:** `e4924ca48264f8d0818eface51a28a87cd363b89`
-- **Subsequent documentation-only handoff commit:** `5083f6fffc2e2b9de501a2f5d529cf90b3793081`
 - **Product baseline under test:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
-- **B4 test:** `tests/s0-save-determinism.test.ts`
-- **CI:** [Run 44032178418](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44032178418)
-- **CI result at exact test commit:** job `133866471284`, success; 69/69 tests, 26/26 suites, 0 failures, `report_valid=true`.
+- **B4 test-source correction commit to review:** `ae29c99330081ba2f6af3a6d4478ec8aefc8a1ad` (`tests/s0-save-determinism.test.ts` only; contains both B4-SA-01 and B4-SA-02 corrections).
+- **Prior successful CI reference (historical only):** [Run 44032178418](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44032178418), job `133866471284`, tested earlier test source at `e4924ca48264f8d0818eface51a28a87cd363b89`; its 69/69 test and 26/26 suite result predates the two corrections and must not be represented as validation of `ae29c99`.
+- **First tests-only workflow attempt:** [Run 44039619132](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44039619132), job `133890749856`, checked out `08ec7a3bb485ab0457a99ef77ddeb8ed9a3122e0`; `npm ci` passed, but all six suites failed during collection because ignored generated inputs were not prepared; zero test assertions executed.
+- **Tests-only workflow correction commit:** `56cdbf46fea6ed2909a59b4b3f1db596f4a32104` (adds `npm run prepare-assets` before Vitest; no app build or APK step).
+- **Review target:** inspect the exact current branch HEAD before review, verify the B4 test file is still the corrected `ae29c99` version, and inspect the updated handoff/audit addenda.
 
-Review the exact GitHub content at the review commit, not a local file from another revision. Verify the current branch HEAD and ensure no new commit changed the test while reviewing.
+Review the exact GitHub content at `ae29c99` for the B4 test source, not a local file from another revision. Verify the current branch HEAD and ensure no later commit changed `tests/s0-save-determinism.test.ts`. The successful CI run above is a historical reference only; the tests-only rerun after the workflow correction is still pending.
 
 ## Scope and constraints
 
@@ -107,3 +107,13 @@ Return a bounded review with:
 6. One verdict: `REVIEW_PASS` for the bounded B4 test/evidence package, or `CHANGES_REQUESTED`.
 
 Do not write to GitHub or alter the repository. A `REVIEW_PASS` is not owner acceptance. B7 remains blocked until the reviewer’s verdict and the owner’s explicit `ACCEPTED` decision are both recorded.
+
+
+## 6. Follow-up tests-only CI status (2026-11-17)
+
+The first tests-only run did not reach the test assertions because the workflow called `npm run test:fast` without generating ignored test inputs. The repository's canonical preparation is `npm run prepare-assets` (data, map and content generators); the workflow now runs that step before Vitest.
+
+The workflow-only correction is commit `56cdbf46fea6ed2909a59b4b3f1db596f4a32104`. It deliberately excludes Vite build, Capacitor, Gradle, APK packaging and artifact upload; the pre-existing APK workflow remains unchanged. A new dispatch of the corrected workflow is required. Until logs from that run exist, CI validation of the corrected B4 test source is `NOT_TESTED`.
+
+The reviewer must not mistake run `44039619132` for a B4 test assertion failure or a B4 pass: it reports six suite collection failures and zero tests executed. The reviewer must also not use run `44032178418` as post-correction evidence because it predates commit `ae29c99`.
+
