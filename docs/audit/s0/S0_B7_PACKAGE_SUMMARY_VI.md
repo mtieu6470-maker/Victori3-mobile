@@ -4,7 +4,7 @@
 **Repository:** https://github.com/mtieu6470-maker/Victori3-mobile  
 **Branch:** claude/game-historical-sandbox-modes-kg7rj7  
 **Trạng thái B7:** READY_FOR_REVIEW  
-**HEAD khi lập bản tổng hợp:** 804fcabef43603763f66f4acb6cd34463d8fc0ae  
+**HEAD trước commit tạo bản tổng hợp:** 804fcabef43603763f66f4acb6cd34463d8fc0ae  
 **Product baseline:** 2240a8fb865e0021eec2f2f4f1c6803528be9e2c  
 **Owner authorization:** OD-20261116-11 (S0 v3.3)  
 **Ngày:** 2026-11-17
@@ -91,8 +91,8 @@ R14 tiếp tục BLOCKED. Không gỡ APK baseline, không cài APK khác chữ 
 3. [S0_SIGNOFF.md](S0_SIGNOFF.md) — đề xuất chuyển tiếp có ngoại lệ, xác nhận R7, phần independent reviewer và owner decision.
 4. [S0_B7_RESULTS.md](S0_B7_RESULTS.md) — kết quả và phạm vi công việc B7.
 5. [S0_B7_REVIEW_REQUEST.md](S0_B7_REVIEW_REQUEST.md) — 11 câu hỏi reviewer và danh sách file/log phải kiểm.
-6. [../b4/S0_B4_CHATGPT_TECHNICAL_SELF_AUDIT_2026-11-17.md](../b4/S0_B4_CHATGPT_TECHNICAL_SELF_AUDIT_2026-11-17.md) — self-audit B4 và CI evidence.
-7. [../S0_B3_RESULTS.md](../S0_B3_RESULTS.md) — audit B3, gate proposal và index findings.
+6. [../b4/S0_B4_CHATGPT_TECHNICAL_SELF_AUDIT_2026-11-17.md](b4/S0_B4_CHATGPT_TECHNICAL_SELF_AUDIT_2026-11-17.md) — self-audit B4 và CI evidence.
+7. [../S0_B3_RESULTS.md](S0_B3_RESULTS.md) — audit B3, gate proposal và index findings.
 8. [../../coordination/AI_HANDOFF.md](../../coordination/AI_HANDOFF.md) — phase register, work log và trạng thái hiện hành.
 
 ## 7. Thay đổi GitHub và phạm vi
