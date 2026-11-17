@@ -1,0 +1,10 @@
+Gate,Status,Evidence,Limitations / required next action
+G0.1, PASS,"S0_REPOSITORY_SNAPSHOT.md; baseline 2240a8fb865e0021eec2f2f4f1c6803528be9e2c; authorized changes are audit/docs/workflow only","Recheck exact HEAD and diff at independent signoff review"
+G0.2, PASS,"S0_BUILD_TEST_REPORT.md; B1 CI evidence run 43834719406; B4 tests-only run 44041104723 success","B4 run is tests-only, not a new application/APK build; retain separate APK SHA and ZIP digest"
+G0.3, PASS,"S0_TEST_CATALOG.md; 58/58 runtime tests mapped, assertion counts and stability probes; TC-F1..F7 findings catalogued","Vacuous tests remain findings; do not interpret catalog PASS as every test being strong"
+G0.4, PASS,"S0_REQUIREMENT_MATRIX.csv; 353 atomic requirements from MASTER_SPEC_VI sections 0-17","Missing/Partial/Placeholder/Unverified features remain accurately labelled"
+G0.5, PASS,"S0_GLOBAL_DATA_AUDIT.md; 274/274 entities; 662 regions; 12 analysis groups; 4,374 region-admin1 pairs","West Asia and Middle East are grouped, not independently audited; data coverage gaps remain findings"
+G0.6, PASS,"B4 tests-only run 44041104723 at d2ae88e; 4 valid-save continuation cases MATCH; malformed/legacy behavior recorded including missing RNG TypeError","Missing RNG remains accepted by deserialize and crashes with TypeError on continuation; see B4-R1, not a successful compatibility case"
+G0.7, BLOCKED,"S0_PERFORMANCE_BASELINE.md; Node PASS; desktop PARTIAL (Chromium headless + SwiftShader); iQOO Z10 Turbo BLOCKED","Request only v3.3 S1 exception; retain BLOCKED; iQOO evidence required before S2"
+G0.8, PARTIAL,"S0_ASSET_AUDIT.md; inventory/checksum PASS; 492 licence records unverified; authorship/attribution and runtime display gaps","Request only v3.3 S1 exception; no unverified asset/text changes or new distribution during S1"
+G0.9, PARTIAL,"S0_RISK_REGISTER.md and S0_SIGNOFF.md draft; risks, owners, interim controls and closure stages recorded","Pending independent review and explicit owner signoff including R7 residual-risk acknowledgement and any S1 exceptions"
