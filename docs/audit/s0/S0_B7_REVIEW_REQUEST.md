@@ -25,7 +25,6 @@ Do not modify the repository. Do not change product source, gameplay, engine, RN
 - docs/audit/s0/S0_RISK_REGISTER.md
 - docs/audit/s0/S0_GATE_LEDGER.csv
 - docs/audit/s0/S0_SIGNOFF.md
-- docs/audit/s0/S0_B7_RESULTS.md
 - docs/coordination/AI_HANDOFF.md
 - docs/coordination/AI_COLLABORATION_PROTOCOL.md
 - docs/roadmap/S0_V3_3_OWNER_DECISION_AND_AMENDMENTS.md
