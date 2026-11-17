@@ -18,7 +18,7 @@
 | Gate verdict vocabulary | Protocol "Status vocabulary" (`PASS`, `PARTIAL`, `BLOCKED`, `FAIL`, `NOT_TESTED`, `NOT_APPLICABLE`); where the approved S0 document writes "NOT TESTED" it means `NOT_TESTED` |
 | Legacy roadmaps and pre-protocol work | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` (historical evidence, not authorization) |
 | Current approved phase | **S0-B3 → S0-B4 → S0-B7, sequential** (OD-20261116-11). B3 has `REVIEW_PASS`; B4 evidence is complete and awaits independent review/owner acceptance; B7 has not started and remains gated |
-| Current task status | S0-B3 `REVIEW_PASS` (ChatGPT independent review round 2 of exact HEAD `e80ddfc5aa030a625f7e95f1c551800642e6bd55`; bounded to B3 audit scope, not product acceptance). S0-B4 `READY_FOR_REVIEW` for formal review, with a ChatGPT technical self-audit recorded separately: four determinism cases match in CI, but findings B4-SA-01 (missing-RNG behavior is logged without an assertion) and B4-SA-02 (the diagnostic comparator does not fully mirror JSON numeric normalization) require test-harness correction before acceptance. This is not a second-party independent review; owner acceptance remains pending. B7 remains `NOT_STARTED`. S0-A `READY_FOR_REVIEW`: A1–A4 conditionally accepted and A5 `BLOCKED`; S0-A is not `ACCEPTED`. S0-B1 done: technical verdict `PASS` (v3.3 proposal §2.1, accepted by OD-20261116-11). `COORDINATION-REVIEW-BD5787F` `READY_FOR_REVIEW` |
+| Current task status | S0-B3 `REVIEW_PASS` (ChatGPT independent review round 2 of exact HEAD `e80ddfc5aa030a625f7e95f1c551800642e6bd55`; bounded to B3 audit scope, not product acceptance). S0-B4 `READY_FOR_REVIEW` with the two self-audit findings corrected in test harness commit `ae29c99330081ba2f6af3a6d4478ec8aefc8a1ad`: missing-RNG continuation now asserts `TypeError`, and comparator operands are normalized through JSON round-trip before ordered comparison. An isolated Node smoke check passed 8 assertions; the repository Vitest suite/build/CI have NOT been run for this correction because the existing push workflow creates/uploads an APK. Genuine second-party Claude review and owner `ACCEPTED` remain pending. B7 remains `NOT_STARTED`. S0-A `READY_FOR_REVIEW`: A1–A4 conditionally accepted and A5 `BLOCKED`; S0-A is not `ACCEPTED`. S0-B1 done: technical verdict `PASS` (v3.3 proposal §2.1, accepted by OD-20261116-11). `COORDINATION-REVIEW-BD5787F` `READY_FOR_REVIEW` |
 | S0-B3 evidence | `docs/audit/s0/S0_B3_RESULTS.md` (summary, gate self-assessment, finding index) with `S0_TEST_CATALOG.md`, `s0_test_catalog.json`, `S0_REQUIREMENT_MATRIX.csv`, `S0_GLOBAL_DATA_AUDIT.md`, `S0_ASSET_AUDIT.md`, `S0_PERFORMANCE_BASELINE.md/.json`, `b3/**` — tools commit `3d63061e4bd5b3fdf7c636370da462a5b0f5d721`, reports commit `55331c2bf629bb631701ec82020c7f9deaa7da81`; review-1 corrections: tools `ddea490`, reports and evidence `2c62b3d` (`b3/review1/**`; summary in `S0_B3_RESULTS.md` §8) |
 | S0-B1 evidence | `docs/audit/s0/S0_B1_CI_EVIDENCE.md`, `docs/audit/s0/logs/b1/` (commit `e13d964f343ab1ba01fb705fbbd8bcac2674ea80`). B1 commit `382aaa84b2336854b4dbebfcdc719847ff463f41`; run `43834719406`, job `133188390842` success; 58/58 tests; `report_valid=true`; APK file SHA-256 `314c8ca11c1d747550bbdb982326675e5f9dbdac870f3fc1cf04b9de7c22585c`; artifact ZIP SHA-256 `7717a2b79dd46fbf613845e33bac3a17634eae5b0c808328d8b21b5abc150ba0` (a different file) |
 | S0-A evidence | `docs/audit/s0/S0_A_RESULTS.md` (summary and gate verdicts), `S0_REPOSITORY_SNAPSHOT.md`, `S0_BUILD_TEST_REPORT.md`, `logs/`, `a4/`, `inputs/` — commits `7d6eec9d0601a7d983679ec7792b1aa96b954ca0`, `d5b9820aae9a96d57e9486845c164ae591fa69de`, `8073fac029463c0685435985a2968cd5a3aba4ab` |
@@ -78,7 +78,7 @@ Not allowed:
 | S0-A — Baseline as-is (`BASELINE_ORIGINAL`), approved document §6.3 A1–A5 | `READY_FOR_REVIEW` (A1–A4 evidenced; A5 `BLOCKED`) | Owner approval of the S0 v3.2 document and S0-A authorization (OD-20261116-09, -10) — met | S0-A evidence committed; ChatGPT review; owner decision |
 | S0-B1 — CI checksums and test report | Done; reviewer technical verdict `PASS` (v3.3 §2.1) | Owner instruction for B1 (OD-20261116-10B) — met | Evidence committed (`e13d964`) |
 | S0-B3 — Audit scripts, catalog, coverage, crosswalk, asset inventory, Node/desktop harness | `READY_FOR_REVIEW` round 2 (Claude, unverified); round 1 `CHANGES_REQUESTED` | OD-20261116-11 — met | Reports committed (`3d63061`, `55331c2`; corrections `ddea490`, `2c62b3d`); ChatGPT re-review (B4 waits for B3 `REVIEW_PASS`) |
-| S0-B4 — Characterization tests and fixtures (save/load determinism, v3.2 §6.7) | `READY_FOR_REVIEW` (CI determinism evidence complete; ChatGPT technical self-audit recorded B4-SA-01/02 test-harness corrections; genuine second-party review and owner acceptance pending) | B3 `REVIEW_PASS` + OD-20261116-11 — met | Resolve bounded test-harness findings, obtain independent review `REVIEW_PASS` and owner `ACCEPTED`; only then may B7 begin |
+| S0-B4 — Characterization tests and fixtures (save/load determinism, v3.2 §6.7) | `READY_FOR_REVIEW` (B4-SA-01/02 source corrections committed; 8 isolated helper assertions passed; project Vitest/CI not yet run for the correction; second-party review and owner acceptance pending) | B3 `REVIEW_PASS` + OD-20261116-11 — met | Run project tests on a safe tests-only CI path, obtain independent review `REVIEW_PASS` and owner `ACCEPTED`; only then may B7 begin |
 | S0-B7 — Risk register and signoff package | `NOT_STARTED` (B4 review/acceptance gate not yet met) | B3 and B4 `REVIEW_PASS` + owner `ACCEPTED` | `S0_SIGNOFF.md`; G0.1–G0.9 ledger; exception requests limited to G0.7 (iQOO) and G0.8 (legacy licences) |
 | S0-B2 / B5 / B6 — signing, Diagnostic UI, instrumented measurements | `BLOCKED` / deferred | R14 proven on the baseline APK, O5 decided, protected `development-signing` Environment configured by the owner | Per v3.2 §4.1, §6.8 |
 | S1 — Data architecture and save foundation | `NOT_STARTED` | S0 accepted and S1 scope separately approved | S1 acceptance criteria met; independent review; owner accepted |
@@ -95,6 +95,22 @@ Pre-protocol work:
 ## 5. Work log
 
 Append newest entries at the top. Do not overwrite earlier entries.
+
+### 2026-11-17 — S0-B4-TEST-HARNESS-CORRECTIONS
+
+- Date (UTC): 2026-11-17
+- Task/phase: S0-B4 test-harness correction only; no product source or workflow change.
+- Base HEAD observed before edits: `a640f6e72da9b76a6504b8827eac2842663cf2b3`.
+- Test-harness commit: `ae29c99330081ba2f6af3a6d4478ec8aefc8a1ad`; changed file: `tests/s0-save-determinism.test.ts` only.
+- B4-SA-01 correction: missing-RNG characterization now explicitly expects a `TypeError` during one-month continuation and asserts the error name; observed baseline behavior remains unchanged.
+- B4-SA-02 correction: added a JSON stringify/parse round-trip before recursive key canonicalization in `firstJsonDifference`; added regression coverage for `NaN`, positive/negative infinity, negative zero, undefined/non-finite array entries, and array ordering.
+- Validation: isolated Node helper smoke check passed 8 assertions. This is not the project Vitest suite and not CI evidence.
+- Project Vitest/build/CI: `NOT_RUN` for this commit. Commit message contains `[skip ci]` to avoid triggering `.github/workflows/android-apk.yml`, which would assemble and upload an APK.
+- Workflow authorization: no workflow changed. A tests-only CI path is still needed to validate test-harness changes without violating the R14 no-new-APK restriction.
+- Audit report addendum: `docs/audit/s0/b4/S0_B4_CHATGPT_TECHNICAL_SELF_AUDIT_2026-11-17.md`, follow-up recorded in commit `634c2c6b1d856751963c0e811318041717a992da`.
+- Independent review: pending; Claude should review the exact final HEAD when quota is available. ChatGPT is not claiming a second-party `REVIEW_PASS`.
+- Owner decision: B4 source corrections authorized by owner instruction in chat; acceptance and B7 transition remain pending.
+- B7: `NOT_STARTED`.
 
 ### 2026-11-17 — S0-B4-CHATGPT-TECHNICAL-SELF-AUDIT
 
@@ -458,6 +474,14 @@ Audit report: `docs/audit/s0/b4/S0_B4_CHATGPT_TECHNICAL_SELF_AUDIT_2026-11-17.md
 | B4-SA-02 | P2 | `firstJsonDifference` does not fully match JSON normalization for `NaN`, infinities and `-0`, although undefined object values, undefined array entries, key ordering and array ordering are handled | Normalize through JSON semantics before recursive key sorting, or explicitly reject non-finite numbers; add regression fixtures |
 
 This is a technical self-audit by the same ChatGPT that authored the comparator correction. It is not a second-party independent review and does not set B4 to `REVIEW_PASS`. A safe tests-only CI path is not currently authorized; the existing push workflow also assembles and uploads an APK. Therefore the test source has not been changed and no new APK workflow was run. B4 remains pending genuine independent review and owner acceptance; B7 remains `NOT_STARTED`.
+
+### Follow-up — test-harness fixes committed (2026-11-17)
+
+- Commit `ae29c99330081ba2f6af3a6d4478ec8aefc8a1ad` changes `tests/s0-save-determinism.test.ts` only.
+- B4-SA-01 and B4-SA-02 source corrections described in the newest work-log entry are now implemented.
+- Isolated Node helper validation: 8 assertions passed. Project Vitest, build and CI were not run for this commit.
+- No workflow modification and no APK build was initiated. The current APK workflow remains a process hazard for future ordinary pushes.
+- The original B4 self-audit remains a same-author technical review, not a genuine second-party review. B4 still requires project test evidence, Claude's independent review when available, and explicit owner acceptance. B7 remains `NOT_STARTED`.
 
 ## 7. Owner decisions
 
