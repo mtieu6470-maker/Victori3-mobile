@@ -107,6 +107,19 @@ Pre-protocol work:
 
 Append newest entries at the top. Do not overwrite earlier entries.
 
+### 2026-11-17 — R15-PACK-DELIVERY-AND-REAL-CONTENT-ACCEPTANCE
+
+- Project owner clarified that the complete 3–4 GB game must contain meaningful actual game data/assets, not code padded to a size. APK must not appear to be the complete game merely because it is about 18 MB.
+- B7 Results §11.3–§11.5 now specifies two delivery paths using the same provider-neutral manifest:
+  1. **Sideload/GitHub:** small core APK + multiple downloadable archives/content packs; verify archive and per-file SHA-256, stream extraction to staging, preflight free space, atomic activation/rollback, resume/retry tests, install into dedicated app-private content storage. GitHub Releases is a candidate for public initial distribution: each asset must be under 2 GiB, up to 1,000 assets per release, and GitHub documents no total release-size/bandwidth cap. Resume on redirect must be tested before commitment.
+  2. **Google Play:** AAB + PAD with install-time/fast-follow/on-demand packs; do not assume PAD can deliver content for a sideload APK.
+- Compression choices are evidence-based: text/JSON/CSV/vector geometry may compress substantially; already-compressed image/audio formats generally cannot be promised to shrink 10×. 3–4 GB compressed payload and 3–4 GB expanded footprint are distinct measures and must be reported separately.
+- Runtime delivery: native Android downloader rather than WebView JavaScript for multi-GB downloads; a dedicated internal app-private content folder is mapped to WebView through AndroidX WebViewAssetLoader InternalStoragePathHandler, without exposing save/database/cache directories. Storage preflight includes staging, archives, existing packs for rollback and safety margin.
+- B7 Results now prohibits fake size via empty/random/duplicate/padded files, silent/repeated audio, QA docs or source code. Each asset/data group must have actual in-game use, source/provenance/licence, dates/period validity and quality checks. Full Offline Ready is shown only once required packs, versions, dependencies and checksums are verified; otherwise the app explicitly reports Core Only / Missing Pack.
+- The B7 review request question 13 now asks Claude to review this full delivery design, integrity/rollback/storage/WebView safeguards, evidence-based compression and genuine content acceptance; Vietnamese summary has section 3.2.
+- No installer, assets, packs, images, audio, historical content or product code were implemented/created. This is review/design documentation only. B7 needs a fresh Claude independent review at the new exact HEAD; S1 remains NOT_STARTED.
+- Current documentation commits continue to include [skip ci]; no APK workflow modification or intentional build.
+
 ### 2026-11-17 — B7-FINAL-REVALIDATION-R15-READY-FOR-CLAUDE
 
 - B7 Results §12 records final pre-review revalidation against branch HEAD `7acd702559f6a51933d49b8b331910a63c8352e1`; compare from B7 preparation base `5d92101e56d6f60045f51f25f926b124eaf892ef` showed 58 commits and exactly eight modified/added paths, all under `docs/audit/s0/` and `docs/coordination/`. No source, engine, save schema, historical data, assets, Android resources, Gradle, tests or workflow changes in B7 range.
