@@ -93,7 +93,7 @@ Two separate dimensions. Do not mix them.
 - `READY_FOR_REVIEW`
 - `CHANGES_REQUESTED`
 - `BLOCKED`
-- `REVIEW_PASS` — ChatGPT review passed; owner decision still pending.
+- `REVIEW_PASS` — the assigned independent reviewer has passed the exact bounded review scope; owner decision still pending. Under the current owner-directed allocation, this is normally Claude Code, or DeepSeek only when the owner assigns it as an independent fallback. Historical review records identifying ChatGPT as reviewer remain unchanged.
 - `ACCEPTED` — owner explicitly accepted.
 - `REJECTED`
 - `DEFERRED`
