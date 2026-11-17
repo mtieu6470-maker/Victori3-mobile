@@ -107,6 +107,17 @@ Pre-protocol work:
 
 Append newest entries at the top. Do not overwrite earlier entries.
 
+### 2026-11-17 — B7-UNINTENDED-APK-WORKFLOW-TRIGGER-INCIDENT
+
+- **Root cause:** documentation commits in the B7 work sequence were pushed without `[skip ci]`. The existing `android-apk.yml` push trigger has no docs-only path exclusion. This safeguard had already been documented in the earlier B4 handoff/self-audit; ChatGPT failed to apply it. This is a coordinator error.
+- GitHub Actions query at 2026-11-17 09:16 UTC: 21 push-triggered `Android APK (debug)` runs in the B7 documentation push sequence (08:06:36–09:14:38 UTC): 19 success, 1 failure, 1 in progress. One pending run at last check: `44053773347`.
+- Verified successful APK build: run `44053488213`, commit `0ec54d8b936369b294174ebd2b894b8b0603ab1b`, job `133936826466`. Job log confirms `./gradlew assembleDebug --no-daemon`, `BUILD SUCCESSFUL in 1m 30s`, and upload of APK artifact `14315256630` (17,555,130 bytes); evidence artifact `14314802216` (103,296 bytes). The raw log was fetched; artifacts were not downloaded.
+- Second verified build: run `44053599571` succeeded with APK artifact `14314932258` (17,555,068 bytes) and evidence artifact `14315825776`.
+- Failed run `44048307793`: tests still passed 70/70 across 6/6 suites; Gradle failed before APK artifact creation due Maven Central HTTP 429 dependency resolution. CI evidence artifact `14313265291` only; no APK artifact in its artifact listing.
+- No APK was downloaded or installed on iQOO; no signature transition or R14 test occurred. The generated CI artifacts do not validate Export/Import or authorize installation.
+- `.github/workflows/android-apk.yml` was not edited. The available GitHub connector has no run-cancellation action, so the one pending run could not be cancelled from this session.
+- Subsequent document commits in this handoff use `[skip ci]`. Any permanent workflow/path-filter change still requires owner approval. See `S0_B7_RESULTS.md` §9 and `S0_B7_REVIEW_REQUEST.md` question 12.
+
 ### 2026-11-17 — B7-PRE-REVIEW-PACKET-READY-CLAUDE-PENDING
 
 - Exact pre-handoff-update branch HEAD re-fetched: `51876c678a8e2700f2c2b2977734a739f2593b62` on `claude/game-historical-sandbox-modes-kg7rj7`.
@@ -115,7 +126,7 @@ Append newest entries at the top. Do not overwrite earlier entries.
 - Final consistency check: all 42 inherited risk IDs remain present; P3 risk entries now carry evidence, impact, mitigation, owner, stage and exit criteria; R11 cites baseline `android/app/build.gradle:10`; AS-F6 is linked to R6. REVIEW_PASS now refers to the assigned independent reviewer. Historical B3 ChatGPT review records remain unchanged.
 - Gate values remain unchanged: G0.1–G0.6 proposed PASS on bounded evidence; G0.7 BLOCKED; G0.8 PARTIAL; full-S0 G0.9 BLOCKED while R14/C3 are BLOCKED. R7 remains open P0. B4 remains READY_FOR_REVIEW; B7 remains READY_FOR_REVIEW.
 - No independent reviewer verdict is available while Claude is out of quota. This is not a REVIEW_PASS or ACCEPTED. The owner decision is still pending; S1 remains NOT_STARTED.
-- No product tests were rerun because only audit/coordination documentation changed. B4's previously verified tests-only run remains the evidence: 44041104723, 6/6 suites, 70/70 tests, no APK artifacts. No APK was built or installed.
+- No product tests were rerun because only audit/coordination documentation changed. B4's previously verified tests-only run remains the evidence: 44041104723, 6/6 suites, 70/70 tests, no APK artifacts. The B7 documentation pushes also triggered the separate APK workflow unintentionally; see the incident entry below. No APK was downloaded or installed on iQOO.
 
 
 ### 2026-11-17 — B7-RISK-REGISTER-DEEPENED-AND-GOVERNANCE-CONSISTENCY
