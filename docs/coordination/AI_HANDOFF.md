@@ -96,6 +96,13 @@ Pre-protocol work:
 
 Append newest entries at the top. Do not overwrite earlier entries.
 
+### 2026-11-17 — S0-B7-G0.9-STATUS-CORRECTION
+
+- Cross-check against OD-20261116-11 §2.1.1 found that full-S0 G0.9 must remain BLOCKED while R14/C3 are BLOCKED. Earlier B7 draft wording said PARTIAL; this was incorrect and has been corrected in S0_GATE_LEDGER.csv, S0_SIGNOFF.md, S0_B7_RESULTS.md and S0_RISK_REGISTER.md.
+- Important distinction: the bounded S1-entry risk disposition may be independently reviewed under v3.3 if R7 has owner-accepted interim controls, R14/C3 are isolated as P1 with owner/mitigation/stage/exit criteria, and there is no uncontrolled P0. Such a review does not change the full-S0 G0.9 gate verdict.
+- Updated S0_B7_REVIEW_REQUEST.md to make the distinction an explicit reviewer check. No product or workflow changes.
+
+
 ### 2026-11-17 — S0-B7-DRAFT-READY-FOR-REVIEW
 
 - Date (UTC): 2026-11-17
