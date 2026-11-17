@@ -117,3 +117,23 @@ The workflow-only correction is commit `56cdbf46fea6ed2909a59b4b3f1db596f4a32104
 
 The reviewer must not mistake run `44039619132` for a B4 test assertion failure or a B4 pass: it reports six suite collection failures and zero tests executed. The reviewer must also not use run `44032178418` as post-correction evidence because it predates commit `ae29c99`.
 
+
+
+## 7. Corrected tests-only CI completed — PASS (2026-11-17)
+
+The corrected workflow has now been dispatched and passed. This section supersedes the pending-rerun language in §6.
+
+- **Run:** [44041104723](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44041104723)
+- **Exact tested HEAD:** `d2ae88e557e9895413462c5b069886bfc606adc7`
+- **Job:** `133895641421`, “Vitest (no build, no APK)”; conclusion `success`.
+- **Commands:** `npm ci` success; `npm run prepare-assets` success; `npm run test:fast` success.
+- **Vitest:** 6/6 test files passed; 70/70 tests passed; 0 failures; duration 80.59 seconds.
+- **B4-SA-01:** missing RNG continues to be accepted by deserialize and the one-month continuation throws `TypeError`; the corrected test assertion passed.
+- **B4-SA-02:** both JSON-equivalence comparator tests passed, including undefined value handling, array order, non-finite numbers and negative zero.
+- **Save/load matrix:** Historical tick 6 and 12 both `MATCH` with final SHA-256 `a6751c47e91eb6786366e086737bb75da68ff8b4b0c617d496bc5e61627228d8`; Sandbox tick 6 and 12 both `MATCH` with final SHA-256 `b0d489068f6d3ef1d59fd862405df46851717fff9571b3c95379dbaa407a57cd`. All four `firstDifferingPath=null`.
+- **Artifact check:** no workflow artifacts; no APK built or uploaded. The existing APK workflow is unchanged.
+- **Diff boundary:** from B4 correction commit `ae29c99` to tested HEAD `d2ae88e`, only the tests-only workflow and documentation changed; the B4 test source did not change.
+
+The test/CI evidence is now available for independent review. The reviewer must still inspect the source and answer every required point in this packet; a green CI run alone does not imply `REVIEW_PASS`. No repository writes are requested from the reviewer.
+
+**Current gate:** B4 remains `READY_FOR_REVIEW`; independent review and owner `ACCEPTED` are still pending. B7 remains `NOT_STARTED`.
