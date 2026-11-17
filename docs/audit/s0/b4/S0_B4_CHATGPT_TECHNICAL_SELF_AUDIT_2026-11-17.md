@@ -144,3 +144,43 @@ The two bounded findings were corrected in `tests/s0-save-determinism.test.ts` o
 **Validation not performed:** the project Vitest suite, build, and GitHub CI were not run for this commit. The commit message includes `[skip ci]` to avoid triggering the existing `android-apk.yml` workflow, which proceeds to `assembleDebug` and APK upload. No workflow change was made under the current S0 governance. Do not report the correction as CI-verified.
 
 **Current disposition:** both source-level test-harness corrections are committed. B4 remains pending a real project test/CI run on a safe tests-only path, independent Claude review when available, and explicit owner `ACCEPTED`. No phase transition is authorized; B7 remains `NOT_STARTED`.
+
+
+## 8. Follow-up CI workflow diagnosis and correction — 2026-11-17
+
+This addendum supersedes only the earlier statement that a tests-only CI run had not yet been made. It does not change the original code-review findings or gate verdict.
+
+### 8.1 Initial tests-only run
+
+- Owner authorization: OD-20261117-12 approved a dedicated tests-only workflow, with no edits to the existing APK workflow and no APK build/package step.
+- Tests-only run: [44039619132](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44039619132), event `workflow_dispatch`, exact `head_sha=08ec7a3bb485ab0457a99ef77ddeb8ed9a3122e0`.
+- Job: `133890749856`, “Vitest (no build, no APK)”.
+- `npm ci`: success.
+- `npm run test:fast`: failed during suite collection. Six test files failed with `ENOENT` for `src/generated/db.json`; Vitest reports “Tests no tests”. Zero test assertions ran.
+- No workflow artifacts were uploaded for this run (artifact list empty). The failed job did not run an APK packaging step.
+
+### 8.2 Root cause
+
+The repository's `.gitignore` excludes `src/generated/` and `public/generated/`. The test entry point `src/engine/node.ts` reads `src/generated/db.json` and `src/generated/map.json`; UI tests additionally read `public/generated/map.bin`. These files must be recreated on a clean GitHub runner.
+
+`package.json` defines:
+- `prepare-assets`: `npm run data && npm run map && npm run content`;
+- `test`: `npm run prepare-assets && vitest run`;
+- `test:fast`: `vitest run` only.
+
+The first tests-only workflow incorrectly chose `test:fast` without first preparing the generated inputs. This was a CI workflow setup defect, not evidence of a failure in any B4 assertion. The run cannot be counted as a test pass or test failure for B4-SA-01/02 because no tests executed.
+
+### 8.3 Correction committed
+
+- Workflow correction commit: `56cdbf46fea6ed2909a59b4b3f1db596f4a32104`.
+- File: `.github/workflows/b4-tests-only.yml` only, apart from the coordination handoff update.
+- Workflow now runs `npm run prepare-assets`, followed by `npm run test:fast`.
+- Push path filters now include tests, source, build/generator tools, historical data, map source assets, public assets, and package/configuration files.
+- The workflow still does not run the Vite app build, Capacitor sync, Gradle, `assembleDebug`, signing, APK packaging, or artifact upload.
+- Existing `.github/workflows/android-apk.yml` was not modified; its blob SHA remains `7a2639057272d2629f2d6b89cfc8fb07682dad31`.
+
+The correction was committed with `[skip ci]` so the existing all-branches APK workflow would not run. The corrected workflow has **not yet been executed**. The available GitHub connector exposes workflow-run reads and reruns, but no workflow-dispatch write action; a fresh manual dispatch is therefore still required.
+
+### 8.4 Current bounded disposition
+
+B4-SA-01 and B4-SA-02 remain corrected in the test source, but the repository test suite has not yet been run against those corrections with the fixed tests-only workflow. No new conclusion can be drawn about the assertions from run `44039619132`. B4 remains `READY_FOR_REVIEW`; obtain the corrected CI run, genuine independent second-party review, and explicit owner `ACCEPTED` before any B7 work. B7 remains `NOT_STARTED`.
