@@ -18,7 +18,7 @@
 | Gate verdict vocabulary | Protocol "Status vocabulary" (`PASS`, `PARTIAL`, `BLOCKED`, `FAIL`, `NOT_TESTED`, `NOT_APPLICABLE`); where the approved S0 document writes "NOT TESTED" it means `NOT_TESTED` |
 | Legacy roadmaps and pre-protocol work | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` (historical evidence, not authorization) |
 | Current approved phase | **S0-B3 → S0-B4 → S0-B7, sequential** (OD-20261116-11). B3 has `REVIEW_PASS`; B4 evidence is complete and awaits independent review/owner acceptance; B7 has not started and remains gated |
-| Current task status | S0-B3 `REVIEW_PASS` (ChatGPT independent review round 2 of exact HEAD `e80ddfc5aa030a625f7e95f1c551800642e6bd55`; bounded to B3 audit scope, not product acceptance). S0-B4 `READY_FOR_REVIEW`: four save/load determinism cases match and CI reports 69/69 tests; G0.6 is technically self-assessed `PASS`, pending independent review and owner acceptance. B7 remains `NOT_STARTED`. S0-A `READY_FOR_REVIEW`: A1–A4 conditionally accepted and A5 `BLOCKED`; S0-A is not `ACCEPTED`. S0-B1 done: technical verdict `PASS` (v3.3 proposal §2.1, accepted by OD-20261116-11). `COORDINATION-REVIEW-BD5787F` `READY_FOR_REVIEW` |
+| Current task status | S0-B3 `REVIEW_PASS` (ChatGPT independent review round 2 of exact HEAD `e80ddfc5aa030a625f7e95f1c551800642e6bd55`; bounded to B3 audit scope, not product acceptance). S0-B4 `READY_FOR_REVIEW` for formal review, with a ChatGPT technical self-audit recorded separately: four determinism cases match in CI, but findings B4-SA-01 (missing-RNG behavior is logged without an assertion) and B4-SA-02 (the diagnostic comparator does not fully mirror JSON numeric normalization) require test-harness correction before acceptance. This is not a second-party independent review; owner acceptance remains pending. B7 remains `NOT_STARTED`. S0-A `READY_FOR_REVIEW`: A1–A4 conditionally accepted and A5 `BLOCKED`; S0-A is not `ACCEPTED`. S0-B1 done: technical verdict `PASS` (v3.3 proposal §2.1, accepted by OD-20261116-11). `COORDINATION-REVIEW-BD5787F` `READY_FOR_REVIEW` |
 | S0-B3 evidence | `docs/audit/s0/S0_B3_RESULTS.md` (summary, gate self-assessment, finding index) with `S0_TEST_CATALOG.md`, `s0_test_catalog.json`, `S0_REQUIREMENT_MATRIX.csv`, `S0_GLOBAL_DATA_AUDIT.md`, `S0_ASSET_AUDIT.md`, `S0_PERFORMANCE_BASELINE.md/.json`, `b3/**` — tools commit `3d63061e4bd5b3fdf7c636370da462a5b0f5d721`, reports commit `55331c2bf629bb631701ec82020c7f9deaa7da81`; review-1 corrections: tools `ddea490`, reports and evidence `2c62b3d` (`b3/review1/**`; summary in `S0_B3_RESULTS.md` §8) |
 | S0-B1 evidence | `docs/audit/s0/S0_B1_CI_EVIDENCE.md`, `docs/audit/s0/logs/b1/` (commit `e13d964f343ab1ba01fb705fbbd8bcac2674ea80`). B1 commit `382aaa84b2336854b4dbebfcdc719847ff463f41`; run `43834719406`, job `133188390842` success; 58/58 tests; `report_valid=true`; APK file SHA-256 `314c8ca11c1d747550bbdb982326675e5f9dbdac870f3fc1cf04b9de7c22585c`; artifact ZIP SHA-256 `7717a2b79dd46fbf613845e33bac3a17634eae5b0c808328d8b21b5abc150ba0` (a different file) |
 | S0-A evidence | `docs/audit/s0/S0_A_RESULTS.md` (summary and gate verdicts), `S0_REPOSITORY_SNAPSHOT.md`, `S0_BUILD_TEST_REPORT.md`, `logs/`, `a4/`, `inputs/` — commits `7d6eec9d0601a7d983679ec7792b1aa96b954ca0`, `d5b9820aae9a96d57e9486845c164ae591fa69de`, `8073fac029463c0685435985a2968cd5a3aba4ab` |
@@ -78,7 +78,7 @@ Not allowed:
 | S0-A — Baseline as-is (`BASELINE_ORIGINAL`), approved document §6.3 A1–A5 | `READY_FOR_REVIEW` (A1–A4 evidenced; A5 `BLOCKED`) | Owner approval of the S0 v3.2 document and S0-A authorization (OD-20261116-09, -10) — met | S0-A evidence committed; ChatGPT review; owner decision |
 | S0-B1 — CI checksums and test report | Done; reviewer technical verdict `PASS` (v3.3 §2.1) | Owner instruction for B1 (OD-20261116-10B) — met | Evidence committed (`e13d964`) |
 | S0-B3 — Audit scripts, catalog, coverage, crosswalk, asset inventory, Node/desktop harness | `READY_FOR_REVIEW` round 2 (Claude, unverified); round 1 `CHANGES_REQUESTED` | OD-20261116-11 — met | Reports committed (`3d63061`, `55331c2`; corrections `ddea490`, `2c62b3d`); ChatGPT re-review (B4 waits for B3 `REVIEW_PASS`) |
-| S0-B4 — Characterization tests and fixtures (save/load determinism, v3.2 §6.7) | `READY_FOR_REVIEW` (tests/evidence complete; G0.6 technically self-assessed `PASS`; independent review/owner acceptance pending) | B3 `REVIEW_PASS` + OD-20261116-11 — met | Independent review `REVIEW_PASS` and owner `ACCEPTED`; only then may B7 begin |
+| S0-B4 — Characterization tests and fixtures (save/load determinism, v3.2 §6.7) | `READY_FOR_REVIEW` (CI determinism evidence complete; ChatGPT technical self-audit recorded B4-SA-01/02 test-harness corrections; genuine second-party review and owner acceptance pending) | B3 `REVIEW_PASS` + OD-20261116-11 — met | Resolve bounded test-harness findings, obtain independent review `REVIEW_PASS` and owner `ACCEPTED`; only then may B7 begin |
 | S0-B7 — Risk register and signoff package | `NOT_STARTED` (B4 review/acceptance gate not yet met) | B3 and B4 `REVIEW_PASS` + owner `ACCEPTED` | `S0_SIGNOFF.md`; G0.1–G0.9 ledger; exception requests limited to G0.7 (iQOO) and G0.8 (legacy licences) |
 | S0-B2 / B5 / B6 — signing, Diagnostic UI, instrumented measurements | `BLOCKED` / deferred | R14 proven on the baseline APK, O5 decided, protected `development-signing` Environment configured by the owner | Per v3.2 §4.1, §6.8 |
 | S1 — Data architecture and save foundation | `NOT_STARTED` | S0 accepted and S1 scope separately approved | S1 acceptance criteria met; independent review; owner accepted |
@@ -95,6 +95,25 @@ Pre-protocol work:
 ## 5. Work log
 
 Append newest entries at the top. Do not overwrite earlier entries.
+
+### 2026-11-17 — S0-B4-CHATGPT-TECHNICAL-SELF-AUDIT
+
+- Date (UTC): 2026-11-17
+- Task/phase: S0-B4 bounded technical self-audit; no product or test source changes.
+- Assessed branch HEAD: `0b915ff75c9dab1a1195ac648d3c68acfd073a9c`.
+- B4 implementation/test commit: `e4924ca48264f8d0818eface51a28a87cd363b89`; product baseline: `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`.
+- Audit report: `docs/audit/s0/b4/S0_B4_CHATGPT_TECHNICAL_SELF_AUDIT_2026-11-17.md`, added in documentation-only commit `8cc48081737b8830ef5d4b4aca7749c1747b5321`.
+- Evidence rechecked: coordination protocol/handoff, B4 test, B4 review packet, baseline types/init/save/core/simulation, Android APK workflow, GitHub compare metadata, CI run `44032178418` / job `133866471284` / job log / artifact metadata.
+- Git range: `e4924ca` → assessed HEAD `0b915ff` contains five documentation-only commits affecting the review request and handoff; no B4 test-source change after the implementation commit.
+- Positive evidence: CI reports 69/69 tests, 26/26 suites, `report_valid=true`; all four Historical/Sandbox × tick-6/tick-12 cases report `MATCH`, equal final hashes and `firstDifferingPath=null`.
+- Findings:
+  - B4-SA-01 (P2): `tests/s0-save-determinism.test.ts:316-339` records missing-RNG continuation result but never asserts `throws` / `TypeError`; add those expectations in the test harness.
+  - B4-SA-02 (P2): `canonicalize` / `firstJsonDifference` handle undefined and ordering correctly but do not make the first-difference comparator fully equivalent to JSON for `NaN`, infinities and `-0`; normalize through actual JSON semantics (then sort object keys) and add regression cases, or explicitly reject non-finite numbers.
+- No changes were made to test source because the currently triggered push workflow would also build and upload an APK; no tests-only CI path is authorized. No local test/build was run by this reviewer.
+- Workflow/R14: run `44032178418` completed successfully and built/uploaded APK artifact `14304929645`; artifact metadata only was inspected. No APK/evidence artifact was downloaded, and no APK was installed. R14 remains unverified. No workflow change or `workflow_dispatch` was made.
+- Technical self-audit conclusion: `CHANGES_REQUESTED` for the bounded B4 test/evidence package, not an independent second-party verdict. Formal B4 lifecycle remains pending independent review and owner acceptance; B7 remains `NOT_STARTED`.
+- CI side effect control: this audit report and handoff update use `[skip ci]` documentation commits to avoid retriggering the existing APK workflow. This skips CI and is not a substitute for a tests-only workflow.
+- Owner decision: pending; no phase transition authorized.
 
 ### 2026-11-17 — S0-B4-SAVE-LOAD-DETERMINISM-EVIDENCE
 
@@ -428,6 +447,17 @@ This subsection updates the technical gate evidence after the historical B3 roun
 | Next phase | B7 remains `NOT_STARTED`; do not begin before B4 independent `REVIEW_PASS` and owner `ACCEPTED` |
 
 The CI workflow also auto-generated and uploaded a debug APK after the test step passed. This was contrary to the R14 no-new-APK instruction and is recorded as an unintended workflow side effect in the B4 work log. The artifact was not downloaded or installed; R14 remains unverified.
+
+### 2026-11-17 — ChatGPT technical self-audit (same-author; not independent review)
+
+Audit report: `docs/audit/s0/b4/S0_B4_CHATGPT_TECHNICAL_SELF_AUDIT_2026-11-17.md` (commit `8cc48081737b8830ef5d4b4aca7749c1747b5321`).
+
+| ID | Severity | Finding | Required action |
+|---|---|---|---|
+| B4-SA-01 | P2 | Missing-RNG test logs continuation outcome but does not assert that the current baseline throws `TypeError`; it could remain green if behavior changes | Add explicit expectations for `throws` and `TypeError` in the test harness; do not change engine/save/RNG behavior |
+| B4-SA-02 | P2 | `firstJsonDifference` does not fully match JSON normalization for `NaN`, infinities and `-0`, although undefined object values, undefined array entries, key ordering and array ordering are handled | Normalize through JSON semantics before recursive key sorting, or explicitly reject non-finite numbers; add regression fixtures |
+
+This is a technical self-audit by the same ChatGPT that authored the comparator correction. It is not a second-party independent review and does not set B4 to `REVIEW_PASS`. A safe tests-only CI path is not currently authorized; the existing push workflow also assembles and uploads an APK. Therefore the test source has not been changed and no new APK workflow was run. B4 remains pending genuine independent review and owner acceptance; B7 remains `NOT_STARTED`.
 
 ## 7. Owner decisions
 
