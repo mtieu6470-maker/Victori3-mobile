@@ -52,6 +52,7 @@ Do not modify the repository. Do not change product source, gameplay, engine, RN
 8. Check G0.6 is PASS on the tested baseline and remains non-exemptible. Does B4-R1 adequately preserve the missing-RNG failure as a separate compatibility risk?
 9. Check the gate ledger does not overstate G0.1–G0.6; G0.7 remains BLOCKED, G0.8 remains PARTIAL, and full-S0 G0.9 remains BLOCKED while R14/C3 are BLOCKED under v3.3 §2.1.1. Assess the bounded S1-entry risk disposition as a separate review object; do not relabel the full-S0 G0.9 verdict.
 10. Check the S1 scope exactly matches v3.2/v3.3 data-contract/save-foundation constraints and includes no gameplay or runtime/performance work.
+11. Check risk-register coverage against all inherited v3.2 R1–R14 risks (including R3 as closed), B3 findings TC-F1…F7, GD-F1…F6, AS-F1…F7, RM-F1…F5, WD-F1…F3, and the B4 missing-RNG risk. Verify mitigated/closed entries do not erase the historical finding and that no priority has been silently lowered.
 
 ## 4. Required reviewer response
 
