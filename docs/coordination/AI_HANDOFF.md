@@ -107,6 +107,17 @@ Pre-protocol work:
 
 Append newest entries at the top. Do not overwrite earlier entries.
 
+### 2026-11-17 — B7-FINAL-REVALIDATION-R15-READY-FOR-CLAUDE
+
+- B7 Results §12 records final pre-review revalidation against branch HEAD `7acd702559f6a51933d49b8b331910a63c8352e1`; compare from B7 preparation base `5d92101e56d6f60045f51f25f926b124eaf892ef` showed 58 commits and exactly eight modified/added paths, all under `docs/audit/s0/` and `docs/coordination/`. No source, engine, save schema, historical data, assets, Android resources, Gradle, tests or workflow changes in B7 range.
+- Risk coverage was rechecked at that HEAD: all 42 inherited IDs remain; R3 remains narrowly CLOSED; B4-R1 and S0-SEC-01 remain recorded; owner target risk R15 is added. Eight P3 rows have six-field evidence/impact/mitigation/owner/stage/exit structure.
+- Owner target 3–4 GB complete offline footprint is now in R15, signoff P1 table, B7 Results §11, review request question 13 and Vietnamese package summary. Interpreted as expanded offline content across core + packs, not one 3–4 GB APK or a RAM target. Delivery scope stays S23b/S23c; it does not open S1 or authorize implementation.
+- Official Play constraints are referenced in the report: AAB/PAD path vs separate sideload pack channel. No hosting provider, paid CDN, asset download or generated media is selected.
+- Gate states unchanged: G0.1–G0.6 proposed PASS on bounded evidence; G0.7 BLOCKED; G0.8 PARTIAL; full-S0 G0.9 BLOCKED; R7 open P0; R14/C3 blocked. B4 and B7 remain READY_FOR_REVIEW; S1 remains NOT_STARTED.
+- The 21 documentation-triggered APK workflow incident is fully recorded; final status 20 success/1 failure/0 in progress; no new run after skip-ci containment. No APK was downloaded/installed on iQOO. Workflow remains unchanged.
+- No product code/tests/assets changed and no build was intentionally run. Next reviewer must re-fetch the exact branch HEAD and inspect the updated B7 request (13 questions) and all R15/incident evidence. Claude remains the assigned independent reviewer; owner ACCEPTED is separate and pending.
+
+
 ### 2026-11-17 — OWNER-3-4GB-OFFLINE-CONTENT-TARGET-RECORDED
 
 - The project owner stated a target of approximately **3–4 GB for the complete game**, prioritizing stability. This is recorded as total verified expanded offline footprint across the core application and content packs, not one monolithic APK size or a runtime RAM target.
