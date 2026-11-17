@@ -112,7 +112,7 @@ Not allowed under this S1 exception: gameplay changes; formula/AI/economy/popula
 
 ## 7. Independent review and owner decision
 
-### Reviewer section — must be completed after inspecting exact GitHub HEAD
+### Independent reviewer section — Claude Code (DeepSeek only as owner-assigned independent fallback)
 
 - [ ] B4 test source and run 44041104723 verified.
 - [ ] Risk register evidence, severity, impact, mitigation, accountable owner, stage and closure criteria verified.
@@ -121,7 +121,7 @@ Not allowed under this S1 exception: gameplay changes; formula/AI/economy/popula
 - [ ] G0.7/G0.8 exceptions meet v3.3 §§4–5 and do not rewrite the gate verdicts.
 - [ ] Proposed S1 scope matches v3.2/v3.3 and includes no prohibited runtime/content work.
 
-**Reviewer:** ____________________  
+**Independent reviewer identity:** ____________________  
 **Exact reviewed HEAD:** ____________________  
 **Verdict:** REVIEW_PASS / CHANGES_REQUESTED  
 **Date and findings:** __________________________________________
