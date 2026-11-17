@@ -503,6 +503,19 @@ Only explicit owner decisions may be recorded here. Recommendations are not appr
 | 2026-11-16 | OD-20261116-11 | Accept S0 v3.3 with amendments: B3/B4/B7 no longer wait for B2; B2/B5/B6 stay in the device/signing lane. Authorize B3, then B4 (after B3 `REVIEW_PASS`), then B7. S1 exceptions accepted in principle only for G0.7 (iQOO) and G0.8 (legacy licences). No waiver for G0.1–G0.6 or uncontrolled P0. G0.6 `FAIL` leads to a separate remediation proposal. G0.4 source is `MASTER_SPEC_VI.md` §§0–17. Commit v3.3, the spec copy, the source register and the protocol sentence. R7 interim containment recorded | S0-B3/B4/B7; S0 transition rules | `docs/roadmap/S0_V3_3_OWNER_DECISION_AND_AMENDMENTS.md`, confirmed by the owner in the Claude Code session on 2026-11-16 |
 | 2026-11-16 | OD-20261116-08 | Canonical roadmap is `PENDING_OWNER_APPROVAL` until approved and committed; the currently available proposal is identified only as a pending proposal | This handoff, protocol, legacy index | Same document, "Additional source-of-truth correction" |
 
+### 2026-11-17 — S0-B4-TESTS-ONLY-CI
+
+- Owner authorization: OD-20261117-12 — owner explicitly approved a separate B4 tests-only workflow; it must not build an APK and must not modify the existing Android APK workflow.
+- Base HEAD: `ccf08135ed5b64ac66802ab2f5420312d81660d2`.
+- Workflow commit: `f396258b22fb668af0c3abf2c42dfc582699a06d`.
+- Changed file: `.github/workflows/b4-tests-only.yml` only.
+- Workflow behavior: branch-scoped push trigger with path filters and manual `workflow_dispatch`; Node.js 22; `npm ci`; `npm run test:fast`.
+- Explicitly excluded: `npm run build`, asset generation, Capacitor sync, Gradle, `assembleDebug`, signing, APK packaging, and artifact upload.
+- Existing `.github/workflows/android-apk.yml` was re-fetched and its blob SHA remained `7a2639057272d2629f2d6b89cfc8fb07682dad31`; it was not modified.
+- Commit message includes `[skip ci]` so the existing broad push-triggered APK workflow is not started by this workflow-addition commit. GitHub documents that skip directives affect push/pull_request events only; they do not suppress a manually dispatched workflow.
+- Validation status: workflow source re-fetched and inspected. Tests have NOT run yet. The GitHub connector available in this session exposes workflow-run reads/re-runs but no workflow-dispatch write action. Because the new file is on the repository's sole/default branch, the owner can start it from Actions → S0-B4 Tests Only → Run workflow, selecting `claude/game-historical-sandbox-modes-kg7rj7`. This is the remaining execution step; do not claim Vitest PASS until its run log confirms success.
+- B4 remains `READY_FOR_REVIEW`; project Vitest evidence, Claude independent review, and owner acceptance remain pending. B7 remains `NOT_STARTED`.
+
 ## 8. Update rules
 
 - Claude updates status and implementation evidence after each approved task.
