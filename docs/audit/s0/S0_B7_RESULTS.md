@@ -99,3 +99,27 @@ This section supersedes the earlier pre-review snapshot in §7 for the current r
 - **Final pre-review disposition:** B7 is `READY_FOR_REVIEW`, not REVIEW_PASS or ACCEPTED. Claude must independently review the current HEAD after re-fetching it. The project owner must then separately accept/reject R7 residual exposure, EX-G07-01, EX-G08-01 and the exact bounded S1 scope. S1 remains `NOT_STARTED`; overall S0 remains PARTIAL/BLOCKED.
 
 No APK was built, downloaded or installed. No iQOO device action was performed.
+
+## 9. Governance incident — documentation pushes triggered the APK workflow
+
+**Incident:** On 2026-11-17, documentation commits made during the B7 coordination/review work omitted the `[skip ci]` commit-message marker. The unchanged `.github/workflows/android-apk.yml` is configured to run on push to this branch without a documentation-path exclusion. As a result, the document-only pushes automatically triggered the `Android APK (debug)` workflow. This was an operational mistake by the ChatGPT coordinator; it was not an intentional APK build request and is not evidence that the APK workflow was changed.
+
+**Observed GitHub Actions status at the 2026-11-17 09:16 UTC recheck:**
+
+- 21 push-triggered `Android APK (debug)` runs associated with the B7 documentation push sequence (2026-11-17 08:06:36–09:14:38 UTC).
+- 19 runs completed with conclusion `success`.
+- 1 run completed with conclusion `failure` (`44048307793`).
+- 1 run remained `in_progress` (`44053773347`) at the last status query.
+- Verified example: run `44053488213`, commit `0ec54d8b936369b294174ebd2b894b8b0603ab1b`, job `133936826466`, conclusion `success`. Its raw job log records `./gradlew assembleDebug --no-daemon`, `BUILD SUCCESSFUL in 1m 30s`, and the successful upload of APK artifact `14315256630` (`dong-chay-lich-su-debug-apk`, 17,555,130 bytes); CI evidence artifact `14314802216` was also uploaded. The log confirms this was an APK build, not only a test run.
+- Second verified example: run `44053599571`, commit `84e951ad0b92a10111438e5bda27125611dcd2fb`, completed `success`; APK artifact `14314932258` (`dong-chay-lich-su-debug-apk`, 17,555,068 bytes) and CI evidence artifact `14315825776` were present.
+- Failed run `44048307793` did complete 70/70 tests across 6/6 suites, then the Gradle stage failed while resolving Maven Central dependencies after HTTP 429 responses (including Kotlin stdlib and jsr305). Its artifact listing had CI evidence only and no APK artifact. This failure is a dependency-rate-limit failure, not a simulation-test failure.
+- No APK was downloaded, installed, or tested on the iQOO by ChatGPT. The existence of CI APK artifacts does not resolve R14, does not test the installed baseline APK, does not validate a signature transition, and does not authorize installation.
+
+**Containment / subsequent handling:**
+
+- `.github/workflows/android-apk.yml` was not edited. Workflow modifications remain outside the authorized B7 scope.
+- The current GitHub connector has no workflow-cancellation action; ChatGPT could read run state/logs/artifacts but could not cancel the remaining in-progress run.
+- Subsequent documentation commits use `[skip ci]` to avoid triggering push workflows. This is a commit-message control, not a permanent workflow fix.
+- The B7 review packet must include this incident in the exact-HEAD review. Any permanent path-filter or workflow change requires separate owner approval.
+- Do not treat the 19 successful APK workflow runs as B4 tests-only CI or as device acceptance. The independently identified B4 tests-only run remains `44041104723`.
+
