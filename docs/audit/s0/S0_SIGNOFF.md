@@ -96,6 +96,7 @@ A rejected or incomplete R7 acknowledgement means G0.9 does not pass and S1 rema
 | TC-F1, TC-F2 | AI/politics/military test owners | Before changing the relevant subsystems | Non-vacuous tests with positive exercised sample counts |
 | RM-F3, RM-F4 | Runtime/performance owner | Before S2 | Node/desktop/device performance evidence and target budgets met |
 | S0-SEC-01 | Dependency/CI maintainer | Before accepting untrusted build inputs and before release | Current lockfile audit, exposure analysis and approved dependency updates |
+| **R15 — 3–4 GB offline content target** | Product/architecture owner + Android delivery owner + content/licensing owner | **S23b/S23c**; any earlier S1 work remains limited to the separately accepted data-contract/save-foundation scope | Owner-approved compressed-download and expanded-storage budgets; provider-neutral multi-pack manifest, per-pack SHA-256/version/dependency/provenance, resumable delivery, free-space preflight, staged atomic activation/rollback; interruption/corruption/low-storage/offline tests; real-device bounded-memory/decode/ANR evidence. This risk is recorded for future planning and does not authorize S23b or expand S1. |
 
 ## 6. S1 scope that may be considered after acceptance
 
