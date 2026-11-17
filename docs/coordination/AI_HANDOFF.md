@@ -7,7 +7,7 @@
 | Field | Value |
 |---|---|
 | Repository | `mtieu6470-maker/Victori3-mobile` |
-| Development branch observed | `claude/game-historical-sandbox-modes-kg7rj7` — sole/default branch; current HEAD `ea5dadbd3a00c5ba6d927382c5b5c26212d0dd21` (2026-11-17); B4 test/code HEAD `e4924ca48264f8d0818eface51a28a87cd363b89`; later commits are documentation-only |
+| Development branch observed | `claude/game-historical-sandbox-modes-kg7rj7` — sole/default branch; B4 code/test HEAD `e4924ca48264f8d0818eface51a28a87cd363b89`; independent review packet added in `86ea7154415c3fca1fcefcc99428c03d607ca9af`; subsequent handoff updates are documentation-only. Re-fetch branch HEAD before the next task |
 | Last independently observed baseline | `2240a8fb865e0021eec2f2f4f1c6803528be9e2c` (code baseline; later commits listed below are documentation-only) |
 | Coordination setup commit | `bd5787f3e1763170ec7e5ad448466a5cc57c2b40` |
 | Coordination correction commit | `6c4d02a36a30f7e82d973da59f569b379f85468d` |
