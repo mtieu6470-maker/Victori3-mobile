@@ -7,7 +7,7 @@
 | Field | Value |
 |---|---|
 | Repository | `mtieu6470-maker/Victori3-mobile` |
-| Development branch observed | `claude/game-historical-sandbox-modes-kg7rj7` — the sole branch and the default branch (re-verified 2026-11-17; HEAD at B4 evidence: `e4924ca48264f8d0818eface51a28a87cd363b89`) |
+| Development branch observed | `claude/game-historical-sandbox-modes-kg7rj7` — sole/default branch; current HEAD `86ea7154415c3fca1fcefcc99428c03d607ca9af` (2026-11-17); B4 test/code HEAD `e4924ca48264f8d0818eface51a28a87cd363b89`; later commits are documentation-only |
 | Last independently observed baseline | `2240a8fb865e0021eec2f2f4f1c6803528be9e2c` (code baseline; later commits listed below are documentation-only) |
 | Coordination setup commit | `bd5787f3e1763170ec7e5ad448466a5cc57c2b40` |
 | Coordination correction commit | `6c4d02a36a30f7e82d973da59f569b379f85468d` |
@@ -129,6 +129,7 @@ Append newest entries at the top. Do not overwrite earlier entries.
 - Execution/review separation: ChatGPT made the comparator/test-only correction directly through GitHub. Therefore ChatGPT does **not** claim an independent `REVIEW_PASS` for its own correction. Task status is `READY_FOR_REVIEW`; independent review and owner `ACCEPTED` remain pending. B7 remains `NOT_STARTED`.
 - ChatGPT review: independent review not claimed (reviewer authored the comparator change).
 - Owner decision: pending; no B7/S1 transition authorized by this entry.
+- Independent review packet: `docs/audit/s0/b4/S0_B4_REVIEW_REQUEST.md` (added in commit `86ea7154415c3fca1fcefcc99428c03d607ca9af`; documentation only). It asks a second reviewer to independently assess JSON comparator semantics, missing-RNG characterization, B4 coverage, and the R14 workflow side effect. No repository writes requested from the reviewer.
 ### 2026-11-16 — S0-B3-REVIEW1-CORRECTIONS
 
 - Date (UTC): 2026-11-16 (after the owner relayed the ChatGPT round-1 review)
