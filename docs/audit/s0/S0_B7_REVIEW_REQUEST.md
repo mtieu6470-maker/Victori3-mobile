@@ -50,7 +50,7 @@ Do not modify the repository. Do not change product source, gameplay, engine, RN
 6. Check G0.7 exception is only for iQOO measurement during S1, with Node/desktop evidence and strict prohibition on runtime/performance/renderer/lifecycle changes in S1.
 7. Check G0.8 exception is only for pre-existing content, with no new/edited/replaced/repackaged/unverified assets or text during S1.
 8. Check G0.6 is PASS on the tested baseline and remains non-exemptible. Does B4-R1 adequately preserve the missing-RNG failure as a separate compatibility risk?
-9. Check the gate ledger does not overstate G0.1–G0.6, and G0.7/G0.8/G0.9 retain their blocked/partial/pending status.
+9. Check the gate ledger does not overstate G0.1–G0.6; G0.7 remains BLOCKED, G0.8 remains PARTIAL, and full-S0 G0.9 remains BLOCKED while R14/C3 are BLOCKED under v3.3 §2.1.1. Assess the bounded S1-entry risk disposition as a separate review object; do not relabel the full-S0 G0.9 verdict.
 10. Check the S1 scope exactly matches v3.2/v3.3 data-contract/save-foundation constraints and includes no gameplay or runtime/performance work.
 
 ## 4. Required reviewer response
