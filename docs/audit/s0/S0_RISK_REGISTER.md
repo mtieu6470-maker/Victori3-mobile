@@ -73,6 +73,8 @@
 | ID | Previous risk | Closure evidence | Disposition |
 |---|---|---|---|
 | **R3 — CLOSED** | No APK baseline SHA-256 was recorded. | S0-A records the baseline APK file SHA-256 separately from the artifact ZIP digest in S0_B1_CI_EVIDENCE.md / S0_BUILD_TEST_REPORT.md, with independent verification evidence. | Closed for the baseline-identification gap. This does not imply whole-APK reproducible builds or close any other APK/update risk (R1/R14). |
+| **TC-F5 — B4 coverage added** | The original simulation.test.ts save/load test covered only Sandbox, one seed/cut and no player commands. | B4 adds four valid-save comparisons across Historical/Sandbox and tick 6/12, same seed/data/command schedule, state hash and first-difference reporting. | Historical test limitation remains in the catalog as history; the S0 B4 evidence now covers the required characterization matrix. No product save code was changed. | 
+| **TC-F6 — B4 malformed-save coverage added** | The original simulation.test.ts only checked a foreign save format. | B4 now characterizes malformed JSON, foreign format, unsupported version, missing envelope state, missing marketStats legacy fallback and missing RNG continuation TypeError. | Test coverage was expanded; the missing-RNG product behavior remains open as B4-R1 and is not considered fixed. |
 
 ## 6. P3 — lower-priority recorded items
 
