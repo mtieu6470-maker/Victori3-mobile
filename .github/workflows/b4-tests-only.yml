@@ -1,0 +1,50 @@
+# B4-only test workflow. Deliberately does not build the web app or Android APK.
+name: S0-B4 Tests Only
+
+on:
+  push:
+    branches:
+      - claude/game-historical-sandbox-modes-kg7rj7
+    paths:
+      - '.github/workflows/b4-tests-only.yml'
+      - 'tests/**'
+      - 'src/engine/**'
+      - 'src/generated/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'vitest.config.ts'
+      - 'tsconfig.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: s0-b4-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  vitest:
+    name: Vitest (no build, no APK)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout exact commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Run Vitest suite only
+        run: npm run test:fast
+
+      # Intentionally absent: npm run build, Capacitor sync, Gradle, assembleDebug,
+      # signing, APK packaging, and artifact upload.
