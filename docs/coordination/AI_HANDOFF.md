@@ -7,7 +7,7 @@
 | Field | Value |
 |---|---|
 | Repository | `mtieu6470-maker/Victori3-mobile` |
-| Development branch observed | `claude/game-historical-sandbox-modes-kg7rj7` — the sole branch and the default branch (observed 2026-11-16) |
+| Development branch observed | `claude/game-historical-sandbox-modes-kg7rj7` — the sole branch and the default branch (re-verified 2026-11-17; HEAD at B4 evidence: `e4924ca48264f8d0818eface51a28a87cd363b89`) |
 | Last independently observed baseline | `2240a8fb865e0021eec2f2f4f1c6803528be9e2c` (code baseline; later commits listed below are documentation-only) |
 | Coordination setup commit | `bd5787f3e1763170ec7e5ad448466a5cc57c2b40` |
 | Coordination correction commit | `6c4d02a36a30f7e82d973da59f569b379f85468d` |
@@ -17,8 +17,8 @@
 | G0.4 requirement source | `docs/spec/MASTER_SPEC_VI.md` — byte-for-byte copy, SHA-256 `d7fa8995dee96046da79d23dd16b2c56c2e0acd0330b28e05d8a0a3ff6afc2f8`, 50 355 bytes, 753 lines; normative §§0–17 (OD-20261116-11 §4) |
 | Gate verdict vocabulary | Protocol "Status vocabulary" (`PASS`, `PARTIAL`, `BLOCKED`, `FAIL`, `NOT_TESTED`, `NOT_APPLICABLE`); where the approved S0 document writes "NOT TESTED" it means `NOT_TESTED` |
 | Legacy roadmaps and pre-protocol work | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` (historical evidence, not authorization) |
-| Current approved phase | **S0-B3 → S0-B4 → S0-B7, sequential** (OD-20261116-11). B4 starts only after B3 has `REVIEW_PASS` |
-| Current task status | S0-B3 `REVIEW_PASS` (ChatGPT independent review round 2 of exact default-branch HEAD `e80ddfc5aa030a625f7e95f1c551800642e6bd55`; bounded to B3 audit scope, not product acceptance); B3 findings and gate states recorded in §6. B4 not started. S0-A `READY_FOR_REVIEW`: A1–A4 conditionally accepted and A5 `BLOCKED`; S0-A is not `ACCEPTED`. S0-B1 done: technical verdict `PASS` (v3.3 proposal §2.1, accepted by OD-20261116-11). `COORDINATION-REVIEW-BD5787F` `READY_FOR_REVIEW` |
+| Current approved phase | **S0-B3 → S0-B4 → S0-B7, sequential** (OD-20261116-11). B3 has `REVIEW_PASS`; B4 evidence is complete and awaits independent review/owner acceptance; B7 has not started and remains gated |
+| Current task status | S0-B3 `REVIEW_PASS` (ChatGPT independent review round 2 of exact HEAD `e80ddfc5aa030a625f7e95f1c551800642e6bd55`; bounded to B3 audit scope, not product acceptance). S0-B4 `READY_FOR_REVIEW`: four save/load determinism cases match and CI reports 69/69 tests; G0.6 is technically self-assessed `PASS`, pending independent review and owner acceptance. B7 remains `NOT_STARTED`. S0-A `READY_FOR_REVIEW`: A1–A4 conditionally accepted and A5 `BLOCKED`; S0-A is not `ACCEPTED`. S0-B1 done: technical verdict `PASS` (v3.3 proposal §2.1, accepted by OD-20261116-11). `COORDINATION-REVIEW-BD5787F` `READY_FOR_REVIEW` |
 | S0-B3 evidence | `docs/audit/s0/S0_B3_RESULTS.md` (summary, gate self-assessment, finding index) with `S0_TEST_CATALOG.md`, `s0_test_catalog.json`, `S0_REQUIREMENT_MATRIX.csv`, `S0_GLOBAL_DATA_AUDIT.md`, `S0_ASSET_AUDIT.md`, `S0_PERFORMANCE_BASELINE.md/.json`, `b3/**` — tools commit `3d63061e4bd5b3fdf7c636370da462a5b0f5d721`, reports commit `55331c2bf629bb631701ec82020c7f9deaa7da81`; review-1 corrections: tools `ddea490`, reports and evidence `2c62b3d` (`b3/review1/**`; summary in `S0_B3_RESULTS.md` §8) |
 | S0-B1 evidence | `docs/audit/s0/S0_B1_CI_EVIDENCE.md`, `docs/audit/s0/logs/b1/` (commit `e13d964f343ab1ba01fb705fbbd8bcac2674ea80`). B1 commit `382aaa84b2336854b4dbebfcdc719847ff463f41`; run `43834719406`, job `133188390842` success; 58/58 tests; `report_valid=true`; APK file SHA-256 `314c8ca11c1d747550bbdb982326675e5f9dbdac870f3fc1cf04b9de7c22585c`; artifact ZIP SHA-256 `7717a2b79dd46fbf613845e33bac3a17634eae5b0c808328d8b21b5abc150ba0` (a different file) |
 | S0-A evidence | `docs/audit/s0/S0_A_RESULTS.md` (summary and gate verdicts), `S0_REPOSITORY_SNAPSHOT.md`, `S0_BUILD_TEST_REPORT.md`, `logs/`, `a4/`, `inputs/` — commits `7d6eec9d0601a7d983679ec7792b1aa96b954ca0`, `d5b9820aae9a96d57e9486845c164ae591fa69de`, `8073fac029463c0685435985a2968cd5a3aba4ab` |
@@ -78,8 +78,8 @@ Not allowed:
 | S0-A — Baseline as-is (`BASELINE_ORIGINAL`), approved document §6.3 A1–A5 | `READY_FOR_REVIEW` (A1–A4 evidenced; A5 `BLOCKED`) | Owner approval of the S0 v3.2 document and S0-A authorization (OD-20261116-09, -10) — met | S0-A evidence committed; ChatGPT review; owner decision |
 | S0-B1 — CI checksums and test report | Done; reviewer technical verdict `PASS` (v3.3 §2.1) | Owner instruction for B1 (OD-20261116-10B) — met | Evidence committed (`e13d964`) |
 | S0-B3 — Audit scripts, catalog, coverage, crosswalk, asset inventory, Node/desktop harness | `READY_FOR_REVIEW` round 2 (Claude, unverified); round 1 `CHANGES_REQUESTED` | OD-20261116-11 — met | Reports committed (`3d63061`, `55331c2`; corrections `ddea490`, `2c62b3d`); ChatGPT re-review (B4 waits for B3 `REVIEW_PASS`) |
-| S0-B4 — Characterization tests and fixtures (save/load determinism, v3.2 §6.7) | `NOT_STARTED` (authorized after B3 review) | B3 `REVIEW_PASS` | G0.6 verdict with evidence; `FAIL` leads to the decision §3 path |
-| S0-B7 — Risk register and signoff package | `NOT_STARTED` (authorized after B4) | B3 and B4 done | `S0_SIGNOFF.md`; G0.1–G0.9 ledger; exception requests limited to G0.7 (iQOO) and G0.8 (legacy licences) |
+| S0-B4 — Characterization tests and fixtures (save/load determinism, v3.2 §6.7) | `READY_FOR_REVIEW` (tests/evidence complete; G0.6 technically self-assessed `PASS`; independent review/owner acceptance pending) | B3 `REVIEW_PASS` + OD-20261116-11 — met | Independent review `REVIEW_PASS` and owner `ACCEPTED`; only then may B7 begin |
+| S0-B7 — Risk register and signoff package | `NOT_STARTED` (B4 review/acceptance gate not yet met) | B3 and B4 `REVIEW_PASS` + owner `ACCEPTED` | `S0_SIGNOFF.md`; G0.1–G0.9 ledger; exception requests limited to G0.7 (iQOO) and G0.8 (legacy licences) |
 | S0-B2 / B5 / B6 — signing, Diagnostic UI, instrumented measurements | `BLOCKED` / deferred | R14 proven on the baseline APK, O5 decided, protected `development-signing` Environment configured by the owner | Per v3.2 §4.1, §6.8 |
 | S1 — Data architecture and save foundation | `NOT_STARTED` | S0 accepted and S1 scope separately approved | S1 acceptance criteria met; independent review; owner accepted |
 | S2+ | `NOT_STARTED` | Previous phase accepted and next scope approved | Phase-specific acceptance and owner approval |
@@ -96,6 +96,39 @@ Pre-protocol work:
 
 Append newest entries at the top. Do not overwrite earlier entries.
 
+### 2026-11-17 — S0-B4-SAVE-LOAD-DETERMINISM-EVIDENCE
+
+- Date (UTC): 2026-11-17
+- Task/phase: S0-B4 characterization tests under OD-20261116-11, after S0-B3 `REVIEW_PASS` (recorded in commit `2aa8c6c141fef2c060303be7a15df834a71e217e`). Scope limited to test harness/comparator and handoff evidence.
+- Branch: `claude/game-historical-sandbox-modes-kg7rj7` (sole/default branch; re-verified).
+- Product baseline SHA: `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`.
+- B4 commits:
+  - `8502648f7ad8875eb0f07046cbdbf990c40c1224` — initial save/load characterization tests;
+  - `c4dbd56dc02abd18fab62e2e90747fcd52a58f24` — corrected optional `marketStats` fixture typing;
+  - `e4924ca48264f8d0818eface51a28a87cd363b89` — JSON-semantic comparator normalization and regression test.
+- Changed file in the comparator correction: `tests/s0-save-determinism.test.ts` only. No `src/`, engine, RNG implementation, `save.ts`, save schema, data, asset, Android resource, or workflow file was changed by the B4 test patch.
+- Root-cause check for `countries.ABD.group`: `Country.group` is optional (`src/engine/types.ts:41`); `src/engine/init.ts:179` assigns `group: e.group`; `src/engine/save.ts:7-13` serializes/deserializes with JSON. A review of all 22 TypeScript files under `src/engine/` found no engine use of `hasOwnProperty`, the `in` operator, `Object.keys`, or equivalent reflection to distinguish a missing `group` key from an own key whose value is `undefined`. JSON omits undefined-valued object properties and writes undefined array entries as `null`. The comparator now follows these JSON semantics while preserving array order; a focused regression test checks omission, array order, and undefined array entries.
+- CI: [run 44032178418](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44032178418), job `133866471284`, exact HEAD `e4924ca48264f8d0818eface51a28a87cd363b89`, conclusion `success`.
+- Test results: 69/69 tests passed; 26/26 suites passed; 0 failures; `vitest_exit_code=0`; `report_valid=true`.
+- Determinism matrix (all 24 months, seed 21, player GBR, three scripted commands; same engine/data/map build):
+  - Historical, save at tick 6 (1836-07): `MATCH`; uninterrupted/save-load state SHA-256 `a6751c47e91eb6786366e086737bb75da68ff8b4b0c617d496bc5e61627228d8`.
+  - Historical, save at tick 12 (1837-01): `MATCH`; same state SHA-256 `a6751c47e91eb6786366e086737bb75da68ff8b4b0c617d496bc5e61627228d8`.
+  - Sandbox, save at tick 6 (1836-07): `MATCH`; uninterrupted/save-load state SHA-256 `b0d489068f6d3ef1d59fd862405df46851717fff9571b3c95379dbaa407a57cd`.
+  - Sandbox, save at tick 12 (1837-01): `MATCH`; same state SHA-256 `b0d489068f6d3ef1d59fd862405df46851717fff9571b3c95379dbaa407a57cd`.
+  - All four cases reported `firstDifferingPath=null`. Data hashes: `db.json` `1ce3a4613e1b5c491b88386d25d297961d71baf78c2c8e67d58c8d54ccb3bd24`; `map.json` `9a6a6979dd5e7adc9d5953fc5f089ac94dee4079433ed1d340535dcbe877a696`.
+- Save compatibility observations:
+  - malformed JSON: `SyntaxError`;
+  - foreign format: rejected;
+  - unsupported version 999: rejected;
+  - missing envelope state: `TypeError`;
+  - missing `marketStats`: deserializes with empty-object fallback and one-month continuation does not throw;
+  - missing RNG: currently deserializes with `rng=undefined`, then `stepMonth` throws `TypeError`. This is a real compatibility/validation risk; B4 records it only and does not change engine/save/RNG.
+- CI workflow side effect / R14 exception record: the existing push-triggered `android-apk.yml` continued automatically after tests passed and assembled/uploaded a debug APK, contrary to the explicit instruction not to generate a new APK before R14. APK artifact `14304929645` (`dong-chay-lich-su-debug-apk`, 17,555,167 bytes) was uploaded; its digest `sha256:6a6c9b49298950c8d096f0e7d4ceb1d4ed02120e4ba396d3c24a55499297034d` is the **artifact ZIP digest, not the APK file SHA**. CI evidence artifact `14305343860` was also uploaded (103,182 bytes; ZIP digest `sha256:bd84e0219336c206aff3a8ba4e8f9b3d8469e6b6b3146ffd701b2248cd75cebe`). ChatGPT did not download either artifact and did not install any APK on iQOO. R14 remains unverified; the automatically generated APK is not approved for device installation or R14 validation.
+- Gate assessment: G0.6 technical characterization result `PASS` on baseline `2240a8f`, because both modes and both save cut points match, fixtures are non-vacuous, array order is retained, and malformed/legacy-save behavior is recorded. This is a technical evidence assessment, not an independent review verdict or owner acceptance. S0 overall is not PASS.
+- Risks/limitations: missing RNG remains accepted by `deserialize` and crashes on continuation; R14 remains unverified; the CI workflow's automatic APK packaging is a known process hazard and was not modified in S0.
+- Execution/review separation: ChatGPT made the comparator/test-only correction directly through GitHub. Therefore ChatGPT does **not** claim an independent `REVIEW_PASS` for its own correction. Task status is `READY_FOR_REVIEW`; independent review and owner `ACCEPTED` remain pending. B7 remains `NOT_STARTED`.
+- ChatGPT review: independent review not claimed (reviewer authored the comparator change).
+- Owner decision: pending; no B7/S1 transition authorized by this entry.
 ### 2026-11-16 — S0-B3-REVIEW1-CORRECTIONS
 
 - Date (UTC): 2026-11-16 (after the owner relayed the ChatGPT round-1 review)
@@ -379,6 +412,21 @@ The Status column is Claude's claim, pending re-review.
 - Unresolved risks retained: R7 remains an open P0 (no lifecycle/renderer/WebGL context-loss recovery found; only a January-in-game-year autosave); G0.7 device evidence is blocked; G0.8 is partial; Android save export/import risk R14 is not verified on device. R14 continues to block B2/C3 and installation of a new APK on iQOO; it does not invalidate this desktop/CI-only B3 review.
 - Limitation of this review: the reviewer inspected exact GitHub source, reports, manifests, JSON outputs and committed logs and compared baseline-to-HEAD paths. The reviewer did not independently execute the scripts, tests, builds, or Android benchmark in a local runtime.
 - Owner decision: **pending**. B4 remains `NOT_STARTED` until the owner proceeds under OD-20261116-11 and the protocol; no gameplay or S1 phase is opened by this review.
+
+### Current S0-B4 technical evidence — 2026-11-17 (review pending)
+
+This subsection updates the technical gate evidence after the historical B3 round-2 review above; it does not rewrite that review's as-of-date result.
+
+| Item | Current result |
+|---|---|
+| B4 CI | Run `44032178418`, job `133866471284`, exact HEAD `e4924ca48264f8d0818eface51a28a87cd363b89`: `success` |
+| Test report | 69/69 passed; 26/26 suites passed; 0 failed; `report_valid=true` |
+| G0.6 technical assessment | `PASS` on baseline `2240a8f`; all four determinism cases `MATCH` with no differing path |
+| Save compatibility | Malformed/foreign/version/missing-state behavior recorded; missing `marketStats` fallback continues; missing RNG loads but continuation throws `TypeError` |
+| Task lifecycle | `READY_FOR_REVIEW`; independent review and owner acceptance pending |
+| Next phase | B7 remains `NOT_STARTED`; do not begin before B4 independent `REVIEW_PASS` and owner `ACCEPTED` |
+
+The CI workflow also auto-generated and uploaded a debug APK after the test step passed. This was contrary to the R14 no-new-APK instruction and is recorded as an unintended workflow side effect in the B4 work log. The artifact was not downloaded or installed; R14 remains unverified.
 
 ## 7. Owner decisions
 
