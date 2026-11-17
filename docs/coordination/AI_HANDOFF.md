@@ -113,7 +113,7 @@ Append newest entries at the top. Do not overwrite earlier entries.
   - docs/audit/s0/S0_SIGNOFF.md — commit fddbeb6f6a9100ef084cc43aaa2ab10315cc03af.
   - docs/audit/s0/S0_B7_RESULTS.md — commit ec627dbdf66884807b8a336afe90deace4b817bc.
   - docs/audit/s0/S0_B7_REVIEW_REQUEST.md — commit b1f82cc77e67ee807d3c0db08e75ba97ad7e9222.
-- Validation: all five files re-fetched from GitHub; gate ledger contains G0.1–G0.9 rows; review request lists exact source evidence and ten required reviewer questions. Compare from product baseline 2240a8f to B7 HEAD b1f82cc lists authorized workflows and documentation/audit deliverables only; no src/**, historical_data/**, assets/** or android/** paths changed. The pre-existing android-apk.yml remains unchanged at blob SHA 7a2639057272d2629f2d6b89cfc8fb07682dad31.
+- Validation: all five files re-fetched from GitHub; gate ledger contains G0.1–G0.9 rows; review request lists exact source evidence and eleven required reviewer questions. Compare from product baseline 2240a8f to B7 HEAD b1f82cc lists authorized workflows and documentation/audit deliverables only; no src/**, historical_data/**, assets/** or android/** paths changed. The pre-existing android-apk.yml remains unchanged at blob SHA 7a2639057272d2629f2d6b89cfc8fb07682dad31.
 - B7 disposition: READY_FOR_REVIEW. The current gate ledger proposes G0.1–G0.6 PASS on bounded evidence; G0.7 BLOCKED overall; G0.8 PARTIAL; G0.9 BLOCKED for full S0 under v3.3 §2.1.1 because R14/C3 remain BLOCKED. Overall S0 is not PASS.
 - S1 remains NOT_STARTED. B7 does not authorize implementation; independent REVIEW_PASS and separate owner ACCEPTED of R7 residual risk, G0.7/G0.8 exceptions and exact S1 scope are required.
 
