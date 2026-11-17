@@ -126,4 +126,21 @@ No workflow edit is authorized by the current S0-B4 scope. A `[skip ci]` documen
 3. Obtain a genuine second-party review of the corrected test/evidence package, and then the owner's explicit `ACCEPTED` decision.
 4. Keep B7 `NOT_STARTED` until both conditions are recorded.
 
-**Technical self-audit conclusion:** `CHANGES_REQUESTED` for the B4 test/evidence package because of B4-SA-01 and B4-SA-02. This is not a second-party independent review verdict and does not change the repository task lifecycle status to `REVIEW_PASS` or `ACCEPTED`. B4 remains pending formal independent review and owner acceptance; B7 remains `NOT_STARTED`.
+**Initial technical self-audit conclusion (at HEAD `0b915ff`):** `CHANGES_REQUESTED` because of B4-SA-01 and B4-SA-02. The follow-up correction below records that both test-harness findings have since been addressed in source. This is not a second-party independent review verdict and does not change B4 to `REVIEW_PASS` or `ACCEPTED`. Project Vitest/CI validation and the genuine independent review remain pending; B7 remains `NOT_STARTED`.
+
+
+## 7. Follow-up correction applied — 2026-11-17
+
+**Current code commit:** `ae29c99330081ba2f6af3a6d4478ec8aefc8a1ad`  
+**Current branch:** `claude/game-historical-sandbox-modes-kg7rj7`
+
+The two bounded findings were corrected in `tests/s0-save-determinism.test.ts` only:
+
+- **B4-SA-01:** the missing-RNG characterization now captures the continuation error and explicitly asserts both `instanceof TypeError` and the `TypeError` name. It still records the current baseline failure; no engine, save, or RNG behavior was changed.
+- **B4-SA-02:** added `jsonRoundTrip()`, which normalizes operands through `JSON.stringify/JSON.parse` before recursive object-key canonicalization and first-difference comparison. Regression cases cover `NaN`, positive/negative infinity, `-0`, non-finite/undefined array entries, and retained array ordering.
+
+**Validation performed:** an isolated Node.js smoke script reimplemented the exact JSON-normalization/comparison helper and passed 8 assertions covering the new and existing cases. This is a narrow helper-level check, not a run of this repository's Vitest suite.
+
+**Validation not performed:** the project Vitest suite, build, and GitHub CI were not run for this commit. The commit message includes `[skip ci]` to avoid triggering the existing `android-apk.yml` workflow, which proceeds to `assembleDebug` and APK upload. No workflow change was made under the current S0 governance. Do not report the correction as CI-verified.
+
+**Current disposition:** both source-level test-harness corrections are committed. B4 remains pending a real project test/CI run on a safe tests-only path, independent Claude review when available, and explicit owner `ACCEPTED`. No phase transition is authorized; B7 remains `NOT_STARTED`.
