@@ -184,3 +184,46 @@ The correction was committed with `[skip ci]` so the existing all-branches APK w
 ### 8.4 Current bounded disposition
 
 B4-SA-01 and B4-SA-02 remain corrected in the test source, but the repository test suite has not yet been run against those corrections with the fixed tests-only workflow. No new conclusion can be drawn about the assertions from run `44039619132`. B4 remains `READY_FOR_REVIEW`; obtain the corrected CI run, genuine independent second-party review, and explicit owner `ACCEPTED` before any B7 work. B7 remains `NOT_STARTED`.
+
+
+## 9. Corrected tests-only CI execution — PASS (2026-11-17)
+
+This section supersedes the "not yet executed" status in §8.3. It does not supersede the status discipline or convert this self-audit into an independent review.
+
+### 9.1 Exact run and job
+
+- [GitHub Actions run 44041104723](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44041104723)
+- Event: `workflow_dispatch`; branch: `claude/game-historical-sandbox-modes-kg7rj7`.
+- Exact checked-out HEAD: `d2ae88e557e9895413462c5b069886bfc606adc7`.
+- Job: `133895641421`, “Vitest (no build, no APK)”; run conclusion: `success`.
+- Successful steps: dependency installation, generated-data preparation, Vitest execution.
+
+### 9.2 Test results
+
+- `npm ci`: success.
+- `npm run prepare-assets`: success. Data compiler: 274 entities (104 placeholder polities), 662 regions, 13 active alliances, 0 warnings. Map compiler: 8192×3868, 662 regions, 1,426 land borders, 423 sea links, 2,667 landmasses, 5,024 boundary lines, no single-cell regions. Content registry: 502 licensed asset records, 8,715,750 bytes; 176 flags, 99 coats of arms, 227 portraits.
+- `npm run test:fast`: success.
+- Vitest summary: **6 test files passed, 70 tests passed, 0 failures**; duration 80.59 seconds.
+- Both new comparator regression tests passed.
+- Missing-RNG characterization passed with the expected baseline observation: deserialization still accepts `rng=undefined`; one-month continuation throws `TypeError`. No product behavior was changed.
+
+### 9.3 Save/load results
+
+All four B4 characterization cases passed and logged `result= MATCH` (exact log uses `"result":"MATCH"`) with `firstDifferingPath=null`:
+- Historical, tick 6 (1836-07): continuous/save-load SHA-256 `a6751c47e91eb6786366e086737bb75da68ff8b4b0c617d496bc5e61627228d8`.
+- Historical, tick 12 (1837-01): same matching SHA-256.
+- Sandbox, tick 6 (1836-07): continuous/save-load SHA-256 `b0d489068f6d3ef1d59fd862405df46851717fff9571b3c95379dbaa407a57cd`.
+- Sandbox, tick 12 (1837-01): same matching SHA-256.
+
+Each uses baseline product SHA `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`, seed 21, player GBR, 24 months and three commands. The generated database SHA-256 for this run is `4f4b1fef73aeae19a7fc3e26c2031740240f8306f19be08cf4805d2c1f0a25d6`; map SHA-256 is `9a6a6979dd5e7adc9d5953fc5f089ac94dee4079433ed1d340535dcbe877a696`.
+
+### 9.4 APK/build side-effect verification
+
+- The run's artifact list is empty.
+- Job steps contain no app build, Capacitor, Gradle, `assembleDebug`, signing, APK packaging or upload.
+- The original `.github/workflows/android-apk.yml` remains unchanged; blob SHA `7a2639057272d2629f2d6b89cfc8fb07682dad31`.
+- The range from B4 test correction commit `ae29c99330081ba2f6af3a6d4478ec8aefc8a1ad` to tested HEAD `d2ae88e` changes only the tests-only workflow and documentation; the corrected test source is unchanged during the tested range.
+
+### 9.5 Bounded conclusion
+
+**Project CI validation for the corrected B4 test source: PASS.** This is execution/test evidence only. ChatGPT authored the correction, so this does not qualify as independent second-party `REVIEW_PASS`. B4 stays `READY_FOR_REVIEW` until a genuine independent reviewer returns a bounded verdict and the owner records `ACCEPTED`. B7 remains `NOT_STARTED`.
