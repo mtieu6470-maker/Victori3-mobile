@@ -123,3 +123,18 @@ No APK was intentionally built or installed; automatic APK workflow runs were tr
 - The B7 review packet must include this incident in the exact-HEAD review. Any permanent path-filter or workflow change requires separate owner approval.
 - Do not treat the 19 successful APK workflow runs as B4 tests-only CI or as device acceptance. The independently identified B4 tests-only run remains `44041104723`.
 
+## 10. Final exact-HEAD and incident revalidation — 2026-11-17
+
+This section supersedes the earlier run-count snapshot in §9 after all automatic push-triggered runs had completed. It remains ChatGPT's technical coordination record, not an independent review or an owner acceptance.
+
+- **Branch:** `claude/game-historical-sandbox-modes-kg7rj7`.
+- **Pre-report-update HEAD:** `9aa51ccd5ce18483d4d3fe8eb44903cb9b3cf059`, fetched from the GitHub branch ref.
+- **B7 preparation-base comparison:** compare from `5d92101e56d6f60045f51f25f926b124eaf892ef` to that HEAD reports 49 commits and exactly eight changed paths: the six B7 audit documents plus `docs/coordination/AI_COLLABORATION_PROTOCOL.md` and `docs/coordination/AI_HANDOFF.md`. No product source, engine, RNG, save implementation/schema, migrations, historical data, assets, Android resources, Gradle, workflow or test file changed in this B7 documentation range.
+- **Final automatic workflow status:** 21 push-triggered `Android APK (debug)` runs between 08:06:36 and 09:14:38 UTC on 2026-11-17: **20 success, 1 failure, 0 in progress**. The two last successful runs were `44053724459` (APK artifact `14314562616`, 17,555,134 bytes) and `44053773347` (APK artifact `14314174885`, 17,555,116 bytes). Earlier verified examples and the failed Maven HTTP 429 run are detailed in §9.
+- **Workflow integrity:** `.github/workflows/android-apk.yml` remains unchanged at blob SHA `7a2639057272d2629f2d6b89cfc8fb07682dad31`. Its push trigger has no docs-only path filter. No workflow modification was made in B7.
+- **Containment verification:** after applying `[skip ci]` to subsequent documentation commits, a fresh Actions query found no new `android-apk.yml` push run after the containment time (09:16 UTC). This is evidence for those specific commits, not a permanent protection against future omitted markers.
+- **Device/R14 status:** no APK artifact was downloaded or installed on the iQOO by ChatGPT. No export/import or signature-transition test was performed. R14 remains BLOCKED; automatic APK build artifacts do not satisfy R14.
+- **B4 test evidence:** the dedicated tests-only run `44041104723` remains separate: exact tested SHA `d2ae88e557e9895413462c5b069886bfc606adc7`, job `133895641421`, 6/6 suites, 70/70 tests, four valid-save cases MATCH, no APK artifacts. The automatic APK workflow runs are not substituted for that evidence.
+- **Final B7 disposition:** B7 remains `READY_FOR_REVIEW`. Claude must independently review the exact latest branch HEAD (re-fetch it rather than assuming the pre-report-update SHA above), including the updated P3 risk details, R2/AS-F3 separation, R5/RM-F3/RM-F4 separation and §9 governance incident. Owner `ACCEPTED` remains pending. R7 remains open P0; G0.7 remains BLOCKED; G0.8 remains PARTIAL; full-S0 G0.9 remains BLOCKED; S1 remains `NOT_STARTED`.
+
+No new product tests were necessary for this documentation-only revalidation. All future coordination/documentation commits must use `[skip ci]` unless the owner separately approves a workflow change or an intentional CI run.
