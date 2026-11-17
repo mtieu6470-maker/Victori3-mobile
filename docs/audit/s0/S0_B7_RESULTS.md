@@ -38,7 +38,7 @@ This means B7 drafting does **not** wait for B4 independent REVIEW_PASS and owne
 | G0.6 | PASS | Four valid-save continuation cases MATCH; missing-RNG TypeError is separately recorded as a compatibility risk |
 | G0.7 | BLOCKED | Node PASS; desktop PARTIAL with headless SwiftShader limitations; iQOO BLOCKED |
 | G0.8 | PARTIAL | Asset inventory/checksum PASS; 492 image licences not independently verified; attribution gaps remain |
-| G0.9 | PARTIAL | Risk package drafted, but independent reviewer and owner signoff remain pending |
+| G0.9 | BLOCKED | Full-S0 G0.9 remains BLOCKED while R14/C3 are BLOCKED under v3.3 §2.1.1; bounded S1-entry risk disposition is reviewed separately |
 
 Overall S0 remains PARTIAL/BLOCKED, not PASS.
 
