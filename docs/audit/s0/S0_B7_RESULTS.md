@@ -138,3 +138,31 @@ This section supersedes the earlier run-count snapshot in §9 after all automati
 - **Final B7 disposition:** B7 remains `READY_FOR_REVIEW`. Claude must independently review the exact latest branch HEAD (re-fetch it rather than assuming the pre-report-update SHA above), including the updated P3 risk details, R2/AS-F3 separation, R5/RM-F3/RM-F4 separation and §9 governance incident. Owner `ACCEPTED` remains pending. R7 remains open P0; G0.7 remains BLOCKED; G0.8 remains PARTIAL; full-S0 G0.9 remains BLOCKED; S1 remains `NOT_STARTED`.
 
 No new product tests were necessary for this documentation-only revalidation. All future coordination/documentation commits must use `[skip ci]` unless the owner separately approves a workflow change or an intentional CI run.
+
+## 11. Owner target — 3–4 GB complete offline content footprint — 2026-11-17
+
+The project owner has now stated a product target of approximately **3–4 GB for the complete game**, with stability taking priority over reaching a byte count. For engineering purposes this is recorded as the target **expanded offline content footprint across the core application plus verified content packs**, not as a requirement that one monolithic APK be 3–4 GB. This aligns with the existing v3.2 decision H (offline >3 GB, provider-neutral manifest and multiple content packs) and S23b (image coverage, content packs and offline delivery). This statement does not open S1 or authorize S23b implementation.
+
+### 11.1. Current scale and architecture evidence
+
+- Git tree at the inspected product baseline contains 983 tracked blobs and approximately 51.8 MB total; this includes 34.4 MB of documentation and is not the install size.
+- The S0-A APK baseline web payload manifest contains 592 `assets/public` files totalling **17,764,559 bytes**. The current repository `public/` tree is approximately 10.2 MB; these are different measurements and must not be substituted for one another.
+- `src/ui/main.tsx` statically imports `dbJson` and `mapJson` before boot; `HistoricalData` builds entity/region/technology maps from the full database in memory (`src/engine/data/db.ts`).
+- The map pipeline is a whole-grid pipeline: `tools/build-map.ts` defines an 8,192 × 3,868 raster; `src/ui/map/mapData.ts` decodes the complete RLE payload to a single `Uint16Array` of width × height cells. This is about 63.4 MB of raw grid storage, before other map buffers/textures.
+- Identity metadata is loaded lazily after game start, but `src/ui/game/content.ts` fetches and parses the whole `content/registry.json` in one operation. Individual images use browser lazy loading/async decode; there is not yet an explicit global decoded-image/GPU LRU budget or content-pack installer.
+- The current image inventory has 502 registry records; the asset audit records 492 image files whose licence data has not been re-verified. Increasing media volume must not bypass source, author, period-validity or licence requirements.
+
+### 11.2. Delivery constraints to carry into the approved roadmap
+
+- Keep three budgets separate: (1) compressed download bytes, (2) expanded on-disk offline bytes, and (3) peak runtime resident memory/decoded GPU texture bytes. A 3–4 GB disk footprint is not a 3–4 GB RAM budget.
+- A Google Play build for this size must assess Android App Bundle + Play Asset Delivery (PAD), rather than assume a single base APK. Current official Play guidance lists a 500 MB base module, 1.5 GB per asset pack, 4 GB cumulative install-time delivery, and up to 30 GB for fast-follow/on-demand packs. PAD is a Google Play delivery mechanism; it does not automatically serve a sideload APK. Official sources: https://support.google.com/googleplay/android-developer/answer/9859372 and https://developer.android.com/guide/playcore/asset-delivery.
+- Sideload distribution therefore needs a separate content-pack channel (for example, pre-built archives imported/installed by the app or an approved free hosting method). No hosting provider, account requirement, paid CDN or recurring cost is selected by this record.
+- Required engineering controls for the eventual pack system: provider-neutral manifest; pack ID/version/dependency and minimum engine/data-build compatibility; compressed/uncompressed size; archive and per-file SHA-256; licence/provenance; explicit Wi-Fi-first behavior; resumable download/import; free-space preflight; safe staging; atomic activation and rollback; offline completeness verification.
+- Runtime controls: do not eagerly inflate the entire media library into WebView memory. Keep simulation-critical data distinct from optional narrative/media; use map tile/LOD packs and lazy image/audio loading; enforce bounded decoded-image/texture cache and evict unused assets safely.
+- Acceptance tests for the future delivery stage must cover interrupted/resumed download, low-storage refusal before mutation, corrupt/hash-mismatched packs, dependency/version mismatch, app process death during update, rollback to the previous valid pack set, missing optional content, no-network cold launch and complete offline play after all required packs are installed.
+
+### 11.3. Scope and reviewer disposition
+
+This target is recorded as new finding **R15** in the B7 risk register. It is a future P1 delivery/resource risk for S23b/S23c; it does not alter G0.7/G0.8/G0.9 or the current S1-entry scope. No 3–4 GB content was fabricated, downloaded or committed. No image, audio, historical dataset, pack installer, engine, save schema, workflow or APK was modified/generated for this task.
+
+B7 remains `READY_FOR_REVIEW`. Claude's independent review request must inspect R15 and this owner target at the exact current HEAD. S1 remains `NOT_STARTED` until the independent REVIEW_PASS and owner ACCEPTED conditions are both fulfilled.
