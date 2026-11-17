@@ -47,7 +47,7 @@ Do not modify the repository. Do not change product source, gameplay, engine, RN
 
 1. Verify the latest HEAD, changed-file range from the product baseline, and that no unauthorized product/engine/save/data/assets/device changes were introduced by B7.
 2. Verify the B4 evidence: exact checked-out SHA, 70/70 tests, 6/6 suites, four valid-save MATCH results, missing-RNG TypeError characterization, no APK artifacts.
-3. Check every risk entry for accurate source evidence, severity, impact, interim mitigation, accountable owner, stage and objective exit criteria. Identify missing material risks or inflated severity.
+3. Check every risk entry for accurate source evidence, severity, impact, interim mitigation, accountable owner, stage and objective exit criteria. In particular, verify that R2 (parent shipped CC BY-SA content risk) is not conflated with AS-F3 (specific UI attribution sub-finding), and that their different P1/P2 dispositions are justified. Identify missing material risks or inflated severity.
 4. Check R7 is treated as an open P0, not a resolved defect. Is the proposed owner-accepted interim control sufficient for a narrowly limited S1 test phase?
 5. Check R14 remains BLOCKED for device installation/signing; no one should rely on Export as a backup absent device evidence.
 6. Check G0.7 exception is only for iQOO measurement during S1, with Node/desktop evidence and strict prohibition on runtime/performance/renderer/lifecycle changes in S1.
@@ -55,7 +55,7 @@ Do not modify the repository. Do not change product source, gameplay, engine, RN
 8. Check G0.6 is PASS on the tested baseline and remains non-exemptible. Does B4-R1 adequately preserve the missing-RNG failure as a separate compatibility risk?
 9. Check the gate ledger does not overstate G0.1–G0.6; G0.7 remains BLOCKED, G0.8 remains PARTIAL, and full-S0 G0.9 remains BLOCKED while R14/C3 are BLOCKED under v3.3 §2.1.1. Assess the bounded S1-entry risk disposition as a separate review object; do not relabel the full-S0 G0.9 verdict.
 10. Check the S1 scope exactly matches v3.2/v3.3 data-contract/save-foundation constraints and includes no gameplay or runtime/performance work.
-11. Check risk-register coverage against all inherited v3.2 R1–R14 risks (including R3 as closed), B3 findings TC-F1…F7, GD-F1…F6, AS-F1…F7, RM-F1…F5, WD-F1…F3, and the B4 missing-RNG risk. Verify mitigated/closed entries do not erase the historical finding and that no priority has been silently lowered.
+11. Check risk-register coverage against all inherited v3.2 R1–R14 risks (including R3 as closed), B3 findings TC-F1…F7, GD-F1…F6, AS-F1…F7, RM-F1…F5, WD-F1…F3, and the B4 missing-RNG risk. Verify mitigated/closed entries do not erase the historical finding and that no priority has been silently lowered. Also verify R5 (frame-metric/tick-cost attribution), RM-F3 (synchronous main-thread tick cost) and RM-F4 (requestAnimationFrame throughput coupling) are distinct and not duplicated or severity-conflicted.
 
 ## 4. Required reviewer response
 
