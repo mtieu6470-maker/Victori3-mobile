@@ -66,13 +66,18 @@ const DATA_BUILD_HASHES = Object.freeze({
 
 function canonicalize(value: unknown): unknown {
   if (Array.isArray(value)) {
-    // Array order is semantically significant to the engine. Preserve it exactly.
-    return value.map(canonicalize);
+    // JSON.stringify writes undefined array entries (and holes) as null. Keep
+    // their positions and never sort arrays: array order is engine-significant.
+    return Array.from(value, (item) => item === undefined ? null : canonicalize(item));
   }
   if (value !== null && typeof value === 'object') {
     const record = value as Record<string, unknown>;
+    // JSON.stringify omits object properties whose values are undefined.
     return Object.fromEntries(
-      Object.keys(record).sort().map((key) => [key, canonicalize(record[key])]),
+      Object.keys(record)
+        .filter((key) => record[key] !== undefined)
+        .sort()
+        .map((key) => [key, canonicalize(record[key])]),
     );
   }
   return value;
@@ -116,6 +121,10 @@ function firstDifference(a: unknown, b: unknown, path = '$'): string | null {
   return null;
 }
 
+function firstJsonDifference(a: unknown, b: unknown): string | null {
+  return firstDifference(canonicalize(a), canonicalize(b));
+}
+
 function cloneState(state: GameState): GameState {
   return JSON.parse(JSON.stringify(state)) as GameState;
 }
@@ -154,7 +163,7 @@ function assertNonVacuous(
   expect(trace).toHaveLength(COMMANDS.length);
 
   // A non-trivial state must evolve; tick alone is not accepted as the only change.
-  const rngChanged = firstDifference(initial.rng, final.rng) !== null;
+  const rngChanged = firstJsonDifference(initial.rng, final.rng) !== null;
   const country = final.countries.GBR;
   const initialCountry = initial.countries.GBR;
   const economyChanged = !!country && !!initialCountry && (
@@ -167,6 +176,26 @@ function assertNonVacuous(
   );
   expect(rngChanged || economyChanged || populationChanged).toBe(true);
 }
+
+describe('S0-B4 — JSON comparison semantics', () => {
+  it('ignores undefined object properties without reordering arrays', () => {
+    const beforeSave = {
+      countries: { ABD: { group: undefined } },
+      orderedEvents: ['first', 'second'],
+    };
+    const afterLoad = {
+      countries: { ABD: {} },
+      orderedEvents: ['first', 'second'],
+    };
+
+    expect(firstJsonDifference(beforeSave, afterLoad)).toBeNull();
+    expect(firstJsonDifference(
+      { orderedEvents: ['first', 'second'] },
+      { orderedEvents: ['second', 'first'] },
+    )).toBe('$.orderedEvents[0]');
+    expect(firstJsonDifference({ values: [undefined] }, { values: [null] })).toBeNull();
+  });
+});
 
 describe('S0-B4 — save/load determinism characterization (baseline only)', () => {
   for (const mode of ['historical', 'sandbox'] as const satisfies readonly GameMode[]) {
@@ -206,7 +235,7 @@ describe('S0-B4 — save/load determinism characterization (baseline only)', () 
 
         const continuousHash = stateSha256(continuous);
         const loadedHash = stateSha256(loaded);
-        const firstPath = firstDifference(continuous, loaded);
+        const firstPath = firstJsonDifference(continuous, loaded);
 
         console.info('[S0_B4_CASE] ' + JSON.stringify({
           baselineProductSha: BASELINE_PRODUCT_SHA,
