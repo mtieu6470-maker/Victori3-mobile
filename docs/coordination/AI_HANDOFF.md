@@ -111,6 +111,7 @@ Append newest entries at the top. Do not overwrite earlier entries.
 - Source-diff boundary: compare from B4 test correction commit `ae29c99330081ba2f6af3a6d4478ec8aefc8a1ad` to tested HEAD `d2ae88e` lists only the tests-only workflow and audit/handoff documentation; `tests/s0-save-determinism.test.ts` was not changed after `ae29c99`.
 - Non-blocking log notes: Node/action deprecation warnings appeared during setup/cleanup; all workflow steps and tests completed successfully.
 - Gate: B4 remains `READY_FOR_REVIEW`, not `REVIEW_PASS` or owner `ACCEPTED`. This CI pass is execution evidence, not an independent review. Await genuine second-party Claude review and explicit owner acceptance. B7 remains `NOT_STARTED`.
+- Follow-up evidence commits: `c049987b0bf70da19ec3fe689463dd30864f72f6` appends the exact passing run/log details to the ChatGPT technical self-audit; `b831f6c83bcf553f0b5de38182971450429dfb10` appends the successful CI evidence to the independent review request packet. These documentation-only commits do not change the tested source or the tested SHA.
 
 
 ### 2026-11-17 — S0-B4-TESTS-ONLY-CI-GENERATED-DATA-CORRECTION
