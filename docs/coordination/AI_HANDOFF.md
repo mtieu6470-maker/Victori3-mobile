@@ -107,6 +107,18 @@ Pre-protocol work:
 
 Append newest entries at the top. Do not overwrite earlier entries.
 
+### 2026-11-17 — B7-RISK-REGISTER-DEEPENED-AND-GOVERNANCE-CONSISTENCY
+
+- Risk register P3 records were expanded with source evidence, bounded impact, interim mitigation, accountable owner, stage and objective exit criteria for GD-F5/GD-F6, WD-F1/WD-F2, RM-F5 and AS-F5/AS-F6/AS-F7. The change preserves source severity and clearly distinguishes known mapping properties from demonstrated defects.
+- R11 now cites the observed baseline `android/app/build.gradle:10` value `versionCode = 1` at product baseline `2240a8fb`.
+- AS-F6 is explicitly cross-linked to R6 because both concern unpinned Natural Earth input provenance; the local committed-file hash is not treated as upstream version pinning.
+- Collaboration protocol status vocabulary now defines REVIEW_PASS as the assigned independent reviewer's verdict (normally Claude; DeepSeek only if owner-assigned and independent). Historical B3 review records naming ChatGPT remain unchanged.
+- B7 signoff now identifies Claude Code as the independent reviewer and DeepSeek only as owner-assigned fallback.
+- Pre-review GitHub compare from B7 preparation base `5d92101e56d6f60045f51f25f926b124eaf892ef` to the checked HEAD `ead5c6e25e75e20e9d5709dd6164eb53c2809e8b` reported 33 commits and eight changed paths, all under `docs/audit/s0/` or `docs/coordination/`. No product source, engine, RNG, save implementation/schema, historical data, assets, Android resources, Gradle, workflow or test path changed in this range.
+- No product tests were rerun because this slice changes documentation only. The existing B4 execution evidence was re-fetched from GitHub: run `44041104723`, job `133895641421`, tested SHA `d2ae88e557e9895413462c5b069886bfc606adc7`, 6/6 suites and 70/70 tests passed; no artifacts.
+- B7 remains `READY_FOR_REVIEW`; this work is a ChatGPT technical pre-review, not an independent REVIEW_PASS. Claude's review and the owner's explicit ACCEPTED decision remain pending. S1 remains `NOT_STARTED`.
+
+
 ### 2026-11-17 — OWNER-ROLE-ALLOCATION-ALIGNED
 
 - Owner-directed role allocation recorded in AI_COLLABORATION_PROTOCOL.md: ChatGPT technical lead/coordinator and authorized implementer; Claude independent reviewer; Gemini Hydrogen research/content support; DeepSeek owner-assigned independent fallback only when it did not author the reviewed work.
