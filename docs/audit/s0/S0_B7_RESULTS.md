@@ -24,7 +24,7 @@ This means B7 drafting does **not** wait for B4 independent REVIEW_PASS and owne
 | S0_RISK_REGISTER.md | P0/P1/P2/P3 risks with evidence, impact, mitigation, accountable owner, stage and exit criteria | Draft complete; pending review |
 | S0_GATE_LEDGER.csv | Current G0.1–G0.9 state, evidence and limitations | Draft complete; pending review |
 | S0_SIGNOFF.md | Bounded S1-entry proposal, G0.7/G0.8 exception requests, R7 owner acknowledgement, reviewer and owner decision sections | Draft complete; not signed |
-| AI_HANDOFF.md | Phase register, governance clarification and B7 work log | Updated; current status B7 IN_PROGRESS |
+| AI_HANDOFF.md | Phase register, governance clarification, owner-directed AI roles and B7 work log | Updated; current status B7 READY_FOR_REVIEW; independent review and owner decision pending |
 
 ## 3. Gate proposal
 
@@ -68,3 +68,18 @@ The project owner must then explicitly accept or reject:
 4. The exact bounded S1 data-contract/save-foundation scope.
 
 Until independent REVIEW_PASS and owner ACCEPTED are both recorded, S1 remains NOT_STARTED. B7 is not a declaration that S0 has passed.
+
+## 7. ChatGPT pre-review consistency check — 2026-11-17
+
+This is a technical coordination/self-audit record, **not** an independent review verdict and not a REVIEW_PASS.
+
+- **Verified pre-check HEAD:** 20099d0d97bdcb3f1f2af499eb3c2fc25538577a on claude/game-historical-sandbox-modes-kg7rj7. The branch ref was fetched directly from GitHub and matched the handoff SHA. The branch remains the repository's default branch.
+- **B7 change boundary:** compare from B7 preparation base 5d92101e56d6f60045f51f25f926b124eaf892ef to the pre-check HEAD reports 26 commits and exactly these seven changed paths: S0_B7_PACKAGE_SUMMARY_VI.md, S0_B7_RESULTS.md, S0_B7_REVIEW_REQUEST.md, S0_GATE_LEDGER.csv, S0_RISK_REGISTER.md, S0_SIGNOFF.md and AI_HANDOFF.md. They are all audit/coordination documentation. No product source, engine, RNG, save implementation/schema, migration, historical data, assets, Android resources, Gradle, APK workflow or tests changed in the B7 range.
+- **Risk-ID coverage:** the register contains all 42 inherited identifiers (R1–R14, TC-F1…F7, GD-F1…F6, AS-F1…F7, RM-F1…F5 and WD-F1…F3), including R3 explicitly marked CLOSED, plus the separate B4-R1 missing-RNG observation. Combined rows preserve the individual identifiers; no inherited ID was missing in the row-label cross-check.
+- **Gate/risk consistency:** the ledger, risk register, signoff and Vietnamese summary agree on G0.7 BLOCKED, G0.8 PARTIAL and full-S0 G0.9 BLOCKED while R14/C3 remain BLOCKED. R7 remains an open P0. G0.1–G0.6 are proposed PASS states on bounded evidence, not a declaration that all of S0 passed. No owner exception or S1 acceptance is recorded.
+- **B4 evidence re-fetch:** GitHub Actions run 44041104723 is completed/success on exact checked-out SHA d2ae88e557e9895413462c5b069886bfc606adc7; job 133895641421 succeeded; 6/6 suites and 70/70 tests passed. The job log contains four Historical/Sandbox × tick-6/tick-12 MATCH results with firstDifferingPath=null and the missing-RNG continuation TypeError characterization. The run has no artifacts. The workflow source is tests-only and contains no web build, Capacitor sync, Gradle, signing, APK packaging or artifact-upload step.
+- **Consistency correction:** the deliverables table in §2 previously labelled the current handoff/B7 state IN_PROGRESS, while the phase register and current handoff both said READY_FOR_REVIEW. The table is corrected to READY_FOR_REVIEW; this is a status-text correction only.
+- **Role governance:** the owner-directed allocation dated 2026-11-17 is recorded in AI_COLLABORATION_PROTOCOL.md and AI_HANDOFF.md. ChatGPT is the technical lead/coordinator; Claude is the independent reviewer for work it did not author; Gemini Hydrogen supports research/content; DeepSeek may be an owner-assigned independent fallback only when it did not author the reviewed change. Historical B3 review records are unchanged.
+- **Remaining decision:** Claude must review the exact HEAD after these documentation updates and issue REVIEW_PASS or CHANGES_REQUESTED. The project owner must separately record ACCEPTED for the bounded S1-entry package, R7 residual exposure, EX-G07-01, EX-G08-01 and the exact S1 scope. Until both are recorded, S1 remains NOT_STARTED.
+
+No APK was built, downloaded, installed or tested on the iQOO as part of this pre-review check.
