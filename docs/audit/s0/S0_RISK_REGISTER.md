@@ -86,6 +86,7 @@
 | **WD-F2** | True historical start dates before 1836 are not retained in GameState; duration is counted from 1836 for seeded wars. | Data/save owner; S1/S21. Store historical start-date contract if needed. |
 | **RM-F5** | Simulation does not stop automatically at 1936 (tick 1,200). | Product owner; S22. Decide end-of-era/continuation behavior. |
 | **AS-F5 / AS-F6** | Third-party NOTICE/attribution package is incomplete; Natural Earth upstream version is not pinned. | Release/licensing owner (S23); map owner (S3). |
+| **AS-F7** | All 227 portraits have null period validity; the current temporal-validity test applies only to flags and coats of arms (S0_ASSET_AUDIT §4). | Character portraits may be shown outside the person’s historical lifetime or relevant period. | Character/content owner; S5. Add temporal-validity metadata and runtime/tests proving portraits are not shown outside their approved period. |
 
 ## 7. B7 / S1 disposition
 
