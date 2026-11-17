@@ -8,8 +8,11 @@ on:
     paths:
       - '.github/workflows/b4-tests-only.yml'
       - 'tests/**'
-      - 'src/engine/**'
-      - 'src/generated/**'
+      - 'src/**'
+      - 'tools/**'
+      - 'historical_data/**'
+      - 'assets/map/**'
+      - 'public/**'
       - 'package.json'
       - 'package-lock.json'
       - 'vitest.config.ts'
@@ -43,8 +46,12 @@ jobs:
       - name: Install locked dependencies
         run: npm ci
 
+      - name: Prepare generated test data
+        run: npm run prepare-assets
+
       - name: Run Vitest suite only
         run: npm run test:fast
 
-      # Intentionally absent: npm run build, Capacitor sync, Gradle, assembleDebug,
+      # prepare-assets creates only data/map/content inputs required by tests.
+      # Intentionally absent: npm run build, Vite build, Capacitor sync, Gradle, assembleDebug,
       # signing, APK packaging, and artifact upload.
