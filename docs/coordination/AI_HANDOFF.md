@@ -2,6 +2,17 @@
 
 > Shared status index for Claude Code, ChatGPT, and the project owner. Never put secrets or personal data here.
 
+## Active AI role allocation — owner directive 2026-11-17
+
+- **ChatGPT — technical lead/coordinator:** inspects the repository, controls scope, reviews architecture/algorithms, implements owner-authorized changes, writes/runs tests, verifies CI/logs, commits authorized work, and maintains documentation/handoff. ChatGPT self-audits must be labelled; they are not independent REVIEW_PASS.
+- **Claude Code — independent reviewer:** reviews the exact HEAD and evidence for work ChatGPT or another agent implemented, does not modify the reviewed change set during review, and returns REVIEW_PASS or CHANGES_REQUESTED with evidence. Claude qualifies as independent only if it did not author/modify the target work.
+- **Gemini Hydrogen — research/content support:** researches history, countries, people, events, geography, maps, images, provenance, licensing and specialist documents; deliverables must include sources, dates, methods and uncertainty.
+- **DeepSeek — fallback reviewer:** may replace Claude when Claude is unavailable/out of quota only when the owner assigns it and DeepSeek did not author/modify the reviewed change set.
+- **Project owner:** retains authority over scope, product decisions, acceptance and phase transitions.
+
+This allocation supersedes the earlier default ChatGPT/Claude role assignment for subsequent tasks. Historical B3 review records and previous decisions remain unchanged. See docs/coordination/AI_COLLABORATION_PROTOCOL.md.
+
+
 ## 1. Current project state
 
 | Field | Value |
@@ -42,7 +53,7 @@ Not allowed:
 - No B2/C3, B5, B6; no keystore, signing Environment or Secrets.
 - No uninstalling the baseline APK and no installing any APK on the iQOO (R14, O5).
 - If B4 finds G0.6 `FAIL`: stop and propose `PRE-S1-SAVE-DETERMINISM-REMEDIATION` (decision §3). Never fix inside S0.
-- No S1 before the bounded S1-entry package has ChatGPT `REVIEW_PASS` and owner `ACCEPTED`.
+- No S1 before the bounded S1-entry package has independent reviewer `REVIEW_PASS` (Claude; owner-assigned DeepSeek fallback only if independent) and owner `ACCEPTED`.
 - Never write `S0 = PASS` while any gate is `PARTIAL`, `BLOCKED`, `FAIL` or `NOT_TESTED`.
 
 ## 3. Coordination tasks
@@ -95,6 +106,14 @@ Pre-protocol work:
 ## 5. Work log
 
 Append newest entries at the top. Do not overwrite earlier entries.
+
+### 2026-11-17 — OWNER-ROLE-ALLOCATION-ALIGNED
+
+- Owner-directed role allocation recorded in AI_COLLABORATION_PROTOCOL.md: ChatGPT technical lead/coordinator and authorized implementer; Claude independent reviewer; Gemini Hydrogen research/content support; DeepSeek owner-assigned independent fallback only when it did not author the reviewed work.
+- The S1 gate now refers to the independent reviewer's REVIEW_PASS, not a ChatGPT self-review. Historical B3 review status is unchanged.
+- Documentation/coordination only. No product code, tests, data, assets, workflow, signing or save schema changed.
+- B7 remains READY_FOR_REVIEW; independent review and owner ACCEPTED remain pending; S1 remains NOT_STARTED.
+
 
 ### 2026-11-17 — S0-B7-CONSOLIDATED-SUMMARY-READY
 
