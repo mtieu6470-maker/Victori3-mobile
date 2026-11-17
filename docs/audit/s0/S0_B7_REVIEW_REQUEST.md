@@ -1,0 +1,65 @@
+# S0 B7 Independent Review Request — bounded S1-entry package
+
+**Repository:** mtieu6470-maker/Victori3-mobile  
+**Branch:** claude/game-historical-sandbox-modes-kg7rj7  
+**Owner decision:** OD-20261116-11 (v3.3)  
+**Product baseline:** 2240a8fb865e0021eec2f2f4f1c6803528be9e2c  
+**B4 tested HEAD:** d2ae88e557e9895413462c5b069886bfc606adc7  
+**B4 CI:** run 44041104723, job 133895641421, 70/70 tests, 6/6 suites  
+**Review target:** Re-fetch the current branch HEAD before review and record its exact SHA. The B7 files below are the requested deliverables.
+
+## 1. Governance and review scope
+
+The owner explicitly authorized B3, B4 and B7 as a sequential S0 audit lane. OD-20261116-11 §6 step 6 says to continue B7 after B4 to prepare the risk register/signoff under either G0.6 outcome. Therefore B7 drafting does not require prior independent B4 REVIEW_PASS and owner ACCEPTED. However, **S1 cannot begin** until the complete bounded S1-entry package has independent REVIEW_PASS and the owner records ACCEPTED.
+
+Review this package as a bounded S1-entry proposal, not as a declaration that S0 is complete. Overall S0 remains PARTIAL/BLOCKED until all G0.1–G0.9 are PASS.
+
+Do not modify the repository. Do not change product source, gameplay, engine, RNG, save implementation/schema, migrations, historical data, assets, Android resources, Gradle, workflows, signing, keystore or secrets. Do not build/install an APK or claim R14 is verified.
+
+## 2. Files to inspect
+
+- docs/audit/s0/S0_RISK_REGISTER.md
+- docs/audit/s0/S0_GATE_LEDGER.csv
+- docs/audit/s0/S0_SIGNOFF.md
+- docs/audit/s0/S0_B7_RESULTS.md
+- docs/coordination/AI_HANDOFF.md
+- docs/coordination/AI_COLLABORATION_PROTOCOL.md
+- docs/roadmap/S0_V3_3_OWNER_DECISION_AND_AMENDMENTS.md
+- docs/roadmap/S0_V3_3_GATE_RESTRUCTURE_PROPOSAL.md
+- docs/roadmap/DECISIONS_AND_S0_REVISED_VI.v3.2.md
+- docs/audit/s0/S0_A_RESULTS.md
+- docs/audit/s0/S0_B3_RESULTS.md
+- docs/audit/s0/S0_TEST_CATALOG.md
+- docs/audit/s0/S0_REQUIREMENT_MATRIX.csv
+- docs/audit/s0/S0_GLOBAL_DATA_AUDIT.md
+- docs/audit/s0/S0_ASSET_AUDIT.md
+- docs/audit/s0/S0_PERFORMANCE_BASELINE.md
+- docs/audit/s0/S0_BUILD_TEST_REPORT.md
+- docs/audit/s0/b4/S0_B4_CHATGPT_TECHNICAL_SELF_AUDIT_2026-11-17.md
+- docs/audit/s0/b4/S0_B4_REVIEW_REQUEST.md
+- tests/s0-save-determinism.test.ts at ae29c99330081ba2f6af3a6d4478ec8aefc8a1ad
+- Tests-only CI run 44041104723 and its job log.
+
+## 3. Required review questions
+
+1. Verify the latest HEAD, changed-file range from the product baseline, and that no unauthorized product/engine/save/data/assets/device changes were introduced by B7.
+2. Verify the B4 evidence: exact checked-out SHA, 70/70 tests, 6/6 suites, four valid-save MATCH results, missing-RNG TypeError characterization, no APK artifacts.
+3. Check every risk entry for accurate source evidence, severity, impact, interim mitigation, accountable owner, stage and objective exit criteria. Identify missing material risks or inflated severity.
+4. Check R7 is treated as an open P0, not a resolved defect. Is the proposed owner-accepted interim control sufficient for a narrowly limited S1 test phase?
+5. Check R14 remains BLOCKED for device installation/signing; no one should rely on Export as a backup absent device evidence.
+6. Check G0.7 exception is only for iQOO measurement during S1, with Node/desktop evidence and strict prohibition on runtime/performance/renderer/lifecycle changes in S1.
+7. Check G0.8 exception is only for pre-existing content, with no new/edited/replaced/repackaged/unverified assets or text during S1.
+8. Check G0.6 is PASS on the tested baseline and remains non-exemptible. Does B4-R1 adequately preserve the missing-RNG failure as a separate compatibility risk?
+9. Check the gate ledger does not overstate G0.1–G0.6, and G0.7/G0.8/G0.9 retain their blocked/partial/pending status.
+10. Check the S1 scope exactly matches v3.2/v3.3 data-contract/save-foundation constraints and includes no gameplay or runtime/performance work.
+
+## 4. Required reviewer response
+
+Return:
+- exact branch and HEAD reviewed;
+- exact files/commits/run/logs inspected;
+- findings by severity, exact document/row/section, impact and required correction;
+- explicit assessment of R7/P0 control, R14/C3 isolation, G0.6, G0.7/G0.8 exceptions and G0.9;
+- one verdict: REVIEW_PASS for the bounded S1-entry evidence package, or CHANGES_REQUESTED.
+
+A REVIEW_PASS applies only to the bounded S1-entry package with the explicitly stated exceptions. It does not certify S0 as fully PASS. The owner must separately record ACCEPTED with the accepted exceptions and exact S1 scope. Do not begin S1 and do not write to GitHub.
