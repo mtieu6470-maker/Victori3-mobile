@@ -15,7 +15,7 @@
 | R5 | P1 | §3, `R5 / RM-F3` | OPEN P1 — frame-based metrics may hide long synchronous simulation ticks; protocol J measurements required. |
 | R6 | P2 | §4, `R6` | OPEN P2 — Natural Earth source branch/CDN is not version-pinned. |
 | R7 | P0 | §2, `R7` | OPEN P0 — no reliable lifecycle autosave or renderer/process-death recovery; interim exposure containment is not a fix. |
-| R8 | P2 | §4, `R8 / TC-F4 / TC-F6 / TC-F7` | OPEN P2 — test coverage/name/guard limitations remain recorded. |
+| R8 | P2 | §4, `R8 / TC-F4` | OPEN P2 — the population benchmark test can skip expected countries and under-check population coverage. |
 | R9 | P2 | §4, `R9` | OPEN P2 — income/asset assumptions precede detailed employment and wage simulation. |
 | R10 | P1 | §3, `R10` | OPEN P1 — future map-layer performance budgets required at S4/S11/S20. |
 | R11 | P2 | §4, `R11` | OPEN P2 — development `versionCode` remains fixed at 1 under the approved development constraint. |
@@ -40,19 +40,19 @@
 | TC-F1 | P1 | §3, `TC-F1 / TC-F2` | OPEN P1 — law flip-back test currently has zero effective assertions. |
 | TC-F2 | P1 | §3, `TC-F1 / TC-F2` | OPEN P1 — war-duration test currently has zero effective assertions; 145-month convention is separately explained in B3. |
 | TC-F3 | P2 | §4, `TC-F3` | OPEN P2 — asset rejection assertion is vacuous without qualifying fixtures. |
-| TC-F4 | P2 | §4, `R8 / TC-F4 / TC-F6 / TC-F7` | OPEN P2 — test says 1870 but queries 1875 and can skip countries. |
+| TC-F4 | P2 | §4, `R8 / TC-F4` | OPEN P2 — test says 1870 but queries 1875 and can skip countries. |
 | TC-F5 | P1 | §3, `TC-F5` | MITIGATED FOR G0.6 — supplementary B4 cases passed, but original baseline test remains narrow. |
-| TC-F6 | P2 | §4, `R8 / TC-F4 / TC-F6 / TC-F7` | OPEN P2 — original test only checks wrong format; B4 separately characterized malformed/version/missing-state behavior. |
-| TC-F7 | P2 | §4, `R8 / TC-F4 / TC-F6 / TC-F7` | OPEN P2 — several test names imply stronger checks than are actually performed. |
+| TC-F6 | P2 | §4, `TC-F6` | MITIGATED FOR G0.6 by B4 malformed/unsupported-version/missing-state/legacy characterization; original test itself remains narrow and is not represented as repaired. |
+| TC-F7 | P2 | §4, `TC-F7` | OPEN P2 — several test names imply stronger checks than are actually performed. |
 
 ## 4. Global data findings GD-F1…GD-F6
 
 | Source ID | Source severity | Risk Register location | Disposition |
 |---|---:|---|---|
-| GD-F1 | P2 | §4, `GD-F1 / GD-F3 / GD-F4` | OPEN P2 — some `supported` labels have no source. |
+| GD-F1 | P2 | §4, `GD-F1` | OPEN P2 — some `supported` labels have no source. |
 | GD-F2 | P1 | §3, `GD-F2` | OPEN P1 — historical fact coverage is highly uneven across regions and starting polities. |
-| GD-F3 | P2 | §4, `GD-F1 / GD-F3 / GD-F4` | OPEN P2 — literacy/army/GDP defaults or missing values need provenance distinctions. |
-| GD-F4 | P2 | §4, `GD-F1 / GD-F3 / GD-F4` | OPEN P2 — fields such as culture, religion, terrain/resources and government lack quality/source metadata. |
+| GD-F3 | P2 | §4, `GD-F3` | OPEN P2 — literacy/army/GDP defaults or missing values need provenance distinctions. |
+| GD-F4 | P2 | §4, `GD-F4` | OPEN P2 — fields such as culture, religion, terrain/resources and government lack quality/source metadata. |
 | GD-F5 | P3 | §5, `GD-F5 / GD-F6` | OPEN P3 — inhabited islands may fall outside the Strategic Region grid. |
 | GD-F6 | P3 | §5, `GD-F5 / GD-F6` | OPEN P3 — modern admin-1 units can cross multiple Strategic Regions; design limitation is documented. |
 
@@ -61,9 +61,9 @@
 | Source ID | Source severity | Risk Register location | Disposition |
 |---|---:|---|---|
 | AS-F1 | P1 | §3, `AS-F1` | OPEN P1 — 492 image license records have not been reverified against current source pages. |
-| AS-F2 | P2 | §4, `AS-F2 / AS-F3 / AS-F4` | OPEN P2 — four BY assets lack author credit in the UI data path. |
-| AS-F3 | P2 | §4, `AS-F2 / AS-F3 / AS-F4` | OPEN P2 — text attribution UI lacks author/license URL on the source line; runtime rendering not tested. |
-| AS-F4 | P2 | §4, `AS-F2 / AS-F3 / AS-F4` | OPEN P2 — launcher/splash resources remain Capacitor placeholders. |
+| AS-F2 | P2 | §4, `AS-F2` | OPEN P2 — four BY assets lack author credit in the UI data path. |
+| AS-F3 | P2 | §4, `AS-F3` | OPEN P2 — text attribution UI lacks author/license URL on the source line; runtime rendering not tested. |
+| AS-F4 | P2 | §4, `AS-F4` | OPEN P2 — launcher/splash resources remain Capacitor placeholders. |
 | AS-F5 | P3 | §5, `AS-F5 / AS-F6 / AS-F7` | OPEN P3 — no consolidated third-party LICENSE/NOTICE. |
 | AS-F6 | P3 | §5, `AS-F5 / AS-F6 / AS-F7` | OPEN P3 — Natural Earth ETL source is not pinned and source checksum is not stored. |
 | AS-F7 | P3 | §5, `AS-F5 / AS-F6 / AS-F7` | OPEN P3 — portrait temporal-validity fields are null. |
