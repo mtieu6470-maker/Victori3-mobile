@@ -10,7 +10,7 @@
 ## 1. Exact target and baseline
 
 - **Design document:** `docs/spec/GOODS_MARKETS_TRANSPORT_ARCHITECTURE_PROPOSAL_VI.md`
-- **Design commit:** `0b231f637bb0659bd170c7e4a0d1d76d44248922`
+- **Design commit:** `98a9aef1356f73004a78590eb45d63321b4b0ee2`
 - **Product/code baseline:** `e4924ca48264f8d0818eface51a28a87cd363b89`
 - **Related POP design:** `docs/spec/POPULATION_COHORTS_DATA_MODEL_PROPOSAL_VI.md`, revision `b35c5367cfe41bea3036bec2b846d19060f495c0`
 - **Normative roadmap:** `docs/roadmap/DECISIONS_AND_S0_REVISED_VI.v3.2.md`, as amended by owner-approved v3.3 decisions and current handoff.
