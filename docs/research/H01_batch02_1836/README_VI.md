@@ -1,6 +1,11 @@
 # H01 Batch 02 — gói tích hợp nghiên cứu R3aa
 
-**Trạng thái:** `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`.
+**Trạng thái R3ab:** `READY_FOR_INDEPENDENT_REVIEW / SELF_AUDIT_ONLY / NO_PRODUCT_PATCH`  
+**Gói review cho Claude:** [H01 R3ab — Claude Independent Review Request](../../audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md)
+
+> **Điểm vào khi Claude kết nối GitHub:** mở review request ở đường dẫn trên trước. Review đúng HEAD mới nhất của nhánh `claude/game-historical-sandbox-modes-kg7rj7`, dùng base SHA và danh sách file được ghi trong request. Kết quả tự kiểm của ChatGPT không phải independent `REVIEW_PASS`.
+
+**Trạng thái H01 tích hợp:** `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`.
 
 Đây là gói tích hợp tài liệu nghiên cứu H01 lên repository Victori3-mobile, không phải bản cập nhật dân số chạy trong game.
 
