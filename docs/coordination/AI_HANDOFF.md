@@ -97,6 +97,16 @@ Pre-protocol work:
 
 Append newest entries at the top. Do not overwrite earlier entries.
 
+### 2026-11-18 — B4-INDEPENDENT-TYPECHECK-AND-VITEST-COLLECTION
+
+- Default-branch workflow commit: `7f17b1f0177d712366e31e4e8c879cc4b6dd5741`.
+- Experiment-branch mirror commit: `ccbe7a71d806f16350c1375b6a9ab6687925eece`.
+- After `prepare-assets` succeeds, workflow now runs `npm run typecheck` and the dedicated Vitest characterization independently. Previously Vitest was skipped when typecheck returned non-zero.
+- Either non-zero step still sets the aggregate job result to FAIL. This change improves evidence collection; it does not weaken the gate.
+- Both workflow files were updated with the same content. No Android build step was added; no product code/data/assets changed.
+- The new workflow revision still awaits manual `workflow_dispatch` on `experiment/vic3-visual-upgrade`; G0.6 remains `NOT_TESTED`.
+
+
 ### 2026-11-18 — B4-DUAL-FINAL-STATE-HASH-DIAGNOSTICS
 
 - Commit `d6612b3ec91c2c92db8c448652af8cc0c79e6da3` changes the structured replay log to emit both `continuousFinalStateSha256` and `resumedFinalStateSha256`, plus `finalStatesMatch`.
