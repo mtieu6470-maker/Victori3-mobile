@@ -166,4 +166,15 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
     expect(Object.values(restored.countries).every((country) => !('constructionQueue' in country))).toBe(true);
     expect(restored.regions.length).toBeGreaterThan(0);
   });
+  it('records the baseline behavior for a missing RNG: deserialize accepts it, continuation throws', () => {
+    const state = fresh('sandbox', S0_B4_SCENARIO.seed, S0_B4_SCENARIO.player);
+    const envelope = JSON.parse(serialize(state)) as { state: Partial<GameState> };
+    delete envelope.state.rng;
+
+    const restored = deserialize(JSON.stringify(envelope));
+    expect(restored.rng).toBeUndefined();
+
+    // Characterize the frozen baseline defect only. Do not repair product code in S0.
+    expect(() => stepMonth(restored)).toThrow(TypeError);
+  });
 });
