@@ -14,9 +14,10 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 
 ## Current independent review entry point
 
-- **H01 R3ac / Claude — latest:** start with `docs/audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. It defines the R3ac base SHA, review boundary, source checks, CSV structure and required verdict.
+- **H01 R3ad / Claude — latest:** start with `docs/audit/s0/H01_R3AD_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. It defines the R3ad base SHA (`b02af8dfc1ccac4ad5b3e0cbc42a51bf89ef1b79`), no-write review boundary, four polity/source checks, CSV counts and required verdict. The request was created at pre-pointer-update HEAD `1cfc8bbf896e7606c46aa48e1bf87bc95b16b4ff`; fetch the newest HEAD before review.
+- **H01 R3ac / Claude:** `docs/audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
 - **H01 R3ab / Claude:** `docs/audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
-- H01 research README links to both review requests: `docs/research/H01_batch02_1836/README_VI.md`.
+- H01 research README links to R3ad, R3ac and R3ab review requests: `docs/research/H01_batch02_1836/README_VI.md`. R3ad integration receipt: `docs/research/H01_batch02_1836/GITHUB_INTEGRATION_RECEIPT_R3ad.md`.
 - Fetch the latest branch HEAD before either review. R3ab and R3ac remain `READY_FOR_INDEPENDENT_REVIEW`; ChatGPT self-audits are not independent `REVIEW_PASS`. Neither review authorizes product-data/gameplay/engine/S1 work.
 
 
@@ -112,6 +113,20 @@ Pre-protocol work:
 
 ## 5. Work log
 
+### 2026-11-18 — H01-R3AD-ASANTE-DAHOMEY-MACINA-BUGANDA-OFFICEHOLDERS
+
+- Owner direction: continue H01 research/document packaging. ChatGPT completes the documentation integration while Hydrogen packaging is unreliable; Claude is reserved for independent review of work it did not author. Scope remains H01 research/documentation only; no S1, gameplay, engine or live-data authorization.
+- Repository/branch: `mtieu6470-maker/Victori3-mobile`, `claude/game-historical-sandbox-modes-kg7rj7`.
+- R3ad base HEAD: `b02af8dfc1ccac4ad5b3e0cbc42a51bf89ef1b79`. The five initial R3ad package files were already committed in `7c0888d`, `f8b7190`, `02e1a76`, `19a97a8` and `105ed64` (full SHAs and file mapping are in the integration receipt).
+- Integrated cumulative H01 records: appended 9 R3ad requests to `H01_OPEN_EVIDENCE_AND_ACCEPTANCE_REQUESTS.csv` (43 → 52 data rows) and 12 R3ad source entries to `H01_INTEGRATED_SOURCE_REGISTRY_DELTA.csv` (38 → 50 data rows). Updated integrated audit, repository integration map and validation report.
+- Structural validation: R3ad matrix 10 columns/12 rows; patch decisions 7/6; open requests 5/9; source registry 8/12. Cumulative open requests 5/52 and cumulative source registry 8/50. Every row rectangular; no duplicate appended request IDs or registry IDs.
+- Research disposition: ASH Kwaku Dua/Fredua Agyeman, 1834 succession retained with 25 August qualified as “most probably”; DAH Ghezo's 1818 accession framed as coup/revolution with Adandozan predecessor status contested; MAS separates Ahmād Lobbo personal rule from 1818–1862 Hamdallahi state and keeps 1844/1845 death-year conflict open; BUG identifies Ssuuna II at the 1836 snapshot while start-year remains disputed (c.1830/1832/1836).
+- Independent review request: `docs/audit/s0/H01_R3AD_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`, created at pre-pointer-update HEAD `1cfc8bbf896e7606c46aa48e1bf87bc95b16b4ff`. Claude must fetch the latest HEAD, do a no-write review, and return evidence-linked PASS/CHANGES_REQUESTED/BLOCKED per category and one task verdict.
+- GitHub receipt: `docs/research/H01_batch02_1836/GITHUB_INTEGRATION_RECEIPT_R3ad.md`. Original research commits and integration commits are enumerated there. All use `[skip ci]`; no APK workflow, tests-only workflow, tests, build or APK packaging was run.
+- Scope check before documentation integration: compare from R3ad base to pre-integration HEAD `105ed649f2ce003f9a98b5543d03d989edecc243` showed five commits/five changed files, all under `docs/research/H01_batch02_1836/`. All subsequent R3ad integration and review files are documentation-only. No source, historical_data, tests, assets, maps, Android, Gradle or workflow changes.
+- Status: `SELF_AUDIT_ONLY / READY_FOR_INDEPENDENT_REVIEW / NO_PRODUCT_PATCH`. This does not constitute Claude `REVIEW_PASS`, owner acceptance, numeric approval or S1 authorization.
+
+ 
 ### 2026-11-18 — H01-R3AC-CENTRAL-SAHEL-RULERSHIP-AND-SOVEREIGNTY
 
 - Owner direction: continue H01 research/document packaging. ChatGPT handles research and integration while Hydrogen document packaging is not dependable; Claude is reserved for independent review of work it did not author. This remains within H01 research/documentation scope and does not open S1 or authorize any game/runtime changes.
