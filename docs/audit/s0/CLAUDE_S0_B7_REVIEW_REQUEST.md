@@ -18,6 +18,7 @@
 - `docs/audit/s0/S0_BUILD_TEST_REPORT.md` and `docs/audit/s0/logs/a2/10_npm_audit.log` — build, CI and the 2026-11-16 npm audit evidence.
 - `docs/audit/s0/S0_RISK_REGISTER.md` — consolidated risk register.
 - `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` — source-ID-to-risk-row mapping and severity cross-check; independently verify each mapping rather than relying on its assertions.
+- `docs/audit/s0/S0_B7_REVIEW_PACKAGE_MANIFEST.md` — exact branch snapshot, file blob SHAs, workflow identity/parity, and execution/gate boundaries. Recheck live refs before review.
 - `docs/audit/s0/S0_SIGNOFF.md` — gate ledger and bounded exception draft.
 - `docs/audit/s0/S0_B7_RESULTS.md` — B7 status.
 - `docs/audit/s0/S0_B7_SELF_REVIEW.md` — ChatGPT's preliminary self-review and unresolved items; Claude must independently verify it, not assume its conclusions.
