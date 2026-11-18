@@ -255,3 +255,21 @@ Create:
 - `HYDROGEN_EVENT_OPEN_GAPS.csv` — unresolved regions/years/claims with next research steps.
 
 Keep every candidate research-only. Do not edit live event JSON, region ownership, source registry, runtime schemas, engine code or tests. Do not invent gameplay effects. Owner acceptance is required before any candidate is migrated to canonical historical data.
+
+
+## 13. Follow-up research — full global benchmark coverage (19/11/2026)
+
+ChatGPT's repository audit found the checked-in CoW extracts contain only 17 year points through 1914 and the builder compiles only four of six available indicators. Official current-source pages identify newer candidates that should be independently reviewed:
+
+1. **CoW NMC v7.0:** official documentation advertises annual six-component data (population, urban population, iron/steel, energy, military personnel, military expenditure) for 1816–2022. Compare official abridged and supplemental source/quality files to the exact checked-in files. Determine the version/extract provenance and preserve codebook definitions, quality, anomaly, source locator and unit. Do not infer that the state-system dataset covers decentralized/non-state actors.
+2. **Maddison Project Database 2023:** official Groningen release covers GDP per capita and population for 169 countries and aggregate regions up to 2022; CC BY 4.0; DOI 10.34894/INZBF2. Compare its historical unit definitions and year/entity coverage with our Maddison 2010 files. Record original papers/citations as required. Do not use present-day territory values as historical polity totals without a documented crosswalk.
+3. **Historical Financial Statistics:** CFS describes a large 1500–1950 collection of exchange rates, banking, interest rates, money supply, inflation, trade, government finance and national accounts. Its site states reuse restrictions for database reproduction, including commercial and noncommercial databases. Treat as a source-discovery catalogue until rights are cleared; do not copy bulk series into the product.
+
+Required outputs:
+- `HYDROGEN_BENCHMARK_SOURCE_AUDIT_VI.md`
+- `HYDROGEN_BENCHMARK_COVERAGE.csv` (one metric/source/region/time observation group per row, with year count, entity count, unit, source IDs, quality, limitations)
+- `HYDROGEN_BENCHMARK_CROSSWALK.csv` (source entity to 1836 game entity/region, temporal basis, method, uncertainty; do not auto-map)
+- `HYDROGEN_BENCHMARK_RIGHTS_REVIEW.csv`
+- `HYDROGEN_BENCHMARK_MISSINGNESS.csv` (181 registry entities × field × 1836–1936 period, including explicit missing rows)
+
+Explicitly verify 1915–1936 coverage; 12 macro-region taxonomy; all polity types; five entity/CoW code reconciliation cases; and the unit/definition differences among each metric. Do not silently interpolate missing values or declare the benchmark global-complete. This task is research-only; no canonical data, source registry, ETL, runtime, test, save or APK change is authorized.
