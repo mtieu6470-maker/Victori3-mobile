@@ -101,3 +101,15 @@ These are ChatGPT implementation checks and self-audit, not an independent REVIE
 - Archival reference mismatch recorded: Lye notes render different dates/box identifiers; an archival bibliography lists S.A. III (1829), no.37, while Lye note88 is rendered as box II/file1829/no.37. Original letter and item metadata remain open.
 - NDE 60k remains composite polity-subject candidate only; [45k–85k] has no verified method; 1836 military force is separately typed; NDE_MOS 210k remains broad geography. No numeric/runtime/game/owner/geometry patch.
 - Self-audit only; independent Claude review and owner acceptance pending. No build/APK workflow run.
+
+ 
+## R3ab officeholder research validation (2026-11-18)
+
+- Added `H01_R3ab_1836_AFRICAN_POLITY_OFFICEHOLDER_AUDIT_VI.md`, source evidence matrix (8 sources), patch decisions (6 decisions), open evidence requests (9 requests) and source registry delta (8 sources).
+- CSV structural check: R3ab source matrix = 9 columns including header, 8 data rows; patch decisions = 7 columns including header, 6 data rows; open evidence requests = 5 columns including header, 9 data rows; source registry delta = 8 columns including header, 8 data rows. All rows rectangular after correction.
+- FJA: Bubakar/Almami at the 1836 snapshot is a provisional candidate based on Barry p.150 text trace; page image not authenticated. Exact November transition and archival source chain remain open.
+- ETH: Sahle Dengel identified as nominal emperor 1832–1840; Ras Ali Alula/Ali II separated as de facto power-holder; Mänän's role retained with temporal qualification.
+- LIB: 1836 ACS colony agency distinguished from sovereign head of state; A.D. Williams and Thomas Buchanan's separate jurisdictions recorded.
+- No numeric/population approval, no shipped historical_data/profile/registry/map-owner/geometry/runtime/engine/save/schema/tests/assets/Android/workflow/APK change.
+- `SELF_AUDIT_ONLY / PENDING_CLAUDE_REVIEW / NO_PRODUCT_PATCH`; this is not independent `REVIEW_PASS`, owner acceptance or S1 authorization.
+
