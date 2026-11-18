@@ -7,6 +7,7 @@ import { createHash } from 'node:crypto';
 import { describe, expect, it } from 'vitest';
 import { execute } from '../src/engine/commands';
 import { deserialize, serialize, SAVE_FORMAT } from '../src/engine/save';
+import { tickToDate } from '../src/engine/core';
 import type { GameState } from '../src/engine/types';
 import { fresh, stepMonth } from './helpers';
 import { S0_B4_SCENARIO } from './fixtures/s0-b4-scenario';
@@ -86,14 +87,23 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
       it(`${mode}: replay identical player commands across save at K=${cut}, then resume to N=${S0_B4_SCENARIO.totalMonths}`, () => {
         const uninterrupted = fresh(mode, S0_B4_SCENARIO.seed, S0_B4_SCENARIO.player);
         const interrupted = fresh(mode, S0_B4_SCENARIO.seed, S0_B4_SCENARIO.player);
-        const initialHash = stateHash(uninterrupted);
+        const initial = persistedSnapshot(uninterrupted);
+        const initialHash = stateHash(initial);
 
+        expect(stateHash(interrupted)).toBe(initialHash);
         expect(uninterrupted.countries[S0_B4_SCENARIO.player]?.alive).toBe(true);
         expect(interrupted.countries[S0_B4_SCENARIO.player]?.alive).toBe(true);
 
         advanceTo(uninterrupted, S0_B4_SCENARIO.totalMonths);
         advanceTo(interrupted, cut);
         expect(interrupted.tick, 'save checkpoint must be reached').toBe(cut);
+        expect(interrupted.date).toEqual(tickToDate(cut));
+        expect(cut === 6 ? interrupted.date : null).toEqual(
+          cut === 6 ? { y: 1836, m: 7 } : null,
+        );
+        expect(cut === 12 ? interrupted.date : null).toEqual(
+          cut === 12 ? { y: 1837, m: 1 } : null,
+        );
 
         const saveText = serialize(interrupted);
         const saveHash = textHash(saveText);
@@ -108,8 +118,32 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
         const actualHash = stateHash(actual);
 
         expect(uninterrupted.tick).toBe(S0_B4_SCENARIO.totalMonths);
-        expect(Object.keys(uninterrupted.countries).length).toBeGreaterThan(0);
+        expect(Object.values(uninterrupted.countries).filter((country) => country.alive).length).toBeGreaterThan(0);
         expect(uninterrupted.regions.length).toBeGreaterThan(0);
+
+        // Prove real simulation work happened; tick/date changes alone are not a sufficient guard.
+        const systemRunCounts = Object.values(uninterrupted.counters.systemRuns);
+        expect(systemRunCounts.length).toBeGreaterThan(0);
+        expect(systemRunCounts.every((count) => count === S0_B4_SCENARIO.totalMonths)).toBe(true);
+
+        const initialPlayer = initial.countries[S0_B4_SCENARIO.player];
+        const finalPlayer = uninterrupted.countries[S0_B4_SCENARIO.player];
+        const playerEconomyChanged = !!initialPlayer && !!finalPlayer && (
+          initialPlayer.treasury !== finalPlayer.treasury ||
+          initialPlayer.gdp !== finalPlayer.gdp ||
+          initialPlayer.income !== finalPlayer.income ||
+          initialPlayer.expense !== finalPlayer.expense
+        );
+        const populationChanged = uninterrupted.regions.some((region, index) =>
+          region.pop !== initial.regions[index]?.pop,
+        );
+        const pricesChanged = Object.keys(uninterrupted.worldPrices).some((good) =>
+          uninterrupted.worldPrices[good as keyof typeof uninterrupted.worldPrices] !==
+          initial.worldPrices[good as keyof typeof initial.worldPrices],
+        );
+        const rngChanged = canonical(initial.rng) !== canonical(uninterrupted.rng);
+        expect(playerEconomyChanged || populationChanged || pricesChanged || rngChanged).toBe(true);
+
         expect(expectedHash).not.toBe(initialHash);
         expect(difference, difference ? `first differing persisted state path: ${difference}` : 'persisted states must match').toBeNull();
         expect(actualHash).toBe(expectedHash);
