@@ -186,6 +186,19 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
           saveSha256: saveHash,
           initialStateSha256: initialHash,
           finalStateSha256: actualHash,
+          commandCounts: {
+            uninterrupted: uninterruptedCommandCount,
+            splitBeforeSave: splitBeforeSaveCommandCount,
+            splitAfterLoad: splitAfterLoadCommandCount,
+          },
+          systemCount: SYSTEMS.length,
+          systemRunsPerSystem: S0_B4_SCENARIO.totalMonths,
+          nonVacuous: {
+            playerEconomyChanged,
+            populationChanged,
+            pricesChanged,
+            rngChanged,
+          },
           firstDifference: difference,
         }));
       });
