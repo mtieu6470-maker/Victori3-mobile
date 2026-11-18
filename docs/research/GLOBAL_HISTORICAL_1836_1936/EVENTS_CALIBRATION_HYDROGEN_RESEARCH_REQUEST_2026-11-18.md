@@ -179,6 +179,41 @@ CSVs must be UTF-8, rectangular, stable unique IDs, source locator columns, one 
 - Historical outcomes are not converted into guaranteed gameplay results.
 - No candidate files are imported to runtime or presented as accepted game data.
 
-## 10. Handoff boundary
+## 10. Existing repository data inventory — avoid duplication, expose gaps
+
+A second source-level inspection by ChatGPT recorded the following counts from the current repository files. These are **input inventory counts**, not fresh independent validation of the original datasets and not a claim that they cover all world polities.
+
+| Repository source | Observations | Entity/unit count | Date coverage | Existing compiled benchmark treatment |
+|---|---:|---:|---|---|
+| CoW NMC population total | 612 | 59 entities | 1816–1914 | Selected |
+| CoW NMC urban population (cities over 100k) | 385 | 40 entities | 1816–1914 | Not selected |
+| CoW NMC military personnel | 596 | 59 entities | 1816–1914 | Selected |
+| CoW NMC military expenditure | 420 | 55 entities | 1816–1914 | Not selected |
+| CoW NMC iron/steel | 612 | 59 entities | 1816–1914 | Selected |
+| CoW NMC primary energy | 536 | 50 entities | 1816–1914 | Selected |
+| Maddison population (present-day territory) | 574 | 94 units | 1820–1913 | Used as input where mapped; not same as 1836 polities |
+| Maddison GDP per capita (present-day territory) | 365 | 66 units | 1820–1913 | Used for the 1836 setup estimate; not retained as a dated benchmark series |
+
+Relevant paths:
+- \`historical_data/population/cow_nmc_population.json\`
+- \`historical_data/military/cow_nmc_military.json\`
+- \`historical_data/economy/cow_nmc_industry.json\`
+- \`historical_data/population/maddison_2010.json\`
+- \`historical_data/economy/maddison_2010_gdp.json\`
+- \`tools/build-data.ts\` (current selection of four CoW fields into \`HistoricalDB.benchmarks\`)
+- \`src/engine/data/dbTypes.ts\` (current compiled benchmark shape)
+
+The current builder retains only \`population.total\`, \`military.personnel\`, \`economy.iron_steel_kt\` and \`economy.primary_energy_kt_coal_eq\` for the CoW benchmark array. It drops the source-record unit, source locator, method and note when constructing the compiled observation. The Maddison GDP-per-capita file is used to derive 1836 setup values but is not retained as a time-series benchmark in that array.
+
+Research implications:
+1. Do not merely repackage these datasets as “global 1836–1936 benchmarks”. Show the observation count, entity coverage, world-region coverage and time coverage for each field.
+2. Explicitly identify the evidence gap between 1914 and 1936 in these currently inspected CoW/Maddison series; search for additional suitable series and state when no comparable source can be found.
+3. Investigate whether CoW urban population and military expenditure fields can be reused with their original definitions/units and limitations preserved.
+4. Distinguish CoW state-system entities from decentralized polities, colonies, subjects, companies and non-state actors. Do not infer that an entity absent from CoW had zero population, production or military capability.
+5. Retain provenance through any normalized/exported rows: source ID, locator, unit, method, uncertainty/quality, original entity, original geography and crosswalk method.
+6. Keep present-day-territory Maddison observations separate from historic polity totals unless a documented territorial allocation/crosswalk makes a comparison defensible.
+7. Mark each requested metric as \`existing_repository_data\`, \`new_external_evidence\`, \`inferred_with_method\` or \`missing\`; never silently merge these categories.
+
+## 11. Handoff boundary
 
 This task supplies source-backed research candidates only. It does not authorize runtime changes, event scripts, shipped data patches, code, save migration, tests, S22 implementation or APK builds. ChatGPT validates structure and methodology; Claude may independently review; project owner retains data acceptance and phase approval.
