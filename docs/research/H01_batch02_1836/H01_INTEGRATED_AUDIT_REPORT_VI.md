@@ -193,3 +193,16 @@ R3ae reviews three H01 records at the 1836-01-01 snapshot and keeps officeholder
 R3ae is documentation-only. It does not modify live profiles, title/government fields, `heads_of_state.json`, source runtime, events, population, borders, political entities, engine, save/schema or APK.
 
 Disposition: `SELF_AUDIT_ONLY / READY_FOR_INDEPENDENT_REVIEW / NO_PRODUCT_PATCH`.
+
+
+## 13. R3af — SHE, ZUL and BSO succession history, 1836–1900
+
+R3af expands the R3ae snapshot work into a source-backed succession chronology while keeping personal office, effective territorial control, claim/recognition, and external sovereignty as separate concepts.
+
+- **SHE — Shewa:** Haile Malakot succeeds in 1847. Menelik is proclaimed after his father's death in 1855, but is captured and taken to Mäqdäla; he escapes and restores authority in Shewa in 1865, displacing Bäzzabbǝh. Yohannes IV recognises Menelik as nəguś in March 1878; Menelik declares himself emperor in 1889 and is crowned on 3 November. Ege gives Haile Malakot's death as 9 November 1855, while Clapham gives December; preserve the unresolved discrepancy.
+- **ZUL — Zulu:** Mpande rules until 1872; Cetshwayo's growing influence in 1856/1861 is distinct from his formal accession after Mpande's death in 1872 and coronation in 1873. Cetshwayo is exiled after the 1879 war and restored with reduced power in 1883; sources conflict on his death in late 1883 versus 1884. Dinuzulu is proclaimed/succeeds in 1884, but the British possession proclamation is 14 May 1887 and incorporation into Natal is a separate 1897 event. His 1894 pardon/return and 1898 Government Induna appointment must not be collapsed.
+- **BSO — Basotho/Basutoland:** Moshoeshoe dies on 11 March 1870 and Letsie succeeds in 1870, with no exact accession day established. Letsie dies on 20 November 1891. The contemporary 1891–92 report describes a representation signed by 24 principal chiefs, Crown recognition by telegram on 6 January 1892 and communication at a National Pitso on 5 February. Maliehe (2021) reports that Letsie preferred Maama; this remains a competing customary succession narrative. Colonial status is separate: protectorate (1868), Cape Colony administration (1871) and direct Crown administration (1884).
+- **Model implications:** split nominal proclamation from effective rule; segment interrupted or restricted reigns; distinguish local paramount office from colonial sovereign/controller; preserve year-level dates when exact days are not supported; store annexation as a government/sovereignty transition, not as personal succession.
+- R3af adds 17 source-evidence rows, 14 non-executing patch decisions and 10 open evidence requests. No live profile, `heads_of_state.json`, source runtime, engine, event, population, territory, map, schema, test, asset, Android, Gradle, workflow or APK data is changed.
+
+Disposition: `SELF_AUDIT_ONLY / READY_FOR_INDEPENDENT_REVIEW / NO_PRODUCT_PATCH`. This is not an independent Claude `REVIEW_PASS`, owner acceptance or S1 authorization.
