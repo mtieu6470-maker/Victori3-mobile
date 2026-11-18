@@ -67,3 +67,11 @@ Không sửa population benchmark, profile, registry, map owner, engine/runtime,
 - Điều này không bác bỏ Rasmussen, nhưng bổ sung caveat khi dùng làm nguồn dân số, sức mạnh quân sự hoặc tốc độ tăng trưởng Ndebele.
 - NDE 60k chỉ giữ là ứng viên polity-subject ước lượng rộng, độ bất định cao; 45k–85k không có phương pháp interval được chứng minh; các số 300, 20k, 60–80k subjects, 1–5k chiến binh và 10–20k di cư muộn vẫn là các đại lượng khác nhau.
 - Xem `H01_R3z_RASMUSSEN_SOURCE_QUALITY_REVIEW_VI.md` và CSV R3z. Thông tin tập/số của tạp chí điểm sách và trang gốc Rasmussen vẫn cần lấy bản gốc.
+
+
+## R3aa — NDE: đối chiếu các ước lượng năm 1829
+- Chase (1830, tr.407) ghi Malacatzie có khoảng 80.000 người dưới quyền, gồm các nhóm Batow/Bichuana bị chinh phục và lệ thuộc; đây là báo cáo du hành, không phải census.
+- Archbell có thư tháng 12/1829 kể gặp Mzilikazi tại Plaatberg; Ferreira (2025, tr.38) xác nhận cuộc gặp qua *Missionary Notices* VI, no.179, tr.356, nhưng đoạn đó không đưa số dân. Lye liên kết Archbell với Chase, song ngày và ký hiệu hộp lưu trữ chưa khớp; thư gốc chưa được đọc.
+- Kruger (2010, tr.140) dẫn Rasmussen khoảng 20.000 người dưới quyền Mzilikazi ở vùng Rustenburg năm 1829, thấp hơn 60–80 nghìn gắn với Archbell. Đây là dẫn lại qua Kruger; trang sách Rasmussen chưa được kiểm tra trực tiếp và phạm vi Rustenburg có thể hẹp hơn vùng Chase mô tả.
+- Lye (1969) tổng hợp 60–80 nghìn subject của polity Mzilikazi; 1–5 nghìn năm 1836 là lực lượng chiến binh Nguni, không phải tổng dân số. Không gộp các đơn vị này.
+- NDE 60k tiếp tục là provisional polity-subject candidate, độ bất định cao; khoảng 45–85k chưa có phương pháp; NDE_MOS 210k vẫn là broad geography. Xem `H01_R3aa_NDE_1829_ARCHBELL_CHASE_RASMUSSEN_TRACE_VI.md` và CSV R3aa.
