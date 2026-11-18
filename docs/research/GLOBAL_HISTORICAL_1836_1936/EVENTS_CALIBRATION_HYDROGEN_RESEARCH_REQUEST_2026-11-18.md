@@ -217,3 +217,41 @@ Research implications:
 ## 11. Handoff boundary
 
 This task supplies source-backed research candidates only. It does not authorize runtime changes, event scripts, shipped data patches, code, save migration, tests, S22 implementation or APK builds. ChatGPT validates structure and methodology; Claude may independently review; project owner retains data acceptance and phase approval.
+
+
+## 12. Follow-up review — current nine exogenous events and the 1875–1878 global drought candidate
+
+ChatGPT has added a preliminary, source-linked review package at:
+
+`docs/research/GLOBAL_HISTORICAL_1836_1936/EVENTS_AND_CALIBRATION/`
+
+Files:
+- `README_VI.md` — current-event causal/source review, 9 existing records and one additional global drought candidate.
+- `EVENT_CANDIDATES.csv` — record-level proposed causal class, precision, geography assessment and treatment.
+- `OPEN_EVIDENCE_REQUESTS.csv` — 13 unresolved evidence tasks.
+- `SOURCE_REGISTRY_DELTA.csv` — external sources checked; these are proposed additions only and have NOT been inserted into canonical `historical_data/sources/sources.json`.
+
+### 12.1 Independent verification requested
+
+Do not copy the ChatGPT classifications as accepted facts. Independently verify and correct them with page/table/folio locators where possible:
+
+1. **Cholera 1836–1837:** separate Naples/Two Sicilies waves from the rest of Italy; verify whether any evidence supports a June 1836 start for Sicily, the Papal States, Sardinia and Lombardy. A preliminary academic source reports Naples waves from 02 Oct 1836–08 Mar 1837 and 13 Apr–24 Oct 1837.
+2. **Cholera 1846–1860:** provide a region-by-region chronology for the current 12 regions. A pandemic-level date range is not evidence that every region was affected in June 1847.
+3. **Agra famine 1837–1838:** map the famine footprint to current regions EIC_DEL, EIC_ROH, AWA_LKO and PRI_RAJE; verify the 1837 month/season and any quantitative yield-loss estimate. Separate drought forcing from famine, disease, migration and Company policy.
+4. **Potato blight 1843–1845:** resolve arrival chronology for Flanders, southern Netherlands, Rhineland, Ireland and Scotland; compare the mid-1845 Flanders reports across sources. Distinguish pathogen first report, seed trade, regional spread and crop consequences.
+5. **California 1848:** verify the Coloma/Sutter's Mill site-to-region crosswalk and distinguish geological deposit, local knowledge, James Marshall/Sutter workforce access, discovery, public announcement and political control during the Mexican-American War.
+6. **Victoria 1850–1851:** add Indigenous historical/archaeological evidence for First Nations prior knowledge; verify Clunes discovery, July 1851 public announcement, colonial separation/jurisdiction and the first major rushes. Do not describe this as the first human discovery of gold in the region.
+7. **North China famine 1876–1879:** the five current province-level regions appear to match Shanxi, Henan, Shandong, Zhili and Shaanxi. Verify each date/season and distinguish drought, grain-market breakdown, relief response and famine outcomes.
+8. **Great Indian famine 1876–1878:** map evidence separately for Madras, Ceded Districts, Mysore, Deccan and Hyderabad. Validate each start/end period and do not assume one 0.45 yield-loss figure fits every region.
+9. **Witwatersrand:** distinguish first recorded finds in 1884 (Bantjes/Struben) from George Harrison's payable Main Reef discovery at Langlaagte in July 1886 and public diggings in September 1886. Provide a georeferenced crosswalk to current DZ_PEDI/NDE_MOS regions or recommend a missing region.
+10. **Global Drought 1875–1878 candidate:** investigate regional evidence for India, East Asia, southern/northern Africa, Brazil, Australia and Southeast Asia. A climate reconstruction suggests different onset seasons and durations; do not create one same-day global event or infer famine everywhere from rainfall anomalies.
+
+### 12.2 Required output additions
+
+Create:
+- `HYDROGEN_EVENT_EVIDENCE_REVIEW_VI.md` — independent findings, disagreements with ChatGPT, confidence and source limitations.
+- `HYDROGEN_EVENT_EVIDENCE_MATRIX.csv` — one claim per row with exact locator, original date/precision, original geography, current region crosswalk, causal class, confidence and uncertainty.
+- `HYDROGEN_EVENT_SOURCE_DELTA.csv` — proposed source IDs and full bibliographic metadata, including rights/reuse notes.
+- `HYDROGEN_EVENT_OPEN_GAPS.csv` — unresolved regions/years/claims with next research steps.
+
+Keep every candidate research-only. Do not edit live event JSON, region ownership, source registry, runtime schemas, engine code or tests. Do not invent gameplay effects. Owner acceptance is required before any candidate is migrated to canonical historical data.
