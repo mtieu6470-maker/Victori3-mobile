@@ -4,21 +4,21 @@
 **Branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Review type:** independent no-write design review  
 **Date:** 2026-11-18  
-**Review target revision:** S22 design amendment 2 — consolidated design with closed Condition grammar  
+**Review target revision:** S22 design amendment 4 — consolidated event, mode, schema, determinism and test contracts  
 **Runtime authorization:** `NONE`
 
 ## 1. Exact target
 
 - **Design document:** `docs/spec/HISTORICAL_EVENTS_GLOBAL_CALIBRATION_ARCHITECTURE_PROPOSAL_VI.md`
 - **Original design commit:** `e546412b6d4b014bd35da4324d8e2d997dca4138`  
-- **Current design revision commit:** `0aefda0aa0f1c75c00d1a466338f303c6062f800`  
-- **Current design blob SHA:** `9eec615a56307328c46b4e7b06ef97d60a640a94`  
-- **ChatGPT traceability self-audit supplement:** `docs/audit/s0/S22_DESIGN_TRACEABILITY_SELF_AUDIT_2026-11-18.md` (blob `805666e41d45206db84ed919b5d04aab4f472ec7`)
+- **Current design revision commit:** `4b8efe94a4f37ad878c15bb4fa6a08d1c205af83`  
+- **Current design blob SHA:** `fbbad73aae57a26a52aefadc630c8b6cb340040c`  
+- **ChatGPT traceability self-audit supplement:** `docs/audit/s0/S22_DESIGN_TRACEABILITY_SELF_AUDIT_2026-11-18.md` (blob `2671216d760efc4245db47b7bc3cc3d1613494be`)
 - **Code baseline:** `e4924ca48264f8d0818eface51a28a87cd363b89`
 - **Roadmap:** owner-approved v3.2 with v3.3 amendments.
 - **Related designs:** POP Cohorts `b35c5367cfe41bea3036bec2b846d19060f495c0`; S15–S17 `207722d612354f4d1bccc74064d24616efa4511a`; S18–S19 `8f01556bd70fed05be6f880f287a0f3691cd7674`.
 
-Fetch exact current branch HEAD before review. Verify the design file blob equals `9eec615a56307328c46b4e7b06ef97d60a640a94`; review the consolidated amended §§14.1–14.7 together with the traceability supplement blob `805666e41d45206db84ed919b5d04aab4f472ec7`. The branch may contain later documentation-only coordination commits; do not silently substitute a different design blob.
+Fetch exact current branch HEAD before review. Verify the design file blob equals `fbbad73aae57a26a52aefadc630c8b6cb340040c`; review §§14.1–14.14 together with traceability supplement blob `2671216d760efc4245db47b7bc3cc3d1613494be`, code self-audit blob `791ac317444fc660a9bcc45a11c6b30ff217b278`, and implementation test matrix blob `8c973460cf9333f003490154056e28c7e01353a9`. The branch may contain later documentation-only commits; do not silently substitute a different design blob.
 
 ## 2. Independence/no-write
 
@@ -33,7 +33,8 @@ Verify:
 - `src/engine/divergence.ts`: territory similarity, milestone score, divergence entries and annual similarity.
 - `src/engine/metrics.ts`: yearly metric set and ranking.
 - `src/engine/modes.ts`: mode differences while sharing simulation pipeline.
-- `src/engine/data/dbTypes.ts`: Condition, StrategicPriority, DecisionWindow, ExogenousEvent, Milestone and benchmark types.
+- `src/engine/data/dbTypes.ts`: Condition, StrategicPriority, DecisionWindow, ExogenousEvent, Milestone, StructuralRule and benchmark types.
+- `tools/build-data.ts`: exact event/decision/condition/structural-rule validation and normalized source assignment.
 
 Confirm every claim and identify any missing critical issue.
 
@@ -61,6 +62,7 @@ Confirm every claim and identify any missing critical issue.
 - Are multi-seed distributions more appropriate than one expected trajectory?
 - Are dimension-level metrics separated and prevented from mutating simulation/AI?
 - Does the design avoid rewarding European data density or forcing a fixed historical outcome?
+- Does it distinguish source-data observations from compiled/runtime facts, and preserve missingness rather than filling it?
 
 ### E. Historical/Sandbox contract
 - Same 1836 initial snapshot and same systems pipeline?
@@ -109,3 +111,28 @@ The review must distinguish: (1) original proposal defects, (2) amendment omissi
 ## 5. Gate boundary
 
 A pass applies only to this design. It does not satisfy S0-B7 review/owner acceptance and does not open S1/S22 or authorize any code/data/save/test/UI/Android/APK change.
+
+
+### I. Structural-rule registry and source/runtime parity (SA-11)
+
+- Verify independently that the current `structural_rules` source record is compiled but not consumed by the runtime; compare the exact Salic rule source payload with the hard-coded succession behavior.
+- Does §14.9 specify one source of truth, typed triggers/effects, scope, precedence, temporal validity and idempotency?
+- Does the current runtime branch apply a broader target set than the source record (all GBR personal unions vs the HAN record)? Confirm exact evidence and severity.
+- Is the source target and heir/legal trigger modeled from defensible actor/office facts rather than a name-regex heuristic?
+- Does the test plan prove no duplicate hard-coded execution and no scope expansion?
+
+### J. Complete event schemas and provenance (SA-12)
+
+- Does §14.10 cover every current field/type in exogenous events, decisions, option effects, milestones and structural rules?
+- Does the proposed validator check date precision, date-window shape/order, option uniqueness, historical-weight bounds, numeric ranges, actor/region/resource/IG/law IDs and effect-specific payloads?
+- Are normalized `SourceRef[]`, quality, uncertainty and alternative interpretation retained in typed compiled records, instead of depending on incidental JSON properties?
+- Does the effect inventory include all nine current effect kinds, and is the `ig_approval` no-op handled safely?
+- Are hidden hard-coded IDs/names or ignored effect payload fields called out in `merge` and `transfer_region.create`?
+- Verify no unsupported effect is treated as successful, and partial mutation is impossible.
+
+### K. Detailed condition/effect semantics and test matrix
+
+- Review §14.13's predicate semantics against each source-code branch; challenge exact-ID vs equivalence behavior, missing actor cases, `same_owner` minimum length, war-side normalization, time-window boundaries and named threshold constants.
+- Review §14.14's nine effect contracts and identify omitted legacy payload fields/behavior.
+- Independently inspect `S22_IMPLEMENTATION_TEST_MATRIX_2026-11-18.md`; identify missing positive, negative, boundary, migration, replay, cross-mode and device scenarios.
+- Confirm the test matrix does not claim tests were run and does not authorize test/runtime implementation before the project gates.
