@@ -761,3 +761,44 @@ The existing nine effect kinds are a legacy inventory, not an approved implement
 Effects are applied to a staged mutation plan, not sequentially to live state. Validation must cover the whole option before the first mutation. The plan records its idempotency key and expected state/version preconditions. If any command cannot commit, no earlier staged effect is visible. Irreversible effects require an explicit transaction policy and audit record.
 
 No source-authored option may depend on ignored fields, implicit defaults, magic nation IDs, name-regex identity or a handler with no effect. The effect table must be reconciled against all current source JSON payloads and all handlers before the typed union is frozen.
+
+
+### 14.15 Canonical 12-macro-region taxonomy and time-valid geographic crosswalk (SA-13)
+
+The project-wide Historical Mode fidelity standard requires validation across twelve macro-regions. In the inspected baseline, `RegionRecord` contains ID, name, coordinates, owner/controller and local attributes, while the political registry contains polity identity/type/tier and optional CoW code. Neither declares a canonical macro-region ID or versioned geographic crosswalk. The standard requires twelve macro-regions but the reviewed standard and repository search did not expose their canonical names, boundaries or mapping table. Consequently, regional coverage denominators cannot yet be generated reproducibly.
+
+**Owner decision required before any global regional score is reported:** approve the twelve macro-region IDs, labels, inclusion rules and boundary reference. ChatGPT/Hydrogen MUST NOT invent or silently infer the project taxonomy from longitude/latitude, continent labels, modern states or current country ownership.
+
+The future geography contract must distinguish:
+
+1. **WorldRegionTaxonomy** — versioned registry of exactly twelve stable macro-region IDs, official labels, definition, authoritative geometry/reference, version/effective date and owner decision ID.
+2. **StrategicRegionGeography** — stable physical map region identity and its macro-region membership. Political ownership changes do not move a physical region to a new macro-region.
+3. **HistoricalGeographicUnit** — source geography with unit type (historic province, kingdom territory, colony, modern country, census unit, aggregate region), name/ID, valid date interval, source and boundary definition.
+4. **GeographicCrosswalk** — mapping from a source geographic unit to one or more strategic regions, with validity interval, method, allocation weights/ranges, uncertainty, source locator and reviewer/owner status. Where one source unit spans several strategic regions, weights must reconcile to the defined source scope; missing allocation is explicit, never silently equal-split.
+5. **PolityTerritoryMembership** — time-valid relationship between an entity and geographic units/strategic regions, separately recording de jure sovereignty, de facto control, administration and claimed scope where known. A polity's membership is not the physical macro-region assignment.
+
+Every benchmark observation must declare its geographic basis and scope independently of the political entity field. A country-level series may remain at country/aggregate level if a defensible regional allocation does not exist. It must not be copied into every region it touches.
+
+**Regional coverage contract**
+
+- Every required macro-region appears in every coverage report, including regions with zero observations.
+- Coverage is reported by macro-region × metric × period × polity/actor class, with numerator, denominator, observed entity/unit count, missingness, source quality, uncertainty and exclusions.
+- The denominator rule is metric-specific and documented (for example, valid population scope differs from a trade-route or military series); regions with sparse data cannot be hidden by a global total.
+- Region-level composite scores are `NOT_SCORABLE` if taxonomy/crosswalk or metric denominator is not approved/defensible. Do not substitute a zero score or treat missing data as zero.
+- Macro-region taxonomy changes are versioned. Historical reports retain the taxonomy/crosswalk version used at run time.
+- Modern-territory Maddison observations, CoW state entities and local/decentralized polities keep separate geography types; a crosswalk is allowed only with method, uncertainty and source evidence.
+- A physical strategic-region assignment is stable under border/ownership changes; historical polity membership changes independently by date.
+- Do not infer actor type, sovereignty or colonial status from macro-region membership.
+
+**Acceptance tests**
+
+- Owner-approved registry contains exactly twelve distinct stable IDs, names, boundary source and decision trace.
+- Every 1836 strategic map region has exactly one valid physical macro-region assignment or an explicit unresolved status; no silent omissions or overlapping assignments.
+- Every historical geographic unit/crosswalk is time-valid for the observation date and records source/method/uncertainty; allocation weights obey the declared conservation rule.
+- Political border changes alter polity membership but not the physical macro-region of the land.
+- A source observation without a defensible crosswalk stays at its original geography level and is excluded from region-level calculations with a reason.
+- All twelve regions are present in coverage output even if empty; empty/missing regions cannot disappear from denominators.
+- Split/merge, colonial administration, subject status, collective/decentralized polity and present-day-territory cases have explicit fixtures.
+- Taxonomy version changes reproduce the prior coverage report when run with the previous version.
+
+Until the owner approves the canonical taxonomy and crosswalk rules, the project may publish per-entity and source-level coverage counts, but must not claim “12-region global calibration complete” or publish a region-balanced global fidelity score.
