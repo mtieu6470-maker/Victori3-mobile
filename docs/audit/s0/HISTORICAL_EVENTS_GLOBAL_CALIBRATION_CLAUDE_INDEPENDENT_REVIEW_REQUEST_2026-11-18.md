@@ -4,21 +4,21 @@
 **Branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Review type:** independent no-write design review  
 **Date:** 2026-11-18  
-**Review target revision:** S22 design amendment 4 — consolidated event, mode, schema, determinism and test contracts  
+**Review target revision:** S22 design amendment 5 — benchmark coverage and canonical world-region taxonomy contracts  
 **Runtime authorization:** `NONE`
 
 ## 1. Exact target
 
 - **Design document:** `docs/spec/HISTORICAL_EVENTS_GLOBAL_CALIBRATION_ARCHITECTURE_PROPOSAL_VI.md`
 - **Original design commit:** `e546412b6d4b014bd35da4324d8e2d997dca4138`  
-- **Current design revision commit:** `4b8efe94a4f37ad878c15bb4fa6a08d1c205af83`  
-- **Current design blob SHA:** `fbbad73aae57a26a52aefadc630c8b6cb340040c`  
-- **ChatGPT traceability self-audit supplement:** `docs/audit/s0/S22_DESIGN_TRACEABILITY_SELF_AUDIT_2026-11-18.md` (blob `2671216d760efc4245db47b7bc3cc3d1613494be`)
+- **Current design revision commit:** `df74ed35cbdb4161b531c9199bee1931e347f6c9`  
+- **Current design blob SHA:** `f0b326823c76a01c353ab30ef72ee550a3aae990`  
+- **ChatGPT traceability self-audit supplement:** `docs/audit/s0/S22_DESIGN_TRACEABILITY_SELF_AUDIT_2026-11-18.md` (blob `d50eac10872e57c406a62d6dee48971fd1bf3cee`)
 - **Code baseline:** `e4924ca48264f8d0818eface51a28a87cd363b89`
 - **Roadmap:** owner-approved v3.2 with v3.3 amendments.
 - **Related designs:** POP Cohorts `b35c5367cfe41bea3036bec2b846d19060f495c0`; S15–S17 `207722d612354f4d1bccc74064d24616efa4511a`; S18–S19 `8f01556bd70fed05be6f880f287a0f3691cd7674`.
 
-Fetch exact current branch HEAD before review. Verify the design file blob equals `fbbad73aae57a26a52aefadc630c8b6cb340040c`; review §§14.1–14.14 together with traceability supplement blob `2671216d760efc4245db47b7bc3cc3d1613494be`, code self-audit blob `791ac317444fc660a9bcc45a11c6b30ff217b278`, and implementation test matrix blob `8c973460cf9333f003490154056e28c7e01353a9`. The branch may contain later documentation-only commits; do not silently substitute a different design blob.
+Fetch exact current branch HEAD before review. Verify the design file blob equals `fbbad73aae57a26a52aefadc630c8b6cb340040c`; review §§14.1–14.14 together with traceability supplement blob `2671216d760efc4245db47b7bc3cc3d1613494be`, code self-audit blob `8cf4fa017f321b1ca402da1117dc9c314b2faae7`, and implementation test matrix blob `f0a577ee6ced8428722556b69c613aa0fbd0c3fb`. The branch may contain later documentation-only commits; do not silently substitute a different design blob.
 
 ## 2. Independence/no-write
 
@@ -34,7 +34,8 @@ Verify:
 - `src/engine/metrics.ts`: yearly metric set and ranking.
 - `src/engine/modes.ts`: mode differences while sharing simulation pipeline.
 - `src/engine/data/dbTypes.ts`: Condition, StrategicPriority, DecisionWindow, ExogenousEvent, Milestone, StructuralRule and benchmark types.
-- `tools/build-data.ts`: exact event/decision/condition/structural-rule validation and normalized source assignment.
+- `tools/build-data.ts`: exact event/decision/condition/structural-rule validation, normalized source assignment and benchmark ETL.
+- `docs/spec/GLOBAL_HISTORICAL_MODE_FIDELITY_STANDARD_VI.md` and the 1836 geographic schema/crosswalk: validate the required twelve macro-region coverage contract.
 
 Confirm every claim and identify any missing critical issue.
 
@@ -136,3 +137,16 @@ A pass applies only to this design. It does not satisfy S0-B7 review/owner accep
 - Review §14.14's nine effect contracts and identify omitted legacy payload fields/behavior.
 - Independently inspect `S22_IMPLEMENTATION_TEST_MATRIX_2026-11-18.md`; identify missing positive, negative, boundary, migration, replay, cross-mode and device scenarios.
 - Confirm the test matrix does not claim tests were run and does not authorize test/runtime implementation before the project gates.
+
+
+### L. Canonical twelve-macro-region taxonomy and crosswalk (SA-13)
+
+- Verify independently that the fidelity standard requires twelve macro-regions, but the inspected RegionRecord, registry and regions CSV do not encode the taxonomy or stable mapping.
+- Does §14.15 correctly separate physical macro-region assignment, political-territory membership and source-geography crosswalk?
+- Is an owner-approved list of exactly twelve stable IDs and boundary definitions an appropriate prerequisite, or does another canonical geography source already exist? If it exists, identify exact file/blob and source evidence.
+- Are temporal source-to-game crosswalks, allocation weights, uncertainty and no-silent-equal-split rules sufficient?
+- Does the design correctly keep source aggregates at their original geographic scope when no defensible crosswalk exists?
+- Is NOT_SCORABLE the correct regional calibration result until all required geography mappings and denominators are approved?
+- Inspect the updated implementation test matrix GEO-01–GEO-10 and identify missing split/merge, colonial, decentralized, aggregate, border-change, version-migration and empty-region cases.
+
+The review must not invent the twelve region names or approve a global regional coverage claim without a verified taxonomy and denominator.
