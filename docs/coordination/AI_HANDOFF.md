@@ -105,6 +105,21 @@ Pre-protocol work:
 
 ## 5. Work log
 
+### 2026-11-18 — H01-R3U-SUPPLEMENTAL-RESEARCH-INTEGRATION
+
+- Owner request: continue H01 review, integrate source-trace updates into the repository and provide one consolidated download.
+- Repository/branch: `mtieu6470-maker/Victori3-mobile`, `claude/game-historical-sandbox-modes-kg7rj7`.
+- Base HEAD before R3u integration: `36d35315116720007fcc31bc7b043963ca34aebe`.
+- R3u integration commit: `a0f32eabcd5d48ed66848951773b3b1d0b0b9a50` (9 paths; all under `docs/research/H01_batch02_1836/`; commit message contains `[skip ci]`).
+- Added: supplemental source audit, source evidence matrix, patch decisions, open evidence requests, source registry delta; updated README, consolidated report, validation report and integration map.
+- New evidence: Lye (1969, pp.91, 96–97) distinguishes Mzilikazi polity subjects (rough 60k–80k estimate) from Nguni military force (1k–5k warriors in 1836); subjects included Sotho and tributary/vassal groups. Thus R3l's “Ndebele/Nguni core” label is wrong; 45k–85k interval remains unsupported and NDE_MOS 210k remains broad geography, not direct-control population.
+- Liberia: Hassell (1866, p.169) gives 3,500 US emigrants within Liberia-wide population c.5,000 in 1838, not Monrovia 1836; Shick (1971) gives 242 arrivals in 1836, 4,571 cumulative arrivals 1820–1843, and 1,819 living in settlements in 1843; Starr (1913) gives a different Liberia-wide series (2,230 in 1836; 2,281 in 1838). These are non-equivalent measures. The 100-person LIB_MON component remains unsupported.
+- OYO: Butcher & Griffiths (2021, p.385) repeats >750k as a peak c.1780 estimate citing Asiwaju p.704; English p.704 and Law (1977) cited pages remain unread. Not a 1836 estimate.
+- Disposition: OYO 650k and OYO_OYO 1.45m remain quarantined; NDE 60k reinterpreted as rough polity-subject estimate only; NDE interval unresolved; NDE_MOS 210k broad geographic only; LIB 3.5k/100 unverified; DZ_KRU 356.4k arithmetic-only. No numeric or ownership patch approved.
+- No live historical_data, profile, population benchmark, political registry, map owner/geometry, engine, runtime, save schema, asset, test, Android, Gradle or workflow files changed. S1 remains closed.
+- R3u is ChatGPT self-audit, not independent `REVIEW_PASS`. Claude review and owner acceptance remain pending. No PR, merge or APK build requested.
+- Subsequent documentation commit message uses `[skip ci]` to prevent the repository's broad push-triggered APK workflow.
+
 ### 2026-11-18 — H01-R3T-RESEARCH-LAYER-INTEGRATION
 
 - Owner request: complete H01 Batch 02 review, integrate the result into Victori3-mobile, and provide one consolidated download.
