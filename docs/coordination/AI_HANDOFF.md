@@ -18,6 +18,9 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 - **R4e package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/README_VI.md`; 2-entity evidence matrix, 19 non-executing decisions, 12 open evidence requests and 20 source records. Integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/GITHUB_INTEGRATION_RECEIPT_R4e.md`.
 - **S20–S21 military organization/operations/logistics pre-design:** `docs/spec/MILITARY_ORGANIZATION_OPERATIONS_LOGISTICS_PROPOSAL_VI.md` (design commit `a82d59bcc01e6a57163f7acedd4930132f0767f5`). Includes force organization, LegacyForcePool safety, unit/formation, supply, movement, fronts, combat, sieges, occupation, navy and convoy. Design only; S20/S21 remain closed.
 - **S20–S21 / Claude independent design review:** `docs/audit/s0/MILITARY_ORGANIZATION_OPERATIONS_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (request commit `109c7c30397e92d4151228605c24a9ab05415f1e`). No-write review; no implementation authorization.
+- **S22 Historical Events and Global Calibration pre-design:** `docs/spec/HISTORICAL_EVENTS_GLOBAL_CALIBRATION_ARCHITECTURE_PROPOSAL_VI.md` (design commit `e546412b6d4b014bd35da4324d8e2d997dca4138`). Separates physical exogenous events, conditional historical occurrences, decisions, causal chains and benchmark-only milestones; adds global multi-dimensional calibration/holdout/multi-seed design. Design only; S22 remains closed.
+- **S22 / Claude independent design review:** `docs/audit/s0/HISTORICAL_EVENTS_GLOBAL_CALIBRATION_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` (request commit `612c1c28f5ac6793110923644a0ce8b591dc8cae`). No-write review; no implementation authorization.
+- **Events and global calibration research / Gemini Hydrogen:** `docs/research/GLOBAL_HISTORICAL_1836_1936/EVENTS_CALIBRATION_HYDROGEN_RESEARCH_REQUEST_2026-11-18.md` (request commit `e03028c359eb850442b069b7d7606e9ae4a28999`). All-world event/benchmark evidence candidates only; no runtime patch or S22 authorization.
 - **S18–S19 diplomacy/strategic AI pre-design:** `docs/spec/DIPLOMACY_STRATEGIC_AI_ARCHITECTURE_PROPOSAL_VI.md` (design commit `8f01556bd70fed05be6f880f287a0f3691cd7674`). Adds international actor/autonomy, treaty terms, diplomatic play/crisis, negotiation and explainable bounded strategic AI. Design only; S18/S19 remain closed.
 - **S18–S19 / Claude independent design review:** `docs/audit/s0/DIPLOMACY_STRATEGIC_AI_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (request commit `661eaa7ef43ba176d3d42f6aabfa36dd122d6abb`). No-write review; no implementation authorization.
 - **Military organization/logistics research / Gemini Hydrogen:** `docs/research/GLOBAL_HISTORICAL_1836_1936/MILITARY_ORGANIZATION_LOGISTICS_HYDROGEN_RESEARCH_REQUEST_2026-11-18.md` (request commit `5d6d24bf6d8cd934a9e18159dacc7da32ca6049c`). All-world candidate evidence only; no unit data integration or runtime authorization.
@@ -134,6 +137,15 @@ Pre-protocol work:
 | Earlier stages 1–5 (identity/content, numbering of an earlier specification) | `PRE_PROTOCOL_IMPLEMENTED_REPORTED` | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` | Not `REVIEW_PASS` or `ACCEPTED`; part of the current baseline; S0 verifies what is present at the frozen SHA |
 
 ## 5. Work log
+
+### 2026-11-18 — S22-HISTORICAL-EVENTS-GLOBAL-CALIBRATION-PRE-DESIGN
+
+- Added `docs/spec/HISTORICAL_EVENTS_GLOBAL_CALIBRATION_ARCHITECTURE_PROPOSAL_VI.md` (design commit `e546412b6d4b014bd35da4324d8e2d997dca4138`) against code baseline `e4924ca48264f8d0818eface51a28a87cd363b89`.
+- Characterized existing Historical Condition/Priority bias, date-triggered exogenous events, decision windows, switch-based option effects, historical succession/accessions, territory + milestone divergence scoring and limited yearly metrics.
+- Proposed event classes (physical/exogenous, institutional process, historical pressure, conditional occurrence, decision opportunity, benchmark and narrative); causal preconditions/chains; typed effects/atomic idempotent handling; Historical/Sandbox event policies; benchmark registry; holdout calibration; multi-seed distributions; dimension-level diagnostics that never feed AI/rules.
+- Added Claude no-write review request `docs/audit/s0/HISTORICAL_EVENTS_GLOBAL_CALIBRATION_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` (commit `612c1c28f5ac6793110923644a0ce8b591dc8cae`).
+- Added all-world Hydrogen event/benchmark research request `docs/research/GLOBAL_HISTORICAL_1836_1936/EVENTS_CALIBRATION_HYDROGEN_RESEARCH_REQUEST_2026-11-18.md` (commit `e03028c359eb850442b069b7d7606e9ae4a28999`).
+- Design/research only. No runtime, historical data, tests, save/schema, UI, assets, Android, workflows, Gradle, signing or APK files changed. No tests/build/APK run. S1/S22 remain closed.
 
 ### 2026-11-18 — S18-S21-DIPLOMACY-AI-MILITARY-PRE-DESIGN
 
