@@ -377,11 +377,11 @@ Replace the open string/index-signature type with a discriminated union for ever
 - `src/engine/data/dbTypes.ts:108` types `HistoricalDB.structural_rules` as `Record<string, unknown>[]`.
 - `tools/build-data.ts` reads `events/historical_events.json`, calls `normRefs(r.sources, ...)` for each structural rule, and compiles `ev.structural_rules` into `HistoricalDB.structural_rules`. It does not validate the trigger/effect grammar or bind those definitions to a typed evaluator.
 - The source file contains `rule_salic_hanover`, with a `succession` trigger and `end_subject_relation` effect.
-- `src/engine/systems/events.ts` contains a hard-coded comment and Salic-law transition inside succession handling: when GBR succeeds to a female leader, it detaches every personal-union subject. That path does not read the compiled `d.db.structural_rules` record.
+- `src/engine/systems/events.ts` contains a hard-coded comment and Salic-law transition inside succession handling: when GBR succeeds to a female leader, it loops over all countries and detaches every `personal_union` subject of GBR. That path does not read the compiled `d.db.structural_rules` record. The authored rule's effect specifically names `HAN` with overlord `GBR`, so the runtime branch is also broader than the source-defined target.
 
 **Impact**
 
-The source catalogue appears to declare a data-driven structural rule, but the inspected runtime behavior is implemented separately in code. Editing/removing/changing the source rule does not necessarily change the hard-coded behavior. Conversely, a new structural rule may compile into the database but have no runtime effect. This creates two sources of truth and makes historical data review misleading.
+The source catalogue appears to declare a data-driven structural rule, but the inspected runtime behavior is implemented separately in code. Editing/removing/changing the source rule does not necessarily change the hard-coded behavior. Conversely, a new structural rule may compile into the database but have no runtime effect. The hard-coded rule also detaches all British personal unions when the data record only names Hanover, potentially applying a succession consequence to unrelated subjects. This creates two sources of truth and a scope mismatch.
 
 **Required correction after authorization**
 
