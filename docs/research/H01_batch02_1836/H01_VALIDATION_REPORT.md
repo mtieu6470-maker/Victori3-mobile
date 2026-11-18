@@ -113,3 +113,15 @@ These are ChatGPT implementation checks and self-audit, not an independent REVIE
 - No numeric/population approval, no shipped historical_data/profile/registry/map-owner/geometry/runtime/engine/save/schema/tests/assets/Android/workflow/APK change.
 - `SELF_AUDIT_ONLY / PENDING_CLAUDE_REVIEW / NO_PRODUCT_PATCH`; this is not independent `REVIEW_PASS`, owner acceptance or S1 authorization.
 
+ 
+## R3ac central Sahel research validation (2026-11-18)
+
+- Added `H01_R3ac_CENTRAL_SAHEL_RULERSHIP_AND_SOVEREIGNTY_AUDIT_VI.md`, source evidence matrix, patch decisions (6 decisions), open evidence requests (7 requests), and source registry delta (10 sources).
+- CSV structural checks: R3ac source matrix = 10 columns / 10 data rows; patch decisions = 7 columns / 6 data rows; open evidence requests = 5 columns / 7 data rows; source registry delta = 8 columns / 10 data rows. All rows rectangular after correction.
+- SOK: Paul Naylor (2021) and Murray Last (1967) support Muhammad Bello 1817-1837 and manuscript-preferred title Amīr al-muʾminīn; Last documents Gawakuke in March 1836.
+- BOR: al-Kanemi/Shehu versus Mai Ibrahim/Sayfawa distinction and 1846 institutional abolition are supported by History of Nigeria 2; year of al-Kanemi's death is a documented 1835/1837 source conflict, with 1837 better supported by NPG and History of Nigeria 2.
+- WAD: 1834/1835/1838 accession dates conflict; Cordell (1977) documents at least six unreconciled king lists; do not promote 1835 as an exact verified date.
+- DAR: Daly (2007) gives al-Fadl 1803-1838 and al-Husayn 1838-1873.
+- No product data, government preset, map owner, runtime, engine, save/schema, tests, assets, Android, Gradle, workflow or APK change. No build/test workflow run.
+- `SELF_AUDIT_ONLY / PENDING_CLAUDE_REVIEW / NO_PRODUCT_PATCH`; not independent REVIEW_PASS, owner acceptance or S1 authorization.
+
