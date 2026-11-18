@@ -131,3 +131,21 @@ Seed count, hardware performance thresholds and permitted variance are not fixed
 - No build, CI or device run is claimed.
 - SA-01–SA-12 remain code findings until owner-authorized implementation and passing evidence exist.
 - S1/S22 remain closed; this matrix does not authorize runtime, data, test, save, UI, Android or APK changes.
+
+
+## 9. Predicate/effect semantic edge-case additions
+
+Additional cases required by §§14.13–14.14:
+
+- `owns` uses exact stable entity ID in v1; an equivalence alias must not unexpectedly satisfy it. `owner_in`/`owner_not` use the documented equivalence registry.
+- `same_owner` requires at least two regions and exact same stable owner ID; a one-region or unknown-owner expression is rejected/non-matching.
+- `not_at_war` and `not_subject_of` fail closed when either actor reference is missing; they must not treat missing data as proof of a negative relation.
+- `lost_war_recently` rejects a future last-loss tick and tests both inclusive interval boundaries.
+- `leader_changed_since_start` and regime-change predicates use the scenario start snapshot, not a hard-coded year.
+- `food_shortage` and `foreign_pressure` fixed v1 thresholds are named/versioned constants and have exact boundary tests; naval pressure uses its explicit `>=` semantics.
+- `at_war_with_rebels` is tested with normalized government/rebel roles, both side orderings, unknown role attribution and non-civil war.
+- Effect `merge` must honor validated source/destination actor identities and cannot create an unrelated hard-coded template.
+- Effect `transfer_region.create` must validate the full destination blueprint and subject relationship before any territorial change.
+- `relation_all_naval_powers` must use a deterministic, versioned actor-class predicate and must not apply duplicate/self-relations unintentionally.
+- Structural Salic-rule fixture must prove the data-declared target (HAN) is respected and unrelated British personal unions remain unchanged.
+
