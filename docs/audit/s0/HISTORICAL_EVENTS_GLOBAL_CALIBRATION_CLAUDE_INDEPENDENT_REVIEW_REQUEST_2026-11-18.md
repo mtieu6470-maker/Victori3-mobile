@@ -4,17 +4,21 @@
 **Branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Review type:** independent no-write design review  
 **Date:** 2026-11-18  
+**Review target revision:** S22 design amendment 1  
 **Runtime authorization:** `NONE`
 
 ## 1. Exact target
 
 - **Design document:** `docs/spec/HISTORICAL_EVENTS_GLOBAL_CALIBRATION_ARCHITECTURE_PROPOSAL_VI.md`
-- **Design commit:** `e546412b6d4b014bd35da4324d8e2d997dca4138`
+- **Original design commit:** `e546412b6d4b014bd35da4324d8e2d997dca4138`  
+- **Current design revision commit:** `ddfeb29338d00d78d7b66fbc29085dfab59d55aa`  
+- **Current design blob SHA:** `ee5c95f6476ffbd4acec6572a9ac01a13d7ac907`  
+- **ChatGPT traceability self-audit supplement:** `docs/audit/s0/S22_DESIGN_TRACEABILITY_SELF_AUDIT_2026-11-18.md` (blob `8f058503c830d3d9a220f712643f1929663f70db`)
 - **Code baseline:** `e4924ca48264f8d0818eface51a28a87cd363b89`
 - **Roadmap:** owner-approved v3.2 with v3.3 amendments.
 - **Related designs:** POP Cohorts `b35c5367cfe41bea3036bec2b846d19060f495c0`; S15–S17 `207722d612354f4d1bccc74064d24616efa4511a`; S18–S19 `8f01556bd70fed05be6f880f287a0f3691cd7674`.
 
-Fetch exact current branch HEAD and verify target blob before review.
+Fetch exact current branch HEAD before review. Verify the design file blob equals `ee5c95f6476ffbd4acec6572a9ac01a13d7ac907`; review the amended §§14.1–14.6 together with the traceability supplement. The branch may contain later documentation-only coordination commits; do not silently substitute a different design blob.
 
 ## 2. Independence/no-write
 
@@ -68,6 +72,19 @@ Confirm every claim and identify any missing critical issue.
 ### F. Performance/save/tests
 Assess event registry size, active event/decision state, log retention, multi-seed benchmark CI costs, deterministic replay, exact save/load and long-run 1836–1936 coverage.
 
+### G. Amendment-specific checks (mandatory)
+
+Verify the normative additions in §14:
+
+- **14.1 / SA-01:** Does rank evaluation reuse the same power-ranking contract, eligible actor set and competition-rank/tie semantics? Is the fail-closed behavior for missing/decentralized/dead actors coherent with the baseline?
+- **14.2 / SA-07:** Is the African partition metric explicitly isolated from generic global aggregates? Are region × period × polity-class coverage and missingness adequate?
+- **14.3 / SA-09:** Is excluding pending milestones from both resolved-score numerator and denominator during the grace interval mathematically and temporally consistent? Is `NOT_SCORABLE` preferable to a default score of 1.0 when no records are resolved?
+- **14.4 / SA-03:** Does command-boundary revalidation cover canonical definition, option membership, authority, date, causal/resource preconditions, atomicity and idempotency without consuming rejected decisions?
+- **14.5 / SA-08:** Is source-date precision preserved while monthly effective time is deterministic and honestly represented in logs?
+- **14.6:** Are the proposed invariants sufficient, and are any boundary cases or incompatible legacy-save assumptions missing?
+
+Also check the proposed rank semantics against the inspected `rankings()` and `powerScore()` behavior at the exact code baseline. Do not treat the self-audit's claims as unquestionable; independently verify them and flag disagreement with line-level evidence.
+
 ## 4. Required verdict
 
 Return exactly one:
@@ -76,6 +93,8 @@ Return exactly one:
 - `BLOCKED`
 
 Provide exact reviewed HEAD/target blob, severity-ranked findings with section/line locators, non-blocking recommendations separately, and explicit no-write confirmation.
+
+The review must distinguish: (1) original proposal defects, (2) amendment omissions or contradictions, (3) code-baseline constraints, and (4) questions requiring an owner decision. Do not approve an implementation-level interpretation that the design has not actually specified.
 
 ## 5. Gate boundary
 
