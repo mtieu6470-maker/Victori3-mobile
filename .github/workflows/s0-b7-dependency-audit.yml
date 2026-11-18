@@ -1,0 +1,167 @@
+name: S0-B7 baseline dependency audit (read only)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: s0-b7-dependency-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    name: Audit frozen package lock (no install, no fix)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Require approved audit branch
+        shell: bash
+        run: |
+          if [[ "$GITHUB_REF" != "refs/heads/experiment/vic3-visual-upgrade" && "$GITHUB_REF" != "refs/heads/claude/game-historical-sandbox-modes-kg7rj7" ]]; then
+            echo "::error::Select the approved experiment or coordination branch."
+            exit 1
+          fi
+
+      - name: Checkout frozen product baseline
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: 2240a8fb865e0021eec2f2f4f1c6803528be9e2c
+          path: baseline
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: 22.23.4
+          package-manager-cache: false
+
+      - name: Record baseline and lockfile provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd baseline
+          EXPECTED="2240a8fb865e0021eec2f2f4f1c6803528be9e2c"
+          ACTUAL="$(git rev-parse HEAD)"
+          if [[ "$ACTUAL" != "$EXPECTED" ]]; then
+            echo "::error::Unexpected product baseline: $ACTUAL"
+            exit 1
+          fi
+          mkdir -p "$GITHUB_WORKSPACE/ci-evidence"
+          {
+            echo "baseline_sha=$ACTUAL"
+            echo "workflow_ref=$GITHUB_REF"
+            echo "workflow_sha=$GITHUB_SHA"
+            echo "node=$(node --version)"
+            echo "npm=$(npm --version)"
+            echo "registry=$(npm config get registry)"
+            sha256sum package.json package-lock.json
+            echo "tracked_manifest_status:"
+            git status --porcelain -- package.json package-lock.json
+          } > "$GITHUB_WORKSPACE/ci-evidence/provenance.txt"
+
+      - name: Run read-only full dependency audit
+        id: full
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd baseline
+          EVIDENCE="$GITHUB_WORKSPACE/ci-evidence"
+          set +e
+          npm audit --package-lock-only --json > "$EVIDENCE/audit-all.json" 2> "$EVIDENCE/audit-all.stderr"
+          RC=$?
+          set -e
+          echo "$RC" > "$EVIDENCE/audit-all.exit_code"
+          echo "audit_all_exit_code=$RC" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Run read-only production dependency audit
+        id: production
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd baseline
+          EVIDENCE="$GITHUB_WORKSPACE/ci-evidence"
+          set +e
+          npm audit --package-lock-only --omit=dev --json > "$EVIDENCE/audit-production.json" 2> "$EVIDENCE/audit-production.stderr"
+          RC=$?
+          set -e
+          echo "$RC" > "$EVIDENCE/audit-production.exit_code"
+          echo "audit_production_exit_code=$RC" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Summarize advisories without changing the lockfile
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const dir = path.join(process.env.GITHUB_WORKSPACE, 'ci-evidence');
+          const output = {};
+          let failed = false;
+
+          for (const key of ['all', 'production']) {
+            const reportPath = path.join(dir, 'audit-' + key + '.json');
+            const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+            if (report.error || !report.metadata || !report.metadata.vulnerabilities) {
+              output[key] = { scanError: report.error || 'Missing npm audit metadata' };
+              failed = true;
+              continue;
+            }
+
+            const packages = Object.entries(report.vulnerabilities || {}).map(([name, item]) => ({
+              name,
+              severity: item.severity,
+              isDirect: item.isDirect,
+              range: item.range,
+              via: (item.via || []).map((entry) =>
+                typeof entry === 'string'
+                  ? entry
+                  : {
+                      name: entry.name,
+                      title: entry.title,
+                      url: entry.url,
+                      severity: entry.severity,
+                      range: entry.range,
+                    }),
+              fixAvailable: item.fixAvailable,
+            }));
+
+            const exitCode = Number(
+              fs.readFileSync(path.join(dir, 'audit-' + key + '.exit_code'), 'utf8').trim(),
+            );
+            output[key] = {
+              exitCode,
+              totals: report.metadata.vulnerabilities,
+              vulnerablePackageCount: packages.length,
+              packages,
+            };
+            if (exitCode > 1) failed = true;
+          }
+
+          fs.writeFileSync(
+            path.join(dir, 'audit-summary.json'),
+            JSON.stringify(output, null, 2) + '\n',
+          );
+
+          for (const [key, value] of Object.entries(output)) {
+            if (value.totals) {
+              console.log(
+                key + ': ' + JSON.stringify(value.totals) + '; packages=' + value.vulnerablePackageCount,
+              );
+            } else {
+              console.error(key + ': scan error');
+            }
+          }
+
+          if (failed) process.exitCode = 1;
+          NODE
+
+      - name: Upload read-only audit evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: s0-b7-dependency-audit-\${{ github.sha }}
+          path: ci-evidence/
+          if-no-files-found: error
+          retention-days: 30
