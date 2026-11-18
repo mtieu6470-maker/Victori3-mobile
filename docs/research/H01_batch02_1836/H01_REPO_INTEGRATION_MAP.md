@@ -173,3 +173,17 @@ Added under `docs/research/H01_batch02_1836/`:
 R3ae separates Sahle Selassie's Ras and later self-proclaimed Negus titles, distinguishes Mpande's 1839 defection from 1840 succession, and treats Moshoeshoe's inherited chiefship and later Morena e Moholo status as a process rather than a single precisely dated coronation.
 
 **Boundary:** documentation only. No `historical_data/`, political entity, population, border/map ownership, engine/runtime, government, event, test, asset, save/schema, Android, Gradle, workflow or APK data changed. No profile patch, owner acceptance or S1 authorization is implied.
+
+
+## R3af — SHE, ZUL and BSO succession research (1836–1900)
+
+Added under `docs/research/H01_batch02_1836/`:
+- `H01_R3af_SHE_ZUL_BSO_SUCCESSION_AUDIT_VI.md` — source-backed chronology and modelling implications.
+- `H01_R3af_SOURCE_EVIDENCE_MATRIX.csv` — 17 rows with source inspection levels, findings and caveats.
+- `H01_R3af_PATCH_DECISIONS.csv` — 14 non-executing research decisions; no runtime patch.
+- `H01_R3af_OPEN_EVIDENCE_REQUESTS.csv` — 9 historical questions and 1 independent-review request.
+- `H01_R3af_SOURCE_REGISTRY_DELTA.csv` — 17 source entries.
+- `docs/audit/s0/H01_R3AF_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` — no-write review instructions.
+- `GITHUB_INTEGRATION_RECEIPT_R3af.md` — commit chain and final structural/diff checks.
+
+R3af is documentation-only. No `historical_data/`, country profiles, `heads_of_state.json`, political entity registry, population, borders/map ownership, source runtime, engine, events, tests, assets, save/schema, Android, Gradle, workflows, signing or APK files changed. It does not authorise S1 or owner acceptance.
