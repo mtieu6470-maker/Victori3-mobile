@@ -40,6 +40,7 @@
 
 | ID | Risk / evidence | Mitigation / destination | Owner |
 |---|---|---|---|
+| R4 | Production commands are not persisted as a replay journal. Approved decision I permits test-supplied command traces and an optional debug sidecar; B4 uses a deterministic test-supplied trace. | A production session cannot be reconstructed from a durable command history alone. | **OPEN P2 / accepted design boundary.** Keep command input deterministic in test harnesses; do not claim persistent replay exists. Consider an opt-in debug sidecar only if separately authorized. | Simulation/test owner. | Design/diagnostics stage after S1. Close when the optional trace format and privacy/retention controls are reviewed, or formally retain the approved no-journal design. |
 | R6 | Natural Earth ETL downloads from an unpinned branch/CDN without a source checksum. | Pin upstream commit/version and store source checksum in the map-data stage (S3). | Map/data owner. |
 | R8 / TC-F4 / TC-F6 / TC-F7 | Population test name says 1870 while querying 1875; it may skip countries; malformed-save coverage in the old suite was incomplete; some test names overstate what is checked. | Keep findings in catalog; correct tests when the corresponding system/test scope is authorized. Do not modify tests as a shortcut in this S0 gate. | QA owner. |
 | R9 | Income/asset assumptions occur before detailed employment and wage simulation. | Preserve estimated labeling at S6; detailed hiring/wages and labor competition are accepted in S12. | Economy/population owner. |
@@ -62,6 +63,12 @@
 | GD-F5 / GD-F6 | Some inhabited islands fall outside the Strategic Region grid; 34 modern admin-1 units are split across multiple regions by the raster crosswalk. | Review scope and crosswalk policy in map/geography stages; do not silently claim historical province equivalence. |
 | AS-F5 / AS-F6 / AS-F7 | No consolidated third-party LICENSE/NOTICE; Natural Earth fetch is not pinned; portrait temporal-validity fields are null. | Release/legal inventory and source-pinning tasks in later approved content stages. |
 | CI-F1 | GitHub runner warns that actions/checkout@v4 and actions/setup-node@v4 target Node 20, now deprecated and forced to Node 24. | Update/pin action/runtime versions in an explicitly reviewed CI maintenance task; test the build and workflow before use. |
+
+### Closed / no longer active
+
+| ID | Former risk | Closure evidence |
+|---|---|---|
+| R3 | No baseline APK SHA-256 recorded. | Closed by S0-A artifact verification and B1 evidence. The APK file SHA-256 and artifact ZIP digest are recorded separately in S0_B1_CI_EVIDENCE.md and AI_HANDOFF.md. |
 
 ## 6. Open controls and escalation
 
