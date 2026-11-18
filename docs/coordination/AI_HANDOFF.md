@@ -80,7 +80,7 @@ Not allowed:
 | S0-B1 — CI checksums and test report | Done; reviewer technical verdict `PASS` (v3.3 §2.1) | Owner instruction for B1 (OD-20261116-10B) — met | Evidence committed (`e13d964`) |
 | S0-B3 — Audit scripts, catalog, coverage, crosswalk, asset inventory, Node/desktop harness | `READY_FOR_REVIEW` round 2 (Claude, unverified); round 1 `CHANGES_REQUESTED` | OD-20261116-11 — met | Reports committed (`3d63061`, `55331c2`; corrections `ddea490`, `2c62b3d`); ChatGPT re-review (B4 waits for B3 `REVIEW_PASS`) |
 | S0-B4 — Characterization tests and fixtures (save/load determinism, v3.2 §6.7) | `REVIEW_PASS` (bounded to frozen-baseline G0.6 evidence in run 44325257261) | B3 `REVIEW_PASS` | Four replay cases MATCH; exact scope and limitations in S0_B4_RUN_3_REVIEW.md |
-| S0-B7 — Risk register and signoff package | `IN_PROGRESS` (risk register, B7 results and signoff draft committed; pending independent review / owner acceptance) | B3 and B4 `REVIEW_PASS` | S0_RISK_REGISTER.md; S0_SIGNOFF.md; S0_B7_RESULTS.md; bounded G0.7/G0.8 exception requests |
+| S0-B7 — Risk register and signoff package | `IN_PROGRESS` (risk register, dependency audit plan, read-only workflow, B7 results and signoff draft committed; audit dispatch/artifact review, independent review and owner acceptance pending) | B3 and B4 `REVIEW_PASS` | S0_RISK_REGISTER.md; S0_DEPENDENCY_AUDIT_PLAN.md; .github/workflows/s0-b7-dependency-audit.yml; S0_SIGNOFF.md; S0_B7_RESULTS.md; bounded G0.7/G0.8 exception requests |
 | S0-B2 / B5 / B6 — signing, Diagnostic UI, instrumented measurements | `BLOCKED` / deferred | R14 proven on the baseline APK, O5 decided, protected `development-signing` Environment configured by the owner | Per v3.2 §4.1, §6.8 |
 | S1 — Data architecture and save foundation | `NOT_STARTED` | S0 accepted and S1 scope separately approved | S1 acceptance criteria met; independent review; owner accepted |
 | S2+ | `NOT_STARTED` | Previous phase accepted and next scope approved | Phase-specific acceptance and owner approval |
@@ -96,6 +96,12 @@ Pre-protocol work:
 ## 5. Work log
 
 Append newest entries at the top. Do not overwrite earlier entries.
+### 2026-11-18 — S0-B7-READONLY-DEPENDENCY-AUDIT-SETUP
+
+- B3/Run #3 dependency discrepancy reviewed: A2 baseline `npm audit` on 2026-11-16 recorded 6 vulnerabilities (3 moderate, 1 high, 2 critical) with five GHSA identifiers; successful Run #3 `npm ci` on 2026-11-18 recorded 10 (3 moderate, 5 high, 2 critical) without package/advisory detail. The available evidence does not explain the difference; DEP-F1 remains OPEN P1 — UNTRIAGED.
+- Added `.github/workflows/s0-b7-dependency-audit.yml` to the default and experiment branches. It is workflow_dispatch-only, checks out exact baseline `2240a8f`, uses full-SHA-pinned Node 24 Actions, audits package-lock only for the full tree and `--omit=dev`, and uploads raw JSON, stderr, exit codes, summary and lockfile provenance. It does not install packages, execute lifecycle scripts, fix dependencies, update the lockfile, build, test, or package an APK.
+- Added `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md`; updated `S0_RISK_REGISTER.md`, `S0_SIGNOFF.md`, and `S0_B7_RESULTS.md`. The workflow is prepared but has not been dispatched; no artifact is claimed.
+- Updated handoff. No dependency, product source, test, data, asset, APK or signing content was changed in this workflow setup.
 ### 2026-11-18 — B7-RISK-REGISTER-REVIEW-CORRECTION
 
 - Independent cross-check against v3.2 §4 identified that R10 (future map-layer performance budgets) is P1, not P2. The register now places R10 in the P1 table with its S4/S11/S20 acceptance criteria (commit 9606209ed3dd8c6d4230e1e8b2fa95f8f4486b94).
