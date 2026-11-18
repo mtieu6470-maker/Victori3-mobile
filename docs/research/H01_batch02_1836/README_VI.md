@@ -1,17 +1,17 @@
 # H01 Batch 02 — gói tích hợp nghiên cứu R3aa
 
-**Gói nghiên cứu mới nhất: R3ae — Shewa, Zulu và Basotho**  
+**Gói nghiên cứu mới nhất: R3af — chuỗi kế vị SHE, ZUL và BSO (1836–1900)**  
 **Trạng thái:** `READY_FOR_INDEPENDENT_REVIEW / SELF_AUDIT_ONLY / NO_PRODUCT_PATCH`  
-**Claude review request:** [H01 R3ae — Claude Independent Review Request](../../audit/s0/H01_R3AE_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md)  
-**Biên nhận tích hợp:** [GITHUB_INTEGRATION_RECEIPT_R3ae.md](GITHUB_INTEGRATION_RECEIPT_R3ae.md)
+**Claude review request:** [H01 R3af — Claude Independent Review Request](../../audit/s0/H01_R3AF_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md)  
+**Biên nhận tích hợp:** [GITHUB_INTEGRATION_RECEIPT_R3af.md](GITHUB_INTEGRATION_RECEIPT_R3af.md)
 
-> **Điểm vào cho Claude khi kết nối GitHub:** mở R3ae review request trước, fetch HEAD mới nhất và kiểm tra diff từ base SHA ghi trong request. Không ghi verdict độc lập nếu chưa kiểm tra nguồn, CSV và phạm vi thay đổi. ChatGPT self-audit không phải independent `REVIEW_PASS`.
+> **Điểm vào cho Claude khi kết nối GitHub:** mở R3af review request trước, fetch HEAD mới nhất và kiểm tra diff từ base SHA ghi trong request. Đây là review no-write; phải xác minh độc lập lịch sử, nguồn gốc, CSV và giới hạn docs-only. ChatGPT self-audit không phải independent `REVIEW_PASS`.
 
-**Các gói review trước:** [R3ad — Asante, Dahomey, Macina, Buganda](../../audit/s0/H01_R3AD_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md) · [R3ac — Central Sahel](../../audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md) · [R3ab — African officeholders](../../audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md).
+**Các gói review trước:** [R3ae — Shewa, Zulu, Basotho snapshot 1836](../../audit/s0/H01_R3AE_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md) · [R3ad — Asante, Dahomey, Macina, Buganda](../../audit/s0/H01_R3AD_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md) · [R3ac — Central Sahel](../../audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md) · [R3ab — African officeholders](../../audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md).
 
 **Trạng thái H01 tích hợp:** `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`.
 
-Đây là gói nghiên cứu và đối chiếu tài liệu cho H01, không phải bản cập nhật dữ liệu chạy trong game. R3ae không thay đổi country profiles, succession data, political ownership, engine, schema hay APK.
+Đây là gói nghiên cứu và đối chiếu tài liệu cho H01, không phải bản cập nhật dữ liệu chạy trong game. R3af không thay đổi country profiles, succession data, political ownership, engine, schema hay APK.
 
 ## Thành phần
 - `H01_INTEGRATED_AUDIT_REPORT_VI.md`: quyết định tổng hợp cho 17 entity và các tranh chấp về phạm vi dân số/quyền lực.
@@ -123,3 +123,13 @@ Các tài liệu R3ad và CSV liên quan được liệt kê tại phần thành
 - **Historical Mode:** tại base HEAD trước R3ae, `heads_of_state.json` không có chuỗi successor riêng cho SHE, ZUL hoặc BSO. Đây là yêu cầu nghiên cứu tiếp theo, không phải thay đổi runtime trong R3ae.
 
 Tất cả kết luận trên ở research layer; không tự động áp dụng patch vào game. Xem audit R3ae, source matrix, patch decisions, open evidence requests và receipt.
+
+
+## R3af — SHE, ZUL và BSO: chuỗi kế vị 1836–1900
+
+- **SHE — Shewa:** Haile Malakot kế vị năm 1847; Menelik được tuyên bố làm vua sau khi cha mất năm 1855 nhưng bị Tewodros II bắt giữ, trở lại Shewa năm 1865; được Yohannes IV công nhận là nəguś năm 1878 và chuyển sang ngôi Hoàng đế Ethiopia năm 1889. Ngày mất của Haile Malakot còn mâu thuẫn giữa Ege (9/11/1855) và Clapham (tháng 12/1855); Bäzzabbǝh cần thêm chứng cứ về thời gian cai trị.
+- **ZUL — Zulu:** Mpande trị vì đến 1872; Cetshwayo chính thức kế vị năm 1872, bị phế truất/lưu đày sau chiến tranh 1879 và được phục vị hạn chế năm 1883; Dinuzulu được tuyên xưng năm 1884. Phải tách 1887 — tuyên bố Zululand là lãnh thổ thuộc Anh — khỏi việc sáp nhập vào Natal năm 1897. Ngày Cetshwayo mất còn bất đồng 1883/1884; vai trò Dinuzulu năm 1894/1898 cần đối chiếu thêm.
+- **BSO — Basotho:** Moshoeshoe I mất ngày 11/3/1870; Letsie kế vị trong năm 1870; ông mất ngày 20/11/1891. Báo cáo Basutoland đương thời ghi nhận 24 thủ lĩnh ủng hộ Lerothodi, điện tín công nhận của Hoàng gia đến ngày 6/1/1892 và được công bố tại National Pitso ngày 5/2/1892. Vấn đề Letsie ưu tiên Maama theo Maliehe cần được đối chiếu với báo cáo hành chính thuộc địa.
+- R3af cũng tách chính quyền bản địa khỏi chủ quyền bên ngoài: Basutoland có giai đoạn bảo hộ Anh 1868, quản trị qua Cape Colony từ 1871 và trở lại quản trị trực tiếp của Anh năm 1884; Zululand bị tuyên bố là thuộc địa Anh năm 1887.
+- Thành phần: audit lịch sử, ma trận chứng cứ 17 nguồn, 14 quyết định không thực thi, 10 yêu cầu chứng cứ còn mở, source registry delta và Claude review request.
+- **Không có patch runtime:** không thêm succession vào `heads_of_state.json`, không sửa profile hoặc dữ liệu lịch sử đang chạy. Cần Claude independent review và owner gate riêng trước mọi patch.
