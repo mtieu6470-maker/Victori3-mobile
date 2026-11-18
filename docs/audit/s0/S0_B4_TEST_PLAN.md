@@ -1,7 +1,7 @@
 # S0-B4 — Save/load characterization test plan
 
 **Task:** S0-B4 under owner decision OD-20261116-11  
-**Status:** `IN_PROGRESS` — pinned-baseline workflow execution remains `NOT_TESTED`; an older workflow run was reviewed as supplementary evidence only  
+**Status:** `REVIEW_PASS` — independent review of GitHub Actions run #3 supports `G0.6 = PASS` on the frozen product baseline; see S0_B4_RUN_3_REVIEW.md. The later expanded experiment-branch test source and artifact-enhanced workflow are not the source/workflow executed in run #3.  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`  
 **Audit branch:** `experiment/vic3-visual-upgrade`
 
@@ -19,7 +19,7 @@ At source-review checkpoint `662bd830b150302b008b75119b46c213f417c17a` (before t
 
 **The designated B4 workflow deliberately excludes those branch product deltas.** It checks out the exact baseline SHA into `baseline/`, checks out the experiment branch into `audit-source/`, and overlays only `tests/s0-save-determinism.test.ts` and `tests/fixtures/s0-b4-scenario.ts` before running the dedicated tests. Therefore a successful B4 result is evidence about baseline `2240a8f` plus this test harness; it is not evidence that the pre-existing product changes on the experiment branch pass, nor authorization to merge them.
 
-## Deterministic replay scenario
+## Expanded harness design on experiment branch (not the test source executed in Run #3)
 
 Scenario fixture: `tests/fixtures/s0-b4-scenario.ts`
 
@@ -56,8 +56,17 @@ The manual workflow produces an artifact containing:
 
 **Supplementary run review (not the designated B4 evidence):** the older `.github/workflows/b4-tests-only.yml` run `44041104723` completed successfully with 6 test files / 70 tests passing, including four Historical/Sandbox save-load replay cases. Its predecessor `44039619132` failed before test collection because generated `src/generated/db.json` was absent; the succeeding run added `npm run prepare-assets`. The successful run checked out commit `d2ae88e`, which is 39 commits ahead of frozen baseline `2240a8f`; GitHub's compare shows those intervening commits changed documentation, audit/test files and workflows, but no product source/data files. Nevertheless, that older workflow did not independently pin the baseline, run the required TypeScript check, or upload a provenance artifact. It is supporting evidence only, not a substitute for `.github/workflows/s0-b4-tests.yml`.
 
-The required pinned-baseline workflow has not yet been dispatched and its artifact has not been reviewed. G0.6 therefore remains `NOT_TESTED`. Start the manual workflow with `experiment/vic3-visual-upgrade` selected, then review its artifact before assigning a gate verdict.
+The GitHub Actions run #3 evidence is reviewed in S0_B4_RUN_3_REVIEW.md; the four §6.7 replay cases all MATCH and G0.6 is PASS for baseline 2240a8f. The separate artifact-enhanced .github/workflows/s0-b4-tests.yml remains undispatched. Its typecheck and artifact upload would improve provenance/evidence packaging but are not claimed as run #3 results and are not required to reproduce the reviewed four replay cases. The currently expanded test file on the experiment branch is also newer than the source used in run #3; its additional wrong-type-RNG and stricter system-count assertions remain unexecuted.
 
+## Executed evidence — GitHub Actions run #3
+
+The actual execution and independent review are recorded in S0_B4_RUN_3_REVIEW.md. In brief:
+
+- Run 44325257261, job 134874698600, workflow .github/workflows/b4-tests-only.yml, checked out commit 7f17b1f0177d712366e31e4e8c879cc4b6dd5741.
+- Executed test-file blob SHA: 722d62c0647f06bc2e3a49bdef1f348f4f3104f2. Product-source comparison against 2240a8f found no changed product, historical-data, asset, dependency-manifest, helper, generator, or product build-input paths.
+- The complete baseline suite reported 6 test files / 70 tests passed. The B4 file contained 12 test instances: two JSON-comparison tests, four replay cases, and six malformed/legacy-save cases.
+- Historical/Sandbox × K=6/12 each returned MATCH, with equal continuous/save-load final hashes and first differing path null.
+- Limitations: no typecheck step and no uploaded artifact in this older workflow. The job log remains the evidence source. The later expanded test source on the experiment branch was not executed by this run.
 ## Stop conditions
 
 - Any reproducible difference between uninterrupted and resumed state is G0.6 `FAIL`; retain the state path, hashes, fixture and logs.
