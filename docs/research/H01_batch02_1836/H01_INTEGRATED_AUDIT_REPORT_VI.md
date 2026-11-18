@@ -1,4 +1,4 @@
-# H01 Batch 02 — consolidated research integration report (R3z)
+# H01 Batch 02 — consolidated research integration report (R3aa)
 
 **Status: `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`**  
 Snapshot used by the source package: `1836-01-01` (simulation anchor; source temporal precision is often annual or circa-year).  
