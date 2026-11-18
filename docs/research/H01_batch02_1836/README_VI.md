@@ -1,5 +1,17 @@
 # H01 Batch 02 — gói tích hợp nghiên cứu R3aa
 
+**Gói nghiên cứu mới nhất: R3ac — Sokoto, Bornu, Wadai và Darfur**  
+**Trạng thái:** `READY_FOR_INDEPENDENT_REVIEW / SELF_AUDIT_ONLY / NO_PRODUCT_PATCH`  
+**Claude review request:** [H01 R3ac — Claude Independent Review Request](../../audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md)  
+**Biên nhận tích hợp:** [GITHUB_INTEGRATION_RECEIPT_R3ac.md](GITHUB_INTEGRATION_RECEIPT_R3ac.md)
+
+> **Điểm vào cho Claude khi kết nối GitHub:** review R3ac trước qua request ở trên, sau đó kiểm tra R3ab qua [R3ab review request](../../audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md). Luôn fetch HEAD mới nhất và ghi đúng SHA đã review. ChatGPT self-audit không phải independent `REVIEW_PASS`.
+
+**R3ab cũng đang chờ independent review:** [H01 R3ab — Claude Independent Review Request](../../audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md).
+
+**Trạng thái H01 tích hợp:** `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`.
+
+Đây là gói tích hợp tài liệu nghiên cứu H01 lên repository Victori3-mobile, không phải bản cập nhật dân số chạy trong game.
 **Trạng thái R3ab:** `READY_FOR_INDEPENDENT_REVIEW / SELF_AUDIT_ONLY / NO_PRODUCT_PATCH`  
 **Gói review cho Claude:** [H01 R3ab — Claude Independent Review Request](../../audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md)
 
