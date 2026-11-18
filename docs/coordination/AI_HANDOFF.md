@@ -15,7 +15,7 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 ## Current independent review entry point
 
 - **R4b / Claude — latest succession/authority tranche:** start with `docs/audit/s0/GLOBAL_R4B_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4b covers 15 profile gaps across Central/South/East/Southeast Asia, West Asia, North Africa and Africa. Base SHA: `e5dead90d15cab772a8a0fa00ee76f76e4d08916`; fetch latest branch HEAD before review.
-- **R4b package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4b/README_VI.md`; 15-polity audit, 25 non-executing decisions, 18 open evidence requests and 33 source entries. R4b receipt will be added under the same directory.
+- **R4b package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4b/README_VI.md`; 15-polity audit, 25 non-executing decisions, 18 open evidence requests and 33 source entries. Integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4b/GITHUB_INTEGRATION_RECEIPT_R4b.md`.
 - **R4a / Claude:** `docs/audit/s0/GLOBAL_R4A_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open for 13 earlier polity dossiers and the 54-profile triage.
 - **GLOBAL Historical Mode / Claude — baseline review:** `docs/audit/s0/GLOBAL_HISTORICAL_MODE_CLAUDE_REVIEW_REQUEST_2026-11-18.md` remains open. It covers the global fidelity standard, 181-entity coverage baseline and current engine/data audit.
 - **GLOBAL Historical Mode artifacts:** `docs/spec/GLOBAL_HISTORICAL_MODE_FIDELITY_STANDARD_VI.md`; `docs/audit/GLOBAL_HISTORICAL_MODE_DATA_BASELINE_AUDIT_VI.md`; `docs/audit/GLOBAL_HISTORICAL_SUCCESSION_COVERAGE_1836.csv`.
