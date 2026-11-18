@@ -27,9 +27,9 @@
 | G0.6 | PASS — see independent B4 Run #3 review |
 | G0.7 | BLOCKED — iQOO not measured; Node/desktop evidence has explicit limitations |
 | G0.8 | PARTIAL — inventory/checksum complete, legacy licensing and attribution not fully verified |
-| G0.9 | NOT_TESTED — B7 package is a draft pending independent review and owner signoff |
+| G0.9 | BLOCKED for full S0 while C3/B2 is blocked, per v3.2 §6.4 and OD-20261116-11 §2.1.1; the separate bounded S1-entry package remains NOT_TESTED pending review and owner acceptance |
 
-**Overall S0 remains PARTIAL, not PASS.** No S1 implementation is authorized yet.
+**Overall S0 remains PARTIAL/BLOCKED, not PASS.** G0.9's full-S0 status is BLOCKED while C3/B2 is blocked. A separate bounded S1-entry package may still be reviewed under OD-20261116-11 §2.1.1, but that review and owner acceptance have not occurred. No S1 implementation is authorized yet.
 
 ## 3. P0 and residual risk focus
 
