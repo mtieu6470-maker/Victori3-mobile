@@ -91,3 +91,13 @@ These are ChatGPT implementation checks and self-audit, not an independent REVIE
 - No change to NDE values: 60k provisional composite polity-subject estimate only; 45k–85k interval still undefined; numeric and game data remain untouched.
 - Full journal volume/issue metadata for the review has not been authenticated. Do not invent citation details.
 - Self-audit only; independent Claude review and owner acceptance pending. No build/APK workflow run.
+
+
+## R3aa NDE source-chain validation (2026-11-18)
+- Chase article metadata (South African Quarterly Journal 1(4), 1830) and full searchable text inspected; printed p.407 scan visually checked. It reports c.80k under Malacatzie including conquered Batow/Bichuana dependants; no census method.
+- Lye (1969) Cambridge notes checked: footnote 50 links Chase p.407 and Archbell Plaatberg correspondence; footnote 51 distinguishes military-force estimates; footnote 88 cites Archbell correspondence dated 31 Dec 1829 and an archive locator.
+- Ferreira (2025 UCT thesis, p.38) corroborates an Archbell December 1829 Missionary Society letter and encounter with Motsilakatzi/Mzilikazi; the cited Missionary Notices passage concerns the encounter/traders, not a population number.
+- Kruger (2010 UCT thesis) record and metadata verified; official PDF download timed out. Printed p.140 was inspected in accessible text transcription: indirect Rasmussen attribution of c.20k for Rustenburg area in 1829 vs 60–80k Archbell estimate. Not direct Rasmussen verification.
+- Archival reference mismatch recorded: Lye notes render different dates/box identifiers; an archival bibliography lists S.A. III (1829), no.37, while Lye note88 is rendered as box II/file1829/no.37. Original letter and item metadata remain open.
+- NDE 60k remains composite polity-subject candidate only; [45k–85k] has no verified method; 1836 military force is separately typed; NDE_MOS 210k remains broad geography. No numeric/runtime/game/owner/geometry patch.
+- Self-audit only; independent Claude review and owner acceptance pending. No build/APK workflow run.
