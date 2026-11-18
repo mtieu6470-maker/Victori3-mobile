@@ -105,6 +105,17 @@ Pre-protocol work:
 
 ## 5. Work log
 
+### 2026-11-18 — H01-R3Y-OYO-1831-1836-POLITICAL-GEOGRAPHY-AND-POPULATION-UNITS
+
+- Owner direction: continue H01 research and documentation; owner is prepared to ask Claude to review/fix later. Scope remains existing H01 research layer only.
+- New source: Henry B. Lovejoy, “Mapping Uncertainty: The Collapse of Oyo and the Trans-Atlantic Slave Trade, 1816–1836,” Journal of Global Slavery 4(2) (2019), pp.127–161, DOI 10.1163/2405836X-00402002. Open-access Brill PDF text inspected; screenshot endpoint returned 403, so no visual scan authentication.
+- Verified source chronology: 1832 Ilorin expands across much of Oyo Ibarapa, Ago Oja allied with Ilorin, Saki/Iganna tributary; 1833 Ilorin destroys/subjugates most key Oyo towns; surviving independent southern Oyo powers include Ijaye, Abemo, Ibadan; Oyo/Bariba try to recover territory in 1834–35 with distinct allied forces; 1836 Old Oyo capital district abandoned, refugees move south, and Abeokuta, Ilorin, Ibadan, New Oyo, Ijaye, Ijebu, Ife compete for territory.
+- Method caveat: Lovejoy says maps are fuzzy approximations and not authoritative. GIS rows use Jan 2 / Dec 31 as software dates with zero historical value; no day-level 1836-01-01 owner/date can be inferred. 75,000+ refers to Atlantic embarkations, not Oyo resident population or all refugees.
+- Original H01 package reread: OYO=650k method refers to refugee displacement toward Ibadan/Ijaye/Abeokuta without cohort count or resident-stock definition; OYO_OYO=1.45m is broad Yorubaland Oyo/Ibadan/Abeokuta backward projection from Manning macro-series plus Law but no subregional workbook, denominator, polygon or migration formula. These are different population units and both remain quarantined.
+- H01 crosswalk assigns 100% of SSA_REG_18 to OYO_OYO and owner OYO. Lovejoy separates Oyo, Ilorin, Ibadan, Abeokuta, Ijebu, Ife, Ijaye and Abemo with changing/contested relations. 1:1 allocation is arithmetic only, not proof of sovereignty. No owner or geometry patch.
+- R3y files: `H01_R3y_OYO_1831_1836_POLITICAL_GEOGRAPHY_AND_POPULATION_AUDIT_VI.md`, source evidence matrix, source registry delta, patch decisions and open evidence requests; updated consolidated report, README, validation, integration map and this handoff. All commits use `[skip ci]`.
+- Status `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`; ChatGPT self-audit only, not independent Claude REVIEW_PASS; owner acceptance pending. No runtime, shipped data, game, map, tests, assets, Android, workflow, APK, PR or merge changes.
+
 ### 2026-11-18 — H01-R3X-NDE-POPULATION-UNIVERSE-AND-RASMUSSEN-TRACE
 
 - Owner direction: continue H01 work; Claude may review/fix independently later. Scope remains documentation/research only.
