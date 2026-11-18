@@ -1,7 +1,7 @@
 # S0-B4 — Save/load characterization test plan
 
 **Task:** S0-B4 under owner decision OD-20261116-11  
-**Status:** `IN_PROGRESS` — harness prepared; execution is still `NOT_TESTED`  
+**Status:** `IN_PROGRESS` — pinned-baseline workflow execution remains `NOT_TESTED`; an older workflow run was reviewed as supplementary evidence only  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`  
 **Audit branch:** `experiment/vic3-visual-upgrade`
 
@@ -48,7 +48,9 @@ The manual workflow produces an artifact containing:
 - Logs and exit codes for `npm ci`, `npm run prepare-assets`, `npm run typecheck` and the dedicated Vitest run.
 - Vitest JSON and test output, including state/save hashes and any first-difference path.
 
-**No test result is claimed yet.** G0.6 remains `NOT_TESTED` until the owner starts the workflow from GitHub Actions with `experiment/vic3-visual-upgrade` selected and the resulting artifact is independently reviewed.
+**Supplementary run review (not the designated B4 evidence):** the older `.github/workflows/b4-tests-only.yml` run `44041104723` completed successfully with 6 test files / 70 tests passing, including four Historical/Sandbox save-load replay cases. Its predecessor `44039619132` failed before test collection because generated `src/generated/db.json` was absent; the succeeding run added `npm run prepare-assets`. The successful run checked out commit `d2ae88e`, which is 39 commits ahead of frozen baseline `2240a8f`; GitHub's compare shows those intervening commits changed documentation, audit/test files and workflows, but no product source/data files. Nevertheless, that older workflow did not independently pin the baseline, run the required TypeScript check, or upload a provenance artifact. It is supporting evidence only, not a substitute for `.github/workflows/s0-b4-tests.yml`.
+
+The required pinned-baseline workflow has not yet been dispatched and its artifact has not been reviewed. G0.6 therefore remains `NOT_TESTED`. Start the manual workflow with `experiment/vic3-visual-upgrade` selected, then review its artifact before assigning a gate verdict.
 
 ## Stop conditions
 
