@@ -466,3 +466,96 @@ Claude no-write review should assess event taxonomy/causality, no-railroad seman
 A REVIEW_PASS here applies only to this design document. It does not satisfy S0-B7 review/owner acceptance and does not open S1/S22 or authorize code/data/save/test/UI/Android/APK changes.
 
 **Kết luận:** S22 phải làm lịch sử có căn cứ và kiểm định được, nhưng không biến năm 1836 thành một kịch bản đã viết sẵn cho 100 năm sau. Events tạo bối cảnh/quyết định; mô phỏng tạo hậu quả; benchmarks đo chất lượng, không điều khiển kết quả.
+
+
+---
+
+## 14. Normative design amendments — code-baseline traceability (2026-11-18)
+
+This section is a design-only refinement responding to the ChatGPT self-audit supplement at
+`docs/audit/s0/S22_DESIGN_TRACEABILITY_SELF_AUDIT_2026-11-18.md`.
+It clarifies the intended contracts; it does not authorize implementation or alter the code baseline.
+
+### 14.1 Deterministic rank condition semantics (SA-01)
+
+The `rank_at_most` condition MUST use one canonical, versioned rank context shared with the public country-ranking definition. For the current code baseline, the intended compatibility source is the existing `rankings()` contract in `src/engine/metrics.ts`, which ranks living, non-decentralized countries by the existing `powerScore()` metric. It MUST NOT silently substitute GDP-only rank or a Europe-only candidate list.
+
+The rank contract is:
+
+- Candidate set: countries with `alive === true` and `decentralized === false`; subjects remain eligible because the current ranking contract includes them. A future polity-type expansion must version and document any change to this candidate set.
+- Metric: the same canonical `powerScore()` used by country rankings, with its formula/version recorded in the rule/data build identity.
+- Ordering: descending finite power score, with normalized stable entity ID ascending as a deterministic secondary display ordering.
+- Rank number: competition rank (`1 + count of eligible entities with strictly greater score)); exact ties share the same rank.
+- Missing/dead/decentralized target, non-finite score, or unavailable ranking context: condition evaluates false and emits a diagnostic. It MUST never default to true.
+- Composite `all`/`any` conditions in one evaluation share the same immutable rank snapshot for that tick; repeated evaluation cannot observe different ordering.
+- Tests cover first/last eligible positions, exact threshold, one place outside threshold, ties, subject inclusion, decentralized exclusion, newly formed actors, missing IDs and non-finite scores.
+
+If a later approved design chooses a different power model, the rank contract and its version must change explicitly with migration/compatibility tests; no hidden rank definition is permitted.
+
+### 14.2 Regional historical indicators cannot become global actor classes (SA-07)
+
+The African partition observation that currently uses `count_owner_european` is a specifically named, geographically scoped regional indicator. Its source-defined regions, time interval, actor classification and denominator must be retained with the observation.
+
+- The indicator may contribute to an Africa-specific historical report only.
+- It MUST NOT be reused as a generic worldwide ownership predicate, a universal definition of colonial/imperial actors, or a proxy for global historical fidelity.
+- Global aggregates must be built from explicit region × period × polity/actor-class coverage records with source-backed classification. A Europe-derived class cannot be assumed valid in Asia, Africa, Oceania or the Americas.
+- Regional indicators remain separately visible; they cannot compensate for missing or failing evidence in other regions or dimensions.
+- Coverage reports show numerator, denominator, excluded entities, missingness and source strength by region and polity type. No evidence is treated as a zero observation.
+- A future generalized actor-class condition must use a versioned, source-backed classification registry with geographic and temporal validity, not a hard-coded list embedded in the evaluator.
+
+### 14.3 Milestone tolerance and resolved-score semantics (SA-09)
+
+A milestone remains provisional while its own tolerance interval is open. A pending milestone MUST NOT be counted as a resolved failure merely because its nominal `check_date` has passed.
+
+The resolved milestone score is defined as follows:
+
+1. Before `check_date`, the milestone is not yet score-eligible.
+2. From `check_date` through the inclusive `lastChance = dueTick + toleranceYears * ticksPerYear` boundary, status `pending` is excluded from both numerator and denominator.
+3. A milestone that becomes `achieved` during this interval enters the resolved denominator and receives its explicitly documented late-achievement credit.
+4. An unmet milestone transitions to `missed` at the inclusive `lastChance` boundary and then enters the denominator with zero numerator credit.
+5. A resolved `achieved` or `missed` milestone is immutable unless a separately specified correction/migration operation changes it with an audit record.
+6. If no milestones are resolved, the score is `NOT_SCORABLE` / null with a resolved-count of zero; it MUST NOT report a misleading perfect score of 1.0.
+7. The dashboard reports provisional count, achieved count, missed count, resolved denominator and score independently. The score is never used as gameplay logic.
+
+Late-achievement credit must have one versioned formula and be tested at the due tick, midpoint of grace, final grace tick and after expiry. Save/load and replay must preserve identical lifecycle and score results.
+
+### 14.4 Decision command boundary and non-consumption on rejection (SA-03)
+
+A pending player decision is not authority to execute arbitrary option data. At the command boundary, immediately before applying a choice, the implementation MUST:
+
+- retrieve the canonical decision definition by stable ID;
+- confirm the pending instance is still in `pending` state and belongs to the current player-controlled actor/authorized decision authority;
+- confirm the submitted option exists in both the canonical definition and the pending option set;
+- confirm the current date is within the inclusive/exclusive window semantics declared by that definition;
+- re-evaluate actor existence, regime/institution authority, consent/participation rules, current causal conditions and resource/cost preconditions;
+- validate every typed effect and target, stage the complete mutation set, and commit atomically;
+- only after successful commit transition the instance to `resolved` and project its stable event ID into any legacy fired-event view.
+
+Invalid option, stale definition, expired window, revoked authority, changed causal precondition or failed effect validation MUST NOT partially mutate game state, remove a still-valid pending item, or mark the event fired. The item instead receives a deterministic `expired` or `invalidated` lifecycle transition with a reason and audit entry where appropriate. A retry of the same accepted command is idempotent and cannot apply effects twice.
+
+The command API is the enforcement boundary; UI hiding/disabling an option is not a security or correctness control. The decision instance must persist actor, definition/version, offered option IDs, creation tick, expiry semantics and lifecycle state sufficiently to validate after save/load.
+
+### 14.5 Source-date precision and monthly effective-time policy (SA-08)
+
+The source-recorded date and simulation-effective tick are separate fields. For a day-precision event in a monthly simulation:
+
+- preserve the exact source date and declared precision unchanged;
+- map it to the one monthly tick defined by the calendar policy (the containing month);
+- retain the original source date, effective month/tick and aggregation policy in the event record;
+- when multiple day-specific events fall in one month, process them deterministically by effective tick, source date, then stable event ID;
+- logs and UI must say that the event is source-dated on the exact day but applied on the monthly simulation tick. They must not imply that the simulation resolved intra-month consequences.
+
+Month/year/range-precision records use their declared precision and explicit effective-time policy. No ETL step may silently promote month precision to day precision or collapse a source day without retaining it.
+
+### 14.6 Acceptance additions
+
+Add the following invariant-level tests to §10 before any runtime proposal:
+
+- `rank_at_most` matches the canonical ranking candidate set and power metric; ties and missing ranks fail deterministically.
+- Africa partition remains a regional indicator and is excluded from generic global actor-class aggregates.
+- Pending milestones inside tolerance do not enter a resolved score; zero resolved milestones produce `NOT_SCORABLE`.
+- A stale/invalid decision option or failed effect transaction leaves the simulation state and fired-event view unchanged, apart from the explicit deterministic invalidation/expiry transition.
+- Day-specific source dates remain intact while the monthly effective tick and log label follow the declared policy.
+- Replaying a resolved decision or reloading its save cannot double-apply effects.
+
+These amendments close the design-level gaps identified in SA-01, SA-03, SA-07, SA-08 and SA-09. SA-02, SA-04, SA-05 and SA-06 remain governed by §§4.2–4.4, 6 and 7 and must be independently checked against the concrete implementation design before any code authorization.
