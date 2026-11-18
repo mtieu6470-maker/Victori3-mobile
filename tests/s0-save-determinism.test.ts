@@ -8,6 +8,7 @@ import { describe, expect, it } from 'vitest';
 import { execute } from '../src/engine/commands';
 import { deserialize, serialize, SAVE_FORMAT } from '../src/engine/save';
 import { tickToDate } from '../src/engine/core';
+import { SYSTEMS } from '../src/engine/simulation';
 import type { GameState } from '../src/engine/types';
 import { fresh, stepMonth } from './helpers';
 import { S0_B4_SCENARIO } from './fixtures/s0-b4-scenario';
@@ -98,11 +99,8 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
         advanceTo(interrupted, cut);
         expect(interrupted.tick, 'save checkpoint must be reached').toBe(cut);
         expect(interrupted.date).toEqual(tickToDate(cut));
-        expect(cut === 6 ? interrupted.date : null).toEqual(
-          cut === 6 ? { y: 1836, m: 7 } : null,
-        );
-        expect(cut === 12 ? interrupted.date : null).toEqual(
-          cut === 12 ? { y: 1837, m: 1 } : null,
+        expect(interrupted.date).toEqual(
+          cut === 6 ? { y: 1836, m: 7 } : { y: 1837, m: 1 },
         );
 
         const saveText = serialize(interrupted);
@@ -122,8 +120,11 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
         expect(uninterrupted.regions.length).toBeGreaterThan(0);
 
         // Prove real simulation work happened; tick/date changes alone are not a sufficient guard.
+        expect(Object.keys(uninterrupted.counters.systemRuns).sort()).toEqual(
+          SYSTEMS.map((system) => system.name).sort(),
+        );
         const systemRunCounts = Object.values(uninterrupted.counters.systemRuns);
-        expect(systemRunCounts.length).toBeGreaterThan(0);
+        expect(systemRunCounts).toHaveLength(SYSTEMS.length);
         expect(systemRunCounts.every((count) => count === S0_B4_SCENARIO.totalMonths)).toBe(true);
 
         const initialPlayer = initial.countries[S0_B4_SCENARIO.player];
