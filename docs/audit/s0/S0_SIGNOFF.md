@@ -5,7 +5,8 @@
 **Current task:** S0-B7  
 **Document status:** DRAFT — prepared for independent review; not owner-accepted  
 **Overall S0 verdict:** **PARTIAL — NOT COMPLETE**  
-**S1 status:** **NOT AUTHORIZED YET**
+**S1 status:** **NOT AUTHORIZED YET**  
+**Bounded S1-entry package:** `NOT_TESTED` — independent reviewer verdict and owner `ACCEPTED` decision are still pending.
 
 ## 1. Gate ledger
 
@@ -19,7 +20,7 @@
 | G0.6 Save/load determinism | **PASS** | B4 Run #3, run 44325257261 / job 134874698600; 4/4 Historical/Sandbox × K=6/12 cases MATCH over N=24 months, complete GameState hashes match and first differing path is null. Exact executed test file SHA and baseline-equivalence comparison are documented in S0_B4_RUN_3_REVIEW.md. | Run #3 had no uploaded artifact and did not run typecheck. Its executed test source is commit 7f17b1f, not the later expanded file on the experiment branch. These boundaries are explicit and do not undermine the §6.7 replay result. |
 | G0.7 Runtime / performance | **BLOCKED** | Node baseline measurements exist; desktop measurement exists only in Chromium headless + CPU SwiftShader and is PARTIAL. | No iQOO Z10 Turbo measurement. Any S1 exception must be limited to CI/desktop data-contract work and must prohibit runtime/performance/lifecycle/rendering changes. |
 | G0.8 Asset / license | **PARTIAL** | 627-file inventory and SHA-256 manifest PASS. | 492 image licenses are recorded but not reverified; four BY assets lack author fields; text attribution UI is incomplete and runtime rendering is NOT_TESTED. The only proposed S1 exception is narrowly limited to unchanged legacy content/assets. |
-| G0.9 Risk / signoff | **NOT_TESTED — B7 draft in progress** | S0_RISK_REGISTER.md and this signoff draft enumerate P0/P1/P2/P3, evidence, mitigations, owners and stages. OD-20261116-11 already accepts R7 interim containment in principle. | Independent review and explicit owner acceptance of this signoff and any concrete G0.7/G0.8 exceptions are still required. |
+| G0.9 Risk / signoff | **BLOCKED — full S0 gate** | v3.2 §6.4 makes G0.9 BLOCKED while C3/B2 is BLOCKED; OD-20261116-11 §2.1.1 explicitly preserves that full-S0 verdict. R7 remains OPEN P0 with interim containment accepted in principle, not fixed. | This does not decide the separate bounded S1-entry package. That package remains `NOT_TESTED` pending reviewer `REVIEW_PASS` and explicit owner `ACCEPTED` for the scoped exceptions. |
 
 ## 2. B7 risk disposition
 
@@ -74,7 +75,15 @@ The only automatic save observed by B3 is tied to January in-game date; it is no
 | Bounded S1-entry package | Not yet REVIEW_PASS / ACCEPTED |
 | S1 implementation authorization | NOT GRANTED |
 
-## 5.1 Dependency-audit evidence status
+## 5.1 Bounded S1-entry package status
+
+| Item | Status |
+|---|---|
+| Separate bounded transition-package review | `NOT_TESTED` — reviewer has not issued `REVIEW_PASS` |
+| Owner acceptance of E-G0.7 / E-G0.8 / R7 containment / limited S1 scope | `PENDING` — no acceptance is inferred from the existing in-principle decision |
+| Full S0 G0.9 | `BLOCKED` while C3/B2 remains blocked; do not relabel as PASS or NOT_TESTED |
+
+## 5.2 Dependency-audit evidence status
 
 | DEP-F1 audit workflow exists and is read-only | PREPARED; dispatch and artifact review pending |
 
