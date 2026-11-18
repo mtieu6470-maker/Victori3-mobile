@@ -14,7 +14,7 @@
 
 ## 1. Executive result
 
-The S22 proposal now includes explicit design responses for all twelve findings recorded in the code-baseline self-audit (SA-01–SA-12). This means **design coverage has been added**, not that the runtime defects have been fixed or independently approved.
+The S22 proposal includes explicit design responses for SA-01–SA-12. A further source/schema pass found SA-13: the required twelve-macro-region taxonomy and mapping denominator are not represented in the inspected baseline; §14.15 now specifies the required contract. This means **design coverage has been added**, not that runtime defects have been fixed or independently approved.
 
 The main additions in §§14.1–14.12 now cover:
 - deterministic rank semantics, bounded decision priors and player-choice validation;
@@ -41,6 +41,7 @@ S22 remains design-only. S1's save/data foundations and the approved project gat
 | SA-10 — open condition grammar and incomplete recursive validation | §14.7 defines the closed condition grammar, recursive validation, field/reference checks, path diagnostics and 8-level/64-node initial limits. | **DESIGN-COVERED; CONDITION INVENTORY/BOUNDS NEED INDEPENDENT CHECK** |
 | SA-11 — structural-rule source is not the runtime source of truth | §14.9 defines a typed structural-rule registry and requires either actual data-driven execution or explicit reference-only status; removes duplicate hard-coded semantics as an authorized migration concern. | **DESIGN-COVERED; EXISTING RUNTIME STILL HARDCODED** |
 | SA-12 — executable event payloads are weakly validated/typed | §14.10 closes decision/effect/exogenous/structural/milestone schemas, validates IDs/ranges/dates and retains normalized source metadata. | **DESIGN-COVERED; BUILDER/RUNTIME VALIDATION NOT IMPLEMENTED** |
+| SA-13 — twelve-macro-region taxonomy/denominator missing | The inspected fidelity standard calls for twelve macro-regions but RegionRecord/registry/regions CSV do not define stable IDs or crosswalks. | **DESIGN-COVERED BY §14.15; OWNER TAXONOMY DECISION REQUIRED** |
 
 ## 3. Material design decisions requiring independent scrutiny
 
@@ -84,12 +85,17 @@ No test in this matrix is claimed as run by this documentation pass.
 
 ## 5. Current audit conclusion
 
-- SA-01–SA-12 have corresponding design clauses in the amended S22 proposal.
+- SA-01–SA-12 have corresponding design clauses in the amended S22 proposal; SA-13 is covered by §14.15 but cannot be completed until the owner approves the canonical twelve-region taxonomy.
 - This is **not** evidence that any source-code defect has been fixed.
 - Existing `evalCondition`, `applyWindowOption`, `eventsMonth`, milestone scoring, benchmark ETL and save version remain as characterized in the code-baseline audit.
 - The code findings remain open until an owner-authorized implementation is written, tested and independently reviewed.
-- Historical event classes and global benchmark coverage still require source-backed research; the design does not manufacture missing data.
+- Historical event classes and global benchmark coverage still require source-backed research; the design does not manufacture missing data. Regional calibration remains NOT_SCORABLE until the twelve-region taxonomy/crosswalk is approved.
 - No engine, historical data, generated DB, save schema, tests, UI, assets, Android, workflow, signing or APK file was changed in this pass.
 - No build, unit test, CI workflow or device test was run.
 - This is not `REVIEW_PASS`, `ACCEPTED`, S1 entry or S22 implementation approval.
 
+
+
+### 5.1 SA-13 owner decision boundary
+
+The design defines how the twelve macro-regions must be represented, but does not name or fabricate them. The owner must approve stable IDs, names, boundaries and inclusion rules. Until that decision and the time-valid crosswalk exist, only source/entity-level benchmark coverage may be reported; no twelve-region completeness or region-balanced composite score may be claimed.
