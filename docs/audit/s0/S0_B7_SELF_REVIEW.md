@@ -13,6 +13,7 @@
 | Dependency workflow static review | PASS — static only | `workflow_dispatch` only; baseline SHA asserted; full and `--omit=dev` audits; actions pinned to full commit SHAs; raw JSON + summary + provenance artifact with `if: always()`; no npm ci, audit fix, product script, build, Gradle, APK, signing or secrets. |
 | Workflow branch parity | PASS | `.github/workflows/s0-b7-dependency-audit.yml` has identical blob SHA on default and experiment branches. |
 | Source-to-risk traceability | PASS after WD-F3 correction | `S0_B7_RISK_TRACEABILITY.md` maps every original risk/finding ID to a severity and exact Risk Register location; WD-F3 is explicitly included as P2. |
+| Risk Register table integrity | PASS after correction | All 21 P2 rows now have the same six columns as the P0/P1 tables: ID, evidence, impact, disposition/control, owner, and target/closure criteria. The traceability matrix now points to the individual P2 rows. |
 | Full-S0 G0.9 interpretation | CORRECTED | v3.2 §6.4 and OD-20261116-11 §2.1.1 require full-S0 G0.9 to remain `BLOCKED` while C3/B2 is blocked. The separate bounded S1-entry package is tracked as `NOT_TESTED` pending reviewer and owner decisions. |
 | Overall S0 / S1 status | PASS — no premature transition | Overall S0 remains `PARTIAL — NOT COMPLETE`; S1 remains `NOT AUTHORIZED`. |
 
