@@ -53,7 +53,9 @@ function firstDifference(a: unknown, b: unknown, path = 'state'): string | null 
     const bk = Object.keys(b as object).sort();
     const keys = [...new Set([...ak, ...bk])].sort();
     for (const key of keys) {
-      if (!(key in (a as object)) || !(key in (b as object))) return `${path}.${key} (field presence differs)`;
+      const hasA = Object.prototype.hasOwnProperty.call(a, key);
+      const hasB = Object.prototype.hasOwnProperty.call(b, key);
+      if (!hasA || !hasB) return `${path}.${key} (field presence differs)`;
       const difference = firstDifference(
         (a as Record<string, unknown>)[key],
         (b as Record<string, unknown>)[key],
@@ -108,6 +110,8 @@ describe('S0-B4 canonical comparison contract', () => {
     const reordered = { nested: { a: 1, z: 3 }, events: ['second', 'first'] };
     expect(canonical(left)).not.toBe(canonical(reordered));
     expect(firstDifference(left, reordered)).toBe('state.events[0]');
+    expect(firstDifference({ nested: { present: true } }, { nested: {} }))
+      .toBe('state.nested.present (field presence differs)');
   });
 });
 
@@ -195,16 +199,7 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
         const rngChanged = canonical(initial.rng) !== canonical(uninterrupted.rng);
         expect(playerEconomyChanged || populationChanged || pricesChanged || rngChanged).toBe(true);
 
-        expect(expectedHash).not.toBe(initialHash);
-        expect(difference, difference ? `first differing persisted state path: ${difference}` : 'persisted states must match').toBeNull();
-        expect(actualHash).toBe(expectedHash);
-
-        const player = uninterrupted.countries[S0_B4_SCENARIO.player];
-        expect(player.taxRate).toBe(0.16);
-        expect(player.budget.education).toBeCloseTo(0.11, 8);
-        expect(player.budget.construction).toBeCloseTo(0.14, 8);
-
-        // Keep compact, reproducible hashes in the Actions log; full GameState remains an artifact-free test value.
+        // Emit diagnostics before equality assertions so a failed replay still preserves hashes/path in CI logs.
         console.info('[S0-B4]', JSON.stringify({
           baseline: S0_B4_SCENARIO.baselineSha,
           mode,
@@ -231,6 +226,15 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
           },
           firstDifference: difference,
         }));
+
+        expect(expectedHash).not.toBe(initialHash);
+        expect(difference, difference ? `first differing persisted state path: ${difference}` : 'persisted states must match').toBeNull();
+        expect(actualHash).toBe(expectedHash);
+
+        const player = uninterrupted.countries[S0_B4_SCENARIO.player];
+        expect(player.taxRate).toBe(0.16);
+        expect(player.budget.education).toBeCloseTo(0.11, 8);
+        expect(player.budget.construction).toBeCloseTo(0.14, 8);
       });
     }
   }
