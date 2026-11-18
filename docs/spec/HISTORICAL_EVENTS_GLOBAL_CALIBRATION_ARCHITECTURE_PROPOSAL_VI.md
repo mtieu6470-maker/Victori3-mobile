@@ -599,19 +599,3 @@ Add the following invariant-level tests to §10 before any runtime proposal:
 - Replaying a resolved decision or reloading its save cannot double-apply effects.
 
 These amendments close the design-level gaps identified in SA-01, SA-03, SA-07, SA-08, SA-09 and SA-10. SA-02, SA-04, SA-05 and SA-06 remain governed by §§4.2–4.4, 6 and 7 and must be independently checked against the concrete implementation design before any code authorization.
-
-
-### 14.7 Closed condition grammar and recursive build-time validation (SA-10)
-
-Conditions are executable predicates over mutable simulation state. They MUST use a closed, versioned discriminated grammar; an open `{ type: string; [key: string]: unknown }` shape is not an acceptable runtime contract.
-
-- Define one typed schema branch for every supported condition type, including all current branches in `evalCondition()` and any condition introduced later.
-- Each branch declares its exact required/optional fields, primitive types, enum domains, finite numeric bounds, date format, and entity/region/IG/law references.
-- `all` and `any` contain non-empty arrays of recursively validated conditions. Enforce explicit maximum nesting depth and total node count so malformed or adversarial content cannot cause unbounded recursion or expensive monthly evaluation.
-- Run the same recursive validator over country Strategic Priority conditions, historical decision-window conditions and milestone tests. Validation errors include source file, JSON path, condition type and field-level reason.
-- Unknown condition types, unknown properties (unless a branch explicitly allows them), missing required fields, wrong primitive/array types, invalid IDs and invalid numeric/date/enum values fail the data build. They must not silently deactivate a priority/window.
-- Runtime evaluation is defense in depth: malformed or unknown persisted data returns false for the affected predicate and emits a bounded diagnostic; it MUST NOT throw, partially evaluate an invalid tree, or default to success.
-- Nested evaluation shares immutable per-tick context (including the canonical rank snapshot from §14.1). The evaluator must not recompute ranking or read inconsistent state snapshots midway through one condition tree.
-- Schema version and validation rules are included in the compiled data/build identity. A schema change requires fixture updates and compatibility/migration analysis before runtime authorization.
-
-Acceptance tests must prove that every current authored condition passes; every supported type has true/false semantic tests; nested `all`/`any` structures validate recursively; malformed, unknown and out-of-range payloads fail with path-specific diagnostics; recursion/node limits are enforced; and runtime evaluation of corrupt legacy data fails closed without crashing or mutating GameState.
