@@ -1,4 +1,4 @@
-# H01 Batch 02 — gói tích hợp nghiên cứu R3z
+# H01 Batch 02 — gói tích hợp nghiên cứu R3aa
 
 **Trạng thái:** `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`.
 
