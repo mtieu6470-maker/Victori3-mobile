@@ -81,7 +81,7 @@ Not allowed:
 | S0-B1 — CI checksums and test report | Done; reviewer technical verdict `PASS` (v3.3 §2.1) | Owner instruction for B1 (OD-20261116-10B) — met | Evidence committed (`e13d964`) |
 | S0-B3 — Audit scripts, catalog, coverage, crosswalk, asset inventory, Node/desktop harness | `READY_FOR_REVIEW` round 2 (Claude, unverified); round 1 `CHANGES_REQUESTED` | OD-20261116-11 — met | Reports committed (`3d63061`, `55331c2`; corrections `ddea490`, `2c62b3d`); ChatGPT re-review (B4 waits for B3 `REVIEW_PASS`) |
 | S0-B4 — Characterization tests and fixtures (save/load determinism, v3.2 §6.7) | `REVIEW_PASS` (bounded to frozen-baseline G0.6 evidence in run 44325257261) | B3 `REVIEW_PASS` | Four replay cases MATCH; exact scope and limitations in S0_B4_RUN_3_REVIEW.md |
-| S0-B7 — Risk register and signoff package | `IN_PROGRESS` (risk register, finding traceability matrix, review manifest, dependency audit plan/workflow, ChatGPT self-review, Claude review request, B7 results and signoff draft committed; audit dispatch/artifact review, Claude review and owner acceptance pending) | B3 and B4 `REVIEW_PASS` | S0_RISK_REGISTER.md; S0_B7_RISK_TRACEABILITY.md; S0_B7_REVIEW_PACKAGE_MANIFEST.md; S0_DEPENDENCY_AUDIT_PLAN.md; .github/workflows/s0-b7-dependency-audit.yml; S0_B7_SELF_REVIEW.md; CLAUDE_S0_B7_REVIEW_REQUEST.md; S0_SIGNOFF.md; S0_B7_RESULTS.md; bounded G0.7/G0.8 exception requests |
+| S0-B7 — Risk register and signoff package | `IN_PROGRESS` (risk register, traceability matrix, current review manifest, dependency audit plan/workflow, ChatGPT self-review, Claude review request/report template, B7 results and signoff draft committed; dependency audit dispatch/artifact review, Claude review and owner decision pending) | B3 and B4 `REVIEW_PASS` | S0_RISK_REGISTER.md; S0_B7_RISK_TRACEABILITY.md; S0_B7_REVIEW_PACKAGE_MANIFEST.md; S0_DEPENDENCY_AUDIT_PLAN.md; .github/workflows/s0-b7-dependency-audit.yml; S0_B7_SELF_REVIEW.md; CLAUDE_S0_B7_REVIEW_REQUEST.md; CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md; S0_SIGNOFF.md; S0_B7_RESULTS.md; bounded G0.7/G0.8 exception requests |
 | S0-B2 / B5 / B6 — signing, Diagnostic UI, instrumented measurements | `BLOCKED` / deferred | R14 proven on the baseline APK, O5 decided, protected `development-signing` Environment configured by the owner | Per v3.2 §4.1, §6.8 |
 | S1 — Data architecture and save foundation | `NOT_STARTED` | S0 accepted and S1 scope separately approved | S1 acceptance criteria met; independent review; owner accepted |
 | S2+ | `NOT_STARTED` | Previous phase accepted and next scope approved | Phase-specific acceptance and owner approval |
@@ -97,6 +97,11 @@ Pre-protocol work:
 ## 5. Work log
 
 Append newest entries at the top. Do not overwrite earlier entries.
+### 2026-11-18 — B7-CLAUDE-REVIEW-REPORT-TEMPLATE
+
+- Added `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md`, a structured, explicitly unfilled report template for Claude's independent B7 review.
+- It requires live HEAD/file-SHA checks, bounded verdict, one row per finding, gate/risk disposition, owner prerequisites, repository-scope confirmation and specific correction requests.
+- Updated Claude's review request, B7 results and handoff to use/list the template. No independent review result is claimed.
 ### 2026-11-18 — B7-RISK-TABLE-STRUCTURE-CORRECTION
 
 - Found that the P2 Risk Register header had four columns while many body rows had six, causing malformed Markdown tables and loss of clear impact/mitigation/owner/target semantics.
