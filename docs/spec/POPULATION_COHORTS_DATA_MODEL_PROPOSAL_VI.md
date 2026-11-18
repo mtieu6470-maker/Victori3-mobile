@@ -77,23 +77,25 @@ Nguồn dân số tổng 1836 hiện có trong `historical_data/population/popul
 Schema khái niệm (không phải code đã tích hợp):
 
 ```ts
+type AgeBandId = string; // ID do static data định nghĩa; có reserved ID "unknown"
+
 interface PopulationCohort {
-  id: string;                    // deterministic, stable cohort key
+  id: string;                    // "pop:v1:" + canonical JSON identity tuple; không phải ID cá thể lâu dài
   regionId: string;
-  cultureId: string;
-  religionId: string | null;     // null = chưa đủ dữ liệu, không gán tôn giáo giả
+  cultureId: string | null;      // null = chưa phân loại; không đồng nghĩa một culture cụ thể
+  religionId: string | null;     // null = không rõ; "unaffiliated" phải là ID tường minh riêng
   stratum: Stratum;
-  occupationId: string;          // 'unclassified' khi chưa có bằng chứng đủ
-  qualificationId: string;
-  size: number;                  // người, không phải tỷ lệ
-  ageCounts?: Record<AgeBand, number>;
-  literacy: number;              // 0..1, cohort weighted
-  health: number;                // 0..1, nếu data/model đã có
-  wealthPerCapita: number;       // đơn vị kinh tế nội bộ đã chuẩn hóa
-  incomePerCapita: number;       // tại S6 có thể là estimate có nhãn
-  needsSatisfaction?: number;   // S7 cung cấp đầy đủ
+  occupationId: string;          // "unclassified" khi chưa đủ bằng chứng
+  qualificationId: string;       // "unknown" khi chưa đủ bằng chứng
+  size: number;                  // số người nguyên, non-negative safe integer
+  ageCounts?: Record<AgeBandId, number>; // nếu có, tổng các band (kể cả "unknown") phải đúng bằng size
+  literacy: number;              // 0..1; estimate phải giữ provenance ở static seed/method
+  health: number;                // 0..1 nếu model/data hỗ trợ; không tự điền giá trị giả
+  wealthPerCapita: number;       // đơn vị kinh tế nội bộ được chuẩn hóa ở data/economy contract
+  incomePerCapita: number;       // S6 có thể là estimate, không phải wage thực
+  needsSatisfaction?: number;    // S7 cung cấp đầy đủ
   radicalism: number;            // 0..1
-  templateId?: string;           // liên kết static seed/method
+  templateId?: string;           // liên kết static seed/method và provenance
 }
 ```
 
@@ -103,18 +105,22 @@ Quy tắc:
 - `religionId = null` hoặc `occupationId = unclassified` tốt hơn việc tự gán một nhãn sai khi historical data không đủ.
 - `ageCounts` chỉ được khởi tạo khi có nguồn/ phương pháp công khai đủ cho polity hoặc nhóm vùng tương ứng. Nếu không, để thiếu và dùng mortality/fertility fallback đã gắn quality; không tự đặt tuổi chính xác.
 - `employmentAssignment` không nằm trong cohort S6. Từ S12, employment relationship nên là assignment riêng giữa cohort và BuildingSite job slot, để cùng một cohort có thể phân bổ vào nhiều employer mà không nhân đôi population.
-- Không lưu source URL/metadata lặp lại trên mọi cohort mỗi tick. Provenance nằm trong static seed/template và được liên kết thông qua `templateId` + `dataBuildHash`.
+- Không lưu source URL/metadata lặp lại trên mọi cohort mỗi tick. Provenance nằm trong static seed/template và được liên kết thông qua `templateId` + `dataBuildHash`. Nếu một cohort gộp từ nhiều seed/method có quality khác nhau, implementation phải giữ được provenance tổng hợp và không nâng quality của nhóm lên cao hơn thành phần yếu nhất; quy tắc lưu provenance chi tiết phải được chốt ở S1 trước khi migration/runtime code được viết.
 
 ### 4.3. Cohort identity và split/merge
 
-Stable key về mặt logic:
+Identity key về mặt logic (không bao gồm phân bố tuổi):
 
-`regionId | cultureId | religionId-or-unknown | stratum | occupationId | qualificationId | ageBand-or-unknown`
+`[regionId, cultureId-or-unknown, religionId-or-unknown, stratum, occupationId, qualificationId]`
 
-- ID chỉ phụ thuộc các identity dimensions đã được xác định, không phụ thuộc tick, thứ tự array, random number hoặc wall-clock.
+- Serialize tuple theo canonical JSON để tạo `id = "pop:v1:" + canonicalTuple`; không ghép chuỗi bằng delimiter có thể xuất hiện trong ID thành phần.
+- `ageCounts` là vector phân bố tuổi bên trong cohort, không phải một chiều identity. Nếu static data có tuổi, các band phải dùng ID từ AgeBand definitions và tổng số đếm (bao gồm band `unknown` cho phần chưa rõ) phải bằng `size`. Nếu không có age evidence, để `ageCounts` absent; không tự chia tỷ lệ.
+- `size` và từng age count là số nguyên an toàn, không âm. Mọi split/migration phải chia cả `size` và các age counts theo cùng quy tắc remainder xác định.
+- `religionId = null` chỉ có nghĩa là không rõ/không được ghi nhận; nhóm không theo tôn giáo hoặc không khai báo phải dùng ID tường minh riêng, không dùng null.
+- ID là canonical key của cấu trúc cohort hiện tại, không phải định danh bền vững xuyên mọi biến đổi: đổi region/stratum/occupation/qualification sẽ tạo key mới. Không lưu foreign key lâu dài tới `cohort.id`; hệ thống cần liên kết bền vững phải dùng ID thực thể khác (ví dụ BuildingSite từ S12) hoặc event/lineage được thiết kế riêng.
 - Khi migration chuyển cohort sang region mới, tạo key mới tại destination và trừ đúng số lượng khỏi source.
 - Khi đổi stratum/occupation/qualification, thực hiện split/merge xác định: phần population chuyển sang key mới; phần còn lại giữ key cũ.
-- Cohort có cùng key được hợp nhất theo quy tắc canonical. Không để 2 record trùng key tồn tại do khác thứ tự xử lý.
+- Cohort có cùng key được hợp nhất theo quy tắc canonical: `size` và age counts cộng; các thuộc tính dạng bình quân được gộp theo trọng số population, không lấy trung bình đơn giản. Giá trị thiếu không được thay bằng 0; nếu hai record không thể gộp mà vẫn giữ provenance/quality thì phải giữ provenance tách biệt hoặc không gộp.
 - Mọi phép xử lý cohort phải duyệt theo stable ID order hoặc canonical region order. Không dựa vào thứ tự property của object để tạo kết quả mô phỏng.
 
 ### 4.4. Region aggregate read model
