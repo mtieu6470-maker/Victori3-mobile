@@ -1,4 +1,4 @@
-# H01 batch 02 — repository integration map (R3v)
+# H01 batch 02 — repository integration map (R3x)
 
 ## Integration boundary
 This R3t task integrates H01 research, provenance, reconciliation and audit decisions into the repository documentation layer. It does **not** integrate unresolved H01 estimates into shipped game data.
@@ -60,3 +60,15 @@ Added:
 The accessible Asiwaju p.704 chapter text describes a multi-level Oyo influence/tribute geography but does not substantiate the >750k demographic claim attributed to it by Butcher & Griffiths. This citation chain remains open; no numerical replacement is offered. The historical sequence is documented as collapse/desertion c.1835–36, displaced alliance at Ago Oja, then formal ritual installation and fuller official reconstitution c.1838. These circa-year sources do not justify a precise 1836-01-01 border/owner change.
 
 R3w updates research and coordination documentation only. Live historical_data, populations, owner registry, map geometry, runtime/engine/save schema, tests, assets, Android and workflows remain unchanged. No numeric approval, PR, merge or APK build.
+
+
+## R3x NDE source layer
+Added:
+- `H01_R3x_NDE_POPULATION_AND_CONTROL_SCOPE_AUDIT_VI.md` — Lye direct page audit and Rasmussen trace through Delius.
+- `H01_R3x_SOURCE_EVIDENCE_MATRIX.csv` and `H01_R3x_SOURCE_REGISTRY_DELTA.csv` — source-level evidence, page locations and inspection caveats.
+- `H01_R3x_PATCH_DECISIONS.csv` — NDE profile description, range, military force, broad region and migration unit dispositions.
+- `H01_R3x_OPEN_EVIDENCE_REQUESTS.csv` — remaining direct Rasmussen pages, interval derivation and dated territorial boundary requests.
+
+R3x changes the research wording of NDE 60k from an alleged Ndebele/Nguni core to an approximate broad subject population of Mzilikazi's polity, circa 1830s. Lye's 1k–5k is a separate 1836 Nguni military-force estimate; 10k–20k is a later departure stream; Delius records 20k as the most reliable end-1820s estimate and some estimates three to four times higher. R3l's 45k–85k band remains methodologically unverified. NDE_MOS 210k remains broad geography only.
+
+No shipped population/profile/ownership/geometry/runtime/save/test/assets/Android/build/workflow change. No numeric approval, PR, merge or APK build.
