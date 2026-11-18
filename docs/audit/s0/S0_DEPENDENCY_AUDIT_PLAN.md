@@ -9,7 +9,7 @@
 
 - The read-only audit in `docs/audit/s0/logs/a2/10_npm_audit.log` was run against baseline `2240a8f` on 2026-11-16. It reported 6 vulnerabilities: 3 moderate, 1 high, 2 critical. The report named advisories `GHSA-82fw-gwwq-j7x9`, `GHSA-qxg6-89mg-rqv8`, `GHSA-67mh-4wv8-2f99`, `GHSA-5gmw-xhrv-c9v3`, and `GHSA-85c8-ppgw-ccpr`, with affected dependency families including Vitest/@vitest/mocker, tinypool, Vite/vite-node and esbuild.
 - The successful B4 Run #3 on 2026-11-18 reported 10 vulnerabilities during `npm ci`: 3 moderate, 5 high, 2 critical. That job log contains only the summary line, not the advisory/package details.
-- The two totals must not be merged or treated as the same advisory set. npm and the registry advisory database versions/timestamps differed, and the Run #3 log does not identify the five additional findings.
+- The two totals must not be merged or treated as the same advisory set. The commands, collection dates and npm execution context differ; the available logs do not explain the numerical difference or identify which advisories account for it.
 
 ## 2. Read-only scan design
 
