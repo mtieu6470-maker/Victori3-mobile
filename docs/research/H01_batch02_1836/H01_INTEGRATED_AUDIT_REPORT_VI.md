@@ -1,0 +1,53 @@
+# H01 Batch 02 — consolidated research integration report (R3t)
+
+**Status: `RESEARCH_LAYER_INTEGRATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`**  
+Snapshot used by the source package: `1836-01-01` (simulation anchor; source temporal precision is often annual or circa-year).  
+Scope: 17 H01 political entities, 78 region fact rows, 90 crosswalk rows, 81 unique repository region slots, 35 R3l source-register rows, 128 provenance claims.
+
+## 1. Decision summary
+- The 17-entity reconciliation has 15 interval-overlap matches and two non-overlaps: OYO and NDE. Interval overlap is only arithmetic consistency; it does not prove historical population scope, sovereignty or source quality.
+- All 81 distinct repository region slots in the R3l crosswalk had allocation weights summing to 1.000 in the original validation. That validates join arithmetic, not political control.
+- No numeric H01 value is promoted to verified game data in this integration.
+- The research dossier is integrated under `docs/research/H01_batch02_1836/`; live population benchmarks, profiles, ownership, game runtime and S1 remain unchanged.
+
+## 2. OYO — peak, collapse and successor powers
+R3l reports OYO profile 650,000 (400,000–1,000,000) and broad OYO_OYO/Yorubaland 1,450,000 (1,100,000–1,900,000), with no interval overlap. The profile's Law (1977) pp.295–302 citation has not been directly inspected; the table of contents establishes these pages lie in Chapter 14, “The Fall of Oyo (c.1823–c.1836)”, beginning p.278. The pages themselves remain access-restricted.
+
+Manning (2014) is mislocated in R3l: correct locator is Chapter 4, pp.131–150 (Table 4.1 pp.132–133), not Chapter 2, pp.27–52. The chapter gives continental and six macroregional estimates, not Oyo/Yoruba 1836. It does not independently support OYO_OYO=1.45m.
+
+Law (1982) supports qualitative defeat/abandonment of Old Oyo around 1836 and a weakened southern reconstitution, but no 650k or 1.45m population. Lovejoy's close-to-one-million figure and the archaeological Old Oyo city estimates relate to peak c.1780, not 1836. Kusimba et al. estimate the late-18th-century urban Old Oyo population, not the empire. Morton-Williams places Atiba's formal installation at Ago Oja/New Oyo around 1838; do not back-project that successor structure onto the 1 Jan 1836 snapshot.
+
+**Decision:** OYO 650k = `UNVERIFIED_SCOPE / QUARANTINED`; OYO_OYO 1.45m = `UNVERIFIED_DERIVATION / QUARANTINED`. Keep the technical slot join for now, but annotate it as a broad, multi-polity Yoruba geography, not proof that all population was directly controlled by Oyo. No replacement number, no owner/map change.
+
+## 3. NDE — polity population vs broad Mosega region
+R3l reports NDE 60,000 (45,000–85,000), described as a Ndebele core, and NDE_MOS 210,000 (155,000–280,000), a broad Mosega/Western Transvaal region. Landau (2010, p.83) says Mzilikazi's highveld polity ruled “perhaps 60,000 people” in the 1830s. The polity included Nguni, Sotho and other incorporated/subject communities; it is not an ethnic Ndebele census. Its “perhaps” wording does not establish an empirical 45k–85k confidence interval.
+
+Sources also distinguish incorporated followers, tributaries where individually evidenced, raided/displaced groups and independent neighbours. They do not prove that all Pedi/Venda/Tswana communities across the 210k macro-region were under direct Ndebele rule.
+
+**Decision:** 60k may be retained only as a provisional circa-1830s population of Mzilikazi-led polity, not “Ndebele ethnic core”; mark the 45k–85k interval unverified. NDE_MOS 210k remains a broad geographic reconstruction only; no numeric split, no owner change.
+
+## 4. LIB / Monrovia and DZ_KRU
+R3l reports LIB 3,500 (3,000–4,000) and LIB_MON 3,600 = 3,500 ACS settlers + 100 additional enclave residents. Everill metadata is misdated: publisher lists eBook publication in 2012 and copyright 2013, not 2014; the cited pp.48–55 cross the chapter boundary. Public metadata/preview does not verify the 3,500 or 100 components.
+
+The ACS 1844 annual report's retrospective Liberia series gives 2,230 for 1836, and Starr (1913) reproduces 2,230 for Liberia excluding Maryland. Neither is Monrovia-only. Freeman's near-contemporary estimate of c.1,500 is Monrovia around 1837, not a 1836 census. These figures are different dates/universes and must not be substituted directly.
+
+Arithmetic: SSA_REG_06 = 3,600 + 356,400 = 360,000; DZ_KRU = 356,400 + 480,000 = 836,400. The 356,400 is a residual if LIB_MON is 3,600; if the unverified 100 is excluded and LIB_MON is 3,500, residual would be 356,500. Neither arithmetic case validates the inputs. R3l's prose contains stale 356,500 text inconsistent with the tabulated 356,400 residual.
+
+**Decision:** 3,500, 100 and the 3,600 aggregate are unverified/provisional; do not call them census-verified. 356,400 is arithmetic residual only; 836,400 is a geographic aggregation, not one polity census. Correcting live source data or method text requires a separately authorized data patch.
+
+## 5. Other 14 H01 entities
+The remaining entities show interval overlap in the R3l profile-vs-mapped geography arithmetic. Preserve their existing values for traceability only. The reconciliation in this package does not certify their historical estimates; individual source/scope review remains necessary before promotion to verified game data.
+
+## 6. Data safety and integration status
+This documentation integration intentionally leaves all `historical_data/` inputs and the population builder unchanged. The current repo's 1836 benchmark groups are aggregate sets and do not include a dedicated source-backed OYO, NDE or LIB population group. Adding H01 raw population values to runtime at this point would bypass the phase gate and could mis-scale selected regions.
+
+No assets/media binaries were supplied in the H01 data batch; visual assets are not required to resolve these population/provenance findings. No workflow, APK or engine changes were made.
+
+## 7. Required evidence before numeric/data acceptance
+1. Law (1977) pp.295–302 readable page scan and exact calculation context.
+2. Law (1977) pp.81–90 to verify peak estimate context cited through Lovejoy.
+3. Asiwaju (1989) English p.704 plus adjacent pages to reconcile the >750k secondary citation.
+4. Manning-derived 1.45m workbook, polygon, base year, denominator, migration and uncertainty treatment.
+5. Rasmussen/Lye page-level evidence for NDE 60k and interval definition.
+6. Everill pages or primary rolls proving Monrovia 3,500 and enclave 100 with correct date and population universe.
+7. Owner-authorized S1 scope for shipped population/control edits; independent Claude review of this docs integration.
