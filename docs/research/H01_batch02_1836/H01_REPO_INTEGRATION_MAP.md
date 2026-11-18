@@ -1,4 +1,4 @@
-# H01 batch 02 — repository integration map (R3t)
+# H01 batch 02 — repository integration map (R3v)
 
 ## Integration boundary
 This R3t task integrates H01 research, provenance, reconciliation and audit decisions into the repository documentation layer. It does **not** integrate unresolved H01 estimates into shipped game data.
@@ -33,3 +33,18 @@ Obtain readable Law (1977) pp.295–302 and pp.81–90, Asiwaju (1989) English p
 ## R3u supplemental documentation layer
 - Added `H01_R3u_SUPPLEMENTAL_SOURCE_AUDIT_VI.md`, `H01_R3u_SOURCE_EVIDENCE_MATRIX.csv`, `H01_R3u_PATCH_DECISIONS.csv`, `H01_R3u_OPEN_EVIDENCE_REQUESTS.csv` and `H01_R3u_SOURCE_REGISTRY_DELTA.csv`.
 - The consolidated audit/validation/README are updated. No live historical_data, map, runtime or workflow files changed.
+
+
+## R3v supplemental Liberia source layer
+Added under `docs/research/H01_batch02_1836/`:
+- `H01_R3v_LIBERIA_PRIMARY_SERIES_RECONCILIATION_VI.md` — detailed source-lineage and scope assessment.
+- `H01_R3v_SOURCE_EVIDENCE_MATRIX.csv` — source-level evidence, inspection level and caveats.
+- `H01_R3v_SOURCE_REGISTRY_DELTA.csv` — candidate source registry additions; does not overwrite live registry.
+- `H01_R3v_LIBERIA_SERIES_COMPARISON.csv` — unit/date/geography distinctions for Starr, Shick, Freeman, 1843 roster and Hassell.
+- `H01_R3v_PATCH_DECISIONS.csv` — explicit disposition of disputed values.
+- `H01_R3v_OPEN_EVIDENCE_REQUESTS.csv` — remaining source requests and statuses.
+- `GITHUB_INTEGRATION_RECEIPT_R3v.md` — commit chain and boundary receipt.
+
+R3v clarified that Starr's 1836 `2,230` belongs to a Liberia immigrant vital-statistics series excluding Maryland and excluding the aboriginal population definition; Shick's ACS individual-emigrant series records `242` arrivals in 1836 versus Starr's `209`, an unresolved source-series conflict. Freeman's approximate `1,500` Monrovia inhabitants is a c.1837 quotation carried by Hiller (1860), not a census. A September 1843 Monrovia roster transcription was located but original page images and inclusion coverage remain unverified.
+
+**No numerical promotion:** R3l LIB 3,500, LIB_MON 3,600 and the extra 100 remain quarantined; DZ_KRU 356,400 remains a conditional arithmetic residual only. No live historical_data, population profiles/benchmarks, political registry, map owner/geometry, runtime, save schema, engine, tests, assets, Android, workflow or APK files changed. All R3v commits use `[skip ci]`; Claude independent review and owner acceptance remain pending.
