@@ -81,7 +81,7 @@ Not allowed:
 | S0-B1 — CI checksums and test report | Done; reviewer technical verdict `PASS` (v3.3 §2.1) | Owner instruction for B1 (OD-20261116-10B) — met | Evidence committed (`e13d964`) |
 | S0-B3 — Audit scripts, catalog, coverage, crosswalk, asset inventory, Node/desktop harness | `READY_FOR_REVIEW` round 2 (Claude, unverified); round 1 `CHANGES_REQUESTED` | OD-20261116-11 — met | Reports committed (`3d63061`, `55331c2`; corrections `ddea490`, `2c62b3d`); ChatGPT re-review (B4 waits for B3 `REVIEW_PASS`) |
 | S0-B4 — Characterization tests and fixtures (save/load determinism, v3.2 §6.7) | `REVIEW_PASS` (bounded to frozen-baseline G0.6 evidence in run 44325257261) | B3 `REVIEW_PASS` | Four replay cases MATCH; exact scope and limitations in S0_B4_RUN_3_REVIEW.md |
-| S0-B7 — Risk register and signoff package | `IN_PROGRESS` (risk register, dependency audit plan/workflow, ChatGPT self-review, Claude review request, B7 results and signoff draft committed; audit dispatch/artifact review, Claude review and owner acceptance pending) | B3 and B4 `REVIEW_PASS` | S0_RISK_REGISTER.md; S0_DEPENDENCY_AUDIT_PLAN.md; .github/workflows/s0-b7-dependency-audit.yml; S0_B7_SELF_REVIEW.md; CLAUDE_S0_B7_REVIEW_REQUEST.md; S0_SIGNOFF.md; S0_B7_RESULTS.md; bounded G0.7/G0.8 exception requests |
+| S0-B7 — Risk register and signoff package | `IN_PROGRESS` (risk register, finding traceability matrix, dependency audit plan/workflow, ChatGPT self-review, Claude review request, B7 results and signoff draft committed; audit dispatch/artifact review, Claude review and owner acceptance pending) | B3 and B4 `REVIEW_PASS` | S0_RISK_REGISTER.md; S0_B7_RISK_TRACEABILITY.md; S0_DEPENDENCY_AUDIT_PLAN.md; .github/workflows/s0-b7-dependency-audit.yml; S0_B7_SELF_REVIEW.md; CLAUDE_S0_B7_REVIEW_REQUEST.md; S0_SIGNOFF.md; S0_B7_RESULTS.md; bounded G0.7/G0.8 exception requests |
 | S0-B2 / B5 / B6 — signing, Diagnostic UI, instrumented measurements | `BLOCKED` / deferred | R14 proven on the baseline APK, O5 decided, protected `development-signing` Environment configured by the owner | Per v3.2 §4.1, §6.8 |
 | S1 — Data architecture and save foundation | `NOT_STARTED` | S0 accepted and S1 scope separately approved | S1 acceptance criteria met; independent review; owner accepted |
 | S2+ | `NOT_STARTED` | Previous phase accepted and next scope approved | Phase-specific acceptance and owner approval |
@@ -97,6 +97,11 @@ Pre-protocol work:
 ## 5. Work log
 
 Append newest entries at the top. Do not overwrite earlier entries.
+### 2026-11-18 — B7-SOURCE-TO-RISK-TRACEABILITY-MATRIX
+
+- Added `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md`, a source-ID-to-risk-row matrix for R1–R14, RM-F1…F5, TC-F1…F7, GD-F1…F6, AS-F1…F7, WD-F1…F3, CI-F1…F3, DEP-F1 and the G0.7 device-evidence gate.
+- Each row records source severity, target risk-register section/row, and disposition, including the closed R3, G0.6-mitigated-but-originally-narrow TC-F5, and newly restored WD-F3 P2 finding.
+- Added the matrix to Claude's read-only review inputs and B7 deliverable index. No product or dependency content was changed.
 ### 2026-11-18 — B7-WD-F3-MISSING-FINDING-CORRECTION
 
 - Source-to-register review found WD-F3 was missing from the detailed risk tables although WD-F1 and WD-F2 were present. Added the P2 finding: five of eight starting wars capitulate at tick 5 in all four probe scenarios; B3 did not assess historical end-date accuracy.
