@@ -16,7 +16,8 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 
 - **R4e / Claude — final collective/aggregate succession queue review:** start with `docs/audit/s0/GLOBAL_R4E_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4e covers MAO (collective rangatira authority) and MLY (multiple Malay constituent polities); base SHA before R4e: `103ab66b227809fae358e082fa253c0e50a1f78c`. Fetch the exact latest branch HEAD before review.
 - **R4e package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/README_VI.md`; 2-entity evidence matrix, 19 non-executing decisions, 12 open evidence requests and 20 source records. Integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/GITHUB_INTEGRATION_RECEIPT_R4e.md`.
-- **P0 engineering pre-design — Population Cohorts:** `docs/spec/POPULATION_COHORTS_DATA_MODEL_PROPOSAL_VI.md`. This is design-only, based on the checked-in `Region`/`GameState`/`populationMonth`/`shiftStrata`/`computeEconomy`/save implementation and roadmap S1/S6/S7/S10–S12. It is NOT S1 execution or runtime authorization. S1 remains `NOT_STARTED`; no code/data/save/UI changes are permitted until the S0-B7 review + owner gate is satisfied.
+- **P0 engineering pre-design — Population Cohorts:** `docs/spec/POPULATION_COHORTS_DATA_MODEL_PROPOSAL_VI.md` (design revision `b35c5367cfe41bea3036bec2b846d19060f495c0`). ChatGPT self-audit clarified age distribution vs cohort identity, canonical tuple IDs, integer population mass and unknown-vs-unaffiliated religion. Still design-only; no runtime authorization.
+- **Population Cohorts — Claude independent design review:** start with `docs/audit/s0/POPULATION_COHORTS_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (request commit `c972b1b3844943e5df2f433936c8c21bb4fb464e`). No-write review of the design only; review target design commit `b35c5367cfe41bea3036bec2b846d19060f495c0`, code baseline `e4924ca48264f8d0818eface51a28a87cd363b89`. This does not substitute for S0-B7 review/owner acceptance and does not open S1.
 - **R4d / Claude — previous global succession + V3 parity review:** `docs/audit/s0/GLOBAL_R4D_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open for the final 15 missing-profile cases and the requested 41-area Victoria 3 feature-parity audit. Base SHA: `f0745f1fd1eb381434cba4aa8576b3c2271d8732`.
 - **R4d package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4d/README_VI.md`; 15-polity audit, 26 non-executing decisions, 17 open evidence requests and 34 source entries. Feature parity files: `docs/audit/GLOBAL_VICTORIA3_FEATURE_PARITY_AUDIT_VI.md` and `docs/audit/GLOBAL_VICTORIA3_FEATURE_PARITY_MATRIX.csv`. R4d integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4d/GITHUB_INTEGRATION_RECEIPT_R4d.md`.
 - **R4c / Claude:** `docs/audit/s0/GLOBAL_R4C_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open for 15 previous profiles.
@@ -120,6 +121,14 @@ Pre-protocol work:
 | Earlier stages 1–5 (identity/content, numbering of an earlier specification) | `PRE_PROTOCOL_IMPLEMENTED_REPORTED` | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` | Not `REVIEW_PASS` or `ACCEPTED`; part of the current baseline; S0 verifies what is present at the frozen SHA |
 
 ## 5. Work log
+
+### 2026-11-18 — POPULATION-COHORTS-DESIGN-REVIEW-PACKET
+
+- Proposal revision committed: `b35c5367cfe41bea3036bec2b846d19060f495c0`; changed only `docs/spec/POPULATION_COHORTS_DATA_MODEL_PROPOSAL_VI.md`.
+- ChatGPT author self-audit corrected the mismatch between age-distribution vectors and the cohort identity key; clarified canonical tuple serialization, cohort-key lifecycle, integer-safe population counts, age-count mass balance, and unknown religion vs explicit unaffiliated identity. This is a self-audit, not an independent review.
+- Claude no-write independent design-review request added at `docs/audit/s0/POPULATION_COHORTS_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (commit `c972b1b3844943e5df2f433936c8c21bb4fb464e`).
+- Review packet confines review to design commit `b35c536` against product/code baseline `e4924ca`; required verdict is `REVIEW_PASS`, `CHANGES_REQUESTED` or `BLOCKED`.
+- No engine, historical data, tests, save implementation/schema, UI, assets, Android, workflow, Gradle, signing or APK files changed. No tests/build/APK workflows were run. S1 remains `NOT_STARTED`; S0-B7 independent review and owner acceptance remain pending.
 
 ### 2026-11-18 — POPULATION-COHORTS-TECHNICAL-PRE-DESIGN
 
