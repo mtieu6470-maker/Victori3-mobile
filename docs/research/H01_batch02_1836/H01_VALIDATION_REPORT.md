@@ -1,4 +1,4 @@
-# R3t validation report
+# R3v consolidated validation report
 
 ## Repository snapshot
 - Repository: `mtieu6470-maker/Victori3-mobile`
@@ -40,3 +40,13 @@ These are ChatGPT implementation checks and self-audit, not an independent REVIE
 - No population/game runtime/ownership/map/save/asset/workflow/APK files were changed. No numeric approval.
 - Screenshot limits: Shick PDF screenshot 403; Starr/Hassell screenshot unavailable due file size; Lye text inspected from page-numbered digitized transcription; Law 1977 pp.295–302 and Asiwaju English p.704 remain unread.
 - Self-audit only; independent Claude review and owner decision remain pending.
+
+
+## R3v research/source validation (2026-11-18)
+- Re-opened full searchable Starr (1913) text; confirmed table attribution to African Repository, immigrant vital-statistics context, exact 1836 row and explicit immigrant/aboriginal distinction.
+- Detected a printed 1834 stock anomaly: printed 1,016 conflicts with preceding stock/flow arithmetic (expected 2,016); no silent correction applied.
+- Re-opened Shick (1971) full searchable Berkeley PDF text; confirmed individual ACS emigrant data source, 1836 arrivals 242, total 4,571 and 1,819 living in settlements by 1843. Starr gives 209 arrivals in 1836, so the two source series conflict and remain unreconciled.
+- Located official GovInfo Senate Document 150 (1845) and a seven-page web transcription of a Monrovia census-labelled list for September 1843. The transcription is not visually authenticated against original page scans, no safe aggregate total extracted, and Indigenous/local inclusion universe is unknown.
+- Hiller (1860) Section IV attributes a c.1,500 Monrovia estimate to Freeman writing in 1837; original Freeman document remains unidentified; New Georgia and Millsburgh figures are separate settlements.
+- R3v source CSVs are rectangular; disputed live values remain quarantined. No runtime/game data change.
+- Self-audit only; independent Claude review and owner acceptance pending. No build/APK workflow run.
