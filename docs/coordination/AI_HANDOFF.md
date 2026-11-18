@@ -105,6 +105,21 @@ Pre-protocol work:
 
 ## 5. Work log
 
+### 2026-11-18 — H01-R3AA-NDE-1829-ARCHBELL-CHASE-RASMUSSEN-TRACE
+
+- Owner instruction: continue H01 research; owner is prepared to have Claude review/fix later. Scope remains documentation/research only.
+- Repository/branch: `mtieu6470-maker/Victori3-mobile`, `claude/game-historical-sandbox-modes-kg7rj7`.
+- Base HEAD before R3aa: `a2366f5ac830599549b51f6be478ab9ba1f9451f`.
+- Research commits: `e472d68177e56e1e2685192e6462e38f21ec045e` (audit report), `68146decc7ebff57dd46cda584e07ff9f0697150` (source matrix), `24cb76613dc64759377b39ed1a5b249af9cdcb6c` (patch decisions), `63041c3aa89ba1c76ea89556f82d1416ed3986f3` (open requests), `1090e076585f513376440103783337e8601c6408` (source registry delta), `92389c4d322d742938353e60c6756ba565f68f2f` (update existing R3T-07), `2aff1a0b7baff8114dc5c635aafc79720812772c` (correct Delius locator), `0ef06128bb645dbda27359cfa896f03b441ecaf0` (integrated audit), `d2699ed7714dd944cb7026795a46650179d90b1c` (validation), `07491d963cc2dcdc8abae4a847a75e6cf9690735` (README), `1cfd9602a824bb906695b3f72e9db5737803c169` (integration map). Every commit uses `[skip ci]`.
+- Chase (1830), *South African Quarterly Journal* 1(4), p.407: contemporary report says c.80,000 under Malacatzie, including conquered Batow/Bichuana dependants. It is a travel-report estimate, not a census.
+- Archbell: Ferreira (2025 UCT thesis, printed p.38) corroborates a December 1829 Missionary Society letter and encounter with Mzilikazi at Plaatberg; the excerpt cites *Missionary Notices* VI no.179 p.356 and gives no population count. Lye (1969) footnotes link Chase and separate Archbell correspondence. Date/item/box references do not align cleanly (3 Dec vs 31 Dec; box II vs S.A. III listings); original letter not inspected.
+- Kruger (2010 UCT thesis, p.140) indirectly attributes to Rasmussen (1978) about 20,000 people under Mzilikazi in the Rustenburg area in 1829 vs 60–80k attributed to Archbell. Official UCT record confirmed; download timed out and p.140 was read in accessible transcription. Rasmussen original pages remain unread.
+- Scope caution: Chase's “country he now possesses” includes conquered Bichuana dependants; Kruger's reported 20k is “Rustenburg area”. Do not treat as like-for-like until geography/population universe is reconciled. Lye's 60–80k broad subject synthesis is not an independent census; 1836 1–5k is Nguni military force, not population.
+- Disposition: NDE 60k remains provisional high-uncertainty composite polity-subject candidate; 45–85k interval remains unverified with no method; NDE_MOS 210k broad geography only. No numeric/game/owner/map patch.
+- R3aa files: `H01_R3aa_NDE_1829_ARCHBELL_CHASE_RASMUSSEN_TRACE_VI.md`, source evidence matrix, patch decisions, open evidence requests; sources added to source registry; R3T-07 updated; consolidated audit, validation, README, integration map and handoff updated.
+- No live historical data/population benchmarks/profiles/political registry/ownership/geometry/runtime/engine/save/tests/assets/Android/Gradle/workflow/APK files changed. No PR, merge or build.
+- Status: `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`. ChatGPT self-audit only, not independent Claude `REVIEW_PASS`; owner acceptance pending.
+
 ### 2026-11-18 — H01-R3Y-OYO-1831-1836-POLITICAL-GEOGRAPHY-AND-POPULATION-UNITS
 
 - Owner direction: continue H01 research and documentation; owner is prepared to ask Claude to review/fix later. Scope remains existing H01 research layer only.
