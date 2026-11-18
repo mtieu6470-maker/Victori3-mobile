@@ -424,3 +424,32 @@ Define closed discriminated schemas for decision windows, every option effect, e
 - Compiled records retain normalized source IDs, locators, quality, date precision, uncertainty and causal/mode metadata in typed fields.
 - Runtime rejects malformed legacy data without throwing, partial commit or firing the event.
 
+
+
+## 13. S22-SA-13 — P1: The required twelve-macro-region coverage denominator is not represented in the inspected geography/data schema
+
+**Evidence**
+
+- The project-wide Historical Mode fidelity standard, docs/spec/GLOBAL_HISTORICAL_MODE_FIDELITY_STANDARD_VI.md §8 G5, requires evaluation cases across “12 macro-region” but the inspected standard does not enumerate their stable IDs, names, boundaries or assignment rules.
+- src/engine/data/dbTypes.ts RegionRecord contains stable region ID, name, coordinates, owner/controller, culture, religion, terrain, population and resources, but no macroRegionId, geography taxonomy version or crosswalk reference.
+- EntityRecord/political registry contains entity kind/tier/model/overlord and related profile fields, but no canonical world-region mapping contract.
+- historical_data/borders/regions_1836.csv contains lat/lon and owner fields for strategic regions; it does not declare a macro-region identifier or a versioned geometry/crosswalk.
+- The reviewed repository tree and targeted code/document search did not locate a canonical twelve-region taxonomy or an authoritative mapping table. Latitude/longitude alone is not a documented project taxonomy and cannot safely supply one.
+
+**Impact**
+
+The project can count observations by source entity and metric, but cannot reproducibly generate the required macro-region × metric × polity-class denominator. A report could omit data-poor regions, misclassify areas using modern country/continent labels, or treat a country-level observation as evidence for every strategic region it touches. Any “all 12 macro-regions covered” claim would therefore be unverified. This is a calibration/governance blocker, not proof that the world map itself lacks geographic coverage.
+
+**Required correction after authorization**
+
+Obtain explicit owner approval for the twelve stable macro-region IDs, names, boundary reference and inclusion rules. Add versioned geography contracts for physical strategic-region membership, historical source-geography units, temporal crosswalks and polity-territory relationships. Keep macro-region assignment independent from political ownership; crosswalk source observations only with documented method, temporal validity, weights/ranges, uncertainty and locators. Keep aggregate data at its original scope when allocation is indefensible. Every report must show all twelve regions, including zero/missing rows, and report metric-specific denominators. Until then, mark region-level global scores as NOT_SCORABLE.
+
+**Acceptance tests**
+
+- Exactly twelve owner-approved stable IDs exist with a recorded decision and boundary source.
+- Every 1836 strategic region has exactly one valid physical macro-region mapping or an explicit unresolved status.
+- Source-geography crosswalks are time-valid, sourced and have documented conservation/allocation rules.
+- Territorial ownership changes update polity membership but not physical macro-region assignment.
+- Country/modern-territory aggregates cannot be silently duplicated into multiple strategic regions.
+- All twelve macro-regions remain visible in coverage output, including missing/zero-observation regions.
+- Prior reports reproduce with their original taxonomy version after any approved taxonomy update.
