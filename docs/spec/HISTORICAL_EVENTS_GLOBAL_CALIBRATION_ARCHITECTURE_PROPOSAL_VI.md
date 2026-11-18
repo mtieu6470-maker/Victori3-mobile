@@ -599,3 +599,111 @@ Add the following invariant-level tests to §10 before any runtime proposal:
 - Replaying a resolved decision or reloading its save cannot double-apply effects.
 
 These amendments close the design-level gaps identified in SA-01, SA-03, SA-07, SA-08, SA-09 and SA-10. SA-02, SA-04, SA-05 and SA-06 remain governed by §§4.2–4.4, 6 and 7 and must be independently checked against the concrete implementation design before any code authorization.
+
+
+### 14.8 Mode contract for physical hazards, biological hazards and human discoveries
+
+The current baseline uses one switch: Historical Mode applies all nine dated exogenous records, while Sandbox disables all dated records and substitutes stochastic drought/epidemic/blight/discovery analogues. This is a legacy implementation choice, not a sufficient semantic classification for a global 1836–1936 simulation. “Exogenous” MUST describe causal independence from campaign decisions, not merely “present in a historical source”.
+
+Classify each occurrence into one of these causal inputs before assigning mode behavior:
+
+1. **Physical forcing** — a meteorological/geophysical event whose occurrence is independent of polity decisions. A source-backed date/location can be a shared world input in both modes when the evidence and precision justify it. The event applies only the physical hazard; crop loss, hunger, mortality, migration, unrest and state response remain simulation outcomes.
+2. **Biological hazard introduction** — an epidemic/pathogen/crop-blight introduction. Historical source evidence may support a dated origin or first observation in Historical Mode, but propagation and affected territory MUST be computed from the current campaign's population, transport, climate, trade and contact network. Do not blindly apply the full historical affected-region list after those networks diverge. Sandbox uses the same spread mechanics with its declared stochastic/conditional introduction policy, not a fixed historical footprint.
+3. **Human-mediated discovery** — a mineral/resource discovery, scientific observation, exploration or settlement-dependent find. A geological deposit and knowledge/discovery are separate facts. A historical discovery MUST NOT add a resource to a region unconditionally merely because the calendar reaches a date. It requires a plausible actor, access, capability/knowledge and current preconditions; the historical record may contribute context or a bounded prior in Historical Mode. Sandbox discoveries emerge from the same capabilities and rules without a post-start historical discovery script.
+4. **Social/economic consequence** — famine, mortality, migration, market collapse or political unrest. These are outcomes of hazards, institutions, infrastructure, market access, policy and population behavior. They MUST be simulated from state changes, not bundled into a one-shot “historical event” effect unless the source is measuring an independently observed quantity that is explicitly modeled as such.
+
+**Current nine-record inventory requiring classification**
+
+- Cholera wave records (`exo_cholera_2`, `exo_cholera_3`): biological hazard evidence; distinguish introduction/first observation from spread through the current contact network.
+- Agra, Northern China and southern India drought/famine records (`exo_agra_famine`, `exo_north_china_famine`, `exo_great_indian_famine`): treat the sourced drought hazard separately from famine severity, mortality and relief outcomes.
+- Potato blight (`exo_potato_blight`): biological hazard introduction/spread; historical affected-region list is evidence for the historical run, not a mandatory footprint after alternate trade/transport conditions.
+- California, Victoria and Witwatersrand gold records (`exo_gold_california`, `exo_gold_victoria`, `exo_gold_witwatersrand`): human-mediated discovery. Geological resource presence, discovery knowledge, public announcement, rush migration and production are distinct states/processes.
+
+Mode behavior:
+
+- Both modes continue to use the same monthly `SYSTEMS` pipeline and the same 1836 starting world.
+- Historical Mode may use source-backed historical origin/date, historical context, priorities and decision opportunities. It may not force a downstream spread, policy response or political result after causal preconditions diverge.
+- Sandbox does not run post-start historical political decision scripts, historical successor scripts or historical priorities. It still uses the same physical/biological/economic systems; each hazard class explicitly declares whether its initial forcing is shared, conditional or stochastically generated.
+- A source record MUST declare its mode applicability, causal class, date precision, geography semantics (origin vs observed spread vs affected-area estimate), uncertainty and downstream simulation model. No global rule such as “all dated events only in Historical Mode” or “all physical events always repeat in Sandbox” is permitted.
+- If the available source only records the historical realization and cannot establish an independent exogenous origin, represent it as historical evidence/conditional context, not as a forced physical input.
+
+Acceptance tests must change the campaign transport/contact network and verify that epidemic/blight spread changes; change actor access/knowledge and verify discovery can be suppressed or delayed; verify drought hazard does not directly script famine/mortality; prove Historical Mode can suppress downstream consequences after changed preconditions; and prove Sandbox does not silently import fixed political outcomes.
+
+### 14.9 Structural rules are a separate, executable rule registry (SA-11)
+
+A structural rule is a reusable institutional/constitutional constraint or transition, not a narrative event and not an untyped arbitrary effect. The current baseline stores one Salic-law rule in `historical_events.json` and compiles `structural_rules`, but the runtime succession path contains a hard-coded Salic-law branch. The builder only validates source references for the data rule. The source catalogue and runtime therefore do not yet have one enforced source of truth.
+
+Before runtime work, define a versioned `StructuralRuleDefinition` with:
+
+- stable rule ID, rule kind, version and validity interval;
+- actor/institution/office scope and mode applicability;
+- typed trigger predicate and exact authority context;
+- typed effect/transition and deterministic precedence;
+- source references, evidence quality and interpretation note;
+- idempotency key and audit/log semantics.
+
+The registry MUST use closed trigger/effect unions and registered handlers; it MUST NOT evaluate arbitrary code or object paths from JSON. Build-time validation resolves all actors, offices, subjects, law groups and other targets. At runtime, either the compiled rule registry is the actual source of truth or a rule explicitly marked `reference_only` is not presented as an executable game rule. Do not retain a second hard-coded copy of the same rule in `events.ts`.
+
+For the current Salic-law example, specify whether the rule applies to succession of a British ruler, which heir attributes establish the rule trigger, which personal-union subjects are affected, what the effective tick is, and whether it runs before/after succession state commit. Avoid deriving a legal trigger from a name regex when a typed heir/office attribute is required by the source evidence.
+
+Acceptance tests must prove that enabling/disabling a source rule changes only the expected transition; unknown trigger/effect kinds fail the data build; a rule cannot fire twice on replay; ordering with succession is deterministic; and no hard-coded duplicate applies the same transition independently.
+
+### 14.10 Closed schemas for all executable event content (SA-12)
+
+§14.7 closes the condition grammar. The same validation discipline is required for every other executable data surface; condition validation alone is insufficient.
+
+Closed, versioned discriminated schemas are required for:
+
+- `StrategicPriority` (goal, target shape, finite weight, ordered valid date window, condition list and source refs);
+- `DecisionWindow` (unique ID, valid date window, date_historical semantics, owning actor/authority, conditions, unique options, historical-weight range and source refs);
+- `OptionEffect` (every type and payload field);
+- `ExogenousEvent` (causal class, hazard type, valid date/precision, origin/affected-scope semantics, duration, magnitudes, regional parameters, mode policy, quality and source refs);
+- `StructuralRuleDefinition` (per §14.9);
+- `Milestone` (unique ID, valid due date, non-negative tolerance/weight, typed condition and explicit geographic/entity denominator);
+- benchmark definitions and observations (per §§6 and 7).
+
+The current decision effect inventory is `set_law`, `legitimacy`, `relation`, `drop_claims`, `transfer_region`, `regime_change`, `merge`, `ig_approval` and `relation_all_naval_powers`. Each branch needs exact parameter types, target resolution, numeric bounds, authority checks, idempotency semantics and a defined transaction effect. An effect that is currently an intentional no-op (`ig_approval` in the inspected baseline) MUST be marked unsupported and rejected during build or given an explicitly approved semantic definition; silently accepting it is prohibited. `merge` and `transfer_region.create` must not rely on hidden hard-coded polity IDs/names when the authored payload expresses a target; target creation must be registry-backed and validated.
+
+The current exogenous handler recognizes `epidemic`, `drought`, `crop_blight` and `resource_discovery`. These must be a closed union with domain-specific ranges and field combinations. For example, mortality, yield loss and per-region severity must be finite and bounded; a discovery must include a valid resource and discovery preconditions; a drought must not silently carry epidemic-only fields. Date values must be syntactically valid, precision explicit and duration bounded by a documented maximum.
+
+The builder MUST reject duplicate IDs, unknown types, missing/wrong fields, invalid references, invalid dates, impossible intervals, non-finite/out-of-range numbers, duplicate option IDs, historical_weight outside its declared range, and unsupported effects with a source path and JSON path. It must validate all current decision options, event records and structural rules recursively before generating `db.json`.
+
+Source normalization must be assigned into the compiled records, not merely called for side-effect validation and discarded. Event/decision/structural records retain normalized stable `SourceRef[]`, quality, locator, uncertainty, alternative interpretation and mode/causal metadata in their declared types. The compiled database must not depend on untyped extra JSON properties surviving serialization.
+
+### 14.11 Historical option bias must be quantitatively subordinate to current utility (SA-02)
+
+Decision selection has two stages: eligibility first, scoring second.
+
+1. Remove options whose actor authority, date window, current conditions, costs, required resources or effect payloads fail validation. Player and AI cannot choose invalid options.
+2. Score each remaining option from current-state expected utility: expected benefits, resource/fiscal cost, domestic coalition response, diplomatic/war risk, implementation capacity, uncertainty and opportunity cost.
+3. Normalize utility to a documented common scale (initial design proposal: `[0,1]`) with versioned weights and missing-data policy.
+4. In Historical Mode only, apply a source-backed historical prior of at most **0.05 absolute utility points** to a compatible historical option. This is a proposed initial ceiling, not a value derived from historical evidence; it must be sensitivity-tested and approved before implementation.
+5. The historical prior MUST NOT reverse an option whose current-state utility is more than 0.05 below a feasible alternative. It is a weak tie/context signal, never a substitute for current utility.
+6. Stochastic choice among near-equivalent options uses a bounded, documented choice model and an isolated deterministic random stream. Do not add unbounded `rand(st)` noise to each option score.
+7. Sandbox receives no historical option prior. Player agency is not overwritten by the prior.
+
+Test a materially worse historical option losing despite the prior, a materially better historical option winning, equal-utility options exhibiting only the bounded prior effect, current treasury/coalition/war-risk changes reversing a choice, invalid options never being selected, and multi-seed distributions remaining calibrated without a scripted historical frequency.
+
+### 14.12 Deterministic random streams, save compatibility and mobile performance
+
+The inspected runtime stores one mutable four-word RNG state in `GameState.rng`; `rand(st)` advances that shared stream. Adding or reordering one stochastic event check can therefore shift later AI, combat, mortality and economic random outcomes even when their own logic is unchanged.
+
+S22 MUST preserve deterministic replay while preventing unrelated event additions from perturbing every downstream subsystem:
+
+- Define stable, versioned random streams by subsystem and stable event/decision identity. Prefer keyed/counter-based draws derived from seed + stream ID + tick + actor/event ID + draw index, or an equivalently deterministic stream design.
+- No `Math.random()`, wall-clock seed, iteration-order-dependent draw assignment or hidden ambient randomness.
+- Save the RNG stream version and required counters/state; migration belongs to the S1 save/data foundation and must preserve continuation semantics.
+- Replaying the same save, command sequence, data build and rule version yields exact event/decision continuation. A new unrelated event definition must not change unrelated actors' random draws.
+- Multi-seed calibration records seed set, engine commit, data build hash, schema/rule versions, parameter manifest and run configuration.
+
+Runtime evaluation must remain bounded for the full project world and 1836–1936 horizon:
+
+- Index static definitions by effective date/interval, actor, geography and event class; evaluate only newly eligible/active definitions rather than scanning all historical records on every monthly tick.
+- Bound causal graph depth, events activated per tick, pending decisions per actor, retained event-log detail and diagnostic volume. Define caps and deterministic overflow behavior; never silently drop unresolved player decisions.
+- Use incremental propagation and cache immutable source/definition data. No repeated full-registry validation inside a monthly loop.
+- Keep multi-seed calibration/holdout analysis in CI or an explicitly selected off-device analysis path; do not run large ensembles on the Android gameplay/UI thread.
+- Device performance budgets must be measured against the S0 performance baseline on the minimum supported Android tier and the target iQOO-class device. Report p50/p95 monthly-step time, peak heap, GC pauses, temperature/throttling, battery cost and worst-case event/decision counts. Do not claim a numeric budget until measurements and the owner-approved device envelope are recorded.
+- Event processing must not cause main-thread I/O, blocking source lookup, ANR or unbounded save/log growth.
+
+Acceptance tests include deterministic replay across save/load, RNG isolation between subsystems, unrelated-event insertion invariance, worst-case 100-year multi-region simulation, event registry stress, bounded diagnostics/logs, and device profiling with both normal and worst-case event density.
+
