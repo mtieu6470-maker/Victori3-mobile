@@ -1,4 +1,4 @@
-# H01 Batch 02 — gói tích hợp nghiên cứu R3y
+# H01 Batch 02 — gói tích hợp nghiên cứu R3z
 
 **Trạng thái:** `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`.
 
@@ -60,3 +60,10 @@ Không sửa population benchmark, profile, registry, map owner, engine/runtime,
 - SSA_REG_18 đang map 100% sang OYO_OYO/OYO; đây chỉ là join kỹ thuật, không chứng minh chủ quyền trực tiếp trên toàn khu vực. Cần locality-by-locality ownership/control table trước mọi sửa map.
 - 75k+ trong Lovejoy là người bị cưỡng bức lên tàu nô lệ xuyên Đại Tây Dương, không phải tổng dân số Oyo hay refugee count.
 - Xem `H01_R3y_OYO_1831_1836_POLITICAL_GEOGRAPHY_AND_POPULATION_AUDIT_VI.md` và CSV R3y.
+
+
+## R3z — đánh giá chất lượng Rasmussen
+- P. J. Colenbrander, bài điểm sách đương thời về *Migrant Kingdom* (Rasmussen, 1978), ghi nhận giá trị của cuốn sách trong tái dựng sự kiện/địa điểm/ngày tháng nhưng cảnh báo bằng chứng khan hiếm, thiên về chiến tranh/di cư và chưa phân tích đủ cấu trúc kinh tế–xã hội/sinh hoạt thường nhật.
+- Điều này không bác bỏ Rasmussen, nhưng bổ sung caveat khi dùng làm nguồn dân số, sức mạnh quân sự hoặc tốc độ tăng trưởng Ndebele.
+- NDE 60k chỉ giữ là ứng viên polity-subject ước lượng rộng, độ bất định cao; 45k–85k không có phương pháp interval được chứng minh; các số 300, 20k, 60–80k subjects, 1–5k chiến binh và 10–20k di cư muộn vẫn là các đại lượng khác nhau.
+- Xem `H01_R3z_RASMUSSEN_SOURCE_QUALITY_REVIEW_VI.md` và CSV R3z. Thông tin tập/số của tạp chí điểm sách và trang gốc Rasmussen vẫn cần lấy bản gốc.
