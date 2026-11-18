@@ -19,6 +19,7 @@
 - `docs/audit/s0/S0_RISK_REGISTER.md` — consolidated risk register.
 - `docs/audit/s0/S0_SIGNOFF.md` — gate ledger and bounded exception draft.
 - `docs/audit/s0/S0_B7_RESULTS.md` — B7 status.
+- `docs/audit/s0/S0_B7_SELF_REVIEW.md` — ChatGPT's preliminary self-review and unresolved items; Claude must independently verify it, not assume its conclusions.
 - `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` and `.github/workflows/s0-b7-dependency-audit.yml` — manual read-only dependency-audit preparation; the workflow has not yet been run.
 - `docs/roadmap/DECISIONS_AND_S0_REVISED_VI.v3.2.md`, `docs/roadmap/S0_V3_3_GATE_RESTRUCTURE_PROPOSAL.md`, `docs/roadmap/S0_V3_3_OWNER_DECISION_AND_AMENDMENTS.md`, and `docs/coordination/AI_HANDOFF.md` — normative scope and owner decisions.
 
