@@ -137,7 +137,8 @@ Added under `docs/research/H01_batch02_1836/`:
 - `H01_R3ac_PATCH_DECISIONS.csv`
 - `H01_R3ac_OPEN_EVIDENCE_REQUESTS.csv`
 - `H01_R3ac_SOURCE_REGISTRY_DELTA.csv`
-- `GITHUB_INTEGRATION_RECEIPT_R3ac.md` (to be added after final validation)
+- `GITHUB_INTEGRATION_RECEIPT_R3ac.md` — commit chain, structural checks and documentation-only boundary.
+- `docs/audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` — independent review instructions, linked from the H01 README and shared AI handoff.
 
 R3ac distinguishes Sokoto's `Amīr al-muʾminīn` titulature, Bornu's de facto Shehu versus Sayfawa Mai, the contested Wadai accession date, and Darfur's 1838 succession. It does not update live head-of-state profiles or title fields.
 
