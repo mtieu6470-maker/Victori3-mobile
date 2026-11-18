@@ -20,7 +20,7 @@
 | Current approved phase | **S0-B3 → S0-B4 → S0-B7, sequential** (OD-20261116-11). B4 starts only after B3 has `REVIEW_PASS` |
 | Current task status | S0-B3 `REVIEW_PASS` (bounded audit scope; owner decision still pending). S0-B4 `IN_PROGRESS`: the frozen-baseline harness and tests-only workflow are prepared on `experiment/vic3-visual-upgrade`; execution remains `NOT_TESTED` pending a manual GitHub Actions dispatch and review. S0-A `READY_FOR_REVIEW` (A1–A4 conditionally accepted; A5 `BLOCKED`); S0-A is not `ACCEPTED`. S0-B1 reviewer technical verdict `PASS` under v3.3 §2.1. `COORDINATION-REVIEW-BD5787F` `READY_FOR_REVIEW` |
 | S0-B3 evidence | `docs/audit/s0/S0_B3_RESULTS.md` (summary, gate self-assessment, finding index) with `S0_TEST_CATALOG.md`, `s0_test_catalog.json`, `S0_REQUIREMENT_MATRIX.csv`, `S0_GLOBAL_DATA_AUDIT.md`, `S0_ASSET_AUDIT.md`, `S0_PERFORMANCE_BASELINE.md/.json`, `b3/**` — tools commit `3d63061e4bd5b3fdf7c636370da462a5b0f5d721`, reports commit `55331c2bf629bb631701ec82020c7f9deaa7da81`; review-1 corrections: tools `ddea490`, reports and evidence `2c62b3d` (`b3/review1/**`; summary in `S0_B3_RESULTS.md` §8) |
-| S0-B4 evidence | `docs/audit/s0/S0_B4_TEST_PLAN.md`; `tests/s0-save-determinism.test.ts` (including missing-RNG characterization); `tests/fixtures/s0-b4-scenario.ts`; `.github/workflows/s0-b4-tests.yml` (manual, tests-only, baseline pinned to `2240a8f`). Older `b4-tests-only.yml` supplementary run `44041104723` passed 70/70; it is not the designated pinned-baseline artifact. The new workflow still needs manual dispatch and artifact review; G0.6 remains `NOT_TESTED` |
+| S0-B4 evidence | `docs/audit/s0/S0_B4_TEST_PLAN.md`; `tests/s0-save-determinism.test.ts` (missing and wrong-type RNG compatibility characterization); `tests/fixtures/s0-b4-scenario.ts`; `.github/workflows/s0-b4-tests.yml` (manual, tests-only, baseline pinned to `2240a8f`). Older `b4-tests-only.yml` supplementary run `44041104723` passed 70/70; it is not the designated pinned-baseline artifact. The new workflow still needs manual dispatch and artifact review; G0.6 remains `NOT_TESTED` |
 | S0-B1 evidence | `docs/audit/s0/S0_B1_CI_EVIDENCE.md`, `docs/audit/s0/logs/b1/` (commit `e13d964f343ab1ba01fb705fbbd8bcac2674ea80`). B1 commit `382aaa84b2336854b4dbebfcdc719847ff463f41`; run `43834719406`, job `133188390842` success; 58/58 tests; `report_valid=true`; APK file SHA-256 `314c8ca11c1d747550bbdb982326675e5f9dbdac870f3fc1cf04b9de7c22585c`; artifact ZIP SHA-256 `7717a2b79dd46fbf613845e33bac3a17634eae5b0c808328d8b21b5abc150ba0` (a different file) |
 | S0-A evidence | `docs/audit/s0/S0_A_RESULTS.md` (summary and gate verdicts), `S0_REPOSITORY_SNAPSHOT.md`, `S0_BUILD_TEST_REPORT.md`, `logs/`, `a4/`, `inputs/` — commits `7d6eec9d0601a7d983679ec7792b1aa96b954ca0`, `d5b9820aae9a96d57e9486845c164ae591fa69de`, `8073fac029463c0685435985a2968cd5a3aba4ab` |
 | Pending owner action | Device steps 1–4 of approved document §6.5.1 on the installed baseline APK (listed in `docs/audit/s0/S0_A_RESULTS.md` §2); never paste secrets |
@@ -96,6 +96,15 @@ Pre-protocol work:
 ## 5. Work log
 
 Append newest entries at the top. Do not overwrite earlier entries.
+
+### 2026-11-18 — B4-MALFORMED-RNG-COMPATIBILITY-CHARACTERIZATION
+
+- Test update: commit `7562cb2aa493704c3a2687633360701dc1168a75` adds explicit `[S0-B4_COMPAT]` evidence lines for both a missing RNG field and a wrong-type RNG value (string instead of a four-number tuple).
+- Both cases capture the current baseline behavior: `deserialize` accepts the state; simulation continuation throws `TypeError`.
+- Updated test plan to distinguish these §6.7 step 8 compatibility characterizations from a determinism mismatch. They are baseline robustness findings, not automatic G0.6 FAIL; no product-code change is permitted in S0.
+- Test execution: not yet performed on the designated pinned-baseline workflow; the latest source needs that CI run and artifact review. G0.6 remains `NOT_TESTED`.
+- Scope: tests and audit documentation only; gameplay, engine, RNG implementation, serializer, schema, data and assets unchanged.
+
 
 
 ### 2026-11-18 — REVIEW-SUPPLEMENTARY-B4-WORKFLOW-RUNS
