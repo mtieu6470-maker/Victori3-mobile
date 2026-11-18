@@ -707,3 +707,57 @@ Runtime evaluation must remain bounded for the full project world and 1836–193
 
 Acceptance tests include deterministic replay across save/load, RNG isolation between subsystems, unrelated-event insertion invariance, worst-case 100-year multi-region simulation, event registry stress, bounded diagnostics/logs, and device profiling with both normal and worst-case event density.
 
+
+
+### 14.13 Condition semantic contract and edge cases
+
+A closed field schema is necessary but not sufficient: each predicate also needs one stable, documented meaning. The following semantics apply to the current evaluator contract and must be verified against its source data before implementation:
+
+| Condition | Required semantics / fail-closed behavior |
+|---|---|
+| `exists` | Referenced entity resolves and is alive. Unknown ID is invalid at build and a runtime non-match. |
+| `exists_independent` | Entity resolves, is alive and has no current overlord. Whether decentralized placeholders count as independent must be explicit in the actor taxonomy and covered by tests; do not infer sovereignty from missing overlord alone. |
+| `owns` | Referenced region resolves and its current owner is the specified entity under the declared entity-equivalence policy. |
+| `owner_in` / `owner_not` | Region resolves; owner is compared through the canonical equivalence registry. A missing/unknown region or owner is a non-match diagnostic, not an implicit “not in set”. |
+| `same_owner` | At least two valid regions are required; all must have a known owner and resolve to the same canonical owner. |
+| `law` / `law_not` | Country exists and law group/value pair is valid in that polity's law registry. `law_not` must not become true when the country/law is missing. |
+| `gov_power` | Valid country and valid power-law value; exact equality only. |
+| `not_at_war` | Both actors resolve; true only when they are not on opposing sides of any active war. Missing actors are not treated as “not at war”. |
+| `not_subject_of` | Both actors resolve; true only when actor A's current overlord is not B. Missing A/B is a non-match diagnostic. |
+| `regime_changed` / `regime_changed_since_start` | A valid country has a recorded regime-change transition after the scenario's start snapshot. Keep any legacy alias explicit; do not equate a null/missing baseline with “changed”. |
+| `leader_changed_since_start` | A valid country has a leader identity/office succession after the scenario start snapshot. Do not hard-code 1836 inside the predicate; read the versioned scenario start. |
+| `lost_war_recently` | Country exists and recorded loss tick is within the inclusive interval `[currentTick - years*ticksPerYear, currentTick]`; future ticks, missing loss and invalid duration are false/invalid. |
+| `legitimacy_below` | Country exists; compare its documented 0–100 scale to a finite threshold in that same scale. |
+| `radicalism_above` | Country exists; compare its documented 0–1 share to a finite threshold in [0,1]. |
+| `food_shortage` | Country exists; current v1 threshold is famine share > 0.03. The 0.03 threshold is a versioned named constant, not an undocumented magic number; future tuning requires a schema/rule version. |
+| `ig_clout_above` | Country and valid IG exist; clout and threshold use the same 0–1 scale. |
+| `foreign_naval_pressure` | Country exists; pressure and threshold use the declared bounded pressure scale; validate finite values. |
+| `foreign_pressure` | Country exists; current v1 threshold is the named rule constant > 0.8 and must be documented/versioned. |
+| `at_war_with_rebels` | Requires a normalized civil-war participant model that explicitly identifies government and rebel actors. Do not rely only on arbitrary attackers/defenders array position; ambiguous or unclassified sides are a non-match diagnostic. |
+| `rank_at_most` | Uses §14.1's immutable canonical ranking snapshot, never an independent caller-specific ranking. |
+| `count_owner_european` | Only the source-defined Africa regional indicator in §14.2; region set, period, classification and denominator are mandatory. |
+| `all` / `any` | Non-empty validated child list; deterministic short-circuit semantics; bounded depth/node count and one immutable evaluation context. |
+
+For every condition kind, documentation and tests must cover: valid true, valid false, missing reference, wrong type, boundary value, current date/start-date behavior and interaction inside both `all` and `any`. The engine must not use a missing entity's default values (for example default legitimacy or zero pressure) to satisfy a predicate.
+
+The source data currently uses `same_owner` with two or more regions and does not use every code-supported condition kind. New authored data must not assume an unused evaluator branch is safe merely because the TypeScript compiler accepts its open shape.
+
+### 14.14 Current option-effect contract inventory
+
+The existing nine effect kinds are a legacy inventory, not an approved implementation API. Before migration, each must receive a typed schema and a registered handler with explicit preconditions, authority, mutation plan, idempotency and test coverage:
+
+| Legacy effect | Required payload contract | Domain behavior to specify |
+|---|---|---|
+| `set_law` | entity ID, law group, value | Value valid for that actor/institution; route through the law command and preserve institution/authority rules |
+| `legitimacy` | entity ID, finite delta | Defined legitimacy scale and clamped result; missing target rejected before staging |
+| `relation` | two actor IDs, finite delta | Symmetric/ordered relation key policy, bounds and treatment of self-relations |
+| `drop_claims` | claimant entity ID, opposing entity ID | Remove only claims matching the declared scope; every referenced region/owner validated |
+| `transfer_region` | region ID, target actor ID, optional typed create-target record | Validate current owner, recipient, sovereignty/subject setup and territorial invariants |
+| `regime_change` | entity ID, non-empty valid law patch | All laws validated first; regime timestamp and institution-dependent side effects committed atomically |
+| `merge` | source actor IDs, explicit destination actor/blueprint ID | Validate all sources and destination identity; no hard-coded nation archetype or ignored `into` field |
+| `ig_approval` | entity ID, valid IG ID, finite delta | **Unsupported in the inspected baseline (no-op).** Reject until a formal IG approval meaning, bounds and mutation semantics are approved and implemented. |
+| `relation_all_naval_powers` | source entity ID, finite delta, explicit naval-power classification/threshold version | Define whether this affects great powers, every qualifying navy or a source-defined actor class; keep the target set deterministic and auditable |
+
+Effects are applied to a staged mutation plan, not sequentially to live state. Validation must cover the whole option before the first mutation. The plan records its idempotency key and expected state/version preconditions. If any command cannot commit, no earlier staged effect is visible. Irreversible effects require an explicit transaction policy and audit record.
+
+No source-authored option may depend on ignored fields, implicit defaults, magic nation IDs, name-regex identity or a handler with no effect. The effect table must be reconciled against all current source JSON payloads and all handlers before the typed union is frozen.
