@@ -14,19 +14,16 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 
 ## Current independent review entry point
 
-- **R4c / Claude — latest authority tranche:** start with `docs/audit/s0/GLOBAL_R4C_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4c covers 15 profile gaps from the Mediterranean and Caucasus to South Asia and the Himalaya. Base SHA: `356a70116588a677adc4bda3f4a45772833ea002`; fetch the latest branch HEAD before review.
-- **R4c package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4c/README_VI.md`; 15-polity audit, 27 non-executing decisions, 18 open evidence requests and 34 source entries. Integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4c/GITHUB_INTEGRATION_RECEIPT_R4c.md`.
-- **R4b / Claude:** `docs/audit/s0/GLOBAL_R4B_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open for 15 earlier profile gaps and source/authority issues.
-- **R4a / Claude:** `docs/audit/s0/GLOBAL_R4A_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open for 13 dossiers and the original 54-profile triage.
+- **R4d / Claude — latest global succession + V3 parity review:** start with `docs/audit/s0/GLOBAL_R4D_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4d covers the final 15 missing-profile cases and the requested 41-area Victoria 3 feature-parity audit. Base SHA: `f0745f1fd1eb381434cba4aa8576b3c2271d8732`; fetch latest branch HEAD before review.
+- **R4d package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4d/README_VI.md`; 15-polity audit, 26 non-executing decisions, 17 open evidence requests and 34 source entries. Feature parity files: `docs/audit/GLOBAL_VICTORIA3_FEATURE_PARITY_AUDIT_VI.md` and `docs/audit/GLOBAL_VICTORIA3_FEATURE_PARITY_MATRIX.csv`. R4d integration receipt will be added in the same directory.
+- **R4c / Claude:** `docs/audit/s0/GLOBAL_R4C_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open for 15 previous profiles.
+- **R4b / Claude:** `docs/audit/s0/GLOBAL_R4B_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open for 15 previous profiles.
+- **R4a / Claude:** `docs/audit/s0/GLOBAL_R4A_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open for the first priority dossier and missing-profile triage.
 - **GLOBAL Historical Mode / Claude — baseline review:** `docs/audit/s0/GLOBAL_HISTORICAL_MODE_CLAUDE_REVIEW_REQUEST_2026-11-18.md` remains open. It covers the global fidelity standard, 181-entity coverage baseline and current engine/data audit.
 - **GLOBAL Historical Mode artifacts:** `docs/spec/GLOBAL_HISTORICAL_MODE_FIDELITY_STANDARD_VI.md`; `docs/audit/GLOBAL_HISTORICAL_MODE_DATA_BASELINE_AUDIT_VI.md`; `docs/audit/GLOBAL_HISTORICAL_SUCCESSION_COVERAGE_1836.csv`.
-- **Owner direction 2026-11-18:** worldwide scope, not Africa-only. Historical Mode requires source-backed historical accuracy and temporal consistency for the 1836–1936 campaign; it must not railroad outcomes and may diverge when causes change (Master Spec §§2.2 and 10.2). Sandbox/Alternate History may be flexible and is not required to follow historical ruler/event timelines after the start date.
-- **H01 R3af / Claude:** `docs/audit/s0/H01_R3AF_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as the earlier regional succession package for Shewa, Zulu and Basotho (1836–1900).
-- **H01 R3ae / Claude:** `docs/audit/s0/H01_R3AE_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate 1836 officeholder/title review.
-- **H01 R3ad / Claude:** `docs/audit/s0/H01_R3AD_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
-- **H01 R3ac / Claude:** `docs/audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
-- **H01 R3ab / Claude:** `docs/audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
-- Fetch latest branch HEAD before every review. All ChatGPT self-audits are labelled and are not independent `REVIEW_PASS`. R4c review is no-write and does not authorize runtime/game-data/schema/engine changes or S1.
+- **Owner direction 2026-11-18:** all-world scope; Historical Mode requires source-backed historical accuracy and temporal consistency for 1836–1936 without railroading outcomes; Sandbox may develop alternate history after start. Latest owner gameplay direction: pursue Victoria 3-like system depth in all major areas while using independent code/data/assets and Android-adapted presentation.
+- **H01 R3af / Claude:** `docs/audit/s0/H01_R3AF_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains an earlier regional research package for Shewa, Zulu and Basotho.
+- Fetch latest branch HEAD before every review. All ChatGPT self-audits are labelled and are not independent `REVIEW_PASS`. R4d review is no-write and does not authorize runtime/game-data/schema/engine changes or S1.
 
 ## 1. Current project state
 
@@ -119,6 +116,16 @@ Pre-protocol work:
 | Earlier stages 1–5 (identity/content, numbering of an earlier specification) | `PRE_PROTOCOL_IMPLEMENTED_REPORTED` | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` | Not `REVIEW_PASS` or `ACCEPTED`; part of the current baseline; S0 verifies what is present at the frozen SHA |
 
 ## 5. Work log
+
+### 2026-11-18 — GLOBAL-HISTORICAL-R4D-AND-V3-PARITY-TRANCHE
+
+- R4d base HEAD: `f0745f1fd1eb381434cba4aa8576b3c2271d8732`. Completed dossier research for 15 remaining original missing-array profile IDs: ETH, BOR, WAD, DAR, DAH, OYO, MAS, FJA, LIB, BUG, TEX, CAF, RGS, HAI, SUL.
+- Added R4d audit, 15-row evidence matrix, 26 non-executing decisions, 17 open evidence requests and 34 source entries under `docs/research/GLOBAL_HISTORICAL_1836_1936/R4d/`.
+- Added 41-area Victoria 3 parity audit: `docs/audit/GLOBAL_VICTORIA3_FEATURE_PARITY_AUDIT_VI.md` and `docs/audit/GLOBAL_VICTORIA3_FEATURE_PARITY_MATRIX.csv`. Compared against the existing monthly engine, types, economy, population, politics, diplomacy, military, events, AI and modes. Conclusion: foundation present, core depth partial, full V3 parity not achieved.
+- Main R4d findings: ETH Emperor/Regent dual roles; BOR al-Kanemi death and Mai/Shehu roles; WAD formal/de facto accession conflict; DAR occupation/restoration; OYO polity collapse and successor states; MAS 1844/45 death conflict; FJA two competing Almami lines; LIB ACS colony → Commonwealth → Republic; BUG Suna II year discrepancy; TEX dual provisional-governor claim and Burnet ad interim; CAF federal/member-state sovereignty; RGS rebel movement vs republic start; HAI provisional executive; SUL 1842/44 succession conflict.
+- With R3af/R4a/R4b/R4c/R4d deduplicated, the original 54 missing-array queue has dossier coverage for 52 IDs; MAO and MLY remain as collective/aggregate models, not missing individual kings.
+- Official V3 reference updated to public 1.15/1.15.1 line; official Steam announcements show 1.15.1 hotfix 11 Nov 2026 and 1.15 War Support 0–100. The parity report does not imply permission to copy Paradox code, assets, strings, art, music or DLC.
+- No `historical_data/`, src runtime, schema, engine, test, asset, save, Android, Gradle, workflow, signing or APK changes. No test/build/APK workflow run. Status: `READY_FOR_INDEPENDENT_REVIEW / SELF_AUDIT_ONLY / NO_PRODUCT_PATCH`; Claude verdict and owner implementation authorization pending.
 
 ### 2026-11-18 — GLOBAL-HISTORICAL-R4C-SUCCESSION-AUTHORITY-TRANCHE
 
