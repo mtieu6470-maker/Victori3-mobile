@@ -1,4 +1,4 @@
-# R3x consolidated research validation report
+# R3y consolidated research validation report
 
 ## Repository snapshot
 - Repository: `mtieu6470-maker/Victori3-mobile`
@@ -70,4 +70,14 @@ These are ChatGPT implementation checks and self-audit, not an independent REVIE
 - Unit/date distinctions recorded: initial migrant nucleus vs polity subjects vs 1836 Nguni warrior force vs later 1837 migration stream. No value silently merged.
 - R3T-07 advanced to PARTIALLY_RESOLVED; direct Rasmussen page verification and the 45k–85k interval method remain open. R3X-01 to R3X-03 remain OPEN.
 - NDE 60k is retained only as provisional circa-1830s polity-subject candidate; interval 45k–85k unverified; NDE_MOS 210k remains broad geography only. No runtime/game/ownership/geometry patch.
+- Self-audit only; independent Claude review and owner acceptance pending. No build/APK workflow run.
+
+
+## R3y Oyo political geography validation (2026-11-18)
+- Inspected Lovejoy (2019), *Journal of Global Slavery* 4(2), pp.127–161, including methods/fuzzy-boundary discussion, Table 1 p.135 and annual chronology pp.153–157. Open-access text extraction is searchable; PDF screenshot endpoint returned 403, so scan page images were not visually authenticated.
+- Verified timeline distinctions: 1832 Ilorin expansion over much of Ibarapa; 1833 destruction/subjection of most major Oyo towns and surviving southern Oyo powers; 1834–35 Oyo/Bariba attempts to recover territory with allied southern forces; 1836 Old Oyo capital district abandoned and multiple competing polities. These facts do not support one homogeneous Oyo-controlled Yorubaland region.
+- Verified article's methodological caveat: fuzzy boundary maps are approximations, not authoritative; GIS Jan 2/Dec 31 dates have zero historical value and are software placeholders. No day-level owner transition can be inferred for 1836-01-01.
+- 75,000+ in the article is Atlantic embarkations, not all Oyo residents/refugees; not used as demographic input.
+- Reopened original H01 source package: OYO=650k method explicitly invokes severe displacement/refugees to Ibadan, Ijaye, Abeokuta but has no cohort total or stock definition; OYO_OYO=1.45m uses Manning macro-series plus Law qualitative movement and no reproducible local workbook/region denominator; SSA_REG_18 is allocated 1:1 to OYO. These are materially different units and owner assignment requires locality-level validation.
+- Added R3y audit, source matrix, patch decisions, open evidence requests and source registry delta. All CSVs structurally checked for header/row width in local package validation; no runtime/game data changed.
 - Self-audit only; independent Claude review and owner acceptance pending. No build/APK workflow run.
