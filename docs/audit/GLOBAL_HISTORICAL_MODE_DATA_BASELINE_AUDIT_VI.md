@@ -196,7 +196,7 @@ R4d covers ETH, BOR, WAD, DAR, DAH, OYO, MAS, FJA, LIB, BUG, TEX, CAF, RGS, HAI 
 
 Principal findings:
 - **ETH:** Emperor Sahle Dengel is the nominal sovereign at the 1836 snapshot, while Ras Ali II of Yejju is the de facto regent/kingmaker. They must be separate concurrent roles.
-- **BOR:** the existing profile still names Muhammad al-Amin al-Kanemi as HOS although the current snapshot is 1836 and the Shehu died before/around this transition; references conflict on death year (1835 vs 1837). Umar's Shehu office and the nominal Sayfawa Mai Ibrahim IV must be separated.
+- **BOR:** sources conflict on al-Kanemi's death (1835 vs 1837); Umar is listed as de jure Shehu from 1835 while the nominal Sayfawa Mai Ibrahim IV remains until 1846. Do not assert that al-Kanemi was necessarily dead before the 1836 snapshot; clarify possible overlapping authority before any patch.
 - **WAD:** Muhammad Sharif's effective authority and formal enthronement have conflicting dates (c.1835 vs 1838); some chronologies list Kolak Adam as titular ruler.
 - **DAR:** Muhammad al-Fadl → Muhammad al-Husayn → Ibrahim Qarad; 1874 conquest, Turco-Egyptian/Mahdist rule and Ali Dinar's 1898 restoration are separate phases.
 - **DAH:** Ghezo 1818–1858 is well supported; Glele's designation as heir is not his accession.
