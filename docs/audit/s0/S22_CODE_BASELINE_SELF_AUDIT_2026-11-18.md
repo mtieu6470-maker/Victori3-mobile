@@ -368,3 +368,59 @@ Replace the open string/index-signature type with a discriminated union for ever
 - Runtime evaluation of malformed/unrecognized conditions cannot crash the monthly simulation.
 - Tests cover true/false semantics for every supported condition type and the fail-closed behavior.
 
+
+
+## 11. S22-SA-11 — P1: Authored structural-rule record is compiled but its runtime behavior is hard-coded separately
+
+**Evidence**
+
+- `src/engine/data/dbTypes.ts:108` types `HistoricalDB.structural_rules` as `Record<string, unknown>[]`.
+- `tools/build-data.ts` reads `events/historical_events.json`, calls `normRefs(r.sources, ...)` for each structural rule, and compiles `ev.structural_rules` into `HistoricalDB.structural_rules`. It does not validate the trigger/effect grammar or bind those definitions to a typed evaluator.
+- The source file contains `rule_salic_hanover`, with a `succession` trigger and `end_subject_relation` effect.
+- `src/engine/systems/events.ts` contains a hard-coded comment and Salic-law transition inside succession handling: when GBR succeeds to a female leader, it detaches every personal-union subject. That path does not read the compiled `d.db.structural_rules` record.
+
+**Impact**
+
+The source catalogue appears to declare a data-driven structural rule, but the inspected runtime behavior is implemented separately in code. Editing/removing/changing the source rule does not necessarily change the hard-coded behavior. Conversely, a new structural rule may compile into the database but have no runtime effect. This creates two sources of truth and makes historical data review misleading.
+
+**Required correction after authorization**
+
+Use one explicit, typed structural-rule registry and registered deterministic handlers, or mark the current source record as reference-only until such a registry exists. Validate trigger/effect types, actor/office/subject references, temporal scope, precedence and idempotency. Remove the duplicated hard-coded Salic behavior only as part of the authorized structural-rule migration; do not remove it prematurely or silently change gameplay.
+
+**Acceptance tests**
+
+- A fixture that enables/disables the rule causes only the declared transition to change.
+- Unknown trigger/effect kinds fail the data build with a path-specific diagnostic.
+- The source definition and runtime evaluator agree on actor, heir attribute, subject class and effective tick.
+- The transition cannot run twice on replay/save-load.
+- No independent hard-coded duplicate applies the same transition.
+
+## 12. S22-SA-12 — P1: Exogenous/decision event payloads have incomplete schema validation and provenance typing
+
+**Evidence**
+
+- `src/engine/data/dbTypes.ts`: `ExogenousEvent.type` is an unrestricted `string`; `DecisionWindow.options[].effects` is `Record<string, unknown>[]`; `DecisionWindow` has no declared typed source/quality/uncertainty fields; `structural_rules` is an open record array.
+- `tools/build-data.ts`: exogenous records are checked for source IDs and region existence only. The builder does not validate supported hazard type, date format/precision, duration, mortality, yield-loss/severity ranges, resource/type compatibility or regional parameter completeness.
+- Decision windows are checked for source IDs, owning entity, a lexical window-order comparison and presence of a historical option. The builder does not enforce valid date syntax, unique option IDs, historical-weight bounds, recursively typed option effects or effect target existence.
+- Structural rules receive source-reference checking only.
+- The current source event catalogue uses exogenous types `epidemic`, `drought`, `crop_blight` and `resource_discovery`. The decision effect catalogue contains `set_law`, `legitimacy`, `relation`, `drop_claims`, `transfer_region`, `regime_change`, `merge`, `ig_approval` and `relation_all_naval_powers`.
+- `src/engine/systems/events.ts:62–80` applies effects with unchecked `Record<string, any>` payloads. Several branches dereference country/region lookups without a complete prior validation pass; there is no rejecting default branch, and `ig_approval` is explicitly a no-op.
+- Source normalization calls such as `normRefs(...)` are made for validation in the event loops, but their normalized return values are not assigned to a typed event/decision/structural record.
+
+**Impact**
+
+Malformed dates, duplicate options, unsupported types, invalid targets or out-of-range numeric values may survive the data build. Some will be silently ignored, while others can throw or partially mutate the game during the monthly simulation. Raw source metadata may remain as incidental JSON properties rather than an explicit, stable compiled contract. This is especially risky when expanding the current small catalogue to a global 1836–1936 event dataset.
+
+**Required correction after authorization**
+
+Define closed discriminated schemas for decision windows, every option effect, exogenous hazards, structural rules and milestones. Validate field-level shape, numeric/date bounds, unique IDs, actor/region/office/resource references, source refs, mode applicability and causal class before generating `db.json`. Normalize and assign source references/quality/uncertainty into the declared compiled type. Reject unknown or unsupported effects at build time; either implement `ig_approval` with a formally specified meaning or remove/reclassify its source use through an approved correction. Runtime must validate and stage all effects before committing any mutation.
+
+**Acceptance tests**
+
+- Every current event, decision, effect and structural rule passes one exact schema.
+- Unknown effect/hazard/trigger types, duplicate IDs/options, invalid dates, invalid references and out-of-range values fail the build with a precise JSON path.
+- Every effect target validates before a transaction begins; a malformed later effect causes zero state mutation.
+- No effect silently succeeds as a no-op unless it is explicitly declared as a no-op diagnostic with a documented reason.
+- Compiled records retain normalized source IDs, locators, quality, date precision, uncertainty and causal/mode metadata in typed fields.
+- Runtime rejects malformed legacy data without throwing, partial commit or firing the event.
+
