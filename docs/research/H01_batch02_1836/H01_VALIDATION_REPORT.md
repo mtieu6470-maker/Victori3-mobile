@@ -1,4 +1,4 @@
-# R3v consolidated validation report
+# R3x consolidated research validation report
 
 ## Repository snapshot
 - Repository: `mtieu6470-maker/Victori3-mobile`
@@ -61,3 +61,13 @@ These are ChatGPT implementation checks and self-audit, not an independent REVIE
 - Staged chronology recorded: collapse/desertion c.1835–1836 → refugee alliance at Ago Oja → formal ritual installation/reconstitution c.1838. No exact 1 Jan 1836 sovereignty map derivable.
 - R3w CSVs are rectangular by schema; no numeric patch, runtime, owner, geometry or game data changed.
 - Self-audit only. Independent Claude review and owner acceptance remain pending. No build/APK workflow run.
+
+
+## R3x NDE source validation (2026-11-18)
+- Re-opened Lye (1969) page-numbered text, pp.88, 91, 96–97. Confirmed p.88 about 300 young warriors and women in the initial flight by end 1823; p.91 raids beyond Vaal/Limpopo were not control; p.96 10k–20k followed Mzilikazi beyond Limpopo on later departure; p.97 1829 visitor estimate 60k–80k, separate 1836 Nguni military force 1k–5k, and Lye's composite 60k–80k subject estimate.
+- Delius (2010) full-text author upload re-opened: cites Rasmussen (1978, pp.23–26 and 90–94); reports 300 most plausible initial departure, around 20k most reliable end-1820s estimate, some sources 3–4x higher, and broad error margin. Direct Rasmussen pages remain inaccessible/uninspected.
+- Warren, Hall & Ackermann (2014) SciELO full text inspected: repeats 300 to around 20k by late 1820s; emphasizes Sotho-Tswana speakers in incorporation; cites Rasmussen.
+- Unit/date distinctions recorded: initial migrant nucleus vs polity subjects vs 1836 Nguni warrior force vs later 1837 migration stream. No value silently merged.
+- R3T-07 advanced to PARTIALLY_RESOLVED; direct Rasmussen page verification and the 45k–85k interval method remain open. R3X-01 to R3X-03 remain OPEN.
+- NDE 60k is retained only as provisional circa-1830s polity-subject candidate; interval 45k–85k unverified; NDE_MOS 210k remains broad geography only. No runtime/game/ownership/geometry patch.
+- Self-audit only; independent Claude review and owner acceptance pending. No build/APK workflow run.
