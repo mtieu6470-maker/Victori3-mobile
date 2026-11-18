@@ -14,12 +14,13 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 
 ## Current independent review entry point
 
-- **H01 R3ae / Claude — latest:** start with `docs/audit/s0/H01_R3AE_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. It defines the R3ae base SHA (`3ba97713c2e767f201c300de51fddcc888d45321`), no-write review boundary, SHE/ZUL/BSO source checks, expected CSV counts and required verdict. The request was created at HEAD `c12c526e5fa4c756ee3fea2253e20fce4b8b5800`; fetch the newest HEAD before review.
+- **H01 R3af / Claude — latest:** start with `docs/audit/s0/H01_R3AF_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R3af base SHA is `c4b5f08983961494542c7c938db4a32ae21378c4`; the request requires a no-write review of SHE/ZUL/BSO succession history (1836–1900), source quality, 4 CSVs and a docs-only diff. The request was committed as `a45743af1511f97e5954ff3854acb262f1398a94`; fetch the newest branch HEAD before review.
+- **H01 R3ae / Claude:** `docs/audit/s0/H01_R3AE_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate 1836 officeholder/title review.
 - **H01 R3ad / Claude:** `docs/audit/s0/H01_R3AD_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
 - **H01 R3ac / Claude:** `docs/audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
 - **H01 R3ab / Claude:** `docs/audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
-- H01 research README links to R3ae, R3ad, R3ac and R3ab review requests: `docs/research/H01_batch02_1836/README_VI.md`. R3ae integration receipt: `docs/research/H01_batch02_1836/GITHUB_INTEGRATION_RECEIPT_R3ae.md`.
-- Fetch the latest branch HEAD before either review. R3ab and R3ac remain `READY_FOR_INDEPENDENT_REVIEW`; ChatGPT self-audits are not independent `REVIEW_PASS`. Neither review authorizes product-data/gameplay/engine/S1 work.
+- H01 research README links to R3af, R3ae, R3ad, R3ac and R3ab review requests. R3af integration receipt: `docs/research/H01_batch02_1836/GITHUB_INTEGRATION_RECEIPT_R3af.md`.
+- Fetch the latest branch HEAD before review. R3af and earlier packages remain `READY_FOR_INDEPENDENT_REVIEW`; ChatGPT self-audits are not independent `REVIEW_PASS`. This review does not authorize product-data/gameplay/engine/S1 work.
 
 
 ## 1. Current project state
@@ -113,6 +114,14 @@ Pre-protocol work:
 | Earlier stages 1–5 (identity/content, numbering of an earlier specification) | `PRE_PROTOCOL_IMPLEMENTED_REPORTED` | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` | Not `REVIEW_PASS` or `ACCEPTED`; part of the current baseline; S0 verifies what is present at the frozen SHA |
 
 ## 5. Work log
+
+### 2026-11-18 — H01-R3AF-SHE-ZUL-BSO-SUCCESSION-1836-1900
+
+- R3af base HEAD: `c4b5f08983961494542c7c938db4a32ae21378c4`. The initial research files were committed sequentially: audit `59ee3385459f37828eb05a787c6715a0b6e22045`; source matrix `6d820863c8831c605c928524eae3b405be12bd87`; patch decisions `6d7e115bd6219c5abcc4c1ea331f9994a2e716e6`; open evidence requests `8a45b66ff07b1f21ca6de8ffd28b130122b1162c`; source registry `6afac9e21d06c850c12ed388c7354828606e62b5`; Claude review request `a45743af1511f97e5954ff3854acb262f1398a94`.
+- R3af researches post-1836 succession for Shewa, Zulu and Basotho. It distinguishes Menelik's 1855 proclamation from captivity and effective return in 1865; Cetshwayo's formal 1872 succession, 1879 exile and limited 1883 restoration; Zululand's 1887 British possession proclamation from 1897 Natal incorporation; and Letsie's 1891 death, chiefs' representation and Crown recognition communicated in 1892.
+- R3af CSV checks: matrix 10 columns/17 rows; patch decisions 7/14; open requests 5/10; source registry 8/17. All rows rectangular; all matrix IDs map one-to-one to registry IDs; no collisions against cumulative registers before append.
+- Cumulative H01 registers after integration: open evidence requests 70 data rows; source registry 77 data rows. R3af review request: `docs/audit/s0/H01_R3AF_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. Fetch the latest HEAD and review no-write.
+- R3af is documentation-only. No live country profiles, `heads_of_state.json`, historical_data, engine/runtime, events, map ownership, population, tests, assets, Android, Gradle, workflows, signing, save/schema or APK files changed. No test/build/APK workflow was run. Status remains `SELF_AUDIT_ONLY / READY_FOR_INDEPENDENT_REVIEW / NO_PRODUCT_PATCH`; no owner acceptance or S1 transition.
 
 ### 2026-11-18 — H01-R3AE-SHE-ZUL-BSO-OFFICEHOLDER-AND-TITLE-AUDIT
 
