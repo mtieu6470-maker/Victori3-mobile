@@ -166,3 +166,17 @@ Additional cases required by §§14.13–14.14:
 | GEO-09 | Taxonomy version changes | Historical reports reproduce under their recorded taxonomy version; new version emits a comparable versioned report |
 | GEO-10 | No owner-approved canonical taxonomy exists | Region-level coverage score is NOT_SCORABLE; report may show source/entity counts only |
 
+
+
+## 11. Entity/metric benchmark coverage matrix invariants
+
+| ID | Scenario | Required assertion |
+|---|---|---|
+| BEN-11 | Current benchmark coverage report for the full registry | Every one of the 181 registry entities has an explicit row for each of the six current CoW indicator fields; expected matrix is 1,086 rows before any approved taxonomy/version change |
+| BEN-12 | Entity with no observation for a metric | Row remains present with explicit missing/null status; missing is never rewritten as numeric zero |
+| BEN-13 | CoW identifier reconciliation | Entity ID, CoW numeric code and source record are reconciled independently; no automatic substitutions for unmatched/missing cases |
+| BEN-14 | Source record with data but absent registry CoW code | Coverage report preserves the observation and flags the mapping issue instead of silently excluding it |
+| BEN-15 | Maddison present-day territorial unit | Unit remains in a separate source-geography table until a time-valid crosswalk with method/uncertainty is approved |
+| BEN-16 | Urban population and military expenditure inputs | Builder either compiles them with units/provenance or explicitly documents a metric-specific exclusion decision; the two current omissions cannot silently disappear |
+| BEN-17 | Benchmark ETL compile | For every included field, raw observation counts, selected values, units, quality and source locator are reconciled from input through compiled database |
+| BEN-18 | Source quality distribution | Estimated/supported/verified counts reproduce exactly; no quality promotion occurs during ETL |
