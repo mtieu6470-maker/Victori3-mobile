@@ -161,7 +161,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: s0-b7-dependency-audit-\${{ github.sha }}
+          name: s0-b7-dependency-audit-${{ github.sha }}
           path: ci-evidence/
           if-no-files-found: error
           retention-days: 30
