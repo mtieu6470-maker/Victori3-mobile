@@ -1,4 +1,4 @@
-# H01 Batch 02 — consolidated research integration report (R3v)
+# H01 Batch 02 — consolidated research integration report (R3x)
 
 **Status: `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`**  
 Snapshot used by the source package: `1836-01-01` (simulation anchor; source temporal precision is often annual or circa-year).  
@@ -95,3 +95,14 @@ Chronology sources now distinguish staged events. Asiwaju dates collapse c.1835 
 The staged reading is: (1) collapse/desertion and displacement c.1835–1836; (2) refugee/political alliance at Ago Oja; (3) formal ritual installation and fuller royal-office reconstruction c.1838. This prevents the later consolidated New Oyo structure from being projected backwards to 1836-01-01. Dates remain approximate; no exact day-level sovereignty change is established.
 
 **Disposition:** OYO 650k and OYO_OYO 1.45m remain quarantined; Butcher & Griffiths' >750k c.1780 figure is an unverified secondary claim whose cited Asiwaju p.704 text does not substantiate the demographic number; the wider Oyo sphere is non-homogeneous; no new population, control, ownership or runtime patch.
+
+
+## 11. R3x — NDE population universe and Rasmussen trace (2026-11-18)
+
+R3x reopened Lye (1969), pp.88, 91 and 96–97. Lye p.88 says that by the end of 1823 Mzilikazi fled Zululand with about 300 young warriors and women. This is an initial migration nucleus, not the later polity. Delius (2010) cites Rasmussen (1978, pp.23–26 and 90–94) and attributes a plausible 300-person departure to 1821, creating a date discrepancy that is not silently reconciled. Delius says the most reliable estimates by the end of the 1820s were around 20,000, while some sources proposed three or four times that number; he stresses ample room for error. Warren, Hall & Ackermann (2014) independently repeat the 300-to-20,000 late-1820s trajectory and significant Sotho-Tswana incorporation, citing Rasmussen.
+
+Lye p.91 explicitly distinguishes raids beyond the Vaal and Limpopo from territorial control: those areas were not controlled merely because they were raided. On p.96, the 10,000–20,000 people who followed Mzilikazi beyond the Limpopo are part of the later departure after the 1836–37 conflicts; many subjects stayed behind and most followers were Sotho. This is a migration flow, not the total NDE population on 1836-01-01.
+
+Lye p.97 reports that 1829 visitors estimated a total population of 60,000–80,000; by 1836 Andrew Smith and others estimated the Nguni military force at 1,000–5,000 warriors plus subject peoples. Lye combines Nguni and Sotho, military and subjugated, tributary and vassal elements and regards 60,000–80,000 as a reasonable estimate of the polity's subjects. He says indigenous Sotho were the greater part and subject peoples greatly outnumbered the Ndebele. This is an approximate broad-polity estimate, not an ethnic Ndebele/Nguni core or exact census. Delius's lower late-1820s estimate and discussion of higher alternatives mean the numeric evidence remains contested and fragile.
+
+**Updated disposition:** NDE 60,000 may remain only as a provisional approximate circa-1830s population of Mzilikazi-led polity subjects; the original “Ndebele/Nguni core” label is not supported. NDE 45,000–85,000 remains an unverified bracket with no demonstrated statistical interval method. The separate 1,000–5,000 figure is a military-core comparator, not total population. NDE_MOS 210,000 remains broad geography only: no direct-rule total, numeric split, owner reassignment or geometry patch is supported. No live game data changes.
