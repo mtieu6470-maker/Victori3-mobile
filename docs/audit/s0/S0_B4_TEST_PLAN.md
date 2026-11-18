@@ -9,7 +9,7 @@
 
 This task characterizes the existing save/load behavior only. It does not modify gameplay, simulation, RNG, the save serializer/deserializer, data, assets, or the save schema.
 
-The tests-only workflow is `.github/workflows/s0-b4-tests.yml`. It is manual-dispatch only, uses `contents: read`, checks out the frozen baseline SHA, and overlays only the two B4 test files from the experiment branch. It runs Node dependency installation, generated-data preparation, TypeScript checking and the dedicated Vitest file. It does not run Vite production build, Capacitor sync, Gradle, Android SDK setup or APK assembly.
+The tests-only workflow is `.github/workflows/s0-b4-tests.yml`. It is manual-dispatch only, uses `contents: read`, checks out the frozen baseline SHA, and overlays only the two B4 test files from the experiment branch. It runs Node dependency installation, generated-data preparation, TypeScript checking and the dedicated Vitest file. Once generated-data preparation succeeds, typecheck and Vitest run independently; a typecheck failure does not suppress runtime characterization, and either failure still makes the job fail. It does not run Vite production build, Capacitor sync, Gradle, Android SDK setup or APK assembly.
 
 The workflow file is present on the default branch so GitHub exposes the manual workflow, and mirrored on the experiment branch. The existing Android APK workflow is unchanged. Audit commits use GitHub's documented skip annotation for push-triggered workflows so those commits do not invoke the APK workflow.
 
