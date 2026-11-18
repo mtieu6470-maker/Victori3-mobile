@@ -233,3 +233,11 @@ Trong lượt mới này:
 - Updated package README to index the matrices and updated Hydrogen's research request to independently verify entity/cow crosswalk and missingness (request update commit `f7acf811b2bde6a1bca2f914fc73f09ac4e4d36a`).
 - Expanded S22 test matrix with BEN-11–BEN-18 for full entity/metric enumeration, explicit missing rows, CoW code reconciliation, Maddison geographic scope, two omitted CoW fields, raw-to-compiled reconciliation and quality preservation (test-plan update commit `ad227f40a26d8c760992ed315c0014c6187f29ad`).
 - No runtime or source benchmark values were altered; these matrices describe the checked-in input only. No data import, build, test, CI or device run.
+
+
+### 2026-11-19 — Final review pointer consistency pass
+
+- Phát hiện Claude request còn một đoạn chỉ định design/traceability blob cũ dù phần đầu đã được cập nhật. Đã thay đoạn đó bằng một bộ pointer duy nhất cho design §§14.1–14.15, code self-audit, traceability, test matrix, benchmark review, entity-metric matrix và Maddison unit matrix.
+- Đã kiểm tra request mới không còn chứa hai SHA cũ (fbbad73... và 2671216...) ở vị trí target/supporting evidence; request content blob mới fc5565ce5e4ac556efafd3f6d1965006a589b5a6.
+- Review request update commit: 5eb49c5ab6f8441bfbd75c6dea4b868d6469df4f.
+- No code/data changes and no tests/build/CI/device run.
