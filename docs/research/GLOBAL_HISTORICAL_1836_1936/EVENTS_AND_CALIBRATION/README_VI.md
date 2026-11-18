@@ -146,3 +146,10 @@ Nguồn: [Singh et al., 2018 — Journal of Climate](https://doi.org/10.1175/JCL
 Key discrepancy: current checked-in CoW extracts cover 17 irregular year points from 1816–1914; official CoW NMC v7.0 documentation advertises annual component data from 1816–2022. Verify/reconcile official files before importing. Maddison 2023 is a separate candidate; do not overwrite Maddison 2010 or map present-day territories straight into 1836 polities.
 
 These benchmark artifacts remain research-only. No source was added to canonical registry; no ETL/runtime patch was made.
+
+
+### 7.1 Entity-by-metric coverage matrices (19/11/2026)
+
+- `BENCHMARK_ENTITY_METRIC_COVERAGE.csv` — complete 181 entity × 6 CoW metric matrix (1,086 rows). 322 entity-metric combinations have one or more observations; 764 are explicit missing rows. 59 entities have at least one CoW metric. Missing is not zero.
+- `MADDISON_2010_UNIT_COVERAGE.csv` — 160 rows: 94 present-day territorial population units and 66 GDP-per-capita units, with exact year lists, quality and locators. The 160 rows do not directly map to 1836 registry polity IDs.
+- These files are row-level coverage inventories only; no source values have been imported into runtime data and no time interpolation or geographic allocation has been performed.
