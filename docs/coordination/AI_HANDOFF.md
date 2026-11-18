@@ -16,8 +16,8 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 
 - **R4e / Claude — final collective/aggregate succession queue review:** start with `docs/audit/s0/GLOBAL_R4E_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4e covers MAO (collective rangatira authority) and MLY (multiple Malay constituent polities); base SHA before R4e: `103ab66b227809fae358e082fa253c0e50a1f78c`. Fetch the exact latest branch HEAD before review.
 - **R4e package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/README_VI.md`; 2-entity evidence matrix, 19 non-executing decisions, 12 open evidence requests and 20 source records. Integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/GITHUB_INTEGRATION_RECEIPT_R4e.md`.
-- **S7–S8 goods/markets/transport pre-design:** `docs/spec/GOODS_MARKETS_TRANSPORT_ARCHITECTURE_PROPOSAL_VI.md` (design commit `0b231f637bb0659bd170c7e4a0d1d76d44248922`). Documents the current material-accounting mismatch, Goods Registry and monthly stock-flow conservation (S7), then temporal transport graph, capacity-constrained shipments and goods-specific market access (S8). Design only; S7/S8 remain closed.
-- **S7–S8 / Claude independent design review:** `docs/audit/s0/GOODS_MARKETS_TRANSPORT_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (request commit `25b90a56b865ccdb4b75cd9f9f519bf949a9da2d`). No-write review against code baseline `e4924ca48264f8d0818eface51a28a87cd363b89`; does not authorize implementation.
+- **S7–S8 goods/markets/transport pre-design:** `docs/spec/GOODS_MARKETS_TRANSPORT_ARCHITECTURE_PROPOSAL_VI.md` (design revision `98a9aef1356f73004a78590eb45d63321b4b0ee2`). Documents the current material-accounting mismatch, Goods Registry and monthly stock-flow conservation (S7), then temporal transport graph, capacity-constrained shipments and goods-specific market access (S8). Design only; S7/S8 remain closed.
+- **S7–S8 / Claude independent design review:** `docs/audit/s0/GOODS_MARKETS_TRANSPORT_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (request revision `77449b1de2c17e739b97bb4857a85d7e6cf44ede`). No-write review against code baseline `e4924ca48264f8d0818eface51a28a87cd363b89`; does not authorize implementation.
 - **P0 engineering pre-design — Population Cohorts:** `docs/spec/POPULATION_COHORTS_DATA_MODEL_PROPOSAL_VI.md` (design revision `b35c5367cfe41bea3036bec2b846d19060f495c0`). ChatGPT self-audit clarified age distribution vs cohort identity, canonical tuple IDs, integer population mass and unknown-vs-unaffiliated religion. Still design-only; no runtime authorization.
 - **Population seed research — Gemini Hydrogen:** `docs/research/GLOBAL_HISTORICAL_1836_1936/POPULATION_COHORT_SEED_HYDROGEN_RESEARCH_REQUEST_2026-11-18.md` (request commit `c17dc2a9031a6ca8cf4d19cf86391073154725ca`). All-world, c.1836, source-backed candidate data only; no runtime data patch or implementation authorization.
 - **Population Cohorts — Claude independent design review:** start with `docs/audit/s0/POPULATION_COHORTS_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (request commit `c972b1b3844943e5df2f433936c8c21bb4fb464e`). No-write review of the design only; review target design commit `b35c5367cfe41bea3036bec2b846d19060f495c0`, code baseline `e4924ca48264f8d0818eface51a28a87cd363b89`. This does not substitute for S0-B7 review/owner acceptance and does not open S1.
@@ -124,6 +124,13 @@ Pre-protocol work:
 | Earlier stages 1–5 (identity/content, numbering of an earlier specification) | `PRE_PROTOCOL_IMPLEMENTED_REPORTED` | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` | Not `REVIEW_PASS` or `ACCEPTED`; part of the current baseline; S0 verifies what is present at the frozen SHA |
 
 ## 5. Work log
+
+### 2026-11-18 — S7-S8-DESIGN-REVISION-AND-REVIEW-PACKET-PIN
+
+- Revised design commit: `98a9aef1356f73004a78590eb45d63321b4b0ee2`. Added explicit inventory/transport policy distinctions: `storable`, `flow_only`, and `non_material_service`; physical mass/volume are nullable where non-material. This preserves the current engine's separately modelled service output and prevents service stock/shipment.
+- Updated Claude's no-write review request to target the revised design commit; review request revision commit: `77449b1de2c17e739b97bb4857a85d7e6cf44ede`.
+- The earlier design/review commits remain in the history; the revision above is the authoritative target. This is a ChatGPT author self-audit correction, not an independent REVIEW_PASS.
+- No runtime, save/schema, historical data, tests, UI, assets, Android, workflow, Gradle, signing or APK files changed. No tests/build/APK run. S1/S7/S8 remain closed.
 
 ### 2026-11-18 — S7-S8-GOODS-MARKETS-TRANSPORT-PRE-DESIGN
 
