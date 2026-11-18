@@ -12,7 +12,7 @@
 
 | Hạng mục | Trạng thái |
 |---|---|
-| S22 kiến trúc / design | DESIGN_ONLY; §§14.1–14.14 đã mở rộng |
+| S22 kiến trúc / design | DESIGN_ONLY; §§14.1–14.15 đã mở rộng |
 | Code baseline self-audit | SA-01–SA-12 đã ghi nhận |
 | Traceability | Có báo cáo nối SA-01–SA-12 vào thiết kế |
 | Implementation test matrix | Đã lập test plan; chưa tạo/chạy test code |
@@ -195,3 +195,21 @@ Trong lượt mới này:
 - CoW NMC v7.0: https://correlatesofwar.org/data-sets/national-material-capabilities/
 - Maddison Project Database 2023: https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2023?lang=en ; DOI https://doi.org/10.34894/INZBF2
 - Historical Financial Statistics: https://centerforfinancialstability.org/hfs.php ; Data Notes https://centerforfinancialstability.org/hfs/Data_notes.pdf
+
+
+### 2026-11-19 — SA-13: canonical twelve-macro-region taxonomy gap
+
+- Đối chiếu yêu cầu “12 macro-region” trong GLOBAL_HISTORICAL_MODE_FIDELITY_STANDARD_VI.md với schema RegionRecord, political entity registry và regions_1836.csv.
+- Trong các schema/file được kiểm tra không thấy macroRegionId, versioned taxonomy hoặc source-geography crosswalk. Search trong repository cho 12 macro-region/macro_region/world_regions cũng không tìm thấy canonical taxonomy.
+- Thêm finding SA-13 (P1) vào code-baseline self-audit; đây là thiếu hụt khả năng xác định denominator cho calibration, không phải bằng chứng rằng bản đồ game thiếu vùng đất.
+- Bổ sung §14.15: WorldRegionTaxonomy (12 stable IDs), StrategicRegionGeography, HistoricalGeographicUnit, GeographicCrosswalk và PolityTerritoryMembership. Tách physical macro-region assignment khỏi political ownership; source observations không có crosswalk thì giữ nguyên scope và không được nhân bản sang các region.
+- Bổ sung 10 test cases GEO-01–GEO-10 cho taxonomy owner-approved, mapping đầy đủ, crosswalk thời gian, split/merge, no silent equal split, border changes, missing regions và version migration.
+- Cập nhật Claude independent review request để kiểm tra SA-13 và đúng design blob mới. Claude verdict vẫn pending.
+- Không tự đặt tên 12 macro-region, không sửa RegionRecord/registry/regions CSV runtime, không tạo mapping suy đoán. Owner phải phê duyệt taxonomy và boundary semantics trước khi claim regional coverage.
+- Thiết kế mới: commit df74ed35cbdb4161b531c9199bee1931e347f6c9; blob f0b326823c76a01c353ab30ef72ee550a3aae990.
+- Self-audit SA-13: commit acfc1e78b2097561dc10a2c1d9a7f7c136130fe9; blob 8cf4fa017f321b1ca402da1117dc9c314b2faae7.
+- Traceability update: commit 17045b337a717dedcbf565bc3452aa9f512eeb99; blob d50eac10872e57c406a62d6dee48971fd1bf3cee.
+- Test matrix update: commit 4bc7dfc31905d74a0877368c11a79acac575b80b; blob f0a577ee6ced8428722556b69c613aa0fbd0c3fb.
+- Claude request update: commit f78ecf4e89296d26c26e39bd678a6e0c8e9b5a47; blob bea8f7d89c9884cfc0a827d74ccfa85f7c46ed8c.
+
+**Trạng thái gate:** S1/S22 vẫn đóng. Không có runtime/data/test/schema/Android/APK sửa đổi; chưa chạy build/test/CI/device QA.
