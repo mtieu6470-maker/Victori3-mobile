@@ -22,3 +22,9 @@
 
 ## Giới hạn
 Không sửa population benchmark, profile, registry, map owner, engine/runtime, save schema, assets, Android, workflow hoặc APK. S1 vẫn chưa bắt đầu theo handoff hiện hành. Cần independent Claude review và owner gate riêng trước khi nâng trạng thái.
+
+
+## R3u — cập nhật nguồn mới
+- Lye (1969) làm rõ 60k–80k là ước lượng subject population của polity Mzilikazi, không phải ethnic Ndebele core; 1k–5k là lực lượng chiến binh Nguni năm 1836.
+- Hassell (1866) ghi 3.5k emigrants trong toàn Liberia năm 1838, không phải Monrovia năm 1836. Shick và Starr cung cấp các chuỗi arrival/population movement khác phạm vi.
+- Không có số tranh chấp nào được đưa vào dữ liệu gameplay. Xem `H01_R3u_SUPPLEMENTAL_SOURCE_AUDIT_VI.md`.

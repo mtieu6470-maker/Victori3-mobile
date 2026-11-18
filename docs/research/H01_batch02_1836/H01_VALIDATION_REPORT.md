@@ -31,3 +31,12 @@
 `RESEARCH_LAYER_INTEGRATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`.
 
 These are ChatGPT implementation checks and self-audit, not an independent REVIEW_PASS. Claude review and owner acceptance remain pending. No build was requested. Two Android APK (debug) push workflows were automatically triggered by the documentation commits because their commit messages omitted `[skip ci]`: run 44228047126 and run 44228160144. Both subsequently completed `success`, with `apk` job success and debug APK artifacts (`dong-chay-lich-su-debug-apk`) of 17,555,127 and 17,555,063 bytes. These are incidental debug builds from unchanged game source, not H01 release validation and not device-tested. No game source, Gradle or workflow file was changed; the available connector did not expose cancellation. Subsequent documentation commits use `[skip ci]`.
+
+
+## R3u supplemental validation
+- Added documentation source rows: Lye 1969, Shick 1971, Hassell 1866, Starr 1913, Butcher & Griffiths 2021 and Everill metadata correction.
+- New CSV outputs: source evidence matrix (8 rows), patch decisions (7 rows), open requests (5 rows).
+- OYO 650k/1.45m remain quarantined; NDE 60k semantic interpretation strengthened but exact 1836 population/range unresolved; NDE_MOS 210k broad geography; LIB 3.5k/100 unresolved; DZ_KRU 356.4k arithmetic-only.
+- No population/game runtime/ownership/map/save/asset/workflow/APK files were changed. No numeric approval.
+- Screenshot limits: Shick PDF screenshot 403; Starr/Hassell screenshot unavailable due file size; Lye text inspected from page-numbered digitized transcription; Law 1977 pp.295–302 and Asiwaju English p.704 remain unread.
+- Self-audit only; independent Claude review and owner decision remain pending.

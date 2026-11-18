@@ -28,3 +28,8 @@ Reason: the current `docs/coordination/AI_HANDOFF.md` says S1 is `NOT_STARTED`, 
 
 ## Next gate
 Obtain readable Law (1977) pp.295–302 and pp.81–90, Asiwaju (1989) English p.704, transparent calculation for the 1.45m regional estimate, and page-level Everill/Rasmussen/Lye evidence. Then request owner authorization for a separately scoped S1 population/control-data patch. Claude must independently review this documentation commit; ChatGPT's checks are self-audit only.
+
+
+## R3u supplemental documentation layer
+- Added `H01_R3u_SUPPLEMENTAL_SOURCE_AUDIT_VI.md`, `H01_R3u_SOURCE_EVIDENCE_MATRIX.csv`, `H01_R3u_PATCH_DECISIONS.csv`, `H01_R3u_OPEN_EVIDENCE_REQUESTS.csv` and `H01_R3u_SOURCE_REGISTRY_DELTA.csv`.
+- The consolidated audit/validation/README are updated. No live historical_data, map, runtime or workflow files changed.

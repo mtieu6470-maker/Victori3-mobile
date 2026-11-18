@@ -51,3 +51,23 @@ No assets/media binaries were supplied in the H01 data batch; visual assets are 
 5. Rasmussen/Lye page-level evidence for NDE 60k and interval definition.
 6. Everill pages or primary rolls proving Monrovia 3,500 and enclave 100 with correct date and population universe.
 7. Owner-authorized S1 scope for shipped population/control edits; independent Claude review of this docs integration.
+
+
+## 8. R3u — supplemental source-trace findings (2026-11-18)
+
+R3u bổ sung Lye (1969), Shick (1971), Hassell (1866), Starr (1913) và Butcher & Griffiths (2021). Các phát hiện tăng độ rõ về population universe nhưng không mở phê duyệt con số mới.
+
+### 8.1 NDE
+Lye (1969, p.91) nói các cuộc đột kích qua Vaal/Limpopo không đồng nghĩa kiểm soát những vùng đó. Ở pp.96–97, khách phương Tây năm 1829 ước lượng tổng population 60k–80k; đến 1836 lực lượng quân sự Nguni được ước lượng 1k–5k chiến binh. Lye mô tả phần lớn population của Mzilikazi là Sotho bản địa, và gộp Nguni/Sotho, military/subjugated, tributary/vassal thành ước lượng 60k–80k subjects. Footnote 55 nói nhóm subject đông hơn người Ndebele. Do đó cách gọi R3l “60k Ndebele/Nguni core” sai về population universe; khoảng 45k–85k vẫn không có căn cứ.
+
+### 8.2 LIB/MONROVIA
+Hassell (1866, p.169) liệt kê nhiều khu định cư rồi ghi population toàn Liberia năm 1838 khoảng 5,000, gồm 3,500 emigrants từ Hoa Kỳ và 1,500 Africans gia nhập khu định cư. Đây là candidate explanation cho số 3,500, không chứng minh source lineage của R3l; không phải Monrovia-only hay 1836. Starr (1913, pp.24–25) cho cột Pop. 2,230 năm 1836 và 2,281 năm 1838 trong chuỗi Liberia không gồm Maryland. Shick (1971, pp.45–47) ghi 4,571 lượt emigrants đến trong 1820–1843, 242 arrivals năm 1836; p.49 ghi 1,819 người sống trong settlements năm 1843. Các đại lượng khác nhau, không thể hợp thành Monrovia census. 100 người bổ sung vẫn không có chứng cứ độc lập.
+
+### 8.3 OYO
+Butcher & Griffiths (2021, p.385) nói Oyo tại đỉnh c.1780 có thể cai trị hơn 750,000 người, dẫn Asiwaju (1989, p.704). Bài viết mô tả các thị trấn dưới suzerainty/tribute với mức tự trị nội bộ khác nhau. Trang Asiwaju English p.704 vẫn chưa được đọc trực tiếp; đây là secondary peak-era statement, không áp dụng cho OYO 1836. Manning 2014 không có giá trị subregional Oyo/Yoruba năm 1836.
+
+### 8.4 Bibliographic correction
+Springer xác nhận Everill eBook xuất bản 15 Dec 2012, copyright 2013; softcover 1 Jan 2013. Chương pp.33–54 là “An African Middle Class”, pp.55–78 là “Americans in Africa”, nên R3l pp.48–55 qua ranh giới chương. Manning locator trong R3l cũng được sửa ở R3t: Chapter 4 pp.131–150, không phải Chapter 2 pp.27–52.
+
+### 8.5 R3u disposition
+OYO 650k/1.45m tiếp tục quarantine; NDE 60k được diễn giải là polity subjects circa-1830s, không phải ethnic core; khoảng 45k–85k unresolved; NDE_MOS 210k broad geographic only; LIB_MON 3.5k/100 unresolved; DZ_KRU 356.4k arithmetic-only. Không thay live game data, ownership, geometry, benchmark, runtime, save schema, asset, workflow hay APK.
