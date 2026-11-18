@@ -97,6 +97,13 @@ Pre-protocol work:
 
 Append newest entries at the top. Do not overwrite earlier entries.
 
+### 2026-11-18 — B4-DUAL-FINAL-STATE-HASH-DIAGNOSTICS
+
+- Commit `d6612b3ec91c2c92db8c448652af8cc0c79e6da3` changes the structured replay log to emit both `continuousFinalStateSha256` and `resumedFinalStateSha256`, plus `finalStatesMatch`.
+- This closes a §6.7 evidence gap: if the branches diverge, the artifact now retains both final hashes and the first differing state path before assertions fail.
+- Updated B4 test plan. Test execution remains pending the manual pinned-baseline workflow; G0.6 remains `NOT_TESTED`.
+
+
 ### 2026-11-18 — B4-FAILURE-PATH-DIAGNOSTICS
 
 - Commit `cadee9c33c356ed6cb2fa7a39d3eade5f700102a` moves the structured `[S0-B4]` evidence log before final equality assertions. A failed replay therefore still emits save/checkpoint/initial/final hashes, command counts, simulation system counts, non-vacuous flags and the first differing GameState path.
