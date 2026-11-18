@@ -145,3 +145,14 @@ These are ChatGPT implementation checks and self-audit, not an independent REVIE
 - At the pre-R3ae HEAD, `heads_of_state.json` has no SHE, ZUL or BSO succession arrays. This is recorded as a follow-up research gap only.
 - No live profile, `historical_data/`, population, political entity, borders/map ownership, source runtime, engine, events, tests, assets, save/schema, Android, Gradle, workflow, signing or APK files were changed. No tests/build/APK workflow was run.
 - Status: `SELF_AUDIT_ONLY / READY_FOR_INDEPENDENT_REVIEW / NO_PRODUCT_PATCH`; not an independent Claude `REVIEW_PASS`, owner acceptance or S1 authorization.
+
+
+## R3af structural and integration validation (2026-11-18)
+
+- R3af research package contains 6 initial files: audit, source matrix, patch decisions, open evidence requests, source registry delta and independent Claude review request.
+- Exact GitHub CSV blob structure before cumulative integration: matrix = 10 columns / 17 data rows; patch decisions = 7 / 14; open evidence requests = 5 / 10; source registry delta = 8 / 17. Every row in each file is rectangular.
+- All 17 matrix source IDs map one-to-one to registry IDs via the `SRC_H01_` prefix. No duplicate R3af evidence-request or source IDs were found against the cumulative registers before append.
+- Cumulative H01 open evidence register grows from 60 to 70 data rows (5 columns); cumulative source registry grows from 60 to 77 data rows (8 columns). Revalidate both final blobs after the append.
+- Research findings preserve unresolved date conflicts (Haile Malakot 1855; Cetshwayo 1883/1884), divided/colonial sovereignty, Menelik's captivity and restoration, and Lerotholi's customary claim vs Crown recognition.
+- No live historical data, `heads_of_state.json`, country profiles, engine, runtime, events, population, political entities, map ownership, tests, assets, save/schema, Android, Gradle, workflows or APK artifacts are modified. No test/build/APK workflow is run.
+- Status: `SELF_AUDIT_ONLY / READY_FOR_INDEPENDENT_REVIEW / NO_PRODUCT_PATCH`; independent Claude review and owner acceptance remain pending.
