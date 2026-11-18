@@ -39,3 +39,14 @@ All commits use `[skip ci]`; no APK or build workflow was intentionally run.
 No shipped historical data, population benchmarks, profiles, entity registry, map owners/geometry, engine/runtime, save schema, tests, assets, Android, Gradle, workflow or APK files changed. No PR or merge. Status remains `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`. ChatGPT self-audit only; independent Claude review and owner acceptance pending.
 
 The receipt's own resulting commit is identified from GitHub metadata, not self-referenced.
+
+
+## Post-receipt documentation housekeeping
+
+- `fc965152bfd30ecb90629aac0d917abd28a65b54`: README cumulative title aligned to R3aa.
+- `200c70d25f8670fa69ea8668f88de0f2f96f4b17`: validation cumulative title aligned to R3aa.
+- `75c7044b9664354e571b66911af86d3e2c8c1eac`: integration map title aligned to R3aa.
+- `3cc5f1902a4bb2f3d529f8d9d594a79d4adce7ea`: integrated audit title aligned to R3aa.
+- `44370b2821efa3c7799df98d5a072c90c2735514`: handoff records this title-only housekeeping.
+
+These changes affect title lines and coordination history only; no research conclusion or game/runtime file changed. All commit messages used `[skip ci]`.
