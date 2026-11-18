@@ -7,12 +7,12 @@
 
 ## 1. Work completed in this B7 draft
 
-- Consolidated known P0/P1/P2/P3 risks from v3.2, B3 findings, asset audit, performance report, build/CI audit, and B4 run #3.
+- Consolidated known P0/P1/P2/P3 risks from v3.2, B3 findings, asset audit, performance report, build/CI audit, and B4 run #3. Added the discrepancy between the 2026-11-16 explicit audit (6 findings) and Run #3 install summary (10 findings) as an unresolved P1 dependency-security risk.
 - Separated product defects from evidence limitations, stage dependencies, and owner decisions.
 - Recorded risk impact, current disposition, containment/mitigation, owner role, target stage, and closure criteria.
 - Recorded R7 interim containment as accepted in principle under OD-20261116-11 while keeping R7 open P0.
 - Recorded R14 as BLOCKED and retained the prohibition on uninstalling the baseline APK or installing a differently signed APK. Recorded R4 as an accepted design boundary (test-supplied trace, no mandatory production journal), and R3 as closed by the APK baseline hash evidence.
-- Drafted the G0.1–G0.9 gate ledger and narrowly scoped G0.7/G0.8 S1 exception requests.
+- Drafted the G0.1–G0.9 gate ledger and narrowly scoped G0.7/G0.8 S1 exception requests. Added `S0_DEPENDENCY_AUDIT_PLAN.md` and a manual, read-only, pinned-baseline workflow that reports full-tree and production-only advisory JSON. The audit has not been run; DEP-F1 remains untriaged.
 - Did not modify any product source, tests, gameplay, engine, save schema, RNG, history data, assets, Gradle, APK workflow, signing or secrets.
 
 ## 2. Gate snapshot
