@@ -4,7 +4,7 @@
 - Branch: `claude/game-historical-sandbox-modes-kg7rj7`
 - Base HEAD before R3ad: `b02af8dfc1ccac4ad5b3e0cbc42a51bf89ef1b79`
 - Pre-integration HEAD after the five original R3ad research commits: `105ed649f2ce003f9a98b5543d03d989edecc243`
-- HEAD after integrated records and independent review request, before the README/handoff/receipt index updates: `3629234864bd810a8369801de2f901f1cfd1c18a`
+- HEAD after README and handoff pointer updates, before this final receipt revision: `7d7c54e4466aa351466e1264161991b7f7964de4`
 - Scope: H01 research/documentation only. No live product/game-data change.
 
 ## Commit chain
@@ -78,3 +78,18 @@ No live profile, population, political entity, title, government, event, ownersh
 Status: `READY_FOR_INDEPENDENT_REVIEW / SELF_AUDIT_ONLY / NO_PRODUCT_PATCH`.
 
 Claude review request: `docs/audit/s0/H01_R3AD_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. Claude must fetch the newest HEAD and review without writes. ChatGPT's structural/source review is a self-audit, not an independent `REVIEW_PASS`. Owner acceptance and any future product-data/S1 authorization remain separate gates.
+
+
+## Final index and handoff commits
+
+| Commit | Change |
+|---|---|
+| `438e12ed35a9574383449689a4d4f600814953ef` | Create this R3ad integration receipt |
+| `523dacf7b75e3b77f79cbc615c548318c8bd4f58` | Make R3ad the latest H01 README entry point; link the receipt and Claude request |
+| `7d7c54e4466aa351466e1264161991b7f7964de4` | Update shared AI handoff with the R3ad review entry point and work log |
+
+## Final repository-scope check
+
+GitHub compare from base `b02af8dfc1ccac4ad5b3e0cbc42a51bf89ef1b79` to the exact pre-final-receipt HEAD `7d7c54e4466aa351466e1264161991b7f7964de4` returned **14 commits and 14 changed paths**. All 14 paths are under `docs/`; the changed-path list contains no source, game data, tests, assets, map, Android, Gradle, workflow or APK path. This receipt revision itself also changes only `docs/research/H01_batch02_1836/GITHUB_INTEGRATION_RECEIPT_R3ad.md`.
+
+The final receipt revision is identified by its GitHub commit metadata; a commit cannot contain its own SHA.
