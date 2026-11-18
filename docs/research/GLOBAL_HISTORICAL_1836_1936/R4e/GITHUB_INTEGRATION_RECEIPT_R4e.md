@@ -11,12 +11,18 @@
 
 | File | Commit |
 |---|---|
-| `README_VI.md` | `94ffd6e7064d3cd2c06019fff8ef0bb279a0d0b1` |
+| `README_VI.md` (initial) | `94ffd6e7064d3cd2c06019fff8ef0bb279a0d0b1` |
 | `R4e_COLLECTIVE_POLITIES_AUDIT_VI.md` | `7deeaea44c40cdd967e9ac981703ede1ac71bdd6` |
 | `R4e_SOURCE_EVIDENCE_MATRIX.csv` | `20791dd8d85ac0e3dfa33e1fae88595bf9e3f640` |
 | `R4e_PATCH_DECISIONS.csv` | `237cfe60ad9f799f167e69f9e96daa5e92058f29` |
 | `R4e_OPEN_EVIDENCE_REQUESTS.csv` | `15951bf7ba9babdf637cf4c3c58ae74d6ef9200f` |
 | `R4e_SOURCE_REGISTRY_DELTA.csv` | `e128e638c7a64e9361aa102258f8b7dad360b07e` |
+| `GLOBAL_R4E_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` | `f9916f553a04e1d7bc4c1b5b04b06c652b8d587f` |
+| `GITHUB_INTEGRATION_RECEIPT_R4e.md` (initial) | `42acb66500321bdbd0af72ae5a7dd4fb40842110` |
+| `README_VI.md` (inventory-count correction) | `963ad58bc469bf3f2da01fb0414b19f050a32ec9` |
+| `AI_HANDOFF.md` update | `371a9e0bd35857a4f91389d0b41308571c554725` |
+
+**Latest branch HEAD observed before this receipt ledger amendment:** `371a9e0bd35857a4f91389d0b41308571c554725`.
 
 ## Structural validation
 
