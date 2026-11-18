@@ -118,6 +118,7 @@ These are ChatGPT implementation checks and self-audit, not an independent REVIE
 
 - Added `H01_R3ac_CENTRAL_SAHEL_RULERSHIP_AND_SOVEREIGNTY_AUDIT_VI.md`, source evidence matrix, patch decisions (6 decisions), open evidence requests (7 requests), and source registry delta (10 sources).
 - CSV structural checks: R3ac source matrix = 10 columns / 10 data rows; patch decisions = 7 columns / 6 data rows; open evidence requests = 5 columns / 7 data rows; source registry delta = 8 columns / 10 data rows. All rows rectangular after correction.
+- Cumulative structural checks after R3ac: H01 open evidence requests = 5 columns / 43 data rows; integrated source registry delta = 8 columns / 38 data rows. Both files have all rows rectangular.
 - SOK: Paul Naylor (2021) and Murray Last (1967) support Muhammad Bello 1817-1837 and manuscript-preferred title Amīr al-muʾminīn; Last documents Gawakuke in March 1836.
 - BOR: al-Kanemi/Shehu versus Mai Ibrahim/Sayfawa distinction and 1846 institutional abolition are supported by History of Nigeria 2; year of al-Kanemi's death is a documented 1835/1837 source conflict, with 1837 better supported by NPG and History of Nigeria 2.
 - WAD: 1834/1835/1838 accession dates conflict; Cordell (1977) documents at least six unreconciled king lists; do not promote 1835 as an exact verified date.
