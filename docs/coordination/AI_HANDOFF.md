@@ -14,13 +14,16 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 
 ## Current independent review entry point
 
-- **H01 R3af / Claude — latest:** start with `docs/audit/s0/H01_R3AF_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R3af base SHA is `c4b5f08983961494542c7c938db4a32ae21378c4`; the request requires a no-write review of SHE/ZUL/BSO succession history (1836–1900), source quality, 4 CSVs and a docs-only diff. The request was committed as `a45743af1511f97e5954ff3854acb262f1398a94`; fetch the newest branch HEAD before review.
+- **GLOBAL Historical Mode / Claude — latest project-wide review:** start with `docs/audit/s0/GLOBAL_HISTORICAL_MODE_CLAUDE_REVIEW_REQUEST_2026-11-18.md`. It covers all world regions and polity types, the full 1836–1936 campaign, the fidelity/provenance standard, the 181-entity succession coverage matrix, current 439-record baseline and engine audit. Review base SHA: `f5ba6542ed2944f392d0d72b530122ce6f58b498`; request commit: `29e61591e1cee0d925f3aa8d528f6c1593fc7975`. Fetch latest HEAD before review.
+- **GLOBAL Historical Mode artifacts:** `docs/spec/GLOBAL_HISTORICAL_MODE_FIDELITY_STANDARD_VI.md`; `docs/audit/GLOBAL_HISTORICAL_MODE_DATA_BASELINE_AUDIT_VI.md`; `docs/audit/GLOBAL_HISTORICAL_SUCCESSION_COVERAGE_1836.csv`.
+- **Owner direction 2026-11-18:** worldwide scope, not Africa-only. Historical Mode requires source-backed historical accuracy and temporal consistency for the 1836–1936 campaign; it must not railroad outcomes and may diverge when causes change (Master Spec §§2.2 and 10.2). Sandbox/Alternate History may be flexible and is not required to follow historical ruler/event timelines after the start date.
+- **H01 R3af / Claude:** `docs/audit/s0/H01_R3AF_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as the latest regional succession research package for Shewa, Zulu and Basotho (1836–1900).
 - **H01 R3ae / Claude:** `docs/audit/s0/H01_R3AE_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate 1836 officeholder/title review.
 - **H01 R3ad / Claude:** `docs/audit/s0/H01_R3AD_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
 - **H01 R3ac / Claude:** `docs/audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
 - **H01 R3ab / Claude:** `docs/audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
 - H01 research README links to R3af, R3ae, R3ad, R3ac and R3ab review requests. R3af integration receipt: `docs/research/H01_batch02_1836/GITHUB_INTEGRATION_RECEIPT_R3af.md`.
-- Fetch the latest branch HEAD before review. R3af and earlier packages remain `READY_FOR_INDEPENDENT_REVIEW`; ChatGPT self-audits are not independent `REVIEW_PASS`. This review does not authorize product-data/gameplay/engine/S1 work.
+- Fetch the latest branch HEAD before every review. All ChatGPT self-audits are labelled; they are not independent `REVIEW_PASS`. The global review request is no-write and does not authorize changes to runtime/game data/schema/engine or S1.
 
 
 ## 1. Current project state
@@ -114,6 +117,17 @@ Pre-protocol work:
 | Earlier stages 1–5 (identity/content, numbering of an earlier specification) | `PRE_PROTOCOL_IMPLEMENTED_REPORTED` | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` | Not `REVIEW_PASS` or `ACCEPTED`; part of the current baseline; S0 verifies what is present at the frozen SHA |
 
 ## 5. Work log
+
+### 2026-11-18 — GLOBAL-HISTORICAL-MODE-FIDELITY-BASELINE
+
+- Owner direction recorded: research scope is the whole world, not Africa-only. Historical Mode must use accurate, source-backed and temporally consistent history for the full 1836–1936 campaign; Sandbox/Alternate History may be flexible after the 1836 starting snapshot. Historical outcomes remain conditional and may diverge when causes change; no railroad.
+- Data baseline SHA inspected: `44ab55f34c2069207be6d5dd23b49ba5c38fdfd0`. Registry contains 181 political entities; profiles comprise 136 core + 11 detailed = 147. `heads_of_state.json` contains 93 arrays and 439 records; 54 profiles lack arrays.
+- Provenance baseline: 288/439 records cite only `wikipedia_en`; 58 records include a non-Wikipedia source; 93 records have no record-level sources and rely on global default citations. This is a quality/provenance risk, not a claim that those records are necessarily false.
+- Temporal baseline: HOS file describes 1836–1900 while Master Spec campaign is 1836–1936. 92/93 arrays overlap 1836-01-01; 48 overlap 1900; only one overlaps 1936. Entity dissolution/merger and successor-state transitions must be distinguished from simple missing data.
+- Documentation artifacts added: `docs/spec/GLOBAL_HISTORICAL_MODE_FIDELITY_STANDARD_VI.md`; `docs/audit/GLOBAL_HISTORICAL_MODE_DATA_BASELINE_AUDIT_VI.md`; `docs/audit/GLOBAL_HISTORICAL_SUCCESSION_COVERAGE_1836.csv` (181 registry rows); `docs/audit/s0/GLOBAL_HISTORICAL_MODE_CLAUDE_REVIEW_REQUEST_2026-11-18.md`.
+- Commits: matrix `b63149242618c09d722f06068826f1651dc226ad`; global standard `1831c460eacfd8439820f505560dae96979c57fe`; baseline audit `f5ba6542ed2944f392d0d72b530122ce6f58b498`; Claude review request `29e61591e1cee0d925f3aa8d528f6c1593fc7975`.
+- Engine audit flagged a possible `after_regime_change` selection inconsistency for Claude to verify. No code fix was applied.
+- This work is documentation-only. No `historical_data/`, HOS arrays, country profiles, registry, source runtime, schema, engine, events, tests, assets, saves, Android, Gradle, workflows or APK files changed. No build/test workflow run. Status: `SELF_AUDIT_ONLY / READY_FOR_INDEPENDENT_REVIEW / NO_PRODUCT_PATCH`; owner acceptance and S1 remain separate.
 
 ### 2026-11-18 — H01-R3AF-SHE-ZUL-BSO-SUCCESSION-1836-1900
 
