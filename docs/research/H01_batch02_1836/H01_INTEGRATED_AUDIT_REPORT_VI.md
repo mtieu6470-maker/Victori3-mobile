@@ -167,4 +167,16 @@ R3ac adds a source-backed review of four H01 records at the 1836 snapshot.
 R3ac is a research interpretation, not a shipped data patch. It flags three future architecture requirements: role separation for nominal/de facto rulers, title aliases for historically specific offices, and year/range uncertainty for contested accessions.
 
 Disposition: `SELF_AUDIT_ONLY / REVIEW_PENDING / NO_PRODUCT_PATCH`. No population, control, ownership, government, map, runtime, test, save/schema or asset data is changed.
+ 
+## 11. R3ad — Asante, Dahomey, Macina and Buganda officeholder research
 
+R3ad reviews four existing 1836 officeholder profiles and adds historical context without modifying shipped data.
+
+- **ASH — Asante:** Kwaku Dua I (personal name Fredua Agyeman) succeeded Osei Yaw Akoto in 1834 and ruled through 1867. Wilks supports the year and succession; History of Ashanti gives Monday 25 August 1834 only as “most probably” and is a retrospective royal committee history, not a contemporary accession record. Retain year-level confidence; do not promote the exact day as certain.
+- **DAH — Dahomey:** Ghezo's 1818 accession followed a coup/revolution that deposed Adandozan. The later official king-list's omission of Adandozan and descriptions of him as merely a regent are contested historiographical claims. Preserve the predecessor question and competing legitimacy narratives rather than silently normalizing a peaceful succession.
+- **MAS — Macina/Hamdallahi:** distinguish Ahmād Lobbo/Seku Amadu's personal rule from the state's 1818–1862 lifespan. Sources differ on his death year (1844/1845). Nobili's textual criticism also requires distinguishing chronicle layers used to legitimate the founding ruler from neutral contemporary reporting.
+- **BUG — Buganda:** Ssuuna/Suna/Ssuuna II is the ruler at the 1836 snapshot, but accession dates vary: c.1830 in academic chronologies, 1832 in the current official Kingdom publication, and 1836 in the UNESCO nomination dossier. Keep the ruler identification separate from disputed start-year precision and reconcile aliases before any profile change.
+
+R3ad's disposition is documentation-only: retain current live-profile candidates for research purposes, annotate uncertainty, and defer any change to historical_data/, title/government data, aliases, events, engine, schema or saves to a separately authorized task. R3ad does not grant numeric approval, owner acceptance or S1 authorization.
+
+Disposition: SELF_AUDIT_ONLY / READY_FOR_INDEPENDENT_REVIEW / NO_PRODUCT_PATCH.
