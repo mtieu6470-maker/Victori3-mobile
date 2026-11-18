@@ -14,18 +14,18 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 
 ## Current independent review entry point
 
-- **R4a / Claude — latest priority tranche:** start with `docs/audit/s0/GLOBAL_R4A_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4a covers 13 polity dossiers and all 54 profiles without succession arrays. Fetch the latest HEAD before review; base SHA: `e7282de0e3b6aeb4ef81d28cd006c59d63b4c314`.
-- **R4a package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4a/README_VI.md`; source audit, 13-row evidence matrix, 24 patch decisions, 15 open requests and 28 source entries; `docs/audit/GLOBAL_HOS_MISSING_PROFILE_TRIAGE_R4a.csv` classifies every missing-profile case.
-- **GLOBAL Historical Mode / Claude — baseline review:** `docs/audit/s0/GLOBAL_HISTORICAL_MODE_CLAUDE_REVIEW_REQUEST_2026-11-18.md` remains open. It covers the global fidelity standard, 181-entity succession coverage baseline and current engine/data audit.
+- **R4b / Claude — latest succession/authority tranche:** start with `docs/audit/s0/GLOBAL_R4B_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4b covers 15 profile gaps across Central/South/East/Southeast Asia, West Asia, North Africa and Africa. Base SHA: `e5dead90d15cab772a8a0fa00ee76f76e4d08916`; fetch latest branch HEAD before review.
+- **R4b package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4b/README_VI.md`; 15-polity audit, 25 non-executing decisions, 18 open evidence requests and 33 source entries. R4b receipt will be added under the same directory.
+- **R4a / Claude:** `docs/audit/s0/GLOBAL_R4A_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open for 13 earlier polity dossiers and the 54-profile triage.
+- **GLOBAL Historical Mode / Claude — baseline review:** `docs/audit/s0/GLOBAL_HISTORICAL_MODE_CLAUDE_REVIEW_REQUEST_2026-11-18.md` remains open. It covers the global fidelity standard, 181-entity coverage baseline and current engine/data audit.
 - **GLOBAL Historical Mode artifacts:** `docs/spec/GLOBAL_HISTORICAL_MODE_FIDELITY_STANDARD_VI.md`; `docs/audit/GLOBAL_HISTORICAL_MODE_DATA_BASELINE_AUDIT_VI.md`; `docs/audit/GLOBAL_HISTORICAL_SUCCESSION_COVERAGE_1836.csv`.
 - **Owner direction 2026-11-18:** worldwide scope, not Africa-only. Historical Mode requires source-backed historical accuracy and temporal consistency for the 1836–1936 campaign; it must not railroad outcomes and may diverge when causes change (Master Spec §§2.2 and 10.2). Sandbox/Alternate History may be flexible and is not required to follow historical ruler/event timelines after the start date.
-- **H01 R3af / Claude:** `docs/audit/s0/H01_R3AF_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as the earlier regional succession research package for Shewa, Zulu and Basotho (1836–1900).
+- **H01 R3af / Claude:** `docs/audit/s0/H01_R3AF_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as an earlier regional succession research package for Shewa, Zulu and Basotho (1836–1900).
 - **H01 R3ae / Claude:** `docs/audit/s0/H01_R3AE_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate 1836 officeholder/title review.
 - **H01 R3ad / Claude:** `docs/audit/s0/H01_R3AD_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
 - **H01 R3ac / Claude:** `docs/audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
 - **H01 R3ab / Claude:** `docs/audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
-- Fetch the latest branch HEAD before every review. All ChatGPT self-audits are labelled; they are not independent `REVIEW_PASS`. R4a review is no-write and does not authorize runtime/game-data/schema/engine changes or S1.
-
+- Fetch latest branch HEAD before every review. All ChatGPT self-audits are labelled and are not independent `REVIEW_PASS`. R4b review is no-write and does not authorize runtime/game-data/schema/engine changes or S1.
 
 ## 1. Current project state
 
@@ -118,6 +118,15 @@ Pre-protocol work:
 | Earlier stages 1–5 (identity/content, numbering of an earlier specification) | `PRE_PROTOCOL_IMPLEMENTED_REPORTED` | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` | Not `REVIEW_PASS` or `ACCEPTED`; part of the current baseline; S0 verifies what is present at the frozen SHA |
 
 ## 5. Work log
+
+### 2026-11-18 — GLOBAL-HISTORICAL-R4B-SUCCESSION-AUTHORITY-TRANCHE
+
+- R4b base HEAD: `e5dead90d15cab772a8a0fa00ee76f76e4d08916`. Focused 15 missing-array profile IDs across Central Asia, West Asia, South Asia, North Africa, East Asia, Southeast Asia and Africa: KHI, BUK, HER, NAJ, TUN, NAG, AWA, GWA, HOL, TIB, RYU, BRN, ACE, MER, NDE.
+- Added `docs/research/GLOBAL_HISTORICAL_1836_1936/R4b/`: full audit, 15-row evidence matrix, 25 non-executing decisions, 18 open requests, 33 source records, README; independent review request `docs/audit/s0/GLOBAL_R4B_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`.
+- Key findings: KHI/BUK profile source-scope mismatch (`levi_2017` is Kokand-centred); HER Kamran/Yar Muhammad role separation; NAJ Faisal's interrupted 1834–38 / 1843–65 rule; TUN Ahmad Bey succession from 1837; NAG personal ruler death 1853 vs annexation/Commissioner administration 1854; AWA contested 1837 succession; GWA/HOL regency and EIC intervention; TIB Dalai Lama vs Regent and calendar conversion; RYU dual Qing/Satsuma relationships and 1879 annexation; BRN accession vs coronation; ACE possible 1836 head mismatch and rival Sultan/control; MER Queen vs Prime Minister; NDE regency and contested 1868–70 succession.
+- The source registry records inspection limitations, including PDF screenshot failures (Petech 403; Ryukyu 429; Maharashtra 502; Aitchison timeout; Cambridge excerpt 502; Aceh PDF timeout). Do not claim visual page-image verification for these sources.
+- CSV structure re-fetched from GitHub: matrix 15×13, decisions 25×7, open requests 18×5, source registry 33×8; all rows rectangular and first-column IDs unique.
+- No `historical_data/`, current leader arrays, profiles, political registry, source runtime, schema, engine, events, tests, assets, saves, Android, Gradle, workflows, signing or APK changed. No test/build/APK workflow run. R4b remains `READY_FOR_INDEPENDENT_REVIEW / SELF_AUDIT_ONLY / NO_PRODUCT_PATCH`; owner acceptance and Claude verdict remain pending.
 
 ### 2026-11-18 — GLOBAL-HISTORICAL-R4A-PRIORITY-TRANCHE
 
