@@ -180,3 +180,16 @@ R3ad reviews four existing 1836 officeholder profiles and adds historical contex
 R3ad's disposition is documentation-only: retain current live-profile candidates for research purposes, annotate uncertainty, and defer any change to historical_data/, title/government data, aliases, events, engine, schema or saves to a separately authorized task. R3ad does not grant numeric approval, owner acceptance or S1 authorization.
 
 Disposition: SELF_AUDIT_ONLY / READY_FOR_INDEPENDENT_REVIEW / NO_PRODUCT_PATCH.
+
+## 12. R3ae — Shewa, Zulu and Basotho officeholders and title chronology
+
+R3ae reviews three H01 records at the 1836-01-01 snapshot and keeps officeholder identity separate from disputed accession precision, title history and the later structure of each polity.
+
+- **SHE — Shewa:** Sahle Selassie is the ruler at the 1836 snapshot. Darkwah (1967) and Bekele (2010) distinguish the title Ras at accession from Sahle Selassie's self-proclamation as Negus around 1839; Darkwah reports that clergy/nobles in Gondar did not recognize the new title. Bekele's entry gives 1806–1847 but also places his father Wäsän Sägäd in 1808–1813 and says Sahle Selassie was crowned after his father's death. Darkwah and the Ethiopia MoE textbook use 1813–1847. Retain the 1806/1813 source conflict and do not backdate Negus to 1813 without new evidence.
+- **ZUL — Zulu:** Dingane is ruler in 1836. ODNB extract gives Shaka's death in September 1828; SAHO gives 22 September 1828. The exact day remains dependent on secondary-source attribution. Mpande's defection/alliance begins in 1839; the decisive defeat/flight of Dingane and Mpande's recognition/accession belong to 1840. Do not record the 1839 rebellion as completed succession.
+- **BSO — Basotho:** Moshoeshoe is the leader in 1836. SAHO says he succeeded Mokhachane as chief in 1820; Eldredge describes BaMokoteli as a small chiefdom under Mokhachane in the 1810s. Nyane (2019), citing historical scholarship, says the exact date and manner Moshoeshoe assumed Morena cannot be fixed with certainty and distinguishes Morena from later Morena e Moholo/Paramount Chief terminology. Treat current `since=1822` and “King” as historical-precision candidates, not a verified coronation date/title chronology.
+- **Historical Mode gap:** at the pre-R3ae branch HEAD, `heads_of_state.json` had no SHE/ZUL/BSO entity arrays. Post-1836 succession for those entities needs a separate source-backed task; no succession records are added here.
+
+R3ae is documentation-only. It does not modify live profiles, title/government fields, `heads_of_state.json`, source runtime, events, population, borders, political entities, engine, save/schema or APK.
+
+Disposition: `SELF_AUDIT_ONLY / READY_FOR_INDEPENDENT_REVIEW / NO_PRODUCT_PATCH`.
