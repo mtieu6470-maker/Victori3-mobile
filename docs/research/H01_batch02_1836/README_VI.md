@@ -1,4 +1,4 @@
-# H01 Batch 02 — gói tích hợp nghiên cứu R3x
+# H01 Batch 02 — gói tích hợp nghiên cứu R3y
 
 **Trạng thái:** `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`.
 
@@ -51,3 +51,12 @@ Không sửa population benchmark, profile, registry, map owner, engine/runtime,
 - Delius (2010), trích Rasmussen 1978 pp.23–26, 90–94, ghi 300 người ban đầu, khoảng 20k là ước lượng đáng tin cậy nhất cuối thập niên 1820, nhưng một số nguồn cao gấp 3–4 lần; tác giả nhấn mạnh sai số lớn. Warren et al. (2014) lặp lại quỹ đạo 300→20k và việc tiếp nhận người Sotho-Tswana.
 - NDE 60k chỉ giữ như provisional approximate polity-subject estimate; khoảng 45k–85k không có phương pháp interval được xác minh. NDE_MOS 210k vẫn là broad geography, không phải direct-control total.
 - Xem `H01_R3x_NDE_POPULATION_AND_CONTROL_SCOPE_AUDIT_VI.md`, source matrix, patch decisions và open evidence requests.
+
+
+## R3y — chính trị Oyo 1831–1836 và đơn vị dân số
+- Lovejoy (2019) mô tả Ilorin mở rộng mạnh từ 1832; đến 1833 phần lớn đô thị Oyo quan trọng bị phá hủy hoặc khuất phục; Oyo/Bariba thử phục hồi năm 1834–35; Old Oyo bị bỏ hoang năm 1836, khi Abeokuta, Ilorin, Ibadan, New Oyo, Ijaye, Ijebu và Ife cạnh tranh quyền kiểm soát.
+- Lovejoy nói ranh giới bản đồ là fuzzy/approximate; ngày 2/1 và 31/12 là timestamp phần mềm, không có giá trị lịch sử. Không thể dùng hàng GIS New Oyo năm 1836 để khẳng định nhà nước mới đã tồn tại đầy đủ đúng 1/1/1836.
+- OYO 650k được mô tả theo refugee displacement nhưng không có refugee cohort count hay stock definition; OYO_OYO 1.45m là vùng rộng Oyo/Ibadan/Abeokuta nhưng không có workbook/subregional projection/polygon minh bạch. Hai đại lượng khác bản chất và đều cách ly.
+- SSA_REG_18 đang map 100% sang OYO_OYO/OYO; đây chỉ là join kỹ thuật, không chứng minh chủ quyền trực tiếp trên toàn khu vực. Cần locality-by-locality ownership/control table trước mọi sửa map.
+- 75k+ trong Lovejoy là người bị cưỡng bức lên tàu nô lệ xuyên Đại Tây Dương, không phải tổng dân số Oyo hay refugee count.
+- Xem `H01_R3y_OYO_1831_1836_POLITICAL_GEOGRAPHY_AND_POPULATION_AUDIT_VI.md` và CSV R3y.
