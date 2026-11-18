@@ -273,3 +273,11 @@ Required outputs:
 - `HYDROGEN_BENCHMARK_MISSINGNESS.csv` (181 registry entities × field × 1836–1936 period, including explicit missing rows)
 
 Explicitly verify 1915–1936 coverage; 12 macro-region taxonomy; all polity types; five entity/CoW code reconciliation cases; and the unit/definition differences among each metric. Do not silently interpolate missing values or declare the benchmark global-complete. This task is research-only; no canonical data, source registry, ETL, runtime, test, save or APK change is authorized.
+
+
+### 13.1 ChatGPT coverage matrices for independent review
+
+Additional research-only artifacts are available in `EVENTS_AND_CALIBRATION`:
+- `BENCHMARK_ENTITY_METRIC_COVERAGE.csv`: all 181 registry entities × 6 current CoW metrics (1,086 rows); 322 rows have observations and 764 are explicit missing. Please check the entity/CoW mapping and whether every missing row is truly absent from the checked-in extracts.
+- `MADDISON_2010_UNIT_COVERAGE.csv`: 94 population units + 66 GDP-per-capita units (160 rows); unit names are present-day territorial units and were not matched automatically to game polity IDs.
+- Do not interpret these rows as a macro-region-complete benchmark. The project’s twelve macro-region taxonomy is still awaiting owner approval and a canonical crosswalk.
