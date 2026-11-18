@@ -16,6 +16,9 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 
 - **R4e / Claude — final collective/aggregate succession queue review:** start with `docs/audit/s0/GLOBAL_R4E_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4e covers MAO (collective rangatira authority) and MLY (multiple Malay constituent polities); base SHA before R4e: `103ab66b227809fae358e082fa253c0e50a1f78c`. Fetch the exact latest branch HEAD before review.
 - **R4e package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/README_VI.md`; 2-entity evidence matrix, 19 non-executing decisions, 12 open evidence requests and 20 source records. Integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/GITHUB_INTEGRATION_RECEIPT_R4e.md`.
+- **S15–S17 local government, characters and political institutions pre-design:** `docs/spec/GOVERNANCE_CHARACTERS_POLITICS_ARCHITECTURE_PROPOSAL_VI.md` (design commit `207722d612354f4d1bccc74064d24616efa4511a`). Separates local authority/service access and urban capacity (S15), historical/generated characters and appointments/succession (S16), and institution-specific lawmaking/organizations/movements (S17). Design only; these phases remain closed.
+- **S15–S17 / Claude independent design review:** `docs/audit/s0/GOVERNANCE_CHARACTERS_POLITICS_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (request commit `f81b6c929dc93b4b69414d25301bd3a15df51b6e`). No-write review against code baseline `e4924ca48264f8d0818eface51a28a87cd363b89`; no implementation authorization.
+- **Governance and institution research / Gemini Hydrogen:** `docs/research/GLOBAL_HISTORICAL_1836_1936/GOVERNANCE_INSTITUTIONS_HYDROGEN_RESEARCH_REQUEST_2026-11-18.md` (request commit `907e7c781cc544d91d2175fba6f06fa419487b0f`). All-world, 1836–1936 evidence candidates only; collective authorities, local administration, offices/succession, laws, political organizations and movements; no runtime data changes.
 - **S10–S11 BuildingType/ProductionMethod/BuildingSite pre-design:** `docs/spec/BUILDING_TYPES_PRODUCTION_METHODS_SITES_PROPOSAL_VI.md` (design commit `b1fa6abdeb3609c8acc31206405c05a0ee90898b`). Uses owner-approved sparse BuildingSite identity, level-status and PM split/merge rules; labels current region-level building counts as legacy aggregates, not historical facility records. Design only; S10/S11 remain closed.
 - **S10–S11 / Claude independent review:** `docs/audit/s0/BUILDING_TYPES_SITES_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (request commit `4d1f058020651b128dd8d0a7e889944e9684db46`). No-write review against code baseline `e4924ca48264f8d0818eface51a28a87cd363b89`; no implementation authorization.
 - **S7–S8 goods/markets/transport pre-design:** `docs/spec/GOODS_MARKETS_TRANSPORT_ARCHITECTURE_PROPOSAL_VI.md` (design revision `98a9aef1356f73004a78590eb45d63321b4b0ee2`). Documents the current material-accounting mismatch, Goods Registry and monthly stock-flow conservation (S7), then temporal transport graph, capacity-constrained shipments and goods-specific market access (S8). Design only; S7/S8 remain closed.
@@ -126,6 +129,16 @@ Pre-protocol work:
 | Earlier stages 1–5 (identity/content, numbering of an earlier specification) | `PRE_PROTOCOL_IMPLEMENTED_REPORTED` | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` | Not `REVIEW_PASS` or `ACCEPTED`; part of the current baseline; S0 verifies what is present at the frozen SHA |
 
 ## 5. Work log
+
+### 2026-11-18 — S15-S17-GOVERNANCE-CHARACTERS-POLITICS-PRE-DESIGN
+
+- Added `docs/spec/GOVERNANCE_CHARACTERS_POLITICS_ARCHITECTURE_PROPOSAL_VI.md` (design commit `207722d612354f4d1bccc74064d24616efa4511a`) against product/code baseline `e4924ca48264f8d0818eface51a28a87cd363b89`.
+- Characterized current fixed 8 IGS, 9 LawGroups, Region/strata-based clout, one generic legitimacy/revolution path, basic single leader/heir fields, leader record inputs and name-pool generated leaders.
+- Proposed S15 overlapping/delegated authority, de jure vs de facto reach, public service capacity/access/quality, and population-conserving urbanization; S16 historical/generated/unknown character distinctions, office/appointment lifecycles and collective/non-monarchical succession; S17 institution profiles, authority-specific lawmaking, dynamic organizations and time-bounded movements with negotiation/resolution.
+- Explicitly avoids assuming universal parliaments, one Head of State, one fixed IG taxonomy, or automatic revolution from a scalar radicalism threshold.
+- Added Claude no-write design-review request `docs/audit/s0/GOVERNANCE_CHARACTERS_POLITICS_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (commit `f81b6c929dc93b4b69414d25301bd3a15df51b6e`).
+- Added all-world Hydrogen source research task `docs/research/GLOBAL_HISTORICAL_1836_1936/GOVERNANCE_INSTITUTIONS_HYDROGEN_RESEARCH_REQUEST_2026-11-18.md` (commit `907e7c781cc544d91d2175fba6f06fa419487b0f`). Candidate evidence only.
+- Design/research request only. No engine, data, tests, save/schema, UI, assets, Android, workflows, Gradle, signing or APK files changed. No tests/build/APK run. S1/S15/S16/S17 remain closed.
 
 ### 2026-11-18 — S10-S11-BUILDING-PRODUCTION-SITE-PRE-DESIGN
 
