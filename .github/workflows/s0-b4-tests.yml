@@ -102,10 +102,10 @@ jobs:
               done
             } > "$EVIDENCE/generated-data-hashes.txt"
 
+            # Keep static type checking and runtime characterization independent:
+            # even when typecheck fails, run Vitest so the artifact preserves both findings.
             run_logged typecheck npm run typecheck
-            if [[ "$(cat "$EVIDENCE/typecheck.exit_code")" == "0" ]]; then
-              run_logged characterization npx vitest run tests/s0-save-determinism.test.ts --reporter=verbose --reporter=json --outputFile="$EVIDENCE/vitest-results.json"
-            fi
+            run_logged characterization npx vitest run tests/s0-save-determinism.test.ts --reporter=verbose --reporter=json --outputFile="$EVIDENCE/vitest-results.json"
           fi
 
           {
