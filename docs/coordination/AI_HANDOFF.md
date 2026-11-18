@@ -121,6 +121,24 @@ Pre-protocol work:
 - Status: `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`. ChatGPT self-audit only, not independent Claude `REVIEW_PASS`; owner acceptance pending.
 - Cumulative-document title alignment after R3aa: commits `fc965152bfd30ecb90629aac0d917abd28a65b54` (README), `200c70d25f8670fa69ea8668f88de0f2f96f4b17` (validation), `75c7044b9664354e571b66911af86d3e2c8c1eac` (integration map), `3cc5f1902a4bb2f3d529f8d9d594a79d4adce7ea` (integrated audit). Only document title lines changed; all messages use `[skip ci]`.
 
+
+### 2026-11-18 — H01-R3AB-1836-AFRICAN-POLITY-OFFICEHOLDER-AUDIT
+
+- Owner direction in this chat: ChatGPT temporarily handles the H01 research and document packaging end-to-end while Hydrogen's document-packaging output is not usable; Claude is reserved for independent review of work it did not author. This continues the existing H01 research-only authorization and does not reopen S1, gameplay, data/schema or engine changes.
+- Repository/branch: `mtieu6470-maker/Victori3-mobile`, `claude/game-historical-sandbox-modes-kg7rj7`.
+- Base HEAD before R3ab: `0f5685231569ed4c72783cdd79a8abed63819943`.
+- Research package commits: `e5cbbf71bf0e1d4346ead29ac28cbd74de56174f` (Vietnamese audit), `7e34387abac79c7c641b4df171b5ed78a6519ac7` (source evidence matrix), `3bc81016434fecb0b6a8672493d6ea41e498a870` (patch decisions), `9b876a74015d3ba0a9c7a5f212786aed6cf229e5` (open evidence requests), `ea056881b0962d32e18e90b97693c3586303ce39` (source registry delta), `5b6d1de197b7f87f1b2d98ec4440670eabf96d28` (CSV URL/column correction). Cumulative updates: `73471e476c9b78f15ba78ea1137d7126bb77e6fe` (README), `3598b9ace2cc61872c98bab9f884993c6c3befe2` (validation), `ab7d1d004a4b5b54fd218d23d0a9afcd38191b65` (integrated audit), `f93db793055dba479ec6d3fc40028d502847b14e` (integration map), `b30ee3e3dbb44f61ac8ee2f8fe48ab730ceb439c` (cumulative evidence requests), `e7744f116451b84d34975e19a38385ef22bc8faf` (cumulative source registry), `b7408f8a8f50d3e936bc6bc938806b2869b447f4` (validation count correction). Every commit uses `[skip ci]`.
+- Research findings:
+  - FJA: Bubakar is a provisional Almami candidate at the 1836 snapshot based on Barry (1997, p.150); the exact print page and source chain still require verification. Futa Toro chronology was explicitly treated as a different polity.
+  - ETH: Sahle Dengel identified as nominal emperor (1832–1840); Ras Ali Alula/Ali II as de facto power-holder; Mänän Libän Amäde's major role is time-qualified.
+  - LIB: ACS-administered colony in 1836, not a sovereign state; Anthony D. Williams listed as agent; Thomas Buchanan arrived in January for Bassa settlements, and only became governor in 1839.
+- New files: `H01_R3ab_1836_AFRICAN_POLITY_OFFICEHOLDER_AUDIT_VI.md`, `H01_R3ab_SOURCE_EVIDENCE_MATRIX.csv`, `H01_R3ab_PATCH_DECISIONS.csv`, `H01_R3ab_OPEN_EVIDENCE_REQUESTS.csv`, `H01_R3ab_SOURCE_REGISTRY_DELTA.csv`. Cumulative README, validation report, integrated audit, integration map, cumulative open-evidence file and cumulative source-registry delta were appended. This handoff entry records the task; the GitHub metadata identifies the handoff commit itself.
+- Structural validation: source matrix 10 columns/9 rows; patch decisions 7/6; open requests 5/9; source registry delta 8/8; cumulative open requests 5/36; cumulative source registry 8/28. All checked CSV rows are rectangular.
+- GitHub compare before this handoff entry: 12 commits, 11 changed paths, all under `docs/research/H01_batch02_1836/`. After this handoff update only this coordination document is additionally changed. No `src/`, `historical_data/`, tests, map-owner/geometry, assets, save/schema, Android, Gradle or workflow files changed.
+- No code tests, build, APK workflow, APK install, PR or merge run; no such execution is relevant to a documentation-only source package. Commit messages use `[skip ci]` to avoid the broad Android APK push workflow.
+- Claude status: independent review pending. ChatGPT validation is self-audit only; not `REVIEW_PASS`, not owner acceptance, no numeric or product-data promotion.
+- Disposition: `RESEARCH_LAYER_UPDATED / SELF_AUDIT_ONLY / NO_PRODUCT_PATCH`. Exact-source gaps are listed in `H01_R3ab_OPEN_EVIDENCE_REQUESTS.csv`.
+
 ### 2026-11-18 — H01-R3Y-OYO-1831-1836-POLITICAL-GEOGRAPHY-AND-POPULATION-UNITS
 
 - Owner direction: continue H01 research and documentation; owner is prepared to ask Claude to review/fix later. Scope remains existing H01 research layer only.
