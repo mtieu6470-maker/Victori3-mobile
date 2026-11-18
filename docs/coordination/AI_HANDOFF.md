@@ -105,6 +105,20 @@ Pre-protocol work:
 
 ## 5. Work log
 
+### 2026-11-18 — H01-R3X-NDE-POPULATION-UNIVERSE-AND-RASMUSSEN-TRACE
+
+- Owner direction: continue H01 work; Claude may review/fix independently later. Scope remains documentation/research only.
+- Repository/branch: `mtieu6470-maker/Victori3-mobile`, `claude/game-historical-sandbox-modes-kg7rj7`.
+- Base HEAD before R3x: `6acc80a11a2457d6cec1bebdb9693a2d2910386a` (R3w receipt commit).
+- New research commits: `ec241a91f5e4fbeec484dbf3ac0842156bc128c0` (NDE audit), `ebb797f4c0852532468357ae50643da4083b4d17` (source matrix), `d71a039bd94360ab72885be89e5b5adf54399ffc` (patch decisions), `ee6d46abca69e7a8a079d1ff2554473fae36596e` (open requests), `1461266b293b9e674026d4083436af994551a932` (source registry delta), `07a871c13ef19b8959a8f81e9f7a4c9618805bf6` (existing R3T-07 updated), `6a3688a6e1d73e64ba114011d541337b39d0731f` (request token correction), `9b204753333ec5480fa7f6c63d633aa70006426f` (integrated report), `44c38cecbfe8f0d26e45434e8d4f450f892c5e9f` (README), `1b1ca29900affd12e3e942f63ba7c31dcb65f3d0` (validation), `2f843b7b4512eb16f97d239002ac8dcb9e37d229` (integration map). All messages use `[skip ci]`.
+- Lye (1969), pp.88, 91, 96–97 directly inspected from page-numbered text. p.88: about 300 young warriors and women in flight by end 1823. p.91: raids beyond Vaal/Limpopo did not equal control. p.96: 10k–20k who followed Mzilikazi beyond Limpopo belonged to later withdrawal after 1836–37; many subjects stayed behind and the majority of followers were Sotho. p.97: 1829 visitors estimated 60k–80k; 1836 Nguni military force 1k–5k plus subject groups; Lye's 60k–80k composite subject estimate includes Nguni/Sotho, military/subjugated, tributary/vassal people; indigenous Sotho the greater part.
+- Delius (2010), *Journal of Southern African Studies* 36(1), pp.7–23, author full text inspected. It cites Rasmussen (1978), pp.23–26 and 90–94: plausible 300 initial departure (1821), most reliable end-1820s estimate around 20k, some sources 3–4x higher, ample error margin. Delius gives a different date for the 300 migration from Lye's end-1823 chronology; both retained without harmonization. Direct Rasmussen book pages remain unread.
+- Warren, Hall & Ackermann (2014), *South African Journal of Science* 110(7–8), SciELO full text inspected: 300 to about 20k by late 1820s, significant Sotho-Tswana speakers included, cites Rasmussen. Cross-check only, not independent census.
+- R3T-07 is now `PARTIALLY_RESOLVED`: Lye page-level estimate and military-force comparator directly verified; Rasmussen pages traced indirectly via Delius; direct pages and 45k–85k interval derivation remain open. New open requests R3X-01 to R3X-03 remain OPEN.
+- Disposition: NDE 60k can only be described as a provisional approximate circa-1830s subject population of Mzilikazi-led polity, not ethnic Ndebele/Nguni core or exact census; 45k–85k remains an undocumented range; 1k–5k is a separate 1836 Nguni military-force estimate; 10k–20k is later out-migration, not 1836 total. NDE_MOS 210k remains broad geography, not proven direct control. No numeric or owner patch.
+- No live historical_data/population profiles/benchmarks/political registry/map geometry/engine/runtime/save/test/assets/Android/Gradle/workflow/APK files changed. No PR, merge or build/APK workflow requested or run.
+- Status: `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`. ChatGPT self-audit only; independent Claude review and owner acceptance remain pending.
+
 ### 2026-11-18 — H01-R3W-OYO-CITATION-AND-TRANSITION-CHRONOLOGY
 
 - Owner direction: continue the H01 research work; Claude can independently review/fix later. Scope remains documentation/research only.
