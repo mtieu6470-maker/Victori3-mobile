@@ -1061,7 +1061,7 @@ Only explicit owner decisions may be recorded here. Recommendations are not appr
 
 ### 2026-11-18 — S22 source-audit extension (ChatGPT self-audit only)
 
-- Extended `docs/audit/s0/S22_CODE_BASELINE_SELF_AUDIT_2026-11-18.md` in commit `623afa1d9310edffca92d2b3e9bb051e20f5cba3` after a second read-only pass over exact source blobs.
+- Extended `docs/audit/s0/S22_CODE_BASELINE_SELF_AUDIT_2026-11-18.md` in commit `623afa1d9310edffca92d2b3e9bb051e20f5cba3` after a second read-only pass over exact source blobs; corrected Markdown escaping in follow-up commit `31bf6f22198c086f9db1054ec5091338f742e269`.
 - Added S22-SA-08: day precision in historical event dates is collapsed to month ticks and `dateStr()` logs day 01; source date and effective simulation date need separate semantics.
 - Added S22-SA-09: `milestoneScore()` includes overdue-but-still-pending milestones in the denominator before their tolerance grace expires; define provisional vs resolved scoring and test it.
 - Added source inventory counts: CoW series contain 612 population totals / 59 entities; 596 military-personnel observations / 59 entities; 612 iron-steel observations / 59 entities; 536 primary-energy observations / 50 entities, all with source files spanning 1816–1914. The builder selects these four CoW fields but drops units/source/method metadata. Maddison files include 574 population observations / 94 present-day-territory units and 365 GDP-per-capita observations / 66 units (1820–1913); GDP-per-capita is not retained as a dated compiled benchmark series. These are repository inventory facts, not proof no external sources exist.
