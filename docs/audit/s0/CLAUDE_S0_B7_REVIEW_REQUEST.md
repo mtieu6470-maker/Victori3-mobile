@@ -37,6 +37,8 @@
 
 ## Expected output
 
+Use `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` for the report structure. Fill in the live HEAD and all verified file/workflow SHAs. The template is not a result and must not be pre-filled with assumed PASS values.
+
 Create a review report containing:
 
 - Verdict: `REVIEW_PASS` or `CHANGES_REQUESTED` for the B7 documentation package only.
