@@ -149,3 +149,20 @@ Additional cases required by §§14.13–14.14:
 - `relation_all_naval_powers` must use a deterministic, versioned actor-class predicate and must not apply duplicate/self-relations unintentionally.
 - Structural Salic-rule fixture must prove the data-declared target (HAN) is respected and unrelated British personal unions remain unchanged.
 
+
+
+## 10. Twelve-macro-region taxonomy and geographic crosswalk (SA-13)
+
+| ID | Scenario | Required assertion |
+|---|---|---|
+| GEO-01 | Owner approves the project macro-region taxonomy | Exactly twelve stable region IDs, labels, boundary reference and decision trace are versioned |
+| GEO-02 | Every 1836 strategic map region | Exactly one valid physical macro-region assignment or an explicit unresolved state; no silent omission |
+| GEO-03 | Historical source unit maps to strategic regions | Crosswalk has valid-time interval, original unit definition, source locator, allocation method, weights/ranges and uncertainty |
+| GEO-04 | Source unit spans multiple strategic regions | Allocation obeys declared conservation rule; no silent equal split or duplicated full value |
+| GEO-05 | Political ownership changes over time | Polity membership changes, but physical macro-region assignment of land remains stable |
+| GEO-06 | Present-day country/territory benchmark | Cannot enter 1836 polity/regional score without a documented time-valid crosswalk and uncertainty |
+| GEO-07 | Decentralized/collective/colonial/subject/rebel actor coverage | Polity type is explicit and missingness visible; no inference from geographic region membership |
+| GEO-08 | One macro-region has zero data for a metric | It remains present with zero observation count/missing status; it cannot disappear from a composite denominator |
+| GEO-09 | Taxonomy version changes | Historical reports reproduce under their recorded taxonomy version; new version emits a comparable versioned report |
+| GEO-10 | No owner-approved canonical taxonomy exists | Region-level coverage score is NOT_SCORABLE; report may show source/entity counts only |
+
