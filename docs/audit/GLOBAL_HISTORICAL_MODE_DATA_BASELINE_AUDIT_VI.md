@@ -188,3 +188,41 @@ R4c adds a 15-polity evidence matrix, 27 non-executing research decisions, 18 op
 Cumulative missing-profile tranche accounting: R3af covers SHE/ZUL/BSO; R4a adds four other unique IDs from the original 54-profile triage (ASH/MOR/WAL/MOL plus MEX? note R4a's 13-polity batch includes some IDs not originally in that missing list); R4b covers 15; R4c covers 15. For unique IDs from the 54-profile triage, the confirmed batches close 37 of 54, leaving 17: ETH, BOR, WAD, DAR, DAH, OYO, MAS, FJA, LIB, BUG, TEX, CAF, RGS, HAI, SUL, MAO and MLY. This is dossier coverage, not owner-approved data coverage.
 
 R4c remains a third tranche only. The 439 existing leader records, remaining historical profiles, sovereignty/territory, economy/population/military/events and full 1901–1936 timelines remain open.
+
+
+## 12. R4d — final tranche of the original 54 missing succession profiles (18 November 2026)
+
+R4d covers ETH, BOR, WAD, DAR, DAH, OYO, MAS, FJA, LIB, BUG, TEX, CAF, RGS, HAI and SUL. The tranche adds 15 evidence dossiers, 26 non-executing research decisions, 17 open evidence requests and 34 source-registry entries.
+
+Principal findings:
+- **ETH:** Emperor Sahle Dengel is the nominal sovereign at the 1836 snapshot, while Ras Ali II of Yejju is the de facto regent/kingmaker. They must be separate concurrent roles.
+- **BOR:** the existing profile still names Muhammad al-Amin al-Kanemi as HOS although the current snapshot is 1836 and the Shehu died before/around this transition; references conflict on death year (1835 vs 1837). Umar's Shehu office and the nominal Sayfawa Mai Ibrahim IV must be separated.
+- **WAD:** Muhammad Sharif's effective authority and formal enthronement have conflicting dates (c.1835 vs 1838); some chronologies list Kolak Adam as titular ruler.
+- **DAR:** Muhammad al-Fadl → Muhammad al-Husayn → Ibrahim Qarad; 1874 conquest, Turco-Egyptian/Mahdist rule and Ali Dinar's 1898 restoration are separate phases.
+- **DAH:** Ghezo 1818–1858 is well supported; Glele's designation as heir is not his accession.
+- **OYO:** Old Oyo collapsed around 1836; New Oyo and successor Yoruba states cannot be represented as a single uninterrupted polity or ruler list.
+- **MAS:** Seku Amadu's death is disputed between 1844 and 1845; preserve alternate year and title Almami pending source resolution.
+- **FJA:** rival Alfaya/Soriya lines contested the Almami; the evidence inspected does not safely identify the exact holder on 1 January 1836.
+- **LIB:** ACS colony at the start; Commonwealth 1838/39; independence 1847; Roberts' presidency begins with 1848 inauguration, not at the initial snapshot.
+- **BUG:** Suna II accession year conflicts (1832 vs 1836) between royal/local chronology and UNESCO nomination.
+- **TEX:** Henry Smith and James W. Robinson disputed the provisional governorship in January 1836; David Burnet's ad interim government follows the 2 March declaration.
+- **CAF:** Morazán as Federal President is not equivalent to direct control of all constituent states; the federation dissolved in stages in 1838–1841.
+- **RGS:** rebellion began in 1835, but the Republic was proclaimed on 11 September 1836 and Bento Gonçalves' republican presidency must not be backdated to the rebel uprising.
+- **HAI:** Boyer's resignation, the provisional executive and Hérard's later formal presidency in January 1844 are distinct stages.
+- **SUL:** Majul's genealogy puts Pulalun's accession in 1842; current Sulu royal-house genealogy says 1844. Preserve the conflict and investigate tarsila/Spanish records.
+
+With R3af and R4a–R4d deduplicated, research dossiers now cover 52 of the original 54 missing-array profile IDs. The two remaining IDs are **MAO** (United Tribes of New Zealand) and **MLY** (aggregate Malay Sultanates). These are collective/aggregate units and must not be assigned a single invented ruler; the next work is constituent-authority modelling, not a simple succession list.
+
+## 13. Victoria 3 feature parity audit
+
+Owner direction was expanded to require the game to be like Victoria 3 “in every respect”. A codebase snapshot audit was added separately:
+- `docs/audit/GLOBAL_VICTORIA3_FEATURE_PARITY_AUDIT_VI.md`
+- `docs/audit/GLOBAL_VICTORIA3_FEATURE_PARITY_MATRIX.csv` (41 system areas)
+
+The codebase has a working monthly simulation foundation spanning economy, population, politics, secession, technology, diplomacy, military, events, AI and divergence. However current parity is **FOUNDATION PRESENT / CORE DEPTH PARTIAL / FULL VICTORIA 3 PARITY NOT ACHIEVED**. The 41-area audit identifies 12-good/10-building/9-strata/8-Interest-Group inventories, fixed production recipes, simplified markets, missing persistent Pop cohorts, incomplete Production Methods/employment/wages/ownership, absent Diplomatic Plays, abstract military/war support, partial Journal Entries and heuristic rather than hierarchical AI.
+
+P0 implementation priorities are detailed Pop cohorts, employment/wages, building/Production Methods, markets/logistics, Interest Groups/political movements, diplomatic plays, detailed land/naval warfare and War Support, and persistent Journal Entries. This is a technical roadmap, **not an authorization** to alter the runtime or data.
+
+The comparison baseline is the public Victoria 3 1.15/1.15.1 line. Official announcements list 1.15.1 hotfix on 11 November 2026; the 1.15 changelog documents War Support (0–100) and consequences for Pops, army, subject liberty desire and stalemate. The official 2022 developer diary explains how Pops, buildings, wages, ownership/profits, Interest Groups, institutions and trade are causally connected.
+
+No R4d or parity-audit runtime/code/data changes were made. The full world succession and the V3-like feature targets remain pending independent review and owner implementation gate.
