@@ -1,0 +1,54 @@
+# S0-B7 — ChatGPT self-review checkpoint
+
+**Status:** `SELF_REVIEW_COMPLETE_WITH_OPEN_ITEMS`; this is not the independent Claude review and not owner signoff.
+**Review basis:** v3.2, OD-20261116-11, B3 findings/catalogs, B4 Run #3 review, current risk register, signoff and dependency-audit workflow.
+
+## 1. Checks completed
+
+| Area | Result | Evidence / boundary |
+|---|---|---|
+| Risk identifier coverage | PASS | The register contains the applicable R1–R14 (R3 in Closed), G0.7 device-evidence limitation, RM-F1…F5, TC-F1…F7, GD-F1…F6, AS-F1…F7, WD-F1…F3, CI-F1…F3 and DEP-F1. |
+| Severity alignment | PASS after correction | R7 remains P0; TC-F1/F2 remain P1; TC-F3 P2; TC-F5 P1; map-performance R10 P1; R14 P1; dependency DEP-F1 provisional P1. |
+| B4 evidence boundary | PASS | Run 44325257261, job 134874698600, checkout 7f17b1f, executed test blob 722d62c…; 70/70 tests, four replay cases matched. No artifact or typecheck was produced in that run; later expanded test source was not executed. See `S0_B4_RUN_3_REVIEW.md`. |
+| Dependency workflow static review | PASS — static only | `workflow_dispatch` only; baseline SHA asserted; full and `--omit=dev` audits; actions pinned to full commit SHAs; raw JSON + summary + provenance artifact with `if: always()`; no npm ci, audit fix, product script, build, Gradle, APK, signing or secrets. |
+| Workflow branch parity | PASS | `.github/workflows/s0-b7-dependency-audit.yml` has identical blob SHA on default and experiment branches. |
+| Full-S0 G0.9 interpretation | CORRECTED | v3.2 §6.4 and OD-20261116-11 §2.1.1 require full-S0 G0.9 to remain `BLOCKED` while C3/B2 is blocked. The separate bounded S1-entry package is tracked as `NOT_TESTED` pending reviewer and owner decisions. |
+| Overall S0 / S1 status | PASS — no premature transition | Overall S0 remains `PARTIAL — NOT COMPLETE`; S1 remains `NOT AUTHORIZED`. |
+
+## 2. Corrections made during this review
+
+1. Corrected full-S0 G0.9 from `NOT_TESTED` to `BLOCKED` while C3/B2 remains blocked, and separated that gate from the bounded S1-entry package's `NOT_TESTED` status. Updated `S0_SIGNOFF.md`, `S0_B7_RESULTS.md`, the Claude review request and `AI_HANDOFF.md`.
+2. Corrected the handoff branch metadata: the default coordination branch and experiment branch are now listed separately. The handoff also states that the experiment branch contains pre-existing product deltas and is not certified or authorized to merge by this S0 audit.
+3. Corrected R10 into the P1 section, added R4's accepted test-command-journal boundary, R3's closed baseline-hash finding, and added TC-F3/TC-F5 and CI-F1…F3 to the risk register.
+4. Added the read-only dependency audit workflow and plan to reconcile the 6-vulnerability baseline audit (2026-11-16) with the 10-vulnerability `npm ci` summary in B4 Run #3 (2026-11-18). The available evidence does not explain the count difference.
+
+## 3. Open items — prevent accidental closure
+
+| Item | Status | Required evidence / decision |
+|---|---|---|
+| DEP-F1 | `OPEN P1 — UNTRIAGED` | Manually dispatch `.github/workflows/s0-b7-dependency-audit.yml`, then review full-tree and production-only raw audit JSON. No dependency fix or lockfile change is authorized. |
+| Claude independent B7 review | `NOT_TESTED` | Use `CLAUDE_S0_B7_REVIEW_REQUEST.md`; reviewer must return `REVIEW_PASS` or `CHANGES_REQUESTED` for the bounded package only. |
+| Owner decision on bounded transition | `PENDING` | Owner must explicitly accept/reject E-G0.7, E-G0.8, R7 containment, R14/C3 disposition and the exact limited S1 scope. No in-principle acceptance is silently promoted to the concrete signoff. |
+| R7 | `OPEN P0` | Interim exposure control is recorded and accepted in principle under OD-20261116-11 §5.1; it is not a technical fix. |
+| R14 / C3 | `BLOCKED` | Export/import must be tested on the installed baseline APK before any APK installation transition. Do not uninstall the baseline or install a differently signed APK. |
+| G0.7 | `BLOCKED` | No measurement exists on the iQOO Z10 Turbo. Node/desktop/SwiftShader results are not device evidence. |
+| G0.8 | `PARTIAL` | 492 legacy image license records have not been reverified; attribution gaps remain. The exception is not owner-accepted in the concrete signoff. |
+| G0.9 full S0 | `BLOCKED` | C3/B2 remains blocked. A bounded S1-entry package review is separate; neither changes the historical full-S0 gate verdict. |
+
+## 4. Non-claims
+
+- No Claude review result is claimed.
+- The new dependency workflow has not been dispatched; no package-level conclusion is claimed.
+- No actionlint result is claimed; the workflow has only had static source review.
+- No iQOO performance, lifecycle, export/import, or thermal measurement is claimed.
+- G0.6 PASS applies only to the frozen baseline evidence in B4 Run #3; it does not certify the later expanded test file or the full experiment branch.
+- No gameplay, engine, RNG, save serializer/schema, historical data, assets, Android build, signing or keystore change is included in B7.
+- S0 is not complete and S1 is not authorized.
+
+## 5. Recommended next sequence
+
+1. Owner manually runs `s0-b7-dependency-audit.yml` with `experiment/vic3-visual-upgrade` selected and shares the completed run if needed.
+2. Review the artifact and produce a package-level DEP-F1 disposition without applying updates.
+3. Claude performs the read-only independent review specified by `CLAUDE_S0_B7_REVIEW_REQUEST.md` and returns a review report.
+4. ChatGPT resolves any documentation-only change requests and re-reviews the package.
+5. Project owner explicitly accepts or rejects the bounded S1-entry package and each concrete exception. Only then can a separate S1 authorization be considered.
