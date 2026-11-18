@@ -172,3 +172,26 @@ Trong lượt mới này:
 - Thêm Global Drought 1875–1878 làm research candidate đa khu vực, không phải runtime event.
 - Cập nhật Hydrogen research brief với independent verification tasks.
 - CSV widths checked; no build/tests/device run; no runtime/data changes.
+
+
+### 2026-11-19 — Global benchmark coverage audit and source upgrade candidates
+
+- Parsed five checked-in datasets and current entity registry; inspected the exact ETL selection in `tools/build-data.ts` and compiled type `HistoricalDB.benchmarks`.
+- Checked-in CoW inputs contain 3,161 records across six indicator fields, 59 entity IDs and 17 sparse year points (1816–1914). The builder compiles only four fields (2,356 records), omitting 805 observations for urban population and military expenditure.
+- Raw source locators are present for the inspected input rows, but the compile step drops the unit, source locator, collection method, note and related metadata; `dbTypes.ts` also has no field for uncertainty/scope/crosswalk in its benchmark record.
+- Per-field quality/entity/year counts are recorded in `BENCHMARK_FIELD_COVERAGE.csv`. All 59 CoW extract entity IDs resolve in the registry, but the extract includes only 47 sovereign, 5 subject and 7 future entities. It has no complete coverage of 181 entities or decentralized/local actors. Five registry entities with CoW codes have no observation in these extracts (AFG, LUX, TRN, OFS, COS); three extracted IDs (ROM, NOR, ETH) have no CoW numeric code in the registry. Reconciliation is open; no IDs were substituted.
+- Checked-in Maddison 2010 contains 574 population records / 94 present-day territorial units and 365 GDP-per-capita records / 66 units, eleven sparse years through 1913, all marked estimated. It has no direct stable-ID mapping to game polity registry. These are not 1836 polity totals without a documented territorial crosswalk.
+- Official source research identified an upgrade path: CoW NMC v7.0 advertises annual six-indicator data from 1816–2022; MPD 2023 covers 169 countries and aggregate regions up to 2022 (CC BY 4.0 with citation obligations); HFS has many pre-1950 fiscal/trade/monetary data but explicit restrictions on database reproduction. The official releases need independent download/codebook/source-sheet/rights review before adoption.
+- New benchmark artifacts:
+  - `BENCHMARK_COVERAGE_REVIEW_VI.md` — review commit `54d7ccf674909508d230b90e88a687f1bd2916ff`.
+  - `BENCHMARK_FIELD_COVERAGE.csv` — commit `fe7e92f5a5fd17a0133d48c7d4586274b2d419dc`.
+  - `OPEN_BENCHMARK_COVERAGE_REQUESTS.csv` — commit `65ca464bdcbf7f18158454e2be1c9068232491ba`.
+  - `BENCHMARK_SOURCE_CANDIDATES.csv` — commit `cf97c5496bbb5d5aee2b2219c062ed1328728e2a`.
+- Updated `EVENTS_AND_CALIBRATION/README_VI.md` with benchmark package index (commit `bb6acac29031e210928aadec7ef61487d3ef391a`) and Hydrogen research request with independent NMC/MPD/HFS audit tasks (commit `030c667b72cfc9383d19a440a16c2d5b486b1c0a`).
+- This is inventory/source research only. No external dataset was downloaded/imported; no canonical source registry, ETL, compiled DB, runtime data or code was changed. No build, tests, CI or device test was run.
+- Global 12-macro-region calibration coverage remains OPEN because the reviewed project standard refers to twelve macro-regions but no canonical enumeration/mapping was found in the inspected standard section. Do not invent region assignments.
+
+**External sources checked:**
+- CoW NMC v7.0: https://correlatesofwar.org/data-sets/national-material-capabilities/
+- Maddison Project Database 2023: https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2023?lang=en ; DOI https://doi.org/10.34894/INZBF2
+- Historical Financial Statistics: https://centerforfinancialstability.org/hfs.php ; Data Notes https://centerforfinancialstability.org/hfs/Data_notes.pdf
