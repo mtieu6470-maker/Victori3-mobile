@@ -1,0 +1,4 @@
+request_id,required_material,why_needed,minimum_acceptable_evidence,status
+R3Z-01,"Complete bibliographic metadata for Colenbrander's 1979 review","Scanned page establishes reviewer/title/page but not full periodical title, volume, issue or exact issue date","Original journal front cover/table of contents matching printed page 10","OPEN"
+R3Z-02,"Rasmussen 1978 pp.23–26 and 90–94","Delius/other scholarship traces estimates to these pages but the monograph pages remain uninspected","Readable page images/text with exact estimate wording, citations and population-unit definitions","OPEN"
+R3Z-03,"Original derivation of R3l NDE 45,000–85,000","No inspected source or review defines lower/upper band or statistical method","Original calculation/source or explicit scenario assumptions, date, universe and interval construction","OPEN"
