@@ -18,6 +18,8 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 - **R4e package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/README_VI.md`; 2-entity evidence matrix, 19 non-executing decisions, 12 open evidence requests and 20 source records. Integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/GITHUB_INTEGRATION_RECEIPT_R4e.md`.
 - **S20–S21 military organization/operations/logistics pre-design:** `docs/spec/MILITARY_ORGANIZATION_OPERATIONS_LOGISTICS_PROPOSAL_VI.md` (design commit `a82d59bcc01e6a57163f7acedd4930132f0767f5`). Includes force organization, LegacyForcePool safety, unit/formation, supply, movement, fronts, combat, sieges, occupation, navy and convoy. Design only; S20/S21 remain closed.
 - **S20–S21 / Claude independent design review:** `docs/audit/s0/MILITARY_ORGANIZATION_OPERATIONS_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (request commit `109c7c30397e92d4151228605c24a9ab05415f1e`). No-write review; no implementation authorization.
+- **S23a–S23c mobile UI/content packs/release QA pre-design:** docs/spec/MOBILE_UI_CONTENT_PACKS_RELEASE_ARCHITECTURE_PROPOSAL_VI.md (design commit e3a983b16717b18c755d74a1747e36e12ab27637). Covers integrated landscape/portrait UI, command-boundary/accessibility, signed multi-pack manifests, explicit offline/online consent, verified resume and atomic rollback, and physical Android QA/device budgets. Design only; S23 remains closed.
+- **S23 / Claude independent design review:** docs/audit/s0/MOBILE_UI_CONTENT_PACKS_RELEASE_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md (request commit 2d6d34784ba12a91c49a2b3d6c0cbf6a00f9d6bf). No-write review; no implementation authorization.
 - **S22 Historical Events and Global Calibration pre-design:** `docs/spec/HISTORICAL_EVENTS_GLOBAL_CALIBRATION_ARCHITECTURE_PROPOSAL_VI.md` (design commit `e546412b6d4b014bd35da4324d8e2d997dca4138`). Separates physical exogenous events, conditional historical occurrences, decisions, causal chains and benchmark-only milestones; adds global multi-dimensional calibration/holdout/multi-seed design. Design only; S22 remains closed.
 - **S22 / Claude independent design review:** `docs/audit/s0/HISTORICAL_EVENTS_GLOBAL_CALIBRATION_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` (request commit `612c1c28f5ac6793110923644a0ce8b591dc8cae`). No-write review; no implementation authorization.
 - **Events and global calibration research / Gemini Hydrogen:** `docs/research/GLOBAL_HISTORICAL_1836_1936/EVENTS_CALIBRATION_HYDROGEN_RESEARCH_REQUEST_2026-11-18.md` (request commit `e03028c359eb850442b069b7d7606e9ae4a28999`). All-world event/benchmark evidence candidates only; no runtime patch or S22 authorization.
@@ -137,6 +139,16 @@ Pre-protocol work:
 | Earlier stages 1–5 (identity/content, numbering of an earlier specification) | `PRE_PROTOCOL_IMPLEMENTED_REPORTED` | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` | Not `REVIEW_PASS` or `ACCEPTED`; part of the current baseline; S0 verifies what is present at the frozen SHA |
 
 ## 5. Work log
+
+### 2026-11-18 — S23-MOBILE-UI-CONTENT-PACKS-RELEASE-PRE-DESIGN
+
+- Added docs/spec/MOBILE_UI_CONTENT_PACKS_RELEASE_ARCHITECTURE_PROPOSAL_VI.md (design commit e3a983b16717b18c755d74a1747e36e12ab27637) against product/code baseline e4924ca48264f8d0818eface51a28a87cd363b89.
+- Inspected current map-first Preact shell, landscape rail/portrait dock and sheets, lazy content registry, placeholder fallback, IndexedDB saves/yearly autosave, Blob/file-input export/import, WebGL+2D map renderer, Android manifest/Capacitor packaging and broad push-triggered Android APK workflow.
+- Proposed S23a responsive navigation/view-model/command boundaries, contextual drill-down, provenance/uncertainty display, accessibility/localization and WebGL lifecycle recovery.
+- Proposed S23b presentation-only multi-pack architecture: signed/canonical manifest, per-file hashes, compatibility/dependencies, opt-in online mode, verified resumable download, storage preflight, staged atomic activation/rollback, no executable content and LRU decoded-image/texture budgets. Simulation remains offline and independent from presentation packs.
+- Proposed S23c physical-device matrix and release QA for lifecycle, IndexedDB, R14 export/import, WebGL context loss, 60-minute stability, RAM/thermal/battery, WebView versions and artifact identity. Package/version/signing/workflow changes remain separately gated.
+- Added Claude no-write design review request docs/audit/s0/MOBILE_UI_CONTENT_PACKS_RELEASE_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md (commit 2d6d34784ba12a91c49a2b3d6c0cbf6a00f9d6bf).
+- Design-only. No runtime, content assets, Android, Gradle, workflow, signing, save/schema, tests or APK changed. No tests/build/APK or device QA run. S1/S23 remain NOT_STARTED.
 
 ### 2026-11-18 — S22-HISTORICAL-EVENTS-GLOBAL-CALIBRATION-PRE-DESIGN
 
