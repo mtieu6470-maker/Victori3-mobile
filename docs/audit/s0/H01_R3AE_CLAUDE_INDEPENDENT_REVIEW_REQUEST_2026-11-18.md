@@ -105,10 +105,10 @@ Sources:
 ## 4. CSV structural and source-mapping checks — reproduce
 
 Expected R3ae counts:
-- Source evidence matrix: **10 columns, 9 data rows**.
+- Source evidence matrix: **10 columns, 10 data rows**.
 - Patch decisions: **7 columns, 7 data rows**.
 - Open evidence requests: **5 columns, 8 data rows**.
-- Source registry delta: **8 columns, 9 data rows**.
+- Source registry delta: **8 columns, 10 data rows**.
 
 Expected cumulative counts after R3ae integration:
 - H01 open evidence and acceptance requests: **5 columns, 60 data rows**.
