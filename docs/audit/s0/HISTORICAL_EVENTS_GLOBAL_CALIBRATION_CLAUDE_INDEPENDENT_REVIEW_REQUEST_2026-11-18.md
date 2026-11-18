@@ -18,7 +18,7 @@
 - **Roadmap:** owner-approved v3.2 with v3.3 amendments.
 - **Related designs:** POP Cohorts `b35c5367cfe41bea3036bec2b846d19060f495c0`; S15–S17 `207722d612354f4d1bccc74064d24616efa4511a`; S18–S19 `8f01556bd70fed05be6f880f287a0f3691cd7674`.
 
-Fetch exact current branch HEAD before review. Verify the design file blob equals `fbbad73aae57a26a52aefadc630c8b6cb340040c`; review §§14.1–14.14 together with traceability supplement blob `2671216d760efc4245db47b7bc3cc3d1613494be`, code self-audit blob `8cf4fa017f321b1ca402da1117dc9c314b2faae7`, and implementation test matrix blob `f0a577ee6ced8428722556b69c613aa0fbd0c3fb`. The branch may contain later documentation-only commits; do not silently substitute a different design blob.
+Fetch exact current branch HEAD before review. Verify the design file blob equals `fbbad73aae57a26a52aefadc630c8b6cb340040c`; review §§14.1–14.14 together with traceability supplement blob `2671216d760efc4245db47b7bc3cc3d1613494be`, code self-audit blob `8cf4fa017f321b1ca402da1117dc9c314b2faae7`, and implementation test matrix blob `8e6b518a637a954fc0c9a4f80b9c22c33c594704`. The branch may contain later documentation-only commits; do not silently substitute a different design blob.
 
 ## 2. Independence/no-write
 
@@ -150,3 +150,19 @@ A pass applies only to this design. It does not satisfy S0-B7 review/owner accep
 - Inspect the updated implementation test matrix GEO-01–GEO-10 and identify missing split/merge, colonial, decentralized, aggregate, border-change, version-migration and empty-region cases.
 
 The review must not invent the twelve region names or approve a global regional coverage claim without a verified taxonomy and denominator.
+
+
+### M. Entity-level benchmark coverage matrix and missingness (BEN-11–BEN-18)
+
+Independently inspect the latest supporting files:
+- `BENCHMARK_ENTITY_METRIC_COVERAGE.csv`: exact latest blob `9dd62fca2dad926f58fd52112c349a3d7fb3723d`, 1,086 rows (181 registry entities × 6 checked-in CoW fields); 322 entity/metric rows with observations and 764 explicitly missing; 59 entities have at least one field.
+- `MADDISON_2010_UNIT_COVERAGE.csv`: exact latest blob `f714e11a0ce7c8fe04f256035989d86c93b69c16`, 160 rows (94 population units + 66 GDP-per-capita units); all source units have present-day territorial scope and must not be auto-mapped to 1836 polity IDs.
+- `BENCHMARK_FIELD_COVERAGE.csv`: blob `ac865e0ee22101693deef29e91bef173aed8e418`.
+
+Review:
+1. Verify each registry entity appears exactly six times in the CoW matrix, including entities with no source observation.
+2. Confirm missing rows are null/missing rather than numeric zero; check record counts, distinct years and source locator counts against exact source JSON.
+3. Verify the five registry entities with CoW codes but no checked-in observations (AFG, LUX, TRN, OFS, COS) and three source entity IDs lacking registry CoW codes (ROM, NOR, ETH); assess whether the mapping interpretation is correct.
+4. Verify 59 source entities divide into 47 sovereign, 5 subject and 7 future entities in the current registry classification.
+5. Challenge the Maddison present-day territory scope and the absence of direct registry-ID crosswalk.
+6. Confirm BEN-11–BEN-18 acceptance cases reconcile raw data to the compiled DB and preserve all metadata; no runtime implementation is authorized by this review.
