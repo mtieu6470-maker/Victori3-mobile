@@ -547,6 +547,46 @@ The source-recorded date and simulation-effective tick are separate fields. For 
 
 Month/year/range-precision records use their declared precision and explicit effective-time policy. No ETL step may silently promote month precision to day precision or collapse a source day without retaining it.
 
+### 14.7 Closed Condition schema and recursive validation (SA-10)
+
+The historical condition language MUST be a closed, versioned grammar. The current open TypeScript shape `{ type: string; [k: string]: unknown }` is not an acceptable validation boundary for event, priority or benchmark data.
+
+**Current source-data condition inventory**
+
+The conditions found in the inspected country profiles, event decision windows and milestone definitions include:
+
+- Entity/lifecycle: `exists`, `exists_independent`, `leader_changed_since_start`, `regime_changed`, `regime_changed_since_start`.
+- Ownership/geography: `owns`, `owner_in`, `owner_not`, `same_owner`.
+- Law/institution: `law`, `law_not`, `gov_power`.
+- War/diplomacy: `not_at_war`, `not_subject_of`, `at_war_with_rebels`, `lost_war_recently`.
+- Society/politics: `legitimacy_below`, `radicalism_above`, `food_shortage`, `ig_clout_above`, `foreign_naval_pressure`, `foreign_pressure`.
+- Strategic ranking: `rank_at_most`.
+- Composition: `any`, `all`.
+- Existing regional historical indicator: `count_owner_european`, restricted by §14.2 to its specifically named Africa indicator; it is not a generic global classification primitive.
+
+This is a source-inventory list, not permission to add new condition kinds without updating the grammar, validator and tests.
+
+**Schema requirements**
+
+- Replace the open string/index-signature structure with a TypeScript discriminated union, one branch per supported `type`.
+- Every branch MUST declare its required fields and their primitive/value types. Optional fields must be explicit; unknown properties must be rejected unless a versioned extension mechanism allows them.
+- Entity, region, IG and law-group references MUST resolve against the corresponding registries. `owner_in`/`owner_not` require non-empty entity arrays; `same_owner` requires a non-empty region array; `any`/`all` require non-empty child arrays.
+- Numeric thresholds and durations MUST be finite and within documented ranges. Dates and date windows MUST be valid and ordered. Boolean/numeric defaults must never be introduced by JavaScript casts or `Number(undefined)`.
+- Recursive composites MUST be validated with a fixed maximum depth and node count (initial design limit: depth 8, maximum 64 nodes per expression) to prevent pathological payloads and unbounded evaluation.
+- The same validator MUST be used for strategic-priority conditions, decision-window conditions and milestone tests. No separate, weaker milestone-only walker may be treated as sufficient.
+- Build-time validation MUST reject unknown types, missing required keys, wrong primitive/array shapes, invalid IDs/enums, empty composite arrays, out-of-range values and excessive recursion with a path-specific diagnostic.
+- Runtime condition evaluation MUST be total over untrusted/corrupt data: malformed or unknown conditions return a structured non-match diagnostic and MUST NOT throw or partially advance the monthly simulation. Build-time rejection remains the primary safeguard.
+- The regional `count_owner_european` branch remains bound to its explicitly named regional indicator, source-defined regions, valid period and denominator; it cannot be generalized through arbitrary condition data.
+
+**Acceptance tests**
+
+- Every current source condition passes the closed schema and maps to exactly one discriminated-union branch.
+- The test suite exercises true and false results for every supported condition type, including missing/dead entities, ownership equivalence, war participants, rank context and nested `any`/`all`.
+- Build fixtures reject misspelled types, missing fields, wrong types, invalid entity/region/IG/law IDs, empty arrays, invalid numeric thresholds, invalid dates and recursion beyond the declared limits.
+- The same fixtures are tested under priority, decision-window and milestone paths to prove they share identical validation.
+- Runtime evaluation of malformed data returns a diagnostic/non-match and never throws.
+- Condition diagnostics and benchmark scoring remain measurement-only and cannot mutate simulation state or AI utility.
+
 ### 14.6 Acceptance additions
 
 Add the following invariant-level tests to §10 before any runtime proposal:
@@ -558,7 +598,7 @@ Add the following invariant-level tests to §10 before any runtime proposal:
 - Day-specific source dates remain intact while the monthly effective tick and log label follow the declared policy.
 - Replaying a resolved decision or reloading its save cannot double-apply effects.
 
-These amendments close the design-level gaps identified in SA-01, SA-03, SA-07, SA-08 and SA-09. SA-02, SA-04, SA-05 and SA-06 remain governed by §§4.2–4.4, 6 and 7 and must be independently checked against the concrete implementation design before any code authorization.
+These amendments close the design-level gaps identified in SA-01, SA-03, SA-07, SA-08, SA-09 and SA-10. SA-02, SA-04, SA-05 and SA-06 remain governed by §§4.2–4.4, 6 and 7 and must be independently checked against the concrete implementation design before any code authorization.
 
 
 ### 14.7 Closed condition grammar and recursive build-time validation (SA-10)
