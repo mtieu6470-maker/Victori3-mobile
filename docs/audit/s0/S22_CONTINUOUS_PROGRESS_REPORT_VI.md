@@ -223,3 +223,13 @@ Trong lượt mới này:
 - Đã thử truy xuất workbook MPD 2023 từ liên kết Excel chính thức của Groningen/Dataverse. Dataverse redirect sang signed object-store URL; download trong phiên này thất bại. Vì vậy chưa có row-level MPD 2023 audit, chưa tải workbook và chưa nhập dữ liệu. Các kết luận về MPD 2023 trong hồ sơ hiện chỉ dựa metadata/tài liệu chính thức.
 - Không đặt ra tên 12 vùng, không tự gán macro-region, không import benchmark mới. Owner taxonomy decision và Hydrogen source audit còn mở.
 - No runtime/schema/data/test/build changes; S1/S22 remain closed.
+
+
+### 2026-11-19 — Entity-level benchmark missingness matrices
+
+- Added `BENCHMARK_ENTITY_METRIC_COVERAGE.csv`: 181 registry entities × 6 CoW metric fields = 1,086 rows. 322 entity/metric rows have observations; 764 are explicit missing rows. 59 entities have at least one CoW metric. No duplicate entity/metric/date records were found in the inspected input matrix. Missingness remains explicit, never a numeric zero.
+- Added `MADDISON_2010_UNIT_COVERAGE.csv`: 160 rows (94 population present-day territorial units + 66 GDP-per-capita units), with exact year lists, estimated quality and source locator counts. These source units have no direct stable-ID match to 1836 registry; no automatic crosswalk was attempted.
+- Verified both new CSVs are rectangular: entity matrix 1,086 × 18; Maddison unit matrix 160 × 13.
+- Updated package README to index the matrices and updated Hydrogen's research request to independently verify entity/cow crosswalk and missingness (request update commit `f7acf811b2bde6a1bca2f914fc73f09ac4e4d36a`).
+- Expanded S22 test matrix with BEN-11–BEN-18 for full entity/metric enumeration, explicit missing rows, CoW code reconciliation, Maddison geographic scope, two omitted CoW fields, raw-to-compiled reconciliation and quality preservation (test-plan update commit `ad227f40a26d8c760992ed315c0014c6187f29ad`).
+- No runtime or source benchmark values were altered; these matrices describe the checked-in input only. No data import, build, test, CI or device run.
