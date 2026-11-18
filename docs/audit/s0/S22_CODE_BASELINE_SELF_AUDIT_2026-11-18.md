@@ -339,3 +339,32 @@ In the inspected `tests/data.test.ts` and `tests/modes.test.ts`, no direct regre
 - full benchmark metadata retention and holdout separation.
 
 The existing three-seed milestone comparison is useful as a broad behavior check, but does not replace these invariant-level tests. These are proposed test gaps, not evidence that every other test file in the repository has been exhaustively audited.
+
+
+## 10. S22-SA-10 — P2: Condition definitions and nested payloads lack a closed schema and build-time validation
+
+**Evidence**
+
+- `src/engine/data/dbTypes.ts`: `Condition` is currently `{ type: string; [k: string]: unknown }`, so allowed condition names and their required fields are not constrained by TypeScript.
+- `tools/build-data.ts:291`: priority processing validates source references and that a two-item `window` exists, but does not validate `goal`, `weight`, condition types, nested `of` clauses or referenced entities/regions.
+- `tools/build-data.ts:367`: decision-window processing validates source references, the owning entity, date-window order and presence of a historical option; it does not recursively validate `conditions` or option payload contracts.
+- `tools/build-data.ts:388–394`: the dedicated recursive `walkTest()` is applied to milestone tests only; it checks region identifiers and descends through `of`, but does not establish a closed condition grammar or validate all condition-specific fields.
+- `src/engine/historical.ts:14–41`: `evalCondition()` uses unchecked casts such as `c.entities as string[]`, `c.regions as string[]` and `c.of as Condition[]`; unknown condition types fall through to `false`.
+
+**Impact**
+
+A misspelled condition type can silently disable a priority or decision prerequisite. Missing/wrongly typed arrays in supported conditions can throw at runtime when `.some()`, `.map()`, `.filter()` or `.every()` is called. Invalid entity/region IDs or enum values may not be rejected when compiling authored historical content. The current data appears to use a limited known set, but the schema does not provide a reliable safety boundary for expanding the global event catalogue.
+
+**Required correction after authorization**
+
+Replace the open string/index-signature type with a discriminated union for every supported condition. Add a recursive data-builder validator that validates required/optional fields, primitive types, numeric ranges, IDs, date formats, law groups and IG identifiers. Reject unknown condition types at build time. Runtime evaluation should fail closed with a diagnostic for corrupt save/data rather than throw on malformed payloads. Validate both entity priority conditions, decision-window conditions and milestone tests with the same grammar.
+
+**Acceptance tests**
+
+- Every condition type used by current source data is represented by exactly one schema branch.
+- Every current priority, decision window and milestone condition passes recursive validation.
+- Unknown condition types, missing required fields, wrong array/value types, invalid IDs and out-of-range numbers fail the data build with a path-specific error.
+- Nested `any`/`all` trees are recursively validated and have a documented maximum depth/size.
+- Runtime evaluation of malformed/unrecognized conditions cannot crash the monthly simulation.
+- Tests cover true/false semantics for every supported condition type and the fail-closed behavior.
+
