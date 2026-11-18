@@ -16,6 +16,8 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 
 - **R4e / Claude — final collective/aggregate succession queue review:** start with `docs/audit/s0/GLOBAL_R4E_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4e covers MAO (collective rangatira authority) and MLY (multiple Malay constituent polities); base SHA before R4e: `103ab66b227809fae358e082fa253c0e50a1f78c`. Fetch the exact latest branch HEAD before review.
 - **R4e package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/README_VI.md`; 2-entity evidence matrix, 19 non-executing decisions, 12 open evidence requests and 20 source records. Integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/GITHUB_INTEGRATION_RECEIPT_R4e.md`.
+- **S7–S8 goods/markets/transport pre-design:** `docs/spec/GOODS_MARKETS_TRANSPORT_ARCHITECTURE_PROPOSAL_VI.md` (design commit `0b231f637bb0659bd170c7e4a0d1d76d44248922`). Documents the current material-accounting mismatch, Goods Registry and monthly stock-flow conservation (S7), then temporal transport graph, capacity-constrained shipments and goods-specific market access (S8). Design only; S7/S8 remain closed.
+- **S7–S8 / Claude independent design review:** `docs/audit/s0/GOODS_MARKETS_TRANSPORT_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (request commit `25b90a56b865ccdb4b75cd9f9f519bf949a9da2d`). No-write review against code baseline `e4924ca48264f8d0818eface51a28a87cd363b89`; does not authorize implementation.
 - **P0 engineering pre-design — Population Cohorts:** `docs/spec/POPULATION_COHORTS_DATA_MODEL_PROPOSAL_VI.md` (design revision `b35c5367cfe41bea3036bec2b846d19060f495c0`). ChatGPT self-audit clarified age distribution vs cohort identity, canonical tuple IDs, integer population mass and unknown-vs-unaffiliated religion. Still design-only; no runtime authorization.
 - **Population seed research — Gemini Hydrogen:** `docs/research/GLOBAL_HISTORICAL_1836_1936/POPULATION_COHORT_SEED_HYDROGEN_RESEARCH_REQUEST_2026-11-18.md` (request commit `c17dc2a9031a6ca8cf4d19cf86391073154725ca`). All-world, c.1836, source-backed candidate data only; no runtime data patch or implementation authorization.
 - **Population Cohorts — Claude independent design review:** start with `docs/audit/s0/POPULATION_COHORTS_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (request commit `c972b1b3844943e5df2f433936c8c21bb4fb464e`). No-write review of the design only; review target design commit `b35c5367cfe41bea3036bec2b846d19060f495c0`, code baseline `e4924ca48264f8d0818eface51a28a87cd363b89`. This does not substitute for S0-B7 review/owner acceptance and does not open S1.
@@ -122,6 +124,15 @@ Pre-protocol work:
 | Earlier stages 1–5 (identity/content, numbering of an earlier specification) | `PRE_PROTOCOL_IMPLEMENTED_REPORTED` | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` | Not `REVIEW_PASS` or `ACCEPTED`; part of the current baseline; S0 verifies what is present at the frozen SHA |
 
 ## 5. Work log
+
+### 2026-11-18 — S7-S8-GOODS-MARKETS-TRANSPORT-PRE-DESIGN
+
+- Added `docs/spec/GOODS_MARKETS_TRANSPORT_ARCHITECTURE_PROPOSAL_VI.md` (design commit `0b231f637bb0659bd170c7e4a0d1d76d44248922`) against product/code baseline `e4924ca48264f8d0818eface51a28a87cd363b89`.
+- Characterized the current engine: no physical inventory ledger; current `MarketGoodStats` is only supply/demand/import/short snapshot; market pooling is country/customs-union based; openness and railway/coastline are scalar approximations; recipe supply is registered before input scarcity is applied later in the GDP calculation.
+- Proposed S7 contracts for Goods Registry, explicit canonical units, monthly stock/flow separation, sparse inventory, material balance, staged input allocation, unmet-demand/rationing and price formation. Proposed S8 temporal transport graph, shared capacity, shipments/in-transit inventory, blockades and goods-specific market access.
+- Preserved roadmap boundaries: S6 POP before cohort demand; S7 before S8; S10/S11 production/sites; S12 real jobs/wages; S13 ownership. No real hiring or wages in S7/S8.
+- Added Claude no-write design-review request `docs/audit/s0/GOODS_MARKETS_TRANSPORT_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (commit `25b90a56b865ccdb4b75cd9f9f519bf949a9da2d`).
+- Design-only. No engine, save/schema, tests, shipped historical data, UI, assets, Android, workflow, Gradle, signing or APK files changed. No tests/build/APK run. S1/S7/S8 remain closed.
 
 ### 2026-11-18 — POPULATION-COHORT-SEED-HYDROGEN-RESEARCH
 
