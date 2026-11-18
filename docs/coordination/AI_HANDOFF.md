@@ -157,7 +157,8 @@ Pre-protocol work:
 - Proposed event classes (physical/exogenous, institutional process, historical pressure, conditional occurrence, decision opportunity, benchmark and narrative); causal preconditions/chains; typed effects/atomic idempotent handling; Historical/Sandbox event policies; benchmark registry; holdout calibration; multi-seed distributions; dimension-level diagnostics that never feed AI/rules.
 - Added Claude no-write review request `docs/audit/s0/HISTORICAL_EVENTS_GLOBAL_CALIBRATION_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` (commit `612c1c28f5ac6793110923644a0ce8b591dc8cae`).
 - Added all-world Hydrogen event/benchmark research request `docs/research/GLOBAL_HISTORICAL_1836_1936/EVENTS_CALIBRATION_HYDROGEN_RESEARCH_REQUEST_2026-11-18.md` (commit `e03028c359eb850442b069b7d7606e9ae4a28999`).
-- Design/research only. No runtime, historical data, tests, save/schema, UI, assets, Android, workflows, Gradle, signing or APK files changed. No tests/build/APK run. S1/S22 remain closed.
+- Added ChatGPT source-level self-audit `docs/audit/s0/S22_CODE_BASELINE_SELF_AUDIT_2026-11-18.md` (commit `251c06ab815c45018cb59f09eed34c0017b8517a`), inspected HEAD `a99b5712ea7f40fb6ca9bbe1d326abf39edb2ef3`; records evidence-linked findings on the rank predicate, AI decision weighting, pending-decision lifecycle, effect validation, benchmark provenance/coverage and Europe-specific milestone semantics.
+- This is `CHATGPT_SELF_AUDIT_ONLY`, not an independent Claude verdict and not owner acceptance. No runtime/data/save/test/UI/workflow/Android/APK change; no tests/build/CI/device run. S1/S22 remain closed.
 
 ### 2026-11-18 — S18-S21-DIPLOMACY-AI-MILITARY-PRE-DESIGN
 
