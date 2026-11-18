@@ -1,12 +1,12 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `7c62a977c54805c00826082852c86add21c60c57`  
+**Snapshot HEAD before this manifest refresh:** `b359656a1e05c6eb8537e9d7f3948cd389b098c7`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
-**Default branch HEAD observed:** `103ab66b227809fae358e082fa253c0e50a1f78c`  
+**Default branch HEAD observed:** `371a9e0bd35857a4f91389d0b41308571c554725`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
 
-All blob SHAs below were fetched from the named experiment branch at the snapshot HEAD before this manifest refresh. A manifest commit and later review-request/handoff commits may advance the branch; reviewers must recheck the current HEAD and each file SHA before issuing a verdict. If a SHA differs, review the current file.
+All blob SHAs below were fetched from the named experiment-branch ref before this manifest refresh. The manifest commit advances the branch; reviewers must recheck the current HEAD and each file SHA before issuing a verdict. If a SHA differs, review the current file.
 
 ## 1. Current review documents and blob identities
 
@@ -19,25 +19,26 @@ All blob SHAs below were fetched from the named experiment branch at the snapsho
 | `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `6a2890758d737840e6f81be0abd04f94a7de461a` |
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `65173d78353d81b5304602a81372847232c5d8e1` |
 | `docs/audit/s0/S0_SIGNOFF.md` | `f064fe08e26020eac987a9c2e59dabc001796dc5` |
-| `docs/audit/s0/S0_B7_RESULTS.md` | `40550aa677dbdc37da74543853a4e234f50f2ec5` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `1c0daa4dcf7b4257b7fb4bd32d494b46ff15d49b` |
+| `docs/audit/s0/S0_B7_RESULTS.md` | `83099e8a1f55ba98e43bb67a268c9ad227fcd44e` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `4854adce612bc0afce3849e04198575dba71cdfa` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `e5edc4d8180b331b4ddce2d7f0b687621b58083c` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `8ef37040363a73c5058685fd179aebd5f6dba775` |
+| `docs/coordination/AI_HANDOFF.md` | `0d51f80c78a8c2eff16fda7feb0814a6f36876c6` |
 
 ## 2. Risk table integrity and traceability
 
 - The P2 risk register has been normalized to the same six-column schema as P0/P1: ID, risk/evidence, impact, disposition/control, owner, target/closure criteria.
-- There are 22 P2 risk rows. A programmatic Markdown-table check confirmed every row in the P2 table has six cells.
-- The source-to-risk matrix contains 47 mapping rows across original R1–R14, performance, test, global data, asset, war, CI, dependency and G0.7 findings. Grouped source IDs explicitly map to the exact grouped register row; reviewer should inspect the target row rather than apply a naive single-token search.
-- `WD-F3` is included as P2 (five of eight starting wars capitulate at tick 5 in all four B3 probes); it is a historical-calibration observation, not proof of engine defect.
-- `TC-F6` is mitigated for G0.6 by supplementary B4 characterization while the original baseline test itself remains narrow.
+- There are 22 P2 risk rows. A structural check confirmed every row in the P2 table has six cells.
+- The source-to-risk matrix contains 47 mapping rows across original R1–R14, performance, test, global data, asset, war, CI, dependency and G0.7 findings. Grouped source IDs explicitly map to the exact grouped register row; reviewers should inspect target rows rather than use a naive single-token search.
+- WD-F3 is included as P2 (five of eight starting wars capitulate at tick 5 in all four B3 probes); this is a historical-calibration observation, not proof of an engine defect.
+- TC-F5 and TC-F6 are mitigated for G0.6 by supplementary B4 characterization while their original baseline tests remain narrow.
 
 ## 3. Workflow identity and parity
 
-- The dependency-audit workflow blob SHA is identical on the default and experiment branches at snapshot time: `dacd8506bed77624c44ffa27279354a87e9a4ebf`.
+- Dependency-audit workflow SHA is identical on default and experiment branches at snapshot time: `dacd8506bed77624c44ffa27279354a87e9a4ebf`.
 - It is `workflow_dispatch` only, grants `contents: read`, checks out exact baseline `2240a8f`, and pins checkout/setup-node/upload-artifact to full commit SHAs.
 - It performs a full lockfile audit and a separate `--omit=dev` production audit; it does not install packages, run `npm audit fix`, alter the lockfile, execute product code, build, test, run Gradle, assemble APKs, or access signing secrets.
-- No run of this dependency-audit workflow was present in GitHub Actions at snapshot time. Its artifact and package-level results remain unavailable.
+- No run of this dependency-audit workflow was present at snapshot time. Its artifact and package-level results remain unavailable.
 
 ## 4. B4 execution evidence boundary
 
@@ -60,6 +61,7 @@ All blob SHAs below were fetched from the named experiment branch at the snapsho
 ## 6. Required reviewer conduct
 
 - Recheck live refs and blob SHAs. This manifest is a reproducibility aid, not a substitute for opening and reading the documents.
-- Return `REVIEW_PASS` or `CHANGES_REQUESTED` for the B7 documentation package only.
+- Use `CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` for the independent report; the template itself is not a review result.
+- Return `REVIEW_PASS` or `CHANGES_REQUESTED` for the bounded S1-entry evidence package only; report `BLOCKED` if hard conditions cannot be verified.
 - Do not edit repository files, change code/workflows/dependencies, merge branches, approve exceptions, sign off for the owner, or open S1.
 - The ChatGPT self-review is a checklist, not independent evidence. Claude must validate the source findings and gate interpretation independently.
