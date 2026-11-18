@@ -253,3 +253,89 @@ The first authorized S22 implementation slice should be preceded by focused test
 - No runtime, data, save/schema, test, UI, workflow, Android, signing or APK file was changed.
 - Findings are self-audit findings pending independent Claude review; they are not accepted changes.
 - S1 and S22 remain closed. No gameplay or engine implementation is authorized by this report.
+
+
+## 7. Additional source findings from the second inspection pass
+
+### S22-SA-08 — P2: Day-level historical dates are silently collapsed to the first day of the month
+
+**Evidence**
+
+- \`src/engine/types.ts:19\`: \`GameDate\` stores only \`y\` and \`m\`.
+- \`src/engine/core.ts:27–29\`: \`dateStr()\` always emits day \`01\`; \`parseDate()\` reads only year and month; \`dateToTick()\` maps any date in the same month to the same simulation tick.
+- \`src/engine/systems/events.ts:17\`: a dated exogenous event is applied when its month tick matches.
+- \`historical_data/events/historical_events.json\`: the California gold discovery is recorded as \`1848-01-24\`; numerous decision-window reference dates also contain day precision.
+- The event log uses \`dateStr()\`, so a day-specific record is presented at the first day of its month.
+
+**Impact**
+
+The monthly engine can model the correct month, but it cannot execute or log the exact day represented in source data. For example, the California gold event is applied on the January 1848 simulation tick, which is represented by the game calendar as 1848-01-01, not January 24. The exact source date and the effective simulation date are currently conflated.
+
+**Required correction after authorization**
+
+Keep the recorded historical date separate from the simulation-effective date. Add explicit precision metadata (\`day\`, \`month\`, \`year\`, \`range\`) and a documented monthly aggregation policy. Do not display a day-exact log entry when the engine only resolves month ticks.
+
+**Acceptance tests**
+
+- A day-specific source observation retains its original date and declared precision.
+- Its monthly effective tick follows one explicit, tested policy.
+- Logs and UI distinguish recorded date from effective simulation date.
+- Two events on different days of one month have a deterministic order/aggregation rule, even if the game cannot simulate intra-month consequences.
+
+### S22-SA-09 — P2: Milestones are penalized immediately at their due date while their tolerance window is still open
+
+**Evidence**
+
+- \`src/engine/divergence.ts:22–24\`: \`milestoneScore()\` begins counting milestone weight as soon as \`check_date\` is reached; only status \`achieved\` adds points.
+- \`src/engine/divergence.ts:32–38\`: \`divergenceMonth()\` deliberately leaves an unmet milestone \`pending\` until \`lastChance = due + tolerance_years * 12\`.
+- \`historical_data/events/milestones.json\`: many milestones have tolerance windows from 2 to 10 years.
+- \`tests/modes.test.ts:41–49\` compares mean milestone scores over three seeds and checks that some milestones are missed, but does not assert the score semantics for a pending milestone inside its grace window.
+
+**Impact**
+
+A milestone that is still legally achievable under its own tolerance rule contributes its full weight to the score denominator but zero to the numerator until it becomes achieved. It therefore lowers the reported milestone score immediately after the due date, even though the engine will continue allowing it to be achieved for years. This makes the annual score depend on the timing of a provisional outcome, not only on resolved achievements/misses.
+
+**Required correction after authorization**
+
+Define a distinct provisional state/score policy. A pending milestone inside its tolerance interval should not be treated as a resolved failure. The score should either exclude pending milestones from both numerator and denominator until resolution, or expose a clearly labelled provisional interval; once the deadline passes, an unmet milestone may count as missed. Preserve the current late-achievement credit rule only if its semantics are explicitly approved.
+
+**Acceptance tests**
+
+- An unmet milestone at its due date but still within tolerance does not count as a resolved miss.
+- A milestone achieved during grace receives the documented late credit.
+- A milestone still unmet at \`lastChance\` becomes missed and then contributes zero.
+- The milestone score is deterministic before/after save-load and does not silently shift because a pending item entered the denominator.
+
+## 8. Additional benchmark coverage facts
+
+These counts describe the inspected repository source files, not a complete survey of external historical data:
+
+| Source file / series | Records | Entities | Year coverage | Notes |
+|---|---:|---:|---|---|
+| CoW NMC population total | 612 | 59 | 1816–1914 | Selected into compiled benchmarks |
+| CoW NMC urban population (cities over 100k) | 385 | 40 | 1816–1914 | Not selected into compiled benchmarks |
+| CoW NMC military personnel | 596 | 59 | 1816–1914 | Selected into compiled benchmarks |
+| CoW NMC military expenditure | 420 | 55 | 1816–1914 | Not selected into compiled benchmarks |
+| CoW NMC iron/steel | 612 | 59 | 1816–1914 | Selected into compiled benchmarks |
+| CoW NMC primary energy | 536 | 50 | 1816–1914 | Selected into compiled benchmarks |
+| Maddison population, present-day territory | 574 | 94 | 1820–1913 | Territorial basis is not historical polity boundaries |
+| Maddison GDP per capita, present-day territory | 365 | 66 | 1820–1913 | Used for the 1836 GDP-per-capita setup; not retained as a dated benchmark series |
+
+The current builder compiles only the four CoW fields identified as selected above into \`HistoricalDB.benchmarks\`. The compiled 1836 GDP-per-capita setup is separate from a dated GDP calibration series. Thus, from the files inspected, there is no retained 1914–1936 benchmark series and there are significant scope/coverage differences by metric. These are coverage limits of the repository's current source inventory, not proof that suitable external evidence does not exist.
+
+**Required research output**
+
+Hydrogen's research package should distinguish: (a) evidence already present in these repository datasets, (b) additional external sources with reusable citations, and (c) metrics for which global evidence remains insufficient. It should report entity/region/year coverage for every proposed metric rather than treating a source's overall year span as global coverage.
+
+## 9. Additional test-coverage observations
+
+In the inspected \`tests/data.test.ts\` and \`tests/modes.test.ts\`, no direct regression assertions were found for:
+
+- rank threshold evaluation and deterministic ties;
+- day-to-month date precision conversion and event log fidelity;
+- pending decision expiry, invalid option IDs or invalidated preconditions;
+- effect-registry validation and all-or-nothing mutation;
+- milestone provisional scoring during grace periods;
+- full benchmark metadata retention and holdout separation.
+
+The existing three-seed milestone comparison is useful as a broad behavior check, but does not replace these invariant-level tests. These are proposed test gaps, not evidence that every other test file in the repository has been exhaustively audited.
