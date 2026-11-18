@@ -1,4 +1,4 @@
-# H01 Batch 02 — consolidated research integration report (R3y)
+# H01 Batch 02 — consolidated research integration report (R3z)
 
 **Status: `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`**  
 Snapshot used by the source package: `1836-01-01` (simulation anchor; source temporal precision is often annual or circa-year).  
@@ -119,3 +119,12 @@ The original H01 profile states OYO=650,000 with method “severe demographic di
 The original crosswalk assigns 100% of SSA_REG_18 to OYO_OYO / owner OYO. Lovejoy's timeline and overlay separate Oyo, Ilorin, Ibadan, Abeokuta, Ijebu, Ife, Ijaye and Abemo with changing and sometimes contested political relationships. The H01 Oyo successor-states crosswalk separately lists Ibadan, Abeokuta, Ijebu and Ilorin as unmodelled historical polities. The 1:1 join is therefore technical allocation arithmetic, not proof of Oyo sovereignty over every locality in the broad region on 1836-01-01.
 
 **R3y disposition:** OYO 650k and OYO_OYO 1.45m remain quarantined; their universes/derivations and intervals are unverified. SSA_REG_18's OYO owner assignment remains historically unvalidated at locality level. No replacement numeric value, owner change, regional split, or geometry edit is approved. See `H01_R3y_OYO_1831_1836_POLITICAL_GEOGRAPHY_AND_POPULATION_AUDIT_VI.md` and R3y CSVs.
+
+
+## 13. R3z — Rasmussen source-quality review (2026-11-18)
+
+Colenbrander's contemporary review of Rasmussen's *Migrant Kingdom* (1978), preserved in an archived periodical PDF, regards the book as useful for reconstructing dates, events, places and people, but critiques its heavy emphasis on war and migration and limited treatment of ecological, political, socioeconomic and everyday agricultural/domestic/commercial/governmental structures. The review also explicitly attributes some limits to the scarcity and nature of available evidence. This does not invalidate Rasmussen; it adds a source-quality caveat when using the monograph for NDE size, military potential or growth rate.
+
+The R3x distinction among initial migration nucleus (~300), Delius's most reliable late-1820s follower estimate (~20,000), Lye's broad 60,000–80,000 subject estimate, 1836 Nguni military force (1,000–5,000), and later 10,000–20,000 withdrawal stream remains unchanged. These measures have different dates and population universes. The legacy NDE 45,000–85,000 range still has no demonstrated statistical/scenario method; Rasmussen pp.23–26 and 90–94 remain indirectly traced, not directly inspected.
+
+**R3z disposition:** no numerical, scope, owner, geometry or runtime change. Retain NDE 60k only as a provisional high-uncertainty circa-1830s polity-subject candidate; 45–85k remains quarantined without interval semantics. Full periodical metadata for the review and the original Rasmussen pages remain open evidence requests.
