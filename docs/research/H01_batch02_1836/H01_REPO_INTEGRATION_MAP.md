@@ -48,3 +48,15 @@ Added under `docs/research/H01_batch02_1836/`:
 R3v clarified that Starr's 1836 `2,230` belongs to a Liberia immigrant vital-statistics series excluding Maryland and excluding the aboriginal population definition; Shick's ACS individual-emigrant series records `242` arrivals in 1836 versus Starr's `209`, an unresolved source-series conflict. Freeman's approximate `1,500` Monrovia inhabitants is a c.1837 quotation carried by Hiller (1860), not a census. A September 1843 Monrovia roster transcription was located but original page images and inclusion coverage remain unverified.
 
 **No numerical promotion:** R3l LIB 3,500, LIB_MON 3,600 and the extra 100 remain quarantined; DZ_KRU 356,400 remains a conditional arithmetic residual only. No live historical_data, population profiles/benchmarks, political registry, map owner/geometry, runtime, save schema, engine, tests, assets, Android, workflow or APK files changed. All R3v commits use `[skip ci]`; Claude independent review and owner acceptance remain pending.
+
+
+## R3w Oyo research source layer
+Added:
+- `H01_R3w_OYO_CITATION_AND_TRANSITION_AUDIT_VI.md` — Asiwaju p.704 citation trace and staged collapse/Ago Oja/Atiba chronology.
+- `H01_R3w_SOURCE_EVIDENCE_MATRIX.csv` and `H01_R3w_SOURCE_REGISTRY_DELTA.csv` — source/inspection/caveat records.
+- `H01_R3w_PATCH_DECISIONS.csv` — OYO profile, broad region and >750k claim dispositions.
+- `H01_R3w_OPEN_EVIDENCE_REQUESTS.csv` — remaining numeric/source and chronology requirements.
+
+The accessible Asiwaju p.704 chapter text describes a multi-level Oyo influence/tribute geography but does not substantiate the >750k demographic claim attributed to it by Butcher & Griffiths. This citation chain remains open; no numerical replacement is offered. The historical sequence is documented as collapse/desertion c.1835–36, displaced alliance at Ago Oja, then formal ritual installation and fuller official reconstitution c.1838. These circa-year sources do not justify a precise 1836-01-01 border/owner change.
+
+R3w updates research and coordination documentation only. Live historical_data, populations, owner registry, map geometry, runtime/engine/save schema, tests, assets, Android and workflows remain unchanged. No numeric approval, PR, merge or APK build.
