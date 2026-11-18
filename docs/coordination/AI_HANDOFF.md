@@ -16,6 +16,11 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 
 - **R4e / Claude — final collective/aggregate succession queue review:** start with `docs/audit/s0/GLOBAL_R4E_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4e covers MAO (collective rangatira authority) and MLY (multiple Malay constituent polities); base SHA before R4e: `103ab66b227809fae358e082fa253c0e50a1f78c`. Fetch the exact latest branch HEAD before review.
 - **R4e package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/README_VI.md`; 2-entity evidence matrix, 19 non-executing decisions, 12 open evidence requests and 20 source records. Integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/GITHUB_INTEGRATION_RECEIPT_R4e.md`.
+- **S20–S21 military organization/operations/logistics pre-design:** `docs/spec/MILITARY_ORGANIZATION_OPERATIONS_LOGISTICS_PROPOSAL_VI.md` (design commit `a82d59bcc01e6a57163f7acedd4930132f0767f5`). Includes force organization, LegacyForcePool safety, unit/formation, supply, movement, fronts, combat, sieges, occupation, navy and convoy. Design only; S20/S21 remain closed.
+- **S20–S21 / Claude independent design review:** `docs/audit/s0/MILITARY_ORGANIZATION_OPERATIONS_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (request commit `109c7c30397e92d4151228605c24a9ab05415f1e`). No-write review; no implementation authorization.
+- **S18–S19 diplomacy/strategic AI pre-design:** `docs/spec/DIPLOMACY_STRATEGIC_AI_ARCHITECTURE_PROPOSAL_VI.md` (design commit `8f01556bd70fed05be6f880f287a0f3691cd7674`). Adds international actor/autonomy, treaty terms, diplomatic play/crisis, negotiation and explainable bounded strategic AI. Design only; S18/S19 remain closed.
+- **S18–S19 / Claude independent design review:** `docs/audit/s0/DIPLOMACY_STRATEGIC_AI_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (request commit `661eaa7ef43ba176d3d42f6aabfa36dd122d6abb`). No-write review; no implementation authorization.
+- **Military organization/logistics research / Gemini Hydrogen:** `docs/research/GLOBAL_HISTORICAL_1836_1936/MILITARY_ORGANIZATION_LOGISTICS_HYDROGEN_RESEARCH_REQUEST_2026-11-18.md` (request commit `5d6d24bf6d8cd934a9e18159dacc7da32ca6049c`). All-world candidate evidence only; no unit data integration or runtime authorization.
 - **S15–S17 local government, characters and political institutions pre-design:** `docs/spec/GOVERNANCE_CHARACTERS_POLITICS_ARCHITECTURE_PROPOSAL_VI.md` (design commit `207722d612354f4d1bccc74064d24616efa4511a`). Separates local authority/service access and urban capacity (S15), historical/generated characters and appointments/succession (S16), and institution-specific lawmaking/organizations/movements (S17). Design only; these phases remain closed.
 - **S15–S17 / Claude independent design review:** `docs/audit/s0/GOVERNANCE_CHARACTERS_POLITICS_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (request commit `f81b6c929dc93b4b69414d25301bd3a15df51b6e`). No-write review against code baseline `e4924ca48264f8d0818eface51a28a87cd363b89`; no implementation authorization.
 - **Governance and institution research / Gemini Hydrogen:** `docs/research/GLOBAL_HISTORICAL_1836_1936/GOVERNANCE_INSTITUTIONS_HYDROGEN_RESEARCH_REQUEST_2026-11-18.md` (request commit `907e7c781cc544d91d2175fba6f06fa419487b0f`). All-world, 1836–1936 evidence candidates only; collective authorities, local administration, offices/succession, laws, political organizations and movements; no runtime data changes.
@@ -129,6 +134,17 @@ Pre-protocol work:
 | Earlier stages 1–5 (identity/content, numbering of an earlier specification) | `PRE_PROTOCOL_IMPLEMENTED_REPORTED` | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` | Not `REVIEW_PASS` or `ACCEPTED`; part of the current baseline; S0 verifies what is present at the frozen SHA |
 
 ## 5. Work log
+
+### 2026-11-18 — S18-S21-DIPLOMACY-AI-MILITARY-PRE-DESIGN
+
+- Added `docs/spec/DIPLOMACY_STRATEGIC_AI_ARCHITECTURE_PROPOSAL_VI.md` (design commit `8f01556bd70fed05be6f880f287a0f3691cd7674`) against code baseline `e4924ca48264f8d0818eface51a28a87cd363b89`.
+- Characterized current diplomacy as typed but minimal treaties/relations with direct `declareWar()`; current strategic AI runs staggered budget/reform/diplomacy/war utility passes, and war selection proceeds directly from expected strength/goal value to declaration.
+- Proposed S18 international actors/autonomy profiles, typed temporal relations/treaty terms/obligations and DiplomaticPlay state machine with backing/sway, escalation/de-escalation, mediation and settlement; proposed S19 goal hierarchy, bounded planning, shared command API, explainability, uncertainty and non-major polity agency.
+- Added Claude no-write S18–S19 design review request `docs/audit/s0/DIPLOMACY_STRATEGIC_AI_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (commit `661eaa7ef43ba176d3d42f6aabfa36dd122d6abb`).
+- Added `docs/spec/MILITARY_ORGANIZATION_OPERATIONS_LOGISTICS_PROPOSAL_VI.md` (design commit `a82d59bcc01e6a57163f7acedd4930132f0767f5`) with S20 diverse force organization, recruitment and LegacyForcePool; S21 movement/fronts/supply/combat/siege/occupation/navy/convoy/amphibious operations.
+- Added Claude no-write S20–S21 design review request `docs/audit/s0/MILITARY_ORGANIZATION_OPERATIONS_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (commit `109c7c30397e92d4151228605c24a9ab05415f1e`).
+- Added all-world military organization/logistics research request for Hydrogen `docs/research/GLOBAL_HISTORICAL_1836_1936/MILITARY_ORGANIZATION_LOGISTICS_HYDROGEN_RESEARCH_REQUEST_2026-11-18.md` (commit `5d6d24bf6d8cd934a9e18159dacc7da32ca6049c`); candidate evidence only.
+- Design/research only. No product runtime, historical data, tests, save/schema, UI, assets, Android, workflow, Gradle, signing or APK files changed. No tests/build/APK run. S1/S18/S19/S20/S21 remain closed.
 
 ### 2026-11-18 — S15-S17-GOVERNANCE-CHARACTERS-POLITICS-PRE-DESIGN
 
