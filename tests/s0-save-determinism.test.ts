@@ -123,8 +123,10 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
 
         const saveText = serialize(interrupted);
         const saveHash = textHash(saveText);
+        const checkpointStateHash = stateHash(interrupted);
         const restored = deserialize(saveText);
         expect(restored.tick).toBe(cut);
+        expect(stateHash(restored)).toBe(checkpointStateHash);
         const splitAfterLoadCommandCount = advanceTo(restored, S0_B4_SCENARIO.totalMonths);
         expect(uninterruptedCommandCount).toBe(S0_B4_SCENARIO.commands.length);
         expect(splitBeforeSaveCommandCount + splitAfterLoadCommandCount).toBe(S0_B4_SCENARIO.commands.length);
@@ -168,7 +170,6 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
         expect(expectedHash).not.toBe(initialHash);
         expect(difference, difference ? `first differing persisted state path: ${difference}` : 'persisted states must match').toBeNull();
         expect(actualHash).toBe(expectedHash);
-        expect(serialize(restored)).toBe(serialize(uninterrupted));
 
         const player = uninterrupted.countries[S0_B4_SCENARIO.player];
         expect(player.taxRate).toBe(0.16);
@@ -184,6 +185,7 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
           cut,
           totalMonths: S0_B4_SCENARIO.totalMonths,
           saveSha256: saveHash,
+          checkpointStateSha256: checkpointStateHash,
           initialStateSha256: initialHash,
           finalStateSha256: actualHash,
           commandCounts: {
