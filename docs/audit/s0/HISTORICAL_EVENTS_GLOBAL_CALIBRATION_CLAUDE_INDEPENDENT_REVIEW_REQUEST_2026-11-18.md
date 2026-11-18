@@ -4,7 +4,7 @@
 **Branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Review type:** independent no-write design review  
 **Date:** 2026-11-18  
-**Review target revision:** S22 design amendment 1  
+**Review target revision:** S22 design amendment 2 — consolidated design with closed Condition grammar  
 **Runtime authorization:** `NONE`
 
 ## 1. Exact target
@@ -18,7 +18,7 @@
 - **Roadmap:** owner-approved v3.2 with v3.3 amendments.
 - **Related designs:** POP Cohorts `b35c5367cfe41bea3036bec2b846d19060f495c0`; S15–S17 `207722d612354f4d1bccc74064d24616efa4511a`; S18–S19 `8f01556bd70fed05be6f880f287a0f3691cd7674`.
 
-Fetch exact current branch HEAD before review. Verify the design file blob equals `ee5c95f6476ffbd4acec6572a9ac01a13d7ac907`; review the amended §§14.1–14.6 together with the traceability supplement. The branch may contain later documentation-only coordination commits; do not silently substitute a different design blob.
+Fetch exact current branch HEAD before review. Verify the design file blob equals `9eec615a56307328c46b4e7b06ef97d60a640a94`; review the consolidated amended §§14.1–14.7 together with the traceability supplement blob `805666e41d45206db84ed919b5d04aab4f472ec7`. The branch may contain later documentation-only coordination commits; do not silently substitute a different design blob.
 
 ## 2. Independence/no-write
 
