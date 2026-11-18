@@ -36,7 +36,7 @@ The comparison covers the complete JSON-persisted `GameState`, including seed an
 
 ## Save input characterization
 
-The dedicated test records baseline behavior for malformed JSON, foreign format, unsupported version, missing state, and a legacy save without `marketStats`. Baseline `2240a8f` defaults absent `marketStats` to an empty object. It predates `constructionQueue`; the test explicitly checks that deserialization does not invent this later field.
+The dedicated test records baseline behavior for malformed JSON, foreign format, unsupported version, missing state, and a legacy save without `marketStats`. Baseline `2240a8f` defaults absent `marketStats` to an empty object. It predates `constructionQueue`; the test explicitly checks that deserialization does not invent this later field. It also records the missing-`rng` case: the baseline deserializer accepts the incomplete state, but the next monthly step throws `TypeError`. This is a characterized baseline defect, not a product-code fix in S0.
 
 ## Execution and evidence
 
