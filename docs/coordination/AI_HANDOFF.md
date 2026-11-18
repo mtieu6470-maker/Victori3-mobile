@@ -14,9 +14,10 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 
 ## Current independent review entry point
 
-- **H01 R3ab / Claude:** start with `docs/audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. It defines the exact branch, base SHA, review boundary, source checks and required verdict.
-- H01 research README also links directly to this request: `docs/research/H01_batch02_1836/README_VI.md`.
-- Until Claude returns a review of the exact current HEAD, R3ab remains `READY_FOR_INDEPENDENT_REVIEW`; ChatGPT self-audit is not `REVIEW_PASS`. No product-data/gameplay/engine/S1 authorization is implied.
+- **H01 R3ac / Claude — latest:** start with `docs/audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. It defines the R3ac base SHA, review boundary, source checks, CSV structure and required verdict.
+- **H01 R3ab / Claude:** `docs/audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
+- H01 research README links to both review requests: `docs/research/H01_batch02_1836/README_VI.md`.
+- Fetch the latest branch HEAD before either review. R3ab and R3ac remain `READY_FOR_INDEPENDENT_REVIEW`; ChatGPT self-audits are not independent `REVIEW_PASS`. Neither review authorizes product-data/gameplay/engine/S1 work.
 
 
 ## 1. Current project state
@@ -110,6 +111,27 @@ Pre-protocol work:
 | Earlier stages 1–5 (identity/content, numbering of an earlier specification) | `PRE_PROTOCOL_IMPLEMENTED_REPORTED` | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` | Not `REVIEW_PASS` or `ACCEPTED`; part of the current baseline; S0 verifies what is present at the frozen SHA |
 
 ## 5. Work log
+
+### 2026-11-18 — H01-R3AC-CENTRAL-SAHEL-RULERSHIP-AND-SOVEREIGNTY
+
+- Owner direction: continue H01 research/document packaging. ChatGPT handles research and integration while Hydrogen document packaging is not dependable; Claude is reserved for independent review of work it did not author. This remains within H01 research/documentation scope and does not open S1 or authorize any game/runtime changes.
+- Repository/branch: `mtieu6470-maker/Victori3-mobile`, `claude/game-historical-sandbox-modes-kg7rj7`.
+- Base HEAD before R3ac: `1dea95b089b8e2a661223e414f18ee2891c50ca8`.
+- Research commits: `d51f2fe03bc6e17cbec7298ca9005f5f25a22bd2` (Vietnamese audit), `330dea2cbc60d62bfb727016abb0add5e807f120` (initial source matrix), `52557af822a2ffb00ed572d7e99be4c0733a869d` (patch decisions), `9dfa024f4d3d4f9506715c67fe13b2a9926b904f` (open evidence requests), `8edf88e37617f9641b13e2184f9689268b030283` (correct source matrix columns and URL placement), `ef04b44320acccc59fc618a75b253e6ab6067bef` (source registry), `9a73d06628f73afb66e1d90e5b977f0c106c4f58` (README), `dc1c85e3c689aa696977c1fd7cae37bc269e5dc7` (validation), `c4ea80cb019982b5045f350372b79285bf9a574c` (integrated audit), `102acffb9eb42d79e4dce1c0979b9af5d4ffd441` (integration map), `ff1c2ed064ce35c4452e0e8ad0cdb5d7e025e541` (cumulative requests), `1e50caa56dab9b97cc52ec2d34ac0504ef3ecca9` (cumulative source registry). All commit messages use `[skip ci]`.
+- Research findings:
+  - SOK: Muhammad Bello ruled 1817–1837; Naylor (2021) identifies `Amīr al-muʾminīn` as manuscript-preferred titulature; Last (1967) describes Gawakuke in March 1836.
+  - BOR: al-Kanemi/Shehu de facto rule and Mai Ibrahim/Sayfawa traditional status must be separated; Sayfawa institution ended in 1846. Death date 1835/1837 conflict retained; 1837 is better supported.
+  - WAD: Muhammad al-Sharif accession is contested (1834/1835/1838); do not present current 1835 `since` as verified or select an alternate ruler without stronger source collation.
+  - DAR: Muhammad al-Fadl 1803–1838 and Muhammad al-Husayn 1838–1873.
+- Files added: `H01_R3ac_CENTRAL_SAHEL_RULERSHIP_AND_SOVEREIGNTY_AUDIT_VI.md`, `H01_R3ac_SOURCE_EVIDENCE_MATRIX.csv`, `H01_R3ac_PATCH_DECISIONS.csv`, `H01_R3ac_OPEN_EVIDENCE_REQUESTS.csv`, `H01_R3ac_SOURCE_REGISTRY_DELTA.csv`, and `GITHUB_INTEGRATION_RECEIPT_R3ac.md`. Cumulative README, validation, integrated audit, integration map, open-evidence requests and source registry were updated.
+- Structural checks: R3ac source matrix 10 columns/10 rows; patch decisions 7/6; open requests 5/7; source registry 8/10; cumulative open requests 5/43; cumulative source registry 8/38. Every checked row is rectangular. The initial source matrix draft was malformed and has been replaced by a corrected version; use the final CSV blob.
+- GitHub compare from base `1dea95b` to pre-receipt HEAD `1e50caa`: 12 commits / 11 changed paths, all under `docs/research/H01_batch02_1836/`; zero non-document paths. No `src/`, `historical_data/`, tests, assets, map ownership/geometry, save/schema, Android, Gradle or workflow file changed.
+- Receipt: `docs/research/H01_batch02_1836/GITHUB_INTEGRATION_RECEIPT_R3ac.md`, commit `529e063562f21ea36ce6975a87592ac5c28bf8fc`.
+- Claude review request: `docs/audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`, commit `dc1e3805b06e2798db26c90bc5661f885b941f6c`; pre-request HEAD was `529e063562f21ea36ce6975a87592ac5c28bf8fc`. It asks for a no-write independent review and exact source/date/CSV checks.
+- README pointer update: commit `4f15d02d9cdcfd7b4626f487d7d051d69fbb6fa4`. Cumulative validation count update: `1045be37ab16a778ded47915823369fd5c4a3d1b`.
+- No product patch, code test, build, APK workflow, device install, PR or merge. No product-data, officeholder, title, government, event, territorial, population or schema value was promoted. `SELF_AUDIT_ONLY / READY_FOR_INDEPENDENT_REVIEW / NO_PRODUCT_PATCH`.
+- R3ac review is distinct from R3ab; both await Claude. Owner acceptance and any future phase authorization remain separate.
+
 
 ### 2026-11-18 — H01-R3AA-NDE-1829-ARCHBELL-CHASE-RASMUSSEN-TRACE
 
