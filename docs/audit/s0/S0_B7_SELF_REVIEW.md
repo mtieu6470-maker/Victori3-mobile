@@ -8,7 +8,7 @@
 | Area | Result | Evidence / boundary |
 |---|---|---|
 | Risk identifier coverage | PASS | The register contains the applicable R1–R14 (R3 in Closed), G0.7 device-evidence limitation, RM-F1…F5, TC-F1…F7, GD-F1…F6, AS-F1…F7, WD-F1…F3, CI-F1…F3 and DEP-F1. |
-| Severity alignment | PASS after correction | R7 remains P0; TC-F1/F2 remain P1; TC-F3 P2; TC-F5 P1; map-performance R10 P1; R14 P1; dependency DEP-F1 provisional P1. |
+| Severity alignment | PASS after correction | R7 remains P0; R5 explicitly retains the frame-metric masking risk (P1); TC-F1/F2 remain P1; TC-F3 P2; TC-F5 P1; map-performance R10 P1; R14 P1; dependency DEP-F1 provisional P1. |
 | B4 evidence boundary | PASS | Run 44325257261, job 134874698600, checkout 7f17b1f, executed test blob 722d62c…; 70/70 tests, four replay cases matched. No artifact or typecheck was produced in that run; later expanded test source was not executed. See `S0_B4_RUN_3_REVIEW.md`. |
 | Dependency workflow static review | PASS — static only | `workflow_dispatch` only; baseline SHA asserted; full and `--omit=dev` audits; actions pinned to full commit SHAs; raw JSON + summary + provenance artifact with `if: always()`; no npm ci, audit fix, product script, build, Gradle, APK, signing or secrets. |
 | Workflow branch parity | PASS | `.github/workflows/s0-b7-dependency-audit.yml` has identical blob SHA on default and experiment branches. |
