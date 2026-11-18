@@ -28,7 +28,7 @@
 - R1/R13 signing risks remain controlled by deferring B2/C3 and keeping secrets/keystores out of the repository and ordinary workflows.
 - G0.7 remains BLOCKED for iQOO. Any exception request is limited to S1 data contracts/schema/save compatibility; no tick loop, Worker, renderer, WebView lifecycle, memory, performance, or Android runtime changes.
 - G0.8 remains PARTIAL. Any exception request is limited to not modifying, adding, replacing, or distributing existing uncertain assets/text during S1. New assets/content must have verified provenance/licensing before inclusion.
-- DEP-F1 records the 10 vulnerability count reported by Run #3 npm ci. A read-only advisory-level audit is still required; no npm audit fix or lockfile update is authorized by this signoff.
+- DEP-F1 is still OPEN P1 — UNTRIAGED. The 2026-11-16 baseline audit log reported 6 findings with five named GHSA identifiers; Run #3 on 2026-11-18 reported 10 in the npm ci summary without advisory detail. The counts are not reconciled. A read-only workflow and plan now exist (`.github/workflows/s0-b7-dependency-audit.yml`, `S0_DEPENDENCY_AUDIT_PLAN.md`) to scan the frozen baseline full tree and `--omit=dev` tree. The workflow has not been dispatched and its artifact has not been reviewed; no `npm audit fix` or lockfile update is authorized.
 
 ## 3. Proposed bounded S1-entry exceptions (not yet accepted)
 
@@ -73,6 +73,10 @@ The only automatic save observed by B3 is tied to January in-game date; it is no
 | Overall S0 | PARTIAL |
 | Bounded S1-entry package | Not yet REVIEW_PASS / ACCEPTED |
 | S1 implementation authorization | NOT GRANTED |
+
+## 5.1 Dependency-audit evidence status
+
+| DEP-F1 audit workflow exists and is read-only | PREPARED; dispatch and artifact review pending |
 
 ## 6. Required next decisions
 
