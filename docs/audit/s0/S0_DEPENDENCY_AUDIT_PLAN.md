@@ -22,7 +22,7 @@ npm audit --package-lock-only --omit=dev --json
 
 The first command reports the full dependency tree; the second excludes development dependencies to help distinguish possible shipped-runtime exposure. npm documents `--package-lock-only` as using the lockfile and ignoring `node_modules`, and `--omit=dev` as selecting the production dependency tree.
 
-The workflow does not run `npm ci`, package lifecycle scripts, `npm audit fix`, builds, tests, Gradle, APK assembly, or any product script. It does not write `package.json`, `package-lock.json`, source, data, or assets. It stores raw JSON, stderr, exit codes, a concise package/advisory summary, Node/npm versions and lockfile provenance in a GitHub Actions artifact.
+The workflow does not run `npm ci`, package lifecycle scripts, `npm audit fix`, builds, tests, Gradle, APK assembly, or any product script. It does not write `package.json`, `package-lock.json`, source, data, or assets. It stores raw JSON, stderr, exit codes, a concise package/advisory summary, Node/npm versions and lockfile provenance in a GitHub Actions artifact. `npm audit` submits the dependency description for this public baseline lockfile to the configured npm registry; this scan does not submit game saves, source files, user data, or signing secrets.
 
 All third-party Actions are pinned to full commit SHAs verified against their release tags:
 
