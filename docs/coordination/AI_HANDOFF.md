@@ -96,6 +96,12 @@ Pre-protocol work:
 ## 5. Work log
 
 Append newest entries at the top. Do not overwrite earlier entries.
+### 2026-11-18 — B7-RISK-REGISTER-REVIEW-CORRECTION
+
+- Independent cross-check against v3.2 §4 identified that R10 (future map-layer performance budgets) is P1, not P2. The register now places R10 in the P1 table with its S4/S11/S20 acceptance criteria (commit 9606209ed3dd8c6d4230e1e8b2fa95f8f4486b94).
+- Added R4 as a P2 production command-journal design boundary: decision I allows test-supplied command traces and makes persistent replay sidecar optional; no production replay journal is claimed.
+- Added R3 to a closed-risk note because baseline APK SHA-256 is now recorded in A1/B1 evidence, separately from artifact ZIP digest (commit d624db3cf7be1fccdb91cf9f93da25bf12fbf45e).
+- Updated S0_B7_RESULTS.md to keep the B7 summary consistent. No product source/data/assets or workflow changed.
 ### 2026-11-18 — S0-B4-RUN3-REVIEW-AND-B7-DRAFT
 
 - B4 execution reviewed: GitHub Actions run 44325257261, job 134874698600, workflow .github/workflows/b4-tests-only.yml, checkout commit 7f17b1f0177d712366e31e4e8c879cc4b6dd5741.
