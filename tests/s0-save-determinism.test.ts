@@ -95,6 +95,20 @@ function advanceTo(state: GameState, targetTick: number): number {
   return appliedCommands;
 }
 
+describe('S0-B4 canonical comparison contract', () => {
+  it('ignores object-key insertion order but preserves array order', () => {
+    const left = { nested: { z: 3, a: 1 }, events: ['first', 'second'] };
+    const right = { events: ['first', 'second'], nested: { a: 1, z: 3 } };
+
+    expect(canonical(left)).toBe(canonical(right));
+    expect(firstDifference(left, right)).toBeNull();
+
+    const reordered = { nested: { a: 1, z: 3 }, events: ['second', 'first'] };
+    expect(canonical(left)).not.toBe(canonical(reordered));
+    expect(firstDifference(left, reordered)).toBe('state.events[0]');
+  });
+});
+
 describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
   for (const mode of S0_B4_SCENARIO.modes) {
     for (const cut of S0_B4_SCENARIO.saveCuts) {
