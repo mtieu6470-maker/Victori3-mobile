@@ -16,7 +16,9 @@ import { S0_B4_SCENARIO } from './fixtures/s0-b4-scenario';
 function canonical(value: unknown): string {
   if (Array.isArray(value)) return `[${value.map(canonical).join(',')}]`;
   if (value && typeof value === 'object') {
-    const entries = Object.entries(value as Record<string, unknown>).sort(([a], [b]) => a.localeCompare(b));
+    const entries = Object.entries(value as Record<string, unknown>).sort(([a], [b]) =>
+      a < b ? -1 : a > b ? 1 : 0,
+    );
     return `{${entries.map(([key, item]) => `${JSON.stringify(key)}:${canonical(item)}`).join(',')}}`;
   }
   const encoded = JSON.stringify(value);
@@ -138,6 +140,18 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
         const saveText = serialize(interrupted);
         const saveHash = textHash(saveText);
         const checkpointStateHash = stateHash(interrupted);
+        const saveEnvelope = JSON.parse(saveText) as {
+          format: string;
+          version: number;
+          savedAt: string;
+          state: GameState;
+        };
+        expect(saveEnvelope.format).toBe(SAVE_FORMAT);
+        expect(saveEnvelope.version).toBe(interrupted.version);
+        expect(saveEnvelope.savedAt).toBe(
+          `${interrupted.date.y}-${String(interrupted.date.m).padStart(2, '0')}`,
+        );
+        expect(stateHash(saveEnvelope.state)).toBe(checkpointStateHash);
         const restored = deserialize(saveText);
         expect(restored.tick).toBe(cut);
         expect(stateHash(restored)).toBe(checkpointStateHash);
