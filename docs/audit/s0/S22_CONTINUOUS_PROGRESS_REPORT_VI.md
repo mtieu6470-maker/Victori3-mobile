@@ -213,3 +213,13 @@ Trong lượt mới này:
 - Claude request update: commit f78ecf4e89296d26c26e39bd678a6e0c8e9b5a47; blob bea8f7d89c9884cfc0a827d74ccfa85f7c46ed8c.
 
 **Trạng thái gate:** S1/S22 vẫn đóng. Không có runtime/data/test/schema/Android/APK sửa đổi; chưa chạy build/test/CI/device QA.
+
+
+### 2026-11-19 — SA-13 taxonomy contract and external dataset retrieval check
+
+- Thêm SA-13 (P1) về thiếu canonical twelve-macro-region taxonomy/denominator trong schema địa lý được kiểm tra.
+- Thiết kế §14.15 đã xác định các khái niệm WorldRegionTaxonomy, StrategicRegionGeography, HistoricalGeographicUnit, GeographicCrosswalk và PolityTerritoryMembership; yêu cầu owner phê duyệt chính xác 12 stable IDs/boundaries trước khi claim regional completeness.
+- Claude review request đã được cập nhật để kiểm tra SA-13, design §14.15 và test cases GEO-01–GEO-10. Claude vẫn chưa đưa verdict.
+- Đã thử truy xuất workbook MPD 2023 từ liên kết Excel chính thức của Groningen/Dataverse. Dataverse redirect sang signed object-store URL; download trong phiên này thất bại. Vì vậy chưa có row-level MPD 2023 audit, chưa tải workbook và chưa nhập dữ liệu. Các kết luận về MPD 2023 trong hồ sơ hiện chỉ dựa metadata/tài liệu chính thức.
+- Không đặt ra tên 12 vùng, không tự gán macro-region, không import benchmark mới. Owner taxonomy decision và Hydrogen source audit còn mở.
+- No runtime/schema/data/test/build changes; S1/S22 remain closed.
