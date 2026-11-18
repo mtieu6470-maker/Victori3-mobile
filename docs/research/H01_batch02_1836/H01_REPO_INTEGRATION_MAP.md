@@ -109,3 +109,22 @@ Added under `docs/research/H01_batch02_1836/`:
 The main distinction is that Chase's c.80k covers the country Malacatzie had conquered, including Batow/Bichuana dependants, while Rasmussen's c.20k figure is reported by Kruger as referring to the Rustenburg area. The numbers may have different geographical universes and cannot be treated as like-for-like. The original Archbell letter is not inspected; the archive date/box/item references remain inconsistent. Lye's 1836 1–5k estimate is a military force, not a population count.
 
 No H01 numeric value is approved. No shipped data, profile, owner registry, geometry, runtime, engine, save schema, tests, assets, Android, Gradle, workflow or APK changed. No PR or merge.
+
+ 
+## R3ab — officeholder and sovereignty research layer
+
+Added under `docs/research/H01_batch02_1836/`:
+- `H01_R3ab_1836_AFRICAN_POLITY_OFFICEHOLDER_AUDIT_VI.md`
+- `H01_R3ab_SOURCE_EVIDENCE_MATRIX.csv`
+- `H01_R3ab_PATCH_DECISIONS.csv`
+- `H01_R3ab_OPEN_EVIDENCE_REQUESTS.csv`
+- `H01_R3ab_SOURCE_REGISTRY_DELTA.csv`
+- `GITHUB_INTEGRATION_RECEIPT_R3ab.md` (receipt of this documentation-only integration)
+
+R3ab distinguishes:
+- Futa Jallon Almami Bubakar as a provisional 1836 officeholder candidate, with p.150 page-image authentication still open.
+- Ethiopia's nominal emperor Sahle Dengel from the de facto Ras Ali Alula/Ali II and the separately documented role of Mänän Libän Amäde.
+- Liberia's 1836 ACS colonial agent and Bassa-settlement administration from a sovereign head of state; independence occurred in 1847.
+
+**Integration boundary:** research/documentation only. The following remain unchanged: `historical_data/countries/_core_profiles_asia_africa.json`, political entity registry, population totals, source runtime, borders/owners, engine, government presets, tests, assets, save schema, Android, Gradle, workflows and APK artifacts. R3ab creates no product patch and does not open S1. Claude independent review and owner acceptance remain pending.
+
