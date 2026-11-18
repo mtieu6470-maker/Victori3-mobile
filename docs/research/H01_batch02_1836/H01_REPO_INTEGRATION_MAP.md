@@ -1,4 +1,4 @@
-# H01 batch 02 — repository integration map (R3x)
+# H01 batch 02 — repository integration map (R3y)
 
 ## Integration boundary
 This R3t task integrates H01 research, provenance, reconciliation and audit decisions into the repository documentation layer. It does **not** integrate unresolved H01 estimates into shipped game data.
@@ -72,3 +72,15 @@ Added:
 R3x changes the research wording of NDE 60k from an alleged Ndebele/Nguni core to an approximate broad subject population of Mzilikazi's polity, circa 1830s. Lye's 1k–5k is a separate 1836 Nguni military-force estimate; 10k–20k is a later departure stream; Delius records 20k as the most reliable end-1820s estimate and some estimates three to four times higher. R3l's 45k–85k band remains methodologically unverified. NDE_MOS 210k remains broad geography only.
 
 No shipped population/profile/ownership/geometry/runtime/save/test/assets/Android/build/workflow change. No numeric approval, PR, merge or APK build.
+
+
+## R3y Oyo political geography source layer
+Added:
+- `H01_R3y_OYO_1831_1836_POLITICAL_GEOGRAPHY_AND_POPULATION_AUDIT_VI.md` — year-by-year Oyo/Ilorin/southern successor-state chronology and demographic-unit analysis.
+- `H01_R3y_SOURCE_EVIDENCE_MATRIX.csv` and `H01_R3y_SOURCE_REGISTRY_DELTA.csv` — source scope, locators, inspection levels and limitations.
+- `H01_R3y_PATCH_DECISIONS.csv` — disposition of OYO 650k, OYO_OYO 1.45m, SSA_REG_18 control assignment, transition year and 75k Atlantic embarkation metric.
+- `H01_R3y_OPEN_EVIDENCE_REQUESTS.csv` — unresolved Law pages, population derivation, ownership table and successor-state crosswalk requests.
+
+R3y establishes that the 1831–36 political geography was fragmented and changing. By 1833 Ilorin had destroyed or subjected most major Oyo towns; in 1836 the old capital district was abandoned and several states competed for control. The 1:1 SSA_REG_18 join to OYO is technical only. OYO 650k (refugee/polity scope) and OYO_OYO 1.45m (broad regional resident reconstruction) are different units with no reproducible quantitative derivation supplied, so both remain quarantined.
+
+No live historical_data, population, profiles, political registry, map owner/geometry, engine/runtime/save schema, tests, assets, Android, Gradle, workflows or APK changed. No numeric approval, PR, merge or build.
