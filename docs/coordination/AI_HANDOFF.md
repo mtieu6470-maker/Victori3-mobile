@@ -105,6 +105,17 @@ Pre-protocol work:
 
 ## 5. Work log
 
+### 2026-11-18 — H01-R3W-OYO-CITATION-AND-TRANSITION-CHRONOLOGY
+
+- Owner direction: continue the H01 research work; Claude can independently review/fix later. Scope remains documentation/research only.
+- New sources inspected: Asiwaju (1989) chapter 26, printed pp.703–706 and pp.710–711; Lovejoy (2012 UCLA PhD dissertation), printed pp.66–67; Morton-Williams (1967), printed p.45; Johnson (1921), printed pp.279–280.
+- Asiwaju p.704: page-numbered accessible text describes Oyo core, tribute, influence/control of varying degrees, and autonomous/protected polities; it does not display >750,000 demographic value. Chapter text search did not find 750,000/750000/700,000 within Oyo chapter. Butcher & Griffiths (2021, p.385) cite that page for >750k c.1780; claim is retained as unverified secondary lead, not declared false.
+- Chronology: Asiwaju gives Oyo collapse c.1835 and broad post-collapse demographic southward movements; Lovejoy says Old Oyo and surrounding district deserted/destroyed c.1836, after which displaced Oyo formed a working alliance at Ago Oja and Atiba was recognized by surviving senior chiefs/warriors; Morton-Williams describes formal ritual installation c.1838 and official reconstruction; Johnson places accession after Old Oyo's fall and Oluewu's death but gives no exact calendar year in passage. Staged chronology is recorded; no exact Jan 1 1836 border/owner derivation.
+- R3w decisions: OYO 650k and OYO_OYO 1.45m remain quarantined; >750k claim/citation path not substantiated by inspected Asiwaju transcription and remains open; no numeric or control patch.
+- R3w research files: `H01_R3w_OYO_CITATION_AND_TRANSITION_AUDIT_VI.md`, `H01_R3w_SOURCE_EVIDENCE_MATRIX.csv`, `H01_R3w_SOURCE_REGISTRY_DELTA.csv`, `H01_R3w_PATCH_DECISIONS.csv`, `H01_R3w_OPEN_EVIDENCE_REQUESTS.csv`; updates to consolidated audit, README, validation, integration map and this handoff. All commits use `[skip ci]`.
+- Inspection caveat: Asiwaju read as page-numbered HTML transcription rather than authenticated page image; screenshot could not be obtained for relevant Lovejoy page image due PDF page mapping/rate limit; Forde PDF screenshot endpoint returned 404; searchable text only.
+- Status: `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`. ChatGPT self-audit, not independent Claude `REVIEW_PASS`; owner acceptance pending. No live data/game/runtime/ownership/geometry/save/engine/assets/tests/Android/workflow/APK changes, no PR/merge/build.
+
 ### 2026-11-18 — H01-R3V-LIBERIA-PRIMARY-SERIES-RECONCILIATION
 
 - Owner instruction: continue H01 work; owner accepts that Claude may later review/fix the implementation. Scope remains research documentation only under the existing H01 boundary.
