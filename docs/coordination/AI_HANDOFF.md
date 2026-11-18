@@ -14,18 +14,19 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 
 ## Current independent review entry point
 
-- **R4b / Claude — latest succession/authority tranche:** start with `docs/audit/s0/GLOBAL_R4B_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4b covers 15 profile gaps across Central/South/East/Southeast Asia, West Asia, North Africa and Africa. Base SHA: `e5dead90d15cab772a8a0fa00ee76f76e4d08916`; fetch latest branch HEAD before review.
-- **R4b package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4b/README_VI.md`; 15-polity audit, 25 non-executing decisions, 18 open evidence requests and 33 source entries. Integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4b/GITHUB_INTEGRATION_RECEIPT_R4b.md`.
-- **R4a / Claude:** `docs/audit/s0/GLOBAL_R4A_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open for 13 earlier polity dossiers and the 54-profile triage.
+- **R4c / Claude — latest authority tranche:** start with `docs/audit/s0/GLOBAL_R4C_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4c covers 15 profile gaps from the Mediterranean and Caucasus to South Asia and the Himalaya. Base SHA: `356a70116588a677adc4bda3f4a45772833ea002`; fetch the latest branch HEAD before review.
+- **R4c package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4c/README_VI.md`; 15-polity audit, 27 non-executing decisions, 18 open evidence requests and 34 source entries. Integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4c/GITHUB_INTEGRATION_RECEIPT_R4c.md`.
+- **R4b / Claude:** `docs/audit/s0/GLOBAL_R4B_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open for 15 earlier profile gaps and source/authority issues.
+- **R4a / Claude:** `docs/audit/s0/GLOBAL_R4A_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open for 13 dossiers and the original 54-profile triage.
 - **GLOBAL Historical Mode / Claude — baseline review:** `docs/audit/s0/GLOBAL_HISTORICAL_MODE_CLAUDE_REVIEW_REQUEST_2026-11-18.md` remains open. It covers the global fidelity standard, 181-entity coverage baseline and current engine/data audit.
 - **GLOBAL Historical Mode artifacts:** `docs/spec/GLOBAL_HISTORICAL_MODE_FIDELITY_STANDARD_VI.md`; `docs/audit/GLOBAL_HISTORICAL_MODE_DATA_BASELINE_AUDIT_VI.md`; `docs/audit/GLOBAL_HISTORICAL_SUCCESSION_COVERAGE_1836.csv`.
 - **Owner direction 2026-11-18:** worldwide scope, not Africa-only. Historical Mode requires source-backed historical accuracy and temporal consistency for the 1836–1936 campaign; it must not railroad outcomes and may diverge when causes change (Master Spec §§2.2 and 10.2). Sandbox/Alternate History may be flexible and is not required to follow historical ruler/event timelines after the start date.
-- **H01 R3af / Claude:** `docs/audit/s0/H01_R3AF_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as an earlier regional succession research package for Shewa, Zulu and Basotho (1836–1900).
+- **H01 R3af / Claude:** `docs/audit/s0/H01_R3AF_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as the earlier regional succession package for Shewa, Zulu and Basotho (1836–1900).
 - **H01 R3ae / Claude:** `docs/audit/s0/H01_R3AE_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate 1836 officeholder/title review.
 - **H01 R3ad / Claude:** `docs/audit/s0/H01_R3AD_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
 - **H01 R3ac / Claude:** `docs/audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
 - **H01 R3ab / Claude:** `docs/audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
-- Fetch latest branch HEAD before every review. All ChatGPT self-audits are labelled and are not independent `REVIEW_PASS`. R4b review is no-write and does not authorize runtime/game-data/schema/engine changes or S1.
+- Fetch latest branch HEAD before every review. All ChatGPT self-audits are labelled and are not independent `REVIEW_PASS`. R4c review is no-write and does not authorize runtime/game-data/schema/engine changes or S1.
 
 ## 1. Current project state
 
@@ -118,6 +119,16 @@ Pre-protocol work:
 | Earlier stages 1–5 (identity/content, numbering of an earlier specification) | `PRE_PROTOCOL_IMPLEMENTED_REPORTED` | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` | Not `REVIEW_PASS` or `ACCEPTED`; part of the current baseline; S0 verifies what is present at the frozen SHA |
 
 ## 5. Work log
+
+### 2026-11-18 — GLOBAL-HISTORICAL-R4C-SUCCESSION-AUTHORITY-TRANCHE
+
+- R4c base HEAD: `356a70116588a677adc4bda3f4a45772833ea002`. Researched 15 missing-array profile IDs: ION, CIR, IMM, CON, ABD, KAN, KOK, YEM, SND, KAL, BRD, PRI, BHU, SKM, LUA.
+- Added `docs/research/GLOBAL_HISTORICAL_1836_1936/R4c/`: narrative audit, 15-row evidence matrix, 27 non-executing decisions, 18 open evidence requests, 34 source entries and README; added Claude review request at `docs/audit/s0/GLOBAL_R4C_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`.
+- Key findings: ION High Commissioner vs Ionian constitutional institutions; CIR no single supreme ruler; IMM Shamil election vs Hamzat assassination; CON legal deposition vs 1837 conquest; ABD tribal election/treaties/surrender; KAN joint Dil brothers and 1839–42 interruption; KOK 1842 occupation/1844 coup; YEM candidate-only Imam pending primary chronicle; SND three Talpur branches; KAL British-appointed vs local-recognized successors; BRD year-level only; PRI is gameplay aggregate, no historical HOS; BHU Desi/Je Khenpo dual offices; SKM protectorate vs annexation; LUA interregnum and Siamese confirmation.
+- Source registry openly records inspection limits: OUP Ionian abstract only; Circassia 2024 article extract only; Constantine page open timed out; Yemen exact 1830s succession still lacks direct Yemeni chronicle; SND large Hughes PDF only extract; Baroda Royal Archives returned 503; Stuart-Fox cited but not read directly. Full searchable text was inspected for other listed works; no false claim of image/page screenshot checks.
+- CSV structural verification pending final fetch; expected matrix 15×13, decisions 27×7, open requests 18×5, source registry 34×8.
+- Triage coverage: including R3af plus R4a/R4b/R4c, 37 distinct original missing-profile IDs have research dossiers; 17 remain: ETH, BOR, WAD, DAR, DAH, OYO, MAS, FJA, LIB, BUG, TEX, CAF, RGS, HAI, SUL, MAO, MLY. This is research coverage only, not approved game data.
+- No `historical_data/`, HOS array, country profile, political registry, source runtime, schema, engine, events, tests, assets, save data, Android, Gradle, workflow, signing or APK changed. No test/build/APK workflow run. Status: `READY_FOR_INDEPENDENT_REVIEW / SELF_AUDIT_ONLY / NO_PRODUCT_PATCH`.
 
 ### 2026-11-18 — GLOBAL-HISTORICAL-R4B-SUCCESSION-AUTHORITY-TRANCHE
 
