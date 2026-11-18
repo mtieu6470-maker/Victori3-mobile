@@ -160,3 +160,31 @@ Principal findings:
 R4b includes 15 evidence dossiers, 25 non-executing decisions, 18 open evidence requests and 33 source registry entries. The dossier distinguishes full searchable text, abstracts, search excerpts, OCR/transcriptions and source records whose PDF page-image screenshots could not be fetched. No claim of visual page inspection is made for failed screenshot attempts.
 
 R4b is a second tranche only. The remaining missing arrays, 439 current records, all-world cross-dataset consistency and 1901–1936 timeline remain open.
+
+
+## 11. R4c — third global succession and authority tranche (18 November 2026)
+
+R4c researches 15 additional missing-array profiles: ION, CIR, IMM, CON, ABD, KAN, KOK, YEM, SND, KAL, BRD, PRI, BHU, SKM and LUA. It adds 34 source-registry entries and records source inspection level/limitations.
+
+Principal findings:
+- **ION:** British Lord High Commissioner is not the Ionian elected executive; constitutional parliament, Senate, Regent and High Commissioner are separate roles; 1864 cession is a polity transition.
+- **CIR:** no single nationwide ruler or supreme authority is evidenced for 1836; keep regional/collective leadership rather than inventing a king.
+- **IMM:** Shamil's election/bay'a (September 1834) and Hamzat Bek's assassination (October 1834 New Style) are separate events; the Imamate's geographic scope must not be conflated with Circassia.
+- **CON:** French deposition claim in 1830 differs from de facto control until Constantine fell in 1837; the 1836 assault failed.
+- **ABD:** tribal election, Desmichels treaty recognition, Treaty of Tafna and 1847 surrender are distinct.
+- **KAN:** Dil brothers exercised joint authority; 1839–1842 foreign interruption means Kohandil's rule is not a simple continuous solo term.
+- **KOK:** Bukhara's 1842 invasion/occupation, uprising, Shir Ali and the 1844 Qipchaq coup require separate events and ruler terms.
+- **YEM:** al-Mansur Ali II is only a candidate for the 1836 snapshot. No original Yemeni Zaydi chronicle was directly inspected in this tranche; exact bay'a and effective control remain open.
+- **SND:** Hyderabad, Khairpur and Mirpur Talpur branches were separate authorities; the current aggregate "collegial rule" must not be interpreted as one common ruler.
+- **KAL:** Mehrab Khan's death, British-installed Shah Nawaz and local sardar recall/recognition of Nasir Khan are separate legitimacy events; exact November 1839 dates conflict.
+- **BRD:** Sayajirao II/Ganpatrao are year-level candidate succession only; exact 1819 date lacks an official Baroda locator in this tranche.
+- **PRI:** project entity is a gameplay grouping, not one historical polity; do not create a shared HOS succession array.
+- **BHU:** Druk Desi and Je Khenpo are concurrent temporal/religious offices; Penlop authority is another layer.
+- **SKM:** Treaty of Tumlong (1861) is a protectorate/foreign-policy-control event, not full annexation; Tsugphud remained Chogyal until 1863.
+- **LUA:** Manthaturath's death, Oun Keo regency and Siamese recognition of Sukha Soem in 1839 are distinct; start/death dates need primary decree confirmation.
+
+R4c adds a 15-polity evidence matrix, 27 non-executing research decisions, 18 open evidence requests and 34 source entries. The source registry distinguishes full searchable text, abstracts/search extracts, secondary chronology and sources for which only bibliographic metadata was available. It does not claim page-image inspection where screenshots were not obtained.
+
+Cumulative missing-profile tranche accounting: R3af covers SHE/ZUL/BSO; R4a adds four other unique IDs from the original 54-profile triage (ASH/MOR/WAL/MOL plus MEX? note R4a's 13-polity batch includes some IDs not originally in that missing list); R4b covers 15; R4c covers 15. For unique IDs from the 54-profile triage, the confirmed batches close 37 of 54, leaving 17: ETH, BOR, WAD, DAR, DAH, OYO, MAS, FJA, LIB, BUG, TEX, CAF, RGS, HAI, SUL, MAO and MLY. This is dossier coverage, not owner-approved data coverage.
+
+R4c remains a third tranche only. The 439 existing leader records, remaining historical profiles, sovereignty/territory, economy/population/military/events and full 1901–1936 timelines remain open.
