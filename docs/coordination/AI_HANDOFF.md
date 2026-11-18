@@ -97,6 +97,14 @@ Pre-protocol work:
 
 Append newest entries at the top. Do not overwrite earlier entries.
 
+### 2026-11-18 — B4-CANONICAL-CHECKPOINT-COMPARISON
+
+- Commit `712cd44f415212d770b130c501797e12d7cd5bc1`: after each save/load checkpoint, test hashes the deserialized `GameState` with object keys canonicalized and asserts it equals the pre-save checkpoint hash. Removed raw `serialize(restored) === serialize(uninterrupted)` assertion because byte-for-byte JSON string equality overconstrains object-key insertion order and compares the save envelope, while §6.7 requires normalized `GameState` comparison.
+- Commit `b65e0b10d872f835884d42afacde272910da83ca`: added a direct comparator contract test proving object-key insertion order is ignored and array order remains significant (including first-difference path).
+- Plan updated in `docs/audit/s0/S0_B4_TEST_PLAN.md`. The harness still hashes the complete JSON-persisted state and retains exact save SHA-256 as supplementary provenance.
+- Test/typecheck execution: not performed; container network is unavailable and the required GitHub workflow has not yet been manually dispatched. No claim of passing test execution. G0.6 remains `NOT_TESTED`.
+
+
 ### 2026-11-18 — B4-COMMAND-REPLAY-AND-LEGACY-CONTINUATION-GUARDS
 
 - Commit `aef0e29043ceaaa193bcf523c223560f7b3f4e83`: command helper now returns the number of commands applied and asserts each tax/budget command immediately after execution at its scheduled tick. The test validates every command tick lies inside the 24-month run and reconciles command counts across continuous and split-before/after-save paths.
