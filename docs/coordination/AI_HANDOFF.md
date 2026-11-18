@@ -97,6 +97,14 @@ Pre-protocol work:
 
 Append newest entries at the top. Do not overwrite earlier entries.
 
+### 2026-11-18 — B4-CANONICAL-ORDER-AND-SAVE-ENVELOPE-ASSERTIONS
+
+- Commit `3999783e6e3a3efac4d5e0f065da9447e8dd969d` replaces locale-sensitive `localeCompare` object-key sorting with deterministic code-unit ordering (`a < b ? -1 : a > b ? 1 : 0`).
+- The replay test now parses the native save envelope and asserts `format === SAVE_FORMAT`, envelope version equals the GameState version, `savedAt` equals the in-game YYYY-MM checkpoint date, and envelope state hash equals the pre-serialization checkpoint state hash.
+- Test plan updated to record these checks and remove a stale statement that described an older audit head as latest.
+- All changes remain audit test/documentation only. The pinned-baseline workflow has still not been manually dispatched; G0.6 remains `NOT_TESTED`.
+
+
 ### 2026-11-18 — B4-CANONICAL-CHECKPOINT-COMPARISON
 
 - Commit `712cd44f415212d770b130c501797e12d7cd5bc1`: after each save/load checkpoint, test hashes the deserialized `GameState` with object keys canonicalized and asserts it equals the pre-save checkpoint hash. Removed raw `serialize(restored) === serialize(uninterrupted)` assertion because byte-for-byte JSON string equality overconstrains object-key insertion order and compares the save envelope, while §6.7 requires normalized `GameState` comparison.
