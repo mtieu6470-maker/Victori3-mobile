@@ -173,6 +173,11 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
 
     const restored = deserialize(JSON.stringify(envelope));
     expect(restored.rng).toBeUndefined();
+    console.info('[S0-B4_COMPAT]', JSON.stringify({
+      case: 'rng-missing',
+      deserialize: 'accepted-with-rng-undefined',
+      continuation: 'TypeError',
+    }));
 
     // Characterize the frozen baseline defect only. Do not repair product code in S0.
     expect(() => stepMonth(restored)).toThrow(TypeError);
@@ -185,6 +190,11 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
 
     const restored = deserialize(JSON.stringify(envelope));
     expect(restored.rng as unknown).toBe('not-an-rng-tuple');
+    console.info('[S0-B4_COMPAT]', JSON.stringify({
+      case: 'rng-wrong-type',
+      deserialize: 'accepted-string-instead-of-four-number-tuple',
+      continuation: 'TypeError',
+    }));
 
     // The baseline performs no RNG-shape validation before exposing state to simulation.
     expect(() => stepMonth(restored)).toThrow(TypeError);
