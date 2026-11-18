@@ -16,6 +16,8 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 
 - **R4e / Claude — final collective/aggregate succession queue review:** start with `docs/audit/s0/GLOBAL_R4E_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4e covers MAO (collective rangatira authority) and MLY (multiple Malay constituent polities); base SHA before R4e: `103ab66b227809fae358e082fa253c0e50a1f78c`. Fetch the exact latest branch HEAD before review.
 - **R4e package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/README_VI.md`; 2-entity evidence matrix, 19 non-executing decisions, 12 open evidence requests and 20 source records. Integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/GITHUB_INTEGRATION_RECEIPT_R4e.md`.
+- **S10–S11 BuildingType/ProductionMethod/BuildingSite pre-design:** `docs/spec/BUILDING_TYPES_PRODUCTION_METHODS_SITES_PROPOSAL_VI.md` (design commit `b1fa6abdeb3609c8acc31206405c05a0ee90898b`). Uses owner-approved sparse BuildingSite identity, level-status and PM split/merge rules; labels current region-level building counts as legacy aggregates, not historical facility records. Design only; S10/S11 remain closed.
+- **S10–S11 / Claude independent review:** `docs/audit/s0/BUILDING_TYPES_SITES_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (request commit `4d1f058020651b128dd8d0a7e889944e9684db46`). No-write review against code baseline `e4924ca48264f8d0818eface51a28a87cd363b89`; no implementation authorization.
 - **S7–S8 goods/markets/transport pre-design:** `docs/spec/GOODS_MARKETS_TRANSPORT_ARCHITECTURE_PROPOSAL_VI.md` (design revision `98a9aef1356f73004a78590eb45d63321b4b0ee2`). Documents the current material-accounting mismatch, Goods Registry and monthly stock-flow conservation (S7), then temporal transport graph, capacity-constrained shipments and goods-specific market access (S8). Design only; S7/S8 remain closed.
 - **S7–S8 / Claude independent design review:** `docs/audit/s0/GOODS_MARKETS_TRANSPORT_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (request revision `77449b1de2c17e739b97bb4857a85d7e6cf44ede`). No-write review against code baseline `e4924ca48264f8d0818eface51a28a87cd363b89`; does not authorize implementation.
 - **P0 engineering pre-design — Population Cohorts:** `docs/spec/POPULATION_COHORTS_DATA_MODEL_PROPOSAL_VI.md` (design revision `b35c5367cfe41bea3036bec2b846d19060f495c0`). ChatGPT self-audit clarified age distribution vs cohort identity, canonical tuple IDs, integer population mass and unknown-vs-unaffiliated religion. Still design-only; no runtime authorization.
@@ -124,6 +126,15 @@ Pre-protocol work:
 | Earlier stages 1–5 (identity/content, numbering of an earlier specification) | `PRE_PROTOCOL_IMPLEMENTED_REPORTED` | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` | Not `REVIEW_PASS` or `ACCEPTED`; part of the current baseline; S0 verifies what is present at the frozen SHA |
 
 ## 5. Work log
+
+### 2026-11-18 — S10-S11-BUILDING-PRODUCTION-SITE-PRE-DESIGN
+
+- Added `docs/spec/BUILDING_TYPES_PRODUCTION_METHODS_SITES_PROPOSAL_VI.md` (design commit `b1fa6abdeb3609c8acc31206405c05a0ee90898b`) against code baseline `e4924ca48264f8d0818eface51a28a87cd363b89`.
+- Characterized the existing `Region.buildings` as region-level level counts, initial levels as heuristic estimates, `RECIPES` as fixed mappings and `build()` as immediate level increment. These are not historical facility, firm, hiring or wage records.
+- Proposed S10 BuildingType/ProductionMethod definitions with era/source/resource/site-potential and monthly S7 unit contracts; proposed S11 sparse BuildingSite operations with owner-approved stable IDs, mutually exclusive level-status buckets, PM transitions, lineage, tombstones and deterministic projections.
+- Legacy Region aggregates are preserved as labelled placeholders; no historical facility names/coordinates/owners/workers are invented. S12 remains real hiring/wages; S13 ownership; S14 construction.
+- Added Claude no-write review request `docs/audit/s0/BUILDING_TYPES_SITES_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (commit `4d1f058020651b128dd8d0a7e889944e9684db46`).
+- Design-only. No runtime, save/schema, historical data, tests, UI, assets, Android, workflow, Gradle, signing or APK files changed. No tests/build/APK run. S1/S10/S11 remain closed.
 
 ### 2026-11-18 — S7-S8-DESIGN-REVISION-AND-REVIEW-PACKET-PIN
 
