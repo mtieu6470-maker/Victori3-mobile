@@ -134,3 +134,15 @@ Nguồn: [Singh et al., 2018 — Journal of Climate](https://doi.org/10.1175/JCL
 - EVENT_CANDIDATES.csv: 9 source records hiện có + 1 candidate global drought, tất cả research-only.
 - OPEN_EVIDENCE_REQUESTS.csv: các vấn đề cần source/geo/temporal verification trước khi data acceptance.
 - SOURCE_REGISTRY_DELTA.csv: các nguồn bên ngoài đã kiểm tra, chưa nhập vào canonical source registry.
+
+
+## 7. Benchmark coverage package (added 19/11/2026)
+
+- `BENCHMARK_COVERAGE_REVIEW_VI.md` — checked-in benchmark audit and external source assessment.
+- `BENCHMARK_FIELD_COVERAGE.csv` — 8 metric rows with observation count, entity coverage, year points, quality and compile status.
+- `BENCHMARK_SOURCE_CANDIDATES.csv` — CoW NMC v7.0, Maddison Project Database 2023 and Historical Financial Statistics candidates.
+- `OPEN_BENCHMARK_COVERAGE_REQUESTS.csv` — 10 research/decision tasks for annual series, entity/region crosswalk, rights and additional dimensions.
+
+Key discrepancy: current checked-in CoW extracts cover 17 irregular year points from 1816–1914; official CoW NMC v7.0 documentation advertises annual component data from 1816–2022. Verify/reconcile official files before importing. Maddison 2023 is a separate candidate; do not overwrite Maddison 2010 or map present-day territories straight into 1836 polities.
+
+These benchmark artifacts remain research-only. No source was added to canonical registry; no ETL/runtime patch was made.
