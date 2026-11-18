@@ -158,3 +158,18 @@ Added under docs/research/H01_batch02_1836/:
 R3ad separates year-level ruler identification from disputed accession-day/year precision, political coup from peaceful succession, personal reign from state lifespan, and royal name variants from separate entities. It leaves the four live profiles unchanged.
 
 Integration boundary: documentation only. No changes to historical_data/, political-entity registry, population totals, borders/map ownership, engine/runtime, government presets, event data, tests, assets, save schema, Android, Gradle, workflows or APK. No numeric approval, product patch, owner acceptance or S1 authorization is implied.
+
+## R3ae — Shewa, Zulu and Basotho officeholder/title research layer
+
+Added under `docs/research/H01_batch02_1836/`:
+- `H01_R3ae_SHE_ZUL_BSO_OFFICEHOLDER_AND_TITLE_AUDIT_VI.md` — 1836 snapshot audit of Sahle Selassie, Dingane and Moshoeshoe.
+- `H01_R3ae_SOURCE_EVIDENCE_MATRIX.csv` — 9 source rows and explicit inspection/limitation levels.
+- `H01_R3ae_PATCH_DECISIONS.csv` — 7 non-executing research dispositions.
+- `H01_R3ae_OPEN_EVIDENCE_REQUESTS.csv` — 7 historical evidence requests and 1 independent-review request.
+- `H01_R3ae_SOURCE_REGISTRY_DELTA.csv` — 9 source entries.
+- `GITHUB_INTEGRATION_RECEIPT_R3ae.md` — commit chain, structural counts and docs-only scope.
+- `docs/audit/s0/H01_R3AE_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` — Claude no-write review instructions.
+
+R3ae separates Sahle Selassie's Ras and later self-proclaimed Negus titles, distinguishes Mpande's 1839 defection from 1840 succession, and treats Moshoeshoe's inherited chiefship and later Morena e Moholo status as a process rather than a single precisely dated coronation.
+
+**Boundary:** documentation only. No `historical_data/`, political entity, population, border/map ownership, engine/runtime, government, event, test, asset, save/schema, Android, Gradle, workflow or APK data changed. No profile patch, owner acceptance or S1 authorization is implied.
