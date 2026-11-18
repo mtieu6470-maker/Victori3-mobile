@@ -128,3 +128,18 @@ R3ab distinguishes:
 
 **Integration boundary:** research/documentation only. The following remain unchanged: `historical_data/countries/_core_profiles_asia_africa.json`, political entity registry, population totals, source runtime, borders/owners, engine, government presets, tests, assets, save schema, Android, Gradle, workflows and APK artifacts. R3ab creates no product patch and does not open S1. Claude independent review and owner acceptance remain pending.
 
+ 
+## R3ac — Central Sahel officeholder research layer
+
+Added under `docs/research/H01_batch02_1836/`:
+- `H01_R3ac_CENTRAL_SAHEL_RULERSHIP_AND_SOVEREIGNTY_AUDIT_VI.md`
+- `H01_R3ac_SOURCE_EVIDENCE_MATRIX.csv`
+- `H01_R3ac_PATCH_DECISIONS.csv`
+- `H01_R3ac_OPEN_EVIDENCE_REQUESTS.csv`
+- `H01_R3ac_SOURCE_REGISTRY_DELTA.csv`
+- `GITHUB_INTEGRATION_RECEIPT_R3ac.md` (to be added after final validation)
+
+R3ac distinguishes Sokoto's `Amīr al-muʾminīn` titulature, Bornu's de facto Shehu versus Sayfawa Mai, the contested Wadai accession date, and Darfur's 1838 succession. It does not update live head-of-state profiles or title fields.
+
+**Boundary:** research/documentation only. `historical_data/`, political registry, population totals, historical map owners/borders, engine/runtime, government presets, event data, tests, save schema, assets, Android, Gradle, workflows and APK remain unchanged. No S1 authorization is implied.
+
