@@ -97,6 +97,15 @@ Pre-protocol work:
 
 Append newest entries at the top. Do not overwrite earlier entries.
 
+### 2026-11-18 — B4-COMMAND-REPLAY-AND-LEGACY-CONTINUATION-GUARDS
+
+- Commit `aef0e29043ceaaa193bcf523c223560f7b3f4e83`: command helper now returns the number of commands applied and asserts each tax/budget command immediately after execution at its scheduled tick. The test validates every command tick lies inside the 24-month run and reconciles command counts across continuous and split-before/after-save paths.
+- Same commit adds one-month continuation check for a legacy save with absent `marketStats`; the baseline must default it to `{}`, avoid inventing `constructionQueue`, and complete the next month without throwing.
+- Commit `ffd85bcb7938001b1f213f175338fda6725bdd6e`: Actions log now emits uninterrupted/split command counts, number of monthly systems, runs per system and non-vacuous change flags (player economy, population, world prices, RNG), alongside state/save hashes and first differing path.
+- All changes are confined to `tests/s0-save-determinism.test.ts` and the B4 audit plan. No product code changed.
+- The strengthened harness is still awaiting the designated manual pinned-baseline workflow run. G0.6 remains `NOT_TESTED`.
+
+
 ### 2026-11-18 — B4-NON-VACUOUS-GUARD-REVIEW
 
 - Independent test-harness review found the prior guard `finalStateHash !== initialStateHash` could pass from tick/date changes alone, which is weaker than v3.2 §6.7's non-vacuous requirement.
