@@ -13,6 +13,12 @@ The tests-only workflow is `.github/workflows/s0-b4-tests.yml`. It is manual-dis
 
 The workflow file is present on the default branch so GitHub exposes the manual workflow, and mirrored on the experiment branch. The existing Android APK workflow is unchanged. Audit commits use GitHub's documented skip annotation for push-triggered workflows so those commits do not invoke the APK workflow.
 
+## Experiment-branch isolation limitation
+
+At the current audit head `662bd830b150302b008b75119b46c213f417c17a`, comparing the experiment branch with frozen baseline `2240a8fb865e0021eec2f2f4f1c6803528be9e2c` shows pre-existing branch deltas in Android/Capacitor configuration, historical data, engine, UI and other tests, in addition to audit documents/tools. These are inherited branch contents from earlier work and are not changes made by the B4 characterization commits; the individual B4 commits were checked and touched only the dedicated test file, fixture, test plan and handoff.
+
+**The designated B4 workflow deliberately excludes those branch product deltas.** It checks out the exact baseline SHA into `baseline/`, checks out the experiment branch into `audit-source/`, and overlays only `tests/s0-save-determinism.test.ts` and `tests/fixtures/s0-b4-scenario.ts` before running the dedicated tests. Therefore a successful B4 result is evidence about baseline `2240a8f` plus this test harness; it is not evidence that the pre-existing product changes on the experiment branch pass, nor authorization to merge them.
+
 ## Deterministic replay scenario
 
 Scenario fixture: `tests/fixtures/s0-b4-scenario.ts`
