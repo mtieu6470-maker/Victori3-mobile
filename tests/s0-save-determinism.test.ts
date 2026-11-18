@@ -177,4 +177,16 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
     // Characterize the frozen baseline defect only. Do not repair product code in S0.
     expect(() => stepMonth(restored)).toThrow(TypeError);
   });
+
+  it('records the baseline behavior for an incompatible RNG type: deserialize accepts it, continuation throws', () => {
+    const state = fresh('sandbox', S0_B4_SCENARIO.seed, S0_B4_SCENARIO.player);
+    const envelope = JSON.parse(serialize(state)) as { state: Partial<GameState> };
+    envelope.state.rng = 'not-an-rng-tuple' as unknown as GameState['rng'];
+
+    const restored = deserialize(JSON.stringify(envelope));
+    expect(restored.rng as unknown).toBe('not-an-rng-tuple');
+
+    // The baseline performs no RNG-shape validation before exposing state to simulation.
+    expect(() => stepMonth(restored)).toThrow(TypeError);
+  });
 });
