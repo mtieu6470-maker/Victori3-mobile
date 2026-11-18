@@ -35,3 +35,11 @@ Không sửa population benchmark, profile, registry, map owner, engine/runtime,
 - Shick (1971) sử dụng individual ACS emigrant register: 242 arrivals năm 1836 và 4.571 arrivals toàn kỳ; Starr ghi 209 arrivals năm 1836. Khác biệt chuỗi đã xác nhận, chưa hòa giải.
 - Freeman, được Hiller (1860) dẫn lại, ước lượng Monrovia khoảng 1.500 năm 1837; đây là quotation thứ cấp, không phải census. Roster Monrovia September 1843 mới chỉ tìm được dưới dạng transcription, chưa xác minh ảnh gốc và coverage.
 - LIB 3.500 / LIB_MON 3.600 / +100 vẫn quarantine; DZ_KRU 356.400 vẫn là phần dư số học có điều kiện. Xem `H01_R3v_LIBERIA_PRIMARY_SERIES_RECONCILIATION_VI.md` và các CSV R3v.
+
+
+## R3w — kiểm tra trích dẫn định lượng Oyo và niên đại chuyển tiếp
+- Asiwaju (1989), đúng chương và trang in 704 mà Butcher & Griffiths dẫn, mô tả lõi Oyo, vùng nộp cống và các cấp độ ảnh hưởng/tự trị khác nhau; bản văn tra cứu được không có số dân 750.000. Dẫn chiếu >750k qua Asiwaju p.704 chưa được xác nhận, không đồng nghĩa đã chứng minh con số sai.
+- Asiwaju đặt collapse khoảng 1835; Lovejoy (UCLA PhD, 2012) mô tả Old Oyo và vùng phụ cận bị bỏ hoang/phá hủy khoảng 1836, sau đó hình thành liên minh người Oyo lưu tán tại Ago Oja.
+- Morton-Williams (1967, p.45) đặt lễ tấn phong chính thức Atiba làm Alafin ở Ago Oja khoảng 1838; Johnson (1921, pp.279–280) kể việc lên ngôi sau khi kinh đô cũ sụp đổ nhưng không chốt năm trong đoạn đó.
+- Cần tách collapse/displacement (c.1835–36), liên minh người tị nạn ở Ago Oja, và formal ritual installation/reconstitution (c.1838). Không chiếu ngược một New Oyo đã củng cố đầy đủ về ngày 1836-01-01.
+- OYO 650k, OYO_OYO 1.45m và claim >750k vẫn cách ly; không thay dữ liệu game. Xem `H01_R3w_OYO_CITATION_AND_TRANSITION_AUDIT_VI.md` và bộ CSV R3w.
