@@ -126,4 +126,12 @@ These are ChatGPT implementation checks and self-audit, not an independent REVIE
 - No product data, government preset, map owner, runtime, engine, save/schema, tests, assets, Android, Gradle, workflow or APK change. No build/test workflow run.
 - Claude independent review request committed at `docs/audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` (commit `dc1e3805b06e2798db26c90bc5661f885b941f6c`); pre-request HEAD `529e063562f21ea36ce6975a87592ac5c28bf8fc`. The request is linked from `README_VI.md` and `AI_HANDOFF.md`.
 - `SELF_AUDIT_ONLY / READY_FOR_INDEPENDENT_REVIEW / NO_PRODUCT_PATCH`; not independent REVIEW_PASS, owner acceptance or S1 authorization.
+ 
+## R3ad structural and integration validation (2026-11-18)
 
+- R3ad files were already present as five research-only commits on the branch. The documentation integration appends the R3ad audit summary, source rows and open evidence requests to the cumulative H01 records, indexes the package and creates a Claude no-write review request.
+- CSV structure on the exact fetched blobs: R3ad source evidence matrix = 10 columns / 12 data rows; patch decisions = 7 / 6; open evidence requests = 5 / 9; source registry delta = 8 / 12. Cumulative H01 open evidence requests = 5 / 52; integrated source registry delta = 8 / 50. Every parsed row is rectangular; appended request/source IDs are unique against the cumulative files.
+- Research disposition: ASH year 1834 supported; 25 August day retains “most probably” caveat. DAH 1818 coup and Adandozan predecessor status remain historiographically contested. MAS personal rule is kept distinct from Hamdallahi state duration 1818–1862; 1844/1845 death-year conflict remains open. BUG ruler at 1836 is Ssuuna II; start-year evidence varies c.1830/1832/1836.
+- Repository compare from R3ad base b02af8dfc1ccac4ad5b3e0cbc42a51bf89ef1b79 to the pre-integration HEAD 105ed649f2ce003f9a98b5543d03d989edecc243 showed exactly five commits and five changed paths, all under docs/research/H01_batch02_1836/. The integration changes in this section also remain under docs/; post-integration compare must be re-fetched after commit completion.
+- No game source, historical_data/, profiles, political registry, population, territorial ownership, map geometry, runtime, engine, tests, assets, Android, Gradle, workflows, signing or APK artifacts were modified. No test/build/APK workflow was run.
+- Status: SELF_AUDIT_ONLY / READY_FOR_INDEPENDENT_REVIEW / NO_PRODUCT_PATCH. This is not Claude's independent REVIEW_PASS or owner acceptance.
