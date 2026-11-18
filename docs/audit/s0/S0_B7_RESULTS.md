@@ -11,7 +11,7 @@
 - Separated product defects from evidence limitations, stage dependencies, and owner decisions.
 - Recorded risk impact, current disposition, containment/mitigation, owner role, target stage, and closure criteria.
 - Recorded R7 interim containment as accepted in principle under OD-20261116-11 while keeping R7 open P0.
-- Recorded R14 as BLOCKED and retained the prohibition on uninstalling the baseline APK or installing a differently signed APK.
+- Recorded R14 as BLOCKED and retained the prohibition on uninstalling the baseline APK or installing a differently signed APK. Recorded R4 as an accepted design boundary (test-supplied trace, no mandatory production journal), and R3 as closed by the APK baseline hash evidence.
 - Drafted the G0.1–G0.9 gate ledger and narrowly scoped G0.7/G0.8 S1 exception requests.
 - Did not modify any product source, tests, gameplay, engine, save schema, RNG, history data, assets, Gradle, APK workflow, signing or secrets.
 
