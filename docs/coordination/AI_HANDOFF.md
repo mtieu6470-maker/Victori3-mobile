@@ -105,6 +105,19 @@ Pre-protocol work:
 
 ## 5. Work log
 
+### 2026-11-18 — H01-R3T-RESEARCH-LAYER-INTEGRATION
+
+- Owner request: complete H01 Batch 02 review, integrate the result into Victori3-mobile, and provide one consolidated download.
+- Scope decision: documentation/research integration only. The current phase gate explicitly leaves S1 `NOT_STARTED`, prohibits shipped historical data/content changes and marks gameplay/engine/save changes unauthorized. No runtime population, political ownership, map, save, engine, assets, Android, workflow or APK files were changed.
+- Repository/branch: `mtieu6470-maker/Victori3-mobile`, `claude/game-historical-sandbox-modes-kg7rj7`.
+- Base HEAD: `d73b548108f1876e3ed9c4c44d175fe560028f28`.
+- Research integration commit: `576010a10f75ad493bf8827622ecdc5ffceff3e5` — eight files added under `docs/research/H01_batch02_1836/`: Vietnamese README, consolidated audit report, 17-entity reconciliation, region scope/control flags, source-registry delta, open evidence/acceptance requests, validation report and repository integration map.
+- Main findings retained as gated research: OYO 650k and OYO_OYO 1.45m are unverified/quarantined; NDE 60k is a provisional circa-1830s Mzilikazi-led polity estimate (not ethnic Ndebele core) and its 45k–85k range is unverified; NDE_MOS 210k is broad geographic reconstruction only; LIB 3,500 + 100 is unverified; DZ_KRU 356,400 is arithmetic residual only.
+- Validation: 17 entities, 15 interval overlaps / 2 non-overlaps (OYO, NDE); 78 region facts; 90 crosswalk rows / 81 unique slots with allocation totals 1.000; 128 provenance claims. CSV rectangular parsing and source ZIP CRC checks PASS.
+- Evidence package: `H01_R3t_Integrated_Research_Layer_2026-11-18.zip` (42 files; full R3s audit chain and frozen R3l source package included; SHA-256 recorded in the delivery manifest).
+- Status: `RESEARCH_LAYER_INTEGRATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`. This is ChatGPT self-audit, not independent `REVIEW_PASS`; Claude review and owner acceptance remain pending. No PR or merge was created; no build/APK workflow was triggered.
+- Handoff update is the next documentation-only commit after the research integration commit; identify its SHA from Git history rather than embedding a self-referential SHA here.
+
 Append newest entries at the top. Do not overwrite earlier entries.
 
 ### 2026-11-17 — R15-PACK-DELIVERY-AND-REAL-CONTENT-ACCEPTANCE
