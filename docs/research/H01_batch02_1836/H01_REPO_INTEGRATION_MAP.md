@@ -1,4 +1,4 @@
-# H01 batch 02 — repository integration map (R3y)
+# H01 batch 02 — repository integration map (R3z)
 
 ## Integration boundary
 This R3t task integrates H01 research, provenance, reconciliation and audit decisions into the repository documentation layer. It does **not** integrate unresolved H01 estimates into shipped game data.
@@ -84,3 +84,15 @@ Added:
 R3y establishes that the 1831–36 political geography was fragmented and changing. By 1833 Ilorin had destroyed or subjected most major Oyo towns; in 1836 the old capital district was abandoned and several states competed for control. The 1:1 SSA_REG_18 join to OYO is technical only. OYO 650k (refugee/polity scope) and OYO_OYO 1.45m (broad regional resident reconstruction) are different units with no reproducible quantitative derivation supplied, so both remain quarantined.
 
 No live historical_data, population, profiles, political registry, map owner/geometry, engine/runtime/save schema, tests, assets, Android, Gradle, workflows or APK changed. No numeric approval, PR, merge or build.
+
+
+## R3z Rasmussen source-quality layer
+Added:
+- `H01_R3z_RASMUSSEN_SOURCE_QUALITY_REVIEW_VI.md` — contemporary source critique of Rasmussen's *Migrant Kingdom*.
+- `H01_R3z_SOURCE_EVIDENCE_MATRIX.csv` — review and Google Books evidence with access caveats.
+- `H01_R3z_PATCH_DECISIONS.csv` — disposition of the Rasmussen-derived NDE candidate and unsupported interval.
+- `H01_R3z_OPEN_EVIDENCE_REQUESTS.csv` — full review metadata, original Rasmussen pages and interval derivation.
+
+R3z adds a contemporary methodological caveat but does not reject Rasmussen or replace any demographic estimate. It reinforces that war/migration narratives and scarce, uneven evidence are inadequate to construct a statistical range without an explicit denominator and method. Direct Rasmussen pp.23–26 and pp.90–94 remain unavailable; no new number is approved.
+
+No live historic data/profile/benchmark/owner/geometry/runtime/save/test/assets/Android/workflow/APK files changed.
