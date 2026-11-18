@@ -1,17 +1,17 @@
 # H01 Batch 02 — gói tích hợp nghiên cứu R3aa
 
-**Gói nghiên cứu mới nhất: R3ad — Asante, Dahomey, Macina và Buganda**  
+**Gói nghiên cứu mới nhất: R3ae — Shewa, Zulu và Basotho**  
 **Trạng thái:** `READY_FOR_INDEPENDENT_REVIEW / SELF_AUDIT_ONLY / NO_PRODUCT_PATCH`  
-**Claude review request:** [H01 R3ad — Claude Independent Review Request](../../audit/s0/H01_R3AD_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md)  
-**Biên nhận tích hợp:** [GITHUB_INTEGRATION_RECEIPT_R3ad.md](GITHUB_INTEGRATION_RECEIPT_R3ad.md)
+**Claude review request:** [H01 R3ae — Claude Independent Review Request](../../audit/s0/H01_R3AE_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md)  
+**Biên nhận tích hợp:** [GITHUB_INTEGRATION_RECEIPT_R3ae.md](GITHUB_INTEGRATION_RECEIPT_R3ae.md)
 
-> **Điểm vào cho Claude khi kết nối GitHub:** review R3ad trước qua request ở trên, sau đó kiểm tra riêng R3ac và R3ab theo các review request tương ứng. Luôn fetch HEAD mới nhất và ghi đúng SHA đã review. ChatGPT self-audit không phải independent `REVIEW_PASS`.
+> **Điểm vào cho Claude khi kết nối GitHub:** mở R3ae review request trước, fetch HEAD mới nhất và kiểm tra diff từ base SHA ghi trong request. Không ghi verdict độc lập nếu chưa kiểm tra nguồn, CSV và phạm vi thay đổi. ChatGPT self-audit không phải independent `REVIEW_PASS`.
 
-**Các gói review trước đó:** [R3ac — Central Sahel](../../audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md) · [R3ab — African officeholders](../../audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md).
+**Các gói review trước:** [R3ad — Asante, Dahomey, Macina, Buganda](../../audit/s0/H01_R3AD_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md) · [R3ac — Central Sahel](../../audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md) · [R3ab — African officeholders](../../audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md).
 
 **Trạng thái H01 tích hợp:** `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`.
 
-Đây là gói nghiên cứu và đối chiếu tài liệu cho H01, không phải bản cập nhật dữ liệu chạy trong game. Không có profile, population, political ownership, engine hay schema nào được thay đổi.
+Đây là gói nghiên cứu và đối chiếu tài liệu cho H01, không phải bản cập nhật dữ liệu chạy trong game. R3ae không thay đổi country profiles, succession data, political ownership, engine, schema hay APK.
 
 ## Thành phần
 - `H01_INTEGRATED_AUDIT_REPORT_VI.md`: quyết định tổng hợp cho 17 entity và các tranh chấp về phạm vi dân số/quyền lực.
@@ -113,3 +113,13 @@ Không sửa population benchmark, profile, registry, map owner, engine/runtime,
 - **Buganda:** Ssuuna II là Kabaka ở mốc 1836; năm bắt đầu triều đại thay đổi giữa c.1830, 1832 và 1836 theo từng nguồn.
 
 Các tài liệu R3ad và CSV liên quan được liệt kê tại phần thành phần, tích hợp vào audit/source registry/open-evidence của H01 và có biên nhận GitHub riêng. Toàn bộ vẫn ở research layer; không tự động áp dụng bất kỳ patch nào vào game.
+
+
+## R3ae — Shewa, Zulu và Basotho
+
+- **SHE — Shewa:** Sahle Selassie là người cai trị tại snapshot 1836. Năm bắt đầu có xung đột 1806/1813; Darkwah và Bekele phân biệt tước Ras khi lên nắm quyền với việc tự xưng Negus khoảng 1839. Cần tránh ghi Negus như danh hiệu đã được công nhận từ 1813.
+- **ZUL — Zulu:** Dingane là vua tại snapshot. Shaka bị giết trong tháng 9/1828; ngày 22/9 do SAHO nêu chưa được xác minh độc lập bằng nguồn sơ cấp. Mpande ly khai/liên minh từ 1839 nhưng chuyển ngôi hoàn tất trong năm 1840.
+- **BSO — Basotho:** Moshoeshoe là người lãnh đạo vào năm 1836; SAHO ghi ông kế vị cha làm chief năm 1820. Tuy nhiên, thời điểm chính xác đảm nhiệm Morena và sự phát triển của Morena e Moholo không được xác định chắc chắn; không nên coi `since=1822` là ngày đăng quang chính xác.
+- **Historical Mode:** tại base HEAD trước R3ae, `heads_of_state.json` không có chuỗi successor riêng cho SHE, ZUL hoặc BSO. Đây là yêu cầu nghiên cứu tiếp theo, không phải thay đổi runtime trong R3ae.
+
+Tất cả kết luận trên ở research layer; không tự động áp dụng patch vào game. Xem audit R3ae, source matrix, patch decisions, open evidence requests và receipt.
