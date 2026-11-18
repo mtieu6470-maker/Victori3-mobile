@@ -1,0 +1,129 @@
+# Kiểm toán độ phủ benchmark toàn cầu — S22
+
+**Ngày:** 19/11/2026  
+**Repository:** mtieu6470-maker/Victori3-mobile  
+**Branch:** claude/game-historical-sandbox-modes-kg7rj7  
+**Trạng thái:** RESEARCH_ONLY / CHATGPT_SOURCE_AUDIT / NO_RUNTIME_PATCH
+
+## 1. Kết luận điều hành
+
+Bộ benchmark đang commit trong repository **chưa đủ để kiểm định trọn giai đoạn 1836–1936 và chưa đại diện đầy đủ 181 entity của game**. Tuy vậy, khoảng trống 1915–1936 không nên được kết luận là không có dữ liệu lịch sử: nguồn bên ngoài hiện có các bộ dữ liệu lớn hơn đáng kể.
+
+- Checked-in CoW extracts có sáu field, 3.161 raw observations, 59 entity IDs và 17 mốc năm từ 1816 đến 1914. Builder chỉ compile bốn field (2.356 observations) và bỏ 805 observations về urban population / military expenditure.
+- CoW Project hiện công bố NMC v7.0 với sáu chỉ tiêu annual từ 1816–2022. Trang chính thức nhấn mạnh độ phủ và chất lượng thay đổi theo state và year; raw series không thể mặc định so sánh hoàn toàn đồng nhất. Đây là ứng viên đầu tiên để đối chiếu/re-extract, không phải bằng chứng rằng các chuỗi mới đã tự động khớp 1836 strategic entities.
+- Maddison Project Database 2023 công bố GDP per capita và population cho 169 countries và aggregate regions, 1 AD–2022; license CC BY 4.0, có yêu cầu citation. Bản repo hiện tại vẫn là Maddison 2010, dùng present-day territorial basis.
+- Historical Financial Statistics (HFS) bao phủ nhiều loại dữ liệu tài chính/kinh tế từ khoảng 1500–1950, nhưng trang chủ nêu rõ có hạn chế tái sử dụng dữ liệu trong cả database phi thương mại lẫn thương mại. Không nhập dữ liệu HFS vào game/package trước khi kiểm tra điều khoản và xin quyền khi cần.
+
+**Khuyến nghị:** ưu tiên re-audit CoW NMC v7 và Maddison 2023; dùng HFS như catalog để tìm dữ kiện/nguồn cấp quốc gia, không sao chép trực tiếp vào database trước khi có license clearance. Không ép dữ liệu modern country units thành 1836 polities.
+
+## 2. Phương pháp và phạm vi
+
+Đã parse trực tiếp JSON checked-in:
+- `historical_data/population/cow_nmc_population.json`
+- `historical_data/military/cow_nmc_military.json`
+- `historical_data/economy/cow_nmc_industry.json`
+- `historical_data/population/maddison_2010.json`
+- `historical_data/economy/maddison_2010_gdp.json`
+- `historical_data/political_entities/registry.json`
+
+Đã kiểm tra builder:
+- `tools/build-data.ts` chỉ đưa `population.total`, `military.personnel`, `economy.iron_steel_kt` và `economy.primary_energy_kt_coal_eq` vào `HistoricalDB.benchmarks`.
+- Urban population và military expenditure có trong input nhưng không được chọn.
+- Khi compile, builder chỉ giữ `entity, field, date, value, quality`; không giữ unit, raw source locator, method, note hoặc uncertainty.
+- `src/engine/data/dbTypes.ts` khai báo benchmark record cũng chỉ gồm năm trường trên.
+- CoW records có locator ở raw input; việc metadata biến mất xảy ra ở compile step, không phải vì raw input không có nguồn.
+- Tất cả 59 entity IDs trong CoW extracts hiện khớp ID một entity trong registry, nhưng ba entity có series không có CoW numeric code trong registry (ROM, NOR, ETH); đồng thời năm entity có CoW code trong registry nhưng không có observation trong ba extract đã kiểm (AFG, LUX, TRN, OFS, COS). Cần reconciliation, không tự sửa ID.
+- 59 entity có series gồm 47 sovereign, 5 subject và 7 future. Không có đại diện đầy đủ cho các decentralized/local non-state actors chỉ từ tập CoW này.
+- Maddison 2010 records dùng tên present-day units, không có direct entity-ID match với registry. Không được cộng các record này như historical 1836 polity totals.
+
+## 3. Kết quả checked-in data
+
+### 3.1. CoW input series
+
+| Metric | Raw observations | Entities | Date points | Quality profile | Runtime compiled? |
+|---|---:|---:|---:|---|---|
+| Total population | 612 | 59 | 17 (1816–1914) | 368 verified / 115 supported / 129 estimated | Yes |
+| Urban population >100k | 385 | 40 | 17 (1816–1914) | 385 supported | No |
+| Military personnel | 596 | 59 | 17 (1816–1914) | 179 verified / 417 supported | Yes |
+| Military expenditure | 420 | 55 | 17 (1816–1914) | 420 supported | No |
+| Iron and steel | 612 | 59 | 17 (1816–1914) | 183 verified / 429 estimated | Yes |
+| Primary energy | 536 | 50 | 17 (1816–1914) | 505 verified / 31 estimated | Yes |
+
+The 17 observation years are: 1816, 1820, 1830, 1836, 1840, 1845, 1850, 1855, 1860, 1865, 1870, 1875, 1880, 1890, 1900, 1910 and 1914. These are sparse historical snapshots, not annual continuous series.
+
+- Total raw CoW observations across the three checked-in files: 3,161.
+- Currently compiled observations: 2,356.
+- Omitted from compiled benchmark: 805 (385 urban population + 420 military expenditure).
+- Current compile retains only 4 of 6 CoW indicator families.
+- Every raw row in these six fields has a source locator in the checked-in extract, but those locators/units/methods are dropped in the compiled benchmark object.
+
+### 3.2. Maddison 2010 input series
+
+| Metric | Observations | Units | Date points | Quality | Territorial basis |
+|---|---:|---:|---:|---|---|
+| Population | 574 | 94 | 11 (1820–1913) | All estimated | Present-day territories |
+| GDP per capita | 365 | 66 | 11 (1820–1913) | All estimated | Present-day territories |
+
+Observation years: 1820, 1830, 1836, 1840, 1850, 1860, 1870, 1880, 1890, 1900 and 1913. Population values use thousand persons; GDP per capita uses 1990 international Geary-Khamis dollars. These are not historical-polity totals without an explicit allocation/crosswalk.
+
+### 3.3. Registry reconciliation
+
+- Political entity registry: 181 entities.
+- Registry entities with a CoW code: 61.
+- CoW input extracts contain observations for 59 entity IDs.
+- Extract entity IDs not assigned a CoW code in registry: ROM, NOR, ETH.
+- Registry entities assigned a CoW code but absent from the three extracts: AFG, LUX, TRN, OFS, COS.
+- The 59 entities with CoW records resolve to 47 sovereign, 5 subject and 7 future entities in the current registry.
+- The benchmark set does not cover the full registry and should not be called a global polity-complete dataset. In particular, decentralized placeholders and collective/local authorities need separate research paths.
+
+## 4. External source candidates and implications
+
+### 4.1. CoW National Material Capabilities v7.0
+
+Official CoW page states NMC v7.0 has annual values for six components — total population, urban population, iron/steel production, energy consumption, military personnel and military expenditure — from 1816 to 2022. It offers an abridged series and a supplemental source/quality dataset. It also cautions that data amount and quality vary by state and year, and component-specific idiosyncrasies limit cross-time comparability.
+
+**Implication:** the checked-in 17-year rows are not enough to prove the current CoW NMC v7 source has no observations after 1914. The data team should compare the exact NMC v7 download/codebook/supplement against repo rows, determine whether the extract was deliberately thinned or based on an earlier subset, then import only with row-level source, quality, unit and anomaly metadata.
+
+Official source: https://correlatesofwar.org/data-sets/national-material-capabilities/
+
+### 4.2. Maddison Project Database 2023
+
+The Groningen Growth and Development Centre states MPD 2023 covers 169 countries and aggregate regions, 1 AD–2022, with GDP per capita and population estimates. The official release page links to Dataverse DOI 10.34894/INZBF2 and specifies CC BY 4.0; it requires the dataset citation and citations to original papers for selected uses/subsets.
+
+**Implication:** likely a stronger macroeconomic/population benchmark foundation than the checked-in Maddison 2010 files. However, it is still a country/aggregate-region dataset, with estimation and territorial definitions that must be mapped carefully to the 1836 game registry. Do not assume every historical polity has an independent series or that values are directly available for each region.
+
+Sources:
+- https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2023?lang=en
+- https://research.rug.nl/en/datasets/maddison-project-database-2023/
+- Dataset DOI: https://doi.org/10.34894/INZBF2
+- Paper: Bolt & van Zanden (2024), DOI 10.1111/joes.12618
+
+### 4.3. Historical Financial Statistics (HFS)
+
+The Center for Financial Stability describes HFS as a free, noncommercial historical data collection focused roughly on 1500–1950, with about 150,000 annual and more than 2 million higher-frequency observations. Coverage includes exchange rates, bank balance sheets, interest rates, money supply, inflation, international trade, government finance and national accounts. Its site explicitly states reproduction restrictions for both commercial use and noncommercial database use.
+
+**Implication:** excellent discovery/index candidate for fiscal, trade and monetary histories across the 1836–1936 period, but not a free-to-repackage game-data source. Record source-specific copyright/permission and locator details; do not ingest bulk values into the product without rights review.
+
+Sources:
+- https://centerforfinancialstability.org/hfs.php
+- https://centerforfinancialstability.org/hfs/Data_notes.pdf
+
+## 5. Gaps and recommended next actions
+
+1. Acquire/review official CoW NMC v7.0 abridged + supplemental, compare each of the six current metrics and 1816–2022 coverage to the checked-in extracts; preserve source/quality/anomaly information.
+2. Acquire/review MPD 2023 workbook/Stata data and source sheet. Compare year/entity coverage and definitions to Maddison 2010; make a crosswalk table rather than overwrite 2010 values.
+3. Obtain the 12 macro-region taxonomy and assign each registry entity/strategic region with temporal validity; this audit cannot compute region-level coverage without that canonical map.
+4. Add all 181 game registry entities to a coverage matrix, including explicit missing rows. Distinguish sovereign, subject, future, decentralized, aggregate, rebel, colonial/company and local actors.
+5. Treat 1915–1936 as an identified gap in current checked-in files, not as an absence of world historical data.
+6. Research missing calibration dimensions: trade/commodity output, public finance, wages/prices, health/mortality, literacy/education, migration, transport/infrastructure, technology and military expenditure/organization.
+7. Do not create single composite historical-fidelity scores until dimension coverage, units and uncertainty are transparent. Regional coverage deficits must be visible.
+8. Keep the source inventory/research stage separate from runtime adoption; source licensing, data rights, owner acceptance and ETL validation are mandatory.
+
+## 6. Limitations
+
+- Counts above are exact for the five checked-in source JSON files inspected, not a complete external-source survey.
+- Source presence is not evidence comparability; quality tags and interpolation methods require full codebook review.
+- Registry entity-ID reconciliation does not establish historical boundary equivalence.
+- No macro-region coverage figures are claimed because the inspected standard specifies twelve macro-regions but does not enumerate their taxonomy/mapping in the section reviewed.
+- No external dataset was imported into the repository's canonical source registry or product data.
+- No code, tests, build or device operation were changed/run in this audit.
