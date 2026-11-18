@@ -717,9 +717,9 @@ A closed field schema is necessary but not sufficient: each predicate also needs
 |---|---|
 | `exists` | Referenced entity resolves and is alive. Unknown ID is invalid at build and a runtime non-match. |
 | `exists_independent` | Entity resolves, is alive and has no current overlord. Whether decentralized placeholders count as independent must be explicit in the actor taxonomy and covered by tests; do not infer sovereignty from missing overlord alone. |
-| `owns` | Referenced region resolves and its current owner is the specified entity under the declared entity-equivalence policy. |
+| `owns` | Referenced region resolves and its current owner ID exactly equals the specified stable entity ID, matching the current baseline. Do not silently apply equivalence aliases; any future change to equivalence semantics needs a versioned rule and tests. |
 | `owner_in` / `owner_not` | Region resolves; owner is compared through the canonical equivalence registry. A missing/unknown region or owner is a non-match diagnostic, not an implicit “not in set”. |
-| `same_owner` | At least two valid regions are required; all must have a known owner and resolve to the same canonical owner. |
+| `same_owner` | At least two valid regions are required; all must have a known owner and the exact same stable owner ID, matching the current baseline. |
 | `law` / `law_not` | Country exists and law group/value pair is valid in that polity's law registry. `law_not` must not become true when the country/law is missing. |
 | `gov_power` | Valid country and valid power-law value; exact equality only. |
 | `not_at_war` | Both actors resolve; true only when they are not on opposing sides of any active war. Missing actors are not treated as “not at war”. |
@@ -731,7 +731,7 @@ A closed field schema is necessary but not sufficient: each predicate also needs
 | `radicalism_above` | Country exists; compare its documented 0–1 share to a finite threshold in [0,1]. |
 | `food_shortage` | Country exists; current v1 threshold is famine share > 0.03. The 0.03 threshold is a versioned named constant, not an undocumented magic number; future tuning requires a schema/rule version. |
 | `ig_clout_above` | Country and valid IG exist; clout and threshold use the same 0–1 scale. |
-| `foreign_naval_pressure` | Country exists; pressure and threshold use the declared bounded pressure scale; validate finite values. |
+| `foreign_naval_pressure` | Country exists; current v1 predicate is `foreignPressure >= threshold` on the declared 0–2 bounded pressure scale; validate finite values. |
 | `foreign_pressure` | Country exists; current v1 threshold is the named rule constant > 0.8 and must be documented/versioned. |
 | `at_war_with_rebels` | Requires a normalized civil-war participant model that explicitly identifies government and rebel actors. Do not rely only on arbitrary attackers/defenders array position; ambiguous or unclassified sides are a non-match diagnostic. |
 | `rank_at_most` | Uses §14.1's immutable canonical ranking snapshot, never an independent caller-specific ranking. |
