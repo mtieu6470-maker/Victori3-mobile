@@ -12,6 +12,12 @@
 
 This allocation supersedes the earlier default ChatGPT/Claude role assignment for subsequent tasks. Historical B3 review records and previous decisions remain unchanged. See docs/coordination/AI_COLLABORATION_PROTOCOL.md.
 
+## Current independent review entry point
+
+- **H01 R3ab / Claude:** start with `docs/audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. It defines the exact branch, base SHA, review boundary, source checks and required verdict.
+- H01 research README also links directly to this request: `docs/research/H01_batch02_1836/README_VI.md`.
+- Until Claude returns a review of the exact current HEAD, R3ab remains `READY_FOR_INDEPENDENT_REVIEW`; ChatGPT self-audit is not `REVIEW_PASS`. No product-data/gameplay/engine/S1 authorization is implied.
+
 
 ## 1. Current project state
 
@@ -138,6 +144,16 @@ Pre-protocol work:
 - No code tests, build, APK workflow, APK install, PR or merge run; no such execution is relevant to a documentation-only source package. Commit messages use `[skip ci]` to avoid the broad Android APK push workflow.
 - Claude status: independent review pending. ChatGPT validation is self-audit only; not `REVIEW_PASS`, not owner acceptance, no numeric or product-data promotion.
 - Disposition: `RESEARCH_LAYER_UPDATED / SELF_AUDIT_ONLY / NO_PRODUCT_PATCH`. Exact-source gaps are listed in `H01_R3ab_OPEN_EVIDENCE_REQUESTS.csv`.
+
+
+### 2026-11-18 — H01-R3AB-CLAUDE-INDEPENDENT-REVIEW-HANDOFF
+
+- Owner instruction: after completing R3ab, prepare a durable GitHub review report for Claude so it is discoverable immediately when Claude connects.
+- Review entry point: `docs/audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`; linked from the top of `docs/research/H01_batch02_1836/README_VI.md` and from this handoff's “Current independent review entry point”.
+- Review scope: R3ab documentation/research change set from base `0f5685231569ed4c72783cdd79a8abed63819943` to the exact current branch HEAD when Claude starts. The request lists the files, commits, source claims, expected validation and explicit exclusions.
+- Required reviewer: Claude Code, independent (did not author or modify R3ab). Re-fetch branch HEAD before review; if it advanced, state the actual SHA and review the current bounded diff or report the change in scope.
+- Required outcome: evidence-linked `REVIEW_PASS` or `CHANGES_REQUESTED`; `BLOCKED` only if the review cannot be completed. Review does not authorize runtime integration, S1, gameplay, engine, save, data or schema edits. Do not modify the target change set while reviewing.
+- Status at handoff: `READY_FOR_INDEPENDENT_REVIEW`; ChatGPT's structural/source checks remain self-audit only. Owner acceptance remains a separate decision.
 
 ### 2026-11-18 — H01-R3Y-OYO-1831-1836-POLITICAL-GEOGRAPHY-AND-POPULATION-UNITS
 
