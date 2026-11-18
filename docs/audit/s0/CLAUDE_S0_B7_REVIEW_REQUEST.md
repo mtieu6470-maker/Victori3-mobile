@@ -24,7 +24,7 @@
 
 ## Required review questions
 
-1. **Risk completeness:** verify all applicable R1–R14 (R3 closed), RM-F1…RM-F5, TC-F1…TC-F7, GD-F1…GD-F6, AS-F1…AS-F7, WD-F1…WD-F3, CI-F1…CI-F3 and DEP-F1 appear with correct severity, evidence, impact, control, owner role, target phase and closure criteria. Identify missing findings or duplicated/misclassified risks.
+1. **Risk completeness:** verify all applicable R1–R14 (R3 closed), G0.7 device-evidence limitation, RM-F1…RM-F5, TC-F1…TC-F7, GD-F1…GD-F6, AS-F1…AS-F7, WD-F1…WD-F3, CI-F1…CI-F3 and DEP-F1 appear with correct severity, evidence, impact, control, owner role, target phase and closure criteria. Identify missing findings or duplicated/misclassified risks.
 2. **Severity fidelity:** confirm R7 remains P0; TC-F1/TC-F2 and the map performance budget R10 retain the source severity; G0.7 stays BLOCKED; G0.8 stays PARTIAL; G0.9 stays NOT_TESTED until owner acceptance.
 3. **B4 evidence:** independently check run `44325257261`, job `134874698600`, checkout commit `7f17b1f0177d712366e31e4e8c879cc4b6dd5741`, test file SHA `722d62c0647f06bc2e3a49bdef1f348f4f3104f2`, and compare to baseline `2240a8f`. Confirm the exact limitations: no artifact upload, no typecheck, and later expanded tests not run. Do not claim tests absent from that run passed.
 4. **Dependency audit workflow:** inspect exact YAML. Confirm workflow_dispatch-only behavior, frozen baseline checkout, `npm audit --package-lock-only` full and `--omit=dev` scan, exit-code handling, artifact upload under `if: always()`, full-SHA action pins, and no installation, fix, build, product script, or secret access. Check the artifact-name expression and workflow branch guard.
