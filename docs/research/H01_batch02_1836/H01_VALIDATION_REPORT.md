@@ -50,3 +50,14 @@ These are ChatGPT implementation checks and self-audit, not an independent REVIE
 - Hiller (1860) Section IV attributes a c.1,500 Monrovia estimate to Freeman writing in 1837; original Freeman document remains unidentified; New Georgia and Millsburgh figures are separate settlements.
 - R3v source CSVs are rectangular; disputed live values remain quarantined. No runtime/game data change.
 - Self-audit only; independent Claude review and owner acceptance pending. No build/APK workflow run.
+
+
+## R3w Oyo source validation (2026-11-18)
+- Inspected Asiwaju (1989) chapter text around printed pp.703–706 and pp.710–711. p.704 describes layered political influence/tribute/autonomy, not a population estimate. Search within the chapter did not locate 750,000/750000/700,000. Exact official scan image was not authenticated; treat this as inspected transcription.
+- Rechecked Butcher & Griffiths (2021, p.385): >750,000 c.1780 claim cites Asiwaju p.704. Citation path is unsubstantiated by accessible source text, not disproven; keep source lineage open.
+- Inspected Lovejoy (2012 UCLA PhD dissertation) pp.66–67: c.1836 abandonment/destruction of Old Oyo and displaced alliance at Ago Oja; Atiba recognition by surviving chiefs/warriors.
+- Inspected Morton-Williams (1967), p.45: Atiba's formal ritual installation at Ago Oja c.1838; reconstituted official posts thereafter.
+- Inspected Johnson (1921), pp.279–280: accession narrative follows fall of old capital and death of Oluewu; no exact year in the passage; edition has posthumous editorial reconstruction caveat.
+- Staged chronology recorded: collapse/desertion c.1835–1836 → refugee alliance at Ago Oja → formal ritual installation/reconstitution c.1838. No exact 1 Jan 1836 sovereignty map derivable.
+- R3w CSVs are rectangular by schema; no numeric patch, runtime, owner, geometry or game data changed.
+- Self-audit only. Independent Claude review and owner acceptance remain pending. No build/APK workflow run.
