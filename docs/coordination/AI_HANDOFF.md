@@ -97,6 +97,12 @@ Pre-protocol work:
 ## 5. Work log
 
 Append newest entries at the top. Do not overwrite earlier entries.
+### 2026-11-18 — B7-RISK-SEVERITY-AND-GATE-INTERPRETATION-REVIEW
+
+- Cross-checked source risk severities and definitions against v3.2 §4B and the B3 test/asset/performance catalogs. Preserved R5's original frame-metric masking risk explicitly; its P1 row now states that aggregate FPS/frame metrics can hide long synchronous `stepMonth` calls and points to all four protocol J measurement groups for S2 (commit `a44f8b21f6716640cff043afd42a73c64e452a79`).
+- Revalidated R10 as P1, R7 as P0, TC-F1/F2 as P1, TC-F3 as P2, TC-F5 as P1, R14 as P1; all source finding IDs remain represented in the register.
+- Confirmed the G0.9 correction: full-S0 G0.9 is BLOCKED while C3/B2 is blocked under v3.2 §6.4 and OD-20261116-11 §2.1.1; the separate bounded S1-entry package remains NOT_TESTED pending review/owner decisions.
+- B7 remains IN_PROGRESS; dependency workflow not dispatched; Claude review and owner signoff still pending. No product code/data/assets/build/signing changes.
 ### 2026-11-18 — B7-SELF-REVIEW-CHECKPOINT
 
 - Added `docs/audit/s0/S0_B7_SELF_REVIEW.md` with risk-ID coverage, severity checks, B4 evidence boundaries, dependency-workflow static review, gate interpretation, non-claims and remaining actions.
