@@ -97,6 +97,16 @@ Pre-protocol work:
 
 Append newest entries at the top. Do not overwrite earlier entries.
 
+### 2026-11-18 — B4-NON-VACUOUS-GUARD-REVIEW
+
+- Independent test-harness review found the prior guard `finalStateHash !== initialStateHash` could pass from tick/date changes alone, which is weaker than v3.2 §6.7's non-vacuous requirement.
+- Updated B4 test in commits `732e1832bc681baee2c9d51659960bdf419005e5` and `7b695602fac380f827fbf55843776cb070894703`.
+- New guards: both paths have identical initial-state hashes; checkpoint dates are checked exactly (K=6 → 1836-07; K=12 → 1837-01); player country is alive; all 10 baseline simulation systems are present and each ran exactly 24 times; at least one non-clock simulation value changed across player economy, region population, world prices or RNG; final player tax and budget values prove the scripted commands applied.
+- Added direct import of baseline `SYSTEMS` to ensure the system-run counter set is complete, not merely nonempty.
+- Test plan updated to describe the stronger guards. These changes are audit tests/docs only; product files unchanged.
+- The strengthened test has not yet run on the designated pinned-baseline workflow. Do not infer execution success from static review; G0.6 remains `NOT_TESTED`.
+
+
 ### 2026-11-18 — B4-EXPERIMENT-BRANCH-ISOLATION-AUDIT
 
 - At source-review checkpoint `662bd830b150302b008b75119b46c213f417c17a`, comparison with frozen baseline `2240a8fb865e0021eec2f2f4f1c6803528be9e2c` showed 71 commits ahead, 0 behind. The latest audit head after two documentation-only commits is `a1fb9b108ee56de7f191f23f57648268fe72f31b` (73 ahead, 0 behind).
