@@ -21,7 +21,7 @@ R4d xử lý 15 profile: ETH, BOR, WAD, DAR, DAH, OYO, MAS, FJA, LIB, BUG, TEX, 
 ## Main historical findings
 
 - **ETH:** 1836 needs Emperor Sahle Dengel and Regent Ras Ali II as separate concurrent authorities.
-- **BOR:** Muhammad al-Amin al-Kanemi's death year itself conflicts between sources; more importantly, he cannot be casually carried forward as 1836 HOS. Umar and the nominal Sayfawa Mai need separate roles.
+- **BOR:** sources conflict on al-Kanemi's death (1835 vs 1837); Umar is listed as de jure Shehu from 1835, while the Sayfawa Mai remained titular. Their authority may overlap and must be resolved before patching.
 - **WAD:** Muhammad Sharif's de facto power and formal enthronement are dated differently (c.1835 vs 1838); Kolak Adam appears in some lists.
 - **DAR:** Muhammad al-Fadl → Muhammad al-Husayn; occupation and Ali Dinar restoration must be separate political phases.
 - **DAH:** Ghezo's reign 1818–1858; heir designation is not accession.
