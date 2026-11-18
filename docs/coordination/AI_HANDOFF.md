@@ -97,6 +97,11 @@ Pre-protocol work:
 ## 5. Work log
 
 Append newest entries at the top. Do not overwrite earlier entries.
+### 2026-11-18 — B7-WD-F3-MISSING-FINDING-CORRECTION
+
+- Source-to-register review found WD-F3 was missing from the detailed risk tables although WD-F1 and WD-F2 were present. Added the P2 finding: five of eight starting wars capitulate at tick 5 in all four probe scenarios; B3 did not assess historical end-date accuracy.
+- Classified as an open P2 historical-calibration finding for S21/S22, not a proven engine defect and not authorization to alter gameplay/data in S0.
+- Updated Risk Register, B7 self-review, B7 Results and Claude review request. The B7 package remains IN_PROGRESS pending dependency audit run, Claude independent review and owner decision.
 ### 2026-11-18 — B7-RISK-SEVERITY-AND-GATE-INTERPRETATION-REVIEW
 
 - Cross-checked source risk severities and definitions against v3.2 §4B and the B3 test/asset/performance catalogs. Preserved R5's original frame-metric masking risk explicitly; its P1 row now states that aggregate FPS/frame metrics can hide long synchronous `stepMonth` calls and points to all four protocol J measurement groups for S2 (commit `a44f8b21f6716640cff043afd42a73c64e452a79`).
