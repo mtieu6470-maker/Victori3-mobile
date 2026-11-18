@@ -82,3 +82,15 @@ Rejected or failed choices must leave the pending record and fired-event state u
 - No tests, build, CI or device run was performed.
 - This document is not Claude's independent review and cannot be labelled `REVIEW_PASS`.
 - S22 and S1 remain closed. The supplement grants no implementation authorization.
+
+
+### D-05 — Closed condition grammar and recursive validation (SA-10)
+
+- Use one versioned discriminated union for all supported condition types; do not allow arbitrary condition names or arbitrary payload keys.
+- Validate every priority condition, decision-window condition and milestone test recursively with the same schema.
+- Validate required/optional fields, primitive types, numeric bounds, dates, enum values and all entity/region/law/IG references.
+- Reject unknown condition types and malformed trees during data build with source path and JSON-path diagnostics.
+- Bound nesting depth and total nodes; runtime must still fail closed without throwing if corrupt legacy data reaches evaluation.
+- Share one immutable per-tick context, including rank data, across nested conditions.
+- Test all current condition branches, true/false behavior, nested any/all, invalid IDs/values, unknown types and recursion limits.
+
