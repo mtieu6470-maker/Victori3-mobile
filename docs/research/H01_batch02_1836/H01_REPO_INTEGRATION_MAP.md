@@ -96,3 +96,16 @@ Added:
 R3z adds a contemporary methodological caveat but does not reject Rasmussen or replace any demographic estimate. It reinforces that war/migration narratives and scarce, uneven evidence are inadequate to construct a statistical range without an explicit denominator and method. Direct Rasmussen pp.23–26 and pp.90–94 remain unavailable; no new number is approved.
 
 No live historic data/profile/benchmark/owner/geometry/runtime/save/test/assets/Android/workflow/APK files changed.
+
+
+## R3aa NDE 1829 source-chain layer
+Added under `docs/research/H01_batch02_1836/`:
+- `H01_R3aa_NDE_1829_ARCHBELL_CHASE_RASMUSSEN_TRACE_VI.md` — trace of Chase's 80k report, Archbell correspondence, Rasmussen as quoted by Kruger, and Lye's composite subject estimate.
+- `H01_R3aa_SOURCE_EVIDENCE_MATRIX.csv` — source inspection level and precise limitations.
+- `H01_R3aa_PATCH_DECISIONS.csv` — semantic dispositions for NDE 60k, 45–85k, source estimates, military units and broad mapped geography.
+- `H01_R3aa_OPEN_EVIDENCE_REQUESTS.csv` — original Archbell letter, Rasmussen pages, scope comparison and interval-method requests.
+- R3aa sources are added to `H01_INTEGRATED_SOURCE_REGISTRY_DELTA.csv`; the R3x request R3T-07 is advanced with Chase and indirect Rasmussen evidence.
+
+The main distinction is that Chase's c.80k covers the country Malacatzie had conquered, including Batow/Bichuana dependants, while Rasmussen's c.20k figure is reported by Kruger as referring to the Rustenburg area. The numbers may have different geographical universes and cannot be treated as like-for-like. The original Archbell letter is not inspected; the archive date/box/item references remain inconsistent. Lye's 1836 1–5k estimate is a military force, not a population count.
+
+No H01 numeric value is approved. No shipped data, profile, owner registry, geometry, runtime, engine, save schema, tests, assets, Android, Gradle, workflow or APK changed. No PR or merge.
