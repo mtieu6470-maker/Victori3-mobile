@@ -1,4 +1,4 @@
-# R3y consolidated research validation report
+# R3z consolidated research validation report
 
 ## Repository snapshot
 - Repository: `mtieu6470-maker/Victori3-mobile`
@@ -80,4 +80,14 @@ These are ChatGPT implementation checks and self-audit, not an independent REVIE
 - 75,000+ in the article is Atlantic embarkations, not all Oyo residents/refugees; not used as demographic input.
 - Reopened original H01 source package: OYO=650k method explicitly invokes severe displacement/refugees to Ibadan, Ijaye, Abeokuta but has no cohort total or stock definition; OYO_OYO=1.45m uses Manning macro-series plus Law qualitative movement and no reproducible local workbook/region denominator; SSA_REG_18 is allocated 1:1 to OYO. These are materially different units and owner assignment requires locality-level validation.
 - Added R3y audit, source matrix, patch decisions, open evidence requests and source registry delta. All CSVs structurally checked for header/row width in local package validation; no runtime/game data changed.
+- Self-audit only; independent Claude review and owner acceptance pending. No build/APK workflow run.
+
+
+## R3z Rasmussen source-quality validation (2026-11-18)
+- Opened Colenbrander's archived PDF review page and visually inspected the original scan (printed p.10); OCR/text confirms review of R. Kent Rasmussen, *Migrant Kingdom* (1978).
+- Review praises the book's detailed reconstruction and usefulness but notes scarcity/nature of available evidence, excessive weight on war/migration, and insufficient attention to ecological and political/socioeconomic structures and routine agricultural/domestic/commercial/governmental activity.
+- The review does not itself supply a demographic re-estimate and does not invalidate Rasmussen. It is a source-quality caveat relevant to using one monograph for size/growth/military potential.
+- Google Books metadata/limited preview confirms Rasmussen title/publisher/year/pages but does not expose cited source pages 23–26 and 90–94. Direct book-page evidence remains open.
+- No change to NDE values: 60k provisional composite polity-subject estimate only; 45k–85k interval still undefined; numeric and game data remain untouched.
+- Full journal volume/issue metadata for the review has not been authenticated. Do not invent citation details.
 - Self-audit only; independent Claude review and owner acceptance pending. No build/APK workflow run.
