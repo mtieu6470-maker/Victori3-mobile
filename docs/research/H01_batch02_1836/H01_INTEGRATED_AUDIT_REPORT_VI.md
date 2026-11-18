@@ -1,6 +1,6 @@
-# H01 Batch 02 — consolidated research integration report (R3t)
+# H01 Batch 02 — consolidated research integration report (R3v)
 
-**Status: `RESEARCH_LAYER_INTEGRATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`**  
+**Status: `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`**  
 Snapshot used by the source package: `1836-01-01` (simulation anchor; source temporal precision is often annual or circa-year).  
 Scope: 17 H01 political entities, 78 region fact rows, 90 crosswalk rows, 81 unique repository region slots, 35 R3l source-register rows, 128 provenance claims.
 
@@ -71,3 +71,14 @@ Springer xác nhận Everill eBook xuất bản 15 Dec 2012, copyright 2013; sof
 
 ### 8.5 R3u disposition
 OYO 650k/1.45m tiếp tục quarantine; NDE 60k được diễn giải là polity subjects circa-1830s, không phải ethnic core; khoảng 45k–85k unresolved; NDE_MOS 210k broad geographic only; LIB_MON 3.5k/100 unresolved; DZ_KRU 356.4k arithmetic-only. Không thay live game data, ownership, geometry, benchmark, runtime, save schema, asset, workflow hay APK.
+
+
+## 9. R3v — Liberia primary-series reconciliation (2026-11-18)
+
+R3v xác định rõ hơn hai dòng số liệu thường bị hiểu nhầm là cùng một chuỗi. Starr (1913, printed pp.24–25) nói bảng “Population Movement for Liberia (exclusive of Maryland)” lấy từ *African Repository* nhằm trình bày vital statistics của immigrants; phần “Society” định nghĩa immigrant population và tách biệt aboriginal population. Cột Pop. 1836 là 2,230; cùng hàng ghi 209 arrivals, 145 deaths, 13 removals và 47 live births. Vì vậy 2,230 không phải Monrovia-only hay tổng dân số bao gồm người bản địa. Bảng có bất thường số học ở dòng 1834 (printed 1,016, trong khi tính theo stock/flows là 2,016), nên R3v giữ nguyên bản in và gắn cờ anomaly.
+
+Shick (1971, pp.45–47) tái lập dữ liệu từ individual emigrant roll của ACS được trình Quốc hội: 4,571 arrivals giai đoạn 1820–1843 và 242 arrivals trong 1836. Con số arrivals của Starr là 209; khoảng cách 33 và sự khác biệt ở 1829/1835 cho thấy hai chuỗi không đồng nhất. R3U-09 được chuyển thành PARTIALLY_RESOLVED; SOURCE_SERIES_CONFLICT_CONFIRMED, nhưng chưa có common reconciliation.
+
+Hiller (1860), Section IV, dẫn lời Freeman (writing in 1837) ước lượng Monrovia khoảng 1,500 inhabitants; New Georgia và Millsburgh mỗi nơi khoảng 500 được ghi riêng. Đây là secondary quotation của nguồn gốc chưa truy được, không phải census. Một transcription bảy trang gắn nhãn census Monrovia September 1843 đã tìm thấy, nhưng trang ảnh gốc và inclusion universe chưa được xác minh; nó không cung cấp số năm 1836.
+
+**R3v disposition:** LIB 3,500, LIB_MON 3,600 và additional 100 tiếp tục quarantine; Starr 2,230 và Shick 242 chỉ được lưu như giá trị trong đúng chuỗi nguồn; Freeman ~1,500 chỉ là comparator xấp xỉ c.1837. DZ_KRU 356,400 vẫn là arithmetic residual có điều kiện. Không có numeric/data patch hoặc thay đổi runtime/ownership/geometry. Claude independent review và owner acceptance tiếp tục pending.
