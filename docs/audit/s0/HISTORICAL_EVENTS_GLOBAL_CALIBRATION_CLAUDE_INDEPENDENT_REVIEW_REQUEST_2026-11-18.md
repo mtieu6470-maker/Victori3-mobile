@@ -18,7 +18,7 @@
 - **Roadmap:** owner-approved v3.2 with v3.3 amendments.
 - **Related designs:** POP Cohorts `b35c5367cfe41bea3036bec2b846d19060f495c0`; S15–S17 `207722d612354f4d1bccc74064d24616efa4511a`; S18–S19 `8f01556bd70fed05be6f880f287a0f3691cd7674`.
 
-Fetch exact current branch HEAD before review. Verify the design file blob equals `fbbad73aae57a26a52aefadc630c8b6cb340040c`; review §§14.1–14.14 together with traceability supplement blob `2671216d760efc4245db47b7bc3cc3d1613494be`, code self-audit blob `8cf4fa017f321b1ca402da1117dc9c314b2faae7`, and implementation test matrix blob `8e6b518a637a954fc0c9a4f80b9c22c33c594704`. The branch may contain later documentation-only commits; do not silently substitute a different design blob.
+Fetch the exact current branch HEAD before review. Verify that the design document blob is `f0b326823c76a01c353ab30ef72ee550a3aae990` and review §§14.1–14.15 together with: traceability supplement blob `d50eac10872e57c406a62d6dee48971fd1bf3cee`; code self-audit blob `8cf4fa017f321b1ca402da1117dc9c314b2faae7`; implementation test matrix blob `8e6b518a637a954fc0c9a4f80b9c22c33c594704`; benchmark coverage review blob `d2d510f0f362da872b44f4f99515722cc4246d0a`; entity/metric matrix blob `9dd62fca2dad926f58fd52112c349a3d7fb3723d`; Maddison unit matrix blob `f714e11a0ce7c8fe04f256035989d86c93b69c16`. Fetch the current branch HEAD before review but do not silently substitute a different design or evidence blob. The request is a no-write design review only.
 
 ## 2. Independence/no-write
 
