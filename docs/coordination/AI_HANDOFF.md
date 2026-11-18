@@ -97,6 +97,15 @@ Pre-protocol work:
 
 Append newest entries at the top. Do not overwrite earlier entries.
 
+### 2026-11-18 — B4-FAILURE-PATH-DIAGNOSTICS
+
+- Commit `cadee9c33c356ed6cb2fa7a39d3eade5f700102a` moves the structured `[S0-B4]` evidence log before final equality assertions. A failed replay therefore still emits save/checkpoint/initial/final hashes, command counts, simulation system counts, non-vacuous flags and the first differing GameState path.
+- `firstDifference` now checks own properties rather than the `in` operator, so missing fields are not mistaken for inherited Object prototype members.
+- Canonical comparator tests now also prove a missing nested field is reported with its path.
+- Updated B4 test plan. No product code/data/assets changed.
+- Execution remains pending the manual pinned-baseline workflow dispatch; no test pass is claimed. G0.6 remains `NOT_TESTED`.
+
+
 ### 2026-11-18 — B4-CANONICAL-ORDER-AND-SAVE-ENVELOPE-ASSERTIONS
 
 - Commit `3999783e6e3a3efac4d5e0f065da9447e8dd969d` replaces locale-sensitive `localeCompare` object-key sorting with deterministic code-unit ordering (`a < b ? -1 : a > b ? 1 : 0`).
