@@ -210,7 +210,9 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
           saveSha256: saveHash,
           checkpointStateSha256: checkpointStateHash,
           initialStateSha256: initialHash,
-          finalStateSha256: actualHash,
+          continuousFinalStateSha256: expectedHash,
+          resumedFinalStateSha256: actualHash,
+          finalStatesMatch: difference === null,
           commandCounts: {
             uninterrupted: uninterruptedCommandCount,
             splitBeforeSave: splitBeforeSaveCommandCount,
