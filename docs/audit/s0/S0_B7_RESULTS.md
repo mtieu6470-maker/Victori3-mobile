@@ -7,7 +7,7 @@
 
 ## 1. Work completed in this B7 draft
 
-- Consolidated known P0/P1/P2/P3 risks from v3.2, B3 findings, asset audit, performance report, build/CI audit, and B4 run #3. Added the discrepancy between the 2026-11-16 explicit audit (6 findings) and Run #3 install summary (10 findings) as an unresolved P1 dependency-security risk.
+- Consolidated known P0/P1/P2/P3 risks from v3.2, B3 findings, asset audit, performance report, build/CI audit, and B4 run #3. A final source-to-register check found and added WD-F3 (P2 historical-war calibration observation) that had been omitted. Added the discrepancy between the 2026-11-16 explicit audit (6 findings) and Run #3 install summary (10 findings) as an unresolved P1 dependency-security risk.
 - Separated product defects from evidence limitations, stage dependencies, and owner decisions.
 - Recorded risk impact, current disposition, containment/mitigation, owner role, target stage, and closure criteria.
 - Recorded R7 interim containment as accepted in principle under OD-20261116-11 while keeping R7 open P0.
