@@ -14,16 +14,17 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 
 ## Current independent review entry point
 
-- **GLOBAL Historical Mode / Claude — latest project-wide review:** start with `docs/audit/s0/GLOBAL_HISTORICAL_MODE_CLAUDE_REVIEW_REQUEST_2026-11-18.md`. It covers all world regions and polity types, the full 1836–1936 campaign, the fidelity/provenance standard, the 181-entity succession coverage matrix, current 439-record baseline and engine audit. Review base SHA: `f5ba6542ed2944f392d0d72b530122ce6f58b498`; request commit: `29e61591e1cee0d925f3aa8d528f6c1593fc7975`. Fetch latest HEAD before review.
+- **R4a / Claude — latest priority tranche:** start with `docs/audit/s0/GLOBAL_R4A_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4a covers 13 polity dossiers and all 54 profiles without succession arrays. Fetch the latest HEAD before review; base SHA: `e7282de0e3b6aeb4ef81d28cd006c59d63b4c314`.
+- **R4a package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4a/README_VI.md`; source audit, 13-row evidence matrix, 24 patch decisions, 15 open requests and 28 source entries; `docs/audit/GLOBAL_HOS_MISSING_PROFILE_TRIAGE_R4a.csv` classifies every missing-profile case.
+- **GLOBAL Historical Mode / Claude — baseline review:** `docs/audit/s0/GLOBAL_HISTORICAL_MODE_CLAUDE_REVIEW_REQUEST_2026-11-18.md` remains open. It covers the global fidelity standard, 181-entity succession coverage baseline and current engine/data audit.
 - **GLOBAL Historical Mode artifacts:** `docs/spec/GLOBAL_HISTORICAL_MODE_FIDELITY_STANDARD_VI.md`; `docs/audit/GLOBAL_HISTORICAL_MODE_DATA_BASELINE_AUDIT_VI.md`; `docs/audit/GLOBAL_HISTORICAL_SUCCESSION_COVERAGE_1836.csv`.
 - **Owner direction 2026-11-18:** worldwide scope, not Africa-only. Historical Mode requires source-backed historical accuracy and temporal consistency for the 1836–1936 campaign; it must not railroad outcomes and may diverge when causes change (Master Spec §§2.2 and 10.2). Sandbox/Alternate History may be flexible and is not required to follow historical ruler/event timelines after the start date.
-- **H01 R3af / Claude:** `docs/audit/s0/H01_R3AF_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as the latest regional succession research package for Shewa, Zulu and Basotho (1836–1900).
+- **H01 R3af / Claude:** `docs/audit/s0/H01_R3AF_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as the earlier regional succession research package for Shewa, Zulu and Basotho (1836–1900).
 - **H01 R3ae / Claude:** `docs/audit/s0/H01_R3AE_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate 1836 officeholder/title review.
 - **H01 R3ad / Claude:** `docs/audit/s0/H01_R3AD_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
 - **H01 R3ac / Claude:** `docs/audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
 - **H01 R3ab / Claude:** `docs/audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
-- H01 research README links to R3af, R3ae, R3ad, R3ac and R3ab review requests. R3af integration receipt: `docs/research/H01_batch02_1836/GITHUB_INTEGRATION_RECEIPT_R3af.md`.
-- Fetch the latest branch HEAD before every review. All ChatGPT self-audits are labelled; they are not independent `REVIEW_PASS`. The global review request is no-write and does not authorize changes to runtime/game data/schema/engine or S1.
+- Fetch the latest branch HEAD before every review. All ChatGPT self-audits are labelled; they are not independent `REVIEW_PASS`. R4a review is no-write and does not authorize runtime/game-data/schema/engine changes or S1.
 
 
 ## 1. Current project state
@@ -117,6 +118,14 @@ Pre-protocol work:
 | Earlier stages 1–5 (identity/content, numbering of an earlier specification) | `PRE_PROTOCOL_IMPLEMENTED_REPORTED` | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` | Not `REVIEW_PASS` or `ACCEPTED`; part of the current baseline; S0 verifies what is present at the frozen SHA |
 
 ## 5. Work log
+
+### 2026-11-18 — GLOBAL-HISTORICAL-R4A-PRIORITY-TRANCHE
+
+- R4a base HEAD: `e7282de0e3b6aeb4ef81d28cd006c59d63b4c314`. All-world first tranche across 13 cases: USA, MEX, BRA, JAP, QNG, PRS, TUR, SOK, ZUL, ASH, MOR, WAL, MOL.
+- Added package under `docs/research/GLOBAL_HISTORICAL_1836_1936/R4a/`: narrative source audit, 13-row evidence matrix, 24 non-executing decisions, 15 open requests, 28 source entries and README. Added `docs/audit/GLOBAL_HOS_MISSING_PROFILE_TRIAGE_R4a.csv` (54 rows × 20 columns) and `docs/audit/s0/GLOBAL_R4A_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`.
+- Key findings: Mexico 33/33 Wikipedia-only and interim offices omitted; USA Tyler succession vs oath date semantics; JAP Shogun/Emperor office conflation; BRA Regency vs Emperor; PRS designation/accession/coronation distinctions; TUR record-level source gap and date conflict; SOK day-level precision unsupported; ASH 1883–1888 interregnum; ZUL interrupted/partial restoration; MOR Sultan/regent distinction; WAL/MOL local rulers vs suzerainty/occupation.
+- Missing-profile triage: 30 individual ruler candidates, 10 subject-local authorities, 3 colonial/company/protectorate authorities, 5 collective/aggregate authorities, 4 unresolved leadership/source gaps, 2 rebel/provisional governments; priority 5 P1 / 46 P2 / 3 P3.
+- R4a is not complete global validation; remaining 426 records and broader historical data audit remain open. No game data/runtime/schema/engine/tests/assets/Android/Gradle/workflow/APK changed. No build/test/APK workflow run. Status remains `READY_FOR_INDEPENDENT_REVIEW / SELF_AUDIT_ONLY / NO_PRODUCT_PATCH`.
 
 ### 2026-11-18 — GLOBAL-HISTORICAL-MODE-FIDELITY-BASELINE
 
