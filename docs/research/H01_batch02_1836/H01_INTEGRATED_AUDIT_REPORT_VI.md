@@ -154,3 +154,17 @@ R3ab audits the 1836 officeholder layer without changing shipped profiles or run
 
 Disposition: `SELF_AUDIT_ONLY / REVIEW_PENDING / NO_PRODUCT_PATCH`. Numeric and political-control approvals from earlier H01 packages remain unchanged.
 
+ 
+## 10. R3ac — Central Sahel offices, dual authority and disputed succession
+
+R3ac adds a source-backed review of four H01 records at the 1836 snapshot.
+
+- **SOK:** Naylor (2021) prefers `Amīr al-muʾminīn` for the ruler of Sokoto because it is the term most often encountered in manuscripts, and distinguishes that office from the regional Emirs. Last (1967) dates Muhammad Bello's reign 1817–1837 and the Gawakuke campaign to March 1836. The current profile's composite “Sarkin Musulmi (Caliph)” may be preserved as an alias/translation, but the manuscript-preferred title should be recorded in the research layer.
+- **BOR:** al-Kanemi's role as Shehu/virtual ruler and the continuing symbolic/legal institution of the Sayfawa Mai are distinct. History of Nigeria 2 says Mai Ibrahim remained in place until the Sayfawa institution was abolished in 1846. It records al-Kanemi's death in 1837; Collins/Hodgkin's older secondary excerpt gives 1835. National Portrait Gallery and History of Nigeria 2 support 1837 more strongly. No runtime sovereign transition is proposed.
+- **WAD:** the exact accession of Muhammad al-Sharif remains uncertain. Collins (2005) and Britannica (1911) give 1838; alternative lists assign 1834 or 1835; Cordell (1977) explicitly reports at least six divergent Wadai king lists and states that regnal chronology could not be precisely reconciled for 1813–1835. The current 1835 `since` field should therefore not be represented as a verified day/year fact. No replacement ruler/date is approved for 1836-01-01.
+- **DAR:** Daly (2007) gives Muhammad al-Fadl's reign as 1803–1838 and Muhammad al-Husayn's reign as 1838–1873. The current al-Fadl profile is appropriate for the 1836 snapshot; transition belongs in 1838.
+
+R3ac is a research interpretation, not a shipped data patch. It flags three future architecture requirements: role separation for nominal/de facto rulers, title aliases for historically specific offices, and year/range uncertainty for contested accessions.
+
+Disposition: `SELF_AUDIT_ONLY / REVIEW_PENDING / NO_PRODUCT_PATCH`. No population, control, ownership, government, map, runtime, test, save/schema or asset data is changed.
+
