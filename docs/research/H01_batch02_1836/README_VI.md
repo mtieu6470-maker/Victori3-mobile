@@ -75,3 +75,13 @@ Không sửa population benchmark, profile, registry, map owner, engine/runtime,
 - Kruger (2010, tr.140) dẫn Rasmussen khoảng 20.000 người dưới quyền Mzilikazi ở vùng Rustenburg năm 1829, thấp hơn 60–80 nghìn gắn với Archbell. Đây là dẫn lại qua Kruger; trang sách Rasmussen chưa được kiểm tra trực tiếp và phạm vi Rustenburg có thể hẹp hơn vùng Chase mô tả.
 - Lye (1969) tổng hợp 60–80 nghìn subject của polity Mzilikazi; 1–5 nghìn năm 1836 là lực lượng chiến binh Nguni, không phải tổng dân số. Không gộp các đơn vị này.
 - NDE 60k tiếp tục là provisional polity-subject candidate, độ bất định cao; khoảng 45–85k chưa có phương pháp; NDE_MOS 210k vẫn là broad geography. Xem `H01_R3aa_NDE_1829_ARCHBELL_CHASE_RASMUSSEN_TRACE_VI.md` và CSV R3aa.
+
+ 
+## R3ab — người đứng đầu và quyền lực thực tế năm 1836
+
+- **Futa Jallon:** Bubakar là ứng viên Almami ở mốc 1836 theo Barry (1997, p.150); nhiệm kỳ và mốc chuyển giao tháng 11/1836 vẫn cần xác thực ảnh trang in gốc. Không lấy niên biểu Futa Toro thay cho Futa Jallon.
+- **Ethiopia:** Sahle Dengel là hoàng đế danh nghĩa giai đoạn 1832–1840; Ras Ali Alula/Ali II là người nắm quyền lực thực tế ở trung tâm Ethiopia; Mänän Libän Amäde là nhân vật quyền lực trong thập niên đầu của Ali. Không gộp các vai trò thành một HOS.
+- **Liberia:** năm 1836 là thuộc địa ACS, chưa phải quốc gia có chủ quyền. Anthony D. Williams là agent; Thomas Buchanan đến tháng 1 và quản lý các khu định cư Bassa; governor từ 1839.
+- Các kết quả được lưu trong audit, source matrix, patch decisions và open evidence requests R3ab. Không cập nhật live historical data, government, officeholder runtime hoặc schema.
+- Xem `H01_R3ab_1836_AFRICAN_POLITY_OFFICEHOLDER_AUDIT_VI.md`; trạng thái `SELF_AUDIT_ONLY / NO_PRODUCT_PATCH`, cần Claude independent review.
+
