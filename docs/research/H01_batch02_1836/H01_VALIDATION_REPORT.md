@@ -30,4 +30,4 @@
 ## Overall
 `RESEARCH_LAYER_INTEGRATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`.
 
-These are ChatGPT implementation checks and self-audit, not an independent REVIEW_PASS. Claude review and owner acceptance remain pending. No product/game build or APK CI was triggered.
+These are ChatGPT implementation checks and self-audit, not an independent REVIEW_PASS. Claude review and owner acceptance remain pending. No build was requested. Two Android APK (debug) push workflows were automatically triggered by the documentation commits because their commit messages omitted `[skip ci]`: run 44228047126 and run 44228160144. Both were `in_progress` at the last status check. No game source, Gradle or workflow file was changed; the available connector does not expose cancellation. Subsequent documentation commits use `[skip ci]`.
