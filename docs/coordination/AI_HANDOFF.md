@@ -14,10 +14,11 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 
 ## Current independent review entry point
 
-- **H01 R3ad / Claude — latest:** start with `docs/audit/s0/H01_R3AD_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. It defines the R3ad base SHA (`b02af8dfc1ccac4ad5b3e0cbc42a51bf89ef1b79`), no-write review boundary, four polity/source checks, CSV counts and required verdict. The request was created at pre-pointer-update HEAD `1cfc8bbf896e7606c46aa48e1bf87bc95b16b4ff`; fetch the newest HEAD before review.
+- **H01 R3ae / Claude — latest:** start with `docs/audit/s0/H01_R3AE_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. It defines the R3ae base SHA (`3ba97713c2e767f201c300de51fddcc888d45321`), no-write review boundary, SHE/ZUL/BSO source checks, expected CSV counts and required verdict. The request was created at HEAD `c12c526e5fa4c756ee3fea2253e20fce4b8b5800`; fetch the newest HEAD before review.
+- **H01 R3ad / Claude:** `docs/audit/s0/H01_R3AD_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
 - **H01 R3ac / Claude:** `docs/audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
 - **H01 R3ab / Claude:** `docs/audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open as a separate review package.
-- H01 research README links to R3ad, R3ac and R3ab review requests: `docs/research/H01_batch02_1836/README_VI.md`. R3ad integration receipt: `docs/research/H01_batch02_1836/GITHUB_INTEGRATION_RECEIPT_R3ad.md`.
+- H01 research README links to R3ae, R3ad, R3ac and R3ab review requests: `docs/research/H01_batch02_1836/README_VI.md`. R3ae integration receipt: `docs/research/H01_batch02_1836/GITHUB_INTEGRATION_RECEIPT_R3ae.md`.
 - Fetch the latest branch HEAD before either review. R3ab and R3ac remain `READY_FOR_INDEPENDENT_REVIEW`; ChatGPT self-audits are not independent `REVIEW_PASS`. Neither review authorizes product-data/gameplay/engine/S1 work.
 
 
@@ -113,6 +114,18 @@ Pre-protocol work:
 
 ## 5. Work log
 
+### 2026-11-18 — H01-R3AE-SHE-ZUL-BSO-OFFICEHOLDER-AND-TITLE-AUDIT
+
+- Owner direction: continue H01 research/document packaging. ChatGPT researches and integrates documentation; Claude is reserved for independent review of work it did not author. Existing authorization remains research/documentation only; no S1, live-data or runtime changes.
+- Repository/branch: `mtieu6470-maker/Victori3-mobile`, `claude/game-historical-sandbox-modes-kg7rj7`.
+- R3ae base HEAD: `3ba97713c2e767f201c300de51fddcc888d45321`. Five primary research files were added in commits `06d1656ba7a271f112360528330ce063b45244c9`, `c223711e64ccb8ad5b09fca1c3bca3433cb8b584`, `9d0b9cfce302c679d64e30ab7ef6c80bebe78cf2`, `65a8dc27e74f17d5d532a8b2f02947a5822a472a` and `c12c526e5fa4c756ee3fea2253e20fce4b8b5800`.
+- Audit scope: SHE/Sahle Selassie; ZUL/Dingane and Mpande succession; BSO/Moshoeshoe, Morena and Basotho polity formation. Main caveats: 1806/1813 Shewa start-year conflict and Ras/Negus title chronology; Dingane exact-day source basis and Mpande transition 1839 defection versus 1840 accession; Moshoeshoe's 1820 inherited chiefship versus uncertain exact Morena/Morena e Moholo chronology.
+- R3ae did not change live profiles or succession data. `heads_of_state.json` has no dedicated SHE/ZUL/BSO entity arrays at the base HEAD; a source-backed succession task is recorded for later, without edits in R3ae.
+- Claude review request: `docs/audit/s0/H01_R3AE_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`, created at pre-integration HEAD `c12c526e5fa4c756ee3fea2253e20fce4b8b5800`. Review must be no-write, exact-HEAD, source/CSV/diff checked.
+- Cumulative H01 registers: R3ae adds 8 open evidence requests and 9 source registry records; cumulative totals are to be confirmed from exact fetched GitHub blobs in the validation/receipt.
+- Status: `SELF_AUDIT_ONLY / READY_FOR_INDEPENDENT_REVIEW / NO_PRODUCT_PATCH`. This does not constitute Claude `REVIEW_PASS`, owner acceptance, title/profile approval or S1 authorization.
+
+ 
 ### 2026-11-18 — H01-R3AD-ASANTE-DAHOMEY-MACINA-BUGANDA-OFFICEHOLDERS
 
 - Owner direction: continue H01 research/document packaging. ChatGPT completes the documentation integration while Hydrogen packaging is unreliable; Claude is reserved for independent review of work it did not author. Scope remains H01 research/documentation only; no S1, gameplay, engine or live-data authorization.
