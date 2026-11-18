@@ -18,8 +18,9 @@
 | Gate verdict vocabulary | Protocol "Status vocabulary" (`PASS`, `PARTIAL`, `BLOCKED`, `FAIL`, `NOT_TESTED`, `NOT_APPLICABLE`); where the approved S0 document writes "NOT TESTED" it means `NOT_TESTED` |
 | Legacy roadmaps and pre-protocol work | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` (historical evidence, not authorization) |
 | Current approved phase | **S0-B3 → S0-B4 → S0-B7, sequential** (OD-20261116-11). B4 starts only after B3 has `REVIEW_PASS` |
-| Current task status | S0-B3 `REVIEW_PASS` (ChatGPT independent review, bounded B3 scope; owner decision still pending): review round 1 was `CHANGES_REQUESTED` (points A–D, section 6); corrections committed in `ddea490` and `2c62b3d`; stopped for ChatGPT re-review; B4 not started. S0-A `READY_FOR_REVIEW`: per the reviewer's next-step instruction, A1–A4 are conditionally accepted and A5 is `BLOCKED`; S0-A is not `ACCEPTED`. S0-B1 done: the reviewer's technical verdict is `PASS` (source: v3.3 proposal §2.1, accepted by OD-20261116-11). `COORDINATION-REVIEW-BD5787F` `READY_FOR_REVIEW` |
+| Current task status | S0-B3 `REVIEW_PASS` (bounded audit scope; owner decision still pending). S0-B4 `IN_PROGRESS`: the frozen-baseline harness and tests-only workflow are prepared on `experiment/vic3-visual-upgrade`; execution remains `NOT_TESTED` pending a manual GitHub Actions dispatch and review. S0-A `READY_FOR_REVIEW` (A1–A4 conditionally accepted; A5 `BLOCKED`); S0-A is not `ACCEPTED`. S0-B1 reviewer technical verdict `PASS` under v3.3 §2.1. `COORDINATION-REVIEW-BD5787F` `READY_FOR_REVIEW` |
 | S0-B3 evidence | `docs/audit/s0/S0_B3_RESULTS.md` (summary, gate self-assessment, finding index) with `S0_TEST_CATALOG.md`, `s0_test_catalog.json`, `S0_REQUIREMENT_MATRIX.csv`, `S0_GLOBAL_DATA_AUDIT.md`, `S0_ASSET_AUDIT.md`, `S0_PERFORMANCE_BASELINE.md/.json`, `b3/**` — tools commit `3d63061e4bd5b3fdf7c636370da462a5b0f5d721`, reports commit `55331c2bf629bb631701ec82020c7f9deaa7da81`; review-1 corrections: tools `ddea490`, reports and evidence `2c62b3d` (`b3/review1/**`; summary in `S0_B3_RESULTS.md` §8) |
+| S0-B4 evidence | `docs/audit/s0/S0_B4_TEST_PLAN.md`; `tests/s0-save-determinism.test.ts`; `tests/fixtures/s0-b4-scenario.ts`; `.github/workflows/s0-b4-tests.yml` (manual, tests-only, baseline pinned to `2240a8f`). Workflow artifact will contain provenance, fixture/data hashes, exit codes and Vitest output. No run/result exists yet; G0.6 remains `NOT_TESTED` |
 | S0-B1 evidence | `docs/audit/s0/S0_B1_CI_EVIDENCE.md`, `docs/audit/s0/logs/b1/` (commit `e13d964f343ab1ba01fb705fbbd8bcac2674ea80`). B1 commit `382aaa84b2336854b4dbebfcdc719847ff463f41`; run `43834719406`, job `133188390842` success; 58/58 tests; `report_valid=true`; APK file SHA-256 `314c8ca11c1d747550bbdb982326675e5f9dbdac870f3fc1cf04b9de7c22585c`; artifact ZIP SHA-256 `7717a2b79dd46fbf613845e33bac3a17634eae5b0c808328d8b21b5abc150ba0` (a different file) |
 | S0-A evidence | `docs/audit/s0/S0_A_RESULTS.md` (summary and gate verdicts), `S0_REPOSITORY_SNAPSHOT.md`, `S0_BUILD_TEST_REPORT.md`, `logs/`, `a4/`, `inputs/` — commits `7d6eec9d0601a7d983679ec7792b1aa96b954ca0`, `d5b9820aae9a96d57e9486845c164ae591fa69de`, `8073fac029463c0685435985a2968cd5a3aba4ab` |
 | Pending owner action | Device steps 1–4 of approved document §6.5.1 on the installed baseline APK (listed in `docs/audit/s0/S0_A_RESULTS.md` §2); never paste secrets |
@@ -78,7 +79,7 @@ Not allowed:
 | S0-A — Baseline as-is (`BASELINE_ORIGINAL`), approved document §6.3 A1–A5 | `READY_FOR_REVIEW` (A1–A4 evidenced; A5 `BLOCKED`) | Owner approval of the S0 v3.2 document and S0-A authorization (OD-20261116-09, -10) — met | S0-A evidence committed; ChatGPT review; owner decision |
 | S0-B1 — CI checksums and test report | Done; reviewer technical verdict `PASS` (v3.3 §2.1) | Owner instruction for B1 (OD-20261116-10B) — met | Evidence committed (`e13d964`) |
 | S0-B3 — Audit scripts, catalog, coverage, crosswalk, asset inventory, Node/desktop harness | `READY_FOR_REVIEW` round 2 (Claude, unverified); round 1 `CHANGES_REQUESTED` | OD-20261116-11 — met | Reports committed (`3d63061`, `55331c2`; corrections `ddea490`, `2c62b3d`); ChatGPT re-review (B4 waits for B3 `REVIEW_PASS`) |
-| S0-B4 — Characterization tests and fixtures (save/load determinism, v3.2 §6.7) | `NOT_STARTED` (authorized after B3 review) | B3 `REVIEW_PASS` | G0.6 verdict with evidence; `FAIL` leads to the decision §3 path |
+| S0-B4 — Characterization tests and fixtures (save/load determinism, v3.2 §6.7) | `IN_PROGRESS` (audit-only harness prepared; manual workflow execution and independent evidence review pending) | B3 `REVIEW_PASS` | G0.6 verdict with evidence; `FAIL` leads to the decision §3 path |
 | S0-B7 — Risk register and signoff package | `NOT_STARTED` (authorized after B4) | B3 and B4 done | `S0_SIGNOFF.md`; G0.1–G0.9 ledger; exception requests limited to G0.7 (iQOO) and G0.8 (legacy licences) |
 | S0-B2 / B5 / B6 — signing, Diagnostic UI, instrumented measurements | `BLOCKED` / deferred | R14 proven on the baseline APK, O5 decided, protected `development-signing` Environment configured by the owner | Per v3.2 §4.1, §6.8 |
 | S1 — Data architecture and save foundation | `NOT_STARTED` | S0 accepted and S1 scope separately approved | S1 acceptance criteria met; independent review; owner accepted |
@@ -95,6 +96,26 @@ Pre-protocol work:
 ## 5. Work log
 
 Append newest entries at the top. Do not overwrite earlier entries.
+
+### 2026-11-18 — S0-B4-BASELINE-CHARACTERIZATION-HARNESS
+
+- Task/phase: S0-B4 under OD-20261116-11, after bounded B3 `REVIEW_PASS`
+- Task branch: `experiment/vic3-visual-upgrade`; frozen product baseline under test: `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
+- Commits:
+  - `43618de4f2d104fb7276b93e22880500369576b8` — strengthened `tests/s0-save-determinism.test.ts`
+  - `a5650dd42a418bb396d4f4b9048037a1dd156f83` — added `tests/fixtures/s0-b4-scenario.ts`
+  - `835bec25e6f2c1227846912d871655bd91c4ef8d` — mirrored tests-only workflow on experiment branch
+  - `8834ac18707889af3562b134727be1271caa66cc` — added `docs/audit/s0/S0_B4_TEST_PLAN.md`
+  - `d7c29d728689bcab2daac83a7920d4b835823e69` — added tests-only workflow to default branch so GitHub exposes manual dispatch
+- Test design: Historical + Sandbox; seed `20261116`; player `GBR`; 24 months; K=6 mid-year and K=12 annual boundary; identical test-supplied tax/budget commands before each matching tick. Compare every persisted `GameState` field, including seed/RNG; object keys canonicalized; arrays not reordered; first differing state path and SHA-256 hashes logged.
+- Invalid/legacy save characterization: malformed JSON, foreign format, unsupported version, missing state, absent `marketStats` default, and confirmation that baseline `2240a8f` predates `constructionQueue` and does not create it.
+- Workflow: `.github/workflows/s0-b4-tests.yml`, `workflow_dispatch` only, `contents: read`, exact baseline checkout, overlays only the audit test and fixture, runs `npm ci`, `npm run prepare-assets`, `npm run typecheck` and one Vitest file. No Vite production build, Capacitor sync, Gradle, Android SDK or APK assembly.
+- CI safety: the existing `.github/workflows/android-apk.yml` runs on pushes to all branches. All commits in this harness slice include `[skip ci]` so they do not trigger push workflows. The new B4 workflow still needs a manual run from Actions with `experiment/vic3-visual-upgrade` selected.
+- Test results / exit codes / artifact: **NOT RUN**; no GitHub Actions dispatch capability is available from this session. There is no run ID or artifact yet. G0.6 remains `NOT_TESTED`.
+- Product-source changes: none. No gameplay, engine, RNG, save serializer/schema, data or shipped asset changes.
+- Claude status: `IN_PROGRESS` (harness prepared, execution pending)
+- ChatGPT review: pending exact CI artifact and result review
+- Owner decision: pending
 
 ### 2026-11-16 — S0-B3-REVIEW1-CORRECTIONS
 
