@@ -1,4 +1,4 @@
-# H01 batch 02 — repository integration map (R3z)
+# H01 batch 02 — repository integration map (R3aa)
 
 ## Integration boundary
 This R3t task integrates H01 research, provenance, reconciliation and audit decisions into the repository documentation layer. It does **not** integrate unresolved H01 estimates into shipped game data.
