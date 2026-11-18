@@ -105,6 +105,21 @@ Pre-protocol work:
 
 ## 5. Work log
 
+### 2026-11-18 — H01-R3V-LIBERIA-PRIMARY-SERIES-RECONCILIATION
+
+- Owner instruction: continue H01 work; owner accepts that Claude may later review/fix the implementation. Scope remains research documentation only under the existing H01 boundary.
+- Repository/branch: `mtieu6470-maker/Victori3-mobile`, `claude/game-historical-sandbox-modes-kg7rj7`.
+- Base HEAD before R3v: `0643e7cd0f19a80e04c012182dfc98bd231c12b0`.
+- R3v source/audit commits: `145c9b785fcbca7d262e6cbdc7e0218f1e39852e`, `f6e08af2fbe3f9973a99b19cfa56748b2be3a9c9`, `43576ee71e345764205d6949493e7fd9ac6d1c0e`, `a69a5a391c073879a20b9ac761b1ab77c667007a`, `864923c5d599ba88e29a0228915616e0aed97026`, `5ce071ce15a49ec9f9bb8400c03126c9d40ce751`. R3v report/index/map/handoff/receipt updates are recorded by GitHub commit metadata; all commit messages use `[skip ci]`.
+- Starr (1913), printed pp.24–25: table is sourced to African Repository and presented as immigrant vital-statistics for Liberia excluding Maryland. The 1836 row has 209 arrivals, 145 deaths, 13 removals, 47 live births and Pop. 2,230. Starr separately distinguishes immigrant and aboriginal populations. A printed 1834 stock anomaly (1,016 vs 2,016 from displayed stock/flows) is flagged, not silently corrected.
+- Shick (1971) reconstructs individual ACS emigrants from a Senate register: 242 arrivals in 1836, 4,571 arrivals 1820–1843 and 1,819 cohort members living in settlements in 1843. Starr's 1836 arrivals=209 differs, as do other years; source-series conflict confirmed but common reconciliation remains open.
+- Hiller (1860), Section IV, attributes an approximate Monrovia population of 1,500 to Freeman writing in 1837. New Georgia and Millsburgh values are separate. Original Freeman publication unidentified; quotation is not a census.
+- Located a seven-page transcription labelled September 1843 Monrovia census and attributed to Senate Document 150. Original scan pages were not visually authenticated, inclusion of Indigenous/local population is unknown, and it does not provide a 1836 count.
+- R3U-08 advanced only to locating the 1843 transcription; 1836 count and additional 100 remain open. R3U-09 advanced to confirmed conflict between Starr and Shick, not resolved. R3V-01 to R3V-04 remain open for original African Repository issue, Freeman source, image verification, and source lineage of 3,500/+100.
+- Disposition: LIB 3,500, LIB_MON 3,600 and extra 100 remain quarantined; Starr 2,230 and Shick 242 are source-series comparators only; Freeman ~1,500 is a c.1837 comparator only; DZ_KRU 356,400 is a conditional arithmetic residual only. No numerical/data approval.
+- No live `historical_data/`, profile, population benchmark, political registry, owner/geometry, engine/runtime, save schema, test, asset, Android, Gradle, workflow or APK files changed. No PR, merge or build/APK workflow requested or run.
+- Status: `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`. This is ChatGPT research and integration self-audit, not independent Claude `REVIEW_PASS`; Claude review and owner acceptance remain pending.
+
 ### 2026-11-18 — H01-R3U-SUPPLEMENTAL-RESEARCH-INTEGRATION
 
 - Owner request: continue H01 review, integrate source-trace updates into the repository and provide one consolidated download.
