@@ -64,28 +64,46 @@ function firstDifference(a: unknown, b: unknown, path = 'state'): string | null 
   return path;
 }
 
-function applyCommandsAtCurrentTick(state: GameState): void {
+function applyCommandsAtCurrentTick(state: GameState): number {
+  let applied = 0;
   for (const entry of S0_B4_SCENARIO.commands) {
     if (entry.tick !== state.tick) continue;
     const result = execute(state, entry.command);
     expect(result.ok, `command at tick ${entry.tick} (${entry.command.type}) should be accepted: ${result.reason ?? ''}`).toBe(true);
+
+    // Assert the command changed the player-controlled value at the exact scheduled tick.
+    const player = state.countries[S0_B4_SCENARIO.player];
+    if (entry.command.type === 'set_tax') {
+      expect(player.taxRate).toBe(entry.command.rate);
+    } else if (entry.command.type === 'set_budget') {
+      expect(player.budget[entry.command.key]).toBe(entry.command.value);
+    }
+    applied += 1;
   }
+  return applied;
 }
 
 /** Apply the same deterministic test-supplied commands before each monthly tick. */
-function advanceTo(state: GameState, targetTick: number): void {
+function advanceTo(state: GameState, targetTick: number): number {
   expect(targetTick).toBeGreaterThanOrEqual(state.tick);
+  let appliedCommands = 0;
   while (state.tick < targetTick) {
-    applyCommandsAtCurrentTick(state);
+    appliedCommands += applyCommandsAtCurrentTick(state);
     stepMonth(state);
   }
   expect(state.tick).toBe(targetTick);
+  return appliedCommands;
 }
 
 describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
   for (const mode of S0_B4_SCENARIO.modes) {
     for (const cut of S0_B4_SCENARIO.saveCuts) {
       it(`${mode}: replay identical player commands across save at K=${cut}, then resume to N=${S0_B4_SCENARIO.totalMonths}`, () => {
+        expect(S0_B4_SCENARIO.commands.length).toBeGreaterThan(0);
+        expect(S0_B4_SCENARIO.commands.every((entry) =>
+          Number.isInteger(entry.tick) && entry.tick >= 0 && entry.tick < S0_B4_SCENARIO.totalMonths,
+        )).toBe(true);
+
         const uninterrupted = fresh(mode, S0_B4_SCENARIO.seed, S0_B4_SCENARIO.player);
         const interrupted = fresh(mode, S0_B4_SCENARIO.seed, S0_B4_SCENARIO.player);
         const initial = persistedSnapshot(uninterrupted);
@@ -95,8 +113,8 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
         expect(uninterrupted.countries[S0_B4_SCENARIO.player]?.alive).toBe(true);
         expect(interrupted.countries[S0_B4_SCENARIO.player]?.alive).toBe(true);
 
-        advanceTo(uninterrupted, S0_B4_SCENARIO.totalMonths);
-        advanceTo(interrupted, cut);
+        const uninterruptedCommandCount = advanceTo(uninterrupted, S0_B4_SCENARIO.totalMonths);
+        const splitBeforeSaveCommandCount = advanceTo(interrupted, cut);
         expect(interrupted.tick, 'save checkpoint must be reached').toBe(cut);
         expect(interrupted.date).toEqual(tickToDate(cut));
         expect(interrupted.date).toEqual(
@@ -107,7 +125,9 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
         const saveHash = textHash(saveText);
         const restored = deserialize(saveText);
         expect(restored.tick).toBe(cut);
-        advanceTo(restored, S0_B4_SCENARIO.totalMonths);
+        const splitAfterLoadCommandCount = advanceTo(restored, S0_B4_SCENARIO.totalMonths);
+        expect(uninterruptedCommandCount).toBe(S0_B4_SCENARIO.commands.length);
+        expect(splitBeforeSaveCommandCount + splitAfterLoadCommandCount).toBe(S0_B4_SCENARIO.commands.length);
 
         const expected = persistedSnapshot(uninterrupted);
         const actual = persistedSnapshot(restored);
@@ -200,6 +220,7 @@ describe('S0-B4 save/load characterization — frozen baseline 2240a8f', () => {
     // Baseline 2240a8f predates constructionQueue entirely; deserialization does not add it.
     expect(Object.values(restored.countries).every((country) => !('constructionQueue' in country))).toBe(true);
     expect(restored.regions.length).toBeGreaterThan(0);
+    expect(() => stepMonth(restored)).not.toThrow();
   });
   it('records the baseline behavior for a missing RNG: deserialize accepts it, continuation throws', () => {
     const state = fresh('sandbox', S0_B4_SCENARIO.seed, S0_B4_SCENARIO.player);
