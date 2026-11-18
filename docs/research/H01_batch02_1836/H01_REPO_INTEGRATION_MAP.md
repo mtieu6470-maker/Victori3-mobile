@@ -143,4 +143,18 @@ Added under `docs/research/H01_batch02_1836/`:
 R3ac distinguishes Sokoto's `Amīr al-muʾminīn` titulature, Bornu's de facto Shehu versus Sayfawa Mai, the contested Wadai accession date, and Darfur's 1838 succession. It does not update live head-of-state profiles or title fields.
 
 **Boundary:** research/documentation only. `historical_data/`, political registry, population totals, historical map owners/borders, engine/runtime, government presets, event data, tests, save schema, assets, Android, Gradle, workflows and APK remain unchanged. No S1 authorization is implied.
+ 
+## R3ad — Asante, Dahomey, Macina and Buganda officeholder layer
 
+Added under docs/research/H01_batch02_1836/:
+- H01_R3ad_GULF_OF_GUINEA_AND_GREAT_LAKES_RULERSHIP_AUDIT_VI.md — four-polity research audit for the 1836-01-01 snapshot.
+- H01_R3ad_SOURCE_EVIDENCE_MATRIX.csv — 12 source-evidence rows with inspection levels and caveats.
+- H01_R3ad_PATCH_DECISIONS.csv — six non-executing research dispositions; no data patch authorized.
+- H01_R3ad_OPEN_EVIDENCE_REQUESTS.csv — eight historical evidence requests plus the independent review request.
+- H01_R3ad_SOURCE_REGISTRY_DELTA.csv — 12 source registry entries.
+- GITHUB_INTEGRATION_RECEIPT_R3ad.md — commit chain, changed paths, CSV validation and scope statement.
+- docs/audit/s0/H01_R3AD_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md — no-write independent review entry point.
+
+R3ad separates year-level ruler identification from disputed accession-day/year precision, political coup from peaceful succession, personal reign from state lifespan, and royal name variants from separate entities. It leaves the four live profiles unchanged.
+
+Integration boundary: documentation only. No changes to historical_data/, political-entity registry, population totals, borders/map ownership, engine/runtime, government presets, event data, tests, assets, save schema, Android, Gradle, workflows or APK. No numeric approval, product patch, owner acceptance or S1 authorization is implied.
