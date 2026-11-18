@@ -7,7 +7,7 @@
 
 | Area | Result | Evidence / boundary |
 |---|---|---|
-| Risk identifier coverage | PASS | The register contains the applicable R1–R14 (R3 in Closed), G0.7 device-evidence limitation, RM-F1…F5, TC-F1…F7, GD-F1…F6, AS-F1…F7, WD-F1…F3, CI-F1…F3 and DEP-F1. |
+| Risk identifier coverage | PASS after WD-F3 correction | The register contains R1–R14 (R3 in Closed), G0.7 device-evidence limitation, RM-F1…F5, TC-F1…F7, GD-F1…F6, AS-F1…F7, WD-F1…F3 (including the omitted P2 WD-F3 war-calibration observation), CI-F1…F3 and DEP-F1. |
 | Severity alignment | PASS after correction | R7 remains P0; R5 explicitly retains the frame-metric masking risk (P1); TC-F1/F2 remain P1; TC-F3 P2; TC-F5 P1; map-performance R10 P1; R14 P1; dependency DEP-F1 provisional P1. |
 | B4 evidence boundary | PASS | Run 44325257261, job 134874698600, checkout 7f17b1f, executed test blob 722d62c…; 70/70 tests, four replay cases matched. No artifact or typecheck was produced in that run; later expanded test source was not executed. See `S0_B4_RUN_3_REVIEW.md`. |
 | Dependency workflow static review | PASS — static only | `workflow_dispatch` only; baseline SHA asserted; full and `--omit=dev` audits; actions pinned to full commit SHAs; raw JSON + summary + provenance artifact with `if: always()`; no npm ci, audit fix, product script, build, Gradle, APK, signing or secrets. |
@@ -16,6 +16,8 @@
 | Overall S0 / S1 status | PASS — no premature transition | Overall S0 remains `PARTIAL — NOT COMPLETE`; S1 remains `NOT AUTHORIZED`. |
 
 ## 2. Corrections made during this review
+
+- Added the omitted WD-F3 (P2) observation: five of eight starting wars capitulate at tick 5 in all four probe scenarios; retained as a historical calibration finding for S21/S22, not an asserted engine defect or S0 gameplay change.
 
 1. Corrected full-S0 G0.9 from `NOT_TESTED` to `BLOCKED` while C3/B2 remains blocked, and separated that gate from the bounded S1-entry package's `NOT_TESTED` status. Updated `S0_SIGNOFF.md`, `S0_B7_RESULTS.md`, the Claude review request and `AI_HANDOFF.md`.
 2. Corrected the handoff branch metadata: the default coordination branch and experiment branch are now listed separately. The handoff also states that the experiment branch contains pre-existing product deltas and is not certified or authorized to merge by this S0 audit.
