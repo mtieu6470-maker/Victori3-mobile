@@ -141,3 +141,16 @@ Kruger (2010, printed p.140) attributes to Rasmussen (1978) a more realistic est
 Lye (1969, p.97) reports 60k–80k for the first white visitors in 1829, then gives a composite 60k–80k estimate of Mzilikazi polity subjects, drawing together Nguni, indigenous Sotho, military/subjugated, tributary and vassal groups. This is not an independent census that validates Chase or Archbell. The same page separately reports 1k–5k Nguni warriors in 1836; footnote 51 gives distinct military-force observations (A. Smith 1k–2k trained warriors, Harris 5k, American missionaries 3k total force). These are not demographic totals.
 
 **R3aa disposition:** NDE 60k remains a provisional high-uncertainty composite polity-subject candidate circa the 1830s, not a verified 1836 resident census or ethnic core; the 45k–85k band remains unverified with no CI/scenario method; NDE_MOS 210k remains broad geography only. No numeric, runtime, owner or map patch.
+
+ 
+## 9. R3ab — leadership roles and sovereign status in FJA, ETH and LIB
+
+R3ab audits the 1836 officeholder layer without changing shipped profiles or runtime.
+
+- **FJA:** Barry's p.150 text trace places Bubakar in the Almami office through November 1836 (with a short 1831 interruption); Yaya succeeds after the reported November transfer. At the 1836-01-01 simulation snapshot, Bubakar is therefore a provisional Almami candidate. A 2017 peer-reviewed article identifies Bubakar and his first election c.March 1824. The exact p.150 page image and underlying succession sources remain open. The office operated within Alfaya-Soriya rivalry and constraints from elders/provincial chiefs; this is not evidence of absolute centralized rule.
+- **ETH:** Crummey identifies Sahle Dengel as nominal ruler 1832–1840. Rubenson identifies Ras Ali Alula (Ali II) as ruler of central Ethiopia 1830–1853 and notes his mother's political dominance during his first decade. The profile must distinguish nominal emperor from effective Ras/kingmaker; do not duplicate Ali II under multiple names or give Mänän an exact 1836 regent title without a date-specific source.
+- **LIB:** Starr lists Anthony D. Williams as agent in 1836 and Thomas Buchanan as arriving in January to administer Bassa settlements; Buchanan becomes governor only in 1839. State Department history places the ACS-administered settlement before Commonwealth formation in 1838 and independence in 1847. Therefore no sovereign Liberian head of state should be assigned to 1836. Annual-level personnel records do not establish exact office status at 00:00 on 1 January.
+- R3ab source quality and open evidence are recorded in the dedicated matrix and request list. These are semantic/role findings, not authorization to patch `hos`, `hog`, government presets, country data or schema.
+
+Disposition: `SELF_AUDIT_ONLY / REVIEW_PENDING / NO_PRODUCT_PATCH`. Numeric and political-control approvals from earlier H01 packages remain unchanged.
+
