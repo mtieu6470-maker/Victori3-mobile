@@ -136,3 +136,27 @@ R4a checks 13 polity cases: USA, Mexico, Brazil, Japan, Qing China, Qajar Persia
 R4a adds a 13-polity evidence matrix, 24 non-executing research decisions, 15 open evidence requests, 28 source registry entries and triage for all 54 profiles without succession arrays. It distinguishes collective/aggregate, rebel/provisional, subject-local and colonial/company/protectorate authorities rather than assuming each needs an individual monarch.
 
 R4a is only the first tranche. The remaining 426 records and other global data layers remain backlog; no claim of complete Historical Mode validation is made.
+
+
+## 10. R4b — second global succession/authority tranche (18 November 2026)
+
+R4b researches 15 additional entities that have 1836 profiles but no dedicated succession array: KHI, BUK, HER, NAJ, TUN, NAG, AWA, GWA, HOL, TIB, RYU, BRN, ACE, MER and NDE. It adds 33 source records, each with an inspection-level and limitation note.
+
+Principal findings:
+- **KHI / BUK:** current profile uses `levi_2017`, a Kokand-centered study, for Khiva/Bukhara. This is a source-scope mismatch. Khiva's Agahi chronicle chronology has variant year ranges (Allah Quli/Rahim Quli transition 1842 vs 1843) requiring Hijri/calendar and manuscript checking. Bukhara requires Bukhara-specific court sources rather than relying on the Kokand monograph.
+- **HER:** Kamran Shah's formal rule and Yar Muhammad's vizier/de facto authority must be split; Kamran was deposed/murdered in 1842. Qajar claim, local Sadozay rule and later Afghan sovereignty are distinct.
+- **NAJ:** Faisal bin Turki's first reign ends with Egyptian capture/occupation in 1838; an interregnum and alternative rulers follow; he returns in 1843 for a second reign. The existing profile's uninterrupted start in 1834 is not an accurate representation of effective rule.
+- **TUN:** Ahmad Bey succeeds Mustafa Bey in 1837 and remains Bey until 1855. Mustafa's current profile has no per-record source; do not infer an exact accession day without Husaynid evidence.
+- **NAG:** Raghoji III dies on 11 December 1853, but British Commissioner administration starts on 13 March 1854. Personal death and annexation/state-end dates must be separate.
+- **AWA:** Nasir-ud-Din Haidar's death in July 1837 is followed by a disputed succession involving Badshah Begum/Munna Jan and the British-supported installation of Muhammad Ali Shah. Dynastic claim and recognized/installed ruler are not identical.
+- **GWA / HOL:** regents, adopted heirs, local rulers and East India Company/British Resident intervention affect who exercises power; do not flatten these into simple ruler transitions.
+- **TIB:** Dalai Lama and Regent are concurrent offices. The 11th Dalai Lama was enthroned in 1842 but received ruling seals only around 1855. Petech explicitly warns that Tibetan/Chinese calendar conversion can shift Gregorian dates by a month or more.
+- **RYU:** Shō Iku (1835–1847) and Shō Tai (from 1848) are local monarchs under dual Qing/Satsuma relationships; 1874 diplomatic coercion and 1879 Japanese annexation are different events.
+- **BRN:** Omar Ali Saifuddin II's accession tradition has competing 1825/1826/1828 dates; Hashim acceded in 1885 but coronation was in 1895. Protectorate (1888) and Resident system (1906) are authority transitions, not Sultan changes.
+- **ACE:** strong candidate baseline mismatch: the 1836 Sultan in Leyten's chronology is the young Sulayman/Ali Iskandar Shah after Ala'ad-Din Muhammad Shah's death, while uncle Tuanku Ibrahim also assumes a Sultan title and controls the Kraton, creating divided authority/civil war. Current profile's “Alauddin Muhammad Da'ud Syah I, since 1823” does not match that account. This is a high-priority discrepancy, **not a live-data correction** until Acehnese primary genealogy and independent review establish identity/transliteration.
+- **MER:** Queens and Rainilaiarivony as Prime Minister/effective executive must be represented as separate office histories; French protectorate, conquest, annexation and entity-end dates need separate legal verification.
+- **NDE:** Mzilikazi's death (1868), Mncumbathe regency, Lobengula's contested installation (1870) and Nkulumane's claim form an interrupted/contested succession.
+
+R4b includes 15 evidence dossiers, 25 non-executing decisions, 18 open evidence requests and 33 source registry entries. The dossier distinguishes full searchable text, abstracts, search excerpts, OCR/transcriptions and source records whose PDF page-image screenshots could not be fetched. No claim of visual page inspection is made for failed screenshot attempts.
+
+R4b is a second tranche only. The remaining missing arrays, 439 current records, all-world cross-dataset consistency and 1901–1936 timeline remain open.
