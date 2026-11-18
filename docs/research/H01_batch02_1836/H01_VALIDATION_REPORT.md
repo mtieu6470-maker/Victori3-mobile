@@ -105,8 +105,8 @@ These are ChatGPT implementation checks and self-audit, not an independent REVIE
  
 ## R3ab officeholder research validation (2026-11-18)
 
-- Added `H01_R3ab_1836_AFRICAN_POLITY_OFFICEHOLDER_AUDIT_VI.md`, source evidence matrix (8 sources), patch decisions (6 decisions), open evidence requests (9 requests) and source registry delta (8 sources).
-- CSV structural check: R3ab source matrix = 9 columns including header, 8 data rows; patch decisions = 7 columns including header, 6 data rows; open evidence requests = 5 columns including header, 9 data rows; source registry delta = 8 columns including header, 8 data rows. All rows rectangular after correction.
+- Added `H01_R3ab_1836_AFRICAN_POLITY_OFFICEHOLDER_AUDIT_VI.md`, source evidence matrix (9 evidence rows, including one negative-control citation), patch decisions (6), open evidence requests (9) and source registry delta (8).
+- CSV structural check: R3ab source matrix = 10 columns and 9 data rows; patch decisions = 7 columns and 6 data rows; open evidence requests = 5 columns and 9 data rows; source registry delta = 8 columns and 8 data rows. All rows rectangular after correction. The cumulative open-evidence file has 36 data rows and 5 columns; cumulative source registry delta has 28 data rows and 8 columns.
 - FJA: Bubakar/Almami at the 1836 snapshot is a provisional candidate based on Barry p.150 text trace; page image not authenticated. Exact November transition and archival source chain remain open.
 - ETH: Sahle Dengel identified as nominal emperor 1832–1840; Ras Ali Alula/Ali II separated as de facto power-holder; Mänän's role retained with temporal qualification.
 - LIB: 1836 ACS colony agency distinguished from sovereign head of state; A.D. Williams and Thomas Buchanan's separate jurisdictions recorded.
