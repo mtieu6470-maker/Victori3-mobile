@@ -97,6 +97,12 @@ Pre-protocol work:
 ## 5. Work log
 
 Append newest entries at the top. Do not overwrite earlier entries.
+### 2026-11-18 — B7-RISK-TABLE-STRUCTURE-CORRECTION
+
+- Found that the P2 Risk Register header had four columns while many body rows had six, causing malformed Markdown tables and loss of clear impact/mitigation/owner/target semantics.
+- Rebuilt all 21 P2 rows into the same six-column schema as P0/P1, retaining source severity and explicit evidence, impact, disposition/control, owner, and target/closure criteria.
+- Updated `S0_B7_RISK_TRACEABILITY.md` so R8/TC-F4, TC-F6, TC-F7, GD-F1/F3/F4, and AS-F2/F3/F4 map to their exact individual P2 rows. TC-F6 is marked mitigated for G0.6 by B4 while the original baseline test remains narrow.
+- Updated the self-review and Claude request to require table-cell integrity checking. No gate verdict or product source was changed.
 ### 2026-11-18 — B7-REVIEW-PACKAGE-MANIFEST
 
 - Added `docs/audit/s0/S0_B7_REVIEW_PACKAGE_MANIFEST.md` (commit `1b7bb3a77c397386910940a9eb824c2cd00d0c99`).
