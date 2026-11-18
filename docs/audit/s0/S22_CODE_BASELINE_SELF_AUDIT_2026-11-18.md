@@ -261,11 +261,11 @@ The first authorized S22 implementation slice should be preceded by focused test
 
 **Evidence**
 
-- \`src/engine/types.ts:19\`: \`GameDate\` stores only \`y\` and \`m\`.
-- \`src/engine/core.ts:27–29\`: \`dateStr()\` always emits day \`01\`; \`parseDate()\` reads only year and month; \`dateToTick()\` maps any date in the same month to the same simulation tick.
-- \`src/engine/systems/events.ts:17\`: a dated exogenous event is applied when its month tick matches.
-- \`historical_data/events/historical_events.json\`: the California gold discovery is recorded as \`1848-01-24\`; numerous decision-window reference dates also contain day precision.
-- The event log uses \`dateStr()\`, so a day-specific record is presented at the first day of its month.
+- `src/engine/types.ts:19`: `GameDate` stores only `y` and `m`.
+- `src/engine/core.ts:27–29`: `dateStr()` always emits day `01`; `parseDate()` reads only year and month; `dateToTick()` maps any date in the same month to the same simulation tick.
+- `src/engine/systems/events.ts:17`: a dated exogenous event is applied when its month tick matches.
+- `historical_data/events/historical_events.json`: the California gold discovery is recorded as `1848-01-24`; numerous decision-window reference dates also contain day precision.
+- The event log uses `dateStr()`, so a day-specific record is presented at the first day of its month.
 
 **Impact**
 
@@ -273,7 +273,7 @@ The monthly engine can model the correct month, but it cannot execute or log the
 
 **Required correction after authorization**
 
-Keep the recorded historical date separate from the simulation-effective date. Add explicit precision metadata (\`day\`, \`month\`, \`year\`, \`range\`) and a documented monthly aggregation policy. Do not display a day-exact log entry when the engine only resolves month ticks.
+Keep the recorded historical date separate from the simulation-effective date. Add explicit precision metadata (`day`, `month`, `year`, `range`) and a documented monthly aggregation policy. Do not display a day-exact log entry when the engine only resolves month ticks.
 
 **Acceptance tests**
 
@@ -286,10 +286,10 @@ Keep the recorded historical date separate from the simulation-effective date. A
 
 **Evidence**
 
-- \`src/engine/divergence.ts:22–24\`: \`milestoneScore()\` begins counting milestone weight as soon as \`check_date\` is reached; only status \`achieved\` adds points.
-- \`src/engine/divergence.ts:32–38\`: \`divergenceMonth()\` deliberately leaves an unmet milestone \`pending\` until \`lastChance = due + tolerance_years * 12\`.
-- \`historical_data/events/milestones.json\`: many milestones have tolerance windows from 2 to 10 years.
-- \`tests/modes.test.ts:41–49\` compares mean milestone scores over three seeds and checks that some milestones are missed, but does not assert the score semantics for a pending milestone inside its grace window.
+- `src/engine/divergence.ts:22–24`: `milestoneScore()` begins counting milestone weight as soon as `check_date` is reached; only status `achieved` adds points.
+- `src/engine/divergence.ts:32–38`: `divergenceMonth()` deliberately leaves an unmet milestone `pending` until `lastChance = due + tolerance_years * 12`.
+- `historical_data/events/milestones.json`: many milestones have tolerance windows from 2 to 10 years.
+- `tests/modes.test.ts:41–49` compares mean milestone scores over three seeds and checks that some milestones are missed, but does not assert the score semantics for a pending milestone inside its grace window.
 
 **Impact**
 
@@ -303,7 +303,7 @@ Define a distinct provisional state/score policy. A pending milestone inside its
 
 - An unmet milestone at its due date but still within tolerance does not count as a resolved miss.
 - A milestone achieved during grace receives the documented late credit.
-- A milestone still unmet at \`lastChance\` becomes missed and then contributes zero.
+- A milestone still unmet at `lastChance` becomes missed and then contributes zero.
 - The milestone score is deterministic before/after save-load and does not silently shift because a pending item entered the denominator.
 
 ## 8. Additional benchmark coverage facts
@@ -321,7 +321,7 @@ These counts describe the inspected repository source files, not a complete surv
 | Maddison population, present-day territory | 574 | 94 | 1820–1913 | Territorial basis is not historical polity boundaries |
 | Maddison GDP per capita, present-day territory | 365 | 66 | 1820–1913 | Used for the 1836 GDP-per-capita setup; not retained as a dated benchmark series |
 
-The current builder compiles only the four CoW fields identified as selected above into \`HistoricalDB.benchmarks\`. The compiled 1836 GDP-per-capita setup is separate from a dated GDP calibration series. Thus, from the files inspected, there is no retained 1914–1936 benchmark series and there are significant scope/coverage differences by metric. These are coverage limits of the repository's current source inventory, not proof that suitable external evidence does not exist.
+The current builder compiles only the four CoW fields identified as selected above into `HistoricalDB.benchmarks`. The compiled 1836 GDP-per-capita setup is separate from a dated GDP calibration series. Thus, from the files inspected, there is no retained 1914–1936 benchmark series and there are significant scope/coverage differences by metric. These are coverage limits of the repository's current source inventory, not proof that suitable external evidence does not exist.
 
 **Required research output**
 
@@ -329,7 +329,7 @@ Hydrogen's research package should distinguish: (a) evidence already present in 
 
 ## 9. Additional test-coverage observations
 
-In the inspected \`tests/data.test.ts\` and \`tests/modes.test.ts\`, no direct regression assertions were found for:
+In the inspected `tests/data.test.ts` and `tests/modes.test.ts`, no direct regression assertions were found for:
 
 - rank threshold evaluation and deterministic ties;
 - day-to-month date precision conversion and event log fidelity;
