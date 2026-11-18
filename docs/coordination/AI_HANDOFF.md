@@ -16,6 +16,7 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 
 - **R4e / Claude — final collective/aggregate succession queue review:** start with `docs/audit/s0/GLOBAL_R4E_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4e covers MAO (collective rangatira authority) and MLY (multiple Malay constituent polities); base SHA before R4e: `103ab66b227809fae358e082fa253c0e50a1f78c`. Fetch the exact latest branch HEAD before review.
 - **R4e package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/README_VI.md`; 2-entity evidence matrix, 19 non-executing decisions, 12 open evidence requests and 20 source records. Integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/GITHUB_INTEGRATION_RECEIPT_R4e.md`.
+- **P0 engineering pre-design — Population Cohorts:** `docs/spec/POPULATION_COHORTS_DATA_MODEL_PROPOSAL_VI.md`. This is design-only, based on the checked-in `Region`/`GameState`/`populationMonth`/`shiftStrata`/`computeEconomy`/save implementation and roadmap S1/S6/S7/S10–S12. It is NOT S1 execution or runtime authorization. S1 remains `NOT_STARTED`; no code/data/save/UI changes are permitted until the S0-B7 review + owner gate is satisfied.
 - **R4d / Claude — previous global succession + V3 parity review:** `docs/audit/s0/GLOBAL_R4D_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open for the final 15 missing-profile cases and the requested 41-area Victoria 3 feature-parity audit. Base SHA: `f0745f1fd1eb381434cba4aa8576b3c2271d8732`.
 - **R4d package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4d/README_VI.md`; 15-polity audit, 26 non-executing decisions, 17 open evidence requests and 34 source entries. Feature parity files: `docs/audit/GLOBAL_VICTORIA3_FEATURE_PARITY_AUDIT_VI.md` and `docs/audit/GLOBAL_VICTORIA3_FEATURE_PARITY_MATRIX.csv`. R4d integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4d/GITHUB_INTEGRATION_RECEIPT_R4d.md`.
 - **R4c / Claude:** `docs/audit/s0/GLOBAL_R4C_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open for 15 previous profiles.
@@ -119,6 +120,15 @@ Pre-protocol work:
 | Earlier stages 1–5 (identity/content, numbering of an earlier specification) | `PRE_PROTOCOL_IMPLEMENTED_REPORTED` | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` | Not `REVIEW_PASS` or `ACCEPTED`; part of the current baseline; S0 verifies what is present at the frozen SHA |
 
 ## 5. Work log
+
+### 2026-11-18 — POPULATION-COHORTS-TECHNICAL-PRE-DESIGN
+
+- Prepared `docs/spec/POPULATION_COHORTS_DATA_MODEL_PROPOSAL_VI.md` as a design-only P0 engineering pre-design.
+- Inspected the current code for `Region`, `GameState`, `createGame()/strataFor()`, `populationMonth()/shiftStrata()`, `computeEconomy()` and `save.ts`, plus the owner-approved roadmap S1/S6/S7/S10/S11/S12 and H01 R3l population-scope audit.
+- Main technical conclusions: current population is region total + nine strata shares; strata migration is a building-capacity heuristic, not hiring; economy labor supply is derived as `pop * 0.45`; static RegionRecord has secondary culture/religion fields but runtime currently drops secondary religion on init; save loader only accepts v1 and has no migration chain.
+- Proposal defines canonical mutable cohort state, stable cohort keys, Region read-model aggregates, source-quality and uncertainty rules, deterministic migration/split/merge, S1 save migration requirements, S6/S7/S10–S12 boundaries, and data/simulation/determinism/performance acceptance tests.
+- No implementation started: S0-B7/R4e independent review and owner acceptance remain pending; S1 remains NOT_STARTED. No engine, historical data, test, save, UI, Android, workflow or APK files were changed. No tests/build/APK workflow was run.
+- Status: `DESIGN_PROPOSAL_ONLY / PRE-S1 / NO_RUNTIME_AUTHORIZATION`. Claude may review the design independently; only the project owner can approve phase/scope changes.
 
 ### 2026-11-18 — GLOBAL-HISTORICAL-R4E-COLLECTIVE-POLITIES
 
