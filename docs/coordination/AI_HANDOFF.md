@@ -122,7 +122,7 @@ Pre-protocol work:
 - Audit scope: SHE/Sahle Selassie; ZUL/Dingane and Mpande succession; BSO/Moshoeshoe, Morena and Basotho polity formation. Main caveats: 1806/1813 Shewa start-year conflict and Ras/Negus title chronology; Dingane exact-day source basis and Mpande transition 1839 defection versus 1840 accession; Moshoeshoe's 1820 inherited chiefship versus uncertain exact Morena/Morena e Moholo chronology.
 - R3ae did not change live profiles or succession data. `heads_of_state.json` has no dedicated SHE/ZUL/BSO entity arrays at the base HEAD; a source-backed succession task is recorded for later, without edits in R3ae.
 - Claude review request: `docs/audit/s0/H01_R3AE_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`, created at pre-integration HEAD `c12c526e5fa4c756ee3fea2253e20fce4b8b5800`. Review must be no-write, exact-HEAD, source/CSV/diff checked.
-- Cumulative H01 registers: R3ae adds 8 open evidence requests and 10 source registry records; cumulative totals are to be confirmed from exact fetched GitHub blobs in the validation/receipt.
+- Cumulative H01 registers: R3ae adds 8 open evidence requests and 10 source registry records; cumulative totals validated from exact GitHub blobs are 60 open requests and 60 source registry rows.
 - Status: `SELF_AUDIT_ONLY / READY_FOR_INDEPENDENT_REVIEW / NO_PRODUCT_PATCH`. This does not constitute Claude `REVIEW_PASS`, owner acceptance, title/profile approval or S1 authorization.
 
  
