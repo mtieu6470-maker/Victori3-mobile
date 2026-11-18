@@ -1,25 +1,17 @@
 # H01 Batch 02 — gói tích hợp nghiên cứu R3aa
 
-**Gói nghiên cứu mới nhất: R3ac — Sokoto, Bornu, Wadai và Darfur**  
+**Gói nghiên cứu mới nhất: R3ad — Asante, Dahomey, Macina và Buganda**  
 **Trạng thái:** `READY_FOR_INDEPENDENT_REVIEW / SELF_AUDIT_ONLY / NO_PRODUCT_PATCH`  
-**Claude review request:** [H01 R3ac — Claude Independent Review Request](../../audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md)  
-**Biên nhận tích hợp:** [GITHUB_INTEGRATION_RECEIPT_R3ac.md](GITHUB_INTEGRATION_RECEIPT_R3ac.md)
+**Claude review request:** [H01 R3ad — Claude Independent Review Request](../../audit/s0/H01_R3AD_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md)  
+**Biên nhận tích hợp:** [GITHUB_INTEGRATION_RECEIPT_R3ad.md](GITHUB_INTEGRATION_RECEIPT_R3ad.md)
 
-> **Điểm vào cho Claude khi kết nối GitHub:** review R3ac trước qua request ở trên, sau đó kiểm tra R3ab qua [R3ab review request](../../audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md). Luôn fetch HEAD mới nhất và ghi đúng SHA đã review. ChatGPT self-audit không phải independent `REVIEW_PASS`.
+> **Điểm vào cho Claude khi kết nối GitHub:** review R3ad trước qua request ở trên, sau đó kiểm tra riêng R3ac và R3ab theo các review request tương ứng. Luôn fetch HEAD mới nhất và ghi đúng SHA đã review. ChatGPT self-audit không phải independent `REVIEW_PASS`.
 
-**R3ab cũng đang chờ independent review:** [H01 R3ab — Claude Independent Review Request](../../audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md).
-
-**Trạng thái H01 tích hợp:** `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`.
-
-Đây là gói tích hợp tài liệu nghiên cứu H01 lên repository Victori3-mobile, không phải bản cập nhật dân số chạy trong game.
-**Trạng thái R3ab:** `READY_FOR_INDEPENDENT_REVIEW / SELF_AUDIT_ONLY / NO_PRODUCT_PATCH`  
-**Gói review cho Claude:** [H01 R3ab — Claude Independent Review Request](../../audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md)
-
-> **Điểm vào khi Claude kết nối GitHub:** mở review request ở đường dẫn trên trước. Review đúng HEAD mới nhất của nhánh `claude/game-historical-sandbox-modes-kg7rj7`, dùng base SHA và danh sách file được ghi trong request. Kết quả tự kiểm của ChatGPT không phải independent `REVIEW_PASS`.
+**Các gói review trước đó:** [R3ac — Central Sahel](../../audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md) · [R3ab — African officeholders](../../audit/s0/H01_R3AB_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md).
 
 **Trạng thái H01 tích hợp:** `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`.
 
-Đây là gói tích hợp tài liệu nghiên cứu H01 lên repository Victori3-mobile, không phải bản cập nhật dân số chạy trong game.
+Đây là gói nghiên cứu và đối chiếu tài liệu cho H01, không phải bản cập nhật dữ liệu chạy trong game. Không có profile, population, political ownership, engine hay schema nào được thay đổi.
 
 ## Thành phần
 - `H01_INTEGRATED_AUDIT_REPORT_VI.md`: quyết định tổng hợp cho 17 entity và các tranh chấp về phạm vi dân số/quyền lực.
@@ -111,3 +103,13 @@ Không sửa population benchmark, profile, registry, map owner, engine/runtime,
 - **Darfur:** Muhammad al-Fadl trị vì 1803–1838; Muhammad al-Husayn kế vị năm 1838.
 - Xem `H01_R3ac_CENTRAL_SAHEL_RULERSHIP_AND_SOVEREIGNTY_AUDIT_VI.md`, ma trận nguồn, patch decisions và open requests. Không sửa dữ liệu runtime hoặc schema.
 
+
+
+## R3ad — Asante, Dahomey, Macina và Buganda
+
+- **Asante:** Kwaku Dua I (Fredua Agyeman) kế vị năm 1834; ngày enstoolment 25/8/1834 chỉ được nguồn lịch sử hoàng gia ghi là “most probably”.
+- **Dahomey:** Ghezo lên ngôi qua biến động năm 1818; Adandozan là tiền nhiệm bị phế truất nhưng vị thế và việc bị loại khỏi king-list vẫn là tranh luận sử học.
+- **Macina:** phải tách thời gian cầm quyền cá nhân của Ahmād Lobbo/Seku Amadu khỏi thời gian tồn tại của nhà nước Hamdallahi (1818–1862); năm mất 1844/1845 còn dị bản.
+- **Buganda:** Ssuuna II là Kabaka ở mốc 1836; năm bắt đầu triều đại thay đổi giữa c.1830, 1832 và 1836 theo từng nguồn.
+
+Các tài liệu R3ad và CSV liên quan được liệt kê tại phần thành phần, tích hợp vào audit/source registry/open-evidence của H01 và có biên nhận GitHub riêng. Toàn bộ vẫn ở research layer; không tự động áp dụng bất kỳ patch nào vào game.
