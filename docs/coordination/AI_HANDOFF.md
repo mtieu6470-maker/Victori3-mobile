@@ -17,6 +17,7 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 - **R4e / Claude — final collective/aggregate succession queue review:** start with `docs/audit/s0/GLOBAL_R4E_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4e covers MAO (collective rangatira authority) and MLY (multiple Malay constituent polities); base SHA before R4e: `103ab66b227809fae358e082fa253c0e50a1f78c`. Fetch the exact latest branch HEAD before review.
 - **R4e package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/README_VI.md`; 2-entity evidence matrix, 19 non-executing decisions, 12 open evidence requests and 20 source records. Integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/GITHUB_INTEGRATION_RECEIPT_R4e.md`.
 - **P0 engineering pre-design — Population Cohorts:** `docs/spec/POPULATION_COHORTS_DATA_MODEL_PROPOSAL_VI.md` (design revision `b35c5367cfe41bea3036bec2b846d19060f495c0`). ChatGPT self-audit clarified age distribution vs cohort identity, canonical tuple IDs, integer population mass and unknown-vs-unaffiliated religion. Still design-only; no runtime authorization.
+- **Population seed research — Gemini Hydrogen:** `docs/research/GLOBAL_HISTORICAL_1836_1936/POPULATION_COHORT_SEED_HYDROGEN_RESEARCH_REQUEST_2026-11-18.md` (request commit `c17dc2a9031a6ca8cf4d19cf86391073154725ca`). All-world, c.1836, source-backed candidate data only; no runtime data patch or implementation authorization.
 - **Population Cohorts — Claude independent design review:** start with `docs/audit/s0/POPULATION_COHORTS_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-18.md` (request commit `c972b1b3844943e5df2f433936c8c21bb4fb464e`). No-write review of the design only; review target design commit `b35c5367cfe41bea3036bec2b846d19060f495c0`, code baseline `e4924ca48264f8d0818eface51a28a87cd363b89`. This does not substitute for S0-B7 review/owner acceptance and does not open S1.
 - **R4d / Claude — previous global succession + V3 parity review:** `docs/audit/s0/GLOBAL_R4D_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` remains open for the final 15 missing-profile cases and the requested 41-area Victoria 3 feature-parity audit. Base SHA: `f0745f1fd1eb381434cba4aa8576b3c2271d8732`.
 - **R4d package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4d/README_VI.md`; 15-polity audit, 26 non-executing decisions, 17 open evidence requests and 34 source entries. Feature parity files: `docs/audit/GLOBAL_VICTORIA3_FEATURE_PARITY_AUDIT_VI.md` and `docs/audit/GLOBAL_VICTORIA3_FEATURE_PARITY_MATRIX.csv`. R4d integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4d/GITHUB_INTEGRATION_RECEIPT_R4d.md`.
@@ -121,6 +122,13 @@ Pre-protocol work:
 | Earlier stages 1–5 (identity/content, numbering of an earlier specification) | `PRE_PROTOCOL_IMPLEMENTED_REPORTED` | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` | Not `REVIEW_PASS` or `ACCEPTED`; part of the current baseline; S0 verifies what is present at the frozen SHA |
 
 ## 5. Work log
+
+### 2026-11-18 — POPULATION-COHORT-SEED-HYDROGEN-RESEARCH
+
+- Added research-only request `docs/research/GLOBAL_HISTORICAL_1836_1936/POPULATION_COHORT_SEED_HYDROGEN_RESEARCH_REQUEST_2026-11-18.md` (commit `c17dc2a9031a6ca8cf4d19cf86391073154725ca`).
+- Requests global, c.1836 source-backed candidate evidence across total population, age, occupation/livelihood, strata, rural/urban, culture/language, religion, literacy, coercive labour status and carefully scoped wealth/income evidence.
+- Requires complete entity coverage matrix, regional balance, source locators, units, population scope, quality, method, uncertainty, crosswalk provenance and explicit missing records. It prohibits inferring subgroup shares from totals or copying polity totals into every Strategic Region.
+- Research-only handoff to Gemini Hydrogen. No historical runtime data, code, tests, save, assets, UI, workflow or Android files changed; no tests/build/APK run. Candidate data requires separate validation and owner authorization before integration.
 
 ### 2026-11-18 — POPULATION-COHORTS-DESIGN-REVIEW-PACKET
 
