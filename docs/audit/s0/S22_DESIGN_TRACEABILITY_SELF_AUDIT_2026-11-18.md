@@ -13,9 +13,9 @@
 
 ## 1. Executive result
 
-The proposal has strong coverage for event taxonomy, bounded historical priors, effect validation/atomicity, benchmark provenance, holdout sets, multi-seed evaluation and diagnostic/gameplay separation. It is not yet fully implementation-ready against all findings in the code self-audit.
+The proposal has strong coverage for event taxonomy, bounded historical priors, effect validation/atomicity, benchmark provenance, holdout sets, multi-seed evaluation and diagnostic/gameplay separation. The later SA-10 source audit added a further requirement: close and recursively validate the condition grammar before implementation.
 
-Three details should be made normative before an implementation proposal is considered complete:
+The following details must be normative before an implementation proposal is considered complete:
 
 1. deterministic rank evaluation and tie/inclusion semantics (SA-01);
 2. explicit separation of region-specific indicators such as the African partition from global aggregates (SA-07);
@@ -35,7 +35,8 @@ Pending-decision validation in SA-03 is addressed conceptually, but the proposal
 | SA-06 — narrow metrics and omitted decentralized actors | §§6.1, 6.3 and 7.1 broaden dimensions and require coverage by region/polity type. | **COVERED IN PRINCIPLE**; implementation must preserve explicit denominators and missingness |
 | SA-07 — Europe-specific predicate risks global scoring | §7.1 separates territorial/political and other dimensions; §6.3 requires 12 world regions. It does not explicitly state that the African partition / European-owner count remains a named regional indicator excluded from generic global actor-class aggregation. | **OPEN DESIGN GAP** |
 | SA-08 — day precision collapsed to month | §3.2 explicitly lists `date_precision` and distinguishes exact date, range and uncertain chronology. | **COVERED IN PRINCIPLE**; specify monthly effective-tick policy and log display contract |
-| SA-09 — pending milestones penalized during grace | §7.2 distinguishes late/partial achievement but does not define whether a pending milestone inside its tolerance interval enters the score denominator or counts as a failure. | **OPEN DESIGN GAP** |
+| SA-09 — pending milestones penalized during grace | §7.2 distinguishes late/partial achievement but does not define whether a pending milestone inside its tolerance interval enters the score denominator or counts as a failure. | **CLOSED BY DESIGN AMENDMENT §14.3** |
+| SA-10 — open condition grammar / incomplete recursive validation | Original §§3–4 and §10 do not require a closed condition union, recursive validation for priorities/windows/milestones, path-specific diagnostics or bounded nesting. | **CLOSED BY DESIGN AMENDMENT §14.7** |
 
 ## 3. Required design amendments
 
