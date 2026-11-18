@@ -70,7 +70,7 @@ The only automatic save observed by B3 is tied to January in-game date; it is no
 | R7 P0 has owner-accepted interim containment | ACCEPTED IN PRINCIPLE under OD-20261116-11; remains OPEN |
 | Every P1 has evidence, impact, mitigation, stage and owner | DOCUMENTED IN DRAFT; reviewer check pending |
 | No uncontrolled P0 | R7 containment is recorded; reviewer must confirm sufficiency |
-| G0.9 | NOT_TESTED pending independent review and owner signoff |
+| G0.9 (full S0) | BLOCKED while C3/B2 is blocked under v3.2 §6.4 / OD-20261116-11 §2.1.1 |
 | Overall S0 | PARTIAL |
 | Bounded S1-entry package | Not yet REVIEW_PASS / ACCEPTED |
 | S1 implementation authorization | NOT GRANTED |
