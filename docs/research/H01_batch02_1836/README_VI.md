@@ -1,6 +1,6 @@
-# H01 Batch 02 — gói tích hợp nghiên cứu R3t
+# H01 Batch 02 — gói tích hợp nghiên cứu R3x
 
-**Trạng thái:** `RESEARCH_LAYER_INTEGRATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`.
+**Trạng thái:** `RESEARCH_LAYER_UPDATED / REQUEST_CHANGES / NO_NUMERIC_APPROVAL`.
 
 Đây là gói tích hợp tài liệu nghiên cứu H01 lên repository Victori3-mobile, không phải bản cập nhật dân số chạy trong game.
 
@@ -43,3 +43,11 @@ Không sửa population benchmark, profile, registry, map owner, engine/runtime,
 - Morton-Williams (1967, p.45) đặt lễ tấn phong chính thức Atiba làm Alafin ở Ago Oja khoảng 1838; Johnson (1921, pp.279–280) kể việc lên ngôi sau khi kinh đô cũ sụp đổ nhưng không chốt năm trong đoạn đó.
 - Cần tách collapse/displacement (c.1835–36), liên minh người tị nạn ở Ago Oja, và formal ritual installation/reconstitution (c.1838). Không chiếu ngược một New Oyo đã củng cố đầy đủ về ngày 1836-01-01.
 - OYO 650k, OYO_OYO 1.45m và claim >750k vẫn cách ly; không thay dữ liệu game. Xem `H01_R3w_OYO_CITATION_AND_TRANSITION_AUDIT_VI.md` và bộ CSV R3w.
+
+
+## R3x — NDE: population universe và truy vết Rasmussen
+- Lye (1969, pp.96–97) gọi 60k–80k là ước lượng rộng cho subject population của polity Mzilikazi, gộp Nguni/Sotho, quân sự/nhóm bị khuất phục, tributary/vassal; người Sotho bản địa chiếm phần lớn. Không phải lõi sắc tộc Ndebele/Nguni.
+- Cùng nguồn tách lực lượng chiến binh Nguni 1k–5k năm 1836 khỏi subject population; 10k–20k theo Mzilikazi qua Limpopo là dòng di cư khi rút lui về sau, không phải tổng dân số 1836.
+- Delius (2010), trích Rasmussen 1978 pp.23–26, 90–94, ghi 300 người ban đầu, khoảng 20k là ước lượng đáng tin cậy nhất cuối thập niên 1820, nhưng một số nguồn cao gấp 3–4 lần; tác giả nhấn mạnh sai số lớn. Warren et al. (2014) lặp lại quỹ đạo 300→20k và việc tiếp nhận người Sotho-Tswana.
+- NDE 60k chỉ giữ như provisional approximate polity-subject estimate; khoảng 45k–85k không có phương pháp interval được xác minh. NDE_MOS 210k vẫn là broad geography, không phải direct-control total.
+- Xem `H01_R3x_NDE_POPULATION_AND_CONTROL_SCOPE_AUDIT_VI.md`, source matrix, patch decisions và open evidence requests.
