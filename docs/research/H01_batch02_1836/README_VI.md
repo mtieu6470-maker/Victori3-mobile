@@ -90,3 +90,12 @@ Không sửa population benchmark, profile, registry, map owner, engine/runtime,
 - Các kết quả được lưu trong audit, source matrix, patch decisions và open evidence requests R3ab. Không cập nhật live historical data, government, officeholder runtime hoặc schema.
 - Xem `H01_R3ab_1836_AFRICAN_POLITY_OFFICEHOLDER_AUDIT_VI.md`; trạng thái `SELF_AUDIT_ONLY / NO_PRODUCT_PATCH`, cần Claude independent review.
 
+ 
+## R3ac — Sokoto, Bornu, Wadai và Darfur
+
+- **Sokoto:** Muhammad Bello là Amīr al-muʾminīn 1817–1837; Naylor (2021) giải thích đây là chức danh xuất hiện phổ biến trong bản thảo. Last (1967) ghi chiến dịch Gawakuke tháng 3/1836.
+- **Bornu:** al-Kanemi là Shehu nắm quyền thực tế, Mai Ibrahim còn giữ địa vị truyền thống đến khi triều Sayfawa bị bãi bỏ năm 1846. Năm mất của al-Kanemi có dị bản 1835/1837; 1837 được hỗ trợ tốt hơn.
+- **Wadai:** mốc Muhammad al-Sharif lên ngôi còn tranh chấp 1834/1835/1838. Không thể khẳng định chắc mốc `since=1835` ở snapshot 1836-01-01.
+- **Darfur:** Muhammad al-Fadl trị vì 1803–1838; Muhammad al-Husayn kế vị năm 1838.
+- Xem `H01_R3ac_CENTRAL_SAHEL_RULERSHIP_AND_SOVEREIGNTY_AUDIT_VI.md`, ma trận nguồn, patch decisions và open requests. Không sửa dữ liệu runtime hoặc schema.
+
