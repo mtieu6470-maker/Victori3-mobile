@@ -124,5 +124,6 @@ These are ChatGPT implementation checks and self-audit, not an independent REVIE
 - WAD: 1834/1835/1838 accession dates conflict; Cordell (1977) documents at least six unreconciled king lists; do not promote 1835 as an exact verified date.
 - DAR: Daly (2007) gives al-Fadl 1803-1838 and al-Husayn 1838-1873.
 - No product data, government preset, map owner, runtime, engine, save/schema, tests, assets, Android, Gradle, workflow or APK change. No build/test workflow run.
-- `SELF_AUDIT_ONLY / PENDING_CLAUDE_REVIEW / NO_PRODUCT_PATCH`; not independent REVIEW_PASS, owner acceptance or S1 authorization.
+- Claude independent review request committed at `docs/audit/s0/H01_R3AC_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md` (commit `dc1e3805b06e2798db26c90bc5661f885b941f6c`); pre-request HEAD `529e063562f21ea36ce6975a87592ac5c28bf8fc`. The request is linked from `README_VI.md` and `AI_HANDOFF.md`.
+- `SELF_AUDIT_ONLY / READY_FOR_INDEPENDENT_REVIEW / NO_PRODUCT_PATCH`; not independent REVIEW_PASS, owner acceptance or S1 authorization.
 
