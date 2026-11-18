@@ -97,6 +97,16 @@ Pre-protocol work:
 
 Append newest entries at the top. Do not overwrite earlier entries.
 
+### 2026-11-18 — B4-EXPERIMENT-BRANCH-ISOLATION-AUDIT
+
+- Compared current experiment head `662bd830b150302b008b75119b46c213f417c17a` with frozen baseline `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`: 71 commits ahead, 0 behind.
+- The full branch delta includes pre-existing Android/Capacitor configuration, historical data, engine, UI and test changes, as well as the S0 audit package. These are inherited experiment-branch contents, not modifications in the B4 characterization commits.
+- Independently fetched the nine B4 commits in the recent work slice; each changes only one audit/test file: the dedicated B4 test, test plan or handoff. No commit in this slice modifies product source, shipped data, assets, Gradle or gameplay.
+- The dedicated `.github/workflows/s0-b4-tests.yml` isolates the test: exact frozen baseline checkout plus overlay of only the B4 test file and fixture. It does not execute the current experiment branch's engine/UI/Android product delta.
+- Consequence: a future PASS is strictly a baseline characterization verdict for `2240a8f`, not a regression/build verdict for the complete experiment branch and not approval to merge that branch.
+- B4 plan updated with this limitation. No product files changed.
+
+
 ### 2026-11-18 — B4-MALFORMED-RNG-COMPATIBILITY-CHARACTERIZATION
 
 - Test update: commit `7562cb2aa493704c3a2687633360701dc1168a75` adds explicit `[S0-B4_COMPAT]` evidence lines for both a missing RNG field and a wrong-type RNG value (string instead of a four-number tuple).
