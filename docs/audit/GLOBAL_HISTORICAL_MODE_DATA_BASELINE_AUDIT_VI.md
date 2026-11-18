@@ -116,3 +116,23 @@ Các gaps hiện thấy có thể là interregnum, nội chiến hoặc chính q
 ## 8. Phạm vi và giới hạn
 
 Tệp này và coverage matrix là tài liệu audit. Không sửa `historical_data/`, `heads_of_state.json`, profile, source runtime, political registry, schema, engine, events, tests, assets, save, Android, Gradle, workflows hay APK. Không chạy build/test trong gói này. Đây là self-audit, không phải Claude `REVIEW_PASS`, owner acceptance hoặc S1 authorization.
+
+
+## 9. R4a — first global cross-region succession/source tranche (18 November 2026)
+
+R4a checks 13 polity cases: USA, Mexico, Brazil, Japan, Qing China, Qajar Persia, Ottoman Empire, Sokoto, Zulu, Asante, Morocco, Wallachia and Moldavia. It does not change the global baseline counts.
+
+- **Mexico:** 33/33 existing records cite Wikipedia only. Chamber of Deputies and UNAM chronologies identify interim office-holders omitted from the current list; their date boundaries differ. Preserve the discrepancy until the office/date semantics are resolved.
+- **USA:** NARA sources distinguish presidential succession after Harrison’s death (4 April 1841) from Tyler’s oath (6 April); date semantics need a separate field/role, not a blind replacement.
+- **Japan:** the current line joins Tokugawa Shoguns with Emperor Meiji although the Imperial office existed concurrently. The Bakufu/Shogunate and Imperial office need separate timelines.
+- **Brazil:** Pedro II’s nominal reign overlaps the Regency government of 1831–1840; regents/executive authority must be modeled separately from the Emperor’s title.
+- **Qajar Persia:** designation, Fath-Ali Shah’s death, accession at Tabriz and coronation are distinct; the current 23 October 1834 start needs semantic/source review.
+- **Ottoman Empire:** five existing records have no record-level sources; TDV and the specialist regnal-years paper disagree on Mahmud II’s final date.
+- **Sokoto:** 10/10 current records cite Wikipedia only; sources in this tranche support broad order/year but not all exact day-level dates.
+- **Asante and Zulu:** civil/dynastic conflict, interrupted control, partial restoration and claimant status must not be flattened into continuous ruler lists.
+- **Morocco:** Sultan Abd al-Aziz and regent Ba Ahmad are separate offices.
+- **Wallachia/Moldavia:** separate local princes, Ottoman/Russian suzerainty/protectorate, occupation, provisional government and union transition.
+
+R4a adds a 13-polity evidence matrix, 24 non-executing research decisions, 15 open evidence requests, 28 source registry entries and triage for all 54 profiles without succession arrays. It distinguishes collective/aggregate, rebel/provisional, subject-local and colonial/company/protectorate authorities rather than assuming each needs an individual monarch.
+
+R4a is only the first tranche. The remaining 426 records and other global data layers remain backlog; no claim of complete Historical Mode validation is made.
