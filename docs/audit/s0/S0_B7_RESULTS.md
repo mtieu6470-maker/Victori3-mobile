@@ -13,7 +13,7 @@
 - Recorded R7 interim containment as accepted in principle under OD-20261116-11 while keeping R7 open P0.
 - Recorded R14 as BLOCKED and retained the prohibition on uninstalling the baseline APK or installing a differently signed APK. Recorded R4 as an accepted design boundary (test-supplied trace, no mandatory production journal), and R3 as closed by the APK baseline hash evidence.
 - Drafted the G0.1–G0.9 gate ledger and narrowly scoped G0.7/G0.8 S1 exception requests. Added `S0_DEPENDENCY_AUDIT_PLAN.md` and a manual, read-only, pinned-baseline workflow that reports full-tree and production-only advisory JSON. The audit has not been run; DEP-F1 remains untriaged. Added `CLAUDE_S0_B7_REVIEW_REQUEST.md` as a read-only review packet; no Claude review result is claimed.
-- Added `S0_B7_SELF_REVIEW.md` as a ChatGPT self-review checkpoint. It is not a substitute for Claude's independent review or owner acceptance. Added `S0_B7_RISK_TRACEABILITY.md` to map each original risk/finding ID and severity to the exact register row; Claude is asked to validate every mapping.
+- Added `S0_B7_SELF_REVIEW.md` as a ChatGPT self-review checkpoint. It is not a substitute for Claude's independent review or owner acceptance. Added `S0_B7_RISK_TRACEABILITY.md` to map each original risk/finding ID and severity to the exact register row; Claude is asked to validate every mapping. Added `S0_B7_REVIEW_PACKAGE_MANIFEST.md` to pin the reviewed branch snapshot, file blob identities and evidence boundaries.
 - Did not modify any product source, tests, gameplay, engine, save schema, RNG, history data, assets, Gradle, APK workflow, signing or secrets.
 
 ## 2. Gate snapshot
