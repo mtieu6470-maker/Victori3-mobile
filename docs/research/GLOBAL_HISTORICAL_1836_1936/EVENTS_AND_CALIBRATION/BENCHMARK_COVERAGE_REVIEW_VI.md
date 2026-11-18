@@ -127,3 +127,11 @@ Sources:
 - No macro-region coverage figures are claimed because the inspected standard specifies twelve macro-regions but does not enumerate their taxonomy/mapping in the section reviewed.
 - No external dataset was imported into the repository's canonical source registry or product data.
 - No code, tests, build or device operation were changed/run in this audit.
+
+
+### Retrieval limitation (19/11/2026)
+
+A direct workbook retrieval was attempted through the official Groningen/Dataverse Excel link. Dataverse redirected to a time-limited signed SURF object-store URL that could not be downloaded in this session. Therefore:
+- MPD 2023 coverage statements in this review are based on the official dataset metadata/release documentation only.
+- No row-level workbook parsing, entity crosswalk or metric coverage count for MPD 2023 is claimed.
+- Hydrogen is explicitly asked to obtain and inspect the workbook/codebook/source sheet independently, or report an access blocker and exact file metadata.
