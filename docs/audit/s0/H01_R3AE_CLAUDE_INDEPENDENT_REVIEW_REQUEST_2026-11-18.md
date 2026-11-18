@@ -112,7 +112,7 @@ Expected R3ae counts:
 
 Expected cumulative counts after R3ae integration:
 - H01 open evidence and acceptance requests: **5 columns, 60 data rows**.
-- H01 integrated source registry delta: **8 columns, 59 data rows**.
+- H01 integrated source registry delta: **8 columns, 60 data rows**.
 
 Check:
 - Every CSV row has the same field count as its header; quoted commas/quotes and Unicode are parsed correctly.
