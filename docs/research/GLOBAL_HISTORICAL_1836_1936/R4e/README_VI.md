@@ -13,9 +13,9 @@ R4e đóng hồ sơ nghiên cứu cho hai mục cuối của hàng đợi 54 pro
 
 - [Báo cáo nghiên cứu R4e](R4e_COLLECTIVE_POLITIES_AUDIT_VI.md)
 - [Ma trận chứng cứ 2 thực thể](R4e_SOURCE_EVIDENCE_MATRIX.csv)
-- [14 quyết định nghiên cứu không thực thi](R4e_PATCH_DECISIONS.csv)
+- [19 quyết định nghiên cứu không thực thi](R4e_PATCH_DECISIONS.csv)
 - [12 yêu cầu chứng cứ còn mở](R4e_OPEN_EVIDENCE_REQUESTS.csv)
-- [Registry 19 nguồn và giới hạn kiểm tra](R4e_SOURCE_REGISTRY_DELTA.csv)
+- [Registry 20 nguồn và giới hạn kiểm tra](R4e_SOURCE_REGISTRY_DELTA.csv)
 - [Yêu cầu Claude review độc lập](../../../audit/s0/GLOBAL_R4E_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md)
 - [Biên nhận tích hợp GitHub](GITHUB_INTEGRATION_RECEIPT_R4e.md)
 
