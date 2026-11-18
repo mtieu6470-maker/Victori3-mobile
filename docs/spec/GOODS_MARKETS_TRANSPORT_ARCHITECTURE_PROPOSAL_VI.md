@@ -90,9 +90,11 @@ Mỗi `GoodDefinition` cần có tối thiểu:
 | `family` | Food, raw_material, industrial_input, manufactured, military, service... |
 | `canonical_unit` | Đơn vị mô phỏng chuẩn, không phụ thuộc đơn vị bản địa |
 | `display_units` | Các đơn vị lịch sử/địa phương được phép hiển thị và hệ số chuyển đổi |
-| `mass_kg_per_unit` | Khối lượng vận tải trên mỗi đơn vị chuẩn |
-| `volume_m3_per_unit` | Thể tích vận tải nếu có căn cứ |
-| `perishability` | none, low, medium, high hoặc rate có nguồn |
+| `inventory_policy` | `storable`, `flow_only` hoặc `non_material_service`; quyết định có stock hay chỉ flow |
+| `transportable` | Có thể vận chuyển vật lý hay không; phải tương thích với policy và mode |
+| `mass_kg_per_unit` | Khối lượng vận tải trên mỗi đơn vị chuẩn; nullable với flow/service phi vật chất |
+| `volume_m3_per_unit` | Thể tích vận tải trên mỗi đơn vị chuẩn; nullable khi không áp dụng |
+| `perishability` | none, low, medium, high hoặc rate có nguồn; chỉ áp dụng với hàng phù hợp |
 | `spoilage_method` | Phương pháp hao hụt khi tồn trữ/vận chuyển |
 | `storage_constraints` | Điều kiện kho nếu mô hình hóa |
 | `substitutes` | Hàng thay thế có điều kiện; không mặc định mọi hàng cùng family thay thế được |
@@ -100,6 +102,13 @@ Mỗi `GoodDefinition` cần có tối thiểu:
 | `source_refs` | Provenance của taxonomy, unit và hệ số vật lý |
 
 Không dùng cùng một con số cho grain, steel, tools và arms mà không xác định ý nghĩa đơn vị. Quy đổi sang tấn, bao, kiện hoặc đơn vị chuẩn khác phải thực hiện tại boundary nhập/xuất/hiển thị; không phụ thuộc locale.
+
+Goods có ba inventory/transport policy khác nhau:
+- `storable`: hàng vật chất có stock, spoilage/capacity và có thể tồn kho; mass/volume được khai báo để S8 tính logistics.
+- `flow_only`: sản phẩm/đầu ra vật chất không được tích lũy trong inventory dài hạn; phải được tiêu thụ/settle trong kỳ hoặc có explicit buffer rule.
+- `non_material_service`: dịch vụ phi vật chất, chỉ ghi nhận flow/value; không có mass, volume, physical inventory hoặc shipment. Phần `services` hiện tính riêng trong `economy.ts` là baseline phù hợp để giữ phân biệt này, không được tự biến thành goods stock.
+
+Một good không được đổi policy chỉ vì UI muốn hiển thị nó trong cùng bảng với hàng hóa vật chất. Việc đổi policy cần data migration, conservation rules và test riêng.
 
 ### 3.2. Kiểm soát taxonomy hiện tại
 
