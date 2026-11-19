@@ -137,4 +137,5 @@ This request is not evidence of Claude review completion, owner acceptance, S0/S
 
 - **Current review target:** `fe5a1ba4b4b7eb59cbdb83ee5264c5338d8c4ab8`. **Validation status: PENDING.** The previous 87/87 result must not be carried forward to these commits. No successful CI run or new APK is claimed.
 - The GitHub integration used here can read commits, files, workflow jobs/logs and rerun failed jobs, but does not expose an Actions workflow-dispatch or general run-list operation. Do not interpret missing run data as a test pass.
+- A local clone/test attempt was also blocked because the execution environment could not resolve `github.com`; no local test pass is claimed. Claude/CI must run `npm ci`, then `npm run test` (or the repository's tests-only workflow) against the exact review target before further changes are accepted.
 - Claude review remains requested, not completed. No S0/S1/S22 acceptance, device QA, production signing, or full Victoria 3 parity is claimed.
