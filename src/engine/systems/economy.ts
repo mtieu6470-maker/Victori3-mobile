@@ -633,6 +633,12 @@ function queuedFactoryLedger(st: GameState, c: Country): QueuedFactoryLedger {
   return { supply, inputs };
 }
 
+/** Queued factory output committed to the market, by good. */
+export function queuedFactorySupply(st: GameState, c: Country, goods: Good[]): Partial<Record<Good, number>> {
+  const supply = queuedFactoryLedger(st, c).supply;
+  return Object.fromEntries(goods.map((good) => [good, supply[good] ?? 0])) as Partial<Record<Good, number>>;
+}
+
 /** Marginal sale factor: unmet demand absorbs output; persistent surplus discounts the next unit. */
 function marketDemandFactor(st: GameState, c: Country, good: Good, queuedSupply = 0): number {
   const stats = st.marketStats?.[marketOf(st, c)]?.[good];
