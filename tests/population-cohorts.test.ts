@@ -129,8 +129,9 @@ describe('DEV-005 — population cohort foundation', () => {
   });
 
   it('rejects a legacy save whose embedded state version disagrees with its envelope', () => {
-    const state = cloneState(createGame({ mode: 'historical', seed: 32, player: 'GBR' }));
-    delete (state as GameState & { population?: GameState['population'] }).population;
+    const state = cloneState(createGame({ mode: 'historical', seed: 32, player: 'GBR' }))
+      as Omit<GameState, 'population'> & { population?: GameState['population'] };
+    delete state.population;
     state.version = 2;
     const malformedV1 = JSON.stringify({
       format: SAVE_FORMAT,
