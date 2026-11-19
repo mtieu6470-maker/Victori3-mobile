@@ -170,9 +170,24 @@ Trong lượt mới này:
 
 1. **Claude independent review (no-write):** review exact S22 design blob `f0b326823c76a01c353ab30ef72ee550a3aae990` và bộ supporting blobs được pin trong request; trả về `REVIEW_PASS` hoặc `CHANGES_REQUESTED`. Không coi ChatGPT self-audit là independent verdict.
 2. **Hydrogen evidence audit:** kiểm chứng độc lập event chronology/causal class, CoW identifier reconciliation, MPD workbook/codebook, geographic crosswalk và license/rights; nếu không lấy được nguồn thì ghi rõ exact blocker, không tự suy ra.
-3. **Owner decisions:** cần chốt taxonomy đúng 12 stable IDs/names/boundaries, quy tắc crosswalk/denominator và các tham số thiết kế còn đề xuất (bao gồm historical prior). Không tự đặt taxonomy hoặc chấp thuận thay owner.
+3. **Owner decisions:** dùng bảng quyết định mở dưới đây làm danh sách chuẩn bị; các nhãn OD-S22 là mã theo dõi đề xuất của báo cáo, không phải decision ID chính thức và không có hiệu lực cho đến khi owner xác nhận.
 4. **Implementation gate:** chỉ sau review và owner authorization cho một slice có exact base SHA, scope, test plan và rollback plan mới xem xét sửa code/data. S1 và S22 runtime vẫn đóng.
 5. Mỗi tranche tiếp theo append vào chính báo cáo này và cập nhật AI_HANDOFF; không tạo báo cáo tiến độ rời.
+
+### 6.1. S22 decision / evidence register — chưa được owner phê duyệt
+
+| Mã theo dõi đề xuất | Nội dung cần chốt hoặc xác minh | Bằng chứng / phụ thuộc | Điều kiện đóng |
+|---|---|---|---|
+| OD-S22-01 | Canonical taxonomy: đúng 12 macro-region IDs, tên, inclusion rules, boundary reference và versioning | SA-13; §14.15; chưa tìm thấy taxonomy chuẩn trong schema/repository đã kiểm | Owner phê duyệt bằng văn bản; mọi strategic region được map hoặc ghi unresolved; không tự suy từ lat/lon/modern states |
+| OD-S22-02 | Có dùng historical decision prior hay không; nếu có, mức trần và sensitivity policy | §14.11 đề xuất tối đa 0.05 absolute utility points trên normalized [0,1]; con số này chưa được suy ra từ evidence | Claude review; sensitivity analysis trên current-state utility; owner chấp thuận hoặc loại bỏ trước implementation |
+| OD-S22-03 | Metric families, source quality tiers và metric-specific denominator cho calibration | CoW hiện tại 6 chỉ tiêu nhưng chỉ 4 field compile; Maddison units là present-day territories; các nguồn ngoài còn rights/crosswalk gaps | Hydrogen/Claude xác minh source, quality, scope, rights; owner phê duyệt metric set và missingness rules |
+| OD-S22-04 | Quy tắc cân bằng global/regional và trọng số benchmark để Europe data density không lấn át khu vực thiếu dữ liệu | §12 decisions 3–5; SA-05/06/07/13; chưa thể tính regional denominator trước OD-S22-01 | Taxonomy + metric set đã chốt; scoring có regional coverage/missingness/uncertainty minh bạch; owner duyệt weights |
+| OD-S22-05 | Mức multi-seed tối thiểu và holdout design | §12 decision 6; cần tách calibration/training khỏi validation/holdout; cần budget tính toán thực tế | Đề xuất seed-count dựa trên variance/stability và CI budget đo được; owner duyệt trước khi score được coi là nghiệm thu |
+| OD-S22-06 | Tiêu chí “historical plausibility” khi alternate history rẽ khỏi trajectory thật | §12 decision 7; phải giữ player/AI agency, causality và không railroading | Claude đánh giá định nghĩa/acceptance cases; owner chốt tiêu chí, không lấy exact-path similarity làm mục tiêu duy nhất |
+| OD-S22-07 | Versioning event rules/parameters và tương thích save | §12 decision 8; §14.12 yêu cầu lưu RNG/rule version; phụ thuộc S1 data/save foundation | S1 được review/owner ACCEPTED; schema/migration/version contract được duyệt; deterministic continuation tests được xây và pass |
+| OD-S22-08 | Device performance envelope và worst-case caps cho event/decision processing | §14.12; G0.7 hiện BLOCKED, iQOO chưa có số đo, desktop dùng SwiftShader | G0.7 evidence trên thiết bị mục tiêu và minimum supported tier; owner duyệt budget p50/p95, heap, GC, nhiệt, pin và caps |
+
+Các dòng trên phân biệt **quyết định sản phẩm**, **evidence review** và **phụ thuộc giai đoạn**; không được coi tất cả là một lần phê duyệt chung. OD-S22-07 không được dùng để lách cổng S1; OD-S22-08 không được dùng để tuyên bố hiệu năng mobile đã đạt khi thiếu device evidence.
 
 ---
 
@@ -266,3 +281,11 @@ Trong lượt mới này:
 - GitHub combined commit status returned an empty status list for pre-update HEAD; no open PR was found for the current branch. Empty status list is not a CI pass.
 - Corrected this report's current-state table and exact design/audit/test/review pointers; rewrote the next-step list to distinguish independent review, Hydrogen research, owner decisions and implementation authorization.
 - No engine, historical runtime data, source registry, benchmark values, ETL, save schema, test code, UI, assets, Android, Gradle, workflow, signing, APK or runtime changes. No build/test/CI/device QA was run in this tranche.
+
+
+### 2026-11-19 — S22 owner-decision and evidence register
+
+- Extracted the eight explicit open questions in design §12 and the additional normative gates in §§14.11, 14.12 and 14.15.
+- Added a structured decision/evidence register to this same rolling report: proposed tracking labels OD-S22-01–OD-S22-08 cover 12-region taxonomy, historical decision prior, benchmark dimensions/denominators, regional weighting, multi-seed/holdout policy, alternate-history plausibility, versioning/save dependency and device performance envelope.
+- Each row distinguishes owner product decisions from independent evidence review and upstream S1/G0.7 dependencies. The OD labels are report-local tracking aids only, not formal owner decision IDs and not approvals.
+- No taxonomy names/boundaries, benchmark weights, seed count or numeric performance budget were invented or applied. No code/data/schema changes or tests/build/CI/device run.
