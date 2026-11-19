@@ -10,6 +10,15 @@
 
 - **Standing owner product/engineering principles (19/11/2026):** `docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md`. This is the durable product direction for Victoria 3-class global systemic parity, source-backed research, landscape-first Android APK, explicit downloadable content packs, offline-first operation, measured performance/stability, and per-slice GitHub reports. It does not bypass roadmap/gates or independently authorize closed phases. Read this before every task.
 
+## Latest verified checkpoint — R15 owner target and B7 review preparation (19/11/2026)
+
+- The current owner allowance is **approximately 4–5 GB of verified offline game data across the APK bootstrap and separately installed packs**. This is not a size quota/minimum and does not permit filler. Keep compressed download, expanded disk, temporary staging and peak runtime/decoded memory as separate measured budgets.
+- The owner requires explicit user action before optional data downloads. For Google Play PAD, optional large packs must therefore use **on-demand**; do not use fast-follow because it starts automatically after installation. Keep install-time content to the minimum bootstrap. Sideload delivery must use an explicit in-app download/import action.
+- Official references rechecked 19/11/2026: Google Play size limits (base 500 MB; individual asset pack 1.5 GB; install-time aggregate 4 GB; fast-follow + on-demand aggregate 30 GB; total compressed download 34 GB; up to 100 packs) and Play Asset Delivery delivery modes. See the current R15 references in `S0_B7_RESULTS.md` §13.5.
+- Current R15 and review materials: `docs/audit/s0/S0_RISK_REGISTER.md`, `S0_SIGNOFF.md`, `S0_B7_RESULTS.md` §§13–13.5, `S0_B7_PACKAGE_SUMMARY_VI.md`, and `S0_B7_REVIEW_REQUEST.md`. The review request explicitly includes the owner directive and the opt-in/on-demand rule.
+- **B7 remains READY_FOR_REVIEW, not REVIEW_PASS or ACCEPTED.** Claude's no-write independent review remains pending. S0 remains PARTIAL/BLOCKED (G0.7 BLOCKED, G0.8 PARTIAL, full-S0 G0.9 BLOCKED); S1 and S23 remain NOT_STARTED. This update does not open either phase.
+- The documentation/R15 package was revalidated at pre-handoff HEAD `1a87db70fcb9c95d48802e1109a271ad9ccb0c36`. Changes since the earlier owner-delegation checkpoint are limited to `docs/audit/s0/**`; no runtime, historical product data, asset, Android/Gradle, workflow, signing, save implementation/schema or APK was changed. Documentation commits use `[skip ci]`; no tests are claimed for these report-only changes.
+
 ## Active AI role allocation — owner directive 2026-11-17
 
 - **ChatGPT — technical lead/coordinator:** inspects the repository, controls scope, reviews architecture/algorithms, implements owner-authorized changes, writes/runs tests, verifies CI/logs, commits authorized work, and maintains documentation/handoff. ChatGPT self-audits must be labelled; they are not independent REVIEW_PASS.
