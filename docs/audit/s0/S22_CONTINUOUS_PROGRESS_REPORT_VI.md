@@ -3,10 +3,21 @@
 **Ngày cập nhật:** 19/11/2026  
 **Repository:** mtieu6470-maker/Victori3-mobile  
 **Branch:** claude/game-historical-sandbox-modes-kg7rj7  
-**Code HEAD mới nhất:** `14bd56848b8db429b9037880b08887af7118d61f` (DEV-005; sửa assertion cũ yêu cầu TypeError khi save thiếu state; CI mới queued). Previous confirmed code HEAD `d4cd28a7359e580eec0a159fbb98542d8c7c70fb` passed tests-only 116/116 and Android debug build; those results do not cover the later save/identity hardening.  
+**Code review HEAD:** `14bd56848b8db429b9037880b08887af7118d61f`. **Latest branch HEAD:** `3ff6b3af883ce685f8438c24eb7a3c050b547155` (docs-only after code review target). DEV-005 tests-only and Android debug build both PASS; detailed current evidence is recorded below.  
 **Chế độ báo cáo:** rolling report — mọi lượt làm xong phải append một progress entry mới; không tạo báo cáo rời nếu không cần thiết.
 
 > Đây là báo cáo điều phối và tự kiểm toán của ChatGPT. Không phải Claude REVIEW_PASS, không phải owner ACCEPTED, không phải bằng chứng S1/S22 đã mở. Mọi research candidate chưa được owner chấp nhận vẫn là tài liệu nghiên cứu, không phải game data đã duyệt.
+
+## 0.6 DEV-005 final verification — tests, Android debug APK and handoff (19/11/2026)
+
+- **Exact code review HEAD:** `14bd56848b8db429b9037880b08887af7118d61f`; branch tip `3ff6b3af883ce685f8438c24eb7a3c050b547155` adds documentation only.
+- **Tests-only CI:** [44511298764](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44511298764) PASS — 11/11 files, 118/118 tests, 40/40 suites, 0 failures, 0 pending.
+- **Android debug CI on code HEAD:** [44511298947](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44511298947) SUCCESS; build, tests, Capacitor sync, Gradle, artifact and signature checks succeeded.
+- **Android debug CI on latest branch tip:** [44511435508](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44511435508) SUCCESS for exact HEAD `3ff6b3af883ce685f8438c24eb7a3c050b547155`; provenance confirms checked-out HEAD equals `GITHUB_SHA`. All build/test/Gradle/APK/signature steps succeeded.
+- **Test totals on latest branch-tip run:** 11/11 files, 118/118 tests, 40/40 suites, no failures/pending; Vitest duration 262.05s.
+- **APK:** 18,052,012 bytes; SHA-256 `2f90290c68eb4c8f60bc5478165a12df07295014c9445c8fa3f24984bff14418`; debug certificate SHA-256 `d33d761fd43643da99e87077e4a99ae89ff9870a18e23987dc904ba63d720acf`; apksigner exit code 0; v1 and v2 signature verification true. APK artifact ID `14522638832`; artifact ZIP SHA-256 `d222d921b5a06ba0b450acd7297b867e875fda220aff4ea22323768d691b9354` (not the APK hash).
+- **Scope limitation:** debug APK only. No physical-device install/upgrade, iQOO QA, release signing, or thermal/performance benchmark has been performed. Claude independent review and owner acceptance remain pending; no phase gate is opened by CI.
+- **Scope:** DEV-005 only. No unverified historical data imported; no S0/S1/S22 gate transition.
 
 ## 0.5 DEV-005 regression expectation alignment (19/11/2026)
 
@@ -88,7 +99,7 @@
 | S1 transition | `NOT_STARTED`; signoff còn draft, chưa có independent REVIEW_PASS + owner ACCEPTED |
 | S22 runtime authorization | `NONE`; S22 tiếp tục pre-implementation |
 | Engine / historical runtime data / save schema / UI / Android / APK | S22-specific data/save implementation vẫn gated. Các lát cắt DEV/economy riêng đã đổi engine, UI, tests; hiện có debug APK CI mới, chưa device QA |
-| Build / tests / CI / device QA | DEV-005 exact code SHA `1cf7869`: tests-only PASS 11/11 files, 115/115 tests; Android workflow SUCCESS, Gradle assembleDebug. APK debug 18,051,865 bytes; chưa device QA, Claude review pending |
+| Build / tests / CI / device QA | DEV-005 review HEAD `14bd568`: tests-only PASS 118/118; current branch tip `3ff6b3a`: Android debug SUCCESS, 118/118 tests, APK 18,052,012 bytes, signatures v1/v2 verified; chưa device QA, Claude review pending |
 
 > Báo cáo này là technical coordination/self-audit, không phải independent review hay owner acceptance. Không dùng kết quả research candidate làm dữ liệu game đã duyệt.
 
