@@ -63,4 +63,65 @@ describe('building return uses the labor pools available to production', () => {
     expect(fullyStaffedReturn).toBeGreaterThan(constrainedReturn);
     expect(constrainedReturn / fullyStaffedReturn).toBeCloseTo(0.9, 2);
   });
+  it('splits mine returns across every resource produced in the region', () => {
+    const simulate = (resources: string[]) => {
+      const { st, country, region } = isolatedRegion();
+      region.pop = 30_000;
+      region.strata.fill(0);
+      region.strata[S.laborers] = 0.8;
+      region.strata[S.peasants] = 0.2;
+      region.res = resources as typeof region.res;
+      const prices = { ...st.worldPrices, coal: 2, iron: 0.5, grain: 0, tools: 1, steel: 1 };
+      st.worldPrices = prices;
+      st.marketPrices.GBR = { ...prices };
+      return buildingReturn(st, country, region, 'mine');
+    };
+
+    const coalOnly = simulate(['coal']);
+    const coalAndIron = simulate(['coal', 'iron']);
+    expect(coalOnly).toBeGreaterThan(0);
+    expect(coalAndIron / coalOnly).toBeCloseTo(0.625, 3);
+  });
+
+  it('splits plantation returns across all eligible plantation goods', () => {
+    const simulate = (resources: string[]) => {
+      const { st, country, region } = isolatedRegion();
+      region.pop = 30_000;
+      region.strata.fill(0);
+      region.strata[S.laborers] = 0.8;
+      region.strata[S.peasants] = 0.2;
+      region.res = resources as typeof region.res;
+      const prices = { ...st.worldPrices, cotton: 2, opium: 0.5, grain: 0, tools: 1, steel: 1 };
+      st.worldPrices = prices;
+      st.marketPrices.GBR = { ...prices };
+      return buildingReturn(st, country, region, 'plantation');
+    };
+
+    const cottonOnly = simulate(['cott']);
+    const cottonAndOpium = simulate(['cott', 'opium']);
+    expect(cottonOnly).toBeGreaterThan(0);
+    expect(cottonAndOpium / cottonOnly).toBeCloseTo(0.625, 3);
+  });
+
+  it('uses square-root productivity scaling for factory output estimates', () => {
+    const simulate = (productivity: number) => {
+      const { st, country, region } = isolatedRegion();
+      country.productivity = productivity;
+      region.pop = 30_000;
+      region.strata.fill(0);
+      region.strata[S.workers] = 0.8;
+      region.strata[S.peasants] = 0.2;
+      const prices = { ...st.worldPrices, grain: 1, cotton: 1, coal: 1, tools: 1, steel: 1, textiles: 1 };
+      st.worldPrices = prices;
+      st.marketPrices.GBR = { ...prices };
+      return buildingReturn(st, country, region, 'textile_mill');
+    };
+
+    const baseline = simulate(1);
+    const productive = simulate(4);
+    expect(baseline).toBeGreaterThan(0);
+    // Output scales with sqrt(productivity), while the modeled build cost does too.
+    expect(productive / baseline).toBeCloseTo(1, 3);
+  });
+
 });
