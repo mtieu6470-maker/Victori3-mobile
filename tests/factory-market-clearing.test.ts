@@ -33,6 +33,9 @@ function isolatedIndustrialWorld() {
 
 describe('factory intermediate-goods market clearing', () => {
   it('does not let downstream factories consume steel or tools that upstream factories cannot produce', () => {
+    const baseline = isolatedIndustrialWorld();
+    computeEconomy(baseline.st);
+
     const { st, region } = isolatedIndustrialWorld();
     region.buildings.ironworks = 2;
     region.buildings.tool_works = 1;
@@ -44,10 +47,10 @@ describe('factory intermediate-goods market clearing', () => {
     expect(market.steel.supply).toBe(0);
     expect(market.tools.supply).toBe(0);
     expect(market.arms.supply).toBe(0);
-    // With zero realized steel output, the ironworks must not book fictitious iron use.
-    expect(market.iron.demand).toBe(0);
-    expect(market.steel.demand).toBe(0);
-    expect(market.tools.demand).toBe(0);
+    // No steel can be made, so upstream/downstream factories must not add fictitious input demand.
+    expect(market.iron.demand).toBeCloseTo(baseline.st.marketStats.GBR.iron.demand, 5);
+    expect(market.steel.demand).toBeCloseTo(baseline.st.marketStats.GBR.steel.demand, 5);
+    expect(market.tools.demand).toBeCloseTo(baseline.st.marketStats.GBR.tools.demand, 5);
   });
 
   it('allows a fully supplied steel-to-tools-to-arms production chain', () => {
