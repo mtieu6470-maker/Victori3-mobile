@@ -119,3 +119,17 @@ External advisory references: `https://github.com/advisories/GHSA-82fw-gwwq-j7x9
 - Provenance pins baseline `2240a8f`, workflow SHA `9b150cff`, Node `22.23.4`, npm `10.9.9`, npmjs registry, and SHA-256 for package manifests. No package install, fix, build, product script or lockfile write occurred.
 - The 2026-11-16 audit's 6-vulnerability severity totals are matched. The separate B4 Run #3 `npm ci` warning of 10 remains unreconciled because no package-level report exists for that command/context.
 - Disposition: DEP-F1 is now `OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING`, not UNTRIAGED. No dependency changes are authorized in S0. Production-only zero is scoped to the lockfile dependency graph and is not an APK/SBOM or build-tool safety certification.
+
+
+## 11. Android APK workflow recheck — run #318 (2026-11-20)
+
+- Workflow run [44573351798](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44573351798), branch `experiment/vic3-visual-upgrade`, commit `b5948f0bbca126712c64dd605ebb7d9f6ddfb907`; job `135734112766` SUCCESS.
+- The commit diff changes only `.github/workflows/android-apk.yml`: it excludes `tests/s0-save-determinism.test.ts` from the experiment-branch APK suite and documents that the frozen-baseline B4 characterization runs separately against its pinned baseline. The characterization assertion was not deleted or weakened.
+- Test evidence artifact ID `14554953353`, size 106,657 bytes, API SHA-256 `96aa79f605d52f7a2eb60748f307802827f6fec9994e280fd655e3565c879829`; downloaded and inspected. Vitest: 38/38 suites, 97/97 tests passed, 0 failed; report_valid=true.
+- APK artifact ID `14553589834`, name `dong-chay-lich-su-debug-apk`, ZIP size 17,569,405 bytes, API SHA-256 `72ce3a5759bd1379aaf35bf10a395f3cc136230b44eabc64976375405b85678b`; downloaded and inspected. It contains `app-debug.apk` (18,057,530 bytes), SHA-256 `338fc54ce2e68f15ddc7043c664bdffa9cd79ade3c41aa0ed7a7cf0bfa7fe6b5`.
+- Signing evidence: debug signer DN `C=US, O=Android, CN=Android Debug`; certificate SHA-256 `8610076ddcefefc85d188530b0eb4645a21f92f38008692c29f6282a13418e19`. This is a debug APK, not a release-signed artifact.
+- All workflow steps completed, including npm ci, web/data build, test suite, Capacitor sync, Android SDK setup, Gradle debug assembly, APK checksum/signing evidence and artifact uploads.
+- Artifact ZIP digests were independently recomputed from the downloaded ZIPs and match GitHub API metadata.
+- **CI-F4 narrow closure:** the original test-scope integration failure is resolved for the APK workflow by separating the frozen-baseline characterization from the experiment-branch suite; the documented closure condition (full intended experiment-branch suite passes, Gradle assembles, APK checksum/signing evidence uploaded and verified) is met by run #318. The approved frozen-baseline B4 Run #3 remains separate and unchanged. This does not certify gameplay quality, device QA, release signing, data-pack delivery or overall S0.
+- Current experiment branch is a descendant of `b5948f0`; the later changes in this documentation slice do not alter the APK workflow or product source.
+
