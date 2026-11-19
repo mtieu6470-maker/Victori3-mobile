@@ -311,8 +311,8 @@ describe('S0-B4 — malformed, incomplete and legacy save characterization', () 
     expect(() => deserialize(fixtures.unsupportedVersion)).toThrow('Unsupported save version 999');
   });
 
-  it('missing envelope state throws during deserialization', () => {
-    expect(() => deserialize(fixtures.missingState)).toThrow(TypeError);
+  it('missing envelope state is rejected with an explicit validation error', () => {
+    expect(() => deserialize(fixtures.missingState)).toThrow('Save state is missing or invalid');
   });
 
   it('legacy save without marketStats receives the current empty-object fallback and continues', () => {
