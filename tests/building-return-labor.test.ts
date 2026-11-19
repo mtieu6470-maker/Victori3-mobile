@@ -89,7 +89,7 @@ describe('building return uses the labor pools available to production', () => {
       region.res = resources as typeof region.res;
       const prices = { ...st.worldPrices, coal: 2, iron: 0.5, grain: 0, tools: 1, steel: 1 };
       st.worldPrices = prices;
-      st.marketPrices.GBR = { ...prices };
+      st.marketPrices[country.customsUnion ?? country.id] = { ...prices };
       return buildingReturn(st, country, region, 'mine');
     };
 
@@ -109,7 +109,7 @@ describe('building return uses the labor pools available to production', () => {
       region.res = resources as typeof region.res;
       const prices = { ...st.worldPrices, cotton: 2, opium: 0.5, grain: 0, tools: 1, steel: 1 };
       st.worldPrices = prices;
-      st.marketPrices.GBR = { ...prices };
+      st.marketPrices[country.customsUnion ?? country.id] = { ...prices };
       return buildingReturn(st, country, region, 'plantation');
     };
 
@@ -129,7 +129,7 @@ describe('building return uses the labor pools available to production', () => {
       region.strata[S.peasants] = 0.2;
       const prices = { ...st.worldPrices, grain: 1, cotton: 1, coal: 1, tools: 1, steel: 1, textiles: 1 };
       st.worldPrices = prices;
-      st.marketPrices.GBR = { ...prices };
+      st.marketPrices[country.customsUnion ?? country.id] = { ...prices };
       makeFactoryInputsAvailable(st, country.id);
       return buildingReturn(st, country, region, 'textile_mill');
     };
@@ -151,8 +151,8 @@ describe('building return uses the labor pools available to production', () => {
       region.res = ['coal'];
       const prices = { ...st.worldPrices, coal: 2, grain: 0, tools: 1, steel: 1 };
       st.worldPrices = prices;
-      st.marketPrices.GBR = { ...prices };
-      st.marketStats.GBR = {
+      st.marketPrices[country.customsUnion ?? country.id] = { ...prices };
+      st.marketStats[country.customsUnion ?? country.id] = {
         coal: { supply, demand, imports: 0, short: 0 },
       } as typeof st.marketStats.GBR;
       return buildingReturn(st, country, region, 'mine');
@@ -174,7 +174,7 @@ describe('building return uses the labor pools available to production', () => {
       region.strata[S.peasants] = 0.2;
       const prices = { ...st.worldPrices, grain: 0, cotton: 1, coal: 1, textiles: 2, tools: 1, steel: 1 };
       st.worldPrices = prices;
-      st.marketPrices.GBR = { ...prices };
+      st.marketPrices[country.customsUnion ?? country.id] = { ...prices };
       st.marketStats[country.customsUnion ?? country.id] = {
         cotton: { supply: cottonShort === 0 ? 1_000_000_000 : 1_000_000, demand: 0, imports: 0, short: 0 },
         coal: { supply: coalShort === 0 ? 1_000_000_000 : 100_000, demand: 0, imports: 0, short: 0 },
@@ -199,7 +199,7 @@ describe('building return uses the labor pools available to production', () => {
       region.strata[S.peasants] = 0.2;
       const prices = { ...st.worldPrices, grain: 0, cotton: 1, coal: 1, textiles: 2, tools: 1, steel: 1 };
       st.worldPrices = prices;
-      st.marketPrices.GBR = { ...prices };
+      st.marketPrices[country.customsUnion ?? country.id] = { ...prices };
       st.marketStats[country.customsUnion ?? country.id] = {
         textiles: { supply, demand, imports: 0, short: 0 },
       } as typeof st.marketStats.GBR;
