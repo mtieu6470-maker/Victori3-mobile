@@ -72,7 +72,11 @@ Known CI evidence at request preparation:
 - DEV-001 tests-only run `44430809753`: 6/6 files, 75/75 tests PASS.
 - DEV-002 tests-only run `44433012743`: 6/6 files, 83/83 tests PASS.
 - DEV-002 Android debug run `44433012918`: SUCCESS; Gradle build succeeded, artifact ZIP digest `e7810065ee7f87881f4b809aae4bbd4ee230b9a83148ec2ecc4bece2fc704deb`. This APK is superseded and must not be delivered.
-- DEV-003 tests-only run `44433707994` and Android run `44433708015` were still running when this request was prepared. Re-fetch both before review conclusions.
+- DEV-003 tests-only run `44433707994`: PASS, 6/6 files and 84/84 tests. Android run `44433708015`: SUCCESS, Gradle `BUILD SUCCESSFUL in 1m 16s`.
+- APK file: 18,045,142 bytes; SHA-256 `4264d0fb9b7d9fd23be23ac4520f29b598f04b383c51d172bfa43dbe85dfda9c`.
+- Signer: Android Debug; v1/v2 verification true; cert SHA-256 `bdf18b1f25e95bb96dc4358daf9fb65082dc6e0c6540a9bfaeb06963f2d0f23e`.
+- APK artifact ID `14488625201`, ZIP SHA-256 `08d66dea88002688040698925c5fd59b26b3ee1ba8d9ee48cd6c0097aca9d881`; CI evidence artifact ID `14486589363`, ZIP SHA-256 `f46054658354bbeb0f7bddf916f08c446d2bbbfe77600865aa08b402372c1477`.
+- The APK is pre-review and has not been installed or device-tested. After any Claude correction, ChatGPT must run a fresh build and deliver only the artifact from the corrected final HEAD.
 
 If the reviewer environment cannot run a command, report the exact blocker and use CI evidence only for the exact matching SHA. Do not assume typecheck/build passed from the source diff.
 

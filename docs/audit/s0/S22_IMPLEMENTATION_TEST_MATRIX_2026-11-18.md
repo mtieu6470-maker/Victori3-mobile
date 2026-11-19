@@ -214,4 +214,4 @@ The first bounded implementation slice maps the §14.1 predicate contract to run
 
 **Implementation boundary:** `applyWindowOption` stages a clone of the plain-data GameState, executes handlers against the clone, and commits only after successful completion. The command resolver consumes the pending record only after that return value is true.
 
-**Verification status:** DEV-003 transaction rollback test is committed in `tests/modes.test.ts`; tests-only run `44433707994` and Android build run `44433708015` are in progress at the time this matrix update is prepared. Do not claim DEV-003 PASS until both runs complete successfully. No Android device QA is claimed.
+**Verification status:** DEV-003 tests-only run `44433707994` passed 6/6 test files and 84/84 tests. Android build run `44433708015` succeeded; Gradle `assembleDebug` completed successfully. APK hash/artifact details are in the rolling report and review request. No Android device QA or Claude review/correction is claimed.

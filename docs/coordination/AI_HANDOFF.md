@@ -1213,15 +1213,15 @@ The owner requested one Claude review/correction pass after ChatGPT's first impl
   - DEV-001 rank predicate: `96f90338acc49beaed4313a116b2867ce3bacec3`
   - DEV-002 player-decision revalidation: `a42a005c5da2ddf7570856558f0cb6feb9b4df7f`
   - DEV-003 staged effect transaction: `751ae87a7b4a8e844e8e093937bad14589eb4225`
-- Focused aggregate review request: `docs/audit/s0/DEV001_DEV003_CLAUDE_CODE_REVIEW_REQUEST_2026-11-19.md`.
+- Focused aggregate review request: `docs/audit/s0/DEV001_DEV003_CLAUDE_CODE_REVIEW_REQUEST_2026-11-19.md` (latest request document prepared for one bounded review/correction pass).
 - Scope is limited to the implementation files and tests listed in that request. Do not use this review as authorization for unrelated S22/engine/save/data/UI work.
 
 ### CI evidence
 
 - DEV-001 tests-only: `44430809753`, PASS 75/75; Android workflow: `44430809754`, SUCCESS.
 - DEV-002 tests-only: `44433012743`, PASS 83/83; Android workflow: `44433012918`, SUCCESS; its APK artifact is superseded by DEV-003.
-- DEV-003 tests-only: `44433707994`, status pending at handoff preparation.
-- DEV-003 Android workflow: `44433708015`, status pending at handoff preparation.
+- DEV-003 tests-only: `44433707994`, PASS, 6/6 files and 84/84 tests.
+- DEV-003 Android workflow: `44433708015`, SUCCESS; Gradle BUILD SUCCESSFUL.
 - Do not offer the superseded DEV-001/DEV-002 APK for test. The final candidate APK must come from a successful workflow on the exact Claude-corrected final code HEAD.
 
 ### Review/correction protocol
@@ -1230,3 +1230,15 @@ The owner requested one Claude review/correction pass after ChatGPT's first impl
 - ChatGPT must re-fetch the exact corrected HEAD and rerun tests, build and artifact verification.
 - APK test delivery requires the corrected final HEAD to pass typecheck, regression suite and Android Gradle packaging, and a verified APK artifact/checksum. No APK installation, signing-secret change, keystore access, force-push or merge is authorized.
 - This process does not rewrite S0 gate ledger or signoff. Formal historical gate statuses remain G0.7 BLOCKED, G0.8 PARTIAL, whole-S0 G0.9 BLOCKED.
+
+
+### DEV-003 final CI and APK identity
+
+- Code HEAD tested: `751ae87a7b4a8e844e8e093937bad14589eb4225`.
+- Tests-only run [44433707994](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44433707994): 6/6 files, 84/84 tests passed.
+- Android workflow [44433708015](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44433708015): success; Gradle assembleDebug completed.
+- APK: 18,045,142 bytes; SHA-256 `4264d0fb9b7d9fd23be23ac4520f29b598f04b383c51d172bfa43dbe85dfda9c`.
+- APK signer: Android Debug, v1/v2 verified true, certificate SHA-256 `bdf18b1f25e95bb96dc4358daf9fb65082dc6e0c6540a9bfaeb06963f2d0f23e`.
+- GitHub APK artifact ID `14488625201`, ZIP SHA-256 `08d66dea88002688040698925c5fd59b26b3ee1ba8d9ee48cd6c0097aca9d881`.
+- GitHub CI evidence artifact ID `14486589363`, ZIP SHA-256 `f46054658354bbeb0f7bddf916f08c446d2bbbfe77600865aa08b402372c1477`.
+- This is the pre-Claude-review debug artifact; no device installation or QA has occurred. It must not be called a final accepted test build until Claude's pass/correction and a new verification run on the corrected exact HEAD.

@@ -336,3 +336,16 @@ Các dòng trên phân biệt **quyết định sản phẩm**, **evidence revie
 - Code commit: `751ae87a7b4a8e844e8e093937bad14589eb4225`; base: `a42a005c5da2ddf7570856558f0cb6feb9b4df7f`.
 - Tests-only run `44433707994` and Android build run `44433708015` were running at this report update. No CI pass or APK artifact is claimed for DEV-003 yet.
 - Remaining caution: GameState is currently a plain data graph; if future state adds host objects, Maps/Sets, Dates or class instances, the clone routine and its tests must evolve. Effect transaction does not add pending-decision lifecycle/version metadata to the save schema.
+
+
+### 2026-11-19 — DEV-003 CI and APK artifact verified; review packet ready
+
+- Tests-only workflow [44433707994](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44433707994) passed on exact code HEAD `751ae87a7b4a8e844e8e093937bad14589eb4225`: 6/6 test files, 84/84 tests, 0 failed, 0 pending. The new rollback test `decision effect transaction rollback` passed.
+- Android debug workflow [44433708015](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44433708015) succeeded on the same exact code SHA. `npm ci`, generated data/map, web build/typecheck, test stage, Capacitor sync and Gradle `assembleDebug` completed; Gradle reported `BUILD SUCCESSFUL in 1m 16s`.
+- Verified the downloaded `app-debug.apk` directly against the CI evidence manifest: 18,045,142 bytes; file SHA-256 `4264d0fb9b7d9fd23be23ac4520f29b598f04b383c51d172bfa43dbe85dfda9c`. The local extracted file hash matches the manifest.
+- Android signature check: one `Android Debug` signer; v1 and v2 verification true; certificate SHA-256 `bdf18b1f25e95bb96dc4358daf9fb65082dc6e0c6540a9bfaeb06963f2d0f23e`. This is a debug certificate, not a stable release key.
+- APK artifact ID `14488625201`, size 17,558,220 bytes, artifact ZIP SHA-256 `08d66dea88002688040698925c5fd59b26b3ee1ba8d9ee48cd6c0097aca9d881`. Separate CI evidence artifact ID `14486589363`, size 105,135 bytes, ZIP SHA-256 `f46054658354bbeb0f7bddf916f08c446d2bbbfe77600865aa08b402372c1477`.
+- The APK is a verified debug artifact produced from DEV-003 code, but remains **pre-Claude-review**. It has not been installed or exercised on an Android device and is not yet designated the user's final test build.
+- Created aggregate Claude review request `docs/audit/s0/DEV001_DEV003_CLAUDE_CODE_REVIEW_REQUEST_2026-11-19.md`, which covers DEV-001 rank semantics, DEV-002 player decision revalidation/effect preflight and DEV-003 staged transaction/cache/performance correctness, with one bounded correction pass.
+- The owner’s requested Claude review has not actually occurred in this session; the review request is committed for Claude Code to execute. After Claude's response/correction, ChatGPT must verify the corrected exact HEAD and create a new APK from that HEAD before offering it for installation.
+- No device QA, install/upgrade, signing-secret change, keystore access, merge or release-signing operation. Formal S0 gate statuses remain unchanged.
