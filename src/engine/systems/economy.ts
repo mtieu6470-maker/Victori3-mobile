@@ -569,14 +569,74 @@ export function buildCost(c: Country, b: Building, st: GameState): number {
 export function buildingReturn(st: GameState, c: Country, r: Region, b: Building): number {
   const p = st.marketPrices[marketOf(st, c)] ?? st.worldPrices;
   const A = c.productivity;
-  const labour = r.pop * 0.45 * (b === 'mine' || b === 'logging' || b === 'plantation' ? r.strata[S.laborers] + r.strata[S.peasants] * 0.3 + r.strata[S.slaves] : r.strata[S.workers] + r.strata[S.peasants] * 0.2 + r.strata[S.artisans] * 0.5);
-  const used = LEVEL_WORKERS * (b === 'mine' ? r.buildings.mine : b === 'plantation' ? r.buildings.plantation : b === 'logging' ? r.buildings.logging : r.buildings.textile_mill + r.buildings.ironworks + r.buildings.tool_works + r.buildings.arms_works + r.buildings.luxury_workshop);
-  if (b !== 'railway' && b !== 'university' && labour - used < LEVEL_WORKERS * 0.5) return 0;
+  const labourForce = Math.max(0, r.pop) * 0.45;
+  let staffing = 1;
+
+  if (RECIPES[b]) {
+    // The production engine staffs factories exclusively from the worker stratum.
+    // Peasants and artisans must not be counted as hypothetical factory employees.
+    const availableWorkers = labourForce * Math.max(0, r.strata[S.workers]);
+    const existingFactoryJobs = LEVEL_WORKERS * (
+      r.buildings.textile_mill + r.buildings.ironworks + r.buildings.tool_works
+      + r.buildings.arms_works + r.buildings.luxury_workshop
+    );
+    staffing = clamp(availableWorkers / Math.max(1, existingFactoryJobs + LEVEL_WORKERS), 0, 1);
+  } else if (b === 'plantation') {
+    // Plantations draw slaves first, then up to 25% of the laborer stratum.
+    const availablePlantationWorkers = labourForce * (
+      Math.max(0, r.strata[S.slaves]) + Math.max(0, r.strata[S.laborers]) * 0.25
+    );
+    staffing = clamp(availablePlantationWorkers / Math.max(1, r.buildings.plantation * LEVEL_WORKERS + LEVEL_WORKERS), 0, 1);
+  } else if (b === 'mine' || b === 'logging') {
+    // Match the engine's extraction sequence: 30% of laborers are already assigned to
+    // field work, plantations use the next eligible laborers, mines can use 60% of what
+    // remains, and logging can use the residual after realized mine employment.
+    const laborers = labourForce * Math.max(0, r.strata[S.laborers]);
+    const slaves = labourForce * Math.max(0, r.strata[S.slaves]);
+    const fieldWorkers = laborers * 0.3;
+    const plantCapacity = Math.max(0, r.buildings.plantation) * LEVEL_WORKERS;
+    const plannedPlantWorkers = Math.min(
+      plantCapacity,
+      slaves + labourers * 0.25,
+    );
+    const plantationLaborers = Math.min(
+      Math.max(0, plannedPlantWorkers - slaves),
+      Math.max(0, laborers - fieldWorkers),
+    );
+    const afterPlantations = Math.max(0, laborers - fieldWorkers - plantationLaborers);
+    const mineWorkers = Math.min(
+      Math.max(0, r.buildings.mine) * LEVEL_WORKERS,
+      afterPlantations * 0.6,
+    );
+    if (b === 'mine') {
+      const mineLaborPool = afterPlantations * 0.6;
+      staffing = clamp(mineLaborPool / Math.max(1, (r.buildings.mine + 1) * LEVEL_WORKERS), 0, 1);
+    } else {
+      const loggingLaborPool = Math.max(0, afterPlantations - mineWorkers);
+      staffing = clamp(loggingLaborPool / Math.max(1, (r.buildings.logging + 1) * LEVEL_WORKERS), 0, 1);
+    }
+  }
+
+  // Avoid recommending a building that cannot staff even half of its additional level.
+  if (b !== 'railway' && b !== 'university' && staffing < 0.5) return 0;
+
   let value = 0;
   if (b === 'railway') value = (r.output * 12) * 0.05 + 2e5;
   else if (b === 'university') value = r.pop * 0.45 * (0.2 + r.literacy * 1.2) * 3;
-  else if (RECIPES[b]) { const rec = RECIPES[b]!; const out = LEVEL_WORKERS * rec.perWorker * A; value = out * p[rec.out] - Object.entries(rec.inputs).reduce((s, [g, q]) => s + out * (q as number) * p[g as Good], 0) - LEVEL_WORKERS * 650 * A * p.grain * 0.5; }
-  else { const good: Good = b === 'mine' ? (r.res.includes('coal') ? 'coal' : r.res.includes('iron') ? 'iron' : 'luxury') : b === 'logging' ? 'timber' : r.res.includes('cott') ? 'cotton' : r.res.includes('opium') ? 'opium' : 'cash_crops'; value = LEVEL_WORKERS * 900 * A * p[good] - LEVEL_WORKERS * 650 * A * p.grain * 0.6; }
+  else if (RECIPES[b]) {
+    const rec = RECIPES[b]!;
+    const out = LEVEL_WORKERS * staffing * rec.perWorker * A;
+    value = out * p[rec.out]
+      - Object.entries(rec.inputs).reduce((s, [g, q]) => s + out * (q as number) * p[g as Good], 0)
+      - LEVEL_WORKERS * staffing * 650 * A * p.grain * 0.5;
+  } else {
+    const good: Good = b === 'mine'
+      ? (r.res.includes('coal') ? 'coal' : r.res.includes('iron') ? 'iron' : 'luxury')
+      : b === 'logging' ? 'timber'
+      : r.res.includes('cott') ? 'cotton' : r.res.includes('opium') ? 'opium' : 'cash_crops';
+    value = LEVEL_WORKERS * staffing * 900 * A * p[good]
+      - LEVEL_WORKERS * staffing * 650 * A * p.grain * 0.6;
+  }
   return value / buildCost(c, b, st);
 }
 
