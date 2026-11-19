@@ -65,3 +65,14 @@ The later expanded test source on the experiment branch and the manual artifact-
 - Because Vitest failed, Android setup, Capacitor sync, Gradle `assembleDebug`, APK checksum and APK upload were skipped in both runs. **No APK was produced by #316 or #317.** The web/data build ran, but the workflow uploaded only CI evidence; it did not publish a downloadable data-pack artifact.
 - The dedicated S0-B7 dependency-audit workflow remains un-dispatched; no audit artifact or package-level DEP-F1 conclusion exists. This session has no GitHub Actions workflow-dispatch action, so manual dispatch on `experiment/vic3-visual-upgrade` remains pending.
 - No product source, tests, data, assets, dependencies, Gradle, signing or workflow files were changed during this recheck. G0.6 remains bounded to the approved baseline Run #3 evidence; overall S0 remains PARTIAL/BLOCKED; S1 remains NOT AUTHORIZED.
+
+
+## 7. CI-F4 — current experiment-branch APK pipeline blocker (2026-11-19)
+
+- Added P1 finding `CI-F4` to `S0_RISK_REGISTER.md` and `S0_B7_RISK_TRACEABILITY.md`.
+- Exact evidence: Android APK run #316 (`44562638037`, commit `26963daef7c72f2dbeb86239f023b9a902778ae6`) and #317 (`44562662560`, commit `fa95ad894c6fd32c673a569a561a17b7132cef36`). Both report 108/109 tests passed; same single failing assertion says every country must lack `constructionQueue`.
+- The test is a frozen-baseline characterization. Current experiment source defines the field in `src/engine/types.ts` and initializes it in `src/engine/init.ts`; the frozen baseline `2240a8f` predates it. The regular Android APK workflow ran that baseline-only assertion against the experiment branch.
+- In both runs, npm install, web/data build and generated-data hashing passed. Vitest failed before Android SDK setup, Capacitor sync and Gradle, so no APK artifact or APK checksum was produced. The data/web build also was not uploaded as a separate downloadable data pack.
+- Disposition: **OPEN P1 — test-scope/workflow integration mismatch**. No product, test, workflow, Gradle or data changes are authorized here. Do not weaken the baseline assertion or relabel the approved B4 Run #3 result. Any CI/test correction needs a separately authorized task.
+- The GitHub connection available in this session supports reads and contents commits but exposes no workflow-dispatch operation. The manual S0-B7 dependency audit therefore remains pending; no audit result or artifact is claimed.
+- B7 remains IN_PROGRESS; Claude independent review and owner decision remain pending. Overall S0 remains PARTIAL/BLOCKED; S1 is NOT AUTHORIZED.
