@@ -125,7 +125,7 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 | S0-A evidence | `docs/audit/s0/S0_A_RESULTS.md` (summary and gate verdicts), `S0_REPOSITORY_SNAPSHOT.md`, `S0_BUILD_TEST_REPORT.md`, `logs/`, `a4/`, `inputs/` — commits `7d6eec9d0601a7d983679ec7792b1aa96b954ca0`, `d5b9820aae9a96d57e9486845c164ae591fa69de`, `8073fac029463c0685435985a2968cd5a3aba4ab` |
 | Pending owner action | Device steps 1–4 of approved document §6.5.1 on the installed baseline APK (listed in `docs/audit/s0/S0_A_RESULTS.md` §2); never paste secrets |
 | S0 execution authorized | S0-A done (awaiting review). S0-B1 done. **S0-B3, then B4, then B7** authorized by OD-20261116-11 (B4 only after B3 `REVIEW_PASS`). **NOT AUTHORIZED:** B2/C3, B5, B6, the G0.6 remediation task, S1 and every later phase |
-| Gameplay/engine/save changes authorized | NO |
+| Gameplay/engine/save changes authorized | NO within the S0-B3/B4/B7 audit lane. **Separate bounded exception:** DEV-005 was explicitly authorized by the owner on 2026-11-19 for the exact population-cohort projection + v1→v2 save compatibility scope recorded above; no general S1 or later-phase authorization is implied. |
 | Signing/keystore/Secrets changes authorized | NO |
 
 The SHA above is a historical observation. Re-check GitHub HEAD before every task.
@@ -138,8 +138,10 @@ Allowed:
 - Harnesses stay outside the product code.
 - Order: B3, then stop for review, then B4, then B7.
 
-Not allowed:
+Not allowed within the S0-B3/B4/B7 audit lane:
 - No gameplay, engine logic, RNG, save serialization/schema, migration, shipped data, asset or content changes.
+
+**Separate owner-authorized exception — DEV-005 only:** the owner explicitly authorized the bounded population-cohort projection and v1→v2 save compatibility implementation in the DEV-005 section above. Its exact code/test paths and corrected target SHA are recorded in the DEV-005 review packet and technical self-audit. This exception does not change the B3/B4/B7 boundaries, does not make cohorts authoritative, does not authorize gameplay parity expansion, and does not open S1 or S7–S23.
 - No B2/C3, B5, B6; no keystore, signing Environment or Secrets.
 - No uninstalling the baseline APK and no installing any APK on the iQOO (R14, O5).
 - If B4 finds G0.6 `FAIL`: stop and propose `PRE-S1-SAVE-DETERMINISM-REMEDIATION` (decision §3). Never fix inside S0.
