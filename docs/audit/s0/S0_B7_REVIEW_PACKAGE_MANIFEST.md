@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `9d4783e01c36f66b7b8b7e9af65295d2809352bc`  
+**Snapshot HEAD before this manifest refresh:** `61ab3805510617d9f4e945db5610ebe0a295824f`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -14,23 +14,24 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 |---|---|
 | `docs/audit/s0/S0_B4_RUN_3_REVIEW.md` | `3d8644811c3ac13b19cce1f1274c46d2edbaa10a` |
 | `docs/audit/s0/S0_B4_TEST_PLAN.md` | `ef21f8193daf283a6ed8c6f4d68b7ca87781bd46` |
-| `docs/audit/s0/S0_RISK_REGISTER.md` | `352e13c1f600adfd17f317f75e572855670f83dc` |
-| `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `6a13c4c4025166bd6d61f78505620fc31be3edb6` |
-| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `c4e0032bf28dc34ced56aa8112d84962424ed14d` |
+| `docs/audit/s0/S0_RISK_REGISTER.md` | `6920adbb8859f42b815634f5ccc75492ca9211d0` |
+| `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `b55a14bf5e23e162a1b5d2b2cc6b7c1831a60022` |
+| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `86ca7f07ba2aea4c30b8ce15f43f82021437b430` |
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `65173d78353d81b5304602a81372847232c5d8e1` |
-| `docs/audit/s0/S0_SIGNOFF.md` | `f064fe08e26020eac987a9c2e59dabc001796dc5` |
-| `docs/audit/s0/S0_B7_RESULTS.md` | `1b640dfc1b22af0535df58e48d33eef72265ec0b` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `d39720fa12663fbbe6cc9e0dfb7f77f7d90e197a` |
+| `docs/audit/s0/S0_SIGNOFF.md` | `97d57e869997eff8274894f30ab3258ff7eb3d6e` |
+| `docs/audit/s0/S0_B7_RESULTS.md` | `a3b285b505dad46baab4c30ed97ee1e079759f82` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `8d7f3788eafe8afef5f584e67eb5cc180abc18c0` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `e5edc4d8180b331b4ddce2d7f0b687621b58083c` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `b74b931250cae39958c123a8fb04ff12d4c810de` |
-| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `cf087d90595065938c6ae1302ba0e4ee288dfe14` |
+| `docs/coordination/AI_HANDOFF.md` | `b09b05ad1159b2cf8cd266252430d1d9b13c0cf1` |
+| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `09bb06c7a2af514dc90335719d492de67c7236ab` |
 
 ## 2. Risk table integrity and traceability
 
+- Added OPEN P1 finding CI-F4 for the experiment-branch APK workflow test-scope mismatch; runs #316/#317 stop before Gradle and produce no APK. Any correction requires separate authorization.
 - The P2 risk register has been normalized to the same six-column schema as P0/P1: ID, risk/evidence, impact, disposition/control, owner, target/closure criteria.
 - There are 22 P2 risk rows. A structural check confirmed every row in the P2 table has six cells.
-- The source-to-risk matrix contains 47 mapping rows across original R1–R14, performance, test, global data, asset, war, CI, dependency and G0.7 findings. Grouped source IDs explicitly map to the exact grouped register row; reviewers should inspect target rows rather than use a naive single-token search.
+- The source-to-risk matrix contains 48 mapping rows across original R1–R14, performance, test, global data, asset, war, CI, dependency and G0.7 findings. Grouped source IDs explicitly map to the exact grouped register row; reviewers should inspect target rows rather than use a naive single-token search.
 - WD-F3 is included as P2 (five of eight starting wars capitulate at tick 5 in all four B3 probes); this is a historical-calibration observation, not proof of an engine defect.
 - TC-F5 and TC-F6 are mitigated for G0.6 by supplementary B4 characterization while their original baseline tests remain narrow.
 
@@ -76,3 +77,11 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 - No APK or downloadable data pack was produced by these runs. The B7 dependency audit remains un-dispatched and DEP-F1 untriaged.
 - The P2 Risk Register table currently contains 22 data rows, all with six cells. The prior self-review/handoff count of 21 was corrected in the latest documentation commits.
 - B7 remains IN_PROGRESS; independent Claude review and owner decision remain pending. Overall S0 remains PARTIAL/BLOCKED; S1 remains NOT AUTHORIZED.
+
+
+## 8. CI-F4 and dispatch status — 2026-11-19
+
+- Added OPEN P1 `CI-F4` to the Risk Register and exact traceability matrix row after inspecting current Android APK workflow runs #316 and #317. Both runs have the same baseline-only `constructionQueue` assertion failure (108/109 tests passed). Experiment branch source includes/initializes the field; frozen baseline `2240a8f` does not.
+- Both builds pass npm install and web/data build, but stop before Android SDK setup, Capacitor sync and Gradle. No APK is produced. Do not weaken baseline characterization or change the normal APK workflow under this S0 authorization.
+- The GitHub integration available to this session has no workflow-dispatch operation. The manual read-only dependency audit has not run; DEP-F1 remains OPEN P1 — UNTRIAGED and no dependency artifact or package-level disposition is available.
+- Overall S0 remains PARTIAL/BLOCKED; bounded S1-entry review and owner acceptance remain pending; S1 is NOT AUTHORIZED.
