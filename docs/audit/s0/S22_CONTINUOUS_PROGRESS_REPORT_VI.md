@@ -8,6 +8,17 @@
 
 > Đây là báo cáo điều phối và tự kiểm toán của ChatGPT. Không phải Claude REVIEW_PASS, không phải owner ACCEPTED, không phải bằng chứng S1/S22 đã mở. Mọi research candidate chưa được owner chấp nhận vẫn là tài liệu nghiên cứu, không phải game data đã duyệt.
 
+## 0.2 DEV-005 corrective pass — malformed Region IDs and save version mismatch (19/11/2026)
+
+- **Region identity:** missing/non-string/whitespace-only `Region.id` is now rejected before cohort ID generation, sorting or Map insertion. Duplicate-ID rejection from the previous corrective pass remains in place.
+- **Save migration:** deserialization rejects missing/non-object state and requires `state.version === envelope.version` before normalizing legacy fields or running v1→v2 migration. A v1 envelope with an embedded v2 state can no longer be silently re-labelled as v2.
+- **Regression tests:** added missing and whitespace-only region ID cases, plus a mismatched v1 envelope/state version case. Existing duplicate identity regression remains.
+- **Commits:** `2ec4728159f2d8833ec080dbaad7d32e60a4eedc` (Region ID guard); `3fa719b06db08cf5c75b03b93a2387e6674368d7` (save-version guard); `24ae54882d723d45239611bed5da5291aa66b7d3` (tests).
+- **Review target:** Claude packet `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md` now targets `24ae54882d723d45239611bed5da5291aa66b7d3`.
+- **Previous CI:** intermediate duplicate-ID fix at `d4cd28a` passed tests-only run [44508941178](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941178), 11/11 files and 116/116 tests. This does not verify the additional malformed-ID/save-version changes.
+- **Current CI:** tests-only [44509983998](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44509983998) and Android debug [44509983834](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44509983834) are running for exact code HEAD `24ae548`; no new pass is claimed yet.
+- **Scope:** DEV-005 only. No Historical data or game balance was altered; no S0/S1 gate was opened.
+
 ## 0.1 DEV-005 corrective pass — duplicate Region identity (19/11/2026)
 
 - **Finding:** duplicate `Region.id` values could evade `validatePopulationState` because the lookup Map silently overwrote duplicate keys; cohort creation could also emit duplicate canonical cohort IDs.
