@@ -5,7 +5,7 @@
 **Branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Audit target:** `c9868d7131d7de3fd8efd0263411fee9111f172c`  
 **Implementation base:** `3d1b8dd24427f2993d561eb0c555d6e0b30b1d5a`  
-**Status:** ChatGPT technical self-audit only. The tests-only CI for the audit target has passed; the Android debug workflow is still at APK assembly. No Claude `REVIEW_PASS`, owner `ACCEPTED`, device QA or phase transition is claimed.
+**Status:** ChatGPT technical self-audit only. Both tests-only CI and Android debug build for the audit target have completed successfully. No Claude `REVIEW_PASS`, owner `ACCEPTED`, device QA or phase transition is claimed.
 
 ## 1. Executive result
 
@@ -125,7 +125,7 @@ The complete DEV-005 suite now contains 13 focused cases. Exact current target:
 - Android debug [44540766545](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44540766545) — IN_PROGRESS at `Assemble debug APK` when this section was recorded. Build/typecheck and unit/simulation tests had completed earlier in the same job.
 - Previous code SHA `0c171b9` results remain historical and do not validate these new guards/migration changes.
 
-## 6. Verification state
+## 7. Verification state
 
 | Evidence | Result |
 |---|---|
@@ -133,9 +133,9 @@ The complete DEV-005 suite now contains 13 focused cases. Exact current target:
 | Earlier exact HEAD `14bd56848b8db429b9037880b08887af7118d61f` Android debug | SUCCESS; superseded as validation of the corrected source |
 | Earlier target `0c171b9b615e4f91cce66749f8482837c8dfa9ef` tests-only run 44534672142 | PASS, 11/11 files and 119/119 tests; superseded as current target |
 | Earlier target `0c171b9b615e4f91cce66749f8482837c8dfa9ef` Android debug run 44534672171 | SUCCESS; superseded as current target |
-| Current target `c9868d7131d7de3fd8efd0263411fee9111f172c` tests-only run 44540766509 | PASS, 11/11 files and 122/122 tests |\n| Current target `c9868d7131d7de3fd8efd0263411fee9111f172c` Android debug run 44540766545 | IN_PROGRESS at APK assembly when recorded |\n| Physical iQOO install/save-load/performance/thermal QA | NOT_TESTED |
-| APK debug output | 18,052,034 bytes; SHA-256 `7a3c48b9761878111263c97fe39ca3fbad4026f82babb08bf78801b92174a528`; signer certificate SHA-256 `167f48e563b68c4aa12470941204b43936a8b218eccb54bc598738d52479bb7e`; V1/V2 true; apksigner exit 0 |
-| Claude independent review | PENDING |
+| Current target `c9868d7131d7de3fd8efd0263411fee9111f172c` tests-only run 44540766509 | PASS, 11/11 files and 122/122 tests |\n| Current target `c9868d7131d7de3fd8efd0263411fee9111f172c` Android debug run 44540766545 | SUCCESS; `assembleDebug`, APK checksum and V1/V2 `apksigner` verification passed |\n| Physical iQOO install/save-load/performance/thermal QA | NOT_TESTED |
+| APK debug output | 18,052,144 bytes; SHA-256 `85e49cc530ce2e382c6af8575f04c2ee631a0be20fb32f841297bb37e17ee08e`; signer certificate SHA-256 `73a3c9a7f7e2ef2d489d37a5fb386d7d138f741f9c3dffcdb32fb886de9c27ad`; V1/V2 true; apksigner exit 0 |
+| Debug APK artifact | ID `14538597513`; artifact ZIP SHA-256 `c34ae04acab4558e96cba69d5333bd63953471ddff064410fbda2962a249238a` (different from APK SHA-256) |\n| Claude independent review | PENDING |
 | Owner acceptance | PENDING |
 
 Do not treat this self-audit as an independent review. Do not mark DEV-005 fully accepted, S0 PASS, S1 accepted, or any S7–S23 phase open because of this report.
