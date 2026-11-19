@@ -48,10 +48,22 @@ export function createPopulationState(regions: readonly Region[]): PopulationSta
     for (let index = 0; index < STRATA.length; index++) {
       const share = region.strata[index];
       if (!Number.isFinite(share) || share < 0) {
-        throw new Error(`Invalid ${STRATA[index]} share for ${region.id}`);
+        throw new Error('Invalid ' + STRATA[index] + ' share for ' + region.id);
       }
       shareTotal += share;
-      const size = region.pop * share;
+    }
+
+    if (region.pop > 0 && Math.abs(shareTotal - 1) > POPULATION_TOLERANCE) {
+      throw new Error('Stratum shares for ' + region.id + ' sum to ' + shareTotal + ', not 1');
+    }
+
+    // Tolerance permits tiny input rounding, but cohort mass must still equal Region.pop.
+    // Normalize accepted shares before multiplying by a potentially very large population.
+    for (let index = 0; index < STRATA.length; index++) {
+      const normalizedShare = region.pop > 0
+        ? region.strata[index] / shareTotal
+        : region.strata[index];
+      const size = region.pop * normalizedShare;
       if (size <= 0) continue;
 
       const stratum = STRATA[index];
@@ -70,10 +82,6 @@ export function createPopulationState(regions: readonly Region[]): PopulationSta
         incomePerCapita: null,
         templateId: COHORT_TEMPLATE,
       });
-    }
-
-    if (region.pop > 0 && Math.abs(shareTotal - 1) > POPULATION_TOLERANCE) {
-      throw new Error(`Stratum shares for ${region.id} sum to ${shareTotal}, not 1`);
     }
   }
 
