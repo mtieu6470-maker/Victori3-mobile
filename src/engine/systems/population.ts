@@ -5,6 +5,7 @@ import { S, type Country, type GameState, type Region } from '../types';
 import { clamp } from '../core';
 import { techEffect, LEVEL_WORKERS } from './economy';
 import { regionsOf } from '../cache';
+import { refreshPopulationState } from './populationCohorts';
 
 export function populationMonth(st: GameState) {
   const d = data();
@@ -61,6 +62,8 @@ export function populationMonth(st: GameState) {
       if (tgt.culture !== e.from.culture && tgt.c2 < 0.5) { tgt.culture2 = tgt.culture2 ?? e.from.culture; tgt.c2 = clamp(tgt.c2 + share / tgt.pop * 0.5, 0, 0.5); }
     }
   }
+  // Keep the versioned cohort read model synchronized with this month's regional demographic result.
+  refreshPopulationState(st);
 }
 
 export function coreNationOf(st: GameState, c: Country): string | undefined {

@@ -13,6 +13,37 @@ export const STRATA = ['peasants', 'slaves', 'laborers', 'artisans', 'workers', 
 export type Stratum = (typeof STRATA)[number];
 export const S = Object.fromEntries(STRATA.map((s, i) => [s, i])) as Record<Stratum, number>;
 
+/**
+ * Cohort-level population projection. DEV-005 deliberately keeps unsupported
+ * cross-tabs unknown: the current 1836 inputs provide region totals/strata
+ * aggregates, not a defensible occupation × culture × religion × age table.
+ */
+export interface PopulationCohort {
+  id: string;
+  regionId: string;
+  cultureId: string | null;
+  religionId: string | null;
+  stratum: Stratum;
+  occupationId: string;
+  qualificationId: string;
+  /** Fractional person-equivalents preserve the legacy engine's continuous POP arithmetic. */
+  size: number;
+  literacy: number | null;
+  radicalism: number | null;
+  wealthPerCapita: number | null;
+  incomePerCapita: number | null;
+  templateId: string;
+}
+
+export interface PopulationState {
+  schemaVersion: 1;
+  /** Transitional compatibility projection; S6-C will promote cohorts to authority. */
+  authority: 'region_aggregate_projection';
+  method: 'region-strata-aggregate-v1';
+  quality: 'estimated';
+  cohorts: PopulationCohort[];
+}
+
 export const IGS = ['landowners', 'industrialists', 'intelligentsia', 'petty_bourgeoisie', 'clergy', 'armed_forces', 'rural_folk', 'trade_unions'] as const;
 export type IG = (typeof IGS)[number];
 
@@ -125,6 +156,7 @@ export interface GameState {
   date: GameDate; tick: number;
   countries: Record<string, Country>;
   regions: Region[];
+  population: PopulationState;
   wars: War[];
   treaties: Treaty[];
   relations: Record<string, number>;

@@ -7,6 +7,7 @@ import { seedRng, relKey, clamp, dateToTick } from './core';
 import { computeEconomy } from './systems/economy';
 import { updatePolitics } from './systems/politics';
 import { sampleYear } from './metrics';
+import { createPopulationState } from './systems/populationCohorts';
 
 export interface NewGameOptions { mode: GameMode; seed: number; player: string | null }
 
@@ -41,8 +42,8 @@ export function createGame(opts: NewGameOptions): GameState {
   const d = data();
   const db = d.db;
   const st: GameState = {
-    version: 1, seed: opts.seed, rng: seedRng(opts.seed), mode: opts.mode, player: opts.player,
-    date: { y: 1836, m: 1 }, tick: 0, countries: {}, regions: [], wars: [], treaties: [], relations: {}, rivalries: [],
+    version: 2, seed: opts.seed, rng: seedRng(opts.seed), mode: opts.mode, player: opts.player,
+    date: { y: 1836, m: 1 }, tick: 0, countries: {}, regions: [], population: createPopulationState([]), wars: [], treaties: [], relations: {}, rivalries: [],
     worldPrices: { ...BASE_PRICES }, marketPrices: {}, marketStats: {}, constructionProjects: [], log: [], territoryLog: [], history: {},
     divergence: { milestones: {}, entries: [], similarity: [] },
     counters: { systemRuns: {}, aiActions: {}, aiActionsByCountry: {}, decisionWindowsFired: 0, historicalBiasApplied: 0 },
@@ -93,6 +94,9 @@ export function createGame(opts: NewGameOptions): GameState {
     st.regions.push(region);
     owners.add(r.owner); if (r.controller) owners.add(r.controller);
   }
+
+  // ---- population cohort projection (no unsupported demographic cross-tabs are inferred)
+  st.population = createPopulationState(st.regions);
 
   // ---- countries
   for (const e of db.entities) {
