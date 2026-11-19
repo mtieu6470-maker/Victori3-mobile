@@ -43,10 +43,10 @@ The intended DEV-005 runtime/test files are:
 - `tests/population-cohorts.test.ts`
 - `tests/s0-save-determinism.test.ts` — two-line expectation update for the new explicit missing-save-state error.
 
-The full GitHub compare from implementation base `3d1b8dd24427f2993d561eb0c555d6e0b30b1d5a` to audit target `c9868d7131d7de3fd8efd0263411fee9111f172c` reports 23 changed paths. The other 16 are concurrent governance/reporting documents, not additional runtime changes:
+The full GitHub compare from implementation base `3d1b8dd24427f2993d561eb0c555d6e0b30b1d5a` to audit target `c9868d7131d7de3fd8efd0263411fee9111f172c` reports 24 changed paths. The other 17 are concurrent governance/reporting documents, not additional runtime changes:
 
 - Root: `AGENTS.md`, `AI_START_HERE.md`, `CLAUDE.md`, `README.md`.
-- Audit/report: `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md`, `docs/audit/s0/S0_B7_PACKAGE_SUMMARY_VI.md`, `docs/audit/s0/S0_B7_RESULTS.md`, `docs/audit/s0/S0_B7_REVIEW_REQUEST.md`, `docs/audit/s0/S0_RISK_REGISTER.md`, `docs/audit/s0/S0_SIGNOFF.md`, `docs/audit/s0/S22_CONTINUOUS_PROGRESS_REPORT_VI.md`.
+- Audit/report: `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md`, `docs/audit/s0/DEV005_POPULATION_COHORTS_TECHNICAL_SELF_AUDIT_2026-11-19.md`, `docs/audit/s0/S0_B7_PACKAGE_SUMMARY_VI.md`, `docs/audit/s0/S0_B7_RESULTS.md`, `docs/audit/s0/S0_B7_REVIEW_REQUEST.md`, `docs/audit/s0/S0_RISK_REGISTER.md`, `docs/audit/s0/S0_SIGNOFF.md`, `docs/audit/s0/S22_CONTINUOUS_PROGRESS_REPORT_VI.md`.
 - Coordination: `docs/coordination/AI_COLLABORATION_PROTOCOL.md`, `docs/coordination/AI_HANDOFF.md`, `docs/coordination/OWNER_EXECUTION_DIRECTIVE_2026-11-19.md`, `docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md`, `docs/coordination/SESSION_RECOVERY_PROTOCOL_VI.md`.
 
 The review request previously listed only six implementation paths and omitted the legacy B4 test-fixture change plus concurrent documentation paths. This must be corrected so Claude can distinguish the DEV-005 code scope from the complete base-to-target compare.
