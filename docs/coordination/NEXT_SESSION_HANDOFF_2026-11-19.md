@@ -126,3 +126,12 @@ After the CI recheck, the following documentation-only commits were pushed to th
 - `22af5350f95e3d6b378ca503894076f5263eab86` — AI handoff: correct stale P2 count from 21 to 22 and log the recheck.
 
 **Latest experiment HEAD at this point:** `22af5350f95e3d6b378ca503894076f5263eab86`. These commits changed only audit/coordination Markdown. No product source, tests, data, assets, dependency, Gradle, Android or workflow file changed. The Android workflow runs #316/#317 remain failed; no APK was produced. The B7 dependency audit, Claude review and owner decision remain pending.
+
+
+### Final review-package commits before this handoff update
+
+- `238b2d09ee451c09383d376ca07c3d27d1003895` — refresh B7 manifest with live CI evidence.
+- `5a490d7f3f766fbb7058cb1648a0c6bb58088bf3` — add next-session handoff identity to manifest.
+- `79a322de93920fbc9a23f48d8cadd9d50756c15f` — correct the manifest row and include the next-session handoff blob.
+- **Experiment HEAD immediately before this handoff update:** `79a322de93920fbc9a23f48d8cadd9d50756c15f`.
+- These are documentation-only [skip ci] commits. The next action remains manual dispatch/review of the read-only B7 dependency workflow, then independent Claude review. Do not edit product files or start S1.
