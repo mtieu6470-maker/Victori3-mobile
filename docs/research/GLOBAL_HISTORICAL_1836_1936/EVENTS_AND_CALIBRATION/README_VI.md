@@ -143,10 +143,17 @@ Nguồn: [Singh et al., 2018 — Journal of Climate](https://doi.org/10.1175/JCL
 - `BENCHMARK_SOURCE_CANDIDATES.csv` — CoW NMC v7.0, Maddison Project Database 2023 and Historical Financial Statistics candidates.
 - `OPEN_BENCHMARK_COVERAGE_REQUESTS.csv` — 10 research/decision tasks for annual series, entity/region crosswalk, rights and additional dimensions.
 
-Key discrepancy: current checked-in CoW extracts cover 17 irregular year points from 1816–1914; official CoW NMC v7.0 documentation advertises annual component data from 1816–2022. Verify/reconcile official files before importing. Maddison 2023 is a separate candidate; do not overwrite Maddison 2010 or map present-day territories straight into 1836 polities.
+Key discrepancy: current checked-in CoW extracts cover 17 irregular year points from 1816–1914; official CoW NMC v7.0 documentation advertises annual component data from 1816–2022. However, CoW's terms impose commercial-use and redistribution/other-use restrictions; NMC v7 remains `RIGHTS_REVIEW_REQUIRED`, not an approved game-data source. Do not download/import/repackage it without written permissions. Maddison 2023 is a separate candidate; do not overwrite Maddison 2010 or map present-day territories straight into 1836 polities.
 
 These benchmark artifacts remain research-only. No source was added to canonical registry; no ETL/runtime patch was made.
 
+
+### 7.2 CoW NMC v7 — rights hold (19/11/2026)
+
+- CoW Terms & Conditions cấm dùng dữ liệu cho hoạt động thương mại, cấm phân phối cho bên thứ ba nếu không có văn bản đồng ý của CoW director và data host, và yêu cầu xin phép cho các hình thức phổ biến/đăng tải/sử dụng khác.
+- `cow_nmc_v7` hiện có trạng thái `RIGHTS_REVIEW_REQUIRED`. Không tải, tích hợp, biến đổi thành derived game data hay phân phối trong APK/data pack trước khi có rights clearance bằng văn bản bao phủ đúng mục đích của sản phẩm.
+- Việc trang cung cấp ZIP miễn phí không đồng nghĩa license mở. Audit hiện tại chỉ ghi nhận metadata công khai; không có dữ liệu NMC v7 được tải hoặc nhập.
+- Nguồn chính thức: https://correlatesofwar.org/data-sets/ (Terms and Conditions); https://correlatesofwar.org/data-sets/national-material-capabilities/.
 
 ### 7.1 Entity-by-metric coverage matrices (19/11/2026)
 
