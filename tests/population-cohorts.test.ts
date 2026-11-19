@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { createGame } from '../src/engine/init';
 import { loadNodeData } from '../src/engine/node';
 import { deserialize, SAVE_FORMAT, SAVE_SCHEMA_VERSION, serialize } from '../src/engine/save';
-import { validatePopulationState } from '../src/engine/systems/populationCohorts';
+import { createPopulationState, validatePopulationState } from '../src/engine/systems/populationCohorts';
 import { stepMonth, SYSTEMS } from '../src/engine/simulation';
 import type { GameState } from '../src/engine/types';
 
@@ -108,6 +108,13 @@ describe('DEV-005 — population cohort foundation', () => {
     const roundTrip = deserialize(serialize(restored));
     expect(roundTrip.population).toEqual(restored.population);
     expect(roundTrip.rng).toEqual(restored.rng);
+  });
+
+  it('rejects duplicate region identities before creating or validating cohorts', () => {
+    const state = cloneState(createGame({ mode: 'historical', seed: 29, player: 'GBR' }));
+    state.regions.push({ ...state.regions[0], strata: [...state.regions[0].strata] });
+    expect(() => createPopulationState(state.regions)).toThrow('Duplicate region ID');
+    expect(() => validatePopulationState(state)).toThrow('Duplicate region ID');
   });
 
   it('rejects non-finite, negative and non-normalized regional stratum shares', () => {
