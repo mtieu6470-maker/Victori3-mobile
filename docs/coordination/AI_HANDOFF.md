@@ -600,3 +600,10 @@ Before resuming, re-check the live branch HEAD and all workflow statuses. B7 dep
 - Recounted the current S0_RISK_REGISTER.md P2 table: 22 data rows, all with six cells. Corrected stale handoff wording that said 21.
 - Recorded Android workflow runs #316/#317 and their identical 108/109 Vitest failure in S0_B7_RESULTS.md, S0_B7_SELF_REVIEW.md, the Claude review request and next-session handoff.
 - The failure is in a baseline-specific assertion run against the experiment branch, which currently has constructionQueue; the approved B4 Run #3 remains a distinct frozen-baseline result. Android APK assembly did not run.
+
+
+### 2026-11-19 — FINAL-B7-REVIEW-PACKAGE-REFRESH
+
+- Refreshed `S0_B7_REVIEW_PACKAGE_MANIFEST.md` after the live CI recheck; it now includes the current B7 results, Claude request, self-review, AI handoff and next-session handoff blob identities.
+- The next-session handoff was updated in commit `78a606b64e1b1154f36dc0b8a2a81c5beed466fd` and records the preceding documentation commits through `79a322de`.
+- Current experiment branch work remains documentation-only. Latest Android APK workflow run is #317 on the unchanged product/test tree and failed before Gradle/APK assembly. The B7 dependency audit has not been dispatched; DEP-F1 remains OPEN P1 — UNTRIAGED.
