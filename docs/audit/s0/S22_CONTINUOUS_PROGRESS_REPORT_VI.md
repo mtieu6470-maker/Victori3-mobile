@@ -3,69 +3,83 @@
 **Ngày cập nhật:** 19/11/2026  
 **Repository:** mtieu6470-maker/Victori3-mobile  
 **Branch:** claude/game-historical-sandbox-modes-kg7rj7  
-**HEAD trước commit báo cáo:** ecdfcfa4ff7b3b4310c36219951290bbbe1c4c26  
+**HEAD được xác minh trước lần đồng bộ này:** f2db3c23c6c28d3bf58b526da4170c3419e37d0b  
 **Chế độ báo cáo:** rolling report — mọi lượt làm xong phải append một progress entry mới; không tạo báo cáo rời nếu không cần thiết.
 
 > Đây là báo cáo điều phối và tự kiểm toán của ChatGPT. Không phải Claude REVIEW_PASS, không phải owner ACCEPTED, không phải bằng chứng S1/S22 đã mở. Mọi research candidate chưa được owner chấp nhận vẫn là tài liệu nghiên cứu, không phải game data đã duyệt.
 
 ## 1. Trạng thái tổng quan
 
-| Hạng mục | Trạng thái |
+| Hạng mục | Trạng thái hiện tại tại HEAD đã xác minh |
 |---|---|
-| S22 kiến trúc / design | DESIGN_ONLY; §§14.1–14.15 đã mở rộng |
-| Code baseline self-audit | SA-01–SA-12 đã ghi nhận |
-| Traceability | Có báo cáo nối SA-01–SA-12 vào thiết kế |
-| Implementation test matrix | Đã lập test plan; chưa tạo/chạy test code |
-| Event research | Đã rà 9 event hiện tại và thêm 1 candidate global drought |
-| Hydrogen follow-up | Đã cập nhật research brief để yêu cầu kiểm chứng độc lập |
-| Claude review | Request đã chuẩn bị; chưa có verdict |
-| S1 / S22 runtime authorization | Vẫn đóng theo gate của repository |
-| Engine/data/save/test/UI/APK changes | Không có thay đổi trong lượt này |
-| Build/CI/device test | Không chạy |
+| Nhánh / HEAD | `claude/game-historical-sandbox-modes-kg7rj7` / `f2db3c23c6c28d3bf58b526da4170c3419e37d0b` |
+| S22 architecture | `DESIGN_ONLY`; design §§14.1–14.15 đã cập nhật |
+| Code self-audit | SA-01–SA-13; chưa có finding nào được coi là đã sửa |
+| Traceability | Có mapping SA-01–SA-13 → design clauses; design coverage only |
+| Test matrix | Có test plan; bổ sung GEO-01–GEO-10 và BEN-11–BEN-18; chưa có test code/result S22 |
+| Event research | 9 event records được rà soát + 1 global-drought candidate; còn open evidence requests |
+| Benchmark research | 181 × 6 CoW entity/metric matrix (1,086 rows) và 160 Maddison 2010 unit rows |
+| Hydrogen research | Request đã cập nhật; independent deliverables chưa được nhận/kiểm chứng trong hồ sơ hiện tại |
+| Claude review | No-write request đã pin chính xác; verdict chưa có |
+| S0 overall | G0.7 `BLOCKED`, G0.8 `PARTIAL`, G0.9 `BLOCKED` theo gate ledger |
+| S1 transition | `NOT_STARTED`; signoff còn draft, chưa có independent REVIEW_PASS + owner ACCEPTED |
+| S22 runtime authorization | `NONE`; S22 tiếp tục pre-implementation |
+| Engine / historical runtime data / save schema / UI / Android / APK | Không thay đổi trong tranche S22 này |
+| S22 build / tests / CI / device QA | Không chạy; không có status checks được trả về cho HEAD `f2db3c2` |
+
+> Báo cáo này là technical coordination/self-audit, không phải independent review hay owner acceptance. Không dùng kết quả research candidate làm dữ liệu game đã duyệt.
 
 ## 2. Các công việc kỹ thuật đã hoàn thành trước lượt này
 
 ### 2.1. Thiết kế S22
 
-Thiết kế S22 được mở rộng tới §14.14. Các hợp đồng quan trọng:
-- Event taxonomy và causal gating; tách physical forcing, biological hazard, human-mediated discovery, institutional/political process, decision opportunity, benchmark và narrative log.
-- Historical/Sandbox contract với cùng snapshot 1836 và cùng simulation pipeline; không railroading sau khi preconditions lịch sử đã thay đổi.
-- Rank condition semantics, bounded historical prior, pending decision lifecycle, command-boundary validation và atomic effects.
-- Source-date precision riêng với monthly effective tick.
-- Milestone scoring có provisional/grace state, pending không bị tính là resolved miss.
-- Regional indicator isolation; Africa-specific metric không được trở thành global actor class.
-- Closed condition/effect/event/structural-rule schemas; recursive validation và path diagnostics.
-- Structural-rule source-of-truth, RNG stream isolation, save compatibility, event scheduler indexing và Android profiling.
-- Predicate semantics và effect contracts cụ thể.
+Thiết kế S22 hiện mở rộng tới §§14.1–14.15. Các hợp đồng chính:
 
-**Exact design:** commit 4b8efe94a4f37ad878c15bb4fa6a08d1c205af83; blob fbbad73aae57a26a52aefadc630c8b6cb340040c.
+- Event taxonomy và causal gating: tách physical forcing, biological hazard, human-mediated discovery, institutional/political process, decision opportunity, benchmark và narrative log.
+- Historical/Sandbox dùng cùng snapshot 1836 và cùng simulation pipeline; historical outcomes sau 1836 không được railroading khi preconditions đã đổi.
+- Deterministic ranking context, bounded historical decision prior (giá trị đề xuất 0.05 utility points vẫn cần owner approval), pending-decision lifecycle, command-boundary validation và atomic effects.
+- Source-date precision tách khỏi monthly effective tick; milestone có provisional/grace state.
+- Regional indicators không được biến thành actor class toàn cầu; macro-region calibration cần taxonomy/crosswalk có phiên bản.
+- Closed schemas cho conditions, decisions, effects, exogenous events và structural rules; recursive validation, diagnostics, provenance.
+- Structural-rule source-of-truth, RNG stream isolation, save compatibility, event scheduler indexing và Android performance measurement.
+- §14.15 bổ sung WorldRegionTaxonomy (12 stable IDs do owner phê duyệt), StrategicRegionGeography, HistoricalGeographicUnit, GeographicCrosswalk và PolityTerritoryMembership.
+- Không suy ra macro-region từ tọa độ hoặc modern state; không nhân bản benchmark cấp quốc gia sang từng strategic region nếu thiếu crosswalk có căn cứ.
+
+**Design hiện tại:** commit `df74ed35cbdb4161b531c9199bee1931e347f6c9`; blob `f0b326823c76a01c353ab30ef72ee550a3aae990`.
+
+Design coverage không chứng minh runtime implementation, test pass hay owner approval.
 
 ### 2.2. Code findings
 
-Báo cáo code-baseline self-audit ghi nhận 12 finding:
-- SA-01: rank_at_most luôn trả true trong evaluator đang kiểm.
-- SA-02: AI decision score bị historical weight chi phối mạnh, thiếu utility hiện tại.
-- SA-03: pending decision có thể bị consume trước khi validate option/preconditions/effects.
-- SA-04: effect records mở; có nhánh ig_approval no-op và không có atomic validation đầy đủ.
-- SA-05: compiled benchmarks bỏ provenance/units/method.
-- SA-06: annual metrics và coverage còn hẹp, thiếu decentralized/non-state actors.
-- SA-07: Europe-specific predicate có nguy cơ bị dùng như global class.
-- SA-08: day-level source dates bị collapse về monthly tick/log day 01.
-- SA-09: pending milestone trong grace period bị tính vào denominator quá sớm.
-- SA-10: Condition type/payload mở và validator chưa áp dụng đồng nhất.
-- SA-11: structural-rule record được compile nhưng runtime có hành vi Salic hard-coded riêng; source target HAN nhưng runtime loop áp rộng hơn lên personal unions của GBR.
-- SA-12: event/decision/effect payloads thiếu closed schemas, range/date/target/provenance validation.
+Code-baseline self-audit hiện ghi nhận **13 finding**; đây là finding phân tích nguồn, chưa phải các lỗi đã được sửa:
 
-**Exact code self-audit blob:** 791ac317444fc660a9bcc45a11c6b30ff217b278.  
-**Exact traceability report blob:** 2671216d760efc4245db47b7bc3cc3d1613494be.
+- SA-01: `rank_at_most` evaluator luôn trả true trong code được kiểm.
+- SA-02: AI decision score bị historical weight chi phối mạnh, thiếu current utility.
+- SA-03: pending decision có thể bị consume trước khi kiểm tra option/preconditions/effects.
+- SA-04: effect records còn mở; có nhánh `ig_approval` no-op và thiếu atomic validation.
+- SA-05: compiled benchmarks làm mất provenance/unit/method.
+- SA-06: benchmark scope và polity classes còn hẹp, thiếu decentralized/local actors.
+- SA-07: Europe-specific predicates có nguy cơ bị dùng như global class.
+- SA-08: source dates theo ngày bị collapse vào monthly tick/log.
+- SA-09: milestone còn trong grace period bị tính vào denominator quá sớm.
+- SA-10: Condition type/payload chưa closed và validator chưa áp dụng đồng nhất.
+- SA-11: structural rule được compile nhưng runtime Salic behavior còn hard-coded; source target HAN nhưng runtime loop ảnh hưởng rộng hơn tới personal unions của GBR.
+- SA-12: event/decision/effect/exogenous payload chưa có closed schema và validation đầy đủ.
+- SA-13 (P1): thiếu canonical 12-macro-region taxonomy và geographic crosswalk; không thể tái lập regional denominator. Đây là governance/calibration blocker, không chứng minh bản đồ thiếu đất/vùng.
 
-Các finding này là phân tích code, không phải defect đã được sửa. Chưa có runtime patch.
+**Code self-audit:** commit `acfc1e78b2097561dc10a2c1d9a7f7c136130fe9`; blob `8cf4fa017f321b1ca402da1117dc9c314b2faae7`.  
+**Traceability supplement:** commit `17045b337a717dedcbf565bc3452aa9f512eeb99`; blob `d50eac10872e57c406a62d6dee48971fd1bf3cee`.
+
+Mọi finding phải được kiểm chứng độc lập và gắn với exact code baseline trước khi triển khai remediation.
 
 ### 2.3. Test plan và Claude package
 
-- Implementation test matrix: docs/audit/s0/S22_IMPLEMENTATION_TEST_MATRIX_2026-11-18.md; blob 8c973460cf9333f003490154056e28c7e01353a9.
-- Claude no-write request: docs/audit/s0/HISTORICAL_EVENTS_GLOBAL_CALIBRATION_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md; request commit 77483993cff15ee8a78aecaae249631c3444ea2b.
-- Test matrix có scenario cho conditions, ranking, decision lifecycle, effect atomicity, structural rules, hazards, calibration, determinism, save migration và Android performance. Đây là plan, không phải test result.
+- **Implementation test matrix:** `docs/audit/s0/S22_IMPLEMENTATION_TEST_MATRIX_2026-11-18.md`; blob `8e6b518a637a954fc0c9a4f80b9c22c33c594704`. Đây là test specification, chưa phải test code hay test result.
+- Matrix bao phủ conditions/ranking, decision lifecycle/effect atomicity, structural/exogenous events, calibration, deterministic RNG, save compatibility, Android performance, GEO-01–GEO-10 và BEN-11–BEN-18.
+- **Claude no-write review request:** `docs/audit/s0/HISTORICAL_EVENTS_GLOBAL_CALIBRATION_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`; latest request commit `5eb49c5ab6f8441bfbd75c6dea4b868d6469df4f`; blob `fc5565ce5e4ac556efafd3f6d1965006a589b5a6`.
+- Review request pin one consistent evidence set: design `f0b326...`, traceability `d50eac...`, code audit `8cf4fa...`, test matrix `8e6b51...`, benchmark review `d2d510...`, entity matrix `9dd62f...`, Maddison matrix `f714e1...`.
+- Request covers SA-01–SA-13 and §§14.1–14.15. Claude's independent verdict remains pending; this request does not authorize writes or runtime implementation.
+- Hydrogen's latest research request update is commit `f7acf811b2bde6a1bca2f914fc73f09ac4e4d36a`, blob `2c40bc20136e1927822542dbd13fcc78070136e4`; independent event/benchmark findings remain pending.
 
 ## 3. Công việc mới hoàn thành trong lượt 19/11/2026
 
@@ -154,11 +168,11 @@ Trong lượt mới này:
 
 ## 6. Việc tiếp theo trong cùng báo cáo
 
-1. Hydrogen đối chiếu độc lập 13 evidence requests và bổ sung source locators; không chấp nhận các candidate chỉ vì ChatGPT đã ghi.
-2. ChatGPT review kết quả Hydrogen, xử lý disagreement và cập nhật cùng thư mục này.
-3. Claude, khi có quota, review đúng design blob fbbad73aae57a26a52aefadc630c8b6cb340040c và supporting audit/test matrix; review phải no-write.
-4. Sau independent review và owner gate decision, mới xác định slice triển khai được mở. Mọi code change phải có exact base SHA, scope, test evidence và rollback plan.
-5. Mỗi lần làm xong một phần, append một mục mới vào báo cáo này và cập nhật AI_HANDOFF.md; không tạo bản tiến độ rời trừ khi cần artifact chuyên biệt.
+1. **Claude independent review (no-write):** review exact S22 design blob `f0b326823c76a01c353ab30ef72ee550a3aae990` và bộ supporting blobs được pin trong request; trả về `REVIEW_PASS` hoặc `CHANGES_REQUESTED`. Không coi ChatGPT self-audit là independent verdict.
+2. **Hydrogen evidence audit:** kiểm chứng độc lập event chronology/causal class, CoW identifier reconciliation, MPD workbook/codebook, geographic crosswalk và license/rights; nếu không lấy được nguồn thì ghi rõ exact blocker, không tự suy ra.
+3. **Owner decisions:** cần chốt taxonomy đúng 12 stable IDs/names/boundaries, quy tắc crosswalk/denominator và các tham số thiết kế còn đề xuất (bao gồm historical prior). Không tự đặt taxonomy hoặc chấp thuận thay owner.
+4. **Implementation gate:** chỉ sau review và owner authorization cho một slice có exact base SHA, scope, test plan và rollback plan mới xem xét sửa code/data. S1 và S22 runtime vẫn đóng.
+5. Mỗi tranche tiếp theo append vào chính báo cáo này và cập nhật AI_HANDOFF; không tạo báo cáo tiến độ rời.
 
 ---
 
@@ -241,3 +255,14 @@ Trong lượt mới này:
 - Đã kiểm tra request mới không còn chứa hai SHA cũ (fbbad73... và 2671216...) ở vị trí target/supporting evidence; request content blob mới fc5565ce5e4ac556efafd3f6d1965006a589b5a6.
 - Review request update commit: 5eb49c5ab6f8441bfbd75c6dea4b868d6469df4f.
 - No code/data changes and no tests/build/CI/device run.
+
+
+### 2026-11-19 — Governance gate and cumulative-report consistency pass
+
+- Re-fetched branch ref and confirmed pre-update HEAD `f2db3c23c6c28d3bf58b526da4170c3419e37d0b`; repository still uses `claude/game-historical-sandbox-modes-kg7rj7` as the default/only observed development branch.
+- Reconciled the top-level rolling-report summary with the append-only history: S22 design is §§14.1–14.15; code self-audit is SA-01–SA-13; test matrix includes GEO-01–GEO-10 and BEN-11–BEN-18; current Claude request and exact support blobs are pinned.
+- Re-read `S0_GATE_LEDGER.csv`: G0.1–G0.6 are recorded PASS, G0.7 BLOCKED, G0.8 PARTIAL, and full-S0 G0.9 BLOCKED. Re-read `S0_SIGNOFF.md`: it remains DRAFT, with independent reviewer and owner decision fields unchecked/blank. Therefore S1 remains NOT_STARTED.
+- Re-verified the S22 Claude request is no-write and runtime authorization NONE. No independent Claude verdict is recorded in the reviewed request.
+- GitHub combined commit status returned an empty status list for pre-update HEAD; no open PR was found for the current branch. Empty status list is not a CI pass.
+- Corrected this report's current-state table and exact design/audit/test/review pointers; rewrote the next-step list to distinguish independent review, Hydrogen research, owner decisions and implementation authorization.
+- No engine, historical runtime data, source registry, benchmark values, ETL, save schema, test code, UI, assets, Android, Gradle, workflow, signing, APK or runtime changes. No build/test/CI/device QA was run in this tranche.
