@@ -97,7 +97,7 @@ Correction is bounded to DEV-005:
 - A regression duplicates a Region record and verifies both creation and validation reject it.
 
 **Corrective code HEAD:** `d4cd28a7359e580eec0a159fbb98542d8c7c70fb`.
-**CI status at report time:** tests-only run [44508941178](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941178) and Android debug run [44508941183](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941183) queued/pending; no pass is claimed yet.
+**CI status:** tests-only run [44508941178](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941178) **PASS — 11/11 test files, 116/116 tests, 0 failures**. Android debug run [44508941183](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941183) remains **in progress**; no APK build pass is claimed for this corrective HEAD yet.
 
 
 **Tests-only CI:** [44499872965](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872965) — PASS, 11/11 test files, 115/115 tests, 0 failures, 0 pending.
