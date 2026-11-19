@@ -23,9 +23,9 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 ## Active DEV-005 review entry point
 
 - **DEV-005 — Population cohort foundation:** `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md`.
-- **Exact code review HEAD:** `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce`.
-- **Tests-only CI:** [44499872965](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872965) — PASS, 11/11 test files and 115/115 tests.
-- **Android debug CI:** [44499872833](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872833) — SUCCESS; Gradle `assembleDebug` and APK signature verification succeeded. APK SHA-256: `025faf6255c529397ce4fd3b59f5023493287bf5ccbb1c343716e7bc63f302b2`.
+- **Exact corrective code review HEAD:** `d4cd28a7359e580eec0a159fbb98542d8c7c70fb` (duplicate Region ID guard + regression; CI pending at handoff update). Previous code HEAD `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce` is superseded for review.
+- **Previous verified baseline CI (HEAD `1cf7869` only):** tests-only [44499872965](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872965) PASS, 11/11 suites and 115/115 tests; Android debug [44499872833](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872833) SUCCESS. These results do **not** validate the later corrective commits.
+- **Corrective HEAD CI:** tests-only [44508941178](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941178) and Android debug [44508941183](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941183); status pending at the time of this handoff update.
 
 ## Current independent review entry point
 
