@@ -19,7 +19,7 @@
 | S0 tổng thể | **PARTIAL / BLOCKED** | G0.7 BLOCKED; G0.8 PARTIAL; G0.9 BLOCKED |
 | S1 / S23 | **NOT_STARTED** | Chưa có REVIEW_PASS + owner ACCEPTED cho gói chuyển tiếp và scope tương ứng |
 | S22 | **DESIGN_ONLY** | Chỉ có tài liệu thiết kế/nghiên cứu; chưa có runtime authorization |
-| APK hiện có | **DEBUG ARTIFACT — CI VERIFIED** | 18,052,144 bytes; SHA-256 `85e49cc5…e17ee08e`; chưa phải release-signed và chưa thử trên iQOO |
+| Cách tải và cài dữ liệu game | **YÊU CẦU SẢN PHẨM — CHƯA TRIỂN KHAI** | Tải APK nhỏ trước → cài và mở game → người chơi chủ động chọn/tải các data pack trong app → xác minh chữ ký + SHA-256 → cài/activate an toàn → chơi offline. Dữ liệu đầy đủ dự kiến khoảng 4–5 GB, chia pack; không tự tải nền hoặc dùng mạng di động khi chưa được đồng ý. |\n| APK hiện có | **DEBUG ARTIFACT — CI VERIFIED** | 18,052,144 bytes; SHA-256 `85e49cc5…e17ee08e`; chưa phải release-signed và chưa thử trên iQOO |
 | Bước kế tiếp | **Claude review DEV-005** | Review đúng code target; xử lý finding có giới hạn; không tự mở phase |
 
 ---
