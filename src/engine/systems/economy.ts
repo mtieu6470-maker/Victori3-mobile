@@ -154,11 +154,23 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const logWorkers = Math.min(r.buildings.logging * LEVEL_WORKERS, Math.max(0, LF * sh[S.laborers] - employment[S.laborers]));
     employment[S.laborers] += logWorkers;
     supply.timber += logWorkers * 900 * A * dev * occupied + LF * sh[S.peasants] * 15 * A; // farm-side timber
-    // factories (input availability applied after market clearing)
-    let factoryWorkersLeft = LF * sh[S.workers];
+    // Factories compete for the same worker pool. Allocate scarce workers proportionally
+    // across requested factory jobs instead of giving the first RECIPES entry priority.
+    const factoryBuildings = Object.keys(RECIPES) as Building[];
+    const requestedFactoryWorkers = factoryBuildings.reduce(
+      (total, b) => total + Math.max(0, r.buildings[b]) * LEVEL_WORKERS,
+      0,
+    );
+    const availableFactoryWorkers = Math.max(0, LF * sh[S.workers]);
+    const factoryStaffing = requestedFactoryWorkers > 0
+      ? clamp(availableFactoryWorkers / requestedFactoryWorkers, 0, 1)
+      : 0;
+    let factoryWorkersEmployed = 0;
     const facEff = 1 + techEffect(c, 'factory_efficiency');
-    for (const b of Object.keys(RECIPES) as Building[]) {
-      const rec = RECIPES[b]!; const w = Math.min(r.buildings[b] * LEVEL_WORKERS, factoryWorkersLeft); factoryWorkersLeft -= w;
+    for (const b of factoryBuildings) {
+      const rec = RECIPES[b]!;
+      const w = Math.max(0, r.buildings[b]) * LEVEL_WORKERS * factoryStaffing;
+      factoryWorkersEmployed += w;
       if (w <= 0) continue;
       const eff = facEff * (1 + (b === 'textile_mill' ? techEffect(c, 'textile_efficiency') : b === 'ironworks' ? techEffect(c, 'iron_efficiency') + techEffect(c, 'steel_efficiency') : b === 'arms_works' ? techEffect(c, 'arms_efficiency') : 0));
       const out = w * rec.perWorker * eff * Am * infra * dev * occupied;
@@ -171,7 +183,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
         recipeInputs[input] = (recipeInputs[input] ?? 0) + amount;
       }
     }
-    employment[S.workers] = LF * sh[S.workers] - factoryWorkersLeft;
+    employment[S.workers] = factoryWorkersEmployed;
     // artisans (cottage industry)
     const artWorkers = LF * sh[S.artisans];
     employment[S.artisans] = artWorkers;
