@@ -63,7 +63,7 @@ The later expanded test source on the experiment branch and the manual artifact-
 - In both runs, `npm ci`, `npm run build`, and generated-data/web-bundle hashing passed. Vitest failed at the same baseline-characterization assertion in `tests/s0-save-determinism.test.ts`: 6 files, 5 passed / 1 failed; 109 tests, 108 passed / 1 failed. The failing assertion requires every restored country to lack `constructionQueue`.
 - Source comparison confirms the experiment branch currently declares and initializes `constructionQueue` in `src/engine/types.ts` and `src/engine/init.ts`; frozen baseline `2240a8f` predates that field. The Android workflow runs the full test suite against the experiment branch, whereas the approved B4 result is a frozen-baseline characterization. This is a test-scope/integration mismatch to be reviewed, not evidence that the approved baseline B4 Run #3 failed and not authorization to alter product code.
 - Because Vitest failed, Android setup, Capacitor sync, Gradle `assembleDebug`, APK checksum and APK upload were skipped in both runs. **No APK was produced by #316 or #317.** The web/data build ran, but the workflow uploaded only CI evidence; it did not publish a downloadable data-pack artifact.
-- The dedicated S0-B7 dependency-audit workflow remains un-dispatched; no audit artifact or package-level DEP-F1 conclusion exists. This session has no GitHub Actions workflow-dispatch action, so manual dispatch on `experiment/vic3-visual-upgrade` remains pending.
+- The dedicated S0-B7 dependency-audit workflow has now completed on the experiment branch (run `44572915201`, workflow commit `9b150cff`). Artifact `14555141888` was downloaded and all eight entries inspected. Full-tree audit: 6 vulnerable packages (3 moderate, 1 high, 2 critical), exit 1 as expected; production-only audit: 0, exit 0; both stderr files empty. See §10 and `S0_DEPENDENCY_AUDIT_PLAN.md` for package-level details. DEP-F1 is OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING.
 - No product source, tests, data, assets, dependencies, Gradle, signing or workflow files were changed during this recheck. G0.6 remains bounded to the approved baseline Run #3 evidence; overall S0 remains PARTIAL/BLOCKED; S1 remains NOT AUTHORIZED.
 
 
@@ -108,3 +108,14 @@ The matching packages listed above are development dependencies in this lockfile
 
 External advisory references: `https://github.com/advisories/GHSA-82fw-gwwq-j7x9`; `https://osv.dev/vulnerability/GHSA-qxg6-89mg-rqv8`; `https://github.com/advisories/GHSA-5gmw-xhrv-c9v3`; `https://github.com/tinylibs/tinypool/security/advisories/GHSA-85c8-ppgw-ccpr`; `https://github.com/advisories/GHSA-67mh-4wv8-2f99`.
 
+
+
+## 10. Completed dependency audit — raw artifact reviewed (2026-11-20)
+
+- Workflow run [44572915201](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44572915201), job `135732603544`, completed SUCCESS on `experiment/vic3-visual-upgrade` at workflow commit `9b150cff57e79bdb5356e431cc140b3b1b9eda2d`.
+- Artifact `s0-b7-dependency-audit-9b150cff57e79bdb5356e431cc140b3b1b9eda2d`, ID `14555141888`, 4,753 bytes; GitHub API SHA-256 `b9124fa9c6f0272abaf970557ce248ef32c4d85397d21dbe64ebb19221a65a28`. Downloaded and inspected all eight files: raw full/production JSON, summary, provenance, stderr and exit-code files.
+- Full tree: 6 vulnerable package entries — 3 moderate, 1 high, 2 critical; exit code 1 is expected for findings. Production-only `--omit=dev`: 0 vulnerabilities; exit code 0. Both stderr files empty. Raw JSON and summary agree.
+- All six vulnerable entries are development dependencies: `@vitest/mocker@2.1.9` (moderate), nested `vite/node_modules/esbuild@0.21.5` (moderate), `tinypool@1.1.1` (critical), `vite@5.4.21` (high), `vite-node@2.1.9` (moderate), and `vitest@2.1.9` (critical). Root `esbuild@0.28.2` is outside the affected range; the nested 0.21.5 copy is affected. Advisory IDs are recorded in the dependency plan.
+- Provenance pins baseline `2240a8f`, workflow SHA `9b150cff`, Node `22.23.4`, npm `10.9.9`, npmjs registry, and SHA-256 for package manifests. No package install, fix, build, product script or lockfile write occurred.
+- The 2026-11-16 audit's 6-vulnerability severity totals are matched. The separate B4 Run #3 `npm ci` warning of 10 remains unreconciled because no package-level report exists for that command/context.
+- Disposition: DEP-F1 is now `OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING`, not UNTRIAGED. No dependency changes are authorized in S0. Production-only zero is scoped to the lockfile dependency graph and is not an APK/SBOM or build-tool safety certification.
