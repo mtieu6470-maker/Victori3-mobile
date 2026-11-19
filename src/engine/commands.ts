@@ -2,7 +2,7 @@
 // The UI layer must only issue these commands (no rule logic in the UI).
 import type { LawGroup } from './data/dbTypes';
 import type { Building, GameState, WarGoal } from './types';
-import { build, canBuild, buildCost } from './systems/economy';
+import { enqueueConstruction, cancelConstruction } from './systems/economy';
 import { startReform, reformSupport } from './systems/politics';
 import { availableTechs } from './systems/technology';
 import { declareWar, formAlliance, breakAlliance, declareRivalry, guarantee, improveRelations, joinCustomsUnion, allianceAcceptance, boundSubject } from './systems/diplomacy';
@@ -18,6 +18,7 @@ export type Command =
   | { type: 'set_navy_target'; ships: number }
   | { type: 'start_reform'; group: LawGroup; value: string }
   | { type: 'build'; region: string; building: Building }
+  | { type: 'cancel_construction'; projectId: string }
   | { type: 'set_research'; tech: string }
   | { type: 'improve_relations'; target: string }
   | { type: 'propose_alliance'; target: string }
@@ -42,9 +43,15 @@ export function execute(st: GameState, cmd: Command): CommandResult {
     case 'start_reform': return startReform(st, me, cmd.group, cmd.value) ? { ok: true } : { ok: false, reason: 'A reform is already in progress or the law is unchanged' };
     case 'build': {
       const r = st.regions[data().regionIndex.get(cmd.region) ?? -1];
-      if (!r || !canBuild(st, me, r, cmd.building)) return { ok: false, reason: 'Not buildable here' };
-      return build(st, me, r, cmd.building, 'statePool') ? { ok: true } : { ok: false, reason: `Insufficient construction funds (cost ${Math.round(buildCost(me, cmd.building, st))})` };
+      if (!r) return { ok: false, reason: 'Unknown construction site' };
+      return enqueueConstruction(st, me, r, cmd.building, 'state')
+        ? { ok: true }
+        : { ok: false, reason: 'Build requirements failed or the state construction queue is full' };
     }
+    case 'cancel_construction':
+      return cancelConstruction(st, me, cmd.projectId)
+        ? { ok: true }
+        : { ok: false, reason: 'No cancellable state-funded construction project' };
     case 'set_research': if (!availableTechs(me).includes(cmd.tech)) return { ok: false, reason: 'Prerequisites missing or already known' }; me.research = { current: cmd.tech, progress: 0 }; return { ok: true };
     case 'improve_relations': improveRelations(st, me.id, cmd.target); return { ok: true };
     case 'propose_alliance': if (boundSubject(me) || boundSubject(st.countries[cmd.target])) return { ok: false, reason: 'Subjects (other than tributaries) cannot form alliances' };

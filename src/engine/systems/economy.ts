@@ -1,8 +1,8 @@
 // Economy Engine (shared by both modes): production by sector, national/customs-union markets blended with a
 // world market, prices, food security, standard of living, state finance and private investment.
 import { data } from '../data/db';
-import { GOODS, S, type Country, type GameState, type Good, type Region, type Building, type MarketGoodStats } from '../types';
-import { clamp, log } from '../core';
+import { GOODS, STRATA, S, type Country, type GameState, type Good, type Region, type Building, type MarketGoodStats, type ConstructionFunding, type ConstructionProject } from '../types';
+import { clamp, log, newId } from '../core';
 import { regionsOf } from '../cache';
 
 export const OPENNESS: Record<string, number> = { isolationism: 0.03, protectionism: 0.3, free_trade: 0.7 };
@@ -37,7 +37,7 @@ export function openness(c: Country, coastal: boolean): number {
   return clamp(o, 0.01, 0.92);
 }
 
-interface RegionCalc { supply: Record<Good, number>; demand: Record<Good, number>; services: number; inputsNeed: Record<Good, number>; factoryOut: Record<Good, number>; grainLocal: number; grainNeed: number }
+interface RegionCalc { supply: Record<Good, number>; demand: Record<Good, number>; services: number; inputsNeed: Record<Good, number>; factoryOut: Record<Good, number>; factoryInputs: Partial<Record<Good, Partial<Record<Good, number>>>>; employment: number[]; grainLocal: number; grainNeed: number }
 
 const zero = () => Object.fromEntries(GOODS.map((g) => [g, 0])) as Record<Good, number>;
 
@@ -60,14 +60,22 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const dev = 1 - r.devastation;
     const blight = r.blight && r.blight.until > st.tick ? 1 - r.blight.severity : 1;
     const supply = zero(), demand = zero(), inputsNeed = zero(), factoryOut = zero();
+    const factoryInputs: RegionCalc['factoryInputs'] = {};
+    const employment = new Array(STRATA.length).fill(0);
     // agriculture
     const terr = TERRAIN_AGRI[r.terrain] ?? 0.8;
     const agriWorkers = LF * (sh[S.peasants] + 0.3 * sh[S.laborers]);
+    employment[S.peasants] = LF * sh[S.peasants];
+    employment[S.laborers] = LF * sh[S.laborers] * 0.3;
+    employment[S.slaves] = LF * sh[S.slaves];
     const grain = agriWorkers * 650 * terr * (1 + (r.res.includes('grain') ? 0.15 : 0) + (r.res.includes('live') ? 0.05 : 0)) * (1 + techEffect(c, 'farm_efficiency')) * infra * A * dev * blight * occupied;
     supply.grain += grain;
     // plantations
     const plantCap = r.buildings.plantation * LEVEL_WORKERS;
     const plantWorkers = Math.min(plantCap, LF * (sh[S.slaves] + 0.25 * sh[S.laborers]));
+    const plantSlaveWorkers = Math.min(plantWorkers, LF * sh[S.slaves]);
+    const plantLaborerWorkers = Math.max(0, plantWorkers - plantSlaveWorkers);
+    employment[S.laborers] += Math.min(plantLaborerWorkers, Math.max(0, LF * sh[S.laborers] - employment[S.laborers]));
     if (plantWorkers > 0) {
       const kinds: Good[] = []; if (r.res.includes('cott')) kinds.push('cotton'); if (r.res.includes('opium')) kinds.push('opium'); if (r.res.includes('cash')) kinds.push('cash_crops');
       if (!kinds.length) kinds.push('cash_crops');
@@ -76,13 +84,16 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     // slaves outside plantations work the fields
     supply.grain += Math.max(0, LF * sh[S.slaves] - plantWorkers) * 500 * terr * A * dev;
     // mines and logging
-    const mineWorkers = Math.min(r.buildings.mine * LEVEL_WORKERS, LF * sh[S.laborers] * 0.6);
+    const laborAvailable = Math.max(0, LF * sh[S.laborers] - employment[S.laborers]);
+    const mineWorkers = Math.min(r.buildings.mine * LEVEL_WORKERS, laborAvailable * 0.6);
+    employment[S.laborers] += mineWorkers;
     if (mineWorkers > 0) {
       const kinds: Good[] = []; if (r.res.includes('coal')) kinds.push('coal'); if (r.res.includes('iron')) kinds.push('iron'); if (r.res.includes('gold') || r.res.includes('silv')) kinds.push('luxury');
       if (!kinds.length) kinds.push('iron');
       for (const k of kinds) supply[k] += (mineWorkers * 900 * (1 + techEffect(c, 'mine_efficiency')) * A * infra * dev * occupied) / kinds.length;
     }
-    const logWorkers = Math.min(r.buildings.logging * LEVEL_WORKERS, LF * sh[S.laborers] * 0.4);
+    const logWorkers = Math.min(r.buildings.logging * LEVEL_WORKERS, Math.max(0, LF * sh[S.laborers] - employment[S.laborers]));
+    employment[S.laborers] += logWorkers;
     supply.timber += logWorkers * 900 * A * dev * occupied + LF * sh[S.peasants] * 15 * A; // farm-side timber
     // factories (input availability applied after market clearing)
     let factoryWorkersLeft = LF * sh[S.workers];
@@ -93,15 +104,36 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
       const eff = facEff * (1 + (b === 'textile_mill' ? techEffect(c, 'textile_efficiency') : b === 'ironworks' ? techEffect(c, 'iron_efficiency') + techEffect(c, 'steel_efficiency') : b === 'arms_works' ? techEffect(c, 'arms_efficiency') : 0));
       const out = w * rec.perWorker * eff * Am * infra * dev * occupied;
       factoryOut[rec.out] += out;
-      for (const [g, q] of Object.entries(rec.inputs)) inputsNeed[g as Good] += out * (q as number);
+      const recipeInputs = (factoryInputs[rec.out] ??= {});
+      for (const [g, q] of Object.entries(rec.inputs)) {
+        const input = g as Good;
+        const amount = out * (q as number);
+        inputsNeed[input] += amount;
+        recipeInputs[input] = (recipeInputs[input] ?? 0) + amount;
+      }
     }
+    employment[S.workers] = LF * sh[S.workers] - factoryWorkersLeft;
     // artisans (cottage industry)
-    const art = LF * sh[S.artisans] * 700 * Am * dev * occupied;
+    const artWorkers = LF * sh[S.artisans];
+    employment[S.artisans] = artWorkers;
+    const art = artWorkers * 700 * Am * dev * occupied;
     supply.textiles += art * 0.55; supply.tools += art * 0.25; supply.luxury += art * 0.2;
     // services
     const svc = LF * (sh[S.middle] + sh[S.capitalists] + sh[S.aristocrats] + sh[S.clergy]) * 1600 * Am * infra * occupied;
     // demand
-    const wealth = Math.max(0.3, (r.output > 0 ? (r.output * 12) / Math.max(1, r.pop) : 600 * c.productivity) / 600);
+    // Last month's wages feed next month's household purchasing power.
+    const oldEmployment = r.employment ?? [];
+    const oldWages = r.wages ?? [];
+    let wageMass = 0, wageWorkers = 0;
+    for (let si = 0; si < STRATA.length; si++) {
+      const workers = Math.max(0, oldEmployment[si] ?? 0);
+      wageMass += workers * Math.max(0, oldWages[si] ?? 0);
+      wageWorkers += workers;
+    }
+    const previousAverageWage = wageWorkers > 0 ? wageMass / wageWorkers : 0;
+    const wagePower = clamp(previousAverageWage / 50, 0.5, 2);
+    const outputWealth = Math.max(0.3, (r.output > 0 ? (r.output * 12) / Math.max(1, r.pop) : 600 * c.productivity) / 600);
+    const wealth = clamp(outputWealth * (0.85 + wagePower * 0.15), 0.3, 3);
     const grainNeed = r.pop * 200 * (1 + 0.25 * Math.log(wealth));
     demand.grain += grainNeed;
     demand.textiles += r.pop * 12 * Math.pow(wealth, 0.8);
@@ -111,7 +143,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     demand.coal += r.pop * 1.5 * wealth;
     demand.opium += r.pop * (c.id === 'QNG' ? 0.6 : 0.03);
     for (const g of GOODS) { supply[g] += factoryOut[g]; demand[g] += inputsNeed[g]; }
-    calc[i] = { supply, demand, services: svc, inputsNeed, factoryOut, grainLocal: grain, grainNeed };
+    calc[i] = { supply, demand, services: svc, inputsNeed, factoryOut, factoryInputs, employment, grainLocal: grain, grainNeed };
     const mk = marketOf(st, c);
     const m = (markets[mk] ??= { s: zero(), dm: zero(), open: 0, members: [] });
     for (const g of GOODS) { m.s[g] += supply[g]; m.dm[g] += demand[g]; }
@@ -170,17 +202,32 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const mk = marketOf(st, c); const p = st.marketPrices[mk]; const short = marketShort[mk];
     const Av = Math.pow(c.productivity, 0.45);
     let value = k.services * Math.pow(c.productivity, 0.5);
+    const consumedInputs = zero();
     for (const g of GOODS) {
-      let out = k.supply[g] - k.factoryOut[g];
-      // factory output scaled by the availability of inputs in the market
-      if (k.factoryOut[g] > 0) {
-        let avail = 1; for (const [ig] of Object.entries(k.inputsNeed)) if (k.inputsNeed[ig as Good] > 0) avail = Math.min(avail, 1 - short[ig as Good]);
-        out += k.factoryOut[g] * avail;
+      // Scale each factory only against its own recipe inputs.
+      const recipeInputs = k.factoryInputs[g] ?? {};
+      let inputAvailability = 1;
+      for (const [input, amount] of Object.entries(recipeInputs)) {
+        if ((amount ?? 0) > 0) inputAvailability = Math.min(inputAvailability, 1 - short[input as Good]);
       }
-      value += out * p[g] * Av;
+      const factoryProduced = k.factoryOut[g] * inputAvailability;
+      for (const [input, amount] of Object.entries(recipeInputs)) {
+        consumedInputs[input as Good] += (amount ?? 0) * inputAvailability;
+      }
+      const nonFactoryOutput = k.supply[g] - k.factoryOut[g];
+      value += (nonFactoryOutput + factoryProduced) * p[g] * Av;
     }
-    for (const g of GOODS) value -= k.inputsNeed[g] * p[g] * (1 - short[g]) * Av;
+    for (const g of GOODS) value -= consumedInputs[g] * p[g] * Av;
     r.output = Math.max(0, value) / 12;
+    r.employment = k.employment;
+
+    // A fixed share of value added becomes wages; skill and class determine the wage premium.
+    const wagePremium = [0.55, 0.12, 0.78, 0.9, 1.12, 1.28, 0.82, 1.5, 1.75];
+    let weightedWorkers = 0;
+    for (let si = 0; si < STRATA.length; si++) weightedWorkers += k.employment[si] * wagePremium[si];
+    const monthlyWageBill = r.output * 0.34;
+    const baseWage = weightedWorkers > 0 ? monthlyWageBill / weightedWorkers : 0;
+    r.wages = wagePremium.map((premium, si) => k.employment[si] > 0 ? baseWage * premium : 0);
     gdp[r.owner] = (gdp[r.owner] ?? 0) + value;
     // food security: market shortage plus local deficit where transport access is poor
     const access = clamp(0.25 + 0.12 * Math.min(5, r.buildings.railway) + (r.coastal ? 0.35 : 0) + 0.3 * openness(c, r.coastal), 0, 1);
@@ -189,7 +236,9 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const gdpPc = (value / Math.max(1, r.pop));
     const basket = 200 * p.grain + 12 * p.textiles;
     const laborShare = r.strata[S.slaves] > 0.3 ? 0.45 : 0.72;
-    const raw = 0.5 + 0.33 * Math.log(Math.max(1e-3, (gdpPc * (1 - c.taxRate) * laborShare) / (basket * 2)));
+    const wageIncomePerCapita = (r.wages ?? []).reduce((sum, wage, si) => sum + wage * (r.employment?.[si] ?? 0), 0) * 12 / Math.max(1, r.pop);
+    const disposableIncome = gdpPc * 0.7 + wageIncomePerCapita * 0.3;
+    const raw = 0.5 + 0.33 * Math.log(Math.max(1e-3, (disposableIncome * (1 - c.taxRate) * laborShare) / (basket * 2)));
     const target = clamp(raw - famine * 0.6 - (c.laws.labor === 'serfdom' ? 0.05 : 0), 0, 1);
     r.sol = calibrate ? target : r.sol * 0.85 + target * 0.15;
     (r as Region & { famine?: number }).famine = famine;
@@ -216,6 +265,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     c.famine = famine;
     financeMonth(st, c, g, pop, (marketImports[marketOf(st, c)] ?? 0) * (marketOf(st, c) === c.id ? 1 : 0.2));
   }
+  constructionMonth(st);
 }
 
 const SOLDIER_COST = (gdpPc: number) => 0.35 * gdpPc + 20;
@@ -237,12 +287,12 @@ function financeMonth(st: GameState, c: Country, gdpYear: number, pop: number, i
   c.income = income; c.expense = expense;
   c.finance = { tax, tariff, army: armyCost, navy: navyCost, admin: income * c.budget.admin, education: income * c.budget.education, health: income * c.budget.health, construction, interest };
   c.treasury += income - expense + construction; // construction money is held in the treasury for projects
-  (c as any).statePool = ((c as any).statePool ?? 0) + construction;
+  c.statePool = (c.statePool ?? 0) + construction;
   if (c.treasury < 0) { c.debt += -c.treasury; c.treasury = 0; }
   if (c.debt > 0 && c.treasury > income * 6) { const pay = Math.min(c.debt, c.treasury - income * 6); c.debt -= pay; c.treasury -= pay; }
   // private investment from the savings of property-owning strata
   const lawF = { laissez_faire: 1, interventionism: 0.75, mercantilism: 0.5, traditionalism: 0.25 }[c.laws.economy] ?? 0.4;
-  (c as any).privatePool = ((c as any).privatePool ?? 0) + (gdpYear * 0.012 * lawF * (1 + techEffect(c, 'investment'))) / 12;
+  c.privatePool = (c.privatePool ?? 0) + (gdpYear * 0.012 * lawF * (1 + techEffect(c, 'investment'))) / 12;
   // default
   if (income > 0 && c.debt > income * 12 * 4) {
     c.debt *= 0.5; c.legitimacy = clamp(c.legitimacy - 15, 0, 100); c.prestige -= 10;
@@ -250,10 +300,94 @@ function financeMonth(st: GameState, c: Country, gdpYear: number, pop: number, i
   }
 }
 
-/** Builds one level of a building if affordable and allowed. Shared by AI, player and the private sector. */
+/** Number of active/waiting projects in a country's funding stream. */
+export function constructionQueueLength(st: GameState, countryId: string, funding?: ConstructionFunding): number {
+  return (st.constructionProjects ?? []).filter((p) => p.countryId === countryId && (!funding || p.funding === funding)).length;
+}
+
+/** Place a project in a queue. Funding is invested over time; the building is not created immediately. */
+export function enqueueConstruction(
+  st: GameState, c: Country, r: Region, b: Building, funding: ConstructionFunding,
+): ConstructionProject | null {
+  if (!canBuild(st, c, r, b)) return null;
+  if ((st.constructionProjects ?? []).some((p) => p.countryId === c.id && p.regionId === r.id && p.building === b)) return null;
+  if (constructionQueueLength(st, c.id, funding) >= 5) return null;
+  const project: ConstructionProject = {
+    id: newId(st, 'construction'), countryId: c.id, regionId: r.id, building: b,
+    funding, totalCost: buildCost(c, b, st), invested: 0, createdTick: st.tick,
+  };
+  (st.constructionProjects ??= []).push(project);
+  log(st, {
+    type: 'construction',
+    text: `${c.name} orders ${b} construction in ${r.id}.`,
+    textVi: `${c.nameVi} đưa dự án ${b} tại ${r.id} vào hàng đợi xây dựng.`,
+    actors: [c.id],
+  });
+  return project;
+}
+
+/** Players can cancel state-funded projects; invested funds are sunk. */
+export function cancelConstruction(st: GameState, c: Country, projectId: string): boolean {
+  const index = (st.constructionProjects ?? []).findIndex((p) => p.id === projectId && p.countryId === c.id && p.funding === 'state');
+  if (index < 0) return false;
+  const [project] = st.constructionProjects.splice(index, 1);
+  log(st, {
+    type: 'construction',
+    text: `${c.name} cancels ${project.building} construction in ${project.regionId}; invested funds are not refunded.`,
+    textVi: `${c.nameVi} hủy dự án ${project.building} tại ${project.regionId}; vốn đã chi không được hoàn lại.`,
+    actors: [c.id],
+  });
+  return true;
+}
+
+/** One project per funding stream advances each month; each requires at least 12 funding ticks. */
+export function constructionMonth(st: GameState): void {
+  for (const c of Object.values(st.countries)) {
+    if (!c.alive) continue;
+    for (const funding of ['state', 'private'] as const) {
+      const project = (st.constructionProjects ?? [])
+        .filter((p) => p.countryId === c.id && p.funding === funding)
+        .sort((a, b) => a.createdTick - b.createdTick || a.id.localeCompare(b.id))[0];
+      if (!project) continue;
+      const region = st.regions[data().regionIndex.get(project.regionId) ?? -1];
+      if (!region || region.owner !== c.id || region.controller !== c.id || !canBuild(st, c, region, project.building)) {
+        st.constructionProjects = st.constructionProjects.filter((p) => p.id !== project.id);
+        log(st, {
+          type: 'construction',
+          text: `${c.name}'s ${project.building} project in ${project.regionId} is halted because the site is no longer eligible.`,
+          textVi: `Dự án ${project.building} của ${c.nameVi} tại ${project.regionId} bị dừng vì vùng không còn đủ điều kiện.`,
+          actors: [c.id],
+        });
+        continue;
+      }
+      const poolKey = funding === 'state' ? 'statePool' : 'privatePool';
+      const available = Math.max(0, c[poolKey] ?? 0);
+      const spend = Math.min(available, project.totalCost / 12, project.totalCost - project.invested);
+      if (spend > 0) {
+        c[poolKey] = Math.max(0, available - spend);
+        if (funding === 'state') c.treasury = Math.max(0, c.treasury - spend);
+        project.invested = Math.min(project.totalCost, project.invested + spend);
+      }
+      if (project.invested + 1e-6 < project.totalCost) continue;
+      st.constructionProjects = st.constructionProjects.filter((p) => p.id !== project.id);
+      region.buildings[project.building] += 1;
+      log(st, {
+        type: 'construction',
+        text: `${c.name} completes ${project.building} in ${project.regionId}.`,
+        textVi: `${c.nameVi} hoàn thành ${project.building} tại ${project.regionId}.`,
+        actors: [c.id],
+      });
+    }
+  }
+}
+
 export function canBuild(st: GameState, c: Country, r: Region, b: Building): boolean {
   if (r.owner !== c.id || r.controller !== c.id) return false;
-  if (b === 'railway') return hasTech(c, 'railways') && r.buildings.railway < 5;
+  if (b === 'railway') {
+    const queued = (st.constructionProjects ?? []).filter((p) => p.countryId === c.id && p.regionId === r.id && p.building === 'railway').length;
+    return hasTech(c, 'railways') && r.buildings.railway + queued < 5;
+  }
+  if (b === 'university') return r.buildings.university < 10;
   if (b === 'mine') return r.res.some((x) => ['coal', 'iron', 'gold', 'silv'].includes(x));
   if (b === 'plantation') return r.res.some((x) => ['cash', 'cott', 'opium'].includes(x));
   if (b === 'logging') return r.res.includes('timb');
@@ -266,14 +400,6 @@ export function buildCost(c: Country, b: Building, st: GameState): number {
   const p = st.marketPrices[marketOf(st, c)] ?? st.worldPrices;
   return BUILD_COST[b] * (0.5 + 0.3 * p.tools + 0.2 * p.steel) * Math.sqrt(Math.max(0.3, c.productivity));
 }
-export function build(st: GameState, c: Country, r: Region, b: Building, pool: 'statePool' | 'privatePool'): boolean {
-  const cost = buildCost(c, b, st);
-  if (!canBuild(st, c, r, b) || ((c as any)[pool] ?? 0) < cost) return false;
-  (c as any)[pool] -= cost;
-  if (pool === 'statePool') c.treasury = Math.max(0, c.treasury - cost);
-  r.buildings[b] += 1;
-  return true;
-}
 
 /** Expected annual return of one more level of a building in a region (used by private investors and the AI). */
 export function buildingReturn(st: GameState, c: Country, r: Region, b: Building): number {
@@ -284,24 +410,22 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
   if (b !== 'railway' && b !== 'university' && labour - used < LEVEL_WORKERS * 0.5) return 0;
   let value = 0;
   if (b === 'railway') value = (r.output * 12) * 0.05 + 2e5;
-  else if (b === 'university') value = 0;
+  else if (b === 'university') value = r.pop * 0.45 * (0.2 + r.literacy * 1.2) * 3;
   else if (RECIPES[b]) { const rec = RECIPES[b]!; const out = LEVEL_WORKERS * rec.perWorker * A; value = out * p[rec.out] - Object.entries(rec.inputs).reduce((s, [g, q]) => s + out * (q as number) * p[g as Good], 0) - LEVEL_WORKERS * 650 * A * p.grain * 0.5; }
   else { const good: Good = b === 'mine' ? (r.res.includes('coal') ? 'coal' : r.res.includes('iron') ? 'iron' : 'luxury') : b === 'logging' ? 'timber' : r.res.includes('cott') ? 'cotton' : r.res.includes('opium') ? 'opium' : 'cash_crops'; value = LEVEL_WORKERS * 900 * A * p[good] - LEVEL_WORKERS * 650 * A * p.grain * 0.6; }
   return value / buildCost(c, b, st);
 }
 
 export function privateInvestment(st: GameState, c: Country) {
-  let tries = 0;
-  while (((c as any).privatePool ?? 0) > 0 && tries++ < 3) {
-    let best: { r: Region; b: Building; v: number } | null = null;
-    for (const r of regionsOf(st, c.id)) {
-      for (const b of ['textile_mill', 'ironworks', 'tool_works', 'mine', 'plantation', 'logging', 'luxury_workshop', 'railway'] as Building[]) {
-        if (!canBuild(st, c, r, b)) continue;
-        if (b === 'plantation' && c.laws.labor !== 'slavery' && r.strata[S.laborers] < 0.05) continue;
-        const v = buildingReturn(st, c, r, b);
-        if (v > 0.08 && (!best || v > best.v)) best = { r, b, v };
-      }
+  if (constructionQueueLength(st, c.id, 'private') >= 3 || c.privatePool <= 0) return;
+  let best: { r: Region; b: Building; v: number } | null = null;
+  for (const r of regionsOf(st, c.id)) {
+    for (const b of ['textile_mill', 'ironworks', 'tool_works', 'mine', 'plantation', 'logging', 'luxury_workshop', 'railway', 'university'] as Building[]) {
+      if (!canBuild(st, c, r, b)) continue;
+      if (b === 'plantation' && c.laws.labor !== 'slavery' && r.strata[S.laborers] < 0.05) continue;
+      const v = buildingReturn(st, c, r, b);
+      if (v > 0.08 && (!best || v > best.v)) best = { r, b, v };
     }
-    if (!best || !build(st, c, best.r, best.b, 'privatePool')) break;
   }
+  if (best) enqueueConstruction(st, c, best.r, best.b, 'private');
 }

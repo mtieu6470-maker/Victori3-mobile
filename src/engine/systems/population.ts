@@ -73,6 +73,10 @@ function shiftStrata(st: GameState, c: Country, r: Region) {
   const s = r.strata; const LF = r.pop * 0.45;
   const factoryCap = (r.buildings.textile_mill + r.buildings.ironworks + r.buildings.tool_works + r.buildings.arms_works + r.buildings.luxury_workshop) * LEVEL_WORKERS;
   const extractCap = (r.buildings.mine + r.buildings.logging + r.buildings.plantation) * LEVEL_WORKERS;
+  const wages = r.wages ?? [];
+  const farmWage = Math.max(1, wages[S.peasants] ?? 0);
+  const workerPremium = clamp((wages[S.workers] || farmWage) / farmWage, 0.7, 1.5);
+  const laborerPremium = clamp((wages[S.laborers] || farmWage) / farmWage, 0.7, 1.35);
   const wTarget = clamp(factoryCap / Math.max(1, LF), 0, 0.6);
   const lTarget = clamp(extractCap / Math.max(1, LF) * 0.7 + 0.04, 0.02, 0.5);
   const gdpPc = (r.output * 12) / Math.max(1, r.pop);
@@ -81,9 +85,9 @@ function shiftStrata(st: GameState, c: Country, r: Region) {
   const move = (from: number, to: number, amt: number) => { const a = Math.min(s[from], Math.max(0, amt)); s[from] -= a; s[to] += a; };
   // slaves only change through law
   if (c.laws.labor !== 'slavery' && s[S.slaves] > 0) { const a = s[S.slaves] * 0.05; s[S.slaves] -= a; s[S.peasants] += a * 0.6; s[S.laborers] += a * 0.4; }
-  if (s[S.workers] < wTarget) move(S.peasants, S.workers, (wTarget - s[S.workers]) * rate * (c.laws.labor === 'serfdom' ? 0.3 : 1));
+  if (s[S.workers] < wTarget) move(S.peasants, S.workers, (wTarget - s[S.workers]) * rate * workerPremium * (c.laws.labor === 'serfdom' ? 0.3 : 1));
   else move(S.workers, S.laborers, (s[S.workers] - wTarget) * rate * 2);
-  if (s[S.laborers] < lTarget) move(S.peasants, S.laborers, (lTarget - s[S.laborers]) * rate * (c.laws.labor === 'serfdom' ? 0.4 : 1));
+  if (s[S.laborers] < lTarget) move(S.peasants, S.laborers, (lTarget - s[S.laborers]) * rate * laborerPremium * (c.laws.labor === 'serfdom' ? 0.4 : 1));
   if (s[S.middle] < mTarget) move(S.peasants, S.middle, (mTarget - s[S.middle]) * rate * 0.5);
   // artisans lose ground where factories make cheap textiles
   const p = st.marketPrices[c.customsUnion ?? c.id] ?? st.worldPrices;

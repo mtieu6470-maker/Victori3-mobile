@@ -7,7 +7,7 @@ import { LAW_GROUPS, type LawGroup } from '../data/dbTypes';
 import { BUILDINGS, type Building, type Country, type GameState, type WarGoal } from '../types';
 import { clamp, count, getRel, rand, chance, relKey } from '../core';
 import { historicalBias } from '../historical';
-import { build, buildingReturn, canBuild, hasTech, privateInvestment, SHIP_COST } from '../systems/economy';
+import { enqueueConstruction, constructionQueueLength, buildingReturn, canBuild, hasTech, privateInvestment, SHIP_COST } from '../systems/economy';
 import { reformSupport, startReform, sharesBorder } from '../systems/politics';
 import { techCost } from '../systems/technology';
 import { allied, allianceAcceptance, declareRivalry, declareWar, formAlliance, greatPowers, guarantee, improveRelations, joinCustomsUnion, powerScore, rivals } from '../systems/diplomacy';
@@ -89,7 +89,7 @@ export function chooseResearch(st: GameState, c: Country, options: string[]): st
 
 // ---------------------------------------------------------------- construction (state investment)
 function constructionAI(st: GameState, c: Country) {
-  const pool = (c as any).statePool ?? 0; if (pool <= 0) return;
+  if (constructionQueueLength(st, c.id, 'state') >= 3 || c.statePool <= 0) return;
   const threat = threatLevel(st, c);
   let best: { r: number; b: Building; v: number } | null = null;
   for (const r of regionsOf(st, c.id)) {
@@ -104,7 +104,7 @@ function constructionAI(st: GameState, c: Country) {
       if (!best || v > best.v) best = { r: i, b, v };
     }
   }
-  if (best && best.v > 0.04 && build(st, c, st.regions[best.r], best.b, 'statePool')) count(st, 'construction', c.id);
+  if (best && best.v > 0.04 && enqueueConstruction(st, c, st.regions[best.r], best.b, 'state')) count(st, 'construction', c.id);
 }
 
 // ---------------------------------------------------------------- reforms (with anti-oscillation)
