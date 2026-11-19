@@ -8,6 +8,7 @@
 **Product baseline:** 2240a8fb865e0021eec2f2f4f1c6803528be9e2c  
 **Owner authorization:** OD-20261116-11 (S0 v3.3)  
 **Ngày:** 2026-11-17
+**Owner execution directive (19/11/2026):** `../../coordination/OWNER_EXECUTION_DIRECTIVE_2026-11-19.md` — delegated execution and 4–5 GB offline-data allowance.  
 
 > Đây là bản chỉ mục/tổng hợp để đọc nhanh. Các file chi tiết bên dưới là nguồn bằng chứng chính thức; không thay thế log, report gốc, independent review hoặc quyết định của chủ dự án.
 
@@ -50,15 +51,15 @@ G0.1–G0.6 là trạng thái được đề xuất theo bằng chứng hiện c
 - **TC-F1/TC-F2:** hai test luật/chiến tranh có pass rỗng; green CI không chứng minh được các invariant đó.
 - **R5 / RM-F3 / RM-F4:** R5 (P1) cảnh báo số đo frame/FPS không tách được tick cost; callback `stepMonth + emit` trên desktop có p95 38,8–63,4 ms, max 97,1 ms, còn browser `stepMonth` riêng là unsupported. RM-F3 (P1) ghi mô phỏng đồng bộ trên main thread; RM-F4 (P2) ghi loop `requestAnimationFrame` giới hạn throughput. Đây là ba góc rủi ro liên quan nhưng không đồng nhất.
 - **R10:** cần ngân sách hiệu năng cho các lớp bản đồ mới ở các giai đoạn S4/S11/S20.
-- **R15 — mục tiêu 3–4 GB offline:** theo chỉ đạo ngày 17/11/2026, quy mô mục tiêu là tổng nội dung offline đã cài qua core + nhiều content pack, không phải một APK 3–4 GB hoặc 3–4 GB RAM. Baseline hiện chỉ có payload 17.764.559 byte/592 tệp; code boot vẫn import tĩnh DB/map, giải mã toàn bộ raster và nạp metadata identity registry trong một JSON. R15 ghi rủi ro lưu trữ/cập nhật/OOM/ANR và yêu cầu manifest, checksum, resume, free-space preflight, atomic update/rollback, lazy load + cache giới hạn; delivery thuộc S23b/S23c, không mở rộng S1. Google Play cần đánh giá AAB/PAD; sideload cần kênh pack riêng.
+- **R15 — mức cho phép 4–5 GB dữ liệu offline (cập nhật 19/11/2026):** theo chỉ đạo ngày 17/11/2026, quy mô mục tiêu là tổng nội dung offline đã cài qua core + nhiều content pack, không phải một APK 4–5 GB hoặc 4–5 GB RAM. Baseline hiện chỉ có payload 17.764.559 byte/592 tệp; code boot vẫn import tĩnh DB/map, giải mã toàn bộ raster và nạp metadata identity registry trong một JSON. R15 ghi rủi ro lưu trữ/cập nhật/OOM/ANR và yêu cầu manifest, checksum, resume, free-space preflight, atomic update/rollback, lazy load + cache giới hạn; delivery thuộc S23b/S23c, không mở rộng S1. Google Play cần đánh giá AAB/PAD; sideload cần kênh pack riêng.
 
 ### Các finding đã được bổ sung hoặc bảo toàn
 
-Risk register giữ đầy đủ R1–R14, ghi R3 là CLOSED, bổ sung risk mới R15 về mục tiêu offline 3–4 GB, và bao gồm TC-F1…F7, GD-F1…F6, AS-F1…F7, RM-F1…F5, WD-F1…F3 cùng B4-R1. TC-F5/TC-F6 được đánh dấu có bổ sung test coverage trong B4, nhưng lỗi missing-RNG vẫn được giữ riêng trong B4-R1.
+Risk register giữ đầy đủ R1–R14, ghi R3 là CLOSED, bổ sung risk mới R15 về mức cho phép dữ liệu offline 4–5 GB, và bao gồm TC-F1…F7, GD-F1…F6, AS-F1…F7, RM-F1…F5, WD-F1…F3 cùng B4-R1. TC-F5/TC-F6 được đánh dấu có bổ sung test coverage trong B4, nhưng lỗi missing-RNG vẫn được giữ riêng trong B4-R1.
 
-## 3.1. Mục tiêu dung lượng offline 3–4 GB
+## 3.1. Mục tiêu dung lượng offline 4–5 GB
 
-Mục tiêu của chủ dự án là game có tổng nội dung offline khoảng 3–4 GB, ưu tiên ổn định. Đây là tổng footprint của ứng dụng lõi và content packs sau cài đặt/giải nén, không phải yêu cầu tạo một APK duy nhất có kích thước 3–4 GB, cũng không phải lượng RAM phải giữ thường trú.
+Chỉ đạo mới ngày 19/11/2026 của chủ dự án cho phép bộ dữ liệu offline hoàn chỉnh có thể đạt khoảng 4–5 GB; đây là mức cho phép, không phải dung lượng tối thiểu phải lấp đầy. Tính trên ứng dụng lõi + nhiều data/content packs sau khi cài, không phải một APK duy nhất 4–5 GB hoặc 4–5 GB RAM. Phải đo riêng compressed download, expanded on-device footprint, temporary staging và runtime resident/decoded memory. Chỉ phát hành byte dữ liệu có ích, có nguồn, đúng thời kỳ/địa lý và có quyền phân phối; không nạp dữ liệu rác để đạt dung lượng. Mốc 3–4 GB ngày 17/11 trong báo cáo lịch sử được thay bằng mức cho phép mới này.
 
 Roadmap v3.2 đã có quyết định H (offline >3 GB) và S23b dành cho hình ảnh/content packs/offline delivery. R15 trong Risk Register ghi nhận rủi ro mới và các tiêu chí cần có trước khi triển khai: manifest trung lập nhà cung cấp, version/hash/dependency, resume, kiểm tra dung lượng trống, xác minh SHA-256, cập nhật nguyên tử/rollback, lazy loading và cache ảnh/GPU có giới hạn.
 
@@ -70,14 +71,14 @@ Nguồn chính thức: [Google Play app size limits](https://support.google.com/
 
 Có hai đường:
 
-- **Sideload/GitHub (định hướng trước mắt):** APK lõi giữ nhỏ; người chơi bấm "Tải toàn bộ dữ liệu". Ứng dụng tải 3–4 archive riêng (hoặc các pack theo vùng/hệ thống), mỗi file dưới 2 GiB nếu dùng GitHub Releases; xác minh checksum, giải nén theo luồng vào thư mục riêng, kiểm tra từng file rồi mới kích hoạt. GitHub hiện cho tối đa 1.000 release assets, mỗi file dưới 2 GiB, tổng size/bandwidth của release không giới hạn theo tài liệu chính thức. Việc resume với redirect của release asset phải test thực tế.
+- **Sideload/GitHub (định hướng trước mắt):** APK lõi giữ nhỏ; người chơi bấm "Tải toàn bộ dữ liệu". Ứng dụng tải nhiều archive/pack riêng theo nhóm dữ liệu (hoặc các pack theo vùng/hệ thống), mỗi file dưới 2 GiB nếu dùng GitHub Releases; xác minh checksum, giải nén theo luồng vào thư mục riêng, kiểm tra từng file rồi mới kích hoạt. GitHub hiện cho tối đa 1.000 release assets, mỗi file dưới 2 GiB, tổng size/bandwidth của release không giới hạn theo tài liệu chính thức. Việc resume với redirect của release asset phải test thực tế.
 - **Google Play:** phát hành AAB + Play Asset Delivery, chia nội dung thành install-time / fast-follow / on-demand packs. Không coi PAD là cách phân phối cho APK cài ngoài Play.
 
 **Nén không phải phép màu:** JSON/CSV/vector/text có thể nén đáng kể; ảnh WebP/JPEG/AVIF, audio Opus/OGG đã nén sẵn, thường không thể giảm 10 lần. Có thể có archive vài trăm MB nếu phần lớn payload là dữ liệu lặp/văn bản/geometry, nhưng không lấy tỷ lệ đó làm cam kết cho thư viện media có chất lượng.
 
 **Chống báo game đầy đủ giả:** trạng thái FULL_OFFLINE_READY chỉ hiện khi toàn bộ pack bắt buộc đúng version/dependency và checksum; thiếu pack thì hiện CORE_ONLY hoặc MISSING_OR_CORRUPT_PACK. CI phải xuất manifest số byte nén/giải nén, số file, checksum, nhóm tài nguyên, tỷ lệ trùng/orphan/missing. Không được thêm file rỗng, ảnh lặp, audio im lặng, random bytes hoặc tài liệu source/QA để đạt dung lượng.
 
-Công nghệ truy cập file từ bộ nhớ riêng qua WebView phải dùng một thư mục content riêng được ánh xạ bằng AndroidX WebViewAssetLoader.InternalStoragePathHandler; không bật quyền truy cập file tùy ý, không expose vùng save/database/cache. Tải gói lớn cần downloader native có retry/resume, preflight dung lượng, staging và rollback; không tải 3–4 GB bằng JavaScript trong WebView.
+Công nghệ truy cập file từ bộ nhớ riêng qua WebView phải dùng một thư mục content riêng được ánh xạ bằng AndroidX WebViewAssetLoader.InternalStoragePathHandler; không bật quyền truy cập file tùy ý, không expose vùng save/database/cache. Tải gói lớn cần downloader native có retry/resume, preflight dung lượng, staging và rollback; không tải 4–5 GB bằng JavaScript trong WebView.
 
 ## 4. B4 — bằng chứng test được xác minh lại
 
