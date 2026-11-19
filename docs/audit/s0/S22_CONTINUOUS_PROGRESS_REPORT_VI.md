@@ -3,10 +3,37 @@
 **Ngày cập nhật:** 19/11/2026  
 **Repository:** mtieu6470-maker/Victori3-mobile  
 **Branch:** claude/game-historical-sandbox-modes-kg7rj7  
-**Code review HEAD:** `14bd56848b8db429b9037880b08887af7118d61f`. **Latest branch HEAD:** `3ff6b3af883ce685f8438c24eb7a3c050b547155` (docs-only after code review target). DEV-005 tests-only and Android debug build both PASS; detailed current evidence is recorded below.  
+**DEV-005 code review target:** `c9868d7131d7de3fd8efd0263411fee9111f172c`. **Latest verified branch HEAD before this report update:** `fa5a1474d6f55a322899528044717aba1ae052ce` (documentation-only changes after code target). Exact-target tests-only and Android debug CI both SUCCESS; detailed evidence is recorded below.  
 **Chế độ báo cáo:** rolling report — mọi lượt làm xong phải append một progress entry mới; không tạo báo cáo rời nếu không cần thiết.
 
 > Đây là báo cáo điều phối và tự kiểm toán của ChatGPT. Không phải Claude REVIEW_PASS, không phải owner ACCEPTED, không phải bằng chứng S1/S22 đã mở. Mọi research candidate chưa được owner chấp nhận vẫn là tài liệu nghiên cứu, không phải game data đã duyệt.
+
+## BẢNG TÓM TẮT TRẠNG THÁI HIỆN TẠI
+
+| Hạng mục | Trạng thái | Bằng chứng / việc còn lại |
+|---|---|---|
+| DEV-005 — cohort projection + save compatibility | **CI_PASS / READY_FOR_REVIEW** | Code target `c9868d7`; 11/11 test files, 122/122 tests PASS; Android debug build SUCCESS |
+| Claude independent review | **PENDING** | Cần review no-write đúng code target `c9868d7131d7de3fd8efd0263411fee9111f172c`; tập trung fractional POP và save/version contract |
+| Owner acceptance | **PENDING** | Chỉ chủ dự án chấp nhận sau verdict độc lập |
+| iQOO Z10 Turbo QA | **NOT_TESTED** | Chưa có install, save/load, lifecycle, performance hoặc thermal evidence trên máy thật |
+| S0 tổng thể | **PARTIAL / BLOCKED** | G0.7 BLOCKED; G0.8 PARTIAL; G0.9 BLOCKED |
+| S1 / S23 | **NOT_STARTED** | Chưa có REVIEW_PASS + owner ACCEPTED cho gói chuyển tiếp và scope tương ứng |
+| S22 | **DESIGN_ONLY** | Chỉ có tài liệu thiết kế/nghiên cứu; chưa có runtime authorization |
+| APK hiện có | **DEBUG ARTIFACT — CI VERIFIED** | 18,052,144 bytes; SHA-256 `85e49cc5…e17ee08e`; chưa phải release-signed và chưa thử trên iQOO |
+| Bước kế tiếp | **Claude review DEV-005** | Review đúng code target; xử lý finding có giới hạn; không tự mở phase |
+
+---
+
+## 0.7 — Bảng tóm tắt và hoàn tất chuẩn bị Claude review (19/11/2026)
+
+- **Latest branch HEAD trước cập nhật report:** `fa5a1474d6f55a322899528044717aba1ae052ce`. Code target giữ nguyên `c9868d7131d7de3fd8efd0263411fee9111f172c`.
+- **Tài liệu đã cập nhật ở các commit ngay trước entry này:** review packet sửa số liệu thành 13 focused tests và 24 paths = 7 runtime/test + 17 docs; AI collaboration protocol sửa phần Purpose để khớp vai trò ChatGPT implementer / Claude independent reviewer; self-audit ghi rõ giới hạn migrant-origin strata không được chuyển trong legacy regional migration; handoff trỏ đúng review target và ghi checkpoint.
+- **Đối chiếu code target → branch HEAD:** đúng bốn file documentation thay đổi: review request, technical self-audit, AI collaboration protocol, AI handoff. Không đổi runtime, test source, gameplay, historical data, assets, Android/Gradle, signing hoặc workflow.
+- **CI cho exact code target `c9868d7`:** tests-only run [44540766509](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44540766509) SUCCESS — 11/11 files, 122/122 tests; Android debug run [44540766545](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44540766545) SUCCESS — web build/typecheck, tests, Capacitor sync, Gradle assembleDebug, APK checksum và V1/V2 signature verification.
+- **APK debug:** 18,052,144 bytes; SHA-256 `85e49cc530ce2e382c6af8575f04c2ee631a0be20fb32f841297bb37e17ee08e`; signer certificate SHA-256 `73a3c9a7f7e2ef2d489d37a5fb386d7d138f741f9c3dffcdb32fb886de9c27ad`; artifact [14538597513](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44540766545/artifacts/14538597513). Artifact ZIP hash is recorded separately in AI_HANDOFF; it is not the APK hash.
+- **Ranh giới kỹ thuật đã xác minh:** monthly cohort projection rebuild chạy sau tất cả monthly systems. Legacy international migration chỉ cập nhật Region POP tổng và destination strata giữ nguyên; projection này không giữ cohort migration origin. Đây là giới hạn đã ghi vào self-audit, không phải tính năng POP migration hoàn chỉnh.
+- **Còn chờ:** Claude independent verdict; owner acceptance; quyết định về fractional person-equivalent `size` so với integer safe-integer proposal; tách engine version/save schema/data-build hash; iQOO physical QA. Không tự sửa các điểm cần quyết định thiết kế của reviewer trong cùng lượt.
+- **Không tuyên bố:** DEV-005 ACCEPTED, S0 PASS, S1/S22/S23 mở, APK release-signed hoặc thiết bị đã kiểm thử.
 
 ## 0.6 DEV-005 final verification — tests, Android debug APK and handoff (19/11/2026)
 
