@@ -1,3 +1,5 @@
+- **Mandatory session/network recovery procedure (19/11/2026):** `docs/coordination/SESSION_RECOVERY_PROTOCOL_VI.md`. Required for every new session and whenever chat responses, network, GitHub API or write outcomes are interrupted/ambiguous. Verify HEAD/commits/files/CI before retry; never duplicate writes or claim uncommitted work persisted.
+
 - **Mandatory root entrypoint for every new AI/session (19/11/2026):** `AI_START_HERE.md` at repository root. It contains the detailed product target and subsystem-by-subsystem brief; read it first, then follow `AGENTS.md` / `CLAUDE.md`, this handoff, the collaboration protocol, owner principles, approved roadmap and task-specific spec. `README.md` links to it prominently.
 
 # AI Handoff — Victori3-mobile
