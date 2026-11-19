@@ -105,7 +105,7 @@ Append newest entries at the top. Do not overwrite earlier entries.
 ### 2026-11-18 — B7-RISK-TABLE-STRUCTURE-CORRECTION
 
 - Found that the P2 Risk Register header had four columns while many body rows had six, causing malformed Markdown tables and loss of clear impact/mitigation/owner/target semantics.
-- Rebuilt all 21 P2 rows into the same six-column schema as P0/P1, retaining source severity and explicit evidence, impact, disposition/control, owner, and target/closure criteria.
+- Rebuilt all 22 P2 rows into the same six-column schema as P0/P1, retaining source severity and explicit evidence, impact, disposition/control, owner, and target/closure criteria.
 - Updated `S0_B7_RISK_TRACEABILITY.md` so R8/TC-F4, TC-F6, TC-F7, GD-F1/F3/F4, and AS-F2/F3/F4 map to their exact individual P2 rows. TC-F6 is marked mitigated for G0.6 by B4 while the original baseline test remains narrow.
 - Updated the self-review and Claude request to require table-cell integrity checking. No gate verdict or product source was changed.
 ### 2026-11-18 — B7-REVIEW-PACKAGE-MANIFEST
@@ -593,3 +593,10 @@ Before resuming, re-check the live branch HEAD and all workflow statuses. B7 dep
 - Because Vitest failed, Android setup, Capacitor sync, Gradle `assembleDebug`, APK checksum and APK upload were skipped in both runs. **No APK was produced by #316 or #317.** The web/data build ran, but the workflow uploaded only CI evidence; it did not publish a downloadable data-pack artifact.
 - The dedicated S0-B7 dependency-audit workflow remains un-dispatched; no audit artifact or package-level DEP-F1 conclusion exists. This session has no GitHub Actions workflow-dispatch action, so manual dispatch on `experiment/vic3-visual-upgrade` remains pending.
 - No product source, tests, data, assets, dependencies, Gradle, signing or workflow files were changed during this recheck. G0.6 remains bounded to the approved baseline Run #3 evidence; overall S0 remains PARTIAL/BLOCKED; S1 remains NOT AUTHORIZED.
+
+
+### 2026-11-19 — B7-COUNT-AND-CURRENT-CI-RECHECK
+
+- Recounted the current S0_RISK_REGISTER.md P2 table: 22 data rows, all with six cells. Corrected stale handoff wording that said 21.
+- Recorded Android workflow runs #316/#317 and their identical 108/109 Vitest failure in S0_B7_RESULTS.md, S0_B7_SELF_REVIEW.md, the Claude review request and next-session handoff.
+- The failure is in a baseline-specific assertion run against the experiment branch, which currently has constructionQueue; the approved B4 Run #3 remains a distinct frozen-baseline result. Android APK assembly did not run.
