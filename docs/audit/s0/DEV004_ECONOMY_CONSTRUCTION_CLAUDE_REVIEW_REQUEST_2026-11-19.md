@@ -1,7 +1,7 @@
 # DEV-004 — Economy, wages, factory inputs and construction lifecycle: Claude review
 
 **Review target branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
-**Exact code review target (latest implementation + tests; documentation update excluded):** `be20d78c052ca6dcc114479b84ff4b9af16507ed`  
+**Exact code review target (latest implementation + tests; documentation update excluded):** `83e10bcd4af2b4b4be0b6019f98b3aa97f75b9ec`  
 **Comparison base:** `526b745d980ae5a4094b6dcbdabf41152f910afa` (last green build before the economy/construction feature tranche)  
 **Review type:** independent code review first; one bounded corrective pass only after findings are reported  
 **Status:** REQUESTED — no Claude verdict is claimed; no owner approval is implied
@@ -34,6 +34,8 @@ Feature commits in the reviewed range include:
 - `9cf92aab9bc43fa26d92dceb4e85fd41d655642c` — test staffing eligibility, resource-mix weighting and square-root factory productivity scaling.
 - `385e0b9748361c66ac2c033db97bd13de725f725` — make prospective construction returns sensitive to market output saturation and input shortages.
 - `be20d78c052ca6dcc114479b84ff4b9af16507ed` — add regression coverage for oversupplied output markets, input-constrained factories and marginal mining returns.
+- `270b63380eebc2f4da47553842804dbbcf83d63f` — add fiscal-discipline tests before changing the AI construction budget formula.
+- `83e10bcd4af2b4b4be0b6019f98b3aa97f75b9ec` — adapt state construction allocation to operating margin, debt burden, famine pressure and wartime spending.
 
 Primary files:
 
@@ -175,9 +177,14 @@ This request is not evidence of Claude review completion, owner acceptance, S0/S
 - **Commits:** `385e0b9748361c66ac2c033db97bd13de725f725` (implementation), `be20d78c052ca6dcc114479b84ff4b9af16507ed` (tests).
 - **Limitations:** this is a one-month marginal estimate using the latest completed market snapshot, not a forward market simulation. It does not model endogenous multi-month price elasticity, firm-level inventories, wage bidding, or interactions among several simultaneous AI investment proposals. The 0.35 sale-factor floor is a conservative heuristic and requires calibration against campaign outcomes.
 
+- State construction budget allocation now responds to the operating margin, debt burden (relative to 24 months of revenue), famine pressure and wartime needs, while remaining clamped to 2%–28% of income. This supplements the existing hard gate on positive state reserves and the annualized build-cost return ranking.
+- **Budget tests:** `tests/ai-investment-budget.test.ts` verifies lower construction allocation under rising debt/famine stress, wartime restraint and the minimum/maximum bounds.
+- **Budget commits:** `270b63380eebc2f4da47553842804dbbcf83d63f` (tests first), `83e10bcd4af2b4b4be0b6019f98b3aa97f75b9ec` (implementation).
+
+
 ## 14. Validation and handoff status
 
-- **Current code review target:** `be20d78c052ca6dcc114479b84ff4b9af16507ed` (the following report-only commit is excluded). **Validation status: PENDING.** The previous 87/87 result belongs only to the earlier `ebeff72b20df155c376000f67fd4b9022fc3e327` target and must not be carried forward. The new demand-aware investment tests have not yet been run in CI. No successful CI run or new APK is claimed.
+- **Current code review target:** `83e10bcd4af2b4b4be0b6019f98b3aa97f75b9ec` (the following report-only commit is excluded). **Validation status: PENDING.** The previous 87/87 result belongs only to the earlier `ebeff72b20df155c376000f67fd4b9022fc3e327` target and must not be carried forward. The new demand-aware investment and fiscal-budget tests have not yet been run in CI. No successful CI run or new APK is claimed.
 - The GitHub integration used here can read commits, files, workflow job logs and rerun failed jobs, but does not expose a general Actions run-list/dispatch operation. A combined status check for the current target returned no status entries; this is not a passing result. Do not interpret missing run data as a test pass.
 - A local clone/test attempt was also blocked because the execution environment could not resolve `github.com`; no local test pass is claimed. Claude/CI must run `npm ci`, then `npm run test` (or the repository's tests-only workflow) against the exact review target before further changes are accepted.
 - Claude review remains requested, not completed. No S0/S1/S22 acceptance, device QA, production signing, or full Victoria 3 parity is claimed.
