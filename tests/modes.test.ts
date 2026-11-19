@@ -84,6 +84,8 @@ describe('Sandbox Mode is free', () => {
       lawEntries: st.log.filter((entry) => entry.type === 'law').length,
       reformStarts: st.log.filter((entry) => entry.text.includes('begins debating')).length,
       reformFailures: st.log.filter((entry) => entry.text.includes('reform of') && entry.text.includes('failed')).length,
+      lawHistoryEntries: Object.values(st.countries).reduce((sum, country) => sum + country.ai.lawHistory.length, 0),
+      reformCandidates: Object.values(st.countries).filter((country) => country.ai.lawHistory.length > 0).slice(0, 10).map((country) => [country.id, country.ai.lawHistory.length]),
       reformsInProgress: Object.values(st.countries).filter((country) => !!country.reform).length,
       remainingReforms: Object.values(st.countries).filter((country) => !!country.reform).map((country) => [country.id, country.reform!.group, Number(country.reform!.progress.toFixed(3))]),
       failedReformSamples: st.log.filter((entry) => entry.text.includes('reform of') && entry.text.includes('failed')).slice(0, 6).map((entry) => entry.text),
