@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { fresh } from './helpers';
-import { buildingReturn } from '../src/engine/systems/economy';
+import { buildingReturn, enqueueConstruction } from '../src/engine/systems/economy';
 import { BUILDINGS, GOODS, S, type GameState, type Good, type MarketGoodStats } from '../src/engine/types';
 
 function isolatedRegion() {
@@ -210,6 +210,68 @@ describe('building return uses the labor pools available to production', () => {
     const oversupplied = simulate(1_000, 100);
     expect(balanced).toBeGreaterThan(0);
     expect(oversupplied).toBeLessThan(balanced);
+  });
+
+  it('discounts factory revenue for production already committed in the same market queue', () => {
+    const { st, country, region } = isolatedRegion();
+    region.pop = 30_000;
+    region.strata.fill(0);
+    region.strata[S.workers] = 0.8;
+    region.strata[S.peasants] = 0.2;
+    country.techs.push('mechanized_spinning');
+    const marketId = country.customsUnion ?? country.id;
+    const prices = { ...st.worldPrices, grain: 0, cotton: 0.2, coal: 0.2, textiles: 2, tools: 1, steel: 1 };
+    st.worldPrices = prices;
+    st.marketPrices[marketId] = { ...prices };
+    st.marketStats[marketId].textiles = { supply: 0, demand: 1_000_000, imports: 0, short: 0 };
+    st.marketStats[marketId].cotton = { supply: 5_000_000, demand: 0, imports: 0, short: 0 };
+    st.marketStats[marketId].coal = { supply: 5_000_000, demand: 0, imports: 0, short: 0 };
+    const beforeQueue = buildingReturn(st, country, region, 'textile_mill');
+
+    const queueRegion = st.regions.find((candidate) => candidate.owner === country.id && candidate.id !== region.id);
+    if (!queueRegion) throw new Error('Expected a second region in the same national market.');
+    queueRegion.owner = country.id;
+    queueRegion.controller = country.id;
+    queueRegion.pop = 30_000;
+    queueRegion.strata.fill(0);
+    queueRegion.strata[S.workers] = 0.8;
+    queueRegion.strata[S.peasants] = 0.2;
+    expect(enqueueConstruction(st, country, queueRegion, 'textile_mill', 'state')).not.toBeNull();
+
+    const afterQueue = buildingReturn(st, country, region, 'textile_mill');
+    expect(beforeQueue).toBeGreaterThan(0);
+    expect(afterQueue).toBeLessThan(beforeQueue);
+  });
+
+  it('reserves scarce input surplus for factory projects already under construction', () => {
+    const { st, country, region } = isolatedRegion();
+    region.pop = 30_000;
+    region.strata.fill(0);
+    region.strata[S.workers] = 0.8;
+    region.strata[S.peasants] = 0.2;
+    country.techs.push('mechanized_spinning');
+    const marketId = country.customsUnion ?? country.id;
+    const prices = { ...st.worldPrices, grain: 0, cotton: 0.2, coal: 0.2, textiles: 2, tools: 1, steel: 1 };
+    st.worldPrices = prices;
+    st.marketPrices[marketId] = { ...prices };
+    st.marketStats[marketId].textiles = { supply: 0, demand: 100_000_000, imports: 0, short: 0 };
+    st.marketStats[marketId].cotton = { supply: 2_000_000, demand: 0, imports: 0, short: 0 };
+    st.marketStats[marketId].coal = { supply: 5_000_000, demand: 0, imports: 0, short: 0 };
+    const beforeQueue = buildingReturn(st, country, region, 'textile_mill');
+
+    const queueRegion = st.regions.find((candidate) => candidate.owner === country.id && candidate.id !== region.id);
+    if (!queueRegion) throw new Error('Expected a second region in the same national market.');
+    queueRegion.owner = country.id;
+    queueRegion.controller = country.id;
+    queueRegion.pop = 30_000;
+    queueRegion.strata.fill(0);
+    queueRegion.strata[S.workers] = 0.8;
+    queueRegion.strata[S.peasants] = 0.2;
+    expect(enqueueConstruction(st, country, queueRegion, 'textile_mill', 'state')).not.toBeNull();
+
+    const afterQueue = buildingReturn(st, country, region, 'textile_mill');
+    expect(beforeQueue).toBeGreaterThan(0);
+    expect(afterQueue).toBeLessThan(beforeQueue);
   });
 
 });
