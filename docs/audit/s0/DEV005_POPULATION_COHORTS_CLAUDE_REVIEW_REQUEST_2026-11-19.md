@@ -103,7 +103,7 @@ A second bounded review found two malformed-state gaps:
 
 Regression coverage verifies missing and blank Region IDs, duplicate Region IDs, and v1 envelope/state version mismatch.
 
-**Current corrective code HEAD:** `24ae54882d723d45239611bed5da5291aa66b7d3`.
+**Current corrective code HEAD:** `b4620a548455444ea26fc784f11dca2a13d9da56`.
 **Current CI:** tests-only [44509983998](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44509983998) and Android debug [44509983834](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44509983834) were in progress when this review packet was updated. The 116/116 result above applies to the previous intermediate HEAD, not this latest code HEAD.
 
 
