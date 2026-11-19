@@ -26,7 +26,11 @@ function normalizeLegacyFields(st: GameState): void {
     country.statePool ??= 0;
     country.privatePool ??= 0;
   }
-  for (const region of st.regions ?? []) {
+  if (!Array.isArray(st.regions)) throw new Error('Invalid region list');
+  for (const region of st.regions) {
+    if (!region || typeof region !== 'object' || Array.isArray(region)) {
+      throw new Error('Invalid region record');
+    }
     region.employment ??= new Array(STRATA.length).fill(0);
     region.wages ??= new Array(STRATA.length).fill(0);
   }
@@ -36,8 +40,9 @@ function normalizeLegacyFields(st: GameState): void {
 function migrateV1ToV2(legacy: GameState): GameState {
   const st = legacy;
   normalizeLegacyFields(st);
-  st.population = createPopulationState(st.regions ?? []);
+  st.population = createPopulationState(st.regions);
   st.version = SAVE_SCHEMA_VERSION;
+  validatePopulationState(st);
   return st;
 }
 
