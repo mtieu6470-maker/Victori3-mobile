@@ -63,3 +63,16 @@
 - This is not a new execution of the approved frozen-baseline B4 workflow and does not replace its bounded G0.6 PASS. It does establish that the Android workflow currently cannot produce an APK from HEAD fa95ad8.
 - Recounted the P2 table directly from the current Risk Register: **22 data rows**, each with six cells (ID, evidence, impact, disposition/control, owner, target/closure criteria). Older handoff/self-review wording that said 21 rows was stale; the current manifest's 22-row count is correct.
 - DEP-F1 workflow dispatch/artifact review, Claude independent review and owner decision remain pending. No product or workflow change is authorized by this addendum.
+
+
+## 7. CI-F4 review — APK workflow scope (2026-11-19)
+
+| Check | Result | Evidence / boundary |
+|---|---|---|
+| CI-F4 classification | OPEN P1 | Android workflow runs #316/#317 both fail the baseline-only `constructionQueue` absence assertion when run against the experiment branch. |
+| Source-scope cause | Confirmed | Frozen baseline `2240a8f` predates this field; experiment branch defines it in `src/engine/types.ts` and initializes it in `src/engine/init.ts`. |
+| APK impact | Confirmed | Both runs stop before Android SDK setup, Capacitor sync and Gradle `assembleDebug`; no APK was produced. |
+| Test evidence | Confirmed | Both runs: 6 files, 5 passed / 1 failed; 109 tests, 108 passed / 1 failed. Web/data build and hashing passed. |
+| Remediation | NOT AUTHORIZED | Keep baseline characterization isolated to pinned-baseline B4 workflow. Any normal APK workflow/test-selection change requires separate owner authorization. |
+
+This is a CI/test integration finding, not evidence that the approved frozen-baseline B4 replay cases failed. It does mean the current experiment-branch APK workflow is blocked. The manual dependency-audit dispatch remains pending because this session's GitHub tools do not provide workflow_dispatch. No artifact or package-level DEP-F1 conclusion is claimed.
