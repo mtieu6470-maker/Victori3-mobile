@@ -26,6 +26,11 @@ export function populationCohortId(regionId: string, stratum: Stratum): string {
 
 export function createPopulationState(regions: readonly Region[]): PopulationState {
   const cohorts: PopulationCohort[] = [];
+  const regionIds = new Set<string>();
+  for (const region of regions) {
+    if (regionIds.has(region.id)) throw new Error(`Duplicate region ID ${region.id}`);
+    regionIds.add(region.id);
+  }
   const orderedRegions = [...regions].sort((a, b) => compareOrdinal(a.id, b.id));
 
   for (const region of orderedRegions) {
@@ -97,7 +102,11 @@ export function validatePopulationState(st: GameState): void {
     throw new Error('Invalid population cohort envelope');
   }
 
-  const regions = new Map(st.regions.map((region) => [region.id, region]));
+  const regions = new Map<string, Region>();
+  for (const region of st.regions) {
+    if (regions.has(region.id)) throw new Error(`Duplicate region ID ${region.id}`);
+    regions.set(region.id, region);
+  }
   const totals = new Map<string, number>();
   const strataTotals = new Map<string, number[]>();
   const seen = new Set<string>();
