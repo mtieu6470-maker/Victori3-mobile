@@ -5,7 +5,7 @@
 **Branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Design:** `docs/spec/HISTORICAL_EVENTS_GLOBAL_CALIBRATION_ARCHITECTURE_PROPOSAL_VI.md`  
 **Scope:** S22 verification matrix; DEV-001 has a bounded implementation/test candidate, with CI verification pending  
-**Status:** `PARTIAL IMPLEMENTATION / CI PENDING`
+**Status:** `DEV-001 VERIFIED BY CI; REMAINING S22 TESTS NOT RUN`
 
 > This matrix turns the S22 self-audit findings into an executable verification plan for a future owner-authorized implementation. A row is a required test, not a claim that the test has been created or passed.
 
@@ -126,9 +126,9 @@ Seed count, hardware performance thresholds and permitted variance are not fixed
 
 ## 8. Verification status
 
-- This file is a test plan only.
-- No tests have been added or executed as part of this document.
-- No build, CI or device run is claimed.
+- This file remains the S22 verification matrix; concrete DEV-001 rank tests live in `tests/modes.test.ts` and passed on run 44430809753.
+- Android build/typecheck/package evidence for DEV-001 is recorded in workflow run 44430809754.
+- No device installation, gameplay QA or Claude review/correction is claimed.
 - SA-01–SA-12 remain code findings until owner-authorized implementation and passing evidence exist.
 - S1/S22 remain closed; this matrix does not authorize runtime, data, test, save, UI, Android or APK changes.
 
@@ -199,4 +199,4 @@ The first bounded implementation slice maps the §14.1 predicate contract to run
 
 **Concrete test source:** `tests/modes.test.ts`, describe block `canonical rank_at_most condition`.
 
-**Verification status:** DEV-001 tests are committed but awaiting GitHub Actions results. No pass is claimed. Remaining S22 rows, especially DEC-01–DEC-16, EVT-01–EVT-14, CAL-01–CAL-15, GEO-01–GEO-10 and BEN-11–BEN-18, remain future verification work.
+**Verification status:** DEV-001 passed tests-only CI run 44430809753 (6/6 suites, 75/75 tests). The Android workflow run 44430809754 also passed npm ci, build-data/map/web, `tsc --noEmit` (inside `npm run build`), Vite build, Capacitor sync and Gradle `assembleDebug`. No Android device QA or Claude review is claimed. Remaining S22 rows, especially DEC-01–DEC-16, EVT-01–EVT-14, CAL-01–CAL-15, GEO-01–GEO-10 and BEN-11–BEN-18, remain future verification work.

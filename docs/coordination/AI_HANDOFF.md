@@ -1186,5 +1186,14 @@ The project owner explicitly instructed ChatGPT in chat on 2026-11-19 to continu
 - Scope: canonical `rank_at_most` implementation, per-tick immutable rank snapshot, nested condition-context reuse, matching tests and §14.1 payload clarification.
 - Code/test files: `src/engine/metrics.ts`, `src/engine/historical.ts`, `src/engine/systems/events.ts`, `tests/modes.test.ts`.
 - Focused Claude review request: `docs/audit/s0/DEV001_RANK_CONDITION_CLAUDE_REVIEW_REQUEST_2026-11-19.md`.
-- CI: tests-only run `44430809753` and Android debug workflow run `44430809754` were `in_progress` at the time of this handoff update. Results must be re-fetched before status changes.
+- CI: tests-only run `44430809753` passed 6/6 suites and 75/75 tests. Android debug workflow `44430809754` passed npm ci, build (including `tsc --noEmit`), tests, Capacitor sync and Gradle assembleDebug.
 - No decision/effect transaction, structural-rule, exogenous-event redesign, benchmark ETL, save-schema, UI, asset, signing or Android application-ID change was included. DEV-001 is not yet accepted.
+
+
+### DEV-001 verification result — 2026-11-19
+
+- Tests-only run: [44430809753](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44430809753) — PASS, 6/6 suites, 75/75 tests, 0 failed, 0 pending.
+- Android workflow: [44430809754](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44430809754) — SUCCESS; npm ci, data/map/web build, typecheck (`tsc --noEmit` via npm run build), Vite, Capacitor sync and Gradle assembleDebug all succeeded.
+- APK: 18,043,425 bytes; SHA-256 `4942fe45e9b9aa168871c4c993bd3d5d0aa82cb8834d7621212b87e42e765d86`; Android Debug certificate SHA-256 `2f897a2e52acbaf803bf3ff0cb61037eedcecd98ed55c20433d281398b3205ff`; v1/v2 verification true.
+- GitHub artifact ID `14485704529`; ZIP size 17,556,470 bytes; ZIP SHA-256 `b5011c9cd1bf504c233afdc490a8377aab1ae9d32b15c4240481e053418d6340`. Separate evidence artifact ID `14485579893`, ZIP SHA-256 `95b01c20b6255a6231440dba2b23cc324473c2d7614e59f45866b81c85dd1d75`.
+- Artifact is retained for the review gate; it is not yet the user's approved test build. No device QA or Claude review/correction has occurred.

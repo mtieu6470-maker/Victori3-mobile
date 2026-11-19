@@ -25,7 +25,7 @@
 | S1 transition | `NOT_STARTED`; signoff còn draft, chưa có independent REVIEW_PASS + owner ACCEPTED |
 | S22 runtime authorization | `NONE`; S22 tiếp tục pre-implementation |
 | Engine / historical runtime data / save schema / UI / Android / APK | Không thay đổi trong tranche S22 này |
-| S22 build / tests / CI / device QA | DEV-001 GitHub runs 44430809753 (tests-only) and 44430809754 (Android APK) are running; no result is claimed yet. |
+| S22 build / tests / CI / device QA | DEV-001 tests 75/75 pass (run 44430809753); Android build/typecheck/Gradle assembleDebug success (run 44430809754); no device QA or Claude review yet. |
 
 > Báo cáo này là technical coordination/self-audit, không phải independent review hay owner acceptance. Không dùng kết quả research candidate làm dữ liệu game đã duyệt.
 
@@ -303,3 +303,14 @@ Các dòng trên phân biệt **quyết định sản phẩm**, **evidence revie
 - GitHub Actions runs started on the exact candidate: tests-only run `44430809753`; Android debug workflow run `44430809754`. At this report update both were still `in_progress`; no test/build/Gradle result is claimed.
 - Claude review/correction pass remains pending. The broad follow-on findings SA-02–SA-13 and all remaining decision/effect/event/save/benchmark work are not fixed by DEV-001.
 - This owner instruction does not rewrite the historical S0 gate ledger or mark the draft S0 signoff as accepted. No signing secrets, keystore, APK installation, baseline uninstall or merge operation occurred.
+
+
+### 2026-11-19 — DEV-001 CI and debug APK verification
+
+- Tests-only run `44430809753` completed successfully: 6/6 suites, 75/75 tests, zero failures, zero pending; all five new canonical-rank tests passed. Evidence log records `vitest_exit_code=0` and `report_valid=true`.
+- Android debug workflow run `44430809754` completed successfully on code commit `96f90338acc49beaed4313a116b2867ce3bacec3`: `npm ci`, data/map/web build, hash manifests, full Vitest, Capacitor sync and `./gradlew assembleDebug` all succeeded. Project `npm run build` includes `tsc --noEmit`, so typecheck was included in the successful web build.
+- Gradle reported `BUILD SUCCESSFUL in 1m 14s`. APK file: 18,043,425 bytes; SHA-256 `4942fe45e9b9aa168871c4c993bd3d5d0aa82cb8834d7621212b87e42e765d86`.
+- APK signing evidence from `apksigner`: one Android Debug signer; v1 and v2 signature verification true; certificate SHA-256 `2f897a2e52acbaf803bf3ff0cb61037eedcecd98ed55c20433d281398b3205ff`. This is a debug certificate, not a production release key.
+- GitHub APK artifact: ID `14485704529`, size 17,556,470 bytes, artifact ZIP SHA-256 `b5011c9cd1bf504c233afdc490a8377aab1ae9d32b15c4240481e053418d6340`. Separate CI-evidence artifact: ID `14485579893`, size 103,973 bytes, ZIP SHA-256 `95b01c20b6255a6231440dba2b23cc324473c2d7614e59f45866b81c85dd1d75`.
+- The artifact is an installable **debug** APK produced from code commit `96f90338...`; it has not been offered for installation pending the requested Claude review/correction pass. No device test was performed.
+- Existing Android identity/version metadata and debug signing flow were not changed by DEV-001. Replacing an already installed APK can still encounter signature mismatch/data-loss risk; no uninstall/upgrade was attempted.
