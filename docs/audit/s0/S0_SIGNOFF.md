@@ -97,13 +97,13 @@ The only automatic save observed by B3 is tied to January in-game date; it is no
 No workflow, build, APK, device, signing, product code or data change is authorized by this draft.
 
 
-## 2.3 Current experiment-branch APK workflow limitation (CI-F4)
+## 2.3 Experiment-branch APK workflow — CI-F4 closure evidence
 
-The B1/G0.2 baseline build evidence does not certify that the current experiment branch can assemble an APK. The latest available Android APK workflow runs on the experiment branch are #316 and #317 (commits `26963da` and `fa95ad8`); both passed `npm ci`, the data/web build and generated-data hashing, then failed one baseline-only B4 characterization assertion (108/109 tests passed). The assertion expects `constructionQueue` to be absent, while the experiment branch adds/initializes that later field and the frozen baseline `2240a8f` predates it. Android SDK setup, Capacitor sync, Gradle and APK upload were skipped. No APK was produced by either run.
+Historical runs #316 and #317 failed because the Android workflow ran a frozen-baseline B4 assertion against the later experiment source tree. This was corrected in commit `b5948f0bbca126712c64dd605ebb7d9f6ddfb907`, which changes only `.github/workflows/android-apk.yml` and excludes `tests/s0-save-determinism.test.ts` from the experiment-branch APK suite; the test remains on the separate pinned-baseline B4 path. Run #318 (`44573351798`) on that commit completed SUCCESS: 38/38 suites and 97/97 tests passed, Gradle assembled the debug APK, and checksum/signing evidence was uploaded and verified.
 
-This is recorded as OPEN P1 `CI-F4` in the Risk Register. It is a test-scope/workflow integration mismatch; it does not retroactively invalidate the approved frozen-baseline B4 Run #3 evidence. It also does not establish that the experiment-branch APK build passes. No fix is included in S0-B7: changing test selection or the Android workflow requires a separately authorized CI/test task. Keep the baseline characterization intact and preserve the failing run evidence.
+CI-F4 is now CLOSED for this narrow APK-workflow integration issue, using run #318 as the closure evidence. The approved frozen-baseline B4 Run #3 result is unchanged; the old failures remain historical evidence. This does not certify gameplay quality, physical-device QA, release signing or data-pack delivery.
 
-The B7 dependency-audit workflow also remains un-dispatched. The current GitHub connection has no workflow-dispatch operation; its absence is an execution limitation, not a PASS. DEP-F1 remains OPEN P1 — UNTRIAGED until the full-tree and production-only JSON artifact is reviewed.
+The B7 dependency audit is complete and reviewed: run `44572915201`, artifact `14555141888`; DEP-F1 remains OPEN P1 pending remediation/owner disposition, as detailed in §5.3 and the dependency plan.
 
 
 ## 5.3 Dependency-audit evidence update — 2026-11-20
@@ -113,3 +113,17 @@ The B7 dependency-audit workflow also remains un-dispatched. The current GitHub 
 - Full-tree npm audit: six vulnerable package entries, severity totals 3 moderate / 1 high / 2 critical, exit code 1 due to findings. Production-only audit: zero findings, exit code 0. Both stderr files empty; JSON and summary valid.
 - Findings are confined to dev dependencies in this lockfile. This does not certify build-tool security or the final APK; a separate authorized dependency-maintenance task is still needed. No package or lockfile changes occurred.
 - DEP-F1 is no longer UNTRIAGED, but remains OPEN P1. Overall S0 remains PARTIAL/BLOCKED; bounded S1-entry package remains NOT_TESTED; S1 remains NOT AUTHORIZED.
+
+
+## 11. Android APK workflow recheck — run #318 (2026-11-20)
+
+- Workflow run [44573351798](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44573351798), branch `experiment/vic3-visual-upgrade`, commit `b5948f0bbca126712c64dd605ebb7d9f6ddfb907`; job `135734112766` SUCCESS.
+- The commit diff changes only `.github/workflows/android-apk.yml`: it excludes `tests/s0-save-determinism.test.ts` from the experiment-branch APK suite and documents that the frozen-baseline B4 characterization runs separately against its pinned baseline. The characterization assertion was not deleted or weakened.
+- Test evidence artifact ID `14554953353`, size 106,657 bytes, API SHA-256 `96aa79f605d52f7a2eb60748f307802827f6fec9994e280fd655e3565c879829`; downloaded and inspected. Vitest: 38/38 suites, 97/97 tests passed, 0 failed; report_valid=true.
+- APK artifact ID `14553589834`, name `dong-chay-lich-su-debug-apk`, ZIP size 17,569,405 bytes, API SHA-256 `72ce3a5759bd1379aaf35bf10a395f3cc136230b44eabc64976375405b85678b`; downloaded and inspected. It contains `app-debug.apk` (18,057,530 bytes), SHA-256 `338fc54ce2e68f15ddc7043c664bdffa9cd79ade3c41aa0ed7a7cf0bfa7fe6b5`.
+- Signing evidence: debug signer DN `C=US, O=Android, CN=Android Debug`; certificate SHA-256 `8610076ddcefefc85d188530b0eb4645a21f92f38008692c29f6282a13418e19`. This is a debug APK, not a release-signed artifact.
+- All workflow steps completed, including npm ci, web/data build, test suite, Capacitor sync, Android SDK setup, Gradle debug assembly, APK checksum/signing evidence and artifact uploads.
+- Artifact ZIP digests were independently recomputed from the downloaded ZIPs and match GitHub API metadata.
+- **CI-F4 narrow closure:** the original test-scope integration failure is resolved for the APK workflow by separating the frozen-baseline characterization from the experiment-branch suite; the documented closure condition (full intended experiment-branch suite passes, Gradle assembles, APK checksum/signing evidence uploaded and verified) is met by run #318. The approved frozen-baseline B4 Run #3 remains separate and unchanged. This does not certify gameplay quality, device QA, release signing, data-pack delivery or overall S0.
+- Current experiment branch is a descendant of `b5948f0`; the later changes in this documentation slice do not alter the APK workflow or product source.
+
