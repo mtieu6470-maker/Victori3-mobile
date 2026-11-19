@@ -45,7 +45,7 @@ describe('DEV-005 — population cohort foundation', () => {
 
     const cohortMass = state.population.cohorts.reduce((sum, cohort) => sum + cohort.size, 0);
     const regionMass = state.regions.reduce((sum, region) => sum + region.pop, 0);
-    expect(cohortMass).toBeCloseTo(regionMass, 6);
+    expect(Math.abs(cohortMass - regionMass) / Math.max(1, regionMass)).toBeLessThan(1e-12);
   });
 
   it('migrates a v1 save deterministically without consuming RNG or changing regional aggregates', () => {
