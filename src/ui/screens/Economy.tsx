@@ -199,27 +199,79 @@ export function ConstructionTab({ st }: { st: GameState }) {
   const id = viewedId(st); const c = st.countries[id]; const mine = canCommand(st, id);
   const [kind, setKind] = useState<'all' | 'primary' | 'industry' | 'infra'>('all');
   const [ref, w] = useWidth<HTMLDivElement>();
+  const queued = (st.constructionProjects ?? [])
+    .filter((p) => p.countryId === id)
+    .sort((a, b) => a.createdTick - b.createdTick || a.id.localeCompare(b.id));
+  const queuedSites = new Set(queued.map((p) => `${p.regionId}|${p.building}`));
   const ops: { r: Region; b: Building; cost: number; ret: number }[] = [];
-  for (const r of st.regions) if (r.owner === id) for (const b of BUILDINGS) if (b !== 'university' && canBuild(st, c, r, b)) { const ret = buildingReturn(st, c, r, b); if (ret > 0) ops.push({ r, b, cost: buildCost(c, b, st), ret }); }
+  for (const r of st.regions) if (r.owner === id) for (const b of BUILDINGS) {
+    if (b === 'university' || queuedSites.has(`${r.id}|${b}`) || !canBuild(st, c, r, b)) continue;
+    const ret = buildingReturn(st, c, r, b);
+    if (ret > 0) ops.push({ r, b, cost: buildCost(c, b, st), ret });
+  }
   ops.sort((a, b) => b.ret - a.ret);
   const cat = (b: Building) => (SECTOR[b] === 'Công nghiệp' ? 'industry' : SECTOR[b] === 'Hạ tầng & giáo dục' ? 'infra' : 'primary');
-  const shown = ops.filter((o) => kind === 'all' || cat(o.b) === kind).slice(0, 60); const maxRet = Math.max(...ops.map((o) => o.ret), 1e-9);
-  const statePool = (c as any).statePool ?? 0, privatePool = (c as any).privatePool ?? 0;
-  const confirm = (o: (typeof ops)[number]) => modals.open(`Xây ${BUILD_VI[o.b]}`, () => (
+  const shown = ops.filter((o) => kind === 'all' || cat(o.b) === kind).slice(0, 60);
+  const maxRet = Math.max(...ops.map((o) => o.ret), 1e-9);
+  const statePool = c.statePool ?? 0, privatePool = c.privatePool ?? 0;
+  const confirmCancel = (p: (typeof queued)[number]) => modals.open(`Hủy ${BUILD_VI[p.building]}`, () => (
+    <div>
+      <div class="t-s" style="margin-bottom:6px">{regionName(p.regionId)}</div>
+      <div class="kv"><span class="k">Đã đầu tư</span><span class="v num">{money(p.invested)}</span></div>
+      <div class="note">Vốn đã đầu tư là chi phí chìm và không được hoàn lại. Phần vốn chưa giải ngân vẫn ở trong quỹ.</div>
+      <div class="btns" style="margin-top:10px">
+        <button class="btn" onClick={() => modals.close()}>Giữ dự án</button>
+        <button class="btn danger" onClick={() => { if (send({ type: 'cancel_construction', projectId: p.id }, `Đã hủy ${BUILD_VI[p.building]} tại ${regionName(p.regionId)}`)) modals.close(); }}>Xác nhận hủy</button>
+      </div>
+    </div>
+  ));
+  const confirm = (o: (typeof ops)[number]) => modals.open(`Xếp hàng xây ${BUILD_VI[o.b]}`, () => (
     <div>
       <div class="t-s" style="margin-bottom:6px">{regionName(o.r.id)}</div>
-      <Sec title="Chi phí"><div class="kv"><span class="k">Trích từ quỹ xây dựng nhà nước</span><span class="v num">{money(o.cost)}</span></div><div class="kv"><span class="k">Quỹ hiện có</span><span class={`v num${statePool < o.cost ? ' neg' : ''}`}>{money(statePool)}</span></div></Sec>
-      <Sec title="Lợi ích dự kiến"><div class="kv"><span class="k">Lợi suất năm (theo giá hiện tại, ước tính)</span><span class="v num pos">{pct(o.ret, 1)}</span></div>{o.b !== 'railway' && <div class="kv"><span class="k">Việc làm</span><span class="v num">{fmt(LEVEL_WORKERS)}</span></div>}</Sec>
-      <div class="note">Công trình hoàn thành ngay khi trả đủ chi phí; chi phí không hoàn lại. Giá đầu vào và đầu ra thay đổi theo thị trường.</div>
-      <div class="btns" style="margin-top:10px"><button class="btn" onClick={() => modals.close()}>Hủy</button><button class="btn primary" disabled={statePool < o.cost} onClick={() => { if (send({ type: 'build', region: o.r.id, building: o.b }, `Đã xây ${BUILD_VI[o.b]} tại ${regionName(o.r.id)}`)) modals.close(); }}>Xây</button></div>
+      <Sec title="Vốn đầu tư">
+        <div class="kv"><span class="k">Tổng chi phí dự án</span><span class="v num">{money(o.cost)}</span></div>
+        <div class="kv"><span class="k">Quỹ xây dựng hiện có</span><span class="v num">{money(statePool)}</span></div>
+        <div class="kv"><span class="k">Mức giải ngân mục tiêu / tháng</span><span class="v num">{money(o.cost / 12)}</span></div>
+      </Sec>
+      <Sec title="Lợi ích dự kiến">
+        <div class="kv"><span class="k">Lợi suất năm (ước tính theo giá hiện tại)</span><span class="v num pos">{pct(o.ret, 1)}</span></div>
+        {o.b !== 'railway' && <div class="kv"><span class="k">Nhu cầu lao động / cấp</span><span class="v num">{fmt(LEVEL_WORKERS)}</span></div>}
+      </Sec>
+      <div class="note">Dự án được cấp vốn dần trong tối thiểu 12 tháng. Nếu quỹ chưa đủ mức giải ngân, tiến độ sẽ chậm lại; công trình chỉ xuất hiện khi đầu tư đủ 100% chi phí. Giá thị trường có thể thay đổi trong thời gian xây dựng.</div>
+      <div class="btns" style="margin-top:10px">
+        <button class="btn" onClick={() => modals.close()}>Để sau</button>
+        <button class="btn primary" onClick={() => { if (send({ type: 'build', region: o.r.id, building: o.b }, `Đã đưa ${BUILD_VI[o.b]} tại ${regionName(o.r.id)} vào hàng đợi`)) modals.close(); }}>Xếp hàng</button>
+      </div>
     </div>
   ));
   return (
     <div class="pad" ref={ref}>
       <div class="metrics">
-        <Metric label="Quỹ xây dựng nhà nước" icon="construction" value={money(statePool)} d={<span class="dim">{pct(c.budget.construction)} thu nhập mỗi tháng</span>} tip={{ title: 'Quỹ xây dựng nhà nước', note: 'Tích lũy từ dòng “Xây dựng” của ngân sách; dùng cho các lệnh xây của người chơi.' }} />
-        <Metric label="Quỹ đầu tư tư nhân" icon="treasury" value={money(privatePool)} d={<span class="dim">nhà đầu tư tự xây theo lợi suất</span>} tip={{ title: 'Đầu tư tư nhân', note: 'Tiết kiệm của các tầng lớp có tài sản; mức tích lũy phụ thuộc luật kinh tế.' }} />
+        <Metric label="Quỹ xây dựng nhà nước" icon="construction" value={money(statePool)} d={<span class="dim">{pct(c.budget.construction)} thu nhập mỗi tháng</span>} tip={{ title: 'Quỹ xây dựng nhà nước', note: 'Vốn được earmark từ ngân sách. Số dư quỹ không có nghĩa là có thể giải ngân vượt số tiền thực có trong ngân khố.' }} />
+        <Metric label="Quỹ đầu tư tư nhân" icon="treasury" value={money(privatePool)} d={<span class="dim">tích lũy từ tiết kiệm tư nhân</span>} tip={{ title: 'Đầu tư tư nhân', note: 'Tiết kiệm của các tầng lớp có tài sản; mức tích lũy phụ thuộc luật kinh tế.' }} />
       </div>
+
+      <Sec title="Dự án đang thi công" icon="construction" x={`${queued.length} dự án`}>
+        {queued.length ? (
+          <table class="dt">
+            <thead><tr><th>Dự án · vùng</th><th>Tiến độ</th><th class="r">Vốn</th>{mine && <th />}</tr></thead>
+            <tbody>{queued.map((p) => {
+              const progress = p.totalCost > 0 ? Math.max(0, Math.min(1, p.invested / p.totalCost)) : 0;
+              const funded = p.funding === 'state' ? 'Nhà nước' : 'Tư nhân';
+              return (
+                <tr key={p.id} style="cursor:default">
+                  <td><div class="nm">{BUILD_VI[p.building]}</div><div class="sub ellipsis" style="max-width:220px">{regionName(p.regionId)} · {funded}</div></td>
+                  <td style="min-width:92px"><div class="num">{pct(progress, 1)}</div><Bar frac={progress} /></td>
+                  <td class="r num">{compact(p.invested)} / {compact(p.totalCost)}</td>
+                  {mine && <td class="r">{p.funding === 'state' ? <button class="btn sm danger" onClick={() => confirmCancel(p)}>Hủy</button> : <span class="dim">Tự động</span>}</td>}
+                </tr>
+              );
+            })}</tbody>
+          </table>
+        ) : <div class="empty sm">Chưa có dự án nào trong hàng đợi của quốc gia này.</div>}
+        <div class="note">Mỗi dòng vốn chỉ giải ngân một dự án tại một thời điểm. Dự án tư nhân do mô phỏng tự quyết định; người chơi không thể hủy.</div>
+      </Sec>
+
       <div class="toolrow" style="margin-top:10px">
         <div class="grow t-s">Cơ hội xây dựng <span class="dim" style="font:13px var(--sans)">{ops.length} lựa chọn</span></div>
         <Seg value={kind} onChange={setKind} options={[['all', 'Tất cả'], ['primary', 'Khai thác'], ['industry', 'Công nghiệp'], ['infra', 'Hạ tầng']] as const} />

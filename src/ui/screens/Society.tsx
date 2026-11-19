@@ -4,7 +4,7 @@ import type { GameState } from '../../engine/types';
 import { STRATA } from '../../engine/types';
 import { data } from '../../engine/data/db';
 import { Sec, Metric, LineChart, QualityMark, HBars, Donut, useWidth, useSort } from '../components/ui';
-import { STRATA_VI, fmt, pct, compact } from '../i18n/vi';
+import { STRATA_VI, fmt, pct, compact, money } from '../i18n/vi';
 import { viewedId, monthYear, focusRegion, regionName, STRATA_COL, YoY } from './common';
 import { ui } from '../game/ui';
 
@@ -45,6 +45,32 @@ export function SocietyScreen({ st, tab }: { st: GameState; tab: string }) {
             <tr key={s} style="cursor:default"><td><span class="cell-ic"><span class="sw" style={`background:${STRATA_COL[i]}`} />{STRATA_VI[s]}</span></td><td class="r num">{compact(strata[i] * pop)}</td><td class="r num">{pct(strata[i], 1)}</td><td><span class="bar"><i style={`width:${(strata[i] / Math.max(...strata)) * 100}%;background:${STRATA_COL[i]}`} /></span></td></tr>
           ))}</tbody>
         </table>
+      </Sec>
+      <Sec title="Việc làm và tiền lương" icon="factory" x="theo tầng lớp">
+        {(() => {
+          const rows = STRATA.map((stratum, i) => {
+            const employed = regs.reduce((sum, r) => sum + Math.max(0, r.employment?.[i] ?? 0), 0);
+            const wageMass = regs.reduce((sum, r) => sum + Math.max(0, r.employment?.[i] ?? 0) * Math.max(0, r.wages?.[i] ?? 0), 0);
+            return { stratum, employed, wage: employed > 0 ? wageMass / employed : 0 };
+          }).filter((row) => row.employed > 0);
+          const total = rows.reduce((sum, row) => sum + row.employed, 0);
+          return rows.length ? (
+            <>
+              <div class="kv"><span class="k">Tổng lao động được ghi nhận</span><span class="v num">{compact(total)}</span></div>
+              <table class="dt" style="margin-top:8px">
+                <thead><tr><th>Tầng lớp</th><th class="r">Lao động</th><th class="r">Lương TB / tháng</th></tr></thead>
+                <tbody>{rows.map((row) => (
+                  <tr key={row.stratum} style="cursor:default">
+                    <td>{STRATA_VI[row.stratum]}</td>
+                    <td class="r num">{compact(row.employed)}</td>
+                    <td class="r num">{money(row.wage)}</td>
+                  </tr>
+                ))}</tbody>
+              </table>
+            </>
+          ) : <div class="empty sm">Chưa có dữ liệu tiền lương; hãy chạy mô phỏng ít nhất một tháng.</div>;
+        })()}
+        <div class="note">Lương là mức bình quân theo lao động được ghi nhận. Tiền lương của tháng trước tác động đến sức mua và dịch chuyển tầng lớp trong các tháng sau.</div>
       </Sec>
       <div class="cols c2">
         <Sec title="Phân bố mức sống" icon="society" x="theo dân số">

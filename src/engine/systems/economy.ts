@@ -281,15 +281,32 @@ function financeMonth(st: GameState, c: Country, gdpYear: number, pop: number, i
   const armyCost = (c.army.manpower * SOLDIER_COST(gdpPc)) / 12;
   const navyCost = (c.navy.strength * SHIP_COST) / 12;
   const civil = income * (c.budget.admin + c.budget.education + c.budget.health);
-  const construction = income * c.budget.construction;
+  const plannedConstruction = income * c.budget.construction;
   const interest = (c.debt * 0.05) / 12;
-  const expense = armyCost + navyCost + civil + construction + interest;
+  const operatingExpense = armyCost + navyCost + civil + interest;
+
+  // Treasury is gross cash-on-hand; statePool is the earmarked subset of that cash.
+  // Apply operating costs first, then preserve existing earmarks through debt service.
+  c.treasury += income - operatingExpense;
+  if (c.treasury < 0) {
+    c.debt += -c.treasury;
+    c.treasury = 0;
+  }
+  // A fiscal deficit can consume previously reserved but not yet invested construction cash.
+  if (c.statePool > c.treasury) c.statePool = c.treasury;
+  const uncommittedTreasury = Math.max(0, c.treasury - c.statePool);
+  if (c.debt > 0 && uncommittedTreasury > income * 6) {
+    const pay = Math.min(c.debt, uncommittedTreasury - income * 6);
+    c.debt -= pay;
+    c.treasury -= pay;
+  }
+
+  // Only cash remaining after operating costs and debt service can be earmarked.
+  const construction = Math.min(plannedConstruction, Math.max(0, c.treasury - c.statePool));
+  c.statePool += construction;
+  const expense = operatingExpense + construction;
   c.income = income; c.expense = expense;
   c.finance = { tax, tariff, army: armyCost, navy: navyCost, admin: income * c.budget.admin, education: income * c.budget.education, health: income * c.budget.health, construction, interest };
-  c.treasury += income - expense + construction; // construction money is held in the treasury for projects
-  c.statePool = (c.statePool ?? 0) + construction;
-  if (c.treasury < 0) { c.debt += -c.treasury; c.treasury = 0; }
-  if (c.debt > 0 && c.treasury > income * 6) { const pay = Math.min(c.debt, c.treasury - income * 6); c.debt -= pay; c.treasury -= pay; }
   // private investment from the savings of property-owning strata
   const lawF = { laissez_faire: 1, interventionism: 0.75, mercantilism: 0.5, traditionalism: 0.25 }[c.laws.economy] ?? 0.4;
   c.privatePool = (c.privatePool ?? 0) + (gdpYear * 0.012 * lawF * (1 + techEffect(c, 'investment'))) / 12;
@@ -312,9 +329,11 @@ export function enqueueConstruction(
   if (!canBuild(st, c, r, b)) return null;
   if ((st.constructionProjects ?? []).some((p) => p.countryId === c.id && p.regionId === r.id && p.building === b)) return null;
   if (constructionQueueLength(st, c.id, funding) >= 5) return null;
+  const totalCost = buildCost(c, b, st);
+  if (!Number.isFinite(totalCost) || totalCost <= 0) return null;
   const project: ConstructionProject = {
     id: newId(st, 'construction'), countryId: c.id, regionId: r.id, building: b,
-    funding, totalCost: buildCost(c, b, st), invested: 0, createdTick: st.tick,
+    funding, totalCost, invested: 0, createdTick: st.tick,
   };
   (st.constructionProjects ??= []).push(project);
   log(st, {
@@ -350,7 +369,7 @@ export function constructionMonth(st: GameState): void {
         .sort((a, b) => a.createdTick - b.createdTick || a.id.localeCompare(b.id))[0];
       if (!project) continue;
       const region = st.regions[data().regionIndex.get(project.regionId) ?? -1];
-      if (!region || region.owner !== c.id || region.controller !== c.id || !canBuild(st, c, region, project.building)) {
+      if (!region || region.owner !== c.id || region.controller !== c.id || !canBuild(st, c, region, project.building, project.id)) {
         st.constructionProjects = st.constructionProjects.filter((p) => p.id !== project.id);
         log(st, {
           type: 'construction',
@@ -361,7 +380,13 @@ export function constructionMonth(st: GameState): void {
         continue;
       }
       const poolKey = funding === 'state' ? 'statePool' : 'privatePool';
-      const available = Math.max(0, c[poolKey] ?? 0);
+      // A reserve ledger is not permission to spend cash that no longer exists.
+      // Reconcile legacy or deficit-damaged reserves before processing a state project.
+      if (funding === 'state' && c.statePool > c.treasury) c.statePool = Math.max(0, c.treasury);
+      const available = Math.min(
+        Math.max(0, c[poolKey] ?? 0),
+        funding === 'state' ? Math.max(0, c.treasury) : Number.POSITIVE_INFINITY,
+      );
       const spend = Math.min(available, project.totalCost / 12, project.totalCost - project.invested);
       if (spend > 0) {
         c[poolKey] = Math.max(0, available - spend);
@@ -381,10 +406,17 @@ export function constructionMonth(st: GameState): void {
   }
 }
 
-export function canBuild(st: GameState, c: Country, r: Region, b: Building): boolean {
+export function canBuild(st: GameState, c: Country, r: Region, b: Building, ignoreProjectId?: string): boolean {
   if (r.owner !== c.id || r.controller !== c.id) return false;
+  // The project's own reservation must not make that project ineligible during monthly processing.
+  const queuedForSite = (st.constructionProjects ?? []).filter((p) =>
+    p.countryId === c.id && p.regionId === r.id && p.building === b && p.id !== ignoreProjectId,
+  );
+  if (queuedForSite.length > 0) return false;
   if (b === 'railway') {
-    const queued = (st.constructionProjects ?? []).filter((p) => p.countryId === c.id && p.regionId === r.id && p.building === 'railway').length;
+    const queued = (st.constructionProjects ?? []).filter((p) =>
+      p.countryId === c.id && p.regionId === r.id && p.building === 'railway' && p.id !== ignoreProjectId,
+    ).length;
     return hasTech(c, 'railways') && r.buildings.railway + queued < 5;
   }
   if (b === 'university') return r.buildings.university < 10;
