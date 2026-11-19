@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { fresh } from './helpers';
 import { buildingReturn } from '../src/engine/systems/economy';
-import { BUILDINGS, S } from '../src/engine/types';
+import { BUILDINGS, GOODS, S, type Good } from '../src/engine/types';
 
 function isolatedRegion() {
   const st = fresh('sandbox', 914, 'GBR');
@@ -12,6 +12,11 @@ function isolatedRegion() {
   region.strata.fill(0);
   region.strata[S.peasants] = 1;
   region.res = ['coal', 'iron', 'cott', 'timb'];
+  const marketId = country.customsUnion ?? country.id;
+  st.marketStats[marketId] = Object.fromEntries(GOODS.map((good: Good) => [
+    good,
+    { supply: 0, demand: 1_000_000, imports: 0, short: 0 },
+  ])) as typeof st.marketStats[string];
   return { st, country, region };
 }
 
