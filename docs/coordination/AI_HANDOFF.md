@@ -1,3 +1,5 @@
+- **Mandatory root entrypoint for every new AI/session (19/11/2026):** `AI_START_HERE.md` at repository root. It contains the detailed product target and subsystem-by-subsystem brief; read it first, then follow `AGENTS.md` / `CLAUDE.md`, this handoff, the collaboration protocol, owner principles, approved roadmap and task-specific spec. `README.md` links to it prominently.
+
 # AI Handoff — Victori3-mobile
 
 > Shared status index for Claude Code, ChatGPT, and the project owner. Never put secrets or personal data here.
