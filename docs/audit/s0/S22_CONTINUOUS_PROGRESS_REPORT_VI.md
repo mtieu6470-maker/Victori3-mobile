@@ -3,7 +3,7 @@
 **Ngày cập nhật:** 19/11/2026  
 **Repository:** mtieu6470-maker/Victori3-mobile  
 **Branch:** claude/game-historical-sandbox-modes-kg7rj7  
-**DEV-005 code review target:** `c9868d7131d7de3fd8efd0263411fee9111f172c`. **Latest verified branch HEAD before this report update:** `c78f9d07025044aac1d4a9b7030f2f09eece3ebc` (documentation-only changes after code target). Exact-target tests-only and Android debug CI both SUCCESS; detailed evidence is recorded below.  
+**DEV-005 code review target:** `c9868d7131d7de3fd8efd0263411fee9111f172c`. **Latest verified branch HEAD before this report update:** `6887913fbbc8d597b9a462383b66fd64c0421436` (documentation-only changes after code target). Exact-target tests-only and Android debug CI both SUCCESS; detailed evidence is recorded below.  
 **Chế độ báo cáo:** rolling report — mọi lượt làm xong phải append một progress entry mới; không tạo báo cáo rời nếu không cần thiết.
 
 > Đây là báo cáo điều phối và tự kiểm toán của ChatGPT. Không phải Claude REVIEW_PASS, không phải owner ACCEPTED, không phải bằng chứng S1/S22 đã mở. Mọi research candidate chưa được owner chấp nhận vẫn là tài liệu nghiên cứu, không phải game data đã duyệt.
@@ -21,9 +21,22 @@
 | S22 | **DESIGN_ONLY** | Chỉ có tài liệu thiết kế/nghiên cứu; chưa có runtime authorization |
 | Cách tải và cài dữ liệu game | **YÊU CẦU SẢN PHẨM — CHƯA TRIỂN KHAI** | Tải APK nhỏ trước → cài và mở game → người chơi chủ động chọn/tải các data pack trong app → xác minh chữ ký + SHA-256 → cài/activate an toàn → chơi offline. Dữ liệu đầy đủ dự kiến khoảng 4–5 GB, chia pack; không tự tải nền hoặc dùng mạng di động khi chưa được đồng ý. |
 | APK hiện có | **DEBUG ARTIFACT — CI VERIFIED** | 18,052,144 bytes; SHA-256 `85e49cc5…e17ee08e`; chưa phải release-signed và chưa thử trên iQOO |
+| Benchmark thay thế | **MPD 2023: CC BY 4.0 metadata; row audit BLOCKED** | HNA có dữ liệu ngành nhưng quyền chưa rõ; Maddison 2010 legacy cũng cần clearance |
 | Bước kế tiếp | **Claude review DEV-005** | Review đúng code target; xử lý finding có giới hạn; không tự mở phase |
 
 ---
+
+## 0.9 — Licensed benchmark alternatives and legacy rights audit (19/11/2026)
+
+- **Branch base:** `059599583b79d050eea90f85d20ac33b3a4ebb89`. This slice is research/documentation-only; DEV-005 code review target remains `c9868d7131d7de3fd8efd0263411fee9111f172c`.
+- **MPD 2023:** official GGDC release page states CC BY 4.0; release scope is 169 countries through 2022 and the University research portal describes country plus aggregate-region series. Required citations include Bolt & van Zanden (2024), DOI `10.1111/joes.12618`; GGDC also asks for source-sheet original-paper citations when graphing data or using subsets of fewer than 12 countries.
+- **File access remains blocked:** official Excel link resolves through Dataverse to a signed SURF object-store URL which this session could not fetch; Stata file was not inspected. No file hash, sheet list, row counts, exact year/entity coverage or source-sheet audit is claimed. No third-party mirror was substituted.
+- **MPD 2010 rights:** official 2010 release page identifies AD 1–2008 population/GDP/GDPpc but does not display an explicit licence statement. Do not infer the MPD 2023 CC BY 4.0 licence applies to the older release. Existing `maddison_2010.json` and `maddison_2010_gdp.json` are tracked separately for rights clearance; no runtime data was removed or changed.
+- **GGDC Historical National Accounts:** official datahub lists heterogeneous country series, GDP current/constant prices and industry breakdowns; it also indexes World Agriculture 1800–1938 and All Countries overview ca.1870–2005. It requires Smits, Woltjer & Ma (2009), GD-107 attribution, but no reuse licence was found on the page inspected. Candidate remains `RIGHTS_REVIEW_REQUIRED`.
+- Updated source candidates, BEN-02, new BEN-12/BEN-13 requests, benchmark review and research README. MPD 2023 is the preferred macro candidate once the official file is accessible and the full source-sheet/crosswalk audit passes; HNA is a supplementary sectoral source only after rights review. CoW and HFS remain on rights hold.
+- **No dataset values downloaded/imported**, no historical runtime data/source registry or engine code changed; no tests/build/CI/device QA were run. This is a docs/research slice.
+- Exact-target DEV-005 CI is unaffected: tests-only [44540766509](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44540766509) SUCCESS (122/122) and Android debug [44540766545](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44540766545) SUCCESS on code SHA `c9868d7`. These runs do not validate the documentation slice or physical Android behaviour.
+- **Next:** obtain the official MPD file through an accessible route and complete the row-level audit; establish rights for legacy Maddison 2010 and GGDC HNA before product distribution. Keep all findings research-only; S1/S22/S23 gates remain unchanged.
 
 ## 0.8 — CoW NMC v7 rights review and research-only restriction (19/11/2026)
 
