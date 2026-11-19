@@ -63,7 +63,7 @@ Chỉ đạo mới ngày 19/11/2026 của chủ dự án cho phép bộ dữ li�
 
 Roadmap v3.2 đã có quyết định H (offline >3 GB) và S23b dành cho hình ảnh/content packs/offline delivery. R15 trong Risk Register ghi nhận rủi ro mới và các tiêu chí cần có trước khi triển khai: manifest trung lập nhà cung cấp, version/hash/dependency, resume, kiểm tra dung lượng trống, xác minh SHA-256, cập nhật nguyên tử/rollback, lazy loading và cache ảnh/GPU có giới hạn.
 
-Google Play hiện giới hạn base module 500 MB, mỗi asset pack 1,5 GB, tổng install-time 4 GB và fast-follow/on-demand 30 GB; do đó cần đánh giá AAB/PAD. Với sideload, phải có kênh content pack riêng; PAD không tự phục vụ APK sideload. Không có nhà cung cấp hosting trả phí nào được chọn.
+Theo giới hạn tải nén hiện hành của Google Play: base module tối đa 500 MB; mỗi asset pack tối đa 1,5 GB; base + install-time modules/packs tối đa 4 GB; fast-follow/on-demand packs cộng lại tối đa 30 GB; tổng app tối đa 34 GB và tối đa 100 asset packs. Vì vậy bộ dữ liệu 4–5 GB không thể mặc định dồn hết vào install-time; phải đánh giá AAB/PAD với fast-follow/on-demand hoặc kênh sideload riêng. Với sideload, phải có kênh content pack riêng; PAD không tự phục vụ APK sideload. Không có nhà cung cấp hosting trả phí nào được chọn.
 
 Nguồn chính thức: [Google Play app size limits](https://support.google.com/googleplay/android-developer/answer/9859372), [Play Asset Delivery](https://developer.android.com/guide/playcore/asset-delivery).
 
