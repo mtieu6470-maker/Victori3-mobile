@@ -565,13 +565,83 @@ export function buildCost(c: Country, b: Building, st: GameState): number {
   return BUILD_COST[b] * (0.5 + 0.3 * p.tools + 0.2 * p.steel) * Math.sqrt(Math.max(0.3, c.productivity));
 }
 
+interface QueuedFactoryLedger {
+  supply: Partial<Record<Good, number>>;
+  inputs: Partial<Record<Good, number>>;
+}
+
+/**
+ * Estimates the market footprint of already queued factory levels.
+ * The 50%-100% commitment weight reflects that projects are funded over multiple months.
+ */
+function queuedFactoryLedger(st: GameState, c: Country): QueuedFactoryLedger {
+  const supply: Partial<Record<Good, number>> = {};
+  const inputs: Partial<Record<Good, number>> = {};
+  const marketId = marketOf(st, c);
+  const projects = (st.constructionProjects ?? []).filter((project) => {
+    const owner = st.countries[project.countryId];
+    return !!owner?.alive && marketOf(st, owner) === marketId && !!RECIPES[project.building];
+  });
+  if (!projects.length) return { supply, inputs };
+
+  const projectsByRegion = new Map<string, typeof projects>();
+  for (const project of projects) {
+    const list = projectsByRegion.get(project.regionId) ?? [];
+    list.push(project);
+    projectsByRegion.set(project.regionId, list);
+  }
+
+  for (const project of projects) {
+    const owner = st.countries[project.countryId];
+    const regionIndex = data().regionIndex.get(project.regionId);
+    const region = regionIndex === undefined ? undefined : st.regions[regionIndex];
+    const recipe = RECIPES[project.building];
+    if (!owner || !region || region.owner !== owner.id || !recipe) continue;
+
+    const queuedInRegion = projectsByRegion.get(project.regionId) ?? [];
+    const existingFactoryLevels = (Object.keys(RECIPES) as Building[])
+      .reduce((sum, building) => sum + Math.max(0, region.buildings[building] ?? 0), 0);
+    const availableWorkers = Math.max(0, region.pop) * 0.45 * Math.max(0, region.strata[S.workers] ?? 0);
+    const plannedJobs = (existingFactoryLevels + queuedInRegion.length) * LEVEL_WORKERS;
+    const staffing = clamp(availableWorkers / Math.max(1, plannedJobs), 0, 1);
+    if (staffing <= 0) continue;
+
+    const specificEfficiency = project.building === 'textile_mill'
+      ? techEffect(owner, 'textile_efficiency')
+      : project.building === 'ironworks'
+        ? techEffect(owner, 'iron_efficiency') + techEffect(owner, 'steel_efficiency')
+        : project.building === 'arms_works'
+          ? techEffect(owner, 'arms_efficiency')
+          : 0;
+    const output = LEVEL_WORKERS * staffing * recipe.perWorker
+      * (1 + techEffect(owner, 'factory_efficiency')) * (1 + specificEfficiency)
+      * Math.pow(Math.max(0, owner.productivity), 0.5)
+      * (1 + 0.05 * Math.min(5, Math.max(0, region.buildings.railway)))
+      * Math.max(0, 1 - region.devastation)
+      * (region.controller === region.owner ? 1 : 0.7);
+    const progress = project.totalCost > 0
+      ? clamp(project.invested / project.totalCost, 0, 1)
+      : 0;
+    const commitment = 0.5 + progress * 0.5;
+    const committedOutput = Math.max(0, output * commitment);
+    supply[recipe.out] = (supply[recipe.out] ?? 0) + committedOutput;
+    for (const [rawGood, amount] of Object.entries(recipe.inputs)) {
+      const good = rawGood as Good;
+      inputs[good] = (inputs[good] ?? 0) + committedOutput * (amount ?? 0);
+    }
+  }
+  return { supply, inputs };
+}
+
 /** Marginal sale factor: unmet demand absorbs output; persistent surplus discounts the next unit. */
 function marketDemandFactor(st: GameState, c: Country, good: Good): number {
   const stats = st.marketStats?.[marketOf(st, c)]?.[good];
   if (!stats) return 1; // no clearing snapshot yet (for example, a newly created game)
   const demand = Math.max(0, Number.isFinite(stats.demand) ? stats.demand : 0);
+  const queuedSupply = queuedFactoryLedger(st, c).supply[good] ?? 0;
   const available = Math.max(0, Number.isFinite(stats.supply) ? stats.supply : 0)
-    + Math.max(0, Number.isFinite(stats.imports) ? stats.imports : 0);
+    + Math.max(0, Number.isFinite(stats.imports) ? stats.imports : 0)
+    + queuedSupply;
   if (demand <= 0) return 0.35;
   return clamp(demand / Math.max(1, available), 0.35, 1);
 }
@@ -589,7 +659,8 @@ function marketInputAvailability(st: GameState, c: Country, requiredInputs: Part
     const supply = Math.max(0, Number.isFinite(entry.supply) ? entry.supply : 0);
     const imports = Math.max(0, Number.isFinite(entry.imports) ? entry.imports : 0);
     const demand = Math.max(0, Number.isFinite(entry.demand) ? entry.demand : 0);
-    const freeSurplus = Math.max(0, supply + imports - demand);
+    const queuedCommitment = queuedFactoryLedger(st, c).inputs[good] ?? 0;
+    const freeSurplus = Math.max(0, supply + imports - demand - queuedCommitment);
     availability = Math.min(availability, clamp(freeSurplus / required, 0, 1));
   }
   return availability;
