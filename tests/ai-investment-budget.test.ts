@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { fresh } from './helpers';
-import { constructionBudgetShare } from '../src/engine/ai/ai';
+import { constructionBudgetShare, investmentDemandPriority } from '../src/engine/ai/ai';
 
 describe('AI construction budget discipline', () => {
   it('reduces construction allocation as debt burden and fiscal stress rise', () => {
@@ -39,5 +39,35 @@ describe('AI construction budget discipline', () => {
     expect(wartime).toBeLessThan(peacetime);
     expect(emergency).toBe(0.02);
     expect([peacetime, wartime, emergency].every((value) => Number.isFinite(value) && value >= 0.02 && value <= 0.28)).toBe(true);
+  });
+});
+
+describe('AI public investment demand priority', () => {
+  it('raises state investment priority for goods with unmet market demand', () => {
+    const st = fresh('sandbox', 120, 'FRA');
+    const country = st.countries.GBR;
+    const region = st.regions.find((candidate) => candidate.id === country.capital)!;
+    region.res = ['coal'];
+    const marketId = country.customsUnion ?? country.id;
+    st.marketStats[marketId].coal = { supply: 100, demand: 1_000, imports: 0, short: 0.9 };
+
+    const shortagePriority = investmentDemandPriority(st, country, region, 'mine');
+    st.marketStats[marketId].coal = { supply: 1_000, demand: 1_000, imports: 0, short: 0 };
+
+    const balancedPriority = investmentDemandPriority(st, country, region, 'mine');
+    expect(shortagePriority).toBeCloseTo(0.9, 5);
+    expect(balancedPriority).toBe(0);
+  });
+
+  it('averages shortages across mixed-resource output instead of overvaluing one scarce good', () => {
+    const st = fresh('sandbox', 121, 'FRA');
+    const country = st.countries.GBR;
+    const region = st.regions.find((candidate) => candidate.id === country.capital)!;
+    region.res = ['coal', 'iron'];
+    const marketId = country.customsUnion ?? country.id;
+    st.marketStats[marketId].coal = { supply: 100, demand: 1_000, imports: 0, short: 0.8 };
+    st.marketStats[marketId].iron = { supply: 800, demand: 1_000, imports: 0, short: 0.2 };
+
+    expect(investmentDemandPriority(st, country, region, 'mine')).toBeCloseTo(0.5, 5);
   });
 });
