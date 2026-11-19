@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `3db6332732c0eb651fa59f7171f919839c131378`  
+**Snapshot HEAD before this manifest refresh:** `da9f6ee9e613c7678531cb4db9a92d924771cead`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -16,15 +16,15 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 | `docs/audit/s0/S0_B4_TEST_PLAN.md` | `ef21f8193daf283a6ed8c6f4d68b7ca87781bd46` |
 | `docs/audit/s0/S0_RISK_REGISTER.md` | `6920adbb8859f42b815634f5ccc75492ca9211d0` |
 | `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `b55a14bf5e23e162a1b5d2b2cc6b7c1831a60022` |
-| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `2c507da54e7606e25c054bd3429d59ef13398aec` |
-| `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `65173d78353d81b5304602a81372847232c5d8e1` |
+| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `9a9e8aa26bcb2f359c99469a7e3ae64796ea4c5d` |
+| `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `461f3e313cfeaa4cea3ce7add495a16f3ef45885` |
 | `docs/audit/s0/S0_SIGNOFF.md` | `97d57e869997eff8274894f30ab3258ff7eb3d6e` |
-| `docs/audit/s0/S0_B7_RESULTS.md` | `a3b285b505dad46baab4c30ed97ee1e079759f82` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `8d7f3788eafe8afef5f584e67eb5cc180abc18c0` |
+| `docs/audit/s0/S0_B7_RESULTS.md` | `7a4761662a8847dee2ce0a0b310bfd31fe5a11ee` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `4b177f97a3fb1233dff7c7ff6e0a7baf4be75488` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `e5edc4d8180b331b4ddce2d7f0b687621b58083c` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `5a55c933c0525618047319f22e687548ae42e29d` |
-| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `14eaf9211cb7d6183413cff310f8d364f91ea5e4` |
+| `docs/coordination/AI_HANDOFF.md` | `a2f255b825b7c8483971e6a5fc0377241fbe14fb` |
+| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `b08ae50b0ae438400e0962560cabdf7e81572497` |
 
 ## 2. Risk table integrity and traceability
 
@@ -92,3 +92,10 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 - The owner requires an installable APK as a separate download followed by explicitly selected, separately versioned in-app data-pack downloads.
 - Future implementation must verify a trusted manifest/signature and SHA-256 before atomic pack activation; retain packs locally for offline play; and require consent before background or mobile-data downloads.
 - Current status: NOT IMPLEMENTED / NOT TESTED. Runs #316/#317 produced neither an APK nor a data-pack artifact. This is a future, separately authorized product task, not an S0-B7 completion claim.
+
+
+## 10. CI evidence archives and preliminary dependency preflight
+
+- API artifact identities and digests for runs #316/#317 are recorded in B7 Results and verified against downloaded ZIP contents. They are diagnostic archives; neither includes an APK or data-pack payload.
+- The pinned baseline and experiment package-lock blob SHA is `29ac661a36bb03bae62a80ce7abf9af0c15bb168`. Preliminary advisory-version cross-check is documented in B7 Results and the dependency plan, explicitly not a completed npm audit.
+- DEP-F1 remains OPEN P1 — UNTRIAGED; manual workflow dispatch and review of full-tree/production audit JSON remain outstanding.
