@@ -3,10 +3,18 @@
 **Ngày cập nhật:** 19/11/2026  
 **Repository:** mtieu6470-maker/Victori3-mobile  
 **Branch:** claude/game-historical-sandbox-modes-kg7rj7  
-**Code HEAD mới nhất:** `b4620a548455444ea26fc784f11dca2a13d9da56` (DEV-005; TypeScript/Vite build đã PASS, tests-only và Android integration tests đang chạy). Previous confirmed code HEAD `d4cd28a7359e580eec0a159fbb98542d8c7c70fb` passed tests-only 116/116 and Android debug build; those results do not cover the later save/identity hardening.  
+**Code HEAD mới nhất:** `14bd56848b8db429b9037880b08887af7118d61f` (DEV-005; sửa assertion cũ yêu cầu TypeError khi save thiếu state; CI mới queued). Previous confirmed code HEAD `d4cd28a7359e580eec0a159fbb98542d8c7c70fb` passed tests-only 116/116 and Android debug build; those results do not cover the later save/identity hardening.  
 **Chế độ báo cáo:** rolling report — mọi lượt làm xong phải append một progress entry mới; không tạo báo cáo rời nếu không cần thiết.
 
 > Đây là báo cáo điều phối và tự kiểm toán của ChatGPT. Không phải Claude REVIEW_PASS, không phải owner ACCEPTED, không phải bằng chứng S1/S22 đã mở. Mọi research candidate chưa được owner chấp nhận vẫn là tài liệu nghiên cứu, không phải game data đã duyệt.
+
+## 0.5 DEV-005 regression expectation alignment (19/11/2026)
+
+- **Intermediate result:** tests-only run [44510529456](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44510529456) failed 1/118. The only failure was the pre-existing `tests/s0-save-determinism.test.ts` assertion that demanded a native `TypeError` for missing envelope state.
+- **Reason:** hardened `deserialize` now rejects the malformed envelope intentionally with the explicit message `Save state is missing or invalid`. The runtime behavior is safer and more diagnosable; the old test was asserting an incidental exception class rather than the validation contract.
+- **Correction:** commit `14bd56848b8db429b9037880b08887af7118d61f` updates the regression to assert the explicit error message. No runtime source changed in this test-only correction.
+- **Current code target:** `14bd56848b8db429b9037880b08887af7118d61f`.
+- **Current CI:** tests-only [44511298764](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44511298764) and Android debug [44511298947](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44511298947) were queued at this entry. No pass is claimed for the current code until those runs finish.
 
 ## 0.4 DEV-005 CI correction — type assertion syntax (19/11/2026)
 
