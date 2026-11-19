@@ -2,6 +2,8 @@
 
 > Shared status index for Claude Code, ChatGPT, and the project owner. Never put secrets or personal data here.
 
+- **Standing owner product/engineering principles (19/11/2026):** `docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md`. This is the durable product direction for Victoria 3-class global systemic parity, source-backed research, landscape-first Android APK, explicit downloadable content packs, offline-first operation, measured performance/stability, and per-slice GitHub reports. It does not bypass roadmap/gates or independently authorize closed phases. Read this before every task.
+
 ## Active AI role allocation — owner directive 2026-11-17
 
 - **ChatGPT — technical lead/coordinator:** inspects the repository, controls scope, reviews architecture/algorithms, implements owner-authorized changes, writes/runs tests, verifies CI/logs, commits authorized work, and maintains documentation/handoff. ChatGPT self-audits must be labelled; they are not independent REVIEW_PASS.
