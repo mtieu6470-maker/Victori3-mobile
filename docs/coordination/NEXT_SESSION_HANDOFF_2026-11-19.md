@@ -186,3 +186,26 @@ Current status: **NOT IMPLEMENTED / NOT TESTED**. Runs #316/#317 produced no APK
 - Baseline and experiment branch `package-lock.json` have identical blob SHA `29ac661a36bb03bae62a80ce7abf9af0c15bb168`. Preliminary read-only advisory cross-check found `vitest@2.1.9`, `@vitest/mocker@2.1.9`, and `tinypool@1.1.1` in dev dependency records that match published advisory ranges; locked `esbuild@0.28.2` is outside the affected range of GHSA-67mh-4wv8-2f99. This is not a full npm audit and makes no production safety claim. No package changes.
 - Updated B7 results, dependency audit plan, self-review and Claude review request with exact artifact evidence and provisional advisory mapping. DEP-F1 stays OPEN P1 — UNTRIAGED until manual workflow dispatch and both audit JSONs are reviewed.
 - The installed GitHub integration has no workflow-dispatch operation; exact manual action page and branch are in the dependency audit plan. Overall S0 remains PARTIAL/BLOCKED; S1 remains NOT AUTHORIZED.
+
+
+## Owner playtest feedback — 2026-11-20
+
+**Verdict:** current build NOT ACCEPTED as Victoria 3-like. Owner reports game time advances far too quickly; ruler portraits are inconsistent; military, economy, factories, political systems, social structure, laws and points/scoring are not satisfactory.
+
+Authoritative prioritized backlog: `docs/feedback/PLAYER_TEST_FEEDBACK_2026-11-20.md`.
+
+Priority order:
+1. P0: simulation clock/pacing, wall-clock vs simulation tick separation, deterministic pause/speed/resume/save-load; benchmark game-days per real second against Victoria 3.
+2. P0: date-valid historical ruler/office-holder data, authentic portrait provenance and licensing; AI art only as explicitly labelled illustration; no invented rulers for collective/decentralized polities.
+3. P1: integrated POP/economy/market/factory/building/construction systems.
+4. P1: military formations, manpower, equipment, generals, supply/logistics and war resolution.
+5. P1: political regimes, social strata, interest groups, legitimacy, movements and laws with real downstream effects.
+6. P2: transparent decomposable score/rank formulas driven by simulation state.
+
+Cross-system requirement remains worldwide 1836–1936; Historical Mode starts 1836-01-01; Sandbox/Alternate History is a distinct mode sharing the core engine. The feedback document defines acceptance tests for each system.
+
+**Phase boundary:** this update is documentation/backlog only. Current collaboration protocol still prohibits gameplay/engine/UI/save changes during S0. S1 remains NOT AUTHORIZED until the bounded transition review and owner acceptance are recorded. Do not start gameplay implementation merely because the owner reported defects or because an APK build passed.
+
+Commits:
+- `8291d7ddf1c3848e1cfd15fd86b53934d0f5e836` — player-test backlog.
+- `b42064b7b3051eea9fa001257d6d4e6327516e47` — AI handoff update.
