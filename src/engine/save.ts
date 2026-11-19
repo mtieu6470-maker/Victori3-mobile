@@ -42,7 +42,11 @@ function migrateV1ToV2(legacy: GameState): GameState {
 }
 
 export function deserialize(text: string): GameState {
-  const envelope = JSON.parse(text) as {
+  const parsed: unknown = JSON.parse(text);
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+    throw new Error('Save envelope is missing or invalid');
+  }
+  const envelope = parsed as {
     format?: string;
     version?: number;
     state?: GameState;
