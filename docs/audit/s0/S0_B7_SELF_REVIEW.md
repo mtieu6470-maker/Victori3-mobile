@@ -68,7 +68,7 @@
 
 | Check | Result | Evidence / boundary |
 |---|---|---|
-| CI-F4 classification | CLOSED (narrow scope) | Commit `b5948f0` separates the pinned-baseline B4 characterization from the experiment APK suite; run #318 passes 97/97 tests and assembles the debug APK with verified evidence artifacts. |
+| CI-F4 classification | CLOSED (narrow scope) | Commit `b5948f0` separates the pinned-baseline B4 characterization from the experiment APK suite; run #318 passes 97/97 tests and assembles the debug APK with verified evidence artifacts. `.github/workflows/s0-b4-tests.yml` is pinned to `2240a8f` but was not re-run in this slice; approved B4 Run #3 remains separate prior evidence. |
 | Source-scope cause | Confirmed | Frozen baseline `2240a8f` predates this field; experiment branch defines it in `src/engine/types.ts` and initializes it in `src/engine/init.ts`. |
 | APK impact | Confirmed | Both runs stop before Android SDK setup, Capacitor sync and Gradle `assembleDebug`; no APK was produced. |
 | Test evidence | Confirmed | Both runs: 6 files, 5 passed / 1 failed; 109 tests, 108 passed / 1 failed. Web/data build and hashing passed. |
