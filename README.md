@@ -1,3 +1,5 @@
+> **AI / contributor entrypoint:** Before every task, read [AI_START_HERE.md](AI_START_HERE.md) at the repository root. It contains the detailed product brief, system-by-system Victoria 3 parity expectations, research rules, Android APK + downloadable data-pack direction, quality requirements and the required handoff sequence. Also follow [AGENTS.md](AGENTS.md) and the current [AI_HANDOFF](docs/coordination/AI_HANDOFF.md).
+
 # Dòng chảy Lịch sử — đại chiến lược 1836 cho điện thoại
 
 Trò chơi đại chiến lược lấy bối cảnh thế giới năm 1836, chạy hoàn toàn offline. Hai chế độ dùng chung một engine mô phỏng:
