@@ -200,3 +200,18 @@ The first bounded implementation slice maps the §14.1 predicate contract to run
 **Concrete test source:** `tests/modes.test.ts`, describe block `canonical rank_at_most condition`.
 
 **Verification status:** DEV-001 passed tests-only CI run 44430809753 (6/6 suites, 75/75 tests). The Android workflow run 44430809754 also passed npm ci, build-data/map/web, `tsc --noEmit` (inside `npm run build`), Vite build, Capacitor sync and Gradle `assembleDebug`. No Android device QA or Claude review is claimed. Remaining S22 rows, especially DEC-01–DEC-16, EVT-01–EVT-14, CAL-01–CAL-15, GEO-01–GEO-10 and BEN-11–BEN-18, remain future verification work.
+
+
+## 14. DEV-003 staged decision-effect transaction verification
+
+| Test ID | Scenario | Required assertion |
+|---|---|---|
+| DEC-TX-01 | A valid first effect is followed by an effect handler that throws during a later state-dependent operation | The staged copy is discarded; original laws, ownership, logs, IDs and all root state remain unchanged |
+| DEC-TX-02 | All effects validate and every handler completes | Staged state is committed synchronously, then pending/fired-event lifecycle is updated |
+| DEC-TX-03 | The state contains undefined and non-finite diagnostic values in unrelated fields | Clone preserves them; no JSON serialization coercion |
+| DEC-TX-04 | Transaction includes region transfer or polity creation | Derived cache invalidation/rebuild remains correct after root-state commit |
+| DEC-TX-05 | Invalid/unsupported payload | Preflight returns false before cloning is committed; pending choice remains available |
+
+**Implementation boundary:** `applyWindowOption` stages a clone of the plain-data GameState, executes handlers against the clone, and commits only after successful completion. The command resolver consumes the pending record only after that return value is true.
+
+**Verification status:** DEV-003 transaction rollback test is committed in `tests/modes.test.ts`; tests-only run `44433707994` and Android build run `44433708015` are in progress at the time this matrix update is prepared. Do not claim DEV-003 PASS until both runs complete successfully. No Android device QA is claimed.

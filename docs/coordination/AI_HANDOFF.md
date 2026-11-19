@@ -1197,3 +1197,36 @@ The project owner explicitly instructed ChatGPT in chat on 2026-11-19 to continu
 - APK: 18,043,425 bytes; SHA-256 `4942fe45e9b9aa168871c4c993bd3d5d0aa82cb8834d7621212b87e42e765d86`; Android Debug certificate SHA-256 `2f897a2e52acbaf803bf3ff0cb61037eedcecd98ed55c20433d281398b3205ff`; v1/v2 verification true.
 - GitHub artifact ID `14485704529`; ZIP size 17,556,470 bytes; ZIP SHA-256 `b5011c9cd1bf504c233afdc490a8377aab1ae9d32b15c4240481e053418d6340`. Separate evidence artifact ID `14485579893`, ZIP SHA-256 `95b01c20b6255a6231440dba2b23cc324473c2d7614e59f45866b81c85dd1d75`.
 - Artifact is retained for the review gate; it is not yet the user's approved test build. No device QA or Claude review/correction has occurred.
+
+
+## 10. DEV-001–DEV-003 — code review and APK handoff
+
+The owner requested one Claude review/correction pass after ChatGPT's first implementation slices, followed by an APK for user testing once the corrected exact HEAD has passed verification.
+
+### Review target
+
+- Repository: `mtieu6470-maker/Victori3-mobile`
+- Branch: `claude/game-historical-sandbox-modes-kg7rj7`
+- Implementation base: `8608f9fc1db4ccabeeba0ba8c0cd046cacd69f70`
+- Current implementation candidate: `751ae87a7b4a8e844e8e093937bad14589eb4225`
+- Included implementation commits:
+  - DEV-001 rank predicate: `96f90338acc49beaed4313a116b2867ce3bacec3`
+  - DEV-002 player-decision revalidation: `a42a005c5da2ddf7570856558f0cb6feb9b4df7f`
+  - DEV-003 staged effect transaction: `751ae87a7b4a8e844e8e093937bad14589eb4225`
+- Focused aggregate review request: `docs/audit/s0/DEV001_DEV003_CLAUDE_CODE_REVIEW_REQUEST_2026-11-19.md`.
+- Scope is limited to the implementation files and tests listed in that request. Do not use this review as authorization for unrelated S22/engine/save/data/UI work.
+
+### CI evidence
+
+- DEV-001 tests-only: `44430809753`, PASS 75/75; Android workflow: `44430809754`, SUCCESS.
+- DEV-002 tests-only: `44433012743`, PASS 83/83; Android workflow: `44433012918`, SUCCESS; its APK artifact is superseded by DEV-003.
+- DEV-003 tests-only: `44433707994`, status pending at handoff preparation.
+- DEV-003 Android workflow: `44433708015`, status pending at handoff preparation.
+- Do not offer the superseded DEV-001/DEV-002 APK for test. The final candidate APK must come from a successful workflow on the exact Claude-corrected final code HEAD.
+
+### Review/correction protocol
+
+- Claude is asked to inspect exact current branch HEAD and do one bounded correction pass, not a broad redesign. If Claude changes code, classify the result as "Claude review + corrective pass" rather than an independent verdict on Claude's own fix.
+- ChatGPT must re-fetch the exact corrected HEAD and rerun tests, build and artifact verification.
+- APK test delivery requires the corrected final HEAD to pass typecheck, regression suite and Android Gradle packaging, and a verified APK artifact/checksum. No APK installation, signing-secret change, keystore access, force-push or merge is authorized.
+- This process does not rewrite S0 gate ledger or signoff. Formal historical gate statuses remain G0.7 BLOCKED, G0.8 PARTIAL, whole-S0 G0.9 BLOCKED.

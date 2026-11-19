@@ -534,7 +534,9 @@ A pending player decision is not authority to execute arbitrary option data. At 
 
 Invalid option, stale definition, expired window, revoked authority, changed causal precondition or failed effect validation MUST NOT partially mutate game state, remove a still-valid pending item, or mark the event fired. The item instead receives a deterministic `expired` or `invalidated` lifecycle transition with a reason and audit entry where appropriate. A retry of the same accepted command is idempotent and cannot apply effects twice.
 
-The command API is the enforcement boundary; UI hiding/disabling an option is not a security or correctness control. The decision instance must persist actor, definition/version, offered option IDs, creation tick, expiry semantics and lifecycle state sufficiently to validate after save/load.
+The command API is the enforcement boundary; UI hiding/disabling an option is not a security or correctness control.
+
+**Staged transaction contract:** apply decision effects to a deep clone of the plain-data `GameState` graph. Preserve arrays, records, `undefined` and numeric values without JSON round-tripping. Run the complete preflight and every effect handler against the staged graph. If validation fails or any handler throws, discard the staged graph and leave the live state unchanged. If all handlers succeed, synchronously replace the live state's root fields with the staged fields; only after that does the command consume the pending instance and mark the event fired. This transaction relies on `GameState` remaining a plain acyclic data graph; introducing Map/Set/Date/class instances requires revising the clone contract and tests. Derived-cache invalidation during staged execution is allowed only where it cannot mutate authoritative game state. The decision instance must persist actor, definition/version, offered option IDs, creation tick, expiry semantics and lifecycle state sufficiently to validate after save/load.
 
 ### 14.5 Source-date precision and monthly effective-time policy (SA-08)
 

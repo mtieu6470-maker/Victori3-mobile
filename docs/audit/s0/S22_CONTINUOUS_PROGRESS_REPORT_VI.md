@@ -314,3 +314,25 @@ Các dòng trên phân biệt **quyết định sản phẩm**, **evidence revie
 - GitHub APK artifact: ID `14485704529`, size 17,556,470 bytes, artifact ZIP SHA-256 `b5011c9cd1bf504c233afdc490a8377aab1ae9d32b15c4240481e053418d6340`. Separate CI-evidence artifact: ID `14485579893`, size 103,973 bytes, ZIP SHA-256 `95b01c20b6255a6231440dba2b23cc324473c2d7614e59f45866b81c85dd1d75`.
 - The artifact is an installable **debug** APK produced from code commit `96f90338...`; it has not been offered for installation pending the requested Claude review/correction pass. No device test was performed.
 - Existing Android identity/version metadata and debug signing flow were not changed by DEV-001. Replacing an already installed APK can still encounter signature mismatch/data-loss risk; no uninstall/upgrade was attempted.
+
+
+### 2026-11-19 — DEV-002 canonical player decision revalidation
+
+- Fixed the old `execute(type='decide')` order, which removed a pending record and fired the event before validating the chosen option or confirming that effects actually applied.
+- Added `resolvePlayerDecision` to revalidate the canonical event/accession, Historical Mode permission, current player/actor identity, canonical option IDs and historical flags, date window, actor liveness, customs-union eligibility and current causal conditions.
+- An unoffered option returns a rejection while preserving a still-valid pending record. Expired, invalidated or stale pending choices are removed with an audit log but are not fired. The pending record is consumed and `decisionWindowsFired` incremented only after successful effect application.
+- Effect payloads/targets are preflighted before the first mutation. Implemented the formerly no-op `ig_approval` effect on the existing [-10, 10] approval scale; added the stable Luxembourg `LUX` nation tag; constrained the Romanian union effect to its declared destination `ROM`.
+- Added DEC-CMD-01–DEC-CMD-09 coverage in `tests/modes.test.ts`.
+- Code commit: `a42a005c5da2ddf7570856558f0cb6feb9b4df7f`; base: `e661226101ce6a6263749dcdfd431fb4ba2a27b6`.
+- Tests-only run `44433012743`: PASS, 6/6 test files, 83/83 tests. Android debug build `44433012918`: SUCCESS, Gradle `BUILD SUCCESSFUL in 1m 25s`. APK artifact ID `14487677004`, artifact ZIP SHA-256 `e7810065ee7f87881f4b809aae4bbd4ee230b9a83148ec2ecc4bece2fc704deb`. This artifact is superseded by the newer DEV-003 candidate and is not offered for testing.
+- The debug signing certificate evidence for that run must be read from the CI evidence artifact before any claim about its certificate; the workflow log's summary only establishes the APK build and artifact ZIP digest.
+
+### 2026-11-19 — DEV-003 staged transaction for multi-effect decisions
+
+- Wrapped `applyWindowOption` in a staged transaction: clone the plain GameState graph, run the complete effect list against the staged copy, and commit root fields only if every handler finishes successfully. A thrown handler discards the copy and leaves authoritative state unchanged.
+- The clone preserves `undefined` and numeric values rather than JSON-round-tripping; it tracks already-seen object references to preserve graph identity and avoid recursive cycles.
+- Added a rollback regression fixture in which a valid law-change effect runs first in the staged graph, followed by a Romanian polity merge that throws during staged politics recalculation because a region fixture is malformed. The test asserts the live state's law, territorial owners, logs, IDs and ROM existence remain unchanged.
+- Updated design §14.4 and test matrix section 14 with the staged transaction contract.
+- Code commit: `751ae87a7b4a8e844e8e093937bad14589eb4225`; base: `a42a005c5da2ddf7570856558f0cb6feb9b4df7f`.
+- Tests-only run `44433707994` and Android build run `44433708015` were running at this report update. No CI pass or APK artifact is claimed for DEV-003 yet.
+- Remaining caution: GameState is currently a plain data graph; if future state adds host objects, Maps/Sets, Dates or class instances, the clone routine and its tests must evolve. Effect transaction does not add pending-decision lifecycle/version metadata to the save schema.
