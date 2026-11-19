@@ -634,11 +634,10 @@ function queuedFactoryLedger(st: GameState, c: Country): QueuedFactoryLedger {
 }
 
 /** Marginal sale factor: unmet demand absorbs output; persistent surplus discounts the next unit. */
-function marketDemandFactor(st: GameState, c: Country, good: Good): number {
+function marketDemandFactor(st: GameState, c: Country, good: Good, queuedSupply = 0): number {
   const stats = st.marketStats?.[marketOf(st, c)]?.[good];
   if (!stats) return 1; // no clearing snapshot yet (for example, a newly created game)
   const demand = Math.max(0, Number.isFinite(stats.demand) ? stats.demand : 0);
-  const queuedSupply = queuedFactoryLedger(st, c).supply[good] ?? 0;
   const available = Math.max(0, Number.isFinite(stats.supply) ? stats.supply : 0)
     + Math.max(0, Number.isFinite(stats.imports) ? stats.imports : 0)
     + queuedSupply;
@@ -647,7 +646,7 @@ function marketDemandFactor(st: GameState, c: Country, good: Good): number {
 }
 
 /** Fraction of one additional factory level's input demand covered by last month's free market surplus. */
-function marketInputAvailability(st: GameState, c: Country, requiredInputs: Partial<Record<Good, number>>): number {
+function marketInputAvailability(st: GameState, c: Country, requiredInputs: Partial<Record<Good, number>>, queuedInputs: Partial<Record<Good, number>> = {}): number {
   let availability = 1;
   const stats = st.marketStats?.[marketOf(st, c)];
   for (const [rawGood, rawRequired] of Object.entries(requiredInputs)) {
@@ -659,7 +658,7 @@ function marketInputAvailability(st: GameState, c: Country, requiredInputs: Part
     const supply = Math.max(0, Number.isFinite(entry.supply) ? entry.supply : 0);
     const imports = Math.max(0, Number.isFinite(entry.imports) ? entry.imports : 0);
     const demand = Math.max(0, Number.isFinite(entry.demand) ? entry.demand : 0);
-    const queuedCommitment = queuedFactoryLedger(st, c).inputs[good] ?? 0;
+    const queuedCommitment = queuedInputs[good] ?? 0;
     const freeSurplus = Math.max(0, supply + imports - demand - queuedCommitment);
     availability = Math.min(availability, clamp(freeSurplus / required, 0, 1));
   }
@@ -669,6 +668,7 @@ function marketInputAvailability(st: GameState, c: Country, requiredInputs: Part
 /** Expected annual return of one more level of a building in a region (used by private investors and the AI). */
 export function buildingReturn(st: GameState, c: Country, r: Region, b: Building): number {
   const p = st.marketPrices[marketOf(st, c)] ?? st.worldPrices;
+  const queued = queuedFactoryLedger(st, c);
   const primaryProductivity = Math.pow(Math.max(0, c.productivity), 0.6);
   const factoryProductivity = Math.pow(Math.max(0, c.productivity), 0.5);
   const infra = 1 + 0.05 * Math.min(5, Math.max(0, r.buildings.railway));
@@ -745,13 +745,13 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
     const plannedInputs = Object.fromEntries(
       Object.entries(rec.inputs).map(([good, amount]) => [good, output * (amount as number)]),
     ) as Partial<Record<Good, number>>;
-    const inputAvailability = marketInputAvailability(st, c, plannedInputs);
+    const inputAvailability = marketInputAvailability(st, c, plannedInputs, queued.inputs);
     const realizedOutput = output * inputAvailability;
     const inputCost = Object.entries(rec.inputs).reduce(
       (sum, [good, amount]) => sum + realizedOutput * (amount as number) * p[good as Good],
       0,
     );
-    const saleFactor = marketDemandFactor(st, c, rec.out);
+    const saleFactor = marketDemandFactor(st, c, rec.out, queued.supply[rec.out] ?? 0);
     const labourCost = LEVEL_WORKERS * staffing * 650 * factoryProductivity
       * inputAvailability * p.grain * 0.5;
     value = realizedOutput * p[rec.out] * saleFactor - inputCost - labourCost;
@@ -764,12 +764,12 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
     const output = LEVEL_WORKERS * staffing * 900
       * (1 + techEffect(c, 'mine_efficiency')) * primaryProductivity * infra * condition * occupied;
     value = kinds.reduce(
-      (sum, good) => sum + (output / kinds.length) * p[good] * marketDemandFactor(st, c, good),
+      (sum, good) => sum + (output / kinds.length) * p[good] * marketDemandFactor(st, c, good, queued.supply[good] ?? 0),
       0,
     ) - LEVEL_WORKERS * staffing * 650 * primaryProductivity * p.grain * 0.6;
   } else if (b === 'logging') {
     const output = LEVEL_WORKERS * staffing * 900 * primaryProductivity * condition * occupied;
-    value = output * p.timber * marketDemandFactor(st, c, 'timber')
+    value = output * p.timber * marketDemandFactor(st, c, 'timber', queued.supply.timber ?? 0)
       - LEVEL_WORKERS * staffing * 650 * primaryProductivity * p.grain * 0.6;
   } else if (b === 'plantation') {
     const kinds: Good[] = [];
