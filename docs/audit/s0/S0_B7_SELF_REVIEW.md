@@ -56,3 +56,10 @@
 3. Claude performs the read-only independent review specified by `CLAUDE_S0_B7_REVIEW_REQUEST.md` and returns a review report.
 4. ChatGPT resolves any documentation-only change requests and re-reviews the package.
 5. Project owner explicitly accepts or rejects the bounded S1-entry package and each concrete exception. Only then can a separate S1 authorization be considered.
+
+## 6. Addendum — current-branch CI and table-count recheck (2026-11-19)
+
+- The current experiment branch's Android workflow runs #316 and #317 both fail before APK assembly. Each ran 109 tests: 108 passed and 1 failed in the baseline-only legacy-field characterization. See the updated B7 results and handoff for exact run/job IDs and source-scope analysis.
+- This is not a new execution of the approved frozen-baseline B4 workflow and does not replace its bounded G0.6 PASS. It does establish that the Android workflow currently cannot produce an APK from HEAD fa95ad8.
+- Recounted the P2 table directly from the current Risk Register: **22 data rows**, each with six cells (ID, evidence, impact, disposition/control, owner, target/closure criteria). Older handoff/self-review wording that said 21 rows was stale; the current manifest's 22-row count is correct.
+- DEP-F1 workflow dispatch/artifact review, Claude independent review and owner decision remain pending. No product or workflow change is authorized by this addendum.
