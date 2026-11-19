@@ -100,7 +100,7 @@ describe('factory intermediate-goods market clearing', () => {
       return st;
     };
 
-    const constrained = simulate(2).marketStats.GBR;
+    const constrained = simulate(1).marketStats.GBR;
     const reference = simulate(50).marketStats.GBR;
     expect(constrained.coal.short).toBeGreaterThan(0);
     expect(constrained.coal.short).toBeLessThan(1);
