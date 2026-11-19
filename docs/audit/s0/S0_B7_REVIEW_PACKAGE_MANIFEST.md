@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `2701faf95d5b62671ffda07f8af27de4cd6e3501`  
+**Snapshot HEAD before this manifest refresh:** `4fcea43c02a5c50258e0d775d3338cd73a144dba`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -14,17 +14,17 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 |---|---|
 | `docs/audit/s0/S0_B4_RUN_3_REVIEW.md` | `3d8644811c3ac13b19cce1f1274c46d2edbaa10a` |
 | `docs/audit/s0/S0_B4_TEST_PLAN.md` | `ef21f8193daf283a6ed8c6f4d68b7ca87781bd46` |
-| `docs/audit/s0/S0_RISK_REGISTER.md` | `76087a3ed3c14340b736322300f4a536f0fe280a` |
+| `docs/audit/s0/S0_RISK_REGISTER.md` | `7956ce02029113f4ce10c52162829ee3b1d0b6c5` |
 | `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `b55a14bf5e23e162a1b5d2b2cc6b7c1831a60022` |
-| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `f03a94115eede2bf9845e8ff0b1cd4045b168821` |
+| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `7f16999e6efd466d1cbb0df2aa10111ceca0d1ad` |
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `e3ff67518e936882b9f1f3f6096030ddb4bb99b5` |
-| `docs/audit/s0/S0_SIGNOFF.md` | `ff708a294efbed724fb1653674688c37636908a7` |
-| `docs/audit/s0/S0_B7_RESULTS.md` | `a56b233b60bee6c9a6652a3b9fda394a3361e536` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `fbf96d170b57c4d46c38c53e2bfb8783096d7b2f` |
+| `docs/audit/s0/S0_SIGNOFF.md` | `46a2b3b0073e9d0fc868c7374c0285ca1ef2ffbc` |
+| `docs/audit/s0/S0_B7_RESULTS.md` | `1a143f3f8fe617df1dfd1ac447a19d04a5f4852f` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `03e12cc5bd7436b167315a599ed868006bc50e07` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `e5edc4d8180b331b4ddce2d7f0b687621b58083c` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `4eb351fbc5eca2091d7364746991c57a428e90f7` |
-| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `3099a2595fe8ae1a6f5754df328beb496d84eefb` |
+| `docs/coordination/AI_HANDOFF.md` | `992e752a559a1890c73b0195fdde6f7c5a2764aa` |
+| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `05ccbc955f3b66719d6758b0d6f0d9b36af11ebb` |
 
 ## 2. Risk table integrity and traceability
 
@@ -84,6 +84,7 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 - Added OPEN P1 `CI-F4` to the Risk Register and exact traceability matrix row after inspecting current Android APK workflow runs #316 and #317. Both runs have the same baseline-only `constructionQueue` assertion failure (108/109 tests passed). Experiment branch source includes/initializes the field; frozen baseline `2240a8f` does not.
 - Both builds pass npm install and web/data build, but stop before Android SDK setup, Capacitor sync and Gradle. No APK is produced. Do not weaken baseline characterization or change the normal APK workflow under this S0 authorization.
 - The dependency workflow has run successfully; artifact `14555141888` is reviewed. DEP-F1 is OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING. No package changes are authorized.
+- Android APK run #318 (`44573351798`, commit `b5948f0`) is SUCCESS: 97/97 tests passed, Gradle assembled the debug APK, and both test/APK evidence artifacts were downloaded and verified. CI-F4 is CLOSED for the narrow APK workflow integration issue; see §12.
 - Overall S0 remains PARTIAL/BLOCKED; bounded S1-entry review and owner acceptance remain pending; S1 is NOT AUTHORIZED.
 
 
@@ -109,3 +110,14 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 - Full-tree: six vulnerable dev dependency entries (3 moderate, 1 high, 2 critical), exit 1 expected. Production-only: zero findings, exit 0. Both stderr files empty. Nested Vite esbuild `0.21.5` is affected; root esbuild `0.28.2` is not. B4 Run #3's npm ci count of 10 remains unresolved.
 - Updated review inputs: Risk Register blob `76087a3ed3c14340b736322300f4a536f0fe280a`; B7 self-review `f03a94115eede2bf9845e8ff0b1cd4045b168821`; dependency plan `e3ff67518e936882b9f1f3f6096030ddb4bb99b5`; signoff `ff708a294efbed724fb1653674688c37636908a7`; B7 Results `a56b233b60bee6c9a6652a3b9fda394a3361e536`; Claude request `fbf96d170b57c4d46c38c53e2bfb8783096d7b2f`; workflow `dacd8506bed77624c44ffa27279354a87e9a4ebf`; AI_HANDOFF `4eb351fbc5eca2091d7364746991c57a428e90f7`; next-session handoff `3099a2595fe8ae1a6f5754df328beb496d84eefb`.
 - B7 remains IN_PROGRESS pending Claude independent review and owner decision. Overall S0 remains PARTIAL/BLOCKED; S1 remains NOT AUTHORIZED.
+
+
+## 12. APK workflow run #318 and CI-F4 closure — 2026-11-20
+
+- Snapshot HEAD before this manifest refresh: `4fcea43c02a5c50258e0d775d3338cd73a144dba`.
+- Run `44573351798`, commit `b5948f0bbca126712c64dd605ebb7d9f6ddfb907`, job `135734112766`: SUCCESS.
+- Commit diff changes only `.github/workflows/android-apk.yml`, separating the frozen-baseline B4 test file from the experiment-branch APK test suite without deleting or weakening the characterization.
+- Test artifact `14554953353`, 106,657 bytes, API SHA-256 `96aa79f605d52f7a2eb60748f307802827f6fec9994e280fd655e3565c879829`; 38/38 suites and 97/97 tests passed.
+- APK artifact `14553589834`, ZIP 17,569,405 bytes, API SHA-256 `72ce3a5759bd1379aaf35bf10a395f3cc136230b44eabc64976375405b85678b`; contains `app-debug.apk` 18,057,530 bytes, SHA-256 `338fc54ce2e68f15ddc7043c664bdffa9cd79ade3c41aa0ed7a7cf0bfa7fe6b5`. Debug certificate SHA-256 `8610076ddcefefc85d188530b0eb4645a21f92f38008692c29f6282a13418e19`.
+- Both artifact ZIP digests were recomputed and match GitHub API digests. CI-F4 closed narrowly; no gameplay acceptance, device QA, release signing, data-pack delivery, overall S0 PASS or S1 authorization is implied.
+- Updated B7 review-input blob SHAs: Risk Register `7956ce02029113f4ce10c52162829ee3b1d0b6c5`; Risk Traceability `a83ed23f68e71f8a473d6d1cd6ed2eebd8bb360f`; B7 self-review `7f16999e6efd466d1cbb0df2aa10111ceca0d1ad`; dependency plan `e3ff67518e936882b9f1f3f6096030ddb4bb99b5`; signoff `46a2b3b0073e9d0fc868c7374c0285ca1ef2ffbc`; B7 Results `1a143f3f8fe617df1dfd1ac447a19d04a5f4852f`; Claude request `03e12cc5bd7436b167315a599ed868006bc50e07`; workflow `dacd8506bed77624c44ffa27279354a87e9a4ebf`; AI_HANDOFF `992e752a559a1890c73b0195fdde6f7c5a2764aa`; next-session handoff `05ccbc955f3b66719d6758b0d6f0d9b36af11ebb`.
