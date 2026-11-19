@@ -573,3 +573,12 @@ Only explicit owner decisions may be recorded here. Recommendations are not appr
 - If HEAD changes during review, report the new SHA and re-review that exact commit.
 - A handoff update never substitutes for source code, logs, tests, or artifacts.
 - A commit cannot record its own SHA. A commit that updates this file is identified by GitHub commit metadata (`git log -- docs/coordination/AI_HANDOFF.md`); the next update records it explicitly.
+
+
+## 9. Next-session handoff — 2026-11-19
+
+A verified continuation report was added at `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` in commit `26963daef7c72f2dbeb86239f023b9a902778ae6`.
+
+It records the live experiment-branch HEAD observed before the handoff (`3e2e1d546efee4ee20d19b1da5a86403277006f7`), the active B7 work, exact next actions, branch restrictions, and the distinction between approved B4 Run #3 (70/70 pass) and supplemental Run #65 (100/104 pass; four save/load characterization assertions failed on `state.countries.ABD.group` field presence). Run #65 did not reach APK assembly and produced no APK. The supplemental discrepancy is explicitly left for reviewer analysis; it does not silently replace or erase the approved Run #3 evidence.
+
+Before resuming, re-check the live branch HEAD and all workflow statuses. B7 dependency workflow dispatch/artifact review, independent review, and owner decision remain pending. Overall S0 is not PASS; S1 is not authorized.
