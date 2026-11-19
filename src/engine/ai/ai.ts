@@ -7,7 +7,7 @@ import { LAW_GROUPS, type LawGroup } from '../data/dbTypes';
 import { BUILDINGS, type Building, type Country, type GameState, type Good, type WarGoal } from '../types';
 import { clamp, count, getRel, rand, chance, relKey } from '../core';
 import { historicalBias } from '../historical';
-import { enqueueConstruction, constructionQueueLength, buildingReturn, canBuild, hasTech, marketOf, privateInvestment, SHIP_COST } from '../systems/economy';
+import { enqueueConstruction, constructionQueueLength, buildingReturn, canBuild, hasTech, marketOf, queuedFactorySupply, privateInvestment, SHIP_COST } from '../systems/economy';
 import { reformSupport, startReform, sharesBorder } from '../systems/politics';
 import { techCost } from '../systems/technology';
 import { allied, allianceAcceptance, declareRivalry, declareWar, formAlliance, greatPowers, guarantee, improveRelations, joinCustomsUnion, powerScore, rivals } from '../systems/diplomacy';
@@ -124,9 +124,15 @@ export function investmentDemandPriority(st: GameState, c: Country, r: GameState
   }
   if (!goods.length) return 0;
   const stats = st.marketStats?.[marketOf(st, c)];
+  const queuedSupply = queuedFactorySupply(st, c, goods);
   const shortages = goods.map((good) => {
-    const short = stats?.[good]?.short;
-    return typeof short === 'number' && Number.isFinite(short) ? clamp(short, 0, 1) : 0;
+    const entry = stats?.[good];
+    if (!entry || !Number.isFinite(entry.short) || !Number.isFinite(entry.demand)) return 0;
+    const demand = Math.max(0, entry.demand);
+    if (demand <= 0) return 0;
+    const unmetDemand = demand * clamp(entry.short, 0, 1);
+    const remainingNeed = Math.max(0, unmetDemand - (queuedSupply[good] ?? 0));
+    return clamp(remainingNeed / demand, 0, 1);
   });
   return shortages.reduce((sum, value) => sum + value, 0) / shortages.length;
 }
