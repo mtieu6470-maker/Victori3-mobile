@@ -8,6 +8,14 @@
 
 > Đây là báo cáo điều phối và tự kiểm toán của ChatGPT. Không phải Claude REVIEW_PASS, không phải owner ACCEPTED, không phải bằng chứng S1/S22 đã mở. Mọi research candidate chưa được owner chấp nhận vẫn là tài liệu nghiên cứu, không phải game data đã duyệt.
 
+## 0.3 DEV-005 CI correction — TypeScript legacy fixture (19/11/2026)
+
+- **Failed intermediate build:** Android debug run [44509983834](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44509983834) failed during `tsc --noEmit` at `tests/population-cohorts.test.ts(133,12)`, TS2790. The test used an intersection with `GameState`, so TypeScript still considered `population` required for the `delete` operator.
+- **Correction:** commit `75ad843b11c841a3a0191d2c256383b764cc180f` now types the legacy fixture as `Omit<GameState, 'population'> & { population?: GameState['population'] }` before deleting the field. No runtime behavior changed in this correction.
+- **Current code review target:** `75ad843b11c841a3a0191d2c256383b764cc180f`.
+- **Current CI:** tests-only [44510279688](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44510279688) and Android debug [44510279681](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44510279681) were pending/in progress at the time of this entry.
+- **Earlier result retained accurately:** duplicate Region-ID correction at `d4cd28a` passed tests-only 116/116; that is not a CI claim for the later save-version and malformed-ID changes.
+
 ## 0.2 DEV-005 corrective pass — malformed Region IDs and save version mismatch (19/11/2026)
 
 - **Region identity:** missing/non-string/whitespace-only `Region.id` is now rejected before cohort ID generation, sorting or Map insertion. Duplicate-ID rejection from the previous corrective pass remains in place.
