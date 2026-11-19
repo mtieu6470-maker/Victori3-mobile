@@ -81,9 +81,11 @@ describe('Sandbox Mode is free', () => {
       alliances: st.treaties.filter((t) => t.type === 'alliance').length,
       rivalries: st.rivalries.length,
       alive: Object.values(st.countries).filter((country) => country.alive && !country.decentralized).length,
-      lawEntries: st.log.filter((entry) => entry.type === 'law').length,
-      reformStarts: st.log.filter((entry) => entry.text.includes('begins debating')).length,
-      reformFailures: st.log.filter((entry) => entry.text.includes('reform of') && entry.text.includes('failed')).length,
+      // GameState.log is a bounded rolling log (LOG_CAP); these log counts only describe retained entries.
+      retainedLawLogEntries: st.log.filter((entry) => entry.type === 'law').length,
+      retainedReformFailureLogEntries: st.log.filter((entry) => entry.text.includes('reform of') && entry.text.includes('failed')).length,
+      // Cumulative counters/history are the authoritative source for whole-campaign activity.
+      reformStarts: st.counters.aiActions.reform ?? 0,
       lawHistoryEntries: Object.values(st.countries).reduce((sum, country) => sum + country.ai.lawHistory.length, 0),
       reformCandidates: Object.values(st.countries).filter((country) => country.ai.lawHistory.length > 0).slice(0, 10).map((country) => [country.id, country.ai.lawHistory.length]),
       reformsInProgress: Object.values(st.countries).filter((country) => !!country.reform).length,
@@ -96,7 +98,13 @@ describe('Sandbox Mode is free', () => {
       expect(st.counters.aiActions.declare_war ?? 0).toBeGreaterThan(5);
       expect(st.counters.aiActions.alliance ?? 0).toBeGreaterThan(5);
       expect(st.territoryLog.length).toBeGreaterThan(3);
-      expect(st.log.filter((l) => l.type === 'law').length).toBeGreaterThan(5);
+      // Do not use the bounded rolling event log for a 40-year cumulative assertion.
+      expect(st.counters.aiActions.reform ?? 0).toBeGreaterThan(5);
+      const lawHistoryEntries = Object.values(st.countries).reduce(
+        (sum, country) => sum + country.ai.lawHistory.length,
+        0,
+      );
+      expect(lawHistoryEntries).toBeGreaterThan(5);
     }
   });
   it('produces non-historical outcomes (territory changes that differ from the historical owner)', () => {
