@@ -51,7 +51,7 @@ describe('DEV-005 — population cohort foundation', () => {
   it('migrates a v1 save deterministically without consuming RNG or changing regional aggregates', () => {
     const original = createGame({ mode: 'historical', seed: 83, player: 'GBR' });
     stepMonth(original);
-    const legacy = cloneState(original) as GameState & { population?: GameState['population'] };
+    const legacy = cloneState(original) as Omit<GameState, 'population'> & { population?: GameState['population'] };
     delete legacy.population;
     legacy.version = 1;
 
@@ -90,7 +90,7 @@ describe('DEV-005 — population cohort foundation', () => {
 
   it('rejects incomplete or inconsistent v2 population state rather than silently repairing it', () => {
     const state = createGame({ mode: 'sandbox', seed: 5, player: 'GBR' });
-    const missing = cloneState(state) as GameState & { population?: GameState['population'] };
+    const missing = cloneState(state) as Omit<GameState, 'population'> & { population?: GameState['population'] };
     delete missing.population;
     expect(() => deserialize(JSON.stringify({
       format: SAVE_FORMAT,

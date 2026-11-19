@@ -33,6 +33,7 @@ export interface PopulationCohort {
   wealthPerCapita: number | null;
   incomePerCapita: number | null;
   templateId: string;
+  ageCounts?: Record<string, number>;
 }
 
 export interface PopulationState {

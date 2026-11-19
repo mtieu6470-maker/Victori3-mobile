@@ -117,6 +117,9 @@ export function validatePopulationState(st: GameState): void {
     if (!Number.isFinite(cohort.size) || cohort.size <= 0) {
       throw new Error(`Invalid cohort size in ${cohort.id}`);
     }
+    if (cohort.ageCounts !== undefined) {
+      throw new Error(`Unsupported cohort age counts in ${cohort.id}`);
+    }
     if (cohort.literacy !== null || cohort.radicalism !== null ||
         cohort.wealthPerCapita !== null || cohort.incomePerCapita !== null) {
       throw new Error(`Unsupported cohort-level attribute in ${cohort.id}`);
