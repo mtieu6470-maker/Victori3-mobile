@@ -111,11 +111,11 @@ A second bounded review found two malformed-state gaps:
 
 Regression coverage verifies missing and blank Region IDs, duplicate Region IDs, and v1 envelope/state version mismatch.
 
-**Exact code review HEAD:** `14bd56848b8db429b9037880b08887af7118d61f`. The branch tip is documentation-only HEAD `3ff6b3af883ce685f8438c24eb7a3c050b547155`; no runtime/test source changed after the code review target.
-**Verified corrective CI (exact code HEAD `14bd56848b8db429b9037880b08887af7118d61f`):**
+**Historical intermediate code target (superseded):** `14bd56848b8db429b9037880b08887af7118d61f`. The 118-test and APK results immediately below apply only to that earlier code and are preserved for audit history, not as verification of the corrected target.
+**Historical CI for the superseded intermediate HEAD `14bd56848b8db429b9037880b08887af7118d61f`:**
 - Tests-only run [44511298764](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44511298764) — PASS, 11/11 test files, 118/118 tests, 0 failed, 0 pending.
 - Android debug run [44511298947](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44511298947) — SUCCESS, including web build/typecheck, 118/118 unit/simulation tests, Capacitor sync, Gradle `assembleDebug`, APK checksum and v1/v2 signature verification.
-- The current branch-tip confirmation run [44511435508](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44511435508) built documentation-only HEAD `3ff6b3af883ce685f8438c24eb7a3c050b547155` successfully; it also ran 118/118 tests.
+- The historical docs-only branch-tip confirmation run [44511435508](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44511435508) built documentation-only HEAD `3ff6b3af883ce685f8438c24eb7a3c050b547155` successfully; it also ran 118/118 tests.
 - APK from current branch-tip run: 18,052,012 bytes; SHA-256 `2f90290c68eb4c8f60bc5478165a12df07295014c9445c8fa3f24984bff14418`; debug signer certificate SHA-256 `d33d761fd43643da99e87077e4a99ae89ff9870a18e23987dc904ba63d720acf`; apksigner exit code 0; v1 and v2 verification true. Artifact ID [14522638832](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44511435508/artifacts/14522638832). This is a debug APK, not release-signed and not physical-device QA.
 
 
