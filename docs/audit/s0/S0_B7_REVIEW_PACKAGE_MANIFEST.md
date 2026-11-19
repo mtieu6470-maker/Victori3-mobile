@@ -74,7 +74,7 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 - Snapshot HEAD above is the exact experiment-branch commit immediately before this manifest refresh; recheck the branch after this manifest commit.
 - Android workflow runs #316 (`44562638037`) and #317 (`44562662560`) both failed on the same baseline-only `constructionQueue` assertion; each reported 108/109 tests passed. `npm ci` and the web/data build passed, but Gradle/APK steps were skipped.
 - The failure is from running the baseline characterization test against the changed experiment branch, which has `constructionQueue`; it does not replace the approved frozen-baseline B4 Run #3 result.
-- No APK or downloadable data pack was produced by these runs. The B7 dependency audit remains un-dispatched and DEP-F1 untriaged.
+- At the time of this 2026-11-19 snapshot, no APK or downloadable data pack was produced by runs #316/#317 and the dependency audit had not yet been dispatched. This historical status is superseded by §11 (audit artifact) and §12 (APK run #318).
 - The P2 Risk Register table currently contains 22 data rows, all with six cells. The prior self-review/handoff count of 21 was corrected in the latest documentation commits.
 - B7 remains IN_PROGRESS; independent Claude review and owner decision remain pending. Overall S0 remains PARTIAL/BLOCKED; S1 remains NOT AUTHORIZED.
 
