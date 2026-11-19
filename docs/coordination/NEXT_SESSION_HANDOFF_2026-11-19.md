@@ -247,3 +247,19 @@ All six commits are audit/coordination Markdown only and use `[skip ci]`. No gam
 5. DEP-F1 remediation requires a separate owner-authorized dependency-maintenance task. Do not update packages or lockfile in S0-B7.
 6. The player-test backlog remains authoritative: P0 clock/pacing and date-valid historical identity/portrait provenance; P1 integrated economy/industry, military/logistics, politics/social/laws; P2 transparent scoring. These are requirements only until the phase gate opens.
 
+
+
+---
+
+## Addendum — Android APK run #318 verified; CI-F4 narrow closure (2026-11-20)
+
+- Run [44573351798](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44573351798), commit `b5948f0bbca126712c64dd605ebb7d9f6ddfb907`, job `135734112766`: SUCCESS on `experiment/vic3-visual-upgrade`.
+- Commit diff changes only `.github/workflows/android-apk.yml`: it excludes `tests/s0-save-determinism.test.ts` from the experiment APK suite because this file characterizes the frozen baseline and remains on the separate pinned-baseline B4 path. The baseline assertion was not deleted or weakened.
+- Test evidence artifact `14554953353`, 106,657 bytes, API SHA-256 `96aa79f605d52f7a2eb60748f307802827f6fec9994e280fd655e3565c879829`; downloaded and inspected. Result: 38/38 suites, 97/97 tests, 0 failures, report_valid=true.
+- APK artifact `14553589834`, 17,569,405-byte ZIP, API SHA-256 `72ce3a5759bd1379aaf35bf10a395f3cc136230b44eabc64976375405b85678b`; downloaded and inspected. Contains `app-debug.apk` (18,057,530 bytes), SHA-256 `338fc54ce2e68f15ddc7043c664bdffa9cd79ade3c41aa0ed7a7cf0bfa7fe6b5`. Debug certificate SHA-256 `8610076ddcefefc85d188530b0eb4645a21f92f38008692c29f6282a13418e19`.
+- Both artifact ZIP SHA-256 values were recomputed and match GitHub API metadata. This is a debug build, not release signing or physical-device acceptance.
+- CI-F4 is CLOSED for this narrow workflow integration issue because its stated closure criteria are met. The previous #316/#317 failures remain historical evidence; approved frozen-baseline B4 Run #3 is unchanged.
+- This does not establish gameplay acceptance, on-device QA, separate data-pack delivery, release signing, full S0 PASS or S1 authorization. Owner's playtest verdict remains NOT ACCEPTED.
+- The current branch has advanced beyond commit b5948f0; recheck live HEAD before any further work. Latest coordination/reporting commits are documented in AI_HANDOFF and the B7 review manifest.
+
+Next action remains Claude's independent read-only B7 review of the refreshed review package, including both the dependency audit artifact and APK #318 evidence, followed by explicit owner decision. Do not open S1 or change gameplay/engine/UI/save schema under S0.
