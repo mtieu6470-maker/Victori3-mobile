@@ -29,7 +29,7 @@
 - R1/R13 signing risks remain controlled by deferring B2/C3 and keeping secrets/keystores out of the repository and ordinary workflows.
 - G0.7 remains BLOCKED for iQOO. Any exception request is limited to S1 data contracts/schema/save compatibility; no tick loop, Worker, renderer, WebView lifecycle, memory, performance, or Android runtime changes.
 - G0.8 remains PARTIAL. Any exception request is limited to not modifying, adding, replacing, or distributing existing uncertain assets/text during S1. New assets/content must have verified provenance/licensing before inclusion.
-- DEP-F1 is still OPEN P1 — UNTRIAGED. The 2026-11-16 baseline audit log reported 6 findings with five named GHSA identifiers; Run #3 on 2026-11-18 reported 10 in the npm ci summary without advisory detail. The counts are not reconciled. A read-only workflow and plan now exist (`.github/workflows/s0-b7-dependency-audit.yml`, `S0_DEPENDENCY_AUDIT_PLAN.md`) to scan the frozen baseline full tree and `--omit=dev` tree. The workflow has not been dispatched and its artifact has not been reviewed; no `npm audit fix` or lockfile update is authorized.
+- DEP-F1 is **OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING**. Run `44572915201` and artifact `14555141888` were inspected: full tree 6 (3 moderate, 1 high, 2 critical), production-only 0, valid JSON, empty stderr. All six vulnerable package entries are dev dependencies; nested Vite esbuild `0.21.5` is affected even though root esbuild `0.28.2` is not. The B4 Run #3 `npm ci` count of 10 remains unreconciled. No `npm audit fix` or lockfile update is authorized; details and exact hashes are in `S0_DEPENDENCY_AUDIT_PLAN.md`.
 
 ## 3. Proposed bounded S1-entry exceptions (not yet accepted)
 
@@ -85,7 +85,7 @@ The only automatic save observed by B3 is tied to January in-game date; it is no
 
 ## 5.2 Dependency-audit evidence status
 
-| DEP-F1 audit workflow exists and is read-only | PREPARED; dispatch and artifact review pending |
+| DEP-F1 audit workflow and artifact | RUN SUCCESS; both raw reports reviewed; DEP-F1 OPEN P1 pending remediation / owner disposition |
 
 ## 6. Required next decisions
 
@@ -104,3 +104,12 @@ The B1/G0.2 baseline build evidence does not certify that the current experiment
 This is recorded as OPEN P1 `CI-F4` in the Risk Register. It is a test-scope/workflow integration mismatch; it does not retroactively invalidate the approved frozen-baseline B4 Run #3 evidence. It also does not establish that the experiment-branch APK build passes. No fix is included in S0-B7: changing test selection or the Android workflow requires a separately authorized CI/test task. Keep the baseline characterization intact and preserve the failing run evidence.
 
 The B7 dependency-audit workflow also remains un-dispatched. The current GitHub connection has no workflow-dispatch operation; its absence is an execution limitation, not a PASS. DEP-F1 remains OPEN P1 — UNTRIAGED until the full-tree and production-only JSON artifact is reviewed.
+
+
+## 5.3 Dependency-audit evidence update — 2026-11-20
+
+- Run `44572915201` succeeded on workflow commit `9b150cff57e79bdb5356e431cc140b3b1b9eda2d`; job `135732603544` completed successfully.
+- Artifact `14555141888` (4,753 bytes; API SHA-256 `b9124fa9c6f0272abaf970557ce248ef32c4d85397d21dbe64ebb19221a65a28`) was downloaded and all eight entries inspected.
+- Full-tree npm audit: six vulnerable package entries, severity totals 3 moderate / 1 high / 2 critical, exit code 1 due to findings. Production-only audit: zero findings, exit code 0. Both stderr files empty; JSON and summary valid.
+- Findings are confined to dev dependencies in this lockfile. This does not certify build-tool security or the final APK; a separate authorized dependency-maintenance task is still needed. No package or lockfile changes occurred.
+- DEP-F1 is no longer UNTRIAGED, but remains OPEN P1. Overall S0 remains PARTIAL/BLOCKED; bounded S1-entry package remains NOT_TESTED; S1 remains NOT AUTHORIZED.
