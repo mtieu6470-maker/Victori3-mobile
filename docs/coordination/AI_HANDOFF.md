@@ -23,9 +23,10 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 ## Active DEV-005 review entry point
 
 - **DEV-005 — Population cohort foundation:** `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md`.
-- **Exact corrective code review HEAD:** `d4cd28a7359e580eec0a159fbb98542d8c7c70fb` (duplicate Region ID guard + regression; CI pending at handoff update). Previous code HEAD `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce` is superseded for review.
+- **Exact current corrective code review HEAD:** `24ae54882d723d45239611bed5da5291aa66b7d3` (duplicate/missing/blank Region ID guards and v1 envelope/state version check). Earlier code targets are superseded for review.
 - **Previous verified baseline CI (HEAD `1cf7869` only):** tests-only [44499872965](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872965) PASS, 11/11 suites and 115/115 tests; Android debug [44499872833](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872833) SUCCESS. These results do **not** validate the later corrective commits.
-- **Corrective HEAD CI:** tests-only [44508941178](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941178) **PASS (11/11 files, 116/116 tests)**; Android debug [44508941183](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941183) still in progress. The earlier baseline 115/115 is not used as evidence for the corrective HEAD.
+- **Intermediate corrective CI:** tests-only [44508941178](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941178) PASS (11/11 files, 116/116 tests) for d4cd28a.
+- **Current corrective HEAD CI:** tests-only [44509983998](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44509983998) and Android debug [44509983834](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44509983834) are running for `24ae548`; no pass is claimed yet.
 
 ## Current independent review entry point
 
