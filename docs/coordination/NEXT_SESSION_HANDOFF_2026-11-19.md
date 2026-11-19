@@ -209,3 +209,41 @@ Cross-system requirement remains worldwide 1836–1936; Historical Mode starts 1
 Commits:
 - `8291d7ddf1c3848e1cfd15fd86b53934d0f5e836` — player-test backlog.
 - `b42064b7b3051eea9fa001257d6d4e6327516e47` — AI handoff update.
+
+
+---
+
+## Addendum — S0-B7 dependency audit completed and inspected (2026-11-20)
+
+### Live branch checkpoint before this documentation refresh
+- Repository: `mtieu6470-maker/Victori3-mobile`.
+- Working branch: `experiment/vic3-visual-upgrade`.
+- Verified HEAD before this audit-evidence documentation update: `c5ba0e80b017dfeb04d29c17a66205fab23ce0d9` (the player-feedback/handoff commit). The previous `fa95ad8` snapshot in earlier sections is historical, not current.
+- Default branch is `claude/game-historical-sandbox-modes-kg7rj7`; it was read for required coordination documents and not modified.
+
+### Dependency audit — verified result
+- Workflow run [44572915201](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44572915201), branch `experiment/vic3-visual-upgrade`, workflow SHA `9b150cff57e79bdb5356e431cc140b3b1b9eda2d`; job `135732603544` SUCCESS.
+- Artifact `s0-b7-dependency-audit-9b150cff57e79bdb5356e431cc140b3b1b9eda2d`, ID `14555141888`, 4,753 bytes, GitHub API SHA-256 `b9124fa9c6f0272abaf970557ce248ef32c4d85397d21dbe64ebb19221a65a28`. Downloaded and inspected all eight entries.
+- Full-tree report: 6 vulnerable package entries, severity totals 3 moderate / 1 high / 2 critical, exit code 1 expected. Production-only `--omit=dev`: 0 findings, exit code 0. Both stderr files empty; raw JSON and summary agree.
+- All six reported entries are dev dependencies in the frozen baseline lockfile: `@vitest/mocker@2.1.9` (moderate), nested `vite/node_modules/esbuild@0.21.5` (moderate), `tinypool@1.1.1` (critical), `vite@5.4.21` (high), `vite-node@2.1.9` (moderate), `vitest@2.1.9` (critical). Root `esbuild@0.28.2` is outside the affected range; nested 0.21.5 is not. Exact GHSA list is in `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md`.
+- The A2 2026-11-16 count/severity summary is matched. B4 Run #3's separate `npm ci` count of 10 remains unresolved because it supplied no package-level JSON. No dependency change or `npm audit fix` was run.
+- DEP-F1 disposition updated to **OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING**. Production-only zero is limited to the lockfile production dependency graph; it is not an APK/SBOM or build-tool safety certification.
+
+### Documentation commits in this slice
+- `d937fa3b33623e5dbc252975e735cefa0d91a45f` — dependency audit plan and raw findings.
+- `649019a05de20435596e5cea0a9b7e40ec1e121b` — B7 results.
+- `0fc57aefec3d0cc499f23ba4f958fc452b37e6fd` — risk register / DEP-F1.
+- `cab5ba2f12a9c3033292d41437a9c4a31796c5d6` — signoff ledger.
+- `536b48ad30276dadd3e6edd9f7f44993d7ba4065` — ChatGPT self-review.
+- `ca2b5579b1cb679cd969a1c32f4f4ef16df3b8ed` — Claude read-only review request.
+
+All six commits are audit/coordination Markdown only and use `[skip ci]`. No gameplay, engine, UI, save schema, data, assets, workflow, dependency, Gradle, APK or signing changes occurred.
+
+### Exact next actions / stop conditions
+1. Re-verify live experiment HEAD and all review-input blob SHAs before any further write.
+2. Claude performs the read-only independent B7 review against the updated package, including artifact 14555141888 and the still-unresolved Run #3 count of 10.
+3. Record Claude's exact bounded verdict and findings; ChatGPT may make documentation-only corrections within S0-B7 authorization.
+4. Stop for explicit owner decision. Bounded S1-entry package remains NOT_TESTED until reviewer REVIEW_PASS; S1 remains NOT AUTHORIZED until owner ACCEPTED and separate scope authorization.
+5. DEP-F1 remediation requires a separate owner-authorized dependency-maintenance task. Do not update packages or lockfile in S0-B7.
+6. The player-test backlog remains authoritative: P0 clock/pacing and date-valid historical identity/portrait provenance; P1 integrated economy/industry, military/logistics, politics/social/laws; P2 transparent scoring. These are requirements only until the phase gate opens.
+
