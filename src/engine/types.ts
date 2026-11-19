@@ -27,6 +27,18 @@ export interface Navy { strength: number; target: number; quality: number }
 
 export interface Budget { military: number; navy: number; admin: number; education: number; health: number; construction: number }
 
+export type ConstructionFunding = 'state' | 'private';
+export interface ConstructionProject {
+  id: string;
+  countryId: string;
+  regionId: string;
+  building: Building;
+  funding: ConstructionFunding;
+  totalCost: number;
+  invested: number;
+  createdTick: number;
+}
+
 export interface AIMemory {
   cooldowns: Record<string, number>; // key -> tick until which the action is blocked
   lawHistory: { group: LawGroup; value: string; tick: number }[];
@@ -46,6 +58,8 @@ export interface Country {
   legitimacy: number; radicalism: number; // 0..1 share of population radical
   igs: Record<IG, { clout: number; approval: number }>;
   treasury: number; debt: number; taxRate: number; budget: Budget;
+  /** Separate construction investment balances. */
+  statePool: number; privatePool: number;
   gdp: number; gdpHistory?: number; income: number; expense: number; tariffIncome: number; productivity: number;
   /** Last month's budget lines (same figures that make up income and expense); absent before the first month. */
   finance?: { tax: number; tariff: number; army: number; navy: number; admin: number; education: number; health: number; construction: number; interest: number };
@@ -69,6 +83,9 @@ export interface Region {
   buildings: Record<Building, number>; res: string[]; terrain: string; coastal: boolean; area: number;
   devastation: number; blight: { until: number; severity: number } | null; epidemic: { until: number; rate: number } | null;
   output: number; // value added last month (GBP-equivalent units)
+  /** Absolute employed population and monthly wage per worker, indexed by STRATA. Optional for legacy saves. */
+  employment?: number[];
+  wages?: number[];
   hiddenGold?: boolean;
 }
 
@@ -116,6 +133,8 @@ export interface GameState {
   marketPrices: Record<string, Record<Good, number>>;
   /** Last month's market clearing per market and good (engine units; prices are indices, 1 = base price). */
   marketStats: Record<string, Record<Good, MarketGoodStats>>;
+  /** Construction projects in state/private queues; normalized from legacy saves. */
+  constructionProjects: ConstructionProject[];
   log: LogEntry[];
   territoryLog: TerritoryChange[];
   history: Record<string, YearStat[]>;
