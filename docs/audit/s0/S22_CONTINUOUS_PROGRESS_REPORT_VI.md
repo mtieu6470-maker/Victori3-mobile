@@ -3,10 +3,20 @@
 **Ngày cập nhật:** 19/11/2026  
 **Repository:** mtieu6470-maker/Victori3-mobile  
 **Branch:** claude/game-historical-sandbox-modes-kg7rj7  
-**Code HEAD đã được kiểm thử/build mới nhất:** `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce` (DEV-005; tests-only PASS 115/115, Android debug build SUCCESS).  
+**Code HEAD mới nhất:** `d4cd28a7359e580eec0a159fbb98542d8c7c70fb` (DEV-005 corrective pass; CI mới đang chạy, chưa có kết quả). Code HEAD đã có CI PASS gần nhất trước corrective pass: `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce`.  
 **Chế độ báo cáo:** rolling report — mọi lượt làm xong phải append một progress entry mới; không tạo báo cáo rời nếu không cần thiết.
 
 > Đây là báo cáo điều phối và tự kiểm toán của ChatGPT. Không phải Claude REVIEW_PASS, không phải owner ACCEPTED, không phải bằng chứng S1/S22 đã mở. Mọi research candidate chưa được owner chấp nhận vẫn là tài liệu nghiên cứu, không phải game data đã duyệt.
+
+## 0.1 DEV-005 corrective pass — duplicate Region identity (19/11/2026)
+
+- **Finding:** duplicate `Region.id` values could evade `validatePopulationState` because the lookup Map silently overwrote duplicate keys; cohort creation could also emit duplicate canonical cohort IDs.
+- **Fix:** `createPopulationState` now rejects duplicate Region IDs before projection; `validatePopulationState` explicitly rejects duplicates while constructing its lookup.
+- **Regression:** `tests/population-cohorts.test.ts` now verifies both creation and validation reject a duplicated Region record.
+- **Commits:** `bcc8e20dd975b9bc31292e07079d55f9180b1cea` (implementation), `d4cd28a7359e580eec0a159fbb98542d8c7c70fb` (regression).
+- **Updated Claude review packet:** `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md`; exact review target advanced to `d4cd28a7359e580eec0a159fbb98542d8c7c70fb`.
+- **CI:** tests-only run [44508941178](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941178) and Android debug run [44508941183](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941183) were queued at the time of this entry. Do not treat the earlier 115/115 and debug build as evidence for this corrective HEAD.
+- **Scope:** DEV-005 only. No historical runtime data, engine phase expansion, S0/S1 gate transition, workflow definition, APK signing configuration or release action changed.
 
 ## 0. DEV-005 — Population cohort foundation (owner-authorized 19/11/2026)
 
