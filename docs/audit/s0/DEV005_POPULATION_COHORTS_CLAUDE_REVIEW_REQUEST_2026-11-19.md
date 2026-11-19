@@ -4,7 +4,7 @@
 **Branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Exact corrected code review target:** `c9868d7131d7de3fd8efd0263411fee9111f172c`  
 **Implementation base:** `3d1b8dd24427f2993d561eb0c555d6e0b30b1d5a`  
-**Status:** `TESTS_PASS / ANDROID_BUILD_PENDING`; tests-only passed for exact target; Android debug workflow is still at APK assembly. ChatGPT technical self-audit is attached. No Claude verdict or owner acceptance is claimed. Re-fetch current branch HEAD and exact-target CI before review.
+**Status:** `READY_FOR_REVIEW`; tests-only and Android debug build both passed for the exact target. ChatGPT technical self-audit is attached. No Claude verdict or owner acceptance is claimed. Re-fetch current branch HEAD and exact-target CI before review.
 
 ## 1. Owner authorization and scope
 
@@ -40,7 +40,7 @@ DEV-005 implementation/runtime/test paths:
 - `tests/population-cohorts.test.ts` (new; now 10 focused regression cases)
 - `tests/s0-save-determinism.test.ts` (two-line assertion update for explicit malformed-save rejection)
 
-The complete compare from implementation base `3d1b8dd24427f2993d561eb0c555d6e0b30b1d5a` to corrected target `0c171b9b615e4f91cce66749f8482837c8dfa9ef` reports 23 paths. In addition to the seven DEV-005 runtime/test paths above, 16 concurrent governance/reporting paths are present:
+The complete compare from implementation base `3d1b8dd24427f2993d561eb0c555d6e0b30b1d5a` to corrected target `c9868d7131d7de3fd8efd0263411fee9111f172c` reports 23 paths. In addition to the seven DEV-005 runtime/test paths above, 16 concurrent governance/reporting paths are present:
 - Root: `AGENTS.md`, `AI_START_HERE.md`, `CLAUDE.md`, `README.md`.
 - Audit/report: `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md`, `docs/audit/s0/S0_B7_PACKAGE_SUMMARY_VI.md`, `docs/audit/s0/S0_B7_RESULTS.md`, `docs/audit/s0/S0_B7_REVIEW_REQUEST.md`, `docs/audit/s0/S0_RISK_REGISTER.md`, `docs/audit/s0/S0_SIGNOFF.md`, `docs/audit/s0/S22_CONTINUOUS_PROGRESS_REPORT_VI.md`.
 - Coordination: `docs/coordination/AI_COLLABORATION_PROTOCOL.md`, `docs/coordination/AI_HANDOFF.md`, `docs/coordination/OWNER_EXECUTION_DIRECTIVE_2026-11-19.md`, `docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md`, `docs/coordination/SESSION_RECOVERY_PROTOCOL_VI.md`.
@@ -154,7 +154,7 @@ Correction commits:
 
 Exact current target:
 - Tests-only run [44540766509](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44540766509) — SUCCESS, 11/11 files and 122/122 tests, 0 failures (215.60 seconds).
-- Android debug run [44540766545](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44540766545) — in progress at APK assembly when this request update was committed. Build/typecheck and unit/simulation tests had completed earlier in the same job.
+- Android debug run [44540766545](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44540766545) — SUCCESS: web build/typecheck, 122 tests, Capacitor sync, `assembleDebug`, APK checksum and V1/V2 signing verification all passed.\n- APK file: 18,052,144 bytes; SHA-256 `85e49cc530ce2e382c6af8575f04c2ee631a0be20fb32f841297bb37e17ee08e`.\n- Debug signer certificate SHA-256 `73a3c9a7f7e2ef2d489d37a5fb386d7d138f741f9c3dffcdb32fb886de9c27ad`; V1/V2 verification true; `apksigner_exit_code=0`.\n- Debug APK artifact ID [14538597513](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44540766545/artifacts/14538597513); artifact ZIP SHA-256 `c34ae04acab4558e96cba69d5333bd63953471ddff064410fbda2962a249238a` (different from APK file hash).
 - ChatGPT self-audit: `docs/audit/s0/DEV005_POPULATION_COHORTS_TECHNICAL_SELF_AUDIT_2026-11-19.md`, now records both corrections and CI states.
 
 Please inspect exact current target `c9868d7131d7de3fd8efd0263411fee9111f172c`, not earlier 0c171/14bd targets.
