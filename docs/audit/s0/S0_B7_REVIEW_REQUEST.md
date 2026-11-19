@@ -26,6 +26,7 @@ Do not modify the repository. Do not change product source, gameplay, engine, RN
 - docs/audit/s0/S0_GATE_LEDGER.csv
 - docs/audit/s0/S0_SIGNOFF.md
 - docs/coordination/AI_HANDOFF.md
+- docs/coordination/OWNER_EXECUTION_DIRECTIVE_2026-11-19.md — current owner delegation, 4–5 GB allowance and explicit opt-in/privacy guardrails.
 - docs/coordination/AI_COLLABORATION_PROTOCOL.md
 - docs/roadmap/S0_V3_3_OWNER_DECISION_AND_AMENDMENTS.md
 - docs/roadmap/S0_V3_3_GATE_RESTRUCTURE_PROPOSAL.md
