@@ -4,7 +4,7 @@
 **Branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Exact corrected code review target:** `0c171b9b615e4f91cce66749f8482837c8dfa9ef`  
 **Implementation base:** `3d1b8dd24427f2993d561eb0c555d6e0b30b1d5a`  
-**Status:** `CI_PENDING`; ChatGPT technical self-audit is attached. No Claude verdict or owner acceptance is claimed. Re-fetch current branch HEAD and exact-target CI before review.
+**Status:** `TESTS_PASS / ANDROID_BUILD_PENDING`; ChatGPT technical self-audit is attached. No Claude verdict or owner acceptance is claimed. Re-fetch current branch HEAD and exact-target CI before review.
 
 ## 1. Owner authorization and scope
 
@@ -130,8 +130,8 @@ Correction:
 - Detailed self-audit: `docs/audit/s0/DEV005_POPULATION_COHORTS_TECHNICAL_SELF_AUDIT_2026-11-19.md`.
 
 Exact corrected-target CI:
-- Tests-only run [44534672142](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44534672142) — pending at the time this request update was prepared.
-- Android debug run [44534672171](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44534672171) — pending at the time this request update was prepared.
+- Tests-only run [44534672142](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44534672142) — SUCCESS, 11/11 test files, 119/119 tests, 0 failures (Vitest duration 282.80 seconds).
+- Android debug run [44534672171](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44534672171) — in progress at the time this request update was prepared; build/typecheck and unit/simulation tests completed, APK assemble step running.
 
 The previous `14bd568` CI results remain historical evidence only and do not validate the correction.
 
