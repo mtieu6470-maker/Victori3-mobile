@@ -31,6 +31,15 @@
 
 The SHA values above are historical observations. Re-check GitHub HEAD before every task.
 
+## Governance/source reconciliation — 2026-11-20
+
+- The task-specific owner handoff supplied for this session explicitly designates `experiment/vic3-visual-upgrade` as the working branch and `claude/game-historical-sandbox-modes-kg7rj7` as the default/coordination branch. Work for this S0-B7 task is therefore confined to the experiment branch; the default branch was read but not modified.
+- Required `AI_START_HERE.md` and `SESSION_RECOVERY_PROTOCOL_VI.md`, plus `OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md`, are absent from the experiment branch and were read from the default branch. Do not copy them across branches without an explicit reason/authorization.
+- The experiment-branch `AI_COLLABORATION_PROTOCOL.md` blob `5453f89b86f54a1b1c3adbdbdeae7f598ed32f8e` is the 2026-11-16 revision and still labels Claude as implementer / ChatGPT as reviewer. The default-branch revision `7b61ef2f5008a2f6818de01aeb5ab0e4df991cc5` (2026-11-17) reflects the later owner-directed allocation: ChatGPT is technical lead/authorized implementer; Claude is independent no-write reviewer. Use the later role allocation for this task; ChatGPT's work/self-audit is not an independent REVIEW_PASS.
+- The default-branch protocol's branch-policy paragraph still describes a sole default branch and says the roadmap is pending owner approval. Those statements conflict with the task-specific owner instruction/current handoff (an explicit experiment branch is active) and the recorded owner-approved v3.2/v3.3 decisions in this handoff/source register. Do not silently rewrite the default branch; this discrepancy is disclosed for future governance reconciliation. For this task, follow the explicit owner-designated experiment branch and the recorded OD-20261116-09 / OD-20261116-11 scope.
+- The default-branch `AI_HANDOFF.md` currently tracks a separate DEV-005/research workstream and must not be substituted for this experiment branch's S0-B7 status. Preserve the two branch histories; re-check both live refs before future work.
+
+
 ## 2. Current gate — S0-B3/B4/B7 under v3.3 (OD-20261116-11)
 
 Allowed:
