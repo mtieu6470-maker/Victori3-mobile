@@ -15,6 +15,7 @@ function isolatedIndustrialWorld() {
     for (const building of BUILDINGS) region.buildings[building] = 0;
     region.res = [];
     region.coastal = false;
+    region.pop = 1_000;
     region.strata.fill(0);
     region.strata[S.peasants] = 1;
     region.employment = new Array(STRATA.length).fill(0);
