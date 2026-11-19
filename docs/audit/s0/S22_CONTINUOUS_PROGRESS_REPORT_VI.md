@@ -3,7 +3,7 @@
 **Ngày cập nhật:** 19/11/2026  
 **Repository:** mtieu6470-maker/Victori3-mobile  
 **Branch:** claude/game-historical-sandbox-modes-kg7rj7  
-**Code HEAD mới nhất:** `d4cd28a7359e580eec0a159fbb98542d8c7c70fb` (DEV-005 corrective pass; CI mới đang chạy, chưa có kết quả). Code HEAD đã có CI PASS gần nhất trước corrective pass: `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce`.  
+**Code HEAD mới nhất:** `b4620a548455444ea26fc784f11dca2a13d9da56` (DEV-005; TypeScript/Vite build đã PASS, tests-only và Android integration tests đang chạy). Previous confirmed code HEAD `d4cd28a7359e580eec0a159fbb98542d8c7c70fb` passed tests-only 116/116 and Android debug build; those results do not cover the later save/identity hardening.  
 **Chế độ báo cáo:** rolling report — mọi lượt làm xong phải append một progress entry mới; không tạo báo cáo rời nếu không cần thiết.
 
 > Đây là báo cáo điều phối và tự kiểm toán của ChatGPT. Không phải Claude REVIEW_PASS, không phải owner ACCEPTED, không phải bằng chứng S1/S22 đã mở. Mọi research candidate chưa được owner chấp nhận vẫn là tài liệu nghiên cứu, không phải game data đã duyệt.
@@ -56,7 +56,7 @@
 - **Evidence-safe unknown handling:** no invented culture/religion/occupation/qualification/age cross-tabs; culture/religion remain null, occupation `unclassified`, qualification `unknown`, and unsupported literacy/radicalism/wealth/income remain null. Historical runtime data and source registries were not changed.
 - **Transition limitation:** Region POP/strata remain authoritative; cohort state is a deterministic projection, not yet a cohort-authoritative demographic engine. Cohort-specific births/deaths/migration, age structure, wealth distribution, needs/consumption, market inventory, real hiring/wages, UI and multi-decade calibration are not implemented in this slice.
 - **Known design deviation:** cohort `size` is fractional person-equivalent to preserve existing continuous POP arithmetic. The proposal's eventual integer headcount contract is explicitly submitted for Claude's independent decision.
-- **Exact code HEAD:** `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce`.
+- **Previous verified baseline code HEAD before DEV-005 corrective passes:** `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce`.
 - **Tests-only CI:** run [44499872965](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872965) PASS, 11/11 test files, 115/115 tests, 0 failed/pending.
 - **Android debug CI:** run [44499872833](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872833) SUCCESS; `npm ci`, generated data/map/content, `npm run build` (including `tsc --noEmit`), Vitest, Capacitor sync, Gradle `assembleDebug`, checksum/manifest and signature checks all succeeded.
 - **APK:** 18,051,865 bytes; SHA-256 `025faf6255c529397ce4fd3b59f5023493287bf5ccbb1c343716e7bc63f302b2`; debug signer certificate SHA-256 `4c5cb13e69a17335ced627c6d6ff79b5d64c63a07ecd7c0fe1a44a49c5b216bd`; v1/v2 verified. Artifact ID `14517545981`, artifact ZIP digest `1eae16246426dd6c35ebcdd89b02966ab8fd78c36b71fcd6011e23f7f915a646`. This is a debug APK, not release-signed or device-tested.
