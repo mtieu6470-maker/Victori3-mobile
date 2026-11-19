@@ -275,6 +275,6 @@ Official references:
 ### 13.4. Governance and current status
 
 - The durable directive is `docs/coordination/OWNER_EXECUTION_DIRECTIVE_2026-11-19.md`.
-- `docs/coordination/AI_HANDOFF.md`, `docs/audit/s0/S0_SIGNOFF.md` and `docs/audit/s0/S0_RISK_REGISTER.md` have been updated to point at the 4–5 GB allowance. The risk remains R15, assigned to S23b/S23c.
+- `docs/coordination/AI_HANDOFF.md`, `docs/audit/s0/S0_SIGNOFF.md`, `docs/audit/s0/S0_RISK_REGISTER.md` and `docs/audit/s0/S0_B7_PACKAGE_SUMMARY_VI.md` have been updated to point at the 4–5 GB allowance. `docs/audit/s0/S0_B7_REVIEW_REQUEST.md` now asks Claude to review §13 as the current requirement and treat §§11–12 as historical. The risk remains R15, assigned to S23b/S23c.
 - This direction does not authorize skipping S0 review/owner signoff, opening S1/S23 early, changing signing/package identity or bypassing licensing/device gates. S0 remains PARTIAL/BLOCKED; S1 and S23 remain NOT_STARTED under the current handoff until their specified entry conditions are met.
 - This is a documentation update and owner-direction capture only. No runtime, historical data, images/audio, downloader, content manager, Android/Gradle/workflow, save schema or APK was changed or generated. No runtime tests or Android QA were run for this documentation-only update.
