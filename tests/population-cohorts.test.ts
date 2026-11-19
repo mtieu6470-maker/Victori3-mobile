@@ -88,6 +88,20 @@ describe('DEV-005 — population cohort foundation', () => {
     expect(roundTrip.rng).toEqual(restored.rng);
   });
 
+  it('rejects non-finite, negative and non-normalized regional stratum shares', () => {
+    const nanState = cloneState(createGame({ mode: 'historical', seed: 15, player: 'GBR' }));
+    nanState.regions[0].strata[0] = Number.NaN;
+    expect(() => serialize(nanState)).toThrow('Invalid regional stratum share');
+
+    const negativeState = cloneState(createGame({ mode: 'historical', seed: 16, player: 'GBR' }));
+    negativeState.regions[0].strata[0] = -0.01;
+    expect(() => serialize(negativeState)).toThrow('Invalid regional stratum share');
+
+    const unnormalizedState = cloneState(createGame({ mode: 'historical', seed: 17, player: 'GBR' }));
+    unnormalizedState.regions[0].strata[0] += 0.05;
+    expect(() => serialize(unnormalizedState)).toThrow('Regional stratum shares do not sum to 1');
+  });
+
   it('rejects incomplete or inconsistent v2 population state rather than silently repairing it', () => {
     const state = createGame({ mode: 'sandbox', seed: 5, player: 'GBR' });
     const missing = cloneState(state) as Omit<GameState, 'population'> & { population?: GameState['population'] };

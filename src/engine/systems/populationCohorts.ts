@@ -140,6 +140,17 @@ export function validatePopulationState(st: GameState): void {
         !Array.isArray(region.strata) || region.strata.length !== STRATA.length) {
       throw new Error(`Invalid regional POP read model for ${region.id}`);
     }
+    let shareTotal = 0;
+    for (let i = 0; i < STRATA.length; i++) {
+      const share = region.strata[i];
+      if (!Number.isFinite(share) || share < 0) {
+        throw new Error(`Invalid regional stratum share for ${region.id}/${STRATA[i]}`);
+      }
+      shareTotal += share;
+    }
+    if (region.pop > 0 && Math.abs(shareTotal - 1) > POPULATION_TOLERANCE) {
+      throw new Error(`Regional stratum shares do not sum to 1 for ${region.id}: ${shareTotal}`);
+    }
     const total = totals.get(region.id) ?? 0;
     const tolerance = Math.max(POPULATION_TOLERANCE, Math.abs(region.pop) * 1e-10);
     if (Math.abs(total - region.pop) > tolerance) {
