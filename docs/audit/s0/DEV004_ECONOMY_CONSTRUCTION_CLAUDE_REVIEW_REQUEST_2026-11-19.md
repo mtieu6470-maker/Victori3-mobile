@@ -1,7 +1,7 @@
 # DEV-004 — Economy, wages, factory inputs and construction lifecycle: Claude review
 
 **Review target branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
-**Exact review HEAD:** `663ea5537a8599140ef13773b2c2d9e3aada5647`  
+**Exact code review target (latest implementation + tests; documentation update excluded):** `be20d78c052ca6dcc114479b84ff4b9af16507ed`  
 **Comparison base:** `526b745d980ae5a4094b6dcbdabf41152f910afa` (last green build before the economy/construction feature tranche)  
 **Review type:** independent code review first; one bounded corrective pass only after findings are reported  
 **Status:** REQUESTED — no Claude verdict is claimed; no owner approval is implied
@@ -32,6 +32,8 @@ Feature commits in the reviewed range include:
 - `cea1dcecf16a590d2c54ef93600041d5458f29ab` — tune the isolated coal scenario to guarantee partial (rather than zero or total) shortage.
 - `10b4cedcf7a5d8efa4408b39542a683d89c3368e` — align AI building-return estimates with engine productivity, efficiency, infrastructure, occupation and resource-mix production formulas.
 - `9cf92aab9bc43fa26d92dceb4e85fd41d655642c` — test staffing eligibility, resource-mix weighting and square-root factory productivity scaling.
+- `385e0b9748361c66ac2c033db97bd13de725f725` — make prospective construction returns sensitive to market output saturation and input shortages.
+- `be20d78c052ca6dcc114479b84ff4b9af16507ed` — add regression coverage for oversupplied output markets, input-constrained factories and marginal mining returns.
 
 Primary files:
 
@@ -163,9 +165,19 @@ This request is not evidence of Claude review completion, owner acceptance, S0/S
 - **Commits:** `10b4cedcf7a5d8efa4408b39542a683d89c3368e` (implementation), `9cf92aab9bc43fa26d92dceb4e85fd41d655642c` (expanded tests).
 - **Remaining limitation:** expected returns are still a simplified estimate. They do not fully solve market-clearing feedback, firm-level profit accounting, input availability by dependency stage, wage bids, qualifications or investment competition. Treat this as a feasibility heuristic, not a complete Victoria 3 investment market.
 
-## 13. Validation and handoff status
+## 13. Demand-aware and input-constrained AI investment valuation
 
-- **Current review target:** `663ea5537a8599140ef13773b2c2d9e3aada5647`. **Validation status: PENDING.** The previous 87/87 result belongs only to the earlier `ebeff72b20df155c376000f67fd4b9022fc3e327` target and must not be carried forward. No successful CI run or new APK is claimed.
+- **Finding:** AI investment scoring used current market prices but treated every projected output unit as fully saleable and every planned factory input as available. It could therefore continue prioritizing a good after the market had persistent surplus, or overestimate a factory whose cotton/coal/steel/tools inputs were not available at the current market-clearing rate.
+- **Correction:** add a marginal sale factor from the previous market snapshot. Unmet demand keeps the factor at 1.0; oversupply discounts the next unit by demand divided by available supply plus imports, bounded to 0.35–1.0. If no market snapshot exists yet, preserve the prior estimate (factor 1.0).
+- Factory estimates now limit realized output by the lowest availability among required inputs (`1 - short`). Revenue, input costs and the labor cost attributable to production are all scaled to the realizable share, avoiding both phantom output and charging input costs for output that cannot be made.
+- Mines, plantations and logging apply the marginal sale factor to each good they produce. Mixed-resource regions continue to split projected output across their actual resource mix.
+- **Regression tests added** to `tests/building-return-labor.test.ts`: oversupplied coal lowers marginal mine return; cotton/coal shortages lower textile mill return according to the limiting input; and persistent textile surplus lowers the return of another textile mill.
+- **Commits:** `385e0b9748361c66ac2c033db97bd13de725f725` (implementation), `be20d78c052ca6dcc114479b84ff4b9af16507ed` (tests).
+- **Limitations:** this is a one-month marginal estimate using the latest completed market snapshot, not a forward market simulation. It does not model endogenous multi-month price elasticity, firm-level inventories, wage bidding, or interactions among several simultaneous AI investment proposals. The 0.35 sale-factor floor is a conservative heuristic and requires calibration against campaign outcomes.
+
+## 14. Validation and handoff status
+
+- **Current code review target:** `be20d78c052ca6dcc114479b84ff4b9af16507ed` (the following report-only commit is excluded). **Validation status: PENDING.** The previous 87/87 result belongs only to the earlier `ebeff72b20df155c376000f67fd4b9022fc3e327` target and must not be carried forward. The new demand-aware investment tests have not yet been run in CI. No successful CI run or new APK is claimed.
 - The GitHub integration used here can read commits, files, workflow job logs and rerun failed jobs, but does not expose a general Actions run-list/dispatch operation. A combined status check for the current target returned no status entries; this is not a passing result. Do not interpret missing run data as a test pass.
 - A local clone/test attempt was also blocked because the execution environment could not resolve `github.com`; no local test pass is claimed. Claude/CI must run `npm ci`, then `npm run test` (or the repository's tests-only workflow) against the exact review target before further changes are accepted.
 - Claude review remains requested, not completed. No S0/S1/S22 acceptance, device QA, production signing, or full Victoria 3 parity is claimed.
