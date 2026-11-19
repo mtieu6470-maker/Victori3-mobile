@@ -607,3 +607,14 @@ Before resuming, re-check the live branch HEAD and all workflow statuses. B7 dep
 - Refreshed `S0_B7_REVIEW_PACKAGE_MANIFEST.md` after the live CI recheck; it now includes the current B7 results, Claude request, self-review, AI handoff and next-session handoff blob identities.
 - The next-session handoff was updated in commit `78a606b64e1b1154f36dc0b8a2a81c5beed466fd` and records the preceding documentation commits through `79a322de`.
 - Current experiment branch work remains documentation-only. Latest Android APK workflow run is #317 on the unchanged product/test tree and failed before Gradle/APK assembly. The B7 dependency audit has not been dispatched; DEP-F1 remains OPEN P1 — UNTRIAGED.
+
+
+### 2026-11-19 — B7-CI-F4-AND-DISPATCH-LIMIT
+
+- Added `CI-F4` as OPEN P1 to `S0_RISK_REGISTER.md`: Android APK runs #316/#317 stop at a frozen-baseline B4 test executed against the experiment branch; 108/109 tests pass, and the one failing assertion expects `constructionQueue` to be absent.
+- Added exact traceability mapping in `S0_B7_RISK_TRACEABILITY.md`. Experiment code declares/initializes `constructionQueue`; frozen baseline 2240a8f predates it. This is a test-scope/workflow integration mismatch, not a gameplay defect and not a contradiction of the approved B4 Run #3 baseline result.
+- Both CI runs skipped Android SDK setup, Capacitor sync, Gradle `assembleDebug`, APK checksum and APK upload. No APK was produced. Any test-selection/workflow correction needs separate owner authorization; no source/test/workflow fix was applied in B7.
+- Updated `S0_B7_RESULTS.md`, `S0_B7_SELF_REVIEW.md`, `CLAUDE_S0_B7_REVIEW_REQUEST.md`, `S0_SIGNOFF.md` and `NEXT_SESSION_HANDOFF_2026-11-19.md`.
+- GitHub tool availability check: the connected integration has no workflow-dispatch action. The read-only S0-B7 dependency audit remains unrun; no artifact or package-level conclusion exists. DEP-F1 stays OPEN P1 — UNTRIAGED and requires owner/manual Actions dispatch.
+- Work commits: `d4778b2`, `46a878f`, `3a854a9`, `98f0993`, `64088f9`, `d31c5fc`, and next-session handoff update `a03f814`; all audit/coordination Markdown only, [skip ci].
+- Overall S0 remains PARTIAL/BLOCKED. S1 remains NOT AUTHORIZED.
