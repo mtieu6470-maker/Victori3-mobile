@@ -281,13 +281,6 @@ Official references:
 
 
 
-## 13.4. Governance and current status
-
-- The durable directive is `docs/coordination/OWNER_EXECUTION_DIRECTIVE_2026-11-19.md`.
-- `docs/coordination/AI_HANDOFF.md`, `docs/audit/s0/S0_SIGNOFF.md`, `docs/audit/s0/S0_RISK_REGISTER.md` and `docs/audit/s0/S0_B7_PACKAGE_SUMMARY_VI.md` have been updated to point at the 4–5 GB allowance. `docs/audit/s0/S0_B7_REVIEW_REQUEST.md` now asks Claude to review §13 as the current requirement and treat §§11–12 as historical. The risk remains R15, assigned to S23b/S23c.
-- This direction does not authorize skipping S0 review/owner signoff, opening S1/S23 early, changing signing/package identity or bypassing licensing/device gates. S0 remains PARTIAL/BLOCKED; S1 and S23 remain NOT_STARTED under the current handoff until their specified entry conditions are met.
-- This is a documentation update and owner-direction capture only. No runtime, historical data, images/audio, downloader, content manager, Android/Gradle/workflow, save schema or APK was changed or generated. No runtime tests or Android QA were run for this documentation-only update.
-
 
 ### 13.5. Delivery-mode consent consistency check — 2026-11-19
 
@@ -299,12 +292,3 @@ Official source verification:
 
 The summary, R15 risk row and Claude B7 review question have been aligned to this consent rule. This is a documentation/research correction only. No PAD dependency, downloader, data pack, Android source, workflow, runtime or APK was changed. No runtime tests were run; the documentation changes use `[skip ci]`, and the exact branch HEAD/workflow status must be rechecked after the final commit.
 
-### 13.5. Delivery-mode consent consistency check — 2026-11-19
-
-A current official-source check identified one important delivery constraint: Google Play PAD fast-follow packs begin downloading automatically after app installation, whereas on-demand packs are requested while the app is running. The owner's directive requires explicit user action before optional data downloads. Therefore the current implementation direction for optional 4–5 GB data is **PAD on-demand only** on Google Play; exclude fast-follow. Keep the install-time component to the minimum bootstrap the user knowingly installs. The alternative for the APK sideload route remains an explicit in-app pack download/import channel.
-
-Official source verification:
-- Google Play size limits: https://support.google.com/googleplay/android-developer/answer/9859372 — base 500 MB; each asset pack 1.5 GB; install-time aggregate 4 GB; fast-follow + on-demand aggregate 30 GB; total compressed app download 34 GB; maximum 100 asset packs.
-- Play Asset Delivery: https://developer.android.com/guide/playcore/asset-delivery — explicitly describes automatic fast-follow delivery after install and on-demand delivery requested while the app is running.
-
-The summary, R15 risk row and Claude B7 review question have been aligned to this consent rule. This is a documentation/research correction only. No PAD dependency, downloader, data pack, Android source, workflow, runtime or APK was changed. No runtime tests were run; the documentation changes use `[skip ci]`, and the exact branch HEAD/workflow status must be rechecked after the final commit.
