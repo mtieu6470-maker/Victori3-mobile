@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `d984d7a766c1dbe38b5a857acde8c2497e2b4359`  
+**Snapshot HEAD before this manifest refresh:** `2601a710d5b0d6c9956cadcc0d5f2cfa0441bd62`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -120,4 +120,4 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 - Test artifact `14554953353`, 106,657 bytes, API SHA-256 `96aa79f605d52f7a2eb60748f307802827f6fec9994e280fd655e3565c879829`; 38/38 suites and 97/97 tests passed.
 - APK artifact `14553589834`, ZIP 17,569,405 bytes, API SHA-256 `72ce3a5759bd1379aaf35bf10a395f3cc136230b44eabc64976375405b85678b`; contains `app-debug.apk` 18,057,530 bytes, SHA-256 `338fc54ce2e68f15ddc7043c664bdffa9cd79ade3c41aa0ed7a7cf0bfa7fe6b5`. Debug certificate SHA-256 `8610076ddcefefc85d188530b0eb4645a21f92f38008692c29f6282a13418e19`.
 - Both artifact ZIP digests were recomputed and match GitHub API digests. CI-F4 closed narrowly; no gameplay acceptance, device QA, release signing, data-pack delivery, overall S0 PASS or S1 authorization is implied.
-- Updated B7 review-input blob SHAs: Risk Register `8839d11897a61820b2e53f8add028c375005ea8d`; Risk Traceability `a83ed23f68e71f8a473d6d1cd6ed2eebd8bb360f`; B7 self-review `ecc6ca00ccf82a62c2f0b1d43a6b08d736438cfc`; dependency plan `e3ff67518e936882b9f1f3f6096030ddb4bb99b5`; signoff `46a2b3b0073e9d0fc868c7374c0285ca1ef2ffbc`; B7 Results `5d1443d7c3f11ac6c9563c94fd3fb077bbcaa74f`; Claude request `03e12cc5bd7436b167315a599ed868006bc50e07`; workflow `dacd8506bed77624c44ffa27279354a87e9a4ebf`; AI_HANDOFF `992e752a559a1890c73b0195fdde6f7c5a2764aa`; next-session handoff `05ccbc955f3b66719d6758b0d6f0d9b36af11ebb`.
+- Updated B7 review-input blob SHAs: Risk Register `8839d11897a61820b2e53f8add028c375005ea8d`; Risk Traceability `a83ed23f68e71f8a473d6d1cd6ed2eebd8bb360f`; B7 self-review `ecc6ca00ccf82a62c2f0b1d43a6b08d736438cfc`; dependency plan `e3ff67518e936882b9f1f3f6096030ddb4bb99b5`; signoff `46a2b3b0073e9d0fc868c7374c0285ca1ef2ffbc`; B7 Results `5d1443d7c3f11ac6c9563c94fd3fb077bbcaa74f`; Claude request `03e12cc5bd7436b167315a599ed868006bc50e07`; workflow `dacd8506bed77624c44ffa27279354a87e9a4ebf`; AI_HANDOFF `f87417e8777071c0ec4ecd5f98a4621ef4d8d13c`; next-session handoff `05ccbc955f3b66719d6758b0d6f0d9b36af11ebb`.
