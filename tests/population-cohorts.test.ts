@@ -144,6 +144,31 @@ describe('DEV-005 — population cohort foundation', () => {
     expect(() => deserialize(malformedV2)).toThrow('Invalid population cohort record');
   });
 
+  it('rejects legacy saves with missing or malformed regional data during migration', () => {
+    const missingRegions = cloneState(createGame({ mode: 'historical', seed: 43, player: 'GBR' })) as unknown as Record<string, unknown>;
+    delete missingRegions.population;
+    delete missingRegions.regions;
+    missingRegions.version = 1;
+    const missingRegionsSave = JSON.stringify({
+      format: SAVE_FORMAT,
+      version: 1,
+      state: missingRegions,
+    });
+    expect(() => deserialize(missingRegionsSave)).toThrow('Invalid region list');
+
+    const nullRegionState = cloneState(createGame({ mode: 'historical', seed: 44, player: 'GBR' })) as unknown as Record<string, unknown>;
+    delete nullRegionState.population;
+    nullRegionState.version = 1;
+    const regions = nullRegionState.regions as unknown[];
+    regions[0] = null;
+    const nullRegionSave = JSON.stringify({
+      format: SAVE_FORMAT,
+      version: 1,
+      state: nullRegionState,
+    });
+    expect(() => deserialize(nullRegionSave)).toThrow('Invalid region record');
+  });
+
   it('rejects a non-object save envelope with a clear validation error', () => {
     expect(() => deserialize('null')).toThrow('Save envelope is missing or invalid');
     expect(() => deserialize('[]')).toThrow('Save envelope is missing or invalid');
