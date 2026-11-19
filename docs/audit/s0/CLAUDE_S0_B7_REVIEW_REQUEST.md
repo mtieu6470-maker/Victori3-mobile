@@ -81,3 +81,16 @@ Independently verify the P1 `CI-F4` addition to the Risk Register and traceabili
 - Recommend any remediation only as a separately authorized CI/test task. Do not edit tests or workflows during this read-only review.
 
 The manual dependency-audit workflow has still not been dispatched; no DEP-F1 package-level verdict is possible without the two audit JSON reports.
+
+
+## 10. Additional CI artifact and advisory preflight review
+
+Please independently inspect the two diagnostic ZIP artifacts and the new preliminary dependency cross-check recorded in `S0_B7_RESULTS.md`.
+
+- Run #316 artifact ID `14550237447`, SHA-256 `06fcd22633d442f6890a6d647483697e5051f21de0051b4d2ad0b38b531e6c03`, size 49,741 bytes.
+- Run #317 artifact ID `14551001678`, SHA-256 `bb2427724f91b8ffa4e1a25cad83b405ae19ad5bdbfa452c3076e19ee9e55bfd`, size 49,697 bytes.
+- Confirm each archive contains logs/manifests but no APK or standalone data pack, and distinguish its artifact ID/digest from the APK's nonexistent checksum.
+- Verify the exact line-270 assertion and the passing current-branch legacy migration test.
+- Review the lockfile SHA and version/advisory matches for `vitest@2.1.9`, `@vitest/mocker@2.1.9`, `tinypool@1.1.1`, and `esbuild@0.28.2`. Treat them as preflight matches, not the canonical `npm audit` outcome. In particular, verify the context/attack preconditions before assigning exploitability, and do not infer that production is clear until the `--omit=dev` report has been reviewed.
+- Do not edit product code, tests, workflow or lockfile during this read-only review.
+
