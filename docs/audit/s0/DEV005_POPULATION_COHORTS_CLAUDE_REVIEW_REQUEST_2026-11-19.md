@@ -37,7 +37,7 @@ DEV-005 implementation/runtime/test paths:
 - `src/engine/save.ts`
 - `src/engine/simulation.ts`
 - `src/engine/systems/populationCohorts.ts` (new)
-- `tests/population-cohorts.test.ts` (new; now 10 focused regression cases)
+- `tests/population-cohorts.test.ts` (new; now 13 focused regression cases)
 - `tests/s0-save-determinism.test.ts` (two-line assertion update for explicit malformed-save rejection)
 
 The complete compare from implementation base `3d1b8dd24427f2993d561eb0c555d6e0b30b1d5a` to corrected target `c9868d7131d7de3fd8efd0263411fee9111f172c` reports 24 paths. In addition to the seven DEV-005 runtime/test paths above, 17 concurrent governance/reporting paths are present:
@@ -45,7 +45,7 @@ The complete compare from implementation base `3d1b8dd24427f2993d561eb0c555d6e0b
 - Audit/report: `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md`, `docs/audit/s0/DEV005_POPULATION_COHORTS_TECHNICAL_SELF_AUDIT_2026-11-19.md`, `docs/audit/s0/S0_B7_PACKAGE_SUMMARY_VI.md`, `docs/audit/s0/S0_B7_RESULTS.md`, `docs/audit/s0/S0_B7_REVIEW_REQUEST.md`, `docs/audit/s0/S0_RISK_REGISTER.md`, `docs/audit/s0/S0_SIGNOFF.md`, `docs/audit/s0/S22_CONTINUOUS_PROGRESS_REPORT_VI.md`.
 - Coordination: `docs/coordination/AI_COLLABORATION_PROTOCOL.md`, `docs/coordination/AI_HANDOFF.md`, `docs/coordination/OWNER_EXECUTION_DIRECTIVE_2026-11-19.md`, `docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md`, `docs/coordination/SESSION_RECOVERY_PROTOCOL_VI.md`.
 
-The independent reviewer must assess the seven DEV-005 runtime/test paths as the implementation scope and inspect the full 24-path compare to confirm the other 16 are concurrent documentation/governance changes, not hidden runtime changes. ChatGPT's technical self-audit is at `docs/audit/s0/DEV005_POPULATION_COHORTS_TECHNICAL_SELF_AUDIT_2026-11-19.md`.
+The independent reviewer must assess the seven DEV-005 runtime/test paths as the implementation scope and inspect the full 24-path compare to confirm the other 17 are concurrent documentation/governance changes, not hidden runtime changes. ChatGPT's technical self-audit is at `docs/audit/s0/DEV005_POPULATION_COHORTS_TECHNICAL_SELF_AUDIT_2026-11-19.md`.
 No historical runtime data, country profiles, source registry, map geometry, assets, UI, economy recipes, employment/wage implementation, Android resources, Gradle files, workflow definitions, signing configuration or secrets were changed.
 
 ## 3. Implemented behavior
