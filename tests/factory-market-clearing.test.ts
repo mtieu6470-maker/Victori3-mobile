@@ -125,9 +125,11 @@ describe('factory intermediate-goods market clearing', () => {
       region.res = ['iron', 'coal', 'timb'];
       region.buildings.mine = 12;
       region.buildings.logging = 10;
-      region.buildings.ironworks = 1;
+      region.buildings.ironworks = 2;
       region.buildings.tool_works = 1;
-      region.buildings.arms_works = includeArms ? 2 : 0;
+      // Five arms levels create a real downstream steel shortage, while one tools level
+      // still has enough realized intermediate output to keep arms production above zero.
+      region.buildings.arms_works = includeArms ? 5 : 0;
       computeEconomy(st);
       return st.marketStats.GBR;
     };
