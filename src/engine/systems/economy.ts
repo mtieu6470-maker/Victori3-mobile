@@ -565,6 +565,29 @@ export function buildCost(c: Country, b: Building, st: GameState): number {
   return BUILD_COST[b] * (0.5 + 0.3 * p.tools + 0.2 * p.steel) * Math.sqrt(Math.max(0.3, c.productivity));
 }
 
+/** Marginal sale factor: unmet demand absorbs output; persistent surplus discounts the next unit. */
+function marketDemandFactor(st: GameState, c: Country, good: Good): number {
+  const stats = st.marketStats?.[marketOf(st, c)]?.[good];
+  if (!stats) return 1; // no clearing snapshot yet (for example, a newly created game)
+  const demand = Math.max(0, Number.isFinite(stats.demand) ? stats.demand : 0);
+  const available = Math.max(0, Number.isFinite(stats.supply) ? stats.supply : 0)
+    + Math.max(0, Number.isFinite(stats.imports) ? stats.imports : 0);
+  if (demand <= 0) return 0.35;
+  return clamp(demand / Math.max(1, available), 0.35, 1);
+}
+
+/** Fraction of planned factory operation supported by last month's input availability. */
+function marketInputAvailability(st: GameState, c: Country, inputs: Good[]): number {
+  let availability = 1;
+  const stats = st.marketStats?.[marketOf(st, c)];
+  for (const good of inputs) {
+    const entry = stats?.[good];
+    if (!entry || !Number.isFinite(entry.short)) continue;
+    availability = Math.min(availability, clamp(1 - entry.short, 0, 1));
+  }
+  return availability;
+}
+
 /** Expected annual return of one more level of a building in a region (used by private investors and the AI). */
 export function buildingReturn(st: GameState, c: Country, r: Region, b: Building): number {
   const p = st.marketPrices[marketOf(st, c)] ?? st.worldPrices;
@@ -641,12 +664,16 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
     const output = LEVEL_WORKERS * staffing * rec.perWorker
       * (1 + techEffect(c, 'factory_efficiency')) * (1 + specificEfficiency)
       * factoryProductivity * infra * condition * occupied;
+    const inputAvailability = marketInputAvailability(st, c, Object.keys(rec.inputs) as Good[]);
+    const realizedOutput = output * inputAvailability;
     const inputCost = Object.entries(rec.inputs).reduce(
-      (sum, [good, amount]) => sum + output * (amount as number) * p[good as Good],
+      (sum, [good, amount]) => sum + realizedOutput * (amount as number) * p[good as Good],
       0,
     );
-    value = output * p[rec.out] - inputCost
-      - LEVEL_WORKERS * staffing * 650 * factoryProductivity * p.grain * 0.5;
+    const saleFactor = marketDemandFactor(st, c, rec.out);
+    const labourCost = LEVEL_WORKERS * staffing * 650 * factoryProductivity
+      * inputAvailability * p.grain * 0.5;
+    value = realizedOutput * p[rec.out] * saleFactor - inputCost - labourCost;
   } else if (b === 'mine') {
     const kinds: Good[] = [];
     if (r.res.includes('coal')) kinds.push('coal');
@@ -655,11 +682,14 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
     if (!kinds.length) kinds.push('iron');
     const output = LEVEL_WORKERS * staffing * 900
       * (1 + techEffect(c, 'mine_efficiency')) * primaryProductivity * infra * condition * occupied;
-    value = kinds.reduce((sum, good) => sum + (output / kinds.length) * p[good], 0)
-      - LEVEL_WORKERS * staffing * 650 * primaryProductivity * p.grain * 0.6;
+    value = kinds.reduce(
+      (sum, good) => sum + (output / kinds.length) * p[good] * marketDemandFactor(st, c, good),
+      0,
+    ) - LEVEL_WORKERS * staffing * 650 * primaryProductivity * p.grain * 0.6;
   } else if (b === 'logging') {
     const output = LEVEL_WORKERS * staffing * 900 * primaryProductivity * condition * occupied;
-    value = output * p.timber - LEVEL_WORKERS * staffing * 650 * primaryProductivity * p.grain * 0.6;
+    value = output * p.timber * marketDemandFactor(st, c, 'timber')
+      - LEVEL_WORKERS * staffing * 650 * primaryProductivity * p.grain * 0.6;
   } else if (b === 'plantation') {
     const kinds: Good[] = [];
     if (r.res.includes('cott')) kinds.push('cotton');
@@ -667,8 +697,10 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
     if (r.res.includes('cash')) kinds.push('cash_crops');
     if (!kinds.length) kinds.push('cash_crops');
     const output = LEVEL_WORKERS * staffing * 900 * primaryProductivity * infra * condition * occupied;
-    value = kinds.reduce((sum, good) => sum + (output / kinds.length) * p[good], 0)
-      - LEVEL_WORKERS * staffing * 650 * primaryProductivity * p.grain * 0.6;
+    value = kinds.reduce(
+      (sum, good) => sum + (output / kinds.length) * p[good] * marketDemandFactor(st, c, good),
+      0,
+    ) - LEVEL_WORKERS * staffing * 650 * primaryProductivity * p.grain * 0.6;
   }
   return value / buildCost(c, b, st);
 }
