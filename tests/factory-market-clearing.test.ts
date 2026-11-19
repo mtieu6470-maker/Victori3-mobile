@@ -136,7 +136,9 @@ describe('factory intermediate-goods market clearing', () => {
 
     const withoutArms = simulate(false);
     const withArms = simulate(true);
-    expect(withArms.steel.short).toBeGreaterThan(0);
+    // The downstream request is visible in the final ledger, but must not reduce the
+    // already-resolved tools stage even when market supply can satisfy the total demand.
+    expect(withArms.steel.demand).toBeGreaterThan(withoutArms.steel.demand);
     expect(withArms.tools.supply).toBeCloseTo(withoutArms.tools.supply, 5);
     expect(withArms.arms.supply).toBeGreaterThan(0);
   });
