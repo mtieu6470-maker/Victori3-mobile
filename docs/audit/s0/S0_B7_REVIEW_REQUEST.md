@@ -7,7 +7,7 @@
 **Product baseline:** 2240a8fb865e0021eec2f2f4f1c6803528be9e2c  
 **B4 tested HEAD:** d2ae88e557e9895413462c5b069886bfc606adc7  
 **B4 CI:** run 44041104723, job 133895641421, 70/70 tests, 6/6 suites  
-**Review target:** Re-fetch the current branch HEAD before review and record its exact SHA. The B7 files below are the requested deliverables.
+**Review target:** Re-fetch the current branch HEAD before review and record its exact SHA. The B7 files below are the requested deliverables. The current owner data-size direction is 4–5 GB for the complete verified offline collection (an allowance, not a minimum); see `docs/coordination/OWNER_EXECUTION_DIRECTIVE_2026-11-19.md` and `S0_B7_RESULTS.md` §13.
 
 ## 1. Governance and review scope
 
@@ -20,7 +20,7 @@ Do not modify the repository. Do not change product source, gameplay, engine, RN
 ## 2. Files to inspect
 
 - .github/workflows/b4-tests-only.yml — verify the tests-only boundary and absence of APK build/sign/upload steps.
-- docs/audit/s0/S0_B7_RESULTS.md — including the ChatGPT pre-review checks, §9 automatic APK-workflow incident record and §11 owner 3–4 GB offline-content target; these are not an independent verdict.
+- docs/audit/s0/S0_B7_RESULTS.md — including the ChatGPT pre-review checks, §9 automatic APK-workflow incident record, §§11–12 historical 3–4 GB owner target and §13 current 4–5 GB allowance; these are not an independent verdict.
 - docs/audit/s0/S0_B7_PACKAGE_SUMMARY_VI.md — Vietnamese index and scope/status summary.
 - docs/audit/s0/S0_RISK_REGISTER.md
 - docs/audit/s0/S0_GATE_LEDGER.csv
@@ -57,7 +57,7 @@ Do not modify the repository. Do not change product source, gameplay, engine, RN
 10. Check the S1 scope exactly matches v3.2/v3.3 data-contract/save-foundation constraints and includes no gameplay or runtime/performance work.
 11. Check risk-register coverage against all inherited v3.2 R1–R14 risks (including R3 as closed), B3 findings TC-F1…F7, GD-F1…F6, AS-F1…F7, RM-F1…F5, WD-F1…F3, and the B4 missing-RNG risk. Verify mitigated/closed entries do not erase the historical finding and that no priority has been silently lowered. Also verify R5 (frame-metric/tick-cost attribution), RM-F3 (synchronous main-thread tick cost) and RM-F4 (requestAnimationFrame throughput coupling) are distinct and not duplicated or severity-conflicted.
 12. Review the §9 governance incident: documentation-only pushes triggered the unchanged `android-apk.yml` workflow because `[skip ci]` was omitted. Verify the listed run statuses/artifacts and the HTTP 429 failure cause; confirm no APK was downloaded or installed on iQOO, no workflow file was modified, and do not treat these automatic debug builds as device acceptance or B4 tests-only evidence.
-13. Review R15 and `S0_B7_RESULTS.md` §§11.1–11.5. Confirm the 3–4 GB target is meaningful expanded offline content across core + verified packs, not one huge APK or RAM; evaluate the two delivery paths (compressed archives expanded in app-private storage for sideload, versus AAB/PAD for Google Play); verify per-pack/per-file hashes, resumable download tests, free-space preflight, staging/atomic activation/rollback, safe WebViewAssetLoader mapping, and the `FULL_OFFLINE_READY` gate. Also challenge the genuine-content quality gate (no duplicate/padding/empty/random filler, no unlicensed/out-of-period assets, assets must be reachable/used in-game). Check that compression claims are evidence-based and that text/vector data are distinguished from already-compressed media. R15 remains S23b/S23c and does not silently expand S1 or authorize implementation.
+13. Review R15 and `S0_B7_RESULTS.md` §13 as the current owner data-size direction; §§11–12 are historical snapshots of the superseded 3–4 GB range. Confirm that the approximately 4–5 GB allowance refers to a complete, meaningful, verified offline collection across the small core and multiple packs, is not a minimum to be padded, and is not one monolithic APK or a RAM budget. Require separate measured budgets for compressed downloads, expanded installed storage, temporary staging and peak runtime/decoded memory. Evaluate the two delivery paths (native streaming/resumable archives into app-private storage for sideload, versus AAB/PAD for Google Play); verify current per-pack/per-file limits, publisher authenticity, hashes, dependencies, provenance/licenses, resume behavior, free-space preflight, staging/atomic activation/rollback, safe WebViewAssetLoader mapping, and the `FULL_OFFLINE_READY` gate. Also challenge data quality: no duplicate/padding/empty/random filler, no unlicensed/out-of-period records or assets, every material historical record source-backed with geographic/temporal validity and uncertainty, and every presentation asset reachable/used in-game. Check compression claims are evidence-based and text/vector data are distinguished from already-compressed media. R15 remains S23b/S23c and does not silently expand S1 or authorize implementation.
 
 ## 4. Required reviewer response
 
