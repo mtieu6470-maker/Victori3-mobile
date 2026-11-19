@@ -68,3 +68,16 @@ Review the two latest experiment-branch Android workflow runs before issuing the
 - Neither run produced an APK. The current web/data build did not publish a data-pack artifact.
 
 Treat these as supplementary current-branch CI evidence, distinct from approved B4 Run #3 and from older supplemental Run #65. Include the residual APK-build blocker in the report and do not claim an APK exists for HEAD `fa95ad8`.
+
+
+## 9. CI-F4 — required independent review finding
+
+Independently verify the P1 `CI-F4` addition to the Risk Register and traceability matrix:
+
+- Android APK run #316 (`44562638037`) on `26963da` and run #317 (`44562662560`) on `fa95ad8` both failed one of 109 tests (108 passed, 1 failed) at the baseline-only assertion requiring every restored country to lack `constructionQueue`.
+- Experiment branch `src/engine/types.ts` declares `constructionQueue` and `src/engine/init.ts` initializes it; frozen baseline `2240a8f` predates the field. Verify exact source at both refs rather than accepting this summary.
+- Both runs passed `npm ci`, `npm run build` and generated-data hashing, but the test failure skipped Android SDK setup, Capacitor sync, Gradle `assembleDebug`, APK checksums and APK upload. No APK was produced.
+- Confirm the risk is accurately classified as a current CI/test-scope integration blocker, not a gameplay defect and not a contradiction of the bounded B4 Run #3 baseline verdict.
+- Recommend any remediation only as a separately authorized CI/test task. Do not edit tests or workflows during this read-only review.
+
+The manual dependency-audit workflow has still not been dispatched; no DEP-F1 package-level verdict is possible without the two audit JSON reports.
