@@ -125,6 +125,31 @@ describe('DEV-005 — population cohort foundation', () => {
     expect(roundTrip.rng).toEqual(restored.rng);
   });
 
+  it('rejects null region and cohort records with explicit validation errors', () => {
+    const malformedRegions = [...createGame({ mode: 'historical', seed: 41, player: 'GBR' }).regions] as unknown[];
+    malformedRegions[0] = null;
+    expect(() => createPopulationState(malformedRegions as never)).toThrow('Invalid region record');
+
+    const state = cloneState(createGame({ mode: 'historical', seed: 42, player: 'GBR' }));
+    const malformedCohorts = state.population.cohorts as unknown[];
+    malformedCohorts[0] = null;
+    expect(() => validatePopulationState(state)).toThrow('Invalid population cohort record');
+    expect(() => serialize(state)).toThrow('Invalid population cohort record');
+
+    const malformedV2 = JSON.stringify({
+      format: SAVE_FORMAT,
+      version: SAVE_SCHEMA_VERSION,
+      state,
+    });
+    expect(() => deserialize(malformedV2)).toThrow('Invalid population cohort record');
+  });
+
+  it('rejects a non-object save envelope with a clear validation error', () => {
+    expect(() => deserialize('null')).toThrow('Save envelope is missing or invalid');
+    expect(() => deserialize('[]')).toThrow('Save envelope is missing or invalid');
+    expect(() => deserialize('42')).toThrow('Save envelope is missing or invalid');
+  });
+
   it('rejects duplicate region identities before creating or validating cohorts', () => {
     const state = cloneState(createGame({ mode: 'historical', seed: 29, player: 'GBR' }));
     state.regions.push({ ...state.regions[0], strata: [...state.regions[0].strata] });
