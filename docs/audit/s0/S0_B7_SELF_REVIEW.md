@@ -30,7 +30,7 @@
 
 | Item | Status | Required evidence / decision |
 |---|---|---|
-| DEP-F1 | `OPEN P1 — UNTRIAGED` | Manually dispatch `.github/workflows/s0-b7-dependency-audit.yml`, then review full-tree and production-only raw audit JSON. No dependency fix or lockfile change is authorized. |
+| DEP-F1 | `OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING` | Run `44572915201` SUCCESS; artifact `14555141888` inspected. Full tree: 6 (3 moderate / 1 high / 2 critical), all dev dependency entries; production-only: 0. B4 Run #3's separate npm ci count of 10 remains unreconciled. No dependency fix or lockfile change is authorized. |
 | Claude independent B7 review | `NOT_TESTED` | Use `CLAUDE_S0_B7_REVIEW_REQUEST.md`; reviewer must return `REVIEW_PASS` or `CHANGES_REQUESTED` for the bounded package only. |
 | Owner decision on bounded transition | `PENDING` | Owner must explicitly accept/reject E-G0.7, E-G0.8, R7 containment, R14/C3 disposition and the exact limited S1 scope. No in-principle acceptance is silently promoted to the concrete signoff. |
 | R7 | `OPEN P0` | Interim exposure control is recorded and accepted in principle under OD-20261116-11 §5.1; it is not a technical fix. |
@@ -51,11 +51,10 @@
 
 ## 5. Recommended next sequence
 
-1. Owner manually runs `s0-b7-dependency-audit.yml` with `experiment/vic3-visual-upgrade` selected and shares the completed run if needed.
-2. Review the artifact and produce a package-level DEP-F1 disposition without applying updates.
-3. Claude performs the read-only independent review specified by `CLAUDE_S0_B7_REVIEW_REQUEST.md` and returns a review report.
-4. ChatGPT resolves any documentation-only change requests and re-reviews the package.
-5. Project owner explicitly accepts or rejects the bounded S1-entry package and each concrete exception. Only then can a separate S1 authorization be considered.
+1. Claude performs the read-only independent review specified by `CLAUDE_S0_B7_REVIEW_REQUEST.md`, including the new raw dependency-audit artifact and the remaining 10-vs-6 discrepancy.
+2. ChatGPT resolves any documentation-only change requests and re-reviews the exact package snapshot.
+3. Project owner explicitly accepts or rejects the bounded S1-entry package and each concrete exception. Only then can a separate S1 authorization be considered.
+4. Any dependency remediation requires its own explicit owner-authorized task; do not upgrade dependencies as part of S0-B7.
 
 ## 6. Addendum — current-branch CI and table-count recheck (2026-11-19)
 
@@ -84,3 +83,18 @@ This is a CI/test integration finding, not evidence that the approved frozen-bas
 - Confirmed exact failing assertion at `tests/s0-save-determinism.test.ts:270`. The regular test suite separately passes the current migration case “migrates saves written before constructionQueue existed”. This keeps CI-F4 scoped as a baseline-test/experiment-branch integration mismatch.
 - Parsed the pinned baseline lockfile without installing packages or running lifecycle scripts; baseline and experiment lockfile blob SHAs are identical. Selected resolved development package versions match published advisories (Vitest/@vitest/mocker and tinypool); the locked esbuild version is outside the affected range of the listed esbuild advisory.
 - This is a preliminary, selected advisory cross-check only. No npm audit report was generated, no production-dependency conclusion is made, no advisory count is reconciled, and no dependency was changed. DEP-F1 remains OPEN P1 — UNTRIAGED.
+
+
+## 9. Dependency-audit artifact review — 2026-11-20
+
+| Check | Result | Evidence / boundary |
+|---|---|---|
+| Workflow execution | PASS | Run `44572915201`; workflow commit `9b150cff57e79bdb5356e431cc140b3b1b9eda2d`; job `135732603544` success. |
+| Artifact integrity / contents | PASS for inspection | Artifact `14555141888`, 4,753 bytes, API SHA-256 `b9124fa9c6f0272abaf970557ce248ef32c4d85397d21dbe64ebb19221a65a28`; all eight entries read. |
+| Full-tree audit | Findings present | 6 vulnerable package entries; 3 moderate, 1 high, 2 critical; exit 1 expected. |
+| Production-only audit | PASS for reported graph | 0 findings; exit 0. This is not an APK/SBOM certification. |
+| Vulnerable dependency class | Confirmed dev-only in this lockfile | Six entries: @vitest/mocker, nested esbuild under Vite, tinypool, vite, vite-node, vitest. Root esbuild 0.28.2 is outside the reported affected range; nested 0.21.5 is affected. |
+| Earlier Run #3 npm ci count of 10 | UNRESOLVED | No advisory-level report exists for that command; do not claim reconciled. |
+| DEP-F1 disposition | OPEN P1 | Audit complete; remediation and owner disposition pending. No package changes authorized. |
+
+The full raw report and exact package versions/advisories are recorded in `S0_DEPENDENCY_AUDIT_PLAN.md`. This self-review is not Claude's independent review or owner acceptance.
