@@ -568,13 +568,16 @@ export function buildCost(c: Country, b: Building, st: GameState): number {
 /** Expected annual return of one more level of a building in a region (used by private investors and the AI). */
 export function buildingReturn(st: GameState, c: Country, r: Region, b: Building): number {
   const p = st.marketPrices[marketOf(st, c)] ?? st.worldPrices;
-  const A = c.productivity;
+  const primaryProductivity = Math.pow(Math.max(0, c.productivity), 0.6);
+  const factoryProductivity = Math.pow(Math.max(0, c.productivity), 0.5);
+  const infra = 1 + 0.05 * Math.min(5, Math.max(0, r.buildings.railway));
+  const condition = Math.max(0, 1 - r.devastation);
+  const occupied = r.controller !== r.owner ? 0.7 : 1;
   const labourForce = Math.max(0, r.pop) * 0.45;
   let staffing = 1;
 
   if (RECIPES[b]) {
     // The production engine staffs factories exclusively from the worker stratum.
-    // Peasants and artisans must not be counted as hypothetical factory employees.
     const availableWorkers = labourForce * Math.max(0, r.strata[S.workers]);
     const existingFactoryJobs = LEVEL_WORKERS * (
       r.buildings.textile_mill + r.buildings.ironworks + r.buildings.tool_works
@@ -588,17 +591,12 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
     );
     staffing = clamp(availablePlantationWorkers / Math.max(1, r.buildings.plantation * LEVEL_WORKERS + LEVEL_WORKERS), 0, 1);
   } else if (b === 'mine' || b === 'logging') {
-    // Match the engine's extraction sequence: 30% of laborers are already assigned to
-    // field work, plantations use the next eligible laborers, mines can use 60% of what
-    // remains, and logging can use the residual after realized mine employment.
+    // Match the engine's extraction sequence: field work, plantations, mines, then logging.
     const laborers = labourForce * Math.max(0, r.strata[S.laborers]);
     const slaves = labourForce * Math.max(0, r.strata[S.slaves]);
     const fieldWorkers = laborers * 0.3;
     const plantCapacity = Math.max(0, r.buildings.plantation) * LEVEL_WORKERS;
-    const plannedPlantWorkers = Math.min(
-      plantCapacity,
-      slaves + labourers * 0.25,
-    );
+    const plannedPlantWorkers = Math.min(plantCapacity, slaves + laborers * 0.25);
     const plantationLaborers = Math.min(
       Math.max(0, plannedPlantWorkers - slaves),
       Math.max(0, laborers - fieldWorkers),
@@ -609,11 +607,17 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
       afterPlantations * 0.6,
     );
     if (b === 'mine') {
-      const mineLaborPool = afterPlantations * 0.6;
-      staffing = clamp(mineLaborPool / Math.max(1, (r.buildings.mine + 1) * LEVEL_WORKERS), 0, 1);
+      staffing = clamp(
+        (afterPlantations * 0.6) / Math.max(1, (r.buildings.mine + 1) * LEVEL_WORKERS),
+        0,
+        1,
+      );
     } else {
-      const loggingLaborPool = Math.max(0, afterPlantations - mineWorkers);
-      staffing = clamp(loggingLaborPool / Math.max(1, (r.buildings.logging + 1) * LEVEL_WORKERS), 0, 1);
+      staffing = clamp(
+        Math.max(0, afterPlantations - mineWorkers) / Math.max(1, (r.buildings.logging + 1) * LEVEL_WORKERS),
+        0,
+        1,
+      );
     }
   }
 
@@ -621,21 +625,50 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
   if (b !== 'railway' && b !== 'university' && staffing < 0.5) return 0;
 
   let value = 0;
-  if (b === 'railway') value = (r.output * 12) * 0.05 + 2e5;
-  else if (b === 'university') value = r.pop * 0.45 * (0.2 + r.literacy * 1.2) * 3;
-  else if (RECIPES[b]) {
+  if (b === 'railway') {
+    value = (r.output * 12) * 0.05 + 2e5;
+  } else if (b === 'university') {
+    value = r.pop * 0.45 * (0.2 + r.literacy * 1.2) * 3;
+  } else if (RECIPES[b]) {
     const rec = RECIPES[b]!;
-    const out = LEVEL_WORKERS * staffing * rec.perWorker * A;
-    value = out * p[rec.out]
-      - Object.entries(rec.inputs).reduce((s, [g, q]) => s + out * (q as number) * p[g as Good], 0)
-      - LEVEL_WORKERS * staffing * 650 * A * p.grain * 0.5;
-  } else {
-    const good: Good = b === 'mine'
-      ? (r.res.includes('coal') ? 'coal' : r.res.includes('iron') ? 'iron' : 'luxury')
-      : b === 'logging' ? 'timber'
-      : r.res.includes('cott') ? 'cotton' : r.res.includes('opium') ? 'opium' : 'cash_crops';
-    value = LEVEL_WORKERS * staffing * 900 * A * p[good]
-      - LEVEL_WORKERS * staffing * 650 * A * p.grain * 0.6;
+    const specificEfficiency = b === 'textile_mill'
+      ? techEffect(c, 'textile_efficiency')
+      : b === 'ironworks'
+        ? techEffect(c, 'iron_efficiency') + techEffect(c, 'steel_efficiency')
+        : b === 'arms_works'
+          ? techEffect(c, 'arms_efficiency')
+          : 0;
+    const output = LEVEL_WORKERS * staffing * rec.perWorker
+      * (1 + techEffect(c, 'factory_efficiency')) * (1 + specificEfficiency)
+      * factoryProductivity * infra * condition * occupied;
+    const inputCost = Object.entries(rec.inputs).reduce(
+      (sum, [good, amount]) => sum + output * (amount as number) * p[good as Good],
+      0,
+    );
+    value = output * p[rec.out] - inputCost
+      - LEVEL_WORKERS * staffing * 650 * factoryProductivity * p.grain * 0.5;
+  } else if (b === 'mine') {
+    const kinds: Good[] = [];
+    if (r.res.includes('coal')) kinds.push('coal');
+    if (r.res.includes('iron')) kinds.push('iron');
+    if (r.res.includes('gold') || r.res.includes('silv')) kinds.push('luxury');
+    if (!kinds.length) kinds.push('iron');
+    const output = LEVEL_WORKERS * staffing * 900
+      * (1 + techEffect(c, 'mine_efficiency')) * primaryProductivity * infra * condition * occupied;
+    value = kinds.reduce((sum, good) => sum + (output / kinds.length) * p[good], 0)
+      - LEVEL_WORKERS * staffing * 650 * primaryProductivity * p.grain * 0.6;
+  } else if (b === 'logging') {
+    const output = LEVEL_WORKERS * staffing * 900 * primaryProductivity * condition * occupied;
+    value = output * p.timber - LEVEL_WORKERS * staffing * 650 * primaryProductivity * p.grain * 0.6;
+  } else if (b === 'plantation') {
+    const kinds: Good[] = [];
+    if (r.res.includes('cott')) kinds.push('cotton');
+    if (r.res.includes('opium')) kinds.push('opium');
+    if (r.res.includes('cash')) kinds.push('cash_crops');
+    if (!kinds.length) kinds.push('cash_crops');
+    const output = LEVEL_WORKERS * staffing * 900 * primaryProductivity * infra * condition * occupied;
+    value = kinds.reduce((sum, good) => sum + (output / kinds.length) * p[good], 0)
+      - LEVEL_WORKERS * staffing * 650 * primaryProductivity * p.grain * 0.6;
   }
   return value / buildCost(c, b, st);
 }
