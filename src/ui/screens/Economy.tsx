@@ -50,8 +50,9 @@ function Overview({ st }: { st: GameState }) {
       <div class="cols c2">
         <div>
           <Sec title="GDP theo năm" icon="gdp"><LineChart years={h.map((x) => x.y)} series={[{ name: 'GDP', color: '#93c47a', values: h.map((x) => x.gdp) }]} fmtY={compact} height={120} /></Sec>
-          <Sec title="Việc làm theo công trình" icon="factory" x="lao động">
+          <Sec title="Công suất việc làm theo công trình" icon="factory" x="vị trí tối đa">
             {emp.length ? <HBars rows={emp.map((e) => ({ label: BUILD_VI[e.b], v: e.v, key: e.b }))} fmtV={compact} /> : <div class="empty sm">Chưa có công trình sản xuất.</div>}
+            <div class="note">Đây là số vị trí tối đa theo cấp công trình, không phải số lao động thực tế. Lao động thực tế còn phụ thuộc lực lượng lao động và mức thiếu nguyên liệu.</div>
           </Sec>
         </div>
         <div>
