@@ -6,8 +6,8 @@
 
 GitHub is the shared source of truth between:
 - **Project owner:** owns scope, product decisions, approvals, and phase transitions.
-- **Claude Code:** implementation agent.
-- **ChatGPT:** independent architect/reviewer.
+- **ChatGPT:** technical lead, coordinator and owner-authorized implementation agent.
+- **Claude Code:** independent no-write reviewer for work it did not author; returns evidence-linked REVIEW_PASS or CHANGES_REQUESTED.
 
 This protocol does not itself authorize implementation, phase execution, signing changes, secret access, or merging.
 
