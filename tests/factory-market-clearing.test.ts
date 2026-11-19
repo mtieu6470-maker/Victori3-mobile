@@ -116,4 +116,32 @@ describe('factory intermediate-goods market clearing', () => {
     expect(Number.isFinite(market.coal.supply)).toBe(true);
     expect(Number.isFinite(market.coal.demand)).toBe(true);
   });
+  it('shares a scarce regional factory workforce proportionally instead of prioritizing recipe order', () => {
+    const simulate = (workerShare: number) => {
+      const { st, region } = isolatedIndustrialWorld();
+      region.strata[S.workers] = workerShare;
+      region.strata[S.middle] = 0.8 - workerShare;
+      region.res = ['iron', 'coal', 'cott'];
+      region.buildings.mine = 50;
+      region.buildings.plantation = 10;
+      region.buildings.textile_mill = 2;
+      region.buildings.ironworks = 2;
+      computeEconomy(st);
+      return st;
+    };
+
+    // 1% workers provides 4,500 people for 8,000 requested factory jobs;
+    // 20% workers provides enough labor to staff both factories fully.
+    const constrained = simulate(0.01).marketStats.GBR;
+    const staffed = simulate(0.2).marketStats.GBR;
+    expect(constrained.coal.short).toBeLessThan(0.01);
+    expect(constrained.iron.short).toBeLessThan(0.01);
+
+    const textileStaffing = constrained.textiles.supply / staffed.textiles.supply;
+    const steelStaffing = constrained.steel.supply / staffed.steel.supply;
+    expect(textileStaffing).toBeCloseTo(0.5625, 2);
+    expect(steelStaffing).toBeCloseTo(0.5625, 2);
+    expect(textileStaffing).toBeCloseTo(steelStaffing, 3);
+  });
+
 });
