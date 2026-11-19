@@ -117,6 +117,30 @@ describe('DEV-005 — population cohort foundation', () => {
     expect(() => validatePopulationState(state)).toThrow('Duplicate region ID');
   });
 
+  it('rejects missing or blank region identifiers', () => {
+    const missingId = cloneState(createGame({ mode: 'historical', seed: 30, player: 'GBR' }));
+    (missingId.regions[0] as unknown as { id: string | undefined }).id = undefined;
+    expect(() => createPopulationState(missingId.regions)).toThrow('Invalid region ID');
+    expect(() => validatePopulationState(missingId)).toThrow('Invalid region ID');
+
+    const blankId = cloneState(createGame({ mode: 'historical', seed: 31, player: 'GBR' }));
+    blankId.regions[0].id = '   ';
+    expect(() => createPopulationState(blankId.regions)).toThrow('Invalid region ID');
+  });
+
+  it('rejects a legacy save whose embedded state version disagrees with its envelope', () => {
+    const state = cloneState(createGame({ mode: 'historical', seed: 32, player: 'GBR' }));
+    delete (state as GameState & { population?: GameState['population'] }).population;
+    state.version = 2;
+    const malformedV1 = JSON.stringify({
+      format: SAVE_FORMAT,
+      version: 1,
+      savedAt: '1836-01',
+      state,
+    });
+    expect(() => deserialize(malformedV1)).toThrow('Save envelope/state version mismatch');
+  });
+
   it('rejects non-finite, negative and non-normalized regional stratum shares', () => {
     const nanState = cloneState(createGame({ mode: 'historical', seed: 15, player: 'GBR' }));
     nanState.regions[0].strata[0] = Number.NaN;
