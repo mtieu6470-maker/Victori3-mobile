@@ -4,7 +4,7 @@
 **Branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Exact corrected code review target:** `0c171b9b615e4f91cce66749f8482837c8dfa9ef`  
 **Implementation base:** `3d1b8dd24427f2993d561eb0c555d6e0b30b1d5a`  
-**Status:** `TESTS_PASS / ANDROID_BUILD_PENDING`; ChatGPT technical self-audit is attached. No Claude verdict or owner acceptance is claimed. Re-fetch current branch HEAD and exact-target CI before review.
+**Status:** `READY_FOR_REVIEW`; corrected target CI passed. ChatGPT technical self-audit is attached. No Claude verdict or owner acceptance is claimed. Re-fetch current branch HEAD and exact-target CI before review.
 
 ## 1. Owner authorization and scope
 
@@ -131,7 +131,10 @@ Correction:
 
 Exact corrected-target CI:
 - Tests-only run [44534672142](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44534672142) — SUCCESS, 11/11 test files, 119/119 tests, 0 failures (Vitest duration 282.80 seconds).
-- Android debug run [44534672171](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44534672171) — in progress at the time this request update was prepared; build/typecheck and unit/simulation tests completed, APK assemble step running.
+- Android debug run [44534672171](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44534672171) — SUCCESS: build/typecheck, 119 unit/simulation tests, Capacitor sync, Gradle `assembleDebug`, checksum and `apksigner` verification all passed.
+- APK file: 18,052,034 bytes; SHA-256 `7a3c48b9761878111263c97fe39ca3fbad4026f82babb08bf78801b92174a528`.
+- Debug signer certificate SHA-256 `167f48e563b68c4aa12470941204b43936a8b218eccb54bc598738d52479bb7e`; v1/v2 verification true; `apksigner_exit_code=0`.
+- Debug APK artifact ID [14536836052](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44534672171/artifacts/14536836052); artifact ZIP SHA-256 `0c761f7c47db189aa196d1c59b805b981394db7a95313e13e3c6e247afc38d82` (distinct from the APK file SHA-256).
 
 The previous `14bd568` CI results remain historical evidence only and do not validate the correction.
 
