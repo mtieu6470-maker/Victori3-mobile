@@ -19,7 +19,7 @@
 | Gate verdict vocabulary | Protocol "Status vocabulary" (`PASS`, `PARTIAL`, `BLOCKED`, `FAIL`, `NOT_TESTED`, `NOT_APPLICABLE`); where the approved S0 document writes "NOT TESTED" it means `NOT_TESTED` |
 | Legacy roadmaps and pre-protocol work | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` (historical evidence, not authorization) |
 | Current approved phase | **S0-B3 → S0-B4 → S0-B7, sequential** (OD-20261116-11). B3 and B4 have bounded `REVIEW_PASS`; S0-B7 is current and remains subject to independent review and owner signoff. |
-| Current task status | S0-B3 `REVIEW_PASS` (bounded audit scope). S0-B4 `REVIEW_PASS` for G0.6 under v3.2 §6.7, based on independent review of run 44325257261 and baseline-equivalence comparison. S0-B7 `IN_PROGRESS`: risk register, dependency audit workflow/plan, signoff and Claude review request are committed; dependency workflow dispatch/artifact review, independent review and owner decision remain pending. Full-S0 G0.9 remains `BLOCKED` while C3/B2 is blocked; the separate bounded S1-entry package is `NOT_TESTED`. S0-A `READY_FOR_REVIEW` (A1–A4 conditionally accepted; A5 `BLOCKED`); S0-A is not `ACCEPTED`. S0-B1 reviewer technical verdict `PASS` under v3.3 §2.1. |
+| Current task status | S0-B3 `REVIEW_PASS` (bounded audit scope). S0-B4 `REVIEW_PASS` for G0.6 under v3.2 §6.7, based on run 44325257261 and baseline-equivalence comparison. S0-B7 `IN_PROGRESS`: dependency workflow run 44572915201 and artifact 14555141888 are reviewed; DEP-F1 is `OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING`; Claude independent review and owner decision remain pending. Full-S0 G0.9 remains `BLOCKED` while C3/B2 is blocked; bounded S1-entry package remains `NOT_TESTED`. S0-A `READY_FOR_REVIEW` (A1–A4 conditionally accepted; A5 `BLOCKED`); S0-A is not `ACCEPTED`. S0-B1 reviewer technical verdict `PASS` under v3.3 §2.1. |
 | S0-B3 evidence | `docs/audit/s0/S0_B3_RESULTS.md` (summary, gate self-assessment, finding index) with `S0_TEST_CATALOG.md`, `s0_test_catalog.json`, `S0_REQUIREMENT_MATRIX.csv`, `S0_GLOBAL_DATA_AUDIT.md`, `S0_ASSET_AUDIT.md`, `S0_PERFORMANCE_BASELINE.md/.json`, `b3/**` — tools commit `3d63061e4bd5b3fdf7c636370da462a5b0f5d721`, reports commit `55331c2bf629bb631701ec82020c7f9deaa7da81`; review-1 corrections: tools `ddea490`, reports and evidence `2c62b3d` (`b3/review1/**`; summary in `S0_B3_RESULTS.md` §8) |
 | S0-B4 evidence | docs/audit/s0/S0_B4_RUN_3_REVIEW.md; docs/audit/s0/S0_B4_TEST_PLAN.md; run 44325257261, job 134874698600, executed test file SHA 722d62c0647f06bc2e3a49bdef1f348f4f3104f2, checkout commit 7f17b1f0177d712366e31e4e8c879cc4b6dd5741. 6 files / 70 tests passed; four Historical/Sandbox × K=6/12 replay cases MATCH, hashes equal, first difference null. Product tree and data/build inputs compare equal to baseline 2240a8f. No artifact upload/typecheck in that older workflow; the expanded experiment-branch test file and s0-b4-tests.yml have not been run. G0.6 PASS; bounded B4 REVIEW_PASS |
 | S0-B1 evidence | `docs/audit/s0/S0_B1_CI_EVIDENCE.md`, `docs/audit/s0/logs/b1/` (commit `e13d964f343ab1ba01fb705fbbd8bcac2674ea80`). B1 commit `382aaa84b2336854b4dbebfcdc719847ff463f41`; run `43834719406`, job `133188390842` success; 58/58 tests; `report_valid=true`; APK file SHA-256 `314c8ca11c1d747550bbdb982326675e5f9dbdac870f3fc1cf04b9de7c22585c`; artifact ZIP SHA-256 `7717a2b79dd46fbf613845e33bac3a17634eae5b0c808328d8b21b5abc150ba0` (a different file) |
@@ -29,7 +29,7 @@
 | Gameplay/engine/save changes authorized | NO |
 | Signing/keystore/Secrets changes authorized | NO |
 
-The SHA above is a historical observation. Re-check GitHub HEAD before every task.
+The SHA values above are historical observations. Re-check GitHub HEAD before every task.
 
 ## 2. Current gate — S0-B3/B4/B7 under v3.3 (OD-20261116-11)
 
@@ -97,6 +97,16 @@ Pre-protocol work:
 ## 5. Work log
 
 Append newest entries at the top. Do not overwrite earlier entries.
+
+### 2026-11-20 — S0-B7-DEPENDENCY-AUDIT-ARTIFACT-REVIEW
+
+- Verified live experiment branch HEAD before this documentation update: `c5ba0e80b017dfeb04d29c17a66205fab23ce0d9`. Default/coordination branch remains separate and was not modified.
+- Read-only dependency workflow run `44572915201` succeeded on workflow commit `9b150cff57e79bdb5356e431cc140b3b1b9eda2d`; job `135732603544` completed successfully. Artifact `14555141888` (4,753 bytes; API SHA-256 `b9124fa9c6f0272abaf970557ce248ef32c4d85397d21dbe64ebb19221a65a28`) was downloaded and all eight files inspected.
+- Full dependency tree: 6 vulnerable package entries (3 moderate, 1 high, 2 critical), exit 1 expected; production-only `--omit=dev`: 0 findings, exit 0; both stderr files empty. All six vulnerable entries are dev dependencies. Nested Vite esbuild `0.21.5` is affected even though root esbuild `0.28.2` is not.
+- The 2026-11-16 A2 6-finding severity summary is matched. The separate B4 Run #3 `npm ci` count of 10 remains unresolved because that run has no advisory-level JSON. DEP-F1 is now OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING, not UNTRIAGED.
+- Updated dependency plan, B7 results, risk register, signoff, ChatGPT self-review and Claude review request with raw evidence and limitations. No product source, tests, workflow, dependencies, lockfile, data, assets, Gradle, signing or secrets were changed.
+- Claude independent review and owner decision remain pending. Overall S0 remains PARTIAL/BLOCKED; bounded S1-entry package remains NOT_TESTED; S1 remains NOT AUTHORIZED.
+
 ### 2026-11-18 — B7-CLAUDE-REVIEW-REPORT-TEMPLATE
 
 - Added `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md`, a structured, explicitly unfilled report template for Claude's independent B7 review.
