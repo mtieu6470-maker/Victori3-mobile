@@ -80,7 +80,7 @@ Independently verify the P1 `CI-F4` addition to the Risk Register and traceabili
 - Confirm the risk is accurately classified as a current CI/test-scope integration blocker, not a gameplay defect and not a contradiction of the bounded B4 Run #3 baseline verdict.
 - Recommend any remediation only as a separately authorized CI/test task. Do not edit tests or workflows during this read-only review.
 
-The manual dependency-audit workflow has still not been dispatched; no DEP-F1 package-level verdict is possible without the two audit JSON reports.
+The dependency-audit workflow has now been dispatched and both JSON reports are available. Review exact run `44572915201`, artifact `14555141888`, full-tree totals (6: 3 moderate, 1 high, 2 critical), production-only total (0), all six dev-only package entries, nested esbuild `0.21.5`, and the still-unreconciled B4 Run #3 npm ci count of 10. Do not recommend a dependency fix inside S0; any remediation requires separate owner authorization.
 
 
 ## 10. Additional CI artifact and advisory preflight review
@@ -94,3 +94,14 @@ Please independently inspect the two diagnostic ZIP artifacts and the new prelim
 - Review the lockfile SHA and version/advisory matches for `vitest@2.1.9`, `@vitest/mocker@2.1.9`, `tinypool@1.1.1`, and `esbuild@0.28.2`. Treat them as preflight matches, not the canonical `npm audit` outcome. In particular, verify the context/attack preconditions before assigning exploitability, and do not infer that production is clear until the `--omit=dev` report has been reviewed.
 - Do not edit product code, tests, workflow or lockfile during this read-only review.
 
+
+
+## 11. Completed dependency-audit artifact — additional independent-review requirement
+
+Please independently download/inspect run `44572915201` artifact `14555141888` and verify:
+- Artifact API SHA-256 `b9124fa9c6f0272abaf970557ce248ef32c4d85397d21dbe64ebb19221a65a28`, size 4,753 bytes, eight entries.
+- Full-tree JSON: six vulnerable package entries (3 moderate, 1 high, 2 critical), exit 1 expected; production-only JSON: zero findings, exit 0; stderr empty; summary agrees with raw JSON.
+- Provenance: frozen baseline `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`, workflow commit `9b150cff57e79bdb5356e431cc140b3b1b9eda2d`, Node 22.23.4, npm 10.9.9, package manifest hashes.
+- All six affected entries are dev dependencies in the baseline lockfile. Specifically inspect the nested `node_modules/vite/node_modules/esbuild@0.21.5`; do not incorrectly infer that all esbuild copies are unaffected from root `esbuild@0.28.2`.
+- The 2026-11-16 A2 count/severity summary matches 6 / (3 moderate, 1 high, 2 critical), while the B4 Run #3 `npm ci` count of 10 remains unresolved due missing package-level JSON.
+- Confirm that the correct disposition is OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING. No dependency changes, S1 approval or owner signoff are implied.
