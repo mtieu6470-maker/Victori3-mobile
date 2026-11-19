@@ -58,10 +58,14 @@ interface MarketClearing {
 }
 
 const zero = () => Object.fromEntries(GOODS.map((g) => [g, 0])) as Record<Good, number>;
-// Explicit production order: primary factories make steel before tool works, and tool works
-// make tools before arms works. No downstream factory can consume an upstream factory's
-// theoretical output before that upstream output has passed its own input constraints.
-const FACTORY_PRODUCTION_ORDER: Good[] = ['textiles', 'steel', 'luxury', 'tools', 'arms'];
+// Primary factories compete in the same market-clearing stage; downstream stages only
+// see realized upstream output. This avoids both phantom intermediate goods and arbitrary
+// textile-vs-steel priority when primary factories share scarce inputs such as coal.
+const FACTORY_PRODUCTION_STAGES: Good[][] = [
+  ['textiles', 'steel', 'luxury'],
+  ['tools'],
+  ['arms'],
+];
 
 function clearMarkets(markets: Record<string, MarketAggregate>, marketIds: string[]): MarketClearing {
   const world = Object.fromEntries(GOODS.map((g) => [g, { surplus: 0, deficit: 0 }])) as MarketClearing['world'];
@@ -220,54 +224,57 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const coastal = st.regions.some((r) => m.members.includes(r.owner) && r.coastal);
     m.open = openness(leader, coastal);
   }
-  // ---- 2. stage factory production against physically available inputs.
-  // Each stage temporarily reserves its full planned recipe inputs when calculating shortages.
-  // Only the constrained, realized output and consumed inputs are then committed to the market.
-  // This prevents steel/tools that cannot actually be produced from being counted as supply
-  // for downstream tool/arms factories in the same monthly tick.
-  for (const outputGood of FACTORY_PRODUCTION_ORDER) {
-    for (const k of calc) {
-      if (!k) continue;
+  // ---- 2. reserve the full requested intermediate-input demand for market clearing.
+  // Requested demand remains visible in market statistics and shortage ratios. GDP costs
+  // below use only the inputs consumed by the fraction of output that is actually produced.
+  for (const k of calc) {
+    if (!k) continue;
+    for (const outputGood of GOODS) {
       const recipeInputs = k.factoryInputs[outputGood];
       if (!recipeInputs) continue;
       const market = markets[k.marketId];
       for (const [input, amount] of Object.entries(recipeInputs)) market.dm[input as Good] += amount ?? 0;
     }
+  }
 
+  // Resolve factories in dependency stages. All primary factories share one clearing snapshot,
+  // steel output is then made available to tool works, and realized tools are made available to
+  // arms works. No stage can consume theoretical output from a later or input-starved stage.
+  for (const stage of FACTORY_PRODUCTION_STAGES) {
     const stageClearing = clearMarkets(markets, mIds);
-    for (const k of calc) {
-      if (!k) continue;
-      const plannedOutput = k.factoryOut[outputGood];
-      const recipeInputs = k.factoryInputs[outputGood];
-      if (!recipeInputs || plannedOutput <= 0) continue;
-      const market = markets[k.marketId];
-      let inputAvailability = 1;
-      for (const [input, amount] of Object.entries(recipeInputs)) {
-        if ((amount ?? 0) > 0) inputAvailability = Math.min(inputAvailability, 1 - stageClearing.short[k.marketId][input as Good]);
-      }
-      inputAvailability = clamp(inputAvailability, 0, 1);
+    for (const outputGood of stage) {
+      for (const k of calc) {
+        if (!k) continue;
+        const plannedOutput = k.factoryOut[outputGood];
+        const recipeInputs = k.factoryInputs[outputGood];
+        if (!recipeInputs || plannedOutput <= 0) continue;
+        const market = markets[k.marketId];
+        let inputAvailability = 1;
+        for (const [input, amount] of Object.entries(recipeInputs)) {
+          if ((amount ?? 0) > 0) inputAvailability = Math.min(inputAvailability, 1 - stageClearing.short[k.marketId][input as Good]);
+        }
+        inputAvailability = clamp(inputAvailability, 0, 1);
 
-      // Replace the temporary full-input reservation with the amount actually consumed.
-      for (const [input, plannedAmount] of Object.entries(recipeInputs)) {
-        const good = input as Good;
-        const actualAmount = (plannedAmount ?? 0) * inputAvailability;
-        market.dm[good] = Math.max(0, market.dm[good] - (plannedAmount ?? 0) + actualAmount);
-        k.demand[good] += actualAmount;
-        k.inputsNeed[good] += actualAmount;
-        recipeInputs[good] = actualAmount;
-      }
+        // Actual input consumption is proportional to this factory's realized output.
+        for (const [input, plannedAmount] of Object.entries(recipeInputs)) {
+          const good = input as Good;
+          const actualAmount = (plannedAmount ?? 0) * inputAvailability;
+          k.inputsNeed[good] += actualAmount;
+          recipeInputs[good] = actualAmount;
+        }
 
-      const actualOutput = plannedOutput * inputAvailability;
-      k.factoryOut[outputGood] = actualOutput;
-      k.supply[outputGood] += actualOutput;
-      market.s[outputGood] += actualOutput;
-      // Unavailable inputs leave the corresponding factory workers idle for this month.
-      k.employment[S.workers] += (k.factoryWorkersByGood[outputGood] ?? 0) * (inputAvailability - 1);
+        const actualOutput = plannedOutput * inputAvailability;
+        k.factoryOut[outputGood] = actualOutput;
+        k.supply[outputGood] += actualOutput;
+        market.s[outputGood] += actualOutput;
+        // Unavailable inputs leave the corresponding factory workers idle for this month.
+        k.employment[S.workers] += (k.factoryWorkersByGood[outputGood] ?? 0) * (inputAvailability - 1);
+      }
     }
   }
 
-  // Final prices, shortages and market statistics are computed only from realized production
-  // and actual intermediate-input consumption, never from theoretical factory output.
+  // Final prices, shortages and market statistics use realized factory output and full requested
+  // intermediate demand, keeping unfilled input demand visible instead of hiding the shortage.
   const finalClearing = clearMarkets(markets, mIds);
   for (const g of GOODS) {
     const balance = finalClearing.world[g];
