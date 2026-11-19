@@ -140,22 +140,29 @@ Nguồn: [Singh et al., 2018 — Journal of Climate](https://doi.org/10.1175/JCL
 
 - `BENCHMARK_COVERAGE_REVIEW_VI.md` — checked-in benchmark audit and external source assessment.
 - `BENCHMARK_FIELD_COVERAGE.csv` — 8 metric rows with observation count, entity coverage, year points, quality and compile status.
-- `BENCHMARK_SOURCE_CANDIDATES.csv` — CoW NMC v7.0, Maddison Project Database 2023 and Historical Financial Statistics candidates.
-- `OPEN_BENCHMARK_COVERAGE_REQUESTS.csv` — 10 research/decision tasks for annual series, entity/region crosswalk, rights and additional dimensions.
+- `BENCHMARK_SOURCE_CANDIDATES.csv` — CoW NMC v7.0 (rights hold), MPD 2023 (CC BY 4.0 metadata verified; row-level audit blocked), existing Maddison 2010 (licence not established), GGDC Historical National Accounts (rights hold) and HFS (rights hold).
+- `OPEN_BENCHMARK_COVERAGE_REQUESTS.csv` — 12 research/decision tasks covering dataset access, country/region crosswalk, licence clearance and additional dimensions.
 
-Key discrepancy: current checked-in CoW extracts cover 17 irregular year points from 1816–1914; official CoW NMC v7.0 documentation advertises annual component data from 1816–2022. However, CoW's terms impose commercial-use and redistribution/other-use restrictions; NMC v7 remains `RIGHTS_REVIEW_REQUIRED`, not an approved game-data source. Do not download/import/repackage it without written permissions. Maddison 2023 is a separate candidate; do not overwrite Maddison 2010 or map present-day territories straight into 1836 polities.
+Key discrepancy: current checked-in CoW extracts cover 17 irregular year points from 1816–1914; official CoW NMC v7.0 documentation advertises annual component data from 1816–2022. However, CoW's terms impose commercial-use and redistribution/other-use restrictions; NMC v7 remains `RIGHTS_REVIEW_REQUIRED`, not an approved game-data source. Do not download/import/repackage it without written permissions. MPD 2023 has an official CC BY 4.0 statement and is the preferred macro candidate, but row-level file audit remains blocked; the 2010 release has no licence statement on the official page inspected, so do not assume its rights are inherited from 2023. GGDC Historical National Accounts is a promising sectoral source, but no reuse licence is shown in the datahub page. Do not map present-day/source territories straight into 1836 polities.
 
 These benchmark artifacts remain research-only. No source was added to canonical registry; no ETL/runtime patch was made.
 
 
-### 7.2 CoW NMC v7 — rights hold (19/11/2026)
+### 7.1 CoW NMC v7 — rights hold (19/11/2026)
 
 - CoW Terms & Conditions cấm dùng dữ liệu cho hoạt động thương mại, cấm phân phối cho bên thứ ba nếu không có văn bản đồng ý của CoW director và data host, và yêu cầu xin phép cho các hình thức phổ biến/đăng tải/sử dụng khác.
 - `cow_nmc_v7` hiện có trạng thái `RIGHTS_REVIEW_REQUIRED`. Không tải, tích hợp, biến đổi thành derived game data hay phân phối trong APK/data pack trước khi có rights clearance bằng văn bản bao phủ đúng mục đích của sản phẩm.
 - Việc trang cung cấp ZIP miễn phí không đồng nghĩa license mở. Audit hiện tại chỉ ghi nhận metadata công khai; không có dữ liệu NMC v7 được tải hoặc nhập.
 - Nguồn chính thức: https://correlatesofwar.org/data-sets/ (Terms and Conditions); https://correlatesofwar.org/data-sets/national-material-capabilities/.
 
-### 7.1 Entity-by-metric coverage matrices (19/11/2026)
+### 7.3 Maddison 2023 and GGDC alternatives (19/11/2026)
+
+- MPD 2023 is officially licensed CC BY 4.0. Required project citation: Bolt & van Zanden (2024), DOI 10.1111/joes.12618; retain the original-source citations in the workbook source sheet when charting or using subsets smaller than 12 countries. This is metadata-level licence verification only: the official workbook download remains blocked by Dataverse's signed object-store redirect, so exact row/field/year coverage is not yet checked.
+- The repository's Maddison 2010 inputs are a separate legacy release. The official 2010 page inspected (AD 1–2008 population/GDP/GDPpc) does not display an explicit licence statement. Do not infer that the MPD 2023 CC BY 4.0 licence applies retroactively. BEN-13 tracks this rights issue.
+- GGDC Historical National Accounts catalog includes selected country-level GDP/industry series, World Agriculture 1800–1938 and an All Countries overview ca.1870–2005. Coverage differs across files/countries. The datahub requires Smits, Woltjer & Ma (2009) citation but does not state a reuse licence on the page inspected; status remains RIGHTS_REVIEW_REQUIRED (BEN-12).
+- No MPD 2023 or HNA data values were imported; no third-party mirror was used as the canonical dataset.
+
+### 7.2 Entity-by-metric coverage matrices (19/11/2026)
 
 - `BENCHMARK_ENTITY_METRIC_COVERAGE.csv` — complete 181 entity × 6 CoW metric matrix (1,086 rows). 322 entity-metric combinations have one or more observations; 764 are explicit missing rows. 59 entities have at least one CoW metric. Missing is not zero.
 - `MADDISON_2010_UNIT_COVERAGE.csv` — 160 rows: 94 present-day territorial population units and 66 GDP-per-capita units, with exact year lists, quality and locators. The 160 rows do not directly map to 1836 registry polity IDs.
