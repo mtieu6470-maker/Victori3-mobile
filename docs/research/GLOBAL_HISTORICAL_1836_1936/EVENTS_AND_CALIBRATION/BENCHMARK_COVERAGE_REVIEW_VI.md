@@ -10,11 +10,11 @@
 Bộ benchmark đang commit trong repository **chưa đủ để kiểm định trọn giai đoạn 1836–1936 và chưa đại diện đầy đủ 181 entity của game**. Tuy vậy, khoảng trống 1915–1936 không nên được kết luận là không có dữ liệu lịch sử: nguồn bên ngoài hiện có các bộ dữ liệu lớn hơn đáng kể.
 
 - Checked-in CoW extracts có sáu field, 3.161 raw observations, 59 entity IDs và 17 mốc năm từ 1816 đến 1914. Builder chỉ compile bốn field (2.356 observations) và bỏ 805 observations về urban population / military expenditure.
-- CoW Project hiện công bố NMC v7.0 với sáu chỉ tiêu annual từ 1816–2022. Trang chính thức nhấn mạnh độ phủ và chất lượng thay đổi theo state và year; raw series không thể mặc định so sánh hoàn toàn đồng nhất. Đây là ứng viên đầu tiên để đối chiếu/re-extract, không phải bằng chứng rằng các chuỗi mới đã tự động khớp 1836 strategic entities.
+- CoW Project hiện công bố NMC v7.0 với sáu chỉ tiêu annual từ 1816–2022. Trang chính thức nhấn mạnh độ phủ và chất lượng thay đổi theo state và year; raw series không thể mặc định so sánh hoàn toàn đồng nhất. Tuy nhiên, Terms & Conditions của CoW cấm sử dụng dữ liệu cho hoạt động thương mại, cấm phân phối cho bên thứ ba nếu chưa có văn bản đồng ý của CoW director và data host, đồng thời yêu cầu xin phép đối với việc phổ biến/đăng tải/sử dụng khác. Vì vậy NMC v7.0 được nâng trạng thái thành `RIGHTS_REVIEW_REQUIRED`: chỉ giữ metadata/coverage audit trong lúc chờ quyền; không đưa giá trị hoặc dữ liệu dẫn xuất vào APK/data pack trước khi có chấp thuận bằng văn bản.
 - Maddison Project Database 2023 công bố GDP per capita và population cho 169 countries và aggregate regions, 1 AD–2022; license CC BY 4.0, có yêu cầu citation. Bản repo hiện tại vẫn là Maddison 2010, dùng present-day territorial basis.
 - Historical Financial Statistics (HFS) bao phủ nhiều loại dữ liệu tài chính/kinh tế từ khoảng 1500–1950, nhưng trang chủ nêu rõ có hạn chế tái sử dụng dữ liệu trong cả database phi thương mại lẫn thương mại. Không nhập dữ liệu HFS vào game/package trước khi kiểm tra điều khoản và xin quyền khi cần.
 
-**Khuyến nghị:** ưu tiên re-audit CoW NMC v7 và Maddison 2023; dùng HFS như catalog để tìm dữ kiện/nguồn cấp quốc gia, không sao chép trực tiếp vào database trước khi có license clearance. Không ép dữ liệu modern country units thành 1836 polities.
+**Khuyến nghị:** giữ NMC v7 ở trạng thái metadata-only cho tới khi có quyền bằng văn bản; nếu không được cấp quyền phù hợp với mục đích và phân phối của game, loại nguồn này khỏi dữ liệu đóng gói. Ưu tiên kiểm tra Maddison 2023 (CC BY 4.0, vẫn cần attribution và crosswalk) cùng các nguồn mở khác. Dùng HFS như catalog để tìm dữ kiện/nguồn cấp quốc gia, không sao chép trực tiếp vào database trước khi kiểm tra điều khoản và xin quyền khi cần. Không ép dữ liệu modern country units thành 1836 polities.
 
 ## 2. Phương pháp và phạm vi
 
@@ -85,6 +85,14 @@ Official CoW page states NMC v7.0 has annual values for six components — total
 **Implication:** the checked-in 17-year rows are not enough to prove the current CoW NMC v7 source has no observations after 1914. The data team should compare the exact NMC v7 download/codebook/supplement against repo rows, determine whether the extract was deliberately thinned or based on an earlier subset, then import only with row-level source, quality, unit and anomaly metadata.
 
 Official source: https://correlatesofwar.org/data-sets/national-material-capabilities/
+
+### 4.1.1. Quyền sử dụng và phân phối CoW (đã kiểm tra 19/11/2026)
+
+Trang Terms & Conditions chính thức của CoW quy định dữ liệu không được dùng cho hoạt động thương mại hoặc hoạt động tạo lợi nhuận tài chính; người dùng không được phân phối dataset cho bên thứ ba nếu chưa có **văn bản đồng ý của CoW director và data host**; đồng thời phải xin phép cho việc phổ biến, đăng tải hoặc cách sử dụng khác ngoài các trường hợp được cho phép. Vì vậy file tải miễn phí không thể được coi là dữ liệu có giấy phép mở.
+
+**Quy tắc an toàn cho Victori3 Mobile:** đánh dấu `cow_nmc_v7` là `RIGHTS_REVIEW_REQUIRED`. Trong khi chờ quyền, chỉ ghi nhận metadata công khai và phạm vi mô tả; không tải dữ liệu, không chép/biến đổi giá trị, không đưa giá trị/derived rows vào runtime, APK hay data pack. Trước khi xem xét bất kỳ việc dùng hoặc phân phối nào, chủ dự án cần có xác nhận bằng văn bản của đúng các bên CoW nêu và kiểm tra rõ phạm vi đó bao phủ mục đích sử dụng của trò chơi, việc biến đổi dữ liệu và phân phối cho người chơi. Nếu không có quyền phù hợp, loại nguồn khỏi sản phẩm và chọn nguồn có điều khoản tương ứng.
+
+Nguồn chính thức: https://correlatesofwar.org/data-sets/ (Terms and Conditions, truy cập 19/11/2026). NMC v7 page: https://correlatesofwar.org/data-sets/national-material-capabilities/ (mốc 1816–2022, sáu chỉ tiêu và cảnh báo chất lượng/khả năng so sánh, truy cập 19/11/2026).
 
 ### 4.2. Maddison Project Database 2023
 
