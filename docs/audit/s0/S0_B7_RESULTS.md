@@ -76,3 +76,35 @@ The later expanded test source on the experiment branch and the manual artifact-
 - Disposition: **OPEN P1 — test-scope/workflow integration mismatch**. No product, test, workflow, Gradle or data changes are authorized here. Do not weaken the baseline assertion or relabel the approved B4 Run #3 result. Any CI/test correction needs a separately authorized task.
 - The GitHub connection available in this session supports reads and contents commits but exposes no workflow-dispatch operation. The manual S0-B7 dependency audit therefore remains pending; no audit result or artifact is claimed.
 - B7 remains IN_PROGRESS; Claude independent review and owner decision remain pending. Overall S0 remains PARTIAL/BLOCKED; S1 is NOT AUTHORIZED.
+
+
+## 8. Downloaded CI evidence artifacts — inspection (2026-11-19)
+
+The GitHub Actions API exposes a diagnostic evidence artifact for each failed Android APK run. Both ZIPs were downloaded and their file listings/content inspected.
+
+| Run | Commit | Artifact ID | ZIP size | GitHub API SHA-256 |
+|---|---|---:|---:|---|
+| #316 / 44562638037 | `26963daef7c72f2dbeb86239f023b9a902778ae6` | `14550237447` | 49,741 bytes | `06fcd22633d442f6890a6d647483697e5051f21de0051b4d2ad0b38b531e6c03` |
+| #317 / 44562662560 | `fa95ad894c6fd32c673a569a561a17b7132cef36` | `14551001678` | 49,697 bytes | `bb2427724f91b8ffa4e1a25cad83b405ae19ad5bdbfa452c3076e19ee9e55bfd` |
+
+Each ZIP contains provenance, generated-file SHA-256 list, a distribution manifest CSV, toolchain versions, Vitest log, tree/task reports, test summary and exit code. Neither contains an `.apk` file or an independently downloadable data-pack payload. The distribution manifest and hashes are evidence only; they are not a packaged data release. Thus the correct result is **diagnostic artifacts exist; APK and data-pack artifacts do not**.
+
+The archive-internal `artifact_zip.txt` contains `artifact_id=unavailable` and `artifact_zip_sha256=unavailable`; GitHub's Actions Artifacts API separately supplied the IDs/digests above. Use the API metadata as the artifact identity evidence.
+
+Run #317's Vitest log provides the exact failure: `tests/s0-save-determinism.test.ts:270`, where the baseline-only test expects every restored country not to contain `constructionQueue`. The current experiment branch also has a passing simulation test named “migrates saves written before constructionQueue existed”. This reinforces that the failing assertion characterizes the frozen baseline, while the normal Android workflow is executing it against a later experiment source tree. Keep CI-F4 OPEN P1; do not weaken the characterization or modify the APK workflow under the present S0 authorization.
+
+## 9. Preliminary dependency advisory cross-check — NOT the npm audit verdict
+
+The frozen baseline and current experiment branch have the same `package-lock.json` blob SHA: `29ac661a36bb03bae62a80ce7abf9af0c15bb168`. A direct read-only parse of that exact lockfile found these resolved packages (all entries below are marked `dev: true`):
+
+| Package | Locked version | Provisional advisory match | Advisory affected/fix information |
+|---|---:|---|---|
+| `vitest` | `2.1.9` | GHSA-82fw-gwwq-j7x9 | Affected from 2.1.0 to before 4.1.11; fixed in 4.1.11. |
+| `@vitest/mocker` | `2.1.9` | GHSA-82fw-gwwq-j7x9; GHSA-qxg6-89mg-rqv8 | First fixed in 4.1.11; second fixed in 4.1.12 (5.x fix 5.0.3). |
+| `tinypool` | `1.1.1` | GHSA-5gmw-xhrv-c9v3; GHSA-85c8-ppgw-ccpr | Both affect versions through 2.1.0; fixes are 2.1.1 and 2.1.2 respectively. |
+| `esbuild` | `0.28.2` | GHSA-67mh-4wv8-2f99 | The advisory affects versions through 0.24.2 and is fixed in 0.25.0; locked 0.28.2 is outside that specific affected range. |
+
+The matching packages listed above are development dependencies in this lockfile. This is a preliminary version/advisory cross-check, not a complete package-level npm audit: it does not establish whether any other advisory or production dependency is affected, does not reconcile the earlier 6-vulnerability summary, and does not replace the planned full-tree and `--omit=dev` JSON reports. No upgrade or lockfile change was made. DEP-F1 remains **OPEN P1 — UNTRIAGED** until the exact frozen-baseline workflow artifact is reviewed.
+
+External advisory references: `https://github.com/advisories/GHSA-82fw-gwwq-j7x9`; `https://osv.dev/vulnerability/GHSA-qxg6-89mg-rqv8`; `https://github.com/advisories/GHSA-5gmw-xhrv-c9v3`; `https://github.com/tinylibs/tinypool/security/advisories/GHSA-85c8-ppgw-ccpr`; `https://github.com/advisories/GHSA-67mh-4wv8-2f99`.
+
