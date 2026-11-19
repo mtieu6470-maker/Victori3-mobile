@@ -2,9 +2,9 @@
 
 **Repository:** `mtieu6470-maker/Victori3-mobile`  
 **Branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
-**Exact corrected code review target:** `0c171b9b615e4f91cce66749f8482837c8dfa9ef`  
+**Exact corrected code review target:** `c9868d7131d7de3fd8efd0263411fee9111f172c`  
 **Implementation base:** `3d1b8dd24427f2993d561eb0c555d6e0b30b1d5a`  
-**Status:** `READY_FOR_REVIEW`; corrected target CI passed. ChatGPT technical self-audit is attached. No Claude verdict or owner acceptance is claimed. Re-fetch current branch HEAD and exact-target CI before review.
+**Status:** `TESTS_PASS / ANDROID_BUILD_PENDING`; tests-only passed for exact target; Android debug workflow is still at APK assembly. ChatGPT technical self-audit is attached. No Claude verdict or owner acceptance is claimed. Re-fetch current branch HEAD and exact-target CI before review.
 
 ## 1. Owner authorization and scope
 
@@ -91,7 +91,7 @@ The complete roadmap distinction between engine version, save schema version and
 
 ## 4. Regression and CI evidence
 
-New suite: `tests/population-cohorts.test.ts` (10 cases: 6 initial cases, 3 malformed-state/identity regressions, and 1 large-population tolerance regression):
+New suite: `tests/population-cohorts.test.ts` (13 focused cases covering initialization, mass balance, migration, large-population rounding, malformed IDs/records, save-envelope validation and cohort consistency):
 - initialization and canonical/unknown cohort fields;
 - 24-month projection synchronization;
 - refresh after a later monthly system changes POP;
@@ -136,6 +136,29 @@ Exact corrected-target CI:
 - Debug signer certificate SHA-256 `167f48e563b68c4aa12470941204b43936a8b218eccb54bc598738d52479bb7e`; v1/v2 verification true; `apksigner_exit_code=0`.
 - Debug APK artifact ID [14536836052](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44534672171/artifacts/14536836052); artifact ZIP SHA-256 `0c761f7c47db189aa196d1c59b805b981394db7a95313e13e3c6e247afc38d82` (distinct from the APK file SHA-256).
 
+### 4.3 Malformed-save and migration hardening — 19/11/2026
+
+The next inspection found that malformed v1 saves with a missing `regions` field could be migrated through `createPopulationState(st.regions ?? [])` into a state with an empty Region array/cohort projection, without validating the migrated GameState before returning it. The current correction:
+
+- `normalizeLegacyFields()` now requires a real Region array and rejects null/non-object/array Region entries before touching optional Region fields.
+- v1 migration no longer substitutes a missing Region array with `[]`.
+- v1 migration validates the fully built v2 population projection before returning it.
+- `deserialize()` explicitly rejects null, array or primitive root envelopes.
+- cohort validation and creation reject null/non-object records with explicit errors.
+
+Correction commits:
+- `4f858d5a0216d5d9bfd2135924a7e0303a001cbc` — malformed Region/cohort and root-envelope guards.
+- `ef087ab044293751f84945ab0b84d0e3cf555cff` — complete the validator and test guards in that slice.
+- `74916e4480236b60c5ffd67f87892f536cb5d6d4` — fail-closed Region normalization and post-migration cohort validation.
+- `c9868d7131d7de3fd8efd0263411fee9111f172c` — add legacy migration malformed-Region regressions.
+
+Exact current target:
+- Tests-only run [44540766509](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44540766509) — SUCCESS, 11/11 files and 122/122 tests, 0 failures (215.60 seconds).
+- Android debug run [44540766545](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44540766545) — in progress at APK assembly when this request update was committed. Build/typecheck and unit/simulation tests had completed earlier in the same job.
+- ChatGPT self-audit: `docs/audit/s0/DEV005_POPULATION_COHORTS_TECHNICAL_SELF_AUDIT_2026-11-19.md`, now records both corrections and CI states.
+
+Please inspect exact current target `c9868d7131d7de3fd8efd0263411fee9111f172c`, not earlier 0c171/14bd targets.
+
 The previous `14bd568` CI results remain historical evidence only and do not validate the correction.
 
 **Tests-only CI:** [44499872965](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872965) — PASS, 11/11 test files, 115/115 tests, 0 failures, 0 pending.
@@ -158,11 +181,11 @@ No physical-device install/upgrade, iQOO QA, release signing, save migration on 
 8. Is the per-tick projection rebuild practical on Android with 662 regions and thousands of cohorts? Assess allocations, sorting costs, garbage churn and retained memory.
 9. Are projection tests tautological because the model and the expected values derive from the same Region fields? What independent tests can catch an upstream Region calculation bug?
 10. What is the smallest next slice to promote cohorts to the authoritative source of population dynamics without dual-writing Region aggregates?
-11. Verify the large-population rounding correction in `populationCohorts.ts`: does share normalization preserve the intended regional proportions within tolerance while ensuring mass conservation at large POP scales? Can malformed near-unit shares still create a state that fails its own serializer?
+11. Verify the large-population rounding correction in `populationCohorts.ts`: does share normalization preserve intended proportions and mass conservation at large POP scales?\n12. Do null/non-object records and non-object save envelopes fail with explicit errors at every relevant read boundary?\n13. Does v1 migration reject absent/malformed Region data and validate the complete migrated state before returning? Does optional legacy normalization remain compatible?
 
 ## 6. Requested verdict
 
-Please re-fetch the branch and review the exact current corrective code HEAD above. Earlier targets are superseded by corrected code HEAD `0c171b9b615e4f91cce66749f8482837c8dfa9ef`; re-fetch the branch and verify both exact-target CI runs before inspecting. Return one bounded verdict: `REVIEW_PASS`, `CHANGES_REQUESTED` or `BLOCKED`.
+Please re-fetch the branch and review the exact current corrective code HEAD above. Earlier targets are superseded by corrected code HEAD `c9868d7131d7de3fd8efd0263411fee9111f172c`; re-fetch the branch and verify exact-target tests and Android build before inspecting. Return one bounded verdict: `REVIEW_PASS`, `CHANGES_REQUESTED` or `BLOCKED`.
 
 For each finding, include severity, exact file/line, reproducible scenario, consequence and the smallest targeted correction/test. Keep any correction inside DEV-005. A Claude-authored correction is a corrective pass, not an independent review of that same correction; ChatGPT will re-fetch and rerun verification on the corrected HEAD.
 
