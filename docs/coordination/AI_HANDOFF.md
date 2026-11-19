@@ -15,7 +15,7 @@
 
 ## Latest DEV-005 review-preparation checkpoint (19/11/2026)
 
-- **Rolling progress report + summary table:** `docs/audit/s0/S22_CONTINUOUS_PROGRESS_REPORT_VI.md`. The top section `BẢNG TÓM TẮT TRẠNG THÁI HIỆN TẠI` is the fast handover view; section `0.8` records the latest research-rights checkpoint; DEV-005 review history follows. Continue appending to this existing rolling report; do not create duplicate standalone reports unless a distinct scope requires one.
+- **Rolling progress report + summary table:** `docs/audit/s0/S22_CONTINUOUS_PROGRESS_REPORT_VI.md`. The top section `BẢNG TÓM TẮT TRẠNG THÁI HIỆN TẠI` is the fast handover view; sections `0.8–0.9` record the latest research-rights and benchmark-alternative checkpoints; DEV-005 review history follows. Continue appending to this existing rolling report; do not create duplicate standalone reports unless a distinct scope requires one.
 
 - Code/test target remains `c9868d7131d7de3fd8efd0263411fee9111f172c`; exact-target CI remains tests-only 122/122 PASS and Android debug build SUCCESS (run IDs `44540766509` and `44540766545`). No runtime source/test changes were made in the documentation follow-up.
 - Review packet corrected: `tests/population-cohorts.test.ts` contains 13 focused cases; base-to-target compare is 24 paths (7 DEV-005 code/test + 17 concurrent governance/reporting paths).
