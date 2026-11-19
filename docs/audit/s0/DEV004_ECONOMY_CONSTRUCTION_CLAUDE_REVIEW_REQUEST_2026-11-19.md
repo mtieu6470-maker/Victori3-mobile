@@ -1,7 +1,7 @@
 # DEV-004 — Economy, wages, factory inputs and construction lifecycle: Claude review
 
 **Review target branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
-**Exact code review target (latest implementation + tests; documentation update excluded):** `83e10bcd4af2b4b4be0b6019f98b3aa97f75b9ec`  
+**Exact code review target (latest implementation + tests; documentation update excluded):** `20d7ed150cd96e04926e5ecb77ea2d03ea7edfa7`  
 **Comparison base:** `526b745d980ae5a4094b6dcbdabf41152f910afa` (last green build before the economy/construction feature tranche)  
 **Review type:** independent code review first; one bounded corrective pass only after findings are reported  
 **Status:** REQUESTED — no Claude verdict is claimed; no owner approval is implied
@@ -167,24 +167,23 @@ This request is not evidence of Claude review completion, owner acceptance, S0/S
 - **Commits:** `10b4cedcf7a5d8efa4408b39542a683d89c3368e` (implementation), `9cf92aab9bc43fa26d92dceb4e85fd41d655642c` (expanded tests).
 - **Remaining limitation:** expected returns are still a simplified estimate. They do not fully solve market-clearing feedback, firm-level profit accounting, input availability by dependency stage, wage bids, qualifications or investment competition. Treat this as a feasibility heuristic, not a complete Victoria 3 investment market.
 
-## 13. Demand-aware and input-constrained AI investment valuation
+## 13. Market-aware, input-feasible and shortage-responsive AI investment
 
-- **Finding:** AI investment scoring used current market prices but treated every projected output unit as fully saleable and every planned factory input as available. It could therefore continue prioritizing a good after the market had persistent surplus, or overestimate a factory whose cotton/coal/steel/tools inputs were not available at the current market-clearing rate.
-- **Correction:** add a marginal sale factor from the previous market snapshot. Unmet demand keeps the factor at 1.0; oversupply discounts the next unit by demand divided by available supply plus imports, bounded to 0.35–1.0. If no market snapshot exists yet, preserve the prior estimate (factor 1.0).
-- Factory estimates now limit realized output by the lowest availability among required inputs (`1 - short`). Revenue, input costs and the labor cost attributable to production are all scaled to the realizable share, avoiding both phantom output and charging input costs for output that cannot be made.
-- Mines, plantations and logging apply the marginal sale factor to each good they produce. Mixed-resource regions continue to split projected output across their actual resource mix.
-- **Regression tests added** to `tests/building-return-labor.test.ts`: oversupplied coal lowers marginal mine return; cotton/coal shortages lower textile mill return according to the limiting input; and persistent textile surplus lowers the return of another textile mill.
-- **Commits:** `385e0b9748361c66ac2c033db97bd13de725f725` (implementation), `be20d78c052ca6dcc114479b84ff4b9af16507ed` (tests).
-- **Limitations:** this is a one-month marginal estimate using the latest completed market snapshot, not a forward market simulation. It does not model endogenous multi-month price elasticity, firm-level inventories, wage bidding, or interactions among several simultaneous AI investment proposals. The 0.35 sale-factor floor is a conservative heuristic and requires calibration against campaign outcomes.
-
-- State construction budget allocation now responds to the operating margin, debt burden (relative to 24 months of revenue), famine pressure and wartime needs, while remaining clamped to 2%–28% of income. This supplements the existing hard gate on positive state reserves and the annualized build-cost return ranking.
-- **Budget tests:** `tests/ai-investment-budget.test.ts` verifies lower construction allocation under rising debt/famine stress, wartime restraint and the minimum/maximum bounds.
-- **Budget commits:** `270b63380eebc2f4da47553842804dbbcf83d63f` (tests first), `83e10bcd4af2b4b4be0b6019f98b3aa97f75b9ec` (implementation).
-
+- **Finding:** a return estimate based only on posted prices can recommend additional output even when the national market is already saturated; conversely, using the market's aggregate shortage percentage as the availability of a *new* project's inputs can overstate how much surplus is actually free for that new factory.
+- **Marginal sale factor:** estimates discount output in oversupplied markets using demand divided by current supply plus imports, clamped to 0.35–1.0. Goods with unmet demand retain full marginal sale value. If a completed market snapshot is not available, the previous estimate is retained.
+- **Marginal input feasibility:** for one additional factory level, the engine estimates its planned input quantity from the production recipe, then compares that quantity with free market surplus (`supply + imports - demand`). The lowest input coverage ratio limits realizable output, revenue, input costs and production-related labor costs. A market with no available input surplus no longer gets treated as fully supplied merely because its previous shortage field was zero.
+- Mine, plantation and logging returns value every eligible resource in the region's actual output mix. Factory returns also apply the production productivity, infrastructure, devastation, occupation and technology effects used by the engine.
+- **Public investment policy:** `investmentDemandPriority` adds a bounded priority bonus based on the average unmet-demand share of the candidate building's output. The public construction AI can therefore invest in bottleneck goods rather than considering only current ROI; it avoids rewarding output with no market shortage. The state-project acceptance threshold was adjusted from 0.04 to 0.025. Private investment still uses the market-adjusted return hurdle.
+- **Fiscal policy:** the state construction budget share responds to operating margin, debt burden measured against 24 months of revenue, famine pressure, wartime spending and historical industrialization bias. The resulting allocation is clamped to 2%–32% of monthly income and still cannot spend state funds that are not reserved and available.
+- **Regression coverage:** `tests/building-return-labor.test.ts` checks eligible staffing, mixed-resource output, productivity scaling, output saturation and free input-surplus constraints. `tests/ai-investment-budget.test.ts` covers fiscal restraint and shortage-driven public investment priority. `tests/factory-market-clearing.test.ts` checks downstream input demand cannot pre-empt the already-resolved upstream stage.
+- **Limitations:** this is still a one-month marginal estimate, not a forward market simulation or firm-level Victoria 3 investment model. It does not yet model inventories, price elasticity over time, wage bidding, qualifications, or multiple simultaneous project interactions. The 0.35 marginal sale-factor floor and the public shortage bonus require calibration against long-campaign outcomes.
 
 ## 14. Validation and handoff status
 
-- **Current code review target:** `83e10bcd4af2b4b4be0b6019f98b3aa97f75b9ec` (the following report-only commit is excluded). **Validation status: PENDING.** The previous 87/87 result belongs only to the earlier `ebeff72b20df155c376000f67fd4b9022fc3e327` target and must not be carried forward. The new demand-aware investment and fiscal-budget tests have not yet been run in CI. No successful CI run or new APK is claimed.
-- The GitHub integration used here can read commits, files, workflow job logs and rerun failed jobs, but does not expose a general Actions run-list/dispatch operation. A combined status check for the current target returned no status entries; this is not a passing result. Do not interpret missing run data as a test pass.
-- A local clone/test attempt was also blocked because the execution environment could not resolve `github.com`; no local test pass is claimed. Claude/CI must run `npm ci`, then `npm run test` (or the repository's tests-only workflow) against the exact review target before further changes are accepted.
-- Claude review remains requested, not completed. No S0/S1/S22 acceptance, device QA, production signing, or full Victoria 3 parity is claimed.
+- **Exact code review target:** `20d7ed150cd96e04926e5ecb77ea2d03ea7edfa7`. **CI: PASS.** This is the code commit tested and packaged; the following documentation-only commit does not change source or tests.
+- **Tests-only workflow:** [44486976126](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44486976126) — SUCCESS, 38/38 test suites and 106/106 tests passed, zero failed or pending.
+- **Android debug workflow:** [44486976058](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44486976058) — SUCCESS. `npm ci`, generated data/map/web build, typecheck, unit/simulation tests, Capacitor sync, Gradle `assembleDebug`, signing verification and artifact uploads completed.
+- **APK evidence:** `app-debug.apk`, 18,049,721 bytes; SHA-256 `7f0eafd5f7bd993f8c91f536337494b1a89f42dd277538bf81c9c0f249de5ddc`. APK is debug-signed (Android Debug certificate; v1 and v2 verification passed). Artifact: [download from GitHub Actions](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44486976058/artifacts/14511615856). The artifact ZIP is 17,562,633 bytes; that is a different file from the APK.
+- **Not claimed:** no physical-device QA, release signing, production release, balance/calibration sign-off, independent Claude review, S0/S1/S22 acceptance, or full Victoria 3 parity. The 106 passing tests demonstrate regression status for this exact target, not full gameplay equivalence.
+- Claude review remains requested, not completed. No merge is authorized by this handoff.
+
