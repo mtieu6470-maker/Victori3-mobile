@@ -56,3 +56,15 @@ Do not edit or commit the reviewed files. If corrections are necessary, return a
 - No gameplay, simulation, RNG, save serializer/schema, historical data, assets, performance, rendering, lifecycle, or S1 changes are authorized.
 - Do not run `npm audit fix`, upgrade dependencies, or change `package-lock.json`.
 - Do not describe all S0 gates as PASS or open S1.
+
+## 8. Supplementary Android CI evidence added 2026-11-19
+
+Review the two latest experiment-branch Android workflow runs before issuing the bounded B7 verdict:
+
+- Run #316: `44562638037`, commit `26963daef7c72f2dbeb86239f023b9a902778ae6`.
+- Run #317: `44562662560`, commit `fa95ad894c6fd32c673a569a561a17b7132cef36`.
+- Both failed at the same test: `tests/s0-save-determinism.test.ts` → “records the baseline legacy default for absent marketStats without inventing post-baseline fields”; 5/6 test files and 108/109 tests passed. `npm ci`, `npm run build`, and generated-data hashing passed; Gradle/APK steps were skipped.
+- The assertion expects `constructionQueue` to be absent from every country. The current experiment branch declares/initializes that field in `src/engine/types.ts` and `src/engine/init.ts`; frozen baseline `2240a8f` predates it. The Android workflow runs all tests against the experiment branch, while the B4 evidence is a frozen-baseline characterization. Independently verify this scope mismatch and state whether it is a harness/workflow integration issue. Do not relabel the approved B4 Run #3 result, and do not modify product code or workflows during this read-only review.
+- Neither run produced an APK. The current web/data build did not publish a data-pack artifact.
+
+Treat these as supplementary current-branch CI evidence, distinct from approved B4 Run #3 and from older supplemental Run #65. Include the residual APK-build blocker in the report and do not claim an APK exists for HEAD `fa95ad8`.
