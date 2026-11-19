@@ -89,6 +89,6 @@
 3. B2/C3, B5, and B6 remain deferred. No keystore or signing secret was created.
 4. G0.7 remains BLOCKED for iQOO. Desktop SwiftShader and Node results are not device evidence.
 5. G0.8 remains PARTIAL. Any S1 exception is limited to preserving existing uncertain legacy assets/text without adding, editing, replacing, or distributing them; it does not waive license obligations.
-6. DEP-F1 is provisional until package-level advisories are obtained and reviewed. No automatic dependency fix is authorized.
+6. DEP-F1 package-level audit is now complete (run 44572915201 / artifact 14555141888); the finding remains OPEN P1 pending remediation and owner disposition. No automatic dependency fix is authorized.
 7. No gameplay, engine, save schema, RNG, data or asset remediation is included in this register's S0 work.
 
