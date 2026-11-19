@@ -38,6 +38,21 @@ describe('DEV-005 — population cohort foundation', () => {
     }
   });
 
+  it('normalizes tolerated stratum rounding before creating large-population cohorts', () => {
+    const state = cloneState(createGame({ mode: 'historical', seed: 22, player: 'GBR' }));
+    const region = state.regions[0];
+    region.pop = 1_000_000_000;
+    region.strata[0] += 5e-8;
+
+    state.population = createPopulationState(state.regions);
+    expect(() => serialize(state)).not.toThrow();
+
+    const regionCohortMass = state.population.cohorts
+      .filter((cohort) => cohort.regionId === region.id)
+      .reduce((sum, cohort) => sum + cohort.size, 0);
+    expect(Math.abs(regionCohortMass - region.pop) / region.pop).toBeLessThan(1e-12);
+  });
+
   it('keeps the cohort projection synchronized after monthly demographic and migration updates', () => {
     const state = createGame({ mode: 'sandbox', seed: 37, player: 'GBR' });
     for (let month = 0; month < 24; month++) stepMonth(state);
