@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { fresh } from './helpers';
+import { enqueueConstruction } from '../src/engine/systems/economy';
 import { constructionBudgetShare, investmentDemandPriority } from '../src/engine/ai/ai';
 
 describe('AI construction budget discipline', () => {
@@ -69,5 +70,29 @@ describe('AI public investment demand priority', () => {
     st.marketStats[marketId].iron = { supply: 800, demand: 1_000, imports: 0, short: 0.2 };
 
     expect(investmentDemandPriority(st, country, region, 'mine')).toBeCloseTo(0.5, 5);
+  });
+
+  it('does not keep prioritizing a shortage already covered by queued factory capacity', () => {
+    const st = fresh('sandbox', 122, 'FRA');
+    const country = st.countries.GBR;
+    const marketId = country.customsUnion ?? country.id;
+    const targetRegion = st.regions.find((candidate) => candidate.id === country.capital)!;
+    targetRegion.res = [];
+    st.marketStats[marketId].textiles = { supply: 0, demand: 1_000_000, imports: 0, short: 1 };
+    const beforeQueue = investmentDemandPriority(st, country, targetRegion, 'textile_mill');
+
+    const queueRegion = st.regions.find((candidate) => candidate.owner === country.id && candidate.id !== targetRegion.id);
+    if (!queueRegion) throw new Error('Expected a second region in the same national market.');
+    queueRegion.controller = country.id;
+    queueRegion.pop = 30_000;
+    queueRegion.strata.fill(0);
+    queueRegion.strata[4] = 0.8; // workers
+    queueRegion.strata[0] = 0.2; // peasants
+    country.techs.push('mechanized_spinning');
+    expect(enqueueConstruction(st, country, queueRegion, 'textile_mill', 'state')).not.toBeNull();
+
+    const afterQueue = investmentDemandPriority(st, country, targetRegion, 'textile_mill');
+    expect(beforeQueue).toBe(1);
+    expect(afterQueue).toBe(0);
   });
 });
