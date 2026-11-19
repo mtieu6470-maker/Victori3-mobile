@@ -5,6 +5,10 @@ const UNKNOWN_QUALIFICATION = 'unknown';
 const COHORT_TEMPLATE = 'region-strata-aggregate-v1';
 const POPULATION_TOLERANCE = 1e-7;
 
+function compareOrdinal(a: string, b: string): number {
+  return a < b ? -1 : a > b ? 1 : 0;
+}
+
 /**
  * Canonical tuple identity. Culture/religion are null until a defensible
  * cohort cross-tab exists; a region-wide label is not copied onto every class.
@@ -22,7 +26,7 @@ export function populationCohortId(regionId: string, stratum: Stratum): string {
 
 export function createPopulationState(regions: readonly Region[]): PopulationState {
   const cohorts: PopulationCohort[] = [];
-  const orderedRegions = [...regions].sort((a, b) => a.id.localeCompare(b.id));
+  const orderedRegions = [...regions].sort((a, b) => compareOrdinal(a.id, b.id));
 
   for (const region of orderedRegions) {
     if (!Number.isFinite(region.pop) || region.pop < 0) {
@@ -65,7 +69,7 @@ export function createPopulationState(regions: readonly Region[]): PopulationSta
     }
   }
 
-  cohorts.sort((a, b) => a.id.localeCompare(b.id));
+  cohorts.sort((a, b) => compareOrdinal(a.id, b.id));
   return {
     schemaVersion: 1,
     authority: 'region_aggregate_projection',
@@ -132,6 +136,10 @@ export function validatePopulationState(st: GameState): void {
   }
 
   for (const region of st.regions) {
+    if (!Number.isFinite(region.pop) || region.pop < 0 ||
+        !Array.isArray(region.strata) || region.strata.length !== STRATA.length) {
+      throw new Error(`Invalid regional POP read model for ${region.id}`);
+    }
     const total = totals.get(region.id) ?? 0;
     const tolerance = Math.max(POPULATION_TOLERANCE, Math.abs(region.pop) * 1e-10);
     if (Math.abs(total - region.pop) > tolerance) {
