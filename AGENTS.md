@@ -1,0 +1,32 @@
+# Repository-wide AI agent instructions
+
+Before any code, data, test, asset, build or workflow change:
+
+1. Read `AI_START_HERE.md` at repository root.
+2. Read `docs/coordination/AI_HANDOFF.md` and fetch the latest HEAD of the designated branch.
+3. Read `docs/coordination/AI_COLLABORATION_PROTOCOL.md`.
+4. Read `docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md`.
+5. Read the owner-approved roadmap/decision amendments and the exact subsystem spec/task review packet.
+6. Inspect the latest feature-parity matrix and progress report relevant to the task.
+
+## Hard requirements
+
+- Treat GitHub at the latest verified HEAD as project memory and source of truth; chat history is context only.
+- Do not ask the owner to repeat a requirement already recorded in these files.
+- Do not interpret a design proposal, audit, reviewer request or review PASS as implementation authorization. Follow phase gates and owner approval in the collaboration protocol.
+- Victoria 3 is a reference for mechanics and feature breadth, not a source from which to copy code, data files, text, art, music or other proprietary assets.
+- Research mechanics and historical claims before implementation. Record URLs, dates, page/table/section, method, uncertainty and licensing/provenance. Never fabricate historical values.
+- Build globally integrated gameplay, not decorative counters, disconnected screens or placeholder features.
+- The target is an Android APK, landscape-first, with the owner-directed base APK + separately downloadable verified data/content pack architecture and explicit online consent. Audit actual implementation; do not claim this exists just because build assets are compressed into the APK.
+- Prioritize correctness, save integrity, crash/ANR avoidance, smoothness and bounded RAM/CPU/GPU/storage/thermal cost. Never claim physical-device QA from CI.
+- Keep simulation rules out of UI components; use explicit domain contracts and deterministic state transitions.
+- After every completed work slice, run relevant tests, record exact commands/results and SHA, update the rolling report and AI_HANDOFF, then commit/push the report with the change.
+- Never report tests/build/device checks as PASS without evidence for the exact commit. Label self-audits as self-audits.
+- Never bypass permissions, change signing/secrets/package identity/release workflow, force-push or merge without authorization.
+- Keep changes bounded and reviewable. Preserve existing owner decisions; if sources conflict, stop and document the conflict.
+
+## Required completion handoff
+
+Report: task/scope ID; base SHA and new commit SHA; changed files; rationale; tests and exit codes; CI URLs; APK/artifact hashes if applicable; physical device evidence if actually collected; save/data migration evidence; unresolved issues; independent reviewer and exact verdict; owner decision; next task.
+
+Start from `AI_START_HERE.md`, not from an old chat transcript.
