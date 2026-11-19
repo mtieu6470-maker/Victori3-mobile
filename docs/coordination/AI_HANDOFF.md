@@ -618,3 +618,11 @@ Before resuming, re-check the live branch HEAD and all workflow statuses. B7 dep
 - GitHub tool availability check: the connected integration has no workflow-dispatch action. The read-only S0-B7 dependency audit remains unrun; no artifact or package-level conclusion exists. DEP-F1 stays OPEN P1 — UNTRIAGED and requires owner/manual Actions dispatch.
 - Work commits: `d4778b2`, `46a878f`, `3a854a9`, `98f0993`, `64088f9`, `d31c5fc`, and next-session handoff update `a03f814`; all audit/coordination Markdown only, [skip ci].
 - Overall S0 remains PARTIAL/BLOCKED. S1 remains NOT AUTHORIZED.
+
+
+
+### 2026-11-19 — APK-THEN-DATA-PACK-DELIVERY-REQUIREMENT
+
+- Re-recorded the owner requirement for a small installable APK followed by separate, user-selected data-pack downloads inside the app.
+- Future release acceptance must include manifest/signature + SHA-256 verification before atomic activation, local retention for offline play, separate versioned APK/data artifacts, and explicit consent before background or mobile-data use.
+- Status remains NOT IMPLEMENTED / NOT TESTED. Current Android runs #316/#317 produced neither an APK nor a downloadable data pack. This is a future, separately authorized product task, not S0-B7 scope; no product/workflow/data/signing change is authorized here.
