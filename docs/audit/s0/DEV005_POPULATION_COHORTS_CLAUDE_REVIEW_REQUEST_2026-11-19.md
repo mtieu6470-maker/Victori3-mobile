@@ -2,9 +2,9 @@
 
 **Repository:** `mtieu6470-maker/Victori3-mobile`  
 **Branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
-**Exact code review target:** `14bd56848b8db429b9037880b08887af7118d61f`  
+**Exact corrected code review target:** `0c171b9b615e4f91cce66749f8482837c8dfa9ef`  
 **Implementation base:** `3d1b8dd24427f2993d561eb0c555d6e0b30b1d5a`  
-**Status:** `READY_FOR_REVIEW`; ChatGPT self-audit only. No Claude verdict or owner acceptance is claimed.
+**Status:** `CI_PENDING`; ChatGPT technical self-audit is attached. No Claude verdict or owner acceptance is claimed. Re-fetch current branch HEAD and exact-target CI before review.
 
 ## 1. Owner authorization and scope
 
@@ -31,14 +31,21 @@ Implementation commits:
 - `b4620a548455444ea26fc784f11dca2a13d9da56` — place the type assertion on one line to avoid TS1434 parsing failure.
 - `14bd56848b8db429b9037880b08887af7118d61f` — update the pre-existing missing-save-state regression to expect the new explicit validation error.
 
-Final changed paths from the implementation base:
+DEV-005 implementation/runtime/test paths:
 - `src/engine/types.ts`
 - `src/engine/init.ts`
 - `src/engine/save.ts`
 - `src/engine/simulation.ts`
 - `src/engine/systems/populationCohorts.ts` (new)
-- `tests/population-cohorts.test.ts` (new; extended with duplicate Region identity regression)
+- `tests/population-cohorts.test.ts` (new; now 10 focused regression cases)
+- `tests/s0-save-determinism.test.ts` (two-line assertion update for explicit malformed-save rejection)
 
+The complete compare from implementation base `3d1b8dd24427f2993d561eb0c555d6e0b30b1d5a` to corrected target `0c171b9b615e4f91cce66749f8482837c8dfa9ef` reports 23 paths. In addition to the seven DEV-005 runtime/test paths above, 16 concurrent governance/reporting paths are present:
+- Root: `AGENTS.md`, `AI_START_HERE.md`, `CLAUDE.md`, `README.md`.
+- Audit/report: `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md`, `docs/audit/s0/S0_B7_PACKAGE_SUMMARY_VI.md`, `docs/audit/s0/S0_B7_RESULTS.md`, `docs/audit/s0/S0_B7_REVIEW_REQUEST.md`, `docs/audit/s0/S0_RISK_REGISTER.md`, `docs/audit/s0/S0_SIGNOFF.md`, `docs/audit/s0/S22_CONTINUOUS_PROGRESS_REPORT_VI.md`.
+- Coordination: `docs/coordination/AI_COLLABORATION_PROTOCOL.md`, `docs/coordination/AI_HANDOFF.md`, `docs/coordination/OWNER_EXECUTION_DIRECTIVE_2026-11-19.md`, `docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md`, `docs/coordination/SESSION_RECOVERY_PROTOCOL_VI.md`.
+
+The independent reviewer must assess the seven DEV-005 runtime/test paths as the implementation scope and inspect the full 23-path compare to confirm the other 16 are concurrent documentation/governance changes, not hidden runtime changes. ChatGPT's technical self-audit is at `docs/audit/s0/DEV005_POPULATION_COHORTS_TECHNICAL_SELF_AUDIT_2026-11-19.md`.
 No historical runtime data, country profiles, source registry, map geometry, assets, UI, economy recipes, employment/wage implementation, Android resources, Gradle files, workflow definitions, signing configuration or secrets were changed.
 
 ## 3. Implemented behavior
@@ -84,7 +91,7 @@ The complete roadmap distinction between engine version, save schema version and
 
 ## 4. Regression and CI evidence
 
-New suite: `tests/population-cohorts.test.ts` (6 focused cases):
+New suite: `tests/population-cohorts.test.ts` (10 cases: 6 initial cases, 3 malformed-state/identity regressions, and 1 large-population tolerance regression):
 - initialization and canonical/unknown cohort fields;
 - 24-month projection synchronization;
 - refresh after a later monthly system changes POP;
@@ -113,6 +120,21 @@ Regression coverage verifies missing and blank Region IDs, duplicate Region IDs,
 
 
 
+### 4.2 Large-population stratum-rounding correction — 19/11/2026
+
+ChatGPT's technical self-audit found a tolerance mismatch: creation accepted stratum-share totals within `1e-7`, but cohort sizes were calculated from un-normalized shares; save validation used a much tighter population-mass tolerance of `max(1e-7, abs(pop) * 1e-10)`. A sufficiently large Region could therefore produce a newly created projection that failed its own save invariant.
+
+Correction:
+- Commit `816d077e07c9e41e0784bbd6d69bdddeec7f2490` validates all shares and their total first, then normalizes accepted shares before calculating cohort sizes.
+- Commit `0c171b9b615e4f91cce66749f8482837c8dfa9ef` adds a regression using a regional population of 1,000,000,000 and a tolerated `5e-8` stratum-total drift; the resulting projection must pass `serialize()` and conserve regional mass.
+- Detailed self-audit: `docs/audit/s0/DEV005_POPULATION_COHORTS_TECHNICAL_SELF_AUDIT_2026-11-19.md`.
+
+Exact corrected-target CI:
+- Tests-only run [44534672142](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44534672142) — pending at the time this request update was prepared.
+- Android debug run [44534672171](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44534672171) — pending at the time this request update was prepared.
+
+The previous `14bd568` CI results remain historical evidence only and do not validate the correction.
+
 **Tests-only CI:** [44499872965](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872965) — PASS, 11/11 test files, 115/115 tests, 0 failures, 0 pending.
 
 **Android debug CI:** [44499872833](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872833) — SUCCESS. `npm ci`, generated data/map/content, web build/typecheck (`tsc --noEmit` through `npm run build`), Vitest, Capacitor sync, Gradle `assembleDebug`, APK checksum, asset manifest and `apksigner` verification all succeeded.
@@ -133,10 +155,11 @@ No physical-device install/upgrade, iQOO QA, release signing, save migration on 
 8. Is the per-tick projection rebuild practical on Android with 662 regions and thousands of cohorts? Assess allocations, sorting costs, garbage churn and retained memory.
 9. Are projection tests tautological because the model and the expected values derive from the same Region fields? What independent tests can catch an upstream Region calculation bug?
 10. What is the smallest next slice to promote cohorts to the authoritative source of population dynamics without dual-writing Region aggregates?
+11. Verify the large-population rounding correction in `populationCohorts.ts`: does share normalization preserve the intended regional proportions within tolerance while ensuring mass conservation at large POP scales? Can malformed near-unit shares still create a state that fails its own serializer?
 
 ## 6. Requested verdict
 
-Please re-fetch the branch and review the exact current corrective code HEAD above. Earlier targets are superseded for review by `14bd56848b8db429b9037880b08887af7118d61f`; re-fetch the branch before inspecting. Return one bounded verdict: `REVIEW_PASS`, `CHANGES_REQUESTED` or `BLOCKED`.
+Please re-fetch the branch and review the exact current corrective code HEAD above. Earlier targets are superseded by corrected code HEAD `0c171b9b615e4f91cce66749f8482837c8dfa9ef`; re-fetch the branch and verify both exact-target CI runs before inspecting. Return one bounded verdict: `REVIEW_PASS`, `CHANGES_REQUESTED` or `BLOCKED`.
 
 For each finding, include severity, exact file/line, reproducible scenario, consequence and the smallest targeted correction/test. Keep any correction inside DEV-005. A Claude-authored correction is a corrective pass, not an independent review of that same correction; ChatGPT will re-fetch and rerun verification on the corrected HEAD.
 
