@@ -6,6 +6,8 @@
 
 > Shared status index for Claude Code, ChatGPT, and the project owner. Never put secrets or personal data here.
 
+- **Owner delegated execution and offline-data directive (19/11/2026):** `docs/coordination/OWNER_EXECUTION_DIRECTIVE_2026-11-19.md`. The owner delegated routine technical execution/coordination to ChatGPT under the existing roadmap and review gates. Target delivery is an Android APK shell followed by explicit user-opt-in, verified offline data/content packs; the owner accepts an approximately **4–5 GB** full data set. Compressed download size, expanded storage and staging space must be measured separately. Historical data must retain provenance, temporal/geographic coverage, method, uncertainty and license. This directive does not waive S0 gates, independent review, device QA, licensing or formal phase acceptance.
+
 - **Standing owner product/engineering principles (19/11/2026):** `docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md`. This is the durable product direction for Victoria 3-class global systemic parity, source-backed research, landscape-first Android APK, explicit downloadable content packs, offline-first operation, measured performance/stability, and per-slice GitHub reports. It does not bypass roadmap/gates or independently authorize closed phases. Read this before every task.
 
 ## Active AI role allocation — owner directive 2026-11-17
