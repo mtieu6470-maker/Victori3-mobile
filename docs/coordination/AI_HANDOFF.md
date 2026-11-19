@@ -33,7 +33,7 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 
 ## Current independent review entry point
 
-- **DEV-005 / Claude — population cohort foundation:** review `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md` against code HEAD `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce`; verdict pending.
+- **DEV-005 / Claude — population cohort foundation:** review `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md` against exact code HEAD `14bd56848b8db429b9037880b08887af7118d61f` (latest branch tip `3ff6b3a` is docs-only); verdict pending.
 - **R4e / Claude — final collective/aggregate succession queue review:** start with `docs/audit/s0/GLOBAL_R4E_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4e covers MAO (collective rangatira authority) and MLY (multiple Malay constituent polities); base SHA before R4e: `103ab66b227809fae358e082fa253c0e50a1f78c`. Fetch the exact latest branch HEAD before review.
 - **R4e package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/README_VI.md`; 2-entity evidence matrix, 19 non-executing decisions, 12 open evidence requests and 20 source records. Integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/GITHUB_INTEGRATION_RECEIPT_R4e.md`.
 - **S20–S21 military organization/operations/logistics pre-design:** `docs/spec/MILITARY_ORGANIZATION_OPERATIONS_LOGISTICS_PROPOSAL_VI.md` (design commit `a82d59bcc01e6a57163f7acedd4930132f0767f5`). Includes force organization, LegacyForcePool safety, unit/formation, supply, movement, fronts, combat, sieges, occupation, navy and convoy. Design only; S20/S21 remain closed.
