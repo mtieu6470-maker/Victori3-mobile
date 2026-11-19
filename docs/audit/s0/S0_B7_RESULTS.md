@@ -239,3 +239,42 @@ After the §12 checkpoint, the owner clarified the delivery requirement further:
 - No product code, asset/media, content pack, tests, or APK was created or changed as part of this design update. This update is documentation and review preparation only; the independent reviewer must always fetch the branch's exact current HEAD (which will advance as this record is committed).
 
 **Disposition unchanged:** B7 READY_FOR_REVIEW; R7 open P0; R14/C3 blocked; G0.7 BLOCKED; G0.8 PARTIAL; full-S0 G0.9 BLOCKED; S1 NOT_STARTED. No S23b implementation is authorized by R15.
+
+
+## 13. Owner update: 4–5 GB offline data allowance — 2026-11-19
+
+This section is the **current R15 size direction** and supersedes only the earlier 3–4 GB planning range recorded in §§11–12 on 2026-11-17. Those sections remain as historical evidence of the earlier owner instruction and its design work; their provenance and prior decision are not rewritten.
+
+The owner has now explicitly delegated routine technical execution/coordination to ChatGPT and stated that the game may be delivered as a small Android APK followed by user-controlled download of the full offline data set, even when the data is approximately **4–5 GB**. The owner prioritizes actual Victoria 3-class global gameplay and data quality over minimizing payload size. This is an **allowance, not a minimum size target**: do not add filler or pad the pack set to reach 4–5 GB. The exact compressed download and installed data footprint remain separate measurements.
+
+### 13.1. Meaning of the size allowance
+
+- Plan for a complete, verified offline data set delivered by the small core APK plus multiple separately versioned data/content packs.
+- Track at least four distinct quantities: (1) compressed transfer bytes, (2) extracted/installed on-device bytes, (3) peak temporary staging bytes during an update, and (4) peak resident/decoded CPU/GPU memory. Do not call a 4–5 GB disk collection a 4–5 GB RAM requirement.
+- Keep the bootstrap APK small and useful. A missing optional presentation pack may reduce visual richness, but must never corrupt or disable simulation, saves or a campaign.
+- Do not make a monolithic 4–5 GB APK. Do not download packs in the background without explicit user action. Use a native long-running transfer path and stream extraction; do not buffer an entire archive in WebView JavaScript memory.
+- Each pack must declare stable ID, version, schema/engine/data-build compatibility, dependencies, compressed/uncompressed size, file inventory, MIME/type, dimensions where relevant, per-file SHA-256, publisher signature/trust key, license and provenance.
+- Verify the signed canonical manifest before trusting URLs or metadata; verify every file before activation. Reject traversal/absolute paths, symlinks, duplicate IDs/paths, unknown file types, excessive file counts/sizes/compression ratios, invalid image dimensions and unlicensed assets.
+- Download to app-private staging; resume only after validating existing chunks; activate atomically after the entire required pack set validates; preserve the prior good set and roll back on any failure.
+- Content packs are data only. They must not contain or execute JavaScript, WebAssembly, HTML, scripts, arbitrary imports, command payloads or simulation effects.
+
+### 13.2. Data-quality acceptance standard
+
+A large collection is not automatically a high-quality collection. Every material historical record must carry stable identity and traceable provenance: source title/publisher/author, URL, access/publication date, exact page/table/record, temporal validity, geographic scope/crosswalk, original units, transformation/estimation method, confidence/uncertainty and license/attribution/redistribution terms.
+
+Keep verified, supported, estimated, disputed and unknown states distinct. Unknown is not zero. Do not infer 1836 borders, rulers, religion, population, GDP, law, military strength or other historical facts from modern data without an explicit method and period-aware crosswalk. Candidate research is not runtime data until the required review/acceptance is met. Every shipped presentation asset must have clear rights and an in-game use; do not count duplicate, empty, random, padded, silent, out-of-period or unlicensed content toward the size allowance.
+
+### 13.3. Delivery implications verified against current official Play documentation
+
+Current Google Play documentation states (download-size limits): base module 500 MB; individual asset pack 1.5 GB; base + install-time modules/asset packs 4 GB; fast-follow and on-demand asset packs together 30 GB; total compressed app download 34 GB. Play Asset Delivery supports install-time, fast-follow and on-demand delivery; it is intended for assets, not executable code. Therefore a 4–5 GB full data collection must not be designed on the assumption that all of it can be install-time. Evaluate on-demand/fast-follow packs and the separate sideload pack channel; do not select a paid host without explicit owner approval.
+
+Official references:
+- Google Play app size limits: https://support.google.com/googleplay/android-developer/answer/9859372
+- Play Asset Delivery: https://developer.android.com/guide/playcore/asset-delivery
+
+### 13.4. Governance and current status
+
+- The durable directive is `docs/coordination/OWNER_EXECUTION_DIRECTIVE_2026-11-19.md`.
+- `docs/coordination/AI_HANDOFF.md`, `docs/audit/s0/S0_SIGNOFF.md` and `docs/audit/s0/S0_RISK_REGISTER.md` have been updated to point at the 4–5 GB allowance. The risk remains R15, assigned to S23b/S23c.
+- This direction does not authorize skipping S0 review/owner signoff, opening S1/S23 early, changing signing/package identity or bypassing licensing/device gates. S0 remains PARTIAL/BLOCKED; S1 and S23 remain NOT_STARTED under the current handoff until their specified entry conditions are met.
+- This is a documentation update and owner-direction capture only. No runtime, historical data, images/audio, downloader, content manager, Android/Gradle/workflow, save schema or APK was changed or generated. No runtime tests or Android QA were run for this documentation-only update.
