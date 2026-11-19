@@ -4,14 +4,14 @@
 **Repository:** `mtieu6470-maker/Victori3-mobile`  
 **Branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Design:** `docs/spec/HISTORICAL_EVENTS_GLOBAL_CALIBRATION_ARCHITECTURE_PROPOSAL_VI.md`  
-**Scope:** Test specification only; no test code or runtime implementation  
-**Status:** `PRE-IMPLEMENTATION / NOT RUN`
+**Scope:** S22 verification matrix; DEV-001 has a bounded implementation/test candidate, with CI verification pending  
+**Status:** `PARTIAL IMPLEMENTATION / CI PENDING`
 
 > This matrix turns the S22 self-audit findings into an executable verification plan for a future owner-authorized implementation. A row is a required test, not a claim that the test has been created or passed.
 
 ## 1. Gate rules
 
-- S22 implementation remains closed until the approved S0/S1 gates and a separate owner decision authorize an exact slice.
+- Broad S22 implementation remains gated. The owner chat instruction on 2026-11-19 authorizes narrow, exact-scope implementation slices, beginning with DEV-001; this matrix itself does not authorize later slices.
 - S1 data/save foundations must provide event-definition versioning, pending-decision persistence, migration and deterministic RNG continuation before S22 runtime state is added.
 - Tests must run against a recorded code SHA, data-build SHA/hash, schema/rule version, fixed seed set and configuration.
 - Historical and Sandbox must use the same start snapshot and monthly simulation pipeline. Mode-specific behavior must be explicit data policy, not accidental divergence in code paths.
@@ -180,3 +180,23 @@ Additional cases required by §§14.13–14.14:
 | BEN-16 | Urban population and military expenditure inputs | Builder either compiles them with units/provenance or explicitly documents a metric-specific exclusion decision; the two current omissions cannot silently disappear |
 | BEN-17 | Benchmark ETL compile | For every included field, raw observation counts, selected values, units, quality and source locator are reconciled from input through compiled database |
 | BEN-18 | Source quality distribution | Estimated/supported/verified counts reproduce exactly; no quality promotion occurs during ETL |
+
+
+## 12. DEV-001 concrete rank-condition verification
+
+The first bounded implementation slice maps the §14.1 predicate contract to runtime tests in `tests/modes.test.ts`:
+
+| Test ID | Concrete case | Required result |
+|---|---|---|
+| RANK-01 | Power-score ordering and positive threshold | The same `powerScore()` contract as public rankings is used; rank N passes only when competition rank is ≤ N |
+| RANK-02 | Exact tie | Equal scores share competition rank; public ordered output uses stable entity-ID ascending tie-break |
+| RANK-03 | Subject actor | A living non-decentralized subject remains eligible, matching `rankings()` |
+| RANK-04 | Dead, decentralized or unknown target | Non-match with a bounded diagnostic |
+| RANK-05 | Zero, fractional or malformed threshold | Non-match; rank threshold must be a positive safe integer |
+| RANK-06 | Non-finite candidate score | Snapshot becomes unavailable and all rank predicates fail closed |
+| RANK-07 | Nested `all` / `any` | One immutable per-tick rank snapshot is reused throughout the expression |
+| RANK-08 | Stale context after tick increment | Non-match; a previous tick's snapshot is never treated as current |
+
+**Concrete test source:** `tests/modes.test.ts`, describe block `canonical rank_at_most condition`.
+
+**Verification status:** DEV-001 tests are committed but awaiting GitHub Actions results. No pass is claimed. Remaining S22 rows, especially DEC-01–DEC-16, EVT-01–EVT-14, CAL-01–CAL-15, GEO-01–GEO-10 and BEN-11–BEN-18, remain future verification work.

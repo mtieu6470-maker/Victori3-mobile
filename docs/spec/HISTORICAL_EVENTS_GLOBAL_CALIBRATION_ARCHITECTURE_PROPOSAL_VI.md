@@ -483,6 +483,7 @@ The `rank_at_most` condition MUST use one canonical, versioned rank context shar
 The rank contract is:
 
 - Candidate set: countries with `alive === true` and `decentralized === false`; subjects remain eligible because the current ranking contract includes them. A future polity-type expansion must version and document any change to this candidate set.
+- Payload: `{ type: "rank_at_most", entity: "GBR", rank: 8 }`; `entity` is a stable political-entity ID and `rank` is the maximum competition rank (positive safe integer). Missing, malformed or non-positive thresholds fail closed and are rejected by the future closed-schema validator.
 - Metric: the same canonical `powerScore()` used by country rankings, with its formula/version recorded in the rule/data build identity.
 - Ordering: descending finite power score, with normalized stable entity ID ascending as a deterministic secondary display ordering.
 - Rank number: competition rank (`1 + count of eligible entities with strictly greater score)); exact ties share the same rank.

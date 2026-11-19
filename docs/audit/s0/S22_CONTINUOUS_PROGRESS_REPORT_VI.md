@@ -25,7 +25,7 @@
 | S1 transition | `NOT_STARTED`; signoff còn draft, chưa có independent REVIEW_PASS + owner ACCEPTED |
 | S22 runtime authorization | `NONE`; S22 tiếp tục pre-implementation |
 | Engine / historical runtime data / save schema / UI / Android / APK | Không thay đổi trong tranche S22 này |
-| S22 build / tests / CI / device QA | Không chạy; không có status checks được trả về cho HEAD `f2db3c2` |
+| S22 build / tests / CI / device QA | DEV-001 GitHub runs 44430809753 (tests-only) and 44430809754 (Android APK) are running; no result is claimed yet. |
 
 > Báo cáo này là technical coordination/self-audit, không phải independent review hay owner acceptance. Không dùng kết quả research candidate làm dữ liệu game đã duyệt.
 
@@ -289,3 +289,17 @@ Các dòng trên phân biệt **quyết định sản phẩm**, **evidence revie
 - Added a structured decision/evidence register to this same rolling report: proposed tracking labels OD-S22-01–OD-S22-08 cover 12-region taxonomy, historical decision prior, benchmark dimensions/denominators, regional weighting, multi-seed/holdout policy, alternate-history plausibility, versioning/save dependency and device performance envelope.
 - Each row distinguishes owner product decisions from independent evidence review and upstream S1/G0.7 dependencies. The OD labels are report-local tracking aids only, not formal owner decision IDs and not approvals.
 - No taxonomy names/boundaries, benchmark weights, seed count or numeric performance budget were invented or applied. No code/data/schema changes or tests/build/CI/device run.
+
+
+### 2026-11-19 — DEV-001 canonical power-rank predicate implementation candidate
+
+- Owner instruction received in chat: proceed with staged development toward a Victoria 3-like global grand-strategy game; ChatGPT chooses implementation order; Claude reviews and may make one bounded corrective pass; APK is to be offered only after the code is stable and verified for user testing.
+- Implemented the first bounded code slice for SA-01: replaced the unconditional `rank_at_most` success with canonical ranking using the existing `powerScore()` and the public ranking candidate set (alive, non-decentralized, subjects included).
+- Added competition-rank semantics (ties share rank), stable entity-ID ordering for displayed ties, positive safe-integer threshold validation, missing/dead/decentralized target diagnostics, non-finite score fail-closed handling, and one cached immutable per-tick snapshot reused by nested `all`/`any` predicates and monthly decision-window evaluation.
+- Defined the condition payload in design §14.1 as `{ type: "rank_at_most", entity: "GBR", rank: 8 }`, where rank is a positive safe integer maximum competition rank.
+- Added concrete tests RANK-01–RANK-08 in `tests/modes.test.ts` and mirrored their acceptance semantics in the S22 implementation test matrix.
+- Code commit: `96f90338acc49beaed4313a116b2867ce3bacec3`; base HEAD: `8608f9fc1db4ccabeeba0ba8c0cd046cacd69f70`.
+- Changed code/test files: `src/engine/metrics.ts`, `src/engine/historical.ts`, `src/engine/systems/events.ts`, `tests/modes.test.ts`. Added focused Claude request: `docs/audit/s0/DEV001_RANK_CONDITION_CLAUDE_REVIEW_REQUEST_2026-11-19.md`.
+- GitHub Actions runs started on the exact candidate: tests-only run `44430809753`; Android debug workflow run `44430809754`. At this report update both were still `in_progress`; no test/build/Gradle result is claimed.
+- Claude review/correction pass remains pending. The broad follow-on findings SA-02–SA-13 and all remaining decision/effect/event/save/benchmark work are not fixed by DEV-001.
+- This owner instruction does not rewrite the historical S0 gate ledger or mark the draft S0 signoff as accepted. No signing secrets, keystore, APK installation, baseline uninstall or merge operation occurred.

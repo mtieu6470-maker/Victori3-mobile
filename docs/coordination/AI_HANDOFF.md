@@ -1165,3 +1165,26 @@ Only explicit owner decisions may be recorded here. Recommendations are not appr
 - These labels are not formal owner decisions. No region taxonomy, historical prior, calibration weights, seed count or performance budget has been approved or silently applied.
 - Updated rolling report commit: `d9544d7f610b7b3c5077fad3f90e29cb90766ac6`; blob: `6750c4b13c8b0344f4ff03a74d33a5ca5a1464c1`.
 - No runtime or product data changed; no tests/build/CI/device run.
+
+
+## 9. Owner-directed staged development instruction — 2026-11-19
+
+The project owner explicitly instructed ChatGPT in chat on 2026-11-19 to continue developing the game toward a Victoria 3-like global grand-strategy experience, let ChatGPT choose the technical implementation order, send completed code to Claude for one review/correction pass when available, and offer an APK for user testing only after the candidate is stable and verified.
+
+**Working interpretation and controls**
+- This authorizes staged product-code implementation on the existing development branch, beginning with narrow, testable slices. It supersedes the earlier task-local prohibition on gameplay/engine changes for these future owner-directed development slices.
+- It does **not** rewrite historical S0 gate verdicts or complete the DRAFT S0 signoff. G0.7 remains BLOCKED, G0.8 PARTIAL and full-S0 G0.9 BLOCKED until separately evidenced/accepted.
+- ChatGPT owns implementation and first-line tests. Claude may review and make one bounded corrective pass on the same slice. If Claude authors corrections, record this as a review/correction pass, not a false independent REVIEW_PASS of Claude's own corrected code; ChatGPT must re-fetch and re-run relevant tests/CI on the corrected exact HEAD.
+- Do not claim a feature or APK is ready solely because source was committed. Offer an APK only after typecheck, relevant regression tests, app build/Gradle packaging, workflow/artifact verification and Claude's review/correction pass are complete.
+- No signing secrets, keystore, GitHub Environment secrets, force-push, merge, automatic APK installation, baseline uninstall or device migration. APK delivery is for owner-controlled testing; existing R14/signature/backup risk remains visible.
+- Keep each implementation slice small, evidence-backed and reviewable. Preserve the single rolling S22 progress report and update this handoff after each completed tranche.
+
+### DEV-001 — canonical rank condition
+
+- Base HEAD: `8608f9fc1db4ccabeeba0ba8c0cd046cacd69f70`.
+- Implementation commit: `96f90338acc49beaed4313a116b2867ce3bacec3`.
+- Scope: canonical `rank_at_most` implementation, per-tick immutable rank snapshot, nested condition-context reuse, matching tests and §14.1 payload clarification.
+- Code/test files: `src/engine/metrics.ts`, `src/engine/historical.ts`, `src/engine/systems/events.ts`, `tests/modes.test.ts`.
+- Focused Claude review request: `docs/audit/s0/DEV001_RANK_CONDITION_CLAUDE_REVIEW_REQUEST_2026-11-19.md`.
+- CI: tests-only run `44430809753` and Android debug workflow run `44430809754` were `in_progress` at the time of this handoff update. Results must be re-fetched before status changes.
+- No decision/effect transaction, structural-rule, exogenous-event redesign, benchmark ETL, save-schema, UI, asset, signing or Android application-ID change was included. DEV-001 is not yet accepted.
