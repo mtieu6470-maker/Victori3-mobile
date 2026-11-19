@@ -48,10 +48,16 @@ describe('factory intermediate-goods market clearing', () => {
     expect(market.steel.supply).toBe(0);
     expect(market.tools.supply).toBe(0);
     expect(market.arms.supply).toBe(0);
-    // No steel can be made, so upstream/downstream factories must not add fictitious input demand.
-    expect(market.iron.demand).toBeCloseTo(baseline.st.marketStats.GBR.iron.demand, 5);
-    expect(market.steel.demand).toBeCloseTo(baseline.st.marketStats.GBR.steel.demand, 5);
-    expect(market.tools.demand).toBeCloseTo(baseline.st.marketStats.GBR.tools.demand, 5);
+    // Requested inputs remain visible even though no production can satisfy them.
+    // Shortage must not be hidden by replacing requested demand with actual consumption.
+    expect(market.iron.demand).toBeGreaterThan(baseline.st.marketStats.GBR.iron.demand);
+    expect(market.coal.demand).toBeGreaterThan(baseline.st.marketStats.GBR.coal.demand);
+    expect(market.steel.demand).toBeGreaterThan(0);
+    expect(market.tools.demand).toBeGreaterThan(baseline.st.marketStats.GBR.tools.demand);
+    expect(market.iron.short).toBeCloseTo(1, 5);
+    expect(market.coal.short).toBeCloseTo(1, 5);
+    expect(market.steel.short).toBeCloseTo(1, 5);
+    expect(market.tools.short).toBeCloseTo(1, 5);
   });
 
   it('allows a fully supplied steel-to-tools-to-arms production chain', () => {
