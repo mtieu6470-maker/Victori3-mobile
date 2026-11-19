@@ -3,7 +3,7 @@
 **Ngày cập nhật:** 19/11/2026  
 **Repository:** mtieu6470-maker/Victori3-mobile  
 **Branch:** claude/game-historical-sandbox-modes-kg7rj7  
-**HEAD được xác minh trước lần đồng bộ này:** f2db3c23c6c28d3bf58b526da4170c3419e37d0b  
+**Code HEAD đã được kiểm thử/build mới nhất:** `96578ca30bd38d5a98e45cb379a8a6b03ec834ad` (DEV-004 regression fix; các commit tài liệu sau đó không đổi code).  
 **Chế độ báo cáo:** rolling report — mọi lượt làm xong phải append một progress entry mới; không tạo báo cáo rời nếu không cần thiết.
 
 > Đây là báo cáo điều phối và tự kiểm toán của ChatGPT. Không phải Claude REVIEW_PASS, không phải owner ACCEPTED, không phải bằng chứng S1/S22 đã mở. Mọi research candidate chưa được owner chấp nhận vẫn là tài liệu nghiên cứu, không phải game data đã duyệt.
@@ -12,20 +12,20 @@
 
 | Hạng mục | Trạng thái hiện tại tại HEAD đã xác minh |
 |---|---|
-| Nhánh / HEAD | `claude/game-historical-sandbox-modes-kg7rj7` / `f2db3c23c6c28d3bf58b526da4170c3419e37d0b` |
+| Nhánh / code SHA đã kiểm thử | `claude/game-historical-sandbox-modes-kg7rj7` / `96578ca30bd38d5a98e45cb379a8a6b03ec834ad` |
 | S22 architecture | `DESIGN_ONLY`; design §§14.1–14.15 đã cập nhật |
-| Code self-audit | SA-01–SA-13; chưa có finding nào được coi là đã sửa |
+| Code self-audit | DEV-001 triển khai SA-01 ở mức candidate có CI xanh; Claude review vẫn pending. SA-02–SA-13 và các owner/evidence gates khác còn mở |
 | Traceability | Có mapping SA-01–SA-13 → design clauses; design coverage only |
-| Test matrix | Có test plan; bổ sung GEO-01–GEO-10 và BEN-11–BEN-18; chưa có test code/result S22 |
+| Test matrix | S22 matrix GEO-01–GEO-10, BEN-11–BEN-18 và các nhóm DEC/EVT/CAL vẫn là kế hoạch rộng; các lát cắt DEV-001–004 có regression tests riêng và CI evidence |
 | Event research | 9 event records được rà soát + 1 global-drought candidate; còn open evidence requests |
 | Benchmark research | 181 × 6 CoW entity/metric matrix (1,086 rows) và 160 Maddison 2010 unit rows |
 | Hydrogen research | Request đã cập nhật; independent deliverables chưa được nhận/kiểm chứng trong hồ sơ hiện tại |
-| Claude review | No-write request đã pin chính xác; verdict chưa có |
+| Claude review | DEV-001–DEV-003 aggregate review request và DEV-004 economy/construction review request đã có; verdict độc lập vẫn pending |
 | S0 overall | G0.7 `BLOCKED`, G0.8 `PARTIAL`, G0.9 `BLOCKED` theo gate ledger |
 | S1 transition | `NOT_STARTED`; signoff còn draft, chưa có independent REVIEW_PASS + owner ACCEPTED |
 | S22 runtime authorization | `NONE`; S22 tiếp tục pre-implementation |
-| Engine / historical runtime data / save schema / UI / Android / APK | Không thay đổi trong tranche S22 này |
-| S22 build / tests / CI / device QA | DEV-001 tests 75/75 pass (run 44430809753); Android build/typecheck/Gradle assembleDebug success (run 44430809754); no device QA or Claude review yet. |
+| Engine / historical runtime data / save schema / UI / Android / APK | S22-specific data/save implementation vẫn gated. Các lát cắt DEV/economy riêng đã đổi engine, UI, tests; hiện có debug APK CI mới, chưa device QA |
+| Build / tests / CI / device QA | DEV-004 code SHA `96578ca3`: tests-only PASS 7/7 files, 87/87 tests; Android workflow SUCCESS, Gradle assembleDebug. APK debug 18,048,145 bytes; chưa device QA, chưa Claude review |
 
 > Báo cáo này là technical coordination/self-audit, không phải independent review hay owner acceptance. Không dùng kết quả research candidate làm dữ liệu game đã duyệt.
 
@@ -349,3 +349,18 @@ Các dòng trên phân biệt **quyết định sản phẩm**, **evidence revie
 - Created aggregate Claude review request `docs/audit/s0/DEV001_DEV003_CLAUDE_CODE_REVIEW_REQUEST_2026-11-19.md`, which covers DEV-001 rank semantics, DEV-002 player decision revalidation/effect preflight and DEV-003 staged transaction/cache/performance correctness, with one bounded correction pass.
 - The owner’s requested Claude review has not actually occurred in this session; the review request is committed for Claude Code to execute. After Claude's response/correction, ChatGPT must verify the corrected exact HEAD and create a new APK from that HEAD before offering it for installation.
 - No device QA, install/upgrade, signing-secret change, keystore access, merge or release-signing operation. Formal S0 gate statuses remain unchanged.
+
+
+### 2026-11-19 — DEV-004 Sandbox cumulative-politics test fix; economy tranche review and APK verified
+
+- Investigated the failing assertion in `tests/modes.test.ts` from the preceding HEAD. Root cause: `GameState.log` is a rolling log capped by `LOG_CAP = 4000`; the 40-year Sandbox test incorrectly used retained log entries to assert cumulative institutional changes. This was a test-observability defect, not evidence that reforms were absent.
+- The three deterministic Sandbox seeds recorded `aiActions.reform` counts of 172, 172 and 174, and cumulative `ai.lawHistory` counts of 172, 175 and 177. The prior diagnostic's retained law-log count was 0, 3 and 0 respectively. The test now asserts against cumulative action counters and law history; retained log counts are labelled as diagnostics only.
+- Code/test commit: `96578ca30bd38d5a98e45cb379a8a6b03ec834ad`, based on prior failing HEAD `f594740690235f1bac587d2bb2b8ea22122751b1`. Only `tests/modes.test.ts` changed in this fix.
+- Tests-only workflow [44466993734](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44466993734) passed on the exact code SHA: 7/7 test files, 87/87 tests, 0 failed, 0 pending; test report validation passed.
+- Android debug workflow [44466993805](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44466993805) succeeded on the same exact code SHA. `npm ci`, web build/typecheck, generated data/map, full Vitest, Capacitor sync and Gradle `assembleDebug` all succeeded. Gradle reported `BUILD SUCCESSFUL in 1m 8s`.
+- Downloaded the new APK artifact and independently recomputed its file hash against the CI evidence manifest: `app-debug.apk`, 18,048,145 bytes, SHA-256 `ea4c1647e385328922d3dc2917d0166c1d4de469e80a54f2c09bac8e6b6c3136`. Exact match.
+- APK signing evidence: one `Android Debug` signer; v1 and v2 verification true; certificate SHA-256 `b41ee8c3b353c7b219fa569081a0b3c000c2ec4ed2646b0361362e7551a42aa1`. This is a debug certificate, not a production release key.
+- APK artifact ID `14503146108`, size 17,561,295 bytes, artifact ZIP SHA-256 `3cadb5136b7aad319c1ac07a09cbff44ef4c7eff18ff9f3a9b6f7f7a0ad8adcf`. CI evidence artifact ID `14502683136`, size 106,242 bytes, ZIP SHA-256 `70a6341e32ecce88d93a36bf44362377555323ba067e52af969ef0fe2b93a39c`.
+- Prepared `docs/audit/s0/DEV004_ECONOMY_CONSTRUCTION_CLAUDE_REVIEW_REQUEST_2026-11-19.md` at docs commit `ebe6e32463a06cc3dc1baae8585ea58509e1ba89`. It asks Claude to independently challenge construction cash invariants, factory intermediate-good/market clearing, wages/employment and Sandbox cumulative diagnostics on exact code SHA `96578ca3...`.
+- Economy review note: code inspection identified a question for independent review, not yet a confirmed defect — market shortages/imports are calculated using planned factory output before each factory's input-constrained realized output is applied. Claude is explicitly asked to test whether this can overstate upstream steel/tools availability for downstream factories. No unverified model correction was made.
+- Remaining limitations: no physical Android device QA; no install/upgrade attempted; no production signing or release. The APK is a debug CI candidate only. Claude independent review/correction remains pending. Formal G0/S0/S1/S22 gate states remain unchanged.
