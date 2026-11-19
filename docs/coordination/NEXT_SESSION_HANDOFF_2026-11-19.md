@@ -177,3 +177,12 @@ Expected flow to design and test later:
 5. Publish the APK and data packs as distinct artifacts with version compatibility, sizes, hashes and clear download instructions.
 
 Current status: **NOT IMPLEMENTED / NOT TESTED**. Runs #316/#317 produced no APK and no data-pack artifact. Do not modify the product, APK workflow, data pipeline or signing under current S0-B7 authorization; propose a separate owner-approved implementation task after the current gates.
+
+
+## Addendum — inspectable CI archives and dependency preflight (2026-11-19)
+
+- Downloaded and inspected both CI evidence ZIPs. Run #316 artifact `14550237447` (49,741 bytes; API SHA-256 `06fcd22633d442f6890a6d647483697e5051f21de0051b4d2ad0b38b531e6c03`); run #317 artifact `14551001678` (49,697 bytes; API SHA-256 `bb2427724f91b8ffa4e1a25cad83b405ae19ad5bdbfa452c3076e19ee9e55bfd`). Both contain diagnostic logs, build manifests/hashes and test reports. Neither contains an APK or standalone data-pack payload.
+- Exact test failure is at `tests/s0-save-determinism.test.ts:270`: the frozen-baseline characterization expects no `constructionQueue`. The current-branch legacy migration test for `constructionQueue` passes. CI-F4 remains OPEN P1; no source/test/workflow fix is authorized.
+- Baseline and experiment branch `package-lock.json` have identical blob SHA `29ac661a36bb03bae62a80ce7abf9af0c15bb168`. Preliminary read-only advisory cross-check found `vitest@2.1.9`, `@vitest/mocker@2.1.9`, and `tinypool@1.1.1` in dev dependency records that match published advisory ranges; locked `esbuild@0.28.2` is outside the affected range of GHSA-67mh-4wv8-2f99. This is not a full npm audit and makes no production safety claim. No package changes.
+- Updated B7 results, dependency audit plan, self-review and Claude review request with exact artifact evidence and provisional advisory mapping. DEP-F1 stays OPEN P1 — UNTRIAGED until manual workflow dispatch and both audit JSONs are reviewed.
+- The installed GitHub integration has no workflow-dispatch operation; exact manual action page and branch are in the dependency audit plan. Overall S0 remains PARTIAL/BLOCKED; S1 remains NOT AUTHORIZED.
