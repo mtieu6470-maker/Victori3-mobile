@@ -23,10 +23,11 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 ## Active DEV-005 review entry point
 
 - **DEV-005 — Population cohort foundation:** `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md`.
-- **Exact current corrective code review HEAD:** `24ae54882d723d45239611bed5da5291aa66b7d3` (duplicate/missing/blank Region ID guards and v1 envelope/state version check). Earlier code targets are superseded for review.
+- **Exact current corrective code review HEAD:** `75ad843b11c841a3a0191d2c256383b764cc180f` (duplicate/missing/blank Region ID guards, v1 envelope/state version check, and TypeScript fixture fix). Earlier code targets are superseded for review.
 - **Previous verified baseline CI (HEAD `1cf7869` only):** tests-only [44499872965](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872965) PASS, 11/11 suites and 115/115 tests; Android debug [44499872833](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872833) SUCCESS. These results do **not** validate the later corrective commits.
 - **Intermediate corrective CI:** tests-only [44508941178](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941178) PASS (11/11 files, 116/116 tests) for d4cd28a.
-- **Current corrective HEAD CI:** tests-only [44509983998](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44509983998) and Android debug [44509983834](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44509983834) are running for `24ae548`; no pass is claimed yet.
+- **Intermediate 24ae CI:** Android debug [44509983834](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44509983834) failed at TypeScript strict deletion (TS2790) in a test fixture; corrected in `75ad843` with an optional-property fixture type.
+- **Current corrective HEAD CI:** tests-only [44510279688](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44510279688) and Android debug [44510279681](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44510279681) are running for `75ad843`; no pass is claimed yet.
 
 ## Current independent review entry point
 
