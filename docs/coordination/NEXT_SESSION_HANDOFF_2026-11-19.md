@@ -112,3 +112,17 @@ Continue Victori3 Mobile from this handoff. First verify live HEAD of `experimen
 3. Ask Claude for the read-only B7 review, explicitly including runs #316/#317 and the separate older Run #65 discrepancy.
 4. Update/review documentation only after evidence arrives. Owner acceptance is still required; S1 is not authorized.
 5. APK + separately downloadable, integrity-checked data packs remain product/release requirements for a later explicitly authorized implementation phase. This S0-B7 audit has not implemented them.
+
+
+## Follow-up documentation commits — 2026-11-19
+
+After the CI recheck, the following documentation-only commits were pushed to this same experiment branch (all use [skip ci]):
+
+- `50303575113684dc3ffeb2d928f444777a970d8b` — B7 results: record Android runs #316/#317 and the APK build blocker.
+- `4440a9303e589caed94f80d68b17921e32cd12da` — Claude review request: add current Android CI evidence and required scope analysis.
+- `5c3af050bb7823332d6799044933211e9444af92` — AI handoff: record the current CI recheck.
+- `1a78339f0301340fe73b5cff361918fb1ab25389` — this handoff's first live-recheck addendum.
+- `977f19a94c3938c2c0daca752b58cf9b678bcc99` — B7 self-review: record CI blocker and correct P2 row count to 22.
+- `22af5350f95e3d6b378ca503894076f5263eab86` — AI handoff: correct stale P2 count from 21 to 22 and log the recheck.
+
+**Latest experiment HEAD at this point:** `22af5350f95e3d6b378ca503894076f5263eab86`. These commits changed only audit/coordination Markdown. No product source, tests, data, assets, dependency, Gradle, Android or workflow file changed. The Android workflow runs #316/#317 remain failed; no APK was produced. The B7 dependency audit, Claude review and owner decision remain pending.
