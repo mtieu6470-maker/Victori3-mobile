@@ -148,7 +148,10 @@ jobs:
           REPORTER
 
           set +e
+          # S0-B4 characterization is run separately against its pinned frozen baseline by s0-b4-tests.yml.
+          # Do not execute that baseline-only harness against the newer experiment source tree.
           VITEST_TREE_REPORT="$EVIDENCE/vitest-tree-results.json" npx vitest run \
+            --exclude tests/s0-save-determinism.test.ts \
             --reporter=verbose \
             --reporter=json \
             --reporter="./$EVIDENCE/vitest-tree-reporter.mjs" \
