@@ -236,23 +236,39 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const coastal = st.regions.some((r) => m.members.includes(r.owner) && r.coastal);
     m.open = openness(leader, coastal);
   }
-  // ---- 2. reserve the full requested intermediate-input demand for market clearing.
-  // Requested demand remains visible in market statistics and shortage ratios. GDP costs
-  // below use only the inputs consumed by the fraction of output that is actually produced.
+  // Preserve the demand ledger separately from the active stage. Only the current stage's
+  // requested inputs participate in its clearing snapshot; downstream factories must not
+  // pre-empt steel/tools before upstream output has been realized.
+  const baseDemand: Record<string, Record<Good, number>> = {};
+  const requestedFactoryDemand: Record<string, Record<Good, number>> = {};
+  for (const id of mIds) {
+    baseDemand[id] = { ...markets[id].dm };
+    requestedFactoryDemand[id] = zero();
+  }
   for (const k of calc) {
     if (!k) continue;
     for (const outputGood of GOODS) {
       const recipeInputs = k.factoryInputs[outputGood];
       if (!recipeInputs) continue;
-      const market = markets[k.marketId];
-      for (const [input, amount] of Object.entries(recipeInputs)) market.dm[input as Good] += amount ?? 0;
+      for (const [input, amount] of Object.entries(recipeInputs)) {
+        requestedFactoryDemand[k.marketId][input as Good] += amount ?? 0;
+      }
     }
   }
 
-  // Resolve factories in dependency stages. All primary factories share one clearing snapshot,
-  // steel output is then made available to tool works, and realized tools are made available to
-  // arms works. No stage can consume theoretical output from a later or input-starved stage.
+  // Resolve factories in dependency stages. All factories in one stage share the same
+  // market-clearing snapshot. After the snapshot, replace that stage's planned input demand
+  // with actual consumption so later stages do not reserve inputs that were never consumed.
   for (const stage of FACTORY_PRODUCTION_STAGES) {
+    for (const k of calc) {
+      if (!k) continue;
+      const market = markets[k.marketId];
+      for (const outputGood of stage) {
+        const recipeInputs = k.factoryInputs[outputGood];
+        if (!recipeInputs) continue;
+        for (const [input, amount] of Object.entries(recipeInputs)) market.dm[input as Good] += amount ?? 0;
+      }
+    }
     const stageClearing = clearMarkets(markets, mIds);
     for (const outputGood of stage) {
       for (const k of calc) {
@@ -270,7 +286,11 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
         // Actual input consumption is proportional to this factory's realized output.
         for (const [input, plannedAmount] of Object.entries(recipeInputs)) {
           const good = input as Good;
-          const actualAmount = (plannedAmount ?? 0) * inputAvailability;
+          const requestedAmount = plannedAmount ?? 0;
+          const actualAmount = requestedAmount * inputAvailability;
+          // All outputs in the stage use the immutable stageClearing snapshot above, but only
+          // actual consumption remains active when the next dependency stage is resolved.
+          market.dm[good] = Math.max(0, market.dm[good] - requestedAmount + actualAmount);
           k.inputsNeed[good] += actualAmount;
           recipeInputs[good] = actualAmount;
         }
@@ -285,8 +305,15 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     }
   }
 
+  // Final reporting restores full requested intermediate demand (including unmet requests),
+  // while production stages above used only current-stage demand and prior actual consumption.
+  for (const id of mIds) {
+    for (const good of GOODS) {
+      markets[id].dm[good] = baseDemand[id][good] + requestedFactoryDemand[id][good];
+    }
+  }
   // Final prices, shortages and market statistics use realized factory output and full requested
-  // intermediate demand, keeping unfilled input demand visible instead of hiding the shortage.
+  // intermediate demand, keeping unfilled demand visible without starving upstream stages early.
   const finalClearing = clearMarkets(markets, mIds);
   for (const g of GOODS) {
     const balance = finalClearing.world[g];
