@@ -95,3 +95,12 @@ The only automatic save observed by B3 is tied to January in-game date; it is no
 4. Only after that owner ACCEPTED decision may S1 be started, limited to the approved data contracts/schema/save compatibility scope.
 
 No workflow, build, APK, device, signing, product code or data change is authorized by this draft.
+
+
+## 2.3 Current experiment-branch APK workflow limitation (CI-F4)
+
+The B1/G0.2 baseline build evidence does not certify that the current experiment branch can assemble an APK. The latest available Android APK workflow runs on the experiment branch are #316 and #317 (commits `26963da` and `fa95ad8`); both passed `npm ci`, the data/web build and generated-data hashing, then failed one baseline-only B4 characterization assertion (108/109 tests passed). The assertion expects `constructionQueue` to be absent, while the experiment branch adds/initializes that later field and the frozen baseline `2240a8f` predates it. Android SDK setup, Capacitor sync, Gradle and APK upload were skipped. No APK was produced by either run.
+
+This is recorded as OPEN P1 `CI-F4` in the Risk Register. It is a test-scope/workflow integration mismatch; it does not retroactively invalidate the approved frozen-baseline B4 Run #3 evidence. It also does not establish that the experiment-branch APK build passes. No fix is included in S0-B7: changing test selection or the Android workflow requires a separately authorized CI/test task. Keep the baseline characterization intact and preserve the failing run evidence.
+
+The B7 dependency-audit workflow also remains un-dispatched. The current GitHub connection has no workflow-dispatch operation; its absence is an execution limitation, not a PASS. DEP-F1 remains OPEN P1 — UNTRIAGED until the full-tree and production-only JSON artifact is reviewed.
