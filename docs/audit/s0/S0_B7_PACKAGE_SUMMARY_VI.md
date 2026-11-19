@@ -51,13 +51,13 @@ G0.1–G0.6 là trạng thái được đề xuất theo bằng chứng hiện c
 - **TC-F1/TC-F2:** hai test luật/chiến tranh có pass rỗng; green CI không chứng minh được các invariant đó.
 - **R5 / RM-F3 / RM-F4:** R5 (P1) cảnh báo số đo frame/FPS không tách được tick cost; callback `stepMonth + emit` trên desktop có p95 38,8–63,4 ms, max 97,1 ms, còn browser `stepMonth` riêng là unsupported. RM-F3 (P1) ghi mô phỏng đồng bộ trên main thread; RM-F4 (P2) ghi loop `requestAnimationFrame` giới hạn throughput. Đây là ba góc rủi ro liên quan nhưng không đồng nhất.
 - **R10:** cần ngân sách hiệu năng cho các lớp bản đồ mới ở các giai đoạn S4/S11/S20.
-- **R15 — mức cho phép 4–5 GB dữ liệu offline (cập nhật 19/11/2026):** theo chỉ đạo ngày 17/11/2026, quy mô mục tiêu là tổng nội dung offline đã cài qua core + nhiều content pack, không phải một APK 4–5 GB hoặc 4–5 GB RAM. Baseline hiện chỉ có payload 17.764.559 byte/592 tệp; code boot vẫn import tĩnh DB/map, giải mã toàn bộ raster và nạp metadata identity registry trong một JSON. R15 ghi rủi ro lưu trữ/cập nhật/OOM/ANR và yêu cầu manifest, checksum, resume, free-space preflight, atomic update/rollback, lazy load + cache giới hạn; delivery thuộc S23b/S23c, không mở rộng S1. Google Play cần đánh giá AAB/PAD; sideload cần kênh pack riêng.
+- **R15 — mức cho phép 4–5 GB dữ liệu offline (cập nhật 19/11/2026):** theo chỉ đạo mới ngày 19/11/2026, mức cho phép là tổng dữ liệu offline đã cài qua core + nhiều content pack, không phải một APK 4–5 GB hoặc 4–5 GB RAM. Baseline hiện chỉ có payload 17.764.559 byte/592 tệp; code boot vẫn import tĩnh DB/map, giải mã toàn bộ raster và nạp metadata identity registry trong một JSON. R15 ghi rủi ro lưu trữ/cập nhật/OOM/ANR và yêu cầu manifest, checksum, resume, free-space preflight, atomic update/rollback, lazy load + cache giới hạn; delivery thuộc S23b/S23c, không mở rộng S1. Google Play cần đánh giá AAB/PAD; sideload cần kênh pack riêng.
 
 ### Các finding đã được bổ sung hoặc bảo toàn
 
 Risk register giữ đầy đủ R1–R14, ghi R3 là CLOSED, bổ sung risk mới R15 về mức cho phép dữ liệu offline 4–5 GB, và bao gồm TC-F1…F7, GD-F1…F6, AS-F1…F7, RM-F1…F5, WD-F1…F3 cùng B4-R1. TC-F5/TC-F6 được đánh dấu có bổ sung test coverage trong B4, nhưng lỗi missing-RNG vẫn được giữ riêng trong B4-R1.
 
-## 3.1. Mục tiêu dung lượng offline 4–5 GB
+## 3.1. Mức cho phép dung lượng dữ liệu offline 4–5 GB
 
 Chỉ đạo mới ngày 19/11/2026 của chủ dự án cho phép bộ dữ liệu offline hoàn chỉnh có thể đạt khoảng 4–5 GB; đây là mức cho phép, không phải dung lượng tối thiểu phải lấp đầy. Tính trên ứng dụng lõi + nhiều data/content packs sau khi cài, không phải một APK duy nhất 4–5 GB hoặc 4–5 GB RAM. Phải đo riêng compressed download, expanded on-device footprint, temporary staging và runtime resident/decoded memory. Chỉ phát hành byte dữ liệu có ích, có nguồn, đúng thời kỳ/địa lý và có quyền phân phối; không nạp dữ liệu rác để đạt dung lượng. Mốc 3–4 GB ngày 17/11 trong báo cáo lịch sử được thay bằng mức cho phép mới này.
 
