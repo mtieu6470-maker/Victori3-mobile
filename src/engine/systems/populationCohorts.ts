@@ -28,6 +28,9 @@ export function createPopulationState(regions: readonly Region[]): PopulationSta
   const cohorts: PopulationCohort[] = [];
   const regionIds = new Set<string>();
   for (const region of regions) {
+    if (!region || typeof region !== 'object' || Array.isArray(region)) {
+      throw new Error('Invalid region record');
+    }
     if (typeof region.id !== 'string' || region.id.trim().length === 0) {
       throw new Error('Invalid region ID');
     }
@@ -127,6 +130,9 @@ export function validatePopulationState(st: GameState): void {
   const seen = new Set<string>();
 
   for (const cohort of population.cohorts) {
+    if (!cohort || typeof cohort !== 'object' || Array.isArray(cohort)) {
+      throw new Error('Invalid population cohort record');
+    }
     const region = regions.get(cohort.regionId);
     if (!region) throw new Error(`Population cohort references unknown region ${cohort.regionId}`);
     if (seen.has(cohort.id)) throw new Error(`Duplicate population cohort ${cohort.id}`);
