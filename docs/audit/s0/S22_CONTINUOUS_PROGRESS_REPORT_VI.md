@@ -15,7 +15,7 @@
 - **Regression:** `tests/population-cohorts.test.ts` now verifies both creation and validation reject a duplicated Region record.
 - **Commits:** `bcc8e20dd975b9bc31292e07079d55f9180b1cea` (implementation), `d4cd28a7359e580eec0a159fbb98542d8c7c70fb` (regression).
 - **Updated Claude review packet:** `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md`; exact review target advanced to `d4cd28a7359e580eec0a159fbb98542d8c7c70fb`.
-- **CI:** tests-only run [44508941178](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941178) and Android debug run [44508941183](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941183) were queued at the time of this entry. Do not treat the earlier 115/115 and debug build as evidence for this corrective HEAD.
+- **CI:** tests-only [44508941178](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941178) PASS — 11/11 files, 116/116 tests, 0 failures. Android debug [44508941183](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941183) remains in progress; no APK success is claimed for this HEAD. The earlier 115/115 and debug build apply only to HEAD `1cf7869`.
 - **Scope:** DEV-005 only. No historical runtime data, engine phase expansion, S0/S1 gate transition, workflow definition, APK signing configuration or release action changed.
 
 ## 0. DEV-005 — Population cohort foundation (owner-authorized 19/11/2026)
