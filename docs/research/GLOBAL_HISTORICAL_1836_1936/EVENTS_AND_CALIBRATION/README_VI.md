@@ -155,6 +155,12 @@ These benchmark artifacts remain research-only. No source was added to canonical
 - Việc trang cung cấp ZIP miễn phí không đồng nghĩa license mở. Audit hiện tại chỉ ghi nhận metadata công khai; không có dữ liệu NMC v7 được tải hoặc nhập.
 - Nguồn chính thức: https://correlatesofwar.org/data-sets/ (Terms and Conditions); https://correlatesofwar.org/data-sets/national-material-capabilities/.
 
+### 7.2 Entity-by-metric coverage matrices (19/11/2026)
+
+- `BENCHMARK_ENTITY_METRIC_COVERAGE.csv` — complete 181 entity × 6 CoW metric matrix (1,086 rows). 322 entity-metric combinations have one or more observations; 764 are explicit missing rows. 59 entities have at least one CoW metric. Missing is not zero.
+- `MADDISON_2010_UNIT_COVERAGE.csv` — 160 rows: 94 present-day territorial population units and 66 GDP-per-capita units, with exact year lists, quality and locators. The 160 rows do not directly map to 1836 registry polity IDs.
+- These files are row-level coverage inventories only; no source values have been imported into runtime data and no time interpolation or geographic allocation has been performed.
+
 ### 7.3 Maddison 2023 and GGDC alternatives (19/11/2026)
 
 - MPD 2023 is officially licensed CC BY 4.0. Required project citation: Bolt & van Zanden (2024), DOI 10.1111/joes.12618; retain the original-source citations in the workbook source sheet when charting or using subsets smaller than 12 countries. This is metadata-level licence verification only: the official workbook download remains blocked by Dataverse's signed object-store redirect, so exact row/field/year coverage is not yet checked.
@@ -162,8 +168,3 @@ These benchmark artifacts remain research-only. No source was added to canonical
 - GGDC Historical National Accounts catalog includes selected country-level GDP/industry series, World Agriculture 1800–1938 and an All Countries overview ca.1870–2005. Coverage differs across files/countries. The datahub requires Smits, Woltjer & Ma (2009) citation but does not state a reuse licence on the page inspected; status remains RIGHTS_REVIEW_REQUIRED (BEN-12).
 - No MPD 2023 or HNA data values were imported; no third-party mirror was used as the canonical dataset.
 
-### 7.2 Entity-by-metric coverage matrices (19/11/2026)
-
-- `BENCHMARK_ENTITY_METRIC_COVERAGE.csv` — complete 181 entity × 6 CoW metric matrix (1,086 rows). 322 entity-metric combinations have one or more observations; 764 are explicit missing rows. 59 entities have at least one CoW metric. Missing is not zero.
-- `MADDISON_2010_UNIT_COVERAGE.csv` — 160 rows: 94 present-day territorial population units and 66 GDP-per-capita units, with exact year lists, quality and locators. The 160 rows do not directly map to 1836 registry polity IDs.
-- These files are row-level coverage inventories only; no source values have been imported into runtime data and no time interpolation or geographic allocation has been performed.
