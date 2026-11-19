@@ -24,6 +24,8 @@ Feature commits in the reviewed range include:
 - `ebeff72b20df155c376000f67fd4b9022fc3e327` — unfilled factory-input demand and 100% shortage regression assertions.
 - `f0c3b08e066f198733559d0c76da3bca0f06d281` — initial partial shared-input shortage regression for primary textile and steel factories.
 - `bdb5e2e5ebca73e8375bd2554e6e01a075232f11` — strengthened primary-stage regression using a matched unconstrained reference and proportional realized-output assertions.
+- `4c9f15959fa4c4cea1b91ea2419c26997d872319` — proportionally allocate scarce regional factory labor instead of assigning it by recipe iteration order.
+- `ec5c79cca7b87a90291a5c54ba3da7bcf599cd3d` and `76c6dd1fd7478fb33c869d271488bde98a9a07f5` — add and normalize the corresponding workforce-scarcity regression.
 
 Primary files:
 
@@ -114,8 +116,19 @@ This request is not evidence of Claude review completion, owner acceptance, S0/S
 ## 7. Follow-on work after the prior CI evidence
 
 - **Initial follow-on HEAD:** `f0c3b08e066f198733559d0c76da3bca0f06d281`; added a partial shared-input case for primary textile and steel factories.
-- **Current exact review HEAD:** `bdb5e2e5ebca73e8375bd2554e6e01a075232f11`.
-- Strengthened `tests/factory-market-clearing.test.ts` with a matched unconstrained reference world. The constrained and reference simulations keep population, productivity, resource mix, plantation and factory levels identical; only mine capacity differs. The test compares each primary factory's realized output ratio and asserts proportional coal-shortage sharing.
-- The earlier 87/87 test result and 18,048,145-byte debug APK belong to the earlier `ebeff72b20df155c376000f67fd4b9022fc3e327` review target. They are **not** evidence that the new regression passed or that a new APK was built.
-- **Validation status for `bdb5e2e5ebca73e8375bd2554e6e01a075232f11`: PENDING.** No passing workflow result is claimed for this commit. The GitHub integration available in this session can read workflow artifacts and retry failed jobs, but does not expose a workflow-dispatch/list-runs action for a push-triggered branch run; verification must use the matching Actions workflow result once GitHub starts it.
+- **Strengthened input-shortage test:** `bdb5e2e5ebca73e8375bd2554e6e01a075232f11`; compares a constrained scenario with a matched unconstrained reference and verifies proportional realized-output ratios.
+- The earlier 87/87 test result and 18,048,145-byte debug APK belong to `ebeff72b20df155c376000f67fd4b9022fc3e327`. They are **not** evidence that any subsequent regression passed or that a new APK was built.
+
+## 8. Factory workforce allocation correction
+
+- **Current exact review HEAD:** `76c6dd1fd7478fb33c869d271488bde98a9a07f5`.
+- Finding: factory workers were assigned by iterating `Object.keys(RECIPES)` and consuming the remaining worker pool sequentially. When a region had insufficient workers for all factory levels, earlier recipes (for example textiles) received labor before later recipes (for example steel), creating an undocumented order-based priority.
+- Correction: compute total requested factory jobs and apply one common staffing ratio to every factory type in the region. This makes scarce labor allocation proportional to requested jobs, bounded by the available worker stratum. Input shortages are still applied afterward to derive realized employment.
+- Regression: paired constrained/full-staffing worlds verify textile and steel output scale by the same factor when there are 4,500 workers for 8,000 requested jobs; input supply is deliberately abundant so the test isolates labor allocation.
+- Limitation: proportional staffing is a neutral allocation rule, not a complete Victoria 3 labor market. Wage competition, profitability-based hiring/firing, qualifications and migration remain outside this correction.
+
+## 9. Validation and handoff status
+
+- **Validation status for `76c6dd1fd7478fb33c869d271488bde98a9a07f5`: PENDING.** The previous 87/87 result must not be carried forward to these commits. No successful CI run or new APK is claimed.
+- The GitHub integration used here can read commits, files, workflow jobs/logs and rerun failed jobs, but does not expose an Actions workflow-dispatch or general run-list operation. Do not interpret missing run data as a test pass.
 - Claude review remains requested, not completed. No S0/S1/S22 acceptance, device QA, production signing, or full Victoria 3 parity is claimed.
