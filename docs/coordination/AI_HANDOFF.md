@@ -12,6 +12,8 @@
 
 This allocation supersedes the earlier default ChatGPT/Claude role assignment for subsequent tasks. Historical B3 review records and previous decisions remain unchanged. See docs/coordination/AI_COLLABORATION_PROTOCOL.md.
 
+- **Victoria 3 parity re-audit (ChatGPT self-audit, 19/11/2026):** `docs/audit/VICTORIA3_PARITY_REAUDIT_2026-11-19.md` (audit HEAD `b18f0213ad4958ec95ff292d63ad661d010cffb1`; documentation commit `7defe399787eb1c919d285ad7e64c8657a7484f8`). Reconciles the 18/11 41-area parity snapshot with current construction queues and regional employment/wage aggregates; identifies remaining P0/P1/P2 gaps. No runtime patch or phase authorization; do not treat this self-audit as Claude REVIEW_PASS or owner acceptance.
+
 ## Current independent review entry point
 
 - **R4e / Claude — final collective/aggregate succession queue review:** start with `docs/audit/s0/GLOBAL_R4E_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4e covers MAO (collective rangatira authority) and MLY (multiple Malay constituent polities); base SHA before R4e: `103ab66b227809fae358e082fa253c0e50a1f78c`. Fetch the exact latest branch HEAD before review.
