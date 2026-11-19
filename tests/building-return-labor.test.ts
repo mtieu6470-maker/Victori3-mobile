@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { fresh } from './helpers';
 import { buildingReturn } from '../src/engine/systems/economy';
-import { BUILDINGS, GOODS, S, type GameState, type Good } from '../src/engine/types';
+import { BUILDINGS, GOODS, S, type GameState, type Good, type MarketGoodStats } from '../src/engine/types';
 
 function isolatedRegion() {
   const st = fresh('sandbox', 914, 'GBR');
@@ -16,7 +16,7 @@ function isolatedRegion() {
   st.marketStats[marketId] = Object.fromEntries(GOODS.map((good: Good) => [
     good,
     { supply: 0, demand: 1_000_000, imports: 0, short: 0 },
-  ])) as typeof st.marketStats[string];
+  ])) as Record<Good, MarketGoodStats>;
   return { st, country, region };
 }
 
