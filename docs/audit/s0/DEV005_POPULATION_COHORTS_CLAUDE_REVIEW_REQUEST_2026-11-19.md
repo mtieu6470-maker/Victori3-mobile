@@ -2,7 +2,7 @@
 
 **Repository:** `mtieu6470-maker/Victori3-mobile`  
 **Branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
-**Exact code review target:** `d4cd28a7359e580eec0a159fbb98542d8c7c70fb`  
+**Exact code review target:** `24ae54882d723d45239611bed5da5291aa66b7d3`  
 **Implementation base:** `3d1b8dd24427f2993d561eb0c555d6e0b30b1d5a`  
 **Status:** `READY_FOR_REVIEW`; ChatGPT self-audit only. No Claude verdict or owner acceptance is claimed.
 
@@ -23,6 +23,9 @@ Implementation commits:
 - `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce` — end-of-tick projection refresh and late-system POP mutation regression.
 - `bcc8e20dd975b9bc31292e07079d55f9180b1cea` — reject duplicate Region IDs during cohort creation and validation.
 - `d4cd28a7359e580eec0a159fbb98542d8c7c70fb` — add regression for duplicate Region IDs.
+- `2ec4728159f2d8833ec080dbaad7d32e60a4eedc` — reject missing/blank Region IDs in cohort creation and validation.
+- `3fa719b06db08cf5c75b03b93a2387e6674368d7` — reject malformed save state and envelope/state version mismatch before migration.
+- `24ae54882d723d45239611bed5da5291aa66b7d3` — add regressions for missing/blank Region IDs and invalid v1 save version.
 
 Final changed paths from the implementation base:
 - `src/engine/types.ts`
@@ -85,19 +88,20 @@ New suite: `tests/population-cohorts.test.ts` (6 focused cases):
 - rejection of NaN, negative and non-normalized strata;
 - rejection of missing/inconsistent v2 cohort state.
 
-**Previous verified code HEAD:** `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce`.
+**Previously verified code HEADs:** `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce` and corrective intermediate `d4cd28a7359e580eec0a159fbb98542d8c7c70fb`.
 
 ### 4.1 Corrective self-audit pass — 19/11/2026
 
-A further review found that duplicate `Region.id` values could evade the projection validator: the region lookup Map collapsed duplicate keys, and both duplicate entries could compare against the same aggregated cohort mass. This could allow malformed world state to pass validation or generate duplicate canonical cohort IDs.
+The first review found that duplicate `Region.id` values could evade the projection validator because a Map silently overwrote duplicate keys. The correction added duplicate guards to creation and validation, plus a regression. This intermediate code HEAD `d4cd28a7359e580eec0a159fbb98542d8c7c70fb` then passed tests-only CI: [44508941178](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941178), 11/11 files and 116/116 tests.
 
-Correction is bounded to DEV-005:
-- `createPopulationState` now rejects duplicate Region IDs before generating cohorts.
-- `validatePopulationState` now builds its region lookup with an explicit duplicate-ID guard.
-- A regression duplicates a Region record and verifies both creation and validation reject it.
+A second bounded review found two malformed-state gaps:
+- Region IDs could be missing, non-string or whitespace-only. They are now rejected before sorting, key generation or Map insertion.
+- A v1 envelope could contain a mismatched embedded `state.version` and still be silently migrated to v2. Deserialization now rejects missing/non-object state and requires the embedded version to equal the envelope version before applying legacy defaults or migration.
 
-**Corrective code HEAD:** `d4cd28a7359e580eec0a159fbb98542d8c7c70fb`.
-**CI status:** tests-only run [44508941178](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941178) **PASS — 11/11 test files, 116/116 tests, 0 failures**. Android debug run [44508941183](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941183) remains **in progress**; no APK build pass is claimed for this corrective HEAD yet.
+Regression coverage verifies missing and blank Region IDs, duplicate Region IDs, and v1 envelope/state version mismatch.
+
+**Current corrective code HEAD:** `24ae54882d723d45239611bed5da5291aa66b7d3`.
+**Current CI:** tests-only [44509983998](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44509983998) and Android debug [44509983834](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44509983834) were in progress when this review packet was updated. The 116/116 result above applies to the previous intermediate HEAD, not this latest code HEAD.
 
 
 **Tests-only CI:** [44499872965](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872965) — PASS, 11/11 test files, 115/115 tests, 0 failures, 0 pending.
@@ -123,7 +127,7 @@ No physical-device install/upgrade, iQOO QA, release signing, save migration on 
 
 ## 6. Requested verdict
 
-Please re-fetch the branch and review the exact corrective code HEAD above. The previous target `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce` is superseded for review by `d4cd28a7359e580eec0a159fbb98542d8c7c70fb`. Return one bounded verdict: `REVIEW_PASS`, `CHANGES_REQUESTED` or `BLOCKED`.
+Please re-fetch the branch and review the exact current corrective code HEAD above. Earlier targets `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce` and `d4cd28a7359e580eec0a159fbb98542d8c7c70fb` are superseded for review by `24ae54882d723d45239611bed5da5291aa66b7d3`. Return one bounded verdict: `REVIEW_PASS`, `CHANGES_REQUESTED` or `BLOCKED`.
 
 For each finding, include severity, exact file/line, reproducible scenario, consequence and the smallest targeted correction/test. Keep any correction inside DEV-005. A Claude-authored correction is a corrective pass, not an independent review of that same correction; ChatGPT will re-fetch and rerun verification on the corrected HEAD.
 
