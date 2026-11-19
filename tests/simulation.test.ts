@@ -23,6 +23,7 @@ describe('economy and population sanity (40 years, both modes)', () => {
       for (const id of ['GBR', 'FRA', 'USA', 'RUS', 'SPA']) {
         const c = st.countries[id]; const ref = bm(id); if (!c?.alive || !ref) continue;
         const ratio = c.stats.pop / ref;
+        console.log(`[POPULATION_BENCHMARK] ${mode} ${id} simulated=${Math.round(c.stats.pop)} benchmark=${Math.round(ref)} ratio=${ratio.toFixed(4)}`);
         expect(ratio, `${id} ${(ratio).toFixed(2)}`).toBeGreaterThan(0.5); expect(ratio).toBeLessThan(2);
       }
     });
