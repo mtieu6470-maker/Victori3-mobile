@@ -81,6 +81,12 @@ describe('Sandbox Mode is free', () => {
       alliances: st.treaties.filter((t) => t.type === 'alliance').length,
       rivalries: st.rivalries.length,
       alive: Object.values(st.countries).filter((country) => country.alive && !country.decentralized).length,
+      lawEntries: st.log.filter((entry) => entry.type === 'law').length,
+      reformStarts: st.log.filter((entry) => entry.text.includes('begins debating')).length,
+      reformFailures: st.log.filter((entry) => entry.text.includes('reform of') && entry.text.includes('failed')).length,
+      reformsInProgress: Object.values(st.countries).filter((country) => !!country.reform).length,
+      remainingReforms: Object.values(st.countries).filter((country) => !!country.reform).map((country) => [country.id, country.reform!.group, Number(country.reform!.progress.toFixed(3))]),
+      failedReformSamples: st.log.filter((entry) => entry.text.includes('reform of') && entry.text.includes('failed')).slice(0, 6).map((entry) => entry.text),
       relationsAbove20: Object.values(st.relations).filter((v) => v >= 20).length,
       gdpTop: Object.values(st.countries).filter((country) => country.alive && !country.decentralized).sort((a, b) => b.gdp - a.gdp).slice(0, 5).map((country) => [country.id, Math.round(country.gdp)]),
     }))));
