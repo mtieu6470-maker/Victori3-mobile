@@ -576,14 +576,21 @@ function marketDemandFactor(st: GameState, c: Country, good: Good): number {
   return clamp(demand / Math.max(1, available), 0.35, 1);
 }
 
-/** Fraction of planned factory operation supported by last month's input availability. */
-function marketInputAvailability(st: GameState, c: Country, inputs: Good[]): number {
+/** Fraction of one additional factory level's input demand covered by last month's free market surplus. */
+function marketInputAvailability(st: GameState, c: Country, requiredInputs: Partial<Record<Good, number>>): number {
   let availability = 1;
   const stats = st.marketStats?.[marketOf(st, c)];
-  for (const good of inputs) {
+  for (const [rawGood, rawRequired] of Object.entries(requiredInputs)) {
+    const good = rawGood as Good;
+    const required = Math.max(0, Number.isFinite(rawRequired) ? rawRequired! : 0);
+    if (required <= 0) continue;
     const entry = stats?.[good];
-    if (!entry || !Number.isFinite(entry.short)) continue;
-    availability = Math.min(availability, clamp(1 - entry.short, 0, 1));
+    if (!entry) continue; // no completed market snapshot yet; retain the pre-market estimate
+    const supply = Math.max(0, Number.isFinite(entry.supply) ? entry.supply : 0);
+    const imports = Math.max(0, Number.isFinite(entry.imports) ? entry.imports : 0);
+    const demand = Math.max(0, Number.isFinite(entry.demand) ? entry.demand : 0);
+    const freeSurplus = Math.max(0, supply + imports - demand);
+    availability = Math.min(availability, clamp(freeSurplus / required, 0, 1));
   }
   return availability;
 }
@@ -664,7 +671,10 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
     const output = LEVEL_WORKERS * staffing * rec.perWorker
       * (1 + techEffect(c, 'factory_efficiency')) * (1 + specificEfficiency)
       * factoryProductivity * infra * condition * occupied;
-    const inputAvailability = marketInputAvailability(st, c, Object.keys(rec.inputs) as Good[]);
+    const plannedInputs = Object.fromEntries(
+      Object.entries(rec.inputs).map(([good, amount]) => [good, output * (amount as number)]),
+    ) as Partial<Record<Good, number>>;
+    const inputAvailability = marketInputAvailability(st, c, plannedInputs);
     const realizedOutput = output * inputAvailability;
     const inputCost = Object.entries(rec.inputs).reduce(
       (sum, [good, amount]) => sum + realizedOutput * (amount as number) * p[good as Good],
