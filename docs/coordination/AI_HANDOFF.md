@@ -4,7 +4,7 @@
 - Review packet corrected: `tests/population-cohorts.test.ts` contains 13 focused cases; base-to-target compare is 24 paths (7 DEV-005 code/test + 17 concurrent governance/reporting paths).
 - Collaboration protocol Purpose roles now match the owner-directed allocation: ChatGPT technical lead/authorized implementer; Claude independent no-write reviewer. This resolves contradictory stale role labels in that file.
 - Additional state-flow note: legacy international migration changes regional POP totals but does not transfer migrant-origin stratum composition; the projection uses destination Region strata. This is explicitly recorded as an inherited limitation, not cohort-level migration.
-- Compare from code target `c9868d7` through documentation HEAD `efcc61765da3742870dde4e9858898d6ce7f9c86` showed only four documentation paths changed. No gameplay, historical data, assets, Android, Gradle, signing or workflow files changed.
+- Pre-handoff compare from code target `c9868d7131d7de3fd8efd0263411fee9111f172c` to documentation HEAD `7e4fe869948b2f34fb791394a4d93159fff4b411` was re-fetched and confirmed exactly four changed paths, all documentation-only. No gameplay, historical data, assets, Android, Gradle, signing or workflow files changed.
 - DEV-005 remains `CI_PASS / READY_FOR_REVIEW`; Claude independent verdict and owner acceptance are PENDING. Physical iQOO QA remains NOT_TESTED. No S0 PASS or S1/S23 opening is claimed.
 
 ---
