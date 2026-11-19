@@ -10,6 +10,16 @@
 
 - **Standing owner product/engineering principles (19/11/2026):** `docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md`. This is the durable product direction for Victoria 3-class global systemic parity, source-backed research, landscape-first Android APK, explicit downloadable content packs, offline-first operation, measured performance/stability, and per-slice GitHub reports. It does not bypass roadmap/gates or independently authorize closed phases. Read this before every task.
 
+## Latest verified checkpoint — DEV-005 tolerance correction and independent-review preparation (19/11/2026)
+
+- DEV-005 remains a bounded, owner-authorized population-cohort projection/save-compatibility task. `Region.pop` and `Region.strata` remain authoritative; the slice is not full POP parity and does not open S7–S23.
+- ChatGPT self-audit found and corrected a scale-dependent consistency defect: accepted regional strata rounding could create cohort mass that failed the tighter save invariant on a large region. Creation now normalizes accepted shares before multiplying by POP.
+- Correction commits: source `816d077e07c9e41e0784bbd6d69bdddeec7f2490`; regression `0c171b9b615e4f91cce66749f8482837c8dfa9ef` (1,000,000,000 regional POP; tolerated 5e-8 share drift; serializer must accept and conserve mass).
+- **Exact corrected code/test target:** `0c171b9b615e4f91cce66749f8482837c8dfa9ef`. At this checkpoint, tests-only run [44534672142](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44534672142) and Android debug run [44534672171](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44534672171) were still in progress; do not reuse earlier 14bd CI as proof for this corrected target.
+- **ChatGPT technical self-audit (not independent review):** `docs/audit/s0/DEV005_POPULATION_COHORTS_TECHNICAL_SELF_AUDIT_2026-11-19.md`. It records scope, state-flow scan, save migration observations, deviations (fractional person-equivalent size; no separate engine/data-build hash), no physical-device evidence and the CI state.
+- **Claude independent review packet:** `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md` now points to exact code target 0c171, lists all seven DEV-005 code/test paths, and discloses the concurrent documentation paths in the base-to-target compare.
+- DEV-005 is `CI_PENDING` / not independently reviewed. Claude verdict and owner acceptance remain pending. Physical iQOO QA remains NOT_TESTED. No claim of S0 PASS, S1 acceptance or S7–S23 authorization.
+
 ## Latest verified checkpoint — R15 owner target and B7 review preparation (19/11/2026)
 
 - The current owner allowance is **approximately 4–5 GB of verified offline game data across the APK bootstrap and separately installed packs**. This is not a size quota/minimum and does not permit filler. Keep compressed download, expanded disk, temporary staging and peak runtime/decoded memory as separate measured budgets.
@@ -40,7 +50,7 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 ## Active DEV-005 review entry point
 
 - **DEV-005 — Population cohort foundation:** `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md`.
-- **Exact current corrective code review HEAD:** `14bd56848b8db429b9037880b08887af7118d61f` (duplicate/missing/blank Region ID guards, v1 envelope/state version check, TypeScript test fixture corrected, legacy missing-state expectation aligned). Earlier code targets are superseded for review.
+- **Exact current corrective code review HEAD:** `0c171b9b615e4f91cce66749f8482837c8dfa9ef` (all earlier DEV-005 corrections plus accepted-share normalization for large regional POP and its regression). Exact-target CI is recorded in the latest checkpoint above.
 - **Previous verified baseline CI (HEAD `1cf7869` only):** tests-only [44499872965](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872965) PASS, 11/11 suites and 115/115 tests; Android debug [44499872833](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872833) SUCCESS. These results do **not** validate the later corrective commits.
 - **Intermediate corrective CI:** tests-only [44508941178](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941178) PASS (11/11 files, 116/116 tests) for d4cd28a.
 - **Intermediate 24ae CI:** Android debug [44509983834](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44509983834) failed at TypeScript strict deletion (TS2790) in a test fixture; corrected in `75ad843` with an optional-property fixture type.
@@ -48,7 +58,7 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 - **Intermediate b462 test result:** [44510529456](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44510529456) failed 1/118 because an old test expected TypeError instead of the new explicit missing-state validation error; corrected in `14bd568`.
 - **Verified corrective HEAD CI (exact code HEAD `14bd56848b8db429b9037880b08887af7118d61f`):** tests-only [44511298764](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44511298764) — SUCCESS, 118/118 tests; Android debug [44511298947](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44511298947) — SUCCESS, `assembleDebug`, checksum and signature verification. Artifact ID `14523552323` (17,564,233 bytes; artifact digest `ed2c5704aedfcc39ec0da2f8ddf9fa52ff05eef46ad0006356b9136a3c9f9c1c`).
 - **Latest branch-tip confirmation:** docs-only HEAD `3ff6b3af883ce685f8438c24eb7a3c050b547155` passed Android debug run [44511435508](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44511435508), including 118/118 tests and APK build. Artifact ID `14522638832` (17,564,282 bytes; artifact digest `d222d921b5a06ba0b450acd7297b867e875fda220aff4ea22323768d691b9354`). The later commits through current HEAD `485b43d` are protocol/documentation-only; no runtime or test source changes.
-- **Next action:** Claude independent no-write review of DEV-005 at exact code HEAD `14bd56848b8db429b9037880b08887af7118d61f`; verdict remains pending. Physical-device QA also remains NOT_TESTED.
+- **Next action:** finish exact-target CI verification for `0c171b9b615e4f91cce66749f8482837c8dfa9ef`, then request Claude independent no-write review of that exact code SHA. Verdict remains pending; physical-device QA also remains NOT_TESTED.
 
 ## Current independent review entry point
 
