@@ -76,3 +76,11 @@
 | Remediation | NOT AUTHORIZED | Keep baseline characterization isolated to pinned-baseline B4 workflow. Any normal APK workflow/test-selection change requires separate owner authorization. |
 
 This is a CI/test integration finding, not evidence that the approved frozen-baseline B4 replay cases failed. It does mean the current experiment-branch APK workflow is blocked. The manual dependency-audit dispatch remains pending because this session's GitHub tools do not provide workflow_dispatch. No artifact or package-level DEP-F1 conclusion is claimed.
+
+
+## 8. Additional CI artifact and dependency preflight (2026-11-19)
+
+- Downloaded and inspected artifacts 14550237447 (run #316) and 14551001678 (run #317). Both are diagnostic evidence archives only: provenance, build manifest/hashes, Vitest logs and structured reports. Neither contains an APK or standalone data pack. GitHub API digests are recorded in B7 Results; the archives' internal `artifact_zip.txt` fields are placeholders.
+- Confirmed exact failing assertion at `tests/s0-save-determinism.test.ts:270`. The regular test suite separately passes the current migration case “migrates saves written before constructionQueue existed”. This keeps CI-F4 scoped as a baseline-test/experiment-branch integration mismatch.
+- Parsed the pinned baseline lockfile without installing packages or running lifecycle scripts; baseline and experiment lockfile blob SHAs are identical. Selected resolved development package versions match published advisories (Vitest/@vitest/mocker and tinypool); the locked esbuild version is outside the affected range of the listed esbuild advisory.
+- This is a preliminary, selected advisory cross-check only. No npm audit report was generated, no production-dependency conclusion is made, no advisory count is reconciled, and no dependency was changed. DEP-F1 remains OPEN P1 — UNTRIAGED.
