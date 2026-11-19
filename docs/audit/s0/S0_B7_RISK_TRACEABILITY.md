@@ -83,6 +83,7 @@
 | CI-F1 | P2 | §4, `CI-F1` | OPEN P2 — existing workflows use actions flagged for Node 20 runtime deprecation; new B7 workflow is SHA-pinned to Node 24 actions. |
 | CI-F2 | P2 | §4, `CI-F2` | OPEN P2 — actionlint was not run; do not claim static lint PASS. |
 | CI-F3 | P2 | §4, `CI-F3` | OPEN P2 — B1 did not exercise an intentionally failing test on GitHub Actions; local negative probe only. |
+| CI-F4 | P1 | §3, `CI-F4` | OPEN P1 — current Android APK workflow runs the frozen-baseline-only B4 assertion against the experiment branch, which legitimately has `constructionQueue`; runs #316/#317 stop before Gradle/APK assembly. Separate the baseline characterization from the full-branch APK suite in a separately authorized CI/test task. |
 | DEP-F1 | Provisional P1 | §3, `DEP-F1` | OPEN / UNTRIAGED — six findings in 2026-11-16 audit versus ten in 2026-11-18 npm ci summary; read-only frozen-baseline audit workflow awaits dispatch/artifact review. |
 | G0.7 device evidence | BLOCKED | §3, G0.7 device-evidence limitation | iQOO Z10 Turbo has no verified measurements; Node/desktop data are not substitutes. |
 
