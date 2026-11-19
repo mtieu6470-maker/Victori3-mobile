@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `da9f6ee9e613c7678531cb4db9a92d924771cead`  
+**Snapshot HEAD before this manifest refresh:** `2701faf95d5b62671ffda07f8af27de4cd6e3501`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -14,17 +14,17 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 |---|---|
 | `docs/audit/s0/S0_B4_RUN_3_REVIEW.md` | `3d8644811c3ac13b19cce1f1274c46d2edbaa10a` |
 | `docs/audit/s0/S0_B4_TEST_PLAN.md` | `ef21f8193daf283a6ed8c6f4d68b7ca87781bd46` |
-| `docs/audit/s0/S0_RISK_REGISTER.md` | `6920adbb8859f42b815634f5ccc75492ca9211d0` |
+| `docs/audit/s0/S0_RISK_REGISTER.md` | `76087a3ed3c14340b736322300f4a536f0fe280a` |
 | `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `b55a14bf5e23e162a1b5d2b2cc6b7c1831a60022` |
-| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `9a9e8aa26bcb2f359c99469a7e3ae64796ea4c5d` |
-| `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `461f3e313cfeaa4cea3ce7add495a16f3ef45885` |
-| `docs/audit/s0/S0_SIGNOFF.md` | `97d57e869997eff8274894f30ab3258ff7eb3d6e` |
-| `docs/audit/s0/S0_B7_RESULTS.md` | `7a4761662a8847dee2ce0a0b310bfd31fe5a11ee` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `4b177f97a3fb1233dff7c7ff6e0a7baf4be75488` |
+| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `f03a94115eede2bf9845e8ff0b1cd4045b168821` |
+| `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `e3ff67518e936882b9f1f3f6096030ddb4bb99b5` |
+| `docs/audit/s0/S0_SIGNOFF.md` | `ff708a294efbed724fb1653674688c37636908a7` |
+| `docs/audit/s0/S0_B7_RESULTS.md` | `a56b233b60bee6c9a6652a3b9fda394a3361e536` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `fbf96d170b57c4d46c38c53e2bfb8783096d7b2f` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `e5edc4d8180b331b4ddce2d7f0b687621b58083c` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `a2f255b825b7c8483971e6a5fc0377241fbe14fb` |
-| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `b08ae50b0ae438400e0962560cabdf7e81572497` |
+| `docs/coordination/AI_HANDOFF.md` | `4eb351fbc5eca2091d7364746991c57a428e90f7` |
+| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `3099a2595fe8ae1a6f5754df328beb496d84eefb` |
 
 ## 2. Risk table integrity and traceability
 
@@ -40,7 +40,7 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 - Dependency-audit workflow SHA is identical on default and experiment branches at snapshot time: `dacd8506bed77624c44ffa27279354a87e9a4ebf`.
 - It is `workflow_dispatch` only, grants `contents: read`, checks out exact baseline `2240a8f`, and pins checkout/setup-node/upload-artifact to full commit SHAs.
 - It performs a full lockfile audit and a separate `--omit=dev` production audit; it does not install packages, run `npm audit fix`, alter the lockfile, execute product code, build, test, run Gradle, assemble APKs, or access signing secrets.
-- No run of this dependency-audit workflow was present at snapshot time. Its artifact and package-level results remain unavailable.
+- Workflow run `44572915201` on workflow SHA `9b150cff57e79bdb5356e431cc140b3b1b9eda2d` completed successfully. Artifact `14555141888` was downloaded and inspected; see §11 for raw-report totals and disposition.
 
 ## 4. B4 execution evidence boundary
 
@@ -83,7 +83,7 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 
 - Added OPEN P1 `CI-F4` to the Risk Register and exact traceability matrix row after inspecting current Android APK workflow runs #316 and #317. Both runs have the same baseline-only `constructionQueue` assertion failure (108/109 tests passed). Experiment branch source includes/initializes the field; frozen baseline `2240a8f` does not.
 - Both builds pass npm install and web/data build, but stop before Android SDK setup, Capacitor sync and Gradle. No APK is produced. Do not weaken baseline characterization or change the normal APK workflow under this S0 authorization.
-- The GitHub integration available to this session has no workflow-dispatch operation. The manual read-only dependency audit has not run; DEP-F1 remains OPEN P1 — UNTRIAGED and no dependency artifact or package-level disposition is available.
+- The dependency workflow has run successfully; artifact `14555141888` is reviewed. DEP-F1 is OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING. No package changes are authorized.
 - Overall S0 remains PARTIAL/BLOCKED; bounded S1-entry review and owner acceptance remain pending; S1 is NOT AUTHORIZED.
 
 
@@ -97,5 +97,15 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 ## 10. CI evidence archives and preliminary dependency preflight
 
 - API artifact identities and digests for runs #316/#317 are recorded in B7 Results and verified against downloaded ZIP contents. They are diagnostic archives; neither includes an APK or data-pack payload.
-- The pinned baseline and experiment package-lock blob SHA is `29ac661a36bb03bae62a80ce7abf9af0c15bb168`. Preliminary advisory-version cross-check is documented in B7 Results and the dependency plan, explicitly not a completed npm audit.
-- DEP-F1 remains OPEN P1 — UNTRIAGED; manual workflow dispatch and review of full-tree/production audit JSON remain outstanding.
+- The pinned baseline and experiment package-lock blob SHA is `29ac661a36bb03bae62a80ce7abf9af0c15bb168`. The full-tree and production-only audit JSONs have now been inspected; exact package/advisory findings and limitations are in the dependency plan and B7 Results.
+- DEP-F1 remains OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING. The separate B4 Run #3 npm ci count of 10 remains unresolved.
+
+
+## 11. Dependency-audit evidence refresh — 2026-11-20
+
+- Snapshot HEAD before this manifest refresh: `2701faf95d5b62671ffda07f8af27de4cd6e3501`.
+- Workflow run `44572915201` / job `135732603544` SUCCESS on workflow SHA `9b150cff57e79bdb5356e431cc140b3b1b9eda2d`.
+- Artifact `14555141888`, 4,753 bytes, API SHA-256 `b9124fa9c6f0272abaf970557ce248ef32c4d85397d21dbe64ebb19221a65a28`; all eight archive files inspected.
+- Full-tree: six vulnerable dev dependency entries (3 moderate, 1 high, 2 critical), exit 1 expected. Production-only: zero findings, exit 0. Both stderr files empty. Nested Vite esbuild `0.21.5` is affected; root esbuild `0.28.2` is not. B4 Run #3's npm ci count of 10 remains unresolved.
+- Updated review inputs: Risk Register blob `76087a3ed3c14340b736322300f4a536f0fe280a`; B7 self-review `f03a94115eede2bf9845e8ff0b1cd4045b168821`; dependency plan `e3ff67518e936882b9f1f3f6096030ddb4bb99b5`; signoff `ff708a294efbed724fb1653674688c37636908a7`; B7 Results `a56b233b60bee6c9a6652a3b9fda394a3361e536`; Claude request `fbf96d170b57c4d46c38c53e2bfb8783096d7b2f`; workflow `dacd8506bed77624c44ffa27279354a87e9a4ebf`; AI_HANDOFF `4eb351fbc5eca2091d7364746991c57a428e90f7`; next-session handoff `3099a2595fe8ae1a6f5754df328beb496d84eefb`.
+- B7 remains IN_PROGRESS pending Claude independent review and owner decision. Overall S0 remains PARTIAL/BLOCKED; S1 remains NOT AUTHORIZED.
