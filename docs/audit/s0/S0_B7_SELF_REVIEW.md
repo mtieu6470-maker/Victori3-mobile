@@ -42,7 +42,7 @@
 ## 4. Non-claims
 
 - No Claude review result is claimed.
-- The new dependency workflow has not been dispatched; no package-level conclusion is claimed.
+- Historical status at the time of the original self-review: workflow dispatch pending. Superseded by the completed run and artifact review in §9.
 - No actionlint result is claimed; the workflow has only had static source review.
 - No iQOO performance, lifecycle, export/import, or thermal measurement is claimed.
 - G0.6 PASS applies only to the frozen baseline evidence in B4 Run #3; it does not certify the later expanded test file or the full experiment branch.
@@ -61,7 +61,7 @@
 - The current experiment branch's Android workflow runs #316 and #317 both fail before APK assembly. Each ran 109 tests: 108 passed and 1 failed in the baseline-only legacy-field characterization. See the updated B7 results and handoff for exact run/job IDs and source-scope analysis.
 - This is not a new execution of the approved frozen-baseline B4 workflow and does not replace its bounded G0.6 PASS. It does establish that the Android workflow currently cannot produce an APK from HEAD fa95ad8.
 - Recounted the P2 table directly from the current Risk Register: **22 data rows**, each with six cells (ID, evidence, impact, disposition/control, owner, target/closure criteria). Older handoff/self-review wording that said 21 rows was stale; the current manifest's 22-row count is correct.
-- DEP-F1 workflow dispatch/artifact review, Claude independent review and owner decision remain pending. No product or workflow change is authorized by this addendum.
+- Historical status at the time of this 2026-11-19 addendum: dependency dispatch/artifact review pending. Superseded by §9 and the 2026-11-20 artifact review. Claude independent review and owner decision remain pending.
 
 
 ## 7. CI-F4 review — APK workflow scope (2026-11-19)
@@ -82,7 +82,7 @@ This was a CI/test integration finding, not evidence that the approved frozen-ba
 - Downloaded and inspected artifacts 14550237447 (run #316) and 14551001678 (run #317). Both are diagnostic evidence archives only: provenance, build manifest/hashes, Vitest logs and structured reports. Neither contains an APK or standalone data pack. GitHub API digests are recorded in B7 Results; the archives' internal `artifact_zip.txt` fields are placeholders.
 - Confirmed exact failing assertion at `tests/s0-save-determinism.test.ts:270`. The regular test suite separately passes the current migration case “migrates saves written before constructionQueue existed”. This keeps CI-F4 scoped as a baseline-test/experiment-branch integration mismatch.
 - Parsed the pinned baseline lockfile without installing packages or running lifecycle scripts; baseline and experiment lockfile blob SHAs are identical. Selected resolved development package versions match published advisories (Vitest/@vitest/mocker and tinypool); the locked esbuild version is outside the affected range of the listed esbuild advisory.
-- This is a preliminary, selected advisory cross-check only. No npm audit report was generated, no production-dependency conclusion is made, no advisory count is reconciled, and no dependency was changed. DEP-F1 remains OPEN P1 — UNTRIAGED.
+- This was a preliminary, selected advisory cross-check only, before the manual audit ran. It is superseded by the complete raw audit evidence in §9; DEP-F1 is now OPEN P1 — AUDIT COMPLETE, with remediation and owner disposition pending. No dependency was changed.
 
 
 ## 9. Dependency-audit artifact review — 2026-11-20
