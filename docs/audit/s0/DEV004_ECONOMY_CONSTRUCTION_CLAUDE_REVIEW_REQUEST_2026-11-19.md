@@ -1,7 +1,7 @@
 # DEV-004 — Economy, wages, factory inputs and construction lifecycle: Claude review
 
 **Review target branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
-**Exact review HEAD:** `ebeff72b20df155c376000f67fd4b9022fc3e327`  
+**Exact review HEAD:** `f0c3b08e066f198733559d0c76da3bca0f06d281`  
 **Comparison base:** `526b745d980ae5a4094b6dcbdabf41152f910afa` (last green build before the economy/construction feature tranche)  
 **Review type:** independent code review first; one bounded corrective pass only after findings are reported  
 **Status:** REQUESTED — no Claude verdict is claimed; no owner approval is implied
@@ -22,6 +22,7 @@ Feature commits in the reviewed range include:
 - `c92e9b77aeda7fa70b18d18898bb50d16d7a2141` — staged factory production using realized upstream output and full requested input demand.
 - `19df2682c749bfb58fdee2e8ec275873fc4dece7` — CoW national population benchmark scope check using a capital-culture homeland proxy.
 - `ebeff72b20df155c376000f67fd4b9022fc3e327` — unfilled factory-input demand and 100% shortage regression assertions.
+- `f0c3b08e066f198733559d0c76da3bca0f06d281` — partial shared-input shortage regression for primary textile and steel factories.
 
 Primary files:
 
@@ -107,3 +108,12 @@ Return a structured review against the exact HEAD above:
 ## 6. Non-claims
 
 This request is not evidence of Claude review completion, owner acceptance, S0/S1/S22 sign-off, production signing, Android device compatibility, balance quality, or full Victoria 3 feature parity. The capital-culture benchmark proxy is not an approved geographic crosswalk. The APK above is a debug artifact built by CI only; it has not been installed or tested on a physical device.
+
+
+## 7. Follow-on work after the prior CI evidence
+
+- **New exact review HEAD:** `f0c3b08e066f198733559d0c76da3bca0f06d281`.
+- Added `tests/factory-market-clearing.test.ts` coverage for a partial coal shortage shared by textile mills and ironworks in the same primary production stage. The assertion requires a non-zero, non-total shortage while both realized outputs remain positive, guarding against order-dependent starvation of one primary factory.
+- The earlier 87/87 test result and 18,048,145-byte debug APK above belong to the earlier `ebeff72b20df155c376000f67fd4b9022fc3e327` review target. They are **not** evidence that the new test passed or that a new APK was built.
+- **Validation status for `f0c3b08e066f198733559d0c76da3bca0f06d281`: PENDING.** No passing workflow result is claimed for this commit yet. Re-run the tests-only workflow first; build APK only after tests pass.
+- Claude review remains requested, not completed. No S0/S1/S22 acceptance, device QA, production signing, or full Victoria 3 parity is claimed.
