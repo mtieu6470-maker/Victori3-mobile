@@ -225,7 +225,7 @@ This is the latest ChatGPT technical consistency check before independent review
 
 No image, video, audio, historical dataset, asset pack, gameplay or product code was created or changed for this target. No product test/build or APK generation was intentionally run.
 
-## 13. Post-design consistency check — 2026-11-17
+### 12.1. Post-design consistency check — 2026-11-17
 
 After the §12 checkpoint, the owner clarified the delivery requirement further: no misleading "18 MB full game", and the 3–4 GB target must represent real historical/game content. The design was then expanded in §§11.3–11.5 and synchronized into the Risk Register R15, Signoff P1 table, Claude review question 13, Vietnamese summary §3.2 and AI Handoff.
 
