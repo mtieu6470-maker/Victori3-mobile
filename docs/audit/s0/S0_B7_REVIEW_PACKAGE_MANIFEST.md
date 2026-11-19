@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `85664c96753dd2d62ac3f1dbf5532796223a5abf`  
+**Snapshot HEAD before this manifest refresh:** `e28c2bf802e49092c7ad1d71835cb003c54797e8`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -108,7 +108,7 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 - Workflow run `44572915201` / job `135732603544` SUCCESS on workflow SHA `9b150cff57e79bdb5356e431cc140b3b1b9eda2d`.
 - Artifact `14555141888`, 4,753 bytes, API SHA-256 `b9124fa9c6f0272abaf970557ce248ef32c4d85397d21dbe64ebb19221a65a28`; all eight archive files inspected.
 - Full-tree: six vulnerable dev dependency entries (3 moderate, 1 high, 2 critical), exit 1 expected. Production-only: zero findings, exit 0. Both stderr files empty. Nested Vite esbuild `0.21.5` is affected; root esbuild `0.28.2` is not. B4 Run #3's npm ci count of 10 remains unresolved.
-- Updated review inputs: Risk Register blob `76087a3ed3c14340b736322300f4a536f0fe280a`; B7 self-review `f03a94115eede2bf9845e8ff0b1cd4045b168821`; dependency plan `e3ff67518e936882b9f1f3f6096030ddb4bb99b5`; signoff `ff708a294efbed724fb1653674688c37636908a7`; B7 Results `a56b233b60bee6c9a6652a3b9fda394a3361e536`; Claude request `fbf96d170b57c4d46c38c53e2bfb8783096d7b2f`; workflow `dacd8506bed77624c44ffa27279354a87e9a4ebf`; AI_HANDOFF `4eb351fbc5eca2091d7364746991c57a428e90f7`; next-session handoff `3099a2595fe8ae1a6f5754df328beb496d84eefb`.
+- Historical review-input SHAs at the initial dependency-audit checkpoint (superseded by the refreshed identities in §12 and the Governance references section below): Risk Register `76087a3ed3c14340b736322300f4a536f0fe280a`; B7 self-review `f03a94115eede2bf9845e8ff0b1cd4045b168821`; dependency plan `e3ff67518e936882b9f1f3f6096030ddb4bb99b5`; signoff `ff708a294efbed724fb1653674688c37636908a7`; B7 Results `a56b233b60bee6c9a6652a3b9fda394a3361e536`; Claude request `fbf96d170b57c4d46c38c53e2bfb8783096d7b2f`; workflow `dacd8506bed77624c44ffa27279354a87e9a4ebf`; AI_HANDOFF `4eb351fbc5eca2091d7364746991c57a428e90f7`; next-session handoff `3099a2595fe8ae1a6f5754df328beb496d84eefb`.
 - B7 remains IN_PROGRESS pending Claude independent review and owner decision. Overall S0 remains PARTIAL/BLOCKED; S1 remains NOT AUTHORIZED.
 
 
