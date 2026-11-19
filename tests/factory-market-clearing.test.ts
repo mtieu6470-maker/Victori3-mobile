@@ -78,44 +78,67 @@ describe('factory intermediate-goods market clearing', () => {
     expect(market.tools.short).toBeLessThan(0.01);
   });
   it('shares a partial primary-stage coal shortage proportionally across textile and steel factories', () => {
-    const { st: constrained, region: constrainedRegion } = isolatedIndustrialWorld();
-    constrainedRegion.res = ['iron', 'coal', 'cott'];
-    constrainedRegion.buildings.mine = 2;
-    constrainedRegion.buildings.plantation = 10;
-    constrainedRegion.buildings.textile_mill = 2;
-    constrainedRegion.buildings.ironworks = 2;
-    computeEconomy(constrained);
+    const simulate = (coalMineLevels: number) => {
+      const { st, region } = isolatedIndustrialWorld();
+      region.res = ['coal', 'cott'];
+      region.buildings.mine = coalMineLevels;
+      region.buildings.plantation = 10;
+      region.buildings.textile_mill = 2;
+      region.buildings.ironworks = 2;
 
-    // A matched, unconstrained reference keeps population, productivity and factory capacity
-    // identical; only the upstream mine capacity changes.
-    const { st: supplied, region: suppliedRegion } = isolatedIndustrialWorld();
-    suppliedRegion.res = ['iron', 'coal', 'cott'];
-    suppliedRegion.buildings.mine = 50;
-    suppliedRegion.buildings.plantation = 10;
-    suppliedRegion.buildings.textile_mill = 2;
-    suppliedRegion.buildings.ironworks = 2;
-    computeEconomy(supplied);
+      // Supply iron independently so coal is the only shared scarce factory input.
+      const ironRegion = st.regions.find((candidate) => candidate.owner === 'GBR' && candidate.id !== region.id);
+      if (!ironRegion) throw new Error('Expected a second GBR region for isolated iron supply.');
+      ironRegion.pop = 1_000_000;
+      ironRegion.strata.fill(0);
+      ironRegion.strata[S.peasants] = 0.2;
+      ironRegion.strata[S.laborers] = 0.8;
+      ironRegion.res = ['iron'];
+      ironRegion.buildings.mine = 50;
 
-    const market = constrained.marketStats.GBR;
-    const reference = supplied.marketStats.GBR;
-    expect(market.coal.short).toBeGreaterThan(0);
-    expect(market.coal.short).toBeLessThan(1);
-    expect(market.textiles.supply).toBeGreaterThan(0);
-    expect(market.steel.supply).toBeGreaterThan(0);
+      computeEconomy(st);
+      return st;
+    };
 
-    // Both primary factories consume coal and must receive the same proportional availability.
-    // Compare realized output to a matched no-shortage run so this fails on sequential priority.
-    const textileRealization = market.textiles.supply / reference.textiles.supply;
-    const steelRealization = market.steel.supply / reference.steel.supply;
+    const constrained = simulate(2).marketStats.GBR;
+    const reference = simulate(50).marketStats.GBR;
+    expect(constrained.coal.short).toBeGreaterThan(0);
+    expect(constrained.coal.short).toBeLessThan(1);
+    expect(constrained.iron.short).toBeLessThan(0.01);
+    expect(constrained.textiles.supply).toBeGreaterThan(0);
+    expect(constrained.steel.supply).toBeGreaterThan(0);
+
+    // With iron plentiful, both primary factories are constrained by their common coal input.
+    const textileRealization = constrained.textiles.supply / reference.textiles.supply;
+    const steelRealization = constrained.steel.supply / reference.steel.supply;
     expect(textileRealization).toBeGreaterThan(0);
     expect(steelRealization).toBeGreaterThan(0);
     expect(textileRealization).toBeCloseTo(steelRealization, 3);
-
-    // Demand remains the full requested amount while production is constrained.
-    expect(market.coal.demand).toBeGreaterThan(1_500_000);
-    expect(Number.isFinite(market.coal.supply)).toBe(true);
-    expect(Number.isFinite(market.coal.demand)).toBe(true);
+    expect(constrained.coal.demand).toBeGreaterThan(1_500_000);
+    expect(Number.isFinite(constrained.coal.supply)).toBe(true);
+    expect(Number.isFinite(constrained.coal.demand)).toBe(true);
   });
+
+  it('does not let later arms demand pre-empt steel required by the earlier tools stage', () => {
+    const simulate = (includeArms: boolean) => {
+      const { st, region } = isolatedIndustrialWorld();
+      region.res = ['iron', 'coal', 'timb'];
+      region.buildings.mine = 12;
+      region.buildings.logging = 10;
+      region.buildings.ironworks = 1;
+      region.buildings.tool_works = 1;
+      region.buildings.arms_works = includeArms ? 2 : 0;
+      computeEconomy(st);
+      return st.marketStats.GBR;
+    };
+
+    const withoutArms = simulate(false);
+    const withArms = simulate(true);
+    expect(withArms.steel.short).toBeGreaterThan(0);
+    expect(withArms.tools.supply).toBeCloseTo(withoutArms.tools.supply, 5);
+    expect(withArms.arms.supply).toBeGreaterThan(0);
+  });
+
   it('shares a scarce regional factory workforce proportionally instead of prioritizing recipe order', () => {
     const simulate = (workerShare: number) => {
       const { st, region } = isolatedIndustrialWorld();
