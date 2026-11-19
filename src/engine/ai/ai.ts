@@ -4,10 +4,10 @@
 // war duration caps (military.ts) and minimum activity guarantees.
 import { data } from '../data/db';
 import { LAW_GROUPS, type LawGroup } from '../data/dbTypes';
-import { BUILDINGS, type Building, type Country, type GameState, type WarGoal } from '../types';
+import { BUILDINGS, type Building, type Country, type GameState, type Good, type WarGoal } from '../types';
 import { clamp, count, getRel, rand, chance, relKey } from '../core';
 import { historicalBias } from '../historical';
-import { enqueueConstruction, constructionQueueLength, buildingReturn, canBuild, hasTech, privateInvestment, SHIP_COST } from '../systems/economy';
+import { enqueueConstruction, constructionQueueLength, buildingReturn, canBuild, hasTech, marketOf, privateInvestment, SHIP_COST } from '../systems/economy';
 import { reformSupport, startReform, sharesBorder } from '../systems/politics';
 import { techCost } from '../systems/technology';
 import { allied, allianceAcceptance, declareRivalry, declareWar, formAlliance, greatPowers, guarantee, improveRelations, joinCustomsUnion, powerScore, rivals } from '../systems/diplomacy';
@@ -102,6 +102,35 @@ export function chooseResearch(st: GameState, c: Country, options: string[]): st
   return best;
 }
 
+/** How strongly the current market needs the output of a candidate building (0..1). */
+export function investmentDemandPriority(st: GameState, c: Country, r: GameState['regions'][number], b: Building): number {
+  let goods: Good[] = [];
+  if (b === 'textile_mill') goods = ['textiles'];
+  else if (b === 'ironworks') goods = ['steel'];
+  else if (b === 'tool_works') goods = ['tools'];
+  else if (b === 'arms_works') goods = ['arms'];
+  else if (b === 'luxury_workshop') goods = ['luxury'];
+  else if (b === 'logging') goods = ['timber'];
+  else if (b === 'mine') {
+    if (r.res.includes('coal')) goods.push('coal');
+    if (r.res.includes('iron')) goods.push('iron');
+    if (r.res.includes('gold') || r.res.includes('silv')) goods.push('luxury');
+    if (!goods.length) goods = ['iron'];
+  } else if (b === 'plantation') {
+    if (r.res.includes('cott')) goods.push('cotton');
+    if (r.res.includes('opium')) goods.push('opium');
+    if (r.res.includes('cash')) goods.push('cash_crops');
+    if (!goods.length) goods = ['cash_crops'];
+  }
+  if (!goods.length) return 0;
+  const stats = st.marketStats?.[marketOf(st, c)];
+  const shortages = goods.map((good) => {
+    const short = stats?.[good]?.short;
+    return typeof short === 'number' && Number.isFinite(short) ? clamp(short, 0, 1) : 0;
+  });
+  return shortages.reduce((sum, value) => sum + value, 0) / shortages.length;
+}
+
 // ---------------------------------------------------------------- construction (state investment)
 function constructionAI(st: GameState, c: Country) {
   if (constructionQueueLength(st, c.id, 'state') >= 3 || c.statePool <= 0) return;
@@ -113,13 +142,16 @@ function constructionAI(st: GameState, c: Country) {
       if (b === 'university' && r.id !== c.capital) continue;
       if (!canBuild(st, c, r, b)) continue;
       let v = buildingReturn(st, c, r, b);
+      // State investment may accept a modestly lower direct return when the market is short
+      // of the candidate output; this helps resolve bottlenecks without rewarding surplus goods.
+      v += investmentDemandPriority(st, c, r, b) * 0.06;
       if (b === 'arms_works') v += threat * 0.05;
       if (b === 'railway') v += 0.03 + historicalBias(st, c, 'industrialize') * 0.05;
       if (b === 'university') v = 0.02 + c.personality.reformism * 0.05 - r.buildings.university * 0.03;
       if (!best || v > best.v) best = { r: i, b, v };
     }
   }
-  if (best && best.v > 0.04 && enqueueConstruction(st, c, st.regions[best.r], best.b, 'state')) count(st, 'construction', c.id);
+  if (best && best.v > 0.025 && enqueueConstruction(st, c, st.regions[best.r], best.b, 'state')) count(st, 'construction', c.id);
 }
 
 // ---------------------------------------------------------------- reforms (with anti-oscillation)
