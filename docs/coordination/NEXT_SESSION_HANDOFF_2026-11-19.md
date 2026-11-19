@@ -84,3 +84,31 @@ The earlier run #65 belongs to commit `4d41ce2`; the current branch has advanced
 
 ## 7. Quick start prompt
 Continue Victori3 Mobile from this handoff. First verify live HEAD of `experiment/vic3-visual-upgrade` is still `3e2e1d546efee4ee20d19b1da5a86403277006f7`. Read `docs/coordination/AI_HANDOFF.md` and the S0-B7 files listed above. Work only on the experiment branch. Continue the read-only B7 dependency audit, inspect its artifact, reconcile DEP-F1, independently review B7 and disclose the supplementary Run #65 test discrepancy. Do not touch Claude/default branch, product code, save/RNG/schema, signing, APK installation, or S1. Record every verified commit, workflow run, test count, artifact and limitation. Stop for explicit owner decision; do not self-accept.
+
+
+---
+
+## Addendum — live recheck 2026-11-19 (after the original handoff snapshot)
+
+**Verified experiment HEAD before this addendum:** `fa95ad894c6fd32c673a569a561a17b7132cef36`. The original handoff's `3e2e1d5` SHA is a historical snapshot, not the current HEAD.
+
+### Branch and commit verification
+- Repository: `mtieu6470-maker/Victori3-mobile`.
+- Working branch: `experiment/vic3-visual-upgrade`.
+- Default branch: `claude/game-historical-sandbox-modes-kg7rj7`; its observed HEAD is `e4182491161e61065e4ac15228c5f59a8832ad1d`. Do not modify it.
+- Latest experiment commits: `26963da` (adds this handoff) and `fa95ad8` (links it from `AI_HANDOFF.md`); both touch documentation only.
+- The GitHub API exposes committed branch state, not an agent's local uncommitted working tree. No local dirty-tree claim is made.
+
+### New CI evidence
+- Android APK run #316: `44562638037`, job `135695779759`, commit `26963da`, FAILURE.
+- Android APK run #317: `44562662560`, job `135695865693`, commit `fa95ad8`, FAILURE.
+- Both runs: `npm ci` PASS; `npm run build` PASS; generated-data/web-bundle hashing PASS; Vitest FAIL (6 files: 5 pass / 1 fail; 109 tests: 108 pass / 1 fail).
+- Same failing baseline characterization assertion: restored countries must not contain `constructionQueue`. Current experiment source adds and initializes `constructionQueue`, while frozen baseline `2240a8f` predates it. The Android workflow runs the complete test suite against the experiment branch; this is a current-branch test-scope mismatch and not a replacement for the approved baseline B4 evidence.
+- Android SDK setup, Capacitor sync, Gradle `assembleDebug`, APK checksum and APK artifact upload were skipped. No APK is available from #316/#317. The data/web build ran but was not uploaded as a downloadable data pack.
+
+### Next actions / stop conditions
+1. Keep the B7 package and all S0 restrictions intact. Do not alter engine, save schema, test harness, Android workflow, dependencies or data to make the APK green under this audit authorization.
+2. Obtain an owner/manual dispatch of `.github/workflows/s0-b7-dependency-audit.yml` on this experiment branch; review both full-tree and production-only JSON artifacts. DEP-F1 remains OPEN P1 — UNTRIAGED until then.
+3. Ask Claude for the read-only B7 review, explicitly including runs #316/#317 and the separate older Run #65 discrepancy.
+4. Update/review documentation only after evidence arrives. Owner acceptance is still required; S1 is not authorized.
+5. APK + separately downloadable, integrity-checked data packs remain product/release requirements for a later explicitly authorized implementation phase. This S0-B7 audit has not implemented them.
