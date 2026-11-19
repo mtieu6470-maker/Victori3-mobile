@@ -3,7 +3,7 @@ import { createGame } from '../src/engine/init';
 import { loadNodeData } from '../src/engine/node';
 import { deserialize, SAVE_FORMAT, SAVE_SCHEMA_VERSION, serialize } from '../src/engine/save';
 import { validatePopulationState } from '../src/engine/systems/populationCohorts';
-import { stepMonth } from '../src/engine/simulation';
+import { stepMonth, SYSTEMS } from '../src/engine/simulation';
 import type { GameState } from '../src/engine/types';
 
 loadNodeData();
@@ -46,6 +46,28 @@ describe('DEV-005 — population cohort foundation', () => {
     const cohortMass = state.population.cohorts.reduce((sum, cohort) => sum + cohort.size, 0);
     const regionMass = state.regions.reduce((sum, region) => sum + region.pop, 0);
     expect(Math.abs(cohortMass - regionMass) / Math.max(1, regionMass)).toBeLessThan(1e-12);
+  });
+
+  it('refreshes cohort mass after the final monthly system mutates regional population', () => {
+    const state = createGame({ mode: 'sandbox', seed: 91, player: 'GBR' });
+    const originalLength = SYSTEMS.length;
+    try {
+      SYSTEMS.push({
+        name: 'test-late-population-mutation',
+        run: (current) => {
+          const region = current.regions[0];
+          region.pop *= 0.975;
+        },
+      });
+      stepMonth(state);
+      expect(() => validatePopulationState(state)).not.toThrow();
+      const cohort = state.population.cohorts
+        .filter((entry) => entry.regionId === state.regions[0].id)
+        .reduce((sum, entry) => sum + entry.size, 0);
+      expect(cohort).toBeCloseTo(state.regions[0].pop, 7);
+    } finally {
+      SYSTEMS.length = originalLength;
+    }
   });
 
   it('migrates a v1 save deterministically without consuming RNG or changing regional aggregates', () => {

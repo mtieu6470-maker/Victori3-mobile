@@ -12,6 +12,7 @@ import { eventsMonth } from './systems/events';
 import { aiMonth, chooseResearch, decideWindow } from './ai/ai';
 import { divergenceMonth } from './divergence';
 import { sampleYear } from './metrics';
+import { refreshPopulationState } from './systems/populationCohorts';
 import { createNation } from './world';
 
 export const SYSTEMS: { name: string; run: (st: GameState) => void }[] = [
@@ -35,6 +36,9 @@ export function stepMonth(st: GameState) {
     st.counters.systemRuns[s.name] = (st.counters.systemRuns[s.name] ?? 0) + 1;
   }
   if (st.date.m === 1) sampleYear(st);
+  // Rebuild only after every system (including secession, events and AI) has
+  // finished mutating regional POP/strata for this tick.
+  refreshPopulationState(st);
 }
 
 export function runMonths(st: GameState, n: number) { for (let i = 0; i < n; i++) stepMonth(st); }
