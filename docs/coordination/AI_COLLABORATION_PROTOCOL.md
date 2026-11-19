@@ -157,3 +157,8 @@ If evidence is unavailable, contradictory, or irreproducible:
 ## Completion definition
 
 A task is complete only when implementation, evidence, handoff update, independent review, and owner decision are recorded. A successful commit or CI run alone is not completion.
+
+
+## Session continuity and failure recovery
+
+All agents must follow `docs/coordination/SESSION_RECOVERY_PROTOCOL_VI.md` when starting a new session or recovering from a stalled/lost chat response, network congestion, GitHub timeout, rate limit, or ambiguous write result. GitHub commits at the latest verified branch HEAD are the durable checkpoints. Before retrying a write, inspect the branch, commit history, target file and workflow status to avoid duplicate operations or overwriting newer work. If repository state cannot be verified after bounded retries, stop writes and report `BLOCKED`; do not infer success or failure. The owner may resume in a new chat with the recovery prompt in that document; no full project re-explanation should be required.
