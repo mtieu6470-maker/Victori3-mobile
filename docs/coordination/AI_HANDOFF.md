@@ -23,11 +23,12 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 ## Active DEV-005 review entry point
 
 - **DEV-005 — Population cohort foundation:** `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md`.
-- **Exact current corrective code review HEAD:** `75ad843b11c841a3a0191d2c256383b764cc180f` (duplicate/missing/blank Region ID guards, v1 envelope/state version check, and TypeScript fixture fix). Earlier code targets are superseded for review.
+- **Exact current corrective code review HEAD:** `b4620a548455444ea26fc784f11dca2a13d9da56` (duplicate/missing/blank Region ID guards, v1 envelope/state version check, TypeScript fixture syntax corrected). Earlier code targets are superseded for review.
 - **Previous verified baseline CI (HEAD `1cf7869` only):** tests-only [44499872965](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872965) PASS, 11/11 suites and 115/115 tests; Android debug [44499872833](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872833) SUCCESS. These results do **not** validate the later corrective commits.
 - **Intermediate corrective CI:** tests-only [44508941178](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44508941178) PASS (11/11 files, 116/116 tests) for d4cd28a.
 - **Intermediate 24ae CI:** Android debug [44509983834](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44509983834) failed at TypeScript strict deletion (TS2790) in a test fixture; corrected in `75ad843` with an optional-property fixture type.
-- **Current corrective HEAD CI:** tests-only [44510279688](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44510279688) and Android debug [44510279681](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44510279681) are running for `75ad843`; no pass is claimed yet.
+- **Intermediate 75ad Android build:** [44510279681](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44510279681) failed at TS1434 due to a multiline test type assertion; corrected by `36e5f64` and `b4620a5`.
+- **Current corrective HEAD CI:** tests-only [44510529456](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44510529456) and Android debug [44510529403](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44510529403) are running for `b4620a5`; no pass is claimed yet.
 
 ## Current independent review entry point
 
