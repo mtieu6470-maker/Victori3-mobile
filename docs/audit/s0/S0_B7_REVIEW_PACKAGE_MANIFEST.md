@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `61ab3805510617d9f4e945db5610ebe0a295824f`  
+**Snapshot HEAD before this manifest refresh:** `3db6332732c0eb651fa59f7171f919839c131378`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -16,15 +16,15 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 | `docs/audit/s0/S0_B4_TEST_PLAN.md` | `ef21f8193daf283a6ed8c6f4d68b7ca87781bd46` |
 | `docs/audit/s0/S0_RISK_REGISTER.md` | `6920adbb8859f42b815634f5ccc75492ca9211d0` |
 | `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `b55a14bf5e23e162a1b5d2b2cc6b7c1831a60022` |
-| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `86ca7f07ba2aea4c30b8ce15f43f82021437b430` |
+| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `2c507da54e7606e25c054bd3429d59ef13398aec` |
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `65173d78353d81b5304602a81372847232c5d8e1` |
 | `docs/audit/s0/S0_SIGNOFF.md` | `97d57e869997eff8274894f30ab3258ff7eb3d6e` |
 | `docs/audit/s0/S0_B7_RESULTS.md` | `a3b285b505dad46baab4c30ed97ee1e079759f82` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `8d7f3788eafe8afef5f584e67eb5cc180abc18c0` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `e5edc4d8180b331b4ddce2d7f0b687621b58083c` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `b09b05ad1159b2cf8cd266252430d1d9b13c0cf1` |
-| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `09bb06c7a2af514dc90335719d492de67c7236ab` |
+| `docs/coordination/AI_HANDOFF.md` | `5a55c933c0525618047319f22e687548ae42e29d` |
+| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `14eaf9211cb7d6183413cff310f8d364f91ea5e4` |
 
 ## 2. Risk table integrity and traceability
 
@@ -85,3 +85,10 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 - Both builds pass npm install and web/data build, but stop before Android SDK setup, Capacitor sync and Gradle. No APK is produced. Do not weaken baseline characterization or change the normal APK workflow under this S0 authorization.
 - The GitHub integration available to this session has no workflow-dispatch operation. The manual read-only dependency audit has not run; DEP-F1 remains OPEN P1 — UNTRIAGED and no dependency artifact or package-level disposition is available.
 - Overall S0 remains PARTIAL/BLOCKED; bounded S1-entry review and owner acceptance remain pending; S1 is NOT AUTHORIZED.
+
+
+## 9. Product delivery requirement recorded (not implemented)
+
+- The owner requires an installable APK as a separate download followed by explicitly selected, separately versioned in-app data-pack downloads.
+- Future implementation must verify a trusted manifest/signature and SHA-256 before atomic pack activation; retain packs locally for offline play; and require consent before background or mobile-data downloads.
+- Current status: NOT IMPLEMENTED / NOT TESTED. Runs #316/#317 produced neither an APK nor a data-pack artifact. This is a future, separately authorized product task, not an S0-B7 completion claim.
