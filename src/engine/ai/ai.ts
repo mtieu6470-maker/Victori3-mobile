@@ -53,6 +53,21 @@ function threatLevel(st: GameState, c: Country): number {
   }
   return clamp(t, 0, 3);
 }
+/** Fiscal share available for new state construction, bounded to protect essential spending. */
+export function constructionBudgetShare(c: Country, war: boolean, industrializationBias: number): number {
+  const monthlyIncome = Math.max(1, c.income);
+  const operatingMargin = clamp((c.income - c.expense) / monthlyIncome, -1, 1);
+  const debtBurden = clamp(c.debt / (monthlyIncome * 24), 0, 1);
+  const faminePressure = clamp(c.famine, 0, 1);
+  return clamp(
+    0.08 + operatingMargin * 0.08 - debtBurden * 0.07
+      - faminePressure * 0.06 - (war ? 0.04 : 0)
+      + industrializationBias * 0.08,
+    0.02,
+    0.28,
+  );
+}
+
 function budgetAI(st: GameState, c: Country) {
   const war = atWar(st, c.id);
   const threat = c.decentralized ? 0 : threatLevel(st, c);
@@ -66,7 +81,7 @@ function budgetAI(st: GameState, c: Country) {
   c.budget.health = clamp(0.02 + (c.famine > 0.05 ? 0.08 : 0), 0, 0.12);
   c.budget.admin = 0.15;
   const balance = c.income - c.expense;
-  c.budget.construction = clamp(0.08 + (balance > 0 ? 0.1 : -0.05) + historicalBias(st, c, 'industrialize') * 0.1, 0.02, 0.3);
+  c.budget.construction = constructionBudgetShare(c, war, historicalBias(st, c, 'industrialize'));
   if (balance < -0.05 * c.income) c.taxRate = clamp(c.taxRate + 0.002, 0.02, 0.25);
   else if (balance > 0.15 * c.income && c.radicalism > 0.15) c.taxRate = clamp(c.taxRate - 0.002, 0.02, 0.25);
   count(st, 'budget', c.id);
