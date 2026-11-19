@@ -77,4 +77,27 @@ describe('factory intermediate-goods market clearing', () => {
     expect(market.steel.short).toBeLessThan(0.01);
     expect(market.tools.short).toBeLessThan(0.01);
   });
+  it('shares a partial primary-stage coal shortage across textile and steel factories', () => {
+    const { st, region } = isolatedIndustrialWorld();
+    // Cotton is supplied by plantations; the small mine capacity makes iron and coal scarce.
+    // Textile mills and ironworks are both primary-stage factories and must see the same
+    // market-clearing snapshot rather than whichever recipe happens to be iterated first.
+    region.res = ['iron', 'coal', 'cott'];
+    region.buildings.mine = 2;
+    region.buildings.plantation = 10;
+    region.buildings.textile_mill = 2;
+    region.buildings.ironworks = 2;
+    computeEconomy(st);
+
+    const market = st.marketStats.GBR;
+    expect(market.coal.short).toBeGreaterThan(0);
+    expect(market.coal.short).toBeLessThan(1);
+    expect(market.textiles.supply).toBeGreaterThan(0);
+    expect(market.steel.supply).toBeGreaterThan(0);
+    // Requested factory demand stays visible even when the realized output is constrained.
+    expect(market.coal.demand).toBeGreaterThan(1_500_000);
+    expect(Number.isFinite(market.coal.supply)).toBe(true);
+    expect(Number.isFinite(market.coal.demand)).toBe(true);
+  });
+
 });
