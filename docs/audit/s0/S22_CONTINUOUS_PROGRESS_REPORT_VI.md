@@ -19,7 +19,7 @@
 | S0 tổng thể | **PARTIAL / BLOCKED** | G0.7 BLOCKED; G0.8 PARTIAL; G0.9 BLOCKED |
 | S1 / S23 | **NOT_STARTED** | Chưa có REVIEW_PASS + owner ACCEPTED cho gói chuyển tiếp và scope tương ứng |
 | S22 | **DESIGN_ONLY** | Chỉ có tài liệu thiết kế/nghiên cứu; chưa có runtime authorization |
-| Cách tải và cài dữ liệu game | **YÊU CẦU SẢN PHẨM — CHƯA TRIỂN KHAI** | Tải APK nhỏ trước → cài và mở game → người chơi chủ động chọn/tải các data pack trong app → xác minh chữ ký + SHA-256 → cài/activate an toàn → chơi offline. Dữ liệu đầy đủ dự kiến khoảng 4–5 GB, chia pack; không tự tải nền hoặc dùng mạng di động khi chưa được đồng ý. 
+| Cách tải và cài dữ liệu game | **YÊU CẦU SẢN PHẨM — CHƯA TRIỂN KHAI** | Tải APK nhỏ trước → cài và mở game → người chơi chủ động chọn/tải các data pack trong app → xác minh chữ ký + SHA-256 → cài/activate an toàn → chơi offline. Dữ liệu đầy đủ dự kiến khoảng 4–5 GB, chia pack; không tự tải nền hoặc dùng mạng di động khi chưa được đồng ý. |
 | APK hiện có | **DEBUG ARTIFACT — CI VERIFIED** | 18,052,144 bytes; SHA-256 `85e49cc5…e17ee08e`; chưa phải release-signed và chưa thử trên iQOO |
 | Bước kế tiếp | **Claude review DEV-005** | Review đúng code target; xử lý finding có giới hạn; không tự mở phase |
 
@@ -28,7 +28,7 @@
 ## 0.8 — CoW NMC v7 rights review and research-only restriction (19/11/2026)
 
 - **Branch base for this report update:** `c78f9d07025044aac1d4a9b7030f2f09eece3ebc`; the documentation slice began from `01ba80bdb58d85aeee17b6bd0d4f89423ca27292`. Code review target remains `c9868d7131d7de3fd8efd0263411fee9111f172c`.
-- **Diff reconciliation at slice start:** compare from DEV-005 code target to branch base showed 19 commits and five changed paths, all documentation/research governance files. No gameplay, runtime, test, historical runtime data, assets, Android, Gradle, signing or workflow files were changed in that range.
+- **Diff reconciliation at original slice start (`01ba80b`):** compare from the DEV-005 code target showed 19 commits and five changed paths, all documentation/governance files. No gameplay, runtime, test, historical runtime data, assets, Android, Gradle, signing or workflow files were changed in that range.
 - Rechecked official CoW NMC v7 documentation: annual state-system values 1816–2022 for six capability indicators, with abridged and supplemental files. The provider warns data quantity/quality varies by state and year and six components have different cross-time comparability limitations; codebook review is required before analysis.
 - **New material rights finding:** CoW's current Terms & Conditions state that its data may not be used for commercial activity/financial profit, may not be distributed to third parties without written permission from the CoW director and data host, and require permission for other dissemination/posting/use. Free download is not an open-data license.
 - Updated the benchmark coverage audit, source-candidate status, BEN-01 request and research README. NMC v7 is now `RIGHTS_REVIEW_REQUIRED`, metadata/coverage audit only. Do not download, transform, compile, ship, or redistribute its values/derived records in the game unless written rights clearance covers the intended game use and distribution. If suitable rights are not granted, exclude it and use appropriately licensed alternatives.
