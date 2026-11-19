@@ -26,6 +26,7 @@ Feature commits in the reviewed range include:
 - `bdb5e2e5ebca73e8375bd2554e6e01a075232f11` — strengthened primary-stage regression using a matched unconstrained reference and proportional realized-output assertions.
 - `4c9f15959fa4c4cea1b91ea2419c26997d872319` — proportionally allocate scarce regional factory labor instead of assigning it by recipe iteration order.
 - `ec5c79cca7b87a90291a5c54ba3da7bcf599cd3d` and `76c6dd1fd7478fb33c869d271488bde98a9a07f5` — add and normalize the corresponding workforce-scarcity regression.
+- `fe5a1ba4b4b7eb59cbdb83ee5264c5338d8c4ab8` — clarify the Economy overview label and note that the building chart displays maximum job capacity, not actual employment.
 
 Primary files:
 
@@ -127,8 +128,13 @@ This request is not evidence of Claude review completion, owner acceptance, S0/S
 - Regression: paired constrained/full-staffing worlds verify textile and steel output scale by the same factor when there are 4,500 workers for 8,000 requested jobs; input supply is deliberately abundant so the test isolates labor allocation.
 - Limitation: proportional staffing is a neutral allocation rule, not a complete Victoria 3 labor market. Wage competition, profitability-based hiring/firing, qualifications and migration remain outside this correction.
 
-## 9. Validation and handoff status
+## 9. Economy UI interpretation
 
-- **Validation status for `76c6dd1fd7478fb33c869d271488bde98a9a07f5`: PENDING.** The previous 87/87 result must not be carried forward to these commits. No successful CI run or new APK is claimed.
+- The Economy overview previously labeled building-level worker capacity as employment. That was misleading because the chart multiplied building levels by `LEVEL_WORKERS`, without reflecting worker scarcity or input-related idle capacity.
+- The heading now identifies it as **maximum job capacity**, and the note explicitly distinguishes capacity from actual employed workers. This is a presentation correction; it does not claim to add per-building actual-employment accounting.
+
+## 10. Validation and handoff status
+
+- **Current review target:** `fe5a1ba4b4b7eb59cbdb83ee5264c5338d8c4ab8`. **Validation status: PENDING.** The previous 87/87 result must not be carried forward to these commits. No successful CI run or new APK is claimed.
 - The GitHub integration used here can read commits, files, workflow jobs/logs and rerun failed jobs, but does not expose an Actions workflow-dispatch or general run-list operation. Do not interpret missing run data as a test pass.
 - Claude review remains requested, not completed. No S0/S1/S22 acceptance, device QA, production signing, or full Victoria 3 parity is claimed.
