@@ -263,3 +263,14 @@ All six commits are audit/coordination Markdown only and use `[skip ci]`. No gam
 - The current branch has advanced beyond commit b5948f0; recheck live HEAD before any further work. Latest coordination/reporting commits are documented in AI_HANDOFF and the B7 review manifest.
 
 Next action remains Claude's independent read-only B7 review of the refreshed review package, including both the dependency audit artifact and APK #318 evidence, followed by explicit owner decision. Do not open S1 or change gameplay/engine/UI/save schema under S0.
+
+
+---
+
+## Governance reconciliation for future sessions (2026-11-20)
+
+- The owner-provided task-specific handoff is authoritative for this assignment: working branch `experiment/vic3-visual-upgrade`; default/coordination branch `claude/game-historical-sandbox-modes-kg7rj7`. Do not write to the default branch.
+- `AI_START_HERE.md`, `SESSION_RECOVERY_PROTOCOL_VI.md` and `OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md` are missing from the experiment branch and were read from default. Do not copy them to experiment without a specific need/authorization.
+- The experiment-branch collaboration protocol is an older 2026-11-16 revision (Claude implementer / ChatGPT reviewer). The default-branch protocol is a newer 2026-11-17 owner-directed revision (ChatGPT implementer / Claude independent no-write reviewer). Apply the newer role allocation; never represent ChatGPT self-audit as independent review.
+- The newer default protocol still has stale generic text describing a sole default branch and a pending roadmap, conflicting with the explicit experiment-branch owner instruction and recorded owner-approved v3.2/v3.3 decisions. This is documented, not silently edited on default. Use the owner-designated experiment branch and current S0-B7 handoff for this task.
+- The default branch's AI_HANDOFF tracks a different DEV-005/research workstream. Do not mix its task status into this experiment branch's S0-B7 work. Re-fetch both branch refs before the next session.
