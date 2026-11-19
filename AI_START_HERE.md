@@ -12,22 +12,24 @@
 
 ## 0. Quy tắc tiếp quản trong một phiên mới
 
-Không yêu cầu chủ dự án nhắc lại các nguyên tắc đã lưu tại đây. Khi được giao tiếp tục dự án, thực hiện theo đúng thứ tự:
+**Quy trình chi tiết bắt buộc:** [SESSION_RECOVERY_PROTOCOL_VI.md](docs/coordination/SESSION_RECOVERY_PROTOCOL_VI.md). Tài liệu này quy định cách phục hồi khi mạng nghẽn, GitHub timeout, chat không trả lời, phản hồi bị mất hoặc thao tác ghi có kết quả không rõ. Không được bỏ qua.
 
-1. Xác nhận đúng repository, nhánh và HEAD mới nhất từ GitHub. Không dùng SHA trong lịch sử chat thay cho SHA vừa kiểm tra.
-2. Đọc toàn bộ trang này: `AI_START_HERE.md`.
-3. Đọc [`AGENTS.md`](AGENTS.md) và [`CLAUDE.md`](CLAUDE.md) nếu công cụ đang dùng hỗ trợ các file chỉ dẫn đó.
-4. Đọc [`docs/coordination/AI_HANDOFF.md`](docs/coordination/AI_HANDOFF.md) để biết task đang mở, commit gần nhất, CI, review đang chờ và việc kế tiếp.
-5. Đọc [`docs/coordination/AI_COLLABORATION_PROTOCOL.md`](docs/coordination/AI_COLLABORATION_PROTOCOL.md) để hiểu vai trò, quyền hạn, quy trình commit, review và nghiệm thu.
-6. Đọc [`docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md`](docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md) để hiểu đầy đủ yêu cầu sản phẩm.
-7. Đọc roadmap đã được chủ dự án phê duyệt, các amendments, phase/gate đang hiệu lực và spec tương ứng. AI_HANDOFF ghi đường dẫn chuẩn. Tài liệu lịch sử hoặc proposal chưa được duyệt không phải giấy phép triển khai.
-8. Đọc feature parity matrix/audit và báo cáo tiến độ gần nhất để tránh làm lại việc đã hoàn thành hoặc bỏ sót lỗi đã phát hiện.
-9. Nêu rõ task đang làm nằm trong phạm vi được phép hay bị khóa. Nếu chưa có quyền triển khai thì chỉ audit/đề xuất, không tự mở phase.
-10. Sau một lát cắt công việc: chạy kiểm thử phù hợp, ghi bằng chứng, cập nhật báo cáo + AI_HANDOFF, commit và push. Báo cáo phải nêu chính xác phần chưa làm/chưa kiểm chứng.
+Không yêu cầu chủ dự án nhắc lại các nguyên tắc đã lưu tại đây. Khi được giao tiếp tục dự án:
 
-**Nếu tài liệu mâu thuẫn:** dừng thay đổi có ảnh hưởng, ghi rõ các nguồn xung đột và xin quyết định nhỏ nhất cần thiết. Thứ tự ưu tiên nguồn sự thật được quy định trong AI_COLLABORATION_PROTOCOL. Nội dung chat cũ không được phép ghi đè quyết định đã duyệt.
+1. Xác nhận đúng repository, branch và HEAD trực tiếp từ GitHub. Không dùng SHA trong chat cũ làm HEAD hiện tại.
+2. Đọc file này, `AGENTS.md`, `CLAUDE.md` (nếu áp dụng), [SESSION_RECOVERY_PROTOCOL_VI.md](docs/coordination/SESSION_RECOVERY_PROTOCOL_VI.md), [AI_HANDOFF.md](docs/coordination/AI_HANDOFF.md), [AI_COLLABORATION_PROTOCOL.md](docs/coordination/AI_COLLABORATION_PROTOCOL.md) và [OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md](docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md).
+3. Đọc roadmap/owner decisions, phase gate, subsystem spec, parity matrix và báo cáo tiến độ mới nhất được AI_HANDOFF chỉ định.
+4. Kiểm tra commit, diff, file đã đổi, workflow/CI và artifact để xác định chính xác phiên trước đã lưu đến đâu. Nếu phản hồi chat bị mất sau một thao tác ghi, phải kiểm tra GitHub trước khi thử lại; không được tạo commit/file trùng.
+5. Phân loại rõ phần đã commit, đã xác minh, CI đang chạy/thất bại, chưa commit và chưa xác định. Nếu GitHub không truy cập được sau retry có giới hạn, dừng ghi và báo BLOCKED; không suy đoán.
+6. Xác định task còn dở và phạm vi được phép. Nếu gate đóng hoặc thiếu owner approval thì không triển khai runtime.
+7. Chia việc thành lát cắt nhỏ; sau mỗi lát cắt có ý nghĩa, chạy test, cập nhật báo cáo + AI_HANDOFF, commit/push và đọc lại GitHub để xác minh.
+8. Khi kết thúc hoặc phải dừng, ghi exact SHA, bằng chứng, phần chưa lưu/chưa xác minh, lỗi mạng/quyền và hành động tiếp theo. Không tuyên bố hoàn thành nếu chưa đủ bằng chứng.
 
-**Nếu kết nối GitHub không tự đưa nội dung file vào ngữ cảnh của phiên:** điều đó không có nghĩa file không tồn tại. AI phải mở README/AI_START_HERE từ repo đã kết nối trước khi làm việc. Kết nối repository không tự động bảo đảm mọi phiên đều đã đọc file.
+**Xử lý chat bị treo:** người dùng không cần dán lại toàn bộ yêu cầu. Có thể mở phiên mới và gửi: "Tiếp quản Victori3 Mobile từ GitHub theo AI_START_HERE và SESSION_RECOVERY_PROTOCOL. Kiểm tra HEAD, handoff, commit và CI trước; tiếp tục task dở dang, không làm trùng." Phiên mới phải kiểm tra GitHub trước khi thực hiện bất kỳ thao tác ghi nào.
+
+**Nếu kết nối GitHub không tự đưa nội dung file vào ngữ cảnh:** AI phải chủ động mở các file trên repository trước khi làm. Kết nối repo không tự động chứng minh AI đã đọc tài liệu.
+
+**Nếu tài liệu mâu thuẫn:** dừng thay đổi có ảnh hưởng, ghi rõ nguồn xung đột và xin quyết định nhỏ nhất cần thiết. Chat cũ không được ghi đè quyết định đã duyệt.
 
 ---
 
