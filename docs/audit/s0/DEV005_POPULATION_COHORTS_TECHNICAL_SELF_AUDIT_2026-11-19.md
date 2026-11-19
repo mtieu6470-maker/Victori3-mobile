@@ -70,6 +70,8 @@ Both execute inside the ordered `SYSTEMS` pipeline invoked by `stepMonth()`. `re
 
 The projection is **not** rebuilt when an arbitrary caller mutates `Region.pop` or `Region.strata` outside `stepMonth()`. Such mutations are not a supported public command path in the inspected engine flow; any future editor, scenario loader or out-of-band population command must either call the refresh function or move through a single population write boundary. Save serialization deliberately rejects a stale projection rather than silently repairing it.
 
+One inherited limitation is relevant to interpreting the projection: `populationMonth()` reduces the source region's aggregate POP and adds emigrants to destination `Region.pop`, but it does not carry the source region's stratum composition to the destination. The destination keeps its regional stratum shares; DEV-005 then rebuilds cohorts from those destination shares. Therefore the current projection does **not** preserve migrant-origin cohort composition and must not be described as cohort-level migration. This limitation predates DEV-005 and is intentionally not changed in this bounded compatibility slice.
+
 ### 3.3 Authority and historical-data honesty
 
 - `Region.pop` and `Region.strata` remain the runtime source of truth in this slice.
