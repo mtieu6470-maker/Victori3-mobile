@@ -634,3 +634,11 @@ Before resuming, re-check the live branch HEAD and all workflow statuses. B7 dep
 - Exact current-branch failure recorded at `tests/s0-save-determinism.test.ts:270`; the baseline absence-of-`constructionQueue` assertion fails, while the current legacy-save migration test passes. CI-F4 remains OPEN P1.
 - Read the pinned lockfile from both baseline and experiment; blob SHA matches. Preliminary advisory cross-checks match the locked dev versions of Vitest/@vitest/mocker and tinypool. This is not the required npm audit; no prod-dependency conclusion and no dependency changes.
 - Updated `S0_B7_RESULTS.md`, `S0_DEPENDENCY_AUDIT_PLAN.md`, `S0_B7_SELF_REVIEW.md`, and `CLAUDE_S0_B7_REVIEW_REQUEST.md`. Manual dependency-audit workflow dispatch remains the smallest external blocker.
+
+
+### 2026-11-20 — OWNER-PLAYTEST-REJECTION-AND-IMPROVEMENT-BACKLOG
+
+- Owner hands-on test verdict: current build is materially below Victoria 3 target; simulation time advances much too quickly; historical ruler portraits are inconsistent; military, economy, factories, political systems, social structure, laws and scoring/points are inadequate.
+- Created `docs/feedback/PLAYER_TEST_FEEDBACK_2026-11-20.md` as the authoritative player-test backlog. P0: deterministic simulation clock/pacing and date-valid, source-verified historical identity/portrait data. P1: integrated economy/industry, military/logistics, politics/social strata/laws. P2: transparent, explainable scoring/ranking.
+- Requirements explicitly preserve global 1836–1936 simulation, Historical Mode start 1836-01-01, separate Sandbox/Alternate History mode, and coherent cross-system mechanics. AI portraits may only be labelled illustrative fallback art, never passed off as authentic historical portraits.
+- This commit records requirements only. The collaboration protocol still prohibits gameplay/engine/UI/save changes during S0; S1 remains NOT AUTHORIZED until the bounded transition review and owner acceptance. Do not interpret this feedback record or a successful APK build as phase authorization.
