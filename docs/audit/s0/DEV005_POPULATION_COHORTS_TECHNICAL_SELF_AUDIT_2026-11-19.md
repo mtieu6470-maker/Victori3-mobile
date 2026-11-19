@@ -5,7 +5,7 @@
 **Branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Audit target:** `0c171b9b615e4f91cce66749f8482837c8dfa9ef`  
 **Implementation base:** `3d1b8dd24427f2993d561eb0c555d6e0b30b1d5a`  
-**Status:** ChatGPT technical self-audit only. The tests-only CI for the audit target has passed; the Android debug build is still in progress at the time of this report. No Claude `REVIEW_PASS`, owner `ACCEPTED`, device QA or phase transition is claimed.
+**Status:** ChatGPT technical self-audit only. The tests-only CI for the audit target has passed; the Android debug build has also completed successfully. No Claude `REVIEW_PASS`, owner `ACCEPTED`, device QA or phase transition is claimed.
 
 ## 1. Executive result
 
@@ -24,7 +24,7 @@ Correction commits:
 
 The exact-target CI runs are:
 - Tests-only: [44534672142](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44534672142) — SUCCESS, 11/11 test files and 119/119 tests, 0 failures (Vitest duration 282.80 seconds).
-- Android debug: [44534672171](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44534672171) — in progress when this report was written.
+- Android debug: [44534672171](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44534672171) — SUCCESS; web build/typecheck, 119 tests, Capacitor sync, Gradle `assembleDebug`, checksum and signing verification all completed.
 
 Previous exact code HEAD `14bd56848b8db429b9037880b08887af7118d61f` had 118/118 tests and a successful debug APK build. Those results do **not** certify the corrected target above.
 
@@ -111,8 +111,9 @@ The schema does not include age distribution, health, household/wealth distribut
 | Earlier exact HEAD `14bd56848b8db429b9037880b08887af7118d61f` tests-only | PASS, 118/118 tests; superseded by this correction |
 | Earlier exact HEAD `14bd56848b8db429b9037880b08887af7118d61f` Android debug | SUCCESS; superseded as validation of the corrected source |
 | Corrected audit target `0c171b9b615e4f91cce66749f8482837c8dfa9ef` tests-only run 44534672142 | PASS, 11/11 files and 119/119 tests |
-| Corrected audit target `0c171b9b615e4f91cce66749f8482837c8dfa9ef` Android debug run 44534672171 | IN_PROGRESS at report time |
+| Corrected audit target `0c171b9b615e4f91cce66749f8482837c8dfa9ef` Android debug run 44534672171 | SUCCESS; `assembleDebug`, checksum and apksigner v1/v2 verification passed |
 | Physical iQOO install/save-load/performance/thermal QA | NOT_TESTED |
+| APK debug output | 18,052,034 bytes; SHA-256 `7a3c48b9761878111263c97fe39ca3fbad4026f82babb08bf78801b92174a528`; signer certificate SHA-256 `167f48e563b68c4aa12470941204b43936a8b218eccb54bc598738d52479bb7e`; V1/V2 true; apksigner exit 0 |
 | Claude independent review | PENDING |
 | Owner acceptance | PENDING |
 
