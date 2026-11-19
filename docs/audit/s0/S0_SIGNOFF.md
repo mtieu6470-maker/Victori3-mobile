@@ -101,7 +101,7 @@ No workflow, build, APK, device, signing, product code or data change is authori
 
 Historical runs #316 and #317 failed because the Android workflow ran a frozen-baseline B4 assertion against the later experiment source tree. This was corrected in commit `b5948f0bbca126712c64dd605ebb7d9f6ddfb907`, which changes only `.github/workflows/android-apk.yml` and excludes `tests/s0-save-determinism.test.ts` from the experiment-branch APK suite; the test remains on the separate pinned-baseline B4 path. Run #318 (`44573351798`) on that commit completed SUCCESS: 38/38 suites and 97/97 tests passed, Gradle assembled the debug APK, and checksum/signing evidence was uploaded and verified.
 
-CI-F4 is now CLOSED for this narrow APK-workflow integration issue, using run #318 as the closure evidence. The approved frozen-baseline B4 Run #3 result is unchanged; the old failures remain historical evidence. This does not certify gameplay quality, physical-device QA, release signing or data-pack delivery.
+CI-F4 is now CLOSED for this narrow APK-workflow integration issue, using run #318 as the closure evidence. The approved frozen-baseline B4 Run #3 result is unchanged; the old failures remain historical evidence. The current `.github/workflows/s0-b4-tests.yml` is configured to check out `2240a8f` and overlay only the test harness/fixture, but that workflow was not re-run in this slice. This does not certify gameplay quality, physical-device QA, release signing or data-pack delivery.
 
 The B7 dependency audit is complete and reviewed: run `44572915201`, artifact `14555141888`; DEP-F1 remains OPEN P1 pending remediation/owner disposition, as detailed in §5.3 and the dependency plan.
 
