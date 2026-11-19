@@ -626,3 +626,11 @@ Before resuming, re-check the live branch HEAD and all workflow statuses. B7 dep
 - Re-recorded the owner requirement for a small installable APK followed by separate, user-selected data-pack downloads inside the app.
 - Future release acceptance must include manifest/signature + SHA-256 verification before atomic activation, local retention for offline play, separate versioned APK/data artifacts, and explicit consent before background or mobile-data use.
 - Status remains NOT IMPLEMENTED / NOT TESTED. Current Android runs #316/#317 produced neither an APK nor a downloadable data pack. This is a future, separately authorized product task, not S0-B7 scope; no product/workflow/data/signing change is authorized here.
+
+
+### 2026-11-19 — CI-ARTIFACT-AND-DEPENDENCY-PREFLIGHT
+
+- Downloaded and inspected run #316/#317 diagnostic artifacts: IDs 14550237447 / 14551001678 and API digests recorded in `S0_B7_RESULTS.md`. Archives contain evidence files only, no APK and no data-pack payload.
+- Exact current-branch failure recorded at `tests/s0-save-determinism.test.ts:270`; the baseline absence-of-`constructionQueue` assertion fails, while the current legacy-save migration test passes. CI-F4 remains OPEN P1.
+- Read the pinned lockfile from both baseline and experiment; blob SHA matches. Preliminary advisory cross-checks match the locked dev versions of Vitest/@vitest/mocker and tinypool. This is not the required npm audit; no prod-dependency conclusion and no dependency changes.
+- Updated `S0_B7_RESULTS.md`, `S0_DEPENDENCY_AUDIT_PLAN.md`, `S0_B7_SELF_REVIEW.md`, and `CLAUDE_S0_B7_REVIEW_REQUEST.md`. Manual dependency-audit workflow dispatch remains the smallest external blocker.
