@@ -120,7 +120,7 @@ describe('factory intermediate-goods market clearing', () => {
     const simulate = (workerShare: number) => {
       const { st, region } = isolatedIndustrialWorld();
       region.strata[S.workers] = workerShare;
-      region.strata[S.middle] = 0.8 - workerShare;
+      region.strata[S.middle] = 0.5 - workerShare;
       region.res = ['iron', 'coal', 'cott'];
       region.buildings.mine = 50;
       region.buildings.plantation = 10;
