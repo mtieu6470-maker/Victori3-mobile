@@ -1,7 +1,7 @@
 # DEV-004 — Economy, wages, factory inputs and construction lifecycle: Claude review
 
 **Review target branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
-**Exact review HEAD:** `cea1dcecf16a590d2c54ef93600041d5458f29ab`  
+**Exact review HEAD:** `663ea5537a8599140ef13773b2c2d9e3aada5647`  
 **Comparison base:** `526b745d980ae5a4094b6dcbdabf41152f910afa` (last green build before the economy/construction feature tranche)  
 **Review type:** independent code review first; one bounded corrective pass only after findings are reported  
 **Status:** REQUESTED — no Claude verdict is claimed; no owner approval is implied
@@ -144,9 +144,17 @@ This request is not evidence of Claude review completion, owner acceptance, S0/S
 - **Relevant source ranges:** `src/engine/systems/economy.ts:239-320`; tests at `tests/factory-market-clearing.test.ts:80-140`.
 - **Implementation commits:** `0cdf5a1fab43777ab9c8286d6fbc6f712615d5af`, `31ab361fb93f0eef01d90eb8626af42c4d965775`, `cea1dcecf16a590d2c54ef93600041d5458f29ab`.
 
-## 11. Validation and handoff status
+## 11. AI investment labor eligibility correction
 
-- **Current review target:** `cea1dcecf16a590d2c54ef93600041d5458f29ab`. **Validation status: PENDING.** The previous 87/87 result belongs only to the earlier `ebeff72b20df155c376000f67fd4b9022fc3e327` target and must not be carried forward. No successful CI run or new APK is claimed.
+- **Finding:** `buildingReturn` previously estimated available labor using peasants/artisans as potential factory employees and peasants as potential mine/logging/plantation workers. This disagreed with `computeEconomy`: factories recruit from the worker stratum; plantations recruit slaves then a limited laborer share; mines/logging use the remaining laborer pool after field/plantation employment.
+- **Correction:** investment-return estimates now calculate a prospective staffing ratio from the eligible labor pool for each building type, account for existing capacity, and scale projected output and operating input costs by that ratio. A building with less than 50% prospective staffing is not recommended.
+- **Regression file:** `tests/building-return-labor.test.ts`, covering zero eligible workers for factories, mines/logging and plantations, plus proportional factory-return scaling under a constrained worker stratum.
+- **Commits:** `50921a9b046a4dc1afe0b3655b33d7fcef3a8437` (implementation), `663ea5537a8599140ef13773b2c2d9e3aada5647` (tests).
+- **Review limitation:** this improves labor feasibility estimates, but profitability remains a simplified expected-return heuristic; it is not a full market-based Victoria 3 hiring/profitability loop.
+
+## 12. Validation and handoff status
+
+- **Current review target:** `663ea5537a8599140ef13773b2c2d9e3aada5647`. **Validation status: PENDING.** The previous 87/87 result belongs only to the earlier `ebeff72b20df155c376000f67fd4b9022fc3e327` target and must not be carried forward. No successful CI run or new APK is claimed.
 - The GitHub integration used here can read commits, files, workflow job logs and rerun failed jobs, but does not expose a general Actions run-list/dispatch operation. A combined status check for the current target returned no status entries; this is not a passing result. Do not interpret missing run data as a test pass.
 - A local clone/test attempt was also blocked because the execution environment could not resolve `github.com`; no local test pass is claimed. Claude/CI must run `npm ci`, then `npm run test` (or the repository's tests-only workflow) against the exact review target before further changes are accepted.
 - Claude review remains requested, not completed. No S0/S1/S22 acceptance, device QA, production signing, or full Victoria 3 parity is claimed.
