@@ -68,13 +68,13 @@
 
 | Check | Result | Evidence / boundary |
 |---|---|---|
-| CI-F4 classification | OPEN P1 | Android workflow runs #316/#317 both fail the baseline-only `constructionQueue` absence assertion when run against the experiment branch. |
+| CI-F4 classification | CLOSED (narrow scope) | Commit `b5948f0` separates the pinned-baseline B4 characterization from the experiment APK suite; run #318 passes 97/97 tests and assembles the debug APK with verified evidence artifacts. |
 | Source-scope cause | Confirmed | Frozen baseline `2240a8f` predates this field; experiment branch defines it in `src/engine/types.ts` and initializes it in `src/engine/init.ts`. |
 | APK impact | Confirmed | Both runs stop before Android SDK setup, Capacitor sync and Gradle `assembleDebug`; no APK was produced. |
 | Test evidence | Confirmed | Both runs: 6 files, 5 passed / 1 failed; 109 tests, 108 passed / 1 failed. Web/data build and hashing passed. |
 | Remediation | NOT AUTHORIZED | Keep baseline characterization isolated to pinned-baseline B4 workflow. Any normal APK workflow/test-selection change requires separate owner authorization. |
 
-This is a CI/test integration finding, not evidence that the approved frozen-baseline B4 replay cases failed. It does mean the current experiment-branch APK workflow is blocked. The manual dependency-audit dispatch remains pending because this session's GitHub tools do not provide workflow_dispatch. No artifact or package-level DEP-F1 conclusion is claimed.
+This was a CI/test integration finding, not evidence that the approved frozen-baseline B4 replay cases failed. Run #318 now closes the narrow APK workflow blocker. The dependency audit is also complete and its artifact reviewed; DEP-F1 remains OPEN P1 pending remediation/owner disposition.
 
 
 ## 8. Additional CI artifact and dependency preflight (2026-11-19)
@@ -98,3 +98,14 @@ This is a CI/test integration finding, not evidence that the approved frozen-bas
 | DEP-F1 disposition | OPEN P1 | Audit complete; remediation and owner disposition pending. No package changes authorized. |
 
 The full raw report and exact package versions/advisories are recorded in `S0_DEPENDENCY_AUDIT_PLAN.md`. This self-review is not Claude's independent review or owner acceptance.
+
+
+## 10. Android APK run #318 — verified evidence and CI-F4 closure
+
+- Run [44573351798](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44573351798), commit `b5948f0bbca126712c64dd605ebb7d9f6ddfb907`, job `135734112766`: SUCCESS.
+- Commit diff is limited to `.github/workflows/android-apk.yml`; it excludes the frozen-baseline-only `tests/s0-save-determinism.test.ts` from the experiment APK suite and documents the separate pinned-baseline B4 path. The characterization was not removed or weakened.
+- Test evidence artifact `14554953353`, 106,657 bytes, API SHA-256 `96aa79f605d52f7a2eb60748f307802827f6fec9994e280fd655e3565c879829`: 38/38 suites and 97/97 tests passed; 0 failures; report_valid=true.
+- APK artifact `14553589834`, ZIP 17,569,405 bytes, API SHA-256 `72ce3a5759bd1379aaf35bf10a395f3cc136230b44eabc64976375405b85678b`. Its ZIP contains `app-debug.apk`, 18,057,530 bytes, SHA-256 `338fc54ce2e68f15ddc7043c664bdffa9cd79ade3c41aa0ed7a7cf0bfa7fe6b5`.
+- Signing: debug signer `C=US, O=Android, CN=Android Debug`; certificate SHA-256 `8610076ddcefefc85d188530b0eb4645a21f92f38008692c29f6282a13418e19`. Not a release-signed APK.
+- Both downloaded artifact ZIP SHA-256 values were recomputed and match GitHub API digests. Full build steps through Gradle assembly and both uploads completed.
+- CI-F4 is closed narrowly: the APK workflow's test-scope mismatch is resolved and the defined closure condition is met. The frozen-baseline B4 characterization remains separate. This does not change overall S0 or S1 status.
