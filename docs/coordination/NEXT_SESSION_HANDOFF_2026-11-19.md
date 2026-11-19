@@ -135,3 +135,30 @@ After the CI recheck, the following documentation-only commits were pushed to th
 - `79a322de93920fbc9a23f48d8cadd9d50756c15f` — correct the manifest row and include the next-session handoff blob.
 - **Experiment HEAD immediately before this handoff update:** `79a322de93920fbc9a23f48d8cadd9d50756c15f`.
 - These are documentation-only [skip ci] commits. The next action remains manual dispatch/review of the read-only B7 dependency workflow, then independent Claude review. Do not edit product files or start S1.
+
+
+## Addendum — CI-F4 risk disposition and dispatch limitation (2026-11-19)
+
+**Experiment branch at start of this addendum:** `372b76eb71372ae9fcf486958ac361925de3336c`.
+
+### Current APK pipeline finding
+- Added `CI-F4` as OPEN P1 in `S0_RISK_REGISTER.md` and `S0_B7_RISK_TRACEABILITY.md`.
+- Runs #316 (`44562638037`, `26963da`) and #317 (`44562662560`, `fa95ad8`) both passed install, web/data build and hash generation, then failed the same baseline-only assertion in the B4 characterization suite: 108/109 tests passed; the test expects `constructionQueue` to be absent from every country.
+- The experiment branch has the field in `src/engine/types.ts` and initializes it in `src/engine/init.ts`; frozen baseline `2240a8f` predates it. The regular APK workflow executes this baseline-only test against experiment-branch code. Treat it as an integration/scope mismatch, not a game-engine defect and not a failure of approved baseline B4 Run #3.
+- Android SDK setup, Capacitor sync, Gradle `assembleDebug`, APK checksum and APK upload were skipped. No APK exists from runs #316/#317.
+- Signoff, B7 results, self-review and Claude review request now document this P1 blocker. No source/test/workflow fix was made; that needs separate owner authorization.
+
+### Dependency audit execution boundary
+- The read-only S0-B7 dependency workflow is still prepared and mirrored; no workflow run/artifact exists.
+- The connected GitHub toolset exposes repository reads and contents commits, but no `workflow_dispatch` operation. Do not claim the scan was run. Owner/manual dispatch on the Actions page remains required.
+- DEP-F1 stays OPEN P1 — UNTRIAGED until both full-tree and production-only audit JSON reports are reviewed.
+
+### Updated GitHub commits
+- `d4778b26daca0ca19e847de2a5390e6b8e3c4fb4` — add CI-F4 to risk register.
+- `46a878f79d7471449ce62a65dac09efe5ce0fde8` — trace CI-F4 in risk matrix.
+- `3a854a98c4eea4b76a8297adfd740c5b19eac9bc` — B7 results update.
+- `98f099312354405a3a1d35de18f94e3399bbad3e` — ChatGPT self-review update.
+- `64088f932365ab798817aec26d72e61fba89af05` — Claude review request update.
+- `d31c5fcd51445a56bcb6c96f2101f2a0fa8207d3` — signoff limitation recorded.
+
+All six commits change audit/coordination Markdown only and include [skip ci]. Overall S0 remains PARTIAL/BLOCKED; S1 remains NOT AUTHORIZED.
