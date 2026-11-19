@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `8e0660cdff56cd312d5a6cc23fda13b5e6659fec`  
+**Snapshot HEAD before this manifest refresh:** `d984d7a766c1dbe38b5a857acde8c2497e2b4359`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -23,7 +23,7 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `03e12cc5bd7436b167315a599ed868006bc50e07` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `e5edc4d8180b331b4ddce2d7f0b687621b58083c` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `992e752a559a1890c73b0195fdde6f7c5a2764aa` |
+| `docs/coordination/AI_HANDOFF.md` | `f87417e8777071c0ec4ecd5f98a4621ef4d8d13c` |
 | `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `05ccbc955f3b66719d6758b0d6f0d9b36af11ebb` |
 
 ## 2. Risk table integrity and traceability
