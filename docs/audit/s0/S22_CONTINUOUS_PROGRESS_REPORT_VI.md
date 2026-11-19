@@ -8,6 +8,14 @@
 
 > Đây là báo cáo điều phối và tự kiểm toán của ChatGPT. Không phải Claude REVIEW_PASS, không phải owner ACCEPTED, không phải bằng chứng S1/S22 đã mở. Mọi research candidate chưa được owner chấp nhận vẫn là tài liệu nghiên cứu, không phải game data đã duyệt.
 
+## 0.4 DEV-005 CI correction — type assertion syntax (19/11/2026)
+
+- **Failed intermediate build:** Android debug run [44510279681](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44510279681) failed at `tsc --noEmit` with TS1434. The type assertion was split onto a new line after the initializer expression.
+- **Correction:** `36e5f6418f0f0f09702ba246858949bd8ac249ed` aligned the assertion with the initializer; `b4620a548455444ea26fc784f11dca2a13d9da56` moved the complete assertion to one line. Runtime engine/save code is unchanged by these TypeScript fixture corrections.
+- **Current code target:** `b4620a548455444ea26fc784f11dca2a13d9da56`.
+- **CI:** tests-only [44510529456](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44510529456) and Android debug [44510529403](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44510529403) are running for the exact code target.
+- **Status discipline:** earlier 116/116 tests apply only to intermediate code `d4cd28a`; no result from that run is transferred to this later code.
+
 ## 0.3 DEV-005 CI correction — TypeScript legacy fixture (19/11/2026)
 
 - **Failed intermediate build:** Android debug run [44509983834](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44509983834) failed during `tsc --noEmit` at `tests/population-cohorts.test.ts(133,12)`, TS2790. The test used an intersection with `GameState`, so TypeScript still considered `population` required for the `delete` operator.
