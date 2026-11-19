@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `e28c2bf802e49092c7ad1d71835cb003c54797e8`  
+**Snapshot HEAD before this manifest refresh:** `54087c498977cf33c888b920500ea6a82a5ebaac`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -14,17 +14,17 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 |---|---|
 | `docs/audit/s0/S0_B4_RUN_3_REVIEW.md` | `3d8644811c3ac13b19cce1f1274c46d2edbaa10a` |
 | `docs/audit/s0/S0_B4_TEST_PLAN.md` | `ef21f8193daf283a6ed8c6f4d68b7ca87781bd46` |
-| `docs/audit/s0/S0_RISK_REGISTER.md` | `8839d11897a61820b2e53f8add028c375005ea8d` |
+| `docs/audit/s0/S0_RISK_REGISTER.md` | `c22fbf270e3e2263067d30e48c7c63464a5b3f47` |
 | `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `b55a14bf5e23e162a1b5d2b2cc6b7c1831a60022` |
-| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `ecc6ca00ccf82a62c2f0b1d43a6b08d736438cfc` |
+| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `58771edfc96211dd086b78d90b7ea8c54dec0813` |
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `e3ff67518e936882b9f1f3f6096030ddb4bb99b5` |
-| `docs/audit/s0/S0_SIGNOFF.md` | `46a2b3b0073e9d0fc868c7374c0285ca1ef2ffbc` |
-| `docs/audit/s0/S0_B7_RESULTS.md` | `5d1443d7c3f11ac6c9563c94fd3fb077bbcaa74f` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `03e12cc5bd7436b167315a599ed868006bc50e07` |
+| `docs/audit/s0/S0_SIGNOFF.md` | `f150ed753276f19e77e4fee4e7ee62e28422d93e` |
+| `docs/audit/s0/S0_B7_RESULTS.md` | `78e62e66daf92989c0314dd3d6fb446a774ad6bf` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `8c863e2b732aa2931cf687188edcaea455c0493d` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `e5edc4d8180b331b4ddce2d7f0b687621b58083c` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
 | `docs/coordination/AI_HANDOFF.md` | `37da69800eb6e19179d0ded41f3e1f079eaf33d8` |
-| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `7771a5ed179e95981bccc57ce2553902f9e2839d` |
+| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `273c5063ef965b7631d6b75c0f0751a3173ce661` |
 
 ## 2. Risk table integrity and traceability
 
@@ -120,11 +120,17 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 - Test artifact `14554953353`, 106,657 bytes, API SHA-256 `96aa79f605d52f7a2eb60748f307802827f6fec9994e280fd655e3565c879829`; 38/38 suites and 97/97 tests passed.
 - APK artifact `14553589834`, ZIP 17,569,405 bytes, API SHA-256 `72ce3a5759bd1379aaf35bf10a395f3cc136230b44eabc64976375405b85678b`; contains `app-debug.apk` 18,057,530 bytes, SHA-256 `338fc54ce2e68f15ddc7043c664bdffa9cd79ade3c41aa0ed7a7cf0bfa7fe6b5`. Debug certificate SHA-256 `8610076ddcefefc85d188530b0eb4645a21f92f38008692c29f6282a13418e19`.
 - Both artifact ZIP digests were recomputed and match GitHub API digests. CI-F4 closed narrowly; no gameplay acceptance, device QA, release signing, data-pack delivery, overall S0 PASS or S1 authorization is implied.
-- Updated B7 review-input blob SHAs: Risk Register `8839d11897a61820b2e53f8add028c375005ea8d`; Risk Traceability `a83ed23f68e71f8a473d6d1cd6ed2eebd8bb360f`; B7 self-review `ecc6ca00ccf82a62c2f0b1d43a6b08d736438cfc`; dependency plan `e3ff67518e936882b9f1f3f6096030ddb4bb99b5`; signoff `46a2b3b0073e9d0fc868c7374c0285ca1ef2ffbc`; B7 Results `5d1443d7c3f11ac6c9563c94fd3fb077bbcaa74f`; Claude request `03e12cc5bd7436b167315a599ed868006bc50e07`; workflow `dacd8506bed77624c44ffa27279354a87e9a4ebf`; AI_HANDOFF `37da69800eb6e19179d0ded41f3e1f079eaf33d8`; next-session handoff `7771a5ed179e95981bccc57ce2553902f9e2839d`.
+- Updated B7 review-input blob SHAs: Risk Register `c22fbf270e3e2263067d30e48c7c63464a5b3f47`; Risk Traceability `a83ed23f68e71f8a473d6d1cd6ed2eebd8bb360f`; B7 self-review `58771edfc96211dd086b78d90b7ea8c54dec0813`; dependency plan `e3ff67518e936882b9f1f3f6096030ddb4bb99b5`; signoff `f150ed753276f19e77e4fee4e7ee62e28422d93e`; B7 Results `78e62e66daf92989c0314dd3d6fb446a774ad6bf`; Claude request `8c863e2b732aa2931cf687188edcaea455c0493d`; workflow `dacd8506bed77624c44ffa27279354a87e9a4ebf`; AI_HANDOFF `37da69800eb6e19179d0ded41f3e1f079eaf33d8`; next-session handoff `273c5063ef965b7631d6b75c0f0751a3173ce661`.
 
 
 ### Governance references refreshed — 2026-11-20
 
 - AI_HANDOFF blob SHA: `37da69800eb6e19179d0ded41f3e1f079eaf33d8` (includes branch-specific governance reconciliation).
-- NEXT_SESSION_HANDOFF blob SHA: `7771a5ed179e95981bccc57ce2553902f9e2839d` (includes branch-specific governance reconciliation).
+- NEXT_SESSION_HANDOFF blob SHA: `273c5063ef965b7631d6b75c0f0751a3173ce661` (includes branch-specific governance reconciliation).
 - Use the owner-designated experiment branch for this task. Default-branch protocol and handoff were read but not edited; see the governance reconciliation note for stale generic branch/roadmap text and the newer owner-directed role allocation.
+
+
+### Pinned-baseline B4 workflow boundary — 2026-11-20
+
+- `.github/workflows/s0-b4-tests.yml` blob `3a4430f7a5ad32e24a95cdef271fc6e07529929e` is configured to checkout exact baseline `2240a8f` and overlay only the B4 test harness/fixture. This workflow was not re-run in this slice. Approved B4 Run #3 (`44325257261`) remains separate prior evidence; do not claim a new run of this workflow.
+- CI-F4 closure is limited to removing the baseline-only assertion from the experiment APK suite while preserving the dedicated baseline path. Run #318 does not itself prove G0.6 or a new B4 execution.
