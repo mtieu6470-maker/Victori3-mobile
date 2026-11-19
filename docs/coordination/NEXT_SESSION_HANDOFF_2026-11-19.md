@@ -162,3 +162,18 @@ After the CI recheck, the following documentation-only commits were pushed to th
 - `d31c5fcd51445a56bcb6c96f2101f2a0fa8207d3` — signoff limitation recorded.
 
 All six commits change audit/coordination Markdown only and include [skip ci]. Overall S0 remains PARTIAL/BLOCKED; S1 remains NOT AUTHORIZED.
+
+
+
+## Product delivery requirement — downloadable APK and separate data packs
+
+The project owner has reiterated that the eventual delivery must let them download/install the APK first and then download the game data separately. Preserve this as a product/release acceptance requirement for the separately authorized implementation phase; it is not part of S0-B7 and must not be claimed complete now.
+
+Expected flow to design and test later:
+1. Publish a small installable Android APK independently of the large historical/game data payload.
+2. On first launch, show the available data packs and let the owner/player explicitly choose which packs to download.
+3. Download each pack through the app, verify a trusted manifest/signature and SHA-256 before activation, and activate atomically so interrupted downloads cannot corrupt the installed dataset.
+4. Store the selected packs locally and support offline play after installation; no silent/background download and no mobile-data use without explicit consent.
+5. Publish the APK and data packs as distinct artifacts with version compatibility, sizes, hashes and clear download instructions.
+
+Current status: **NOT IMPLEMENTED / NOT TESTED**. Runs #316/#317 produced no APK and no data-pack artifact. Do not modify the product, APK workflow, data pipeline or signing under current S0-B7 authorization; propose a separate owner-approved implementation task after the current gates.
