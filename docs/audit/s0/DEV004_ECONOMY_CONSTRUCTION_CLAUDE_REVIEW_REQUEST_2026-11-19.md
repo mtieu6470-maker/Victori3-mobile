@@ -30,6 +30,8 @@ Feature commits in the reviewed range include:
 - `0cdf5a1fab43777ab9c8286d6fbc6f712615d5af` — resolve factory intermediate inputs one dependency stage at a time, preventing future-stage demand from starving upstream factories.
 - `31ab361fb93f0eef01d90eb8626af42c4d965775` — test that later arms demand does not pre-empt steel for the tools stage, and isolate shared coal scarcity from iron scarcity.
 - `cea1dcecf16a590d2c54ef93600041d5458f29ab` — tune the isolated coal scenario to guarantee partial (rather than zero or total) shortage.
+- `10b4cedcf7a5d8efa4408b39542a683d89c3368e` — align AI building-return estimates with engine productivity, efficiency, infrastructure, occupation and resource-mix production formulas.
+- `9cf92aab9bc43fa26d92dceb4e85fd41d655642c` — test staffing eligibility, resource-mix weighting and square-root factory productivity scaling.
 
 Primary files:
 
@@ -152,7 +154,16 @@ This request is not evidence of Claude review completion, owner acceptance, S0/S
 - **Commits:** `50921a9b046a4dc1afe0b3655b33d7fcef3a8437` (implementation), `663ea5537a8599140ef13773b2c2d9e3aada5647` (tests).
 - **Review limitation:** this improves labor feasibility estimates, but profitability remains a simplified expected-return heuristic; it is not a full market-based Victoria 3 hiring/profitability loop.
 
-## 12. Validation and handoff status
+## 12. AI building-return production consistency
+
+- **Implementation:** `buildingReturn` now uses the same productivity exponents as physical production (primary extraction/plantation: productivity^0.6; factories: productivity^0.5), plus the engine's relevant infrastructure, devastation, occupation and technology-efficiency modifiers.
+- Mine return estimates distribute output across every resource actually mined in the region (coal, iron, luxury from gold/silver), rather than assigning all output to the first resource. Plantation return estimates likewise distribute output across cotton, opium and cash crops.
+- The eligible-labor staffing correction from the previous section remains in place and now feeds the revised physical output estimate.
+- **Tests:** `tests/building-return-labor.test.ts:19-120` covers ineligible labor sources, partial factory staffing, multi-resource mine/plantation revenue weighting and square-root factory productivity scaling.
+- **Commits:** `10b4cedcf7a5d8efa4408b39542a683d89c3368e` (implementation), `9cf92aab9bc43fa26d92dceb4e85fd41d655642c` (expanded tests).
+- **Remaining limitation:** expected returns are still a simplified estimate. They do not fully solve market-clearing feedback, firm-level profit accounting, input availability by dependency stage, wage bids, qualifications or investment competition. Treat this as a feasibility heuristic, not a complete Victoria 3 investment market.
+
+## 13. Validation and handoff status
 
 - **Current review target:** `663ea5537a8599140ef13773b2c2d9e3aada5647`. **Validation status: PENDING.** The previous 87/87 result belongs only to the earlier `ebeff72b20df155c376000f67fd4b9022fc3e327` target and must not be carried forward. No successful CI run or new APK is claimed.
 - The GitHub integration used here can read commits, files, workflow job logs and rerun failed jobs, but does not expose a general Actions run-list/dispatch operation. A combined status check for the current target returned no status entries; this is not a passing result. Do not interpret missing run data as a test pass.
