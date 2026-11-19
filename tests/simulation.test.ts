@@ -24,6 +24,7 @@ describe('economy and population sanity (40 years, both modes)', () => {
         const c = st.countries[id]; const ref = bm(id); if (!c?.alive || !ref) continue;
         const ratio = c.stats.pop / ref;
         console.log(`[POPULATION_BENCHMARK] ${mode} ${id} simulated=${Math.round(c.stats.pop)} benchmark=${Math.round(ref)} ratio=${ratio.toFixed(4)}`);
+        console.log(`[POPULATION_BENCHMARK_DETAIL] ${mode} ${id} sol=${c.stats.sol.toFixed(4)} gdpPc=${(c.gdp / Math.max(1, c.stats.pop)).toFixed(2)} famine=${c.famine.toFixed(4)} techs=${c.techs.length} tax=${c.taxRate.toFixed(3)} treasury=${Math.round(c.treasury)}`);
         expect(ratio, `${id} ${(ratio).toFixed(2)}`).toBeGreaterThan(0.5); expect(ratio).toBeLessThan(2);
       }
     });
