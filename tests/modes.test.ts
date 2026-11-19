@@ -382,3 +382,55 @@ describe('player decision command revalidation and safe consumption', () => {
     }
   });
 });
+
+
+describe('decision effect transaction rollback', () => {
+  it('keeps the live game unchanged when a later effect handler throws after an earlier staged mutation', async () => {
+    const st = fresh('historical', 41, 'WAL');
+    const { applyWindowOption } = await import('../src/engine/systems/events');
+    const window = data().db.decision_windows.find((item) => item.id === 'dw_romanian_union')!;
+    const option = window.options.find((item) => item.id === 'elect_cuza')!;
+    const originalEffects = option.effects;
+
+    const sourceA = st.countries.WAL;
+    const sourceB = st.countries.MOL;
+    sourceA.alive = true;
+    sourceB.alive = true;
+    if (st.countries.ROM) st.countries.ROM.alive = false;
+
+    const regionA = st.regions[0];
+    const regionB = st.regions[1];
+    regionA.owner = 'WAL';
+    regionA.controller = 'WAL';
+    regionB.owner = 'MOL';
+    regionB.controller = 'MOL';
+    regionB.strata = null as any;
+
+    const oldLaw = sourceA.laws.power;
+    const ownerA = regionA.owner;
+    const ownerB = regionB.owner;
+    const logLength = st.log.length;
+    const territoryLogLength = st.territoryLog.length;
+    const nextId = st.nextId;
+
+    (option as any).effects = [
+      { type: 'set_law', entity: 'WAL', group: 'power', value: 'census_suffrage' },
+      { type: 'merge', entities: ['WAL', 'MOL'], into: 'ROM' },
+    ];
+
+    try {
+      // The first effect mutates the staged clone; the second throws during
+      // new-state politics calculation after staged territorial transfers.
+      expect(applyWindowOption(st, window.id, option.id)).toBe(false);
+      expect(st.countries.WAL.laws.power).toBe(oldLaw);
+      expect(st.regions[0].owner).toBe(ownerA);
+      expect(st.regions[1].owner).toBe(ownerB);
+      expect(st.log).toHaveLength(logLength);
+      expect(st.territoryLog).toHaveLength(territoryLogLength);
+      expect(st.nextId).toBe(nextId);
+      expect(st.countries.ROM?.alive).not.toBe(true);
+    } finally {
+      (option as any).effects = originalEffects;
+    }
+  });
+});

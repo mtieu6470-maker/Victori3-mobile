@@ -166,7 +166,7 @@ function canApplyEffects(st: GameState, effects: unknown): boolean {
   return true;
 }
 
-export function applyWindowOption(st: GameState, windowId: string, optionId: string): boolean {
+function applyWindowOptionInPlace(st: GameState, windowId: string, optionId: string): boolean {
   const d = data();
   const window = d.db.decision_windows.find((item) => item.id === windowId);
   if (!window) return false;
@@ -256,6 +256,53 @@ export function applyWindowOption(st: GameState, windowId: string, optionId: str
       actors: [actor.id],
     });
   }
+  return true;
+}
+
+
+
+/**
+ * GameState is a plain data graph (records, arrays and primitives). Clone it
+ * without JSON serialization so undefined and non-finite diagnostic values
+ * are preserved; then commit by replacing the root fields only after every
+ * effect handler completes successfully.
+ */
+function cloneDecisionValue<T>(value: T, seen = new WeakMap<object, unknown>()): T {
+  if (value === null || typeof value !== 'object') return value;
+
+  const source = value as unknown as object;
+  const prior = seen.get(source);
+  if (prior) return prior as T;
+
+  if (Array.isArray(value)) {
+    const copy: unknown[] = [];
+    seen.set(source, copy);
+    for (const item of value) copy.push(cloneDecisionValue(item, seen));
+    return copy as T;
+  }
+
+  const prototype = Object.getPrototypeOf(value);
+  const copy = Object.create(prototype === null ? null : Object.prototype) as Record<string, unknown>;
+  seen.set(source, copy);
+  for (const key of Object.keys(value as Record<string, unknown>)) {
+    copy[key] = cloneDecisionValue((value as Record<string, unknown>)[key], seen);
+  }
+  return copy as T;
+}
+
+/** Applies a decision as a staged transaction; failures leave the live GameState untouched. */
+export function applyWindowOption(st: GameState, windowId: string, optionId: string): boolean {
+  let staged: GameState;
+  try {
+    staged = cloneDecisionValue(st);
+    if (!applyWindowOptionInPlace(staged, windowId, optionId)) return false;
+  } catch {
+    return false;
+  }
+
+  // GameState has no class instances; replacing its root fields commits the
+  // completed staged graph in one synchronous command-boundary operation.
+  Object.assign(st, staged);
   return true;
 }
 
