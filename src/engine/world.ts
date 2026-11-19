@@ -33,7 +33,7 @@ export function killCountry(st: GameState, id: string, why: string) {
   if (!c.decentralized) log(st, { type: 'state', text: `${c.name} ceases to exist (${why}).`, textVi: `${c.nameVi} không còn tồn tại (${why}).`, actors: [id] });
 }
 
-const NATION_TAGS: Record<string, string> = { german: 'GER', italian: 'ITA', romanian: 'ROM', polish: 'POL', hungarian: 'HUN', bulgarian: 'BUL', canadian: 'CAN' };
+const NATION_TAGS: Record<string, string> = { german: 'GER', italian: 'ITA', romanian: 'ROM', polish: 'POL', hungarian: 'HUN', bulgarian: 'BUL', canadian: 'CAN', luxembourg: 'LUX' };
 
 /** Creates (or revives) a nation-state from regions. Used by secession, unification and releases in both modes. */
 export function createNation(st: GameState, nation: string, regionIds: string[], from: string | null, cause: string, template?: Country): string {

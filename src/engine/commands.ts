@@ -6,7 +6,7 @@ import { build, canBuild, buildCost } from './systems/economy';
 import { startReform, reformSupport } from './systems/politics';
 import { availableTechs } from './systems/technology';
 import { declareWar, formAlliance, breakAlliance, declareRivalry, guarantee, improveRelations, joinCustomsUnion, allianceAcceptance, boundSubject } from './systems/diplomacy';
-import { applyWindowOption } from './systems/events';
+import { resolvePlayerDecision } from './systems/events';
 import { endWar } from './systems/military';
 import { clamp, log } from './core';
 import { data } from './data/db';
@@ -62,14 +62,8 @@ export function execute(st: GameState, cmd: Command): CommandResult {
       if (!accept) return { ok: false, reason: 'The enemy expects to win' };
       endWar(st, w, 'white', 'negotiated'); return { ok: true };
     }
-    case 'decide': {
-      const p = st.pendingPlayerDecisions.find((x) => x.id === cmd.pendingId); if (!p) return { ok: false, reason: 'No such decision' };
-      st.pendingPlayerDecisions = st.pendingPlayerDecisions.filter((x) => x !== p);
-      st.firedEvents.push(p.windowId);
-      if (p.windowId.startsWith('zv_')) { if (cmd.option === 'join') joinCustomsUnion(st, me, 'zollverein'); }
-      else applyWindowOption(st, p.windowId, cmd.option);
-      return { ok: true };
-    }
+    case 'decide':
+      return resolvePlayerDecision(st, me.id, cmd.pendingId, cmd.option);
   }
 }
 

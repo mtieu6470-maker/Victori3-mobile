@@ -7,6 +7,7 @@ import { data } from '../src/engine/data/db';
 import { territorialSimilarity } from '../src/engine/divergence';
 import { createConditionEvalContext, evalCondition } from '../src/engine/historical';
 import { rankings } from '../src/engine/metrics';
+import { execute } from '../src/engine/commands';
 
 const SEEDS = [1, 2, 3];
 const YEARS = 40;
@@ -231,5 +232,153 @@ describe('canonical rank_at_most condition', () => {
     st.tick += 1;
     expect(evalCondition(st, { type: 'rank_at_most', entity: 'GBR', rank: 1 }, undefined, context)).toBe(false);
     expect(context.powerRanks.tick).not.toBe(st.tick);
+  });
+});
+
+
+describe('player decision command revalidation and safe consumption', () => {
+  function queueDanishDecision() {
+    const st = fresh('historical', 29, 'DEN');
+    st.date = { y: 1848, m: 1 };
+    st.countries.DEN.laws.power = 'autocracy';
+    const window = data().db.decision_windows.find((item) => item.id === 'dw_danish_june_constitution')!;
+    st.pendingPlayerDecisions.push({
+      id: 'pd_test_danish_constitution',
+      windowId: window.id,
+      options: window.options.map((option) => ({ id: option.id, historical: option.historical })),
+    });
+    return { st, window };
+  }
+
+  it('applies a canonical current option, consumes it only after success, and is idempotent on retry', () => {
+    const { st } = queueDanishDecision();
+    const command = { type: 'decide' as const, pendingId: 'pd_test_danish_constitution', option: 'june_constitution' };
+
+    expect(execute(st, command)).toEqual({ ok: true });
+    expect(st.countries.DEN.laws.power).toBe('census_suffrage');
+    expect(st.countries.DEN.laws.press).toBe('free_press');
+    expect(st.pendingPlayerDecisions).toHaveLength(0);
+    expect(st.firedEvents.filter((id) => id === 'dw_danish_june_constitution')).toHaveLength(1);
+    expect(st.counters.decisionWindowsFired).toBe(1);
+    expect(execute(st, command).ok).toBe(false);
+    expect(st.counters.decisionWindowsFired).toBe(1);
+  });
+
+  it('rejects an option that was not offered without consuming or mutating the decision', () => {
+    const { st } = queueDanishDecision();
+    const result = execute(st, {
+      type: 'decide',
+      pendingId: 'pd_test_danish_constitution',
+      option: 'inject_arbitrary_effect',
+    });
+
+    expect(result.ok).toBe(false);
+    expect(st.countries.DEN.laws.power).toBe('autocracy');
+    expect(st.pendingPlayerDecisions).toHaveLength(1);
+    expect(st.firedEvents).not.toContain('dw_danish_june_constitution');
+    expect(st.counters.decisionWindowsFired).toBe(0);
+  });
+
+  it('does not let a different player-controlled country resolve another polity decision', () => {
+    const { st } = queueDanishDecision();
+    st.player = 'NED';
+    const result = execute(st, {
+      type: 'decide',
+      pendingId: 'pd_test_danish_constitution',
+      option: 'june_constitution',
+    });
+
+    expect(result.ok).toBe(false);
+    expect(st.pendingPlayerDecisions).toHaveLength(1);
+    expect(st.firedEvents).not.toContain('dw_danish_june_constitution');
+    expect(st.countries.DEN.laws.power).toBe('autocracy');
+  });
+
+  it('invalidates an expired window without firing it or applying effects', () => {
+    const { st } = queueDanishDecision();
+    st.date = { y: 1851, m: 1 };
+    const result = execute(st, {
+      type: 'decide',
+      pendingId: 'pd_test_danish_constitution',
+      option: 'june_constitution',
+    });
+
+    expect(result.ok).toBe(false);
+    expect(st.pendingPlayerDecisions).toHaveLength(0);
+    expect(st.firedEvents).not.toContain('dw_danish_june_constitution');
+    expect(st.countries.DEN.laws.power).toBe('autocracy');
+    expect(st.log.some((entry) => entry.text.includes('was invalidated'))).toBe(true);
+  });
+
+  it('invalidates a pending choice when its causal preconditions no longer hold', () => {
+    const { st } = queueDanishDecision();
+    st.countries.DEN.laws.power = 'oligarchy';
+    const result = execute(st, {
+      type: 'decide',
+      pendingId: 'pd_test_danish_constitution',
+      option: 'june_constitution',
+    });
+
+    expect(result.ok).toBe(false);
+    expect(st.pendingPlayerDecisions).toHaveLength(0);
+    expect(st.firedEvents).not.toContain('dw_danish_june_constitution');
+    expect(st.countries.DEN.laws.press).not.toBe('free_press');
+  });
+
+  it('invalidates tampered/stale offered-option lists before effects can execute', () => {
+    const { st } = queueDanishDecision();
+    st.pendingPlayerDecisions[0].options = [{ id: 'inject_arbitrary_effect', historical: true }];
+    const result = execute(st, {
+      type: 'decide',
+      pendingId: 'pd_test_danish_constitution',
+      option: 'inject_arbitrary_effect',
+    });
+
+    expect(result.ok).toBe(false);
+    expect(st.pendingPlayerDecisions).toHaveLength(0);
+    expect(st.firedEvents).not.toContain('dw_danish_june_constitution');
+    expect(st.countries.DEN.laws.power).toBe('autocracy');
+  });
+
+  it('rejects historical pending choices in Sandbox Mode', () => {
+    const st = fresh('sandbox', 29, 'DEN');
+    st.pendingPlayerDecisions.push({
+      id: 'pd_sandbox_invalid',
+      windowId: 'dw_danish_june_constitution',
+      options: [
+        { id: 'june_constitution', historical: true },
+        { id: 'refuse', historical: false },
+      ],
+    });
+
+    const result = execute(st, {
+      type: 'decide',
+      pendingId: 'pd_sandbox_invalid',
+      option: 'june_constitution',
+    });
+
+    expect(result.ok).toBe(false);
+    expect(st.pendingPlayerDecisions).toHaveLength(1);
+    expect(st.firedEvents).not.toContain('dw_danish_june_constitution');
+  });
+
+  it('preflights all option effects before mutating any state', async () => {
+    const { st } = queueDanishDecision();
+    // Construct a deliberately malformed canonical option with a valid first effect
+    // and an unsupported trailing effect. The whole option must be rejected pre-mutation.
+    const { applyWindowOption } = await import('../src/engine/systems/events');
+    const window = data().db.decision_windows.find((item) => item.id === 'dw_danish_june_constitution')!;
+    const option = window.options.find((item) => item.id === 'june_constitution')!;
+    const original = option.effects;
+    (option as any).effects = [
+      { type: 'set_law', entity: 'DEN', group: 'power', value: 'census_suffrage' },
+      { type: 'unsupported_effect', payload: true },
+    ];
+    try {
+      expect(applyWindowOption(st, window.id, option.id)).toBe(false);
+      expect(st.countries.DEN.laws.power).toBe('autocracy');
+    } finally {
+      (option as any).effects = original;
+    }
   });
 });
