@@ -30,3 +30,7 @@ Before any code, data, test, asset, build or workflow change:
 Report: task/scope ID; base SHA and new commit SHA; changed files; rationale; tests and exit codes; CI URLs; APK/artifact hashes if applicable; physical device evidence if actually collected; save/data migration evidence; unresolved issues; independent reviewer and exact verdict; owner decision; next task.
 
 Start from `AI_START_HERE.md`, not from an old chat transcript.
+
+## Session/network failure recovery
+
+Read `docs/coordination/SESSION_RECOVERY_PROTOCOL_VI.md` before resuming work after a new session, lost chat response, timeout, rate limit or ambiguous GitHub write. Verify current branch HEAD and inspect commits/files/workflows before retrying any operation. Never blindly repeat non-idempotent writes, overwrite newer SHAs, or claim uncommitted work persisted. If GitHub remains unreachable after bounded retries, stop writes and report `BLOCKED` with the last verified SHA and exact uncertainty.
