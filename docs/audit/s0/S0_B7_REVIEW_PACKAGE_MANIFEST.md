@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `4fcea43c02a5c50258e0d775d3338cd73a144dba`  
+**Snapshot HEAD before this manifest refresh:** `8e0660cdff56cd312d5a6cc23fda13b5e6659fec`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -14,12 +14,12 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 |---|---|
 | `docs/audit/s0/S0_B4_RUN_3_REVIEW.md` | `3d8644811c3ac13b19cce1f1274c46d2edbaa10a` |
 | `docs/audit/s0/S0_B4_TEST_PLAN.md` | `ef21f8193daf283a6ed8c6f4d68b7ca87781bd46` |
-| `docs/audit/s0/S0_RISK_REGISTER.md` | `7956ce02029113f4ce10c52162829ee3b1d0b6c5` |
+| `docs/audit/s0/S0_RISK_REGISTER.md` | `8839d11897a61820b2e53f8add028c375005ea8d` |
 | `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `b55a14bf5e23e162a1b5d2b2cc6b7c1831a60022` |
-| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `7f16999e6efd466d1cbb0df2aa10111ceca0d1ad` |
+| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `ecc6ca00ccf82a62c2f0b1d43a6b08d736438cfc` |
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `e3ff67518e936882b9f1f3f6096030ddb4bb99b5` |
 | `docs/audit/s0/S0_SIGNOFF.md` | `46a2b3b0073e9d0fc868c7374c0285ca1ef2ffbc` |
-| `docs/audit/s0/S0_B7_RESULTS.md` | `1a143f3f8fe617df1dfd1ac447a19d04a5f4852f` |
+| `docs/audit/s0/S0_B7_RESULTS.md` | `5d1443d7c3f11ac6c9563c94fd3fb077bbcaa74f` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `03e12cc5bd7436b167315a599ed868006bc50e07` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `e5edc4d8180b331b4ddce2d7f0b687621b58083c` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
@@ -120,4 +120,4 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 - Test artifact `14554953353`, 106,657 bytes, API SHA-256 `96aa79f605d52f7a2eb60748f307802827f6fec9994e280fd655e3565c879829`; 38/38 suites and 97/97 tests passed.
 - APK artifact `14553589834`, ZIP 17,569,405 bytes, API SHA-256 `72ce3a5759bd1379aaf35bf10a395f3cc136230b44eabc64976375405b85678b`; contains `app-debug.apk` 18,057,530 bytes, SHA-256 `338fc54ce2e68f15ddc7043c664bdffa9cd79ade3c41aa0ed7a7cf0bfa7fe6b5`. Debug certificate SHA-256 `8610076ddcefefc85d188530b0eb4645a21f92f38008692c29f6282a13418e19`.
 - Both artifact ZIP digests were recomputed and match GitHub API digests. CI-F4 closed narrowly; no gameplay acceptance, device QA, release signing, data-pack delivery, overall S0 PASS or S1 authorization is implied.
-- Updated B7 review-input blob SHAs: Risk Register `7956ce02029113f4ce10c52162829ee3b1d0b6c5`; Risk Traceability `a83ed23f68e71f8a473d6d1cd6ed2eebd8bb360f`; B7 self-review `7f16999e6efd466d1cbb0df2aa10111ceca0d1ad`; dependency plan `e3ff67518e936882b9f1f3f6096030ddb4bb99b5`; signoff `46a2b3b0073e9d0fc868c7374c0285ca1ef2ffbc`; B7 Results `1a143f3f8fe617df1dfd1ac447a19d04a5f4852f`; Claude request `03e12cc5bd7436b167315a599ed868006bc50e07`; workflow `dacd8506bed77624c44ffa27279354a87e9a4ebf`; AI_HANDOFF `992e752a559a1890c73b0195fdde6f7c5a2764aa`; next-session handoff `05ccbc955f3b66719d6758b0d6f0d9b36af11ebb`.
+- Updated B7 review-input blob SHAs: Risk Register `8839d11897a61820b2e53f8add028c375005ea8d`; Risk Traceability `a83ed23f68e71f8a473d6d1cd6ed2eebd8bb360f`; B7 self-review `ecc6ca00ccf82a62c2f0b1d43a6b08d736438cfc`; dependency plan `e3ff67518e936882b9f1f3f6096030ddb4bb99b5`; signoff `46a2b3b0073e9d0fc868c7374c0285ca1ef2ffbc`; B7 Results `5d1443d7c3f11ac6c9563c94fd3fb077bbcaa74f`; Claude request `03e12cc5bd7436b167315a599ed868006bc50e07`; workflow `dacd8506bed77624c44ffa27279354a87e9a4ebf`; AI_HANDOFF `992e752a559a1890c73b0195fdde6f7c5a2764aa`; next-session handoff `05ccbc955f3b66719d6758b0d6f0d9b36af11ebb`.
