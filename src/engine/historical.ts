@@ -6,10 +6,50 @@ import type { Country, GameState } from './types';
 import { MODES } from './modes';
 import { dateStr, parseDate } from './core';
 import { coreNationOf } from './systems/population';
+import { createPowerRankSnapshot, type PowerRankSnapshot } from './metrics';
 
-export function evalCondition(st: GameState, c: Condition, self?: Country): boolean {
-  const d = data(); const C = (id: unknown) => st.countries[String(id)];
+export interface ConditionEvalContext {
+  readonly powerRanks: PowerRankSnapshot;
+  readonly diagnostics: string[];
+}
+
+interface CachedConditionContext {
+  tick: number;
+  context: ConditionEvalContext;
+}
+
+const conditionContextCache = new WeakMap<GameState, CachedConditionContext>();
+
+/** Reuses one immutable power-rank snapshot for every condition evaluated in a state tick. */
+export function createConditionEvalContext(st: GameState): ConditionEvalContext {
+  const cached = conditionContextCache.get(st);
+  if (cached?.tick === st.tick) return cached.context;
+
+  const powerRanks = createPowerRankSnapshot(st);
+  const diagnostics: string[] = [];
+  if (!powerRanks.valid && powerRanks.diagnostic) diagnostics.push(powerRanks.diagnostic);
+
+  const context: ConditionEvalContext = { powerRanks, diagnostics };
+  conditionContextCache.set(st, { tick: st.tick, context });
+  return context;
+}
+
+function conditionNonMatch(context: ConditionEvalContext, diagnostic: string): false {
+  if (!context.diagnostics.includes(diagnostic)) context.diagnostics.push(diagnostic);
+  return false;
+}
+
+export function evalCondition(
+  st: GameState,
+  c: Condition,
+  self?: Country,
+  suppliedContext?: ConditionEvalContext,
+): boolean {
+  const context = suppliedContext ?? createConditionEvalContext(st);
+  const d = data();
+  const C = (id: unknown) => st.countries[String(id)];
   const own = (region: unknown) => st.regions[d.regionIndex.get(String(region)) ?? -1]?.owner;
+
   switch (c.type) {
     case 'exists': return !!C(c.entity)?.alive;
     case 'exists_independent': return !!C(c.entity)?.alive && !C(c.entity)!.overlord;
@@ -30,11 +70,43 @@ export function evalCondition(st: GameState, c: Condition, self?: Country): bool
     case 'foreign_naval_pressure': return (C(c.entity)?.foreignPressure ?? 0) >= Number(c.value);
     case 'at_war_with_rebels': return st.wars.some((w) => w.kind === 'civil' && w.defenders.members.includes(String(c.entity)));
     case 'leader_changed_since_start': { const x = C(c.entity); return !!x && x.leader.since > 1836; }
-    case 'rank_at_most': return true; // evaluated by the caller with power rankings when needed
+    case 'rank_at_most': {
+      const entityId = c.entity;
+      const maximumRank = c.rank;
+      if (typeof entityId !== 'string' || entityId.length === 0) {
+        return conditionNonMatch(context, 'rank_at_most requires a non-empty stable entity ID');
+      }
+      if (typeof maximumRank !== 'number' || !Number.isSafeInteger(maximumRank) || maximumRank < 1) {
+        return conditionNonMatch(context, 'rank_at_most requires a positive safe-integer rank threshold');
+      }
+      const target = st.countries[entityId];
+      if (!target?.alive || target.decentralized) {
+        return conditionNonMatch(context, `rank_at_most target is missing, dead or decentralized: ${entityId}`);
+      }
+      if (context.powerRanks.tick !== st.tick || !context.powerRanks.valid) {
+        return conditionNonMatch(context, context.powerRanks.diagnostic ?? 'rank_at_most ranking snapshot is unavailable or stale');
+      }
+      const actualRank = context.powerRanks.rankByEntity[entityId];
+      if (!Number.isSafeInteger(actualRank)) {
+        return conditionNonMatch(context, `rank_at_most target has no canonical rank: ${entityId}`);
+      }
+      return actualRank <= maximumRank;
+    }
     case 'gov_power': return C(c.entity)?.laws.power === c.value;
     case 'foreign_pressure': return (C(c.entity)?.foreignPressure ?? 0) > 0.8;
-    case 'any': return (c.of as Condition[]).some((x) => evalCondition(st, x, self));
-    case 'all': return (c.of as Condition[]).every((x) => evalCondition(st, x, self));
+    case 'any':
+    case 'all': {
+      const children = c.of;
+      if (!Array.isArray(children) || children.length === 0) {
+        return conditionNonMatch(context, `${c.type} condition requires a non-empty child list`);
+      }
+      if (children.some((child) => !child || typeof child !== 'object' || typeof (child as Condition).type !== 'string')) {
+        return conditionNonMatch(context, `${c.type} condition contains a malformed child`);
+      }
+      return c.type === 'all'
+        ? (children as Condition[]).every((child) => evalCondition(st, child, self, context))
+        : (children as Condition[]).some((child) => evalCondition(st, child, self, context));
+    }
     case 'count_owner_european': { const eu = new Set(d.db.european_powers); return (c.regions as string[]).filter((r) => eu.has(own(r) ?? '')).length >= Number(c.min); }
     default: return false;
   }
@@ -45,10 +117,11 @@ export function activePriorities(st: GameState, c: Country): StrategicPriority[]
   if (!MODES[st.mode].historicalPriorities) return [];
   const e = data().entity.get(c.id); if (!e) return [];
   const y = st.date.y;
+  const context = createConditionEvalContext(st);
   return e.priorities.filter((p) => {
     const [a, b] = p.window.map((x) => parseDate(x).y);
     if (y < a || y > b) return false;
-    return (p.conditions ?? []).every((cond) => evalCondition(st, cond, c));
+    return (p.conditions ?? []).every((cond) => evalCondition(st, cond, c, context));
   });
 }
 

@@ -5,6 +5,8 @@ import { SYSTEMS } from '../src/engine/simulation';
 import { MODES } from '../src/engine/modes';
 import { data } from '../src/engine/data/db';
 import { territorialSimilarity } from '../src/engine/divergence';
+import { createConditionEvalContext, evalCondition } from '../src/engine/historical';
+import { rankings } from '../src/engine/metrics';
 
 const SEEDS = [1, 2, 3];
 const YEARS = 40;
@@ -128,5 +130,106 @@ describe('territorial similarity is measured identically in both modes', () => {
   it('is 1.0 at start in both modes (same starting world)', () => {
     expect(territorialSimilarity(fresh('historical'))).toBeCloseTo(1, 5);
     expect(territorialSimilarity(fresh('sandbox'))).toBeCloseTo(1, 5);
+  });
+});
+
+
+describe('canonical rank_at_most condition', () => {
+  function rankFixture() {
+    const st = fresh('historical', 17);
+    for (const country of Object.values(st.countries)) country.alive = false;
+
+    const setPower = (id: string, gdp: number) => {
+      const country = st.countries[id];
+      country.alive = true;
+      country.decentralized = false;
+      country.gdp = gdp;
+      country.army.manpower = 0;
+      country.army.quality = 1;
+      country.army.supply = 1;
+      country.army.morale = 1;
+      country.navy.strength = 0;
+      country.navy.quality = 1;
+      country.prestige = 0;
+      return country;
+    };
+
+    setPower('GBR', 4e9);
+    setPower('FRA', 4e9);
+    setPower('USA', 1e9);
+    // Subjects are eligible under the public rankings() contract.
+    st.countries.FRA.overlord = 'GBR';
+    return st;
+  }
+
+  it('uses canonical power score, includes subjects and applies the maximum competition rank', () => {
+    const st = rankFixture();
+    const context = createConditionEvalContext(st);
+
+    expect(evalCondition(st, { type: 'rank_at_most', entity: 'GBR', rank: 1 }, undefined, context)).toBe(true);
+    expect(evalCondition(st, { type: 'rank_at_most', entity: 'FRA', rank: 1 }, undefined, context)).toBe(true);
+    expect(evalCondition(st, { type: 'rank_at_most', entity: 'USA', rank: 2 }, undefined, context)).toBe(false);
+    expect(context.powerRanks.rankByEntity.FRA).toBe(1);
+    expect(context.powerRanks.rankByEntity.USA).toBe(3);
+  });
+
+  it('gives exact ties the same competition rank and stable ID display ordering', () => {
+    const st = rankFixture();
+    const context = createConditionEvalContext(st);
+    const ordered = rankings(st);
+
+    expect(ordered.map((row) => row.id)).toEqual(['FRA', 'GBR', 'USA']);
+    expect(context.powerRanks.rankByEntity.FRA).toBe(1);
+    expect(context.powerRanks.rankByEntity.GBR).toBe(1);
+    expect(context.powerRanks.rankByEntity.USA).toBe(3);
+  });
+
+  it('fails closed for dead, decentralized, unknown targets and invalid thresholds', () => {
+    const st = rankFixture();
+    st.countries.USA.alive = false;
+    st.countries.QNG.alive = true;
+    st.countries.QNG.decentralized = true;
+    const context = createConditionEvalContext(st);
+
+    expect(evalCondition(st, { type: 'rank_at_most', entity: 'USA', rank: 1 }, undefined, context)).toBe(false);
+    expect(evalCondition(st, { type: 'rank_at_most', entity: 'QNG', rank: 1 }, undefined, context)).toBe(false);
+    expect(evalCondition(st, { type: 'rank_at_most', entity: 'UNKNOWN', rank: 1 }, undefined, context)).toBe(false);
+    expect(evalCondition(st, { type: 'rank_at_most', entity: 'GBR', rank: 0 }, undefined, context)).toBe(false);
+    expect(evalCondition(st, { type: 'rank_at_most', entity: 'GBR', rank: 1.5 }, undefined, context)).toBe(false);
+    expect(context.diagnostics.length).toBeGreaterThan(0);
+  });
+
+  it('fails closed when any eligible candidate has a non-finite power score', () => {
+    const st = rankFixture();
+    st.countries.USA.gdp = Number.NaN;
+    const context = createConditionEvalContext(st);
+
+    expect(context.powerRanks.valid).toBe(false);
+    expect(evalCondition(st, { type: 'rank_at_most', entity: 'GBR', rank: 1 }, undefined, context)).toBe(false);
+    expect(context.diagnostics.some((message) => message.includes('Non-finite'))).toBe(true);
+  });
+
+  it('shares one immutable per-tick context through nested all/any expressions', () => {
+    const st = rankFixture();
+    const context = createConditionEvalContext(st);
+    const nested = {
+      type: 'all',
+      of: [
+        { type: 'rank_at_most', entity: 'GBR', rank: 1 },
+        {
+          type: 'any',
+          of: [
+            { type: 'rank_at_most', entity: 'USA', rank: 3 },
+            { type: 'rank_at_most', entity: 'USA', rank: 1 },
+          ],
+        },
+      ],
+    };
+
+    expect(createConditionEvalContext(st)).toBe(context);
+    expect(evalCondition(st, nested, undefined, context)).toBe(true);
+    st.tick += 1;
+    expect(evalCondition(st, { type: 'rank_at_most', entity: 'GBR', rank: 1 }, undefined, context)).toBe(false);
+    expect(context.powerRanks.tick).not.toBe(st.tick);
   });
 });

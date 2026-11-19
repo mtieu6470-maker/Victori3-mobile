@@ -4,7 +4,7 @@ import { data } from '../data/db';
 import type { Country, GameState } from '../types';
 import { MODES } from '../modes';
 import { chance, clamp, dateToTick, log, pick, rand, dateStr } from '../core';
-import { evalCondition } from '../historical';
+import { createConditionEvalContext, evalCondition } from '../historical';
 import { setLaw, generatedName } from './politics';
 import { transferRegion, createNation } from '../world';
 import { joinCustomsUnion } from './diplomacy';
@@ -36,11 +36,12 @@ export function eventsMonth(st: GameState, decide: (c: Country, windowId: string
   }
   // ---- decision windows (Historical Mode only)
   if (mode.decisionWindows) {
+    const conditionContext = createConditionEvalContext(st);
     for (const w of d.db.decision_windows) {
       if (st.firedEvents.includes(w.id)) continue;
       const c = st.countries[w.entity]; if (!c?.alive) continue;
       if (iso < w.window[0] || iso > w.window[1]) continue;
-      if (!w.conditions.every((cond) => evalCondition(st, cond, c))) continue;
+      if (!w.conditions.every((cond) => evalCondition(st, cond, c, conditionContext))) continue;
       const opt = decide(c, w.id, w.options.map((o) => ({ id: o.id, historical: o.historical })), w.historical_weight);
       if (!opt) continue; // player has a pending decision
       st.firedEvents.push(w.id); st.counters.decisionWindowsFired++;
