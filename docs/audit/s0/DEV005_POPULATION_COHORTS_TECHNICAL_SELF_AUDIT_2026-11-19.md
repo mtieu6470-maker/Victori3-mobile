@@ -43,7 +43,7 @@ The intended DEV-005 runtime/test files are:
 - `tests/population-cohorts.test.ts`
 - `tests/s0-save-determinism.test.ts` — two-line expectation update for the new explicit missing-save-state error.
 
-The full GitHub compare from implementation base `3d1b8dd24427f2993d561eb0c555d6e0b30b1d5a` to audit target `0c171b9b615e4f91cce66749f8482837c8dfa9ef` reports 23 changed paths. The other 16 are concurrent governance/reporting documents, not additional runtime changes:
+The full GitHub compare from implementation base `3d1b8dd24427f2993d561eb0c555d6e0b30b1d5a` to audit target `c9868d7131d7de3fd8efd0263411fee9111f172c` reports 23 changed paths. The other 16 are concurrent governance/reporting documents, not additional runtime changes:
 
 - Root: `AGENTS.md`, `AI_START_HERE.md`, `CLAUDE.md`, `README.md`.
 - Audit/report: `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md`, `docs/audit/s0/S0_B7_PACKAGE_SUMMARY_VI.md`, `docs/audit/s0/S0_B7_RESULTS.md`, `docs/audit/s0/S0_B7_REVIEW_REQUEST.md`, `docs/audit/s0/S0_RISK_REGISTER.md`, `docs/audit/s0/S0_SIGNOFF.md`, `docs/audit/s0/S22_CONTINUOUS_PROGRESS_REPORT_VI.md`.
@@ -122,7 +122,7 @@ Regression tests now cover null/array/primitive save envelopes, null Region entr
 The complete DEV-005 suite now contains 13 focused cases. Exact current target:
 - Code/test SHA: `c9868d7131d7de3fd8efd0263411fee9111f172c`.
 - Tests-only [44540766509](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44540766509) — SUCCESS, 11/11 files, 122/122 tests, 0 failed (215.60s).
-- Android debug [44540766545](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44540766545) — IN_PROGRESS at `Assemble debug APK` when this section was recorded. Build/typecheck and unit/simulation tests had completed earlier in the same job.
+- Android debug [44540766545](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44540766545) — SUCCESS: web build/typecheck, 122 tests, Capacitor sync, Gradle `assembleDebug`, APK checksum and V1/V2 signing verification all passed.
 - Previous code SHA `0c171b9` results remain historical and do not validate these new guards/migration changes.
 
 ## 7. Verification state
