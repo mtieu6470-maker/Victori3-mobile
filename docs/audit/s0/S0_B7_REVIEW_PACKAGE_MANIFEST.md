@@ -1,9 +1,9 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `b359656a1e05c6eb8537e9d7f3948cd389b098c7`  
+**Snapshot HEAD before this manifest refresh:** `960a85b8536499a705b2f44274a57bfff8253c73`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
-**Default branch HEAD observed:** `371a9e0bd35857a4f91389d0b41308571c554725`  
+**Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
 
 All blob SHAs below were fetched from the named experiment-branch ref before this manifest refresh. The manifest commit advances the branch; reviewers must recheck the current HEAD and each file SHA before issuing a verdict. If a SHA differs, review the current file.
@@ -16,14 +16,14 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 | `docs/audit/s0/S0_B4_TEST_PLAN.md` | `ef21f8193daf283a6ed8c6f4d68b7ca87781bd46` |
 | `docs/audit/s0/S0_RISK_REGISTER.md` | `352e13c1f600adfd17f317f75e572855670f83dc` |
 | `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `6a13c4c4025166bd6d61f78505620fc31be3edb6` |
-| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `6a2890758d737840e6f81be0abd04f94a7de461a` |
+| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `c4e0032bf28dc34ced56aa8112d84962424ed14d` |
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `65173d78353d81b5304602a81372847232c5d8e1` |
 | `docs/audit/s0/S0_SIGNOFF.md` | `f064fe08e26020eac987a9c2e59dabc001796dc5` |
-| `docs/audit/s0/S0_B7_RESULTS.md` | `83099e8a1f55ba98e43bb67a268c9ad227fcd44e` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `4854adce612bc0afce3849e04198575dba71cdfa` |
+| `docs/audit/s0/S0_B7_RESULTS.md` | `1b640dfc1b22af0535df58e48d33eef72265ec0b` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `d39720fa12663fbbe6cc9e0dfb7f77f7d90e197a` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `e5edc4d8180b331b4ddce2d7f0b687621b58083c` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `0d51f80c78a8c2eff16fda7feb0814a6f36876c6` |
+| `docs/coordination/AI_HANDOFF.md` | `01db4abdf10774e9e9d7015d3de74f45c61a02da` |
 
 ## 2. Risk table integrity and traceability
 
@@ -65,3 +65,13 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 - Return `REVIEW_PASS` or `CHANGES_REQUESTED` for the bounded S1-entry evidence package only; report `BLOCKED` if hard conditions cannot be verified.
 - Do not edit repository files, change code/workflows/dependencies, merge branches, approve exceptions, sign off for the owner, or open S1.
 - The ChatGPT self-review is a checklist, not independent evidence. Claude must validate the source findings and gate interpretation independently.
+
+
+## 7. Current-branch CI recheck (2026-11-19)
+
+- Snapshot HEAD above is the exact experiment-branch commit immediately before this manifest refresh; recheck the branch after this manifest commit.
+- Android workflow runs #316 (`44562638037`) and #317 (`44562662560`) both failed on the same baseline-only `constructionQueue` assertion; each reported 108/109 tests passed. `npm ci` and the web/data build passed, but Gradle/APK steps were skipped.
+- The failure is from running the baseline characterization test against the changed experiment branch, which has `constructionQueue`; it does not replace the approved frozen-baseline B4 Run #3 result.
+- No APK or downloadable data pack was produced by these runs. The B7 dependency audit remains un-dispatched and DEP-F1 untriaged.
+- The P2 Risk Register table currently contains 22 data rows, all with six cells. The prior self-review/handoff count of 21 was corrected in the latest documentation commits.
+- B7 remains IN_PROGRESS; independent Claude review and owner decision remain pending. Overall S0 remains PARTIAL/BLOCKED; S1 remains NOT AUTHORIZED.
