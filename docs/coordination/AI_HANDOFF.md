@@ -14,8 +14,22 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 
 - **Victoria 3 parity re-audit (ChatGPT self-audit, 19/11/2026):** `docs/audit/VICTORIA3_PARITY_REAUDIT_2026-11-19.md` (audit HEAD `b18f0213ad4958ec95ff292d63ad661d010cffb1`; documentation commit `7defe399787eb1c919d285ad7e64c8657a7484f8`). Reconciles the 18/11 41-area parity snapshot with current construction queues and regional employment/wage aggregates; identifies remaining P0/P1/P2 gaps. No runtime patch or phase authorization; do not treat this self-audit as Claude REVIEW_PASS or owner acceptance.
 
+## Owner authorization — DEV-005 (19/11/2026)
+
+- The project owner explicitly instructed ChatGPT to proceed with DEV-005 and granted implementation authority for this bounded population-cohort foundation, including the save-contract and migration work required by it.
+- Exact scope and evidence are recorded in `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md`.
+- This bounded authorization does **not** alter S0 gate verdicts, mark S0 accepted, accept the complete S1 phase, open S7–S23, approve unverified historical seed data, or waive Claude's independent review.
+
+## Active DEV-005 review entry point
+
+- **DEV-005 — Population cohort foundation:** `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md`.
+- **Exact code review HEAD:** `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce`.
+- **Tests-only CI:** [44499872965](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872965) — PASS, 11/11 test files and 115/115 tests.
+- **Android debug CI:** [44499872833](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872833) — SUCCESS; Gradle `assembleDebug` and APK signature verification succeeded. APK SHA-256: `025faf6255c529397ce4fd3b59f5023493287bf5ccbb1c343716e7bc63f302b2`.
+
 ## Current independent review entry point
 
+- **DEV-005 / Claude — population cohort foundation:** review `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md` against code HEAD `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce`; verdict pending.
 - **R4e / Claude — final collective/aggregate succession queue review:** start with `docs/audit/s0/GLOBAL_R4E_CLAUDE_INDEPENDENT_REVIEW_REQUEST_2026-11-18.md`. R4e covers MAO (collective rangatira authority) and MLY (multiple Malay constituent polities); base SHA before R4e: `103ab66b227809fae358e082fa253c0e50a1f78c`. Fetch the exact latest branch HEAD before review.
 - **R4e package:** `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/README_VI.md`; 2-entity evidence matrix, 19 non-executing decisions, 12 open evidence requests and 20 source records. Integration receipt: `docs/research/GLOBAL_HISTORICAL_1836_1936/R4e/GITHUB_INTEGRATION_RECEIPT_R4e.md`.
 - **S20–S21 military organization/operations/logistics pre-design:** `docs/spec/MILITARY_ORGANIZATION_OPERATIONS_LOGISTICS_PROPOSAL_VI.md` (design commit `a82d59bcc01e6a57163f7acedd4930132f0767f5`). Includes force organization, LegacyForcePool safety, unit/formation, supply, movement, fronts, combat, sieges, occupation, navy and convoy. Design only; S20/S21 remain closed.

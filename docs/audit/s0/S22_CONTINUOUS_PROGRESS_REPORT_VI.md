@@ -3,29 +3,47 @@
 **Ngày cập nhật:** 19/11/2026  
 **Repository:** mtieu6470-maker/Victori3-mobile  
 **Branch:** claude/game-historical-sandbox-modes-kg7rj7  
-**Code HEAD đã được kiểm thử/build mới nhất:** `96578ca30bd38d5a98e45cb379a8a6b03ec834ad` (DEV-004 regression fix; các commit tài liệu sau đó không đổi code).  
+**Code HEAD đã được kiểm thử/build mới nhất:** `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce` (DEV-005; tests-only PASS 115/115, Android debug build SUCCESS).  
 **Chế độ báo cáo:** rolling report — mọi lượt làm xong phải append một progress entry mới; không tạo báo cáo rời nếu không cần thiết.
 
 > Đây là báo cáo điều phối và tự kiểm toán của ChatGPT. Không phải Claude REVIEW_PASS, không phải owner ACCEPTED, không phải bằng chứng S1/S22 đã mở. Mọi research candidate chưa được owner chấp nhận vẫn là tài liệu nghiên cứu, không phải game data đã duyệt.
 
+## 0. DEV-005 — Population cohort foundation (owner-authorized 19/11/2026)
+
+- **Owner scope:** the project owner explicitly authorized this bounded implementation slice. It does not accept S0, change G0.7/G0.8/G0.9, accept the complete S1 phase or open other gated phases.
+- **Repository / branch:** `mtieu6470-maker/Victori3-mobile` / `claude/game-historical-sandbox-modes-kg7rj7`.
+- **Code base:** `3d1b8dd24427f2993d561eb0c555d6e0b30b1d5a`.
+- **Implementation commits:** `bb386b73f3a295b69afc40ec820f63c9b241f155` (initial cohort/save foundation); `33fb01074b3086bfafe16b7288302fee065b9b46` (TypeScript contract and fixture corrections); `44ad1c9b0afae16bc11ed23cf4ae08f7c455ba36` (locale-independent ordering and regional validation); `e429e8d701bb379a62f84717395d07681093284f` (relative world-total mass tolerance); `8abdddbe57fdb6e943151ba2f7186644b54439d9` (reject invalid/negative/non-normalized Region strata); `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce` (refresh projection after all monthly systems and test late POP mutation).
+- **Final changed paths from base:** `src/engine/types.ts`; `src/engine/init.ts`; `src/engine/save.ts`; `src/engine/simulation.ts`; `src/engine/systems/populationCohorts.ts` (new); `tests/population-cohorts.test.ts` (new).
+- **Implemented:** GameState/save schema v2; deterministic pure v1→v2 migration without RNG consumption; canonical tuple cohort IDs; one estimated cohort per non-empty Region × Stratum; mass/strata validation; projection rebuild after all systems complete each monthly tick.
+- **Evidence-safe unknown handling:** no invented culture/religion/occupation/qualification/age cross-tabs; culture/religion remain null, occupation `unclassified`, qualification `unknown`, and unsupported literacy/radicalism/wealth/income remain null. Historical runtime data and source registries were not changed.
+- **Transition limitation:** Region POP/strata remain authoritative; cohort state is a deterministic projection, not yet a cohort-authoritative demographic engine. Cohort-specific births/deaths/migration, age structure, wealth distribution, needs/consumption, market inventory, real hiring/wages, UI and multi-decade calibration are not implemented in this slice.
+- **Known design deviation:** cohort `size` is fractional person-equivalent to preserve existing continuous POP arithmetic. The proposal's eventual integer headcount contract is explicitly submitted for Claude's independent decision.
+- **Exact code HEAD:** `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce`.
+- **Tests-only CI:** run [44499872965](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872965) PASS, 11/11 test files, 115/115 tests, 0 failed/pending.
+- **Android debug CI:** run [44499872833](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44499872833) SUCCESS; `npm ci`, generated data/map/content, `npm run build` (including `tsc --noEmit`), Vitest, Capacitor sync, Gradle `assembleDebug`, checksum/manifest and signature checks all succeeded.
+- **APK:** 18,051,865 bytes; SHA-256 `025faf6255c529397ce4fd3b59f5023493287bf5ccbb1c343716e7bc63f302b2`; debug signer certificate SHA-256 `4c5cb13e69a17335ced627c6d6ff79b5d64c63a07ecd7c0fe1a44a49c5b216bd`; v1/v2 verified. Artifact ID `14517545981`, artifact ZIP digest `1eae16246426dd6c35ebcdd89b02966ab8fd78c36b71fcd6011e23f7f915a646`. This is a debug APK, not release-signed or device-tested.
+- **Claude review packet:** `docs/audit/s0/DEV005_POPULATION_COHORTS_CLAUDE_REVIEW_REQUEST_2026-11-19.md`.
+
+> This is a ChatGPT implementation self-audit and CI record, not an independent `REVIEW_PASS`, owner `ACCEPTED`, or full Victoria 3 parity claim.
 ## 1. Trạng thái tổng quan
 
 | Hạng mục | Trạng thái hiện tại tại HEAD đã xác minh |
 |---|---|
-| Nhánh / code SHA đã kiểm thử | `claude/game-historical-sandbox-modes-kg7rj7` / `96578ca30bd38d5a98e45cb379a8a6b03ec834ad` |
+| Nhánh / code SHA đã kiểm thử | `claude/game-historical-sandbox-modes-kg7rj7` / `1cf786987266c74e4b0d0ed3ac2e1efb55fe80ce` |
 | S22 architecture | `DESIGN_ONLY`; design §§14.1–14.15 đã cập nhật |
 | Code self-audit | DEV-001 triển khai SA-01 ở mức candidate có CI xanh; Claude review vẫn pending. SA-02–SA-13 và các owner/evidence gates khác còn mở |
 | Traceability | Có mapping SA-01–SA-13 → design clauses; design coverage only |
-| Test matrix | S22 matrix GEO-01–GEO-10, BEN-11–BEN-18 và các nhóm DEC/EVT/CAL vẫn là kế hoạch rộng; các lát cắt DEV-001–004 có regression tests riêng và CI evidence |
+| Test matrix | S22 matrix GEO-01–GEO-10, BEN-11–BEN-18 và các nhóm DEC/EVT/CAL vẫn là kế hoạch rộng; DEV-001–005 có regression tests riêng và CI evidence |
 | Event research | 9 event records được rà soát + 1 global-drought candidate; còn open evidence requests |
 | Benchmark research | 181 × 6 CoW entity/metric matrix (1,086 rows) và 160 Maddison 2010 unit rows |
 | Hydrogen research | Request đã cập nhật; independent deliverables chưa được nhận/kiểm chứng trong hồ sơ hiện tại |
-| Claude review | DEV-001–DEV-003 aggregate review request và DEV-004 economy/construction review request đã có; verdict độc lập vẫn pending |
+| Claude review | DEV-001–DEV-003 aggregate, DEV-004 economy/construction và DEV-005 population cohort review requests đã có; verdict độc lập vẫn pending |
 | S0 overall | G0.7 `BLOCKED`, G0.8 `PARTIAL`, G0.9 `BLOCKED` theo gate ledger |
 | S1 transition | `NOT_STARTED`; signoff còn draft, chưa có independent REVIEW_PASS + owner ACCEPTED |
 | S22 runtime authorization | `NONE`; S22 tiếp tục pre-implementation |
 | Engine / historical runtime data / save schema / UI / Android / APK | S22-specific data/save implementation vẫn gated. Các lát cắt DEV/economy riêng đã đổi engine, UI, tests; hiện có debug APK CI mới, chưa device QA |
-| Build / tests / CI / device QA | DEV-004 code SHA `96578ca3`: tests-only PASS 7/7 files, 87/87 tests; Android workflow SUCCESS, Gradle assembleDebug. APK debug 18,048,145 bytes; chưa device QA, chưa Claude review |
+| Build / tests / CI / device QA | DEV-005 exact code SHA `1cf7869`: tests-only PASS 11/11 files, 115/115 tests; Android workflow SUCCESS, Gradle assembleDebug. APK debug 18,051,865 bytes; chưa device QA, Claude review pending |
 
 > Báo cáo này là technical coordination/self-audit, không phải independent review hay owner acceptance. Không dùng kết quả research candidate làm dữ liệu game đã duyệt.
 
