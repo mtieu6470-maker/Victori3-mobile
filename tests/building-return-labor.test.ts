@@ -124,4 +124,74 @@ describe('building return uses the labor pools available to production', () => {
     expect(productive / baseline).toBeCloseTo(1, 3);
   });
 
+  it('discounts another mine level when the target good is already oversupplied', () => {
+    const simulate = (supply: number, demand: number) => {
+      const { st, country, region } = isolatedRegion();
+      region.pop = 30_000;
+      region.strata.fill(0);
+      region.strata[S.laborers] = 0.8;
+      region.strata[S.peasants] = 0.2;
+      region.res = ['coal'];
+      const prices = { ...st.worldPrices, coal: 2, grain: 0, tools: 1, steel: 1 };
+      st.worldPrices = prices;
+      st.marketPrices.GBR = { ...prices };
+      st.marketStats.GBR = {
+        coal: { supply, demand, imports: 0, short: 0 },
+      } as typeof st.marketStats.GBR;
+      return buildingReturn(st, country, region, 'mine');
+    };
+
+    const balanced = simulate(100, 100);
+    const oversupplied = simulate(1_000, 100);
+    expect(balanced).toBeGreaterThan(0);
+    expect(oversupplied).toBeGreaterThan(0);
+    expect(oversupplied).toBeLessThan(balanced);
+  });
+
+  it('discounts factory returns when required inputs are structurally unavailable', () => {
+    const simulate = (cottonShort: number, coalShort: number) => {
+      const { st, country, region } = isolatedRegion();
+      region.pop = 30_000;
+      region.strata.fill(0);
+      region.strata[S.workers] = 0.8;
+      region.strata[S.peasants] = 0.2;
+      const prices = { ...st.worldPrices, grain: 0, cotton: 1, coal: 1, textiles: 2, tools: 1, steel: 1 };
+      st.worldPrices = prices;
+      st.marketPrices.GBR = { ...prices };
+      st.marketStats.GBR = {
+        cotton: { supply: 500, demand: 1_000, imports: 0, short: cottonShort },
+        coal: { supply: 500, demand: 1_000, imports: 0, short: coalShort },
+      } as typeof st.marketStats.GBR;
+      return buildingReturn(st, country, region, 'textile_mill');
+    };
+
+    const supplied = simulate(0, 0);
+    const constrained = simulate(0.5, 0);
+    const severelyConstrained = simulate(0.5, 0.75);
+    expect(supplied).toBeGreaterThan(constrained);
+    expect(constrained).toBeGreaterThan(severelyConstrained);
+  });
+
+  it('discounts factory revenue when its output market has persistent surplus', () => {
+    const simulate = (supply: number, demand: number) => {
+      const { st, country, region } = isolatedRegion();
+      region.pop = 30_000;
+      region.strata.fill(0);
+      region.strata[S.workers] = 0.8;
+      region.strata[S.peasants] = 0.2;
+      const prices = { ...st.worldPrices, grain: 0, cotton: 1, coal: 1, textiles: 2, tools: 1, steel: 1 };
+      st.worldPrices = prices;
+      st.marketPrices.GBR = { ...prices };
+      st.marketStats.GBR = {
+        textiles: { supply, demand, imports: 0, short: 0 },
+      } as typeof st.marketStats.GBR;
+      return buildingReturn(st, country, region, 'textile_mill');
+    };
+
+    const balanced = simulate(100, 100);
+    const oversupplied = simulate(1_000, 100);
+    expect(balanced).toBeGreaterThan(0);
+    expect(oversupplied).toBeLessThan(balanced);
+  });
+
 });
