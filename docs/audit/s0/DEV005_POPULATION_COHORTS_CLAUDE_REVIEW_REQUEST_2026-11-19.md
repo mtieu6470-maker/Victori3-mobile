@@ -2,7 +2,7 @@
 
 **Repository:** `mtieu6470-maker/Victori3-mobile`  
 **Branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
-**Exact code review target:** `75ad843b11c841a3a0191d2c256383b764cc180f`  
+**Exact code review target:** `b4620a548455444ea26fc784f11dca2a13d9da56`  
 **Implementation base:** `3d1b8dd24427f2993d561eb0c555d6e0b30b1d5a`  
 **Status:** `READY_FOR_REVIEW`; ChatGPT self-audit only. No Claude verdict or owner acceptance is claimed.
 
@@ -26,7 +26,9 @@ Implementation commits:
 - `2ec4728159f2d8833ec080dbaad7d32e60a4eedc` — reject missing/blank Region IDs in cohort creation and validation.
 - `3fa719b06db08cf5c75b03b93a2387e6674368d7` — reject malformed save state and envelope/state version mismatch before migration.
 - `24ae54882d723d45239611bed5da5291aa66b7d3` — add regressions for missing/blank Region IDs and invalid v1 save version.
-- `75ad843b11c841a3a0191d2c256383b764cc180f` — correct the legacy save test fixture type so `population` is optional under TypeScript strict delete rules.
+- `75ad843b11c841a3a0191d2c256383b764cc180f` — introduce optional legacy fixture type for TypeScript strict delete rules.
+- `36e5f6418f0f0f09702ba246858949bd8ac249ed` — keep the optional-property assertion attached to the fixture expression.
+- `b4620a548455444ea26fc784f11dca2a13d9da56` — place the type assertion on one line to avoid TS1434 parsing failure.
 
 Final changed paths from the implementation base:
 - `src/engine/types.ts`
@@ -128,7 +130,7 @@ No physical-device install/upgrade, iQOO QA, release signing, save migration on 
 
 ## 6. Requested verdict
 
-Please re-fetch the branch and review the exact current corrective code HEAD above. Earlier targets are superseded for review by `75ad843b11c841a3a0191d2c256383b764cc180f`; re-fetch the branch before inspecting. Return one bounded verdict: `REVIEW_PASS`, `CHANGES_REQUESTED` or `BLOCKED`.
+Please re-fetch the branch and review the exact current corrective code HEAD above. Earlier targets are superseded for review by `b4620a548455444ea26fc784f11dca2a13d9da56`; re-fetch the branch before inspecting. Return one bounded verdict: `REVIEW_PASS`, `CHANGES_REQUESTED` or `BLOCKED`.
 
 For each finding, include severity, exact file/line, reproducible scenario, consequence and the smallest targeted correction/test. Keep any correction inside DEV-005. A Claude-authored correction is a corrective pass, not an independent review of that same correction; ChatGPT will re-fetch and rerun verification on the corrected HEAD.
 
