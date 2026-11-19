@@ -75,6 +75,15 @@ describe('Sandbox Mode is free', () => {
     expect(differing).toBeGreaterThan(0);
   });
   it('wars, alliances, territorial and institutional changes emerge', () => {
+    console.log('[SANDBOX_DIPLOMACY_DIAG]', JSON.stringify(runs.map((st, i) => ({
+      seed: SEEDS[i],
+      actions: st.counters.aiActions,
+      alliances: st.treaties.filter((t) => t.type === 'alliance').length,
+      rivalries: st.rivalries.length,
+      alive: Object.values(st.countries).filter((country) => country.alive && !country.decentralized).length,
+      relationsAbove20: Object.values(st.relations).filter((v) => v >= 20).length,
+      gdpTop: Object.values(st.countries).filter((country) => country.alive && !country.decentralized).sort((a, b) => b.gdp - a.gdp).slice(0, 5).map((country) => [country.id, Math.round(country.gdp)]),
+    }))));
     for (const st of runs) {
       expect(st.counters.aiActions.declare_war ?? 0).toBeGreaterThan(5);
       expect(st.counters.aiActions.alliance ?? 0).toBeGreaterThan(5);
