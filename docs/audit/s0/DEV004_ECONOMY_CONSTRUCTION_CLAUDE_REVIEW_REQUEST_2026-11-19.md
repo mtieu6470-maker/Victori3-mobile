@@ -1,7 +1,7 @@
 # DEV-004 — Economy, wages, factory inputs and construction lifecycle: Claude review
 
 **Review target branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
-**Exact review HEAD:** `96578ca30bd38d5a98e45cb379a8a6b03ec834ad`  
+**Exact review HEAD:** `ebeff72b20df155c376000f67fd4b9022fc3e327`  
 **Comparison base:** `526b745d980ae5a4094b6dcbdabf41152f910afa` (last green build before the economy/construction feature tranche)  
 **Review type:** independent code review first; one bounded corrective pass only after findings are reported  
 **Status:** REQUESTED — no Claude verdict is claimed; no owner approval is implied
@@ -19,6 +19,9 @@ Feature commits in the reviewed range include:
 - `84d8873eda82e0e3ba1fdded01b6bf930bd435cd` — construction queues, factory inputs, employment and wage model.
 - `dff9e13d573513de82b9f88582955ed58052d6ab` — construction funding protection and progress exposure.
 - `96578ca30bd38d5a98e45cb379a8a6b03ec834ad` — cumulative Sandbox politics assertions and retained-log diagnostic naming.
+- `c92e9b77aeda7fa70b18d18898bb50d16d7a2141` — staged factory production using realized upstream output and full requested input demand.
+- `19df2682c749bfb58fdee2e8ec275873fc4dece7` — CoW national population benchmark scope check using a capital-culture homeland proxy.
+- `ebeff72b20df155c376000f67fd4b9022fc3e327` — unfilled factory-input demand and 100% shortage regression assertions.
 
 Primary files:
 
@@ -51,10 +54,11 @@ Latest exact-SHA evidence:
 ### B. Factory production, intermediate goods and market clearing
 
 1. Verify each recipe consumes only its own declared inputs and production is scaled against the availability of those inputs.
-2. Examine the order of operations across market aggregation, world surplus/deficit, imports, shortages and final factory output. In particular, determine whether planned factory output is counted as market supply before upstream inputs have been secured.
-3. Challenge chains such as ironworks → tools → arms works. Could downstream factories see theoretical upstream steel/tools supply even when upstream production is constrained by iron/coal/tool shortages? Determine whether the current one-pass market clearing is internally consistent or needs staged/iterative resolution.
-4. Check that input shortages do not make intermediate inputs both consumed and still available to downstream factories, and that imports/supply/demand/shortage statistics reconcile.
-5. Verify price smoothing and openness behavior for markets with no supply, no demand, no coastal access, customs unions, and highly imbalanced world supply.
+2. Examine the current staged dependency order: primary factories (textiles, steel and luxury) share one market-clearing snapshot; tools are resolved after realized steel; arms are resolved after realized tools. Challenge whether this ordering and proportional shortage scaling are economically defensible and deterministic.
+3. Verify the distinction between **full requested intermediate-input demand** (reserved for market shortage/statistics) and **actual consumed inputs** (used for value-added/GDP costs). Unfilled demand must remain visible; GDP must not charge inputs for output that did not occur.
+4. Challenge chains such as ironworks → tools → arms works under zero, partial and full inputs. Can downstream factories ever consume theoretical upstream output? Can multiple primary factories sharing coal over-consume a common input or receive an arbitrary priority?
+5. Reconcile imports, local supply, realized factory output, requested demand, actual consumption, market shortages, prices and GDP. Check that intermediate inputs are not double-counted as final value added.
+6. Verify price smoothing and openness behavior for markets with no supply, no demand, no coastal access, customs unions, and highly imbalanced world supply.
 
 ### C. Employment and wage model
 
@@ -70,13 +74,20 @@ Latest exact-SHA evidence:
 2. Confirm `aiActions.reform` increments only on successful `startReform` and `ai.lawHistory` is the authoritative cumulative law-change record.
 3. Confirm the updated assertions still detect a genuinely stagnant simulation rather than merely suppressing the former failure.
 
+### E. Historical population benchmark scope
+
+1. CoW NMC v7 `population.total` for GBR uses ccode 200 (United Kingdom). The simulation models many overseas colonies as GBR-owned regions, so total owned-territory population is not directly comparable to the UK sovereign benchmark.
+2. The current test uses the capital-culture population as a transparent homeland proxy and reports total owned-territory population separately. This is deliberately a benchmark-scope proxy, not a validated geographic crosswalk.
+3. Challenge whether the proxy excludes constituent homeland populations with other cultures (e.g. Scotland/Ireland) or otherwise misclassifies regions. Recommend an explicit source-backed region-to-benchmark geographic crosswalk before treating the metric as calibration-grade. Do not change the factor-of-two threshold merely to make CI pass.
+
 ## 4. Test gaps to assess
 
-The current construction suite has focused lifecycle tests for project completion, reserve reconciliation/no overspend, and cancellation. The full test suite passes 87/87, but green CI does not prove the economic model is calibrated or internally consistent.
+The construction suite has focused lifecycle tests for project completion, reserve reconciliation/no overspend, and cancellation. `tests/factory-market-clearing.test.ts` now includes deterministic no-input and fully supplied steel→tools→arms cases. Green CI does not prove the economic model is calibrated or internally consistent; verify the exact review HEAD and its test/build evidence.
 
 Please recommend focused deterministic tests for:
-- intermediate-good shortage propagation through ironworks, tool works and arms works;
-- import allocation and market statistics reconciliation;
+- intermediate-good shortage propagation through ironworks, tool works and arms works under no-input and full-input cases (new regression suite: `tests/factory-market-clearing.test.ts`);
+- partial input shortages with multiple primary factories sharing coal, to verify no common-input over-allocation;
+- requested-vs-actual input accounting, import allocation and market statistics reconciliation;
 - wage bill, wages/employment invariants and zero-employment/legacy states;
 - treasury/statePool/debt invariants across surplus, deficit and debt-service months;
 - private vs state construction funding separation and queue FIFO behavior.
@@ -95,4 +106,4 @@ Return a structured review against the exact HEAD above:
 
 ## 6. Non-claims
 
-This request is not evidence of Claude review completion, owner acceptance, S0/S1/S22 sign-off, production signing, Android device compatibility, balance quality, or full Victoria 3 feature parity. The APK above is a debug artifact built by CI only; it has not been installed or tested on a physical device.
+This request is not evidence of Claude review completion, owner acceptance, S0/S1/S22 sign-off, production signing, Android device compatibility, balance quality, or full Victoria 3 feature parity. The capital-culture benchmark proxy is not an approved geographic crosswalk. The APK above is a debug artifact built by CI only; it has not been installed or tested on a physical device.
