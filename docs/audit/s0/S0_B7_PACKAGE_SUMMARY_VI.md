@@ -63,7 +63,7 @@ Chỉ đạo mới ngày 19/11/2026 của chủ dự án cho phép bộ dữ li�
 
 Roadmap v3.2 đã có quyết định H (offline >3 GB) và S23b dành cho hình ảnh/content packs/offline delivery. R15 trong Risk Register ghi nhận rủi ro mới và các tiêu chí cần có trước khi triển khai: manifest trung lập nhà cung cấp, version/hash/dependency, resume, kiểm tra dung lượng trống, xác minh SHA-256, cập nhật nguyên tử/rollback, lazy loading và cache ảnh/GPU có giới hạn.
 
-Theo giới hạn tải nén hiện hành của Google Play: base module tối đa 500 MB; mỗi asset pack tối đa 1,5 GB; base + install-time modules/packs tối đa 4 GB; fast-follow/on-demand packs cộng lại tối đa 30 GB; tổng app tối đa 34 GB và tối đa 100 asset packs. Vì vậy bộ dữ liệu 4–5 GB không thể mặc định dồn hết vào install-time; phải đánh giá AAB/PAD với fast-follow/on-demand hoặc kênh sideload riêng. Với sideload, phải có kênh content pack riêng; PAD không tự phục vụ APK sideload. Không có nhà cung cấp hosting trả phí nào được chọn.
+Theo giới hạn tải nén hiện hành của Google Play: base module tối đa 500 MB; mỗi asset pack tối đa 1,5 GB; base + install-time modules/packs tối đa 4 GB; fast-follow/on-demand packs cộng lại tối đa 30 GB; tổng app tối đa 34 GB và tối đa 100 asset packs. Vì vậy bộ dữ liệu 4–5 GB không thể mặc định dồn hết vào install-time. Do yêu cầu người chơi chủ động xác nhận trước khi tải dữ liệu tùy chọn, phải dùng PAD on-demand hoặc kênh sideload riêng; không dùng fast-follow vì Play tự khởi chạy tải sau khi cài ứng dụng. Với sideload, phải có kênh content pack riêng; PAD không tự phục vụ APK sideload. Không có nhà cung cấp hosting trả phí nào được chọn.
 
 Nguồn chính thức: [Google Play app size limits](https://support.google.com/googleplay/android-developer/answer/9859372), [Play Asset Delivery](https://developer.android.com/guide/playcore/asset-delivery).
 
@@ -72,7 +72,7 @@ Nguồn chính thức: [Google Play app size limits](https://support.google.com/
 Có hai đường:
 
 - **Sideload/GitHub (định hướng trước mắt):** APK lõi giữ nhỏ; người chơi bấm "Tải toàn bộ dữ liệu". Ứng dụng tải nhiều archive/pack riêng theo nhóm dữ liệu (hoặc các pack theo vùng/hệ thống), mỗi file dưới 2 GiB nếu dùng GitHub Releases; xác minh checksum, giải nén theo luồng vào thư mục riêng, kiểm tra từng file rồi mới kích hoạt. GitHub hiện cho tối đa 1.000 release assets, mỗi file dưới 2 GiB, tổng size/bandwidth của release không giới hạn theo tài liệu chính thức. Việc resume với redirect của release asset phải test thực tế.
-- **Google Play:** phát hành AAB + Play Asset Delivery, chia nội dung thành install-time / fast-follow / on-demand packs. Không coi PAD là cách phân phối cho APK cài ngoài Play.
+- **Google Play:** phát hành AAB + Play Asset Delivery; giữ bootstrap tối thiểu ở install-time, dùng on-demand cho gói dữ liệu lớn do người chơi chủ động yêu cầu. Không dùng fast-follow cho gói tùy chọn vì tải tự động sau cài đặt trái quy tắc opt-in. PAD không phục vụ APK cài ngoài Play.
 
 **Nén không phải phép màu:** JSON/CSV/vector/text có thể nén đáng kể; ảnh WebP/JPEG/AVIF, audio Opus/OGG đã nén sẵn, thường không thể giảm 10 lần. Có thể có archive vài trăm MB nếu phần lớn payload là dữ liệu lặp/văn bản/geometry, nhưng không lấy tỷ lệ đó làm cam kết cho thư viện media có chất lượng.
 
