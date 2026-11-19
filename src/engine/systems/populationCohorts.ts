@@ -28,6 +28,9 @@ export function createPopulationState(regions: readonly Region[]): PopulationSta
   const cohorts: PopulationCohort[] = [];
   const regionIds = new Set<string>();
   for (const region of regions) {
+    if (typeof region.id !== 'string' || region.id.trim().length === 0) {
+      throw new Error('Invalid region ID');
+    }
     if (regionIds.has(region.id)) throw new Error(`Duplicate region ID ${region.id}`);
     regionIds.add(region.id);
   }
@@ -102,8 +105,12 @@ export function validatePopulationState(st: GameState): void {
     throw new Error('Invalid population cohort envelope');
   }
 
+  if (!Array.isArray(st.regions)) throw new Error('Invalid region list');
   const regions = new Map<string, Region>();
   for (const region of st.regions) {
+    if (!region || typeof region.id !== 'string' || region.id.trim().length === 0) {
+      throw new Error('Invalid region ID');
+    }
     if (regions.has(region.id)) throw new Error(`Duplicate region ID ${region.id}`);
     regions.set(region.id, region);
   }
