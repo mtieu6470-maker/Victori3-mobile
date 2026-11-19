@@ -105,3 +105,15 @@ Please independently download/inspect run `44572915201` artifact `14555141888` a
 - All six affected entries are dev dependencies in the baseline lockfile. Specifically inspect the nested `node_modules/vite/node_modules/esbuild@0.21.5`; do not incorrectly infer that all esbuild copies are unaffected from root `esbuild@0.28.2`.
 - The 2026-11-16 A2 count/severity summary matches 6 / (3 moderate, 1 high, 2 critical), while the B4 Run #3 `npm ci` count of 10 remains unresolved due missing package-level JSON.
 - Confirm that the correct disposition is OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING. No dependency changes, S1 approval or owner signoff are implied.
+
+
+## 12. Android APK workflow run #318 — CI-F4 closure review
+
+Please independently verify run `44573351798` on commit `b5948f0bbca126712c64dd605ebb7d9f6ddfb907` and the commit diff:
+- Only `.github/workflows/android-apk.yml` changed in that commit; `tests/s0-save-determinism.test.ts` is excluded from the experiment APK suite because it characterizes the frozen baseline and remains on the separate pinned-baseline B4 path.
+- Job `135734112766` SUCCESS; 38/38 suites and 97/97 tests passed; Gradle debug APK assembly completed.
+- Test artifact `14554953353` (106,657 bytes; SHA-256 `96aa79f605d52f7a2eb60748f307802827f6fec9994e280fd655e3565c879829`) and APK artifact `14553589834` (17,569,405-byte ZIP; SHA-256 `72ce3a5759bd1379aaf35bf10a395f3cc136230b44eabc64976375405b85678b`) were downloaded and inspected. APK is 18,057,530 bytes, SHA-256 `338fc54ce2e68f15ddc7043c664bdffa9cd79ade3c41aa0ed7a7cf0bfa7fe6b5`; debug certificate SHA-256 `8610076ddcefefc85d188530b0eb4645a21f92f38008692c29f6282a13418e19`.
+- Confirm whether CI-F4's specific closure criterion is met. Keep the closure narrow: no claim about gameplay, device QA, release signing, data packs or overall S0.
+- Review whether the baseline-only characterization remains executed on its pinned baseline path; do not assume that excluding it from the APK suite means it was removed.
+
+The two downloaded artifact ZIP digests were recomputed and match GitHub API metadata. These are ChatGPT inspection results; Claude must independently verify before issuing the bounded B7 verdict.
