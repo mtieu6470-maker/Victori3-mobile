@@ -60,11 +60,11 @@ export function constructionBudgetShare(c: Country, war: boolean, industrializat
   const debtBurden = clamp(c.debt / (monthlyIncome * 24), 0, 1);
   const faminePressure = clamp(c.famine, 0, 1);
   return clamp(
-    0.08 + operatingMargin * 0.08 - debtBurden * 0.07
+    0.16 + operatingMargin * 0.06 - debtBurden * 0.07
       - faminePressure * 0.06 - (war ? 0.04 : 0)
       + industrializationBias * 0.08,
     0.02,
-    0.28,
+    0.32,
   );
 }
 
