@@ -1,3 +1,14 @@
+## Latest DEV-005 review-preparation checkpoint (19/11/2026)
+
+- Code/test target remains `c9868d7131d7de3fd8efd0263411fee9111f172c`; exact-target CI remains tests-only 122/122 PASS and Android debug build SUCCESS (run IDs `44540766509` and `44540766545`). No runtime source/test changes were made in the documentation follow-up.
+- Review packet corrected: `tests/population-cohorts.test.ts` contains 13 focused cases; base-to-target compare is 24 paths (7 DEV-005 code/test + 17 concurrent governance/reporting paths).
+- Collaboration protocol Purpose roles now match the owner-directed allocation: ChatGPT technical lead/authorized implementer; Claude independent no-write reviewer. This resolves contradictory stale role labels in that file.
+- Additional state-flow note: legacy international migration changes regional POP totals but does not transfer migrant-origin stratum composition; the projection uses destination Region strata. This is explicitly recorded as an inherited limitation, not cohort-level migration.
+- Compare from code target `c9868d7` through documentation HEAD `efcc61765da3742870dde4e9858898d6ce7f9c86` showed only four documentation paths changed. No gameplay, historical data, assets, Android, Gradle, signing or workflow files changed.
+- DEV-005 remains `CI_PASS / READY_FOR_REVIEW`; Claude independent verdict and owner acceptance are PENDING. Physical iQOO QA remains NOT_TESTED. No S0 PASS or S1/S23 opening is claimed.
+
+---
+
 - **Mandatory session/network recovery procedure (19/11/2026):** `docs/coordination/SESSION_RECOVERY_PROTOCOL_VI.md`. Required for every new session and whenever chat responses, network, GitHub API or write outcomes are interrupted/ambiguous. Verify HEAD/commits/files/CI before retry; never duplicate writes or claim uncommitted work persisted.
 
 - **Mandatory root entrypoint for every new AI/session (19/11/2026):** `AI_START_HERE.md` at repository root. It contains the detailed product target and subsystem-by-subsystem brief; read it first, then follow `AGENTS.md` / `CLAUDE.md`, this handoff, the collaboration protocol, owner principles, approved roadmap and task-specific spec. `README.md` links to it prominently.
