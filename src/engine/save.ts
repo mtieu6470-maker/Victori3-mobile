@@ -53,14 +53,18 @@ export function deserialize(text: string): GameState {
     throw new Error(`Unsupported save version ${envelope.version}`);
   }
 
-  // Accessing legacy.state is intentionally strict: missing state remains a malformed save.
-  const st = envelope.state as GameState;
+  // Reject a missing/malformed state and envelope/state version mismatch before migration.
+  const rawState = envelope.state;
+  if (!rawState || typeof rawState !== 'object' || Array.isArray(rawState)) {
+    throw new Error('Save state is missing or invalid');
+  }
+  const st = rawState as GameState;
+  if (st.version !== envelope.version) throw new Error('Save envelope/state version mismatch');
   normalizeLegacyFields(st);
 
   if (envelope.version === 1) return migrateV1ToV2(st);
 
   if (!st.population) throw new Error('Save v2 is missing its population cohort state');
-  if (st.version !== SAVE_SCHEMA_VERSION) throw new Error('Save envelope/state version mismatch');
   validatePopulationState(st);
   return st;
 }
