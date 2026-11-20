@@ -1,3 +1,12 @@
+## 0.15 — DEV-006: harden fast-forward / RAF concurrency; CI and APK verified (20/11/2026)
+
+- Self-review phát hiện `fastForward()` có thể chạy song song với RAF monthly loop; async continuation cũng có thể tiếp tục advance state mới sau khi load/newGame thay GameState trong thời gian yield.
+- Sửa controller: capture state + operation token, stop RAF trong fast-forward, chặn operation/action chồng lấn, chỉ nhận số tháng nguyên dương an toàn, khôi phục trạng thái pause trước đó; load/newGame vô hiệu hóa continuation cũ.
+- Thêm 3 controller tests: RAF pause/resume; chặn fast-forward/action chồng lấn; load save mới trong lúc yield không bị tác động bởi tác vụ cũ.
+- Tests-only run 44759569097 PASS: 44/44 suites, 129/129 tests, 0 failure/pending.
+- Android debug run 44759568967 PASS; Gradle assembleDebug thành công. APK artifact 14640013380, 18,052,472 bytes; SHA-256 `365e9296b5d9d5b8dc63a0965e790bb407994056746b783440c857e58839285b`; ZIP SHA-256 `01d2fceaad3cc381f7c6bd80b79e7b8cc95e00e331185351681909188ca3c1f2`.
+- Debug signing; device QA NOT_TESTED. Claude independent review và owner acceptance vẫn pending. Monthly clock vẫn là monthly; không triển khai daily tick, không đổi S0/S1/S22 gate.
+
 ## 0.14 — IDENTITY-DISPLAY-01: audit độ phủ cờ, huy hiệu và chân dung (20/11/2026)
 
 - Đối chiếu registry 147 thực thể playable với asset registry và đường render trong UI tại baseline 77c03554ff11ffa587f5d25064a16b7cd8b8b650.

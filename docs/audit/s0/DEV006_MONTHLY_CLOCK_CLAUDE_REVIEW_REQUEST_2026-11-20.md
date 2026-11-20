@@ -1,3 +1,23 @@
+## AMENDMENT — latest exact review target (20/11/2026)
+
+This amendment supersedes the earlier target SHA and CI evidence above. Claude must review the exact implementation at **e5eb5e4744b4c5569f7fe997c523cebe64ff3250**, not the earlier DEV-006 commit alone.
+
+Additional runtime/test scope:
+- `src/ui/game/controller.ts` now also coordinates fastForward() with the RAF scheduler, rejects overlapping operations/player mutations while busy, preserves the pre-operation pause state, and invalidates stale asynchronous work when load()/newGame() replaces the game.
+- New `tests/controller-fast-forward.test.ts` adds three controller-level tests for RAF pause/resume, overlap/action blocking, and load invalidation.
+- Full source self-review and rationale: `docs/audit/s0/DEV006_FAST_FORWARD_CONCURRENCY_SELF_REVIEW_VI.md`.
+
+Latest exact-target CI:
+- Tests-only [44759569097](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44759569097): SUCCESS, 44/44 suites and 129/129 tests.
+- Android debug [44759568967](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44759568967): SUCCESS; APK assembled.
+- APK artifact 14640013380; 18,052,472 bytes; SHA-256 `365e9296b5d9d5b8dc63a0965e790bb407994056746b783440c857e58839285b`.
+- Artifact ZIP SHA-256 `01d2fceaad3cc381f7c6bd80b79e7b8cc95e00e331185351681909188ca3c1f2`.
+- Debug signing only; physical Android QA NOT_TESTED.
+
+Reviewer checks must include async fast-forward overlap, replacement by load/newGame during the six-month yield, busy action guards, and restoration after an exception. This remains an independent review request; ChatGPT self-review is not a substitute. The monthly calendar remains monthly. No daily simulation or phase gate is authorized.
+
+---
+
 # DEV-006 — Independent Claude review request: bounded monthly simulation clock
 
 **Review mode:** no-write, independent code review  

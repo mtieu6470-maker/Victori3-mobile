@@ -1,3 +1,12 @@
+## Latest DEV-006 controller concurrency hardening — verified e5eb5e4744b4c5569f7fe997c523cebe64ff3250
+
+- Source self-review: `docs/audit/s0/DEV006_FAST_FORWARD_CONCURRENCY_SELF_REVIEW_VI.md`. Found and fixed potential overlap between fastForward() and live RAF monthly stepping, plus stale async fast-forward continuing after load/newGame replaces the state.
+- fastForward now validates positive safe-integer months, serializes against other busy work, pauses/stops RAF, preserves prior paused state, and uses operationToken + captured GameState identity to invalidate stale continuations. Player commands, manual step and pause toggle are blocked while busy.
+- Added 3 deterministic controller tests in `tests/controller-fast-forward.test.ts`.
+- Exact-target tests-only run 44759569097 PASS: 44 suites / 129 tests / 0 failures. Android debug run 44759568967 PASS.
+- APK artifact 14640013380; 18,052,472 bytes; SHA-256 `365e9296b5d9d5b8dc63a0965e790bb407994056746b783440c857e58839285b`. ZIP SHA-256 `01d2fceaad3cc381f7c6bd80b79e7b8cc95e00e331185351681909188ca3c1f2`.
+- Review request amended to exact code SHA `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`. Independent Claude review and owner acceptance remain pending. Device QA NOT_TESTED. S0/S1/S22 gates unchanged.
+
 ## Latest IDENTITY-DISPLAY-01 checkpoint — historical identity asset coverage audit (20/11/2026)
 
 - Audit: docs/audit/IDENTITY_ASSET_DISPLAY_COVERAGE_AUDIT_VI.md; baseline 77c03554ff11ffa587f5d25064a16b7cd8b8b650; source/asset coverage only, no implementation authorization.
