@@ -10,7 +10,7 @@ import { historicalBias } from '../historical';
 import { build, buildingReturn, canBuild, hasTech, privateInvestment, SHIP_COST } from '../systems/economy';
 import { reformSupport, startReform, sharesBorder } from '../systems/politics';
 import { techCost } from '../systems/technology';
-import { allied, allianceAcceptance, declareRivalry, declareWar, formAlliance, greatPowers, guarantee, improveRelations, joinCustomsUnion, powerScore, rivals } from '../systems/diplomacy';
+import { allied, allianceAcceptance, allianceCapacityAvailable, canFormAlliance, declareRivalry, declareWar, formAlliance, greatPowers, guarantee, improveRelations, joinCustomsUnion, powerScore, rivals } from '../systems/diplomacy';
 import { armyStrength, atWar, enemiesOf, navalStrength } from '../systems/military';
 import { coreNationOf } from '../systems/population';
 import { regionsOf, bordersOf } from '../cache';
@@ -144,14 +144,17 @@ function diplomacyAI(st: GameState, c: Country) {
     for (const o of gps) if (o !== c.id && !allied(st, c.id, o)) { const v = (sharesBorder(st, c.id, o) ? 1 : 0.4) * (1 - Math.abs(powerScore(st, c) - powerScore(st, st.countries[o])) / Math.max(1, powerScore(st, c))) - getRel(st, c.id, o) / 100 + historicalBias(st, c, 'contain', o); if (v > bv) { bv = v; best = o; } }
     if (best && bv > 0.3) { declareRivalry(st, c.id, best); count(st, 'rivalry', c.id); }
   }
-  // alliances: seek partners sharing a rival or threatened by the same neighbour
-  if (st.treaties.filter((t) => t.type === 'alliance' && t.members.includes(c.id)).length < 3) {
+  // Alliances are separate bilateral treaties. One requires International Relations;
+  // every additional partner requires Multilateral Alliances. There is no hard-coded
+  // "three partners" cap: upkeep/acceptance and researched capacity govern expansion.
+  if (allianceCapacityAvailable(st, c.id)) {
     let best: string | null = null; let bv = 0;
     const pool = new Set<string>([...bordersOf(st, c.id), ...gps]);
     for (const k of Object.keys(st.relations)) if (st.relations[k] > 30 && k.includes(c.id)) for (const x of k.split('|')) pool.add(x);
     for (const oid of pool) {
       const o = st.countries[oid];
       if (!o?.alive || o.id === c.id || o.decentralized || allied(st, c.id, o.id) || o.overlord) continue;
+      if (!canFormAlliance(st, c.id, o.id)) continue;
       if ((c.ai.cooldowns[`ally:${o.id}`] ?? 0) > st.tick) continue;
       const v = allianceAcceptance(st, c.id, o.id) + historicalBias(st, c, 'ally', o.id) * 3;
       if (v > bv) { bv = v; best = o.id; }
