@@ -237,7 +237,7 @@ FR-PACK-002. Dữ liệu game được phân phối thành các data pack có ve
 
 FR-PACK-003. Data Center phải có lựa chọn riêng biệt: tải bộ tối thiểu để bắt đầu scenario được hỗ trợ; tải từng pack; hoặc **“Tải toàn bộ dữ liệu 1836–2026” bằng một thao tác của người chơi**. Lựa chọn cuối là một job tổng hợp, dù bên dưới tải nhiều shard/file.
 
-FR-PACK-004. Dung lượng **4–5 GB** là ngân sách/ước lượng mục tiêu cho lựa chọn full-data do chủ dự án nêu, không phải kích thước đã đo hoặc cam kết payload hiện tại. Trước phát hành, phải đo chính xác compressed bytes và installed bytes từ artifact thực tế và hiển thị cả hai.
+FR-PACK-004. Dung lượng **4–5 GB** là mức dung lượng toàn bộ mà chủ dự án chấp nhận nếu dữ liệu thực tế cần tới, không phải dung lượng tối thiểu hay chỉ tiêu phải lấp đầy. Không được làm phình dữ liệu để đạt con số này; phải tối ưu và đo compressed bytes/installed bytes từ artifact thực tế.
 
 FR-PACK-005. Mỗi data release phải có manifest có version và chữ ký tin cậy. Manifest khai báo pack ID/version, schema version, engine compatibility, rule/content version, compressed/installed size, file/shard length, SHA-256, URL, dependency, license/provenance và public-key/signature metadata.
 
@@ -265,7 +265,7 @@ FR-PACK-016. Người chơi có thể xem version, dung lượng, trạng thái 
 
 FR-PACK-017. Việc tải dữ liệu chỉ tải nội dung công khai của game; không upload save, lịch sử chơi, tệp cá nhân, định danh thiết bị hoặc nội dung người dùng. Không yêu cầu tài khoản nếu không có lý do được chủ dự án duyệt.
 
-FR-PACK-018. Full-data selection phải hiển thị như một lựa chọn đơn giản “Tải toàn bộ (ước tính 4–5 GB)” nhưng có thể triển khai thành nhiều file/shard. Không bắt buộc tạo hoặc lưu một archive duy nhất có kích thước 4–5 GB.
+FR-PACK-018. Full-data selection phải hiển thị như một lựa chọn đơn giản “Tải toàn bộ”; UI hiển thị dung lượng đo được tại thời điểm phát hành (có thể lên tới khoảng 4–5 GB nếu corpus cần). Có thể triển khai thành nhiều file/shard; không bắt buộc tạo hoặc lưu một archive duy nhất có kích thước 4–5 GB.
 
 ---
 
@@ -363,4 +363,4 @@ At the recorded branch snapshot:
 - Current historical data coverage has major gaps; see HISTORICAL_DATA_COVERAGE_AUDIT_1836_2026_DRAFT.md.
 - S0-B7 remains IN_PROGRESS, overall S0 PARTIAL — NOT COMPLETE, bounded S1-entry NOT_TESTED; no general S1 authorization is inferred.
 
-The 4–5 GB full-data figure is a target estimate supplied by the owner; no release payload has yet been built or measured. This PRD v0.2 is a proposed product requirement baseline for owner review. It does not itself authorize code, schema, historical data, content, assets, workflow, signing or APK changes.
+The 4–5 GB full-data figure is an owner-accepted upper planning budget, not a minimum; do not inflate the dataset to reach it. No release payload has yet been built or measured. This PRD v0.2 is a proposed product requirement baseline for owner review. It does not itself authorize code, schema, historical data, content, assets, workflow, signing or APK changes.
