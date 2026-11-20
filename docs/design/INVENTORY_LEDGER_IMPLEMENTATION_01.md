@@ -3,7 +3,7 @@
 **Project:** Victori3 Mobile / Currents of History  
 **Branch:** `experiment/vic3-visual-upgrade`  
 **Owner authorization:** `docs/coordination/OWNER_IMPLEMENTATION_AUTHORIZATION_2026-11-20.md`  
-**Implementation status:** `PARTIAL — MARKET LEDGER + REALIZED RECIPE FACTORY FLOWS; CI PENDING`
+**Implementation status:** `PARTIAL — MARKET LEDGER + BOUNDED ITERATIVE FACTORY CLEARING; CI PENDING`
 
 ## 1. Purpose
 
@@ -42,7 +42,7 @@ This implementation is **market-level stock accounting**, not yet a warehouse/fa
 2. Spoilage, storage loss, quality decay, stockpile policy or seasonal storage constraints.
 3. Physical trade routes, route capacity, tariffs by shipment, convoy losses, port/rail/road bottlenecks or customs inspection.
 4. Individual firm/warehouse sub-ledgers, ownership of stocks, purchase contracts, credit/settlement timing or inventory financing.
-5. A full factory-level inventory book or iterative market equilibrium. Recipe-based factories now scale realized output and actual input consumption by the same scarcest-input fulfillment factor before final settlement. The factor is taken from a deterministic preliminary market-availability probe and applied once; it is not yet iterated to convergence. Non-factory agriculture/artisan flows remain aggregate production estimates, not firm warehouse postings.
+5. A full firm-level inventory book or guaranteed converged general-equilibrium solution. Recipe-based factories now participate in a deterministic damped market/factory fixed-point solver (maximum 32 iterations, tolerance 1e-5, relaxation 0.5). If the bounded solver does not converge, it retains the last bounded iterate and persists a diagnostic residual; mass accounting still uses the resulting final flows, but the market must not be described as converged. Non-factory agriculture/artisan flows remain aggregate production estimates, not firm warehouse postings.
 6. A dedicated player-facing inventory/warehouse screen. The domain data is persisted first; UI presentation follows the real stock and logistics contracts.
 
 The above are explicit next work, not hidden claims of completion. In particular, adding arbitrary per-good capacities or spoilage percentages without sourced physical data would make the model look more detailed while making it less accurate.
@@ -58,18 +58,18 @@ The above are explicit next work, not hidden claims of completion. In particular
 
 ## 6. Validation plan
 
-- Unit tests: material conservation, demand reconciliation, non-negative stock, invalid-flow rejection, duplicate-period rejection, bounded history and same-factor factory input/output realization under shortages.
-- Integration tests: real simulation tick creates one journal period; market statistics project to the same monthly ledger quantities; all markets conserve stock; global imports equal global exports; save/load continuation is deterministic; pre-ledger saves migrate as `unseeded`.
+- Unit tests: material conservation, demand reconciliation, non-negative stock, invalid-flow rejection, duplicate-period rejection, bounded history, same-factor factory input/output realization, deterministic solver convergence, iteration-cap behavior and stockpile exports between markets.
+- Integration tests: real simulation tick creates one journal period; market statistics project to the same monthly ledger quantities; all markets conserve stock; global imports equal global exports; solver diagnostics persist; save/load continuation is deterministic; pre-ledger/pre-diagnostics saves migrate safely.
 - CI/build: Android APK workflow runs on the final implementation commit. Record the exact run, test counts, Gradle result, APK artifact and SHA only after GitHub Actions evidence is inspected.
 - Device QA: not performed by this slice. No physical-device or performance result is claimed.
 
 ## 7. Next implementation steps
 
-1. Verify the current implementation on GitHub Actions and correct all failures before widening the simulation.
-2. Replace the single preliminary factory-availability probe with a bounded, deterministic market/production fixed-point or staged-clearing design; prove convergence/termination and preserve per-good mass conservation.
+1. Verify the bounded clearing implementation on GitHub Actions and correct all failures; benchmark convergence and monthly simulation cost on target Android hardware.
+2. Define a conservative fallback/pause policy for rare non-converged markets and add adversarial multi-market/cyclic-input tests.
 3. Add goods metadata for canonical units, storable/flow-only policy, perishability and transportability with provenance.
 4. Add regional warehouses and bounded route-capacity settlement, then integrate ports, rail, convoy, tariffs and treaty rules.
-5. Add player/AI stockpile policies, inventory UI, trade contracts and cross-system scenario tests.
+5. Add firm-level ownership/inventory, player/AI stockpile policies, inventory UI, trade contracts and cross-system scenario tests.
 6. Add sourced historical initial stock estimates only where a defensible dataset supports the exact geography/date/unit; leave unknown fields explicitly unknown.
 
 
@@ -95,3 +95,18 @@ Two additional unit tests verify same-factor scaling and the no-shortage case. T
 - It computes only the opening-stock-aware shortage ratio needed by recipe factories.
 - The definitive settlement pass remains the only code path that creates monthly inventory journal rows, updates `marketStats` and posts market prices.
 - This reduces redundant per-good object creation and settlement work on the Android runtime. It is a source-level optimization only; no device profile, allocation benchmark or frame-time measurement has been run.
+
+
+## 10. Follow-up checkpoint — bounded iterative market/factory clearing
+
+The single preliminary availability probe has been replaced by `solveFactoryMarketFulfillment`:
+
+- The solver removes planned recipe-factory outputs/inputs from the aggregate market flows to form non-factory baseline supply/demand.
+- It re-adds factory flows using per-factory fulfillment factors, computes each market's shortage after local stock and globally paired trade, then updates each factor from its scarcest input shortage.
+- Damped deterministic iteration uses a relaxation factor of 0.5, a maximum of 32 iterations and convergence tolerance of 1e-5.
+- The solver returns the final market supply/demand, shortage ratios, per-factory factors, iteration count, convergence flag and residual. It does not mutate inputs or game time.
+- The final settlement then calculates world imports/exports and posts the single monthly ledger record. Existing market stockpiles may now be exported after the seller market's own demand has been covered; global trade volume remains paired.
+- `GameState.marketClearing` records tick, recipe-factory count, iterations, maximum iteration budget, convergence and residual for diagnostics. It is optional so older saves remain loadable.
+- If the solver reaches its iteration cap without convergence, the last bounded iterate is used and the non-converged diagnostic remains visible in state; no convergence claim is made. A player-facing fallback/warning policy and device benchmark are still pending.
+
+Four solver tests cover deterministic convergence, stockpile export into a deficit market, iteration-cap behavior and invalid inputs. The integration test asserts that solver diagnostics are persisted and legacy migration leaves absent diagnostics absent.
