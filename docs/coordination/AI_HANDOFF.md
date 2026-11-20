@@ -105,6 +105,14 @@ Pre-protocol work:
 
 ## 5. Work log
 
+### 2026-11-20 — B7-SOURCE-SEVERITY-AND-ROW-SCHEMA-CHECK
+
+- Cross-checked R1–R14 against the v3.2 risk table; RM/WD against `S0_B3_RESULTS.md`; TC against `S0_TEST_CATALOG.md`; GD against `S0_GLOBAL_DATA_AUDIT.md`; AS against `S0_ASSET_AUDIT.md`; CI/DEP against B7 risk evidence.
+- No severity mismatch. R3 is mapped to Closed; R7 is P0; G0.7 is a BLOCKED gate row, not a P-severity. CI-F1–F3 are P2, CI-F4/DEP-F1 P1.
+- Structural parser: 48 unique mapping rows; all 48 resolve; 22 P2 rows have six cells; P0/P1/P2 tables use six cells, P3/Closed use three; no blank cells detected.
+- Corrected an obsolete B3 report author-status sentence that contradicted the now-recorded independent verdict in the Review row and §9. The original Claude self-assessment remains distinguished from ChatGPT's historical independent `REVIEW_PASS`.
+- Documentation/source consistency only. No product/runtime/test/data/assets/dependency/workflow/save/Gradle/signing changes; no build or device test at this HEAD.
+
 ### 2026-11-20 — B3-PHASE-STATUS-RECONCILIATION
 
 - Cross-checked the current Phase Register against the historical review evidence in this handoff and `S0_B3_RESULTS.md`.

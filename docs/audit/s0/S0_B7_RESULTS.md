@@ -189,3 +189,11 @@ A GitHub-content structural check was run against the then-live experiment HEAD 
 ## 18. B3 Phase Register consistency — 2026-11-20
 
 Cross-checking S0 handoff status found the Phase Register still labelled B3 `READY_FOR_REVIEW`, contrary to the current task summary and B4 prerequisite. The exact historical review record confirms ChatGPT independently re-reviewed B3 correction commits `ddea490635c5d7c74ca6108549fd21806102487b` and `2c62b3de3955e3cd8a82a9c59401d9df77d69173` and issued bounded `REVIEW_PASS` on 2026-11-16. The current Phase Register and `S0_B3_RESULTS.md` summary were aligned; old round-1 / pre-review notes remain historical. This does not change S0 gates, owner acceptance or S1 authorization.
+## 19. Source severity and row-schema reconciliation — 2026-11-20
+
+A cross-source parser checked v3.2 R1–R14, B3 RM/WD findings, the test catalog, global-data audit and asset audit against the B7 traceability matrix and exact Risk Register locations.
+
+- No severity mismatch remained after normalizing Markdown emphasis on the R7 `P0` label. R3 maps to the Closed section. The G0.7 `BLOCKED` entry is a gate verdict, not a P-level risk.
+- All 48 traceability rows were unique and resolved to a Risk Register target. The 22 P2 rows each have six cells; every P0/P1/P2/P3/Closed table row has the expected number of cells and no blank cell was detected.
+- CI-F1–F4 and DEP-F1 are B7-specific findings; their severity remains P2/P2/P2/P1/P1 respectively in the consolidated register/traceability documents.
+- No severity, risk disposition or gate status was changed. This was documentation cross-checking only; no runtime/Gradle/device tests were run.

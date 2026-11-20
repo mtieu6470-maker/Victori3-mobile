@@ -6,7 +6,7 @@
 | Mã được kiểm | Baseline `2240a8fb865e0021eec2f2f4f1c6803528be9e2c` trong worktree tạm sạch (`git worktree add --detach`). Sau toàn bộ B3, `git status --porcelain` của worktree rỗng |
 | Base của commit B3 | `9a602f3d60456c014fb33d4ebd83f174af299077` |
 | Nhãn | `BASELINE_ORIGINAL` cho mọi số đo và kết quả test: mã, test, dữ liệu, asset và build của sản phẩm không đổi. Công cụ kiểm toán nằm ở `tools/audit/s0/`, ngoài mã sản phẩm. Sản phẩm trong repository giữ nguyên so với `2240a8f`, trừ workflow B1 đã được duyệt (kiểm bằng `git diff`, xem handoff) |
-| Người lập | Claude Code, 2026-11-16. **Tự đánh giá.** Không có trạng thái `REVIEW_PASS` hay `ACCEPTED` nào được ghi ở đây |
+| Người lập | Claude Code, 2026-11-16. Phần gate ban đầu là tự đánh giá của người lập; verdict độc lập được ghi riêng tại hàng Review và §9, không phải self-acceptance của Claude |
 | Review | Vòng 1: ChatGPT `CHANGES_REQUESTED` trên `3d63061`/`55331c2`/`1d8ad6e`, 4 điểm A–D. Claude sửa theo §8; ChatGPT sau đó review độc lập đúng hai commit `ddea490635c5d7c74ca6108549fd21806102487b` và `2c62b3de3955e3cd8a82a9c59401d9df77d69173`, kết luận `REVIEW_PASS` ngày 2026-11-16 **chỉ cho phạm vi audit B3**. B3 không đồng nghĩa sản phẩm hoàn thiện hoặc owner acceptance |
 
 ## 1. Sản phẩm bàn giao

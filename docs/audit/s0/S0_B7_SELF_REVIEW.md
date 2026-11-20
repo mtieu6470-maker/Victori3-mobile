@@ -164,3 +164,21 @@ The validation reads repository Markdown and checks structure/ID references; it 
 - Rechecked the historical review record in `AI_HANDOFF.md` work log and `S0_B3_RESULTS.md`: ChatGPT independently re-reviewed Claude's round-1 corrections in exact commits `ddea490635c5d7c74ca6108549fd21806102487b` and `2c62b3de3955e3cd8a82a9c59401d9df77d69173`, then issued `REVIEW_PASS` on 2026-11-16 for B3 audit scope only.
 - Corrected the current Phase Register and B3 report summary to that bounded historical verdict. Old `READY_FOR_REVIEW` records are retained as point-in-time history.
 - No gate, owner acceptance or phase authorization changed. This self-audit does not review B7 or replace Claude's future independent B7 review.
+## 15. Source severity and Risk Register schema cross-check — ChatGPT self-audit (2026-11-20)
+
+Cross-checked the source severity catalogs against `S0_B7_RISK_TRACEABILITY.md` and the exact Risk Register row IDs using live GitHub file contents.
+
+| Source group | Source evidence | Result |
+|---|---|---|
+| R1–R14 | v3.2 risk table | All severity labels match; R3 remains the sole `CLOSED` roadmap risk; R7 is P0. |
+| RM-F1…RM-F5 | `S0_B3_RESULTS.md` §3 | P2 / P2 / P1 / P2 / P3 match. |
+| TC-F1…TC-F7 | `S0_TEST_CATALOG.md` §3 | P1 / P1 / P2 / P2 / P1 / P2 / P2 match. |
+| GD-F1…GD-F6 | `S0_GLOBAL_DATA_AUDIT.md` §4 | P2 / P1 / P2 / P2 / P3 / P3 match. |
+| AS-F1…AS-F7 | `S0_ASSET_AUDIT.md` §4 | P1 / P2 / P2 / P2 / P3 / P3 / P3 match. |
+| WD-F1…WD-F3 | `S0_B3_RESULTS.md` §4.1 | P3 / P3 / P2 match. |
+| CI-F1…CI-F4, DEP-F1 | B7-specific additions | CI-F1–F3 remain P2; CI-F4 and DEP-F1 remain P1, matching the consolidated register and traceability matrix. |
+| G0.7 | Device gate | `BLOCKED` is a gate verdict, not a P-severity; the gate row is separately mapped. |
+
+Structural results: 48 traceability rows, all unique; all 48 map to exact or explicitly grouped Risk Register targets (R3 to the Closed section). After normalizing Markdown emphasis in the source P0 label, no severity mismatch was found. The Risk Register contains one P0 row, 12 P1 risk rows plus the separate G0.7 gate row, 22 P2 rows, five grouped P3 rows and one Closed R3 row; every row has its expected cell count and no blank cells were detected. The P0/P1/P2 tables use six cells; P3/Closed tables use three.
+
+This is an implementer self-audit of repository structure and catalog alignment, not a review verdict, runtime test, device test or owner acceptance. No risk was closed and no severity was changed.
