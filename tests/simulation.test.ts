@@ -5,6 +5,7 @@ import { GAME_END_TICK, GAME_END_YEAR, isGameOver } from '../src/engine/simulati
 import { serialize, deserialize } from '../src/engine/save';
 import { data } from '../src/engine/data/db';
 import { BUILDINGS, STRATA } from '../src/engine/types';
+import { createCalendarState } from '../src/engine/calendar';
 import { allocateCompetingWorkers, availableProductionMethods, buildingReturn, calculatePopulationEconomy, calibrateCohortLivingStandards, factoryInputFulfillment, LEVEL_WORKERS, marketOf, nextEmploymentTarget, nextWageOffer, populationConsumptionDemand, productionMethodFor, setProductionMethod } from '../src/engine/systems/economy';
 import { execute } from '../src/engine/commands';
 import { updatePolitics } from '../src/engine/systems/politics';
@@ -55,23 +56,26 @@ describe('AI does not get stuck in meaningless loops', () => {
 });
 
 describe('official campaign end date', () => {
-  it('stops at January 1936 and leaves the final state frozen', () => {
+  it('stops at 2027-01-01 after the full 2026 campaign', () => {
     const st = fresh('historical', 12);
     st.tick = GAME_END_TICK - 1;
-    st.date = { y: GAME_END_YEAR - 1, m: 12 };
+    st.date = { y: GAME_END_YEAR, m: 12 };
+    st.calendar = createCalendarState(GAME_END_YEAR, 12, 31, 18);
     stepMonth(st);
     expect(st.tick).toBe(GAME_END_TICK);
-    expect(st.date).toEqual({ y: GAME_END_YEAR, m: 1 });
+    expect(st.date).toEqual({ y: GAME_END_YEAR + 1, m: 1 });
+    expect(st.calendar).toMatchObject({ year: GAME_END_YEAR + 1, month: 1, day: 1, hour: 0, completed: true });
     expect(isGameOver(st)).toBe(true);
     const frozen = serialize(st);
     stepMonth(st);
     expect(serialize(st)).toBe(frozen);
   });
 
-  it('treats legacy saves already beyond 1936 as ended instead of simulating more months', () => {
+  it('treats saves already beyond the 2026 campaign boundary as ended', () => {
     const st = fresh('sandbox', 13);
-    st.tick = 1900 * 12;
-    st.date = { y: 2026, m: 1 };
+    st.tick = GAME_END_TICK;
+    st.date = { y: GAME_END_YEAR + 1, m: 1 };
+    st.calendar = createCalendarState(GAME_END_YEAR + 1, 1, 1, 0);
     const frozen = serialize(st);
     expect(isGameOver(st)).toBe(true);
     stepMonth(st);
@@ -85,6 +89,18 @@ describe('save/load', () => {
     const b = deserialize(serialize(a));
     for (let i = 0; i < 30; i++) { stepMonth(a); stepMonth(b); }
     expect(serialize(b)).toBe(serialize(a));
+  });
+  it('migrates v1 monthly saves to day 1 at 00:00 without inventing partial time', () => {
+    const legacy = fresh('sandbox', 22);
+    for (let i = 0; i < 7; i++) stepMonth(legacy);
+    const envelope = JSON.parse(serialize(legacy));
+    envelope.version = 1;
+    envelope.state.version = 1;
+    delete envelope.state.calendar;
+    const migrated = deserialize(JSON.stringify(envelope));
+    expect(migrated.version).toBe(2);
+    expect(migrated.calendar).toMatchObject({ year: migrated.date.y, month: migrated.date.m, day: 1, hour: 0 });
+    expect(migrated.tick).toBe(legacy.tick);
   });
   it('rejects foreign files', () => { expect(() => deserialize('{"format":"x"}')).toThrow(); });
 });
