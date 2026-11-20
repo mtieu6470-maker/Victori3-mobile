@@ -7,6 +7,8 @@
 - This document records player evidence and converts it into a prioritized implementation/verification backlog.
 - Current collaboration protocol still prohibits gameplay, engine, UI and save-format changes during S0. S1 remains NOT AUTHORIZED until the required review/owner gate is satisfied. Therefore this is a requirements and acceptance-test update only; it is not permission to bypass the phase gate.
 
+- **Read-only technical correlation:** see [`PLAYER_TEST_TECHNICAL_TRIAGE_2026-11-20.md`](./PLAYER_TEST_TECHNICAL_TRIAGE_2026-11-20.md) for source-level evidence on the clock/FPS coupling, portrait date validation, aggregate military/economy/politics models, score formula and remaining lifecycle-save uncertainty. This triage is not implementation or phase authorization.
+
 ## Owner's direct findings
 
 1. Game time advances far too quickly; the pacing does not resemble Victoria 3.
