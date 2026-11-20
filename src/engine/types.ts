@@ -16,7 +16,12 @@ export const S = Object.fromEntries(STRATA.map((s, i) => [s, i])) as Record<Stra
 export const IGS = ['landowners', 'industrialists', 'intelligentsia', 'petty_bourgeoisie', 'clergy', 'armed_forces', 'rural_folk', 'trade_unions'] as const;
 export type IG = (typeof IGS)[number];
 
-export interface GameDate { y: number; m: number } // m: 1..12
+export interface GameDate { y: number; m: number } // m: 1..12, monthly UI/system projection
+
+export interface SimulationCalendar {
+  year: number; month: number; day: number; hour: 0 | 6 | 12 | 18;
+  stepIndex: number; dayIndex: number; completed: boolean;
+}
 
 export interface Leader {
   name: string; born: number | null; since: number; historical: boolean; diesOn?: string | null; female?: boolean; termEnds?: string | null;
@@ -130,6 +135,7 @@ export interface Counters { systemRuns: Record<string, number>; aiActions: Recor
 
 export interface GameState {
   version: number;
+  calendar: SimulationCalendar;
   seed: number; rng: [number, number, number, number];
   mode: GameMode;
   player: string | null;
