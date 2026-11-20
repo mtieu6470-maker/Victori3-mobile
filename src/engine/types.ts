@@ -103,6 +103,36 @@ export interface Region {
 /** supply/demand/imports in engine physical units; short = unmet share of demand (0..1). */
 export interface MarketGoodStats { supply: number; demand: number; imports: number; short: number }
 
+/** Provenance of the opening physical-stock balances in the current inventory model. */
+export type InventoryOpeningBasis = 'unseeded' | 'simulated' | 'sourced';
+
+/** Monthly physical quantities use the same canonical good units as production and demand. */
+export interface InventoryMonthEntry {
+  openingStock: number;
+  production: number;
+  imports: number;
+  exports: number;
+  demand: number;
+  consumed: number;
+  unmetDemand: number;
+  closingStock: number;
+}
+
+/** One deterministic monthly ledger snapshot; markets and goods are stored by stable IDs. */
+export interface InventoryLedgerMonth {
+  tick: number;
+  date: GameDate;
+  openingBasis: InventoryOpeningBasis;
+  markets: Record<string, Partial<Record<Good, InventoryMonthEntry>>>;
+}
+
+/** Current market stock balances plus a bounded recent monthly accounting journal. */
+export interface InventoryLedger {
+  balances: Record<string, Partial<Record<Good, number>>>;
+  history: InventoryLedgerMonth[];
+  openingBasis: InventoryOpeningBasis;
+}
+
 export interface WarSide { leader: string; members: string[] }
 export interface WarGoal { by: string; type: string; target: string; regions?: string[] }
 export interface War {
@@ -144,6 +174,8 @@ export interface GameState {
   marketPrices: Record<string, Record<Good, number>>;
   /** Last month's market clearing per market and good (engine units; prices are indices, 1 = base price). */
   marketStats: Record<string, Record<Good, MarketGoodStats>>;
+  /** Physical market stocks and bounded monthly inventory accounting journal. */
+  inventoryLedger: InventoryLedger;
   log: LogEntry[];
   territoryLog: TerritoryChange[];
   history: Record<string, YearStat[]>;
