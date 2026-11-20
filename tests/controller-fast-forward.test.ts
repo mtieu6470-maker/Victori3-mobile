@@ -135,6 +135,8 @@ describe('GameController fast-forward isolation', () => {
   });
 
   it('caps fast-forward at December 2026 and cannot resume a completed campaign', async () => {
+    // stepMonth is a module-level spy shared by tests; isolate this call-count assertion.
+    vi.mocked(stepMonth).mockClear();
     const controller = new GameController();
     controller.st = { tick: CAMPAIGN_END_TICK - 2, log: [] } as any;
     controller.setPaused(false);
