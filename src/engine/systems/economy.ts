@@ -772,12 +772,12 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const Av = Math.pow(c.productivity, 0.45);
     let value = k.services * Math.pow(c.productivity, 0.5);
     const factoryInputsUsed = zero();
+    for (const input of GOODS) {
+      factoryInputsUsed[input] += realizedFactoryInputs[i]?.[input] ?? 0;
+    }
     for (const g of GOODS) {
       const nonFactoryOutput = k.supply[g] - k.factoryOut[g];
       const realizedOutput = realizedFactoryOutputs[i]?.[g] ?? 0;
-      for (const input of GOODS) {
-        factoryInputsUsed[input] += realizedFactoryInputs[i]?.[input] ?? 0;
-      }
       value += (nonFactoryOutput + realizedOutput) * p[g] * Av;
     }
     // Charge factories for inputs actually consumed by the output they can produce.
