@@ -8,6 +8,8 @@ import {
   guarantee,
 } from '../src/engine/systems/diplomacy';
 import { marketOf } from '../src/engine/systems/economy';
+import { availableTechs } from '../src/engine/systems/technology';
+import { chooseResearch } from '../src/engine/ai/ai';
 import type { Country, GameState } from '../src/engine/types';
 
 function eligibleCountries(state: GameState): Country[] {
@@ -113,6 +115,42 @@ describe('Victoria 3-style bilateral alliance capacity', () => {
     expect(marketOf(state, a)).toBe(unionId);
     expect(allied(state, a.id, b.id)).toBe(true);
     expect(allied(state, a.id, c.id)).toBe(false);
+  });
+
+  it('requires the complete Victoria 3-style technology path to unlock additional alliances', () => {
+    const state = fresh('historical', 187, 'GBR');
+    const [country] = eligibleCountries(state);
+    country.techs = ['urbanization', 'urban_planning', 'bureaucracy'];
+
+    expect(availableTechs(country)).toContain('international_relations');
+    expect(availableTechs(country)).not.toContain('multilateral_alliances');
+
+    country.techs.push(
+      'international_relations',
+      'rationalism',
+      'democracy',
+      'mass_communication',
+      'nationalism',
+      'pan_nationalism',
+    );
+    expect(availableTechs(country)).toContain('multilateral_alliances');
+    expect(state.countries[country.id].techs).not.toContain('multilateral_alliances');
+  });
+
+  it('AI research recognizes the alliance-research branch when it has diplomatic partners', () => {
+    const state = fresh('historical', 188, 'GBR');
+    const [country, partner] = eligibleCountries(state);
+    country.techs = [];
+    partner.techs = [];
+    state.treaties.push({
+      id: 'existing-alliance-for-research-priority',
+      type: 'alliance',
+      members: [country.id, partner.id],
+      start: state.tick,
+    });
+
+    expect(chooseResearch(state, country, ['rationalism', 'steam_engines']))
+      .toBe('rationalism');
   });
 
   it('enforces the Alliance / Guarantee Independence exclusion for the same pair', () => {
