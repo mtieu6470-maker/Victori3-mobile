@@ -107,6 +107,18 @@ Pre-protocol work:
 
 Append newest entries at the top. Do not overwrite earlier entries.
 
+### 2026-11-20 — P0-CLOCK-PACING-CODE-AUDIT-AND-DESIGN
+
+- Base HEAD for this design slice: `32fac4d5ca30b559308dd3fabd97e126d0d3b841`; design-only commit: `37b95a0f8da1e819c6012ed3f10011c27b33a554`; working branch remains `experiment/vic3-visual-upgrade`.
+- Added `docs/spec/SIMULATION_CLOCK_PACING_DESIGN_VI.md` (blob `568b58aaec0d45a61f5279adc25bca7860145882`). It records source-backed findings, nominal speed calculations, lifecycle/save constraints, a staged scheduler architecture, Victoria 3's official tick-task reference, benchmark protocol, acceptance criteria and migration risks.
+- Confirmed code findings: current Speed 5 advances one monthly step per RAF callback, hence is refresh/FPS dependent; speeds 1–4 are RAF-gated, and long stalls may discard elapsed accumulator remainder because only one step is processed and the accumulator is clamped. Monthly simulation remains synchronous on the main JS thread.
+- Also recorded existing safeguards/limitations: App.tsx auto-pauses on visibilitychange/pagehide and requests autosave; IndexedDB helper resolves on transaction completion, but lifecycle handler does not await that completion before page/process termination. MainActivity has no explicit onPause/onResume bridge; no @capacitor/app dependency appears in package.json. Android lifecycle reliability still requires device evidence.
+- Victoria 3 reference: Paradox Dev Diary #76 (2023-02-22) describes a six-hour regular tick and yearly/monthly/weekly/daily task cadences, with task dependencies and separate game/UI/render threads. The document explicitly does not treat this as a wall-clock speed mapping.
+- No product/runtime/test/workflow/dependency/save/data/asset/Gradle/signing changes. No runtime test or build was run. The numerical rates in the design are calculations from source constants, not device benchmark results.
+- This is a design proposal only; it does not authorize S1 or implementation. S0-B7 independent Claude review and owner acceptance remain pending. The S0-B7 review manifest is intentionally unchanged because this is a separate P0 design-preparation artifact, not part of the B7 review packet.
+- Next action: finish the B7 independent review/owner gate. After explicit S1 authorization, run direct Victoria 3 and iQOO baseline measurements before locking speed rates; then obtain approval for CLK-A1 scheduler implementation.
+
+
 
 ### 2026-11-20 — FINAL-REVIEW-MANIFEST-REFRESH
 
