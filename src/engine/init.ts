@@ -8,6 +8,7 @@ import { computeEconomy } from './systems/economy';
 import { updatePolitics } from './systems/politics';
 import { sampleYear } from './metrics';
 import { emptyInventoryLedger } from './systems/inventory';
+import { normalizeAllianceTreaties } from './systems/alliance';
 
 export interface NewGameOptions { mode: GameMode; seed: number; player: string | null }
 
@@ -129,6 +130,10 @@ export function createGame(opts: NewGameOptions): GameState {
       const k = relKey(members[i], members[j]); st.relations[k] = Math.max(st.relations[k] ?? 0, 30);
     }
   }
+  // Historical source rows may encode an entire pact as one multi-member group.
+  // The live diplomacy model uses bilateral Alliance relationships per country pair.
+  normalizeAllianceTreaties(st);
+
   const zv = db.zollverein.members_at_start.filter((m) => st.countries[m]);
   st.treaties.push({ id: 'zollverein', type: 'customs_union', members: zv, leader: db.zollverein.union_leader, start: 0, source: 'zollverein_accessions' });
   for (const m of zv) st.countries[m].customsUnion = 'zollverein';
