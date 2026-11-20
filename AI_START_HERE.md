@@ -4,6 +4,7 @@
 
 **Repository:** [mtieu6470-maker/Victori3-mobile](https://github.com/mtieu6470-maker/Victori3-mobile)  
 **Nhánh phát triển hiện được chỉ định:** `claude/game-historical-sandbox-modes-kg7rj7`  
+**Amendment thời kỳ chiến dịch (20/11/2026):** chiến dịch bao trùm từ tháng 1/1836 đến tháng 12/2026, theo `docs/coordination/OWNER_DIRECTIVE_CAMPAIGN_RANGE_2026-11-20.md`. Phạm vi dữ liệu lịch sử sau 1936 vẫn phải được nghiên cứu và nguồn hóa riêng; không được coi việc mở rộng lịch game là bằng chứng dữ liệu đã đầy đủ.
 **Nguyên tắc sản phẩm của chủ dự án:** [OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md](docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md)  
 **Chỉ thị mới nhất về parity Victoria 3, media đầy đủ và mục tiêu game 4–5 GB:** [OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md](docs/coordination/OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md)  
 **Bảng bàn giao/trạng thái hiện hành:** [AI_HANDOFF.md](docs/coordination/AI_HANDOFF.md)  
@@ -42,7 +43,7 @@ Xây dựng một trò chơi đại chiến lược xã hội–kinh tế trên 
 
 ### Hai chế độ, một engine
 
-- **Historical Mode:** bắt đầu từ năm 1836, toàn thế giới, dữ liệu khởi đầu có nguồn và đúng mốc thời gian. Các sự kiện/lực lượng lịch sử tạo bối cảnh và cơ hội, không ép kết quả lịch sử phải diễn ra giống hệt.
+- **Historical Mode:** bắt đầu từ 01/01/1836 và có thời kỳ chiến dịch đến 12/2026; dữ liệu lịch sử ở mọi mốc phải có nguồn và đúng niên đại. Các sự kiện/lực lượng lịch sử tạo bối cảnh và cơ hội, không ép kết quả lịch sử phải diễn ra giống hệt.
 - **Sandbox / Alternate History:** dùng cùng engine và cùng quy tắc cốt lõi. Sau thời điểm bắt đầu, người chơi và AI được phép tạo ra diễn biến khác lịch sử.
 - **Quan sát:** cho phép xem thế giới và AI tự vận hành nếu được thiết kế trong phạm vi game.
 - Không tạo một engine giả riêng cho từng chế độ, không hard-code kết quả lịch sử vào logic mô phỏng.

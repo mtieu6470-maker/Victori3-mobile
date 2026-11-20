@@ -3,7 +3,7 @@
 import { data } from './data/db';
 import type { EntityRecord } from './data/dbTypes';
 import { GOODS, IGS, STRATA, S, type Country, type GameMode, type GameState, type Region, type Good, type Building, BUILDINGS } from './types';
-import { seedRng, relKey, clamp, dateToTick } from './core';
+import { seedRng, relKey, clamp, dateToTick, CAMPAIGN_START_YEAR } from './core';
 import { computeEconomy } from './systems/economy';
 import { updatePolitics } from './systems/politics';
 import { sampleYear } from './metrics';
@@ -43,7 +43,7 @@ export function createGame(opts: NewGameOptions): GameState {
   const db = d.db;
   const st: GameState = {
     version: 2, seed: opts.seed, rng: seedRng(opts.seed), mode: opts.mode, player: opts.player,
-    date: { y: 1836, m: 1 }, tick: 0, countries: {}, regions: [], population: createPopulationState([]), wars: [], treaties: [], relations: {}, rivalries: [],
+    date: { y: CAMPAIGN_START_YEAR, m: 1 }, tick: 0, countries: {}, regions: [], population: createPopulationState([]), wars: [], treaties: [], relations: {}, rivalries: [],
     worldPrices: { ...BASE_PRICES }, marketPrices: {}, marketStats: {}, constructionProjects: [], log: [], territoryLog: [], history: {},
     divergence: { milestones: {}, entries: [], similarity: [] },
     counters: { systemRuns: {}, aiActions: {}, aiActionsByCountry: {}, decisionWindowsFired: 0, historicalBiasApplied: 0 },

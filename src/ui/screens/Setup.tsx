@@ -1,6 +1,7 @@
 // New campaign: mode (Historical / Sandbox), role (country / Observer), country choice, seed.
 import { useEffect, useState } from 'preact/hooks';
 import { data } from '../../engine/data/db';
+import { CAMPAIGN_END_YEAR, CAMPAIGN_START_YEAR } from '../../engine/core';
 import type { GameMode } from '../../engine/types';
 import { game } from '../game/controller';
 import { ui } from '../game/ui';
@@ -26,7 +27,7 @@ export function Setup() {
     <div class="setup">
       <div class="inner">
         <h1>Dòng chảy Lịch sử</h1>
-        <div class="tag2">Đại chiến lược 1836 — trên bản đồ thế giới thật</div>
+        <div class="tag2">Đại chiến lược {CAMPAIGN_START_YEAR}–{CAMPAIGN_END_YEAR} — trên bản đồ thế giới thật</div>
         {slots.length > 0 && <section class="sec"><h4 class="sec-t">Tiếp tục ván đã lưu</h4><div class="btns">{slots.slice(0, 3).map((s) => <button class="btn sm" key={s} onClick={() => cont(s)}>{s}</button>)}</div></section>}
         <h4 class="sec-t" style="margin-top:16px">Chế độ thế giới</h4>
         <div class="modecards">
@@ -55,7 +56,7 @@ export function Setup() {
         <div style="display:flex;gap:8px"><input class="field num" type="number" value={seed} onInput={(e) => setSeed(Math.max(1, Number((e.target as HTMLInputElement).value) || 1))} /><button class="btn" onClick={() => setSeed(1 + Math.floor(Math.random() * 99999))}>Ngẫu nhiên</button></div>
       </div>
       <div class="startbar">
-        <div style="flex:1 1 auto;min-width:0"><div class="serif ellipsis" style="font-size:17px;font-weight:600">{observer ? 'Quan sát thế giới' : sel?.vi}</div><div class="muted" style="font-size:12.5px">{mode === 'historical' ? 'Chế độ Lịch sử' : 'Chế độ Sandbox'} · 1 tháng 1, 1836</div></div>
+        <div style="flex:1 1 auto;min-width:0"><div class="serif ellipsis" style="font-size:17px;font-weight:600">{observer ? 'Quan sát thế giới' : sel?.vi}</div><div class="muted" style="font-size:12.5px">{mode === 'historical' ? 'Chế độ Lịch sử' : 'Chế độ Sandbox'} · 1 tháng 1, {CAMPAIGN_START_YEAR} · đến tháng 12, {CAMPAIGN_END_YEAR}</div></div>
         <button class="btn primary" style="min-width:140px" onClick={start}>Bắt đầu</button>
       </div>
     </div>

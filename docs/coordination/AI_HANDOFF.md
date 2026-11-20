@@ -1,3 +1,10 @@
+## LATEST OWNER AMENDMENT — CAMPAIGN 1836–2026 (20/11/2026)
+
+- Owner decision: `docs/coordination/OWNER_DIRECTIVE_CAMPAIGN_RANGE_2026-11-20.md` supersedes the older 1836–1936 campaign-period target only; the full campaign is January 1836 through December 2026 inclusive for Historical and Sandbox modes.
+- The new period does not imply that post-1936 history is already researched or calibrated. Historical records/events for 1937–2026 still require sources, temporal/geographic validity, method, uncertainty and rights evidence; unknown data stays unknown.
+- **DEV-007 — Campaign calendar boundary 1836–2026:** authorized bounded slice on base `01e57d57a5715fadb13f54fa67b56f1cdbdef7ac`. Scope: central engine date range, strict December 2026 stop, bounded manual/RAF/fast-forward behavior, setup/HUD display and regression tests. No save schema, daily tick, historical data invention or stage transition.
+- Product delivery remains an APK bootstrap plus explicit-opt-in verified offline packs. A small APK or 40 MB runtime is not full content. The 4–5 GB installed target must be real, used, licensed/provenanced data and media; never padding or duplicate files.
+- Existing S0/B4/B7 verdicts, independent review and owner-acceptance rules remain separate and unchanged.
 ## LATEST OWNER CLARIFICATION — FULL VICTORIA 3 PARITY + 4–5 GB COMPLETE GAME + FULL MEDIA (20/11/2026)
 
 **This is the newest owner clarification and supersedes earlier ambiguous 3–4 GB / 4–5 GB “allowance” descriptions in the historical R15/S0 notes. Do not interpret those old entries as the current size target.** Full details and copy-ready next-session prompt: [OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md](OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md).

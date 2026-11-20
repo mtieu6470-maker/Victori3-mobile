@@ -12,6 +12,7 @@ vi.mock('../src/engine/init', () => ({ createGame: vi.fn() }));
 import { createGame } from '../src/engine/init';
 import { stepMonth } from '../src/engine/simulation';
 import { GameController } from '../src/ui/game/controller';
+import { CAMPAIGN_END_TICK } from '../src/engine/core';
 
 describe('GameController fast-forward isolation', () => {
   let callbacks: Map<number, FrameRequestCallback>;
@@ -131,6 +132,25 @@ describe('GameController fast-forward isolation', () => {
     expect(controller.paused).toBe(true);
     expect(controller.busy).toBeNull();
     expect(vi.mocked(createGame)).toHaveBeenCalledWith({ mode: 'historical', seed: 7, player: null });
+  });
+
+  it('caps fast-forward at December 2026 and cannot resume a completed campaign', async () => {
+    const controller = new GameController();
+    controller.st = { tick: CAMPAIGN_END_TICK - 2, log: [] } as any;
+    controller.setPaused(false);
+    expect(request).toHaveBeenCalledTimes(1);
+
+    await controller.fastForward(24);
+
+    expect(vi.mocked(stepMonth)).toHaveBeenCalledTimes(2);
+    expect(controller.st?.tick).toBe(CAMPAIGN_END_TICK);
+    expect(controller.paused).toBe(true);
+    expect(controller.busy).toBeNull();
+    controller.setPaused(false);
+    controller.stepOnce();
+    expect(controller.st?.tick).toBe(CAMPAIGN_END_TICK);
+    expect(controller.paused).toBe(true);
+    expect(request).toHaveBeenCalledTimes(1);
   });
 
   it('restores the live clock after a fast-forward step throws', async () => {

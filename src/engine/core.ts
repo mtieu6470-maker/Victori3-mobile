@@ -24,10 +24,26 @@ export function gauss(st: GameState): number { const u = Math.max(1e-9, rand(st)
 export const clamp = (x: number, lo: number, hi: number) => (x < lo ? lo : x > hi ? hi : x);
 export const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
+export const CAMPAIGN_START_YEAR = 1836;
+export const CAMPAIGN_END_YEAR = 2026;
+export const CAMPAIGN_END_MONTH = 12;
+/** Tick 0 is January 1836; the final playable state is December 2026. */
+export const CAMPAIGN_END_TICK = (CAMPAIGN_END_YEAR - CAMPAIGN_START_YEAR) * 12 + (CAMPAIGN_END_MONTH - 1);
+
+export function isCampaignComplete(tick: number): boolean {
+  return Number.isSafeInteger(tick) && tick >= CAMPAIGN_END_TICK;
+}
+
+/** Number of monthly simulation steps remaining before the inclusive campaign end. */
+export function campaignMonthsRemaining(tick: number): number {
+  if (!Number.isSafeInteger(tick) || tick < 0) return 0;
+  return Math.max(0, CAMPAIGN_END_TICK - tick);
+}
+
 export function dateStr(d: GameDate): string { return `${d.y}-${String(d.m).padStart(2, '0')}-01`; }
 export function parseDate(s: string): GameDate { const [y, m] = s.split('-').map(Number); return { y, m: m || 1 }; }
-export function dateToTick(s: string, start = 1836): number { const d = parseDate(s); return (d.y - start) * 12 + (d.m - 1); }
-export function tickToDate(t: number, start = 1836): GameDate { return { y: start + Math.floor(t / 12), m: (t % 12) + 1 }; }
+export function dateToTick(s: string, start = CAMPAIGN_START_YEAR): number { const d = parseDate(s); return (d.y - start) * 12 + (d.m - 1); }
+export function tickToDate(t: number, start = CAMPAIGN_START_YEAR): GameDate { return { y: start + Math.floor(t / 12), m: (t % 12) + 1 }; }
 export const yearFrac = (st: GameState) => st.date.y + (st.date.m - 1) / 12;
 
 export const relKey = (a: string, b: string) => (a < b ? `${a}|${b}` : `${b}|${a}`);

@@ -1,7 +1,7 @@
 // The single simulation pipeline used by BOTH modes. Every system runs every month regardless of mode;
 // counters record each run so tests can prove that neither mode skips or weakens a system.
 import type { GameState } from './types';
-import { tickToDate } from './core';
+import { isCampaignComplete, tickToDate } from './core';
 import { computeEconomy } from './systems/economy';
 import { populationMonth } from './systems/population';
 import { politicsMonth, secessionCheck } from './systems/politics';
@@ -28,7 +28,10 @@ export const SYSTEMS: { name: string; run: (st: GameState) => void }[] = [
   { name: 'divergence', run: divergenceMonth },
 ];
 
-export function stepMonth(st: GameState) {
+export function stepMonth(st: GameState): boolean {
+  if (!Number.isSafeInteger(st.tick) || st.tick < 0) throw new RangeError('Invalid simulation tick');
+  if (isCampaignComplete(st.tick)) return false;
+
   st.tick += 1;
   st.date = tickToDate(st.tick);
   for (const s of SYSTEMS) {
@@ -39,6 +42,7 @@ export function stepMonth(st: GameState) {
   // Rebuild only after every system (including secession, events and AI) has
   // finished mutating regional POP/strata for this tick.
   refreshPopulationState(st);
+  return true;
 }
 
-export function runMonths(st: GameState, n: number) { for (let i = 0; i < n; i++) stepMonth(st); }
+export function runMonths(st: GameState, n: number) { for (let i = 0; i < n; i++) if (!stepMonth(st)) break; }

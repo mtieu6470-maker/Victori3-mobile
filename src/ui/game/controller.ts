@@ -4,6 +4,7 @@ import { createGame } from '../../engine/init';
 import { stepMonth } from '../../engine/simulation';
 import { execute, type Command } from '../../engine/commands';
 import { serialize, deserialize } from '../../engine/save';
+import { campaignMonthsRemaining, isCampaignComplete } from '../../engine/core';
 import type { GameMode, GameState } from '../../engine/types';
 
 export type Speed = 1 | 2 | 3 | 4 | 5;
@@ -59,16 +60,23 @@ export class GameController {
   async fastForward(months: number) {
     if (!this.st || this.busy || !Number.isSafeInteger(months) || months <= 0) return;
     const state = this.st;
+    const monthsToRun = Math.min(months, campaignMonthsRemaining(state.tick));
+    if (monthsToRun <= 0) {
+      this.paused = true; this.stop(); this.acc = 0; this.emit();
+      return;
+    }
     const token = ++this.operationToken;
     const wasPaused = this.paused;
     this.stop(); this.paused = true; this.acc = 0;
-    this.busy = { label: 'Đang mô phỏng', done: 0, total: months }; this.emit();
+    this.busy = { label: 'Đang mô phỏng', done: 0, total: monthsToRun }; this.emit();
+    let completed = 0;
     try {
-      for (let i = 0; i < months; i++) {
+      for (let i = 0; i < monthsToRun; i++) {
         if (token !== this.operationToken || this.st !== state) return;
         stepMonth(state);
-        if (i % 6 === 5) {
-          if (this.busy) this.busy.done = i + 1;
+        completed += 1;
+        if (completed % 6 === 0) {
+          if (this.busy) this.busy.done = completed;
           this.emit();
           await new Promise((resolve) => setTimeout(resolve, 0));
         }
@@ -79,7 +87,7 @@ export class GameController {
       if (token === this.operationToken && this.st === state) {
         this.busy = null;
         this.readLogCount = state.log.length;
-        this.paused = wasPaused;
+        this.paused = isCampaignComplete(state.tick) ? true : wasPaused;
         if (!this.paused) this.start();
         this.emit();
       }
@@ -105,10 +113,24 @@ export class GameController {
   }
 
   // ---------------------------------------------------------------- time
-  setPaused(p: boolean) { if (this.busy) return; this.paused = p; if (p) this.stop(); else this.start(); this.emit(); }
+  setPaused(p: boolean) {
+    if (this.busy) return;
+    if (!p && this.st && isCampaignComplete(this.st.tick)) {
+      this.paused = true; this.stop(); this.acc = 0; this.emit();
+      return;
+    }
+    this.paused = p; if (p) this.stop(); else this.start(); this.emit();
+  }
   setSpeed(s: Speed) { if (this.speed === s) return; this.speed = s; this.acc = 0; this.last = performance.now(); this.emit(); }
-  stepOnce() { if (this.st && !this.busy) { stepMonth(this.st); this.emit(); } }
+  stepOnce() {
+    if (!this.st || this.busy || isCampaignComplete(this.st.tick)) return;
+    if (stepMonth(this.st)) {
+      if (isCampaignComplete(this.st.tick)) { this.paused = true; this.stop(); this.acc = 0; }
+      this.emit();
+    }
+  }
   private start() {
+    if (this.st && isCampaignComplete(this.st.tick)) { this.paused = true; this.stop(); return; }
     if (this.raf) return;
     this.last = performance.now(); this.acc = 0;
     const loop = (t: number) => {
@@ -118,8 +140,8 @@ export class GameController {
       this.last = t;
       const clock = consumeClockElapsed(this.acc, elapsed, SPEED_MS[this.speed]);
       this.acc = clock.accumulatorMs;
-      if (clock.shouldStep) {
-        stepMonth(this.st);
+      if (clock.shouldStep && stepMonth(this.st)) {
+        if (isCampaignComplete(this.st.tick)) { this.paused = true; this.acc = 0; this.stop(); }
         this.emit();
       }
     };
