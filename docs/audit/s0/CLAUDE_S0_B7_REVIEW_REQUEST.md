@@ -168,3 +168,8 @@ Independently verify the tightened target/exit criteria in the current Risk Regi
 ## 11. Exact-HEAD Android run #324 and R1 certificate evidence
 
 Please re-fetch and independently verify run `44677523059` / job `136092798809` on checkout SHA `31f1617ed838110296fd68edfd90c7e3e3b8d0a7`, including artifacts `14603730370` and `14603825259`. Verify the local/API ZIP digest match, the APK SHA-256 and `apksigner` certificate report; confirm 38/38 suites, 97/97 tests and Gradle success. Compare against Run #322 (`44661820747`, checkout `68fee31641d2249be824a87f4302c26a5aeb6611`): certificate SHA-256 values are `559d549a21515f899b6195c65114b2be778ff2fbd63288d21ef31f4365b96238` and `84bb348722b660bb36805f3928f73d64401d313a8627168796b6068a2ee1d146`, respectively. The GitHub commit comparison reports documentation-only intervening changes. Confirm R1 therefore remains OPEN and does not authorize signing or device installation. Also verify AS-F1's S5 exit criteria and confirm no risk/gate/phase status was changed by this evidence refresh.
+
+
+## 12. Risk Register table-boundary follow-up
+
+Verify the latest `S0_RISK_REGISTER.md` renders CI-F4 as part of the six-column P1 table (not as a detached one-row table). Recount the table groups against the live blob: P0 1×6, P1 13×6 including G0.7 as a distinct gate row, P2 22×6, P3 5×3, Closed 1×3. Confirm CI-F4 remains narrowly CLOSED and the 48 traceability rows remain unique. This is a formatting/traceability check only; do not change statuses or gate verdicts.
