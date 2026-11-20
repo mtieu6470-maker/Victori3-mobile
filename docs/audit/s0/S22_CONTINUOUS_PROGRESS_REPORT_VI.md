@@ -1,3 +1,13 @@
+## ANDROID-LANDSCAPE-01 — latest exact test target and CI handoff (20/11/2026)
+
+- **Current code/test target:** `d1623e7d38337b757a1907029f5b0bd85e4ad71d`. **Test blob:** `a343a6f2f555d160352dcc0318a5ec0b2b8993f1`. The corrected regex was fetched back from GitHub and verified byte-for-byte; launcher test asserts `.MainActivity`, `screenOrientation="landscape"`, MAIN and LAUNCHER intent filters.
+- **Android manifest:** blob `293e3fed0cb82c8b0570c9115276711f5930ce2d`; the launcher activity now declares `android:screenOrientation="landscape"`. Source/UI viewport logic selects the already-existing landscape rail/window layout after rotation.
+- **History:** first code commit `84ea62272ea7e865eff924ac745e2b50cfd268c3` introduced the orientation fix, but its initial test regex was over-escaped; Android run [44772252460](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44772252460) failed at TypeScript compile (TS1161). The regex was corrected in `d7e9069c8471c9e7530cbe79f51309207d807a88`. A subsequent docs tree was inadvertently based on the earlier test blob; this was detected by refetching the file and corrected again in `d1623e7d38337b757a1907029f5b0bd85e4ad71d`. Do not use the failed 84ea or superseded d7 run as final CI evidence.
+- **Exact-current-HEAD CI:** Android debug [44772973803](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44772973803) was IN_PROGRESS; tests-only [44772973670](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44772973670) was QUEUED at the time of this handoff. These are the only runs to use for final validation of this candidate.
+- No APK from target `d1623e7` has yet been verified. No physical-device orientation check has been performed. This slice addresses launch orientation only; it is not a completed premium UI redesign or full Victoria 3 gameplay parity. S0/S1/S22 gate states remain unchanged.
+- **Next action:** poll exact runs 44772973803 and 44772973670, inspect their logs/artifacts, then record test counts, Gradle result and APK SHA. If either fails, fix only the demonstrated issue and rerun on a new exact HEAD.
+
+
 ## Latest ANDROID-LANDSCAPE-01 checkpoint — landscape launch enforced; exact CI pending (20/11/2026)
 
 - Owner correction: the primary Android gameplay experience must open in landscape. At base HEAD `0f61841288510fc5713e26dc29599c8fa93f4462`, `android/app/src/main/AndroidManifest.xml` did not declare `screenOrientation`; `src/ui/App.tsx` selects the portrait dock/sheet layout whenever viewport width <= height. This caused normal portrait launches to use the portrait UI.
