@@ -3,7 +3,7 @@
 **Project:** Victori3 Mobile / Currents of History  
 **Branch:** `experiment/vic3-visual-upgrade`  
 **Owner authorization:** `docs/coordination/OWNER_IMPLEMENTATION_AUTHORIZATION_2026-11-20.md`  
-**Implementation status:** `PARTIAL — ENGINE FOUNDATION + MARKET SETTLEMENT INTEGRATED; CI PENDING`
+**Implementation status:** `PARTIAL — MARKET LEDGER + REALIZED RECIPE FACTORY FLOWS; CI PENDING`
 
 ## 1. Purpose
 
@@ -42,7 +42,7 @@ This implementation is **market-level stock accounting**, not yet a warehouse/fa
 2. Spoilage, storage loss, quality decay, stockpile policy or seasonal storage constraints.
 3. Physical trade routes, route capacity, tariffs by shipment, convoy losses, port/rail/road bottlenecks or customs inspection.
 4. Individual firm/warehouse sub-ledgers, ownership of stocks, purchase contracts, credit/settlement timing or inventory financing.
-5. A fully realized firm input/output posting engine. The existing economy still derives aggregate planned factory supply/input demand and applies input-shortage fulfillment in its value-added calculation. That pre-existing distinction must be resolved in a follow-up before this market ledger is treated as a full factory-level material-flow audit.
+5. A full factory-level inventory book or iterative market equilibrium. Recipe-based factories now scale realized output and actual input consumption by the same scarcest-input fulfillment factor before final settlement. The factor is taken from a deterministic preliminary market-availability probe and applied once; it is not yet iterated to convergence. Non-factory agriculture/artisan flows remain aggregate production estimates, not firm warehouse postings.
 6. A dedicated player-facing inventory/warehouse screen. The domain data is persisted first; UI presentation follows the real stock and logistics contracts.
 
 The above are explicit next work, not hidden claims of completion. In particular, adding arbitrary per-good capacities or spoilage percentages without sourced physical data would make the model look more detailed while making it less accurate.
@@ -58,17 +58,32 @@ The above are explicit next work, not hidden claims of completion. In particular
 
 ## 6. Validation plan
 
-- Unit tests: material conservation, demand reconciliation, non-negative stock, invalid-flow rejection, duplicate-period rejection and bounded history.
-- Integration tests: real simulation tick creates one journal period; all markets conserve stock; global imports equal global exports; save/load continuation is deterministic; pre-ledger saves migrate as `unseeded`.
+- Unit tests: material conservation, demand reconciliation, non-negative stock, invalid-flow rejection, duplicate-period rejection, bounded history and same-factor factory input/output realization under shortages.
+- Integration tests: real simulation tick creates one journal period; market statistics project to the same monthly ledger quantities; all markets conserve stock; global imports equal global exports; save/load continuation is deterministic; pre-ledger saves migrate as `unseeded`.
 - CI/build: Android APK workflow runs on the final implementation commit. Record the exact run, test counts, Gradle result, APK artifact and SHA only after GitHub Actions evidence is inspected.
 - Device QA: not performed by this slice. No physical-device or performance result is claimed.
 
 ## 7. Next implementation steps
 
-1. Verify this slice on GitHub Actions and correct all failures before adding more economy features.
-2. Reconcile factory input consumption and realized output so inventory postings reflect actual production rather than planned recipe flows.
+1. Verify the current implementation on GitHub Actions and correct all failures before widening the simulation.
+2. Replace the single preliminary factory-availability probe with a bounded, deterministic market/production fixed-point or staged-clearing design; prove convergence/termination and preserve per-good mass conservation.
 3. Add goods metadata for canonical units, storable/flow-only policy, perishability and transportability with provenance.
 4. Add regional warehouses and bounded route-capacity settlement, then integrate ports, rail, convoy, tariffs and treaty rules.
-5. Add player/AI stockpile policies, inventory UI, trade contracts and scenario tests.
+5. Add player/AI stockpile policies, inventory UI, trade contracts and cross-system scenario tests.
 6. Add sourced historical initial stock estimates only where a defensible dataset supports the exact geography/date/unit; leave unknown fields explicitly unknown.
 
+
+
+## 8. Follow-up checkpoint — realized recipe factory flows
+
+The second implementation slice corrects the earlier planned-versus-realized recipe accounting gap:
+
+- A deterministic preliminary market clearing estimates input availability.
+- Every recipe factory calculates one fulfillment factor from its scarcest required input.
+- The same factor scales its physical output and every recipe/additional input; market annualized supply and demand are adjusted by the difference between planned and realized flows.
+- Markets are then settled again. The posted monthly ledger and legacy annualized `marketStats` use the realized recipe-factory flows.
+- GDP value-added and firm operating-margin calculations use the same per-building realized factor and input/output amounts, avoiding a second, inconsistent fulfillment calculation.
+- Services remain non-material flows; artisanal and agricultural production are still aggregate flows rather than stock-owning firms.
+- The preliminary probe is a single deterministic pass, not a solved multi-market fixed point. A bounded convergence/staged-clearing design remains the next accounting-engine task.
+
+Two additional unit tests verify same-factor scaling and the no-shortage case. The integration test now checks annualized market statistics against monthly inventory journal projections using scale-aware floating-point tolerances.
