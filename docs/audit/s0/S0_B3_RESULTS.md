@@ -7,7 +7,7 @@
 | Base của commit B3 | `9a602f3d60456c014fb33d4ebd83f174af299077` |
 | Nhãn | `BASELINE_ORIGINAL` cho mọi số đo và kết quả test: mã, test, dữ liệu, asset và build của sản phẩm không đổi. Công cụ kiểm toán nằm ở `tools/audit/s0/`, ngoài mã sản phẩm. Sản phẩm trong repository giữ nguyên so với `2240a8f`, trừ workflow B1 đã được duyệt (kiểm bằng `git diff`, xem handoff) |
 | Người lập | Claude Code, 2026-11-16. **Tự đánh giá.** Không có trạng thái `REVIEW_PASS` hay `ACCEPTED` nào được ghi ở đây |
-| Review | Vòng 1 (ChatGPT, do chủ dự án chuyển lại): `CHANGES_REQUESTED` trên `3d63061`/`55331c2`/`1d8ad6e`, 4 điểm A–D. Bản này đã sửa theo các điểm đó (§8) và chờ review vòng 2 |
+| Review | Vòng 1: ChatGPT `CHANGES_REQUESTED` trên `3d63061`/`55331c2`/`1d8ad6e`, 4 điểm A–D. Claude sửa theo §8; ChatGPT sau đó review độc lập đúng hai commit `ddea490635c5d7c74ca6108549fd21806102487b` và `2c62b3de3955e3cd8a82a9c59401d9df77d69173`, kết luận `REVIEW_PASS` ngày 2026-11-16 **chỉ cho phạm vi audit B3**. B3 không đồng nghĩa sản phẩm hoàn thiện hoặc owner acceptance |
 
 ## 1. Sản phẩm bàn giao
 
@@ -213,7 +213,7 @@ it('the twelve-year rule ends a war exactly at the agreed boundary', () => {
 
 ## 7. Bước tiếp theo
 
-Dừng ở `READY_FOR_REVIEW` (vòng 2) để ChatGPT review lại B3. B4 **chưa bắt đầu** và chỉ bắt đầu sau `REVIEW_PASS` của B3. Nếu B4 cho G0.6 `FAIL`: dừng, chỉ đề xuất `PRE-S1-SAVE-DETERMINISM-REMEDIATION`, không tự sửa.
+Dừng ở `READY_FOR_REVIEW` (vòng 2) để ChatGPT review lại B3. B4 **chưa bắt đầu** và chỉ bắt đầu sau `REVIEW_PASS` của B3. Nếu B4 cho G0.6 `FAIL`: dừng, chỉ đề xuất `PRE-S1-SAVE-DETERMINISM-REMEDIATION`, không tự sửa. **Lưu ý trạng thái:** chỉ dẫn này phản ánh checkpoint trước vòng review 2 và đã được thay thế bởi kết quả ở §9; không dùng nó làm trạng thái hiện tại.
 
 ## 8. Sửa đổi sau review vòng 1 (`CHANGES_REQUESTED`)
 
@@ -231,3 +231,11 @@ Gate sau sửa (tự đánh giá):
 - G0.3, G0.4, G0.5: `PASS`, không đổi. G0.5 có thêm giới hạn đã ghi rõ: 12 nhóm phân tích, phân loại theo nhãn.
 - G0.7: `BLOCKED`. G0.8: `PARTIAL`.
 - G0.6 và G0.9: `NOT_TESTED`.
+
+## 9. Kết quả review vòng 2 — B3 bounded REVIEW_PASS (2026-11-16)
+
+- Reviewer: ChatGPT (review độc lập đối với phần audit do Claude thực hiện; kết quả lịch sử, không phải self-review của lượt triển khai này).
+- Exact reviewed commits: tools `ddea490635c5d7c74ca6108549fd21806102487b`; reports/evidence `2c62b3de3955e3cd8a82a9c59401d9df77d69173`.
+- Verdict: **`REVIEW_PASS` cho phạm vi S0-B3 audit בלבד**. Bốn điểm A–D từ vòng 1 đã được xử lý: phân loại `estimated`/coverage `method`; 12 nhóm phân tích khác 13 vùng trong spec; R7 P0 có trước B3 và vẫn OPEN; quy ước 145/144 tháng và các phát hiện WD-F1…F3 được phân tích/ghi rõ.
+- Điều kiện phạm vi: không có xác nhận tính năng sản phẩm đã hoàn thiện, không đóng G0.7/G0.8, không chấp nhận toàn bộ S0 và không tự động mở S1. B4 chỉ được phép tiếp tục sau verdict này theo OD-20261116-11; B4 sau đó đã có review riêng cho G0.6.
+- Vì vậy, trạng thái Phase Register `S0-B3` trong `AI_HANDOFF.md` phải là `REVIEW_PASS` (bounded audit scope), không còn `READY_FOR_REVIEW`. Các dòng `READY_FOR_REVIEW` trong work log cũ được giữ nguyên như lịch sử tại thời điểm chúng được ghi.

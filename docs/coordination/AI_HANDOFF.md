@@ -88,7 +88,7 @@ Not allowed:
 |---|---|---|---|
 | S0-A — Baseline as-is (`BASELINE_ORIGINAL`), approved document §6.3 A1–A5 | `READY_FOR_REVIEW` (A1–A4 evidenced; A5 `BLOCKED`) | Owner approval of the S0 v3.2 document and S0-A authorization (OD-20261116-09, -10) — met | S0-A evidence committed; ChatGPT review; owner decision |
 | S0-B1 — CI checksums and test report | Done; reviewer technical verdict `PASS` (v3.3 §2.1) | Owner instruction for B1 (OD-20261116-10B) — met | Evidence committed (`e13d964`) |
-| S0-B3 — Audit scripts, catalog, coverage, crosswalk, asset inventory, Node/desktop harness | `READY_FOR_REVIEW` round 2 (Claude, unverified); round 1 `CHANGES_REQUESTED` | OD-20261116-11 — met | Reports committed (`3d63061`, `55331c2`; corrections `ddea490`, `2c62b3d`); ChatGPT re-review (B4 waits for B3 `REVIEW_PASS`) |
+| S0-B3 — Audit scripts, catalog, coverage, crosswalk, asset inventory, Node/desktop harness | `REVIEW_PASS` (bounded B3 audit scope; ChatGPT independent re-review of `ddea490635c5d7c74ca6108549fd21806102487b` and `2c62b3de3955e3cd8a82a9c59401d9df77d69173`, 2026-11-16) | OD-20261116-11 — met | Reports committed (`3d63061`, `55331c2`; corrections `ddea490`, `2c62b3d`); B4 was eligible to proceed after this bounded verdict; no product-completeness or owner acceptance implied |
 | S0-B4 — Characterization tests and fixtures (save/load determinism, v3.2 §6.7) | `REVIEW_PASS` (bounded to frozen-baseline G0.6 evidence in run 44325257261) | B3 `REVIEW_PASS` | Four replay cases MATCH; exact scope and limitations in S0_B4_RUN_3_REVIEW.md |
 | S0-B7 — Risk register and signoff package | `IN_PROGRESS` (dependency audit run 44572915201/artifact 14555141888 reviewed; DEP-F1 OPEN P1 pending remediation/owner disposition; CI-F4 narrowly CLOSED by Android run 44573351798; B7 review package refreshed; Claude independent review and owner decision pending) | B3 and B4 `REVIEW_PASS` | S0_RISK_REGISTER.md; S0_B7_RISK_TRACEABILITY.md; S0_B7_REVIEW_PACKAGE_MANIFEST.md; S0_DEPENDENCY_AUDIT_PLAN.md; .github/workflows/s0-b7-dependency-audit.yml; S0_B7_SELF_REVIEW.md; CLAUDE_S0_B7_REVIEW_REQUEST.md; CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md; S0_SIGNOFF.md; S0_B7_RESULTS.md; bounded G0.7/G0.8 exception requests |
 | S0-B2 / B5 / B6 — signing, Diagnostic UI, instrumented measurements | `BLOCKED` / deferred | R14 proven on the baseline APK, O5 decided, protected `development-signing` Environment configured by the owner | Per v3.2 §4.1, §6.8 |
@@ -104,6 +104,14 @@ Pre-protocol work:
 | Earlier stages 1–5 (identity/content, numbering of an earlier specification) | `PRE_PROTOCOL_IMPLEMENTED_REPORTED` | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` | Not `REVIEW_PASS` or `ACCEPTED`; part of the current baseline; S0 verifies what is present at the frozen SHA |
 
 ## 5. Work log
+
+### 2026-11-20 — B3-PHASE-STATUS-RECONCILIATION
+
+- Cross-checked the current Phase Register against the historical review evidence in this handoff and `S0_B3_RESULTS.md`.
+- Found a stale row: the current summary and B4 dependency already recorded B3 `REVIEW_PASS`, while Phase Register still said `READY_FOR_REVIEW` (Claude round 2, unverified).
+- Verified the exact historical bounded review: ChatGPT independently reviewed Claude's B3 corrections at tools commit `ddea490635c5d7c74ca6108549fd21806102487b` and report/evidence commit `2c62b3de3955e3cd8a82a9c59401d9df77d69173`, returned `REVIEW_PASS` on 2026-11-16 for B3 audit scope only. The original round-1 `CHANGES_REQUESTED` and old READY_FOR_REVIEW checkpoint remain in history.
+- Updated the current Phase Register and B3 report summary. This does not change any gate verdict, accept S0, replace current Claude's independent B7 review, or authorize S1.
+- Read-only source/status consistency check only. No product source, tests, data, assets, dependency, workflow, save, Gradle, signing or APK changes; no runtime test/build/device QA performed.
 
 ### 2026-11-20 — B7-TRACEABILITY-AND-SIGNOFF-STRUCTURE-CHECK
 

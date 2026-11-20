@@ -158,3 +158,9 @@ The live GitHub contents at base HEAD `dbf90c077d2ffe5454937cbf4d4a8b84e6222740`
 | Gate status consistency | PRESERVED | R7 remains OPEN P0; R14 BLOCKED; G0.7 BLOCKED; G0.8 PARTIAL; full-S0 G0.9 BLOCKED; overall S0 PARTIAL/BLOCKED; bounded S1-entry NOT_TESTED; S1 NOT AUTHORIZED. |
 
 The validation reads repository Markdown and checks structure/ID references; it does not prove each underlying engineering risk is resolved, nor replace human review of the evidence. The newly updated DEP-F1 mapping remains OPEN P1.
+## 14. B3 historical review status / Phase Register consistency — ChatGPT self-audit (2026-11-20)
+
+- The normative current summary and B4 prerequisite say S0-B3 is `REVIEW_PASS`, but the Phase Register had retained a stale `READY_FOR_REVIEW` row.
+- Rechecked the historical review record in `AI_HANDOFF.md` work log and `S0_B3_RESULTS.md`: ChatGPT independently re-reviewed Claude's round-1 corrections in exact commits `ddea490635c5d7c74ca6108549fd21806102487b` and `2c62b3de3955e3cd8a82a9c59401d9df77d69173`, then issued `REVIEW_PASS` on 2026-11-16 for B3 audit scope only.
+- Corrected the current Phase Register and B3 report summary to that bounded historical verdict. Old `READY_FOR_REVIEW` records are retained as point-in-time history.
+- No gate, owner acceptance or phase authorization changed. This self-audit does not review B7 or replace Claude's future independent B7 review.
