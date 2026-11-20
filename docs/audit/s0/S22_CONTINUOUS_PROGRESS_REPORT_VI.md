@@ -500,3 +500,12 @@ Các dòng trên phân biệt **quyết định sản phẩm**, **evidence revie
 - Thêm bốn regression tests cho khoảng tốc độ, ngưỡng thời gian, background pause 60 giây và dữ liệu thời gian không hợp lệ.
 - **Giới hạn:** engine hiện vẫn mô phỏng theo tháng, chưa phải daily tick như Victoria 3. Đây là hotfix nhịp thời gian, không tuyên bố đã đạt parity lịch mô phỏng.
 - Base HEAD: `e4182491161e61065e4ac15228c5f59a8832ad1d`. Runtime/test/build CI chưa chạy tại thời điểm ghi nhận; device QA NOT_TESTED; independent review và owner acceptance pending. Không thay đổi S0 gate ledger.
+
+### 2026-11-20 — DEV-006 exact-HEAD CI and APK verification
+
+
+- **CI verification update (2026-11-20; exact target 65bf85db91cbeaa276e00401e524749343ab305a):** tests-only run [44754295188](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44754295188) SUCCESS; 42/42 test suites and 126/126 tests passed, zero failed/pending. Android debug run [44754295107](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44754295107) SUCCESS; npm install, web/data build, simulation tests, Android sync and Gradle `assembleDebug` all completed successfully.
+- **APK:** artifact ID `14636409648`, 18,052,303 bytes; APK SHA-256 `b73eab755d53aabaae3192041296282343b1a442236232bb147d794e31de37fa`. Artifact ZIP SHA-256 `380c6944f507cd54e72c1d7f011d5ffc09da34437156131b6aa98c7b2c3267f6`. CI evidence artifact ID `14637197150`, ZIP SHA-256 `9f54668e91f3081be18fe7e2adb79f0db36369696091f87a03ae9e2c77d4a988`.
+- **Signing:** Android Debug certificate; APK v1 and v2 verification true; certificate SHA-256 `89f494b021eedecdb4d1ceaa6f1d22bd96380f361c3b0404ed99e13d9f6e4a33`. This is a debug APK, not a production/release-signed package.
+- **Integrity check:** downloaded APK bytes were extracted from the CI artifact and independently SHA-256 hashed in the session; result exactly matches the CI evidence manifest.
+- **Device QA:** NOT_TESTED — no installation, upgrade, save/load, lifecycle, thermal or performance test on the owner's iQOO device. Claude independent review and owner acceptance remain pending; this does not change any S0/S1/S22 gate verdict.
