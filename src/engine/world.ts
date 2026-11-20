@@ -6,6 +6,7 @@ import { dateStr, log, relKey, setRel, newId } from './core';
 import { updatePolitics } from './systems/politics';
 import { makeHistoricalCountry } from './init';
 import { invalidate } from './cache';
+import { setCustomsUnionMembership } from './systems/customsUnion';
 
 export function transferRegion(st: GameState, regionId: string, to: string, cause: string, historicalDate?: string): boolean {
   const d = data();
@@ -42,8 +43,15 @@ export function transferRegion(st: GameState, regionId: string, to: string, caus
 export function killCountry(st: GameState, id: string, why: string) {
   const c = st.countries[id]; if (!c || !c.alive) return;
   c.alive = false;
-  for (const t of st.treaties) t.members = t.members.filter((m) => m !== id);
-  st.treaties = st.treaties.filter((t) => t.members.length >= (t.type === 'customs_union' ? 1 : 2));
+  // Remove the country from every customs union, clear its pointer and transfer
+  // leadership before generic alliance/guarantee cleanup.
+  setCustomsUnionMembership(st, id, null);
+  for (const t of st.treaties) {
+    if (t.type !== 'customs_union') t.members = t.members.filter((m) => m !== id);
+  }
+  st.treaties = st.treaties.filter(
+    (t) => t.type === 'customs_union' ? t.members.length > 0 : t.members.length >= 2,
+  );
   for (const o of Object.values(st.countries)) if (o.overlord === id) { o.overlord = null; o.subjectType = null; }
   for (const w of st.wars) { w.attackers.members = w.attackers.members.filter((m) => m !== id); w.defenders.members = w.defenders.members.filter((m) => m !== id); }
   if (!c.decentralized) log(st, { type: 'state', text: `${c.name} ceases to exist (${why}).`, textVi: `${c.nameVi} không còn tồn tại (${why}).`, actors: [id] });
