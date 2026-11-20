@@ -826,3 +826,14 @@ This section records the 2026-11-19 checkpoint and is superseded by the 2026-11-
 - This is an owner-requested product-scope change and planning record only. It does not authorize gameplay/engine/runtime-clock/save/data/assets changes or bypass the current phase gate.
 - Live phase status remains: S0-B7 `IN_PROGRESS`; independent review and owner signoff pending; overall S0 `PARTIAL — NOT COMPLETE`; bounded S1-entry `NOT_TESTED`; S1 `NOT AUTHORIZED`. R7 remains OPEN P0, R14 BLOCKED, G0.7 BLOCKED, G0.8 PARTIAL, DEP-F1 OPEN P1.
 - No product source, tests, production data, save schema, assets, Gradle/workflows, signing configuration or APK changed. No build, test, device install or device QA was performed for this documentation-only scope record.
+
+
+## 2026-11-20 — TECHNOLOGY / INSTITUTIONS DESIGN DRAFT FOR 1836–2026
+
+- Added `docs/design/TECHNOLOGY_AND_INSTITUTIONS_1836_2026_DRAFT.md` as a detailed design package under the owner's approved product-scope request.
+- The draft provides a structured technology taxonomy with stable node IDs across agriculture/bioeconomy, materials/chemistry, energy, transport/communications, science/health, computing/AI/automation, land/naval/air/strategic military capabilities; it distinguishes research, diffusion, adoption, deployment and operational readiness.
+- Added institutional progression domains (state capacity, participation, labor/welfare, education/science, health, finance/regulation, environment and security), force-generation chains, proposed data contracts, and scenario-validation cases.
+- Contemporary capability scope is cross-checked against current references from IEA Energy Technology Perspectives 2026, ITU Facts and Figures 2025, Stanford HAI AI Index 2026 and SIPRI 2026 military/security publications. These are research references, not a substitute for sourced country-by-country historical data or licensing checks.
+- Current author self-check: design-only document; it does not claim features are implemented. The source register explicitly labels frontier capabilities such as fusion, 6G and broad quantum computing as research/uncertain rather than mature universal deployment.
+- No product source, tests, save schema, migration, generated data, assets, Android/Gradle, workflows, dependencies, signing or APK was changed. No build/test/device QA was performed for this design commit.
+- Gate remains unchanged: S0-B7 `IN_PROGRESS`; independent review/owner acceptance pending; overall S0 `PARTIAL — NOT COMPLETE`; bounded S1-entry `NOT_TESTED`; S1 `NOT AUTHORIZED`. The original `MASTER_SPEC_VI.md` remains byte-for-byte unchanged for the historical S0 audit.
