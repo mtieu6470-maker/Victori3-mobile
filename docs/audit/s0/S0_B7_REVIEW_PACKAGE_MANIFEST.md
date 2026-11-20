@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `4db9d3d7b397fc59f3310936eecd6792a4ca218f`  
+**Snapshot HEAD before this manifest refresh:** `53b8c4880fefbbfa099c56efa77ab3dd3a21bdcf`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -18,13 +18,13 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 | `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `dbcfeb7f125578220e220c594c3a834bfeecaa8f` |
 | `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `70eb56cf89b8ff8ea4536c0cd373532f61134c16` |
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `e3ff67518e936882b9f1f3f6096030ddb4bb99b5` |
-| `docs/audit/s0/S0_SIGNOFF.md` | `be9e83f57e289cae21a475dcc8c8fc84f56cfc0b` |
-| `docs/audit/s0/S0_B7_RESULTS.md` | `0e6adffb3378d103bc9a59be1d65ab107f40522e` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `b120b2b4787fdd5cf53123270545e150b6cab8f9` |
+| `docs/audit/s0/S0_SIGNOFF.md` | `6b9d17d81b1d8eecac21912f7058707ce6aa0283` |
+| `docs/audit/s0/S0_B7_RESULTS.md` | `f7855d676e85fa0881c5984d0c5622fbe5523e95` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `c899a4275d79f436f074425c8217cc3a951fb45b` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `403a1dc63df414afc348ffbfd2a6f144f3394dd2` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `a141a2b855093dbb6c07e40bf3f61580a6844cc9` |
-| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `0060043f2e80fa5e70a40f85abe4fbdb3158341f` |
+| `docs/coordination/AI_HANDOFF.md` | `c0538001150d8a5c528f14fd13e125a77f71b36e` |
+| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `6e2716d0889b17a35dfa7c0ed96ba71a5c2e70f4` |
 
 ## 2. Risk table integrity and traceability
 
@@ -166,3 +166,12 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 The live B7 package snapshot is refreshed to the branch HEAD immediately before this manifest commit. Runs #319–#321 (44576526677 / 44576552982 / 44576581387) all completed 38/38 suites, 97/97 tests and Gradle debug APK assembly successfully on documentation-only commits. Run #321 artifact/evidence ZIPs were downloaded, ZIP digests re-computed against GitHub API metadata, and APK/test summary inspected; exact details are in `S0_B7_RESULTS.md` §14. The current snapshot HEAD `4db9d3d7b397fc59f3310936eecd6792a4ca218f` is a documentation-only descendant of #321 commit `c5ba0e80b017dfeb04d29c17a66205fab23ce0d9`; no product/runtime source changed between them, but no workflow ran on the exact HEAD.
 
 This supplement does not change CI-F4's narrow closure, overall S0 gate states, reviewer role, owner acceptance requirement, or S1 authorization. Claude must re-fetch every listed blob and the live HEAD before issuing a verdict. Run #319/#320 artifact ZIP payloads were not downloaded; only their GitHub API metadata and successful job logs were checked.
+
+
+## 14. Exact-HEAD Android run #322 (2026-11-20)
+
+- Exact checkout/trigger commit: `68fee31641d2249be824a87f4302c26a5aeb6611`; workflow run `44661820747`, job `136041609778`, SUCCESS.
+- Evidence artifact `14596545236`: 106,681 bytes; ZIP SHA-256 `50c75905c66950a8868afc58f9eb81f3ecc09096fc3e2a0254b13f7233747492`; downloaded and inspected, 15 entries; 38/38 suites, 97/97 tests, zero failures, `report_valid=true`.
+- APK artifact `14596440616`: 17,569,399-byte ZIP; SHA-256 `1f3d14e2c2f4aa43b5d1fe12fb1ed34b6058d37c5c91c8b262de2b20a57d7ff5`; downloaded and inspected. APK: 18,057,541 bytes, SHA-256 `eda437afeadad10074d38acf567601c0c43ab3a6e9661ce8145962896fdf3cbb`; Android Debug certificate SHA-256 `559d549a21515f899b6195c65114b2be778ff2fbd63288d21ef31f4365b96238`.
+- This evidence is limited to CI tests and debug APK assembly; no device QA, release signing, independent B7 verdict, owner acceptance or S1 authorization.
+- The manifest commit itself advances the branch; re-fetch live HEAD and every listed blob SHA before issuing a review verdict.
