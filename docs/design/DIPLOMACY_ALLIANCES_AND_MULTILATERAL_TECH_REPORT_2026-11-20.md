@@ -156,3 +156,14 @@ Do not simply weaken the two assertions or remove the research gate. Diagnose th
 - Feature parity: `NOT_COMPLETE`
 
 The correct next action is redesign/fix the treaty taxonomy and AI test behavior, not start a new unrelated subsystem.
+
+
+## 10. CI #457 findings and bounded corrections (20/11/2026)
+
+- **Exact run:** #457, ID `44728018979`, source SHA `fbbfbe2371f45a967ade033d1970746b90109e4d`, FAILURE. Data/web/typecheck build passed; Vitest reported 136/139 tests, three failures; Gradle/APK was skipped.
+- **Failure 1 — historical fixture expectation:** `tests/data.test.ts:102` expected the Anglo-Portuguese source record to be a runtime `alliance`. The source record is explicitly `Type I: Defense Pact`; the old test was asserting a conflation that the new treaty taxonomy intentionally removed. The fixture now asserts the exact CoW source IDs and their `defensive_pact` type instead.
+- **Failure 2 — player war across an active pact:** `tests/modes.test.ts:102` attempted a Prussia–Bavaria war while the 1836 source agreement `cow_ally_3` (which includes a non-aggression term) remained active. The runtime correctly rejected the declaration. The scripted player now explicitly withdraws from the Defensive Pact on tick 11 before declaring war on tick 12; the NAP enforcement remains intact.
+- **Failure 3 — save/load determinism:** the exact serialized diff was isolated from the CI log. Only `state.treaties[43].members` differed: uninterrupted state `['FRA','BEL']`, reloaded state `['BEL','FRA']`. The migration had alphabetically sorted every bilateral treaty, unintentionally reversing the directional Guarantee Independence article. The migration now preserves member order for non-source/directional bilateral treaty rows and only sorts symmetric historical source pacts when expanding them.
+- **Additional taxonomy correction:** source category now takes precedence over overlapping flags. This is necessary because CoW labels non-aggression records distinctly even when other descriptive flags (such as Entente) are also true; all flags remain retained in `terms`. Generic/older source rows still use flag fallbacks.
+- **Regression coverage added:** exact source-category classification (Defense Pact, Entente, Neutrality, Non-Aggression), direction-preserving guarantee save migration and continuation of the player-intervention scenario through an explicit treaty withdrawal.
+- **Validation for the correction commit:** PENDING; no test/build/APK result is claimed until Actions reports against its exact SHA.

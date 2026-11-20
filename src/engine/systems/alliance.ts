@@ -4,12 +4,20 @@ import type { AllianceSeed } from '../data/dbTypes';
 import type { GameState, Treaty, TreatyTerms, TreatyType } from '../types';
 
 export function treatyTypeFromSeed(
-  seed: Pick<AllianceSeed, 'defense' | 'entente' | 'neutrality' | 'nonaggression'>,
+  seed: Pick<AllianceSeed, 'type' | 'defense' | 'entente' | 'neutrality' | 'nonaggression'>,
 ): TreatyType {
+  const sourceType = seed.type.toLowerCase();
+  if (sourceType.includes('non-aggression')) return 'non_aggression_pact';
+  if (sourceType.includes('neutrality')) return 'neutrality_pact';
+  if (sourceType.includes('entente')) return 'entente';
+  if (sourceType.includes('defense pact')) return 'defensive_pact';
+
+  // Defensive fallbacks support older/generic source rows whose type label
+  // did not identify the legal category.
   if (seed.defense) return 'defensive_pact';
-  if (seed.entente) return 'entente';
-  if (seed.neutrality) return 'neutrality_pact';
   if (seed.nonaggression) return 'non_aggression_pact';
+  if (seed.neutrality) return 'neutrality_pact';
+  if (seed.entente) return 'entente';
   return 'historical_pact';
 }
 
@@ -23,8 +31,12 @@ export function treatyTermsFromSeed(seed: AllianceSeed): TreatyTerms {
   };
 }
 
-function aliveMembers(st: GameState, ids: readonly string[]): string[] {
-  return [...new Set(ids.filter((id) => st.countries[id]?.alive))].sort();
+function aliveMembersInOrder(st: GameState, ids: readonly string[]): string[] {
+  return [...new Set(ids.filter((id) => st.countries[id]?.alive))];
+}
+
+function aliveMembersSorted(st: GameState, ids: readonly string[]): string[] {
+  return aliveMembersInOrder(st, ids).sort();
 }
 
 function appendBilateralPairs(
@@ -87,42 +99,66 @@ export function normalizeHistoricalTreaties(st: GameState): void {
       continue;
     }
 
-    const members = aliveMembers(st, treaty.members);
+    // Preserve member order for directional/bilateral articles such as
+    // Guarantee Independence. Only historical source pacts are symmetric.
+    const members = aliveMembersInOrder(st, treaty.members);
     if (members.length < 2) continue;
     const sourceIds = (treaty.source ?? '')
       .split(';')
       .map((value) => value.trim())
       .filter(Boolean);
 
+    if (!sourceIds.length) {
+      if (members.length > 2) appendBilateralPairs(output, seenIds, treaty, members, null);
+      else push({ ...treaty, members });
+      continue;
+    }
+
     let sourceWasRebuilt = false;
     for (const sourceId of sourceIds) {
       const seed = seeds.get(sourceId);
       if (!seed) {
-        appendBilateralPairs(output, seenIds, treaty, members, sourceId);
+        // Unknown source IDs may belong to directional/legacy treaty records.
+        // Preserve bilateral ordering; expand only genuinely grouped rows.
+        if (members.length > 2) {
+          appendBilateralPairs(output, seenIds, treaty, members, sourceId);
+        } else {
+          push({
+            ...treaty,
+            id: `legacy:${sourceId}:${members[0]}:${members[1]}`,
+            members,
+            source: sourceId,
+          });
+        }
         sourceWasRebuilt = true;
         continue;
       }
 
-      const seedMembers = aliveMembers(st, seed.members);
+      const seedMembers = aliveMembersSorted(st, seed.members);
       const sourcePairMembers = members.length === 2
         ? members.filter((id) => seedMembers.includes(id))
         : seedMembers.filter((id) => members.includes(id));
 
       if (sourcePairMembers.length >= 2) {
         appendBilateralPairs(output, seenIds, treaty, sourcePairMembers, sourceId, seed);
-      } else {
-        // The current registry cannot explain this old row; preserve its contents.
+      } else if (members.length > 2) {
         appendBilateralPairs(output, seenIds, treaty, members, sourceId);
+      } else {
+        // The current registry cannot explain this old row. Preserve the pair
+        // and its original member direction instead of silently dropping it.
+        push({
+          ...treaty,
+          id: `legacy-source:${sourceId}:${members[0]}:${members[1]}`,
+          members,
+          source: sourceId,
+        });
       }
       sourceWasRebuilt = true;
     }
     if (sourceWasRebuilt) continue;
 
-    if (members.length > 2) {
-      appendBilateralPairs(output, seenIds, treaty, members, null);
-      continue;
-    }
-    push({ ...treaty, members });
+    if (members.length > 2) appendBilateralPairs(output, seenIds, treaty, members, null);
+    else push({ ...treaty, members });
   }
 
   st.treaties = output;

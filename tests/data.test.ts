@@ -97,11 +97,13 @@ describe('temporal integrity (no later-period information at start)', () => {
     stepMonth(playerMexico); stepMonth(playerMexico);
     expect(playerMexico.regions.find((r) => r.id === 'TEX_TEX')!.owner).toBe('MEX');
   });
-  it('initial alliances and wars come from CoW records active on the start date', () => {
-    const ally = (a: string, b: string) => st.treaties.some((t) => t.type === 'alliance' && t.members.includes(a) && t.members.includes(b));
-    expect(ally('GBR', 'POR')).toBe(true); // Anglo-Portuguese
-    expect(ally('RUS', 'AUS')).toBe(true); // Münchengrätz
-    expect(ally('GBR', 'FRA')).toBe(true); // Quadruple Alliance 1834
+  it('initial diplomatic pacts and wars come from CoW records active on the start date', () => {
+    const hasSourcePact = (source: string, a: string, b: string, type: string) =>
+      st.treaties.some((t) => t.source === source && t.type === type && t.members.includes(a) && t.members.includes(b));
+
+    expect(hasSourcePact('cow_ally_1', 'GBR', 'POR', 'defensive_pact')).toBe(true); // Anglo-Portuguese
+    expect(hasSourcePact('cow_ally_12', 'RUS', 'AUS', 'defensive_pact')).toBe(true); // Münchengrätz / Reinsurance precursors
+    expect(hasSourcePact('cow_ally_19', 'GBR', 'FRA', 'defensive_pact')).toBe(true); // Quadruple Alliance 1834
     expect(st.wars.map((w) => w.id)).toEqual(expect.arrayContaining(['war_carlist_1', 'war_texas', 'war_farroupilha']));
   });
   it('populations of benchmark groups match their sources', () => {

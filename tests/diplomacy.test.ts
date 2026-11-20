@@ -211,9 +211,25 @@ describe('Victoria 3-style bilateral alliance capacity', () => {
     expect(state.treaties.some((treaty) => treaty.source === 'cow_ally_13')).toBe(false);
   });
 
-  it('classifies source treaty flags without inventing an Alliance from an Entente', () => {
-    expect(treatyTypeFromSeed({ defense: false, entente: true, neutrality: false, nonaggression: false })).toBe('entente');
-    expect(treatyTypeFromSeed({ defense: true, entente: true, neutrality: false, nonaggression: true })).toBe('defensive_pact');
+  it('classifies legal treaty type from the CoW source category and preserves overlapping terms', () => {
+    expect(treatyTypeFromSeed({ type: 'Type III: Entente', defense: false, entente: true, neutrality: false, nonaggression: false })).toBe('entente');
+    expect(treatyTypeFromSeed({ type: 'Type I: Defense Pact', defense: true, entente: true, neutrality: false, nonaggression: true })).toBe('defensive_pact');
+    expect(treatyTypeFromSeed({ type: 'Type IIa: Non-Aggression Pact', defense: false, entente: true, neutrality: false, nonaggression: false })).toBe('non_aggression_pact');
+    expect(treatyTypeFromSeed({ type: 'Type II: Neutrality', defense: false, entente: false, neutrality: true, nonaggression: false })).toBe('neutrality_pact');
+  });
+
+  it('preserves directional Guarantee Independence member order during save migration', () => {
+    const state = fresh('sandbox', 193, null);
+    state.treaties = [{
+      id: 'directional-guarantee',
+      type: 'guarantee',
+      members: ['FRA', 'BEL'],
+      start: state.tick,
+    }];
+    const before = serialize(state);
+    const loaded = deserialize(before);
+    expect(loaded.treaties[0].members).toEqual(['FRA', 'BEL']);
+    expect(serialize(loaded)).toBe(before);
   });
 
   it('migrates legacy saves containing grouped alliances without losing partner links', () => {

@@ -1077,3 +1077,15 @@ This is a later, explicit owner authorization to begin product implementation on
 - **Priority 4:** run full CI on the exact new source HEAD. Only after Vitest passes should Gradle/APK proceed. Verify the APK artifact and checksum. No independent review or owner acceptance has occurred.
 - **Status:** `IN_PROGRESS — CI_FAILED — REDESIGN REQUIRED`; source/data/web build PASS on tested SHA; full tests FAIL; APK NOT_BUILT; device QA NOT_TESTED; independent review PENDING; owner acceptance PENDING.
 - **Pause rule:** do not continue coding in this checkpoint. The owner asked to stop after writing the report/handoff and continue in a new conversation.
+
+
+## 2026-11-20 — DIPLOMACY CI #457 TRIAGE / DIRECTIONAL MIGRATION FIX
+
+- **Base HEAD:** `fbbfbe2371f45a967ade033d1970746b90109e4d` on `experiment/vic3-visual-upgrade`.
+- **Actions #457:** run ID `44728018979`, URL https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44728018979, FAILURE on the base SHA. `npm ci`, data/map/web build and bundle hash passed; Vitest 136/139, three failures; Android Gradle/APK steps skipped.
+- **Root cause A:** the start-date fixture still asserted that CoW Defense Pact records were runtime Alliances. Updated it to assert the exact source IDs and Defensive Pact type; did not reclassify the historical agreement as an Alliance to satisfy the test.
+- **Root cause B:** the scripted Prussian player war targeted Bavaria while the historical `cow_ally_3` Defense Pact/NAP was active. The scenario now explicitly withdraws from that pact at tick 11, then declares war at tick 12. The runtime NAP block remains.
+- **Root cause C:** full serialized diff showed one difference only: a Guarantee Independence member array changed from `['FRA','BEL']` to `['BEL','FRA']` after loading. Historical bilateral normalization had sorted every treaty, including directional guarantees. Migration now preserves order for bilateral/directional non-source treaties and only canonicalizes symmetric historical source pairs.
+- **Taxonomy correction:** the source's explicit legal category now takes precedence over overlapping CoW flags (e.g. a Non-Aggression Pact with an Entente descriptive flag remains a Non-Aggression Pact). All four source flags are still retained in treaty terms.
+- **Added regression coverage:** category-based classification and direction-preserving save migration; updated temporal source assertions and player-war scenario.
+- **New source/test commit and exact Actions result:** pending post-push verification. APK/device QA, independent review and owner acceptance remain pending.

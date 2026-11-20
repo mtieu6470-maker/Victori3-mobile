@@ -98,7 +98,11 @@ describe('Observer Mode runs every country with the same AI', () => {
 describe('player intervention changes history', () => {
   it('a non-historical war declared by the player creates divergence from the AI-only run', () => {
     const base = run('historical', 5, 6);
-    const played = run('historical', 5, 6, 'PRU', { 2: [{ type: 'set_army_target', manpower: 400000 }], 12: [{ type: 'declare_war', target: 'BAV', goals: [{ by: 'PRU', type: 'conquer', target: 'BAV', regions: ['BAV_FRA'] }] }] });
+    const played = run('historical', 5, 6, 'PRU', {
+      2: [{ type: 'set_army_target', manpower: 400000 }],
+      11: [{ type: 'break_defensive_pact', target: 'BAV' }],
+      12: [{ type: 'declare_war', target: 'BAV', goals: [{ by: 'PRU', type: 'conquer', target: 'BAV', regions: ['BAV_FRA'] }] }],
+    });
     expect(played.log.some((l) => l.type === 'war' && l.text.includes('Prussia declares war on Kingdom of Bavaria'))).toBe(true);
     const diff = played.regions.filter((r, i) => r.owner !== base.regions[i].owner || Math.abs(r.pop - base.regions[i].pop) > 1).length;
     expect(diff).toBeGreaterThan(0);
