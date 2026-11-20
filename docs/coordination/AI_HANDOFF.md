@@ -1,3 +1,12 @@
+## Latest IDENTITY-DISPLAY-01 checkpoint — historical identity asset coverage audit (20/11/2026)
+
+- Audit: docs/audit/IDENTITY_ASSET_DISPLAY_COVERAGE_AUDIT_VI.md; baseline 77c03554ff11ffa587f5d25064a16b7cd8b8b650; source/asset coverage only, no implementation authorization.
+- UI already renders flags, coats of arms and portraits when a matching period-valid asset exists; otherwise it intentionally falls back to generated emblems/monograms.
+- Registry snapshot: 147 playable entities; 176 flag records, 99 arms records, 227 portraits for 473 historical character records. At 1836, period-valid flags cover 85/147 playable entities, arms cover 68/147, both cover 60/147.
+- Current ruler portrait resolution is name-sensitive; stable character IDs are recommended. Content loader failure is not clearly differentiated from loading/asset absence in all UI states.
+- Existing S0 asset audit says 492 image records have licences recorded but not reverified; do not add/repackage assets until rights and provenance are checked.
+- No assets, source facts, UI/runtime/tests, generated DB, Android/build/signing files changed. No CI/device QA claimed. S0/S1/S22 gates unchanged.
+
 ## Latest TECH-START-01 checkpoint — country-specific starting technology audit (20/11/2026)
 
 - Audit: `docs/audit/COUNTRY_SPECIFIC_TECHNOLOGY_STARTING_STATE_AUDIT_VI.md`; baseline `3ee40d4a66b403f05083846e9af106a13ebbc707`; status DESIGN/AUDIT ONLY, no runtime authorization.

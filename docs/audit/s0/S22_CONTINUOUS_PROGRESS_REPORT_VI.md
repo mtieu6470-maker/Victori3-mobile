@@ -1,3 +1,11 @@
+## 0.14 — IDENTITY-DISPLAY-01: audit độ phủ cờ, huy hiệu và chân dung (20/11/2026)
+
+- Đối chiếu registry 147 thực thể playable với asset registry và đường render trong UI tại baseline 77c03554ff11ffa587f5d25064a16b7cd8b8b650.
+- Có sẵn component render cờ/huy hiệu/chân dung; thiếu ảnh do coverage và period filter, không phải chưa có UI. Năm 1836: cờ hợp lệ 85/147, huy hiệu 68/147, cả hai 60/147; 473 nhân vật có 227 chân dung, 246 chưa có.
+- Phát hiện ruler portrait đang resolve theo tên; đề xuất stable character ID. Content loader/UI chưa phân biệt rõ mọi trường hợp loading failure với asset thiếu.
+- S0 asset audit ghi nhận 492 ảnh có license metadata nhưng chưa re-verified; không tự ý thêm hoặc thay asset.
+- Chỉ audit tài liệu; không sửa asset, facts, runtime, tests, UI, generated DB, Android/build/signing. Không tuyên bố CI hoặc device QA. Gate không đổi.
+
 ## 0.13 — TECH-START-01: audit công nghệ khởi đầu theo từng quốc gia (20/11/2026)
 
 - Kiểm tra `tools/build-data.ts`, `technologies.json`, registry 181 thực thể, 11 hồ sơ quốc gia chi tiết và 136 core profiles tại baseline `3ee40d4a66b403f05083846e9af106a13ebbc707`.
