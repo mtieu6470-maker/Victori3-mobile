@@ -86,7 +86,7 @@ export function chooseResearch(st: GameState, c: Country, options: string[]): st
   const researchingAdditionalAlliances = alliancePartners > 0
     && !hasTech(c, 'multilateral_alliances');
   const firstAlliancePath = new Set([
-    'urbanization', 'urban_planning', 'bureaucracy', 'international_relations',
+    'urbanization', 'bureaucracy', 'international_relations',
   ]);
   const multilateralPath = new Set([
     'rationalism', 'democracy', 'mass_communication', 'nationalism',
