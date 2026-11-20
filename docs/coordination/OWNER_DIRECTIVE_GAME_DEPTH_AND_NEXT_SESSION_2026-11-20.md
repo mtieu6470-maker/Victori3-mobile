@@ -25,7 +25,7 @@ The current project is not yet at Victoria 3 parity. The goal is to close actual
 
 ### 2.2 Real gameplay systems — not decorative menus
 
-The target covers the breadth of Victoria 3's major systems, independently implemented and adapted for Android:
+The target is **full functional parity with Victoria 3 as a complete product**, not a selected subset. The parity inventory must cover every major system in the base game and every gameplay-bearing addition introduced by released expansion, immersion and mechanics packs in the chosen reference version. Include their system changes and interactions, not only menus or country-specific story content. For example, The Great Wave adds ship design, flagship customization, ship-purchase treaties and further gunboat-diplomacy options; these belong in the naval/diplomacy parity matrix, not an optional decorative checklist. Future-announced but unreleased content must be tracked separately, never falsely marked implemented. Implement all mechanics independently; do not copy proprietary code, data, text or media.
 
 1. World map, states/regions, borders, terrain, strategic regions, ownership, occupation and useful map lenses.
 2. Countries, sovereignty, governments, country formation, dependencies, subjects and changing political entities.
@@ -58,25 +58,31 @@ Prioritize complete loops over disconnected feature stubs. At minimum, prove:
 
 If a system does not affect its dependent systems in code and tests, it is not complete. Abstractions must be disclosed and justified, not hidden behind fake counters.
 
-## 3. Visual identity, assets and historical quality
+## 3. Visual identity, complete media library and historical quality
 
-- Replace generic repeated metric/table screens with domain-specific command centers and clear information hierarchy.
-- Landscape map remains the center of play; panels, lenses, alerts, context navigation, tooltips and dialogs must be readable and usable on a phone.
-- Use period-appropriate, geographically valid flags, coats of arms, portraits, maps and event/building imagery where rights and sources permit. Generic icons are not a substitute for all missing identity assets.
-- Measure historical data/asset coverage by entity and date. Missing/uncertain facts remain visibly missing/uncertain.
-- Use original implementation and original/licensed/public-domain material. Victoria 3 is a design reference only; do not copy its source, extracted assets, text, music or proprietary data.
+The complete game must have a rich, coherent media layer comparable in breadth and presentation quality to a major PC grand-strategy title, adapted to Android. **Images, video and audio are required parts of the game content**, not optional future extras that may be omitted to keep the download tiny.
 
-## 4. APK size, offline data and storage
+- **Images and visual assets:** period-valid flags, coats of arms, country and character portraits, ruler portraits, clothing, buildings, factories, ships, armies, battle/industrial illustrations, event and journal artwork, map/terrain textures, country/region backgrounds, icons, interface art and contextual illustrations. Measure coverage by country/entity, character, period and feature; do not replace missing coverage with one generic icon or repeated artwork.
+- **Video and animation:** original/licensed opening presentation, historical/event sequences, contextual transitions, naval/industrial/military sequences and suitable animated map/unit/building elements. Use video when it materially improves the experience; use real-time animation for interactive elements. The game must not depend on streaming video to operate offline.
+- **Audio:** original/licensed era-appropriate music, regional/national musical variation where justified, ambient soundscapes, UI feedback, industry/building/transport sounds, battle/naval effects and optional narration/voice work where designed. Include volume/mute controls and accessibility alternatives/subtitles for spoken content.
+- Assets must be date/geography aware, mapped to in-game events/entities and lazy-loaded/streamed with bounded caches so media richness does not cause ANRs or uncontrolled memory growth.
+- Maintain a media inventory with asset ID, format, pixel dimensions, frame rate/duration or audio sample rate/bitrate as applicable, size, intended in-game use, entity/date coverage, source, license, attribution, integrity hash and quality checks.
+- Preserve source-grade or high visual/auditory quality. **Do not aggressively downscale, lower bitrates, strip animations, discard video/audio, or repeatedly recompress already-compressed media just to force the game into an artificially tiny package.** Use lossless or high-quality encoding where practical; any quality/size trade-off must be measured and justified. Use runtime LOD/streaming for performance without deleting high-quality installed source assets.
+- Missing/uncertain historical facts/assets remain identified as missing/uncertain; do not fabricate identities or provenance.
+- Use original implementation and original/licensed/public-domain material. Victoria 3 is a reference for mechanics and presentation quality only; do not copy/extract its source, game files, assets, text, music, video or proprietary data.
 
-The owner is dissatisfied that the current app is small and lacks the expected gameplay depth. This is a **gameplay/content completeness problem**, not an instruction to inflate the APK with arbitrary files.
+## 4. Complete game footprint, APK and offline content packs
 
-- Keep the base APK reasonably sized and installable.
-- Where approved, deliver large historical datasets, maps and optional high-resolution assets through a real, user-controlled offline data-pack system.
-- The existing approximately **4–5 GB** owner allowance is a capacity/overall full-content allowance across packs, **not a minimum download, not a requirement to fill storage and not an APK-size target**.
-- Distinguish compressed download size, expanded storage, temporary staging and runtime/decoded memory.
-- Explicit user action is required before network access/downloads. No silent mobile-data use, no mandatory paid service, and no executable code in data packs.
+The owner explicitly clarifies on 2026-11-20 that the product target is a **genuinely complete game of approximately 4–5 GB installed on the device**. This replaces the earlier 3–4 GB/allowance wording in historical S0/R15 notes. It is not a demand for a 4–5 GB monolithic APK: the base APK may remain a compact launcher/runtime, but after the full content collection is installed, the actual application + verified game data + media must approach the 4–5 GB product target.
+
+- A debug APK around 18 MB is only a small technical shell/build artifact; **it is not the complete game and is not an acceptable full-content delivery milestone**.
+- The complete footprint must consist of meaningful, in-game content: gameplay/history datasets, world/map data, country/entity records, high-quality images/textures/portraits, video/animation and audio/music/SFX. Do not pad with empty, random, duplicate, silent, repeated or unused files, or count source code/reports/cache as game content.
+- Deliver through the approved base-APK + explicit user-controlled offline content-pack architecture where appropriate. Show required/optional packs, installed sizes, download sizes, versions/dependencies, media coverage and verification state.
+- Do not aggressively compress or degrade media merely to reduce a download number. Preserve high-resolution images, meaningful video quality and high-quality audio; use sensible lossless/high-quality encoding and documented trade-offs. Measure separately: source asset size, compressed download bytes, expanded installed game footprint, temporary staging/rollback space and peak decoded/resident memory.
+- The 4–5 GB target is a **real full-installed-content target**, not a minimum to fill with junk and not a RAM target. The app must show Core Only, Partial Content or Full Offline Content accurately.
+- Explicit user action is required before network access or downloads. No silent mobile-data use, no mandatory paid service, and no executable code in data packs.
 - Verify provenance/licensing, signed manifest, per-file hashes, compatibility, resumable downloads, atomic activation, rollback and full offline campaign operation before claiming the pack system works.
-- APK size, installed size, asset count and menu count are not proxies for gameplay depth.
+- Keep runtime performance and memory bounded using streaming, lazy loading, texture/audio caches and LOD; these runtime techniques are not permission to discard high-quality source content.
 
 ## 5. Engineering and delivery discipline
 
@@ -95,7 +101,7 @@ The owner is dissatisfied that the current app is small and lacks the expected g
 - Landscape launcher fix and regression test are committed in code/test target `d1623e7d38337b757a1907029f5b0bd85e4ad71d`.
 - Tests-only workflow [44772973670](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44772973670): SUCCESS, 14/14 test files, 132/132 tests.
 - Android debug workflow [44772973803](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44772973803): SUCCESS on exact code/test SHA `d1623e7`; Gradle `BUILD SUCCESSFUL`; APK artifact ID `14648313489`; artifact ZIP SHA-256 `d5e30f3bd670ad5c055a5b59651c1e10f5c124c213a8b87458a4c452c8db1325`. This is the ZIP digest, not the APK file digest.
-- Build log: 502 bundled image records / 8,715,750 bytes of generated image assets (176 flags, 99 coats of arms, 227 portraits). This is not a full offline pack collection and does not prove complete historical visual coverage.
+- Build log: 502 bundled image records / 8,715,750 bytes of generated image assets (176 flags, 99 coats of arms, 227 portraits). This is only the measured current image subset; it does not prove complete historical visual coverage and contains no verified evidence of the requested full video/audio library or 4–5 GB full-installed product.
 - Physical iQOO orientation/performance QA: NOT_TESTED.
 - This documentation checkpoint does not implement gameplay systems or open a phase.
 - Last known governance: S0-B4 and S0-B7 READY_FOR_REVIEW; independent review and owner acceptance pending; S1 NOT_STARTED; S22 DESIGN_ONLY. Re-fetch HEAD and current governance records before acting; these statuses may have changed.
@@ -128,6 +134,20 @@ Before doing any work, the next agent must:
 >
 > Kiểm tra trực tiếp GitHub: đúng repository/branch, HEAD mới nhất, commit/diff/file thay đổi, GitHub Actions, logs và artifacts; không dùng SHA/trạng thái cũ trong chat làm sự thật hiện tại. Nếu chat hoặc mạng treo, kiểm tra thao tác trước khi retry; tuyệt đối không làm trùng hoặc ghi đè.  
 >
-> Mục tiêu là xây dựng game grand strategy Android **landscape-first** có chiều sâu hệ thống ngang tầm tham chiếu Victoria 3: Pops/needs/SOL, sản xuất và chuỗi hàng hóa, thị trường/giá/tồn kho, việc làm/lương/ownership, thương mại/logistics, ngân khố/thuế/nợ, luật/thể chế/interest groups, công nghệ, ngoại giao/diplomatic plays/subjects/alliances, quân đội/navy/fronts/supply/war support/peace, characters/events/journal, AI toàn cầu, save/load và UI bản đồ/panel giải thích quan hệ nhân quả. Historical và Sandbox dùng chung engine; dữ liệu toàn cầu phải có nguồn và đúng niên đại. APK là landscape-first; dữ liệu lớn dùng pack offline có kiểm chứng và chỉ tải khi người chơi chủ động đồng ý. Không làm game dọc, không làm menu giả, không dùng số lượng file/asset hay dung lượng APK để giả vờ có chiều sâu.  
+> Mục tiêu là xây dựng game grand strategy Android **landscape-first** có chiều sâu hệ thống ngang tầm tham chiếu Victoria 3: Pops/needs/SOL, sản xuất và chuỗi hàng hóa, thị trường/giá/tồn kho, việc làm/lương/ownership, thương mại/logistics, ngân khố/thuế/nợ, luật/thể chế/interest groups, công nghệ, ngoại giao/diplomatic plays/subjects/alliances, quân đội/navy/fronts/supply/war support/peace, characters/events/journal, AI toàn cầu, save/load và UI bản đồ/panel giải thích quan hệ nhân quả. Historical và Sandbox dùng chung engine; dữ liệu toàn cầu phải có nguồn và đúng niên đại. APK là landscape-first. Full content sau cài đặt hướng tới khoảng **4–5 GB thực chất**, gồm đầy đủ dữ liệu gameplay/lịch sử và thư viện hình ảnh, video, animation, âm nhạc, âm thanh chất lượng cao; không ép game về 18 MB bằng cách bỏ hoặc nén mất nội dung. APK lõi có thể nhỏ nhưng không được coi là toàn bộ game. Bao phủ toàn bộ hệ thống Victoria 3 (base game và các expansion/immersion/mechanics pack gameplay đã phát hành trong mốc tham chiếu), bằng code và media độc lập, không sao chép tài sản độc quyền. Pack offline phải được kiểm chứng và chỉ tải khi người chơi chủ động đồng ý. Không làm game dọc, không làm menu giả, không padding file rỗng/trùng lặp.  
 >
 > Không tốn thêm phiên để lặp lại audit/kế hoạch đã có. Hãy tiếp tục **lát cắt triển khai gameplay thực tế tiếp theo được phép**; code phải tác động simulation, nối với hệ thống liên quan, có test tích hợp/regression và bằng chứng CI. Tuyệt đối tuân thủ phase gate và owner approval hiện hành; nếu bị khóa, nêu đúng blocker nhỏ nhất và xử lý theo protocol, không tự ý vượt gate. Mỗi lát cắt xong cập nhật report + AI_HANDOFF, commit/push và xác minh lại GitHub. **Báo cáo ngắn, làm nhiều hơn nói.**
+
+
+## 9. Official Victoria 3 parity research starting points
+
+Refresh the parity inventory against the official live product and released gameplay content, not an old base-game-only list. Official references checked for this clarification on 2026-11-20:
+
+- Official Victoria 3 overview and core pillars: https://www.paradoxinteractive.com/games/victoria-3/about
+- Official add-ons catalogue: https://www.paradoxinteractive.com/games/victoria-3/add-ons
+- Volume 3 / The Great Wave announcement (12 March 2026), including ship designer, flagships, ship-purchase treaties, gunboat diplomacy, Japan narrative and art: https://www.paradoxinteractive.com/media/press-releases/press-release/volume-3-for-victoria-3-adds-3-significant-packs
+- The Great Wave release announcement (28 April 2026): https://www.paradoxinteractive.com/media/press-releases/paradox-interactive/build-a-navy-grand-enough-for-your-ambitions
+- Sphere of Influence announcement and Power Blocs/diplomacy scope: https://www.paradoxinteractive.com/media/press-releases/paradox-interactive/friendship-is-power-in-upcoming-victoria-3-expansion
+- Official developer diary/news archive for current mechanics and version changes: https://www.paradoxinteractive.com/games/victoria-3/news
+
+These sources are research entry points, not permission to copy proprietary materials. Record released vs announced/future content accurately and keep feature-by-feature evidence in the parity matrix.
