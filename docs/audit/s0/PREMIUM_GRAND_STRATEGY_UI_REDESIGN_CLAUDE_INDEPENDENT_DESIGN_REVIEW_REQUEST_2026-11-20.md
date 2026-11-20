@@ -19,6 +19,18 @@
 
 Fetch the current branch HEAD and verify the review target/target blob before starting. Documentation commits after the target do not change the design target unless the proposal blob changes.
 
+## CI evidence for the exact design target
+
+The source/design target commit `150bf857aac7dbc4905a14a932ec6157507325ed` was checked out by GitHub Actions with `checked_out_head` equal to the target SHA.
+
+- Android debug workflow: [44761419700](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44761419700) — SUCCESS; `npm ci`, data/map/web build, unit/simulation tests, Capacitor sync, Gradle `assembleDebug`, APK checksums/signature verification and artifact upload all completed.
+- Test report from the CI evidence bundle: **44/44 suites, 129/129 tests, 0 failures, 0 pending, 0 todo**; `vitest_exit_code=0`, `report_valid=true`.
+- APK: 18,052,470 bytes; SHA-256 `2a683948370ced167f814460cd21d1b357ad50d896b17e1266b767c9f3633ea6`.
+- Signing: Android Debug; apksigner exit code 0; v1 and v2 verification true; certificate SHA-256 `5d6de1c814791e75a189fb5b06482bdbae2e4e290f6f99f2dfbfcd5ee7186252`. This is not a release-signed APK.
+- APK artifact: [14640599891](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44761419700/artifacts/14640599891); artifact ZIP size 17,564,574 bytes; artifact ZIP SHA-256 `e022ff2e9ab56d93a5b11222de48d6fc28644abf869be516bccd44d2f373a4ac`.
+- CI evidence artifact: [14642660607](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44761419700/artifacts/14642660607); ZIP SHA-256 `d1754a20385e118ce2c1e54f90bfe715f5d733f24b47f5ccca3da62c27f3533b`. The downloaded evidence ZIP was independently hashed in this session and matched the GitHub digest.
+- **Limitations:** this CI run applies to exact target `150bf857aac7dbc4905a14a932ec6157507325ed`; it does not claim physical-device install/runtime QA. The current branch HEAD after documentation-only review-packet updates is `7d7b3d56d011520a93c8504784744cc9afcc8cc7`; no runtime/source changes followed the design target.
+
 ## 2. Independence and no-write boundary
 
 This is a **design-only, no-write review**. The reviewer must not have authored or modified the proposal.

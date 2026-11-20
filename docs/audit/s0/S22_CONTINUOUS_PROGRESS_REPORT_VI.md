@@ -1,3 +1,14 @@
+## 0.18 — UI-REDESIGN-01 exact-target CI and APK evidence verified (20/11/2026)
+
+- Exact design/source target: `150bf857aac7dbc4905a14a932ec6157507325ed`; current branch documentation HEAD before this evidence update: `7d7b3d56d011520a93c8504784744cc9afcc8cc7`.
+- Android debug workflow [44761419700](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44761419700) SUCCESS on exact target. Checkout provenance confirms `checked_out_head=150bf857aac7dbc4905a14a932ec6157507325ed`.
+- Test report: 44/44 suites, 129/129 tests, 0 failed, 0 pending, 0 todo; `vitest_exit_code=0`, `report_valid=true`.
+- Gradle: `BUILD SUCCESSFUL in 1m 7s`; APK 18,052,470 bytes; SHA-256 `2a683948370ced167f814460cd21d1b357ad50d896b17e1266b767c9f3633ea6`.
+- APK artifact [14640599891](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44761419700/artifacts/14640599891); ZIP size 17,564,574 bytes; ZIP SHA-256 `e022ff2e9ab56d93a5b11222de48d6fc28644abf869be516bccd44d2f373a4ac`.
+- CI evidence artifact [14642660607](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44761419700/artifacts/14642660607); ZIP SHA-256 `d1754a20385e118ce2c1e54f90bfe715f5d733f24b47f5ccca3da62c27f3533b`; downloaded evidence ZIP was independently hashed and matched the GitHub digest.
+- APK uses Android Debug signing; certificate SHA-256 `5d6de1c814791e75a189fb5b06482bdbae2e4e290f6f99f2dfbfcd5ee7186252`; v1/v2 verification true, apksigner exit code 0. No release signing or physical Android device QA is claimed.
+- Proposal remains DESIGN_ONLY; Claude no-write verdict PENDING; no runtime/UI implementation authorized and no S0/S1/S22/S23 gate changed.
+
 ## 0.17 — UI-REDESIGN-01: independent design review packet prepared (20/11/2026)
 
 - Proposal target: `150bf857aac7dbc4905a14a932ec6157507325ed`; exact design blob: `340b04e707794a1f146fe68642fd022e82f6d255`.
