@@ -1,5 +1,5 @@
 /**
- * Wall-clock pacing for the existing monthly simulation.
+ * Wall-clock pacing for the six-hour logical simulation calendar.
  *
  * This is intentionally separate from rendering. The controller polls this pacer
  * from a timer and only commits a month when a full Gregorian month has elapsed.
@@ -28,6 +28,7 @@ export const SIMULATION_CLOCK_PULSE_MS = 50;
 export const MAX_ADMITTED_ELAPSED_MS_PER_PULSE = 100;
 
 const DAY_EPSILON = 1e-9;
+const SIX_HOUR_STEP_DAYS = 0.25;
 
 export function daysInGregorianMonth(year: number, month: number): number {
   if (!Number.isInteger(year) || year < 1 || !Number.isInteger(month) || month < 1 || month > 12) {
@@ -49,7 +50,7 @@ export function gameDaysForElapsedMs(elapsedMs: number, speed: SimulationSpeed):
 }
 
 /**
- * Monotonic accumulator for monthly steps. Pause/resume preserves already earned
+ * Monotonic accumulator for fixed six-hour logical steps. Pause/resume preserves already earned
  * fractional progress but never counts time while paused.
  */
 export class SimulationPacer {
@@ -65,7 +66,7 @@ export class SimulationPacer {
     this.lastMonotonicMs = null;
   }
 
-  /** Clears fractional month progress without changing the active monotonic baseline. */
+  /** Clears fractional logical-step progress without changing the active monotonic baseline. */
   clearProgress(): void {
     this.pendingGameDays = 0;
   }
@@ -90,6 +91,12 @@ export class SimulationPacer {
     this.lastMonotonicMs = nowMs;
     this.pendingGameDays += gameDaysForElapsedMs(elapsedMs, speed);
     return this.pendingGameDays;
+  }
+
+  consumeSixHourStep(): boolean {
+    if (this.pendingGameDays + DAY_EPSILON < SIX_HOUR_STEP_DAYS) return false;
+    this.pendingGameDays = Math.max(0, this.pendingGameDays - SIX_HOUR_STEP_DAYS);
+    return true;
   }
 
   consumeMonth(year: number, month: number): boolean {
