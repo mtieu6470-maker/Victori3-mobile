@@ -335,7 +335,7 @@ Quy tắc scheduler:
 - Chưa đo trực tiếp Victoria 3 hoặc iQOO Z10 Turbo trong lần cập nhật này.
 - Không thay đổi save schema/version hoặc migration; phần thời gian lẻ của tháng được reset tại save boundary để duy trì tính nhất quán với save v1.
 - Campaign boundary 1836–2026 và các cadence ngày/tuần/6 giờ vẫn chưa được implement; engine hiện vẫn dùng monthly tick và `GAME_END_YEAR = 1936`.
-- Phần này chỉ là thiết kế để chuẩn bị một slice được cấp quyền sau phase review.
+- Các cadence và campaign boundary đề xuất ở §12 vẫn là design-only; riêng scheduler tháng trong phạm vi hẹp S1-CLK-01 đã được triển khai thử nghiệm và kiểm chứng tại §13 theo owner authorization.
 
 ## 13. Implementation record — S1-CLK-01 (2026-11-20)
 
