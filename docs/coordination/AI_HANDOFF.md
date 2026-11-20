@@ -111,7 +111,7 @@ Append newest entries at the top. Do not overwrite earlier entries.
 ### 2026-11-20 — FINAL-REVIEW-MANIFEST-REFRESH
 
 - Latest B7 review-packet consistency pass corrected DEP-F1 traceability, Claude's report template, the stale reviewer HEAD/audit-status text, the historical CI-F4 wording and the self-review's ambiguous status label.
-- Documentation commits: `feedf82d78daaeb460a2c8c539ca924bf839b1ce`, `58d2852d48bd437a6fa6650fdad616a2f3d9971d`, `b338118a005e5ce583cf40987e122bf8d8a00e00`, `bf82b8ab60a1bd07ba1203091586a92b170f4c0d`; AI_HANDOFF `6af270254e2163f46d5a080a9a7b621bd0746540`; next-session handoff `302f3a38c53c6cc3d7c3d09522a336b0123b58b6`; first final manifest refresh `8184d70472f6b89388b982dd2a9c0ab644fa6ce0` and traceability-reference correction follows.
+- Documentation commits: `feedf82d78daaeb460a2c8c539ca924bf839b1ce`, `58d2852d48bd437a6fa6650fdad616a2f3d9971d`, `b338118a005e5ce583cf40987e122bf8d8a00e00`, `bf82b8ab60a1bd07ba1203091586a92b170f4c0d`; AI_HANDOFF `6af270254e2163f46d5a080a9a7b621bd0746540`; next-session handoff `302f3a38c53c6cc3d7c3d09522a336b0123b58b6`; first manifest refresh `8184d70472f6b89388b982dd2a9c0ab644fa6ce0`; risk-traceability correction `fcf6194bc3598818f4444c803746c1111f1fe806`; this handoff follow-up `b9c2780a8178bf45c908cdd6e37a6f4d380b3cfa`; latest manifest identity refresh `46d3ebef31d7ae1a73a7744ceb9c6e8de0bc7979`. The manifest was re-pinned after each handoff/traceability change.
 - The latest review manifest remains the source of the exact final blob SHAs. Claude's independent no-write review is still pending; no independent verdict or owner ACCEPTED is claimed.
 - Documentation-only; no runtime tests/builds run and no product/workflow/dependency/save/data/asset/Android/signing changes.
 
