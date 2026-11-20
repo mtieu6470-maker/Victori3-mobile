@@ -10,10 +10,21 @@ import { GOODS } from '../src/engine/types';
 import { stepMonth } from '../src/engine/simulation';
 import { DEFAULT_PREFERENCES, parsePreferences } from '../src/ui/game/preferences';
 import { isLongPress, LONG_PRESS_MS, LONG_PRESS_SLOP_PX } from '../src/ui/map/gestures';
+import { DAY_INTERVAL_MS } from '../src/ui/game/controller';
 
 const bin = fs.readFileSync(path.resolve('public/generated/map.bin'));
 const grid = decodeGrid(bin.buffer.slice(bin.byteOffset, bin.byteOffset + bin.byteLength));
 const measure = (t: string, size: number) => t.length * size * 0.56; // conservative width estimate
+
+describe('simulation speed contract', () => {
+  it('caps speed 5 at no more than half a Gregorian game-day per real second', () => {
+    expect(1000 / DAY_INTERVAL_MS[5]).toBeLessThanOrEqual(0.5);
+    expect(DAY_INTERVAL_MS[1]).toBeGreaterThan(DAY_INTERVAL_MS[2]);
+    expect(DAY_INTERVAL_MS[2]).toBeGreaterThan(DAY_INTERVAL_MS[3]);
+    expect(DAY_INTERVAL_MS[3]).toBeGreaterThan(DAY_INTERVAL_MS[4]);
+    expect(DAY_INTERVAL_MS[4]).toBeGreaterThan(DAY_INTERVAL_MS[5]);
+  });
+});
 
 describe('map labels (Europe 1836 — many small German and Italian states)', () => {
   const st = fresh('historical', 1, 'GBR');

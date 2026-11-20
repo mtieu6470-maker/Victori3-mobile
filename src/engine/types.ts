@@ -202,7 +202,10 @@ export interface GameState {
   seed: number; rng: [number, number, number, number];
   mode: GameMode;
   player: string | null;
-  date: GameDate; tick: number;
+  date: GameDate;
+  /** Gregorian day within the displayed month; absent only in legacy v1 saves. */
+  dayOfMonth?: number;
+  tick: number;
   countries: Record<string, Country>;
   regions: Region[];
   wars: War[];

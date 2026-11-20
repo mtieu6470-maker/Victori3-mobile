@@ -33,10 +33,34 @@ export const SYSTEMS: { name: string; run: (st: GameState) => void }[] = [
   { name: 'divergence', run: divergenceMonth },
 ];
 
+/** Number of days in a Gregorian calendar month (1-based month). */
+export function daysInMonth(year: number, month: number): number {
+  if (month === 2) return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0) ? 29 : 28;
+  return month === 4 || month === 6 || month === 9 || month === 11 ? 30 : 31;
+}
+
+/** Advance the visible calendar by one day; expensive country systems still run at month boundaries. */
+export function stepDay(st: GameState) {
+  if (isGameOver(st)) return;
+  const maxDay = daysInMonth(st.date.y, st.date.m);
+  const current = Math.max(1, Math.min(maxDay, Math.floor(st.dayOfMonth ?? 1)));
+  if (current < maxDay) {
+    st.dayOfMonth = current + 1;
+    return;
+  }
+  st.dayOfMonth = 1;
+  stepMonth(st);
+}
+
+export function runDays(st: GameState, days: number) {
+  for (let i = 0; i < days; i++) stepDay(st);
+}
+
 export function stepMonth(st: GameState) {
   if (isGameOver(st)) return;
   st.tick += 1;
   st.date = tickToDate(st.tick);
+  st.dayOfMonth = 1;
   // January 1936 is the campaign end marker, not an additional simulated month.
   if (isGameOver(st)) return;
   for (const s of SYSTEMS) {

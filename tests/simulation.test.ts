@@ -1,7 +1,7 @@
 // Simulation sanity: economy and population stay plausible, AI does not get stuck, save/load is deterministic.
 import { describe, it, expect } from 'vitest';
 import { run, fresh, stepMonth } from './helpers';
-import { GAME_END_TICK, GAME_END_YEAR, isGameOver } from '../src/engine/simulation';
+import { GAME_END_TICK, GAME_END_YEAR, isGameOver, stepDay } from '../src/engine/simulation';
 import { serialize, deserialize } from '../src/engine/save';
 import { data } from '../src/engine/data/db';
 import { BUILDINGS, STRATA } from '../src/engine/types';
@@ -54,6 +54,47 @@ describe('AI does not get stuck in meaningless loops', () => {
   });
 });
 
+describe('daily Gregorian calendar clock', () => {
+  it('advances one day without running monthly systems until the month boundary', () => {
+    const st = fresh('historical', 91, 'FRA');
+    expect(st.dayOfMonth).toBe(1);
+    stepDay(st);
+    expect(st.dayOfMonth).toBe(2);
+    expect(st.date).toEqual({ y: 1836, m: 1 });
+    expect(st.tick).toBe(0);
+    expect(st.counters.systemRuns.economy ?? 0).toBe(0);
+
+    st.dayOfMonth = 31;
+    stepDay(st);
+    expect(st.dayOfMonth).toBe(1);
+    expect(st.date).toEqual({ y: 1836, m: 2 });
+    expect(st.tick).toBe(1);
+    expect(st.counters.systemRuns.economy).toBe(1);
+  });
+
+  it('uses leap-year and ordinary February lengths correctly', () => {
+    const leap = fresh('historical', 92, 'FRA');
+    leap.date = { y: 1836, m: 2 };
+    leap.tick = 1;
+    leap.dayOfMonth = 28;
+    stepDay(leap);
+    expect(leap.dayOfMonth).toBe(29);
+    stepDay(leap);
+    expect(leap.date).toEqual({ y: 1836, m: 3 });
+    expect(leap.dayOfMonth).toBe(1);
+    expect(leap.tick).toBe(2);
+
+    const ordinary = fresh('historical', 93, 'FRA');
+    ordinary.date = { y: 1837, m: 2 };
+    ordinary.tick = 13;
+    ordinary.dayOfMonth = 28;
+    stepDay(ordinary);
+    expect(ordinary.date).toEqual({ y: 1837, m: 3 });
+    expect(ordinary.dayOfMonth).toBe(1);
+    expect(ordinary.tick).toBe(14);
+  });
+});
+
 describe('official campaign end date', () => {
   it('stops at January 1936 and leaves the final state frozen', () => {
     const st = fresh('historical', 12);
@@ -84,6 +125,22 @@ describe('save/load', () => {
     const a = fresh('sandbox', 21); for (let i = 0; i < 30; i++) stepMonth(a);
     const b = deserialize(serialize(a));
     for (let i = 0; i < 30; i++) { stepMonth(a); stepMonth(b); }
+    expect(serialize(b)).toBe(serialize(a));
+  });
+  it('preserves the day in current saves and defaults legacy v1 saves to day one', () => {
+    const state = fresh('sandbox', 22);
+    state.dayOfMonth = 17;
+    const restored = deserialize(serialize(state));
+    expect(restored.dayOfMonth).toBe(17);
+    const legacy = JSON.parse(serialize(state));
+    delete legacy.state.dayOfMonth;
+    expect(deserialize(JSON.stringify(legacy)).dayOfMonth).toBe(1);
+  });
+  it('continues daily save/load deterministically within a month', () => {
+    const a = fresh('sandbox', 23);
+    for (let i = 0; i < 47; i++) stepDay(a);
+    const b = deserialize(serialize(a));
+    for (let i = 0; i < 75; i++) { stepDay(a); stepDay(b); }
     expect(serialize(b)).toBe(serialize(a));
   });
   it('rejects foreign files', () => { expect(() => deserialize('{"format":"x"}')).toThrow(); });
