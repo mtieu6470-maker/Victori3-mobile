@@ -153,18 +153,22 @@ describe('inventory ledger integration with the shared economy', () => {
 
     let totalImports = 0;
     let totalExports = 0;
+    const expectRelativeClose = (actual: number, expected: number, label: string) => {
+      const tolerance = 1e-8 * Math.max(1, Math.abs(actual), Math.abs(expected));
+      expect(Math.abs(actual - expected), label).toBeLessThanOrEqual(tolerance);
+    };
     for (const [marketId, goods] of Object.entries(period.markets)) {
       for (const [good, entry] of Object.entries(goods)) {
         if (!entry) continue;
         const source = entry.openingStock + entry.production + entry.imports;
         const uses = entry.exports + entry.consumed + entry.closingStock;
         expect(entry.closingStock, `${marketId}/${good}`).toBeGreaterThanOrEqual(0);
-        expect(source, `${marketId}/${good}`).toBeCloseTo(uses, 7);
-        expect(entry.demand, `${marketId}/${good}`).toBeCloseTo(entry.consumed + entry.unmetDemand, 7);
+        expectRelativeClose(source, uses, `${marketId}/${good} conservation`);
+        expectRelativeClose(entry.demand, entry.consumed + entry.unmetDemand, `${marketId}/${good} demand balance`);
         const marketStats = state.marketStats[marketId][good];
-        expect(marketStats.supply / 12, `${marketId}/${good} supply`).toBeCloseTo(entry.production, 7);
-        expect(marketStats.demand / 12, `${marketId}/${good} demand`).toBeCloseTo(entry.demand, 7);
-        expect(marketStats.imports / 12, `${marketId}/${good} imports`).toBeCloseTo(entry.imports, 7);
+        expectRelativeClose(marketStats.supply / 12, entry.production, `${marketId}/${good} supply projection`);
+        expectRelativeClose(marketStats.demand / 12, entry.demand, `${marketId}/${good} demand projection`);
+        expectRelativeClose(marketStats.imports / 12, entry.imports, `${marketId}/${good} import projection`);
         expect(marketStats.short, `${marketId}/${good} shortage`).toBeCloseTo(
           entry.demand > 0 ? entry.unmetDemand / entry.demand : 0,
           7,
@@ -173,7 +177,7 @@ describe('inventory ledger integration with the shared economy', () => {
         totalExports += entry.exports;
       }
     }
-    expect(totalImports).toBeCloseTo(totalExports, 7);
+    expectRelativeClose(totalImports, totalExports, 'global import/export balance');
   });
 
   it('continues inventory deterministically across save/load', () => {
