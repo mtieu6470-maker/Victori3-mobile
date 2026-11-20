@@ -1,3 +1,10 @@
+## 0.16 — UI-REDESIGN-01: source-based premium grand-strategy UI proposal (20/11/2026)
+
+- Audit App.tsx, theme.css, World/Economy/Society/Politics/Tech/Diplomacy/Military screens.
+- UI hiện đã có map-first shell, custom font/color/window system; vấn đề chính là nhiều module lặp cùng bố cục metrics + section + table/key-value, thiếu visual grammar riêng và hierarchy thể hiện quan hệ nguyên nhân → hành động.
+- Đề xuất global HUD/alerts, economy supply-demand & production flow, politics bloc/cabinet, diplomacy relationship graph, military theater/front view, tech country-specific states, identity assets/fallbacks, component primitives và acceptance criteria responsive/accessibility.
+- **Chỉ design proposal**; không sửa runtime/UI/assets/data/tests/Android. Không đổi phase gate.
+
 ## 0.15 — DEV-006: harden fast-forward / RAF concurrency; CI and APK verified (20/11/2026)
 
 - Self-review phát hiện `fastForward()` có thể chạy song song với RAF monthly loop; async continuation cũng có thể tiếp tục advance state mới sau khi load/newGame thay GameState trong thời gian yield.

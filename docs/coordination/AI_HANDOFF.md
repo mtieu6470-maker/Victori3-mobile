@@ -1,3 +1,10 @@
+## Latest UI-REDESIGN-01 checkpoint — premium grand-strategy UI proposal (20/11/2026)
+
+- Added `docs/spec/PREMIUM_GRAND_STRATEGY_UI_REDESIGN_PROPOSAL_VI.md` after inspecting App.tsx, theme.css and the World/Economy/Society/Politics/Tech/Diplomacy/Military screen structures at baseline a38749ba4f45bf8b05c3890874b10ac555905106.
+- Finding: the project already has a custom map-first shell, typography and framed-window design; the main weakness is repetitive subsystem composition (metrics → generic sections/tables/key-value rows), weak causal/action hierarchy and insufficient domain-specific visual grammar.
+- Proposal defines subsystem-specific command centers, global HUD/alerts, portrait/landscape behavior, historical identity fallbacks, typed component primitives, acceptance criteria and implementation sequence.
+- Design only; no UI/runtime/assets/data/tests/Android changes. S0/S1/S22 gates unchanged.
+
 ## Latest DEV-006 controller concurrency hardening — verified e5eb5e4744b4c5569f7fe997c523cebe64ff3250
 
 - Source self-review: `docs/audit/s0/DEV006_FAST_FORWARD_CONCURRENCY_SELF_REVIEW_VI.md`. Found and fixed potential overlap between fastForward() and live RAF monthly stepping, plus stale async fast-forward continuing after load/newGame replaces the state.
