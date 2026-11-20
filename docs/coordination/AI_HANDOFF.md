@@ -904,3 +904,30 @@ This is a later, explicit owner authorization to begin product implementation on
 - **Limitations:** the first implementation is market-level rather than regional/warehouse/firm-level. Physical route capacity, storage capacity, spoilage, stockpile policy, sourced 1836 opening stock and player-facing inventory UI are not implemented. The current economy still has a planned-versus-realized factory input/output accounting gap; resolve that before treating this as a complete factory-level material-flow audit. Details: `docs/design/INVENTORY_LEDGER_IMPLEMENTATION_01.md`.
 - **Next exact action:** inspect the push-triggered Android workflow for `8c4d026531f37fbb4fe58a12b6736afd8c546d8a`; run/fix the inventory test suite and Gradle build until verified. Then address realized factory input/output posting before adding regional warehouses and route logistics.
 
+
+
+### 2026-11-20 — ECONOMY-INVENTORY-LEDGER-01 / FACTORY-FLOW-RECONCILIATION
+
+- **Base HEAD:** `de8fde59a2a3a77980ecbc3656b8e5cd3b81bcf6` (verified before this continuation).
+- **Latest implementation commit:** `13cdc36d3b84b0918ccc3173b862050db29e26bc`.
+- **Latest design/report commit:** `693eec1b27bc909ec2bed1476fbf5532e6cba7bb`.
+- **Current branch HEAD before this handoff update:** `693eec1b27bc909ec2bed1476fbf5532e6cba7bb`.
+- **Implementation commits in this continuation:**
+  - `2ea2d3a1286bc1b249edef6cf05947e1b54e206c` — scale recipe-factory outputs and inputs by the same scarcest-input fulfillment factor; adjust market supply/demand and re-settle stock.
+  - `48a75129ee7fe1a2d49e49893f890bd6c0a521e7` — correct GDP input aggregation so realized factory inputs are deducted once per region, not once per good.
+  - `0c250c3d367ca84c58a24c7bb5af563473d48149` — add factory material-realization tests and MarketStats-to-ledger projection checks.
+  - `e51411f1654fc10fc15720327d030a7274f930c5` — use scale-aware tolerances for large physical quantities.
+  - `13cdc36d3b84b0918ccc3173b862050db29e26bc` — replace the provisional full settlement/journal allocation with a lightweight shortage-ratio probe; only the definitive pass creates ledger/statistics entries.
+- **Documentation commits:**
+  - `78dedb1bd4d84b3b13d54e21964b95ace03b4dab` — update inventory implementation contract and limitations.
+  - `693eec1b27bc909ec2bed1476fbf5532e6cba7bb` — record provisional-probe allocation reduction and revised next steps.
+- **Files changed in this continuation:** `src/engine/systems/economy.ts`, `tests/inventory.test.ts`, `docs/design/INVENTORY_LEDGER_IMPLEMENTATION_01.md`; this handoff update follows.
+- **Implemented:** recipe-based factory production is now reduced by the same fulfillment factor as the input materials consumed. Realized factory output/input amounts adjust market supply/demand before the definitive monthly inventory settlement. GDP value-added and firm operating-margin calculations consume the same stored realization factor. Final `MarketStats` and inventory journals project the same adjusted annualized/monthly flows.
+- **Performance refinement:** the first clearing is now a lightweight availability probe. It avoids constructing provisional settlement entries, journals and market-stat objects; the final clearing remains the only posted settlement. This is a source-level optimization only, not a measured Android performance result.
+- **Tests present:** 10 tests in `tests/inventory.test.ts` — two factory realization cases, five standalone inventory invariants, and three simulation/save integration cases. The integration test checks market-stat annualized quantities against the monthly ledger and verifies global imports/exports balance using scale-aware floating-point tolerances.
+- **Test execution:** `NOT_TESTED` in this session. No local clone or dependency install was possible because DNS resolution for `github.com` failed. Do not interpret the presence of test source as a passing run.
+- **CI/build/APK:** `NOT_VERIFIED`. `get_commit_combined_status` returned no status objects for code commit `13cdc36`; the available workflow-run reader is limited to pull-request-triggered runs and cannot confirm the repository's push-triggered Android workflow. No exact run ID, Gradle result, artifact or APK hash is claimed. The workflow is configured on push to all branches; inspect its run for the exact branch HEAD when Actions evidence is available.
+- **Device QA/performance:** `NOT_TESTED`; no installation, physical-device test, memory profile or benchmark was performed.
+- **Known limitation:** factory realization uses one deterministic preliminary availability probe followed by one definitive market clearing. It is not yet an iterative market equilibrium/fixed-point solver. Agricultural/artisanal output remains aggregated rather than tracked by firm/warehouse. Regional storage, route capacity, stockpile policy, sourced opening stocks and the player-facing inventory UI remain unimplemented. See `docs/design/INVENTORY_LEDGER_IMPLEMENTATION_01.md`.
+- **Next exact action:** obtain and inspect Android Actions for this branch HEAD; run/fix typecheck, all simulation tests and APK build to exact-SHA evidence. Then design a bounded deterministic staged/fixed-point market clearing with explicit iteration cap/convergence tests before adding firm/warehouse and route-level inventory.
+
