@@ -1,3 +1,10 @@
+## Latest DEV-006 test follow-up — exception-path regression added; CI pending 1a1e10d
+
+- Runtime controller source remains at implementation `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`; test-only follow-up commit `1a1e10d8aeb49d54058dddfe0a220a344125a12f` adds one failure-path case to `tests/controller-fast-forward.test.ts`.
+- The new case advances six months, yields, throws on month seven, and asserts rejection, busy cleanup, restoration of the prior running state and RAF restart.
+- Exact-target tests-only [44763263753](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263753) and Android debug [44763263728](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728) were both `in_progress` at the last status fetch; results remain PENDING.
+- DEV-006 review target is now `1a1e10d8aeb49d54058dddfe0a220a344125a12f`; independent Claude verdict PENDING; owner acceptance PENDING; physical Android QA NOT_TESTED. Monthly calendar unchanged; no daily tick or phase-gate change.
+
 ## Latest UI-REDESIGN-01 checkpoint — premium grand-strategy UI proposal (20/11/2026)
 
 - Added `docs/spec/PREMIUM_GRAND_STRATEGY_UI_REDESIGN_PROPOSAL_VI.md` after inspecting App.tsx, theme.css and the World/Economy/Society/Politics/Tech/Diplomacy/Military screen structures at baseline a38749ba4f45bf8b05c3890874b10ac555905106.

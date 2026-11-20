@@ -1,3 +1,15 @@
+## AMENDMENT — exception recovery regression added; latest exact review target (20/11/2026)
+
+This amendment supersedes the earlier DEV-006 follow-up target. Review the exact code/test HEAD **`1a1e10d8aeb49d54058dddfe0a220a344125a12f`**.
+
+- Runtime controller source is unchanged from `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`.
+- `tests/controller-fast-forward.test.ts` adds a fourth deterministic case: after six simulated months and the first async yield, the seventh `stepMonth()` throws; the test verifies the returned promise rejects, busy state clears, the prior running state is restored, and RAF is restarted.
+- Test-only commit: `1a1e10d8aeb49d54058dddfe0a220a344125a12f`; changed file: `tests/controller-fast-forward.test.ts` (+37 lines, no deletions).
+- Exact-target workflows launched: tests-only [44763263753](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263753) and Android debug [44763263728](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728). Both were still `in_progress` at the latest GitHub check; no PASS is claimed yet.
+- Reviewer must inspect exception behavior at the new exact SHA. The prior 44/44 suites and 129/129 tests apply only to e5eb5e4 and do not validate this added regression.
+
+---
+
 ## AMENDMENT — latest exact review target (20/11/2026)
 
 This amendment supersedes the earlier target SHA and CI evidence above. Claude must review the exact implementation at **e5eb5e4744b4c5569f7fe997c523cebe64ff3250**, not the earlier DEV-006 commit alone.

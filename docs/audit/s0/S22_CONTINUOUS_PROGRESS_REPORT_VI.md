@@ -1,3 +1,10 @@
+## 0.19 — DEV-006 exception-path regression added; exact-target CI pending (20/11/2026)
+
+- Base HEAD: `b5d2735373918f41bf637f7fb5f26f8e94dbdfec`; test-only commit: `1a1e10d8aeb49d54058dddfe0a220a344125a12f`.
+- Changed path: `tests/controller-fast-forward.test.ts` (+37 lines). New case yields after six months, throws on month seven, and checks promise rejection, busy cleanup, restoration of prior running state and RAF restart. No runtime source changed.
+- Exact SHA workflows: tests-only [44763263753](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263753); Android debug [44763263728](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728). Both were still `in_progress` at last check. No PASS inherited from prior SHA.
+- Independent review target updated to `1a1e10d8aeb49d54058dddfe0a220a344125a12f`; Claude verdict PENDING; owner acceptance PENDING; device QA NOT_TESTED.
+
 ## 0.18 — UI-REDESIGN-01 exact-target CI and APK evidence verified (20/11/2026)
 
 - Exact design/source target: `150bf857aac7dbc4905a14a932ec6157507325ed`; current branch documentation HEAD before this evidence update: `7d7b3d56d011520a93c8504784744cc9afcc8cc7`.

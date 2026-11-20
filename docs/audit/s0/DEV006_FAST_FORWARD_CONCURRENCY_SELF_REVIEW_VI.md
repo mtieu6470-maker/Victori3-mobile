@@ -1,6 +1,7 @@
 # DEV-006 FOLLOW-UP — FAST-FORWARD / RAF CONCURRENCY SELF-REVIEW
 
-**Reviewed implementation SHA:** e5eb5e4744b4c5569f7fe997c523cebe64ff3250  
+**Runtime implementation SHA:** e5eb5e4744b4c5569f7fe997c523cebe64ff3250  
+**Latest code/test review target:** `1a1e10d8aeb49d54058dddfe0a220a344125a12f`  
 **Code introduction commit:** c76d05e9f871478ab3751907ffc11042f53baef3  
 **Test stabilization commits:** 6e11171184bb59c34f41d5ec57daa2faf7f35d05, cfde726a90801c5eed8b05402082cd3b1a7d5718, c7627d7fe7622cef561c01706f733943b5e97b68, e5eb5e4744b4c5569f7fe997c523cebe64ff3250  
 **Review type:** ChatGPT source self-review; NOT an independent Claude review  
@@ -25,11 +26,12 @@ In src/ui/game/controller.ts:
 
 ## 3. Focused regression coverage
 
-Added tests/controller-fast-forward.test.ts with three deterministic cases:
+Added tests/controller-fast-forward.test.ts with four deterministic cases:
 
 1. The live RAF scheduler is cancelled during fast-forward and the prior running state is restored afterward.
 2. Overlapping fast-forward calls are rejected; manual step, pause toggle and commands cannot interleave while busy.
 3. Loading a new save during the six-month yield invalidates the old operation; the newly loaded state remains unchanged.
+4. If the seventh monthly step throws after the first six-month yield, the promise rejects, busy state clears, and the controller restores the previous running state/RAF scheduler.
 
 The tests use an explicitly controlled setTimeout continuation instead of real delays or fake RAF timers.
 
@@ -50,3 +52,5 @@ This self-review does not substitute for the requested independent Claude review
 ## 6. Scope
 
 Only controller scheduler coordination and its tests changed in the code slice. No daily tick, economy/POP/politics/diplomacy/military cadence, RNG model, save schema, historical data, assets, UI design, Android signing or release channel was changed.
+
+- **Test-only follow-up at exact code/test SHA `1a1e10d8aeb49d54058dddfe0a220a344125a12f`:** the fourth exception-recovery regression was added after the 44/44 and 129/129 CI result at e5eb5e4. Current exact-target tests-only run [44763263753](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263753) and Android debug run [44763263728](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728) are `CI_PENDING` as last checked. Do not carry forward the e5eb5e4 result as evidence for 1a1e10d.
