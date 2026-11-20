@@ -993,3 +993,20 @@ This is a later, explicit owner authorization to begin product implementation on
 - **Fallback limitation:** the fallback is global for that monthly clearing. A pathological market can suspend recipe production in otherwise healthy markets for one month. This is deliberately conservative but may be disruptive; market-component-specific failure isolation and a player-facing notification remain future work.
 - **Next exact action:** obtain direct Actions run evidence and run the 15 tests/typecheck/Android build at the exact branch HEAD. If they pass, benchmark representative world-size monthly clearing and then isolate convergence/fallback by connected trade-market component before adding regional warehouses, firm ownership and physical route capacity.
 
+
+
+## 2026-11-20 — ECONOMY TEST FIXTURE CORRECTION / DOMAIN-VALID TRADE
+
+- **Verified base HEAD:** `0f41bd4700697b18f56897f4097de6c7e7e16ed8` on `experiment/vic3-visual-upgrade`.
+- **Implementation/test commit:** `e40bbdd12b7641ba0bea6d1ed2f958ced2f8d34a` — correct the two-market fixture and derive factory test flows from canonical recipes.
+- **Design/report commit:** `30bca4d234ce08e730b3eac3232b3193314a5dfe` — document the domain correction and clarify that aggregate market allocation is not yet a physical shipment/contract system.
+- **Files changed:** `tests/inventory.test.ts`, `docs/design/INVENTORY_LEDGER_IMPLEMENTATION_01.md`; this handoff append follows.
+- **Owner feedback applied:** a market may need grain while its trading partner needs tools; the two markets exchange/sell their available surplus. A test must not invent a production chain merely to create a mathematical cycle.
+- **Removed misleading fixture:** the old test-only operations (grain factory consumes tools; tools factory consumes grain) were not present in `RECIPES`. They never entered runtime data, but presenting them as a plausible factory cycle was a domain-modeling error.
+- **Replacement trade fixture:** Market A has 100 grain supply and 130 tools demand; Market B has 100 tools supply and 130 grain demand. The test asserts that no more than 100 units of either good are transferred and that the remaining unmet demand is 30 units per destination (`30 / 130`). No factory recipe is assigned to grain or tools in this scenario.
+- **Recipe test correction:** the constrained solver operation now uses the canonical `ironworks` recipe (25 steel output; 12.5 iron and 10 coal inputs). Factory material-realization tests use the exact `ironworks` and `tool_works` ratios from `RECIPES`, rather than hand-written ratios that drifted from engine definitions.
+- **Test-source count:** 15 tests in `tests/inventory.test.ts` after the change. This is a source count only; it is not a test execution result.
+- **Design boundary:** this verifies aggregate cross-market commodity allocation and remaining shortages only. It does not implement or prove trade contracts, shipment ownership, regional transport routes, route capacity, tariff settlement, customs or warehousing.
+- **Validation verdict:** Vitest, TypeScript typecheck and Android Gradle/APK build are `NOT_TESTED` in this session. No GitHub Actions run ID/result or APK artifact is verified. Device QA and performance measurements are `NOT_TESTED`.
+- **Self-review:** implementation intent and fixtures inspected against the current `RECIPES`; independent review is `PENDING`; owner acceptance is `PENDING`. Do not mark this task `REVIEW_PASS` or `ACCEPTED`.
+- **Next step:** obtain exact-SHA test/typecheck/Android workflow evidence; then audit market trade allocation against the definitive inventory posting and ensure imports/exports, stockpile availability and shortage ratios describe one consistent physical flow before expanding to route logistics.
