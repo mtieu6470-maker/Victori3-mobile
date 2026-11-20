@@ -482,7 +482,7 @@
     {
       "id": "urban_planning",
       "tree": "society",
-      "cost": 170,
+      "cost": 150,
       "historical_year": 1835,
       "prereqs": [
         "urbanization"
@@ -492,17 +492,17 @@
     {
       "id": "bureaucracy",
       "tree": "society",
-      "cost": 180,
+      "cost": 150,
       "historical_year": 1840,
       "prereqs": [
-        "urban_planning"
+        "urbanization"
       ],
       "effects": {}
     },
     {
       "id": "international_relations",
       "tree": "society",
-      "cost": 200,
+      "cost": 150,
       "historical_year": 1845,
       "prereqs": [
         "bureaucracy"
@@ -512,7 +512,7 @@
     {
       "id": "rationalism",
       "tree": "society",
-      "cost": 130,
+      "cost": 150,
       "historical_year": 1820,
       "prereqs": [],
       "effects": {}
@@ -520,7 +520,7 @@
     {
       "id": "democracy",
       "tree": "society",
-      "cost": 180,
+      "cost": 150,
       "historical_year": 1840,
       "prereqs": [
         "rationalism"
@@ -530,7 +530,7 @@
     {
       "id": "mass_communication",
       "tree": "society",
-      "cost": 200,
+      "cost": 150,
       "historical_year": 1845,
       "prereqs": [
         "democracy"
@@ -540,7 +540,7 @@
     {
       "id": "nationalism",
       "tree": "society",
-      "cost": 300,
+      "cost": 200,
       "historical_year": 1860,
       "prereqs": [
         "mass_communication",
@@ -551,7 +551,7 @@
     {
       "id": "pan_nationalism",
       "tree": "society",
-      "cost": 420,
+      "cost": 250,
       "historical_year": 1890,
       "prereqs": [
         "nationalism"
@@ -561,7 +561,7 @@
     {
       "id": "multilateral_alliances",
       "tree": "society",
-      "cost": 520,
+      "cost": 300,
       "historical_year": 1910,
       "prereqs": [
         "pan_nationalism"
