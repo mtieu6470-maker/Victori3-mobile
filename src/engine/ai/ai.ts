@@ -10,7 +10,8 @@ import { historicalBias } from '../historical';
 import { build, buildingReturn, canBuild, hasTech, privateInvestment, SHIP_COST } from '../systems/economy';
 import { reformSupport, startReform, sharesBorder } from '../systems/politics';
 import { techCost } from '../systems/technology';
-import { allied, allianceAcceptance, declareRivalry, declareWar, formAlliance, greatPowers, guarantee, improveRelations, joinCustomsUnion, powerScore, rivals } from '../systems/diplomacy';
+import { allied, allianceAcceptance, declareRivalry, formAlliance, formTradeAgreement, greatPowers, guarantee, improveRelations, joinCustomsUnion, powerScore, rivals, startDiplomaticPlay } from '../systems/diplomacy';
+import { treatyIsActive } from '../systems/treaties';
 import { armyStrength, atWar, enemiesOf, navalStrength } from '../systems/military';
 import { coreNationOf } from '../systems/population';
 import { regionsOf, bordersOf } from '../cache';
@@ -145,7 +146,7 @@ function diplomacyAI(st: GameState, c: Country) {
     if (best && bv > 0.3) { declareRivalry(st, c.id, best); count(st, 'rivalry', c.id); }
   }
   // alliances: seek partners sharing a rival or threatened by the same neighbour
-  if (st.treaties.filter((t) => t.type === 'alliance' && t.members.includes(c.id)).length < 3) {
+  if (st.treaties.filter((t) => t.type === 'alliance' && t.members.includes(c.id) && treatyIsActive(st, t)).length < 3) {
     let best: string | null = null; let bv = 0;
     const pool = new Set<string>([...bordersOf(st, c.id), ...gps]);
     for (const k of Object.keys(st.relations)) if (st.relations[k] > 30 && k.includes(c.id)) for (const x of k.split('|')) pool.add(x);
@@ -169,11 +170,26 @@ function diplomacyAI(st: GameState, c: Country) {
     if (support > 0.3 || (getRel(st, c.id, o.id) > 40 && st.rivalries.some((k) => k.split('|').includes(c.id) && sharesBorder(st, k.replace(c.id, '').replace('|', ''), o.id)))) { guarantee(st, c.id, o.id); count(st, 'guarantee', c.id); break; }
   }
   // customs union accession (shared utility; historical windows add more in Historical Mode)
-  for (const t of st.treaties) if (t.type === 'customs_union' && !c.customsUnion && t.leader && t.leader !== c.id && st.countries[t.leader]?.alive) {
+  for (const t of st.treaties) if (t.type === 'customs_union' && treatyIsActive(st, t) && !c.customsUnion && t.leader && t.leader !== c.id && st.countries[t.leader]?.alive) {
     const leader = st.countries[t.leader];
     const sameNation = coreNationOf(st, c) === coreNationOf(st, leader);
     const u = (sameNation ? 0.4 : -0.5) + getRel(st, c.id, leader.id) / 100 + (sharesBorder(st, c.id, leader.id) ? 0.3 : 0) - (c.personality.isolationism * 0.5) + historicalBias(st, c, 'customs_union') * 0.2;
     if (u > 0.6 && chance(st, 0.05)) { joinCustomsUnion(st, c, t.id); count(st, 'customs_union', c.id); }
+  }
+  // commercial states seek time-limited trade agreements with reliable partners.
+  if ((c.ai.cooldowns.tradeAgreement ?? 0) <= st.tick && c.personality.commerce >= 0.5) {
+    const partners = Object.values(st.countries)
+      .filter((other) => other.alive && other.id !== c.id && !other.decentralized && !other.overlord
+        && getRel(st, c.id, other.id) >= 35)
+      .sort((a, b) => getRel(st, c.id, b.id) - getRel(st, c.id, a.id) || a.id.localeCompare(b.id));
+    for (const partner of partners.slice(0, 4)) {
+      if (formTradeAgreement(st, c.id, partner.id)) {
+        count(st, 'trade_agreement', c.id);
+        c.ai.cooldowns.tradeAgreement = st.tick + 12;
+        break;
+      }
+    }
+    if ((c.ai.cooldowns.tradeAgreement ?? 0) <= st.tick) c.ai.cooldowns.tradeAgreement = st.tick + 6;
   }
   // improve relations with the most useful partner
   let target: string | null = null; let tv = -Infinity;
@@ -216,7 +232,7 @@ function warAI(st: GameState, c: Country) {
     if (!goals.length) continue;
     // expected strength including likely defenders
     let enemy = armyStrength(st, t) + (t.overlord ? armyStrength(st, st.countries[t.overlord]) * 0.7 : 0);
-    for (const tr of st.treaties) if (tr.type === 'alliance' && tr.members.includes(tid)) for (const m of tr.members) if (m !== tid && m !== c.id) enemy += armyStrength(st, st.countries[m]) * 0.5;
+    for (const tr of st.treaties) if (tr.type === 'alliance' && treatyIsActive(st, tr) && tr.members.includes(tid)) for (const m of tr.members) if (m !== tid && m !== c.id) enemy += armyStrength(st, st.countries[m]) * 0.5;
     for (const gp of greatPowers(st)) if (gp !== c.id && rivals(st, gp, c.id) && getRel(st, gp, tid) > 10) enemy += armyStrength(st, st.countries[gp]) * 0.35;
     const ratio = mine / Math.max(1, enemy);
     const pWin = clamp((ratio - 0.6) / 1.4, 0, 0.95);
@@ -226,7 +242,7 @@ function warAI(st: GameState, c: Country) {
   }
   const threshold = 0.2 + (1 - c.personality.risk) * 0.35;
   if (best && best.u > threshold) {
-    if (declareWar(st, c.id, best.target, best.goals, undefined, best.kind)) { count(st, 'declare_war', c.id); c.ai.cooldowns.war = st.tick + 24; }
+    if (startDiplomaticPlay(st, c.id, best.target, best.goals)) { count(st, 'diplomatic_play', c.id); c.ai.cooldowns.war = st.tick + 24; }
   } else c.ai.cooldowns.war = st.tick + 6;
   // foreign naval pressure on secluded states (used by opening conditions in both modes)
   if (c.navy.strength * c.navy.quality > 15) for (const tid of cands) { const t = st.countries[tid]; if (t?.laws.trade === 'isolationism') t.foreignPressure = Math.min(2, t.foreignPressure + (c.navy.strength * c.navy.quality) / 200); }

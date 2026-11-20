@@ -11,6 +11,14 @@ import { treatyIsActive } from './treaties';
 export const allied = (st: GameState, a: string, b: string) => st.treaties.some((t) => t.type === 'alliance' && t.members.includes(a) && t.members.includes(b) && treatyIsActive(st, t));
 export const rivals = (st: GameState, a: string, b: string) => st.rivalries.includes(relKey(a, b));
 
+/** True only when these two countries are opposing belligerents in the same active war. */
+export function countriesAtWar(st: GameState, a: string, b: string): boolean {
+  return st.wars.some((war) =>
+    (war.attackers.members.includes(a) && war.defenders.members.includes(b))
+    || (war.defenders.members.includes(a) && war.attackers.members.includes(b)),
+  );
+}
+
 export function powerScore(st: GameState, c: Country): number {
   return Math.sqrt(Math.max(0, c.gdp) / 1e9) * 10 + armyStrength(st, c) / 20000 + c.navy.strength * c.navy.quality * 0.6 + c.prestige * 0.2;
 }
@@ -81,7 +89,7 @@ export function declareRivalry(st: GameState, a: string, b: string) {
   log(st, { type: 'diplomacy', text: `${st.countries[a].name} declares ${st.countries[b].name} a rival.`, textVi: `${st.countries[a].nameVi} tuyên bố ${st.countries[b].nameVi} là đối thủ.`, actors: [a, b] });
 }
 export function guarantee(st: GameState, a: string, b: string) {
-  if (st.treaties.some((t) => t.type === 'guarantee' && t.members[0] === a && t.members[1] === b)) return;
+  if (st.treaties.some((t) => t.type === 'guarantee' && t.members[0] === a && t.members[1] === b && treatyIsActive(st, t))) return;
   st.treaties.push({ id: newId(st, 'guar'), type: 'guarantee', members: [a, b], start: st.tick, startStep: st.calendar.stepIndex, status: 'active', clauses: [{ id: newId(st, 'clause'), kind: 'mutual_defense', from: a, to: b }] }); addRel(st, a, b, 10);
 }
 export function joinCustomsUnion(st: GameState, c: Country, unionId: string): boolean {
@@ -165,9 +173,7 @@ const ESCALATION_STEPS = 7 * 4;
 export function startDiplomaticPlay(st: GameState, initiator: string, target: string, goals: WarGoal[]): DiplomaticPlay | null {
   const a = st.countries[initiator], b = st.countries[target];
   if (!a?.alive || !b?.alive || initiator === target || !goals.length) return null;
-  if (boundSubject(a) || st.wars.some((w) => w.attackers.members.includes(initiator) || w.defenders.members.includes(initiator))) return null;
-  if (st.wars.some((w) => (w.attackers.members.includes(target) && w.defenders.members.includes(initiator))
-    || (w.defenders.members.includes(target) && w.attackers.members.includes(initiator)))) return null;
+  if (boundSubject(a) || countriesAtWar(st, initiator, target)) return null;
   if ((st.diplomaticPlays ?? []).some((p) => (p.phase === 'maneuver' || p.phase === 'escalation')
     && [p.initiator, p.target].some((id) => id === initiator || id === target))) return null;
   if (goals.some((g) => g.by !== initiator || g.target !== target)) return null;
@@ -203,7 +209,7 @@ export function joinDiplomaticPlay(st: GameState, playId: string, countryId: str
   if (!play || (play.phase !== 'maneuver' && play.phase !== 'escalation') || !country?.alive) return false;
   if (countryId === play.initiator || countryId === play.target || boundSubject(country)) return false;
   if (play.participants.some((p) => p.country === countryId)) return false;
-  if (st.wars.some((w) => w.attackers.members.includes(countryId) || w.defenders.members.includes(countryId))) return false;
+  if (countriesAtWar(st, countryId, play.initiator) || countriesAtWar(st, countryId, play.target)) return false;
   if ((st.diplomaticPlays ?? []).some((p) => p.id !== playId && (p.phase === 'maneuver' || p.phase === 'escalation')
     && p.participants.some((x) => x.country === countryId))) return false;
   play.participants.push({ country: countryId, side, influence: 1 });
@@ -275,7 +281,7 @@ export function advanceDiplomacyDaily(st: GameState): void {
 export function formTradeAgreement(st: GameState, aId: string, bId: string): boolean {
   const a = st.countries[aId], b = st.countries[bId];
   if (!a?.alive || !b?.alive || aId === bId || boundSubject(a) || boundSubject(b)) return false;
-  if (getRel(st, aId, bId) < -20 || atWar(st, aId) || atWar(st, bId)) return false;
+  if (getRel(st, aId, bId) < -20 || countriesAtWar(st, aId, bId)) return false;
   if (st.treaties.some((t) => t.type === 'trade_agreement' && t.members.includes(aId) && t.members.includes(bId) && treatyIsActive(st, t))) return false;
   const relationship = clamp((getRel(st, aId, bId) + 20) / 120, 0, 1);
   const reduction = 0.1 + relationship * 0.1;

@@ -2,10 +2,21 @@ import { describe, expect, it } from 'vitest';
 import { fresh } from './helpers';
 import { advanceCalendarStep } from '../src/engine/calendar';
 import { setRel } from '../src/engine/core';
-import { advanceDiplomacyDaily, formTradeAgreement, joinDiplomaticPlay, startDiplomaticPlay } from '../src/engine/systems/diplomacy';
+import { advanceDiplomacyDaily, countriesAtWar, formTradeAgreement, joinDiplomaticPlay, startDiplomaticPlay } from '../src/engine/systems/diplomacy';
 import { treatyIsActive, treatyTariffReduction } from '../src/engine/systems/treaties';
 
 describe('time-valid treaties and diplomatic plays', () => {
+  it('only treats two countries as at war when they oppose each other in the same war', () => {
+    const st = fresh('sandbox', 80, 'GBR');
+    const unrelatedWar = st.wars.find((war) => war.attackers.members.includes('GBR') || war.defenders.members.includes('GBR'));
+    expect(unrelatedWar).toBeTruthy();
+    const other = unrelatedWar!.attackers.members.includes('GBR')
+      ? unrelatedWar!.defenders.members[0]
+      : unrelatedWar!.attackers.members[0];
+    expect(countriesAtWar(st, 'GBR', other)).toBe(true);
+    expect(countriesAtWar(st, 'GBR', 'FRA')).toBe(false);
+  });
+
   it('signs a bilateral trade agreement and applies its tariff reduction to both members', () => {
     const st = fresh('sandbox', 81, 'GBR');
     setRel(st, 'GBR', 'FRA', 70);
