@@ -274,3 +274,15 @@ Next action remains Claude's independent read-only B7 review of the refreshed re
 - The experiment-branch collaboration protocol is an older 2026-11-16 revision (Claude implementer / ChatGPT reviewer). The default-branch protocol is a newer 2026-11-17 owner-directed revision (ChatGPT implementer / Claude independent no-write reviewer). Apply the newer role allocation; never represent ChatGPT self-audit as independent review.
 - The newer default protocol still has stale generic text describing a sole default branch and a pending roadmap, conflicting with the explicit experiment-branch owner instruction and recorded owner-approved v3.2/v3.3 decisions. This is documented, not silently edited on default. Use the owner-designated experiment branch and current S0-B7 handoff for this task.
 - The default branch's AI_HANDOFF tracks a different DEV-005/research workstream. Do not mix its task status into this experiment branch's S0-B7 work. Re-fetch both branch refs before the next session.
+
+
+---
+
+## Addendum — B7 review packet consistency refresh (2026-11-20)
+
+- Experiment branch at the start of the latest documentation slice: `bf82b8ab60a1bd07ba1203091586a92b170f4c0d`; branch remains `experiment/vic3-visual-upgrade`. Re-fetch live HEAD before any further write or review.
+- Corrected stale items in the review packet: DEP-F1 traceability now reflects the completed read-only audit; Claude's report template includes actual audit run/artifact and evidence expectations; Claude's review request no longer pins an obsolete HEAD or says the dependency audit was not run; self-review no longer calls DEP-F1 provisional or labels the no-premature-transition check as a gate PASS.
+- Updated commits: `feedf82d78daaeb460a2c8c539ca924bf839b1ce` (traceability), `58d2852d48bd437a6fa6650fdad616a2f3d9971d` (report template), `b338118a005e5ce583cf40987e122bf8d8a00e00` (review request), `bf82b8ab60a1bd07ba1203091586a92b170f4c0d` (self-review), followed by this handoff update.
+- No runtime/product tests or builds were run; this was a docs-only consistency pass. No product or workflow scope changed.
+- Claude independent review remains PENDING; no independent REVIEW_PASS is claimed. The repository's open-issue search returned no open issues. The reviewer must read the live manifest and all referenced exact blobs before returning a verdict.
+- Next action: Claude performs read-only B7 review on the live branch HEAD. If review is unavailable, report the blocker; do not use ChatGPT self-review as a substitute. Owner ACCEPTED and S1 authorization remain pending. Overall S0 remains PARTIAL/BLOCKED.
