@@ -8,6 +8,7 @@ vi.mock('../src/engine/save', () => ({
   deserialize: vi.fn((value: string) => JSON.parse(value)),
 }));
 
+import { stepMonth } from '../src/engine/simulation';
 import { GameController } from '../src/ui/game/controller';
 
 describe('GameController fast-forward isolation', () => {
@@ -100,4 +101,40 @@ describe('GameController fast-forward isolation', () => {
     expect(controller.busy).toBeNull();
     expect(controller.paused).toBe(true);
   });
+  it('restores the live clock after a fast-forward step throws', async () => {
+    let resumeYield: (() => void) | undefined;
+    vi.stubGlobal('setTimeout', ((callback: () => void) => {
+      resumeYield = callback;
+      return 1;
+    }) as typeof setTimeout);
+
+    const stepMonthMock = vi.mocked(stepMonth);
+    for (let i = 0; i < 6; i++) {
+      stepMonthMock.mockImplementationOnce((state) => {
+        state.tick = (state.tick ?? 0) + 1;
+      });
+    }
+    stepMonthMock.mockImplementationOnce(() => {
+      throw new Error('simulated monthly step failure');
+    });
+
+    const controller = new GameController();
+    controller.st = { tick: 0, log: [] } as any;
+    controller.setPaused(false);
+
+    const work = controller.fastForward(12);
+    expect(controller.st?.tick).toBe(6);
+    expect(controller.busy?.done).toBe(6);
+    expect(controller.paused).toBe(true);
+    expect(resumeYield).toBeDefined();
+
+    resumeYield?.();
+    await expect(work).rejects.toThrow('simulated monthly step failure');
+
+    expect(controller.busy).toBeNull();
+    expect(controller.paused).toBe(false);
+    expect(cancel).toHaveBeenCalledTimes(1);
+    expect(request).toHaveBeenCalledTimes(2);
+  });
+
 });
