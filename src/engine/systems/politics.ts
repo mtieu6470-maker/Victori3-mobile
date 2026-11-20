@@ -1,7 +1,7 @@
 // Political Engine (shared): interest groups, legitimacy, radicalism, law reforms, revolutions and secession.
 import { data } from '../data/db';
 import { LAW_GROUPS, type LawGroup } from '../data/dbTypes';
-import { IGS, STRATA, S, type Country, type GameState, type IG } from '../types';
+import { IGS, STRATA, S, type Country, type GameState, type IG, type PoliticalPartyId, type PoliticalState } from '../types';
 import { clamp, chance, log, rand } from '../core';
 import { coreNationOf } from './population';
 import { regionsOf, bordersOf } from '../cache';
