@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `56ae95dd96b314e2f42e60af5e1d57051f30b0f6`  
+**Snapshot HEAD before this manifest refresh:** `646850556a4f1970c5334b7696145760a77ee0a7`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -17,18 +17,18 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 | `docs/audit/s0/S0_B3_RESULTS.md` | `cc25258c5295e5c2de3bae90d3c9b1d1c1b63da5` |
 | `docs/audit/s0/S0_RISK_REGISTER.md` | `dea1e33e2c961bcf36bd80b41ee7ca79da88456d` |
 | `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `90b968a2db93c9b7e09c3deacbbaf92e786d9237` |
-| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `4d3d7882b2c828625585287324c7cb23e66d979e` |
+| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `1dc8177e878b9d40ed5a5fd96889475097160efb` |
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `8701c8defd2945cc0849b7e2c7ee67afe03ab141` |
 | `docs/audit/s0/S0_SIGNOFF.md` | `7a2baf300e95c646585f76e3a1ef81f85cadfcf5` |
 | `docs/audit/s0/S0_B7_RESULTS.md` | `4243bba7829fb110951dcc28f1ccb802331ab7da` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `15115fad9accfd0d4cfbf8bc0de80e1e4e800110` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `1a4a6c92e66ccfac9cbbc50149c83447bc3bfe74` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `977e7fc3427cefb99bf3ba172740eb99cb6034b8` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `66c4ce800dc238687f5796bcd1596e02a229e1bf` |
+| `docs/coordination/AI_HANDOFF.md` | `b389641540406fd940bc062634789cd430cc4874` |
 | `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `0cdd1b70857e17b708c6851575819ae076a5b8d0` |
 
 | `docs/roadmap/OWNER_SCOPE_AMENDMENT_1836_2026_SYSTEM_DEPTH.md` | `43d4feda71cf71714160fead3ee6f135408206d9` |
-| `docs/design/TECHNOLOGY_AND_INSTITUTIONS_1836_2026_DRAFT.md` | `5a53dbd7f63c99fdef493740924ade4c7d26db0c` |
+| `docs/design/TECHNOLOGY_AND_INSTITUTIONS_1836_2026_DRAFT.md` | `18a37e8335b188182ec45b882bb8f44c3285b66a` |
 
 ## 2. Risk table integrity and traceability
 
@@ -284,3 +284,11 @@ The prior structural summary undercounted the matrix by one because it omitted t
 - The updated handoff and B7 review request record the owner's instruction that ChatGPT has full technical discretion to decide and carry out work without a schedule/time constraint.
 - This is not a reviewer verdict, does not change any S0 gate, and is not treated as a waiver of the independent B7 review or explicit phase-transition decision.
 - The bounded review scope remains S0-B7. Reviewers must re-fetch current HEAD and all pinned blobs before issuing a verdict.
+
+
+## 28. Refreshed contemporary research and live B7 self-audit (2026-11-20)
+
+- Updated technology/institution design pin: `docs/design/TECHNOLOGY_AND_INSTITUTIONS_1836_2026_DRAFT.md` now includes verified official-source calibration using observation-year boundaries (ITU 2025, Stanford HAI 2026, IEA 2026, SIPRI 2025 expenditure/Yearbook 2026). The 2026 terminal campaign date is not used to relabel older observations as 2026 statistics.
+- Updated ChatGPT self-review pin: `docs/audit/s0/S0_B7_SELF_REVIEW.md` §16 records a live structural parse of Risk Register and Traceability at pre-manifest HEAD `646850556a4f1970c5334b7696145760a77ee0a7`: P0 1×6; P1 13×6; P2 22×6; P3 5×3; Closed 1×3; 48 unique mappings and no unresolved risk IDs.
+- Current handoff and Claude review request record the self-audit and scope/research updates. These records do not claim independent review, close risks, alter gates or authorize S1.
+- The exact pinned file blobs are listed in §1. Re-fetch them from the live branch before review; this manifest itself advances the branch and is not a substitute for live HEAD verification.
