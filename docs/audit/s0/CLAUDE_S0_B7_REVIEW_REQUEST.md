@@ -193,3 +193,8 @@ The following documents were added on the experiment branch after the package's 
 These are supplied as **context only**. They are not part of the bounded S0-B7 risk/signoff review scope, do not alter the frozen 1836–1936 S0/G0.4 audit source, do not claim implementation, and do not authorize S1 or any gameplay/engine/save/data/content changes. The reviewer should confirm that no gate, risk disposition, exception or phase authorization was silently changed, then issue a verdict only for the bounded S0-B7 package.
 
 Re-fetch the exact live branch HEAD and these files before review. The review target is the complete current repository snapshot, but the verdict boundary remains S0-B7.
+
+
+## 20. Owner delegation of execution discretion — 2026-11-20
+
+The owner has now instructed ChatGPT to use full technical discretion to decide and carry out the project work without waiting on schedule/time constraints. This is an implementation-role delegation, not evidence that an independent reviewer has inspected B7. It does not change the bounded verdict requirements, waive S0 gate evidence or silently authorize S1. The owner-requested product scope remains 1836–2026 combined with the simulation-clock and systemic-depth workstreams. See the current handoff for the exact live phase status.
