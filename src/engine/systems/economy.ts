@@ -264,18 +264,6 @@ interface FactoryMarketSnapshot {
   demand: Record<string, Record<Good, number>>;
 }
 
-function scalePositiveFlows(
-  amounts: Partial<Record<Good, number>>,
-  factor: number,
-): Partial<Record<Good, number>> {
-  const result: Partial<Record<Good, number>> = {};
-  for (const good of GOODS) {
-    const amount = amounts[good] ?? 0;
-    if (Number.isFinite(amount) && amount > 0) result[good] = amount * factor;
-  }
-  return result;
-}
-
 /**
  * Solve the coupled factory-input/market-shortage loop with bounded deterministic
  * damped fixed-point iteration. Returns the final market projection and one factor
@@ -839,6 +827,15 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
       inputs: operation.flow.inputs,
     })),
   );
+
+  st.marketClearing = {
+    tick: st.tick,
+    factoryCount: factoryOperations.length,
+    iterations: clearing.iterations,
+    maxIterations: MAX_FACTORY_MARKET_ITERATIONS,
+    converged: clearing.converged,
+    residual: clearing.residual,
+  };
 
   const realizedFactoryOutputs: Partial<Record<Good, number>>[] = new Array(calc.length);
   const realizedFactoryInputs: Partial<Record<Good, number>>[] = new Array(calc.length);
