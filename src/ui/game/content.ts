@@ -68,7 +68,56 @@ export function charactersOf(eid: string): ContentCharacter[] {
   const start = (c: ContentCharacter) => c.terms.map((t) => t.from).filter(Boolean).sort()[0] ?? c.born ?? '9999';
   return [...l].sort((a, b) => start(a).localeCompare(start(b)));
 }
-/** Find the content record for a leader name used by the engine (names may carry suffixes). */
+
+/**
+ * Convert source dates into inclusive boundaries without inventing precision.
+ * YYYY spans a whole year; YYYY-MM spans a whole month; YYYY-MM-DD is exact.
+ * Invalid dates never match an office term.
+ */
+export function historicalDateBoundary(value: string | null | undefined, edge: 'start' | 'end'): string | null {
+  if (!value) return null;
+  const match = /^(\d{4})(?:-(\d{2})(?:-(\d{2}))?)?$/.exec(value.trim());
+  if (!match) return null;
+  const year = Number(match[1]);
+  const month = match[2] ? Number(match[2]) : edge === 'start' ? 1 : 12;
+  if (year < 1 || year > 9999 || month < 1 || month > 12) return null;
+  const leap = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+  const monthDays = [31, leap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const day = match[3] ? Number(match[3]) : edge === 'start' ? 1 : monthDays[month - 1];
+  if (day < 1 || day > monthDays[month - 1]) return null;
+  return `${String(year).padStart(4, '0')}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+}
+
+/** True while a sourced office term covers this Gregorian date, with inclusive endpoints. */
+export function characterHoldsRoleOnDate(
+  character: Pick<ContentCharacter, 'terms'>,
+  date: string,
+  role = 'head_of_state',
+): boolean {
+  const day = historicalDateBoundary(date, 'start');
+  if (!day || day !== date) return false;
+  return character.terms.some((term) => {
+    if (term.role !== role) return false;
+    const from = historicalDateBoundary(term.from, 'start');
+    const to = term.to == null ? null : historicalDateBoundary(term.to, 'end');
+    return !!from && from <= day && (term.to == null || (!!to && day <= to));
+  });
+}
+
+/** Resolve a person only if their name matches and their sourced office term covers the game date. */
+export function characterByNameOnDate(
+  eid: string,
+  name: string,
+  date: string,
+  role = 'head_of_state',
+): ContentCharacter | undefined {
+  const base = name.split(' (')[0];
+  return (byEntityChars.get(eid) ?? []).find((c) =>
+    (c.name === name || c.name.split(' (')[0] === base) && characterHoldsRoleOnDate(c, date, role),
+  );
+}
+
+/** Legacy name-only lookup for non-current references. Prefer characterByNameOnDate for rulers. */
 export function characterByName(eid: string, name: string): ContentCharacter | undefined {
   const base = name.split(' (')[0];
   return (byEntityChars.get(eid) ?? []).find((c) => c.name === name || c.name.split(' (')[0] === base);

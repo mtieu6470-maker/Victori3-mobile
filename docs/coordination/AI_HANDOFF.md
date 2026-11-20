@@ -1160,3 +1160,14 @@ This is a later, explicit owner authorization to begin product implementation on
 - **Important:** the APK includes the daily calendar and RAF-independent speed correction from \`fcadf1d\`. It does not include a six-hour task graph or the later identity/construction/technology/military/diplomacy redesign slices.
 - **Device QA:** NOT_TESTED. Install/launch, pause/resume, background/foreground, save/load, speed feel, thermal/RAM and long-run timing on the owner's Android remain outstanding. Independent review PENDING; owner acceptance PENDING.
 - **Current branch docs head at time of this report update:** this evidence addendum is being committed after the playtest report; re-fetch the branch head after push before any code change.
+
+
+## 2026-11-20 — DATE-VALID RULER RESOLUTION (CI PENDING)
+
+- Base source: 17796069ee29038f149ddf215e5824f14c7c6483; branch: experiment/vic3-visual-upgrade.
+- Changed `src/ui/game/content.ts`: added `historicalDateBoundary`, `characterHoldsRoleOnDate`, and `characterByNameOnDate`. Year-only and month-only source terms are expanded to inclusive Gregorian boundaries; invalid dates fail closed.
+- Changed `src/ui/screens/Country.tsx`: `IdentityHeader` now selects the current ruler portrait only when the engine ruler's name AND an active, date-valid `head_of_state` term both match. Roster status uses the same date-aware check.
+- Added `tests/historical-identity.test.ts` for Minh Mạng / Thiệu Trị / Tự Đức terms, endpoint inclusivity, month/year precision, malformed dates and leap-year boundaries.
+- CI was still running for parent commit 17796069 at note creation. This patch requires a new exact-SHA Actions run. Do not claim full validation until all tests and APK assembly pass.
+- Scope remains incomplete: daily rather than six-hour scheduler; monthly simulation pipeline; four shared technology tiers and five overrides only (48 techs, 3 branches, no post-1949 technology coverage); one basic construction queue without construction sectors/public-private investment; aggregate military rather than recruitable battalions/formations/fronts/battle records; treaty state without offer/counteroffer/ratification. The playtest report has the complete evidence and staged acceptance gates.
+- Next: verify this exact commit and the parent retry-enabled portrait pipeline. Then implement independent system slices with domain-state migration, shared player/AI command paths, deterministic simulation tests and save/load coverage. Keep all work on the existing feature branch.

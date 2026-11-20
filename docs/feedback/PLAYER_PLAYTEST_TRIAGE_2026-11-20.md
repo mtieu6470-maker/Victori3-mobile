@@ -159,3 +159,12 @@ Do not copy Victoria 3 executable/source code, extracted game databases, icons, 
 - Military: aggregate-only model confirmed; no recruitable formation/battle-domain implementation committed in this slice.
 - Diplomacy: treaty ledger and some existing actions; full negotiation loop absent.
 - Overall parity NOT_COMPLETE. Device QA NOT_TESTED. Independent review PENDING. Owner acceptance PENDING.
+
+
+## 10. Verified implementation slice — date-gated current historical office
+
+- Current ruler selection in the country panel now requires both a matching engine leader name and a historical `head_of_state` term that covers the actual Gregorian game date. This prevents an out-of-period portrait from appearing simply because the names match.
+- Historical sources can be year-only, month-only or full-date. The resolver maps year/month starts and inclusive ends to the corresponding full Gregorian boundaries; impossible dates and malformed dates fail closed.
+- The current dataset terms include Minh Mạng 1820-02-14 to 1841-01-20, Thiệu Trị from 1841-02-11, and Tự Đức from 1847-11-10. In November 1838, only Minh Mạng's term is valid.
+- Added `tests/historical-identity.test.ts` for Nguyễn succession, inclusive endpoints, source precision, invalid dates and Gregorian leap years.
+- Exact-source build/test/APK CI is required before calling this slice verified. Physical-device QA is still separate.

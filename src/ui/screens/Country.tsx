@@ -13,7 +13,7 @@ import { govVi, lawVi, fmt, pct, money, compact, techName, SUBJECT_VI, IG_VI, LO
 import { fullName, shortName } from '../game/names';
 import { ui } from '../game/ui';
 import { Flag, CountryLink, YoY, IG_COL, LOG_ICON, focusRegion, regionName, leaderName } from './common';
-import { useContent, entityContent, symbolFor, characterByName, charactersOf, asset, type ContentCharacter } from '../game/content';
+import { useContent, entityContent, symbolFor, characterByNameOnDate, characterHoldsRoleOnDate, historicalDateBoundary, charactersOf, asset, type ContentCharacter } from '../game/content';
 import { AssetImg, SourcedText, AssetCredit } from '../components/identity';
 
 const SEC_VI: Record<string, string> = { political: 'Chính trị', territory: 'Lãnh thổ', economy: 'Kinh tế', society: 'Xã hội', diplomacy: 'Ngoại giao', military: 'Quân sự', technology: 'Khoa học – công nghệ', historical_ai: 'Ưu tiên lịch sử & tính cách AI' };
@@ -182,7 +182,7 @@ function IdentityHeader({ st, id, rank }: { st: GameState; id: string; rank: num
   const arms = symbolFor(id, 'coat_of_arms', y);
   const flag = symbolFor(id, 'flag', y);
   const names = (ec?.names ?? []).filter((n) => (n.from == null || n.from <= y) && (n.to == null || n.to >= y) && n.lang !== 'en').slice(0, 3);
-  const ruler = characterByName(id, c.leader.name);
+  const ruler = characterByNameOnDate(id, c.leader.name, gameDateIso(st));
   return (
     <div class="identity" style={`--bc:${c.color}`}>
       <div class="id-symbols">{flag || !arms ? <Flag c={c} lg /> : <AssetImg id={arms.id} cls="arms" />}{flag && arms && <AssetImg id={arms.id} cls="arms" />}</div>
@@ -220,12 +220,20 @@ function Background({ id }: { id: string }) {
   );
 }
 
+function gameDateIso(st: GameState): string {
+  const day = Math.max(1, Math.floor(st.dayOfMonth ?? 1));
+  return `${String(st.date.y).padStart(4, '0')}-${String(st.date.m).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+}
+
 function status(st: GameState, id: string, ch: ContentCharacter): { t: string; cls: string } {
-  const c = st.countries[id]; const now = `${st.date.y}-${String(st.date.m).padStart(2, '0')}`;
-  if (c && characterByName(id, c.leader.name)?.id === ch.id) return { t: 'Đang tại vị', cls: 'pos' };
+  const c = st.countries[id]; const now = gameDateIso(st);
+  if (c && characterByNameOnDate(id, c.leader.name, now)?.id === ch.id) return { t: 'Đang tại vị', cls: 'pos' };
   const t = ch.terms.find((x) => x.role === 'head_of_state');
-  if (ch.died && ch.died.slice(0, 7) < now) return { t: 'Đã mất', cls: 'dim' };
-  if (t && t.from.slice(0, 7) > now) return { t: st.mode === 'historical' ? `Lịch sử: lên ngôi ${t.from.slice(0, 4)}` : `Lịch sử: ${t.from.slice(0, 4)}`, cls: 'dim' };
+  const diedBy = ch.died ? historicalDateBoundary(ch.died, 'end') : null;
+  if (diedBy && diedBy <= now) return { t: 'Đã mất', cls: 'dim' };
+  const nextTerm = t ? historicalDateBoundary(t.from, 'start') : null;
+  if (nextTerm && nextTerm > now) return { t: st.mode === 'historical' ? `Lịch sử: lên ngôi ${nextTerm.slice(0, 4)}` : `Lịch sử: ${nextTerm.slice(0, 4)}`, cls: 'dim' };
+  if (characterHoldsRoleOnDate(ch, now)) return { t: 'Nhiệm kỳ theo hồ sơ lịch sử', cls: 'dim' };
   return { t: ch.roles.map((r) => ROLE_VI[r] ?? r).join(', '), cls: 'dim' };
 }
 
