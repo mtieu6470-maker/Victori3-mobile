@@ -121,6 +121,31 @@ describe('Victoria 3-style bilateral alliance capacity', () => {
     expect(alliancePartnerCount(state, a.id)).toBe(2);
   });
 
+  it('preserves treaty ordering and is idempotent when migrating grouped alliances', () => {
+    const state = fresh('historical', 191, 'GBR');
+    const [a, b, c] = eligibleCountries(state);
+    state.treaties = [
+      { id: 'guarantee-before', type: 'guarantee', members: [a.id, b.id], start: 0 },
+      { id: 'ordered-historical-pact', type: 'alliance', members: [a.id, b.id, c.id], start: 0 },
+      { id: 'customs-market-between', type: 'customs_union', members: [a.id, c.id], leader: a.id, start: 0 },
+      { id: 'guarantee-after', type: 'guarantee', members: [b.id, c.id], start: 0 },
+    ];
+
+    normalizeAllianceTreaties(state);
+    expect(state.treaties.map((treaty) => treaty.id)).toEqual([
+      'guarantee-before',
+      `alliance:${a.id}:${b.id}`,
+      `alliance:${a.id}:${c.id}`,
+      `alliance:${b.id}:${c.id}`,
+      'customs-market-between',
+      'guarantee-after',
+    ]);
+
+    const afterFirstPass = serialize(state);
+    normalizeAllianceTreaties(state);
+    expect(serialize(state)).toBe(afterFirstPass);
+  });
+
   it('starts new campaigns with bilateral treaty rows after historical pact normalization', () => {
     const state = fresh('historical', 189, 'GBR');
     const allianceRows = state.treaties.filter((treaty) => treaty.type === 'alliance');
