@@ -107,6 +107,23 @@ Pre-protocol work:
 
 Append newest entries at the top. Do not overwrite earlier entries.
 
+### 2026-11-20 — B7-REVIEW-PACKET-CONSISTENCY-REFRESH
+
+- Verified experiment branch HEAD before this slice: `bf82b8ab60a1bd07ba1203091586a92b170f4c0d`. Default branch was inspected read-only; no default-branch writes and no branch merge/rebase.
+- A consistency scan found stale review metadata: the risk-traceability matrix still classified DEP-F1 as UNTRIAGED; the Claude report template expected an unrun audit; and the review request pinned an obsolete HEAD and described the dependency workflow as un-dispatched. These were stale after the verified 2026-11-20 audit and APK run #318.
+- Corrected the DEP-F1 traceability row to the evidence-backed state `OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING`, including run/artifact IDs, six dev-only findings, production-only zero and unresolved npm-ci count of ten.
+- Updated the Claude review report template to request independent verification of run `44572915201` / artifact `14555141888` and the correct DEP-F1 disposition. Updated the independent-review request to require live HEAD re-fetch, replace the stale pinned SHA, distinguish historical CI-F4 failures from its narrow run-#318 closure, and preserve the B4 workflow-not-rerun boundary.
+- Corrected the ChatGPT self-review's stale “provisional P1” descriptor and the ambiguous PASS label for the overall S0/S1 non-transition check.
+- Documentation commits in this slice:
+  - `feedf82d78daaeb460a2c8c539ca924bf839b1ce` — DEP-F1 traceability.
+  - `58d2852d48bd437a6fa6650fdad616a2f3d9971d` — Claude review report template.
+  - `b338118a005e5ce583cf40987e122bf8d8a00e00` — Claude review request.
+  - `bf82b8ab60a1bd07ba1203091586a92b170f4c0d` — self-review consistency.
+- Review status: Claude's independent review has **not** been performed in this ChatGPT session and no independent verdict is claimed. The bounded S1-entry package remains `NOT_TESTED`; owner acceptance remains pending. No issue is open in this repository for the review as of the latest issue search.
+- Tests: documentation consistency/read-back only. No runtime tests, product build, APK build, dependency change or workflow dispatch was performed. No product source, gameplay, engine, save schema, data, assets, Gradle, signing, secrets or workflow files were changed.
+- Overall S0 remains PARTIAL/BLOCKED; S1 remains NOT AUTHORIZED. Next action is Claude's read-only review of the live HEAD and refreshed manifest, followed by owner decision.
+
+
 ### 2026-11-20 — ANDROID-APK-RUN-318-AND-CI-F4-CLOSURE
 
 - Verified run `44573351798` on commit `b5948f0bbca126712c64dd605ebb7d9f6ddfb907`; branch `experiment/vic3-visual-upgrade`; job `135734112766` SUCCESS.
