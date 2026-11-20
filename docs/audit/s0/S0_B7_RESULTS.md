@@ -208,3 +208,15 @@ A targeted review of the live Risk Register and source roadmap found that the si
 - TC-F1/TC-F2: separate political (S17/S19) and military (S20/S21) test targets, with explicit non-vacuous guards and boundary checks.
 
 No owner role was absent; the register uses accountable functional roles, with implementation/verification roles clarified where split responsibility matters. R7 remains OPEN P0 with interim containment only; R14 remains BLOCKED; R1/R13 remain OPEN/deferred; CI-F4 remains narrowly CLOSED; DEP-F1 remains OPEN P1 and UNRECONCILED at 10-vs-6. No severity, gate, owner acceptance or phase authorization changed. Documentation-only review; no runtime test/build/device test was run.
+
+
+## 22. Exact-HEAD Android APK run #324 — 2026-11-20
+
+- Exact experiment-branch checkout/trigger SHA: `31f1617ed838110296fd68edfd90c7e3e3b8d0a7`. GitHub Actions run `44677523059`, job `136092798809`, conclusion SUCCESS; branch HEAD at post-run verification was the same SHA.
+- Build/test steps succeeded: `npm ci`; data/map/web build; generated-data/web hashing; Vitest; Capacitor sync; Android web-asset hashing; `./gradlew assembleDebug --no-daemon` (exit 0; `BUILD SUCCESSFUL in 1m 20s`). Test report independently cross-validates Vitest JSON and task-tree counters: 38/38 suites, 97/97 tests, zero failures, zero pending, `report_valid=true`.
+- APK artifact ID `14603730370`, ZIP 17,569,417 bytes, SHA-256 `4a2800bcab95fd0d92ab6f7bbe93111fa7059b1d82a2a340f3a3ac892a34cfd1`. Downloaded ZIP was rehashed locally and matched the GitHub API digest. Its `app-debug.apk` is 18,057,538 bytes, SHA-256 `d64bdf78726d991f1bb3c867200f360e2fc563bc0332282cf75cbe7d9734d285`; this matches `apk_sha256.txt` in the evidence artifact.
+- `apksigner verify --verbose --print-certs` exited 0; V1 and V2 signatures verify. Debug certificate SHA-256: `84bb348722b660bb36805f3928f73d64401d313a8627168796b6068a2ee1d146`.
+- CI evidence artifact ID `14603825259`, 106,638 bytes, ZIP SHA-256 `3a53e96540faa10585b893dd9cc7ea6a071ccb65c6a1accfa94bbf73f447c16b`; local ZIP digest matches API metadata. All 15 archive entries were inspected, including provenance, test summary, Vitest JSON/task tree, APK checksum, certificate report, and asset manifests.
+- R1 comparison: Run #322 (`44661820747`, checkout `68fee31641d2249be824a87f4302c26a5aeb6611`) certificate SHA-256 `559d549a21515f899b6195c65114b2be778ff2fbd63288d21ef31f4365b96238`. GitHub compare `68fee316..31f1617` reports 17 documentation-only commits / 12 changed documentation paths and no product/source/build changes; Run #324 certificate fingerprint differs. This is direct evidence that the current debug builds do not share a stable signing identity; R1 remains OPEN and B2/C3 remains blocked until R14 and the protected signing conditions are satisfied.
+- Run #324 also emits the existing Node 20 deprecation warning for `actions/*@v4`; CI-F1 remains OPEN P2. The build result does not change CI-F4's narrow closure, G0.6's separate B4 evidence, or any phase gate.
+- No APK was installed on iQOO; no gameplay/device QA, release signing, data-pack delivery, dependency change or product-source change is claimed.
