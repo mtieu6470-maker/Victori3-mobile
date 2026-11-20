@@ -4,6 +4,7 @@ import { data } from '../data/db';
 import { GOODS, STRATA, S, type Country, type GameState, type Good, type Region, type Building, type MarketGoodStats, type PopulationEconomy } from '../types';
 import { clamp, log } from '../core';
 import { regionsOf } from '../cache';
+import { appendInventoryLedgerMonth, emptyInventoryLedger, inventoryPeriod, settleInventoryFlow } from './inventory';
 
 export const OPENNESS: Record<string, number> = { isolationism: 0.03, protectionism: 0.3, free_trade: 0.7 };
 const TARIFF: Record<string, number> = { isolationism: 0.35, protectionism: 0.2, free_trade: 0.04 };
@@ -355,6 +356,8 @@ export function calculatePopulationEconomy(
 
 export function computeEconomy(st: GameState, calibrate = false, iter = 0): void {
   const d = data();
+  const inventoryLedger = st.inventoryLedger ?? emptyInventoryLedger();
+  st.inventoryLedger = inventoryLedger;
   const regionsBy: Record<string, Region[]> = {};
   for (const r of st.regions) (regionsBy[r.owner] ??= []).push(r);
   const calc: RegionCalc[] = new Array(st.regions.length);
@@ -547,7 +550,21 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     m.open = openness(leader, coastal);
   }
   const world: Record<Good, { surplus: number; deficit: number }> = Object.fromEntries(GOODS.map((g) => [g, { surplus: 0, deficit: 0 }])) as any;
-  for (const id of mIds) { const m = markets[id]; for (const g of GOODS) { const diff = m.s[g] - m.dm[g]; if (diff > 0) world[g].surplus += diff * m.open; else world[g].deficit += -diff * m.open; } }
+  const marketExportCapacity: Record<string, Record<Good, number>> = {};
+  for (const id of mIds) {
+    const m = markets[id];
+    const exportCapacity = zero();
+    for (const g of GOODS) {
+      // Legacy supply/demand are annualized flows; ledger balances are monthly physical units.
+      const openingStock = inventoryLedger.balances[id]?.[g] ?? 0;
+      const uncoveredDemand = Math.max(0, m.dm[g] - m.s[g] - openingStock * 12);
+      const exportableFlow = Math.max(0, m.s[g] - m.dm[g]);
+      world[g].surplus += exportableFlow * m.open;
+      world[g].deficit += uncoveredDemand * m.open;
+      exportCapacity[g] = exportableFlow * m.open;
+    }
+    marketExportCapacity[id] = exportCapacity;
+  }
   for (const g of GOODS) {
     const ws = world[g];
     const target = clamp(Math.pow((ws.deficit + 1) / (ws.surplus + 1), 0.25), 0.6, 2.2);
@@ -555,25 +572,48 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
   }
   const marketShort: Record<string, Record<Good, number>> = {};
   const marketImports: Record<string, number> = {};
+  const inventoryMarkets: Record<string, Partial<Record<Good, ReturnType<typeof settleInventoryFlow>>>> = {};
   for (const id of mIds) {
     const m = markets[id]; const prices = (st.marketPrices[id] ??= { ...st.worldPrices });
     const short = zero(); let importsValue = 0;
     const stats = ((st.marketStats ??= {})[id] = {} as Record<Good, MarketGoodStats>);
+    const marketJournal: Partial<Record<Good, ReturnType<typeof settleInventoryFlow>>> = {};
     for (const g of GOODS) {
       const ws = world[g];
+      const openingStock = inventoryLedger.balances[id]?.[g] ?? 0;
       const availRatio = ws.deficit > 0 ? clamp(ws.surplus / ws.deficit, 0, 1) : 1;
-      const deficit = Math.max(0, m.dm[g] - m.s[g]);
+      const deficit = Math.max(0, m.dm[g] - m.s[g] - openingStock * 12);
       const imports = deficit * m.open * availRatio;
+      // Imports and exports are matched globally; a market cannot receive goods without
+      // an equal physical outflow from markets with exportable production surplus.
+      const totalWorldImports = Math.min(ws.surplus, ws.deficit);
+      const exportCapacity = marketExportCapacity[id][g];
+      const exports = ws.surplus > 0 ? totalWorldImports * exportCapacity / ws.surplus : 0;
+      const flow = settleInventoryFlow({
+        openingStock,
+        production: m.s[g] / 12,
+        imports: imports / 12,
+        exports: exports / 12,
+        demand: m.dm[g] / 12,
+      });
       importsValue += imports * st.worldPrices[g];
-      const avail = m.s[g] + imports;
-      short[g] = m.dm[g] > 0 ? clamp(1 - avail / m.dm[g], 0, 1) : 0;
-      const local = clamp(Math.pow((m.dm[g] + 1) / (avail + 1), 0.5), 0.45, 3);
+      short[g] = flow.demand > 0 ? clamp(flow.unmetDemand / flow.demand, 0, 1) : 0;
+      const availableAnnual = Math.max(0, (openingStock + flow.production + flow.imports - flow.exports) * 12);
+      const local = clamp(Math.pow((m.dm[g] + 1) / (availableAnnual + 1), 0.5), 0.45, 3);
       const target = (1 - m.open) * local + m.open * st.worldPrices[g];
       prices[g] = calibrate ? target : prices[g] * 0.7 + target * 0.3;
-      // persisted for the UI (Market screen): the same quantities the clearing above used, in engine units
+      // MarketStats remains annualized for existing UI compatibility; inventory journal is monthly.
       stats[g] = { supply: m.s[g], demand: m.dm[g], imports, short: short[g] };
+      marketJournal[g] = flow;
     }
+    inventoryMarkets[id] = marketJournal;
     marketShort[id] = short; marketImports[id] = importsValue;
+  }
+  // The starting 1836 calibration pass is not a simulated month. Begin recording only
+  // after the first logical month has actually advanced; repeated same-tick posting is rejected.
+  if (!calibrate && st.tick > 0) {
+    const period = inventoryPeriod(st.tick, st.date, inventoryLedger.openingBasis, inventoryMarkets);
+    st.inventoryLedger = appendInventoryLedgerMonth(inventoryLedger, period);
   }
 
   // ---- 3. value added, food security, SoL per region; country GDP
