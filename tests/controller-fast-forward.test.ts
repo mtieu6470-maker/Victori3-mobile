@@ -35,6 +35,8 @@ describe('GameController fast-forward isolation', () => {
   });
 
   it('pauses the live RAF clock during fast-forward and restores its prior run state', async () => {
+    let resumeYield: (() => void) | undefined;
+    vi.stubGlobal('setTimeout', ((callback: () => void) => { resumeYield = callback; return 1; }) as typeof setTimeout);
     const controller = new GameController();
     controller.st = { tick: 0, log: [] } as any;
     controller.setPaused(false);
