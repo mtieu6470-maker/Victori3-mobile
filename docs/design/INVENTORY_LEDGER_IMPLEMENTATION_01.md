@@ -139,3 +139,18 @@ Factory-flow tests now derive their output/input quantities from the canonical e
 - The constrained single-market solver fixture also uses the canonical ironworks recipe, with the independent coal supply shortage retained as the convergence condition.
 
 This supersedes only the unrealistic test fixture, not the game recipe registry or runtime production rules. No grain-to-tools production recipe was added to runtime data. The inventory test file remains at 15 tests. Test execution, typecheck, CI and APK build remain **NOT_TESTED / NOT_VERIFIED** until exact-SHA evidence is obtained.
+
+
+## 13. Single-source market trade allocation and inventory posting
+
+The solver and definitive monthly stock-posting path previously contained separate implementations of the same world surplus/deficit, market import, export and shortage formulas. Inspection found that the formulas currently matched, but duplicated logic could drift as trade rules evolve.
+
+The solver now returns, for its final converged/fallback projection:
+- Per-market annualized import quantities.
+- Per-market annualized export quantities.
+- Openness-weighted world surplus/deficit totals by good.
+- Per-market shortage ratios calculated from those exact imports/exports.
+
+The definitive inventory posting, market price target and market statistics reuse this one returned allocation. `settleInventoryFlow` remains the physical monthly accounting boundary and receives the same import/export quantities converted from annualized engine units to monthly units. The trade test now checks 100 units imported/exported in each direction and reconciles the solver's shortage ratios against `settleInventoryFlow` for both buyers and sellers.
+
+This is a consistency refactor of the existing aggregate market allocator, not a new trade-contract, tariff-by-shipment, route-capacity, customs, regional warehouse or firm-owned inventory system. Existing global import/export balance integration checks remain in place. The source has not yet been executed by Vitest, TypeScript or Android CI; results remain **NOT_TESTED / NOT_VERIFIED**.
