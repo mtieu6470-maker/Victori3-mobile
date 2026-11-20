@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `646850556a4f1970c5334b7696145760a77ee0a7`  
+**Snapshot HEAD before this manifest refresh:** `00d2c29d20515baa19124207a20be56c9cdfac6d`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -21,13 +21,14 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `8701c8defd2945cc0849b7e2c7ee67afe03ab141` |
 | `docs/audit/s0/S0_SIGNOFF.md` | `7a2baf300e95c646585f76e3a1ef81f85cadfcf5` |
 | `docs/audit/s0/S0_B7_RESULTS.md` | `4243bba7829fb110951dcc28f1ccb802331ab7da` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `1a4a6c92e66ccfac9cbbc50149c83447bc3bfe74` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `9a50e395f3bba1c9e22eba78a8b3450096a09067` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `977e7fc3427cefb99bf3ba172740eb99cb6034b8` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `b389641540406fd940bc062634789cd430cc4874` |
+| `docs/coordination/AI_HANDOFF.md` | `7292435665cb9247849eb445160909f9d1a0b91d` |
 | `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `0cdd1b70857e17b708c6851575819ae076a5b8d0` |
 
 | `docs/roadmap/OWNER_SCOPE_AMENDMENT_1836_2026_SYSTEM_DEPTH.md` | `43d4feda71cf71714160fead3ee6f135408206d9` |
+| `docs/spec/SIMULATION_CLOCK_PACING_DESIGN_VI.md` | `6298ed118d0c0365550dc77815ba5ce495a4d1d1` |
 | `docs/design/TECHNOLOGY_AND_INSTITUTIONS_1836_2026_DRAFT.md` | `18a37e8335b188182ec45b882bb8f44c3285b66a` |
 
 ## 2. Risk table integrity and traceability
@@ -292,3 +293,11 @@ The prior structural summary undercounted the matrix by one because it omitted t
 - Updated ChatGPT self-review pin: `docs/audit/s0/S0_B7_SELF_REVIEW.md` §16 records a live structural parse of Risk Register and Traceability at pre-manifest HEAD `646850556a4f1970c5334b7696145760a77ee0a7`: P0 1×6; P1 13×6; P2 22×6; P3 5×3; Closed 1×3; 48 unique mappings and no unresolved risk IDs.
 - Current handoff and Claude review request record the self-audit and scope/research updates. These records do not claim independent review, close risks, alter gates or authorize S1.
 - The exact pinned file blobs are listed in §1. Re-fetch them from the live branch before review; this manifest itself advances the branch and is not a substitute for live HEAD verification.
+
+
+## 29. 1836–2026 calendar and provisional speed guard (2026-11-20)
+
+- Added/pinned `docs/spec/SIMULATION_CLOCK_PACING_DESIGN_VI.md` with §12 covering the 1836-01-01 start, 2026-12-31 final playable date, 2027-01-01 terminal boundary, Gregorian leap-year behavior and 191 inclusive calendar years.
+- §12 proposes a provisional Speed 5 pacing ceiling of one game year per 60 real seconds (approximately 6.1 game days per real second) as a guard against multi-year-per-second jumps. It is explicitly a design proposal, not a benchmark, device result, implementation or owner acceptance of final mapping.
+- The updated handoff and B7 review request pin this context. The bounded review verdict remains limited to S0-B7; no S0 gate, risk disposition, exception or implementation authorization changed.
+- Direct Victoria 3 comparison, reference Android throughput, scheduler tests and save migration evidence remain outstanding.
