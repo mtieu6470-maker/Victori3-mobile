@@ -62,14 +62,23 @@ describe('Gregorian monthly clock', () => {
     for (const progress of results) expect(progress).toBeCloseTo(5, 8);
   });
 
-  it('requires at least 62 seconds for a 31-day month at Speed 5', () => {
+  it('consumes one six-hour step per quarter game-day', () => {
+    const pacer = new SimulationPacer();
+    pacer.resume(0);
+    for (let t = 50; t <= 500; t += 50) pacer.advance(t, 5);
+    expect(pacer.consumeSixHourStep()).toBe(true);
+    expect(pacer.consumeSixHourStep()).toBe(false);
+    expect(pacer.pendingDays).toBeCloseTo(0, 8);
+  });
+
+  it('requires 62 seconds for 124 six-hour steps in a 31-day month at Speed 5', () => {
     const pacer = new SimulationPacer();
     pacer.resume(0);
     for (let t = 50; t < 62_000; t += 50) pacer.advance(t, 5);
-    expect(pacer.consumeMonth(2026, 1)).toBe(false);
-
+    for (let i = 0; i < 123; i++) expect(pacer.consumeSixHourStep()).toBe(true);
+    expect(pacer.consumeSixHourStep()).toBe(false);
     pacer.advance(62_000, 5);
-    expect(pacer.consumeMonth(2026, 1)).toBe(true);
+    expect(pacer.consumeSixHourStep()).toBe(true);
     expect(pacer.pendingDays).toBeCloseTo(0, 8);
   });
 
