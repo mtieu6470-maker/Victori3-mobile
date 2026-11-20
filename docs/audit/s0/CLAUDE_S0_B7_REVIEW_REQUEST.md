@@ -213,3 +213,10 @@ The owner has now instructed ChatGPT to use full technical discretion to decide 
 The clock design file was extended with a campaign calendar and a provisional pacing guard: last playable date 2026-12-31, terminal boundary 2027-01-01 00:00 after final-day tasks, and a Speed 5 ceiling proposal of no more than one game year per 60 real seconds (about 6.1 game days/real second). This explicitly addresses the previously observed multi-year-per-second behavior while preserving FPS-independent deterministic scheduling. It is a design target only; do not report it as benchmarked, implemented or accepted. Direct Victoria 3 and reference Android measurements remain outstanding. The campaign contains 191 inclusive calendar years from 1836 through 2026.
 
 The clock addendum does not change S0/B7 verdicts or authorize gameplay/runtime/save changes. Reviewers should inspect it as owner-request context only, outside the bounded B7 risk/signoff verdict.
+
+
+## 23. Owner-confirmed Speed-5 ceiling update — context only
+
+The owner has set the maximum Speed-5 pace to no more than **0.5 in-game Gregorian day per real second** (12 game-hours per second). The current clock design §12.2–12.3 and CLK-13 reflect this ceiling; prior 1-year/60-second and 1–2-day/second proposals are superseded. The full 1836–2026 interval contains 69,762 Gregorian days and would require 139,524 real seconds (38h 45m 24s) at the cap with uninterrupted calendar advancement.
+
+This is a design requirement, not implementation or benchmark evidence. It does not change the bounded S0-B7 review scope or authorize runtime/clock/save changes.
