@@ -5,6 +5,7 @@
 **Repository:** [mtieu6470-maker/Victori3-mobile](https://github.com/mtieu6470-maker/Victori3-mobile)  
 **Nhánh phát triển hiện được chỉ định:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Nguyên tắc sản phẩm của chủ dự án:** [OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md](docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md)  
+**Chỉ thị mới nhất về parity Victoria 3, media đầy đủ và mục tiêu game 4–5 GB:** [OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md](docs/coordination/OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md)  
 **Bảng bàn giao/trạng thái hiện hành:** [AI_HANDOFF.md](docs/coordination/AI_HANDOFF.md)  
 **Quy trình phối hợp và phân quyền:** [AI_COLLABORATION_PROTOCOL.md](docs/coordination/AI_COLLABORATION_PROTOCOL.md)
 
@@ -17,7 +18,7 @@
 Không yêu cầu chủ dự án nhắc lại các nguyên tắc đã lưu tại đây. Khi được giao tiếp tục dự án:
 
 1. Xác nhận đúng repository, branch và HEAD trực tiếp từ GitHub. Không dùng SHA trong chat cũ làm HEAD hiện tại.
-2. Đọc file này, `AGENTS.md`, `CLAUDE.md` (nếu áp dụng), [SESSION_RECOVERY_PROTOCOL_VI.md](docs/coordination/SESSION_RECOVERY_PROTOCOL_VI.md), [AI_HANDOFF.md](docs/coordination/AI_HANDOFF.md), [AI_COLLABORATION_PROTOCOL.md](docs/coordination/AI_COLLABORATION_PROTOCOL.md) và [OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md](docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md).
+2. Đọc file này, `AGENTS.md`, `CLAUDE.md` (nếu áp dụng), [SESSION_RECOVERY_PROTOCOL_VI.md](docs/coordination/SESSION_RECOVERY_PROTOCOL_VI.md), [AI_HANDOFF.md](docs/coordination/AI_HANDOFF.md), [AI_COLLABORATION_PROTOCOL.md](docs/coordination/AI_COLLABORATION_PROTOCOL.md) và [OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md](docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md). Đọc TOÀN BỘ [OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md](docs/coordination/OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md); không chỉ đọc tóm tắt. Đọc thêm đầy đủ [OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md](docs/coordination/OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md), là chỉ thị mới nhất về phạm vi Victoria 3, media và dung lượng game.
 3. Đọc roadmap/owner decisions, phase gate, subsystem spec, parity matrix và báo cáo tiến độ mới nhất được AI_HANDOFF chỉ định.
 4. Kiểm tra commit, diff, file đã đổi, workflow/CI và artifact để xác định chính xác phiên trước đã lưu đến đâu. Nếu phản hồi chat bị mất sau một thao tác ghi, phải kiểm tra GitHub trước khi thử lại; không được tạo commit/file trùng.
 5. Phân loại rõ phần đã commit, đã xác minh, CI đang chạy/thất bại, chưa commit và chưa xác định. Nếu GitHub không truy cập được sau retry có giới hạn, dừng ghi và báo BLOCKED; không suy đoán.
@@ -36,6 +37,8 @@ Không yêu cầu chủ dự án nhắc lại các nguyên tắc đã lưu tại
 ## 1. Đích sản phẩm
 
 Xây dựng một trò chơi đại chiến lược xã hội–kinh tế trên Android, lấy Victoria 3 làm chuẩn tham chiếu về độ sâu hệ thống, phạm vi gameplay và cách thông tin được trình bày. Mục tiêu không phải tạo bản đồ đẹp hoặc menu giống giao diện; mục tiêu là một thế giới mô phỏng có thể chơi, nơi các hệ thống tác động qua lại và tạo ra diễn biến khó đoán nhưng hợp lý.
+
+**Chuẩn hoàn chỉnh:** học và tái triển khai toàn bộ hệ thống gameplay của Victoria 3 (base game và các expansion/immersion/mechanics pack gameplay đã phát hành trong phiên bản tham chiếu), không chọn một vài hệ thống dễ làm rồi gọi là hoàn chỉnh. Đồng thời phải có thư viện hình ảnh, video/animation, âm nhạc và hiệu ứng âm thanh phong phú, chất lượng cao. Mục tiêu dung lượng là khoảng **4–5 GB cho game đầy đủ sau khi cài đủ nội dung**, không phải APK lõi đơn lẻ; xem chỉ thị owner mới nhất để biết yêu cầu chi tiết.
 
 ### Hai chế độ, một engine
 
@@ -407,9 +410,9 @@ Cần có:
 
 **Nghiệm thu:** export → import → tiếp tục simulation từ đúng ngày với state/RNG tương ứng; không chỉ xác nhận file tồn tại.
 
-### 2.22. APK, Resource Packs và chế độ offline
+### 2.22. APK, Resource Packs, media đầy đủ và chế độ offline
 
-**Mục đích:** cài ứng dụng nhỏ gọn trước; dữ liệu lớn được tải có kiểm soát sau đó.
+**Mục đích:** APK lõi có thể cài gọn, nhưng sản phẩm hoàn chỉnh sau khi cài đủ pack phải đạt khoảng **4–5 GB dung lượng game thực chất trên thiết bị**. Đây là yêu cầu về độ đầy đủ dữ liệu và media, không phải mục tiêu nén game xuống một APK nhỏ.
 
 Luồng mục tiêu:
 1. APK cài được, mở được, cung cấp giao diện bootstrap và Resource Pack Manager.
@@ -421,6 +424,9 @@ Luồng mục tiêu:
 7. Cho xem trạng thái, version, dung lượng, lỗi, cập nhật và gỡ pack an toàn.
 8. Sau khi cài đủ pack bắt buộc, khởi tạo campaign, simulation, map, save/load và gameplay cốt lõi chạy offline.
 9. Pack dữ liệu không được thực thi JS/HTML/code; tách simulation data khỏi art/audio/locale khi hợp lý.
+10. Full-content collection phải có dữ liệu lịch sử/gameplay toàn cầu và thư viện media hoàn chỉnh: cờ, huy hiệu, chân dung, nhân vật, công trình, tàu/thuyền, quân đội, minh họa sự kiện, texture/bản đồ, animation/video, soundtrack, ambience và hiệu ứng âm thanh. Video và audio phải có sẵn offline sau khi tải pack tương ứng; không phụ thuộc streaming.
+11. Giữ ảnh độ phân giải cao, video có chất lượng hình/khung hình hợp lý và âm thanh bitrate/sample-rate tốt. Không downscale, giảm bitrate hoặc bỏ media hàng loạt chỉ để thu nhỏ dung lượng. Cho phép nén hiệu quả nhưng không làm suy giảm đáng kể chất lượng; đo riêng kích thước gốc, download, expanded và RAM giải mã.
+12. Mục tiêu **4–5 GB là tổng dung lượng cài đặt khi đã cài bộ game đầy đủ** (APK + game data + media đã activate), không phải kích thước APK đơn lẻ, không phải RAM, và không phải quota bắt buộc nhồi file. Chỉ tính nội dung có dùng trong gameplay; cấm file rỗng, trùng lặp, ngẫu nhiên hoặc media lặp để tăng dung lượng.
 
 **Nghiệm thu thực tế bắt buộc:** cài APK mới → mở offline → xem bootstrap → bật mạng theo hành động người dùng → tải pack → ngắt mạng giữa chừng → resume → xác minh signature/hash → activate → tắt mạng → tạo/chạy/lưu/tải campaign. Có test pack hỏng, sai version, hết dung lượng và rollback.
 
@@ -578,6 +584,7 @@ Sau khi hoàn thành: cập nhật báo cáo tiến độ đang dùng + AI_HANDO
 | 4 | [AI_HANDOFF.md](docs/coordination/AI_HANDOFF.md) | Trạng thái, task, commit, CI, reviewer, next step |
 | 5 | [AI_COLLABORATION_PROTOCOL.md](docs/coordination/AI_COLLABORATION_PROTOCOL.md) | Vai trò, quyền hạn, source-of-truth, workflow |
 | 6 | [OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md](docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md) | Chỉ thị dài hạn về sản phẩm, APK, pack, offline, QA |
+| 7 | [OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md](docs/coordination/OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md) | Chỉ thị mới nhất: full parity Victoria 3, thư viện hình ảnh/video/âm thanh chất lượng cao và mục tiêu 4–5 GB game đầy đủ sau cài đặt |
 | 7 | Roadmap và owner decisions được AI_HANDOFF chỉ định | Phase/gate và quyền triển khai hiện hành |
 | 8 | Spec subsystem + parity audit/matrix | Thiết kế và tiêu chí đúng của task |
 | 9 | Rolling progress/audit report gần nhất | Bằng chứng, gap và việc tiếp theo |
@@ -614,5 +621,7 @@ Sau khi hoàn thành: cập nhật báo cáo tiến độ đang dùng + AI_HANDO
 ## 10. Nhắc nhở ngắn cho mọi phiên mới
 
 **Đọc HEAD mới nhất → đọc trang này → đọc AI_HANDOFF → đọc protocol + nguyên tắc chủ dự án → xác định gate/authorization → kiểm tra parity gap → làm một lát cắt có test → cập nhật báo cáo → commit/push → bàn giao exact SHA.**
+
+**Bắt buộc đọc thêm toàn bộ OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md:** phạm vi không được thu hẹp tùy tiện khỏi toàn bộ hệ thống Victoria 3; game hoàn chỉnh phải có hình ảnh, video, animation, âm nhạc và hiệu ứng âm thanh chất lượng cao, hướng tới 4–5 GB dung lượng cài đặt thực tế. 18 MB APK lõi không phải game hoàn chỉnh.
 
 Đừng bắt chủ dự án nhắc lại điều đã có trong GitHub. Đừng đoán. Đừng làm vòng quanh. Đừng báo hoàn thành nếu chưa có bằng chứng.
