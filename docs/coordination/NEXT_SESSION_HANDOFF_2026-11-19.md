@@ -318,3 +318,12 @@ Next action remains Claude's independent read-only B7 review of the refreshed re
 ## Addendum — exact-HEAD run #322 verification (2026-11-20)
 
 The last checkpoint commit `68fee31641d2249be824a87f4302c26a5aeb6611` is verified as the exact checkout SHA for Android workflow run `44661820747`. Job `136041609778` succeeded: 38/38 suites, 97/97 tests, zero failures, Gradle `BUILD SUCCESSFUL`. Evidence artifact `14596545236` and APK artifact `14596440616` were downloaded and inspected. Embedded debug APK: 18,057,541 bytes, SHA-256 `eda437afeadad10074d38acf567601c0c43ab3a6e9661ce8145962896fdf3cbb`; debug certificate SHA-256 `559d549a21515f899b6195c65114b2be778ff2fbd63288d21ef31f4365b96238`. No device QA, release signing, independent B7 review, owner acceptance or S1 authorization is claimed. Continue with Claude's independent no-write B7 review and then owner decision.
+
+
+## Addendum — owner paused Claude; ChatGPT self-audit continuation (2026-11-20)
+
+The owner has instructed that Claude temporarily perform no project work and delegated routine technical execution/decisions to ChatGPT. This changes who is actively working, not the formal gate evidence requirements: ChatGPT may continue bounded implementation and self-audit, but must not label its own work as Claude's independent review or record `REVIEW_PASS` / `ACCEPTED`.
+
+Latest verified base for the current self-audit slice was `085c05ba52020dc2ee61cce98f168c035268b4c9`. Run #322 `44661820747` and both artifact ZIPs were rechecked locally; see `S0_B7_SELF_REVIEW.md` §11. The artifact reports 38/38 suites, 97/97 tests and Gradle success for its exact checkout SHA `68fee31641d2249be824a87f4302c26a5aeb6611`. The evidence provenance explicitly does not assert product-source equivalence to the frozen baseline. Two docs-only commits followed that build; do not claim CI ran on their final HEAD.
+
+Next work remains bounded to B7 documentation/evidence consistency and permitted audit-only tasks. Independent review/owner gate remain pending; S1 and gameplay/runtime changes remain unauthorized.

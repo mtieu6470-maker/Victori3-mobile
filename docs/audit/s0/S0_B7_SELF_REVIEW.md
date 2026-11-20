@@ -109,3 +109,26 @@ The full raw report and exact package versions/advisories are recorded in `S0_DE
 - Signing: debug signer `C=US, O=Android, CN=Android Debug`; certificate SHA-256 `8610076ddcefefc85d188530b0eb4645a21f92f38008692c29f6282a13418e19`. Not a release-signed APK.
 - Both downloaded artifact ZIP SHA-256 values were recomputed and match GitHub API digests. Full build steps through Gradle assembly and both uploads completed.
 - CI-F4 is closed narrowly: the APK workflow's test-scope mismatch is resolved and the defined closure condition is met. The frozen-baseline B4 characterization remains separate. This does not change overall S0 or S1 status.
+
+
+## 11. Run #322 APK and evidence archive integrity — ChatGPT implementer self-audit (2026-11-20)
+
+This is a supplemental artifact-integrity check, not an independent review, gate verdict, device QA or owner acceptance.
+
+| Check | Result | Evidence |
+|---|---|---|
+| Workflow provenance | PASS for provenance fields | `provenance.txt` pins commit and checked-out HEAD to `68fee31641d2249be824a87f4302c26a5aeb6611`, ref `refs/heads/experiment/vic3-visual-upgrade`, run `44661820747`. |
+| Evidence ZIP integrity | PASS | Local SHA-256 recomputation: `50c75905c66950a8868afc58f9eb81f3ecc09096fc3e2a0254b13f7233747492`, matching GitHub API metadata; 15 files listed. |
+| Test report | PASS for reported run | JSON and `test_summary.txt` agree: 38/38 suites, 97/97 tests, zero failures/pending, `success=true`, `report_valid=true`; Vitest exit code 0. |
+| Gradle / APK assembly | PASS for reported run | Job log reports `BUILD SUCCESSFUL`, 85 actionable tasks and completed APK/evidence uploads. |
+| APK ZIP integrity | PASS | Local SHA-256 recomputation: `1f3d14e2c2f4aa43b5d1fe12fb1ed34b6058d37c5c91c8b262de2b20a57d7ff5`, matching GitHub API metadata. ZIP contains one file, `app-debug.apk`. |
+| APK file integrity | PASS | Extracted APK is 18,057,541 bytes; local SHA-256 `eda437afeadad10074d38acf567601c0c43ab3a6e9661ce8145962896fdf3cbb`, matching the embedded `apk_sha256.txt`. |
+| APK signature | PASS for debug signature verification | Evidence log records apksigner exit 0, v1=true and v2=true; certificate SHA-256 `559d549a21515f899b6195c65114b2be778ff2fbd63288d21ef31f4365b96238`. v3/v3.1/v4 are not present. Android Debug signer; not release-signed. |
+
+Local verification commands (Python 3 standard library and sha256sum) completed with exit code 0:
+- `sha256sum /mnt/data/ci-evidence-322.zip /mnt/data/vic3-run322-debug-apk.zip`
+- A `zipfile` / `hashlib` check enumerated both archives, extracted `app-debug.apk), recomputed its SHA-256, and parsed `test_summary.txt` plus `vitest-results.json`.
+
+Important provenance limitation: the artifact's own `provenance.txt` states `product_source_state=not asserted by CI; compare this commit with the baseline using git`. Therefore this run proves the recorded build/test execution for its checkout SHA only; it does not prove product-source equivalence to frozen baseline, gameplay acceptance, global simulation quality or device behavior.
+
+No local Vitest, Gradle or device test was run in this self-audit. No APK was installed. No gate status changes: S0-B7 remains IN_PROGRESS; DEP-F1 OPEN P1; G0.7 BLOCKED; G0.8 PARTIAL; full-S0 G0.9 BLOCKED; bounded S1-entry NOT_TESTED; S1 NOT AUTHORIZED. Claude independent review has not occurred.
