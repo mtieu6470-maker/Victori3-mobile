@@ -1125,3 +1125,24 @@ This is a later, explicit owner authorization to begin product implementation on
 - **UI cleanup:** mapped per-treaty withdrawal rows now receive stable React keys.
 - **Changed files:** `src/engine/core.ts`, `src/engine/systems/diplomacy.ts`, `src/ui/screens/Diplomacy.tsx`, `tests/diplomacy.test.ts`, this handoff and the diplomacy report.
 - **Validation:** pending CI on the exact commit. No PASS claimed.
+
+
+## 2026-11-20 — OWNER PLAYTEST FEEDBACK / SYSTEM REDESIGN + DAILY CLOCK SLICE
+
+- Owner supplied five screenshots and one gameplay recording (85.6 seconds) and explicitly requested a broad Victoria 3 re-review and redesign. Scope includes time pacing, Nguyễn-dynasty identity and portraits, technology, construction, recruitment/army organization, battle progression, treaty negotiation and overall visual quality.
+- Branch: experiment/vic3-visual-upgrade. No default-branch change, merge, rebase, PR or force-push.
+- Base source: 477ceb078786219ca0faf202ba66d0bfac26b390.
+- Current source commit: fcadf1d82edda6615503b79fa9a9c2532d4c197a — daily calendar and RAF-independent timer.
+- Code: add Gregorian dayOfMonth and stepDay; keep the expensive country-simulation pipeline at month boundaries; replace RAF-driven simulation with a timer that advances one calendar day at a time; show day/month/year in the top bar; migrate old v1 saves without day data to day 1.
+- Speed mapping in source: 10,000 / 6,000 / 4,000 / 3,000 / 2,000 ms per game day for speeds 1–5. Speed 5 is capped at 0.5 Gregorian day per real second. These values implement the owner ceiling; they are not a Victoria 3 or device benchmark.
+- New tests: daily calendar progression, monthly systems only at month boundaries, Gregorian leap-year February, legacy save default, daily save/load determinism, speed-5 ceiling and ordered speed levels.
+- Code/test files: src/engine/types.ts, src/engine/init.ts, src/engine/simulation.ts, src/engine/save.ts, src/ui/game/controller.ts, src/ui/App.tsx, tests/simulation.test.ts and tests/ui.test.ts.
+- Actions #462, ID 44737688243, exact SHA fcadf1d82edda6615503b79fa9a9c2532d4c197a, was IN_PROGRESS when this note was written: https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44737688243. No CI PASS or updated APK is claimed.
+- Boundary: this is a daily calendar and FPS-independent pacing slice, NOT the six-hour regular tick/task graph. The domain simulation remains monthly. Daily/weekly/six-hour tasks, task dependency graph, Worker boundary, overload instrumentation and Android device QA remain open.
+- Full playtest findings and staged redesign: docs/feedback/PLAYER_PLAYTEST_TRIAGE_2026-11-20.md. Read it before touching these domains.
+- Priority after CI: (1) identity assets and date-aware ruler portraits/flags, (2) construction capacity/sectors and public/private queues, (3) per-country tech starts and complete prerequisite/effect data, (4) recruitable battalions/formations, commanders/fronts and battle records, (5) treaty proposal/counteroffer/ratification and diplomatic plays, (6) unified UI/UX redesign throughout.
+- Historical correction: Vietnam National Archives and Vietnam National Museum of History sources state that the Nguyễn court changed the quốc hiệu to Đại Nam in 1838. Verify the exact effective date against the primary edict before changing display names; a November 1838 screen should not uncritically say Việt Nam.
+- Victoria 3 reference mechanics: Paradox Dev Diary #76 describes six-hour regular ticks and separate daily/weekly/monthly/yearly tasks; #44/#77 describe front advancement, generals, battle unit selection and reports; #71 describes government/private construction capacity allocation; #146 and the 1.15.0 update cover treaty articles and negotiated transfer agreements. Current 1.15.2 must be checked when revisiting each mechanic. The 1.15.1 449-country/179-tech/seven-start-package comparison is from a third-party audit of game files and matching saves, not an official Paradox statement.
+- Baseline CI: commit 477ceb0... passed 48/48 suites and 143/143 tests. Its debug APK SHA-256 was ca56760c5ed39c2808e9596686fe525fcefa9fd30800aa03c53bed9a61cbe463, but that APK predates the daily-clock changes.
+- Device QA NOT_TESTED; independent review PENDING; owner acceptance PENDING. No release signing credentials changed.
+- Recovery: fetch current HEAD and Actions #462 first. If failed, inspect exact logs and fix narrowly. If successful, inspect exact SHA artifact/checksum and append evidence. Do not declare feature parity complete.

@@ -3,7 +3,7 @@
 **Ngày:** 2026-11-20  
 **Repository:** mtieu6470-maker/Victori3-mobile  
 **Branch:** experiment/vic3-visual-upgrade  
-**Trạng thái:** DESIGN_ONLY — CHƯA ĐƯỢC PHÉP IMPLEMENT  
+**Trạng thái:** CLK-A DAILY CALENDAR + RAF-INDEPENDENT TIMER COMMITTED (CI PENDING); CLK-B SIX-HOUR TASK SCHEDULER NOT IMPLEMENTED  
 **Phạm vi:** phân tích và thiết kế P0 theo phản hồi chơi thử. Tài liệu này không thay đổi engine, gameplay, UI, save schema hoặc test.
 
 ---
@@ -255,12 +255,12 @@ Thứ tự đề xuất: CLK-A0 → CLK-A1 → CLK-A2 → CLK-A3 (sau khi đặc
 - **Reference parity:** Dev Diary #76 là mô tả kỹ thuật xuất bản năm 2023, không phải pacing benchmark hiện tại. Cần benchmark trực tiếp V3 build người chơi sử dụng.
 - **Chưa khóa:** tick resolution cuối cùng; speed wall-clock mapping; task frequency từng subsystem; Worker boundary; migration compatibility và autosave durability.
 
-## 11. Scope boundary và trạng thái
+## 11. Scope boundary và trạng thái tại checkpoint thiết kế ban đầu
 
-- Đây là design-only preparation dựa trên owner feedback 2026-11-20 và source inspection tại experiment branch.
-- Không có code, test, asset, data, workflow, dependency, Gradle, signing, APK hoặc save schema nào được sửa.
+- Tại checkpoint thiết kế ban đầu, đây là design-only preparation dựa trên owner feedback 2026-11-20. Trạng thái hiện tại đã được cập nhật tại §13.
+- Tại checkpoint thiết kế ban đầu chưa có code, test, asset, data, workflow, dependency, Gradle, signing, APK hoặc save schema nào được sửa; phần này được supersede bởi implementation slice ghi tại §13.
 - Không có benchmark runtime/device mới được chạy trong slice này. Các tốc độ ở §2.2 là phép quy đổi lý thuyết từ source constants, không phải kết quả đo.
-- Không tuyên bố clock đã sửa, không tuyên bố Victoria 3 pacing parity, và không mở S1.
+- Tại checkpoint ban đầu không tuyên bố clock đã sửa hoặc Victoria 3 pacing parity. Sau đó đã có daily-clock slice tại §13; chưa được coi là full parity.
 - S1 vẫn cần independent review/owner ACCEPTED theo gate. Khi được mở, P0 clock/pacing phải đi trước các lát cắt gameplay P1 khác.
 
 
@@ -336,3 +336,35 @@ Quy tắc scheduler:
 - Không có runtime code hoặc save migration nào được thay đổi.
 - Không tuyên bố scheduler, pacing guard, 1836–2026 campaign boundary hay các cadence trên đã được implement.
 - Phần này chỉ là thiết kế để chuẩn bị một slice được cấp quyền sau phase review.
+
+
+## 13. Implementation checkpoint — daily calendar and RAF-independent pacing (2026-11-20)
+
+Authorization: the owner explicitly requested correction of the overly fast clock after reviewing the current screenshots and gameplay recording. The implementation uses the standing hard ceiling for speed 5: no more than 0.5 Gregorian game-day per real second.
+
+Source commit: fcadf1d82edda6615503b79fa9a9c2532d4c197a on experiment/vic3-visual-upgrade.
+
+### Delivered in this slice
+- GameState.dayOfMonth is additive. New campaigns start on 1836-01-01; old v1 saves without this property resume on day 1.
+- stepDay() advances Gregorian days and observes leap years. Existing monthly systems run only when the calendar crosses into the next month; GameState.tick keeps its legacy meaning of completed months.
+- GameController no longer drives simulation from RAF. It uses a timer that advances one game day per interval; delayed callbacks do not trigger a catch-up burst.
+- Top bar exposes day/month/year.
+- Candidate speed schedule: 10s/day, 6s/day, 4s/day, 3s/day, 2s/day for speeds 1–5. Speed 5 is exactly the owner ceiling. This is not a measured Victoria 3 benchmark.
+
+| Speed | Milliseconds / game day | Nominal calendar rate |
+|---|---:|---:|
+| 1 | 10,000 | 0.10 day/s |
+| 2 | 6,000 | 0.167 day/s |
+| 3 | 4,000 | 0.25 day/s |
+| 4 | 3,000 | 0.333 day/s |
+| 5 | 2,000 | 0.50 day/s (hard ceiling) |
+
+### Explicitly not delivered
+- No six-hour/regular logical tick.
+- No daily, weekly, monthly and yearly task dependency graph; non-monthly systems have not been moved to new cadences.
+- Economy, population, politics, secession, technology, diplomacy, military, events, AI and divergence still run monthly.
+- No Worker-based simulation, backlog visualization, device benchmark, Android process-death QA or verified autosave durability.
+- This is a pacing correction, not full Victoria 3 clock architecture parity.
+
+### Validation
+At this checkpoint, Actions #462 (ID 44737688243) was still running on the exact source SHA. Record a PASS and APK only after checking the completed run and its evidence artifact.
