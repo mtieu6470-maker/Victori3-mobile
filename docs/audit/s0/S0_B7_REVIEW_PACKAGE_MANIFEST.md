@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `b9c2780a8178bf45c908cdd6e37a6f4d380b3cfa`  
+**Snapshot HEAD before this manifest refresh:** `8a3c8bea8171b96785b2101a50ec77b1e24e0195`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -23,7 +23,7 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `21701183432e95d3ff677c994dcf51e7a312b4a2` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `403a1dc63df414afc348ffbfd2a6f144f3394dd2` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `331a592939d703b31e040c925534fba29d1b2ba7` |
+| `docs/coordination/AI_HANDOFF.md` | `3badcaab602bca3f275132ceca167fb18c8b4b9c` |
 | `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `3e634cbfe5f0d5cf98796d6ab9969405024d04d9` |
 
 ## 2. Risk table integrity and traceability
@@ -120,12 +120,12 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 - Test artifact `14554953353`, 106,657 bytes, API SHA-256 `96aa79f605d52f7a2eb60748f307802827f6fec9994e280fd655e3565c879829`; 38/38 suites and 97/97 tests passed.
 - APK artifact `14553589834`, ZIP 17,569,405 bytes, API SHA-256 `72ce3a5759bd1379aaf35bf10a395f3cc136230b44eabc64976375405b85678b`; contains `app-debug.apk` 18,057,530 bytes, SHA-256 `338fc54ce2e68f15ddc7043c664bdffa9cd79ade3c41aa0ed7a7cf0bfa7fe6b5`. Debug certificate SHA-256 `8610076ddcefefc85d188530b0eb4645a21f92f38008692c29f6282a13418e19`.
 - Both artifact ZIP digests were recomputed and match GitHub API digests. CI-F4 closed narrowly; no gameplay acceptance, device QA, release signing, data-pack delivery, overall S0 PASS or S1 authorization is implied.
-- Updated B7 review-input blob SHAs: Risk Register `c22fbf270e3e2263067d30e48c7c63464a5b3f47`; Risk Traceability `dbcfeb7f125578220e220c594c3a834bfeecaa8f`; B7 self-review `70eb56cf89b8ff8ea4536c0cd373532f61134c16`; dependency plan `e3ff67518e936882b9f1f3f6096030ddb4bb99b5`; signoff `f150ed753276f19e77e4fee4e7ee62e28422d93e`; B7 Results `78e62e66daf92989c0314dd3d6fb446a774ad6bf`; Claude request `21701183432e95d3ff677c994dcf51e7a312b4a2`; workflow `dacd8506bed77624c44ffa27279354a87e9a4ebf`; AI_HANDOFF `331a592939d703b31e040c925534fba29d1b2ba7`; next-session handoff `3e634cbfe5f0d5cf98796d6ab9969405024d04d9`.
+- Updated B7 review-input blob SHAs: Risk Register `c22fbf270e3e2263067d30e48c7c63464a5b3f47`; Risk Traceability `dbcfeb7f125578220e220c594c3a834bfeecaa8f`; B7 self-review `70eb56cf89b8ff8ea4536c0cd373532f61134c16`; dependency plan `e3ff67518e936882b9f1f3f6096030ddb4bb99b5`; signoff `f150ed753276f19e77e4fee4e7ee62e28422d93e`; B7 Results `78e62e66daf92989c0314dd3d6fb446a774ad6bf`; Claude request `21701183432e95d3ff677c994dcf51e7a312b4a2`; workflow `dacd8506bed77624c44ffa27279354a87e9a4ebf`; AI_HANDOFF `3badcaab602bca3f275132ceca167fb18c8b4b9c`; next-session handoff `3e634cbfe5f0d5cf98796d6ab9969405024d04d9`.
 
 
 ### Governance references refreshed — 2026-11-20
 
-- AI_HANDOFF blob SHA: `331a592939d703b31e040c925534fba29d1b2ba7` (includes branch-specific governance reconciliation).
+- AI_HANDOFF blob SHA: `3badcaab602bca3f275132ceca167fb18c8b4b9c` (includes branch-specific governance reconciliation).
 - NEXT_SESSION_HANDOFF blob SHA: `3e634cbfe5f0d5cf98796d6ab9969405024d04d9` (includes branch-specific governance reconciliation).
 - Use the owner-designated experiment branch for this task. Default-branch protocol and handoff were read but not edited; see the governance reconciliation note for stale generic branch/roadmap text and the newer owner-directed role allocation.
 
@@ -140,7 +140,7 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 
 - Snapshot HEAD before this manifest refresh: `302f3a38c53c6cc3d7c3d09522a336b0123b58b6`. Default branch HEAD observed in the compare: `e4182491161e61065e4ac15228c5f59a8832ad1d`.
 - Corrected the stale DEP-F1 traceability row, reviewer report template, reviewer request's old pinned HEAD / unrun-audit description, historical CI-F4 wording and self-review status label. See §1 for current blob identities.
-- Latest review-input blobs: risk traceability `dbcfeb7f125578220e220c594c3a834bfeecaa8f`; self-review `70eb56cf89b8ff8ea4536c0cd373532f61134c16`; reviewer request `21701183432e95d3ff677c994dcf51e7a312b4a2`; reviewer report template `403a1dc63df414afc348ffbfd2a6f144f3394dd2`; risk register `c22fbf270e3e2263067d30e48c7c63464a5b3f47`; signoff `f150ed753276f19e77e4fee4e7ee62e28422d93e`; B7 results `78e62e66daf92989c0314dd3d6fb446a774ad6bf`; dependency plan `e3ff67518e936882b9f1f3f6096030ddb4bb99b5`; AI_HANDOFF `331a592939d703b31e040c925534fba29d1b2ba7`; next-session handoff `3e634cbfe5f0d5cf98796d6ab9969405024d04d9`.
+- Latest review-input blobs: risk traceability `dbcfeb7f125578220e220c594c3a834bfeecaa8f`; self-review `70eb56cf89b8ff8ea4536c0cd373532f61134c16`; reviewer request `21701183432e95d3ff677c994dcf51e7a312b4a2`; reviewer report template `403a1dc63df414afc348ffbfd2a6f144f3394dd2`; risk register `c22fbf270e3e2263067d30e48c7c63464a5b3f47`; signoff `f150ed753276f19e77e4fee4e7ee62e28422d93e`; B7 results `78e62e66daf92989c0314dd3d6fb446a774ad6bf`; dependency plan `e3ff67518e936882b9f1f3f6096030ddb4bb99b5`; AI_HANDOFF `3badcaab602bca3f275132ceca167fb18c8b4b9c`; next-session handoff `3e634cbfe5f0d5cf98796d6ab9969405024d04d9`.
 - Workflow identity: B7 audit workflow `dacd8506bed77624c44ffa27279354a87e9a4ebf`; pinned-baseline B4 workflow `3a4430f7a5ad32e24a95cdef271fc6e07529929e`.
 - Default-branch owner-directed role allocation blob: `7b61ef2f5008a2f6818de01aeb5ab0e4df991cc5`; default-branch AI_HANDOFF blob: `046a5d8b17c48b995ea03fddb2ee98dc491b317a`. The default branch was read-only for this task.
 - Claude independent no-write review has not yet been performed; no REVIEW_PASS or owner ACCEPTED is claimed. Re-fetch live HEAD and all listed blob SHAs before verdict.
@@ -150,5 +150,12 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 ### Post-handoff manifest identity refresh — 2026-11-20
 
 - Snapshot HEAD before this manifest refresh: `b9c2780a8178bf45c908cdd6e37a6f4d380b3cfa`.
-- AI_HANDOFF current blob: `331a592939d703b31e040c925534fba29d1b2ba7`; NEXT_SESSION_HANDOFF current blob: `3e634cbfe5f0d5cf98796d6ab9969405024d04d9`; risk traceability: `dbcfeb7f125578220e220c594c3a834bfeecaa8f`; self-review: `70eb56cf89b8ff8ea4536c0cd373532f61134c16`; Claude request: `21701183432e95d3ff677c994dcf51e7a312b4a2`; Claude report template: `403a1dc63df414afc348ffbfd2a6f144f3394dd2`.
+- AI_HANDOFF current blob: `3badcaab602bca3f275132ceca167fb18c8b4b9c`; NEXT_SESSION_HANDOFF current blob: `3e634cbfe5f0d5cf98796d6ab9969405024d04d9`; risk traceability: `dbcfeb7f125578220e220c594c3a834bfeecaa8f`; self-review: `70eb56cf89b8ff8ea4536c0cd373532f61134c16`; Claude request: `21701183432e95d3ff677c994dcf51e7a312b4a2`; Claude report template: `403a1dc63df414afc348ffbfd2a6f144f3394dd2`.
 - The manifest table and the latest-review-input identity section above are updated to these refs. All are on `experiment/vic3-visual-upgrade`; default branch remains unchanged.
+
+
+### Final handoff pin — 2026-11-20
+
+- Snapshot HEAD before this manifest refresh: `8a3c8bea8171b96785b2101a50ec77b1e24e0195`.
+- Latest AI_HANDOFF blob: `3badcaab602bca3f275132ceca167fb18c8b4b9c`; NEXT_SESSION_HANDOFF blob: `3e634cbfe5f0d5cf98796d6ab9969405024d04d9`.
+- Latest reviewer request, report template, self-review and traceability blobs are re-fetched and pinned in §1. Claude independent review and owner acceptance remain pending.
