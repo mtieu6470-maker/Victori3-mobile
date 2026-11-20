@@ -7,26 +7,35 @@
 - No runtime source, test, generated data, image asset, save format, Gradle, signing or workflow file was changed. No APK was installed and no iQOO device test was performed.
 - Finding confidence below distinguishes code-path defects from broader product-quality judgments that still need measured gameplay evidence.
 
-## 1. P0 — Simulation clock is directly tied to display refresh at maximum speed
+## 1. P0 — Simulation clock has the wrong granularity and is coupled to rendering
 
 **Evidence**
 
-- `src/ui/game/controller.ts:11`: `SPEED_MS` is `{ 1: 2000, 2: 1000, 3: 500, 4: 220, 5: 0 }`.
-- `src/ui/game/controller.ts:79-102`: the simulation loop runs via `requestAnimationFrame`; for speed 5, `need === 0`, the accumulator is reset to zero and exactly one `stepMonth()` runs on every animation frame.
-- `src/engine/simulation.ts:36-49`: each call advances one calendar month.
-- `src/ui/App.tsx:332`: the speed control cycles through all five speeds and displays `×1`…`×5`.
+- `src/engine/types.ts:19,136`: `GameDate` stores year/month only; `GameState.tick` has no day/hour phase.
+- `src/engine/simulation.ts:18,23-49`: campaign ticks are monthly; `stepMonth()` advances one month and runs the full monthly pipeline.
+- `src/ui/game/controller.ts:11,79-102`: the controller invokes `stepMonth()` from `requestAnimationFrame`; speed 5 sets the interval to zero and invokes one monthly step per animation callback.
+- `src/ui/App.tsx:332`: the player can cycle to speed 5 from the speed control.
+- The authoritative clock design already exists in `docs/spec/SIMULATION_CLOCK_PACING_DESIGN_VI.md`; it separates scheduler refactoring from the later increase in logical calendar resolution.
+
+**Correct Victoria 3 reference**
+
+Paradox's technical diary describes a regular Victoria 3 tick as **six in-game hours** (four logical ticks per day), with separate regular, daily, weekly, monthly and yearly task cadences. It explicitly distinguishes tick speed from FPS and explains task dependencies and separate simulation/UI/render responsibilities. The diary does **not** publish a universal fixed number of game-days per real second for speed 5; maximum wall-clock throughput depends on the machine and simulation workload. Source: [Paradox — Dev Diary #76: Performance](https://www.paradoxinteractive.com/games/victoria-3/news/dev-diary-76-performance), 2023-02-22.
+
+**Correction to the previous comparison**
+
+The earlier statement that 60 RAF callbacks could theoretically advance five calendar years in one real second was only a calculation from this project's current monthly-step code under a hypothetical 60 callbacks/second. It was not a measurement on the owner's phone and was not a like-for-like statement about Victoria 3 speed 5. The correct architectural comparison is: Victori3 Mobile advances one **month** per current logical tick, while the documented Victoria 3 regular tick represents **six hours**, with larger tasks scheduled at different cadences. Therefore this is not a matter of simply choosing a slower `SPEED_MS` constant. The simulation calendar is too coarse, and every major system is updated through a monthly pipeline.
 
 **Technical conclusion**
 
-At 60 animation frames per second, speed 5 can advance 60 game months per real second — five calendar years per second. At a higher refresh rate, it can advance even faster. Therefore maximum-speed calendar progression depends on the device's rendering cadence, rather than a fixed wall-clock rate. This is a confirmed source-level pacing defect and directly explains the owner's P0 observation. It is not fixed by a green test/build result.
+Two separate defects must be addressed in order: (1) rendering callbacks must not determine simulation progress; (2) the monthly-only calendar/system model must be redesigned into a higher-resolution logical clock with explicit task cadences. Do not run the existing monthly pipeline four times per day or relabel that as Victoria 3 parity. A monthly-to-six-hour conversion affects cooldowns, event dates, wars, reforms, migration, histories, RNG consumption, tests and saved games; it requires a separate data/save migration design.
 
 **Future acceptance work (not implemented)**
 
-- Replace the zero-interval/frame-count mode with an explicit, bounded tick-rate policy.
-- Keep rendering FPS and calendar rate independent; define each speed as a measurable simulation rate.
-- Cap catch-up after stalls/backgrounding and reset the accumulator safely on pause/resume/load.
-- Add controller-level tests with mocked 60/90/120 Hz animation callbacks, throttled frames, pause/resume and save/load. Verify identical tick counts for the same elapsed active time, within the documented tolerance.
-- Measure game-days per real second/minute at each speed and obtain owner pacing acceptance.
+- Follow the staged `SIMULATION_CLOCK_PACING_DESIGN_VI.md`: first decouple the scheduler from RAF while preserving existing monthly semantics; only then implement a higher-resolution logical clock and cadence graph.
+- Keep render FPS independent from logical ticks; maintain bounded backlog without silently dropping ticks or running unbounded catch-up.
+- Define regular/daily/weekly/monthly/yearly task frequencies, dependencies, stable ordering and deterministic RNG consumption.
+- Add tests at mocked 60/90/120 Hz, low/high load, long stalls, pause/resume, background/foreground and save/load.
+- Benchmark real Victoria 3 and Victori3 Mobile separately; record game-days per real minute, hardware/workload, and speed setting. Do not hard-code a speed mapping until measured and owner-approved.
 
 ## 2. P0 — Portrait selection contains no date-validity check at the display point
 
@@ -134,11 +143,14 @@ Do not describe R7 as fixed. Retain its current containment and require Android 
 
 ## 8. Overall conclusion and sequencing
 
+The expanded feature-by-feature comparison is maintained in `docs/feedback/VICTORIA3_FEATURE_PARITY_GAP_AUDIT_2026-11-20.md`. The normative requirements remain in `docs/spec/MASTER_SPEC_VI.md`; the clock-specific technical design remains `docs/spec/SIMULATION_CLOCK_PACING_DESIGN_VI.md`.
+
 | Priority | Confirmed source-level gap | Required first engineering slice after authorization |
 |---|---|---|
-| P0 | Speed 5 ties one month to each animation frame; portrait display omits term/asset-period validation | Clock-rate controller and date-valid ruler/portrait resolver |
-| P1 | Military country-level aggregation; economic cohort/market abstraction; compact political rule table | Approved data contracts, then vertical slices with deterministic system tests |
-| P2 | Single scalar world power ranking | Decomposable, explainable scoring and UI |
+| P0 | Monthly-only logical calendar and RAF-coupled scheduler; portrait display omits term/asset-period validation | Scheduler decoupling, higher-resolution cadence design/migration, date-valid ruler/portrait resolver |
+| P1 | Aggregate POP/economy, limited treaty/subject model, scalar army/navy and country-level wars, compact political rules | Approved domain contracts and integrated vertical slices with deterministic scenario tests |
+| P2 | Single scalar world power ranking and incomplete map/visual depth | Decomposable national-capability vector, explainable UI and world/map depth |
+
 
 The owner’s APK rejection remains the product acceptance verdict. Run #324's 38 suites / 97 tests and successful debug build validate the recorded CI build/test path only; they do not invalidate these gameplay findings or substitute for Android device QA.
 
