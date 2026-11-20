@@ -65,7 +65,7 @@ describe('GameController fast-forward isolation', () => {
     const second = controller.fastForward(3);
     controller.stepOnce();
     controller.setPaused(false);
-    expect(controller.st?.tick).toBe(0);
+    expect(controller.st?.tick).toBe(6); // fast-forward runs synchronously to its first six-month yield.
     expect(controller.paused).toBe(true);
     expect(controller.command({} as any)).toEqual({ ok: false, reason: 'Đang mô phỏng, vui lòng chờ' });
 
