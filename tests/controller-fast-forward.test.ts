@@ -35,7 +35,6 @@ describe('GameController fast-forward isolation', () => {
   });
 
   it('pauses the live RAF clock during fast-forward and restores its prior run state', async () => {
-    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] });
     const controller = new GameController();
     controller.st = { tick: 0, log: [] } as any;
     controller.setPaused(false);
@@ -46,7 +45,8 @@ describe('GameController fast-forward isolation', () => {
     expect(controller.paused).toBe(true);
     expect(controller.busy).not.toBeNull();
 
-    await vi.runAllTimersAsync();
+    expect(resumeYield).toBeDefined();
+    resumeYield?.();
     await work;
 
     expect(controller.st?.tick).toBe(6);
@@ -56,7 +56,8 @@ describe('GameController fast-forward isolation', () => {
   });
 
   it('rejects overlapping fast-forward and blocks player stepping/commands while busy', async () => {
-    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] });
+    let resumeYield: (() => void) | undefined;
+    vi.stubGlobal('setTimeout', ((callback: () => void) => { resumeYield = callback; return 1; }) as typeof setTimeout);
     const controller = new GameController();
     controller.st = { tick: 0, log: [] } as any;
 
@@ -69,7 +70,8 @@ describe('GameController fast-forward isolation', () => {
     expect(controller.paused).toBe(true);
     expect(controller.command({} as any)).toEqual({ ok: false, reason: 'Đang mô phỏng, vui lòng chờ' });
 
-    await vi.runAllTimersAsync();
+    expect(resumeYield).toBeDefined();
+    resumeYield?.();
     await Promise.all([first, second]);
     expect(controller.st?.tick).toBe(6);
     expect(controller.busy).toBeNull();
