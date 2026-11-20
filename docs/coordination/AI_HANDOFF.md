@@ -959,3 +959,12 @@ This is a later, explicit owner authorization to begin product implementation on
 - **Known limitation:** if the bounded solver reaches 32 iterations without meeting tolerance, the last deterministic iterate is used and `marketClearing.converged=false` plus residual are preserved. A player-facing warning or conservative slowdown policy has not been implemented or tested. This remains a bounded approximation, not a proven globally converged general equilibrium. Firm-owned/region warehouses, agricultural/artisanal warehouse flows, canonical good units, storage capacity/spoilage, physical routes, stockpile policies and the inventory UI remain unimplemented.
 - **Next exact action:** run typecheck + all Vitest/simulation suites + Android APK workflow on the exact source HEAD and fix all failures. Then benchmark monthly market clearing on representative world sizes and the target Android device; add adversarial cyclic/cross-market dependency tests and a documented non-convergence fallback before moving to regional warehouses and route logistics.
 
+
+
+### CI/API evidence check for the above checkpoint
+
+- Re-fetched the live experiment branch and handoff after the implementation/report commits; branch HEAD was `07d3296023c6fd91b47b45758b97a44ee3b8e7a2`.
+- Default branch was rechecked and remained at `e4182491161e61065e4ac15228c5f59a8832ad1d`; it was not modified.
+- `get_commit_combined_status` returned an empty status list for the implementation commit `d740e290d29f0e3d20f58361c95456ef12415d06`, test commit `f20580456c36238363b2780dc52dd4f26a70e711`, and handoff HEAD `07d3296023c6fd91b47b45758b97a44ee3b8e7a2`.
+- The connected workflow-run reader returned no runs for the implementation and test commits. Its documented wrapper only returns pull-request-triggered runs, whereas this repository's Android APK workflow is push-triggered on all branches. This is an API coverage limitation, not proof that no push workflow exists.
+- Therefore exact-SHA Actions execution is still `UNKNOWN / NOT_VERIFIED`. No test/build PASS is claimed.
