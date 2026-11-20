@@ -7,6 +7,7 @@ import { armyStrength, atWar } from './military';
 import { sharesBorder } from './politics';
 import { coreNationOf } from './population';
 import { setCustomsUnionMembership } from './customsUnion';
+import { hasTech } from './economy';
 
 export const allied = (st: GameState, a: string, b: string) => st.treaties.some((t) => t.type === 'alliance' && t.members.includes(a) && t.members.includes(b));
 export const rivals = (st: GameState, a: string, b: string) => st.rivalries.includes(relKey(a, b));
@@ -58,9 +59,46 @@ export function allianceAcceptance(st: GameState, from: string, to: string): num
 }
 /** Subjects other than tributaries have no independent foreign policy (same rule for AI and player). */
 export const boundSubject = (c: Country | undefined) => !!c?.overlord && c.subjectType !== 'tributary';
+
+/** Number of distinct living bilateral alliance partners; it is not a customs-union membership count. */
+export function alliancePartnerCount(st: GameState, countryId: string): number {
+  const partners = new Set<string>();
+  for (const treaty of st.treaties) {
+    if (treaty.type !== 'alliance' || !treaty.members.includes(countryId)) continue;
+    for (const memberId of treaty.members) {
+      if (memberId !== countryId && st.countries[memberId]?.alive) partners.add(memberId);
+    }
+  }
+  return partners.size;
+}
+
+/** One alliance is available with International Relations; further partners require Multilateral Alliances. */
+export function allianceCapacityAvailable(st: GameState, countryId: string): boolean {
+  const country = st.countries[countryId];
+  if (!country?.alive || !hasTech(country, 'international_relations')) return false;
+  return alliancePartnerCount(st, countryId) === 0 || hasTech(country, 'multilateral_alliances');
+}
+
+export function canFormAlliance(st: GameState, a: string, b: string): boolean {
+  const from = st.countries[a], to = st.countries[b];
+  if (!from?.alive || !to?.alive || a === b) return false;
+  if (boundSubject(from) || boundSubject(to)) return false;
+  if (!allianceCapacityAvailable(st, a) || !allianceCapacityAvailable(st, b)) return false;
+  if (allied(st, a, b)) return false;
+
+  // Alliance and Guarantee Independence cannot coexist for the same pair, in either direction.
+  if (st.treaties.some(
+    (treaty) => treaty.type === 'guarantee'
+      && treaty.members.length >= 2
+      && ((treaty.members[0] === a && treaty.members[1] === b)
+        || (treaty.members[0] === b && treaty.members[1] === a)),
+  )) return false;
+
+  return allianceAcceptance(st, a, b) >= 0;
+}
+
 export function formAlliance(st: GameState, a: string, b: string): boolean {
-  if (boundSubject(st.countries[a]) || boundSubject(st.countries[b])) return false;
-  if (allied(st, a, b) || allianceAcceptance(st, a, b) < 0) return false;
+  if (!canFormAlliance(st, a, b)) return false;
   st.treaties.push({ id: newId(st, 'ally'), type: 'alliance', members: [a, b], start: st.tick });
   addRel(st, a, b, 15);
   log(st, { type: 'diplomacy', text: `${st.countries[a].name} and ${st.countries[b].name} form an alliance.`, textVi: `${st.countries[a].nameVi} và ${st.countries[b].nameVi} lập liên minh.`, actors: [a, b] });
@@ -76,6 +114,7 @@ export function declareRivalry(st: GameState, a: string, b: string) {
   log(st, { type: 'diplomacy', text: `${st.countries[a].name} declares ${st.countries[b].name} a rival.`, textVi: `${st.countries[a].nameVi} tuyên bố ${st.countries[b].nameVi} là đối thủ.`, actors: [a, b] });
 }
 export function guarantee(st: GameState, a: string, b: string) {
+  if (allied(st, a, b)) return;
   if (st.treaties.some((t) => t.type === 'guarantee' && t.members[0] === a && t.members[1] === b)) return;
   st.treaties.push({ id: newId(st, 'guar'), type: 'guarantee', members: [a, b], start: st.tick }); addRel(st, a, b, 10);
 }
