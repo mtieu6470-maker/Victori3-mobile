@@ -279,6 +279,7 @@ describe('inventory ledger integration with the shared economy', () => {
     const state = fresh('historical', 145, 'GBR');
     const legacy = JSON.parse(serialize(state));
     delete legacy.state.inventoryLedger;
+    delete legacy.state.marketClearing; // simulate a save predating market-solver diagnostics
 
     const restored = deserialize(JSON.stringify(legacy));
     expect(restored.inventoryLedger).toEqual({
