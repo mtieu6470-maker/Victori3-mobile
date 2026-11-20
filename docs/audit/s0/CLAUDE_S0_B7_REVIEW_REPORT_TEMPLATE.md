@@ -32,7 +32,7 @@ Choose exactly one:
 | B4 executed checkout | `7f17b1f0177d712366e31e4e8c879cc4b6dd5741` | `<PASS/FAIL>` | |
 | B4 test source blob | `722d62c0647f06bc2e3a49bdef1f348f4f3104f2` | `<PASS/FAIL>` | |
 | Dependency workflow blob | `<live SHA>` | `<PASS/FAIL>` | Must match default and experiment branches. |
-| Dependency workflow execution | `<run ID or NOT RUN>` | `<PASS/FAIL/NOT RUN>` | Do not infer package vulnerabilities without artifact. |
+| Dependency workflow execution | `44572915201` / artifact `14555141888` | `<PASS/FAIL>` | Independently download both raw audit JSON files, compare summary/provenance and verify the artifact digest. |
 
 ## 3. Finding table
 
@@ -50,9 +50,9 @@ Add one row per issue. Do not group findings if doing so hides a different sever
 | G0.7 | `BLOCKED` pending iQOO measurements; only bounded exception may be proposed | `<status>` | |
 | G0.8 | `PARTIAL` pending legacy license/attribution verification; only bounded exception may be proposed | `<status>` | |
 | G0.9 full S0 | `BLOCKED` while C3/B2 is blocked | `<status>` | Do not relabel `PASS`. |
-| R7 | `OPEN P0` with owner-accepted interim containment; not fixed | `<status>` | Confirm sessions remain explicitly lossy and baseline APK stays installed. |
+| R7 | `OPEN P0` with owner-accepted-in-principle interim containment; not fixed | `<status>` | Confirm sessions remain explicitly lossy and baseline APK stays installed. |
 | R14/C3 | `P1`, separately blocked/isolated; owner, mitigation, stage and exit criteria documented | `<status>` | Export/import has not been device-verified. |
-| DEP-F1 | `OPEN P1 — UNTRIAGED` until advisory artifact is reviewed | `<status>` | Full-tree and production-only audits are distinct. |
+| DEP-F1 | `OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING` | `<status>` | Run `44572915201`, artifact `14555141888`. Full tree: 6 dev entries (3 moderate / 1 high / 2 critical); production-only: 0; B4 Run #3 `npm ci` count 10 remains unresolved. No dependency change authorized in S0. |
 
 ## 5. Owner decision prerequisites
 
