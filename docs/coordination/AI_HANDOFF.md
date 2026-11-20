@@ -1146,3 +1146,17 @@ This is a later, explicit owner authorization to begin product implementation on
 - Baseline CI: commit 477ceb0... passed 48/48 suites and 143/143 tests. Its debug APK SHA-256 was ca56760c5ed39c2808e9596686fe525fcefa9fd30800aa03c53bed9a61cbe463, but that APK predates the daily-clock changes.
 - Device QA NOT_TESTED; independent review PENDING; owner acceptance PENDING. No release signing credentials changed.
 - Recovery: fetch current HEAD and Actions #462 first. If failed, inspect exact logs and fix narrowly. If successful, inspect exact SHA artifact/checksum and append evidence. Do not declare feature parity complete.
+
+
+## 2026-11-20 — DAILY CLOCK SLICE CI #462 VERIFIED
+
+- **Current tested source:** \`fcadf1d82edda6615503b79fa9a9c2532d4c197a\` (\`fix(clock): advance calendar by day independently of rendering\`).
+- **GitHub Actions:** run #462, ID \`44737688243\`, SUCCESS on the exact source SHA: https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44737688243
+- **Build/tests:** \`npm ci\` PASS; data/map/web build PASS; generated hashes PASS; Vitest exit 0; **8 files, 50/50 suites, 148/148 tests PASS, 0 unhandled errors**; Android SDK and Capacitor asset sync PASS; Gradle \`assembleDebug\` BUILD SUCCESSFUL; APK signature verification PASS.
+- **Debug APK:** artifact ID \`14629388175\`, file size \`18,063,738\` bytes; APK SHA-256 \`c26ce32d38b077df2311759d43d7eba87f89c67f2e57cc4527401931980a0135\`; archive ZIP SHA-256 \`c0d4ac56a54583c5a9333629777d97ffb56e2d8d123232824ee22080befa9428\`; expires 2027-02-18.
+- **CI evidence artifact:** ID \`14629567697\`, ZIP size 113,019 bytes, SHA-256 \`606a75daa7f32495609f47b1ad5186ede609ef7f8a02123cfa548feccedb7254\`.
+- **Integrity check:** downloaded both artifacts; extracted \`app-debug.apk\`; recomputed APK hash equals \`apk_sha256.txt\`; debug APK ZIP digest equals \`artifact_zip.txt\`; provenance records the exact source commit and run ID.
+- **Signing:** debug key only, certificate DN \`C=US, O=Android, CN=Android Debug\`; certificate SHA-256 \`a330fb77969a8f5658ad86b2f62fcc49d0ab5063f8fe3f7f9a45552d717fd6cb\`. Not release-signed.
+- **Important:** the APK includes the daily calendar and RAF-independent speed correction from \`fcadf1d\`. It does not include a six-hour task graph or the later identity/construction/technology/military/diplomacy redesign slices.
+- **Device QA:** NOT_TESTED. Install/launch, pause/resume, background/foreground, save/load, speed feel, thermal/RAM and long-run timing on the owner's Android remain outstanding. Independent review PENDING; owner acceptance PENDING.
+- **Current branch docs head at time of this report update:** this evidence addendum is being committed after the playtest report; re-fetch the branch head after push before any code change.

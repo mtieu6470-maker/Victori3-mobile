@@ -368,3 +368,12 @@ Source commit: fcadf1d82edda6615503b79fa9a9c2532d4c197a on experiment/vic3-visua
 
 ### Validation
 At this checkpoint, Actions #462 (ID 44737688243) was still running on the exact source SHA. Record a PASS and APK only after checking the completed run and its evidence artifact.
+
+
+### 13.1 CI verification addendum — Actions #462
+
+The exact source SHA \`fcadf1d82edda6615503b79fa9a9c2532d4c197a\` passed GitHub Actions run #462 (\`44737688243\`): 8 test files, 50 suites, 148 tests, zero failures/unhandled errors; data/map/web build, Capacitor sync and Android \`assembleDebug\` all passed.
+
+Verified APK: artifact \`14629388175\`, size 18,063,738 bytes, SHA-256 \`c26ce32d38b077df2311759d43d7eba87f89c67f2e57cc4527401931980a0135\`. APK artifact ZIP SHA-256: \`c0d4ac56a54583c5a9333629777d97ffb56e2d8d123232824ee22080befa9428\`. CI evidence artifact \`14629567697\`, SHA-256 \`606a75daa7f32495609f47b1ad5186ede609ef7f8a02123cfa548feccedb7254\`. APK hash was independently recomputed after download and matches the CI evidence.
+
+Signing remains debug-only, not release. No physical Android QA, independent review or owner acceptance has occurred. The daily-clock slice is CI-verified but not yet device-accepted or full Victoria 3 clock parity.
