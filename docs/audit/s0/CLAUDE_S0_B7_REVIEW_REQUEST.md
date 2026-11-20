@@ -137,3 +137,8 @@ Run #319 and #320 artifact ZIPs are metadata-only in this inspection; do not cla
 All three triggering commits changed documentation only. GitHub compare from #321 commit `c5ba0e80b017dfeb04d29c17a66205fab23ce0d9` to live HEAD `4db9d3d7b397fc59f3310936eecd6792a4ca218f` reports 52 commits / 12 changed paths, all documentation; no product/runtime source changed. The latest run is therefore on an unchanged product source tree, but not on the exact current HEAD.
 
 Keep the verdict narrow: CI/test/debug APK success is not gameplay acceptance, device QA, release signing, separate data-pack validation, a B7 independent verdict, overall S0 PASS or S1 permission.
+
+
+## 14. Exact-HEAD Android APK run #322 — additional evidence for independent review
+
+Please independently verify run `44661820747` on commit `68fee31641d2249be824a87f4302c26a5aeb6611`, branch `experiment/vic3-visual-upgrade`, job `136041609778`. Confirm 38/38 suites, 97/97 tests, zero failures, `report_valid=true`, Gradle `BUILD SUCCESSFUL`, and inspect evidence artifact `14596545236` (ZIP SHA-256 `50c75905c66950a8868afc58f9eb81f3ecc09096fc3e2a0254b13f7233747492`). APK artifact `14596440616` ZIP SHA-256 is `1f3d14e2c2f4aa43b5d1fe12fb1ed34b6058d37c5c91c8b262de2b20a57d7ff5`; embedded APK size 18,057,541 bytes and SHA-256 `eda437afeadad10074d38acf567601c0c43ab3a6e9661ce8145962896fdf3cbb`; Android Debug certificate SHA-256 `559d549a21515f899b6195c65114b2be778ff2fbd63288d21ef31f4365b96238`. This adds CI evidence only and must not be interpreted as device QA or a gate/phase approval.

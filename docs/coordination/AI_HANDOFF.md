@@ -105,6 +105,15 @@ Pre-protocol work:
 
 ## 5. Work log
 
+### 2026-11-20 — EXACT-HEAD-ANDROID-RUN-322
+
+- Rechecked live experiment HEAD: `68fee31641d2249be824a87f4302c26a5aeb6611`; run #322 `44661820747` completed SUCCESS on that exact SHA, job `136041609778`.
+- Evidence ZIP `14596545236` downloaded/inspected: 38/38 suites, 97/97 tests, 0 failures, `report_valid=true`; Gradle `BUILD SUCCESSFUL`.
+- APK ZIP `14596440616` downloaded/inspected; APK 18,057,541 bytes, SHA-256 `eda437afeadad10074d38acf567601c0c43ab3a6e9661ce8145962896fdf3cbb`; debug certificate SHA-256 `559d549a21515f899b6195c65114b2be778ff2fbd63288d21ef31f4365b96238`.
+- No physical-device installation/QA. S0-B7 remains IN_PROGRESS pending Claude's independent no-write review and explicit owner decision; DEP-F1 remains OPEN P1; overall S0 PARTIAL/BLOCKED; bounded S1-entry NOT_TESTED; S1 NOT AUTHORIZED.
+- Next exact action: Claude independently reviews the refreshed B7 package against the then-live HEAD, then stop for owner decision. No gameplay/runtime work is authorized.
+
+
 Append newest entries at the top. Do not overwrite earlier entries.
 
 ### 2026-11-20 — SUPPLEMENTARY-ANDROID-RUNS-319-321-REVALIDATION

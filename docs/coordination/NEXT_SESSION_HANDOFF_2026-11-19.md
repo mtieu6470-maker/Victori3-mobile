@@ -313,3 +313,8 @@ Next action remains Claude's independent read-only B7 review of the refreshed re
 - Tests/builds were not run locally for this documentation-only update. No product, test, workflow, dependencies, save, data, asset, Gradle or signing files were changed.
 - Status unchanged: S0-B7 independent Claude review and owner decision PENDING; overall S0 PARTIAL/BLOCKED; bounded S1-entry package NOT_TESTED; S1 NOT AUTHORIZED.
 - Next: Claude performs the read-only B7 review against live HEAD and refreshed manifest; then stop for explicit owner decision. Do not implement the gameplay backlog or change engine/UI/save until the phase gate and scope are authorized.
+
+
+## Addendum — exact-HEAD run #322 verification (2026-11-20)
+
+The last checkpoint commit `68fee31641d2249be824a87f4302c26a5aeb6611` is verified as the exact checkout SHA for Android workflow run `44661820747`. Job `136041609778` succeeded: 38/38 suites, 97/97 tests, zero failures, Gradle `BUILD SUCCESSFUL`. Evidence artifact `14596545236` and APK artifact `14596440616` were downloaded and inspected. Embedded debug APK: 18,057,541 bytes, SHA-256 `eda437afeadad10074d38acf567601c0c43ab3a6e9661ce8145962896fdf3cbb`; debug certificate SHA-256 `559d549a21515f899b6195c65114b2be778ff2fbd63288d21ef31f4365b96238`. No device QA, release signing, independent B7 review, owner acceptance or S1 authorization is claimed. Continue with Claude's independent no-write B7 review and then owner decision.

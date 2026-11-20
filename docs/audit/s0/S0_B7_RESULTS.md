@@ -154,3 +154,16 @@ Run #319/#320 artifact ZIPs are recorded from GitHub API metadata only; their pa
 The current branch HEAD at the time of this report was `4db9d3d7b397fc59f3310936eecd6792a4ca218f`. GitHub compare from run #321 commit `c5ba0e80b017dfeb04d29c17a66205fab23ce0d9` to that HEAD is `ahead`, 52 commits, and reports only documentation paths changed (12 paths); no product/runtime source path changed. Thus the latest APK run covers the unchanged product source tree, but it is **not a workflow run on the exact current HEAD** because the later documentation commits use `[skip ci]`.
 
 Scope: these runs support CI/test/debug-APK build status only. They do not prove Android device QA, gameplay acceptance, data-pack delivery, release signing, B7 independent review, overall S0 PASS or S1 authorization.
+
+
+## 15. Exact-HEAD Android APK CI evidence — run #322 (2026-11-20)
+
+- Run: [44661820747](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44661820747), workflow `Android APK (debug)`, branch `experiment/vic3-visual-upgrade`, exact commit `68fee31641d2249be824a87f4302c26a5aeb6611`, job `136041609778` SUCCESS.
+- Evidence artifact: `14596545236`, 106,681 bytes, ZIP SHA-256 `50c75905c66950a8868afc58f9eb81f3ecc09096fc3e2a0254b13f7233747492`; downloaded and inspected (15 files).
+- Test report: `report_valid=true`; 38/38 suites and 97/97 tests passed, zero failures, Vitest exit code 0.
+- Gradle: `BUILD SUCCESSFUL`; 85 actionable tasks; APK assembly and both artifact uploads completed.
+- APK artifact: `14596440616`, 17,569,399-byte ZIP, ZIP SHA-256 `1f3d14e2c2f4aa43b5d1fe12fb1ed34b6058d37c5c91c8b262de2b20a57d7ff5`. Downloaded and inspected; contains the debug APK.
+- APK file: 18,057,541 bytes, SHA-256 `eda437afeadad10074d38acf567601c0c43ab3a6e9661ce8145962896fdf3cbb`.
+- Signing: Android Debug certificate SHA-256 `559d549a21515f899b6195c65114b2be778ff2fbd63288d21ef31f4365b96238`; apksigner exit 0, v1/v2 verification true. Not release-signed.
+- Provenance confirms checkout ref `refs/heads/experiment/vic3-visual-upgrade` and checked-out HEAD equals `68fee31641d2249be824a87f4302c26a5aeb6611`. No device installation or physical-device QA is evidenced.
+- This run closes the previous CI observation gap at the exact pre-run-commit HEAD; it does not change S0 gate verdicts, B7 reviewer status, owner acceptance, or S1 authorization.
