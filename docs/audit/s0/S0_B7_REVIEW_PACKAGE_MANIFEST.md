@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `53b8c4880fefbbfa099c56efa77ab3dd3a21bdcf`  
+**Snapshot HEAD before this manifest refresh:** `5c549909e6c3ec400c9cfdd97ada09dae57dfd55`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -14,17 +14,17 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 |---|---|
 | `docs/audit/s0/S0_B4_RUN_3_REVIEW.md` | `3d8644811c3ac13b19cce1f1274c46d2edbaa10a` |
 | `docs/audit/s0/S0_B4_TEST_PLAN.md` | `ef21f8193daf283a6ed8c6f4d68b7ca87781bd46` |
-| `docs/audit/s0/S0_RISK_REGISTER.md` | `c22fbf270e3e2263067d30e48c7c63464a5b3f47` |
+| `docs/audit/s0/S0_RISK_REGISTER.md` | `e16e3a69afcad9451012defef8f30bd5efe23a94` |
 | `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `dbcfeb7f125578220e220c594c3a834bfeecaa8f` |
-| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `70eb56cf89b8ff8ea4536c0cd373532f61134c16` |
-| `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `e3ff67518e936882b9f1f3f6096030ddb4bb99b5` |
+| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `e8f5740d1be90574fae33feb59d2e84d725dc605` |
+| `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `8701c8defd2945cc0849b7e2c7ee67afe03ab141` |
 | `docs/audit/s0/S0_SIGNOFF.md` | `6b9d17d81b1d8eecac21912f7058707ce6aa0283` |
-| `docs/audit/s0/S0_B7_RESULTS.md` | `f7855d676e85fa0881c5984d0c5622fbe5523e95` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `c899a4275d79f436f074425c8217cc3a951fb45b` |
+| `docs/audit/s0/S0_B7_RESULTS.md` | `9fd81f9aed3bb598918941057ba8fe0d114f1510` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `747f38226e8cbdf245374a7fd516e5a9cd3dc96f` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `403a1dc63df414afc348ffbfd2a6f144f3394dd2` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `c0538001150d8a5c528f14fd13e125a77f71b36e` |
-| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `6e2716d0889b17a35dfa7c0ed96ba71a5c2e70f4` |
+| `docs/coordination/AI_HANDOFF.md` | `9fe529ee11cced07244ddcc4cfee380d847798fc` |
+| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `8fca0497976630c136068ecbccedef21d3b0651a` |
 
 ## 2. Risk table integrity and traceability
 
@@ -175,3 +175,13 @@ This supplement does not change CI-F4's narrow closure, overall S0 gate states, 
 - APK artifact `14596440616`: 17,569,399-byte ZIP; SHA-256 `1f3d14e2c2f4aa43b5d1fe12fb1ed34b6058d37c5c91c8b262de2b20a57d7ff5`; downloaded and inspected. APK: 18,057,541 bytes, SHA-256 `eda437afeadad10074d38acf567601c0c43ab3a6e9661ce8145962896fdf3cbb`; Android Debug certificate SHA-256 `559d549a21515f899b6195c65114b2be778ff2fbd63288d21ef31f4365b96238`.
 - This evidence is limited to CI tests and debug APK assembly; no device QA, release signing, independent B7 verdict, owner acceptance or S1 authorization.
 - The manifest commit itself advances the branch; re-fetch live HEAD and every listed blob SHA before issuing a review verdict.
+
+
+## 15. DEP-F1 — B4 Run #3 npm-ci log reinspection (2026-11-20)
+
+- Manifest refresh base HEAD: `5c549909e6c3ec400c9cfdd97ada09dae57dfd55`.
+- B4 original run `44325257261`, job `134874698600`: raw log confirms `npm ci` audited 221 packages and reported 10 vulnerabilities (3 moderate / 5 high / 2 critical). No package/advisory JSON was uploaded.
+- Exact `package-lock.json` blob SHA is `29ac661a36bb03bae62a80ce7abf9af0c15bb168` at frozen baseline `2240a8f`, B4 checkout `7f17b1f` and experiment branch.
+- Later read-only baseline audit run `44572915201` used explicit `npm audit --package-lock-only --json`; six vulnerable package entries (3 moderate / 1 high / 2 critical), plus zero in the production-only scan.
+- The outputs come from different npm command/report contexts; B4 raw JSON is unavailable, so the exact count/severity difference is UNRECONCILED. DEP-F1 stays OPEN P1; no dependency changes were made.
+- Related report, plan, risk-register row, self-review, reviewer request and handoff were refreshed in commit `5c549909e6c3ec400c9cfdd97ada09dae57dfd55`. This manifest refresh advances the branch again; reviewers must re-fetch live HEAD and every listed blob SHA.
