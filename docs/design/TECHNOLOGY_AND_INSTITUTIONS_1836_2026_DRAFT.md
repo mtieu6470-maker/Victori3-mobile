@@ -486,7 +486,42 @@ These sources support contemporary technology-domain selection and current adopt
 - **SIPRI, Trends in World Military Expenditure, 2025 (April 2026).** Current comparative military expenditure and regional burden data; useful for defense-economy calibration, not a complete order-of-battle source.  
   https://www.sipri.org/publications/2026/sipri-fact-sheets/trends-world-military-expenditure-2025
 - **SIPRI Yearbook 2026 — Summary.** Wider evidence on military expenditure, arms, security and international stability for the contemporary scenario baseline.  
-  https://www.sipri.org/sites/default/files/2026-06/yb26_summary_en_1.pdf
+  https://www.sipri.org/yearbook/2026
+
+
+### 10.1. Contemporary calibration snapshot — latest complete observations available in 2026
+
+The playable terminal year is 2026, but a scenario must not pretend that full-year 2026 statistics are already known when the latest complete comparable observation is for 2025. Use the following as a **source-backed contemporary calibration snapshot** and store each value with its observation year, publication date, scope and uncertainty. Do not translate these global aggregates directly into flat country bonuses.
+
+| Area | Latest source-backed observation | Simulation-design implication |
+|---|---|---|
+| Clean-energy markets | IEA reports a combined clean-energy technology/fuel/material market value close to USD 1.2 trillion in 2025; it notes rapid deployment but substantial policy and supply-chain uncertainty. | Represent industrial policy, manufacturing capacity, capital cost, grid bottlenecks and strategic supply chains. A published target or announcement is not commissioned capacity. |
+| Energy supply chains | IEA reports highly concentrated steps across key clean-energy supply chains: China accounts for 60–85% of production capacity in key chains and over 95% in some production steps; some CCUS and near-zero-emissions material projects remain pre-final-investment-decision. | Model critical-mineral processing, components, refining, supplier concentration, export restrictions, substitution and stockpiles as network bottlenecks rather than treating "green technology" as a single unlock. |
+| Digital connectivity | ITU 2025 estimates almost three-quarters of the global population are online, 2.2 billion remain offline, and 5G reaches more than half the global population, with coverage concentrated in high-income countries. | Country and regional adoption must be uneven; distinguish coverage, affordability, device ownership, quality, skills and actual productive use. |
+| AI research and adoption | Stanford HAI's 2026 AI Index reports industry produced over 90% of notable frontier AI models in 2025; 88% of surveyed organizations reported AI use in at least one business function, while agent deployment remained early/single-digit in most functions. | Separate frontier R&D concentration from broad organizational adoption. Model compute, electricity, skills, data, enterprise integration and regulatory capacity separately; do not equate AI access with autonomous-agent deployment. |
+| Industrial robotics | Stanford HAI reports China accounted for 54% of global industrial robot installations in 2024. | Robot adoption is spatially and industrially concentrated; require capital, skilled technicians, local suppliers and industrial structure. Do not give all countries the same automation multiplier. |
+| Military expenditure | SIPRI estimates world military expenditure reached USD 2.887 trillion in 2025, up 2.9% in real terms; the global military burden was 2.5% of GDP. | Military modernization must compete with welfare, infrastructure and debt capacity; country spending is not equivalent to effective deployable capability. Use expenditure as one input, never as a complete order-of-battle dataset. |
+
+**Interpretation safeguards**
+
+- These observations refer to different years and statistical populations (for example, 2024 robot installations and 2025 military expenditure); preserve the observation year rather than relabeling every value as a 2026 fact.
+- The Stanford AI organizational adoption statistic is a surveyed measure, not a census of every firm or government agency. The digital connectivity figures are global aggregates, not per-country coverage data.
+- Global market value, AI model output and military expenditure cannot be compared as if they measured the same thing or had the same denominator.
+- The simulation should import country-level values only from the source's country tables or other validated sources. Where no country-level observation exists, record the value as missing/estimated with an explicit method and confidence interval rather than allocating the global average to every country.
+- These are calibration anchors for a sourced contemporary scenario, not required historical outcomes. Sandbox should remain free to diverge when the world state leads to different investment and institutions.
+
+### 10.2. Verified source links and date boundaries
+
+- **IEA — Energy Technology Perspectives 2026, published 26 March 2026.** Executive summary and full report coverage of deployment, manufacturing, trade, supply-chain resilience and competitiveness.  
+  https://www.iea.org/reports/energy-technology-perspectives-2026/executive-summary
+- **ITU — Measuring Digital Development: Facts and Figures 2025.** Global/regional connectivity estimates, 2.2 billion people offline and uneven 5G coverage.  
+  https://www.itu.int/pub/D-IND-ICT_MDD-2025-3/
+- **Stanford HAI — The 2026 AI Index Report.** AI R&D, technical performance, economy, science, medicine, education, policy and governance; use its underlying tables and methodology before creating country-level data.  
+  https://hai.stanford.edu/ai-index/2026-ai-index-report
+- **SIPRI — Trends in World Military Expenditure, 2025, published April 2026.** Annual expenditure estimates and regional/national comparisons.  
+  https://www.sipri.org/publications/2026/sipri-fact-sheets/trends-world-military-expenditure-2025
+- **SIPRI — Yearbook 2026.** Reference overview of international security, weapons and technology, military expenditure, arms trade, conflicts and conflict management.  
+  https://www.sipri.org/yearbook/2026
 
 For 1836–2026 historical research, add source records by topic and country: industrial history, energy, agricultural change, public health, political institutions, military organization/equipment, international treaties, science and education. Record publication, author/organization, URL, retrieval date, covered place/time range, license/usage rights, confidence and the exact claims supported. Do not convert an unsourced timeline into shipped game content.
 
