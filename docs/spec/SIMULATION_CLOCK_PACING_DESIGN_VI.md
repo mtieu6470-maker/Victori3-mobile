@@ -278,36 +278,45 @@ Phần này bổ sung phạm vi thời gian của chiến dịch theo yêu cầu
 - Các tháng có độ dài Gregorian đúng; leap year phải tuân thủ quy tắc lịch Gregorian. Không giả định mọi tháng có 30 ngày.
 - Legacy monthly tick phải giữ nguyên ý nghĩa trong save cũ cho tới khi migration được phê duyệt, có version và test.
 
-### 12.2. Tốc độ tối đa — pacing guard đề xuất
+### 12.2. Tốc độ tối đa — pacing guard hiệu chỉnh theo phản hồi chủ dự án
 
-Owner feedback chỉ rõ tốc độ cũ quá nhanh, có thể nhảy nhiều năm trong một giây. Thiết kế mới cần có một giới hạn lịch tối đa được kiểm thử độc lập với FPS.
+Chủ dự án đã phản hồi rằng mức tốc độ cao nhất không được nhảy nhiều năm trong một giây; nhịp độ cần ở cỡ **hơn một ngày game trong một giây thực**, không phải nhiều tháng/năm mỗi giây như cơ chế speed 5 gắn với RAF hiện tại.
 
-**Mục tiêu bảo vệ ban đầu để đưa vào benchmark:** ở Speed 5, trần thiết kế là không quá **1 năm lịch game trong 60 giây thực** trên cấu hình tham chiếu, tương đương trung bình khoảng **6.1 ngày game/giây thực**. Đây là một pacing guard sơ bộ để ngăn bước nhảy nhiều năm mỗi giây, không phải số liệu đo Victoria 3 và không phải cam kết rằng iQOO hiện đạt throughput đó.
+**Mục tiêu benchmark sơ bộ mới:**
+- Speed 5: mục tiêu danh nghĩa khoảng **1 ngày lịch game / 1 giây thực** trên cấu hình tham chiếu.
+- Hard ceiling bảo vệ tạm thời: không quá **2 ngày lịch game / 1 giây thực**. Đây là giới hạn thiết kế đề xuất, không phải kết quả benchmark và không phải cam kết máy Android có thể duy trì.
+- Speed 1–4 phải chậm hơn Speed 5 theo tỷ lệ được đo và chốt sau benchmark; không hard-code tỷ lệ ở tài liệu này.
+- Nếu đo trực tiếp Victoria 3 cho thấy mapping phù hợp khác, cập nhật đề xuất và xin chủ dự án chấp thuận trước khi thay ceiling.
+
+Với khoảng lịch Gregorian từ 1836-01-01 tới 2027-01-01 có **69.762 ngày**:
+- Tại 1 ngày game/giây thực: khoảng **19,38 giờ** chạy liên tục để hoàn tất toàn bộ 1836–2026.
+- Tại hard ceiling 2 ngày game/giây thực: khoảng **9,69 giờ** chạy liên tục.
+Đây chỉ là phép đổi đơn vị từ pacing target và số ngày lịch, không phải benchmark gameplay, hiệu năng hay thời gian hoàn tất thực tế. Game có thể chạy chậm hơn khi compute không đáp ứng.
 
 Quy tắc áp dụng:
 
-1. Speed 5 luôn là mức nhanh nhất, nhưng không có nghĩa là "mỗi RAF callback tiến một tháng".
-2. Scheduler dùng monotonic elapsed time và giới hạn số logical ticks được sinh ra theo pacing budget. Refresh 30/60/90/120 Hz phải tạo cùng số logical ticks trong cùng khoảng monotonic elapsed, sai số chỉ trong tolerance của clock test.
-3. Nếu thiết bị không đủ sức xử lý target rate, game được phép chạy chậm hơn và hiển thị simulation slowdown/backlog; không được bỏ logical ticks, rút gọn kết quả chiến tranh hay bỏ qua hệ thống để giả lập tốc độ.
-4. Nếu thiết bị nhanh hơn target guard, scheduler phải giữ ceiling đã duyệt; không để game tự tăng tốc theo FPS.
-5. Speed 1–4 có tốc độ thấp hơn Speed 5 theo mapping được benchmark và owner chấp thuận. Các tỷ lệ giữa cấp tốc độ chưa được hard-code trong tài liệu này.
-6. Đo calendar progress sau warm-up bằng ngày lịch Gregorian; không suy tốc độ từ số callback, FPS hay số lần UI render.
-7. Trước khi khóa mapping cuối cùng, phải đo cả Victori3 Mobile lẫn Victoria 3 trong điều kiện ghi rõ. Nếu phép đo trực tiếp V3 cho thấy pacing khác đáng kể, đề xuất hiệu chỉnh guard và xin owner chấp thuận trước khi đổi tiêu chí.
+1. Speed 5 luôn là cấp nhanh nhất, nhưng không có nghĩa là "mỗi RAF callback tiến một tháng".
+2. Scheduler dựa trên monotonic elapsed time và pacing budget; số logical ticks sinh ra không phụ thuộc số lần render.
+3. Nếu dùng regular six-hour tick làm đơn vị logic, mục tiêu 1 ngày/giây tương ứng trung bình bốn logical ticks/giây; hard ceiling 2 ngày/giây tương ứng tám ticks/giây. Các tick nhẹ chỉ advance clock/operation timers; không chạy toàn bộ monthly pipeline ở từng tick.
+4. Nếu thiết bị không đủ sức xử lý, game được phép chạy chậm hơn và hiển thị simulation slowdown/backlog; không được bỏ logical ticks, rút gọn kết quả chiến tranh hay bỏ qua hệ thống để giả lập tốc độ.
+5. Nếu thiết bị nhanh hơn target, scheduler vẫn giữ hard ceiling đã duyệt; không để game tự tăng tốc theo FPS/refresh rate.
+6. Đo calendar progress sau warm-up bằng ngày Gregorian; không suy tốc độ từ số callback, FPS hay số lần UI render.
+7. Benchmark trực tiếp Victoria 3 và đo trên thiết bị Android tham chiếu trước khi khóa mapping chính thức.
 
-Trần 1 năm/60 giây là **mục tiêu pacing sơ bộ** do implementer đề xuất để giải quyết phản hồi "nhiều năm trong một giây". Nó phải được kiểm chứng bằng benchmark, test scheduler và owner hands-on; không được ghi nhận thành kết quả đã PASS khi chưa có các bằng chứng này.
+**Quan hệ với đề xuất cũ:** mục tiêu cũ ở bản trước ("1 năm/60 giây", khoảng 6,1 ngày/giây) được thay thế bởi mục tiêu mới này vì còn quá nhanh so với phản hồi pacing của chủ dự án. Không dùng mục tiêu cũ để cấu hình runtime hay nghiệm thu.
 
 ### 12.3. Hệ quả cho lịch 191 năm
 
-- Tổng khoảng lịch từ 1836-01-01 đến boundary 2027-01-01 là 191 năm lịch tính theo mốc đầu/năm boundary; campaign chơi qua các ngày từ 1836 đến hết 2026.
-- Với ceiling đề xuất ở §12.2, một lần chạy liên tục không pause sẽ cần xấp xỉ 191 phút (khoảng 3 giờ 11 phút) cho 191 năm lịch chơi (chính xác phụ thuộc leap days và cách tính elapsed/boundary). Đây là phép tính từ target guard, không phải benchmark.
+- Tổng lịch từ 1836-01-01 tới boundary 2027-01-01 là 69.762 ngày Gregorian, tức 191 năm lịch tính theo hai mốc đầu năm; campaign cho phép chơi hết ngày 2026-12-31.
+- Theo target Speed 5 mới, chiến dịch liên tục cần khoảng 19,38 giờ ở 1 ngày/giây, hoặc tối thiểu 9,69 giờ tại hard ceiling 2 ngày/giây. Đây không phải cam kết benchmark; pause, autosave, overload, tốc độ thấp hơn và compute sẽ làm thời gian thực dài hơn.
 - Các hệ thống economy/POP/politics/AI/diplomacy/military không được cập nhật tất cả ở mọi six-hour tick. Mỗi task phải có cadence, prerequisites và stable order; ví dụ:
-  - six-hour: advance clock, movement/operation timers and explicitly required immediate effects;
-  - daily: local logistics, selected military/market flows where justified;
-  - weekly: AI planning, fronts/operations and selected aggregation;
-  - monthly: accounts, production settlement, population/economic summaries and political processes that are monthly by design;
-  - yearly: demographic/economic/national capability snapshots and annual historical reports.
-- Đây là ví dụ phân bổ cadence, không phải quyết định cuối. Từng system owner phải xác định tần suất, độ trễ được chấp nhận, chi phí compute, ordering và RNG consumption trước implementation.
-- Những event có hạn theo giờ/ngày (mobilization deadline, diplomatic escalation, election date, blockade, treaty expiration) phải được biểu diễn theo logical date/step, không chờ monthly tick rồi xảy ra trễ cả tháng.
+  - six-hour: advance clock, deadline/timer, movement/operation clock and explicitly required immediate effects;
+  - daily: selected local logistics, crisis/election/deadline checks and daily processes where justified;
+  - weekly: trade-route adjustment, selected logistics/operations and bounded AI operational reviews;
+  - monthly: firm production, market settlement, wages/profits/household consumption, public accounts, POP/politics, research, diplomacy and force maintenance according to reviewed dependency order;
+  - yearly: population/economic/national capability snapshots and annual reports.
+- Đây là candidate cadence. Từng system phải có lý do tần suất, dependency, compute budget, state mutation owner và determinism tests trước implementation.
+- Event có hạn theo giờ/ngày (mobilization deadline, diplomatic escalation, election, blockade, treaty expiry) phải được biểu diễn theo logical date/step, không chờ monthly tick rồi xảy ra trễ cả tháng.
 
 ### 12.4. Acceptance tests bổ sung
 
