@@ -9,7 +9,7 @@
 | Source ID | Source severity | Risk Register location | Disposition |
 |---|---:|---|---|
 | R1 | P1 | §3, `R1` | OPEN — ephemeral debug signing; B2/C3 blocked pending R14 and protected development signing. |
-| R2 | P1 | §3, `R2` | OPEN — CC BY-SA text attribution; bounded unchanged-legacy-content exception only proposed for S1. |
+| R2 | P1 | §3, `R2` | OPEN — CC BY-SA attribution remains incomplete; unchanged legacy text only under bounded G0.8 exception; full UI/runtime attribution remediation targets S5. |
 | R3 | — | §6, Closed / no longer active | CLOSED — APK file SHA-256 and artifact ZIP digest recorded separately in A1/B1 evidence. |
 | R4 | P2 | §4, `R4` | OPEN P2 / accepted design boundary — test-supplied command traces; production replay journal is optional, not claimed. |
 | R5 | P1 | §3, `R5 / RM-F3` | OPEN P1 — frame-based metrics may hide long synchronous simulation ticks; protocol J measurements required. |
@@ -17,7 +17,7 @@
 | R7 | P0 | §2, `R7` | OPEN P0 — no reliable lifecycle autosave or renderer/process-death recovery; interim exposure containment is not a fix. |
 | R8 | P2 | §4, `R8 / TC-F4` | OPEN P2 — the population benchmark test can skip expected countries and under-check population coverage. |
 | R9 | P2 | §4, `R9` | OPEN P2 — income/asset assumptions precede detailed employment and wage simulation. |
-| R10 | P1 | §3, `R10` | OPEN P1 — future map-layer performance budgets required at S4/S11/S20. |
+| R10 | P1 | §3, `R10` | OPEN P1 — numeric budgets must be approved and measured separately for S4/S11/S20 map/object layers. |
 | R11 | P2 | §4, `R11` | OPEN P2 — development `versionCode` remains fixed at 1 under the approved development constraint. |
 | R12 | P2 | §4, `R12` | OPEN P2 — build-generated timestamps make generated payloads differ; deterministic metadata strategy deferred. |
 | R13 | P1 | §3, `R13` | OPEN / deferred — protected signing workflow and Environment remain unconfigured; no secrets created. |
@@ -37,8 +37,8 @@
 
 | Source ID | Source severity | Risk Register location | Disposition |
 |---|---:|---|---|
-| TC-F1 | P1 | §3, `TC-F1 / TC-F2` | OPEN P1 — law flip-back test currently has zero effective assertions. |
-| TC-F2 | P1 | §3, `TC-F1 / TC-F2` | OPEN P1 — war-duration test currently has zero effective assertions; 145-month convention is separately explained in B3. |
+| TC-F1 | P1 | §3, `TC-F1 / TC-F2` | OPEN P1 — zero effective assertions; replacement test targets S17/S19 and must guard a real law transition before checking the 180-tick flip-back property. |
+| TC-F2 | P1 | §3, `TC-F1 / TC-F2` | OPEN P1 — zero effective assertions; replacement test targets S20/S21, observes completed wars and checks the documented 144-month boundary. |
 | TC-F3 | P2 | §4, `TC-F3` | OPEN P2 — asset rejection assertion is vacuous without qualifying fixtures. |
 | TC-F4 | P2 | §4, `R8 / TC-F4` | OPEN P2 — test says 1870 but queries 1875 and can skip countries. |
 | TC-F5 | P1 | §3, `TC-F5` | MITIGATED FOR G0.6 — supplementary B4 cases passed, but original baseline test remains narrow. |
@@ -50,7 +50,7 @@
 | Source ID | Source severity | Risk Register location | Disposition |
 |---|---:|---|---|
 | GD-F1 | P2 | §4, `GD-F1` | OPEN P2 — some `supported` labels have no source. |
-| GD-F2 | P1 | §3, `GD-F2` | OPEN P1 — historical fact coverage is highly uneven across regions and starting polities. |
+| GD-F2 | P1 | §3, `GD-F2` | OPEN P1 — uneven coverage; staged remediation targets S3/S6 and relevant economic/historical-character data tasks, with a 12-region × polity-type provenance/coverage exit report. |
 | GD-F3 | P2 | §4, `GD-F3` | OPEN P2 — literacy/army/GDP defaults or missing values need provenance distinctions. |
 | GD-F4 | P2 | §4, `GD-F4` | OPEN P2 — fields such as culture, religion, terrain/resources and government lack quality/source metadata. |
 | GD-F5 | P3 | §5, `GD-F5 / GD-F6` | OPEN P3 — inhabited islands may fall outside the Strategic Region grid. |
@@ -60,7 +60,7 @@
 
 | Source ID | Source severity | Risk Register location | Disposition |
 |---|---:|---|---|
-| AS-F1 | P1 | §3, `AS-F1` | OPEN P1 — 492 image license records have not been reverified against current source pages. |
+| AS-F1 | P1 | §3, `AS-F1` | OPEN P1 — 492 image records require live source-page verification and rights/attribution reconciliation in S5 before content expansion/release. |
 | AS-F2 | P2 | §4, `AS-F2` | OPEN P2 — four BY assets lack author credit in the UI data path. |
 | AS-F3 | P2 | §4, `AS-F3` | OPEN P2 — text attribution UI lacks author/license URL on the source line; runtime rendering not tested. |
 | AS-F4 | P2 | §4, `AS-F4` | OPEN P2 — launcher/splash resources remain Capacitor placeholders. |

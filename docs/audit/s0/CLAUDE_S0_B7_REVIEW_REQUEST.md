@@ -159,3 +159,7 @@ The implementer reconciled one stale handoff status while preparing this B7 pack
 ## 18. Source severity / row-schema self-audit context — 2026-11-20
 
 The implementer reports a read-only cross-check of the traceability severities against original v3.2 and B3 source catalogs. No mismatch was found after normalizing Markdown emphasis; 48 mappings were unique and resolved, and all Risk Register rows had expected cell counts with no blank cells. This is not independent evidence. Re-perform the source-to-register checks against the live snapshot, with particular care to distinguish the P0 R7, R3 Closed, G0.7 BLOCKED gate, and B7-added CI/DEP findings.
+
+## 10. Additional P0/P1 disposition checks requested
+
+Independently verify the tightened target/exit criteria in the current Risk Register and traceability matrix for R2/AS-F1 (S5 rights verification), R10 (separate S4/S11/S20 numeric budgets), GD-F2 (S3/S6 and relevant economic/historical-character data coverage), and TC-F1/TC-F2 (S17/S19 versus S20/S21 non-vacuous tests). Confirm these clarifications do not silently change severity, owner acceptance, gate verdicts or phase authorization. Re-fetch live HEAD and blob SHAs; do not rely on this request as evidence of a reviewer verdict.

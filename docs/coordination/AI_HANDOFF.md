@@ -768,3 +768,12 @@ This section records the 2026-11-19 checkpoint and is superseded by the 2026-11-
 - Created `docs/feedback/PLAYER_TEST_FEEDBACK_2026-11-20.md` as the authoritative player-test backlog. P0: deterministic simulation clock/pacing and date-valid, source-verified historical identity/portrait data. P1: integrated economy/industry, military/logistics, politics/social strata/laws. P2: transparent, explainable scoring/ranking.
 - Requirements explicitly preserve global 1836–1936 simulation, Historical Mode start 1836-01-01, separate Sandbox/Alternate History mode, and coherent cross-system mechanics. AI portraits may only be labelled illustrative fallback art, never passed off as authentic historical portraits.
 - This commit records requirements only. The collaboration protocol still prohibits gameplay/engine/UI/save changes during S0; S1 remains NOT AUTHORIZED until the bounded transition review and owner acceptance. Do not interpret this feedback record or a successful APK build as phase authorization.
+
+
+### 2026-11-20 — B7-P0-P1-DISPOSITION-CLARITY
+
+- Re-read the current P0/P1 Risk Register, traceability matrix, signoff, results, self-review, reviewer request, manifest and both branch governance sources.
+- The six-column P0/P1 schema and ownership fields were present. Functional accountability existed, but some stage/exit text was too broad: R2/AS-F1, R10, GD-F2 and TC-F1/TC-F2.
+- Clarified target stages and evidence-based exit criteria against v3.2 S3/S4/S5/S6/S11/S17/S19/S20/S21 and the B3 source reports. No numeric performance threshold or historical-data completeness threshold was invented; those require stage-specific approval/evidence.
+- Preserved R7 OPEN P0, R14 BLOCKED, R1/R13 OPEN/deferred, CI-F4 CLOSED (narrow), DEP-F1 OPEN P1 / UNRECONCILED, G0.7 BLOCKED, G0.8 PARTIAL, G0.9 BLOCKED, overall S0 PARTIAL and S1 NOT AUTHORIZED.
+- Documentation-only. No product source, test, dependency, workflow, save, data, asset, Gradle, signing, APK or device changes; no runtime test/build performed. This is ChatGPT self-audit only; Claude independent review and owner decision remain pending.

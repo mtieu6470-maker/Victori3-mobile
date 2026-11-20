@@ -197,3 +197,14 @@ A cross-source parser checked v3.2 R1–R14, B3 RM/WD findings, the test catalog
 - All 48 traceability rows were unique and resolved to a Risk Register target. The 22 P2 rows each have six cells; every P0/P1/P2/P3/Closed table row has the expected number of cells and no blank cell was detected.
 - CI-F1–F4 and DEP-F1 are B7-specific findings; their severity remains P2/P2/P2/P1/P1 respectively in the consolidated register/traceability documents.
 - No severity, risk disposition or gate status was changed. This was documentation cross-checking only; no runtime/Gradle/device tests were run.
+
+## 21. P0/P1 disposition completeness follow-up — 2026-11-20
+
+A targeted review of the live Risk Register and source roadmap found that the six-column schema was complete, but several target/exit descriptions were too broad to drive later acceptance consistently. The register and traceability matrix now make these boundaries explicit without changing severity or gate status:
+
+- R2/AS-F1: map full legacy attribution and live source-page verification to S5; preserve only the narrowly bounded unchanged-legacy S1 exception.
+- R10: require separate approved numeric budgets and evidence for S4, S11 and S20; no cross-stage substitution.
+- GD-F2: stage the evidence work across S3/S6 and relevant economic/historical-character data tasks; close against a 12-region × polity-type provenance/coverage report, not raw row counts.
+- TC-F1/TC-F2: separate political (S17/S19) and military (S20/S21) test targets, with explicit non-vacuous guards and boundary checks.
+
+No owner role was absent; the register uses accountable functional roles, with implementation/verification roles clarified where split responsibility matters. R7 remains OPEN P0 with interim containment only; R14 remains BLOCKED; R1/R13 remain OPEN/deferred; CI-F4 remains narrowly CLOSED; DEP-F1 remains OPEN P1 and UNRECONCILED at 10-vs-6. No severity, gate, owner acceptance or phase authorization changed. Documentation-only review; no runtime test/build/device test was run.

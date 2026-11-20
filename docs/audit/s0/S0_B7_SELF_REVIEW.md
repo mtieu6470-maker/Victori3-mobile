@@ -182,3 +182,7 @@ Cross-checked the source severity catalogs against `S0_B7_RISK_TRACEABILITY.md` 
 Structural results: 48 traceability rows, all unique; all 48 map to exact or explicitly grouped Risk Register targets (R3 to the Closed section). After normalizing Markdown emphasis in the source P0 label, no severity mismatch was found. The Risk Register contains one P0 row, 12 P1 risk rows plus the separate G0.7 gate row, 22 P2 rows, five grouped P3 rows and one Closed R3 row; every row has its expected cell count and no blank cells were detected. The P0/P1/P2 tables use six cells; P3/Closed tables use three.
 
 This is an implementer self-audit of repository structure and catalog alignment, not a review verdict, runtime test, device test or owner acceptance. No risk was closed and no severity was changed.
+
+## 7. P0/P1 disposition completeness follow-up — 2026-11-20
+
+The follow-up found no missing owner column or missing mitigation/disposition field in the P0/P1 table. It did find target-stage/exit wording that was too broad for reliable downstream acceptance. The Risk Register and traceability matrix now distinguish R2/AS-F1 S5 rights work, R10 stage-specific S4/S11/S20 budgets, GD-F2 staged regional data work, and TC-F1/F2 political versus military test targets. Functional owner roles remain accountable; implementation/verification roles are stated where needed. Severity and all gate states are unchanged. This is an implementer self-audit, not independent review or owner signoff.
