@@ -1,7 +1,7 @@
 # DEV-006 FOLLOW-UP — FAST-FORWARD / RAF CONCURRENCY SELF-REVIEW
 
 **Runtime implementation SHA:** e5eb5e4744b4c5569f7fe997c523cebe64ff3250  
-**Latest code/test review target:** `1a1e10d8aeb49d54058dddfe0a220a344125a12f`  
+**Latest code/test review target:** `96042077abeef8b89fe9e46fdce97a2b566d70da`  
 **Code introduction commit:** c76d05e9f871478ab3751907ffc11042f53baef3  
 **Test stabilization commits:** 6e11171184bb59c34f41d5ec57daa2faf7f35d05, cfde726a90801c5eed8b05402082cd3b1a7d5718, c7627d7fe7622cef561c01706f733943b5e97b68, e5eb5e4744b4c5569f7fe997c523cebe64ff3250  
 **Review type:** ChatGPT source self-review; NOT an independent Claude review  
@@ -55,13 +55,12 @@ Only controller scheduler coordination and its tests changed in the code slice. 
 
 - **Test-only follow-up at exact code/test SHA `1a1e10d8aeb49d54058dddfe0a220a344125a12f`:** the fourth exception-recovery regression was added after the 44/44 and 129/129 CI result at e5eb5e4. Current exact-target tests-only run [44763263753](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263753) and Android debug run [44763263728](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728) are `CI_PENDING` as last checked. Do not carry forward the e5eb5e4 result as evidence for 1a1e10d.
 
-## 4.1. Latest exact code/test target verification — 1a1e10d
+## 4.1. Latest exact code/test target verification — 9604207
 
-Runtime source remains at `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`; the only follow-up is the fourth regression in `tests/controller-fast-forward.test.ts`.
+The previously verified target `1a1e10d` passed 13/13 files and 130/130 tests plus Android debug `assembleDebug`. This subsequent test-only commit adds independent coverage for `newGame()` replacing the controller state while fast-forward is yielded.
 
-- Tests-only [44763263753](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263753): SUCCESS; 13/13 files, 130/130 tests; zero failed, pending or todo; Vitest exit code 0.
-- Android debug [44763263728](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728): SUCCESS on exact SHA `1a1e10d8aeb49d54058dddfe0a220a344125a12f`; `BUILD SUCCESSFUL in 1m 32s`; test report 44/44 suites, 130/130 passed, `report_valid=true`.
-- APK: 18,052,461 bytes; SHA-256 `31f9553e9976f0c90898f41f7eed22fa595dd21a9beb8779577f810bc37107a9`. APK artifact [14643795730](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728/artifacts/14643795730); artifact ZIP SHA-256 `43f051e05aed0c19f8e8ecace86d5a9759b5218426b2e81d8ce4cda16e9404a9`.
-- Debug signer certificate SHA-256 `3da135ad7744652c8fd80831914a5aa87ec9e8aa04842e64a69e9cd58b8a858f`; V1/V2 true; apksigner exit code 0. CI evidence artifact [14644310437](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728/artifacts/14644310437), ZIP SHA-256 `15f2273c4249b0389c0c37c5eddbc51b37c9ac4ed46b3eeb4a7f179edba10480`; downloaded ZIP digest independently matched GitHub.
-- Physical device QA NOT_TESTED; release signing NOT_PERFORMED. Independent Claude review and owner acceptance remain PENDING.
+- Test-only commit: `96042077abeef8b89fe9e46fdce97a2b566d70da`; runtime source remains at `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`.
+- Fifth controller test verifies `newGame()` invalidates the suspended operation and its old continuation cannot change the new game's tick, pause state or busy state.
+- Exact-target tests-only [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664) and Android debug [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668) were queued at the last status fetch; results remain PENDING. No CI PASS is inherited from 1a1e10d.
+- Independent review target is `96042077abeef8b89fe9e46fdce97a2b566d70da`; physical device QA NOT_TESTED; release signing NOT_PERFORMED.
 

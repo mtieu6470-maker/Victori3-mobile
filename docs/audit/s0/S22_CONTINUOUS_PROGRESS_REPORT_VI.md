@@ -1,3 +1,11 @@
+## 0.21 — DEV-006 newGame invalidation regression added; exact-target CI pending (20/11/2026)
+
+- Base HEAD: `5b32448b0174fe6213f6ad69d89c90fa9505725c`; test-only commit: `96042077abeef8b89fe9e46fdce97a2b566d70da`.
+- Only changed path: `tests/controller-fast-forward.test.ts` (+32 lines). Fifth test proves `newGame()` replacing the state during fast-forward yield prevents the stale continuation from altering the new game.
+- Five deterministic controller cases cover live RAF coordination, overlap/player action blocking, load replacement, exception recovery and newGame replacement.
+- Exact-target tests-only [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664) and Android debug [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668) were queued at last check. Results PENDING; no prior SHA result is transferred.
+- DEV-006 independent Claude review target updated to `96042077abeef8b89fe9e46fdce97a2b566d70da`; Claude verdict and owner acceptance PENDING; Android device QA NOT_TESTED.
+
 ## 0.20 — DEV-006 exception-path regression: exact CI and APK VERIFIED (20/11/2026)
 
 - Base: `b5d2735373918f41bf637f7fb5f26f8e94dbdfec`; code/test commit: `1a1e10d8aeb49d54058dddfe0a220a344125a12f`; final docs handoff is appended in commit after this record.

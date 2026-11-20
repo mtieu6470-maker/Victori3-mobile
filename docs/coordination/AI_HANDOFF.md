@@ -1,3 +1,10 @@
+## Latest DEV-006 code/test follow-up — newGame invalidation regression; CI_PENDING (9604207)
+
+- Exact code/test review target: `96042077abeef8b89fe9e46fdce97a2b566d70da`; runtime source remains at `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`.
+- Test-only commit changes `tests/controller-fast-forward.test.ts` (+32 lines). Five focused controller cases now cover RAF pause/resume, overlap/action blocking, load invalidation, thrown-step recovery, and newGame invalidation during the six-month yield.
+- Exact-target tests-only [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664) and Android debug [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668) were queued at the latest GitHub fetch; results PENDING. Do not carry forward prior SHA CI results.
+- Independent Claude review PENDING; owner acceptance PENDING; physical Android QA NOT_TESTED; no daily tick or gate change.
+
 ## Latest DEV-006 exact-target verification — CI_PASS / READY_FOR_REVIEW (1a1e10d)
 
 - Exact code/test review target: `1a1e10d8aeb49d54058dddfe0a220a344125a12f`; runtime source implementation remains `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`. The follow-up commit only adds the exception-recovery regression in `tests/controller-fast-forward.test.ts`.

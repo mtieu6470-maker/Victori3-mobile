@@ -1,3 +1,15 @@
+## NEWEST AMENDMENT — newGame invalidation regression added; exact CI pending (20/11/2026)
+
+The code/test review target is now **`96042077abeef8b89fe9e46fdce97a2b566d70da`**. This supersedes the previous target `1a1e10d8aeb49d54058dddfe0a220a344125a12f`.
+
+- Runtime source remains unchanged from `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`.
+- `tests/controller-fast-forward.test.ts` now has a fifth deterministic case. It starts a six-month fast-forward, replaces the state through `newGame()` during the yield, resumes the old promise, and verifies the new game's state/pause/busy values remain unchanged.
+- New test-only commit: `96042077abeef8b89fe9e46fdce97a2b566d70da`; changed path only `tests/controller-fast-forward.test.ts` (+32 lines, no deletions).
+- Exact-target tests-only [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664) and Android debug [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668) were queued at the last GitHub fetch. Their results are **PENDING**; do not reuse CI results from 1a1e10d.
+- Review must inspect both replacement paths: `load()` and `newGame()`, as well as exception recovery. Claude verdict and owner acceptance remain pending.
+
+---
+
 ## LATEST AMENDMENT — exact DEV-006 code/test target CI VERIFIED (20/11/2026)
 
 This amendment supersedes the pending CI statement below. Claude must review exact code/test target **`1a1e10d8aeb49d54058dddfe0a220a344125a12f`**.
