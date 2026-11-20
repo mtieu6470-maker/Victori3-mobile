@@ -62,6 +62,9 @@ export const TECH_VI: Record<string, string> = {
   railway_mobilization: 'Động viên bằng đường sắt', quinine_prophylaxis: 'Dự phòng bằng quinine', machine_guns: 'Súng máy', smokeless_powder: 'Thuốc súng không khói', steel_warships: 'Chiến hạm thép',
   quick_firing_artillery: 'Pháo bắn nhanh', dreadnoughts: 'Thiết giáp hạm dreadnought', joint_stock_banking: 'Ngân hàng cổ phần', public_schooling: 'Trường học công', steam_press: 'Máy in hơi nước',
   public_health: 'Y tế công cộng', anesthesia: 'Gây mê', germ_theory: 'Thuyết vi trùng', telephone: 'Điện thoại', socialist_thought: 'Tư tưởng xã hội chủ nghĩa',
+  urbanization: 'Đô thị hóa', urban_planning: 'Quy hoạch đô thị', bureaucracy: 'Bộ máy hành chính', international_relations: 'Quan hệ quốc tế',
+  rationalism: 'Chủ nghĩa duy lý', democracy: 'Dân chủ', mass_communication: 'Truyền thông đại chúng', nationalism: 'Chủ nghĩa dân tộc',
+  pan_nationalism: 'Chủ nghĩa đại dân tộc', multilateral_alliances: 'Liên minh đa phương',
 };
 
 // ---------------------------------------------------------------- numbers (vi-VN: "." thousands, "," decimals)
