@@ -138,7 +138,7 @@ Factory-flow tests now derive their output/input quantities from the canonical e
 - tool_works: tools output with steel and timber inputs at the ratios defined in RECIPES.
 - The constrained single-market solver fixture also uses the canonical ironworks recipe, with the independent coal supply shortage retained as the convergence condition.
 
-This supersedes only the unrealistic test fixture, not the game recipe registry or runtime production rules. No grain-to-tools production recipe was added to runtime data. The inventory test file remains at 15 tests. Test execution, typecheck, CI and APK build remain **NOT_TESTED / NOT_VERIFIED** until exact-SHA evidence is obtained.
+This supersedes only the unrealistic test fixture, not the game recipe registry or runtime production rules. No grain-to-tools production recipe was added to runtime data. At the later market-authority checkpoint below, the inventory test file contains 19 tests; the earlier count of 15 applies only to this fixture-correction checkpoint.
 
 
 ## 13. Single-source market trade allocation and inventory posting
@@ -154,3 +154,22 @@ The solver now returns, for its final converged/fallback projection:
 The definitive inventory posting, market price target and market statistics reuse this one returned allocation. `settleInventoryFlow` remains the physical monthly accounting boundary and receives the same import/export quantities converted from annualized engine units to monthly units. The trade test now checks 100 units imported/exported in each direction and reconciles the solver's shortage ratios against `settleInventoryFlow` for both buyers and sellers.
 
 This is a consistency refactor of the existing aggregate market allocator, not a new trade-contract, tariff-by-shipment, route-capacity, customs, regional warehouse or firm-owned inventory system. Existing global import/export balance integration checks remain in place. The source has not yet been executed by Vitest, TypeScript or Android CI; results remain **NOT_TESTED / NOT_VERIFIED**.
+
+## 14. Customs-union policy authority and stale-market fallback
+
+The market-opening calculation previously selected `st.countries[marketId] ?? st.countries[members[0]]`. For a customs-union market, `marketId` is the treaty ID, so the fallback could apply the trade law/technology of whichever country happened to own the first region iterated rather than the treaty's declared leader.
+
+An explicit `marketPolicyCountry` resolver now applies this precedence:
+- A national market uses its own active country.
+- A customs-union market uses the declared treaty leader when that leader is a recorded member and active.
+- If that leader is no longer active, the first living treaty member is used deterministically.
+- If a long-running/legacy state still carries a market projection but all recorded participants are inactive, the resolver preserves the last recorded leader/member Country object as a compatibility fallback rather than crashing the entire monthly simulation. It does not substitute an unrelated country.
+
+The 3 new policy-authority tests cover treaty-leader precedence, national-market identity despite member iteration order, and stale/inactive customs-union membership. A fourth test checks the last-recorded-policy fallback when every member is inactive. The market loop fails explicitly only when there is no resolvable Country record at all.
+
+Validation trail:
+- Android workflow run #416 on `5b121db0039c0f5b042c0f8bb5e98a9393a43908` exposed TS7053 in a test using `Object.entries()` to index `marketStats`; corrected by iterating the canonical `GOODS` tuple (`ef620fc415a1a4de0f93a3658a583763260bbf2b`).
+- Run #418 on `5174d5cadb14d1b5930717833c5ff30c5f19b2ae` exposed that the first resolver version rejected a market with no active policy-country candidate (Market TEX). The resolver was amended to preserve a recorded policy object when all current participants are inactive (`584ed577ded5de157a618ccd73103f86d642c3b6`).
+- The current inventory test source contains 19 tests. Exact current-HEAD Vitest/Android workflow evidence is tracked in AI_HANDOFF; no result is inferred from source presence.
+
+These changes only correct which existing country governs market openness and how old/inactive market state is handled. They do not yet create a full route graph, port/rail capacity, trade contracts, shipping losses or per-state market access.
