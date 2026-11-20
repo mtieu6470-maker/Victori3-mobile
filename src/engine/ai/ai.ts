@@ -10,7 +10,7 @@ import { historicalBias } from '../historical';
 import { build, buildingReturn, canBuild, hasTech, privateInvestment, SHIP_COST } from '../systems/economy';
 import { reformSupport, startReform, sharesBorder } from '../systems/politics';
 import { techCost } from '../systems/technology';
-import { allied, allianceAcceptance, allianceCapacityAvailable, canFormAlliance, declareRivalry, declareWar, formAlliance, greatPowers, guarantee, improveRelations, joinCustomsUnion, powerScore, rivals } from '../systems/diplomacy';
+import { allied, allianceAcceptance, allianceCapacityAvailable, allianceTreatyCount, canFormAlliance, declareRivalry, declareWar, formAlliance, greatPowers, guarantee, improveRelations, joinCustomsUnion, powerScore, rivals } from '../systems/diplomacy';
 import { armyStrength, atWar, enemiesOf, navalStrength } from '../systems/military';
 import { coreNationOf } from '../systems/population';
 import { regionsOf, bordersOf } from '../cache';
@@ -75,11 +75,31 @@ function budgetAI(st: GameState, c: Country) {
 // ---------------------------------------------------------------- research choice (also used for the player's auto-research)
 export function chooseResearch(st: GameState, c: Country, options: string[]): string | null {
   const d = data(); let best: string | null = null; let bv = -Infinity;
+  const allianceTreaties = allianceTreatyCount(st, c.id);
+  const potentialPartnerExists = Object.values(st.countries).some(
+    (other) => other.alive && !other.decentralized && other.id !== c.id
+      && !allied(st, c.id, other.id) && !rivals(st, c.id, other.id),
+  );
+  const researchingFirstAlliance = allianceTreaties === 0
+    && !hasTech(c, 'international_relations')
+    && potentialPartnerExists;
+  const researchingAdditionalAlliances = allianceTreaties > 0
+    && !hasTech(c, 'multilateral_alliances');
+  const firstAlliancePath = new Set([
+    'urbanization', 'urban_planning', 'bureaucracy', 'international_relations',
+  ]);
+  const multilateralPath = new Set([
+    'rationalism', 'democracy', 'mass_communication', 'nationalism',
+    'pan_nationalism', 'multilateral_alliances',
+  ]);
+
   for (const id of options) {
     const t = d.tech.get(id)!; const cost = techCost(st, c, id);
     let w = t.tree === 'military' ? 0.6 + c.personality.aggression : t.tree === 'production' ? 0.8 + c.personality.commerce * 0.6 : 0.6 + c.personality.reformism;
     w += historicalBias(st, c, 'industrialize') * (t.tree === 'production' ? 0.5 : 0);
     if (atWar(st, c.id) && t.tree === 'military') w += 0.5;
+    if (researchingFirstAlliance && firstAlliancePath.has(id)) w += 0.9;
+    if (researchingAdditionalAlliances && (firstAlliancePath.has(id) || multilateralPath.has(id))) w += 1.1;
     const v = w / Math.sqrt(cost) + rand(st) * 0.0005;
     if (v > bv) { bv = v; best = id; }
   }
