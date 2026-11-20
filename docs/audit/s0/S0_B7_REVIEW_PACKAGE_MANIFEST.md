@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `ada6bcf25f0486556aa7634d4f962db281d64a26`  
+**Snapshot HEAD before this manifest refresh:** `e7b8275208058c784d9e46b003bf1216033d0327`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -14,7 +14,7 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 |---|---|
 | `docs/audit/s0/S0_B4_RUN_3_REVIEW.md` | `3d8644811c3ac13b19cce1f1274c46d2edbaa10a` |
 | `docs/audit/s0/S0_B4_TEST_PLAN.md` | `ef21f8193daf283a6ed8c6f4d68b7ca87781bd46` |
-| `docs/audit/s0/S0_B3_RESULTS.md` | `14b98c0975212caeed595659005c7f26f9cdae95` |
+| `docs/audit/s0/S0_B3_RESULTS.md` | `457eb4ef6c4e0aa060fc8335bea0b6cb22c17e34` |
 | `docs/audit/s0/S0_RISK_REGISTER.md` | `e16e3a69afcad9451012defef8f30bd5efe23a94` |
 | `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `b74ea0dd7e8c86b2d76718b9e0cef94d4f318f5c` |
 | `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `49cdf19cab3cd395a30fd9adaa288bfc8237b303` |
@@ -209,3 +209,10 @@ The prior structural summary undercounted the matrix by one because it omitted t
 - The current `S0_B3_RESULTS.md` and handoff now cite the historical independent ChatGPT review of Claude's corrected B3 commits `ddea490635c5d7c74ca6108549fd21806102487b` and `2c62b3de3955e3cd8a82a9c59401d9df77d69173`, verdict `REVIEW_PASS` on 2026-11-16, limited to B3 audit scope. Prior round-1 `CHANGES_REQUESTED` and pre-review `READY_FOR_REVIEW` checkpoints remain preserved.
 - Added `S0_B3_RESULTS.md` to the manifest's pinned review inputs because the current Claude B7 request asks the reviewer to verify B3's bounded gate history.
 - This correction does not change S0 gate states, the active S0-B7 task, owner acceptance, Claude's paused status, or S1 authorization.
+
+
+## 19. B3 review wording correction (2026-11-20)
+
+- Snapshot base before this manifest refresh: `e7b8275208058c784d9e46b003bf1216033d0327`.
+- Corrected an editorial foreign-language word in `S0_B3_RESULTS.md` §9; the verdict remains `REVIEW_PASS` only for the S0-B3 audit scope and all underlying review evidence/commits are unchanged.
+- Updated the B3 results blob SHA above. No gate, risk, review outcome, owner decision or phase authorization changed.
