@@ -222,6 +222,12 @@ describe('inventory ledger integration with the shared economy', () => {
     stepMonth(state);
 
     expect(state.inventoryLedger.history).toHaveLength(1);
+    expect(state.marketClearing?.tick).toBe(state.tick);
+    expect(state.marketClearing?.factoryCount).toBeGreaterThanOrEqual(0);
+    expect(state.marketClearing?.iterations).toBeLessThanOrEqual(
+      state.marketClearing?.maxIterations ?? 32,
+    );
+    expect(Number.isFinite(state.marketClearing?.residual)).toBe(true);
     const period = state.inventoryLedger.history[0];
     expect(period.tick).toBe(state.tick);
     expect(period.date).toEqual(state.date);
@@ -280,5 +286,6 @@ describe('inventory ledger integration with the shared economy', () => {
       history: [],
       openingBasis: 'unseeded',
     });
+    expect(restored.marketClearing).toBeUndefined();
   });
 });
