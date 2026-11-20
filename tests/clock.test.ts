@@ -7,6 +7,12 @@ import {
   gameDaysForElapsedMs,
 } from '../src/engine/clock';
 
+function advanceInPulses(pacer: SimulationPacer, fromMs: number, toMs: number, speed: 1 | 2 | 3 | 4 | 5) {
+  for (let timestamp = fromMs + 50; timestamp <= toMs; timestamp += 50) {
+    pacer.advance(timestamp, speed);
+  }
+}
+
 describe('Gregorian monthly clock', () => {
   it('uses Gregorian month lengths, including century leap-year rules', () => {
     expect(daysInGregorianMonth(1836, 2)).toBe(29);
@@ -63,7 +69,7 @@ describe('Gregorian monthly clock', () => {
   it('preserves fractional progress over pause/resume but does not count paused time', () => {
     const pacer = new SimulationPacer();
     pacer.resume(0);
-    pacer.advance(1000, 5);
+    advanceInPulses(pacer, 0, 1000, 5);
     expect(pacer.pendingDays).toBeCloseTo(0.5, 10);
 
     pacer.pause();
@@ -75,8 +81,8 @@ describe('Gregorian monthly clock', () => {
   it('accrues elapsed time at the old speed before a speed change', () => {
     const pacer = new SimulationPacer();
     pacer.resume(0);
-    pacer.advance(1000, 1);
-    pacer.advance(2000, 5);
+    advanceInPulses(pacer, 0, 1000, 1);
+    advanceInPulses(pacer, 1000, 2000, 5);
     expect(pacer.pendingDays).toBeCloseTo(0.6, 10);
   });
 
@@ -85,13 +91,14 @@ describe('Gregorian monthly clock', () => {
     pacer.resume(1000);
     pacer.advance(1000, 5);
     pacer.advance(900, 5);
-    expect(pacer.pendingDays).toBe(0);
+    pacer.advance(1050, 5);
+    expect(pacer.pendingDays).toBeCloseTo(0.025, 10);
   });
 
   it('resets accumulated fractional progress for a new or loaded campaign', () => {
     const pacer = new SimulationPacer();
     pacer.resume(0);
-    pacer.advance(1000, 5);
+    advanceInPulses(pacer, 0, 1000, 5);
     pacer.reset();
     expect(pacer.pendingDays).toBe(0);
     pacer.advance(20_000, 5);
