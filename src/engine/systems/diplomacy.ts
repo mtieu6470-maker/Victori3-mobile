@@ -6,6 +6,7 @@ import { clamp, getRel, addRel, relKey, log, newId, rand } from '../core';
 import { armyStrength, atWar } from './military';
 import { sharesBorder } from './politics';
 import { coreNationOf } from './population';
+import { setCustomsUnionMembership } from './customsUnion';
 
 export const allied = (st: GameState, a: string, b: string) => st.treaties.some((t) => t.type === 'alliance' && t.members.includes(a) && t.members.includes(b));
 export const rivals = (st: GameState, a: string, b: string) => st.rivalries.includes(relKey(a, b));
@@ -79,9 +80,20 @@ export function guarantee(st: GameState, a: string, b: string) {
   st.treaties.push({ id: newId(st, 'guar'), type: 'guarantee', members: [a, b], start: st.tick }); addRel(st, a, b, 10);
 }
 export function joinCustomsUnion(st: GameState, c: Country, unionId: string): boolean {
-  const u = st.treaties.find((t) => t.id === unionId && t.type === 'customs_union'); if (!u || u.members.includes(c.id)) return false;
-  u.members.push(c.id); c.customsUnion = unionId;
-  log(st, { type: 'economy', text: `${c.name} joins the customs union led by ${st.countries[u.leader!]?.name}.`, textVi: `${c.nameVi} gia nhập liên minh thuế quan do ${st.countries[u.leader!]?.nameVi} đứng đầu.`, actors: [c.id] });
+  const u = st.treaties.find((t) => t.id === unionId && t.type === 'customs_union');
+  if (!c.alive || !u || (c.customsUnion === unionId && u.members.includes(c.id))) return false;
+
+  // Membership is exclusive: transfer out of any previous union, repair its
+  // leadership, and point this country at the new treaty in one operation.
+  const leader = setCustomsUnionMembership(st, c.id, unionId);
+  if (!leader) return false;
+
+  log(st, {
+    type: 'economy',
+    text: `${c.name} joins the customs union led by ${leader.name}.`,
+    textVi: `${c.nameVi} gia nhập liên minh thuế quan do ${leader.nameVi} đứng đầu.`,
+    actors: [c.id, leader.id],
+  });
   return true;
 }
 
