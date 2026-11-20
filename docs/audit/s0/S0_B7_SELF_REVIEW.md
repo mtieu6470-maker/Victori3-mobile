@@ -202,3 +202,10 @@ The follow-up found no missing owner column or missing mitigation/disposition fi
 - A second parse of the live risk tables found the `CI-F4` P1 row was separated from the P1 table by a blank line and could render as a standalone headerless table. This was corrected in `S0_RISK_REGISTER.md`; CI-F4 remains CLOSED only for the narrow APK workflow integration issue.
 - After correction: P0 1 row × 6 cells; P1 13 rows × 6 cells (12 P1 risk rows plus G0.7's separate device-evidence gate row); P2 22 rows × 6 cells; P3 5 rows × 3 cells; Closed 1 row × 3 cells. No blank cells. Traceability remains 48 unique source IDs.
 - No severity, risk status, gate verdict, owner decision or authorization changed. Implementer self-audit only; no independent review claimed.
+
+
+## 10. R13 / GD-F2 disposition specificity — 2026-11-20
+
+- Cross-checked R13 against v3.2 §4.1.2–4.1.5. The Risk Register now makes clear that Environment protection, the manual-only signing workflow, job separation, secret isolation, SHA pinning, least privilege and key cleanup are proposed future controls, not controls already in place. B2/C3 remains blocked until R14 and owner-controlled setup.
+- Cross-checked GD-F2 against v3.2 stages: S3 geographic validity, S6 population, S7/S13 economic quantities and S16 ruler/character records. Exit evidence is field-specific and preserves units, method, provenance, uncertainty, conflicts and missing counts across regions/polity types.
+- No severity, owner decision, gate, workflow, product code or phase authorization changed. Self-review only.
