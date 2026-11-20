@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `07b5b092b39bf7fc273bc33b1b03ab4e2bd1b425`  
+**Snapshot HEAD before this manifest refresh:** `ada6bcf25f0486556aa7634d4f962db281d64a26`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -14,17 +14,18 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 |---|---|
 | `docs/audit/s0/S0_B4_RUN_3_REVIEW.md` | `3d8644811c3ac13b19cce1f1274c46d2edbaa10a` |
 | `docs/audit/s0/S0_B4_TEST_PLAN.md` | `ef21f8193daf283a6ed8c6f4d68b7ca87781bd46` |
+| `docs/audit/s0/S0_B3_RESULTS.md` | `14b98c0975212caeed595659005c7f26f9cdae95` |
 | `docs/audit/s0/S0_RISK_REGISTER.md` | `e16e3a69afcad9451012defef8f30bd5efe23a94` |
 | `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `b74ea0dd7e8c86b2d76718b9e0cef94d4f318f5c` |
-| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `34867c11c692f444e430ea988ef341637e684766` |
+| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `49cdf19cab3cd395a30fd9adaa288bfc8237b303` |
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `8701c8defd2945cc0849b7e2c7ee67afe03ab141` |
 | `docs/audit/s0/S0_SIGNOFF.md` | `cf4d86af7e84a9be430383b75c63dae931551a6e` |
-| `docs/audit/s0/S0_B7_RESULTS.md` | `ca708ac7892cae18ce4724098208a1f48cebcf06` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `ab5784a2de49f0f773e475369117f064a4042827` |
+| `docs/audit/s0/S0_B7_RESULTS.md` | `3388df787cffad564ad2fcb34af33aa13859f081` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `72f5e2914ba5c639403511c1bc3986be40e3d81c` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `977e7fc3427cefb99bf3ba172740eb99cb6034b8` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `50672197e2f4f62f25dadc481a1120dd805ee831` |
-| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `57afdb7c922161b3097d0d4d5d95dfb3310a3694` |
+| `docs/coordination/AI_HANDOFF.md` | `792ca9bbc35bbaab34a74b758c74728e8aeb3ed0` |
+| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `84846ba91a06c51a6fd891fbb1b6589d5b4e6671` |
 
 ## 2. Risk table integrity and traceability
 
@@ -199,3 +200,12 @@ This supplement does not change CI-F4's narrow closure, overall S0 gate states, 
 ## 17. Traceability mapping count correction — 2026-11-20
 
 The prior structural summary undercounted the matrix by one because it omitted the G0.7 device-evidence gate row. A fresh enumeration of the live Markdown table contains **48** rows: 14 roadmap risks, 5 performance findings, 7 test findings, 6 global-data findings, 7 asset findings, 3 war findings, and 6 CI/dependency/gate entries. There are no duplicate source IDs and all 48 rows resolve to exact or explicitly grouped Risk Register targets. The count in the self-review, results, reviewer request and handoff is corrected to 48. The 22-row P2 / six-column structural result is unchanged.
+
+
+## 18. B3 historical verdict / current phase-register reconciliation (2026-11-20)
+
+- Snapshot base before this manifest refresh: `ada6bcf25f0486556aa7634d4f962db281d64a26`; all changed-document blob SHAs above were fetched from that exact experiment-branch state.
+- Corrected a stale Phase Register entry that labelled S0-B3 `READY_FOR_REVIEW` although the current handoff summary and B4 prerequisite already said bounded `REVIEW_PASS`.
+- The current `S0_B3_RESULTS.md` and handoff now cite the historical independent ChatGPT review of Claude's corrected B3 commits `ddea490635c5d7c74ca6108549fd21806102487b` and `2c62b3de3955e3cd8a82a9c59401d9df77d69173`, verdict `REVIEW_PASS` on 2026-11-16, limited to B3 audit scope. Prior round-1 `CHANGES_REQUESTED` and pre-review `READY_FOR_REVIEW` checkpoints remain preserved.
+- Added `S0_B3_RESULTS.md` to the manifest's pinned review inputs because the current Claude B7 request asks the reviewer to verify B3's bounded gate history.
+- This correction does not change S0 gate states, the active S0-B7 task, owner acceptance, Claude's paused status, or S1 authorization.
