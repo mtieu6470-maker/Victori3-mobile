@@ -1010,3 +1010,20 @@ This is a later, explicit owner authorization to begin product implementation on
 - **Validation verdict:** Vitest, TypeScript typecheck and Android Gradle/APK build are `NOT_TESTED` in this session. No GitHub Actions run ID/result or APK artifact is verified. Device QA and performance measurements are `NOT_TESTED`.
 - **Self-review:** implementation intent and fixtures inspected against the current `RECIPES`; independent review is `PENDING`; owner acceptance is `PENDING`. Do not mark this task `REVIEW_PASS` or `ACCEPTED`.
 - **Next step:** obtain exact-SHA test/typecheck/Android workflow evidence; then audit market trade allocation against the definitive inventory posting and ensure imports/exports, stockpile availability and shortage ratios describe one consistent physical flow before expanding to route logistics.
+
+
+## 2026-11-20 — ECONOMY TRADE ALLOCATION / SINGLE SOURCE OF TRUTH
+
+- **Verified base HEAD:** `b93dc7f51cc69955fa61022e7b201407232c93a7` on `experiment/vic3-visual-upgrade`.
+- **Engine commit:** `fd6edb8b43efbcc86047f94106b147489ccf66a5` — make the bounded solver return its final per-market import/export flows and world trade totals, then reuse those exact flows for final prices/statistics/inventory posting.
+- **Test commit:** `68dd112af4865a18fac4125da8466ad8f5741e8a` — assert reciprocal grain/tools trade quantities and reconcile solver shortage ratios with monthly `settleInventoryFlow` settlement.
+- **Design/report commit:** `cc44d85c8f70ed671f6b2f68d7b93a5b198e26a9` — document the shared allocation contract.
+- **Files changed:** `src/engine/systems/economy.ts`, `tests/inventory.test.ts`, `docs/design/INVENTORY_LEDGER_IMPLEMENTATION_01.md`; this handoff append follows.
+- **Audit result:** the previous solver shortage projection and final monthly inventory posting used duplicated formulas that currently matched. This change removes the duplicate implementation rather than claiming that a live material-flow mismatch was found.
+- **New contract:** `FactoryMarketSolution` now returns annualized per-market `imports` and `exports` plus openness-weighted `worldTrade` totals, all calculated from the final converged/fallback supply/demand projection and the same opening inventory balances.
+- **Integrated:** world price targets use the returned world totals; final inventory posting, market statistics and monthly ledger entries use the exact imports/exports returned by the solver. The monthly ledger boundary still converts annualized engine quantities by dividing by 12.
+- **Tests present:** 15 in `tests/inventory.test.ts`. The reciprocal trade test expects 100 units of grain and tools to be transferred in opposite directions and checks that buyer unmet-demand ratios match the solver's shortage projection after physical monthly settlement. Existing integration tests continue to assert globally paired ledger imports/exports.
+- **Validation verdict:** Vitest, TypeScript typecheck and Android Gradle/APK build remain `NOT_TESTED` in this session. Combined GitHub status returned no status objects for the handoff HEAD; the connected workflow-run reader is limited to pull-request-triggered runs and returned no runs. Push-triggered Android Actions are therefore `NOT_VERIFIED`, not assumed absent or passing.
+- **Device QA/performance:** `NOT_TESTED`; no APK installation, Android device measurement or benchmark is claimed.
+- **Self-review:** source formulas and call sites inspected; independent review `PENDING`; owner acceptance `PENDING`. Do not mark `REVIEW_PASS` or `ACCEPTED`.
+- **Next action:** obtain direct exact-HEAD test/typecheck/Android workflow evidence. Then audit trade-market openness, subject/customs-union market membership and stockpile transfers against sourced Victoria 3 mechanics and game design before adding shipment routes or contracts.
