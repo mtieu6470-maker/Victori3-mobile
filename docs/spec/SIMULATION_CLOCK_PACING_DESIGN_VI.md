@@ -2,9 +2,9 @@
 
 **Ngày:** 2026-11-20  
 **Repository:** mtieu6470-maker/Victori3-mobile  
-**Branch:** experiment/vic3-visual-upgrade  
-**Trạng thái:** DESIGN_ONLY — CHƯA ĐƯỢC PHÉP IMPLEMENT  
-**Phạm vi:** phân tích và thiết kế P0 theo phản hồi chơi thử. Tài liệu này không thay đổi engine, gameplay, UI, save schema hoặc test.
+**Branch:** experiment/owner-authorized-clock-runtime (isolated experiment; design originated on experiment/vic3-visual-upgrade)  
+**Trạng thái:** PARTIALLY_IMPLEMENTED — S1-CLK-01 owner-authorized experiment; not independently reviewed or release-approved  
+**Phạm vi:** thiết kế P0 và ghi nhận lát cắt runtime S1-CLK-01 được chủ dự án cấp quyền riêng trên nhánh thử nghiệm. Các cadence theo ngày/6 giờ, mở rộng campaign đến 2026, save migration và các hệ thống gameplay khác vẫn là design-only.
 
 ---
 
@@ -257,11 +257,11 @@ Thứ tự đề xuất: CLK-A0 → CLK-A1 → CLK-A2 → CLK-A3 (sau khi đặc
 
 ## 11. Scope boundary và trạng thái
 
-- Đây là design-only preparation dựa trên owner feedback 2026-11-20 và source inspection tại experiment branch.
-- Không có code, test, asset, data, workflow, dependency, Gradle, signing, APK hoặc save schema nào được sửa.
+- Đây là thiết kế và hồ sơ triển khai giới hạn dựa trên owner feedback 2026-11-20; implementation được ghi tại §13 và chỉ áp dụng cho S1-CLK-01 trên nhánh thử nghiệm riêng.
+- Đã sửa code runtime và thêm test chỉ trong lát cắt clock: `src/engine/clock.ts`, `src/ui/game/controller.ts`, `tests/clock.test.ts`, `tests/clock-controller.test.ts`. Không sửa asset, data, dependency, workflow, Gradle, signing, `GameState` hoặc save schema.
 - Không có benchmark runtime/device mới được chạy trong slice này. Các tốc độ ở §2.2 là phép quy đổi lý thuyết từ source constants, không phải kết quả đo.
-- Không tuyên bố clock đã sửa, không tuyên bố Victoria 3 pacing parity, và không mở S1.
-- S1 vẫn cần independent review/owner ACCEPTED theo gate. Khi được mở, P0 clock/pacing phải đi trước các lát cắt gameplay P1 khác.
+- Monthly wall-clock scheduler đã được triển khai thử nghiệm theo §13; không tuyên bố Victoria 3 pacing parity hoặc đã mở S1 tổng thể. Ngoại lệ chỉ giới hạn trong owner authorization S1-CLK-01.
+- Claude independent review chưa được thực hiện theo chỉ thị của chủ dự án. S0-B7 vẫn `IN_PROGRESS`, overall S0 `PARTIAL — NOT COMPLETE`, bounded S1-entry `NOT_TESTED`; S1 không được mở rộng ngoài ngoại lệ S1-CLK-01. Không merge hoặc phát hành nếu chưa có review/owner acceptance phù hợp.
 
 
 ## 12. Hiệu chỉnh cho chiến dịch 1836–2026 và giới hạn tốc độ tối đa
@@ -333,6 +333,39 @@ Quy tắc scheduler:
 ### 12.5. Giới hạn
 
 - Chưa đo trực tiếp Victoria 3 hoặc iQOO Z10 Turbo trong lần cập nhật này.
-- Không có runtime code hoặc save migration nào được thay đổi.
-- Không tuyên bố scheduler, pacing guard, 1836–2026 campaign boundary hay các cadence trên đã được implement.
+- Không thay đổi save schema/version hoặc migration; phần thời gian lẻ của tháng được reset tại save boundary để duy trì tính nhất quán với save v1.
+- Campaign boundary 1836–2026 và các cadence ngày/tuần/6 giờ vẫn chưa được implement; engine hiện vẫn dùng monthly tick và `GAME_END_YEAR = 1936`.
 - Phần này chỉ là thiết kế để chuẩn bị một slice được cấp quyền sau phase review.
+
+## 13. Implementation record — S1-CLK-01 (2026-11-20)
+
+**Authorization:** `docs/coordination/OWNER_AUTHORIZATION_S1_CLK_01.md` — narrow owner exception for `experiment/owner-authorized-clock-runtime`; this is not a general S1 opening.
+
+### 13.1. Runtime behavior implemented
+
+- Added `src/engine/clock.ts` with Gregorian month lengths, Gregorian leap-year rules, a monotonic elapsed-time pacer and a bounded pulse accumulator.
+- Replaced the controller's `requestAnimationFrame`-driven monthly simulation trigger with a dedicated `setInterval` pulse every 50 ms. RAF/render frequency no longer determines when a month is simulated.
+- Speed 5 hard ceiling is 0.5 Gregorian game-day per real second. A 31-day month therefore requires at least 62 seconds; February 2026 requires 56 seconds; a 29-day leap February requires 58 seconds.
+- The initial Speed 1–4 mapping is 0.1/0.2/0.3/0.4 game-days per real second. This linear mapping is an implementation choice, not a separately specified owner preference; it remains subject to device play-test and tuning.
+- A scheduler pulse admits at most 100 ms of elapsed wall time. Delayed callbacks, overload and timer throttling therefore slow simulation rather than triggering a catch-up burst. Only one monthly step can be committed by a pulse.
+- Pause/resume preserves fractional month progress but never counts paused/background time. New/load game and manual month stepping reset fractional progress. Fast-forward pauses and resets the realtime pacer while it runs, then restarts only if the game was previously running.
+- Save v1 persists only whole-month `GameState`. To keep the live session and a reloaded v1 save on the same monthly boundary without changing the save schema, `save()` clears fractional progress for the current uncommitted month. This can discard the partial progress toward that month at save time; storing fractional progress would require a separately authorized save-format change.
+
+### 13.2. Preserved boundaries
+
+- `GameState.tick` remains monthly; `stepMonth()` and the existing monthly system pipeline were not changed.
+- `src/engine/simulation.ts` and `src/engine/save.ts` remain unchanged. No daily/six-hour logical tick, cadence task runner, worker, economy/POP/politics/diplomacy/military/AI change or save migration was introduced.
+- The current campaign still ends at 1936. The 1836–2026 campaign calendar and the other integrated systems remain design work, not implemented gameplay.
+- Existing `App.tsx` visibility/pagehide handlers continue to pause the controller. No Android lifecycle code was modified.
+
+### 13.3. Verification
+
+- Exact tested commit: `9b4419cd782d5db81d74541da022aa02327829c6` on `experiment/owner-authorized-clock-runtime`.
+- GitHub Actions run `44688972480`: **success**. `npm run build` (asset generation, TypeScript check and Vite build) succeeded; **7/7 test files and 115/115 tests passed**; Gradle reported `BUILD SUCCESSFUL`; debug APK and CI evidence artifacts were uploaded.
+- Clock tests cover Gregorian leap-year boundaries, 31/28/29-day month durations, Speed-5 ceiling, delayed pulses, pause/resume, speed changes, save-boundary alignment, manual month stepping and equal elapsed-time progress at 30/60/90/120 Hz.
+- APK artifact: [dong-chay-lich-su-debug-apk](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44688972480/artifacts/14608106401). CI evidence artifact: [ci-evidence](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44688972480/artifacts/14608161171). The artifact ZIP digest is not the APK file SHA-256.
+- No direct Victoria 3 benchmark, iQOO Z10 Turbo benchmark, physical-device installation or Android hands-on QA was performed. Claude independent review was not performed; ChatGPT self-review is not an independent review.
+
+### 13.4. Status
+
+This is a tested, owner-authorized **experimental monthly scheduler slice**, not a production/release acceptance. Keep the branch isolated. Do not merge or claim full S1/S0 completion without the independent review and owner decision required by project governance.

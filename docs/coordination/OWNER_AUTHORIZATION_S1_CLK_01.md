@@ -59,3 +59,13 @@ The implementation must demonstrate:
 6. Existing monthly deterministic simulation and save format remain unchanged.
 7. All added code and tests are committed on this branch with exact SHA and test evidence.
 
+
+## 6. Implementation and CI result — 2026-11-20
+
+- Implemented on this isolated branch through tested HEAD `9b4419cd782d5db81d74541da022aa02327829c6`.
+- Added Gregorian monthly pacer and replaced RAF-driven controller timing with a 50 ms timer, 100 ms maximum elapsed-time admission per pulse and the hard Speed-5 cap of 0.5 game-day/real-second.
+- Initial lower-speed mapping is 0.1/0.2/0.3/0.4 game-days/second for Speed 1–4; this is provisional implementation tuning and requires device play-test.
+- Added tests for calendar/leap years, cap, pulse backlog, speed changes, pause/resume, manual stepping, save v1 boundary behavior and 30/60/90/120 Hz independence.
+- CI run `44688972480` completed successfully on the exact tested HEAD: build passed, 7/7 test files and 115/115 tests passed, Gradle `BUILD SUCCESSFUL`. APK artifact ID `14608106401`; CI evidence artifact ID `14608161171`.
+- Save format/version and monthly `GameState.tick` meaning are unchanged. `save()` clears fractional progress toward the current uncommitted month to preserve parity between live and loaded v1 saves. Monthly engine pipeline, `GAME_END_YEAR = 1936`, and campaign scope unchanged.
+- No iQOO device benchmark, hands-on installation/QA, direct Victoria 3 pacing benchmark or Claude independent review. This is ChatGPT's implementation/self-test only. No merge or release approval is implied.
