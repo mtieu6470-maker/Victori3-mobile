@@ -11,10 +11,23 @@ import { stepMonth } from '../src/engine/simulation';
 import { DEFAULT_PREFERENCES, parsePreferences } from '../src/ui/game/preferences';
 import { isLongPress, LONG_PRESS_MS, LONG_PRESS_SLOP_PX } from '../src/ui/map/gestures';
 import { DAY_INTERVAL_MS } from '../src/ui/game/controller';
+import { fullName, shortName } from '../src/ui/game/names';
 
 const bin = fs.readFileSync(path.resolve('public/generated/map.bin'));
 const grid = decodeGrid(bin.buffer.slice(bin.byteOffset, bin.byteOffset + bin.byteLength));
 const measure = (t: string, size: number) => t.length * size * 0.56; // conservative width estimate
+
+describe('date-effective Nguyễn country naming', () => {
+  it('uses Việt Nam before 1838 and Đại Nam from the year of the imperial decree', () => {
+    const st = fresh('historical', 301, 'VNM');
+    st.date = { y: 1837, m: 12 };
+    expect(shortName(st, 'VNM')).toBe('Việt Nam');
+    expect(fullName(st, 'VNM')).toBe('Việt Nam (nhà Nguyễn)');
+    st.date = { y: 1838, m: 11 };
+    expect(shortName(st, 'VNM')).toBe('Đại Nam');
+    expect(fullName(st, 'VNM')).toBe('Đại Nam (nhà Nguyễn)');
+  });
+});
 
 describe('simulation speed contract', () => {
   it('caps speed 5 at no more than half a Gregorian game-day per real second', () => {

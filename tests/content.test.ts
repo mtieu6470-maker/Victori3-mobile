@@ -62,6 +62,22 @@ describe('identity content pack', () => {
     for (const [eid, l] of Object.entries<any>(links.links)) if (l.linked) expect(['ok', 'not_applicable'], `${eid}: ${l.check}`).toContain(l.check);
   });
 
+  it('uses the period-correct Minh Mạng portrait for the Nguyễn ruler in 1838', () => {
+    const minhMang = pack.characters['VNM:minh_mang'];
+    const portrait = pack.assets.find((a: any) => a.id === 'portrait.VNM:minh_mang');
+    expect(minhMang).toBeDefined();
+    expect(minhMang.terms.some((t: any) => t.role === 'head_of_state' && t.from <= '1838-11-01' && (!t.to || t.to >= '1838-11-01'))).toBe(true);
+    expect(minhMang.portrait).toBe('portrait.VNM:minh_mang');
+    expect(portrait).toBeDefined();
+    expect(portrait.character).toBe('VNM:minh_mang');
+    expect(portrait.period.from).toBeLessThanOrEqual(1838);
+    expect(portrait.period.to).toBeGreaterThanOrEqual(1838);
+    expect(portrait.license).toBe('CC0 1.0');
+    expect(portrait.source).toBe('https://commons.wikimedia.org/wiki/File:Minh_Mang.gif');
+    expect(existsSync('public/' + portrait.path)).toBe(true);
+    expect(portrait.bytes).toBe(1_198_951);
+  });
+
   it('characters linked to Wikidata agree with the database on birth and death years (±2)', () => {
     for (const c of Object.values<any>(pack.characters)) {
       if (c.match !== 'strong') continue;

@@ -256,6 +256,9 @@ svg.i { width: 20px; height: 20px; flex: 0 0 auto; }
 /* identity (content pack): period flags, arms, portraits, sourced texts */
 .flagimg { display: inline-grid; place-items: center; flex: 0 0 auto; width: 30px; height: 20px; padding: 1px; background: linear-gradient(180deg, var(--gold-3), var(--gold-0)); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6); }
 .flagimg img { width: 100%; height: 100%; object-fit: cover; display: block; background: #0b1013; }
+.flagimg.arms-fallback { background: linear-gradient(180deg, #d5bd87, #756044); }
+.flagimg.arms-fallback img { object-fit: contain; background: radial-gradient(circle, #263329, #0b1013); padding: 2px; }
+.flagimg.arms-fallback.sm img { padding: 0; }
 .flagimg.sm { width: 21px; height: 14px; padding: 1px; } .flagimg.lg { width: 78px; height: 52px; padding: 2px; }
 .identity { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 12px 14px; margin: -12px -14px 12px; overflow: hidden;
   background: linear-gradient(90deg, color-mix(in srgb, var(--bc) 34%, #10181d), color-mix(in srgb, var(--bc) 10%, #10181d) 60%, #10181d); border-bottom: 1px solid var(--gold-0); }

@@ -100,20 +100,24 @@ export function CountryScreen({ st, id, tab }: { st: GameState; id: string; tab:
 function Dossier({ st, id }: { st: GameState; id: string }) {
   const e = data().entity.get(id);
   if (!e) return <div class="pad"><div class="empty">Quốc gia này hình thành trong ván chơi nên không có hồ sơ nghiên cứu năm 1836.</div></div>;
+  const rank = rankings(st).findIndex((r) => r.id === id) + 1;
+  const arms = symbolFor(id, 'coat_of_arms', st.date.y);
   const prof = (e as any).profile ?? {};
   const fact = (f: any) => (f && typeof f === 'object' && 'quality' in f ? f : null);
   const facts: [string, any, (v: any) => string][] = [['Dân số 1836', e.population, (v) => compact(v ?? 0)], ['Biết chữ', fact((e as any).literacy), (v) => pct(v)], ['Quân số', fact((e as any).army), (v) => compact(v)], ['Chính thể khởi đầu', e.laws, (v) => lawVi(v?.governance ?? '')]];
   const done = e.profile_sections.filter((s) => s.status === 'complete').length;
   return (
     <div class="pad">
-      <div class="idblock">
-        <Flag c={st.countries[id]} lg />
-        <div style="min-width:0"><h3>{e.vi}</h3><div class="meta">{e.en} · dữ liệu tại {prof.as_of ?? '1836-01-01'}</div></div>
-      </div>
+      <IdentityHeader st={st} id={id} rank={rank} />
+      <div class="note" style="margin-top:0">Hồ sơ nghiên cứu lịch sử có mốc dữ liệu {prof.as_of ?? '1836-01-01'}; tên chính thể và nhân vật hiển thị theo ngày trong ván chơi.</div>
       <div class="metrics">
         <Metric label="Mức hoàn thiện hồ sơ" value={pct(e.research_completeness)} d={<span class="dim">{done}/{e.profile_sections.length} mục đầy đủ</span>} tip={{ title: 'Mức hoàn thiện nghiên cứu', note: 'Chất lượng dữ liệu lịch sử của quốc gia — không phải chỉ số sức mạnh trong ván chơi.' }} />
         <Metric label="Hạng nghiên cứu" value={e.tier} d={<span class="dim">A = cường quốc · D = chưa nghiên cứu riêng</span>} />
       </div>
+      {arms && <Sec title="Biểu trưng triều đại" icon="flag">
+        <div class="note">Ảnh này là ấn/huy hiệu triều Nguyễn, không phải quốc kỳ. Chưa có mẫu quốc kỳ năm 1838 đủ căn cứ lịch sử để dùng trong game.</div>
+        <AssetCredit a={arms} />
+      </Sec>}
       <Sec title="Dữ liệu khởi đầu có nguồn">
         <table class="dt"><thead><tr><th>Dữ kiện</th><th class="r">Giá trị</th><th class="r">Nguồn</th></tr></thead>
           <tbody>{facts.filter(([, f]) => f).map(([label, f, show]) => <tr key={label} style="cursor:default"><td>{label}</td><td class="r num">{show(f.value)}</td><td class="r"><QualityMark quality={f.quality} sources={f.sources} method={f.method} /></td></tr>)}</tbody></table>
@@ -176,11 +180,12 @@ function IdentityHeader({ st, id, rank }: { st: GameState; id: string; rank: num
   useContent();
   const c = st.countries[id]; const y = st.date.y; const ec = entityContent(id);
   const arms = symbolFor(id, 'coat_of_arms', y);
+  const flag = symbolFor(id, 'flag', y);
   const names = (ec?.names ?? []).filter((n) => (n.from == null || n.from <= y) && (n.to == null || n.to >= y) && n.lang !== 'en').slice(0, 3);
   const ruler = characterByName(id, c.leader.name);
   return (
     <div class="identity" style={`--bc:${c.color}`}>
-      <div class="id-symbols"><Flag c={c} lg />{arms && <AssetImg id={arms.id} cls="arms" />}</div>
+      <div class="id-symbols">{flag || !arms ? <Flag c={c} lg /> : <AssetImg id={arms.id} cls="arms" />}{flag && arms && <AssetImg id={arms.id} cls="arms" />}</div>
       <div class="id-main">
         <h3>{fullName(st, id)}</h3>
         {names.length > 0 && <div class="names">{names.map((n) => <span key={n.text} lang={n.lang}>{n.text}<i>{LANG_VI[n.lang] ?? n.lang}</i></span>)}</div>}

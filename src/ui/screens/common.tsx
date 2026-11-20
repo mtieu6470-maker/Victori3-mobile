@@ -44,6 +44,8 @@ export function Flag({ c, sm, lg }: { c: Country | undefined; sm?: boolean; lg?:
   const year = game.st?.date.y ?? 1836;
   const f = c ? symbolFor(c.id, 'flag', year) : undefined;
   if (f) return <span class={`flagimg${sm ? ' sm' : ''}${lg ? ' lg' : ''}`} aria-hidden="true"><img src={f.path} alt="" loading="lazy" decoding="async" /></span>;
+  const arms = c ? symbolFor(c.id, 'coat_of_arms', year) : undefined;
+  if (arms) return <span class={`flagimg arms-fallback${sm ? ' sm' : ''}${lg ? ' lg' : ''}`} role="img" aria-label={`${arms.name} — ấn/huy hiệu triều đại, không phải quốc kỳ`} title={`${arms.name} · biểu trưng triều đại, không phải quốc kỳ`}><img src={arms.path} alt="" loading="lazy" decoding="async" /></span>;
   return <Emblem c={c} sm={sm} lg={lg} />;
 }
 export function Emblem({ c, sm, lg }: { c: Country | undefined; sm?: boolean; lg?: boolean }) {

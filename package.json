@@ -7,7 +7,7 @@
   "scripts": {
     "data": "tsx tools/build-data.ts",
     "map": "tsx tools/build-map.ts",
-    "prepare-assets": "npm run data && npm run map && npm run content",
+    "prepare-assets": "npm run fetch-public-assets && npm run data && npm run map && npm run content",
     "dev": "npm run prepare-assets && vite",
     "build": "npm run prepare-assets && tsc --noEmit && vite build",
     "preview": "vite preview",
@@ -17,7 +17,8 @@
     "report": "npm run prepare-assets && tsx tools/report.ts",
     "typecheck": "tsc --noEmit",
     "content": "tsx tools/build-content.ts",
-    "audit": "tsx tools/audit/coverage.ts"
+    "audit": "tsx tools/audit/coverage.ts",
+    "fetch-public-assets": "tsx tools/fetch-public-assets.ts"
   },
   "dependencies": {
     "@capacitor/android": "^7.6.10",

@@ -12,15 +12,24 @@ const SHORT: Record<string, string> = {
 };
 const PREFIX = /^(Vương quốc Hồi giáo|Vương quốc|Đế quốc|Đại công quốc|Công quốc|Thân vương quốc|Bá quốc|Tuyển hầu quốc|Liên bang|Thành phố tự do|Lãnh thổ|Hợp chúng quốc|Cộng hòa|Hãn quốc|Tiểu vương quốc|Lãnh địa|Quốc gia|Liên minh)\s+/;
 
+/** Names follow the effective year established by archival sources; VNM changes to Đại Nam in 1838. */
+const DATED: Record<string, [number, string][]> = { VNM: [[1804, 'Việt Nam'], [1838, 'Đại Nam']] };
+function datedName(st: GameState | null, id: string): string | undefined {
+  const dated = DATED[id];
+  if (!dated) return undefined;
+  const year = st?.date.y ?? 1836;
+  return [...dated].reverse().find(([from]) => year >= from)?.[1] ?? dated[0][1];
+}
 export function fullName(st: GameState | null, id: string): string {
+  const historical = datedName(st, id);
+  if (historical) return historical === 'Đại Nam' ? 'Đại Nam (nhà Nguyễn)' : 'Việt Nam (nhà Nguyễn)';
   const c = st?.countries[id]; if (c?.nameVi) return c.nameVi;
   return data().entity.get(id)?.vi ?? c?.name ?? id;
 }
-/** Short names that changed during 1836–1936, by the first year of each name (sources in historical_data/identity/local_names.json). */
-const DATED: Record<string, [number, string][]> = { VNM: [[1804, 'Việt Nam'], [1839, 'Đại Nam']] };
+/** Short names that changed during 1836–1936; years follow date-effective historical sources. */
 export function shortName(st: GameState | null, id: string): string {
-  const dated = DATED[id];
-  if (dated) { const y = st?.date.y ?? 1836; return [...dated].reverse().find(([from]) => y >= from)?.[1] ?? dated[0][1]; }
+  const historical = datedName(st, id);
+  if (historical) return historical;
   if (SHORT[id]) return SHORT[id];
   const full = fullName(st, id);
   return full.replace(/\s*\(.*\)$/, '').replace(PREFIX, '');
