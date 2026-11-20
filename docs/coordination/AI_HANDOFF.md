@@ -815,3 +815,14 @@ This section records the 2026-11-19 checkpoint and is superseded by the 2026-11-
 - Phase boundary unchanged: S0-B7 `IN_PROGRESS`; S1 remains `NOT AUTHORIZED`; no owner phase transition or implementation approval is inferred from this product-goal clarification. Do not implement the parity backlog until the phase gate and exact task scope are explicitly authorized.
 - Next: re-fetch live HEAD, use the parity audit as the design/checklist source, and obtain the required independent B7 review/owner gate before proposing a bounded implementation task. Prioritize clock foundation and historically valid ruler/portrait resolution when implementation is authorized, then build the interconnected subsystems in vertical slices with scenario and Android QA evidence.
 
+
+
+## 2026-11-20 — OWNER-REQUESTED SCOPE EXPANSION: 1836–2026 + CORE SYSTEM DEPTH
+
+- Owner requested that the campaign span be expanded from 1836–1936 to 1836–2026, with a contemporary technology tree and modern institutions/government/military systems.
+- Owner explicitly requested that this be combined with the work already intended at the start of this session: correct the overly fast / frame-coupled simulation pacing and deepen POP/economy, politics/laws/institutions, diplomacy (subjects/client states, alliances and treaties), and military (organization, equipment, command and logistics).
+- Recorded the complete planning amendment in `docs/roadmap/OWNER_SCOPE_AMENDMENT_1836_2026_SYSTEM_DEPTH.md`. It defines the combined workstreams, era bands, technology branches, system contracts, suggested delivery order and acceptance criteria.
+- The original `docs/spec/MASTER_SPEC_VI.md` is retained byte-for-byte as the normative S0/G0.4 audit source (1836–1936). The scope amendment does not rewrite that file or erase historical S0 evidence; a separately reviewed product-spec revision will be required to formally supersede the 1936 terminal date.
+- This is an owner-requested product-scope change and planning record only. It does not authorize gameplay/engine/runtime-clock/save/data/assets changes or bypass the current phase gate.
+- Live phase status remains: S0-B7 `IN_PROGRESS`; independent review and owner signoff pending; overall S0 `PARTIAL — NOT COMPLETE`; bounded S1-entry `NOT_TESTED`; S1 `NOT AUTHORIZED`. R7 remains OPEN P0, R14 BLOCKED, G0.7 BLOCKED, G0.8 PARTIAL, DEP-F1 OPEN P1.
+- No product source, tests, production data, save schema, assets, Gradle/workflows, signing configuration or APK changed. No build, test, device install or device QA was performed for this documentation-only scope record.
