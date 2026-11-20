@@ -567,7 +567,7 @@
         "pan_nationalism"
       ],
       "effects": {
-        "allow_multiple_alliances": 1
+        "allow_multiple_alliances": "true"
       }
     }
   ],
