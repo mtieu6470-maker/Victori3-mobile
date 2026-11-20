@@ -71,10 +71,14 @@ S0/B4/B7 review state and all historical S0 gate verdicts remain as recorded. Th
 
 **Current task checkpoint:** DEV-007 is authorized on base `01e57d57a5715fadb13f54fa67b56f1cdbdef7ac`; implementation and CI evidence must be appended to the handoff/report after verification.
 
-## Interim implementation record — DEV-007 (20/11/2026)
+## Implementation record — DEV-007 (20/11/2026)
 
-- Base: `01e57d57a5715fadb13f54fa67b56f1cdbdef7ac`.
-- Implementation: `f26d62041de74f2b28897229be8982f23b84910f`; test mock correction `255734d70f4f3ea95638feeccf0f9b149899cdc9`; current exact candidate `85e0ad35fc709806048edc04b829089a6817b087`.
-- CI currently pending: tests-only [44780761303](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44780761303); Android debug [44780761397](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44780761397). Both are attached to the exact candidate SHA above.
-- Two intermediate test-fixture defects were detected and corrected. No final PASS, APK artifact or independent review is claimed yet. The next session must poll these exact run IDs and re-fetch HEAD before any new write.
-- Scope remains calendar range only; no daily tick, save migration, post-1936 historical facts, media packs or phase transition.
+- Base HEAD: `01e57d57a5715fadb13f54fa67b56f1cdbdef7ac`.
+- Implementation chain: `f26d62041de74f2b28897229be8982f23b84910f`; `255734d70f4f3ea95638feeccf0f9b149899cdc9`; `85e0ad35fc709806048edc04b829089a6817b087`; final code/test target `387ae24eae91b560b0f10cec6d59febb11396401`.
+- Tests-only [44782634519](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44782634519): SUCCESS, 15/15 test files, 139/139 tests; 0 failures/pending/todo.
+- Android debug [44782634368](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44782634368): SUCCESS on exact same target; 15/15 files, 139/139 tests; Gradle BUILD SUCCESSFUL in 1m31s.
+- APK file: 18,052,808 bytes; SHA-256 `9377c9c3aac053b193e96d2fbd151b6fd59cb333a6169e1df542ddff54e067b9`. APK artifact ID `14652853298`; artifact ZIP SHA-256 `a81d22f0b674202c843b6070dfbb186da65046e141d9ebb8a1b176c5375d8ab8`. CI evidence artifact ID `14652978121`; ZIP SHA-256 `a21823e13e5a9ba1818fae2f59e9db0760a4b5d37136a304f027a46a3a632911`. Both ZIP hashes independently verified.
+- Android Debug certificate SHA-256 `c7d887ef3db71536110f1c8d609621a05726e36575257ed2516bc0d8dc3820d8`; V1/V2 verified; release signing not performed.
+- DEV-007 calendar boundary, controller stops, `runMonths`, terminal save/load round-trip and UI labels are implemented and covered. Save schema and monthly cadence are unchanged.
+- Historical 1937–2026 coverage and the full 4–5 GB offline data/media packs remain unimplemented. No device QA or APK install. Existing S0/S1/S22/S23 gates unchanged.
+- DEV-007 status: READY_FOR_REVIEW; Claude independent review PENDING; owner acceptance PENDING.
