@@ -3,7 +3,7 @@ import { fresh } from './helpers';
 import { relKey } from '../src/engine/core';
 import {
   allied,
-  allianceTreatyCount,
+  alliancePartnerCount,
   formAlliance,
   guarantee,
 } from '../src/engine/systems/diplomacy';
@@ -50,13 +50,13 @@ describe('Victoria 3-style bilateral alliance capacity', () => {
     preparePair(state, a, c);
 
     expect(formAlliance(state, a.id, b.id)).toBe(true);
-    expect(allianceTreatyCount(state, a.id)).toBe(1);
+    expect(alliancePartnerCount(state, a.id)).toBe(1);
     expect(formAlliance(state, a.id, c.id)).toBe(false);
     expect(allied(state, a.id, c.id)).toBe(false);
 
     a.techs.push('multilateral_alliances');
     expect(formAlliance(state, a.id, c.id)).toBe(true);
-    expect(allianceTreatyCount(state, a.id)).toBe(2);
+    expect(alliancePartnerCount(state, a.id)).toBe(2);
   });
 
   it('permits three or more independent partners after Multilateral Alliances', () => {
@@ -69,14 +69,14 @@ describe('Victoria 3-style bilateral alliance capacity', () => {
     expect(formAlliance(state, a.id, c.id)).toBe(true);
     expect(formAlliance(state, a.id, d.id)).toBe(true);
 
-    expect(allianceTreatyCount(state, a.id)).toBe(3);
+    expect(alliancePartnerCount(state, a.id)).toBe(3);
     expect(allied(state, a.id, b.id)).toBe(true);
     expect(allied(state, a.id, c.id)).toBe(true);
     expect(allied(state, a.id, d.id)).toBe(true);
     expect(allied(state, b.id, c.id)).toBe(false);
   });
 
-  it('counts a historical multi-country alliance as one treaty, not several partners', () => {
+  it('counts every unique partner inside a historical multi-country pact', () => {
     const state = fresh('historical', 186, 'GBR');
     const [a, b, c, d] = eligibleCountries(state);
     preparePair(state, a, d);
@@ -87,11 +87,16 @@ describe('Victoria 3-style bilateral alliance capacity', () => {
       start: state.tick,
     });
 
-    expect(allianceTreatyCount(state, a.id)).toBe(1);
+    // Legacy/history pact rows may contain several members. Each other living
+    // member is an ally for war calls and therefore consumes one ally slot.
+    expect(alliancePartnerCount(state, a.id)).toBe(2);
+    expect(alliancePartnerCount(state, b.id)).toBe(2);
+    expect(alliancePartnerCount(state, c.id)).toBe(2);
     expect(formAlliance(state, a.id, d.id)).toBe(false);
+
     a.techs.push('multilateral_alliances');
     expect(formAlliance(state, a.id, d.id)).toBe(true);
-    expect(allianceTreatyCount(state, a.id)).toBe(2);
+    expect(alliancePartnerCount(state, a.id)).toBe(3);
   });
 
   it('keeps customs-union membership separate from bilateral military alliances', () => {
