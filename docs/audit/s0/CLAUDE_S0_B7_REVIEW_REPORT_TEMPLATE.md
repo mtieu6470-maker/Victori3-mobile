@@ -52,7 +52,7 @@ Add one row per issue. Do not group findings if doing so hides a different sever
 | G0.9 full S0 | `BLOCKED` while C3/B2 is blocked | `<status>` | Do not relabel `PASS`. |
 | R7 | `OPEN P0` with owner-accepted-in-principle interim containment; not fixed | `<status>` | Confirm sessions remain explicitly lossy and baseline APK stays installed. |
 | R14/C3 | `P1`, separately blocked/isolated; owner, mitigation, stage and exit criteria documented | `<status>` | Export/import has not been device-verified. |
-| DEP-F1 | `OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING` | `<status>` | Run `44572915201`, artifact `14555141888`. Full tree: 6 dev entries (3 moderate / 1 high / 2 critical); production-only: 0; B4 Run #3 `npm ci` count 10 remains unresolved. No dependency change authorized in S0. |
+| DEP-F1 | `OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING` | `<status>` | Run `44572915201`, artifact `14555141888`. Full tree: 6 dev package entries (3 moderate / 1 high / 2 critical); production-only: 0. B4 Run #3 raw `npm ci` log (`44325257261`, job `134874698600`) records 221 packages audited and 10 vulnerabilities (3 moderate / 5 high / 2 critical); no package-level JSON exists for that install-time summary. The exact count/severity difference remains UNRECONCILED despite identical package-lock SHA `29ac661a36bb03bae62a80ce7abf9af0c15bb168` across baseline/B4/experiment. No dependency change authorized in S0. |
 
 ## 5. Owner decision prerequisites
 

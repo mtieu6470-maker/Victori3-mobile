@@ -177,3 +177,12 @@ Scope: these runs support CI/test/debug-APK build status only. They do not prove
 - The later B7 audit (`44572915201`) used explicit `npm audit --package-lock-only --json` against the frozen baseline. It reports six vulnerable package entries (3 moderate, 1 high, 2 critical) and a separate production-only result of zero. Its full lockfile metadata lists 292 dependencies (76 optional); the B4 install-time log reports 221 packages audited.
 - npm documents `audit=true` as the default install behavior for `npm ci`, and documents the registry-advisory plus vulnerability/meta-vulnerability calculation used by standalone `npm audit`: https://docs.npmjs.com/cli/v10/commands/npm-ci/ and https://docs.npmjs.com/cli/v10/commands/npm-audit/.
 - This establishes that the two observations came from different command paths and report contexts, not that the exact cause is known. Without the B4 npm-ci raw JSON, the 10-versus-6/severity difference remains **UNRECONCILED**. DEP-F1 stays OPEN P1; no dependency remediation is authorized here.
+
+## 17. S0-B7 cross-document structure validation — 2026-11-20
+
+A GitHub-content structural check was run against the then-live experiment HEAD `dbf90c077d2ffe5454937cbf4d4a8b84e6222740` and the current audit documents.
+
+- Risk Register P2 section: exactly 22 data rows; all 22 use six cells matching the six-column header. No malformed row was detected.
+- Risk traceability: 47 source/gate mapping rows; no duplicate mapping IDs were detected. All mapped IDs resolve to an exact Risk Register row or explicit grouped row. R3 resolves to the Closed section.
+- DEP-F1 was the one stale traceability description: it did not yet include the re-inspected B4 `npm ci` log or the identical lockfile blob SHA. This has now been corrected in `S0_B7_RISK_TRACEABILITY.md`; the exact discrepancy remains UNRECONCILED.
+- This was documentation-structure and cross-reference validation only. It is not a review verdict, runtime test, device test, gate closure or S1 authorization.
