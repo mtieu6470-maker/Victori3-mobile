@@ -2,7 +2,7 @@
 
 **Task:** Review S0-B7 risk register and signoff package only.
 **Current branch:** `experiment/vic3-visual-upgrade`
-**Current branch HEAD at request preparation:** `47c18a1ceabd591f877d3fdb50d38c36814e15d4` (recheck HEAD before review).
+**Review target:** re-fetch the live branch HEAD immediately before review. The previous pinned value in the original request is stale and must not be used; `S0_B7_REVIEW_PACKAGE_MANIFEST.md` is the blob-identity index, not a substitute for live ref verification.
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`.
 **Authorization:** Read-only review. Do not modify product code, tests, data, assets, dependencies, workflows, Gradle, APK signing, or secrets. Do not merge branches or open S1.
 
@@ -22,7 +22,7 @@
 - `docs/audit/s0/S0_SIGNOFF.md` — gate ledger and bounded exception draft.
 - `docs/audit/s0/S0_B7_RESULTS.md` — B7 status.
 - `docs/audit/s0/S0_B7_SELF_REVIEW.md` — ChatGPT's preliminary self-review and unresolved items; Claude must independently verify it, not assume its conclusions.
-- `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` and `.github/workflows/s0-b7-dependency-audit.yml` — manual read-only dependency-audit preparation; the workflow has not yet been run.
+- `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` and `.github/workflows/s0-b7-dependency-audit.yml` — completed read-only audit evidence: run `44572915201`, artifact `14555141888`; full-tree and production-only raw JSON inspected. DEP-F1 remains OPEN P1 pending remediation/owner disposition.
 - `docs/roadmap/DECISIONS_AND_S0_REVISED_VI.v3.2.md`, `docs/roadmap/S0_V3_3_GATE_RESTRUCTURE_PROPOSAL.md`, `docs/roadmap/S0_V3_3_OWNER_DECISION_AND_AMENDMENTS.md`, and `docs/coordination/AI_HANDOFF.md` — normative scope and owner decisions.
 
 ## Required review questions
@@ -31,7 +31,7 @@
 2. **Severity fidelity:** confirm R7 remains P0; frame-metric masking R5 and map performance budget R10 remain P1; TC-F1/TC-F2 and TC-F5 remain P1; TC-F3 and TC-F4/F6/F7 retain their catalog severities; G0.7 stays BLOCKED; G0.8 stays PARTIAL; full-S0 G0.9 stays BLOCKED while C3/B2 is blocked under v3.2 §6.4 and OD-20261116-11 §2.1.1. Track the separate bounded S1-entry package as NOT_TESTED pending reviewer and owner decisions.
 3. **Risk Register table integrity:** verify each Markdown table row has the same number of cells as its header. Specifically confirm every P2 entry uses the six-column schema (ID, evidence, impact, disposition/control, owner, target/closure criteria), and each traceability row points to its exact individual risk entry. Flag any grouped row that obscures separate findings.
 4. **B4 evidence:** independently check run `44325257261`, job `134874698600`, checkout commit `7f17b1f0177d712366e31e4e8c879cc4b6dd5741`, test file SHA `722d62c0647f06bc2e3a49bdef1f348f4f3104f2`, and compare to baseline `2240a8f`. Confirm the exact limitations: no artifact upload, no typecheck, and later expanded tests not run. Do not claim tests absent from that run passed.
-5. **Dependency audit workflow:** inspect exact YAML. Confirm workflow_dispatch-only behavior, frozen baseline checkout, `npm audit --package-lock-only` full and `--omit=dev` scan, exit-code handling, artifact upload under `if: always()`, full-SHA action pins, and no installation, fix, build, product script, or secret access. Check the artifact-name expression and workflow branch guard.
+5. **Dependency audit workflow and result:** inspect exact YAML and independently verify run `44572915201` / artifact `14555141888`. Confirm workflow_dispatch-only behavior, frozen baseline checkout, `npm audit --package-lock-only` full and `--omit=dev` scans, exit-code handling, artifact upload under `if: always()`, full-SHA action pins, and no installation, fix, build, product script, or secret access. Inspect all eight archive entries, both raw JSONs, summary, provenance, stderr and exit-code files; confirm full-tree six findings (3 moderate / 1 high / 2 critical), production-only zero, nested Vite esbuild `0.21.5`, and that B4 Run #3's separate npm ci count of 10 remains unreconciled.
 6. **Signoff correctness:** confirm S0 overall remains PARTIAL and S1 remains NOT AUTHORIZED. Confirm E-G0.7 and E-G0.8 are narrow requests only and do not waive G0.6 or R7. Confirm the document does not purport to accept exceptions on behalf of the project owner.
 7. **Repository hygiene:** verify the new audit workflow exists identically on the default and experiment branches, all new files are on the experiment branch, and the recent commits are audit/documentation-only (except the separately authorized B4 test harness/workflow).
 
@@ -70,14 +70,16 @@ Review the two latest experiment-branch Android workflow runs before issuing the
 Treat these as supplementary current-branch CI evidence, distinct from approved B4 Run #3 and from older supplemental Run #65. Include the residual APK-build blocker in the report and do not claim an APK exists for HEAD `fa95ad8`.
 
 
-## 9. CI-F4 — required independent review finding
+## 9. CI-F4 — historical finding; current disposition superseded by §12
 
-Independently verify the P1 `CI-F4` addition to the Risk Register and traceability matrix:
+The following records the original failure context from runs #316/#317. Independently verify that the Risk Register now closes CI-F4 narrowly using run #318 evidence in §12; do not leave the finding classified as an active APK-workflow blocker.
+
+Independently verify the historical P1 `CI-F4` addition to the Risk Register and traceability matrix:
 
 - Android APK run #316 (`44562638037`) on `26963da` and run #317 (`44562662560`) on `fa95ad8` both failed one of 109 tests (108 passed, 1 failed) at the baseline-only assertion requiring every restored country to lack `constructionQueue`.
 - Experiment branch `src/engine/types.ts` declares `constructionQueue` and `src/engine/init.ts` initializes it; frozen baseline `2240a8f` predates the field. Verify exact source at both refs rather than accepting this summary.
 - Both runs passed `npm ci`, `npm run build` and generated-data hashing, but the test failure skipped Android SDK setup, Capacitor sync, Gradle `assembleDebug`, APK checksums and APK upload. No APK was produced.
-- Confirm the risk is accurately classified as a current CI/test-scope integration blocker, not a gameplay defect and not a contradiction of the bounded B4 Run #3 baseline verdict.
+- Confirm the risk is accurately classified as a test-scope integration mismatch that existed at runs #316/#317, not a gameplay defect and not a contradiction of the bounded B4 Run #3 baseline verdict. Confirm its current narrow closure is supported by run #318 and that the dedicated pinned-baseline B4 workflow remains configured.
 - Recommend any remediation only as a separately authorized CI/test task. Do not edit tests or workflows during this read-only review.
 
 The dependency-audit workflow has now been dispatched and both JSON reports are available. Review exact run `44572915201`, artifact `14555141888`, full-tree totals (6: 3 moderate, 1 high, 2 critical), production-only total (0), all six dev-only package entries, nested esbuild `0.21.5`, and the still-unreconciled B4 Run #3 npm ci count of 10. Do not recommend a dependency fix inside S0; any remediation requires separate owner authorization.
