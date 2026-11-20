@@ -921,3 +921,12 @@ This section records the 2026-11-19 checkpoint and is superseded by the 2026-11-
 - No downloader, signed manifest, pack builder, hosting, production dataset, runtime, UI, Gradle, workflow, signing or APK was implemented in this documentation-only task. The 4–5 GB figure is not a verified artifact size.
 - Scope/gates remain unchanged: S1-CLK-01 is the only runtime authorization; general S1, calendar v2, save migration, six-hour/daily cadence, historical-data ingestion and game-system changes remain outside current runtime authorization. S0-B7 remains `IN_PROGRESS`; overall S0 remains `PARTIAL — NOT COMPLETE`; bounded S1-entry remains `NOT_TESTED`. No Claude review was requested or performed.
 - Current branch before this documentation commit: `9a1acf17859f112135d79fa15f7301a4ca55a955`. Default branch and separate S0 audit branch remain untouched.
+
+
+## 2026-11-20 — FULL DATA SIZE BUDGET CLARIFICATION
+
+- Clarified the owner's 4–5 GB statement: this is an acceptable upper planning budget if the complete data corpus needs it, **not a minimum size or a target to pad**. The release should be optimized and the actual compressed/installed sizes must be measured.
+- Updated `docs/design/APK_FIRST_OFFLINE_DATA_PACK_DISTRIBUTION_DRAFT.md` and `docs/spec/PRODUCT_REQUIREMENTS_1836_2026_DRAFT_V0.2.md` to use this interpretation. The “Download all” action remains one user action and may orchestrate multiple independently verified shards.
+- Follow-up documentation commits: initial APK-first design/PRD/handoff `42551a068203139b3e573a890b94beb04dacdb56`; budget wording `0405b2615b42017c01625dd1b1e129cc0ba92c2e`; PRD wording correction `bc9e050dcae69577d0c3b5ca6cf7b76df177bfbe`.
+- No APK, dataset, manifest, downloader, UI, runtime, Gradle, workflow, signing or hosting asset was produced. No build or device test was run; these commits are documentation-only.
+- The 4–5 GB payload does not yet exist and has not been measured. Current data coverage gaps remain as described in the historical data audit.
