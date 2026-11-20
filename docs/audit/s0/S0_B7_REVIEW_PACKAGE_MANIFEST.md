@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `e7b8275208058c784d9e46b003bf1216033d0327`  
+**Snapshot HEAD before this manifest refresh:** `57d7b89f5afad3c027caa07c547b00f6456d1a11`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -14,18 +14,18 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 |---|---|
 | `docs/audit/s0/S0_B4_RUN_3_REVIEW.md` | `3d8644811c3ac13b19cce1f1274c46d2edbaa10a` |
 | `docs/audit/s0/S0_B4_TEST_PLAN.md` | `ef21f8193daf283a6ed8c6f4d68b7ca87781bd46` |
-| `docs/audit/s0/S0_B3_RESULTS.md` | `457eb4ef6c4e0aa060fc8335bea0b6cb22c17e34` |
+| `docs/audit/s0/S0_B3_RESULTS.md` | `cc25258c5295e5c2de3bae90d3c9b1d1c1b63da5` |
 | `docs/audit/s0/S0_RISK_REGISTER.md` | `e16e3a69afcad9451012defef8f30bd5efe23a94` |
 | `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `b74ea0dd7e8c86b2d76718b9e0cef94d4f318f5c` |
-| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `49cdf19cab3cd395a30fd9adaa288bfc8237b303` |
+| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `f6c53edd6b3846c69461bb930dcdced879d42ec0` |
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `8701c8defd2945cc0849b7e2c7ee67afe03ab141` |
 | `docs/audit/s0/S0_SIGNOFF.md` | `cf4d86af7e84a9be430383b75c63dae931551a6e` |
-| `docs/audit/s0/S0_B7_RESULTS.md` | `3388df787cffad564ad2fcb34af33aa13859f081` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `72f5e2914ba5c639403511c1bc3986be40e3d81c` |
+| `docs/audit/s0/S0_B7_RESULTS.md` | `30e20e2129f84e1a20724c843a3b7d366ff33c28` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `e28c6b0af3de5da2b5ddf07f97c4c054e7ba07f8` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `977e7fc3427cefb99bf3ba172740eb99cb6034b8` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `792ca9bbc35bbaab34a74b758c74728e8aeb3ed0` |
-| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `84846ba91a06c51a6fd891fbb1b6589d5b4e6671` |
+| `docs/coordination/AI_HANDOFF.md` | `b23fef759cacded76f2d9e4258d61c1bea37b42d` |
+| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `0cdd1b70857e17b708c6851575819ae076a5b8d0` |
 
 ## 2. Risk table integrity and traceability
 
@@ -216,3 +216,12 @@ The prior structural summary undercounted the matrix by one because it omitted t
 - Snapshot base before this manifest refresh: `e7b8275208058c784d9e46b003bf1216033d0327`.
 - Corrected an editorial foreign-language word in `S0_B3_RESULTS.md` §9; the verdict remains `REVIEW_PASS` only for the S0-B3 audit scope and all underlying review evidence/commits are unchanged.
 - Updated the B3 results blob SHA above. No gate, risk, review outcome, owner decision or phase authorization changed.
+
+
+## 20. Source severity and row-schema reconciliation (2026-11-20)
+
+- Snapshot base before this manifest refresh: `57d7b89f5afad3c027caa07c547b00f6456d1a11`.
+- Pinned the updated B3 review summary, B7 source-severity self-audit, B7 results, reviewer request, and both handoff files using blob SHAs read from the exact branch state above.
+- Source checks covered R1–R14 in v3.2; RM/WD in B3 results; TC in the test catalog; GD in the global data audit; AS in the asset audit; CI/DEP as B7 additions. No severity mismatch was found; R3 remains Closed, R7 P0, G0.7 remains a BLOCKED gate rather than a P-level risk.
+- Risk table shape check found 22 P2 rows with six cells; all other P0/P1/P3/Closed rows had their expected schema and no empty cells. All 48 traceability rows remained unique and mapped.
+- This is a documentation-only self-audit, not an independent REVIEW_PASS or owner acceptance. No runtime, package, data, asset, workflow, save, signing or device work was performed.
