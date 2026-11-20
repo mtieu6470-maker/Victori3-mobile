@@ -931,3 +931,31 @@ This is a later, explicit owner authorization to begin product implementation on
 - **Known limitation:** factory realization uses one deterministic preliminary availability probe followed by one definitive market clearing. It is not yet an iterative market equilibrium/fixed-point solver. Agricultural/artisanal output remains aggregated rather than tracked by firm/warehouse. Regional storage, route capacity, stockpile policy, sourced opening stocks and the player-facing inventory UI remain unimplemented. See `docs/design/INVENTORY_LEDGER_IMPLEMENTATION_01.md`.
 - **Next exact action:** obtain and inspect Android Actions for this branch HEAD; run/fix typecheck, all simulation tests and APK build to exact-SHA evidence. Then design a bounded deterministic staged/fixed-point market clearing with explicit iteration cap/convergence tests before adding firm/warehouse and route-level inventory.
 
+
+
+## 2026-11-20 — ECONOMY-INVENTORY-LEDGER-02 / BOUNDED ITERATIVE MARKET CLEARING
+
+- **Verified starting HEAD:** `755bb54e0821bbaeebd57fb03c3529dda3a3f649`.
+- **Latest implementation commit:** `da2968bb52e7df8a2225ba35951a83c44d6ada83` (state type/diagnostics; the solver code is `d740e290d29f0e3d20f58361c95456ef12415d06)).
+- **Latest tests commit:** `f20580456c36238363b2780dc52dd4f26a70e711`.
+- **Latest design/report commit:** `aebc719d181649603b6a0fc3987182f6fa404f5a`.
+- **Current branch HEAD before this handoff update:** `aebc719d181649603b6a0fc3987182f6fa404f5a`.
+- **Commits in this continuation:**
+  - `c6c3e7d3beb53ff2588f54b9be9e9f48566babe7` — add a pure bounded deterministic market/factory fulfillment solver.
+  - `b63ba3f14448ddb5ba27e3d8eb553dd750fc3737` — integrate its final supply/demand/shortage projection with recipe factory realization and the monthly inventory settlement.
+  - `94e540ad1e7a10b325da08b761cfbcfb9c741653` — tests for fixed-point convergence, iteration cap, invalid inputs and stockpile transfer.
+  - `0d64634540421e53471ede9ba27ef24bc770d03d` — allow inventory already held by a market to be exported after local demand is covered.
+  - `d740e290d29f0e3d20f58361c95456ef12415d06` and `da2968bb52e7df8a2225ba35951a83c44d6ada83` — persist market solver diagnostics in optional GameState state.
+  - `217c303c09c0be32592e4daff2313edf8665db85` and `f20580456c36238363b2780dc52dd4f26a70e711` — assert the diagnostics in simulation tests and make the legacy-save fixture remove the optional field when simulating a pre-diagnostics save.
+  - `aebc719d181649603b6a0fc3987182f6fa404f5a` — update the inventory ledger design/implementation report.
+- **Files changed in this continuation:** `src/engine/systems/economy.ts`, `src/engine/types.ts`, `tests/inventory.test.ts`, `docs/design/INVENTORY_LEDGER_IMPLEMENTATION_01.md`; this handoff update follows.
+- **Solver contract:** maximum 32 iterations, relaxation 0.5, convergence tolerance 1e-5. Iteration order is stable; market IDs are sorted, and factory operations follow stable region/building iteration. The pure solver returns per-factory fulfillment, final market supply/demand, per-market shortages, iterations, residual and convergence state. It does not mutate simulation time or input projections.
+- **Integrated:** recipe outputs and inputs are both scaled by each firm's same solved fulfillment factor. The final market projection feeds the one definitive trade settlement, prices, market statistics, GDP and monthly inventory ledger. The current market's on-hand stock is exportable only after local demand is covered; world imports/exports remain paired and local stock never goes negative under the inventory settlement invariant.
+- **Diagnostics:** optional `GameState.marketClearing` records tick, factory count, iteration count, configured cap, convergence flag and residual. It is diagnostic state, not an economic input; older saves with the field absent remain valid.
+- **Tests present:** 14 in `tests/inventory.test.ts`: 4 bounded market solver cases, 2 factory material realization cases, 5 inventory accounting invariants and 3 economy/save integration cases. They cover deterministic convergence in a constrained market, stockpile export into a deficit market, iteration cap/non-convergence, invalid inputs, same-factor factory scaling, material conservation, ledger projection, save/load determinism and migration.
+- **Numerical spot check:** an independent calculation of the single-market convergence fixture reached fulfillment 0.5208046 in 15 iterations with residual 8.03e-6. This is a formula sanity check only, **not** a Vitest execution or engine benchmark.
+- **Execution verdict:** tests and typecheck remain `NOT_TESTED`. GitHub clone remains unavailable from the container due DNS resolution failure for `github.com`. GitHub combined status returned no status objects; the available workflow-run reader only surfaces pull-request-triggered runs and cannot verify the push-triggered Android APK workflow. No CI PASS/FAIL, run ID, Gradle result, artifact or APK hash is asserted.
+- **Device QA/performance:** `NOT_TESTED`; no Android installation, CPU/memory/thermal profile or benchmark.
+- **Known limitation:** if the bounded solver reaches 32 iterations without meeting tolerance, the last deterministic iterate is used and `marketClearing.converged=false` plus residual are preserved. A player-facing warning or conservative slowdown policy has not been implemented or tested. This remains a bounded approximation, not a proven globally converged general equilibrium. Firm-owned/region warehouses, agricultural/artisanal warehouse flows, canonical good units, storage capacity/spoilage, physical routes, stockpile policies and the inventory UI remain unimplemented.
+- **Next exact action:** run typecheck + all Vitest/simulation suites + Android APK workflow on the exact source HEAD and fix all failures. Then benchmark monthly market clearing on representative world sizes and the target Android device; add adversarial cyclic/cross-market dependency tests and a documented non-convergence fallback before moving to regional warehouses and route logistics.
+
