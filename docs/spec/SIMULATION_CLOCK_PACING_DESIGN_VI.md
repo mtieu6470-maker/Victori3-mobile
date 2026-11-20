@@ -262,3 +262,67 @@ Thứ tự đề xuất: CLK-A0 → CLK-A1 → CLK-A2 → CLK-A3 (sau khi đặc
 - Không có benchmark runtime/device mới được chạy trong slice này. Các tốc độ ở §2.2 là phép quy đổi lý thuyết từ source constants, không phải kết quả đo.
 - Không tuyên bố clock đã sửa, không tuyên bố Victoria 3 pacing parity, và không mở S1.
 - S1 vẫn cần independent review/owner ACCEPTED theo gate. Khi được mở, P0 clock/pacing phải đi trước các lát cắt gameplay P1 khác.
+
+
+## 12. Hiệu chỉnh cho chiến dịch 1836–2026 và giới hạn tốc độ tối đa
+
+Phần này bổ sung phạm vi thời gian của chiến dịch theo yêu cầu chủ dự án. Nó không sửa các kết luận kỹ thuật ở §§1–11 và không phải benchmark runtime.
+
+### 12.1. Calendar contract mục tiêu
+
+- Bắt đầu: **1836-01-01**.
+- Ngày cuối có thể chơi: **2026-12-31**.
+- Boundary kết thúc chuẩn: xử lý xong mọi task thuộc ngày 2026-12-31, sau đó chuyển sang trạng thái campaign-complete tại boundary **2027-01-01 00:00**. UI có thể hiển thị "31 December 2026 — completed"; save phải ghi rõ campaign đã hoàn tất.
+- Historical, Sandbox và Observer phải dùng cùng calendar và scheduler. Khác biệt chỉ nằm ở người phát lệnh, mức AI điều khiển và quy tắc scenario.
+- Logical state cần đủ độ phân giải để xác định ngày/giờ và thứ tự task; không thể chỉ đổi hằng số GAME_END_TICK trong khi vẫn giữ monthly-only tick.
+- Các tháng có độ dài Gregorian đúng; leap year phải tuân thủ quy tắc lịch Gregorian. Không giả định mọi tháng có 30 ngày.
+- Legacy monthly tick phải giữ nguyên ý nghĩa trong save cũ cho tới khi migration được phê duyệt, có version và test.
+
+### 12.2. Tốc độ tối đa — pacing guard đề xuất
+
+Owner feedback chỉ rõ tốc độ cũ quá nhanh, có thể nhảy nhiều năm trong một giây. Thiết kế mới cần có một giới hạn lịch tối đa được kiểm thử độc lập với FPS.
+
+**Mục tiêu bảo vệ ban đầu để đưa vào benchmark:** ở Speed 5, trần thiết kế là không quá **1 năm lịch game trong 60 giây thực** trên cấu hình tham chiếu, tương đương trung bình khoảng **6.1 ngày game/giây thực**. Đây là một pacing guard sơ bộ để ngăn bước nhảy nhiều năm mỗi giây, không phải số liệu đo Victoria 3 và không phải cam kết rằng iQOO hiện đạt throughput đó.
+
+Quy tắc áp dụng:
+
+1. Speed 5 luôn là mức nhanh nhất, nhưng không có nghĩa là "mỗi RAF callback tiến một tháng".
+2. Scheduler dùng monotonic elapsed time và giới hạn số logical ticks được sinh ra theo pacing budget. Refresh 30/60/90/120 Hz phải tạo cùng số logical ticks trong cùng khoảng monotonic elapsed, sai số chỉ trong tolerance của clock test.
+3. Nếu thiết bị không đủ sức xử lý target rate, game được phép chạy chậm hơn và hiển thị simulation slowdown/backlog; không được bỏ logical ticks, rút gọn kết quả chiến tranh hay bỏ qua hệ thống để giả lập tốc độ.
+4. Nếu thiết bị nhanh hơn target guard, scheduler phải giữ ceiling đã duyệt; không để game tự tăng tốc theo FPS.
+5. Speed 1–4 có tốc độ thấp hơn Speed 5 theo mapping được benchmark và owner chấp thuận. Các tỷ lệ giữa cấp tốc độ chưa được hard-code trong tài liệu này.
+6. Đo calendar progress sau warm-up bằng ngày lịch Gregorian; không suy tốc độ từ số callback, FPS hay số lần UI render.
+7. Trước khi khóa mapping cuối cùng, phải đo cả Victori3 Mobile lẫn Victoria 3 trong điều kiện ghi rõ. Nếu phép đo trực tiếp V3 cho thấy pacing khác đáng kể, đề xuất hiệu chỉnh guard và xin owner chấp thuận trước khi đổi tiêu chí.
+
+Trần 1 năm/60 giây là **mục tiêu pacing sơ bộ** do implementer đề xuất để giải quyết phản hồi "nhiều năm trong một giây". Nó phải được kiểm chứng bằng benchmark, test scheduler và owner hands-on; không được ghi nhận thành kết quả đã PASS khi chưa có các bằng chứng này.
+
+### 12.3. Hệ quả cho lịch 190 năm
+
+- Tổng khoảng lịch từ 1836-01-01 đến boundary 2027-01-01 là 191 năm lịch tính theo mốc đầu/năm boundary; campaign chơi qua các ngày từ 1836 đến hết 2026.
+- Với ceiling đề xuất ở §12.2, một lần chạy liên tục không pause sẽ cần xấp xỉ 190 phút lịch chiến dịch cho 190 năm chơi (chính xác phụ thuộc leap days và cách tính elapsed/boundary). Đây là phép tính từ target guard, không phải benchmark.
+- Các hệ thống economy/POP/politics/AI/diplomacy/military không được cập nhật tất cả ở mọi six-hour tick. Mỗi task phải có cadence, prerequisites và stable order; ví dụ:
+  - six-hour: advance clock, movement/operation timers and explicitly required immediate effects;
+  - daily: local logistics, selected military/market flows where justified;
+  - weekly: AI planning, fronts/operations and selected aggregation;
+  - monthly: accounts, production settlement, population/economic summaries and political processes that are monthly by design;
+  - yearly: demographic/economic/national capability snapshots and annual historical reports.
+- Đây là ví dụ phân bổ cadence, không phải quyết định cuối. Từng system owner phải xác định tần suất, độ trễ được chấp nhận, chi phí compute, ordering và RNG consumption trước implementation.
+- Những event có hạn theo giờ/ngày (mobilization deadline, diplomatic escalation, election date, blockade, treaty expiration) phải được biểu diễn theo logical date/step, không chờ monthly tick rồi xảy ra trễ cả tháng.
+
+### 12.4. Acceptance tests bổ sung
+
+| ID | Tiêu chí | Kiểm chứng |
+|---|---|---|
+| CLK-11 | Campaign kết thúc đúng sau ngày 2026-12-31, không kết thúc đầu năm hoặc cuối tháng 12 sai lệch | Calendar boundary unit/integration tests |
+| CLK-12 | Leap day (29 February) và độ dài các tháng được xử lý chính xác trong toàn bộ 1836–2026 | Gregorian calendar property tests |
+| CLK-13 | Speed 5 không vượt pacing guard thiết kế ban đầu 1 game-year/60 real seconds trên reference benchmark harness | Fake-clock scheduler tests và device benchmark |
+| CLK-14 | 30/60/90/120 Hz schedules cho cùng calendar progress trong cùng monotonic elapsed interval | Deterministic fake-clock matrix |
+| CLK-15 | Overload chỉ tăng backlog/slowdown; không drop ticks hoặc chạy bù vô hạn | Stall, backlog and bounded-slice tests |
+| CLK-16 | Save/load ở boundary ngày/tuần/tháng/năm và tại campaign end không chạy trùng hoặc bỏ task | Cross-cadence deterministic replay |
+
+### 12.5. Giới hạn
+
+- Chưa đo trực tiếp Victoria 3 hoặc iQOO Z10 Turbo trong lần cập nhật này.
+- Không có runtime code hoặc save migration nào được thay đổi.
+- Không tuyên bố scheduler, pacing guard, 1836–2026 campaign boundary hay các cadence trên đã được implement.
+- Phần này chỉ là thiết kế để chuẩn bị một slice được cấp quyền sau phase review.
