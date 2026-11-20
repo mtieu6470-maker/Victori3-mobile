@@ -7,7 +7,9 @@ vi.mock('../src/engine/save', () => ({
   serialize: vi.fn(() => ''),
   deserialize: vi.fn((value: string) => JSON.parse(value)),
 }));
+vi.mock('../src/engine/init', () => ({ createGame: vi.fn() }));
 
+import { createGame } from '../src/engine/init';
 import { stepMonth } from '../src/engine/simulation';
 import { GameController } from '../src/ui/game/controller';
 
@@ -101,6 +103,36 @@ describe('GameController fast-forward isolation', () => {
     expect(controller.busy).toBeNull();
     expect(controller.paused).toBe(true);
   });
+
+  it('does not let an invalidated fast-forward continue after a new game replaces the state', async () => {
+    let resumeYield: (() => void) | undefined;
+    vi.stubGlobal('setTimeout', ((callback: () => void) => {
+      resumeYield = callback;
+      return 1;
+    }) as typeof setTimeout);
+    vi.mocked(createGame).mockReturnValue({ tick: 500, log: [] } as any);
+
+    const controller = new GameController();
+    controller.st = { tick: 0, log: [] } as any;
+    const work = controller.fastForward(6);
+    expect(controller.st?.tick).toBe(6);
+    expect(controller.busy).not.toBeNull();
+    expect(resumeYield).toBeDefined();
+
+    controller.newGame({ mode: 'historical', seed: 7, player: null });
+    expect(controller.st?.tick).toBe(500);
+    expect(controller.paused).toBe(true);
+    expect(controller.busy).toBeNull();
+
+    resumeYield?.();
+    await work;
+
+    expect(controller.st?.tick).toBe(500);
+    expect(controller.paused).toBe(true);
+    expect(controller.busy).toBeNull();
+    expect(vi.mocked(createGame)).toHaveBeenCalledWith({ mode: 'historical', seed: 7, player: null });
+  });
+
   it('restores the live clock after a fast-forward step throws', async () => {
     let resumeYield: (() => void) | undefined;
     vi.stubGlobal('setTimeout', ((callback: () => void) => {
