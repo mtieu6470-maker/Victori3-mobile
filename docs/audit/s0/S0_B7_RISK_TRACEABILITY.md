@@ -50,7 +50,7 @@
 | Source ID | Source severity | Risk Register location | Disposition |
 |---|---:|---|---|
 | GD-F1 | P2 | §4, `GD-F1` | OPEN P2 — some `supported` labels have no source. |
-| GD-F2 | P1 | §3, `GD-F2` | OPEN P1 — uneven coverage; staged remediation targets S3/S6 and relevant economic/historical-character data tasks, with a 12-region × polity-type provenance/coverage exit report. |
+| GD-F2 | P1 | §3, `GD-F2` | OPEN P1 — uneven coverage; explicit target split: S3 geography, S6 population, S7/S13 economic facts, S16 rulers/characters; exit requires a 12-region × polity-type provenance/coverage report with method, units and uncertainty. |
 | GD-F3 | P2 | §4, `GD-F3` | OPEN P2 — literacy/army/GDP defaults or missing values need provenance distinctions. |
 | GD-F4 | P2 | §4, `GD-F4` | OPEN P2 — fields such as culture, religion, terrain/resources and government lack quality/source metadata. |
 | GD-F5 | P3 | §5, `GD-F5 / GD-F6` | OPEN P3 — inhabited islands may fall outside the Strategic Region grid. |
