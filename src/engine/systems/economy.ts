@@ -76,6 +76,42 @@ export function hasTech(c: Country, id: string) { return c.techs.includes(id); }
 
 export function marketOf(st: GameState, c: Country): string { return c.customsUnion ?? (c.overlord && st.countries[c.overlord]?.subjectType !== 'personal_union' && c.subjectType === 'chartered_company' ? c.overlord : c.id); }
 
+/**
+ * Resolve the country whose trade policy governs a market.
+ * National markets use their own country. A customs-union market uses the treaty's
+ * declared leader, not whichever member happens to own the first region in iteration order.
+ * Stale/dead leaders fall back to the first living treaty member, then the observed members.
+ */
+export function marketPolicyCountry(
+  st: GameState,
+  marketId: string,
+  memberIds: readonly string[],
+): Country | undefined {
+  const national = st.countries[marketId];
+  if (national?.alive) return national;
+
+  const customsUnion = st.treaties.find(
+    (treaty) => treaty.id === marketId && treaty.type === 'customs_union',
+  );
+  if (customsUnion) {
+    const leaderId = customsUnion.leader;
+    if (leaderId && customsUnion.members.includes(leaderId)) {
+      const leader = st.countries[leaderId];
+      if (leader?.alive) return leader;
+    }
+    for (const memberId of customsUnion.members) {
+      const member = st.countries[memberId];
+      if (member?.alive) return member;
+    }
+  }
+
+  for (const memberId of memberIds) {
+    const member = st.countries[memberId];
+    if (member?.alive) return member;
+  }
+  return undefined;
+}
+
 export function openness(c: Country, coastal: boolean): number {
   let o = OPENNESS[c.laws.trade] ?? 0.3;
   o *= 1 + 0.3 * techEffect(c, 'trade_capacity') + 0.2 * (hasTech(c, 'railways') ? 1 : 0);
@@ -835,7 +871,8 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
   const mIds = Object.keys(markets);
   for (const id of mIds) {
     const m = markets[id];
-    const leader = st.countries[id] ?? st.countries[m.members[0]];
+    const leader = marketPolicyCountry(st, id, m.members);
+    if (!leader) throw new Error(`Market ${id} has no active policy country`);
     const coastal = st.regions.some((r) => m.members.includes(r.owner) && r.coastal);
     m.open = openness(leader, coastal);
   }
