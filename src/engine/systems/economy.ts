@@ -258,6 +258,11 @@ export interface FactoryMarketSolution {
   supply: Record<string, Record<Good, number>>;
   demand: Record<string, Record<Good, number>>;
   shortages: Record<string, Record<Good, number>>;
+  /** Exact annualized market imports/exports used to calculate the returned shortages. */
+  imports: Record<string, Record<Good, number>>;
+  exports: Record<string, Record<Good, number>>;
+  /** Openness-weighted world surplus/deficit used by prices and trade allocation. */
+  worldTrade: Record<Good, { surplus: number; deficit: number }>;
 }
 
 interface FactoryMarketSnapshot {
@@ -349,8 +354,16 @@ export function solveFactoryMarketFulfillment(
     return { supply, demand };
   };
 
-  const calculateShortages = (snapshot: FactoryMarketSnapshot): Record<string, Record<Good, number>> => {
-    const world = Object.fromEntries(
+  const calculateMarketTrade = (
+    snapshot: FactoryMarketSnapshot,
+    captureFlows = false,
+  ): {
+    worldTrade: Record<Good, { surplus: number; deficit: number }>;
+    shortages: Record<string, Record<Good, number>>;
+    imports: Record<string, Record<Good, number>> | null;
+    exports: Record<string, Record<Good, number>> | null;
+  } => {
+    const worldTrade = Object.fromEntries(
       GOODS.map((good) => [good, { surplus: 0, deficit: 0 }]),
     ) as Record<Good, { surplus: number; deficit: number }>;
 
@@ -364,17 +377,21 @@ export function solveFactoryMarketFulfillment(
         // Existing stock may be exported after the market's own demand is covered.
         const surplus = Math.max(0, supply + stock * 12 - demand);
         const deficit = Math.max(0, demand - supply - stock * 12);
-        world[good].surplus += surplus * market.openness;
-        world[good].deficit += deficit * market.openness;
+        worldTrade[good].surplus += surplus * market.openness;
+        worldTrade[good].deficit += deficit * market.openness;
       }
     }
 
     const shortages: Record<string, Record<Good, number>> = {};
+    const importsByMarket: Record<string, Record<Good, number>> | null = captureFlows ? {} : null;
+    const exportsByMarket: Record<string, Record<Good, number>> | null = captureFlows ? {} : null;
     for (const marketId of marketIds) {
       const market = markets[marketId];
       const shortage = zero();
+      const marketImports = captureFlows ? zero() : null;
+      const marketExports = captureFlows ? zero() : null;
       for (const good of GOODS) {
-        const global = world[good];
+        const global = worldTrade[good];
         const supply = snapshot.supply[marketId][good];
         const demand = snapshot.demand[marketId][good];
         const stock = openingStocks[marketId]?.[good] ?? 0;
@@ -393,10 +410,23 @@ export function solveFactoryMarketFulfillment(
         shortage[good] = monthlyDemand > 0
           ? clamp(1 - available / monthlyDemand, 0, 1)
           : 0;
+        if (marketImports && marketExports) {
+          marketImports[good] = imports;
+          marketExports[good] = exports;
+        }
       }
       shortages[marketId] = shortage;
+      if (marketImports && marketExports && importsByMarket && exportsByMarket) {
+        importsByMarket[marketId] = marketImports;
+        exportsByMarket[marketId] = marketExports;
+      }
     }
-    return shortages;
+    return {
+      worldTrade,
+      shortages,
+      imports: importsByMarket,
+      exports: exportsByMarket,
+    };
   };
 
   let fulfillment = new Array(factories.length).fill(1) as number[];
@@ -406,7 +436,7 @@ export function solveFactoryMarketFulfillment(
 
   for (let iteration = 0; iteration < maxIterations && !converged; iteration++) {
     const snapshot = aggregate(fulfillment);
-    const shortages = calculateShortages(snapshot);
+    const shortages = calculateMarketTrade(snapshot).shortages;
     residual = 0;
     const next = new Array(fulfillment.length);
     for (let index = 0; index < factories.length; index++) {
@@ -427,7 +457,8 @@ export function solveFactoryMarketFulfillment(
   }
 
   let finalSnapshot = aggregate(fulfillment);
-  let finalShortages = calculateShortages(finalSnapshot);
+  let finalTrade = calculateMarketTrade(finalSnapshot, true);
+  let finalShortages = finalTrade.shortages;
   if (converged) {
     residual = 0;
     for (let index = 0; index < factories.length; index++) {
@@ -446,7 +477,8 @@ export function solveFactoryMarketFulfillment(
     fulfillment = new Array(factories.length).fill(0);
     appliedFallback = 'zero-recipe-production';
     finalSnapshot = aggregate(fulfillment);
-    finalShortages = calculateShortages(finalSnapshot);
+    finalTrade = calculateMarketTrade(finalSnapshot, true);
+    finalShortages = finalTrade.shortages;
   }
 
   return {
@@ -458,6 +490,9 @@ export function solveFactoryMarketFulfillment(
     supply: finalSnapshot.supply,
     demand: finalSnapshot.demand,
     shortages: finalShortages,
+    imports: finalTrade.imports!,
+    exports: finalTrade.exports!,
+    worldTrade: finalTrade.worldTrade,
   };
 }
 
@@ -888,23 +923,9 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     }
   }
 
-  // Use the final coupled projection for world-price targets and the definitive stock posting.
-  const realizedWorld: Record<Good, { surplus: number; deficit: number }> =
-    Object.fromEntries(GOODS.map((good) => [good, { surplus: 0, deficit: 0 }])) as any;
-  const realizedExportCapacity: Record<string, Record<Good, number>> = {};
-  for (const marketId of mIds) {
-    const market = markets[marketId];
-    const capacity = zero();
-    for (const good of GOODS) {
-      const openingStock = inventoryLedger.balances[marketId]?.[good] ?? 0;
-      const surplus = Math.max(0, market.s[good] + openingStock * 12 - market.dm[good]);
-      const deficit = Math.max(0, market.dm[good] - market.s[good] - openingStock * 12);
-      realizedWorld[good].surplus += surplus * market.open;
-      realizedWorld[good].deficit += deficit * market.open;
-      capacity[good] = surplus * market.open;
-    }
-    realizedExportCapacity[marketId] = capacity;
-  }
+  // The solver returns the exact trade flows used for its shortage projection.
+  // Reuse that single allocation for prices and the definitive inventory posting.
+  const realizedWorld = clearing.worldTrade;
   for (const good of GOODS) {
     const total = realizedWorld[good];
     const target = clamp(Math.pow((total.deficit + 1) / (total.surplus + 1), 0.25), 0.6, 2.2);
@@ -920,18 +941,9 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const journal: Partial<Record<Good, ReturnType<typeof settleInventoryFlow>>> = {};
 
     for (const good of GOODS) {
-      const worldFlow = realizedWorld[good];
       const openingStock = inventoryLedger.balances[marketId]?.[good] ?? 0;
-      const deficit = Math.max(0, market.dm[good] - market.s[good] - openingStock * 12);
-      const importRatio = worldFlow.deficit > 0
-        ? clamp(worldFlow.surplus / worldFlow.deficit, 0, 1)
-        : 1;
-      const imports = deficit * market.open * importRatio;
-      const totalWorldImports = Math.min(worldFlow.surplus, worldFlow.deficit);
-      const exportCapacity = realizedExportCapacity[marketId][good];
-      const exports = worldFlow.surplus > 0
-        ? totalWorldImports * exportCapacity / worldFlow.surplus
-        : 0;
+      const imports = clearing.imports[marketId][good];
+      const exports = clearing.exports[marketId][good];
       const flow = settleInventoryFlow({
         openingStock,
         production: market.s[good] / 12,
