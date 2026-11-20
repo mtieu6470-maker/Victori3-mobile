@@ -95,13 +95,24 @@ export function marketPolicyCountry(
   );
   if (customsUnion) {
     const leaderId = customsUnion.leader;
-    if (leaderId && customsUnion.members.includes(leaderId)) {
-      const leader = st.countries[leaderId];
-      if (leader?.alive) return leader;
-    }
+    const leader = leaderId && customsUnion.members.includes(leaderId)
+      ? st.countries[leaderId]
+      : undefined;
+    if (leader?.alive) return leader;
+
     for (const memberId of customsUnion.members) {
       const member = st.countries[memberId];
       if (member?.alive) return member;
+    }
+
+    // Some long-running campaigns can retain an economic market after every
+    // recorded member has been marked inactive. Preserve the last recorded
+    // policy source rather than crashing the entire simulation; active members
+    // always take precedence above this compatibility fallback.
+    if (leader) return leader;
+    for (const memberId of customsUnion.members) {
+      const member = st.countries[memberId];
+      if (member) return member;
     }
   }
 
@@ -109,7 +120,11 @@ export function marketPolicyCountry(
     const member = st.countries[memberId];
     if (member?.alive) return member;
   }
-  return undefined;
+  for (const memberId of memberIds) {
+    const member = st.countries[memberId];
+    if (member) return member;
+  }
+  return national;
 }
 
 export function openness(c: Country, coastal: boolean): number {
@@ -872,7 +887,11 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
   for (const id of mIds) {
     const m = markets[id];
     const leader = marketPolicyCountry(st, id, m.members);
-    if (!leader) throw new Error(`Market ${id} has no active policy country`);
+    if (!leader) {
+      // A market without any resolvable country is structurally invalid; keep the
+      // failure explicit rather than silently substituting an unrelated policy.
+      throw new Error(`Market ${id} has no resolvable policy country`);
+    }
     const coastal = st.regions.some((r) => m.members.includes(r.owner) && r.coastal);
     m.open = openness(leader, coastal);
   }
