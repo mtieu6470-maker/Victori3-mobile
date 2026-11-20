@@ -163,3 +163,8 @@ The implementer reports a read-only cross-check of the traceability severities a
 ## 10. Additional P0/P1 disposition checks requested
 
 Independently verify the tightened target/exit criteria in the current Risk Register and traceability matrix for R2/AS-F1 (S5 rights verification), R10 (separate S4/S11/S20 numeric budgets), GD-F2 (S3/S6 and relevant economic/historical-character data coverage), and TC-F1/TC-F2 (S17/S19 versus S20/S21 non-vacuous tests). Confirm these clarifications do not silently change severity, owner acceptance, gate verdicts or phase authorization. Re-fetch live HEAD and blob SHAs; do not rely on this request as evidence of a reviewer verdict.
+
+
+## 11. Exact-HEAD Android run #324 and R1 certificate evidence
+
+Please re-fetch and independently verify run `44677523059` / job `136092798809` on checkout SHA `31f1617ed838110296fd68edfd90c7e3e3b8d0a7`, including artifacts `14603730370` and `14603825259`. Verify the local/API ZIP digest match, the APK SHA-256 and `apksigner` certificate report; confirm 38/38 suites, 97/97 tests and Gradle success. Compare against Run #322 (`44661820747`, checkout `68fee31641d2249be824a87f4302c26a5aeb6611`): certificate SHA-256 values are `559d549a21515f899b6195c65114b2be778ff2fbd63288d21ef31f4365b96238` and `84bb348722b660bb36805f3928f73d64401d313a8627168796b6068a2ee1d146`, respectively. The GitHub commit comparison reports documentation-only intervening changes. Confirm R1 therefore remains OPEN and does not authorize signing or device installation. Also verify AS-F1's S5 exit criteria and confirm no risk/gate/phase status was changed by this evidence refresh.
