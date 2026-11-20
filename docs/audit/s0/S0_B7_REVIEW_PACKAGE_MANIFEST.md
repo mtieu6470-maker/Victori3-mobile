@@ -15,7 +15,7 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 | `docs/audit/s0/S0_B4_RUN_3_REVIEW.md` | `3d8644811c3ac13b19cce1f1274c46d2edbaa10a` |
 | `docs/audit/s0/S0_B4_TEST_PLAN.md` | `ef21f8193daf283a6ed8c6f4d68b7ca87781bd46` |
 | `docs/audit/s0/S0_RISK_REGISTER.md` | `c22fbf270e3e2263067d30e48c7c63464a5b3f47` |
-| `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `b55a14bf5e23e162a1b5d2b2cc6b7c1831a60022` |
+| `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `dbcfeb7f125578220e220c594c3a834bfeecaa8f` |
 | `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `70eb56cf89b8ff8ea4536c0cd373532f61134c16` |
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `e3ff67518e936882b9f1f3f6096030ddb4bb99b5` |
 | `docs/audit/s0/S0_SIGNOFF.md` | `f150ed753276f19e77e4fee4e7ee62e28422d93e` |
