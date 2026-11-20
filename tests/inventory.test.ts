@@ -64,6 +64,26 @@ describe('customs-union market policy authority', () => {
     expect(marketPolicyCountry(state, unionId, [formerLeader.id, fallbackMember.id])?.id)
       .toBe(fallbackMember.id);
   });
+
+  it('preserves the last recorded policy source if every customs-union member is inactive', () => {
+    const state = fresh('historical', 149, 'GBR');
+    const activeCountries = Object.values(state.countries).filter((country) => country.alive);
+    const formerMember = activeCountries[0];
+    const formerLeader = activeCountries[1];
+    const unionId = 'test-customs-union-no-active-members';
+    state.treaties.push({
+      id: unionId,
+      type: 'customs_union',
+      members: [formerMember.id, formerLeader.id],
+      leader: formerLeader.id,
+      start: state.tick,
+    });
+    formerMember.alive = false;
+    formerLeader.alive = false;
+
+    expect(marketPolicyCountry(state, unionId, [formerMember.id, formerLeader.id])?.id)
+      .toBe(formerLeader.id);
+  });
 });
 
 describe('bounded factory/market equilibrium', () => {
