@@ -1,3 +1,11 @@
+## DEV-007 — Campaign calendar implementation checkpoint (20/11/2026)
+
+- Owner amendment `OWNER_DIRECTIVE_CAMPAIGN_RANGE_2026-11-20.md` changes the inclusive campaign range to January 1836–December 2026 for both modes.
+- Code/test chain: base `01e57d57a5715fadb13f54fa67b56f1cdbdef7ac`; implementation `f26d62041de74f2b28897229be8982f23b84910f`; test-mock correction `255734d70f4f3ea95638feeccf0f9b149899cdc9`; current candidate `85e0ad35fc709806048edc04b829089a6817b087`.
+- Tests-only run [44780761303](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44780761303) and Android debug run [44780761397](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44780761397) both checked out the exact current candidate and remain `IN_PROGRESS` at the latest query. Test count, Gradle result and APK/evidence hashes are intentionally not stated until completed.
+- Intermediate fixture-only failures were identified and corrected: TS2345 mock return mismatch (`f26d620` → `255734d`); shared stepMonth spy call-history contamination (`255734d` → `85e0ad3`). Latest exact-target CI remains pending.
+- 1836–2026 is a calendar boundary only, not completion of source-backed 1937–2026 historical data. The full 4–5 GB installed media/data target remains unfulfilled; no media or content pack was added in this slice.
+- No save schema, daily tick, simulation formulas, historical facts, assets, Android signing, physical device QA or phase gate changed.
 ## DEV-007 — Campaign calendar boundary 1836–2026 (20/11/2026)
 
 - Owner amendment: `docs/coordination/OWNER_DIRECTIVE_CAMPAIGN_RANGE_2026-11-20.md` changes the inclusive playable campaign period to January 1836–December 2026 for both Historical and Sandbox modes.

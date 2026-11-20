@@ -70,3 +70,11 @@ S0/B4/B7 review state and all historical S0 gate verdicts remain as recorded. Th
 ---
 
 **Current task checkpoint:** DEV-007 is authorized on base `01e57d57a5715fadb13f54fa67b56f1cdbdef7ac`; implementation and CI evidence must be appended to the handoff/report after verification.
+
+## Interim implementation record — DEV-007 (20/11/2026)
+
+- Base: `01e57d57a5715fadb13f54fa67b56f1cdbdef7ac`.
+- Implementation: `f26d62041de74f2b28897229be8982f23b84910f`; test mock correction `255734d70f4f3ea95638feeccf0f9b149899cdc9`; current exact candidate `85e0ad35fc709806048edc04b829089a6817b087`.
+- CI currently pending: tests-only [44780761303](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44780761303); Android debug [44780761397](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44780761397). Both are attached to the exact candidate SHA above.
+- Two intermediate test-fixture defects were detected and corrected. No final PASS, APK artifact or independent review is claimed yet. The next session must poll these exact run IDs and re-fetch HEAD before any new write.
+- Scope remains calendar range only; no daily tick, save migration, post-1936 historical facts, media packs or phase transition.

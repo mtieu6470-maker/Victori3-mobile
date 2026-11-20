@@ -1,3 +1,13 @@
+## DEV-007 IMPLEMENTATION CHECKPOINT — CI IN PROGRESS (20/11/2026)
+
+- Owner amendment: `docs/coordination/OWNER_DIRECTIVE_CAMPAIGN_RANGE_2026-11-20.md`; bounded campaign-calendar task DEV-007 only.
+- Base SHA: `01e57d57a5715fadb13f54fa67b56f1cdbdef7ac`.
+- Implementation chain: `f26d62041de74f2b28897229be8982f23b84910f` (engine/calendar/controller/UI); `255734d70f4f3ea95638feeccf0f9b149899cdc9` (mock return type); current code/test target `85e0ad35fc709806048edc04b829089a6817b087` (isolated shared spy call history).
+- Current tests-only run: [44780761303](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44780761303) — `IN_PROGRESS`, exact `head_sha=85e0ad35fc709806048edc04b829089a6817b087`.
+- Current Android debug run: [44780761397](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44780761397) — `IN_PROGRESS`, exact `head_sha=85e0ad35fc709806048edc04b829089a6817b087`. No APK/Gradle PASS is claimed.
+- Intermediate failure transparency: Android run [44779584858](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44779584858) on `f26d620` failed TypeScript because an old test mock returned `void` after `stepMonth()` became boolean; corrected in `255734d`. Tests-only run [44779835069](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44779835069) on `255734d` ran 137 tests (136 passed, one failed): the new boundary test counted 26 shared spy calls instead of its own 2; corrected with `mockClear()` in `85e0ad3`. These are intermediate test-fixture failures, not evidence of a successful final candidate.
+- Product scope preserved: Jan 1836–Dec 2026 inclusive; monthly cadence remains; no daily tick, save schema, gameplay formula, historical data, media, pack, signing, device or phase-gate change in DEV-007.
+- **Current task status: CI_PENDING / NOT YET READY_FOR_REVIEW.** Do not mark PASS or offer the debug APK until both current exact-target workflows finish successfully and artifacts are verified. Continue polling the two run IDs above before any further code change.
 ## LATEST OWNER AMENDMENT — CAMPAIGN 1836–2026 (20/11/2026)
 
 - Owner decision: `docs/coordination/OWNER_DIRECTIVE_CAMPAIGN_RANGE_2026-11-20.md` supersedes the older 1836–1936 campaign-period target only; the full campaign is January 1836 through December 2026 inclusive for Historical and Sandbox modes.
