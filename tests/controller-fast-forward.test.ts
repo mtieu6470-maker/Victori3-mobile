@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 vi.mock('../src/engine/simulation', () => ({
-  stepMonth: vi.fn((state: { tick?: number }) => { state.tick = (state.tick ?? 0) + 1; }),
+  stepMonth: vi.fn((state: { tick?: number }) => { state.tick = (state.tick ?? 0) + 1; return true; }),
 }));
 vi.mock('../src/engine/save', () => ({
   serialize: vi.fn(() => ''),
@@ -164,6 +164,7 @@ describe('GameController fast-forward isolation', () => {
     for (let i = 0; i < 6; i++) {
       stepMonthMock.mockImplementationOnce((state) => {
         state.tick = (state.tick ?? 0) + 1;
+        return true;
       });
     }
     stepMonthMock.mockImplementationOnce(() => {
