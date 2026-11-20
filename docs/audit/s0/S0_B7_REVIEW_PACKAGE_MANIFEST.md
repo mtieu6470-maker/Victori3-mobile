@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `5c549909e6c3ec400c9cfdd97ada09dae57dfd55`  
+**Snapshot HEAD before this manifest refresh:** `b4bbb03ba4baf19394f3bd46f0550a317eb6c86d`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -15,16 +15,16 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 | `docs/audit/s0/S0_B4_RUN_3_REVIEW.md` | `3d8644811c3ac13b19cce1f1274c46d2edbaa10a` |
 | `docs/audit/s0/S0_B4_TEST_PLAN.md` | `ef21f8193daf283a6ed8c6f4d68b7ca87781bd46` |
 | `docs/audit/s0/S0_RISK_REGISTER.md` | `e16e3a69afcad9451012defef8f30bd5efe23a94` |
-| `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `dbcfeb7f125578220e220c594c3a834bfeecaa8f` |
-| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `e8f5740d1be90574fae33feb59d2e84d725dc605` |
+| `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `b74ea0dd7e8c86b2d76718b9e0cef94d4f318f5c` |
+| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `8d0b3eac1d8d9d055939eae677fdbf76bc12e0fb` |
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `8701c8defd2945cc0849b7e2c7ee67afe03ab141` |
-| `docs/audit/s0/S0_SIGNOFF.md` | `6b9d17d81b1d8eecac21912f7058707ce6aa0283` |
-| `docs/audit/s0/S0_B7_RESULTS.md` | `9fd81f9aed3bb598918941057ba8fe0d114f1510` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `747f38226e8cbdf245374a7fd516e5a9cd3dc96f` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `403a1dc63df414afc348ffbfd2a6f144f3394dd2` |
+| `docs/audit/s0/S0_SIGNOFF.md` | `cf4d86af7e84a9be430383b75c63dae931551a6e` |
+| `docs/audit/s0/S0_B7_RESULTS.md` | `60acdaf702cdfb523ab334584f40be350032dd04` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `7bc390dd4266fc7e4fd94e3ef9ea9750a4ff9352` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `977e7fc3427cefb99bf3ba172740eb99cb6034b8` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `9fe529ee11cced07244ddcc4cfee380d847798fc` |
-| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `8fca0497976630c136068ecbccedef21d3b0651a` |
+| `docs/coordination/AI_HANDOFF.md` | `e70ac6fa3827962142a7d625bda795f4f856e1cd` |
+| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `4025c98338f7fddfd101a9c0218431f604373224` |
 
 ## 2. Risk table integrity and traceability
 
@@ -185,3 +185,12 @@ This supplement does not change CI-F4's narrow closure, overall S0 gate states, 
 - Later read-only baseline audit run `44572915201` used explicit `npm audit --package-lock-only --json`; six vulnerable package entries (3 moderate / 1 high / 2 critical), plus zero in the production-only scan.
 - The outputs come from different npm command/report contexts; B4 raw JSON is unavailable, so the exact count/severity difference is UNRECONCILED. DEP-F1 stays OPEN P1; no dependency changes were made.
 - Related report, plan, risk-register row, self-review, reviewer request and handoff were refreshed in commit `5c549909e6c3ec400c9cfdd97ada09dae57dfd55`. This manifest refresh advances the branch again; reviewers must re-fetch live HEAD and every listed blob SHA.
+
+
+## 16. B7 risk traceability and DEP-F1 cross-document structure checkpoint (2026-11-20)
+
+- Snapshot base before this manifest commit: `b4bbb03ba4baf19394f3bd46f0550a317eb6c86d`; the refreshed file blob identities above refer to the just-committed experiment-branch files.
+- Structural check at the prior HEAD found exactly 22 P2 Risk Register rows and six cells in every row. All 47 risk/gate traceability mappings were unique and resolved to an exact or explicitly grouped Risk Register target.
+- Corrected the stale DEP-F1 traceability row. It now records B4 Run #3 `npm ci` output (221 packages audited / 10 findings), identical package-lock blob SHA `29ac661a36bb03bae62a80ce7abf9af0c15bb168` across baseline/B4/experiment, and the B7 explicit lockfile-only scan (six vulnerable package entries). Without B4 package-level JSON, the exact difference remains UNRECONCILED; DEP-F1 remains OPEN P1.
+- Refreshed `S0_B7_SELF_REVIEW.md`, `S0_SIGNOFF.md`, reviewer request/template, results and both handoff documents. No gate verdict, phase authorization or dependency disposition was changed.
+- Documentation-only validation; no runtime tests, device QA, product source, workflow, dependency, save/schema, data or asset change. Re-fetch the current HEAD and every listed blob SHA before reviewer verdict.
