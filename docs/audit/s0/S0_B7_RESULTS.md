@@ -183,6 +183,6 @@ Scope: these runs support CI/test/debug-APK build status only. They do not prove
 A GitHub-content structural check was run against the then-live experiment HEAD `dbf90c077d2ffe5454937cbf4d4a8b84e6222740` and the current audit documents.
 
 - Risk Register P2 section: exactly 22 data rows; all 22 use six cells matching the six-column header. No malformed row was detected.
-- Risk traceability: 47 source/gate mapping rows; no duplicate mapping IDs were detected. All mapped IDs resolve to an exact Risk Register row or explicit grouped row. R3 resolves to the Closed section.
+- Risk traceability: 48 source/gate mapping rows (including the G0.7 device-evidence gate row); no duplicate mapping IDs were detected. All mapped IDs resolve to an exact Risk Register row or explicit grouped row. R3 resolves to the Closed section.
 - DEP-F1 was the one stale traceability description: it did not yet include the re-inspected B4 `npm ci` log or the identical lockfile blob SHA. This has now been corrected in `S0_B7_RISK_TRACEABILITY.md`; the exact discrepancy remains UNRECONCILED.
 - This was documentation-structure and cross-reference validation only. It is not a review verdict, runtime test, device test, gate closure or S1 authorization.

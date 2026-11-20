@@ -152,7 +152,7 @@ The live GitHub contents at base HEAD `dbf90c077d2ffe5454937cbf4d4a8b84e6222740`
 | Check | Result | Evidence / boundary |
 |---|---|---|
 | P2 Risk Register schema | PASS | 22 data rows; all 22 have exactly six cells matching the header (ID, risk/evidence, impact, disposition/control, owner, target/closure criteria). |
-| Traceability mapping cardinality | PASS for structural checks | 47 source/gate mapping rows; no duplicate source IDs. Every mapped source ID has a register target, including explicit grouped rows (R5/RM-F3, R8/TC-F4, TC-F1/TC-F2, GD-F5/GD-F6, AS-F5/AS-F6/AS-F7). |
+| Traceability mapping cardinality | PASS for structural checks | 48 source/gate mapping rows (including the G0.7 device-evidence gate row); no duplicate source IDs. Every mapped source ID has a register target, including explicit grouped rows (R5/RM-F3, R8/TC-F4, TC-F1/TC-F2, GD-F5/GD-F6, AS-F5/AS-F6/AS-F7). |
 | Traceability target resolution | PASS for structural checks | Every Risk Register location resolves to at least one exact row ID in the register, including the Closed / no longer active row for R3. |
 | DEP-F1 wording alignment | CORRECTED | The traceability row now carries the original B4 log count (221 audited / 10 findings), the B7 six-package lockfile-only result, identical package-lock SHA, and the still-unreconciled evidence boundary. |
 | Gate status consistency | PRESERVED | R7 remains OPEN P0; R14 BLOCKED; G0.7 BLOCKED; G0.8 PARTIAL; full-S0 G0.9 BLOCKED; overall S0 PARTIAL/BLOCKED; bounded S1-entry NOT_TESTED; S1 NOT AUTHORIZED. |
