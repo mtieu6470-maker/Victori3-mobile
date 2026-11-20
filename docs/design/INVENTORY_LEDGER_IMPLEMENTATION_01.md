@@ -173,3 +173,13 @@ Validation trail:
 - The current inventory test source contains 19 tests. Exact current-HEAD Vitest/Android workflow evidence is tracked in AI_HANDOFF; no result is inferred from source presence.
 
 These changes only correct which existing country governs market openness and how old/inactive market state is handled. They do not yet create a full route graph, port/rail capacity, trade contracts, shipping losses or per-state market access.
+
+## 15. Explicit nominal-capacity baseline for occupational-demand test
+
+Android workflow run #420 (`44716335003`, code SHA `584ed577ded5de157a618ccd73103f86d642c3b6`) completed the full Vitest set with 114/115 tests passing. The only failing assertion was `tests/simulation.test.ts` → `employment-aware occupational transition` → `reduces future worker migration when factories lower their hiring targets`: the reduced fixture reported 96,500 factory workers while the comparison fixture reported 95,467.77.
+
+The test's supposed full-capacity baseline had been read from a fresh game after the initial economy calibration had already populated hiring targets. It then replaced only some targets; factory types omitted from that partial object defaulted to 100%, which could increase total capacity relative to the earlier mixed baseline. This made the comparison dependent on incidental initialization values instead of the intended input.
+
+Commit `12ab70f4d6b61617710f8de1779e1691fec8235f` fixes only the test fixture: it explicitly sets every productive building's baseline hiring target to 1 before measuring full capacity, then applies the reduced target map. Runtime migration, hiring and production code are unchanged by this test-only correction.
+
+Run #421 (`44716363882`, SHA `bdb815e29c3fb7468e75a1e19873558eff2d692c`) is the preceding run with customs-union fallback coverage; it must be inspected separately. Run #422 (`44717245006`, exact test-fix SHA `12ab70f4d6b61617710f8de1779e1691fec8235f`) is the workflow that validates this fixture correction and the full 115-test set. Its result is not assumed until Actions completes.
