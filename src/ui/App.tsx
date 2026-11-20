@@ -5,7 +5,7 @@
 // take the full height of the screen in landscape and are bottom sheets with three heights in portrait.
 import { useEffect, useRef, useState } from 'preact/hooks';
 import type { VNode } from 'preact';
-import { game, type Speed } from './game/controller';
+import { game, SPEED_MS, type Speed } from './game/controller';
 import { ui, useUI, useGame, type ScreenId, type LensId } from './game/ui';
 import { MapView, mapControls, type MapAssets } from './map/MapView';
 import { LENSES, lensById } from './map/lenses';
@@ -234,7 +234,7 @@ function TopBar({ portrait }: { portrait: boolean }) {
       <button class="ib" aria-label="Thông báo" title="Thông báo" onClick={() => modals.open('Thông báo', () => <InboxScreen st={st} />)}><Icon name="bell" class="i" />{unread > 0 && <span class="badge">{unread > 99 ? '99+' : unread}</span>}</button>
       <button class={`ib${menu ? ' on' : ''}`} aria-label="Menu" title="Thế giới, hệ thống, bản đồ toàn màn hình" onClick={(e) => { const r = (e.currentTarget as HTMLElement).getBoundingClientRect(); setMenu(menu ? null : { x: r.right, y: r.bottom }); }}><Icon name="menu" class="i" /></button>
       <div class="datebox"><b class="num">{st.date.y}</b><span>{MONTH_VI[st.date.m - 1]}</span></div>
-      <Tip c={{ title: `Tốc độ ${g.speed} / 5`, note: 'Chạm để đổi tốc độ. Phím 1–5 trên bàn phím.' }}><button class="speed" aria-label={`Tốc độ ${g.speed}`} onClick={() => game.setSpeed(((g.speed % 5) + 1) as Speed)}>{[1, 2, 3, 4, 5].map((i) => <i key={i} class={i <= g.speed ? 'on' : ''} style={`height:${5 + i * 3}px`} />)}</button></Tip>
+      <Tip c={{ title: `Tốc độ ${g.speed} / 5`, note: `Mỗi nhịp = 1 tháng; tốc độ hiện tại ${SPEED_MS[g.speed] / 1000} giây/tháng. Chạm để đổi tốc độ. Phím 1–5 trên bàn phím.` }}><button class="speed" aria-label={`Tốc độ ${g.speed}`} onClick={() => game.setSpeed(((g.speed % 5) + 1) as Speed)}>{[1, 2, 3, 4, 5].map((i) => <i key={i} class={i <= g.speed ? 'on' : ''} style={`height:${5 + i * 3}px`} />)}</button></Tip>
       <button class={`ib play${g.paused ? ' paused' : ''}`} aria-label={g.paused ? 'Tiếp tục' : 'Tạm dừng'} onClick={() => game.setPaused(!g.paused)}><Icon name={g.paused ? 'play' : 'pause'} class="i" /></button>
     </div>
   );

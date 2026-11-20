@@ -490,3 +490,13 @@ Các dòng trên phân biệt **quyết định sản phẩm**, **evidence revie
 - Prepared `docs/audit/s0/DEV004_ECONOMY_CONSTRUCTION_CLAUDE_REVIEW_REQUEST_2026-11-19.md` at docs commit `ebe6e32463a06cc3dc1baae8585ea58509e1ba89`. It asks Claude to independently challenge construction cash invariants, factory intermediate-good/market clearing, wages/employment and Sandbox cumulative diagnostics on exact code SHA `96578ca3...`.
 - Economy review note: code inspection identified a question for independent review, not yet a confirmed defect — market shortages/imports are calculated using planned factory output before each factory's input-constrained realized output is applied. Claude is explicitly asked to test whether this can overstate upstream steel/tools availability for downstream factories. No unverified model correction was made.
 - Remaining limitations: no physical Android device QA; no install/upgrade attempted; no production signing or release. The APK is a debug CI candidate only. Claude independent review/correction remains pending. Formal G0/S0/S1/S22 gate states remain unchanged.
+
+
+### 2026-11-20 — DEV-006 bounded monthly simulation clock
+
+- Xác định nguyên nhân trực tiếp khiến thời gian chạy vọt: `SPEED_MS[5] = 0` làm `stepMonth()` chạy mỗi animation frame; tốc độ 4 cũng chỉ cách nhau 220 ms/tháng. Bộ tích lũy thời gian còn có thể tạo burst catch-up sau khi tab nền bị treo.
+- Đặt lại tốc độ 1–5 lần lượt thành 8.000 / 5.000 / 3.500 / 2.500 / 2.000 ms cho mỗi tháng mô phỏng. Không tốc độ nào còn chạy theo FPS.
+- Scheduler mới giới hạn tối đa một tháng cho mỗi callback, bỏ phần thời gian dư sau một khoảng dừng dài, và reset phần tích lũy khi người chơi đổi tốc độ.
+- Thêm bốn regression tests cho khoảng tốc độ, ngưỡng thời gian, background pause 60 giây và dữ liệu thời gian không hợp lệ.
+- **Giới hạn:** engine hiện vẫn mô phỏng theo tháng, chưa phải daily tick như Victoria 3. Đây là hotfix nhịp thời gian, không tuyên bố đã đạt parity lịch mô phỏng.
+- Base HEAD: `e4182491161e61065e4ac15228c5f59a8832ad1d`. Runtime/test/build CI chưa chạy tại thời điểm ghi nhận; device QA NOT_TESTED; independent review và owner acceptance pending. Không thay đổi S0 gate ledger.

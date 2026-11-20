@@ -1323,3 +1323,16 @@ The owner requested one Claude review/correction pass after ChatGPT's first impl
 - GitHub APK artifact ID `14488625201`, ZIP SHA-256 `08d66dea88002688040698925c5fd59b26b3ee1ba8d9ee48cd6c0097aca9d881`.
 - GitHub CI evidence artifact ID `14486589363`, ZIP SHA-256 `f46054658354bbeb0f7bddf916f08c446d2bbbfe77600865aa08b402372c1477`.
 - This is the pre-Claude-review debug artifact; no device installation or QA has occurred. It must not be called a final accepted test build until Claude's pass/correction and a new verification run on the corrected exact HEAD.
+
+
+## 11. DEV-006 — bounded monthly simulation clock (2026-11-20)
+
+- **Base HEAD:** `e4182491161e61065e4ac15228c5f59a8832ad1d`; **branch:** `claude/game-historical-sandbox-modes-kg7rj7`.
+- **Owner authorization:** owner granted ChatGPT full discretion over technical priorities and execution in chat on 2026-11-20; this is a bounded clock/scheduler correction, not a phase-gate acceptance.
+- **Root cause:** `SPEED_MS[5] = 0` made speed 5 call `stepMonth()` on every animation frame (typically about 60 simulated months/second). Speed 4 at 220 ms/month also advanced roughly 4.5 years of game time per real second. The scheduler additionally retained up to one full interval of backlog and could emit a catch-up burst after a background-tab pause.
+- **Implementation:** speed intervals are now 8,000 / 5,000 / 3,500 / 2,500 / 2,000 ms per simulated month for speeds 1–5. A pure `consumeClockElapsed()` helper emits at most one month per callback and discards excess elapsed time after stalls; speed changes reset partial accumulated time. The top-bar tooltip now states the actual month interval.
+- **Changed files:** `src/ui/game/controller.ts`, `src/ui/App.tsx`, `tests/monthly-clock.test.ts`, this handoff and the rolling S22 report.
+- **Tests added:** positive/monotonic speed intervals; exact threshold crossing; 60-second background pause capped to one month; invalid/negative timing input handling.
+- **Verification:** source-level patch prepared against exact base HEAD. CI/typecheck/build have not yet run in this session; no test or APK pass is claimed. Physical-device QA is NOT_TESTED.
+- **Important model limitation:** engine time remains monthly. This correction stops runaway month advancement; it does not yet provide Victoria 3-style daily simulation ticks. Converting to daily ticks requires a separately designed daily scheduler and a reviewed cadence contract for every economy, POP, politics, diplomacy, military, event and AI system.
+- **Review/acceptance:** ChatGPT self-authored change; independent review and owner acceptance remain pending. This commit does not alter historical S0 gate verdicts or authorize unrelated subsystems.

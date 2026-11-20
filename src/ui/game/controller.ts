@@ -7,8 +7,29 @@ import { serialize, deserialize } from '../../engine/save';
 import type { GameMode, GameState } from '../../engine/types';
 
 export type Speed = 1 | 2 | 3 | 4 | 5;
-/** Milliseconds of real time per game month at each speed (speed 5 = as fast as the device allows). */
-export const SPEED_MS: Record<Speed, number> = { 1: 2000, 2: 1000, 3: 500, 4: 220, 5: 0 };
+/**
+ * Real milliseconds per simulated month. The engine advances in monthly steps,
+ * so every speed is deliberately bounded; speed 5 is not a render-frame tick.
+ */
+export const SPEED_MS: Record<Speed, number> = { 1: 8000, 2: 5000, 3: 3500, 4: 2500, 5: 2000 };
+
+/**
+ * Consume wall-clock time without allowing background-tab time to become a
+ * burst of catch-up months. At most one deterministic month may be emitted
+ * per scheduler callback; excess elapsed time is intentionally discarded.
+ */
+export function consumeClockElapsed(
+  accumulatorMs: number,
+  elapsedMs: number,
+  intervalMs: number,
+): { accumulatorMs: number; shouldStep: boolean } {
+  const interval = Number.isFinite(intervalMs) && intervalMs > 0 ? intervalMs : 1;
+  const accumulator = Number.isFinite(accumulatorMs) ? Math.max(0, Math.min(accumulatorMs, interval)) : 0;
+  const elapsed = Number.isFinite(elapsedMs) ? Math.max(0, Math.min(elapsedMs, interval)) : 0;
+  const total = Math.min(interval, accumulator + elapsed);
+  if (total >= interval) return { accumulatorMs: 0, shouldStep: true };
+  return { accumulatorMs: total, shouldStep: false };
+}
 
 export interface Toast { id: number; text: string; kind: 'ok' | 'error' | 'info' }
 
@@ -61,7 +82,7 @@ export class GameController {
 
   // ---------------------------------------------------------------- time
   setPaused(p: boolean) { this.paused = p; if (p) this.stop(); else this.start(); this.emit(); }
-  setSpeed(s: Speed) { this.speed = s; this.emit(); }
+  setSpeed(s: Speed) { if (this.speed === s) return; this.speed = s; this.acc = 0; this.last = performance.now(); this.emit(); }
   stepOnce() { if (this.st) { stepMonth(this.st); this.emit(); } }
   private start() {
     if (this.raf) return;
@@ -69,10 +90,11 @@ export class GameController {
     const loop = (t: number) => {
       this.raf = requestAnimationFrame(loop);
       if (!this.st || this.paused) return;
-      this.acc += t - this.last; this.last = t;
-      const need = SPEED_MS[this.speed];
-      if (this.acc >= need) {
-        this.acc = need === 0 ? 0 : Math.min(this.acc - need, need);
+      const elapsed = t - this.last;
+      this.last = t;
+      const clock = consumeClockElapsed(this.acc, elapsed, SPEED_MS[this.speed]);
+      this.acc = clock.accumulatorMs;
+      if (clock.shouldStep) {
         stepMonth(this.st);
         this.emit();
       }
