@@ -173,3 +173,8 @@ Please re-fetch and independently verify run `44677523059` / job `136092798809` 
 ## 12. Risk Register table-boundary follow-up
 
 Verify the latest `S0_RISK_REGISTER.md` renders CI-F4 as part of the six-column P1 table (not as a detached one-row table). Recount the table groups against the live blob: P0 1×6, P1 13×6 including G0.7 as a distinct gate row, P2 22×6, P3 5×3, Closed 1×3. Confirm CI-F4 remains narrowly CLOSED and the 48 traceability rows remain unique. This is a formatting/traceability check only; do not change statuses or gate verdicts.
+
+
+## 13. R13 / GD-F2 roadmap alignment check
+
+Independently compare the revised R13 closure criteria with v3.2 §4.1.2–4.1.5. Verify that every future security control is labelled NOT IMPLEMENTED until evidenced, and that B2/C3 remains BLOCKED pending R14 and owner setup. Check GD-F2 target allocation against v3.2 S3/S6/S7/S13/S16, and assess whether the field-specific provenance/coverage exit criteria are measurable without treating estimated or missing facts as verified. Do not create an Environment, secrets, workflow or data records.
