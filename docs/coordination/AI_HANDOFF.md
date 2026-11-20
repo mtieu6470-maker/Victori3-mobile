@@ -884,3 +884,13 @@ This section records the 2026-11-19 checkpoint and is superseded by the 2026-11-
 - APK artifact ID `14608106401` (17,570,322 bytes): https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44688972480/artifacts/14608106401. CI evidence artifact ID `14608161171` (108,860 bytes): https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44688972480/artifacts/14608161171. Their artifact ZIP digests are not APK-file SHA values.
 - `src/engine/simulation.ts` and `src/engine/save.ts` blobs remain unchanged from the starting checkpoint. Monthly tick semantics and `GAME_END_YEAR = 1936` remain unchanged; 1836–2026 campaign and daily/six-hour cadences are not implemented.
 - No direct Victoria 3 or iQOO benchmark, physical device install/QA, or Claude independent review. ChatGPT self-review only. No merge. S0-B7 stays `IN_PROGRESS`; S0 remains `PARTIAL — NOT COMPLETE`; bounded S1-entry remains `NOT_TESTED`; no general S1 authorization is inferred.
+
+## 2026-11-20 — TWO-STREAM INTEGRATED ARCHITECTURE PLAN ADDED
+
+- Added docs/design/UNIFIED_SIMULATION_ARCHITECTURE_1836_2026_DRAFT.md, grounded in a fresh read of the current clock/controller, simulation/save/types, economy, population, politics, diplomacy, military, technology and AI source files.
+- Stream A: 1836–2026 historical world data, time-dependent country/region/border/leader/treaty/event records, scenario coverage, technology/institution content and historical calibration.
+- Stream B: calendar v2 and migration, deterministic cadence registry, economy stock/firm ledger, POP cohorts, political institutions, diplomatic plays/subjects/treaties, military logistics/formations, technology adoption and multi-horizon AI.
+- The design records why the current monthly engine cannot simply be called four times per day: it would multiply heavy monthly computation and alter the meaning of current state updates. Heavy tasks need explicit cadence and stable dependency order.
+- The plan explicitly preserves current facts: GameDate has year/month only, GameState.tick is monthly, GAME_END_YEAR remains 1936, save v1 is month-granularity, and the tested S1-CLK-01 scheduler only controls when a month is advanced.
+- No product/runtime code, tests, data, content/assets, schema, workflow, Gradle, APK or signing changes in this documentation-only slice.
+- Next planned deliverables are the versioned 1836–2026 product requirements draft and a read-only historical data coverage/provenance audit. The S1-CLK-01 authorization does not permit implementing calendar v2, save migration, six-hour ticks, or subsystem changes; a separate explicit owner authorization is still required.
