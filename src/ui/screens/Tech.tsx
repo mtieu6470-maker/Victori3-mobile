@@ -14,7 +14,7 @@ const EFFECT_VI: Record<string, string> = {
   market_access: 'Tiếp cận thị trường', trade_capacity: 'Năng lực thương mại', naval_projection: 'Tầm hoạt động hải quân', farm_efficiency: 'Năng suất nông nghiệp', admin_efficiency: 'Hiệu quả hành chính',
   research: 'Điểm nghiên cứu', arms_efficiency: 'Năng suất vũ khí', unlock_steel: 'Mở khóa thép', energy_efficiency: 'Hiệu quả năng lượng', steel_efficiency: 'Năng suất thép',
   army_quality: 'Chất lượng lục quân', navy_quality: 'Chất lượng hải quân', mobilization_speed: 'Tốc độ động viên', tropical_attrition: 'Hao hụt vùng nhiệt đới', colonial_advantage: 'Ưu thế thuộc địa',
-  investment: 'Đầu tư tư nhân', literacy_growth: 'Tăng biết chữ', idea_spread: 'Lan truyền tư tưởng', mortality: 'Tử vong', army_attrition: 'Hao hụt quân đội', enables_ideology: 'Mở ra hệ tư tưởng',
+  investment: 'Đầu tư tư nhân', literacy_growth: 'Tăng biết chữ', idea_spread: 'Lan truyền tư tưởng', mortality: 'Tử vong', army_attrition: 'Hao hụt quân đội', enables_ideology: 'Mở ra hệ tư tưởng', allow_multiple_alliances: 'Cho phép ký nhiều liên minh',
 };
 const effText = (k: string, v: unknown) => typeof v === 'number' ? (k.startsWith('unlock_') ? EFFECT_VI[k] ?? k : `${EFFECT_VI[k] ?? k.replace(/_/g, ' ')} ${v > 0 ? '+' : '−'}${fmt(Math.abs(v) * 100)}%`) : `${EFFECT_VI[k] ?? k.replace(/_/g, ' ')}${String(v) === 'true' ? '' : ': ' + String(v).replace(/_/g, ' ')}`;
 const ERAS: [number, string][] = [[1800, 'Trước 1800'], [1836, '1800–1835'], [1851, '1836–1850'], [1866, '1851–1865'], [1886, '1866–1885'], [9999, 'Sau 1885']];
