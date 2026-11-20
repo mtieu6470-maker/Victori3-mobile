@@ -45,6 +45,48 @@ describe('bounded factory/market equilibrium', () => {
     expect(first).toEqual(second);
   });
 
+  it('converges through a two-market cyclic input/output dependency', () => {
+    const markets = {
+      A: {
+        supply: goodQuantities({ grain: 100 }),
+        demand: goodQuantities({ tools: 130 }),
+        openness: 1,
+      },
+      B: {
+        supply: goodQuantities({ tools: 100 }),
+        demand: goodQuantities({ grain: 130 }),
+        openness: 1,
+      },
+    };
+    const factories = [
+      {
+        marketId: 'A',
+        outputs: { grain: 100 },
+        inputs: { tools: 100 },
+      },
+      {
+        marketId: 'B',
+        outputs: { tools: 100 },
+        inputs: { grain: 100 },
+      },
+    ];
+
+    const result = solveFactoryMarketFulfillment(
+      markets,
+      { A: goodQuantities(), B: goodQuantities() },
+      factories,
+    );
+
+    expect(result.converged).toBe(true);
+    expect(result.appliedFallback).toBe('none');
+    expect(result.fulfillment[0]).toBeGreaterThan(0.69);
+    expect(result.fulfillment[0]).toBeLessThan(0.71);
+    expect(result.fulfillment[1]).toBeGreaterThan(0.69);
+    expect(result.fulfillment[1]).toBeLessThan(0.71);
+    expect(result.shortages.A.tools).toBeCloseTo(0.3, 2);
+    expect(result.shortages.B.grain).toBeCloseTo(0.3, 2);
+  });
+
   it('allows a market stockpile to cover a different market deficit without creating goods', () => {
     const markets = {
       STOCK: {
@@ -75,6 +117,10 @@ describe('bounded factory/market equilibrium', () => {
     expect(result.iterations).toBe(1);
     expect(result.converged).toBe(false);
     expect(result.residual).toBeGreaterThan(1e-12);
+    expect(result.appliedFallback).toBe('zero-recipe-production');
+    expect(result.fulfillment).toEqual([0]);
+    expect(result.supply.MKT.steel).toBe(0);
+    expect(result.demand.MKT.coal).toBe(110);
   });
 
   it('rejects invalid limits and a factory assigned to a missing market', () => {
@@ -228,6 +274,9 @@ describe('inventory ledger integration with the shared economy', () => {
       state.marketClearing?.maxIterations ?? 32,
     );
     expect(Number.isFinite(state.marketClearing?.residual)).toBe(true);
+    expect(['none', 'zero-recipe-production']).toContain(
+      state.marketClearing?.appliedFallback,
+    );
     const period = state.inventoryLedger.history[0];
     expect(period.tick).toBe(state.tick);
     expect(period.date).toEqual(state.date);
