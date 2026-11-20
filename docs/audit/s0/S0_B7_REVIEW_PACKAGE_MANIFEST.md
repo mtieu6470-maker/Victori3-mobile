@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `9b770d4f604ecfe1bc765a1899bdd88cb3437c45`  
+**Snapshot HEAD before this manifest refresh:** `56ae95dd96b314e2f42e60af5e1d57051f30b0f6`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -21,10 +21,10 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `8701c8defd2945cc0849b7e2c7ee67afe03ab141` |
 | `docs/audit/s0/S0_SIGNOFF.md` | `7a2baf300e95c646585f76e3a1ef81f85cadfcf5` |
 | `docs/audit/s0/S0_B7_RESULTS.md` | `4243bba7829fb110951dcc28f1ccb802331ab7da` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `128e1db5c3e66609d1960ed65858e29768440b93` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `15115fad9accfd0d4cfbf8bc0de80e1e4e800110` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `977e7fc3427cefb99bf3ba172740eb99cb6034b8` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `33e3341161b5a61cba86b200bafb65827058685a` |
+| `docs/coordination/AI_HANDOFF.md` | `66c4ce800dc238687f5796bcd1596e02a229e1bf` |
 | `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `0cdd1b70857e17b708c6851575819ae076a5b8d0` |
 
 | `docs/roadmap/OWNER_SCOPE_AMENDMENT_1836_2026_SYSTEM_DEPTH.md` | `43d4feda71cf71714160fead3ee6f135408206d9` |
@@ -277,3 +277,10 @@ The prior structural summary undercounted the matrix by one because it omitted t
 - These documents are contextual product-design records only. They are not B7 risk evidence, do not modify or supersede the frozen 1836–1936 `MASTER_SPEC_VI.md` used for the historical S0/G0.4 audit, and do not authorize product implementation.
 - The review target remains the bounded S0-B7 risk/signoff package. No risk status, gate verdict, owner exception acceptance or phase authorization is changed by these scope/design documents.
 - The owner has asked the technical lead to proceed with discretion. This does not eliminate the repository's independent-review requirement or authorize an unreviewed phase transition.
+
+
+## 27. Owner execution-discretion instruction (2026-11-20)
+
+- The updated handoff and B7 review request record the owner's instruction that ChatGPT has full technical discretion to decide and carry out work without a schedule/time constraint.
+- This is not a reviewer verdict, does not change any S0 gate, and is not treated as a waiver of the independent B7 review or explicit phase-transition decision.
+- The bounded review scope remains S0-B7. Reviewers must re-fetch current HEAD and all pinned blobs before issuing a verdict.
