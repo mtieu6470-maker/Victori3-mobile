@@ -327,3 +327,10 @@ The owner has instructed that Claude temporarily perform no project work and del
 Latest verified base for the current self-audit slice was `085c05ba52020dc2ee61cce98f168c035268b4c9`. Run #322 `44661820747` and both artifact ZIPs were rechecked locally; see `S0_B7_SELF_REVIEW.md` §11. The artifact reports 38/38 suites, 97/97 tests and Gradle success for its exact checkout SHA `68fee31641d2249be824a87f4302c26a5aeb6611`. The evidence provenance explicitly does not assert product-source equivalence to the frozen baseline. Two docs-only commits followed that build; do not claim CI ran on their final HEAD.
 
 Next work remains bounded to B7 documentation/evidence consistency and permitted audit-only tasks. Independent review/owner gate remain pending; S1 and gameplay/runtime changes remain unauthorized.
+
+
+## Addendum — DEP-F1 B4 npm-ci log recheck (2026-11-20)
+
+The original B4 Run #3 job log has now been re-fetched. Run `44325257261`, job `134874698600`, prints `added 220 packages, and audited 221 packages in 2s` and `10 vulnerabilities (3 moderate, 5 high, 2 critical)`. The workflow uploaded no package/advisory-level JSON. GitHub verifies the package-lock blob at B4 checkout `7f17b1f`, frozen baseline `2240a8f` and experiment branch is identical (`29ac661a36bb03bae62a80ce7abf9af0c15bb168`).
+
+The later B7 artifact run `44572915201` uses explicit `npm audit --package-lock-only --json` and reports six vulnerable package entries (3 moderate, 1 high, 2 critical); metadata includes 292 lockfile dependencies, compared with 221 packages audited at install time. npm v10 documents that install-time audit defaults to true for `npm ci` and describes the separate audit endpoint/meta-vulnerability calculation. This narrows the issue to different command/report contexts, but the exact reason for the numeric/severity difference is still not known because the B4 raw npm-ci JSON was not preserved. Keep DEP-F1 OPEN P1. No dependency remediation is authorized.

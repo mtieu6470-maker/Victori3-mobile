@@ -167,3 +167,13 @@ Scope: these runs support CI/test/debug-APK build status only. They do not prove
 - Signing: Android Debug certificate SHA-256 `559d549a21515f899b6195c65114b2be778ff2fbd63288d21ef31f4365b96238`; apksigner exit 0, v1/v2 verification true. Not release-signed.
 - Provenance confirms checkout ref `refs/heads/experiment/vic3-visual-upgrade` and checked-out HEAD equals `68fee31641d2249be824a87f4302c26a5aeb6611`. No device installation or physical-device QA is evidenced.
 - This run closes the previous CI observation gap at the exact pre-run-commit HEAD; it does not change S0 gate verdicts, B7 reviewer status, owner acceptance, or S1 authorization.
+
+
+## 16. B4 Run #3 npm ci vulnerability summary — raw-log follow-up (2026-11-20)
+
+- Re-fetched original run `44325257261`, job `134874698600`, and inspected its complete job log. It records: `added 220 packages, and audited 221 packages in 2s`; then `10 vulnerabilities (3 moderate, 5 high, 2 critical)`.
+- The B4 workflow has no artifact upload and preserves no npm audit JSON/package-level advisory report. The raw log therefore confirms the summary but not the identities or paths behind those ten counts.
+- GitHub confirms the exact package-lock blob is identical at frozen baseline `2240a8f`, B4 checkout `7f17b1f` and experiment branch: `29ac661a36bb03bae62a80ce7abf9af0c15bb168`.
+- The later B7 audit (`44572915201`) used explicit `npm audit --package-lock-only --json` against the frozen baseline. It reports six vulnerable package entries (3 moderate, 1 high, 2 critical) and a separate production-only result of zero. Its full lockfile metadata lists 292 dependencies (76 optional); the B4 install-time log reports 221 packages audited.
+- npm documents `audit=true` as the default install behavior for `npm ci`, and documents the registry-advisory plus vulnerability/meta-vulnerability calculation used by standalone `npm audit`: https://docs.npmjs.com/cli/v10/commands/npm-ci/ and https://docs.npmjs.com/cli/v10/commands/npm-audit/.
+- This establishes that the two observations came from different command paths and report contexts, not that the exact cause is known. Without the B4 npm-ci raw JSON, the 10-versus-6/severity difference remains **UNRECONCILED**. DEP-F1 stays OPEN P1; no dependency remediation is authorized here.

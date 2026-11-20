@@ -108,3 +108,18 @@ The production-only `--omit=dev` audit reports no vulnerabilities in the product
 - **DEP-F1: OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING.** The finding is no longer untriaged. Do not close it or change dependencies under S0-B7. A separate owner-authorized dependency-maintenance task must assess compatibility, update packages in isolation, run the complete test/build matrix and review resulting SBOM/APK evidence.
 
 This audit is evidence for the frozen baseline only; it does not certify the experiment branch's package tree or current APK pipeline.
+
+
+## 7. Follow-up inspection of B4 Run #3 install-time audit summary — 2026-11-20
+
+The earlier 10-finding line has now been rechecked against the original GitHub Actions job log rather than relying only on the report summary.
+
+- Run: `44325257261`, job `134874698600`, branch `claude/game-historical-sandbox-modes-kg7rj7`, checkout SHA `7f17b1f0177d712366e31e4e8c879cc4b6dd5741`.
+- Raw job log at 2026-11-18T14:32:02Z: `added 220 packages, and audited 221 packages in 2s`; then `10 vulnerabilities (3 moderate, 5 high, 2 critical)`. The job uploads no package/advisory-level audit JSON or artifact. Its completed steps are install, data preparation and Vitest only.
+- GitHub confirms `package-lock.json` has the same blob SHA `29ac661a36bb03bae62a80ce7abf9af0c15bb168` at frozen baseline `2240a8f`, B4 checkout `7f17b1f` and the experiment branch.
+- The later dependency audit run `44572915201` used explicit `npm audit --package-lock-only --json` on the frozen lockfile and separately `npm audit --package-lock-only --omit=dev --json`. It produced six vulnerable package entries (3 moderate, 1 high, 2 critical) in the full lockfile report and zero in the production-only report.
+- npm's v10 CLI documentation says install-time auditing is enabled by default for `npm ci`; it also documents that audit requests use registry advisory data and npm calculates vulnerability/meta-vulnerability objects. References: https://docs.npmjs.com/cli/v10/commands/npm-ci/ and https://docs.npmjs.com/cli/v10/commands/npm-audit/.
+- The two outputs are not identical evidence formats: one is the install-time human summary over the installed/audited tree; the other is an explicit package-lock-only JSON scan. The report metadata also records 292 lockfile dependencies (including 76 optional) for the later scan, versus 221 packages audited in the install log. This makes a direct numeric comparison unsafe, but it does **not** establish the exact cause of the severity/count delta.
+- No identical raw npm-ci JSON was preserved and the historical registry response cannot be reconstructed from the job log. Therefore the exact 10-versus-6 and severity difference remains **UNRECONCILED / NOT REPRODUCED**. Do not relabel it as resolved or infer exploitability from the count alone.
+
+**Disposition unchanged:** DEP-F1 remains `OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING`. No package install, upgrade, npm audit fix or lockfile change was performed in this follow-up.

@@ -127,8 +127,20 @@ This is a supplemental artifact-integrity check, not an independent review, gate
 
 Local verification commands (Python 3 standard library and sha256sum) completed with exit code 0:
 - `sha256sum /mnt/data/ci-evidence-322.zip /mnt/data/vic3-run322-debug-apk.zip`
-- A `zipfile` / `hashlib` check enumerated both archives, extracted `app-debug.apk), recomputed its SHA-256, and parsed `test_summary.txt` plus `vitest-results.json`.
+- A `zipfile` / `hashlib` check enumerated both archives, extracted `app-debug.apk`, recomputed its SHA-256, and parsed `test_summary.txt` plus `vitest-results.json`.
 
 Important provenance limitation: the artifact's own `provenance.txt` states `product_source_state=not asserted by CI; compare this commit with the baseline using git`. Therefore this run proves the recorded build/test execution for its checkout SHA only; it does not prove product-source equivalence to frozen baseline, gameplay acceptance, global simulation quality or device behavior.
 
 No local Vitest, Gradle or device test was run in this self-audit. No APK was installed. No gate status changes: S0-B7 remains IN_PROGRESS; DEP-F1 OPEN P1; G0.7 BLOCKED; G0.8 PARTIAL; full-S0 G0.9 BLOCKED; bounded S1-entry NOT_TESTED; S1 NOT AUTHORIZED. Claude independent review has not occurred.
+
+
+## 12. B4 Run #3 install-time audit log recheck — ChatGPT self-audit (2026-11-20)
+
+- Re-fetched Actions run `44325257261`, job `134874698600`, and read the complete raw job log. It confirms `npm ci` printed `added 220 packages, and audited 221 packages in 2s` and `10 vulnerabilities (3 moderate, 5 high, 2 critical)`.
+- The B4 workflow contains no audit JSON/artifact step; its job steps end after the install-time audit, prepare-assets and Vitest. There is no package-level data to recover from that run.
+- The `package-lock.json` blob is exactly the same at the frozen baseline, the B4 checkout SHA and current experiment branch (`29ac661a36bb03bae62a80ce7abf9af0c15bb168`). Thus a different committed lockfile does not explain the observed output.
+- The later baseline audit explicitly uses `npm audit --package-lock-only --json`; its full report contains six vulnerable package entries (3 moderate, 1 high, 2 critical), while the install-time log reported ten vulnerabilities. It also reports 292 dependencies in lockfile metadata versus 221 packages audited by the install.
+- npm's own v10 docs confirm install-time audit defaults to true for `npm ci` and describe how standalone audit fetches registry advisories and computes vulnerable/meta-vulnerable package objects (links and interpretation recorded in `S0_DEPENDENCY_AUDIT_PLAN.md` §7).
+- Self-audit conclusion: the two observations are from different command/report contexts; no raw npm-ci JSON exists to map the 10 counts to packages/advisories. The exact difference remains **UNRECONCILED**, not silently resolved. DEP-F1 remains OPEN P1. No dependency change, local install, audit fix or lockfile write occurred in this slice.
+
+This is ChatGPT's implementer self-audit only; it does not replace independent review.
