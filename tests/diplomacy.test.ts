@@ -177,7 +177,13 @@ describe('Victoria 3-style bilateral alliance capacity', () => {
   it('requires the complete Victoria 3-style technology path to unlock additional alliances', () => {
     const state = fresh('historical', 187, 'GBR');
     const [country] = eligibleCountries(state);
-    country.techs = ['urbanization', 'urban_planning', 'bureaucracy'];
+    country.techs = [];
+    expect(availableTechs(country)).not.toContain('bureaucracy');
+
+    country.techs.push('urbanization');
+    expect(availableTechs(country)).toContain('urban_planning');
+    expect(availableTechs(country)).toContain('bureaucracy');
+    country.techs.push('bureaucracy');
 
     expect(availableTechs(country)).toContain('international_relations');
     expect(availableTechs(country)).not.toContain('multilateral_alliances');
