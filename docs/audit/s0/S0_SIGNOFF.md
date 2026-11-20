@@ -127,3 +127,11 @@ The B7 dependency audit is complete and reviewed: run `44572915201`, artifact `1
 - **CI-F4 narrow closure:** the original test-scope integration failure is resolved for the APK workflow by separating the frozen-baseline characterization from the experiment-branch suite; the documented closure condition (full intended experiment-branch suite passes, Gradle assembles, APK checksum/signing evidence uploaded and verified) is met by run #318. The approved frozen-baseline B4 Run #3 remains separate and unchanged. This does not certify gameplay quality, device QA, release signing, data-pack delivery or overall S0.
 - Current experiment branch is a descendant of `b5948f0`; the later changes in this documentation slice do not alter the APK workflow or product source.
 
+
+
+## 12. Supplementary Android APK CI — runs #319–#321 (2026-11-20)
+
+- Runs `44576526677`, `44576552982`, `44576581387` all completed successfully on documentation-only commits. Each run reports 38/38 suites, 97/97 tests, zero test failures and Gradle `BUILD SUCCESSFUL`.
+- Latest run #321 (`44576581387`, commit `c5ba0e80b017dfeb04d29c17a66205fab23ce0d9`) artifact `14557237059` downloaded and inspected; APK `app-debug.apk` is 18,057,524 bytes, SHA-256 `b12e6860979fcd66e060de0da76e0c9e55c64b265837b108af6a34122237e529`; debug certificate SHA-256 `fb48505473b61038b17c4553d009a4a37e63047e7dee8759a14af74bbaa6197f`.
+- GitHub compare from #321 commit to current HEAD `4db9d3d7b397fc59f3310936eecd6792a4ca218f` reports documentation-only changes; no product/runtime source changed after the tested build. No workflow was run at the exact current HEAD because subsequent commits skipped CI.
+- These runs do not change gate statuses: B7 independent review remains pending, bounded S1-entry remains NOT_TESTED, full S0 remains PARTIAL/BLOCKED, and S1 remains NOT AUTHORIZED. No device install/QA or release signing occurred.

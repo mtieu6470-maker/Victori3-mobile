@@ -299,3 +299,17 @@ Next action remains Claude's independent read-only B7 review of the refreshed re
 - No engine, gameplay, UI, save schema, tests, build, workflow, dependencies, data, assets, Gradle, signing or APK changed. No tests/builds run. This is design-only and does not open S1.
 - The B7 manifest is intentionally not expanded with this separate P0 design artifact. Claude independent B7 review and owner acceptance remain pending.
 - Next: finish S0-B7 independent review and owner gate; only after explicit S1 authorization, measure actual Victoria 3 and iQOO pacing at speed 1–5, choose target rates from evidence, and submit CLK-A1 fixed-step scheduler for bounded approval.
+
+
+---
+
+## Addendum — supplementary Android APK runs #319–#321 and exact source boundary (2026-11-20)
+
+- Live experiment branch before this documentation update: `4db9d3d7b397fc59f3310936eecd6792a4ca218f`.
+- Three later Android workflow runs than #318 were found and checked: #319 `44576526677` (commit `8291d7d`), #320 `44576552982` (commit `b42064b`), #321 `44576581387` (commit `c5ba0e8`). All jobs SUCCESS; each reports 38/38 suites, 97/97 tests and Gradle BUILD SUCCESSFUL. Each trigger commit changed docs only.
+- #321 APK/evidence artifacts were downloaded and inspected. APK ZIP SHA-256 matches API metadata; embedded APK `app-debug.apk`: 18,057,524 bytes, SHA-256 `b12e6860979fcd66e060de0da76e0c9e55c64b265837b108af6a34122237e529`. Evidence ZIP SHA-256 matches API metadata; `report_valid=true`, 38/38 suites, 97/97 tests, zero failures. Signer is Android Debug; certificate SHA-256 `fb48505473b61038b17c4553d009a4a37e63047e7dee8759a14af74bbaa6197f`.
+- #319/#320 APK and evidence artifact metadata are recorded in `S0_B7_RESULTS.md`; their payloads were not downloaded. Do not claim them as inspected APKs.
+- Compare #321 commit `c5ba0e80b017dfeb04d29c17a66205fab23ce0d9` → then-live HEAD `4db9d3d7b397fc59f3310936eecd6792a4ca218f`: 52 commits, 12 changed paths, all documentation; no product/runtime source change. Latest build is therefore on the unchanged product source tree, but not an Actions run at the exact current HEAD.
+- Tests/builds were not run locally for this documentation-only update. No product, test, workflow, dependencies, save, data, asset, Gradle or signing files were changed.
+- Status unchanged: S0-B7 independent Claude review and owner decision PENDING; overall S0 PARTIAL/BLOCKED; bounded S1-entry package NOT_TESTED; S1 NOT AUTHORIZED.
+- Next: Claude performs the read-only B7 review against live HEAD and refreshed manifest; then stop for explicit owner decision. Do not implement the gameplay backlog or change engine/UI/save until the phase gate and scope are authorized.

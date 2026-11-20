@@ -120,3 +120,20 @@ Please independently verify run `44573351798` on commit `b5948f0bbca126712c64dd6
 - Review whether the baseline-only characterization remains executed on its pinned baseline path; do not assume that excluding it from the APK suite means it was removed.
 
 The two downloaded artifact ZIP digests were recomputed and match GitHub API metadata. These are ChatGPT inspection results; Claude must independently verify before issuing the bounded B7 verdict.
+
+
+## 13. Supplementary Android runs #319–#321 after the run #318 closure
+
+Before issuing the bounded B7 verdict, inspect the following follow-up CI evidence. All three runs completed their `apk` job successfully and each log reports 38/38 suites, 97/97 tests and Gradle `BUILD SUCCESSFUL`:
+
+| Run | Commit | Changed path | Job | APK artifact |
+|---|---|---|---|---|
+| #319 / `44576526677` | `8291d7ddf1c3848e1cfd15fd86b53934d0f5e836` | `docs/feedback/PLAYER_TEST_FEEDBACK_2026-11-20.md` added | `135745380871` | `14558110016` (API ZIP digest `23efb91ded5fa9ce10fcbcedbbaa7210501c2b30a61dd833f59a4fdd7e2b8d89`) |
+| #320 / `44576552982` | `b42064b7b3051eea9fa001257d6d4e6327516e47` | `docs/coordination/AI_HANDOFF.md` only | `135745469796` | `14558090064` (API ZIP digest `c7ad006236af9fc6d1c15d24d331e8b0dce0bd1c199d8686974fe80d5869cde1`) |
+| #321 / `44576581387` | `c5ba0e80b017dfeb04d29c17a66205fab23ce0d9` | `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` only | `135745566773` | `14557237059` (API ZIP digest `84f3b3a835feefcb852e5d8fb476d949f4b74da87baa6f68b7e700186c706b5a`) |
+
+Run #319 and #320 artifact ZIPs are metadata-only in this inspection; do not claim their payload contents were inspected. Run #321 APK and evidence ZIPs were downloaded and inspected. It reports `report_valid=true`, 38 suites / 97 tests passed, zero failures, Gradle success, APK size 18,057,524 bytes and APK SHA-256 `b12e6860979fcd66e060de0da76e0c9e55c64b265837b108af6a34122237e529`. Its signer is Android Debug, certificate SHA-256 `fb48505473b61038b17c4553d009a4a37e63047e7dee8759a14af74bbaa6197f` (v1/v2 verification true).
+
+All three triggering commits changed documentation only. GitHub compare from #321 commit `c5ba0e80b017dfeb04d29c17a66205fab23ce0d9` to live HEAD `4db9d3d7b397fc59f3310936eecd6792a4ca218f` reports 52 commits / 12 changed paths, all documentation; no product/runtime source changed. The latest run is therefore on an unchanged product source tree, but not on the exact current HEAD.
+
+Keep the verdict narrow: CI/test/debug APK success is not gameplay acceptance, device QA, release signing, separate data-pack validation, a B7 independent verdict, overall S0 PASS or S1 permission.

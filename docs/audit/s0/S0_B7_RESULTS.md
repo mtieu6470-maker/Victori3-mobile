@@ -133,3 +133,24 @@ External advisory references: `https://github.com/advisories/GHSA-82fw-gwwq-j7x9
 - **CI-F4 narrow closure:** the original test-scope integration failure is resolved for the APK workflow by separating the frozen-baseline characterization from the experiment-branch suite; the documented closure condition (full intended experiment-branch suite passes, Gradle assembles, APK checksum/signing evidence uploaded and verified) is met by run #318. The approved frozen-baseline B4 Run #3 remains separate and unchanged. The current `.github/workflows/s0-b4-tests.yml` is configured to checkout exact baseline `2240a8f` and overlay only the characterization test/fixture, but that specific workflow was not re-run in this slice; do not treat its configuration as a new execution result. This does not certify gameplay quality, device QA, release signing, data-pack delivery or overall S0.
 - Current experiment branch is a descendant of `b5948f0`; the later changes in this documentation slice do not alter the APK workflow or product source.
 
+
+
+## 14. Supplementary Android APK workflow reruns — 2026-11-20
+
+Three successful Android workflow runs occurred after run #318 while the player-test feedback and handoff documents were being committed. The triggering commits changed documentation only; these builds are CI evidence, not independent gameplay acceptance.
+
+| Run | Trigger commit / changed path | Job | Tests | Gradle | APK artifact (GitHub API metadata) |
+|---|---|---|---|---|---|
+| #319 / [44576526677](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44576526677) | `8291d7ddf1c3848e1cfd15fd86b53934d0f5e836` — adds player-test feedback document only | `135745380871` SUCCESS | 38/38 suites; 97/97 tests | BUILD SUCCESSFUL | `14558110016`; 17,569,411-byte ZIP; API SHA-256 `23efb91ded5fa9ce10fcbcedbbaa7210501c2b30a61dd833f59a4fdd7e2b8d89` |
+| #320 / [44576552982](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44576552982) | `b42064b7b3051eea9fa001257d6d4e6327516e47` — AI_HANDOFF playtest note only | `135745469796` SUCCESS | 38/38 suites; 97/97 tests | BUILD SUCCESSFUL | `14558090064`; 17,569,388-byte ZIP; API SHA-256 `c7ad006236af9fc6d1c15d24d331e8b0dce0bd1c199d8686974fe80d5869cde1` |
+| #321 / [44576581387](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44576581387) | `c5ba0e80b017dfeb04d29c17a66205fab23ce0d9` — next-session handoff playtest note only | `135745566773` SUCCESS | 38/38 suites; 97/97 tests; `report_valid=true` | BUILD SUCCESSFUL | `14557237059`; 17,569,396-byte ZIP; API SHA-256 `84f3b3a835feefcb852e5d8fb476d949f4b74da87baa6f68b7e700186c706b5a` |
+
+Run #319/#320 artifact ZIPs are recorded from GitHub API metadata only; their payloads were not downloaded in this review. Run #321 was downloaded and inspected:
+- APK ZIP contains only `app-debug.apk` (18,057,524 bytes). Recomputed ZIP SHA-256 matches the GitHub API digest above.
+- APK file SHA-256: `b12e6860979fcd66e060de0da76e0c9e55c64b265837b108af6a34122237e529`.
+- Evidence artifact `14557436781`: 106,635 bytes; API and recomputed ZIP SHA-256 `933d7740574d9b8383bb1eefda6202b20fed530a4967dcd84794cd293d356f2e`. All 15 entries were inspected; test summary confirms 38/38 suites, 97/97 tests, zero failures, exit code 0 and `report_valid=true`.
+- APK signing report: Android Debug certificate SHA-256 `fb48505473b61038b17c4553d009a4a37e63047e7dee8759a14af74bbaa6197f`; v1 and v2 verification true. This is not a release-signed APK.
+
+The current branch HEAD at the time of this report was `4db9d3d7b397fc59f3310936eecd6792a4ca218f`. GitHub compare from run #321 commit `c5ba0e80b017dfeb04d29c17a66205fab23ce0d9` to that HEAD is `ahead`, 52 commits, and reports only documentation paths changed (12 paths); no product/runtime source path changed. Thus the latest APK run covers the unchanged product source tree, but it is **not a workflow run on the exact current HEAD** because the later documentation commits use `[skip ci]`.
+
+Scope: these runs support CI/test/debug-APK build status only. They do not prove Android device QA, gameplay acceptance, data-pack delivery, release signing, B7 independent review, overall S0 PASS or S1 authorization.

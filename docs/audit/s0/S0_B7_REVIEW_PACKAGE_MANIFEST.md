@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `8a3c8bea8171b96785b2101a50ec77b1e24e0195`  
+**Snapshot HEAD before this manifest refresh:** `4db9d3d7b397fc59f3310936eecd6792a4ca218f`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -18,13 +18,13 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 | `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `dbcfeb7f125578220e220c594c3a834bfeecaa8f` |
 | `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `70eb56cf89b8ff8ea4536c0cd373532f61134c16` |
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `e3ff67518e936882b9f1f3f6096030ddb4bb99b5` |
-| `docs/audit/s0/S0_SIGNOFF.md` | `f150ed753276f19e77e4fee4e7ee62e28422d93e` |
-| `docs/audit/s0/S0_B7_RESULTS.md` | `78e62e66daf92989c0314dd3d6fb446a774ad6bf` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `21701183432e95d3ff677c994dcf51e7a312b4a2` |
+| `docs/audit/s0/S0_SIGNOFF.md` | `be9e83f57e289cae21a475dcc8c8fc84f56cfc0b` |
+| `docs/audit/s0/S0_B7_RESULTS.md` | `0e6adffb3378d103bc9a59be1d65ab107f40522e` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `b120b2b4787fdd5cf53123270545e150b6cab8f9` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `403a1dc63df414afc348ffbfd2a6f144f3394dd2` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `3badcaab602bca3f275132ceca167fb18c8b4b9c` |
-| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `3e634cbfe5f0d5cf98796d6ab9969405024d04d9` |
+| `docs/coordination/AI_HANDOFF.md` | `a141a2b855093dbb6c07e40bf3f61580a6844cc9` |
+| `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `0060043f2e80fa5e70a40f85abe4fbdb3158341f` |
 
 ## 2. Risk table integrity and traceability
 
@@ -159,3 +159,10 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 - Snapshot HEAD before this manifest refresh: `8a3c8bea8171b96785b2101a50ec77b1e24e0195`.
 - Latest AI_HANDOFF blob: `3badcaab602bca3f275132ceca167fb18c8b4b9c`; NEXT_SESSION_HANDOFF blob: `3e634cbfe5f0d5cf98796d6ab9969405024d04d9`.
 - Latest reviewer request, report template, self-review and traceability blobs are re-fetched and pinned in §1. Claude independent review and owner acceptance remain pending.
+
+
+## 13. Supplementary Android CI revalidation after run #318
+
+The live B7 package snapshot is refreshed to the branch HEAD immediately before this manifest commit. Runs #319–#321 (44576526677 / 44576552982 / 44576581387) all completed 38/38 suites, 97/97 tests and Gradle debug APK assembly successfully on documentation-only commits. Run #321 artifact/evidence ZIPs were downloaded, ZIP digests re-computed against GitHub API metadata, and APK/test summary inspected; exact details are in `S0_B7_RESULTS.md` §14. The current snapshot HEAD `4db9d3d7b397fc59f3310936eecd6792a4ca218f` is a documentation-only descendant of #321 commit `c5ba0e80b017dfeb04d29c17a66205fab23ce0d9`; no product/runtime source changed between them, but no workflow ran on the exact HEAD.
+
+This supplement does not change CI-F4's narrow closure, overall S0 gate states, reviewer role, owner acceptance requirement, or S1 authorization. Claude must re-fetch every listed blob and the live HEAD before issuing a verdict. Run #319/#320 artifact ZIP payloads were not downloaded; only their GitHub API metadata and successful job logs were checked.
