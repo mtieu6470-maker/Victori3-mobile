@@ -1,3 +1,9 @@
+## 0.17 — UI-REDESIGN-01: independent design review packet prepared (20/11/2026)
+
+- Proposal target: `150bf857aac7dbc4905a14a932ec6157507325ed`; exact design blob: `340b04e707794a1f146fe68642fd022e82f6d255`.
+- Prepared `docs/audit/s0/PREMIUM_GRAND_STRATEGY_UI_REDESIGN_CLAUDE_INDEPENDENT_DESIGN_REVIEW_REQUEST_2026-11-20.md` for Claude's no-write review of source accuracy, domain-specific visual grammar, responsive/accessibility requirements, data truthfulness, historical identity licensing and phase boundaries.
+- Review verdict PENDING. This package does not authorize UI/runtime implementation or alter S0/S1/S22/S23 gates.
+
 ## 0.16 — UI-REDESIGN-01: source-based premium grand-strategy UI proposal (20/11/2026)
 
 - Audit App.tsx, theme.css, World/Economy/Society/Politics/Tech/Diplomacy/Military screens.
@@ -69,7 +75,7 @@
 **Ngày cập nhật:** 20/11/2026  
 **Repository:** mtieu6470-maker/Victori3-mobile  
 **Branch:** claude/game-historical-sandbox-modes-kg7rj7  
-**DEV-005 code review target:** `c9868d7131d7de3fd8efd0263411fee9111f172c`. **DEV-006 code review target:** `65bf85db91cbeaa276e00401e524749343ab305a`. **Latest verified branch HEAD before this report update:** `ce6d17453bed0cce354b49bf85146451d7c1bf61`. DEV-006 exact-target tests-only and Android debug CI both SUCCESS; detailed evidence is recorded below.  
+**DEV-005 code review target:** `c9868d7131d7de3fd8efd0263411fee9111f172c`. **DEV-006 exact code/test target:** `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`. **UI-REDESIGN-01 design target:** `150bf857aac7dbc4905a14a932ec6157507325ed`. **Latest verified branch HEAD before this review-packet documentation commit:** `150bf857aac7dbc4905a14a932ec6157507325ed`. DEV-006 tests-only and Android debug CI are SUCCESS on exact code target e5eb5e4; Android workflow for the documentation-only UI proposal target 150bf is still PENDING at this report cut.  
 **Chế độ báo cáo:** rolling report — mọi lượt làm xong phải append một progress entry mới; không tạo báo cáo rời nếu không cần thiết.
 
 > Đây là báo cáo điều phối và tự kiểm toán của ChatGPT. Không phải Claude REVIEW_PASS, không phải owner ACCEPTED, không phải bằng chứng S1/S22 đã mở. Mọi research candidate chưa được owner chấp nhận vẫn là tài liệu nghiên cứu, không phải game data đã duyệt.
@@ -79,8 +85,9 @@
 | Hạng mục | Trạng thái | Bằng chứng / việc còn lại |
 |---|---|---|
 | DEV-005 — cohort projection + save compatibility | **CI_PASS / READY_FOR_REVIEW** | Code target `c9868d7`; 11/11 test files, 122/122 tests PASS; Android debug build SUCCESS |
-| DEV-006 — bounded monthly clock | **CI_PASS / READY_FOR_REVIEW** | Code target `65bf85d`; 42/42 suites, 126/126 tests PASS; Android debug build SUCCESS; Claude packet ready |
-| Claude independent review | **PENDING** | Cần review no-write đúng code target `c9868d7131d7de3fd8efd0263411fee9111f172c`; tập trung fractional POP và save/version contract |
+| DEV-006 — bounded monthly clock + fast-forward isolation | **CI_PASS / READY_FOR_REVIEW** | Exact code target `e5eb5e4`; 44/44 suites, 129/129 tests PASS; Android debug build SUCCESS; Claude review packet targets exact SHA |
+| UI-REDESIGN-01 — premium grand-strategy UI | **DESIGN_ONLY / REVIEW_PENDING** | Proposal `150bf857`; source-based; no runtime/UI/assets implementation authorized |
+| Claude independent review | **PENDING** | Review riêng DEV-005, DEV-006 và UI-REDESIGN-01 theo từng exact target; không gộp các verdict khác phạm vi |
 | Owner acceptance | **PENDING** | Chỉ chủ dự án chấp nhận sau verdict độc lập |
 | iQOO Z10 Turbo QA | **NOT_TESTED** | Chưa có install, save/load, lifecycle, performance hoặc thermal evidence trên máy thật |
 | S0 tổng thể | **PARTIAL / BLOCKED** | G0.7 BLOCKED; G0.8 PARTIAL; G0.9 BLOCKED |
@@ -88,8 +95,9 @@
 | S22 | **DESIGN_ONLY** | Chỉ có tài liệu thiết kế/nghiên cứu; chưa có runtime authorization |
 | Cách tải và cài dữ liệu game | **YÊU CẦU SẢN PHẨM — CHƯA TRIỂN KHAI** | Tải APK nhỏ trước → cài và mở game → người chơi chủ động chọn/tải các data pack trong app → xác minh chữ ký + SHA-256 → cài/activate an toàn → chơi offline. Dữ liệu đầy đủ dự kiến khoảng 4–5 GB, chia pack; không tự tải nền hoặc dùng mạng di động khi chưa được đồng ý. |
 | APK hiện có | **DEBUG ARTIFACT — CI VERIFIED** | 18,052,144 bytes; SHA-256 `85e49cc5…e17ee08e`; chưa phải release-signed và chưa thử trên iQOO |
+| APK DEV-006 | **DEBUG ARTIFACT — CI VERIFIED** | Artifact 14640013380; 18,052,472 bytes; SHA-256 `365e9296…8385b`; chưa phải release-signed hoặc device-tested |
 | Benchmark thay thế | **MPD 2023: CC BY 4.0 metadata; row audit BLOCKED** | HNA có dữ liệu ngành nhưng quyền chưa rõ; Maddison 2010 legacy cũng cần clearance |
-| Bước kế tiếp | **Claude review DEV-005** | Review đúng code target; xử lý finding có giới hạn; không tự mở phase |
+| Bước kế tiếp | **Claude review DEV-006, DEV-005 và UI proposal** | No-write review từng mục; xử lý finding trong scope; chỉ triển khai UI sau owner authorization |
 
 ---
 
