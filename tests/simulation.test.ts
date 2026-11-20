@@ -1,7 +1,7 @@
 // Simulation sanity: economy and population stay plausible, AI does not get stuck, save/load is deterministic.
 import { describe, it, expect } from 'vitest';
 import { run, fresh, stepMonth } from './helpers';
-import { GAME_END_TICK, GAME_END_YEAR, isGameOver, stepDay } from '../src/engine/simulation';
+import { GAME_END_TICK, GAME_END_YEAR, isGameOver, stepDay, stepSixHours } from '../src/engine/simulation';
 import { serialize, deserialize } from '../src/engine/save';
 import { data } from '../src/engine/data/db';
 import { BUILDINGS, STRATA } from '../src/engine/types';
@@ -51,6 +51,45 @@ describe('AI does not get stuck in meaningless loops', () => {
   it('countries keep researching and building over the whole period', () => {
     expect(st.counters.aiActions.research).toBeGreaterThan(100);
     expect(st.counters.aiActions.construction).toBeGreaterThan(1000);
+  });
+});
+
+describe('six-hour simulation clock', () => {
+  it('advances exactly one regular tick without running monthly systems', () => {
+    const st = fresh('historical', 90, 'FRA');
+    expect(st.hourOfDay).toBe(0);
+    expect(st.clockTick).toBe(0);
+    stepSixHours(st);
+    expect(st.hourOfDay).toBe(6);
+    expect(st.dayOfMonth).toBe(1);
+    expect(st.clockTick).toBe(1);
+    expect(st.tick).toBe(0);
+    expect(st.counters.systemRuns.economy ?? 0).toBe(0);
+    stepSixHours(st);
+    stepSixHours(st);
+    expect(st.hourOfDay).toBe(18);
+    stepSixHours(st);
+    expect(st.hourOfDay).toBe(0);
+    expect(st.dayOfMonth).toBe(2);
+    expect(st.clockTick).toBe(4);
+    expect(st.tick).toBe(0);
+    expect(st.counters.systemRuns.economy ?? 0).toBe(0);
+  });
+
+  it('runs the monthly pipeline exactly once at the first midnight of the next month', () => {
+    const st = fresh('historical', 94, 'FRA');
+    st.dayOfMonth = 31;
+    for (let i = 0; i < 3; i++) stepSixHours(st);
+    expect(st.date).toEqual({ y: 1836, m: 1 });
+    expect(st.dayOfMonth).toBe(31);
+    expect(st.hourOfDay).toBe(18);
+    expect(st.tick).toBe(0);
+    stepSixHours(st);
+    expect(st.date).toEqual({ y: 1836, m: 2 });
+    expect(st.dayOfMonth).toBe(1);
+    expect(st.hourOfDay).toBe(0);
+    expect(st.tick).toBe(1);
+    expect(st.counters.systemRuns.economy).toBe(1);
   });
 });
 
@@ -140,20 +179,30 @@ describe('save/load', () => {
     for (let i = 0; i < 30; i++) { stepMonth(a); stepMonth(b); }
     expect(serialize(b)).toBe(serialize(a));
   });
-  it('preserves the day in current saves and defaults legacy v1 saves to day one', () => {
+  it('preserves day/time across current saves and migrates legacy saves to midnight', () => {
     const state = fresh('sandbox', 22);
     state.dayOfMonth = 17;
+    state.hourOfDay = 18;
     const restored = deserialize(serialize(state));
     expect(restored.dayOfMonth).toBe(17);
+    expect(restored.hourOfDay).toBe(18);
+    expect(restored.clockTick).toBe(16 * 4 + 3);
     const legacy = JSON.parse(serialize(state));
     delete legacy.state.dayOfMonth;
-    expect(deserialize(JSON.stringify(legacy)).dayOfMonth).toBe(1);
+    delete legacy.state.hourOfDay;
+    delete legacy.state.clockTick;
+    const migrated = deserialize(JSON.stringify(legacy));
+    expect(migrated.dayOfMonth).toBe(1);
+    expect(migrated.hourOfDay).toBe(0);
+    expect(migrated.clockTick).toBe(0);
   });
-  it('continues daily save/load deterministically within a month', () => {
+  it('continues deterministically across a mid-day save/load', () => {
     const a = fresh('sandbox', 23);
-    for (let i = 0; i < 47; i++) stepDay(a);
+    for (let i = 0; i < 47; i++) stepSixHours(a);
+    expect(a.hourOfDay).not.toBe(0);
     const b = deserialize(serialize(a));
-    for (let i = 0; i < 75; i++) { stepDay(a); stepDay(b); }
+    expect(b.clockTick).toBe(a.clockTick);
+    for (let i = 0; i < 75; i++) { stepSixHours(a); stepSixHours(b); }
     expect(serialize(b)).toBe(serialize(a));
   });
   it('rejects foreign files', () => { expect(() => deserialize('{"format":"x"}')).toThrow(); });

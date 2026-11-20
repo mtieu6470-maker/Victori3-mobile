@@ -10,7 +10,7 @@ import { GOODS } from '../src/engine/types';
 import { stepMonth } from '../src/engine/simulation';
 import { DEFAULT_PREFERENCES, parsePreferences } from '../src/ui/game/preferences';
 import { isLongPress, LONG_PRESS_MS, LONG_PRESS_SLOP_PX } from '../src/ui/map/gestures';
-import { DAY_INTERVAL_MS } from '../src/ui/game/controller';
+import { SIX_HOUR_INTERVAL_MS } from '../src/ui/game/controller';
 import { fullName, shortName } from '../src/ui/game/names';
 
 const bin = fs.readFileSync(path.resolve('public/generated/map.bin'));
@@ -31,11 +31,12 @@ describe('date-effective Nguyễn country naming', () => {
 
 describe('simulation speed contract', () => {
   it('caps speed 5 at no more than half a Gregorian game-day per real second', () => {
-    expect(1000 / DAY_INTERVAL_MS[5]).toBeLessThanOrEqual(0.5);
-    expect(DAY_INTERVAL_MS[1]).toBeGreaterThan(DAY_INTERVAL_MS[2]);
-    expect(DAY_INTERVAL_MS[2]).toBeGreaterThan(DAY_INTERVAL_MS[3]);
-    expect(DAY_INTERVAL_MS[3]).toBeGreaterThan(DAY_INTERVAL_MS[4]);
-    expect(DAY_INTERVAL_MS[4]).toBeGreaterThan(DAY_INTERVAL_MS[5]);
+    const daysPerSecondAtSpeed5 = (1000 / SIX_HOUR_INTERVAL_MS[5]) / 4;
+    expect(daysPerSecondAtSpeed5).toBeLessThanOrEqual(0.5);
+    expect(SIX_HOUR_INTERVAL_MS[1]).toBeGreaterThan(SIX_HOUR_INTERVAL_MS[2]);
+    expect(SIX_HOUR_INTERVAL_MS[2]).toBeGreaterThan(SIX_HOUR_INTERVAL_MS[3]);
+    expect(SIX_HOUR_INTERVAL_MS[3]).toBeGreaterThan(SIX_HOUR_INTERVAL_MS[4]);
+    expect(SIX_HOUR_INTERVAL_MS[4]).toBeGreaterThan(SIX_HOUR_INTERVAL_MS[5]);
   });
 });
 

@@ -2,6 +2,7 @@
 // deterministically exactly as the uninterrupted game would.
 import type { GameState } from './types';
 import { emptyInventoryLedger } from './systems/inventory';
+import { normalizeCalendarClock, daysInGregorianMonth } from './scheduler';
 import { normalizeHistoricalTreaties } from './systems/alliance';
 
 export const SAVE_FORMAT = 'currents-of-history-save';
@@ -16,7 +17,9 @@ export function deserialize(text: string): GameState {
   if (o.version !== 1) throw new Error(`Unsupported save version ${o.version}`);
   const st = o.state as GameState;
   st.dayOfMonth ??= 1; // additive migration: v1 saves pre-dating the daily calendar resume on day 1
-  if (!Number.isInteger(st.dayOfMonth) || st.dayOfMonth < 1 || st.dayOfMonth > 31) st.dayOfMonth = 1;
+  if (!Number.isInteger(st.dayOfMonth) || st.dayOfMonth < 1 || st.dayOfMonth > daysInGregorianMonth(st.date.y, st.date.m)) st.dayOfMonth = 1;
+  // Six-hour fields are additive; older daily/monthly saves resume at 00:00.
+  normalizeCalendarClock(st);
   st.marketStats ??= {}; // saves written before market statistics were persisted: refilled on the next month
   st.inventoryLedger ??= emptyInventoryLedger(); // pre-ledger saves start unseeded; no historical stock is invented
   for (const c of Object.values(st.countries)) c.constructionQueue ??= [];

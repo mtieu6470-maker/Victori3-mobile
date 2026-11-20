@@ -1,5 +1,4 @@
-// The single simulation pipeline used by BOTH modes. Every system runs every month regardless of mode;
-// counters record each run so tests can prove that neither mode skips or weakens a system.
+// One deterministic scheduler serves Historical and Sandbox modes. Rendering never advances this clock.
 import type { GameState } from './types';
 import { tickToDate } from './core';
 import { computeEconomy } from './systems/economy';
@@ -13,61 +12,118 @@ import { aiMonth, chooseResearch, decideWindow } from './ai/ai';
 import { divergenceMonth } from './divergence';
 import { sampleYear } from './metrics';
 import { createNation } from './world';
+import {
+  clockTickAt, daysInGregorianMonth, dueCadencesForTransition, orderDueTasks,
+  type CalendarPoint, type ScheduledTask, type SimulationCadence,
+} from './scheduler';
 
 export const GAME_END_YEAR = 2027;
 export const GAME_END_TICK = (GAME_END_YEAR - 1836) * 12;
+export const SIX_HOUR_TICKS_PER_DAY = 4;
+export const REGULAR_TICK_HOURS = 6;
+
 export function isGameOver(st: Pick<GameState, 'tick' | 'date'>): boolean {
   return st.tick >= GAME_END_TICK || st.date.y >= GAME_END_YEAR;
 }
 
 export const SYSTEMS: { name: string; run: (st: GameState) => void }[] = [
-  { name: 'economy', run: (st) => computeEconomy(st) },
+  { name: 'economy', run: st => computeEconomy(st) },
   { name: 'population', run: populationMonth },
   { name: 'politics', run: politicsMonth },
-  { name: 'secession', run: (st) => secessionCheck(st, (nation, regs, from) => { const id = createNation(st, nation, [], from, 'secession'); const rebels = st.countries[id]; rebels.kind = 'rebel'; rebels.capital = regs[0]; declareWar(st, id, from, [{ by: id, type: 'independence', target: from, regions: regs }], `${rebels.name} independence war`, 'independence'); for (const r of regs) st.regions[st.regions.findIndex((x) => x.id === r)].controller = id; return id; }) },
-  { name: 'technology', run: (st) => technologyMonth(st, (c, opts) => chooseResearch(st, c, opts)) },
+  { name: 'secession', run: st => secessionCheck(st, (nation, regs, from) => {
+    const id = createNation(st, nation, [], from, 'secession');
+    const rebels = st.countries[id];
+    rebels.kind = 'rebel';
+    rebels.capital = regs[0];
+    declareWar(st, id, from, [{ by: id, type: 'independence', target: from, regions: regs }],
+      rebels.name + ' independence war', 'independence');
+    for (const regionId of regs) st.regions[st.regions.findIndex(r => r.id === regionId)].controller = id;
+    return id;
+  }) },
+  { name: 'technology', run: st => technologyMonth(st, (c, opts) => chooseResearch(st, c, opts)) },
   { name: 'diplomacy', run: diplomacyMonth },
   { name: 'military', run: militaryMonth },
-  { name: 'events', run: (st) => eventsMonth(st, (c, id, opts, w) => decideWindow(st, c, id, opts, w)) },
+  { name: 'events', run: st => eventsMonth(st, (c, id, opts, w) => decideWindow(st, c, id, opts, w)) },
   { name: 'ai', run: aiMonth },
   { name: 'divergence', run: divergenceMonth },
 ];
 
-/** Number of days in a Gregorian calendar month (1-based month). */
+/** Expensive legacy systems remain monthly until their own daily/weekly behavior is separately specified and tested. */
+export const SCHEDULED_TASKS: ScheduledTask<GameState>[] = [
+  ...SYSTEMS.map((system, index) => ({
+    id: system.name + '.monthly',
+    cadence: 'monthly' as const,
+    after: index > 0 ? [SYSTEMS[index - 1].name + '.monthly'] : [],
+    run: (st: GameState) => {
+      system.run(st);
+      st.counters.systemRuns[system.name] = (st.counters.systemRuns[system.name] ?? 0) + 1;
+    },
+  })),
+  {
+    id: 'history.sample.yearly',
+    cadence: 'yearly',
+    after: ['divergence.monthly'],
+    run: sampleYear,
+  },
+];
+
+const SCHEDULED_CADENCES = new Set<SimulationCadence>(SCHEDULED_TASKS.map(task => task.cadence));
+
 export function daysInMonth(year: number, month: number): number {
-  if (month === 2) return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0) ? 29 : 28;
-  return month === 4 || month === 6 || month === 9 || month === 11 ? 30 : 31;
+  return daysInGregorianMonth(year, month);
+}
+function calendarPoint(st: GameState): CalendarPoint {
+  return { date: st.date, dayOfMonth: st.dayOfMonth ?? 1, hourOfDay: st.hourOfDay ?? 0 };
+}
+function runTasksAtBoundary(st: GameState, previous: CalendarPoint, next: CalendarPoint): void {
+  const due = dueCadencesForTransition(previous, next);
+  if (![...due].some(cadence => SCHEDULED_CADENCES.has(cadence))) return;
+  for (const task of orderDueTasks(SCHEDULED_TASKS, due)) task.run(st);
 }
 
-/** Advance the visible calendar by one day; expensive country systems still run at month boundaries. */
-export function stepDay(st: GameState) {
+/** Advance one regular six-hour tick. Monthly/yearly systems run exactly at their declared boundaries. */
+export function stepSixHours(st: GameState): void {
   if (isGameOver(st)) return;
-  const maxDay = daysInMonth(st.date.y, st.date.m);
-  const current = Math.max(1, Math.min(maxDay, Math.floor(st.dayOfMonth ?? 1)));
-  if (current < maxDay) {
-    st.dayOfMonth = current + 1;
-    return;
+  const previous = calendarPoint(st);
+  st.clockTick = clockTickAt(previous) + 1;
+
+  if (previous.hourOfDay < 18) {
+    st.hourOfDay = previous.hourOfDay + REGULAR_TICK_HOURS;
+  } else {
+    st.hourOfDay = 0;
+    if (previous.dayOfMonth < daysInMonth(previous.date.y, previous.date.m)) {
+      st.dayOfMonth = previous.dayOfMonth + 1;
+    } else {
+      st.dayOfMonth = 1;
+      st.tick += 1; // Preserve every existing monthly timer, treaty and historical index.
+      st.date = tickToDate(st.tick);
+    }
   }
-  st.dayOfMonth = 1;
-  stepMonth(st);
+
+  const next = calendarPoint(st);
+  // January 1, 2027 is a terminal marker: no task runs beyond the complete 2026 campaign.
+  if (isGameOver(st)) return;
+  runTasksAtBoundary(st, previous, next);
 }
 
-export function runDays(st: GameState, days: number) {
-  for (let i = 0; i < days; i++) stepDay(st);
+/** Advance one Gregorian day (four regular six-hour ticks), retaining the current time of day. */
+export function stepDay(st: GameState): void {
+  for (let i = 0; i < SIX_HOUR_TICKS_PER_DAY && !isGameOver(st); i++) stepSixHours(st);
+}
+export function runDays(st: GameState, days: number): void {
+  for (let i = 0; i < days && !isGameOver(st); i++) stepDay(st);
 }
 
-export function stepMonth(st: GameState) {
+/** Compatibility helper for setup/tests: complete the current month by replaying every six-hour boundary. */
+export function stepMonth(st: GameState): void {
   if (isGameOver(st)) return;
-  st.tick += 1;
-  st.date = tickToDate(st.tick);
-  st.dayOfMonth = 1;
-  // January 2027 is the campaign end marker, not an additional simulated month.
-  if (isGameOver(st)) return;
-  for (const s of SYSTEMS) {
-    s.run(st);
-    st.counters.systemRuns[s.name] = (st.counters.systemRuns[s.name] ?? 0) + 1;
+  const initialMonthTick = st.tick;
+  const maxTicks = (daysInMonth(st.date.y, st.date.m) - (st.dayOfMonth ?? 1) + 1) * SIX_HOUR_TICKS_PER_DAY + 1;
+  for (let i = 0; i < maxTicks && st.tick === initialMonthTick && !isGameOver(st); i++) stepSixHours(st);
+  if (st.tick === initialMonthTick && !isGameOver(st)) {
+    throw new Error('Monthly compatibility step failed to reach the next month boundary');
   }
-  if (st.date.m === 1) sampleYear(st);
 }
-
-export function runMonths(st: GameState, n: number) { for (let i = 0; i < n; i++) stepMonth(st); }
+export function runMonths(st: GameState, count: number): void {
+  for (let i = 0; i < count && !isGameOver(st); i++) stepMonth(st);
+}

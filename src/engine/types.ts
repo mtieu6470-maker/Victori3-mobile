@@ -205,6 +205,11 @@ export interface GameState {
   date: GameDate;
   /** Gregorian day within the displayed month; absent only in legacy v1 saves. */
   dayOfMonth?: number;
+  /** Six-hour clock hour: 0, 6, 12 or 18. Legacy saves resume at 00:00. */
+  hourOfDay?: number;
+  /** Stable count of six-hour regular ticks since 1836-01-01 00:00. */
+  clockTick?: number;
+  /** Legacy completed-month counter; do not reinterpret as the six-hour clock. */
   tick: number;
   countries: Record<string, Country>;
   regions: Region[];
