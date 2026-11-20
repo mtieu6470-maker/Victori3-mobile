@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { fresh, stepMonth } from './helpers';
 import { serialize, deserialize } from '../src/engine/save';
-import { RECIPES, realizeFactoryFlow, solveFactoryMarketFulfillment } from '../src/engine/systems/economy';
+import { marketPolicyCountry, RECIPES, realizeFactoryFlow, solveFactoryMarketFulfillment } from '../src/engine/systems/economy';
 import { GOODS, type Good } from '../src/engine/types';
 import {
   appendInventoryLedgerMonth,
@@ -14,6 +14,57 @@ import {
 function goodQuantities(overrides: Partial<Record<Good, number>> = {}): Record<Good, number> {
   return Object.fromEntries(GOODS.map((good) => [good, overrides[good] ?? 0])) as Record<Good, number>;
 }
+
+describe('customs-union market policy authority', () => {
+  it('uses the declared customs-union leader rather than the first market member', () => {
+    const state = fresh('historical', 146, 'GBR');
+    const activeCountries = Object.values(state.countries).filter((country) => country.alive);
+    expect(activeCountries.length).toBeGreaterThan(1);
+
+    const firstMember = activeCountries[0];
+    const declaredLeader = activeCountries[1];
+    const unionId = 'test-customs-union-authority';
+    state.treaties.push({
+      id: unionId,
+      type: 'customs_union',
+      members: [firstMember.id, declaredLeader.id],
+      leader: declaredLeader.id,
+      start: state.tick,
+    });
+
+    expect(marketPolicyCountry(state, unionId, [firstMember.id, declaredLeader.id])?.id)
+      .toBe(declaredLeader.id);
+  });
+
+  it('keeps a national market under its own country even when member order differs', () => {
+    const state = fresh('historical', 147, 'GBR');
+    const activeCountries = Object.values(state.countries).filter((country) => country.alive);
+    const national = activeCountries[0];
+    const other = activeCountries[1];
+
+    expect(marketPolicyCountry(state, national.id, [other.id, national.id])?.id)
+      .toBe(national.id);
+  });
+
+  it('falls back to the first living treaty member when its declared leader is no longer active', () => {
+    const state = fresh('historical', 148, 'GBR');
+    const activeCountries = Object.values(state.countries).filter((country) => country.alive);
+    const fallbackMember = activeCountries[0];
+    const formerLeader = activeCountries[1];
+    const unionId = 'test-customs-union-stale-leader';
+    state.treaties.push({
+      id: unionId,
+      type: 'customs_union',
+      members: [fallbackMember.id, formerLeader.id],
+      leader: formerLeader.id,
+      start: state.tick,
+    });
+    formerLeader.alive = false;
+
+    expect(marketPolicyCountry(state, unionId, [formerLeader.id, fallbackMember.id])?.id)
+      .toBe(fallbackMember.id);
+  });
+});
 
 describe('bounded factory/market equilibrium', () => {
   // Build the constrained operation from the same canonical recipe used by the engine.
