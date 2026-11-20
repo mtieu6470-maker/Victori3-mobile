@@ -88,6 +88,13 @@ export class GameController {
 
   save(): string {
     if (!this.st) throw new Error('Không có ván chơi');
+
+    // Save v1 persists whole months only. Align the live session with that same
+    // month boundary so a reload and the still-running session resume identically.
+    if (this.scheduler !== null && !this.paused) {
+      this.pacer.advance(performance.now(), this.speed);
+    }
+    this.pacer.clearProgress();
     return serialize(this.st);
   }
 
