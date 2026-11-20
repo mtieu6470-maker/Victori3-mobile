@@ -296,10 +296,10 @@ Quy tắc áp dụng:
 
 Trần 1 năm/60 giây là **mục tiêu pacing sơ bộ** do implementer đề xuất để giải quyết phản hồi "nhiều năm trong một giây". Nó phải được kiểm chứng bằng benchmark, test scheduler và owner hands-on; không được ghi nhận thành kết quả đã PASS khi chưa có các bằng chứng này.
 
-### 12.3. Hệ quả cho lịch 190 năm
+### 12.3. Hệ quả cho lịch 191 năm
 
 - Tổng khoảng lịch từ 1836-01-01 đến boundary 2027-01-01 là 191 năm lịch tính theo mốc đầu/năm boundary; campaign chơi qua các ngày từ 1836 đến hết 2026.
-- Với ceiling đề xuất ở §12.2, một lần chạy liên tục không pause sẽ cần xấp xỉ 190 phút lịch chiến dịch cho 190 năm chơi (chính xác phụ thuộc leap days và cách tính elapsed/boundary). Đây là phép tính từ target guard, không phải benchmark.
+- Với ceiling đề xuất ở §12.2, một lần chạy liên tục không pause sẽ cần xấp xỉ 191 phút (khoảng 3 giờ 11 phút) cho 191 năm lịch chơi (chính xác phụ thuộc leap days và cách tính elapsed/boundary). Đây là phép tính từ target guard, không phải benchmark.
 - Các hệ thống economy/POP/politics/AI/diplomacy/military không được cập nhật tất cả ở mọi six-hour tick. Mỗi task phải có cadence, prerequisites và stable order; ví dụ:
   - six-hour: advance clock, movement/operation timers and explicitly required immediate effects;
   - daily: local logistics, selected military/market flows where justified;
