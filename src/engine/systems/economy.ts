@@ -592,45 +592,37 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     }
     marketExportCapacity[id] = exportCapacity;
   }
-  // Final world prices are recalibrated after factory input constraints are applied below.
+  // First pass is only a cheap factory-input availability probe. Do not allocate temporary
+  // journal/statistics objects here; the definitive settlement below is the only posted ledger.
   const marketShort: Record<string, Record<Good, number>> = {};
   const marketImports: Record<string, number> = {};
   const inventoryMarkets: Record<string, Partial<Record<Good, ReturnType<typeof settleInventoryFlow>>>> = {};
   for (const id of mIds) {
-    const m = markets[id]; const prices = (st.marketPrices[id] ??= { ...st.worldPrices });
-    const short = zero(); let importsValue = 0;
-    const stats = ((st.marketStats ??= {})[id] = {} as Record<Good, MarketGoodStats>);
-    const marketJournal: Partial<Record<Good, ReturnType<typeof settleInventoryFlow>>> = {};
-    for (const g of GOODS) {
-      const ws = world[g];
-      const openingStock = inventoryLedger.balances[id]?.[g] ?? 0;
-      const availRatio = ws.deficit > 0 ? clamp(ws.surplus / ws.deficit, 0, 1) : 1;
-      const deficit = Math.max(0, m.dm[g] - m.s[g] - openingStock * 12);
-      const imports = deficit * m.open * availRatio;
-      // Imports and exports are matched globally; a market cannot receive goods without
-      // an equal physical outflow from markets with exportable production surplus.
-      const totalWorldImports = Math.min(ws.surplus, ws.deficit);
-      const exportCapacity = marketExportCapacity[id][g];
-      const exports = ws.surplus > 0 ? totalWorldImports * exportCapacity / ws.surplus : 0;
-      const flow = settleInventoryFlow({
-        openingStock,
-        production: m.s[g] / 12,
-        imports: imports / 12,
-        exports: exports / 12,
-        demand: m.dm[g] / 12,
-      });
-      importsValue += imports * st.worldPrices[g];
-      short[g] = flow.demand > 0 ? clamp(flow.unmetDemand / flow.demand, 0, 1) : 0;
-      const availableAnnual = Math.max(0, (openingStock + flow.production + flow.imports - flow.exports) * 12);
-      const local = clamp(Math.pow((m.dm[g] + 1) / (availableAnnual + 1), 0.5), 0.45, 3);
-      const target = (1 - m.open) * local + m.open * st.worldPrices[g];
-      // This first clearing is only a factory-input availability probe; final prices are posted after realization.
-      // MarketStats remains annualized for existing UI compatibility; inventory journal is monthly.
-      stats[g] = { supply: m.s[g], demand: m.dm[g], imports, short: short[g] };
-      marketJournal[g] = flow;
+    const market = markets[id];
+    const shortage = zero();
+    for (const good of GOODS) {
+      const worldFlow = world[good];
+      const openingStock = inventoryLedger.balances[id]?.[good] ?? 0;
+      const importRatio = worldFlow.deficit > 0
+        ? clamp(worldFlow.surplus / worldFlow.deficit, 0, 1)
+        : 1;
+      const deficit = Math.max(0, market.dm[good] - market.s[good] - openingStock * 12);
+      const imports = deficit * market.open * importRatio;
+      const totalWorldImports = Math.min(worldFlow.surplus, worldFlow.deficit);
+      const exportCapacity = marketExportCapacity[id][good];
+      const exports = worldFlow.surplus > 0
+        ? totalWorldImports * exportCapacity / worldFlow.surplus
+        : 0;
+      const available = Math.max(
+        0,
+        openingStock + market.s[good] / 12 + imports / 12 - exports / 12,
+      );
+      const demand = market.dm[good] / 12;
+      shortage[good] = demand > 0
+        ? clamp(Math.max(0, demand - available) / demand, 0, 1)
+        : 0;
     }
-    inventoryMarkets[id] = marketJournal;
-    marketShort[id] = short; marketImports[id] = importsValue;
+    marketShort[id] = shortage;
   }
 
   // The first clearing is a deterministic availability probe. Factories must not create
