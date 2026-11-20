@@ -566,7 +566,9 @@
       "prereqs": [
         "pan_nationalism"
       ],
-      "effects": {}
+      "effects": {
+        "allow_multiple_alliances": 1
+      }
     }
   ],
   "start_tiers": {
