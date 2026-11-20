@@ -35,7 +35,7 @@ describe('GameController fast-forward isolation', () => {
   });
 
   it('pauses the live RAF clock during fast-forward and restores its prior run state', async () => {
-    vi.useFakeTimers();
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] });
     const controller = new GameController();
     controller.st = { tick: 0, log: [] } as any;
     controller.setPaused(false);
@@ -56,7 +56,7 @@ describe('GameController fast-forward isolation', () => {
   });
 
   it('rejects overlapping fast-forward and blocks player stepping/commands while busy', async () => {
-    vi.useFakeTimers();
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] });
     const controller = new GameController();
     controller.st = { tick: 0, log: [] } as any;
 
