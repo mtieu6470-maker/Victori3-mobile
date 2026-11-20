@@ -66,7 +66,7 @@ The above are explicit next work, not hidden claims of completion. In particular
 ## 7. Next implementation steps
 
 1. Verify the bounded clearing implementation on GitHub Actions and correct all failures; benchmark convergence and monthly simulation cost on target Android hardware.
-2. Define a conservative fallback/pause policy for rare non-converged markets and add adversarial multi-market/cyclic-input tests.
+2. Define a conservative fallback/pause policy for rare non-converged markets and add adversarial multi-market trade-allocation/input-shortage tests built from canonical RECIPES; label any math-only synthetic fixture explicitly and never present it as a playable production chain.
 3. Add goods metadata for canonical units, storable/flow-only policy, perishability and transportability with provenance.
 4. Add regional warehouses and bounded route-capacity settlement, then integrate ports, rail, convoy, tariffs and treaty rules.
 5. Add firm-level ownership/inventory, player/AI stockpile policies, inventory UI, trade contracts and cross-system scenario tests.
@@ -121,3 +121,21 @@ Five solver tests cover deterministic convergence, a two-market cyclic grain/too
 - The fallback is global for the monthly clearing, so a pathological market can suspend recipe production in otherwise healthy markets for one monthly pass. This favors material integrity over pretending a non-converged solution is valid; a market-component-specific fallback is a future refinement.
 - Added a cyclic two-market test: market A's grain factory needs tools supplied by market B, while market B's tools factory needs grain supplied by market A. Added assertions that the capped non-converged case returns zero recipe fulfillment and no recipe output, and that converged paths never activate the fallback.
 - Source-level formula spot checks (not Vitest) reached the single-market fixture in 16 iterations with final residual 3.66e-6 and the symmetric two-market cycle in 24 iterations with residual 5.78e-6. Test execution and CI remain unverified.
+
+
+## 12. Domain-valid market and factory test fixtures
+
+The previous §11 two-market grain/tools example used two invented factory operations (grain output requiring tools, and tools output requiring grain) to force a symmetric fixed-point cycle. Those operations are **not** part of the game's RECIPES and are not valid production chains in this project. The test-only construction was misleading and is superseded by the current test.
+
+The replacement test models reciprocal commodity trade without assigning a fabricated recipe:
+- Market A supplies 100 grain and demands 130 tools.
+- Market B supplies 100 tools and demands 130 grain.
+- With full market openness and no opening stock, the trade allocator transfers at most the available 100 units of each good; each destination retains 30 units of unmet demand (shortage share 30 / 130).
+- This is an aggregate market trade-allocation test. It does **not** claim that a shipment contract, route, tariff, customs process or physical transport network exists yet.
+
+Factory-flow tests now derive their output/input quantities from the canonical engine recipes:
+- ironworks: steel output with iron and coal inputs at the ratios defined in RECIPES.
+- tool_works: tools output with steel and timber inputs at the ratios defined in RECIPES.
+- The constrained single-market solver fixture also uses the canonical ironworks recipe, with the independent coal supply shortage retained as the convergence condition.
+
+This supersedes only the unrealistic test fixture, not the game recipe registry or runtime production rules. No grain-to-tools production recipe was added to runtime data. The inventory test file remains at 15 tests. Test execution, typecheck, CI and APK build remain **NOT_TESTED / NOT_VERIFIED** until exact-SHA evidence is obtained.
