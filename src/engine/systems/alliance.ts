@@ -53,4 +53,5 @@ export function normalizeAllianceTreaties(st: GameState): void {
 
   // Preserve the original interleaving of Alliance, Guarantee and Customs Union
   // records. Save/load order is observable to deterministic diplomacy processing.
+  st.treaties = normalized;
 }
