@@ -1027,3 +1027,18 @@ This is a later, explicit owner authorization to begin product implementation on
 - **Device QA/performance:** `NOT_TESTED`; no APK installation, Android device measurement or benchmark is claimed.
 - **Self-review:** source formulas and call sites inspected; independent review `PENDING`; owner acceptance `PENDING`. Do not mark `REVIEW_PASS` or `ACCEPTED`.
 - **Next action:** obtain direct exact-HEAD test/typecheck/Android workflow evidence. Then audit trade-market openness, subject/customs-union market membership and stockpile transfers against sourced Victoria 3 mechanics and game design before adding shipment routes or contracts.
+
+
+## 2026-11-20 — ECONOMY CUSTOMS-UNION MARKET AUTHORITY / ACTIVE-MEMBER FALLBACK
+
+- **Verified code/test base:** `0f41bd4700697b18f56897f4097de6c7e7e16ed8` on `experiment/vic3-visual-upgrade`; previous end-of-slice HEAD was `5b121db0039c0f5b042c0f8bb5e98a9393a43908`.
+- **Build/type correction:** `ef620fc415a1a4de0f93a3658a583763260bbf2b` fixes TS7053 in `tests/inventory.test.ts` by iterating `GOODS` rather than untyped string keys from `Object.entries()`.
+- **Market policy implementation:** `5174d5cadb14d1b5930717833c5ff30c5f19b2ae` adds `marketPolicyCountry` and uses the declared customs-union treaty leader rather than the first region/member encountered.
+- **Fallback correction:** `584ed577ded5de157a618ccd73103f86d642c3b6` prefers the living treaty leader, then the first living member, and preserves an existing recorded policy Country object only when every recorded member is inactive. This prevents a stale market projection from aborting the monthly simulation without substituting an unrelated country.
+- **Tests:** `bdb815e29c3fb7468e75a1e19873558eff2d692c` adds coverage for declared-leader precedence, national-market identity, stale/dead leader fallback and all-inactive member compatibility. `tests/inventory.test.ts` now contains 19 tests.
+- **Design/report update:** `b2ca42469d645d17bd95c995c18f72a8debcbb60` appends §14 to `docs/design/INVENTORY_LEDGER_IMPLEMENTATION_01.md`.
+- **CI history:** run #416 (`44715001338`, SHA `5b121db`) failed during TypeScript build on TS7053; run #418 (`44715928980`, SHA `5174d5c`) failed in tests with `Market TEX has no active policy country` (48/49 tests passed, with dependent suites also aborting); run #419 (`44715954276`, SHA `0837d42`) tested the same active-only resolver before the stale-market fallback and failed for that reason.
+- **Latest verification in progress at this handoff append:** Android workflow run #421 (`44716363882`, code/test SHA `bdb815e29c3fb7468e75a1e19873558eff2d692c`) has passed `npm ci`, `npm run build` (including `tsc --noEmit` and Vite build) and generated-data/web-bundle hashing; Vitest is still running. Run #420 (`44716335003`, SHA `584ed577`) is also running but predates the final fallback test.
+- **APK/device:** Gradle/APK steps have not started on the latest run at this checkpoint. No APK artifact, APK SHA-256, Android installation or device-performance evidence is claimed.
+- **Self-review/owner status:** ChatGPT self-review only; independent review `PENDING`, owner acceptance `PENDING`. Do not label this task `REVIEW_PASS` or `ACCEPTED`.
+- **Next action:** inspect the completion and evidence artifact of run #421 on the exact code/test SHA. If tests fail, fix the exact finding; if tests pass, verify Gradle APK and the uploaded provenance/checksum artifact. Then audit market membership lifecycle (including stale `customsUnion` references) before implementing additional route/capacity mechanics.
