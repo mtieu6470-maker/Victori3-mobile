@@ -42,8 +42,10 @@ export function daysInGregorianMonth(year: number, month: number): number {
 /** Pure conversion used by tests and by the runtime scheduler. */
 export function gameDaysForElapsedMs(elapsedMs: number, speed: SimulationSpeed): number {
   if (!Number.isFinite(elapsedMs) || elapsedMs <= 0) return 0;
+  const rate = SPEED_GAME_DAYS_PER_REAL_SECOND[speed];
+  if (!Number.isFinite(rate) || rate <= 0) throw new RangeError(`Invalid simulation speed: ${speed}`);
   const admittedMs = Math.min(elapsedMs, MAX_ADMITTED_ELAPSED_MS_PER_PULSE);
-  return (admittedMs / 1000) * SPEED_GAME_DAYS_PER_REAL_SECOND[speed];
+  return (admittedMs / 1000) * rate;
 }
 
 /**
@@ -75,6 +77,9 @@ export class SimulationPacer {
       this.lastMonotonicMs = nowMs;
       return this.pendingGameDays;
     }
+
+    // Do not move the baseline backwards if a faulty clock/test supplies an older value.
+    if (nowMs <= this.lastMonotonicMs) return this.pendingGameDays;
 
     const elapsedMs = nowMs - this.lastMonotonicMs;
     this.lastMonotonicMs = nowMs;
