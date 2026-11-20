@@ -65,6 +65,11 @@ export class SimulationPacer {
     this.lastMonotonicMs = null;
   }
 
+  /** Clears fractional month progress without changing the active monotonic baseline. */
+  clearProgress(): void {
+    this.pendingGameDays = 0;
+  }
+
   reset(): void {
     this.lastMonotonicMs = null;
     this.pendingGameDays = 0;
