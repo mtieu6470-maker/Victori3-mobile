@@ -206,3 +206,10 @@ The owner has now instructed ChatGPT to use full technical discretion to decide 
 - The new research references are the IEA Energy Technology Perspectives 2026, ITU Facts and Figures 2025, Stanford HAI AI Index 2026 and SIPRI 2025 military-expenditure fact sheet / Yearbook 2026.
 - A fresh ChatGPT structural self-audit of the current Risk Register and Traceability Matrix found P0 1×6, P1 13×6, P2 22×6, P3 5×3 and Closed 1×3; 48 unique mappings; no blank cells or unresolved risk IDs. See `S0_B7_SELF_REVIEW.md` §16.
 - All S0/S1 gate statuses remain unchanged. This source/design/context material is not a B7 reviewer verdict or implementation authorization.
+
+
+## 22. 1836–2026 clock / Speed-5 pacing addendum — design context only
+
+The clock design file was extended with a campaign calendar and a provisional pacing guard: last playable date 2026-12-31, terminal boundary 2027-01-01 00:00 after final-day tasks, and a Speed 5 ceiling proposal of no more than one game year per 60 real seconds (about 6.1 game days/real second). This explicitly addresses the previously observed multi-year-per-second behavior while preserving FPS-independent deterministic scheduling. It is a design target only; do not report it as benchmarked, implemented or accepted. Direct Victoria 3 and reference Android measurements remain outstanding. The campaign contains 191 inclusive calendar years from 1836 through 2026.
+
+The clock addendum does not change S0/B7 verdicts or authorize gameplay/runtime/save changes. Reviewers should inspect it as owner-request context only, outside the bounded B7 risk/signoff verdict.
