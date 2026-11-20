@@ -142,6 +142,8 @@ describe('official campaign end date', () => {
     stepMonth(st);
     expect(st.tick).toBe(GAME_END_TICK);
     expect(st.date).toEqual({ y: GAME_END_YEAR, m: 1 });
+    expect(st.counters.systemRuns.economy).toBe(1);
+    expect(st.inventoryLedger.history.at(-1)?.date).toEqual({ y: GAME_END_YEAR - 1, m: 12 });
     expect(isGameOver(st)).toBe(true);
     const frozen = serialize(st);
     stepMonth(st);
@@ -158,6 +160,8 @@ describe('official campaign end date', () => {
     expect(st.date).toEqual({ y: 2027, m: 1 });
     expect(st.dayOfMonth).toBe(1);
     expect(st.tick).toBe(GAME_END_TICK);
+    expect(st.counters.systemRuns.economy).toBe(1);
+    expect(st.inventoryLedger.history.at(-1)?.date).toEqual({ y: 2026, m: 12 });
     expect(isGameOver(st)).toBe(true);
   });
 

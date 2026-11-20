@@ -85,8 +85,26 @@ function runTasksAtBoundary(st: GameState, previous: CalendarPoint, next: Calend
 export function stepSixHours(st: GameState): void {
   if (isGameOver(st)) return;
   const previous = calendarPoint(st);
-  st.clockTick = clockTickAt(previous) + 1;
+  const nextClockTick = clockTickAt(previous) + 1;
+  const closesFinalCampaignMonth = previous.date.y === GAME_END_YEAR - 1
+    && previous.date.m === 12
+    && previous.dayOfMonth === daysInMonth(previous.date.y, previous.date.m)
+    && previous.hourOfDay === 18;
 
+  if (closesFinalCampaignMonth) {
+    // Run December 2026's monthly and yearly tasks while the state still carries the last valid period.
+    // Only after all period-close work is committed do we move the display to the terminal Jan 2027 marker.
+    const terminal: CalendarPoint = { date: { y: GAME_END_YEAR, m: 1 }, dayOfMonth: 1, hourOfDay: 0 };
+    runTasksAtBoundary(st, previous, terminal);
+    st.clockTick = nextClockTick;
+    st.dayOfMonth = 1;
+    st.hourOfDay = 0;
+    st.tick += 1;
+    st.date = terminal.date;
+    return;
+  }
+
+  st.clockTick = nextClockTick;
   if (previous.hourOfDay < 18) {
     st.hourOfDay = previous.hourOfDay + REGULAR_TICK_HOURS;
   } else {
