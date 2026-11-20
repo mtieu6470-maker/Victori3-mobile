@@ -254,6 +254,7 @@ export interface FactoryMarketSolution {
   iterations: number;
   converged: boolean;
   residual: number;
+  appliedFallback: 'none' | 'zero-recipe-production';
   supply: Record<string, Record<Good, number>>;
   demand: Record<string, Record<Good, number>>;
   shortages: Record<string, Record<Good, number>>;
@@ -411,26 +412,49 @@ export function solveFactoryMarketFulfillment(
     for (let index = 0; index < factories.length; index++) {
       const factory = factories[index];
       const target = factoryInputFulfillment(factory.inputs, shortages[factory.marketId]);
-      const updated = clamp(
+      // Measure the undamped fixed-point residual. The damped step is only a
+      // numerical stabilizer and must never make an unconverged solution look converged.
+      residual = Math.max(residual, Math.abs(target - fulfillment[index]));
+      next[index] = clamp(
         fulfillment[index] + (target - fulfillment[index]) * FACTORY_MARKET_RELAXATION,
         0,
         1,
       );
-      next[index] = updated;
-      residual = Math.max(residual, Math.abs(updated - fulfillment[index]));
     }
     fulfillment = next;
     iterations = iteration + 1;
     converged = residual <= tolerance;
   }
 
-  const finalSnapshot = aggregate(fulfillment);
-  const finalShortages = calculateShortages(finalSnapshot);
+  let finalSnapshot = aggregate(fulfillment);
+  let finalShortages = calculateShortages(finalSnapshot);
+  if (converged) {
+    residual = 0;
+    for (let index = 0; index < factories.length; index++) {
+      const factory = factories[index];
+      const target = factoryInputFulfillment(factory.inputs, finalShortages[factory.marketId]);
+      residual = Math.max(residual, Math.abs(target - fulfillment[index]));
+    }
+    converged = residual <= tolerance;
+  }
+
+  // Fail closed when the bounded solver cannot establish a fixed point. A zero
+  // recipe-production fallback cannot consume unavailable inputs or create output.
+  // The baseline/non-recipe economy, stock accounting and diagnostics still advance.
+  let appliedFallback: FactoryMarketSolution['appliedFallback'] = 'none';
+  if (!converged) {
+    fulfillment = new Array(factories.length).fill(0);
+    appliedFallback = 'zero-recipe-production';
+    finalSnapshot = aggregate(fulfillment);
+    finalShortages = calculateShortages(finalSnapshot);
+  }
+
   return {
     fulfillment,
     iterations,
     converged,
     residual,
+    appliedFallback,
     supply: finalSnapshot.supply,
     demand: finalSnapshot.demand,
     shortages: finalShortages,
