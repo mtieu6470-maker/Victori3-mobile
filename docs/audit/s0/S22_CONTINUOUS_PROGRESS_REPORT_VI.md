@@ -14,13 +14,6 @@
 - **Not delivered by this task:** source-backed historical events/data for 1937–2026; daily tick conversion; Victoria 3 gameplay parity; full offline packs; full image/video/animation/music/sound library; approximately 4–5 GB installed footprint. Current APK remains a ~18 MB bootstrap/debug build, not the finished game. No padding, duplicate files or quality degradation was used.
 - **Device/release limitations:** no physical iQOO QA; no APK installation; no release signing. R14/save-backup risk remains. No phase gate or S0 verdict changed.
 - **Task lifecycle:** `READY_FOR_REVIEW` for DEV-007 only. Claude independent no-write review is pending; owner acceptance is separate. This does not mark the full game complete or open S1/S22/S23.
-## DEV-007 — Campaign calendar boundary 1836–2026 (20/11/2026)
-
-- Owner amendment: `docs/coordination/OWNER_DIRECTIVE_CAMPAIGN_RANGE_2026-11-20.md` changes the inclusive playable campaign period to January 1836–December 2026 for both Historical and Sandbox modes.
-- Implementation scope: central calendar constants and end tick; engine hard stop after the December 2026 state; fast-forward clamp; setup/date-HUD range; tests for start/end tick, both-mode terminal behavior, strict post-end no-op and controller stop/resume prevention.
-- **Historical-content limitation:** this calendar extension is not a claim that historical data/events are complete or calibrated for 1937–2026. Post-1936 data remains a source-backed research/integration gap. Monthly cadence remains; no daily tick was introduced.
-- Full-content size remains approximately 4–5 GB **after all real offline packs are installed**. APK/runtime size is not the installed-content target; no padding or quality degradation is permitted.
-- Base SHA: `01e57d57a5715fadb13f54fa67b56f1cdbdef7ac`. Exact implementation SHA, test results, CI URLs and APK artifact measurements will be appended after exact-target CI completes.
 ## ANDROID-LANDSCAPE-01 — latest exact test target and CI handoff (20/11/2026)
 
 - **Current code/test target:** `d1623e7d38337b757a1907029f5b0bd85e4ad71d`. **Test blob:** `a343a6f2f555d160352dcc0318a5ec0b2b8993f1`. The corrected regex was fetched back from GitHub and verified byte-for-byte; launcher test asserts `.MainActivity`, `screenOrientation="landscape"`, MAIN and LAUNCHER intent filters.

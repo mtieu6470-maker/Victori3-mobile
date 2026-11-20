@@ -14,6 +14,7 @@
 - **Not delivered by this task:** source-backed historical events/data for 1937–2026; daily tick conversion; Victoria 3 gameplay parity; full offline packs; full image/video/animation/music/sound library; approximately 4–5 GB installed footprint. Current APK remains a ~18 MB bootstrap/debug build, not the finished game. No padding, duplicate files or quality degradation was used.
 - **Device/release limitations:** no physical iQOO QA; no APK installation; no release signing. R14/save-backup risk remains. No phase gate or S0 verdict changed.
 - **Task lifecycle:** `READY_FOR_REVIEW` for DEV-007 only. Claude independent no-write review is pending; owner acceptance is separate. This does not mark the full game complete or open S1/S22/S23.
+- **Claude review packet:** `docs/audit/s0/DEV007_CAMPAIGN_CALENDAR_CLAUDE_REVIEW_REQUEST_2026-11-20.md`; exact no-write review target `387ae24eae91b560b0f10cec6d59febb11396401`.
 ## LATEST OWNER AMENDMENT — CAMPAIGN 1836–2026 (20/11/2026)
 
 - Owner decision: `docs/coordination/OWNER_DIRECTIVE_CAMPAIGN_RANGE_2026-11-20.md` supersedes the older 1836–1936 campaign-period target only; the full campaign is January 1836 through December 2026 inclusive for Historical and Sandbox modes.
