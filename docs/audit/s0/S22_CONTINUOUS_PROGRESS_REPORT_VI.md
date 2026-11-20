@@ -1,9 +1,12 @@
-## 0.19 — DEV-006 exception-path regression added; exact-target CI pending (20/11/2026)
+## 0.20 — DEV-006 exception-path regression: exact CI and APK VERIFIED (20/11/2026)
 
-- Base HEAD: `b5d2735373918f41bf637f7fb5f26f8e94dbdfec`; test-only commit: `1a1e10d8aeb49d54058dddfe0a220a344125a12f`.
-- Changed path: `tests/controller-fast-forward.test.ts` (+37 lines). New case yields after six months, throws on month seven, and checks promise rejection, busy cleanup, restoration of prior running state and RAF restart. No runtime source changed.
-- Exact SHA workflows: tests-only [44763263753](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263753); Android debug [44763263728](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728). Both were still `in_progress` at last check. No PASS inherited from prior SHA.
-- Independent review target updated to `1a1e10d8aeb49d54058dddfe0a220a344125a12f`; Claude verdict PENDING; owner acceptance PENDING; device QA NOT_TESTED.
+- Base: `b5d2735373918f41bf637f7fb5f26f8e94dbdfec`; code/test commit: `1a1e10d8aeb49d54058dddfe0a220a344125a12f`; final docs handoff is appended in commit after this record.
+- Changed test path: `tests/controller-fast-forward.test.ts` (+37 lines); no runtime source changed. Fourth test covers a throw on month seven after async yield, promise rejection, busy cleanup, pause restoration and RAF restart.
+- Tests-only [44763263753](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263753) SUCCESS: 13/13 files, 130/130 tests; zero failures, pending or todo.
+- Android debug [44763263728](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728) SUCCESS on exact SHA `1a1e10d8aeb49d54058dddfe0a220a344125a12f`: test report 44/44 suites and 130/130 tests; `report_valid=true`; Gradle `BUILD SUCCESSFUL in 1m 32s`.
+- APK: 18,052,461 bytes; SHA-256 `31f9553e9976f0c90898f41f7eed22fa595dd21a9beb8779577f810bc37107a9`; artifact [14643795730](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728/artifacts/14643795730); ZIP size 17,564,589 bytes; ZIP SHA-256 `43f051e05aed0c19f8e8ecace86d5a9759b5218426b2e81d8ce4cda16e9404a9`.
+- Debug signer certificate SHA-256 `3da135ad7744652c8fd80831914a5aa87ec9e8aa04842e64a69e9cd58b8a858f`; V1/V2 true; apksigner exit code 0. CI evidence artifact [14644310437](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728/artifacts/14644310437), ZIP SHA-256 `15f2273c4249b0389c0c37c5eddbc51b37c9ac4ed46b3eeb4a7f179edba10480`; downloaded and independently SHA-256 verified against GitHub digest.
+- DEV-006 `CI_PASS / READY_FOR_REVIEW`; Claude independent verdict PENDING; owner acceptance PENDING; device QA NOT_TESTED; release signing NOT_PERFORMED. No daily tick or phase-gate change.
 
 ## 0.18 — UI-REDESIGN-01 exact-target CI and APK evidence verified (20/11/2026)
 

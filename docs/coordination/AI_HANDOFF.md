@@ -1,3 +1,13 @@
+## Latest DEV-006 exact-target verification — CI_PASS / READY_FOR_REVIEW (1a1e10d)
+
+- Exact code/test review target: `1a1e10d8aeb49d54058dddfe0a220a344125a12f`; runtime source implementation remains `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`. The follow-up commit only adds the exception-recovery regression in `tests/controller-fast-forward.test.ts`.
+- The four focused controller cases now cover RAF pause/resume, overlapping fast-forward/action blocking, stale async invalidation after load, and thrown-step recovery after the six-month yield.
+- Tests-only [44763263753](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263753) SUCCESS: 13/13 files, 130/130 tests, zero failures/pending/todo.
+- Android debug [44763263728](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728) SUCCESS on exact target: 44/44 suites, 130/130 tests, Gradle `assembleDebug` success.
+- APK: 18,052,461 bytes; SHA-256 `31f9553e9976f0c90898f41f7eed22fa595dd21a9beb8779577f810bc37107a9`; artifact [14643795730](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728/artifacts/14643795730); ZIP SHA-256 `43f051e05aed0c19f8e8ecace86d5a9759b5218426b2e81d8ce4cda16e9404a9`.
+- Debug certificate SHA-256 `3da135ad7744652c8fd80831914a5aa87ec9e8aa04842e64a69e9cd58b8a858f`; V1/V2 verified, apksigner exit 0. CI evidence artifact [14644310437](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728/artifacts/14644310437), digest `15f2273c4249b0389c0c37c5eddbc51b37c9ac4ed46b3eeb4a7f179edba10480` (downloaded and digest-matched).
+- Claude independent review PENDING; owner acceptance PENDING; physical Android QA NOT_TESTED; release signing NOT_PERFORMED. No daily tick, runtime cadence expansion or gate change.
+
 ## Latest DEV-006 test follow-up — exception-path regression added; CI pending 1a1e10d
 
 - Runtime controller source remains at implementation `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`; test-only follow-up commit `1a1e10d8aeb49d54058dddfe0a220a344125a12f` adds one failure-path case to `tests/controller-fast-forward.test.ts`.

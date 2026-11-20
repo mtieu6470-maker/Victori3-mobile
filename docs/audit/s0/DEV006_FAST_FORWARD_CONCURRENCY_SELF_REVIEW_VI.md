@@ -54,3 +54,14 @@ This self-review does not substitute for the requested independent Claude review
 Only controller scheduler coordination and its tests changed in the code slice. No daily tick, economy/POP/politics/diplomacy/military cadence, RNG model, save schema, historical data, assets, UI design, Android signing or release channel was changed.
 
 - **Test-only follow-up at exact code/test SHA `1a1e10d8aeb49d54058dddfe0a220a344125a12f`:** the fourth exception-recovery regression was added after the 44/44 and 129/129 CI result at e5eb5e4. Current exact-target tests-only run [44763263753](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263753) and Android debug run [44763263728](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728) are `CI_PENDING` as last checked. Do not carry forward the e5eb5e4 result as evidence for 1a1e10d.
+
+## 4.1. Latest exact code/test target verification — 1a1e10d
+
+Runtime source remains at `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`; the only follow-up is the fourth regression in `tests/controller-fast-forward.test.ts`.
+
+- Tests-only [44763263753](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263753): SUCCESS; 13/13 files, 130/130 tests; zero failed, pending or todo; Vitest exit code 0.
+- Android debug [44763263728](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728): SUCCESS on exact SHA `1a1e10d8aeb49d54058dddfe0a220a344125a12f`; `BUILD SUCCESSFUL in 1m 32s`; test report 44/44 suites, 130/130 passed, `report_valid=true`.
+- APK: 18,052,461 bytes; SHA-256 `31f9553e9976f0c90898f41f7eed22fa595dd21a9beb8779577f810bc37107a9`. APK artifact [14643795730](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728/artifacts/14643795730); artifact ZIP SHA-256 `43f051e05aed0c19f8e8ecace86d5a9759b5218426b2e81d8ce4cda16e9404a9`.
+- Debug signer certificate SHA-256 `3da135ad7744652c8fd80831914a5aa87ec9e8aa04842e64a69e9cd58b8a858f`; V1/V2 true; apksigner exit code 0. CI evidence artifact [14644310437](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728/artifacts/14644310437), ZIP SHA-256 `15f2273c4249b0389c0c37c5eddbc51b37c9ac4ed46b3eeb4a7f179edba10480`; downloaded ZIP digest independently matched GitHub.
+- Physical device QA NOT_TESTED; release signing NOT_PERFORMED. Independent Claude review and owner acceptance remain PENDING.
+
