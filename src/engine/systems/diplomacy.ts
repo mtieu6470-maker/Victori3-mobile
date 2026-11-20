@@ -2,7 +2,7 @@
 // calls to arms and great-power intervention, AI acceptance of proposals.
 import { data } from '../data/db';
 import type { Country, GameState, War, WarGoal } from '../types';
-import { clamp, getRel, addRel, relKey, log, newId, rand } from '../core';
+import { clamp, getRel, addRel, relKey, log, newId, rand, createRandomPreview } from '../core';
 import { armyStrength, atWar } from './military';
 import { sharesBorder } from './politics';
 import { coreNationOf } from './population';
@@ -218,12 +218,13 @@ export function joinCustomsUnion(st: GameState, c: Country, unionId: string): bo
  * Who would fight on each side if `attacker` declared war on `defender` now, and the infamy cost.
  * Pure (no state change): used by declareWar itself and by the UI DecisionSheet, so the preview cannot drift from the rule.
  */
-export function warSides(st: GameState, attacker: string, defender: string, goals: WarGoal[]) {
+export function warSides(st: GameState, attacker: string, defender: string, goals: WarGoal[], consumeRandom = false) {
   const a = st.countries[attacker], dC = st.countries[defender];
   const defLeader = dC.overlord && st.countries[dC.overlord]?.alive && dC.subjectType !== 'tributary' ? dC.overlord : defender;
   const attackers = [attacker];
   const defenders = [...new Set([defender, defLeader])];
   const joined: { id: string; reason: 'subject' | 'alliance' | 'defensive_pact' | 'guarantee' | 'great_power' }[] = [];
+  const nextRoll = consumeRandom ? () => rand(st) : createRandomPreview(st);
   // subjects follow overlords
   for (const c of Object.values(st.countries)) if (c.alive && c.overlord === attacker && c.subjectType !== 'tributary' && c.subjectType !== 'personal_union') { attackers.push(c.id); joined.push({ id: c.id, reason: 'subject' }); }
   // Alliance and Defensive Pact are distinct bilateral articles; both carry a
@@ -234,7 +235,7 @@ export function warSides(st: GameState, attacker: string, defender: string, goal
       for (const member of treaty.members) {
         if (member !== defender && !attackers.includes(member) && !defenders.includes(member)
           && st.countries[member]?.alive && !treaty.members.includes(attacker)
-          && joinWillingness(st, member, attacker, defender) > 0) {
+          && joinWillingness(st, member, attacker, defender, nextRoll()) > 0) {
           defenders.push(member);
           joined.push({ id: member, reason });
         }
@@ -251,7 +252,7 @@ export function warSides(st: GameState, attacker: string, defender: string, goal
   for (const gp of greatPowers(st)) {
     if (attackers.includes(gp) || defenders.includes(gp)) continue;
     if ((rivals(st, gp, attacker) && getRel(st, gp, defender) > 10) || (st.countries[gp].ai.planTarget === `support:${defender}`)) {
-      if (joinWillingness(st, gp, attacker, defender) > 1.5) { defenders.push(gp); joined.push({ id: gp, reason: 'great_power' }); }
+      if (joinWillingness(st, gp, attacker, defender, nextRoll()) > 1.5) { defenders.push(gp); joined.push({ id: gp, reason: 'great_power' }); }
     }
   }
   const infamy = goals.reduce((s, g) => s + (g.regions?.length ?? 1) * (g.type === 'colonize' ? 1 : 3), 0);
@@ -263,7 +264,7 @@ export function declareWar(st: GameState, attacker: string, defender: string, go
   if (!a?.alive || !dC?.alive || attacker === defender) return null;
   if (hasNonAggressionPact(st, attacker, defender)) return null;
   if (st.wars.some((w) => (w.attackers.members.includes(attacker) && w.defenders.members.includes(defender)) || (w.attackers.members.includes(defender) && w.defenders.members.includes(attacker)))) return null;
-  const sides = warSides(st, attacker, defender, goals);
+  const sides = warSides(st, attacker, defender, goals, true);
   const w: War = { id: newId(st, 'war'), name: name ?? `${a.name}–${dC.name} War`, kind, attackers: { leader: attacker, members: sides.attackers }, defenders: { leader: sides.defenderLeader, members: sides.defenders }, goals, start: st.tick, score: 0, occupied: [], battles: 0, exhaustion: { a: 0, d: 0 } };
   a.infamy += sides.infamy;
   for (const x of w.attackers.members) for (const y of w.defenders.members) st.relations[relKey(x, y)] = Math.min(st.relations[relKey(x, y)] ?? 0, -60);
@@ -273,12 +274,12 @@ export function declareWar(st: GameState, attacker: string, defender: string, go
   return w;
 }
 
-export function joinWillingness(st: GameState, who: string, attacker: string, defender: string): number {
+export function joinWillingness(st: GameState, who: string, attacker: string, defender: string, randomRoll?: number): number {
   const c = st.countries[who]; if (!c || c.decentralized) return -1;
   let s = getRel(st, who, defender) / 20 - getRel(st, who, attacker) / 25 + (rivals(st, who, attacker) ? 2 : 0) + ((allied(st, who, defender) || defensivePacted(st, who, defender)) ? 2 : 0);
   s += (armyStrength(st, c) / Math.max(1, armyStrength(st, st.countries[attacker]))) - 0.6;
   if (atWar(st, who)) s -= 2;
   s -= c.warExhaustion / 30;
-  s += (rand(st) - 0.5);
+  s += ((randomRoll ?? rand(st)) - 0.5);
   return s;
 }

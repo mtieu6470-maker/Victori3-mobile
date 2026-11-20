@@ -1114,3 +1114,14 @@ This is a later, explicit owner authorization to begin product implementation on
 - **Changed files:** `src/engine/systems/diplomacy.ts`, `src/engine/commands.ts`, `src/ui/screens/Diplomacy.tsx`, `tests/diplomacy.test.ts`, this handoff and the diplomacy report.
 - **Validation:** pending exact-source CI; no PASS claimed. Physical-device QA, independent Claude review and owner acceptance remain pending.
 - **Next:** inspect exact CI/test result; if green, verify APK and review UI presentation for duplicate treaty rows. Then handle the next diplomacy-specific invariant without changing unrelated systems.
+
+
+## 2026-11-20 — WAR PREVIEW RNG ISOLATION SLICE (CI PENDING)
+
+- **Task:** `DIPLOMACY-ALLIANCE-TECH-01`; base HEAD `0100bb56ac0dddd3fd0713229ce891c116b681cd`; branch `experiment/vic3-visual-upgrade`.
+- **Finding:** the WarDialog recalculates `warSides()` during render, including progress updates while the player holds the declare-war button. `warSides()` called `joinWillingness()`, which called `rand(st)` and mutated the campaign RNG. Merely opening/re-rendering a preview could therefore advance simulation randomness and make outcomes depend on UI render cadence.
+- **Change:** factored the xoshiro step into a shared helper and added `createRandomPreview()`, which advances a cloned RNG state. `warSides()` uses this pure preview stream by default; `declareWar()` explicitly opts into consuming the live RNG at the moment the war is actually declared. This preserves random call-to-arms resolution without letting UI previews mutate the campaign.
+- **Regression test:** repeated war-side previews return the same result and leave `state.rng` unchanged; an actual declaration still advances the campaign RNG.
+- **UI cleanup:** mapped per-treaty withdrawal rows now receive stable React keys.
+- **Changed files:** `src/engine/core.ts`, `src/engine/systems/diplomacy.ts`, `src/ui/screens/Diplomacy.tsx`, `tests/diplomacy.test.ts`, this handoff and the diplomacy report.
+- **Validation:** pending CI on the exact commit. No PASS claimed.

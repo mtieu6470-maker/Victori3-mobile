@@ -7,14 +7,26 @@ export function seedRng(seed: number): [number, number, number, number] {
   return [next(), next(), next(), next()];
 }
 
+function nextRandom(rng: GameState['rng']): number {
+  const result = Math.imul(rotl(Math.imul(rng[1], 5), 7), 9) >>> 0;
+  const t = rng[1] << 9;
+  rng[2] ^= rng[0]; rng[3] ^= rng[1]; rng[1] ^= rng[2]; rng[0] ^= rng[3]; rng[2] ^= t; rng[3] = rotl(rng[3], 11);
+  rng[0] >>>= 0; rng[1] >>>= 0; rng[2] >>>= 0; rng[3] >>>= 0;
+  return result / 4294967296;
+}
+
 /** Uniform [0,1) from the state's RNG (mutates state.rng). */
 export function rand(st: GameState): number {
-  const s = st.rng;
-  const result = Math.imul(rotl(Math.imul(s[1], 5), 7), 9) >>> 0;
-  const t = s[1] << 9;
-  s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3]; s[2] ^= t; s[3] = rotl(s[3], 11);
-  s[0] >>>= 0; s[1] >>>= 0; s[2] >>>= 0; s[3] >>>= 0;
-  return result / 4294967296;
+  return nextRandom(st.rng);
+}
+
+/**
+ * Returns a deterministic RNG stream cloned from the current state.
+ * Advancing this stream never mutates the campaign RNG; use for previews only.
+ */
+export function createRandomPreview(st: GameState): () => number {
+  const rng: GameState['rng'] = [st.rng[0], st.rng[1], st.rng[2], st.rng[3]];
+  return () => nextRandom(rng);
 }
 function rotl(x: number, k: number) { return ((x << k) | (x >>> (32 - k))) >>> 0; }
 export const chance = (st: GameState, p: number) => rand(st) < p;

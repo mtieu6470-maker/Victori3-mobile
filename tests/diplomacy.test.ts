@@ -425,6 +425,31 @@ describe('Victoria 3-style bilateral alliance capacity', () => {
     expect(declareWar(state, attacker.id, defender.id, [])).toBeNull();
   });
 
+  it('war-side preview is deterministic and does not consume the campaign RNG', () => {
+    const state = fresh('historical', 196, 'GBR');
+    clearAllianceFixture(state);
+    const [attacker, defender, partner] = eligibleCountries(state);
+    state.treaties.push({
+      id: 'preview-defensive-pact',
+      type: 'defensive_pact',
+      members: [defender.id, partner.id],
+      start: 0,
+    });
+    state.relations[relKey(partner.id, defender.id)] = 80;
+    state.relations[relKey(partner.id, attacker.id)] = -80;
+
+    const rngBeforePreview = [...state.rng];
+    const firstPreview = warSides(state, attacker.id, defender.id, []);
+    expect(state.rng).toEqual(rngBeforePreview);
+    const secondPreview = warSides(state, attacker.id, defender.id, []);
+    expect(secondPreview).toEqual(firstPreview);
+    expect(state.rng).toEqual(rngBeforePreview);
+
+    const declared = declareWar(state, attacker.id, defender.id, []);
+    expect(declared).not.toBeNull();
+    expect(state.rng).not.toEqual(rngBeforePreview);
+  });
+
   it('AI forms an Alliance when both sides have International Relations and an open slot', () => {
     const state = fresh('sandbox', 188, null);
     const a = state.countries.GBR;

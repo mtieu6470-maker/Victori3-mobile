@@ -189,3 +189,12 @@ The correct next action is redesign/fix the treaty taxonomy and AI test behavior
 - **Regression coverage:** two overlapping Defensive Pact records are seeded for one pair; withdrawing from the second leaves the first and its Non-Aggression term intact; a second explicit withdrawal removes the remaining pact. A foreign treaty ID belonging to another pair is rejected without mutation.
 - **Validation:** CI pending on the exact resulting commit. Do not claim the change is validated until GitHub Actions confirms.
 - **Scope note:** this slice fixes withdrawal granularity only. Treaty duration, early-withdrawal penalties/truces, ratification, bundled articles, influence/upkeep, and full guarantee/entente/neutrality lifecycle remain incomplete.
+
+
+## 13. War-side preview must not mutate campaign RNG (20/11/2026)
+
+- **Observed defect:** `WarDialog` invokes `warSides()` as render-derived data. The old path called `joinWillingness()`, which called `rand(st)`; the xoshiro RNG mutates `GameState.rng`. Opening the dialog, changing a control, or each press-and-hold animation render could therefore consume simulation random numbers without a simulation event.
+- **Correction:** the RNG transition is factored into `nextRandom`. `createRandomPreview` advances a private clone of the current four-word RNG state. `warSides` uses this preview stream by default, so repeated renders are deterministic and do not mutate the campaign. `declareWar` opts into the live RNG stream when the player actually confirms the declaration. The same random sequence is previewed if no simulation RNG events occur between preview and confirmation.
+- **Tests:** repeated `warSides` calls leave `state.rng` unchanged and return equal results; actual `declareWar` advances the live RNG.
+- **Additional UI correction:** exact per-treaty withdrawal rows receive stable React keys.
+- **Validation:** pending exact-source CI. This correction does not claim complete diplomatic-play or war negotiation parity.
