@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `4e1de3ae438d15c8131b3811ed67e86afae3ac45`  
+**Snapshot HEAD before this manifest refresh:** `331324bf11c8108e872f9086009c936980b60312`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -309,3 +309,13 @@ The prior structural summary undercounted the matrix by one because it omitted t
 - At that hard ceiling, the 69,762-day interval 1836-01-01 to 2027-01-01 requires 139,524 real seconds (38h 45m 24s) with uninterrupted calendar progress. This is arithmetic from the requested cap, not measured throughput.
 - At a six-hour logical tick, the maximum corresponds to two logical ticks/real second. Rendering/RAF must not define simulation steps; monthly systems must not run at six-hour cadence.
 - The clock, handoff and review request are pinned to the exact blobs in §1. This scope note does not authorize runtime changes, change any risk/gate verdict, or widen the bounded S0-B7 review.
+
+
+## 31. Owner's final Speed-5 hard ceiling: 0.5 game-day / real-second (2026-11-20)
+
+- The current clock design pin reflects the owner's explicit ceiling: **maximum 0.5 Gregorian game-day per one real second** (12 in-game hours per second).
+- Prior proposals of 1 day/second and a hard ceiling of 2 days/second are superseded and must not be used for configuration or acceptance.
+- The full interval contains 69,762 Gregorian days from 1836-01-01 to the 2027-01-01 completion boundary. At exactly the hard cap, the theoretical uninterrupted time is 139,524 seconds = 38 hours, 45 minutes, 24 seconds. This is arithmetic, not measured performance.
+- With six-hour logical ticks, the cap permits at most two ticks per real second; monthly simulation systems remain on their own cadence. RAF/render rate cannot drive logical time.
+- The clock design, handoff and review request are pinned to exact live blobs above. Design-only; no runtime code, save schema, benchmark, test or APK was changed/run.
+- No S0 risk/gate, bounded review scope, owner exception or phase authorization was changed.
