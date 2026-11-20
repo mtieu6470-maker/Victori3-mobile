@@ -85,7 +85,7 @@ describe('GameController clock integration', () => {
     pulseFor(1000); // 0.1 game-day at Speed 1
 
     controller.setSpeed(5);
-    pulseFor(61_750); // 30.875 game-days at Speed 5; 30.975 total
+    pulseFor(61_700); // 30.85 game-days at Speed 5; 30.95 total
     expect(state.tick).toBe(0);
 
     pulseFor(50); // 0.025 more game-day; still below the 31-day month
