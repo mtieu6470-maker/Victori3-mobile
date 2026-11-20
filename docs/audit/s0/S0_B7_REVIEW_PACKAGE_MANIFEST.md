@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `00d2c29d20515baa19124207a20be56c9cdfac6d`  
+**Snapshot HEAD before this manifest refresh:** `4e1de3ae438d15c8131b3811ed67e86afae3ac45`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -21,14 +21,14 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `8701c8defd2945cc0849b7e2c7ee67afe03ab141` |
 | `docs/audit/s0/S0_SIGNOFF.md` | `7a2baf300e95c646585f76e3a1ef81f85cadfcf5` |
 | `docs/audit/s0/S0_B7_RESULTS.md` | `4243bba7829fb110951dcc28f1ccb802331ab7da` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `9a50e395f3bba1c9e22eba78a8b3450096a09067` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `d1ec5b314923efdfb136a71fb7b10b2725f1888e` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `977e7fc3427cefb99bf3ba172740eb99cb6034b8` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `7292435665cb9247849eb445160909f9d1a0b91d` |
+| `docs/coordination/AI_HANDOFF.md` | `51d7db227a0b6f9a14c76a9fff92a5aa7abb6e50` |
 | `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `0cdd1b70857e17b708c6851575819ae076a5b8d0` |
 
 | `docs/roadmap/OWNER_SCOPE_AMENDMENT_1836_2026_SYSTEM_DEPTH.md` | `43d4feda71cf71714160fead3ee6f135408206d9` |
-| `docs/spec/SIMULATION_CLOCK_PACING_DESIGN_VI.md` | `6298ed118d0c0365550dc77815ba5ce495a4d1d1` |
+| `docs/spec/SIMULATION_CLOCK_PACING_DESIGN_VI.md` | `65bd4e52e49e450c282d4e2d58c53258846939fd` |
 | `docs/design/TECHNOLOGY_AND_INSTITUTIONS_1836_2026_DRAFT.md` | `18a37e8335b188182ec45b882bb8f44c3285b66a` |
 
 ## 2. Risk table integrity and traceability
@@ -301,3 +301,11 @@ The prior structural summary undercounted the matrix by one because it omitted t
 - §12 proposes a provisional Speed 5 pacing ceiling of one game year per 60 real seconds (approximately 6.1 game days per real second) as a guard against multi-year-per-second jumps. It is explicitly a design proposal, not a benchmark, device result, implementation or owner acceptance of final mapping.
 - The updated handoff and B7 review request pin this context. The bounded review verdict remains limited to S0-B7; no S0 gate, risk disposition, exception or implementation authorization changed.
 - Direct Victoria 3 comparison, reference Android throughput, scheduler tests and save migration evidence remain outstanding.
+
+
+## 30. Owner-confirmed half-day Speed-5 ceiling (2026-11-20)
+
+- The latest clock design pin now reflects the owner's explicit maximum: **0.5 Gregorian game-day per real second** (12 in-game hours/real second). This replaces earlier provisional 1-year/60-second and 1–2-days/second proposals.
+- At that hard ceiling, the 69,762-day interval 1836-01-01 to 2027-01-01 requires 139,524 real seconds (38h 45m 24s) with uninterrupted calendar progress. This is arithmetic from the requested cap, not measured throughput.
+- At a six-hour logical tick, the maximum corresponds to two logical ticks/real second. Rendering/RAF must not define simulation steps; monthly systems must not run at six-hour cadence.
+- The clock, handoff and review request are pinned to the exact blobs in §1. This scope note does not authorize runtime changes, change any risk/gate verdict, or widen the bounded S0-B7 review.
