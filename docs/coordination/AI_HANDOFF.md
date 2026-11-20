@@ -1,3 +1,11 @@
+## Latest TECH-START-01 checkpoint — country-specific starting technology audit (20/11/2026)
+
+- Audit: `docs/audit/COUNTRY_SPECIFIC_TECHNOLOGY_STARTING_STATE_AUDIT_VI.md`; baseline `3ee40d4a66b403f05083846e9af106a13ebbc707`; status DESIGN/AUDIT ONLY, no runtime authorization.
+- Verified current build assigns one of four broad tier bundles plus five country overrides. Registry has 181 entities; catalogue has 38 technologies; only 10/11 detailed polity files expose an explicit technology-level fact; 136 core profiles have no such field.
+- Current research availability checks only prerequisites; global diffusion share is based on all living countries, not actual neighbor/trade relationships. Knowledge/adoption/domestic production/deployment are conflated.
+- Initial tech/industrialization stage also affects seeded POP strata/buildings, so correcting tech requires reconciliation with starting economy and population.
+- No historical facts or runtime data changed. S0/S1/S22 gates unchanged.
+
 ## Latest TIME-ARCH-01 code-grounded cadence audit (20/11/2026)
 
 - Extended `docs/spec/DAILY_SIMULATION_CLOCK_CADENCE_ARCHITECTURE_PROPOSAL_VI.md` with §15 mapping the actual source functions, monthly fields, coefficients and thresholds to proposed daily/weekly/monthly/annual cadence. Source baseline `c5193894f5e2f344132a2334e1057d0b3a71f85a`.

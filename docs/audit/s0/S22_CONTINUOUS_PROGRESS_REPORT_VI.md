@@ -1,3 +1,13 @@
+## 0.13 — TECH-START-01: audit công nghệ khởi đầu theo từng quốc gia (20/11/2026)
+
+- Kiểm tra `tools/build-data.ts`, `technologies.json`, registry 181 thực thể, 11 hồ sơ quốc gia chi tiết và 136 core profiles tại baseline `3ee40d4a66b403f05083846e9af106a13ebbc707`.
+- Phát hiện cấu trúc hiện tại: bốn bundle công nghệ theo tier (10/6/3/0 công nghệ) cộng năm override cho PRU/BEL/USA/FRA/SAX. Chỉ 10/11 hồ sơ chi tiết có technology.level; 136 core profiles không có trường này.
+- `availableTechs()` hiện chỉ kiểm tra prerequisite; diffusion dùng tỷ lệ toàn bộ nước còn sống, không dùng mạng lưới láng giềng/thương mại thực tế. Một trường `techs[]` đang gộp knowledge, adoption, domestic production và deployment.
+- `stageOf()` còn ảnh hưởng strata và buildings khởi đầu, nên sửa tech tree phải đối soát đồng thời POP/industrialization/economy.
+- Tạo `docs/audit/COUNTRY_SPECIFIC_TECHNOLOGY_STARTING_STATE_AUDIT_VI.md` đề xuất country×technology evidence matrix, phân biệt known/adopting/accessible/unknown/not_adopted, yêu cầu provenance và validation tests. Không tự bịa danh sách công nghệ cho từng nước.
+- **Documentation/data audit only:** không thay đổi facts, source data, runtime, tests, generated DB, save schema, UI/assets/Android/Gradle/workflow/APK. Không chạy runtime CI; không đổi phase gate.
+- Next: research evidence by region and polity type; independent review before any starting-tech data patch.
+
 ## 0.12 — TIME-ARCH-01 source-grounded cadence and migration audit (20/11/2026)
 
 - Đối chiếu trực tiếp `simulation.ts`, economy, population, politics, technology, diplomacy, military, events, AI, divergence, metrics, population cohorts, types và save schema tại base `c5193894f5e2f344132a2334e1057d0b3a71f85a`.
