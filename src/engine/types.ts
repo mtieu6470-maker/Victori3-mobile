@@ -111,6 +111,7 @@ export interface MarketClearingDiagnostics {
   maxIterations: number;
   converged: boolean;
   residual: number;
+  appliedFallback: 'none' | 'zero-recipe-production';
 }
 
 /** Provenance of the opening physical-stock balances in the current inventory model. */
