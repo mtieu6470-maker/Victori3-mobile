@@ -103,6 +103,16 @@ export interface Region {
 /** supply/demand/imports in engine physical units; short = unmet share of demand (0..1). */
 export interface MarketGoodStats { supply: number; demand: number; imports: number; short: number }
 
+/** Last deterministic market/factory clearing result; diagnostic only, not an economic input. */
+export interface MarketClearingDiagnostics {
+  tick: number;
+  factoryCount: number;
+  iterations: number;
+  maxIterations: number;
+  converged: boolean;
+  residual: number;
+}
+
 /** Provenance of the opening physical-stock balances in the current inventory model. */
 export type InventoryOpeningBasis = 'unseeded' | 'simulated' | 'sourced';
 
@@ -174,6 +184,8 @@ export interface GameState {
   marketPrices: Record<string, Record<Good, number>>;
   /** Last month's market clearing per market and good (engine units; prices are indices, 1 = base price). */
   marketStats: Record<string, Record<Good, MarketGoodStats>>;
+  /** Last monthly factory/market solver convergence record, added without breaking legacy saves. */
+  marketClearing?: MarketClearingDiagnostics;
   /** Physical market stocks and bounded monthly inventory accounting journal. */
   inventoryLedger: InventoryLedger;
   log: LogEntry[];
