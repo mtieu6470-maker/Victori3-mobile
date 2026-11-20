@@ -1,9 +1,13 @@
-## Latest DEV-006 code/test follow-up — newGame invalidation regression; CI_PENDING (9604207)
+## Latest DEV-006 code/test target — exact CI_PASS / READY_FOR_REVIEW (9604207)
 
-- Exact code/test review target: `96042077abeef8b89fe9e46fdce97a2b566d70da`; runtime source remains at `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`.
-- Test-only commit changes `tests/controller-fast-forward.test.ts` (+32 lines). Five focused controller cases now cover RAF pause/resume, overlap/action blocking, load invalidation, thrown-step recovery, and newGame invalidation during the six-month yield.
-- Exact-target tests-only [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664) and Android debug [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668) were queued at the latest GitHub fetch; results PENDING. Do not carry forward prior SHA CI results.
-- Independent Claude review PENDING; owner acceptance PENDING; physical Android QA NOT_TESTED; no daily tick or gate change.
+- Exact code/test review target: `96042077abeef8b89fe9e46fdce97a2b566d70da`; runtime source remains `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`.
+- Test-only change: `tests/controller-fast-forward.test.ts` (+32 lines). Five deterministic cases cover RAF pause/resume, overlap and player-action blocking, invalidation after `load()`, invalidation after `newGame()`, and thrown-step recovery.
+- Tests-only workflow [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664) **SUCCESS** on exact target: 13/13 test files, 131/131 tests, 0 failed, 0 pending, 0 todo.
+- Android debug workflow [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668) **SUCCESS** on exact target: 44/44 suites, 131/131 tests, `report_valid=true`, Gradle `BUILD SUCCESSFUL in 1m 28s`.
+- APK: 18,052,461 bytes; SHA-256 `efde0291f9420fcd7ffbea4db9b1dc66ee4ad82b208bf946e76eaacb5ab12fd6`. APK artifact [14645545593](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668/artifacts/14645545593); ZIP size 17,564,620 bytes; ZIP SHA-256 `8890cdd38d7559faaf156f4946b47f9adf98dad96992654ffb3ca122d9b160df`. The ZIP digest is not the APK digest.
+- Downloaded APK artifact ZIP and CI evidence ZIP were independently SHA-256 checked against GitHub. Evidence artifact [14646635377](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668/artifacts/14646635377), size 112,086 bytes; ZIP SHA-256 `702a8fcf6cb371fa89331604430746bb1f95158743a55bd13f300f5e7cef254c`.
+- Android Debug certificate SHA-256 `919f750786571b8dcbf2d484e31bad9c35d50e9cfda09daaf053c9d7b6edbf38`; v1/v2 verification true; `apksigner_exit_code=0`. This is debug signing, not release signing.
+- Independent Claude review PENDING; owner acceptance PENDING; physical Android QA NOT_TESTED; release signing NOT_PERFORMED. Monthly clock only; no daily tick, gameplay expansion or phase-gate change.
 
 ## Latest DEV-006 exact-target verification — CI_PASS / READY_FOR_REVIEW (1a1e10d)
 
@@ -213,7 +217,7 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 | Field | Value |
 |---|---|
 | Repository | `mtieu6470-maker/Victori3-mobile` |
-| Development branch observed | `claude/game-historical-sandbox-modes-kg7rj7` — sole/default branch; B4 code/test HEAD `e4924ca48264f8d0818eface51a28a87cd363b89`; independent review packet added in `86ea7154415c3fca1fcefcc99428c03d607ca9af`; subsequent handoff updates are documentation-only. Re-fetch branch HEAD before the next task |
+| Development branch observed | `claude/game-historical-sandbox-modes-kg7rj7`; latest code/test target `96042077abeef8b89fe9e46fdce97a2b566d70da`; latest verified documentation HEAD before this evidence update `e5f125e56ea05d21cddb5bb0677406a2eca3c6d3`. Re-fetch branch HEAD before the next task |
 | Last independently observed baseline | `2240a8fb865e0021eec2f2f4f1c6803528be9e2c` (code baseline; later commits listed below are documentation-only) |
 | Coordination setup commit | `bd5787f3e1763170ec7e5ad448466a5cc57c2b40` |
 | Coordination correction commit | `6c4d02a36a30f7e82d973da59f569b379f85468d` |
@@ -225,7 +229,7 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 | Legacy roadmaps and pre-protocol work | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` (historical evidence, not authorization) |
 | Current approved phase | S0-B3 → S0-B4 → S0-B7, sequential under OD-20261116-11. B3 has ChatGPT REVIEW_PASS; B4 corrected test source has passing tests-only CI (70/70, 6/6) and remains READY_FOR_REVIEW pending genuine second-party review; B7 risk register, gate ledger, signoff proposal, results and independent-review request are prepared and READY_FOR_REVIEW. S1 remains closed. |
 | Current task status | S0-B3 REVIEW_PASS (bounded audit scope only). S0-B4 READY_FOR_REVIEW: B4-SA-01/02 corrected in test source ae29c99330081ba2f6af3a6d4478ec8aefc8a1ad; tests-only CI run 44041104723 passed 70/70 tests across 6/6 suites, four valid-save continuation cases MATCH; independent Claude review and owner acceptance remain pending. S0-B7 READY_FOR_REVIEW: evidence-linked risk register, G0.1–G0.9 ledger, bounded S1-entry signoff proposal, B7 results, independent-review request and consolidated Vietnamese package summary are committed; independent review and owner decision are pending. S1 remains NOT_STARTED until the complete bounded package receives REVIEW_PASS and a separate owner ACCEPTED. S0-A READY_FOR_REVIEW (A1–A4 evidenced, A5 BLOCKED); S0-A not ACCEPTED. S0-B1 technical verdict PASS. |
-| Latest verified development HEAD before handoff update | `95e509f62efe3d69b267f3494969db0e882ffe58` (rolling-report reconciliation commit); the handoff update itself will become the next HEAD |
+| Latest verified development HEAD before this evidence update | `e5f125e56ea05d21cddb5bb0677406a2eca3c6d3`; this documentation-only evidence update is based on that exact HEAD |
 | S22 current state | `DESIGN_ONLY / PRE-IMPLEMENTATION`; design §§14.1–14.15; code self-audit SA-01–SA-13; traceability present; test specification includes GEO-01–GEO-10 and BEN-11–BEN-18; no S22 runtime authorization |
 | S22 independent review | Claude no-write request latest commit `5eb49c5ab6f8441bfbd75c6dea4b868d6469df4f`, blob `fc5565ce5e4ac556efafd3f6d1965006a589b5a6`; verdict pending |
 | S22 implementation blockers | Canonical 12-macro-region taxonomy/boundaries need owner decision; benchmark/event research needs independent source review; design-level proposed parameters need owner approval; S1/S22 runtime gate remains closed |

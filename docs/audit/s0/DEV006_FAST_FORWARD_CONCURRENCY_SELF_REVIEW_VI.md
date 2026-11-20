@@ -26,14 +26,15 @@ In src/ui/game/controller.ts:
 
 ## 3. Focused regression coverage
 
-Added tests/controller-fast-forward.test.ts with four deterministic cases:
+Added tests/controller-fast-forward.test.ts with five deterministic cases:
 
 1. The live RAF scheduler is cancelled during fast-forward and the prior running state is restored afterward.
 2. Overlapping fast-forward calls are rejected; manual step, pause toggle and commands cannot interleave while busy.
 3. Loading a new save during the six-month yield invalidates the old operation; the newly loaded state remains unchanged.
-4. If the seventh monthly step throws after the first six-month yield, the promise rejects, busy state clears, and the controller restores the previous running state/RAF scheduler.
+4. Starting a new game during the six-month yield invalidates the old operation; the new state's tick, pause and busy values remain unchanged.
+5. If the seventh monthly step throws after the first six-month yield, the promise rejects, busy state clears, and the controller restores the previous running state/RAF scheduler.
 
-The tests use an explicitly controlled setTimeout continuation instead of real delays or fake RAF timers.
+The tests use explicitly controlled async continuations instead of real delays or fake RAF timers.
 
 ## 4. Verification
 
@@ -53,7 +54,7 @@ This self-review does not substitute for the requested independent Claude review
 
 Only controller scheduler coordination and its tests changed in the code slice. No daily tick, economy/POP/politics/diplomacy/military cadence, RNG model, save schema, historical data, assets, UI design, Android signing or release channel was changed.
 
-- **Test-only follow-up at exact code/test SHA `1a1e10d8aeb49d54058dddfe0a220a344125a12f`:** the fourth exception-recovery regression was added after the 44/44 and 129/129 CI result at e5eb5e4. Current exact-target tests-only run [44763263753](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263753) and Android debug run [44763263728](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44763263728) are `CI_PENDING` as last checked. Do not carry forward the e5eb5e4 result as evidence for 1a1e10d.
+- **Test-only follow-up at exact code/test SHA `96042077abeef8b89fe9e46fdce97a2b566d70da`:** the fifth `newGame()` invalidation regression is included. Exact-target tests-only [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664) and Android debug [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668) both SUCCESS: 13/13 test files and 44/44 Android suites; 131/131 tests; Gradle build SUCCESS. APK SHA-256 `efde0291f9420fcd7ffbea4db9b1dc66ee4ad82b208bf946e76eaacb5ab12fd6`; CI evidence and artifact hashes are in the newest amendment above. Do not transfer prior-SHA evidence to this target.
 
 ## 4.1. Latest exact code/test target verification — 9604207
 

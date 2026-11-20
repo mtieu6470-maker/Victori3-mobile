@@ -1,18 +1,21 @@
-## NEWEST AMENDMENT — newGame invalidation regression added; exact CI pending (20/11/2026)
+## NEWEST AMENDMENT — exact-target CI verified; review target remains 9604207 (20/11/2026)
 
-The code/test review target is now **`96042077abeef8b89fe9e46fdce97a2b566d70da`**. This supersedes the previous target `1a1e10d8aeb49d54058dddfe0a220a344125a12f`.
+The exact code/test review target is **`96042077abeef8b89fe9e46fdce97a2b566d70da`**. This supersedes all earlier target SHAs in the historical sections below.
 
-- Runtime source remains unchanged from `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`.
-- `tests/controller-fast-forward.test.ts` now has a fifth deterministic case. It starts a six-month fast-forward, replaces the state through `newGame()` during the yield, resumes the old promise, and verifies the new game's state/pause/busy values remain unchanged.
-- New test-only commit: `96042077abeef8b89fe9e46fdce97a2b566d70da`; changed path only `tests/controller-fast-forward.test.ts` (+32 lines, no deletions).
-- Exact-target tests-only [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664) and Android debug [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668) were queued at the last GitHub fetch. Their results are **PENDING**; do not reuse CI results from 1a1e10d.
-- Review must inspect both replacement paths: `load()` and `newGame()`, as well as exception recovery. Claude verdict and owner acceptance remain pending.
+- Runtime controller source remains `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`; this follow-up changes only `tests/controller-fast-forward.test.ts` (+32 lines).
+- Five deterministic tests cover RAF pause/resume, overlap/action blocking, stale continuation invalidation by `load()`, stale continuation invalidation by `newGame()`, and exception recovery after the six-month yield.
+- Tests-only [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664): **SUCCESS**, 13/13 files, 131/131 tests, 0 failed/pending/todo.
+- Android debug [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668): **SUCCESS** on exact target; 44/44 suites, 131/131 tests, `report_valid=true`; Gradle `BUILD SUCCESSFUL in 1m 28s`.
+- APK: 18,052,461 bytes; SHA-256 `efde0291f9420fcd7ffbea4db9b1dc66ee4ad82b208bf946e76eaacb5ab12fd6`; artifact [14645545593](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668/artifacts/14645545593); ZIP SHA-256 `8890cdd38d7559faaf156f4946b47f9adf98dad96992654ffb3ca122d9b160df`.
+- CI evidence artifact [14646635377](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668/artifacts/14646635377), ZIP SHA-256 `702a8fcf6cb371fa89331604430746bb1f95158743a55bd13f300f5e7cef254c`; downloaded evidence and APK artifact ZIPs were independently hashed and matched their GitHub digests.
+- Debug certificate SHA-256 `919f750786571b8dcbf2d484e31bad9c35d50e9cfda09daaf053c9d7b6edbf38`; V1/V2 true; `apksigner_exit_code=0`. Debug signing only.
+- Review verdict still PENDING; owner acceptance PENDING; physical Android QA NOT_TESTED; release signing NOT_PERFORMED. No daily tick, gameplay expansion or phase-gate transition.
 
 ---
 
-## LATEST AMENDMENT — exact DEV-006 code/test target CI VERIFIED (20/11/2026)
+## HISTORICAL PRIOR TARGET — exact CI for 1a1e10d (superseded by 9604207)
 
-This amendment supersedes the pending CI statement below. Claude must review exact code/test target **`1a1e10d8aeb49d54058dddfe0a220a344125a12f`**.
+The following evidence applies only to prior code/test target `1a1e10d8aeb49d54058dddfe0a220a344125a12f`; it is retained as history and is not the current review target.
 
 - Runtime source remains unchanged from implementation SHA `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`; the only code/test change after that implementation is `tests/controller-fast-forward.test.ts` (+37 lines, no deletions) in test-only commit `1a1e10d8aeb49d54058dddfe0a220a344125a12f`.
 - The fourth deterministic case verifies exception recovery when month seven throws after the six-month async yield: the promise rejects, `busy` clears, previous running state is restored and RAF is restarted.

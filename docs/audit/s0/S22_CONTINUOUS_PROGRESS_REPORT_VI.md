@@ -1,10 +1,13 @@
-## 0.21 — DEV-006 newGame invalidation regression added; exact-target CI pending (20/11/2026)
+## 0.22 — DEV-006 newGame invalidation exact-target CI and APK independently verified (20/11/2026)
 
-- Base HEAD: `5b32448b0174fe6213f6ad69d89c90fa9505725c`; test-only commit: `96042077abeef8b89fe9e46fdce97a2b566d70da`.
-- Only changed path: `tests/controller-fast-forward.test.ts` (+32 lines). Fifth test proves `newGame()` replacing the state during fast-forward yield prevents the stale continuation from altering the new game.
-- Five deterministic controller cases cover live RAF coordination, overlap/player action blocking, load replacement, exception recovery and newGame replacement.
-- Exact-target tests-only [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664) and Android debug [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668) were queued at last check. Results PENDING; no prior SHA result is transferred.
-- DEV-006 independent Claude review target updated to `96042077abeef8b89fe9e46fdce97a2b566d70da`; Claude verdict and owner acceptance PENDING; Android device QA NOT_TESTED.
+- Exact code/test target: `96042077abeef8b89fe9e46fdce97a2b566d70da`; runtime controller source remains `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`. Only code/test change after the runtime implementation is `tests/controller-fast-forward.test.ts` (+32 lines).
+- Tests-only [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664): SUCCESS, 13/13 files, 131/131 tests, zero failures/pending/todo.
+- Android debug [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668): SUCCESS, exact checkout SHA verified in workflow; 44/44 suites, 131/131 tests, `report_valid=true`; Gradle `BUILD SUCCESSFUL in 1m 28s`.
+- APK artifact [14645545593](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668/artifacts/14645545593): 18,052,461 bytes; APK SHA-256 `efde0291f9420fcd7ffbea4db9b1dc66ee4ad82b208bf946e76eaacb5ab12fd6`; artifact ZIP 17,564,620 bytes; ZIP SHA-256 `8890cdd38d7559faaf156f4946b47f9adf98dad96992654ffb3ca122d9b160df`.
+- CI evidence artifact [14646635377](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668/artifacts/14646635377): 112,086 bytes; ZIP SHA-256 `702a8fcf6cb371fa89331604430746bb1f95158743a55bd13f300f5e7cef254c`. Both artifact ZIPs were downloaded and independently hash-checked against GitHub. APK size/hash and certificate values were read from the evidence bundle.
+- Debug certificate SHA-256 `919f750786571b8dcbf2d484e31bad9c35d50e9cfda09daaf053c9d7b6edbf38`; V1/V2 true; `apksigner_exit_code=0`. No release signing or physical-device QA is claimed.
+- Five focused controller tests now cover RAF coordination, overlap/action blocking, `load()` invalidation, `newGame()` invalidation and thrown-step recovery.
+- DEV-006 = `CI_PASS / READY_FOR_REVIEW`; Claude independent verdict and owner acceptance remain PENDING; Android device QA NOT_TESTED. No daily tick or gate transition.
 
 ## 0.20 — DEV-006 exception-path regression: exact CI and APK VERIFIED (20/11/2026)
 
@@ -104,7 +107,7 @@
 **Ngày cập nhật:** 20/11/2026  
 **Repository:** mtieu6470-maker/Victori3-mobile  
 **Branch:** claude/game-historical-sandbox-modes-kg7rj7  
-**DEV-005 code review target:** `c9868d7131d7de3fd8efd0263411fee9111f172c`. **DEV-006 exact code/test target:** `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`. **UI-REDESIGN-01 design target:** `150bf857aac7dbc4905a14a932ec6157507325ed`. **Latest verified branch HEAD before this review-packet documentation commit:** `150bf857aac7dbc4905a14a932ec6157507325ed`. DEV-006 tests-only and Android debug CI are SUCCESS on exact code target e5eb5e4; Android workflow for the documentation-only UI proposal target 150bf is still PENDING at this report cut.  
+**DEV-005 code review target:** `c9868d7131d7de3fd8efd0263411fee9111f172c`. **DEV-006 exact code/test target:** `96042077abeef8b89fe9e46fdce97a2b566d70da` (runtime source `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`). **UI-REDESIGN-01 design target:** `150bf857aac7dbc4905a14a932ec6157507325ed`. **Latest verified branch HEAD before this evidence update:** `e5f125e56ea05d21cddb5bb0677406a2eca3c6d3`. DEV-006 tests-only and Android debug CI are SUCCESS on exact target 9604207; artifact/checksum evidence is recorded in §0.22.  
 **Chế độ báo cáo:** rolling report — mọi lượt làm xong phải append một progress entry mới; không tạo báo cáo rời nếu không cần thiết.
 
 > Đây là báo cáo điều phối và tự kiểm toán của ChatGPT. Không phải Claude REVIEW_PASS, không phải owner ACCEPTED, không phải bằng chứng S1/S22 đã mở. Mọi research candidate chưa được owner chấp nhận vẫn là tài liệu nghiên cứu, không phải game data đã duyệt.
@@ -114,7 +117,7 @@
 | Hạng mục | Trạng thái | Bằng chứng / việc còn lại |
 |---|---|---|
 | DEV-005 — cohort projection + save compatibility | **CI_PASS / READY_FOR_REVIEW** | Code target `c9868d7`; 11/11 test files, 122/122 tests PASS; Android debug build SUCCESS |
-| DEV-006 — bounded monthly clock + fast-forward isolation | **CI_PASS / READY_FOR_REVIEW** | Exact code target `e5eb5e4`; 44/44 suites, 129/129 tests PASS; Android debug build SUCCESS; Claude review packet targets exact SHA |
+| DEV-006 — bounded monthly clock + fast-forward isolation | **CI_PASS / READY_FOR_REVIEW** | Exact code/test target `9604207`; 44/44 suites, 131/131 tests PASS; Android debug build SUCCESS; APK hash and artifact recorded in §0.22 |
 | UI-REDESIGN-01 — premium grand-strategy UI | **DESIGN_ONLY / REVIEW_PENDING** | Proposal `150bf857`; source-based; no runtime/UI/assets implementation authorized |
 | Claude independent review | **PENDING** | Review riêng DEV-005, DEV-006 và UI-REDESIGN-01 theo từng exact target; không gộp các verdict khác phạm vi |
 | Owner acceptance | **PENDING** | Chỉ chủ dự án chấp nhận sau verdict độc lập |
