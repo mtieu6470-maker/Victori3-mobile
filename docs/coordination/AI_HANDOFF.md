@@ -794,3 +794,10 @@ This section records the 2026-11-19 checkpoint and is superseded by the 2026-11-
 - Structural recheck found the CI-F4 P1 row was separated from the six-column P1 table by a blank line and rendered as a detached headerless table. Removed the separator and confirmed CI-F4 now belongs to the P1 table.
 - Post-correction counts: P0 1×6; P1 13×6 (12 P1 risk rows + separate G0.7 gate row); P2 22×6; P3 5×3; Closed 1×3. No blank cells. Traceability: 48 unique mappings.
 - CI-F4 remains CLOSED narrowly; all risk/gate/phase states are unchanged. Documentation-only; no runtime test/build/device QA. Independent Claude review and owner acceptance remain pending.
+
+
+### 2026-11-20 — B7-R13-GD-F2-ROADMAP-ALIGNMENT
+
+- Tightened R13 against v3.2 §4.1.2–4.1.5. The future signing workflow/security controls are explicitly proposed and NOT IMPLEMENTED: workflow_dispatch only, exact ref gate, build/sign isolation, protected Environment and reviewer/no-bypass rules, least privilege, full-SHA Actions, no Repository Secrets, no untrusted repository code in the signing job, and temporary key cleanup. B2/C3 stays BLOCKED pending R14 and owner-controlled configuration.
+- Tightened GD-F2 target stages by data domain: S3 geographic validity, S6 population, S7/S13 economic facts, S16 historical rulers/characters. Exit criteria require temporal/geographic scope, sources, units, methods, denominators, uncertainty and missing/conflict counts across 12 regions and polity types.
+- No code, data, workflow, key, Environment, signing change, severity or gate change. Documentation-only self-audit; reviewer and owner decisions remain pending.
