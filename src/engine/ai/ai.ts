@@ -10,7 +10,7 @@ import { historicalBias } from '../historical';
 import { build, buildingReturn, canBuild, hasTech, privateInvestment, SHIP_COST } from '../systems/economy';
 import { reformSupport, startReform, sharesBorder } from '../systems/politics';
 import { techCost } from '../systems/technology';
-import { allied, allianceAcceptance, allianceCapacityAvailable, allianceTreatyCount, canFormAlliance, declareRivalry, declareWar, formAlliance, greatPowers, guarantee, improveRelations, joinCustomsUnion, powerScore, rivals } from '../systems/diplomacy';
+import { allied, allianceAcceptance, allianceCapacityAvailable, alliancePartnerCount, canFormAlliance, declareRivalry, declareWar, formAlliance, greatPowers, guarantee, improveRelations, joinCustomsUnion, powerScore, rivals } from '../systems/diplomacy';
 import { armyStrength, atWar, enemiesOf, navalStrength } from '../systems/military';
 import { coreNationOf } from '../systems/population';
 import { regionsOf, bordersOf } from '../cache';
@@ -75,15 +75,15 @@ function budgetAI(st: GameState, c: Country) {
 // ---------------------------------------------------------------- research choice (also used for the player's auto-research)
 export function chooseResearch(st: GameState, c: Country, options: string[]): string | null {
   const d = data(); let best: string | null = null; let bv = -Infinity;
-  const allianceTreaties = allianceTreatyCount(st, c.id);
+  const alliancePartners = alliancePartnerCount(st, c.id);
   const potentialPartnerExists = Object.values(st.countries).some(
     (other) => other.alive && !other.decentralized && other.id !== c.id
       && !allied(st, c.id, other.id) && !rivals(st, c.id, other.id),
   );
-  const researchingFirstAlliance = allianceTreaties === 0
+  const researchingFirstAlliance = alliancePartners === 0
     && !hasTech(c, 'international_relations')
     && potentialPartnerExists;
-  const researchingAdditionalAlliances = allianceTreaties > 0
+  const researchingAdditionalAlliances = alliancePartners > 0
     && !hasTech(c, 'multilateral_alliances');
   const firstAlliancePath = new Set([
     'urbanization', 'urban_planning', 'bureaucracy', 'international_relations',
