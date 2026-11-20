@@ -22,11 +22,30 @@ for (const asset of ASSETS) {
   } catch { /* fetch the pinned asset below */ }
 
   console.log('Downloading pinned public-domain asset: ' + asset.url);
-  const response = await fetch(asset.url, {
-    headers: { Accept: 'image/gif', 'User-Agent': 'Victori3MobileAssetBuilder/1.0' },
-    signal: AbortSignal.timeout(45_000),
-  });
-  if (!response.ok) throw new Error('Asset download failed (' + response.status + '): ' + asset.url);
+  let response: Response | undefined;
+  for (let attempt = 0; attempt < 4; attempt++) {
+    response = await fetch(asset.url, {
+      headers: {
+        Accept: 'image/gif',
+        'User-Agent': 'Victori3MobileAssetBuilder/1.0 (https://github.com/mtieu6470-maker/Victori3-mobile)',
+      },
+      signal: AbortSignal.timeout(45_000),
+    });
+    if (response.ok) break;
+    if (response.status !== 429 && response.status !== 503) {
+      throw new Error('Asset download failed (' + response.status + '): ' + asset.url);
+    }
+    if (attempt === 3) break;
+    const retryAfter = Number(response.headers.get('retry-after'));
+    const delayMs = Number.isFinite(retryAfter) && retryAfter > 0
+      ? Math.min(retryAfter * 1000, 60_000)
+      : 5_000 * (attempt + 1);
+    console.warn('Wikimedia rate limit (' + response.status + '); waiting ' + delayMs + 'ms before retry ' + (attempt + 2) + '/4');
+    await new Promise((resolveWait) => setTimeout(resolveWait, delayMs));
+  }
+  if (!response?.ok) {
+    throw new Error('Asset download failed after rate-limit retries (' + response?.status + '): ' + asset.url);
+  }
   const bytes = new Uint8Array(await response.arrayBuffer());
   const sha1 = digest(bytes);
   if (bytes.byteLength !== asset.bytes || sha1 !== asset.sha1) {
