@@ -84,6 +84,14 @@ The second implementation slice corrects the earlier planned-versus-realized rec
 - Markets are then settled again. The posted monthly ledger and legacy annualized `marketStats` use the realized recipe-factory flows.
 - GDP value-added and firm operating-margin calculations use the same per-building realized factor and input/output amounts, avoiding a second, inconsistent fulfillment calculation.
 - Services remain non-material flows; artisanal and agricultural production are still aggregate flows rather than stock-owning firms.
-- The preliminary probe is a single deterministic pass, not a solved multi-market fixed point. A bounded convergence/staged-clearing design remains the next accounting-engine task.
+- The preliminary probe is a single deterministic pass, not a solved multi-market fixed point. It now computes only shortage ratios and avoids allocating disposable journal/statistics objects. A bounded convergence/staged-clearing design remains the next accounting-engine task.
 
 Two additional unit tests verify same-factor scaling and the no-shortage case. The integration test now checks annualized market statistics against monthly inventory journal projections using scale-aware floating-point tolerances.
+
+
+## 9. Performance refinement — provisional market probe
+
+- The factory-availability pass no longer calls the full inventory settlement function or allocates temporary per-market journal and statistics objects.
+- It computes only the opening-stock-aware shortage ratio needed by recipe factories.
+- The definitive settlement pass remains the only code path that creates monthly inventory journal rows, updates `marketStats` and posts market prices.
+- This reduces redundant per-good object creation and settlement work on the Android runtime. It is a source-level optimization only; no device profile, allocation benchmark or frame-time measurement has been run.
