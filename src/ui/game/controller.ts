@@ -93,7 +93,7 @@ export class GameController {
 
   command(cmd: Command): { ok: boolean; reason?: string } {
     if (!this.st) return { ok: false, reason: 'Không có ván chơi' };
-    if (isGameOver(this.st)) return { ok: false, reason: \`Chiến dịch đã kết thúc ở \${GAME_END_YEAR}.\` };
+    if (isGameOver(this.st)) return { ok: false, reason: `Chiến dịch đã kết thúc ở ${GAME_END_YEAR}.` };
     const result = execute(this.st, cmd);
     this.emit();
     return result;
@@ -116,8 +116,8 @@ export class GameController {
       this.paused = true;
       this.stop();
       this.toast(this.st.date.y > GAME_END_YEAR
-        ? \`Bản lưu này đã vượt khung chiến dịch \${GAME_END_YEAR}; hãy bắt đầu ván mới để chơi theo niên đại chuẩn.\`
-        : \`Chiến dịch 1836–\${GAME_END_YEAR} đã kết thúc.\`, 'info');
+        ? `Bản lưu này đã vượt khung chiến dịch ${GAME_END_YEAR}; hãy bắt đầu ván mới để chơi theo niên đại chuẩn.`
+        : `Chiến dịch 1836–${GAME_END_YEAR} đã kết thúc.`, 'info');
       return;
     }
 
@@ -167,8 +167,8 @@ export class GameController {
       this.stop();
       this.emit();
       this.toast(state.date.y > GAME_END_YEAR
-        ? \`Bản lưu đã vượt khung chiến dịch \${GAME_END_YEAR}; hãy tạo ván mới.\`
-        : \`Chiến dịch 1836–\${GAME_END_YEAR} đã kết thúc.\`, 'info');
+        ? `Bản lưu đã vượt khung chiến dịch ${GAME_END_YEAR}; hãy tạo ván mới.`
+        : `Chiến dịch 1836–${GAME_END_YEAR} đã kết thúc.`, 'info');
       return;
     }
 
