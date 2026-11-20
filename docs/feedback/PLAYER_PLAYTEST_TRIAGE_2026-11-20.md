@@ -175,3 +175,16 @@ Do not copy Victoria 3 executable/source code, extracted game databases, icons, 
 - Updated `src/engine/simulation.ts`, the campaign status panel in `src/ui/screens/World.tsx`, and the package description. The UI now labels the playable range as 1836–2026 and the exclusive stop boundary as 01/01/2027.
 - Added regression coverage for the full December 2026 boundary and legacy saves already beyond the new terminal tick. Existing monthly `tick` semantics remain unchanged.
 - Important qualification: this removes the artificial 1936 stop; it does not add missing post-1949 technologies, post-1936 historical events, modern institutions, or modern military equipment. Those require separate sourced content and system implementations. Physical-device performance through 2026 must also be measured.
+
+## 12. Exact-source campaign-boundary validation — CI #468
+
+- Source commit: `c1178d1dad35d77f43264894b61142076a9c3be6`; branch: `experiment/vic3-visual-upgrade`.
+- GitHub Actions #468, run ID `44743240745`, SUCCESS: https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44743240745.
+- `npm ci`, historical data/map/web build, generated hashes, Vitest, Capacitor sync, Gradle `assembleDebug`, APK checksum/provenance and debug signature verification all passed.
+- Vitest evidence: **53/53 suites; 156/156 tests; 0 failures, 0 pending**.
+- APK artifact ID `14632745269`; archive size 18,759,096 bytes; artifact ZIP SHA-256 `2665a6e658176bf5727d70b8ba7dc20e9b7ba91c637431fcebff417d9bc8bf07`; expires 2027-02-18.
+- APK payload: 19,264,237 bytes; SHA-256 `dcc7164f40427a2ec3a95167cd7d8d3c88c96d89a4fbabeaa5c11134b8c6ee14`.
+- CI evidence artifact ID `14630899800`; ZIP SHA-256 `40e96f5864d1aa3489a6a5770b70b618a10be08fd44bf31b2e9a4fea9033b597`.
+- Downloaded APK hash was recomputed locally and matches CI `apk_sha256.txt`; downloaded ZIP hash matches `artifact_zip.txt`; provenance confirms exact source commit and run.
+- Debug signer certificate DN `C=US, O=Android, CN=Android Debug`; certificate SHA-256 `50518e3bc50fad166628725df401c606f38ba5ef84ee3ecd89d868131557581c`. This is a debug APK, not a release build.
+- Device QA remains NOT_TESTED; no claim of owner acceptance or full parity.

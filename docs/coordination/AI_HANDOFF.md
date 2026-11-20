@@ -1179,3 +1179,18 @@ This is a later, explicit owner authorization to begin product implementation on
 - Updated the world/system panel and app metadata to display a playable range of 1836–2026. Added tests for Dec 31, 2026 -> Jan 1, 2027, frozen terminal state, and legacy saves beyond the new boundary.
 - This is a campaign-length correction, not a claim of full 20th/21st-century simulation content. Technology data currently has 48 nodes and zero post-1949 nodes; additional 1936–2026 events/modern content and device performance testing remain open.
 - Requires an exact-SHA build/test/APK run after commit. Re-fetch branch HEAD before the next write.
+
+## 2026-11-20 — CAMPAIGN 1836–2026 CI #468 VERIFIED
+
+- **Tested source:** `c1178d1dad35d77f43264894b61142076a9c3be6`, branch `experiment/vic3-visual-upgrade`.
+- **GitHub Actions:** run #468, ID `44743240745`, SUCCESS: https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44743240745.
+- **Validation:** `npm ci`, data/map/web build, generated hashes, Vitest, Capacitor Android sync, Gradle `assembleDebug`, APK checksum/provenance/signature all PASS. Vitest: **53/53 suites, 156/156 tests; 0 failed, 0 pending**.
+- **APK artifact:** ID `14632745269`, archive size 18,759,096 bytes, SHA-256 `2665a6e658176bf5727d70b8ba7dc20e9b7ba91c637431fcebff417d9bc8bf07`; expires 2027-02-18.
+- **APK payload:** 19,264,237 bytes; SHA-256 `dcc7164f40427a2ec3a95167cd7d8d3c88c96d89a4fbabeaa5c11134b8c6ee14`.
+- **Evidence artifact:** ID `14630899800`, 114,290 bytes; SHA-256 `40e96f5864d1aa3489a6a5770b70b618a10be08fd44bf31b2e9a4fea9033b597`.
+- **Integrity:** downloaded APK recomputed SHA-256 equals CI file; ZIP digest equals CI artifact evidence; provenance exact commit/run confirmed.
+- **Signing:** debug-only, DN `C=US, O=Android, CN=Android Debug`; certificate SHA-256 `50518e3bc50fad166628725df401c606f38ba5ef84ee3ecd89d868131557581c`. No release signing key or secret was changed.
+- **Important scope:** campaign runs through 2026 but post-1949 tech/historical content is not populated. This does not represent 2026 system parity.
+- **Current playtest audit and architecture plan:** `docs/design/VICTORIA3_PARITY_REBUILD_PLAN_2026-11-20.md`. Read it before implementing clock/tech/construction/military/diplomacy/UI slices.
+- **Next authorized implementation:** CLK-B six-hour regular tick + explicit cadence scheduler, with migration/determinism/performance tests. Do not simply invoke the monthly pipeline four times per day.
+- Device QA NOT_TESTED; independent review PENDING; owner acceptance PENDING; feature parity NOT_COMPLETE.
