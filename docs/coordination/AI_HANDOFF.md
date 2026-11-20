@@ -1042,3 +1042,16 @@ This is a later, explicit owner authorization to begin product implementation on
 - **APK/device:** Gradle/APK steps have not started on the latest run at this checkpoint. No APK artifact, APK SHA-256, Android installation or device-performance evidence is claimed.
 - **Self-review/owner status:** ChatGPT self-review only; independent review `PENDING`, owner acceptance `PENDING`. Do not label this task `REVIEW_PASS` or `ACCEPTED`.
 - **Next action:** inspect the completion and evidence artifact of run #421 on the exact code/test SHA. If tests fail, fix the exact finding; if tests pass, verify Gradle APK and the uploaded provenance/checksum artifact. Then audit market membership lifecycle (including stale `customsUnion` references) before implementing additional route/capacity mechanics.
+
+
+## 2026-11-20 — TEST FIXTURE CORRECTION / EXPLICIT FULL HIRING BASELINE
+
+- **Test-only implementation commit:** `12ab70f4d6b61617710f8de1779e1691fec8235f` — make the occupational-transition test establish a complete 100%-utilization baseline for every productive building before reducing selected hiring targets.
+- **Reason:** workflow run #420 (`44716335003`, source SHA `584ed577ded5de157a618ccd73103f86d642c3b6`) ran the full Vitest suite and reported 114/115 passing. The sole assertion failure was `tests/simulation.test.ts` at the occupational-transition test: reduced factory capacity `96500` was greater than the earlier comparison capacity `95467.7723`. Fresh-game economy calibration had already populated some hiring targets; the test then overwrote only selected targets, while omitted building types defaulted to 100%, so the two sides did not share a controlled baseline.
+- **Correction:** before measuring `fullCapacity`, the test now explicitly sets targets for textile mill, ironworks, tool works, arms works, luxury workshop, mine, logging and plantation to 1. It then applies the intended reduced targets. Runtime population/economy code is unchanged by this test-only correction.
+- **Current exact verification:** run #421 (`44716363882`, code/test SHA `bdb815e29c3fb7468e75a1e19873558eff2d692c`) remains in progress at this checkpoint; run #422 (`44717245006`, test-fix SHA `12ab70f4d6b61617710f8de1779e1691fec8235f`) has started and is the authoritative full test/build run for the latest source.
+- **Build evidence available so far:** on runs #420/#421, `npm ci`, `npm run build` (TypeScript `tsc --noEmit` and Vite build), and generated data/web-bundle hashing succeeded. Run #420 stopped at Vitest; Java/Gradle/APK steps were skipped.
+- **Latest test scope:** full CI Vitest run covers 6 test files, 115 tests, 44 nested suites, excluding the separately pinned S0 baseline-only `tests/s0-save-determinism.test.ts`. Inventory file alone now has 19 tests.
+- **APK/device:** no APK is verified from run #420. Run #422 must pass tests before Android Gradle steps can proceed. No physical-device QA or performance measurement has been performed.
+- **Self-review/owner status:** implementer self-review only; independent review `PENDING`, owner acceptance `PENDING`. The task is not `REVIEW_PASS` or `ACCEPTED`.
+- **Next action:** inspect run #422's Vitest result, then verify Gradle APK and the CI evidence artifact/checksum on its exact SHA. Fix only concrete failures; do not weaken assertions to force a green run.
