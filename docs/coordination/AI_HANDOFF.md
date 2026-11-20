@@ -854,3 +854,12 @@ This section records the 2026-11-19 checkpoint and is superseded by the 2026-11-
 - Rechecked the contemporary-source links used by `docs/design/TECHNOLOGY_AND_INSTITUTIONS_1836_2026_DRAFT.md` against the current official IEA, ITU, Stanford HAI and SIPRI pages. Added a 2024/2025 observation-year calibration snapshot; these annual observations are not mislabeled as full-year 2026 data.
 - Current calibration anchors (with source/method cautions in the design document): IEA clean-energy market value near USD 1.2T in 2025 and concentrated supply-chain production; ITU estimates 2.2B people offline and 5G reaches over half the global population in 2025; Stanford HAI reports 88% surveyed organizational AI use, industry production of over 90% of notable frontier AI models in 2025 and China's 54% share of 2024 industrial robot installations; SIPRI estimates 2025 global military spending at USD 2.887T, up 2.9% in real terms.
 - Self-audit only. It does not close any risk, constitute independent REVIEW_PASS or owner acceptance, and does not authorize S1. No product/gameplay/engine/runtime/clock/save/data/assets/workflow/signing changes, builds, APK installation or Android QA were performed.
+
+
+## 2026-11-20 — 1836–2026 CLOCK CONTRACT AND SPEED-5 PACING GUARD (DESIGN ONLY)
+
+- Added §12 to `docs/spec/SIMULATION_CLOCK_PACING_DESIGN_VI.md` and corrected its inclusive campaign duration.
+- Calendar proposal: start 1836-01-01; last playable date 2026-12-31; process the final day's scheduled tasks, then mark the campaign complete at 2027-01-01 00:00. The inclusive campaign contains 191 calendar years.
+- Pacing proposal: Speed 5 target ceiling no faster than one in-game calendar year per 60 real seconds (about 6.1 game days per real second) on a reference benchmark setup. This is a **provisional design guard**, not measured Victoria 3 behavior and not a statement that the target Android device can sustain the rate. Slowdown/backlog is acceptable; dropped logical ticks or FPS-driven acceleration are not.
+- Added acceptance targets for Gregorian leap years, terminal campaign boundary, Speed 5 cap, refresh-rate independence, bounded backlog and save/load across cadence boundaries.
+- No simulation/runtime/save code, tests, data, assets, build files, APK or workflow was changed. No benchmark or device test was run. The design remains subject to phase authorization, measurement and review.
