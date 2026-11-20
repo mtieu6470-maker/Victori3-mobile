@@ -233,6 +233,221 @@ export function realizeFactoryFlow(
   };
 }
 
+export const MAX_FACTORY_MARKET_ITERATIONS = 32;
+export const FACTORY_MARKET_CONVERGENCE_TOLERANCE = 1e-5;
+const FACTORY_MARKET_RELAXATION = 0.5;
+
+export interface FactoryMarketOperation {
+  marketId: string;
+  outputs: Partial<Record<Good, number>>;
+  inputs: Partial<Record<Good, number>>;
+}
+
+export interface FactoryMarketProjection {
+  supply: Record<Good, number>;
+  demand: Record<Good, number>;
+  openness: number;
+}
+
+export interface FactoryMarketSolution {
+  fulfillment: number[];
+  iterations: number;
+  converged: boolean;
+  residual: number;
+  supply: Record<string, Record<Good, number>>;
+  demand: Record<string, Record<Good, number>>;
+  shortages: Record<string, Record<Good, number>>;
+}
+
+interface FactoryMarketSnapshot {
+  supply: Record<string, Record<Good, number>>;
+  demand: Record<string, Record<Good, number>>;
+}
+
+function scalePositiveFlows(
+  amounts: Partial<Record<Good, number>>,
+  factor: number,
+): Partial<Record<Good, number>> {
+  const result: Partial<Record<Good, number>> = {};
+  for (const good of GOODS) {
+    const amount = amounts[good] ?? 0;
+    if (Number.isFinite(amount) && amount > 0) result[good] = amount * factor;
+  }
+  return result;
+}
+
+/**
+ * Solve the coupled factory-input/market-shortage loop with bounded deterministic
+ * damped fixed-point iteration. Returns the final market projection and one factor
+ * per factory operation in the same order as the supplied operations.
+ *
+ * The caller retains ownership of GDP, prices, imports/exports and journal posting.
+ * This helper does not mutate its inputs and cannot advance simulation time.
+ */
+export function solveFactoryMarketFulfillment(
+  markets: Record<string, FactoryMarketProjection>,
+  openingStocks: Record<string, Partial<Record<Good, number>>>,
+  factories: FactoryMarketOperation[],
+  maxIterations = MAX_FACTORY_MARKET_ITERATIONS,
+  tolerance = FACTORY_MARKET_CONVERGENCE_TOLERANCE,
+): FactoryMarketSolution {
+  if (!Number.isSafeInteger(maxIterations) || maxIterations < 1 || maxIterations > 256) {
+    throw new RangeError('Factory market iteration limit must be an integer in [1, 256]');
+  }
+  if (!Number.isFinite(tolerance) || tolerance <= 0 || tolerance >= 1) {
+    throw new RangeError('Factory market tolerance must be finite and between 0 and 1');
+  }
+
+  const marketIds = Object.keys(markets).sort();
+  const baseSupply: Record<string, Record<Good, number>> = {};
+  const baseDemand: Record<string, Record<Good, number>> = {};
+  for (const marketId of marketIds) {
+    const market = markets[marketId];
+    if (!Number.isFinite(market.openness) || market.openness < 0 || market.openness > 1) {
+      throw new RangeError(`Invalid market openness for ${marketId}`);
+    }
+    baseSupply[marketId] = { ...market.supply };
+    baseDemand[marketId] = { ...market.demand };
+    for (const good of GOODS) {
+      if (!Number.isFinite(market.supply[good]) || market.supply[good] < 0) {
+        throw new RangeError(`Invalid market supply for ${marketId}/${good}`);
+      }
+      if (!Number.isFinite(market.demand[good]) || market.demand[good] < 0) {
+        throw new RangeError(`Invalid market demand for ${marketId}/${good}`);
+      }
+    }
+  }
+
+  // Remove the full planned recipe flows once. Each iteration adds back only the
+  // fraction of outputs and inputs supported by that iteration's market shortages.
+  for (const factory of factories) {
+    if (!markets[factory.marketId]) throw new Error(`Unknown factory market ${factory.marketId}`);
+    for (const [good, amount] of Object.entries(factory.outputs) as [Good, number][]) {
+      if (!Number.isFinite(amount) || amount < 0) throw new RangeError('Invalid planned factory output');
+      baseSupply[factory.marketId][good] -= amount;
+    }
+    for (const [good, amount] of Object.entries(factory.inputs) as [Good, number][]) {
+      if (!Number.isFinite(amount) || amount < 0) throw new RangeError('Invalid planned factory input');
+      baseDemand[factory.marketId][good] -= amount;
+    }
+  }
+  for (const marketId of marketIds) {
+    for (const good of GOODS) {
+      const scale = Math.max(1, markets[marketId].supply[good], markets[marketId].demand[good]);
+      if (baseSupply[marketId][good] < -1e-8 * scale || baseDemand[marketId][good] < -1e-8 * scale) {
+        throw new Error(`Factory recipe flows exceed aggregate market flow for ${marketId}/${good}`);
+      }
+      baseSupply[marketId][good] = Math.max(0, baseSupply[marketId][good]);
+      baseDemand[marketId][good] = Math.max(0, baseDemand[marketId][good]);
+    }
+  }
+
+  const aggregate = (factors: number[]): FactoryMarketSnapshot => {
+    const supply: Record<string, Record<Good, number>> = {};
+    const demand: Record<string, Record<Good, number>> = {};
+    for (const marketId of marketIds) {
+      supply[marketId] = { ...baseSupply[marketId] };
+      demand[marketId] = { ...baseDemand[marketId] };
+    }
+    for (let index = 0; index < factories.length; index++) {
+      const factory = factories[index];
+      const factor = factors[index];
+      for (const good of GOODS) {
+        supply[factory.marketId][good] += (factory.outputs[good] ?? 0) * factor;
+        demand[factory.marketId][good] += (factory.inputs[good] ?? 0) * factor;
+      }
+    }
+    return { supply, demand };
+  };
+
+  const calculateShortages = (snapshot: FactoryMarketSnapshot): Record<string, Record<Good, number>> => {
+    const world = Object.fromEntries(
+      GOODS.map((good) => [good, { surplus: 0, deficit: 0 }]),
+    ) as Record<Good, { surplus: number; deficit: number }>;
+
+    for (const marketId of marketIds) {
+      const market = markets[marketId];
+      for (const good of GOODS) {
+        const supply = snapshot.supply[marketId][good];
+        const demand = snapshot.demand[marketId][good];
+        const stock = openingStocks[marketId]?.[good] ?? 0;
+        if (!Number.isFinite(stock) || stock < 0) throw new RangeError(`Invalid opening stock for ${marketId}/${good}`);
+        const surplus = Math.max(0, supply - demand);
+        const deficit = Math.max(0, demand - supply - stock * 12);
+        world[good].surplus += surplus * market.openness;
+        world[good].deficit += deficit * market.openness;
+      }
+    }
+
+    const shortages: Record<string, Record<Good, number>> = {};
+    for (const marketId of marketIds) {
+      const market = markets[marketId];
+      const shortage = zero();
+      for (const good of GOODS) {
+        const global = world[good];
+        const supply = snapshot.supply[marketId][good];
+        const demand = snapshot.demand[marketId][good];
+        const stock = openingStocks[marketId]?.[good] ?? 0;
+        const localDeficit = Math.max(0, demand - supply - stock * 12);
+        const importRatio = global.deficit > 0
+          ? clamp(global.surplus / global.deficit, 0, 1)
+          : 1;
+        const imports = localDeficit * market.openness * importRatio;
+        const tradeVolume = Math.min(global.surplus, global.deficit);
+        const exportCapacity = Math.max(0, supply - demand) * market.openness;
+        const exports = global.surplus > 0
+          ? tradeVolume * exportCapacity / global.surplus
+          : 0;
+        const available = Math.max(0, stock + supply / 12 + imports / 12 - exports / 12);
+        const monthlyDemand = demand / 12;
+        shortage[good] = monthlyDemand > 0
+          ? clamp(1 - available / monthlyDemand, 0, 1)
+          : 0;
+      }
+      shortages[marketId] = shortage;
+    }
+    return shortages;
+  };
+
+  let fulfillment = new Array(factories.length).fill(1) as number[];
+  let iterations = 0;
+  let residual = 0;
+  let converged = factories.length === 0;
+
+  for (let iteration = 0; iteration < maxIterations && !converged; iteration++) {
+    const snapshot = aggregate(fulfillment);
+    const shortages = calculateShortages(snapshot);
+    residual = 0;
+    const next = new Array(fulfillment.length);
+    for (let index = 0; index < factories.length; index++) {
+      const factory = factories[index];
+      const target = factoryInputFulfillment(factory.inputs, shortages[factory.marketId]);
+      const updated = clamp(
+        fulfillment[index] + (target - fulfillment[index]) * FACTORY_MARKET_RELAXATION,
+        0,
+        1,
+      );
+      next[index] = updated;
+      residual = Math.max(residual, Math.abs(updated - fulfillment[index]));
+    }
+    fulfillment = next;
+    iterations = iteration + 1;
+    converged = residual <= tolerance;
+  }
+
+  const finalSnapshot = aggregate(fulfillment);
+  const finalShortages = calculateShortages(finalSnapshot);
+  return {
+    fulfillment,
+    iterations,
+    converged,
+    residual,
+    supply: finalSnapshot.supply,
+    demand: finalSnapshot.demand,
+    shortages: finalShortages,
+  };
+}
+
 const POP_WAGE_MULTIPLIER = [0.72, 0.2, 0.86, 0.94, 1.08, 1.32, 1.02, 0, 0];
 const POP_OWNER_MULTIPLIER = [0, 0, 0, 0, 0, 0, 0, 1.15, 1.8];
 const POP_NEEDS_MULTIPLIER = [0.86, 1.3, 0.96, 1.02, 1, 1.22, 1.08, 1.42, 1.62];
