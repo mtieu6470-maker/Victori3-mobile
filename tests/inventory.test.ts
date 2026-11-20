@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { fresh, stepMonth } from './helpers';
 import { serialize, deserialize } from '../src/engine/save';
-import { realizeFactoryFlow, solveFactoryMarketFulfillment } from '../src/engine/systems/economy';
+import { RECIPES, realizeFactoryFlow, solveFactoryMarketFulfillment } from '../src/engine/systems/economy';
 import { GOODS, type Good } from '../src/engine/types';
 import {
   appendInventoryLedgerMonth,
@@ -16,18 +16,32 @@ function goodQuantities(overrides: Partial<Record<Good, number>> = {}): Record<G
 }
 
 describe('bounded factory/market equilibrium', () => {
+  // Build the constrained operation from the same canonical recipe used by the engine.
+  const ironworks = RECIPES.ironworks!;
+  const plannedSteelOutput = 25;
+  const plannedIronworksInputs = {
+    iron: plannedSteelOutput * ironworks.inputs.iron!,
+    coal: plannedSteelOutput * ironworks.inputs.coal!,
+  };
   const market = {
     MKT: {
-      supply: goodQuantities({ coal: 60, steel: 5 }),
-      demand: goodQuantities({ coal: 120 }),
+      supply: goodQuantities({
+        coal: 60,
+        iron: plannedIronworksInputs.iron,
+        steel: plannedSteelOutput,
+      }),
+      demand: goodQuantities({
+        coal: 120,
+        iron: plannedIronworksInputs.iron,
+      }),
       openness: 0,
     },
   };
   const stocks = { MKT: goodQuantities() };
   const factories = [{
     marketId: 'MKT',
-    outputs: { steel: 5 },
-    inputs: { coal: 10 },
+    outputs: { [ironworks.out]: plannedSteelOutput },
+    inputs: plannedIronworksInputs,
   }];
 
   it('converges deterministically when factory demand feeds back into a scarce input market', () => {
@@ -41,51 +55,46 @@ describe('bounded factory/market equilibrium', () => {
     expect(first.residual).toBeLessThanOrEqual(1e-5);
     expect(first.fulfillment[0]).toBeGreaterThan(0.5);
     expect(first.fulfillment[0]).toBeLessThan(0.53);
-    expect(first.supply.MKT.steel).toBeCloseTo(5 * first.fulfillment[0], 8);
+    expect(first.supply.MKT.steel).toBeCloseTo(plannedSteelOutput * first.fulfillment[0], 8);
     expect(first.demand.MKT.coal).toBeCloseTo(110 + 10 * first.fulfillment[0], 8);
     expect(first).toEqual(second);
   });
 
-  it('converges through a two-market cyclic input/output dependency', () => {
+  it('settles reciprocal grain and tools trade between complementary markets without inventing factory recipes', () => {
     const markets = {
       A: {
+        // A has grain to sell but needs tools from its trading partner.
         supply: goodQuantities({ grain: 100 }),
         demand: goodQuantities({ tools: 130 }),
         openness: 1,
       },
       B: {
+        // B has tools to sell but needs grain from A.
         supply: goodQuantities({ tools: 100 }),
         demand: goodQuantities({ grain: 130 }),
         openness: 1,
       },
     };
-    const factories = [
-      {
-        marketId: 'A',
-        outputs: { grain: 100 },
-        inputs: { tools: 100 },
-      },
-      {
-        marketId: 'B',
-        outputs: { tools: 100 },
-        inputs: { grain: 100 },
-      },
-    ];
 
     const result = solveFactoryMarketFulfillment(
       markets,
       { A: goodQuantities(), B: goodQuantities() },
-      factories,
+      [],
     );
 
     expect(result.converged).toBe(true);
     expect(result.appliedFallback).toBe('none');
-    expect(result.fulfillment[0]).toBeGreaterThan(0.69);
-    expect(result.fulfillment[0]).toBeLessThan(0.71);
-    expect(result.fulfillment[1]).toBeGreaterThan(0.69);
-    expect(result.fulfillment[1]).toBeLessThan(0.71);
-    expect(result.shortages.A.tools).toBeCloseTo(0.3, 2);
-    expect(result.shortages.B.grain).toBeCloseTo(0.3, 2);
+    expect(result.iterations).toBe(0);
+    expect(result.fulfillment).toEqual([]);
+    expect(result.supply.A.grain).toBe(100);
+    expect(result.demand.B.grain).toBe(130);
+    expect(result.supply.B.tools).toBe(100);
+    expect(result.demand.A.tools).toBe(130);
+    // Trade transfers each market's entire 100-unit surplus; the remaining 30 is unmet demand.
+    expect(result.shortages.A.tools).toBeCloseTo(30 / 130, 8);
+    expect(result.shortages.B.grain).toBeCloseTo(30 / 130, 8);
+    expect(result.shortages.A.grain).toBe(0);
+    expect(result.shortages.B.tools).toBe(0);
   });
 
   it('allows a market stockpile to cover a different market deficit without creating goods', () => {
@@ -133,35 +142,47 @@ describe('bounded factory/market equilibrium', () => {
 });
 
 describe('factory material realization', () => {
-  it('scales physical inputs and output by the same scarcest-input constraint', () => {
+  it('scales the canonical ironworks recipe by the same scarcest-input constraint', () => {
+    const recipe = RECIPES.ironworks!;
+    const plannedOutput = 100;
+    const plannedInputs = {
+      iron: plannedOutput * recipe.inputs.iron!,
+      coal: plannedOutput * recipe.inputs.coal!,
+    };
     const realized = realizeFactoryFlow({
-      outputs: { steel: 100 },
-      inputs: { iron: 50, coal: 30 },
+      outputs: { [recipe.out]: plannedOutput },
+      inputs: plannedInputs,
     }, {
       iron: 0.25,
       coal: 0.5,
     });
 
     expect(realized.fulfillment).toBeCloseTo(0.5, 10);
-    expect(realized.outputs.steel).toBeCloseTo(50, 10);
+    expect(realized.outputs[recipe.out]).toBeCloseTo(50, 10);
     expect(realized.inputs.iron).toBeCloseTo(25, 10);
-    expect(realized.inputs.coal).toBeCloseTo(15, 10);
-    expect(realized.outputs.steel! / 100).toBeCloseTo(realized.fulfillment, 10);
-    expect(realized.inputs.iron! / 50).toBeCloseTo(realized.fulfillment, 10);
+    expect(realized.inputs.coal).toBeCloseTo(20, 10);
+    expect(realized.outputs[recipe.out]! / plannedOutput).toBeCloseTo(realized.fulfillment, 10);
+    expect(realized.inputs.iron! / plannedInputs.iron).toBeCloseTo(realized.fulfillment, 10);
   });
 
-  it('keeps full planned flow when every recipe input is available', () => {
+  it('keeps the canonical tool-works recipe unchanged when every input is available', () => {
+    const recipe = RECIPES.tool_works!;
+    const plannedOutput = 75;
+    const plannedInputs = {
+      steel: plannedOutput * recipe.inputs.steel!,
+      timber: plannedOutput * recipe.inputs.timber!,
+    };
     const realized = realizeFactoryFlow({
-      outputs: { tools: 75 },
-      inputs: { steel: 25, timber: 10 },
+      outputs: { [recipe.out]: plannedOutput },
+      inputs: plannedInputs,
     }, {
       steel: 0,
       timber: 0,
     });
 
     expect(realized.fulfillment).toBe(1);
-    expect(realized.outputs.tools).toBe(75);
-    expect(realized.inputs).toEqual({ steel: 25, timber: 10 });
+    expect(realized.outputs[recipe.out]).toBe(plannedOutput);
+    expect(realized.inputs).toEqual(plannedInputs);
   });
 });
 
