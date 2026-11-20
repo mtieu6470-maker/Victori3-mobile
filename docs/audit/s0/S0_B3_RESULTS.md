@@ -236,6 +236,6 @@ Gate sau sửa (tự đánh giá):
 
 - Reviewer: ChatGPT (review độc lập đối với phần audit do Claude thực hiện; kết quả lịch sử, không phải self-review của lượt triển khai này).
 - Exact reviewed commits: tools `ddea490635c5d7c74ca6108549fd21806102487b`; reports/evidence `2c62b3de3955e3cd8a82a9c59401d9df77d69173`.
-- Verdict: **`REVIEW_PASS` cho phạm vi S0-B3 audit בלבד**. Bốn điểm A–D từ vòng 1 đã được xử lý: phân loại `estimated`/coverage `method`; 12 nhóm phân tích khác 13 vùng trong spec; R7 P0 có trước B3 và vẫn OPEN; quy ước 145/144 tháng và các phát hiện WD-F1…F3 được phân tích/ghi rõ.
+- Verdict: **`REVIEW_PASS` chỉ cho phạm vi audit S0-B3**. Bốn điểm A–D từ vòng 1 đã được xử lý: phân loại `estimated`/coverage `method`; 12 nhóm phân tích khác 13 vùng trong spec; R7 P0 có trước B3 và vẫn OPEN; quy ước 145/144 tháng và các phát hiện WD-F1…F3 được phân tích/ghi rõ.
 - Điều kiện phạm vi: không có xác nhận tính năng sản phẩm đã hoàn thiện, không đóng G0.7/G0.8, không chấp nhận toàn bộ S0 và không tự động mở S1. B4 chỉ được phép tiếp tục sau verdict này theo OD-20261116-11; B4 sau đó đã có review riêng cho G0.6.
 - Vì vậy, trạng thái Phase Register `S0-B3` trong `AI_HANDOFF.md` phải là `REVIEW_PASS` (bounded audit scope), không còn `READY_FOR_REVIEW`. Các dòng `READY_FOR_REVIEW` trong work log cũ được giữ nguyên như lịch sử tại thời điểm chúng được ghi.
