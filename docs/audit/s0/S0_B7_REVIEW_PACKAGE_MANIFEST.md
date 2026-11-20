@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `9bf270aff22af6fa0639cc66add58f7d078d2654`  
+**Snapshot HEAD before this manifest refresh:** `9b770d4f604ecfe1bc765a1899bdd88cb3437c45`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -21,11 +21,14 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `8701c8defd2945cc0849b7e2c7ee67afe03ab141` |
 | `docs/audit/s0/S0_SIGNOFF.md` | `7a2baf300e95c646585f76e3a1ef81f85cadfcf5` |
 | `docs/audit/s0/S0_B7_RESULTS.md` | `4243bba7829fb110951dcc28f1ccb802331ab7da` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `6eeffadbaf411e6bc6b33d3465d03328e74613dd` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `128e1db5c3e66609d1960ed65858e29768440b93` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `977e7fc3427cefb99bf3ba172740eb99cb6034b8` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `0771cfd2389379df4107bc959f75ce17fb7ab5c2` |
+| `docs/coordination/AI_HANDOFF.md` | `33e3341161b5a61cba86b200bafb65827058685a` |
 | `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `0cdd1b70857e17b708c6851575819ae076a5b8d0` |
+
+| `docs/roadmap/OWNER_SCOPE_AMENDMENT_1836_2026_SYSTEM_DEPTH.md` | `43d4feda71cf71714160fead3ee6f135408206d9` |
+| `docs/design/TECHNOLOGY_AND_INSTITUTIONS_1836_2026_DRAFT.md` | `5a53dbd7f63c99fdef493740924ade4c7d26db0c` |
 
 ## 2. Risk table integrity and traceability
 
@@ -266,3 +269,11 @@ The prior structural summary undercounted the matrix by one because it omitted t
 - Snapshot base before this manifest update: `9bf270aff22af6fa0639cc66add58f7d078d2654`.
 - Re-pinned Risk Register, Traceability, Results, Self-review, Claude request and AI_HANDOFF from their latest experiment-branch blobs.
 - R13 controls remain proposed/not implemented; GD-F2 is now mapped by field to S3/S6/S7/S13/S16. No risk severity, status, gate or authorization changed.
+
+
+## 26. Owner-requested 1836–2026 scope context (2026-11-20)
+
+- This snapshot follows the owner-requested 1836–2026 scope amendment and preliminary technology/institution design draft. The exact files are listed above with live blob SHAs; the updated handoff and B7 review request are also pinned above.
+- These documents are contextual product-design records only. They are not B7 risk evidence, do not modify or supersede the frozen 1836–1936 `MASTER_SPEC_VI.md` used for the historical S0/G0.4 audit, and do not authorize product implementation.
+- The review target remains the bounded S0-B7 risk/signoff package. No risk status, gate verdict, owner exception acceptance or phase authorization is changed by these scope/design documents.
+- The owner has asked the technical lead to proceed with discretion. This does not eliminate the repository's independent-review requirement or authorize an unreviewed phase transition.
