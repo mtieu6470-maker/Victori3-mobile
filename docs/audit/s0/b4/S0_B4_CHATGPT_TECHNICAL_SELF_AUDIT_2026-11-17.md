@@ -241,3 +241,21 @@ A later review of the live branch found that the B4 test file received one test-
 - Required review treatment: assess the old file/run as the B4 baseline evidence and assess the later assertion/current CI as a separate post-baseline save-contract test update. Do not merge their behaviors into one claimed baseline result.
 - No product code, historical data, save schema, APK workflow, or release behavior was changed by this reconciliation. This is a ChatGPT self-audit, not independent REVIEW_PASS. B4 remains READY_FOR_REVIEW; Claude's independent verdict and owner ACCEPTED remain pending. B7 remains READY_FOR_REVIEW; S1 remains NOT_STARTED.
 
+
+
+## 11. Current-candidate save continuation result and test-log identity (20/11/2026)
+
+## CURRENT CANDIDATE G0.6 CONTINUATION EVIDENCE — post-DEV-005 v2 save state (20/11/2026)
+
+In addition to the frozen 2240a8f baseline characterization above, the current code candidate has now exercised the same four valid-save continuation cases on its own current engine/save implementation:
+
+- **Exact candidate code/test commit:** `96042077abeef8b89fe9e46fdce97a2b566d70da`. Both exact-target workflows [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664) and [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668) have `head_sha=96042077abeef8b89fe9e46fdce97a2b566d70da` and `conclusion=success`. The Android workflow completed 44/44 suites and 131/131 tests; `report_valid=true`; Gradle `BUILD SUCCESSFUL in 1m 28s`.
+- **Why these are current-code cases:** the test imports `createGame`, `serialize` and `deserialize` from the same checkout. At this candidate, `src/engine/init.ts` creates `GameState.version = 2`; `src/engine/save.ts` uses `SAVE_SCHEMA_VERSION = 2`. The four 24-month continuity cases therefore execute against the current v2 candidate, not a copied frozen baseline tree.
+- **Current-candidate results in Android run 44765197668 / job 136387820204:**
+  - Historical cut tick 6 and 12: both `MATCH`, `firstDifferingPath=null`, final state SHA-256 `9933f1310849ea8126171e515276b0ba7319bcba49586c1bb2d22706b8cea1c1`.
+  - Sandbox cut tick 6 and 12: both `MATCH`, `firstDifferingPath=null`, final state SHA-256 `1fdde5dc52f4e902d3b45cd284fbace48eb36f7678ea93e411f14bf85eb10564`.
+  - Current compiled DB SHA-256 `af1b44aca4379106ab2ff11837dc6c3d9c7da5646bb9741bda486ce27d368949`; map SHA-256 `9a6a6979dd5e7adc9d5953fc5f089ac94dee4079433ed1d340535dcbe877a696`.
+- **Log-label caveat:** the current test source still defines `BASELINE_PRODUCT_SHA = 2240a8f…` and emits it as `baselineProductSha`, while the suite title retains “baseline only”. That constant is a historical reference label, **not** the actual checkout identity. The authoritative current code identity is the workflow metadata `head_sha=9604207`. Do not use the JSON field as proof that the Android run checked out 2240a8f.
+- The current candidate also retains the B4-R1 observation: a save with missing `rng` is accepted by deserialization and one-month continuation throws `TypeError`. This remains an explicit save-validation/migration risk, not a passing compatibility case.
+- This gives a separate, current-candidate save/load continuation result alongside the frozen baseline run 44041104723. It does not change the historic baseline report, clear B4-R1, establish device backup/export safety, or constitute independent review/owner acceptance. Reviewer must assess whether the test/log labeling is sufficiently clear and whether this evidence meets the candidate-SHA G0.6 requirement in OD-20261116-11 §2.
+

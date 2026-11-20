@@ -1,3 +1,12 @@
+## 0.24 — Current-candidate v2 save-continuation evidence recorded (20/11/2026)
+
+## 0.24 — Current-candidate v2 save-continuation evidence recorded (20/11/2026)
+
+- Verified exact Android workflow [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668), `head_sha=96042077abeef8b89fe9e46fdce97a2b566d70da`, job 136387820204 SUCCESS. Current candidate `createGame()` seeds schema version 2 and `serialize()/deserialize()` use schema v2.
+- The four 24-month Historical/Sandbox × tick-6/tick-12 save/load cases ran in the current v2 checkout and all logged MATCH with `firstDifferingPath=null`. Historical final state hash: `9933f1310849ea8126171e515276b0ba7319bcba49586c1bb2d22706b8cea1c1`; Sandbox final state hash: `1fdde5dc52f4e902d3b45cd284fbace48eb36f7678ea93e411f14bf85eb10564`. Android run: 44/44 suites, 131/131 tests, `report_valid=true`, Gradle success.
+- The output field `baselineProductSha` in this test is hard-coded to the frozen historical baseline and is not the actual checkout SHA; workflow metadata `head_sha` is authoritative. This ambiguity is explicitly documented for the independent reviewer. Frozen baseline B4 run 44041104723 remains separate and unchanged.
+- Missing RNG still causes a continuation TypeError and remains B4-R1. This candidate execution evidence is not an independent REVIEW_PASS or owner ACCEPTED; B4/B7 remain READY_FOR_REVIEW; S1 remains NOT_STARTED.
+
 ## 0.23 — B4 baseline/current save-contract test-source reconciliation (20/11/2026)
 
 - Rechecked the current branch at base HEAD `638f9d82e477807925d045d1c859d9fa0f10b017`, the original B4 test commit, the B4 tests-only CI log, baseline and current `save.ts`, later test commit `14bd568`, and current exact-target CI.
@@ -126,7 +135,7 @@
 | Hạng mục | Trạng thái | Bằng chứng / việc còn lại |
 |---|---|---|
 | DEV-005 — cohort projection + save compatibility | **CI_PASS / READY_FOR_REVIEW** | Code target `c9868d7`; 11/11 test files, 122/122 tests PASS; Android debug build SUCCESS |
-| S0-B4 — frozen baseline save/load characterization | **READY_FOR_REVIEW** | Exact frozen baseline source `ae29c99` blob `722d62c`; run `44041104723`, 6/6 files and 70/70 tests; four save/load MATCH cases. Later v2 test assertion is explicitly separated in §0.23. |
+| S0-B4 — baseline + current-candidate save/load evidence | **READY_FOR_REVIEW** | Frozen baseline run `44041104723` (70/70); current v2 candidate `9604207` run `44765197668` (131/131, four current save-load MATCH cases); log provenance caveat documented in §0.24. |
 | S0-B7 — bounded S1-entry risk/signoff package | **READY_FOR_REVIEW** | Risk register, gate ledger, S1 scope proposal and EX-G07/EX-G08/R7 controls prepared; independent Claude verdict and owner ACCEPTED required before S1. |
 | DEV-006 — bounded monthly clock + fast-forward isolation | **CI_PASS / READY_FOR_REVIEW** | Exact code/test target `9604207`; 44/44 suites, 131/131 tests PASS; Android debug build SUCCESS; APK hash and artifact recorded in §0.22 |
 | UI-REDESIGN-01 — premium grand-strategy UI | **DESIGN_ONLY / REVIEW_PENDING** | Proposal `150bf857`; source-based; no runtime/UI/assets implementation authorized |

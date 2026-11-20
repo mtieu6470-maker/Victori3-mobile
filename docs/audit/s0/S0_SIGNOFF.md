@@ -37,6 +37,10 @@
 
 **Overall S0 verdict: PARTIAL/BLOCKED.** G0.7 is BLOCKED, G0.8 is PARTIAL and G0.9 remains BLOCKED for full S0 under v3.3 §2.1.1 because R14/C3 remain BLOCKED. A bounded S1-entry review is separate and does not change these gate verdicts. The table does not declare S0 PASS.
 
+
+
+**Additional exact-candidate evidence (not a replacement for frozen baseline B4):** current candidate `96042077abeef8b89fe9e46fdce97a2b566d70da` was tested by Android run [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668), whose workflow `head_sha` is exactly 9604207. Its current v2 save implementation (`GameState.version=2`) ran the same four 24-month Historical/Sandbox × tick-6/tick-12 continuation cases; all four logged `MATCH`, with no differing path. Historical final SHA-256: `9933f1310849ea8126171e515276b0ba7319bcba49586c1bb2d22706b8cea1c1`; Sandbox final SHA-256: `1fdde5dc52f4e902d3b45cd284fbace48eb36f7678ea93e411f14bf85eb10564`. The test's `baselineProductSha` log field is a hard-coded historical reference and is not the checkout SHA; review the workflow `head_sha`. This current-candidate evidence is submitted for reviewer assessment and does not change G0.7/G0.8/G0.9 or independently accept S1.
+
 ## 3. Proposed bounded S1 exceptions
 
 These are requests for the final reviewer/owner decision. OD-20261116-11 accepts the principle of these exception categories; it does not grant the concrete exceptions without evidence and a recorded signoff.

@@ -1,5 +1,12 @@
 ## Latest S0-B4 / S0-B7 review handoff — baseline/current save-contract distinction (20/11/2026)
 
+## Additional current-candidate G0.6 save-continuation evidence (20/11/2026)
+
+- Candidate `96042077abeef8b89fe9e46fdce97a2b566d70da` (current schema v2) ran the four 24-month Historical/Sandbox × tick-6/tick-12 save/load cases in Android workflow [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668). Run `head_sha` is exactly 9604207; Android result: 44/44 suites, 131/131 tests, Gradle success. All four cases logged MATCH; Historical final hash `9933f1310849ea8126171e515276b0ba7319bcba49586c1bb2d22706b8cea1c1`; Sandbox final hash `1fdde5dc52f4e902d3b45cd284fbace48eb36f7678ea93e411f14bf85eb10564`.
+- The test log's `baselineProductSha` field is a hard-coded comparison reference, not the current source SHA; use workflow `head_sha` for actual provenance. Baseline B4 run 44041104723 remains the frozen 2240a8f evidence; 44765197668 is current candidate v2 evidence.
+- Missing RNG continues to throw TypeError on continuation and remains B4-R1. Reviewer must assess this exact candidate evidence; independent review and owner ACCEPTED remain pending; S1 remains NOT_STARTED.
+
+
 - Frozen B4 baseline evidence remains exact and valid: product `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`; B4 test source `ae29c99330081ba2f6af3a6d4478ec8aefc8a1ad`, blob `722d62c0647f06bc2e3a49bdef1f348f4f3104f2`; tested HEAD `d2ae88e557e9895413462c5b069886bfc606adc7`; tests-only run [44041104723](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44041104723), 6/6 files, 70/70 tests; four valid-save cases MATCH.
 - Later current-save test delta: `14bd56848b8db429b9037880b08887af7118d61f` changes only the missing-envelope-state assertion to the current v2 validation error. Current test blob `e3d960725e1e1b41fc4f63d303a5b5d36cdb6ad7`; current save implementation blob `e54cce0397d25735540071b53d8291e30e332360`. Current exact-target CI on `9604207` (runs [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664), [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668)) passes 131/131 tests and validates the current v2 test contract, not the frozen baseline.
 - Both review requests distinguish these contracts: `docs/audit/s0/b4/S0_B4_REVIEW_REQUEST.md` and `docs/audit/s0/S0_B7_REVIEW_REQUEST.md`. Technical self-review details are in `S0_B4_CHATGPT_TECHNICAL_SELF_AUDIT_2026-11-17.md` and `S0_B7_RESULTS.md` §14.

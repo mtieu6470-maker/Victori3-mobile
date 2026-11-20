@@ -151,3 +151,14 @@ The corrected workflow has now been dispatched and passed. This section supersed
 The test/CI evidence is now available for independent review. The reviewer must still inspect the source and answer every required point in this packet; a green CI run alone does not imply `REVIEW_PASS`. No repository writes are requested from the reviewer.
 
 **Current gate:** B4 remains `READY_FOR_REVIEW`; independent review and owner `ACCEPTED` remain pending. B7 is separately `READY_FOR_REVIEW`; S1 remains `NOT_STARTED` until the complete bounded package receives independent `REVIEW_PASS` and owner `ACCEPTED`.
+
+
+## CURRENT-CANDIDATE ADDENDUM — current v2 G0.6 cases and log provenance (20/11/2026)
+
+The current project CI also executes the four save/load continuation cases on the current code candidate, separate from the frozen baseline B4 execution:
+
+- Exact run [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668) has workflow `head_sha=96042077abeef8b89fe9e46fdce97a2b566d70da` and Android job 136387820204 succeeds with 44/44 suites and 131/131 tests.
+- In this current checkout, `createGame()` creates schema version 2 and the current `serialize()/deserialize()` implementation uses schema 2. Its four 24-month Historical/Sandbox × tick-6/tick-12 continuations all log `MATCH`, `firstDifferingPath=null`; exact final hashes are in B7 Results §15.
+- The test still prints a hard-coded `baselineProductSha=2240a8f…` and its describe label says “baseline only”. This field is a historical comparison reference, not the actual current checkout identity. Use workflow metadata `head_sha=9604207` as the source identity. This reporting ambiguity is disclosed for review rather than silently treated as baseline evidence.
+- Baseline run 44041104723 remains the only cited execution against the frozen 2240a8f product baseline. Current run 44765197668 is evidence for the candidate schema-v2 code only. Missing-RNG continuation remains a TypeError in the current candidate and remains B4-R1.
+

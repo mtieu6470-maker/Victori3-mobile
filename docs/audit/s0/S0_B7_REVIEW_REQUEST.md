@@ -54,10 +54,27 @@ The B4 test file is not byte-identical to the original baseline test-source comm
 - Review both contracts separately. Preserve the baseline TypeError as a baseline finding and the v2 explicit validation as the current implementation behavior. The missing-RNG baseline/current compatibility issue remains separately characterized as B4-R1.
 - This distinction does not change the B4 70/70 baseline CI result or turn current CI into a new baseline test. Reviewer must decide the impact on the bounded S1-entry package.
 
+## CURRENT-CANDIDATE G0.6 EVIDENCE ADDENDUM — 9604207 (20/11/2026)
+
+## CURRENT CANDIDATE G0.6 CONTINUATION EVIDENCE — post-DEV-005 v2 save state (20/11/2026)
+
+In addition to the frozen 2240a8f baseline characterization above, the current code candidate has now exercised the same four valid-save continuation cases on its own current engine/save implementation:
+
+- **Exact candidate code/test commit:** `96042077abeef8b89fe9e46fdce97a2b566d70da`. Both exact-target workflows [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664) and [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668) have `head_sha=96042077abeef8b89fe9e46fdce97a2b566d70da` and `conclusion=success`. The Android workflow completed 44/44 suites and 131/131 tests; `report_valid=true`; Gradle `BUILD SUCCESSFUL in 1m 28s`.
+- **Why these are current-code cases:** the test imports `createGame`, `serialize` and `deserialize` from the same checkout. At this candidate, `src/engine/init.ts` creates `GameState.version = 2`; `src/engine/save.ts` uses `SAVE_SCHEMA_VERSION = 2`. The four 24-month continuity cases therefore execute against the current v2 candidate, not a copied frozen baseline tree.
+- **Current-candidate results in Android run 44765197668 / job 136387820204:**
+  - Historical cut tick 6 and 12: both `MATCH`, `firstDifferingPath=null`, final state SHA-256 `9933f1310849ea8126171e515276b0ba7319bcba49586c1bb2d22706b8cea1c1`.
+  - Sandbox cut tick 6 and 12: both `MATCH`, `firstDifferingPath=null`, final state SHA-256 `1fdde5dc52f4e902d3b45cd284fbace48eb36f7678ea93e411f14bf85eb10564`.
+  - Current compiled DB SHA-256 `af1b44aca4379106ab2ff11837dc6c3d9c7da5646bb9741bda486ce27d368949`; map SHA-256 `9a6a6979dd5e7adc9d5953fc5f089ac94dee4079433ed1d340535dcbe877a696`.
+- **Log-label caveat:** the current test source still defines `BASELINE_PRODUCT_SHA = 2240a8f…` and emits it as `baselineProductSha`, while the suite title retains “baseline only”. That constant is a historical reference label, **not** the actual checkout identity. The authoritative current code identity is the workflow metadata `head_sha=9604207`. Do not use the JSON field as proof that the Android run checked out 2240a8f.
+- The current candidate also retains the B4-R1 observation: a save with missing `rng` is accepted by deserialization and one-month continuation throws `TypeError`. This remains an explicit save-validation/migration risk, not a passing compatibility case.
+- This gives a separate, current-candidate save/load continuation result alongside the frozen baseline run 44041104723. It does not change the historic baseline report, clear B4-R1, establish device backup/export safety, or constitute independent review/owner acceptance. Reviewer must assess whether the test/log labeling is sufficiently clear and whether this evidence meets the candidate-SHA G0.6 requirement in OD-20261116-11 §2.
+
+
 ## 3. Required review questions
 
 1. Verify the latest HEAD, changed-file range from the product baseline, and that no unauthorized product/engine/save/data/assets/device changes were introduced by B7.
-2. Verify B4 evidence in two distinct versions: (a) frozen baseline test blob `722d62c` at tested HEAD `d2ae88e` / run `44041104723` (70/70, 6/6, four valid-save MATCH cases, baseline missing-envelope TypeError and missing-RNG TypeError, no APK artifact); and (b) the later current-v2 test blob `e3d9607` introduced by `14bd568`, validated only against the current v2 source by runs `44765197664` / `44765197668`. Do not treat the current v2 validation-message test as frozen-baseline evidence.
+2. Verify B4 evidence as three distinct references: (a) frozen baseline test blob `722d62c` at tested HEAD `d2ae88e` / run `44041104723`; (b) current v2 test blob `e3d9607` introduced by `14bd568`; and (c) current-candidate execution on `9604207` / Android run `44765197668`, where all four valid-save cases MATCH against schema v2. Inspect the workflow `head_sha`, not the hard-coded `baselineProductSha` field in the test log. Decide whether the log label should be corrected before the evidence is accepted as current-candidate G0.6. None of these results may be silently substituted for another.
 3. Check every risk entry for accurate source evidence, severity, impact, interim mitigation, accountable owner, stage and objective exit criteria. In particular, verify that R2 (parent shipped CC BY-SA content risk) is not conflated with AS-F3 (specific UI attribution sub-finding), and that their different P1/P2 dispositions are justified. Identify missing material risks or inflated severity.
 4. Check R7 is treated as an open P0, not a resolved defect. Is the proposed owner-accepted interim control sufficient for a narrowly limited S1 test phase?
 5. Check R14 remains BLOCKED for device installation/signing; no one should rely on Export as a backup absent device evidence.
