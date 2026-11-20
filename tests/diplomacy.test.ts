@@ -124,6 +124,7 @@ describe('Victoria 3-style bilateral alliance capacity', () => {
   it('preserves treaty ordering and is idempotent when migrating grouped alliances', () => {
     const state = fresh('historical', 191, 'GBR');
     const [a, b, c] = eligibleCountries(state);
+    const [first, second, third] = [a.id, b.id, c.id].sort();
     state.treaties = [
       { id: 'guarantee-before', type: 'guarantee', members: [a.id, b.id], start: 0 },
       { id: 'ordered-historical-pact', type: 'alliance', members: [a.id, b.id, c.id], start: 0 },
@@ -134,9 +135,9 @@ describe('Victoria 3-style bilateral alliance capacity', () => {
     normalizeAllianceTreaties(state);
     expect(state.treaties.map((treaty) => treaty.id)).toEqual([
       'guarantee-before',
-      `alliance:${a.id}:${b.id}`,
-      `alliance:${a.id}:${c.id}`,
-      `alliance:${b.id}:${c.id}`,
+      `alliance:${first}:${second}`,
+      `alliance:${first}:${third}`,
+      `alliance:${second}:${third}`,
       'customs-market-between',
       'guarantee-after',
     ]);
