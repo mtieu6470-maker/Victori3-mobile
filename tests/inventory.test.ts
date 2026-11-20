@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { fresh, stepMonth } from './helpers';
 import { serialize, deserialize } from '../src/engine/save';
+import { realizeFactoryFlow } from '../src/engine/systems/economy';
 import {
   appendInventoryLedgerMonth,
   emptyInventoryLedger,
@@ -8,6 +9,39 @@ import {
   MAX_INVENTORY_LEDGER_MONTHS,
   settleInventoryFlow,
 } from '../src/engine/systems/inventory';
+
+describe('factory material realization', () => {
+  it('scales physical inputs and output by the same scarcest-input constraint', () => {
+    const realized = realizeFactoryFlow({
+      outputs: { steel: 100 },
+      inputs: { iron: 50, coal: 30 },
+    }, {
+      iron: 0.25,
+      coal: 0.5,
+    });
+
+    expect(realized.fulfillment).toBeCloseTo(0.5, 10);
+    expect(realized.outputs.steel).toBeCloseTo(50, 10);
+    expect(realized.inputs.iron).toBeCloseTo(25, 10);
+    expect(realized.inputs.coal).toBeCloseTo(15, 10);
+    expect(realized.outputs.steel! / 100).toBeCloseTo(realized.fulfillment, 10);
+    expect(realized.inputs.iron! / 50).toBeCloseTo(realized.fulfillment, 10);
+  });
+
+  it('keeps full planned flow when every recipe input is available', () => {
+    const realized = realizeFactoryFlow({
+      outputs: { tools: 75 },
+      inputs: { steel: 25, timber: 10 },
+    }, {
+      steel: 0,
+      timber: 0,
+    });
+
+    expect(realized.fulfillment).toBe(1);
+    expect(realized.outputs.tools).toBe(75);
+    expect(realized.inputs).toEqual({ steel: 25, timber: 10 });
+  });
+});
 
 describe('physical inventory accounting invariants', () => {
   it('conserves stock across production, imports, exports and consumption', () => {
@@ -127,6 +161,14 @@ describe('inventory ledger integration with the shared economy', () => {
         expect(entry.closingStock, `${marketId}/${good}`).toBeGreaterThanOrEqual(0);
         expect(source, `${marketId}/${good}`).toBeCloseTo(uses, 7);
         expect(entry.demand, `${marketId}/${good}`).toBeCloseTo(entry.consumed + entry.unmetDemand, 7);
+        const marketStats = state.marketStats[marketId][good];
+        expect(marketStats.supply / 12, `${marketId}/${good} supply`).toBeCloseTo(entry.production, 7);
+        expect(marketStats.demand / 12, `${marketId}/${good} demand`).toBeCloseTo(entry.demand, 7);
+        expect(marketStats.imports / 12, `${marketId}/${good} imports`).toBeCloseTo(entry.imports, 7);
+        expect(marketStats.short, `${marketId}/${good} shortage`).toBeCloseTo(
+          entry.demand > 0 ? entry.unmetDemand / entry.demand : 0,
+          7,
+        );
         totalImports += entry.imports;
         totalExports += entry.exports;
       }
