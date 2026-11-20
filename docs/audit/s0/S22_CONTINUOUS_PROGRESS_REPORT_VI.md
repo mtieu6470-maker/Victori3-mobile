@@ -1,3 +1,14 @@
+## 0.12 — TIME-ARCH-01 source-grounded cadence and migration audit (20/11/2026)
+
+- Đối chiếu trực tiếp `simulation.ts`, economy, population, politics, technology, diplomacy, military, events, AI, divergence, metrics, population cohorts, types và save schema tại base `c5193894f5e2f344132a2334e1057d0b3a71f85a`.
+- Bổ sung §15 cho tài liệu daily-clock: mapping từng function sang cadence đề xuất; danh sách field đang lưu monthly tick; các hệ số monthly không thể gọi hàng ngày; hazards/probability cần chuyển đổi theo compounding; rủi ro RNG và save schema v2.
+- Điểm chặn lớn: `warMonth()` hiện tạo 1–3 trận/tháng, casualties, devastation, war score smoothing và duration 72/144 tháng; gọi hàm này mỗi ngày sẽ tăng cường độ chiến tranh khoảng 30 lần. Phải thiết kế daily operations riêng thay vì đổi tên hàm.
+- Kinh tế/finance, construction, POP, politics, diplomacy, technology đều có hệ số hoặc progress theo tháng. Giữ monthly settlement trong giai đoạn đầu; không bulk-convert numeric tick bằng cách nhân 30/365.
+- Metrics hiện lấy mẫu ở boundary tháng 1 sau pipeline tháng, không phải sau settlement tháng 12. Ghi rõ cần giữ semantics hoặc xin quyết định owner.
+- `fastForward()` có yield giữa các batch sáu tháng; kiểm tra code UI hiện tại không tìm thấy call site trong App/Setup, nhưng packet DEV-006 yêu cầu reviewer kiểm tra tương tác RAF trước khi cho phép gọi đồng thời.
+- **Chỉ thay đổi tài liệu.** Không chạy runtime test/build; không thay đổi runtime, tests, save, dữ liệu, assets, Android, workflow hoặc gate.
+- Next: độc lập review DEV-006 + TIME-ARCH-01; không triển khai daily tick trước owner/gate authorization.
+
 ## 0.11 — TIME-ARCH-01: thiết kế lịch ngày và cadence hỗn hợp (20/11/2026)
 
 - Đọc lại trạng thái engine tại HEAD `88baaf9c076f615a721436da1fdba0a33d4b9326`: `GameDate` chỉ có năm/tháng; `GameState.tick` và `stepMonth()` dùng đơn vị tháng; toàn bộ hệ thống đang được hiệu chỉnh theo monthly tick.

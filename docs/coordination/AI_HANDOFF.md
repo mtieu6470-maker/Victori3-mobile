@@ -1,3 +1,10 @@
+## Latest TIME-ARCH-01 code-grounded cadence audit (20/11/2026)
+
+- Extended `docs/spec/DAILY_SIMULATION_CLOCK_CADENCE_ARCHITECTURE_PROPOSAL_VI.md` with §15 mapping the actual source functions, monthly fields, coefficients and thresholds to proposed daily/weekly/monthly/annual cadence. Source baseline `c5193894f5e2f344132a2334e1057d0b3a71f85a`.
+- Critical constraints recorded: do not run `warMonth` daily; do not apply monthly economy/POP/politics/research coefficients daily; preserve January-boundary annual sample semantics unless owner changes it; migrate every monthly tick field by meaning rather than multiplying numeric fields globally.
+- Identified global RNG ordering and save v2 calendar metadata as migration blockers. `fastForward()`/RAF concurrency is flagged for independent DEV-006 review; no current caller found in inspected App/Setup.
+- Documentation-only. No runtime/test/data/assets/Android/workflow/signing changes; no phase/gate changes.
+
 ## Latest TIME-ARCH-01 checkpoint — daily calendar/cadence proposal (20/11/2026)
 
 - Design document: `docs/spec/DAILY_SIMULATION_CLOCK_CADENCE_ARCHITECTURE_PROPOSAL_VI.md`; status DESIGN ONLY / PRE-IMPLEMENTATION, runtime authorization NONE.

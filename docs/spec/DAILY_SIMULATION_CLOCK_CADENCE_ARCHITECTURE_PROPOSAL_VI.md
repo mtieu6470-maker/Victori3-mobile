@@ -224,3 +224,77 @@ Không sửa save trong task thiết kế này. Khi được cấp quyền, migr
 Adopt a **hybrid daily calendar with weekly strategic evaluation and monthly economic/social settlement**, not a naïve “run every system every day” loop. This preserves meaningful daily military/event chronology while avoiding a 12× or 30× cost increase for systems whose existing rules are calibrated monthly.
 
 The next engineering action after design review should be a separately authorized calendar utility + pure date/index tests, isolated from the live GameState migration. Do not touch the runtime tick loop until the owner and phase gates explicitly authorize the migration.
+
+
+## 15. Code-grounded cadence inventory — verified at c5193894f5e2
+
+This appendix maps the proposal to the actual engine at the design baseline. Line references are from that baseline; later edits must refresh them. The classifications below are recommendations, not runtime authorization.
+
+| Current file/function | Current monthly behavior / state dependencies | Proposed target cadence | Migration rule / hazard |
+|---|---|---|---|
+| `simulation.ts:stepMonth` | Increments `tick`, assigns `tickToDate`, runs every system in fixed order, then annual sample and cohort projection refresh | Replace with one canonical day advance plus explicit boundary hooks | Preserve one authoritative scheduler; never call monthly pipeline once per day |
+| `economy.ts:computeEconomy` | Full market clearing, regional production, employment/wages, price formation, GDP and finance; fiscal amounts divide by 12 | Monthly settlement | Keep monthly formulas unchanged in first daily-calendar release; daily military consumption must not read stale market output without a contract |
+| `economy.ts:constructionMonth` | Advances one state and one private project per country; invests at most `totalCost/12`; `createdTick` stores current tick | Monthly | `createdTick` becomes a month-index or explicit creation date, not raw dayIndex; preserve minimum 12 funding ticks semantics |
+| `population.ts:populationMonth` | Annual demographic rates are divided by 12; literacy convergence and strata movement use monthly coefficients; migration happens in a monthly batch | Monthly initially | Do not multiply birth/death/migration by 30.4; preserve the existing monthly transition exactly until a separately calibrated demographic model exists |
+| `politics.ts:updatePolitics` / `politicsMonth` | IG clout, legitimacy and regional radicalism are recalculated monthly; reform progress adds a monthly increment | Monthly | Reform progress is a monthly quantity; daily call would accelerate laws by ~30× |
+| `politics.ts:revolutionCheck` | Called from monthly political update and uses threshold/random logic | Monthly + event-triggered threshold recheck | If a daily trigger is introduced, split pure eligibility from state mutation; avoid extra RNG draws each day |
+| `politics.ts:secessionCheck` | Returns unless `tick % 6 === 0` | Monthly/half-year boundary + event-trigger | Six monthly ticks means every six months, not every six days |
+| `technology.ts:technologyMonth` | Adds monthly research points and completes technology at threshold; tech availability reads current year | Monthly | Research points are not daily points; unlock should become active at a deterministic monthly boundary |
+| `diplomacy.ts:diplomacyMonth` | Returns unless `tick % 3 === 0`; relations converge by 4% per execution; infamy decays by 0.25 per execution | Monthly relation/infamy settlement; weekly/daily deadlines only after diplomatic-play state machine exists | Repeated daily application of 4% convergence or 0.25 infamy decay changes rates drastically |
+| `military.ts:militaryMonth` | Replenishes manpower, adjusts navy strength, refreshes quality/supply/morale, reduces peace-time exhaustion; calls `warMonth` once per month | Split: monthly readiness/recruitment; daily/event-driven operational movement only after new unit/front/logistics model; monthly strategic war settlement initially | Calling `warMonth` daily would multiply battles, casualties, score smoothing and exhaustion by ~30; do not simply rename it `militaryDay` |
+| `military.ts:warMonth` | One to three abstract battles per month; casualties and devastation per battle; score smoothing `0.85/0.15`; stalemate at 72 months, hard stop at 144 months | Keep current abstract battle settlement monthly until daily operation model is designed | War `start` and duration thresholds are month units; new operational daily events need distinct fields |
+| `events.ts:eventsMonth` | Scans exogenous records by month tick; random drought/epidemic/blight hazards use annualized probabilities divided by 12; succession mortality uses age-dependent annual q divided by 12 | Exact-date queue for dated events; monthly stochastic hazard settlement until a hazard model is approved; succession monthly | Convert monthly hazard to per-day hazard using month length and survival compounding, not `p/30` blindly; preserve random draw ordering/version |
+| `ai.ts:aiMonth` | Runs budget/construction/reform/diplomacy/war decisions; `stagger()` schedules by monthly tick | Weekly strategic evaluation plus monthly budget/construction/research execution | AI cooldowns and stagger periods currently use month units; do not reuse as day counts |
+| `divergence.ts:divergenceMonth` | Evaluates historical divergence milestones/territory and similarity on monthly state | Monthly or event-triggered, with annual aggregate checkpoints | Must not become a full-world daily scan; dated milestone eligibility can be queued |
+| `metrics.ts:sampleYear` | Called when date month is January, after the January monthly pipeline | Annual | Existing sample semantics are a January-boundary sample after that month's systems; changing to Dec 31 year-end changes data meaning and requires owner approval |
+| `populationCohorts.ts:refreshPopulationState` | Rebuilds cohort projection after all monthly systems finish | After monthly settlement, and only after any daily cohort-affecting transitions if those are added | Never rebuild partially through a transition; maintain one authoritative projection boundary |
+| `save.ts` | Save schema v2 stores monthly `tick`, year/month date, global RNG state and state payload; v1→v2 migration adds cohort projection only | New calendar/save schema version with explicit engine/calendar versions | Existing v1/v2 saves must map month to first day of month with explicit loss-of-precision metadata; do not mutate old `tick` in place |
+
+### 15.1. Confirmed monthly-unit fields and thresholds to migrate individually
+
+The following fields are not all interchangeable even though several currently store `st.tick`:
+
+- `GameState.tick`: month index since 1836; also used by logs, territory/divergence entries and counters.
+- `War.start`: month index; current stalemate/hard-stop thresholds are 72/144 months.
+- `Country.lastWarLost`: month index; politics applies a 60-month post-defeat penalty.
+- `AIMemory.cooldowns`, `lawHistory[].tick`, `Reform.startedTick`: monthly timing for anti-oscillation, cooldown and reform timeout.
+- `ConstructionProject.createdTick`: FIFO tie-break/creation ordering for monthly project queues.
+- `Region.epidemic.until`, `Region.blight.until`: monthly expiry tick; epidemic rate is annual mortality converted by division by 12.
+- `LogEntry.tick`, `TerritoryChange.tick`, `DivergenceState.entries[].tick`, `pendingPlayerDecisions[].id`: chronology/identity fields; must retain stable identity and readable dates after migration.
+- `Treaty.start`: month index; treaty expiry is not implemented yet but future expiry must use an explicit calendar date or duration unit.
+
+Do not bulk-multiply every numeric tick by 30 or 365. Some fields represent elapsed months, some are identifiers/ordering metadata, and some are expiry boundaries. Each needs a named unit and a field-specific migration rule.
+
+### 15.2. Existing monthly coefficients that cannot be replayed daily
+
+Examples verified in source:
+
+- Demography: `populationMonth` applies `(birth - death) / 12`; literacy and strata movement also divide or scale for monthly progression.
+- Public finance: tax, tariffs, army/navy costs, debt interest and private investment divide annual amounts by 12.
+- Construction: each monthly funding pass invests at most `totalCost / 12`.
+- Diplomacy: relation convergence is 4% per 3-month execution; infamy decay is 0.25 per execution.
+- Military: manpower reinforcement, navy growth, peace exhaustion decay and war battle count are per monthly execution; war score is smoothed once per month.
+- Events: drought/epidemic/blight annual probability is split across 12 monthly opportunities; leader death chance is age-based annual probability split across 12.
+- Politics: legitimacy/radicalism smoothing, reform progress and timeout/cooldown values are monthly.
+
+If any such process is ever made daily, preserve its intended monthly/annual cumulative transition mathematically and test it against the old monthly baseline. For a monthly event probability (p_m) distributed over (D) days, the per-day independent hazard candidate is (p_d = 1-(1-p_m)^{1/D}); the probability semantics and RNG model must still be explicitly approved. For a deterministic monthly multiplier (M), a daily multiplier candidate is (M^{1/D}), but only if the original transition is multiplicative and no intra-month interactions alter its inputs. Additive and threshold-based rules require separate derivation.
+
+### 15.3. Calendar and save risks discovered from source
+
+- `core.ts:dateToTick` defaults its epoch to 1836 and only parses year/month; `parseDate` does not strictly validate month/day because day is not represented. New calendar utilities must reject invalid dates explicitly.
+- `GameDate` has no day; `dateStr` always serializes day 01. Historical date records can therefore be more precise than runtime dates.
+- `save.ts` currently stores `savedAt` as YYYY-MM and schema v2 does not separately identify engine version, data build hash or calendar version.
+- Existing RNG is one global xoshiro state. Introducing daily checks changes how often and in what order random draws occur; a naive daily loop breaks continuation determinism even if average probabilities are rescaled.
+- Existing annual metrics are sampled at the January boundary, not after December settlement. Preserve or explicitly change this contract.
+- The current `GameController.fastForward()` yields to the browser every six months. Its interaction with the RAF scheduler should be included in DEV-006 reviewer checks before any concurrent fast-forward usage is enabled; no call site was found in the inspected `App.tsx` or `Setup.tsx` files at this baseline.
+
+### 15.4. Required implementation decomposition after authorization
+
+1. Pure Gregorian calendar helpers and exhaustive round-trip/leap-year tests; no GameState migration.
+2. Versioned cadence scheduler with deterministic boundary tests and no runtime system rewiring.
+3. Monthly-system adapter that proves exact parity against the current `runMonths` baseline over golden seeds.
+4. Daily event/deadline queue with idempotency and stable ordering.
+5. Daily military operations only after formations/fronts/supply contracts and independent review.
+6. Save schema migration with v1/v2 fixtures, rollback and continuation hash comparisons.
+7. Controller/UI scheduler integration and Android p50/p95/thermal/ANR benchmarks.
+8. Owner acceptance and phase gate review before expanding into economy, POP, diplomacy or governance runtime work.
