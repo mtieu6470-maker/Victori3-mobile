@@ -894,3 +894,15 @@ This section records the 2026-11-19 checkpoint and is superseded by the 2026-11-
 - The plan explicitly preserves current facts: GameDate has year/month only, GameState.tick is monthly, GAME_END_YEAR remains 1936, save v1 is month-granularity, and the tested S1-CLK-01 scheduler only controls when a month is advanced.
 - No product/runtime code, tests, data, content/assets, schema, workflow, Gradle, APK or signing changes in this documentation-only slice.
 - Next planned deliverables are the versioned 1836–2026 product requirements draft and a read-only historical data coverage/provenance audit. The S1-CLK-01 authorization does not permit implementing calendar v2, save migration, six-hour ticks, or subsystem changes; a separate explicit owner authorization is still required.
+
+
+## 2026-11-20 — HISTORICAL DATA COVERAGE AUDIT + 1836–2026 PRD DRAFT
+
+- Added docs/design/HISTORICAL_DATA_COVERAGE_AUDIT_1836_2026_DRAFT.md. It distinguishes source metadata period, actual repository extract, ETL integration and runtime use; it records actual coverage ranges, blob SHA evidence, existing S0 global-data quality limits and the concrete post-1913/1920/1948 gaps.
+- Key findings: 181 registry entities (147 playable, 19 future); 65 have open-ended hist_to but this does not prove modern validity; 106 explicit endings before 1937; no registry entry has an explicit end in 2000+. Current map is a 1836 static region baseline.
+- Current profile data has 136 core profiles plus 11 detailed country profiles, chiefly for opening conditions; leader records cover 93 entity keys and observed dates end in 1948. These are not continuous country-year histories.
+- Actual extracts are narrower than source catalogue metadata: COW NMC repo files use 17 observation years through 1914; Maddison GDP/population files end 1913; the COW territorial-transfer file has 414 records 1816–1914; state-membership file has 64 records through 2024; COW wars file has 291 records through 1920; alliance file has 97 records through 1921; current tech file has 38 nodes through 1913.
+- Build-data reads the 1836 registry/region/population opening state, NMC/Maddison inputs, tech list, 1836-active alliances, selected event script, leaders and 71 curated ownership changes ending 1898. It does not read COW state membership, COW territorial transfer, or COW war files. The alliances it reads are filtered to those active at 1836 start. The HistoricalDB historicalOwnerAt helper is explicitly documented as not driving simulation.
+- Added docs/spec/PRODUCT_REQUIREMENTS_1836_2026_DRAFT_V0.1.md as a proposed product requirement baseline for both Stream A and Stream B. It is a draft for owner review, not an authorization to implement.
+- No source code, test, generated data, historical data file, asset, save schema, workflow, Gradle, APK or signing changes in this documentation-only slice.
+- S1-CLK-01 remains the only recorded runtime authorization; calendar v2, save migration, six-hour tasks, historical-data ingestion and all subsystem changes require separate scope authorization. Current campaign remains 1836–1936.
