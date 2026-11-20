@@ -5,7 +5,7 @@
 **Repository:** mtieu6470-maker/Victori3-mobile  
 **Branch snapshot before this documentation commit:** `9a1acf17859f112135d79fa15f7301a4ca55a955`  
 **Status:** DESIGN DRAFT — product requirements only; not implementation authorization  
-**Owner clarification:** install APK first, then choose data downloads in-app; optionally request the entire dataset in one action, with a target estimate of 4–5 GB.
+**Owner clarification:** install APK first, then choose data downloads in-app; optionally request the entire dataset in one action, with an owner-accepted full-download budget of roughly 4–5 GB if the final corpus requires it; the dataset must not be padded just to reach this size.
 
 ---
 
@@ -19,7 +19,7 @@ The delivery model is **APK first, data second**.
 4. The player can download only the required/base data, select packs, or press one button to request the full 1836–2026 data collection (target estimate 4–5 GB).
 5. Once the chosen packs are verified and activated, the game runs offline. Network access is only needed when the player explicitly starts a download or requests a data-version check.
 
-The 4–5 GB figure is an owner-provided planning target, **not a measured release size**. Actual compressed download size and installed size must be measured from final generated assets before the UI displays a definitive size.
+The 4–5 GB figure is an owner-accepted upper planning budget for the complete download, **not a minimum or measured release size**. Do not add artificial files or duplicate data to reach it. Actual compressed download size and installed size must be measured from final generated assets before the UI displays a definitive size; an optimized package below 4–5 GB is preferable.
 
 A single “Download all” action does not require a single 4–5 GB archive. The app may orchestrate several versioned packs/shards while presenting one progress bar and one user-visible job.
 
