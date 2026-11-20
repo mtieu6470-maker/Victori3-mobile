@@ -286,3 +286,16 @@ Next action remains Claude's independent read-only B7 review of the refreshed re
 - No runtime/product tests or builds were run; this was a docs-only consistency pass. No product or workflow scope changed.
 - Claude independent review remains PENDING; no independent REVIEW_PASS is claimed. The repository's open-issue search returned no open issues. The reviewer must read the live manifest and all referenced exact blobs before returning a verdict.
 - Next action: Claude performs read-only B7 review on the live branch HEAD. If review is unavailable, report the blocker; do not use ChatGPT self-review as a substitute. Owner ACCEPTED and S1 authorization remain pending. Overall S0 remains PARTIAL/BLOCKED.
+
+
+---
+
+## Addendum — P0 clock/pacing audit and design-only preparation (2026-11-20)
+
+- Starting HEAD for this slice: `32fac4d5ca30b559308dd3fabd97e126d0d3b841`; design commit: `37b95a0f8da1e819c6012ed3f10011c27b33a554`; blob: `568b58aaec0d45a61f5279adc25bca7860145882`.
+- New document: `docs/spec/SIMULATION_CLOCK_PACING_DESIGN_VI.md`. It records current controller/engine/UI/lifecycle/save evidence, calculated (not benchmarked) rates, the FPS-coupled speed-5 defect, accumulator-loss risk under stalls, staged scheduler proposal, V3 official reference, test/benchmark matrix, save migration risks and acceptance criteria.
+- Key source findings: speed 5 is one monthly step per requestAnimationFrame; speeds 1–4 have nominal 2000/1000/500/220ms per month but remain RAF-gated and can lose elapsed remainder during long stalls. Monthly systems run synchronously on the main JavaScript thread. Visibility/pagehide currently auto-pause and request autosave, but the lifecycle handler cannot await IndexedDB transaction completion; explicit native app-state bridging is not present in MainActivity/package dependencies inspected.
+- Official reference used: Paradox Victoria 3 Dev Diary #76 (22 Feb 2023), six-hour regular tick and yearly/monthly/weekly/daily task cadences. It is used as a system-design reference only, not as an asserted wall-clock rate.
+- No engine, gameplay, UI, save schema, tests, build, workflow, dependencies, data, assets, Gradle, signing or APK changed. No tests/builds run. This is design-only and does not open S1.
+- The B7 manifest is intentionally not expanded with this separate P0 design artifact. Claude independent B7 review and owner acceptance remain pending.
+- Next: finish S0-B7 independent review and owner gate; only after explicit S1 authorization, measure actual Victoria 3 and iQOO pacing at speed 1–5, choose target rates from evidence, and submit CLK-A1 fixed-step scheduler for bounded approval.
