@@ -24,9 +24,9 @@ export type Command =
   | { type: 'set_research'; tech: string }
   | { type: 'improve_relations'; target: string }
   | { type: 'propose_alliance'; target: string }
-  | { type: 'break_alliance'; target: string }
+  | { type: 'break_alliance'; target: string; treatyId?: string }
   | { type: 'propose_defensive_pact'; target: string }
-  | { type: 'break_defensive_pact'; target: string }
+  | { type: 'break_defensive_pact'; target: string; treatyId?: string }
   | { type: 'declare_rival'; target: string }
   | { type: 'guarantee'; target: string }
   | { type: 'join_customs_union'; union: string }
@@ -69,13 +69,13 @@ export function execute(st: GameState, cmd: Command): CommandResult {
     case 'propose_alliance':
       if (!canFormAlliance(st, me.id, cmd.target)) return { ok: false, reason: 'Requires International Relations, Amicable relations, available Alliance capacity and no conflicting treaty' };
       return formAlliance(st, me.id, cmd.target) ? { ok: true } : { ok: false, reason: 'Alliance proposal refused' };
-    case 'break_alliance': return breakAlliance(st, me.id, cmd.target)
+    case 'break_alliance': return breakAlliance(st, me.id, cmd.target, cmd.treatyId)
       ? { ok: true }
       : { ok: false, reason: 'No active Alliance with this country' };
     case 'propose_defensive_pact':
       if (!canFormDefensivePact(st, me.id, cmd.target)) return { ok: false, reason: 'Requires International Relations, Cordial relations and no conflicting military treaty' };
       return formDefensivePact(st, me.id, cmd.target) ? { ok: true } : { ok: false, reason: 'Defensive Pact proposal refused' };
-    case 'break_defensive_pact': return breakDefensivePact(st, me.id, cmd.target)
+    case 'break_defensive_pact': return breakDefensivePact(st, me.id, cmd.target, cmd.treatyId)
       ? { ok: true }
       : { ok: false, reason: 'No active Defensive Pact with this country' };
     case 'declare_rival': declareRivalry(st, me.id, cmd.target); return { ok: true };

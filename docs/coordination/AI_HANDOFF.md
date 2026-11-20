@@ -1103,3 +1103,14 @@ This is a later, explicit owner authorization to begin product implementation on
 - **Device QA:** NOT_TESTED. APK installation, launch, save/load, thermal/memory and gameplay QA on a physical Android device remain outstanding.
 - **Review/acceptance:** implementer self-check only; independent Claude review PENDING; owner acceptance PENDING. Do not label task complete or subsystem parity PASS.
 - **Next:** deliver this APK for owner device verification; then prepare a focused review packet for Claude against exact source SHA `77d1ecc...`. After device feedback/review, continue the next authorized diplomacy gap; do not broaden into unrelated subsystems.
+
+
+## 2026-11-20 — DIPLOMACY EXACT-TREATY WITHDRAWAL SLICE (CI PENDING)
+
+- **Task:** `DIPLOMACY-ALLIANCE-TECH-01`; base HEAD `46cc2c7e93e2280f30d6742c7d82abaa4248e423`; branch `experiment/vic3-visual-upgrade`.
+- **Finding:** multiple historical bilateral agreements can exist for the same pair and treaty type (for example overlapping CoW source pacts). The previous `breakDefensivePact(st, a, b)` removed every same-type treaty for that pair, so the player could unintentionally destroy independent source agreements with one action. The same broad removal existed for Alliances.
+- **Change:** `breakAlliance` and `breakDefensivePact` accept an optional exact `treatyId`. UI treaty rows now offer one withdrawal action per active bilateral agreement and pass its stable ID; commands validate the ID against the selected pair/type. Existing scripted commands without an ID retain the legacy whole-pair withdrawal behavior for compatibility.
+- **Regression tests added:** withdrawing from one of two overlapping Defensive Pacts leaves the other agreement and its NAP term active; a treaty ID from a different pair is rejected without mutation.
+- **Changed files:** `src/engine/systems/diplomacy.ts`, `src/engine/commands.ts`, `src/ui/screens/Diplomacy.tsx`, `tests/diplomacy.test.ts`, this handoff and the diplomacy report.
+- **Validation:** pending exact-source CI; no PASS claimed. Physical-device QA, independent Claude review and owner acceptance remain pending.
+- **Next:** inspect exact CI/test result; if green, verify APK and review UI presentation for duplicate treaty rows. Then handle the next diplomacy-specific invariant without changing unrelated systems.

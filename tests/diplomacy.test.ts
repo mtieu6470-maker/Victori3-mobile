@@ -182,6 +182,52 @@ describe('Victoria 3-style bilateral alliance capacity', () => {
     expect(rows.every((treaty) => treaty.type === 'defensive_pact')).toBe(true);
   });
 
+  it('withdraws from one overlapping Defensive Pact by treaty ID without deleting the other source agreement', () => {
+    const state = fresh('historical', 194, 'GBR');
+    clearAllianceFixture(state);
+    const [a, b] = eligibleCountries(state);
+    state.treaties.push(
+      {
+        id: 'source-defensive-pact-one',
+        type: 'defensive_pact',
+        members: [a.id, b.id],
+        start: 0,
+        source: 'cow_ally_1',
+        terms: { nonaggression: true },
+      },
+      {
+        id: 'source-defensive-pact-two',
+        type: 'defensive_pact',
+        members: [a.id, b.id],
+        start: 0,
+        source: 'cow_ally_19',
+      },
+    );
+
+    expect(hasNonAggressionPact(state, a.id, b.id)).toBe(true);
+    expect(breakDefensivePact(state, a.id, b.id, 'source-defensive-pact-two')).toBe(true);
+    expect(state.treaties.map((t) => t.id)).toContain('source-defensive-pact-one');
+    expect(state.treaties.map((t) => t.id)).not.toContain('source-defensive-pact-two');
+    expect(hasNonAggressionPact(state, a.id, b.id)).toBe(true);
+
+    expect(breakDefensivePact(state, a.id, b.id, 'source-defensive-pact-one')).toBe(true);
+    expect(hasNonAggressionPact(state, a.id, b.id)).toBe(false);
+  });
+
+  it('does not withdraw from a treaty when the supplied ID belongs to another pair', () => {
+    const state = fresh('historical', 195, 'GBR');
+    clearAllianceFixture(state);
+    const [a, b, c] = eligibleCountries(state);
+    state.treaties.push({
+      id: 'other-pair-defensive-pact',
+      type: 'defensive_pact',
+      members: [a.id, c.id],
+      start: 0,
+    });
+    expect(breakDefensivePact(state, a.id, b.id, 'other-pair-defensive-pact')).toBe(false);
+    expect(state.treaties.some((t) => t.id === 'other-pair-defensive-pact')).toBe(true);
+  });
+
   it('rehydrates old semicolon-collapsed source IDs without merging independent agreements', () => {
     const state = fresh('historical', 191, 'GBR');
     state.treaties = state.treaties.filter((treaty) =>

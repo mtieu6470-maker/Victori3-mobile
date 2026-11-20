@@ -180,3 +180,12 @@ The correct next action is redesign/fix the treaty taxonomy and AI test behavior
 - **Signing scope:** debug build signed with the default Android Debug certificate; no release signing, keystore, secret or package identity changes.
 - **Device and review:** physical Android installation/QA NOT_TESTED; independent Claude review PENDING; owner acceptance PENDING. CI PASS does not mean the diplomacy subsystem is complete or accepted.
 - **Status superseding §8/§10 validation:** source/data/web build PASS, full automated tests PASS, debug APK build PASS on `77d1ecc`; device QA NOT_TESTED; independent review PENDING; owner acceptance PENDING; feature parity NOT_COMPLETE.
+
+
+## 12. Exact bilateral treaty withdrawal for overlapping historical agreements (20/11/2026)
+
+- **Problem:** source identity is preserved as `source agreement + bilateral pair`, but the previous pair-only withdrawal functions removed every active treaty of the same type for that pair. This contradicted the source-preservation invariant when two independent Defensive Pacts (or Alliances) overlap between the same countries.
+- **Implementation:** `breakAlliance` and `breakDefensivePact` now accept an optional exact treaty ID. The UI renders one withdrawal action per active bilateral treaty row and passes that ID through the command API. The engine removes only the matching ID when supplied and validates that the record is the requested type and country pair. Existing scripted commands without an ID retain whole-pair withdrawal behavior for compatibility.
+- **Regression coverage:** two overlapping Defensive Pact records are seeded for one pair; withdrawing from the second leaves the first and its Non-Aggression term intact; a second explicit withdrawal removes the remaining pact. A foreign treaty ID belonging to another pair is rejected without mutation.
+- **Validation:** CI pending on the exact resulting commit. Do not claim the change is validated until GitHub Actions confirms.
+- **Scope note:** this slice fixes withdrawal granularity only. Treaty duration, early-withdrawal penalties/truces, ratification, bundled articles, influence/upkeep, and full guarantee/entente/neutrality lifecycle remain incomplete.

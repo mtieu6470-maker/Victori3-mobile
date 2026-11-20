@@ -142,9 +142,14 @@ export function formAlliance(st: GameState, a: string, b: string): boolean {
   log(st, { type: 'diplomacy', text: `${st.countries[a].name} and ${st.countries[b].name} form an alliance.`, textVi: `${st.countries[a].nameVi} và ${st.countries[b].nameVi} lập liên minh.`, actors: [a, b] });
   return true;
 }
-export function breakAlliance(st: GameState, a: string, b: string): boolean {
+export function breakAlliance(st: GameState, a: string, b: string, treatyId?: string): boolean {
   const before = st.treaties.length;
-  st.treaties = st.treaties.filter((t) => !(t.type === 'alliance' && t.members.length === 2 && t.members.includes(a) && t.members.includes(b)));
+  st.treaties = st.treaties.filter((t) => {
+    if (t.type !== 'alliance' || t.members.length !== 2 || !t.members.includes(a) || !t.members.includes(b)) return true;
+    // UI callers pass a stable treaty ID to withdraw from exactly one source agreement.
+    // Legacy scripted callers may omit it to withdraw from the entire bilateral relation.
+    return treatyId ? t.id !== treatyId : false;
+  });
   if (st.treaties.length === before) return false;
   addRel(st, a, b, -20);
   return true;
@@ -163,9 +168,14 @@ export function formDefensivePact(st: GameState, a: string, b: string): boolean 
   return true;
 }
 
-export function breakDefensivePact(st: GameState, a: string, b: string): boolean {
+export function breakDefensivePact(st: GameState, a: string, b: string, treatyId?: string): boolean {
   const before = st.treaties.length;
-  st.treaties = st.treaties.filter((t) => !(t.type === 'defensive_pact' && t.members.length === 2 && t.members.includes(a) && t.members.includes(b)));
+  st.treaties = st.treaties.filter((t) => {
+    if (t.type !== 'defensive_pact' || t.members.length !== 2 || !t.members.includes(a) || !t.members.includes(b)) return true;
+    // Preserve overlapping agreements when the player selects one treaty row.
+    // Legacy scripted callers may omit the ID to withdraw from all bilateral pacts.
+    return treatyId ? t.id !== treatyId : false;
+  });
   if (st.treaties.length === before) return false;
   addRel(st, a, b, -15);
   return true;
