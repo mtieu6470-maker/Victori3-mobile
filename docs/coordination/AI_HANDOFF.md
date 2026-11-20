@@ -968,3 +968,28 @@ This is a later, explicit owner authorization to begin product implementation on
 - `get_commit_combined_status` returned an empty status list for the implementation commit `d740e290d29f0e3d20f58361c95456ef12415d06`, test commit `f20580456c36238363b2780dc52dd4f26a70e711`, and handoff HEAD `07d3296023c6fd91b47b45758b97a44ee3b8e7a2`.
 - The connected workflow-run reader returned no runs for the implementation and test commits. Its documented wrapper only returns pull-request-triggered runs, whereas this repository's Android APK workflow is push-triggered on all branches. This is an API coverage limitation, not proof that no push workflow exists.
 - Therefore exact-SHA Actions execution is still `UNKNOWN / NOT_VERIFIED`. No test/build PASS is claimed.
+
+
+## 2026-11-20 — ECONOMY-INVENTORY-LEDGER-03 / NON-CONVERGENCE SAFETY
+
+- **Verified starting HEAD:** `f7c58b36bd6a4af6f12b8d51ee92ac2f447b09bd`.
+- **Latest code/test commits:**
+  - `7fb01d5b559e5505c33935f10bab1b1e68b423ca` — calculate the undamped fixed-point residual and fail closed if the solver does not converge within its iteration budget.
+  - `721f89592d0d35a4f732c24119b9b5cc7d765dd8` — add the fallback policy to the diagnostic type.
+  - `f8f039abec28bc871fd38875f6d1c215899dc975` — persist the applied fallback in `GameState.marketClearing`.
+  - `3ee18675b3a1f81e355a25c63e6fef530e8d28a5` — add a two-market cyclic input/output test and assert that iteration-cap non-convergence shuts down recipe production rather than returning its partial factor.
+  - `44ffb85884a7e0114586798ccced55a9f92e95ef` — assert converged cases do not invoke fallback.
+  - `f35593267e88ab73c2b18048e72b25283c9d4cc9` — update the implementation report.
+- **Files changed:** `src/engine/systems/economy.ts`, `src/engine/types.ts`, `tests/inventory.test.ts`, `docs/design/INVENTORY_LEDGER_IMPLEMENTATION_01.md`; this handoff update follows.
+- **Convergence correction:** the solver now measures the undamped residual `|target - current|`, then recalculates and verifies the residual against the final returned market projection. The relaxation step is no longer used as a proxy for convergence.
+- **Fallback:** when the iteration cap is exhausted or the final residual fails tolerance, all recipe-factory fulfillment factors are set to zero, and final supply/demand/shortage projections are recalculated from the non-recipe baseline. This prevents unsupported factory output/input from being journaled. The rest of the non-recipe economy and inventory settlement still advance.
+- **Diagnostics:** `FactoryMarketSolution.appliedFallback` and optional `GameState.marketClearing.appliedFallback` record `none` or `zero-recipe-production`; `converged=false` and the pre-fallback residual remain visible in state. Legacy saves without `marketClearing` remain supported because the diagnostic object is optional.
+- **Adversarial test:** added a symmetric cyclic two-market case where A's grain factory uses tools from B and B's tools factory uses grain from A. Expected fixed point is approximately 0.70 fulfillment in both markets; the test asserts convergence, both factors and shortage ratios.
+- **Test count:** 15 in `tests/inventory.test.ts`: 5 solver tests (including cyclic cross-market, stockpile transfer, cap/fallback and invalid inputs), 2 factory flow tests, 5 standalone inventory tests and 3 simulation/save integration tests.
+- **Formula-only spot checks:** single-market fixture converges in 16 iterations with final residual approximately `3.66e-6`; cyclic two-market fixture converges in 24 iterations with final residual approximately `5.78e-6`. These calculations independently check the iteration equations; they are **not** Vitest results or an execution of the repository source.
+- **Test/typecheck/build verdict:** `NOT_TESTED`. No source test command or TypeScript compiler run completed in this session.
+- **CI/Actions:** `NOT_VERIFIED`. The connected GitHub combined-status endpoint returns no check objects, and the available workflow-run wrapper only exposes pull-request-triggered runs, not this repository's push-triggered Android APK workflow. Public web search also returned no indexed run for the target SHA. This does not establish that Actions did not run; the run state is unavailable through the current interfaces.
+- **Device/performance:** `NOT_TESTED`; no APK, Android install, memory/CPU/thermal profile or target-device market-clearing benchmark.
+- **Fallback limitation:** the fallback is global for that monthly clearing. A pathological market can suspend recipe production in otherwise healthy markets for one month. This is deliberately conservative but may be disruptive; market-component-specific failure isolation and a player-facing notification remain future work.
+- **Next exact action:** obtain direct Actions run evidence and run the 15 tests/typecheck/Android build at the exact branch HEAD. If they pass, benchmark representative world-size monthly clearing and then isolate convergence/fallback by connected trade-market component before adding regional warehouses, firm ownership and physical route capacity.
+
