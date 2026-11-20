@@ -198,3 +198,11 @@ Re-fetch the exact live branch HEAD and these files before review. The review ta
 ## 20. Owner delegation of execution discretion — 2026-11-20
 
 The owner has now instructed ChatGPT to use full technical discretion to decide and carry out the project work without waiting on schedule/time constraints. This is an implementation-role delegation, not evidence that an independent reviewer has inspected B7. It does not change the bounded verdict requirements, waive S0 gate evidence or silently authorize S1. The owner-requested product scope remains 1836–2026 combined with the simulation-clock and systemic-depth workstreams. See the current handoff for the exact live phase status.
+
+
+## 21. Live structure check and refreshed contemporary 2026 calibration — context only
+
+- Added a later source-verified contemporary calibration subsection to `docs/design/TECHNOLOGY_AND_INSTITUTIONS_1836_2026_DRAFT.md`. It uses the latest complete observation year available in each official publication (including 2024 robot installations and 2025 military expenditure) and explicitly does not mislabel them as full-year 2026 observations.
+- The new research references are the IEA Energy Technology Perspectives 2026, ITU Facts and Figures 2025, Stanford HAI AI Index 2026 and SIPRI 2025 military-expenditure fact sheet / Yearbook 2026.
+- A fresh ChatGPT structural self-audit of the current Risk Register and Traceability Matrix found P0 1×6, P1 13×6, P2 22×6, P3 5×3 and Closed 1×3; 48 unique mappings; no blank cells or unresolved risk IDs. See `S0_B7_SELF_REVIEW.md` §16.
+- All S0/S1 gate statuses remain unchanged. This source/design/context material is not a B7 reviewer verdict or implementation authorization.
