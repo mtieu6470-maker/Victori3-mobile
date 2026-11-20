@@ -859,6 +859,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     maxIterations: MAX_FACTORY_MARKET_ITERATIONS,
     converged: clearing.converged,
     residual: clearing.residual,
+    appliedFallback: clearing.appliedFallback,
   };
 
   const realizedFactoryOutputs: Partial<Record<Good, number>>[] = new Array(calc.length);
