@@ -50,6 +50,18 @@ describe('Gregorian monthly clock', () => {
     expect(pacer.pendingDays).toBeCloseTo(5, 10);
   });
 
+  it('produces the same progress for equal elapsed time at 30/60/90/120 Hz polling rates', () => {
+    const results = [30, 60, 90, 120].map((hz) => {
+      const pacer = new SimulationPacer();
+      pacer.resume(0);
+      const samples = hz * 10; // ten real seconds at the selected polling frequency
+      for (let i = 1; i <= samples; i++) pacer.advance((i * 1000) / hz, 5);
+      return pacer.pendingDays;
+    });
+
+    for (const progress of results) expect(progress).toBeCloseTo(5, 8);
+  });
+
   it('requires at least 62 seconds for a 31-day month at Speed 5', () => {
     const pacer = new SimulationPacer();
     pacer.resume(0);
