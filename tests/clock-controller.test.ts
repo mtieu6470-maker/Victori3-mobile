@@ -115,7 +115,7 @@ describe('GameController clock integration', () => {
     expect(state.tick).toBe(1);
 
     controller.setPaused(false);
-    pulseFor(61_950);
+    pulseFor(55_950); // February 2026 has 28 days
     expect(state.tick).toBe(1);
     pulseFor(50);
     expect(state.tick).toBe(2);
