@@ -777,3 +777,13 @@ This section records the 2026-11-19 checkpoint and is superseded by the 2026-11-
 - Clarified target stages and evidence-based exit criteria against v3.2 S3/S4/S5/S6/S11/S17/S19/S20/S21 and the B3 source reports. No numeric performance threshold or historical-data completeness threshold was invented; those require stage-specific approval/evidence.
 - Preserved R7 OPEN P0, R14 BLOCKED, R1/R13 OPEN/deferred, CI-F4 CLOSED (narrow), DEP-F1 OPEN P1 / UNRECONCILED, G0.7 BLOCKED, G0.8 PARTIAL, G0.9 BLOCKED, overall S0 PARTIAL and S1 NOT AUTHORIZED.
 - Documentation-only. No product source, test, dependency, workflow, save, data, asset, Gradle, signing, APK or device changes; no runtime test/build performed. This is ChatGPT self-audit only; Claude independent review and owner decision remain pending.
+
+
+### 2026-11-20 — B7-EXACT-HEAD-RUN-324-AND-R1-REVALIDATION
+
+- Live experiment branch HEAD verified as `31f1617ed838110296fd68edfd90c7e3e3b8d0a7`; Android Actions Run #324 (`44677523059`) completed SUCCESS on that exact SHA; job `136092798809`.
+- `npm ci`, data/map/web build, generated asset hashing, Vitest, Capacitor sync, Android asset hashing and `./gradlew assembleDebug --no-daemon` succeeded. Test report: 38/38 suites, 97/97 tests, zero failures/pending, `report_valid=true`; Gradle BUILD SUCCESSFUL.
+- APK artifact `14603730370`: 17,569,417-byte ZIP, SHA-256 `4a2800bcab95fd0d92ab6f7bbe93111fa7059b1d82a2a340f3a3ac892a34cfd1`; local digest matched GitHub. APK file 18,057,538 bytes, SHA-256 `d64bdf78726d991f1bb3c867200f360e2fc563bc0332282cf75cbe7d9734d285`. Evidence artifact `14603825259`: 106,638 bytes, SHA-256 `3a53e96540faa10585b893dd9cc7ea6a071ccb65c6a1accfa94bbf73f447c16b`; local digest matched GitHub. APK signing verified (V1/V2), certificate SHA-256 `84bb348722b660bb36805f3928f73d64401d313a8627168796b6068a2ee1d146`.
+- Re-downloaded Run #322 APK/evidence artifacts and verified their ZIP/APK checksums. Run #322 cert SHA-256 is `559d549a21515f899b6195c65114b2be778ff2fbd63288d21ef31f4365b96238`. GitHub compare `68fee316..31f1617` shows 17 intervening commits and documentation-only changed paths; the different debug certificate fingerprints directly reinforce R1. R1 remains OPEN; R14 remains BLOCKED; no installation/signing action was taken.
+- Tightened AS-F1 target/closure to S5, requiring live source checks for all 492 images and UI attribution verification. No severity or gate status changed.
+- No product/source/dependency/workflow/save/data/asset/Gradle/signing change. No device QA. This is implementer self-review only; Claude review and owner acceptance remain pending.
