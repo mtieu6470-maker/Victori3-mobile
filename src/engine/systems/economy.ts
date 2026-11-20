@@ -206,6 +206,33 @@ export function factoryInputFulfillment(
   return clamp(fulfilled, 0, 1);
 }
 
+export interface RealizedFactoryFlow {
+  fulfillment: number;
+  outputs: Partial<Record<Good, number>>;
+  inputs: Partial<Record<Good, number>>;
+}
+
+/** Scale a factory's physical outputs and every recipe input by the same bottleneck factor. */
+export function realizeFactoryFlow(
+  flow: { outputs: Partial<Record<Good, number>>; inputs: Partial<Record<Good, number>> },
+  shortages: Partial<Record<Good, number>>,
+): RealizedFactoryFlow {
+  const fulfillment = factoryInputFulfillment(flow.inputs, shortages);
+  const scale = (amounts: Partial<Record<Good, number>>) => {
+    const result: Partial<Record<Good, number>> = {};
+    for (const good of GOODS) {
+      const amount = amounts[good] ?? 0;
+      if (Number.isFinite(amount) && amount > 0) result[good] = amount * fulfillment;
+    }
+    return result;
+  };
+  return {
+    fulfillment,
+    outputs: scale(flow.outputs),
+    inputs: scale(flow.inputs),
+  };
+}
+
 const POP_WAGE_MULTIPLIER = [0.72, 0.2, 0.86, 0.94, 1.08, 1.32, 1.02, 0, 0];
 const POP_OWNER_MULTIPLIER = [0, 0, 0, 0, 0, 0, 0, 1.15, 1.8];
 const POP_NEEDS_MULTIPLIER = [0.86, 1.3, 0.96, 1.02, 1, 1.22, 1.08, 1.42, 1.62];
@@ -565,11 +592,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     }
     marketExportCapacity[id] = exportCapacity;
   }
-  for (const g of GOODS) {
-    const ws = world[g];
-    const target = clamp(Math.pow((ws.deficit + 1) / (ws.surplus + 1), 0.25), 0.6, 2.2);
-    st.worldPrices[g] = st.worldPrices[g] * 0.8 + target * 0.2;
-  }
+  // Final world prices are recalibrated after factory input constraints are applied below.
   const marketShort: Record<string, Record<Good, number>> = {};
   const marketImports: Record<string, number> = {};
   const inventoryMarkets: Record<string, Partial<Record<Good, ReturnType<typeof settleInventoryFlow>>>> = {};
@@ -601,7 +624,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
       const availableAnnual = Math.max(0, (openingStock + flow.production + flow.imports - flow.exports) * 12);
       const local = clamp(Math.pow((m.dm[g] + 1) / (availableAnnual + 1), 0.5), 0.45, 3);
       const target = (1 - m.open) * local + m.open * st.worldPrices[g];
-      prices[g] = calibrate ? target : prices[g] * 0.7 + target * 0.3;
+      // This first clearing is only a factory-input availability probe; final prices are posted after realization.
       // MarketStats remains annualized for existing UI compatibility; inventory journal is monthly.
       stats[g] = { supply: m.s[g], demand: m.dm[g], imports, short: short[g] };
       marketJournal[g] = flow;
@@ -609,6 +632,131 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     inventoryMarkets[id] = marketJournal;
     marketShort[id] = short; marketImports[id] = importsValue;
   }
+
+  // The first clearing is a deterministic availability probe. Factories must not create
+  // their planned output when one of their physical inputs is unavailable. Scale every
+  // recipe input and its corresponding output by the same bottleneck fulfillment factor.
+  const realizedFactoryOutputs: Partial<Record<Good, number>>[] = new Array(calc.length);
+  const realizedFactoryInputs: Partial<Record<Good, number>>[] = new Array(calc.length);
+  const realizedFactoryFulfillment: Partial<Record<Building, number>>[] = new Array(calc.length);
+  for (let i = 0; i < st.regions.length; i++) {
+    const region = st.regions[i];
+    const country = st.countries[region.owner];
+    const regional = calc[i];
+    if (!country || !regional) continue;
+    const marketId = marketOf(st, country);
+    const market = markets[marketId];
+    const shortageProbe = marketShort[marketId] ?? zero();
+    const outputs: Partial<Record<Good, number>> = {};
+    const inputs: Partial<Record<Good, number>> = {};
+    const fulfillments: Partial<Record<Building, number>> = {};
+    if (!market) continue;
+
+    for (const building of Object.keys(RECIPES) as Building[]) {
+      const flow = regional.buildingFlows[building];
+      if (!flow) continue;
+      const realized = realizeFactoryFlow(flow, shortageProbe);
+      fulfillments[building] = realized.fulfillment;
+
+      for (const [good, planned] of Object.entries(flow.outputs) as [Good, number][]) {
+        const actual = realized.outputs[good] ?? 0;
+        outputs[good] = (outputs[good] ?? 0) + actual;
+        market.s[good] += actual - planned;
+      }
+      for (const [good, planned] of Object.entries(flow.inputs) as [Good, number][]) {
+        const actual = realized.inputs[good] ?? 0;
+        inputs[good] = (inputs[good] ?? 0) + actual;
+        market.dm[good] += actual - planned;
+      }
+    }
+    realizedFactoryOutputs[i] = outputs;
+    realizedFactoryInputs[i] = inputs;
+    realizedFactoryFulfillment[i] = fulfillments;
+  }
+
+  // Re-run the physical settlement against realized factory flows. Aggregate imports and
+  // exports are paired globally, while the local balances retain their own stock and shortage.
+  const realizedWorld: Record<Good, { surplus: number; deficit: number }> =
+    Object.fromEntries(GOODS.map((good) => [good, { surplus: 0, deficit: 0 }])) as any;
+  const realizedExportCapacity: Record<string, Record<Good, number>> = {};
+  for (const marketId of mIds) {
+    const market = markets[marketId];
+    const capacity = zero();
+    for (const good of GOODS) {
+      const openingStock = inventoryLedger.balances[marketId]?.[good] ?? 0;
+      const surplus = Math.max(0, market.s[good] - market.dm[good]);
+      const deficit = Math.max(0, market.dm[good] - market.s[good] - openingStock * 12);
+      realizedWorld[good].surplus += surplus * market.open;
+      realizedWorld[good].deficit += deficit * market.open;
+      capacity[good] = surplus * market.open;
+    }
+    realizedExportCapacity[marketId] = capacity;
+  }
+  for (const good of GOODS) {
+    const total = realizedWorld[good];
+    const target = clamp(Math.pow((total.deficit + 1) / (total.surplus + 1), 0.25), 0.6, 2.2);
+    st.worldPrices[good] = st.worldPrices[good] * 0.8 + target * 0.2;
+  }
+
+  for (const marketId of mIds) {
+    const market = markets[marketId];
+    const prices = (st.marketPrices[marketId] ??= { ...st.worldPrices });
+    const shortage = zero();
+    let importsValue = 0;
+    const stats = ((st.marketStats ??= {})[marketId] = {} as Record<Good, MarketGoodStats>);
+    const journal: Partial<Record<Good, ReturnType<typeof settleInventoryFlow>>> = {};
+
+    for (const good of GOODS) {
+      const worldFlow = realizedWorld[good];
+      const openingStock = inventoryLedger.balances[marketId]?.[good] ?? 0;
+      const deficit = Math.max(0, market.dm[good] - market.s[good] - openingStock * 12);
+      const importRatio = worldFlow.deficit > 0
+        ? clamp(worldFlow.surplus / worldFlow.deficit, 0, 1)
+        : 1;
+      const imports = deficit * market.open * importRatio;
+      const totalWorldImports = Math.min(worldFlow.surplus, worldFlow.deficit);
+      const exportCapacity = realizedExportCapacity[marketId][good];
+      const exports = worldFlow.surplus > 0
+        ? totalWorldImports * exportCapacity / worldFlow.surplus
+        : 0;
+      const flow = settleInventoryFlow({
+        openingStock,
+        production: market.s[good] / 12,
+        imports: imports / 12,
+        exports: exports / 12,
+        demand: market.dm[good] / 12,
+      });
+
+      importsValue += imports * st.worldPrices[good];
+      shortage[good] = flow.demand > 0
+        ? clamp(flow.unmetDemand / flow.demand, 0, 1)
+        : 0;
+
+      const availableAnnual = Math.max(
+        0,
+        (openingStock + flow.production + flow.imports - flow.exports) * 12,
+      );
+      const local = clamp(
+        Math.pow((market.dm[good] + 1) / (availableAnnual + 1), 0.5),
+        0.45,
+        3,
+      );
+      const target = (1 - market.open) * local + market.open * st.worldPrices[good];
+      prices[good] = calibrate ? target : prices[good] * 0.7 + target * 0.3;
+      stats[good] = {
+        supply: market.s[good],
+        demand: market.dm[good],
+        imports,
+        short: shortage[good],
+      };
+      journal[good] = flow;
+    }
+
+    marketShort[marketId] = shortage;
+    marketImports[marketId] = importsValue;
+    inventoryMarkets[marketId] = journal;
+  }
+
   // The starting 1836 calibration pass is not a simulated month. Begin recording only
   // after the first logical month has actually advanced; repeated same-tick posting is rejected.
   if (!calibrate && st.tick > 0) {
@@ -625,17 +773,12 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     let value = k.services * Math.pow(c.productivity, 0.5);
     const factoryInputsUsed = zero();
     for (const g of GOODS) {
-      let out = k.supply[g] - k.factoryOut[g];
-      // Limit each factory output only by the goods in its own recipe.
-      if (k.factoryOut[g] > 0) {
-        const recipeInputs = k.factoryInputs[g] ?? {};
-        const fulfilled = factoryInputFulfillment(recipeInputs, short);
-        out += k.factoryOut[g] * fulfilled;
-        for (const input of GOODS) {
-          factoryInputsUsed[input] += (recipeInputs[input] ?? 0) * fulfilled;
-        }
+      const nonFactoryOutput = k.supply[g] - k.factoryOut[g];
+      const realizedOutput = realizedFactoryOutputs[i]?.[g] ?? 0;
+      for (const input of GOODS) {
+        factoryInputsUsed[input] += realizedFactoryInputs[i]?.[input] ?? 0;
       }
-      value += out * p[g] * Av;
+      value += (nonFactoryOutput + realizedOutput) * p[g] * Av;
     }
     // Charge factories for inputs actually consumed by the output they can produce.
     for (const g of GOODS) value -= factoryInputsUsed[g] * p[g] * Av;
@@ -683,7 +826,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
         if (!flow || staffed <= 0) continue;
 
         const fulfillment = RECIPES[building]
-          ? factoryInputFulfillment(flow.inputs, short)
+          ? (realizedFactoryFulfillment[i]?.[building] ?? 1)
           : 1;
         let revenue = 0;
         let inputCost = 0;
