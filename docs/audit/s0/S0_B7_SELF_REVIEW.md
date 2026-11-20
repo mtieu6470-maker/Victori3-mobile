@@ -209,3 +209,26 @@ The follow-up found no missing owner column or missing mitigation/disposition fi
 - Cross-checked R13 against v3.2 §4.1.2–4.1.5. The Risk Register now makes clear that Environment protection, the manual-only signing workflow, job separation, secret isolation, SHA pinning, least privilege and key cleanup are proposed future controls, not controls already in place. B2/C3 remains blocked until R14 and owner-controlled setup.
 - Cross-checked GD-F2 against v3.2 stages: S3 geographic validity, S6 population, S7/S13 economic quantities and S16 ruler/character records. Exit evidence is field-specific and preserves units, method, provenance, uncertainty, conflicts and missing counts across regions/polity types.
 - No severity, owner decision, gate, workflow, product code or phase authorization changed. Self-review only.
+
+
+## 16. Live B7 structure and status recheck after 1836–2026 scope work — ChatGPT self-audit (2026-11-20)
+
+**Base HEAD for this check:** `90c574048fe62b0a2d6267fde071d2a77a424d1f`  
+**Branch:** `experiment/vic3-visual-upgrade`
+
+A fresh read of the live Risk Register, Traceability Matrix, Signoff and Handoff was parsed from GitHub. Results:
+
+| Check | Current result | Boundary |
+|---|---|---|
+| P0 table | 1 data row, six columns, no blank cells | Structural only |
+| P1 table | 13 data rows, six columns, no blank cells | Includes 12 P1 risk rows and the separately identified G0.7 device-evidence gate row |
+| P2 table | 22 data rows, six columns, no blank cells | Structural only |
+| P3 table | 5 grouped data rows, three columns, no blank cells | Structural only |
+| Closed table | 1 data row, three columns, no blank cells | R3 remains the sole closed original roadmap risk |
+| Traceability matrix | 48 source/gate mappings, 48 unique IDs, zero duplicates | Includes G0.7 device evidence as a gate row; all mapped original/B3/B7 risk IDs have a register target |
+| Gate consistency | Overall S0 PARTIAL; G0.7 BLOCKED; G0.8 PARTIAL; full-S0 G0.9 BLOCKED | Preserved |
+| Transition state | Bounded S1-entry NOT_TESTED; S1 NOT AUTHORIZED; B7 IN_PROGRESS | Preserved |
+
+The owner-requested 1836–2026 scope and preliminary technology/institutions design remain design-only records. They do not alter the frozen 1836–1936 MASTER_SPEC_VI audit source and do not change the S0 risks, gate verdicts, exceptions or phase authorization.
+
+This was a ChatGPT implementer self-audit of live GitHub Markdown content. It is not an independent reviewer verdict, not a runtime or Gradle test, not an Android device test, and not owner acceptance. No risk was closed; no severity, gate or phase status changed; no product code/data/save/assets/workflow/signing file was modified by this check.
