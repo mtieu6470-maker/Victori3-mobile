@@ -41,6 +41,26 @@ export interface AIMemory {
 
 export interface Reform { group: LawGroup; value: string; progress: number; startedTick: number }
 
+
+export type PoliticalPartyId = 'traditionalist' | 'liberal' | 'socialist' | 'clerical' | 'agrarian' | 'militarist';
+export interface PoliticalParty {
+  id: PoliticalPartyId;
+  /** Clout-weighted ideological support proxy, normalized to 0..1. */
+  support: number;
+  seats: number;
+}
+export interface PoliticalState {
+  electionEligible: boolean;
+  parties: PoliticalParty[];
+  /** Calendar step for the next scheduled election, null when unavailable/outside campaign. */
+  nextElectionStep: number | null;
+  lastElectionStep: number | null;
+  turnout: number;
+  governingParty: PoliticalPartyId | null;
+  coalition: PoliticalPartyId[];
+  mandateSupport: number;
+}
+
 export interface ConstructionProject {
   id: string; region: string; building: Building; cost: number; progress: number; queuedAt: number;
 }
@@ -54,6 +74,8 @@ export interface Country {
   leader: Leader; heir: { name: string; born: number | null; female: boolean } | null;
   legitimacy: number; radicalism: number; // 0..1 share of population radical
   igs: Record<IG, { clout: number; approval: number }>;
+  /** Parliamentary party and election state, absent in legacy saves until politics is initialized. */
+  politics?: PoliticalState;
   treasury: number; debt: number; taxRate: number; budget: Budget;
   constructionQueue: ConstructionProject[];
   gdp: number; gdpHistory?: number; income: number; expense: number; tariffIncome: number; productivity: number;
