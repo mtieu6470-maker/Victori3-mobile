@@ -178,3 +178,18 @@ Verify the latest `S0_RISK_REGISTER.md` renders CI-F4 as part of the six-column 
 ## 13. R13 / GD-F2 roadmap alignment check
 
 Independently compare the revised R13 closure criteria with v3.2 §4.1.2–4.1.5. Verify that every future security control is labelled NOT IMPLEMENTED until evidenced, and that B2/C3 remains BLOCKED pending R14 and owner setup. Check GD-F2 target allocation against v3.2 S3/S6/S7/S13/S16, and assess whether the field-specific provenance/coverage exit criteria are measurable without treating estimated or missing facts as verified. Do not create an Environment, secrets, workflow or data records.
+
+
+## 19. Subsequent owner-requested 1836–2026 product-scope documents — context only
+
+After the original B7 package was prepared, the owner requested a product-scope expansion from 1836–1936 to 1836–2026 and asked that it be combined with the existing simulation-pacing, economic, political/institutional, diplomatic and military-depth work.
+
+The following documents were added on the experiment branch after the package's previous snapshot:
+
+- `docs/roadmap/OWNER_SCOPE_AMENDMENT_1836_2026_SYSTEM_DEPTH.md` — owner-requested combined product scope and planning order.
+- `docs/design/TECHNOLOGY_AND_INSTITUTIONS_1836_2026_DRAFT.md` — preliminary technology, institutions, military modernization and data-contract design.
+- `docs/coordination/AI_HANDOFF.md` — current handoff and change record.
+
+These are supplied as **context only**. They are not part of the bounded S0-B7 risk/signoff review scope, do not alter the frozen 1836–1936 S0/G0.4 audit source, do not claim implementation, and do not authorize S1 or any gameplay/engine/save/data/content changes. The reviewer should confirm that no gate, risk disposition, exception or phase authorization was silently changed, then issue a verdict only for the bounded S0-B7 package.
+
+Re-fetch the exact live branch HEAD and these files before review. The review target is the complete current repository snapshot, but the verdict boundary remains S0-B7.
