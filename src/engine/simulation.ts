@@ -56,12 +56,17 @@ function commitMonthlyBoundary(st: GameState, year: number, month: number) {
 /** Compatibility adapter for tests and setup fast-forward. Normal play calls stepSixHour(). */
 export function stepMonth(st: GameState) {
   if (isGameOver(st)) return;
+  const previousStep = st.calendar?.stepIndex ?? null;
   const nextTick = st.tick + 1;
   const nextDate = tickToDate(nextTick, GAME_START_YEAR);
   st.tick = nextTick;
   st.date = nextDate;
   if (st.calendar) st.calendar = createCalendarState(nextDate.y, nextDate.m, 1, 0);
   if (isGameOver(st)) return;
+  // Legacy monthly fast-forward/test adapter crosses many daily boundaries at once.
+  // Dispatch daily diplomatic deadlines at the destination boundary instead of
+  // silently leaving plays and fixed-duration treaties frozen in those flows.
+  if (previousStep !== null && st.calendar.stepIndex > previousStep) advanceDiplomacyDaily(st);
   runMonthlySystems(st);
 }
 
@@ -80,6 +85,15 @@ export function stepSixHour(st: GameState): boolean {
 
 const CADENCE_TASKS: readonly ScheduledTask[] = [
   { id: 'diplomacy.daily.deadlines', cadence: 'daily', priority: 20, run: advanceDiplomacyDaily },
+  {
+    id: 'campaign.complete',
+    cadence: 'campaign_end',
+    priority: 900,
+    run: (st) => {
+      st.tick = GAME_END_TICK;
+      st.date = { y: st.calendar.year, m: st.calendar.month };
+    },
+  },
   {
     id: 'legacy.monthly.systems.v2',
     cadence: 'monthly',

@@ -1,7 +1,7 @@
 // Simulation sanity: economy and population stay plausible, AI does not get stuck, save/load is deterministic.
 import { describe, it, expect } from 'vitest';
 import { run, fresh, stepMonth } from './helpers';
-import { GAME_END_TICK, GAME_END_YEAR, isGameOver } from '../src/engine/simulation';
+import { GAME_END_TICK, GAME_END_YEAR, isGameOver, stepSixHour } from '../src/engine/simulation';
 import { serialize, deserialize } from '../src/engine/save';
 import { data } from '../src/engine/data/db';
 import { BUILDINGS, STRATA } from '../src/engine/types';
@@ -61,13 +61,13 @@ describe('official campaign end date', () => {
     st.tick = GAME_END_TICK - 1;
     st.date = { y: GAME_END_YEAR, m: 12 };
     st.calendar = createCalendarState(GAME_END_YEAR, 12, 31, 18);
-    stepMonth(st);
+    expect(stepSixHour(st)).toBe(true);
     expect(st.tick).toBe(GAME_END_TICK);
     expect(st.date).toEqual({ y: GAME_END_YEAR + 1, m: 1 });
     expect(st.calendar).toMatchObject({ year: GAME_END_YEAR + 1, month: 1, day: 1, hour: 0, completed: true });
     expect(isGameOver(st)).toBe(true);
     const frozen = serialize(st);
-    stepMonth(st);
+    expect(stepSixHour(st)).toBe(false);
     expect(serialize(st)).toBe(frozen);
   });
 

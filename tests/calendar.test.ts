@@ -42,6 +42,6 @@ describe('1836–2026 Gregorian six-hour calendar', () => {
     const yearStart = createCalendarState(1836, 12, 31, 18);
     expect(dueCadences(yearStart, advanceCalendarStep(yearStart))).toEqual(['six_hour', 'daily', 'monthly', 'yearly']);
     const lastDay = createCalendarState(2026, 12, 31, 18);
-    expect(dueCadences(lastDay, advanceCalendarStep(lastDay))).toEqual(['six_hour', 'monthly', 'campaign_end']);
+    expect(dueCadences(lastDay, advanceCalendarStep(lastDay))).toEqual(['six_hour', 'campaign_end']);
   });
 });

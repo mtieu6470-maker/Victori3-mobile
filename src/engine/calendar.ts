@@ -88,7 +88,8 @@ const CADENCE_ORDER: readonly SimulationCadence[] = ['six_hour', 'daily', 'weekl
 export function dueCadences(previous: SimulationCalendar, current: SimulationCalendar): SimulationCadence[] {
   const due = new Set<SimulationCadence>(['six_hour']);
   if (current.completed) {
-    if (previous.year !== current.year || previous.month !== current.month) due.add('monthly');
+    // No daily/weekly/monthly/yearly task starts on 2027-01-01; the last playable
+    // day's daily/weekly work was already dispatched at its own 00:00 boundary.
     due.add('campaign_end');
     return CADENCE_ORDER.filter((item) => due.has(item));
   }

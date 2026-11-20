@@ -73,8 +73,9 @@ describe('Sandbox Mode is free', () => {
   });
   it('wars, alliances, territorial and institutional changes emerge', () => {
     for (const st of runs) {
-      expect(st.counters.aiActions.declare_war ?? 0).toBeGreaterThan(5);
+      expect(st.counters.aiActions.diplomatic_play ?? 0).toBeGreaterThan(5);
       expect(st.counters.aiActions.alliance ?? 0).toBeGreaterThan(5);
+      expect(st.diplomaticPlays.some((play) => play.phase === 'resolved' || play.phase === 'escalation')).toBe(true);
       expect(st.territoryLog.length).toBeGreaterThan(3);
       expect(st.log.filter((l) => l.type === 'law').length).toBeGreaterThan(5);
     }
