@@ -1,3 +1,13 @@
+## 0.11 — TIME-ARCH-01: thiết kế lịch ngày và cadence hỗn hợp (20/11/2026)
+
+- Đọc lại trạng thái engine tại HEAD `88baaf9c076f615a721436da1fdba0a33d4b9326`: `GameDate` chỉ có năm/tháng; `GameState.tick` và `stepMonth()` dùng đơn vị tháng; toàn bộ hệ thống đang được hiệu chỉnh theo monthly tick.
+- Không chuyển `tick` sang ngày trực tiếp vì sẽ làm sai nghĩa cooldown, reform progress, POP/economy rates, diplomacy/military durations, event windows, AI cadence và save compatibility.
+- Soạn `docs/spec/DAILY_SIMULATION_CLOCK_CADENCE_ARCHITECTURE_PROPOSAL_VI.md` ở trạng thái DESIGN ONLY. Đề xuất hybrid daily calendar: daily/event-driven cho lịch, event deadlines và hoạt động quân sự cần độ phân giải ngày; weekly strategic planner; monthly economy/POP/politics/research settlement; annual sampling.
+- Thiết kế bao gồm thứ tự xử lý boundary, event queue, deterministic RNG streams, migration monthly save sang ngày đầu tháng có metadata, calendar correctness, cadence tests, multi-seed/save-load determinism và benchmark trên Android thật.
+- Ghi rõ 10 owner decisions cần chốt; không tự áp đặt speed/day, cadence cuối cùng, epoch, weekly boundary, save semantics hoặc RNG migration.
+- **Không thay đổi runtime/code/tests/schema/data/assets/Android/Gradle/workflow/signing.** Không chạy runtime test/build vì đây là tài liệu thiết kế. Không thay đổi S0/S1/S22/S23 gate.
+- Bước tiếp theo: independent review thiết kế và owner quyết định các TIME-OD; chỉ sau khi có scope/gate authorization mới tạo calendar utility hoặc migration code.
+
 
 ## 0.10 — DEV-006 bounded monthly clock: exact CI verification and independent-review packet (20/11/2026)
 

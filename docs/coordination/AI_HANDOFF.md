@@ -1,3 +1,11 @@
+## Latest TIME-ARCH-01 checkpoint — daily calendar/cadence proposal (20/11/2026)
+
+- Design document: `docs/spec/DAILY_SIMULATION_CLOCK_CADENCE_ARCHITECTURE_PROPOSAL_VI.md`; status DESIGN ONLY / PRE-IMPLEMENTATION, runtime authorization NONE.
+- Proposal recommends hybrid daily calendar, event-driven/daily operations, weekly strategic evaluation, monthly economy/POP/politics/research settlement and annual sampling, subject to owner decisions.
+- Explicitly records monthly-to-daily save migration, deterministic RNG, event ordering, Android performance and acceptance-test requirements.
+- No runtime, tests, save schema, data, assets, Android, workflow, signing or gate changes. S0 remains PARTIAL/BLOCKED; S1 NOT_STARTED; S22 DESIGN_ONLY.
+- Base HEAD: `88baaf9c076f615a721436da1fdba0a33d4b9326`. DEV-006 code review packet remains pending Claude no-write review.
+
 ## Latest DEV-006 checkpoint — monthly clock CI verified; Claude review packet ready (20/11/2026)
 
 - Exact code target: `65bf85db91cbeaa276e00401e524749343ab305a`; exact CI: tests-only [44754295188](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44754295188) PASS (42/42 suites, 126/126 tests); Android debug [44754295107](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44754295107) SUCCESS.
