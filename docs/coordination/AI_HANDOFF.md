@@ -8,7 +8,8 @@
 |---|---|
 | Repository | `mtieu6470-maker/Victori3-mobile` |
 | Default / coordination branch | `claude/game-historical-sandbox-modes-kg7rj7` (default branch) |
-| Experiment branch | `experiment/vic3-visual-upgrade` (active S0 audit/feature-development branch; recheck live refs before each task) |
+| S0 audit branch | `experiment/vic3-visual-upgrade` (separate historical S0 audit/feature branch; do not substitute for the current task branch) |
+| Current task branch | `experiment/owner-authorized-clock-runtime` (isolated clock/runtime experiment and 1836–2026 design follow-up; re-check live HEAD before each task) |
 | Frozen S0 product baseline | `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`. The experiment branch contains pre-existing product deltas from earlier work; S0 reports are scoped to the frozen baseline and do not certify or authorize merging those deltas. |
 | Coordination setup commit | `bd5787f3e1763170ec7e5ad448466a5cc57c2b40` |
 | Coordination correction commit | `6c4d02a36a30f7e82d973da59f569b379f85468d` |
@@ -906,3 +907,17 @@ This section records the 2026-11-19 checkpoint and is superseded by the 2026-11-
 - Added docs/spec/PRODUCT_REQUIREMENTS_1836_2026_DRAFT_V0.1.md as a proposed product requirement baseline for both Stream A and Stream B. It is a draft for owner review, not an authorization to implement.
 - No source code, test, generated data, historical data file, asset, save schema, workflow, Gradle, APK or signing changes in this documentation-only slice.
 - S1-CLK-01 remains the only recorded runtime authorization; calendar v2, save migration, six-hour tasks, historical-data ingestion and all subsystem changes require separate scope authorization. Current campaign remains 1836–1936.
+
+
+## 2026-11-20 — OWNER RECONFIRMED APK-FIRST + FULL DATA DOWNLOAD OPTION
+
+- Owner reiterated the required delivery sequence: player downloads/installs the APK first; after opening the app, the player chooses whether to download the required data or the complete data collection.
+- Owner explicitly accepts a one-action full-data download with a target estimate of **4–5 GB**. This is a target estimate only; no final data-pack payload exists or has been measured.
+- Added `docs/design/APK_FIRST_OFFLINE_DATA_PACK_DISTRIBUTION_DRAFT.md`: logical pack families, one-button aggregate download, signed manifest/public-key verification, SHA-256 per shard, compatibility checks, HTTPS allowlisting, Wi-Fi-first consent, storage preflight, resumable transfer, staging, atomic activation, offline operation, hosting and acceptance criteria.
+- Created `docs/spec/PRODUCT_REQUIREMENTS_1836_2026_DRAFT_V0.2.md`, preserving v0.1 and adding FR-PACK requirements and AC-14–AC-19 for APK-first/data-later distribution.
+- Technical hosting constraint verified against current GitHub documentation: each GitHub Release asset must be under 2 GiB, while a release can contain multiple assets and has no aggregate release-size limit. Therefore a 4–5 GB full-data choice should be one in-app download job over multiple independently verifiable shards, not one oversized Release asset. Sources are linked in the design draft.
+- Android storage/transfer design is based on official Android guidance: app-specific persistent storage, available-space checks, DownloadManager retry behavior and current user-initiated data-transfer options. Native implementation/API choice and real-device behavior remain untested.
+- Rechecked `android/app/build.gradle`: current experiment package ID is `vn.dongchaylichsu.game.experiment`, version name `1.0-experiment`; this is not a production release identity. No package ID, signing, manifest, workflow or APK setting was changed.
+- No downloader, signed manifest, pack builder, hosting, production dataset, runtime, UI, Gradle, workflow, signing or APK was implemented in this documentation-only task. The 4–5 GB figure is not a verified artifact size.
+- Scope/gates remain unchanged: S1-CLK-01 is the only runtime authorization; general S1, calendar v2, save migration, six-hour/daily cadence, historical-data ingestion and game-system changes remain outside current runtime authorization. S0-B7 remains `IN_PROGRESS`; overall S0 remains `PARTIAL — NOT COMPLETE`; bounded S1-entry remains `NOT_TESTED`. No Claude review was requested or performed.
+- Current branch before this documentation commit: `9a1acf17859f112135d79fa15f7301a4ca55a955`. Default branch and separate S0 audit branch remain untouched.
