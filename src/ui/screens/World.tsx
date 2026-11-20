@@ -21,14 +21,15 @@ export function WorldScreen({ st }: { st: GameState }) {
   const rows = rk.map((r, i) => ({ ...r, rank: i + 1, pc: r.gdp / Math.max(1, r.pop), regions: regionsOf.get(r.id) ?? 0 })).sort((a, b) => (a[s.k] - b[s.k]) * s.dir).slice(0, 80);
   const worldPop = rk.reduce((t, r) => t + r.pop, 0), worldGdp = rk.reduce((t, r) => t + r.gdp, 0);
   const followed = st.player ?? ui.get().follow;
+  const beyondCampaign = st.date.y > GAME_END_YEAR || st.tick > ((GAME_END_YEAR - 1836) * 12);
   return (
     <div class="pad" ref={ref}>
       {isGameOver(st) && <div class="banner">
         <div class="grow">
-          <b>{st.date.y > GAME_END_YEAR ? 'Bản lưu đã vượt niên đại chiến dịch' : 'Đã kết thúc chiến dịch 1836–1936'}</b>
-          <div class="s">{st.date.y > GAME_END_YEAR
-            ? `Tệp lưu này đã chạy tới ${st.date.y}, ngoài phạm vi dữ liệu lịch sử và thời hạn thiết kế. Không thể dựng ngược sự kiện vào giữa ván; hãy tạo ván mới để dùng bản sửa lịch sử.`
-            : 'Tháng 1/1936 là mốc kết thúc. Ván mới có thể bắt đầu ở chế độ Lịch sử hoặc Lịch sử thay thế.'}</div>
+          <b>{beyondCampaign ? 'Bản lưu đã vượt niên đại chiến dịch' : 'Đã kết thúc chiến dịch 1836–2026'}</b>
+          <div class="s">{beyondCampaign
+            ? `Tệp lưu này đã chạy qua mốc chiến dịch ${GAME_END_YEAR - 1}. Không thể dựng ngược sự kiện vào giữa ván; hãy tạo ván mới để dùng đầy đủ mốc kết thúc mới.`
+            : 'Ngày 01/01/2027 là mốc kết thúc sau khi đã mô phỏng trọn năm 2026. Ván mới có thể bắt đầu ở chế độ Lịch sử hoặc Lịch sử thay thế.'}</div>
         </div>
         <button class="btn sm" onClick={() => { game.setPaused(true); ui.set({ started: false, camera: null, region: null, screen: 'map' }); }}>Ván mới</button>
       </div>}
@@ -71,8 +72,8 @@ export function SystemScreen({ st }: { st: GameState }) {
           <div class="kv"><span class="k">Chế độ</span><span class="v">{st.mode === 'historical' ? 'Lịch sử' : 'Sandbox – Lịch sử thay thế'}</span></div>
           <div class="kv"><span class="k">Vai trò</span><span class="v">{st.player ? shortName(st, st.player) : 'Quan sát (AI điều khiển tất cả)'}</span></div>
           <div class="kv"><span class="k">Ngày</span><span class="v num">{st.date.m}/{st.date.y} · tháng thứ {st.tick}</span></div>
-          <div class="kv"><span class="k">Khung chiến dịch</span><span class="v">1836–{GAME_END_YEAR}</span></div>
-          {isGameOver(st) && <div class="note">Mô phỏng đã dừng; không thể tiếp tục sau năm {GAME_END_YEAR} trong bản chuẩn.</div>}
+          <div class="kv"><span class="k">Khung chiến dịch</span><span class="v">1836–{GAME_END_YEAR - 1}</span></div>
+          {isGameOver(st) && <div class="note">Mô phỏng đã dừng; không thể tiếp tục sau năm {GAME_END_YEAR - 1} trong bản chuẩn.</div>}
           <div class="kv"><span class="k">Hạt giống ngẫu nhiên</span><span class="v num">{st.seed}</span></div>
         </Sec>
         <Sec title="Lưu trên thiết bị">

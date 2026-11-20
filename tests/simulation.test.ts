@@ -96,7 +96,7 @@ describe('daily Gregorian calendar clock', () => {
 });
 
 describe('official campaign end date', () => {
-  it('stops at January 1936 and leaves the final state frozen', () => {
+  it('stops at January 2027 after allowing the full 2026 campaign and freezes the final state', () => {
     const st = fresh('historical', 12);
     st.tick = GAME_END_TICK - 1;
     st.date = { y: GAME_END_YEAR - 1, m: 12 };
@@ -109,7 +109,20 @@ describe('official campaign end date', () => {
     expect(serialize(st)).toBe(frozen);
   });
 
-  it('treats legacy saves already beyond 1936 as ended instead of simulating more months', () => {
+  it('allows all of December 2026 to run before the terminal January 2027 boundary', () => {
+    const st = fresh('historical', 14);
+    st.tick = GAME_END_TICK - 1;
+    st.date = { y: 2026, m: 12 };
+    st.dayOfMonth = 31;
+    expect(isGameOver(st)).toBe(false);
+    stepDay(st);
+    expect(st.date).toEqual({ y: 2027, m: 1 });
+    expect(st.dayOfMonth).toBe(1);
+    expect(st.tick).toBe(GAME_END_TICK);
+    expect(isGameOver(st)).toBe(true);
+  });
+
+  it('treats legacy saves already beyond the 2026 campaign boundary as ended instead of simulating more months', () => {
     const st = fresh('sandbox', 13);
     st.tick = 1900 * 12;
     st.date = { y: 2026, m: 1 };

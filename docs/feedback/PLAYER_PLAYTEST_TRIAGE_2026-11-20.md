@@ -168,3 +168,10 @@ Do not copy Victoria 3 executable/source code, extracted game databases, icons, 
 - The current dataset terms include Minh Mạng 1820-02-14 to 1841-01-20, Thiệu Trị from 1841-02-11, and Tự Đức from 1847-11-10. In November 1838, only Minh Mạng's term is valid.
 - Added `tests/historical-identity.test.ts` for Nguyễn succession, inclusive endpoints, source precision, invalid dates and Gregorian leap years.
 - Exact-source build/test/APK CI is required before calling this slice verified. Physical-device QA is still separate.
+
+## 11. Campaign end-year blocker — extended to cover all of 2026 (CI pending)
+
+- The simulation had a hard stop at January 1936 (`GAME_END_YEAR=1936`), contradicting the owner-approved 1836–2026 campaign scope. The terminal marker is now January 2027, which allows every month/day in 2026 to run.
+- Updated `src/engine/simulation.ts`, the campaign status panel in `src/ui/screens/World.tsx`, and the package description. The UI now labels the playable range as 1836–2026 and the exclusive stop boundary as 01/01/2027.
+- Added regression coverage for the full December 2026 boundary and legacy saves already beyond the new terminal tick. Existing monthly `tick` semantics remain unchanged.
+- Important qualification: this removes the artificial 1936 stop; it does not add missing post-1949 technologies, post-1936 historical events, modern institutions, or modern military equipment. Those require separate sourced content and system implementations. Physical-device performance through 2026 must also be measured.

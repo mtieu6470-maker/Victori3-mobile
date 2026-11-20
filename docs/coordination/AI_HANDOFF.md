@@ -1171,3 +1171,11 @@ This is a later, explicit owner authorization to begin product implementation on
 - CI was still running for parent commit 17796069 at note creation. This patch requires a new exact-SHA Actions run. Do not claim full validation until all tests and APK assembly pass.
 - Scope remains incomplete: daily rather than six-hour scheduler; monthly simulation pipeline; four shared technology tiers and five overrides only (48 techs, 3 branches, no post-1949 technology coverage); one basic construction queue without construction sectors/public-private investment; aggregate military rather than recruitable battalions/formations/fronts/battle records; treaty state without offer/counteroffer/ratification. The playtest report has the complete evidence and staged acceptance gates.
 - Next: verify this exact commit and the parent retry-enabled portrait pipeline. Then implement independent system slices with domain-state migration, shared player/AI command paths, deterministic simulation tests and save/load coverage. Keep all work on the existing feature branch.
+
+## 2026-11-20 — 1836–2026 CAMPAIGN BOUNDARY (CI PENDING)
+
+- Base commit: d143afafc1b20c617d2824c8f3ae2dee05934cf5; branch: experiment/vic3-visual-upgrade.
+- The hard-coded game end was still January 1936, despite the approved campaign scope. `GAME_END_YEAR` is now 2027 as an exclusive terminal boundary; January 1, 2027 is the stop marker after the complete 2026 calendar year.
+- Updated the world/system panel and app metadata to display a playable range of 1836–2026. Added tests for Dec 31, 2026 -> Jan 1, 2027, frozen terminal state, and legacy saves beyond the new boundary.
+- This is a campaign-length correction, not a claim of full 20th/21st-century simulation content. Technology data currently has 48 nodes and zero post-1949 nodes; additional 1936–2026 events/modern content and device performance testing remain open.
+- Requires an exact-SHA build/test/APK run after commit. Re-fetch branch HEAD before the next write.

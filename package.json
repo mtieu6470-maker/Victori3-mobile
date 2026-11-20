@@ -2,7 +2,7 @@
   "name": "currents-of-history",
   "version": "0.1.0",
   "private": true,
-  "description": "Mobile grand strategy game (1836–1936) with Historical and Alternate-History (Sandbox) modes sharing one simulation engine.",
+  "description": "Mobile grand strategy game (1836–2026) with Historical and Alternate-History (Sandbox) modes sharing one simulation engine.",
   "type": "module",
   "scripts": {
     "data": "tsx tools/build-data.ts",

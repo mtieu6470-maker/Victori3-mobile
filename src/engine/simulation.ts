@@ -14,7 +14,7 @@ import { divergenceMonth } from './divergence';
 import { sampleYear } from './metrics';
 import { createNation } from './world';
 
-export const GAME_END_YEAR = 1936;
+export const GAME_END_YEAR = 2027;
 export const GAME_END_TICK = (GAME_END_YEAR - 1836) * 12;
 export function isGameOver(st: Pick<GameState, 'tick' | 'date'>): boolean {
   return st.tick >= GAME_END_TICK || st.date.y >= GAME_END_YEAR;
@@ -61,7 +61,7 @@ export function stepMonth(st: GameState) {
   st.tick += 1;
   st.date = tickToDate(st.tick);
   st.dayOfMonth = 1;
-  // January 1936 is the campaign end marker, not an additional simulated month.
+  // January 2027 is the campaign end marker, not an additional simulated month.
   if (isGameOver(st)) return;
   for (const s of SYSTEMS) {
     s.run(st);
