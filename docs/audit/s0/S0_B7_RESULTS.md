@@ -225,3 +225,13 @@ No owner role was absent; the register uses accountable functional roles, with i
 ## 23. Risk Register P1 table structure correction — 2026-11-20
 
 A follow-up structural parser found that the `CI-F4` row had a blank line immediately before it, causing Markdown renderers/parsers to treat it as a detached one-row table without the six-column header. Removed that blank separator so CI-F4 is part of the P1 risk table. Its severity, disposition and closure evidence are unchanged. Rechecked the rendered table groups: P0 1×6 cells; P1 13×6 cells (12 P1 risk rows plus the separate G0.7 device-evidence gate row); P2 22×6 cells; P3 5×3 cells; Closed 1×3 cells. All cells are populated. The 48 traceability source mappings remain unique and resolve to their register locations. Documentation-only correction; no tests/build/device QA or gate changes.
+
+
+## 24. R13 and GD-F2 stage/exit specificity — 2026-11-20
+
+A source-to-roadmap review tightened two remaining P1 dispositions without changing severity or status:
+
+- R13 now separates proposed future signing controls from deployed controls. The proposed workflow is manual-only, branch-gated, build/sign separated, protected by the `development-signing` Environment and per-run reviewer approval, no admin bypass, least privilege, full-SHA Action pins, no Repository Secrets, no untrusted-code execution in the signing job, and temporary-key cleanup. None of these controls is claimed implemented; B2/C3 stays BLOCKED pending R14 and owner-controlled setup.
+- GD-F2 now allocates population coverage to S6, economic facts to S7/S13, and historical rulers/officeholders to S16, with S3 geographic validity. Its exit criteria require field-specific provenance, temporal/geographic scope, units/method/denominator and uncertainty, plus explicit missing/conflict counts across 12 regions and polity types.
+
+No data, workflow, key, signing, product code or gate was changed. This is an implementer documentation self-audit; independent Claude review and owner acceptance remain pending.
