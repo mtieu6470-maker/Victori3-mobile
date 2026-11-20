@@ -372,7 +372,8 @@ export function solveFactoryMarketFulfillment(
         const demand = snapshot.demand[marketId][good];
         const stock = openingStocks[marketId]?.[good] ?? 0;
         if (!Number.isFinite(stock) || stock < 0) throw new RangeError(`Invalid opening stock for ${marketId}/${good}`);
-        const surplus = Math.max(0, supply - demand);
+        // Existing stock may be exported after the market's own demand is covered.
+        const surplus = Math.max(0, supply + stock * 12 - demand);
         const deficit = Math.max(0, demand - supply - stock * 12);
         world[good].surplus += surplus * market.openness;
         world[good].deficit += deficit * market.openness;
@@ -394,7 +395,7 @@ export function solveFactoryMarketFulfillment(
           : 1;
         const imports = localDeficit * market.openness * importRatio;
         const tradeVolume = Math.min(global.surplus, global.deficit);
-        const exportCapacity = Math.max(0, supply - demand) * market.openness;
+        const exportCapacity = Math.max(0, supply + stock * 12 - demand) * market.openness;
         const exports = global.surplus > 0
           ? tradeVolume * exportCapacity / global.surplus
           : 0;
@@ -874,7 +875,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const capacity = zero();
     for (const good of GOODS) {
       const openingStock = inventoryLedger.balances[marketId]?.[good] ?? 0;
-      const surplus = Math.max(0, market.s[good] - market.dm[good]);
+      const surplus = Math.max(0, market.s[good] + openingStock * 12 - market.dm[good]);
       const deficit = Math.max(0, market.dm[good] - market.s[good] - openingStock * 12);
       realizedWorld[good].surplus += surplus * market.open;
       realizedWorld[good].deficit += deficit * market.open;
