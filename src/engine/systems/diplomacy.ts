@@ -60,23 +60,20 @@ export function allianceAcceptance(st: GameState, from: string, to: string): num
 /** Subjects other than tributaries have no independent foreign policy (same rule for AI and player). */
 export const boundSubject = (c: Country | undefined) => !!c?.overlord && c.subjectType !== 'tributary';
 
-/** Number of distinct living bilateral alliance partners; it is not a customs-union membership count. */
-export function alliancePartnerCount(st: GameState, countryId: string): number {
-  const partners = new Set<string>();
-  for (const treaty of st.treaties) {
-    if (treaty.type !== 'alliance' || !treaty.members.includes(countryId)) continue;
-    for (const memberId of treaty.members) {
-      if (memberId !== countryId && st.countries[memberId]?.alive) partners.add(memberId);
-    }
-  }
-  return partners.size;
+/** Number of distinct active Alliance treaty records; a historical multi-party record is still one alliance. */
+export function allianceTreatyCount(st: GameState, countryId: string): number {
+  return st.treaties.filter(
+    (treaty) => treaty.type === 'alliance'
+      && treaty.members.includes(countryId)
+      && treaty.members.some((memberId) => memberId !== countryId && st.countries[memberId]?.alive),
+  ).length;
 }
 
-/** One alliance is available with International Relations; further partners require Multilateral Alliances. */
+/** One Alliance treaty is available with International Relations; additional treaties require Multilateral Alliances. */
 export function allianceCapacityAvailable(st: GameState, countryId: string): boolean {
   const country = st.countries[countryId];
   if (!country?.alive || !hasTech(country, 'international_relations')) return false;
-  return alliancePartnerCount(st, countryId) === 0 || hasTech(country, 'multilateral_alliances');
+  return allianceTreatyCount(st, countryId) === 0 || hasTech(country, 'multilateral_alliances');
 }
 
 export function canFormAlliance(st: GameState, a: string, b: string): boolean {
