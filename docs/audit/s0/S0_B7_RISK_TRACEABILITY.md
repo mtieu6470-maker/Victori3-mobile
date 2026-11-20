@@ -8,7 +8,7 @@
 
 | Source ID | Source severity | Risk Register location | Disposition |
 |---|---:|---|---|
-| R1 | P1 | §3, `R1` | OPEN — ephemeral debug signing; B2/C3 blocked pending R14 and protected development signing. |
+| R1 | P1 | §3, `R1` | OPEN — exact CI evidence from Runs #322/#324 shows different debug certificate SHA-256 values although intervening commits changed documentation only; B2/C3 remains blocked pending R14 and protected development signing. |
 | R2 | P1 | §3, `R2` | OPEN — CC BY-SA attribution remains incomplete; unchanged legacy text only under bounded G0.8 exception; full UI/runtime attribution remediation targets S5. |
 | R3 | — | §6, Closed / no longer active | CLOSED — APK file SHA-256 and artifact ZIP digest recorded separately in A1/B1 evidence. |
 | R4 | P2 | §4, `R4` | OPEN P2 / accepted design boundary — test-supplied command traces; production replay journal is optional, not claimed. |
