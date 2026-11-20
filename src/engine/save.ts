@@ -1,6 +1,7 @@
 // Save / load: the whole GameState (including the RNG state) is plain JSON, so a loaded game continues
 // deterministically exactly as the uninterrupted game would.
 import type { GameState } from './types';
+import { emptyInventoryLedger } from './systems/inventory';
 
 export const SAVE_FORMAT = 'currents-of-history-save';
 
@@ -14,6 +15,7 @@ export function deserialize(text: string): GameState {
   if (o.version !== 1) throw new Error(`Unsupported save version ${o.version}`);
   const st = o.state as GameState;
   st.marketStats ??= {}; // saves written before market statistics were persisted: refilled on the next month
+  st.inventoryLedger ??= emptyInventoryLedger(); // pre-ledger saves start unseeded; no historical stock is invented
   for (const c of Object.values(st.countries)) c.constructionQueue ??= [];
   return st;
 }
