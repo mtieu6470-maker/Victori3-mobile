@@ -18,7 +18,7 @@
 Không yêu cầu chủ dự án nhắc lại các nguyên tắc đã lưu tại đây. Khi được giao tiếp tục dự án:
 
 1. Xác nhận đúng repository, branch và HEAD trực tiếp từ GitHub. Không dùng SHA trong chat cũ làm HEAD hiện tại.
-2. Đọc file này, `AGENTS.md`, `CLAUDE.md` (nếu áp dụng), [SESSION_RECOVERY_PROTOCOL_VI.md](docs/coordination/SESSION_RECOVERY_PROTOCOL_VI.md), [AI_HANDOFF.md](docs/coordination/AI_HANDOFF.md), [AI_COLLABORATION_PROTOCOL.md](docs/coordination/AI_COLLABORATION_PROTOCOL.md) và [OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md](docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md). Đọc TOÀN BỘ [OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md](docs/coordination/OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md); không chỉ đọc tóm tắt. Đọc thêm đầy đủ [OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md](docs/coordination/OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md), là chỉ thị mới nhất về phạm vi Victoria 3, media và dung lượng game.
+2. Đọc file này, `AGENTS.md`, `CLAUDE.md` (nếu áp dụng), [SESSION_RECOVERY_PROTOCOL_VI.md](docs/coordination/SESSION_RECOVERY_PROTOCOL_VI.md), [AI_HANDOFF.md](docs/coordination/AI_HANDOFF.md), [AI_COLLABORATION_PROTOCOL.md](docs/coordination/AI_COLLABORATION_PROTOCOL.md), [OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md](docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md) và TOÀN BỘ [OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md](docs/coordination/OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md). Không chỉ đọc tóm tắt.
 3. Đọc roadmap/owner decisions, phase gate, subsystem spec, parity matrix và báo cáo tiến độ mới nhất được AI_HANDOFF chỉ định.
 4. Kiểm tra commit, diff, file đã đổi, workflow/CI và artifact để xác định chính xác phiên trước đã lưu đến đâu. Nếu phản hồi chat bị mất sau một thao tác ghi, phải kiểm tra GitHub trước khi thử lại; không được tạo commit/file trùng.
 5. Phân loại rõ phần đã commit, đã xác minh, CI đang chạy/thất bại, chưa commit và chưa xác định. Nếu GitHub không truy cập được sau retry có giới hạn, dừng ghi và báo BLOCKED; không suy đoán.
@@ -585,9 +585,9 @@ Sau khi hoàn thành: cập nhật báo cáo tiến độ đang dùng + AI_HANDO
 | 5 | [AI_COLLABORATION_PROTOCOL.md](docs/coordination/AI_COLLABORATION_PROTOCOL.md) | Vai trò, quyền hạn, source-of-truth, workflow |
 | 6 | [OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md](docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md) | Chỉ thị dài hạn về sản phẩm, APK, pack, offline, QA |
 | 7 | [OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md](docs/coordination/OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md) | Chỉ thị mới nhất: full parity Victoria 3, thư viện hình ảnh/video/âm thanh chất lượng cao và mục tiêu 4–5 GB game đầy đủ sau cài đặt |
-| 7 | Roadmap và owner decisions được AI_HANDOFF chỉ định | Phase/gate và quyền triển khai hiện hành |
-| 8 | Spec subsystem + parity audit/matrix | Thiết kế và tiêu chí đúng của task |
-| 9 | Rolling progress/audit report gần nhất | Bằng chứng, gap và việc tiếp theo |
+| 8 | Roadmap và owner decisions được AI_HANDOFF chỉ định | Phase/gate và quyền triển khai hiện hành |
+| 9 | Spec subsystem + parity audit/matrix | Thiết kế và tiêu chí đúng của task |
+| 10 | Rolling progress/audit report gần nhất | Bằng chứng, gap và việc tiếp theo |
 
 ### Tài liệu tham chiếu bên ngoài để bắt đầu nghiên cứu
 
