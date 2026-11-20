@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { fresh } from './helpers';
-import { relKey } from '../src/engine/core';
+import { dateToTick, relKey } from '../src/engine/core';
 import { serialize, deserialize } from '../src/engine/save';
 import {
   allied,
@@ -8,11 +8,20 @@ import {
   breakAlliance,
   formAlliance,
   guarantee,
+  defensivePacted,
+  defensivePactAcceptance,
+  canFormDefensivePact,
+  formDefensivePact,
+  breakDefensivePact,
+  hasNonAggressionPact,
+  warSides,
+  declareWar,
+  diplomacyMonth,
 } from '../src/engine/systems/diplomacy';
-import { normalizeAllianceTreaties } from '../src/engine/systems/alliance';
+import { normalizeAllianceTreaties, normalizeHistoricalTreaties, treatyTypeFromSeed } from '../src/engine/systems/alliance';
 import { marketOf } from '../src/engine/systems/economy';
 import { availableTechs } from '../src/engine/systems/technology';
-import { chooseResearch } from '../src/engine/ai/ai';
+import { aiMonth, chooseResearch } from '../src/engine/ai/ai';
 import type { Country, GameState } from '../src/engine/types';
 
 function eligibleCountries(state: GameState): Country[] {
@@ -22,7 +31,12 @@ function eligibleCountries(state: GameState): Country[] {
 }
 
 function clearAllianceFixture(state: GameState) {
-  state.treaties = state.treaties.filter((treaty) => treaty.type !== 'alliance');
+  state.treaties = state.treaties.filter((treaty) =>
+    treaty.type === 'customs_union' ||
+    (treaty.type !== 'alliance' && treaty.type !== 'defensive_pact' && treaty.type !== 'entente'
+      && treaty.type !== 'neutrality_pact' && treaty.type !== 'non_aggression_pact'
+      && treaty.type !== 'historical_pact' && treaty.type !== 'guarantee'),
+  );
 }
 
 function preparePair(state: GameState, a: Country, b: Country) {
@@ -147,12 +161,59 @@ describe('Victoria 3-style bilateral alliance capacity', () => {
     expect(serialize(state)).toBe(afterFirstPass);
   });
 
-  it('starts new campaigns with bilateral treaty rows after historical pact normalization', () => {
+  it('seeds historical Defense Pacts and Ententes as distinct bilateral treaty types', () => {
     const state = fresh('historical', 189, 'GBR');
-    const allianceRows = state.treaties.filter((treaty) => treaty.type === 'alliance');
-    expect(allianceRows.length).toBeGreaterThan(0);
-    expect(allianceRows.every((treaty) => treaty.members.length === 2)).toBe(true);
-    expect(allianceRows.some((treaty) => (treaty.source ?? '').includes('cow_ally_3'))).toBe(true);
+    const sourceRows = state.treaties.filter((treaty) => treaty.source?.startsWith('cow_ally_'));
+    expect(sourceRows.length).toBeGreaterThan(0);
+    expect(sourceRows.every((treaty) => treaty.members.length === 2)).toBe(true);
+    expect(sourceRows.some((treaty) => treaty.type === 'defensive_pact' && treaty.source === 'cow_ally_3')).toBe(true);
+    expect(sourceRows.some((treaty) => treaty.type === 'entente' && treaty.source === 'cow_ally_15')).toBe(true);
+    expect(sourceRows.every((treaty) => treaty.type !== 'alliance')).toBe(true);
+    expect(sourceRows.find((treaty) => treaty.source === 'cow_ally_1')?.terms?.nonaggression).toBe(true);
+  });
+
+  it('preserves overlapping historical source agreements for the same country pair', () => {
+    const state = fresh('historical', 190, 'GBR');
+    const rows = state.treaties.filter((treaty) =>
+      treaty.members.includes('GBR') && treaty.members.includes('POR') && treaty.source?.startsWith('cow_ally_'),
+    );
+    expect(rows.map((treaty) => treaty.source).sort()).toEqual(['cow_ally_1', 'cow_ally_19']);
+    expect(new Set(rows.map((treaty) => treaty.id)).size).toBe(2);
+    expect(rows.every((treaty) => treaty.type === 'defensive_pact')).toBe(true);
+  });
+
+  it('rehydrates old semicolon-collapsed source IDs without merging independent agreements', () => {
+    const state = fresh('historical', 191, 'GBR');
+    state.treaties = state.treaties.filter((treaty) =>
+      !(treaty.members.includes('GBR') && treaty.members.includes('POR') && treaty.source?.startsWith('cow_ally_')),
+    );
+    state.treaties.push({
+      id: 'alliance:GBR:POR',
+      type: 'alliance',
+      members: ['GBR', 'POR'],
+      start: 0,
+      source: 'cow_ally_1;cow_ally_19',
+    });
+    normalizeHistoricalTreaties(state);
+    const rows = state.treaties.filter((treaty) =>
+      treaty.members.includes('GBR') && treaty.members.includes('POR') && treaty.source?.startsWith('cow_ally_'),
+    );
+    expect(rows.map((treaty) => treaty.source).sort()).toEqual(['cow_ally_1', 'cow_ally_19']);
+    expect(rows.every((treaty) => treaty.type === 'defensive_pact')).toBe(true);
+  });
+
+  it('expires a sourced historical treaty after the recorded end month', () => {
+    const state = fresh('historical', 192, 'GBR');
+    expect(state.treaties.some((treaty) => treaty.source === 'cow_ally_13')).toBe(true);
+    expect(state.treaties.find((treaty) => treaty.source === 'cow_ally_13')?.end).toBe(dateToTick('1848-01-12'));
+    state.tick = dateToTick('1848-02-01');
+    diplomacyMonth(state);
+    expect(state.treaties.some((treaty) => treaty.source === 'cow_ally_13')).toBe(false);
+  });
+
+  it('classifies source treaty flags without inventing an Alliance from an Entente', () => {
+    expect(treatyTypeFromSeed({ defense: false, entente: true, neutrality: false, nonaggression: false })).toBe('entente');
+    expect(treatyTypeFromSeed({ defense: true, entente: true, neutrality: false, nonaggression: true })).toBe('defensive_pact');
   });
 
   it('migrates legacy saves containing grouped alliances without losing partner links', () => {
@@ -243,14 +304,125 @@ describe('Victoria 3-style bilateral alliance capacity', () => {
       .toBe('rationalism');
   });
 
-  it('enforces the Alliance / Guarantee Independence exclusion for the same pair', () => {
+  it('enforces Alliance / Defensive Pact / Guarantee mutual exclusion for the same pair', () => {
     const state = fresh('historical', 185, 'GBR');
     clearAllianceFixture(state);
     const [a, b] = eligibleCountries(state);
     preparePair(state, a, b);
-    guarantee(state, a.id, b.id);
 
+    expect(formDefensivePact(state, a.id, b.id)).toBe(true);
+    expect(defensivePacted(state, a.id, b.id)).toBe(true);
     expect(formAlliance(state, a.id, b.id)).toBe(false);
+    expect(guarantee(state, a.id, b.id)).toBe(false);
     expect(allied(state, a.id, b.id)).toBe(false);
+
+    expect(breakDefensivePact(state, a.id, b.id)).toBe(true);
+    expect(defensivePacted(state, a.id, b.id)).toBe(false);
+    expect(guarantee(state, a.id, b.id)).toBe(true);
+    expect(formAlliance(state, a.id, b.id)).toBe(false);
+  });
+
+  it('requires International Relations and Cordial relations for Defensive Pacts, without consuming Alliance capacity', () => {
+    const state = fresh('historical', 186, 'GBR');
+    clearAllianceFixture(state);
+    const [a, b] = eligibleCountries(state);
+    preparePair(state, a, b);
+    state.relations[relKey(a.id, b.id)] = 9;
+    expect(canFormDefensivePact(state, a.id, b.id)).toBe(false);
+    state.relations[relKey(a.id, b.id)] = 10;
+    expect(defensivePactAcceptance(state, a.id, b.id)).toBe(0);
+    expect(canFormDefensivePact(state, a.id, b.id)).toBe(true);
+    expect(formDefensivePact(state, a.id, b.id)).toBe(true);
+    expect(alliancePartnerCount(state, a.id)).toBe(0);
+  });
+
+  it('calls Defensive Pact partners to defend and blocks war across non-aggression terms', () => {
+    const state = fresh('historical', 187, 'GBR');
+    clearAllianceFixture(state);
+    const [attacker, defender, partner] = eligibleCountries(state);
+    state.treaties.push({
+      id: 'test-defensive-pact',
+      type: 'defensive_pact',
+      members: [defender.id, partner.id],
+      start: 0,
+    });
+    state.relations[relKey(partner.id, defender.id)] = 80;
+    state.relations[relKey(partner.id, attacker.id)] = -80;
+    const preview = warSides(state, attacker.id, defender.id, []);
+    expect(preview.defenders).toContain(partner.id);
+    expect(preview.joined).toContainEqual({ id: partner.id, reason: 'defensive_pact' });
+
+    state.treaties.push({
+      id: 'test-non-aggression',
+      type: 'non_aggression_pact',
+      members: [attacker.id, defender.id],
+      start: 0,
+      terms: { nonaggression: true },
+    });
+    expect(hasNonAggressionPact(state, attacker.id, defender.id)).toBe(true);
+    expect(declareWar(state, attacker.id, defender.id, [])).toBeNull();
+  });
+
+  it('AI forms an Alliance when both sides have International Relations and an open slot', () => {
+    const state = fresh('sandbox', 188, null);
+    const a = state.countries.GBR;
+    const b = state.countries.PRU;
+    expect(a?.alive && b?.alive).toBe(true);
+    state.treaties = state.treaties.filter((treaty) =>
+      !(['alliance', 'defensive_pact', 'guarantee'].includes(treaty.type)
+        && (treaty.members.includes(a.id) || treaty.members.includes(b.id))),
+    );
+    state.rivalries = state.rivalries.filter((key) => !key.includes(a.id) && !key.includes(b.id));
+    for (const country of Object.values(state.countries)) {
+      if (country.id !== a.id && country.id !== b.id) country.alive = false;
+    }
+    const decoy = Object.values(state.countries).find((country) => country.id !== a.id && country.id !== b.id)!;
+    state.rivalries.push(relKey(a.id, decoy.id), relKey(b.id, decoy.id));
+    for (const country of [a, b]) {
+      country.techs = country.techs.filter((tech) => tech !== 'international_relations' && tech !== 'multilateral_alliances');
+      country.techs.push('international_relations');
+      country.ai.cooldowns = {};
+    }
+    state.relations[relKey(a.id, b.id)] = 80;
+
+    let formed = false;
+    for (let tick = 0; tick < 3 && !formed; tick++) {
+      state.tick = tick;
+      aiMonth(state);
+      formed = allied(state, a.id, b.id);
+    }
+    expect(formed).toBe(true);
+    expect(state.counters.aiActions.alliance ?? 0).toBeGreaterThan(0);
+  });
+
+  it('AI can choose a Defensive Pact when relations are Cordial but below Amicable', () => {
+    const state = fresh('sandbox', 189, null);
+    const a = state.countries.GBR;
+    const b = state.countries.PRU;
+    state.treaties = state.treaties.filter((treaty) =>
+      !(['alliance', 'defensive_pact', 'guarantee'].includes(treaty.type)
+        && (treaty.members.includes(a.id) || treaty.members.includes(b.id))),
+    );
+    state.rivalries = state.rivalries.filter((key) => !key.includes(a.id) && !key.includes(b.id));
+    for (const country of Object.values(state.countries)) {
+      if (country.id !== a.id && country.id !== b.id) country.alive = false;
+    }
+    const decoy = Object.values(state.countries).find((country) => country.id !== a.id && country.id !== b.id)!;
+    state.rivalries.push(relKey(a.id, decoy.id), relKey(b.id, decoy.id));
+    for (const country of [a, b]) {
+      country.techs = country.techs.filter((tech) => tech !== 'international_relations' && tech !== 'multilateral_alliances');
+      country.techs.push('international_relations');
+      country.ai.cooldowns = {};
+    }
+    state.relations[relKey(a.id, b.id)] = 20;
+
+    let formed = false;
+    for (let tick = 0; tick < 3 && !formed; tick++) {
+      state.tick = tick;
+      aiMonth(state);
+      formed = defensivePacted(state, a.id, b.id);
+    }
+    expect(formed).toBe(true);
+    expect(state.counters.aiActions.defensive_pact ?? 0).toBeGreaterThan(0);
   });
 });

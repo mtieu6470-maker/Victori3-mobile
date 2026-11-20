@@ -356,7 +356,7 @@ const alliances: HistoricalDB['alliances'] = [];
 for (const a of allianceFile.records) {
   if ((a.start ?? '9999') > START || (a.end ?? '9999') < START) continue;
   const members = [...new Set<string>(a.members.filter((m: any) => (m.from ?? '0') <= START && (m.to ?? '9999') >= START && m.entity && allEntityIds.has(m.entity)).map((m: any) => m.entity))];
-  if (members.length >= 2) alliances.push({ id: a.id, type: a.type, members, start: a.start, end: a.end, defense: a.defense, entente: a.entente });
+  if (members.length >= 2) alliances.push({ id: a.id, type: a.type, members, start: a.start, end: a.end, defense: !!a.defense, entente: !!a.entente, neutrality: !!a.neutrality, nonaggression: !!a.nonaggression });
 }
 
 // ---------------------------------------------------------------- events

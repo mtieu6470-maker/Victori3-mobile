@@ -77,7 +77,7 @@ export interface WarSeed {
   war_goals: { by: string; type: string; target: string; regions?: string[] }[]; supporters?: Record<string, string[]>;
 }
 
-export interface AllianceSeed { id: string; type: string; members: string[]; start: string; end: string | null; defense: boolean; entente: boolean }
+export interface AllianceSeed { id: string; type: string; members: string[]; start: string; end: string | null; defense: boolean; entente: boolean; neutrality: boolean; nonaggression: boolean }
 
 export interface DecisionWindow {
   id: string; entity: string; window: [string, string]; conditions: Condition[];

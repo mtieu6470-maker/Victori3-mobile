@@ -4,7 +4,7 @@
 import { useRef, useState } from 'preact/hooks';
 import type { GameState } from '../../engine/types';
 import { getRel } from '../../engine/core';
-import { powerScore, allianceAcceptance, allied, rivals, warSides, boundSubject } from '../../engine/systems/diplomacy';
+import { powerScore, allianceAcceptance, defensivePactAcceptance, allied, defensivePacted, canFormAlliance, canFormDefensivePact, rivals, warSides, boundSubject } from '../../engine/systems/diplomacy';
 import { armyStrength } from '../../engine/systems/military';
 import { sharesBorder } from '../../engine/systems/politics';
 import { Sec, Metric, DBar, Seg, modals, details, useWidth, useSort } from '../components/ui';
@@ -13,7 +13,7 @@ import { shortName, fullName } from '../game/names';
 import { viewedId, canCommand, send, CountryLink, Flag, openCountry, regionName } from './common';
 import { ui } from '../game/ui';
 
-const TREATY_VI: Record<string, string> = { alliance: 'Liên minh', guarantee: 'Bảo đảm độc lập', customs_union: 'Liên minh thuế quan' };
+const TREATY_VI: Record<string, string> = { alliance: 'Liên minh', defensive_pact: 'Hiệp ước phòng thủ', entente: 'Entente lịch sử', neutrality_pact: 'Hiệp ước trung lập', non_aggression_pact: 'Hiệp ước không xâm phạm', historical_pact: 'Hiệp ước lịch sử', guarantee: 'Bảo đảm độc lập', customs_union: 'Liên minh thuế quan' };
 
 export function DiplomacyScreen({ st, tab }: { st: GameState; tab: string }) {
   if (tab === 'treaties') return <Treaties st={st} />;
@@ -60,7 +60,7 @@ function Treaties({ st }: { st: GameState }) {
       <table class="dt">
         <thead><tr><th>Bên tham gia</th><th class="r">Từ năm</th><th class="r">Căn cứ</th></tr></thead>
         <tbody>
-          {(['alliance', 'guarantee', 'customs_union'] as const).map((type) => { const list = ts.filter((t) => t.type === type); if (!list.length) return null; return [
+          {(['alliance', 'defensive_pact', 'entente', 'neutrality_pact', 'non_aggression_pact', 'historical_pact', 'guarantee', 'customs_union'] as const).map((type) => { const list = ts.filter((t) => t.type === type); if (!list.length) return null; return [
             <tr class="grp" key={type}><td colSpan={3}>{TREATY_VI[type]} · {list.length}</td></tr>,
             ...list.map((t) => <tr key={t.id} style="cursor:default"><td style="white-space:normal"><span class="links">{t.members.filter((m) => m !== id || t.members.length === 1).map((m) => <CountryLink key={m} st={st} id={m} />)}</span>{t.leader && <div class="sub">dẫn đầu: {shortName(st, t.leader)}</div>}</td><td class="r num">{1836 + Math.floor(t.start / 12)}</td><td class="r muted">{t.source ? 'hồ sơ lịch sử' : 'trong ván'}</td></tr>),
           ]; })}
@@ -98,8 +98,8 @@ export function openCountryActions(st: GameState, target: string) {
 }
 function CountryActions({ st, target }: { st: GameState; target: string }) {
   const me = st.player; const t = st.countries[target]; const mine = !!me && canCommand(st, me);
-  const viewer = viewedId(st); const rel = getRel(st, viewer, target); const isAlly = allied(st, viewer, target); const isRiv = rivals(st, viewer, target);
-  const acc = me ? allianceAcceptance(st, me, target) : 0; const subj = boundSubject(t) || (me ? boundSubject(st.countries[me]) : false);
+  const viewer = viewedId(st); const rel = getRel(st, viewer, target); const isAlly = allied(st, viewer, target); const isDefensivePact = defensivePacted(st, viewer, target); const isRiv = rivals(st, viewer, target);
+  const acc = me ? allianceAcceptance(st, me, target) : 0; const dpAcc = me ? defensivePactAcceptance(st, me, target) : 0; const canAlliance = !!me && canFormAlliance(st, me, target); const canDefensivePact = !!me && canFormDefensivePact(st, me, target); const subj = boundSubject(t) || (me ? boundSubject(st.countries[me]) : false);
   const atWarWith = !!me && st.wars.some((w) => (w.attackers.members.includes(me) && w.defenders.members.includes(target)) || (w.defenders.members.includes(me) && w.attackers.members.includes(target)));
   const action = (label: string, sub: string | null, btn: string, onClick: () => void, opts: { danger?: boolean; disabled?: boolean } = {}) => (
     <div class="row"><div class="grow"><div class="t sm">{label}</div>{sub && <div class="s">{sub}</div>}</div><button class={`btn sm${opts.danger ? ' danger' : ''}`} disabled={opts.disabled} onClick={onClick}>{btn}</button></div>
@@ -115,13 +115,17 @@ function CountryActions({ st, target }: { st: GameState; target: string }) {
         <Metric label="Sức mạnh" value={fmt(powerScore(st, t))} d={<span class="dim">lục quân {compact(t.army.manpower)}</span>} />
       </div>
       <div class="kv"><span class="k">Thủ đô</span><span class="v">{regionName(t.capital)}</span></div>
-      <div class="kv"><span class="k">Quan hệ đặc biệt</span><span class="v">{[isAlly && 'Đồng minh', isRiv && 'Đối thủ', atWarWith && 'Đang chiến tranh', sharesBorder(st, viewer, target) && 'Giáp biên'].filter(Boolean).join(' · ') || '—'}</span></div>
+      <div class="kv"><span class="k">Quan hệ đặc biệt</span><span class="v">{[isAlly && 'Đồng minh', isDefensivePact && 'Hiệp ước phòng thủ', isRiv && 'Đối thủ', atWarWith && 'Đang chiến tranh', sharesBorder(st, viewer, target) && 'Giáp biên'].filter(Boolean).join(' · ') || '—'}</span></div>
       <div class="btns" style="margin:10px 0 4px"><button class="btn sm" onClick={() => openCountry(target)}>Hồ sơ quốc gia</button></div>
       {mine && me !== target && (
         <Sec title="Hành động ngoại giao" icon="diplomacy">
           {action('Cải thiện quan hệ', '+3 mỗi lần', 'Thực hiện', () => send({ type: 'improve_relations', target }, `Quan hệ với ${shortName(st, target)} được cải thiện`))}
-          {isAlly ? action('Hủy liên minh', 'Giảm quan hệ và uy tín', 'Hủy', () => send({ type: 'break_alliance', target }, `Đã hủy liên minh với ${shortName(st, target)}`), { danger: true })
-            : action('Đề nghị liên minh', subj ? 'Không thể: có quan hệ chư hầu' : `Đối phương ${acc >= 0 ? 'sẽ chấp nhận' : 'sẽ từ chối'} (${acc >= 0 ? '+' : '−'}${fmt(Math.abs(acc), 1)})`, 'Đề nghị', () => send({ type: 'propose_alliance', target }, `Liên minh với ${shortName(st, target)} được thiết lập`), { disabled: subj })}
+          {isAlly
+            ? action('Hủy liên minh', 'Chấm dứt hiệp ước song phương', 'Hủy', () => send({ type: 'break_alliance', target }, `Đã hủy liên minh với ${shortName(st, target)}`), { danger: true })
+            : action('Đề nghị liên minh', subj ? 'Không thể: chính thể phụ thuộc không có ngoại giao độc lập' : canAlliance ? `Đối phương ${acc >= 0 ? 'có thể chấp nhận' : 'có thể từ chối'} (${acc >= 0 ? '+' : '−'}${fmt(Math.abs(acc), 1)})` : 'Chưa đủ công nghệ, quan hệ Amicable hoặc năng lực liên minh', 'Đề nghị', () => send({ type: 'propose_alliance', target }, `Đã gửi đề nghị liên minh với ${shortName(st, target)}`), { disabled: subj || !canAlliance })}
+          {isDefensivePact
+            ? action('Rút khỏi hiệp ước phòng thủ', 'Chấm dứt nghĩa vụ phòng thủ song phương', 'Rút lui', () => send({ type: 'break_defensive_pact', target }, `Đã rút khỏi hiệp ước phòng thủ với ${shortName(st, target)}`), { danger: true })
+            : action('Đề nghị hiệp ước phòng thủ', subj ? 'Không thể: chính thể phụ thuộc không có ngoại giao độc lập' : canDefensivePact ? `Đối phương ${dpAcc >= 0 ? 'có thể chấp nhận' : 'có thể từ chối'}` : 'Cần International Relations và quan hệ Cordial trở lên; không dùng chỗ của Multilateral Alliances', 'Đề nghị', () => send({ type: 'propose_defensive_pact', target }, `Đã gửi đề nghị hiệp ước phòng thủ tới ${shortName(st, target)}`), { disabled: subj || !canDefensivePact })}
           {!isRiv && action('Tuyên bố đối thủ', 'Quan hệ giảm dần theo thời gian', 'Tuyên bố', () => send({ type: 'declare_rival', target }, `${shortName(st, target)} là đối thủ của ta`))}
           {action('Bảo đảm độc lập', 'Ta sẽ tham chiến nếu nước này bị tấn công', 'Bảo đảm', () => send({ type: 'guarantee', target }, `Đã bảo đảm độc lập cho ${shortName(st, target)}`))}
           {!atWarWith && action('Tuyên chiến…', 'Xem trước phe tham chiến và mục tiêu', 'Xem xét', () => modals.open(`Tuyên chiến với ${shortName(st, target)}`, () => <WarDialog st={st} target={target} />), { danger: true })}
@@ -142,7 +146,7 @@ function WarDialog({ st, target }: { st: GameState; target: string }) {
   const ws = warSides(st, me, target, goals);
   const str = (ids: string[]) => ids.reduce((s, x) => s + armyStrength(st, st.countries[x]), 0);
   const A = str(ws.attackers), D = str(ws.defenders);
-  const REASON: Record<string, string> = { alliance: 'liên minh', guarantee: 'bảo đảm', great_power: 'cường quốc can thiệp', subject: 'chư hầu' };
+  const REASON: Record<string, string> = { alliance: 'liên minh', defensive_pact: 'hiệp ước phòng thủ', guarantee: 'bảo đảm', great_power: 'cường quốc can thiệp', subject: 'chư hầu' };
   const hold = useRef<number | null>(null); const [prog, setProg] = useState(0);
   const start = () => { const t0 = performance.now(); const tick = () => { const p = Math.min(1, (performance.now() - t0) / 700); setProg(p); if (p >= 1) { hold.current = null; if (send({ type: 'declare_war', target, goals }, `Đã tuyên chiến với ${shortName(st, target)}`)) { modals.close(); details.close(); } return; } hold.current = requestAnimationFrame(tick); }; hold.current = requestAnimationFrame(tick); };
   const stop = () => { if (hold.current) cancelAnimationFrame(hold.current); hold.current = null; setProg(0); };

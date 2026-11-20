@@ -10,7 +10,7 @@ import { historicalBias } from '../historical';
 import { build, buildingReturn, canBuild, hasTech, privateInvestment, SHIP_COST } from '../systems/economy';
 import { reformSupport, startReform, sharesBorder } from '../systems/politics';
 import { techCost } from '../systems/technology';
-import { allied, allianceAcceptance, allianceCapacityAvailable, alliancePartnerCount, canFormAlliance, declareRivalry, declareWar, formAlliance, greatPowers, guarantee, improveRelations, joinCustomsUnion, powerScore, rivals } from '../systems/diplomacy';
+import { allied, allianceAcceptance, allianceCapacityAvailable, alliancePartnerCount, canFormAlliance, canFormDefensivePact, defensivePactAcceptance, hasNonAggressionPact, declareRivalry, declareWar, formAlliance, formDefensivePact, greatPowers, guarantee, improveRelations, joinCustomsUnion, powerScore, rivals } from '../systems/diplomacy';
 import { armyStrength, atWar, enemiesOf, navalStrength } from '../systems/military';
 import { coreNationOf } from '../systems/population';
 import { regionsOf, bordersOf } from '../cache';
@@ -185,11 +185,37 @@ function diplomacyAI(st: GameState, c: Country) {
       else c.ai.cooldowns[`ally:${best}`] = st.tick + 36;
     }
   }
+  // Defensive Pacts use the same diplomacy AI but a lower relation band and no
+  // Multilateral Alliances capacity. A country may keep one Alliance and sign
+  // separate Defensive Pacts with other eligible partners.
+  {
+    const pool = new Set<string>([...bordersOf(st, c.id), ...gps]);
+    for (const key of Object.keys(st.relations)) {
+      if (st.relations[key] >= 10 && key.includes(c.id)) for (const id of key.split('|')) pool.add(id);
+    }
+    let best: string | null = null;
+    let bestScore = 0;
+    for (const id of pool) {
+      const other = st.countries[id];
+      if (!other?.alive || other.id === c.id || other.decentralized || other.overlord) continue;
+      if ((c.ai.cooldowns[`defensive_pact:${id}`] ?? 0) > st.tick) continue;
+      if (!canFormDefensivePact(st, c.id, id)) continue;
+      const score = defensivePactAcceptance(st, c.id, id) + historicalBias(st, c, 'support', id) * 2;
+      if (score > bestScore) { bestScore = score; best = id; }
+    }
+    if (best) {
+      if (defensivePactAcceptance(st, best, c.id) >= 0 && formDefensivePact(st, c.id, best)) count(st, 'defensive_pact', c.id);
+      else c.ai.cooldowns[`defensive_pact:${best}`] = st.tick + 36;
+    }
+  }
   // guarantees: protect small neighbours of a rival, or as a historical 'support' priority
   if (isGP && chance(st, 0.1)) for (const o of Object.values(st.countries)) {
     if (!o.alive || o.decentralized || o.overlord || powerScore(st, o) > powerScore(st, c) * 0.3) continue;
     const support = historicalBias(st, c, 'support', o.id);
-    if (support > 0.3 || (getRel(st, c.id, o.id) > 40 && st.rivalries.some((k) => k.split('|').includes(c.id) && sharesBorder(st, k.replace(c.id, '').replace('|', ''), o.id)))) { guarantee(st, c.id, o.id); count(st, 'guarantee', c.id); break; }
+    if (support > 0.3 || (getRel(st, c.id, o.id) > 40 && st.rivalries.some((k) => k.split('|').includes(c.id) && sharesBorder(st, k.replace(c.id, '').replace('|', ''), o.id)))) {
+      if (guarantee(st, c.id, o.id)) count(st, 'guarantee', c.id);
+      break;
+    }
   }
   // customs union accession (shared utility; historical windows add more in Historical Mode)
   for (const t of st.treaties) if (t.type === 'customs_union' && !c.customsUnion && t.leader && t.leader !== c.id && st.countries[t.leader]?.alive) {
@@ -221,7 +247,7 @@ function warAI(st: GameState, c: Country) {
   // expeditions: great powers with strong navies may target distant coasts named in claims or priorities
   for (const r of c.claims) { const o = st.regions[d.regionIndex.get(r)!].owner; if (o !== c.id) cands.add(o); }
   for (const tid of cands) {
-    const t = st.countries[tid]; if (!t?.alive || tid === c.overlord || t.overlord === c.id || allied(st, c.id, tid)) continue;
+    const t = st.countries[tid]; if (!t?.alive || tid === c.overlord || t.overlord === c.id || allied(st, c.id, tid) || hasNonAggressionPact(st, c.id, tid)) continue;
     if (c.decentralized && t.decentralized) continue; // placeholder polities do not conquer each other
     if (st.player === tid && st.tick < 24) continue; // grace period for the player
     const tRegions = regionsOf(st, tid);
@@ -239,7 +265,7 @@ function warAI(st: GameState, c: Country) {
     if (!goals.length) continue;
     // expected strength including likely defenders
     let enemy = armyStrength(st, t) + (t.overlord ? armyStrength(st, st.countries[t.overlord]) * 0.7 : 0);
-    for (const tr of st.treaties) if (tr.type === 'alliance' && tr.members.includes(tid)) for (const m of tr.members) if (m !== tid && m !== c.id) enemy += armyStrength(st, st.countries[m]) * 0.5;
+    for (const tr of st.treaties) if ((tr.type === 'alliance' || tr.type === 'defensive_pact') && tr.members.includes(tid)) for (const m of tr.members) if (m !== tid && m !== c.id && st.countries[m]?.alive) enemy += armyStrength(st, st.countries[m]) * 0.5;
     for (const gp of greatPowers(st)) if (gp !== c.id && rivals(st, gp, c.id) && getRel(st, gp, tid) > 10) enemy += armyStrength(st, st.countries[gp]) * 0.35;
     const ratio = mine / Math.max(1, enemy);
     const pWin = clamp((ratio - 0.6) / 1.4, 0, 0.95);

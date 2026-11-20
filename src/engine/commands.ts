@@ -5,7 +5,7 @@ import type { Building, GameState, WarGoal } from './types';
 import { build, canBuild, buildCost, setProductionMethod, queueConstruction, cancelConstruction } from './systems/economy';
 import { startReform, reformSupport } from './systems/politics';
 import { availableTechs } from './systems/technology';
-import { declareWar, formAlliance, breakAlliance, declareRivalry, guarantee, improveRelations, joinCustomsUnion, allianceAcceptance, boundSubject } from './systems/diplomacy';
+import { declareWar, formAlliance, breakAlliance, canFormAlliance, formDefensivePact, breakDefensivePact, canFormDefensivePact, declareRivalry, guarantee, improveRelations, joinCustomsUnion } from './systems/diplomacy';
 import { applyWindowOption } from './systems/events';
 import { endWar } from './systems/military';
 import { clamp, log } from './core';
@@ -25,6 +25,8 @@ export type Command =
   | { type: 'improve_relations'; target: string }
   | { type: 'propose_alliance'; target: string }
   | { type: 'break_alliance'; target: string }
+  | { type: 'propose_defensive_pact'; target: string }
+  | { type: 'break_defensive_pact'; target: string }
   | { type: 'declare_rival'; target: string }
   | { type: 'guarantee'; target: string }
   | { type: 'join_customs_union'; union: string }
@@ -64,11 +66,22 @@ export function execute(st: GameState, cmd: Command): CommandResult {
     }
     case 'set_research': if (!availableTechs(me).includes(cmd.tech)) return { ok: false, reason: 'Prerequisites missing or already known' }; me.research = { current: cmd.tech, progress: 0 }; return { ok: true };
     case 'improve_relations': improveRelations(st, me.id, cmd.target); return { ok: true };
-    case 'propose_alliance': if (boundSubject(me) || boundSubject(st.countries[cmd.target])) return { ok: false, reason: 'Subjects (other than tributaries) cannot form alliances' };
-      return formAlliance(st, me.id, cmd.target) ? { ok: true } : { ok: false, reason: `Refused (acceptance ${allianceAcceptance(st, me.id, cmd.target).toFixed(1)} < 0)` };
-    case 'break_alliance': breakAlliance(st, me.id, cmd.target); return { ok: true };
+    case 'propose_alliance':
+      if (!canFormAlliance(st, me.id, cmd.target)) return { ok: false, reason: 'Requires International Relations, Amicable relations, available Alliance capacity and no conflicting treaty' };
+      return formAlliance(st, me.id, cmd.target) ? { ok: true } : { ok: false, reason: 'Alliance proposal refused' };
+    case 'break_alliance': return breakAlliance(st, me.id, cmd.target)
+      ? { ok: true }
+      : { ok: false, reason: 'No active Alliance with this country' };
+    case 'propose_defensive_pact':
+      if (!canFormDefensivePact(st, me.id, cmd.target)) return { ok: false, reason: 'Requires International Relations, Cordial relations and no conflicting military treaty' };
+      return formDefensivePact(st, me.id, cmd.target) ? { ok: true } : { ok: false, reason: 'Defensive Pact proposal refused' };
+    case 'break_defensive_pact': return breakDefensivePact(st, me.id, cmd.target)
+      ? { ok: true }
+      : { ok: false, reason: 'No active Defensive Pact with this country' };
     case 'declare_rival': declareRivalry(st, me.id, cmd.target); return { ok: true };
-    case 'guarantee': guarantee(st, me.id, cmd.target); return { ok: true };
+    case 'guarantee': return guarantee(st, me.id, cmd.target)
+      ? { ok: true }
+      : { ok: false, reason: 'Guarantee conflicts with an active Alliance or Defensive Pact, or target is invalid' };
     case 'join_customs_union': return joinCustomsUnion(st, me, cmd.union) ? { ok: true } : { ok: false, reason: 'Cannot join' };
     case 'declare_war': return declareWar(st, me.id, cmd.target, cmd.goals) ? { ok: true } : { ok: false, reason: 'Invalid war declaration' };
     case 'offer_white_peace': {

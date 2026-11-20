@@ -8,7 +8,7 @@ import { computeEconomy } from './systems/economy';
 import { updatePolitics } from './systems/politics';
 import { sampleYear } from './metrics';
 import { emptyInventoryLedger } from './systems/inventory';
-import { normalizeAllianceTreaties } from './systems/alliance';
+import { normalizeHistoricalTreaties, treatyTermsFromSeed, treatyTypeFromSeed } from './systems/alliance';
 
 export interface NewGameOptions { mode: GameMode; seed: number; player: string | null }
 
@@ -122,17 +122,26 @@ export function createGame(opts: NewGameOptions): GameState {
     for (const r of rivals) if (st.countries[e.id] && st.countries[r.entity]) { const k = relKey(e.id, r.entity); if (!st.rivalries.includes(k)) st.rivalries.push(k); }
   }
 
-  // ---- treaties: CoW alliances active on the start date; Zollverein
-  for (const a of db.alliances) {
-    const members = a.members.filter((m) => st.countries[m]);
-    if (members.length >= 2) st.treaties.push({ id: a.id, type: 'alliance', members, start: 0, source: a.id });
+  // ---- historical diplomatic agreements active at start; Zollverein is a separate economic union.
+  for (const seed of db.alliances) {
+    const members = seed.members.filter((id) => st.countries[id]);
+    if (members.length >= 2) {
+      st.treaties.push({
+        id: seed.id,
+        type: treatyTypeFromSeed(seed),
+        members,
+        start: dateToTick(seed.start),
+        end: seed.end ? dateToTick(seed.end) : null,
+        source: seed.id,
+        terms: treatyTermsFromSeed(seed),
+      });
+    }
     for (let i = 0; i < members.length; i++) for (let j = i + 1; j < members.length; j++) {
-      const k = relKey(members[i], members[j]); st.relations[k] = Math.max(st.relations[k] ?? 0, 30);
+      const key = relKey(members[i], members[j]);
+      st.relations[key] = Math.max(st.relations[key] ?? 0, 30);
     }
   }
-  // Historical source rows may encode an entire pact as one multi-member group.
-  // The live diplomacy model uses bilateral Alliance relationships per country pair.
-  normalizeAllianceTreaties(st);
+  normalizeHistoricalTreaties(st);
 
   const zv = db.zollverein.members_at_start.filter((m) => st.countries[m]);
   st.treaties.push({ id: 'zollverein', type: 'customs_union', members: zv, leader: db.zollverein.union_leader, start: 0, source: 'zollverein_accessions' });

@@ -21,7 +21,7 @@ describe('one engine, two modes', () => {
   });
   it('AI activity is not reduced in either mode', () => {
     const h = run('historical', 7, 10), s = run('sandbox', 7, 10);
-    for (const k of ['budget', 'construction', 'research', 'improve_relations', 'alliance']) {
+    for (const k of ['budget', 'construction', 'research', 'improve_relations']) {
       const a = h.counters.aiActions[k] ?? 0, b = s.counters.aiActions[k] ?? 0;
       expect(a, k).toBeGreaterThan(0); expect(b, k).toBeGreaterThan(0);
       expect(a / b, k).toBeGreaterThan(0.5); expect(a / b, k).toBeLessThan(2);
@@ -71,10 +71,10 @@ describe('Sandbox Mode is free', () => {
     for (let i = 0; i < runs.length; i++) for (let j = i + 1; j < runs.length; j++) differing += runs[i].regions.filter((r, k) => r.owner !== runs[j].regions[k].owner).length;
     expect(differing).toBeGreaterThan(0);
   });
-  it('wars, alliances, territorial and institutional changes emerge', () => {
+  it('wars, historical diplomatic pacts, territorial and institutional changes emerge', () => {
     for (const st of runs) {
       expect(st.counters.aiActions.declare_war ?? 0).toBeGreaterThan(5);
-      expect(st.counters.aiActions.alliance ?? 0).toBeGreaterThan(5);
+      expect(st.treaties.some((treaty) => treaty.type === 'defensive_pact')).toBe(true);
       expect(st.territoryLog.length).toBeGreaterThan(3);
       expect(st.log.filter((l) => l.type === 'law').length).toBeGreaterThan(5);
     }

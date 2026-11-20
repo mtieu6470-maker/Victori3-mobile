@@ -2,7 +2,7 @@
 // deterministically exactly as the uninterrupted game would.
 import type { GameState } from './types';
 import { emptyInventoryLedger } from './systems/inventory';
-import { normalizeAllianceTreaties } from './systems/alliance';
+import { normalizeHistoricalTreaties } from './systems/alliance';
 
 export const SAVE_FORMAT = 'currents-of-history-save';
 
@@ -19,6 +19,6 @@ export function deserialize(text: string): GameState {
   st.inventoryLedger ??= emptyInventoryLedger(); // pre-ledger saves start unseeded; no historical stock is invented
   for (const c of Object.values(st.countries)) c.constructionQueue ??= [];
   // Migrate older saves whose historical alliance sources were stored as multi-member groups.
-  normalizeAllianceTreaties(st);
+  normalizeHistoricalTreaties(st);
   return st;
 }

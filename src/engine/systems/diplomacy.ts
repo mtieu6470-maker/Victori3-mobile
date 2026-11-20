@@ -9,7 +9,30 @@ import { coreNationOf } from './population';
 import { setCustomsUnionMembership } from './customsUnion';
 import { hasTech } from './economy';
 
-export const allied = (st: GameState, a: string, b: string) => st.treaties.some((t) => t.type === 'alliance' && t.members.includes(a) && t.members.includes(b));
+export const allied = (st: GameState, a: string, b: string) =>
+  st.treaties.some((t) => t.type === 'alliance' && t.members.includes(a) && t.members.includes(b));
+
+export const defensivePacted = (st: GameState, a: string, b: string) =>
+  st.treaties.some((t) => t.type === 'defensive_pact' && t.members.includes(a) && t.members.includes(b));
+
+function samePair(treaty: GameState['treaties'][number], a: string, b: string): boolean {
+  return treaty.members.length >= 2 && treaty.members.includes(a) && treaty.members.includes(b);
+}
+
+export function hasConflictingMilitaryTreaty(st: GameState, a: string, b: string): boolean {
+  return st.treaties.some((treaty) =>
+    samePair(treaty, a, b)
+      && (treaty.type === 'alliance' || treaty.type === 'defensive_pact' || treaty.type === 'guarantee'),
+  );
+}
+
+export function hasNonAggressionPact(st: GameState, a: string, b: string): boolean {
+  return st.treaties.some((treaty) =>
+    samePair(treaty, a, b)
+      && (treaty.type === 'non_aggression_pact' || treaty.terms?.nonaggression === true),
+  );
+}
+
 export const rivals = (st: GameState, a: string, b: string) => st.rivalries.includes(relKey(a, b));
 
 export function powerScore(st: GameState, c: Country): number {
@@ -24,6 +47,8 @@ export function greatPowers(st: GameState): string[] {
 }
 
 export function diplomacyMonth(st: GameState) {
+  // Sourced historical agreements remain active through their recorded end month.
+  st.treaties = st.treaties.filter((treaty) => treaty.end == null || st.tick <= treaty.end);
   if (st.tick % 3 !== 0) return;
   const d = data();
   const ids = Object.keys(st.countries).filter((id) => st.countries[id].alive);
@@ -33,6 +58,7 @@ export function diplomacyMonth(st: GameState) {
     if (!ca?.alive || !cb?.alive) { delete st.relations[k]; continue; }
     let base = 0;
     if (allied(st, a, b)) base += 35;
+    if (defensivePacted(st, a, b)) base += 25;
     if (rivals(st, a, b)) base -= 45;
     if (enemies.has(k)) base -= 80;
     if (ca.overlord === b || cb.overlord === a) base += 25;
@@ -49,6 +75,7 @@ export function improveRelations(st: GameState, a: string, b: string) { addRel(s
 
 export function allianceAcceptance(st: GameState, from: string, to: string): number {
   const a = st.countries[from], b = st.countries[to];
+  if (!a?.alive || !b?.alive || from === to) return -Infinity;
   let s = getRel(st, from, to) / 10 - 3;
   const sharedRival = st.rivalries.some((k) => { const [x, y] = k.split('|'); const other = x === from ? y : y === from ? x : null; return other && (rivals(st, to, other)); });
   if (sharedRival) s += 4;
@@ -83,18 +110,29 @@ export function canFormAlliance(st: GameState, a: string, b: string): boolean {
   const from = st.countries[a], to = st.countries[b];
   if (!from?.alive || !to?.alive || a === b) return false;
   if (boundSubject(from) || boundSubject(to)) return false;
+  if (from.overlord === b || to.overlord === a) return false;
   if (!allianceCapacityAvailable(st, a) || !allianceCapacityAvailable(st, b)) return false;
-  if (allied(st, a, b)) return false;
+  if (hasConflictingMilitaryTreaty(st, a, b)) return false;
 
-  // Alliance and Guarantee Independence cannot coexist for the same pair, in either direction.
-  if (st.treaties.some(
-    (treaty) => treaty.type === 'guarantee'
-      && treaty.members.length >= 2
-      && ((treaty.members[0] === a && treaty.members[1] === b)
-        || (treaty.members[0] === b && treaty.members[1] === a)),
-  )) return false;
+  // Amicable relation band is +25 on this engine's current -100..+100 scale.
+  // Overlapping-interest tier and diplomatic-autonomy flags are not yet modelled.
+  return getRel(st, a, b) >= 25 && allianceAcceptance(st, a, b) >= 0;
+}
 
-  return allianceAcceptance(st, a, b) >= 0;
+export function defensivePactAcceptance(st: GameState, from: string, to: string): number {
+  if (!st.countries[from]?.alive || !st.countries[to]?.alive || from === to) return -Infinity;
+  return getRel(st, from, to) - 10;
+}
+
+export function canFormDefensivePact(st: GameState, a: string, b: string): boolean {
+  const from = st.countries[a], to = st.countries[b];
+  if (!from?.alive || !to?.alive || a === b) return false;
+  if (boundSubject(from) || boundSubject(to)) return false;
+  if (from.overlord === b || to.overlord === a) return false;
+  if (!hasTech(from, 'international_relations') || !hasTech(to, 'international_relations')) return false;
+  if (hasConflictingMilitaryTreaty(st, a, b)) return false;
+  // Cordial is +10; Defensive Pacts do not consume Alliance capacity.
+  return getRel(st, a, b) >= 10 && defensivePactAcceptance(st, a, b) >= 0;
 }
 
 export function formAlliance(st: GameState, a: string, b: string): boolean {
@@ -104,19 +142,48 @@ export function formAlliance(st: GameState, a: string, b: string): boolean {
   log(st, { type: 'diplomacy', text: `${st.countries[a].name} and ${st.countries[b].name} form an alliance.`, textVi: `${st.countries[a].nameVi} và ${st.countries[b].nameVi} lập liên minh.`, actors: [a, b] });
   return true;
 }
-export function breakAlliance(st: GameState, a: string, b: string) {
+export function breakAlliance(st: GameState, a: string, b: string): boolean {
+  const before = st.treaties.length;
   st.treaties = st.treaties.filter((t) => !(t.type === 'alliance' && t.members.length === 2 && t.members.includes(a) && t.members.includes(b)));
+  if (st.treaties.length === before) return false;
   addRel(st, a, b, -20);
+  return true;
+}
+
+export function formDefensivePact(st: GameState, a: string, b: string): boolean {
+  if (!canFormDefensivePact(st, a, b)) return false;
+  st.treaties.push({ id: newId(st, 'defpact'), type: 'defensive_pact', members: [a, b], start: st.tick });
+  addRel(st, a, b, 10);
+  log(st, {
+    type: 'diplomacy',
+    text: `${st.countries[a].name} and ${st.countries[b].name} sign a defensive pact.`,
+    textVi: `${st.countries[a].nameVi} và ${st.countries[b].nameVi} ký hiệp ước phòng thủ.`,
+    actors: [a, b],
+  });
+  return true;
+}
+
+export function breakDefensivePact(st: GameState, a: string, b: string): boolean {
+  const before = st.treaties.length;
+  st.treaties = st.treaties.filter((t) => !(t.type === 'defensive_pact' && t.members.length === 2 && t.members.includes(a) && t.members.includes(b)));
+  if (st.treaties.length === before) return false;
+  addRel(st, a, b, -15);
+  return true;
 }
 export function declareRivalry(st: GameState, a: string, b: string) {
   const k = relKey(a, b); if (st.rivalries.includes(k)) return;
   st.rivalries.push(k); addRel(st, a, b, -20);
   log(st, { type: 'diplomacy', text: `${st.countries[a].name} declares ${st.countries[b].name} a rival.`, textVi: `${st.countries[a].nameVi} tuyên bố ${st.countries[b].nameVi} là đối thủ.`, actors: [a, b] });
 }
-export function guarantee(st: GameState, a: string, b: string) {
-  if (allied(st, a, b)) return;
-  if (st.treaties.some((t) => t.type === 'guarantee' && t.members[0] === a && t.members[1] === b)) return;
-  st.treaties.push({ id: newId(st, 'guar'), type: 'guarantee', members: [a, b], start: st.tick }); addRel(st, a, b, 10);
+export function guarantee(st: GameState, a: string, b: string): boolean {
+  if (!st.countries[a]?.alive || !st.countries[b]?.alive || a === b) return false;
+  if (st.treaties.some((t) =>
+    samePair(t, a, b) && (t.type === 'alliance' || t.type === 'defensive_pact'),
+  )) return false;
+  if (st.treaties.some((t) => t.type === 'guarantee' && t.members[0] === a && t.members[1] === b)) return false;
+  st.treaties.push({ id: newId(st, 'guar'), type: 'guarantee', members: [a, b], start: st.tick });
+  addRel(st, a, b, 10);
+  return true;
 }
 export function joinCustomsUnion(st: GameState, c: Country, unionId: string): boolean {
   const u = st.treaties.find((t) => t.id === unionId && t.type === 'customs_union');
@@ -146,13 +213,29 @@ export function warSides(st: GameState, attacker: string, defender: string, goal
   const defLeader = dC.overlord && st.countries[dC.overlord]?.alive && dC.subjectType !== 'tributary' ? dC.overlord : defender;
   const attackers = [attacker];
   const defenders = [...new Set([defender, defLeader])];
-  const joined: { id: string; reason: 'subject' | 'alliance' | 'guarantee' | 'great_power' }[] = [];
+  const joined: { id: string; reason: 'subject' | 'alliance' | 'defensive_pact' | 'guarantee' | 'great_power' }[] = [];
   // subjects follow overlords
   for (const c of Object.values(st.countries)) if (c.alive && c.overlord === attacker && c.subjectType !== 'tributary' && c.subjectType !== 'personal_union') { attackers.push(c.id); joined.push({ id: c.id, reason: 'subject' }); }
-  // defensive alliances and guarantees (a country already fighting for the attacker, e.g. its subject, cannot also defend)
-  for (const t of st.treaties) {
-    if (t.type === 'alliance' && t.members.includes(defender)) for (const m of t.members) if (m !== defender && !attackers.includes(m) && !defenders.includes(m) && st.countries[m]?.alive && !t.members.includes(attacker) && joinWillingness(st, m, attacker, defender) > 0) { defenders.push(m); joined.push({ id: m, reason: 'alliance' }); }
-    if (t.type === 'guarantee' && t.members[1] === defender && !attackers.includes(t.members[0]) && !defenders.includes(t.members[0])) { defenders.push(t.members[0]); joined.push({ id: t.members[0], reason: 'guarantee' }); }
+  // Alliance and Defensive Pact are distinct bilateral articles; both carry a
+  // defensive obligation. Guarantee Independence remains directional.
+  for (const treaty of st.treaties) {
+    if ((treaty.type === 'alliance' || treaty.type === 'defensive_pact') && treaty.members.includes(defender)) {
+      const reason = treaty.type === 'alliance' ? 'alliance' : 'defensive_pact';
+      for (const member of treaty.members) {
+        if (member !== defender && !attackers.includes(member) && !defenders.includes(member)
+          && st.countries[member]?.alive && !treaty.members.includes(attacker)
+          && joinWillingness(st, member, attacker, defender) > 0) {
+          defenders.push(member);
+          joined.push({ id: member, reason });
+        }
+      }
+    }
+    if (treaty.type === 'guarantee' && treaty.members[1] === defender
+      && !attackers.includes(treaty.members[0]) && !defenders.includes(treaty.members[0])
+      && st.countries[treaty.members[0]]?.alive) {
+      defenders.push(treaty.members[0]);
+      joined.push({ id: treaty.members[0], reason: 'guarantee' });
+    }
   }
   // great-power intervention against an aggressive rival
   for (const gp of greatPowers(st)) {
@@ -168,6 +251,7 @@ export function warSides(st: GameState, attacker: string, defender: string, goal
 export function declareWar(st: GameState, attacker: string, defender: string, goals: WarGoal[], name?: string, kind: War['kind'] = 'conquest'): War | null {
   const a = st.countries[attacker], dC = st.countries[defender];
   if (!a?.alive || !dC?.alive || attacker === defender) return null;
+  if (hasNonAggressionPact(st, attacker, defender)) return null;
   if (st.wars.some((w) => (w.attackers.members.includes(attacker) && w.defenders.members.includes(defender)) || (w.attackers.members.includes(defender) && w.defenders.members.includes(attacker)))) return null;
   const sides = warSides(st, attacker, defender, goals);
   const w: War = { id: newId(st, 'war'), name: name ?? `${a.name}–${dC.name} War`, kind, attackers: { leader: attacker, members: sides.attackers }, defenders: { leader: sides.defenderLeader, members: sides.defenders }, goals, start: st.tick, score: 0, occupied: [], battles: 0, exhaustion: { a: 0, d: 0 } };
@@ -181,7 +265,7 @@ export function declareWar(st: GameState, attacker: string, defender: string, go
 
 export function joinWillingness(st: GameState, who: string, attacker: string, defender: string): number {
   const c = st.countries[who]; if (!c || c.decentralized) return -1;
-  let s = getRel(st, who, defender) / 20 - getRel(st, who, attacker) / 25 + (rivals(st, who, attacker) ? 2 : 0) + (allied(st, who, defender) ? 2 : 0);
+  let s = getRel(st, who, defender) / 20 - getRel(st, who, attacker) / 25 + (rivals(st, who, attacker) ? 2 : 0) + ((allied(st, who, defender) || defensivePacted(st, who, defender)) ? 2 : 0);
   s += (armyStrength(st, c) / Math.max(1, armyStrength(st, st.countries[attacker]))) - 0.6;
   if (atWar(st, who)) s -= 2;
   s -= c.warExhaustion / 30;

@@ -153,7 +153,35 @@ export interface War {
   occupied: string[]; battles: number; exhaustion: { a: number; d: number }; historicalSeed?: boolean;
 }
 
-export interface Treaty { id: string; type: 'alliance' | 'guarantee' | 'customs_union'; members: string[]; leader?: string; start: number; source?: string }
+export type TreatyType =
+  | 'alliance'
+  | 'defensive_pact'
+  | 'entente'
+  | 'neutrality_pact'
+  | 'non_aggression_pact'
+  | 'historical_pact'
+  | 'guarantee'
+  | 'customs_union';
+
+export interface TreatyTerms {
+  defense?: boolean;
+  entente?: boolean;
+  neutrality?: boolean;
+  nonaggression?: boolean;
+  sourceType?: string;
+}
+
+export interface Treaty {
+  id: string;
+  type: TreatyType;
+  members: string[];
+  leader?: string;
+  start: number;
+  /** Absolute simulation tick when a sourced historical agreement expires. */
+  end?: number | null;
+  source?: string;
+  terms?: TreatyTerms;
+}
 
 export interface LogEntry { tick: number; date: string; type: string; text: string; textVi?: string; actors: string[]; historical?: boolean; divergence?: boolean }
 
