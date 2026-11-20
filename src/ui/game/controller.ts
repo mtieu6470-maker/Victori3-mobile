@@ -42,34 +42,58 @@ export class GameController {
   toasts: Toast[] = [];
   readLogCount = 0;
   private listeners = new Set<() => void>();
-  private raf = 0; private last = 0; private acc = 0; private toastId = 0;
+  private raf = 0; private last = 0; private acc = 0; private toastId = 0; private operationToken = 0;
 
   subscribe(fn: () => void) { this.listeners.add(fn); return () => { this.listeners.delete(fn); }; }
   emit() { this.version++; for (const fn of this.listeners) fn(); }
 
   newGame(opts: { mode: GameMode; seed: number; player: string | null }) {
+    this.operationToken++;
+    this.busy = null;
     this.stop();
     this.st = createGame(opts);
     this.paused = true; this.readLogCount = this.st.log.length;
     this.emit();
   }
-  /** Simulates `months` months before handing control to the player (yields to the browser between chunks). */
+  /** Simulates whole months in bounded chunks, without racing the live RAF clock. */
   async fastForward(months: number) {
-    if (!this.st || months <= 0) return;
+    if (!this.st || this.busy || !Number.isSafeInteger(months) || months <= 0) return;
+    const state = this.st;
+    const token = ++this.operationToken;
+    const wasPaused = this.paused;
+    this.stop(); this.paused = true; this.acc = 0;
     this.busy = { label: 'Đang mô phỏng', done: 0, total: months }; this.emit();
-    for (let i = 0; i < months; i++) {
-      stepMonth(this.st);
-      if (i % 6 === 5) { this.busy.done = i + 1; this.emit(); await new Promise((r) => setTimeout(r, 0)); }
+    try {
+      for (let i = 0; i < months; i++) {
+        if (token !== this.operationToken || this.st !== state) return;
+        stepMonth(state);
+        if (i % 6 === 5) {
+          if (this.busy) this.busy.done = i + 1;
+          this.emit();
+          await new Promise((resolve) => setTimeout(resolve, 0));
+        }
+      }
+    } finally {
+      // A load/new-game invalidates this operation; its finally block must not
+      // overwrite the replacement game's paused/busy state.
+      if (token === this.operationToken && this.st === state) {
+        this.busy = null;
+        this.readLogCount = state.log.length;
+        this.paused = wasPaused;
+        if (!this.paused) this.start();
+        this.emit();
+      }
     }
-    this.busy = null; this.readLogCount = this.st.log.length; this.emit();
   }
   load(text: string) {
     const st = deserialize(text); // throws on foreign files; caller shows the error
-    this.stop(); this.st = st; this.paused = true; this.readLogCount = st.log.length; this.emit();
+    this.operationToken++; this.busy = null;
+    this.stop(); this.st = st; this.paused = true; this.acc = 0; this.readLogCount = st.log.length; this.emit();
   }
   save(): string { if (!this.st) throw new Error('Không có ván chơi'); return serialize(this.st); }
 
   command(cmd: Command): { ok: boolean; reason?: string } {
+    if (this.busy) return { ok: false, reason: 'Đang mô phỏng, vui lòng chờ' };
     if (!this.st) return { ok: false, reason: 'Không có ván chơi' };
     const r = execute(this.st, cmd);
     this.emit();
@@ -81,9 +105,9 @@ export class GameController {
   }
 
   // ---------------------------------------------------------------- time
-  setPaused(p: boolean) { this.paused = p; if (p) this.stop(); else this.start(); this.emit(); }
+  setPaused(p: boolean) { if (this.busy) return; this.paused = p; if (p) this.stop(); else this.start(); this.emit(); }
   setSpeed(s: Speed) { if (this.speed === s) return; this.speed = s; this.acc = 0; this.last = performance.now(); this.emit(); }
-  stepOnce() { if (this.st) { stepMonth(this.st); this.emit(); } }
+  stepOnce() { if (this.st && !this.busy) { stepMonth(this.st); this.emit(); } }
   private start() {
     if (this.raf) return;
     this.last = performance.now(); this.acc = 0;
