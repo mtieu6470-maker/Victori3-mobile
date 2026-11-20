@@ -7,7 +7,7 @@ import { armyStrength, atWar } from './military';
 import { sharesBorder } from './politics';
 import { coreNationOf } from './population';
 import { setCustomsUnionMembership } from './customsUnion';
-import { hasTech } from './economy';
+import { hasTech, techEffect } from './economy';
 
 export const allied = (st: GameState, a: string, b: string) => st.treaties.some((t) => t.type === 'alliance' && t.members.includes(a) && t.members.includes(b));
 export const rivals = (st: GameState, a: string, b: string) => st.rivalries.includes(relKey(a, b));
@@ -73,7 +73,7 @@ export function allianceTreatyCount(st: GameState, countryId: string): number {
 export function allianceCapacityAvailable(st: GameState, countryId: string): boolean {
   const country = st.countries[countryId];
   if (!country?.alive || !hasTech(country, 'international_relations')) return false;
-  return allianceTreatyCount(st, countryId) === 0 || hasTech(country, 'multilateral_alliances');
+  return allianceTreatyCount(st, countryId) === 0 || techEffect(country, 'allow_multiple_alliances') > 0;
 }
 
 export function canFormAlliance(st: GameState, a: string, b: string): boolean {
