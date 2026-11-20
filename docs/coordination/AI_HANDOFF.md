@@ -863,3 +863,12 @@ This section records the 2026-11-19 checkpoint and is superseded by the 2026-11-
 - Pacing proposal: Speed 5 target ceiling no faster than one in-game calendar year per 60 real seconds (about 6.1 game days per real second) on a reference benchmark setup. This is a **provisional design guard**, not measured Victoria 3 behavior and not a statement that the target Android device can sustain the rate. Slowdown/backlog is acceptable; dropped logical ticks or FPS-driven acceleration are not.
 - Added acceptance targets for Gregorian leap years, terminal campaign boundary, Speed 5 cap, refresh-rate independence, bounded backlog and save/load across cadence boundaries.
 - No simulation/runtime/save code, tests, data, assets, build files, APK or workflow was changed. No benchmark or device test was run. The design remains subject to phase authorization, measurement and review.
+
+
+## 2026-11-20 — OWNER CONFIRMED SPEED-5 HARD CEILING: HALF A GAME DAY PER SECOND
+
+- Owner clarified the maximum allowed pacing: no more than **0.5 in-game Gregorian day per real second** (12 game-hours per real second) at Speed 5.
+- Updated `docs/spec/SIMULATION_CLOCK_PACING_DESIGN_VI.md` §12.2–12.3 and acceptance test CLK-13. This replaces both earlier proposals (1 game-year/60 seconds and 1–2 game-days/second); neither earlier proposal is current.
+- The 1836-01-01 to 2027-01-01 terminal interval is 69,762 Gregorian days. At exactly the hard cap, the theoretical uninterrupted minimum to pass the full calendar is 139,524 real seconds = 38h 45m 24s. Real simulation may take longer due to compute, pause, saves and overload.
+- At a six-hour logical tick, 0.5 day/second equals at most two logical ticks/second. Rendering/RAF must not generate logical ticks, and no monthly simulation pipeline may run at the six-hour cadence.
+- This is an owner-set product speed ceiling in the design, not a measured runtime result or proof that the current build implements it. No source code, save schema, scheduler, benchmark, test, APK or Android runtime was changed/run.
