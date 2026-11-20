@@ -7,7 +7,7 @@ import { computeEconomy } from './systems/economy';
 import { populationMonth } from './systems/population';
 import { politicsMonth, secessionCheck } from './systems/politics';
 import { technologyMonth } from './systems/technology';
-import { diplomacyMonth, declareWar } from './systems/diplomacy';
+import { diplomacyMonth, advanceDiplomacyDaily, declareWar } from './systems/diplomacy';
 import { militaryMonth } from './systems/military';
 import { eventsMonth } from './systems/events';
 import { aiMonth, chooseResearch, decideWindow } from './ai/ai';
@@ -79,6 +79,7 @@ export function stepSixHour(st: GameState): boolean {
 }
 
 const CADENCE_TASKS: readonly ScheduledTask[] = [
+  { id: 'diplomacy.daily.deadlines', cadence: 'daily', priority: 20, run: advanceDiplomacyDaily },
   {
     id: 'legacy.monthly.systems.v2',
     cadence: 'monthly',

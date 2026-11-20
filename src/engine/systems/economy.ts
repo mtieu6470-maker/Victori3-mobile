@@ -4,6 +4,7 @@ import { data } from '../data/db';
 import { GOODS, STRATA, S, type Country, type GameState, type Good, type Region, type Building, type MarketGoodStats, type PopulationEconomy } from '../types';
 import { clamp, log } from '../core';
 import { regionsOf } from '../cache';
+import { treatyTariffReduction } from './treaties';
 
 export const OPENNESS: Record<string, number> = { isolationism: 0.03, protectionism: 0.3, free_trade: 0.7 };
 const TARIFF: Record<string, number> = { isolationism: 0.35, protectionism: 0.2, free_trade: 0.04 };
@@ -710,7 +711,8 @@ function financeMonth(st: GameState, c: Country, gdpYear: number, pop: number, i
   const gdpPc = pop > 0 ? gdpYear / pop : 0;
   const taxEff = clamp(0.45 + 1.4 * c.budget.admin + 0.1 * (c.laws.power === 'autocracy' ? 0 : 1) + techEffect(c, 'admin_efficiency'), 0.25, 1.05);
   const tax = (c.taxRate * gdpYear * taxEff) / 12;
-  const tariff = (importsValue * (TARIFF[c.laws.trade] ?? 0.2)) / 12;
+  const treatyDiscount = treatyTariffReduction(st, c.id);
+  const tariff = (importsValue * (TARIFF[c.laws.trade] ?? 0.2) * (1 - treatyDiscount)) / 12;
   c.tariffIncome = tariff;
   const income = tax + tariff;
   const armyCost = (c.army.manpower * SOLDIER_COST(gdpPc)) / 12;

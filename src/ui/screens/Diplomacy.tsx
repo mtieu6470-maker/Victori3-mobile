@@ -13,9 +13,11 @@ import { shortName, fullName } from '../game/names';
 import { viewedId, canCommand, send, CountryLink, Flag, openCountry, regionName } from './common';
 import { ui } from '../game/ui';
 
-const TREATY_VI: Record<string, string> = { alliance: 'Liên minh', guarantee: 'Bảo đảm độc lập', customs_union: 'Liên minh thuế quan' };
+const TREATY_VI: Record<string, string> = { alliance: 'Liên minh', guarantee: 'Bảo đảm độc lập', customs_union: 'Liên minh thuế quan', trade_agreement: 'Hiệp định thương mại', non_aggression: 'Hiệp ước không xâm lược' };
+const PLAY_PHASE_VI: Record<string, string> = { maneuver: 'Vận động ngoại giao', escalation: 'Leo thang', resolved: 'Đã chuyển thành chiến tranh', withdrawn: 'Đã rút lui / kết thúc' };
 
 export function DiplomacyScreen({ st, tab }: { st: GameState; tab: string }) {
+  if (tab === 'plays') return <DiplomaticPlays st={st} />;
   if (tab === 'treaties') return <Treaties st={st} />;
   if (tab === 'subjects') return <Subjects st={st} />;
   return <Relations st={st} />;
@@ -60,12 +62,39 @@ function Treaties({ st }: { st: GameState }) {
       <table class="dt">
         <thead><tr><th>Bên tham gia</th><th class="r">Từ năm</th><th class="r">Căn cứ</th></tr></thead>
         <tbody>
-          {(['alliance', 'guarantee', 'customs_union'] as const).map((type) => { const list = ts.filter((t) => t.type === type); if (!list.length) return null; return [
+          {(['alliance', 'guarantee', 'customs_union', 'trade_agreement', 'non_aggression'] as const).map((type) => { const list = ts.filter((t) => t.type === type); if (!list.length) return null; return [
             <tr class="grp" key={type}><td colSpan={3}>{TREATY_VI[type]} · {list.length}</td></tr>,
-            ...list.map((t) => <tr key={t.id} style="cursor:default"><td style="white-space:normal"><span class="links">{t.members.filter((m) => m !== id || t.members.length === 1).map((m) => <CountryLink key={m} st={st} id={m} />)}</span>{t.leader && <div class="sub">dẫn đầu: {shortName(st, t.leader)}</div>}</td><td class="r num">{1836 + Math.floor(t.start / 12)}</td><td class="r muted">{t.source ? 'hồ sơ lịch sử' : 'trong ván'}</td></tr>),
+            ...list.map((t) => <tr key={t.id} style="cursor:default"><td style="white-space:normal"><span class="links">{t.members.filter((m) => m !== id || t.members.length === 1).map((m) => <CountryLink key={m} st={st} id={m} />)}</span>{t.leader && <div class="sub">dẫn đầu: {shortName(st, t.leader)}</div>}{t.clauses?.map((c) => <div class="sub" key={c.id}>{c.kind === 'tariff_reduction' ? `Giảm thuế nhập khẩu ${Math.round((c.value ?? 0) * 100)}%` : c.kind}</div>)}</td><td class="r num">{1836 + Math.floor(t.start / 12)}</td><td class="r muted">{t.status && t.status !== 'active' ? (t.status === 'expired' ? 'hết hạn' : t.status === 'terminated' ? 'đã chấm dứt' : 'vi phạm') : t.endStep != null ? 'có thời hạn' : t.source ? 'hồ sơ lịch sử' : 'vô thời hạn'}</td></tr>),
           ]; })}
         </tbody>
       </table>
+    </div>
+  );
+}
+
+
+function DiplomaticPlays({ st }: { st: GameState }) {
+  const viewer = viewedId(st);
+  const plays = [...(st.diplomaticPlays ?? [])].sort((a, b) => b.startedStep - a.startedStep || a.id.localeCompare(b.id));
+  if (!plays.length) return <div class="pad"><div class="empty">Chưa có khủng hoảng ngoại giao. Từ hồ sơ một quốc gia, chọn “Tuyên chiến…” để mở giai đoạn vận động ngoại giao trước khi chiến tranh nổ ra.</div></div>;
+  return (
+    <div class="pad">
+      {plays.map((play) => {
+        const active = play.phase === 'maneuver' || play.phase === 'escalation';
+        const joined = play.participants.some((p) => p.country === viewer);
+        const daysLeft = Math.max(0, Math.ceil((play.deadlineStep - st.calendar.stepIndex) / 4));
+        return <Sec key={play.id} title={`${shortName(st, play.initiator)} — ${shortName(st, play.target)}`} x={active ? PLAY_PHASE_VI[play.phase] : PLAY_PHASE_VI[play.phase]}>
+          <div class="kv"><span class="k">Bên khởi xướng</span><span class="v"><CountryLink st={st} id={play.initiator} /></span></div>
+          <div class="kv"><span class="k">Bên mục tiêu</span><span class="v"><CountryLink st={st} id={play.target} /></span></div>
+          <div class="kv"><span class="k">Thời hạn giai đoạn</span><span class="v num">{active ? `${daysLeft} ngày` : '—'}</span></div>
+          <div class="kv"><span class="k">Mục tiêu</span><span class="v">{play.goals.map((g) => g.type).join(', ')}</span></div>
+          <div class="kv"><span class="k">Bên tham gia</span><span class="v links">{play.participants.map((p) => <span key={p.country}><CountryLink st={st} id={p.country} /> ({p.side === 'initiator' ? 'ủng hộ khởi xướng' : 'ủng hộ mục tiêu'})</span>)}</span></div>
+          {active && st.player && !joined && viewer !== play.initiator && viewer !== play.target && !boundSubject(st.countries[viewer]) && <div class="btns">
+            <button class="btn sm" onClick={() => send({ type: 'join_diplomatic_play', playId: play.id, side: 'initiator' }, 'Đã đứng về phía bên khởi xướng')}>Ủng hộ bên khởi xướng</button>
+            <button class="btn sm" onClick={() => send({ type: 'join_diplomatic_play', playId: play.id, side: 'target' }, 'Đã đứng về phía bên mục tiêu')}>Ủng hộ bên mục tiêu</button>
+          </div>}
+        </Sec>;
+      })}
     </div>
   );
 }
@@ -124,6 +153,7 @@ function CountryActions({ st, target }: { st: GameState; target: string }) {
             : action('Đề nghị liên minh', subj ? 'Không thể: có quan hệ chư hầu' : `Đối phương ${acc >= 0 ? 'sẽ chấp nhận' : 'sẽ từ chối'} (${acc >= 0 ? '+' : '−'}${fmt(Math.abs(acc), 1)})`, 'Đề nghị', () => send({ type: 'propose_alliance', target }, `Liên minh với ${shortName(st, target)} được thiết lập`), { disabled: subj })}
           {!isRiv && action('Tuyên bố đối thủ', 'Quan hệ giảm dần theo thời gian', 'Tuyên bố', () => send({ type: 'declare_rival', target }, `${shortName(st, target)} là đối thủ của ta`))}
           {action('Bảo đảm độc lập', 'Ta sẽ tham chiến nếu nước này bị tấn công', 'Bảo đảm', () => send({ type: 'guarantee', target }, `Đã bảo đảm độc lập cho ${shortName(st, target)}`))}
+          {action('Hiệp định thương mại', 'Giảm thuế nhập khẩu song phương trong 5 năm', 'Đề xuất', () => send({ type: 'form_trade_agreement', target }, `Đã ký hiệp định thương mại với ${shortName(st, target)}`))}
           {!atWarWith && action('Tuyên chiến…', 'Xem trước phe tham chiến và mục tiêu', 'Xem xét', () => modals.open(`Tuyên chiến với ${shortName(st, target)}`, () => <WarDialog st={st} target={target} />), { danger: true })}
           {atWarWith && <div class="note">Đang có chiến tranh với nước này — xem Quân sự › Chiến tranh.</div>}
         </Sec>
@@ -144,7 +174,7 @@ function WarDialog({ st, target }: { st: GameState; target: string }) {
   const A = str(ws.attackers), D = str(ws.defenders);
   const REASON: Record<string, string> = { alliance: 'liên minh', guarantee: 'bảo đảm', great_power: 'cường quốc can thiệp', subject: 'chư hầu' };
   const hold = useRef<number | null>(null); const [prog, setProg] = useState(0);
-  const start = () => { const t0 = performance.now(); const tick = () => { const p = Math.min(1, (performance.now() - t0) / 700); setProg(p); if (p >= 1) { hold.current = null; if (send({ type: 'declare_war', target, goals }, `Đã tuyên chiến với ${shortName(st, target)}`)) { modals.close(); details.close(); } return; } hold.current = requestAnimationFrame(tick); }; hold.current = requestAnimationFrame(tick); };
+  const start = () => { const t0 = performance.now(); const tick = () => { const p = Math.min(1, (performance.now() - t0) / 700); setProg(p); if (p >= 1) { hold.current = null; if (send({ type: 'start_diplomatic_play', target, goals }, `Đã mở khủng hoảng ngoại giao với ${shortName(st, target)}`)) { modals.close(); details.close(); } return; } hold.current = requestAnimationFrame(tick); }; hold.current = requestAnimationFrame(tick); };
   const stop = () => { if (hold.current) cancelAnimationFrame(hold.current); hold.current = null; setProg(0); };
   return (
     <div>
@@ -159,11 +189,11 @@ function WarDialog({ st, target }: { st: GameState; target: string }) {
         <div class="hbar" style="height:10px"><i style={`width:${(A / (A + D || 1)) * 100}%;background:var(--info)`} /><i style="flex:1;background:var(--neg)" /></div>
         <div class="kv"><span class="k">Phe ta {compact(A)}</span><span class="v">Đối phương {compact(D)}</span></div>
       </Sec>
-      <div class="note warnbox">Tiếng xấu +{fmt(ws.infamy)}. Quan hệ với các nước phe kia giảm xuống ≤ −60. Không thể hoàn tác; hòa bình cần điểm chiến tranh hoặc đối phương chấp nhận.</div>
+      <div class="note warnbox">Đây là giai đoạn ngoại giao: các nước có thể tham gia một trong hai phía. Nếu khủng hoảng không được giải quyết trước thời hạn, chiến tranh sẽ nổ ra. Tiếng xấu +{fmt(ws.infamy)}. Quan hệ với các nước phe kia giảm xuống ≤ −60. Không thể hoàn tác; hòa bình cần điểm chiến tranh hoặc đối phương chấp nhận.</div>
       <button class="btn danger hold" style="width:100%;margin-top:10px" onPointerDown={start} onPointerUp={stop} onPointerLeave={stop} onPointerCancel={stop}>
-        <span class="fill" style={`width:${prog * 100}%`} />Giữ để tuyên chiến
+        <span class="fill" style={`width:${prog * 100}%`} />Giữ để mở khủng hoảng ngoại giao
       </button>
     </div>
   );
 }
-export const DIPLOMACY_TABS: [string, string][] = [['relations', 'Quan hệ'], ['treaties', 'Hiệp ước'], ['subjects', 'Chư hầu & đối thủ']];
+export const DIPLOMACY_TABS: [string, string][] = [['relations', 'Quan hệ'], ['plays', 'Khủng hoảng'], ['treaties', 'Hiệp ước'], ['subjects', 'Chư hầu & đối thủ']];

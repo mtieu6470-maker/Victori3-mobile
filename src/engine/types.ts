@@ -117,7 +117,54 @@ export interface War {
   occupied: string[]; battles: number; exhaustion: { a: number; d: number }; historicalSeed?: boolean;
 }
 
-export interface Treaty { id: string; type: 'alliance' | 'guarantee' | 'customs_union'; members: string[]; leader?: string; start: number; source?: string }
+export type TreatyType = 'alliance' | 'guarantee' | 'customs_union' | 'trade_agreement' | 'non_aggression';
+export type TreatyStatus = 'active' | 'expired' | 'terminated' | 'breached';
+export type TreatyClauseKind = 'tariff_reduction' | 'mutual_defense' | 'non_aggression' | 'market_access' | 'reparations' | 'tribute' | 'military_access';
+export interface TreatyClause {
+  id: string;
+  kind: TreatyClauseKind;
+  /** Decimal modifier or agreed rate; interpretation is determined by kind. */
+  value?: number;
+  amount?: number;
+  from?: string;
+  to?: string;
+}
+export interface Treaty {
+  id: string;
+  type: TreatyType;
+  members: string[];
+  leader?: string;
+  /** Legacy monthly tick when signed; retained for historical data compatibility. */
+  start: number;
+  source?: string;
+  status?: TreatyStatus;
+  startStep?: number;
+  endStep?: number | null;
+  terminatedStep?: number;
+  clauses?: TreatyClause[];
+  breachCount?: number;
+}
+
+export type DiplomaticPlayPhase = 'maneuver' | 'escalation' | 'resolved' | 'withdrawn';
+export type DiplomaticPlaySide = 'initiator' | 'target';
+export interface DiplomaticPlayParticipant {
+  country: string;
+  side: DiplomaticPlaySide;
+  influence: number;
+}
+export interface DiplomaticPlay {
+  id: string;
+  initiator: string;
+  target: string;
+  goals: WarGoal[];
+  phase: DiplomaticPlayPhase;
+  startedStep: number;
+  deadlineStep: number;
+  participants: DiplomaticPlayParticipant[];
+  escalation: number;
+  warId?: string;
+  resolvedStep?: number;
+}
 
 export interface LogEntry { tick: number; date: string; type: string; text: string; textVi?: string; actors: string[]; historical?: boolean; divergence?: boolean }
 
@@ -144,6 +191,7 @@ export interface GameState {
   regions: Region[];
   wars: War[];
   treaties: Treaty[];
+  diplomaticPlays: DiplomaticPlay[];
   relations: Record<string, number>;
   rivalries: string[]; // "A|B"
   worldPrices: Record<Good, number>;

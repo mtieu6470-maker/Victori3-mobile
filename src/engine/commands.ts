@@ -5,7 +5,7 @@ import type { Building, GameState, WarGoal } from './types';
 import { build, canBuild, buildCost, setProductionMethod, queueConstruction, cancelConstruction } from './systems/economy';
 import { startReform, reformSupport } from './systems/politics';
 import { availableTechs } from './systems/technology';
-import { declareWar, formAlliance, breakAlliance, declareRivalry, guarantee, improveRelations, joinCustomsUnion, allianceAcceptance, boundSubject } from './systems/diplomacy';
+import { declareWar, formAlliance, breakAlliance, declareRivalry, guarantee, improveRelations, joinCustomsUnion, allianceAcceptance, boundSubject, startDiplomaticPlay, joinDiplomaticPlay, formTradeAgreement } from './systems/diplomacy';
 import { applyWindowOption } from './systems/events';
 import { endWar } from './systems/military';
 import { clamp, log } from './core';
@@ -29,6 +29,9 @@ export type Command =
   | { type: 'guarantee'; target: string }
   | { type: 'join_customs_union'; union: string }
   | { type: 'declare_war'; target: string; goals: WarGoal[] }
+  | { type: 'start_diplomatic_play'; target: string; goals: WarGoal[] }
+  | { type: 'join_diplomatic_play'; playId: string; side: 'initiator' | 'target' }
+  | { type: 'form_trade_agreement'; target: string }
   | { type: 'offer_white_peace'; war: string }
   | { type: 'decide'; pendingId: string; option: string };
 
@@ -71,6 +74,9 @@ export function execute(st: GameState, cmd: Command): CommandResult {
     case 'guarantee': guarantee(st, me.id, cmd.target); return { ok: true };
     case 'join_customs_union': return joinCustomsUnion(st, me, cmd.union) ? { ok: true } : { ok: false, reason: 'Cannot join' };
     case 'declare_war': return declareWar(st, me.id, cmd.target, cmd.goals) ? { ok: true } : { ok: false, reason: 'Invalid war declaration' };
+    case 'start_diplomatic_play': return startDiplomaticPlay(st, me.id, cmd.target, cmd.goals) ? { ok: true } : { ok: false, reason: 'Invalid diplomatic play or another crisis is already active' };
+    case 'join_diplomatic_play': return joinDiplomaticPlay(st, cmd.playId, me.id, cmd.side) ? { ok: true } : { ok: false, reason: 'Cannot join this diplomatic play' };
+    case 'form_trade_agreement': return formTradeAgreement(st, me.id, cmd.target) ? { ok: true } : { ok: false, reason: 'Trade agreement refused or not eligible' };
     case 'offer_white_peace': {
       const w = st.wars.find((x) => x.id === cmd.war); if (!w) return { ok: false, reason: 'No such war' };
       const mine = w.attackers.members.includes(me.id) ? 'a' : 'd';

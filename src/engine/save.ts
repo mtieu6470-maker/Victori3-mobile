@@ -24,6 +24,7 @@ export function migrateV1State(legacy: Record<string, unknown>): GameState {
   migrated.version = SAVE_VERSION;
   migrated.calendar = createCalendarState(date.y as number, date.m as number, 1, 0);
   migrated.marketStats ??= {};
+  migrated.diplomaticPlays ??= [];
   for (const country of Object.values(migrated.countries ?? {})) country.constructionQueue ??= [];
   return migrated;
 }
@@ -44,6 +45,7 @@ export function deserialize(text: string): GameState {
       throw new Error('Save calendar is missing, invalid or inconsistent');
     }
     state.marketStats ??= {};
+    state.diplomaticPlays ??= [];
     for (const country of Object.values(state.countries ?? {})) country.constructionQueue ??= [];
   } else throw new Error(`Unsupported save version ${envelope.version}`);
   return state;
