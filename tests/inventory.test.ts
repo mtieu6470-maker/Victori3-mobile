@@ -95,6 +95,34 @@ describe('bounded factory/market equilibrium', () => {
     expect(result.shortages.B.grain).toBeCloseTo(30 / 130, 8);
     expect(result.shortages.A.grain).toBe(0);
     expect(result.shortages.B.tools).toBe(0);
+    expect(result.imports.A.tools).toBeCloseTo(100, 8);
+    expect(result.exports.B.tools).toBeCloseTo(100, 8);
+    expect(result.imports.B.grain).toBeCloseTo(100, 8);
+    expect(result.exports.A.grain).toBeCloseTo(100, 8);
+    expect(result.worldTrade.grain.surplus).toBeCloseTo(100, 8);
+    expect(result.worldTrade.grain.deficit).toBeCloseTo(130, 8);
+
+    // The market projection and the physical monthly ledger settlement must agree.
+    const grainSeller = settleInventoryFlow({
+      openingStock: 0, production: 100 / 12, imports: 0,
+      exports: result.exports.A.grain / 12, demand: 0,
+    });
+    const grainBuyer = settleInventoryFlow({
+      openingStock: 0, production: 0,
+      imports: result.imports.B.grain / 12, exports: 0, demand: 130 / 12,
+    });
+    const toolsSeller = settleInventoryFlow({
+      openingStock: 0, production: 100 / 12, imports: 0,
+      exports: result.exports.B.tools / 12, demand: 0,
+    });
+    const toolsBuyer = settleInventoryFlow({
+      openingStock: 0, production: 0,
+      imports: result.imports.A.tools / 12, exports: 0, demand: 130 / 12,
+    });
+    expect(grainSeller.closingStock).toBe(0);
+    expect(toolsSeller.closingStock).toBe(0);
+    expect(grainBuyer.unmetDemand / grainBuyer.demand).toBeCloseTo(result.shortages.B.grain, 8);
+    expect(toolsBuyer.unmetDemand / toolsBuyer.demand).toBeCloseTo(result.shortages.A.tools, 8);
   });
 
   it('allows a market stockpile to cover a different market deficit without creating goods', () => {
