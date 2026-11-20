@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `744d26c33b311c11a40de2a4cf12403e1b7b3eb9`  
+**Snapshot HEAD before this manifest refresh:** `ba34e3c4bfb70b54e5ff1006fe285070de58331c`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -17,14 +17,14 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 | `docs/audit/s0/S0_B3_RESULTS.md` | `cc25258c5295e5c2de3bae90d3c9b1d1c1b63da5` |
 | `docs/audit/s0/S0_RISK_REGISTER.md` | `a5bb70bfd10d3f82dc200b29680ada2cd99c489a` |
 | `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `65dcbd43fc49d75883e9598853100493c604b0b2` |
-| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `9dbeb3d8771e929b935662982c1a2ac01bd730f0` |
+| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `27690ab30e071d752a4688220bcfd5034aaaf7e7` |
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `8701c8defd2945cc0849b7e2c7ee67afe03ab141` |
 | `docs/audit/s0/S0_SIGNOFF.md` | `7a2baf300e95c646585f76e3a1ef81f85cadfcf5` |
-| `docs/audit/s0/S0_B7_RESULTS.md` | `b6dc63d2c7d92625865cc4907d0b9ae9be6f1731` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `f4ab1bc1c91a09be8dd2eded6f8a73e3726ed939` |
+| `docs/audit/s0/S0_B7_RESULTS.md` | `2add919f67a6e62a5f0455985d8998d44385e5d9` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `06dddf24063fd8583184084699bc2841f6cf646c` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `977e7fc3427cefb99bf3ba172740eb99cb6034b8` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `883471efe0e45392779f64cf1417d37b3b337394` |
+| `docs/coordination/AI_HANDOFF.md` | `03a2cecd010992efdbdfe689280a7b322733922e` |
 | `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `0cdd1b70857e17b708c6851575819ae076a5b8d0` |
 
 ## 2. Risk table integrity and traceability
@@ -251,3 +251,11 @@ The prior structural summary undercounted the matrix by one because it omitted t
 - Risk Register is pinned to corrected blob `a5bb70bfd10d3f82dc200b29680ada2cd99c489a`. CI-F4 is contiguous with the six-column P1 table; no disposition/severity change.
 - Post-correction table counts: P0 1×6, P1 13×6 (12 P1 risk rows plus G0.7 gate row), P2 22×6, P3 5×3, Closed 1×3; no blank cells. Traceability: 48 unique source mappings.
 - Results, self-review, reviewer request and AI_HANDOFF record this structural correction. No gate or phase status changed.
+
+
+## 24. Final P1 table and review-input pin refresh — 2026-11-20
+
+- Snapshot base HEAD before this manifest update: `ba34e3c4bfb70b54e5ff1006fe285070de58331c`.
+- Refreshed live pins for Risk Register, Traceability, Signoff, B7 Results, Self-review, Claude review request and AI_HANDOFF from the current experiment branch.
+- CI-F4 now renders as part of the contiguous six-column P1 table. Verified table counts: P0 1×6; P1 13×6 (12 P1 risk rows plus the distinct G0.7 gate row); P2 22×6; P3 5×3; Closed 1×3. No blank cells; 48 traceability rows remain unique.
+- No severity, disposition, gate, owner acceptance or phase authorization changed. This is a documentation-only manifest update; no new Actions run is expected due to `[skip ci]`.
