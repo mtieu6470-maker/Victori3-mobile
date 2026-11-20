@@ -186,3 +186,12 @@ This is an implementer self-audit of repository structure and catalog alignment,
 ## 7. P0/P1 disposition completeness follow-up — 2026-11-20
 
 The follow-up found no missing owner column or missing mitigation/disposition field in the P0/P1 table. It did find target-stage/exit wording that was too broad for reliable downstream acceptance. The Risk Register and traceability matrix now distinguish R2/AS-F1 S5 rights work, R10 stage-specific S4/S11/S20 budgets, GD-F2 staged regional data work, and TC-F1/F2 political versus military test targets. Functional owner roles remain accountable; implementation/verification roles are stated where needed. Severity and all gate states are unchanged. This is an implementer self-audit, not independent review or owner signoff.
+
+
+## 8. Exact-HEAD Android CI / R1 signing revalidation — 2026-11-20
+
+- Verified Run #324 (`44677523059`) on exact HEAD `31f1617ed838110296fd68edfd90c7e3e3b8d0a7`: 38/38 suites, 97/97 tests, `report_valid=true`, Gradle `BUILD SUCCESSFUL`, APK and evidence artifacts downloaded and locally rehashed against GitHub API digests.
+- APK SHA-256: `d64bdf78726d991f1bb3c867200f360e2fc563bc0332282cf75cbe7d9734d285`; debug certificate SHA-256: `84bb348722b660bb36805f3928f73d64401d313a8627168796b6068a2ee1d146`. Run #322's certificate is `559d549a21515f899b6195c65114b2be778ff2fbd63288d21ef31f4365b96238`. GitHub compare confirms only documentation paths changed between the checkouts; the differing fingerprints substantiate R1.
+- R1 remains OPEN; no signing Environment, keystore, secrets, installation or upgrade test was performed. CI success is not device QA.
+- AS-F1's target/exit wording was tightened to S5 with explicit 492-source-page and UI-attribution checks. This remains a future remediation target, not completed verification.
+- This is an implementer self-audit only; no independent B7 verdict or owner acceptance is claimed.
