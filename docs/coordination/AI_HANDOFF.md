@@ -787,3 +787,10 @@ This section records the 2026-11-19 checkpoint and is superseded by the 2026-11-
 - Re-downloaded Run #322 APK/evidence artifacts and verified their ZIP/APK checksums. Run #322 cert SHA-256 is `559d549a21515f899b6195c65114b2be778ff2fbd63288d21ef31f4365b96238`. GitHub compare `68fee316..31f1617` shows 17 intervening commits and documentation-only changed paths; the different debug certificate fingerprints directly reinforce R1. R1 remains OPEN; R14 remains BLOCKED; no installation/signing action was taken.
 - Tightened AS-F1 target/closure to S5, requiring live source checks for all 492 images and UI attribution verification. No severity or gate status changed.
 - No product/source/dependency/workflow/save/data/asset/Gradle/signing change. No device QA. This is implementer self-review only; Claude review and owner acceptance remain pending.
+
+
+### 2026-11-20 — B7-RISK-TABLE-CI-F4-BOUNDARY
+
+- Structural recheck found the CI-F4 P1 row was separated from the six-column P1 table by a blank line and rendered as a detached headerless table. Removed the separator and confirmed CI-F4 now belongs to the P1 table.
+- Post-correction counts: P0 1×6; P1 13×6 (12 P1 risk rows + separate G0.7 gate row); P2 22×6; P3 5×3; Closed 1×3. No blank cells. Traceability: 48 unique mappings.
+- CI-F4 remains CLOSED narrowly; all risk/gate/phase states are unchanged. Documentation-only; no runtime test/build/device QA. Independent Claude review and owner acceptance remain pending.
