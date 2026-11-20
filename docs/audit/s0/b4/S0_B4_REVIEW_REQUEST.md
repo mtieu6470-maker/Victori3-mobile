@@ -1,5 +1,19 @@
 # S0-B4 Independent Review Request
 
+## CURRENT ADDENDUM — frozen baseline vs. current save-validation test contract (20/11/2026)
+
+This section supersedes the stale B7/phase-status statements below and makes a later one-assertion test-only change explicit. It does **not** rewrite the frozen B4 baseline result or claim a new baseline B4 run.
+
+- **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`.
+- **B4 baseline test source:** commit `ae29c99330081ba2f6af3a6d4478ec8aefc8a1ad`, blob `722d62c0647f06bc2e3a49bdef1f348f4f3104f2`; the exact source blob is the same at tested HEAD `d2ae88e557e9895413462c5b069886bfc606adc7`.
+- **Frozen baseline evidence:** tests-only run [44041104723](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44041104723), job `133895641421`, 6/6 test files and 70/70 tests. All four Historical/Sandbox × tick-6/tick-12 24-month continuation cases logged `MATCH` and `firstDifferingPath=null`. Missing RNG was accepted by baseline deserialization and continuation threw `TypeError`. No APK artifact was produced by this tests-only run.
+- **Later test-only delta:** commit [14bd568](https://github.com/mtieu6470-maker/Victori3-mobile/commit/14bd56848b8db429b9037880b08887af7118d61f) changed only the missing-envelope-state assertion/name in `tests/s0-save-determinism.test.ts`: baseline `TypeError` → current explicit validation message `Save state is missing or invalid`. The current test blob is `e3d960725e1e1b41fc4f63d303a5b5d36cdb6ad7`. No baseline product source was changed by that test commit.
+- **Why the expectation differs:** baseline `src/engine/save.ts` blob `b2faa2fef078398dd35e4ba099451f3ac6df8d59` directly reads `o.state` and writes `st.marketStats`; a missing state therefore fails with a native `TypeError`. The current v2 implementation blob `e54cce0397d25735540071b53d8291e30e332360` validates `envelope.state` first and throws the explicit error above. This is a post-baseline save-contract improvement, not a historical B4 baseline result.
+- **Current-code CI for the later assertion:** exact commit `96042077abeef8b89fe9e46fdce97a2b566d70da` passed tests-only [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664) and Android debug [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668): current tree 13/13 files, 131/131 tests; Android run 44/44 suites, 131/131 tests, `report_valid=true`, Gradle success. Its log explicitly shows the current v2 validation-message test passing. This current-code run **does not replace** run 44041104723 as frozen-baseline B4 evidence.
+- **Reviewer instruction:** inspect both versions separately. Use `ae29c99` / blob `722d62c` and run 44041104723 for the product-baseline B4 characterization; inspect `14bd568` / blob `e3d9607` and run 44765197668 only as current v2 test-contract evidence. Do not transfer current v2 behavior backward into the frozen 2240a8f result.
+- **Current documentation review target before this addendum:** branch `claude/game-historical-sandbox-modes-kg7rj7`, HEAD `638f9d82e477807925d045d1c859d9fa0f10b017`. Re-fetch the branch HEAD before independent review.
+- **Governance status correction:** B7 drafting is authorized by OD-20261116-11 §6 step 6 and has already reached `READY_FOR_REVIEW`; it is not `NOT_STARTED` or blocked on B4 review. B4 independent review and the separate owner `ACCEPTED` decision remain required for the final bounded S1-entry package. S1 and later runtime phases remain closed.
+
 **Date:** 2026-11-17  
 **Repository:** `mtieu6470-maker/Victori3-mobile`  
 **Branch:** `claude/game-historical-sandbox-modes-kg7rj7` (sole/default branch; verify HEAD before review)
@@ -22,7 +36,7 @@ This is an independent review of S0-B4 characterization evidence under owner dec
 - Review/test-only changes are permitted in this B4 task. No product code was changed by the B4 test commits.
 - Do **not** modify `src/engine/`, `src/engine/save.ts`, RNG implementation, save schema, migration, gameplay, generated data, assets, Android resources, or CI workflows.
 - Do not fix the missing-RNG behavior. Record it as a finding.
-- Do not begin B7, S1, or any later phase.
+- B7 documentation/risk preparation is already authorized and `READY_FOR_REVIEW` under OD-20261116-11 §6 step 6. Do not begin S1 or any later runtime phase before independent `REVIEW_PASS` and owner `ACCEPTED` for the exact bounded S1-entry package.
 - Do not download/install the automatically generated debug APK or use it to claim R14 is verified.
 
 ## Evidence to verify
@@ -106,7 +120,7 @@ Return a bounded review with:
 5. Explicit assessment of missing-RNG characterization and R14 workflow side effect.
 6. One verdict: `REVIEW_PASS` for the bounded B4 test/evidence package, or `CHANGES_REQUESTED`.
 
-Do not write to GitHub or alter the repository. A `REVIEW_PASS` is not owner acceptance. B7 remains blocked until the reviewer’s verdict and the owner’s explicit `ACCEPTED` decision are both recorded.
+Do not write to GitHub or alter the repository. A `REVIEW_PASS` is not owner acceptance. B7 remains `READY_FOR_REVIEW`; its reviewer verdict plus the owner's explicit `ACCEPTED` decision are required before S1, not before B7 documentation/review.
 
 
 ## 6. Follow-up tests-only CI status (2026-11-17)
@@ -136,4 +150,4 @@ The corrected workflow has now been dispatched and passed. This section supersed
 
 The test/CI evidence is now available for independent review. The reviewer must still inspect the source and answer every required point in this packet; a green CI run alone does not imply `REVIEW_PASS`. No repository writes are requested from the reviewer.
 
-**Current gate:** B4 remains `READY_FOR_REVIEW`; independent review and owner `ACCEPTED` are still pending. B7 remains `NOT_STARTED`.
+**Current gate:** B4 remains `READY_FOR_REVIEW`; independent review and owner `ACCEPTED` remain pending. B7 is separately `READY_FOR_REVIEW`; S1 remains `NOT_STARTED` until the complete bounded package receives independent `REVIEW_PASS` and owner `ACCEPTED`.

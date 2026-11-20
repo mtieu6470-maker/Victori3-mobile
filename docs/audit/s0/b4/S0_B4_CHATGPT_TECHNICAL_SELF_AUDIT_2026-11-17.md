@@ -227,3 +227,17 @@ Each uses baseline product SHA `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`, seed 
 ### 9.5 Bounded conclusion
 
 **Project CI validation for the corrected B4 test source: PASS.** This is execution/test evidence only. ChatGPT authored the correction, so this does not qualify as independent second-party `REVIEW_PASS`. B4 stays `READY_FOR_REVIEW` until a genuine independent reviewer returns a bounded verdict and the owner records `ACCEPTED`. B7 remains `NOT_STARTED`.
+
+
+## 10. Post-B4 test-source reconciliation — baseline vs. current v2 save validation (20/11/2026)
+
+A later review of the live branch found that the B4 test file received one test-only change after the frozen baseline CI run. The distinction is material to audit fidelity:
+
+- Frozen baseline test source `ae29c99330081ba2f6af3a6d4478ec8aefc8a1ad` has blob `722d62c0647f06bc2e3a49bdef1f348f4f3104f2`. It is byte-identical to the test file at exact B4 tests-only checkout `d2ae88e557e9895413462c5b069886bfc606adc7`.
+- Frozen baseline run [44041104723](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44041104723) therefore remains valid for that exact baseline test harness: 6/6 files, 70/70 tests, four valid save/load MATCH outcomes, baseline missing-envelope-state TypeError, and missing-RNG continuation TypeError.
+- Later commit `14bd56848b8db429b9037880b08887af7118d61f` changes only the missing-envelope-state assertion/name. The current test blob is `e3d960725e1e1b41fc4f63d303a5b5d36cdb6ad7`.
+- The change aligns that assertion with the post-DEV-005 v2 `src/engine/save.ts` contract, which validates the state envelope and throws `Save state is missing or invalid`. The frozen 2240a8f implementation does not have this validation: it dereferences `o.state` and then `st.marketStats`, so the missing-state case throws native `TypeError`.
+- The current v2 test-source version is exercised by exact-target runs [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664) and [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668) on `9604207`; the Android log shows the explicit-message test passing and 131/131 tests overall. This is current-code validation, not a second frozen-baseline B4 run.
+- Required review treatment: assess the old file/run as the B4 baseline evidence and assess the later assertion/current CI as a separate post-baseline save-contract test update. Do not merge their behaviors into one claimed baseline result.
+- No product code, historical data, save schema, APK workflow, or release behavior was changed by this reconciliation. This is a ChatGPT self-audit, not independent REVIEW_PASS. B4 remains READY_FOR_REVIEW; Claude's independent verdict and owner ACCEPTED remain pending. B7 remains READY_FOR_REVIEW; S1 remains NOT_STARTED.
+

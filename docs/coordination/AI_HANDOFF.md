@@ -1,3 +1,10 @@
+## Latest S0-B4 / S0-B7 review handoff — baseline/current save-contract distinction (20/11/2026)
+
+- Frozen B4 baseline evidence remains exact and valid: product `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`; B4 test source `ae29c99330081ba2f6af3a6d4478ec8aefc8a1ad`, blob `722d62c0647f06bc2e3a49bdef1f348f4f3104f2`; tested HEAD `d2ae88e557e9895413462c5b069886bfc606adc7`; tests-only run [44041104723](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44041104723), 6/6 files, 70/70 tests; four valid-save cases MATCH.
+- Later current-save test delta: `14bd56848b8db429b9037880b08887af7118d61f` changes only the missing-envelope-state assertion to the current v2 validation error. Current test blob `e3d960725e1e1b41fc4f63d303a5b5d36cdb6ad7`; current save implementation blob `e54cce0397d25735540071b53d8291e30e332360`. Current exact-target CI on `9604207` (runs [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664), [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668)) passes 131/131 tests and validates the current v2 test contract, not the frozen baseline.
+- Both review requests distinguish these contracts: `docs/audit/s0/b4/S0_B4_REVIEW_REQUEST.md` and `docs/audit/s0/S0_B7_REVIEW_REQUEST.md`. Technical self-review details are in `S0_B4_CHATGPT_TECHNICAL_SELF_AUDIT_2026-11-17.md` and `S0_B7_RESULTS.md` §14.
+- B4 remains READY_FOR_REVIEW; B7 remains READY_FOR_REVIEW. Claude independent verdict and owner ACCEPTED remain pending. S1 remains NOT_STARTED; G0.7 BLOCKED, G0.8 PARTIAL, full-S0 G0.9 BLOCKED. No runtime/gameplay/data/save changes authorized or made by this handoff update.
+
 ## Latest DEV-006 code/test target — exact CI_PASS / READY_FOR_REVIEW (9604207)
 
 - Exact code/test review target: `96042077abeef8b89fe9e46fdce97a2b566d70da`; runtime source remains `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`.
@@ -217,7 +224,7 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 | Field | Value |
 |---|---|
 | Repository | `mtieu6470-maker/Victori3-mobile` |
-| Development branch observed | `claude/game-historical-sandbox-modes-kg7rj7`; latest code/test target `96042077abeef8b89fe9e46fdce97a2b566d70da`; latest verified documentation HEAD before this evidence update `e5f125e56ea05d21cddb5bb0677406a2eca3c6d3`. Re-fetch branch HEAD before the next task |
+| Development branch observed | `claude/game-historical-sandbox-modes-kg7rj7`; latest code/test target `96042077abeef8b89fe9e46fdce97a2b566d70da`; latest verified documentation HEAD before this review-reconciliation update `638f9d82e477807925d045d1c859d9fa0f10b017`. Re-fetch branch HEAD before the next task |
 | Last independently observed baseline | `2240a8fb865e0021eec2f2f4f1c6803528be9e2c` (code baseline; later commits listed below are documentation-only) |
 | Coordination setup commit | `bd5787f3e1763170ec7e5ad448466a5cc57c2b40` |
 | Coordination correction commit | `6c4d02a36a30f7e82d973da59f569b379f85468d` |
@@ -229,7 +236,7 @@ This allocation supersedes the earlier default ChatGPT/Claude role assignment fo
 | Legacy roadmaps and pre-protocol work | `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md` (historical evidence, not authorization) |
 | Current approved phase | S0-B3 → S0-B4 → S0-B7, sequential under OD-20261116-11. B3 has ChatGPT REVIEW_PASS; B4 corrected test source has passing tests-only CI (70/70, 6/6) and remains READY_FOR_REVIEW pending genuine second-party review; B7 risk register, gate ledger, signoff proposal, results and independent-review request are prepared and READY_FOR_REVIEW. S1 remains closed. |
 | Current task status | S0-B3 REVIEW_PASS (bounded audit scope only). S0-B4 READY_FOR_REVIEW: B4-SA-01/02 corrected in test source ae29c99330081ba2f6af3a6d4478ec8aefc8a1ad; tests-only CI run 44041104723 passed 70/70 tests across 6/6 suites, four valid-save continuation cases MATCH; independent Claude review and owner acceptance remain pending. S0-B7 READY_FOR_REVIEW: evidence-linked risk register, G0.1–G0.9 ledger, bounded S1-entry signoff proposal, B7 results, independent-review request and consolidated Vietnamese package summary are committed; independent review and owner decision are pending. S1 remains NOT_STARTED until the complete bounded package receives REVIEW_PASS and a separate owner ACCEPTED. S0-A READY_FOR_REVIEW (A1–A4 evidenced, A5 BLOCKED); S0-A not ACCEPTED. S0-B1 technical verdict PASS. |
-| Latest verified development HEAD before this evidence update | `e5f125e56ea05d21cddb5bb0677406a2eca3c6d3`; this documentation-only evidence update is based on that exact HEAD |
+| Latest verified development HEAD before this review-reconciliation update | `638f9d82e477807925d045d1c859d9fa0f10b017`; this documentation-only update is based on that exact HEAD |
 | S22 current state | `DESIGN_ONLY / PRE-IMPLEMENTATION`; design §§14.1–14.15; code self-audit SA-01–SA-13; traceability present; test specification includes GEO-01–GEO-10 and BEN-11–BEN-18; no S22 runtime authorization |
 | S22 independent review | Claude no-write request latest commit `5eb49c5ab6f8441bfbd75c6dea4b868d6469df4f`, blob `fc5565ce5e4ac556efafd3f6d1965006a589b5a6`; verdict pending |
 | S22 implementation blockers | Canonical 12-macro-region taxonomy/boundaries need owner decision; benchmark/event research needs independent source review; design-level proposed parameters need owner approval; S1/S22 runtime gate remains closed |

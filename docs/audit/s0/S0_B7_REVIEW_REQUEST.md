@@ -44,10 +44,20 @@ Do not modify the repository. Do not change product source, gameplay, engine, RN
 - tests/s0-save-determinism.test.ts at ae29c99330081ba2f6af3a6d4478ec8aefc8a1ad
 - Tests-only CI run 44041104723 and its job log.
 
+## B4 evidence addendum — frozen baseline and current save-contract test source are distinct (20/11/2026)
+
+The B4 test file is not byte-identical to the original baseline test-source commit at the current branch HEAD. Independent review must not overlook this:
+
+- Frozen baseline source `ae29c99330081ba2f6af3a6d4478ec8aefc8a1ad`, blob `722d62c0647f06bc2e3a49bdef1f348f4f3104f2`, is identical at tested HEAD `d2ae88e557e9895413462c5b069886bfc606adc7`. Run [44041104723](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44041104723) executed that version on the frozen 2240a8f product baseline.
+- Later test-only commit `14bd56848b8db429b9037880b08887af7118d61f` changes the missing-state assertion from baseline `TypeError` to the explicit v2 validation error. Current file blob: `e3d960725e1e1b41fc4f63d303a5b5d36cdb6ad7`.
+- Baseline `save.ts` blob `b2faa2fef078398dd35e4ba099451f3ac6df8d59` has no envelope-state validation; current v2 `save.ts` blob `e54cce0397d25735540071b53d8291e30e332360` rejects a missing state explicitly. Current exact-target CI on `9604207` (runs [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664) / [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668)) validates the current v2 test/source, not the frozen baseline.
+- Review both contracts separately. Preserve the baseline TypeError as a baseline finding and the v2 explicit validation as the current implementation behavior. The missing-RNG baseline/current compatibility issue remains separately characterized as B4-R1.
+- This distinction does not change the B4 70/70 baseline CI result or turn current CI into a new baseline test. Reviewer must decide the impact on the bounded S1-entry package.
+
 ## 3. Required review questions
 
 1. Verify the latest HEAD, changed-file range from the product baseline, and that no unauthorized product/engine/save/data/assets/device changes were introduced by B7.
-2. Verify the B4 evidence: exact checked-out SHA, 70/70 tests, 6/6 suites, four valid-save MATCH results, missing-RNG TypeError characterization, no APK artifacts.
+2. Verify B4 evidence in two distinct versions: (a) frozen baseline test blob `722d62c` at tested HEAD `d2ae88e` / run `44041104723` (70/70, 6/6, four valid-save MATCH cases, baseline missing-envelope TypeError and missing-RNG TypeError, no APK artifact); and (b) the later current-v2 test blob `e3d9607` introduced by `14bd568`, validated only against the current v2 source by runs `44765197664` / `44765197668`. Do not treat the current v2 validation-message test as frozen-baseline evidence.
 3. Check every risk entry for accurate source evidence, severity, impact, interim mitigation, accountable owner, stage and objective exit criteria. In particular, verify that R2 (parent shipped CC BY-SA content risk) is not conflated with AS-F3 (specific UI attribution sub-finding), and that their different P1/P2 dispositions are justified. Identify missing material risks or inflated severity.
 4. Check R7 is treated as an open P0, not a resolved defect. Is the proposed owner-accepted interim control sufficient for a narrowly limited S1 test phase?
 5. Check R14 remains BLOCKED for device installation/signing; no one should rely on Export as a backup absent device evidence.

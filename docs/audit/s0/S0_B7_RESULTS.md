@@ -292,3 +292,15 @@ Official source verification:
 
 The summary, R15 risk row and Claude B7 review question have been aligned to this consent rule. This is a documentation/research correction only. No PAD dependency, downloader, data pack, Android source, workflow, runtime or APK was changed. No runtime tests were run; the documentation changes use `[skip ci]`, and the exact branch HEAD/workflow status must be rechecked after the final commit.
 
+
+
+## 14. B4 source-version reconciliation found during current self-review (20/11/2026)
+
+- Re-fetched the exact branch at `638f9d82e477807925d045d1c859d9fa0f10b017` and compared the B4 test source against the frozen B4 review target.
+- The B4 baseline test blob at `ae29c99330081ba2f6af3a6d4478ec8aefc8a1ad` is `722d62c0647f06bc2e3a49bdef1f348f4f3104f2`; it is identical at tested HEAD `d2ae88e557e9895413462c5b069886bfc606adc7`. The exact B4 tests-only run [44041104723](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44041104723) reports 6/6 files and 70/70 tests; logs record four Historical/Sandbox × tick-6/tick-12 MATCH outcomes and both the missing-envelope TypeError and missing-RNG continuation TypeError for the frozen baseline.
+- Commit `14bd56848b8db429b9037880b08887af7118d61f` later changed only one test case's missing-envelope expectation. The current B4 test file blob is `e3d960725e1e1b41fc4f63d303a5b5d36cdb6ad7`. This change follows DEV-005's current v2 save implementation; it does not describe the frozen baseline behavior.
+- Source evidence: baseline `src/engine/save.ts` blob `b2faa2fef078398dd35e4ba099451f3ac6df8d59` dereferences the state without an explicit envelope-state guard; current v2 blob `e54cce0397d25735540071b53d8291e30e332360` throws `Save state is missing or invalid` before dereference.
+- Current exact-target tests-only [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664) and Android debug [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668) on `9604207` validate the current v2 code/test tree: 13/13 test files, 131/131 tests; Android 44/44 suites, 131/131 tests, `report_valid=true`, Gradle SUCCESS. The Android log explicitly shows the explicit missing-state validation-message assertion passing. These runs do not replace the frozen-baseline B4 run.
+- **Review finding:** documentation needed to distinguish the frozen B4 baseline contract from the later current-v2 save contract. The B4 and B7 review packets now make that distinction explicit. No baseline test result is retroactively changed, and no missing-RNG issue is closed.
+- **Disposition:** this is a ChatGPT technical self-review, not an independent REVIEW_PASS. B4 remains READY_FOR_REVIEW; B7 remains READY_FOR_REVIEW; owner acceptance remains PENDING; S1 remains NOT_STARTED. Overall S0 gate verdicts remain G0.7 BLOCKED, G0.8 PARTIAL and full-S0 G0.9 BLOCKED.
+

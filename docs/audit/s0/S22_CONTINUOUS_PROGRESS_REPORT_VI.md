@@ -1,3 +1,12 @@
+## 0.23 — B4 baseline/current save-contract test-source reconciliation (20/11/2026)
+
+- Rechecked the current branch at base HEAD `638f9d82e477807925d045d1c859d9fa0f10b017`, the original B4 test commit, the B4 tests-only CI log, baseline and current `save.ts`, later test commit `14bd568`, and current exact-target CI.
+- Frozen B4 baseline test source `ae29c99` blob `722d62c0647f06bc2e3a49bdef1f348f4f3104f2` is byte-identical at tested HEAD `d2ae88e`; run [44041104723](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44041104723) proves 6/6 files, 70/70 tests and four save/load MATCH results, including the baseline missing-envelope and missing-RNG TypeErrors.
+- Commit `14bd56848b8db429b9037880b08887af7118d61f` later changed one assertion only: missing envelope state now expects the explicit error from the post-DEV-005 v2 save implementation. Current test blob `e3d960725e1e1b41fc4f63d303a5b5d36cdb6ad7`; baseline save blob `b2faa2fef078398dd35e4ba099451f3ac6df8d59`; current v2 save blob `e54cce0397d25735540071b53d8291e30e332360`.
+- Current exact-target runs [44765197664](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197664) / [44765197668](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44765197668) on `9604207` validate the v2 test/source version (131/131 tests; Android 44/44 suites, report_valid=true). They do not replace the frozen-baseline B4 run.
+- Updated the B4 independent review packet, B4 technical self-audit, B7 review packet/results, AI_HANDOFF and this rolling report so the two contracts are not conflated and the stale “B7 NOT_STARTED”/“B7 blocked” language is superseded. This is a documentation/review-preparation correction only.
+- **Status remains:** B4 READY_FOR_REVIEW; B7 READY_FOR_REVIEW; Claude independent review PENDING; owner ACCEPTED PENDING; S1 NOT_STARTED. G0.7 BLOCKED, G0.8 PARTIAL, full-S0 G0.9 BLOCKED. No product/runtime/save/schema/data/assets/Android/workflow changes.
+
 ## 0.22 — DEV-006 newGame invalidation exact-target CI and APK independently verified (20/11/2026)
 
 - Exact code/test target: `96042077abeef8b89fe9e46fdce97a2b566d70da`; runtime controller source remains `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`. Only code/test change after the runtime implementation is `tests/controller-fast-forward.test.ts` (+32 lines).
@@ -107,7 +116,7 @@
 **Ngày cập nhật:** 20/11/2026  
 **Repository:** mtieu6470-maker/Victori3-mobile  
 **Branch:** claude/game-historical-sandbox-modes-kg7rj7  
-**DEV-005 code review target:** `c9868d7131d7de3fd8efd0263411fee9111f172c`. **DEV-006 exact code/test target:** `96042077abeef8b89fe9e46fdce97a2b566d70da` (runtime source `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`). **UI-REDESIGN-01 design target:** `150bf857aac7dbc4905a14a932ec6157507325ed`. **Latest verified branch HEAD before this evidence update:** `e5f125e56ea05d21cddb5bb0677406a2eca3c6d3`. DEV-006 tests-only and Android debug CI are SUCCESS on exact target 9604207; artifact/checksum evidence is recorded in §0.22.  
+**DEV-005 code review target:** `c9868d7131d7de3fd8efd0263411fee9111f172c`. **DEV-006 exact code/test target:** `96042077abeef8b89fe9e46fdce97a2b566d70da` (runtime source `e5eb5e4744b4c5569f7fe997c523cebe64ff3250`). **UI-REDESIGN-01 design target:** `150bf857aac7dbc4905a14a932ec6157507325ed`. **Latest verified branch HEAD before this review-reconciliation update:** `638f9d82e477807925d045d1c859d9fa0f10b017`. DEV-006 tests-only and Android debug CI are SUCCESS on exact target 9604207; artifact/checksum evidence is recorded in §0.22.  
 **Chế độ báo cáo:** rolling report — mọi lượt làm xong phải append một progress entry mới; không tạo báo cáo rời nếu không cần thiết.
 
 > Đây là báo cáo điều phối và tự kiểm toán của ChatGPT. Không phải Claude REVIEW_PASS, không phải owner ACCEPTED, không phải bằng chứng S1/S22 đã mở. Mọi research candidate chưa được owner chấp nhận vẫn là tài liệu nghiên cứu, không phải game data đã duyệt.
@@ -117,6 +126,8 @@
 | Hạng mục | Trạng thái | Bằng chứng / việc còn lại |
 |---|---|---|
 | DEV-005 — cohort projection + save compatibility | **CI_PASS / READY_FOR_REVIEW** | Code target `c9868d7`; 11/11 test files, 122/122 tests PASS; Android debug build SUCCESS |
+| S0-B4 — frozen baseline save/load characterization | **READY_FOR_REVIEW** | Exact frozen baseline source `ae29c99` blob `722d62c`; run `44041104723`, 6/6 files and 70/70 tests; four save/load MATCH cases. Later v2 test assertion is explicitly separated in §0.23. |
+| S0-B7 — bounded S1-entry risk/signoff package | **READY_FOR_REVIEW** | Risk register, gate ledger, S1 scope proposal and EX-G07/EX-G08/R7 controls prepared; independent Claude verdict and owner ACCEPTED required before S1. |
 | DEV-006 — bounded monthly clock + fast-forward isolation | **CI_PASS / READY_FOR_REVIEW** | Exact code/test target `9604207`; 44/44 suites, 131/131 tests PASS; Android debug build SUCCESS; APK hash and artifact recorded in §0.22 |
 | UI-REDESIGN-01 — premium grand-strategy UI | **DESIGN_ONLY / REVIEW_PENDING** | Proposal `150bf857`; source-based; no runtime/UI/assets implementation authorized |
 | Claude independent review | **PENDING** | Review riêng DEV-005, DEV-006 và UI-REDESIGN-01 theo từng exact target; không gộp các verdict khác phạm vi |
