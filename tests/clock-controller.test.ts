@@ -95,6 +95,19 @@ describe('GameController clock integration', () => {
     expect(state.tick).toBe(1);
   });
 
+  it('resets fractional pacing on save so the live session matches monthly save v1', () => {
+    controller.setPaused(false);
+    pulseFor(1000);
+    expect(state.tick).toBe(0);
+
+    expect(controller.save()).toBe('save');
+    pulseFor(61_950);
+    expect(state.tick).toBe(0);
+
+    pulseFor(50);
+    expect(state.tick).toBe(1);
+  });
+
   it('does not catch up a long timer stall in one callback', () => {
     controller.setPaused(false);
 
