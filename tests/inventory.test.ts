@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { fresh, stepMonth } from './helpers';
 import { serialize, deserialize } from '../src/engine/save';
-import { realizeFactoryFlow } from '../src/engine/systems/economy';
+import { realizeFactoryFlow, solveFactoryMarketFulfillment } from '../src/engine/systems/economy';
+import { GOODS, type Good } from '../src/engine/types';
 import {
   appendInventoryLedgerMonth,
   emptyInventoryLedger,
@@ -9,6 +10,56 @@ import {
   MAX_INVENTORY_LEDGER_MONTHS,
   settleInventoryFlow,
 } from '../src/engine/systems/inventory';
+
+function goodQuantities(overrides: Partial<Record<Good, number>> = {}): Record<Good, number> {
+  return Object.fromEntries(GOODS.map((good) => [good, overrides[good] ?? 0])) as Record<Good, number>;
+}
+
+describe('bounded factory/market equilibrium', () => {
+  const market = {
+    MKT: {
+      supply: goodQuantities({ coal: 60, steel: 5 }),
+      demand: goodQuantities({ coal: 120 }),
+      openness: 0,
+    },
+  };
+  const stocks = { MKT: goodQuantities() };
+  const factories = [{
+    marketId: 'MKT',
+    outputs: { steel: 5 },
+    inputs: { coal: 10 },
+  }];
+
+  it('converges deterministically when factory demand feeds back into a scarce input market', () => {
+    const first = solveFactoryMarketFulfillment(market, stocks, factories);
+    const second = solveFactoryMarketFulfillment(market, stocks, factories);
+
+    expect(first.converged).toBe(true);
+    expect(first.iterations).toBeGreaterThan(1);
+    expect(first.iterations).toBeLessThanOrEqual(32);
+    expect(first.residual).toBeLessThanOrEqual(1e-5);
+    expect(first.fulfillment[0]).toBeGreaterThan(0.5);
+    expect(first.fulfillment[0]).toBeLessThan(0.53);
+    expect(first.supply.MKT.steel).toBeCloseTo(5 * first.fulfillment[0], 8);
+    expect(first.demand.MKT.coal).toBeCloseTo(110 + 10 * first.fulfillment[0], 8);
+    expect(first).toEqual(second);
+  });
+
+  it('respects the caller iteration cap and reports non-convergence instead of looping forever', () => {
+    const result = solveFactoryMarketFulfillment(market, stocks, factories, 1, 1e-12);
+
+    expect(result.iterations).toBe(1);
+    expect(result.converged).toBe(false);
+    expect(result.residual).toBeGreaterThan(1e-12);
+  });
+
+  it('rejects invalid limits and a factory assigned to a missing market', () => {
+    expect(() => solveFactoryMarketFulfillment(market, stocks, factories, 0)).toThrow(/iteration limit/);
+    expect(() => solveFactoryMarketFulfillment(market, stocks, [
+      { marketId: 'MISSING', outputs: { steel: 1 }, inputs: { coal: 1 } },
+    ])).toThrow(/Unknown factory market/);
+  });
+});
 
 describe('factory material realization', () => {
   it('scales physical inputs and output by the same scarcest-input constraint', () => {
