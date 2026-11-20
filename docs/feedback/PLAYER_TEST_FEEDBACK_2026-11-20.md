@@ -8,6 +8,7 @@
 - Current collaboration protocol still prohibits gameplay, engine, UI and save-format changes during S0. S1 remains NOT AUTHORIZED until the required review/owner gate is satisfied. Therefore this is a requirements and acceptance-test update only; it is not permission to bypass the phase gate.
 
 - **Read-only technical correlation:** see [`PLAYER_TEST_TECHNICAL_TRIAGE_2026-11-20.md`](./PLAYER_TEST_TECHNICAL_TRIAGE_2026-11-20.md) for source-level evidence on the clock/FPS coupling, portrait date validation, aggregate military/economy/politics models, score formula and remaining lifecycle-save uncertainty. This triage is not implementation or phase authorization.
+- **Full Victoria 3 feature-parity comparison:** see [`VICTORIA3_FEATURE_PARITY_GAP_AUDIT_2026-11-20.md`](./VICTORIA3_FEATURE_PARITY_GAP_AUDIT_2026-11-20.md) for the system-by-system gap audit covering POPs, industry, markets, finance, politics, diplomacy, subjects, treaties, military, AI, history and integration. The clock comparison is corrected against Paradox's six-hour regular tick reference.
 
 ## Owner's direct findings
 
