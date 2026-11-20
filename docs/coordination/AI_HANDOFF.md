@@ -1,3 +1,13 @@
+## Latest ANDROID-LANDSCAPE-01 checkpoint — landscape launch enforced; exact CI pending (20/11/2026)
+
+- Owner correction: the primary Android gameplay experience must open in landscape. At base HEAD `0f61841288510fc5713e26dc29599c8fa93f4462`, `android/app/src/main/AndroidManifest.xml` did not declare `screenOrientation`; `src/ui/App.tsx` selects the portrait dock/sheet layout whenever viewport width <= height. This caused normal portrait launches to use the portrait UI.
+- Implementation commit: `84ea62272ea7e865eff924ac745e2b50cfd268c3` adds `android:screenOrientation="landscape"` to the launcher `.MainActivity`. It also introduced `tests/android-orientation.test.ts` to assert the launcher activity, orientation and MAIN/LAUNCHER intent filter.
+- Test-source correction: the initial regex was over-escaped; Android workflow [44772252460](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44772252460) failed during `tsc --noEmit` with TS1161 (unterminated regular expression). This intermediate SHA is not a passing candidate. The corrected regex was committed as `d7e9069c8471c9e7530cbe79f51309207d807a88`; the exact test file blob is `a343a6f2f555d160352dcc0318a5ec0b2b8993f1`.
+- Exact corrected-target workflows at the time of this checkpoint: tests-only [44772331109](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44772331109) and Android debug [44772331108](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44772331108), both checked out `d7e9069c8471c9e7530cbe79f51309207d807a88` and were still IN_PROGRESS. `npm ci`, generated data/map/content and web build had passed in Android job; test step was still running. No APK/result is claimed yet.
+- No physical-device orientation verification has been performed. This slice enforces landscape at Android launcher level; it does not complete the broader Victoria 3-class UI redesign or gameplay parity. S0/S1/S22 gates and review states remain unchanged.
+- Next action: poll only the two exact-target workflows above; if successful, record test counts, Gradle result, artifact ID and APK hash, then build the updated handoff. If failed, inspect logs and fix only the demonstrated failure.
+
+
 ## Latest S0-B4 / S0-B7 review handoff — baseline/current save-contract distinction (20/11/2026)
 
 ## Additional current-candidate G0.6 save-continuation evidence (20/11/2026)
