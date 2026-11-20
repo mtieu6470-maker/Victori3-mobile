@@ -84,7 +84,7 @@
 | CI-F2 | P2 | §4, `CI-F2` | OPEN P2 — actionlint was not run; do not claim static lint PASS. |
 | CI-F3 | P2 | §4, `CI-F3` | OPEN P2 — B1 did not exercise an intentionally failing test on GitHub Actions; local negative probe only. |
 | CI-F4 | P1 | §3, `CI-F4` | **CLOSED (narrow scope)** — commit `b5948f0` excludes the frozen-baseline-only `tests/s0-save-determinism.test.ts` from the experiment APK suite while retaining the separate pinned-baseline B4 path. Run #318 (`44573351798`) passed 97/97 tests, assembled APK, and uploaded verified checksum/signing evidence. Reopen only if this separation regresses. |
-| DEP-F1 | Provisional P1 | §3, `DEP-F1` | OPEN / UNTRIAGED — six findings in 2026-11-16 audit versus ten in 2026-11-18 npm ci summary; read-only frozen-baseline audit workflow awaits dispatch/artifact review. |
+| DEP-F1 | P1 | §3, `DEP-F1` | **OPEN P1 — AUDIT COMPLETE; REMEDIATION / OWNER DISPOSITION PENDING.** Run `44572915201`, artifact `14555141888` reviewed: full tree has 6 vulnerable dev-dependency entries (3 moderate / 1 high / 2 critical), production-only scan has 0; nested Vite esbuild `0.21.5` is affected, root `0.28.2` is not. The B4 Run #3 `npm ci` count of 10 remains unexplained. No dependency change authorized in S0. |
 | G0.7 device evidence | BLOCKED | §3, G0.7 device-evidence limitation | iQOO Z10 Turbo has no verified measurements; Node/desktop data are not substitutes. |
 
 ## 8. Review rules and limitations
