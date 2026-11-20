@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `16a84cfd3aaa01c48e1c2e056bc11d4c9cf12388`  
+**Snapshot HEAD before this manifest refresh:** `744d26c33b311c11a40de2a4cf12403e1b7b3eb9`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -15,7 +15,7 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 | `docs/audit/s0/S0_B4_RUN_3_REVIEW.md` | `3d8644811c3ac13b19cce1f1274c46d2edbaa10a` |
 | `docs/audit/s0/S0_B4_TEST_PLAN.md` | `ef21f8193daf283a6ed8c6f4d68b7ca87781bd46` |
 | `docs/audit/s0/S0_B3_RESULTS.md` | `cc25258c5295e5c2de3bae90d3c9b1d1c1b63da5` |
-| `docs/audit/s0/S0_RISK_REGISTER.md` | `65bb4383326f748a752d91d392569ee83b23f3fa` |
+| `docs/audit/s0/S0_RISK_REGISTER.md` | `a5bb70bfd10d3f82dc200b29680ada2cd99c489a` |
 | `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `65dcbd43fc49d75883e9598853100493c604b0b2` |
 | `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `9dbeb3d8771e929b935662982c1a2ac01bd730f0` |
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `8701c8defd2945cc0849b7e2c7ee67afe03ab141` |
@@ -243,3 +243,11 @@ The prior structural summary undercounted the matrix by one because it omitted t
 - Tests: 38/38 suites, 97/97 tests; `report_valid=true`; Gradle BUILD SUCCESSFUL. No device QA.
 - Run #322's certificate SHA-256 was `559d549a21515f899b6195c65114b2be778ff2fbd63288d21ef31f4365b96238`. GitHub compare from #322 checkout `68fee316` to #324 checkout `31f1617` shows documentation-only changed paths. Different certificate fingerprints reinforce OPEN R1; they do not authorize installation or B2/C3.
 - R1 register, traceability, signoff, results, self-review, reviewer request and handoff are pinned in §1. AS-F1 now has an explicit S5 target with a 492-source-page and UI-attribution exit condition. No severity, gate or phase status changed.
+
+
+## 23. CI-F4 P1 table-boundary correction — 2026-11-20
+
+- Snapshot base before this manifest refresh: `744d26c33b311c11a40de2a4cf12403e1b7b3eb9`.
+- Risk Register is pinned to corrected blob `a5bb70bfd10d3f82dc200b29680ada2cd99c489a`. CI-F4 is contiguous with the six-column P1 table; no disposition/severity change.
+- Post-correction table counts: P0 1×6, P1 13×6 (12 P1 risk rows plus G0.7 gate row), P2 22×6, P3 5×3, Closed 1×3; no blank cells. Traceability: 48 unique source mappings.
+- Results, self-review, reviewer request and AI_HANDOFF record this structural correction. No gate or phase status changed.
