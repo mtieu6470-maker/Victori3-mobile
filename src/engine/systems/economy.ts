@@ -791,98 +791,81 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const coastal = st.regions.some((r) => m.members.includes(r.owner) && r.coastal);
     m.open = openness(leader, coastal);
   }
-  const world: Record<Good, { surplus: number; deficit: number }> = Object.fromEntries(GOODS.map((g) => [g, { surplus: 0, deficit: 0 }])) as any;
-  const marketExportCapacity: Record<string, Record<Good, number>> = {};
-  for (const id of mIds) {
-    const m = markets[id];
-    const exportCapacity = zero();
-    for (const g of GOODS) {
-      // Legacy supply/demand are annualized flows; ledger balances are monthly physical units.
-      const openingStock = inventoryLedger.balances[id]?.[g] ?? 0;
-      const uncoveredDemand = Math.max(0, m.dm[g] - m.s[g] - openingStock * 12);
-      const exportableFlow = Math.max(0, m.s[g] - m.dm[g]);
-      world[g].surplus += exportableFlow * m.open;
-      world[g].deficit += uncoveredDemand * m.open;
-      exportCapacity[g] = exportableFlow * m.open;
-    }
-    marketExportCapacity[id] = exportCapacity;
-  }
-  // First pass is only a cheap factory-input availability probe. Do not allocate temporary
-  // journal/statistics objects here; the definitive settlement below is the only posted ledger.
+  // Coupled market/factory clearing: recipe firms adjust to material availability,
+  // and their changed outputs/inputs feed back into market shortages until the bounded
+  // deterministic solver reaches tolerance or its iteration cap.
   const marketShort: Record<string, Record<Good, number>> = {};
   const marketImports: Record<string, number> = {};
   const inventoryMarkets: Record<string, Partial<Record<Good, ReturnType<typeof settleInventoryFlow>>>> = {};
-  for (const id of mIds) {
-    const market = markets[id];
-    const shortage = zero();
-    for (const good of GOODS) {
-      const worldFlow = world[good];
-      const openingStock = inventoryLedger.balances[id]?.[good] ?? 0;
-      const importRatio = worldFlow.deficit > 0
-        ? clamp(worldFlow.surplus / worldFlow.deficit, 0, 1)
-        : 1;
-      const deficit = Math.max(0, market.dm[good] - market.s[good] - openingStock * 12);
-      const imports = deficit * market.open * importRatio;
-      const totalWorldImports = Math.min(worldFlow.surplus, worldFlow.deficit);
-      const exportCapacity = marketExportCapacity[id][good];
-      const exports = worldFlow.surplus > 0
-        ? totalWorldImports * exportCapacity / worldFlow.surplus
-        : 0;
-      const available = Math.max(
-        0,
-        openingStock + market.s[good] / 12 + imports / 12 - exports / 12,
-      );
-      const demand = market.dm[good] / 12;
-      shortage[good] = demand > 0
-        ? clamp(Math.max(0, demand - available) / demand, 0, 1)
-        : 0;
+  const factoryOperations: {
+    regionIndex: number;
+    building: Building;
+    marketId: string;
+    flow: BuildingFlow;
+  }[] = [];
+
+  for (let regionIndex = 0; regionIndex < st.regions.length; regionIndex++) {
+    const region = st.regions[regionIndex];
+    const country = st.countries[region.owner];
+    const regional = calc[regionIndex];
+    if (!country || !regional) continue;
+    const marketId = marketOf(st, country);
+    if (!markets[marketId]) continue;
+    for (const building of Object.keys(RECIPES) as Building[]) {
+      const flow = regional.buildingFlows[building];
+      if (flow) factoryOperations.push({ regionIndex, building, marketId, flow });
     }
-    marketShort[id] = shortage;
   }
 
-  // The first clearing is a deterministic availability probe. Factories must not create
-  // their planned output when one of their physical inputs is unavailable. Scale every
-  // recipe input and its corresponding output by the same bottleneck fulfillment factor.
+  const marketProjection: Record<string, FactoryMarketProjection> = {};
+  const openingStocks: Record<string, Partial<Record<Good, number>>> = {};
+  for (const marketId of mIds) {
+    const market = markets[marketId];
+    marketProjection[marketId] = {
+      supply: market.s,
+      demand: market.dm,
+      openness: market.open,
+    };
+    openingStocks[marketId] = inventoryLedger.balances[marketId] ?? {};
+  }
+
+  const clearing = solveFactoryMarketFulfillment(
+    marketProjection,
+    openingStocks,
+    factoryOperations.map((operation) => ({
+      marketId: operation.marketId,
+      outputs: operation.flow.outputs,
+      inputs: operation.flow.inputs,
+    })),
+  );
+
   const realizedFactoryOutputs: Partial<Record<Good, number>>[] = new Array(calc.length);
   const realizedFactoryInputs: Partial<Record<Good, number>>[] = new Array(calc.length);
   const realizedFactoryFulfillment: Partial<Record<Building, number>>[] = new Array(calc.length);
-  for (let i = 0; i < st.regions.length; i++) {
-    const region = st.regions[i];
-    const country = st.countries[region.owner];
-    const regional = calc[i];
-    if (!country || !regional) continue;
-    const marketId = marketOf(st, country);
-    const market = markets[marketId];
-    const shortageProbe = marketShort[marketId] ?? zero();
-    const outputs: Partial<Record<Good, number>> = {};
-    const inputs: Partial<Record<Good, number>> = {};
-    const fulfillments: Partial<Record<Building, number>> = {};
-    if (!market) continue;
 
-    for (const building of Object.keys(RECIPES) as Building[]) {
-      const flow = regional.buildingFlows[building];
-      if (!flow) continue;
-      const realized = realizeFactoryFlow(flow, shortageProbe);
-      fulfillments[building] = realized.fulfillment;
-
-      for (const [good, planned] of Object.entries(flow.outputs) as [Good, number][]) {
-        const actual = realized.outputs[good] ?? 0;
-        outputs[good] = (outputs[good] ?? 0) + actual;
-        market.s[good] += actual - planned;
-      }
-      for (const [good, planned] of Object.entries(flow.inputs) as [Good, number][]) {
-        const actual = realized.inputs[good] ?? 0;
-        inputs[good] = (inputs[good] ?? 0) + actual;
-        market.dm[good] += actual - planned;
-      }
-    }
-    realizedFactoryOutputs[i] = outputs;
-    realizedFactoryInputs[i] = inputs;
-    realizedFactoryFulfillment[i] = fulfillments;
+  for (const marketId of mIds) {
+    markets[marketId].s = clearing.supply[marketId];
+    markets[marketId].dm = clearing.demand[marketId];
+    marketShort[marketId] = clearing.shortages[marketId];
   }
 
-  // Re-run the physical settlement against realized factory flows. Aggregate imports and
-  // exports are paired globally, while the local balances retain their own stock and shortage.
+  for (let operationIndex = 0; operationIndex < factoryOperations.length; operationIndex++) {
+    const operation = factoryOperations[operationIndex];
+    const factor = clearing.fulfillment[operationIndex];
+    const outputs = realizedFactoryOutputs[operation.regionIndex] ??= {};
+    const inputs = realizedFactoryInputs[operation.regionIndex] ??= {};
+    const fulfillments = realizedFactoryFulfillment[operation.regionIndex] ??= {};
+
+    fulfillments[operation.building] = factor;
+    for (const good of GOODS) {
+      const actualOutput = (operation.flow.outputs[good] ?? 0) * factor;
+      const actualInput = (operation.flow.inputs[good] ?? 0) * factor;
+      if (actualOutput > 0) outputs[good] = (outputs[good] ?? 0) + actualOutput;
+      if (actualInput > 0) inputs[good] = (inputs[good] ?? 0) + actualInput;
+    }
+  }
+
+  // Use the final coupled projection for world-price targets and the definitive stock posting.
   const realizedWorld: Record<Good, { surplus: number; deficit: number }> =
     Object.fromEntries(GOODS.map((good) => [good, { surplus: 0, deficit: 0 }])) as any;
   const realizedExportCapacity: Record<string, Record<Good, number>> = {};
