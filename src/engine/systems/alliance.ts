@@ -9,12 +9,12 @@ import type { GameState, Treaty } from '../types';
  * a treaty with more than two members. Source IDs are retained for provenance.
  */
 export function normalizeAllianceTreaties(st: GameState): void {
-  const nonAlliance: Treaty[] = [];
+  const normalized: Treaty[] = [];
   const pairs = new Map<string, Treaty>();
 
   for (const treaty of st.treaties) {
     if (treaty.type !== 'alliance') {
-      nonAlliance.push(treaty);
+      normalized.push(treaty);
       continue;
     }
 
@@ -38,16 +38,19 @@ export function normalizeAllianceTreaties(st: GameState): void {
           continue;
         }
 
-        pairs.set(key, {
+        const bilateral: Treaty = {
           id: `alliance:${left}:${right}`,
           type: 'alliance',
           members: [left, right],
           start: treaty.start,
           source: sourceId,
-        });
+        };
+        pairs.set(key, bilateral);
+        normalized.push(bilateral);
       }
     }
   }
 
-  st.treaties = [...nonAlliance, ...pairs.values()];
+  // Preserve the original interleaving of Alliance, Guarantee and Customs Union
+  // records. Save/load order is observable to deterministic diplomacy processing.
 }
