@@ -1,3 +1,10 @@
+## Latest DEV-006 checkpoint — monthly clock CI verified; Claude review packet ready (20/11/2026)
+
+- Exact code target: `65bf85db91cbeaa276e00401e524749343ab305a`; exact CI: tests-only [44754295188](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44754295188) PASS (42/42 suites, 126/126 tests); Android debug [44754295107](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44754295107) SUCCESS.
+- APK: 18,052,303 bytes; SHA-256 `b73eab755d53aabaae3192041296282343b1a442236232bb147d794e31de37fa`; artifact ID `14636409648`; debug signer only. Device QA NOT_TESTED.
+- Independent no-write review request: `docs/audit/s0/DEV006_MONTHLY_CLOCK_CLAUDE_REVIEW_REQUEST_2026-11-20.md`. Claude verdict and owner acceptance are PENDING. Monthly tick only; no daily-tick conversion.
+- Current branch HEAD before this documentation checkpoint: `ce6d17453bed0cce354b49bf85146451d7c1bf61`. This is documentation/review preparation only; no runtime or gate status changes.
+
 ## Latest benchmark-alternative checkpoint — MPD 2023 / GGDC HNA (19/11/2026)
 
 - MPD 2023: official CC BY 4.0 metadata verified; 169 countries through 2022, country and aggregate-region series. Required Bolt & van Zanden (2024) dataset citation and source-sheet original-paper citations in specified cases are recorded. Official Excel download currently blocked at Dataverse→SURF signed object redirect; no row-level coverage/hash audit is claimed.
@@ -1333,9 +1340,9 @@ The owner requested one Claude review/correction pass after ChatGPT's first impl
 - **Implementation:** speed intervals are now 8,000 / 5,000 / 3,500 / 2,500 / 2,000 ms per simulated month for speeds 1–5. A pure `consumeClockElapsed()` helper emits at most one month per callback and discards excess elapsed time after stalls; speed changes reset partial accumulated time. The top-bar tooltip now states the actual month interval.
 - **Changed files:** `src/ui/game/controller.ts`, `src/ui/App.tsx`, `tests/monthly-clock.test.ts`, this handoff and the rolling S22 report.
 - **Tests added:** positive/monotonic speed intervals; exact threshold crossing; 60-second background pause capped to one month; invalid/negative timing input handling.
-- **Verification:** source-level patch prepared against exact base HEAD. CI/typecheck/build have not yet run in this session; no test or APK pass is claimed. Physical-device QA is NOT_TESTED.
+- **Verification (updated 2026-11-20):** tests-only run [44754295188](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44754295188) passed 42/42 suites and 126/126 tests; Android debug run [44754295107](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44754295107) succeeded through Gradle `assembleDebug` on exact target `65bf85db91cbeaa276e00401e524749343ab305a`. APK: 18,052,303 bytes, SHA-256 `b73eab755d53aabaae3192041296282343b1a442236232bb147d794e31de37fa`; artifact ID `14636409648`. Device QA remains NOT_TESTED.
 - **Important model limitation:** engine time remains monthly. This correction stops runaway month advancement; it does not yet provide Victoria 3-style daily simulation ticks. Converting to daily ticks requires a separately designed daily scheduler and a reviewed cadence contract for every economy, POP, politics, diplomacy, military, event and AI system.
-- **Review/acceptance:** ChatGPT self-authored change; independent review and owner acceptance remain pending. This commit does not alter historical S0 gate verdicts or authorize unrelated subsystems.
+- **Review/acceptance:** review packet `docs/audit/s0/DEV006_MONTHLY_CLOCK_CLAUDE_REVIEW_REQUEST_2026-11-20.md` is prepared for Claude's independent no-write review of exact code SHA `65bf85db91cbeaa276e00401e524749343ab305a`. Verdict and owner acceptance remain pending. This does not alter historical S0 gate verdicts or authorize unrelated subsystems.
 
 
 - **CI verification update (2026-11-20; exact target 65bf85db91cbeaa276e00401e524749343ab305a):** tests-only run [44754295188](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44754295188) SUCCESS; 42/42 test suites and 126/126 tests passed, zero failed/pending. Android debug run [44754295107](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44754295107) SUCCESS; npm install, web/data build, simulation tests, Android sync and Gradle `assembleDebug` all completed successfully.

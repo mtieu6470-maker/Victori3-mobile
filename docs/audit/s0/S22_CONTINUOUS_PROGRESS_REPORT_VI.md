@@ -1,9 +1,20 @@
+
+## 0.10 — DEV-006 bounded monthly clock: exact CI verification and independent-review packet (20/11/2026)
+
+- Re-fetched the designated branch and confirmed pre-update HEAD `ce6d17453bed0cce354b49bf85146451d7c1bf61`; code target is `65bf85db91cbeaa276e00401e524749343ab305a`. The code change remains limited to the monthly wall-clock scheduler, tooltip and four focused regression tests; no engine calendar/tick schema was converted.
+- Tests-only workflow [44754295188](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44754295188): SUCCESS, 42/42 suites and 126/126 tests, zero failures/pending.
+- Android debug workflow [44754295107](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44754295107): SUCCESS; generated data/map/web build, unit/simulation tests, Android asset sync and Gradle `assembleDebug` completed.
+- APK artifact ID `14636409648`, size 18,052,303 bytes; APK SHA-256 `b73eab755d53aabaae3192041296282343b1a442236232bb147d794e31de37fa`; artifact ZIP SHA-256 `380c6944f507cd54e72c1d7f011d5ffc09da34437156131b6aa98c7b2c3267f6`. CI evidence artifact ID `14637197150`, ZIP SHA-256 `9f54668e91f3081be18fe7e2adb79f0db36369696091f87a03ae9e2c77d4a988`. Debug signer only; not a production release package.
+- Prepared `docs/audit/s0/DEV006_MONTHLY_CLOCK_CLAUDE_REVIEW_REQUEST_2026-11-20.md` for Claude's no-write independent review of exact code SHA `65bf85db91cbeaa276e00401e524749343ab305a`, including clock arithmetic, RAF integration, background-tab behavior, pause/resume, speed switching, fast-forward interaction, test gaps and explicit daily-tick non-goals.
+- **Status:** DEV-006 = CI_PASS / READY_FOR_REVIEW. Claude verdict PENDING; owner acceptance PENDING; physical iQOO QA NOT_TESTED. No S0/S1/S22 gate status is changed. No daily-tick runtime conversion is authorized or claimed.
+- This is a documentation/review-preparation slice. No runtime source, tests, historical data, assets, Android configuration, signing or workflow files changed in this slice.
+
 # BÁO CÁO TIẾN ĐỘ TÍCH LŨY — VICTORI3 MOBILE / S22
 
-**Ngày cập nhật:** 19/11/2026  
+**Ngày cập nhật:** 20/11/2026  
 **Repository:** mtieu6470-maker/Victori3-mobile  
 **Branch:** claude/game-historical-sandbox-modes-kg7rj7  
-**DEV-005 code review target:** `c9868d7131d7de3fd8efd0263411fee9111f172c`. **Latest verified branch HEAD before this report update:** `6887913fbbc8d597b9a462383b66fd64c0421436` (documentation-only changes after code target). Exact-target tests-only and Android debug CI both SUCCESS; detailed evidence is recorded below.  
+**DEV-005 code review target:** `c9868d7131d7de3fd8efd0263411fee9111f172c`. **DEV-006 code review target:** `65bf85db91cbeaa276e00401e524749343ab305a`. **Latest verified branch HEAD before this report update:** `ce6d17453bed0cce354b49bf85146451d7c1bf61`. DEV-006 exact-target tests-only and Android debug CI both SUCCESS; detailed evidence is recorded below.  
 **Chế độ báo cáo:** rolling report — mọi lượt làm xong phải append một progress entry mới; không tạo báo cáo rời nếu không cần thiết.
 
 > Đây là báo cáo điều phối và tự kiểm toán của ChatGPT. Không phải Claude REVIEW_PASS, không phải owner ACCEPTED, không phải bằng chứng S1/S22 đã mở. Mọi research candidate chưa được owner chấp nhận vẫn là tài liệu nghiên cứu, không phải game data đã duyệt.
@@ -13,6 +24,7 @@
 | Hạng mục | Trạng thái | Bằng chứng / việc còn lại |
 |---|---|---|
 | DEV-005 — cohort projection + save compatibility | **CI_PASS / READY_FOR_REVIEW** | Code target `c9868d7`; 11/11 test files, 122/122 tests PASS; Android debug build SUCCESS |
+| DEV-006 — bounded monthly clock | **CI_PASS / READY_FOR_REVIEW** | Code target `65bf85d`; 42/42 suites, 126/126 tests PASS; Android debug build SUCCESS; Claude packet ready |
 | Claude independent review | **PENDING** | Cần review no-write đúng code target `c9868d7131d7de3fd8efd0263411fee9111f172c`; tập trung fractional POP và save/version contract |
 | Owner acceptance | **PENDING** | Chỉ chủ dự án chấp nhận sau verdict độc lập |
 | iQOO Z10 Turbo QA | **NOT_TESTED** | Chưa có install, save/load, lifecycle, performance hoặc thermal evidence trên máy thật |
