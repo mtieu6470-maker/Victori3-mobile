@@ -73,7 +73,7 @@ export class GameController {
     try {
       for (let i = 0; i < monthsToRun; i++) {
         if (token !== this.operationToken || this.st !== state) return;
-        stepMonth(state);
+        if (!stepMonth(state)) break;
         completed += 1;
         if (completed % 6 === 0) {
           if (this.busy) this.busy.done = completed;

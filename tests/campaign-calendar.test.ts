@@ -5,7 +5,8 @@ import {
   CAMPAIGN_END_MONTH, CAMPAIGN_END_TICK, CAMPAIGN_END_YEAR, CAMPAIGN_START_YEAR,
   campaignMonthsRemaining, dateToTick, isCampaignComplete, tickToDate,
 } from '../src/engine/core';
-import { stepMonth } from '../src/engine/simulation';
+import { runMonths, stepMonth } from '../src/engine/simulation';
+import { serialize, deserialize } from '../src/engine/save';
 
 loadNodeData();
 
@@ -35,6 +36,32 @@ describe('campaign calendar 1836–2026', () => {
     const completedState = JSON.stringify(state);
     expect(stepMonth(state)).toBe(false);
     expect(JSON.stringify(state)).toBe(completedState);
+  });
+
+
+  it('runMonths stops at December 2026 even when asked to simulate beyond the campaign', () => {
+    const state = createGame({ mode: 'historical', seed: 2026, player: null });
+    state.tick = CAMPAIGN_END_TICK - 1;
+    state.date = tickToDate(state.tick);
+
+    runMonths(state, 24);
+
+    expect(state.tick).toBe(CAMPAIGN_END_TICK);
+    expect(state.date).toEqual({ y: 2026, m: 12 });
+  });
+
+  it('preserves the terminal month through save/load and cannot advance after loading', () => {
+    const state = createGame({ mode: 'sandbox', seed: 2026, player: null });
+    state.tick = CAMPAIGN_END_TICK;
+    state.date = tickToDate(state.tick);
+
+    const loaded = deserialize(serialize(state));
+    expect(loaded.tick).toBe(CAMPAIGN_END_TICK);
+    expect(loaded.date).toEqual({ y: 2026, m: 12 });
+
+    const terminalSnapshot = JSON.stringify(loaded);
+    expect(stepMonth(loaded)).toBe(false);
+    expect(JSON.stringify(loaded)).toBe(terminalSnapshot);
   });
 
   it('fails closed for invalid or negative tick values', () => {
