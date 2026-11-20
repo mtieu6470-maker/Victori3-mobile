@@ -1089,3 +1089,17 @@ This is a later, explicit owner authorization to begin product implementation on
 - **Taxonomy correction:** the source's explicit legal category now takes precedence over overlapping CoW flags (e.g. a Non-Aggression Pact with an Entente descriptive flag remains a Non-Aggression Pact). All four source flags are still retained in treaty terms.
 - **Added regression coverage:** category-based classification and direction-preserving save migration; updated temporal source assertions and player-war scenario.
 - **New source/test commit and exact Actions result:** pending post-push verification. APK/device QA, independent review and owner acceptance remain pending.
+
+
+## 2026-11-20 — DIPLOMACY CI #458 VERIFIED / DEBUG APK ARTIFACT
+
+- **Task:** `DIPLOMACY-ALLIANCE-TECH-01`; working branch `experiment/vic3-visual-upgrade`.
+- **Base/source SHA tested:** `77d1ecc011f93338af6002f93254eb27ef385a0a` (taxonomy precedence + directional treaty migration correction).
+- **GitHub Actions:** run #458, ID `44731346652`, exact SHA above, SUCCESS: https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44731346652
+- **Build/test:** `npm ci` PASS; data/map/web build and generated bundle hash PASS; Vitest exit 0, **8 test files, 140/140 tests, 48/48 suites PASS**; Android SDK setup and Capacitor asset sync PASS; `./gradlew assembleDebug --no-daemon` **BUILD SUCCESSFUL**.
+- **APK:** `app-debug.apk`, 18,063,358 bytes; APK SHA-256 `59444a7bb9585331df1da1d63f8d0bb44175223b9520b010c78caf5601a13c6e`. Artifact `dong-chay-lich-su-debug-apk`, ID `14626158922`, ZIP SHA-256 `d51bdf15197c5790034f5038c44c23ae5c0633c10c5097f80b991ed6eb935a2d`; expires 2027-02-18. CI evidence artifact ID `14626323498`, ZIP SHA-256 `5404311764a3c50594331d74080ca0738c4991bb76e6ea4e6dbee15490893570`.
+- **Signing:** debug certificate only (CN=Android Debug; certificate SHA-256 `2378a97f5b95b393954a071a55ed8d4241112e81b1bbfe03752e760b58bb32ac)); this is not a release-signed APK and no signing keys/secrets were changed.
+- **Evidence integrity:** downloaded CI evidence ZIP and inspected `test_summary.txt`, `apk_sha256.txt`, `artifact_zip.txt`, provenance and certificate report. Separately downloaded the APK artifact, extracted `app-debug.apk` and recomputed SHA-256; it matches the CI evidence exactly.
+- **Device QA:** NOT_TESTED. APK installation, launch, save/load, thermal/memory and gameplay QA on a physical Android device remain outstanding.
+- **Review/acceptance:** implementer self-check only; independent Claude review PENDING; owner acceptance PENDING. Do not label task complete or subsystem parity PASS.
+- **Next:** deliver this APK for owner device verification; then prepare a focused review packet for Claude against exact source SHA `77d1ecc...`. After device feedback/review, continue the next authorized diplomacy gap; do not broaden into unrelated subsystems.
