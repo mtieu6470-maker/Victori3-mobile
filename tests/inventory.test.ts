@@ -45,6 +45,30 @@ describe('bounded factory/market equilibrium', () => {
     expect(first).toEqual(second);
   });
 
+  it('allows a market stockpile to cover a different market deficit without creating goods', () => {
+    const markets = {
+      STOCK: {
+        supply: goodQuantities(),
+        demand: goodQuantities(),
+        openness: 1,
+      },
+      SHORT: {
+        supply: goodQuantities(),
+        demand: goodQuantities({ grain: 120 }),
+        openness: 1,
+      },
+    };
+    const result = solveFactoryMarketFulfillment(
+      markets,
+      { STOCK: goodQuantities({ grain: 10 }), SHORT: goodQuantities() },
+      [],
+    );
+
+    expect(result.converged).toBe(true);
+    expect(result.shortages.STOCK.grain).toBe(0);
+    expect(result.shortages.SHORT.grain).toBe(0);
+  });
+
   it('respects the caller iteration cap and reports non-convergence instead of looping forever', () => {
     const result = solveFactoryMarketFulfillment(market, stocks, factories, 1, 1e-12);
 
