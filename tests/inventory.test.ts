@@ -35,6 +35,7 @@ describe('bounded factory/market equilibrium', () => {
     const second = solveFactoryMarketFulfillment(market, stocks, factories);
 
     expect(first.converged).toBe(true);
+    expect(first.appliedFallback).toBe('none');
     expect(first.iterations).toBeGreaterThan(1);
     expect(first.iterations).toBeLessThanOrEqual(32);
     expect(first.residual).toBeLessThanOrEqual(1e-5);
