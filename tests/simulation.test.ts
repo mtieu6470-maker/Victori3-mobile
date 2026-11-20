@@ -556,6 +556,28 @@ describe('employment-aware occupational transition', () => {
     region.buildings.logging = 1;
     region.buildings.plantation = 1;
 
+    // Establish a true 100% baseline. createGame() now seeds hiring targets during
+    // its initial economy calibration, so unspecified building targets are not a
+    // reliable proxy for full nominal capacity in this isolated comparison.
+    const initialEconomy = region.popEconomy ?? {
+      employed: new Array(STRATA.length).fill(0),
+      incomePerCapita: new Array(STRATA.length).fill(0),
+      wagePerWorker: new Array(STRATA.length).fill(0),
+      sol: new Array(STRATA.length).fill(0),
+    };
+    region.popEconomy = {
+      ...initialEconomy,
+      employmentTargetByBuilding: {
+        textile_mill: 1,
+        ironworks: 1,
+        tool_works: 1,
+        arms_works: 1,
+        luxury_workshop: 1,
+        mine: 1,
+        logging: 1,
+        plantation: 1,
+      },
+    };
     const fullCapacity = effectiveBuildingLaborDemand(region);
     region.popEconomy = {
       ...(region.popEconomy ?? {
