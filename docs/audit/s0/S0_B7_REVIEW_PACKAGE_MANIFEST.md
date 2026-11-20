@@ -1,7 +1,7 @@
 # S0-B7 — Review package manifest (current snapshot)
 
 **Snapshot branch:** `experiment/vic3-visual-upgrade`  
-**Snapshot HEAD before this manifest refresh:** `ee2c1afff5f1f1e1ed11a53e69cbb78b6f3dc545`  
+**Snapshot HEAD before this manifest refresh:** `16a84cfd3aaa01c48e1c2e056bc11d4c9cf12388`  
 **Default branch:** `claude/game-historical-sandbox-modes-kg7rj7`  
 **Default branch HEAD observed:** `e4182491161e61065e4ac15228c5f59a8832ad1d`  
 **Frozen product baseline:** `2240a8fb865e0021eec2f2f4f1c6803528be9e2c`
@@ -15,16 +15,16 @@ All blob SHAs below were fetched from the named experiment-branch ref before thi
 | `docs/audit/s0/S0_B4_RUN_3_REVIEW.md` | `3d8644811c3ac13b19cce1f1274c46d2edbaa10a` |
 | `docs/audit/s0/S0_B4_TEST_PLAN.md` | `ef21f8193daf283a6ed8c6f4d68b7ca87781bd46` |
 | `docs/audit/s0/S0_B3_RESULTS.md` | `cc25258c5295e5c2de3bae90d3c9b1d1c1b63da5` |
-| `docs/audit/s0/S0_RISK_REGISTER.md` | `e41155b4f39ab720faa41639be82b5bfaf133201` |
-| `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `4846228e59ed90fb8207bed544ba98f09807e028` |
-| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `6da20ece1563cd8ad94565afe5f1aebd18d270b0` |
+| `docs/audit/s0/S0_RISK_REGISTER.md` | `65bb4383326f748a752d91d392569ee83b23f3fa` |
+| `docs/audit/s0/S0_B7_RISK_TRACEABILITY.md` | `65dcbd43fc49d75883e9598853100493c604b0b2` |
+| `docs/audit/s0/S0_B7_SELF_REVIEW.md` | `9dbeb3d8771e929b935662982c1a2ac01bd730f0` |
 | `docs/audit/s0/S0_DEPENDENCY_AUDIT_PLAN.md` | `8701c8defd2945cc0849b7e2c7ee67afe03ab141` |
-| `docs/audit/s0/S0_SIGNOFF.md` | `cf4d86af7e84a9be430383b75c63dae931551a6e` |
-| `docs/audit/s0/S0_B7_RESULTS.md` | `3fa6cc3c7d60deef3f5f3aa90b9ee0d130e6f045` |
-| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `56919e0517edcc2c1868f8b3890bb5271ec0f157` |
+| `docs/audit/s0/S0_SIGNOFF.md` | `7a2baf300e95c646585f76e3a1ef81f85cadfcf5` |
+| `docs/audit/s0/S0_B7_RESULTS.md` | `b6dc63d2c7d92625865cc4907d0b9ae9be6f1731` |
+| `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REQUEST.md` | `f4ab1bc1c91a09be8dd2eded6f8a73e3726ed939` |
 | `docs/audit/s0/CLAUDE_S0_B7_REVIEW_REPORT_TEMPLATE.md` | `977e7fc3427cefb99bf3ba172740eb99cb6034b8` |
 | `.github/workflows/s0-b7-dependency-audit.yml` | `dacd8506bed77624c44ffa27279354a87e9a4ebf` |
-| `docs/coordination/AI_HANDOFF.md` | `7c26d15369ab11ed1b6b8449e470bff8884d1e0d` |
+| `docs/coordination/AI_HANDOFF.md` | `883471efe0e45392779f64cf1417d37b3b337394` |
 | `docs/coordination/NEXT_SESSION_HANDOFF_2026-11-19.md` | `0cdd1b70857e17b708c6851575819ae076a5b8d0` |
 
 ## 2. Risk table integrity and traceability
@@ -233,3 +233,13 @@ The prior structural summary undercounted the matrix by one because it omitted t
 - Updated risk register blob: `e41155b4f39ab720faa41639be82b5bfaf133201`; traceability: `4846228e59ed90fb8207bed544ba98f09807e028`; results: `3fa6cc3c7d60deef3f5f3aa90b9ee0d130e6f045`; self-review: `6da20ece1563cd8ad94565afe5f1aebd18d270b0`; reviewer request: `56919e0517edcc2c1868f8b3890bb5271ec0f157`; AI_HANDOFF: `7c26d15369ab11ed1b6b8449e470bff8884d1e0d`.
 - Clarified downstream stages/exit criteria for R2/AS-F1, R10, GD-F2 and TC-F1/TC-F2. No severity, status, gate, exception, or authorization changed.
 - This is an implementer documentation update, not independent review. Re-fetch live HEAD and every blob before Claude issues a verdict.
+
+
+## 22. Exact-HEAD Run #324 and renewed R1 evidence — 2026-11-20
+
+- Snapshot base HEAD before this manifest refresh: `16a84cfd3aaa01c48e1c2e056bc11d4c9cf12388`.
+- Run #324 (`44677523059`) completed SUCCESS on exact checked-out SHA `31f1617ed838110296fd68edfd90c7e3e3b8d0a7`; APK artifact `14603730370` (17,569,417 bytes; ZIP SHA-256 `4a2800bcab95fd0d92ab6f7bbe93111fa7059b1d82a2a340f3a3ac892a34cfd1`); APK SHA-256 `d64bdf78726d991f1bb3c867200f360e2fc563bc0332282cf75cbe7d9734d285`; certificate SHA-256 `84bb348722b660bb36805f3928f73d64401d313a8627168796b6068a2ee1d146`.
+- CI evidence artifact `14603825259` (106,638 bytes; ZIP SHA-256 `3a53e96540faa10585b893dd9cc7ea6a071ccb65c6a1accfa94bbf73f447c16b`). Both ZIP digests were independently recomputed and matched GitHub metadata; APK hash matched `apk_sha256.txt` and V1/V2 signature verification exited 0.
+- Tests: 38/38 suites, 97/97 tests; `report_valid=true`; Gradle BUILD SUCCESSFUL. No device QA.
+- Run #322's certificate SHA-256 was `559d549a21515f899b6195c65114b2be778ff2fbd63288d21ef31f4365b96238`. GitHub compare from #322 checkout `68fee316` to #324 checkout `31f1617` shows documentation-only changed paths. Different certificate fingerprints reinforce OPEN R1; they do not authorize installation or B2/C3.
+- R1 register, traceability, signoff, results, self-review, reviewer request and handoff are pinned in §1. AS-F1 now has an explicit S5 target with a 492-source-page and UI-attribution exit condition. No severity, gate or phase status changed.
