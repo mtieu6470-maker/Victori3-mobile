@@ -338,7 +338,8 @@ describe('inventory ledger integration with the shared economy', () => {
       expect(Math.abs(actual - expected), label).toBeLessThanOrEqual(tolerance);
     };
     for (const [marketId, goods] of Object.entries(period.markets)) {
-      for (const [good, entry] of Object.entries(goods)) {
+      for (const good of GOODS) {
+        const entry = goods[good];
         if (!entry) continue;
         const source = entry.openingStock + entry.production + entry.imports;
         const uses = entry.exports + entry.consumed + entry.closingStock;
