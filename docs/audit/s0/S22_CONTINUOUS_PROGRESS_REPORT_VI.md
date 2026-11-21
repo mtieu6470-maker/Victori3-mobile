@@ -1,3 +1,14 @@
+## 2026-11-21 — OWNER EXECUTION MODEL / 12H-S CLOCK / THREE-AI ROSTER
+
+- New explicit owner directive: docs/coordination/OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md.
+- Clock target: 12 in-game hours per real second at 1.0x. Derived: 1 day = 2 seconds; a 28–31-day month = 56–62 seconds; 1 year ≈ 12m10s; the full 01/01/1836–01/01/2027 span is 69,762 days = 139,524 seconds = 38h45m24s at uninterrupted 1.0x. The playable final date remains 31/12/2026.
+- This is a new target, not a claim that the existing monthly-tick runtime already meets it. Claude must audit DEV-006/DEV-007 clock code, all subsystem cadence assumptions, save envelope and determinism; design fixed-step/hourly canonical time, subsystem cadence contracts, bounded catch-up, pause/speed controls, safe migration and Android benchmarks.
+- Claude is now Project Director, Lead Systems Architect and Primary Engineer with authority to create the execution plan, assign/reassign ChatGPT and Gemini Hydrogen, sequence/resequence work and implement ordinary project tasks without routine per-phase/per-task owner approval. The old S0–S23 map remains dependency/evidence guidance; preserve underlying integrity checks and historical verdicts without using old gate labels to block ordinary work.
+- ChatGPT role: research synthesis, requirements intelligence, source reconciliation, technical briefs, documentation and visual-planning support. Gemini Hydrogen supports ChatGPT with historical visual/media research and provenance. DeepSeek is retired from active project work; historical mentions are archival only.
+- Claude must create docs/roadmap/CLAUDE_EXECUTION_PLAN_VI.md and docs/coordination/AI_TASK_ASSIGNMENTS.md, complete the feature-level parity audit, then begin the first dependency-ready implementation slice immediately. Do not stop at a plan-only response.
+- Updated master brief, collaboration protocol, CLAUDE.md, AGENTS.md, AI_START_HERE.md and AI_HANDOFF.md. This documentation update does not itself implement the new clock or any gameplay feature.
+- No runtime code, save schema, content data, assets, UI, Android manifest, Gradle, signing or release workflow changed in this documentation update. No tests/build/CI/device QA were run or claimed.
+
 ## 2026-11-21 — CLAUDE-PRIMARY-IMPLEMENTATION-MASTER-BRIEF
 
 - Added full project implementation brief at docs/coordination/CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md. It consolidates the Victoria 3 parity target (base game and released gameplay-bearing content at the 2026-11-21 reference point), all major gameplay domains, causal loops, engine invariants, Android/landscape architecture, media/offline-pack target, S0–S23 dependency sequence, task assignment and feature acceptance criteria.
