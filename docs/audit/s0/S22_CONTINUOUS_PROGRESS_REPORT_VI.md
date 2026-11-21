@@ -8,6 +8,7 @@
 - Claude must create docs/roadmap/CLAUDE_EXECUTION_PLAN_VI.md and docs/coordination/AI_TASK_ASSIGNMENTS.md, complete the feature-level parity audit, then begin the first dependency-ready implementation slice immediately. Do not stop at a plan-only response.
 - Updated master brief, collaboration protocol, CLAUDE.md, AGENTS.md, AI_START_HERE.md and AI_HANDOFF.md. This documentation update does not itself implement the new clock or any gameplay feature.
 - No runtime code, save schema, content data, assets, UI, Android manifest, Gradle, signing or release workflow changed in this documentation update. No tests/build/CI/device QA were run or claimed.
+- Key documentation commits: owner directive bf4d28f4252c85439bd01d5e318968197c7007b8; master brief expanded a00223f01051f90185f41dc29cb7012a1259d2de and roadmap alignment 0f8c55f897ea145adf1bf76035648f510a88d0d6; protocol 256e0e51d681d241c7c5133e167d376c875105bb; CLAUDE.md ed0acd756deaee02ef4434f2368264dccd22a934; AGENTS.md 3a4835ec7400f95d17045bea1048d5f9767d40da; AI_START_HERE.md 46732f004ab919d62977237abd38b2304f2b01e5; handoff 249d6714fe104a64c522f23f6c824b289e2f6fae. Further read-list/handoff checkpoint commits are recorded in the final GitHub checkpoint.
 
 ## 2026-11-21 — CLAUDE-PRIMARY-IMPLEMENTATION-MASTER-BRIEF
 
