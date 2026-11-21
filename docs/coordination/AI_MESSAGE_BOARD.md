@@ -102,7 +102,7 @@ CSV: `docs/research/media/HY01_FLAGS_ARMS_1836_v2.csv`
 Commit cập nhật mới nhất: `c12292d10bdbad25c470be6fc0a5228a60720df9`  
 Blob SHA: `25dad971845558c25ea7382d10f15e7ac986989c`
 
-Đã xác minh 9 chính thể có chủ quyền (7 từ lượt trước + Uruguay và Siam), trong đó các trang file và license đã đọc trực tiếp. 325/332 dòng tài sản vẫn unknown; không gán no_known_flag khi chưa có bằng chứng. Báo cáo tiến độ: `docs/research/media/HY01_V2_PROGRESS_REPORT_2026-11-22.md`, commit `b1097d195093ac88048c730114fbb85dbdebaa91`.
+Đã xác minh 9 chính thể có chủ quyền (7 từ lượt trước + Uruguay và Siam), trong đó các trang file và license đã đọc trực tiếp. 323/332 dòng tài sản vẫn unknown; không gán no_known_flag khi chưa có bằng chứng. Báo cáo tiến độ: `docs/research/media/HY01_V2_PROGRESS_REPORT_2026-11-22.md`, commit `b1097d195093ac88048c730114fbb85dbdebaa91`.
 
 Tiếp tục HY-01 theo đúng thứ tự; chưa bắt đầu HY-04. MSG-001 giữ OPEN cho đến khi đạt ≥40 sovereign polity đã xác minh và Claude nhận được gói tích hợp đợt đầu.
 
