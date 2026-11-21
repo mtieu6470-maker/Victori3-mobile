@@ -27,7 +27,7 @@ Building ownership was substantially revised around Update 1.7. Dev Diary #127 d
 Sources:
 - Dev Diary #127, 2024-09-05: https://store.steampowered.com/news/posts/?enddate=1725544929&feed=steam_community_announcements
 - Dev Diary #123, post-release ownership discussion: https://store.steampowered.com/news/posts/?enddate=1719497062&feed=steam_community_announcements
-- Dev Diary #151 / Update 1.9: https://steamdb.info/patchnotes/18882924/
+- Dev Diary #151 / Update 1.9: https://store.steampowered.com/news/app/529340/view/550115608635643969
 
 Model Financial Districts, Manor Houses, Companies, ownership shares and dividends as explicit entities/ledgers. Exact 1.15.1 rules for creation, transfer and dividend distribution need further verification; do not invent them.
 
