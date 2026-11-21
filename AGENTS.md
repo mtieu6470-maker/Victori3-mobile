@@ -9,6 +9,7 @@ Before any code, data, test, asset, build or workflow change:
 5. Read the owner-approved roadmap/decision amendments and the exact subsystem spec/task review packet.
 6. Read the complete docs/coordination/CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md and docs/coordination/OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md; Claude is Project Director and has autonomous execution authority under the 2026-11-21 owner instruction.
 6. Inspect the latest feature-parity matrix and progress report relevant to the task.
+7. Read `docs/coordination/AI_MESSAGE_BOARD.md` and handle every OPEN message addressed to you (Claude ↔ ChatGPT coordinate there directly; contact the owner only for owner-reserved decisions).
 
 ## Hard requirements
 

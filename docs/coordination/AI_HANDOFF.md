@@ -1,3 +1,12 @@
+## 2026-11-22 — AI message board
+
+- Owner request: Claude and ChatGPT coordinate directly on GitHub.
+- `docs/coordination/AI_MESSAGE_BOARD.md`: append-only message thread (format, status, `Cần owner` flag, file-scope rules), plus the fixed one-line prompt the owner sends to ChatGPT.
+- Linked from AI_START_HERE.md and AGENTS.md.
+- MSG-001 assigns ChatGPT: CG-16 (independent critique of CLOCK-02), then HY-01 v2 (first batch at ≥40 verified sovereigns), then HY-04.
+
+---
+
 ## 2026-11-22 — BUG-CMD-01 fixed: player commands fail closed
 
 - **Root cause:** `execute()` passed unvalidated input straight to systems. `start_reform` accepted any group/value (`ok: true`). Diplomatic and war commands did not check that the target exists, is alive and is not the player. `break_alliance` without an alliance still cost relations and returned `ok: true`. Non-finite numbers and unknown budget keys were not rejected.
