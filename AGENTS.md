@@ -7,6 +7,7 @@ Before any code, data, test, asset, build or workflow change:
 3. Read `docs/coordination/AI_COLLABORATION_PROTOCOL.md`.
 4. Read `docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md`.
 5. Read the owner-approved roadmap/decision amendments and the exact subsystem spec/task review packet.
+6. Read the complete docs/coordination/CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md; Claude is the primary code-authoring agent under the 2026-11-21 owner role assignment.
 6. Inspect the latest feature-parity matrix and progress report relevant to the task.
 
 ## Hard requirements
