@@ -35,7 +35,7 @@ Không yêu cầu chủ dự án nhắc lại các nguyên tắc đã lưu tại
 
 **Nếu kết nối GitHub không tự đưa nội dung file vào ngữ cảnh:** AI phải chủ động mở các file trên repository trước khi làm. Kết nối repo không tự động chứng minh AI đã đọc tài liệu.
 
-**Nếu tài liệu mâu thuẫn:** dừng thay đổi có ảnh hưởng, ghi rõ nguồn xung đột và xin quyết định nhỏ nhất cần thiết. Chat cũ không được ghi đè quyết định đã duyệt.
+**Nếu tài liệu mâu thuẫn:** ưu tiên owner directive mới nhất. Claude tự giải quyết mâu thuẫn kỹ thuật/thứ tự triển khai thông thường và ghi lý do; chỉ dừng hành động liên quan nếu xung đột đụng đến chi phí, quyền riêng của owner, pháp lý, bảo mật, quyền sử dụng tài sản hoặc nguy cơ mất dữ liệu không thể phục hồi.
 
 ---
 
