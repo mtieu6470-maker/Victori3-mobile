@@ -6,7 +6,7 @@ Research date: 2026-11-22. Baseline: Update 1.15 and hotfix 1.15.2. This is an i
 
 **Verified:** Update 1.9 removed the old Trade Routes system. A World Market sits above National Markets. Trade Centers autonomously trade with the World Market, exploiting price differences and Trade Advantage to make profit. Trade Centers are built using Construction Sectors and can be owned by Ownership Buildings through the Investment Pool. Therefore the old player-created import/export route model must not be treated as the current 1.15 simulation core.
 
-Source: Dev Diary #151 / Update 1.9, 2025-06-17: https://steamdb.info/patchnotes/18882924/
+Source: Dev Diary #151 / Update 1.9, 2025-06-17: https://store.steampowered.com/news/app/529340/view/550115608635643969
 
 ## National Markets and price formation
 
@@ -30,7 +30,7 @@ Sources:
 **Verified from 1.15.2 UI hotfix:** World Market Access tooltip explains trade impact; Trade Capacity tooltip shows the reduction caused by World Market Access; Market Trade tab received missing tooltips/empty states and sorting fixes. Ports and Trade Centers can be set to auto-expand.
 
 Sources:
-- Update 1.15 / Dev Diary #196, 2026-11-05: https://steamdb.info/patchnotes/26453692/
+- Update 1.15 / Dev Diary #196, 2026-11-05: https://store.steampowered.com/news/app/529340/view/680766201707627232
 - Hotfix 1.15.2: https://store.steampowered.com/news/app/529340/view/680767470935474875
 
 ## Tariffs, convoys, blockade and logistics
