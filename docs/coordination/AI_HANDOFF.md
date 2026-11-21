@@ -22,6 +22,7 @@
 - **Clock target:** 12 in-game hours per real second at 1.0x. Campaign remains 01/01/1836–31/12/2026 inclusive. Existing monthly tick is not considered compliant until migrated and benchmarked.
 - **Mandatory Claude deliverables:** docs/roadmap/CLAUDE_EXECUTION_PLAN_VI.md and docs/coordination/AI_TASK_ASSIGNMENTS.md; parity audit; then begin first dependency-ready implementation slice without waiting for another routine owner prompt.
 - **Full directive:** [OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md](OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md).
+- **Directive commit:** bf4d28f4252c85439bd01d5e318968197c7007b8. **Master brief expanded:** a00223f01051f90185f41dc29cb7012a1259d2de. **Protocol aligned:** 256e0e51d681d241c7c5133e167d376c875105bb. **Current handoff/entrypoints:** see latest checkpoint commit chain.
 - **Master product brief:** [CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md](CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md).
 - **Latest execution baseline before this documentation update:** re-fetch branch HEAD; do not rely on historical SHA references below.
 
