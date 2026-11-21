@@ -22,6 +22,23 @@ import { mapControls } from './map/MapView';
 import { game } from './game/controller';
 import { ui, type LensId, type ScreenId } from './game/ui';
 import type { GameMode } from '../engine/types';
+import { installLifecycle } from './game/lifecycle';
+import { saveSlot } from './game/storage';
+
+/** Slot used by the background autosave (separate from the yearly autosave and player slots). */
+export const BACKGROUND_AUTOSAVE_SLOT = 'Tự động lưu khi rời ứng dụng';
+
+// CLOCK-02b: pause + best-effort autosave whenever the app goes to the background.
+installLifecycle({
+  doc: document,
+  win: window,
+  onBackground: () => game.onBackground(),
+  autosave: async () => {
+    if (!game.st || game.busy) return;
+    await saveSlot(BACKGROUND_AUTOSAVE_SLOT, await game.save());
+  },
+  onAutosaveError: () => game.toast('Không tự động lưu được khi rời ứng dụng', 'error'),
+});
 
 async function boot() {
   const root = document.getElementById('app')!;

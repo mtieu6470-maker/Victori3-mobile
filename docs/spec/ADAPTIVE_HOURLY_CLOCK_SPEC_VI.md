@@ -107,7 +107,7 @@ Lệnh: `npx tsx tools/clock-bench.ts --years 0,10,30 --sample-months 12 --out <
 | ID | Nội dung |
 |---|---|
 | CLOCK-02 | **Đã làm 2026-11-22** (xem §7b). Còn lại: read-model/delta (UI-01). |
-| CLOCK-02b | Hook lifecycle native Capacitor (`App` pause/resume) + autosave khi vào nền; khả năng đọc thermal nếu có API. |
+| CLOCK-02b | **Phần web đã làm (2026-11-22):** `src/ui/game/lifecycle.ts` nghe visibilitychange/pagehide/freeze/pause → pause + autosave best-effort (throttle 15 s) vào slot riêng. Còn lại: hook native `@capacitor/app` + thermal (thêm dependency chưa được môi trường cho phép). |
 | CLOCK-03 | Di chuyển subsystem sang cadence mịn khi domain cần (daily: shipments, supply/attrition, migration flow; hourly: movement/battle substep), mỗi cái có contract + test tương đương/tất định; trải đều công việc tháng nếu mô hình cho phép. |
 | CLOCK-BENCH-ANDROID | Benchmark trên thiết bị thật (iQOO Z10 Turbo cần owner cho phép cài APK) ở 12h/s và 6h/s, world late-game đại diện; hiệu chỉnh ngưỡng governor. |
 | CLOCK-04 | Hàng đợi sự kiện theo giờ (scheduled events, treaty expiry, construction completion theo giờ) được lưu trong save. |

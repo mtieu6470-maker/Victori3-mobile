@@ -101,7 +101,7 @@ UX/content:      UI-01 read models ─ UI-02 map lenses/inspector ─ PACK-01..0
 | CLOCK-BENCH-DESKTOP | `tools/clock-bench.ts` | Claude | CLOCK-01 | P0 | DONE (desktop only) |
 | SAVE-01 | Envelope: engineVersion, world-data fingerprint, savedAtHour; RNG fail-closed (B4-R1); slot write validated + backup trong cùng transaction + tự khôi phục | Claude | CLOCK-01 | P0 | **IMPLEMENTED (2026-11-22)** |
 | CLOCK-02 | Simulation Web Worker (SimCore + generation protocol + backpressure) + kênh đồng hồ nhẹ | Claude | CLOCK-01, SAVE-01 | P0 | **IMPLEMENTED (2026-11-22)**, desktop-measured |
-| CLOCK-02b | Capacitor App lifecycle pause/resume + autosave nền | Claude | CLOCK-02 | P1 | NOT_STARTED |
+| CLOCK-02b | Lifecycle: pause + autosave nền (web-standard: visibilitychange/pagehide/freeze/pause) **đã làm 2026-11-22**; hook native `@capacitor/app` + đọc thermal: chờ được phép thêm dependency | Claude | CLOCK-02 | P1 | PARTIAL (web part IMPLEMENTED) |
 | SAVE-02 | RNG streams theo domain (B4-R1 đã đóng ở SAVE-01) | Claude | SAVE-01 | P0 | NOT_STARTED |
 | SAVE-03 | Backup/restore/export-import kiểm checksum | Claude | SAVE-01 | P1 | NOT_STARTED |
 | CLOCK-03 | Cadence mịn cho daily flows | Claude (+CG-04) | CLOCK-02, ECON-03/MIL-03 | P1 | NOT_STARTED |

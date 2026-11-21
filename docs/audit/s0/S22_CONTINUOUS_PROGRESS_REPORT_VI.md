@@ -1,3 +1,21 @@
+## 2026-11-22 — CLOCK-02b (web part): background pause + autosave
+
+- `src/ui/game/lifecycle.ts`: listens for `visibilitychange` (hidden), `pagehide`, `freeze` (Chromium Page Lifecycle) and the Capacitor/Cordova `pause` event. Each one calls `game.onBackground()`, which is idempotent and also cancels fast-forward.
+- Each background transition triggers one best-effort autosave (throttled to 15 s) into the slot "Tự động lưu khi rời ứng dụng", using the safe slot writer with backup.
+- The game never auto-resumes.
+- Wired in `src/ui/main.tsx`.
+- **Evidence:**
+  - `tests/lifecycle.test.ts` (5 tests).
+  - Browser smoke (desktop Chromium): dispatching `freeze` → paused + `pausedByLifecycle`, autosave slot present in IndexedDB, clock stopped; 0 page errors.
+  - Local `npm test`: see the commit below; build 0.
+- **Blocked by environment permission:**
+  - Adding the `@capacitor/app` dependency (native pause/resume hook, needed for thermal later) was refused by the session's permission classifier.
+  - Creating a recurring scheduled check of the AI message board was also refused.
+  - Neither was worked around; both need the owner to allow them in Claude Code settings if wanted.
+- Real Android behaviour (which events the WebView fires on pause/process death) is not device-verified.
+
+---
+
 ## 2026-11-22 — AI message board
 
 - Owner request: Claude and ChatGPT coordinate directly on GitHub.
