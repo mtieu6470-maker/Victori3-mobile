@@ -1,3 +1,12 @@
+## 2026-11-21 — CLAUDE-PRIMARY-IMPLEMENTATION-MASTER-BRIEF
+
+- Added full project implementation brief at docs/coordination/CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md. It consolidates the Victoria 3 parity target (base game and released gameplay-bearing content at the 2026-11-21 reference point), all major gameplay domains, causal loops, engine invariants, Android/landscape architecture, media/offline-pack target, S0–S23 dependency sequence, task assignment and feature acceptance criteria.
+- Owner role assignment updated: Claude Code is now the primary code-authoring/implementation agent for future owner-authorized tasks. ChatGPT is technical lead, architecture/scope coordinator and independent no-write reviewer of Claude-authored work only when it did not co-author that change set. Gemini Hydrogen remains research/content support; DeepSeek is fallback reviewer only when owner-assigned.
+- Updated AI_COLLABORATION_PROTOCOL.md, CLAUDE.md, AGENTS.md and AI_START_HERE.md to make the master brief and role allocation discoverable from the project entrypoints.
+- This is a documentation/governance update only. No runtime/gameplay/save/data/assets/UI/Android/workflow/signing files changed; no tests/build/CI/device QA was run by this documentation task.
+- The role change does not open any phase. Existing DEV-007/B4/B7 review and owner-acceptance requirements, S0 gate states, S1 NOT_STARTED and S22 DESIGN_ONLY remain unchanged. Claude's first assigned actions are to read the brief fully and review earlier work only where independent; implementation begins only on an explicitly authorized/open task.
+- Initial base HEAD: 764fd121ce614678c8ab476ede33aacfd97c6efa. Master brief creation commit: 95b518ec7fc457673c575eccc22f1c4291dacda5. Follow-up documentation commits and final exact HEAD are recorded in AI_HANDOFF.md after verification.
+
 ## DEV-007 — Campaign calendar 1836–2026 — READY_FOR_REVIEW (20/11/2026)
 
 - **Owner authorization:** `docs/coordination/OWNER_DIRECTIVE_CAMPAIGN_RANGE_2026-11-20.md`; the owner changed the campaign period to January 1836–December 2026 inclusive for Historical and Sandbox.
