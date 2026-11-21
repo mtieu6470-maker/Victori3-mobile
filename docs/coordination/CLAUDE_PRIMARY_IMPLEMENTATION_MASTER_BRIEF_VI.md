@@ -47,6 +47,19 @@ Trải nghiệm cuối cùng phải có các đặc điểm:
 - Dữ liệu lịch sử 1836–1936 và dữ liệu 1937–2026 đều cần nguồn, phạm vi thời gian/địa lý, phương pháp, độ tin cậy và quyền sử dụng. Phải đánh dấu rõ giai đoạn nào có dữ liệu tốt, dữ liệu ước lượng hoặc còn thiếu.
 - Không giả lập sự kiện lịch sử tương lai thành kết quả bắt buộc. Event, journal, nhân vật và tình hình chính trị tạo bối cảnh/áp lực/cơ hội; kết quả vẫn phát sinh từ simulation.
 
+### 2.1.1. Đồng hồ mô phỏng — quyết định mới của chủ dự án ngày 21/11/2026
+
+- Tốc độ chuẩn mục tiêu: **12 giờ trong game / 1 giây thực (12 game-hours/second)**.
+- Ở 1.0x: 1 giờ game = 1/12 giây thực; 1 ngày game = 2 giây thực; 1 tuần = 14 giây; một tháng thực tế dài 28–31 ngày sẽ mất 56–62 giây; một năm 365/366 ngày mất khoảng 12 phút 10–12 giây.
+- Từ 01/01/1836 đến 01/01/2027 có 69.762 ngày lịch; ở tốc độ 1.0x cần 139.524 giây = 38 giờ 45 phút 24 giây chạy liên tục. Ngày chơi cuối cùng là 31/12/2026.
+- Tốc độ đề xuất: Pause, 0.25x = 3h/s, 0.5x = 6h/s, 1x = 12h/s, 2x = 24h/s, 4x = 48h/s. Claude được quyền điều chỉnh preset theo profiling nhưng 1x mặc định vẫn là mục tiêu 12h/s.
+- Đây là target của simulation clock, không phải yêu cầu chạy toàn bộ subsystem 12 lần/giây. Phải dùng monotonic clock, fixed-step/hourly canonical time, accumulator ổn định, deterministic event ordering, batching có chứng minh tương đương, bounded catch-up và tách simulation khỏi render FPS.
+- Mỗi subsystem phải khai báo cadence thực sự: hourly/daily/weekly/monthly/yearly theo nhu cầu domain. Không được bỏ qua event boundary, treaty expiry, construction completion, combat order, command hoặc campaign end.
+- Không chạy simulation unbounded trên UI thread. Khi Android background/process lifecycle không chắc chắn, mặc định pause và persist an toàn; không tự tuyên bố offline progress.
+- Save/load phải bảo toàn canonical time, scheduled events, cadence phase/accumulator và RNG state. Nếu đổi từ monthly tick hiện tại sang hourly clock, phải có migration versioned, replay/continuation test và benchmark.
+- DEV-006/DEV-007 hiện ghi nhận monthly cadence; không được nói code cũ đã đạt 12h/s. Claude phải audit và lập migration plan rồi triển khai.
+- Chỉ thị chi tiết có hiệu lực: OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md.
+
 ### 2.2. Phạm vi toàn cầu
 
 - Không làm game chỉ cho Anh, Pháp, Qing, Nhật, Việt Nam hoặc một nhóm quốc gia trình diễn.
@@ -469,6 +482,140 @@ Events must not hard-code all future history. They can create decisions, pressur
 - Stagger/partition country evaluation; cache safe read models; avoid global expensive scans each month.
 - Deterministic RNG streams must be isolated by system/entity to avoid one optional UI/event changing unrelated outcomes.
 
+
+### 20.1. Phân rã feature Victoria 3 để lập parity và kế hoạch thực thi
+
+Claude phải chuyển mỗi nhóm dưới đây thành feature IDs riêng trong parity matrix. Từng feature cần có trạng thái IMPLEMENTED / PARTIAL / DESIGN_ONLY / DATA_MISSING / NOT_STARTED / BLOCKED / NOT_APPLICABLE; liên kết code, data, tests, UI, save và bằng chứng. Không gộp hàng chục cơ chế thành một checkbox chung.
+
+#### A. World map, geography và administrative simulation
+- Province/state/region/strategic region, land/sea regions, coastlines, rivers, lakes, straits, canals, mountains, deserts, forests, climate, terrain và resource deposits.
+- Temporal borders, ownership, sovereignty, de facto control, occupation, claims, contested territory, colonial regions và administrative lineage.
+- State traits/resources, arable land, infrastructure capacity, population capacity, ports, market access, local modifiers và regional specialization.
+- Political/economic/terrain/population/culture/religion/production/market/transport/diplomacy/military map lenses; legend, filter, time slider, selection and drill-down.
+- Map LOD, spatial index, viewport culling, hit testing, path graph, label placement and temporal map snapshots.
+
+#### B. Countries, polities, statehood và government structure
+- Playable country, decentralized/collective polity, indigenous authority, subject, protectorate, dominion, tributary, colony, company administration, occupied territory, federation and breakaway polity.
+- Country identity/tag, flag/coat of arms, name variants, capital, recognized/unrecognized status, prestige/rank, interests, claims, diplomatic capacity and state capacity.
+- Country formation, unification, fragmentation, annexation, independence, succession, regime transition, protectorate/subject creation and dissolution.
+- Government type and actual administrative reach; do not give every polity a modern centralized state structure by default.
+
+#### C. Pops, population strata và demographics
+- Cohorts/Pops by location, culture, religion, strata, profession, legal status, literacy, qualification, wealth, employment, needs and political alignment.
+- Social strata such as aristocrats/landowners, capitalists, clergy, officers, bureaucrats, academics, engineers, machinists, laborers, farmers, peasants, soldiers, clerks, shopkeepers and coercive-labor categories where historically evidenced.
+- Births, deaths, fertility, mortality, aging, epidemics, famine, internal/international migration, assimilation, conversion, urbanization and cohort split/merge.
+- Discrimination, citizenship, rights, legal restrictions, qualifications and access to jobs/services.
+- Mass conservation, provenance, confidence, unknown categories and time-valid census reconciliation.
+
+#### D. Needs, wealth, SoL và social outcomes
+- Needs baskets for basic, everyday, luxury and service categories; goods-specific demand and substitution rules.
+- Wages, dividends, rents, subsistence, transfers, welfare, taxes, debt, savings and household wealth.
+- Affordability, consumption, unmet needs, poverty, inequality, standard of living and its change over time.
+- Cohort-level consequences: migration, radicalism, loyalism, interest-group attraction, health/education outcomes and social mobility.
+- SoL must be derived from observable material conditions and an explainable formula, not an arbitrary score.
+
+#### E. Goods, production và industrial economy
+- Goods registry and categories: raw materials, agricultural goods, industrial inputs, manufactured goods, services, luxury goods, military supplies and strategic resources.
+- Production chains: input recipes, output quantities, by-products, workforce, qualifications, productivity, capacity, operating costs, wages and profit.
+- Building definitions, building sites, levels/capacity, state-owned/private/foreign/cooperative ownership, employment, closures and expansion.
+- Production Methods selectable by player/AI with era, technology, resource, labor, input/output and cost constraints.
+- Agriculture, plantations, ranches, fishing, logging, mines, oil/extraction, factories, food/textile/chemical/metal/machine industries, urban centers, power, rail, ports, shipyards, construction, administration, universities, barracks and naval bases as applicable.
+- Construction sectors, queue, priority, materials, labor, progress, delay, cancel/pause/resume, cost and completion; never instant-build by default.
+- Companies, ownership shares, investment pool, reinvestment, dividends, nationalization, privatization, foreign investment and charter/monopoly behavior.
+
+#### F. Market, trade, transport và logistics
+- Market membership, market access, local prices, buy/sell orders, supply/demand clearing, inventory, shortage/surplus, substitution and price volatility.
+- Material ledger: production + imports − inputs − consumption − exports − spoilage/destruction = ending stock.
+- Trade routes with goods, volume, capacity, origin/destination, profitability, tariff, convoy demand, transport cost, risk, owner and lifecycle.
+- Ports, roads, railways, waterways, shipping lanes, canals, convoys, depots, supply nodes, route capacity, travel time and blockade effects.
+- Tariffs, embargoes, trade agreements, customs unions/market unions, foreign investment and uneven trade treaties.
+- Logistics must physically constrain regional access; no infinite import/export or global stock teleportation.
+
+#### G. Treasury, fiscal policy, debt và monetary flows
+- Tax laws/methods and tax base; income/poll/consumption/land/dividend/customs taxes as historically appropriate.
+- State income, tariffs, minting/reserves, company dividends, state-owned industry and subject tribute.
+- Government wages, administration, construction, military/navy, institutions, welfare, subsidies, interest and emergency spending.
+- Budget balance, reserves, borrowing, credit, interest, debt ceiling, default, debt crisis, currency/monetary regime where modeled.
+- Every financial flow must have payer, recipient, amount, currency/unit, period and ledger trace.
+
+#### H. Laws, institutions và political power
+- Law groups: governance/power structure, distribution of power, citizenship, migration, economic system, taxation, trade, property, labor, slavery/serfdom, education, health, welfare, internal security, church/state, military service and colonial administration.
+- Law enactment process, support/opposition, stall/failure, debate, legitimacy cost, enforcement and consequences.
+- Government composition, cabinet, legitimacy, authority, bureaucracy, institutions, administration, policing, education, healthcare and welfare.
+- Elections, parties, legislatures and franchise only where the polity's historical institutions support them.
+- Interest Groups: membership, ideology, clout, approval, leadership, government/opposition, demands and policy preferences.
+- Agitators, political lobbies, movements, radicalism, loyalism, protests, strikes, revolutions, civil wars, repression and regime change.
+- Group power must derive from social/economic/legal structure; do not assign arbitrary fixed clout.
+
+#### I. Technology, innovation và diffusion
+- Technology trees/categories, prerequisites, era validity, research points/capacity, innovation, literacy and education dependencies.
+- Production, military, naval, transport, medicine, communication, administration, social and political technologies.
+- Spread/diffusion through trade, migration, diplomacy, conquest, education, investment and geographic contact.
+- Separate invention, research completion, adoption, implementation capacity and production-method availability.
+- Country-specific starting technology and asymmetric adoption; no identical tech level for all countries.
+
+#### J. Characters, rulers, commanders và journal systems
+- Historical/generated/unknown characters with stable IDs, temporal validity, traits, ideology, skills, relationships, prestige, offices and succession role.
+- Rulers, heirs, generals, admirals, agitators, interest-group leaders, political figures, court factions and office appointments.
+- Birth/appearance, education, appointment, promotion, exile, imprisonment, death, succession and vacancy.
+- Journal entries as stateful objectives with trigger, progress, deadline, choices, branches, rewards, costs and failure states.
+- Events/decisions with source-backed dates, triggers, actors, player/AI choice, consequences and history log.
+- Country-specific narratives must use shared systems; never hard-code the whole country's future.
+
+#### K. Diplomacy, international order và Power Blocs
+- Relations, attitudes, rivalry, trust, obligations, guarantees, alliances, truces, treaties, recognition, prestige and diplomatic interests.
+- Subject types, autonomy, obligations, tribute, market access, military duties, liberty desire, integration, independence and overlord control.
+- Diplomatic plays/crises: demands, participants, stance, backing, sway, escalation, mobilization, concessions, mediation, settlement and transition to war.
+- Power Blocs: identity, principles, leader, members, cohesion, leverage, obligations, rewards, exit/expulsion, monuments and international influence.
+- Foreign investment, political lobbies, diplomatic trade, company charters, monopoly rights and seizure/compensation.
+- Colonization/claims and gunboat diplomacy must account for geography, deployed capability, logistics, domestic risk and target agency.
+
+#### L. Land warfare and military economy
+- Military laws, army model, recruitment, conscription, reserves, training, readiness, mobilization, demobilization, equipment and supply.
+- Battalions/formations, unit types, commanders, command capacity, fronts, theaters, objectives, orders and movement graph.
+- Terrain, rivers, climate, season, supply depots, transport capacity, attrition, disease, desertion, morale and war support.
+- Battle resolution, tactics, technology, equipment, commander traits, casualties, retreat, siege, occupation, devastation and reconstruction.
+- War goals, peace negotiations, reparations, territorial transfer, subject changes, demobilization and postwar political/economic consequences.
+
+#### M. Naval warfare and The Great Wave feature set
+- Ship designer: hull/tonnage, role, propulsion, armament, armor, range, speed, crew, maintenance, cost and technology constraints.
+- Shipyard capacity, build queue, ship purchase/sale, transfer of ownership, treaties, payment, delivery, repair and refit.
+- Fleet/task force composition, admirals, flagship identity/customization, prestige, command bonuses and loss consequences.
+- Naval missions, sea control, naval presence, convoy escort/raiding, blockade, amphibious transport/landing and port access.
+- Gunboat diplomacy tied to real fleet capability, distance, logistics, risk and diplomatic-play state.
+
+#### N. Colonization, indigenous sovereignty và social systems
+- Colonial claims, interests, frontier/colonial administration, companies, protectorates, treaty rights, annexation and decolonization.
+- Indigenous/collective polities retain agency, diplomacy, territory, resistance and succession; not merely empty map tiles.
+- Slavery, serfdom, indenture, coercive labor, discrimination and legal status only where source-backed, with human/social consequences and political resistance.
+- Famine, food security, epidemic, displacement and extraction must be modeled carefully and historically, not as cosmetic event text.
+
+#### O. AI nations and world simulation
+- Strategic goals, horizon, risk appetite, economic priorities, fiscal limits, domestic stability, laws, technology, diplomacy and military capability.
+- Separate strategic planning, policy evaluation and tactical execution.
+- Shared command validation/rules for player and AI; AI cannot bypass cost, time, geography, capacity or law.
+- Explainable decisions, deterministic per-seed behavior, isolated RNG streams, anti-oscillation and bounded CPU budgets.
+- Different agency models for great powers, minor states, decentralized polities, subjects and colonial administrations.
+
+#### P. UI, map interaction, information and player tools
+- Persistent date/speed/country/treasury/alert HUD; landscape-first map-first command interface.
+- Map lenses, context selection, country/state/settlement inspector, building/Pops/market/character/unit/treaty drill-down.
+- Outliner, alerts, command queue, construction tracker, diplomatic-play tracker, war overview and journal.
+- Ledgers for budget, goods, prices, employment, population, technology, diplomacy, military and history.
+- Tooltips with formulas, source state, forecast/range, causal explanation and action cost.
+- Timeline, event log, date filters, comparison tools, accessibility, touch targets and localization.
+
+#### Q. Save, content, media và release
+- Deterministic save/load, versioned schema, migration, backup/restore, recovery from corruption and compatibility checks.
+- Full offline packs with manifest, signatures/hashes, provenance/license, resume, verify, atomic activation and rollback.
+- Original/licensed flags, coats of arms, portraits, clothing, buildings, ships, units, terrain/map art, event/journal art, animations, cinematic video, music, ambience, UI/industrial/battle/naval sounds and voice where designed.
+- Asset-to-entity/era/location links, actual runtime usage, LOD, lazy loading, cache budgets and quality validation.
+- Measure APK bootstrap, compressed download, expanded installed bytes, staging space and resident RAM separately; full content target is 4–5 GB of real used content.
+
+**Planning rule:** for every leaf feature above, record the Victoria 3 reference behavior, Victori3 Mobile adaptation, entities/state, commands, formulas/rules, cadence, dependencies, data, UI, AI, persistence, tests, performance budget, rights and status. Claude must research and decompose the exact reference version before deciding that a leaf is irrelevant.
+
+
+
 ---
 
 # PHẦN III — GAME LOOP, INVARIANTS VÀ DEFINITION OF DONE
@@ -729,58 +876,60 @@ Do not skip dependencies because a later feature is visually attractive.
 
 ## 31. Task assignment and role ownership
 
-This section records the new owner instruction: **Claude Code is the primary code author for future authorized implementation work.** The protocol update in AI_COLLABORATION_PROTOCOL.md is the governing role record.
+The owner directive dated 2026-11-21 appoints Claude Code as Project Director, Lead Systems Architect and Primary Implementation Engineer until completion. See OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md. The active team has exactly three participants: Claude Code, ChatGPT and Gemini Hydrogen. DeepSeek is removed from active project work.
 
 ### 31.1. Project owner
-- Owns product goals, priority decisions, acceptance and phase transitions.
-- Explicitly approves scope when a gate or decision requires it.
-- Supplies real-device evidence/approval where required.
-- Does not share secrets/keystores/private keys in chat or repository.
+- Defines product intent and reserved external actions; receives concise progress reports and performs final product acceptance.
+- Does not need to approve every routine task, phase, technical choice or task order.
+- Retains authority over spending, paid services, credentials/secrets, signing keys, public release/store submission, personal-device installation and other irreversible external actions.
+- Never shares secrets/keystores/private keys in chat or repository.
 
-### 31.2. Claude Code — primary implementation agent
-- Primary owner of implementation code for each explicitly authorized task.
-- Reads every mandatory project/phase/spec/research/review document fully before modifying files.
-- Owns technical decomposition, domain contracts, implementation, tests, self-review, exact-SHA CI, commit/push and handoff for assigned tasks.
-- Makes one reviewable slice per task; do not mix unrelated domains.
-- Keeps simulation logic in engine/domain modules, commands in command layer, read models in selectors and presentation in UI.
-- Updates actual source/tests, not just design documents, when a task is authorized.
-- Never marks its own work as independent REVIEW_PASS or ACCEPTED.
-- Never changes a closed phase, save schema outside S1, package/signing/secrets, workflows, release configuration or data packs outside its authorized scope.
+### 31.2. Claude Code — Project Director, Lead Systems Architect and Primary Engineer
+- Owns end-to-end delivery, architecture, roadmap, task decomposition, priorities, AI assignment and final integration.
+- Must create and maintain docs/roadmap/CLAUDE_EXECUTION_PLAN_VI.md and docs/coordination/AI_TASK_ASSIGNMENTS.md.
+- Has authority to sequence/resequence ordinary project work and proceed across implementation workstreams without per-task/per-phase owner approval, once technical prerequisites and safety checks are satisfied.
+- Writes production code and tests, conducts implementer self-review, runs CI, commits/pushes to the designated branch, updates parity/progress/handoff and verifies GitHub.
+- May delegate research synthesis and visual/media support; retains technical decisions and merge/integration responsibility.
+- Must label self-review honestly; do not fabricate an independent reviewer verdict.
+- Must not spend money, expose secrets, use unlicensed material, force-push, erase owner work or publish/merge externally without applicable authorization.
 
-### 31.3. ChatGPT — technical lead, architecture coordinator and independent reviewer
-- Maintains product/system coherence, task ordering, dependency mapping and scope control.
-- Reviews Claude's proposed contracts and bounded plans before code where useful.
-- For Claude-authored code, performs a no-write technical review only when ChatGPT did not co-author the same change set; checks invariants, concurrency, determinism, migration, performance, test quality and exact GitHub evidence.
-- Does not pretend to be an independent reviewer if it contributed implementation to that change set. In that case owner may assign DeepSeek or another independent reviewer.
-- Coordinates CI evidence, handoff, parity matrix and cross-system integration.
-- Does not independently change phase/gate status or accept deliverables.
+### 31.3. ChatGPT — Research Synthesis and Requirements Intelligence
+- Collects, compares and synthesizes Victoria 3 mechanics, official patch/DLC behavior, historical sources, Android engineering references, performance approaches and cross-system dependencies.
+- Produces traceable research briefs, feature comparison tables, requirement maps, risk notes, data definitions and acceptance criteria for Claude.
+- Maintains consistency of requirements and research records when assigned by Claude.
+- Supports visual planning through art direction, asset taxonomy, era/style references, image briefs/prompts and visual QA criteria.
+- Does not take over code authorship or project prioritization; Claude decides what to implement and when.
+- May provide advisory technical critique when Claude requests it.
 
-### 31.4. Gemini Hydrogen — research and content support
-- Researches historical entities, population/economy/event data, borders, characters, maps and media provenance when assigned.
-- Provides sources, date/coverage, methodology, uncertainty, rights/license and machine-readable delivery.
-- Research outputs remain candidates until validation and explicit integration approval.
-- Never silently invent or commit unverified history.
+### 31.4. Gemini Hydrogen — Visual Research and Media Support
+- Supports ChatGPT with visual research: flags, coats of arms, portraits, clothing/uniforms, buildings, ships, maps, terrain, period architecture, animation/video references and audio/music direction.
+- Provides source URLs, date, region/entity mapping, rights/license, provenance, confidence and asset metadata.
+- Distinguishes historical reference imagery, generated concept art and distributable licensed/original production assets.
+- Delivers visual boards, image briefs, asset manifests and visual QA notes in the requested format.
+- ChatGPT synthesizes Hydrogen's work; Claude decides acceptance and integrates it into the product.
 
-### 31.5. DeepSeek — independent reviewer fallback
-- May be assigned by owner if Claude or ChatGPT cannot be independent due to authorship/conflict/quota.
-- Must inspect exact current HEAD and provide evidence-linked findings.
-- Cannot review code it authored.
+### 31.5. Retired participant
+- DeepSeek is not part of the active project team. Do not assign work or make future dependencies on it. Historical records may remain as archival facts only; active roster, new task plans and current handoffs must exclude it.
 
-## 32. Current assignment queue at this checkpoint
+## 32. Claude's mandatory autonomous planning and execution queue
 
-**Verified baseline at preparation:** repository mtieu6470-maker/Victori3-mobile; branch claude/game-historical-sandbox-modes-kg7rj7; documentation HEAD observed as 764fd121ce614678c8ab476ede33aacfd97c6efa before this master brief was added. Re-fetch before acting; this SHA is not a future/current guarantee.
+Claude must create the execution plan and AI assignment register, then proceed without waiting for another routine owner prompt:
 
-| Order | ID | Owner | Assignment | State / restriction |
-|---|---|---|---|---|
-| 1 | TAKEOVER-READ-01 | Claude | Read this brief, AI_START_HERE, AGENTS, CLAUDE, recovery protocol, handoff, collaboration protocol, owner principles/directives, canonical roadmap, current gate files and relevant implementation/tests fully | Required before any code |
-| 2 | REVIEW-DEV007 | Claude | No-write independent review of DEV-007 exact code/test target 387ae24eae91b560b0f10cec6d59febb11396401 using docs/audit/s0/DEV007_CAMPAIGN_CALENDAR_CLAUDE_REVIEW_REQUEST_2026-11-20.md | Only independent if Claude did not author that target; no phase change |
-| 3 | REVIEW-S0-B4-B7 | Claude | No-write review of exact B4/B7 packages, source/tests, risk register, ledger, signoff and known G0.6/R14/C3/R7 issues | Independent review only; owner acceptance remains separate |
-| 4 | S0-GATE-CLOSE | Owner + reviewers | Resolve documented blockers and obtain the bounded independent REVIEW_PASS plus owner ACCEPTED required for S1 entry | Claude cannot approve its own gate or bypass this step |
-| 5 | S1-IMPLEMENTATION | Claude | After S1 is explicitly opened and exact scope approved: implement data contracts, static/mutable separation, schema versioning, save migration and deterministic continuation under S1 | NOT AUTHORIZED at this checkpoint |
-| 6 | S2-RELIABILITY | Claude | After S1 acceptance and S2 authorization: lifecycle, autosave/backup/restore, WebView/WebGL recovery and performance/backpressure | NOT AUTHORIZED at this checkpoint |
-| 7 | S3-TO-S23 | Claude + research support | Execute the approved roadmap one phase at a time, following §30 and current owner amendments | No parallel phase jumping |
+| Order | Task | Owner | Required result |
+|---|---|---|---|
+| 1 | TAKEOVER-AUDIT | Claude | Verify current HEAD, full docs, code, tests, workflows, APK state, open issues and existing parity evidence |
+| 2 | VIC3-PARITY-DECOMPOSITION | Claude + ChatGPT | Leaf-level parity matrix for base game and released gameplay-bearing packs; source/version and implementation evidence |
+| 3 | VISUAL-MEDIA-RESEARCH | ChatGPT + Hydrogen | Era/region/entity asset taxonomy, visual references, license/provenance, coverage gaps and original-media briefs |
+| 4 | EXECUTION-PLAN | Claude | Dependency graph, milestones, critical path, task IDs, owners, acceptance, risks, 4–5 GB content plan and 1836–2026 data plan |
+| 5 | AI-TASK-REGISTER | Claude | Delegation register with exact deliverables and integration criteria for ChatGPT/Hydrogen |
+| 6 | CLOCK-12HPS | Claude; ChatGPT research support | Audit monthly runtime, design 12h/s scheduler, migration, cadence contracts, deterministic tests and Android benchmarks |
+| 7 | ENGINE-FOUNDATION | Claude | Data/save/runtime/lifecycle/performance foundation in dependency order |
+| 8 | GAMEPLAY-SPINE | Claude | Pops → needs → goods/markets → production/labor → treasury → politics causal loops |
+| 9 | WORLD-SYSTEMS | Claude | Geography, countries/polities, technology, diplomacy, AI, military, events and historical data |
+| 10 | UX-CONTENT-DELIVERY | Claude + ChatGPT + Hydrogen | Landscape UI, map/lenses, assets/media, verified offline packs and full installed content |
+| 11 | RELEASE-READINESS | Claude | Regression, Android device matrix, performance/thermal/storage, save migration and release-readiness evidence |
 
-The first two Claude assignments are review/verification of earlier work, not new gameplay coding. The first code task is the first task whose phase gate is open and whose exact scope is approved. If S1 remains closed, do not start S1 runtime code.
+The order is a starting dependency plan, not a rigid waterfall. Claude may parallelize independent research/media tasks, split milestones, or change order when dependency evidence supports it. Claude must not parallelize conflicting writes to the same files or allow delegated data/assets to bypass provenance/licensing validation.
 
 ## 33. Definition of one delivery slice
 
@@ -836,16 +985,16 @@ Do not send the owner a long repeated audit. Keep the user-facing summary compac
 
 # PHẦN VII — GOVERNANCE, SAFETY VÀ STOP CONDITIONS
 
-## 35. Phase gates are hard boundaries
+## 35. Execution authority and project guardrails
 
-- The master brief is not a phase authorization.
-- The owner's new role instruction changes who is the primary code author; it does not open S1/S2/S22 or any other closed phase.
-- S0-B4/B7 and DEV-007 review statuses are not silently changed by this brief.
-- Current handoff records B4 and B7 READY_FOR_REVIEW, independent verdict/owner ACCEPTED pending; S1 NOT_STARTED; G0.7 BLOCKED; G0.8 PARTIAL; full-S0 G0.9 BLOCKED. Re-fetch and reconcile exact current records before acting.
-- No gameplay/engine/save changes in S0 audit lane.
-- No use of an old "full discretion" chat statement to override a newer phase gate or exact owner decision.
-- No phase transition without independent REVIEW_PASS for the required package and separate owner ACCEPTED, as specified by OD-20261116-11 and the collaboration protocol.
-- Any conflict between this brief and a later explicit owner decision: latest owner decision wins within its stated scope; document the conflict and do not silently rewrite canonical roadmap.
+- The 2026-11-21 owner directive supersedes earlier requirements for per-task/per-phase owner approval during ordinary implementation. Claude may plan, open, sequence and execute dependency-ready workstreams until completion.
+- S0–S23 remains a useful historical dependency/audit map, not a reason to block all routine code work pending a new owner message. Claude may revise the execution roadmap and record evidence-based status changes.
+- Do not falsify historical gate verdicts, prior review records or past acceptance. If an old gate represents a genuine save/data/security integrity risk, preserve the underlying check and produce equivalent or stronger evidence before touching the affected system.
+- DEV-007's existing monthly-cadence implementation is not proof of the new 12h/s clock. The clock change requires a separate technical design, migration, deterministic tests and profiling.
+- Claude is the final technical decision-maker and integration owner. ChatGPT provides research synthesis/advisory critique; Hydrogen provides visual/media support. DeepSeek is excluded from all active assignments.
+- Owner approval remains necessary only for the reserved external actions listed in the latest owner directive: spending/paid services, credentials/secrets/signing, public release/store submission, personal-device installation, external data transfer without an approved flow, destructive history operations and other irreversible external actions.
+- No placeholder is parity. No build success proves gameplay completeness. No asset counts unless it is licensed/original, mapped to an entity/era and used in runtime.
+- Any conflict between this brief and a newer explicit owner directive: latest owner directive wins within its stated scope; record the resolution in the handoff.
 
 ## 36. Security, privacy and legal requirements
 
@@ -959,7 +1108,7 @@ Re-fetch branch HEAD and relevant files from GitHub before reading; the SHAs in 
 
 # PHẦN IX — KẾT LUẬN CHỈ ĐẠO
 
-Claude là người viết code chính cho những task mà chủ dự án đã cho phép. Hãy xây dựng game theo từng lát cắt vertical, bắt đầu từ nền tảng phụ thuộc thấp nhất đang được mở, không chạy theo việc tăng số menu hoặc dung lượng. Mỗi phần phải tạo ra hành vi mô phỏng thật, liên kết hệ thống, có test và bằng chứng.
+Claude là Project Director, Lead Systems Architect và Primary Implementation Engineer cho đến khi hoàn thành sản phẩm. Claude tự lập kế hoạch tổng thể, phân rã từng hệ thống Victoria 3, giao nhiệm vụ cho ChatGPT và Gemini Hydrogen, quyết định thứ tự triển khai và trực tiếp viết/tích hợp code. Không cần xin chủ dự án duyệt từng task kỹ thuật thông thường. ChatGPT tổng hợp thông tin và yêu cầu; Hydrogen hỗ trợ nghiên cứu hình ảnh/media cho ChatGPT; Claude quyết định tích hợp và chịu trách nhiệm kết quả.
 
 Ưu tiên theo thứ tự:
 
@@ -972,6 +1121,6 @@ Claude là người viết code chính cho những task mà chủ dự án đã 
 7. Asset/media và offline content delivery.
 8. Polish, performance tuning và release.
 
-**Không vượt phase gate để tạo cảm giác tiến độ. Không dừng ở audit khi task được duyệt đã rõ. Không gọi placeholder là gameplay. Không tuyên bố parity khi chưa có bằng chứng.**
+**Không dừng ở audit hoặc kế hoạch giấy. Sau khi tạo execution plan và assignment register, Claude phải bắt đầu code theo critical path. Không gọi placeholder là gameplay. Không tuyên bố parity khi chưa có bằng chứng. Tốc độ chuẩn mục tiêu là 12 giờ game/giây thực; chiến dịch 1836–2026; nội dung đầy đủ 4–5 GB thực sự được sử dụng.**
 
 Chủ dự án muốn một sản phẩm grand strategy thực sự, có chiều sâu ngang tầm mục tiêu Victoria 3, trên Android landscape-first, hoạt động offline sau khi người dùng cài đủ nội dung, và có nội dung thật hướng tới 4–5 GB. Tất cả quyết định kỹ thuật phải phục vụ mục tiêu đó.
