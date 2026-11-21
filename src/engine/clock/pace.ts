@@ -51,13 +51,17 @@ const MICRO = 1_000_000;
  * reported as `droppedRealMs` so the UI can show lag honestly.
  */
 export const MAX_CREDIT_PER_CALLBACK_MS = 250;
-/** Owed-but-unprocessed hours are bounded to this many real seconds at the current rate. */
+/**
+ * NEW credit is only accepted while owed hours are below this many real seconds at the current rate.
+ * Hours already owed are never deleted: after a rate drop the backlog may exceed this bound and is
+ * drained normally (CG11-02 / CG-12 note).
+ */
 export const MAX_BACKLOG_SECONDS = 1;
 
 export interface PaceState {
   /** Fractional hour credit in 1e-6 game-hours; always 0 ≤ credit < 1e6. */
   credit: number;
-  /** Whole hours owed to the simulation but not yet processed (bounded backlog). */
+  /** Whole hours owed to the simulation but not yet processed. New credit is bounded; existing debt is never truncated. */
   backlogHours: number;
   /** Real milliseconds that could not be credited (gap clamp or backlog bound): visible lag. */
   droppedRealMs: number;

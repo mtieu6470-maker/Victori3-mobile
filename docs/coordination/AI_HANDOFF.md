@@ -1,3 +1,23 @@
+## 2026-11-22 — SAVE-01 implemented + CG-12 fixes + ChatGPT CG-13..15 integrated
+
+- **SAVE-01:**
+  - The save envelope now records `engineVersion`, a world-data fingerprint and `savedAtHour`. A different world layout or a mismatched hour is rejected.
+  - RNG fail-closed: missing, invalid or all-zero RNG is rejected, which closes B4-R1. The old B4 characterization test is updated to the fixed contract.
+  - Slot writes are validated first and keep the previous good save as a backup in the same IndexedDB transaction. Load falls back to the backup and shows a toast.
+  - Pure logic: `src/ui/game/slots.ts`; tests: `tests/save-envelope-slots.test.ts`.
+- **CG-12 (ChatGPT re-review of CLOCK-01 fixes):**
+  - 4/5 fixes verified by ChatGPT.
+  - New CG12-01 accepted and fixed: `dispose()` is terminal (no-op policy) and toast timers are cleared.
+  - Added a real-engine fake-clock test proving the 12 ms fast-forward yield.
+  - Response: `docs/coordination/reviews/CLAUDE_RESPONSE_CG12_2026-11-22.md`.
+- **ChatGPT CG-13** (1836 price/wage/basket source register), **CG-14** (original 1836–2026 goods taxonomy) and **CG-15** (Hydrogen dispatch brief) were merged and accepted.
+- **Hydrogen** has not received its tasks: the owner must forward `docs/research/media/CG15_HYDROGEN_DISPATCH_2026-11-22.md`.
+- **Local evidence:** tsc exit 0; `npm test` exit 0, 19/19 files, **197/197 tests**; build exit 0.
+- **Branch policy (owner 2026-11-22):** Claude works on `ccr-…` and fast-forwards the designated branch after each tested slice. This commit is pushed to both branches.
+- **Next:** CLOCK-02 (simulation in a Web Worker).
+
+---
+
 ## 2026-11-22 — Branch sync (owner-approved)
 
 - Owner explicitly approved bringing the designated branch level with `ccr-b27f3fb8-epfpd6`.

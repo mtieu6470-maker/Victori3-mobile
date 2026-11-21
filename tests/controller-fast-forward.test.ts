@@ -181,4 +181,30 @@ describe('GameController fast-forward isolation', () => {
     expect(remove.mock.calls[0][1]).toBe(listener);
     expect(c.paused).toBe(true);
   });
+
+  it('CG12-01: dispose is terminal — no RAF, timer, emit, subscription or state change afterwards', async () => {
+    const c = new GameController();
+    c.st = fake(0);
+    const seen: number[] = [];
+    c.subscribe(() => seen.push(c.version));
+    c.dispose();
+    const v = c.version;
+    c.setPaused(false);
+    await c.fastForward(12);
+    c.stepOnce(); c.stepDay(); c.tickFrame(1000);
+    c.setSpeedSetting({ kind: 'fixed', hps: 48 });
+    c.newGame({ mode: 'historical', seed: 1, player: null });
+    c.load(JSON.stringify(fake(50)));
+    c.toast('x');
+    const unsub = c.subscribe(() => seen.push(-1));
+    unsub();
+    expect(request).not.toHaveBeenCalled();
+    expect(yields).toHaveLength(0);
+    expect(vi.mocked(advanceHours)).not.toHaveBeenCalled();
+    expect(c.st?.tick).toBe(0);
+    expect(c.version).toBe(v);
+    expect(seen).toEqual([]);
+    expect(c.paused).toBe(true);
+    expect(c.command({} as any).ok).toBe(false);
+  });
 });

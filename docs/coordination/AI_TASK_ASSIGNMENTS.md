@@ -66,3 +66,5 @@ CLOCK-01 (xong phiên này) → SAVE-01 → CLOCK-02 → SAVE-02; xem execution 
 | CG-14 | **Đề xuất danh mục hàng hóa gốc của dự án** cho 1836–2026, không chép danh sách V3. Gồm cả hàng hiện đại (dầu, điện, ô tô, điện tử, dược phẩm…). Mỗi hàng: nhóm nhu cầu nó đáp ứng, khả năng thay thế, kỷ nguyên công nghệ xuất hiện, đơn vị vật lý | `docs/research/vic3/CG14_GOODS_TAXONOMY_PROPOSAL_VI.md` | P1 |
 | CG-15 | Điều phối Hydrogen hoàn thành HY-01 (cờ/huy hiệu 1836) và HY-04 (nguồn bản đồ PD) trước; HY-02/03/05 sau | các file `docs/research/media/HY0x_*` | P1 |
 | — | Ảnh chụp 1.15.x có tooltip: **hoãn**. Chỉ làm được với bản game có bản quyền; nếu owner có game trên PC thì owner tự chụp. Không chặn tiến độ | — | P3 |
+| 2026-11-22 | CG-12 | Nộp `bdcaaf0`; Claude chấp nhận CG12-01 và sửa (`docs/coordination/reviews/CLAUDE_RESPONSE_CG12_2026-11-22.md`) |
+| 2026-11-22 | CG-13, CG-14, CG-15 | Nộp; Claude chấp nhận (CG-13 làm source register, CG-14 làm đề xuất cho ECON-01). Brief CG-15 cần owner chuyển cho Hydrogen; HY-01..05 vẫn ASSIGNED |

@@ -62,6 +62,7 @@ export class GameController {
   readLogCount = 0;
   private listeners = new Set<() => void>();
   private raf = 0; private last = 0; private toastId = 0; private operationToken = 0; private lastEmit = 0;
+  private toastTimers = new Set<ReturnType<typeof setTimeout>>();
 
   private readonly onVisibility = () => { if (typeof document !== 'undefined' && document.hidden) this.onBackground(); };
   private disposed = false;
@@ -78,6 +79,7 @@ export class GameController {
    * fast-forward (CG11-01). Resuming is always an explicit player action.
    */
   onBackground() {
+    if (this.disposed) return;
     const wasBusy = !!this.busy;
     if (this.paused && !wasBusy) return;
     if (wasBusy) { this.operationToken++; this.busy = null; this.readLogCount = this.st?.log.length ?? this.readLogCount; }
@@ -85,21 +87,31 @@ export class GameController {
     this.paused = true; this.stop(); this.pace = resetPace(); this.emit();
   }
 
-  /** Releases listeners, the RAF loop and any pending async operation (CG11-03). Idempotent. */
+  /**
+   * Releases listeners, the RAF loop, toast timers and any pending async operation (CG11-03).
+   * Terminal and idempotent: every public entry point is a no-op afterwards (CG12-01).
+   */
   dispose() {
     if (this.disposed) return;
     this.disposed = true;
     this.operationToken++; this.busy = null; this.paused = true; this.stop();
+    for (const t of this.toastTimers) clearTimeout(t);
+    this.toastTimers.clear();
     if (typeof document !== 'undefined' && typeof document.removeEventListener === 'function') {
       document.removeEventListener('visibilitychange', this.onVisibility);
     }
     this.listeners.clear();
   }
 
-  subscribe(fn: () => void) { this.listeners.add(fn); return () => { this.listeners.delete(fn); }; }
-  emit() { this.version++; for (const fn of this.listeners) fn(); }
+  get isDisposed() { return this.disposed; }
+  subscribe(fn: () => void) {
+    if (this.disposed) return () => {};
+    this.listeners.add(fn); return () => { this.listeners.delete(fn); };
+  }
+  emit() { if (this.disposed) return; this.version++; for (const fn of this.listeners) fn(); }
 
   newGame(opts: { mode: GameMode; seed: number; player: string | null }) {
+    if (this.disposed) return;
     this.operationToken++;
     this.busy = null;
     this.stop();
@@ -114,7 +126,7 @@ export class GameController {
    * boundary is the only indivisible unit. Load, new game and backgrounding invalidate the run.
    */
   async fastForward(months: number) {
-    if (!this.st || this.busy || !Number.isSafeInteger(months) || months <= 0) return;
+    if (this.disposed || !this.st || this.busy || !Number.isSafeInteger(months) || months <= 0) return;
     const state = this.st;
     const monthsToRun = Math.min(months, campaignMonthsRemaining(state.tick));
     if (monthsToRun <= 0) {
@@ -152,6 +164,7 @@ export class GameController {
     }
   }
   load(text: string) {
+    if (this.disposed) return;
     const { state: st, meta } = deserializeWithMeta(text); // throws on foreign files; caller shows the error
     this.operationToken++; this.busy = null;
     if (meta.clockPreference) { this.speedSetting = meta.clockPreference; writeStoredPreference(this.speedSetting); }
@@ -167,6 +180,7 @@ export class GameController {
   }
 
   command(cmd: Command): { ok: boolean; reason?: string } {
+    if (this.disposed) return { ok: false, reason: 'Bộ điều khiển đã đóng' };
     if (this.busy) return { ok: false, reason: 'Đang mô phỏng, vui lòng chờ' };
     if (!this.st) return { ok: false, reason: 'Không có ván chơi' };
     const r = execute(this.st, cmd);
@@ -174,13 +188,15 @@ export class GameController {
     return r;
   }
   toast(text: string, kind: Toast['kind'] = 'info') {
+    if (this.disposed) return;
     const t = { id: ++this.toastId, text, kind }; this.toasts = [...this.toasts, t]; this.emit();
-    setTimeout(() => { this.toasts = this.toasts.filter((x) => x.id !== t.id); this.emit(); }, 3800);
+    const timer = setTimeout(() => { this.toastTimers.delete(timer); this.toasts = this.toasts.filter((x) => x.id !== t.id); this.emit(); }, 3800);
+    this.toastTimers.add(timer);
   }
 
   // ---------------------------------------------------------------- time
   setPaused(p: boolean) {
-    if (this.busy) return;
+    if (this.disposed || this.busy) return;
     if (!p && campaignFinished(this.st)) {
       this.paused = true; this.stop(); this.pace = resetPace(); this.emit();
       return;
@@ -189,6 +205,7 @@ export class GameController {
     this.paused = p; if (p) { this.stop(); this.pace = resetPace(); } else this.start(); this.emit();
   }
   setSpeedSetting(s: SpeedSetting) {
+    if (this.disposed) return;
     const next = parseSpeedSetting(s);
     if (speedSettingsEqual(next, this.speedSetting)) return;
     this.speedSetting = next;
@@ -203,7 +220,7 @@ export class GameController {
 
   /** Manual step: advances to (and through) the next monthly boundary, as before CLOCK-01. */
   stepOnce() {
-    if (!this.st || this.busy || campaignFinished(this.st)) return;
+    if (this.disposed || !this.st || this.busy || campaignFinished(this.st)) return;
     if (stepMonth(this.st)) {
       this.pace = resetPace();
       this.emit();
@@ -211,7 +228,7 @@ export class GameController {
   }
   /** Manual step of exactly one in-game day (24 canonical hours). */
   stepDay() {
-    if (!this.st || this.busy || campaignFinished(this.st)) return;
+    if (this.disposed || !this.st || this.busy || campaignFinished(this.st)) return;
     const r = advanceHours(this.st, 24);
     if (r.hours > 0) {
       if (campaignFinished(this.st)) { this.paused = true; this.stop(); }
@@ -225,7 +242,7 @@ export class GameController {
    * effective rate, processes owed hours within the frame budget, feeds the governor and emits.
    */
   tickFrame(t: number) {
-    if (!this.st || this.paused || this.busy) { this.last = t; return; }
+    if (this.disposed || !this.st || this.paused || this.busy) { this.last = t; return; }
     const elapsed = t - this.last;
     this.last = t;
     const rate = this.governor.effectiveHps;
@@ -252,6 +269,7 @@ export class GameController {
   }
 
   private start() {
+    if (this.disposed) return; // final resource-allocation boundary (CG12-01)
     if (campaignFinished(this.st)) { this.paused = true; this.stop(); return; }
     if (this.raf) return;
     this.last = nowMs(); this.pace = resetPace();

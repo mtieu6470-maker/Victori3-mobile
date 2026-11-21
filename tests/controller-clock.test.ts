@@ -124,4 +124,24 @@ describe('GameController hourly clock pacing', () => {
     expect(c.st!.clock.hour).toBe(1);
     expect(c.pace.backlogHours).toBe(8);
   });
+
+  it('CG-12: fast-forward really yields at the 12 ms budget between hourly engine steps (real engine, fake clock)', async () => {
+    const c = new GameController();
+    c.newGame({ mode: 'historical', seed: 1, player: null });
+    // Every clock read advances 1 ms, so a chunk can process only ~12 hours before yielding.
+    vi.mocked(performance.now).mockImplementation(() => ++clock);
+    const yields: (() => void)[] = [];
+    vi.stubGlobal('setTimeout', ((cb: () => void) => { yields.push(cb); return 1; }) as typeof setTimeout);
+    const work = c.fastForward(1);
+    const firstChunkHour = c.st!.clock.hour;
+    expect(firstChunkHour).toBeGreaterThan(0);
+    expect(firstChunkHour).toBeLessThan(24); // yielded long before the 744-hour month completed
+    expect(yields).toHaveLength(1);
+    let n = 0;
+    while (yields.length && n++ < 1000) { yields.shift()!(); await Promise.resolve(); await Promise.resolve(); }
+    await work;
+    expect(c.st!.tick).toBe(1);
+    expect(c.st!.clock.hour).toBe(monthStartHour(1));
+    expect(n).toBeGreaterThan(30); // many bounded chunks, not one blocking run
+  });
 });
