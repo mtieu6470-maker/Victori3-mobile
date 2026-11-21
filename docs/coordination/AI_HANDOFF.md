@@ -1,25 +1,30 @@
-## 2026-11-21 — Claude primary implementation master brief and role allocation
+## 2026-11-21 — Earlier role allocation and master brief (superseded by current execution directive)
 
 - Owner requested a full Victoria 3-class product/implementation brief and explicitly assigned Claude Code as the primary code-authoring agent for future authorized tasks.
 - Added 978-line master brief: docs/coordination/CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md. It covers the whole gameplay domain inventory, 1836–2026 campaign target, released DLC mechanics and content categories, seven causal gameplay loops, engine invariants, Android architecture, landscape-first UI, performance, 4–5 GB installed offline content, S0–S23 dependency map, task assignment, review and acceptance criteria.
 - Master brief creation: 95b518ec7fc457673c575eccc22f1c4291dacda5. Released-content parity addendum: e1611f60784ecd7e6e718f50b830d4d5a8f00aa5.
 - Role/entrypoint synchronization commits: protocol 1fdb527a6999da3c0b11126149355ed310f01a03; CLAUDE.md 12db2304529197f718e94a15f1d7917904704a94; AGENTS.md 637aacc45a52ddde6a117943d1e8f0a07d95e4d0; AI_START_HERE.md 2a82c9beb2a455c4dd34786a02f346a1418a4626; initial rolling report a1f2d569d847c9ad8ef2d39f979d0373cdf9593c; initial handoff role index 1bc2b7412ac4a143e91352f04f9215672751d0ed; final master-brief DLC-map addendum e1611f60784ecd7e6e718f50b830d4d5a8f00aa5; progress-report DLC-map update 7bd25a608abcb40af00d90046e2812a4e8102837.
-- New role contract: Claude implements; ChatGPT coordinates architecture/scope and performs independent no-write review only when it did not co-author the same change set. Gemini Hydrogen remains research/content support. DeepSeek remains owner-assigned independent fallback reviewer.
-- First Claude tasks: fully read master brief and mandatory documents; independently review prior DEV-007/B4/B7 work only where Claude did not author it; help close existing S0 entry requirements. Do not begin gameplay implementation until a phase is open and its exact scope is approved.
-- **No phase transition:** DEV-007 remains READY_FOR_REVIEW; B4/B7 remain READY_FOR_REVIEW; S1 remains NOT_STARTED; S22 remains DESIGN_ONLY; G0.7 BLOCKED, G0.8 PARTIAL and full-S0 G0.9 BLOCKED as last verified in the current handoff. This role reassignment and master brief do not authorize runtime/gameplay/save/schema changes in a closed phase.
+- This entry records the earlier 2026-11-21 role allocation only. It is superseded by OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md below: Claude now has Project Director/autonomous execution authority; ChatGPT performs research synthesis and requirements intelligence; Gemini Hydrogen supports visual/media research; DeepSeek is retired.
+- The previous review-first task sequence is superseded. Claude's current first deliverables are a full code/data/parity audit, execution plan and AI assignment register, followed immediately by the first dependency-ready implementation slice.
+- Historical gate states such as DEV-007 READY_FOR_REVIEW, B4/B7 READY_FOR_REVIEW, S1 NOT_STARTED, S22 DESIGN_ONLY, G0.7 BLOCKED, G0.8 PARTIAL and full-S0 G0.9 BLOCKED remain historical facts. The 2026-11-21 owner directive authorizes Claude to continue ordinary implementation without per-phase approval, while preserving the underlying save/data/security integrity checks.
 - This work changed documentation/governance only. No runtime, gameplay, data, save schema, asset, UI, Android, Gradle, workflow or signing files changed. All documentation commits use [skip ci]; no code test/build/device QA was run or claimed.
 - Base before this documentation/role package: 764fd121ce614678c8ab476ede33aacfd97c6efa. Base HEAD for this final documentation checkpoint was 7bd25a608abcb40af00d90046e2812a4e8102837; final handoff commit is verified from GitHub after push. Re-fetch the actual current HEAD before the next task.
 
 ---
 
-# CURRENT OWNER ROLE ASSIGNMENT — 2026-11-21
+# CURRENT OWNER EXECUTION DIRECTIVE — 2026-11-21
 
-- **Primary code author:** Claude Code is the primary implementation agent for future tasks explicitly authorized by the owner and permitted by the current phase gate.
-- **Technical lead / independent reviewer:** ChatGPT coordinates architecture, dependencies, scope and integration; reviews Claude-authored code without writing to the same change set when independent. If ChatGPT co-authors the change set, it cannot claim independent REVIEW_PASS; owner assigns another reviewer.
-- **Research/content:** Gemini Hydrogen supplies source-backed historical/media research. DeepSeek is an independent fallback reviewer only when assigned by the owner.
-- **Master brief (read in full):** [CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md](CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md). It contains the Victoria 3 parity target, causal gameplay loops, S0–S23 dependency map, role allocation and acceptance requirements.
-- **Owner scope boundary:** this role reassignment is not a phase transition and does not authorize gameplay in a closed phase. Re-fetch the current gate/approval before every implementation task.
-- **Preparation checkpoint:** previous verified HEAD 764fd121ce614678c8ab476ede33aacfd97c6efa; master brief creation commit 95b518ec7fc457673c575eccc22f1c4291dacda5; following documentation synchronization commits are listed in the latest checkpoint below. Verify latest branch HEAD before acting.
+- **Project Director / Lead Systems Architect / Primary Engineer:** Claude Code has project-wide authority to research, plan, decompose, delegate, sequence and implement until the agreed completion criteria are met. No routine per-task or per-phase owner approval is required.
+- **ChatGPT:** research synthesis, requirements intelligence, source reconciliation, technical briefs, documentation and visual-planning support. Claude directs tasks and makes final technical decisions.
+- **Gemini Hydrogen:** visual research and media support to ChatGPT: historical image references, maps, flags, coats of arms, portraits, clothing, buildings, ships, animation/video and audio direction with provenance and rights.
+- **DeepSeek:** retired from active project work. No new tasks, review requests or dependencies. Any older mention is archival history only.
+- **Owner-reserved actions:** spending/paid services, credentials/secrets/signing, public release/store submission, personal-device installation, unapproved external data transfer and irreversible external actions remain outside Claude's autonomous authority.
+- **Clock target:** 12 in-game hours per real second at 1.0x. Campaign remains 01/01/1836–31/12/2026 inclusive. Existing monthly tick is not considered compliant until migrated and benchmarked.
+- **Mandatory Claude deliverables:** docs/roadmap/CLAUDE_EXECUTION_PLAN_VI.md and docs/coordination/AI_TASK_ASSIGNMENTS.md; parity audit; then begin first dependency-ready implementation slice without waiting for another routine owner prompt.
+- **Full directive:** [OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md](OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md).
+- **Master product brief:** [CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md](CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md).
+- **Latest execution baseline before this documentation update:** re-fetch branch HEAD; do not rely on historical SHA references below.
+
 
 ---
 
