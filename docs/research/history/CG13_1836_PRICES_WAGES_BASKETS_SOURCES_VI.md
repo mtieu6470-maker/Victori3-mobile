@@ -119,7 +119,7 @@ Nguồn ưu tiên để lập benchmark 1836:
 - Tác giả: B. R. Mitchell.
 - Bộ sách ấn bản 6: *International Historical Statistics 1750–2005* (2007), ba tập:
   - Europe: https://link.springer.com/book/9780230005143
-  - Africa, Asia & Oceania: https://link.springer.com/book/10.1007/978-1-349-14738-0 (ấn bản/metadata của volume cũ; xác nhận edition trước khi trích)
+  - Africa, Asia & Oceania: https://link.springer.com/book/9780230005150
   - Americas: https://link.springer.com/book/9780230005136
 - Bản reference work cập nhật: *International Historical Statistics 1750–2010*, 3-volume set (2013): https://link.springer.com/referencework/10.1057/978-1-137-30568-8
 - Phạm vi: nhiều quốc gia thuộc Europe, Americas, Africa, Asia và Oceania; chủ đề gồm population, labour force, agriculture, industry, trade, transport, finance, prices, education và national accounts.
