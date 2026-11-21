@@ -7,7 +7,7 @@ Before any code, data, test, asset, build or workflow change:
 3. Read `docs/coordination/AI_COLLABORATION_PROTOCOL.md`.
 4. Read `docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md`.
 5. Read the owner-approved roadmap/decision amendments and the exact subsystem spec/task review packet.
-6. Read the complete docs/coordination/CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md; Claude is the primary code-authoring agent under the 2026-11-21 owner role assignment.
+6. Read the complete docs/coordination/CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md and docs/coordination/OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md; Claude is Project Director and has autonomous execution authority under the 2026-11-21 owner instruction.
 6. Inspect the latest feature-parity matrix and progress report relevant to the task.
 
 ## Hard requirements
@@ -24,7 +24,7 @@ Before any code, data, test, asset, build or workflow change:
 - After every completed work slice, run relevant tests, record exact commands/results and SHA, update the rolling report and AI_HANDOFF, then commit/push the report with the change.
 - Never report tests/build/device checks as PASS without evidence for the exact commit. Label self-audits as self-audits.
 - Never bypass permissions, change signing/secrets/package identity/release workflow, force-push or merge without authorization.
-- Keep changes bounded and reviewable. Preserve existing owner decisions; if sources conflict, stop and document the conflict.
+- Keep changes bounded and reviewable. Claude may decide ordinary technical scope/order without routine owner approval. Preserve security, privacy, licensing, cost and data-integrity safeguards; resolve ordinary source conflicts using the latest owner directive and record the rationale.
 
 ## Required completion handoff
 
