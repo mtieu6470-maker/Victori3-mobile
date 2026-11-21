@@ -701,8 +701,8 @@ Một feature chỉ được coi là implemented khi tất cả điều kiện p
 11. Historical data có provenance/license/confidence khi có dữ liệu lịch sử.
 12. CI pass trên exact commit.
 13. Rolling report và AI_HANDOFF cập nhật exact SHA/evidence.
-14. Claude self-review được đánh dấu implementer self-audit; ChatGPT/độc lập reviewer đánh giá exact SHA.
-15. Chủ dự án quyết định ACCEPTED/gate transition riêng.
+14. Claude thực hiện self-review và ghi exact SHA; ChatGPT có thể cung cấp advisory critique/research reconciliation khi được yêu cầu.
+15. Owner final acceptance áp dụng cho sản phẩm hoàn chỉnh và các hành động thuộc quyền riêng của owner; không yêu cầu owner duyệt từng feature/task thông thường.
 
 Không dùng các tiêu chí thay thế sau để tuyên bố feature done: thêm menu, thêm nút, thêm counter, tạo nhiều file, tăng số dòng code, tăng số ảnh nhưng không link vào game, build thành công, hoặc APK có kích thước lớn.
 
@@ -827,52 +827,38 @@ Required architecture:
 
 ## 30. Quy tắc thực hiện roadmap
 
-Roadmap canonical hiện vẫn là docs/roadmap/DECISIONS_AND_S0_REVISED_VI.v3.2.md áp dụng owner amendments v3.3. Master brief này giúp định nghĩa sản phẩm và phân nhiệm, **không thay thế** thứ tự S0–S23, sub-gate, owner decision hoặc acceptance criteria đã được duyệt.
+Execution roadmap do Claude sở hữu và duy trì tại docs/roadmap/CLAUDE_EXECUTION_PLAN_VI.md theo owner directive 21/11/2026. Roadmap S0–S23 và các gate cũ là nguồn lịch sử/dependency/evidence; không yêu cầu chủ dự án duyệt lại từng phase/task thông thường. Claude được quyền sắp xếp, mở và tiến hành các workstream theo thứ tự dependency, sau khi xác minh prerequisite kỹ thuật và giữ lại các kiểm tra bảo vệ save/data/security.
 
-Chỉ triển khai **một phase/task được phép tại một thời điểm**. Mỗi phase cần scope, baseline SHA, in-scope/out-of-scope files, dependencies, tests, performance and acceptance criteria. Không tự ý nhảy thẳng tới S6, S7 hoặc UI vì đó là phần dễ nhìn thấy hơn.
+Claude không được làm giả các verdict lịch sử hoặc xóa bằng chứng cũ. Nếu gate cũ đại diện cho một rủi ro thực sự (ví dụ save corruption, RNG nondeterminism, data loss, licensing, security), phải xử lý rủi ro bằng kiểm thử/evidence tương đương hoặc mạnh hơn trước khi sửa vùng bị ảnh hưởng. Không dùng nhãn phase làm lý do dừng dự án ở trạng thái chỉ viết tài liệu.
 
-### 30.1. Giai đoạn và phụ thuộc
+### 30.1. Giai đoạn và phụ thuộc tham khảo
 
-| Phase | Phạm vi | Kết quả chính | Ràng buộc |
+| Workstream | Phạm vi | Kết quả chính | Điều kiện kỹ thuật |
 |---|---|---|---|
-| S0 | Audit/baseline/gates | Evidence, test catalog, risk register, bounded S1-entry package | Đang còn B4/B7 review, G0.7/G0.8/G0.9 issues; không gameplay changes |
-| S1 | Data contracts, schema, save compatibility | Static data vs mutable state, IDs, provenance, DB hash, versioned save/migration | Chưa bắt đầu; chỉ sau gate/owner acceptance và scope duyệt |
-| S2 | Runtime/lifecycle/reliability | Autosave, lifecycle/process death, WebView/WebGL recovery, performance/backpressure | Sau S1 theo roadmap |
-| S3 | Geography/admin crosswalk | Temporal admin units, region crosswalk, boundary lineage | Không sửa historical borders không có nguồn |
-| S4 | Settlements/multilingual place names | City/town/village/port/capital records, coordinates and uncertainty | Coverage toàn cầu + performance budgets |
-| S5 | Asset registry/rights | Registry, provenance, temporal coverage, licenses, manifests | Không ship asset rights-unknown như hợp pháp |
-| S6 | Population cohorts/social foundation | Cohort canonical state, identity, demographics, skills, migration, mass balance | Không tuyên bố hiring/wages thật; phần đó là S12 |
-| S7 | Goods/inventory/accounting | Goods registry, stock-flow ledger, clearing, price rules and conservation | Không đi trước dependencies |
-| S8 | Infrastructure/transport/market access | Transport graph, capacity, routes, shipments, access and blockades | Geography/market contracts phải phù hợp |
-| S9 | Technology/diffusion | Research, innovation, diffusion, adoption and unlocks | Era/region-specific |
-| S10 | BuildingType/site potential/ProductionMethod definitions | Building catalog, recipes, input/output, workforce and unlock requirements | No invented historical facilities |
-| S11 | BuildingSite operations | Actual site operations, input allocation, production, efficiency, closure | Workforce only aggregate/labelled until S12 |
-| S12 | Employment/wages/labor competition | Job slots, qualifications, hiring/firing, wages and unemployment | Real hiring only here |
-| S13 | Ownership/firms/capital/investment | Owners, dividends, pools, foreign investment, ownership changes | Follow approved data model |
-| S14 | Construction | Capacity, queue, project costs/progress, pause/cancel and delays | No instant-build shortcut |
-| S15 | Local government/public services/urbanization | Administrative capacity, service access/quality and city growth | Population/employment/housing coupling |
-| S16 | Characters | Historical/generated character runtime entities, office, traits and succession | Unknown persons remain unknown |
-| S17 | Politics/institutions | Laws, IGs, movements, legitimacy, reform and unrest | Institution-specific; not universal parliament |
-| S18 | Diplomacy/international order | Relations, treaties, subjects, crises, diplomatic plays and blocs | Real treaty terms/lifecycle |
-| S19 | Strategic AI, non-military first | Goals, economy, domestic policy, diplomacy and explainable decisions | Military planning joins S20–S21 |
-| S20 | Military organization | Unit/formation/fleet types, recruitment, commanders and equipment | Migration of legacy forces must not invent |
-| S21 | Operations/combat/logistics | Movement, fronts, supply, battles, sieges, naval/blockade and peace | Split S21a/b/c if authorized and needed |
-| S22 | Historical events/global calibration | Event registry, temporal/geographic data, seed scenarios and benchmarks | Currently DESIGN_ONLY; no runtime authority |
-| S23a | UI integration/polish | Full cross-system navigation, map panels and landscape-first UX | Domain UI must exist alongside system phases |
-| S23b | Media/content packs/offline delivery | Full media coverage, pack manager, integrity, offline play | 4–5 GB real content target |
-| S23c | Release/device QA | Device matrix, long sessions, thermal/memory, distribution decision | Signing/secrets/release steps require separate authorization |
+| Foundation / legacy S0–S2 | Audit, data contracts, save, lifecycle, deterministic runtime | Baseline code/data, schema/versioning, migrations, recovery, clock scheduler | Bảo toàn dữ liệu và continuation; xử lý rủi ro cũ bằng evidence |
+| World / legacy S3–S5 | Geography, administrative crosswalk, settlements, asset registry | World model, temporal borders, place IDs, rights/provenance | Nguồn lịch sử, crosswalk và spatial/performance budget |
+| Society / legacy S6 | Population cohorts, demographics, identity, migration | Cohort canonical state, mass balance, social composition | Census reconciliation, uncertainty, split/merge tests |
+| Economy / legacy S7–S9 | Goods, inventory, market, transport, technology | Material ledger, local markets/prices, logistics, diffusion | Conservation, access, deterministic clearing |
+| Industry / legacy S10–S15 | Buildings, production, labor, ownership, construction, public services | Operational production sites, jobs/wages, investment and services | Inputs/outputs, capacity, qualifications, fiscal coupling |
+| People and politics / legacy S16–S17 | Characters, laws, government, IGs, movements, institutions | Political society and historical character lifecycle | Institution-specific data and causal tests |
+| Diplomacy / legacy S18 | Relations, treaties, subjects, Power Blocs, diplomatic plays | Negotiation, obligations, foreign investment and international order | Real treaty lifecycle and capability constraints |
+| AI / legacy S19 | Country and world strategic AI | Explainable strategy under shared game rules | CPU budget, determinism, no oscillation |
+| Military / legacy S20–S21 | Army, navy, logistics, operations, combat, peace | Land/naval warfare with economy and diplomacy links | Equipment/supply/movement conservation |
+| History / legacy S22 | Events, journal entries, source-backed historical calibration | Global historical timeline and 1836–2026 coverage | Provenance, temporal validity, confidence |
+| UX / content / legacy S23 | Map, lenses, UI, media, offline packs, Android release QA | Landscape command UI and complete offline content | Actual usage, rights, pack integrity, device benchmarks |
 
-### 30.2. P0 order of causal system dependencies
+### 30.2. Causal dependency order and parallel work
 
-The practical gameplay construction order should respect the roadmap dependency graph. The main economic spine is:
+Main economic spine:
+World geography and polity IDs → data/save contracts → population cohorts → needs/SoL → goods/inventory → market clearing/prices → logistics/access → building/production methods → actual site operations → employment/wages → ownership/investment → construction → public services/urbanization → fiscal/political consequences.
 
-S1 data/save → S2 reliability → S3/S4 geography and places → S5 asset rights → S6 cohorts → S7 goods/inventory/accounting → S8 logistics/access → S9 technology → S10 definitions → S11 site operations → S12 labor/wages → S13 ownership → S14 construction → S15 services/urbanization.
+Political and geopolitical spine:
+Characters/leadership → laws/institutions/IGs/movements → legitimacy and domestic stability → diplomacy/subjects/Power Blocs/diplomatic plays → strategic AI → military organization/operations → peace settlement and post-war outcomes.
 
-Political/character/diplomatic/military layers integrate on top according to approved roadmap:
+Cross-cutting foundation:
+12h/s simulation clock → deterministic cadence scheduler → event queue/RNG → persistence/migrations → Android lifecycle/performance → UI read models → offline content/asset pipeline.
 
-S16 characters → S17 politics/institutions → S18 diplomacy → S19 strategic AI; S20 organization → S21 operations; S22 events/calibration. S23a/b/c integrate UX/media/offline/release after systems have user-facing surfaces and acceptance evidence.
-
-Do not skip dependencies because a later feature is visually attractive.
+Claude may parallelize independent research and media tasks across ChatGPT and Gemini Hydrogen, while keeping conflicting code/data writes serialized. Reorder the sequence when source research, test failures or performance measurements demonstrate a better dependency path. Every change to order must be recorded in the execution plan with rationale.
 
 ## 31. Task assignment and role ownership
 
@@ -934,7 +920,7 @@ The order is a starting dependency plan, not a rigid waterfall. Claude may paral
 ## 33. Definition of one delivery slice
 
 Before code:
-- Task ID, authorization source, phase/gate and target acceptance.
+- Task ID, owner directive or execution-plan reference and target acceptance.
 - Exact base SHA and target branch.
 - In-scope/out-of-scope files.
 - Domain contract, state transitions, invariants and expected causal loops.
@@ -961,7 +947,7 @@ At checkpoint:
 - Update parity matrix and rolling progress report.
 - Update AI_HANDOFF and commit/push.
 - Re-fetch GitHub HEAD and the written files after push.
-- Set status to IN_PROGRESS/READY_FOR_REVIEW/REVIEW_PASS/ACCEPTED only when evidence and authority justify it.
+- Set status to IN_PROGRESS/READY_FOR_REVIEW/SELF_REVIEWED/COMPLETE only when evidence justifies it. Use REVIEW_PASS only if a genuinely independent review actually occurred; do not require it as a routine blocker.
 
 ## 34. Claude's required report format (short but evidence-complete)
 
