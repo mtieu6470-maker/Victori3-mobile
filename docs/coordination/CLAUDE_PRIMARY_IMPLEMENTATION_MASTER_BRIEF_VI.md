@@ -98,6 +98,33 @@ Theo các trang/sự kiện chính thức được kiểm tra ngày 21/11/2026:
 - Các gói Art/Music như Dawn of Wonder, Songs of the Homeland và Melodies for the Masses thuộc media/content parity. Không nhầm art/music pack với một hệ thống mô phỏng độc lập.
 - Century of Strife được liệt kê là nội dung dự kiến Q1/2027 tại trang Volume 3 khi kiểm tra; ở mốc 21/11/2026, không được ghi nó là gameplay đã phát hành hoặc đã triển khai. Theo dõi riêng và kiểm tra lại khi thực sự phát hành.
 
+### 3.2. Feature map theo các gói gameplay/content đã phát hành
+
+Claude phải đưa các nội dung dưới đây vào parity matrix theo đúng bản chất: mechanic mới, system expansion, country-specific narrative, hoặc media/cosmetic. Không đánh đồng một gói nội dung quốc gia với một hệ thống gameplay toàn cầu; cũng không bỏ sót cơ chế dùng chung chỉ vì nó được giới thiệu trong DLC.
+
+| Gói tham chiếu | Nội dung cần nghiên cứu và tái triển khai độc lập | Phân loại parity |
+|---|---|---|
+| Voice of the People | Agitators có agenda/ideology, xây dựng power base, ảnh hưởng Interest Groups và political movements; bổ nhiệm, chỉ huy, mời hoặc exile; Pháp có event/decision/journal và các đường chuyển đổi chính trị; nhân vật/art/UI theo thời kỳ | Characters + political movements + country narrative + media |
+| Sphere of Influence | Power Blocs, principles, cohesion, membership, leverage; foreign investment; political lobbies ở trong và ngoài nước; thay ruler/điều chỉnh nghĩa vụ/autonomy/market access của subjects; seize foreign investments; bloc monuments; Great Game giữa Anh–Nga và các local polities | Diplomacy + international economy + subject system + political lobbies |
+| Colossus of the South | Brazil thời Pedro II, cải cách/hiện đại hóa/abolition; chuyển đổi monarchy–republic và landowner power; populism; Amazon resource exploitation; South American national awareness, unification/claims và nội dung cho các nước trong khu vực | Regional historical narrative + politics + country/event data |
+| Pivot of Empire | East India Company → British Raj và các chuyển đổi quyền lực; Indian Uprising; Indian caste system được sửa bằng law/event; harvest/famine/food security; national movements; Sikh Empire, Princely States và đa dạng tôn giáo/văn hóa | Colonial polity + law/rights + famine/food security + journal/event |
+| Charters of Commerce | Company charters: trade, investment, colony, industry; doanh nghiệp mở rộng qua các quyền được cấp; state/private monopoly; diplomatic trade treaties/uneven trade deals; colonization limits; prestige goods do companies tạo ra; tác động đến competition, market access, state finance và foreign relations | Companies + world trade + monopoly + diplomacy + goods variants |
+| National Awakening | Nationalism/Metternich và các xung đột trong Austrian Empire; Hungary, Serbia, Bulgaria, Montenegro; các con đường Yugoslavia/Illyria; Great Eastern Crisis, Ottoman European territories, Balkan Wars; national fervor tạo áp lực chính trị và thay đổi chủ quyền | Nationalism + multinational polity + secession/formation + regional narrative |
+| Iberian Twilight | Carlist Wars, political factionalism và foreign intervention vào succession của Spain; Spain phục hồi công nghiệp/thiết chế và quan hệ với former colonies; Portugal và War of the Two Brothers; African/Asian colonial holdings; Brazil ties; Iberism; nội dung Cuba/Philippines/Morocco/Goa/Macao theo phạm vi nguồn | Regime conflict + diplomacy + colonization + industrial development + journal |
+| The Great Wave | Ship designer; thiết kế tàu theo coastal defense/blue-water projection; flagship identity/customization; ship purchase/sale treaties; shipyards and shipbuilding; gunboat diplomacy; Japan late-Edo reform, internal political contest, industrial modernization, naval projection and historical characters | Naval design + naval economy + diplomacy + Japan narrative |
+| State and Revolution | Character-driven Tsars; dynamic Journal Entries dựa trên traits của ruler; royal favorites/court influence; exile dissidents; dynamic Russian revolution paths; Russian Civil War and post-revolutionary regime choices; Russification; Ukrainian/Belarusian cultural renaissance; Polish and other independence struggles; seasonal visual effects and music | Character/ruler simulation + revolution/civil war + nationalism + media |
+| Dawn of Wonder | Day/night lighting cycle and visual treatment of time/light/shadow; contextual lighting and visual presentation | Art/visual feature; not a substitute for a simulation system |
+| Songs of the Homeland / Melodies for the Masses | Era/region-appropriate music library and thematic variation | Audio/media coverage; not a separate economy/politics mechanic |
+| Warships Bonus Pack and other art/building/model packs | Distinct licensed/original ship, building, clothing, portrait and regional asset coverage; link every asset to an entity, era and in-game context | Asset registry/media coverage; not gameplay by file count |
+
+**Coverage rules:**
+
+- Every row must have a parity ID, source links, source/version date, reference behavior, Victori3 Mobile adaptation, dependencies, data model, implementation status, test IDs, UI path, performance risk and known differences.
+- Gameplay-bearing systems from a content pack must be promoted into the global system inventory when they change reusable rules. Example: ship purchase treaty is not only a Japan story feature; it interacts with companies, money, ship ownership, naval power and diplomacy.
+- Country-specific events, portraits and journal content must remain region/country content layers over shared systems. They must not hard-code the whole global simulation for that country.
+- Music/art/model packs must be delivered through the licensed media pipeline and measured by correct entity/period coverage, not counted as a mechanics implementation.
+- A future-announced pack (for example Century of Strife, announced for Q1/2027 at this reference point) remains FUTURE/NOT_RELEASED until a fresh official check confirms release and its actual feature list. Never pre-mark it implemented.
+
 Nguồn chính thức và mốc cần tái kiểm tra khi bắt đầu triển khai một feature:
 - Victoria 3 overview: https://www.paradoxinteractive.com/games/victoria-3/about
 - Add-ons catalogue: https://www.paradoxinteractive.com/games/victoria-3/add-ons
