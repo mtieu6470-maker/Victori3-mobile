@@ -50,7 +50,7 @@
 - Do not use the Khanate of Khiva flag page for 1836: the Commons description ties the known design to the 1917–1922 civil-war period.
 - Do not use a modern recreation's CC0 license as proof that the represented historical flag is authentic.
 - Do not backdate modern flags or later designs.
-- The register is not a claim that the remaining 325 asset rows have been exhaustively searched; they are explicitly marked unknown and require continued research.
+- The register is not a claim that the remaining 323 asset rows have been exhaustively searched; they are explicitly marked unknown and require continued research.
 - The CSV is a research register, not a production asset manifest. Claude should not merge unknown rows into `identity_assets.json`.
 
 ## Commits
