@@ -131,8 +131,21 @@ export interface Region {
   hiddenGold?: boolean;
 }
 
-/** supply/demand/imports in engine physical units; short = unmet share of demand (0..1). */
-export interface MarketGoodStats { supply: number; demand: number; imports: number; short: number }
+/**
+ * supply/demand/imports in engine physical units; short = unmet share of demand (0..1).
+ * ECON-01a material-flow ledger (optional for saves written before it):
+ *   supply + imports = used + exports + unsold   (per market and good)
+ *   Σ imports = Σ exports                        (per good, world)
+ */
+export interface MarketGoodStats {
+  supply: number; demand: number; imports: number; short: number;
+  /** Units shipped to deficit markets through the world market. */
+  exports?: number;
+  /** Units actually used (households, factories, military) = min(demand, supply + imports). */
+  used?: number;
+  /** Units produced but neither used locally nor exported (no stock model yet: lost this month). */
+  unsold?: number;
+}
 
 export interface WarSide { leader: string; members: string[] }
 export interface WarGoal { by: string; type: string; target: string; regions?: string[] }

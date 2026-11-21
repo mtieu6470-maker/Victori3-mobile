@@ -20,10 +20,10 @@ const PRIMARY_OUT: Partial<Record<Building, string>> = { plantation: 'Nông sả
 const outText = (b: Building) => (RECIPES[b] ? GOOD_VI[RECIPES[b]!.out] : PRIMARY_OUT[b] ?? '—');
 const B_ICON = (b: Building) => (b === 'railway' ? 'construction' : b === 'university' ? 'literacy' : 'buildings');
 
-type Row = { g: Good; price: number; world: number; supply: number | null; demand: number | null; ratio: number | null; imports: number | null; short: number | null };
+type Row = { g: Good; price: number; world: number; supply: number | null; demand: number | null; ratio: number | null; imports: number | null; short: number | null; exportsU: number | null; usedU: number | null; unsoldU: number | null };
 function marketRows(st: GameState, mk: string): Row[] {
   const prices = st.marketPrices[mk] ?? st.worldPrices; const stats = st.marketStats?.[mk];
-  return GOODS.map((g) => { const s = stats?.[g]; return { g, price: prices[g], world: st.worldPrices[g], supply: s ? s.supply : null, demand: s ? s.demand : null, ratio: s && s.demand > 0 ? s.supply / s.demand : null, imports: s && s.demand > 0 ? s.imports / s.demand : null, short: s ? s.short : null }; });
+  return GOODS.map((g) => { const s = stats?.[g]; return { g, price: prices[g], world: st.worldPrices[g], supply: s ? s.supply : null, demand: s ? s.demand : null, ratio: s && s.demand > 0 ? s.supply / s.demand : null, imports: s && s.demand > 0 ? s.imports / s.demand : null, short: s ? s.short : null , exportsU: s?.exports ?? null, usedU: s?.used ?? null, unsoldU: s?.unsold ?? null }; });
 }
 const status = (r: Row): { label: string; cls: string } | null => {
   if (r.short === null || r.ratio === null) return null;
@@ -135,6 +135,9 @@ function GoodDetail({ st, mk, g }: { st: GameState; mk: string; g: Good }) {
         <div class="kv"><span class="k">Nhu cầu</span><span class="v num">{r.demand !== null ? compact(r.demand) : '—'}</span></div>
         <div class="kv"><span class="k">Nhập từ thị trường thế giới</span><span class="v num">{r.imports !== null && r.demand ? compact(r.imports * r.demand) : '—'}</span></div>
         <div class="kv"><span class="k">Nhu cầu không được đáp ứng</span><span class="v num">{r.short !== null ? pct(r.short) : '—'}</span></div>
+        <div class="kv"><span class="k">Xuất ra thị trường thế giới</span><span class="v num">{r.exportsU !== null ? compact(r.exportsU) : '—'}</span></div>
+        <div class="kv"><span class="k">Đã được sử dụng</span><span class="v num">{r.usedU !== null ? compact(r.usedU) : '—'}</span></div>
+        <div class="kv"><span class="k">Dư không bán được (chưa có kho)</span><span class="v num">{r.unsoldU !== null ? compact(r.unsoldU) : '—'}</span></div>
       </Sec>
       {(makers.length > 0 || users.length > 0) && (
         <Sec title="Chuỗi sản xuất">

@@ -55,6 +55,8 @@ interface MarketClearing {
   world: Record<Good, { surplus: number; deficit: number }>;
   short: Record<string, Record<Good, number>>;
   imports: Record<string, Record<Good, number>>;
+  /** ECON-01a: world imports are sourced pro rata from markets offering a surplus. */
+  exports: Record<string, Record<Good, number>>;
 }
 
 const zero = () => Object.fromEntries(GOODS.map((g) => [g, 0])) as Record<Good, number>;
@@ -96,7 +98,22 @@ function clearMarkets(markets: Record<string, MarketAggregate>, marketIds: strin
     short[id] = marketShort;
     imports[id] = marketImports;
   }
-  return { world, short, imports };
+  // ECON-01a: close the material ledger. Total imports of a good equal min(world deficit, world
+  // surplus); each surplus market exports its offered share (surplus × openness) of that total.
+  const exports: MarketClearing['exports'] = {};
+  for (const id of marketIds) exports[id] = zero();
+  for (const good of GOODS) {
+    let totalImports = 0;
+    for (const id of marketIds) totalImports += imports[id][good];
+    const offered = world[good].surplus;
+    if (totalImports <= 0 || offered <= 0) continue;
+    for (const id of marketIds) {
+      const market = markets[id];
+      const offer = Math.max(0, market.s[good] - market.dm[good]) * market.open;
+      if (offer > 0) exports[id][good] = totalImports * (offer / offered);
+    }
+  }
+  return { world, short, imports, exports };
 }
 
 export function computeEconomy(st: GameState, calibrate = false, iter = 0): void {
@@ -322,10 +339,14 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
   }
   const marketShort = finalClearing.short;
   const marketImports: Record<string, number> = {};
+  // Rebuilt every month from the markets that exist now: a dissolved market (annexation, customs
+  // union) must not keep last month's figures (ECON-01a found such stale entries breaking the ledger).
+  const freshStats: GameState['marketStats'] = {};
+  st.marketStats = freshStats;
   for (const id of mIds) {
     const m = markets[id]; const prices = (st.marketPrices[id] ??= { ...st.worldPrices });
     let importsValue = 0;
-    const stats = ((st.marketStats ??= {})[id] = {} as Record<Good, MarketGoodStats>);
+    const stats = (freshStats[id] = {} as Record<Good, MarketGoodStats>);
     for (const good of GOODS) {
       const imports = finalClearing.imports[id][good];
       importsValue += imports * st.worldPrices[good];
@@ -333,7 +354,10 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
       const local = clamp(Math.pow((m.dm[good] + 1) / (available + 1), 0.5), 0.45, 3);
       const target = (1 - m.open) * local + m.open * st.worldPrices[good];
       prices[good] = calibrate ? target : prices[good] * 0.7 + target * 0.3;
-      stats[good] = { supply: m.s[good], demand: m.dm[good], imports, short: marketShort[id][good] };
+      const exports = finalClearing.exports[id][good];
+      const used = Math.min(m.dm[good], available);
+      const unsold = Math.max(0, available - used - exports);
+      stats[good] = { supply: m.s[good], demand: m.dm[good], imports, short: marketShort[id][good], exports, used, unsold };
     }
     marketImports[id] = importsValue;
   }
@@ -804,4 +828,22 @@ export function privateInvestment(st: GameState, c: Country) {
     }
   }
   if (best) enqueueConstruction(st, c, best.r, best.b, 'private');
+}
+
+/** ECON-01a audit: per-market balance residuals and per-good world import/export gaps (engine units). */
+export function marketLedgerAudit(st: GameState): { worstMarketResidual: number; worstWorldGap: number; negative: string[] } {
+  let worstMarketResidual = 0; const negative: string[] = [];
+  const imp: Record<string, number> = {}; const exp: Record<string, number> = {};
+  for (const [id, goods] of Object.entries(st.marketStats ?? {})) {
+    for (const [good, s] of Object.entries(goods)) {
+      if (s.exports === undefined || s.used === undefined || s.unsold === undefined) continue;
+      for (const [k, v] of Object.entries(s)) if (typeof v === 'number' && (!Number.isFinite(v) || v < -1e-6)) negative.push(`${id}/${good}/${k}`);
+      const scale = Math.max(1, s.supply + s.imports);
+      worstMarketResidual = Math.max(worstMarketResidual, Math.abs(s.supply + s.imports - s.used - s.exports - s.unsold) / scale);
+      imp[good] = (imp[good] ?? 0) + s.imports; exp[good] = (exp[good] ?? 0) + s.exports;
+    }
+  }
+  let worstWorldGap = 0;
+  for (const good of Object.keys(imp)) worstWorldGap = Math.max(worstWorldGap, Math.abs(imp[good] - exp[good]) / Math.max(1, imp[good]));
+  return { worstMarketResidual, worstWorldGap, negative };
 }

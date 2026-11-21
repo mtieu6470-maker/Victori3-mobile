@@ -111,7 +111,7 @@ UX/content:      UI-01 read models ─ UI-02 map lenses/inspector ─ PACK-01..0
 | POP-02 | Needs baskets, wealth, SoL theo cohort | Claude (+CG-02) | POP-01, ECON-01 | P0 | NOT_STARTED |
 | POP-03 | Discrimination/rights, acceptance | Claude | POP-01, POL-02 | P1 | NOT_STARTED |
 | POP-04 | Migration flows, births/deaths theo cohort | Claude | POP-01, CLOCK-03 | P1 | NOT_STARTED |
-| ECON-01 | Goods registry + material ledger bảo toàn | Claude (+CG-01) | SAVE-02 | P0 | NOT_STARTED |
+| ECON-01 | Goods registry + material ledger bảo toàn. **ECON-01a xong 2026-11-22:** sổ cái dòng hàng (supply+imports = used+exports+unsold; Σimports = Σexports), marketStats dựng lại mỗi tháng (sửa số liệu cũ của thị trường đã giải thể) | Claude (+CG-01, CG-17) | SAVE-02 | P0 | PARTIAL |
 | ECON-02 | Buy/sell orders, local market prices, market access | Claude (+CG-01) | ECON-01 | P0 | NOT_STARTED |
 | ECON-03 | World Market + Trade Centers (sở hữu, capacity, World Market Access, hub chính/dự phòng), TradeFlow, tariffs, blockade; SupplyRoute quân sự là ledger riêng (thay mô hình trade route cũ, theo CG-01) | Claude | ECON-02, CLOCK-03 | P1 | NOT_STARTED |
 | IND-01 | Building types/sites + selectable Production Methods | Claude (+CG-03) | ECON-01 | P0 | NOT_STARTED |
@@ -176,6 +176,7 @@ UX/content:      UI-01 read models ─ UI-02 map lenses/inspector ─ PACK-01..0
 | ID | Rủi ro | Mức | Giảm thiểu |
 |---|---|---|---|
 | R-CLK-1 | Ranh giới tháng gây giật frame trên điện thoại | Trung bình (đã giảm) | CLOCK-02: mô phỏng ở worker, UI chỉ re-render khi sang tháng; còn cần read-model delta + bench Android |
+| R-ECON-1 | Sản lượng không phản ứng với cầu/lợi nhuận: hàng dư không bán mỗi tháng rất lớn (ngũ cốc 53%, gỗ 93%, công cụ 94% ở tháng 12, seed 1) rồi mất đi | Cao | ECON-02/IND-02: phản ứng lợi nhuận (CG-17 nghiên cứu cách V3 xử lý) |
 | R-CMD-1 | `start_reform` với nhóm luật không tồn tại trả `ok: true` (phát hiện khi smoke test CLOCK-02) | Đã đóng | BUG-CMD-01 (2026-11-22): `validateCommand` fail-closed + danh mục luật trong engine |
 | R-CLK-2 | Ngưỡng governor chưa hiệu chỉnh trên thiết bị | Trung bình | Ngưỡng PROVISIONAL, tham số hóa; CLOCK-BENCH-ANDROID |
 | R-SAVE-1 | RNG thiếu → TypeError khi tiếp tục (B4-R1) | Đã đóng | SAVE-01: deserialize từ chối RNG thiếu/sai/toàn 0 |

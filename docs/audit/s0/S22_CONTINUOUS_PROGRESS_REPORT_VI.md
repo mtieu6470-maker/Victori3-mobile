@@ -1,3 +1,16 @@
+## 2026-11-22 — ECON-01a material-flow ledger + stale market stats fix
+
+- **Before:** monthly clearing let deficit markets import from a "world surplus" but never booked the matching exports, so the material ledger was open.
+- **Now:** `clearMarkets()` allocates world imports pro rata to surplus markets as exports. `MarketGoodStats` gains `exports`, `used` and `unsold` (optional fields, old saves still load).
+  - Invariants: `supply + imports = used + exports + unsold` per market and good, and `Σ imports = Σ exports` per good worldwide.
+  - `marketLedgerAudit()` checks both.
+- **Bug found by the ledger and fixed:** `marketStats` kept last month's entries for markets that no longer exist (annexation, customs union). It is now rebuilt every month from live markets. AI and UI read only current markets, so their behaviour is unchanged; the full suite passes.
+- **UI:** the good detail panel shows exports, used and unsold.
+- **Economic finding (R-ECON-1):** at month 12 (historical, seed 1) the unsold share of supply is grain 53%, cotton 52%, timber 93%, tools 94%, textiles 47%, opium 76%, arms 41%. Root cause: output does not respond to demand or profit. Next fix is profitability-driven production (ECON-02/IND-02). ChatGPT is asked for CG-17 (Victoria 3 oversupply handling) via MSG-002.
+- **Tests:** `tests/market-ledger.test.ts` (5 tests). Local: tsc 0; `npm test` exit 0, **23/23 files, 220/220 tests**; build 0.
+
+---
+
 ## 2026-11-22 — CLOCK-02b (web part): background pause + autosave
 
 - `src/ui/game/lifecycle.ts`: listens for `visibilitychange` (hidden), `pagehide`, `freeze` (Chromium Page Lifecycle) and the Capacitor/Cordova `pause` event. Each one calls `game.onBackground()`, which is idempotent and also cancels fast-forward.
