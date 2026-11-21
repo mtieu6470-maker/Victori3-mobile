@@ -1,22 +1,43 @@
 // Save/load compatibility. Version 1 contained regional POP aggregates only.
 // Version 2 adds a deterministic, explicitly estimated cohort projection.
+// Version 3 (CLOCK-01) adds the hourly-canonical clock `state.clock.hour` and an optional,
+// non-simulation `clockPreference` (AUTO / fixed pace) in the envelope.
 import { STRATA, type GameState } from './types';
 import { createPopulationState, validatePopulationState } from './systems/populationCohorts';
+import { hourToDateTime, isValidCampaignHour, monthIndexOfHour, monthStartHour, CAMPAIGN_FINAL_HOUR } from './clock/calendar';
+import { parseSpeedSetting, type SpeedSetting } from './clock/pace';
 
 export const SAVE_FORMAT = 'currents-of-history-save';
-export const SAVE_SCHEMA_VERSION = 2;
+export const SAVE_SCHEMA_VERSION = 3;
 
-export function serialize(st: GameState): string {
+/** Optional envelope metadata that is not part of the deterministic GameState. */
+export interface SaveMeta { clockPreference?: SpeedSetting }
+
+/** Validates the canonical clock against the month tick and date; never repairs silently. */
+export function validateClockState(st: GameState): void {
+  const clock = st.clock as unknown;
+  if (!clock || typeof clock !== 'object' || Array.isArray(clock)) throw new Error('Save state is missing its canonical clock');
+  const hour = (clock as { hour?: unknown }).hour;
+  if (!isValidCampaignHour(hour)) throw new Error(`Invalid canonical clock hour ${String(hour)}`);
+  if (!Number.isSafeInteger(st.tick) || monthIndexOfHour(hour) !== st.tick) throw new Error('Canonical clock hour does not match the saved month tick');
+  const dt = hourToDateTime(hour);
+  if (!st.date || st.date.y !== dt.y || st.date.m !== dt.m) throw new Error('Canonical clock hour does not match the saved date');
+}
+
+export function serialize(st: GameState, meta: SaveMeta = {}): string {
   if (st.version !== SAVE_SCHEMA_VERSION) {
     throw new Error(`Cannot serialize save schema ${st.version}; expected ${SAVE_SCHEMA_VERSION}`);
   }
   validatePopulationState(st);
-  return JSON.stringify({
+  validateClockState(st);
+  const envelope: Record<string, unknown> = {
     format: SAVE_FORMAT,
     version: SAVE_SCHEMA_VERSION,
     savedAt: `${st.date.y}-${String(st.date.m).padStart(2, '0')}`,
-    state: st,
-  });
+  };
+  if (meta.clockPreference) envelope.clockPreference = parseSpeedSetting(meta.clockPreference);
+  envelope.state = st;
+  return JSON.stringify(envelope);
 }
 
 function normalizeLegacyFields(st: GameState): void {
@@ -41,12 +62,35 @@ function migrateV1ToV2(legacy: GameState): GameState {
   const st = legacy;
   normalizeLegacyFields(st);
   st.population = createPopulationState(st.regions);
-  st.version = SAVE_SCHEMA_VERSION;
+  st.version = 2;
   validatePopulationState(st);
   return st;
 }
 
+/**
+ * Pure v2 → v3 migration. Monthly saves were always taken at a monthly boundary (the state after
+ * that month's systems ran), so the canonical hour is that month's start instant. No RNG is
+ * consumed and no simulation runs; the continuation is identical to the monthly runtime's.
+ */
+function migrateV2ToV3(legacy: GameState): GameState {
+  const st = legacy;
+  if (!Number.isSafeInteger(st.tick) || st.tick < 0) throw new Error('Invalid saved month tick');
+  const hour = monthStartHour(st.tick);
+  if (hour > CAMPAIGN_FINAL_HOUR) throw new Error('Saved month tick is outside the campaign');
+  const existing = (st as { clock?: { hour?: unknown } }).clock;
+  if (existing !== undefined && existing?.hour !== hour) throw new Error('Legacy save carries an inconsistent clock field');
+  st.clock = { hour };
+  st.version = SAVE_SCHEMA_VERSION;
+  validateClockState(st);
+  return st;
+}
+
 export function deserialize(text: string): GameState {
+  return deserializeWithMeta(text).state;
+}
+
+/** Deserializes a save and returns the (validated) GameState plus non-simulation envelope metadata. */
+export function deserializeWithMeta(text: string): { state: GameState; meta: SaveMeta } {
   const parsed: unknown = JSON.parse(text);
   if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
     throw new Error('Save envelope is missing or invalid');
@@ -55,10 +99,11 @@ export function deserialize(text: string): GameState {
     format?: string;
     version?: number;
     state?: GameState;
+    clockPreference?: unknown;
   };
   if (envelope.format !== SAVE_FORMAT) throw new Error('Not a save file of this game');
 
-  if (envelope.version !== 1 && envelope.version !== SAVE_SCHEMA_VERSION) {
+  if (envelope.version !== 1 && envelope.version !== 2 && envelope.version !== SAVE_SCHEMA_VERSION) {
     throw new Error(`Unsupported save version ${envelope.version}`);
   }
 
@@ -71,9 +116,14 @@ export function deserialize(text: string): GameState {
   if (st.version !== envelope.version) throw new Error('Save envelope/state version mismatch');
   normalizeLegacyFields(st);
 
-  if (envelope.version === 1) return migrateV1ToV2(st);
+  // An unreadable pace preference is not simulation state: fall back to AUTO rather than reject.
+  const meta: SaveMeta = envelope.clockPreference === undefined ? {} : { clockPreference: parseSpeedSetting(envelope.clockPreference) };
 
-  if (!st.population) throw new Error('Save v2 is missing its population cohort state');
+  if (envelope.version === 1) return { state: migrateV2ToV3(migrateV1ToV2(st)), meta };
+
+  if (!st.population) throw new Error(`Save v${envelope.version} is missing its population cohort state`);
   validatePopulationState(st);
-  return st;
+  if (envelope.version === 2) return { state: migrateV2ToV3(st), meta };
+  validateClockState(st);
+  return { state: st, meta };
 }

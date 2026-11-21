@@ -1,35 +1,45 @@
-// GameController: owns the authoritative GameState in the client, runs the monthly tick loop and routes
-// player commands through the engine's own `execute` (the same functions the AI uses). The UI never edits state.
+// GameController: owns the authoritative GameState in the client, paces the hourly-canonical clock
+// (CLOCK-01) and routes player commands through the engine's own `execute` (the same functions the
+// AI uses). The UI never edits state.
+//
+// Real-time pacing: AUTO targets 12 in-game hours per real second and visibly falls back to 6h/s
+// under sustained measured load (engine/clock/governor.ts); fixed presets 3/6/12/24/48 h/s are
+// available. Every owed hour is processed in order by the engine — pacing never skips an hour.
+// Work per animation frame is bounded (SIM_FRAME_BUDGET_MS between hours); owed hours beyond the
+// budget stay in a bounded backlog and the shortfall is shown as lag, never silently hidden.
 import { createGame } from '../../engine/init';
-import { stepMonth } from '../../engine/simulation';
+import { advanceHours, stepMonth } from '../../engine/simulation';
 import { execute, type Command } from '../../engine/commands';
-import { serialize, deserialize } from '../../engine/save';
-import { campaignMonthsRemaining, isCampaignComplete } from '../../engine/core';
+import { serialize, deserializeWithMeta } from '../../engine/save';
+import { campaignMonthsRemaining } from '../../engine/core';
+import { isClockComplete } from '../../engine/clock/calendar';
+import {
+  consumeBacklog, creditElapsed, DEFAULT_SPEED, maxBacklogHours, parseSpeedSetting, resetPace,
+  speedSettingsEqual, type PaceState, type SpeedSetting,
+} from '../../engine/clock/pace';
+import { createGovernor, observeFrame, type GovernorState } from '../../engine/clock/governor';
 import type { GameMode, GameState } from '../../engine/types';
 
-export type Speed = 1 | 2 | 3 | 4 | 5;
-/**
- * Real milliseconds per simulated month. The engine advances in monthly steps,
- * so every speed is deliberately bounded; speed 5 is not a render-frame tick.
- */
-export const SPEED_MS: Record<Speed, number> = { 1: 8000, 2: 5000, 3: 3500, 4: 2500, 5: 2000 };
+/** Upper bound of simulation wall time started within one animation frame (checked between hours). */
+export const SIM_FRAME_BUDGET_MS = 8;
+/** UI notifications are throttled to this interval unless a monthly boundary was crossed. */
+export const UI_EMIT_INTERVAL_MS = 250;
+const PREF_KEY = 'victori3.clockPreference.v1';
 
-/**
- * Consume wall-clock time without allowing background-tab time to become a
- * burst of catch-up months. At most one deterministic month may be emitted
- * per scheduler callback; excess elapsed time is intentionally discarded.
- */
-export function consumeClockElapsed(
-  accumulatorMs: number,
-  elapsedMs: number,
-  intervalMs: number,
-): { accumulatorMs: number; shouldStep: boolean } {
-  const interval = Number.isFinite(intervalMs) && intervalMs > 0 ? intervalMs : 1;
-  const accumulator = Number.isFinite(accumulatorMs) ? Math.max(0, Math.min(accumulatorMs, interval)) : 0;
-  const elapsed = Number.isFinite(elapsedMs) ? Math.max(0, Math.min(elapsedMs, interval)) : 0;
-  const total = Math.min(interval, accumulator + elapsed);
-  if (total >= interval) return { accumulatorMs: 0, shouldStep: true };
-  return { accumulatorMs: total, shouldStep: false };
+function readStoredPreference(): SpeedSetting {
+  try {
+    const raw = typeof localStorage !== 'undefined' ? localStorage.getItem(PREF_KEY) : null;
+    return raw ? parseSpeedSetting(JSON.parse(raw)) : DEFAULT_SPEED;
+  } catch { return DEFAULT_SPEED; }
+}
+function writeStoredPreference(s: SpeedSetting): void {
+  try { if (typeof localStorage !== 'undefined') localStorage.setItem(PREF_KEY, JSON.stringify(s)); } catch { /* preference only */ }
+}
+const nowMs = () => (typeof performance !== 'undefined' ? performance.now() : Date.now());
+
+/** True when the canonical clock has reached the final playable hour (2026-12-31T23:00). */
+export function campaignFinished(st: GameState | null): boolean {
+  return !!st && isClockComplete(st.clock?.hour);
 }
 
 export interface Toast { id: number; text: string; kind: 'ok' | 'error' | 'info' }
@@ -38,12 +48,32 @@ export class GameController {
   st: GameState | null = null;
   version = 0; // bumps on every change so views can re-render
   paused = true;
-  speed: Speed = 2;
+  /** Player-selected pace: AUTO (12h/s nominal, 6h/s fallback) or a fixed preset. Persisted. */
+  speedSetting: SpeedSetting = readStoredPreference();
+  /** Runtime-only AUTO governor; recreated on load/new game so AUTO re-measures this device. */
+  governor: GovernorState = createGovernor(this.speedSetting);
+  pace: PaceState = resetPace();
+  /** True when the app was paused automatically because it went to the background. */
+  pausedByLifecycle = false;
   busy: { label: string; done: number; total: number } | null = null;
   toasts: Toast[] = [];
   readLogCount = 0;
   private listeners = new Set<() => void>();
-  private raf = 0; private last = 0; private acc = 0; private toastId = 0; private operationToken = 0;
+  private raf = 0; private last = 0; private toastId = 0; private operationToken = 0; private lastEmit = 0;
+
+  constructor() {
+    // Android/WebView lifecycle: pause when hidden; never run or "catch up" in the background.
+    if (typeof document !== 'undefined' && typeof document.addEventListener === 'function') {
+      document.addEventListener('visibilitychange', () => { if (document.hidden) this.onBackground(); });
+    }
+  }
+
+  /** Pauses the simulation safely when the app is backgrounded. Resuming is an explicit player action. */
+  onBackground() {
+    if (this.paused || this.busy) return;
+    this.pausedByLifecycle = true;
+    this.paused = true; this.stop(); this.pace = resetPace(); this.emit();
+  }
 
   subscribe(fn: () => void) { this.listeners.add(fn); return () => { this.listeners.delete(fn); }; }
   emit() { this.version++; for (const fn of this.listeners) fn(); }
@@ -53,6 +83,7 @@ export class GameController {
     this.busy = null;
     this.stop();
     this.st = createGame(opts);
+    this.resetClockRuntime();
     this.paused = true; this.readLogCount = this.st.log.length;
     this.emit();
   }
@@ -62,12 +93,12 @@ export class GameController {
     const state = this.st;
     const monthsToRun = Math.min(months, campaignMonthsRemaining(state.tick));
     if (monthsToRun <= 0) {
-      this.paused = true; this.stop(); this.acc = 0; this.emit();
+      this.paused = true; this.stop(); this.pace = resetPace(); this.emit();
       return;
     }
     const token = ++this.operationToken;
     const wasPaused = this.paused;
-    this.stop(); this.paused = true; this.acc = 0;
+    this.stop(); this.paused = true; this.pace = resetPace();
     this.busy = { label: 'Đang mô phỏng', done: 0, total: monthsToRun }; this.emit();
     let completed = 0;
     try {
@@ -87,18 +118,26 @@ export class GameController {
       if (token === this.operationToken && this.st === state) {
         this.busy = null;
         this.readLogCount = state.log.length;
-        this.paused = isCampaignComplete(state.tick) ? true : wasPaused;
+        this.paused = campaignFinished(state) ? true : wasPaused;
         if (!this.paused) this.start();
         this.emit();
       }
     }
   }
   load(text: string) {
-    const st = deserialize(text); // throws on foreign files; caller shows the error
+    const { state: st, meta } = deserializeWithMeta(text); // throws on foreign files; caller shows the error
     this.operationToken++; this.busy = null;
-    this.stop(); this.st = st; this.paused = true; this.acc = 0; this.readLogCount = st.log.length; this.emit();
+    if (meta.clockPreference) { this.speedSetting = meta.clockPreference; writeStoredPreference(this.speedSetting); }
+    this.stop(); this.st = st; this.resetClockRuntime(); this.paused = true; this.readLogCount = st.log.length; this.emit();
   }
-  save(): string { if (!this.st) throw new Error('Không có ván chơi'); return serialize(this.st); }
+  save(): string { if (!this.st) throw new Error('Không có ván chơi'); return serialize(this.st, { clockPreference: this.speedSetting }); }
+
+  /** AUTO never inherits a previous device's/session's transient load: start at 12h/s and re-measure. */
+  private resetClockRuntime() {
+    this.governor = createGovernor(this.speedSetting);
+    this.pace = resetPace();
+    this.pausedByLifecycle = false;
+  }
 
   command(cmd: Command): { ok: boolean; reason?: string } {
     if (this.busy) return { ok: false, reason: 'Đang mô phỏng, vui lòng chờ' };
@@ -115,35 +154,87 @@ export class GameController {
   // ---------------------------------------------------------------- time
   setPaused(p: boolean) {
     if (this.busy) return;
-    if (!p && this.st && isCampaignComplete(this.st.tick)) {
-      this.paused = true; this.stop(); this.acc = 0; this.emit();
+    if (!p && campaignFinished(this.st)) {
+      this.paused = true; this.stop(); this.pace = resetPace(); this.emit();
       return;
     }
-    this.paused = p; if (p) this.stop(); else this.start(); this.emit();
+    this.pausedByLifecycle = false;
+    this.paused = p; if (p) { this.stop(); this.pace = resetPace(); } else this.start(); this.emit();
   }
-  setSpeed(s: Speed) { if (this.speed === s) return; this.speed = s; this.acc = 0; this.last = performance.now(); this.emit(); }
+  setSpeedSetting(s: SpeedSetting) {
+    const next = parseSpeedSetting(s);
+    if (speedSettingsEqual(next, this.speedSetting)) return;
+    this.speedSetting = next;
+    writeStoredPreference(next);
+    this.governor = createGovernor(next);
+    // Keep the sub-hour credit, but never let a previous rate's backlog exceed the new bound.
+    this.pace = { ...this.pace, backlogHours: Math.min(this.pace.backlogHours, maxBacklogHours(this.governor.effectiveHps)) };
+    this.last = nowMs();
+    this.emit();
+  }
+  /** Effective game-hours per real second right now (AUTO: 12 or 6; fixed: the preset). */
+  get effectiveHps(): number { return this.governor.effectiveHps; }
+
+  /** Manual step: advances to (and through) the next monthly boundary, as before CLOCK-01. */
   stepOnce() {
-    if (!this.st || this.busy || isCampaignComplete(this.st.tick)) return;
+    if (!this.st || this.busy || campaignFinished(this.st)) return;
     if (stepMonth(this.st)) {
-      if (isCampaignComplete(this.st.tick)) { this.paused = true; this.stop(); this.acc = 0; }
+      this.pace = resetPace();
       this.emit();
     }
   }
+  /** Manual step of exactly one in-game day (24 canonical hours). */
+  stepDay() {
+    if (!this.st || this.busy || campaignFinished(this.st)) return;
+    const r = advanceHours(this.st, 24);
+    if (r.hours > 0) {
+      if (campaignFinished(this.st)) { this.paused = true; this.stop(); }
+      this.pace = resetPace();
+      this.emit();
+    }
+  }
+
+  /**
+   * One animation-frame clock callback (exposed for deterministic tests). Credits real time at the
+   * effective rate, processes owed hours within the frame budget, feeds the governor and emits.
+   */
+  tickFrame(t: number) {
+    if (!this.st || this.paused || this.busy) { this.last = t; return; }
+    const elapsed = t - this.last;
+    this.last = t;
+    const rate = this.governor.effectiveHps;
+    const droppedBefore = this.pace.droppedRealMs;
+    this.pace = creditElapsed(this.pace, elapsed, rate);
+    let simMs = 0; let saturated = false; let hours = 0; let months = 0;
+    if (this.pace.backlogHours > 0) {
+      const a = nowMs(); const deadline = a + SIM_FRAME_BUDGET_MS;
+      const r = advanceHours(this.st, this.pace.backlogHours, () => nowMs() >= deadline);
+      simMs = nowMs() - a; hours = r.hours; months = r.monthlyBoundaries;
+      this.pace = consumeBacklog(this.pace, r.hours);
+      saturated = r.stop === 'yield' && this.pace.backlogHours > 0;
+      if (r.stop === 'campaign_end' && campaignFinished(this.st)) {
+        this.paused = true; this.stop(); this.pace = resetPace(); this.emit(); return;
+      }
+    }
+    const before = { hps: this.governor.effectiveHps, status: this.governor.status };
+    observeFrame(this.governor, { realMs: elapsed, simMs, saturated, droppedRealMs: this.pace.droppedRealMs - droppedBefore });
+    const paceChanged = before.hps !== this.governor.effectiveHps || before.status !== this.governor.status;
+    if (paceChanged && this.pace.backlogHours > maxBacklogHours(this.governor.effectiveHps)) {
+      this.pace = { ...this.pace, backlogHours: maxBacklogHours(this.governor.effectiveHps) };
+    }
+    if (months > 0 || paceChanged || (hours > 0 && t - this.lastEmit >= UI_EMIT_INTERVAL_MS)) {
+      this.lastEmit = t;
+      this.emit();
+    }
+  }
+
   private start() {
-    if (this.st && isCampaignComplete(this.st.tick)) { this.paused = true; this.stop(); return; }
+    if (campaignFinished(this.st)) { this.paused = true; this.stop(); return; }
     if (this.raf) return;
-    this.last = performance.now(); this.acc = 0;
+    this.last = nowMs(); this.pace = resetPace();
     const loop = (t: number) => {
       this.raf = requestAnimationFrame(loop);
-      if (!this.st || this.paused) return;
-      const elapsed = t - this.last;
-      this.last = t;
-      const clock = consumeClockElapsed(this.acc, elapsed, SPEED_MS[this.speed]);
-      this.acc = clock.accumulatorMs;
-      if (clock.shouldStep && stepMonth(this.st)) {
-        if (isCampaignComplete(this.st.tick)) { this.paused = true; this.acc = 0; this.stop(); }
-        this.emit();
-      }
+      this.tickFrame(t);
     };
     this.raf = requestAnimationFrame(loop);
   }

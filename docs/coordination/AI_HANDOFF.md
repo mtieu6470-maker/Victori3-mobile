@@ -1,3 +1,46 @@
+## 2026-11-22 — Claude tích hợp gói nghiên cứu ChatGPT — ACCEPTED_FOR_PLANNING
+
+- ChatGPT nộp CG-01..05, CG-07..10 và visual catalogue lên `claude/game-historical-sandbox-modes-kg7rj7` @ `b3643b35091e0b6b4d9cbf727311c6c5427089b4` (chỉ tài liệu). Claude merge vào `ccr-b27f3fb8-epfpd6` (merge `1f8896a`, không xung đột) để code CLOCK-01 và nghiên cứu nằm trên cùng một lịch sử.
+- Review: `docs/coordination/reviews/CLAUDE_REVIEW_CHATGPT_RESEARCH_2026-11-22.md`. Thay đổi kế hoạch:
+  - ECON-03 chuyển sang World Market/Trade Center.
+  - V-Dem chỉ dùng tham chiếu (CC BY-SA).
+  - Thêm thermal status vào CLOCK-02b.
+  - Ngân sách media theo kiến trúc 2D.
+- Kiểm tra nguồn độc lập:
+  - Chỉ xác nhận được tiêu đề "Hotfix 1.15.2"; nội dung trang không trích được.
+  - SteamDB trả 403 → các claim 1.15/1.9 giữ nhãn NOT_VERIFIED_BY_CLAUDE.
+- CG-11 bị BLOCKED vì ChatGPT đọc branch chỉ định, nơi chưa có CLOCK-01; nay đã mở lại trên `ccr-…`. CG-06 chưa nộp.
+- **Branch:** hai branch vẫn tách nhau. `ccr-…` chứa mọi thứ (CLOCK-01 + nghiên cứu); branch chỉ định thiếu CLOCK-01. Claude cần owner cho phép push/fast-forward branch chỉ định lên `ccr-…`.
+- Không đổi code/test trong lát cắt này.
+
+---
+
+## 2026-11-21 — CLOCK-01 ADAPTIVE HOURLY CLOCK (AUTO 12h/s → 6h/s) + CLAUDE EXECUTION PLAN — IMPLEMENTED / SELF-REVIEWED
+
+- **Tác giả:** Claude Code (Project Director). Branch phiên: `ccr-b27f3fb8-epfpd6` (tạo từ cùng HEAD `94d0d28` với branch chỉ định `claude/game-historical-sandbox-modes-kg7rj7`; phiên này không đổi branch và không push lên branch chỉ định — xem "Branch" bên dưới).
+- **Base:** `94d0d28d78cf8184b41df6b70ae4e7c55a85d38c`. **Plan commit:** `a14454367bee44fa0f02f481f2d9e167320c436a`. **Code/test commit:** `6bbb11e52ad3bb4cec506adeb9f5b88943b7a641`. **Handoff commit:** commit chứa mục này.
+- **Deliverables bắt buộc đã tạo:** `docs/roadmap/CLAUDE_EXECUTION_PLAN_VI.md` (audit, kiến trúc, critical path, M0–M9, task register, kế hoạch clock/save/lịch sử/media/Android, risk register); `docs/coordination/AI_TASK_ASSIGNMENTS.md` (CG-01..11 cho ChatGPT, HY-01..05 cho Hydrogen); ma trận parity thêm cột `status_2026_11_21/code_paths/tests/next_task` + dòng cho clock, các gói DLC đã phát hành, Century of Strife (NOT_APPLICABLE/chưa phát hành); ghi nhận cơ chế phối hợp mới của owner (`OWNER_DIRECTIVE_COORDINATION_MODEL_2026-11-21.md`).
+- **CLOCK-01 đã làm:**
+  - Thời gian canonical `GameState.clock.hour` (giờ kể từ 1836-01-01T00:00), lịch Gregorian nguyên số (`src/engine/clock/calendar.ts`): 69.762 ngày = 1.674.288 giờ; giờ chơi cuối 2026-12-31T23:00; tháng 1/2027 không bao giờ chạy.
+  - Scheduler `advanceHour/advanceHours` (`src/engine/simulation.ts`) với thứ tự hourly → daily → weekly → monthly → yearly; hệ thống tháng giữ nguyên thứ tự/RNG ⇒ **byte-identical** với runtime tháng cũ (14 tháng, cả 2 mode). Phase hourly/daily/weekly đăng ký nhưng rỗng (chưa subsystem nào được chuyển cadence — CLOCK-03).
+  - Pacing nguyên số (`src/engine/clock/pace.ts`): preset 3/6/12/24/48 h/s + AUTO; gap ≤ 250 ms/callback; backlog chặn 1 s; lag hiển thị; không bỏ giờ.
+  - AUTO governor (`src/engine/clock/governor.ts`): 12 → 6 sau ~6 s quá tải đo được; 6 → 12 sau ~30 s headroom; trạng thái `overloaded` nếu 6h/s vẫn không theo kịp; fixed preset không bị đổi. Ngưỡng **PROVISIONAL** (chưa hiệu chỉnh trên Android).
+  - Controller: RAF `tickFrame` với ngân sách 8 ms/frame, emit UI throttle 250 ms; pause khi `visibilitychange` hidden; `stepDay`; HUD hiển thị ngày/giờ, AUTO/fixed, tốc độ hiệu lực, cảnh báo quá tải; phím 1–5 = 3/6/12/24/48, 0/A = AUTO.
+  - Save schema **v3**: `clock.hour`; migration thuần v1→v2→v3; từ chối clock thiếu/sai/lệch; lưu giữa tháng; `clockPreference` trong envelope (không thuộc GameState).
+- **Tests:** thêm `tests/clock-calendar.test.ts`, `tests/clock-hourly-equivalence.test.ts`, `tests/clock-pace.test.ts`, `tests/controller-clock.test.ts`; cập nhật `tests/campaign-calendar.test.ts` (định vị bằng `positionAtMonthStart`, biên theo giờ), `tests/controller-fast-forward.test.ts` (mock `advanceHours`/`deserializeWithMeta`; tháng 12/2026 vẫn còn giờ chơi, chỉ khóa ở 23:00 31/12/2026). **Xóa** `tests/monthly-clock.test.ts` vì `consumeClockElapsed/SPEED_MS` (đồng hồ tháng cũ) đã bị thay thế; hành vi tương ứng (không burst catch-up, clamp input) được kiểm bởi `clock-pace.test.ts`.
+- **Kết quả local (container Linux, Node v22.23.5):** `npx tsc --noEmit` exit 0; `npm test` exit 0 — **18/18 file, 179/179 test, 0 fail**; `npm run build` exit 0. Lần chạy đầu có 1 fail ở test migration do so sánh chuỗi JSON khác thứ tự key (giá trị giống nhau) → đổi sang so sánh cấu trúc; đã ghi nhận minh bạch.
+- **Browser smoke (headless Chromium, desktop, 915×412):** AUTO 12h/s chạy 4 s thực → 47 giờ game, HUD "AUTO 12h/s", không page error. Không phải QA thiết bị Android.
+- **Benchmark desktop:** `docs/audit/clock/CLOCK01_DESKTOP_BENCH_2026-11-21.json` (`tools/clock-bench.ts`): ranh giới tháng p50 ~54–63 ms, max ~110–125 ms; giờ thường ~0,25 µs; tỷ lệ CPU dự phóng ~0,1% ở 12h/s. Rủi ro thật: giật frame tại ranh giới tháng khi mô phỏng còn ở UI thread ⇒ CLOCK-02 (Web Worker) là bước kế tiếp. **Không có benchmark Android.**
+- **CI:** push nhánh `ccr-b27f3fb8-epfpd6` kích hoạt workflow Android APK (chạy mọi branch); workflow tests-only chỉ chạy trên branch chỉ định. Kết quả CI phải đọc lại trên GitHub cho exact SHA `6bbb11e52ad3bb4cec506adeb9f5b88943b7a641`; chưa được claim ở đây.
+- **Branch:** owner/phiên sau cần fast-forward `claude/game-historical-sandbox-modes-kg7rj7` lên `ccr-b27f3fb8-epfpd6` (lịch sử tuyến tính, cùng base) hoặc tiếp tục trên `ccr-…`. Claude không tự push lên branch chỉ định trong phiên này.
+- **Chưa làm / rủi ro:** CLOCK-02 worker; CLOCK-02b lifecycle native + autosave nền; CLOCK-03 cadence mịn; CLOCK-04 event queue theo giờ; CLOCK-BENCH-ANDROID (cần owner cho phép cài APK lên thiết bị); SAVE-01/02 (engineVersion/dataBuildHash, RNG theo domain, B4-R1). `tools/audit/s0/perf_desktop.ts` là harness lịch sử S0 dùng API `setSpeed` cũ — không còn chạy được với controller mới, giữ nguyên làm bằng chứng lịch sử. Không thay đổi package/signing/release/workflow.
+- **Self-review (implementer self-review, không phải review độc lập):** kiểm tra tất định (equivalence + chunking + save giữa tháng), biên chiến dịch theo giờ, fail-closed khi lệch clock, không giờ nào bị bỏ, governor không dùng lịch. Verdict: SELF_REVIEWED — sẵn sàng cho phản biện ChatGPT (CG-11).
+- **Task tiếp theo:** SAVE-01 → CLOCK-02 (theo execution plan §6).
+
+- **Tham khảo thiết kế từ owner (21/11/2026):** gói `Victoria3_Reference_Pack.zip` (6 ảnh Dev Diary #49) đã được phân tích tại `docs/ui/V3_DEV_DIARY_49_DESIGN_REFERENCE_ANALYSIS_VI.md` (quan sát vs suy luận, gap, thích ứng mobile, ánh xạ task). Ảnh của Paradox **không** được commit vào repo và không dùng trong sản phẩm.
+
+---
+
 ## 2026-11-21 — OWNER CLOCK REFINEMENT: ADAPTIVE 12h/s → 6h/s
 
 - Owner accepts reducing simulation pace to 6 in-game hours per real second when the late game produces sustained lag. The default mode is AUTO: 12h/s nominal when healthy; visible 6h/s fallback when measured workload requires it.
