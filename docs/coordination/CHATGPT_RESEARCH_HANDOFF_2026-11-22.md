@@ -15,10 +15,11 @@ Research package HEAD at first checkpoint: 79f67f603c1914fe401bd5f546d92abe65ca2
 - CG-07: docs/research/history/CG07_1937_2026_SOURCE_REGISTER_VI.md
 - CG-08: docs/research/android/CG08_LIFECYCLE_THERMAL_VI.md
 - CG-09: docs/research/ui/CG09_UI_INFORMATION_ARCHITECTURE_VI.md
+- CG-10: docs/research/media/CG10_ART_DIRECTION_ASSET_TAXONOMY_VI.md
 - Visual catalogue: docs/research/media/CG_VICTORIA3_115X_UI_REFERENCE_CATALOG_VI.md
 
 CG-06 DLC leaf parity CSV is not completed.
-CG-10 art direction/asset taxonomy is not completed.
+CG-10 art direction/asset taxonomy is now committed as a planning/provenance framework; no actual media assets were acquired.
 CG-11 CLOCK-01 critique is BLOCKED because the requested spec/source paths were not found at inspected HEAD; no code verdict is claimed.
 
 ## High-value findings
