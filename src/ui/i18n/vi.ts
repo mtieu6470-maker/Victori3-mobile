@@ -1,5 +1,6 @@
 // Vietnamese UI strings and number formatting. Glossary decisions (see docs/ui/UI_DESIGN_SYSTEM.md §8):
 // "Lớp bản đồ" (never "Lens"), "Chỉ số giá" (1,00 = giá gốc), "¤" = engine currency unit (Maddison 1990 GK$ scale).
+import { REFORMABLE_LAWS } from '../../engine/laws';
 import type { LawGroup } from '../../engine/data/dbTypes';
 import type { IG } from '../../engine/types';
 
@@ -14,17 +15,8 @@ export const LAW_VI: Record<string, string> = {
   no_schools: 'Không trường công', religious_schools: 'Trường tôn giáo', public_schools: 'Trường công',
   feudal_levies: 'Quân phong kiến', professional_army: 'Quân chuyên nghiệp', mass_conscription: 'Nghĩa vụ đại trà',
 };
-export const LAW_OPTIONS: Record<LawGroup, string[]> = {
-  power: ['autocracy', 'oligarchy', 'census_suffrage', 'universal_male_suffrage', 'theocracy'],
-  governance: ['monarchy', 'republic', 'theocracy'],
-  economy: ['traditionalism', 'mercantilism', 'interventionism', 'laissez_faire'],
-  trade: ['isolationism', 'protectionism', 'free_trade'],
-  labor: ['serfdom', 'slavery', 'traditional_tenancy', 'free_labor'],
-  church: ['state_religion', 'freedom_of_conscience', 'secularism'],
-  press: ['censorship', 'limited_press', 'free_press'],
-  education: ['no_schools', 'religious_schools', 'public_schools'],
-  army: ['feudal_levies', 'professional_army', 'mass_conscription'],
-};
+/** Reformable law values per group: re-exported from the engine catalogue (single source of truth). */
+export const LAW_OPTIONS = REFORMABLE_LAWS as Record<LawGroup, string[]>;
 export const GROUP_VI: Record<LawGroup, string> = { power: 'Quyền lực', governance: 'Chính thể', economy: 'Kinh tế', trade: 'Thương mại', labor: 'Lao động', church: 'Tôn giáo', press: 'Báo chí', education: 'Giáo dục', army: 'Quân đội' };
 export const IG_VI: Record<IG, string> = { landowners: 'Địa chủ', industrialists: 'Nhà công nghiệp', intelligentsia: 'Trí thức', petty_bourgeoisie: 'Tiểu tư sản', clergy: 'Giáo sĩ', armed_forces: 'Quân nhân', rural_folk: 'Nông dân', trade_unions: 'Công đoàn' };
 export const GOOD_VI: Record<string, string> = { grain: 'Lương thực', cash_crops: 'Nông sản hàng hóa', cotton: 'Bông', timber: 'Gỗ', coal: 'Than', iron: 'Sắt', steel: 'Thép', textiles: 'Vải', tools: 'Công cụ', arms: 'Vũ khí', luxury: 'Hàng xa xỉ', opium: 'Thuốc phiện' };

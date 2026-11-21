@@ -1,3 +1,16 @@
+## 2026-11-22 — BUG-CMD-01 fixed: player commands fail closed
+
+- **Root cause:** `execute()` passed unvalidated input straight to systems. `start_reform` accepted any group/value (`ok: true`). Diplomatic and war commands did not check that the target exists, is alive and is not the player. `break_alliance` without an alliance still cost relations and returned `ok: true`. Non-finite numbers and unknown budget keys were not rejected.
+- **Fix:**
+  - `validateCommand()` in `src/engine/commands.ts` runs before any mutation.
+  - The reformable-law catalogue moved into the engine (`src/engine/laws.ts`); the UI `LAW_OPTIONS` re-exports it as the single source of truth.
+  - Unknown command types are rejected.
+  - Vietnamese UI messages added for the new reasons.
+- **AI is unaffected:** AI calls system functions directly, not `execute`, so simulation determinism is unchanged; all `modes.test` scenarios still pass.
+- **Tests:** `tests/commands-validation.test.ts` (6 tests). Local: tsc 0; `npm test` exit 0, **21/21 files, 210/210 tests**; build 0.
+
+---
+
 ## 2026-11-22 — Owner: 12h/s is the maximum speed
 
 - Owner directive `docs/coordination/OWNER_DIRECTIVE_MAX_SPEED_12HPS_2026-11-22.md`: 12 game-hours per real second is the maximum.

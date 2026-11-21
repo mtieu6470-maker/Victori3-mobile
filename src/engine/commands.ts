@@ -10,6 +10,7 @@ import { resolvePlayerDecision } from './systems/events';
 import { endWar } from './systems/military';
 import { clamp, log } from './core';
 import { data } from './data/db';
+import { isReformableLaw } from './laws';
 
 export type Command =
   | { type: 'set_tax'; rate: number }
@@ -32,9 +33,41 @@ export type Command =
 
 export interface CommandResult { ok: boolean; reason?: string }
 
+const BUDGET_KEYS = ['military', 'navy', 'admin', 'education', 'health', 'construction'] as const;
+const TARGETED = new Set(['improve_relations', 'propose_alliance', 'break_alliance', 'declare_rival', 'guarantee', 'declare_war']);
+const fin = (x: unknown): x is number => typeof x === 'number' && Number.isFinite(x);
+
+/**
+ * Validates untrusted command input before any mutation (BUG-CMD-01: fail closed). Returns a reason
+ * string when the command is malformed or refers to something that does not exist.
+ */
+export function validateCommand(st: GameState, me: { id: string }, cmd: Command): string | null {
+  if (!cmd || typeof cmd !== 'object' || typeof (cmd as { type?: unknown }).type !== 'string') return 'Malformed command';
+  switch (cmd.type) {
+    case 'set_tax': return fin(cmd.rate) ? null : 'Invalid tax rate';
+    case 'set_budget': return (BUDGET_KEYS as readonly string[]).includes(cmd.key) && fin(cmd.value) ? null : 'Invalid budget item';
+    case 'set_army_target': return fin(cmd.manpower) ? null : 'Invalid army target';
+    case 'set_navy_target': return fin(cmd.ships) ? null : 'Invalid navy target';
+    case 'start_reform': return isReformableLaw(cmd.group, cmd.value) ? null : 'Unknown law group or law value';
+    default: break;
+  }
+  if (TARGETED.has(cmd.type)) {
+    const target = (cmd as { target?: unknown }).target;
+    if (typeof target !== 'string' || !st.countries[target]) return 'Unknown target country';
+    if (target === me.id) return 'A country cannot target itself';
+    if (!st.countries[target].alive) return 'Target country no longer exists';
+  }
+  if (cmd.type === 'break_alliance' && !st.treaties.some((t) => t.type === 'alliance' && t.members.length === 2 && t.members.includes(me.id) && t.members.includes(cmd.target))) {
+    return 'No alliance with this country';
+  }
+  return null;
+}
+
 export function execute(st: GameState, cmd: Command): CommandResult {
   const me = st.player ? st.countries[st.player] : null;
   if (!me || !me.alive) return { ok: false, reason: 'Observer Mode: no country under player control' };
+  const invalid = validateCommand(st, me, cmd);
+  if (invalid) return { ok: false, reason: invalid };
   switch (cmd.type) {
     case 'set_tax': me.taxRate = clamp(cmd.rate, 0.01, 0.3); return { ok: true };
     case 'set_budget': me.budget[cmd.key] = clamp(cmd.value, 0, 0.8); return { ok: true };
@@ -71,6 +104,8 @@ export function execute(st: GameState, cmd: Command): CommandResult {
     }
     case 'decide':
       return resolvePlayerDecision(st, me.id, cmd.pendingId, cmd.option);
+    default:
+      return { ok: false, reason: 'Unknown command' };
   }
 }
 

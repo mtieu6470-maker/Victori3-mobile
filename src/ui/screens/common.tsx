@@ -25,6 +25,11 @@ const REASONS_VI: [RegExp, string][] = [
   [/Prerequisites/i, 'Chưa đủ công nghệ tiền đề hoặc đã nghiên cứu.'],
   [/Refused \(acceptance/i, 'Đối phương từ chối liên minh.'],
   [/Subjects/i, 'Chư hầu (trừ triều cống) không thể tự lập liên minh.'],
+  [/Unknown law group or law value/i, 'Luật không hợp lệ.'],
+  [/Unknown target country|no longer exists/i, 'Quốc gia mục tiêu không tồn tại.'],
+  [/cannot target itself/i, 'Không thể nhắm vào chính quốc gia mình.'],
+  [/No alliance with this country/i, 'Không có liên minh với quốc gia này.'],
+  [/Malformed command|Unknown command|Invalid (tax|budget|army|navy)/i, 'Lệnh không hợp lệ.'],
 ];
 /** Sends a command through the simulation host and reports the engine's own result; never fakes success. */
 export async function send(cmd: Command, okText: string): Promise<boolean> {

@@ -176,7 +176,7 @@ UX/content:      UI-01 read models ─ UI-02 map lenses/inspector ─ PACK-01..0
 | ID | Rủi ro | Mức | Giảm thiểu |
 |---|---|---|---|
 | R-CLK-1 | Ranh giới tháng gây giật frame trên điện thoại | Trung bình (đã giảm) | CLOCK-02: mô phỏng ở worker, UI chỉ re-render khi sang tháng; còn cần read-model delta + bench Android |
-| R-CMD-1 | `start_reform` với nhóm luật không tồn tại trả `ok: true` (phát hiện khi smoke test CLOCK-02) | Trung bình | BUG-CMD-01: validation lệnh (fail closed) |
+| R-CMD-1 | `start_reform` với nhóm luật không tồn tại trả `ok: true` (phát hiện khi smoke test CLOCK-02) | Đã đóng | BUG-CMD-01 (2026-11-22): `validateCommand` fail-closed + danh mục luật trong engine |
 | R-CLK-2 | Ngưỡng governor chưa hiệu chỉnh trên thiết bị | Trung bình | Ngưỡng PROVISIONAL, tham số hóa; CLOCK-BENCH-ANDROID |
 | R-SAVE-1 | RNG thiếu → TypeError khi tiếp tục (B4-R1) | Đã đóng | SAVE-01: deserialize từ chối RNG thiếu/sai/toàn 0 |
 | R-BR-1 | Hai branch: phiên này đẩy lên `ccr-b27f3fb8-epfpd6`; tài liệu cũ chỉ định `claude/game-historical-sandbox-modes-kg7rj7`; workflow tests-only chỉ chạy trên branch chỉ định | Trung bình | Không tự đổi branch; ghi rõ trong handoff; owner/phiên sau fast-forward branch chỉ định từ `ccr-…` (lịch sử tuyến tính, cùng base) |
