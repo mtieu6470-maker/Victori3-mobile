@@ -1,3 +1,14 @@
+## 2026-11-21 — OWNER CLOCK REFINEMENT: ADAPTIVE 12h/s → 6h/s
+
+- Owner accepts reducing simulation pace to 6 in-game hours per real second when the late game produces sustained lag. The default mode is AUTO: 12h/s nominal when healthy; visible 6h/s fallback when measured workload requires it.
+- 6h/s means one game day takes 4 real seconds, a 28–31 day month takes 112–124 seconds, and the uninterrupted 1836–2026 campaign takes 77h30m48s (versus 38h45m24s at 12h/s).
+- Rate changes affect wall-clock progression only. They must not remove Pops, countries, buildings, goods, markets, AI, events or other simulation detail, and must not skip hourly boundaries. Use measured overload thresholds, hysteresis, clear effective-rate UI, deterministic saves and bounded catch-up.
+- If 6h/s remains overloaded, surface the condition and preserve work; allow pause or a manually selected slower preset rather than silently claiming the target is met.
+- Updated owner directive, master brief, AI_START_HERE.md and CLAUDE.md. Documentation-only change; no runtime code, tests, build, CI or device benchmark was run.
+- Commits: owner directive 36319ffcd70f799fd077576b2459226df3a17fb9; master brief f00baaf8145ff78150422514e2ca2d17e5480cfa; AI_START_HERE.md 34b666cacb935a0f1edc39932b8da8410c5c8a29; CLAUDE.md 4ad469edbeaa543c96169004dcb795751c325662.
+
+---
+
 ## 2026-11-21 — Earlier role allocation and master brief (superseded by current execution directive)
 
 - Owner requested a full Victoria 3-class product/implementation brief and explicitly assigned Claude Code as the primary code-authoring agent for future authorized tasks.
@@ -19,7 +30,7 @@
 - **Gemini Hydrogen:** visual research and media support to ChatGPT: historical image references, maps, flags, coats of arms, portraits, clothing, buildings, ships, animation/video and audio direction with provenance and rights.
 - **DeepSeek:** retired from active project work. No new tasks, review requests or dependencies. Any older mention is archival history only.
 - **Owner-reserved actions:** spending/paid services, credentials/secrets/signing, public release/store submission, personal-device installation, unapproved external data transfer and irreversible external actions remain outside Claude's autonomous authority.
-- **Clock target:** 12 in-game hours per real second at 1.0x. Campaign remains 01/01/1836–31/12/2026 inclusive. Existing monthly tick is not considered compliant until migrated and benchmarked.
+- **Clock policy (owner refinement 2026-11-21):** default AUTO targets 12 in-game hours/real second while healthy and visibly falls back to 6h/s under sustained measured load, especially late-game. The 6h/s mode preserves all simulation detail and hourly events; it changes wall-clock pacing only. Users can also choose fixed speed presets. Campaign remains 01/01/1836–31/12/2026 inclusive. Existing monthly tick is not considered compliant until migrated and benchmarked.
 - **Mandatory Claude deliverables:** docs/roadmap/CLAUDE_EXECUTION_PLAN_VI.md and docs/coordination/AI_TASK_ASSIGNMENTS.md; parity audit; then begin first dependency-ready implementation slice without waiting for another routine owner prompt.
 - **Full directive:** [OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md](OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md).
 - **Execution entrypoints synchronized:** CLAUDE.md ed0acd756deaee02ef4434f2368264dccd22a934; AGENTS.md 3a4835ec7400f95d17045bea1048d5f9767d40da; AI_START_HERE.md 46732f004ab919d62977237abd38b2304f2b01e5.
