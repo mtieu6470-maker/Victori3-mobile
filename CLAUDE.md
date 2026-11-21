@@ -35,7 +35,7 @@ Claude makes final technical decisions. ChatGPT and Hydrogen provide the outputs
 
 ## Simulation clock target
 
-Owner-selected standard speed is 12 in-game hours per real second (12h/s). Campaign: 01/01/1836 through 31/12/2026. Design a deterministic fixed-step/hourly clock with subsystem cadence contracts, stable accumulator, bounded catch-up, pause/speed controls, save migration and Android benchmarks. Existing monthly-tick code is not considered compliant until audited and migrated.
+Owner-selected clock policy: AUTO targets 12 in-game hours per real second (12h/s) while healthy and visibly falls back to 6h/s under sustained measured late-game load; users can also choose fixed speed presets. Campaign: 01/01/1836 through 31/12/2026. Design a deterministic fixed-step/hourly clock with measured adaptive thresholds, hysteresis, subsystem cadence contracts, stable accumulator, bounded catch-up, pause/speed controls, save migration and Android benchmarks at both 12h/s and 6h/s. Do not reduce gameplay detail or drop hourly work. Existing monthly-tick code is not considered compliant until audited and migrated.
 
 ## Product constraints
 
