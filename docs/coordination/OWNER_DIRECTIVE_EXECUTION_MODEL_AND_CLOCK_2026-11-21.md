@@ -1,4 +1,4 @@
-# OWNER DIRECTIVE — 12-HOUR GAME CLOCK, CLAUDE PROJECT AUTHORITY AND THREE-AI TEAM
+# OWNER DIRECTIVE — ADAPTIVE 12/6-HOUR GAME CLOCK, CLAUDE PROJECT AUTHORITY AND THREE-AI TEAM
 - Recorded: 2026-11-21
 - Repository: mtieu6470-maker/Victori3-mobile
 - Branch: claude/game-historical-sandbox-modes-kg7rj7
@@ -12,26 +12,28 @@
 - December 2026 is the final playable month; January 2027 must not execute.
 - This instruction does not claim the 1937–2026 historical data is already complete. Every fact/event still requires source, temporal/geographic validity, method, uncertainty and rights/provenance.
 
-## 2. Owner-selected target clock: 12 in-game hours per real second
+## 2. Owner-selected adaptive clock: 12 game-hours/second nominal, 6 game-hours/second under sustained load
 
-The product's default target simulation speed is **12 in-game hours per 1 real-world second (12 game-hours/second)**.
+The preferred simulation rate is **12 in-game hours per 1 real-world second (12h/s)** when the device can sustain it. The owner explicitly accepts reducing the effective rate to **6 in-game hours per real-world second (6h/s)** when late-game complexity or measured device load causes sustained lag. The default player-facing mode should therefore be **AUTO**: target 12h/s while healthy and visibly fall back to 6h/s when measured performance requires it.
 
-Derived reference values at the 1.0x standard speed:
-- 1 game hour = 1/12 real second.
-- 12 game hours = 1 real second.
-- 1 game day = 2 real seconds.
-- 1 game week (7 days) = 14 real seconds.
-- 1 game month = its actual calendar length × 2 seconds (normally 56–62 seconds).
-- 1 game year = 365 or 366 days × 2 seconds (about 12 minutes 10 seconds; leap-year duration is slightly longer).
-- Full campaign from 1 January 1836 to 1 January 2027 spans 69,762 calendar days = 139,524 seconds = 38 hours, 45 minutes, 24 seconds of uninterrupted 1.0x simulation time. The campaign's final playable date remains 31 December 2026.
+Derived reference values:
 
-The 12-hour/second figure is the target for the standard speed, not a promise that every subsystem must run a full expensive update 12 times per second. Claude must design a deterministic simulation scheduler that preserves elapsed game time and event order while distributing work at suitable resolutions.
+| Quantity | Nominal 12h/s | Adaptive fallback 6h/s |
+|---|---:|---:|
+| 1 game hour | 1/12 real second | 1/6 real second |
+| 1 game day | 2 real seconds | 4 real seconds |
+| 1 game week | 14 real seconds | 28 real seconds |
+| 28–31 day month | 56–62 real seconds | 112–124 real seconds |
+| 365/366 day year | about 12m10s–12m12s | about 24m20s–24m24s |
+| Full 01/01/1836–01/01/2027 campaign (69,762 days) | 139,524s = 38h45m24s | 279,048s = 77h30m48s |
+
+The final playable date remains 31 December 2026; January 2027 must never execute. These rates control real-world pacing only. They must not change the order or logical result of simulation steps at the same canonical game time. The clock is hourly-canonical, but this does not require every subsystem to run a full expensive update at every hourly boundary.
 
 ### 2.1 Clock architecture requirements
 
 1. Use a monotonic real-time source for elapsed wall-clock measurement; never use frame count or render FPS as the authoritative game clock.
 2. Convert elapsed real time into accumulated simulation time using a fixed-point or otherwise numerically stable accumulator. Avoid floating-point drift over long campaigns.
-3. Define one canonical simulation time unit and a deterministic ordering for hourly boundaries. At 1.0x, the engine must account for exactly 12 game-hours per real second on average, without silently dropping hours when rendering slows.
+3. Define one canonical simulation time unit and a deterministic ordering for hourly boundaries. The active scheduler must accurately account for the selected effective rate (12h/s nominal or 6h/s fallback) without silently dropping hours when rendering slows.
 4. Separate simulation from rendering. A 30/60 FPS UI must not change economic, political, demographic, military or AI outcomes.
 5. Use explicit subsystem cadence contracts:
    - hourly: clock boundary, queued commands/events that are hour-sensitive, movement/travel/combat substeps only where required, operation scheduling;
@@ -41,15 +43,25 @@ The 12-hour/second figure is the target for the standard speed, not a promise th
    - yearly: age/year transitions, annual statistics, elections/events/reforms and long-range recalibration where the domain model requires it.
    This is a scheduling menu, not permission to update every system at every cadence. Each subsystem must document its actual cadence, inputs, outputs and deterministic order.
 6. Batch/aggregate repeated hourly steps only when equivalence to the canonical step-by-step result is proven by tests. Never skip an event boundary, command, battle, treaty expiry, construction completion or campaign boundary.
-7. If the device falls behind, use bounded catch-up batches, backpressure and clear speed/lag feedback. Do not run an unbounded loop on the UI thread or silently slow the game while still claiming 12 hours/second.
-8. Provide Pause and speed settings. Baseline target is 1.0x = 12h/s; suggested selectable presets are 0.25x = 3h/s, 0.5x = 6h/s, 1x = 12h/s, 2x = 24h/s and 4x = 48h/s. Claude may tune or add presets after profiling, but 1x remains the owner-selected default target unless a measured product decision is recorded.
+7. If the device falls behind, use bounded catch-up batches, backpressure and clear speed/lag feedback. AUTO may visibly change from 12h/s to 6h/s; never silently slow the game while still reporting the old rate. Do not run an unbounded loop on the UI thread.
+8. Provide Pause and speed settings. Default mode is AUTO: 12h/s while healthy, 6h/s when sustained measured load requires the fallback. Also provide explicit fixed presets including 0.25x = 3h/s, 0.5x = 6h/s, 1x = 12h/s, 2x = 24h/s and 4x = 48h/s. A user-selected fixed rate must be clearly distinguished from AUTO. Claude may add presets after profiling.
 9. A fast-forward command must be cancellable, bounded, deterministic and respect the 31 December 2026 campaign end. It must not overlap another simulation batch or continue against a replaced/loaded GameState.
 10. Background behavior must be explicit. Default safe behavior: pause simulation when the app is backgrounded or process lifecycle is uncertain; persist safely and resume only on foreground. Do not claim real-time offline progress unless a separately tested, battery-safe background mode is implemented and user-enabled.
 11. Save/load must persist canonical game time, pending scheduled events, cadence phase/accumulators and all RNG state required for deterministic continuation. Save migration is required if the clock representation changes.
 12. Benchmark on the project Android target class, including the owner's iQOO Z10 Turbo / Dimensity 8400 Turbo / 12 GB RAM, but do not assume every Android device has the same capacity. Report sustained simulation throughput, frame-time, CPU, memory, thermal behavior and catch-up behavior at representative world sizes.
-13. If 12h/s cannot be sustained at a target world scale, Claude must profile and optimize the scheduler, indexes, AI budgets, batching and data structures. Any unavoidable degraded-speed mode must be visible and must not corrupt simulation correctness.
+13. Benchmark both 12h/s and 6h/s, including representative late-game world size and state density. Claude must profile and optimize the scheduler, indexes, AI budgets, batching and data structures before accepting degraded pacing. If 12h/s cannot be sustained late-game after optimization, AUTO must fall back visibly to 6h/s rather than overload the device. Any further overload must remain visible; never corrupt simulation correctness or discard required work.
 
-### 2.2 Compatibility and implementation rule
+### 2.2 Adaptive late-game performance policy
+
+1. AUTO is the normal default. Begin at 12h/s when measured simulation throughput and device headroom are healthy; transition to 6h/s only after sustained evidence of overload (for example, simulation backlog, hourly-step processing budget, frame-time degradation or thermal pressure). Calibrate thresholds through profiling on supported devices rather than inventing arbitrary thresholds.
+2. Use hysteresis: require sustained overload before dropping to 6h/s and sustained headroom before returning to 12h/s. This prevents rapid oscillation. Show the current effective rate and whether it is AUTO or user-fixed.
+3. Do not trigger the fallback merely because the calendar reaches a particular year. Late-game calendar time is a risk indicator, not a substitute for measuring actual workload.
+4. Switching between 12h/s and 6h/s changes only how quickly canonical game time advances in real time. It must not remove Pops, buildings, goods, AI nations, market calculations, events or other gameplay detail to meet the target. Deterministic outcomes at the same canonical time must not depend on render frame rate or selected wall-clock pace.
+5. Preserve the hourly canonical step, event ordering, RNG sequence and save/load continuation at both rates. Keep catch-up bounded and off the UI thread; do not skip hourly boundaries to recover apparent speed.
+6. If even 6h/s cannot be sustained, surface an explicit overload/lag state and preserve queued simulation work. The player may pause or manually select a slower preset such as 3h/s; AUTO must not silently claim that 6h/s is being maintained when it is not.
+7. Persist the user's selected mode/preset. In AUTO mode, recompute the effective 12h/s or 6h/s rate from current device conditions after load rather than treating a previous device's transient load as permanent save state.
+
+### 2.3 Compatibility and implementation rule
 
 The prior runtime currently has monthly tick semantics and DEV-007 calendar boundary tests. This owner instruction sets a new product target; it does not mean that the existing monthly runtime already satisfies it. Claude must first audit current clock code, DEV-006/DEV-007 tests, save envelope and all subsystem cadence assumptions; then design a migration plan and implement the new clock safely. Do not simply change a constant or call the monthly function twelve times per second. The clock migration may require versioned save migration, deterministic replay/continuation tests and a compatibility layer.
 
@@ -170,8 +182,8 @@ A small APK, a successful compile, a plan document, a collection of menus, or a 
 
 ## 8. Relationship to previous decisions
 
-- This directive supersedes the 2026-11-20 campaign amendment §3 only as to the product's target clock and the need for a separately owner-approved cadence change. The new owner target is 12 game-hours per real second, implemented through a reviewed deterministic scheduler and safe save migration.
+- This directive supersedes the 2026-11-20 campaign amendment §3 only as to the product's target clock and the need for a separately owner-approved cadence change. The owner-selected pacing policy is 12 game-hours/second nominal with a visible adaptive fallback to 6 game-hours/second under sustained measured load, implemented through a deterministic scheduler and safe save migration.
 - It supersedes prior active role allocations that placed DeepSeek in the team or made Claude merely an implementer/reviewer subordinate to another AI.
 - It supersedes the requirement to obtain a new owner approval for each ordinary phase/task. Claude may autonomously plan and execute the dependency-ordered project to completion.
 - It does not alter the campaign date boundary 1836–2026, the no-January-2027 rule, historical source requirements, licensing/privacy/cost/security safeguards or owner-reserved external actions.
-- Do not rewrite old CI/review records or claim that previous monthly-cadence code already meets the new 12h/s target.
+- Do not rewrite old CI/review records or claim that previous monthly-cadence code already meets either the 12h/s nominal target or the 6h/s fallback.
