@@ -7,6 +7,8 @@
 **Amendment thời kỳ chiến dịch (20/11/2026):** chiến dịch bao trùm từ tháng 1/1836 đến tháng 12/2026, theo `docs/coordination/OWNER_DIRECTIVE_CAMPAIGN_RANGE_2026-11-20.md`. Phạm vi dữ liệu lịch sử sau 1936 vẫn phải được nghiên cứu và nguồn hóa riêng; không được coi việc mở rộng lịch game là bằng chứng dữ liệu đã đầy đủ.
 **Nguyên tắc sản phẩm của chủ dự án:** [OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md](docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md)  
 **Chỉ thị mới nhất về parity Victoria 3, media đầy đủ và mục tiêu game 4–5 GB:** [OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md](docs/coordination/OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md)  
+**Master brief triển khai và phân nhiệm Claude (đọc toàn bộ):** [CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md](docs/coordination/CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md)  
+**Phân quyền mới (21/11/2026):** Claude Code là primary implementation/code-authoring agent; ChatGPT là technical lead và reviewer độc lập khi không đồng tác giả. Việc đổi vai trò không mở phase gate.  
 **Bảng bàn giao/trạng thái hiện hành:** [AI_HANDOFF.md](docs/coordination/AI_HANDOFF.md)  
 **Quy trình phối hợp và phân quyền:** [AI_COLLABORATION_PROTOCOL.md](docs/coordination/AI_COLLABORATION_PROTOCOL.md)
 
@@ -20,6 +22,7 @@ Không yêu cầu chủ dự án nhắc lại các nguyên tắc đã lưu tại
 
 1. Xác nhận đúng repository, branch và HEAD trực tiếp từ GitHub. Không dùng SHA trong chat cũ làm HEAD hiện tại.
 2. Đọc file này, `AGENTS.md`, `CLAUDE.md` (nếu áp dụng), [SESSION_RECOVERY_PROTOCOL_VI.md](docs/coordination/SESSION_RECOVERY_PROTOCOL_VI.md), [AI_HANDOFF.md](docs/coordination/AI_HANDOFF.md), [AI_COLLABORATION_PROTOCOL.md](docs/coordination/AI_COLLABORATION_PROTOCOL.md), [OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md](docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md) và TOÀN BỘ [OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md](docs/coordination/OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md). Không chỉ đọc tóm tắt.
+   - Đọc TOÀN BỘ [CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md](docs/coordination/CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md), đặc biệt phân nhiệm, dependency S0–S23, causal loops và definition of done.
 3. Đọc roadmap/owner decisions, phase gate, subsystem spec, parity matrix và báo cáo tiến độ mới nhất được AI_HANDOFF chỉ định.
 4. Kiểm tra commit, diff, file đã đổi, workflow/CI và artifact để xác định chính xác phiên trước đã lưu đến đâu. Nếu phản hồi chat bị mất sau một thao tác ghi, phải kiểm tra GitHub trước khi thử lại; không được tạo commit/file trùng.
 5. Phân loại rõ phần đã commit, đã xác minh, CI đang chạy/thất bại, chưa commit và chưa xác định. Nếu GitHub không truy cập được sau retry có giới hạn, dừng ghi và báo BLOCKED; không suy đoán.
