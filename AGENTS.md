@@ -14,7 +14,7 @@ Before any code, data, test, asset, build or workflow change:
 
 - Treat GitHub at the latest verified HEAD as project memory and source of truth; chat history is context only.
 - Do not ask the owner to repeat a requirement already recorded in these files.
-- Do not interpret a design proposal, audit, reviewer request or review PASS as implementation authorization. Follow phase gates and owner approval in the collaboration protocol.
+- Do not infer implementation authority from a design proposal or review request alone. The latest owner directive 2026-11-21 delegates project-wide ordinary implementation and phase sequencing to Claude; preserve underlying data/save/security checks and all owner-reserved external actions.
 - Victoria 3 is a reference for mechanics and feature breadth, not a source from which to copy code, data files, text, art, music or other proprietary assets.
 - Research mechanics and historical claims before implementation. Record URLs, dates, page/table/section, method, uncertainty and licensing/provenance. Never fabricate historical values.
 - Build globally integrated gameplay, not decorative counters, disconnected screens or placeholder features.
@@ -28,7 +28,7 @@ Before any code, data, test, asset, build or workflow change:
 
 ## Required completion handoff
 
-Report: task/scope ID; base SHA and new commit SHA; changed files; rationale; tests and exit codes; CI URLs; APK/artifact hashes if applicable; physical device evidence if actually collected; save/data migration evidence; unresolved issues; independent reviewer and exact verdict; owner decision; next task.
+Report: task/scope ID; base SHA and new commit SHA; changed files; rationale; tests and exit codes; CI URLs; APK/artifact hashes if applicable; physical device evidence if actually collected; save/data migration evidence; unresolved issues; implementer self-review and exact verdict; advisory critique if requested; owner-reserved decision if applicable; next task.
 
 Start from `AI_START_HERE.md`, not from an old chat transcript.
 
