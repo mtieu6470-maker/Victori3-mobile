@@ -22,7 +22,7 @@
 - 332 asset-gap rows: 155 missing-flag records + 177 missing-arms records, derived from the two `has_licensed_*` columns in the gap list.
 - All 186 polity IDs are retained as supplied by the gap file; no aliases or inferred IDs substituted.
 - Sorted by the requested political-status priority.
-- Seven item-level Wikimedia Commons file pages have been opened and their license statements read directly from those pages:
+- Nine item-level Wikimedia Commons file pages have been opened and their license statements read directly from those pages:
   - `AFG` — flag, 1826–1880; CC0 1.0; original 1365 × 2048.
   - `HER` — flag of Herat, 1818–1842; Commons says public domain as simple geometry; original 512 × 341.
   - `HAW` — flag, 1816–1845; PD-self; original 1200 × 600.
@@ -30,6 +30,8 @@
   - `SAR` — civil flag and civil ensign, 1816–1848; PD-self and simple-geometry public domain; original 1050 × 700.
   - `SPA` — flag design dated 1785 and described as used 1785–1927; PD-self; original 900 × 600.
   - `BOL` — coat of arms, 1825 decree; PD-self; original 478 × 597. The file page quotes the 17 August 1825 decree. **Caveat:** verify whether a later 1829 arms revision superseded it before assigning it in-game.
+  - `URU` — flag dated 1830–present; public domain under Uruguayan copyright laws 9.739 and 17.616, and simple-geometry status; original 512 × 341.
+  - `SIA` — Siam state/naval ensign dated 1817–1855; uploader's public-domain release on Commons; original 900 × 600. Commons notes that the flag did not have a formal specification.
 - Every other unverified asset row currently uses `unknown` in source, license, author, resolution, dates and confidence fields. No guessed file URLs or licenses were inserted.
 - `no_known_flag` has not been assigned yet. The current research has not established enough item-level negative evidence to assert absence of a historical flag for any of the 186 records. Unverified is not the same as no-known-flag.
 
@@ -54,8 +56,9 @@
 ## Commits
 
 - Initial working register: `afd7925d4f635a2e27b352cd1a4ae025bb036622`
-- Bolivia arms provenance update (current CSV commit): `7bbee92cfaee4e35f8e63e8caf6ab788607af316`
-- Current CSV blob SHA: `3b8b8d1a6d6b591611b2bee8b686729416ea05fd`
+- Bolivia arms provenance update: `7bbee92cfaee4e35f8e63e8caf6ab788607af316`
+- Siam and Uruguay flag provenance update (current CSV commit): `c12292d10bdbad25c470be6fc0a5228a60720df9`
+- Current CSV blob SHA: `25dad971845558c25ea7382d10f15e7ac986989c`
 
 ## Next HY-01 work
 
