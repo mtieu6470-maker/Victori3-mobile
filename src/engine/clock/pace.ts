@@ -8,7 +8,13 @@
 // Over the 38–77 hour real campaign this never drifts and never leaves the safe-integer range
 // because every input is clamped.
 
-export const FIXED_RATES_HPS = [3, 6, 12, 24, 48] as const;
+/**
+ * Owner decision 2026-11-22: 12 game-hours per real second is the MAXIMUM pace (faster presets made the
+ * campaign end too quickly); slower presets are offered instead. 1/2/3/6/12 h/s = 24/12/8/4/2 real
+ * seconds per game day.
+ */
+export const FIXED_RATES_HPS = [1, 2, 3, 6, 12] as const;
+export const MAX_RATE_HPS = 12;
 export type FixedRateHps = (typeof FIXED_RATES_HPS)[number];
 /** Owner directive 2026-11-21: AUTO targets 12h/s, visibly falling back to 6h/s under sustained load. */
 export const AUTO_NOMINAL_HPS = 12;
@@ -17,18 +23,22 @@ export const AUTO_FALLBACK_HPS = 6;
 export type SpeedSetting = { kind: 'auto' } | { kind: 'fixed'; hps: FixedRateHps };
 export const DEFAULT_SPEED: SpeedSetting = { kind: 'auto' };
 
-/** Speed-multiplier labels relative to the 12h/s nominal rate (0.25x = 3h/s … 4x = 48h/s). */
-export const RATE_MULTIPLIER_LABEL: Record<FixedRateHps, string> = { 3: '0.25x', 6: '0.5x', 12: '1x', 24: '2x', 48: '4x' };
+/** Short HUD labels for the fixed presets. */
+export const RATE_LABEL: Record<FixedRateHps, string> = { 1: '1h/s', 2: '2h/s', 3: '3h/s', 6: '6h/s', 12: '12h/s' };
 
 export function isFixedRate(value: unknown): value is FixedRateHps {
   return typeof value === 'number' && (FIXED_RATES_HPS as readonly number[]).includes(value);
 }
+
+/** Presets removed by the 2026-11-22 owner decision; preferences saved with them clamp to the maximum. */
+const LEGACY_FAST_RATES: readonly number[] = [24, 48];
 
 /** Parses untrusted preference input; anything unrecognised becomes AUTO (fail safe, not fail open). */
 export function parseSpeedSetting(value: unknown): SpeedSetting {
   if (value && typeof value === 'object' && !Array.isArray(value)) {
     const v = value as { kind?: unknown; hps?: unknown };
     if (v.kind === 'fixed' && isFixedRate(v.hps)) return { kind: 'fixed', hps: v.hps };
+    if (v.kind === 'fixed' && typeof v.hps === 'number' && LEGACY_FAST_RATES.includes(v.hps)) return { kind: 'fixed', hps: MAX_RATE_HPS };
   }
   return { kind: 'auto' };
 }
@@ -37,7 +47,7 @@ export function speedSettingsEqual(a: SpeedSetting, b: SpeedSetting): boolean {
   return a.kind === b.kind && (a.kind === 'auto' || (b.kind === 'fixed' && a.hps === b.hps));
 }
 
-/** Cycle order used by the HUD speed button: AUTO → 3 → 6 → 12 → 24 → 48 → AUTO. */
+/** Cycle order used by the HUD speed button: AUTO → 1 → 2 → 3 → 6 → 12 → AUTO. */
 export function nextSpeedSetting(s: SpeedSetting): SpeedSetting {
   if (s.kind === 'auto') return { kind: 'fixed', hps: FIXED_RATES_HPS[0] };
   const i = FIXED_RATES_HPS.indexOf(s.hps);

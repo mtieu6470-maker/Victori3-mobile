@@ -11,6 +11,7 @@
 **Chỉ thị điều hành mới (21/11/2026):** [OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md](docs/coordination/OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md) — Claude là Project Director, tự lập kế hoạch, phân nhiệm ChatGPT/Hydrogen và triển khai đến hoàn thành; clock mặc định AUTO nhắm 12 giờ game/giây thực và fallback hiển thị xuống 6 giờ/giây khi workload late-game quá tải.  
 **Cơ chế phối hợp Claude/ChatGPT (21/11/2026):** [OWNER_DIRECTIVE_COORDINATION_MODEL_2026-11-21.md](docs/coordination/OWNER_DIRECTIVE_COORDINATION_MODEL_2026-11-21.md) — Claude Tổng chỉ huy; ChatGPT Independent Technical Lead có quyền phản biện.  
 **Execution plan (Claude, living):** [CLAUDE_EXECUTION_PLAN_VI.md](docs/roadmap/CLAUDE_EXECUTION_PLAN_VI.md) · **Phân nhiệm AI:** [AI_TASK_ASSIGNMENTS.md](docs/coordination/AI_TASK_ASSIGNMENTS.md) · **Clock spec:** [ADAPTIVE_HOURLY_CLOCK_SPEC_VI.md](docs/spec/ADAPTIVE_HOURLY_CLOCK_SPEC_VI.md)  
+**Tốc độ tối đa (owner 22/11/2026):** [OWNER_DIRECTIVE_MAX_SPEED_12HPS_2026-11-22.md](docs/coordination/OWNER_DIRECTIVE_MAX_SPEED_12HPS_2026-11-22.md) — 12h/s là trần; preset 1/2/3/6/12 h/s; AUTO 12→6.  
 **Bảng bàn giao/trạng thái hiện hành:** [AI_HANDOFF.md](docs/coordination/AI_HANDOFF.md)  
 **Quy trình phối hợp và phân quyền:** [AI_COLLABORATION_PROTOCOL.md](docs/coordination/AI_COLLABORATION_PROTOCOL.md)
 

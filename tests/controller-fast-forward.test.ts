@@ -183,7 +183,7 @@ describe('GameController fast-forward isolation (CLOCK-02 host)', () => {
     c.setPaused(false);
     await c.fastForward(12);
     await c.stepOnce(); await c.stepDay(); c.tickFrame(1000);
-    c.setSpeedSetting({ kind: 'fixed', hps: 48 });
+    c.setSpeedSetting({ kind: 'fixed', hps: 12 });
     await c.newGame({ mode: 'historical', seed: 1, player: null });
     await c.load('{}');
     c.toast('x');

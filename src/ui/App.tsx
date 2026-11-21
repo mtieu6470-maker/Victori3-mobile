@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import type { VNode } from 'preact';
 import { game, campaignFinished } from './game/controller';
 import { hourToDateTime } from '../engine/clock/calendar';
-import { FIXED_RATES_HPS, nextSpeedSetting, RATE_MULTIPLIER_LABEL, realSecondsPerDay } from '../engine/clock/pace';
+import { FIXED_RATES_HPS, nextSpeedSetting, RATE_LABEL, realSecondsPerDay } from '../engine/clock/pace';
 import { paceStatusLabelVi } from '../engine/clock/governor';
 import { ui, useUI, useGame, useGameClock, type ScreenId, type LensId } from './game/ui';
 import { MapView, mapControls, type MapAssets } from './map/MapView';
@@ -250,8 +250,8 @@ function TopBar({ portrait }: { portrait: boolean }) {
       <Tip c={{ title: 'Thời kỳ chiến dịch ' + CAMPAIGN_START_YEAR + '–' + CAMPAIGN_END_YEAR, note: campaignFinished(st) ? 'Đã đến giờ cuối cùng của chiến dịch: 23:00 ngày 31/12/' + CAMPAIGN_END_YEAR + '.' : 'Bắt đầu 00:00 ngày 1/1/' + CAMPAIGN_START_YEAR + '; giờ chơi cuối cùng 23:00 ngày 31/12/' + CAMPAIGN_END_YEAR + '. Đồng hồ mô phỏng theo giờ.' }}>
         <DateBox />
       </Tip>
-      <Tip c={{ title: 'Tốc độ: ' + paceStatusLabelVi(gov), lines: [['Chế độ', g.speedSetting.kind === 'auto' ? 'AUTO (12 → 6 giờ/giây khi quá tải)' : 'Cố định ' + RATE_MULTIPLIER_LABEL[g.speedSetting.hps]], ['Tốc độ hiệu lực', gov.effectiveHps + ' giờ game/giây'], ['1 ngày game', realSecondsPerDay(gov.effectiveHps) + ' giây thực']], note: 'Chạm để đổi: AUTO → 3 → 6 → 12 → 24 → 48 giờ/giây. Phím 1–5 chọn tốc độ cố định, 0 hoặc A chọn AUTO. Tốc độ chỉ thay đổi nhịp thời gian thực, không bỏ qua giờ mô phỏng nào.' + (gov.status === 'overloaded' || gov.status === 'fixed_overloaded' ? ' Thiết bị đang quá tải: mô phỏng chạy chậm hơn tốc độ chọn, không bỏ công việc.' : '') }}>
-        <button class={`speed pace ${gov.status}`} aria-label={'Tốc độ ' + paceStatusLabelVi(gov)} onClick={() => game.setSpeedSetting(nextSpeedSetting(g.speedSetting))}><span class="mode">{g.speedSetting.kind === 'auto' ? 'AUTO' : RATE_MULTIPLIER_LABEL[g.speedSetting.hps]}</span><span class="rate num">{gov.effectiveHps}h/s{gov.status === 'overloaded' || gov.status === 'fixed_overloaded' ? '!' : ''}</span></button>
+      <Tip c={{ title: 'Tốc độ: ' + paceStatusLabelVi(gov), lines: [['Chế độ', g.speedSetting.kind === 'auto' ? 'AUTO (12 → 6 giờ/giây khi quá tải)' : 'Cố định ' + RATE_LABEL[g.speedSetting.hps]], ['Tốc độ hiệu lực', gov.effectiveHps + ' giờ game/giây'], ['1 ngày game', realSecondsPerDay(gov.effectiveHps) + ' giây thực']], note: 'Chạm để đổi: AUTO → 1 → 2 → 3 → 6 → 12 giờ/giây (tối đa 12). Phím 1–5 chọn tốc độ cố định, 0 hoặc A chọn AUTO. Tốc độ chỉ thay đổi nhịp thời gian thực, không bỏ qua giờ mô phỏng nào.' + (gov.status === 'overloaded' || gov.status === 'fixed_overloaded' ? ' Thiết bị đang quá tải: mô phỏng chạy chậm hơn tốc độ chọn, không bỏ công việc.' : '') }}>
+        <button class={`speed pace ${gov.status}`} aria-label={'Tốc độ ' + paceStatusLabelVi(gov)} onClick={() => game.setSpeedSetting(nextSpeedSetting(g.speedSetting))}><span class="mode">{g.speedSetting.kind === 'auto' ? 'AUTO' : 'CỐ ĐỊNH'}</span><span class="rate num">{gov.effectiveHps}h/s{gov.status === 'overloaded' || gov.status === 'fixed_overloaded' ? '!' : ''}</span></button>
       </Tip>
       <button class={`ib play${g.paused ? ' paused' : ''}`} aria-label={g.paused ? 'Tiếp tục' : 'Tạm dừng'} onClick={() => game.setPaused(!g.paused)}><Icon name={g.paused ? 'play' : 'pause'} class="i" /></button>
     </div>

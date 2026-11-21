@@ -1,3 +1,13 @@
+## 2026-11-22 — Owner: 12h/s is the maximum speed
+
+- Owner directive `docs/coordination/OWNER_DIRECTIVE_MAX_SPEED_12HPS_2026-11-22.md`: 12 game-hours per real second is the maximum.
+- Fixed presets are now **1/2/3/6/12 h/s** (24/12/8/4/2 real seconds per game day); 24 and 48 h/s are removed, and saved 24/48 preferences clamp to 12.
+- AUTO is unchanged (12 → 6 under sustained load).
+- HUD shows AUTO or CỐ ĐỊNH plus the effective rate.
+- Local: tsc 0; `npm test` exit 0, 20/20 files, 204/204 tests; build 0.
+
+---
+
 ## 2026-11-22 — CLOCK-02 simulation Web Worker — IMPLEMENTED (desktop-measured)
 
 - **Kiến trúc:**

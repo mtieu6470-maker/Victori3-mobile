@@ -126,11 +126,11 @@ describe('CLOCK-01 save schema v3 and continuation', () => {
     advanceHours(uninterrupted, mid);
     advanceHours(saved, mid);
 
-    const text = serialize(saved, { clockPreference: { kind: 'fixed', hps: 24 } });
+    const text = serialize(saved, { clockPreference: { kind: 'fixed', hps: 6 } });
     const { state: loaded, meta } = deserializeWithMeta(text);
     expect(loaded.version).toBe(SAVE_SCHEMA_VERSION);
     expect(loaded.clock.hour).toBe(mid);
-    expect(meta.clockPreference).toEqual({ kind: 'fixed', hps: 24 });
+    expect(meta.clockPreference).toEqual({ kind: 'fixed', hps: 6 });
     // The pace preference is envelope metadata, never part of deterministic GameState.
     expect(JSON.stringify(loaded)).toBe(JSON.stringify(saved));
 

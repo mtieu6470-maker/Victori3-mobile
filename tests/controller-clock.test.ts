@@ -44,7 +44,7 @@ describe('GameController hourly clock pacing (CLOCK-02 host)', () => {
     expect(c.st!.clock.hour).toBeLessThanOrEqual(24);
   });
 
-  it('fixed 6h/s takes 4 s per game day; 48h/s takes 0.5 s', async () => {
+  it('fixed 6h/s takes 4 s per game day; 1h/s takes 24 s', async () => {
     const slow = await started();
     slow.setSpeedSetting({ kind: 'fixed', hps: 6 });
     slow.setPaused(false);
@@ -52,22 +52,22 @@ describe('GameController hourly clock pacing (CLOCK-02 host)', () => {
     expect(slow.st!.clock.hour).toBeGreaterThanOrEqual(23);
     expect(slow.st!.clock.hour).toBeLessThanOrEqual(24);
 
-    const fast = await started();
-    fast.setSpeedSetting({ kind: 'fixed', hps: 48 });
-    fast.setPaused(false);
-    await frames(fast, 500);
-    expect(fast.st!.clock.hour).toBeGreaterThanOrEqual(23);
-    expect(fast.st!.clock.hour).toBeLessThanOrEqual(24);
+    const slowest = await started();
+    slowest.setSpeedSetting({ kind: 'fixed', hps: 1 });
+    slowest.setPaused(false);
+    await frames(slowest, 24_000);
+    expect(slowest.st!.clock.hour).toBeGreaterThanOrEqual(23);
+    expect(slowest.st!.clock.hour).toBeLessThanOrEqual(24);
   });
 
   it('crosses a monthly boundary in real time, runs the monthly systems once and replaces the UI copy', async () => {
     const host = new InlineSimHost();
     const c = await started(host);
-    c.setSpeedSetting({ kind: 'fixed', hps: 48 });
+    c.setSpeedSetting({ kind: 'fixed', hps: 12 });
     const runs0 = c.st!.counters.systemRuns.economy ?? 0;
     const before = c.st;
     c.setPaused(false);
-    await frames(c, (monthStartHour(1) / 48) * 1000 + 200);
+    await frames(c, (monthStartHour(1) / 12) * 1000 + 200);
     expect(c.st!.tick).toBe(1);
     expect(c.st!.counters.systemRuns.economy).toBe(runs0 + 1);
     expect(c.st).not.toBe(before); // a fresh snapshot after the boundary
@@ -101,9 +101,9 @@ describe('GameController hourly clock pacing (CLOCK-02 host)', () => {
 
   it('persists the pace preference in the save envelope and restarts AUTO measurement after load', async () => {
     const c = await started();
-    c.setSpeedSetting({ kind: 'fixed', hps: 24 });
+    c.setSpeedSetting({ kind: 'fixed', hps: 3 });
     const text = await c.save();
-    expect(JSON.parse(text).clockPreference).toEqual({ kind: 'fixed', hps: 24 });
+    expect(JSON.parse(text).clockPreference).toEqual({ kind: 'fixed', hps: 3 });
 
     const autoSave = serialize(createGame({ mode: 'historical', seed: 2, player: null }), { clockPreference: { kind: 'auto' } });
     const d = new GameController(new InlineSimHost());
@@ -113,23 +113,23 @@ describe('GameController hourly clock pacing (CLOCK-02 host)', () => {
     expect(d.effectiveHps).toBe(12);
     expect(d.governor.status).toBe('nominal');
     await d.load(text);
-    expect(d.speedSetting).toEqual({ kind: 'fixed', hps: 24 });
-    expect(d.effectiveHps).toBe(24);
+    expect(d.speedSetting).toEqual({ kind: 'fixed', hps: 3 });
+    expect(d.effectiveHps).toBe(3);
     await expect(d.load('{"format":"nope"}')).rejects.toThrow('Not a save file');
     expect(d.st).not.toBeNull(); // a rejected load keeps the current game
   });
 
   it('bounds each advance request and keeps the remaining owed hours in the backlog', async () => {
     const c = await started();
-    c.setSpeedSetting({ kind: 'fixed', hps: 48 });
+    c.setSpeedSetting({ kind: 'fixed', hps: 12 });
     c.setPaused(false);
     // Make every hour look expensive: the request budget is exhausted after the first hour.
     let calls = 0;
     vi.mocked(performance.now).mockImplementation(() => clock + (calls++ > 0 ? 1_000 : 0));
-    clock += 200; // 200 ms → 9 owed hours at 48h/s
+    clock += 250; // 250 ms (max credit per frame) → 3 owed hours at 12h/s
     c.tickFrame(clock); await c.whenIdle();
     expect(c.st!.clock.hour).toBe(1);
-    expect(c.pace.backlogHours).toBe(8);
+    expect(c.pace.backlogHours).toBe(2);
   });
 
   it('keeps at most one advance request in flight (backpressure) and feeds worker time to the governor', async () => {
@@ -143,19 +143,19 @@ describe('GameController hourly clock pacing (CLOCK-02 host)', () => {
         await new Promise((r) => setTimeout(r, 0));
         const res = await inner.request(req);
         concurrent--;
-        return res.ok && res.kind === 'advance' ? { ...res, simMs: 10 } : res;
+        return res.ok && res.kind === 'advance' ? { ...res, simMs: 50 } : res;
       },
       dispose() { inner.dispose(); },
     };
     const c = await started(host);
-    c.setSpeedSetting({ kind: 'fixed', hps: 48 });
+    c.setSpeedSetting({ kind: 'fixed', hps: 12 });
     c.setPaused(false);
     for (let i = 0; i < 20; i++) { clock += 16; c.tickFrame(clock); } // frames arrive faster than replies
     expect(advances).toBe(1);
     await c.whenIdle();
     for (let i = 0; i < 400; i++) { clock += 16; c.tickFrame(clock); await c.whenIdle(); }
     expect(maxConcurrent).toBe(1);
-    expect(c.governor.lastWindow?.simShare ?? 0).toBeGreaterThan(0.3); // 10 ms of worker time per ~16 ms frame
+    expect(c.governor.lastWindow?.simShare ?? 0).toBeGreaterThan(0.3); // 50 ms of worker time per request (~every 5 frames at 12h/s)
   });
 
   it('commands run in the host and return the engine result with a fresh snapshot', async () => {
