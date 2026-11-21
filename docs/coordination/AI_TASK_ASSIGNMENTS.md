@@ -49,3 +49,4 @@ CLOCK-01 (xong phiên này) → SAVE-01 → CLOCK-02 → SAVE-02; xem execution 
 | Ngày | Task | Sự kiện |
 |---|---|---|
 | 2026-11-21 | CG-01..11, HY-01..05 | Claude giao việc lần đầu; chờ owner chuyển cho ChatGPT/Hydrogen |
+| 2026-11-21 | (owner) | Nhận gói ảnh Dev Diary #49; phân tích tại `docs/ui/V3_DEV_DIARY_49_DESIGN_REFERENCE_ANALYSIS_VI.md`. Yêu cầu tiếp: ảnh/clip bản 1.15.x cho PM, Trade Routes, Diplomatic Play, Military fronts, Power Bloc, ship designer, War Support |
