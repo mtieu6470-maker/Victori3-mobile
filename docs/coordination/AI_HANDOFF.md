@@ -1,3 +1,15 @@
+## 2026-11-22 — Branch sync (owner-approved)
+
+- Owner explicitly approved bringing the designated branch level with `ccr-b27f3fb8-epfpd6`.
+- Before the sync, the designated branch had two extra commits:
+  - `95781b4`: ChatGPT visual reference board;
+  - `6b2ac92`: a merge made from the owner account that included `ccr` @ `e252daa`.
+- Claude merged the designated branch into `ccr` (merge `03dc149`, docs only: the visual board file). Then it fast-forwarded `claude/game-historical-sandbox-modes-kg7rj7` to `03dc149`, with no force-push and no history rewrite.
+- After the sync, both branches pointed to the same HEAD; this handoff commit is pushed to both.
+- CI: the Android run for `e795608` (CG-11 fixes) was IN_PROGRESS at sync time: https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44932978529
+
+---
+
 ## 2026-11-22 — CG-11 fixes for CLOCK-01 + ChatGPT round 2 integrated
 
 - ChatGPT pushed to `ccr-b27f3fb8-epfpd6`: CG-11 critique `61155ee`, 1.15 source digest `b65e9f6`, SteamDB link replacements, CG-01b `36d597c`, CG-06 DLC leaves `c8ca448` (88 leaves), CG-10 2D revision `7b743e8`, handoff `3107ed4`.
