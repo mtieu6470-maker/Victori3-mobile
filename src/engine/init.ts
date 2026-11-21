@@ -42,8 +42,8 @@ export function createGame(opts: NewGameOptions): GameState {
   const d = data();
   const db = d.db;
   const st: GameState = {
-    version: 2, seed: opts.seed, rng: seedRng(opts.seed), mode: opts.mode, player: opts.player,
-    date: { y: CAMPAIGN_START_YEAR, m: 1 }, tick: 0, countries: {}, regions: [], population: createPopulationState([]), wars: [], treaties: [], relations: {}, rivalries: [],
+    version: 3, seed: opts.seed, rng: seedRng(opts.seed), mode: opts.mode, player: opts.player,
+    date: { y: CAMPAIGN_START_YEAR, m: 1 }, tick: 0, clock: { hour: 0 }, countries: {}, regions: [], population: createPopulationState([]), wars: [], treaties: [], relations: {}, rivalries: [],
     worldPrices: { ...BASE_PRICES }, marketPrices: {}, marketStats: {}, constructionProjects: [], log: [], territoryLog: [], history: {},
     divergence: { milestones: {}, entries: [], similarity: [] },
     counters: { systemRuns: {}, aiActions: {}, aiActionsByCountry: {}, decisionWindowsFired: 0, historicalBiasApplied: 0 },

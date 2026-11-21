@@ -1,17 +1,17 @@
 // Per-system timing of the monthly pipeline (P50/P95), used for performance tracking.
+// Runs the real hourly-canonical scheduler (stepMonth → advanceHour) with per-system timers wrapped
+// around the monthly SYSTEMS entries in this process only.
 import { loadNodeData } from '../src/engine/node';
 import { createGame } from '../src/engine/init';
-import { SYSTEMS } from '../src/engine/simulation';
-import { tickToDate } from '../src/engine/core';
-import { sampleYear } from '../src/engine/metrics';
+import { SYSTEMS, stepMonth } from '../src/engine/simulation';
 const months = Number(process.argv[2] ?? 60);
 loadNodeData();
 const st = createGame({ mode: (process.argv[3] as any) ?? 'historical', seed: 1, player: null });
 const times: Record<string, number[]> = {}; const total: number[] = [];
+for (const s of SYSTEMS) { const run = s.run; s.run = (x) => { const a = performance.now(); run(x); (times[s.name] ??= []).push(performance.now() - a); }; }
 for (let i = 0; i < months; i++) {
-  const t0 = performance.now(); st.tick++; st.date = tickToDate(st.tick);
-  for (const s of SYSTEMS) { const a = performance.now(); s.run(st); (times[s.name] ??= []).push(performance.now() - a); }
-  if (st.date.m === 1) sampleYear(st);
+  const t0 = performance.now();
+  if (!stepMonth(st)) break;
   total.push(performance.now() - t0);
 }
 const pct = (a: number[], p: number) => { const s = [...a].sort((x, y) => x - y); return s[Math.min(s.length - 1, Math.floor(p * s.length))]; };

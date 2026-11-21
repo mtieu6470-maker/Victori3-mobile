@@ -2,10 +2,12 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 vi.mock('../src/engine/simulation', () => ({
   stepMonth: vi.fn((state: { tick?: number }) => { state.tick = (state.tick ?? 0) + 1; return true; }),
+  advanceHours: vi.fn(() => ({ hours: 0, monthlyBoundaries: 0, stop: 'requested' })),
 }));
 vi.mock('../src/engine/save', () => ({
   serialize: vi.fn(() => ''),
   deserialize: vi.fn((value: string) => JSON.parse(value)),
+  deserializeWithMeta: vi.fn((value: string) => ({ state: JSON.parse(value), meta: {} })),
 }));
 vi.mock('../src/engine/init', () => ({ createGame: vi.fn() }));
 
@@ -13,6 +15,7 @@ import { createGame } from '../src/engine/init';
 import { stepMonth } from '../src/engine/simulation';
 import { GameController } from '../src/ui/game/controller';
 import { CAMPAIGN_END_TICK } from '../src/engine/core';
+import { CAMPAIGN_FINAL_HOUR } from '../src/engine/clock/calendar';
 
 describe('GameController fast-forward isolation', () => {
   let callbacks: Map<number, FrameRequestCallback>;
@@ -144,15 +147,25 @@ describe('GameController fast-forward isolation', () => {
 
     await controller.fastForward(24);
 
+    // Monthly fast-forward stops at the December 2026 boundary (2 months, not 24)…
     expect(vi.mocked(stepMonth)).toHaveBeenCalledTimes(2);
     expect(controller.st?.tick).toBe(CAMPAIGN_END_TICK);
-    expect(controller.paused).toBe(true);
     expect(controller.busy).toBeNull();
+    // …and since CLOCK-01 the December 2026 hours are still playable, so the prior run state resumes.
+    expect(controller.paused).toBe(false);
+
+    // Once the canonical clock reaches 31/12/2026 23:00 the campaign cannot resume or step.
+    (controller.st as any).clock = { hour: CAMPAIGN_FINAL_HOUR };
+    controller.setPaused(true);
     controller.setPaused(false);
     controller.stepOnce();
-    expect(controller.st?.tick).toBe(CAMPAIGN_END_TICK);
+    controller.stepDay();
     expect(controller.paused).toBe(true);
-    expect(request).toHaveBeenCalledTimes(1);
+    expect(controller.st?.tick).toBe(CAMPAIGN_END_TICK);
+    expect(vi.mocked(stepMonth)).toHaveBeenCalledTimes(2);
+    await controller.fastForward(3);
+    expect(vi.mocked(stepMonth)).toHaveBeenCalledTimes(2);
+    expect(controller.paused).toBe(true);
   });
 
   it('restores the live clock after a fast-forward step throws', async () => {

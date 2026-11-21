@@ -50,6 +50,16 @@ export type IG = (typeof IGS)[number];
 
 export interface GameDate { y: number; m: number } // m: 1..12
 
+/** Subsystem cadence menu of the hourly-canonical scheduler (CLOCK-01). */
+export type Cadence = 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly';
+
+/**
+ * Canonical simulation clock (save schema v3). `hour` counts in-game hours since
+ * 1836-01-01T00:00 and is the single source of truth for time; `tick` (month
+ * index) and `date` are derived from it and validated against it.
+ */
+export interface ClockState { hour: number }
+
 export interface Leader {
   name: string; born: number | null; since: number; historical: boolean; diesOn?: string | null; female?: boolean; termEnds?: string | null;
 }
@@ -155,6 +165,7 @@ export interface GameState {
   mode: GameMode;
   player: string | null;
   date: GameDate; tick: number;
+  clock: ClockState;
   countries: Record<string, Country>;
   regions: Region[];
   population: PopulationState;

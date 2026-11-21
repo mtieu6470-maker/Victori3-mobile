@@ -5,7 +5,10 @@
 // take the full height of the screen in landscape and are bottom sheets with three heights in portrait.
 import { useEffect, useRef, useState } from 'preact/hooks';
 import type { VNode } from 'preact';
-import { game, SPEED_MS, type Speed } from './game/controller';
+import { game, campaignFinished } from './game/controller';
+import { hourToDateTime } from '../engine/clock/calendar';
+import { FIXED_RATES_HPS, nextSpeedSetting, RATE_MULTIPLIER_LABEL, realSecondsPerDay } from '../engine/clock/pace';
+import { paceStatusLabelVi } from '../engine/clock/governor';
 import { ui, useUI, useGame, type ScreenId, type LensId } from './game/ui';
 import { MapView, mapControls, type MapAssets } from './map/MapView';
 import { LENSES, lensById } from './map/lenses';
@@ -14,7 +17,7 @@ import { ModalHost, TipHost, Tip, WinHead, Tabs, Mdl, modals, details, hideTip, 
 import { rankings } from '../engine/metrics';
 import { techCost, researchPoints } from '../engine/systems/technology';
 import { marketOf } from '../engine/systems/economy';
-import { CAMPAIGN_END_MONTH, CAMPAIGN_END_YEAR, CAMPAIGN_START_YEAR, isCampaignComplete } from '../engine/core';
+import { CAMPAIGN_END_YEAR, CAMPAIGN_START_YEAR } from '../engine/core';
 import { data } from '../engine/data/db';
 import { shortName, fullName } from './game/names';
 import { compact, fmt, pct, techName, govVi, lawVi, GOOD_VI } from './i18n/vi';
@@ -77,7 +80,8 @@ export function App({ assets }: { assets: MapAssets }) {
     const k = (e: KeyboardEvent) => {
       if ((e.target as HTMLElement)?.tagName === 'INPUT') return;
       if (e.code === 'Space') { e.preventDefault(); game.setPaused(!game.paused); }
-      if (/^Digit[1-5]$/.test(e.code)) game.setSpeed(Number(e.code.slice(5)) as Speed);
+      if (/^Digit[1-5]$/.test(e.code)) game.setSpeedSetting({ kind: 'fixed', hps: FIXED_RATES_HPS[Number(e.code.slice(5)) - 1] });
+      if (e.code === 'Digit0' || e.code === 'KeyA') game.setSpeedSetting({ kind: 'auto' });
       if (e.code === 'KeyF') ui.set({ fullMap: !ui.get().fullMap });
       if (e.code === 'Escape') { if (modals.get()) modals.close(); else if (details.get()) details.close(); else if (ui.get().fullMap) ui.set({ fullMap: false }); else if (ui.get().region) ui.set({ region: null, regionDetail: false }); else ui.set({ screen: 'map' }); }
     };
@@ -230,14 +234,17 @@ function TopBar({ portrait }: { portrait: boolean }) {
       </button>
     </Tip>
   );
+  const now = hourToDateTime(st.clock.hour); const gov = g.governor;
   const clock = (
     <div class="clock">
       <button class="ib" aria-label="Thông báo" title="Thông báo" onClick={() => modals.open('Thông báo', () => <InboxScreen st={st} />)}><Icon name="bell" class="i" />{unread > 0 && <span class="badge">{unread > 99 ? '99+' : unread}</span>}</button>
       <button class={`ib${menu ? ' on' : ''}`} aria-label="Menu" title="Thế giới, hệ thống, bản đồ toàn màn hình" onClick={(e) => { const r = (e.currentTarget as HTMLElement).getBoundingClientRect(); setMenu(menu ? null : { x: r.right, y: r.bottom }); }}><Icon name="menu" class="i" /></button>
-      <Tip c={{ title: 'Thời kỳ chiến dịch ' + CAMPAIGN_START_YEAR + '–' + CAMPAIGN_END_YEAR, note: isCampaignComplete(st.tick) ? 'Đã đến mốc kết thúc chiến dịch tháng ' + CAMPAIGN_END_MONTH + '/' + CAMPAIGN_END_YEAR + '.' : 'Bắt đầu tháng 1/' + CAMPAIGN_START_YEAR + '; kết thúc tháng ' + CAMPAIGN_END_MONTH + '/' + CAMPAIGN_END_YEAR + '.' }}>
-        <div class="datebox" aria-label={'Tháng ' + st.date.m + '/' + st.date.y + '; chiến dịch ' + CAMPAIGN_START_YEAR + '–' + CAMPAIGN_END_YEAR}><b class="num">{st.date.y}</b><span>{MONTH_VI[st.date.m - 1]}</span></div>
+      <Tip c={{ title: 'Thời kỳ chiến dịch ' + CAMPAIGN_START_YEAR + '–' + CAMPAIGN_END_YEAR, note: campaignFinished(st) ? 'Đã đến giờ cuối cùng của chiến dịch: 23:00 ngày 31/12/' + CAMPAIGN_END_YEAR + '.' : 'Bắt đầu 00:00 ngày 1/1/' + CAMPAIGN_START_YEAR + '; giờ chơi cuối cùng 23:00 ngày 31/12/' + CAMPAIGN_END_YEAR + '. Đồng hồ mô phỏng theo giờ.' }}>
+        <div class="datebox" aria-label={`${now.h} giờ ngày ${now.d} ${MONTH_VI[now.m - 1]} năm ${now.y}; chiến dịch ${CAMPAIGN_START_YEAR}–${CAMPAIGN_END_YEAR}`}><b class="num">{now.y}</b><span>{now.d} {MONTH_VI[now.m - 1]} · <span class="num">{String(now.h).padStart(2, '0')}:00</span></span></div>
       </Tip>
-      <Tip c={{ title: `Tốc độ ${g.speed} / 5`, note: `Mỗi nhịp = 1 tháng; tốc độ hiện tại ${SPEED_MS[g.speed] / 1000} giây/tháng. Chạm để đổi tốc độ. Phím 1–5 trên bàn phím.` }}><button class="speed" aria-label={`Tốc độ ${g.speed}`} onClick={() => game.setSpeed(((g.speed % 5) + 1) as Speed)}>{[1, 2, 3, 4, 5].map((i) => <i key={i} class={i <= g.speed ? 'on' : ''} style={`height:${5 + i * 3}px`} />)}</button></Tip>
+      <Tip c={{ title: 'Tốc độ: ' + paceStatusLabelVi(gov), lines: [['Chế độ', g.speedSetting.kind === 'auto' ? 'AUTO (12 → 6 giờ/giây khi quá tải)' : 'Cố định ' + RATE_MULTIPLIER_LABEL[g.speedSetting.hps]], ['Tốc độ hiệu lực', gov.effectiveHps + ' giờ game/giây'], ['1 ngày game', realSecondsPerDay(gov.effectiveHps) + ' giây thực']], note: 'Chạm để đổi: AUTO → 3 → 6 → 12 → 24 → 48 giờ/giây. Phím 1–5 chọn tốc độ cố định, 0 hoặc A chọn AUTO. Tốc độ chỉ thay đổi nhịp thời gian thực, không bỏ qua giờ mô phỏng nào.' + (gov.status === 'overloaded' || gov.status === 'fixed_overloaded' ? ' Thiết bị đang quá tải: mô phỏng chạy chậm hơn tốc độ chọn, không bỏ công việc.' : '') }}>
+        <button class={`speed pace ${gov.status}`} aria-label={'Tốc độ ' + paceStatusLabelVi(gov)} onClick={() => game.setSpeedSetting(nextSpeedSetting(g.speedSetting))}><span class="mode">{g.speedSetting.kind === 'auto' ? 'AUTO' : RATE_MULTIPLIER_LABEL[g.speedSetting.hps]}</span><span class="rate num">{gov.effectiveHps}h/s{gov.status === 'overloaded' || gov.status === 'fixed_overloaded' ? '!' : ''}</span></button>
+      </Tip>
       <button class={`ib play${g.paused ? ' paused' : ''}`} aria-label={g.paused ? 'Tiếp tục' : 'Tạm dừng'} onClick={() => game.setPaused(!g.paused)}><Icon name={g.paused ? 'play' : 'pause'} class="i" /></button>
     </div>
   );
