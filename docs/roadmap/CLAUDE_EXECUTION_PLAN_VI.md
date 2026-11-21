@@ -113,7 +113,7 @@ UX/content:      UI-01 read models ─ UI-02 map lenses/inspector ─ PACK-01..0
 | POP-04 | Migration flows, births/deaths theo cohort | Claude | POP-01, CLOCK-03 | P1 | NOT_STARTED |
 | ECON-01 | Goods registry + material ledger bảo toàn | Claude (+CG-01) | SAVE-02 | P0 | NOT_STARTED |
 | ECON-02 | Buy/sell orders, local market prices, market access | Claude (+CG-01) | ECON-01 | P0 | NOT_STARTED |
-| ECON-03 | Trade routes, tariffs, shipments, convoys/blockade hooks | Claude | ECON-02, CLOCK-03 | P1 | NOT_STARTED |
+| ECON-03 | World Market + Trade Centers (sở hữu, capacity, World Market Access, hub chính/dự phòng), TradeFlow, tariffs, blockade; SupplyRoute quân sự là ledger riêng (thay mô hình trade route cũ, theo CG-01) | Claude | ECON-02, CLOCK-03 | P1 | NOT_STARTED |
 | IND-01 | Building types/sites + selectable Production Methods | Claude (+CG-03) | ECON-01 | P0 | NOT_STARTED |
 | IND-02 | Jobs, qualifications, hiring/firing, wages | Claude (+CG-03) | IND-01, POP-01 | P0 | NOT_STARTED |
 | IND-03 | Ownership, companies, dividends, investment pool | Claude (+CG-03) | IND-02 | P1 | NOT_STARTED |
@@ -180,4 +180,5 @@ UX/content:      UI-01 read models ─ UI-02 map lenses/inspector ─ PACK-01..0
 
 ## 13. Lịch sử thay đổi kế hoạch
 
+- 2026-11-22 v1.1 (Claude): tích hợp gói nghiên cứu ChatGPT (merge `1f8896a`, review `docs/coordination/reviews/CLAUDE_REVIEW_CHATGPT_RESEARCH_2026-11-22.md`). ECON-03 đổi sang mô hình World Market/Trade Center. Mốc tham chiếu V3 cần xét lại lên 1.15.2 (tiêu đề hotfix đã xác nhận, nội dung chưa). V-Dem chỉ dùng tham chiếu. CLOCK-02b thêm thermal status qua plugin Capacitor. MEDIA dùng kiến trúc 2D.
 - 2026-11-21 v1 (Claude): lập kế hoạch; triển khai CLOCK-01 ngay sau khi lập kế hoạch; ưu tiên SAVE-01 → CLOCK-02 tiếp theo vì ranh giới tháng trên UI thread là rủi ro lớn nhất của 12h/s.

@@ -1,3 +1,20 @@
+## 2026-11-22 — Claude tích hợp gói nghiên cứu ChatGPT — ACCEPTED_FOR_PLANNING
+
+- ChatGPT nộp CG-01..05, CG-07..10 và visual catalogue lên `claude/game-historical-sandbox-modes-kg7rj7` @ `b3643b35091e0b6b4d9cbf727311c6c5427089b4` (chỉ tài liệu). Claude merge vào `ccr-b27f3fb8-epfpd6` (merge `1f8896a`, không xung đột) để code CLOCK-01 và nghiên cứu nằm trên cùng một lịch sử.
+- Review: `docs/coordination/reviews/CLAUDE_REVIEW_CHATGPT_RESEARCH_2026-11-22.md`. Thay đổi kế hoạch:
+  - ECON-03 chuyển sang World Market/Trade Center.
+  - V-Dem chỉ dùng tham chiếu (CC BY-SA).
+  - Thêm thermal status vào CLOCK-02b.
+  - Ngân sách media theo kiến trúc 2D.
+- Kiểm tra nguồn độc lập:
+  - Chỉ xác nhận được tiêu đề "Hotfix 1.15.2"; nội dung trang không trích được.
+  - SteamDB trả 403 → các claim 1.15/1.9 giữ nhãn NOT_VERIFIED_BY_CLAUDE.
+- CG-11 bị BLOCKED vì ChatGPT đọc branch chỉ định, nơi chưa có CLOCK-01; nay đã mở lại trên `ccr-…`. CG-06 chưa nộp.
+- **Branch:** hai branch vẫn tách nhau. `ccr-…` chứa mọi thứ (CLOCK-01 + nghiên cứu); branch chỉ định thiếu CLOCK-01. Claude cần owner cho phép push/fast-forward branch chỉ định lên `ccr-…`.
+- Không đổi code/test trong lát cắt này.
+
+---
+
 ## 2026-11-21 — CLOCK-01 ADAPTIVE HOURLY CLOCK (AUTO 12h/s → 6h/s) + CLAUDE EXECUTION PLAN — IMPLEMENTED / SELF-REVIEWED
 
 - **Tác giả:** Claude Code (Project Director). Branch phiên: `ccr-b27f3fb8-epfpd6` (tạo từ cùng HEAD `94d0d28` với branch chỉ định `claude/game-historical-sandbox-modes-kg7rj7`; phiên này không đổi branch và không push lên branch chỉ định — xem "Branch" bên dưới).

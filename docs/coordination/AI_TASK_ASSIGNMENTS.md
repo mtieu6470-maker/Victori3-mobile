@@ -50,3 +50,7 @@ CLOCK-01 (xong phiên này) → SAVE-01 → CLOCK-02 → SAVE-02; xem execution 
 |---|---|---|
 | 2026-11-21 | CG-01..11, HY-01..05 | Claude giao việc lần đầu; chờ owner chuyển cho ChatGPT/Hydrogen |
 | 2026-11-21 | (owner) | Nhận gói ảnh Dev Diary #49; phân tích tại `docs/ui/V3_DEV_DIARY_49_DESIGN_REFERENCE_ANALYSIS_VI.md`. Yêu cầu tiếp: ảnh/clip bản 1.15.x cho PM, Trade Routes, Diplomatic Play, Military fronts, Power Bloc, ship designer, War Support |
+| 2026-11-22 | CG-01..05, 07..10, visual catalogue | ChatGPT nộp (`b3643b3`); Claude merge `1f8896a` và review: ACCEPTED_FOR_PLANNING (`docs/coordination/reviews/CLAUDE_REVIEW_CHATGPT_RESEARCH_2026-11-22.md`) |
+| 2026-11-22 | CG-11 | BLOCKED do lệch branch (CLOCK-01 nằm trên `ccr-b27f3fb8-epfpd6`) → mở lại, đọc trên branch đó |
+| 2026-11-22 | CG-06 | Chưa nộp; vẫn ASSIGNED |
+| 2026-11-22 | CG-10 rev, CG-01b | Giao mới: ngân sách footprint theo kiến trúc 2D; nguồn chính thức cho công thức trade/giá 1.15.x |
