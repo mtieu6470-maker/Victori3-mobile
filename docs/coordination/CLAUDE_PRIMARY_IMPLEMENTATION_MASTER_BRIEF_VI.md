@@ -47,17 +47,20 @@ Trải nghiệm cuối cùng phải có các đặc điểm:
 - Dữ liệu lịch sử 1836–1936 và dữ liệu 1937–2026 đều cần nguồn, phạm vi thời gian/địa lý, phương pháp, độ tin cậy và quyền sử dụng. Phải đánh dấu rõ giai đoạn nào có dữ liệu tốt, dữ liệu ước lượng hoặc còn thiếu.
 - Không giả lập sự kiện lịch sử tương lai thành kết quả bắt buộc. Event, journal, nhân vật và tình hình chính trị tạo bối cảnh/áp lực/cơ hội; kết quả vẫn phát sinh từ simulation.
 
-### 2.1.1. Đồng hồ mô phỏng — quyết định mới của chủ dự án ngày 21/11/2026
+### 2.1.1. Đồng hồ mô phỏng thích ứng — quyết định mới của chủ dự án ngày 21/11/2026
 
-- Tốc độ chuẩn mục tiêu: **12 giờ trong game / 1 giây thực (12 game-hours/second)**.
-- Ở 1.0x: 1 giờ game = 1/12 giây thực; 1 ngày game = 2 giây thực; 1 tuần = 14 giây; một tháng thực tế dài 28–31 ngày sẽ mất 56–62 giây; một năm 365/366 ngày mất khoảng 12 phút 10–12 giây.
-- Từ 01/01/1836 đến 01/01/2027 có 69.762 ngày lịch; ở tốc độ 1.0x cần 139.524 giây = 38 giờ 45 phút 24 giây chạy liên tục. Ngày chơi cuối cùng là 31/12/2026.
-- Tốc độ đề xuất: Pause, 0.25x = 3h/s, 0.5x = 6h/s, 1x = 12h/s, 2x = 24h/s, 4x = 48h/s. Claude được quyền điều chỉnh preset theo profiling nhưng 1x mặc định vẫn là mục tiêu 12h/s.
+- Tốc độ danh nghĩa khi thiết bị đủ tải: **12 giờ trong game / 1 giây thực (12h/s)**. Chủ dự án chấp nhận hạ xuống **6 giờ game/giây thực (6h/s)** khi cuối game hoặc workload thực tế gây lag kéo dài. Chế độ mặc định phải là AUTO: 12h/s khi khỏe, fallback hiển thị 6h/s khi profiling/runtime metrics cho thấy cần thiết.
+- Bảng thời gian ở 12h/s: 1 giờ game = 1/12 giây thực; 1 ngày = 2 giây; 1 tuần = 14 giây; tháng 28–31 ngày = 56–62 giây; năm 365/366 ngày ≈ 12 phút 10–12 giây.
+- Bảng thời gian ở 6h/s: 1 giờ game = 1/6 giây thực; 1 ngày = 4 giây; 1 tuần = 28 giây; tháng 28–31 ngày = 112–124 giây; năm 365/366 ngày ≈ 24 phút 20–24 giây.
+- Chiến dịch 01/01/1836–01/01/2027 có 69.762 ngày lịch: 139.524 giây = 38 giờ 45 phút 24 giây ở 12h/s; 279.048 giây = 77 giờ 30 phút 48 giây ở 6h/s. Ngày chơi cuối cùng là 31/12/2026.
+- Tốc độ cố định đề xuất: Pause, 0.25x = 3h/s, 0.5x = 6h/s, 1x = 12h/s, 2x = 24h/s, 4x = 48h/s; thêm AUTO (12h/s danh nghĩa, tự fallback 6h/s khi quá tải kéo dài). Mặc định là AUTO, không buộc phải cố giữ 12h/s khi cuối game gây lag.
+- Chỉ thay đổi tốc độ đồng hồ theo thời gian thực; không xóa/giảm Pops, quốc gia AI, buildings, goods, market calculations, events hay độ sâu mô phỏng. Cùng canonical game time phải cho kết quả xác định giống nhau bất kể tốc độ hoặc render FPS.
+- Adaptive switch phải dựa trên workload đo được, có hysteresis để tránh đổi tốc độ liên tục; không chỉ dựa vào năm lịch. Hiển thị tốc độ hiệu lực và trạng thái AUTO/fixed. Nếu 6h/s vẫn quá tải, báo overload rõ ràng, giữ nguyên công việc mô phỏng và cho phép pause/chọn 3h/s; không giả vờ đang đạt 6h/s.
 - Đây là target của simulation clock, không phải yêu cầu chạy toàn bộ subsystem 12 lần/giây. Phải dùng monotonic clock, fixed-step/hourly canonical time, accumulator ổn định, deterministic event ordering, batching có chứng minh tương đương, bounded catch-up và tách simulation khỏi render FPS.
 - Mỗi subsystem phải khai báo cadence thực sự: hourly/daily/weekly/monthly/yearly theo nhu cầu domain. Không được bỏ qua event boundary, treaty expiry, construction completion, combat order, command hoặc campaign end.
 - Không chạy simulation unbounded trên UI thread. Khi Android background/process lifecycle không chắc chắn, mặc định pause và persist an toàn; không tự tuyên bố offline progress.
-- Save/load phải bảo toàn canonical time, scheduled events, cadence phase/accumulator và RNG state. Nếu đổi từ monthly tick hiện tại sang hourly clock, phải có migration versioned, replay/continuation test và benchmark.
-- DEV-006/DEV-007 hiện ghi nhận monthly cadence; không được nói code cũ đã đạt 12h/s. Claude phải audit và lập migration plan rồi triển khai.
+- Save/load phải bảo toàn canonical time, scheduled events, cadence phase/accumulator và RNG state. Persist lựa chọn AUTO/fixed; khi load ở AUTO phải tính lại rate hiệu lực theo thiết bị hiện tại. Nếu đổi từ monthly tick hiện tại sang hourly clock, phải có migration versioned, replay/continuation test và benchmark ở cả 12h/s và 6h/s, nhất là late-game.
+- DEV-006/DEV-007 hiện ghi nhận monthly cadence; không được nói code cũ đã đạt 12h/s hoặc 6h/s. Claude phải audit và lập migration plan rồi triển khai.
 - Chỉ thị chi tiết có hiệu lực: OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md.
 
 ### 2.2. Phạm vi toàn cầu
@@ -856,7 +859,7 @@ Political and geopolitical spine:
 Characters/leadership → laws/institutions/IGs/movements → legitimacy and domestic stability → diplomacy/subjects/Power Blocs/diplomatic plays → strategic AI → military organization/operations → peace settlement and post-war outcomes.
 
 Cross-cutting foundation:
-12h/s simulation clock → deterministic cadence scheduler → event queue/RNG → persistence/migrations → Android lifecycle/performance → UI read models → offline content/asset pipeline.
+adaptive 12h/s nominal / 6h/s fallback simulation clock → deterministic cadence scheduler → event queue/RNG → persistence/migrations → Android lifecycle/performance → UI read models → offline content/asset pipeline.
 
 Claude may parallelize independent research and media tasks across ChatGPT and Gemini Hydrogen, while keeping conflicting code/data writes serialized. Reorder the sequence when source research, test failures or performance measurements demonstrate a better dependency path. Every change to order must be recorded in the execution plan with rationale.
 
@@ -908,7 +911,7 @@ Claude must create the execution plan and AI assignment register, then proceed w
 | 3 | VISUAL-MEDIA-RESEARCH | ChatGPT + Hydrogen | Era/region/entity asset taxonomy, visual references, license/provenance, coverage gaps and original-media briefs |
 | 4 | EXECUTION-PLAN | Claude | Dependency graph, milestones, critical path, task IDs, owners, acceptance, risks, 4–5 GB content plan and 1836–2026 data plan |
 | 5 | AI-TASK-REGISTER | Claude | Delegation register with exact deliverables and integration criteria for ChatGPT/Hydrogen |
-| 6 | CLOCK-12HPS | Claude; ChatGPT research support | Audit monthly runtime, design 12h/s scheduler, migration, cadence contracts, deterministic tests and Android benchmarks |
+| 6 | CLOCK-ADAPTIVE-12-6HPS | Claude; ChatGPT research support | Audit monthly runtime, design adaptive 12h/s nominal → 6h/s fallback scheduler, migration, cadence contracts, deterministic tests and 12h/s + late-game 6h/s Android benchmarks |
 | 7 | ENGINE-FOUNDATION | Claude | Data/save/runtime/lifecycle/performance foundation in dependency order |
 | 8 | GAMEPLAY-SPINE | Claude | Pops → needs → goods/markets → production/labor → treasury → politics causal loops |
 | 9 | WORLD-SYSTEMS | Claude | Geography, countries/polities, technology, diplomacy, AI, military, events and historical data |
@@ -976,7 +979,7 @@ Do not send the owner a long repeated audit. Keep the user-facing summary compac
 - The 2026-11-21 owner directive supersedes earlier requirements for per-task/per-phase owner approval during ordinary implementation. Claude may plan, open, sequence and execute dependency-ready workstreams until completion.
 - S0–S23 remains a useful historical dependency/audit map, not a reason to block all routine code work pending a new owner message. Claude may revise the execution roadmap and record evidence-based status changes.
 - Do not falsify historical gate verdicts, prior review records or past acceptance. If an old gate represents a genuine save/data/security integrity risk, preserve the underlying check and produce equivalent or stronger evidence before touching the affected system.
-- DEV-007's existing monthly-cadence implementation is not proof of the new 12h/s clock. The clock change requires a separate technical design, migration, deterministic tests and profiling.
+- DEV-007's existing monthly-cadence implementation is not proof of either the 12h/s nominal rate or 6h/s fallback. The adaptive clock requires a separate technical design, migration, deterministic tests and profiling at both rates, including late-game load.
 - Claude is the final technical decision-maker and integration owner. ChatGPT provides research synthesis/advisory critique; Hydrogen provides visual/media support. DeepSeek is excluded from all active assignments.
 - Owner approval remains necessary only for the reserved external actions listed in the latest owner directive: spending/paid services, credentials/secrets/signing, public release/store submission, personal-device installation, external data transfer without an approved flow, destructive history operations and other irreversible external actions.
 - No placeholder is parity. No build success proves gameplay completeness. No asset counts unless it is licensed/original, mapped to an entity/era and used in runtime.
@@ -1107,6 +1110,6 @@ Claude là Project Director, Lead Systems Architect và Primary Implementation E
 7. Asset/media và offline content delivery.
 8. Polish, performance tuning và release.
 
-**Không dừng ở audit hoặc kế hoạch giấy. Sau khi tạo execution plan và assignment register, Claude phải bắt đầu code theo critical path. Không gọi placeholder là gameplay. Không tuyên bố parity khi chưa có bằng chứng. Tốc độ chuẩn mục tiêu là 12 giờ game/giây thực; chiến dịch 1836–2026; nội dung đầy đủ 4–5 GB thực sự được sử dụng.**
+**Không dừng ở audit hoặc kế hoạch giấy. Sau khi tạo execution plan và assignment register, Claude phải bắt đầu code theo critical path. Không gọi placeholder là gameplay. Không tuyên bố parity khi chưa có bằng chứng. Đồng hồ mặc định AUTO nhắm 12 giờ game/giây thực và được phép fallback hiển thị xuống 6 giờ game/giây khi late-game quá tải; chiến dịch 1836–2026; nội dung đầy đủ 4–5 GB thực sự được sử dụng.**
 
 Chủ dự án muốn một sản phẩm grand strategy thực sự, có chiều sâu ngang tầm mục tiêu Victoria 3, trên Android landscape-first, hoạt động offline sau khi người dùng cài đủ nội dung, và có nội dung thật hướng tới 4–5 GB. Tất cả quyết định kỹ thuật phải phục vụ mục tiêu đó.
