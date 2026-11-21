@@ -8,7 +8,7 @@
 **Nguyên tắc sản phẩm của chủ dự án:** [OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md](docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md)  
 **Chỉ thị mới nhất về parity Victoria 3, media đầy đủ và mục tiêu game 4–5 GB:** [OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md](docs/coordination/OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md)  
 **Master brief triển khai và phân nhiệm Claude (đọc toàn bộ):** [CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md](docs/coordination/CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md)  
-**Phân quyền mới (21/11/2026):** Claude Code là primary implementation/code-authoring agent; ChatGPT là technical lead và reviewer độc lập khi không đồng tác giả. Việc đổi vai trò không mở phase gate.  
+**Chỉ thị điều hành mới (21/11/2026):** [OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md](docs/coordination/OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md) — Claude là Project Director, tự lập kế hoạch, phân nhiệm ChatGPT/Hydrogen và triển khai đến hoàn thành; tốc độ chuẩn mục tiêu 12 giờ game/giây thực.  
 **Bảng bàn giao/trạng thái hiện hành:** [AI_HANDOFF.md](docs/coordination/AI_HANDOFF.md)  
 **Quy trình phối hợp và phân quyền:** [AI_COLLABORATION_PROTOCOL.md](docs/coordination/AI_COLLABORATION_PROTOCOL.md)
 
@@ -23,10 +23,11 @@ Không yêu cầu chủ dự án nhắc lại các nguyên tắc đã lưu tại
 1. Xác nhận đúng repository, branch và HEAD trực tiếp từ GitHub. Không dùng SHA trong chat cũ làm HEAD hiện tại.
 2. Đọc file này, `AGENTS.md`, `CLAUDE.md` (nếu áp dụng), [SESSION_RECOVERY_PROTOCOL_VI.md](docs/coordination/SESSION_RECOVERY_PROTOCOL_VI.md), [AI_HANDOFF.md](docs/coordination/AI_HANDOFF.md), [AI_COLLABORATION_PROTOCOL.md](docs/coordination/AI_COLLABORATION_PROTOCOL.md), [OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md](docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md) và TOÀN BỘ [OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md](docs/coordination/OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md). Không chỉ đọc tóm tắt.
    - Đọc TOÀN BỘ [CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md](docs/coordination/CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md), đặc biệt phân nhiệm, dependency S0–S23, causal loops và definition of done.
+   - Đọc TOÀN BỘ [OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md](docs/coordination/OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md), đặc biệt clock 12h/s, quyền tự điều hành của Claude và phân nhiệm ChatGPT/Hydrogen.
 3. Đọc roadmap/owner decisions, phase gate, subsystem spec, parity matrix và báo cáo tiến độ mới nhất được AI_HANDOFF chỉ định.
 4. Kiểm tra commit, diff, file đã đổi, workflow/CI và artifact để xác định chính xác phiên trước đã lưu đến đâu. Nếu phản hồi chat bị mất sau một thao tác ghi, phải kiểm tra GitHub trước khi thử lại; không được tạo commit/file trùng.
 5. Phân loại rõ phần đã commit, đã xác minh, CI đang chạy/thất bại, chưa commit và chưa xác định. Nếu GitHub không truy cập được sau retry có giới hạn, dừng ghi và báo BLOCKED; không suy đoán.
-6. Xác định task còn dở và phạm vi được phép. Nếu gate đóng hoặc thiếu owner approval thì không triển khai runtime.
+6. Xác định task còn dở, dependencies và rủi ro. Claude được quyền tự mở/điều phối các workstream triển khai thông thường theo chỉ thị 21/11/2026; không cần xin duyệt từng task/phase. Vẫn phải bảo toàn các kiểm tra an toàn dữ liệu/save, licensing, bảo mật và các hành động thuộc quyền riêng của chủ dự án.
 7. Chia việc thành lát cắt nhỏ; sau mỗi lát cắt có ý nghĩa, chạy test, cập nhật báo cáo + AI_HANDOFF, commit/push và đọc lại GitHub để xác minh.
 8. Khi kết thúc hoặc phải dừng, ghi exact SHA, bằng chứng, phần chưa lưu/chưa xác minh, lỗi mạng/quyền và hành động tiếp theo. Không tuyên bố hoàn thành nếu chưa đủ bằng chứng.
 
@@ -603,28 +604,24 @@ Sau khi hoàn thành: cập nhật báo cáo tiến độ đang dùng + AI_HANDO
 
 ---
 
-## 9. Phân quyền, gate và những điều tuyệt đối không tự ý làm
+## 9. Phân quyền và giới hạn
 
-- Chủ dự án quyết định scope, sản phẩm, approval và phase transition.
-- ChatGPT là technical lead/coordinator và implementer cho các task được ủy quyền; self-audit phải ghi rõ là self-audit.
-- Claude là independent reviewer của đúng change set mà Claude không viết/sửa; Claude không được tự review công việc do chính mình làm.
-- Gemini Hydrogen cung cấp nghiên cứu/tư liệu có nguồn; research candidate không tự động là runtime data đã verified.
-- DeepSeek chỉ thay reviewer theo chỉ định của chủ dự án và phải độc lập với change set.
-- Không tự mở S1–S23 hoặc gate đang khóa; không suy diễn rằng proposal/review PASS đồng nghĩa được phép code.
-- Không thay package ID, versionCode, signing key, secrets, workflow release hoặc lưu trữ save nếu chưa có quyền rõ ràng.
-- Không force-push, rewrite lịch sử, merge hoặc mở PR trái protocol.
+- Claude Code là Project Director, Lead Systems Architect và Primary Engineer cho đến khi sản phẩm hoàn thành. Claude tự nghiên cứu, lập execution plan, phân nhiệm, quyết định kỹ thuật, viết code, test, tích hợp và cập nhật roadmap.
+- ChatGPT tổng hợp thông tin, nghiên cứu Victoria 3/patch/DLC, dữ liệu lịch sử, kiến trúc Android, yêu cầu và tiêu chí nghiệm thu; hỗ trợ định hướng hình ảnh/media.
+- Gemini Hydrogen hỗ trợ ChatGPT về nghiên cứu hình ảnh, bản đồ, cờ, huy hiệu, chân dung, trang phục, kiến trúc, tàu, animation/video và âm thanh; mọi nội dung phải có nguồn/quyền sử dụng.
+- DeepSeek đã bị loại khỏi đội hình hoạt động; không giao task mới.
+- Claude không cần xin chủ dự án duyệt từng task hoặc phase thông thường. Claude vẫn phải bảo toàn dữ liệu/save, test, provenance, privacy, licensing và báo cáo bằng chứng.
+- Chủ dự án vẫn giữ quyền đối với chi phí/dịch vụ trả phí, credentials/secrets/signing, phát hành công khai, cài APK lên thiết bị cá nhân, truyền dữ liệu ra ngoài và hành động không thể đảo ngược.
+- Không thay package ID, signing key, secrets hoặc release configuration ngoài quyền được giao; không force-push, xóa lịch sử hay ghi đè công việc khác.
 - Không đưa credentials/keystore/token/dữ liệu riêng tư vào repo.
 - Không copy source/assets/text/audio của Victoria 3.
 - Không tự gửi telemetry/save ra mạng.
-- Không tự tuyên bố REVIEW_PASS/ACCEPTED cho code do chính mình làm.
 
-**Hoàn tất task** chỉ khi implementation + evidence + handoff + independent review + owner decision phù hợp được ghi lại theo protocol. Build APK thành công không đồng nghĩa sản phẩm đã hoàn chỉnh.
-
----
+**Hoàn tất task** phải có implementation, tests, exact SHA, CI/evidence, handoff và self-review trung thực. Hoàn tất toàn dự án còn cần đạt definition of done và chủ dự án nghiệm thu cuối cùng.
 
 ## 10. Nhắc nhở ngắn cho mọi phiên mới
 
-**Đọc HEAD mới nhất → đọc trang này → đọc AI_HANDOFF → đọc protocol + nguyên tắc chủ dự án → xác định gate/authorization → kiểm tra parity gap → làm một lát cắt có test → cập nhật báo cáo → commit/push → bàn giao exact SHA.**
+**Đọc HEAD mới nhất → đọc trang này và owner directives → audit parity → Claude lập execution plan + AI assignment register → giao ChatGPT/Hydrogen nghiên cứu → Claude code theo critical path → test/benchmark → cập nhật báo cáo → commit/push → xác minh exact SHA.**
 
 **Bắt buộc đọc thêm toàn bộ OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md:** phạm vi không được thu hẹp tùy tiện khỏi toàn bộ hệ thống Victoria 3; game hoàn chỉnh phải có hình ảnh, video, animation, âm nhạc và hiệu ứng âm thanh chất lượng cao, hướng tới 4–5 GB dung lượng cài đặt thực tế. 18 MB APK lõi không phải game hoàn chỉnh.
 
