@@ -9,7 +9,7 @@ Diplomatic Plays are diplomacy under coercive pressure, not an immediate war dec
 Source: Dev Diary #21, 2021-10-28: https://store.steampowered.com/news/posts/?enddate=1635437078&feed=steam_community_announcements
 
 Update 1.15 adds Return State to Subject for demanding a state claimed by a subject. 1.15.2 improves treaty acceptance breakdown and makes law commitments clickable:
-- https://steamdb.info/patchnotes/26453692/
+- https://store.steampowered.com/news/app/529340/view/680766201707627232
 - https://store.steampowered.com/news/app/529340/view/680767470935474875
 
 Exact 1.15.1 phase names/timers, sway formula and acceptance weights remain unknown in this research pass.
@@ -27,7 +27,7 @@ Verified changes:
 - Overlords normally join plays/wars of a newly-subjugated country to protect the acquisition.
 - Return State to Subject play was added.
 
-Source: Update 1.15 / Dev Diary #196: https://steamdb.info/patchnotes/26453692/
+Source: Update 1.15 / Dev Diary #196: https://store.steampowered.com/news/app/529340/view/680766201707627232
 
 ## Power Blocs
 
@@ -48,9 +48,9 @@ Sources:
 - 1.15.2 adjusts casualty accounting so Recovery Rate and Kill Rate shift casualties between dead and wounded; battle casualty statistics should match Pop losses.
 
 Sources:
-- Dev Diary #185 / AI update overview: https://steamcommunity.com/app/529340/announcements/?l=english
-- Dev Diary #191 confirms integration into 1.15: https://steamcommunity.com/app/529340/announcements/?l=english
-- Update 1.15 / Dev Diary #196: https://steamdb.info/patchnotes/26453692/
+- Dev Diary #185 / AI update overview: https://store.steampowered.com/news/app/529340/view/676255623445217327
+- Dev Diary #191 confirms integration into 1.15: https://store.steampowered.com/news/app/529340/view/703281660030877912
+- Update 1.15 / Dev Diary #196: https://store.steampowered.com/news/app/529340/view/680766201707627232
 - Hotfix 1.15.2: https://store.steampowered.com/news/app/529340/view/680767470935474875
 
 ## Fronts, battles, supply and naval
