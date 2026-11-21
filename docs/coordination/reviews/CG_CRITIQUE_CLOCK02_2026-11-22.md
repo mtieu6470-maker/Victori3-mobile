@@ -13,7 +13,6 @@ Kết luận: Kiến trúc chính đúng (authoritative state cô lập, request
 | CG16-03 | P2 | src/ui/game/simHost.ts:37-45, 53-60 | Không timeout/watchdog. Worker im lặng hoặc request không reply giữ pending Promise vô hạn, chặn inflight/backpressure. |
 | CG16-04 | P2 | src/ui/game/simHost.ts:23-28 | InlineSimHost request xếp microtask rồi dispose trước khi microtask chạy vẫn gọi core.handle; khác semantics terminate worker. |
 | CG16-05 | P2 | tests/sim-core-protocol.test.ts; tests/controller-clock.test.ts; tests/controller-fast-forward.test.ts | Các test được giao kiểm tra SimCore/InlineSimHost và wrapper Inline; chưa thấy test WorkerSimHost cho message ordering, error, messageerror, postMessage throw, pending cleanup và dispose. |
-| CG16-06 | P2 | src/engine/runtime/simCore.ts:62-72 | SimCore truyền req.maxHours thẳng vào advanceHours. Cần xác minh engine validate âm/fractional/NaN/Infinity/giá trị vượt campaign; protocol chưa tự guard. |
 
 ### CG16-01 — Runtime worker failure
 Kịch bản: worker chạy được một thời gian, sau đó phát error/messageerror. fail() đánh dấu failed, settle pending bằng response lỗi gen=-1; request mới tiếp tục trả lỗi. Không có đường khôi phục.
@@ -35,9 +34,6 @@ request() kiểm tra disposed trước khi schedule microtask, nhưng không ki�
 
 ### CG16-05 — Thiếu test worker host
 Bổ sung fake Worker kiểm tra correlation id, response ordering, error/messageerror, postMessage throw, pending cleanup, terminate/dispose, request im lặng và message lỗi cấu trúc.
-
-### CG16-06 — Validate maxHours
-Kiểm tra advanceHours có reject Number âm, fractional, NaN, Infinity và vượt giới hạn chiến dịch không. Nếu chưa, validate trong SimCore; test request sai không làm đổi state.
 
 ## Những điểm được xác minh hợp lý
 1. Generation: newGame/load chỉ nhận safe integer tăng dần; request thế hệ cũ bị stale. Load parse trước khi thay state.
