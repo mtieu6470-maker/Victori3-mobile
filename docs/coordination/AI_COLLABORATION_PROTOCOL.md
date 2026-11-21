@@ -1,15 +1,14 @@
 # AI Collaboration Protocol — Victori3-mobile
 
-> Revision 2026-11-21: new explicit owner role allocation. Claude Code is the primary implementation/code-authoring agent for future owner-authorized work. ChatGPT is technical lead, architecture coordinator, scope controller and independent no-write reviewer of Claude-authored work only when ChatGPT did not co-author it. Gemini Hydrogen supplies source-backed research/content; retired reviewer (historical only) is an owner-assigned independent-review fallback when the normal reviewer has an authorship/conflict constraint. This supersedes the 2026-11-17 role allocation for future tasks only; historical reviews, task records, phase gates and author identities remain unchanged.
+> Revision 2026-11-21 (owner execution directive): Claude Code is Project Director, Lead Systems Architect and Primary Engineer with authority to plan, delegate, sequence and execute the project to completion without routine per-task/per-phase owner approval. ChatGPT synthesizes requirements/research and supports visual planning; Gemini Hydrogen supports ChatGPT with visual/media research. DeepSeek is retired from active project work. This supersedes prior active role allocation and routine phase-approval requirements; historical records remain archival and must not be rewritten.
 
 ## Purpose
 
 GitHub is the shared source of truth between:
-- **Project owner:** owns scope, product decisions, approvals, and phase transitions.
-- **ChatGPT:** technical lead, architecture coordinator, scope controller and independent reviewer where authorship independence permits.
-- **Claude Code:** primary implementation/code-authoring agent for owner-authorized tasks; also reviews earlier work only when it did not author that work.
-- **Gemini Hydrogen:** research and source-backed content support.
-- **DeepSeek:** independent fallback reviewer only when assigned by the owner and genuinely independent.
+- **Claude Code:** Project Director, Lead Systems Architect and Primary Engineer; owns implementation and final technical decisions.
+- **ChatGPT:** research synthesis, requirements intelligence, documentation and visual-planning support.
+- **Gemini Hydrogen:** visual research and media support to ChatGPT.
+- **Project owner:** reserves external actions, spending, credentials, release/publication and final product acceptance.
 
 This protocol records the owner's project-wide execution delegation to Claude. Routine implementation and phase sequencing do not require new per-task approval; reserved external actions and security safeguards remain restricted.
 
@@ -54,9 +53,9 @@ This protocol records the owner's project-wide execution delegation to Claude. R
 5. `docs/coordination/AI_HANDOFF.md` as the status index.
 6. Chat summaries are context only and cannot override repository evidence or owner decisions.
 
-If sources conflict, stop and report the conflict. Do not silently choose one.
+If sources conflict, Claude resolves ordinary technical/product implementation conflicts using the latest owner directive and records the rationale. If the conflict involves a reserved owner action, legal rights, spending, privacy, secrets, destructive data loss or contradictory explicit owner decisions, stop only that affected action and continue safe independent work.
 
-Canonical roadmap: `AI_HANDOFF.md` records its path and status. Until the owner approves a roadmap and it is committed (for example at `docs/roadmap/MASTER_ROADMAP.md`), its status is `PENDING_OWNER_APPROVAL`: no document in the repository is the canonical roadmap, and phase scope comes only from explicit owner authorizations. Older roadmaps and phase reports are historical evidence, indexed in `docs/roadmap/LEGACY_DOCUMENTS_INDEX.md`; they do not authorize implementation.
+Canonical execution plan: Claude creates and maintains `docs/roadmap/CLAUDE_EXECUTION_PLAN_VI.md`. The old S0–S23 roadmap and gate records remain dependency/evidence inputs; they do not require a new owner approval for each ordinary implementation task. Claude may revise sequencing and workstream status after checking technical prerequisites and preserving underlying safety/integrity checks.
 
 ## Standard task cycle
 
@@ -74,7 +73,7 @@ Canonical roadmap: `AI_HANDOFF.md` records its path and status. Until the owner 
 ## Required handoff evidence
 
 Every task records:
-- Task/phase ID and approved scope reference.
+- Task/phase ID and source owner directive or execution-plan reference.
 - Base SHA and resulting commit SHA(s).
 - Changed files and rationale.
 - Exact test/build commands and exit codes.
@@ -82,13 +81,13 @@ Every task records:
 - Device model, OS/build, app version, procedure, raw measurement file for device claims.
 - Save/load or migration evidence when relevant.
 - Known limitations, unsupported measurements, and unresolved risks.
-- Implementer self-assessment, labelled **unverified** until independent review.
-- Implementer self-review, exact reviewed HEAD and verdict; ChatGPT advisory critique when requested. Do not claim an independent third-party verdict unless a genuinely independent reviewer was actually assigned.
+- Implementer self-review, exact reviewed HEAD, test evidence and verdict.
+- ChatGPT advisory critique/research synthesis when requested. Do not claim an independent third-party verdict unless a genuinely independent reviewer was actually assigned.
 - ChatGPT research/technical synthesis status and owner-reserved decisions, filled by the respective party.
 
 ## Status vocabulary
 
-Two separate dimensions. Do not mix them.
+Two separate dimensions. Do not mix them. Claude owns implementation status and must preserve truthful evidence; the absence of a separate AI reviewer does not block routine progress.
 
 ### Task lifecycle status (applies to a task or phase)
 
@@ -97,7 +96,7 @@ Two separate dimensions. Do not mix them.
 - `READY_FOR_REVIEW`
 - `CHANGES_REQUESTED`
 - `BLOCKED`
-- `REVIEW_PASS` — the assigned independent reviewer has passed the exact bounded review scope; owner decision still pending. Under the 2026-11-21 execution directive, Claude performs implementer self-review and may request ChatGPT advisory critique. No separate AI reviewer is part of the active roster. Historical review records remain unchanged.
+- `REVIEW_PASS` — use only when a genuinely independent review actually occurred. Claude self-review and ChatGPT advisory critique are not an independent REVIEW_PASS. Do not require this label as a blocker for ordinary work under the 2026-11-21 execution directive.
 - `ACCEPTED` — owner explicitly accepted.
 - `REJECTED`
 - `DEFERRED`
@@ -121,12 +120,12 @@ Two separate dimensions. Do not mix them.
 
 The repository currently has one branch, `claude/game-historical-sandbox-modes-kg7rj7`, which is also the default branch.
 
-- Use the existing sole development/default branch for owner-authorized work while it remains the only branch.
-- Direct pushes to that branch are allowed only for a task whose scope the owner explicitly authorized.
+- Use the existing designated development/default branch unless Claude's execution plan records a technical reason for branch isolation.
+- Direct pushes to the designated branch are allowed for work within the owner-delegated project scope.
 - Never force-push, rewrite shared history, or push unapproved scope.
 - Do not create a `main` branch merely to satisfy a generic PR convention.
 - Create another branch only when the owner explicitly asks for branch isolation or a separate release/stable branch.
-- Claude, as primary implementation agent, must not create a PR automatically. On the current single-branch repository, commit reviewable authorized changes to the designated branch and provide exact commit URL(s) to the independent reviewer; ChatGPT coordinates/reviews but does not silently take over code authorship.
+- Claude, as Project Director/Primary Engineer, may use focused commits and the designated branch. PR creation/merging remains subject to repository safety and explicit owner authorization where an external merge action is required.
 - Create a PR only when the owner explicitly requests one and a distinct base/target branch exists. A PR is not required when there is no distinct target branch.
 - Never merge without explicit owner approval.
 - Use focused commits, one reviewable slice at a time; record exact base and head SHAs for every review.
@@ -142,12 +141,15 @@ The repository currently has one branch, `claude/game-historical-sandbox-modes-k
 ## Project guardrails
 
 - Historical and Sandbox/Alternate History modes share the same simulation engine unless an approved specification explicitly says otherwise.
-- Global country coverage is required. Vietnam, Britain, Qing, or any showcase subset cannot substitute for worldwide systems.
-- Provinces/administrative units, settlements, buildings, population, economy, politics, diplomacy, military, and visual assets must be real systems, not decorative numbers.
-- No gameplay, engine, or save-format changes during S0.
-- S0 cannot begin until the owner explicitly approves its final specification.
-- No later phase begins until the previous phase has `REVIEW_PASS` and owner `ACCEPTED`.
-- **For S0 under the approved v3.3 transition procedure, `REVIEW_PASS` may apply only to the bounded S1-entry evidence package with its explicitly listed exceptions; it does not certify that every S0 gate passed or that S0 is fully complete. The owner's `ACCEPTED` decision accepts only that limited transition and its stated S1 scope. The overall S0 gate verdict remains `PARTIAL`/`BLOCKED` until G0.1–G0.9 are all `PASS`.** (Added by owner decision OD-20261116-11; see `docs/roadmap/S0_V3_3_OWNER_DECISION_AND_AMENDMENTS.md` §2.2.)
+- Global country coverage is required. Vietnam, Britain, Qing or any showcase subset cannot substitute for worldwide systems.
+- Provinces/administrative units, settlements, buildings, population, economy, politics, diplomacy, military and visual assets must be real systems, not decorative numbers.
+- Owner target simulation speed is 12 game-hours per real second at 1.0x, with deterministic scheduler, cadence contracts, safe save migration and Android performance evidence. Existing monthly-tick code is not assumed to meet this target.
+- Campaign range is 1 January 1836 through 31 December 2026 inclusive. No January 2027 tick.
+- Claude may proceed across implementation workstreams without per-phase owner approval. S0–S23 are retained as dependency/audit references, not routine authorization barriers.
+- Preserve the substance of old gate checks when they protect save integrity, determinism, security, provenance or data safety. Historical verdicts remain historical; never relabel old BLOCKED/PARTIAL as PASS without evidence.
+- No paid services, unapproved spending, credentials/secrets/signing key exposure, public release/store submission, personal-device installation or unapproved external data transfer.
+- No copying proprietary Victoria 3 code, text, data or expressive assets. Research mechanics; implement independently with original/licensed material.
+- DeepSeek is not in the active team or any new assignment. Historical mentions remain archival only.
 
 ## Uncertainty and disputes
 
@@ -160,7 +162,7 @@ If evidence is unavailable, contradictory, or irreproducible:
 
 ## Completion definition
 
-A task is complete only when implementation, evidence, handoff update, independent review, and owner decision are recorded. A successful commit or CI run alone is not completion.
+A task is complete when implementation, tests, evidence, handoff update and Claude's self-review are recorded. ChatGPT may provide advisory critique when requested. The full product is complete only when the execution-plan definition of done is met and the owner gives final product acceptance. A successful commit or CI run alone is not completion.
 
 
 ## Session continuity and failure recovery
