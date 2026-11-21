@@ -203,6 +203,6 @@ describe('CLOCK-01 save schema v3 and continuation', () => {
     const st = createGame({ mode: 'historical', seed: 10, player: null });
     const text = JSON.stringify({ ...JSON.parse(serialize(st)), clockPreference: { kind: 'fixed', hps: 999 } });
     expect(deserializeWithMeta(text).meta.clockPreference).toEqual({ kind: 'auto' });
-    expect(deserializeWithMeta(serialize(st)).meta).toEqual({});
+    expect(deserializeWithMeta(serialize(st)).meta.clockPreference).toBeUndefined();
   });
 });

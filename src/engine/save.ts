@@ -6,12 +6,56 @@ import { STRATA, type GameState } from './types';
 import { createPopulationState, validatePopulationState } from './systems/populationCohorts';
 import { hourToDateTime, isValidCampaignHour, monthIndexOfHour, monthStartHour, CAMPAIGN_FINAL_HOUR } from './clock/calendar';
 import { parseSpeedSetting, type SpeedSetting } from './clock/pace';
+import { ENGINE_VERSION } from './version';
+import { data } from './data/db';
 
 export const SAVE_FORMAT = 'currents-of-history-save';
 export const SAVE_SCHEMA_VERSION = 3;
 
 /** Optional envelope metadata that is not part of the deterministic GameState. */
-export interface SaveMeta { clockPreference?: SpeedSetting }
+export interface SaveMeta {
+  clockPreference?: SpeedSetting;
+  /** SAVE-01 diagnostics (absent in saves written before SAVE-01). */
+  engineVersion?: string;
+  dataFingerprint?: string;
+  savedAtHour?: number;
+}
+
+function fnv1a(str: string, seed: number): number {
+  let h = seed >>> 0;
+  for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+  return h >>> 0;
+}
+
+let cachedFingerprint: { db: unknown; value: string } | null = null;
+/**
+ * Structural fingerprint of the loaded world data: the ordered region, entity and technology IDs a
+ * save's indices depend on. It is not a full content hash; it detects the incompatible case where a
+ * save refers to a different world layout. Returns undefined when no data is loaded.
+ */
+export function worldDataFingerprint(): string | undefined {
+  let d;
+  try { d = data(); } catch { return undefined; }
+  if (cachedFingerprint?.db === d.db) return cachedFingerprint.value;
+  const parts = [
+    'regions:' + d.db.regions.map((r) => r.id).join(','),
+    'entities:' + d.db.entities.map((e) => e.id).join(','),
+    'techs:' + d.db.technologies.map((t) => t.id).join(','),
+  ].join('|');
+  const value = `fp1-${fnv1a(parts, 0x811c9dc5).toString(16).padStart(8, '0')}${fnv1a(parts, 0x9e3779b9).toString(16).padStart(8, '0')}-${d.db.regions.length}r`;
+  cachedFingerprint = { db: d.db, value };
+  return value;
+}
+
+/** SAVE-01 / B4-R1: the RNG state must be four uint32 words, not all zero; missing RNG fails closed. */
+export function validateRngState(st: GameState): void {
+  const rng = (st as { rng?: unknown }).rng;
+  if (!Array.isArray(rng) || rng.length !== 4 || !rng.every((x) => Number.isInteger(x) && x >= 0 && x <= 0xffffffff)) {
+    throw new Error('Save state has a missing or invalid RNG state');
+  }
+  if (rng.every((x) => x === 0)) throw new Error('Save state has a degenerate all-zero RNG state');
+  if (!Number.isFinite(st.seed)) throw new Error('Save state has an invalid seed');
+}
 
 /** Validates the canonical clock against the month tick and date; never repairs silently. */
 export function validateClockState(st: GameState): void {
@@ -30,11 +74,16 @@ export function serialize(st: GameState, meta: SaveMeta = {}): string {
   }
   validatePopulationState(st);
   validateClockState(st);
+  validateRngState(st);
   const envelope: Record<string, unknown> = {
     format: SAVE_FORMAT,
     version: SAVE_SCHEMA_VERSION,
     savedAt: `${st.date.y}-${String(st.date.m).padStart(2, '0')}`,
+    savedAtHour: st.clock.hour,
+    engineVersion: ENGINE_VERSION,
   };
+  const fingerprint = worldDataFingerprint();
+  if (fingerprint) envelope.dataFingerprint = fingerprint;
   if (meta.clockPreference) envelope.clockPreference = parseSpeedSetting(meta.clockPreference);
   envelope.state = st;
   return JSON.stringify(envelope);
@@ -100,6 +149,9 @@ export function deserializeWithMeta(text: string): { state: GameState; meta: Sav
     version?: number;
     state?: GameState;
     clockPreference?: unknown;
+    engineVersion?: unknown;
+    dataFingerprint?: unknown;
+    savedAtHour?: unknown;
   };
   if (envelope.format !== SAVE_FORMAT) throw new Error('Not a save file of this game');
 
@@ -118,6 +170,17 @@ export function deserializeWithMeta(text: string): { state: GameState; meta: Sav
 
   // An unreadable pace preference is not simulation state: fall back to AUTO rather than reject.
   const meta: SaveMeta = envelope.clockPreference === undefined ? {} : { clockPreference: parseSpeedSetting(envelope.clockPreference) };
+  if (typeof envelope.engineVersion === 'string') meta.engineVersion = envelope.engineVersion;
+  if (envelope.dataFingerprint !== undefined) {
+    if (typeof envelope.dataFingerprint !== 'string') throw new Error('Save envelope has an invalid data fingerprint');
+    const current = worldDataFingerprint();
+    if (current && current !== envelope.dataFingerprint) {
+      throw new Error(`Save was created with a different world data build (${envelope.dataFingerprint}; installed ${current})`);
+    }
+    meta.dataFingerprint = envelope.dataFingerprint;
+  }
+  if (typeof envelope.savedAtHour === 'number') meta.savedAtHour = envelope.savedAtHour;
+  validateRngState(st);
 
   if (envelope.version === 1) return { state: migrateV2ToV3(migrateV1ToV2(st)), meta };
 
@@ -125,5 +188,6 @@ export function deserializeWithMeta(text: string): { state: GameState; meta: Sav
   validatePopulationState(st);
   if (envelope.version === 2) return { state: migrateV2ToV3(st), meta };
   validateClockState(st);
+  if (meta.savedAtHour !== undefined && meta.savedAtHour !== st.clock.hour) throw new Error('Save envelope hour does not match the saved canonical clock');
   return { state: st, meta };
 }

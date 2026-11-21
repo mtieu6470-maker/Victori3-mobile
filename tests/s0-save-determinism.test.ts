@@ -339,31 +339,17 @@ describe('S0-B4 — malformed, incomplete and legacy save characterization', () 
     }));
   });
 
-  it('missing RNG is not rejected by deserialize (current behavior)', () => {
+  it('missing RNG is rejected by deserialize (B4-R1 resolved by SAVE-01; baseline characterised TypeError on continuation)', () => {
     const state = createGame({ mode: 'sandbox', seed: SEED, player: 'GBR' });
     const envelope = JSON.parse(serialize(state)) as SaveEnvelope & { state: GameState };
     delete (envelope.state as Partial<GameState>).rng;
 
-    const restored = deserialize(JSON.stringify(envelope));
-    expect(restored.rng).toBeUndefined();
-
-    let continuationError: unknown;
-    try {
-      stepMonth(restored);
-    } catch (error) {
-      continuationError = error;
-    }
-
-    // Characterize the current baseline defect explicitly. Do not repair it in S0.
-    expect(continuationError).toBeInstanceOf(TypeError);
-    const errorName = continuationError instanceof Error ? continuationError.name : null;
-    expect(errorName).toBe('TypeError');
+    expect(() => deserialize(JSON.stringify(envelope))).toThrow('missing or invalid RNG state');
 
     console.info('[S0_B4_SAVE_COMPAT] ' + JSON.stringify({
       case: 'rng-missing',
-      deserialize: 'loaded-with-rng-undefined',
-      oneMonthContinuation: continuationError === undefined ? 'no-throw' : 'throws',
-      errorName,
+      deserialize: 'rejected',
+      resolution: 'SAVE-01 fail-closed RNG validation (was: loaded, then TypeError on continuation)',
     }));
   });
 });

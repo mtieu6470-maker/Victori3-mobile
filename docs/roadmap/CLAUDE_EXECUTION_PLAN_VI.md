@@ -99,10 +99,10 @@ UX/content:      UI-01 read models ─ UI-02 map lenses/inspector ─ PACK-01..0
 | PARITY-01 | Cập nhật ma trận parity + gói DLC | Claude (+CG-06) | audit | P0 | DONE v1; leaf-level chờ CG-06 |
 | **CLOCK-01** | Hourly canonical clock, scheduler, AUTO 12→6 governor, presets, save v3, lifecycle pause | Claude | — | P0 | **IMPLEMENTED (phiên này)** |
 | CLOCK-BENCH-DESKTOP | `tools/clock-bench.ts` | Claude | CLOCK-01 | P0 | DONE (desktop only) |
-| SAVE-01 | Envelope: engineVersion, dataBuildHash, savedAtHour; atomic slot write + giữ bản tốt cuối | Claude | CLOCK-01 | P0 | NEXT |
+| SAVE-01 | Envelope: engineVersion, world-data fingerprint, savedAtHour; RNG fail-closed (B4-R1); slot write validated + backup trong cùng transaction + tự khôi phục | Claude | CLOCK-01 | P0 | **IMPLEMENTED (2026-11-22)** |
 | CLOCK-02 | Simulation Web Worker + command queue + read-model snapshot | Claude | CLOCK-01, SAVE-01 | P0 | NOT_STARTED |
 | CLOCK-02b | Capacitor App lifecycle pause/resume + autosave nền | Claude | CLOCK-02 | P1 | NOT_STARTED |
-| SAVE-02 | RNG streams theo domain; fail-closed RNG thiếu (B4-R1) | Claude | SAVE-01 | P0 | NOT_STARTED |
+| SAVE-02 | RNG streams theo domain (B4-R1 đã đóng ở SAVE-01) | Claude | SAVE-01 | P0 | NOT_STARTED |
 | SAVE-03 | Backup/restore/export-import kiểm checksum | Claude | SAVE-01 | P1 | NOT_STARTED |
 | CLOCK-03 | Cadence mịn cho daily flows | Claude (+CG-04) | CLOCK-02, ECON-03/MIL-03 | P1 | NOT_STARTED |
 | CLOCK-04 | Scheduled event queue theo giờ trong save | Claude | SAVE-02 | P1 | NOT_STARTED |
@@ -165,13 +165,19 @@ UX/content:      UI-01 read models ─ UI-02 map lenses/inspector ─ PACK-01..0
 - Đo: startup p50/p95, frame time p50/p95/p99, ranh giới tháng p95/max, heap, save/load, 60 phút session, thermal — chỉ báo PASS khi đo trên thiết bị thật (model/OS/WebView/APK SHA).
 - iQOO Z10 Turbo là thiết bị mục tiêu; cài APK lên thiết bị cá nhân là hành động **owner-reserved**.
 
+## 11b. Chính sách branch (owner 2026-11-22: "làm kiểu gì tiện mà sau đỡ phải xóa nhiều")
+
+- Claude làm việc trên `ccr-b27f3fb8-epfpd6`. Sau mỗi lát cắt đã test xong, Claude fast-forward `claude/game-historical-sandbox-modes-kg7rj7` lên cùng commit, không force-push và không rewrite lịch sử.
+- Nếu branch chính thức có commit mới (ChatGPT hoặc owner), Claude merge nó vào `ccr` trước rồi mới fast-forward. Không bao giờ ghi đè.
+- ChatGPT/Hydrogen có thể đọc/ghi trên branch nào cũng được; Claude đồng bộ cả hai về một HEAD.
+
 ## 12. Risk register
 
 | ID | Rủi ro | Mức | Giảm thiểu |
 |---|---|---|---|
 | R-CLK-1 | Ranh giới tháng gây giật frame trên điện thoại | Cao | CLOCK-02 worker; đo bench Android |
 | R-CLK-2 | Ngưỡng governor chưa hiệu chỉnh trên thiết bị | Trung bình | Ngưỡng PROVISIONAL, tham số hóa; CLOCK-BENCH-ANDROID |
-| R-SAVE-1 | RNG thiếu → TypeError khi tiếp tục (B4-R1) | Trung bình | SAVE-02 fail-closed |
+| R-SAVE-1 | RNG thiếu → TypeError khi tiếp tục (B4-R1) | Đã đóng | SAVE-01: deserialize từ chối RNG thiếu/sai/toàn 0 |
 | R-BR-1 | Hai branch: phiên này đẩy lên `ccr-b27f3fb8-epfpd6`; tài liệu cũ chỉ định `claude/game-historical-sandbox-modes-kg7rj7`; workflow tests-only chỉ chạy trên branch chỉ định | Trung bình | Không tự đổi branch; ghi rõ trong handoff; owner/phiên sau fast-forward branch chỉ định từ `ccr-…` (lịch sử tuyến tính, cùng base) |
 | R-SCOPE-1 | Khối lượng parity rất lớn so với engine 3.9k dòng | Cao | Critical path theo causal spine; lát cắt nhỏ có test |
 | R-DATA-1 | Dữ liệu 1937–2026 chưa có nguồn | Cao | CG-07; unknown ≠ 0; không bịa |

@@ -10,7 +10,7 @@ import { shortName } from '../game/names';
 import { Flag } from './common';
 import { ui } from '../game/ui';
 import { game } from '../game/controller';
-import { saveSlot, loadSlot, listSlots } from '../game/storage';
+import { saveSlot, loadSlotDetailed, listSlots } from '../game/storage';
 
 export function WorldScreen({ st }: { st: GameState }) {
   const rk = rankings(st); const [ref, w] = useWidth<HTMLDivElement>();
@@ -45,7 +45,7 @@ export function SystemScreen({ st }: { st: GameState }) {
   const refresh = () => listSlots().then(setSlots).catch(() => setSlots([]));
   useEffect(() => { refresh(); }, []);
   const doSave = async (name: string) => { try { await saveSlot(name, game.save()); game.toast(`Đã lưu "${name}"`, 'ok'); refresh(); } catch (e) { game.toast(`Lưu thất bại: ${(e as Error).message}`, 'error'); } };
-  const doLoad = async (name: string) => { try { const t = await loadSlot(name); if (!t) throw new Error('không tìm thấy'); game.load(t); modals.close(); ui.set({ camera: null, region: null }); game.toast(`Đã tải "${name}"`, 'ok'); } catch (e) { game.toast(`Không tải được: ${(e as Error).message}`, 'error'); } };
+  const doLoad = async (name: string) => { try { const r = await loadSlotDetailed(name); if (!r) throw new Error('không tìm thấy'); game.load(r.text); modals.close(); ui.set({ camera: null, region: null }); game.toast(r.fromBackup ? `Bản lưu "${name}" bị hỏng; đã khôi phục bản trước đó` : `Đã tải "${name}"`, r.fromBackup ? 'info' : 'ok'); } catch (e) { game.toast(`Không tải được: ${(e as Error).message}`, 'error'); } };
   const exportFile = () => { const blob = new Blob([game.save()], { type: 'application/json' }); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `ban-luu-${st.date.y}-${String(st.date.m).padStart(2, '0')}.json`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); };
   const importFile = () => { const i = document.createElement('input'); i.type = 'file'; i.accept = '.json,application/json'; i.onchange = async () => { const f = i.files?.[0]; if (!f) return; try { game.load(await f.text()); ui.set({ camera: null, region: null }); game.toast('Đã nhập bản lưu', 'ok'); } catch (e) { game.toast(`Tệp không hợp lệ: ${(e as Error).message}`, 'error'); } }; i.click(); };
   return (
