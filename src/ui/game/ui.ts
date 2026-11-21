@@ -47,6 +47,12 @@ export function useGame() {
   useEffect(() => game.subscribe(() => force((x) => x + 1)), []);
   return game;
 }
+/** Re-renders only on clock changes (hour ticks) — for the date/time widget, not whole screens. */
+export function useGameClock() {
+  const [, force] = useState(0);
+  useEffect(() => game.subscribeClock(() => force((x) => x + 1)), []);
+  return game;
+}
 /** Media-query hook: landscape layout when the viewport is wider than tall. */
 export function useOrientation(): 'landscape' | 'portrait' {
   const q = (): 'landscape' | 'portrait' => (window.innerWidth > window.innerHeight ? 'landscape' : 'portrait');

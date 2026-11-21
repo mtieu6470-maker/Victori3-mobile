@@ -1,0 +1,187 @@
+polity_id,name_en,name_vi,kind_1836,capital_region,hist_from,hist_to,has_licensed_flag,has_licensed_arms
+ABD,Emirate of Abd al-Qadir (Mascara),Tiểu vương quốc Abd al-Qadir,de_facto_independent,ABD_MAS,1832-11-27,1847-12-23,no,no
+CON,Beylik of Constantine (Ahmed Bey),Beylik Constantine,de_facto_independent,CON_CON,1567-01-01,1837-10-13,no,no
+SHE,Kingdom of Shewa,Vương quốc Shewa,de_facto_independent,SHE_ANK,1700-01-01,1889-01-01,no,no
+CIR,Circassia (Adyghe confederation),Circassia,decentralized,CIR_CIR,,1864-05-21,no,no
+DZ_ADEN,Sultanate of Lahej (Aden),Sultanate of Lahej (Aden),decentralized,DZ_ADEN,,,no,no
+DZ_AFAR,Afar (Aussa Sultanate),Afar (Aussa Sultanate),decentralized,DZ_AFAR,,,no,no
+DZ_ALASKA,"Interior and northern Alaska (Athabaskan, Iñupiat)","Interior and northern Alaska (Athabaskan, Iñupiat)",decentralized,DZ_ALASKA,,,no,no
+DZ_ALG_S,"Algerian oases (Mzab, Ouargla, Touat)","Algerian oases (Mzab, Ouargla, Touat)",decentralized,DZ_ALG_S,,,no,no
+DZ_AMAZON_NW,"Upper Amazon peoples (Putumayo, Caquetá, Napo)","Upper Amazon peoples (Putumayo, Caquetá, Napo)",decentralized,DZ_AMAZON_NW,,,no,no
+DZ_AMAZON_W,"Western Amazon peoples (Maynas, Ucayali)","Western Amazon peoples (Maynas, Ucayali)",decentralized,DZ_AMAZON_W,,,no,no
+DZ_APACHERIA,Apachería and Navajo lands,Apachería and Navajo lands,decentralized,DZ_APACHERIA,,,no,no
+DZ_ARAUCANIA,Araucanía (Mapuche),Araucanía (Mapuche),decentralized,DZ_ARAUCANIA,,,no,no
+DZ_ARCTIC,Inuit of the Arctic archipelago,Inuit of the Arctic archipelago,decentralized,DZ_ARCTIC,,,no,no
+DZ_AUS_C,Aboriginal nations of central Australia,Aboriginal nations of central Australia,decentralized,DZ_AUS_C,,,no,no
+DZ_AUS_N,"Aboriginal nations of the north (Top End, Kimberley)","Aboriginal nations of the north (Top End, Kimberley)",decentralized,DZ_AUS_N,,,no,no
+DZ_AUS_Q,Aboriginal nations of the north-east,Aboriginal nations of the north-east,decentralized,DZ_AUS_Q,,,no,no
+DZ_AUS_SA,Adelaide plains and the Murray mouth,Adelaide plains and the Murray mouth,decentralized,DZ_AUS_SA,,,no,no
+DZ_AUS_SE,"Aboriginal nations of the south-east (Port Phillip, Murray)","Aboriginal nations of the south-east (Port Phillip, Murray)",decentralized,DZ_AUS_SE,,,no,no
+DZ_AUS_W,Aboriginal nations of the west,Aboriginal nations of the west,decentralized,DZ_AUS_W,,,no,no
+DZ_AZANDE,Azande and Ubangi-Uele peoples,Azande and Ubangi-Uele peoples,decentralized,DZ_AZANDE,,,no,no
+DZ_BAGIRMI,Bagirmi Sultanate,Bagirmi Sultanate,decentralized,DZ_BAGIRMI,,,no,no
+DZ_BALI,Bali and Lombok kingdoms,Bali and Lombok kingdoms,decentralized,DZ_BALI,,,no,no
+DZ_BANJAR,Banjarmasin and south Borneo,Banjarmasin and south Borneo,decentralized,DZ_BANJAR,,,no,no
+DZ_BATAK,Batak lands (North Sumatra),Batak lands (North Sumatra),decentralized,DZ_BATAK,,,no,no
+DZ_BENIN,Kingdom of Benin and the Niger Delta states,Kingdom of Benin and the Niger Delta states,decentralized,DZ_BENIN,,,no,no
+DZ_BUNYORO,Bunyoro and Toro,Bunyoro and Toro,decentralized,DZ_BUNYORO,,,no,no
+DZ_CAMEROON,Duala and Grassfields kingdoms,Duala and Grassfields kingdoms,decentralized,DZ_CAMEROON,,,no,no
+DZ_CELEBES,"Bugis-Makassar kingdoms (Bone, Gowa, Wajo)","Bugis-Makassar kingdoms (Bone, Gowa, Wajo)",decentralized,DZ_CELEBES,,,no,no
+DZ_CHACO,"Gran Chaco peoples (Toba, Wichí)","Gran Chaco peoples (Toba, Wichí)",decentralized,DZ_CHACO,,,no,no
+DZ_COMANCHE,Comanchería (Comanche and Kiowa),Comanchería (Comanche and Kiowa),decentralized,DZ_COMANCHE,,,no,no
+DZ_CONGO_W,Middle Congo basin peoples,Middle Congo basin peoples,decentralized,DZ_CONGO_W,,,no,no
+DZ_DAYAK,Dayak peoples of interior Borneo,Dayak peoples of interior Borneo,decentralized,DZ_DAYAK,,,no,no
+DZ_FANTE,Fante states and the Gold Coast forts,Fante states and the Gold Coast forts,decentralized,DZ_FANTE,,,no,no
+DZ_FEZZAN,Fezzan,Fezzan,decentralized,DZ_FEZZAN,,,no,no
+DZ_FIJI,Fiji,Fiji,decentralized,DZ_FIJI,,,no,no
+DZ_FUTATORO,Imamate of Futa Toro,Imamate of Futa Toro,decentralized,DZ_FUTATORO,,,no,no
+DZ_GABON,Gabon coast and Ogooué peoples,Gabon coast and Ogooué peoples,decentralized,DZ_GABON,,,no,no
+DZ_GAZA,Gaza kingdom (Soshangane),Gaza kingdom (Soshangane),decentralized,DZ_GAZA,,,no,no
+DZ_GREATBASIN,"Great Basin and the Rockies (Shoshone, Ute, Paiute)","Great Basin and the Rockies (Shoshone, Ute, Paiute)",decentralized,DZ_GREATBASIN,,,no,no
+DZ_GRIQUA,Griqua and Korana (Orange River),Griqua and Korana (Orange River),decentralized,DZ_GRIQUA,,,no,no
+DZ_HADRAMAUT,Hadramawt,Hadramawt,decentralized,DZ_HADRAMAUT,,,no,no
+DZ_HARAR,Harar and the northern Somali clans,Harar and the northern Somali clans,decentralized,DZ_HARAR,,,no,no
+DZ_HAZARA,Hazarajat,Hazarajat,decentralized,DZ_HAZARA,,,no,no
+DZ_HIGHLANDS,Central Highlands peoples,Central Highlands peoples,decentralized,DZ_HIGHLANDS,,,no,no
+DZ_IGBO,Igbo communities and the Aro confederacy,Igbo communities and the Aro confederacy,decentralized,DZ_IGBO,,,no,no
+DZ_KABYLIA,Kabylia,Kabylia,decentralized,DZ_KABYLIA,,,no,no
+DZ_KACHIN,Kachin hills,Kachin hills,decentralized,DZ_KACHIN,,,no,no
+DZ_KASANJE,"Kasanje, Matamba and Mbundu states","Kasanje, Matamba and Mbundu states",decentralized,DZ_KASANJE,,,no,no
+DZ_KENYA_INT,"Kikuyu, Kamba and Maasai lands","Kikuyu, Kamba and Maasai lands",decentralized,DZ_KENYA_INT,,,no,no
+DZ_KONG,Kong and Senufo states,Kong and Senufo states,decentralized,DZ_KONG,,,no,no
+DZ_KRU,Kru and Grebo coast,Kru and Grebo coast,decentralized,DZ_KRU,,,no,no
+DZ_KUBA,Kuba and Kasai peoples,Kuba and Kasai peoples,decentralized,DZ_KUBA,,,no,no
+DZ_KUNDUZ,Uzbek khanates of Kunduz and Balkh,Uzbek khanates of Kunduz and Balkh,decentralized,DZ_KUNDUZ,,,no,no
+DZ_KYRGYZ,Kyrgyz tribes of the Tian Shan,Kyrgyz tribes of the Tian Shan,decentralized,DZ_KYRGYZ,,,no,no
+DZ_LIBYAN_DES,Libyan Desert and Kufra,Libyan Desert and Kufra,decentralized,DZ_LIBYAN_DES,,,no,no
+DZ_LOANGO,Loango and Teke kingdoms,Loango and Teke kingdoms,decentralized,DZ_LOANGO,,,no,no
+DZ_LOZI,Lozi (Barotse) and the upper Zambezi,Lozi (Barotse) and the upper Zambezi,decentralized,DZ_LOZI,,,no,no
+DZ_LUBA,Luba Kingdom,Luba Kingdom,decentralized,DZ_LUBA,,,no,no
+DZ_LUNDA,Lunda Empire (Mwata Yamvo),Lunda Empire (Mwata Yamvo),decentralized,DZ_LUNDA,,,no,no
+DZ_MAGUINDANAO,Maguindanao and Lanao (Mindanao),Maguindanao and Lanao (Mindanao),decentralized,DZ_MAGUINDANAO,,,no,no
+DZ_MARAVI,Chewa and Maravi states,Chewa and Maravi states,decentralized,DZ_MARAVI,,,no,no
+DZ_MOMBASA,Mombasa (Mazrui),Mombasa (Mazrui),decentralized,DZ_MOMBASA,,,no,no
+DZ_MOSSI,"Mossi kingdoms (Ouagadougou, Yatenga)","Mossi kingdoms (Ouagadougou, Yatenga)",decentralized,DZ_MOSSI,,,no,no
+DZ_MPONDO,Mpondo kingdom,Mpondo kingdom,decentralized,DZ_MPONDO,,,no,no
+DZ_NAMA,Nama and Oorlam,Nama and Oorlam,decentralized,DZ_NAMA,,,no,no
+DZ_NUSA,"Lesser Sunda states (Sumbawa, Flores, Timor)","Lesser Sunda states (Sumbawa, Flores, Timor)",decentralized,DZ_NUSA,,,no,no
+DZ_NWCOAST,Pacific Northwest coast nations,Pacific Northwest coast nations,decentralized,DZ_NWCOAST,,,no,no
+DZ_NYAMWEZI,Nyamwezi and the Tanganyika interior,Nyamwezi and the Tanganyika interior,decentralized,DZ_NYAMWEZI,,,no,no
+DZ_NZ_S,South Island (Ngāi Tahu and southern iwi),South Island (Ngāi Tahu and southern iwi),decentralized,DZ_NZ_S,,,no,no
+DZ_OREGON,Oregon Country (joint British-American occupation),Oregon Country (joint British-American occupation),decentralized,DZ_OREGON,,,no,no
+DZ_OROMO,Oromo groups and the Gibe kingdoms,Oromo groups and the Gibe kingdoms,decentralized,DZ_OROMO,,,no,no
+DZ_OVAMBO,Ovambo and Herero,Ovambo and Herero,decentralized,DZ_OVAMBO,,,no,no
+DZ_OVIMBUNDU,"Ovimbundu kingdoms (Bié, Bailundo)","Ovimbundu kingdoms (Bié, Bailundo)",decentralized,DZ_OVIMBUNDU,,,no,no
+DZ_PAMPAS,"Pampas and northern Patagonia (Ranquel, Mapuche, Tehuelche)","Pampas and northern Patagonia (Ranquel, Mapuche, Tehuelche)",decentralized,DZ_PAMPAS,,,no,no
+DZ_PATAGONIA,Southern Patagonia and Tierra del Fuego,Southern Patagonia and Tierra del Fuego,decentralized,DZ_PATAGONIA,,,no,no
+DZ_PEDI,Pedi kingdom,Pedi kingdom,decentralized,DZ_PEDI,,,no,no
+DZ_PLAINS_C,"Central Plains (Pawnee, Osage, Kansa)","Central Plains (Pawnee, Osage, Kansa)",decentralized,DZ_PLAINS_C,,,no,no
+DZ_PLAINS_N,"Northern Plains (Lakota, Cheyenne, Arapaho)","Northern Plains (Lakota, Cheyenne, Arapaho)",decentralized,DZ_PLAINS_N,,,no,no
+DZ_PLAINS_UP,"Upper Missouri (Blackfoot, Crow, Mandan)","Upper Missouri (Blackfoot, Crow, Mandan)",decentralized,DZ_PLAINS_UP,,,no,no
+DZ_PNG_E,Eastern New Guinea,Eastern New Guinea,decentralized,DZ_PNG_E,,,no,no
+DZ_PNG_W,Western New Guinea,Western New Guinea,decentralized,DZ_PNG_W,,,no,no
+DZ_PONTIANAK,Pontianak and the West Borneo kongsi,Pontianak and the West Borneo kongsi,decentralized,DZ_PONTIANAK,,,no,no
+DZ_RWANDA,Kingdoms of Rwanda and Burundi,Kingdoms of Rwanda and Burundi,decentralized,DZ_RWANDA,,,no,no
+DZ_SABAH,North Borneo (Sabah),North Borneo (Sabah),decentralized,DZ_SABAH,,,no,no
+DZ_SAHARA_C,"Tuareg confederations (Ahaggar, Aïr, Ajjer)","Tuareg confederations (Ahaggar, Aïr, Ajjer)",decentralized,DZ_SAHARA_C,,,no,no
+DZ_SAHARA_W,"Moorish emirates (Trarza, Brakna, Adrar)","Moorish emirates (Trarza, Brakna, Adrar)",decentralized,DZ_SAHARA_W,,,no,no
+DZ_SAKALAVA,Sakalava and southern Madagascar,Sakalava and southern Madagascar,decentralized,DZ_SAKALAVA,,,no,no
+DZ_SAKHALIN,Sakhalin (Ainu and Nivkh),Sakhalin (Ainu and Nivkh),decentralized,DZ_SAKHALIN,,,no,no
+DZ_SAMOA,Samoa,Samoa,decentralized,DZ_SAMOA,,,no,no
+DZ_SEGOU,Bambara kingdoms of Ségou and Kaarta,Bambara kingdoms of Ségou and Kaarta,decentralized,DZ_SEGOU,,,no,no
+DZ_SEMINOLE,Seminole lands (central and south Florida),Seminole lands (central and south Florida),decentralized,DZ_SEMINOLE,,,no,no
+DZ_SEMIRECHYE,Senior Zhuz Kazakhs (Semirechye),Senior Zhuz Kazakhs (Semirechye),decentralized,DZ_SEMIRECHYE,,,no,no
+DZ_SENEGAMBIA,"Wolof and Serer kingdoms (Cayor, Walo, Jolof)","Wolof and Serer kingdoms (Cayor, Walo, Jolof)",decentralized,DZ_SENEGAMBIA,,,no,no
+DZ_SHONA,Shona states,Shona states,decentralized,DZ_SHONA,,,no,no
+DZ_SLE_INT,Temne and Mende chiefdoms,Temne and Mende chiefdoms,decentralized,DZ_SLE_INT,,,no,no
+DZ_SOMALI,Somali clans of the south and the Benadir,Somali clans of the south and the Benadir,decentralized,DZ_SOMALI,,,no,no
+DZ_SWAZI,Swazi kingdom,Swazi kingdom,decentralized,DZ_SWAZI,,,no,no
+DZ_TONGA,Tonga,Tonga,decentralized,DZ_TONGA,,,no,no
+DZ_TRUCIAL,"Trucial sheikhdoms, Qatar and Bahrain","Trucial sheikhdoms, Qatar and Bahrain",decentralized,DZ_TRUCIAL,,,no,no
+DZ_TSWANA,Tswana chiefdoms,Tswana chiefdoms,decentralized,DZ_TSWANA,,,no,no
+DZ_TURKMEN,"Turkmen tribes (Merv, Akhal, Tejen)","Turkmen tribes (Merv, Akhal, Tejen)",decentralized,DZ_TURKMEN,,,no,no
+DZ_XHOSA,Xhosa chiefdoms,Xhosa chiefdoms,decentralized,DZ_XHOSA,,,no,no
+DZ_YAO,Yao and Makua chiefdoms,Yao and Makua chiefdoms,decentralized,DZ_YAO,,,no,no
+POR_GUI_X,Bijagós and Rio Grande peoples,Bijagós and Rio Grande peoples,decentralized,POR_GUI_X,,,no,no
+CAR,Carlist Spain (supporters of Don Carlos),Phe Carlist (Tây Ban Nha),rebel,SPA_BAS,1833-10-06,1840-07-06,no,no
+AFG,Emirate of Kabul (Dost Mohammad Khan),Tiểu vương quốc Kabul,sovereign,AFG_KAB,1826-01-01,,no,no
+ASH,Asante Empire,Đế quốc Ashanti,sovereign,ASH_KUM,1701-01-01,1901-09-26,no,yes
+BHU,Bhutan,Bhutan,sovereign,BHU_PUN,1616-01-01,,no,no
+BRE,Free City of Bremen,Thành phố tự do Bremen,sovereign,BRE_BRE,1815-06-09,,no,no
+BSO,Basotho Kingdom (Moshoeshoe),Vương quốc Basotho,sovereign,BSO_THA,1822-01-01,,no,no
+BUG,Kingdom of Buganda,Vương quốc Buganda,sovereign,BUG_BUG,1300-01-01,,no,no
+CHL,Chile,Chile,sovereign,CHL_SAN,1818-02-12,,no,no
+DAR,Sultanate of Darfur,Vương quốc Hồi giáo Darfur,sovereign,DAR_FAS,1603-01-01,1874-10-24,no,no
+DEN,Kingdom of Denmark,Vương quốc Đan Mạch,sovereign,DEN_ZEA,0980-01-01,,no,no
+ETH,Ethiopian Empire (Zemene Mesafint; regency of Ras Ali II),Ethiopia (Thời kỳ các Hoàng thân),sovereign,ETH_GON,1270-01-01,,no,no
+GRE,Kingdom of Greece,Vương quốc Hy Lạp,sovereign,GRE_ATH,1832-05-07,,no,no
+HAM,Free City of Hamburg,Thành phố tự do Hamburg,sovereign,HAM_HAM,1815-06-09,,no,no
+HAW,Kingdom of Hawaii,Vương quốc Hawaii,sovereign,HAW_OAH,1795-05-01,1893-01-17,no,yes
+HER,Principality of Herat,Công quốc Herat,sovereign,HER_HER,1818-01-01,1863-05-27,no,no
+JAP,Tokugawa Japan,Nhật Bản (Mạc phủ Tokugawa),sovereign,JAP_EDO,1603-03-24,,no,yes
+KAN,Principality of Kandahar (Dil Khan sardars),Công quốc Kandahar,sovereign,KAN_KAN,1818-01-01,1855-01-01,no,no
+KHI,Khanate of Khiva,Hãn quốc Khiva,sovereign,KHI_KHI,1511-01-01,1920-02-02,no,no
+LIE,Principality of Liechtenstein,Thân vương quốc Liechtenstein,sovereign,LIE_VAD,1719-01-23,,no,no
+MOR,Sultanate of Morocco,Vương quốc Hồi giáo Maroc,sovereign,MOR_FES,1631-01-01,1912-03-30,no,no
+NDE,Ndebele (Mzilikazi's kingdom),Vương quốc Ndebele,sovereign,NDE_MOS,1823-01-01,1894-01-01,no,no
+OYO,Oyo and the Yoruba states (in collapse c. 1835-36),Oyo và các quốc gia Yoruba,sovereign,OYO_OYO,1400-01-01,1896-01-01,no,no
+PEU,Peru (Orbegoso government),Peru,sovereign,PEU_LIM,1821-07-28,,no,no
+PRS,Qajar Persia,Ba Tư (nhà Qajar),sovereign,PRS_TEH,1789-01-01,1925-12-15,no,yes
+PRU,Kingdom of Prussia,Vương quốc Phổ,sovereign,PRU_BRA,1701-01-18,1918-11-09,no,yes
+RLE,Principality of Reuss-Lobenstein-Ebersdorf,Thân vương quốc Reuss-Lobenstein-Ebersdorf,sovereign,RLE_LOB,1824-01-01,1848-10-01,no,no
+SAR,Kingdom of Sardinia (Piedmont-Sardinia),Vương quốc Sardegna (Piemonte-Sardegna),sovereign,SAR_PIE,1720-08-08,1861-03-17,no,no
+SIA,Kingdom of Siam (Rattanakosin),Xiêm La (Rattanakosin),sovereign,SIA_BKK,1782-04-06,,no,no
+SIK,Sikh Empire,Đế quốc Sikh,sovereign,SIK_LAH,1799-07-07,1849-03-29,no,no
+SMR,Republic of San Marino,Cộng hòa San Marino,sovereign,SMR_SMR,0301-09-03,,no,no
+SND,Talpur Amirs of Sindh,Sindh (các Amir Talpur),sovereign,SND_HYD,1783-01-01,1843-03-24,no,no
+SOK,Sokoto Caliphate,Vương quốc Hồi giáo Sokoto,sovereign,SOK_SOK,1804-02-21,1903-03-15,no,no
+SPA,Kingdom of Spain,Vương quốc Tây Ban Nha,sovereign,SPA_MAD,1813-12-11,,no,no
+SUL,Sultanate of Sulu,Vương quốc Hồi giáo Sulu,sovereign,SUL_JOL,1405-01-01,1915-03-22,no,no
+SWE,Kingdom of Sweden,Vương quốc Thụy Điển,sovereign,SWE_STO,1523-06-06,,no,no
+SWI,Swiss Confederation,Liên bang Thụy Sĩ,sovereign,SWI_BER,1815-08-07,,no,no
+URU,Oriental Republic of Uruguay,Uruguay,sovereign,URU_MON,1828-08-27,,no,no
+VNM,Việt Nam (Nguyễn dynasty),Việt Nam (nhà Nguyễn),sovereign,VNM_HUE,1802-06-01,1945-08-25,no,yes
+WAD,Sultanate of Wadai,Vương quốc Hồi giáo Wadai,sovereign,WAD_ABE,1635-01-01,1912-01-01,no,no
+WLD,Principality of Waldeck and Pyrmont,Thân vương quốc Waldeck và Pyrmont,sovereign,WLD_ARO,1712-01-01,1918-11-13,no,yes
+YEM,Zaydi Imamate of Yemen,Lãnh địa Imam Zaydi (Yemen),sovereign,YEM_SAN,0897-01-01,1849-01-01,no,no
+ZUL,Zulu Kingdom,Vương quốc Zulu,sovereign,ZUL_MGU,1816-01-01,1897-01-01,no,no
+EGY,Egypt under Muhammad Ali,Ai Cập dưới thời Muhammad Ali,subject,EGY_CAI,1805-05-17,1882-09-15,no,no
+FIN_GD,Grand Duchy of Finland,Đại công quốc Phần Lan,subject,,1809-03-29,1917-12-06,no,yes
+LIB,Liberia (colony of the American Colonization Society),Liberia (thuộc địa của Hội Thuộc địa Mỹ),subject,LIB_MON,1822-01-07,,no,no
+MCO,Principality of Monaco,Thân vương quốc Monaco,subject,MCO_MCO,1297-01-08,,no,no
+MUG,"Mughal Empire (nominal, Delhi)",Đế quốc Mogul (danh nghĩa),subject,,1526-04-21,1857-09-21,no,no
+NAG,Nagpur Kingdom (Bhonsle),Vương quốc Nagpur,subject,NAG_NAG,1739-01-01,1853-12-11,no,no
+POL_CONGRESS,Kingdom of Poland (Congress Poland),Vương quốc Ba Lan (Ba Lan Quốc hội),subject,,1815-06-09,1867-01-01,no,yes
+TIB,Tibet (Ganden Phodrang under Qing protection),Tây Tạng,subject,TIB_LHA,1642-01-01,,no,no
+WAL,Principality of Wallachia,Thân vương quốc Wallachia,subject,WAL_BUC,1290-01-01,1859-02-05,no,no
+IMM,Caucasian Imamate,Lãnh địa Imam Kavkaz,de_facto_independent,IMM_DAG,1828-01-01,1859-08-25,yes,no
+DZ_KUWAIT,Kuwait,Kuwait,decentralized,DZ_KUWAIT,,,yes,no
+DZ_MOSQUITO,Mosquito Coast (Miskito kingdom),Mosquito Coast (Miskito kingdom),decentralized,DZ_MOSQUITO,,,yes,no
+DZ_SHAMMAR,Jabal Shammar (Ha'il),Jabal Shammar (Ha'il),decentralized,DZ_SHAMMAR,,,yes,no
+MAO,United Tribes of New Zealand,Liên minh các bộ tộc New Zealand,decentralized,MAO_NOR,1835-10-28,1840-02-06,yes,no
+BEL,Kingdom of Belgium,Vương quốc Bỉ,sovereign,BEL_BRU,1830-10-04,,yes,no
+BOL,Bolivia,Bolivia,sovereign,BOL_POT,1825-08-06,,yes,no
+BOR,Bornu (al-Kanemi regime),Bornu,sovereign,BOR_KUK,1380-01-01,1893-01-01,yes,no
+BRN,Sultanate of Brunei,Vương quốc Hồi giáo Brunei,sovereign,BRN_BRN,1368-01-01,,yes,no
+BUK,Emirate of Bukhara,Tiểu vương quốc Bukhara,sovereign,BUK_BUK,1785-01-01,1920-09-02,yes,no
+BUR,Konbaung Burma,Miến Điện (nhà Konbaung),sovereign,BUR_AVA,1752-02-29,1885-11-29,yes,no
+DAH,Kingdom of Dahomey,Vương quốc Dahomey,sovereign,DAH_ABO,1600-01-01,1894-01-15,yes,no
+ECU,Ecuador,Ecuador,sovereign,ECU_QUI,1830-05-13,,yes,no
+FJA,Imamate of Futa Jallon,Lãnh địa Imam Futa Jallon,sovereign,FJA_TIM,1725-01-01,1896-01-01,yes,no
+HSI,Principality of Hohenzollern-Sigmaringen,Thân vương quốc Hohenzollern-Sigmaringen,sovereign,HSI_SIG,1576-01-01,1850-03-12,yes,no
+KAL,Khanate of Kalat,Hãn quốc Kalat,sovereign,KAL_KAL,1666-01-01,1955-01-01,yes,no
+KOK,Khanate of Kokand,Hãn quốc Kokand,sovereign,KOK_FER,1709-01-01,1876-02-19,yes,no
+MAS,Massina Caliphate (Hamdullahi),Caliphate Massina,sovereign,MAS_HAM,1818-01-01,1862-05-16,yes,no
+NAJ,Emirate of Nejd (Second Saudi State),Tiểu vương quốc Nejd,sovereign,NAJ_RIY,1824-01-01,1891-01-01,yes,no
+NEP,Kingdom of Nepal,Vương quốc Nepal,sovereign,NEP_KAT,1768-09-25,,yes,no
+OMA,Sultanate of Muscat and Oman (with Zanzibar),Vương quốc Hồi giáo Muscat và Oman,sovereign,OMA_MUS,1744-01-01,,yes,no
+PAR,Paraguay (Francia),Paraguay,sovereign,PAR_ASU,1811-05-15,,yes,no
+QNG,Great Qing,Đại Thanh,sovereign,QNG_ZHI,1636-01-01,1912-02-12,yes,no
+USA,United States of America,Hợp chúng quốc Hoa Kỳ,sovereign,USA_MAR,1776-07-04,,yes,no
+AWA,Kingdom of Awadh (Oudh),Vương quốc Awadh,subject,AWA_LKO,1722-01-01,1856-02-11,yes,no
+BRD,Baroda State (Gaekwad),Baroda (Gaekwad),subject,BRD_BRD,1721-01-01,1949-05-01,yes,no
+GWA,Gwalior State (Scindia),Gwalior (Scindia),subject,GWA_GWA,1731-01-01,1948-05-28,yes,no
+HOL,Indore State (Holkar),Indore (Holkar),subject,HOL_IND,1731-01-01,1948-05-28,yes,no
+LUA,Kingdom of Luang Prabang,Vương quốc Luang Prabang,subject,LUA_LUA,1707-01-01,1947-05-11,yes,no
+NOR,Kingdom of Norway,Vương quốc Na Uy,subject,NOR_OSL,1814-11-04,,yes,no
+TRV,Kingdom of Travancore,Vương quốc Travancore,subject,TRV_TRV,1729-01-01,1949-07-01,yes,no

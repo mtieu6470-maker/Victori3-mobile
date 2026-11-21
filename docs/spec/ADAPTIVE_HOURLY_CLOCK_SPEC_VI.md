@@ -84,11 +84,29 @@ API: `advanceHour`, `advanceHours(st, n, shouldYield?)` (dừng giữa các gi�
 
 Lệnh: `npx tsx tools/clock-bench.ts --years 0,10,30 --sample-months 12 --out <file>`. Kết quả được ghi trong rolling report. Ý nghĩa: với chi phí ranh giới tháng ~60–70 ms desktop, mô phỏng chỉ chiếm < 0,1% một core ở 12h/s; rủi ro thực là **giật frame tại ranh giới tháng** (một khối ~64 ms desktop, có thể 150–300 ms trên điện thoại) do mô phỏng còn chạy trên UI thread.
 
+## 7b. CLOCK-02 — mô phỏng trong Web Worker (2026-11-22)
+
+- `src/engine/runtime/simCore.ts`: `SimCore` là chủ sở hữu duy nhất của GameState thật. Giao thức yêu cầu/phản hồi gồm newGame, load, advance, snapshot, stepMonth, command, save; mỗi yêu cầu có `gen` (thế hệ). newGame/load mở thế hệ mới. Yêu cầu của thế hệ cũ bị từ chối (`stale`) và không chạm vào ván mới. Load lỗi thì giữ nguyên ván và thế hệ cũ. Lỗi engine được trả về dạng phản hồi thất bại, không ném qua ranh giới.
+- `src/ui/game/sim.worker.ts`: worker tự nạp bản sao dữ liệu lịch sử tĩnh và xử lý yêu cầu theo đúng thứ tự đến.
+- `src/ui/game/simHost.ts`: `WorkerSimHost` (app) và `InlineSimHost` (test, hoặc dự phòng khi không tạo được Worker; snapshot luôn được clone để UI không bao giờ trỏ vào state thật).
+- Controller (`src/ui/game/controller.ts`):
+  - `st` là bản sao read-only.
+  - Tối đa một yêu cầu `advance` đang chạy (backpressure); giờ nợ chờ trong backlog.
+  - Thời gian mô phỏng do worker đo được đưa vào governor.
+  - Giữa các mốc tháng chỉ vá `clock.hour` (giữ identity, cache theo tick vẫn hợp lệ). Snapshot đầy đủ chỉ đến sau mốc tháng, lệnh, bước tháng, load hoặc new game.
+  - Fast-forward gửi chunk `snapshot:'never'` và lấy snapshot một lần ở cuối.
+- **Kênh đồng hồ nhẹ**: cập nhật giờ (≤ 4 lần/s) chỉ re-render ô ngày giờ (`subscribeClock` / `useGameClock` / `DateBox`), không re-render toàn bộ UI.
+- Đo đạc (desktop Chromium headless, không phải Android):
+  - Gửi snapshot ~4,2 MB (10 năm chơi): clone ~22 ms (serialize ~7 ms ở worker + deserialize ~11 ms ở UI), so với ~64 ms mô phỏng một mốc tháng trước đây chạy trên UI thread.
+  - Chơi 20 s ở 48 h/s qua một mốc tháng: trước khi có kênh đồng hồ nhẹ có 80 long task (65–90 ms); sau khi sửa còn 2 long task (≤ 65 ms, re-render khi sang tháng). Không có lỗi trang.
+  - Host là `worker`; save → load giữ nguyên giờ.
+- Chưa làm: snapshot dạng delta/read-model (UI-01) để giảm thêm chi phí re-render khi sang tháng; benchmark trên Android.
+
 ## 8. Chưa làm / tiếp theo
 
 | ID | Nội dung |
 |---|---|
-| CLOCK-02 | Chuyển mô phỏng sang Web Worker (command queue có sequence ID, snapshot/read-model cho UI, hủy/invalidate khi load) để ranh giới tháng không chặn UI thread. |
+| CLOCK-02 | **Đã làm 2026-11-22** (xem §7b). Còn lại: read-model/delta (UI-01). |
 | CLOCK-02b | Hook lifecycle native Capacitor (`App` pause/resume) + autosave khi vào nền; khả năng đọc thermal nếu có API. |
 | CLOCK-03 | Di chuyển subsystem sang cadence mịn khi domain cần (daily: shipments, supply/attrition, migration flow; hourly: movement/battle substep), mỗi cái có contract + test tương đương/tất định; trải đều công việc tháng nếu mô hình cho phép. |
 | CLOCK-BENCH-ANDROID | Benchmark trên thiết bị thật (iQOO Z10 Turbo cần owner cho phép cài APK) ở 12h/s và 6h/s, world late-game đại diện; hiệu chỉnh ngưỡng governor. |

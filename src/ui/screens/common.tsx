@@ -26,9 +26,9 @@ const REASONS_VI: [RegExp, string][] = [
   [/Refused \(acceptance/i, 'Đối phương từ chối liên minh.'],
   [/Subjects/i, 'Chư hầu (trừ triều cống) không thể tự lập liên minh.'],
 ];
-/** Sends a command through the engine and reports the engine's own result; never fakes success. */
-export function send(cmd: Command, okText: string): boolean {
-  const r = game.command(cmd);
+/** Sends a command through the simulation host and reports the engine's own result; never fakes success. */
+export async function send(cmd: Command, okText: string): Promise<boolean> {
+  const r = await game.command(cmd);
   if (r.ok) game.toast(okText, 'ok');
   else { const vi = REASONS_VI.find(([re]) => re.test(r.reason ?? ''))?.[1]; game.toast(vi ? `${vi}${r.reason && /\d/.test(r.reason) ? ` (${r.reason})` : ''}` : `Không thực hiện được: ${r.reason ?? 'lý do không rõ'}`, 'error'); }
   return r.ok;

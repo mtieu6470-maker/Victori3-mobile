@@ -100,7 +100,7 @@ UX/content:      UI-01 read models ─ UI-02 map lenses/inspector ─ PACK-01..0
 | **CLOCK-01** | Hourly canonical clock, scheduler, AUTO 12→6 governor, presets, save v3, lifecycle pause | Claude | — | P0 | **IMPLEMENTED (phiên này)** |
 | CLOCK-BENCH-DESKTOP | `tools/clock-bench.ts` | Claude | CLOCK-01 | P0 | DONE (desktop only) |
 | SAVE-01 | Envelope: engineVersion, world-data fingerprint, savedAtHour; RNG fail-closed (B4-R1); slot write validated + backup trong cùng transaction + tự khôi phục | Claude | CLOCK-01 | P0 | **IMPLEMENTED (2026-11-22)** |
-| CLOCK-02 | Simulation Web Worker + command queue + read-model snapshot | Claude | CLOCK-01, SAVE-01 | P0 | NOT_STARTED |
+| CLOCK-02 | Simulation Web Worker (SimCore + generation protocol + backpressure) + kênh đồng hồ nhẹ | Claude | CLOCK-01, SAVE-01 | P0 | **IMPLEMENTED (2026-11-22)**, desktop-measured |
 | CLOCK-02b | Capacitor App lifecycle pause/resume + autosave nền | Claude | CLOCK-02 | P1 | NOT_STARTED |
 | SAVE-02 | RNG streams theo domain (B4-R1 đã đóng ở SAVE-01) | Claude | SAVE-01 | P0 | NOT_STARTED |
 | SAVE-03 | Backup/restore/export-import kiểm checksum | Claude | SAVE-01 | P1 | NOT_STARTED |
@@ -175,7 +175,8 @@ UX/content:      UI-01 read models ─ UI-02 map lenses/inspector ─ PACK-01..0
 
 | ID | Rủi ro | Mức | Giảm thiểu |
 |---|---|---|---|
-| R-CLK-1 | Ranh giới tháng gây giật frame trên điện thoại | Cao | CLOCK-02 worker; đo bench Android |
+| R-CLK-1 | Ranh giới tháng gây giật frame trên điện thoại | Trung bình (đã giảm) | CLOCK-02: mô phỏng ở worker, UI chỉ re-render khi sang tháng; còn cần read-model delta + bench Android |
+| R-CMD-1 | `start_reform` với nhóm luật không tồn tại trả `ok: true` (phát hiện khi smoke test CLOCK-02) | Trung bình | BUG-CMD-01: validation lệnh (fail closed) |
 | R-CLK-2 | Ngưỡng governor chưa hiệu chỉnh trên thiết bị | Trung bình | Ngưỡng PROVISIONAL, tham số hóa; CLOCK-BENCH-ANDROID |
 | R-SAVE-1 | RNG thiếu → TypeError khi tiếp tục (B4-R1) | Đã đóng | SAVE-01: deserialize từ chối RNG thiếu/sai/toàn 0 |
 | R-BR-1 | Hai branch: phiên này đẩy lên `ccr-b27f3fb8-epfpd6`; tài liệu cũ chỉ định `claude/game-historical-sandbox-modes-kg7rj7`; workflow tests-only chỉ chạy trên branch chỉ định | Trung bình | Không tự đổi branch; ghi rõ trong handoff; owner/phiên sau fast-forward branch chỉ định từ `ccr-…` (lịch sử tuyến tính, cùng base) |

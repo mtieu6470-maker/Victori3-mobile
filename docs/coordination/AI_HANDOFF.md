@@ -1,3 +1,22 @@
+## 2026-11-22 — CLOCK-02 simulation Web Worker — IMPLEMENTED (desktop-measured)
+
+- **Kiến trúc:**
+  - `SimCore` (`src/engine/runtime/simCore.ts`) sở hữu state thật, giao thức có thế hệ `gen`.
+  - `sim.worker.ts` + `WorkerSimHost` chạy trong app; `InlineSimHost` dùng cho test/dự phòng.
+  - Controller chuyển sang async: `newGame/load/save/command/stepOnce/stepDay/fastForward` đều async; tối đa một `advance` chạy cùng lúc; UI giữ bản sao read-only.
+  - Các chỗ gọi trong UI (send/act, autosave, World save/load/export/import, Setup, boot) đã cập nhật.
+- **Kênh đồng hồ nhẹ:** smoke test phát hiện mỗi lần cập nhật giờ (4/s) re-render toàn bộ UI, gây ~65–90 ms long task — do CLOCK-01 đưa vào. Đã sửa: chỉ `DateBox` re-render theo giờ.
+- **Bằng chứng (desktop, không phải Android):**
+  - Chromium headless, host=`worker`, chơi 48 h/s trong 20 s qua mốc tháng: long task **80 → 2** (tổng ~5,8 s → ~0,13 s); save→load giữ nguyên giờ; 0 lỗi trang.
+  - Clone snapshot 4,2 MB ~22 ms (UI ~11 ms), so với ~64 ms mô phỏng trước đây chạy trên UI thread.
+  - Local: tsc 0; `npm test` exit 0, **20/20 file, 204/204 test**; build 0 (có chunk `sim.worker-*.js`).
+- **Test mới/viết lại:** `tests/sim-core-protocol.test.ts`, `tests/controller-clock.test.ts`, `tests/controller-fast-forward.test.ts` (engine thật + host có kịch bản xen ngang load/new game/background/lỗi).
+- **Lỗi phát hiện (chưa sửa):** BUG-CMD-01 — `start_reform` với nhóm luật không tồn tại trả `ok: true`.
+- **Hydrogen HY-01 v1:** đã review — chỉ dùng làm tham chiếu niên đại, giao v2 có URL/license từng file theo danh sách 186 chính thể còn thiếu.
+- **Tiếp theo:** BUG-CMD-01 (validation lệnh) → CLOCK-02b (lifecycle native + autosave nền) → POP-01/ECON-01 (gameplay spine).
+
+---
+
 ## 2026-11-22 — SAVE-01 implemented + CG-12 fixes + ChatGPT CG-13..15 integrated
 
 - **SAVE-01:**

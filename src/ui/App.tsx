@@ -9,7 +9,7 @@ import { game, campaignFinished } from './game/controller';
 import { hourToDateTime } from '../engine/clock/calendar';
 import { FIXED_RATES_HPS, nextSpeedSetting, RATE_MULTIPLIER_LABEL, realSecondsPerDay } from '../engine/clock/pace';
 import { paceStatusLabelVi } from '../engine/clock/governor';
-import { ui, useUI, useGame, type ScreenId, type LensId } from './game/ui';
+import { ui, useUI, useGame, useGameClock, type ScreenId, type LensId } from './game/ui';
 import { MapView, mapControls, type MapAssets } from './map/MapView';
 import { LENSES, lensById } from './map/lenses';
 import { Icon, MODULE_COLOR } from './components/icons';
@@ -67,6 +67,14 @@ function useViewport(): [number, number] {
 export const scopeKey = () => { const u = ui.get(); return `${u.screen}:${u.tabs[u.screen] ?? ''}:${u.country ?? ''}`; };
 type Rect = { x: number; y: number; w: number; h: number };
 
+/** Date/time widget: subscribes to the lightweight clock channel so hour ticks never re-render the whole UI. */
+function DateBox() {
+  const g = useGameClock(); const st = g.st;
+  if (!st) return null;
+  const now = hourToDateTime(st.clock.hour);
+  return <div class="datebox" aria-label={`${now.h} giờ ngày ${now.d} ${MONTH_VI[now.m - 1]} năm ${now.y}; chiến dịch ${CAMPAIGN_START_YEAR}–${CAMPAIGN_END_YEAR}`}><b class="num">{now.y}</b><span>{now.d} {MONTH_VI[now.m - 1]} · <span class="num">{String(now.h).padStart(2, '0')}:00</span></span></div>;
+}
+
 export function App({ assets }: { assets: MapAssets }) {
   const u = useUI(); const g = useGame(); const det = details.use(); const [vw, vh] = useViewport(); const st = g.st;
   const [pick, setPick] = useState<{ x: number; y: number } | null>(null);
@@ -75,7 +83,7 @@ export function App({ assets }: { assets: MapAssets }) {
   const portraitNow = vw <= vh;
   const stageH = portraitNow ? vh - TOP_P - DOCK_P : vh - TOP_L;
   const regionGrip = useSheetDrag(stageH, () => ui.set({ region: null, regionDetail: false }));
-  useEffect(() => { if (st && st.date.m === 1 && st.tick > 0 && st.tick !== lastSave.current && !game.busy) { lastSave.current = st.tick; saveSlot('Tự động lưu', game.save()).catch(() => game.toast('Không tự động lưu được (bộ nhớ thiết bị)', 'error')); } });
+  useEffect(() => { if (st && st.date.m === 1 && st.tick > 0 && st.tick !== lastSave.current && !game.busy) { lastSave.current = st.tick; game.save().then((t) => saveSlot('Tự động lưu', t)).catch(() => game.toast('Không tự động lưu được (bộ nhớ thiết bị)', 'error')); } });
   useEffect(() => {
     const k = (e: KeyboardEvent) => {
       if ((e.target as HTMLElement)?.tagName === 'INPUT') return;
@@ -234,13 +242,13 @@ function TopBar({ portrait }: { portrait: boolean }) {
       </button>
     </Tip>
   );
-  const now = hourToDateTime(st.clock.hour); const gov = g.governor;
+  const gov = g.governor;
   const clock = (
     <div class="clock">
       <button class="ib" aria-label="Thông báo" title="Thông báo" onClick={() => modals.open('Thông báo', () => <InboxScreen st={st} />)}><Icon name="bell" class="i" />{unread > 0 && <span class="badge">{unread > 99 ? '99+' : unread}</span>}</button>
       <button class={`ib${menu ? ' on' : ''}`} aria-label="Menu" title="Thế giới, hệ thống, bản đồ toàn màn hình" onClick={(e) => { const r = (e.currentTarget as HTMLElement).getBoundingClientRect(); setMenu(menu ? null : { x: r.right, y: r.bottom }); }}><Icon name="menu" class="i" /></button>
       <Tip c={{ title: 'Thời kỳ chiến dịch ' + CAMPAIGN_START_YEAR + '–' + CAMPAIGN_END_YEAR, note: campaignFinished(st) ? 'Đã đến giờ cuối cùng của chiến dịch: 23:00 ngày 31/12/' + CAMPAIGN_END_YEAR + '.' : 'Bắt đầu 00:00 ngày 1/1/' + CAMPAIGN_START_YEAR + '; giờ chơi cuối cùng 23:00 ngày 31/12/' + CAMPAIGN_END_YEAR + '. Đồng hồ mô phỏng theo giờ.' }}>
-        <div class="datebox" aria-label={`${now.h} giờ ngày ${now.d} ${MONTH_VI[now.m - 1]} năm ${now.y}; chiến dịch ${CAMPAIGN_START_YEAR}–${CAMPAIGN_END_YEAR}`}><b class="num">{now.y}</b><span>{now.d} {MONTH_VI[now.m - 1]} · <span class="num">{String(now.h).padStart(2, '0')}:00</span></span></div>
+        <DateBox />
       </Tip>
       <Tip c={{ title: 'Tốc độ: ' + paceStatusLabelVi(gov), lines: [['Chế độ', g.speedSetting.kind === 'auto' ? 'AUTO (12 → 6 giờ/giây khi quá tải)' : 'Cố định ' + RATE_MULTIPLIER_LABEL[g.speedSetting.hps]], ['Tốc độ hiệu lực', gov.effectiveHps + ' giờ game/giây'], ['1 ngày game', realSecondsPerDay(gov.effectiveHps) + ' giây thực']], note: 'Chạm để đổi: AUTO → 3 → 6 → 12 → 24 → 48 giờ/giây. Phím 1–5 chọn tốc độ cố định, 0 hoặc A chọn AUTO. Tốc độ chỉ thay đổi nhịp thời gian thực, không bỏ qua giờ mô phỏng nào.' + (gov.status === 'overloaded' || gov.status === 'fixed_overloaded' ? ' Thiết bị đang quá tải: mô phỏng chạy chậm hơn tốc độ chọn, không bỏ công việc.' : '') }}>
         <button class={`speed pace ${gov.status}`} aria-label={'Tốc độ ' + paceStatusLabelVi(gov)} onClick={() => game.setSpeedSetting(nextSpeedSetting(g.speedSetting))}><span class="mode">{g.speedSetting.kind === 'auto' ? 'AUTO' : RATE_MULTIPLIER_LABEL[g.speedSetting.hps]}</span><span class="rate num">{gov.effectiveHps}h/s{gov.status === 'overloaded' || gov.status === 'fixed_overloaded' ? '!' : ''}</span></button>

@@ -222,7 +222,7 @@ export function ConstructionTab({ st }: { st: GameState }) {
       <div class="note">Vốn đã đầu tư là chi phí chìm và không được hoàn lại. Phần vốn chưa giải ngân vẫn ở trong quỹ.</div>
       <div class="btns" style="margin-top:10px">
         <button class="btn" onClick={() => modals.close()}>Giữ dự án</button>
-        <button class="btn danger" onClick={() => { if (send({ type: 'cancel_construction', projectId: p.id }, `Đã hủy ${BUILD_VI[p.building]} tại ${regionName(p.regionId)}`)) modals.close(); }}>Xác nhận hủy</button>
+        <button class="btn danger" onClick={() => { void send({ type: 'cancel_construction', projectId: p.id }, `Đã hủy ${BUILD_VI[p.building]} tại ${regionName(p.regionId)}`).then((ok) => { if (ok) modals.close(); }); }}>Xác nhận hủy</button>
       </div>
     </div>
   ));
@@ -241,7 +241,7 @@ export function ConstructionTab({ st }: { st: GameState }) {
       <div class="note">Dự án được cấp vốn dần trong tối thiểu 12 tháng. Nếu quỹ chưa đủ mức giải ngân, tiến độ sẽ chậm lại; công trình chỉ xuất hiện khi đầu tư đủ 100% chi phí. Giá thị trường có thể thay đổi trong thời gian xây dựng.</div>
       <div class="btns" style="margin-top:10px">
         <button class="btn" onClick={() => modals.close()}>Để sau</button>
-        <button class="btn primary" onClick={() => { if (send({ type: 'build', region: o.r.id, building: o.b }, `Đã đưa ${BUILD_VI[o.b]} tại ${regionName(o.r.id)} vào hàng đợi`)) modals.close(); }}>Xếp hàng</button>
+        <button class="btn primary" onClick={() => { void send({ type: 'build', region: o.r.id, building: o.b }, `Đã đưa ${BUILD_VI[o.b]} tại ${regionName(o.r.id)} vào hàng đợi`).then((ok) => { if (ok) modals.close(); }); }}>Xếp hàng</button>
       </div>
     </div>
   ));

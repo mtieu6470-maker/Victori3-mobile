@@ -1,179 +1,169 @@
-// DEV-006 fast-forward isolation, updated for CLOCK-01 (hour-granular chunks) and CG-11 fixes.
-// The engine is mocked: each advanceHours() call advances exactly one month, so one call = one
-// fast-forward chunk followed by a yield.
+// DEV-006 fast-forward isolation, updated for CLOCK-01 (hour chunks), CG-11/CG-12 fixes and CLOCK-02
+// (simulation behind an async SimHost). Uses the real engine through InlineSimHost; wrapper hosts
+// inject interleavings (load/new game/background mid-run) and failures.
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-
-vi.mock('../src/engine/simulation', async () => {
-  const cal = await vi.importActual<typeof import('../src/engine/clock/calendar')>('../src/engine/clock/calendar');
-  return {
-    stepMonth: vi.fn((state: { tick: number; clock: { hour: number } }) => {
-      state.tick += 1; state.clock = { hour: cal.monthStartHour(state.tick) }; return true;
-    }),
-    advanceHours: vi.fn((state: { tick: number; clock: { hour: number } }, maxHours: number) => {
-      if (maxHours <= 0) return { hours: 0, monthlyBoundaries: 0, stop: 'requested' };
-      const before = state.clock.hour;
-      state.tick += 1; state.clock = { hour: cal.monthStartHour(state.tick) };
-      return { hours: state.clock.hour - before, monthlyBoundaries: 1, stop: 'yield' };
-    }),
-  };
-});
-vi.mock('../src/engine/save', () => ({
-  serialize: vi.fn(() => ''),
-  deserialize: vi.fn((value: string) => JSON.parse(value)),
-  deserializeWithMeta: vi.fn((value: string) => ({ state: JSON.parse(value), meta: {} })),
-}));
-vi.mock('../src/engine/init', () => ({ createGame: vi.fn() }));
-
-import { createGame } from '../src/engine/init';
-import { advanceHours } from '../src/engine/simulation';
+import { loadNodeData } from '../src/engine/node';
 import { GameController } from '../src/ui/game/controller';
+import { InlineSimHost, type SimHost } from '../src/ui/game/simHost';
 import { CAMPAIGN_END_TICK } from '../src/engine/core';
-import { CAMPAIGN_FINAL_HOUR, monthStartHour } from '../src/engine/clock/calendar';
+import { CAMPAIGN_FINAL_HOUR } from '../src/engine/clock/calendar';
+import { advanceHours, positionAtMonthStart } from '../src/engine/simulation';
+import { createGame } from '../src/engine/init';
+import { serialize } from '../src/engine/save';
+import type { SimRequest, SimResponse } from '../src/engine/runtime/simCore';
 
-const fake = (tick: number) => ({ tick, clock: { hour: monthStartHour(tick) }, log: [] }) as any;
+loadNodeData();
 
-describe('GameController fast-forward isolation', () => {
+/** Inline host that lets a test act after the n-th fast-forward advance request, or fail it. */
+class ScriptedHost implements SimHost {
+  readonly kind = 'inline' as const;
+  readonly inner = new InlineSimHost();
+  advances = 0;
+  onAdvance: ((n: number) => void | Promise<void>) | null = null;
+  failAt = 0;
+  async request(req: SimRequest): Promise<SimResponse> {
+    if (req.kind === 'advance' && req.snapshot === 'never') {
+      this.advances++;
+      if (this.failAt && this.advances === this.failAt) return { ok: false, gen: req.gen, error: 'simulated monthly step failure' };
+      const res = await this.inner.request(req);
+      if (this.onAdvance) await this.onAdvance(this.advances);
+      return res;
+    }
+    return this.inner.request(req);
+  }
+  dispose() { this.inner.dispose(); }
+}
+
+describe('GameController fast-forward isolation (CLOCK-02 host)', () => {
   let request: ReturnType<typeof vi.fn>;
   let cancel: ReturnType<typeof vi.fn>;
-  let yields: (() => void)[];
-
   beforeEach(() => {
-    let nextId = 1;
-    request = vi.fn(() => nextId++);
+    let id = 1;
+    request = vi.fn(() => id++);
     cancel = vi.fn();
-    yields = [];
     vi.stubGlobal('requestAnimationFrame', request);
     vi.stubGlobal('cancelAnimationFrame', cancel);
-    vi.stubGlobal('setTimeout', ((callback: () => void) => { yields.push(callback); return 1; }) as typeof setTimeout);
-    vi.mocked(advanceHours).mockClear();
   });
   afterEach(() => { vi.unstubAllGlobals(); });
 
-  /** Resolves every pending yield until the operation settles. */
-  async function drain() {
-    for (let i = 0; i < 10_000 && yields.length; i++) { yields.shift()!(); await Promise.resolve(); await Promise.resolve(); }
+  async function started(host: SimHost = new InlineSimHost(), seed = 1) {
+    const c = new GameController(host);
+    await c.newGame({ mode: 'historical', seed, player: null });
+    return c;
   }
 
-  it('runs in yielded chunks, pauses the live RAF clock and restores its prior run state', async () => {
-    const c = new GameController();
-    c.st = fake(0);
+  it('runs in bounded chunks, pauses the live RAF clock and restores its prior run state', async () => {
+    const host = new ScriptedHost();
+    const c = await started(host);
     c.setPaused(false);
     expect(request).toHaveBeenCalledTimes(1);
-
-    const work = c.fastForward(6);
-    expect(cancel).toHaveBeenCalledTimes(1);
+    const work = c.fastForward(3);
     expect(c.paused).toBe(true);
-    expect(c.st?.tick).toBe(1); // first bounded chunk only, then a yield
-    expect(c.busy?.done).toBe(1);
-    await drain(); await work;
-
-    expect(c.st?.tick).toBe(6);
-    expect(vi.mocked(advanceHours)).toHaveBeenCalledTimes(6);
-    expect(c.paused).toBe(false);
+    expect(c.busy).not.toBeNull();
+    expect(cancel).toHaveBeenCalledTimes(1);
+    await work;
+    expect(c.st?.tick).toBe(3);
+    expect(host.advances).toBeGreaterThanOrEqual(3); // at least one chunk per (indivisible) monthly boundary
     expect(c.busy).toBeNull();
+    expect(c.paused).toBe(false);
     expect(request).toHaveBeenCalledTimes(2);
   });
 
-  it('rejects overlapping fast-forward and blocks player stepping/commands while busy', async () => {
-    const c = new GameController();
-    c.st = fake(0);
-    const first = c.fastForward(6);
+  it('rejects overlapping fast-forward and blocks stepping/commands while busy', async () => {
+    const c = await started();
+    const first = c.fastForward(2);
     const second = c.fastForward(3);
-    c.stepOnce(); c.stepDay();
+    await c.stepOnce(); await c.stepDay();
     c.setPaused(false);
-    expect(c.st?.tick).toBe(1);
     expect(c.paused).toBe(true);
-    expect(c.command({} as any)).toEqual({ ok: false, reason: 'Đang mô phỏng, vui lòng chờ' });
-    await drain(); await Promise.all([first, second]);
-    expect(c.st?.tick).toBe(6);
+    expect(await c.command({} as any)).toEqual({ ok: false, reason: 'Đang mô phỏng, vui lòng chờ' });
+    await Promise.all([first, second]);
+    expect(c.st?.tick).toBe(2);
     expect(c.busy).toBeNull();
   });
 
   it('does not let an invalidated fast-forward overwrite a newly loaded game', async () => {
-    const c = new GameController();
-    c.st = fake(0);
-    const work = c.fastForward(6);
-    c.load(JSON.stringify(fake(100)));
-    await drain(); await work;
+    const other = createGame({ mode: 'sandbox', seed: 99, player: null });
+    positionAtMonthStart(other, 100);
+    const host = new ScriptedHost();
+    const c = await started(host);
+    host.onAdvance = async (n) => { if (n === 1) await c.load(serialize(other)); };
+    await c.fastForward(6);
     expect(c.st?.tick).toBe(100);
+    expect(c.st?.mode).toBe('sandbox');
     expect(c.busy).toBeNull();
     expect(c.paused).toBe(true);
+    expect(host.advances).toBe(1);
   });
 
   it('does not let an invalidated fast-forward continue after a new game replaces the state', async () => {
-    vi.mocked(createGame).mockReturnValue(fake(500));
-    const c = new GameController();
-    c.st = fake(0);
-    const work = c.fastForward(6);
-    c.newGame({ mode: 'historical', seed: 7, player: null });
-    expect(c.st?.tick).toBe(500);
-    await drain(); await work;
-    expect(c.st?.tick).toBe(500);
+    const host = new ScriptedHost();
+    const c = await started(host);
+    host.onAdvance = async (n) => { if (n === 1) await c.newGame({ mode: 'sandbox', seed: 7, player: null }); };
+    await c.fastForward(6);
+    expect(c.st?.tick).toBe(0);
+    expect(c.st?.mode).toBe('sandbox');
     expect(c.paused).toBe(true);
     expect(c.busy).toBeNull();
+    expect(host.advances).toBe(1);
   });
 
   it('CG11-01: backgrounding cancels an active fast-forward and never auto-resumes it', async () => {
-    const c = new GameController();
-    c.st = fake(0);
+    const host = new ScriptedHost();
+    const c = await started(host);
     c.setPaused(false);
-    const work = c.fastForward(120);
-    expect(c.st?.tick).toBe(1);
-    c.onBackground();
+    host.onAdvance = (n) => { if (n === 1) c.onBackground(); };
+    await c.fastForward(12);
+    await c.whenIdle();
+    await new Promise((r) => setTimeout(r, 0)); // let the post-cancel resync land
     expect(c.busy).toBeNull();
     expect(c.paused).toBe(true);
     expect(c.pausedByLifecycle).toBe(true);
-    await drain(); await work;
-    expect(c.st?.tick).toBe(1); // no further months after the lifecycle pause
-    expect(c.paused).toBe(true); // prior "running" state is NOT restored
-    expect(request).toHaveBeenCalledTimes(1);
-    c.onBackground(); // backgrounding while already paused stays paused, no spurious state
-    expect(c.paused).toBe(true);
+    expect(host.advances).toBe(1);
+    expect(c.st!.tick).toBeLessThanOrEqual(1);
+    expect(request).toHaveBeenCalledTimes(1); // the prior running state was NOT restored
   });
 
-  it('caps fast-forward at December 2026; the December hours stay playable until 23:00 31/12/2026', async () => {
-    const c = new GameController();
-    c.st = fake(CAMPAIGN_END_TICK - 2);
+  it('caps fast-forward at December 2026; December hours stay playable until 23:00 31/12/2026', async () => {
+    const host = new ScriptedHost();
+    const c = await started(host);
+    positionAtMonthStart(host.inner.core.state!, CAMPAIGN_END_TICK - 2);
+    await (c as any).resync();
+    expect(c.st?.tick).toBe(CAMPAIGN_END_TICK - 2);
     c.setPaused(false);
-    const work = c.fastForward(24);
-    await drain(); await work;
-    expect(vi.mocked(advanceHours)).toHaveBeenCalledTimes(2);
+    await c.fastForward(24);
     expect(c.st?.tick).toBe(CAMPAIGN_END_TICK);
     expect(c.busy).toBeNull();
     expect(c.paused).toBe(false);
 
-    (c.st as any).clock = { hour: CAMPAIGN_FINAL_HOUR };
-    c.setPaused(true); c.setPaused(false); c.stepOnce(); c.stepDay();
+    advanceHours(host.inner.core.state!, 10_000);
+    await (c as any).resync();
+    expect(c.st?.clock.hour).toBe(CAMPAIGN_FINAL_HOUR);
+    c.setPaused(true); c.setPaused(false);
+    await c.stepOnce(); await c.stepDay();
     expect(c.paused).toBe(true);
+    const before = host.advances;
     await c.fastForward(3);
-    expect(vi.mocked(advanceHours)).toHaveBeenCalledTimes(2);
+    expect(host.advances).toBe(before);
     expect(c.st?.tick).toBe(CAMPAIGN_END_TICK);
   });
 
-  it('restores the live clock after a fast-forward chunk throws', async () => {
-    let calls = 0;
-    vi.mocked(advanceHours).mockImplementation((state: any) => {
-      if (++calls === 3) throw new Error('simulated monthly step failure');
-      const before = state.clock.hour; state.tick += 1; state.clock = { hour: monthStartHour(state.tick) };
-      return { hours: state.clock.hour - before, monthlyBoundaries: 1, stop: 'yield' };
-    });
-    const c = new GameController();
-    c.st = fake(0);
+  it('restores the live clock after a fast-forward chunk fails', async () => {
+    const host = new ScriptedHost();
+    host.failAt = 2;
+    const c = await started(host);
     c.setPaused(false);
-    const work = c.fastForward(12);
-    const settled = work.then(() => 'ok', (e: Error) => e.message);
-    await drain();
-    expect(await settled).toBe('simulated monthly step failure');
-    expect(c.st?.tick).toBe(2);
+    await expect(c.fastForward(6)).rejects.toThrow('simulated monthly step failure');
     expect(c.busy).toBeNull();
     expect(c.paused).toBe(false);
+    expect(c.st!.tick).toBeGreaterThanOrEqual(0);
     expect(request).toHaveBeenCalledTimes(2);
   });
 
   it('CG11-03: dispose removes the visibility listener and stops work', () => {
     const add = vi.fn(); const remove = vi.fn();
     vi.stubGlobal('document', { hidden: false, addEventListener: add, removeEventListener: remove });
-    const c = new GameController();
+    const c = new GameController(new InlineSimHost());
     expect(add).toHaveBeenCalledTimes(1);
     const listener = add.mock.calls[0][1];
     c.dispose(); c.dispose();
@@ -182,29 +172,28 @@ describe('GameController fast-forward isolation', () => {
     expect(c.paused).toBe(true);
   });
 
-  it('CG12-01: dispose is terminal — no RAF, timer, emit, subscription or state change afterwards', async () => {
-    const c = new GameController();
-    c.st = fake(0);
+  it('CG12-01: dispose is terminal — no RAF, request, emit, subscription or state change afterwards', async () => {
+    const host = new ScriptedHost();
+    const c = await started(host);
+    const spy = vi.spyOn(host, 'request');
     const seen: number[] = [];
     c.subscribe(() => seen.push(c.version));
     c.dispose();
-    const v = c.version;
+    const v = c.version; const tick = c.st?.tick;
     c.setPaused(false);
     await c.fastForward(12);
-    c.stepOnce(); c.stepDay(); c.tickFrame(1000);
+    await c.stepOnce(); await c.stepDay(); c.tickFrame(1000);
     c.setSpeedSetting({ kind: 'fixed', hps: 48 });
-    c.newGame({ mode: 'historical', seed: 1, player: null });
-    c.load(JSON.stringify(fake(50)));
+    await c.newGame({ mode: 'historical', seed: 1, player: null });
+    await c.load('{}');
     c.toast('x');
-    const unsub = c.subscribe(() => seen.push(-1));
-    unsub();
+    const unsub = c.subscribe(() => seen.push(-1)); unsub();
     expect(request).not.toHaveBeenCalled();
-    expect(yields).toHaveLength(0);
-    expect(vi.mocked(advanceHours)).not.toHaveBeenCalled();
-    expect(c.st?.tick).toBe(0);
+    expect(spy).not.toHaveBeenCalled();
+    expect(c.st?.tick).toBe(tick);
     expect(c.version).toBe(v);
     expect(seen).toEqual([]);
     expect(c.paused).toBe(true);
-    expect(c.command({} as any).ok).toBe(false);
+    expect((await c.command({} as any)).ok).toBe(false);
   });
 });

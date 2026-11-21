@@ -38,7 +38,7 @@ async function boot() {
   const q = new URLSearchParams(location.search);
   if (q.get('mode')) {
     const player = q.get('player'); const months = Number(q.get('months') ?? 0);
-    game.newGame({ mode: (q.get('mode') as GameMode) ?? 'historical', seed: Number(q.get('seed') ?? 1), player: player && player !== 'observer' ? player : null });
+    await game.newGame({ mode: (q.get('mode') as GameMode) ?? 'historical', seed: Number(q.get('seed') ?? 1), player: player && player !== 'observer' ? player : null });
     ui.set({ started: true, screen: (q.get('screen') as ScreenId) ?? 'map', region: q.get('region'), regionDetail: !!q.get('region'), lens: (q.get('lens') as LensId) ?? 'political', follow: q.get('follow'), country: q.get('country') });
     if (q.get('tab')) ui.tab(ui.get().screen, q.get('tab')!);
     if (q.get('zoom')) { const [cx, cy, sc] = q.get('zoom')!.split(',').map(Number); ui.set({ camera: { cx, cy, scale: sc } }); }

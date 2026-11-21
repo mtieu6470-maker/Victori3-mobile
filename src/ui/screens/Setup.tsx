@@ -21,8 +21,8 @@ export function Setup() {
   useEffect(() => { listSlots().then(setSlots).catch(() => setSlots([])); }, []);
   const list = ents.filter((e) => !q || e.vi.toLowerCase().includes(q.toLowerCase()) || e.en.toLowerCase().includes(q.toLowerCase())).slice(0, 120);
   const sel = data().entity.get(pick);
-  const start = () => { game.newGame({ mode, seed, player: observer ? null : pick }); ui.set({ started: true, screen: 'map', camera: null, region: null, follow: observer ? null : null, country: null }); };
-  const cont = async (name: string) => { const t = await loadSlot(name); if (t) { game.load(t); ui.set({ started: true, screen: 'map', camera: null, region: null }); } };
+  const start = async () => { try { await game.newGame({ mode, seed, player: observer ? null : pick }); } catch (e) { game.toast(`Không tạo được ván mới: ${(e as Error).message}`, 'error'); return; } ui.set({ started: true, screen: 'map', camera: null, region: null, follow: observer ? null : null, country: null }); };
+  const cont = async (name: string) => { const t = await loadSlot(name); if (t) { try { await game.load(t); } catch (e) { game.toast(`Không tải được: ${(e as Error).message}`, 'error'); return; } ui.set({ started: true, screen: 'map', camera: null, region: null }); } };
   return (
     <div class="setup">
       <div class="inner">

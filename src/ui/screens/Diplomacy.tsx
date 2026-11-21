@@ -144,7 +144,7 @@ function WarDialog({ st, target }: { st: GameState; target: string }) {
   const A = str(ws.attackers), D = str(ws.defenders);
   const REASON: Record<string, string> = { alliance: 'liên minh', guarantee: 'bảo đảm', great_power: 'cường quốc can thiệp', subject: 'chư hầu' };
   const hold = useRef<number | null>(null); const [prog, setProg] = useState(0);
-  const start = () => { const t0 = performance.now(); const tick = () => { const p = Math.min(1, (performance.now() - t0) / 700); setProg(p); if (p >= 1) { hold.current = null; if (send({ type: 'declare_war', target, goals }, `Đã tuyên chiến với ${shortName(st, target)}`)) { modals.close(); details.close(); } return; } hold.current = requestAnimationFrame(tick); }; hold.current = requestAnimationFrame(tick); };
+  const start = () => { const t0 = performance.now(); const tick = () => { const p = Math.min(1, (performance.now() - t0) / 700); setProg(p); if (p >= 1) { hold.current = null; void send({ type: 'declare_war', target, goals }, `Đã tuyên chiến với ${shortName(st, target)}`).then((ok) => { if (ok) { modals.close(); details.close(); } }); return; } hold.current = requestAnimationFrame(tick); }; hold.current = requestAnimationFrame(tick); };
   const stop = () => { if (hold.current) cancelAnimationFrame(hold.current); hold.current = null; setProg(0); };
   return (
     <div>
