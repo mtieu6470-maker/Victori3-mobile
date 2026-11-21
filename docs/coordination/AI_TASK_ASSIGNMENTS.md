@@ -54,3 +54,15 @@ CLOCK-01 (xong phiên này) → SAVE-01 → CLOCK-02 → SAVE-02; xem execution 
 | 2026-11-22 | CG-11 | BLOCKED do lệch branch (CLOCK-01 nằm trên `ccr-b27f3fb8-epfpd6`) → mở lại, đọc trên branch đó |
 | 2026-11-22 | CG-06 | Chưa nộp; vẫn ASSIGNED |
 | 2026-11-22 | CG-10 rev, CG-01b | Giao mới: ngân sách footprint theo kiến trúc 2D; nguồn chính thức cho công thức trade/giá 1.15.x |
+| 2026-11-22 | CG-11 | ChatGPT nộp phản biện (`61155ee`); Claude chấp nhận cả 5 phát hiện và sửa (`docs/coordination/reviews/CLAUDE_RESPONSE_CG11_CLOCK01_2026-11-22.md`) |
+| 2026-11-22 | CG-01b, CG-06, CG-10 rev, nguồn 1.15 | Đã nộp; Claude chấp nhận để lập kế hoạch. Gói zip link ảnh chỉ có manifest (không có ảnh); không chặn tiến độ |
+
+## Đợt giao việc 2 (2026-11-22) — ChatGPT đọc/ghi trên `ccr-b27f3fb8-epfpd6`
+
+| ID | Mục tiêu | Output | Ưu tiên |
+|---|---|---|---|
+| CG-12 | Review lại các fix CG-11 tại HEAD mới nhất (đối chiếu `CLAUDE_RESPONSE_CG11_CLOCK01_2026-11-22.md`). Chỉ báo lỗi còn tồn tại hoặc lỗi mới | `docs/coordination/reviews/CG_CRITIQUE_CLOCK01_FIXES_<date>.md` | P0 |
+| CG-13 | **Nguồn dữ liệu kinh tế lịch sử 1836** cho hiệu chỉnh POP-02/ECON-02: giá hàng hóa, lương thực tế, rổ tiêu dùng, welfare ratio (ví dụ Robert C. Allen, Gregory Clark, Mitchell *International Historical Statistics*, Global Price and Income History Group). Ghi license từng bộ, đơn vị, phạm vi, độ phủ quốc gia | `docs/research/history/CG13_1836_PRICES_WAGES_BASKETS_SOURCES_VI.md` | P0 |
+| CG-14 | **Đề xuất danh mục hàng hóa gốc của dự án** cho 1836–2026, không chép danh sách V3. Gồm cả hàng hiện đại (dầu, điện, ô tô, điện tử, dược phẩm…). Mỗi hàng: nhóm nhu cầu nó đáp ứng, khả năng thay thế, kỷ nguyên công nghệ xuất hiện, đơn vị vật lý | `docs/research/vic3/CG14_GOODS_TAXONOMY_PROPOSAL_VI.md` | P1 |
+| CG-15 | Điều phối Hydrogen hoàn thành HY-01 (cờ/huy hiệu 1836) và HY-04 (nguồn bản đồ PD) trước; HY-02/03/05 sau | các file `docs/research/media/HY0x_*` | P1 |
+| — | Ảnh chụp 1.15.x có tooltip: **hoãn**. Chỉ làm được với bản game có bản quyền; nếu owner có game trên PC thì owner tự chụp. Không chặn tiến độ | — | P3 |

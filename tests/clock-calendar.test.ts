@@ -65,4 +65,17 @@ describe('CLOCK-01 canonical hourly calendar', () => {
     expect(isClockComplete(CAMPAIGN_FINAL_HOUR)).toBe(true);
     expect(isClockComplete(Number.NaN)).toBe(false);
   });
+
+  it('CG11-05: rejects impossible dates instead of normalising them', () => {
+    expect(() => daysInMonth(2024, 13)).toThrow(RangeError);
+    expect(() => daysInMonth(2024, 0)).toThrow(RangeError);
+    expect(() => hourOf(2024, 2, 30, 0)).toThrow(RangeError);
+    expect(() => hourOf(1900, 2, 29, 0)).toThrow(RangeError);
+    expect(() => hourOf(2024, 1, 1, 24)).toThrow(RangeError);
+    expect(() => hourOf(2024, 1, 1, -1)).toThrow(RangeError);
+    expect(() => hourOf(2024, 1, 1.5, 0)).toThrow(RangeError);
+    expect(() => dayIndexOf(2024, 4, 31)).toThrow(RangeError);
+    expect(formatDateTime(hourToDateTime(hourOf(1836, 2, 29, 12)))).toBe('1836-02-29T12:00');
+    expect(formatDateTime(hourToDateTime(hourOf(2000, 2, 29, 0)))).toBe('2000-02-29T00:00');
+  });
 });

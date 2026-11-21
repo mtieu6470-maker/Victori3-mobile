@@ -89,13 +89,13 @@ export function creditElapsed(pace: PaceState, elapsedMs: number, rateHps: numbe
   const total = credit0 + micros * rate;
   const due = Math.floor(total / MICRO);
   const credit = total - due * MICRO;
+  // Only NEW credit is bounded. Hours already owed are never deleted here, even if they exceed the
+  // current rate's cap after a rate change (CG11-02): they stay owed until processed.
   const cap = maxBacklogHours(rate);
-  let backlogHours = backlog0 + due;
-  if (backlogHours > cap) {
-    const excess = backlogHours - cap;
-    dropped += (excess * 1000) / rate;
-    backlogHours = cap;
-  }
+  const room = Math.max(0, cap - backlog0);
+  const accepted = Math.min(due, room);
+  if (due > accepted) dropped += ((due - accepted) * 1000) / rate;
+  const backlogHours = backlog0 + accepted;
   return { credit, backlogHours, droppedRealMs: dropped };
 }
 

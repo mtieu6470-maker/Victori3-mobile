@@ -12,9 +12,9 @@ import { advanceHours, stepMonth } from '../../engine/simulation';
 import { execute, type Command } from '../../engine/commands';
 import { serialize, deserializeWithMeta } from '../../engine/save';
 import { campaignMonthsRemaining } from '../../engine/core';
-import { isClockComplete } from '../../engine/clock/calendar';
+import { isClockComplete, monthStartHour, CAMPAIGN_FINAL_HOUR } from '../../engine/clock/calendar';
 import {
-  consumeBacklog, creditElapsed, DEFAULT_SPEED, maxBacklogHours, parseSpeedSetting, resetPace,
+  consumeBacklog, creditElapsed, DEFAULT_SPEED, parseSpeedSetting, resetPace,
   speedSettingsEqual, type PaceState, type SpeedSetting,
 } from '../../engine/clock/pace';
 import { createGovernor, observeFrame, type GovernorState } from '../../engine/clock/governor';
@@ -24,6 +24,8 @@ import type { GameMode, GameState } from '../../engine/types';
 export const SIM_FRAME_BUDGET_MS = 8;
 /** UI notifications are throttled to this interval unless a monthly boundary was crossed. */
 export const UI_EMIT_INTERVAL_MS = 250;
+/** Fast-forward wall-time budget per task before yielding to the event loop (checked between hours). */
+export const FAST_FORWARD_CHUNK_MS = 12;
 const PREF_KEY = 'victori3.clockPreference.v1';
 
 function readStoredPreference(): SpeedSetting {
@@ -61,18 +63,37 @@ export class GameController {
   private listeners = new Set<() => void>();
   private raf = 0; private last = 0; private toastId = 0; private operationToken = 0; private lastEmit = 0;
 
+  private readonly onVisibility = () => { if (typeof document !== 'undefined' && document.hidden) this.onBackground(); };
+  private disposed = false;
+
   constructor() {
     // Android/WebView lifecycle: pause when hidden; never run or "catch up" in the background.
     if (typeof document !== 'undefined' && typeof document.addEventListener === 'function') {
-      document.addEventListener('visibilitychange', () => { if (document.hidden) this.onBackground(); });
+      document.addEventListener('visibilitychange', this.onVisibility);
     }
   }
 
-  /** Pauses the simulation safely when the app is backgrounded. Resuming is an explicit player action. */
+  /**
+   * Pauses the simulation safely when the app is backgrounded, including cancelling an in-progress
+   * fast-forward (CG11-01). Resuming is always an explicit player action.
+   */
   onBackground() {
-    if (this.paused || this.busy) return;
+    const wasBusy = !!this.busy;
+    if (this.paused && !wasBusy) return;
+    if (wasBusy) { this.operationToken++; this.busy = null; this.readLogCount = this.st?.log.length ?? this.readLogCount; }
     this.pausedByLifecycle = true;
     this.paused = true; this.stop(); this.pace = resetPace(); this.emit();
+  }
+
+  /** Releases listeners, the RAF loop and any pending async operation (CG11-03). Idempotent. */
+  dispose() {
+    if (this.disposed) return;
+    this.disposed = true;
+    this.operationToken++; this.busy = null; this.paused = true; this.stop();
+    if (typeof document !== 'undefined' && typeof document.removeEventListener === 'function') {
+      document.removeEventListener('visibilitychange', this.onVisibility);
+    }
+    this.listeners.clear();
   }
 
   subscribe(fn: () => void) { this.listeners.add(fn); return () => { this.listeners.delete(fn); }; }
@@ -87,7 +108,11 @@ export class GameController {
     this.paused = true; this.readLogCount = this.st.log.length;
     this.emit();
   }
-  /** Simulates whole months in bounded chunks, without racing the live RAF clock. */
+  /**
+   * Simulates whole months without racing the live RAF clock. Work is split into hour-granular
+   * chunks bounded by FAST_FORWARD_CHUNK_MS (CG11-04) with a yield after every chunk; a monthly
+   * boundary is the only indivisible unit. Load, new game and backgrounding invalidate the run.
+   */
   async fastForward(months: number) {
     if (!this.st || this.busy || !Number.isSafeInteger(months) || months <= 0) return;
     const state = this.st;
@@ -99,22 +124,24 @@ export class GameController {
     const token = ++this.operationToken;
     const wasPaused = this.paused;
     this.stop(); this.paused = true; this.pace = resetPace();
+    const startTick = state.tick;
+    const targetTick = startTick + monthsToRun;
+    const targetHour = Math.min(monthStartHour(targetTick), CAMPAIGN_FINAL_HOUR);
     this.busy = { label: 'Đang mô phỏng', done: 0, total: monthsToRun }; this.emit();
-    let completed = 0;
     try {
-      for (let i = 0; i < monthsToRun; i++) {
+      while (state.tick < targetTick) {
         if (token !== this.operationToken || this.st !== state) return;
-        if (!stepMonth(state)) break;
-        completed += 1;
-        if (completed % 6 === 0) {
-          if (this.busy) this.busy.done = completed;
-          this.emit();
-          await new Promise((resolve) => setTimeout(resolve, 0));
-        }
+        const deadline = nowMs() + FAST_FORWARD_CHUNK_MS;
+        const r = advanceHours(state, targetHour - state.clock.hour, () => nowMs() >= deadline);
+        if (r.hours === 0) break;
+        if (this.busy) this.busy.done = state.tick - startTick;
+        this.emit();
+        if (state.tick >= targetTick || r.stop === 'campaign_end') break;
+        await new Promise((resolve) => setTimeout(resolve, 0));
       }
     } finally {
-      // A load/new-game invalidates this operation; its finally block must not
-      // overwrite the replacement game's paused/busy state.
+      // A load/new-game/background invalidates this operation; its finally block must not
+      // overwrite the replacement state's paused/busy flags or auto-resume.
       if (token === this.operationToken && this.st === state) {
         this.busy = null;
         this.readLogCount = state.log.length;
@@ -167,8 +194,7 @@ export class GameController {
     this.speedSetting = next;
     writeStoredPreference(next);
     this.governor = createGovernor(next);
-    // Keep the sub-hour credit, but never let a previous rate's backlog exceed the new bound.
-    this.pace = { ...this.pace, backlogHours: Math.min(this.pace.backlogHours, maxBacklogHours(this.governor.effectiveHps)) };
+    // Owed hours are preserved across rate changes (CG11-02); only new credit is bounded.
     this.last = nowMs();
     this.emit();
   }
@@ -219,9 +245,6 @@ export class GameController {
     const before = { hps: this.governor.effectiveHps, status: this.governor.status };
     observeFrame(this.governor, { realMs: elapsed, simMs, saturated, droppedRealMs: this.pace.droppedRealMs - droppedBefore });
     const paceChanged = before.hps !== this.governor.effectiveHps || before.status !== this.governor.status;
-    if (paceChanged && this.pace.backlogHours > maxBacklogHours(this.governor.effectiveHps)) {
-      this.pace = { ...this.pace, backlogHours: maxBacklogHours(this.governor.effectiveHps) };
-    }
     if (months > 0 || paceChanged || (hours > 0 && t - this.lastEmit >= UI_EMIT_INTERVAL_MS)) {
       this.lastEmit = t;
       this.emit();

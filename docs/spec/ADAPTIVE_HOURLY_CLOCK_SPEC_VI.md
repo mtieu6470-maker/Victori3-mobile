@@ -50,14 +50,15 @@ API: `advanceHour`, `advanceHours(st, n, shouldYield?)` (dừng giữa các gi�
 
 - Preset cố định: 3 (0.25x), 6 (0.5x), 12 (1x), 24 (2x), 48 (4x) giờ game/giây. Mặc định **AUTO**.
 - Accumulator số nguyên: µs thực × (giờ/giây) ⇒ đơn vị 1e-6 giờ; không trôi (test 10 phút frame 60 fps ở mọi preset).
-- Mỗi callback chỉ ghi có tối đa 250 ms thực (khoảng trống dài không thành burst catch-up); backlog giờ nợ bị chặn ở 1 giây theo tốc độ hiện hành. Phần thời gian không ghi có được cộng vào `droppedRealMs` = lag hiển thị. **Không giờ nào bị bỏ qua**: game chạy chậm hơn, không nhảy cóc.
+- Mỗi callback chỉ ghi có tối đa 250 ms thực (khoảng trống dài không thành burst catch-up). Credit **mới** bị chặn khi backlog đạt 1 giây theo tốc độ hiện hành; giờ **đã nợ** không bao giờ bị xóa, kể cả khi đổi tốc độ hoặc AUTO hạ 12→6 (CG11-02). Phần thời gian không ghi có được cộng vào `droppedRealMs` = lag hiển thị. **Không giờ nào bị bỏ qua**: game chạy chậm hơn, không nhảy cóc.
 
 `src/ui/game/controller.ts`:
 
 - RAF gọi `tickFrame(t)`: ghi có thời gian → xử lý giờ nợ với ngân sách `SIM_FRAME_BUDGET_MS = 8` ms (kiểm tra giữa các giờ) → phần còn lại ở backlog → đưa số đo vào governor → emit UI (throttle 250 ms, emit ngay khi qua ranh giới tháng hoặc đổi trạng thái tốc độ).
 - Pause/AUTO/fixed; phím 1–5 = 3/6/12/24/48 h/s, 0 hoặc A = AUTO; nút HUD xoay vòng AUTO → 3 → 6 → 12 → 24 → 48.
-- `stepOnce` (tới hết tháng), `stepDay` (24 giờ), `fastForward(months)` giữ nguyên cơ chế chunk + invalidation của DEV-006.
-- Lifecycle: `visibilitychange` hidden ⇒ pause an toàn, xóa thời gian nợ; chỉ tiếp tục khi người chơi bấm. Không có tiến trình offline.
+- `stepOnce` (tới hết tháng), `stepDay` (24 giờ). `fastForward(months)` chạy theo chunk giờ giới hạn 12 ms rồi yield sau mỗi chunk (CG11-04); load/new game/vào nền làm vô hiệu thao tác (CG11-01).
+- Lifecycle: `visibilitychange` hidden ⇒ pause an toàn, hủy fast-forward đang chạy, xóa thời gian nợ; chỉ tiếp tục khi người chơi bấm. Không có tiến trình offline. `dispose()` gỡ listener/RAF (CG11-03).
+- Phản biện độc lập CG-11 và phản hồi: `docs/coordination/reviews/CG_CRITIQUE_CLOCK01_2026-11-22.md`, `docs/coordination/reviews/CLAUDE_RESPONSE_CG11_CLOCK01_2026-11-22.md`.
 - Lựa chọn AUTO/fixed được lưu ở `localStorage` và trong save envelope (`clockPreference`), **không** nằm trong GameState nên không ảnh hưởng hash tất định.
 
 ## 5. AUTO governor (12h/s ↔ 6h/s)

@@ -1,3 +1,19 @@
+## 2026-11-22 — CG-11 fixes for CLOCK-01 + ChatGPT round 2 integrated
+
+- ChatGPT pushed to `ccr-b27f3fb8-epfpd6`: CG-11 critique `61155ee`, 1.15 source digest `b65e9f6`, SteamDB link replacements, CG-01b `36d597c`, CG-06 DLC leaves `c8ca448` (88 leaves), CG-10 2D revision `7b743e8`, handoff `3107ed4`.
+- Claude accepted all five CG-11 findings and fixed them; see `docs/coordination/reviews/CLAUDE_RESPONSE_CG11_CLOCK01_2026-11-22.md`:
+  - background cancels fast-forward;
+  - owed hours are never truncated on rate change;
+  - `dispose()`;
+  - hour-granular fast-forward chunks of 12 ms with a yield per chunk;
+  - strict calendar input validation.
+- Local evidence: tsc exit 0; `npm test` exit 0, **18/18 files, 185/185 tests**; build exit 0. CI is pending on the push (Android workflow on all branches).
+- Previous CI: [run 44930374082](https://github.com/mtieu6470-maker/Victori3-mobile/actions/runs/44930374082) SUCCESS on CLOCK-01 commit `6bbb11e52ad3bb4cec506adeb9f5b88943b7a641`.
+- New ChatGPT tasks CG-12..15 are in `AI_TASK_ASSIGNMENTS.md`. Real 1.15.x tooltip screenshots are deferred: they need a licensed install, and the zip package held only link manifests.
+- Branch: the designated branch still lacks CLOCK-01; owner permission to fast-forward it is pending.
+
+---
+
 ## 2026-11-22 — Claude tích hợp gói nghiên cứu ChatGPT — ACCEPTED_FOR_PLANNING
 
 - ChatGPT nộp CG-01..05, CG-07..10 và visual catalogue lên `claude/game-historical-sandbox-modes-kg7rj7` @ `b3643b35091e0b6b4d9cbf727311c6c5427089b4` (chỉ tài liệu). Claude merge vào `ccr-b27f3fb8-epfpd6` (merge `1f8896a`, không xung đột) để code CLOCK-01 và nghiên cứu nằm trên cùng một lịch sử.

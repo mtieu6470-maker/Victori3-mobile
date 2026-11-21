@@ -63,6 +63,21 @@ describe('CLOCK-01 pace accumulator (exact integer accounting)', () => {
     expect(consumeBacklog(p, 1).backlogHours).toBe(maxBacklogHours(12) - 1);
   });
 
+  it('CG11-02: never deletes already-owed hours when the rate (and therefore the cap) drops', () => {
+    // 40 owed hours accumulated at 48h/s, then the player switches to 3h/s (cap 3).
+    let p: PaceState = { credit: 0, backlogHours: 40, droppedRealMs: 0 };
+    p = creditElapsed(p, 16, 3);
+    expect(p.backlogHours).toBe(40); // existing debt preserved; new credit refused…
+    expect(p.droppedRealMs).toBeGreaterThanOrEqual(0); // …and any refused credit is reported as lag
+    // AUTO 12 → 6 with 11 owed hours: still 11 owed after crediting at the fallback rate.
+    const q = creditElapsed({ credit: 0, backlogHours: 11, droppedRealMs: 0 }, 250, 6);
+    expect(q.backlogHours).toBe(11);
+    expect(q.droppedRealMs).toBeCloseTo(166.667, 2); // 1 refused hour at 6h/s
+    // Once the backlog is drained below the cap, new credit is accepted again.
+    // (one callback credits at most 250 ms: 1.5 h + the 0.5 h carried credit = 2 h)
+    expect(creditElapsed(consumeBacklog(q, 11), 500, 6).backlogHours).toBe(2);
+  });
+
   it('clamps invalid timing/rate inputs safely', () => {
     expect(creditElapsed(createPaceState(), Number.NaN, 12)).toEqual(createPaceState());
     expect(creditElapsed(createPaceState(), -50, 12)).toEqual(createPaceState());

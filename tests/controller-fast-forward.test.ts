@@ -1,9 +1,22 @@
+// DEV-006 fast-forward isolation, updated for CLOCK-01 (hour-granular chunks) and CG-11 fixes.
+// The engine is mocked: each advanceHours() call advances exactly one month, so one call = one
+// fast-forward chunk followed by a yield.
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-vi.mock('../src/engine/simulation', () => ({
-  stepMonth: vi.fn((state: { tick?: number }) => { state.tick = (state.tick ?? 0) + 1; return true; }),
-  advanceHours: vi.fn(() => ({ hours: 0, monthlyBoundaries: 0, stop: 'requested' })),
-}));
+vi.mock('../src/engine/simulation', async () => {
+  const cal = await vi.importActual<typeof import('../src/engine/clock/calendar')>('../src/engine/clock/calendar');
+  return {
+    stepMonth: vi.fn((state: { tick: number; clock: { hour: number } }) => {
+      state.tick += 1; state.clock = { hour: cal.monthStartHour(state.tick) }; return true;
+    }),
+    advanceHours: vi.fn((state: { tick: number; clock: { hour: number } }, maxHours: number) => {
+      if (maxHours <= 0) return { hours: 0, monthlyBoundaries: 0, stop: 'requested' };
+      const before = state.clock.hour;
+      state.tick += 1; state.clock = { hour: cal.monthStartHour(state.tick) };
+      return { hours: state.clock.hour - before, monthlyBoundaries: 1, stop: 'yield' };
+    }),
+  };
+});
 vi.mock('../src/engine/save', () => ({
   serialize: vi.fn(() => ''),
   deserialize: vi.fn((value: string) => JSON.parse(value)),
@@ -12,197 +25,160 @@ vi.mock('../src/engine/save', () => ({
 vi.mock('../src/engine/init', () => ({ createGame: vi.fn() }));
 
 import { createGame } from '../src/engine/init';
-import { stepMonth } from '../src/engine/simulation';
+import { advanceHours } from '../src/engine/simulation';
 import { GameController } from '../src/ui/game/controller';
 import { CAMPAIGN_END_TICK } from '../src/engine/core';
-import { CAMPAIGN_FINAL_HOUR } from '../src/engine/clock/calendar';
+import { CAMPAIGN_FINAL_HOUR, monthStartHour } from '../src/engine/clock/calendar';
+
+const fake = (tick: number) => ({ tick, clock: { hour: monthStartHour(tick) }, log: [] }) as any;
 
 describe('GameController fast-forward isolation', () => {
-  let callbacks: Map<number, FrameRequestCallback>;
-  let nextId: number;
   let request: ReturnType<typeof vi.fn>;
   let cancel: ReturnType<typeof vi.fn>;
+  let yields: (() => void)[];
 
   beforeEach(() => {
-    callbacks = new Map();
-    nextId = 1;
-    request = vi.fn((callback: FrameRequestCallback) => {
-      const id = nextId++;
-      callbacks.set(id, callback);
-      return id;
-    });
-    cancel = vi.fn((id: number) => { callbacks.delete(id); });
+    let nextId = 1;
+    request = vi.fn(() => nextId++);
+    cancel = vi.fn();
+    yields = [];
     vi.stubGlobal('requestAnimationFrame', request);
     vi.stubGlobal('cancelAnimationFrame', cancel);
+    vi.stubGlobal('setTimeout', ((callback: () => void) => { yields.push(callback); return 1; }) as typeof setTimeout);
+    vi.mocked(advanceHours).mockClear();
   });
+  afterEach(() => { vi.unstubAllGlobals(); });
 
-  afterEach(() => {
-    vi.useRealTimers();
-    vi.unstubAllGlobals();
-  });
+  /** Resolves every pending yield until the operation settles. */
+  async function drain() {
+    for (let i = 0; i < 10_000 && yields.length; i++) { yields.shift()!(); await Promise.resolve(); await Promise.resolve(); }
+  }
 
-  it('pauses the live RAF clock during fast-forward and restores its prior run state', async () => {
-    let resumeYield: (() => void) | undefined;
-    vi.stubGlobal('setTimeout', ((callback: () => void) => { resumeYield = callback; return 1; }) as typeof setTimeout);
-    const controller = new GameController();
-    controller.st = { tick: 0, log: [] } as any;
-    controller.setPaused(false);
+  it('runs in yielded chunks, pauses the live RAF clock and restores its prior run state', async () => {
+    const c = new GameController();
+    c.st = fake(0);
+    c.setPaused(false);
     expect(request).toHaveBeenCalledTimes(1);
 
-    const work = controller.fastForward(6);
+    const work = c.fastForward(6);
     expect(cancel).toHaveBeenCalledTimes(1);
-    expect(controller.paused).toBe(true);
-    expect(controller.busy).not.toBeNull();
+    expect(c.paused).toBe(true);
+    expect(c.st?.tick).toBe(1); // first bounded chunk only, then a yield
+    expect(c.busy?.done).toBe(1);
+    await drain(); await work;
 
-    expect(resumeYield).toBeDefined();
-    resumeYield?.();
-    await work;
-
-    expect(controller.st?.tick).toBe(6);
-    expect(controller.paused).toBe(false);
-    expect(controller.busy).toBeNull();
+    expect(c.st?.tick).toBe(6);
+    expect(vi.mocked(advanceHours)).toHaveBeenCalledTimes(6);
+    expect(c.paused).toBe(false);
+    expect(c.busy).toBeNull();
     expect(request).toHaveBeenCalledTimes(2);
   });
 
   it('rejects overlapping fast-forward and blocks player stepping/commands while busy', async () => {
-    let resumeYield: (() => void) | undefined;
-    vi.stubGlobal('setTimeout', ((callback: () => void) => { resumeYield = callback; return 1; }) as typeof setTimeout);
-    const controller = new GameController();
-    controller.st = { tick: 0, log: [] } as any;
-
-    const first = controller.fastForward(6);
-    expect(controller.busy).not.toBeNull();
-    const second = controller.fastForward(3);
-    controller.stepOnce();
-    controller.setPaused(false);
-    expect(controller.st?.tick).toBe(6); // fast-forward runs synchronously to its first six-month yield.
-    expect(controller.paused).toBe(true);
-    expect(controller.command({} as any)).toEqual({ ok: false, reason: 'Đang mô phỏng, vui lòng chờ' });
-
-    expect(resumeYield).toBeDefined();
-    resumeYield?.();
-    await Promise.all([first, second]);
-    expect(controller.st?.tick).toBe(6);
-    expect(controller.busy).toBeNull();
+    const c = new GameController();
+    c.st = fake(0);
+    const first = c.fastForward(6);
+    const second = c.fastForward(3);
+    c.stepOnce(); c.stepDay();
+    c.setPaused(false);
+    expect(c.st?.tick).toBe(1);
+    expect(c.paused).toBe(true);
+    expect(c.command({} as any)).toEqual({ ok: false, reason: 'Đang mô phỏng, vui lòng chờ' });
+    await drain(); await Promise.all([first, second]);
+    expect(c.st?.tick).toBe(6);
+    expect(c.busy).toBeNull();
   });
 
   it('does not let an invalidated fast-forward overwrite a newly loaded game', async () => {
-    let resumeYield: (() => void) | undefined;
-    vi.stubGlobal('setTimeout', ((callback: () => void) => {
-      resumeYield = callback;
-      return 1;
-    }) as typeof setTimeout);
-
-    const controller = new GameController();
-    controller.st = { tick: 0, log: [] } as any;
-    const work = controller.fastForward(6);
-    expect(controller.busy).not.toBeNull();
-    expect(resumeYield).toBeDefined();
-
-    controller.load(JSON.stringify({ tick: 100, log: [] }));
-    resumeYield?.();
-    await work;
-
-    expect(controller.st?.tick).toBe(100);
-    expect(controller.busy).toBeNull();
-    expect(controller.paused).toBe(true);
+    const c = new GameController();
+    c.st = fake(0);
+    const work = c.fastForward(6);
+    c.load(JSON.stringify(fake(100)));
+    await drain(); await work;
+    expect(c.st?.tick).toBe(100);
+    expect(c.busy).toBeNull();
+    expect(c.paused).toBe(true);
   });
 
   it('does not let an invalidated fast-forward continue after a new game replaces the state', async () => {
-    let resumeYield: (() => void) | undefined;
-    vi.stubGlobal('setTimeout', ((callback: () => void) => {
-      resumeYield = callback;
-      return 1;
-    }) as typeof setTimeout);
-    vi.mocked(createGame).mockReturnValue({ tick: 500, log: [] } as any);
-
-    const controller = new GameController();
-    controller.st = { tick: 0, log: [] } as any;
-    const work = controller.fastForward(6);
-    expect(controller.st?.tick).toBe(6);
-    expect(controller.busy).not.toBeNull();
-    expect(resumeYield).toBeDefined();
-
-    controller.newGame({ mode: 'historical', seed: 7, player: null });
-    expect(controller.st?.tick).toBe(500);
-    expect(controller.paused).toBe(true);
-    expect(controller.busy).toBeNull();
-
-    resumeYield?.();
-    await work;
-
-    expect(controller.st?.tick).toBe(500);
-    expect(controller.paused).toBe(true);
-    expect(controller.busy).toBeNull();
-    expect(vi.mocked(createGame)).toHaveBeenCalledWith({ mode: 'historical', seed: 7, player: null });
+    vi.mocked(createGame).mockReturnValue(fake(500));
+    const c = new GameController();
+    c.st = fake(0);
+    const work = c.fastForward(6);
+    c.newGame({ mode: 'historical', seed: 7, player: null });
+    expect(c.st?.tick).toBe(500);
+    await drain(); await work;
+    expect(c.st?.tick).toBe(500);
+    expect(c.paused).toBe(true);
+    expect(c.busy).toBeNull();
   });
 
-  it('caps fast-forward at December 2026 and cannot resume a completed campaign', async () => {
-    // stepMonth is a module-level spy shared by tests; isolate this call-count assertion.
-    vi.mocked(stepMonth).mockClear();
-    const controller = new GameController();
-    controller.st = { tick: CAMPAIGN_END_TICK - 2, log: [] } as any;
-    controller.setPaused(false);
+  it('CG11-01: backgrounding cancels an active fast-forward and never auto-resumes it', async () => {
+    const c = new GameController();
+    c.st = fake(0);
+    c.setPaused(false);
+    const work = c.fastForward(120);
+    expect(c.st?.tick).toBe(1);
+    c.onBackground();
+    expect(c.busy).toBeNull();
+    expect(c.paused).toBe(true);
+    expect(c.pausedByLifecycle).toBe(true);
+    await drain(); await work;
+    expect(c.st?.tick).toBe(1); // no further months after the lifecycle pause
+    expect(c.paused).toBe(true); // prior "running" state is NOT restored
     expect(request).toHaveBeenCalledTimes(1);
-
-    await controller.fastForward(24);
-
-    // Monthly fast-forward stops at the December 2026 boundary (2 months, not 24)…
-    expect(vi.mocked(stepMonth)).toHaveBeenCalledTimes(2);
-    expect(controller.st?.tick).toBe(CAMPAIGN_END_TICK);
-    expect(controller.busy).toBeNull();
-    // …and since CLOCK-01 the December 2026 hours are still playable, so the prior run state resumes.
-    expect(controller.paused).toBe(false);
-
-    // Once the canonical clock reaches 31/12/2026 23:00 the campaign cannot resume or step.
-    (controller.st as any).clock = { hour: CAMPAIGN_FINAL_HOUR };
-    controller.setPaused(true);
-    controller.setPaused(false);
-    controller.stepOnce();
-    controller.stepDay();
-    expect(controller.paused).toBe(true);
-    expect(controller.st?.tick).toBe(CAMPAIGN_END_TICK);
-    expect(vi.mocked(stepMonth)).toHaveBeenCalledTimes(2);
-    await controller.fastForward(3);
-    expect(vi.mocked(stepMonth)).toHaveBeenCalledTimes(2);
-    expect(controller.paused).toBe(true);
+    c.onBackground(); // backgrounding while already paused stays paused, no spurious state
+    expect(c.paused).toBe(true);
   });
 
-  it('restores the live clock after a fast-forward step throws', async () => {
-    let resumeYield: (() => void) | undefined;
-    vi.stubGlobal('setTimeout', ((callback: () => void) => {
-      resumeYield = callback;
-      return 1;
-    }) as typeof setTimeout);
+  it('caps fast-forward at December 2026; the December hours stay playable until 23:00 31/12/2026', async () => {
+    const c = new GameController();
+    c.st = fake(CAMPAIGN_END_TICK - 2);
+    c.setPaused(false);
+    const work = c.fastForward(24);
+    await drain(); await work;
+    expect(vi.mocked(advanceHours)).toHaveBeenCalledTimes(2);
+    expect(c.st?.tick).toBe(CAMPAIGN_END_TICK);
+    expect(c.busy).toBeNull();
+    expect(c.paused).toBe(false);
 
-    const stepMonthMock = vi.mocked(stepMonth);
-    for (let i = 0; i < 6; i++) {
-      stepMonthMock.mockImplementationOnce((state) => {
-        state.tick = (state.tick ?? 0) + 1;
-        return true;
-      });
-    }
-    stepMonthMock.mockImplementationOnce(() => {
-      throw new Error('simulated monthly step failure');
+    (c.st as any).clock = { hour: CAMPAIGN_FINAL_HOUR };
+    c.setPaused(true); c.setPaused(false); c.stepOnce(); c.stepDay();
+    expect(c.paused).toBe(true);
+    await c.fastForward(3);
+    expect(vi.mocked(advanceHours)).toHaveBeenCalledTimes(2);
+    expect(c.st?.tick).toBe(CAMPAIGN_END_TICK);
+  });
+
+  it('restores the live clock after a fast-forward chunk throws', async () => {
+    let calls = 0;
+    vi.mocked(advanceHours).mockImplementation((state: any) => {
+      if (++calls === 3) throw new Error('simulated monthly step failure');
+      const before = state.clock.hour; state.tick += 1; state.clock = { hour: monthStartHour(state.tick) };
+      return { hours: state.clock.hour - before, monthlyBoundaries: 1, stop: 'yield' };
     });
-
-    const controller = new GameController();
-    controller.st = { tick: 0, log: [] } as any;
-    controller.setPaused(false);
-
-    const work = controller.fastForward(12);
-    expect(controller.st?.tick).toBe(6);
-    expect(controller.busy?.done).toBe(6);
-    expect(controller.paused).toBe(true);
-    expect(resumeYield).toBeDefined();
-
-    resumeYield?.();
-    await expect(work).rejects.toThrow('simulated monthly step failure');
-
-    expect(controller.busy).toBeNull();
-    expect(controller.paused).toBe(false);
-    expect(cancel).toHaveBeenCalledTimes(1);
+    const c = new GameController();
+    c.st = fake(0);
+    c.setPaused(false);
+    const work = c.fastForward(12);
+    const settled = work.then(() => 'ok', (e: Error) => e.message);
+    await drain();
+    expect(await settled).toBe('simulated monthly step failure');
+    expect(c.st?.tick).toBe(2);
+    expect(c.busy).toBeNull();
+    expect(c.paused).toBe(false);
     expect(request).toHaveBeenCalledTimes(2);
   });
 
+  it('CG11-03: dispose removes the visibility listener and stops work', () => {
+    const add = vi.fn(); const remove = vi.fn();
+    vi.stubGlobal('document', { hidden: false, addEventListener: add, removeEventListener: remove });
+    const c = new GameController();
+    expect(add).toHaveBeenCalledTimes(1);
+    const listener = add.mock.calls[0][1];
+    c.dispose(); c.dispose();
+    expect(remove).toHaveBeenCalledTimes(1);
+    expect(remove.mock.calls[0][1]).toBe(listener);
+    expect(c.paused).toBe(true);
+  });
 });

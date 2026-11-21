@@ -156,6 +156,18 @@ describe('CLOCK-01 save schema v3 and continuation', () => {
     expect(migrated).toEqual(reference);
   });
 
+  it.each([0, CAMPAIGN_END_TICK])('migrates a v2 save at tick %i (first and final campaign month) and round-trips it', (tick) => {
+    const st = createGame({ mode: 'historical', seed: 11, player: null });
+    if (tick > 0) positionAtMonthStart(st, tick);
+    const legacy = clone(st) as Partial<GameState>;
+    delete legacy.clock; legacy.version = 2;
+    const migrated = deserialize(JSON.stringify({ format: SAVE_FORMAT, version: 2, state: legacy }));
+    expect(migrated.clock.hour).toBe(monthStartHour(tick));
+    expect(migrated).toEqual(st);
+    expect(deserialize(serialize(migrated))).toEqual(st);
+    expect(() => deserialize(JSON.stringify({ format: SAVE_FORMAT, version: 2, state: { ...legacy, tick: '3' } }))).toThrow('Invalid saved month tick');
+  });
+
   it('migrates a v1 save through v2 to v3', () => {
     const st = createGame({ mode: 'historical', seed: 8, player: null });
     stepMonth(st);

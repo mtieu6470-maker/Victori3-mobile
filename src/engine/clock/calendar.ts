@@ -54,17 +54,24 @@ export function isLeapYear(y: number): boolean {
   return (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0;
 }
 
+const isInt = (x: unknown): x is number => typeof x === 'number' && Number.isSafeInteger(x);
+
+/** Days in month `m` (1–12) of year `y`; throws RangeError on invalid input (CG11-05). */
 export function daysInMonth(y: number, m: number): number {
+  if (!isInt(y) || !isInt(m) || m < 1 || m > 12) throw new RangeError(`Invalid year/month ${String(y)}-${String(m)}`);
   return [31, isLeapYear(y) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][m - 1];
 }
 
-/** Campaign day index (0 = 1836-01-01) of a calendar date. */
+/** Campaign day index (0 = 1836-01-01) of a calendar date. Rejects impossible dates instead of normalising them. */
 export function dayIndexOf(y: number, m: number, d: number): number {
+  const dim = daysInMonth(y, m);
+  if (!isInt(d) || d < 1 || d > dim) throw new RangeError(`Invalid day ${String(d)} for ${y}-${m}`);
   return daysFromCivil(y, m, d) - EPOCH_DAYS;
 }
 
-/** Canonical hour of y-m-d hh:00. */
+/** Canonical hour of y-m-d hh:00. Rejects hour outside 0–23 instead of rolling into the next day. */
 export function hourOf(y: number, m: number, d = 1, h = 0): number {
+  if (!isInt(h) || h < 0 || h >= HOURS_PER_DAY) throw new RangeError(`Invalid hour ${String(h)}`);
   return dayIndexOf(y, m, d) * HOURS_PER_DAY + h;
 }
 
