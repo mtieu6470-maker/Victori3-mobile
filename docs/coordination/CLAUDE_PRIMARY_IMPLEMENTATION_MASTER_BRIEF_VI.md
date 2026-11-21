@@ -1083,9 +1083,9 @@ Before any implementation, read full current versions (not excerpts):
 7. docs/coordination/OWNER_PRODUCT_ENGINEERING_PRINCIPLES_VI.md
 8. docs/coordination/OWNER_DIRECTIVE_GAME_DEPTH_AND_NEXT_SESSION_2026-11-20.md
 9. docs/coordination/OWNER_DIRECTIVE_CAMPAIGN_RANGE_2026-11-20.md
-10. docs/roadmap/DECISIONS_AND_S0_REVISED_VI.v3.2.md
-11. docs/roadmap/S0_V3_3_OWNER_DECISION_AND_AMENDMENTS.md
-12. Exact phase spec, review packet, relevant subsystem specs, parity audit/matrix, rolling report and actual code/tests.
+10. docs/coordination/OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md (newest authority for clock, roles and autonomous execution)
+11. docs/roadmap/DECISIONS_AND_S0_REVISED_VI.v3.2.md and docs/roadmap/S0_V3_3_OWNER_DECISION_AND_AMENDMENTS.md as historical dependency/evidence references
+12. Exact relevant subsystem specs, review packets, parity audit/matrix, rolling report and actual code/tests.
 13. This master brief in full.
 
 Re-fetch branch HEAD and relevant files from GitHub before reading; the SHAs in this document are checkpoint references, never assumed current.
