@@ -5,7 +5,7 @@
 - Branch được chỉ định: claude/game-historical-sandbox-modes-kg7rj7
 - Ngày chốt nội dung: 2026-11-21
 - Vai trò triển khai: Claude Code là primary implementation agent theo chỉ thị mới của chủ dự án.
-- Trạng thái tài liệu: MASTER BRIEF / IMPLEMENTATION DIRECTION; không thay thế roadmap canonical, task authorization hoặc phase gate.
+- Trạng thái tài liệu: MASTER PRODUCT / EXECUTION BRIEF. Đọc cùng OWNER_DIRECTIVE_EXECUTION_MODEL_AND_CLOCK_2026-11-21.md; Claude được ủy quyền điều hành và triển khai dự án đến completion, không cần owner duyệt từng task/phase thông thường.
 - Phạm vi lịch chiến dịch của dự án: 01/01/1836 đến 31/12/2026, theo owner amendment 2026-11-20.
 - Chuẩn tham chiếu: Victoria 3 và các bản cập nhật/content pack gameplay đã phát hành tại mốc tham chiếu được ghi trong §3.
 
@@ -975,8 +975,8 @@ Every completed slice should report in repository files:
 7. Artifact and separate APK SHA / ZIP digest if relevant.
 8. Save/load/determinism/performance notes.
 9. Remaining gaps and risks.
-10. Independent reviewer and verdict.
-11. Owner acceptance/gate status.
+10. Implementer self-review and verdict; ChatGPT advisory critique when requested. Never invent independent review.
+11. Product acceptance/reserved owner decisions, if applicable.
 12. Exact next task.
 
 Do not send the owner a long repeated audit. Keep the user-facing summary compact; preserve technical evidence in GitHub.
