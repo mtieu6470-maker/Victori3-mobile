@@ -1,3 +1,14 @@
+# CURRENT OWNER ROLE ASSIGNMENT — 2026-11-21
+
+- **Primary code author:** Claude Code is the primary implementation agent for future tasks explicitly authorized by the owner and permitted by the current phase gate.
+- **Technical lead / independent reviewer:** ChatGPT coordinates architecture, dependencies, scope and integration; reviews Claude-authored code without writing to the same change set when independent. If ChatGPT co-authors the change set, it cannot claim independent REVIEW_PASS; owner assigns another reviewer.
+- **Research/content:** Gemini Hydrogen supplies source-backed historical/media research. DeepSeek is an independent fallback reviewer only when assigned by the owner.
+- **Master brief (read in full):** [CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md](CLAUDE_PRIMARY_IMPLEMENTATION_MASTER_BRIEF_VI.md). It contains the Victoria 3 parity target, causal gameplay loops, S0–S23 dependency map, role allocation and acceptance requirements.
+- **Owner scope boundary:** this role reassignment is not a phase transition and does not authorize gameplay in a closed phase. Re-fetch the current gate/approval before every implementation task.
+- **Preparation checkpoint:** previous verified HEAD 764fd121ce614678c8ab476ede33aacfd97c6efa; master brief creation commit 95b518ec7fc457673c575eccc22f1c4291dacda5; following documentation synchronization commits are listed in the latest checkpoint below. Verify latest branch HEAD before acting.
+
+---
+
 ## DEV-007 — Campaign calendar 1836–2026 — READY_FOR_REVIEW (20/11/2026)
 
 - **Owner authorization:** `docs/coordination/OWNER_DIRECTIVE_CAMPAIGN_RANGE_2026-11-20.md`; the owner changed the campaign period to January 1836–December 2026 inclusive for Historical and Sandbox.
