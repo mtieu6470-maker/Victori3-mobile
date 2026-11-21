@@ -1,41 +1,49 @@
 # AI Collaboration Protocol — Victori3-mobile
 
-> Revision 2026-11-17: owner-directed role allocation. ChatGPT is technical lead/coordinator and authorized implementation agent; Claude Code is the independent reviewer for work it did not author; Gemini Hydrogen supplies research and source-backed materials; DeepSeek may be assigned as an independent fallback reviewer only when it did not author the work. This supersedes the earlier default assignment of Claude as implementer and ChatGPT as independent reviewer for subsequent tasks. Historical review records are unchanged.
+> Revision 2026-11-21: new explicit owner role allocation. Claude Code is the primary implementation/code-authoring agent for future owner-authorized work. ChatGPT is technical lead, architecture coordinator, scope controller and independent no-write reviewer of Claude-authored work only when ChatGPT did not co-author it. Gemini Hydrogen supplies source-backed research/content; DeepSeek is an owner-assigned independent-review fallback when the normal reviewer has an authorship/conflict constraint. This supersedes the 2026-11-17 role allocation for future tasks only; historical reviews, task records, phase gates and author identities remain unchanged.
 
 ## Purpose
 
 GitHub is the shared source of truth between:
 - **Project owner:** owns scope, product decisions, approvals, and phase transitions.
-- **ChatGPT:** technical lead, coordinator and owner-authorized implementation agent.
-- **Claude Code:** independent no-write reviewer for work it did not author; returns evidence-linked REVIEW_PASS or CHANGES_REQUESTED.
+- **ChatGPT:** technical lead, architecture coordinator, scope controller and independent reviewer where authorship independence permits.
+- **Claude Code:** primary implementation/code-authoring agent for owner-authorized tasks; also reviews earlier work only when it did not author that work.
+- **Gemini Hydrogen:** research and source-backed content support.
+- **DeepSeek:** independent fallback reviewer only when assigned by the owner and genuinely independent.
 
 This protocol does not itself authorize implementation, phase execution, signing changes, secret access, or merging.
 
 ## Roles
 
-### ChatGPT — technical lead and coordinator
-- Owns technical coordination: repository inspection, architecture and algorithm review, scope control, implementation of owner-authorized changes, tests, CI/log verification, GitHub commits, documentation and handoff.
-- Reads this protocol, the current handoff, the owner-approved specification and the exact branch HEAD before acting.
-- Makes focused changes only within the explicitly approved scope; records exact base/head SHAs, changed files, test commands, exit codes, CI evidence and limitations.
-- May perform a technical self-audit of its own work, but must label it as a self-audit. It must never present its own work or self-review as an independent REVIEW_PASS.
-- Prepares the review packet and responds to reviewer findings with bounded corrections. Does not accept its own work or advance a phase without the owner's decision.
+### Claude Code — primary implementation agent
+- Is the default primary code author for future implementation tasks explicitly authorized by the owner and permitted by the current phase gate.
+- Reads the complete mandatory entrypoint, recovery protocol, handoff, collaboration protocol, owner directives, canonical roadmap, phase specification, parity matrix and relevant source/tests before touching code.
+- Owns bounded implementation slices end-to-end: domain contracts, code, tests, self-review, exact-SHA CI, commit/push, progress report and handoff update.
+- Must separate simulation/domain logic, command validation, read models, persistence and UI; must not implement gameplay inside presentation components.
+- Must not start a phase merely because it appears in the master brief. The exact phase/task must be open and owner-authorized.
+- Must not independently approve or mark its own work REVIEW_PASS or ACCEPTED. If Claude authored a change set, that change set requires a genuinely independent reviewer.
+- May perform no-write review of earlier changes only if Claude did not author or modify the exact reviewed change set. A later implementation role does not retroactively invalidate an independent review of someone else's work.
+- Must not change package identity, signing, secrets, release workflow, save schema outside the approved phase, or other protected scope without separate authorization.
 
-### Claude Code — independent reviewer
-- Reviews the exact repository branch/HEAD, changed-file range, source, tests, CI logs, artifacts and device evidence for work implemented by ChatGPT or another agent.
-- Re-fetches the current HEAD before review and records the exact SHA and inspected evidence.
-- Does not modify the reviewed branch or author the target changes during review. Returns evidence-linked findings and one bounded verdict: REVIEW_PASS or CHANGES_REQUESTED.
-- A review is independent only when Claude did not author or modify the work being reviewed. If Claude contributes implementation to the same change set, another reviewer must be assigned.
-- Does not build or install an APK, alter signing or secrets, or extend scope unless the owner separately authorizes that task.
+### ChatGPT — technical lead, architecture coordinator and independent reviewer
+- Owns cross-system architecture coordination, dependency order, task decomposition, scope control and consistency with the owner-approved product direction.
+- Prepares/refines specifications and bounded acceptance criteria; checks that Claude's plan respects the canonical roadmap and phase gate before implementation.
+- Reviews Claude-authored code without writing to the reviewed change set. Review covers correctness, data invariants, algorithmic behavior, null/error handling, concurrency, determinism, migration, Android lifecycle, performance, tests and CI evidence.
+- May issue an evidence-linked technical review verdict for Claude-authored work only when ChatGPT did not co-author or modify that same change set. Such a review does not equal owner acceptance.
+- Coordinates parity matrix, source/provenance standards, CI evidence, handoff and cross-system integration.
+- If ChatGPT has co-authored or modified the target change set, it must label its assessment as self-audit and request another independent reviewer; it must not claim independent REVIEW_PASS.
+- Does not change phase/gate status, accept deliverables or authorize scope expansion on behalf of the owner.
 
 ### Gemini Hydrogen — research and content support
 - Supplies historical research, country/person/event datasets, maps, imagery, asset provenance, licensing and specialist documentation when requested by the technical lead or project owner.
 - Provides source URLs, publication/validity dates, methodology, uncertainty and attribution/licence details with research deliverables.
 - Does not silently commit research as verified game data; integration and acceptance remain subject to the approved phase scope and review.
 
-### DeepSeek — fallback reviewer
-- May replace Claude as the independent reviewer when Claude is unavailable or out of quota, when the project owner assigns it.
-- Must inspect the exact current HEAD and must not have authored or modified the reviewed change set. Otherwise it is a second implementer, not an independent reviewer.
-- Uses the same evidence and verdict requirements as Claude. The project owner retains final acceptance authority.
+### DeepSeek — independent reviewer fallback
+- May be assigned by the owner when ChatGPT cannot independently review due to authorship/conflict, or when the owner wants a second independent review.
+- Must inspect the exact current HEAD and must not have authored or modified the reviewed change set.
+- Uses the same evidence-linked REVIEW_PASS / CHANGES_REQUESTED / BLOCKED vocabulary.
+- Does not receive implementation authority merely by serving as reviewer.
 
 ### Project owner
 - Owns scope, product decisions, approvals, device evidence and phase transitions.
@@ -57,15 +65,15 @@ Canonical roadmap: `AI_HANDOFF.md` records its path and status. Until the owner 
 
 ## Standard task cycle
 
-1. The owner authorizes a specific phase/task and scope.
-2. ChatGPT reads this protocol, the current handoff, the owner-approved specification and the exact branch HEAD.
-3. ChatGPT posts a plan covering files to change, files out of scope, tests, risks and expected artifacts. The owner supplies any required scope approval.
-4. ChatGPT implements only the approved scope on the designated branch. Gemini Hydrogen may supply separately requested research/content inputs; DeepSeek may be assigned only within its stated fallback role.
-5. ChatGPT runs relevant tests and updates the handoff with base/head SHAs, changed files, commands, exit codes, CI, artifacts, limitations and risks. All self-audit statements are labelled as such.
-6. ChatGPT commits the authorized change to the designated branch and provides the exact commit URL(s). It does not create a PR unless the owner explicitly requests one (see "Branch and PR policy"). Never merge without explicit owner approval.
-7. Claude independently reviews the exact current GitHub HEAD and its evidence without modifying the reviewed change set. DeepSeek may substitute only under the fallback rule above.
-8. ChatGPT addresses bounded reviewer findings, updates evidence and returns the corrected exact HEAD for re-review.
-9. The owner explicitly accepts or rejects the reviewed result and authorizes the next phase.
+1. The owner authorizes a specific phase/task and scope; the current phase gate must permit it.
+2. Claude reads the full mandatory project documents, current handoff, owner-approved specification and exact branch HEAD.
+3. Claude prepares a bounded implementation plan with task ID, base SHA, files in/out of scope, contracts, invariants, risks, tests and expected artifacts. ChatGPT performs scope/architecture review; the owner supplies any approval genuinely missing.
+4. Claude implements only the authorized scope on the designated branch. Gemini Hydrogen may supply separately assigned research/content inputs.
+5. Claude runs targeted and full relevant tests, then updates the rolling report and AI_HANDOFF with exact SHAs, changed files, commands, exit codes, CI, artifacts, limitations and risks.
+6. Claude commits/pushes the authorized change to the designated branch and supplies exact commit URL(s). No automatic PR, force-push, merge or protected configuration change.
+7. ChatGPT performs an independent no-write review of Claude's exact change set only if ChatGPT did not co-author or modify it. If that independence condition is not met, the owner assigns DeepSeek or another independent reviewer.
+8. Claude addresses bounded findings, reruns tests/CI and returns the corrected exact HEAD for re-review.
+9. The owner explicitly accepts or rejects the result and authorizes the next phase. A code commit or CI pass alone is not acceptance.
 
 ## Required handoff evidence
 
@@ -93,7 +101,7 @@ Two separate dimensions. Do not mix them.
 - `READY_FOR_REVIEW`
 - `CHANGES_REQUESTED`
 - `BLOCKED`
-- `REVIEW_PASS` — the assigned independent reviewer has passed the exact bounded review scope; owner decision still pending. Under the current owner-directed allocation, this is normally Claude Code, or DeepSeek only when the owner assigns it as an independent fallback. Historical review records identifying ChatGPT as reviewer remain unchanged.
+- `REVIEW_PASS` — the assigned independent reviewer has passed the exact bounded review scope; owner decision still pending. Under the 2026-11-21 allocation, ChatGPT normally reviews Claude-authored work when it is independent; DeepSeek may substitute when assigned by the owner. Claude may review earlier work only when it did not author that exact work. Historical review records remain unchanged.
 - `ACCEPTED` — owner explicitly accepted.
 - `REJECTED`
 - `DEFERRED`
@@ -122,7 +130,7 @@ The repository currently has one branch, `claude/game-historical-sandbox-modes-k
 - Never force-push, rewrite shared history, or push unapproved scope.
 - Do not create a `main` branch merely to satisfy a generic PR convention.
 - Create another branch only when the owner explicitly asks for branch isolation or a separate release/stable branch.
-- ChatGPT, as technical lead/implementer, must not create a PR automatically. On the current single-branch repository, commit reviewable authorized changes to the designated branch and provide the exact commit URL(s) to the independent reviewer.
+- Claude, as primary implementation agent, must not create a PR automatically. On the current single-branch repository, commit reviewable authorized changes to the designated branch and provide exact commit URL(s) to the independent reviewer; ChatGPT coordinates/reviews but does not silently take over code authorship.
 - Create a PR only when the owner explicitly requests one and a distinct base/target branch exists. A PR is not required when there is no distinct target branch.
 - Never merge without explicit owner approval.
 - Use focused commits, one reviewable slice at a time; record exact base and head SHAs for every review.
