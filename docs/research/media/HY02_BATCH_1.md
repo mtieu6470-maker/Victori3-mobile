@@ -80,3 +80,14 @@ Tổng cộng **40 minh họa gốc** trong historical_data/assets/illustration_
 4. Kiểm tra render trên UI cho 10 công trình, 20 tech, 10 events, đặc biệt tỷ lệ crop và độ tương phản ở màn hình điện thoại.
 
 **Không đánh dấu Batch 1 DONE trước khi WebP variants và npm run content được xác minh.** Đây là lô source art đã commit, còn packaging/render validation đang chờ.
+
+## 5. WebP conversion automation
+
+Added:
+- `tools/convert_illustrations.py` — converts each SVG master into a 1280×720 WebP (quality 80) and a 480×270 WebP thumbnail, updates each manifest path and retains the SVG as provenance source.
+- `.github/workflows/convert-illustrations.yml` — manual GitHub Actions workflow: installs Cairo/Pillow, converts assets, runs `npm ci` + `npm run content`, then commits WebP files, manifest and generated registry to the selected branch.
+
+Commits: converter `b593e7df6a9ff3d04e3898af15ce0f83d5cd7382`; workflow `5cb61b9a4e8a18023f6e614e0d0e06b4d8d75878`.
+
+**Still not executed in this session.** Until the workflow run succeeds and the generated WebP/registry commit exists, Batch 1 remains PARTIAL.
+
