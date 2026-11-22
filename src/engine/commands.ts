@@ -3,7 +3,7 @@
 import type { LawGroup } from './data/dbTypes';
 import type { Building, GameState, WarGoal } from './types';
 import { enqueueConstruction, cancelConstruction } from './systems/economy';
-import { foundCompany, foundCompanyBlocker } from './systems/companies';
+import { foundCompany, foundCompanyBlocker, charterBlocker, grantCharter, revokeCharter } from './systems/companies';
 import { startReform, reformSupport } from './systems/politics';
 import { availableTechs } from './systems/technology';
 import { declareWar, formAlliance, breakAlliance, declareRivalry, guarantee, improveRelations, joinCustomsUnion, allianceAcceptance, boundSubject } from './systems/diplomacy';
@@ -22,6 +22,8 @@ export type Command =
   | { type: 'build'; region: string; building: Building }
   | { type: 'cancel_construction'; projectId: string }
   | { type: 'found_company'; kind: string }
+  | { type: 'grant_charter'; company: string }
+  | { type: 'revoke_charter'; company: string }
   | { type: 'set_research'; tech: string }
   | { type: 'improve_relations'; target: string }
   | { type: 'propose_alliance'; target: string }
@@ -92,6 +94,13 @@ export function execute(st: GameState, cmd: Command): CommandResult {
       const blocker = foundCompanyBlocker(st, me, cmd.kind);
       if (blocker) return { ok: false, reason: blocker };
       return foundCompany(st, me, cmd.kind) ? { ok: true } : { ok: false, reason: 'The company could not be founded' };
+    }
+    case 'grant_charter': case 'revoke_charter': {
+      const co = st.companies?.[cmd.company];
+      if (!co || co.home !== me.id) return { ok: false, reason: 'Unknown company' };
+      if (cmd.type === 'revoke_charter') return revokeCharter(st, co) ? { ok: true } : { ok: false, reason: 'The company holds no charter' };
+      const blocker = charterBlocker(st, co);
+      return blocker ? { ok: false, reason: blocker } : grantCharter(st, co) ? { ok: true } : { ok: false, reason: 'The charter could not be granted' };
     }
     case 'set_research': if (!availableTechs(me).includes(cmd.tech)) return { ok: false, reason: 'Prerequisites missing or already known' }; me.research = { current: cmd.tech, progress: 0 }; return { ok: true };
     case 'improve_relations': improveRelations(st, me.id, cmd.target); return { ok: true };

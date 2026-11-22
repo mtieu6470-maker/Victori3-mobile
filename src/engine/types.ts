@@ -195,6 +195,11 @@ export interface Company {
    * and cumulative funds put into its own construction projects.
    */
   cash: number; lastProfit: number; lastDividend: number; lastRetained: number; invested: number;
+  /**
+   * CO-3b: monopoly charter (tick granted). While held, only this company may add new sites or levels of
+   * its kind's buildings through private investment in its home country; the state can still build.
+   */
+  charter?: { since: number };
   /** Set only for companies seeded from verified historical evidence (CG-31). */
   historicalId?: string;
 }

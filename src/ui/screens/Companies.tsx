@@ -1,13 +1,17 @@
 // CO-5: companies of the viewed country (CO-1 ownership, CO-2 money). Read-only view of engine state:
 // no simulation rule lives here. Names are shown in Vietnamese from the kind and headquarters region.
 import type { Building, Company, GameState } from '../../engine/types';
-import { companyLawAllows, companySlots, COMPANY_PARAMS, foundCompanyBlocker, LEVELS_PER_SLOT, SLOTS_BY_ECONOMY_LAW, unlockedOperationalKinds } from '../../engine/systems/companies';
+import { charterBlocker, charterLimit, CHARTER_PARAMS, companyLawAllows, companySlots, COMPANY_PARAMS, foundCompanyBlocker, LEVELS_PER_SLOT, SLOTS_BY_ECONOMY_LAW, unlockedOperationalKinds } from '../../engine/systems/companies';
 import { data } from '../../engine/data/db';
 import { Illustration } from '../components/Illustration';
 import { illustrationFor } from '../game/content';
 import { Sec, Metric, DBar, details } from '../components/ui';
 import { BUILD_VI, companyKindName, techName, fmt, pct, money, compact } from '../i18n/vi';
 import { viewedId, focusRegion, regionName, canCommand, send } from './common';
+
+const CHARTER_BLOCK_VI = (b: string | null) => !b ? 'Có thể cấp hiến chương độc quyền.' :
+  /law/.test(b) ? 'Luật kinh tế hiện tại không cho phép độc quyền.' : /prosperous/.test(b) ? 'Công ty chưa đủ thịnh vượng để nhận hiến chương.' :
+  /No free charter/.test(b) ? 'Đã dùng hết số hiến chương được phép.' : /Another company/.test(b) ? 'Công ty khác đã giữ độc quyền ngành này.' : 'Chưa thể cấp hiến chương.';
 
 export const companyTitle = (co: Company) => `${companyKindName(co.kind)} ${regionName(co.hq)}`;
 
@@ -38,6 +42,15 @@ export function openCompany(st: GameState, co: Company) {
         <div class="kv"><span class="k">Đã tự đầu tư</span><span class="v num">{money(co.invested)}</span></div>
         {co.lossMonths > 0 && <div class="note neg">Lỗ {co.lossMonths} tháng liên tiếp; giải thể sau {COMPANY_PARAMS.dissolveAfterLossMonths} tháng.</div>}
         <div class="note">Chia {pct(COMPANY_PARAMS.payoutRatio, 0)} lợi nhuận làm cổ tức; phần giữ lại lấy từ tiết kiệm tư nhân và được dùng để mở rộng cơ sở.</div>
+      </Sec>
+      <Sec title="Hiến chương độc quyền" icon="laws">
+        {co.charter
+          ? <div class="note pos">Đang giữ độc quyền: nhà đầu tư tư nhân và công ty khác không được xây {(kind?.buildings ?? []).map((b) => BUILD_VI[b as Building]).join(', ')} trong nước. Nhà nước vẫn xây được.</div>
+          : <div class="note">{CHARTER_BLOCK_VI(charterBlocker(st, co))}</div>}
+        {canCommand(st, co.home) && (co.charter
+          ? <button class="btn danger sm" onClick={() => { void send({ type: 'revoke_charter', company: co.id }, `Đã thu hồi hiến chương của ${companyKindName(co.kind)}`); }}>Thu hồi hiến chương</button>
+          : !charterBlocker(st, co) && <button class="btn primary sm" onClick={() => { void send({ type: 'grant_charter', company: co.id }, `Đã cấp hiến chương độc quyền cho ${companyKindName(co.kind)}`); }}>Cấp hiến chương độc quyền</button>)}
+        <div class="s dim">Chỉ cấp được dưới luật trọng thương hoặc can thiệp; luật tự do kinh doanh bãi bỏ mọi độc quyền. Cần thịnh vượng ≥ {fmt(CHARTER_PARAMS.minProsperity * 100, 0)}. Độc quyền không cộng chỉ số: lợi ích đến từ việc ít cạnh tranh hơn trên thị trường.</div>
       </Sec>
       <Sec title="Cơ sở sở hữu" x="chạm để xem trên bản đồ">
         {co.sites.map((k) => { const [r, b] = k.split('|'); return (
@@ -71,7 +84,7 @@ function CompanyCard({ st, co, on }: { st: GameState; co: Company; on: boolean }
     <button class={`cocard${on ? ' on' : ''}`} onClick={() => openCompany(st, co)}>
       <div class="cocard-img" style={art ? `background-image:url(${art})` : ''}><Emblem kindId={co.kind} /></div>
       <div class="cocard-body">
-        <div class="cocard-name">{companyKindName(co.kind)}</div>
+        <div class="cocard-name">{companyKindName(co.kind)}{co.charter && <span class="chip charter" title="Hiến chương độc quyền">Độc quyền</span>}</div>
         <div class="cocard-hq">{regionName(co.hq)}</div>
         <div class="cocard-chips">{(kind?.buildings ?? []).map((b) => <span class="chip" key={b}>{BUILD_VI[b as Building]}</span>)}</div>
         <div class="cocard-prosp"><span class="lab">Thịnh vượng</span><DBar v={co.prosperity} w={96} /><span class={`num ${co.prosperity >= 0 ? 'pos' : 'neg'}`}>{co.prosperity >= 0 ? '+' : '−'}{fmt(Math.abs(co.prosperity) * 100, 0)}</span></div>
@@ -123,6 +136,7 @@ export function CompaniesTab({ st }: { st: GameState }) {
         <Metric label="Công ty / suất" icon="buildings" value={`${fmt(cos.length)} / ${fmt(slots)}`} d={<span class={allowed ? 'dim' : 'neg'}>{allowed ? `luật ${fmt(SLOTS_BY_ECONOMY_LAW[c!.laws.economy] ?? 0)} + công nghiệp ${fmt(slots - (SLOTS_BY_ECONOMY_LAW[c!.laws.economy] ?? 0))}` : 'luật chưa cho phép công ty cổ phần'}</span>} />
         <Metric label="Lợi nhuận / tháng" icon="gdp" value={money(sum((co) => co.lastProfit))} d={<span class="dim">cổ tức {compact(sum((co) => co.lastDividend))}</span>} />
         <Metric label="Tiền mặt công ty" icon="treasury" value={money(sum((co) => co.cash))} d={<span class="dim">đã đầu tư {compact(sum((co) => co.invested))}</span>} />
+        <Metric label="Hiến chương độc quyền" icon="laws" value={`${fmt(cos.filter((co) => co.charter).length)} / ${fmt(c ? charterLimit(st, c) : 0)}`} d={<span class="dim">{c && charterLimit(st, c) ? 'luật cho phép độc quyền' : 'luật không cho phép'}</span>} />
       </div>
       {cos.length ? <div class="cogrid">{cos.map((co) => <CompanyCard key={co.id} st={st} co={co} on={sel === `co:${co.id}`} />)}</div> : <div class="empty">Chưa có công ty nào ở quốc gia này.</div>}
       {possible.length > 0 && <Sec title={`Có thể thành lập (${possible.length})`}>

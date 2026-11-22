@@ -140,3 +140,18 @@ Company { id, name, kind: 'private'|'chartered'|'state', home: countryId, hq: re
   - Ô chỉ số "Công ty / suất" kèm nguồn gốc suất.
   - Thẻ "Có thể thành lập": viền vàng và nút bấm khi đủ điều kiện, hoặc thẻ xám ghi lý do còn thiếu bằng tiếng Việt.
 - **Tiếp theo:** CO-3b, hiến chương và đặc quyền (độc quyền, giấy phép), cần cơ sở pháp lý (CG-30); có chi phí duy trì và giới hạn.
+
+## 10. CO-3b: hiến chương độc quyền (triển khai 2026-11-22)
+
+- **Hiệu lực.** Công ty giữ hiến chương có độc quyền xây loại công trình của mình trong nước:
+  - quỹ tư nhân và các công ty khác không được khởi công công trình loại đó;
+  - nhà nước vẫn xây được.
+  - **Không cộng chỉ số trực tiếp.** Lợi ích đến từ việc ít cạnh tranh hơn: cung tăng chậm hơn thì giá cao hơn (cơ chế cung cầu sẵn có).
+- **Luật.** Chỉ cấp được dưới luật trọng thương hoặc can thiệp. Khi chuyển sang tự do kinh doanh, mọi hiến chương tự động bị thu hồi. Đây là quan hệ nhân quả có cơ sở lịch sử: tự do kinh doanh là sự bãi bỏ đặc quyền thương mại, ví dụ EIC mất độc quyền thương mại năm 1813/1833.
+- **Điều kiện cấp:**
+  - thịnh vượng ≥ 0,3;
+  - mỗi 4 suất công ty có 1 hiến chương, tối thiểu 1;
+  - không trùng ngành với hiến chương đã có.
+- **Ai quyết định:** người chơi cấp hoặc thu hồi bằng lệnh. AI cấp cho công ty thịnh vượng nhất đủ điều kiện (kiểm tra hằng năm).
+- **Chưa làm:** đặc quyền có giá trị định lượng (thu mua dưới giá, đội giá tiêu dùng, chuyển địa tô về chính quốc). Phần này thuộc ECON-MONO-01 và chỉ bật khi có dữ liệu nguồn (CG-30, CG-34).
+- **Đo kiểm.** Kiểm thử trong `tests/companies-founding.test.ts` (4 bài). Scorecard 1913: 0,229 (trước đó 0,236).

@@ -1,3 +1,17 @@
+## 2026-11-22 — CO-3b monopoly charters; HY-04 media
+
+- **CO-3b:**
+  - `Company.charter` gives exclusive private construction of the company's kind's buildings at home; the state can still build. There is no direct bonus.
+  - Charters are granted under mercantilism or interventionism only (laissez-faire revokes them all). Limits: prosperity ≥ 0.3; one charter per 4 slots (at least 1); one holder per building type.
+  - Commands `grant_charter` / `revoke_charter`. The AI grants to its most prosperous eligible company once a year.
+  - UI: "Hiến chương độc quyền" metric, "Độc quyền" card chip, and a charter section in the detail window with grant/revoke.
+  - Tests: 4 more in `companies-founding.test.ts`. Scorecard 1913: 0.229.
+- **Media:** 6 HY-04 technology images from Commons. 72 illustrations in total.
+- **Board:** MSG-077 asks ChatGPT for CG-34, the legal and quantitative basis for charters and monopolies.
+- Local: `npm test` **35/35 files, 377/377**.
+
+---
+
 ## 2026-11-22 — CO-3 company slots and player-founded companies; HY-02/HY-03 media
 
 - **CO-3** (`companies.ts`): `companySlots` = economy-law slots (0/1/2/3) + 1 per 150 industrial/mine/railway levels, cap 12.

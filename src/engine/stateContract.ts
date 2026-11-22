@@ -176,6 +176,7 @@ export function validateCompanies(st: Obj): void {
     nonNeg(c.lastRevenue, `${p}.lastRevenue`); nonNeg(c.lastCost, `${p}.lastCost`); tick(c.lossMonths, `${p}.lossMonths`);
     nonNeg(c.cash, `${p}.cash`); num(c.lastProfit, `${p}.lastProfit`); nonNeg(c.lastDividend, `${p}.lastDividend`);
     nonNeg(c.lastRetained, `${p}.lastRetained`); nonNeg(c.invested, `${p}.invested`);
+    if (c.charter !== undefined) tick(obj(c.charter, `${p}.charter`).since, `${p}.charter.since`);
     if (c.historicalId !== undefined) str(c.historicalId, `${p}.historicalId`);
   }
 }

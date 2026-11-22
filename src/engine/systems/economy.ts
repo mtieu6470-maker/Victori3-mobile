@@ -1043,6 +1043,17 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
   return (value * moneyScale) / buildCost(c, b, st);
 }
 
+/** CO-3b: building types covered by a monopoly charter in a country (computed here to avoid an import cycle). */
+function charteredBuildings(st: GameState, countryId: string): Set<Building> {
+  const out = new Set<Building>();
+  const kinds = data().db.company_kinds;
+  for (const co of Object.values(st.companies ?? {})) {
+    if (co.home !== countryId || !co.charter) continue;
+    for (const b of kinds.find((k) => k.id === co.kind)?.buildings ?? []) out.add(b as Building);
+  }
+  return out;
+}
+
 /** ECON-GROWTH: new private projects a country's investors may start in one month (design parameter). */
 export const PRIVATE_PROJECTS_PER_MONTH = 3;
 
@@ -1054,10 +1065,13 @@ export function privateInvestment(st: GameState, c: Country) {
   // Score every option once per month (performance); the queued-supply discount inside
   // buildingReturn makes next month's scores account for what is started now.
   const options: { r: Region; b: Building; v: number }[] = [];
+  const chartered = charteredBuildings(st, c.id);
   for (const r of regionsOf(st, c.id)) {
     for (const b of ['textile_mill', 'ironworks', 'tool_works', 'mine', 'plantation', 'logging', 'luxury_workshop', 'railway', 'university'] as Building[]) {
       if (!canBuild(st, c, r, b)) continue;
       if (b === 'plantation' && c.laws.labor !== 'slavery' && r.strata[S.laborers] < 0.05) continue;
+      // CO-3b: a chartered monopoly excludes other private investors from its buildings.
+      if (chartered.has(b)) continue;
       const v = buildingReturn(st, c, r, b);
       if (v > 0.08) options.push({ r, b, v });
     }

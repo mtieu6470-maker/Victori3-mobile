@@ -66,6 +66,53 @@ function stagger(id: string, tick: number, period: number): boolean {
   return (tick + h) % period === 0;
 }
 
+/** CO-3b: economy laws under which the state may grant monopoly charters (laissez-faire abolishes them). */
+export const CHARTER_LAWS = new Set(['mercantilism', 'interventionism']);
+/** CO-3b design parameters: prosperity needed for a charter; one charter per this many company slots (at least one). */
+export const CHARTER_PARAMS = { minProsperity: 0.3, slotsPerCharter: 4 } as const;
+
+export function charterLimit(st: GameState, c: Country): number {
+  return CHARTER_LAWS.has(c.laws.economy) ? Math.max(1, Math.floor(companySlots(st, c) / CHARTER_PARAMS.slotsPerCharter)) : 0;
+}
+
+/** The chartered company holding the monopoly on a building type in a country, if any. */
+export function monopolyHolder(st: GameState, countryId: string, b: Building): Company | undefined {
+  const d = data();
+  for (const co of Object.values(st.companies ?? {})) {
+    if (co.home !== countryId || !co.charter) continue;
+    if (d.db.company_kinds.find((k) => k.id === co.kind)?.buildings.includes(b)) return co;
+  }
+  return undefined;
+}
+
+/** Why a charter cannot be granted to this company now (null when it can). */
+export function charterBlocker(st: GameState, co: Company | undefined): string | null {
+  if (!co) return 'Unknown company';
+  const c = st.countries[co.home];
+  if (!c?.alive) return 'Unknown company';
+  if (co.charter) return 'The company already holds a charter';
+  if (!CHARTER_LAWS.has(c.laws.economy)) return 'The economy law does not allow monopoly charters';
+  if (co.prosperity < CHARTER_PARAMS.minProsperity) return 'The company is not prosperous enough for a charter';
+  if (companiesOf(st, c.id).filter((x) => x.charter).length >= charterLimit(st, c)) return 'No free charter';
+  const kind = data().db.company_kinds.find((k) => k.id === co.kind);
+  for (const b of kind?.buildings ?? []) if (monopolyHolder(st, c.id, b as Building)) return 'Another company already holds this monopoly';
+  return null;
+}
+
+export function grantCharter(st: GameState, co: Company): boolean {
+  if (charterBlocker(st, co)) return false;
+  co.charter = { since: st.tick };
+  if (st.player === co.home) log(st, { type: 'economy', text: `${co.name} receives a monopoly charter.`, textVi: `${co.name} được cấp hiến chương độc quyền.`, actors: [co.home] });
+  return true;
+}
+
+export function revokeCharter(st: GameState, co: Company, why = ''): boolean {
+  if (!co.charter) return false;
+  delete co.charter;
+  if (st.player === co.home) log(st, { type: 'economy', text: `${co.name} loses its monopoly charter${why}.`, textVi: `${co.name} mất hiến chương độc quyền${why ? ' (luật kinh tế không còn cho phép)' : ''}.`, actors: [co.home] });
+  return true;
+}
+
 /** Funds still owed to a company's own unfinished projects. */
 export function companyCommitted(st: GameState, coId: string): number {
   return (st.constructionProjects ?? []).reduce((s, p) => s + (p.company === coId ? Math.max(0, p.totalCost - p.invested) : 0), 0);
@@ -99,6 +146,7 @@ function companyInvest(st: GameState, co: Company, home: Country, owners: Map<st
       for (const b of kind.buildings as Building[]) {
         const key = `${r.id}|${b}`; const owner = owners.get(key);
         if (owner && owner !== co.id) continue;
+        const holder = monopolyHolder(st, home.id, b); if (holder && holder.id !== co.id) continue;
         // A new level next to an unowned existing site would absorb other investors' plant: not allowed.
         if (!owner && (r.buildings[b] ?? 0) > 0) continue;
         if (!canBuild(st, home, r, b) || free < buildCost(home, b, st)) continue;
@@ -226,6 +274,7 @@ export function companiesMonth(st: GameState): void {
     co.lossMonths = cost > 0 && revenue < cost ? co.lossMonths + 1 : 0;
     const home = st.countries[co.home];
     companyFinance(co, home?.alive ? home : undefined);
+    if (co.charter && home && !CHARTER_LAWS.has(home.laws.economy)) revokeCharter(st, co, ' (economy law)');
     if (!co.sites.length || co.lossMonths >= COMPANY_PARAMS.dissolveAfterLossMonths || !home?.alive) {
       // Remaining cash returns to the owners' savings; unfinished projects pass to the private pool.
       if (home?.alive) home.privatePool = (home.privatePool ?? 0) + co.cash;
@@ -240,14 +289,17 @@ export function companiesMonth(st: GameState): void {
   const owners = siteOwners(st);
   for (const c of Object.values(st.countries)) {
     if (!c.alive || c.decentralized || c.id === st.player || !stagger(c.id, st.tick, COMPANY_PARAMS.formationPeriod) || !companyLawAllows(c)) continue;
-    if (companiesOf(st, c.id).length >= companySlots(st, c)) continue;
+    const room = companiesOf(st, c.id).length < companySlots(st, c);
     let best: { kind: string; year: number } | null = null;
-    for (const k of foundableKinds(st, c, owners)) {
+    for (const k of room ? foundableKinds(st, c, owners) : []) {
       // Prefer the most recently unlocked kind (the newest form of enterprise), then id order.
       const year = Math.max(...k.unlocked_by.map((t) => d.tech.get(t)?.historical_year ?? 0));
       if (!best || year > best.year || (year === best.year && k.id < best.kind)) best = { kind: k.id, year };
     }
     if (best) formCompany(st, c, best.kind, owners);
+    // AI: grant a charter to its most prosperous eligible company (the player decides for themselves).
+    const cand = companiesOf(st, c.id).filter((co) => !charterBlocker(st, co)).sort((a, b) => b.prosperity - a.prosperity || a.id.localeCompare(b.id))[0];
+    if (cand) grantCharter(st, cand);
   }
   // ---- 3. CO-2: investment of retained earnings (id order: deterministic)
   for (const co of Object.values(st.companies).sort((a, b) => a.id.localeCompare(b.id))) {

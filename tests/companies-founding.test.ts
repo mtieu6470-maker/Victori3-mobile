@@ -70,3 +70,52 @@ describe('CO-3 player-founded companies', () => {
     expect(foundCompanyBlocker(s2, s2.countries.GBR, kind)).toMatch(/law/);
   });
 });
+
+import { charterBlocker, grantCharter, monopolyHolder, CHARTER_PARAMS } from '../src/engine/systems/companies';
+import { privateInvestment } from '../src/engine/systems/economy';
+import { data } from '../src/engine/data/db';
+
+describe('CO-3b monopoly charters', () => {
+  const st = createGame({ mode: 'historical', seed: 1, player: 'FRA' });
+  while (st.date.y < 1842) stepMonth(st);
+  const fr = st.countries.FRA;
+  fr.laws.economy = 'interventionism';
+  const kind = foundableKinds(st, fr)[0];
+  execute(st, { type: 'found_company', kind: kind.id });
+  const co = companiesOf(st, 'FRA').find((x) => x.kind === kind.id)!;
+
+  it('needs a permitting law and enough prosperity; grants through a command', () => {
+    co.prosperity = CHARTER_PARAMS.minProsperity - 0.01;
+    expect(charterBlocker(st, co)).toMatch(/prosperous/);
+    co.prosperity = 0.5;
+    const s2 = structuredClone(st); s2.countries.FRA.laws.economy = 'laissez_faire';
+    expect(charterBlocker(s2, s2.companies[co.id])).toMatch(/law/);
+    expect(execute(st, { type: 'grant_charter', company: co.id })).toMatchObject({ ok: true });
+    expect(co.charter).toBeTruthy();
+    expect(monopolyHolder(st, 'FRA', kind.buildings[0] as any)?.id).toBe(co.id);
+    expect(() => validateGameStateContract(structuredClone(st))).not.toThrow();
+  });
+
+  it('private investors never start projects in the chartered buildings', () => {
+    const s2 = structuredClone(st);
+    const before = new Set(s2.constructionProjects.map((p) => p.id));
+    for (let i = 0; i < 24; i++) { s2.countries.FRA.privatePool = 1e12; privateInvestment(s2, s2.countries.FRA); s2.tick++; }
+    const fresh = s2.constructionProjects.filter((p) => !before.has(p.id) && p.countryId === 'FRA' && !p.company);
+    expect(fresh.length).toBeGreaterThan(0); // investors were active, just not in the monopoly's buildings
+    for (const p of fresh) expect(kind.buildings).not.toContain(p.building);
+  });
+
+  it('switching to laissez-faire revokes the charter', () => {
+    const s2 = structuredClone(st);
+    s2.countries.FRA.laws.economy = 'laissez_faire';
+    s2.tick++; companiesMonthForTest(s2);
+    expect(s2.companies[co.id].charter).toBeUndefined();
+  });
+
+  it('a charter adds no direct productivity or price bonus (owner: no free buffs)', () => {
+    const k = data().db.company_kinds.find((x) => x.id === co.kind)!;
+    for (const r of k.rights) expect(r.active).toBe(false);
+    expect(grantCharter(st, co)).toBe(false); // already chartered
+  });
+});
+import { companiesMonth as companiesMonthForTest } from '../src/engine/systems/companies';

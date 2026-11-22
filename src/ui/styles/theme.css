@@ -575,3 +575,4 @@ button.cocard:hover { border-color: var(--line-3); }
 .cocard-stats b { font-size: 13px; }
 .cocard.ready { border-color: var(--gold-1); }
 .cocard .btn.sm { align-self: flex-start; margin-top: 4px; padding: 4px 10px; font-size: 12.5px; }
+.cocard-name .chip.charter { margin-left: 6px; font: 600 10px var(--sans, sans-serif); padding: 1px 6px; border-radius: 9px; vertical-align: middle; color: var(--ink-0); background: var(--gold-2); }
