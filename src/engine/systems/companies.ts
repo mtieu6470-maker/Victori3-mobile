@@ -180,7 +180,9 @@ export function companiesMonth(st: GameState): void {
       if (!best || year > best.year || (year === best.year && k.id < best.kind)) best = { kind: k.id, year, sites, total };
     }
     if (!best) continue;
-    const chosen = best.sites.sort((a, b) => b.levels - a.levels || a.key.localeCompare(b.key)).slice(0, COMPANY_PARAMS.maxSitesAtFormation);
+    // Largest sites first; equal sites go to the more populous region (the headquarters is the first).
+    const popOf = (regionId: string) => st.regions[d.regionIndex.get(regionId) ?? -1]?.pop ?? 0;
+    const chosen = best.sites.sort((a, b) => b.levels - a.levels || popOf(b.region) - popOf(a.region) || a.key.localeCompare(b.key)).slice(0, COMPANY_PARAMS.maxSitesAtFormation);
     const id = `co_${c.id}_${best.kind}_${st.tick}`;
     const co: Company = {
       id, kind: best.kind, name: `${humanize(best.kind)} (${chosen[0].region})`, home: c.id, hq: chosen[0].region,

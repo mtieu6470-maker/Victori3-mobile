@@ -7,6 +7,7 @@ import { GOODS, BUILDINGS } from '../../engine/types';
 import { marketOf, buildCost, buildingReturn, canBuild, RECIPES, LEVEL_WORKERS } from '../../engine/systems/economy';
 import { Icon } from '../components/icons';
 import { Illustration } from '../components/Illustration';
+import { CompaniesTab } from './Companies';
 import { Sec, Metric, Delta, DBar, Bar, HBars, LineChart, Donut, Seg, modals, details, useWidth, useSort } from '../components/ui';
 import { GOOD_VI, GOOD_GROUP, BUILD_VI, lawVi, fmt, pct, money, compact } from '../i18n/vi';
 import { shortName } from '../game/names';
@@ -349,8 +350,9 @@ export function EconomyScreen({ st, tab }: { st: GameState; tab: string }) {
   if (tab === 'market') return <MarketTab st={st} />;
   if (tab === 'buildings') return <BuildingsTab st={st} />;
   if (tab === 'construction') return <ConstructionTab st={st} />;
+  if (tab === 'companies') return <CompaniesTab st={st} />;
   if (tab === 'budget') return <BudgetTab st={st} />;
   return <Overview st={st} />;
 }
-export const ECONOMY_TABS: [string, string][] = [['overview', 'Tổng quan'], ['market', 'Thị trường'], ['buildings', 'Công trình'], ['construction', 'Xây dựng'], ['budget', 'Ngân sách']];
+export const ECONOMY_TABS: [string, string][] = [['overview', 'Tổng quan'], ['market', 'Thị trường'], ['buildings', 'Công trình'], ['companies', 'Công ty'], ['construction', 'Xây dựng'], ['budget', 'Ngân sách']];
 export { CountryLink };
