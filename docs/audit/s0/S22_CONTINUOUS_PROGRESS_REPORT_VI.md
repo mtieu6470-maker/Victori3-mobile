@@ -1,3 +1,15 @@
+## 2026-11-22 — ChatGPT CG-21 reviewed: per-category trade openness decided
+
+- CG-21 (public-domain tariff evidence c.1836) is accepted:
+  - Britain: raw cotton duty 5/16d/lb (under 3% of a ~10d price); wheat under the Corn Law sliding scale.
+  - Prussia/Zollverein: raw cotton duty-free.
+  - France: cotton yarn and cloth prohibited, with narrow exceptions.
+  - USA (1836): cotton manufactures at 24% nominal.
+- **Design decision:** replace the single per-country openness with per-category openness (`raw_material`, `intermediate`, `manufacture`, `food_grain`) derived from trade law, plus country overrides wherever CG-21 has evidence. Unknown entries keep the law default.
+- This will be implemented together with market-responsive cottage/subsistence output (ECON-CAL-01b). Recorded in MSG-013; documentation only.
+
+---
+
 ## 2026-11-22 — ChatGPT CG-20 reviewed: recipe consistent with 1830 anchor; misalignment is market-side
 
 - CG-20 (public-domain 1830s sources: Baines 1835, Porter 1836, Tooke 1838, Babbage 1832, Kennedy's 1839 Hansard testimony) is accepted as calibration constraints only; no 1836 prices are hardcoded.
