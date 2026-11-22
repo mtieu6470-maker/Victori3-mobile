@@ -54,8 +54,8 @@
   - Wheat per quarter: 1830 £3 14s 6d; 1832 £2 19s 3d.
   - English pig iron: 1830 £4 10s 0d per ton; 1832 không có số.
   - English bar iron: 1830 £6 0s 0d per ton; 1832 £5 0s 0d per ton.
-  - Swedish bar iron tại London: 1830 £13 15s 0d; 1832 £13 2s 0d per ton, chưa gồm thuế nhập khẩu 4–6½ guineas? (bảng ghi £4 đến £6 10s; phải đọc nguyên chú thích trước khi chuyển thành dữ liệu).
-- Cùng sách, bảng giá vật tư tại các mỏ Cornwall ghi than năm 1830 là 51s/weigh (đơn vị in là “wey”), năm 1832 là 40s/wey; common bar iron 7s/cwt năm 1830 và 6s6d/cwt năm 1832. Đây là giá giao tại mỏ Cornwall, không thể so trực tiếp với giá mỗi tấn tại Birmingham.
+  - Swedish bar iron tại London: 1830 £13 15s 0d; 1832 £13 2s 0d per ton, chưa gồm thuế nhập khẩu £4 đến £6 10s per ton theo chú thích của bảng.
+- Cùng sách, bảng giá vật tư tại các mỏ Cornwall ghi than năm 1830 là 51s/wey (đơn vị in là “wey”), năm 1832 là 40s/wey; common bar iron 7s/cwt năm 1830 và 6s6d/cwt năm 1832. Đây là giá giao tại mỏ Cornwall, không thể so trực tiếp với giá mỗi tấn tại Birmingham.
 - Các giá là điểm chuẩn 1830/1832, không phải 1836. Không nội suy tuyến tính nếu chưa có chuỗi bổ sung.
 
 ### CG20-S05 — Lời khai John Kennedy, Hansard, 15 March 1839
