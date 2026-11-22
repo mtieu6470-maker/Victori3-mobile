@@ -195,8 +195,8 @@ Commit: `d5044b4ac6a3b47a508998b866ae3d0b7560dd1c`
 
 **HY-01 v2 tiếp tục.**  
 CSV mới: `docs/research/media/HY01_FLAGS_ARMS_1836_v2.csv`  
-CSV commit: `db2d68fdc74350b1b65adcf7a0f8b0a326bacba4`  
-Blob SHA: `2122f7abb90bdbca34e26085d09aeaf408d6a260`  
-Đã thêm USA và Sweden sau khi mở trang file Commons, kiểm tra mốc lịch sử và license. USA 24-star flag chỉ hợp lệ đến 3 July 1836; Sweden file mô tả 1821–1844. Tổng hiện tại: 13 chính thể sovereign có ít nhất một asset-gap row với file/license đã xác minh, gồm BOL arms; vẫn chưa đạt ngưỡng 40. 319/332 dòng còn unknown. USA file page cũng đã được kiểm tra nhưng không thêm vào CSV vì gap list chỉ đánh dấu thiếu coat of arms cho USA, không thiếu national flag. Progress report commit: `46c265272bcd75d891f03868772cff162bf6c081`.
+CSV commit: `3697acc50ae5de9c995c7f64b69b961090d9b3d2`  
+Blob SHA: `5bebf786ff6980ce097e435f0a38cf342ed3a941`  
+Đã thêm USA và Sweden sau khi mở trang file Commons, kiểm tra mốc lịch sử và license. USA 24-star flag chỉ hợp lệ đến 3 July 1836; Sweden file mô tả 1821–1844. Tổng hiện tại: 14 chính thể sovereign có ít nhất một asset-gap row với file/license đã xác minh, gồm BOL arms; vẫn chưa đạt ngưỡng 40. 318/332 dòng còn unknown. Đã bổ sung GRE (cờ quốc gia trên đất liền, 1822–1970; Commons ghi PD-ineligible/common property). USA file page cũng đã được kiểm tra nhưng không thêm vào CSV vì gap list chỉ đánh dấu thiếu coat of arms cho USA, không thiếu national flag. Progress report commit: `7a1fe2a91a41255b079e870528b58035e93eb45a`.
 
 Iran Qajar flag page có cảnh báo disputed copyright status nên không đưa vào verified; Nepal file tìm thấy ghi khoảng 1911, không hợp lệ cho mốc 1836. Không bắt đầu HY-04.
