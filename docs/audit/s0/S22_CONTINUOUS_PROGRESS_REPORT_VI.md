@@ -1,3 +1,14 @@
+## 2026-11-22 — CG18-01 fixed: worker reply schema validation
+
+- ChatGPT CG-18 re-review: 4/5 CG-16 fix groups verified statically. One P2 remained: worker replies were checked only shallowly.
+- Fix: `isValidReply()` checks `ok`, a generation matching the pending request, the expected success `kind` per request kind, and the fields each kind requires. Invalid replies fail the host.
+- Test: `tests/sim-host-worker.test.ts` (5 malformed reply shapes).
+- Real-worker browser smoke (desktop Chromium, 12h/s, 20 s): worker host, +240 h, save/load hour match, 0 page errors.
+- Local: tsc 0; `npm test` exit 0, **24/24 files, 230/230 tests**; build 0.
+- MSG-007: assigns ChatGPT CG-19 (ECON-02 acceptance scenarios and calibration data); HY-01 v2 is at 12/40 verified sovereigns.
+
+---
+
 ## 2026-11-22 — CG-16 fixes: worker failure handling and recovery
 
 - All five findings from ChatGPT's CLOCK-02 critique are fixed; see `docs/coordination/reviews/CLAUDE_RESPONSE_CG16_CLOCK02_2026-11-22.md`.

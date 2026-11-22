@@ -75,6 +75,22 @@ describe('CG-16 WorkerSimHost failure handling', () => {
     expect(await h.request({ kind: 'newGame', gen: 1, opts })).toMatchObject({ ok: false, hostFailure: true });
   });
 
+  it('CG18-01: replies with the wrong shape, kind or generation fail the host', async () => {
+    for (const bad of [
+      (id: number) => ({ id, res: {} }),
+      (id: number) => ({ id, res: { ok: true, gen: 99, kind: 'state', snapshot: {} } }),
+      (id: number) => ({ id, res: { ok: true, gen: 1, kind: 'save', text: 'x' } }),
+      (id: number) => ({ id, res: { ok: true, gen: 1, kind: 'state' } }),
+      (id: number) => ({ id, res: { ok: false, gen: 1 } }),
+    ]) {
+      const w = new FakeWorker();
+      w.postMessage = (m: unknown) => { const id = (m as { id: number }).id; setTimeout(() => w.onmessage?.({ data: bad(id) } as MessageEvent), 0); };
+      const h = new WorkerSimHost(w, 0);
+      expect(await h.request({ kind: 'newGame', gen: 1, opts })).toMatchObject({ ok: false, hostFailure: true });
+      expect(h.isFailed).toBe(true);
+    }
+  });
+
   it('CG16-04: InlineSimHost never touches the core for a request queued before dispose()', async () => {
     const h = new InlineSimHost();
     await h.request({ kind: 'newGame', gen: 1, opts });

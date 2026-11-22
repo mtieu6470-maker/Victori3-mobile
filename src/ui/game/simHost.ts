@@ -49,10 +49,37 @@ export interface WorkerLike {
  */
 export const WORKER_REQUEST_TIMEOUT_MS = 30_000;
 
+const EXPECTED_KIND: Record<SimRequest['kind'], string> = {
+  newGame: 'state', load: 'state', snapshot: 'state', advance: 'advance', stepMonth: 'stepMonth', command: 'command', save: 'save',
+};
+
+/**
+ * Structural check of a worker reply against the request it answers (CG18-01): correct success
+ * kind, matching generation and the fields each kind requires. A reply failing this is treated as
+ * a broken worker, never handed to the controller.
+ */
+export function isValidReply(req: { kind: SimRequest['kind']; gen: number }, res: unknown): res is SimResponse {
+  if (!res || typeof res !== 'object' || Array.isArray(res)) return false;
+  const r = res as Record<string, unknown>;
+  if (typeof r.ok !== 'boolean' || typeof r.gen !== 'number' || r.gen !== req.gen) return false;
+  if (!r.ok) return typeof r.error === 'string';
+  if (r.kind !== EXPECTED_KIND[req.kind]) return false;
+  const obj = (v: unknown) => !!v && typeof v === 'object' && !Array.isArray(v);
+  const num = (v: unknown) => typeof v === 'number' && Number.isFinite(v);
+  switch (r.kind) {
+    case 'state': return obj(r.snapshot);
+    case 'advance': return num(r.hours) && num(r.monthlyBoundaries) && num(r.simMs) && num(r.hour) && num(r.tick) && typeof r.stop === 'string' && (r.snapshot === undefined || obj(r.snapshot));
+    case 'stepMonth': return typeof r.stepped === 'boolean' && obj(r.snapshot);
+    case 'command': return obj(r.result) && typeof (r.result as { ok?: unknown }).ok === 'boolean' && obj(r.snapshot);
+    case 'save': return typeof r.text === 'string';
+    default: return false;
+  }
+}
+
 export class WorkerSimHost implements SimHost {
   readonly kind = 'worker' as const;
   private nextId = 0;
-  private pending = new Map<number, { resolve: (r: SimResponse) => void; timer: ReturnType<typeof setTimeout> | null; gen: number }>();
+  private pending = new Map<number, { resolve: (r: SimResponse) => void; timer: ReturnType<typeof setTimeout> | null; gen: number; kind: SimRequest['kind'] }>();
   private failed: string | null = null;
   constructor(private readonly worker: WorkerLike, private readonly timeoutMs = WORKER_REQUEST_TIMEOUT_MS) {
     worker.onmessage = (e: MessageEvent) => {
@@ -63,6 +90,7 @@ export class WorkerSimHost implements SimHost {
       }
       const p = this.pending.get(data.id);
       if (!p) return;
+      if (!isValidReply(p, data.res)) { this.fail(`Simulation worker sent an invalid reply to a ${p.kind} request`); return; }
       this.pending.delete(data.id);
       if (p.timer) clearTimeout(p.timer);
       p.resolve(data.res);
@@ -86,7 +114,7 @@ export class WorkerSimHost implements SimHost {
     const id = ++this.nextId;
     return new Promise((resolve) => {
       const timer = this.timeoutMs > 0 ? setTimeout(() => this.fail(`Simulation worker did not answer within ${this.timeoutMs} ms`), this.timeoutMs) : null;
-      this.pending.set(id, { resolve, timer, gen: req.gen });
+      this.pending.set(id, { resolve, timer, gen: req.gen, kind: req.kind });
       try {
         this.worker.postMessage({ id, req } satisfies Envelope);
       } catch (e) {
