@@ -201,3 +201,12 @@ Ecuador (1835 decree with 1836 sanction) and Bremen (1562 historical arms photog
 - **Swiss Confederation:** the Swiss Federal Archives says the cross did not become the official national emblem until 1889; the 1815 banner is a historical military/federal symbol, not evidence of an official 1836 national coat of arms.
 
 HY-01 remains OPEN: 23/60 is below the ≥40 sovereign-polity acceptance threshold. Do not start HY-04.
+
+
+## Additional HY-01 v2 audit — Paraguay and Muscat/Oman (2026-11-22)
+
+- **PAR national flag:** Commons file `Flag of Paraguay (1826-1842).svg` states the period 1826–1842 and the author released it to public domain. FOTW describes the 1826 flag as the blue field with white six-pointed star, while the tricolour remained an alternate; after Francia's death in 1840, garrisons used his blue flag until 1842. For 1 January 1836 use the 1826 blue-star flag as the principal state flag; do not substitute the tricolour alternate.
+- **OMA national flag:** Commons `Flag of Muscat.svg` is the plain-red Muscat flag and is released to public domain by its author. Oman's Foreign Ministry confirms the old Omani flag was all red; FOTW reports plain red until 17 December 1970, while noting historical naming/territorial distinctions. Use as a medium-confidence historical reference; do not claim exact 1820 adoption or that it represented the inland Imamate at all times.
+- CSV now **336 rows**, strict verified count **25/60**. Verified IDs: AFG, BEL, BOL, BRE, CHL, DEN, ECU, GRE, HAW, HAM, HER, LIE, MOR, OMA, PAR, PEU, PRS, PRU, SAR, SIA, SMR, SPA, SWE, URU, USA.
+- CSV blob SHA: `dc4cab15fab492d9bbb24b78ec0e2912208f0219`.
+- HY-01 remains OPEN until ≥40 sovereign polities. Do not start HY-04.
