@@ -172,13 +172,95 @@ interface TariffRule {
 
 ## 6. Gaps — giữ unknown
 
-- UK 1836 wool, timber, iron ore, pig iron, bar iron, cotton yarn, cotton cloth: exact tariff lines chưa được trích xuất từ statutory tariff schedule.
+- UK: wool, timber, iron ore, pig iron, bar iron và cotton manufactures đã có mức thuế trong các nguồn đương thời/near-year được bổ sung ở §7. Cotton yarn riêng biệt và phân loại chi tiết từng loại vải vẫn chưa có dòng thuế riêng đủ chắc.
 - France 1836 raw cotton, wool raw exact 1836 rate, timber, coal, ore, pig iron, bar iron, wheat: exact tariff lines chưa được xác minh bằng luật gốc.
 - Prussia/Zollverein 1836 wool, timber, ore, iron, wheat, cotton cloth: exact tariff schedule chưa được lấy.
 - United States 1836 raw cotton import, timber, wheat, iron ore, exact duties on ore and selected iron subcategories: chưa trích đủ.
 - Tariff drawback, bonded warehouse, transit, colonial preference và flag-of-origin differential: chưa lập ma trận theo commodity.
-- Không chuyển mức 1848 của Pháp hoặc mức 1842/1843 của Anh về 1836.
+- Không chuyển mức 1848 của Pháp hoặc mức 1842/1843 của Anh về 1836; tariff schedule 1837–8 chỉ dùng làm đối chiếu gần năm, trừ khi được đối chiếu với hiệu lực luật/thuế thu thực tế 1836.
 - Không suy ra giá trị tariff ad valorem equivalent nếu thiếu giá cùng năm, cùng phẩm cấp và cùng đơn vị.
 
 ---
 **Trạng thái:** CG-21 là báo cáo nghiên cứu và đề xuất mô hình; không phải tariff database hoàn chỉnh. Không chạy build/test vì chỉ thay đổi tài liệu.
+
+## 7. Bổ sung: tariff lines của Anh — nguồn đương thời 1835–1837
+
+Lượt tra cứu bổ sung đã tìm được mức cho len, gỗ, sắt và vải cotton. Cần phân biệt:
+- Các mức dưới đây là mức được ghi trong tài liệu thương mại/biểu thuế gần năm 1836.
+- *The Yearly Journal of Trade, 1837–8* được xuất bản sau năm 1836, ghi luật và tariff đang có hiệu lực đến cuối kỳ 1837. Vì vậy, các mức của journal được gắn nhãn **near-year tariff schedule**, không tự động khẳng định từng dòng đã giữ nguyên suốt mọi ngày trong năm 1836.
+- Dòng bar/unwrought iron có thêm đối chiếu độc lập bằng thu thuế và lượng home-consumption của năm 1836.
+
+### 7.1 Bằng chứng cập nhật
+
+| Hàng hóa | Thuế / điều kiện | Đơn vị | Độ chắc về mốc 1836 |
+|---|---|---|---|
+| Len thô ngoại quốc dưới 1s/lb | ½ penny | per lb | Cao — tài liệu thương mại 1843 mô tả đây là mức đang áp dụng từ 1825; Hansard 1842 xác nhận nhóm chịu ½d |
+| Len thô ngoại quốc từ 1s/lb trở lên | 1 penny | per lb | Cao — tài liệu thương mại 1843 mô tả mức đang áp dụng; Hansard 1842 xác nhận nhóm chịu 1d |
+| Len thô thuộc địa Anh dưới 1s/lb | Miễn thuế | per lb | Cao — bảng hồi cứu chi tiết 1815–1849 ghi miễn thuế từ 1825 |
+| Len thô thuộc địa Anh từ 1s/lb trở lên | ½ penny | per lb | Cao — cùng bảng hồi cứu; không gộp vào nhóm wool ngoại quốc |
+| Gỗ Baltic / châu Âu | 55 shillings (£2 15s) | per load | Cao — Hansard 1835 nêu mức hiện hành; McCulloch 1835 ghi chênh lệch 45s với gỗ thuộc địa |
+| Gỗ thuộc địa Bắc Mỹ / Canada | 10 shillings | per load | Cao — Hansard 1835; Hansard 1840 xác nhận mức 55s Baltic / 10s Canada vẫn còn trước thay đổi 1842 |
+| Iron in bars, or unwrought — nguồn ngoài thuộc địa | £1 10s | per ton | Cao — tariff schedule 1837–8; thống kê năm 1836 ghi £26,477 duty trên 17,631 tons entered for home consumption, xấp xỉ £1.50/ton |
+| Iron in bars, or unwrought — thuộc địa Anh | 2s 6d | per ton | Near-year tariff schedule 1837–8 |
+| Pig iron — nguồn ngoài thuộc địa | 10 shillings | per ton | Near-year tariff schedule 1837–8 |
+| Pig iron — thuộc địa Anh | 1s 3d | per ton | Near-year tariff schedule 1837–8 |
+| Iron ore | 5s 9d | per ton | Near-year tariff schedule 1837–8 |
+| Cast iron | 10% ad valorem | value | Near-year tariff schedule 1837–8 |
+| Wrought iron, not otherwise enumerated | 20% ad valorem | value | Near-year tariff schedule 1837–8 |
+| Cotton manufactures | 10% ad valorem | £100 value | Near-year tariff schedule 1837–8 |
+| Cotton manufactures wholly/partly made up, not otherwise charged | 20% ad valorem | £100 value | Near-year tariff schedule 1837–8 |
+| Cotton yarn (separate tariff line) | unknown | — | Không gán mức thuế vải cotton cho sợi; chưa xác minh được dòng riêng |
+
+### 7.2 Diễn giải và kiểm tra chéo
+
+**Len:** Bài viết *Wool, &c.* trên *The Economist* (1843) nói mức đang áp dụng là ½d/lb cho wool dưới 1s/lb và 1d/lb cho wool trên 1s/lb; bài cũng cho biết mức 1d đã được giảm từ 6d năm 1824 và ½d được áp dụng từ 1825 cho loại giá thấp. Hansard 1842 phân biệt lượng len nộp thuế 1d, ½d và len thuộc địa miễn thuế. Bảng hồi cứu trong *The Economist* 1850 ghi rõ giai đoạn 5-7-1825 đến 15-5-1840: British possessions miễn thuế, ngoại lệ ½d ở nhóm từ 1s/lb; foreign countries 1d ở nhóm từ 1s/lb. Do đó không được gộp tất cả len thô thành một mức duy nhất.
+
+**Gỗ:** Hansard 24-3-1835 ghi thuế 55s trên Baltic timber và 10s trên colonial timber; McCulloch, Supplement October 1835, xác nhận mức chênh lệch 45s và thảo luận đề xuất giảm chênh lệch. Hansard 1840 xác nhận 55s/10s vẫn là mức hiện hành trước cải cách 1842. Dòng này là ưu đãi theo nguồn gốc, không phải mở cửa chung cho mọi gỗ thô.
+
+**Sắt:** *The Yearly Journal of Trade, 1837–8* liệt kê iron in bars/unwrought £1 10s/ton, pig iron 10s/ton, iron ore 5s9d/ton và các phân nhóm cast/wrought theo ad valorem. Để xác nhận bar/unwrought ở năm 1836, thống kê thuế năm 1836 ghi 17,631 tons tiêu thụ nội địa và £26,477 duty; chia ra £1.501/ton, phù hợp với £1 10s. Không lấy mức pig iron/ore trong schedule 1837–8 làm một quan sát chắc chắn cho toàn bộ năm 1836 nếu chưa có dòng thống kê 1836 theo đúng loại.
+
+**Vải cotton:** tariff schedule 1837–8 phân biệt cotton manufactures thông thường 10% ad valorem và articles wholly/partly made up 20%. Đây là thuế nhập khẩu vào Anh đối với vải/hàng cotton nhập khẩu, không phải thuế xuất khẩu cotton goods của Anh. Cotton yarn không có dòng riêng được xác minh trong lượt này.
+
+### 7.3 Nguồn bổ sung và trang
+
+1. **Charles Pope (ed.), *The Yearly Journal of Trade, 1837–8*, 17th ed.**  
+   Bản scan public domain: https://upload.wikimedia.org/wikipedia/commons/c/c3/California_Digital_Library_%28IA_yearlyjournaloft00pope%29.pdf  
+   - pp. 70–71 (printed pp. 70–71): cotton manufactures 10%/20% ad valorem.
+   - p. 84 (printed p. 84): iron in bars/unwrought £1 10s/ton; colonial 2s6d; pig iron 10s/ton; colonial 1s3d; ore 5s9d/ton; cast 10%; wrought not otherwise enumerated 20%.
+   - p. xxviii (front matter/statistical returns): import, home consumption and duty receipts for 1836; iron in bars/unwrought row.
+   - Title page says statutes are brought down to close of session 1 Victoria, 1837; use as near-year schedule, not as proof that every row was unchanged throughout 1836.
+
+2. **Hansard, House of Commons, 24 March 1835 — Timber Duties.**  
+   https://hansard.parliament.uk/commons/1835-03-24/debates/2559c53c-1b5e-49a3-959a-8391fd0e46c3/TimberDuties  
+   Baltic timber 55s/load; colonial timber 10s/load.
+
+3. **J. R. McCulloch, *Dictionary of Commerce*, Supplement, October 1835, “Timber”.**  
+   https://darwin-online.org.uk/converted/pdf/1832_McCulloch_dictionary_A5105.pdf  
+   Printed pp. 49–50, lines in scan around the timber committee report: 45s duty differential; recommendation to reduce by no more than 15s; shipments made in 1836 were not to be affected by the proposed change.
+
+4. **Hansard, House of Commons, 1 June 1840 — Customs Duties.**  
+   https://api.parliament.uk/historic-hansard/commons/1840/jun/01/customs-duties  
+   Confirms 55s Baltic and 10s Canadian timber as then-current rates before the 1842 tariff changes.
+
+5. **“Wool, &c.”, *The Economist*, August 1843.**  
+   https://upload.wikimedia.org/wikipedia/commons/5/58/The_Economist_1843-08-_Vol_1_Preliminary_Number_%28IA_sim_economist_1843-08_1_preliminary-number%29.pdf  
+   Contemporary retrospective: foreign wool 1d/lb above 1s/lb and ½d below; 1836 imports 64,239,977 lbs.
+
+6. **“Rates of Duty on Wool—1815 to 1849”, *The Economist*, 23 November 1850.**  
+   https://upload.wikimedia.org/wikipedia/commons/8/80/The_Economist_1850-11-23-_Vol_8_Iss_378_%28IA_sim_economist_1850-11-23_8_378%29.pdf  
+   Retrospective schedule: 5 July 1825–15 May 1840, British possessions free (½d for wool valued at 1s/lb and upwards); foreign countries 1d for wool valued at 1s/lb and upwards. Lower-value wool rates described in the accompanying notes.
+
+7. **Hansard, House of Commons, 8 June 1842 — Customs Acts, Tariff, Cottons.**  
+   https://api.parliament.uk/historic-hansard/commons/1842/jun/08/customs-acts-the-tariff-cottons  
+   Distinguishes quantities of wool paying 1d, ½d and no duty (colonial).
+
+### 7.4 Revised UK conclusion
+
+The UK did **not** apply a uniform “raw materials free / manufactures taxed” rule:
+- Raw cotton: small specific duty 5/16d/lb.
+- Wool: low specific duty, tiered by value and origin.
+- Timber: strong origin-based preference (55s Baltic vs 10s Canada).
+- Iron ore and pig/bar iron: specific duties, with colonial preferences and separate product-stage rates.
+- Cotton manufactures: 10% ad valorem, rising to 20% for made-up articles.
+
+This evidence supports Claude’s decision to split openness by commodity stage **and** add country/origin exceptions. It does not justify setting all raw materials to fully open. Keep yarn and any unverified commodity lines unknown.
