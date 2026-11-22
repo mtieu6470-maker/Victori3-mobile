@@ -1523,6 +1523,114 @@
       }
     },
     {
+      "id": "ill_antiseptic_surgery",
+      "type": "illustration_tech",
+      "subject": "antiseptic_surgery",
+      "name": "Phẫu thuật sát trùng",
+      "description": "Surgeons in gowns and masks at an operation in the orthopedic operating room of the hospital ship Comfort, c. 1915",
+      "path": "content/illustrations/technologies/antiseptic_surgery.webp",
+      "thumbnail_path": "content/illustrations/technologies/antiseptic_surgery_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1880,
+        "to": 1880
+      },
+      "quality": "supported",
+      "date": "[between ca. 1915 and ca. 1920]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/ggbain/27000/27016v.jpg",
+        "page": "https://www.loc.gov/item/2014707179/",
+        "statement": "LoC LC-B2- 4619-9 [P&P]",
+        "title": "Orthopedic operating room - COMFORT",
+        "source_pixels": [
+          1024,
+          698
+        ],
+        "crop": {
+          "inset": [
+            0.08,
+            0.03,
+            0.03,
+            0.05
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication. For more information, see George Grantham Bain Collection - Rights and Restrictions Information https://www.loc.gov/rr/print/res/274_bain.html"
+      },
+      "author": "Bain News Service, publisher",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Aseptic surgery; handwritten caption trimmed. (Claude, LoC search 2026-11-22)"
+      }
+    },
+    {
+      "id": "ill_assembly_line",
+      "type": "illustration_tech",
+      "subject": "assembly_line",
+      "name": "Dây chuyền lắp ráp",
+      "description": "Chassis on the assembly line at the Ford Motor Company's Highland Park plant, 1913",
+      "path": "content/illustrations/technologies/assembly_line.webp",
+      "thumbnail_path": "content/illustrations/technologies/assembly_line_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1913,
+        "to": 1913
+      },
+      "quality": "supported",
+      "date": "ca. 1913.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/cph/3a20000/3a20000/3a20500/3a20510r.jpg",
+        "page": "https://www.loc.gov/item/2011661021/",
+        "statement": "LoC SSF - Assembly Line Methods [item] [P&P]",
+        "title": "[Assembly line at the Ford Motor Company's Highland Park plant]",
+        "source_pixels": [
+          640,
+          515
+        ],
+        "crop": {
+          "inset": [
+            0.03,
+            0.03,
+            0.03,
+            0.07
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": null,
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Moving assembly line, Highland Park. (Claude, LoC search 2026-11-22)"
+      }
+    },
+    {
       "id": "ill_bessemer_steel",
       "type": "illustration_tech",
       "subject": "bessemer_steel",
@@ -1632,6 +1740,60 @@
       }
     },
     {
+      "id": "ill_dreadnoughts",
+      "type": "illustration_tech",
+      "subject": "dreadnoughts",
+      "name": "Thiết giáp hạm dreadnought",
+      "description": "A South Carolina-class battleship, the first American all-big-gun (dreadnought) design; c. 1910-1913",
+      "path": "content/illustrations/technologies/dreadnoughts.webp",
+      "thumbnail_path": "content/illustrations/technologies/dreadnoughts_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1906,
+        "to": 1906
+      },
+      "quality": "supported",
+      "date": "[between 1913 and 1917]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/hec/02200/02214v.jpg",
+        "page": "https://www.loc.gov/item/2016853109/",
+        "statement": "LoC LC-H261- 2300-A [P&P]",
+        "title": "[South Carolina class battleship, either South Carolina or Michigan, the first American dreadnoughts]",
+        "source_pixels": [
+          1024,
+          758
+        ],
+        "crop": {
+          "inset": [
+            0.03,
+            0.03,
+            0.03,
+            0.07
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication. For more information, see Harris & Ewing Photographs - Rights and Restrictions Information https://www.loc.gov/rr/print/res/140_harr.html"
+      },
+      "author": "Harris & Ewing, photographer",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Dreadnought-type battleship. (Claude, LoC search 2026-11-22)"
+      }
+    },
+    {
       "id": "ill_dynamo",
       "type": "illustration_tech",
       "subject": "dynamo",
@@ -1683,6 +1845,60 @@
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
         "note": "Electric generators with operators."
+      }
+    },
+    {
+      "id": "ill_electric_lighting",
+      "type": "illustration_tech",
+      "subject": "electric_lighting",
+      "name": "Đèn sợi đốt thực dụng",
+      "description": "A levee at night lit by electric arc lights, New Orleans; wood engraving, 1883",
+      "path": "content/illustrations/technologies/electric_lighting.webp",
+      "thumbnail_path": "content/illustrations/technologies/electric_lighting_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1885,
+        "to": 1885
+      },
+      "quality": "supported",
+      "date": "1883 March 3.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/cph/3a00000/3a08000/3a08600/3a08676r.jpg",
+        "page": "https://www.loc.gov/item/2006676403/",
+        "statement": "LoC Illus. in AP2.H32 1883 (Case Y) [P&P]",
+        "title": "A levee at night - electric light illumination. Sketches on the levee, New Orleans / by J. O. Davidson .",
+        "source_pixels": [
+          640,
+          458
+        ],
+        "crop": {
+          "inset": [
+            0.03,
+            0.03,
+            0.03,
+            0.1
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Davidson, Julian Oliver, 1853-1894, artist",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Early electric street illumination; caption trimmed. (Claude, LoC search 2026-11-22)"
       }
     },
     {
@@ -1740,6 +1956,114 @@
       }
     },
     {
+      "id": "ill_germ_theory",
+      "type": "illustration_tech",
+      "subject": "germ_theory",
+      "name": "Thuyết vi trùng",
+      "description": "Class in the bacteriology laboratory, Howard University, Washington, D.C., c. 1900",
+      "path": "content/illustrations/technologies/germ_theory.webp",
+      "thumbnail_path": "content/illustrations/technologies/germ_theory_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1880,
+        "to": 1880
+      },
+      "quality": "supported",
+      "date": "[ca. 1900]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/cph/3a40000/3a40000/3a40800/3a40810v.jpg",
+        "page": "https://www.loc.gov/item/2001705795/",
+        "statement": "LoC LOT 11294 [item] [P&P]",
+        "title": "Howard Univ., Washington, D.C., ca. 1900 - class in bacteriology laboratory",
+        "source_pixels": [
+          1024,
+          792
+        ],
+        "crop": {
+          "inset": [
+            0.03,
+            0.03,
+            0.03,
+            0.07
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Du Bois, W. E. B. (William Edward Burghardt), 1868-1963, collector",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Microscopes and cultures: bacteriology as a laboratory science. (Claude, LoC search 2026-11-22)"
+      }
+    },
+    {
+      "id": "ill_hydroelectric_power",
+      "type": "illustration_tech",
+      "subject": "hydroelectric_power",
+      "name": "Thủy điện quy mô lớn",
+      "description": "The power houses at Niagara Falls, New York; Detroit Publishing Co., c. 1900",
+      "path": "content/illustrations/technologies/hydroelectric_power.webp",
+      "thumbnail_path": "content/illustrations/technologies/hydroelectric_power_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1905,
+        "to": 1905
+      },
+      "quality": "supported",
+      "date": "[between 1900 and 1910]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/det/4a20000/4a23000/4a23100/4a23142v.jpg",
+        "page": "https://www.loc.gov/item/2016814786/",
+        "statement": "LoC LC-D4-71133 [P&P]",
+        "title": "Power houses, Niagara Falls, N.Y.",
+        "source_pixels": [
+          1024,
+          813
+        ],
+        "crop": {
+          "inset": [
+            0.03,
+            0.03,
+            0.03,
+            0.07
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Detroit Publishing Co., publisher",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Niagara hydroelectric stations. (Claude, LoC search 2026-11-22)"
+      }
+    },
+    {
       "id": "ill_interchangeable_parts",
       "type": "illustration_tech",
       "subject": "interchangeable_parts",
@@ -1791,6 +2115,60 @@
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
         "note": "Belt-driven machine tools of standardised production."
+      }
+    },
+    {
+      "id": "ill_internal_combustion",
+      "type": "illustration_tech",
+      "subject": "internal_combustion",
+      "name": "Động cơ đốt trong",
+      "description": "A three-horsepower internal combustion engine running on coal gas; engraving, 1896",
+      "path": "content/illustrations/technologies/internal_combustion.webp",
+      "thumbnail_path": "content/illustrations/technologies/internal_combustion_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1895,
+        "to": 1895
+      },
+      "quality": "supported",
+      "date": "[1896]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/cph/3c10000/3c10000/3c10400/3c10411v.jpg",
+        "page": "https://www.loc.gov/item/2006691790/",
+        "statement": "LoC Illus. in TJ755 .C63 [General Collections]",
+        "title": "[A three-horsepower internal combustion engine that ran on coal gas]",
+        "source_pixels": [
+          1024,
+          828
+        ],
+        "crop": {
+          "inset": [
+            0.03,
+            0.03,
+            0.07,
+            0.1
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Clerk, Dugald, Sir, 1854-1932.",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Gas engine drawing. (Claude, LoC search 2026-11-22)"
       }
     },
     {
@@ -1848,6 +2226,60 @@
       }
     },
     {
+      "id": "ill_machine_guns",
+      "type": "illustration_tech",
+      "subject": "machine_guns",
+      "name": "Súng máy",
+      "description": "Machine gun at the Brooklyn Navy Yard, with a cruiser behind; Detroit Publishing Co., c. 1890-1901",
+      "path": "content/illustrations/technologies/machine_guns.webp",
+      "thumbnail_path": "content/illustrations/technologies/machine_guns_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1885,
+        "to": 1885
+      },
+      "quality": "supported",
+      "date": "[between 1890 and 1901]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/det/4a10000/4a15000/4a15000/4a15001v.jpg",
+        "page": "https://www.loc.gov/item/2016795180/",
+        "statement": "LoC LC-D4-21273 [P&P]",
+        "title": "Machine gun at Brooklyn Navy Yard",
+        "source_pixels": [
+          1024,
+          824
+        ],
+        "crop": {
+          "inset": [
+            0.03,
+            0.03,
+            0.03,
+            0.07
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Detroit Publishing Co., publisher",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Naval machine gun. (Claude, LoC search 2026-11-22)"
+      }
+    },
+    {
       "id": "ill_mechanical_reaper",
       "type": "illustration_tech",
       "subject": "mechanical_reaper",
@@ -1899,6 +2331,60 @@
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
         "note": "Only a low-resolution source is available; shown whole on a blurred field."
+      }
+    },
+    {
+      "id": "ill_motor_cars",
+      "type": "illustration_tech",
+      "subject": "motor_cars",
+      "name": "Ô tô chạy xăng thương mại",
+      "description": "Automobiling: a party in an open touring car on a country road; chromolithograph, c. 1910",
+      "path": "content/illustrations/technologies/motor_cars.webp",
+      "thumbnail_path": "content/illustrations/technologies/motor_cars_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1905,
+        "to": 1905
+      },
+      "quality": "supported",
+      "date": "[Ohio] : [publisher not transcribed], [about 1910]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/44200/44243v.jpg",
+        "page": "https://www.loc.gov/item/2018694905/",
+        "statement": "LoC PAGA 7, no. 843 (E size) [P&P]",
+        "title": "Automobiling",
+        "source_pixels": [
+          741,
+          1024
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication. For information see: \"Popular Graphic Arts,\" https://hdl.loc.gov/loc.pnp/res.248.pga"
+      },
+      "author": null,
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Early motoring. (Claude, LoC search 2026-11-22)"
       }
     },
     {
@@ -2061,6 +2547,168 @@
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
         "note": "Open-hearth charging floor."
+      }
+    },
+    {
+      "id": "ill_pneumatic_tyres",
+      "type": "illustration_tech",
+      "subject": "pneumatic_tyres",
+      "name": "Lốp khí nén",
+      "description": "Bicycling: riders on high-wheel and safety bicycles on a country road; chromolithograph, 1887",
+      "path": "content/illustrations/technologies/pneumatic_tyres.webp",
+      "thumbnail_path": "content/illustrations/technologies/pneumatic_tyres_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1900,
+        "to": 1900
+      },
+      "quality": "supported",
+      "date": "c1887.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/pga/04000/04039v.jpg",
+        "page": "https://www.loc.gov/item/94508307/",
+        "statement": "LoC PGA - Prang--Bicycling (C size) [P&P]",
+        "title": "Bicycling / Hy Sandham ; aquarelle print by L. Prang & Co.",
+        "source_pixels": [
+          783,
+          1024
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "L. Prang & Co.",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Cycling boom that drove the pneumatic tyre (1888). (Claude, LoC search 2026-11-22)"
+      }
+    },
+    {
+      "id": "ill_quick_firing_artillery",
+      "type": "illustration_tech",
+      "subject": "quick_firing_artillery",
+      "name": "Pháo bắn nhanh",
+      "description": "Broadside rapid-fire guns on the wreck of the Spanish cruiser Maria Teresa after the Battle of Santiago, 1898; Detroit Publishing Co.",
+      "path": "content/illustrations/technologies/quick_firing_artillery.webp",
+      "thumbnail_path": "content/illustrations/technologies/quick_firing_artillery_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1897,
+        "to": 1897
+      },
+      "quality": "supported",
+      "date": "[between 1898 and 1901]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/det/4a10000/4a15000/4a15100/4a15170v.jpg",
+        "page": "https://www.loc.gov/item/2016804860/",
+        "statement": "LoC LC-D4-21526 [P&P]",
+        "title": "Wreck of the Maria Teresa, Battle of Santiago, 1898, broadside rapid fire guns",
+        "source_pixels": [
+          1024,
+          824
+        ],
+        "crop": {
+          "inset": [
+            0.03,
+            0.03,
+            0.03,
+            0.07
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Detroit Publishing Co., publisher",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Quick-firing naval guns. (Claude, LoC search 2026-11-22)"
+      }
+    },
+    {
+      "id": "ill_rabies_vaccine",
+      "type": "illustration_tech",
+      "subject": "rabies_vaccine",
+      "name": "Vaccine bệnh dại",
+      "description": "Louis Pasteur in his laboratory; photogravure portrait, 1892",
+      "path": "content/illustrations/technologies/rabies_vaccine.webp",
+      "thumbnail_path": "content/illustrations/technologies/rabies_vaccine_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1895,
+        "to": 1895
+      },
+      "quality": "supported",
+      "date": "[United States] : [publisher not transcribed], 1892.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/46600/46651v.jpg",
+        "page": "https://www.loc.gov/item/2018697266/",
+        "statement": "LoC PAGA 7, no. 3251 (E size) [P&P]",
+        "title": "\"Portrait of Pasteur\"",
+        "source_pixels": [
+          901,
+          1024
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication. For information see: \"Popular Graphic Arts,\" https://hdl.loc.gov/loc.pnp/res.248.pga"
+      },
+      "author": null,
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Pasteur developed the rabies vaccine (1885); portrait print shown whole. (Claude, LoC search 2026-11-22)"
       }
     },
     {
@@ -2442,6 +3090,114 @@
       }
     },
     {
+      "id": "ill_steel_plough",
+      "type": "illustration_tech",
+      "subject": "steel_plough",
+      "name": "Máy cày thép",
+      "description": "Improved method of plowing: a farmer and a two-horse team turning sod, 1899",
+      "path": "content/illustrations/technologies/steel_plough.webp",
+      "thumbnail_path": "content/illustrations/technologies/steel_plough_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1890,
+        "to": 1890
+      },
+      "quality": "supported",
+      "date": "[1899?]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/cph/3b40000/3b40000/3b40400/3b40449r.jpg",
+        "page": "https://www.loc.gov/item/92517023/",
+        "statement": "LoC LOT 11051-5 <item> [P&P]",
+        "title": "Improved method of plowing",
+        "source_pixels": [
+          640,
+          495
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Johnston, Frances Benjamin, 1864-1952, photographer",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Horse-drawn plough. (Claude, LoC search 2026-11-22)"
+      }
+    },
+    {
+      "id": "ill_steel_warships",
+      "type": "illustration_tech",
+      "subject": "steel_warships",
+      "name": "Chiến hạm thép",
+      "description": "The protected cruiser U.S.S. Chicago, one of the first steel warships of the new U.S. Navy; Detroit Publishing Co., c. 1893",
+      "path": "content/illustrations/technologies/steel_warships.webp",
+      "thumbnail_path": "content/illustrations/technologies/steel_warships_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1880,
+        "to": 1880
+      },
+      "quality": "supported",
+      "date": "[1893?]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/det/4a10000/4a16000/4a16500/4a16514v.jpg",
+        "page": "https://www.loc.gov/item/2016807088/",
+        "statement": "LoC LC-D4-32263 [P&P]",
+        "title": "U.S. cruiser Chicago",
+        "source_pixels": [
+          1024,
+          809
+        ],
+        "crop": {
+          "inset": [
+            0.03,
+            0.03,
+            0.03,
+            0.07
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Hart, Edward H., photographer; Detroit Publishing Co., publisher",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Early steel cruiser (1885 design). (Claude, LoC search 2026-11-22)"
+      }
+    },
+    {
       "id": "ill_telegraph",
       "type": "illustration_tech",
       "subject": "telegraph",
@@ -2493,6 +3249,60 @@
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
         "note": "Telegraph operating room; caption trimmed."
+      }
+    },
+    {
+      "id": "ill_telegraphic_exchanges",
+      "type": "illustration_tech",
+      "subject": "telegraphic_exchanges",
+      "name": "Sở giao dịch điện tín",
+      "description": "Automatic ticker apparatus at the trading stations of the New York Stock Exchange, 1922",
+      "path": "content/illustrations/technologies/telegraphic_exchanges.webp",
+      "thumbnail_path": "content/illustrations/technologies/telegraphic_exchanges_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1890,
+        "to": 1890
+      },
+      "quality": "supported",
+      "date": "c1922.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/cph/3a40000/3a41000/3a41600/3a41618r.jpg",
+        "page": "https://www.loc.gov/item/2013647238/",
+        "statement": "LoC SSF - Tickers and Ticker Tape [item] [P&P]",
+        "title": "Automatic ticker apparatus, New York Stock Exchange. View of stations from floor",
+        "source_pixels": [
+          640,
+          500
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": null,
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Telegraph tickers carry prices to the trading floor. (Claude, LoC search 2026-11-22)"
       }
     },
     {
@@ -2601,6 +3411,60 @@
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
         "note": "Cable ship Great Eastern; margins and caption trimmed."
+      }
+    },
+    {
+      "id": "ill_transcontinental_railways",
+      "type": "illustration_tech",
+      "subject": "transcontinental_railways",
+      "name": "Đường sắt xuyên lục địa",
+      "description": "Completion of the Pacific Railroad: the meeting of the Union Pacific and Central Pacific locomotives at Promontory, 1869; Harper's Weekly engraving",
+      "path": "content/illustrations/technologies/transcontinental_railways.webp",
+      "thumbnail_path": "content/illustrations/technologies/transcontinental_railways_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1880,
+        "to": 1880
+      },
+      "quality": "supported",
+      "date": "1869.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/cph/3c10000/3c16000/3c16300/3c16354v.jpg",
+        "page": "https://www.loc.gov/item/96509622/",
+        "statement": "LoC Illus. in AP2.H32 Case Y [P&P]",
+        "title": "Completion of the Pacific Railroad - meeting of locomotives of the Union and Central Pacific lines: the engineers shake hands",
+        "source_pixels": [
+          1024,
+          827
+        ],
+        "crop": {
+          "inset": [
+            0.05,
+            0.07,
+            0.05,
+            0.1
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": null,
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Golden spike ceremony; masthead and caption trimmed. (Claude, LoC search 2026-11-22)"
       }
     },
     {

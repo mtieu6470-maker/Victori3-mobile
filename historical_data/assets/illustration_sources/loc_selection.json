@@ -904,6 +904,370 @@
       "fit": "contain",
       "max_upscale": 1.5,
       "review_note": "Edison dynamos at Menlo Park, 1880 (HY-03 follow-up); portrait print shown whole."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "internal_combustion",
+      "loc_item": "2006691790",
+      "name": "Động cơ đốt trong",
+      "description": "A three-horsepower internal combustion engine running on coal gas; engraving, 1896",
+      "period": {
+        "from": 1895,
+        "to": 1895
+      },
+      "inset": [
+        0.03,
+        0.03,
+        0.07,
+        0.1
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Gas engine drawing. (Claude, LoC search 2026-11-22)"
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "assembly_line",
+      "loc_item": "2011661021",
+      "name": "Dây chuyền lắp ráp",
+      "description": "Chassis on the assembly line at the Ford Motor Company's Highland Park plant, 1913",
+      "period": {
+        "from": 1913,
+        "to": 1913
+      },
+      "inset": [
+        0.03,
+        0.03,
+        0.03,
+        0.07
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Moving assembly line, Highland Park. (Claude, LoC search 2026-11-22)"
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "machine_guns",
+      "loc_item": "2016795180",
+      "name": "Súng máy",
+      "description": "Machine gun at the Brooklyn Navy Yard, with a cruiser behind; Detroit Publishing Co., c. 1890-1901",
+      "period": {
+        "from": 1885,
+        "to": 1885
+      },
+      "inset": [
+        0.03,
+        0.03,
+        0.03,
+        0.07
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Naval machine gun. (Claude, LoC search 2026-11-22)"
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "steel_warships",
+      "loc_item": "2016807088",
+      "name": "Chiến hạm thép",
+      "description": "The protected cruiser U.S.S. Chicago, one of the first steel warships of the new U.S. Navy; Detroit Publishing Co., c. 1893",
+      "period": {
+        "from": 1880,
+        "to": 1880
+      },
+      "inset": [
+        0.03,
+        0.03,
+        0.03,
+        0.07
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Early steel cruiser (1885 design). (Claude, LoC search 2026-11-22)"
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "quick_firing_artillery",
+      "loc_item": "2016804860",
+      "name": "Pháo bắn nhanh",
+      "description": "Broadside rapid-fire guns on the wreck of the Spanish cruiser Maria Teresa after the Battle of Santiago, 1898; Detroit Publishing Co.",
+      "period": {
+        "from": 1897,
+        "to": 1897
+      },
+      "inset": [
+        0.03,
+        0.03,
+        0.03,
+        0.07
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Quick-firing naval guns. (Claude, LoC search 2026-11-22)"
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "dreadnoughts",
+      "loc_item": "2016853109",
+      "name": "Thiết giáp hạm dreadnought",
+      "description": "A South Carolina-class battleship, the first American all-big-gun (dreadnought) design; c. 1910-1913",
+      "period": {
+        "from": 1906,
+        "to": 1906
+      },
+      "inset": [
+        0.03,
+        0.03,
+        0.03,
+        0.07
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Dreadnought-type battleship. (Claude, LoC search 2026-11-22)"
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "germ_theory",
+      "loc_item": "2001705795",
+      "name": "Thuyết vi trùng",
+      "description": "Class in the bacteriology laboratory, Howard University, Washington, D.C., c. 1900",
+      "period": {
+        "from": 1880,
+        "to": 1880
+      },
+      "inset": [
+        0.03,
+        0.03,
+        0.03,
+        0.07
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Microscopes and cultures: bacteriology as a laboratory science. (Claude, LoC search 2026-11-22)"
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "rabies_vaccine",
+      "loc_item": "2018697266",
+      "name": "Vaccine bệnh dại",
+      "description": "Louis Pasteur in his laboratory; photogravure portrait, 1892",
+      "period": {
+        "from": 1895,
+        "to": 1895
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Pasteur developed the rabies vaccine (1885); portrait print shown whole. (Claude, LoC search 2026-11-22)",
+      "fit": "contain",
+      "max_upscale": 1.5
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "transcontinental_railways",
+      "loc_item": "96509622",
+      "name": "Đường sắt xuyên lục địa",
+      "description": "Completion of the Pacific Railroad: the meeting of the Union Pacific and Central Pacific locomotives at Promontory, 1869; Harper's Weekly engraving",
+      "period": {
+        "from": 1880,
+        "to": 1880
+      },
+      "inset": [
+        0.05,
+        0.07,
+        0.05,
+        0.1
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Golden spike ceremony; masthead and caption trimmed. (Claude, LoC search 2026-11-22)"
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "antiseptic_surgery",
+      "loc_item": "2014707179",
+      "name": "Phẫu thuật sát trùng",
+      "description": "Surgeons in gowns and masks at an operation in the orthopedic operating room of the hospital ship Comfort, c. 1915",
+      "period": {
+        "from": 1880,
+        "to": 1880
+      },
+      "inset": [
+        0.08,
+        0.03,
+        0.03,
+        0.05
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Aseptic surgery; handwritten caption trimmed. (Claude, LoC search 2026-11-22)"
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "electric_lighting",
+      "loc_item": "2006676403",
+      "name": "Đèn sợi đốt thực dụng",
+      "description": "A levee at night lit by electric arc lights, New Orleans; wood engraving, 1883",
+      "period": {
+        "from": 1885,
+        "to": 1885
+      },
+      "inset": [
+        0.03,
+        0.03,
+        0.03,
+        0.1
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Early electric street illumination; caption trimmed. (Claude, LoC search 2026-11-22)",
+      "fit": "contain",
+      "max_upscale": 1.5
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "steel_plough",
+      "loc_item": "92517023",
+      "name": "Máy cày thép",
+      "description": "Improved method of plowing: a farmer and a two-horse team turning sod, 1899",
+      "period": {
+        "from": 1890,
+        "to": 1890
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Horse-drawn plough. (Claude, LoC search 2026-11-22)",
+      "fit": "contain",
+      "max_upscale": 1.5
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "telegraphic_exchanges",
+      "loc_item": "2013647238",
+      "name": "Sở giao dịch điện tín",
+      "description": "Automatic ticker apparatus at the trading stations of the New York Stock Exchange, 1922",
+      "period": {
+        "from": 1890,
+        "to": 1890
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Telegraph tickers carry prices to the trading floor. (Claude, LoC search 2026-11-22)",
+      "fit": "contain",
+      "max_upscale": 1.5
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "pneumatic_tyres",
+      "loc_item": "94508307",
+      "name": "Lốp khí nén",
+      "description": "Bicycling: riders on high-wheel and safety bicycles on a country road; chromolithograph, 1887",
+      "period": {
+        "from": 1900,
+        "to": 1900
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Cycling boom that drove the pneumatic tyre (1888). (Claude, LoC search 2026-11-22)",
+      "fit": "contain",
+      "max_upscale": 1.5
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "motor_cars",
+      "loc_item": "2018694905",
+      "name": "Ô tô chạy xăng thương mại",
+      "description": "Automobiling: a party in an open touring car on a country road; chromolithograph, c. 1910",
+      "period": {
+        "from": 1905,
+        "to": 1905
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Early motoring. (Claude, LoC search 2026-11-22)",
+      "fit": "contain",
+      "max_upscale": 1.5
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "hydroelectric_power",
+      "loc_item": "2016814786",
+      "name": "Thủy điện quy mô lớn",
+      "description": "The power houses at Niagara Falls, New York; Detroit Publishing Co., c. 1900",
+      "period": {
+        "from": 1905,
+        "to": 1905
+      },
+      "inset": [
+        0.03,
+        0.03,
+        0.03,
+        0.07
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Niagara hydroelectric stations. (Claude, LoC search 2026-11-22)"
     }
   ]
 }
