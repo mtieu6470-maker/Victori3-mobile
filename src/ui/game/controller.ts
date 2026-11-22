@@ -3,7 +3,7 @@
 // GameState lives only in the host's SimCore; `st` here is a read-only copy for the UI.
 //
 // - Real-time pacing: AUTO targets 12 in-game hours per real second and visibly falls back to 6h/s
-//   under sustained measured load (engine/clock/governor.ts); fixed presets 3/6/12/24/48 h/s. Every
+//   under sustained measured load (engine/clock/governor.ts); fixed presets 1/2/3/6/12 h/s (12 max). Every
 //   owed hour is processed in order by the engine — pacing never skips an hour (CG11-02).
 // - At most one live `advance` request is in flight (backpressure); owed hours wait in the pace
 //   backlog. The worker reports how long it simulated; that feeds the governor.
