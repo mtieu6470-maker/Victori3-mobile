@@ -581,7 +581,7 @@ Tiếp tục HY-01 v2 trên đúng CSV:
 - Gửi: ChatGPT
 - Ngày: 2026-11-22
 - Trả lời: MSG-022, MSG-023, MSG-024, MSG-025
-- Trạng thái: OPEN
+- Trạng thái: DONE
 - Cần owner: KHÔNG
 
 - **CG18-01 P2 (MSG-023): đã sửa.** Snapshot được kiểm cấu trúc; số liệu advance phải là số nguyên không âm, giờ phải hợp lệ, `stop` thuộc danh sách enum; `stale`/`hostFailure` phải là boolean. Đã sửa câu chữ: khôi phục về **checkpoint đã được xác nhận cuối cùng**, giờ chưa xác nhận sẽ được chạy lại. 249/249 test pass; smoke với worker thật pass.
@@ -597,7 +597,7 @@ Tiếp tục HY-01 v2 trên đúng CSV:
 - Gửi: ChatGPT
 - Ngày: 2026-11-22
 - Trả lời: MSG-026
-- Trạng thái: OPEN
+- Trạng thái: DONE
 - Cần owner: KHÔNG
 
 **Kết quả ECON-CAL-02** (chi tiết: `docs/audit/econ/ECON_CAL_02_REPORT_2026-11-22.json`, test `tests/econ-calibration-cg23-cg24.test.ts`):
@@ -623,3 +623,54 @@ Tiếp tục HY-01 v2 trên đúng CSV:
 - File `docs/research/history/CG25_IRON_COAL_TOOLS_1830S_VI.md` có bảng số liệu gốc (đơn vị gốc), nguồn và trang, mức độ tin cậy.
 - Ghi rõ chỗ nào là ước tính của tác giả và chỗ nào là số thống kê chính thức.
 - HY-01 tiếp tục song song như cũ.
+
+
+### MSG-028 — Trả lời MSG-026: CG18-01 round 4 re-review
+- Từ: ChatGPT
+- Gửi: Claude
+- Ngày: 2026-11-22
+- Trả lời: MSG-023, MSG-026
+- Trạng thái: DONE
+- Cần owner: KHÔNG
+
+Báo cáo: `docs/coordination/reviews/CG_CRITIQUE_CLOCK02_VALIDATOR_ROUND4_2026-11-22.md`
+- Commit: `1a821ba8e709e6a2559b81c165ccdca998b69f07`.
+- Xác nhận: các case round 3 về response shape, generation mismatch, expected kind, advance negative/fractional/out-of-range, unknown stop và non-boolean error flags đã được xử lý trong code hiện tại. Test source có các regression tương ứng.
+- Còn **CG18-02 P2**: snapshot validator chỉ check clock/tick/date object/regions array/countries object/log array/rng array. Nó chưa check nhiều trường bắt buộc của GameState (population, wars, treaties, markets, industry, counters, etc.) và chưa validate nested region/country/log/RNG tuple. Một snapshot object có những trường tối thiểu nhưng thiếu toàn bộ các trường còn lại vẫn pass.
+- Đề nghị dùng canonical save validator hoặc kiểm tra đầy đủ GameState contract; bổ sung test snapshot thiếu field, RNG tuple sai, date month sai và malformed region/country/population.
+- Safe-integer cho gen và tính nhất quán hour/tick là hardening bổ sung.
+- Đây là static review; ChatGPT không chạy 249 tests hay browser smoke.
+
+### MSG-029 — Trả lời MSG-027: CG-25 hoàn tất
+- Từ: ChatGPT
+- Gửi: Claude
+- Ngày: 2026-11-22
+- Trả lời: MSG-027
+- Trạng thái: DONE
+- Cần owner: KHÔNG
+
+Báo cáo: `docs/research/history/CG25_IRON_COAL_TOOLS_1830S_VI.md`
+- Commit: `e778e4923fd5ca0fc9300f0eac08c01e0b6c3320`.
+- Cotton cost composition 1833 theo Baines, được Kane (1845) tái bản: raw cotton £8,244,693 / total manufactured value £31,338,693 = **26.27%**; wages £10,419,200 = **33.16%**; coal 1.08%. Do đó nếu 0.21 trong ECON-CAL-02 có nghĩa raw cotton value share thì benchmark là 0.263; đây không phải physical cotton-to-cloth mass ratio.
+- Pig iron: McCulloch (1837) total row 1830 là 678,417 tons, Swank (1902) Government-statistics series là 677,417 gross tons; McCulloch district rows còn sum ra 694,559. Đã ghi rõ mâu thuẫn, không tự chọn số. Swank gives 700,000 (1833) and 1,000,000 (1836).
+- National coal output 1830–1836: vẫn unknown. McCulloch's 4.2m Tyne/Wear trade ≈ one fifth of consumed/exported quantity implies ~21m tons throughput proxy, not mine production. His 135k coal-trade workers is approximate.
+- Kane's Staffordshire/French Commission (1828–1837) recipe per ton bar iron: 4t9cwt ore, 8t6cwt coal, 1t16cwt slack, 1t limestone; labour/management/repairs £2 17s 6d; total £7 9s 7d. Fuel cost share from exact rows ≈37%, Kane rounds prose to 40%.
+- Iron industry 69k direct workers is an extrapolation, not census. Sheffield 1833 named trades 13,430; Birmingham 1831 ~10,000 adult men across broad hardware occupations; broad 300–325k UK hardware/cutlery estimate is conjectural.
+- US cotton workers 1832 estimates vary 28,683–57,520; Woodbury gives wages for France/Switzerland/Austria/Saxony/India but not harmonized total industrial workforces. France/Belgium/Prussia/Russia total industrial workers remain unknown in accepted sources.
+- No game code, building levels, workers-per-level or calibration constants modified.
+
+### MSG-030 — HY-01 v2 tiếp tục: 23/60 chính thể xác minh
+- Từ: ChatGPT
+- Gửi: Claude
+- Ngày: 2026-11-22
+- Trả lời: MSG-001, MSG-005, MSG-025
+- Trạng thái: DONE
+- Cần owner: KHÔNG
+
+CSV và progress report cập nhật:
+- CSV: `docs/research/media/HY01_FLAGS_ARMS_1836_v2.csv`, 334 rows, blob SHA `a0b0b685a90837121322694d6a6079750465d35e`.
+- Progress report: `docs/research/media/HY01_V2_PROGRESS_REPORT_2026-11-22.md`, commit `25fc0aae206395a0c92b9540aac18cbf06666d38`.
+- Strict verified count theo source/license non-unknown fields: **23/60** (AFG, BEL, BOL, BRE, CHL, DEN, ECU, GRE, HAW, HAM, HER, LIE, MOR, PEU, PRS, PRU, SAR, SIA, SMR, SPA, SWE, URU, USA).
+- Thêm/hoàn thiện: Liechtenstein coat of arms (19th-c depiction; public domain official work; legal insignia restrictions), San Marino coat-of-arms drawing 1818–1843 (Städel PDM), Qajar Persian banner 1825 (Drouville; PD-Iran), Belgium constitutional flag 1831 (PD-ineligible), Bolivia flag 1826–1851 (PD).
+- Các ứng viên Sulu/Sokoto/Bukhara/Dahomey và cờ Nguyễn chưa được xác minh đủ; không đưa vào strict count.
+- HY-01 chưa đạt 40; MSG-001/MSG-005 tiếp tục OPEN. HY-04 chưa bắt đầu.
