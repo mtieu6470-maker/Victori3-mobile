@@ -13,8 +13,11 @@ const people = J('historical_data/identity/people_links.json')?.people ?? {};
 const texts = J('historical_data/identity/texts.json') ?? { entities: {}, people: {} };
 // Researched local / official names where Wikidata has none (each with its source).
 const localNames: Record<string, { text: string; lang: string; from: number | null; to: number | null; source: string }[]> = J('historical_data/identity/local_names.json')?.names ?? {};
-const assetFiles = ['historical_data/assets/identity_assets.json', 'historical_data/assets/portrait_assets.json'];
-const ALLOWED = /^(public domain|pd\b|pd-|cc0|cc[ -]by(-sa)?[ -]\d|cc[ -]by(-sa)?$)/i;
+const assetFiles = ['historical_data/assets/identity_assets.json', 'historical_data/assets/portrait_assets.json', 'historical_data/assets/illustration_assets.json'];
+// MEDIA-ILL-01: 'Project original' covers art made for this project (hand-drawn, code-generated or
+// AI-generated); it is allowed only with a provenance record (method, tool, creator, date).
+const ALLOWED = /^(public domain|pd\b|pd-|cc0|cc[ -]by(-sa)?[ -]\d|cc[ -]by(-sa)?$|project original$)/i;
+const ILLUSTRATION_TYPES = new Set(['illustration_tech', 'illustration_company', 'illustration_good', 'illustration_building', 'illustration_event', 'illustration_era']);
 
 type Asset = Record<string, any> & { id: string; type: string; path: string };
 const assets: Asset[] = [];
@@ -23,8 +26,10 @@ for (const f of assetFiles) {
   for (const a of (J(f)?.assets ?? []) as Asset[]) {
     if (!existsSync('public/' + a.path)) { problems.push(`missing file ${a.path}`); continue; }
     if (!ALLOWED.test(a.license?.short ?? '')) { problems.push(`licence not allowed ${a.id}: ${a.license?.short}`); continue; }
+    if (/^project original$/i.test(a.license.short) && !(a.provenance?.method && a.provenance?.creator && a.provenance?.created)) { problems.push(`project-original asset without provenance ${a.id}`); continue; }
+    if (a.type?.startsWith('illustration_') && (!ILLUSTRATION_TYPES.has(a.type) || !a.subject)) { problems.push(`illustration without a known type/subject ${a.id}`); continue; }
     assets.push({
-      id: a.id, type: a.type, entity: a.entity, character: a.character, name: a.name, period: a.period, quality: a.quality,
+      id: a.id, type: a.type, entity: a.entity, character: a.character, subject: a.subject ?? null, provenance: a.provenance ?? null, name: a.name, period: a.period ?? { from: null, to: null }, quality: a.quality ?? 'supported',
       path: a.path, w: a.width, h: a.height, bytes: statSync('public/' + a.path).size,
       license: a.license.short, license_url: a.license.url, author: a.author || null, credit: a.credit || null,
       source: a.source.page, file: a.source.file, statement: a.source.statement, date: a.date ?? null, description: a.description,
@@ -60,11 +65,13 @@ const out = {
   licence_note: 'Hình ảnh: giấy phép ghi theo từng tệp (phạm vi công cộng / CC0 / CC BY / CC BY-SA, Wikimedia Commons). Văn bản: phần mở đầu bài Wikipedia, CC BY-SA 4.0, tác giả là cộng đồng Wikipedia. Liên kết danh tính: Wikidata (CC0).',
   counts: {
     assets: assets.length, bytes: assets.reduce((s, a) => s + a.bytes, 0),
-    flags: assets.filter((a) => a.type === 'flag').length, arms: assets.filter((a) => a.type === 'coat_of_arms').length, portraits: assets.filter((a) => a.type === 'portrait').length,
+    flags: assets.filter((a) => a.type === 'flag').length, arms: assets.filter((a) => a.type === 'coat_of_arms').length, portraits: assets.filter((a) => a.type === 'portrait').length, illustrations: assets.filter((a) => ILLUSTRATION_TYPES.has(a.type)).length,
     entities_linked: Object.values<any>(links).filter((l) => l.linked).length, entity_texts: Object.keys(texts.entities).length,
     characters: Object.keys(characters).length, characters_linked: Object.values<any>(characters).filter((c) => c.qid).length,
   },
   assets, entities, characters,
+  // MEDIA-ILL-01: illustrations indexed by `${type}:${subject}` (e.g. illustration_tech:railways).
+  illustrations: assets.filter((a) => ILLUSTRATION_TYPES.has(a.type)).reduce((m: Record<string, string[]>, a) => { (m[`${a.type}:${a.subject}`] ??= []).push(a.id); return m; }, {}),
 };
 mkdirSync('public/content', { recursive: true });
 writeFileSync('public/content/registry.json', JSON.stringify(out));

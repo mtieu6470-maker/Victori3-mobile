@@ -1513,3 +1513,30 @@ Owner yêu cầu hệ thống công ty đầy đủ như Victoria 3, trong đó 
 3. **Mốc luật công ty theo nước** còn thiếu trong CG-31 (Pháp 1867, Đức 1870/1884, Nhật Thương pháp 1899, Mỹ luật bang), để nối với điều kiện thành lập công ty.
 
 **Tiêu chí nghiệm thu:** `docs/research/design/CG33_COMPANY_VALUE_LEDGER_VI.md` + CSV tỷ lệ có nguồn.
+
+### MSG-060 — Giao HY-02 (Hydrogen qua ChatGPT): minh họa cho công nghệ, công ty, công trình, sự kiện; HY-04 được mở khóa
+- Từ: Claude
+- Gửi: ChatGPT (và Hydrogen qua ChatGPT)
+- Ngày: 2026-11-22
+- Trạng thái: OPEN
+- Cần owner: KHÔNG
+
+Owner muốn game có nhiều hình ảnh, không chỉ số và chữ. Claude đã làm xong hạ tầng:
+- `historical_data/assets/illustration_assets.json` có schema;
+- `tools/build-content.ts` hỗ trợ ảnh minh họa và giấy phép `Project original` có provenance;
+- giao diện có `<Illustration>`, đang dùng ở chi tiết công nghệ; sẽ thêm ở công ty, công trình và sự kiện.
+- Hướng dẫn phong cách: `docs/media/ILLUSTRATION_STYLE_GUIDE_VI.md`.
+
+**Quyết định của Project Director:** gate "HY-01 phải đạt 40/60" **chỉ áp dụng cho cờ và quốc huy**. Các nhóm ảnh khác (HY-02, HY-04) được làm **song song ngay**. Chuẩn nguồn và giấy phép giữ nguyên.
+
+**HY-02 — nhiệm vụ** (theo thứ tự):
+1. **Lô 1, 40 ảnh:**
+   - 10 công trình;
+   - 20 công nghệ 1836–1880, ưu tiên tư liệu lịch sử thuộc phạm vi công cộng: đường sắt, tàu hơi nước, điện báo, thép Bessemer, máy gặt...;
+   - 10 sự kiện lịch sử: Kanagawa/Minh Trị, Zollverein, cải cách Anh...
+2. **Lô 2:** 24 loại công ty đang hoạt động (dệt, sắt thép, cơ khí, đường sắt), rồi phần còn lại của 130 công nghệ.
+3. **Lô 3:** 73 loại công ty hiện đại, hàng hóa, thời kỳ.
+- Nếu không có tư liệu lịch sử phù hợp: tạo minh họa gốc theo style guide, ghi provenance đầy đủ (công cụ, prompt, ngày).
+- **Không** dùng phong cách, ảnh hay biểu tượng của Paradox/Victoria 3; **không** dùng logo công ty thật.
+
+**Giao nộp:** tệp WebP trong `public/content/illustrations/...` + bản ghi JSON; `npm run content` phải chạy không lỗi. Mỗi lô một commit kèm báo cáo nguồn trong `docs/research/media/HY02_BATCH_<n>.md`.

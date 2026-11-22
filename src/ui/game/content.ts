@@ -4,7 +4,8 @@
 import { useEffect, useState } from 'preact/hooks';
 
 export interface ContentAsset {
-  id: string; type: 'flag' | 'coat_of_arms' | 'portrait'; entity: string; character?: string; name: string;
+  id: string; type: 'flag' | 'coat_of_arms' | 'portrait' | `illustration_${string}`; entity: string; character?: string; subject?: string | null; name: string;
+  provenance?: { method: string; tool?: string; creator: string; created: string } | null;
   period: { from: number | null; to: number | null }; quality: string; path: string; w: number; h: number; bytes: number;
   license: string; license_url: string | null; author: string | null; credit: string | null; source: string; file: string; statement: string;
   date: string | null; description: string;
@@ -24,6 +25,8 @@ export interface ContentCharacter {
 export interface ContentPack {
   version: number; generated: string; licence_note: string; counts: Record<string, number>;
   assets: ContentAsset[]; entities: Record<string, ContentEntity>; characters: Record<string, ContentCharacter>;
+  /** MEDIA-ILL-01: `${type}:${subject}` → asset ids. Absent in older packs. */
+  illustrations?: Record<string, string[]>;
 }
 
 let pack: ContentPack | null = null;
@@ -76,3 +79,9 @@ export function characterByName(eid: string, name: string): ContentCharacter | u
 /** Vietnamese text when available, English otherwise. */
 export const bestText = (t: ContentText[] | undefined) => t?.find((x) => x.lang === 'vi') ?? t?.[0];
 export const assetUrl = (a: ContentAsset) => a.path;
+
+/** MEDIA-ILL-01: the first illustration of a subject (tech, company kind, good, building, event, era), if any. */
+export function illustrationFor(kind: 'tech' | 'company' | 'good' | 'building' | 'event' | 'era', subject: string): ContentAsset | undefined {
+  const ids = pack?.illustrations?.[`illustration_${kind}:${subject}`];
+  return ids?.length ? byId.get(ids[0]) : undefined;
+}

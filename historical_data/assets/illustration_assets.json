@@ -1,0 +1,4 @@
+{
+ "description": "MEDIA-ILL-01 illustrations for technologies, company kinds, goods, buildings, historical events and eras. Each asset: id, type (illustration_tech|illustration_company|illustration_good|illustration_building|illustration_event|illustration_era), subject (tech id / company kind / good / building / decision window id / era id), name (Vietnamese), description, path (under public/), width, height, source {repository, file, page}, license {short, url, attribution_required}, author, credit; for 'Project original' art also provenance {method: hand_drawn|code_generated|ai_generated, tool, creator, created, prompt?}. Public-domain or CC licences only, or Project original with provenance. Never copy Victoria 3 / Paradox art or imitate its look. Style guide: docs/media/ILLUSTRATION_STYLE_GUIDE_VI.md.",
+ "assets": []
+}

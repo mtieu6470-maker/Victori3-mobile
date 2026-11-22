@@ -6,6 +6,8 @@ import { data } from '../../engine/data/db';
 import { availableTechs, researchPoints, techCost } from '../../engine/systems/technology';
 import { Metric, Bar, Sec, details } from '../components/ui';
 import { Icon } from '../components/icons';
+import { Illustration } from '../components/Illustration';
+import { companyKindName } from '../i18n/vi';
 import { techName, fmt, pct, compact, TECH_TREE_VI } from '../i18n/vi';
 import { viewedId, canCommand, send } from './common';
 
@@ -73,14 +75,18 @@ function TechDetail({ st, tid }: { st: GameState; tid: string }) {
   const unlocks = data().db.technologies.filter((x) => x.prereqs.includes(tid));
   const missing = t.prereqs.filter((p) => !c.techs.includes(p)); const nextStep = missing.find((p) => avail.has(p));
   const eff = Object.entries(t.effects ?? {});
+  // CO-1b: company kinds this technology makes possible (formation still needs law, capital and sites).
+  const kinds = data().db.company_kinds.filter((k) => k.unlocked_by.includes(tid));
   return (
     <div>
+      <Illustration kind="tech" subject={tid} />
       <div class="kv"><span class="k">Trạng thái</span><span class="v">{isKnown ? 'Đã biết' : isCur ? `Đang nghiên cứu · ${pct(c.research.progress / cost)}` : can ? 'Có thể nghiên cứu' : 'Thiếu tiền đề'}</span></div>
       <div class="kv"><span class="k">Năm xuất hiện lịch sử</span><span class="v num">{t.historical_year}</span></div>
       {!isKnown && <div class="kv"><span class="k">Chi phí · thời gian ước tính</span><span class="v num">{compact(cost)} điểm · ~{fmt(Math.ceil(Math.max(0, cost - (isCur ? c.research.progress : 0)) / Math.max(1, pts)))} tháng</span></div>}
       <div class="kv"><span class="k">Lan tỏa</span><span class="v num">{knowN}/{alive.length} quốc gia đã biết</span></div>
       <Sec title="Hiệu ứng">{eff.length ? eff.map(([k, v]) => <div class="row" key={k}><span class="ic"><Icon name="check" /></span><div class="grow">{effText(k, v)}</div></div>) : <div class="empty sm">Không có hiệu ứng trực tiếp.</div>}</Sec>
       <Sec title="Tiền đề">{t.prereqs.length ? t.prereqs.map((p) => { const k = c.techs.includes(p); const tr = data().tech.get(p)?.tree; return <div class="row" key={p}><span class="ic" style={`color:${k ? 'var(--pos)' : 'var(--neg)'}`}><Icon name={k ? 'check' : 'close'} /></span><div class="grow">{techName(p)}{tr && tr !== t.tree && <span class="dim"> · nhánh {TECH_TREE_VI[tr]?.toLowerCase()}</span>}</div></div>; }) : <div class="empty sm">Không cần tiền đề.</div>}</Sec>
+      {kinds.length > 0 && <Sec title="Mở khóa loại công ty">{kinds.map((k) => <div class="row" key={k.id}><span class="ic"><Icon name="buildings" /></span><div class="grow">{companyKindName(k.id)}{k.buildings.length === 0 ? <span class="dim"> · chờ hàng hóa thời kỳ sau</span> : null}<div class="dim sm">Cần thêm: luật cho phép công ty cổ phần, vốn và cơ sở sản xuất.</div></div></div>)}</Sec>}
       {unlocks.length > 0 && <Sec title="Mở đường cho">{unlocks.map((u) => <div class="row" key={u.id}><span class="ic"><Icon name="research" /></span><div class="grow">{techName(u.id)} <span class="dim">· {u.historical_year}</span></div></div>)}</Sec>}
       {mine && !isKnown && (
         <div class="btns" style="margin-top:12px">

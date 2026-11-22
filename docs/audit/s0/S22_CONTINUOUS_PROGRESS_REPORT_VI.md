@@ -1,3 +1,19 @@
+## 2026-11-22 — MEDIA-ILL-01 illustration pipeline; company kinds in the tech screen
+
+- The owner wants images throughout, not just numbers and text.
+- `tools/build-content.ts` now accepts illustrations: types tech, company, good, building, event, era, indexed in the registry by `type:subject`.
+  - Licences allowed: PD/CC, or `Project original` with a mandatory provenance record (method, tool, creator, date, prompt).
+  - `historical_data/assets/illustration_assets.json` holds the schema.
+- UI: `<Illustration>` component (renders nothing until an image exists; credit and licence always shown) and `.illu` styles.
+  - The tech detail shows its illustration plus a new **"Mở khóa loại công ty"** section listing the company kinds the tech unlocks, with the formation conditions.
+  - Vietnamese names for all 97 company kinds.
+- Style guide: `docs/media/ILLUSTRATION_STYLE_GUIDE_VI.md`.
+  - Sources in order: period PD/CC sources, then project-original art with provenance. No Paradox style; no real company logos.
+- HY-02 assigned (MSG-060). Director decision: the HY-01 40/60 gate applies to flags and arms only; other media proceeds in parallel.
+- Local: `npm test` green; build 0.
+
+---
+
 ## 2026-11-22 — CO-1 companies (technology-unlocked kinds, site ownership, prosperity)
 
 - **CO-1b:**

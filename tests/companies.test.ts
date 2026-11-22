@@ -5,6 +5,7 @@ import { createGame } from '../src/engine/init';
 import { stepMonth } from '../src/engine/simulation';
 import { data } from '../src/engine/data/db';
 import { serialize, deserialize, validateGameStateContract } from '../src/engine/save';
+import { COMPANY_KIND_VI } from '../src/ui/i18n/vi';
 import { companiesMonth, companyLawAllows, COMPANY_PARAMS, siteOwners, unlockedOperationalKinds } from '../src/engine/systems/companies';
 
 loadNodeData();
@@ -19,6 +20,7 @@ describe('CO-1b company kinds data', () => {
       for (const r of k.rights) expect(r.active).toBe(false); // no legal basis yet (CG-30)
     }
     expect(kinds.filter((k) => k.buildings.length > 0).length).toBeGreaterThanOrEqual(20);
+    for (const k of kinds) expect(COMPANY_KIND_VI[k.id], `Vietnamese name for ${k.id}`).toBeTruthy();
   });
 
   it('researching a technology only unlocks a kind; it never creates a company by itself', () => {

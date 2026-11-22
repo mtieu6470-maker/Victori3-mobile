@@ -542,3 +542,9 @@ input[type=range] { width: 100%; accent-color: var(--gold-2); height: 30px; }
 .modecard p { margin: 0; font-size: 13px; color: var(--text-2); line-height: 1.45; }
 .startbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; display: flex; gap: 10px; align-items: center; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: linear-gradient(180deg, #1a242a, #0c1215); border-top: 1px solid var(--gold-0); }
 @media (orientation: portrait) { .modecards { grid-template-columns: 1fr; } }
+
+/* MEDIA-ILL-01: captioned illustrations (tech, company, building, event, era). */
+.illu { margin: 0 0 10px; border-radius: 6px; overflow: hidden; background: rgba(0, 0, 0, 0.25); box-shadow: inset 0 0 0 1px rgba(201, 164, 94, 0.35); }
+.illu img { display: block; width: 100%; height: auto; max-height: 220px; object-fit: cover; }
+.illu.compact img { max-height: 120px; }
+.illu figcaption { font-size: 11px; padding: 4px 8px; color: var(--ink-dim, #b9a77f); line-height: 1.35; }
