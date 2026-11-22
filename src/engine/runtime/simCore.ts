@@ -27,7 +27,7 @@ export type SimRequest =
   | { kind: 'save'; gen: number; meta: SaveMeta };
 
 export type SimResponse =
-  | { ok: false; gen: number; error: string; stale?: boolean }
+  | { ok: false; gen: number; error: string; stale?: boolean; /** The host itself failed (worker crash, timeout, unclonable message); its state is unreachable. */ hostFailure?: boolean }
   | { ok: true; gen: number; kind: 'state'; snapshot: GameState; meta?: SaveMeta }
   | { ok: true; gen: number; kind: 'advance'; hours: number; monthlyBoundaries: number; stop: AdvanceStop; simMs: number; hour: number; tick: number; snapshot?: GameState }
   | { ok: true; gen: number; kind: 'stepMonth'; stepped: boolean; snapshot: GameState }

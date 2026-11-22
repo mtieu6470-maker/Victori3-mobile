@@ -1,3 +1,19 @@
+## 2026-11-22 — CG-16 fixes: worker failure handling and recovery
+
+- All five findings from ChatGPT's CLOCK-02 critique are fixed; see `docs/coordination/reviews/CLAUDE_RESPONSE_CG16_CLOCK02_2026-11-22.md`.
+  - Terminal host failure settles all pending requests.
+  - Per-request watchdog (30 s, provisional).
+  - `postMessage` errors resolve as failures.
+  - `inflight` is cleared on any outcome.
+  - Inline dispose parity.
+  - Malformed replies fail the host.
+- Controller recovery policy: recover onto an inline host only from a validated UI checkpoint, and only while `subMonthlyPhasesEmpty()` holds; otherwise set `hostError` and block play until a load or new game.
+- New `tests/sim-host-worker.test.ts` (fake worker running a real SimCore).
+- Local: tsc 0; `npm test` exit 0, **24/24 files, 229/229 tests**; build 0.
+- ChatGPT CG-17 (oversupply/profitability) accepted. MSG-005 assigns CG-18 (re-review) and continues HY-01 v2.
+
+---
+
 ## 2026-11-22 — ECON-01a material-flow ledger + stale market stats fix
 
 - **Before:** monthly clearing let deficit markets import from a "world surplus" but never booked the matching exports, so the material ledger was open.

@@ -23,7 +23,9 @@ import {
 import { createGovernor, observeFrame, type GovernorState } from '../../engine/clock/governor';
 import type { SimRequest, SimResponse } from '../../engine/runtime/simCore';
 import type { GameMode, GameState } from '../../engine/types';
-import { createSimHost, type SimHost } from './simHost';
+import { createSimHost, InlineSimHost, type SimHost } from './simHost';
+import { serialize } from '../../engine/save';
+import { subMonthlyPhasesEmpty } from '../../engine/simulation';
 
 /** Simulation wall-time budget of one live `advance` request (checked between hours in the host). */
 export const SIM_FRAME_BUDGET_MS = 8;
@@ -68,7 +70,11 @@ export class GameController {
   busy: { label: string; done: number; total: number } | null = null;
   toasts: Toast[] = [];
   readLogCount = 0;
-  readonly host: SimHost;
+  /** Current simulation host (replaced by an inline host after a recovered worker failure). */
+  host: SimHost;
+  /** Set when the simulation host failed and could not be recovered; play is blocked until load/new game. */
+  hostError: string | null = null;
+  private recovering: Promise<void> | null = null;
   private listeners = new Set<() => void>();
   private clockListeners = new Set<() => void>();
   /** Bumps on every clock-only change (hour advanced between snapshots). */
@@ -141,9 +147,58 @@ export class GameController {
   private emitClock() { if (this.disposed) return; this.clockVersion++; for (const fn of this.clockListeners) fn(); }
 
   /** Resolves when no live advance request is in flight (tests, and before exclusive operations). */
-  async whenIdle(): Promise<void> { while (this.inflight) await this.inflight; }
+  async whenIdle(): Promise<void> { while (this.inflight || this.recovering) { if (this.inflight) await this.inflight; if (this.recovering) await this.recovering; } }
 
-  private request(req: SimRequest): Promise<SimResponse> { return this.host.request(req); }
+  private async request(req: SimRequest): Promise<SimResponse> {
+    const host = this.host;
+    let res: SimResponse;
+    try { res = await host.request(req); }
+    catch (e) { res = { ok: false, gen: req.gen, error: e instanceof Error ? e.message : String(e), hostFailure: true }; }
+    if (!res.ok && res.hostFailure && host === this.host && !this.disposed) void this.onHostFailure(res.error);
+    return res;
+  }
+
+  /**
+   * CG16-01 policy. The authoritative state lived in the failed host. Recovery is allowed only from a
+   * trustworthy checkpoint: the UI copy equals the authoritative state exactly while no subsystem
+   * runs below the monthly cadence (between snapshots only clock.hour changes, which the copy
+   * tracks). If that precondition does not hold, or the copy fails validation, play stays blocked
+   * with an explicit error and the player must load a save — no state is guessed.
+   */
+  private onHostFailure(error: string): Promise<void> {
+    if (this.recovering) return this.recovering;
+    this.recovering = (async () => {
+      this.operationToken++; this.busy = null; this.inflight = null;
+      this.paused = true; this.stop(); this.pace = resetPace();
+      const failed = this.host;
+      let checkpoint: string | null = null;
+      if (this.st && subMonthlyPhasesEmpty()) {
+        try { checkpoint = serialize(this.st, { clockPreference: this.speedSetting }); } catch { checkpoint = null; }
+      }
+      try { failed.dispose(); } catch { /* already failed */ }
+      // Always move to a working (in-process) host so load/new game keep working.
+      const inline = new InlineSimHost();
+      this.host = inline;
+      if (!checkpoint) {
+        this.hostError = `Luồng mô phỏng gặp lỗi (${error}). Hãy tải bản lưu gần nhất.`;
+        this.toast(this.hostError, 'error');
+        this.emit();
+        return;
+      }
+      const gen = ++this.genCounter;
+      const res = await inline.request({ kind: 'load', gen, text: checkpoint });
+      if (!res.ok || res.kind !== 'state') {
+        this.hostError = `Không khôi phục được mô phỏng (${res.ok ? 'phản hồi lạ' : res.error}). Hãy tải bản lưu gần nhất.`;
+        this.toast(this.hostError, 'error');
+        this.emit();
+        return;
+      }
+      this.gen = gen; this.st = res.snapshot; this.hostError = null;
+      this.toast('Luồng mô phỏng gặp lỗi; đã khôi phục đúng thời điểm ở chế độ dự phòng. Trò chơi đang tạm dừng.', 'info');
+      this.emit();
+    })().finally(() => { this.recovering = null; });
+    return this.recovering;
+  }
 
   private takeSnapshot(res: SimResponse): boolean {
     if (!res.ok || res.gen !== this.gen) return false;
@@ -166,7 +221,7 @@ export class GameController {
     const res = await this.request({ kind: 'newGame', gen, opts });
     if (this.disposed || gen !== this.genCounter) return; // superseded by a later newGame/load
     if (!res.ok || res.kind !== 'state') throw new Error(res.ok ? 'Unexpected response' : res.error);
-    this.gen = gen; this.st = res.snapshot;
+    this.gen = gen; this.st = res.snapshot; this.hostError = null;
     this.resetClockRuntime();
     this.paused = true; this.readLogCount = this.st.log.length;
     this.emit();
@@ -181,7 +236,7 @@ export class GameController {
     if (!res.ok || res.kind !== 'state') throw new Error(res.ok ? 'Unexpected response' : res.error);
     this.operationToken++; this.busy = null; this.stop();
     if (res.meta?.clockPreference) { this.speedSetting = res.meta.clockPreference; writeStoredPreference(this.speedSetting); }
-    this.gen = gen; this.st = res.snapshot;
+    this.gen = gen; this.st = res.snapshot; this.hostError = null;
     this.resetClockRuntime(); this.paused = true; this.readLogCount = this.st.log.length; this.emit();
   }
 
@@ -273,6 +328,7 @@ export class GameController {
   // ---------------------------------------------------------------- time
   setPaused(p: boolean) {
     if (this.disposed || this.busy) return;
+    if (!p && this.hostError) { this.paused = true; this.emit(); return; }
     if (!p && campaignFinished(this.st)) {
       this.paused = true; this.stop(); this.pace = resetPace(); this.emit();
       return;
@@ -316,10 +372,11 @@ export class GameController {
   /** Sends one live advance request for the owed backlog (at most one in flight: backpressure). */
   private sendAdvance() {
     const gen = this.gen;
-    this.inflight = this.request({ kind: 'advance', gen, maxHours: this.pace.backlogHours, budgetMs: SIM_FRAME_BUDGET_MS }).then((res) => {
-      this.inflight = null;
+    // The in-flight slot is cleared only by the request that owns it, on success AND failure
+    // (CG16-02): a rejected or failed round trip can never wedge backpressure.
+    const p: Promise<void> = this.request({ kind: 'advance', gen, maxHours: this.pace.backlogHours, budgetMs: SIM_FRAME_BUDGET_MS }).then((res) => {
       if (this.disposed || gen !== this.gen) return;
-      if (!res.ok) { if (!res.stale) { this.paused = true; this.stop(); this.toast(`Lỗi mô phỏng: ${res.error}`, 'error'); } return; }
+      if (!res.ok) { if (!res.stale && !res.hostFailure) { this.paused = true; this.stop(); this.toast(`Lỗi mô phỏng: ${res.error}`, 'error'); } return; }
       if (res.kind !== 'advance') return;
       this.pace = consumeBacklog(this.pace, res.hours);
       this.frameSim.ms += res.simMs;
@@ -331,7 +388,12 @@ export class GameController {
       if (res.monthlyBoundaries > 0) { this.lastEmit = nowMs(); this.emit(); return; }
       const t = nowMs();
       if (res.hours > 0 && t - this.lastEmit >= UI_EMIT_INTERVAL_MS) { this.lastEmit = t; this.emitClock(); }
-    });
+    }).catch((e: unknown) => {
+      if (this.disposed) return;
+      this.paused = true; this.stop();
+      this.toast(`Lỗi mô phỏng: ${e instanceof Error ? e.message : String(e)}`, 'error');
+    }).finally(() => { if (this.inflight === p) this.inflight = null; });
+    this.inflight = p;
   }
 
   /**

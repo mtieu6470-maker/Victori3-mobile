@@ -61,6 +61,15 @@ export const YEARLY_SYSTEMS: SimSystem[] = [{ name: 'annual-statistics', run: sa
 
 export const CADENCE_ORDER: readonly Cadence[] = ['hourly', 'daily', 'weekly', 'monthly', 'yearly'];
 
+/**
+ * True while no subsystem runs below the monthly cadence. Then the state between two monthly
+ * boundaries differs from the last boundary snapshot only by `clock.hour`, which the UI copy
+ * tracks exactly — the precondition for recovering a crashed worker from the UI copy (CG16-01).
+ */
+export function subMonthlyPhasesEmpty(): boolean {
+  return HOURLY_SYSTEMS.length === 0 && DAILY_SYSTEMS.length === 0 && WEEKLY_SYSTEMS.length === 0;
+}
+
 /** Fail closed if canonical hour, month tick and date disagree (corrupt save, manual edit, bug). */
 export function assertClockConsistent(st: GameState): void {
   if (!Number.isSafeInteger(st.tick) || st.tick < 0) throw new RangeError('Invalid simulation tick');
