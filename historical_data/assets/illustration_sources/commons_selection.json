@@ -183,6 +183,88 @@
       "fit": "contain",
       "max_upscale": 1.0,
       "review_note": "Contemporary 1846 map of the customs union (HY-02c 2A); shown whole so state borders and the accession table stay legible. PD-France + PD-US-expired; attribution kept."
+    },
+    {
+      "type": "illustration_company",
+      "subject": "sewing_machine_maker",
+      "commons_file": "Wittenberge_Singer-Nähmaschinenfabrik.jpg",
+      "year": 1910,
+      "width": 2400,
+      "author": "Anonymous",
+      "credit": "Wikimedia Commons (public domain, anonymous print)",
+      "name": "Hãng máy may",
+      "description": "The Singer sewing-machine factory at Wittenberge, Province of Brandenburg; anonymous colour print, after 1904",
+      "period": {
+        "from": 1850,
+        "to": 1930
+      },
+      "inset": [
+        0.02,
+        0.06,
+        0.02,
+        0.16
+      ],
+      "focus": [
+        0.5,
+        0.55
+      ],
+      "review_note": "Bird's-eye view of a real pre-1914 sewing-machine works (HY-03, MSG-072); printed title trimmed. Factory opened 1904: year set to 1910."
+    },
+    {
+      "type": "illustration_company",
+      "subject": "harvester_manufacturer",
+      "commons_file": "Deering_Harvester_Works_(NBY_417737).jpg",
+      "year": 1922,
+      "width": 828,
+      "author": "Unknown (postcard)",
+      "credit": "Newberry Library, Chicago (NBY 417737), via Wikimedia Commons",
+      "name": "Hãng máy gặt đập",
+      "description": "Deering Harvester Works on the North Branch of the Chicago River; tinted postcard, early 20th century",
+      "period": {
+        "from": 1850,
+        "to": 1930
+      },
+      "inset": [
+        0.0,
+        0.115,
+        0.0,
+        0.0
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "fit": "contain",
+      "max_upscale": 1.4,
+      "review_note": "Real harvester factory (HY-03, MSG-072); 828 px source shown whole; title band trimmed. PD-1923 template: year set to 1922."
+    },
+    {
+      "type": "illustration_company",
+      "subject": "agricultural_machine_maker",
+      "commons_file": "McCormick_No_4_Reaper_(1896)_(ADVERT_415).jpeg",
+      "year": 1896,
+      "width": 2000,
+      "author": "Unknown engraver (newspaper advertisement)",
+      "credit": "Wikimedia Commons (PD-US-expired)",
+      "name": "Hãng máy nông nghiệp",
+      "description": "A horse-drawn McCormick No. 4 mower-reaper at work; newspaper advertisement engraving, 4 July 1896",
+      "period": {
+        "from": 1850,
+        "to": 1930
+      },
+      "inset": [
+        0.0,
+        0.0,
+        0.0,
+        0.39
+      ],
+      "focus": [
+        0.5,
+        0.45
+      ],
+      "review_note": "The product of an agricultural machine maker (HY-03, MSG-072); advertising text cropped away.",
+      "fit": "contain",
+      "max_upscale": 1.0
     }
   ]
 }

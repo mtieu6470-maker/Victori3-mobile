@@ -542,6 +542,61 @@
       }
     },
     {
+      "id": "ill_agricultural_machine_maker",
+      "type": "illustration_company",
+      "subject": "agricultural_machine_maker",
+      "name": "Hãng máy nông nghiệp",
+      "description": "A horse-drawn McCormick No. 4 mower-reaper at work; newspaper advertisement engraving, 4 July 1896",
+      "path": "content/illustrations/companies/agricultural_machine_maker.webp",
+      "thumbnail_path": "content/illustrations/companies/agricultural_machine_maker_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1850,
+        "to": 1930
+      },
+      "quality": "supported",
+      "date": "1896-07-04",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "McCormick_No_4_Reaper_(1896)_(ADVERT_415).jpeg",
+        "page": "https://commons.wikimedia.org/wiki/File:McCormick_No_4_Reaper_%281896%29_%28ADVERT_415%29.jpeg",
+        "statement": "{{PD-US-expired}}",
+        "title": "A horse-drawn McCormick No. 4 mower-reaper at work; newspaper advertisement engraving, 4 July 1896",
+        "original_source": null,
+        "source_pixels": [
+          2000,
+          1453
+        ],
+        "crop": {
+          "inset": [
+            0.0,
+            0.0,
+            0.0,
+            0.39
+          ],
+          "focus": [
+            0.5,
+            0.45
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:McCormick_No_4_Reaper_%281896%29_%28ADVERT_415%29.jpeg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-US-expired}}"
+      },
+      "author": "Unknown engraver (newspaper advertisement)",
+      "credit": "Wikimedia Commons (PD-US-expired)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "The product of an agricultural machine maker (HY-03, MSG-072); advertising text cropped away."
+      }
+    },
+    {
       "id": "ill_coke_furnace_works",
       "type": "illustration_company",
       "subject": "coke_furnace_works",
@@ -647,6 +702,61 @@
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
         "note": "Engine assembly and machining floor (HY-03 C2)."
+      }
+    },
+    {
+      "id": "ill_harvester_manufacturer",
+      "type": "illustration_company",
+      "subject": "harvester_manufacturer",
+      "name": "Hãng máy gặt đập",
+      "description": "Deering Harvester Works on the North Branch of the Chicago River; tinted postcard, early 20th century",
+      "path": "content/illustrations/companies/harvester_manufacturer.webp",
+      "thumbnail_path": "content/illustrations/companies/harvester_manufacturer_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1850,
+        "to": 1930
+      },
+      "quality": "supported",
+      "date": null,
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Deering_Harvester_Works_(NBY_417737).jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Deering_Harvester_Works_%28NBY_417737%29.jpg",
+        "statement": "{{PD-1923}}",
+        "title": "Deering Harvester Works on the North Branch of the Chicago River; tinted postcard, early 20th century",
+        "original_source": "https://collections.carli.illinois.edu/cdm/singleitem/collection/nby_teich/id/417737",
+        "source_pixels": [
+          828,
+          525
+        ],
+        "crop": {
+          "inset": [
+            0.0,
+            0.115,
+            0.0,
+            0.0
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Deering_Harvester_Works_%28NBY_417737%29.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-1923}}"
+      },
+      "author": "Unknown (postcard)",
+      "credit": "Newberry Library, Chicago (NBY 417737), via Wikimedia Commons",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Real harvester factory (HY-03, MSG-072); 828 px source shown whole; title band trimmed. PD-1923 template: year set to 1922."
       }
     },
     {
@@ -809,6 +919,61 @@
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
         "note": "Ring-spinning frames (HY-03 C6); 640 px original shown whole."
+      }
+    },
+    {
+      "id": "ill_sewing_machine_maker",
+      "type": "illustration_company",
+      "subject": "sewing_machine_maker",
+      "name": "Hãng máy may",
+      "description": "The Singer sewing-machine factory at Wittenberge, Province of Brandenburg; anonymous colour print, after 1904",
+      "path": "content/illustrations/companies/sewing_machine_maker.webp",
+      "thumbnail_path": "content/illustrations/companies/sewing_machine_maker_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1850,
+        "to": 1930
+      },
+      "quality": "supported",
+      "date": null,
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Wittenberge_Singer-Nähmaschinenfabrik.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Wittenberge_Singer-N%C3%A4hmaschinenfabrik.jpg",
+        "statement": "{{PD-art|Anonymous-EU}}",
+        "title": "The Singer sewing-machine factory at Wittenberge, Province of Brandenburg; anonymous colour print, after 1904",
+        "original_source": "http://www.dorotheum.com/",
+        "source_pixels": [
+          2400,
+          1014
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.06,
+            0.02,
+            0.16
+          ],
+          "focus": [
+            0.5,
+            0.55
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Wittenberge_Singer-N%C3%A4hmaschinenfabrik.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-art|Anonymous-EU}}"
+      },
+      "author": "Anonymous",
+      "credit": "Wikimedia Commons (public domain, anonymous print)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Bird's-eye view of a real pre-1914 sewing-machine works (HY-03, MSG-072); printed title trimmed. Factory opened 1904: year set to 1910."
       }
     },
     {
