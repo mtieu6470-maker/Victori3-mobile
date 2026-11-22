@@ -255,3 +255,20 @@ The following candidates were checked against historical evidence and item-level
 - Commons Asante modern reconstruction: https://commons.wikimedia.org/wiki/File:Ashanti_Imperial_Flag.jpg
 
 **Count remains 25/60.** No candidate is promoted merely to reach the ≥40 gate. HY-04 remains blocked.
+
+
+## Additional exact Commons file-page verification — Ecuador and United States flags (2026-11-22)
+
+Two existing sovereign-polity records were completed with exact-type national-flag references after opening the Commons file pages. Both polities were already in the strict verified count through their coat-of-arms rows, so this improves completeness but does not increase the count.
+
+- **ECU — Ecuador national flag:** https://commons.wikimedia.org/wiki/File:Flag_of_Ecuador_(1835%E2%80%931845).svg. Commons identifies the design as the 1830–1845 flag, created by Zscout370; original 450 × 300 SVG. License: CC BY-SA 3.0 (or GFDL 1.2+). The date range covers 1 January 1836. Attribute the creator, link the license, indicate modifications, and preserve ShareAlike for adaptations.
+- **USA — United States national flag at campaign start:** https://commons.wikimedia.org/wiki/File:Flag_of_the_United_States_(1822%E2%80%931836).svg. Commons identifies the 24-star flag as in use 4 July 1822–3 July 1836; original 1,235 × 650 SVG. Commons marks the derivative public domain / Public Domain Mark 1.0. It is valid on the game's 1 January 1836 start date only; a historically dynamic flag system should switch to the 25-star 1836–1837 flag from 4 July 1836. This is not a timeless flag assignment.
+- In both cases, copyright status does not automatically clear restrictions on official insignia; those require separate distribution/legal review.
+
+### CSV update and count
+
+- Added two exact-type national_flag rows; no existing rows were overwritten and no polity IDs changed.
+- CSV now has **338 data rows**.
+- Strict verified sovereign polity count remains **25/60** because ECU and USA were already represented by valid coat-of-arms rows. This is asset completeness, not two newly verified polities.
+- Latest CSV blob SHA: `a0001ad01b483899d3526c82204410952a3884e9`.
+- HY-01 remains OPEN; 15 additional sovereign polities still need at least one accepted asset. HY-04 remains blocked.
