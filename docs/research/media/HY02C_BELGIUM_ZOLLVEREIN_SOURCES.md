@@ -17,7 +17,7 @@ Reply target: MSG-065. Research handoff only; no manifest or game content was mo
 
 ### Candidate B — *Rue de Flandre à Bruxelles. Jeudi 23 Sep.bre 1830* (Paul Lauters)
 - Commons file page: https://commons.wikimedia.org/wiki/File:Rue_de_Flandre_%C3%A0_Bruxelles._Jeudi_23_Sep.bre_1830,_GP00192.jpg
-- Original file: https://upload.wikimedia.org/wikipedia/commons/9/9c/Rue_de_Flandre_%C3%A0_Bruxelles._Jeudi_23_Sep.bre_1830%2C_GP00192.jpg
+- Original file: https://upload.wikimedia.org/wikipedia/commons/a/a5/Rue_de_Flandre_%C3%A0_Bruxelles._Jeudi_23_Sep.bre_1830%2C_GP00192.jpg
 - Creator/date/holding: Paul Lauters (1806–1875), lithographer; printed/published by Antoine Dewasme-Pletinckx; Leuven University Libraries catalogue record.
 - Rights: Commons page marks Public Domain and Public Domain Mark 1.0; Lauters died 1875, so the life-plus-70 term expired. This is a faithful historical lithograph, not a modern reconstruction.
 - Dimensions: 5,058 × 3,609 px.
