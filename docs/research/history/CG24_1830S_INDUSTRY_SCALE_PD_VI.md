@@ -8,7 +8,7 @@
 
 ## 1. Kết luận điều hành
 
-1. **Dữ liệu công nhân nhà máy dệt Anh năm 1835 đã có số trực tiếp từ báo cáo Government Inspectors of Factories:** cotton 1,262 nhà máy / 220,134 lao động; woollen 1,313 / 71,274; flax 347 / 33,283; silk 238 / 30,682. Tổng bốn nhóm là 3,160 nhà máy và 355,373 lao động. Bảng được in trong *Merchants’ Magazine* (July 1840), p. 93, nói rõ số liệu 1835 lấy từ các báo cáo thanh tra nhà máy của Chính phủ.
+1. **Dữ liệu công nhân nhà máy dệt Anh năm 1835 đã có số trực tiếp từ báo cáo Government Inspectors of Factories:** cotton 1,262 nhà máy / 220,134 lao động; woollen 1,313 / 71,274; flax 347 / 33,283; silk 238 / 30,682. Tổng headcount bốn nhóm là 355,373 lao động. Lưu ý số lượng cơ sở có bất nhất: cộng bốn dòng được 3,160, trong khi bản Hansard tường thuật cùng returns ghi tổng 3,236 (bao gồm 76 cơ sở trống). Không dùng tổng số nhà máy hoặc bình quân lao động/nhà máy để calibration cho tới khi đối chiếu Parliamentary return gốc. Bảng được in trong *Merchants’ Magazine* (July 1840), p. 93, nói rõ số liệu 1835 lấy từ các báo cáo thanh tra nhà máy của Chính phủ.
 2. Số này là **factory hands**, không gồm toàn bộ lao động thủ công tại nhà. Vì vậy không được gộp thợ dệt thủ công với công nhân nhà máy thành một tổng nếu chưa đồng nhất phạm vi. Porter (1836) cũng cảnh báo census 1831 không phân loại chính xác các ngành nghề; một phần lao động mỏ, đường sá, kênh đào và vận tải được ghi thành nhóm labourers không nông nghiệp.
 3. Với số engine Claude báo cáo: Anh có 855 cấp `textile_mill` × 2,000 lao động = 1,710,000 lao động nhà máy. So với 220,134 cotton factory hands năm 1835, mức engine là **7.77 lần**. Ngay cả khi so với toàn bộ 355,373 lao động của bốn ngành dệt nhà máy, 1.71m vẫn là 4.81 lần; tuy nhiên đây là so sánh không đồng nhất ngành, chỉ để nhận diện quy mô sai.
 4. Porter/Baines có thêm các chỉ dấu cho lao động ngoài nhà máy và cơ giới hóa cotton; chúng không thay thế bảng factory inspectors. Cần giữ riêng factory workers, handloom workers, power looms và số lượng cơ sở.
@@ -32,7 +32,7 @@ Nguồn: *Merchants’ Magazine*, vol. III, no. I (July 1840), printed p. 93, m�
 | Silk | 238 | 30,682 | 128.9 |
 | **Tổng** | **3,160** | **355,373** | **112.5** |
 
-Bảng so sánh 1838 trong cùng nguồn: cotton 1,815 / 259,301; woollen 1,738 / 86,446; flax 392 / 43,487; silk 268 / 34,318. Đây là bằng chứng về mở rộng nhanh trong giai đoạn 1835–1838, không phải số 1836.
+Bảng so sánh 1838 trong cùng nguồn: cotton 1,815 / 259,301; woollen 1,738 / 86,446; flax 392 / 43,487; silk 268 / 34,318. Đây là bằng chứng về mở rộng nhanh trong giai đoạn 1835–1838, không phải số 1836. Hansard ngày 12-3-1839 cũng chép returns này, nêu rõ 42 cotton, 9 woollen và 25 silk factories đang trống (76 tổng cộng), nhưng lại ghi tổng 3,236 cơ sở, không khớp phép cộng 3,160 của bốn dòng. Vì vậy giữ headcount theo từng ngành; factory count và average workers/factory chưa được khóa.
 
 **Chất lượng nguồn:** đây là một ấn phẩm đương thời public domain (1840) chép lại số liệu báo cáo chính phủ. Nên dẫn là “Government Inspectors’ returns, as transcribed in Merchants’ Magazine (1840)”, không gọi bản tạp chí là báo cáo thanh tra gốc. Cần tìm Parliamentary Paper gốc nếu sau này cần audit từng vùng/thanh tra.
 
@@ -46,7 +46,7 @@ Từ handoff MSG-021, Claude báo:
 - Tỷ lệ engine / cotton factory workforce: 1,710,000 / 220,134 = **7.77×**.
 - Số factory workers ở cả bốn ngành dệt: 355,373; 1.71m / 355,373 = **4.81×** (không phải so sánh cùng một ngành).
 
-Bình quân lịch sử 1835 là 174.5 người/cotton factory, nhưng đây không có nghĩa một game level tương ứng một nhà máy lịch sử. Dùng số công nhân để hiệu chỉnh quy mô lao động; không map 1:1 số building levels sang số cơ sở lịch sử nếu engine định nghĩa level khác.
+Không suy ra bình quân lao động/cotton factory từ các con số hiện có do số cơ sở trống và tổng số cơ sở bị bất nhất giữa bảng/tường thuật. Dùng headcount trực tiếp để hiệu chỉnh quy mô lao động; không map 1:1 số building levels sang số cơ sở lịch sử nếu engine định nghĩa level khác.
 
 ### 2.3 Phân biệt lao động nhà máy và handloom
 
