@@ -81,3 +81,26 @@ describe('CO-2 company finance', () => {
     expect(() => validateGameStateContract(bad)).toThrow(/cash/);
   });
 });
+
+import { RAIL_OPERATING_RATIO, railCoverage } from '../src/engine/systems/economy';
+describe('CO-2b railway accounts', () => {
+  const st = createGame({ mode: 'historical', seed: 1, player: null });
+  while (st.date.y < 1846) stepMonth(st);
+  it('railway sites have revenue (a captured share of rail-enabled output) and costs at the operating ratio', () => {
+    const rails = st.regions.filter((r) => r.buildings.railway > 0);
+    expect(rails.length).toBeGreaterThan(0);
+    for (const r of rails) {
+      const ops = st.industry[`${r.id}|railway`];
+      expect(ops, r.id).toBeTruthy();
+      const enabled = r.output * (0.05 * railCoverage(r)) / (1 + 0.05 * railCoverage(r));
+      expect(ops.revenue).toBeGreaterThan(0);
+      expect(ops.revenue).toBeLessThanOrEqual(enabled + 1e-6); // never more than the output it enables
+      expect(ops.cost).toBeCloseTo(ops.revenue * RAIL_OPERATING_RATIO, 6);
+    }
+  });
+  it('railway companies earn a profit', () => {
+    const rc = Object.values(st.companies).filter((c) => c.sites.some((s) => s.endsWith('|railway')));
+    expect(rc.length).toBeGreaterThan(0);
+    for (const c of rc) expect(c.lastRevenue).toBeGreaterThan(0);
+  });
+});

@@ -615,6 +615,19 @@ function logConstruction(st: GameState, c: Country, e: Parameters<typeof log>[1]
  * Coverage (0..5) is levels per region-sized network; large regions need proportionally more levels.
  */
 export const RAIL_LEVEL_KM2 = 25_000;
+/**
+ * CO-2b design value: railway operating costs as a share of revenue (the "operating ratio"). Historical
+ * operating ratios of 19th-century railways commonly lay around 0.5-0.7; 0.6 is a project value pending
+ * a sourced series (to be checked by research).
+ */
+export const RAIL_OPERATING_RATIO = 0.6;
+/**
+ * CO-2b design value: share of the output gain enabled by railways that railway operators capture as
+ * fares and freight charges (the rest accrues to shippers and consumers). With full attribution railway
+ * revenue would be ~20% of GDP; 0.3 gives ~6%, inside the rough 4-8% range of 19th-century
+ * gross railway receipts in industrial economies (memory estimate, pending sourced series: CG-35).
+ */
+export const RAIL_REVENUE_CAPTURE = 0.3;
 export function railCoverage(r: Pick<Region, 'buildings' | 'area'>): number {
   const levels = Math.max(0, r.buildings.railway);
   return Math.min(5, (levels * RAIL_LEVEL_KM2) / Math.max(RAIL_LEVEL_KM2, r.area || RAIL_LEVEL_KM2));
@@ -1148,6 +1161,18 @@ function updateSiteOperations(st: GameState, calc: RegionCalc[], plannedFactoryT
       const key = siteKey(r.id, site.b);
       const prev = st.industry[key] ?? newSiteOps(cost);
       next[key] = decideSite(prev, { revenue, cost, sellThrough: supplyW > 0 ? sell / supplyW : 1, shortage });
+    }
+    // CO-2b: railway sites earn transport revenue: a captured share of the regional value added the
+    // network makes possible (the infra multiplier's share of output), with
+    // costs at RAIL_OPERATING_RATIO of revenue. This is an attribution of value already in GDP, not new
+    // output, so railway companies have accounts like other sites.
+    if (r.buildings.railway > 0) {
+      seen.add('railway');
+      const rail = railCoverage(r);
+      const revenue = RAIL_REVENUE_CAPTURE * Math.max(0, r.output) * (0.05 * rail) / (1 + 0.05 * rail);
+      const key = siteKey(r.id, 'railway');
+      const prev = st.industry[key] ?? newSiteOps(revenue * RAIL_OPERATING_RATIO);
+      next[key] = { ...prev, util: 1, idleMonths: 0, revenue, cost: revenue * RAIL_OPERATING_RATIO };
     }
     // Idle sites produce nothing this month but keep their record (and may reopen).
     for (const b of Object.keys(r.buildings) as Building[]) {

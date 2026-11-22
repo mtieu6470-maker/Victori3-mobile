@@ -166,3 +166,11 @@ ChatGPT phản biện, kèm bằng chứng, rằng quy tắc "tự do kinh doanh
 - Save cũ: hiến chương chưa có hạn được gán hạn tính từ ngày cấp.
 
 **ECON-MONO-01 vẫn TẮT.** CG-34 không tìm được tỷ lệ thu mua hay mức đội giá có nguồn cho thuốc phiện và muối Bengal, NHM, HBC, RAC hay độc quyền thuốc lá. Số định lượng duy nhất là quyền hưởng 15% lợi nhuận ròng của Ai Cập theo nhượng quyền Suez, khoản trả một lần 300.000 bảng của HBC, và quyền đất đai. Không bật một wedge thiếu số liệu.
+
+## 11. CO-2b: sổ sách công ty đường sắt (2026-11-22)
+
+- **Doanh thu cơ sở đường sắt** = `RAIL_REVENUE_CAPTURE` (0,3) × sản lượng vùng × phần do đường sắt tạo ra (0,05·độ phủ / (1 + 0,05·độ phủ)).
+- **Chi phí** = `RAIL_OPERATING_RATIO` (0,6) × doanh thu.
+- Đây là phân bổ giá trị đã có trong GDP, không tạo sản lượng mới.
+- **Kết quả:** doanh thu bằng khoảng 6% GDP ở các nước công nghiệp từ 1870. Hai tham số chờ kiểm định bằng CG-35.
+- **Scorecard 1913:** 0,221 (trước đó 0,229).
