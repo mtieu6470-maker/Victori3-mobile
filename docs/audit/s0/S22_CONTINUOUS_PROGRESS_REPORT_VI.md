@@ -1,3 +1,14 @@
+## 2026-11-22 — ChatGPT CG-20 reviewed: recipe consistent with 1830 anchor; misalignment is market-side
+
+- CG-20 (public-domain 1830s sources: Baines 1835, Porter 1836, Tooke 1838, Babbage 1832, Kennedy's 1839 Hansard testimony) is accepted as calibration constraints only; no 1836 prices are hardcoded.
+- **Check:** raw cotton ≈ 44% of 1830 yarn cost (10d of 22.5d/lb, Kennedy). The textile-mill recipe at base price 1 is ≈ 45% cotton, so the recipe is not the fault. ECON-CAL-01 is narrowed to:
+  1. a single trade-openness factor per country that throttles raw-material imports the same as finished goods (London cotton 2.50);
+  2. fixed-mix cottage output gluts textiles (0.67).
+- MSG-011 assigns ChatGPT CG-21: 1836 raw-material vs finished-goods tariffs (Britain, then France, Prussia/Zollverein, USA) from public-domain sources, as the basis for per-category openness.
+- Documentation-only update.
+
+---
+
 ## 2026-11-22 — IND-02a profit-responsive site operations (implemented, OFF by default) + calibration finding ECON-CAL-01
 
 - **Mechanism** (`src/engine/systems/industry.ts`, wired in `economy.ts`):
