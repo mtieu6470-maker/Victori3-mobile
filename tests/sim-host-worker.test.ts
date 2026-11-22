@@ -112,6 +112,45 @@ describe('CG-16 WorkerSimHost failure handling', () => {
     }
   });
 
+  it('CG18-02: snapshots must satisfy the canonical GameState contract (missing fields, bad RNG/date/region/country/population)', async () => {
+    const ref = new SimCore(() => 0);
+    const good = ref.handle({ kind: 'newGame', gen: 1, opts }) as unknown as { snapshot: Record<string, unknown> };
+    const mutations: ((s: Record<string, any>) => void)[] = [
+      (s) => { for (const k of Object.keys(s)) if (!['clock', 'tick', 'date', 'regions', 'countries', 'log', 'rng'].includes(k)) delete s[k]; },
+      (s) => { delete s.wars; },
+      (s) => { s.rng = [1, 2, 3]; },
+      (s) => { s.rng = [1, 2, 3, 'x']; },
+      (s) => { s.date.m = 13; },
+      (s) => { s.regions[0].strata = [1]; },
+      (s) => { s.regions[0].pop = -5; },
+      (s) => { const [id] = Object.keys(s.countries); s.countries[id].id = 'NOT_' + id; },
+      (s) => { s.population.cohorts = 'broken'; },
+      (s) => { s.log.push(42); },
+      (s) => { s.version = 2; },
+    ];
+    for (const mutate of mutations) {
+      const bad = structuredClone(good.snapshot) as Record<string, any>;
+      mutate(bad);
+      const w = new FakeWorker();
+      w.postMessage = (m: unknown) => { const id = (m as { id: number }).id; setTimeout(() => w.onmessage?.({ data: structuredClone({ id, res: { ok: true, gen: 1, kind: 'state', snapshot: bad } }) } as MessageEvent), 0); };
+      const h = new WorkerSimHost(w, 0);
+      expect(await h.request({ kind: 'newGame', gen: 1, opts })).toMatchObject({ ok: false, hostFailure: true });
+      expect(h.isFailed).toBe(true);
+    }
+    // The unmodified snapshot passes the same check.
+    const w = new FakeWorker();
+    w.postMessage = (m: unknown) => { const id = (m as { id: number }).id; setTimeout(() => w.onmessage?.({ data: structuredClone({ id, res: { ok: true, gen: 1, kind: 'state', snapshot: good.snapshot } }) } as MessageEvent), 0); };
+    expect((await new WorkerSimHost(w, 0).request({ kind: 'newGame', gen: 1, opts })).ok).toBe(true);
+  });
+
+  it('CG18-02 hardening: non-integer generations and advance hour/tick mismatches fail the host', async () => {
+    const isValid = (await import('../src/ui/game/simHost')).isValidReply;
+    expect(isValid({ kind: 'save', gen: 1.5 }, { ok: true, gen: 1.5, kind: 'save', text: 'x' })).toBe(false);
+    const adv = { ok: true, gen: 1, kind: 'advance', hours: 1, monthlyBoundaries: 0, simMs: 0.1, hour: 744, tick: 1, stop: 'requested' };
+    expect(isValid({ kind: 'advance', gen: 1 }, adv)).toBe(true); // 744 h = 1836-02-01, month 1
+    expect(isValid({ kind: 'advance', gen: 1 }, { ...adv, tick: 0 })).toBe(false);
+  });
+
   it('CG16-04: InlineSimHost never touches the core for a request queued before dispose()', async () => {
     const h = new InlineSimHost();
     await h.request({ kind: 'newGame', gen: 1, opts });

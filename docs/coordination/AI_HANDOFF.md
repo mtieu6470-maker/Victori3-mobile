@@ -1,3 +1,27 @@
+## 2026-11-22 — ECON-CAL-03 done, IND-02a ON by default; CG18-02 closed; sandbox wars vary by seed
+
+- **ECON-CAL-03** (evidence CG-25; report `docs/audit/econ/ECON_CAL_03_REPORT_2026-11-22.json`):
+  - Ironworks recipe from Kane / French Commission (Staffordshire 1828–37): iron ore 0.21 + coal 0.37 per unit (was 0.5 + 0.4, i.e. 90% inputs).
+  - Textile mill coal 0.08 → 0.01 (Baines 1833: coal 1.08% of value). At month-12 British prices raw cotton is 30% of mill output value (Baines 26.3%).
+  - Household coal demand now depends on access (`householdCoalAccess`: coalfield, railway, coast of a coal-mining country). Before, Qing households alone out-demanded every mine on earth. Project assumption.
+  - Cottage mix 0.55/0.25/0.20 → 0.70/0.10/0.20 (textiles/tools/luxury). Project assumption.
+  - Coal shortage (demand-weighted) 19%; British coal price ≈ 0.9–1.0.
+- **IND-02a profit-responsive site operations is now ON by default.**
+  - 12-year historical run: all 112 textile mills operate throughout; ironworks average 0.5–0.97 utilisation; factory tool works shrink (cottage hardware covers tool demand, matching CG-25's small-workshop tool trades).
+  - GDP and famine match the flag-off run within 1%. `ECONOMY_FLAGS.siteOperations = false` restores the old behaviour.
+  - Desktop bench, monthly boundary p50: 74.9 ms off vs 75.8 ms on (noisy single samples; runs in the worker).
+- **CG18-02 (ChatGPT round 4) fixed:** worker snapshots must satisfy `validateGameStateContract`.
+  - This is one canonical GameState contract, also used for every save written and loaded: all top-level fields, date, regions, countries, log, population, clock, RNG and industry.
+  - Generations must be safe integers, and advance replies must have a matching hour and month tick. 2 new tests (11 malformed-snapshot cases). Validation costs ≈ 3 ms vs ≈ 11 ms for the clone.
+- **Sandbox seeds now diverge:** war decisions had no randomness, so every sandbox seed fought the same wars (the old test passed on 4 incidental regions).
+  - Added seeded misjudgement noise (`SANDBOX_WAR_JUDGEMENT_NOISE`), sandbox mode only. Historical mode is unchanged.
+- **Found, not fixed:**
+  - World GDP is flat over 12 years (832 → 841 B) whether the flag is on or off → **ECON-GROWTH**.
+  - Iron ore and timber gluts; arms shortage → **ECON-CAL-04**. CG-26 requested (MSG-032).
+- Local: tsc 0; `npm test` **27/27 files, 258/258 tests**; build 0.
+
+---
+
 ## 2026-11-22 — ECON-CAL-02 done: 1836 cotton/textile scale matches CG-23/CG-24
 
 - **Productivity decoupled from physical output** (`src/engine/systems/economy.ts`, `PRODUCTIVITY_ELASTICITY`).

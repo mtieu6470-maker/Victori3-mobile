@@ -73,8 +73,8 @@ describe('ECON-CAL-02 historical scale (CG-23 / CG-24)', () => {
   });
 });
 
-describe('ECON-CAL-02 with IND-02a site operations switched on (test only)', () => {
-  afterEach(() => { ECONOMY_FLAGS.siteOperations = false; });
+describe('ECON-CAL-02 with IND-02a site operations (default on)', () => {
+  afterEach(() => { ECONOMY_FLAGS.siteOperations = true; });
   it('British textile mills stay profitable and fully operating through the first year', () => {
     ECONOMY_FLAGS.siteOperations = true;
     const st = createGame({ mode: 'historical', seed: 1, player: null });

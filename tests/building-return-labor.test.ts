@@ -177,7 +177,8 @@ describe('building return uses the labor pools available to production', () => {
       st.marketPrices[country.customsUnion ?? country.id] = { ...prices };
       st.marketStats[country.customsUnion ?? country.id] = {
         cotton: { supply: cottonShort === 0 ? 1_000_000_000 : 1_000_000, demand: 0, imports: 0, short: 0 },
-        coal: { supply: coalShort === 0 ? 1_000_000_000 : 100_000, demand: 0, imports: 0, short: 0 },
+        // ECON-CAL-03: textile mills need little coal (Baines: ~1% of value), so the constrained case is tighter.
+        coal: { supply: coalShort === 0 ? 1_000_000_000 : 5_000, demand: 0, imports: 0, short: 0 },
         textiles: { supply: 0, demand: 1_000_000, imports: 0, short: 0 },
       } as typeof st.marketStats.GBR;
       return buildingReturn(st, country, region, 'textile_mill');

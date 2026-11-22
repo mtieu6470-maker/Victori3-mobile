@@ -15,7 +15,7 @@ const worldCrop = cotton.reduce((s, r) => s + r.supply, 0);
 const gbr = st.marketStats.GBR;
 const growers = [...cotton].sort((a, b) => b.supply - a.supply).slice(0, 4).map((r) => `${r.id}:${(r.supply / worldCrop * 100).toFixed(0)}%`);
 const agg: Record<string, { s: number; u: number; sh: number; n: number }> = {};
-for (const goods of Object.values(st.marketStats)) for (const [g, r] of Object.entries(goods)) { const a = (agg[g] ??= { s: 0, u: 0, sh: 0, n: 0 }); a.s += r.supply; a.u += r.unsold ?? 0; a.sh += r.short; a.n++; }
+for (const goods of Object.values(st.marketStats)) for (const [g, r] of Object.entries(goods)) { const a = (agg[g] ??= { s: 0, u: 0, sh: 0, n: 0 }); a.s += r.supply; a.u += r.unsold ?? 0; a.sh += r.short * r.demand; a.n += r.demand; }
 const alive = Object.values(st.countries).filter((c) => c.alive);
 const gdp = alive.reduce((s, c) => s + c.gdp, 0);
 const famine = alive.reduce((s, c) => s + c.famine * c.stats.pop, 0) / Math.max(1, alive.reduce((s, c) => s + c.stats.pop, 0));
@@ -26,5 +26,5 @@ console.log(JSON.stringify({
   topCottonGrowers: growers, cg23_usa_share_1834: 0.51,
   prices_GBR: { cotton: +st.marketPrices.GBR.cotton.toFixed(2), textiles: +st.marketPrices.GBR.textiles.toFixed(2), grain: +st.marketPrices.GBR.grain.toFixed(2) },
   unsoldPct: Object.fromEntries(Object.entries(agg).map(([g, a]) => [g, Math.round(a.u / Math.max(1, a.s) * 100)])),
-  meanShortPct: Object.fromEntries(Object.entries(agg).map(([g, a]) => [g, Math.round(a.sh / a.n * 100)])),
+  demandWeightedShortPct: Object.fromEntries(Object.entries(agg).map(([g, a]) => [g, Math.round(a.sh / Math.max(1, a.n) * 100)])),
 }, null, 0));

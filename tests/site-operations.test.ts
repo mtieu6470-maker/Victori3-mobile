@@ -1,6 +1,6 @@
 // IND-02a: profit-responsive building-site operations. Pure decision scenarios adapted from ChatGPT's
 // CG-19 acceptance scenarios (thresholds are project design parameters), plus integration with the
-// feature switch on. The switch is OFF by default (ECON-CAL-01 calibration prerequisite).
+// feature switch on. The switch is ON by default since ECON-CAL-03.
 import { afterEach, describe, expect, it } from 'vitest';
 import { loadNodeData } from '../src/engine/node';
 import { createGame } from '../src/engine/init';
@@ -80,11 +80,12 @@ describe('IND-02a pure site decisions (CG-19 scenarios)', () => {
   });
 });
 
-describe('IND-02a integration (feature switch ON in this test only)', () => {
-  afterEach(() => { ECONOMY_FLAGS.siteOperations = false; });
+describe('IND-02a integration (on by default since ECON-CAL-03)', () => {
+  afterEach(() => { ECONOMY_FLAGS.siteOperations = true; });
 
-  it('is off by default and then leaves no operating records', () => {
-    expect(ECONOMY_FLAGS.siteOperations).toBe(false);
+  it('is on by default; switched off it leaves no operating records', () => {
+    expect(ECONOMY_FLAGS.siteOperations).toBe(true);
+    ECONOMY_FLAGS.siteOperations = false;
     const st = createGame({ mode: 'historical', seed: 71, player: null });
     stepMonth(st);
     expect(st.industry).toEqual({});

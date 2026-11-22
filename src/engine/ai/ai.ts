@@ -241,6 +241,9 @@ function neighboursOf(st: GameState, c: Country): Set<string> {
   return out;
 }
 
+/** Spread of the seeded misjudgement added to each war option's utility in Sandbox Mode (design parameter). */
+export const SANDBOX_WAR_JUDGEMENT_NOISE = 0.5;
+
 function warAI(st: GameState, c: Country) {
   if (atWar(st, c.id) || c.warExhaustion > 20 || (c.ai.cooldowns.war ?? 0) > st.tick) return;
   if (c.overlord && c.subjectType !== 'tributary' && c.subjectType !== 'autonomous_vassal') return;
@@ -274,7 +277,10 @@ function warAI(st: GameState, c: Country) {
     const ratio = mine / Math.max(1, enemy);
     const pWin = clamp((ratio - 0.6) / 1.4, 0, 0.95);
     const cost = 0.55 + c.warExhaustion / 50 + (t.decentralized ? 0.2 + (['ju', 'sa'].includes(goalRegs[0]?.terrain ?? '') && !c.techs.includes('quinine_prophylaxis') ? 0.6 : 0) : 0.5) + c.infamy / 25 + historicalBias(st, c, 'avoid_war', tid) * 3 - historicalBias(st, c, 'contain', tid) * 0.6;
-    const u = pWin * value - (1 - pWin) * 0.8 - cost + (c.personality.aggression - 0.4) * 0.8 + (c.personality.expansionism - 0.4) * 0.6;
+    let u = pWin * value - (1 - pWin) * 0.8 - cost + (c.personality.aggression - 0.4) * 0.8 + (c.personality.expansionism - 0.4) * 0.6;
+    // Sandbox: leaders misjudge odds and opportunities. Seeded noise makes different seeds diverge;
+    // without it every sandbox seed fought the same wars (only battle rolls were random).
+    if (st.mode === 'sandbox') u += (rand(st) - 0.5) * SANDBOX_WAR_JUDGEMENT_NOISE;
     if (!best || u > best.u) best = { target: tid, goals, u, kind: t.decentralized ? 'colonial' : 'conquest' };
   }
   const threshold = 0.2 + (1 - c.personality.risk) * 0.35;

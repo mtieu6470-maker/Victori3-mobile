@@ -11,16 +11,16 @@
 //
 // All thresholds below are PROJECT DESIGN PARAMETERS (not historical data, not Victoria 3 values).
 //
-// DISABLED BY DEFAULT (ECON-CAL-01). Measured 2026-11-22 with it enabled (historical, seed 1): in the
-// current price/recipe calibration every good has base price 1 and textile mills need 0.45 cotton per
-// unit, while London's market priced cotton at 2.50 and textiles at 0.67 (cottage-industry glut,
-// scarce raw-material imports). The 1836 London textile mill showed revenue 22.5M vs cost 51.8M per
-// month, so enabling the mechanism idles ~98% of textile mills and tool works within a year — a
-// wrong historical outcome. Prerequisites before enabling: per-good base prices/recipe value
-// consistency, raw-material import access, and market-responsive cottage/subsistence production.
+// ENABLED BY DEFAULT since ECON-CAL-03 (2026-11-22). It was off while the 1836 calibration made it
+// idle ~98% of textile mills (ECON-CAL-01). After ECON-CAL-02/03 (CG-23/24/25 scale, recipe value
+// shares, household coal access) a 12-year historical run (seed 1) keeps every textile mill and
+// most ironworks operating; factory tool works shrink because workshop (cottage) hardware already
+// covers tool demand, which matches the period's small-workshop tool trades (CG-25 §6.3-6.4).
+// GDP and famine stay within 1% of the run with the switch off. Setting it to false restores the
+// previous behaviour exactly.
 
-/** Feature switch for profit-responsive site operations. Off: output and results are exactly as before. */
-export const ECONOMY_FLAGS = { siteOperations: false };
+/** Feature switch for profit-responsive site operations. Off: output and results are exactly as before IND-02a. */
+export const ECONOMY_FLAGS = { siteOperations: true };
 
 export interface SiteOps {
   /** Share of the site's staffed capacity in operation, 0 (idle) or [MIN_UTIL, 1]. */

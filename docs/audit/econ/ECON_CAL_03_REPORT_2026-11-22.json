@@ -1,0 +1,140 @@
+{
+ "task": "ECON-CAL-03",
+ "date": "2026-11-22",
+ "tool": "npx tsx tools/calib-report.ts 12 1",
+ "note": "Historical mode, seed 1, month 12. 'before' = after ECON-CAL-02 (commit 31dd9d2, shortage was an unweighted market mean); 'after' = ECON-CAL-03 with IND-02a on by default (shortage is demand-weighted).",
+ "evidence": {
+  "CG-25": "docs/research/history/CG25_IRON_COAL_TOOLS_1830S_VI.md"
+ },
+ "changes": {
+  "textile_mill.coal": "0.08 -> 0.01 (Baines 1833 via Kane: coal 1.08% of cotton-goods value)",
+  "ironworks": "iron 0.5 + coal 0.4 -> iron 0.21 + coal 0.37 (Kane/French Commission Staffordshire 1828-37: ore ~21%, fuel ~37%, labour ~38%)",
+  "household coal": "pop*1.5*wealth -> times householdCoalAccess (coalfield 1, railway 0.7, coast of coal-mining country 0.5, inland 0.15, else 0.03) - project assumption",
+  "cottage mix": "textiles/tools/luxury 0.55/0.25/0.20 -> 0.70/0.10/0.20 - project assumption",
+  "IND-02a": "siteOperations default ON"
+ },
+ "cotton_value_share_check": "At month-12 GBR prices (cotton 0.95, textiles 0.66) raw cotton = 0.21*0.95/0.66 = 30% of mill output value vs Baines 26.3%; coal 0.01*0.98/0.66 = 1.5% vs 1.08%.",
+ "before": {
+  "months": 12,
+  "seed": 1,
+  "worldGDP_B": 832.3,
+  "popWeightedFamine": 0.009,
+  "gbrStartMillWorkers": 360000,
+  "cg24_gb_textile_factory_hands_1835": 355373,
+  "gbrCottonDemandShareOfWorldCrop": 0.365,
+  "cg23_target": "0.33-0.36",
+  "topCottonGrowers": [
+   "USA:42%",
+   "GBR:20%",
+   "QNG:18%",
+   "BRA:12%"
+  ],
+  "cg23_usa_share_1834": 0.51,
+  "prices_GBR": {
+   "cotton": 0.95,
+   "textiles": 0.72,
+   "grain": 0.85
+  },
+  "unsoldPct": {
+   "grain": 26,
+   "cash_crops": 5,
+   "cotton": 39,
+   "timber": 99,
+   "coal": 0,
+   "iron": 72,
+   "steel": 8,
+   "textiles": 16,
+   "tools": 78,
+   "arms": 0,
+   "luxury": 5,
+   "opium": 71
+  },
+  "meanShortPct": {
+   "grain": 2,
+   "cash_crops": 75,
+   "cotton": 1,
+   "timber": 0,
+   "coal": 97,
+   "iron": 0,
+   "steel": 22,
+   "textiles": 3,
+   "tools": 0,
+   "arms": 100,
+   "luxury": 3,
+   "opium": 46
+  }
+ },
+ "after": {
+  "months": 12,
+  "seed": 1,
+  "worldGDP_B": 832,
+  "popWeightedFamine": 0.009,
+  "gbrStartMillWorkers": 360000,
+  "cg24_gb_textile_factory_hands_1835": 355373,
+  "gbrCottonDemandShareOfWorldCrop": 0.364,
+  "cg23_target": "0.33-0.36",
+  "topCottonGrowers": [
+   "USA:42%",
+   "GBR:20%",
+   "QNG:18%",
+   "BRA:12%"
+  ],
+  "cg23_usa_share_1834": 0.51,
+  "prices_GBR": {
+   "cotton": 0.95,
+   "textiles": 0.66,
+   "grain": 0.85
+  },
+  "unsoldPct": {
+   "grain": 26,
+   "cash_crops": 5,
+   "cotton": 39,
+   "timber": 99,
+   "coal": 10,
+   "iron": 88,
+   "steel": 53,
+   "textiles": 28,
+   "tools": 62,
+   "arms": 0,
+   "luxury": 5,
+   "opium": 72
+  },
+  "demandWeightedShortPct": {
+   "grain": 0,
+   "cash_crops": 67,
+   "cotton": 15,
+   "timber": 0,
+   "coal": 19,
+   "iron": 0,
+   "steel": 2,
+   "textiles": 0,
+   "tools": 0,
+   "arms": 96,
+   "luxury": 6,
+   "opium": 75
+  }
+ },
+ "ind02a_12y_run": {
+  "textile_mill": "112/112 operating all 12 years",
+  "ironworks": "avg utilisation 0.52-0.97",
+  "tool_works": "55/63 idle by year 12 (cottage hardware covers tool demand)",
+  "GDP_B_on_vs_off_year12": [
+   841,
+   842
+  ],
+  "famine_on_vs_off": [
+   0.007,
+   0.007
+  ]
+ },
+ "bench_desktop_monthly_boundary_ms_p50": {
+  "flag_off": 74.9,
+  "flag_on": 75.8,
+  "note": "single 12-month samples, noisy; previous CLOCK-01 baseline p50 53.6 before ECON-CAL-02/03 and CG18-02"
+ },
+ "open_issues": [
+  "World GDP flat 1836-1848 (832 -> 841B) in both flag states: growth dynamics missing (ECON-GROWTH)",
+  "Iron ore 88-96% unsold and timber ~100% unsold: mines/logging overbuilt for 1836 demand (ECON-CAL-04)",
+  "Arms demand-weighted shortage 96%"
+ ]
+}

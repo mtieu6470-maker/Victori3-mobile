@@ -21,8 +21,10 @@ export const RECIPES: Partial<Record<Building, { out: Good; perWorker: number; i
   // a year: England's 1834-35 use of ~297m lb (CG-23) over 355,373 textile factory hands (CG-24). At
   // base prices raw cotton is ~21% of the value of finished textiles; the 0.45 coefficient matched the
   // cost of yarn (Kennedy 1830, ~44%), not of cloth/clothing, which is what the textiles good is.
-  textile_mill: { out: 'textiles', perWorker: 1800, inputs: { cotton: 0.21, coal: 0.08 } },
-  ironworks: { out: 'steel', perWorker: 1500, inputs: { iron: 0.5, coal: 0.4 } },
+  textile_mill: { out: 'textiles', perWorker: 1800, inputs: { cotton: 0.21, coal: 0.01 } },
+  // ECON-CAL-03 (CG-25, Kane 1845 / French Commission, Staffordshire 1828-37): per ton of merchant bar
+  // iron, ore ~21% and fuel ~37% of cost, labour/management ~38%. Was iron 0.5 + coal 0.4 (90% inputs).
+  ironworks: { out: 'steel', perWorker: 1500, inputs: { iron: 0.21, coal: 0.37 } },
   tool_works: { out: 'tools', perWorker: 1700, inputs: { steel: 0.4, timber: 0.15 } },
   arms_works: { out: 'arms', perWorker: 1600, inputs: { steel: 0.35, tools: 0.15 } },
   luxury_workshop: { out: 'luxury', perWorker: 1500, inputs: { cash_crops: 0.3 } },
@@ -97,7 +99,21 @@ interface SiteCalc { b: Building; outputs: Partial<Record<Good, number>>; inputs
  * index, floor 0.5): unprofitable hours go to own use rather than to an unsold glut. Price 1 for every
  * good reproduces the former fixed mix exactly.
  */
-export const COTTAGE_BASE_MIX = { textiles: 0.55, tools: 0.25, luxury: 0.2 } as const;
+/**
+ * ECON-CAL-03: share of household fuel that can be coal. Before this every person on earth demanded
+ * coal for heating, so Qing alone (602) out-demanded the whole world's mines (762) and coal was
+ * "short" almost everywhere. In the 1830s household coal was burned where it was mined or cheaply
+ * carried: coalfields, railways, and coasts of coal-mining countries (London's sea-coal from the
+ * Tyne, CG-25 McCulloch). Elsewhere wood, charcoal and dung dominated. PROJECT ASSUMPTION (shares).
+ */
+export function householdCoalAccess(r: Pick<Region, 'res' | 'buildings' | 'coastal'>, ownerMinesCoal: boolean): number {
+  if (r.res.includes('coal')) return 1;
+  if (r.buildings.railway > 0) return 0.7;
+  if (ownerMinesCoal) return r.coastal ? 0.5 : 0.15;
+  return 0.03;
+}
+
+export const COTTAGE_BASE_MIX = { textiles: 0.7, tools: 0.1, luxury: 0.2 } as const;
 export function cottageOutput(prices: Record<Good, number> | undefined): { textiles: number; tools: number; luxury: number } {
   const p = (g: 'textiles' | 'tools' | 'luxury') => { const v = prices?.[g]; return Number.isFinite(v) && (v as number) > 0 ? (v as number) : 1; };
   const w = { textiles: COTTAGE_BASE_MIX.textiles * p('textiles') ** 2, tools: COTTAGE_BASE_MIX.tools * p('tools') ** 2, luxury: COTTAGE_BASE_MIX.luxury * p('luxury') ** 2 };
@@ -197,6 +213,9 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
   const calc: RegionCalc[] = new Array(st.regions.length);
   const markets: Record<string, MarketAggregate> = {};
 
+  // ECON-CAL-03: countries with working coal mines (household coal reaches their coasts and railways).
+  const coalProducers = new Set<string>();
+  for (const r of st.regions) if (r.buildings.mine > 0 && r.res.includes('coal')) coalProducers.add(r.owner);
   // ---- 1. physical production and demand per region
   for (let i = 0; i < st.regions.length; i++) {
     const r = st.regions[i]; const c = st.countries[r.owner]; if (!c) continue;
@@ -315,7 +334,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     demand.cash_crops += r.pop * 6 * wealth;
     demand.luxury += r.pop * (sh[S.aristocrats] + sh[S.capitalists] + sh[S.middle] * 0.4) * 160 * wealth;
     demand.tools += agriWorkers * 2 + (LF * sh[S.workers]) * 8 + mineWorkers * 6;
-    demand.coal += r.pop * 1.5 * wealth;
+    demand.coal += r.pop * 1.5 * wealth * householdCoalAccess(r, coalProducers.has(r.owner));
     demand.opium += r.pop * (c.id === 'QNG' ? 0.6 : 0.03);
     const marketId = marketOf(st, c);
     calc[i] = { supply, demand, services: svc, inputsNeed, factoryOut, factoryInputs, factoryWorkersByGood, marketId, employment, grainLocal: grain, grainNeed, sites };

@@ -83,14 +83,54 @@ export function validateClockState(st: GameState): void {
   if (!st.date || st.date.y !== dt.y || st.date.m !== dt.m) throw new Error('Canonical clock hour does not match the saved date');
 }
 
+/**
+ * CG18-02: the canonical runtime contract of a GameState. Used for every save written, every save
+ * loaded (after migration) and every snapshot a simulation worker sends to the UI, so there is one
+ * schema guard rather than several partial ones. Checks every required top-level field, the critical
+ * nested records (date, regions, countries, log), and runs the population, clock, RNG and industry
+ * validators. Never repairs: throws on the first violation.
+ */
+export function validateGameStateContract(value: unknown): asserts value is GameState {
+  const fail = (what: string): never => { throw new Error(`Invalid game state: ${what}`); };
+  const isObj = (v: unknown): v is Record<string, unknown> => !!v && typeof v === 'object' && !Array.isArray(v);
+  const fin = (v: unknown) => typeof v === 'number' && Number.isFinite(v);
+  if (!isObj(value)) fail('not an object');
+  const st = value as Record<string, unknown>;
+  if (st.version !== SAVE_SCHEMA_VERSION) fail(`schema version ${String(st.version)}`);
+  if (!Array.isArray(st.regions)) fail('regions');
+  // Domain validators first so their specific messages are reported.
+  const gs = value as GameState;
+  validatePopulationState(gs);
+  validateClockState(gs);
+  validateRngState(gs);
+  validateIndustryState(gs);
+  if (st.mode !== 'historical' && st.mode !== 'sandbox') fail('mode');
+  if (st.player !== null && typeof st.player !== 'string') fail('player');
+  if (!Number.isSafeInteger(st.nextId) || (st.nextId as number) < 0) fail('nextId');
+  const date = st.date;
+  if (!isObj(date) || !Number.isSafeInteger(date.y) || !Number.isInteger(date.m) || (date.m as number) < 1 || (date.m as number) > 12) fail('date');
+  for (const k of ['countries', 'relations', 'worldPrices', 'marketPrices', 'marketStats', 'industry', 'history', 'divergence', 'counters'] as const) if (!isObj(st[k])) fail(k);
+  for (const k of ['regions', 'wars', 'treaties', 'rivalries', 'constructionProjects', 'log', 'territoryLog', 'firedEvents', 'pendingPlayerDecisions'] as const) if (!Array.isArray(st[k])) fail(k);
+  const regions = st.regions as unknown[];
+  if (regions.length === 0) fail('no regions');
+  for (const r of regions) {
+    if (!isObj(r) || typeof r.id !== 'string' || typeof r.owner !== 'string' || typeof r.controller !== 'string' || !fin(r.pop) || (r.pop as number) < 0 ||
+        !Array.isArray(r.strata) || r.strata.length !== STRATA.length || !r.strata.every(fin) || !isObj(r.buildings)) fail(`region ${isObj(r) ? String(r.id) : '?'}`);
+  }
+  const countries = st.countries as Record<string, unknown>;
+  if (Object.keys(countries).length === 0) fail('no countries');
+  for (const [id, c] of Object.entries(countries)) {
+    if (!isObj(c) || c.id !== id || typeof c.alive !== 'boolean' || !isObj(c.laws) || !fin(c.treasury) || !fin(c.productivity)) fail(`country ${id}`);
+  }
+  for (const e of st.log as unknown[]) if (!isObj(e) || typeof e.text !== 'string') fail('log entry');
+  for (const [k, v] of Object.entries(st.worldPrices as Record<string, unknown>)) if (!fin(v)) fail(`world price ${k}`);
+}
+
 export function serialize(st: GameState, meta: SaveMeta = {}): string {
   if (st.version !== SAVE_SCHEMA_VERSION) {
     throw new Error(`Cannot serialize save schema ${st.version}; expected ${SAVE_SCHEMA_VERSION}`);
   }
-  validatePopulationState(st);
-  validateClockState(st);
-  validateRngState(st);
-  validateIndustryState(st);
+  validateGameStateContract(st);
   const envelope: Record<string, unknown> = {
     format: SAVE_FORMAT,
     version: SAVE_SCHEMA_VERSION,
@@ -202,12 +242,13 @@ export function deserializeWithMeta(text: string): { state: GameState; meta: Sav
   st.industry ??= {};
   validateIndustryState(st);
 
-  if (envelope.version === 1) return { state: migrateV2ToV3(migrateV1ToV2(st)), meta };
+  const finish = (state: GameState) => { validateGameStateContract(state); return { state, meta }; };
+  if (envelope.version === 1) return finish(migrateV2ToV3(migrateV1ToV2(st)));
 
   if (!st.population) throw new Error(`Save v${envelope.version} is missing its population cohort state`);
   validatePopulationState(st);
-  if (envelope.version === 2) return { state: migrateV2ToV3(st), meta };
+  if (envelope.version === 2) return finish(migrateV2ToV3(st));
   validateClockState(st);
   if (meta.savedAtHour !== undefined && meta.savedAtHour !== st.clock.hour) throw new Error('Save envelope hour does not match the saved canonical clock');
-  return { state: st, meta };
+  return finish(st);
 }
