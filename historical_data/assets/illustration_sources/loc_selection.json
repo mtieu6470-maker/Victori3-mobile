@@ -220,6 +220,528 @@
         0.45
       ],
       "review_note": "Colour photochrom of a university hall."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "steamships",
+      "loc_item": "2018756498",
+      "name": "Tàu hơi nước",
+      "description": "Steamship Deutschland (Hamburg-America Line) leaving New York; colour lithograph, 1901",
+      "period": {
+        "from": 1838,
+        "to": 1838
+      },
+      "inset": [
+        0.02,
+        0.03,
+        0.02,
+        0.03
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Colour lithograph of an ocean liner under steam."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "mechanical_reaper",
+      "loc_item": "2015646637",
+      "name": "Máy gặt cơ khí",
+      "description": "Cutting wheat with a horse-drawn reaper and binder, Pennsylvania; stereograph, c. 1905",
+      "period": {
+        "from": 1845,
+        "to": 1845
+      },
+      "inset": [
+        0.03,
+        0.03,
+        0.03,
+        0.03
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "fit": "contain",
+      "max_upscale": 1.5,
+      "review_note": "Only a low-resolution source is available; shown whole on a blurred field."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "telegraph",
+      "loc_item": "2002706683",
+      "name": "Điện báo",
+      "description": "General Operating Department, Western Union Telegraph Building, New York; engraving, 1875",
+      "period": {
+        "from": 1845,
+        "to": 1845
+      },
+      "inset": [
+        0.1,
+        0.03,
+        0.08,
+        0.2
+      ],
+      "focus": [
+        0.5,
+        0.45
+      ],
+      "review_note": "Telegraph operating room; caption trimmed."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "rifled_muskets",
+      "loc_item": "2021670370",
+      "name": "Súng trường rãnh xoắn",
+      "description": "Encampment of the Corn Exchange Regiment (118th Pennsylvania Volunteers) with infantry in line; colour lithograph, 1862",
+      "period": {
+        "from": 1850,
+        "to": 1850
+      },
+      "inset": [
+        0.03,
+        0.03,
+        0.03,
+        0.17
+      ],
+      "focus": [
+        0.5,
+        0.62
+      ],
+      "review_note": "Infantry of the rifle-musket era drawn up in ranks; caption trimmed."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "vulcanized_rubber",
+      "loc_item": "2021670390",
+      "name": "Cao su lưu hóa",
+      "description": "Goodyear's Rubber Packing and Belting Company warehouse, Philadelphia; colour lithograph, 1856",
+      "period": {
+        "from": 1850,
+        "to": 1850
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.64
+      ],
+      "review_note": "Period advertisement of a vulcanized-rubber goods firm (storefront band)."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "sewing_machine",
+      "loc_item": "2003672945",
+      "name": "Máy may",
+      "description": "Domestic sewing machine; colour lithograph advertisement, 1882",
+      "period": {
+        "from": 1850,
+        "to": 1850
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "fit": "contain",
+      "max_upscale": 1.5,
+      "review_note": "Portrait-format chromolithograph shown whole."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "interchangeable_parts",
+      "loc_item": "2016812940",
+      "name": "Linh kiện thay thế đồng nhất",
+      "description": "Machine shop, Merchants' Despatch Transportation Co.; Detroit Publishing Co., c. 1900",
+      "period": {
+        "from": 1853,
+        "to": 1853
+      },
+      "inset": [
+        0.03,
+        0.04,
+        0.03,
+        0.06
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Belt-driven machine tools of standardised production."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "rifled_artillery",
+      "loc_item": "2018666191",
+      "name": "Pháo rãnh xoắn",
+      "description": "20-pounder Parrott rifled guns of the 1st New York Battery near Richmond, Virginia, 1862",
+      "period": {
+        "from": 1859,
+        "to": 1859
+      },
+      "inset": [
+        0.04,
+        0.04,
+        0.04,
+        0.04
+      ],
+      "focus": [
+        0.5,
+        0.62
+      ],
+      "review_note": "Field battery of rifled guns."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "bessemer_steel",
+      "loc_item": "93509654",
+      "name": "Thép Bessemer",
+      "description": "Making Bessemer steel at Pittsburgh: the converters at work; Harper's Weekly wood engraving, 1886",
+      "period": {
+        "from": 1860,
+        "to": 1860
+      },
+      "inset": [
+        0.14,
+        0.06,
+        0.09,
+        0.54
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Upper panel of the engraving (converters in blow). The earlier photograph was rejected: glare washed out the image.",
+      "fit": "contain",
+      "max_upscale": 1.5
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "ironclads",
+      "loc_item": "2012647349",
+      "name": "Thiết giáp hạm",
+      "description": "The first battle between iron ships of war: Monitor and Merrimac, Hampton Roads; colour lithograph, 1862",
+      "period": {
+        "from": 1860,
+        "to": 1860
+      },
+      "inset": [
+        0.05,
+        0.05,
+        0.05,
+        0.2
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Contemporary print of the first ironclad duel; caption trimmed."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "oil_refining",
+      "loc_item": "2008679002",
+      "name": "Lọc dầu",
+      "description": "Oil refinery, Erie, Pennsylvania; stereograph (left half), c. 1870",
+      "period": {
+        "from": 1862,
+        "to": 1862
+      },
+      "inset": [
+        0.11,
+        0.1,
+        0.53,
+        0.1
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Early refinery yard with barrels and stills; left stereo half shown whole.",
+      "fit": "contain",
+      "max_upscale": 1.5
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "railway_mobilization",
+      "loc_item": "2005696866",
+      "name": "Huy động đường sắt",
+      "description": "Railroad mortar on a rail car at Petersburg, Virginia, 25 July 1864",
+      "period": {
+        "from": 1866,
+        "to": 1866
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "fit": "contain",
+      "max_upscale": 1.5,
+      "review_note": "Rail-mounted siege mortar of the U.S. Military Railroad era; oval print shown whole."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "open_hearth",
+      "loc_item": "2016814561",
+      "name": "Lò Martin",
+      "description": "Feeding an open-hearth furnace, Homestead Steel Works, Pennsylvania; Detroit Publishing Co., c. 1908",
+      "period": {
+        "from": 1870,
+        "to": 1870
+      },
+      "inset": [
+        0.04,
+        0.04,
+        0.04,
+        0.08
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Open-hearth charging floor."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "dynamo",
+      "loc_item": "2016807924",
+      "name": "Máy phát điện dynamo",
+      "description": "Dynamo room of U.S.S. Massachusetts; Detroit Publishing Co., c. 1896",
+      "period": {
+        "from": 1870,
+        "to": 1870
+      },
+      "inset": [
+        0.03,
+        0.03,
+        0.03,
+        0.08
+      ],
+      "focus": [
+        0.5,
+        0.45
+      ],
+      "review_note": "Electric generators with operators."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "oil_drilling",
+      "loc_item": "2007678590",
+      "name": "Khoan dầu",
+      "description": "The original Drake oil well, Titusville, Pennsylvania; photograph of 1861 scene",
+      "period": {
+        "from": 1870,
+        "to": 1870
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "fit": "contain",
+      "max_upscale": 1.5,
+      "review_note": "Drake well derrick; low-resolution source shown whole."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "urban_metro",
+      "loc_item": "2003677430",
+      "name": "Tàu điện ngầm đô thị",
+      "description": "Elevated railroad at Coenties Slip, New York; 1894",
+      "period": {
+        "from": 1870,
+        "to": 1870
+      },
+      "inset": [
+        0.02,
+        0.06,
+        0.02,
+        0.07
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "fit": "contain",
+      "max_upscale": 1.5,
+      "review_note": "Elevated urban railway curve; captions trimmed; low-resolution source shown whole."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "railways",
+      "loc_item": "2016797071",
+      "name": "Đường sắt",
+      "description": "High bridge near Buena Vista with a passenger train; Detroit Publishing Co., c. 1880",
+      "period": {
+        "from": 1830,
+        "to": 1880
+      },
+      "inset": [
+        0.04,
+        0.04,
+        0.04,
+        0.06
+      ],
+      "focus": [
+        0.5,
+        0.45
+      ],
+      "review_note": "Steam train crossing a trestle."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "transatlantic_cable",
+      "loc_item": "92513166",
+      "name": "Cáp điện tín xuyên Đại Tây Dương",
+      "description": "The Great Eastern, the steamship that laid the transatlantic telegraph cable; lithograph, 1858",
+      "period": {
+        "from": 1870,
+        "to": 1870
+      },
+      "inset": [
+        0.1,
+        0.15,
+        0.1,
+        0.25
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Cable ship Great Eastern; margins and caption trimmed."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "reinforced_concrete",
+      "loc_item": "2016814782",
+      "name": "Bê tông cốt thép",
+      "description": "Connecticut Avenue bridge, Washington, D.C., then the largest concrete bridge in the world; Detroit Publishing Co., c. 1908",
+      "period": {
+        "from": 1875,
+        "to": 1875
+      },
+      "inset": [
+        0.04,
+        0.07,
+        0.04,
+        0.05
+      ],
+      "focus": [
+        0.5,
+        0.55
+      ],
+      "review_note": "Concrete arch bridge; top caption trimmed."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "dw_japan_opening",
+      "loc_item": "2014647410",
+      "name": "Mở cửa Nhật Bản",
+      "description": "The American expedition under Commodore Perry landing in Japan, 14 July 1853; colour lithograph",
+      "period": {
+        "from": 1846,
+        "to": 1860
+      },
+      "inset": [
+        0.03,
+        0.03,
+        0.03,
+        0.15
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Contemporary print of the Perry landing; caption trimmed."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "dw_meiji_restoration",
+      "loc_item": "2009631622",
+      "name": "Minh Trị Duy Tân",
+      "description": "Goshukuten no zu: ceremony promulgating the Meiji Constitution; Japanese colour print, c. 1889-1900",
+      "period": {
+        "from": 1863,
+        "to": 1872
+      },
+      "inset": [
+        0.04,
+        0.1,
+        0.04,
+        0.05
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Meiji state ceremony in Western-style court dress; title band trimmed."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "dw_tanzimat",
+      "loc_item": "2021670535",
+      "name": "Tanzimat",
+      "description": "Constantinople: street fountain and market by the Bosphorus; watercolour, 1836",
+      "period": {
+        "from": 1839,
+        "to": 1845
+      },
+      "inset": [
+        0.02,
+        0.03,
+        0.02,
+        0.03
+      ],
+      "focus": [
+        0.5,
+        0.55
+      ],
+      "review_note": "Contemporary view of the Ottoman capital at the start of the Tanzimat era."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "dw_siam_bowring",
+      "loc_item": "2004707844",
+      "name": "Hiệp ước Bowring",
+      "description": "Bangkok: the King's palace with soldiers marching along the wall; hand-coloured lantern slide, c. 1895",
+      "period": {
+        "from": 1850,
+        "to": 1860
+      },
+      "inset": [
+        0.05,
+        0.07,
+        0.05,
+        0.07
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "fit": "contain",
+      "max_upscale": 1.5,
+      "review_note": "Grand Palace, Bangkok; low-resolution source shown whole."
     }
   ]
 }

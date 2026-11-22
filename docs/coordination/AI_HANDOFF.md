@@ -1,3 +1,19 @@
+## 2026-11-22 — MEDIA-ILL-01: real public-domain illustrations replace HY-02 batch 1
+
+- HY-02 batch 1 (40 code-generated SVGs from ChatGPT) was rejected: clip-art quality, and the railway image showed a ship.
+  - Masters are kept in `docs/media/rejected/hy02_batch1/`; reasons are in the manifest's `rejected` list.
+- New reproducible Library of Congress pipeline:
+  - `tools/media/loc_candidates.py` builds numbered contact sheets.
+  - A human/Claude reviews them and writes `historical_data/assets/illustration_sources/loc_selection.json`.
+  - `tools/media/loc_ingest.py` re-checks rights on loc.gov: it accepts only "No known restrictions" or the WDL "unaware of any copyright… free to use and reuse" statements, plus a date older than 95 years. It then crops to 16:9 (cover, or contain on a blurred field for low-resolution or portrait works) and writes WebP 1280×720 + 480×270 with full provenance, call number, rights text and credit line.
+- 33 illustrations live, each visually reviewed: 10 buildings, 19 techs, 4 events. They appear in the tech detail and in the new building-detail illustration.
+- Missing (7): chemical_fertilizers, plus the corn_laws, french_abolition, prussian_constitution, statuto_albertino, belgium_recognition and zollverein events. Sourcing is assigned to ChatGPT as HY-02b (MSG-062).
+- `tests/content.test.ts`: identity images keep the Commons rule; illustrations have their own checks. The old test was red after the SVG batch.
+- `tools/ui-one.ts`: added `CLICK=` for detail screenshots.
+- Local: `npm test` **33/33 files, 362/362**; vite build OK.
+
+---
+
 ## 2026-11-22 — MEDIA-ILL-01 illustration pipeline; company kinds in the tech screen
 
 - The owner wants images throughout, not just numbers and text.

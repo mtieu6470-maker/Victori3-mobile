@@ -37,7 +37,8 @@
           "focus": [
             0.5,
             0.5
-          ]
+          ],
+          "fit": "cover"
         }
       },
       "license": {
@@ -47,7 +48,7 @@
         "rights_advisory": "No known restrictions on publication."
       },
       "author": "Detroit Publishing Co., publisher",
-      "credit": "Library of Congress, Prints &amp; Photographs Division, Detroit Publishing Company Collection",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
       "review": {
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
@@ -90,7 +91,8 @@
           "focus": [
             0.5,
             0.45
-          ]
+          ],
+          "fit": "cover"
         }
       },
       "license": {
@@ -100,7 +102,7 @@
         "rights_advisory": "No known restrictions on publication."
       },
       "author": "Detroit Publishing Co., copyright claimant; Detroit Publishing Co., publisher",
-      "credit": "Library of Congress, Prints &amp; Photographs Division, Detroit Publishing Company Collection",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
       "review": {
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
@@ -143,7 +145,8 @@
           "focus": [
             0.5,
             0.42
-          ]
+          ],
+          "fit": "cover"
         }
       },
       "license": {
@@ -153,7 +156,7 @@
         "rights_advisory": "No known restrictions on publication."
       },
       "author": "Detroit Publishing Co., publisher",
-      "credit": "Library of Congress, Prints &amp; Photographs Division, Detroit Publishing Company Collection",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
       "review": {
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
@@ -196,7 +199,8 @@
           "focus": [
             0.5,
             0.45
-          ]
+          ],
+          "fit": "cover"
         }
       },
       "license": {
@@ -206,7 +210,7 @@
         "rights_advisory": "No known restrictions on publication."
       },
       "author": "Detroit Photographic Co., photographer",
-      "credit": "Library of Congress, Prints &amp; Photographs Division, Detroit Publishing Company Collection",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
       "review": {
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
@@ -249,7 +253,8 @@
           "focus": [
             0.5,
             0.55
-          ]
+          ],
+          "fit": "cover"
         }
       },
       "license": {
@@ -302,7 +307,8 @@
           "focus": [
             0.5,
             0.5
-          ]
+          ],
+          "fit": "cover"
         }
       },
       "license": {
@@ -312,7 +318,7 @@
         "rights_advisory": "No known restrictions on publication."
       },
       "author": "Detroit Publishing Co., copyright claimant; Detroit Publishing Co., publisher",
-      "credit": "Library of Congress, Prints &amp; Photographs Division, Detroit Publishing Company Collection",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
       "review": {
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
@@ -355,7 +361,8 @@
           "focus": [
             0.5,
             0.62
-          ]
+          ],
+          "fit": "cover"
         }
       },
       "license": {
@@ -365,7 +372,7 @@
         "rights_advisory": "No known restrictions on publication."
       },
       "author": "Detroit Publishing Co., publisher",
-      "credit": "Library of Congress, Prints &amp; Photographs Division, Detroit Publishing Company Collection",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
       "review": {
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
@@ -408,7 +415,8 @@
           "focus": [
             0.5,
             0.45
-          ]
+          ],
+          "fit": "cover"
         }
       },
       "license": {
@@ -461,7 +469,8 @@
           "focus": [
             0.5,
             0.5
-          ]
+          ],
+          "fit": "cover"
         }
       },
       "license": {
@@ -471,7 +480,7 @@
         "rights_advisory": "No known restrictions on publication."
       },
       "author": "Detroit Publishing Co., publisher",
-      "credit": "Library of Congress, Prints &amp; Photographs Division, Detroit Publishing Company Collection",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
       "review": {
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
@@ -514,7 +523,8 @@
           "focus": [
             0.5,
             0.45
-          ]
+          ],
+          "fit": "cover"
         }
       },
       "license": {
@@ -524,11 +534,1253 @@
         "rights_advisory": "No known restrictions on publication."
       },
       "author": "Detroit Publishing Co., publisher; Detroit Publishing Co., copyright claimant",
-      "credit": "Library of Congress, Prints &amp; Photographs Division, Detroit Publishing Company Collection",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
       "review": {
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
         "note": "Colour photochrom of a university hall."
+      }
+    },
+    {
+      "id": "ill_dw_japan_opening",
+      "type": "illustration_event",
+      "subject": "dw_japan_opening",
+      "name": "Mở cửa Nhật Bản",
+      "description": "The American expedition under Commodore Perry landing in Japan, 14 July 1853; colour lithograph",
+      "path": "content/illustrations/events/dw_japan_opening.webp",
+      "thumbnail_path": "content/illustrations/events/dw_japan_opening_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1846,
+        "to": 1860
+      },
+      "quality": "supported",
+      "date": "[New York] : [George S. Appleton], [1853]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/pga/08900/08972v.jpg",
+        "page": "https://www.loc.gov/item/2014647410/",
+        "statement": "LoC PGA - Hatch & Severyn--American expedition ... (C size) [P&P]",
+        "title": "The American expedition, under Commodore Perry, landing in Japan, July 14, 1853 / Lith. & print by Hatch & Severyn, 140 Fulton St. N.Y. ; Severyn del.",
+        "source_pixels": [
+          1024,
+          773
+        ],
+        "crop": {
+          "inset": [
+            0.03,
+            0.03,
+            0.03,
+            0.15
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Hatch & Severyn, lithographer; Taylor, Bayard, 1825-1878.; Severyn, Charles, 1820-, artist",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Contemporary print of the Perry landing; caption trimmed."
+      }
+    },
+    {
+      "id": "ill_dw_meiji_restoration",
+      "type": "illustration_event",
+      "subject": "dw_meiji_restoration",
+      "name": "Minh Trị Duy Tân",
+      "description": "Goshukuten no zu: ceremony promulgating the Meiji Constitution; Japanese colour print, c. 1889-1900",
+      "path": "content/illustrations/events/dw_meiji_restoration.webp",
+      "thumbnail_path": "content/illustrations/events/dw_meiji_restoration_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1863,
+        "to": 1872
+      },
+      "quality": "supported",
+      "date": "1900 May.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/jpd/02500/02536v.jpg",
+        "page": "https://www.loc.gov/item/2009631622/",
+        "statement": "LoC FP 2 - JPD, no. 2157 (C size) [P&P]",
+        "title": "Goshukuten no zu.",
+        "source_pixels": [
+          1024,
+          758
+        ],
+        "crop": {
+          "inset": [
+            0.04,
+            0.1,
+            0.04,
+            0.05
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Kasai, Torajirō, artist",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Meiji state ceremony in Western-style court dress; title band trimmed."
+      }
+    },
+    {
+      "id": "ill_dw_siam_bowring",
+      "type": "illustration_event",
+      "subject": "dw_siam_bowring",
+      "name": "Hiệp ước Bowring",
+      "description": "Bangkok: the King's palace with soldiers marching along the wall; hand-coloured lantern slide, c. 1895",
+      "path": "content/illustrations/events/dw_siam_bowring.webp",
+      "thumbnail_path": "content/illustrations/events/dw_siam_bowring_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1850,
+        "to": 1860
+      },
+      "quality": "supported",
+      "date": "[1895]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/wtc/4a00000/4a03000/4a03100/4a03133r.jpg",
+        "page": "https://www.loc.gov/item/2004707844/",
+        "statement": "LoC LC-W7- 646 A [P&P]",
+        "title": "Bangkok - near view of the King's palace; soldiers marching along wall",
+        "source_pixels": [
+          560,
+          406
+        ],
+        "crop": {
+          "inset": [
+            0.05,
+            0.07,
+            0.05,
+            0.07
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Jackson, William Henry, 1843-1942, photographer",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Grand Palace, Bangkok; low-resolution source shown whole."
+      }
+    },
+    {
+      "id": "ill_dw_tanzimat",
+      "type": "illustration_event",
+      "subject": "dw_tanzimat",
+      "name": "Tanzimat",
+      "description": "Constantinople: street fountain and market by the Bosphorus; watercolour, 1836",
+      "path": "content/illustrations/events/dw_tanzimat.webp",
+      "thumbnail_path": "content/illustrations/events/dw_tanzimat_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1839,
+        "to": 1845
+      },
+      "quality": "supported",
+      "date": "[place of publication not identified] : [publisher not identified], 1836.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:11:25:3:wdl_11253:516143/full/pct:100/0/default.jpg",
+        "page": "https://www.loc.gov/item/2021670535/",
+        "statement": "LoC",
+        "title": "Constantinople.",
+        "source_pixels": [
+          6911,
+          4638
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.03,
+            0.02,
+            0.03
+          ],
+          "focus": [
+            0.5,
+            0.55
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "The Library of Congress is unaware of any copyright or other restrictions in the World Digital Library Collection. Absent any such restrictions, these materials are free to use and reuse."
+      },
+      "author": "Rørbye, Martinus, 1803-1848 Artist.",
+      "credit": "[Original Source citation], World Digital Library",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Contemporary view of the Ottoman capital at the start of the Tanzimat era."
+      }
+    },
+    {
+      "id": "ill_bessemer_steel",
+      "type": "illustration_tech",
+      "subject": "bessemer_steel",
+      "name": "Thép Bessemer",
+      "description": "Making Bessemer steel at Pittsburgh: the converters at work; Harper's Weekly wood engraving, 1886",
+      "path": "content/illustrations/technologies/bessemer_steel.webp",
+      "thumbnail_path": "content/illustrations/technologies/bessemer_steel_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1860,
+        "to": 1860
+      },
+      "quality": "supported",
+      "date": "1886 April 10.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/cph/3c00000/3c08000/3c08100/3c08121v.jpg",
+        "page": "https://www.loc.gov/item/93509654/",
+        "statement": "LoC Illus. in AP2.H32 Case Y [P&P]",
+        "title": "Making bessemer steel at Pittsburgh - the converters at work / drawn by Charles Graham.",
+        "source_pixels": [
+          809,
+          1024
+        ],
+        "crop": {
+          "inset": [
+            0.14,
+            0.06,
+            0.09,
+            0.54
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": null,
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Upper panel of the engraving (converters in blow). The earlier photograph was rejected: glare washed out the image."
+      }
+    },
+    {
+      "id": "ill_dynamo",
+      "type": "illustration_tech",
+      "subject": "dynamo",
+      "name": "Máy phát điện dynamo",
+      "description": "Dynamo room of U.S.S. Massachusetts; Detroit Publishing Co., c. 1896",
+      "path": "content/illustrations/technologies/dynamo.webp",
+      "thumbnail_path": "content/illustrations/technologies/dynamo_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1870,
+        "to": 1870
+      },
+      "quality": "supported",
+      "date": "[between 1896 and 1901]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/det/4a10000/4a14000/4a14400/4a14412v.jpg",
+        "page": "https://www.loc.gov/item/2016807924/",
+        "statement": "LoC LC-D4-20594 [P&P]",
+        "title": "U.S.S. Massachusetts, dynamo room",
+        "source_pixels": [
+          1024,
+          816
+        ],
+        "crop": {
+          "inset": [
+            0.03,
+            0.03,
+            0.03,
+            0.08
+          ],
+          "focus": [
+            0.5,
+            0.45
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Hart, Edward H., photographer; Detroit Publishing Co., publisher",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Electric generators with operators."
+      }
+    },
+    {
+      "id": "ill_interchangeable_parts",
+      "type": "illustration_tech",
+      "subject": "interchangeable_parts",
+      "name": "Linh kiện thay thế đồng nhất",
+      "description": "Machine shop, Merchants' Despatch Transportation Co.; Detroit Publishing Co., c. 1900",
+      "path": "content/illustrations/technologies/interchangeable_parts.webp",
+      "thumbnail_path": "content/illustrations/technologies/interchangeable_parts_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1853,
+        "to": 1853
+      },
+      "quality": "supported",
+      "date": "[between 1900 and 1905]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/det/4a20000/4a21000/4a21200/4a21294v.jpg",
+        "page": "https://www.loc.gov/item/2016812940/",
+        "statement": "LoC LC-D4-47033 [P&P]",
+        "title": "Machine shop, Merchants' Despatch Transportation Co. [Company]",
+        "source_pixels": [
+          1024,
+          827
+        ],
+        "crop": {
+          "inset": [
+            0.03,
+            0.04,
+            0.03,
+            0.06
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Detroit Publishing Co., publisher",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Belt-driven machine tools of standardised production."
+      }
+    },
+    {
+      "id": "ill_ironclads",
+      "type": "illustration_tech",
+      "subject": "ironclads",
+      "name": "Thiết giáp hạm",
+      "description": "The first battle between iron ships of war: Monitor and Merrimac, Hampton Roads; colour lithograph, 1862",
+      "path": "content/illustrations/technologies/ironclads.webp",
+      "thumbnail_path": "content/illustrations/technologies/ironclads_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1860,
+        "to": 1860
+      },
+      "quality": "supported",
+      "date": "c1862.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/33100/33125v.jpg",
+        "page": "https://www.loc.gov/item/2012647349/",
+        "statement": "LoC PGA - Unattributed--First battle ... (B size) [P&P]",
+        "title": "The first battle between \"iron\" ships of war",
+        "source_pixels": [
+          1024,
+          720
+        ],
+        "crop": {
+          "inset": [
+            0.05,
+            0.05,
+            0.05,
+            0.2
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Bill, Henry, 1824-1891, copyright claimant",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Contemporary print of the first ironclad duel; caption trimmed."
+      }
+    },
+    {
+      "id": "ill_mechanical_reaper",
+      "type": "illustration_tech",
+      "subject": "mechanical_reaper",
+      "name": "Máy gặt cơ khí",
+      "description": "Cutting wheat with a horse-drawn reaper and binder, Pennsylvania; stereograph, c. 1905",
+      "path": "content/illustrations/technologies/mechanical_reaper.webp",
+      "thumbnail_path": "content/illustrations/technologies/mechanical_reaper_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1845,
+        "to": 1845
+      },
+      "quality": "supported",
+      "date": "Meadville, Pa. ; St. Louis, Mo. ; San Francisco, Cal. ; Toronto, Can. ; New York, N.Y. ; London, England : Keystone View Company, Manufacturers and Publishers, 1905 Sep 13.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/cph/3a10000/3a18000/3a18300/3a18377r.jpg",
+        "page": "https://www.loc.gov/item/2015646637/",
+        "statement": "LoC STEREO U.S. GEOG FILE - Pennsylvania--Farming [item] [P&P]",
+        "title": "Cutting wheat with reaper and binder, Pennsylvania, U.S.A.",
+        "source_pixels": [
+          603,
+          640
+        ],
+        "crop": {
+          "inset": [
+            0.03,
+            0.03,
+            0.03,
+            0.03
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Keystone View Company.",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Only a low-resolution source is available; shown whole on a blurred field."
+      }
+    },
+    {
+      "id": "ill_oil_drilling",
+      "type": "illustration_tech",
+      "subject": "oil_drilling",
+      "name": "Khoan dầu",
+      "description": "The original Drake oil well, Titusville, Pennsylvania; photograph of 1861 scene",
+      "path": "content/illustrations/technologies/oil_drilling.webp",
+      "thumbnail_path": "content/illustrations/technologies/oil_drilling_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1870,
+        "to": 1870
+      },
+      "quality": "supported",
+      "date": "1861 Aug.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/cph/3a40000/3a46000/3a46400/3a46443r.jpg",
+        "page": "https://www.loc.gov/item/2007678590/",
+        "statement": "LoC LOT 8089 [item] [P&P]",
+        "title": "\"The original Drake oil well in 1861\"",
+        "source_pixels": [
+          640,
+          505
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": null,
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Drake well derrick; low-resolution source shown whole."
+      }
+    },
+    {
+      "id": "ill_oil_refining",
+      "type": "illustration_tech",
+      "subject": "oil_refining",
+      "name": "Lọc dầu",
+      "description": "Oil refinery, Erie, Pennsylvania; stereograph (left half), c. 1870",
+      "path": "content/illustrations/technologies/oil_refining.webp",
+      "thumbnail_path": "content/illustrations/technologies/oil_refining_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1862,
+        "to": 1862
+      },
+      "quality": "supported",
+      "date": "New York : Surdam & White, 305 Broadway, [187-]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/stereo/1s00000/1s01000/1s01700/1s01752v.jpg",
+        "page": "https://www.loc.gov/item/2008679002/",
+        "statement": "LoC LOT 13660, no. 4 [P&P]",
+        "title": "Oil refinery, Erie, Pa.",
+        "source_pixels": [
+          1024,
+          515
+        ],
+        "crop": {
+          "inset": [
+            0.11,
+            0.1,
+            0.53,
+            0.1
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Surdam & White.",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Early refinery yard with barrels and stills; left stereo half shown whole."
+      }
+    },
+    {
+      "id": "ill_open_hearth",
+      "type": "illustration_tech",
+      "subject": "open_hearth",
+      "name": "Lò Martin",
+      "description": "Feeding an open-hearth furnace, Homestead Steel Works, Pennsylvania; Detroit Publishing Co., c. 1908",
+      "path": "content/illustrations/technologies/open_hearth.webp",
+      "thumbnail_path": "content/illustrations/technologies/open_hearth_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1870,
+        "to": 1870
+      },
+      "quality": "supported",
+      "date": "c1908.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/det/4a20000/4a22000/4a22800/4a22869v.jpg",
+        "page": "https://www.loc.gov/item/2016814561/",
+        "statement": "LoC LC-D4-70679 [P&P]",
+        "title": "Feeding an open hearth furnace, Homestead Steel Wks. [Works], Homestead, Pa.",
+        "source_pixels": [
+          1024,
+          818
+        ],
+        "crop": {
+          "inset": [
+            0.04,
+            0.04,
+            0.04,
+            0.08
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Detroit Publishing Co., copyright claimant; Detroit Publishing Co., publisher",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Open-hearth charging floor."
+      }
+    },
+    {
+      "id": "ill_railway_mobilization",
+      "type": "illustration_tech",
+      "subject": "railway_mobilization",
+      "name": "Huy động đường sắt",
+      "description": "Railroad mortar on a rail car at Petersburg, Virginia, 25 July 1864",
+      "path": "content/illustrations/technologies/railway_mobilization.webp",
+      "thumbnail_path": "content/illustrations/technologies/railway_mobilization_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1866,
+        "to": 1866
+      },
+      "quality": "supported",
+      "date": "1864 July 25.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/08200/08270v.jpg",
+        "page": "https://www.loc.gov/item/2005696866/",
+        "statement": "LoC LOT 11486-C, no. 14 [P&P]",
+        "title": "Railroad mortar at Petersburg, Va., July 25, 1864",
+        "source_pixels": [
+          1024,
+          769
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Russell, Andrew J., photographer",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Rail-mounted siege mortar of the U.S. Military Railroad era; oval print shown whole."
+      }
+    },
+    {
+      "id": "ill_railways",
+      "type": "illustration_tech",
+      "subject": "railways",
+      "name": "Đường sắt",
+      "description": "High bridge near Buena Vista with a passenger train; Detroit Publishing Co., c. 1880",
+      "path": "content/illustrations/technologies/railways.webp",
+      "thumbnail_path": "content/illustrations/technologies/railways_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1830,
+        "to": 1880
+      },
+      "quality": "supported",
+      "date": "[between 1880 and 1897]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/det/4a20000/4a26000/4a26800/4a26880v.jpg",
+        "page": "https://www.loc.gov/item/2016797071/",
+        "statement": "LoC LC-D418-2550 [P&P]",
+        "title": "High bridge near Buena Vista",
+        "source_pixels": [
+          1024,
+          668
+        ],
+        "crop": {
+          "inset": [
+            0.04,
+            0.04,
+            0.04,
+            0.06
+          ],
+          "focus": [
+            0.5,
+            0.45
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Jackson, William Henry, 1843-1942, photographer; Detroit Publishing Co., publisher",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Steam train crossing a trestle."
+      }
+    },
+    {
+      "id": "ill_reinforced_concrete",
+      "type": "illustration_tech",
+      "subject": "reinforced_concrete",
+      "name": "Bê tông cốt thép",
+      "description": "Connecticut Avenue bridge, Washington, D.C., then the largest concrete bridge in the world; Detroit Publishing Co., c. 1908",
+      "path": "content/illustrations/technologies/reinforced_concrete.webp",
+      "thumbnail_path": "content/illustrations/technologies/reinforced_concrete_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1875,
+        "to": 1875
+      },
+      "quality": "supported",
+      "date": "c[1908]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/det/4a20000/4a23000/4a23100/4a23137v.jpg",
+        "page": "https://www.loc.gov/item/2016814782/",
+        "statement": "LoC LC-D4-71127 [P&P]",
+        "title": "Connecticut Boulevard [i.e. Avenue] bridge, largest concrete bridge in the world, Washington, D.C.",
+        "source_pixels": [
+          1024,
+          807
+        ],
+        "crop": {
+          "inset": [
+            0.04,
+            0.07,
+            0.04,
+            0.05
+          ],
+          "focus": [
+            0.5,
+            0.55
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Detroit Publishing Co., copyright claimant; Detroit Publishing Co., publisher",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Concrete arch bridge; top caption trimmed."
+      }
+    },
+    {
+      "id": "ill_rifled_artillery",
+      "type": "illustration_tech",
+      "subject": "rifled_artillery",
+      "name": "Pháo rãnh xoắn",
+      "description": "20-pounder Parrott rifled guns of the 1st New York Battery near Richmond, Virginia, 1862",
+      "path": "content/illustrations/technologies/rifled_artillery.webp",
+      "thumbnail_path": "content/illustrations/technologies/rifled_artillery_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1859,
+        "to": 1859
+      },
+      "quality": "supported",
+      "date": "1862 June.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/cwpb/01000/01028v.jpg",
+        "page": "https://www.loc.gov/item/2018666191/",
+        "statement": "LoC LC-B811- 443 [P&P] LOT 4174 (corresponding photographic print)",
+        "title": "[Richmond, Va., vicinity. 20-pdr. v Parrott rifled guns of the 1st New York Battery]",
+        "source_pixels": [
+          1024,
+          820
+        ],
+        "crop": {
+          "inset": [
+            0.04,
+            0.04,
+            0.04,
+            0.04
+          ],
+          "focus": [
+            0.5,
+            0.62
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication. For information, see \"Civil war photographs, 1861-1865,\" https://www.loc.gov/rr/print/res/120_cwar.html"
+      },
+      "author": "Gibson, James F., 1828-, photographer",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Field battery of rifled guns."
+      }
+    },
+    {
+      "id": "ill_rifled_muskets",
+      "type": "illustration_tech",
+      "subject": "rifled_muskets",
+      "name": "Súng trường rãnh xoắn",
+      "description": "Encampment of the Corn Exchange Regiment (118th Pennsylvania Volunteers) with infantry in line; colour lithograph, 1862",
+      "path": "content/illustrations/technologies/rifled_muskets.webp",
+      "thumbnail_path": "content/illustrations/technologies/rifled_muskets_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1850,
+        "to": 1850
+      },
+      "quality": "supported",
+      "date": "Philadelphia : Boell & Magee, 1862.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:09:44:5:wdl_09445:W429/full/pct:100/0/default.jpg",
+        "page": "https://www.loc.gov/item/2021670370/",
+        "statement": "LoC",
+        "title": "View of the Encampment of the Corn Exchange Regiment, 118th Pennsylvania Volunteers, near Falls of Schuylkill.",
+        "source_pixels": [
+          7514,
+          5916
+        ],
+        "crop": {
+          "inset": [
+            0.03,
+            0.03,
+            0.03,
+            0.17
+          ],
+          "focus": [
+            0.5,
+            0.62
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "The Library of Congress is unaware of any copyright or other restrictions in the World Digital Library Collection. Absent any such restrictions, these materials are free to use and reuse."
+      },
+      "author": "Magee, John L. Artist.",
+      "credit": "[Original Source citation], World Digital Library",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Infantry of the rifle-musket era drawn up in ranks; caption trimmed."
+      }
+    },
+    {
+      "id": "ill_sewing_machine",
+      "type": "illustration_tech",
+      "subject": "sewing_machine",
+      "name": "Máy may",
+      "description": "Domestic sewing machine; colour lithograph advertisement, 1882",
+      "path": "content/illustrations/technologies/sewing_machine.webp",
+      "thumbnail_path": "content/illustrations/technologies/sewing_machine_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1850,
+        "to": 1850
+      },
+      "quality": "supported",
+      "date": "Cleveland, O[hio] : W.J. Morgan & Co. Lith. Cleveland, O., [1882]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/pga/03900/03985v.jpg",
+        "page": "https://www.loc.gov/item/2003672945/",
+        "statement": "LoC PGA - Morgan & Co.--Domestic sewing machine (C size) [P&P]",
+        "title": "Domestic sewing machine",
+        "source_pixels": [
+          823,
+          1024
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "W.J. Morgan & Co., lithographer",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Portrait-format chromolithograph shown whole."
+      }
+    },
+    {
+      "id": "ill_steamships",
+      "type": "illustration_tech",
+      "subject": "steamships",
+      "name": "Tàu hơi nước",
+      "description": "Steamship Deutschland (Hamburg-America Line) leaving New York; colour lithograph, 1901",
+      "path": "content/illustrations/technologies/steamships.webp",
+      "thumbnail_path": "content/illustrations/technologies/steamships_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1838,
+        "to": 1838
+      },
+      "quality": "supported",
+      "date": "Detroit : [publisher not transcribed], c1901.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/58600/58667v.jpg",
+        "page": "https://www.loc.gov/item/2018756498/",
+        "statement": "LoC PAGA 7, no. 3938 (E size) [P&P]",
+        "title": "[Steamship Deutschland leaving New York]",
+        "source_pixels": [
+          1024,
+          601
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.03,
+            0.02,
+            0.03
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication. For information see: \"Popular Graphic Arts,\" https://hdl.loc.gov/loc.pnp/res.248.pga"
+      },
+      "author": null,
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Colour lithograph of an ocean liner under steam."
+      }
+    },
+    {
+      "id": "ill_telegraph",
+      "type": "illustration_tech",
+      "subject": "telegraph",
+      "name": "Điện báo",
+      "description": "General Operating Department, Western Union Telegraph Building, New York; engraving, 1875",
+      "path": "content/illustrations/technologies/telegraph.webp",
+      "thumbnail_path": "content/illustrations/technologies/telegraph_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1845,
+        "to": 1845
+      },
+      "quality": "supported",
+      "date": "1875.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/55600/55661v.jpg",
+        "page": "https://www.loc.gov/item/2002706683/",
+        "statement": "LoC SSF - TELEGRAPH--1875 [item] [P&P]",
+        "title": "General Operating Department, Western Union Telegraph Building, New York",
+        "source_pixels": [
+          1024,
+          844
+        ],
+        "crop": {
+          "inset": [
+            0.1,
+            0.03,
+            0.08,
+            0.2
+          ],
+          "focus": [
+            0.5,
+            0.45
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": null,
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Telegraph operating room; caption trimmed."
+      }
+    },
+    {
+      "id": "ill_transatlantic_cable",
+      "type": "illustration_tech",
+      "subject": "transatlantic_cable",
+      "name": "Cáp điện tín xuyên Đại Tây Dương",
+      "description": "The Great Eastern, the steamship that laid the transatlantic telegraph cable; lithograph, 1858",
+      "path": "content/illustrations/technologies/transatlantic_cable.webp",
+      "thumbnail_path": "content/illustrations/technologies/transatlantic_cable_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1870,
+        "to": 1870
+      },
+      "quality": "supported",
+      "date": "Boston : H.W. Swett & Co. Publishers, c1858.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/pga/05500/05563v.jpg",
+        "page": "https://www.loc.gov/item/92513166/",
+        "statement": "LoC PGA - Bufford--Great Eastern (A size) [P&P]",
+        "title": "The Great Eastern / photo. by Whipple & Black ; J.H. Bufford's lith., Boston.",
+        "source_pixels": [
+          1024,
+          847
+        ],
+        "crop": {
+          "inset": [
+            0.1,
+            0.15,
+            0.1,
+            0.25
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Bufford, John H., lithographer",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Cable ship Great Eastern; margins and caption trimmed."
+      }
+    },
+    {
+      "id": "ill_urban_metro",
+      "type": "illustration_tech",
+      "subject": "urban_metro",
+      "name": "Tàu điện ngầm đô thị",
+      "description": "Elevated railroad at Coenties Slip, New York; 1894",
+      "path": "content/illustrations/technologies/urban_metro.webp",
+      "thumbnail_path": "content/illustrations/technologies/urban_metro_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1870,
+        "to": 1870
+      },
+      "quality": "supported",
+      "date": "c1894.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/cph/3b40000/3b46000/3b46000/3b46077r.jpg",
+        "page": "https://www.loc.gov/item/2003677430/",
+        "statement": "LoC U.S. GEOG FILE - New York--New York City--Street Views [item] [P&P]",
+        "title": "Elevated railroad - Coenties' Slip, N.Y.",
+        "source_pixels": [
+          640,
+          480
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.06,
+            0.02,
+            0.07
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": null,
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Elevated urban railway curve; captions trimmed; low-resolution source shown whole."
+      }
+    },
+    {
+      "id": "ill_vulcanized_rubber",
+      "type": "illustration_tech",
+      "subject": "vulcanized_rubber",
+      "name": "Cao su lưu hóa",
+      "description": "Goodyear's Rubber Packing and Belting Company warehouse, Philadelphia; colour lithograph, 1856",
+      "path": "content/illustrations/technologies/vulcanized_rubber.webp",
+      "thumbnail_path": "content/illustrations/technologies/vulcanized_rubber_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1850,
+        "to": 1850
+      },
+      "quality": "supported",
+      "date": "Philadelphia : Lithography of A. Kollner, 1856.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/image-services/iiif/service:gdc:gdcwdl:wd:l_:09:46:5:wdl_09465:W158/full/pct:100/0/default.jpg",
+        "page": "https://www.loc.gov/item/2021670390/",
+        "statement": "LoC",
+        "title": "Goodyears Rubber-Packing and Belting Company.",
+        "source_pixels": [
+          5228,
+          7938
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.64
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "The Library of Congress is unaware of any copyright or other restrictions in the World Digital Library Collection. Absent any such restrictions, these materials are free to use and reuse."
+      },
+      "author": "Luders, E. Artist.",
+      "credit": "[Original Source citation], World Digital Library",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Period advertisement of a vulcanized-rubber goods firm (storefront band)."
       }
     }
   ],
