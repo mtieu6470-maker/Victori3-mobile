@@ -129,3 +129,31 @@ A targeted Commons search found a historically dated Paraguay flag candidate:
 - Official-insignia restrictions, if applicable, remain a separate question from copyright.
 
 Result: no CSV change; verified sovereign polity count remains **16/40** and the CSV blob SHA remains `cfdf1187f86c264496c66439ae6b75c51e2263b0`. Continue HY-01 by prioritizing candidates matching the exact missing `asset_type`, and do not begin HY-04 before HY-01 review/acceptance.
+
+
+## Additional HY-01 v2 candidate audit — Ecuador and Bremen, 2026-11-22
+
+Two exact-type coat-of-arms candidates were added to the research register after checking the Commons file pages and source chronology. Neither is promoted into the strict 1836-verified count in this pass because the precise 1 January 1836 validity test is not fully closed.
+
+### ECU — Ecuador coat of arms (1835)
+
+- Commons file: https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Ecuador_(1835).svg
+- File page gives the design decree date as 10 August 1835 and says it was sanctioned on 14 June 1836; it transcribes the decree's description (sun on the ecliptic, seven stars, Pichincha peaks/condor, tower/condor).
+- Reconstructed SVG by Milenioscuro, 765 × 900, CC BY-SA 3.0 Unported. Commercial reuse is permitted under the license subject to attribution and share-alike obligations for adaptations.
+- The decree predates the start year, but the stated sanction date is after 1 January 1836. The precise effective/legal status on the game's start date therefore needs verification from the original Ecuadorian legal gazette or constitutional record. Keep as a candidate; do not yet count as 1836-verified.
+- Official insignia rules are separate from copyright and require independent review.
+
+### BRE — Bremen historical arms reference (1562)
+
+- Commons file: https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Bremen_-_1562.jpg
+- Commons identifies a 1562 sandstone relief of Bremen's arms, made under mayor Daniel von Büren by sculptor Szervas and installed at Herdentor. The photograph is by Till F. Teenck, 1772 × 1772, CC BY 3.0 (GFDL 1.2+ is also offered).
+- Bremen State Archives documents the second city seal from 1366 to 1833/34 and its iconography; the Bremen state portal states that the key has appeared in the city's seal since 1366.
+- The file is a photograph of a historical stone emblem, not a clean vector. The evidence supports a long-standing key symbol, but the exact coat-of-arms rendering in official use on 1 January 1836 is not fully established by the sources opened. Keep as a historical reference candidate; do not yet count as strict 1836-verified.
+- Do not substitute the Napoleonic 1811 Bremen arms or the later 1891 standardized great arms. Official insignia restrictions are separate from copyright.
+
+### Count and CSV integrity
+
+- CSV rows remain **332/332**; ECU and BRE existing coat-of-arms rows were updated in place, no duplicate rows added.
+- Current CSV blob SHA: `4101f0335d403760af9d3e2b2467d29120c0bf0c`.
+- Strict verified sovereign count remains **16/40**. These two entries are source/license candidates with unresolved start-date validation, not additional verified polities.
+- Do not begin HY-04. Continue exact-type, date-validity and reuse-clearance checks for the remaining HY-01 gaps.
