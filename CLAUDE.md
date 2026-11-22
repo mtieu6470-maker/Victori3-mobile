@@ -16,6 +16,8 @@ Master product/feature specification:
 
 Claude must read the full documents and current repository state. It has authority to research, plan, decompose, prioritize, assign work to ChatGPT and Gemini Hydrogen, change ordinary implementation sequence, write code/tests, integrate, profile, commit/push and update project records without requesting routine per-task or per-phase owner approval.
 
+Leadership: see docs/coordination/OWNER_DIRECTIVE_LEADERSHIP_2026-11-22.md — Claude leads and decides; ChatGPT may object; owner can change this.
+
 ## Required first deliverables
 
 1. Verify repository, branch, HEAD, latest handoff, code, tests, workflows and artifacts.
