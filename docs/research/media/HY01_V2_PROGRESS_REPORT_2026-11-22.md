@@ -22,7 +22,7 @@
 - 332 asset-gap rows: 155 missing-flag records + 177 missing-arms records, derived from the two `has_licensed_*` columns in the gap list.
 - All 186 polity IDs are retained as supplied by the gap file; no aliases or inferred IDs substituted.
 - Sorted by the requested political-status priority.
-- Fourteen item-level Wikimedia Commons file pages have been opened and their license statements read directly from those pages:
+- Fifteen item-level Wikimedia Commons file pages have been opened and their license statements read directly from those pages:
   - `AFG` — flag, 1826–1880; CC0 1.0; original 1365 × 2048.
   - `HER` — flag of Herat, 1818–1842; Commons says public domain as simple geometry; original 512 × 341.
   - `HAW` — flag, 1816–1845; PD-self; original 1200 × 600.
@@ -52,13 +52,14 @@
 - BOL arms: https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Bolivia_(1825).svg
 - USA: https://commons.wikimedia.org/wiki/File:Flag_of_the_United_States_(1822%E2%80%931836).svg
 - SWE: https://commons.wikimedia.org/wiki/File:Flag_of_Sweden_(1818-1844).svg
+- GRE: https://commons.wikimedia.org/wiki/File:Flag_of_Greece_(1822-1978).svg
 
 ## Important exclusions / quality notes
 
 - Do not use the Khanate of Khiva flag page for 1836: the Commons description ties the known design to the 1917–1922 civil-war period.
 - Do not use a modern recreation's CC0 license as proof that the represented historical flag is authentic.
 - Do not backdate modern flags or later designs.
-- The register is not a claim that the remaining 319 asset rows have been exhaustively searched; they are explicitly marked unknown and require continued research.
+- The register is not a claim that the remaining 318 asset rows have been exhaustively searched; they are explicitly marked unknown and require continued research.
 - The CSV is a research register, not a production asset manifest. Claude should not merge unknown rows into `identity_assets.json`.
 
 ## Commits
@@ -67,8 +68,9 @@
 - Bolivia arms provenance update: `7bbee92cfaee4e35f8e63e8caf6ab788607af316`
 - Siam and Uruguay flag provenance update: `c12292d10bdbad25c470be6fc0a5228a60720df9`
 - Peru, Morocco and Prussia flag provenance update: `ab7a0723192c103bc4e4b85df0f5e0c0ba771fec`
-- Sweden flag gap-row update (current CSV commit): `db2d68fdc74350b1b65adcf7a0f8b0a326bacba4`
-- Current CSV blob SHA: `2122f7abb90bdbca34e26085d09aeaf408d6a260`
+- Sweden flag gap-row update: `db2d68fdc74350b1b65adcf7a0f8b0a326bacba4`
+- Greece flag gap-row update (current CSV commit): `3697acc50ae5de9c995c7f64b69b961090d9b3d2`
+- Current CSV blob SHA: `5bebf786ff6980ce097e435f0a38cf342ed3a941`
 
 ## Next HY-01 work
 
