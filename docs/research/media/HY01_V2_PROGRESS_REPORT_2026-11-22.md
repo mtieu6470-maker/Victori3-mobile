@@ -210,3 +210,25 @@ HY-01 remains OPEN: 23/60 is below the ≥40 sovereign-polity acceptance thresho
 - CSV now **336 rows**, strict verified count **25/60**. Verified IDs: AFG, BEL, BOL, BRE, CHL, DEN, ECU, GRE, HAW, HAM, HER, LIE, MOR, OMA, PAR, PEU, PRS, PRU, SAR, SIA, SMR, SPA, SWE, URU, USA.
 - CSV blob SHA: `dc4cab15fab492d9bbb24b78ec0e2912208f0219`.
 - HY-01 remains OPEN until ≥40 sovereign polities. Do not start HY-04.
+
+
+## Additional exact-type arms verification — Chile, Denmark, Greece, Sardinia, Spain and Uruguay (2026-11-22)
+
+Six existing sovereign polity coat-of-arms gap rows were populated after checking the individual Commons file pages and independent historical chronology. This expands asset coverage but **does not increase the strict sovereign-polity count**, because all six polities were already represented in the count by a previously verified flag.
+
+- **CHL — Chile:** added the 1834–1920 coat-of-arms reconstruction (James2813, CC BY-SA 4.0, valid SVG, 855 × 730). The Biblioteca del Congreso Nacional de Chile publishes the 26 June 1834 state law, which legally describes the split blue/red shield, silver star, tricolour plume and huemul/condor supporters. Exact 1836 validity: high confidence. Attribution and share-alike apply.
+- **DEN — Denmark:** added the Royal coat of arms of the Danish Royal House (1819–1903), by Sodacan, CC BY-SA / GFDL, valid SVG 992 × 1,177. This is explicitly the royal-house/monarch greater coat of arms, not proof that the ornate greater version was the only civil state arms. Retain as a royal historical reference; official-insignia use restrictions are separate from copyright. Medium confidence for use as the polity's game-facing coat-of-arms asset.
+- **GRE — Greece:** added the Wittelsbach state/royal arms used 1832–1862, peeperman, worldwide public-domain dedication. Jovan Jonovski (2023), The Development of the State Emblems and Coats of Arms in Southeast Europe, section 2.1 and Figure 2(a), states that the Greek arms changed in 1831 under Otto and were discarded after his expulsion in 1862. Commons reports that the SVG source is W3C-invalid; keep it as a historical reference only, do not ship without replacing/repairing and revalidating.
+- **SAR — Kingdom of Sardinia:** added the 1831–1848 arms of the kings of Sardinia / House of Savoy, FDRMRZUSA, public-domain author release. Commons gives the period and blazon; the date interval includes 1 January 1836. Commons reports the SVG is W3C-invalid with eight errors; historical reference only until replaced/validated. Medium confidence.
+- **SPA — Spain:** added the Bourbon royal greater coat of arms (file period 1761–1868 and 1874–1931; 1836 lies in the 1812–1868 Bourbon restoration span), Heralder, CC BY-SA license options. This is the royal greater arms with Golden Fleece and Order of Charles III collars, not the simplified flag-version shield. Use only where the game intends the royal/monarchical arms. Medium confidence.
+- **URU — Uruguay:** added historical coat of arms 1829–1908 by Coquimbo58, CC BY-SA 4.0, valid SVG 1,904 × 1,365. ICAO postal-history source states Uruguay first adopted the arms by law on 19 March 1829; it describes the four quarters, Sun of May, Cerro de Montevideo, horse and ox. High confidence.
+
+### CSV integrity and current count
+
+- CSV remains **336 data rows**; no duplicate rows added; six existing coat_of_arms rows updated in place.
+- Current CSV blob SHA: 3b6bf0d7da2cc580c546c25d49c81ca163847f8c.
+- Strict verified sovereign polity count remains **25/60**, not 31/60. The six new arms belong to polities already counted through previously verified flags. **15 additional sovereign polities** still need at least one eligible verified asset to reach the ≥40 threshold.
+- Newly filled asset gaps: CHL, DEN, GRE, SAR, SPA, URU (all coat_of_arms).
+- Rejected/held candidates in this audit: Nepal's pre-1846 flag form remains undocumented; the 19th-century double pennant cannot be confidently backdated to 1836. A scholarly source on Sokoto says the earliest flag it had seen is about 1853, so it does not establish a 1836 flag. Modern Brunei emblem sources date the symbol to 1932/1959, not 1836. Hohenzollern-Sigmaringen modern redrawn arms files without an independently established 1836 form were not counted.
+
+HY-01 remains OPEN until ≥40 sovereign polities. Do not begin HY-04.
