@@ -573,3 +573,5 @@ button.cocard:hover { border-color: var(--line-3); }
 .cocard-stats > div { display: flex; flex-direction: column; padding: 4px 6px; background: var(--ink-1); }
 .cocard-stats .k { font-size: 10px; color: var(--text-3); white-space: nowrap; }
 .cocard-stats b { font-size: 13px; }
+.cocard.ready { border-color: var(--gold-1); }
+.cocard .btn.sm { align-self: flex-start; margin-top: 4px; padding: 4px 10px; font-size: 12.5px; }

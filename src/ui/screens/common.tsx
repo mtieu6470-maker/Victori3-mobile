@@ -19,6 +19,10 @@ export const canCommand = (st: GameState, id: string) => !!st.player && st.playe
 
 const REASONS_VI: [RegExp, string][] = [
   [/Observer Mode/i, 'Chế độ quan sát: không điều khiển quốc gia nào.'],
+  [/No free company slot/i, 'Không còn suất công ty trống.'],
+  [/does not allow joint-stock/i, 'Luật kinh tế chưa cho phép công ty cổ phần.'],
+  [/company of this kind already exists/i, 'Đã có công ty loại này.'],
+  [/unowned building levels/i, 'Chưa đủ cấp công trình chưa có chủ.'],
   [/already in progress|unchanged/i, 'Đang có cải cách khác hoặc luật không thay đổi.'],
   [/Not buildable/i, 'Không thể xây công trình này ở vùng này.'],
   [/Insufficient construction funds/i, 'Không đủ quỹ xây dựng.'],

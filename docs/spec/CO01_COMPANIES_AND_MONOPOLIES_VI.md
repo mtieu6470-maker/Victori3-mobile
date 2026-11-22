@@ -122,3 +122,21 @@ Company { id, name, kind: 'private'|'chartered'|'state', home: countryId, hq: re
   - Đặc quyền hiến chương (CO-3b) chưa có.
   - Giao diện công ty (CO-5) chưa có.
 - **Chi phí CPU:** bước công ty khoảng 2,5 ms/tháng (đo 1836–1880).
+
+## 9. CO-3: suất công ty và người chơi tự lập công ty (triển khai 2026-11-22)
+
+- **Suất công ty** = suất theo luật kinh tế + 1 suất cho mỗi `LEVELS_PER_SLOT` = 150 cấp công trình (dệt, sắt thép, cơ khí, vũ khí, xa xỉ, đường sắt, mỏ), tối đa 12.
+  - Suất theo luật: truyền thống 0, trọng thương 1, can thiệp 2, tự do kinh doanh 3. Đây là tham số thiết kế.
+  - Không có suất miễn phí; nước ít công nghiệp có ít công ty.
+- **Người chơi** tự quyết định lập công ty bằng lệnh `found_company` (nút "Thành lập công ty" trên thẻ). Nước của người chơi không tự lập công ty.
+- **AI** lập theo cùng luật, mỗi năm một lần, không vượt số suất. Khi số suất giảm (mất lãnh thổ, đổi luật), công ty đang có không bị giải thể vì lý do đó.
+- **Điều kiện thành lập** (`foundCompanyBlocker`, dùng chung cho người chơi và AI):
+  - luật cho phép (kinh tế không phải truyền thống, và đã có công nghệ ngân hàng cổ phần);
+  - đã có công nghệ mở khóa loại công ty;
+  - chưa có công ty cùng loại;
+  - còn suất trống;
+  - có ít nhất 8 cấp công trình phù hợp chưa có chủ.
+- **Giao diện:**
+  - Ô chỉ số "Công ty / suất" kèm nguồn gốc suất.
+  - Thẻ "Có thể thành lập": viền vàng và nút bấm khi đủ điều kiện, hoặc thẻ xám ghi lý do còn thiếu bằng tiếng Việt.
+- **Tiếp theo:** CO-3b, hiến chương và đặc quyền (độc quyền, giấy phép), cần cơ sở pháp lý (CG-30); có chi phí duy trì và giới hạn.

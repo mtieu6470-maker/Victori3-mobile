@@ -3,6 +3,7 @@
 import type { LawGroup } from './data/dbTypes';
 import type { Building, GameState, WarGoal } from './types';
 import { enqueueConstruction, cancelConstruction } from './systems/economy';
+import { foundCompany, foundCompanyBlocker } from './systems/companies';
 import { startReform, reformSupport } from './systems/politics';
 import { availableTechs } from './systems/technology';
 import { declareWar, formAlliance, breakAlliance, declareRivalry, guarantee, improveRelations, joinCustomsUnion, allianceAcceptance, boundSubject } from './systems/diplomacy';
@@ -20,6 +21,7 @@ export type Command =
   | { type: 'start_reform'; group: LawGroup; value: string }
   | { type: 'build'; region: string; building: Building }
   | { type: 'cancel_construction'; projectId: string }
+  | { type: 'found_company'; kind: string }
   | { type: 'set_research'; tech: string }
   | { type: 'improve_relations'; target: string }
   | { type: 'propose_alliance'; target: string }
@@ -49,6 +51,7 @@ export function validateCommand(st: GameState, me: { id: string }, cmd: Command)
     case 'set_army_target': return fin(cmd.manpower) ? null : 'Invalid army target';
     case 'set_navy_target': return fin(cmd.ships) ? null : 'Invalid navy target';
     case 'start_reform': return isReformableLaw(cmd.group, cmd.value) ? null : 'Unknown law group or law value';
+    case 'found_company': return typeof cmd.kind === 'string' && data().db.company_kinds.some((k) => k.id === cmd.kind) ? null : 'Unknown company kind';
     default: break;
   }
   if (TARGETED.has(cmd.type)) {
@@ -85,6 +88,11 @@ export function execute(st: GameState, cmd: Command): CommandResult {
       return cancelConstruction(st, me, cmd.projectId)
         ? { ok: true }
         : { ok: false, reason: 'No cancellable state-funded construction project' };
+    case 'found_company': {
+      const blocker = foundCompanyBlocker(st, me, cmd.kind);
+      if (blocker) return { ok: false, reason: blocker };
+      return foundCompany(st, me, cmd.kind) ? { ok: true } : { ok: false, reason: 'The company could not be founded' };
+    }
     case 'set_research': if (!availableTechs(me).includes(cmd.tech)) return { ok: false, reason: 'Prerequisites missing or already known' }; me.research = { current: cmd.tech, progress: 0 }; return { ok: true };
     case 'improve_relations': improveRelations(st, me.id, cmd.target); return { ok: true };
     case 'propose_alliance': if (boundSubject(me) || boundSubject(st.countries[cmd.target])) return { ok: false, reason: 'Subjects (other than tributaries) cannot form alliances' };

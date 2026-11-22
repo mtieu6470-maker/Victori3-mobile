@@ -128,6 +128,86 @@ export function siteOwners(st: GameState): Map<string, string> {
   return m;
 }
 
+/** CO-3 design parameter: company slots granted by the economy law (no slots under traditionalism). */
+export const SLOTS_BY_ECONOMY_LAW: Record<string, number> = { traditionalism: 0, mercantilism: 1, interventionism: 2, laissez_faire: 3 };
+/** CO-3 design parameter: one more slot per this many industrial, mining and railway building levels. */
+export const LEVELS_PER_SLOT = 150;
+const SLOT_BUILDINGS: Building[] = ['textile_mill', 'ironworks', 'tool_works', 'arms_works', 'luxury_workshop', 'railway', 'mine'];
+
+export const companiesOf = (st: GameState, countryId: string) => Object.values(st.companies ?? {}).filter((co) => co.home === countryId);
+
+/**
+ * CO-3: how many companies a country can sustain. Slots come from the economy law (a legal basis for
+ * joint-stock enterprise) and from the size of its industrial base; nothing is granted for free.
+ */
+export function companySlots(st: GameState, c: Country): number {
+  if (!companyLawAllows(c)) return 0;
+  let levels = 0;
+  for (const r of regionsOf(st, c.id)) for (const b of SLOT_BUILDINGS) levels += r.buildings[b] ?? 0;
+  return Math.min(COMPANY_PARAMS.maxPerCountry, (SLOTS_BY_ECONOMY_LAW[c.laws.economy] ?? 0) + Math.floor(levels / LEVELS_PER_SLOT));
+}
+
+/** Unowned sites of a kind's buildings in a country's controlled regions. */
+function formationSites(st: GameState, c: Country, kindBuildings: string[], owners: Map<string, string>) {
+  const sites: { key: string; region: string; levels: number }[] = [];
+  for (const r of regionsOf(st, c.id)) {
+    if (r.controller !== c.id) continue;
+    for (const b of kindBuildings) {
+      const levels = r.buildings[b as Building] ?? 0; const key = `${r.id}|${b}`;
+      if (levels > 0 && !owners.has(key)) sites.push({ key, region: r.id, levels });
+    }
+  }
+  return sites;
+}
+
+/** Kinds this country could found now (unlocked, not yet present, enough unowned plant). */
+export function foundableKinds(st: GameState, c: Country, owners = siteOwners(st)) {
+  const present = new Set(companiesOf(st, c.id).map((co) => co.kind));
+  return unlockedOperationalKinds(c).filter((k) => !present.has(k.id)
+    && formationSites(st, c, k.buildings, owners).reduce((s, x) => s + x.levels, 0) >= COMPANY_PARAMS.minLevels);
+}
+
+/** Why a country cannot found a company of this kind now (null when it can). */
+export function foundCompanyBlocker(st: GameState, c: Country, kindId: string): string | null {
+  const kind = data().db.company_kinds.find((k) => k.id === kindId);
+  if (!kind || !kind.buildings.length) return 'Unknown or dormant company kind';
+  if (!companyLawAllows(c)) return 'The economy law does not allow joint-stock companies';
+  if (!kind.unlocked_by.some((t) => c.techs.includes(t))) return 'Technology not researched';
+  if (companiesOf(st, c.id).some((co) => co.kind === kindId)) return 'A company of this kind already exists';
+  if (companiesOf(st, c.id).length >= companySlots(st, c)) return 'No free company slot';
+  const total = formationSites(st, c, kind.buildings, siteOwners(st)).reduce((s, x) => s + x.levels, 0);
+  if (total < COMPANY_PARAMS.minLevels) return `Needs ${COMPANY_PARAMS.minLevels} unowned building levels (has ${total})`;
+  return null;
+}
+
+function formCompany(st: GameState, c: Country, kindId: string, owners: Map<string, string>): Company | null {
+  const d = data();
+  const kind = d.db.company_kinds.find((k) => k.id === kindId);
+  if (!kind) return null;
+  const sites = formationSites(st, c, kind.buildings, owners);
+  if (!sites.length) return null;
+  // Largest sites first; equal sites go to the more populous region (the headquarters is the first).
+  const popOf = (regionId: string) => st.regions[d.regionIndex.get(regionId) ?? -1]?.pop ?? 0;
+  const chosen = sites.sort((a, b) => b.levels - a.levels || popOf(b.region) - popOf(a.region) || a.key.localeCompare(b.key)).slice(0, COMPANY_PARAMS.maxSitesAtFormation);
+  const id = `co_${c.id}_${kindId}_${st.tick}`;
+  const co: Company = {
+    id, kind: kindId, name: `${humanize(kindId)} (${chosen[0].region})`, home: c.id, hq: chosen[0].region,
+    founded: st.tick, sites: chosen.map((x) => x.key), prosperity: 0, lastRevenue: 0, lastCost: 0, lossMonths: 0,
+    cash: 0, lastProfit: 0, lastDividend: 0, lastRetained: 0, invested: 0,
+  };
+  st.companies[id] = co;
+  for (const x of chosen) owners.set(x.key, id);
+  if (st.player === c.id) log(st, { type: 'economy', text: `${co.name} is founded.`, textVi: `${co.name} được thành lập.`, actors: [c.id] });
+  return co;
+}
+
+/** CO-3: the player (or any caller) founds a company of a kind, under the same rules as the AI. */
+export function foundCompany(st: GameState, c: Country, kindId: string): Company | null {
+  st.companies ??= {};
+  if (foundCompanyBlocker(st, c, kindId)) return null;
+  return formCompany(st, c, kindId, siteOwners(st));
+}
+
 export function companiesMonth(st: GameState): void {
   st.companies ??= {};
   const d = data();
@@ -155,43 +235,19 @@ export function companiesMonth(st: GameState): void {
       if (st.player === co.home) log(st, { type: 'economy', text: `${co.name} is dissolved.`, textVi: `${co.name} giải thể.`, actors: [co.home] });
     }
   }
-  // ---- 2. formation (yearly, staggered per country)
+  // ---- 2. formation (yearly, staggered per country). The player's country never forms companies by
+  // itself: the player founds them (foundCompany), like every other economic decision.
   const owners = siteOwners(st);
   for (const c of Object.values(st.countries)) {
-    if (!c.alive || c.decentralized || !stagger(c.id, st.tick, COMPANY_PARAMS.formationPeriod) || !companyLawAllows(c)) continue;
-    const mine = Object.values(st.companies).filter((co) => co.home === c.id);
-    if (mine.length >= COMPANY_PARAMS.maxPerCountry) continue;
-    const present = new Set(mine.map((co) => co.kind));
-    let best: { kind: string; year: number; sites: { key: string; region: string; levels: number }[]; total: number } | null = null;
-    for (const k of unlockedOperationalKinds(c)) {
-      if (present.has(k.id)) continue;
-      const sites: { key: string; region: string; levels: number }[] = [];
-      for (const r of st.regions) {
-        if (r.owner !== c.id || r.controller !== c.id) continue;
-        for (const b of k.buildings) {
-          const levels = r.buildings[b as Building] ?? 0; const key = `${r.id}|${b}`;
-          if (levels > 0 && !owners.has(key)) sites.push({ key, region: r.id, levels });
-        }
-      }
-      const total = sites.reduce((s, x) => s + x.levels, 0);
-      if (total < COMPANY_PARAMS.minLevels) continue;
+    if (!c.alive || c.decentralized || c.id === st.player || !stagger(c.id, st.tick, COMPANY_PARAMS.formationPeriod) || !companyLawAllows(c)) continue;
+    if (companiesOf(st, c.id).length >= companySlots(st, c)) continue;
+    let best: { kind: string; year: number } | null = null;
+    for (const k of foundableKinds(st, c, owners)) {
       // Prefer the most recently unlocked kind (the newest form of enterprise), then id order.
       const year = Math.max(...k.unlocked_by.map((t) => d.tech.get(t)?.historical_year ?? 0));
-      if (!best || year > best.year || (year === best.year && k.id < best.kind)) best = { kind: k.id, year, sites, total };
+      if (!best || year > best.year || (year === best.year && k.id < best.kind)) best = { kind: k.id, year };
     }
-    if (!best) continue;
-    // Largest sites first; equal sites go to the more populous region (the headquarters is the first).
-    const popOf = (regionId: string) => st.regions[d.regionIndex.get(regionId) ?? -1]?.pop ?? 0;
-    const chosen = best.sites.sort((a, b) => b.levels - a.levels || popOf(b.region) - popOf(a.region) || a.key.localeCompare(b.key)).slice(0, COMPANY_PARAMS.maxSitesAtFormation);
-    const id = `co_${c.id}_${best.kind}_${st.tick}`;
-    const co: Company = {
-      id, kind: best.kind, name: `${humanize(best.kind)} (${chosen[0].region})`, home: c.id, hq: chosen[0].region,
-      founded: st.tick, sites: chosen.map((x) => x.key), prosperity: 0, lastRevenue: 0, lastCost: 0, lossMonths: 0,
-      cash: 0, lastProfit: 0, lastDividend: 0, lastRetained: 0, invested: 0,
-    };
-    st.companies[id] = co;
-    for (const x of chosen) owners.set(x.key, id);
-    if (st.player === c.id) log(st, { type: 'economy', text: `${co.name} is founded.`, textVi: `${co.name} được thành lập.`, actors: [c.id] });
+    if (best) formCompany(st, c, best.kind, owners);
   }
   // ---- 3. CO-2: investment of retained earnings (id order: deterministic)
   for (const co of Object.values(st.companies).sort((a, b) => a.id.localeCompare(b.id))) {

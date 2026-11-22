@@ -1,3 +1,18 @@
+## 2026-11-22 — CO-3 company slots and player-founded companies; HY-02/HY-03 media
+
+- **CO-3** (`companies.ts`): `companySlots` = economy-law slots (0/1/2/3) + 1 per 150 industrial/mine/railway levels, cap 12.
+  - The player's country never auto-forms companies; the player uses the `found_company` command (commands.ts) through the "Thành lập công ty" card button.
+  - AI formation is capped by slots. `foundCompanyBlocker` and `foundableKinds` are shared by the AI and the player. `formCompany` has been extracted.
+- **UI:** "Công ty / suất" metric; foundable cards with the button; blocked cards show the Vietnamese reason. Verified end to end (Playwright clicked the button; toast shown).
+- `tests/companies-founding.test.ts` (6).
+- **Media:**
+  - Batch 1 is 40/40 real historical images. Sources: LoC, plus Commons via `loc_ingest.py` (wikitext licence check, `thumb.php`).
+  - 8 company kinds and telephone/electricity are illustrated.
+  - `illustration_sources/{loc,commons}_selection.json` are the reviewed selections.
+- Local: `npm test` **35/35 files, 373/373**.
+
+---
+
 ## 2026-11-22 — CO-2 company money (dividends, retained earnings, own investment; closed ledger)
 
 - `src/engine/systems/companies.ts`:
