@@ -63,7 +63,8 @@ describe('ECON-GROWTH productivity', () => {
     const st = fresh();
     const home = (id: string) => new Set(st.regions.filter((r) => r.owner === id).map((r) => r.id));
     const h = { GBR: home('GBR'), QNG: home('QNG') };
-    const pc = (id: 'GBR' | 'QNG') => { const rs = st.regions.filter((r) => h[id].has(r.id) && r.owner === id); return rs.reduce((s, r) => s + r.output, 0) / rs.reduce((s, r) => s + r.pop, 0); };
+    // Real output at constant 1836 prices (MSG-041): nominal output also moves with price swings.
+    const pc = (id: 'GBR' | 'QNG') => { const rs = st.regions.filter((r) => h[id].has(r.id) && r.owner === id); return rs.reduce((s, r) => s + (r.outputReal ?? 0), 0) / rs.reduce((s, r) => s + r.pop, 0); };
     for (let i = 0; i < 12; i++) stepMonth(st);
     const g0 = pc('GBR'), q0 = pc('QNG');
     for (let i = 0; i < 120; i++) stepMonth(st);

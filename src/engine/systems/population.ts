@@ -6,6 +6,11 @@ import { clamp } from '../core';
 import { techEffect, LEVEL_WORKERS } from './economy';
 import { regionsOf } from '../cache';
 
+/** DEMO-01 design parameters (calibrated on world population benchmarks; not historical data). */
+export const MORTALITY_TECH_SCALE = 0.04;
+export const DEATH_RATE_FLOOR = 0.008;
+export const FERTILITY_TRANSITION_DROP = 0.022;
+
 export function populationMonth(st: GameState) {
   const d = data();
   const emig: { from: Region; n: number }[] = [];
@@ -15,11 +20,16 @@ export function populationMonth(st: GameState) {
     const urban = r.strata[S.workers] + r.strata[S.middle] + r.strata[S.capitalists] * 0.5;
     const density = r.pop / Math.max(50, r.area);
     const frontier = clamp(1 - density / 30, 0, 1);
-    const birth = 0.037 - 0.008 * r.literacy - 0.006 * urban + 0.012 * frontier + ((c as any).fertilityAdj ?? 0);
     const epi = r.epidemic && r.epidemic.until > st.tick ? r.epidemic.rate * 12 : 0;
-    let death = 0.033 - 0.02 * (r.sol - 0.5) + techEffect(c, 'mortality') * 0.1 - c.budget.health * 0.02 + famine * 0.16 + epi + r.devastation * 0.02;
+    // DEMO-01: medical technology lowers mortality gradually (scale 0.04, was 0.1, which pushed death
+    // rates to the floor by the 1880s); the floor is a modern crude death rate.
+    let death = 0.033 - 0.02 * (r.sol - 0.5) + techEffect(c, 'mortality') * MORTALITY_TECH_SCALE - c.budget.health * 0.02 + famine * 0.16 + epi + r.devastation * 0.02;
     if (r.terrain === 'ju' || r.terrain === 'ma') death += 0.002;
-    death = Math.max(0.011, death);
+    death = Math.max(DEATH_RATE_FLOOR, death);
+    // DEMO-01 demographic transition: fertility falls once mortality has fallen and literacy is high,
+    // so births follow deaths down with a lag instead of staying at pre-industrial levels forever.
+    const transition = clamp((r.literacy - 0.55) / 0.4, 0, 1) * clamp(1 - (death - DEATH_RATE_FLOOR) / 0.017, 0, 1);
+    const birth = 0.037 - 0.008 * r.literacy - 0.006 * urban + 0.012 * frontier + ((c as any).fertilityAdj ?? 0) - FERTILITY_TRANSITION_DROP * transition;
     r.pop = Math.max(100, r.pop * (1 + (birth - death) / 12));
     // emigration from distress (coastal regions can reach overseas destinations)
     if ((r.sol < 0.42 || famine > 0.1) && r.coastal && c.laws.labor !== 'serfdom' && c.laws.trade !== 'isolationism') {

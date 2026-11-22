@@ -15,7 +15,10 @@ export function availableTechs(c: Country): string[] {
 export function techCost(st: GameState, c: Country, id: string): number {
   const t = data().tech.get(id)!;
   const year = st.date.y;
-  const era = 1 + Math.max(0, t.historical_year - year) / 12;
+  // TECH-01: researching ahead of a technology's time gets steeply harder (quadratic): a pioneer can
+  // lead history by a few years, but not by decades (was linear, so frontier countries exhausted the
+  // whole 1836-2026 tree by ~1985).
+  const era = Math.pow(1 + Math.max(0, t.historical_year - year) / 12, 2);
   const known = knownShare(st, id);
   const diffusion = 1 - 0.55 * Math.sqrt(known);
   return t.cost * era * diffusion * 1000;
