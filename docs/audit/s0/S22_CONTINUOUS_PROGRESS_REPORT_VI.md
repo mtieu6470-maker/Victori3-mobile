@@ -1,3 +1,18 @@
+## 2026-11-22 — ECON-03a + root cause of the textile/cotton misalignment (ECON-CAL-02)
+
+- **ECON-03a** (commit `a6fd093`): openness now sets the tradable *share* of a deficit or surplus, `tradeShare = min(1, open/0.5)` (NaN-safe), instead of trading exactly `open × deficit`.
+  - Unsold share at month 12 (before → after): cash crops 25% → 10%, iron 32% → 23%, arms 41% → 24%. GDP unchanged.
+  - Tests cover `tradeShare` and the CG-22 constraint (Britain imports most of its cotton; the USA is a top-3 exporter).
+  - Local: 26/26 files, 248/248 tests; build 0.
+- **ChatGPT CG-23** (Woodbury 1836, public domain) accepted: world crop 1834 ≈ 900m lb (USA ≈ 51%); England used 297m lb (≈ 33–36% of the world crop). The engine has Britain demanding ≈ 203% of world supply, about 6× too high.
+- **Root cause found** (engine at start, seed 1):
+  - Britain has 855 textile-mill levels × 2,000 workers ≈ 1.71M mill workers (historically ≈ 0.22–0.24M, to confirm via CG-24).
+  - The GDP-calibrated productivity (6.5) multiplies physical mill output by a further ≈ 2.55.
+  - On the supply side, Qing has 1,190 plantation levels against the USA's 491.
+  - Recorded as **ECON-CAL-02** (starting building levels + productivity/physical-output decoupling). CG-24 (1830s industry scale, public domain) requested in MSG-021. IND-02a stays off.
+
+---
+
 ## 2026-11-22 — ECON-CAL-01b: per-good trade openness from 1836 tariff evidence + price-responsive cottage industry
 
 - **Per-good openness** (`src/engine/data/tradePolicy1836.ts`, `goodOpenness()` in `economy.ts`):
