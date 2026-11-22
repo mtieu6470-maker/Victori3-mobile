@@ -3,6 +3,7 @@
 // Version 3 (CLOCK-01) adds the hourly-canonical clock `state.clock.hour` and an optional,
 // non-simulation `clockPreference` (AUTO / fixed pace) in the envelope.
 import { STRATA, type GameState } from './types';
+import { validateNestedState } from './stateContract';
 import { createPopulationState, validatePopulationState } from './systems/populationCohorts';
 import { hourToDateTime, isValidCampaignHour, monthIndexOfHour, monthStartHour, CAMPAIGN_FINAL_HOUR } from './clock/calendar';
 import { parseSpeedSetting, type SpeedSetting } from './clock/pace';
@@ -113,17 +114,10 @@ export function validateGameStateContract(value: unknown): asserts value is Game
   for (const k of ['regions', 'wars', 'treaties', 'rivalries', 'constructionProjects', 'log', 'territoryLog', 'firedEvents', 'pendingPlayerDecisions'] as const) if (!Array.isArray(st[k])) fail(k);
   const regions = st.regions as unknown[];
   if (regions.length === 0) fail('no regions');
-  for (const r of regions) {
-    if (!isObj(r) || typeof r.id !== 'string' || typeof r.owner !== 'string' || typeof r.controller !== 'string' || !fin(r.pop) || (r.pop as number) < 0 ||
-        !Array.isArray(r.strata) || r.strata.length !== STRATA.length || !r.strata.every(fin) || !isObj(r.buildings)) fail(`region ${isObj(r) ? String(r.id) : '?'}`);
-  }
   const countries = st.countries as Record<string, unknown>;
   if (Object.keys(countries).length === 0) fail('no countries');
-  for (const [id, c] of Object.entries(countries)) {
-    if (!isObj(c) || c.id !== id || typeof c.alive !== 'boolean' || !isObj(c.laws) || !fin(c.treasury) || !fin(c.productivity)) fail(`country ${id}`);
-  }
-  for (const e of st.log as unknown[]) if (!isObj(e) || typeof e.text !== 'string') fail('log entry');
-  for (const [k, v] of Object.entries(st.worldPrices as Record<string, unknown>)) if (!fin(v)) fail(`world price ${k}`);
+  // CG18-03: every nested record (regions, countries, markets, wars/treaties, history, decisions, log).
+  validateNestedState(value as GameState);
 }
 
 export function serialize(st: GameState, meta: SaveMeta = {}): string {

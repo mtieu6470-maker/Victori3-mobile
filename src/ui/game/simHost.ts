@@ -92,7 +92,7 @@ export class WorkerSimHost implements SimHost {
   constructor(private readonly worker: WorkerLike, private readonly timeoutMs = WORKER_REQUEST_TIMEOUT_MS) {
     worker.onmessage = (e: MessageEvent) => {
       const data = e.data as Partial<Reply> | null;
-      if (!data || typeof data.id !== 'number' || !data.res || typeof data.res !== 'object') {
+      if (!data || typeof data.id !== 'number' || !Number.isSafeInteger(data.id) || !data.res || typeof data.res !== 'object') {
         this.fail('Simulation worker sent a malformed message');
         return;
       }
