@@ -35,3 +35,43 @@ Historical seed-1 2022 scorecard: mean absolute log error 1.374 overall, 0.711 i
 5. Compare same-seed with/without CATCHUP to isolate effect.
 
 No code or coefficients changed.
+
+
+## Independent re-review — CATCHUP-01 round 2 (2026-11-22)
+
+**Verdict:** The four previously identified implementation gaps are addressed in the current source snapshot. Accept the round-2 code direction; do not label the macroeconomy calibrated. This is a static source/test review, not an independent execution of the reported Vitest/build commands.
+
+### R1 — GDP-weighted technology exposure: CLOSED
+- `knownShare()` now sums GDP weights for countries already holding the technology and divides by the GDP weight of all alive, centralised countries.
+- Microstates no longer count one-for-one with major economies. Zero/invalid GDP contributes zero weight.
+- `tests/catchup.test.ts` explicitly gives the technology to every country except the ten largest economies and asserts the resulting share remains below 0.5.
+- Residual limitation: GDP is a proxy for knowledge-production/exposure, not a direct measure of research capability, patent access, trade links or technology licensing. Treat the weight as a design proxy, and run sensitivity checks before tuning it.
+
+### R2 — ordinal array preference: CLOSED WITH DOCUMENTED DESIGN CAVEAT
+- `LAW_MODERNISATION_RANK` and `isProgressiveStep()` replace the prior ordering inference.
+- Current alternatives are explicitly ranked, and the tests check both a forward and reverse transition.
+- The rank is a **project heuristic**, not an objective universal historical scale. In particular, laissez-faire vs interventionism, free trade vs protectionism, and mass conscription vs professional army are context-dependent and can reverse in historical interpretation. Keep the table explicitly documented and do not use it as a universal history label or as a direct law eligibility rule.
+
+### R3 — domestic feasibility integration: CLOSED AT UTILITY-LEVEL
+- `reformUtility()` combines domestic `reformSupport()`, personality/inertia, historical bias and bounded emulation.
+- The Qing 1836 test makes foreign public-school adoption raise utility, but verifies domestic support remains below -0.5 and total utility remains below the 0.15 reform threshold.
+- Scope caveat: this test proves the score cannot cross the AI threshold in that fixture; it does not exercise a full monthly `reformAI → startReform` integration path, nor separately cover legitimacy, bureaucracy/fiscal capacity and historical reservation. Keep those as future integration coverage if those gates are added to the engine.
+
+### R4 — Sandbox log through 2022: CLOSED
+- `LONGRUN_SANDBOX_1836_2022_CATCHUP01R2_2026-11-22.txt` contains an explicit 2022 final row: worldPopM 8423, alive 171, 130 technologies for GBR/FRA/PRU/USA and 86.7 ms/month.
+- The filename and final-year sample now agree. The 8.423bn population is an engine output, not evidence of demographic calibration.
+
+### R5 — macro calibration: OPEN / BLOCKER
+- The R2 scorecard summary reports end-year 2022 mean absolute log error **1.328 overall**, **0.712 industrialisers**, **1.944 other economies**.
+- This improves on the earlier R1 scorecard but remains a large deviation. RUS/TUR territorial mismatch exclusions and PRU/QNG/EIC approximate coverage remain material caveats.
+- No evidence yet isolates the causal contribution of CATCHUP-01. Require same-seed with/without-CATCHUP comparison and structural work on modern goods, education and decolonisation before tuning this subsystem.
+
+### Additional implementation note — monthly cache semantics (P2)
+- `knownShare` cache keys on state object identity and `st.tick`. This is coherent if all GDP/technology mutations occur only at month boundaries and the intended rule is a monthly snapshot.
+- If future code mutates GDP or tech ownership within the same tick and expects immediate diffusion, this cache will return stale values until the next tick. Preserve the monthly-snapshot contract or add explicit invalidation at mutation points; add a test before changing that contract.
+
+### Verification boundary
+- Inspected current `technology.ts`, `ai.ts`, `tests/catchup.test.ts`, scorecard JSON and Sandbox output on branch `ccr-b27f3fb8-epfpd6`.
+- The test file currently contains 11 CATCHUP-related test cases across the three suites (not eight, as the earlier review stated).
+- Claude reports `npx vitest run` 32 files / 349 tests passing. ChatGPT did not execute those commands in this GitHub-only review environment; record as owner-reported, not independently reproduced.
+- No code or coefficients changed in this review.
