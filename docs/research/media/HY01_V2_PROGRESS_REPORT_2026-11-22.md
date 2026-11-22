@@ -94,3 +94,14 @@ A further targeted Commons pass checked candidate material for Belgium, Denmark,
 - Oman modern state emblem/coat of arms candidates date from 20th/21st century and are not evidence for the 1836 arms.
 
 Therefore the verified sovereign count remains **14/40**, and the asset CSV remains unchanged (blob SHA `5bebf786ff6980ce097e435f0a38cf342ed3a941`). These are discovery exclusions, not assertions that the polities had no flag/arms. Continue to leave unverified fields as `unknown`.
+
+
+## Additional HY-01 verification — Denmark (DEN)
+
+- Added DEN national flag using Commons file page https://commons.wikimedia.org/wiki/File:Flag_of_Denmark.svg.
+- Commons identifies the file as the Dannebrog and marks it public domain under the simple-geometry/common-property rationale; original SVG nominal dimensions 512 × 387. Official-insignia restrictions are explicitly independent of copyright and remain a separate legal review item.
+- Historical validity: the Danish Flag Society's historical booklet records the ordinance of 11 July 1748 defining the rectangular merchant flag (stutflag) without swallowtail and its proportions. The same source chronology notes that private flag-flying was prohibited by royal resolution in 1833; this does not mean the flag ceased to be the state/merchant ensign. The row therefore records 1748–present and explicitly notes the 1836 restriction on private use.
+- Historical evidence source: https://www.danmarks-samfundet.dk/wp-content/uploads/2019/03/Infopjece-Dannebrog800-Anden-udgave-english.pdf.
+- DEN coat of arms remains unknown; no attempt was made to substitute the later royal arms because the file page/license/1836 use were not cleared.
+
+Verified sovereign polity count is now **15/40** (previously 14/40). Asset CSV now contains 15 verified sovereign IDs with at least one verified asset row; unknown asset rows: **317/332**. The CSV remains a working research register, not a production manifest. Denmark is a newly added flag row, not a complete polity asset set.
