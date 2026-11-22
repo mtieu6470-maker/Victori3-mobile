@@ -196,7 +196,7 @@ Commit: `d5044b4ac6a3b47a508998b866ae3d0b7560dd1c`
 **HY-01 v2 tiếp tục.**  
 CSV mới: `docs/research/media/HY01_FLAGS_ARMS_1836_v2.csv`  
 CSV commit: `db2d68fdc74350b1b65adcf7a0f8b0a326bacba4`  
-Blob SHA: `2122f7abb90bdbca34e4b85df0f5e0e`  
+Blob SHA: `2122f7abb90bdbca34e26085d09aeaf408d6a260`  
 Đã thêm USA và Sweden sau khi mở trang file Commons, kiểm tra mốc lịch sử và license. USA 24-star flag chỉ hợp lệ đến 3 July 1836; Sweden file mô tả 1821–1844. Tổng hiện tại: 14 chính thể sovereign có ít nhất một asset file/license đã xác minh, gồm BOL arms; vẫn chưa đạt ngưỡng 40. 318/332 dòng còn unknown. Progress report commit: `46c265272bcd75d891f03868772cff162bf6c081`.
 
 Iran Qajar flag page có cảnh báo disputed copyright status nên không đưa vào verified; Nepal file tìm thấy ghi khoảng 1911, không hợp lệ cho mốc 1836. Không bắt đầu HY-04.
