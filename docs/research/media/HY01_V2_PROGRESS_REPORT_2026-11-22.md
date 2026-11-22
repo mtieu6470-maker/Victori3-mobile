@@ -232,3 +232,26 @@ Six existing sovereign polity coat-of-arms gap rows were populated after checkin
 - Rejected/held candidates in this audit: Nepal's pre-1846 flag form remains undocumented; the 19th-century double pennant cannot be confidently backdated to 1836. A scholarly source on Sokoto says the earliest flag it had seen is about 1853, so it does not establish a 1836 flag. Modern Brunei emblem sources date the symbol to 1932/1959, not 1836. Hohenzollern-Sigmaringen modern redrawn arms files without an independently established 1836 form were not counted.
 
 HY-01 remains OPEN until ≥40 sovereign polities. Do not begin HY-04.
+
+
+## Independent candidate audit — additional sovereign flag leads (2026-11-22)
+
+The following candidates were checked against historical evidence and item-level Commons pages. None increases the strict 1836 sovereign count in this pass:
+
+- **Qajar Persia (PRS):** Encyclopaedia Iranica's “Flags of Persia” documents the Lion-and-Sun emblem and official Persian flag by 1811, with contemporary descriptions and images for the early Qajars. This is strong historical evidence that a Persian flag/banner existed by 1836. However, the Commons candidate “Qajar Persia Flag.jpg” is a reconstruction made in 2026 from a dynastic emblem, not an authenticated 1836 artifact. It is CC0 as an artwork, but must remain a concept/reference image and cannot be represented as the original flag or counted as an authenticated historical design. The existing PRS flag row should remain unchanged pending a period-accurate reconstruction with clear source provenance and an explicitly labelled concept classification.
+- **Sikh Empire (SIK):** Anglo Sikh Museum records a physical Khalsa Army flag dated before 1849 and used in the Anglo-Sikh Wars. The museum explicitly says its origins are unknown and its relation to the wider Sikh Empire is debated. This is an army standard, not proof of a national/state flag on 1 January 1836; the object is also not a distributable asset. Do not count it as a national flag.
+- **Sokoto Caliphate (SOK):** the historical study located in this pass says the earliest flag the author had seen dates to about 1853. That does not establish a flag in 1836; keep unknown.
+- **Ethiopian Empire (ETH):** the Encyclopaedia Aethiopica entry says the Ethiopian national flag was created at the end of the 19th century; earlier banners existed but cannot be conflated with a standardized national flag. Do not backdate the later tricolour.
+- **Nguyễn Vietnam (VNM):** Commons labels the popular “Nguyễn dynasty flag / imperial standard 1802–1885” file as fictional/proposed/unofficial. It is not acceptable evidence for a national flag in 1836. Contemporary standards or military unit flags must be separately identified and sourced.
+- **Asante (ASH):** modern Commons images are recent reconstructions or contemporary works. No reliable source in this pass ties the exact design to 1836 and establishes an eligible redistributable historical file.
+
+### Source references
+- Encyclopaedia Iranica, “Flags i. Of Persia”: https://www.iranicaonline.org/articles/flags-i/ — contemporary evidence cited for 1811 and early Qajar use.
+- Commons Qajar reconstruction (CC0 artwork, not historical artifact): https://commons.wikimedia.org/wiki/File:Qajar_Persia_Flag.jpg
+- Anglo Sikh Museum, “Khalsa Army Flag”: https://www.anglosikhmuseum.com/khalsa-army-flag/
+- International African Institute study, Sokoto flag note: https://www.internationalafricaninstitute.org/downloads/sokoko_caliph.pdf
+- Encyclopaedia Aethiopica, “Flags and banners”: https://www.habeshahistory.com/encyclopedia/flags-and-banners-p0766-b-y2673-v4
+- Commons fictional Nguyễn standard: https://commons.wikimedia.org/wiki/File:Fictional_imperial_standard_attributed_to_the_Nguy%E1%BB%85n_Dynasty_(supposedly_used_during_1802%E2%80%931885).svg
+- Commons Asante modern reconstruction: https://commons.wikimedia.org/wiki/File:Ashanti_Imperial_Flag.jpg
+
+**Count remains 25/60.** No candidate is promoted merely to reach the ≥40 gate. HY-04 remains blocked.
