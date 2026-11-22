@@ -40,6 +40,13 @@ const cases: Record<string, M[]> = {
     ['zero productivity', (s) => { s.countries[gbr].productivity = 0; }],
     ['famine above 1', (s) => { s.countries[gbr].famine = 2; }],
     ['negative debt', (s) => { s.countries[gbr].debt = -5; }],
+    // CG18-04
+    ['leader born is a string', (s) => { s.countries[gbr].leader.born = '1765'; }],
+    ['leader historical missing', (s) => { delete s.countries[gbr].leader.historical; }],
+    ['heir without female flag', (s) => { s.countries[gbr].heir = { name: 'X', born: 1819 }; }],
+    ['heir born NaN', (s) => { s.countries[gbr].heir = { name: 'X', born: Number.NaN, female: true }; }],
+    ['legitimacy above 100', (s) => { s.countries[gbr].legitimacy = 400; }],
+    ['radicalism above 1', (s) => { s.countries[gbr].radicalism = 2; }],
   ],
   market: [
     ['market price string', (s) => { s.marketPrices[gbr].cotton = 'broken'; }],
@@ -63,6 +70,15 @@ const cases: Record<string, M[]> = {
   ],
   historyCounters: [
     ['history row NaN', (s) => { s.history[gbr] = [{ y: 1836, pop: Number.NaN }]; }],
+    // CG18-04
+    ['history row empty', (s) => { s.history[gbr] = [{}]; }],
+    ['history row missing gdp', (s) => { const row = { ...s.history[gbr][0] }; delete row.gdp; s.history[gbr] = [row]; }],
+    ['history year fractional', (s) => { s.history[gbr] = [{ ...s.history[gbr][0], y: 1836.5 }]; }],
+    ['divergence entry without kind', (s) => { s.divergence.entries.push({ tick: 0, date: '1836-01', text: 'x', actors: [] }); }],
+    ['divergence entry without actors', (s) => { s.divergence.entries.push({ tick: 0, date: '1836-01', kind: 'k', text: 'x' }); }],
+    ['milestone credit string', (s) => { s.divergence.milestones.x = { status: 'achieved', credit: 'lots' }; }],
+    ['fractional counter', (s) => { s.counters.decisionWindowsFired = 1.5; }],
+    ['fractional system run count', (s) => { s.counters.systemRuns.economy = 0.5; }],
     ['milestone unknown status', (s) => { s.divergence.milestones.x = { status: 'maybe' }; }],
     ['similarity string', (s) => { s.divergence.similarity.push({ date: 'x', territorial: 'a', milestones: 0, combined: 0 }); }],
     ['negative counter', (s) => { s.counters.aiActions.research = -1; }],

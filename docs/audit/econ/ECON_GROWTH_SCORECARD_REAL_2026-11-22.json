@@ -1,0 +1,424 @@
+{
+ "seed": 1,
+ "territory": "engine: 1836 home territory still owned; MPD2023: national aggregate (coverage differs)",
+ "engine": {
+  "GBR": {
+   "1836": 2123.4087411601276,
+   "1850": 2785.4068130955166,
+   "1870": 3148.3990467040494,
+   "1900": 3584.0578714591034,
+   "1913": 3622.506165058123
+  },
+  "FRA": {
+   "1836": 1412.7266654047207,
+   "1850": 1482.2272264004819,
+   "1870": 2438.2043493661567,
+   "1900": 2852.46592271429,
+   "1913": 2884.380720884803
+  },
+  "PRU": {
+   "1836": 1455.0724253233473,
+   "1850": 1990.795808720137,
+   "1870": 2457.600127251411,
+   "1900": 2874.121907589372,
+   "1913": 2958.624492385565
+  },
+  "USA": {
+   "1836": 1648.3897669492385,
+   "1850": 2054.581870503098,
+   "1870": 2773.8950939263623,
+   "1900": 3272.8973300949447,
+   "1913": 3244.1067643632664
+  },
+  "QNG": {
+   "1836": 714.1900383889175,
+   "1850": 802.6948454897223,
+   "1870": 1149.153195279265,
+   "1900": 1173.732309772485,
+   "1913": 1181.1988507944177
+  },
+  "EIC": {
+   "1836": 603.8422860626317,
+   "1850": 610.2598483355744,
+   "1870": 622.3370444348637,
+   "1900": 1006.6787107608325,
+   "1913": 1014.8787627439731
+  },
+  "JAP": {
+   "1836": 744.1539927965167,
+   "1850": 746.5702318336167,
+   "1870": 759.9616179652463,
+   "1900": 776.7718468326542,
+   "1913": 782.360394838561
+  },
+  "BRA": {
+   "1836": 750.1263085712272,
+   "1850": 751.1964664693712,
+   "1870": 742.8880995115246,
+   "1900": 708.8329645893892,
+   "1913": 721.125804642653
+  },
+  "RUS": {
+   "1836": 1097.959520056149,
+   "1850": 1100.359327531655,
+   "1870": 1102.826352289768,
+   "1900": 1114.121629515749,
+   "1913": 1240.7798561182667
+  },
+  "TUR": {
+   "1836": 782.0234778374804,
+   "1850": 790.565413827187,
+   "1870": 801.1320104678753,
+   "1900": 815.1140664726634,
+   "1913": 821.8042176641331
+  }
+ },
+ "rows": [
+  {
+   "id": "GBR",
+   "label": "United Kingdom",
+   "base": 1836,
+   "end": 1850,
+   "engineRatio": 1.312,
+   "mpdRatio": 1.1,
+   "engineAnnualPct": 1.96,
+   "mpdAnnualPct": 0.69,
+   "logError": 0.176
+  },
+  {
+   "id": "GBR",
+   "label": "United Kingdom",
+   "base": 1836,
+   "end": 1870,
+   "engineRatio": 1.483,
+   "mpdRatio": 1.481,
+   "engineAnnualPct": 1.17,
+   "mpdAnnualPct": 1.16,
+   "logError": 0.001
+  },
+  {
+   "id": "GBR",
+   "label": "United Kingdom",
+   "base": 1836,
+   "end": 1900,
+   "engineRatio": 1.688,
+   "mpdRatio": 1.929,
+   "engineAnnualPct": 0.82,
+   "mpdAnnualPct": 1.03,
+   "logError": -0.133
+  },
+  {
+   "id": "GBR",
+   "label": "United Kingdom",
+   "base": 1836,
+   "end": 1913,
+   "engineRatio": 1.706,
+   "mpdRatio": 2.086,
+   "engineAnnualPct": 0.7,
+   "mpdAnnualPct": 0.96,
+   "logError": -0.201
+  },
+  {
+   "id": "FRA",
+   "label": "France",
+   "base": 1836,
+   "end": 1850,
+   "engineRatio": 1.049,
+   "mpdRatio": 1.218,
+   "engineAnnualPct": 0.34,
+   "mpdAnnualPct": 1.42,
+   "logError": -0.149
+  },
+  {
+   "id": "FRA",
+   "label": "France",
+   "base": 1836,
+   "end": 1870,
+   "engineRatio": 1.726,
+   "mpdRatio": 1.431,
+   "engineAnnualPct": 1.62,
+   "mpdAnnualPct": 1.06,
+   "logError": 0.187
+  },
+  {
+   "id": "FRA",
+   "label": "France",
+   "base": 1836,
+   "end": 1900,
+   "engineRatio": 2.019,
+   "mpdRatio": 2.194,
+   "engineAnnualPct": 1.1,
+   "mpdAnnualPct": 1.24,
+   "logError": -0.083
+  },
+  {
+   "id": "FRA",
+   "label": "France",
+   "base": 1836,
+   "end": 1913,
+   "engineRatio": 2.042,
+   "mpdRatio": 2.659,
+   "engineAnnualPct": 0.93,
+   "mpdAnnualPct": 1.28,
+   "logError": -0.264
+  },
+  {
+   "id": "PRU",
+   "label": "Germany (engine: Prussia)",
+   "base": 1836,
+   "end": 1850,
+   "engineRatio": 1.368,
+   "mpdRatio": 1.047,
+   "engineAnnualPct": 2.26,
+   "mpdAnnualPct": 0.33,
+   "logError": 0.267
+  },
+  {
+   "id": "PRU",
+   "label": "Germany (engine: Prussia)",
+   "base": 1836,
+   "end": 1870,
+   "engineRatio": 1.689,
+   "mpdRatio": 1.349,
+   "engineAnnualPct": 1.55,
+   "mpdAnnualPct": 0.88,
+   "logError": 0.225
+  },
+  {
+   "id": "PRU",
+   "label": "Germany (engine: Prussia)",
+   "base": 1836,
+   "end": 1900,
+   "engineRatio": 1.975,
+   "mpdRatio": 2.19,
+   "engineAnnualPct": 1.07,
+   "mpdAnnualPct": 1.23,
+   "logError": -0.103
+  },
+  {
+   "id": "PRU",
+   "label": "Germany (engine: Prussia)",
+   "base": 1836,
+   "end": 1913,
+   "engineRatio": 2.033,
+   "mpdRatio": 2.676,
+   "engineAnnualPct": 0.93,
+   "mpdAnnualPct": 1.29,
+   "logError": -0.275
+  },
+  {
+   "id": "USA",
+   "label": "United States",
+   "base": 1836,
+   "end": 1850,
+   "engineRatio": 1.246,
+   "mpdRatio": 1.047,
+   "engineAnnualPct": 1.59,
+   "mpdAnnualPct": 0.33,
+   "logError": 0.175
+  },
+  {
+   "id": "USA",
+   "label": "United States",
+   "base": 1836,
+   "end": 1870,
+   "engineRatio": 1.683,
+   "mpdRatio": 1.384,
+   "engineAnnualPct": 1.54,
+   "mpdAnnualPct": 0.96,
+   "logError": 0.195
+  },
+  {
+   "id": "USA",
+   "label": "United States",
+   "base": 1836,
+   "end": 1900,
+   "engineRatio": 1.986,
+   "mpdRatio": 2.316,
+   "engineAnnualPct": 1.08,
+   "mpdAnnualPct": 1.32,
+   "logError": -0.154
+  },
+  {
+   "id": "USA",
+   "label": "United States",
+   "base": 1836,
+   "end": 1913,
+   "engineRatio": 1.968,
+   "mpdRatio": 2.913,
+   "engineAnnualPct": 0.88,
+   "mpdAnnualPct": 1.4,
+   "logError": -0.392
+  },
+  {
+   "id": "QNG",
+   "label": "China (engine: Qing)",
+   "base": 1850,
+   "end": 1870,
+   "engineRatio": 1.432,
+   "mpdRatio": 1.101,
+   "engineAnnualPct": 1.81,
+   "mpdAnnualPct": 0.48,
+   "logError": 0.262
+  },
+  {
+   "id": "QNG",
+   "label": "China (engine: Qing)",
+   "base": 1850,
+   "end": 1900,
+   "engineRatio": 1.462,
+   "mpdRatio": 1.133,
+   "engineAnnualPct": 0.76,
+   "mpdAnnualPct": 0.25,
+   "logError": 0.255
+  },
+  {
+   "id": "QNG",
+   "label": "China (engine: Qing)",
+   "base": 1850,
+   "end": 1913,
+   "engineRatio": 1.472,
+   "mpdRatio": 1.148,
+   "engineAnnualPct": 0.62,
+   "mpdAnnualPct": 0.22,
+   "logError": 0.248
+  },
+  {
+   "id": "EIC",
+   "label": "India (engine: EIC home territory)",
+   "base": 1850,
+   "end": 1870,
+   "engineRatio": 1.02,
+   "mpdRatio": 0.898,
+   "engineAnnualPct": 0.1,
+   "mpdAnnualPct": -0.54,
+   "logError": 0.128
+  },
+  {
+   "id": "EIC",
+   "label": "India (engine: EIC home territory)",
+   "base": 1850,
+   "end": 1900,
+   "engineRatio": 1.65,
+   "mpdRatio": 1.008,
+   "engineAnnualPct": 1.01,
+   "mpdAnnualPct": 0.02,
+   "logError": 0.492
+  },
+  {
+   "id": "EIC",
+   "label": "India (engine: EIC home territory)",
+   "base": 1850,
+   "end": 1913,
+   "engineRatio": 1.663,
+   "mpdRatio": 1.133,
+   "engineAnnualPct": 0.81,
+   "mpdAnnualPct": 0.2,
+   "logError": 0.384
+  },
+  {
+   "id": "JAP",
+   "label": "Japan",
+   "base": 1850,
+   "end": 1870,
+   "engineRatio": 1.018,
+   "mpdRatio": 1.1,
+   "engineAnnualPct": 0.09,
+   "mpdAnnualPct": 0.48,
+   "logError": -0.078
+  },
+  {
+   "id": "JAP",
+   "label": "Japan",
+   "base": 1850,
+   "end": 1900,
+   "engineRatio": 1.04,
+   "mpdRatio": 1.478,
+   "engineAnnualPct": 0.08,
+   "mpdAnnualPct": 0.79,
+   "logError": -0.351
+  },
+  {
+   "id": "JAP",
+   "label": "Japan",
+   "base": 1850,
+   "end": 1913,
+   "engineRatio": 1.048,
+   "mpdRatio": 1.693,
+   "engineAnnualPct": 0.07,
+   "mpdAnnualPct": 0.84,
+   "logError": -0.48
+  },
+  {
+   "id": "BRA",
+   "label": "Brazil",
+   "base": 1850,
+   "end": 1870,
+   "engineRatio": 0.989,
+   "mpdRatio": 1.25,
+   "engineAnnualPct": -0.06,
+   "mpdAnnualPct": 1.12,
+   "logError": -0.234
+  },
+  {
+   "id": "BRA",
+   "label": "Brazil",
+   "base": 1850,
+   "end": 1900,
+   "engineRatio": 0.944,
+   "mpdRatio": 1.008,
+   "engineAnnualPct": -0.12,
+   "mpdAnnualPct": 0.02,
+   "logError": -0.066
+  },
+  {
+   "id": "BRA",
+   "label": "Brazil",
+   "base": 1850,
+   "end": 1913,
+   "engineRatio": 0.96,
+   "mpdRatio": 1.206,
+   "engineAnnualPct": -0.06,
+   "mpdAnnualPct": 0.3,
+   "logError": -0.229
+  },
+  {
+   "id": "RUS",
+   "label": "Russia",
+   "base": 1870,
+   "end": 1900,
+   "engineRatio": 1.01,
+   "mpdRatio": 1.33,
+   "engineAnnualPct": 0.03,
+   "mpdAnnualPct": 0.95,
+   "logError": -0.275
+  },
+  {
+   "id": "RUS",
+   "label": "Russia",
+   "base": 1870,
+   "end": 1913,
+   "engineRatio": 1.125,
+   "mpdRatio": 1.474,
+   "engineAnnualPct": 0.27,
+   "mpdAnnualPct": 0.91,
+   "logError": -0.27
+  },
+  {
+   "id": "TUR",
+   "label": "Ottoman Empire / Turkey",
+   "base": 1870,
+   "end": 1913,
+   "engineRatio": 1.026,
+   "mpdRatio": 1.264,
+   "engineAnnualPct": 0.06,
+   "mpdAnnualPct": 0.55,
+   "logError": -0.209
+  }
+ ],
+ "summary": {
+  "meanAbsLogError1913_all": 0.295,
+  "meanAbsLogError1913_industrialisers": 0.283,
+  "meanAbsLogError1913_others": 0.303
+ }
+}

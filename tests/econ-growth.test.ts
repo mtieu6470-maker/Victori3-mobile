@@ -74,6 +74,26 @@ describe('ECON-GROWTH productivity', () => {
   });
 });
 
+describe('MSG-041 real output measure', () => {
+  it('every region carries finite, non-negative real value added at constant 1836 prices', () => {
+    const st = fresh();
+    stepMonth(st);
+    for (const r of st.regions) { expect(Number.isFinite(r.outputReal)).toBe(true); expect(r.outputReal!).toBeGreaterThanOrEqual(0); }
+    expect(st.regions.find((r) => r.id === 'GBR_LON')!.outputReal).toBeGreaterThan(0);
+  });
+
+  it('real output ignores price movements that change nominal output', () => {
+    const a = fresh(); const b = fresh();
+    stepMonth(a); stepMonth(b);
+    // Same physical economy, but b's British market sells everything at double price for one month.
+    for (const g of Object.keys(b.marketPrices.GBR)) b.marketPrices.GBR[g as keyof typeof b.marketPrices.GBR] *= 2;
+    stepMonth(a); stepMonth(b);
+    const ra = a.regions.find((r) => r.id === 'GBR_LON')!; const rb = b.regions.find((r) => r.id === 'GBR_LON')!;
+    expect(rb.output).toBeGreaterThan(ra.output * 1.05);
+    expect(Math.abs(rb.outputReal! - ra.outputReal!) / ra.outputReal!).toBeLessThan(Math.abs(rb.output - ra.output) / ra.output);
+  });
+});
+
 describe('ECON-GROWTH parallel construction', () => {
   it('runs several projects of one stream in parallel while money lasts', () => {
     const st = fresh(); const c = st.countries.GBR;

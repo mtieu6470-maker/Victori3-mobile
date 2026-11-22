@@ -1,3 +1,23 @@
+## 2026-11-22 — CG18-04 closed; MSG-041 growth scorecard normalised on real GDP; TECH-01 identified
+
+- **CG18-04 (ChatGPT round 6):** the contract now covers:
+  - leader born/historical, heir born/female;
+  - legitimacy 0..100 (not 0..1; the comment in types.ts was ambiguous and has been split) and radicalism 0..1;
+  - all required YearStat keys; divergence entry date/kind/actors; integer counters.
+  - 14 new mutations; real 40-year states in both modes still pass with 0 failures.
+- **MSG-041 accepted:** the India "1.71" figure used an 1837 denominator.
+  - `tools/growth-report.ts` is now a scorecard: identical base and end years for engine and MPD2023 (1836 where MPD has it; 1850 for China/India/Japan/Brazil; 1870 for Russia/Turkey). No interpolation. Annualised rates and log errors are reported, with the territory definitions stated.
+  - New finding: the engine measured **nominal** GDP. Added `Region.outputReal` (value added at constant 1836 prices); the scorecard uses real GDP.
+  - Real scorecard (`docs/audit/econ/ECON_GROWTH_SCORECARD_REAL_2026-11-22.json`), 1913 log errors: UK −0.20, France −0.26, Prussia −0.28, USA −0.39, India +0.38, China +0.25, Japan −0.48. Mean 0.295.
+- **Root causes, coefficients deliberately not tuned yet:**
+  - The tech tree has 38 techs (21 economic, the latest dated 1913), and Britain has adopted all of them by 1913 → **TECH-01**.
+  - The Meiji window never fires because shogunate legitimacy recovers to ~55 → **HIST-JAP-01**.
+  - Indian growth comes from a near tripling of plantations, not TFP.
+  - CG-28 requested (MSG-042).
+- Local: tsc 0; `npm test` **29/29 files, 328 tests** (see commit); build 0.
+
+---
+
 ## 2026-11-22 — ECON-GROWTH slice 1 (MPD2023 targets) + CG18-03 nested state contract
 
 - **CG18-03 (commit `d05da24`):** `src/engine/stateContract.ts` holds domain validators for regions, countries, markets, wars/treaties/projects/territory log, and history/divergence/counters/decisions/log.

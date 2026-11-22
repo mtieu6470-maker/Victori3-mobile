@@ -15,6 +15,8 @@ const tickInt = (v: unknown) => Number.isSafeInteger(v) && (v as number) >= 0;
 
 function obj(v: unknown, path: string): Obj { if (!isObj(v)) fail(path, 'must be an object'); return v as Obj; }
 function arr(v: unknown, path: string): unknown[] { if (!Array.isArray(v)) fail(path, 'must be an array'); return v as unknown[]; }
+function numOrNull(v: unknown, path: string) { if (v !== null && !fin(v)) fail(path, 'must be a finite number or null'); }
+function count(v: unknown, path: string) { if (!tickInt(v)) fail(path, 'must be a non-negative integer count'); }
 function str(v: unknown, path: string) { if (typeof v !== 'string') fail(path, 'must be a string'); }
 function strOrNull(v: unknown, path: string) { if (v !== null && typeof v !== 'string') fail(path, 'must be a string or null'); }
 function bool(v: unknown, path: string) { if (typeof v !== 'boolean') fail(path, 'must be a boolean'); }
@@ -32,7 +34,7 @@ export function validateRegionRecord(v: unknown, path: string): void {
   const r = obj(v, path);
   for (const k of ['id', 'owner', 'controller', 'culture', 'religion', 'terrain'] as const) str(r[k], `${path}.${k}`);
   strOrNull(r.culture2, `${path}.culture2`);
-  nonNeg(r.pop, `${path}.pop`); num(r.c2, `${path}.c2`); nonNeg(r.area, `${path}.area`); nonNeg(r.output, `${path}.output`);
+  nonNeg(r.pop, `${path}.pop`); num(r.c2, `${path}.c2`); nonNeg(r.area, `${path}.area`); nonNeg(r.output, `${path}.output`); if (r.outputReal !== undefined) nonNeg(r.outputReal, `${path}.outputReal`);
   const strata = arr(r.strata, `${path}.strata`);
   if (strata.length !== STRATA.length) fail(`${path}.strata`, `must have ${STRATA.length} entries`);
   strata.forEach((x, i) => nonNeg(x, `${path}.strata[${i}]`));
@@ -64,9 +66,19 @@ export function validateCountryRecord(id: string, v: unknown, path: string): voi
     str(r.group, `${path}.reform.group`); str(r.value, `${path}.reform.value`); num(r.progress, `${path}.reform.progress`); tick(r.startedTick, `${path}.reform.startedTick`);
   }
   if (c.regimeChangedAt !== null) num(c.regimeChangedAt, `${path}.regimeChangedAt`);
-  const leader = obj(c.leader, `${path}.leader`); str(leader.name, `${path}.leader.name`); num(leader.since, `${path}.leader.since`);
-  if (c.heir !== null) str(obj(c.heir, `${path}.heir`).name, `${path}.heir.name`);
-  for (const k of ['legitimacy', 'radicalism', 'treasury', 'taxRate', 'statePool', 'privatePool', 'gdp', 'income', 'expense', 'tariffIncome', 'prestige', 'infamy', 'warExhaustion', 'foreignPressure'] as const) num(c[k], `${path}.${k}`);
+  // CG18-04: every required Leader / heir field.
+  const leader = obj(c.leader, `${path}.leader`);
+  str(leader.name, `${path}.leader.name`); numOrNull(leader.born, `${path}.leader.born`); num(leader.since, `${path}.leader.since`); bool(leader.historical, `${path}.leader.historical`);
+  if (leader.female !== undefined) bool(leader.female, `${path}.leader.female`);
+  for (const k of ['diesOn', 'termEnds'] as const) if (leader[k] !== undefined) strOrNull(leader[k], `${path}.leader.${k}`);
+  if (c.heir !== null) {
+    const heir = obj(c.heir, `${path}.heir`);
+    str(heir.name, `${path}.heir.name`); numOrNull(heir.born, `${path}.heir.born`); bool(heir.female, `${path}.heir.female`);
+  }
+  // CG18-04: legitimacy is a 0..100 score (clamped wherever it changes); radicalism a 0..1 share.
+  if (!fin(c.legitimacy) || c.legitimacy < 0 || c.legitimacy > 100) fail(`${path}.legitimacy`, 'must be within 0..100');
+  unit(c.radicalism, `${path}.radicalism`);
+  for (const k of ['treasury', 'taxRate', 'statePool', 'privatePool', 'gdp', 'income', 'expense', 'tariffIncome', 'prestige', 'infamy', 'warExhaustion', 'foreignPressure'] as const) num(c[k], `${path}.${k}`);
   nonNeg(c.debt, `${path}.debt`);
   if (!fin(c.productivity) || c.productivity <= 0) fail(`${path}.productivity`, 'must be a finite positive number');
   unit(c.famine, `${path}.famine`);
@@ -143,17 +155,33 @@ export function validateWarsAndTreaties(st: Obj): void {
   });
 }
 
+const YEAR_STAT_KEYS = ['y', 'pop', 'gdp', 'army', 'navy', 'literacy', 'power', 'regions', 'legitimacy'] as const;
+
 export function validateHistoryAndCounters(st: Obj): void {
   for (const [id, rows] of Object.entries(obj(st.history, 'history'))) {
-    arr(rows, `history.${id}`).forEach((x, i) => { const row = obj(x, `history.${id}[${i}]`); for (const [k, v] of Object.entries(row)) num(v, `history.${id}[${i}].${k}`); });
+    // CG18-04: every required YearStat key must be present and finite.
+    arr(rows, `history.${id}`).forEach((x, i) => {
+      const row = obj(x, `history.${id}[${i}]`);
+      for (const k of YEAR_STAT_KEYS) num(row[k], `history.${id}[${i}].${k}`);
+      if (!Number.isSafeInteger(row.y)) fail(`history.${id}[${i}].y`, 'must be an integer year');
+    });
   }
   const dv = obj(st.divergence, 'divergence');
   for (const [k, x] of Object.entries(obj(dv.milestones, 'divergence.milestones'))) oneOf(obj(x, `divergence.milestones.${k}`).status, ['pending', 'achieved', 'missed'], `divergence.milestones.${k}.status`);
-  arr(dv.entries, 'divergence.entries').forEach((x, i) => { const e = obj(x, `divergence.entries[${i}]`); str(e.text, `divergence.entries[${i}].text`); tick(e.tick, `divergence.entries[${i}].tick`); });
+  arr(dv.entries, 'divergence.entries').forEach((x, i) => {
+    const p = `divergence.entries[${i}]`; const e = obj(x, p);
+    tick(e.tick, `${p}.tick`); str(e.date, `${p}.date`); str(e.kind, `${p}.kind`); str(e.text, `${p}.text`); strings(e.actors, `${p}.actors`);
+  });
+  for (const [k, x] of Object.entries(obj(dv.milestones, 'divergence.milestones'))) {
+    const m = obj(x, `divergence.milestones.${k}`);
+    if (m.date !== undefined) str(m.date, `divergence.milestones.${k}.date`);
+    if (m.credit !== undefined) num(m.credit, `divergence.milestones.${k}.credit`);
+  }
   arr(dv.similarity, 'divergence.similarity').forEach((x, i) => { const s = obj(x, `divergence.similarity[${i}]`); for (const k of ['territorial', 'milestones', 'combined'] as const) num(s[k], `divergence.similarity[${i}].${k}`); });
   const c = obj(st.counters, 'counters');
-  for (const k of ['systemRuns', 'aiActions', 'aiActionsByCountry'] as const) numRecord(c[k], `counters.${k}`, nonNeg);
-  nonNeg(c.decisionWindowsFired, 'counters.decisionWindowsFired'); nonNeg(c.historicalBiasApplied, 'counters.historicalBiasApplied');
+  // CG18-04 (P3): counters are integer counts.
+  for (const k of ['systemRuns', 'aiActions', 'aiActionsByCountry'] as const) numRecord(c[k], `counters.${k}`, count);
+  count(c.decisionWindowsFired, 'counters.decisionWindowsFired'); count(c.historicalBiasApplied, 'counters.historicalBiasApplied');
   strings(st.firedEvents, 'firedEvents');
   arr(st.pendingPlayerDecisions, 'pendingPlayerDecisions').forEach((x, i) => {
     const p = `pendingPlayerDecisions[${i}]`; const d = obj(x, p);

@@ -482,12 +482,17 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const mk = marketOf(st, c); const p = st.marketPrices[mk]; const short = marketShort[mk];
     const Av = valueProductivity(c);
     let value = k.services * Math.pow(Math.max(0, c.productivity), PRODUCTIVITY_ELASTICITY.services);
+    // ECON-GROWTH (MSG-041): real value added at constant base prices (index 1 = 1836 base) next to
+    // the nominal figure, so growth can be compared with real-GDP benchmarks (MPD2023).
+    let valueReal = value;
     for (const g of GOODS) {
       // k.supply contains base output plus realized factory output; inputsNeed contains
       // only intermediate inputs actually consumed by factories that could operate.
       value += (k.supply[g] - k.inputsNeed[g]) * p[g] * Av;
+      valueReal += (k.supply[g] - k.inputsNeed[g]) * Av; // every 1836 base price index is 1 (init.ts BASE_PRICES)
     }
     r.output = Math.max(0, value) / 12;
+    r.outputReal = Math.max(0, valueReal) / 12;
     r.employment = k.employment;
 
     // A fixed share of value added becomes wages; skill and class determine the wage premium.

@@ -98,7 +98,8 @@ export interface Country {
   capital: string;
   laws: Laws; reform: Reform | null; regimeChangedAt: number | null; govLabel: string;
   leader: Leader; heir: { name: string; born: number | null; female: boolean } | null;
-  legitimacy: number; radicalism: number; // 0..1 share of population radical
+  legitimacy: number; // 0..100 score
+  radicalism: number; // 0..1 share of population radical
   igs: Record<IG, { clout: number; approval: number }>;
   treasury: number; debt: number; taxRate: number; budget: Budget;
   /** Separate construction investment balances. */
@@ -128,6 +129,8 @@ export interface Region {
   buildings: Record<Building, number>; res: string[]; terrain: string; coastal: boolean; area: number;
   devastation: number; blight: { until: number; severity: number } | null; epidemic: { until: number; rate: number } | null;
   output: number; // value added last month (GBP-equivalent units)
+  /** Value added last month at constant 1836 base prices (real); absent in older saves. */
+  outputReal?: number;
   /** Absolute employed population and monthly wage per worker, indexed by STRATA. Optional for legacy saves. */
   employment?: number[];
   wages?: number[];
