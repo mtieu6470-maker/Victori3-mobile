@@ -192,6 +192,8 @@ export interface GameState {
   marketStats: Record<string, Record<Good, MarketGoodStats>>;
   /** Construction projects in state/private queues; normalized from legacy saves. */
   constructionProjects: ConstructionProject[];
+  /** IND-02a operating state of building sites, keyed `${regionId}|${building}`; normalized from older saves. */
+  industry: Record<string, import('./systems/industry').SiteOps>;
   log: LogEntry[];
   territoryLog: TerritoryChange[];
   history: Record<string, YearStat[]>;

@@ -47,6 +47,21 @@ export function worldDataFingerprint(): string | undefined {
   return value;
 }
 
+/** IND-02a: site operating records must be finite and in range; never repaired silently. */
+export function validateIndustryState(st: GameState): void {
+  const ind = (st as { industry?: unknown }).industry;
+  if (!ind || typeof ind !== 'object' || Array.isArray(ind)) throw new Error('Save state has an invalid industry record');
+  for (const [key, ops] of Object.entries(ind as Record<string, unknown>)) {
+    const o = ops as Record<string, unknown> | null;
+    const okNum = (v: unknown, min = 0) => typeof v === 'number' && Number.isFinite(v) && v >= min;
+    if (!o || typeof o !== 'object' || !/^[^|]+\|[a-z_]+$/.test(key) ||
+        !okNum(o.util) || (o.util as number) > 1 || !okNum(o.reserves) || !okNum(o.lossStreak) || !okNum(o.gainStreak) ||
+        !okNum(o.idleMonths) || !okNum(o.revenue) || !okNum(o.cost)) {
+      throw new Error(`Invalid industry site record ${key}`);
+    }
+  }
+}
+
 /** SAVE-01 / B4-R1: the RNG state must be four uint32 words, not all zero; missing RNG fails closed. */
 export function validateRngState(st: GameState): void {
   const rng = (st as { rng?: unknown }).rng;
@@ -75,6 +90,7 @@ export function serialize(st: GameState, meta: SaveMeta = {}): string {
   validatePopulationState(st);
   validateClockState(st);
   validateRngState(st);
+  validateIndustryState(st);
   const envelope: Record<string, unknown> = {
     format: SAVE_FORMAT,
     version: SAVE_SCHEMA_VERSION,
@@ -92,6 +108,8 @@ export function serialize(st: GameState, meta: SaveMeta = {}): string {
 function normalizeLegacyFields(st: GameState): void {
   st.marketStats ??= {};
   st.constructionProjects ??= [];
+  // IND-02a: saves written before site operations existed start with every site fully operating.
+  st.industry ??= {};
   for (const country of Object.values(st.countries ?? {})) {
     country.statePool ??= 0;
     country.privatePool ??= 0;
@@ -181,6 +199,8 @@ export function deserializeWithMeta(text: string): { state: GameState; meta: Sav
   }
   if (typeof envelope.savedAtHour === 'number') meta.savedAtHour = envelope.savedAtHour;
   validateRngState(st);
+  st.industry ??= {};
+  validateIndustryState(st);
 
   if (envelope.version === 1) return { state: migrateV2ToV3(migrateV1ToV2(st)), meta };
 

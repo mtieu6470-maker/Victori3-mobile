@@ -1,3 +1,20 @@
+## 2026-11-22 — IND-02a profit-responsive site operations (implemented, OFF by default) + calibration finding ECON-CAL-01
+
+- **Mechanism** (`src/engine/systems/industry.ts`, wired in `economy.ts`):
+  - Every plantation, mine, logging camp and factory site keeps utilization, cash reserves, loss/gain streaks and an idle state.
+  - Monthly profit = output × market price (already depressed under oversupply, per CG-17) − input cost − wages.
+  - Sustained losses that the reserve buffer cannot carry cut utilization (15%/step, idle below 10%). Sustained profit with full sell-through rehires (+10%/step). Idle sites reopen only after 3 months and a shortage signal.
+  - State lives in `GameState.industry` (normalized for old saves, validated on save/load).
+- **Measured with it ON** (historical, seed 1): it idles ~98% of textile mills and tool works within a year.
+  - Root cause: price/recipe calibration, not the mechanism. All goods have base price 1; the London cotton price is 2.50 vs textiles 0.67 (cottage glut, scarce raw-cotton imports); the London textile mill had revenue 22.5M vs cost 51.8M per month.
+  - A first revenue variant (pro-rata sell-through) was worse and was replaced by price-based revenue.
+- **Decision:** ship it behind `ECONOMY_FLAGS.siteOperations = false` so simulation results are unchanged. Prerequisite **ECON-CAL-01**: per-good base prices/recipe ratios, raw-material import access, market-responsive cottage/subsistence production.
+- **Tests:** `tests/site-operations.test.ts` (11) — CG-19 scenarios 02/03/04/06/07/09 on the pure decision, plus integration with the flag on (ledger closed, population valid, determinism, save round trip, corrupt record rejected) and flag-off default.
+- **Local:** tsc 0; `npm test` exit 0, **25/25 files, 241/241 tests**; build 0.
+- **MSG-009:** asks ChatGPT for CG-20 (1830s relative prices and input ratios from public-domain 19th-century statistical works: Baines, Porter, Tooke, McCulloch).
+
+---
+
 ## 2026-11-22 — CG18-01 fixed: worker reply schema validation
 
 - ChatGPT CG-18 re-review: 4/5 CG-16 fix groups verified statically. One P2 remained: worker replies were checked only shallowly.

@@ -4,6 +4,7 @@ import { data } from '../data/db';
 import { GOODS, STRATA, S, type Country, type GameState, type Good, type Region, type Building, type MarketGoodStats, type ConstructionFunding, type ConstructionProject } from '../types';
 import { clamp, log, newId } from '../core';
 import { regionsOf } from '../cache';
+import { decideSite, ECONOMY_FLAGS, newSiteOps, siteKey, type SiteOps } from './industry';
 
 export const OPENNESS: Record<string, number> = { isolationism: 0.03, protectionism: 0.3, free_trade: 0.7 };
 const TARIFF: Record<string, number> = { isolationism: 0.35, protectionism: 0.2, free_trade: 0.04 };
@@ -49,6 +50,16 @@ interface RegionCalc {
   employment: number[];
   grainLocal: number;
   grainNeed: number;
+  /** IND-02a: what each building site produced, consumed and employed this month. */
+  sites: SiteCalc[];
+}
+interface SiteCalc { b: Building; outputs: Partial<Record<Good, number>>; inputs: Partial<Record<Good, number>>; workers: number; stratum: number; plannedFactoryOut?: number }
+
+/** Utilization of a site decided last month (1 when the site has no operating record yet). */
+function siteUtil(st: GameState, regionId: string, b: Building): number {
+  if (!ECONOMY_FLAGS.siteOperations) return 1;
+  const ops = st.industry?.[siteKey(regionId, b)];
+  return ops ? ops.util : 1;
 }
 interface MarketAggregate { s: Record<Good, number>; dm: Record<Good, number>; open: number; members: string[] }
 interface MarketClearing {
@@ -147,7 +158,8 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const grain = agriWorkers * 650 * terr * (1 + (r.res.includes('grain') ? 0.15 : 0) + (r.res.includes('live') ? 0.05 : 0)) * (1 + techEffect(c, 'farm_efficiency')) * infra * A * dev * blight * occupied;
     supply.grain += grain;
     // plantations
-    const plantCap = r.buildings.plantation * LEVEL_WORKERS;
+    const sites: SiteCalc[] = [];
+    const plantCap = r.buildings.plantation * LEVEL_WORKERS * siteUtil(st, r.id, 'plantation');
     const plantWorkers = Math.min(plantCap, LF * (sh[S.slaves] + 0.25 * sh[S.laborers]));
     const plantSlaveWorkers = Math.min(plantWorkers, LF * sh[S.slaves]);
     const plantLaborerWorkers = Math.max(0, plantWorkers - plantSlaveWorkers);
@@ -155,22 +167,28 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     if (plantWorkers > 0) {
       const kinds: Good[] = []; if (r.res.includes('cott')) kinds.push('cotton'); if (r.res.includes('opium')) kinds.push('opium'); if (r.res.includes('cash')) kinds.push('cash_crops');
       if (!kinds.length) kinds.push('cash_crops');
-      for (const k of kinds) supply[k] += (plantWorkers * 900 * A * infra * dev * occupied) / kinds.length;
+      const outputs: Partial<Record<Good, number>> = {};
+      for (const k of kinds) { const q = (plantWorkers * 900 * A * infra * dev * occupied) / kinds.length; supply[k] += q; outputs[k] = (outputs[k] ?? 0) + q; }
+      sites.push({ b: 'plantation', outputs, inputs: {}, workers: plantWorkers, stratum: plantSlaveWorkers >= plantLaborerWorkers ? S.slaves : S.laborers });
     }
     // slaves outside plantations work the fields
     supply.grain += Math.max(0, LF * sh[S.slaves] - plantWorkers) * 500 * terr * A * dev;
     // mines and logging
     const laborAvailable = Math.max(0, LF * sh[S.laborers] - employment[S.laborers]);
-    const mineWorkers = Math.min(r.buildings.mine * LEVEL_WORKERS, laborAvailable * 0.6);
+    const mineWorkers = Math.min(r.buildings.mine * LEVEL_WORKERS * siteUtil(st, r.id, 'mine'), laborAvailable * 0.6);
     employment[S.laborers] += mineWorkers;
     if (mineWorkers > 0) {
       const kinds: Good[] = []; if (r.res.includes('coal')) kinds.push('coal'); if (r.res.includes('iron')) kinds.push('iron'); if (r.res.includes('gold') || r.res.includes('silv')) kinds.push('luxury');
       if (!kinds.length) kinds.push('iron');
-      for (const k of kinds) supply[k] += (mineWorkers * 900 * (1 + techEffect(c, 'mine_efficiency')) * A * infra * dev * occupied) / kinds.length;
+      const outputs: Partial<Record<Good, number>> = {};
+      for (const k of kinds) { const q = (mineWorkers * 900 * (1 + techEffect(c, 'mine_efficiency')) * A * infra * dev * occupied) / kinds.length; supply[k] += q; outputs[k] = (outputs[k] ?? 0) + q; }
+      sites.push({ b: 'mine', outputs, inputs: {}, workers: mineWorkers, stratum: S.laborers });
     }
-    const logWorkers = Math.min(r.buildings.logging * LEVEL_WORKERS, Math.max(0, LF * sh[S.laborers] - employment[S.laborers]));
+    const logWorkers = Math.min(r.buildings.logging * LEVEL_WORKERS * siteUtil(st, r.id, 'logging'), Math.max(0, LF * sh[S.laborers] - employment[S.laborers]));
     employment[S.laborers] += logWorkers;
-    supply.timber += logWorkers * 900 * A * dev * occupied + LF * sh[S.peasants] * 15 * A; // farm-side timber
+    const loggedTimber = logWorkers * 900 * A * dev * occupied;
+    supply.timber += loggedTimber + LF * sh[S.peasants] * 15 * A; // farm-side timber
+    if (logWorkers > 0) sites.push({ b: 'logging', outputs: { timber: loggedTimber }, inputs: {}, workers: logWorkers, stratum: S.laborers });
     // Factories compete for the same worker pool. Allocate scarce workers proportionally
     // across requested factory jobs instead of giving the first RECIPES entry priority.
     const factoryBuildings = Object.keys(RECIPES) as Building[];
@@ -186,7 +204,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const facEff = 1 + techEffect(c, 'factory_efficiency');
     for (const b of factoryBuildings) {
       const rec = RECIPES[b]!;
-      const w = Math.max(0, r.buildings[b]) * LEVEL_WORKERS * factoryStaffing;
+      const w = Math.max(0, r.buildings[b]) * LEVEL_WORKERS * factoryStaffing * siteUtil(st, r.id, b);
       factoryWorkersEmployed += w;
       if (w <= 0) continue;
       const eff = facEff * (1 + (b === 'textile_mill' ? techEffect(c, 'textile_efficiency') : b === 'ironworks' ? techEffect(c, 'iron_efficiency') + techEffect(c, 'steel_efficiency') : b === 'arms_works' ? techEffect(c, 'arms_efficiency') : 0));
@@ -194,11 +212,15 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
       factoryOut[rec.out] += out;
       factoryWorkersByGood[rec.out] = (factoryWorkersByGood[rec.out] ?? 0) + w;
       const recipeInputs = (factoryInputs[rec.out] ??= {});
+      const siteInputs: Partial<Record<Good, number>> = {};
       for (const [g, q] of Object.entries(rec.inputs)) {
         const input = g as Good;
         const amount = out * (q as number);
         recipeInputs[input] = (recipeInputs[input] ?? 0) + amount;
+        siteInputs[input] = amount;
       }
+      // Planned figures; scaled by realized input availability after the production stages.
+      sites.push({ b, outputs: { [rec.out]: out }, inputs: siteInputs, workers: w, stratum: S.workers, plannedFactoryOut: out });
     }
     employment[S.workers] = factoryWorkersEmployed;
     // artisans (cottage industry)
@@ -231,7 +253,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     demand.coal += r.pop * 1.5 * wealth;
     demand.opium += r.pop * (c.id === 'QNG' ? 0.6 : 0.03);
     const marketId = marketOf(st, c);
-    calc[i] = { supply, demand, services: svc, inputsNeed, factoryOut, factoryInputs, factoryWorkersByGood, marketId, employment, grainLocal: grain, grainNeed };
+    calc[i] = { supply, demand, services: svc, inputsNeed, factoryOut, factoryInputs, factoryWorkersByGood, marketId, employment, grainLocal: grain, grainNeed, sites };
     const mk = marketId;
     const m = (markets[mk] ??= { s: zero(), dm: zero(), open: 0, members: [] });
     for (const g of GOODS) { m.s[g] += supply[g]; m.dm[g] += demand[g]; }
@@ -273,6 +295,8 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     }
   }
 
+  // IND-02a: planned factory output per region and good, to derive each site's realized share.
+  const plannedFactoryTotals = calc.map((k) => (k ? { ...k.factoryOut } : null));
   // Resolve factories in dependency stages. All factories in one stage share the same
   // market-clearing snapshot. After the snapshot, replace that stage's planned input demand
   // with actual consumption so later stages do not reserve inputs that were never consumed.
@@ -399,6 +423,8 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     r.sol = calibrate ? target : r.sol * 0.85 + target * 0.15;
     (r as Region & { famine?: number }).famine = famine;
   }
+  // ---- 3b. IND-02a: site profitability and next month's utilization (not during calibration)
+  if (!calibrate && ECONOMY_FLAGS.siteOperations) updateSiteOperations(st, calc, plannedFactoryTotals);
   // ---- 4. calibration: productivity so that GDP matches the Maddison-based starting value
   if (calibrate) {
     for (const c of Object.values(st.countries)) {
@@ -846,4 +872,65 @@ export function marketLedgerAudit(st: GameState): { worstMarketResidual: number;
   let worstWorldGap = 0;
   for (const good of Object.keys(imp)) worstWorldGap = Math.max(worstWorldGap, Math.abs(imp[good] - exp[good]) / Math.max(1, imp[good]));
   return { worstMarketResidual, worstWorldGap, negative };
+}
+
+
+/**
+ * IND-02a: monthly profit of every building site from realized sales (market sell-through), actual
+ * input use and wages, then the next month's utilization decision (industry.ts). Sites whose
+ * building no longer exists are dropped.
+ */
+function updateSiteOperations(st: GameState, calc: RegionCalc[], plannedFactoryTotals: (Record<Good, number> | null)[]): void {
+  const next: Record<string, SiteOps> = {};
+  for (let i = 0; i < st.regions.length; i++) {
+    const r = st.regions[i]; const c = st.countries[r.owner]; const k = calc[i];
+    if (!c || !k) continue;
+    const stats = st.marketStats[k.marketId]; const prices = st.marketPrices[k.marketId];
+    if (!stats || !prices) continue;
+    const Av = Math.pow(c.productivity, 0.45);
+    const seen = new Set<Building>();
+    for (const site of k.sites) {
+      seen.add(site.b);
+      // Factories: scale planned output/inputs by the realized share of this region's planned output.
+      let realized = 1;
+      if (site.plannedFactoryOut !== undefined) {
+        const good = Object.keys(site.outputs)[0] as Good;
+        const planned = plannedFactoryTotals[i]?.[good] ?? 0;
+        realized = planned > 0 ? clamp(k.factoryOut[good] / planned, 0, 1) : 0;
+      }
+      let revenue = 0; let sell = 0; let supplyW = 0; let shortage = 0;
+      for (const [g, q] of Object.entries(site.outputs)) {
+        const good = g as Good; const qty = (q ?? 0) * realized; const s = stats[good];
+        const through = s && s.supply > 0 ? clamp(((s.used ?? s.supply) + (s.exports ?? 0)) / s.supply, 0, 1) : 1;
+        // Output is sold at the market price, which already falls under oversupply (CG-17: surplus
+        // sells at depressed prices). Sell-through only gates expansion; it does not ration this
+        // site's revenue, so a glut made by other producers (e.g. cottage industry) is priced in once.
+        revenue += (qty * prices[good] * Av) / 12;
+        sell += through * qty; supplyW += qty; shortage = Math.max(shortage, s?.short ?? 0);
+      }
+      let inputCost = 0;
+      for (const [g, q] of Object.entries(site.inputs)) inputCost += ((q ?? 0) * realized * prices[g as Good] * Av) / 12;
+      const wages = site.workers * realized * Math.max(0, r.wages?.[site.stratum] ?? 0);
+      const cost = inputCost + wages;
+      const key = siteKey(r.id, site.b);
+      const prev = st.industry[key] ?? newSiteOps(cost);
+      next[key] = decideSite(prev, { revenue, cost, sellThrough: supplyW > 0 ? sell / supplyW : 1, shortage });
+    }
+    // Idle sites produce nothing this month but keep their record (and may reopen).
+    for (const b of Object.keys(r.buildings) as Building[]) {
+      const key = siteKey(r.id, b);
+      const prev = st.industry[key];
+      if (!prev || seen.has(b) || r.buildings[b] <= 0) continue;
+      if (prev.util <= 0) {
+        let shortage = 0;
+        const rec = RECIPES[b];
+        const goods: Good[] = rec ? [rec.out] : b === 'logging' ? ['timber'] : b === 'mine' ? ['coal', 'iron', 'luxury'] : ['cash_crops', 'cotton', 'opium'];
+        for (const g of goods) shortage = Math.max(shortage, stats[g]?.short ?? 0);
+        next[key] = decideSite(prev, { revenue: 0, cost: 0, sellThrough: 1, shortage });
+      } else {
+        next[key] = prev; // staffed by nobody this month (no labour): keep state unchanged
+      }
+    }
+  }
+  st.industry = next;
 }

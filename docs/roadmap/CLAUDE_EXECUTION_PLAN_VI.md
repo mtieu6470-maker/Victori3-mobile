@@ -115,7 +115,8 @@ UX/content:      UI-01 read models ─ UI-02 map lenses/inspector ─ PACK-01..0
 | ECON-02 | Buy/sell orders, local market prices, market access | Claude (+CG-01) | ECON-01 | P0 | NOT_STARTED |
 | ECON-03 | World Market + Trade Centers (sở hữu, capacity, World Market Access, hub chính/dự phòng), TradeFlow, tariffs, blockade; SupplyRoute quân sự là ledger riêng (thay mô hình trade route cũ, theo CG-01) | Claude | ECON-02, CLOCK-03 | P1 | NOT_STARTED |
 | IND-01 | Building types/sites + selectable Production Methods | Claude (+CG-03) | ECON-01 | P0 | NOT_STARTED |
-| IND-02 | Jobs, qualifications, hiring/firing, wages | Claude (+CG-03) | IND-01, POP-01 | P0 | NOT_STARTED |
+| IND-02 | Jobs, qualifications, hiring/firing, wages. **IND-02a 2026-11-22:** site operations phản ứng lợi nhuận (`src/engine/systems/industry.ts`) — IMPLEMENTED nhưng **TẮT mặc định** chờ ECON-CAL-01 | Claude (+CG-03, CG-17, CG-19) | IND-01, POP-01 | P0 | PARTIAL |
+| ECON-CAL-01 | Hiệu chỉnh base price theo hàng + tỷ lệ recipe + quyền nhập nguyên liệu + sản xuất thủ công/tự cung phản ứng thị trường; điều kiện bật IND-02a | Claude (+CG-20 nguồn PD thế kỷ 19) | ECON-01a | P0 | NEXT |
 | IND-03 | Ownership, companies, dividends, investment pool | Claude (+CG-03) | IND-02 | P1 | NOT_STARTED |
 | IND-04 | Construction sectors/queue/cost | Claude | IND-01, FIN-01 | P1 | NOT_STARTED |
 | FIN-01 | Treasury ledger, taxes, debt/credit, default | Claude | IND-02 | P0 | NOT_STARTED |
