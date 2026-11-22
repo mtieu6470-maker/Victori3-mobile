@@ -170,3 +170,34 @@ Two exact-type coat-of-arms candidates were added to the research register after
 Result: strict verified sovereign count rises to **17/40**. CSV remains 332 rows; unknown asset rows now **315/332**. Current CSV blob SHA: `5ace2a6470a0570f4e49e881b804408b3ec1b6f5`.
 
 Ecuador (1835 decree with 1836 sanction) and Bremen (1562 historical arms photograph) remain candidates pending exact confirmation of the emblem's legal/formal status on 1 January 1836; they are not counted in 17/40. Do not begin HY-04.
+
+
+## Additional HY-01 v2 audit — Liechtenstein, San Marino, Qajar Persia, Belgium and Bolivia (2026-11-22)
+
+### Strictly accepted in this pass
+
+- **LIE coat of arms:** Commons file page dates the depiction to the 19th century and marks it public domain as an official work of a Liechtenstein public-law corporation. The Princely House states the House arms have been considered the large national arms since the principality was created in 1719. Use as historical reference; current insignia use is legally restricted.
+- **SMR coat of arms:** Städel Museum drawing by Johann Anton Ramboux dated between 1818 and 1843, a period interval that includes 1 January 1836. The museum copyright holder applied Public Domain Mark 1.0. This is a contemporary-period drawing, not the later standardized official vector.
+- **PRS national flag / banner:** Commons file page records Gaspard Drouville's Persian banner drawing, dated 1825 and sourced to *Voyage en Perse* (1825), vol. II, p. 118; PD in Iran. Encyclopaedia Iranica independently confirms early Qajar use of lion-and-sun banners and cites Drouville's 1812–13 observations. Treat as a period banner reference; early Qajar standards were not a single uniform national-flag design.
+- **BEL national flag:** Commons constitutional-flag file describes the 1831 Belgian constitutional flag and dates the reconstruction 7 February 1831; PD-ineligible/common-property design. Use the 1831 vertical tricolour reference for 1836, not the horizontal provisional-government flag of 1830.
+- **BOL national flag:** Commons file records the Bolivian flag 1826–1851, covering 1 January 1836; public-domain author release, with PD-Bolivia/PD-ineligible tags. Distinguish this flag from the separate Peru–Bolivian Confederation flag (1836–1839).
+
+### CSV state
+
+- CSV rows: **334**.
+- Sovereign polity IDs in this dataset: **60**.
+- Strict verified sovereign polity count by the register's current non-unknown source/license fields: **23/60**.
+- Verified IDs: AFG, BEL, BOL, BRE, CHL, DEN, ECU, GRE, HAW, HAM, HER, LIE, MOR, PEU, PRS, PRU, SAR, SIA, SMR, SPA, SWE, URU, USA.
+- CSV blob SHA: `a0b0b685a90837121322694d6a6079750465d35e`.
+- The new additions are in existing gap rows where present; two additional asset rows (BEL national_flag and BOL national_flag) were appended. No rows were deleted.
+
+### Still not accepted
+
+- **Sulu:** Commons has an "18th Century Flag of Sulu" file, but its file page lacks a sufficiently clear historical source for the reconstruction; keep candidate, not verified.
+- **Sokoto:** Commons itself warns the flag depiction is unconfirmed and lacks source information; do not count.
+- **Bukhara:** Commons file's source references a 1929 frontispiece / secondary page; not sufficient to establish the exact 1836 flag. Do not count.
+- **Dahomey:** Ghezo banner reconstruction is CC BY-SA 4.0 but no contemporary primary depiction/source was verified in this pass; keep candidate.
+- **Vietnam:** a commonly circulated Nguyễn flag file explicitly labels itself fictitious/unofficial; do not use it.
+- **Swiss Confederation:** the Swiss Federal Archives says the cross did not become the official national emblem until 1889; the 1815 banner is a historical military/federal symbol, not evidence of an official 1836 national coat of arms.
+
+HY-01 remains OPEN: 23/60 is below the ≥40 sovereign-polity acceptance threshold. Do not start HY-04.
