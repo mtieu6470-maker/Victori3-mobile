@@ -186,6 +186,29 @@ export function lawReservedByHistory(st: GameState, c: Country, group: LawGroup)
   return false;
 }
 
+/**
+ * Explicit modernisation rank of each law value (CATCHUP-01 review round 2: no array-order inference).
+ * Used only for the personality-driven reformism preference: a change to a higher rank is "progressive".
+ * Groups without a clear modernisation direction (trade, economy, army) are ranked by the period's
+ * liberal-reform agenda, documented here so the meaning is reviewable rather than implied by order.
+ */
+export const LAW_MODERNISATION_RANK: Record<LawGroup, Record<string, number>> = {
+  power: { autocracy: 0, oligarchy: 1, census_suffrage: 2, universal_male_suffrage: 3 },
+  economy: { traditionalism: 0, mercantilism: 1, interventionism: 2, laissez_faire: 3 },
+  trade: { isolationism: 0, protectionism: 1, free_trade: 2 },
+  labor: { slavery: 0, serfdom: 1, traditional_tenancy: 2, free_labor: 3 },
+  church: { state_religion: 0, freedom_of_conscience: 1, secularism: 2 },
+  press: { censorship: 0, limited_press: 1, free_press: 2 },
+  education: { no_schools: 0, religious_schools: 1, public_schools: 2 },
+  army: { feudal_levies: 0, professional_army: 1, mass_conscription: 2 },
+  governance: {},
+} as Record<LawGroup, Record<string, number>>;
+
+export function isProgressiveStep(group: LawGroup, from: string, to: string): boolean {
+  const rank = LAW_MODERNISATION_RANK[group] ?? {};
+  return (rank[to] ?? 0) > (rank[from] ?? 0);
+}
+
 /** CATCHUP-01: maximum utility a reform gains from international emulation (design parameter). */
 export const LAW_EMULATION = 0.3;
 
@@ -220,6 +243,26 @@ export function lawShare(st: GameState, group: LawGroup, value: string): number 
   return lawShareCache.map.get(`${group}:${value}`) ?? 0;
 }
 
+/**
+ * Utility of reforming `group` to `v` for the AI (both modes). Exported for tests: domestic support
+ * (interest-group approval weighted by clout) dominates; international emulation is a bounded pull.
+ */
+export function reformUtility(st: GameState, c: Country, g: LawGroup, v: string): number {
+  const sup = reformSupport(c, g, v);
+  const progressive = isProgressiveStep(g, c.laws[g], v);
+  // status-quo inertia; direction set by the country's reformism (both modes)
+  let u = sup * 2 + (progressive ? (c.personality.reformism - 0.45) : (0.25 - c.personality.reformism)) * 0.8 - 0.75;
+  if (c.radicalism > 0.2 && ['power', 'press', 'labor'].includes(g)) u += 0.3;
+  u += historicalBias(st, c, 'law_to', `${g}:${v}`);
+  u -= historicalBias(st, c, 'law_keep', `${g}:${c.laws[g]}`);
+  if (g === 'trade' && v === 'free_trade' && c.personality.commerce > 0.7) u += 0.2;
+  if (g === 'trade' && c.laws.trade === 'isolationism' && c.foreignPressure > 0.8) u += 0.4;
+  // CATCHUP-01 emulation (revised): a small, conditional foreign influence on an explicit
+  // modernisation step; it never replaces domestic support (sup above) and grows with exposure.
+  u += lawEmulation(st, c, g, v);
+  return u;
+}
+
 function reformAI(st: GameState, c: Country) {
   if (c.reform) return;
   let best: { g: LawGroup; v: string; u: number } | null = null;
@@ -232,18 +275,7 @@ function reformAI(st: GameState, c: Country) {
       if (c.ai.lawHistory.some((h) => h.group === g && st.tick - h.tick < 180)) continue;
       if (g === 'labor' && v === 'slavery') continue;
       if (g === 'labor' && v === 'serfdom' && c.laws.labor !== 'serfdom') continue;
-      const sup = reformSupport(c, g, v);
-      const alts = LAW_ALTERNATIVES[g]; const progressive = alts.indexOf(v) > alts.indexOf(c.laws[g]);
-      // status-quo inertia; direction set by the country's reformism (both modes)
-      let u = sup * 2 + (progressive ? (c.personality.reformism - 0.45) : (0.25 - c.personality.reformism)) * 0.8 - 0.75;
-      if (c.radicalism > 0.2 && ['power', 'press', 'labor'].includes(g)) u += 0.3;
-      u += historicalBias(st, c, 'law_to', `${g}:${v}`);
-      u -= historicalBias(st, c, 'law_keep', `${g}:${c.laws[g]}`);
-      if (g === 'trade' && v === 'free_trade' && c.personality.commerce > 0.7) u += 0.2;
-      if (g === 'trade' && c.laws.trade === 'isolationism' && c.foreignPressure > 0.8) u += 0.4;
-      // CATCHUP-01 emulation (revised): a small, conditional foreign influence on an explicit
-      // modernisation step; it never replaces domestic support (sup above) and grows with exposure.
-      u += lawEmulation(st, c, g, v);
+      const u = reformUtility(st, c, g, v);
       if (!best || u > best.u) best = { g, v, u };
     }
   }

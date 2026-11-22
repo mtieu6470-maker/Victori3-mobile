@@ -17,8 +17,13 @@ const pc = (id: string) => { const regs = st.regions.filter((r) => home[id].has(
 while (st.date.y < 1837) stepMonth(st);
 const base = Object.fromEntries(ids.map((id) => [id, pc(id)]));
 let t0 = performance.now();
-for (let y = 1850; y <= end; y += (y < 1910 ? 20 : 25)) {
-  const target = Math.min(y, end);
+// Sample years, always including the final year (MSG-050: a run labelled 1836-2022 previously ended at 2010).
+const samples: number[] = [];
+for (let y = 1850; y < end; y += (y < 1910 ? 20 : 25)) samples.push(y);
+samples.push(end);
+let prevYear = 1837;
+for (const y of samples) {
+  const target = y;
   while (st.date.y < target) stepMonth(st);
   const ms = performance.now() - t0; t0 = performance.now();
   const alive = Object.values(st.countries).filter((c) => c.alive);
@@ -26,7 +31,7 @@ for (let y = 1850; y <= end; y += (y < 1910 ? 20 : 25)) {
     year: st.date.y, worldPopM: Math.round(st.regions.reduce((s, r) => s + r.pop, 0) / 1e6), alive: alive.length,
     pcX: Object.fromEntries(ids.map((id) => [id, +(pc(id) / base[id]).toFixed(2)])),
     techs: Object.fromEntries(ids.map((id) => [id, st.countries[id]?.alive ? st.countries[id].techs.length : null])),
-    msPerMonth: +(ms / Math.max(1, (target - (y < 1910 ? y - 20 : y - 25)) * 12)).toFixed(1),
+    msPerMonth: +(ms / Math.max(1, (target - prevYear) * 12)).toFixed(1),
   }));
-  if (target >= end) break;
+  prevYear = target;
 }

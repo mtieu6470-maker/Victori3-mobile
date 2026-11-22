@@ -1,3 +1,21 @@
+## 2026-11-22 — CATCHUP-01 review round 2 fixed; CO-01 spec hardened; true 1836-2022 sandbox run
+
+- **CATCHUP-01 round 2:**
+  - GDP-weighted `knownShare`.
+  - Explicit `LAW_MODERNISATION_RANK` / `isProgressiveStep` (no array order).
+  - `reformUtility()` exported, with a domestic-feasibility test: Qing 1836 elites oppose and the world has public schools, yet utility stays below the reform threshold.
+  - `tests/catchup.test.ts` now has 11 tests.
+- `tools/longrun-report.ts` always samples the final year. Sandbox 1836–2022: 8.42 bn population in 2022, 87 ms/month.
+- Historical scorecard 2022: mean |log err| 1.328 (industrialisers 0.712). Not macro-calibrated; post-1950 needs the structural work.
+- `docs/spec/CO01_COMPANIES_AND_MONOPOLIES_VI.md` §6 (ChatGPT review):
+  - separate entity types; separate legal form / charter / market power / state fiscal monopoly;
+  - closed GDP-vs-GNI ledger; charters scoped by legal instrument;
+  - welfare costs for forced cultivation; verified-scale-only historical companies.
+- CG-30 (monopolies) and CG-31 (60 candidate companies) Phase 1 received.
+- Local: tsc 0; `npm test` **32/32 files, 349/349 tests**.
+
+---
+
 ## 2026-11-22 — CATCHUP-01 revised per ChatGPT review; CG-29 data in repo; 2022 scorecards; ECON-MONO-01 spec
 
 - **CG-29 data:** `tools/data/extract_benchmarks.py` and `docs/research/data/` hold MPD2023 (publisher SHA-1 verified), OWID long-run population and UN WPP2024 extracts, with a manifest (URLs, licences, SHA-256). The 41 CG-26 values match exactly. `tests/benchmark-data.test.ts`.

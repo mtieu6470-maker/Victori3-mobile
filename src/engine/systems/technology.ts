@@ -83,12 +83,19 @@ export function technologyMonth(st: GameState, chooser: (c: Country, options: st
 }
 
 let shareCache: { tick: number; st: GameState; map: Map<string, number> } | null = null;
-function knownShare(st: GameState, id: string): number {
+/**
+ * Share of the world economy (GDP-weighted, CATCHUP-01 review round 2) that already uses a technology.
+ * Equal country weights let a dozen micro-states count like the great powers; knowledge available to
+ * imitate scales with the economic weight of its users. Cached per month.
+ */
+export function knownShare(st: GameState, id: string): number {
   if (!shareCache || shareCache.tick !== st.tick || shareCache.st !== st) {
     const alive = Object.values(st.countries).filter((x) => x.alive && !x.decentralized);
+    const weight = (x: Country) => Math.max(0, Number.isFinite(x.gdp) ? x.gdp : 0);
+    const total = alive.reduce((s, x) => s + weight(x), 0);
     const map = new Map<string, number>();
-    for (const c of alive) for (const t of c.techs) map.set(t, (map.get(t) ?? 0) + 1);
-    for (const [k, v] of map) map.set(k, v / Math.max(1, alive.length));
+    for (const c of alive) for (const t of c.techs) map.set(t, (map.get(t) ?? 0) + weight(c));
+    for (const [k, v] of map) map.set(k, total > 0 ? v / total : 0);
     shareCache = { tick: st.tick, st, map };
   }
   return shareCache.map.get(id) ?? 0;

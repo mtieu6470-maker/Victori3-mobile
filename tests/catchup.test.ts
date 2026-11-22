@@ -73,3 +73,43 @@ describe('CATCHUP-01 law emulation', () => {
     expect(closed).toBeLessThan(open * 0.1);
   });
 });
+
+describe('CATCHUP-01 domestic feasibility (review round 2)', () => {
+  it('international emulation cannot carry a reform that domestic interest groups oppose', async () => {
+    const { reformUtility, LAW_EMULATION: MAX } = await import('../src/engine/ai/ai');
+    const { reformSupport } = await import('../src/engine/systems/politics');
+    const st = fresh(); const c = st.countries.QNG;
+    c.laws.education = 'religious_schools'; c.laws.trade = 'free_trade'; c.radicalism = 0;
+    const others = Object.values(st.countries).filter((x) => x !== c);
+    for (const x of others) x.laws.education = 'religious_schools';
+    st.tick += 1;
+    const isolated = reformUtility(st, c, 'education', 'public_schools');
+    for (const x of others) x.laws.education = 'public_schools';
+    st.tick += 1; // the world now overwhelmingly has public schools
+    const emulated = reformUtility(st, c, 'education', 'public_schools');
+    expect(reformSupport(c, 'education', 'public_schools')).toBeLessThan(-0.5); // Qing 1836 elites oppose
+    expect(emulated - isolated).toBeGreaterThan(0);
+    expect(emulated - isolated).toBeLessThanOrEqual(MAX + 1e-12);
+    expect(emulated).toBeLessThan(0.15); // still below the AI's reform threshold
+  });
+
+  it('the reformism preference uses the explicit modernisation rank, not array order', async () => {
+    const { isProgressiveStep } = await import('../src/engine/ai/ai');
+    expect(isProgressiveStep('education', 'religious_schools', 'public_schools')).toBe(true);
+    expect(isProgressiveStep('labor', 'free_labor', 'serfdom')).toBe(false);
+    expect(isProgressiveStep('economy', 'interventionism', 'laissez_faire')).toBe(true);
+  });
+
+  it('known share is GDP-weighted: micro-states cannot inflate it', async () => {
+    const { knownShare } = await import('../src/engine/systems/technology');
+    const st = fresh();
+    const tech = 'assembly_line';
+    for (const x of Object.values(st.countries)) x.techs = x.techs.filter((t) => t !== tech);
+    // Give the technology to every country except the ten largest economies.
+    const ranked = Object.values(st.countries).filter((x) => x.alive && !x.decentralized).sort((a, b) => b.gdp - a.gdp);
+    for (const x of ranked.slice(10)) x.techs.push(tech);
+    st.tick += 1; // invalidate the monthly cache
+    expect(ranked.length).toBeGreaterThan(50);
+    expect(knownShare(st, tech)).toBeLessThan(0.5);
+  });
+});

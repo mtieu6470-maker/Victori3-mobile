@@ -51,3 +51,24 @@ Company { id, name, kind: 'private'|'chartered'|'state', home: countryId, hq: re
 
 - **CG-30:** độc quyền có hiến chương (đã yêu cầu ở MSG-048).
 - **CG-31:** công ty lớn theo thời kỳ, 1836–2026. Cho mỗi công ty cần: năm thành lập/giải thể, quốc gia, ngành, quy mô (vốn, doanh thu, lao động) ở một vài mốc. Cần thêm các mốc luật công ty, cổ phần, trách nhiệm hữu hạn, chống trust theo nước, và nguồn.
+
+## 6. Bổ sung sau review của ChatGPT (CO01_COMPANIES_AND_MONOPOLIES_REVIEW, 2026-11-22) — bắt buộc trước khi code
+
+1. **Tách thực thể:**
+   - `LegalEntity`: pháp nhân, có ngày đăng ký/giải thể và luật thành lập;
+   - `CorporateGroup`: tập đoàn, quan hệ sở hữu giữa các pháp nhân, có ngày;
+   - `Brand`: chỉ là nhãn hiển thị;
+   - `StateEnterprise`: doanh nghiệp nhà nước, chủ sở hữu là nhà nước.
+   - Không gộp chúng thành một đối tượng `Company`. Sáp nhập và tách công ty là sự kiện có ngày trên đồ thị sở hữu.
+2. **Tách khái niệm:**
+   - hình thức pháp lý (cổ phần, trách nhiệm hữu hạn);
+   - hiến chương (đặc quyền có văn bản, mặt hàng, địa bàn, thời hạn);
+   - sức mạnh thị trường (thị phần, phụ phí; là kết quả kinh tế, không phải đặc quyền);
+   - độc quyền tài chính của nhà nước (thu ngân sách; không phải lợi nhuận công ty).
+3. **Sổ cái dòng giá trị khép kín** cho mọi khoản: doanh thu, chi phí, tiền công, địa tô độc quyền, thuế, cổ tức, chuyển về chính quốc.
+   - Test bắt buộc: tổng nguồn bằng tổng đích theo từng tháng.
+   - Phân biệt GDP (sản xuất trong lãnh thổ) với GNI (cộng thu nhập ròng từ nước ngoài). Địa tô chuyển về chính quốc làm giảm GNI và thu nhập hộ gia đình của thuộc địa, **không trừ thẳng khỏi GDP** để làm đẹp scorecard.
+4. **Phạm vi hiến chương:** mỗi hiến chương có văn bản pháp lý, mặt hàng, địa bàn và khoảng thời gian có nguồn (CG-30). Ô nào chưa có nguồn thì cơ chế tương ứng tắt.
+   - Ví dụ: tỷ lệ giá thu mua chỉ dùng khi có cặp giá khớp năm, mặt hàng, phẩm cấp và địa bàn.
+5. **Canh tác cưỡng bức và khai thác thuộc địa** phải mang hậu quả cho hộ gia đình: mức sống, cưỡng bức lao động, di cư, tử vong, bất ổn. Không có modifier "hiệu quả độc quyền" dương chung chung.
+6. **Historical Mode:** chỉ công ty có bằng chứng quy mô đã xác minh (CG-31 scale evidence) mới được sinh ra với quy mô đó. Công ty còn PENDING không xuất hiện kèm quy mô tự bịa.
