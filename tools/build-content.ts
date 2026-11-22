@@ -30,7 +30,7 @@ for (const f of assetFiles) {
     if (a.type?.startsWith('illustration_') && (!ILLUSTRATION_TYPES.has(a.type) || !a.subject)) { problems.push(`illustration without a known type/subject ${a.id}`); continue; }
     assets.push({
       id: a.id, type: a.type, entity: a.entity, character: a.character, subject: a.subject ?? null, provenance: a.provenance ?? null, name: a.name, period: a.period ?? { from: null, to: null }, quality: a.quality ?? 'supported',
-      path: a.path, w: a.width, h: a.height, bytes: statSync('public/' + a.path).size,
+      path: a.path, thumb: a.thumbnail_path && existsSync('public/' + a.thumbnail_path) ? a.thumbnail_path : null, w: a.width, h: a.height, bytes: statSync('public/' + a.path).size,
       license: a.license.short, license_url: a.license.url, author: a.author || null, credit: a.credit || null,
       source: a.source.page, file: a.source.file, statement: a.source.statement, date: a.date ?? null, description: a.description,
     });

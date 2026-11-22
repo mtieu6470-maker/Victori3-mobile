@@ -13,6 +13,8 @@ await page.goto('http://localhost:4318/' + (q ? '?' + q : ''));
 await page.waitForFunction(() => document.body.dataset.ready === '1', null, { timeout: 240000 });
 console.log('ready in', Date.now() - t0, 'ms');
 await page.waitForTimeout(1500);
+// Optional: CLICK='text1|text2' taps elements by visible text in order (e.g. open a detail window).
+for (const t of (process.env.CLICK ?? '').split('|').filter(Boolean)) { await page.getByText(t).first().click(); await page.waitForTimeout(1500); }
 await page.screenshot({ path: out });
 console.log('shot in', Date.now() - t0, 'ms');
 await browser.close(); server.httpServer.close();

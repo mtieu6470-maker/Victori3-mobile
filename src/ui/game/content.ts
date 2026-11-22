@@ -6,7 +6,7 @@ import { useEffect, useState } from 'preact/hooks';
 export interface ContentAsset {
   id: string; type: 'flag' | 'coat_of_arms' | 'portrait' | `illustration_${string}`; entity: string; character?: string; subject?: string | null; name: string;
   provenance?: { method: string; tool?: string; creator: string; created: string } | null;
-  period: { from: number | null; to: number | null }; quality: string; path: string; w: number; h: number; bytes: number;
+  period: { from: number | null; to: number | null }; quality: string; path: string; /** Small variant (480 px) when the pack has one. */ thumb?: string | null; w: number; h: number; bytes: number;
   license: string; license_url: string | null; author: string | null; credit: string | null; source: string; file: string; statement: string;
   date: string | null; description: string;
 }

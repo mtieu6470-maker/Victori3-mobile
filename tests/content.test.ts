@@ -15,8 +15,9 @@ const ids = new Set(db.entities.map((e) => e.id));
 const ALLOWED = /^(public domain|pd\b|pd-|cc0|cc[ -]by(-sa)?[ -]\d|cc[ -]by(-sa)?$)/i;
 
 describe('identity content pack', () => {
-  it('every shipped image exists, has an allowed licence, an author or credit field, and a Commons source page', () => {
-    for (const a of pack.assets) {
+  const identity = (a: any) => !String(a.type).startsWith('illustration_');
+  it('every shipped identity image exists, has an allowed licence, an author or credit field, and a Commons source page', () => {
+    for (const a of pack.assets.filter(identity)) {
       expect(existsSync('public/' + a.path), a.path).toBe(true);
       expect(ALLOWED.test(a.license), `${a.id} licence ${a.license}`).toBe(true);
       expect(a.source).toMatch(/^https:\/\/commons\.wikimedia\.org\//);
@@ -25,14 +26,34 @@ describe('identity content pack', () => {
     }
   });
 
+  // MEDIA-ILL-01: illustrations come from reviewed open-access repositories (public domain / CC0) or are
+  // project originals with a provenance record. Each names a subject, has a 480 px variant and a credit line.
+  it('every illustration has a subject, an open-access source page or project provenance, a credit and a small variant', () => {
+    const ill = pack.assets.filter((a: any) => !identity(a));
+    expect(ill.length).toBeGreaterThan(0);
+    for (const a of ill) {
+      expect(existsSync('public/' + a.path), a.path).toBe(true);
+      expect(a.subject, a.id).toBeTruthy();
+      expect(pack.illustrations[`${a.type}:${a.subject}`], a.id).toContain(a.id);
+      if (/^project original$/i.test(a.license)) expect(a.provenance?.method && a.provenance?.creator, a.id).toBeTruthy();
+      else {
+        expect(ALLOWED.test(a.license), `${a.id} licence ${a.license}`).toBe(true);
+        expect(a.source, a.id).toMatch(/^https:\/\/(www\.loc\.gov\/item\/|commons\.wikimedia\.org\/|www\.metmuseum\.org\/|www\.artic\.edu\/artworks\/)/);
+        expect(a.credit || a.author, a.id).toBeTruthy();
+      }
+      expect(a.thumb && existsSync('public/' + a.thumb), `${a.id} thumbnail`).toBe(true);
+      expect(a.bytes).toBeGreaterThan(1000);
+    }
+  });
+
   it('assets, texts and characters only reference entities that exist in the database', () => {
-    for (const a of pack.assets) expect(ids.has(a.entity), a.id).toBe(true);
+    for (const a of pack.assets.filter(identity)) expect(ids.has(a.entity), a.id).toBe(true);
     for (const k of Object.keys(pack.entities)) expect(ids.has(k), k).toBe(true);
     for (const c of Object.values<any>(pack.characters)) expect(ids.has(c.entity), c.id).toBe(true);
   });
 
   it('flags and arms are never shown outside 1836–1936 or outside their recorded period', () => {
-    for (const a of pack.assets.filter((x: any) => x.type !== 'portrait')) {
+    for (const a of pack.assets.filter((x: any) => x.type === 'flag' || x.type === 'coat_of_arms')) {
       const lo = a.period.from ?? -9999, hi = a.period.to ?? 9999;
       expect(hi >= 1836 && lo <= 1936, `${a.id} ${lo}-${hi}`).toBe(true);
     }

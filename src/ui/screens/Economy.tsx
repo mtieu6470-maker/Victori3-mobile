@@ -6,6 +6,7 @@ import type { GameState, Good, Building, Region } from '../../engine/types';
 import { GOODS, BUILDINGS } from '../../engine/types';
 import { marketOf, buildCost, buildingReturn, canBuild, RECIPES, LEVEL_WORKERS } from '../../engine/systems/economy';
 import { Icon } from '../components/icons';
+import { Illustration } from '../components/Illustration';
 import { Sec, Metric, Delta, DBar, Bar, HBars, LineChart, Donut, Seg, modals, details, useWidth, useSort } from '../components/ui';
 import { GOOD_VI, GOOD_GROUP, BUILD_VI, lawVi, fmt, pct, money, compact } from '../i18n/vi';
 import { shortName } from '../game/names';
@@ -157,6 +158,7 @@ export function openBuilding(st: GameState, b: Building, scope?: string) {
   const levels = regs.reduce((s, r) => s + r.buildings[b], 0);
   details.toggle({ key: `bld:${b}`, title: BUILD_VI[b], ctx: `${fmt(levels)} cấp · ${regs.length} vùng`, scope, body: () => (
     <div>
+      <Illustration kind="building" subject={b} />
       <div class="kv"><span class="k">Sản phẩm</span><span class="v">{outText(b)}</span></div>
       {RECIPES[b] && <div class="kv"><span class="k">Đầu vào / đơn vị</span><span class="v">{Object.entries(RECIPES[b]!.inputs).map(([g, q]) => `${GOOD_VI[g]} × ${fmt(q as number, 2)}`).join(' · ')}</span></div>}
       {b !== 'railway' && b !== 'university' && <div class="kv"><span class="k">Việc làm</span><span class="v num">{compact(levels * LEVEL_WORKERS)}</span></div>}
