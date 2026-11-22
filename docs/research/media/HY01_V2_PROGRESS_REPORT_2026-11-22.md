@@ -157,3 +157,16 @@ Two exact-type coat-of-arms candidates were added to the research register after
 - Current CSV blob SHA: `4101f0335d403760af9d3e2b2467d29120c0bf0c`.
 - Strict verified sovereign count remains **16/40**. These two entries are source/license candidates with unresolved start-date validation, not additional verified polities.
 - Do not begin HY-04. Continue exact-type, date-validity and reuse-clearance checks for the remaining HY-01 gaps.
+
+
+## Additional HY-01 verification — Hamburg coat of arms (HAM), 2026-11-22
+
+- Added HAM `coat_of_arms` using Commons file page: https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Hamburg.svg.
+- The file page's German caption is `Kleines Landeswappen Hamburgs 1835`; it gives date 1835 and author `Freie und Hansestadt Hamburg`. This is an exact asset-type match and the date precedes the 1 January 1836 game start.
+- Original SVG: 225 × 315. Commons marks the official work public domain under §5(1) of the German Copyright Act (official works of public-law corporations).
+- Commons explicitly warns that use of coats of arms is subject to legal restrictions independent of copyright. The copyright license is clear; commercial use of the official insignia still requires separate legal review.
+- This fills the existing HAM coat_of_arms gap; no flag row was added.
+
+Result: strict verified sovereign count rises to **17/40**. CSV remains 332 rows; unknown asset rows now **315/332**. Current CSV blob SHA: `5ace2a6470a0570f4e49e881b804408b3ec1b6f5`.
+
+Ecuador (1835 decree with 1836 sanction) and Bremen (1562 historical arms photograph) remain candidates pending exact confirmation of the emblem's legal/formal status on 1 January 1836; they are not counted in 17/40. Do not begin HY-04.
