@@ -82,12 +82,33 @@ describe('CG-16 WorkerSimHost failure handling', () => {
       (id: number) => ({ id, res: { ok: true, gen: 1, kind: 'save', text: 'x' } }),
       (id: number) => ({ id, res: { ok: true, gen: 1, kind: 'state' } }),
       (id: number) => ({ id, res: { ok: false, gen: 1 } }),
+      (id: number) => ({ id, res: { ok: false, gen: 1, error: 'x', stale: 'yes' } }),
+      (id: number) => ({ id, res: { ok: true, gen: 1, kind: 'state', snapshot: {} } }),
     ]) {
       const w = new FakeWorker();
       w.postMessage = (m: unknown) => { const id = (m as { id: number }).id; setTimeout(() => w.onmessage?.({ data: bad(id) } as MessageEvent), 0); };
       const h = new WorkerSimHost(w, 0);
       expect(await h.request({ kind: 'newGame', gen: 1, opts })).toMatchObject({ ok: false, hostFailure: true });
       expect(h.isFailed).toBe(true);
+    }
+  });
+
+  it('CG18-01 follow-up: advance replies with out-of-range numbers or unknown stop fail the host', async () => {
+    const good = { ok: true, gen: 1, kind: 'advance', hours: 1, monthlyBoundaries: 0, simMs: 0.1, hour: 1, tick: 0, stop: 'requested' };
+    for (const patch of [{ hours: -1 }, { hour: -1 }, { hour: 1.5 }, { tick: -2 }, { stop: 'unknown' }, { monthlyBoundaries: 0.5 }, { simMs: Number.NaN }]) {
+      const w = new FakeWorker();
+      let first = true;
+      w.postMessage = (m: unknown) => {
+        const msg = m as { id: number; req: SimRequest };
+        setTimeout(() => {
+          const res = first ? w.core.handle(msg.req) : { ...good, ...patch };
+          first = false;
+          w.onmessage?.({ data: structuredClone({ id: msg.id, res }) } as MessageEvent);
+        }, 0);
+      };
+      const h = new WorkerSimHost(w, 0);
+      expect((await h.request({ kind: 'newGame', gen: 1, opts })).ok).toBe(true);
+      expect(await h.request({ kind: 'advance', gen: 1, maxHours: 1, budgetMs: 1e9 })).toMatchObject({ ok: false, hostFailure: true });
     }
   });
 

@@ -1,3 +1,18 @@
+## 2026-11-22 — CG18-01 follow-up fixed; CG-24 accepted; ECON-CAL-02 plan
+
+- **Worker reply validation deepened** after ChatGPT's third review (MSG-023): snapshot structure, non-negative integers, valid campaign hours, `stop` enum, command result shape and optional flag types.
+  - Recovery wording corrected to "last acknowledged checkpoint" (addendum in `docs/coordination/reviews/CLAUDE_RESPONSE_CG16_CLOCK02_2026-11-22.md`).
+  - Real-worker smoke still passes. Local: tsc 0; `npm test` exit 0, **26/26 files, 249/249 tests**; build 0.
+- **CG-24 accepted** (corrected version, MSG-024): 1835 GB factory hands were cotton 220,134 / wool 71,274 / flax 33,283 / silk 30,682; mill counts are disputed and not used. The engine starts Britain with ≈ 1.71M textile-mill workers (7.8× the cotton figure).
+  - Starting levels come from the `init.ts` rule "all workers-stratum labour → factories, 70% textile mills".
+  - GDP-calibrated productivity multiplies **physical** output in both agriculture and industry.
+- **ECON-CAL-02 plan** (MSG-026), next slice:
+  1. productivity affects value added, not physical quantities;
+  2. initial factory employment calibrated to CG-24 for Britain (same structural ratio elsewhere, flagged as an assumption);
+  3. CG-23 constraint tests (Britain ≈ 33–36% of world cotton use; the USA the largest grower).
+
+---
+
 ## 2026-11-22 — ECON-03a + root cause of the textile/cotton misalignment (ECON-CAL-02)
 
 - **ECON-03a** (commit `a6fd093`): openness now sets the tradable *share* of a deficit or surplus, `tradeShare = min(1, open/0.5)` (NaN-safe), instead of trading exactly `open × deficit`.

@@ -14,3 +14,13 @@
 Also: a malformed worker reply now fails the host instead of being ignored.
 
 CG-17 (oversupply/profitability research) is accepted as the basis for ECON-02/IND-02 (profit-responsive output). The project design choice will be recorded in that slice's spec.
+
+## Addendum after CG-18 round 3 (MSG-023)
+
+- **Wording correction:** recovery restores the **last acknowledged checkpoint**. That is the UI copy as of the last reply the UI received; it does not reconstruct whatever the crashed worker held at the moment of the crash. Hours processed by a request whose reply never arrived are rolled back and played again. No state is guessed.
+- **CG18-01 follow-up fixed** in `isValidReply()`:
+  - Snapshots are checked structurally (clock hour within the campaign, non-negative integer tick, date, regions, countries, log, rng).
+  - Advance numbers must be non-negative integers, the hour must be a valid campaign hour, and `stop` must be one of the known values.
+  - Command results are checked.
+  - Optional `stale`/`hostFailure` flags must be booleans.
+  - New tests cover these (`tests/sim-host-worker.test.ts`). The real-worker browser smoke still passes.

@@ -6,6 +6,7 @@
 //   clones every snapshot so UI code can never alias or mutate the authoritative state, exactly as
 //   with a worker.
 import { SimCore, type SimRequest, type SimResponse } from '../../engine/runtime/simCore';
+import { isValidCampaignHour } from '../../engine/clock/calendar';
 
 export interface SimHost {
   readonly kind: 'worker' | 'inline';
@@ -62,15 +63,21 @@ export function isValidReply(req: { kind: SimRequest['kind']; gen: number }, res
   if (!res || typeof res !== 'object' || Array.isArray(res)) return false;
   const r = res as Record<string, unknown>;
   if (typeof r.ok !== 'boolean' || typeof r.gen !== 'number' || r.gen !== req.gen) return false;
-  if (!r.ok) return typeof r.error === 'string';
+  const optBool = (v: unknown) => v === undefined || typeof v === 'boolean';
+  if (!r.ok) return typeof r.error === 'string' && optBool(r.stale) && optBool(r.hostFailure);
   if (r.kind !== EXPECTED_KIND[req.kind]) return false;
-  const obj = (v: unknown) => !!v && typeof v === 'object' && !Array.isArray(v);
-  const num = (v: unknown) => typeof v === 'number' && Number.isFinite(v);
+  const obj = (v: unknown): v is Record<string, unknown> => !!v && typeof v === 'object' && !Array.isArray(v);
+  const nnInt = (v: unknown) => typeof v === 'number' && Number.isSafeInteger(v) && v >= 0;
+  const nnNum = (v: unknown) => typeof v === 'number' && Number.isFinite(v) && v >= 0;
+  // Minimal structural check of a GameState snapshot (CG18-01 follow-up): the fields the UI relies on.
+  const state = (v: unknown) => obj(v) && obj(v.clock) && isValidCampaignHour(v.clock.hour) && nnInt(v.tick) &&
+    obj(v.date) && Array.isArray(v.regions) && obj(v.countries) && Array.isArray(v.log) && Array.isArray(v.rng);
   switch (r.kind) {
-    case 'state': return obj(r.snapshot);
-    case 'advance': return num(r.hours) && num(r.monthlyBoundaries) && num(r.simMs) && num(r.hour) && num(r.tick) && typeof r.stop === 'string' && (r.snapshot === undefined || obj(r.snapshot));
-    case 'stepMonth': return typeof r.stepped === 'boolean' && obj(r.snapshot);
-    case 'command': return obj(r.result) && typeof (r.result as { ok?: unknown }).ok === 'boolean' && obj(r.snapshot);
+    case 'state': return state(r.snapshot);
+    case 'advance': return nnInt(r.hours) && nnInt(r.monthlyBoundaries) && nnNum(r.simMs) && isValidCampaignHour(r.hour) && nnInt(r.tick) &&
+      (r.stop === 'requested' || r.stop === 'campaign_end' || r.stop === 'yield') && (r.snapshot === undefined || state(r.snapshot));
+    case 'stepMonth': return typeof r.stepped === 'boolean' && state(r.snapshot);
+    case 'command': return obj(r.result) && typeof r.result.ok === 'boolean' && (r.result.reason === undefined || typeof r.result.reason === 'string') && state(r.snapshot);
     case 'save': return typeof r.text === 'string';
     default: return false;
   }
