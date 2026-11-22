@@ -86,8 +86,12 @@ import { RAIL_OPERATING_RATIO, railCoverage } from '../src/engine/systems/econom
 describe('CO-2b railway accounts', () => {
   const st = createGame({ mode: 'historical', seed: 1, player: null });
   while (st.date.y < 1846) stepMonth(st);
+  // Railways completed during the last month get their account the next month (construction runs after
+  // site operations), so check the regions that already had railways a month earlier.
+  const before = new Set(st.regions.filter((r) => r.buildings.railway > 0).map((r) => r.id));
+  stepMonth(st);
   it('railway sites have revenue (a captured share of rail-enabled output) and costs at the operating ratio', () => {
-    const rails = st.regions.filter((r) => r.buildings.railway > 0);
+    const rails = st.regions.filter((r) => r.buildings.railway > 0 && before.has(r.id));
     expect(rails.length).toBeGreaterThan(0);
     for (const r of rails) {
       const ops = st.industry[`${r.id}|railway`];

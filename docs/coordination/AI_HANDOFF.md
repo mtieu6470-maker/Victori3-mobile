@@ -1,3 +1,20 @@
+## 2026-11-22 — TECH-02 technology import + Historical Mode adoption windows; CO-2b railways; CO-3b charter terms
+
+- **TECH-02** (`technology.ts`):
+  - `importPoints` = `TECH_IMPORT.rate` (160) × GDP per capita × knownShare × codified(age/20) × trade access. Isolationism gives 0. It is added to research progress for the current tech only.
+  - Reason: Russia, Spain and the Ottomans never got railways before 1910 because research came only from literate population.
+  - `techReservedByHistory` with `historical_data/technologies/adoption_windows.json` (Qing railways 1876 and telegraph 1877, Japan railways 1869) applies in Historical Mode only. Built and validated by build-data (`tech_adoption_windows`).
+  - Tried and rejected: GDP-total imports (Qing bought railways in the 1840s on size), an imports-value proxy (engine trade/GDP is 0.1–1%, unrealistic), and a research wealth factor (scorecard worse).
+  - Reports: `tools/tech-adoption-report.ts` (first-railway years; mean |err| 34.6 → ~6.6 years, none missing).
+  - Growth scorecard: 1913 0.199 (was 0.221); 2022 1.035 (was 1.328). Audit files `docs/audit/econ/TECH02_*`.
+  - Tests: `tests/tech-import.test.ts` (5).
+- **CO-2b:** railway site accounts (capture 0.3, operating ratio 0.6; CG-35 sourced ratios 0.48–0.70 support 0.6).
+- **CO-3b:** charters have a 30-year term and survive law changes (CG-34).
+- **Board:** MSG-081 (CG-36: verify windows; CHAT adoption years). The owner wants V3-style treaties: DIPLO-TREATY-01 is next on the roadmap.
+- Local: `npm test` **36/36 files, 384/384**.
+
+---
+
 ## 2026-11-22 — CO-3b monopoly charters; HY-04 media
 
 - **CO-3b:**

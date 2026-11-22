@@ -1,0 +1,22 @@
+GBR  hist 1825  engine 1836  err 11  telegraph 1846
+USA  hist 1830  engine 1836  err 6  telegraph 1855
+FRA  hist 1832  engine 1843  err 11  telegraph 1866
+BEL  hist 1835  engine 1836  err 1  telegraph 1877
+PRU  hist 1838  engine 1844  err 6  telegraph 1854
+RUS  hist 1837  engine 1858  err 21  telegraph 1877
+AUS  hist 1837  engine 1850  err 13  telegraph 1874
+NED  hist 1839  engine 1841  err 2  telegraph 1869
+SPA  hist 1848  engine 1845  err -3  telegraph 1864
+BRA  hist 1854  engine 1852  err -2  telegraph 1892
+EGY  hist 1854  engine 1859  err 5  telegraph 1868
+TUR  hist 1856  engine 1863  err 7  telegraph 1867
+EIC  hist 1853  engine 1858  err 5  telegraph 1882
+JAP  hist 1872  engine 1876  err 4  telegraph 1892
+QNG  hist 1876  engine 1876  err 0  telegraph 1890
+MEX  hist 1850  engine 1860  err 10  telegraph 1868
+SWE  hist 1856  engine 1842  err -14  telegraph 1873
+DEN  hist 1847  engine 1841  err -6  telegraph 1869
+POR  hist 1856  engine 1853  err -3  telegraph 1865
+ARG  hist 1857  engine 1859  err 2  telegraph —
+CHL  hist 1851  engine 1845  err -6  telegraph 1876
+{"meanAbsYears":6.6,"missing":[]}

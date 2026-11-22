@@ -117,6 +117,8 @@ export interface HistoricalDB {
   leaders: Record<string, LeaderRecord[]>;
   technologies: TechRecord[];
   company_kinds: CompanyKindRecord[];
+  /** TECH-02: Historical Mode earliest adoption years (documented political blocks). */
+  tech_adoption_windows?: { country: string; tech: string; earliest: number }[];
   start_techs: Record<string, string[]>;
   historical_changes: { date: string; regions: string[]; to: string; event: string; partial?: boolean }[];
   equivalence: string[][];

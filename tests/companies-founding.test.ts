@@ -21,11 +21,18 @@ describe('CO-3 company slots', () => {
     expect(companySlots(st, gb)).toBe(0);
   });
 
-  it('AI countries never exceed their slots', () => {
+  it('AI countries only form a company while they have a free slot', () => {
     const st = createGame({ mode: 'historical', seed: 1, player: null });
-    while (st.date.y < 1860) stepMonth(st);
-    // Slots only shrink if a country loses industry or changes law; existing companies are not dissolved for it.
-    for (const c of Object.values(st.countries)) if (c.alive && companiesOf(st, c.id).length) expect(companiesOf(st, c.id).length, c.id).toBeLessThanOrEqual(companySlots(st, c));
+    // Slots can later shrink (lost industry, a law change); existing companies are not dissolved for it,
+    // so the rule is checked at each formation: a country's count only grows while below its slots.
+    while (st.date.y < 1860) {
+      const before = Object.fromEntries(Object.values(st.countries).map((c) => [c.id, { n: companiesOf(st, c.id).length, slots: companySlots(st, c) }]));
+      stepMonth(st);
+      for (const c of Object.values(st.countries)) {
+        const b = before[c.id]; if (!b) continue;
+        if (companiesOf(st, c.id).length > b.n) expect(b.n, `${c.id} ${st.date.y}`).toBeLessThan(b.slots);
+      }
+    }
   });
 });
 

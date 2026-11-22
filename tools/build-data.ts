@@ -357,6 +357,13 @@ for (const k of companyKindsFile.kinds) {
   for (const r of k.rights ?? []) if (r.active) err(`company kind ${k.id}: right ${r.id} active without a legal basis (CG-30)`);
 }
 for (const [id, list] of Object.entries(start_techs)) for (const t of list) if (!techIds.has(t)) err(`start tech ${t} for ${id} unknown`);
+// TECH-02: Historical Mode technology adoption windows (documented political blocks only)
+const adoptionWindows = readJson('technologies/adoption_windows.json').windows as { country: string; tech: string; earliest: number; block: string }[];
+for (const w of adoptionWindows) {
+  if (!techIds.has(w.tech)) err(`adoption window: unknown technology ${w.tech}`);
+  if (!Number.isInteger(w.earliest) || w.earliest < 1836 || w.earliest > 2026) err(`adoption window ${w.country}/${w.tech}: bad year`);
+  if (!w.block) err(`adoption window ${w.country}/${w.tech}: no documented block`);
+}
 for (const t of techFile.technologies) for (const p of t.prereqs) if (!techIds.has(p)) err(`tech ${t.id}: unknown prereq ${p}`);
 
 // ---------------------------------------------------------------- alliances active on start date (CoW)
@@ -420,7 +427,7 @@ const db: HistoricalDB = {
   meta: { start_date: START, built_at: new Date().toISOString(), version: '0.1.0', counts: { entities: entities.length, regions: regions.length, sources: sources.length, alliances: alliances.length } },
   sources, cultures: cultFile.cultures, religions: cultFile.religions, entities, regions, alliances,
   wars: ev.initial_wars, exogenous: ev.exogenous, decision_windows: ev.decision_windows, structural_rules: ev.structural_rules,
-  zollverein: ev.zollverein_accessions, leaders, technologies: techFile.technologies, company_kinds: companyKindsFile.kinds, start_techs,
+  zollverein: ev.zollverein_accessions, leaders, technologies: techFile.technologies, company_kinds: companyKindsFile.kinds, tech_adoption_windows: adoptionWindows.map(({ country, tech, earliest }) => ({ country, tech, earliest })), start_techs,
   historical_changes: hc.changes, equivalence: hc.equivalence.classes, milestones: ms.milestones, territorial_checkpoints: ms.territorial_checkpoints,
   european_powers: ms.european_powers, benchmarks, gdp_pc_1836,
   coverage: { entities_total: regEntities.length, by_tier, by_model, facts_by_quality: factsByQuality, needs_source: [...new Set(needsSource)], gaps },

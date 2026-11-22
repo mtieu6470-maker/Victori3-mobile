@@ -1,0 +1,8 @@
+{
+  "description": "TECH-02 Historical Mode: earliest year a country may ADOPT a technology where a documented political or institutional block existed. Used only in Historical Mode (Sandbox ignores it). Entries are deliberately few and require a stated block; verification of each entry against primary or scholarly sources is assigned to ChatGPT as CG-36 (status field).",
+  "windows": [
+    {"country": "QNG", "tech": "railways", "earliest": 1876, "block": "Qing court and gentry opposition to railways; the first line (Woosung Road, Shanghai, 1876) was bought by the Qing authorities and dismantled in 1877; the Kaiping (Tangshan-Xugezhuang) line opened in 1881.", "status": "pending CG-36 verification"},
+    {"country": "QNG", "tech": "telegraph", "earliest": 1877, "block": "Official resistance to foreign telegraph lines until the late 1870s; the Tianjin-Shanghai line opened in 1881.", "status": "pending CG-36 verification"},
+    {"country": "JAP", "tech": "railways", "earliest": 1869, "block": "Tokugawa seclusion policy; the Meiji government decided in 1869 to build the Tokyo-Yokohama line (opened 1872).", "status": "pending CG-36 verification"}
+  ]
+}

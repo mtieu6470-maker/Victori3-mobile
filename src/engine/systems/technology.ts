@@ -72,16 +72,60 @@ export function researchPoints(st: GameState, c: Country): number {
   return p * 40; // per month
 }
 
+/**
+ * TECH-02: technology IMPORT. Most 19th-century adopters did not invent railways, telegraphs or steam
+ * engines; they bought them, with foreign engineers, machines and capital (Russia's Moscow-St Petersburg
+ * line of 1851 was built with American engineers; Austrian, Spanish and Ottoman lines with foreign
+ * concessionaires). Research points from literate population alone left Russia, Spain and the Ottoman
+ * Empire without railways until after 1910 (historically 1837/1851, 1848 and 1856/1866).
+ *
+ * Import points per month = TECH_IMPORT.rate x GDP per capita (engine units ≈ Maddison 2011 int-$)
+ *   x knownShare(tech) x codified(age/20) x access, access = trade openness / free-trade openness; isolationism = 0.
+ * Only technologies other countries already use can be imported (knownShare > 0), so imports never let
+ * a country lead; every country gets the same rule (owner: catch-up without latecomer buffs). The rate
+ * is a project design parameter calibrated on first-railway years (tools/tech-adoption-report.ts).
+ */
+export const TECH_IMPORT = { enabled: true, rate: 160 };
+
+export function importPoints(st: GameState, c: Country, techId: string): number {
+  if (!TECH_IMPORT.enabled) return 0;
+  const share = knownShare(st, techId);
+  if (share <= 0) return 0;
+  // Imports need trade: isolationism (Qing's Canton system, sakoku Japan) closes the channel entirely;
+  // without this a very large closed economy (Qing) bought railways in the 1830s on GDP alone.
+  if (c.laws.trade === 'isolationism') return 0;
+  const access = Math.min(1, (OPEN[c.laws.trade] ?? 0.3) / 0.7);
+  // Per head, not total: adopting a technology economy-wide costs a large country proportionally more, so
+  // size alone must not speed adoption (Qing's total GDP let it buy Western industry in the 1840s).
+  const pc = Math.max(0, c.gdp) / Math.max(1, c.stats?.pop ?? 0);
+  // A technology is sold abroad only once it has matured (same codification rule as CATCHUP-01):
+  // nobody imported reapers or Bessemer plant the year they were invented.
+  const age = st.date.y - (data().tech.get(techId)?.historical_year ?? st.date.y);
+  const codified = Math.min(1, Math.max(0, age) / TECH_CODIFICATION_YEARS);
+  return Number.isFinite(pc) ? TECH_IMPORT.rate * pc * share * access * codified : 0;
+}
+
+/**
+ * TECH-02 Historical Mode: a country cannot adopt a technology before a documented political or
+ * institutional block ended (historical_data/technologies/adoption_windows.json; e.g. the Qing court
+ * resisted railways until the late 1870s). Sandbox Mode ignores the windows.
+ */
+export function techReservedByHistory(st: GameState, c: Country, techId: string): boolean {
+  if (st.mode !== 'historical') return false;
+  const w = data().db.tech_adoption_windows?.find((x) => x.country === c.id && x.tech === techId);
+  return !!w && st.date.y < w.earliest;
+}
+
 export function technologyMonth(st: GameState, chooser: (c: Country, options: string[]) => string | null) {
   for (const c of Object.values(st.countries)) {
     if (!c.alive || c.decentralized) continue;
     if (!c.research.current || c.techs.includes(c.research.current)) {
-      const opts = availableTechs(c);
+      const opts = availableTechs(c).filter((t) => !techReservedByHistory(st, c, t));
       c.research.current = opts.length ? chooser(c, opts) : null;
       c.research.progress = 0;
     }
     const cur = c.research.current; if (!cur) continue;
-    c.research.progress += researchPoints(st, c);
+    c.research.progress += researchPoints(st, c) + importPoints(st, c, cur);
     if (c.research.progress >= techCost(st, c, cur)) {
       c.techs.push(cur);
       c.research = { current: null, progress: 0 };
