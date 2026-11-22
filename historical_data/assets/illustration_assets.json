@@ -542,6 +542,61 @@
       }
     },
     {
+      "id": "ill_dw_belgium_recognition",
+      "type": "illustration_event",
+      "subject": "dw_belgium_recognition",
+      "name": "Công nhận độc lập Bỉ",
+      "description": "Entrance to the Park at the Place Royale, Brussels, 27 September 1830, during the Belgian Revolution; lithograph by Paulus Lauters, 1830-1831",
+      "path": "content/illustrations/events/dw_belgium_recognition.webp",
+      "thumbnail_path": "content/illustrations/events/dw_belgium_recognition_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1838,
+        "to": 1840
+      },
+      "quality": "supported",
+      "date": null,
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Ingang_van_het_park_te_Brussel,_1830_Bruxelles_Lundi_27_Sep.bre_1830._Vue_de_l'entrée_du_parc_par_la_Place_royale_(titel_op_object)_Evénemens_de_Bruxelles,_Anvers_(..)_(1831)_(serietitel),_RP-P-OB-88.111.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Ingang_van_het_park_te_Brussel%2C_1830_Bruxelles_Lundi_27_Sep.bre_1830._Vue_de_l%27entr%C3%A9e_du_parc_par_la_Place_royale_%28titel_op_object%29_Ev%C3%A9nemens_de_Bruxelles%2C_Anvers_%28..%29_%281831%29_%28serietitel%29%2C_RP-P-OB-88.111.jpg",
+        "statement": "{{CC-zero}}",
+        "title": "Entrance to the Park at the Place Royale, Brussels, 27 September 1830, during the Belgian Revolution; lithograph by Paulus Lauters, 1830-1831",
+        "original_source": "http://hdl.handle.net/10934/RM0001.COLLECT.530126",
+        "source_pixels": [
+          2000,
+          1531
+        ],
+        "crop": {
+          "inset": [
+            0.15,
+            0.165,
+            0.125,
+            0.215
+          ],
+          "focus": [
+            0.5,
+            0.55
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Ingang_van_het_park_te_Brussel%2C_1830_Bruxelles_Lundi_27_Sep.bre_1830._Vue_de_l%27entr%C3%A9e_du_parc_par_la_Place_royale_%28titel_op_object%29_Ev%C3%A9nemens_de_Bruxelles%2C_Anvers_%28..%29_%281831%29_%28serietitel%29%2C_RP-P-OB-88.111.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{CC-zero}}"
+      },
+      "author": "Paulus Lauters",
+      "credit": "Rijksmuseum, Amsterdam (RP-P-OB-88.111), CC0",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Belgian independence era scene (HY-02c 1A, Rijksmuseum CC0); not captioned as the 1839 treaty signing."
+      }
+    },
+    {
       "id": "ill_dw_corn_laws",
       "type": "illustration_event",
       "subject": "dw_corn_laws",
@@ -975,6 +1030,61 @@
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
         "note": "Contemporary view of the Ottoman capital at the start of the Tanzimat era."
+      }
+    },
+    {
+      "id": "ill_zollverein_accessions",
+      "type": "illustration_event",
+      "subject": "zollverein_accessions",
+      "name": "Mở rộng Zollverein",
+      "description": "Customs and railway map of the German Zollverein states, J. V. Kutscheit, Berlin 1846, with a table of accession dates",
+      "path": "content/illustrations/events/zollverein_accessions.webp",
+      "thumbnail_path": "content/illustrations/events/zollverein_accessions_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1842,
+        "to": 1888
+      },
+      "quality": "supported",
+      "date": null,
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Zoll-auch_Eizenbahn._Karte_der_deutschen_Zollvereins._Staaten..._-_von_Joh._Val._Kutscheit_-_btv1b8469035q.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Zoll-auch_Eizenbahn._Karte_der_deutschen_Zollvereins._Staaten..._-_von_Joh._Val._Kutscheit_-_btv1b8469035q.jpg",
+        "statement": "{{PD-France}} {{PD-US-expired}}",
+        "title": "Customs and railway map of the German Zollverein states, J. V. Kutscheit, Berlin 1846, with a table of accession dates",
+        "original_source": null,
+        "source_pixels": [
+          2000,
+          1473
+        ],
+        "crop": {
+          "inset": [
+            0.015,
+            0.015,
+            0.015,
+            0.015
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Zoll-auch_Eizenbahn._Karte_der_deutschen_Zollvereins._Staaten..._-_von_Joh._Val._Kutscheit_-_btv1b8469035q.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-France}} {{PD-US-expired}}"
+      },
+      "author": "Johann Valerius Kutscheit",
+      "credit": "Bibliothèque nationale de France, Cartes et plans, GE D-11028 (BIS), Gallica btv1b8469035q",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Contemporary 1846 map of the customs union (HY-02c 2A); shown whole so state borders and the accession table stay legible. PD-France + PD-US-expired; attribution kept."
       }
     },
     {
