@@ -105,3 +105,14 @@ Therefore the verified sovereign count remains **14/40**, and the asset CSV rema
 - DEN coat of arms remains unknown; no attempt was made to substitute the later royal arms because the file page/license/1836 use were not cleared.
 
 Verified sovereign polity count is now **15/40** (previously 14/40). Asset CSV now contains 15 verified sovereign IDs with at least one verified asset row; unknown asset rows: **317/332**. The CSV remains a working research register, not a production manifest. Denmark is a newly added flag row, not a complete polity asset set.
+
+
+## Additional HY-01 verification — United States arms (USA)
+
+- Added USA coat of arms using Commons file page https://commons.wikimedia.org/wiki/File:Great_Seal_of_the_United_States_of_America_(1782).svg.
+- The file page identifies the design as the Great Seal of the United States (1782), cites Gaillard Hunt's 1892 historical study, and gives a 512 × 512 SVG.
+- The uploader, Samhanin, dedicates the derivative drawing worldwide to the public domain under CC0 1.0. Commons separately marks the underlying 1782 work PD-old-assumed/PD-Art; that underlying-work status carries a stated theoretical uncertainty, so preserve the uploader's independent CC0 dedication as the basis for the derivative file's reuse.
+- The Great Seal functions as the United States' national arms. Official-seal/insignia use restrictions are independent of copyright and must be reviewed separately before commercial game distribution.
+- This fills the existing USA coat_of_arms gap; no USA flag row was added because the gap list does not request it.
+
+Verified sovereign polity count is now **16/40**; unknown asset rows are **316/332**. This remains a research register, not a production manifest.
