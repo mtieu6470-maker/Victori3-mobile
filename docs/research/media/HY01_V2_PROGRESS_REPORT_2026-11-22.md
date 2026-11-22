@@ -79,3 +79,18 @@
 ## Next HY-01 work
 
 Continue searching and opening the exact Commons file pages in priority order. For each file, record exact file-page license wording, creator/credit, original dimensions, and evidence that the design is valid for 1836. For entities without a historical flag, use `asset_type=no_known_flag` only when a defensible source supports that conclusion; otherwise retain `unknown`. Do not proceed to HY-04 until HY-01 v2 is reviewed and accepted.
+
+
+## Additional HY-01 search pass (after the initial 15 file-page checks)
+
+A further targeted Commons pass checked candidate material for Belgium, Denmark, Oman and Asante. **No additional asset was added to the verified count** because the candidates failed at least one of the project’s 1836 validity / correct polity / reuse-clearance tests:
+
+- Belgium 1830 horizontal flag SVG: Commons labels it as the 1830 flag and marks the vector PD-self, but the page's own category identifies the design as 1830–1831; not accepted as a national flag valid at the 1 January 1836 start date.
+- Belgium great coat of arms: Commons identifies the official Royal Decree / design date as 1837, so it is not valid for the 1836 start date.
+- Denmark royal coat of arms 1819–1903: date range fits 1836 and a CC BY-SA 3.0/GFDL page was found, but the page explicitly warns that official Danish insignia are subject to legal restrictions (Danish Criminal Code §132 and other rules). It is not treated as cleared for commercial game use.
+- Denmark general/current coat-of-arms SVG: uploader public-domain dedication is visible, but the page also warns of Danish official-insignia restrictions and does not establish that this is a verified 1836 rendering.
+- Omani Empire flag (1696–1856): Commons page gives CC BY-SA 4.0 and dates the representation 1696–1856, but the current HY-01 gap row for OMA is **coat_of_arms only**, not national_flag; this flag cannot fill the arms gap.
+- Asante/Ashanti flag candidate: CC0 file page was surfaced, but the page does not provide adequate historical dating/provenance for a 1836 state flag; not added.
+- Oman modern state emblem/coat of arms candidates date from 20th/21st century and are not evidence for the 1836 arms.
+
+Therefore the verified sovereign count remains **14/40**, and the asset CSV remains unchanged (blob SHA `5bebf786ff6980ce097e435f0a38cf342ed3a941`). These are discovery exclusions, not assertions that the polities had no flag/arms. Continue to leave unverified fields as `unknown`.
