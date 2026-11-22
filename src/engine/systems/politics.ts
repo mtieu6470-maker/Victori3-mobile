@@ -61,7 +61,10 @@ export function updatePolitics(st: GameState, c: Country, init = false) {
   // legitimacy: approval of the powerful, tradition of the governance form, prestige and recent defeats
   const tradition = c.laws.governance === 'monarchy' || c.laws.governance === 'theocracy' ? 8 : 4;
   const target = clamp(30 + legitTarget * 2.4 + tradition + clamp(c.prestige, -50, 100) * 0.08 - (c.lastWarLost !== null && st.tick - c.lastWarLost < 60 ? 15 : 0) - c.famine * 30, 5, 100);
-  c.legitimacy = init ? target : c.legitimacy + (target - c.legitimacy) * 0.05;
+  const crisis = c.crisis && st.tick < c.crisis.until ? c.crisis.delta : 0;
+  if (c.crisis && st.tick >= c.crisis.until) delete c.crisis;
+  const crisisTarget = clamp(target + crisis, 0, 100);
+  c.legitimacy = init ? crisisTarget : c.legitimacy + (crisisTarget - c.legitimacy) * 0.05;
   // radicalism per region
   let radPop = 0;
   for (const r of regs) {

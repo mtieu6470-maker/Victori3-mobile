@@ -100,6 +100,8 @@ export interface Country {
   leader: Leader; heir: { name: string; born: number | null; female: boolean } | null;
   legitimacy: number; // 0..100 score
   radicalism: number; // 0..1 share of population radical
+  /** HIST-JAP-01: sustained legitimacy crisis (target shift `delta` until tick `until`); absent when none. */
+  crisis?: { until: number; delta: number; source: string };
   igs: Record<IG, { clout: number; approval: number }>;
   treasury: number; debt: number; taxRate: number; budget: Budget;
   /** Separate construction investment balances. */

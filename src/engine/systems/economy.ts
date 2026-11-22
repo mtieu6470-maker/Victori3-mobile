@@ -225,7 +225,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const A = physicalProductivity(c); const Am = A;
     const LF = r.pop * 0.45;
     const sh = r.strata;
-    const rail = Math.min(5, r.buildings.railway);
+    const rail = railCoverage(r);
     const infra = 1 + 0.05 * rail;
     const occupied = r.controller !== r.owner ? 0.7 : 1;
     const dev = 1 - r.devastation;
@@ -504,7 +504,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     r.wages = wagePremium.map((premium, si) => k.employment[si] > 0 ? baseWage * premium : 0);
     gdp[r.owner] = (gdp[r.owner] ?? 0) + value;
     // food security: market shortage plus local deficit where transport access is poor
-    const access = clamp(0.25 + 0.12 * Math.min(5, r.buildings.railway) + (r.coastal ? 0.35 : 0) + 0.3 * openness(c, r.coastal), 0, 1);
+    const access = clamp(0.25 + 0.12 * railCoverage(r) + (r.coastal ? 0.35 : 0) + 0.3 * openness(c, r.coastal), 0, 1);
     const localDef = Math.max(0, 1 - k.grainLocal / Math.max(1, k.grainNeed));
     const famine = clamp(short.grain + localDef * (1 - access) * 0.9 - (c.budget.health * 0.5), 0, 1);
     const gdpPc = (value / Math.max(1, r.pop));
@@ -599,6 +599,23 @@ function financeMonth(st: GameState, c: Country, gdpYear: number, pop: number, i
  */
 function logConstruction(st: GameState, c: Country, e: Parameters<typeof log>[1]): void {
   if (st.player === c.id) log(st, e);
+}
+
+/**
+ * ECON-GROWTH rail density: a railway level is a network serving about RAIL_LEVEL_KM2 of territory.
+ * Before, one level gave every region the same +5% output whatever its size, so a 30-million-person
+ * Chinese province 150,000 km² across gained as much from one line as a small English county, and
+ * Qing built 155 levels in the 1860s (historically it had almost no railways before the 1890s).
+ * Coverage (0..5) is levels per region-sized network; large regions need proportionally more levels.
+ */
+export const RAIL_LEVEL_KM2 = 25_000;
+export function railCoverage(r: Pick<Region, 'buildings' | 'area'>): number {
+  const levels = Math.max(0, r.buildings.railway);
+  return Math.min(5, (levels * RAIL_LEVEL_KM2) / Math.max(RAIL_LEVEL_KM2, r.area || RAIL_LEVEL_KM2));
+}
+/** Levels needed to reach full coverage (5) in a region, capped for very large regions. */
+export function maxRailLevels(r: Pick<Region, 'area'>): number {
+  return Math.min(60, Math.max(5, Math.ceil((5 * Math.max(RAIL_LEVEL_KM2, r.area || 0)) / RAIL_LEVEL_KM2)));
 }
 
 /** Share of GDP saved by property owners and offered for private construction each year. */
@@ -732,7 +749,7 @@ export function canBuild(st: GameState, c: Country, r: Region, b: Building, igno
     const queued = (st.constructionProjects ?? []).filter((p) =>
       p.countryId === c.id && p.regionId === r.id && p.building === 'railway' && p.id !== ignoreProjectId,
     ).length;
-    return hasTech(c, 'railways') && r.buildings.railway + queued < 5;
+    return hasTech(c, 'railways') && r.buildings.railway + queued < maxRailLevels(r);
   }
   if (b === 'university') return r.buildings.university < 10;
   if (b === 'mine') return r.res.some((x) => ['coal', 'iron', 'gold', 'silv'].includes(x));
@@ -827,7 +844,7 @@ function computeQueuedFactoryLedger(st: GameState, marketId: string): QueuedFact
     const output = LEVEL_WORKERS * staffing * recipe.perWorker
       * (1 + techEffect(owner, 'factory_efficiency')) * (1 + specificEfficiency)
       * physicalProductivity(owner)
-      * (1 + 0.05 * Math.min(5, Math.max(0, region.buildings.railway)))
+      * (1 + 0.05 * railCoverage(region))
       * Math.max(0, 1 - region.devastation)
       * (region.controller === region.owner ? 1 : 0.7);
     const progress = project.totalCost > 0
@@ -892,7 +909,7 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
   // productivity-neutral as before (output and build cost both ~ sqrt(productivity)), so the private
   // investment threshold means the same thing in every country.
   const moneyScale = Math.sqrt(Math.max(0, c.productivity)) / Math.max(1e-9, primaryProductivity);
-  const infra = 1 + 0.05 * Math.min(5, Math.max(0, r.buildings.railway));
+  const infra = 1 + 0.05 * railCoverage(r);
   const condition = Math.max(0, 1 - r.devastation);
   const occupied = r.controller !== r.owner ? 0.7 : 1;
   const labourForce = Math.max(0, r.pop) * 0.45;
@@ -948,7 +965,9 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
 
   let value = 0;
   if (b === 'railway') {
-    value = (r.output * 12) * 0.05 + 2e5;
+    // One more level raises coverage by RAIL_LEVEL_KM2 / area (capped at full coverage): output gain per level.
+    const gain = railCoverage({ ...r, buildings: { ...r.buildings, railway: r.buildings.railway + 1 } }) - railCoverage(r);
+    value = (r.output * 12) * 0.05 * gain + 2e5;
   } else if (b === 'university') {
     value = r.pop * 0.45 * (0.2 + r.literacy * 1.2) * 3;
   } else if (RECIPES[b]) {

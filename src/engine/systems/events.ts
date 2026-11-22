@@ -107,6 +107,12 @@ function canApplyEffects(st: GameState, effects: unknown): boolean {
         if (!target?.alive || typeof e.delta !== 'number' || !Number.isFinite(e.delta)) return false;
         break;
       }
+      case 'legitimacy_crisis': {
+        const target = countryById(st, e.entity);
+        if (!target?.alive || typeof e.delta !== 'number' || !Number.isFinite(e.delta) || e.delta > 0 || e.delta < -60
+          || !Number.isSafeInteger(e.months) || e.months <= 0 || e.months > 600) return false;
+        break;
+      }
       case 'relation': {
         if (!countryById(st, e.a)?.alive || !countryById(st, e.b)?.alive || e.a === e.b
           || typeof e.delta !== 'number' || !Number.isFinite(e.delta)) return false;
@@ -184,6 +190,14 @@ function applyWindowOptionInPlace(st: GameState, windowId: string, optionId: str
       case 'legitimacy':
         st.countries[e.entity].legitimacy = clamp(st.countries[e.entity].legitimacy + e.delta, 0, 100);
         break;
+      case 'legitimacy_crisis': {
+        // HIST-JAP-01: a sustained crisis lowers the legitimacy the regime drifts toward for a period
+        // (e.g. unequal treaties, specie outflow and inflation), instead of a one-off shock that the
+        // 5%/month recovery erased within a few years.
+        const target = st.countries[e.entity];
+        target.crisis = { until: st.tick + e.months, delta: e.delta, source: windowId };
+        break;
+      }
       case 'relation': {
         const key = [e.a, e.b].sort().join('|');
         st.relations[key] = clamp((st.relations[key] ?? 0) + e.delta, -100, 100);
@@ -213,6 +227,7 @@ function applyWindowOptionInPlace(st: GameState, windowId: string, optionId: str
           setLaw(st, st.countries[e.entity], group as LawGroup, value as string, `regime change (${windowId})`);
         }
         st.countries[e.entity].regimeChangedAt = st.tick;
+        delete st.countries[e.entity].crisis; // a new regime ends the old regime's legitimacy crisis
         break;
       case 'merge': {
         const [sourceA, sourceB] = e.entities as [string, string];

@@ -165,11 +165,33 @@ function constructionAI(st: GameState, c: Country) {
 }
 
 // ---------------------------------------------------------------- reforms (with anti-oscillation)
+/**
+ * HIST-JAP-01: in Historical Mode, a law group that a still-pending historical decision window of this
+ * country governs (an option sets that law or changes regime laws) is reserved for that window until
+ * the window closes or fires. Otherwise ordinary AI reform pre-empted documented turning points (e.g.
+ * Tokugawa Japan voluntarily ending seclusion in 1841, so the 1854 opening and the Meiji Restoration
+ * could never happen). Sandbox Mode is unaffected.
+ */
+export function lawReservedByHistory(st: GameState, c: Country, group: LawGroup): boolean {
+  if (st.mode !== 'historical') return false;
+  const now = `${st.date.y}-${String(st.date.m).padStart(2, '0')}-01`;
+  for (const w of data().db.decision_windows) {
+    if (w.entity !== c.id || st.firedEvents.includes(w.id) || now > w.window[1]) continue;
+    for (const o of w.options) for (const raw of o.effects) {
+      const e = raw as { type?: string; entity?: string; group?: string; laws?: Record<string, string> };
+      if (e.entity !== c.id) continue;
+      if ((e.type === 'set_law' && e.group === group) || (e.type === 'regime_change' && e.laws && group in e.laws)) return true;
+    }
+  }
+  return false;
+}
+
 function reformAI(st: GameState, c: Country) {
   if (c.reform) return;
   let best: { g: LawGroup; v: string; u: number } | null = null;
   for (const g of LAW_GROUPS) {
     if ((c.ai.cooldowns[`reform:${g}`] ?? 0) > st.tick) continue;
+    if (lawReservedByHistory(st, c, g)) continue;
     for (const v of LAW_ALTERNATIVES[g]) {
       if (v === c.laws[g]) continue;
       // anti-oscillation: never return to a value abandoned in the last 15 years

@@ -78,6 +78,7 @@ export function validateCountryRecord(id: string, v: unknown, path: string): voi
   // CG18-04: legitimacy is a 0..100 score (clamped wherever it changes); radicalism a 0..1 share.
   if (!fin(c.legitimacy) || c.legitimacy < 0 || c.legitimacy > 100) fail(`${path}.legitimacy`, 'must be within 0..100');
   unit(c.radicalism, `${path}.radicalism`);
+  if (c.crisis !== undefined) { const k = obj(c.crisis, `${path}.crisis`); num(k.until, `${path}.crisis.until`); if (!fin(k.delta) || k.delta > 0 || k.delta < -60) fail(`${path}.crisis.delta`, 'must be within -60..0'); str(k.source, `${path}.crisis.source`); }
   for (const k of ['treasury', 'taxRate', 'statePool', 'privatePool', 'gdp', 'income', 'expense', 'tariffIncome', 'prestige', 'infamy', 'warExhaustion', 'foreignPressure'] as const) num(c[k], `${path}.${k}`);
   nonNeg(c.debt, `${path}.debt`);
   if (!fin(c.productivity) || c.productivity <= 0) fail(`${path}.productivity`, 'must be a finite positive number');

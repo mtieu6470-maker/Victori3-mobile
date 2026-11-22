@@ -6,7 +6,7 @@ import { loadNodeData } from '../src/engine/node';
 import { createGame } from '../src/engine/init';
 import { stepMonth } from '../src/engine/simulation';
 import { GROWTH_PARAMS, growthMonth, setGrowthBase, targetProductivity, tfpStock } from '../src/engine/systems/growth';
-import { constructionMonth, constructionQueueCap, enqueueConstruction } from '../src/engine/systems/economy';
+import { constructionMonth, constructionQueueCap, enqueueConstruction, maxRailLevels, RAIL_LEVEL_KM2, railCoverage } from '../src/engine/systems/economy';
 import { validateGameStateContract } from '../src/engine/save';
 import { data } from '../src/engine/data/db';
 
@@ -127,5 +127,20 @@ describe('ECON-GROWTH parallel construction', () => {
     const st = fresh();
     expect(constructionQueueCap(st, st.countries.GBR, 'private')).toBeGreaterThan(constructionQueueCap(st, st.countries.SMR ?? st.countries.LIE, 'private'));
     expect(constructionQueueCap(st, st.countries.GBR, 'private')).toBeLessThanOrEqual(60);
+  });
+});
+
+describe('ECON-GROWTH rail density', () => {
+  const reg = (railway: number, area: number) => ({ buildings: { railway } as never, area });
+  it('one level fully serves a small region but only a fraction of a large one', () => {
+    expect(railCoverage(reg(1, 12_000))).toBe(1);
+    expect(railCoverage(reg(1, 150_000))).toBeCloseTo(RAIL_LEVEL_KM2 / 150_000, 9);
+    expect(railCoverage(reg(50, 150_000))).toBe(5);
+    expect(railCoverage(reg(0, 150_000))).toBe(0);
+  });
+  it('large regions may build proportionally more levels (capped)', () => {
+    expect(maxRailLevels({ area: 12_000 })).toBe(5);
+    expect(maxRailLevels({ area: 150_000 })).toBe(30);
+    expect(maxRailLevels({ area: 5_000_000 })).toBe(60);
   });
 });
