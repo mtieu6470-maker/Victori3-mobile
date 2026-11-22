@@ -15,7 +15,7 @@ Scope: seven uncovered HY-02 Batch 1 subjects. This is a research handoff only: 
 
 **Recommended candidate A — guano mining at Chincha (1865), Henry de Witt Moulton**
 - File page: https://commons.wikimedia.org/wiki/File:Guano_Mining_in_Chincha_Islands_Peru_(1865)_Moulton.jpg
-- Direct original: https://upload.wikimedia.org/wikipedia/commons/5/5f/Guano_Mining_in_Chincha_Islands_Peru_%281865%29_Moulton.jpg
+- Direct original: https://upload.wikimedia.org/wikipedia/commons/0/08/Guano_Mining_in_Chincha_Islands_Peru_%281865%29_Moulton.jpg
 - Creator/date/holding: Henry de Witt Moulton; before 1865; albumen print held by Bibliothèque nationale de France (BnF), Gallica record linked from the Commons file page.
 - Rights: Commons marks the work Public Domain (PD-old; photographer died 1893, more than 70 years ago). Recheck BnF rights statement before ingestion.
 - Dimensions: 2,622 × 2,003 px.
@@ -25,7 +25,7 @@ Scope: seven uncovered HY-02 Batch 1 subjects. This is a research handoff only: 
 
 **Candidate B — Chinese laborers working guano at Great Heap**
 - File page: https://commons.wikimedia.org/wiki/File:Guano_Chinese_laborers.jpg
-- Direct original: https://upload.wikimedia.org/wikipedia/commons/4/4a/Guano_Chinese_laborers.jpg
+- Direct original: [Direct original URL not verified; use the Original file link on the Commons page.]
 - Creator/date/holding: Henry de Witt Moulton; c.1865; BnF collection.
 - Rights: Commons category indicates PD-old / CC-PD-Mark; verify the exact file-page rights statement and original BnF record before use.
 - Dimensions: 714 × 800 px — **fails 1,200 px long-edge gate**; reference only, do not ingest at current resolution.
@@ -33,7 +33,7 @@ Scope: seven uncovered HY-02 Batch 1 subjects. This is a research handoff only: 
 
 **Candidate C — Chincha guano loading pier, Illustrated London News (1863)**
 - File page: https://commons.wikimedia.org/wiki/File:Chincha_muelle.JPG
-- Direct original: https://upload.wikimedia.org/wikipedia/commons/7/7b/Chincha_muelle.JPG
+- Direct original: [Direct original URL not verified; use the Original file link on the Commons page.]
 - Creator/date: Illustrated London News staff artist, 21 February 1863, p. 200.
 - Rights: Commons file metadata needs a fresh rights verification before use; do **not** assume the later photograph's copyright status applies to this engraving.
 - Dimensions: 1,184 × 728 px — just below the 1,200 px long-edge threshold.
@@ -51,7 +51,7 @@ Scope: seven uncovered HY-02 Batch 1 subjects. This is a research handoff only: 
 
 **Candidate B — Anti-Corn Law League meeting at Exeter Hall (1846)**
 - File page: https://commons.wikimedia.org/wiki/File:1846_-_Anti-Corn_Law_League_Meeting.jpg
-- Direct original: https://upload.wikimedia.org/wikipedia/commons/4/4b/1846_-_Anti-Corn_Law_League_Meeting.jpg
+- Direct original: https://upload.wikimedia.org/wikipedia/commons/4/46/1846_-_Anti-Corn_Law_League_Meeting.jpg
 - Creator/date: unknown 19th-century artist; mid-19th century, described as a meeting at Exeter Hall in 1846.
 - Rights: Commons describes it as a faithful photographic reproduction of a two-dimensional Public Domain work; review the file's full PD-Art caveat before commercial reuse.
 - Dimensions: 870 × 711 px — **fails 1,200 px long-edge gate**; reference only unless a better master is located.
@@ -59,7 +59,7 @@ Scope: seven uncovered HY-02 Batch 1 subjects. This is a research handoff only: 
 
 **Candidate C — Archibald Prentice, *History of the Anti-Corn Law League* (1853), illustrated scan**
 - File page: https://commons.wikimedia.org/wiki/File:History_of_the_Anti_corn_law_league.pdf
-- Original scan: https://upload.wikimedia.org/wikipedia/commons/3/3c/History_of_the_Anti_corn_law_league.pdf
+- Original scan: [Direct original URL not verified; use the Original file link on the Commons page.]
 - Creator/date: Archibald Prentice (1792–1857), 1853; Internet Archive scan.
 - Rights: Commons marks the 1853 publication Public Domain (author died 1857; PD-old).
 - Dimensions: PDF page raster varies; the file is 658 × 1,162 px in the indexed copy. Inspect page images for any relevant contemporary plates; not an approved standalone scene yet.
@@ -69,7 +69,7 @@ Scope: seven uncovered HY-02 Batch 1 subjects. This is a research handoff only: 
 
 **Recommended candidate A — draft decree annotated by Victor Schœlcher (1848)**
 - File page: https://commons.wikimedia.org/wiki/File:Brouillon_du_d%C3%A9cret_d%E2%80%99abolition_de_l%E2%80%99esclavage_annot%C3%A9_par_Victor_Schoelcher,_1848.jpg
-- Direct original: https://upload.wikimedia.org/wikipedia/commons/0/0d/Brouillon_du_d%C3%A9cret_d%E2%80%99abolition_de_l%E2%80%99esclavage_annot%C3%A9_par_Victor_Schoelcher%2C_1848.jpg
+- Direct original: https://upload.wikimedia.org/wikipedia/commons/a/a3/Brouillon_du_d%C3%A9cret_d%E2%80%99abolition_de_l%E2%80%99esclavage_annot%C3%A9_par_Victor_Schoelcher%2C_1848.jpg
 - Creator/date/holding: Provisional Government, annotated by Victor Schœlcher; 1848; Archives nationales d'outre-mer.
 - Rights: Commons marks Public Domain / PD-old and PD-US-expired.
 - Dimensions: 1,434 × 2,208 px.
@@ -90,7 +90,7 @@ Scope: seven uncovered HY-02 Batch 1 subjects. This is a research handoff only: 
 
 **Recommended candidate A — Berlin barricade, March 18–19, 1848 (contemporary colored lithograph)**
 - File page: https://commons.wikimedia.org/wiki/File:Maerz1848_berlin.jpg
-- Direct original: https://upload.wikimedia.org/wikipedia/commons/8/8a/Maerz1848_berlin.jpg
+- Direct original: [Direct original URL not verified; use the Original file link on the Commons page.]
 - Creator/date: contemporary post-1848 lithograph, c.1848–1850; publisher Winckelmann, Berlin; scan associated with Deutsche Digitale Bibliothek.
 - Rights: Commons identifies the two-dimensional work and faithful reproduction as Public Domain; file page includes PD-Art/PD-Mark notes.
 - Dimensions: 899 × 705 px — **fails resolution gate**; do not ingest at this resolution.
@@ -98,7 +98,7 @@ Scope: seven uncovered HY-02 Batch 1 subjects. This is a research handoff only: 
 
 **Candidate B — A. Klaus, *Kampf um die große Barrikade* (1848)**
 - File page: https://commons.wikimedia.org/wiki/File:Barrikadenkampf_Alexanderplatz_1848.jpg
-- Direct original: https://upload.wikimedia.org/wikipedia/commons/1/1e/Barrikadenkampf_Alexanderplatz_1848.jpg
+- Direct original: [Direct original URL not verified; use the Original file link on the Commons page.]
 - Creator/date: A. Klaus, 1848 lithograph.
 - Rights: Commons page must be reviewed for full rights statement; indexed result identifies 1848 lithograph but available metadata/source history is incomplete. **Do not treat as cleared until exact license is confirmed.**
 - Dimensions: 1,701 × 1,198 px; long edge passes, short edge is below the requested 1,600×900 landscape output but can be adapted with a non-destructive crop/padding.
@@ -113,7 +113,7 @@ Scope: seven uncovered HY-02 Batch 1 subjects. This is a research handoff only: 
 
 **Recommended candidate A — Carlo Alberto signing the Statute (1848)**
 - File page: https://commons.wikimedia.org/wiki/File:Carlo_Alberto_firma_lo_Statuto.jpg
-- Direct original: https://upload.wikimedia.org/wikipedia/commons/3/3b/Carlo_Alberto_firma_lo_Statuto.jpg
+- Direct original: https://upload.wikimedia.org/wikipedia/commons/6/6c/Carlo_Alberto_firma_lo_Statuto.jpg
 - Creator/date: unknown artist, second half of the 19th century; depicts Charles Albert signing the Statute in 1848; source credited to Comune di Torino's Risorgimento material.
 - Rights: Commons marks Public Domain (PD-old; creator unknown and historical work); final rights confirmation still required from the source collection.
 - Dimensions: 1,901 × 1,330 px.
@@ -122,7 +122,7 @@ Scope: seven uncovered HY-02 Batch 1 subjects. This is a research handoff only: 
 
 **Candidate B — Proclama per l'adozione delle basi dello Statuto (8 February 1848)**
 - File page: https://commons.wikimedia.org/wiki/File:Proclama_Statuto_Albertino_(IA_ProclamaStatutoAbertino).pdf
-- Original scan: https://upload.wikimedia.org/wikipedia/commons/3/3e/Proclama_Statuto_Albertino_%28IA_ProclamaStatutoAbertino%29.pdf
+- Original scan: [Direct original URL not verified; use the Original file link on the Commons page.]
 - Author/date: Carlo Alberto di Savoia; Torino, Stamperia Reale, 8 February 1848.
 - Rights: Commons marks PD-US-expired / no known restrictions.
 - Dimensions: 2,568 × 3,691 px PDF scan.
@@ -130,7 +130,7 @@ Scope: seven uncovered HY-02 Batch 1 subjects. This is a research handoff only: 
 
 **Candidate C — Statuto Albertino official scan**
 - File page: https://commons.wikimedia.org/wiki/File:Statuto_Albertino.pdf
-- Original: https://upload.wikimedia.org/wikipedia/commons/4/4f/Statuto_Albertino.pdf
+- Original: [Direct original URL not verified; use the Original file link on the Commons page.]
 - Author/date: Presidency of the Italian Republic scan of the 4 March 1848 Statute.
 - Rights: not PD; the file page records a specific attribution-only permission confirmed by Wikimedia VRT, but notes that Quirinale revoked permission for files published after 10 September 2024. This older upload appears within the permitted window; use only with required attribution and after Claude approves this non-PD-but-permitted license exception.
 - Dimensions: 1,239 × 1,754 px.
@@ -161,14 +161,14 @@ Scope: seven uncovered HY-02 Batch 1 subjects. This is a research handoff only: 
 
 **Recommended candidate A — Zollvereinsvertrag (1833 treaty document)**
 - File page: https://commons.wikimedia.org/wiki/File:Zollvereinsvertrag.jpg
-- Direct original: https://upload.wikimedia.org/wikipedia/commons/2/2d/Zollvereinsvertrag.jpg
+- Direct original: https://upload.wikimedia.org/wikipedia/commons/6/6b/Zollvereinsvertrag.jpg
 - Creator/date: treaty agreement of 1833; scan/source reference associated with HGIS Germany, uploaded 2007.
 - Rights: Commons page links Public Domain Mark 1.0; inspect full page and source record before use.
 - Dimensions: 500 × 685 px — **fails resolution gate**. Documentary reference only.
 
 **Candidate B — *Der deutsche Zollverein während der Jahre 1834–1845* (Berlin, 1846)**
 - File page: https://commons.wikimedia.org/wiki/File:Der_deutsche_Zollverein_w%C3%A4hrend_der_Jahre_1834_-_1845_(IA_10292013bsb).pdf
-- Original scan: https://upload.wikimedia.org/wikipedia/commons/0/09/Der_deutsche_Zollverein_w%C3%A4hrend_der_Jahre_1834_-_1845_%28IA_10292013bsb%29.pdf
+- Original scan: [Direct original URL not verified; use the Original file link on the Commons page.]
 - Creator/date/holding: 1846 publication; Bayerische Staatsbibliothek, Munich.
 - Rights: publication predates modern copyright terms; Commons scan is from a historical library collection. Verify file page's complete rights statement before extraction.
 - Dimensions: 3,947 × 5,687 px PDF scan.
@@ -176,7 +176,7 @@ Scope: seven uncovered HY-02 Batch 1 subjects. This is a research handoff only: 
 
 **Candidate C — *Der Zollverein, sein System und dessen Gegner* (1844)**
 - File page: https://commons.wikimedia.org/wiki/File:Der_Zollverein,_sein_System_und_dessen_Gegner_(IA_10290528bsb).pdf
-- Original scan: https://upload.wikimedia.org/wikipedia/commons/0/0b/Der_Zollverein%2C_sein_System_und_dessen_Gegner_%28IA_10290528bsb%29.pdf
+- Original scan: [Direct original URL not verified; use the Original file link on the Commons page.]
 - Author/date/holding: Ernst Gottfried Georg von Bülow-Cummerow, Berlin 1844; Bayerische Staatsbibliothek.
 - Rights: 1844 publication; confirm complete Commons file-page rights and inspect for maps/plates before extraction.
 - Dimensions: 3,027 × 5,566 px PDF scan.
