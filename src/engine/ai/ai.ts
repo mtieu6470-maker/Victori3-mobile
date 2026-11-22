@@ -7,7 +7,7 @@ import { LAW_GROUPS, type LawGroup } from '../data/dbTypes';
 import { BUILDINGS, type Building, type Country, type GameState, type Good, type WarGoal } from '../types';
 import { clamp, count, getRel, rand, chance, relKey } from '../core';
 import { historicalBias } from '../historical';
-import { enqueueConstruction, constructionQueueLength, buildingReturn, canBuild, hasTech, marketOf, queuedFactorySupply, privateInvestment, SHIP_COST } from '../systems/economy';
+import { enqueueConstruction, constructionQueueLength, constructionQueueCap, withInvestmentCache, buildingReturn, canBuild, hasTech, marketOf, queuedFactorySupply, privateInvestment, SHIP_COST } from '../systems/economy';
 import { reformSupport, startReform, sharesBorder } from '../systems/politics';
 import { techCost } from '../systems/technology';
 import { allied, allianceAcceptance, declareRivalry, declareWar, formAlliance, greatPowers, guarantee, improveRelations, joinCustomsUnion, powerScore, rivals } from '../systems/diplomacy';
@@ -29,6 +29,10 @@ LAW_ALTERNATIVES.governance = [];
 function stagger(st: GameState, c: Country, period: number) { let h = 0; for (const ch of c.id) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return (st.tick + h) % period === 0; }
 
 export function aiMonth(st: GameState) {
+  withInvestmentCache(st, () => aiMonthInner(st));
+}
+
+function aiMonthInner(st: GameState) {
   for (const c of Object.values(st.countries)) {
     if (!c.alive || c.id === st.player) continue;
     budgetAI(st, c);
@@ -139,7 +143,7 @@ export function investmentDemandPriority(st: GameState, c: Country, r: GameState
 
 // ---------------------------------------------------------------- construction (state investment)
 function constructionAI(st: GameState, c: Country) {
-  if (constructionQueueLength(st, c.id, 'state') >= 3 || c.statePool <= 0) return;
+  if (constructionQueueLength(st, c.id, 'state') >= constructionQueueCap(st, c, 'state') || c.statePool <= 0) return;
   const threat = threatLevel(st, c);
   let best: { r: number; b: Building; v: number } | null = null;
   for (const r of regionsOf(st, c.id)) {

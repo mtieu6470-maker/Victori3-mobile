@@ -1,0 +1,292 @@
+{
+ "task": "ECON-GROWTH (first slice)",
+ "date": "2026-11-22",
+ "tool": "npx tsx tools/growth-report.ts 1913 1",
+ "measure": "GDP per capita on each country's 1836 home territory (regions owned at start and still owned), ratio to Jan 1837. Historical mode, seed 1.",
+ "evidence": {
+  "CG-26": "docs/research/history/CG26_GROWTH_OCCUPATIONS_FUEL_VI.md (MPD2023, CC BY 4.0)"
+ },
+ "targets_MPD2023_ratio_to_1836": {
+  "GBR": {
+   "1850": 1.1,
+   "1870": 1.481,
+   "1900": 1.929,
+   "1913": 2.086
+  },
+  "FRA": {
+   "1850": 1.218,
+   "1870": 1.431,
+   "1900": 2.194,
+   "1913": 2.659
+  },
+  "PRU(Germany series)": {
+   "1850": 1.047,
+   "1870": 1.349,
+   "1900": 2.19,
+   "1913": 2.676
+  },
+  "USA": {
+   "1850": 1.047,
+   "1870": 1.384,
+   "1900": 2.316,
+   "1913": 2.913
+  },
+  "QNG(China, from 1850)": {
+   "1913_over_1850": 1.148
+  },
+  "EIC(India, from 1850)": {
+   "1913_over_1850": 1.133
+  },
+  "JAP(from 1850)": {
+   "1913_over_1850": 1.693
+  }
+ },
+ "before": {
+  "1837": {
+   "GBR": 1,
+   "FRA": 1,
+   "PRU": 1,
+   "USA": 1,
+   "QNG": 1,
+   "EIC": 1,
+   "JAP": 1,
+   "BRA": 1,
+   "RUS": 1,
+   "TUR": 1
+  },
+  "1840": {
+   "GBR": 1.003,
+   "FRA": 0.999,
+   "PRU": 1.095,
+   "USA": 1.007,
+   "QNG": 1,
+   "EIC": 1.002,
+   "JAP": 0.926,
+   "BRA": 1.004,
+   "RUS": 0.993,
+   "TUR": 0.995
+  },
+  "1850": {
+   "GBR": 1.011,
+   "FRA": 1.004,
+   "PRU": 1.092,
+   "USA": 1.075,
+   "QNG": 0.94,
+   "EIC": 0.804,
+   "JAP": 0.934,
+   "BRA": 1.015,
+   "RUS": 0.992,
+   "TUR": 0.995
+  },
+  "1860": {
+   "GBR": 1.096,
+   "FRA": 1.072,
+   "PRU": 1.296,
+   "USA": 1.181,
+   "QNG": 1.014,
+   "EIC": 0.808,
+   "JAP": 0.943,
+   "BRA": 1.016,
+   "RUS": 0.99,
+   "TUR": 0.997
+  },
+  "1870": {
+   "GBR": 1.213,
+   "FRA": 1.081,
+   "PRU": 1.391,
+   "USA": 1.296,
+   "QNG": 1.014,
+   "EIC": 1.003,
+   "JAP": 0.951,
+   "BRA": 1.014,
+   "RUS": 0.99,
+   "TUR": 1
+  },
+  "1880": {
+   "GBR": 1.22,
+   "FRA": 1.198,
+   "PRU": 1.563,
+   "USA": 1.332,
+   "QNG": 1.035,
+   "EIC": 1.016,
+   "JAP": 0.959,
+   "BRA": 1,
+   "RUS": 0.989,
+   "TUR": 1.002
+  },
+  "1890": {
+   "GBR": 1.213,
+   "FRA": 1.288,
+   "PRU": 1.571,
+   "USA": 1.356,
+   "QNG": 1.205,
+   "EIC": 1.112,
+   "JAP": 0.967,
+   "BRA": 0.926,
+   "RUS": 0.99,
+   "TUR": 1.005
+  },
+  "1900": {
+   "GBR": 1.223,
+   "FRA": 1.35,
+   "PRU": 1.578,
+   "USA": 1.372,
+   "QNG": 1.256,
+   "EIC": 1.132,
+   "JAP": 0.973,
+   "BRA": 0.926,
+   "RUS": 0.992,
+   "TUR": 1.008
+  },
+  "1913": {
+   "GBR": 1.245,
+   "FRA": 1.39,
+   "PRU": 1.575,
+   "USA": 1.377,
+   "QNG": 1.303,
+   "EIC": 1.162,
+   "JAP": 1.05,
+   "BRA": 0.933,
+   "RUS": 0.997,
+   "TUR": 1.015
+  }
+ },
+ "after": {
+  "1837": {
+   "GBR": 1,
+   "FRA": 1,
+   "PRU": 1,
+   "USA": 1,
+   "QNG": 1,
+   "EIC": 1,
+   "JAP": 1,
+   "BRA": 1,
+   "RUS": 1,
+   "TUR": 1
+  },
+  "1840": {
+   "GBR": 1.102,
+   "FRA": 1.005,
+   "PRU": 1.084,
+   "USA": 1.084,
+   "QNG": 1.001,
+   "EIC": 1.003,
+   "JAP": 0.927,
+   "BRA": 1.001,
+   "RUS": 0.996,
+   "TUR": 0.998
+  },
+  "1850": {
+   "GBR": 1.206,
+   "FRA": 1.039,
+   "PRU": 1.445,
+   "USA": 1.225,
+   "QNG": 1.02,
+   "EIC": 0.814,
+   "JAP": 0.933,
+   "BRA": 1.02,
+   "RUS": 1.002,
+   "TUR": 1.006
+  },
+  "1860": {
+   "GBR": 1.324,
+   "FRA": 1.48,
+   "PRU": 1.515,
+   "USA": 1.489,
+   "QNG": 1.117,
+   "EIC": 0.829,
+   "JAP": 0.946,
+   "BRA": 1.035,
+   "RUS": 1.006,
+   "TUR": 1.017
+  },
+  "1870": {
+   "GBR": 1.565,
+   "FRA": 1.554,
+   "PRU": 1.771,
+   "USA": 1.614,
+   "QNG": 1.334,
+   "EIC": 1.063,
+   "JAP": 0.96,
+   "BRA": 1.028,
+   "RUS": 1.013,
+   "TUR": 1.029
+  },
+  "1880": {
+   "GBR": 1.697,
+   "FRA": 1.65,
+   "PRU": 1.867,
+   "USA": 1.761,
+   "QNG": 1.352,
+   "EIC": 1.182,
+   "JAP": 0.967,
+   "BRA": 1.022,
+   "RUS": 1.02,
+   "TUR": 1.04
+  },
+  "1890": {
+   "GBR": 1.821,
+   "FRA": 1.764,
+   "PRU": 1.958,
+   "USA": 1.93,
+   "QNG": 1.364,
+   "EIC": 1.244,
+   "JAP": 0.98,
+   "BRA": 0.953,
+   "RUS": 1.029,
+   "TUR": 1.052
+  },
+  "1900": {
+   "GBR": 1.84,
+   "FRA": 1.882,
+   "PRU": 2.092,
+   "USA": 2.018,
+   "QNG": 1.38,
+   "EIC": 1.625,
+   "JAP": 0.99,
+   "BRA": 0.958,
+   "RUS": 1.039,
+   "TUR": 1.065
+  },
+  "1913": {
+   "GBR": 1.946,
+   "FRA": 1.937,
+   "PRU": 2.182,
+   "USA": 2.047,
+   "QNG": 1.4,
+   "EIC": 1.713,
+   "JAP": 1.006,
+   "BRA": 0.979,
+   "RUS": 1.127,
+   "TUR": 1.085
+  }
+ },
+ "changes": [
+  "Parallel, money-bounded construction (constructionQueueCap, committedConstructionFunds); was one project per funding stream at a time",
+  "Private investors score once a month and start up to 3 projects (one per building type)",
+  "Endogenous productivity: ln(p/p0) = 0.035*newEconTechs*literacy^2 + 0.4*(literacy-literacy0), 6%/month adjustment",
+  "Household wealth cap 3 -> 12",
+  "Construction news logged only for the player's country (log was flooded)",
+  "Queued-project ledger memoised during the AI phase"
+ ],
+ "fit_1913_mean_abs_log_error_industrialisers": {
+  "before": 0.61,
+  "after": 0.24
+ },
+ "known_gaps": [
+  "1870-1913 growth too slow for FRA/GER/USA (few late-century techs: electricity, chemicals)",
+  "India grows too fast (x1.71 vs MPD x1.13 from 1850)",
+  "Meiji Japan too slow (x1.08 vs x1.69 from 1850)",
+  "China x1.37 from 1850 vs x1.15"
+ ],
+ "performance_desktop_profile_tools_profile_sim": {
+  "total_monthly_p50_ms": {
+   "before_this_slice_bench": 75,
+   "after": 98.6
+  },
+  "ai_p50_ms": {
+   "naive_parallel": 227.5,
+   "after_memoisation_and_single_pass": 54.4
+  }
+ }
+}

@@ -1,3 +1,25 @@
+## 2026-11-22 — ECON-GROWTH slice 1 (MPD2023 targets) + CG18-03 nested state contract
+
+- **CG18-03 (commit `d05da24`):** `src/engine/stateContract.ts` holds domain validators for regions, countries, markets, wars/treaties/projects/territory log, and history/divergence/counters/decisions/log.
+  - Used by saves, loads and worker snapshots. 44 table-driven mutation tests. Real 40-year states (both modes) pass: 0 failures.
+- **ECON-GROWTH slice 1** (evidence CG-26 MPD2023; report `docs/audit/econ/ECON_GROWTH_REPORT_2026-11-22.json`; tool `tools/growth-report.ts` measures GDP per capita on 1836 home territory).
+  - Root causes found:
+    1. Construction ran one project per funding stream at a time (≈ 2 levels a year per country), so factory employment fell behind population all century.
+    2. Productivity was frozen at its 1836 calibration.
+    3. The household wealth index was capped at 3, which Britain had already reached in 1836.
+  - Fixes:
+    - Parallel construction bounded by actual money (`constructionQueueCap`).
+    - Investors score options once a month and start up to 3 projects.
+    - Endogenous productivity (`src/engine/systems/growth.ts`): economic techs × literacy² + literacy.
+    - Wealth cap raised to 12.
+    - AI construction news is no longer logged: the capped log was evicting wars.
+  - GDP per capita, 1913 vs 1836 (MPD2023 in brackets): UK 1.95 (2.09), France 1.94 (2.66), Prussia 2.18 (Germany 2.68), USA 2.05 (2.91). Mean absolute log error for industrialisers 0.61 → 0.24.
+  - Known gaps: 1870–1913 growth too slow (the tree lacks late-century techs); India too fast; Meiji Japan too slow.
+  - Performance: monthly boundary p50 ≈ 99 ms vs ≈ 75 ms before (AI 227 → 54 ms after memoising the queued-project ledger and single-pass scoring). Runs in the worker.
+- Local: tsc 0; `npm test` **29/29 files, 312/312 tests**; build 0.
+
+---
+
 ## 2026-11-22 — ECON-CAL-03 done, IND-02a ON by default; CG18-02 closed; sandbox wars vary by seed
 
 - **ECON-CAL-03** (evidence CG-25; report `docs/audit/econ/ECON_CAL_03_REPORT_2026-11-22.json`):

@@ -1,5 +1,6 @@
 // Builds the starting GameState (1836-01-01) from the Historical Database. Identical for both modes,
 // except for the stored mode flag: Sandbox starts from the same historical world.
+import { setGrowthBase } from './systems/growth';
 import { data } from './data/db';
 import type { EntityRecord } from './data/dbTypes';
 import { GOODS, IGS, STRATA, S, type Country, type GameMode, type GameState, type Region, type Good, type Building, BUILDINGS } from './types';
@@ -185,6 +186,8 @@ export function createGame(opts: NewGameOptions): GameState {
   computeEconomy(st, true);
   calibrateDemography(st);
   for (const id of Object.keys(st.countries)) updatePolitics(st, st.countries[id], true);
+  // ECON-GROWTH: productivity grows from this calibrated 1836 baseline (after stats are computed).
+  for (const c of Object.values(st.countries)) setGrowthBase(c);
   sampleYear(st);
   return st;
 }

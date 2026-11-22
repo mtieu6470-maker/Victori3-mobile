@@ -88,6 +88,7 @@ export function validateCountryRecord(id: string, v: unknown, path: string): voi
   strings(c.claims, `${path}.claims`);
   strings(c.priorities, `${path}.priorities`);
   numRecord(c.stats, `${path}.stats`);
+  if (c.growthBase !== undefined) { const g = obj(c.growthBase, `${path}.growthBase`); if (!fin(g.productivity) || g.productivity <= 0) fail(`${path}.growthBase.productivity`, 'must be a finite positive number'); nonNeg(g.techs, `${path}.growthBase.techs`); unit(g.literacy, `${path}.growthBase.literacy`); }
 }
 
 export function validateMarketState(st: Obj): void {

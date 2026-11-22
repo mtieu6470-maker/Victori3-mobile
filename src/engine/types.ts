@@ -104,6 +104,8 @@ export interface Country {
   /** Separate construction investment balances. */
   statePool: number; privatePool: number;
   gdp: number; gdpHistory?: number; income: number; expense: number; tariffIncome: number; productivity: number;
+  /** ECON-GROWTH baseline (productivity, economic tech count, literacy) set after the 1836 calibration; absent in older saves. */
+  growthBase?: { productivity: number; techs: number; literacy: number };
   /** Last month's budget lines (same figures that make up income and expense); absent before the first month. */
   finance?: { tax: number; tariff: number; army: number; navy: number; admin: number; education: number; health: number; construction: number; interest: number };
   techs: string[]; research: { current: string | null; progress: number };

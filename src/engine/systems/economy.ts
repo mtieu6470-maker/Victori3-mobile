@@ -38,6 +38,9 @@ export const RECIPES: Partial<Record<Building, { out: Good; perWorker: number; i
  * alone and consumed ~2× the whole world cotton crop (CG-23 says ~1/3). Physical elasticity is now
  * small; value elasticity carries the rest, so GDP sensitivity is ~1.0 for every sector.
  */
+/** ECON-GROWTH: upper bound of the household wealth index driving consumption (design parameter). */
+export const WEALTH_CAP = 12;
+
 export const PRODUCTIVITY_ELASTICITY = { physical: 0.15, value: 0.85, services: 1.0 } as const;
 export const physicalProductivity = (c: Pick<Country, 'productivity'>) => Math.pow(Math.max(0, c.productivity), PRODUCTIVITY_ELASTICITY.physical);
 export const valueProductivity = (c: Pick<Country, 'productivity'>) => Math.pow(Math.max(0, c.productivity), PRODUCTIVITY_ELASTICITY.value);
@@ -327,7 +330,9 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const previousAverageWage = wageWorkers > 0 ? wageMass / wageWorkers : 0;
     const wagePower = clamp(previousAverageWage / 50, 0.5, 2);
     const outputWealth = Math.max(0.3, (r.output > 0 ? (r.output * 12) / Math.max(1, r.pop) : 600 * c.productivity) / 600);
-    const wealth = clamp(outputWealth * (0.85 + wagePower * 0.15), 0.3, 3);
+    // ECON-GROWTH: the cap was 3, which Britain already reached in 1836, so rising income never raised
+    // consumption and growth stalled in gluts. 12 leaves room for the whole 1836-2026 range.
+    const wealth = clamp(outputWealth * (0.85 + wagePower * 0.15), 0.3, WEALTH_CAP);
     const grainNeed = r.pop * 200 * (1 + 0.25 * Math.log(wealth));
     demand.grain += grainNeed;
     demand.textiles += r.pop * 12 * Math.pow(wealth, 0.8);
@@ -574,13 +579,49 @@ function financeMonth(st: GameState, c: Country, gdpYear: number, pop: number, i
   c.income = income; c.expense = expense;
   c.finance = { tax, tariff, army: armyCost, navy: navyCost, admin: income * c.budget.admin, education: income * c.budget.education, health: income * c.budget.health, construction, interest };
   // private investment from the savings of property-owning strata
-  const lawF = { laissez_faire: 1, interventionism: 0.75, mercantilism: 0.5, traditionalism: 0.25 }[c.laws.economy] ?? 0.4;
-  c.privatePool = (c.privatePool ?? 0) + (gdpYear * 0.012 * lawF * (1 + techEffect(c, 'investment'))) / 12;
+  c.privatePool = (c.privatePool ?? 0) + (gdpYear * privateSavingsRate(c)) / 12;
   // default
   if (income > 0 && c.debt > income * 12 * 4) {
     c.debt *= 0.5; c.legitimacy = clamp(c.legitimacy - 15, 0, 100); c.prestige -= 10;
     log(st, { type: 'economy', text: `${c.name} defaults on its public debt.`, textVi: `${c.nameVi} vỡ nợ công.`, actors: [c.id] });
   }
+}
+
+/**
+ * ECON-GROWTH: routine construction news is logged only for the player's country. With parallel
+ * construction, AI build orders would otherwise flood the capped event log and evict wars,
+ * revolutions and other history (counters still record every action).
+ */
+function logConstruction(st: GameState, c: Country, e: Parameters<typeof log>[1]): void {
+  if (st.player === c.id) log(st, e);
+}
+
+/** Share of GDP saved by property owners and offered for private construction each year. */
+export function privateSavingsRate(c: Country): number {
+  const lawF = { laissez_faire: 1, interventionism: 0.75, mercantilism: 0.5, traditionalism: 0.25 }[c.laws.economy] ?? 0.4;
+  return 0.012 * lawF * (1 + techEffect(c, 'investment'));
+}
+
+/** Funds still owed to queued projects of one funding stream. */
+export function committedConstructionFunds(st: GameState, countryId: string, funding: ConstructionFunding): number {
+  return (st.constructionProjects ?? []).reduce((s, p) => s + (p.countryId === countryId && p.funding === funding ? Math.max(0, p.totalCost - p.invested) : 0), 0);
+}
+
+/** Upper bound on parallel projects per funding stream (performance guard; design parameter). */
+export const CONSTRUCTION_MAX_PARALLEL = 60;
+
+/**
+ * ECON-GROWTH: how many projects one funding stream may run at once. Before, a single project per
+ * stream advanced each month (at most ~2 new building levels a year for a whole country), so savings
+ * piled up unused and industrial employment fell behind population for the whole century. Projects
+ * now run in parallel, bounded by money: the cap is the number of typical projects (a textile mill)
+ * that one year of the stream's funding can pay for, plus a small base queue.
+ */
+export function constructionQueueCap(st: GameState, c: Country, funding: ConstructionFunding): number {
+  const annual = funding === 'private' ? Math.max(0, c.gdp) * privateSavingsRate(c) : Math.max(0, c.income) * 12 * Math.max(0, c.budget.construction);
+  const typical = buildCost(c, 'textile_mill', st);
+  const affordable = Number.isFinite(typical) && typical > 0 ? Math.floor(annual / typical) : 0;
+  return clamp(5 + affordable, 5, CONSTRUCTION_MAX_PARALLEL);
 }
 
 /** Number of active/waiting projects in a country's funding stream. */
@@ -594,7 +635,7 @@ export function enqueueConstruction(
 ): ConstructionProject | null {
   if (!canBuild(st, c, r, b)) return null;
   if ((st.constructionProjects ?? []).some((p) => p.countryId === c.id && p.regionId === r.id && p.building === b)) return null;
-  if (constructionQueueLength(st, c.id, funding) >= 5) return null;
+  if (constructionQueueLength(st, c.id, funding) >= constructionQueueCap(st, c, funding)) return null;
   const totalCost = buildCost(c, b, st);
   if (!Number.isFinite(totalCost) || totalCost <= 0) return null;
   const project: ConstructionProject = {
@@ -602,7 +643,7 @@ export function enqueueConstruction(
     funding, totalCost, invested: 0, createdTick: st.tick,
   };
   (st.constructionProjects ??= []).push(project);
-  log(st, {
+  logConstruction(st, c, {
     type: 'construction',
     text: `${c.name} orders ${b} construction in ${r.id}.`,
     textVi: `${c.nameVi} đưa dự án ${b} tại ${r.id} vào hàng đợi xây dựng.`,
@@ -616,7 +657,7 @@ export function cancelConstruction(st: GameState, c: Country, projectId: string)
   const index = (st.constructionProjects ?? []).findIndex((p) => p.id === projectId && p.countryId === c.id && p.funding === 'state');
   if (index < 0) return false;
   const [project] = st.constructionProjects.splice(index, 1);
-  log(st, {
+  logConstruction(st, c, {
     type: 'construction',
     text: `${c.name} cancels ${project.building} construction in ${project.regionId}; invested funds are not refunded.`,
     textVi: `${c.nameVi} hủy dự án ${project.building} tại ${project.regionId}; vốn đã chi không được hoàn lại.`,
@@ -625,49 +666,52 @@ export function cancelConstruction(st: GameState, c: Country, projectId: string)
   return true;
 }
 
-/** One project per funding stream advances each month; each requires at least 12 funding ticks. */
+/** Projects of each funding stream advance in parallel while it has money; each needs at least 12 monthly instalments. */
 export function constructionMonth(st: GameState): void {
   for (const c of Object.values(st.countries)) {
     if (!c.alive) continue;
     for (const funding of ['state', 'private'] as const) {
-      const project = (st.constructionProjects ?? [])
+      const projects = (st.constructionProjects ?? [])
         .filter((p) => p.countryId === c.id && p.funding === funding)
-        .sort((a, b) => a.createdTick - b.createdTick || a.id.localeCompare(b.id))[0];
-      if (!project) continue;
-      const region = st.regions[data().regionIndex.get(project.regionId) ?? -1];
-      if (!region || region.owner !== c.id || region.controller !== c.id || !canBuild(st, c, region, project.building, project.id)) {
+        .sort((a, b) => a.createdTick - b.createdTick || a.id.localeCompare(b.id));
+      const poolKey = funding === 'state' ? 'statePool' : 'privatePool';
+      // ECON-GROWTH: projects run in parallel (oldest first) while the stream has money; each still
+      // needs at least 12 monthly instalments.
+      for (const project of projects) {
+        const region = st.regions[data().regionIndex.get(project.regionId) ?? -1];
+        if (!region || region.owner !== c.id || region.controller !== c.id || !canBuild(st, c, region, project.building, project.id)) {
+          st.constructionProjects = st.constructionProjects.filter((p) => p.id !== project.id);
+          logConstruction(st, c, {
+            type: 'construction',
+            text: `${c.name}'s ${project.building} project in ${project.regionId} is halted because the site is no longer eligible.`,
+            textVi: `Dự án ${project.building} của ${c.nameVi} tại ${project.regionId} bị dừng vì vùng không còn đủ điều kiện.`,
+            actors: [c.id],
+          });
+          continue;
+        }
+        // A reserve ledger is not permission to spend cash that no longer exists.
+        // Reconcile legacy or deficit-damaged reserves before processing a state project.
+        if (funding === 'state' && c.statePool > c.treasury) c.statePool = Math.max(0, c.treasury);
+        const available = Math.min(
+          Math.max(0, c[poolKey] ?? 0),
+          funding === 'state' ? Math.max(0, c.treasury) : Number.POSITIVE_INFINITY,
+        );
+        const spend = Math.min(available, project.totalCost / 12, project.totalCost - project.invested);
+        if (spend > 0) {
+          c[poolKey] = Math.max(0, available - spend);
+          if (funding === 'state') c.treasury = Math.max(0, c.treasury - spend);
+          project.invested = Math.min(project.totalCost, project.invested + spend);
+        }
+        if (project.invested + 1e-6 < project.totalCost) continue;
         st.constructionProjects = st.constructionProjects.filter((p) => p.id !== project.id);
-        log(st, {
+        region.buildings[project.building] += 1;
+        logConstruction(st, c, {
           type: 'construction',
-          text: `${c.name}'s ${project.building} project in ${project.regionId} is halted because the site is no longer eligible.`,
-          textVi: `Dự án ${project.building} của ${c.nameVi} tại ${project.regionId} bị dừng vì vùng không còn đủ điều kiện.`,
+          text: `${c.name} completes ${project.building} in ${project.regionId}.`,
+          textVi: `${c.nameVi} hoàn thành ${project.building} tại ${project.regionId}.`,
           actors: [c.id],
         });
-        continue;
       }
-      const poolKey = funding === 'state' ? 'statePool' : 'privatePool';
-      // A reserve ledger is not permission to spend cash that no longer exists.
-      // Reconcile legacy or deficit-damaged reserves before processing a state project.
-      if (funding === 'state' && c.statePool > c.treasury) c.statePool = Math.max(0, c.treasury);
-      const available = Math.min(
-        Math.max(0, c[poolKey] ?? 0),
-        funding === 'state' ? Math.max(0, c.treasury) : Number.POSITIVE_INFINITY,
-      );
-      const spend = Math.min(available, project.totalCost / 12, project.totalCost - project.invested);
-      if (spend > 0) {
-        c[poolKey] = Math.max(0, available - spend);
-        if (funding === 'state') c.treasury = Math.max(0, c.treasury - spend);
-        project.invested = Math.min(project.totalCost, project.invested + spend);
-      }
-      if (project.invested + 1e-6 < project.totalCost) continue;
-      st.constructionProjects = st.constructionProjects.filter((p) => p.id !== project.id);
-      region.buildings[project.building] += 1;
-      log(st, {
-        type: 'construction',
-        text: `${c.name} completes ${project.building} in ${project.regionId}.`,
-        textVi: `${c.nameVi} hoàn thành ${project.building} tại ${project.regionId}.`,
-        actors: [c.id],
-      });
     }
   }
 }
@@ -708,10 +752,38 @@ interface QueuedFactoryLedger {
  * Estimates the market footprint of already queued factory levels.
  * The 50%-100% commitment weight reflects that projects are funded over multiple months.
  */
+// Performance (ECON-GROWTH): during the AI phase buildingReturn is evaluated for every region and
+// building of every country, up to several times a month. The queued-project ledger only changes when
+// a project is added, completed or invested, so it is memoised per market inside withInvestmentCache()
+// and invalidated whenever the project list changes. Outside that scope nothing is cached.
+let ledgerCache: { st: GameState; tick: number; projects: unknown; length: number; byMarket: Map<string, QueuedFactoryLedger> } | null = null;
+
+/** Runs fn with queued-project ledgers memoised (read-only use; see ledgerCache). */
+export function withInvestmentCache<T>(st: GameState, fn: () => T): T {
+  const previous = ledgerCache;
+  ledgerCache = { st, tick: st.tick, projects: st.constructionProjects, length: st.constructionProjects?.length ?? 0, byMarket: new Map() };
+  try { return fn(); } finally { ledgerCache = previous; }
+}
+
 function queuedFactoryLedger(st: GameState, c: Country): QueuedFactoryLedger {
+  const marketId = marketOf(st, c);
+  const cache = ledgerCache;
+  if (cache && cache.st === st) {
+    if (cache.tick !== st.tick || cache.projects !== st.constructionProjects || cache.length !== (st.constructionProjects?.length ?? 0)) {
+      cache.tick = st.tick; cache.projects = st.constructionProjects; cache.length = st.constructionProjects?.length ?? 0; cache.byMarket.clear();
+    }
+    const hit = cache.byMarket.get(marketId);
+    if (hit) return hit;
+    const fresh = computeQueuedFactoryLedger(st, marketId);
+    cache.byMarket.set(marketId, fresh);
+    return fresh;
+  }
+  return computeQueuedFactoryLedger(st, marketId);
+}
+
+function computeQueuedFactoryLedger(st: GameState, marketId: string): QueuedFactoryLedger {
   const supply: Partial<Record<Good, number>> = {};
   const inputs: Partial<Record<Good, number>> = {};
-  const marketId = marketOf(st, c);
   const projects = (st.constructionProjects ?? []).filter((project) => {
     const owner = st.countries[project.countryId];
     return !!owner?.alive && marketOf(st, owner) === marketId && !!RECIPES[project.building];
@@ -930,18 +1002,36 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
   return (value * moneyScale) / buildCost(c, b, st);
 }
 
+/** ECON-GROWTH: new private projects a country's investors may start in one month (design parameter). */
+export const PRIVATE_PROJECTS_PER_MONTH = 3;
+
 export function privateInvestment(st: GameState, c: Country) {
-  if (constructionQueueLength(st, c.id, 'private') >= 3 || c.privatePool <= 0) return;
-  let best: { r: Region; b: Building; v: number } | null = null;
+  const queued = constructionQueueLength(st, c.id, 'private');
+  if (c.privatePool <= 0 || queued >= constructionQueueCap(st, c, 'private')) return;
+  // Investors already busy whose spare savings cannot pay even the cheapest project do not look.
+  if (queued > 0 && c.privatePool - committedConstructionFunds(st, c.id, 'private') < buildCost(c, 'logging', st)) return;
+  // Score every option once per month (performance); the queued-supply discount inside
+  // buildingReturn makes next month's scores account for what is started now.
+  const options: { r: Region; b: Building; v: number }[] = [];
   for (const r of regionsOf(st, c.id)) {
     for (const b of ['textile_mill', 'ironworks', 'tool_works', 'mine', 'plantation', 'logging', 'luxury_workshop', 'railway', 'university'] as Building[]) {
       if (!canBuild(st, c, r, b)) continue;
       if (b === 'plantation' && c.laws.labor !== 'slavery' && r.strata[S.laborers] < 0.05) continue;
       const v = buildingReturn(st, c, r, b);
-      if (v > 0.08 && (!best || v > best.v)) best = { r, b, v };
+      if (v > 0.08) options.push({ r, b, v });
     }
   }
-  if (best) enqueueConstruction(st, c, best.r, best.b, 'private');
+  options.sort((a, b) => b.v - a.v); // stable: ties keep region/building order
+  let started = 0; const types = new Set<Building>();
+  for (const o of options) {
+    if (started >= PRIVATE_PROJECTS_PER_MONTH) return;
+    if (constructionQueueLength(st, c.id, 'private') >= constructionQueueCap(st, c, 'private')) return;
+    // At most one new project per building type a month, so one glut signal is not over-answered.
+    if (types.has(o.b)) continue;
+    // Beyond the first project of the month, investors only start what uncommitted savings can carry.
+    if (started > 0 && c.privatePool - committedConstructionFunds(st, c.id, 'private') < buildCost(c, o.b, st)) return;
+    if (enqueueConstruction(st, c, o.r, o.b, 'private')) { started++; types.add(o.b); }
+  }
 }
 
 /** ECON-01a audit: per-market balance residuals and per-good world import/export gaps (engine units). */
