@@ -58,7 +58,7 @@
 - Do not use the Khanate of Khiva flag page for 1836: the Commons description ties the known design to the 1917–1922 civil-war period.
 - Do not use a modern recreation's CC0 license as proof that the represented historical flag is authentic.
 - Do not backdate modern flags or later designs.
-- The register is not a claim that the remaining 318 asset rows have been exhaustively searched; they are explicitly marked unknown and require continued research.
+- The register is not a claim that the remaining 319 asset rows have been exhaustively searched; they are explicitly marked unknown and require continued research.
 - The CSV is a research register, not a production asset manifest. Claude should not merge unknown rows into `identity_assets.json`.
 
 ## Commits
@@ -67,7 +67,7 @@
 - Bolivia arms provenance update: `7bbee92cfaee4e35f8e63e8caf6ab788607af316`
 - Siam and Uruguay flag provenance update: `c12292d10bdbad25c470be6fc0a5228a60720df9`
 - Peru, Morocco and Prussia flag provenance update: `ab7a0723192c103bc4e4b85df0f5e0c0ba771fec`
-- USA and Sweden flag provenance update (current CSV commit): `db2d68fdc74350b1b65adcf7a0f8b0a326bacba4`
+- Sweden flag gap-row update (current CSV commit): `db2d68fdc74350b1b65adcf7a0f8b0a326bacba4`
 - Current CSV blob SHA: `2122f7abb90bdbca34e26085d09aeaf408d6a260`
 
 ## Next HY-01 work
