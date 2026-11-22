@@ -24,13 +24,13 @@
 
 Nguồn: *Merchants’ Magazine*, vol. III, no. I (July 1840), printed p. 93, mục “Increase of British Manufactures”. Bài ghi rằng Government Inspectors of Factories đã công bố returns về số mills và hands employed trong năm 1835; returns năm 1838 được trình Parliament và in gần đây. Bảng 1835/1838 được chép trong bài.
 
-| Ngành | Nhà máy 1835 | Công nhân 1835 | Bình quân người/nhà máy |
-|---|---:|---:|---:|
-| Cotton | 1,262 | 220,134 | 174.5 |
-| Woollen | 1,313 | 71,274 | 54.3 |
-| Flax | 347 | 33,283 | 95.9 |
-| Silk | 238 | 30,682 | 128.9 |
-| **Tổng** | **3,160** | **355,373** | **112.5** |
+| Ngành | Nhà máy 1835 (reported count) | Công nhân 1835 |
+|---|---:|---:|
+| Cotton | 1,262 | 220,134 |
+| Woollen | 1,313 | 71,274 |
+| Flax | 347 | 33,283 |
+| Silk | 238 | 30,682 |
+| **Tổng headcount** | **3,160 (sum of rows; disputed)** | **355,373** |
 
 Bảng so sánh 1838 trong cùng nguồn: cotton 1,815 / 259,301; woollen 1,738 / 86,446; flax 392 / 43,487; silk 268 / 34,318. Đây là bằng chứng về mở rộng nhanh trong giai đoạn 1835–1838, không phải số 1836. Hansard ngày 12-3-1839 cũng chép returns này, nêu rõ 42 cotton, 9 woollen và 25 silk factories đang trống (76 tổng cộng), nhưng lại ghi tổng 3,236 cơ sở, không khớp phép cộng 3,160 của bốn dòng. Vì vậy giữ headcount theo từng ngành; factory count và average workers/factory chưa được khóa.
 
