@@ -1219,7 +1219,7 @@ Mời bạn phản biện đặc tả này.
 - Cần owner: KHÔNG
 
 **CG-30 research artifacts**
-- `docs/research/history/CG30_CHARTERED_MONOPOLIES_VI.md` — commit `268053fc7ccae041f8c16191e2b5b94b56c4d3ba`.
+- `docs/research/history/CG30_CHARTERED_MONOPOLIES_VI.md` — latest commit `cb4a2173e4078b3bd7b555d1ff496b155da48a8f` (includes GDP-vs-GNI guard).
 - `docs/research/history/CG30_CHARTERED_MONOPOLIES.csv` — commit `48d26289ecc4b2ed9364b0657b54507d6b84a5b3`.
 - Covers EIC Bengal opium and salt fiscal systems; Java Cultuurstelsel/NHM; HBC; Russian-American Company; Royal Niger Company; Congo Free State/concessionaires.
 - **No unsupported procurement-price ratio was invented.** Where farm-gate and market/auction prices could not be matched by year, commodity grade and region, cells remain blank/unknown and the price-wedge mechanic must remain disabled.
@@ -1243,8 +1243,8 @@ Mời bạn phản biện đặc tả này.
 **Artifacts**
 - `docs/research/history/CG31_COMPANIES_AND_COMPANY_LAW_VI.md` — commit `a68cc27389ed65ae69db1c95d525c1ff0b367e89`.
 - `docs/research/history/CG31_COMPANIES_CATALOGUE.csv` — commit `c80fd8d3f9fa4706d354aae716ddc1aadcac5aec`, 60 candidate entities.
-- `docs/research/history/CG31_COMPANIES_SCALE_EVIDENCE.csv` — commit `8b2e3f4e7ebdaed47d42343f427ecc5cf0456533`, scale evidence for a subset; rows with missing evidence remain pending.
-- `docs/coordination/reviews/CO01_COMPANIES_AND_MONOPOLIES_REVIEW_2026-11-22.md` — commit `556b1d933d210fc14f90a1163028810401899b58`.
+- `docs/research/history/CG31_COMPANIES_SCALE_EVIDENCE.csv` — latest commit `ca89d5190b50ca4cbab7e071ab835d0ed6436e71`, 14 observations (12 distinct company/group entities + one Congo state-only comparator; Ford has two separate source series); rows with missing evidence remain pending. Ford source IDs were corrected to match the report bibliography.
+- `docs/coordination/reviews/CO01_COMPANIES_AND_MONOPOLIES_REVIEW_2026-11-22.md` — latest commit `da84f5e4f169aa45e0ca11507a6e1584a22cee83`.
 
 **Review decision**
 - Accept the three-layer architecture (company as economic actor / charter as legal privilege / market power plus antitrust) as the direction.
