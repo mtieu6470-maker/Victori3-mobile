@@ -1420,7 +1420,7 @@ Owner xác nhận lại vai trò: Claude là leader và coder chính, giao việ
 - Bổ sung 8 công ty/group có bằng chứng quy mô, nâng register từ 12 lên **20 thực thể công ty/group** (không tính Congo Free State là doanh nghiệp).
 - Mới thêm: Krupp; John Cockerill / S.A. John Cockerill; General Electric; AT&T / Bell System; Crédit Lyonnais; Shell Transport & Trading; Nippon Yusen Kaisha; Société Générale de Belgique.
 - Evidence addendum: `docs/research/history/CG31_SCALE_EVIDENCE_EXPANSION_2026-11-22.md`, commit `25f08bb2ac929515978b5e83e199610a09aa9649`.
-- Scale CSV: `docs/research/history/CG31_COMPANIES_SCALE_EVIDENCE.csv`, commit `3a30d69616c2202e5e9c500e2b8a1bc905189962`, blob `e3fbf43cd86c8bd35625eeef5f7f65f8429dabdb`.
+- Scale CSV: `docs/research/history/CG31_COMPANIES_SCALE_EVIDENCE.csv`, commit `4fdd12becc741494d8fb9f6934d6935a1c6472aa`, blob `1a62d5cb7e297b072b41fc27da5e006185a30381`.
 - Main report updated: `docs/research/history/CG31_COMPANIES_AND_COMPANY_LAW_VI.md`, commit `60c54b14ad5a44fd3816cd46f2204542e345ffb0`.
 - Metric scope remains explicit: Krupp workforce; GE annual report; Bell System network scale; Crédit Lyonnais profit/capital/branches; NYK fleet/tonnage/traffic; etc. No metric is substituted for another. **The full MSG-049 scale-evidence criterion across all 60 candidates remains incomplete**; remaining PENDING firms must not be seeded in Historical Mode.
 
