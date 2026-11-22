@@ -106,6 +106,17 @@ interface MarketClearing {
 }
 
 const zero = () => Object.fromEntries(GOODS.map((g) => [g, 0])) as Record<Good, number>;
+
+/**
+ * ECON-03a (PROJECT DESIGN): share of a market's deficit (or surplus) that can be traded through the
+ * world market at a given import openness. Tariffs make imports dearer; they do not physically block
+ * most of the goods. The former rule traded exactly `openness × deficit`, so a market wholly dependent
+ * on imported raw material (Britain and raw cotton: ≈61% from the USA in 1836, CG-22) could never be
+ * supplied. Saturating at TRADE_FULL_ACCESS: free-trade markets clear fully, a 20% protective
+ * tariff (openness ≈0.31) clears ≈62%, isolation (≈0.03) ≈6%.
+ */
+export const TRADE_FULL_ACCESS = 0.5;
+export const tradeShare = (open: number) => (Number.isFinite(open) ? clamp(open / TRADE_FULL_ACCESS, 0, 1) : 0);
 // Primary factories compete in the same market-clearing stage; downstream stages only
 // see realized upstream output. This avoids both phantom intermediate goods and arbitrary
 // textile-vs-steel priority when primary factories share scarce inputs such as coal.
@@ -121,8 +132,8 @@ function clearMarkets(markets: Record<string, MarketAggregate>, marketIds: strin
     const market = markets[id];
     for (const good of GOODS) {
       const difference = market.s[good] - market.dm[good];
-      if (difference > 0) world[good].surplus += difference * market.open[good];
-      else world[good].deficit += -difference * market.open[good];
+      if (difference > 0) world[good].surplus += difference * tradeShare(market.open[good]);
+      else world[good].deficit += -difference * tradeShare(market.open[good]);
     }
   }
 
@@ -136,7 +147,7 @@ function clearMarkets(markets: Record<string, MarketAggregate>, marketIds: strin
       const balance = world[good];
       const importAvailability = balance.deficit > 0 ? clamp(balance.surplus / balance.deficit, 0, 1) : 1;
       const deficit = Math.max(0, market.dm[good] - market.s[good]);
-      const imported = deficit * market.open[good] * importAvailability;
+      const imported = deficit * tradeShare(market.open[good]) * importAvailability;
       const available = market.s[good] + imported;
       marketImports[good] = imported;
       marketShort[good] = market.dm[good] > 0 ? clamp(1 - available / market.dm[good], 0, 1) : 0;
@@ -155,7 +166,7 @@ function clearMarkets(markets: Record<string, MarketAggregate>, marketIds: strin
     if (totalImports <= 0 || offered <= 0) continue;
     for (const id of marketIds) {
       const market = markets[id];
-      const offer = Math.max(0, market.s[good] - market.dm[good]) * market.open[good];
+      const offer = Math.max(0, market.s[good] - market.dm[good]) * tradeShare(market.open[good]);
       if (offer > 0) exports[id][good] = totalImports * (offer / offered);
     }
   }

@@ -58,3 +58,25 @@ describe('ECON-CAL-01b cottage industry', () => {
     expect(glut.textiles + glut.tools + glut.luxury).toBeCloseTo(0.5, 12);
   });
 });
+
+describe('ECON-03a saturating trade share', () => {
+  it('maps openness to a tradable share of a deficit/surplus that saturates at full access', async () => {
+    const { tradeShare, TRADE_FULL_ACCESS } = await import('../src/engine/systems/economy');
+    expect(tradeShare(0)).toBe(0);
+    expect(tradeShare(TRADE_FULL_ACCESS)).toBe(1);
+    expect(tradeShare(0.9)).toBe(1);
+    expect(tradeShare(0.31)).toBeCloseTo(0.62, 2);
+    expect(tradeShare(Number.NaN)).toBe(0);
+  });
+
+  it('CG-22 constraint: Britain imports raw cotton and the United States is a major cotton exporter', async () => {
+    const { stepMonth } = await import('../src/engine/simulation');
+    const st = createGame({ mode: 'historical', seed: 1, player: null });
+    stepMonth(st); stepMonth(st);
+    const cotton = Object.entries(st.marketStats).map(([id, m]) => ({ id, ...m.cotton }));
+    const gbr = cotton.find((r) => r.id === 'GBR')!;
+    expect(gbr.imports).toBeGreaterThan(gbr.supply * 0.5); // most British cotton is imported
+    const exporters = [...cotton].sort((a, b) => (b.exports ?? 0) - (a.exports ?? 0)).slice(0, 3).map((r) => r.id);
+    expect(exporters).toContain('USA');
+  });
+});
