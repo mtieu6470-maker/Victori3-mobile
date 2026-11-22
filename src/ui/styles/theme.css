@@ -548,3 +548,28 @@ input[type=range] { width: 100%; accent-color: var(--gold-2); height: 30px; }
 .illu img { display: block; width: 100%; height: auto; max-height: 220px; object-fit: cover; }
 .illu.compact img { max-height: 120px; }
 .illu figcaption { font-size: 11px; padding: 4px 8px; color: var(--ink-dim, #b9a77f); line-height: 1.35; }
+
+/* CO-5: company cards (grid of illustrated cards, Victoria 3-like information density, original styling) */
+.cogrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; margin: 10px 0; }
+.cocard { position: relative; display: flex; flex-direction: column; text-align: left; padding: 0; overflow: hidden; border: 1px solid var(--line-2);
+  background: linear-gradient(180deg, var(--ink-3), var(--ink-1)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 2px 6px rgba(0, 0, 0, 0.35); border-radius: 4px; color: var(--text); }
+button.cocard:hover { border-color: var(--line-3); }
+.cocard.on { border-color: var(--gold-2); box-shadow: 0 0 0 1px var(--gold-2), 0 2px 10px rgba(0, 0, 0, 0.45); }
+.cocard-img { position: relative; height: 96px; background: var(--ink-2) center / cover no-repeat; border-bottom: 1px solid var(--line-2); }
+.cocard-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(9, 14, 17, 0) 40%, rgba(9, 14, 17, 0.85)); }
+.cocard.locked .cocard-img { filter: grayscale(1) brightness(0.55); }
+.cocard.locked { opacity: 0.82; }
+.co-emblem { position: absolute; z-index: 1; left: 10px; bottom: -16px; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%;
+  font: 700 15px var(--serif); color: var(--gold-4); background: radial-gradient(circle at 35% 30%, hsl(var(--h) 45% 42%), hsl(var(--h) 50% 18%));
+  border: 2px solid var(--gold-2); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6); letter-spacing: .02em; }
+.cocard-body { padding: 20px 10px 10px; display: flex; flex-direction: column; gap: 5px; }
+.cocard-name { font: 600 15px var(--serif); color: var(--gold-3); line-height: 1.2; }
+.cocard-hq { font-size: 11.5px; color: var(--text-3); }
+.cocard-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.cocard-chips .chip { font-size: 10.5px; padding: 1px 6px; border: 1px solid var(--line-2); border-radius: 10px; color: var(--text-2); background: rgba(201, 164, 94, 0.06); }
+.cocard-prosp { display: flex; align-items: center; gap: 6px; font-size: 11.5px; }
+.cocard-prosp .lab { color: var(--text-3); }
+.cocard-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 2px; }
+.cocard-stats > div { display: flex; flex-direction: column; padding: 4px 6px; background: var(--ink-1); }
+.cocard-stats .k { font-size: 10px; color: var(--text-3); white-space: nowrap; }
+.cocard-stats b { font-size: 13px; }

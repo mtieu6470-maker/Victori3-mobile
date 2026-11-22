@@ -49,39 +49,76 @@ export function openCompany(st: GameState, co: Company) {
   ) });
 }
 
+/** Card art: the kind's own illustration, else its main building's; the 480 px variant when available. */
+function cardArt(kindId: string): string | null {
+  const kind = data().db.company_kinds.find((k) => k.id === kindId);
+  const a = illustrationFor('company', kindId) ?? (kind?.buildings[0] ? illustrationFor('building', kind.buildings[0]) : undefined);
+  return a ? (a.thumb ?? a.path) : null;
+}
+/** Generated emblem: initials of the Vietnamese kind name on a hue derived from the kind id. */
+function Emblem({ kindId }: { kindId: string }) {
+  let h = 0; for (const ch of kindId) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+  const words = companyKindName(kindId).split(/\s+/).filter((w) => w.length > 1 && w !== 'Công' && w !== 'ty');
+  const initials = (words[0]?.[0] ?? '?') + (words[1]?.[0] ?? '');
+  return <span class="co-emblem" style={`--h:${h % 360}`}>{initials.toUpperCase()}</span>;
+}
+
+function CompanyCard({ st, co, on }: { st: GameState; co: Company; on: boolean }) {
+  const kind = data().db.company_kinds.find((k) => k.id === co.kind);
+  const art = cardArt(co.kind);
+  const levels = co.sites.reduce((s, k) => s + siteLevels(st, k), 0);
+  return (
+    <button class={`cocard${on ? ' on' : ''}`} onClick={() => openCompany(st, co)}>
+      <div class="cocard-img" style={art ? `background-image:url(${art})` : ''}><Emblem kindId={co.kind} /></div>
+      <div class="cocard-body">
+        <div class="cocard-name">{companyKindName(co.kind)}</div>
+        <div class="cocard-hq">{regionName(co.hq)}</div>
+        <div class="cocard-chips">{(kind?.buildings ?? []).map((b) => <span class="chip" key={b}>{BUILD_VI[b as Building]}</span>)}</div>
+        <div class="cocard-prosp"><span class="lab">Thịnh vượng</span><DBar v={co.prosperity} w={96} /><span class={`num ${co.prosperity >= 0 ? 'pos' : 'neg'}`}>{co.prosperity >= 0 ? '+' : '−'}{fmt(Math.abs(co.prosperity) * 100, 0)}</span></div>
+        <div class="cocard-stats">
+          <div><span class="k">Lợi nhuận/th</span><b class={`num ${co.lastProfit >= 0 ? '' : 'neg'}`}>{co.lastProfit >= 0 ? '' : '−'}{compact(Math.abs(co.lastProfit))}</b></div>
+          <div><span class="k">Tiền mặt</span><b class="num">{compact(co.cash)}</b></div>
+          <div><span class="k">Cơ sở · cấp</span><b class="num">{co.sites.length} · {fmt(levels)}</b></div>
+        </div>
+      </div>
+    </button>
+  );
+}
+
+function PossibleCard({ kindId, buildings, techs, allowed }: { kindId: string; buildings: string[]; techs: string[]; allowed: boolean }) {
+  const art = cardArt(kindId);
+  return (
+    <div class="cocard locked">
+      <div class="cocard-img" style={art ? `background-image:url(${art})` : ''}><Emblem kindId={kindId} /></div>
+      <div class="cocard-body">
+        <div class="cocard-name">{companyKindName(kindId)}</div>
+        <div class="cocard-hq">{allowed ? 'Đã mở khóa · chờ đủ công trình chưa có chủ' : 'Đã mở khóa · luật chưa cho phép'}</div>
+        <div class="cocard-chips">{buildings.map((b) => <span class="chip" key={b}>{BUILD_VI[b as Building]}</span>)}</div>
+        <div class="s dim">Mở khóa bởi: {techs.map(techName).join(', ')}</div>
+      </div>
+    </div>
+  );
+}
+
 export function CompaniesTab({ st }: { st: GameState }) {
   const id = viewedId(st); const c = st.countries[id]; const sel = details.use()?.key;
   const cos = Object.values(st.companies ?? {}).filter((co) => co.home === id).sort((a, b) => b.lastProfit - a.lastProfit || a.id.localeCompare(b.id));
   const sum = (f: (co: Company) => number) => cos.reduce((s, co) => s + f(co), 0);
   const present = new Set(cos.map((co) => co.kind));
   const possible = c ? unlockedOperationalKinds(c).filter((k) => !present.has(k.id)) : [];
+  const allowed = !!c && companyLawAllows(c);
   return (
     <div class="pad">
       <div class="metrics">
-        <Metric label="Công ty" icon="buildings" value={fmt(cos.length)} d={<span class="dim">tối đa {COMPANY_PARAMS.maxPerCountry}</span>} />
+        <Metric label="Công ty" icon="buildings" value={`${fmt(cos.length)} / ${COMPANY_PARAMS.maxPerCountry}`} d={<span class={allowed ? 'pos' : 'neg'}>{allowed ? 'luật cho phép công ty cổ phần' : 'luật chưa cho phép'}</span>} />
         <Metric label="Lợi nhuận / tháng" icon="gdp" value={money(sum((co) => co.lastProfit))} d={<span class="dim">cổ tức {compact(sum((co) => co.lastDividend))}</span>} />
         <Metric label="Tiền mặt công ty" icon="treasury" value={money(sum((co) => co.cash))} d={<span class="dim">đã đầu tư {compact(sum((co) => co.invested))}</span>} />
       </div>
-      {cos.length ? (
-        <table class="dt">
-          <thead><tr><th>Công ty</th><th class="r">Cơ sở</th><th>Thịnh vượng</th><th class="r">Lợi nhuận/tháng</th></tr></thead>
-          <tbody>
-            {cos.map((co) => (
-              <tr key={co.id} class={sel === `co:${co.id}` ? 'on' : ''} onClick={() => openCompany(st, co)}>
-                <td><div class="nm">{companyKindName(co.kind)}</div><div class="sub ellipsis" style="max-width:220px">{regionName(co.hq)}</div></td>
-                <td class="r num">{co.sites.length}</td>
-                <td><DBar v={co.prosperity} w={70} /></td>
-                <td class={`r num ${co.lastProfit >= 0 ? '' : 'neg'}`}>{co.lastProfit >= 0 ? '' : '−'}{compact(Math.abs(co.lastProfit))}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : <div class="empty">Chưa có công ty nào ở quốc gia này.</div>}
-      <Sec title="Điều kiện thành lập công ty">
-        <div class="kv"><span class="k">Luật cho phép công ty cổ phần</span><span class={`v ${c && companyLawAllows(c) ? 'pos' : 'neg'}`}>{c && companyLawAllows(c) ? 'Có' : 'Chưa (cần kinh tế không truyền thống và công nghệ Ngân hàng cổ phần)'}</span></div>
-        <div class="note">Một loại công ty được mở khóa bằng công nghệ; công ty chỉ thành lập khi có ít nhất {COMPANY_PARAMS.minLevels} cấp công trình phù hợp chưa có chủ.</div>
-        {possible.length ? possible.map((k) => <div class="row" key={k.id}><div class="grow"><div class="t sm">{companyKindName(k.id)}</div><div class="s">{k.buildings.map((b) => BUILD_VI[b as Building]).join(', ')} · {k.unlocked_by.map(techName).join(', ')}</div></div></div>) : <div class="empty sm">Không còn loại công ty đã mở khóa nào chưa thành lập.</div>}
-      </Sec>
+      {cos.length ? <div class="cogrid">{cos.map((co) => <CompanyCard key={co.id} st={st} co={co} on={sel === `co:${co.id}`} />)}</div> : <div class="empty">Chưa có công ty nào ở quốc gia này.</div>}
+      {possible.length > 0 && <Sec title={`Loại công ty đã mở khóa, chưa thành lập (${possible.length})`}>
+        <div class="cogrid">{possible.map((k) => <PossibleCard key={k.id} kindId={k.id} buildings={k.buildings} techs={k.unlocked_by} allowed={allowed} />)}</div>
+      </Sec>}
+      <div class="note">Công ty thành lập khi có công nghệ mở khóa, luật cho phép công ty cổ phần và ít nhất {COMPANY_PARAMS.minLevels} cấp công trình phù hợp chưa có chủ. {pct(COMPANY_PARAMS.payoutRatio, 0)} lợi nhuận được chia cổ tức; phần còn lại dùng để mở rộng cơ sở.</div>
     </div>
   );
 }
