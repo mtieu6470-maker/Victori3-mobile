@@ -542,6 +542,116 @@
       }
     },
     {
+      "id": "ill_dw_corn_laws",
+      "type": "illustration_event",
+      "subject": "dw_corn_laws",
+      "name": "Bãi bỏ Corn Laws",
+      "description": "Meeting of the Anti-Corn Law League at Exeter Hall, London, 1846; contemporary wood engraving",
+      "path": "content/illustrations/events/dw_corn_laws.webp",
+      "thumbnail_path": "content/illustrations/events/dw_corn_laws_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1845,
+        "to": 1849
+      },
+      "quality": "supported",
+      "date": "mid-19th century",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "1846_-_Anti-Corn_Law_League_Meeting.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:1846_-_Anti-Corn_Law_League_Meeting.jpg",
+        "statement": "{{PD-Art|PD-old-100-expired}}",
+        "title": "Meeting of the Anti-Corn Law League at Exeter Hall, London, 1846; contemporary wood engraving",
+        "original_source": "http://www.uoregon.edu/~kimball/EUR.REV.2.PHASES.htm",
+        "source_pixels": [
+          870,
+          711
+        ],
+        "crop": {
+          "inset": [
+            0.01,
+            0.01,
+            0.01,
+            0.01
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:1846_-_Anti-Corn_Law_League_Meeting.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Art|PD-old-100-expired}}"
+      },
+      "author": "Unknown artist",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Low-resolution scan shown whole on a blurred field (HY-02b 2B); replace if the Heidelberg Punch master (2A) becomes available."
+      }
+    },
+    {
+      "id": "ill_dw_french_abolition",
+      "type": "illustration_event",
+      "subject": "dw_french_abolition",
+      "name": "Bãi bỏ chế độ nô lệ tại Pháp",
+      "description": "Draft of the decree abolishing slavery in the French colonies, annotated by Victor Schœlcher, 1848 (Archives nationales d'outre-mer): \"Article 1er. L'esclavage sera entièrement aboli\"",
+      "path": "content/illustrations/events/dw_french_abolition.webp",
+      "thumbnail_path": "content/illustrations/events/dw_french_abolition_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1848,
+        "to": 1850
+      },
+      "quality": "supported",
+      "date": "1848",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Brouillon_du_décret_d’abolition_de_l’esclavage_annoté_par_Victor_Schoelcher,_1848.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Brouillon_du_d%C3%A9cret_d%E2%80%99abolition_de_l%E2%80%99esclavage_annot%C3%A9_par_Victor_Schoelcher%2C_1848.jpg",
+        "statement": "{{PD-old-70-1923}}",
+        "title": "Draft of the decree abolishing slavery in the French colonies, annotated by Victor Schœlcher, 1848 (Archives nationales d'outre-mer): \"Article 1er. L'esclavage sera entièrement aboli\"",
+        "original_source": "Archives nationales d'outre-mer",
+        "source_pixels": [
+          1400,
+          2156
+        ],
+        "crop": {
+          "inset": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Brouillon_du_d%C3%A9cret_d%E2%80%99abolition_de_l%E2%80%99esclavage_annot%C3%A9_par_Victor_Schoelcher%2C_1848.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-70-1923}}"
+      },
+      "author": "Provisional Government of the French Republic; annotated by Victor Schœlcher",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Primary document, shown whole (HY-02b 3A). Biard painting rejected: only a 283 px reproduction."
+      }
+    },
+    {
       "id": "ill_dw_japan_opening",
       "type": "illustration_event",
       "subject": "dw_japan_opening",
@@ -650,6 +760,61 @@
       }
     },
     {
+      "id": "ill_dw_prussian_constitution",
+      "type": "illustration_event",
+      "subject": "dw_prussian_constitution",
+      "name": "Hiến pháp Phổ",
+      "description": "Barricade fighting at Alexanderplatz, Berlin, night of 18-19 March 1848; lithograph by A. Klaus, 1848",
+      "path": "content/illustrations/events/dw_prussian_constitution.webp",
+      "thumbnail_path": "content/illustrations/events/dw_prussian_constitution_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1848,
+        "to": 1850
+      },
+      "quality": "supported",
+      "date": "1848",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Barrikadenkampf_Alexanderplatz_1848.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Barrikadenkampf_Alexanderplatz_1848.jpg",
+        "statement": "{{PD-Art}}",
+        "title": "Barricade fighting at Alexanderplatz, Berlin, night of 18-19 March 1848; lithograph by A. Klaus, 1848",
+        "original_source": "Klaus Günzel: Die deutschen Romantiker. Artemis, Zürich 1995,",
+        "source_pixels": [
+          1700,
+          1197
+        ],
+        "crop": {
+          "inset": [
+            0.01,
+            0.01,
+            0.01,
+            0.01
+          ],
+          "focus": [
+            0.5,
+            0.55
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Barrikadenkampf_Alexanderplatz_1848.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Art}}"
+      },
+      "author": "A. Klaus",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "The March revolution in Berlin that forced the Prussian constitution of 1848 (HY-02b 4B). 1848 lithograph: PD-Art, artist dead long before 1955."
+      }
+    },
+    {
       "id": "ill_dw_siam_bowring",
       "type": "illustration_event",
       "subject": "dw_siam_bowring",
@@ -701,6 +866,61 @@
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
         "note": "Grand Palace, Bangkok; low-resolution source shown whole."
+      }
+    },
+    {
+      "id": "ill_dw_statuto_albertino",
+      "type": "illustration_event",
+      "subject": "dw_statuto_albertino",
+      "name": "Statuto Albertino",
+      "description": "Charles Albert of Sardinia signs the Statuto, 1848; 19th-century woven picture (Turin Risorgimento collections)",
+      "path": "content/illustrations/events/dw_statuto_albertino.webp",
+      "thumbnail_path": "content/illustrations/events/dw_statuto_albertino_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1847,
+        "to": 1849
+      },
+      "quality": "supported",
+      "date": "Seconda metà secolo XIX",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Carlo_Alberto_firma_lo_Statuto.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Carlo_Alberto_firma_lo_Statuto.jpg",
+        "statement": "{{PD-old}}",
+        "title": "Charles Albert of Sardinia signs the Statuto, 1848; 19th-century woven picture (Turin Risorgimento collections)",
+        "original_source": "http://www.comune.torino.it/canaleturismo/risorgimento/",
+        "source_pixels": [
+          1900,
+          1329
+        ],
+        "crop": {
+          "inset": [
+            0.06,
+            0.08,
+            0.06,
+            0.08
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Carlo_Alberto_firma_lo_Statuto.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old}}"
+      },
+      "author": "Unknown artist",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Scene of the signing; decorative border trimmed (HY-02b 5A). Undated, second half of the 19th century: year set conservatively to 1900."
       }
     },
     {
@@ -809,6 +1029,61 @@
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
         "note": "Upper panel of the engraving (converters in blow). The earlier photograph was rejected: glare washed out the image."
+      }
+    },
+    {
+      "id": "ill_chemical_fertilizers",
+      "type": "illustration_tech",
+      "subject": "chemical_fertilizers",
+      "name": "Phân bón hóa học",
+      "description": "Loading cars with guano at the Great Heap, Chincha Islands, Peru; albumen print by Henry de Witt Moulton, c. 1865 (Bibliothèque nationale de France)",
+      "path": "content/illustrations/technologies/chemical_fertilizers.webp",
+      "thumbnail_path": "content/illustrations/technologies/chemical_fertilizers_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1850,
+        "to": 1850
+      },
+      "quality": "supported",
+      "date": null,
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Guano_Mining_in_Chincha_Islands_Peru_(1865)_Moulton.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Guano_Mining_in_Chincha_Islands_Peru_%281865%29_Moulton.jpg",
+        "statement": "{{PD-Scan|PD-old-auto-expired|deathyear=1893}}",
+        "title": "Loading cars with guano at the Great Heap, Chincha Islands, Peru; albumen print by Henry de Witt Moulton, c. 1865 (Bibliothèque nationale de France)",
+        "original_source": "BNF Essentials<br />Rays of Sunlight from South America at Gallica",
+        "source_pixels": [
+          2000,
+          1528
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.42
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Guano_Mining_in_Chincha_Islands_Peru_%281865%29_Moulton.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Scan|PD-old-auto-expired|deathyear=1893}}"
+      },
+      "author": "Henry de Witt Moulton",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Guano extraction, the main imported fertilizer before superphosphates; labelled as guano mining, not fertilizer manufacture (HY-02b candidate 1A)."
       }
     },
     {

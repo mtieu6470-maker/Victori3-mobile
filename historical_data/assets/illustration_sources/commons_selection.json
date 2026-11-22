@@ -1,0 +1,134 @@
+{
+  "description": "MEDIA-ILL-01: Wikimedia Commons files selected by visual review (Claude, Project Director) from ChatGPT research HY-02b (docs/research/media/HY02B_SOURCES.md). Ingest with tools/media/loc_ingest.py, which re-reads the licence template from the file wikitext and refuses anything but public-domain/CC0 templates; downloads via Special:FilePath thumbnails (thumb.php) at the given width.",
+  "selections": [
+    {
+      "type": "illustration_tech",
+      "subject": "chemical_fertilizers",
+      "commons_file": "Guano_Mining_in_Chincha_Islands_Peru_(1865)_Moulton.jpg",
+      "year": 1865,
+      "width": 2000,
+      "author": "Henry de Witt Moulton",
+      "name": "Phân bón hóa học",
+      "description": "Loading cars with guano at the Great Heap, Chincha Islands, Peru; albumen print by Henry de Witt Moulton, c. 1865 (Bibliothèque nationale de France)",
+      "period": {
+        "from": 1850,
+        "to": 1850
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.42
+      ],
+      "review_note": "Guano extraction, the main imported fertilizer before superphosphates; labelled as guano mining, not fertilizer manufacture (HY-02b candidate 1A)."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "dw_statuto_albertino",
+      "commons_file": "Carlo_Alberto_firma_lo_Statuto.jpg",
+      "year": 1900,
+      "width": 1900,
+      "author": "Unknown artist",
+      "name": "Statuto Albertino",
+      "description": "Charles Albert of Sardinia signs the Statuto, 1848; 19th-century woven picture (Turin Risorgimento collections)",
+      "period": {
+        "from": 1847,
+        "to": 1849
+      },
+      "inset": [
+        0.06,
+        0.08,
+        0.06,
+        0.08
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Scene of the signing; decorative border trimmed (HY-02b 5A). Undated, second half of the 19th century: year set conservatively to 1900."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "dw_prussian_constitution",
+      "commons_file": "Barrikadenkampf_Alexanderplatz_1848.jpg",
+      "year": 1848,
+      "width": 1700,
+      "author": "A. Klaus",
+      "name": "Hiến pháp Phổ",
+      "description": "Barricade fighting at Alexanderplatz, Berlin, night of 18-19 March 1848; lithograph by A. Klaus, 1848",
+      "period": {
+        "from": 1848,
+        "to": 1850
+      },
+      "inset": [
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ],
+      "focus": [
+        0.5,
+        0.55
+      ],
+      "review_note": "The March revolution in Berlin that forced the Prussian constitution of 1848 (HY-02b 4B). 1848 lithograph: PD-Art, artist dead long before 1955."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "dw_corn_laws",
+      "commons_file": "1846_-_Anti-Corn_Law_League_Meeting.jpg",
+      "year": 1846,
+      "width": 870,
+      "author": "Unknown artist",
+      "name": "Bãi bỏ Corn Laws",
+      "description": "Meeting of the Anti-Corn Law League at Exeter Hall, London, 1846; contemporary wood engraving",
+      "period": {
+        "from": 1845,
+        "to": 1849
+      },
+      "inset": [
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Low-resolution scan shown whole on a blurred field (HY-02b 2B); replace if the Heidelberg Punch master (2A) becomes available.",
+      "fit": "contain",
+      "max_upscale": 1.5
+    },
+    {
+      "type": "illustration_event",
+      "subject": "dw_french_abolition",
+      "commons_file": "Brouillon_du_décret_d’abolition_de_l’esclavage_annoté_par_Victor_Schoelcher,_1848.jpg",
+      "year": 1848,
+      "width": 1400,
+      "author": "Provisional Government of the French Republic; annotated by Victor Schœlcher",
+      "name": "Bãi bỏ chế độ nô lệ tại Pháp",
+      "description": "Draft of the decree abolishing slavery in the French colonies, annotated by Victor Schœlcher, 1848 (Archives nationales d'outre-mer): \"Article 1er. L'esclavage sera entièrement aboli\"",
+      "period": {
+        "from": 1848,
+        "to": 1850
+      },
+      "inset": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "fit": "contain",
+      "max_upscale": 1.0,
+      "review_note": "Primary document, shown whole (HY-02b 3A). Biard painting rejected: only a 283 px reproduction."
+    }
+  ]
+}
