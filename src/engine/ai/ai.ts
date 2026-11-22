@@ -7,6 +7,7 @@ import { LAW_GROUPS, type LawGroup } from '../data/dbTypes';
 import { BUILDINGS, type Building, type Country, type GameState, type Good, type WarGoal } from '../types';
 import { clamp, count, getRel, rand, chance, relKey } from '../core';
 import { historicalBias } from '../historical';
+import { CATCHUP_FLAGS } from '../systems/technology';
 import { enqueueConstruction, constructionQueueLength, constructionQueueCap, withInvestmentCache, buildingReturn, canBuild, hasTech, marketOf, queuedFactorySupply, privateInvestment, SHIP_COST } from '../systems/economy';
 import { reformSupport, startReform, sharesBorder } from '../systems/politics';
 import { techCost } from '../systems/technology';
@@ -193,7 +194,9 @@ export function lawReservedByHistory(st: GameState, c: Country, group: LawGroup)
  * liberal-reform agenda, documented here so the meaning is reviewable rather than implied by order.
  */
 export const LAW_MODERNISATION_RANK: Record<LawGroup, Record<string, number>> = {
-  power: { autocracy: 0, oligarchy: 1, census_suffrage: 2, universal_male_suffrage: 3 },
+  // tribal_council and theocracy are starting forms outside the AI's reform ladder (no AI moves to them);
+  // ranked below it so stepping onto the ladder keeps its former meaning.
+  power: { tribal_council: -1, theocracy: -1, autocracy: 0, oligarchy: 1, census_suffrage: 2, universal_male_suffrage: 3 },
   economy: { traditionalism: 0, mercantilism: 1, interventionism: 2, laissez_faire: 3 },
   trade: { isolationism: 0, protectionism: 1, free_trade: 2 },
   labor: { slavery: 0, serfdom: 1, traditional_tenancy: 2, free_labor: 3 },
@@ -205,8 +208,11 @@ export const LAW_MODERNISATION_RANK: Record<LawGroup, Record<string, number>> = 
 } as Record<LawGroup, Record<string, number>>;
 
 export function isProgressiveStep(group: LawGroup, from: string, to: string): boolean {
-  const rank = LAW_MODERNISATION_RANK[group] ?? {};
-  return (rank[to] ?? 0) > (rank[from] ?? 0);
+  // Fail closed (MSG-054 R2): an unranked value is never treated as progressive. The rank is a
+  // personality-preference heuristic only, not a claim that a law is universally "more modern".
+  const rank = LAW_MODERNISATION_RANK[group];
+  if (!rank || !(from in rank) || !(to in rank)) return false;
+  return rank[to] > rank[from];
 }
 
 /** CATCHUP-01: maximum utility a reform gains from international emulation (design parameter). */
@@ -225,6 +231,7 @@ export const EMULATION_STEPS: Partial<Record<LawGroup, Record<string, string>>> 
 
 /** Emulation pull for `group: current → v`: world adoption beyond 30% × the country's trade exposure. */
 export function lawEmulation(st: GameState, c: Country, group: LawGroup, v: string): number {
+  if (!CATCHUP_FLAGS.enabled) return 0;
   if (EMULATION_STEPS[group]?.[c.laws[group]] !== v) return 0;
   const exposure = Math.min(1, ({ isolationism: 0.03, protectionism: 0.3, free_trade: 0.7 } as Record<string, number>)[c.laws.trade] ?? 0.3) / 0.7;
   return LAW_EMULATION * Math.max(0, lawShare(st, group, v) - 0.3) / 0.7 * Math.min(1, exposure);
@@ -263,7 +270,8 @@ export function reformUtility(st: GameState, c: Country, g: LawGroup, v: string)
   return u;
 }
 
-function reformAI(st: GameState, c: Country) {
+/** Monthly reform decision of one AI country (exported for integration tests). */
+export function reformAI(st: GameState, c: Country) {
   if (c.reform) return;
   let best: { g: LawGroup; v: string; u: number } | null = null;
   for (const g of LAW_GROUPS) {

@@ -1,7 +1,7 @@
 // ECON-GROWTH scorecard: engine GDP-per-capita growth vs MPD2023 (CG-26 / CG-27), on identical
 // start and end years for both series (MSG-041).
 //
-//   npx tsx tools/growth-report.ts [seed=1] [endYear=1913|1950|1980|2000|2022] [--json out.json]
+//   npx tsx tools/growth-report.ts [seed=1] [endYear=1913|1950|1980|2000|2022] [--no-catchup] [--json out.json]
 //
 // Definitions (read before interpreting errors):
 // - Engine series: REAL GDP per capita (regional value added at constant 1836 base prices,
@@ -21,6 +21,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { loadNodeData } from '../src/engine/node';
 import { createGame } from '../src/engine/init';
 import { stepMonth } from '../src/engine/simulation';
+import { CATCHUP_FLAGS } from '../src/engine/systems/technology';
 
 /**
  * MPD2023 GDP per capita (2011 international-$), read from the checksummed extract of the original
@@ -97,13 +98,14 @@ export function runGrowthScorecard(seed = 1, endYear = 1913) {
     meanAbsLogErrorEnd_industrialisers: +mean(final.filter((r) => ['GBR', 'FRA', 'PRU', 'USA'].includes(r.id as string)).map((r) => Math.abs(r.logError as number))).toFixed(3),
     meanAbsLogErrorEnd_others: +mean(final.filter((r) => !['GBR', 'FRA', 'PRU', 'USA'].includes(r.id as string)).map((r) => Math.abs(r.logError as number))).toFixed(3),
   };
-  return { seed, territory: 'engine: 1836 home territory still owned; MPD2023: national aggregate (coverage differs)', engine, rows, summary };
+  return { seed, catchup: CATCHUP_FLAGS.enabled, territory: 'engine: 1836 home territory still owned; MPD2023: national aggregate (coverage differs)', engine, rows, summary };
 }
 
 if (process.argv[1]?.endsWith('growth-report.ts')) {
   const args = process.argv.slice(2);
   const nums = args.filter((a) => /^\d+$/.test(a)).map(Number);
   const seed = nums[0] ?? 1; const endYear = nums[1] ?? 1913;
+  if (args.includes('--no-catchup')) CATCHUP_FLAGS.enabled = false; // MSG-054 R5 ablation
   const out = runGrowthScorecard(seed, endYear);
   for (const r of out.rows) console.log(`${String(r.id).padEnd(4)} ${r.base}->${r.end}  engine ×${r.engineRatio} (${r.engineAnnualPct}%/y)  MPD ×${r.mpdRatio} (${r.mpdAnnualPct}%/y)  logErr ${r.logError}`);
   console.log(JSON.stringify(out.summary));

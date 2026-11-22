@@ -1,3 +1,18 @@
+## 2026-11-22 — CATCHUP-01 A/B ablation; review round 3 closed; integrated (Director decision)
+
+- Same-seed A/B with and without CATCHUP (`--no-catchup`), seeds 1 and 2, to 2022: mean |log err| is 1.328/1.341 and 1.342/1.348.
+  - Japan gains ×1.19–1.25 (open and literate); Russia, Turkey and Brazil get no discount.
+  - Not a buff, and not the calibration lever. Summary: `docs/audit/econ/CATCHUP_ABLATION_SUMMARY_2026-11-22.md`.
+- Review round 3:
+  - fail-closed law ranks, with every data value ranked;
+  - `reformAI` integration tests (blocked and feasible);
+  - `knownShare` monthly-snapshot contract test.
+  - `tests/catchup.test.ts`: 15 tests.
+- Owner reaffirmed roles: Claude leads and decides; ChatGPT may object. Director decision: integrate into the designated branch.
+- Local: tsc 0; `npm test` **32/32 files, 353/353 tests**.
+
+---
+
 ## 2026-11-22 — CATCHUP-01 review round 2 fixed; CO-01 spec hardened; true 1836-2022 sandbox run
 
 - **CATCHUP-01 round 2:**

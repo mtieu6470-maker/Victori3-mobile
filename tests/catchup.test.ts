@@ -113,3 +113,58 @@ describe('CATCHUP-01 domestic feasibility (review round 2)', () => {
     expect(knownShare(st, tech)).toBeLessThan(0.5);
   });
 });
+
+describe('CATCHUP-01 review round 3 (MSG-054)', () => {
+  it('R2: every law value has an explicit rank, and unknown values fail closed', async () => {
+    const { LAW_MODERNISATION_RANK, isProgressiveStep } = await import('../src/engine/ai/ai');
+    const { data } = await import('../src/engine/data/db');
+    const seen = new Map<string, Set<string>>();
+    for (const e of data().db.entities) for (const [g, v] of Object.entries(e.laws?.value ?? {})) (seen.get(g) ?? seen.set(g, new Set()).get(g)!).add(v as string);
+    for (const [g, values] of seen) {
+      if (g === 'governance') continue; // forms of government are not ranked
+      for (const v of values) expect(LAW_MODERNISATION_RANK[g as 'power'][v], `${g}:${v} unranked`).toBeTypeOf('number');
+    }
+    expect(isProgressiveStep('education', 'religious_schools', 'unknown_value')).toBe(false);
+    expect(isProgressiveStep('governance', 'monarchy', 'republic')).toBe(false);
+  });
+
+  it('R3: monthly reformAI never starts an education reform the Qing elites block', async () => {
+    const { reformAI } = await import('../src/engine/ai/ai');
+    const st = fresh(); const c = st.countries.QNG;
+    c.laws.education = 'religious_schools'; c.laws.trade = 'free_trade';
+    for (const x of Object.values(st.countries)) if (x !== c) x.laws.education = 'public_schools';
+    for (let m = 0; m < 24; m++) {
+      st.tick += 1; c.reform = null;
+      reformAI(st, c);
+      const r = c.reform as { group: string; value: string } | null;
+      expect(r?.group === 'education' && r.value === 'public_schools').toBe(false);
+    }
+  });
+
+  it('R3: the same path does start a reform once domestic support exists (feasible case)', async () => {
+    const { reformAI } = await import('../src/engine/ai/ai');
+    const { reformSupport } = await import('../src/engine/systems/politics');
+    const st = fresh(); const c = st.countries.QNG;
+    c.laws.education = 'religious_schools'; c.laws.trade = 'free_trade'; c.personality.reformism = 0.9;
+    // Hand power to the groups that favour schooling, and block every other reform this month.
+    for (const [g, ig] of Object.entries(c.igs)) ig.clout = g === 'intelligentsia' || g === 'petty_bourgeoisie' || g === 'industrialists' ? 0.33 : 0;
+    for (const g of ['power', 'economy', 'trade', 'labor', 'church', 'press', 'army']) c.ai.cooldowns[`reform:${g}`] = 1e9;
+    c.ai.lawHistory = [];
+    expect(reformSupport(c, 'education', 'public_schools')).toBeGreaterThan(0);
+    let started = false;
+    for (let m = 0; m < 24 && !started; m++) { st.tick += 1; c.reform = null; reformAI(st, c); started = (c.reform as { group: string } | null)?.group === 'education'; }
+    expect(started).toBe(true);
+  });
+
+  it('knownShare is a monthly snapshot: same-tick mutations are not visible until the tick advances', async () => {
+    const { knownShare } = await import('../src/engine/systems/technology');
+    const st = fresh(); const tech = 'assembly_line';
+    for (const x of Object.values(st.countries)) x.techs = x.techs.filter((t) => t !== tech);
+    st.tick += 1;
+    expect(knownShare(st, tech)).toBe(0);
+    st.countries.GBR.techs.push(tech);
+    expect(knownShare(st, tech)).toBe(0); // documented contract: snapshot per month
+    st.tick += 1;
+    expect(knownShare(st, tech)).toBeGreaterThan(0);
+  });
+});

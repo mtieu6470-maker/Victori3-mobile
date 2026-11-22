@@ -19,6 +19,10 @@ export function techCost(st: GameState, c: Country, id: string): number {
   // lead history by a few years, but not by decades (was linear, so frontier countries exhausted the
   // whole 1836-2026 tree by ~1985).
   const era = Math.pow(1 + Math.max(0, t.historical_year - year) / 12, 2);
+  if (!CATCHUP_FLAGS.enabled) {
+    // Ablation baseline (MSG-054 R5): the pre-CATCHUP rule, equal-weighted share × 0.55, no conditions.
+    return t.cost * era * (1 - 0.55 * Math.sqrt(equalWeightKnownShare(st, id))) * 1000;
+  }
   const known = knownShare(st, id);
   return t.cost * era * (1 - imitationDiscount(c, known, year - t.historical_year)) * 1000;
 }
@@ -34,6 +38,12 @@ export function techCost(st: GameState, c: Country, id: string): number {
  * - absorptiveCapacity = the country's own trade openness × literacy (conditions it builds itself).
  * Nothing here touches GDP, output, TFP, population or research points.
  */
+/**
+ * Ablation switch for attribution runs (tools/growth-report.ts --no-catchup). On by default; off restores
+ * the pre-CATCHUP technology cost rule and removes law emulation, nothing else.
+ */
+export const CATCHUP_FLAGS = { enabled: true };
+
 export const IMITATION_DISCOUNT_MAX = 0.4;
 export const TECH_CODIFICATION_YEARS = 20;
 export function imitationDiscount(c: Country, knownShare: number, yearsSinceDiffusion: number): number {
@@ -83,6 +93,19 @@ export function technologyMonth(st: GameState, chooser: (c: Country, options: st
 }
 
 let shareCache: { tick: number; st: GameState; map: Map<string, number> } | null = null;
+let equalCache: { tick: number; st: GameState; map: Map<string, number> } | null = null;
+/** The pre-CATCHUP equal-weight share (ablation baseline only). */
+function equalWeightKnownShare(st: GameState, id: string): number {
+  if (!equalCache || equalCache.tick !== st.tick || equalCache.st !== st) {
+    const alive = Object.values(st.countries).filter((x) => x.alive && !x.decentralized);
+    const map = new Map<string, number>();
+    for (const c of alive) for (const t of c.techs) map.set(t, (map.get(t) ?? 0) + 1);
+    for (const [k, v] of map) map.set(k, v / Math.max(1, alive.length));
+    equalCache = { tick: st.tick, st, map };
+  }
+  return equalCache.map.get(id) ?? 0;
+}
+
 /**
  * Share of the world economy (GDP-weighted, CATCHUP-01 review round 2) that already uses a technology.
  * Equal country weights let a dozen micro-states count like the great powers; knowledge available to
