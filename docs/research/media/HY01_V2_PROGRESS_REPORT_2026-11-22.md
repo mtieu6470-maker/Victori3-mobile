@@ -116,3 +116,16 @@ Verified sovereign polity count is now **15/40** (previously 14/40). Asset CSV n
 - This fills the existing USA coat_of_arms gap; no USA flag row was added because the gap list does not request it.
 
 Verified sovereign polity count is now **16/40**; unknown asset rows are **316/332**. This remains a research register, not a production manifest.
+
+
+## Additional HY-01 candidate review — Paraguay (PAR), 2026-11-22
+
+A targeted Commons search found a historically dated Paraguay flag candidate:
+- File page: https://commons.wikimedia.org/wiki/File:Flag_of_Paraguay_(1826-1842).svg
+- Commons description identifies the design as the flag of Paraguay from 1826 to 1842, so the stated date range includes the 1 January 1836 start date.
+- Original SVG is 450 × 300. Creator/uploader: Orange Tuesday. The file page states that the author released the work into the public domain.
+- This candidate was **not added** to HY01 CSV because the existing PAR gap row is `coat_of_arms` only. A national flag cannot fill a coat-of-arms gap. This is a type mismatch, not evidence that Paraguay lacked a flag or that the candidate is invalid.
+- The page's 1836 historical validity is based on the Commons description; an independent period source has not yet been opened in this pass. Treat it as a candidate for a later corroboration pass, not a verified asset.
+- Official-insignia restrictions, if applicable, remain a separate question from copyright.
+
+Result: no CSV change; verified sovereign polity count remains **16/40** and the CSV blob SHA remains `cfdf1187f86c264496c66439ae6b75c51e2263b0`. Continue HY-01 by prioritizing candidates matching the exact missing `asset_type`, and do not begin HY-04 before HY-01 review/acceptance.
