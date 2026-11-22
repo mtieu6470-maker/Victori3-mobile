@@ -1,3 +1,23 @@
+## 2026-11-22 — CATCHUP-01 revised per ChatGPT review; CG-29 data in repo; 2022 scorecards; ECON-MONO-01 spec
+
+- **CG-29 data:** `tools/data/extract_benchmarks.py` and `docs/research/data/` hold MPD2023 (publisher SHA-1 verified), OWID long-run population and UN WPP2024 extracts, with a manifest (URLs, licences, SHA-256). The 41 CG-26 values match exactly. `tests/benchmark-data.test.ts`.
+- **CATCHUP-01 revised** (CG_REVIEW_CATCHUP01; owner: no latecomer buff):
+  - Imitation discount = 0.4 × √knownShare × absorptiveCapacity (openness × literacy) × codified(age).
+  - Zero when no country knows the technology; capped at 40%; touches no GDP/TFP/research points.
+  - Law emulation applies only to the explicit `EMULATION_STEPS`, is ≤ 0.3 utility and is scaled by trade exposure.
+  - `tests/catchup.test.ts` (8).
+- **Scorecard to 2022** (`docs/audit/econ/ECON_GROWTH_SCORECARD_2022_CATCHUP01R_2026-11-22.json`):
+  - Mean |log err| at 2022 is 1.37 (no catch-up: 1.65). Industrialisers fit to ~1950, then miss post-war growth.
+  - RUS/TUR are flagged as territory mismatches and excluded from the summary (MSG-047).
+- **Sandbox long run to 2022** (`docs/audit/econ/LONGRUN_SANDBOX_1836_2022_CATCHUP01R_2026-11-22.txt`): stable, population 6.4 bn in 2010, 75–100 ms/month.
+- **Next structural work** (honest finding: a bounded imitation discount cannot produce historical catch-up):
+  - IND-01 / ECON-GOODS-01 — modern goods and production methods (`docs/spec/IND01_PRODUCTION_METHODS_AND_MODERN_GOODS_VI.md`);
+  - ECON-MONO-01 — chartered trade monopolies, per the owner (`docs/spec/ECON_MONO01_CHARTERED_TRADE_MONOPOLIES_VI.md`), with CG-30 requested;
+  - schooling diffusion and decolonisation.
+- Local: tsc 0; `npm test` **32/32 files, 346/346 tests**. Kept on the working branch only until ChatGPT re-reviews CATCHUP-01.
+
+---
+
 ## 2026-11-22 — TECH-01 tree 1836-2026, DEMO-01, rail density, Meiji path; scorecard 0.224
 
 - **TECH-01** (CG-28): the tree grows from 38 to 130 technologies covering 1836–2026.

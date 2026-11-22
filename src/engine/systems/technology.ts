@@ -5,9 +5,6 @@ import type { Country, GameState } from '../types';
 import { S } from '../types';
 import { log } from '../core';
 import { regionsOf } from '../cache';
-/** CATCHUP-01 design parameters (calibrated on the MPD2023 scorecard). */
-export const TECH_DIFFUSION_DISCOUNT = 0.85;
-export const TECH_MATURITY_YEARS = 15;
 const OPEN: Record<string, number> = { isolationism: 0.03, protectionism: 0.3, free_trade: 0.7 };
 
 export function availableTechs(c: Country): string[] {
@@ -23,12 +20,36 @@ export function techCost(st: GameState, c: Country, id: string): number {
   // whole 1836-2026 tree by ~1985).
   const era = Math.pow(1 + Math.max(0, t.historical_year - year) / 12, 2);
   const known = knownShare(st, id);
-  // CATCHUP-01: followers imitate rather than invent. Adoption gets cheaper the more countries already
-  // use a technology (was 0.55) and the longer it has existed (maturity), so laggards can converge
-  // instead of facing pioneer costs a century later (Brazil had 6 technologies in 2000).
-  const diffusion = 1 - TECH_DIFFUSION_DISCOUNT * Math.sqrt(known);
-  const maturity = 1 / (1 + Math.max(0, year - t.historical_year) / TECH_MATURITY_YEARS);
-  return t.cost * era * diffusion * maturity * 1000;
+  return t.cost * era * (1 - imitationDiscount(c, known, year - t.historical_year)) * 1000;
+}
+
+/**
+ * CATCHUP-01 (revised after ChatGPT review CG_REVIEW_CATCHUP01, owner 2026-11-22: no latecomer buff).
+ * Followers may adopt more cheaply only what other countries already use, only to the extent they can
+ * absorb it, and never by more than IMITATION_DISCOUNT_MAX:
+ *   discount = MAX × sqrt(knownShare) × absorptiveCapacity × codified(age)
+ * - knownShare = 0 → no discount, whatever the technology's age (no time-based global decay);
+ * - codified(age) = min(1, years since commercial diffusion / 20): know-how becomes transferable as
+ *   the technology matures, but age alone never lowers cost;
+ * - absorptiveCapacity = the country's own trade openness × literacy (conditions it builds itself).
+ * Nothing here touches GDP, output, TFP, population or research points.
+ */
+export const IMITATION_DISCOUNT_MAX = 0.4;
+export const TECH_CODIFICATION_YEARS = 20;
+export function imitationDiscount(c: Country, knownShare: number, yearsSinceDiffusion: number): number {
+  if (!(knownShare > 0)) return 0;
+  const codified = Math.min(1, Math.max(0, yearsSinceDiffusion) / TECH_CODIFICATION_YEARS);
+  return IMITATION_DISCOUNT_MAX * Math.sqrt(Math.min(1, knownShare)) * absorptiveCapacity(c) * codified;
+}
+
+/**
+ * CATCHUP-01: ability to adopt foreign technology (0.1..1): exposure through trade times a literate
+ * workforce able to use it. Both are conditions a country builds itself (trade law, schooling).
+ */
+export function absorptiveCapacity(c: Country): number {
+  const exposure = Math.min(1, (OPEN[c.laws.trade] ?? 0.3) / 0.7);
+  const skills = Math.min(1, Math.max(0, c.stats?.literacy ?? 0) / 0.5);
+  return Math.max(0.1, exposure * skills);
 }
 
 export function researchPoints(st: GameState, c: Country): number {

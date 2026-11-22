@@ -186,8 +186,26 @@ export function lawReservedByHistory(st: GameState, c: Country, group: LawGroup)
   return false;
 }
 
-/** CATCHUP-01: weight of international emulation in reform choices (design parameter). */
-export const LAW_EMULATION = 1.2;
+/** CATCHUP-01: maximum utility a reform gains from international emulation (design parameter). */
+export const LAW_EMULATION = 0.3;
+
+/**
+ * Explicit modernisation transitions eligible for emulation (CG review: no array-order inference).
+ * Only single steps listed here count; other changes (army, church, trade, economy) get no emulation.
+ */
+export const EMULATION_STEPS: Partial<Record<LawGroup, Record<string, string>>> = {
+  education: { no_schools: 'religious_schools', religious_schools: 'public_schools' },
+  labor: { slavery: 'traditional_tenancy', serfdom: 'traditional_tenancy', traditional_tenancy: 'free_labor' },
+  press: { censorship: 'limited_press', limited_press: 'free_press' },
+  power: { autocracy: 'oligarchy', oligarchy: 'census_suffrage', census_suffrage: 'universal_male_suffrage' },
+};
+
+/** Emulation pull for `group: current → v`: world adoption beyond 30% × the country's trade exposure. */
+export function lawEmulation(st: GameState, c: Country, group: LawGroup, v: string): number {
+  if (EMULATION_STEPS[group]?.[c.laws[group]] !== v) return 0;
+  const exposure = Math.min(1, ({ isolationism: 0.03, protectionism: 0.3, free_trade: 0.7 } as Record<string, number>)[c.laws.trade] ?? 0.3) / 0.7;
+  return LAW_EMULATION * Math.max(0, lawShare(st, group, v) - 0.3) / 0.7 * Math.min(1, exposure);
+}
 
 let lawShareCache: { st: GameState; tick: number; map: Map<string, number> } | null = null;
 /** Share of sovereign, centralised living states that hold `group = value` (cached per month). */
@@ -223,9 +241,9 @@ function reformAI(st: GameState, c: Country) {
       u -= historicalBias(st, c, 'law_keep', `${g}:${c.laws[g]}`);
       if (g === 'trade' && v === 'free_trade' && c.personality.commerce > 0.7) u += 0.2;
       if (g === 'trade' && c.laws.trade === 'isolationism' && c.foreignPressure > 0.8) u += 0.4;
-      // CATCHUP-01 emulation: a progressive law that most states already have attracts reformers
-      // (mass schooling, emancipation, wider franchise spread internationally); both modes.
-      if (progressive) u += LAW_EMULATION * Math.max(0, lawShare(st, g, v) - 0.3);
+      // CATCHUP-01 emulation (revised): a small, conditional foreign influence on an explicit
+      // modernisation step; it never replaces domestic support (sup above) and grows with exposure.
+      u += lawEmulation(st, c, g, v);
       if (!best || u > best.u) best = { g, v, u };
     }
   }

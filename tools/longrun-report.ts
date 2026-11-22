@@ -2,13 +2,14 @@
 // prints real GDP per capita ratios (home territory, vs January 1837), technology counts, population
 // and the wall-clock cost of each simulated decade. Not a calibration target beyond 1913 (MPD
 // benchmarks after 1913 are not yet in the evidence set).
-//   npx tsx tools/longrun-report.ts [endYear=2026] [seed=1]
+//   npx tsx tools/longrun-report.ts [endYear=2026] [seed=1] [historical|sandbox]
 import { loadNodeData } from '../src/engine/node';
 import { createGame } from '../src/engine/init';
 import { stepMonth } from '../src/engine/simulation';
 loadNodeData();
 const end = Number(process.argv[2] ?? 2026); const seed = Number(process.argv[3] ?? 1);
-const st = createGame({ mode: 'historical', seed, player: null });
+const mode = (process.argv[4] === 'sandbox' ? 'sandbox' : 'historical') as 'historical' | 'sandbox';
+const st = createGame({ mode, seed, player: null });
 const ids = ['GBR', 'FRA', 'PRU', 'USA', 'QNG', 'EIC', 'JAP', 'RUS'];
 const home: Record<string, Set<string>> = {};
 for (const id of ids) home[id] = new Set(st.regions.filter((r) => r.owner === id).map((r) => r.id));

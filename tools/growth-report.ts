@@ -34,6 +34,16 @@ const SERIES: Record<string, { code: string; label: string }> = {
   JAP: { code: 'JPN', label: 'Japan' }, BRA: { code: 'BRA', label: 'Brazil' },
   RUS: { code: 'RUS', label: 'Russian Federation series (engine: Russian Empire)' }, TUR: { code: 'TUR', label: 'Turkey (engine: Ottoman Empire)' },
 };
+/**
+ * Territory coverage of each comparison (CG-29 / MSG-047). 'mismatch' rows (modern Russian Federation
+ * vs Russian Empire, Turkey vs Ottoman Empire) are reported but excluded from the summary errors until a
+ * historical-territory source exists; 'approximate' rows (Germany vs Prussia, China vs Qing, India vs
+ * EIC) are kept but flagged.
+ */
+const COVERAGE: Record<string, 'national' | 'approximate' | 'mismatch'> = {
+  GBR: 'national', FRA: 'national', USA: 'national', JAP: 'national', BRA: 'national',
+  PRU: 'approximate', QNG: 'approximate', EIC: 'approximate', RUS: 'mismatch', TUR: 'mismatch',
+};
 const ALL_YEARS = [1836, 1850, 1870, 1900, 1913, 1950, 1980, 2000, 2022] as const;
 function loadMpd(): Record<string, { label: string; values: Record<number, number | null> }> {
   const text = readFileSync(new URL('../docs/research/data/MPD2023_SUBSET_1820_2022.csv', import.meta.url), 'utf8');
@@ -73,14 +83,14 @@ export function runGrowthScorecard(seed = 1, endYear = 1913) {
       const span = end - base;
       const eR = engine[id][end]! / engine[id][base]!; const mR = mpd[end]! / mpd[base]!;
       rows.push({
-        id, label: MPD2023[id].label, base, end,
+        id, label: MPD2023[id].label, coverage: COVERAGE[id], base, end,
         engineRatio: +eR.toFixed(3), mpdRatio: +mR.toFixed(3),
         engineAnnualPct: +((Math.pow(eR, 1 / span) - 1) * 100).toFixed(2), mpdAnnualPct: +((Math.pow(mR, 1 / span) - 1) * 100).toFixed(2),
         logError: +Math.log(eR / mR).toFixed(3),
       });
     }
   }
-  const final = rows.filter((r) => r.end === YEARS[YEARS.length - 1]);
+  const final = rows.filter((r) => r.end === YEARS[YEARS.length - 1] && r.coverage !== 'mismatch');
   const mean = (xs: number[]) => xs.reduce((s, x) => s + x, 0) / Math.max(1, xs.length);
   const summary = {
     endYear: YEARS[YEARS.length - 1], meanAbsLogErrorEnd_all: +mean(final.map((r) => Math.abs(r.logError as number))).toFixed(3),
