@@ -1,0 +1,45 @@
+name: Convert illustration masters to WebP
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: illustration-webp-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - name: Install SVG/WebP dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcairo2 libffi-dev
+          python -m pip install --upgrade pip
+          python -m pip install Pillow cairosvg
+      - name: Convert SVG masters
+        run: python tools/convert_illustrations.py
+      - name: Build content registry
+        run: |
+          npm ci
+          npm run content
+      - name: Commit generated WebP and registry
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add historical_data/assets/illustration_assets.json public/content/illustrations public/content/registry.json
+          if git diff --cached --quiet; then
+            echo "No illustration changes to commit."
+          else
+            git commit -m "media(hy-02): convert illustration batch to WebP"
+            git push origin "HEAD:${{ github.ref_name }}"
+          fi
