@@ -83,3 +83,14 @@ Không lấy khoản bán hàng nhà nước làm doanh thu/lợi nhuận ABIR/A
 - S9 — Taxation in the Congo Free State, an exceptional case? (1885–1908), DOI 10.1080/20780389.2017.1327807: https://doi.org/10.1080/20780389.2017.1327807 ; author copy https://www.mers.be/FILES/Taxation_in_the_Congo_Free_State_an_Exce.pdf
 
 **Acceptance:** PARTIAL. Before price-wedge activation, verify legal geography/dates, matched procurement/market prices, company-level cost/profit, actual remittance and ledger balancing. Missing values remain null.
+
+## 7. Macroeconomic accounting rule — GDP is not GNI
+
+A transfer of profit, tax revenue or colonial surplus to the metropole must not be subtracted mechanically from the colony's territorial GDP. GDP records production/value added in the territory; cross-border ownership income and remittances affect national income (GNI), disposable income and the location of savings/investment. A valid simulation should:
+- count value added where production occurs;
+- record wages, tax, rent, profit, dividends and government receipts as separate flows;
+- transfer only the amount evidenced as actually remitted;
+- model later effects on local consumption, public services, capital formation and productivity through separate causal mechanisms;
+- never reduce GDPpc directly by the full remittance merely to fit a historical scorecard.
+
+This is especially important for the “drain” debate in British India: a fiscal transfer may be important for national income and development history, but it is not itself a negative production value-added entry in territorial GDP. MPD2023 GDP per capita is a GDP benchmark; do not compare it to a net-of-remittance GNI series or silently redefine the engine's GDP.
