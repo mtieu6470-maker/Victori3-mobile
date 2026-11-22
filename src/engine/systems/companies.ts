@@ -66,10 +66,18 @@ function stagger(id: string, tick: number, period: number): boolean {
   return (tick + h) % period === 0;
 }
 
-/** CO-3b: economy laws under which the state may grant monopoly charters (laissez-faire abolishes them). */
+/**
+ * CO-3b: economy laws under which the state may GRANT new monopoly charters. A change of law does not
+ * cancel existing charters (CG-34: exclusive rights ended by an explicit statute, the end of a
+ * concession term, a buy-out or a transfer of territory, not automatically by a free-trade reform).
+ */
 export const CHARTER_LAWS = new Set(['mercantilism', 'interventionism']);
-/** CO-3b design parameters: prosperity needed for a charter; one charter per this many company slots (at least one). */
-export const CHARTER_PARAMS = { minProsperity: 0.3, slotsPerCharter: 4 } as const;
+/**
+ * CO-3b design parameters: prosperity needed for a charter; one charter per this many company slots
+ * (at least one); term in years. Historical concession terms varied widely (French railway concessions
+ * after 1859: 99 years; Suez 1854: 99 years from opening); 30 years is a project design value.
+ */
+export const CHARTER_PARAMS = { minProsperity: 0.3, slotsPerCharter: 4, termYears: 30 } as const;
 
 export function charterLimit(st: GameState, c: Country): number {
   return CHARTER_LAWS.has(c.laws.economy) ? Math.max(1, Math.floor(companySlots(st, c) / CHARTER_PARAMS.slotsPerCharter)) : 0;
@@ -101,7 +109,7 @@ export function charterBlocker(st: GameState, co: Company | undefined): string |
 
 export function grantCharter(st: GameState, co: Company): boolean {
   if (charterBlocker(st, co)) return false;
-  co.charter = { since: st.tick };
+  co.charter = { since: st.tick, expires: st.tick + CHARTER_PARAMS.termYears * 12 };
   if (st.player === co.home) log(st, { type: 'economy', text: `${co.name} receives a monopoly charter.`, textVi: `${co.name} được cấp hiến chương độc quyền.`, actors: [co.home] });
   return true;
 }
@@ -109,7 +117,7 @@ export function grantCharter(st: GameState, co: Company): boolean {
 export function revokeCharter(st: GameState, co: Company, why = ''): boolean {
   if (!co.charter) return false;
   delete co.charter;
-  if (st.player === co.home) log(st, { type: 'economy', text: `${co.name} loses its monopoly charter${why}.`, textVi: `${co.name} mất hiến chương độc quyền${why ? ' (luật kinh tế không còn cho phép)' : ''}.`, actors: [co.home] });
+  if (st.player === co.home) log(st, { type: 'economy', text: `${co.name} loses its monopoly charter${why}.`, textVi: `${co.name} mất hiến chương độc quyền${why ? ' (hết hạn)' : ''}.`, actors: [co.home] });
   return true;
 }
 
@@ -274,7 +282,7 @@ export function companiesMonth(st: GameState): void {
     co.lossMonths = cost > 0 && revenue < cost ? co.lossMonths + 1 : 0;
     const home = st.countries[co.home];
     companyFinance(co, home?.alive ? home : undefined);
-    if (co.charter && home && !CHARTER_LAWS.has(home.laws.economy)) revokeCharter(st, co, ' (economy law)');
+    if (co.charter && st.tick >= co.charter.expires) revokeCharter(st, co, ' (term ended)');
     if (!co.sites.length || co.lossMonths >= COMPANY_PARAMS.dissolveAfterLossMonths || !home?.alive) {
       // Remaining cash returns to the owners' savings; unfinished projects pass to the private pool.
       if (home?.alive) home.privatePool = (home.privatePool ?? 0) + co.cash;

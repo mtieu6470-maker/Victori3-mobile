@@ -105,11 +105,14 @@ describe('CO-3b monopoly charters', () => {
     for (const p of fresh) expect(kind.buildings).not.toContain(p.building);
   });
 
-  it('switching to laissez-faire revokes the charter', () => {
+  it('a law change does not cancel a charter (CG-34); it lapses at the end of its term', () => {
     const s2 = structuredClone(st);
     s2.countries.FRA.laws.economy = 'laissez_faire';
     s2.tick++; companiesMonthForTest(s2);
-    expect(s2.companies[co.id].charter).toBeUndefined();
+    expect(s2.companies[co.id].charter).toBeTruthy();
+    expect(s2.companies[co.id].charter!.expires - s2.companies[co.id].charter!.since).toBe(CHARTER_PARAMS.termYears * 12);
+    s2.tick = s2.companies[co.id].charter!.expires; companiesMonthForTest(s2);
+    expect(s2.companies[co.id]?.charter).toBeUndefined();
   });
 
   it('a charter adds no direct productivity or price bonus (owner: no free buffs)', () => {

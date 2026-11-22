@@ -45,12 +45,12 @@ export function openCompany(st: GameState, co: Company) {
       </Sec>
       <Sec title="Hiến chương độc quyền" icon="laws">
         {co.charter
-          ? <div class="note pos">Đang giữ độc quyền: nhà đầu tư tư nhân và công ty khác không được xây {(kind?.buildings ?? []).map((b) => BUILD_VI[b as Building]).join(', ')} trong nước. Nhà nước vẫn xây được.</div>
+          ? <div class="note pos">Đang giữ độc quyền đến tháng {(co.charter.expires % 12) + 1}/{1836 + Math.floor(co.charter.expires / 12)}: nhà đầu tư tư nhân và công ty khác không được xây {(kind?.buildings ?? []).map((b) => BUILD_VI[b as Building]).join(', ')} trong nước. Nhà nước vẫn xây được.</div>
           : <div class="note">{CHARTER_BLOCK_VI(charterBlocker(st, co))}</div>}
         {canCommand(st, co.home) && (co.charter
           ? <button class="btn danger sm" onClick={() => { void send({ type: 'revoke_charter', company: co.id }, `Đã thu hồi hiến chương của ${companyKindName(co.kind)}`); }}>Thu hồi hiến chương</button>
           : !charterBlocker(st, co) && <button class="btn primary sm" onClick={() => { void send({ type: 'grant_charter', company: co.id }, `Đã cấp hiến chương độc quyền cho ${companyKindName(co.kind)}`); }}>Cấp hiến chương độc quyền</button>)}
-        <div class="s dim">Chỉ cấp được dưới luật trọng thương hoặc can thiệp; luật tự do kinh doanh bãi bỏ mọi độc quyền. Cần thịnh vượng ≥ {fmt(CHARTER_PARAMS.minProsperity * 100, 0)}. Độc quyền không cộng chỉ số: lợi ích đến từ việc ít cạnh tranh hơn trên thị trường.</div>
+        <div class="s dim">Chỉ cấp mới được dưới luật trọng thương hoặc can thiệp; hiến chương có thời hạn {fmt(CHARTER_PARAMS.termYears)} năm, đổi luật không tự xóa hiến chương đang có (chỉ hết hạn hoặc bị thu hồi). Cần thịnh vượng ≥ {fmt(CHARTER_PARAMS.minProsperity * 100, 0)}. Độc quyền không cộng chỉ số: lợi ích đến từ việc ít cạnh tranh hơn trên thị trường.</div>
       </Sec>
       <Sec title="Cơ sở sở hữu" x="chạm để xem trên bản đồ">
         {co.sites.map((k) => { const [r, b] = k.split('|'); return (

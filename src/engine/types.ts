@@ -196,10 +196,11 @@ export interface Company {
    */
   cash: number; lastProfit: number; lastDividend: number; lastRetained: number; invested: number;
   /**
-   * CO-3b: monopoly charter (tick granted). While held, only this company may add new sites or levels of
-   * its kind's buildings through private investment in its home country; the state can still build.
+   * CO-3b: monopoly charter (tick granted, tick it lapses). While held, only this company may add new
+   * sites or levels of its kind's buildings through private investment in its home country; the state
+   * can still build. It ends at its term or by explicit revocation (CG-34), not by a law change.
    */
-  charter?: { since: number };
+  charter?: { since: number; expires: number };
   /** Set only for companies seeded from verified historical evidence (CG-31). */
   historicalId?: string;
 }

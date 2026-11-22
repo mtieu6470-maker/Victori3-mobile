@@ -149,6 +149,8 @@ function normalizeLegacyFields(st: GameState): void {
   // CO-2: companies saved before company finance start with no cash.
   for (const co of Object.values(st.companies)) {
     co.cash ??= 0; co.lastProfit ??= 0; co.lastDividend ??= 0; co.lastRetained ??= 0; co.invested ??= 0;
+    // CO-3b: charters saved before terms existed get the standard term from their grant date.
+    if (co.charter && typeof (co.charter as { expires?: number }).expires !== 'number') co.charter.expires = co.charter.since + 30 * 12;
   }
   for (const country of Object.values(st.countries ?? {})) {
     country.statePool ??= 0;

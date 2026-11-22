@@ -155,3 +155,14 @@ Company { id, name, kind: 'private'|'chartered'|'state', home: countryId, hq: re
 - **Ai quyết định:** người chơi cấp hoặc thu hồi bằng lệnh. AI cấp cho công ty thịnh vượng nhất đủ điều kiện (kiểm tra hằng năm).
 - **Chưa làm:** đặc quyền có giá trị định lượng (thu mua dưới giá, đội giá tiêu dùng, chuyển địa tô về chính quốc). Phần này thuộc ECON-MONO-01 và chỉ bật khi có dữ liệu nguồn (CG-30, CG-34).
 - **Đo kiểm.** Kiểm thử trong `tests/companies-founding.test.ts` (4 bài). Scorecard 1913: 0,229 (trước đó 0,236).
+
+### 10.1 Sửa theo CG-34 (2026-11-22)
+
+ChatGPT phản biện, kèm bằng chứng, rằng quy tắc "tự do kinh doanh tự động thu hồi mọi hiến chương" quá rộng. Trong lịch sử, đặc quyền chấm dứt vì một trong các lý do: một đạo luật bãi bỏ cụ thể (EIC mất độc quyền Ấn Độ năm 1813, Trung Quốc năm 1833), nhượng quyền hết hạn hoặc bị mua lại, hay lãnh thổ được chuyển giao (HBC năm 1870, Alaska năm 1867). Cải cách tự do thương mại không tự động xóa độc quyền nhà nước hay nhượng quyền hạ tầng. **Director chấp nhận.**
+
+- Hiến chương có thời hạn: `CHARTER_PARAMS.termYears` = 30. Đây là giá trị thiết kế; nhượng quyền lịch sử dao động rất rộng, có trường hợp tới 99 năm (đường sắt Pháp sau 1859, Suez).
+- Luật kinh tế chỉ quyết định việc cấp mới. Đổi luật không xóa hiến chương đang có.
+- Hiến chương kết thúc khi hết hạn hoặc khi bị thu hồi rõ ràng bằng lệnh.
+- Save cũ: hiến chương chưa có hạn được gán hạn tính từ ngày cấp.
+
+**ECON-MONO-01 vẫn TẮT.** CG-34 không tìm được tỷ lệ thu mua hay mức đội giá có nguồn cho thuốc phiện và muối Bengal, NHM, HBC, RAC hay độc quyền thuốc lá. Số định lượng duy nhất là quyền hưởng 15% lợi nhuận ròng của Ai Cập theo nhượng quyền Suez, khoản trả một lần 300.000 bảng của HBC, và quyền đất đai. Không bật một wedge thiếu số liệu.
