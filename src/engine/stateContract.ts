@@ -34,7 +34,7 @@ export function validateRegionRecord(v: unknown, path: string): void {
   const r = obj(v, path);
   for (const k of ['id', 'owner', 'controller', 'culture', 'religion', 'terrain'] as const) str(r[k], `${path}.${k}`);
   strOrNull(r.culture2, `${path}.culture2`);
-  nonNeg(r.pop, `${path}.pop`); num(r.c2, `${path}.c2`); nonNeg(r.area, `${path}.area`); nonNeg(r.output, `${path}.output`); if (r.outputReal !== undefined) nonNeg(r.outputReal, `${path}.outputReal`);
+  nonNeg(r.pop, `${path}.pop`); num(r.c2, `${path}.c2`); nonNeg(r.area, `${path}.area`); nonNeg(r.output, `${path}.output`); if (r.outputReal !== undefined) nonNeg(r.outputReal, `${path}.outputReal`); if (r.prodRel !== undefined && (!fin(r.prodRel) || (r.prodRel as number) <= 0)) fail(`${path}.prodRel`, 'must be a finite positive number');
   const strata = arr(r.strata, `${path}.strata`);
   if (strata.length !== STRATA.length) fail(`${path}.strata`, `must have ${STRATA.length} entries`);
   strata.forEach((x, i) => nonNeg(x, `${path}.strata[${i}]`));

@@ -46,11 +46,32 @@ export const CASH_CROP_INCOME_ELASTICITY = 0.5;
 export const PRODUCTIVITY_ELASTICITY = { physical: 0.15, value: 0.85, services: 1.0 } as const;
 export const physicalProductivity = (c: Pick<Country, 'productivity'>) => Math.pow(Math.max(0, c.productivity), PRODUCTIVITY_ELASTICITY.physical);
 export const valueProductivity = (c: Pick<Country, 'productivity'>) => Math.pow(Math.max(0, c.productivity), PRODUCTIVITY_ELASTICITY.value);
+/** DIV-01: effective productivity of a region = owner's national productivity x the region's relative level. */
+export const regionProductivity = (c: Pick<Country, 'productivity'>, r: Pick<Region, 'prodRel'>) => ({ productivity: Math.max(0, c.productivity) * (r.prodRel ?? 1) });
 
-export function techEffect(c: Country, key: string): number {
+export function techEffect(c: Country, key: string, r?: Pick<Region, 'literacy'>): number {
   const d = data(); let s = 0;
   for (const t of c.techs) { const v = d.tech.get(t)?.effects[key]; if (typeof v === 'number') s += v; }
-  return s;
+  // Intensity of use depends on the skills where the technology is used: the region's literacy when
+  // known (a colony does not run machines with the metropole's schooling), else the country's.
+  return INTENSITY_KEYS.has(key) ? s * techUseIntensity(r ? r.literacy : c.stats?.literacy) : s;
+}
+
+/**
+ * DIV-02: intensity of use. Adoption lags converged across countries but the intensity with which
+ * technologies are used did not, and that gap accounts for much of the 19th-20th century income
+ * divergence (Comin & Mestieri 2018, "If Technology Has Arrived Everywhere, Why Has Income Diverged?",
+ * AEJ: Macroeconomics 10(3)). Production-efficiency effects therefore scale with a use intensity that
+ * rises with literacy (skills to run the machines): 1 at literacy >= INTENSITY.fullAt, down to
+ * INTENSITY.floor. Leaders (literacy above ~0.6 from the mid-19th century) keep full effects, so their
+ * calibration is unchanged. Military, mortality and administrative effects are not scaled here.
+ */
+export const INTENSITY = { enabled: true, fullAt: 0.6, floor: 0.2 } as const;
+const INTENSITY_KEYS = new Set(['factory_efficiency', 'farm_efficiency', 'textile_efficiency', 'mine_efficiency', 'iron_efficiency', 'steel_efficiency', 'arms_efficiency', 'energy_efficiency']);
+export function techUseIntensity(literacy: number | undefined): number {
+  if (!INTENSITY.enabled) return 1;
+  const lit = Number.isFinite(literacy) ? (literacy as number) : 0;
+  return Math.min(1, Math.max(INTENSITY.floor, lit / INTENSITY.fullAt));
 }
 export function hasTech(c: Country, id: string) { return c.techs.includes(id); }
 
@@ -224,7 +245,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
   // ---- 1. physical production and demand per region
   for (let i = 0; i < st.regions.length; i++) {
     const r = st.regions[i]; const c = st.countries[r.owner]; if (!c) continue;
-    const A = physicalProductivity(c); const Am = A;
+    const rp = regionProductivity(c, r); const A = physicalProductivity(rp); const Am = A;
     const LF = r.pop * 0.45;
     const sh = r.strata;
     const rail = railCoverage(r);
@@ -242,7 +263,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     employment[S.peasants] = LF * sh[S.peasants];
     employment[S.laborers] = LF * sh[S.laborers] * 0.3;
     employment[S.slaves] = LF * sh[S.slaves];
-    const grain = agriWorkers * 650 * terr * (1 + (r.res.includes('grain') ? 0.15 : 0) + (r.res.includes('live') ? 0.05 : 0)) * (1 + techEffect(c, 'farm_efficiency')) * infra * A * dev * blight * occupied;
+    const grain = agriWorkers * 650 * terr * (1 + (r.res.includes('grain') ? 0.15 : 0) + (r.res.includes('live') ? 0.05 : 0)) * (1 + techEffect(c, 'farm_efficiency', r)) * infra * A * dev * blight * occupied;
     supply.grain += grain;
     // plantations
     const sites: SiteCalc[] = [];
@@ -268,7 +289,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
       const kinds: Good[] = []; if (r.res.includes('coal')) kinds.push('coal'); if (r.res.includes('iron')) kinds.push('iron'); if (r.res.includes('gold') || r.res.includes('silv')) kinds.push('luxury');
       if (!kinds.length) kinds.push('iron');
       const outputs: Partial<Record<Good, number>> = {};
-      for (const k of kinds) { const q = (mineWorkers * 900 * (1 + techEffect(c, 'mine_efficiency')) * A * infra * dev * occupied) / kinds.length; supply[k] += q; outputs[k] = (outputs[k] ?? 0) + q; }
+      for (const k of kinds) { const q = (mineWorkers * 900 * (1 + techEffect(c, 'mine_efficiency', r)) * A * infra * dev * occupied) / kinds.length; supply[k] += q; outputs[k] = (outputs[k] ?? 0) + q; }
       sites.push({ b: 'mine', outputs, inputs: {}, workers: mineWorkers, stratum: S.laborers });
     }
     const logWorkers = Math.min(r.buildings.logging * LEVEL_WORKERS * siteUtil(st, r.id, 'logging'), Math.max(0, LF * sh[S.laborers] - employment[S.laborers]));
@@ -288,13 +309,13 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
       ? clamp(availableFactoryWorkers / requestedFactoryWorkers, 0, 1)
       : 0;
     let factoryWorkersEmployed = 0;
-    const facEff = 1 + techEffect(c, 'factory_efficiency');
+    const facEff = 1 + techEffect(c, 'factory_efficiency', r);
     for (const b of factoryBuildings) {
       const rec = RECIPES[b]!;
       const w = Math.max(0, r.buildings[b]) * LEVEL_WORKERS * factoryStaffing * siteUtil(st, r.id, b);
       factoryWorkersEmployed += w;
       if (w <= 0) continue;
-      const eff = facEff * (1 + (b === 'textile_mill' ? techEffect(c, 'textile_efficiency') : b === 'ironworks' ? techEffect(c, 'iron_efficiency') + techEffect(c, 'steel_efficiency') : b === 'arms_works' ? techEffect(c, 'arms_efficiency') : 0));
+      const eff = facEff * (1 + (b === 'textile_mill' ? techEffect(c, 'textile_efficiency', r) : b === 'ironworks' ? techEffect(c, 'iron_efficiency', r) + techEffect(c, 'steel_efficiency', r) : b === 'arms_works' ? techEffect(c, 'arms_efficiency', r) : 0));
       const out = w * rec.perWorker * eff * Am * infra * dev * occupied;
       factoryOut[rec.out] += out;
       factoryWorkersByGood[rec.out] = (factoryWorkersByGood[rec.out] ?? 0) + w;
@@ -331,7 +352,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     }
     const previousAverageWage = wageWorkers > 0 ? wageMass / wageWorkers : 0;
     const wagePower = clamp(previousAverageWage / 50, 0.5, 2);
-    const outputWealth = Math.max(0.3, (r.output > 0 ? (r.output * 12) / Math.max(1, r.pop) : 600 * c.productivity) / 600);
+    const outputWealth = Math.max(0.3, (r.output > 0 ? (r.output * 12) / Math.max(1, r.pop) : 600 * regionProductivity(c, r).productivity) / 600);
     // ECON-GROWTH: the cap was 3, which Britain already reached in 1836, so rising income never raised
     // consumption and growth stalled in gluts. 12 leaves room for the whole 1836-2026 range.
     const wealth = clamp(outputWealth * (0.85 + wagePower * 0.15), 0.3, WEALTH_CAP);
@@ -486,8 +507,8 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
   for (let i = 0; i < st.regions.length; i++) {
     const r = st.regions[i]; const c = st.countries[r.owner]; const k = calc[i]; if (!c || !k) continue;
     const mk = marketOf(st, c); const p = st.marketPrices[mk]; const short = marketShort[mk];
-    const Av = valueProductivity(c);
-    let value = k.services * Math.pow(Math.max(0, c.productivity), PRODUCTIVITY_ELASTICITY.services);
+    const rp = regionProductivity(c, r); const Av = valueProductivity(rp);
+    let value = k.services * Math.pow(rp.productivity, PRODUCTIVITY_ELASTICITY.services);
     // ECON-GROWTH (MSG-041): real value added at constant base prices (index 1 = 1836 base) next to
     // the nominal figure, so growth can be compared with real-GDP benchmarks (MPD2023).
     let valueReal = value;
@@ -865,15 +886,15 @@ function computeQueuedFactoryLedger(st: GameState, marketId: string): QueuedFact
     if (staffing <= 0) continue;
 
     const specificEfficiency = project.building === 'textile_mill'
-      ? techEffect(owner, 'textile_efficiency')
+      ? techEffect(owner, 'textile_efficiency', region)
       : project.building === 'ironworks'
-        ? techEffect(owner, 'iron_efficiency') + techEffect(owner, 'steel_efficiency')
+        ? techEffect(owner, 'iron_efficiency', region) + techEffect(owner, 'steel_efficiency', region)
         : project.building === 'arms_works'
-          ? techEffect(owner, 'arms_efficiency')
+          ? techEffect(owner, 'arms_efficiency', region)
           : 0;
     const output = LEVEL_WORKERS * staffing * recipe.perWorker
-      * (1 + techEffect(owner, 'factory_efficiency')) * (1 + specificEfficiency)
-      * physicalProductivity(owner)
+      * (1 + techEffect(owner, 'factory_efficiency', region)) * (1 + specificEfficiency)
+      * physicalProductivity(regionProductivity(owner, region))
       * (1 + 0.05 * railCoverage(region))
       * Math.max(0, 1 - region.devastation)
       * (region.controller === region.owner ? 1 : 0.7);
@@ -933,12 +954,12 @@ function marketInputAvailability(st: GameState, c: Country, requiredInputs: Part
 export function buildingReturn(st: GameState, c: Country, r: Region, b: Building): number {
   const p = st.marketPrices[marketOf(st, c)] ?? st.worldPrices;
   const queued = queuedFactoryLedger(st, c);
-  const primaryProductivity = physicalProductivity(c);
+  const primaryProductivity = physicalProductivity(regionProductivity(c, r));
   const factoryProductivity = primaryProductivity;
   // ECON-CAL-02: physical output now scales with productivity^0.15. Investment appraisal stays
   // productivity-neutral as before (output and build cost both ~ sqrt(productivity)), so the private
   // investment threshold means the same thing in every country.
-  const moneyScale = Math.sqrt(Math.max(0, c.productivity)) / Math.max(1e-9, primaryProductivity);
+  const moneyScale = Math.sqrt(regionProductivity(c, r).productivity) / Math.max(1e-9, primaryProductivity);
   const infra = 1 + 0.05 * railCoverage(r);
   const condition = Math.max(0, 1 - r.devastation);
   const occupied = r.controller !== r.owner ? 0.7 : 1;
@@ -1003,14 +1024,14 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
   } else if (RECIPES[b]) {
     const rec = RECIPES[b]!;
     const specificEfficiency = b === 'textile_mill'
-      ? techEffect(c, 'textile_efficiency')
+      ? techEffect(c, 'textile_efficiency', r)
       : b === 'ironworks'
-        ? techEffect(c, 'iron_efficiency') + techEffect(c, 'steel_efficiency')
+        ? techEffect(c, 'iron_efficiency', r) + techEffect(c, 'steel_efficiency', r)
         : b === 'arms_works'
-          ? techEffect(c, 'arms_efficiency')
+          ? techEffect(c, 'arms_efficiency', r)
           : 0;
     const output = LEVEL_WORKERS * staffing * rec.perWorker
-      * (1 + techEffect(c, 'factory_efficiency')) * (1 + specificEfficiency)
+      * (1 + techEffect(c, 'factory_efficiency', r)) * (1 + specificEfficiency)
       * factoryProductivity * infra * condition * occupied;
     const plannedInputs = Object.fromEntries(
       Object.entries(rec.inputs).map(([good, amount]) => [good, output * (amount as number)]),
@@ -1032,7 +1053,7 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
     if (r.res.includes('gold') || r.res.includes('silv')) kinds.push('luxury');
     if (!kinds.length) kinds.push('iron');
     const output = LEVEL_WORKERS * staffing * 900
-      * (1 + techEffect(c, 'mine_efficiency')) * primaryProductivity * infra * condition * occupied;
+      * (1 + techEffect(c, 'mine_efficiency', r)) * primaryProductivity * infra * condition * occupied;
     value = kinds.reduce(
       (sum, good) => sum + (output / kinds.length) * p[good] * marketDemandFactor(st, c, good, queued.supply[good] ?? 0),
       0,
@@ -1133,7 +1154,7 @@ function updateSiteOperations(st: GameState, calc: RegionCalc[], plannedFactoryT
     if (!c || !k) continue;
     const stats = st.marketStats[k.marketId]; const prices = st.marketPrices[k.marketId];
     if (!stats || !prices) continue;
-    const Av = valueProductivity(c);
+    const Av = valueProductivity(regionProductivity(c, r));
     const seen = new Set<Building>();
     for (const site of k.sites) {
       seen.add(site.b);

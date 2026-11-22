@@ -133,6 +133,12 @@ export interface Region {
   buildings: Record<Building, number>; res: string[]; terrain: string; coastal: boolean; area: number;
   devastation: number; blight: { until: number; severity: number } | null; epidemic: { until: number; rate: number } | null;
   output: number; // value added last month (GBP-equivalent units)
+  /**
+   * DIV-01: productivity of this region relative to its owner's national productivity (default 1).
+   * Conquest or cession does not transfer productivity: on transfer the region keeps its effective
+   * level and then converges slowly toward its new owner's (systems/growth.ts).
+   */
+  prodRel?: number;
   /** Value added last month at constant 1836 base prices (real); absent in older saves. */
   outputReal?: number;
   /** Absolute employed population and monthly wage per worker, indexed by STRATA. Optional for legacy saves. */

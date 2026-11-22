@@ -1,3 +1,20 @@
+## 2026-11-22 — Divergence review (owner): DIV-01 regional productivity, DIV-02 technology use intensity
+
+- **Tool:** `tools/divergence-report.ts`. Region-to-modern-country shares come from `map.bin` × the admin-1 ISO grid; it compares against MPD2023 for all countries (`MPD2023_ALL_BENCHMARK_YEARS.csv` from `extract_mpd_all.py`, publisher SHA-1 verified).
+- **DIV-01** (`Region.prodRel`, world.ts transfer, growth.ts): conquest keeps effective productivity. Convergence speeds up with literacy (5× slower for colonies). Colonies get 30% of the owner's growth. `isColonialRegion` uses the 1836 home (`_home/_core` groups, else all 1836 regions) or a culture family different from the capital's.
+- **DIV-02** (`economy.ts` `techEffect` with a region argument, `techUseIntensity`): production effects × clamp(region literacy / 0.6, 0.2, 1).
+- **Results:**
+  - scorecard 1913: 0.199 → 0.132;
+  - Spearman 2022: 0.18 → 0.30;
+  - Sub-Saharan Africa / world: 1.15 → 0.71 (MPD 0.21);
+  - scorecard 2022: 1.035 → 1.19 (East Asia and Brazil post-1950 catch-up missing);
+  - first-railway adoption: 6.0 years mean error.
+- **Review:** `docs/audit/econ/DIVERGENCE_REVIEW_2026-11-22.md`.
+- **Next:** DECOL-01 decolonisation (CG-37); Egypt over-expansion check; DIPLO-TREATY-01 (CG-38; the owner wants tech transfer by mutual treaty).
+- Tests: `tests/divergence.test.ts` (4). Local: `npm test` **37/37 files, 388/388**.
+
+---
+
 ## 2026-11-22 — TECH-02 technology import + Historical Mode adoption windows; CO-2b railways; CO-3b charter terms
 
 - **TECH-02** (`technology.ts`):

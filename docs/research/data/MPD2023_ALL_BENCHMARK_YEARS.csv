@@ -1,0 +1,852 @@
+countrycode,country,region,year,gdppc_2011_intl_dollars,pop_thousands
+AFG,Afghanistan,South and South East Asia,1950,1156,8150
+AFG,Afghanistan,South and South East Asia,1980,1019,15044
+AFG,Afghanistan,South and South East Asia,2000,502,22461
+AFG,Afghanistan,South and South East Asia,2022,1358,39252
+AGO,Angola,Sub Saharan Africa,1950,1677,4118
+AGO,Angola,Sub Saharan Africa,1980,1532,6743
+AGO,Angola,Sub Saharan Africa,2000,2014,11676
+AGO,Angola,Sub Saharan Africa,2022,6119,25878
+ALB,Albania,Eastern Europe,1870,711,603
+ALB,Albania,Eastern Europe,1913,1293,898
+ALB,Albania,Eastern Europe,1950,1596,1227
+ALB,Albania,Eastern Europe,1980,3741,2671
+ALB,Albania,Eastern Europe,2000,4808,3065
+ALB,Albania,Eastern Europe,2022,12978,2787
+ARE,United Arab Emirates,Middle East and North Africa,1950,25182,72
+ARE,United Arab Emirates,Middle East and North Africa,1980,44168,1000
+ARE,United Arab Emirates,Middle East and North Africa,2000,48888,3284
+ARE,United Arab Emirates,Middle East and North Africa,2022,77204,10099
+ARG,Argentina,Latin America,1850,1994,1100
+ARG,Argentina,Latin America,1870,2340,1796
+ARG,Argentina,Latin America,1913,6052,7653
+ARG,Argentina,Latin America,1950,7949,17150
+ARG,Argentina,Latin America,1980,13080,28370
+ARG,Argentina,Latin America,2000,14369,37336
+ARG,Argentina,Latin America,2022,18292,46736
+ARM,Armenia,Eastern Europe,1980,9291,3115
+ARM,Armenia,Eastern Europe,2000,5140,2966
+ARM,Armenia,Eastern Europe,2022,13838,2871
+AUS,Australia,Western Offshoots,1836,1793,367
+AUS,Australia,Western Offshoots,1850,3148,605
+AUS,Australia,Western Offshoots,1870,5217,1775
+AUS,Australia,Western Offshoots,1913,8220,4821
+AUS,Australia,Western Offshoots,1950,11815,8267
+AUS,Australia,Western Offshoots,1980,22972,14616
+AUS,Australia,Western Offshoots,2000,36603,18907
+AUS,Australia,Western Offshoots,2022,52049,25826
+AUT,Austria,Western Europe,1850,2630,3950
+AUT,Austria,Western Europe,1870,2970,4520
+AUT,Austria,Western Europe,1913,5523,6767
+AUT,Austria,Western Europe,1950,5907,6935
+AUT,Austria,Western Europe,1980,21932,7549
+AUT,Austria,Western Europe,2000,34796,8059
+AUT,Austria,Western Europe,2022,43793,9107
+AZE,Azerbaijan,Eastern Europe,1980,7165,6173
+AZE,Azerbaijan,Eastern Europe,2000,4215,8127
+AZE,Azerbaijan,Eastern Europe,2022,17683,9918
+BDI,Burundi,Sub Saharan Africa,1950,595,2363
+BDI,Burundi,Sub Saharan Africa,1980,952,4288
+BDI,Burundi,Sub Saharan Africa,2000,740,6282
+BDI,Burundi,Sub Saharan Africa,2022,717,12795
+BEL,Belgium,Western Europe,1850,2944,4449
+BEL,Belgium,Western Europe,1870,4291,5096
+BEL,Belgium,Western Europe,1913,6727,7666
+BEL,Belgium,Western Europe,1950,8706,8639
+BEL,Belgium,Western Europe,1980,23060,9847
+BEL,Belgium,Western Europe,2000,33720,10252
+BEL,Belgium,Western Europe,2022,41872,11695
+BEN,Benin,Sub Saharan Africa,1950,1627,1673
+BEN,Benin,Sub Saharan Africa,1980,1691,3510
+BEN,Benin,Sub Saharan Africa,2000,1909,6677
+BEN,Benin,Sub Saharan Africa,2022,2477,13439
+BFA,Burkina Faso,Sub Saharan Africa,1950,756,4376
+BFA,Burkina Faso,Sub Saharan Africa,1980,1165,6318
+BFA,Burkina Faso,Sub Saharan Africa,2000,1275,11405
+BFA,Burkina Faso,Sub Saharan Africa,2022,1705,21889
+BGD,Bangladesh,South and South East Asia,1950,861,45646
+BGD,Bangladesh,South and South East Asia,1980,875,87937
+BGD,Bangladesh,South and South East Asia,2000,1485,135207
+BGD,Bangladesh,South and South East Asia,2022,4926,174217
+BGR,Bulgaria,Eastern Europe,1870,1339,2586
+BGR,Bulgaria,Eastern Europe,1950,2632,7250
+BGR,Bulgaria,Eastern Europe,1980,9634,8844
+BGR,Bulgaria,Eastern Europe,2000,8411,8052
+BGR,Bulgaria,Eastern Europe,2022,20592,6720
+BHR,Bahrain,Middle East and North Africa,1950,3354,115
+BHR,Bahrain,Middle East and North Africa,1980,6994,348
+BHR,Bahrain,Middle East and North Africa,2000,17022,648
+BHR,Bahrain,Middle East and North Africa,2022,38652,1520
+BIH,Bosnia and Herzegovina,Eastern Europe,1980,6588,4092
+BIH,Bosnia and Herzegovina,Eastern Europe,2000,7082,3901
+BIH,Bosnia and Herzegovina,Eastern Europe,2022,12143,3876
+BLR,Belarus,Eastern Europe,1980,9487,9644
+BLR,Belarus,Eastern Europe,2000,9111,10034
+BLR,Belarus,Eastern Europe,2022,18700,9400
+BOL,Bolivia (Plurinational State of),Latin America,1913,1862,1881
+BOL,Bolivia (Plurinational State of),Latin America,1950,3011,2766
+BOL,Bolivia (Plurinational State of),Latin America,1980,4100,5441
+BOL,Bolivia (Plurinational State of),Latin America,2000,4174,8177
+BOL,Bolivia (Plurinational State of),Latin America,2022,6481,12060
+BRA,Brazil,Latin America,1850,867,7234
+BRA,Brazil,Latin America,1870,1084,9797
+BRA,Brazil,Latin America,1913,1046,23660
+BRA,Brazil,Latin America,1950,2236,53443
+BRA,Brazil,Latin America,1980,8249,123020
+BRA,Brazil,Latin America,2000,9834,176902
+BRA,Brazil,Latin America,2022,14640,217718
+BRB,Barbados,Latin America,1950,3390,211
+BRB,Barbados,Latin America,1980,12318,252
+BRB,Barbados,Latin America,2000,12600,274
+BRB,Barbados,Latin America,2022,11546,295
+BWA,Botswana,Sub Saharan Africa,1950,489,430
+BWA,Botswana,Sub Saharan Africa,1980,2348,900
+BWA,Botswana,Sub Saharan Africa,2000,8044,1665
+BWA,Botswana,Sub Saharan Africa,2022,16352,2403
+CAF,Central African Republic,Sub Saharan Africa,1950,1307,1260
+CAF,Central African Republic,Sub Saharan Africa,1980,1234,2349
+CAF,Central African Republic,Sub Saharan Africa,2000,964,3980
+CAF,Central African Republic,Sub Saharan Africa,2022,596,6291
+CAN,Canada,Western Offshoots,1850,2120,2485
+CAN,Canada,Western Offshoots,1870,2702,3781
+CAN,Canada,Western Offshoots,1913,7088,7852
+CAN,Canada,Western Offshoots,1950,11622,14011
+CAN,Canada,Western Offshoots,1980,25784,24593
+CAN,Canada,Western Offshoots,2000,36943,30796
+CAN,Canada,Western Offshoots,2022,45530,38685
+CHE,Switzerland,Western Europe,1870,2954,2655
+CHE,Switzerland,Western Europe,1913,8172,3864
+CHE,Switzerland,Western Europe,1950,11541,4694
+CHE,Switzerland,Western Europe,1980,27406,6385
+CHE,Switzerland,Western Europe,2000,43251,7296
+CHE,Switzerland,Western Europe,2022,63323,8834
+CHL,Chile,Latin America,1836,991,1093
+CHL,Chile,Latin America,1850,1352,1410
+CHL,Chile,Latin America,1870,1868,1945
+CHL,Chile,Latin America,1913,4836,3431
+CHL,Chile,Latin America,1950,5880,6091
+CHL,Chile,Latin America,1980,9024,11094
+CHL,Chile,Latin America,2000,15212,15340
+CHL,Chile,Latin America,2022,22741,19715
+CHN,China,East Asia,1850,858,412000
+CHN,China,East Asia,1870,945,358000
+CHN,China,East Asia,1913,985,437140
+CHN,China,East Asia,1950,799,546815
+CHN,China,East Asia,1980,1930,981235
+CHN,China,East Asia,2000,4730,1258401
+CHN,China,East Asia,2022,19238,1401693
+CIV,Côte d'Ivoire,Sub Saharan Africa,1950,1659,2860
+CIV,Côte d'Ivoire,Sub Saharan Africa,1980,3253,8593
+CIV,Côte d'Ivoire,Sub Saharan Africa,2000,2353,17552
+CIV,Côte d'Ivoire,Sub Saharan Africa,2022,4012,30279
+CMR,Cameroon,Sub Saharan Africa,1950,1070,4888
+CMR,Cameroon,Sub Saharan Africa,1980,1900,8762
+CMR,Cameroon,Sub Saharan Africa,2000,1961,15913
+CMR,Cameroon,Sub Saharan Africa,2022,2812,29417
+COD,D.R. of the Congo,Sub Saharan Africa,1950,909,13569
+COD,D.R. of the Congo,Sub Saharan Africa,1980,953,29013
+COD,D.R. of the Congo,Sub Saharan Africa,2000,414,52782
+COD,D.R. of the Congo,Sub Saharan Africa,2022,844,108171
+COG,Congo,Sub Saharan Africa,1950,1693,826
+COG,Congo,Sub Saharan Africa,1980,3075,1674
+COG,Congo,Sub Saharan Africa,2000,4159,2999
+COG,Congo,Sub Saharan Africa,2022,4188,5655
+COL,Colombia,Latin America,1850,784,2065
+COL,Colombia,Latin America,1870,1078,2392
+COL,Colombia,Latin America,1913,1347,5195
+COL,Colombia,Latin America,1950,3432,11592
+COL,Colombia,Latin America,1980,6786,26631
+COL,Colombia,Latin America,2000,8497,38911
+COL,Colombia,Latin America,2022,14469,51332
+COM,Comoros,Sub Saharan Africa,1950,534,148
+COM,Comoros,Sub Saharan Africa,1980,1065,340
+COM,Comoros,Sub Saharan Africa,2000,1204,545
+COM,Comoros,Sub Saharan Africa,2022,1900,885
+CPV,Cabo Verde,Sub Saharan Africa,1950,1006,146
+CPV,Cabo Verde,Sub Saharan Africa,1980,1352,296
+CPV,Cabo Verde,Sub Saharan Africa,2000,3584,430
+CPV,Cabo Verde,Sub Saharan Africa,2022,7203,590
+CRI,Costa Rica,Latin America,1950,3129,867
+CRI,Costa Rica,Latin America,1980,7828,2299
+CRI,Costa Rica,Latin America,2000,9320,3867
+CRI,Costa Rica,Latin America,2022,15497,5185
+CSK,Czechoslovakia,Eastern Europe,1850,1720,9250
+CSK,Czechoslovakia,Eastern Europe,1870,1855,10155
+CSK,Czechoslovakia,Eastern Europe,1913,3341,13245
+CSK,Czechoslovakia,Eastern Europe,1950,5581,12389
+CSK,Czechoslovakia,Eastern Europe,1980,12723,15255
+CSK,Czechoslovakia,Eastern Europe,2000,15378,15584
+CSK,Czechoslovakia,Eastern Europe,2022,30641,16099
+CUB,Cuba,Latin America,1850,888,1186
+CUB,Cuba,Latin America,1913,2120,2431
+CUB,Cuba,Latin America,1950,2638,5785
+CUB,Cuba,Latin America,1980,4106,9648
+CUB,Cuba,Latin America,2000,4009,11147
+CUB,Cuba,Latin America,2022,7649,11003
+CYP,Cyprus,Eastern Europe,1950,2885,494
+CYP,Cyprus,Eastern Europe,1980,9451,611
+CYP,Cyprus,Eastern Europe,2000,22327,826
+CYP,Cyprus,Eastern Europe,2022,31523,1087
+CZE,Czech Republic,Eastern Europe,1980,12336,10289
+CZE,Czech Republic,Eastern Europe,2000,17056,10220
+CZE,Czech Republic,Eastern Europe,2022,32247,10635
+DEU,Germany,Western Europe,1836,2173,29702
+DEU,Germany,Western Europe,1850,2276,33746
+DEU,Germany,Western Europe,1870,2931,39231
+DEU,Germany,Western Europe,1913,5815,65058
+DEU,Germany,Western Europe,1950,6186,68375
+DEU,Germany,Western Europe,1980,22497,78298
+DEU,Germany,Western Europe,2000,33367,81474
+DEU,Germany,Western Europe,2022,46648,83811
+DJI,Djibouti,Sub Saharan Africa,1950,3459,79
+DJI,Djibouti,Sub Saharan Africa,1980,3167,327
+DJI,Djibouti,Sub Saharan Africa,2000,1881,669
+DJI,Djibouti,Sub Saharan Africa,2022,3623,937
+DMA,Dominica,Latin America,1950,980,51
+DMA,Dominica,Latin America,1980,2219,74
+DMA,Dominica,Latin America,2000,5697,71
+DMA,Dominica,Latin America,2022,8880,76
+DNK,Denmark,Western Europe,1836,2179,1315
+DNK,Denmark,Western Europe,1850,2817,1499
+DNK,Denmark,Western Europe,1870,3193,1888
+DNK,Denmark,Western Europe,1913,6236,2983
+DNK,Denmark,Western Europe,1950,11067,4271
+DNK,Denmark,Western Europe,1980,24272,5123
+DNK,Denmark,Western Europe,2000,39021,5339
+DNK,Denmark,Western Europe,2022,50690,5907
+DOM,Dominican Republic,Latin America,1950,1637,2353
+DOM,Dominican Republic,Latin America,1980,3781,5697
+DOM,Dominican Republic,Latin America,2000,6788,8301
+DOM,Dominican Republic,Latin America,2022,17714,10793
+DZA,Algeria,Middle East and North Africa,1870,1140,3776
+DZA,Algeria,Middle East and North Africa,1913,1854,5497
+DZA,Algeria,Middle East and North Africa,1950,2176,8893
+DZA,Algeria,Middle East and North Africa,1980,5024,18806
+DZA,Algeria,Middle East and North Africa,2000,6835,30515
+DZA,Algeria,Middle East and North Africa,2022,13506,44114
+ECU,Ecuador,Latin America,1870,760,1013
+ECU,Ecuador,Latin America,1913,1506,1689
+ECU,Ecuador,Latin America,1950,2970,3370
+ECU,Ecuador,Latin America,1980,6582,7920
+ECU,Ecuador,Latin America,2000,6908,12446
+ECU,Ecuador,Latin America,2022,10124,17288
+EGY,Egypt,Middle East and North Africa,1870,1195,7049
+EGY,Egypt,Middle East and North Africa,1913,1674,12144
+EGY,Egypt,Middle East and North Africa,1950,1451,21198
+EGY,Egypt,Middle East and North Africa,1980,3298,42634
+EGY,Egypt,Middle East and North Africa,2000,6594,67377
+EGY,Egypt,Middle East and North Africa,2022,13205,110593
+ESP,Spain,Western Europe,1836,1538,13571
+ESP,Spain,Western Europe,1850,1703,14894
+ESP,Spain,Western Europe,1870,1806,16201
+ESP,Spain,Western Europe,1913,3063,20263
+ESP,Spain,Western Europe,1950,3459,28063
+ESP,Spain,Western Europe,1980,14006,37488
+ESP,Spain,Western Europe,2000,26995,40563
+ESP,Spain,Western Europe,2022,34123,47625
+EST,Estonia,Eastern Europe,1980,15044,1482
+EST,Estonia,Eastern Europe,2000,16807,1400
+EST,Estonia,Eastern Europe,2022,30067,1330
+ETH,Ethiopia,Sub Saharan Africa,1950,622,20605
+ETH,Ethiopia,Sub Saharan Africa,1980,1033,36866
+ETH,Ethiopia,Sub Saharan Africa,2000,772,65213
+ETH,Ethiopia,Sub Saharan Africa,2022,2289,117924
+FIN,Finland,Western Europe,1850,1519,1628
+FIN,Finland,Western Europe,1870,1817,1754
+FIN,Finland,Western Europe,1913,3365,3027
+FIN,Finland,Western Europe,1950,6779,4009
+FIN,Finland,Western Europe,1980,20640,4780
+FIN,Finland,Western Europe,2000,32690,5176
+FIN,Finland,Western Europe,2022,40701,5556
+FRA,France,Western Europe,1836,2089,34178
+FRA,France,Western Europe,1850,2545,36350
+FRA,France,Western Europe,1870,2990,38440
+FRA,France,Western Europe,1913,5555,41463
+FRA,France,Western Europe,1950,8266,42518
+FRA,France,Western Europe,1980,23537,55110
+FRA,France,Western Europe,2000,33410,60811
+FRA,France,Western Europe,2022,39066,68387
+GAB,Gabon,Sub Saharan Africa,1950,2958,416
+GAB,Gabon,Sub Saharan Africa,1980,8402,714
+GAB,Gabon,Sub Saharan Africa,2000,10638,1179
+GAB,Gabon,Sub Saharan Africa,2022,15721,2292
+GBR,United Kingdom,Western Europe,1836,3937,25715
+GBR,United Kingdom,Western Europe,1850,4332,27181
+GBR,United Kingdom,Western Europe,1870,5829,31400
+GBR,United Kingdom,Western Europe,1913,8212,45649
+GBR,United Kingdom,Western Europe,1950,11061,50127
+GBR,United Kingdom,Western Europe,1980,20612,56314
+GBR,United Kingdom,Western Europe,2000,31946,59149
+GBR,United Kingdom,Western Europe,2022,38407,68093
+GEO,Georgia,Eastern Europe,1980,10519,5046
+GEO,Georgia,Eastern Europe,2000,4892,4814
+GEO,Georgia,Eastern Europe,2022,14360,4911
+GHA,Ghana,Sub Saharan Africa,1950,1788,5297
+GHA,Ghana,Sub Saharan Africa,1980,1844,11017
+GHA,Ghana,Sub Saharan Africa,2000,2100,19792
+GHA,Ghana,Sub Saharan Africa,2022,4242,34280
+GIN,Guinea,Sub Saharan Africa,1950,520,2586
+GIN,Guinea,Sub Saharan Africa,1980,872,4310
+GIN,Guinea,Sub Saharan Africa,2000,1047,7780
+GIN,Guinea,Sub Saharan Africa,2022,1809,13087
+GMB,Gambia,Sub Saharan Africa,1950,982,271
+GMB,Gambia,Sub Saharan Africa,1980,1325,652
+GMB,Gambia,Sub Saharan Africa,2000,1441,1357
+GMB,Gambia,Sub Saharan Africa,2022,2011,2316
+GNB,Guinea-Bissau,Sub Saharan Africa,1950,462,573
+GNB,Guinea-Bissau,Sub Saharan Africa,1980,1207,789
+GNB,Guinea-Bissau,Sub Saharan Africa,2000,1231,1208
+GNB,Guinea-Bissau,Sub Saharan Africa,2022,1625,2005
+GNQ,Equatorial Guinea,Sub Saharan Africa,1950,797,211
+GNQ,Equatorial Guinea,Sub Saharan Africa,1980,2613,256
+GNQ,Equatorial Guinea,Sub Saharan Africa,2000,12915,491
+GNQ,Equatorial Guinea,Sub Saharan Africa,2022,22707,889
+GRC,Greece,Western Europe,1836,2067,2677
+GRC,Greece,Western Europe,1850,1607,3044
+GRC,Greece,Western Europe,1870,1938,3657
+GRC,Greece,Western Europe,1913,1876,5425
+GRC,Greece,Western Europe,1950,3052,7566
+GRC,Greece,Western Europe,1980,14300,9643
+GRC,Greece,Western Europe,2000,20965,10662
+GRC,Greece,Western Europe,2022,25284,10437
+GTM,Guatemala,Latin America,1950,3323,2969
+GTM,Guatemala,Latin America,1980,6384,6650
+GTM,Guatemala,Latin America,2000,5860,11728
+GTM,Guatemala,Latin America,2022,7969,18348
+HKG,"China, Hong Kong SAR",East Asia,1870,1256,107
+HKG,"China, Hong Kong SAR",East Asia,1913,2354,422
+HKG,"China, Hong Kong SAR",East Asia,1950,4082,1960
+HKG,"China, Hong Kong SAR",East Asia,1980,17086,4835
+HKG,"China, Hong Kong SAR",East Asia,2000,32894,6646
+HKG,"China, Hong Kong SAR",East Asia,2022,48289,7387
+HND,Honduras,Latin America,1950,2018,1431
+HND,Honduras,Latin America,1980,3282,3403
+HND,Honduras,Latin America,2000,3336,6367
+HND,Honduras,Latin America,2022,5187,9590
+HRV,Croatia,Eastern Europe,1980,14193,4383
+HRV,Croatia,Eastern Europe,2000,13245,4334
+HRV,Croatia,Eastern Europe,2022,26987,3790
+HTI,Haiti,Latin America,1950,1790,3097
+HTI,Haiti,Latin America,1980,2063,5483
+HTI,Haiti,Latin America,2000,1521,8279
+HTI,Haiti,Latin America,2022,1546,11349
+HUN,Hungary,Eastern Europe,1870,1741,5917
+HUN,Hungary,Eastern Europe,1913,3344,7840
+HUN,Hungary,Eastern Europe,1950,3953,9338
+HUN,Hungary,Eastern Europe,1980,10052,10711
+HUN,Hungary,Eastern Europe,2000,13129,10218
+HUN,Hungary,Eastern Europe,2022,29452,9690
+IDN,Indonesia,South and South East Asia,1836,821,20464
+IDN,Indonesia,South and South East Asia,1850,724,22977
+IDN,Indonesia,South and South East Asia,1870,810,32743
+IDN,Indonesia,South and South East Asia,1913,1361,51637
+IDN,Indonesia,South and South East Asia,1950,1280,82612
+IDN,Indonesia,South and South East Asia,1980,2981,147490
+IDN,Indonesia,South and South East Asia,2000,5384,211408
+IDN,Indonesia,South and South East Asia,2022,12802,273409
+IND,India,South and South East Asia,1850,947,235800
+IND,India,South and South East Asia,1870,850,253000
+IND,India,South and South East Asia,1913,1073,303700
+IND,India,South and South East Asia,1950,987,359000
+IND,India,South and South East Asia,1980,1495,679000
+IND,India,South and South East Asia,2000,2753,1018667
+IND,India,South and South East Asia,2022,7766,1349060
+IRL,Ireland,Western Europe,1870,2829,5419
+IRL,Ireland,Western Europe,1913,4361,4346
+IRL,Ireland,Western Europe,1950,5504,2963
+IRL,Ireland,Western Europe,1980,13614,3401
+IRL,Ireland,Western Europe,2000,38807,3807
+IRL,Ireland,Western Europe,2022,60257,5118
+IRN,Iran (Islamic Republic of),Middle East and North Africa,1870,956,8415
+IRN,Iran (Islamic Republic of),Middle East and North Africa,1913,1275,10994
+IRN,Iran (Islamic Republic of),Middle East and North Africa,1950,2742,16357
+IRN,Iran (Islamic Republic of),Middle East and North Africa,1980,6334,39422
+IRN,Iran (Islamic Republic of),Middle East and North Africa,2000,9105,65411
+IRN,Iran (Islamic Republic of),Middle East and North Africa,2022,18473,85108
+IRQ,Iraq,Middle East and North Africa,1870,956,1580
+IRQ,Iraq,Middle East and North Africa,1913,1275,2613
+IRQ,Iraq,Middle East and North Africa,1950,2174,5163
+IRQ,Iraq,Middle East and North Africa,1980,10165,13233
+IRQ,Iraq,Middle East and North Africa,2000,3649,22748
+IRQ,Iraq,Middle East and North Africa,2022,13072,40364
+ISL,Iceland,Western Europe,1870,1563,
+ISL,Iceland,Western Europe,1913,3212,
+ISL,Iceland,Western Europe,1950,8498,143
+ISL,Iceland,Western Europe,1980,24528,228
+ISL,Iceland,Western Europe,2000,33108,281
+ISL,Iceland,Western Europe,2022,42146,380
+ISR,Israel,Middle East and North Africa,1950,4490,1286
+ISR,Israel,Middle East and North Africa,1980,17508,3737
+ISR,Israel,Middle East and North Africa,2000,26059,6088
+ISR,Israel,Middle East and North Africa,2022,36649,9188
+ITA,Italy,Western Europe,1836,2525,22358
+ITA,Italy,Western Europe,1850,2541,24460
+ITA,Italy,Western Europe,1870,2826,27888
+ITA,Italy,Western Europe,1913,4057,37248
+ITA,Italy,Western Europe,1950,5582,47105
+ITA,Italy,Western Europe,1980,20959,56451
+ITA,Italy,Western Europe,2000,32717,56966
+ITA,Italy,Western Europe,2022,36224,58966
+JAM,Jamaica,Latin America,1850,867,399
+JAM,Jamaica,Latin America,1870,845,499
+JAM,Jamaica,Latin America,1913,974,837
+JAM,Jamaica,Latin America,1950,2115,1385
+JAM,Jamaica,Latin America,1980,4975,2229
+JAM,Jamaica,Latin America,2000,6531,2670
+JAM,Jamaica,Latin America,2022,7482,2676
+JOR,Jordan,Middle East and North Africa,1870,1116,266
+JOR,Jordan,Middle East and North Africa,1913,1594,348
+JOR,Jordan,Middle East and North Africa,1950,2651,561
+JOR,Jordan,Middle East and North Africa,1980,7141,2163
+JOR,Jordan,Middle East and North Africa,2000,7622,4700
+JOR,Jordan,Middle East and North Africa,2022,9151,10849
+JPN,Japan,East Asia,1850,1436,32000
+JPN,Japan,East Asia,1870,1580,34437
+JPN,Japan,East Asia,1913,2431,51672
+JPN,Japan,East Asia,1950,3062,83805
+JPN,Japan,East Asia,1980,21404,116807
+JPN,Japan,East Asia,2000,33211,126755
+JPN,Japan,East Asia,2022,38269,124762
+KAZ,Kazakhstan,Eastern Europe,1980,11899,14967
+KAZ,Kazakhstan,Eastern Europe,2000,9309,15335
+KAZ,Kazakhstan,Eastern Europe,2022,26492,19011
+KEN,Kenya,Sub Saharan Africa,1913,718,
+KEN,Kenya,Sub Saharan Africa,1950,1038,6121
+KEN,Kenya,Sub Saharan Africa,1980,1675,16331
+KEN,Kenya,Sub Saharan Africa,2000,1915,31025
+KEN,Kenya,Sub Saharan Africa,2022,3404,55924
+KGZ,Kyrgyzstan,Eastern Europe,1980,5848,3623
+KGZ,Kyrgyzstan,Eastern Europe,2000,3246,4826
+KGZ,Kyrgyzstan,Eastern Europe,2022,5305,5976
+KHM,Cambodia,South and South East Asia,1950,768,4471
+KHM,Cambodia,South and South East Asia,1980,1320,6888
+KHM,Cambodia,South and South East Asia,2000,1659,12317
+KHM,Cambodia,South and South East Asia,2022,3944,16514
+KOR,Republic of Korea,East Asia,1870,820,9753
+KOR,Republic of Korea,East Asia,1913,1171,10589
+KOR,Republic of Korea,East Asia,1950,998,20846
+KOR,Republic of Korea,East Asia,1980,6064,38124
+KOR,Republic of Korea,East Asia,2000,23108,47008
+KOR,Republic of Korea,East Asia,2022,41321,51731
+KWT,Kuwait,Middle East and North Africa,1950,46031,145
+KWT,Kuwait,Middle East and North Africa,1980,21154,1370
+KWT,Kuwait,Middle East and North Africa,2000,35845,1982
+KWT,Kuwait,Middle East and North Africa,2022,71534,3061
+LAO,Lao People's DR,South and South East Asia,1950,697,1886
+LAO,Lao People's DR,South and South East Asia,1980,1054,3293
+LAO,Lao People's DR,South and South East Asia,2000,2262,5397
+LAO,Lao People's DR,South and South East Asia,2022,7168,7666
+LBN,Lebanon,Middle East and North Africa,1870,1514,476
+LBN,Lebanon,Middle East and North Africa,1913,2311,649
+LBN,Lebanon,Middle East and North Africa,1950,3872,1364
+LBN,Lebanon,Middle East and North Africa,1980,4608,3087
+LBN,Lebanon,Middle East and North Africa,2000,7406,3499
+LBN,Lebanon,Middle East and North Africa,2022,10341,4713
+LBR,Liberia,Sub Saharan Africa,1850,1282,
+LBR,Liberia,Sub Saharan Africa,1870,1558,
+LBR,Liberia,Sub Saharan Africa,1913,1709,
+LBR,Liberia,Sub Saharan Africa,1950,3151,824
+LBR,Liberia,Sub Saharan Africa,1980,4138,1858
+LBR,Liberia,Sub Saharan Africa,2000,972,2847
+LBR,Liberia,Sub Saharan Africa,2022,811,5216
+LBY,Libya,Middle East and North Africa,1950,620,961
+LBY,Libya,Middle East and North Africa,1980,8741,3065
+LBY,Libya,Middle East and North Africa,2000,9771,5116
+LBY,Libya,Middle East and North Africa,2022,12755,7169
+LCA,Saint Lucia,Latin America,1950,1231,79
+LCA,Saint Lucia,Latin America,1980,3011,122
+LCA,Saint Lucia,Latin America,2000,7191,153
+LCA,Saint Lucia,Latin America,2022,10452,167
+LKA,Sri Lanka,South and South East Asia,1850,899,2217
+LKA,Sri Lanka,South and South East Asia,1870,1356,2786
+LKA,Sri Lanka,South and South East Asia,1913,1967,4811
+LKA,Sri Lanka,South and South East Asia,1950,1997,7533
+LKA,Sri Lanka,South and South East Asia,1980,2917,15056
+LKA,Sri Lanka,South and South East Asia,2000,5841,19610
+LKA,Sri Lanka,South and South East Asia,2022,10705,23796
+LSO,Lesotho,Sub Saharan Africa,1950,631,726
+LSO,Lesotho,Sub Saharan Africa,1980,1589,1359
+LSO,Lesotho,Sub Saharan Africa,2000,1967,1916
+LSO,Lesotho,Sub Saharan Africa,2022,2313,2059
+LTU,Lithuania,Eastern Europe,1980,12734,3435
+LTU,Lithuania,Eastern Europe,2000,10807,3395
+LTU,Lithuania,Eastern Europe,2022,30863,2748
+LUX,Luxembourg,Western Europe,1950,13378,296
+LUX,Luxembourg,Western Europe,1980,24951,364
+LUX,Luxembourg,Western Europe,2000,50064,438
+LUX,Luxembourg,Western Europe,2022,55485,651
+LVA,Latvia,Eastern Europe,1980,13739,2525
+LVA,Latvia,Eastern Europe,2000,11310,2363
+LVA,Latvia,Eastern Europe,2022,27220,1883
+MAR,Morocco,Middle East and North Africa,1870,897,3776
+MAR,Morocco,Middle East and North Africa,1913,1132,5111
+MAR,Morocco,Middle East and North Africa,1950,2319,9343
+MAR,Morocco,Middle East and North Africa,1980,3622,19487
+MAR,Morocco,Middle East and North Africa,2000,4754,28744
+MAR,Morocco,Middle East and North Africa,2022,8400,37101
+MDA,Republic of Moldova,Eastern Europe,1980,9078,3996
+MDA,Republic of Moldova,Eastern Europe,2000,2990,4199
+MDA,Republic of Moldova,Eastern Europe,2022,6675,3570
+MDG,Madagascar,Sub Saharan Africa,1950,1516,4620
+MDG,Madagascar,Sub Saharan Africa,1980,1680,8691
+MDG,Madagascar,Sub Saharan Africa,2000,1239,15707
+MDG,Madagascar,Sub Saharan Africa,2022,1367,28237
+MEX,Mexico,Latin America,1850,1054,7662
+MEX,Mexico,Latin America,1870,1046,9219
+MEX,Mexico,Latin America,1913,2004,14970
+MEX,Mexico,Latin America,1950,3510,28485
+MEX,Mexico,Latin America,1980,9929,68347
+MEX,Mexico,Latin America,2000,12613,98403
+MEX,Mexico,Latin America,2022,16235,125247
+MKD,TFYR of Macedonia,Eastern Europe,1980,9899,1792
+MKD,TFYR of Macedonia,Eastern Europe,2000,8084,2017
+MKD,TFYR of Macedonia,Eastern Europe,2022,14051,2048
+MLI,Mali,Sub Saharan Africa,1950,728,3688
+MLI,Mali,Sub Saharan Africa,1980,1168,6758
+MLI,Mali,Sub Saharan Africa,2000,1153,10832
+MLI,Mali,Sub Saharan Africa,2022,1652,18494
+MLT,Malta,Western Europe,1950,1573,312
+MLT,Malta,Western Europe,1980,8920,364
+MLT,Malta,Western Europe,2000,20435,390
+MLT,Malta,Western Europe,2022,34496,530
+MMR,Myanmar,South and South East Asia,1870,803,4245
+MMR,Myanmar,South and South East Asia,1913,1092,12326
+MMR,Myanmar,South and South East Asia,1950,631,19488
+MMR,Myanmar,South and South East Asia,1980,1320,33061
+MMR,Myanmar,South and South East Asia,2000,1843,45616
+MMR,Myanmar,South and South East Asia,2022,5177,56210
+MNE,Montenegro,Eastern Europe,1980,7992,560
+MNE,Montenegro,Eastern Europe,2000,6046,623
+MNE,Montenegro,Eastern Europe,2022,20942,610
+MNG,Mongolia,South and South East Asia,1950,677,779
+MNG,Mongolia,South and South East Asia,1980,1618,1655
+MNG,Mongolia,South and South East Asia,2000,2936,2461
+MNG,Mongolia,South and South East Asia,2022,13443,3333
+MOZ,Mozambique,Sub Saharan Africa,1950,1806,6250
+MOZ,Mozambique,Sub Saharan Africa,1980,1945,12103
+MOZ,Mozambique,Sub Saharan Africa,2000,1196,16841
+MOZ,Mozambique,Sub Saharan Africa,2022,1088,28903
+MRT,Mauritania,Sub Saharan Africa,1950,679,1006
+MRT,Mauritania,Sub Saharan Africa,1980,1682,1545
+MRT,Mauritania,Sub Saharan Africa,2000,1935,2501
+MRT,Mauritania,Sub Saharan Africa,2022,3680,4259
+MUS,Mauritius,Sub Saharan Africa,1950,3942,481
+MUS,Mauritius,Sub Saharan Africa,1980,6970,964
+MUS,Mauritius,Sub Saharan Africa,2000,14272,1186
+MUS,Mauritius,Sub Saharan Africa,2022,20643,1307
+MWI,Malawi,Sub Saharan Africa,1913,487,
+MWI,Malawi,Sub Saharan Africa,1950,516,2817
+MWI,Malawi,Sub Saharan Africa,1980,1004,6259
+MWI,Malawi,Sub Saharan Africa,2000,967,11658
+MWI,Malawi,Sub Saharan Africa,2022,1190,22239
+MYS,Malaysia,South and South East Asia,1870,1055,800
+MYS,Malaysia,South and South East Asia,1913,1289,3084
+MYS,Malaysia,South and South East Asia,1950,2485,6434
+MYS,Malaysia,South and South East Asia,1980,5829,13764
+MYS,Malaysia,South and South East Asia,2000,13475,22695
+MYS,Malaysia,South and South East Asia,2022,26629,32956
+NAM,Namibia,Sub Saharan Africa,1950,4009,464
+NAM,Namibia,Sub Saharan Africa,1980,6293,1058
+NAM,Namibia,Sub Saharan Africa,2000,5972,1893
+NAM,Namibia,Sub Saharan Africa,2022,7979,2739
+NER,Niger,Sub Saharan Africa,1950,983,3271
+NER,Niger,Sub Saharan Africa,1980,1291,6093
+NER,Niger,Sub Saharan Africa,2000,693,10785
+NER,Niger,Sub Saharan Africa,2022,1008,24587
+NGA,Nigeria,Sub Saharan Africa,1950,1200,31797
+NGA,Nigeria,Sub Saharan Africa,1980,2080,74821
+NGA,Nigeria,Sub Saharan Africa,2000,2145,125014
+NGA,Nigeria,Sub Saharan Africa,2022,5070,223735
+NIC,Nicaragua,Latin America,1950,2565,1098
+NIC,Nicaragua,Latin America,1980,3414,2803
+NIC,Nicaragua,Latin America,2000,2859,4866
+NIC,Nicaragua,Latin America,2022,5093,6433
+NLD,Netherlands,Western Europe,1836,3472,2762
+NLD,Netherlands,Western Europe,1850,3779,3098
+NLD,Netherlands,Western Europe,1870,4422,3610
+NLD,Netherlands,Western Europe,1913,6454,6164
+NLD,Netherlands,Western Europe,1950,9558,10114
+NLD,Netherlands,Western Europe,1980,23438,14144
+NLD,Netherlands,Western Europe,2000,37900,15932
+NLD,Netherlands,Western Europe,2022,49670,17709
+NOR,Norway,Western Europe,1836,1466,1202
+NOR,Norway,Western Europe,1850,1623,1392
+NOR,Norway,Western Europe,1870,2177,1735
+NOR,Norway,Western Europe,1913,4415,2447
+NOR,Norway,Western Europe,1950,8655,3265
+NOR,Norway,Western Europe,1980,24031,4086
+NOR,Norway,Western Europe,2000,54040,4492
+NOR,Norway,Western Europe,2022,88366,5458
+NPL,Nepal,South and South East Asia,1870,641,4698
+NPL,Nepal,South and South East Asia,1913,870,5639
+NPL,Nepal,South and South East Asia,1950,802,8990
+NPL,Nepal,South and South East Asia,1980,1057,14613
+NPL,Nepal,South and South East Asia,2000,1677,23487
+NPL,Nepal,South and South East Asia,2022,3014,31845
+NZL,New Zealand,Western Offshoots,1850,1824,90
+NZL,New Zealand,Western Offshoots,1870,4941,291
+NZL,New Zealand,Western Offshoots,1913,8212,1122
+NZL,New Zealand,Western Offshoots,1950,13479,1908
+NZL,New Zealand,Western Offshoots,1980,19681,3170
+NZL,New Zealand,Western Offshoots,2000,26823,3912
+NZL,New Zealand,Western Offshoots,2022,38250,5244
+OMN,Oman,Middle East and North Africa,1950,993,489
+OMN,Oman,Middle East and North Africa,1980,6491,1175
+OMN,Oman,Middle East and North Africa,2000,24186,2403
+OMN,Oman,Middle East and North Africa,2022,47989,3696
+PAK,Pakistan,South and South East Asia,1950,1025,39448
+PAK,Pakistan,South and South East Asia,1980,1851,85219
+PAK,Pakistan,South and South East Asia,2000,3155,145759
+PAK,Pakistan,South and South East Asia,2022,5532,238413
+PAN,Panama,Latin America,1913,2927,348
+PAN,Panama,Latin America,1950,2577,893
+PAN,Panama,Latin America,1980,6849,1960
+PAN,Panama,Latin America,2000,9899,2900
+PAN,Panama,Latin America,2022,23557,4023
+PER,Peru,Latin America,1836,765,
+PER,Peru,Latin America,1850,945,2001
+PER,Peru,Latin America,1870,1675,2606
+PER,Peru,Latin America,1913,1645,4295
+PER,Peru,Latin America,1950,3679,7632
+PER,Peru,Latin America,1980,6795,17295
+PER,Peru,Latin America,2000,6038,21291
+PER,Peru,Latin America,2022,12763,26771
+PHL,Philippines,South and South East Asia,1870,995,5063
+PHL,Philippines,South and South East Asia,1913,1575,9384
+PHL,Philippines,South and South East Asia,1950,1706,21131
+PHL,Philippines,South and South East Asia,1980,3787,50940
+PHL,Philippines,South and South East Asia,2000,4034,81131
+PHL,Philippines,South and South East Asia,2022,8371,121234
+POL,Poland,Eastern Europe,1836,912,
+POL,Poland,Eastern Europe,1850,985,13000
+POL,Poland,Eastern Europe,1870,1575,16865
+POL,Poland,Eastern Europe,1913,2772,26710
+POL,Poland,Eastern Europe,1950,3900,24824
+POL,Poland,Eastern Europe,1980,9149,35578
+POL,Poland,Eastern Europe,2000,12732,38344
+POL,Poland,Eastern Europe,2022,32468,37914
+PRI,Puerto Rico,Latin America,1950,3416,2218
+PRI,Puerto Rico,Latin America,1980,13040,3210
+PRI,Puerto Rico,Latin America,2000,27392,3811
+PRI,Puerto Rico,Latin America,2022,35281,3228
+PRK,D.P.R. of Korea,East Asia,1870,758,4511
+PRK,D.P.R. of Korea,East Asia,1913,1216,4897
+PRK,D.P.R. of Korea,East Asia,2000,1657,22785
+PRK,D.P.R. of Korea,East Asia,2022,1569,25808
+PRT,Portugal,Western Europe,1836,1431,3617
+PRT,Portugal,Western Europe,1850,1470,3816
+PRT,Portugal,Western Europe,1870,1554,4327
+PRT,Portugal,Western Europe,1913,1992,5972
+PRT,Portugal,Western Europe,1950,3325,8443
+PRT,Portugal,Western Europe,1980,12822,9778
+PRT,Portugal,Western Europe,2000,23372,10215
+PRT,Portugal,Western Europe,2022,28992,10200
+PRY,Paraguay,Latin America,1950,2391,1476
+PRY,Paraguay,Latin America,1980,5113,3196
+PRY,Paraguay,Latin America,2000,4896,5473
+PRY,Paraguay,Latin America,2022,8763,7432
+PSE,State of Palestine,Middle East and North Africa,1870,1211,434
+PSE,State of Palestine,Middle East and North Africa,1913,2016,708
+PSE,State of Palestine,Middle East and North Africa,1950,1549,1017
+PSE,State of Palestine,Middle East and North Africa,1980,5239,1360
+PSE,State of Palestine,Middle East and North Africa,2000,5377,3075
+PSE,State of Palestine,Middle East and North Africa,2022,4775,5042
+QAT,Qatar,Middle East and North Africa,1950,48436,25
+QAT,Qatar,Middle East and North Africa,1980,45860,237
+QAT,Qatar,Middle East and North Africa,2000,45788,659
+QAT,Qatar,Middle East and North Africa,2022,149171,2559
+ROU,Romania,Eastern Europe,1870,828,9179
+ROU,Romania,Eastern Europe,1913,1755,12527
+ROU,Romania,Eastern Europe,1950,1884,16311
+ROU,Romania,Eastern Europe,1980,6592,22130
+ROU,Romania,Eastern Europe,2000,7090,22262
+ROU,Romania,Eastern Europe,2022,26198,19266
+RUS,Russian Federation,Eastern Europe,1870,789,
+RUS,Russian Federation,Eastern Europe,1913,1163,
+RUS,Russian Federation,Eastern Europe,1950,3311,101937
+RUS,Russian Federation,Eastern Europe,1980,12204,139039
+RUS,Russian Federation,Eastern Europe,2000,10553,146600
+RUS,Russian Federation,Eastern Europe,2022,25437,146693
+RWA,Rwanda,Sub Saharan Africa,1950,1020,2439
+RWA,Rwanda,Sub Saharan Africa,1980,1672,5138
+RWA,Rwanda,Sub Saharan Africa,2000,1024,7868
+RWA,Rwanda,Sub Saharan Africa,2022,2198,12951
+SAU,Saudi Arabia,Middle East and North Africa,1870,829,2338
+SAU,Saudi Arabia,Middle East and North Africa,1913,956,2676
+SAU,Saudi Arabia,Middle East and North Africa,1950,3556,3860
+SAU,Saudi Arabia,Middle East and North Africa,1980,21068,9999
+SAU,Saudi Arabia,Middle East and North Africa,2000,23905,20426
+SAU,Saudi Arabia,Middle East and North Africa,2022,53517,34081
+SDN,Sudan (Former),Sub Saharan Africa,1950,1309,6326
+SDN,Sudan (Former),Sub Saharan Africa,1980,1484,14980
+SDN,Sudan (Former),Sub Saharan Africa,2000,1951,26771
+SDN,Sudan (Former),Sub Saharan Africa,2022,2405,46498
+SEN,Senegal,Sub Saharan Africa,1950,2007,2654
+SEN,Senegal,Sub Saharan Africa,1980,2021,5787
+SEN,Senegal,Sub Saharan Africa,2000,1984,10305
+SEN,Senegal,Sub Saharan Africa,2022,2661,19512
+SGP,Singapore,South and South East Asia,1870,1423,84
+SGP,Singapore,South and South East Asia,1913,1812,323
+SGP,Singapore,South and South East Asia,1950,3572,1022
+SGP,Singapore,South and South East Asia,1980,13601,2414
+SGP,Singapore,South and South East Asia,2000,37773,4028
+SGP,Singapore,South and South East Asia,2022,80320,5750
+SLE,Sierra Leone,Sub Saharan Africa,1950,902,2087
+SLE,Sierra Leone,Sub Saharan Africa,1980,1584,3335
+SLE,Sierra Leone,Sub Saharan Africa,2000,829,3809
+SLE,Sierra Leone,Sub Saharan Africa,2022,1690,6910
+SLV,El Salvador,Latin America,1950,2375,1940
+SLV,El Salvador,Latin America,1980,3781,4570
+SLV,El Salvador,Latin America,2000,5404,5825
+SLV,El Salvador,Latin America,2022,9219,6429
+SRB,Serbia,Eastern Europe,1980,10724,7588
+SRB,Serbia,Eastern Europe,2000,6060,7587
+SRB,Serbia,Eastern Europe,2022,17098,6833
+STP,Sao Tome and Principe,Sub Saharan Africa,1950,1278,60
+STP,Sao Tome and Principe,Sub Saharan Africa,1980,3182,94
+STP,Sao Tome and Principe,Sub Saharan Africa,2000,2219,141
+STP,Sao Tome and Principe,Sub Saharan Africa,2022,3752,220
+SUN,Former USSR,Eastern Europe,1870,1596,88672
+SUN,Former USSR,Eastern Europe,1913,2254,156192
+SUN,Former USSR,Eastern Europe,1950,4529,179571
+SUN,Former USSR,Eastern Europe,1980,10245,265926
+SUN,Former USSR,Eastern Europe,2000,8194,288730
+SUN,Former USSR,Eastern Europe,2022,19355,294379
+SVK,Slovakia,Eastern Europe,2000,13905,5365
+SVK,Slovakia,Eastern Europe,2022,27519,5464
+SVN,Slovenia,Eastern Europe,1980,21151,1833
+SVN,Slovenia,Eastern Europe,2000,21501,2004
+SVN,Slovenia,Eastern Europe,2022,32674,2124
+SWE,Sweden,Western Europe,1836,1565,3042
+SWE,Sweden,Western Europe,1850,1715,3462
+SWE,Sweden,Western Europe,1870,2144,4164
+SWE,Sweden,Western Europe,1913,4581,5621
+SWE,Sweden,Western Europe,1950,10742,7014
+SWE,Sweden,Western Europe,1980,23809,8310
+SWE,Sweden,Western Europe,2000,34203,8872
+SWE,Sweden,Western Europe,2022,47126,10487
+SWZ,Swaziland,Sub Saharan Africa,1950,604,277
+SWZ,Swaziland,Sub Saharan Africa,1980,2946,611
+SWZ,Swaziland,Sub Saharan Africa,2000,4895,1032
+SWZ,Swaziland,Sub Saharan Africa,2022,8522,1126
+SYC,Seychelles,Sub Saharan Africa,1950,2632,33
+SYC,Seychelles,Sub Saharan Africa,1980,6424,64
+SYC,Seychelles,Sub Saharan Africa,2000,14380,79
+SYC,Seychelles,Sub Saharan Africa,2022,31055,98
+SYR,Syrian Arab Republic,Middle East and North Africa,1870,1403,1582
+SYR,Syrian Arab Republic,Middle East and North Africa,1913,2072,1994
+SYR,Syrian Arab Republic,Middle East and North Africa,1950,3838,3495
+SYR,Syrian Arab Republic,Middle East and North Africa,1980,10374,8774
+SYR,Syrian Arab Republic,Middle East and North Africa,2000,7668,16329
+SYR,Syrian Arab Republic,Middle East and North Africa,2022,2495,20985
+TCD,Chad,Sub Saharan Africa,1950,815,2608
+TCD,Chad,Sub Saharan Africa,1980,583,4522
+TCD,Chad,Sub Saharan Africa,2000,716,7821
+TCD,Chad,Sub Saharan Africa,2022,1394,17307
+TGO,Togo,Sub Saharan Africa,1950,870,1172
+TGO,Togo,Sub Saharan Africa,1980,1572,2626
+TGO,Togo,Sub Saharan Africa,2000,1150,4992
+TGO,Togo,Sub Saharan Africa,2022,1587,8991
+THA,Thailand,South and South East Asia,1870,969,5775
+THA,Thailand,South and South East Asia,1913,1341,8689
+THA,Thailand,South and South East Asia,1950,1302,20042
+THA,Thailand,South and South East Asia,1980,4071,47026
+THA,Thailand,South and South East Asia,2000,9627,60165
+THA,Thailand,South and South East Asia,2022,16421,68457
+TJK,Tajikistan,Eastern Europe,1980,5746,3966
+TJK,Tajikistan,Eastern Europe,2000,1723,6229
+TJK,Tajikistan,Eastern Europe,2022,5508,9177
+TKM,Turkmenistan,Eastern Europe,1980,6763,2875
+TKM,Turkmenistan,Eastern Europe,2000,4173,4385
+TKM,Turkmenistan,Eastern Europe,2022,17235,5657
+TTO,Trinidad and Tobago,Latin America,1950,5856,632
+TTO,Trinidad and Tobago,Latin America,1980,19734,1091
+TTO,Trinidad and Tobago,Latin America,2000,19180,1303
+TTO,Trinidad and Tobago,Latin America,2022,25773,1456
+TUN,Tunisia,Middle East and North Africa,1870,1009,1176
+TUN,Tunisia,Middle East and North Africa,1913,1407,1870
+TUN,Tunisia,Middle East and North Africa,1950,1777,3517
+TUN,Tunisia,Middle East and North Africa,1980,4693,6443
+TUN,Tunisia,Middle East and North Africa,2000,7548,9514
+TUN,Tunisia,Middle East and North Africa,2022,10914,11862
+TUR,Turkey,Middle East and North Africa,1870,1165,11793
+TUR,Turkey,Middle East and North Africa,1913,1473,15000
+TUR,Turkey,Middle East and North Africa,1950,2079,21122
+TUR,Turkey,Middle East and North Africa,1980,6070,45048
+TUR,Turkey,Middle East and North Africa,2000,11904,65949
+TUR,Turkey,Middle East and North Africa,2022,27362,87201
+TWN,"Taiwan, Province of China",East Asia,1870,968,2345
+TWN,"Taiwan, Province of China",East Asia,1913,1286,3477
+TWN,"Taiwan, Province of China",East Asia,1950,1460,7456
+TWN,"Taiwan, Province of China",East Asia,1980,8384,17788
+TWN,"Taiwan, Province of China",East Asia,2000,26787,22068
+TWN,"Taiwan, Province of China",East Asia,2022,53143,23481
+TZA,U.R. of Tanzania: Mainland,Sub Saharan Africa,1950,676,7935
+TZA,U.R. of Tanzania: Mainland,Sub Saharan Africa,1980,958,18665
+TZA,U.R. of Tanzania: Mainland,Sub Saharan Africa,2000,1149,33953
+TZA,U.R. of Tanzania: Mainland,Sub Saharan Africa,2022,3057,64835
+UGA,Uganda,Sub Saharan Africa,1913,708,
+UGA,Uganda,Sub Saharan Africa,1950,1095,5522
+UGA,Uganda,Sub Saharan Africa,1980,912,12415
+UGA,Uganda,Sub Saharan Africa,2000,1192,24195
+UGA,Uganda,Sub Saharan Africa,2022,2122,48065
+UKR,Ukraine,Eastern Europe,1980,8467,50047
+UKR,Ukraine,Eastern Europe,2000,5166,49014
+UKR,Ukraine,Eastern Europe,2022,7749,39897
+URY,Uruguay,Latin America,1850,2467,132
+URY,Uruguay,Latin America,1870,3677,343
+URY,Uruguay,Latin America,1913,4838,1177
+URY,Uruguay,Latin America,1950,7015,2194
+URY,Uruguay,Latin America,1980,10546,2930
+URY,Uruguay,Latin America,2000,13050,3246
+URY,Uruguay,Latin America,2022,20182,3422
+USA,United States,Western Offshoots,1836,3470,15753
+USA,United States,Western Offshoots,1850,3632,23580
+USA,United States,Western Offshoots,1870,4803,40241
+USA,United States,Western Offshoots,1913,10108,97606
+USA,United States,Western Offshoots,1950,15240,152271
+USA,United States,Western Offshoots,1980,29611,227726
+USA,United States,Western Offshoots,2000,45886,282162
+USA,United States,Western Offshoots,2022,58487,333288
+UZB,Uzbekistan,Eastern Europe,1980,7453,15994
+UZB,Uzbekistan,Eastern Europe,2000,4667,25042
+UZB,Uzbekistan,Eastern Europe,2022,12559,31337
+VEN,Venezuela (Bolivarian Republic of),Latin America,1836,2002,
+VEN,Venezuela (Bolivarian Republic of),Latin America,1850,1884,1324
+VEN,Venezuela (Bolivarian Republic of),Latin America,1870,1769,1653
+VEN,Venezuela (Bolivarian Republic of),Latin America,1913,1750,2874
+VEN,Venezuela (Bolivarian Republic of),Latin America,1950,8462,5009
+VEN,Venezuela (Bolivarian Republic of),Latin America,1980,16270,14768
+VEN,Venezuela (Bolivarian Republic of),Latin America,2000,13993,23601
+VEN,Venezuela (Bolivarian Republic of),Latin America,2022,5267,28418
+VNM,Viet Nam,South and South East Asia,1870,805,10528
+VNM,Viet Nam,South and South East Asia,1913,1159,19339
+VNM,Viet Nam,South and South East Asia,1950,1049,25348
+VNM,Viet Nam,South and South East Asia,1980,1207,53715
+VNM,Viet Nam,South and South East Asia,2000,2773,79472
+VNM,Viet Nam,South and South East Asia,2022,8050,103574
+YEM,Yemen,Middle East and North Africa,1950,1452,4777
+YEM,Yemen,Middle East and North Africa,1980,3650,9133
+YEM,Yemen,Middle East and North Africa,2000,4212,17236
+YEM,Yemen,Middle East and North Africa,2022,1959,31058
+YUG,Former Yugoslavia,Eastern Europe,1870,878,8252
+YUG,Former Yugoslavia,Eastern Europe,1913,1551,13590
+YUG,Former Yugoslavia,Eastern Europe,1950,2276,16298
+YUG,Former Yugoslavia,Eastern Europe,1980,10037,21615
+YUG,Former Yugoslavia,Eastern Europe,2000,8473,22507
+YUG,Former Yugoslavia,Eastern Europe,2022,19352,20863
+ZAF,South Africa,Sub Saharan Africa,1850,1042,
+ZAF,South Africa,Sub Saharan Africa,1870,1286,2547
+ZAF,South Africa,Sub Saharan Africa,1950,4041,13596
+ZAF,South Africa,Sub Saharan Africa,1980,6998,29252
+ZAF,South Africa,Sub Saharan Africa,2000,7583,46958
+ZAF,South Africa,Sub Saharan Africa,2022,11416,63382
+ZMB,Zambia,Sub Saharan Africa,1913,585,
+ZMB,Zambia,Sub Saharan Africa,1950,1054,2553
+ZMB,Zambia,Sub Saharan Africa,1980,1452,5700
+ZMB,Zambia,Sub Saharan Africa,2000,1429,10648
+ZMB,Zambia,Sub Saharan Africa,2022,3342,20485
+ZWE,Zimbabwe,Sub Saharan Africa,1950,1117,2853
+ZWE,Zimbabwe,Sub Saharan Africa,1980,2064,7170
+ZWE,Zimbabwe,Sub Saharan Africa,2000,2211,12104
+ZWE,Zimbabwe,Sub Saharan Africa,2022,1704,15205

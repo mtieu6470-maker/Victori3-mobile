@@ -10,6 +10,9 @@ export function transferRegion(st: GameState, regionId: string, to: string, caus
   const d = data();
   const idx = d.regionIndex.get(regionId)!; const r = st.regions[idx];
   const from = r.owner; if (from === to) return;
+  // DIV-01: the region keeps its effective productivity; it does not jump to the new owner's level.
+  const oldP = (st.countries[from]?.productivity ?? 0) * (r.prodRel ?? 1); const newP = st.countries[to]?.productivity ?? 0;
+  if (oldP > 0 && newP > 0) r.prodRel = Math.min(20, Math.max(0.05, oldP / newP));
   r.owner = to; r.controller = to; invalidate();
   const histOwner = d.historicalOwner(regionId, dateStr(st.date));
   const match = d.equivalent(histOwner, to);
