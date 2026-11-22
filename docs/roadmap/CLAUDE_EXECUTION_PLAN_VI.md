@@ -116,7 +116,7 @@ UX/content:      UI-01 read models ─ UI-02 map lenses/inspector ─ PACK-01..0
 | ECON-03 | World Market + Trade Centers (sở hữu, capacity, World Market Access, hub chính/dự phòng), TradeFlow, tariffs, blockade; SupplyRoute quân sự là ledger riêng (thay mô hình trade route cũ, theo CG-01) | Claude | ECON-02, CLOCK-03 | P1 | NOT_STARTED |
 | IND-01 | Building types/sites + selectable Production Methods | Claude (+CG-03) | ECON-01 | P0 | NOT_STARTED |
 | IND-02 | Jobs, qualifications, hiring/firing, wages. **IND-02a 2026-11-22:** site operations phản ứng lợi nhuận (`src/engine/systems/industry.ts`) — IMPLEMENTED nhưng **TẮT mặc định** chờ ECON-CAL-01 | Claude (+CG-03, CG-17, CG-19) | IND-01, POP-01 | P0 | PARTIAL |
-| ECON-CAL-01 | Hiệu chỉnh base price theo hàng + tỷ lệ recipe + quyền nhập nguyên liệu + sản xuất thủ công/tự cung phản ứng thị trường; điều kiện bật IND-02a | Claude (+CG-20 nguồn PD thế kỷ 19) | ECON-01a | P0 | NEXT |
+| ECON-CAL-01 | Hiệu chỉnh để bật IND-02a. **01b xong 2026-11-22:** openness theo mặt hàng từ bằng chứng thuế 1836 (CG-21) + thợ thủ công phản ứng giá. Còn: (1) nhập khẩu bị chặn ở `thiếu hụt × độ mở` nên nước phụ thuộc nguyên liệu nhập không tồn tại được; (2) thiếu đầu ra xuất khẩu cho vải Anh; (3) dư thừa lương thực tự cung — chuyển sang ECON-03 (+CG-22) | Claude (+CG-20/21/22) | ECON-01a | P0 | PARTIAL |
 | IND-03 | Ownership, companies, dividends, investment pool | Claude (+CG-03) | IND-02 | P1 | NOT_STARTED |
 | IND-04 | Construction sectors/queue/cost | Claude | IND-01, FIN-01 | P1 | NOT_STARTED |
 | FIN-01 | Treasury ledger, taxes, debt/credit, default | Claude | IND-02 | P0 | NOT_STARTED |

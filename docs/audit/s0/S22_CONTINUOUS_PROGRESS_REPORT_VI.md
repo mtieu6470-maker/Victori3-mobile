@@ -1,3 +1,21 @@
+## 2026-11-22 — ECON-CAL-01b: per-good trade openness from 1836 tariff evidence + price-responsive cottage industry
+
+- **Per-good openness** (`src/engine/data/tradePolicy1836.ts`, `goodOpenness()` in `economy.ts`):
+  - Market import openness is now per good. The trade-law base is replaced by CG-21 tariff evidence where it exists: GBR cotton/textiles/iron/steel/grain, Zollverein/PRU raw cotton, FRA cotton cloth prohibition, USA cotton manufactures.
+  - Evidence applies only while the market leader keeps its 1836 trade law. It is part of the shared 1836 starting world, so it applies in both modes.
+  - Tariff → openness mapping `0.75 − 2.2·t` reproduces the engine's law table.
+- **Cottage industry:** artisan mix tilts toward better-priced goods and marketed volume falls when their goods are cheap (floor 0.5). At base prices the former fixed mix is reproduced exactly.
+- **Measured** (historical, seed 1, month 12):
+  - Unsold textiles 47% → 34%, tools 94% → 87%; GBR cotton 2.50 → 2.21; world GDP essentially unchanged (831B).
+  - With IND-02a switched on, textile mills still idle. IND-02a stays OFF.
+- **Remaining causes** (moved to ECON-03, with CG-22 requested in MSG-017):
+  - imports are capped at deficit × openness, so a fully import-dependent industry cannot be supplied;
+  - British textiles have no export outlets;
+  - subsistence grain surplus.
+- **Tests:** `tests/trade-calibration.test.ts` (5). Local: tsc 0; `npm test` exit 0, **26/26 files, 246/246 tests**; build 0.
+
+---
+
 ## 2026-11-22 — ChatGPT CG-21 reviewed: per-category trade openness decided
 
 - CG-21 (public-domain tariff evidence c.1836) is accepted:

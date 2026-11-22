@@ -5,6 +5,7 @@ import { GOODS, STRATA, S, type Country, type GameState, type Good, type Region,
 import { clamp, log, newId } from '../core';
 import { regionsOf } from '../cache';
 import { decideSite, ECONOMY_FLAGS, newSiteOps, siteKey, type SiteOps } from './industry';
+import { opennessFromTariff, TARIFF_EVIDENCE_1836 } from '../data/tradePolicy1836';
 
 export const OPENNESS: Record<string, number> = { isolationism: 0.03, protectionism: 0.3, free_trade: 0.7 };
 const TARIFF: Record<string, number> = { isolationism: 0.35, protectionism: 0.2, free_trade: 0.04 };
@@ -38,6 +39,23 @@ export function openness(c: Country, coastal: boolean): number {
   return clamp(o, 0.01, 0.92);
 }
 
+/**
+ * ECON-CAL-01b: import openness of a market for one good. Starts from the trade-law base, replaced by
+ * the 1836 tariff evidence for that market/good when it exists — part of the shared 1836 starting
+ * world, so it applies in both modes — but only while the market leader keeps the trade law it had
+ * at the start (once the law changes, the law governs again),
+ * then applies the same technology and coastal access factors as `openness`.
+ */
+export function goodOpenness(_st: GameState, marketId: string, leader: Country, coastal: boolean, good: Good): number {
+  let base = OPENNESS[leader.laws.trade] ?? 0.3;
+  const startLaw = data().entity.get(leader.id)?.laws?.value.trade;
+  const ev = startLaw !== undefined && leader.laws.trade === startLaw ? TARIFF_EVIDENCE_1836[marketId]?.[good] : undefined;
+  if (ev) base = opennessFromTariff(ev.tariff);
+  let o = base * (1 + 0.3 * techEffect(leader, 'trade_capacity') + 0.2 * (hasTech(leader, 'railways') ? 1 : 0));
+  if (!coastal) o *= 0.6;
+  return clamp(o, 0.01, 0.92);
+}
+
 interface RegionCalc {
   supply: Record<Good, number>;
   demand: Record<Good, number>;
@@ -55,13 +73,30 @@ interface RegionCalc {
 }
 interface SiteCalc { b: Building; outputs: Partial<Record<Good, number>>; inputs: Partial<Record<Good, number>>; workers: number; stratum: number; plannedFactoryOut?: number }
 
+/**
+ * ECON-CAL-01b cottage industry (PROJECT DESIGN, not historical data): artisans keep the base product
+ * mix 55/25/20 (textiles/tools/luxury) at base prices; the mix tilts toward better-priced goods
+ * (weights × price²) and total marketed output falls when their goods are cheap (value-weighted price
+ * index, floor 0.5): unprofitable hours go to own use rather than to an unsold glut. Price 1 for every
+ * good reproduces the former fixed mix exactly.
+ */
+export const COTTAGE_BASE_MIX = { textiles: 0.55, tools: 0.25, luxury: 0.2 } as const;
+export function cottageOutput(prices: Record<Good, number> | undefined): { textiles: number; tools: number; luxury: number } {
+  const p = (g: 'textiles' | 'tools' | 'luxury') => { const v = prices?.[g]; return Number.isFinite(v) && (v as number) > 0 ? (v as number) : 1; };
+  const w = { textiles: COTTAGE_BASE_MIX.textiles * p('textiles') ** 2, tools: COTTAGE_BASE_MIX.tools * p('tools') ** 2, luxury: COTTAGE_BASE_MIX.luxury * p('luxury') ** 2 };
+  const wsum = w.textiles + w.tools + w.luxury;
+  const index = COTTAGE_BASE_MIX.textiles * p('textiles') + COTTAGE_BASE_MIX.tools * p('tools') + COTTAGE_BASE_MIX.luxury * p('luxury');
+  const volume = clamp(index, 0.5, 1);
+  return { textiles: (volume * w.textiles) / wsum, tools: (volume * w.tools) / wsum, luxury: (volume * w.luxury) / wsum };
+}
+
 /** Utilization of a site decided last month (1 when the site has no operating record yet). */
 function siteUtil(st: GameState, regionId: string, b: Building): number {
   if (!ECONOMY_FLAGS.siteOperations) return 1;
   const ops = st.industry?.[siteKey(regionId, b)];
   return ops ? ops.util : 1;
 }
-interface MarketAggregate { s: Record<Good, number>; dm: Record<Good, number>; open: number; members: string[] }
+interface MarketAggregate { s: Record<Good, number>; dm: Record<Good, number>; open: Record<Good, number>; members: string[] }
 interface MarketClearing {
   world: Record<Good, { surplus: number; deficit: number }>;
   short: Record<string, Record<Good, number>>;
@@ -86,8 +121,8 @@ function clearMarkets(markets: Record<string, MarketAggregate>, marketIds: strin
     const market = markets[id];
     for (const good of GOODS) {
       const difference = market.s[good] - market.dm[good];
-      if (difference > 0) world[good].surplus += difference * market.open;
-      else world[good].deficit += -difference * market.open;
+      if (difference > 0) world[good].surplus += difference * market.open[good];
+      else world[good].deficit += -difference * market.open[good];
     }
   }
 
@@ -101,7 +136,7 @@ function clearMarkets(markets: Record<string, MarketAggregate>, marketIds: strin
       const balance = world[good];
       const importAvailability = balance.deficit > 0 ? clamp(balance.surplus / balance.deficit, 0, 1) : 1;
       const deficit = Math.max(0, market.dm[good] - market.s[good]);
-      const imported = deficit * market.open * importAvailability;
+      const imported = deficit * market.open[good] * importAvailability;
       const available = market.s[good] + imported;
       marketImports[good] = imported;
       marketShort[good] = market.dm[good] > 0 ? clamp(1 - available / market.dm[good], 0, 1) : 0;
@@ -120,7 +155,7 @@ function clearMarkets(markets: Record<string, MarketAggregate>, marketIds: strin
     if (totalImports <= 0 || offered <= 0) continue;
     for (const id of marketIds) {
       const market = markets[id];
-      const offer = Math.max(0, market.s[good] - market.dm[good]) * market.open;
+      const offer = Math.max(0, market.s[good] - market.dm[good]) * market.open[good];
       if (offer > 0) exports[id][good] = totalImports * (offer / offered);
     }
   }
@@ -227,7 +262,9 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const artWorkers = LF * sh[S.artisans];
     employment[S.artisans] = artWorkers;
     const art = artWorkers * 700 * Am * dev * occupied;
-    supply.textiles += art * 0.55; supply.tools += art * 0.25; supply.luxury += art * 0.2;
+    // ECON-CAL-01b: cottage industry responds to last month's local prices instead of a fixed mix.
+    const cottage = cottageOutput(st.marketPrices[marketOf(st, c)]);
+    supply.textiles += art * cottage.textiles; supply.tools += art * cottage.tools; supply.luxury += art * cottage.luxury;
     // services
     const svc = LF * (sh[S.middle] + sh[S.capitalists] + sh[S.aristocrats] + sh[S.clergy]) * 1600 * Am * infra * occupied;
     // demand
@@ -255,7 +292,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const marketId = marketOf(st, c);
     calc[i] = { supply, demand, services: svc, inputsNeed, factoryOut, factoryInputs, factoryWorkersByGood, marketId, employment, grainLocal: grain, grainNeed, sites };
     const mk = marketId;
-    const m = (markets[mk] ??= { s: zero(), dm: zero(), open: 0, members: [] });
+    const m = (markets[mk] ??= { s: zero(), dm: zero(), open: zero(), members: [] });
     for (const g of GOODS) { m.s[g] += supply[g]; m.dm[g] += demand[g]; }
     if (!m.members.includes(c.id)) m.members.push(c.id);
   }
@@ -273,7 +310,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const m = markets[id];
     const leader = st.countries[id] ?? st.countries[m.members[0]];
     const coastal = st.regions.some((r) => m.members.includes(r.owner) && r.coastal);
-    m.open = openness(leader, coastal);
+    for (const g of GOODS) m.open[g] = goodOpenness(st, id, leader, coastal, g);
   }
   // Preserve the demand ledger separately from the active stage. Only the current stage's
   // requested inputs participate in its clearing snapshot; downstream factories must not
@@ -376,7 +413,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
       importsValue += imports * st.worldPrices[good];
       const available = m.s[good] + imports;
       const local = clamp(Math.pow((m.dm[good] + 1) / (available + 1), 0.5), 0.45, 3);
-      const target = (1 - m.open) * local + m.open * st.worldPrices[good];
+      const target = (1 - m.open[good]) * local + m.open[good] * st.worldPrices[good];
       prices[good] = calibrate ? target : prices[good] * 0.7 + target * 0.3;
       const exports = finalClearing.exports[id][good];
       const used = Math.min(m.dm[good], available);
