@@ -120,3 +120,136 @@ The repository contains 32 technology IDs in the 1880–1914 interval. These are
 - Complete per-ID source research for the 32 technology entries. The table in section B is the verified repository inventory and research plan, not a claim of source clearance.
 - Claude must visually approve every chosen image and may reject any candidate before ingestion.
 
+
+
+---
+
+# HY-03 follow-up — MSG-069 (2026-11-22)
+
+This follow-up addresses Claude's visual-review feedback and the six named company gaps. It deliberately distinguishes **verified historical subject** from **candidate needing visual review**. No image binary or manifest was changed.
+
+## Corrections from visual review
+
+- C3 in the previous draft referred to LOC item `2016802408`; Claude inspected that item and correctly rejected it as worker housing, not the steel mill. The report must not reuse that identifier as a steelworks image.
+- The repository's already selected building asset `ironworks` is a different LOC item: **2016802409**, *Edgar Thomson Works, Braddock, Pa.*, c.1908. Its LOC record explicitly identifies steel industry, industrial facilities and smokestacks, and lists a four-part panorama. This is a valid historical steelworks candidate; the previous C3 rejection does not apply to 2016802409.
+- The original C7 Manchester cotton mill panorama is rejected by Claude due to its extreme 5:1 ratio and only 420 px height; it remains excluded.
+- Telephone and Edison electric-light sources are retained as research leads only; they must be matched to their exact technology subject and not silently repurposed.
+
+## Six company gaps — new evidence
+
+### 1. integrated_steelworks
+
+**Candidate A — Edgar Thomson Works, Braddock, Pa.**
+- LOC item: https://www.loc.gov/pictures/item/2016802409/
+- Direct component record: https://www.loc.gov/resource/det.4a10145/
+- Creator/publisher: Detroit Publishing Co.; c.1908.
+- LOC description: four-part panorama; headings include smokestacks, steel industry and industrial facilities; jacket title identifies Edgar Thomson Works, Carnegie Steel Co.
+- Rights: “No known restrictions on publication.”
+- Image subject: actual integrated steelworks exterior, not worker housing. This item is already selected in `loc_selection.json` as the `ironworks` building illustration; avoid duplicating it if the game uses the same asset for the company kind.
+- Dimensions: original negative is 8×10 in.; digital component pixel dimensions must be read from LOC image metadata before ingestion.
+- Crop: use a single panorama section or a coherent multi-panel stitch only if original panel order is preserved; do not crop the whole stitched panorama blindly to 16:9.
+
+**Candidate B — Braddock furnaces, Edgar Thomson Works**
+- LOC item: https://www.loc.gov/item/2016815604/
+- Creator/publisher: Detroit Publishing Co.; dated by LOC as between 1910 and 1920. This range straddles the 1914 cutoff, so the exact image date must be checked before acceptance.
+- LOC headings: steel industry, waterfronts, industrial facilities; one glass negative, 8×10 in.
+- Rights: verify the item page's exact rights advisory at ingestion; the catalogue record is a lead, not a clearance statement.
+- Crop: full furnace exterior and river-side industrial context.
+- Status: promising but not production-cleared until exact date and rights are checked.
+
+**Additional caution:** LOC item 2016802408 is not a substitute; Claude inspected it and rejected it as worker housing.
+
+### 2. railway_operator
+
+**Candidate A — Lehigh Valley Railroad passenger train in river valley**
+- LOC item: https://www.loc.gov/item/2016795678/
+- Creator/publisher: Detroit Publishing Co.; c.1900–1910.
+- Rights: the item is already in the project's LOC selection for `illustration_building:railway`; its rights were previously reviewed as “No known restrictions on publication.”
+- Visual description from existing project review: steam passenger train running beside a river valley; wide composition crops cleanly to 16:9.
+- Fit: good for railway operation and passenger service, but it is not a terminal/railway-company headquarters.
+- Dimensions: existing ingestion metadata records source 1024×? (see `illustration_assets.json`); reuse current selected asset rather than creating a duplicate.
+
+**Candidate B — Edgar Thomson Works railway panorama, Braddock**
+- LOC item: https://www.loc.gov/item/2016802410/
+- Creator/publisher: Detroit Publishing Co.; c.1908.
+- LOC headings include railroads, steel industry and industrial facilities; four-part panorama with multiple variants.
+- Rights: “No known restrictions on publication.”
+- Fit: rail sidings and industrial freight context, not a passenger terminal. Better secondary contextual image than a generic train if the company type is freight/industrial rail.
+
+**Finding:** a verified 1900–1910 Grand Central/Euston/Union Station production-ready candidate was not located in this pass. Do not substitute the 1903 newspaper timetable for a station photograph.
+
+### 3. agricultural_machine_maker / harvester_manufacturer
+
+**Candidate A — McCormick harvesting-machine works**
+- LOC search did not surface a sufficiently specific, rights-verified factory photograph in this pass.
+- Historical catalogue lead: the LOC digitized 1893 Chicago exposition catalogue lists C. H. McCormick as a Chicago maker of mowers and reapers, and multiple named reaper/mower firms. It is a primary source for manufacturer identity, not an image asset.
+- Catalogue PDF/search result: https://tile.loc.gov/storage-services/public/gdcmassbookdig/officialcatalogu00chic/officialcatalogu00chic.pdf
+- Relevant page entry identifies C. H. McCormick, Chicago, “Mowers and Reapers”; the same catalogue identifies Johnston Harvester Co. and Walter A. Wood's Mowing and Reaping Machine Co.
+- Rights: LOC book is public domain; no usable factory scene verified from this catalogue.
+
+**Candidate B — Walter A. Wood / Johnston Harvester works**
+- Same 1893 LOC catalogue identifies Johnston Harvester Co. factory at Brockport, NY and Walter A. Wood's Mowing and Reaping Machine Co., Chicago.
+- This is a targeted archival lead for future LOC/Commons image search, not a cleared image. Do not label a generic machine shop as a reaper factory.
+
+### 4. sewing_machine_maker
+
+**Candidate A — Singer Manufacturing Company, Elizabeth, New Jersey**
+- LOC HAER record: https://www.loc.gov/item/nj0983/
+- Repository: Library of Congress, Historic American Engineering Record; record states Singer was the first sewing-machine complex in the United States and organization dates to 1851.
+- Building dates in catalogue: 1918 initial construction. This is outside the game's 1836–1914 historical image window; do not use as a period asset without identifying a distinct pre-1914 structure/photo.
+- Rights: HAER advisory only says no known restrictions on images made by U.S. Government; images copied from other sources may be restricted. The item has 15 photos, but the survey is post-1968. Not cleared for HY-03.
+
+**Candidate B — no verified pre-1914 Singer factory image found.**
+- Search should target Singer's 19th-century Elizabethport works and Clydebank works, but require a dated pre-1915 image and a PD/CC0 statement. No candidate is being recommended for ingestion yet.
+
+### 5. turbine_manufacturer
+
+**Candidate A — Parsons steam turbine / early turbine works**
+- No pre-1914, rights-verified LOC factory image was found in this pass.
+- Search target: C. A. Parsons & Co., Heaton Works, Newcastle upon Tyne; or early hydroelectric turbine-generator halls. A modern photograph of the surviving building would be anachronistic.
+- Status: unfilled.
+
+**Candidate B — Edison generator engraving (technology context only)**
+- LOC item: https://www.loc.gov/item/2007682978/
+- Title: *Edison's electric light. The generator, the armature, & electric metre*; 1880; wood engraving in Harper's Weekly, 3 January 1880; digital ID cph.3a42209.
+- Rights status needs direct item-page verification; this is an electric generator, not a steam turbine. It may support `electricity` or `central_power_stations` only if visual review confirms the actual depicted machine. It is not a turbine-manufacturer image.
+
+### 6. wrought_iron_works
+
+**Candidate A — *The iron manufacturer's guide to the furnaces, forges and rolling mills of the United States* (1866)**
+- LOC item: https://www.loc.gov/item/06022650/
+- Author: J. Peter Lesley; American Iron and Steel Association; New York, 1866.
+- Rights: LOC states the digitized book is public domain and free to use and reuse.
+- Contents: 816 digitized images; title explicitly covers furnaces, forges and rolling mills. This is a strong primary-source image corpus. Specific image/page must be inspected before use; not every plate necessarily depicts puddling or wrought iron.
+- Research clue: the book includes period furnace/forge/rolling-mill illustrations, but this report does not claim a particular plate is a verified puddling furnace until the page is inspected.
+- Crop: retain the complete technical plate and caption; prefer contain/letterbox over cropping labels.
+
+**Candidate B — no individual puddling-mill plate identified yet.**
+- A period technical text result explains puddling as the process of decarburizing pig iron in a puddling furnace, but a textual description alone is not an image candidate. Keep the company subject unfilled until a specific plate or photograph is verified.
+
+## Additional late-industrial technology evidence
+
+### Confirmed source leads (not yet visually accepted)
+
+1. **electricity / electric_lighting** — LOC item 89714482, *New Jersey—the wizard of electricity—Thomas A. Edison's system of electric illumination*, 1880. Wood engraving with six views of Menlo Park, Edison's laboratory and electric-light apparatus. Rights advisory: “No known restrictions on publication.” https://www.loc.gov/pictures/item/89714482/
+2. **telephone** — LOC item 2017651466, *Long distance telephone switchboard*, Sears, Roebuck & Co., c.1900–1910; LOC rights note in catalogue: “No known restrictions on publication.” https://www.loc.gov/pictures/item/2017651466/
+3. **telegraphic exchanges** — C8 is a telephone switchboard, not a telegraph exchange. Do not conflate telephone and telegraph. No verified telegraph-office candidate in this pass.
+4. **integrated steel / large steel works** — LOC items 2016802409 and 2016802410 (c.1908 panoramas) are actual Edgar Thomson steelworks; item 2016802408 is not.
+5. **large steel casting** — existing C4, *Removing ingot slab from furnace, Homestead Steel Works*, LOC 2016814565, remains the stronger specific image lead.
+6. **machine tools** — C1 Westinghouse Air-Brake machine shop (2016805390) is a machine-shop image, but Claude's inspection says the selected view is the outside of the factory. Do not use it as an interior machine-tool close-up without visual review.
+
+## Current disposition
+
+| Gap | Result |
+|---|---|
+| integrated_steelworks | Strong actual mill candidate: LOC 2016802409 (already in building selection); alternate 2016815604 needs date/right check |
+| railway_operator | Reuse current Lehigh Valley passenger train LOC 2016795678; industrial freight alternative 2016802410 |
+| agricultural_machine_maker / harvester_manufacturer | Manufacturer names verified from 1893 LOC catalogue; no usable factory image yet |
+| sewing_machine_maker | Singer HAER record found but building date 1918; not acceptable for pre-1914 |
+| turbine_manufacturer | No usable pre-1914 PD image found |
+| wrought_iron_works | LOC 1866 PD book with 816 images; exact puddling/rolling plate not yet inspected |
+| electricity / electric_lighting | LOC 89714482, 1880, rights advisory clear |
+| telephone | LOC 2017651466, c.1900–1910, rights advisory clear |
+| remaining 30 technologies | Not individually source-cleared; next research phase must enumerate and locate no more than two verified candidates per technology |
+
+**Do not ingest** the candidates marked contextual, undated, post-1914, or rights-unverified. Claude must visually inspect each original before selection.
