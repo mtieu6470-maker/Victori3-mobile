@@ -7,7 +7,7 @@
 // by its absorptive capacity (literacy), and with literacy itself. Countries that adopt technology
 // without schooling or capital gain little: knowledge needs people who can use it.
 //
-//   ln(productivity / base) = TECH * Σ(new economic techs) * literacy² + LITERACY * (literacy − base literacy)
+//   ln(productivity / base) = TFP_SCALE * Σ(tfp of techs adopted since base) * literacy² + LITERACY * (literacy − base literacy)
 //
 // Absorptive capacity is convex in literacy (literacy²): a mostly illiterate economy that acquires a
 // technology gains much less from it than a literate one, which reproduces the 19th-century
@@ -19,47 +19,49 @@
 import { data } from '../data/db';
 import type { Country, GameState } from '../types';
 
-/** Tech effect keys that count as economic (production, infrastructure, commerce, knowledge). */
-export const ECONOMIC_TECH_EFFECTS: ReadonlySet<string> = new Set([
-  'textile_efficiency', 'factory_efficiency', 'mine_efficiency', 'iron_efficiency', 'unlock_railway', 'market_access',
-  'trade_capacity', 'farm_efficiency', 'admin_efficiency', 'research', 'energy_efficiency', 'steel_efficiency',
-  'unlock_steel', 'investment', 'literacy_growth', 'idea_spread',
-]);
+/**
+ * TECH-01: each technology carries a `tfp` effect (a project design weight, larger for
+ * general-purpose technologies such as electrification or microprocessors). A country's knowledge
+ * stock is the sum over the technologies it has adopted.
+ */
+export function tfpStock(c: Pick<Country, 'techs'>): number {
+  const d = data();
+  let s = 0;
+  for (const t of c.techs) { const v = d.tech.get(t)?.effects.tfp; if (typeof v === 'number' && Number.isFinite(v)) s += v; }
+  return s;
+}
 
 export const GROWTH_PARAMS = {
-  /** Log-productivity gain per newly adopted economic technology at full literacy (scaled by literacy²). */
-  tech: 0.035,
+  /** Multiplier on new knowledge stock (Σ tfp since the baseline) at full literacy (scaled by literacy²). */
+  tfpScale: 1.0,
   /** Log-productivity gain per unit of literacy gained since the baseline. */
   literacy: 0.4,
-  /** Share of the gap to the target closed each month (diffusion lag, ~1 year half-life). */
-  adjust: 0.06,
+  /**
+   * Share of the gap to the target closed each month: adoption lags availability (CG-27 §5.2), a
+   * half-life of about three years.
+   */
+  adjust: 0.02,
 } as const;
-
-export function economicTechCount(c: Pick<Country, 'techs'>): number {
-  const d = data();
-  let n = 0;
-  for (const t of c.techs) if (Object.keys(d.tech.get(t)?.effects ?? {}).some((k) => ECONOMIC_TECH_EFFECTS.has(k))) n++;
-  return n;
-}
 
 const literacyOf = (c: Country) => (Number.isFinite(c.stats?.literacy) ? Math.max(0, Math.min(1, c.stats.literacy)) : 0);
 
 /** Records the growth baseline (after the 1836 calibration, or lazily for new or legacy countries). */
 export function setGrowthBase(c: Country): void {
-  c.growthBase = { productivity: c.productivity, techs: economicTechCount(c), literacy: literacyOf(c) };
+  c.growthBase = { productivity: c.productivity, tfp: tfpStock(c), literacy: literacyOf(c) };
 }
 
 export function targetProductivity(c: Country): number {
   const b = c.growthBase!;
   const lit = literacyOf(c);
-  const newTechs = Math.max(0, economicTechCount(c) - b.techs);
-  return b.productivity * Math.exp(GROWTH_PARAMS.tech * newTechs * lit * lit + GROWTH_PARAMS.literacy * (lit - b.literacy));
+  const knowledge = Math.max(0, tfpStock(c) - (b.tfp ?? 0));
+  return b.productivity * Math.exp(GROWTH_PARAMS.tfpScale * knowledge * lit * lit + GROWTH_PARAMS.literacy * (lit - b.literacy));
 }
 
 export function growthMonth(st: GameState): void {
   for (const c of Object.values(st.countries)) {
     if (!c.alive) continue;
-    if (!c.growthBase) { setGrowthBase(c); continue; }
+    // Older baselines (a tech count, before TECH-01) are replaced without a productivity jump.
+    if (!c.growthBase || typeof c.growthBase.tfp !== 'number') { setGrowthBase(c); continue; }
     const target = targetProductivity(c);
     if (Number.isFinite(target) && target > 0) c.productivity += (target - c.productivity) * GROWTH_PARAMS.adjust;
   }

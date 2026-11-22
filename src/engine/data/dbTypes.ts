@@ -92,7 +92,7 @@ export interface ExogenousEvent {
 
 export interface Milestone { id: string; check_date: string; tolerance_years: number; weight: number; label: string; test: Condition }
 
-export interface TechRecord { id: string; tree: string; cost: number; historical_year: number; prereqs: string[]; effects: Record<string, number | string> }
+export interface TechRecord { id: string; tree: string; cost: number; historical_year: number; prereqs: string[]; effects: Record<string, number | string>; source?: string; note?: string }
 
 export interface HistoricalDB {
   meta: { start_date: string; built_at: string; counts: Record<string, number>; version: string };

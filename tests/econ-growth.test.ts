@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 import { loadNodeData } from '../src/engine/node';
 import { createGame } from '../src/engine/init';
 import { stepMonth } from '../src/engine/simulation';
-import { economicTechCount, GROWTH_PARAMS, growthMonth, setGrowthBase, targetProductivity } from '../src/engine/systems/growth';
+import { GROWTH_PARAMS, growthMonth, setGrowthBase, targetProductivity, tfpStock } from '../src/engine/systems/growth';
 import { constructionMonth, constructionQueueCap, enqueueConstruction } from '../src/engine/systems/economy';
 import { validateGameStateContract } from '../src/engine/save';
 import { data } from '../src/engine/data/db';
@@ -19,7 +19,7 @@ describe('ECON-GROWTH productivity', () => {
     for (const c of Object.values(st.countries)) {
       expect(c.growthBase).toBeDefined();
       expect(c.growthBase!.productivity).toBe(c.productivity);
-      expect(c.growthBase!.techs).toBe(economicTechCount(c));
+      expect(c.growthBase!.tfp).toBe(tfpStock(c));
     }
     expect(st.countries.GBR.growthBase!.literacy).toBeGreaterThan(0.3);
     expect(targetProductivity(st.countries.GBR)).toBeCloseTo(st.countries.GBR.productivity, 9);
@@ -27,7 +27,7 @@ describe('ECON-GROWTH productivity', () => {
 
   it('target rises with new economic technology, more for literate economies, and with literacy', () => {
     const st = fresh(); const c = st.countries.GBR;
-    const econTech = data().db.technologies.find((t) => !c.techs.includes(t.id) && Object.keys(t.effects).some((k) => k.endsWith('_efficiency') && !k.startsWith('army') && !k.startsWith('navy')))!;
+    const econTech = data().db.technologies.find((t) => !c.techs.includes(t.id) && typeof t.effects.tfp === 'number' && (t.effects.tfp as number) > 0)!;
     const before = targetProductivity(c);
     c.techs.push(econTech.id);
     const withTech = targetProductivity(c);
