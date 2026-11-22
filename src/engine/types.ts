@@ -79,6 +79,8 @@ export interface ConstructionProject {
   totalCost: number;
   invested: number;
   createdTick: number;
+  /** CO-2: company that pays for this project from its retained earnings (funding 'private'). */
+  company?: string;
 }
 
 export interface AIMemory {
@@ -187,6 +189,12 @@ export interface Company {
   /** Smoothed operating margin of its sites, -1..1. */
   prosperity: number;
   lastRevenue: number; lastCost: number; lossMonths: number;
+  /**
+   * CO-2 (money): retained earnings on hand (carved out of the home country's private savings, so no
+   * money is created), last month's operating profit (may be negative), dividend and retained share,
+   * and cumulative funds put into its own construction projects.
+   */
+  cash: number; lastProfit: number; lastDividend: number; lastRetained: number; invested: number;
   /** Set only for companies seeded from verified historical evidence (CG-31). */
   historicalId?: string;
 }

@@ -146,6 +146,10 @@ function normalizeLegacyFields(st: GameState): void {
   st.industry ??= {};
   // CO-1: saves written before companies existed start with none.
   st.companies ??= {};
+  // CO-2: companies saved before company finance start with no cash.
+  for (const co of Object.values(st.companies)) {
+    co.cash ??= 0; co.lastProfit ??= 0; co.lastDividend ??= 0; co.lastRetained ??= 0; co.invested ??= 0;
+  }
   for (const country of Object.values(st.countries ?? {})) {
     country.statePool ??= 0;
     country.privatePool ??= 0;

@@ -6,13 +6,22 @@
 // It owns concrete sites (`${regionId}|${building}`), its prosperity follows the real operating margin
 // of those sites (IND-02a accounts), and it dissolves after sustained losses or when its sites vanish.
 //
-// CO-1 is an ownership and accounting layer only: it moves no money. Site revenue and costs are
-// already part of regional output and wages; company dividends, cash and investment (with a closed
-// GDP/GNI ledger, CG-32 §5) arrive in CO-2. Rights stay inactive until a legal basis exists (CG-30).
-// No company is given any productivity or price bonus (owner: no unconditional buffs).
+// CO-2 money (spec §8, research CG-33): operating profit = revenue − cost of its sites. A positive profit
+// is split into dividends (PAYOUT_RATIO) and retained earnings. Site value added is already in GDP
+// and the country's private savings (privatePool) already contain profits, so retained earnings are
+// CARVED OUT of privatePool into the company's cash: no money is created or destroyed
+// (invariant: privatePool + Σ company cash + funds paid into company projects is unchanged by this
+// step). Dividends stay with households (no flow change; recorded for display). Losses are not paid
+// from cash (they already reduce owners' income in the aggregate model); they count toward
+// dissolution. Companies spend cash on their own construction (expanding or adding sites of their
+// kind's buildings) and release cash they cannot use back to the private pool. All sites are in the
+// home country, so GDP = GNI for companies until foreign ownership exists (CG-33 §3).
+// Rights stay inactive until a legal basis exists (CG-30). No productivity or price bonus.
 import { data } from '../data/db';
 import { log } from '../core';
 import type { Building, Company, Country, GameState } from '../types';
+import { buildCost, buildingReturn, canBuild, enqueueConstruction } from './economy';
+import { regionsOf } from '../cache';
 
 /** Design parameters (project values, not historical data). */
 export const COMPANY_PARAMS = {
@@ -28,6 +37,18 @@ export const COMPANY_PARAMS = {
   prosperityAlpha: 0.1,
   /** Consecutive loss-making months before a company dissolves. */
   dissolveAfterLossMonths: 36,
+  /**
+   * CO-2: share of positive profit paid as dividends. Design value inside the historical range
+   * collected in CG-33 (UK 1895–1905 ordinary 49% / all-share 73%; Germany 1870–1913 about 75–80%;
+   * US 1940s–1980s 40–61%); there is no universal historical rate.
+   */
+  payoutRatio: 0.6,
+  /** Minimum expected annual return (buildingReturn) before a company expands, as for private investors. */
+  minReturn: 0.08,
+  /** Cash kept beyond this many typical projects is released back to the private pool. */
+  maxCashProjects: 3,
+  /** Months between investment reviews of one company (staggered by id; performance). */
+  investPeriod: 3,
 } as const;
 
 /** Laws under which joint-stock companies may be formed (economy law), plus the banking technology. */
@@ -43,6 +64,59 @@ export function unlockedOperationalKinds(c: Country) {
 function stagger(id: string, tick: number, period: number): boolean {
   let h = 0; for (const ch of id) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
   return (tick + h) % period === 0;
+}
+
+/** Funds still owed to a company's own unfinished projects. */
+export function companyCommitted(st: GameState, coId: string): number {
+  return (st.constructionProjects ?? []).reduce((s, p) => s + (p.company === coId ? Math.max(0, p.totalCost - p.invested) : 0), 0);
+}
+
+/** CO-2: operating profit split and retained-earnings carve-out from the home country's private savings. */
+function companyFinance(co: Company, home: Country | undefined): void {
+  const profit = co.lastRevenue - co.lastCost;
+  co.lastProfit = profit;
+  if (profit <= 0 || !home) { co.lastDividend = 0; co.lastRetained = 0; return; }
+  const retainedWanted = profit * (1 - COMPANY_PARAMS.payoutRatio);
+  const retained = Math.min(retainedWanted, Math.max(0, home.privatePool ?? 0));
+  home.privatePool = Math.max(0, (home.privatePool ?? 0) - retained);
+  co.cash += retained;
+  co.lastRetained = retained;
+  co.lastDividend = profit - retained;
+}
+
+/** CO-2: a company with enough uncommitted cash starts one project for its kind's buildings at home. */
+function companyInvest(st: GameState, co: Company, home: Country, owners: Map<string, string>): void {
+  const d = data();
+  const kind = d.db.company_kinds.find((k) => k.id === co.kind);
+  if (!kind || !kind.buildings.length) return;
+  const busy = (st.constructionProjects ?? []).some((p) => p.company === co.id);
+  const typical = buildCost(home, kind.buildings[0] as Building, st);
+  const free = co.cash - companyCommitted(st, co.id);
+  if (!busy && stagger(co.id, st.tick, COMPANY_PARAMS.investPeriod)) {
+    let best: { r: (typeof st.regions)[number]; b: Building; v: number } | null = null;
+    for (const r of regionsOf(st, home.id)) {
+      if (r.controller !== home.id) continue;
+      for (const b of kind.buildings as Building[]) {
+        const key = `${r.id}|${b}`; const owner = owners.get(key);
+        if (owner && owner !== co.id) continue;
+        // A new level next to an unowned existing site would absorb other investors' plant: not allowed.
+        if (!owner && (r.buildings[b] ?? 0) > 0) continue;
+        if (!canBuild(st, home, r, b) || free < buildCost(home, b, st)) continue;
+        const v = buildingReturn(st, home, r, b);
+        // Own sites first at equal return (economies of an existing operation), then region order.
+        const score = v + (owner === co.id ? 1e-6 : 0);
+        if (v > COMPANY_PARAMS.minReturn && (!best || score > best.v)) best = { r, b, v: score };
+      }
+    }
+    if (best) {
+      const proj = enqueueConstruction(st, home, best.r, best.b, 'private');
+      if (proj) { proj.company = co.id; return; }
+    }
+  }
+  // Cash the company cannot use returns to its owners' savings.
+  const cap = Number.isFinite(typical) && typical > 0 ? typical * COMPANY_PARAMS.maxCashProjects : 0;
+  const excess = co.cash - companyCommitted(st, co.id) - cap;
+  if (excess > 0) { co.cash -= excess; home.privatePool = (home.privatePool ?? 0) + excess; }
 }
 
 const humanize = (id: string) => id.replace(/_/g, ' ').replace(/^./, (x) => x.toUpperCase());
@@ -71,7 +145,12 @@ export function companiesMonth(st: GameState): void {
     co.prosperity = Math.max(-1, Math.min(1, co.prosperity * (1 - COMPANY_PARAMS.prosperityAlpha) + margin * COMPANY_PARAMS.prosperityAlpha));
     co.lossMonths = cost > 0 && revenue < cost ? co.lossMonths + 1 : 0;
     const home = st.countries[co.home];
+    companyFinance(co, home?.alive ? home : undefined);
     if (!co.sites.length || co.lossMonths >= COMPANY_PARAMS.dissolveAfterLossMonths || !home?.alive) {
+      // Remaining cash returns to the owners' savings; unfinished projects pass to the private pool.
+      if (home?.alive) home.privatePool = (home.privatePool ?? 0) + co.cash;
+      co.cash = 0;
+      for (const p of st.constructionProjects ?? []) if (p.company === co.id) delete p.company;
       delete st.companies[co.id];
       if (st.player === co.home) log(st, { type: 'economy', text: `${co.name} is dissolved.`, textVi: `${co.name} giải thể.`, actors: [co.home] });
     }
@@ -106,9 +185,15 @@ export function companiesMonth(st: GameState): void {
     const co: Company = {
       id, kind: best.kind, name: `${humanize(best.kind)} (${chosen[0].region})`, home: c.id, hq: chosen[0].region,
       founded: st.tick, sites: chosen.map((x) => x.key), prosperity: 0, lastRevenue: 0, lastCost: 0, lossMonths: 0,
+      cash: 0, lastProfit: 0, lastDividend: 0, lastRetained: 0, invested: 0,
     };
     st.companies[id] = co;
     for (const x of chosen) owners.set(x.key, id);
     if (st.player === c.id) log(st, { type: 'economy', text: `${co.name} is founded.`, textVi: `${co.name} được thành lập.`, actors: [c.id] });
+  }
+  // ---- 3. CO-2: investment of retained earnings (id order: deterministic)
+  for (const co of Object.values(st.companies).sort((a, b) => a.id.localeCompare(b.id))) {
+    const home = st.countries[co.home];
+    if (home?.alive) companyInvest(st, co, home, owners);
   }
 }

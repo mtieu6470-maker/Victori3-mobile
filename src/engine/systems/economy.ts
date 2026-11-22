@@ -632,7 +632,8 @@ export function privateSavingsRate(c: Country): number {
 
 /** Funds still owed to queued projects of one funding stream. */
 export function committedConstructionFunds(st: GameState, countryId: string, funding: ConstructionFunding): number {
-  return (st.constructionProjects ?? []).reduce((s, p) => s + (p.countryId === countryId && p.funding === funding ? Math.max(0, p.totalCost - p.invested) : 0), 0);
+  // CO-2: company projects are paid from the company's own cash, not from the country's pool.
+  return (st.constructionProjects ?? []).reduce((s, p) => s + (p.countryId === countryId && p.funding === funding && !p.company ? Math.max(0, p.totalCost - p.invested) : 0), 0);
 }
 
 /** Upper bound on parallel projects per funding stream (performance guard; design parameter). */
@@ -720,19 +721,29 @@ export function constructionMonth(st: GameState): void {
         // A reserve ledger is not permission to spend cash that no longer exists.
         // Reconcile legacy or deficit-damaged reserves before processing a state project.
         if (funding === 'state' && c.statePool > c.treasury) c.statePool = Math.max(0, c.treasury);
-        const available = Math.min(
+        // CO-2: a company project draws on the company's retained earnings; if the company has been
+        // dissolved, its investors (the private pool) carry the project on.
+        const payer = project.company ? st.companies?.[project.company] : undefined;
+        const available = payer ? Math.max(0, payer.cash) : Math.min(
           Math.max(0, c[poolKey] ?? 0),
           funding === 'state' ? Math.max(0, c.treasury) : Number.POSITIVE_INFINITY,
         );
         const spend = Math.min(available, project.totalCost / 12, project.totalCost - project.invested);
         if (spend > 0) {
-          c[poolKey] = Math.max(0, available - spend);
+          if (payer) { payer.cash = Math.max(0, available - spend); payer.invested += spend; }
+          else c[poolKey] = Math.max(0, available - spend);
           if (funding === 'state') c.treasury = Math.max(0, c.treasury - spend);
           project.invested = Math.min(project.totalCost, project.invested + spend);
         }
         if (project.invested + 1e-6 < project.totalCost) continue;
         st.constructionProjects = st.constructionProjects.filter((p) => p.id !== project.id);
         region.buildings[project.building] += 1;
+        // CO-2: the company that paid for a new site owns it (an expansion of its own site needs nothing).
+        if (payer) {
+          const key = `${region.id}|${project.building}`;
+          const owned = Object.values(st.companies).some((co) => co.sites.includes(key));
+          if (!owned && payer.home === c.id) payer.sites.push(key);
+        }
         logConstruction(st, c, {
           type: 'construction',
           text: `${c.name} completes ${project.building} in ${project.regionId}.`,

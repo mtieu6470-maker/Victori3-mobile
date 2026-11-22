@@ -1,3 +1,26 @@
+## 2026-11-22 — CO-2 company money (dividends, retained earnings, own investment; closed ledger)
+
+- `src/engine/systems/companies.ts`:
+  - Operating profit is split into dividends (`payoutRatio` 0.6, inside the CG-33 historical range) and retained earnings.
+  - Retained earnings are carved out of the home country's `privatePool`, so no money is created. Invariant tested: Σ privatePool + Σ company cash is unchanged by the company step.
+  - Losses count toward dissolution only.
+  - Each quarter a company can fund one project for its kind's buildings at home, when buildingReturn > 0.08. It prefers its own sites and never builds beside another investor's unowned site.
+  - `ConstructionProject.company` projects draw on company cash in `constructionMonth`. A completed new site joins the company.
+  - Cash beyond 3 typical projects returns to the pool; on dissolution, cash returns to the pool and projects pass to it.
+- Types, contract (cash ≥ 0, project.company only on private projects) and save migration updated (older companies load with cash 0).
+- `tests/companies-finance.test.ts` (5 tests).
+- Sim seed 1 (historical):
+  - 1880: 18 companies, about 420 M/month profit, about 700 M invested by companies.
+  - 1900: 21 companies.
+  - Company step costs 2.5 ms/month.
+- Growth scorecard to 1913: 0.236 (before CO-2: 0.235).
+- Known gaps:
+  - Railway companies earn 0 (no freight revenue model).
+  - GBR private pool still accumulates very large unused savings (pre-existing; investment opportunities limited by gluts). Future ECON slice.
+- Local: `npm test` **34/34 files, 367/367**.
+
+---
+
 ## 2026-11-22 — MEDIA-ILL-01: real public-domain illustrations replace HY-02 batch 1
 
 - HY-02 batch 1 (40 code-generated SVGs from ChatGPT) was rejected: clip-art quality, and the railway image showed a ship.

@@ -147,6 +147,7 @@ export function validateWarsAndTreaties(st: Obj): void {
     for (const k of ['id', 'countryId', 'regionId', 'building'] as const) str(c[k], `${p}.${k}`);
     oneOf(c.funding, ['state', 'private'], `${p}.funding`);
     nonNeg(c.totalCost, `${p}.totalCost`); nonNeg(c.invested, `${p}.invested`); tick(c.createdTick, `${p}.createdTick`);
+    if (c.company !== undefined) { str(c.company, `${p}.company`); if (c.funding !== 'private') fail(`${p}.company`, 'company projects are privately funded'); }
   });
   arr(st.territoryLog, 'territoryLog').forEach((x, i) => {
     const p = `territoryLog[${i}]`; const t = obj(x, p);
@@ -173,6 +174,8 @@ export function validateCompanies(st: Obj): void {
     });
     if (!fin(c.prosperity) || c.prosperity < -1 || c.prosperity > 1) fail(`${p}.prosperity`, 'must be within -1..1');
     nonNeg(c.lastRevenue, `${p}.lastRevenue`); nonNeg(c.lastCost, `${p}.lastCost`); tick(c.lossMonths, `${p}.lossMonths`);
+    nonNeg(c.cash, `${p}.cash`); num(c.lastProfit, `${p}.lastProfit`); nonNeg(c.lastDividend, `${p}.lastDividend`);
+    nonNeg(c.lastRetained, `${p}.lastRetained`); nonNeg(c.invested, `${p}.invested`);
     if (c.historicalId !== undefined) str(c.historicalId, `${p}.historicalId`);
   }
 }

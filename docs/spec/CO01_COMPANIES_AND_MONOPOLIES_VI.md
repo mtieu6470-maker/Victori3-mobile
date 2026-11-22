@@ -98,3 +98,27 @@ Company { id, name, kind: 'private'|'chartered'|'state', home: countryId, hq: re
 - **CO-1b:** trường `unlocks` trong dữ liệu công nghệ; danh mục loại công ty và đặc quyền (dữ liệu của dự án); test mọi loại đều được mở khóa bởi một công nghệ có thật.
 - **CO-3b:** cơ chế ô đặc quyền, thịnh vượng và lựa chọn đặc quyền của AI.
 - **CO-5:** giao diện công ty: danh sách, đặc quyền, mở khóa theo công nghệ (hiển thị ở màn hình công nghệ).
+
+## 8. CO-2: dòng tiền công ty (triển khai 2026-11-22, nghiên cứu CG-33)
+
+- **Lợi nhuận hoạt động** = doanh thu − chi phí (nguyên liệu và lương) của các cơ sở công ty sở hữu, lấy từ sổ IND-02a.
+- **Chia lợi nhuận dương:**
+  - `payoutRatio` = 0,6 phần là cổ tức. Đây là tham số thiết kế nằm trong dải lịch sử của CG-33: Anh 1895–1905 khoảng 49–73%; Đức 1870–1913 khoảng 75–80%; Mỹ thập niên 1940–1980 khoảng 40–61%. Không có tỷ lệ lịch sử chung.
+  - Phần còn lại là lợi nhuận giữ lại.
+- **Sổ khép kín, không tạo tiền:**
+  - Giá trị gia tăng của cơ sở đã nằm trong GDP, và tiết kiệm tư nhân quốc gia (`privatePool`) đã bao gồm lợi nhuận. Vì vậy lợi nhuận giữ lại được **tách ra** từ `privatePool` của nước chủ nhà vào két công ty.
+  - Bất biến của bước công ty: `Σ privatePool + Σ cash công ty` không đổi (có kiểm thử).
+  - Cổ tức ở lại với hộ gia đình: không đổi dòng tiền, chỉ ghi lại để hiển thị.
+  - Lỗ không rút từ két, vì lỗ đã làm giảm thu nhập của chủ sở hữu trong mô hình tổng hợp; lỗ được tính vào điều kiện giải thể.
+- **Đầu tư (capex nội sinh, không theo tỷ lệ cố định):**
+  - Mỗi quý, công ty có tiền chưa cam kết đủ cho một dự án sẽ chọn công trình thuộc loại của mình có lợi suất kỳ vọng (`buildingReturn`) > 0,08 ở nước chủ nhà.
+  - Ưu tiên mở rộng cơ sở của chính mình; không được xây cạnh cơ sở không có chủ của nhà đầu tư khác.
+  - Dự án mang trường `company` và chi từ két công ty. Khi hoàn thành, cơ sở mới thuộc về công ty.
+  - Tiền vượt 3 dự án điển hình được trả về `privatePool`.
+- **Giải thể:** két trả về `privatePool`; dự án dở dang chuyển cho quỹ tư nhân.
+- **GDP và GNI:** mọi cơ sở đều ở nước chủ nhà, nên GDP = GNI với khu vực công ty. Sở hữu xuyên biên giới (thu nhập FDI, CG-33 §3) là một lát sau.
+- **Còn thiếu:**
+  - Doanh thu đường sắt (vận tải) chưa có mô hình, nên công ty đường sắt có lợi nhuận 0.
+  - Đặc quyền hiến chương (CO-3b) chưa có.
+  - Giao diện công ty (CO-5) chưa có.
+- **Chi phí CPU:** bước công ty khoảng 2,5 ms/tháng (đo 1836–1880).
