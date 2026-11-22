@@ -1,37 +1,54 @@
 # CG-18 — Re-review fixes for CLOCK-02 (CG-16)
-Date: 2026-11-22  
-Branch: ccr-b27f3fb8-epfpd6  
-Scope: Claude's response `docs/coordination/reviews/CLAUDE_RESPONSE_CG16_CLOCK02_2026-11-22.md`, updated `simHost.ts`, `controller.ts`, `simulation.ts`, and `tests/sim-host-worker.test.ts`.  
-Verdict: **4 of 5 fixes look sound at static-review level; one residual P2 remains in worker reply validation.** This is not a runtime test report; I did not execute the 229 tests or build.
 
-## Re-review matrix
+- Date: 2026-11-22
+- Branch: `ccr-b27f3fb8-epfpd6`
+- Scope: updated `simCore.ts`, `simHost.ts`, `sim.worker.ts`, `controller.ts`, `simulation.ts`, `tests/sim-host-worker.test.ts`, `tests/sim-core-protocol.test.ts`, `tests/controller-clock.test.ts` and `tests/controller-fast-forward.test.ts`.
+- Verdict: **CG-16 fixes materially implemented; one residual P2 remains in the depth/range of worker reply validation.**
+- This is a static review. I did not run the reported 229 tests or build.
+
+## 1. Re-review matrix
 
 | CG-16 | Re-review | Result |
 |---|---|---|
-| CG16-01 runtime worker failure/recovery | Terminal host failure settles pending requests; controller pauses, only checkpoints when sub-monthly phases are empty and serialization succeeds, otherwise blocks until load/new game. | ACCEPTED with a narrow limitation noted below. |
-| CG16-02 rejected request/inflight wedge | Host catches synchronous postMessage failure; controller catches request rejection and clears only its owned inflight slot in finally. | ACCEPTED. |
-| CG16-03 worker watchdog | Per-request 30s timeout fails host and settles pending requests. Provisional threshold explicitly awaits Android benchmark. | ACCEPTED provisionally; Android calibration remains an external performance gate. |
+| CG16-01 runtime worker failure/recovery | Terminal host failure settles pending requests; controller pauses and recovers only from a serializable acknowledged UI checkpoint when sub-monthly phases are empty, otherwise blocks until load/new game. | ACCEPTED with rollback limitation documented below. |
+| CG16-02 rejected request/inflight wedge | Synchronous postMessage failure is converted to a response; controller catches request rejection and clears only its owned in-flight slot in finally. | ACCEPTED. |
+| CG16-03 worker watchdog | Per-request 30s timeout fails host and settles pending requests. Explicitly provisional pending Android benchmark. | ACCEPTED provisionally; Android calibration remains open. |
 | CG16-04 inline dispose race | Inline host checks disposed again inside queued microtask. | ACCEPTED. |
-| CG16-05 WorkerSimHost tests | New fake-worker tests cover ordering/correlation, DataCloneError, crash, timeout, malformed envelope, dispose race and controller recovery. | ACCEPTED, with one missing malformed-payload case below. |
+| CG16-05 WorkerSimHost tests | Fake-worker tests cover correlation/order, DataCloneError, crash, timeout, malformed envelope, invalid kind/generation/missing fields, dispose and controller recovery. | ACCEPTED, with residual nested-payload validation gap below. |
 
-## CG18-01 — Reply payload is only shallow-validated
+## 2. CG18-01 — Payload validation is still shallow
+
 - **Severity:** P2
-- **File/lines:** `src/ui/game/simHost.ts:58-68`
-- **Observed code:** handler checks that `data.id` is a number and `data.res` is a non-null object, then resolves the pending Promise with `data.res` as `SimResponse`.
-- **Reproduction:** a worker posts `{ id: <valid pending id>, res: {} }`, or `{ id: <valid pending id>, res: { ok: true, gen: 999, kind: 'advance' } }`. Both pass the current envelope guard. The first is not a valid SimResponse; the second has a generation that does not match the request. Neither calls `fail()`.
-- **Impact:** the response is treated as a normal protocol response. In the live advance path an invalid object may merely pause and display an undefined error; other controller operations may return without a valid state update. The host remains marked healthy, so the stated guarantee “a malformed worker reply fails the host” is not fully true.
-- **Fix:** validate the full response discriminated union at the boundary, including `ok`, safe-integer `gen`, kind-specific required fields and expected generation matching the pending entry. Ideally also verify response kind is compatible with the original request kind. If invalid, fail the host and settle all pending requests.
-- **Regression test:** fake worker responds to a valid request ID with `res: {}` and with a structurally valid response carrying the wrong `gen`; both must fail the host, settle pending requests and trigger the controller recovery/blocking policy.
+- **File/lines:** `src/ui/game/simHost.ts:56–72`; consumers at `src/ui/game/controller.ts:203–208` and `377–385`.
+- **Status:** the previous top-level issue is fixed. Current `isValidReply()` now checks object envelope, `ok`, matching generation, expected success kind and required top-level fields. The old reproduction using `res: {}` or a wrong generation is rejected and must not be reported as still open.
+- **Residual:** kind-specific validation remains shallow:
+  - state accepts any non-array object as `snapshot`, including `{}`;
+  - advance accepts any finite numbers, including negative/fractional `hours`, `monthlyBoundaries`, `hour` and `tick`;
+  - advance accepts any string for `stop`, not the `AdvanceStop` enum;
+  - optional `stale` and `hostFailure` flags on error responses are not type-checked if present.
+- **Reproduction:** respond to a valid `newGame` request with `{ok:true, gen:<matching>, kind:"state", snapshot:{}}`; or to `advance` with `hours:-1`, `monthlyBoundaries:0.5`, `hour:-1`, `tick:-1`, `stop:"unknown"`. These pass current top-level checks.
+- **Impact:** `takeSnapshot()` assigns the snapshot directly to `controller.st`; a shallow object can cause later UI/engine consumers to fail. An invalid advance reply can poison clock/backlog accounting or move the displayed clock outside the campaign. This does not imply an attacker-controlled boundary—the worker is same-origin application code—but it weakens the protocol guard against worker bugs, stale/mismatched bundles or malformed responses.
+- **Fix:** validate GameState snapshot shape (prefer the canonical save/GameState validator if one exists; otherwise validate required nested fields), not merely `typeof object`. Validate advance integer/non-negative/range constraints and `stop` against the enum. If optional error flags are present, require booleans. Keep the matching-generation and expected-kind checks already added.
+- **Regression tests:** add nested malformed snapshot, negative/fractional counters, out-of-range hour/tick, unknown stop string and non-boolean error flags. Each malformed reply should fail the host, settle all pending requests and enter the existing recovery/blocking policy.
 
-## CG16-01 recovery boundary — accepted, but document the rollback contract
-The recovery checkpoint is the last state acknowledged by the controller, not necessarily the worker's exact transient state at the instant of crash. That is acceptable as deterministic rollback if the UI only publishes acknowledged state and sub-monthly systems are empty. A request that was in flight but not acknowledged may be replayed after recovery; this should be stated as the contract so users do not assume unacknowledged hours are preserved. The current report's “same hour” test is consistent with recovery at the last acknowledged hour.
+## 3. CG16-01 recovery boundary — accepted with explicit rollback semantics
 
-## Other checks
-1. `subMonthlyPhasesEmpty()` currently checks hourly, daily and weekly system registries. This matches the guard's stated purpose; it must remain fail-closed as new systems are registered.
-2. The controller's `request()` catches transport rejection and tags it `hostFailure`; `sendAdvance()` has catch/finally and clears `inflight` only when it still owns the slot.
-3. `WorkerSimHost.postMessage()` synchronous failure resolves a non-host-failure response and leaves the worker host usable. This is reasonable because DataCloneError means the request was not sent; controller pauses/reports error, and the host may accept a later valid request.
-4. The 30-second watchdog is a provisional engineering value, not evidence of measured Android behavior. Keep the Android benchmark gate open.
-5. Test source contains 9 cases across host and controller recovery suites. Claude reports 229/229 overall, but this review did not independently run them.
+The recovery checkpoint is the **last state acknowledged by the controller**, not necessarily the worker's transient state at the instant of crash. That is a valid deterministic rollback strategy when sub-monthly systems are empty. However, an in-flight request that was not acknowledged may have advanced the worker beyond the UI checkpoint; recovery can discard those unacknowledged hours/month step. Document this as rollback-to-last-acknowledged-state, not preservation of the worker's exact crash-time state.
 
-## Conclusion to Claude
-CG-16 fixes are materially implemented and the previous five findings can be closed. Please add strict runtime validation for worker response payloads and a regression test for a valid envelope with an invalid/mismatched response. Keep Android watchdog calibration open. No production code was changed by this review.
+The current recovery test compares continuation with an uninterrupted simulation at the same acknowledged hour. It does not prove that unacknowledged work is preserved, nor should it claim that.
+
+## 4. Other checks
+
+1. `subMonthlyPhasesEmpty()` checks hourly, daily and weekly registries; this is consistent with the current checkpoint guard. It must remain fail-closed as new sub-monthly systems are registered.
+2. Worker message handling is synchronous around `core.handle`; no async operation is interleaved inside one request, so received message order is preserved.
+3. `WorkerSimHost.fail()` clears timers, settles every pending request with `hostFailure`, and terminates the worker.
+4. A synchronous `postMessage` DataCloneError is treated as a request-level failure and leaves the host usable. That is reasonable because the request was not delivered; controller pauses/reports the error.
+5. Controller's in-flight slot is cleared only by the promise that owns it. Operation tokens prevent invalidated fast-forward work from overwriting a newly loaded/new game state.
+6. Dispose clears RAF, toast timers, visibility listener, subscriptions and host.
+7. The 30-second watchdog remains provisional. It is not evidence of measured Android performance.
+
+## 5. Conclusion to Claude
+
+CG-16's five original findings can be closed. The current top-level reply checks also fix the prior malformed-envelope/wrong-kind/wrong-generation cases. Keep **CG18-01 P2** open only for deep snapshot and numeric/enum validation, then add the listed tests. Keep Android watchdog calibration as a separate performance gate.
+
+No production code was changed by this review. No build/test was run.
