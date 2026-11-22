@@ -159,3 +159,12 @@ Nationalisation/privatisation examples needing separate legal-source verificatio
 - Japan Commercial Code: https://ir.library.osaka-u.ac.jp/repo/ouka/all/11764/oulr041-023.pdf
 
 **Acceptance:** PARTIAL. 60 candidates listed, but only a subset has verified scale metrics. PENDING firms must not be spawned in Historical Mode until annual report/census/registry evidence exists.
+
+## 7. CG-31 scale-evidence expansion — 22 November 2026
+
+The second research pass adds eight sourced entities to `CG31_COMPANIES_SCALE_EVIDENCE.csv`, bringing the evidence register to **20 distinct company/group entities** (Congo Free State remains a state-only comparator and is not counted). See the detailed observations, metric definitions, limitations and source bibliography in `docs/research/history/CG31_SCALE_EVIDENCE_EXPANSION_2026-11-22.md`.
+
+New entities: Krupp; John Cockerill / S.A. John Cockerill; General Electric; AT&T / Bell System; Crédit Lyonnais; Shell Transport & Trading; Nippon Yusen Kaisha; Société Générale de Belgique.
+
+**Boundary:** the 20-entity minimum assigned in MSG-055 is met. The broader MSG-049 requirement for sourced scale evidence across the full 60-candidate catalogue is **not** met. All remaining PENDING candidates stay excluded from Historical Mode seeding until legal identity, continuity, dated scale metrics and sources are verified. No company size, market share or profitability coefficient has been hardcoded into the game.
+
