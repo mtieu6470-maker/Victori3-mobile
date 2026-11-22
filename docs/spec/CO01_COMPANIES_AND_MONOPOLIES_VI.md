@@ -72,3 +72,29 @@ Company { id, name, kind: 'private'|'chartered'|'state', home: countryId, hq: re
    - Ví dụ: tỷ lệ giá thu mua chỉ dùng khi có cặp giá khớp năm, mặt hàng, phẩm cấp và địa bàn.
 5. **Canh tác cưỡng bức và khai thác thuộc địa** phải mang hậu quả cho hộ gia đình: mức sống, cưỡng bức lao động, di cư, tử vong, bất ổn. Không có modifier "hiệu quả độc quyền" dương chung chung.
 6. **Historical Mode:** chỉ công ty có bằng chứng quy mô đã xác minh (CG-31 scale evidence) mới được sinh ra với quy mô đó. Công ty còn PENDING không xuất hiện kèm quy mô tự bịa.
+
+## 7. Công nghệ mở khóa công ty và đặc quyền (owner 2026-11-22)
+
+**Lời owner:** "nên làm cty đầy đủ như victori 3 ấy, thấy khi mở khóa thanh công nghệ bất kỳ sẽ đc 1 đặc quyền cty, nên tham khảo thêm về phần này ở victori 3".
+
+**Thiết kế của dự án** (chỉ tham khảo cơ chế; tên và số liệu là của dự án):
+- Mỗi công nghệ trong cây (`historical_data/technologies/technologies.json`) có thể mang trường `unlocks`:
+  - `company_kinds`: loại công ty mới được phép thành lập, ví dụ công ty đường sắt khi có railways, tập đoàn điện khi có central_power_stations, hãng ô tô khi có motor_cars, công ty phần mềm khi có internet;
+  - `charters`: đặc quyền công ty mới.
+- **Đặc quyền** (charter) là lựa chọn của người chơi hoặc AI khi một công ty đủ điều kiện. Mỗi công ty có số ô đặc quyền giới hạn, và ô tăng theo quy mô và thịnh vượng. Mỗi đặc quyền có lợi ích, chi phí và điều kiện pháp lý. Ví dụ loại hình (tên sẽ do dự án đặt):
+  - độc quyền một mặt hàng trong thị trường: phụ phí giá, cần luật kinh tế cho phép, bị luật chống trust cấm;
+  - ưu tiên mua sắm của nhà nước: đơn hàng quân sự hoặc hạ tầng;
+  - khai thác thuộc địa hoặc nhượng địa: hậu quả phúc lợi theo §6;
+  - mở rộng ra nước ngoài: chi nhánh ở thị trường khác, cần quan hệ ngoại giao/thương mại;
+  - đầu tư nghiên cứu: tăng điểm công nghệ ngành, cần đại học;
+  - liên kết ngân hàng: vốn rẻ hơn, liên quan FIN-01.
+- **Thịnh vượng công ty:** dựa trên lợi nhuận thực tế của các site thuộc công ty (IND-02a). Thịnh vượng cao mở thêm ô đặc quyền; lỗ kéo dài làm mất đặc quyền và có thể dẫn tới phá sản.
+- **Trụ sở:** vùng đặt trụ sở được hưởng tầng lớp trung lưu, tư bản và thuế. Công ty đa quốc gia chuyển lợi nhuận về nước trụ sở (GNI theo §6).
+- **Historical Mode:** công ty lịch sử có quy mô đã xác minh (CG-31) xuất hiện khi đủ công nghệ và luật tương ứng.
+- **Sandbox:** công ty được sinh ra theo cùng quy tắc mở khóa.
+- **Cân bằng:** mọi lợi ích đặc quyền có chi phí hoặc điều kiện; không buff nước nào (owner 2026-11-22).
+
+**Lát triển khai bổ sung:**
+- **CO-1b:** trường `unlocks` trong dữ liệu công nghệ; danh mục loại công ty và đặc quyền (dữ liệu của dự án); test mọi loại đều được mở khóa bởi một công nghệ có thật.
+- **CO-3b:** cơ chế ô đặc quyền, thịnh vượng và lựa chọn đặc quyền của AI.
+- **CO-5:** giao diện công ty: danh sách, đặc quyền, mở khóa theo công nghệ (hiển thị ở màn hình công nghệ).
