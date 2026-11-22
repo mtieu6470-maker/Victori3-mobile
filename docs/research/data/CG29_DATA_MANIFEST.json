@@ -1,0 +1,59 @@
+{
+ "generated_by": "tools/data/extract_benchmarks.py",
+ "outputs": {
+  "MPD2023_SUBSET_1820_2022.csv": {
+   "rows": 2639,
+   "source_sheet": "Full data",
+   "sha1": "3e003375ebd5a973a6fcc49a060b982b1c0bf21e",
+   "sha256": "5e1a12f1a97cdf99b544533405b0d9223dc6a3d61aae9c1e6afaa38c3a24beb3",
+   "bytes": 134520
+  },
+  "MPD2023_WORLD_GDPPC.csv": {
+   "rows": 28,
+   "source_sheet": "Regional data",
+   "sha1": "a55c4831ebf65d9f21125408a87a0483df57c7b4",
+   "sha256": "97b984b2b444ac9c6e3352af94324c66c4b8ab294a18d1674a430149e13ccded",
+   "bytes": 650
+  },
+  "OWID_POPULATION_SUBSET_1800_2023.csv": {
+   "rows": 2464,
+   "note": "Our World in Data long-run population; historical values use today's borders (HYDE/Gapminder before 1950, UN WPP after).",
+   "sha1": "32c5ae5b8949edc661e2dda2bad2ae1cc562ce18",
+   "sha256": "ff15642d2b6884702f73cc930a476595e0611bff45d16e6c95dfa934629995b2",
+   "bytes": 69045
+  },
+  "WPP2024_DEMOGRAPHY_SUBSET_1950_2023.csv": {
+   "rows": 814,
+   "note": "Estimates only (1950-2023); Medium-variant file, projections after 2023 excluded.",
+   "sha1": "37ca395f4005de52f5b0987159a085c7821c2f10",
+   "sha256": "db291e3c694f69668a59fc0f47357bdd1cd1c504e64c480f552f3a9885b3fbd7",
+   "bytes": 47822
+  }
+ },
+ "inputs": {
+  "mpd2023_web.xlsx": {
+   "url": "https://dataverse.nl/api/access/datafile/421302",
+   "doi": "10.34894/INZBF2",
+   "publisher_sha1": "1480521f602fbd5df64e108867ac971caa00ed1a",
+   "license": "CC BY 4.0",
+   "citation": "Bolt, J. and van Zanden, J. L. (2024), Maddison style estimates of the evolution of the world economy: A new 2023 update, Journal of Economic Surveys, 1-41.",
+   "sha1": "1480521f602fbd5df64e108867ac971caa00ed1a",
+   "sha256": "ecc5916ca12789b983fc4be437f8a354bbf4291323605324ac3e0aea4c57cbb6",
+   "bytes": 4903804
+  },
+  "owid_population.csv": {
+   "url": "https://ourworldindata.org/grapher/population.csv?v=1&csvType=full&useColumnShortNames=true",
+   "license": "CC BY 4.0 (OWID; underlying sources HYDE, Gapminder, UN WPP)",
+   "sha1": "71c1bd9d16290260c58f4d3fa07ff1e428a82bf0",
+   "sha256": "31c97de9a52df0792e34c4bb5ee80bf266cfa12bc0587c829715e0829a97a536",
+   "bytes": 1594193
+  },
+  "wpp2024_demo.csv.gz": {
+   "url": "https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_Demographic_Indicators_Medium.csv.gz",
+   "license": "CC BY 3.0 IGO (United Nations, DESA, Population Division, World Population Prospects 2024)",
+   "sha1": "e38397c0d8dfc8efa43008c5dd4c075254788470",
+   "sha256": "286ac36bb1415e2e1ade03acfef0a29f0e4c087e2f78e38c48f50c5df89082bc",
+   "bytes": 16557272
+  }
+ }
+}

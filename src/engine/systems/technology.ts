@@ -5,6 +5,9 @@ import type { Country, GameState } from '../types';
 import { S } from '../types';
 import { log } from '../core';
 import { regionsOf } from '../cache';
+/** CATCHUP-01 design parameters (calibrated on the MPD2023 scorecard). */
+export const TECH_DIFFUSION_DISCOUNT = 0.85;
+export const TECH_MATURITY_YEARS = 15;
 const OPEN: Record<string, number> = { isolationism: 0.03, protectionism: 0.3, free_trade: 0.7 };
 
 export function availableTechs(c: Country): string[] {
@@ -20,8 +23,12 @@ export function techCost(st: GameState, c: Country, id: string): number {
   // whole 1836-2026 tree by ~1985).
   const era = Math.pow(1 + Math.max(0, t.historical_year - year) / 12, 2);
   const known = knownShare(st, id);
-  const diffusion = 1 - 0.55 * Math.sqrt(known);
-  return t.cost * era * diffusion * 1000;
+  // CATCHUP-01: followers imitate rather than invent. Adoption gets cheaper the more countries already
+  // use a technology (was 0.55) and the longer it has existed (maturity), so laggards can converge
+  // instead of facing pioneer costs a century later (Brazil had 6 technologies in 2000).
+  const diffusion = 1 - TECH_DIFFUSION_DISCOUNT * Math.sqrt(known);
+  const maturity = 1 / (1 + Math.max(0, year - t.historical_year) / TECH_MATURITY_YEARS);
+  return t.cost * era * diffusion * maturity * 1000;
 }
 
 export function researchPoints(st: GameState, c: Country): number {

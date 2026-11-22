@@ -1,7 +1,7 @@
 // ECON-GROWTH scorecard: engine GDP-per-capita growth vs MPD2023 (CG-26 / CG-27), on identical
 // start and end years for both series (MSG-041).
 //
-//   npx tsx tools/growth-report.ts [seed=1] [--json out.json]
+//   npx tsx tools/growth-report.ts [seed=1] [endYear=1913|1950|1980|2000|2022] [--json out.json]
 //
 // Definitions (read before interpreting errors):
 // - Engine series: REAL GDP per capita (regional value added at constant 1836 base prices,
@@ -17,27 +17,37 @@
 //   Russia and Turkey from 1870. No MPD value is interpolated.
 // - Reported: ratio end/base for both series, annualised growth (%/year), and log error
 //   ln(engine ratio / MPD ratio). This is GDP per capita, not labour productivity or TFP.
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { loadNodeData } from '../src/engine/node';
 import { createGame } from '../src/engine/init';
 import { stepMonth } from '../src/engine/simulation';
 
-/** MPD2023 GDP per capita, 2011 international-$ (CG-26 §2.1). `null` = no verified observation. */
-export const MPD2023: Record<string, { label: string; values: Record<number, number | null> }> = {
-  GBR: { label: 'United Kingdom', values: { 1836: 3937, 1850: 4332, 1870: 5829, 1900: 7594, 1913: 8212 } },
-  FRA: { label: 'France', values: { 1836: 2089, 1850: 2545, 1870: 2990, 1900: 4584, 1913: 5555 } },
-  PRU: { label: 'Germany (engine: Prussia)', values: { 1836: 2173, 1850: 2276, 1870: 2931, 1900: 4758, 1913: 5815 } },
-  USA: { label: 'United States', values: { 1836: 3470, 1850: 3632, 1870: 4803, 1900: 8038, 1913: 10108 } },
-  QNG: { label: 'China (engine: Qing)', values: { 1836: null, 1850: 858, 1870: 945, 1900: 972, 1913: 985 } },
-  EIC: { label: 'India (engine: EIC home territory)', values: { 1836: null, 1850: 947, 1870: 850, 1900: 955, 1913: 1073 } },
-  JAP: { label: 'Japan', values: { 1836: null, 1850: 1436, 1870: 1580, 1900: 2123, 1913: 2431 } },
-  BRA: { label: 'Brazil', values: { 1836: null, 1850: 867, 1870: 1084, 1900: 874, 1913: 1046 } },
-  RUS: { label: 'Russia', values: { 1836: null, 1850: null, 1870: 789, 1900: 1049, 1913: 1163 } },
-  TUR: { label: 'Ottoman Empire / Turkey', values: { 1836: null, 1850: null, 1870: 1165, 1900: null, 1913: 1473 } },
+/**
+ * MPD2023 GDP per capita (2011 international-$), read from the checksummed extract of the original
+ * workbook (docs/research/data/MPD2023_SUBSET_1820_2022.csv; manifest CG29_DATA_MANIFEST.json).
+ * Engine country → MPD series. `null` = no observation in MPD2023 for that year (never interpolated).
+ */
+const SERIES: Record<string, { code: string; label: string }> = {
+  GBR: { code: 'GBR', label: 'United Kingdom' }, FRA: { code: 'FRA', label: 'France' },
+  PRU: { code: 'DEU', label: 'Germany (engine: Prussia)' }, USA: { code: 'USA', label: 'United States' },
+  QNG: { code: 'CHN', label: 'China (engine: Qing)' }, EIC: { code: 'IND', label: 'India (engine: EIC home territory)' },
+  JAP: { code: 'JPN', label: 'Japan' }, BRA: { code: 'BRA', label: 'Brazil' },
+  RUS: { code: 'RUS', label: 'Russian Federation series (engine: Russian Empire)' }, TUR: { code: 'TUR', label: 'Turkey (engine: Ottoman Empire)' },
 };
-const YEARS = [1836, 1850, 1870, 1900, 1913] as const;
+const ALL_YEARS = [1836, 1850, 1870, 1900, 1913, 1950, 1980, 2000, 2022] as const;
+function loadMpd(): Record<string, { label: string; values: Record<number, number | null> }> {
+  const text = readFileSync(new URL('../docs/research/data/MPD2023_SUBSET_1820_2022.csv', import.meta.url), 'utf8');
+  const v = new Map<string, number>();
+  for (const line of text.trim().split('\n').slice(1)) {
+    const [code, , , year, gdppc] = line.split(',');
+    if (gdppc !== '') v.set(`${code}|${year}`, Number(gdppc));
+  }
+  return Object.fromEntries(Object.entries(SERIES).map(([id, s]) => [id, { label: s.label, values: Object.fromEntries(ALL_YEARS.map((y) => [y, v.get(`${s.code}|${y}`) ?? null])) }]));
+}
+export const MPD2023 = loadMpd();
 
-export function runGrowthScorecard(seed = 1) {
+export function runGrowthScorecard(seed = 1, endYear = 1913) {
+  const YEARS = ALL_YEARS.filter((y) => y <= endYear);
   loadNodeData();
   const st = createGame({ mode: 'historical', seed, player: null });
   const ids = Object.keys(MPD2023);
@@ -70,20 +80,21 @@ export function runGrowthScorecard(seed = 1) {
       });
     }
   }
-  const final = rows.filter((r) => r.end === 1913);
+  const final = rows.filter((r) => r.end === YEARS[YEARS.length - 1]);
   const mean = (xs: number[]) => xs.reduce((s, x) => s + x, 0) / Math.max(1, xs.length);
   const summary = {
-    meanAbsLogError1913_all: +mean(final.map((r) => Math.abs(r.logError as number))).toFixed(3),
-    meanAbsLogError1913_industrialisers: +mean(final.filter((r) => ['GBR', 'FRA', 'PRU', 'USA'].includes(r.id as string)).map((r) => Math.abs(r.logError as number))).toFixed(3),
-    meanAbsLogError1913_others: +mean(final.filter((r) => !['GBR', 'FRA', 'PRU', 'USA'].includes(r.id as string)).map((r) => Math.abs(r.logError as number))).toFixed(3),
+    endYear: YEARS[YEARS.length - 1], meanAbsLogErrorEnd_all: +mean(final.map((r) => Math.abs(r.logError as number))).toFixed(3),
+    meanAbsLogErrorEnd_industrialisers: +mean(final.filter((r) => ['GBR', 'FRA', 'PRU', 'USA'].includes(r.id as string)).map((r) => Math.abs(r.logError as number))).toFixed(3),
+    meanAbsLogErrorEnd_others: +mean(final.filter((r) => !['GBR', 'FRA', 'PRU', 'USA'].includes(r.id as string)).map((r) => Math.abs(r.logError as number))).toFixed(3),
   };
   return { seed, territory: 'engine: 1836 home territory still owned; MPD2023: national aggregate (coverage differs)', engine, rows, summary };
 }
 
 if (process.argv[1]?.endsWith('growth-report.ts')) {
   const args = process.argv.slice(2);
-  const seed = Number(args.find((a) => /^\d+$/.test(a)) ?? 1);
-  const out = runGrowthScorecard(seed);
+  const nums = args.filter((a) => /^\d+$/.test(a)).map(Number);
+  const seed = nums[0] ?? 1; const endYear = nums[1] ?? 1913;
+  const out = runGrowthScorecard(seed, endYear);
   for (const r of out.rows) console.log(`${String(r.id).padEnd(4)} ${r.base}->${r.end}  engine ×${r.engineRatio} (${r.engineAnnualPct}%/y)  MPD ×${r.mpdRatio} (${r.mpdAnnualPct}%/y)  logErr ${r.logError}`);
   console.log(JSON.stringify(out.summary));
   const j = args.indexOf('--json');

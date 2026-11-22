@@ -186,6 +186,22 @@ export function lawReservedByHistory(st: GameState, c: Country, group: LawGroup)
   return false;
 }
 
+/** CATCHUP-01: weight of international emulation in reform choices (design parameter). */
+export const LAW_EMULATION = 1.2;
+
+let lawShareCache: { st: GameState; tick: number; map: Map<string, number> } | null = null;
+/** Share of sovereign, centralised living states that hold `group = value` (cached per month). */
+export function lawShare(st: GameState, group: LawGroup, value: string): number {
+  if (!lawShareCache || lawShareCache.st !== st || lawShareCache.tick !== st.tick) {
+    const states = Object.values(st.countries).filter((x) => x.alive && !x.decentralized && !x.overlord);
+    const map = new Map<string, number>();
+    for (const x of states) for (const [g2, v2] of Object.entries(x.laws)) map.set(`${g2}:${v2}`, (map.get(`${g2}:${v2}`) ?? 0) + 1);
+    for (const [k, n] of map) map.set(k, n / Math.max(1, states.length));
+    lawShareCache = { st, tick: st.tick, map };
+  }
+  return lawShareCache.map.get(`${group}:${value}`) ?? 0;
+}
+
 function reformAI(st: GameState, c: Country) {
   if (c.reform) return;
   let best: { g: LawGroup; v: string; u: number } | null = null;
@@ -207,6 +223,9 @@ function reformAI(st: GameState, c: Country) {
       u -= historicalBias(st, c, 'law_keep', `${g}:${c.laws[g]}`);
       if (g === 'trade' && v === 'free_trade' && c.personality.commerce > 0.7) u += 0.2;
       if (g === 'trade' && c.laws.trade === 'isolationism' && c.foreignPressure > 0.8) u += 0.4;
+      // CATCHUP-01 emulation: a progressive law that most states already have attracts reformers
+      // (mass schooling, emancipation, wider franchise spread internationally); both modes.
+      if (progressive) u += LAW_EMULATION * Math.max(0, lawShare(st, g, v) - 0.3);
       if (!best || u > best.u) best = { g, v, u };
     }
   }
