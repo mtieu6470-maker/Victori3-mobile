@@ -856,6 +856,54 @@
       "review_note": "Ring-spinning frames (HY-03 C6); 640 px original shown whole.",
       "fit": "contain",
       "max_upscale": 1.5
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "telephone",
+      "loc_item": "2017651466",
+      "name": "Điện thoại",
+      "description": "Operators at a long-distance telephone switchboard; Sears, Roebuck & Co. stereograph, 1900-1910 (left view)",
+      "period": {
+        "from": 1885,
+        "to": 1885
+      },
+      "inset": [
+        0.06,
+        0.06,
+        0.5,
+        0.12
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "fit": "contain",
+      "max_upscale": 1.5,
+      "review_note": "Long-distance switchboard (HY-03 C8); left half of the stereo card."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "electricity",
+      "loc_item": "2007682978",
+      "name": "Điện",
+      "description": "Edison's electric light: the generator, the armature and the electric meter; wood engraving, 1880",
+      "period": {
+        "from": 1882,
+        "to": 1882
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "fit": "contain",
+      "max_upscale": 1.5,
+      "review_note": "Edison dynamos at Menlo Park, 1880 (HY-03 follow-up); portrait print shown whole."
     }
   ]
 }

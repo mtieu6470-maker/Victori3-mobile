@@ -1521,6 +1521,60 @@
       }
     },
     {
+      "id": "ill_electricity",
+      "type": "illustration_tech",
+      "subject": "electricity",
+      "name": "Điện",
+      "description": "Edison's electric light: the generator, the armature and the electric meter; wood engraving, 1880",
+      "path": "content/illustrations/technologies/electricity.webp",
+      "thumbnail_path": "content/illustrations/technologies/electricity_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1882,
+        "to": 1882
+      },
+      "quality": "supported",
+      "date": "1880.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/cph/3a40000/3a42000/3a42200/3a42209r.jpg",
+        "page": "https://www.loc.gov/item/2007682978/",
+        "statement": "LoC Illus. in AP2 .H32 1880 (Case Y) [P&P]",
+        "title": "Edison's electric light. the generator, the armature, & electric metre",
+        "source_pixels": [
+          439,
+          640
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": null,
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Edison dynamos at Menlo Park, 1880 (HY-03 follow-up); portrait print shown whole."
+      }
+    },
+    {
       "id": "ill_interchangeable_parts",
       "type": "illustration_tech",
       "subject": "interchangeable_parts",
@@ -2274,6 +2328,60 @@
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
         "note": "Telegraph operating room; caption trimmed."
+      }
+    },
+    {
+      "id": "ill_telephone",
+      "type": "illustration_tech",
+      "subject": "telephone",
+      "name": "Điện thoại",
+      "description": "Operators at a long-distance telephone switchboard; Sears, Roebuck & Co. stereograph, 1900-1910 (left view)",
+      "path": "content/illustrations/technologies/telephone.webp",
+      "thumbnail_path": "content/illustrations/technologies/telephone_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1885,
+        "to": 1885
+      },
+      "quality": "supported",
+      "date": "Chicago, Ill. : Sears, Roebuck & Co., [between 1900 and 1910]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/stereo/1s00000/1s08000/1s08700/1s08725v.jpg",
+        "page": "https://www.loc.gov/item/2017651466/",
+        "statement": "LoC LOT 13694, no. 4 [P&P]",
+        "title": "Long distance telephone switchboard / [published by] Sears, Roebuck & Co., Chicago, Ill.",
+        "source_pixels": [
+          1024,
+          544
+        ],
+        "crop": {
+          "inset": [
+            0.06,
+            0.06,
+            0.5,
+            0.12
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Sears, Roebuck and Company, publisher",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Long-distance switchboard (HY-03 C8); left half of the stereo card."
       }
     },
     {
