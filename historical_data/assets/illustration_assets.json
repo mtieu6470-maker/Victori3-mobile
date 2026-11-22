@@ -2280,6 +2280,61 @@
       }
     },
     {
+      "id": "ill_machine_tools",
+      "type": "illustration_tech",
+      "subject": "machine_tools",
+      "name": "Máy công cụ thay dao nhanh",
+      "description": "Small treadle-driven metalworking lathe; engraving from Alfred Parr, Machine Tools and Workshop Practice, 1905",
+      "path": "content/illustrations/technologies/machine_tools.webp",
+      "thumbnail_path": "content/illustrations/technologies/machine_tools_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1880,
+        "to": 1880
+      },
+      "quality": "supported",
+      "date": "1905",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "19th_century_knowledge_metalworking_small_treadle_lathe.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:19th_century_knowledge_metalworking_small_treadle_lathe.jpg",
+        "statement": "{{PD-US}}",
+        "title": "Small treadle-driven metalworking lathe; engraving from Alfred Parr, Machine Tools and Workshop Practice, 1905",
+        "original_source": "Machine tools and workshop practice for engineering students and apprentices",
+        "source_pixels": [
+          698,
+          625
+        ],
+        "crop": {
+          "inset": [
+            0.0,
+            0.0,
+            0.0,
+            0.11
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:19th_century_knowledge_metalworking_small_treadle_lathe.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-US}}"
+      },
+      "author": "Alfred Parr (book illustration)",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Machine tool engraving (HY-04); caption trimmed."
+      }
+    },
+    {
       "id": "ill_mechanical_reaper",
       "type": "illustration_tech",
       "subject": "mechanical_reaper",
@@ -2604,6 +2659,61 @@
       }
     },
     {
+      "id": "ill_punched_card_tabulation",
+      "type": "illustration_tech",
+      "subject": "punched_card_tabulation",
+      "name": "Máy lập bảng thẻ đục lỗ",
+      "description": "Hollerith electrical counting machines in use for the 1890 U.S. census; Scientific American engraving, 30 August 1890",
+      "path": "content/illustrations/technologies/punched_card_tabulation.webp",
+      "thumbnail_path": "content/illustrations/technologies/punched_card_tabulation_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1910,
+        "to": 1910
+      },
+      "quality": "supported",
+      "date": "1890-08",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "1890_Census_Hollerith_Electrical_Counting_Machines_Sci_Amer.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:1890_Census_Hollerith_Electrical_Counting_Machines_Sci_Amer.jpg",
+        "statement": "{{PD-US}}",
+        "title": "Hollerith electrical counting machines in use for the 1890 U.S. census; Scientific American engraving, 30 August 1890",
+        "original_source": "Illustration in \"Scientific American\" magazine, Aug. 30, 1890. Via reproduction at",
+        "source_pixels": [
+          622,
+          480
+        ],
+        "crop": {
+          "inset": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:1890_Census_Hollerith_Electrical_Counting_Machines_Sci_Amer.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-US}}"
+      },
+      "author": "Scientific American engraver",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Punched-card tabulator (HY-04)."
+      }
+    },
+    {
       "id": "ill_quick_firing_artillery",
       "type": "illustration_tech",
       "subject": "quick_firing_artillery",
@@ -2709,6 +2819,61 @@
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
         "note": "Pasteur developed the rabies vaccine (1885); portrait print shown whole. (Claude, LoC search 2026-11-22)"
+      }
+    },
+    {
+      "id": "ill_radio_telegraphy",
+      "type": "illustration_tech",
+      "subject": "radio_telegraphy",
+      "name": "Vô tuyến điện báo",
+      "description": "The Marconi spark transmitter at Poldhu, Cornwall, 1901, used for the first transatlantic radio signal",
+      "path": "content/illustrations/technologies/radio_telegraphy.webp",
+      "thumbnail_path": "content/illustrations/technologies/radio_telegraphy_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1905,
+        "to": 1905
+      },
+      "quality": "supported",
+      "date": "1901",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "The_Marconi_Company_transmitter_at_Poldhu,_Cornwall,_1901.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:The_Marconi_Company_transmitter_at_Poldhu%2C_Cornwall%2C_1901.jpg",
+        "statement": "{{PD-scan|Anonymous-EU}}",
+        "title": "The Marconi spark transmitter at Poldhu, Cornwall, 1901, used for the first transatlantic radio signal",
+        "original_source": "Marconi in Newfoundland: The 1901 Transatlantic Radio Experiment, Figure 7",
+        "source_pixels": [
+          951,
+          675
+        ],
+        "crop": {
+          "inset": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Marconi_Company_transmitter_at_Poldhu%2C_Cornwall%2C_1901.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-scan|Anonymous-EU}}"
+      },
+      "author": "Marconi Company (anonymous)",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Wireless transmitter apparatus (HY-04)."
       }
     },
     {
@@ -3033,6 +3198,116 @@
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
         "note": "Portrait-format chromolithograph shown whole."
+      }
+    },
+    {
+      "id": "ill_sound_recording",
+      "type": "illustration_tech",
+      "subject": "sound_recording",
+      "name": "Máy ghi và phát âm thanh",
+      "description": "Thomas Edison with his tinfoil phonograph, 1878; Brady-Handy photograph (Library of Congress)",
+      "path": "content/illustrations/technologies/sound_recording.webp",
+      "thumbnail_path": "content/illustrations/technologies/sound_recording_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1890,
+        "to": 1890
+      },
+      "quality": "supported",
+      "date": "(probably 18 April 1878, based on the extremely similar photo",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Edison_and_phonograph.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Edison_and_phonograph.jpg",
+        "statement": "{{PD-old}}",
+        "title": "Thomas Edison with his tinfoil phonograph, 1878; Brady-Handy photograph (Library of Congress)",
+        "original_source": "Brady-Handy Photograph Collection (Library of Congress) - http://hdl.loc.gov/loc.pnp/cwpbh.04044",
+        "source_pixels": [
+          1600,
+          2016
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Edison_and_phonograph.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old}}"
+      },
+      "author": "Brady-Handy studio",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Edison and the phonograph (HY-04), shown whole."
+      }
+    },
+    {
+      "id": "ill_steam_turbines",
+      "type": "illustration_tech",
+      "subject": "steam_turbines",
+      "name": "Tuabin hơi phát điện",
+      "description": "Turbinia, the first steam-turbine vessel, at speed; photograph by Alfred John West, 1897-1898",
+      "path": "content/illustrations/technologies/steam_turbines.webp",
+      "thumbnail_path": "content/illustrations/technologies/steam_turbines_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1895,
+        "to": 1895
+      },
+      "quality": "supported",
+      "date": "1897",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Turbinia_At_Speed.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Turbinia_At_Speed.jpg",
+        "statement": "{{PD-old}}",
+        "title": "Turbinia, the first steam-turbine vessel, at speed; photograph by Alfred John West, 1897-1898",
+        "original_source": "'Our Navy'",
+        "source_pixels": [
+          2000,
+          1408
+        ],
+        "crop": {
+          "inset": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Turbinia_At_Speed.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old}}"
+      },
+      "author": "Alfred John West",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Parsons turbine demonstration ship (HY-04)."
       }
     },
     {
@@ -3573,6 +3848,61 @@
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
         "note": "Period advertisement of a vulcanized-rubber goods firm (storefront band)."
+      }
+    },
+    {
+      "id": "ill_x_ray_diagnosis",
+      "type": "illustration_tech",
+      "subject": "x_ray_diagnosis",
+      "name": "Chụp X-quang chẩn đoán",
+      "description": "The first medical X-ray: Wilhelm Röntgen's radiograph of Anna Bertha Ludwig's hand, 22 December 1895",
+      "path": "content/illustrations/technologies/x_ray_diagnosis.webp",
+      "thumbnail_path": "content/illustrations/technologies/x_ray_diagnosis_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1905,
+        "to": 1905
+      },
+      "quality": "supported",
+      "date": "1895-12-22",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "First_medical_X-ray_by_Wilhelm_Röntgen_of_his_wife_Anna_Bertha_Ludwig's_hand_-_18951222.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:First_medical_X-ray_by_Wilhelm_R%C3%B6ntgen_of_his_wife_Anna_Bertha_Ludwig%27s_hand_-_18951222.jpg",
+        "statement": "{{PD-old-100-expired}}",
+        "title": "The first medical X-ray: Wilhelm Röntgen's radiograph of Anna Bertha Ludwig's hand, 22 December 1895",
+        "original_source": "Source 1: <br>",
+        "source_pixels": [
+          1400,
+          2013
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:First_medical_X-ray_by_Wilhelm_R%C3%B6ntgen_of_his_wife_Anna_Bertha_Ludwig%27s_hand_-_18951222.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-100-expired}}"
+      },
+      "author": "Wilhelm Conrad Röntgen",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Iconic early radiograph (HY-04), shown whole."
       }
     }
   ],

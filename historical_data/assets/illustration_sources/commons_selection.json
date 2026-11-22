@@ -265,6 +265,166 @@
       "review_note": "The product of an agricultural machine maker (HY-03, MSG-072); advertising text cropped away.",
       "fit": "contain",
       "max_upscale": 1.0
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "steam_turbines",
+      "commons_file": "Turbinia_At_Speed.jpg",
+      "year": 1898,
+      "width": 2000,
+      "author": "Alfred John West",
+      "name": "Tuabin hơi phát điện",
+      "description": "Turbinia, the first steam-turbine vessel, at speed; photograph by Alfred John West, 1897-1898",
+      "period": {
+        "from": 1895,
+        "to": 1895
+      },
+      "inset": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Parsons turbine demonstration ship (HY-04)."
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "x_ray_diagnosis",
+      "commons_file": "First_medical_X-ray_by_Wilhelm_Röntgen_of_his_wife_Anna_Bertha_Ludwig's_hand_-_18951222.jpg",
+      "year": 1895,
+      "width": 1400,
+      "author": "Wilhelm Conrad Röntgen",
+      "name": "Chụp X-quang chẩn đoán",
+      "description": "The first medical X-ray: Wilhelm Röntgen's radiograph of Anna Bertha Ludwig's hand, 22 December 1895",
+      "period": {
+        "from": 1905,
+        "to": 1905
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Iconic early radiograph (HY-04), shown whole.",
+      "fit": "contain",
+      "max_upscale": 1.5
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "machine_tools",
+      "commons_file": "19th_century_knowledge_metalworking_small_treadle_lathe.jpg",
+      "year": 1905,
+      "width": 698,
+      "author": "Alfred Parr (book illustration)",
+      "name": "Máy công cụ thay dao nhanh",
+      "description": "Small treadle-driven metalworking lathe; engraving from Alfred Parr, Machine Tools and Workshop Practice, 1905",
+      "period": {
+        "from": 1880,
+        "to": 1880
+      },
+      "inset": [
+        0.0,
+        0.0,
+        0.0,
+        0.11
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Machine tool engraving (HY-04); caption trimmed.",
+      "fit": "contain",
+      "max_upscale": 1.5
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "sound_recording",
+      "commons_file": "Edison_and_phonograph.jpg",
+      "year": 1878,
+      "width": 1600,
+      "author": "Brady-Handy studio",
+      "name": "Máy ghi và phát âm thanh",
+      "description": "Thomas Edison with his tinfoil phonograph, 1878; Brady-Handy photograph (Library of Congress)",
+      "period": {
+        "from": 1890,
+        "to": 1890
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Edison and the phonograph (HY-04), shown whole.",
+      "fit": "contain",
+      "max_upscale": 1.5
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "radio_telegraphy",
+      "commons_file": "The_Marconi_Company_transmitter_at_Poldhu,_Cornwall,_1901.jpg",
+      "year": 1901,
+      "width": 951,
+      "author": "Marconi Company (anonymous)",
+      "name": "Vô tuyến điện báo",
+      "description": "The Marconi spark transmitter at Poldhu, Cornwall, 1901, used for the first transatlantic radio signal",
+      "period": {
+        "from": 1905,
+        "to": 1905
+      },
+      "inset": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Wireless transmitter apparatus (HY-04).",
+      "fit": "contain",
+      "max_upscale": 1.5
+    },
+    {
+      "type": "illustration_tech",
+      "subject": "punched_card_tabulation",
+      "commons_file": "1890_Census_Hollerith_Electrical_Counting_Machines_Sci_Amer.jpg",
+      "year": 1890,
+      "width": 622,
+      "author": "Scientific American engraver",
+      "name": "Máy lập bảng thẻ đục lỗ",
+      "description": "Hollerith electrical counting machines in use for the 1890 U.S. census; Scientific American engraving, 30 August 1890",
+      "period": {
+        "from": 1910,
+        "to": 1910
+      },
+      "inset": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Punched-card tabulator (HY-04).",
+      "fit": "contain",
+      "max_upscale": 1.5
     }
   ]
 }
