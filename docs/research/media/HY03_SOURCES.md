@@ -253,3 +253,93 @@ This follow-up addresses Claude's visual-review feedback and the six named compa
 | remaining 30 technologies | Not individually source-cleared; next research phase must enumerate and locate no more than two verified candidates per technology |
 
 **Do not ingest** the candidates marked contextual, undated, post-1914, or rights-unverified. Claude must visually inspect each original before selection.
+
+
+---
+
+# HY-03 follow-up — MSG-071 (2026-11-22)
+
+Scope: only the four non-LoC company gaps delegated by Claude. Candidate limit is two per subject. No binaries, manifests, or game content were changed. The visual descriptions below are based on opening the Commons original or its high-resolution derivative where available; a source that failed visual inspection is explicitly marked.
+
+## 1. sewing_machine_maker
+
+**Candidate A — Singer sewing-machine factory, Wittenberge**
+- Exact Commons file: [Wittenberge Singer-Nähmaschinenfabrik.jpg](https://commons.wikimedia.org/wiki/File:Wittenberge_Singer-N%C3%A4hmaschinenfabrik.jpg)
+- Original: https://upload.wikimedia.org/wikipedia/commons/0/0a/Wittenberge_Singer-N%C3%A4hmaschinenfabrik.jpg
+- Caption/title visible in image: “Singer Nähmaschinen-Fabrik in Wittenberge Bez. Potsdam”.
+- Date: catalogued only as 1900s; exact year unknown. Creator: anonymous; print publisher Eckert & Pflug, Leipzig. Source cited on Commons: Dorotheum.
+- Original dimensions: 5,445 × 2,300 px.
+- Visual review: broad bird's-eye industrial panorama of a large multi-wing factory complex, rows of factory windows, several chimneys and internal yards. It is a factory view, not merely an advertisement or sewing-machine close-up.
+- Rights: Commons marks the underlying anonymous two-dimensional work PD because the author is unknown and the work is old; it notes jurisdiction caveats, particularly possible restrictions in Germany and other jurisdictions. Verify the original print's publication history and applicable territories before commercial distribution. Do not treat the Commons tag alone as universal legal clearance.
+- Crop: wide 16:9 crop is feasible; retain the central factory blocks and chimneys, excluding some blank border. Avoid excessive sharpening because this is a reproduction of a print.
+- Status: strongest factory-specific lead; date is within the decade only at coarse precision, and legal review remains necessary.
+
+**Candidate B — Singer “In the Home / In the Factory” advertising poster, 1892**
+- Exact Commons file: [Singer. Sewing machines in the factory affiche, non identifié.jpg](https://commons.wikimedia.org/wiki/File:Singer._Sewing_machines_in_the_factory_affiche,_non_identifi%C3%A9.jpg)
+- BnF/Gallica identifier: ark:/12148/btv1b531276034; https://gallica.bnf.fr/ark:/12148/btv1b531276034
+- Date: 1892. Publisher: Paris, anonymous; BnF provenance, département Estampes et photographie, ROUL-ENT DP-20.
+- Original dimensions: 12,269 × 18,533 px; color lithographic poster, 150 × 100 cm.
+- Visual review: vertical advertisement split into two scenes: an individual Singer sewing machine in a domestic setting above, and a row of women operating sewing machines in a workshop/factory scene below; large Singer lettering dominates the center. It does not depict a verified Singer company factory building.
+- Rights: Commons page marks CC0 1.0 and records BnF “Public domain”.
+- Crop: do not crop to 16:9 as a whole. If used, preserve the lower factory vignette as an explicitly illustrative/advertising image, not a documentary factory photograph.
+- Status: rights-cleared high-resolution contextual illustration; weaker than Candidate A for the company-kind factory slot.
+
+Not selected: “People leaving Singer Sewing Machine Factory, Clydebank” is only 757 × 469 px, date merely “probably circa 1900”, source is a postcard resale listing, and its anonymous-author PD rationale carries an explicit reasonable-enquiry/publication-right warning. Not suitable as a cleared production asset.
+
+## 2. harvester_manufacturer / agricultural_machine_maker
+
+**Candidate A — Deering Harvester Works, Chicago**
+- Exact Commons file: [Deering Harvester Works (NBY 417737).jpg](https://commons.wikimedia.org/wiki/File:Deering_Harvester_Works_(NBY_417737).jpg)
+- Original: https://upload.wikimedia.org/wikipedia/commons/c/ca/Deering_Harvester_Works_%28NBY_417737%29.jpg
+- Archive record: Newberry Library / CARLI Curt Teich postcard collection, item NBY 417737, production number VO1614; https://collections.carli.illinois.edu/cdm/singleitem/collection/nby_teich/id/417737
+- Date: unknown in both Commons and the linked catalogue record accessible in this pass. Author/photographer: unknown. Location: Chicago, Illinois.
+- Dimensions: 828 × 525 px.
+- Visual review: postcard depicts a large multi-storey industrial works on the North Branch Chicago River, several factory blocks, tall chimneys, rail-side/river-side industrial frontage; the printed caption explicitly reads “Deering Harvester Works, on North Branch Chicago River, Chicago”.
+- Rights: Commons records “No known copyright for Curt Teich postcards printed before 1964” with an exception for photographer copyright or trademarked imagery; page labels the file PD-US-expired. This is not a universal worldwide PD assertion. Need date/photographer/trademark check before production use.
+- Crop: composition is already wide, but only 828 × 525 px; adequate for a small thumbnail at best, not a high-resolution scene. Do not upscale and present as a high-quality source.
+- Status: exact subject, but unknown date and low resolution make it a research lead, not an ingest-ready asset.
+
+**Candidate B — McCormick No. 4 Reaper advertisement (1896)**
+- Exact Commons file: [McCormick No 4 Reaper (1896) (ADVERT 415).jpeg](https://commons.wikimedia.org/wiki/File:McCormick_No_4_Reaper_(1896)_(ADVERT_415).jpeg)
+- Source collection: University of Washington, Early Advertising of the West, digital ID ADV0221; original publication 4 July 1896, Trade Register vol. 4 no. 27, p. 49.
+- Dimensions: 2,000 × 1,453 px.
+- Visual review: advertisement depicts the McCormick No. 4 horse-drawn reaper with horses and field-work context; it is not a factory scene.
+- Rights: Commons marks PD-US (published before 1931); publisher/advertiser is McCormick Harvesting Machine Company.
+- Crop: retain the full machinery and horse team; 4:3-ish image should be letterboxed rather than aggressively cropped.
+- Status: suitable historical product/technology illustration if the company-kind slot can accept equipment use rather than factory architecture; not a substitute for a works image.
+
+The 1893 LOC exposition catalogue remains a corroborating primary-source lead for McCormick, Johnston Harvester and Walter A. Wood, but is text, not a factory image. No verified pre-1915 high-resolution McCormick/Deering works photograph was found in this pass.
+
+## 3. turbine_manufacturer
+
+- No candidate meeting the project's PD/CC0 requirement and image-quality threshold was found.
+- Search lead reviewed: [AEG Turbinenfabrik Huttenstrasse Turbinenhalle Foto um 1900](https://commons.wikimedia.org/wiki/File:AEG_Turbinenfabrik_Huttenstrasse_Turbinenhalle_Foto_um_1900_Vogt_Arnold_92526368.jpeg), Arnold Vogt, c.1900, Prometheus Bildarchiv / Humboldt-Universität Berlin. Original is only 679 × 505 px. Commons license is Free Art License (FAL), not PD/CC0. Its description explicitly warns that this is not the famous Peter Behrens turbine hall built 1908–1909. Exclude under current project source policy.
+- Modern photos of the surviving AEG Turbinenhalle are also excluded: the building is period architecture (1908–09), but the photographs are modern copyrighted works (CC BY-SA), not PD/CC0.
+- Historical context verification: Newcastle's HER record identifies C. A. Parsons' Heaton Works, built in 1889 for steam-turbine and high-speed electrical-plant development/manufacture. This verifies the target works and provides search terminology, but is not an image source: https://sitelines.newcastle.gov.uk/SMR/4334.
+- Status: no acceptable image candidate; do not substitute a modern building photograph or an unrelated generator engraving.
+
+## 4. wrought_iron_works
+
+**Candidate A — Fitzroy Iron Works puddling furnace engraving, c.1868**
+- Exact Commons file: [Fitzroy Iron Works (Puddling Furnace) c.1868 (Illustrated Sydney News, 18 Feb 1869, p.4).jpg](https://commons.wikimedia.org/wiki/File:Fitzroy_Iron_Works_(Puddling_Furnace)_c.1868_(_Illustrated_Sydney_News_Thu_18_Feb_1869_Page_4).jpg)
+- Original dimensions: 926 × 604 px (127 KB).
+- Creator: unknown artist; engraving published in *Illustrated Sydney News*, 18 February 1869, page 4. The Trove article description explains that the pictured furnace is where cast iron is converted into wrought iron by puddling.
+- Rights: Commons lists Public Domain Mark 1.0 and PD in the US; its source notes the National Library of Australia digitised pre-1954 newspapers as out of copyright.
+- Visual status: catalogue title, newspaper date and explanatory caption establish the subject, but the original-image fetch failed in this pass; therefore I do not claim an independent visual inspection. The file is also far below the desired scene resolution.
+- Crop: keep the full engraving and its caption; do not crop to 16:9. Upscaling would be conspicuous.
+- Status: strong exact-subject archival lead, but not ingest-ready until the source scan is visually checked and a higher-resolution master is found.
+
+**Candidate B — Lesley, *The iron manufacturer's guide* (1866)**
+- LOC item: https://www.loc.gov/item/06022650/
+- Public-domain book, 816 digitized images; title covers furnaces, forges and rolling mills. It remains a useful source corpus, but no specific higher-resolution puddling plate was identified in this pass. Do not cite the entire book as if one particular plate had been selected.
+
+## Disposition
+
+| Subject | Best result | Production status |
+|---|---|---|
+| sewing_machine_maker | Wittenberge Singer factory panorama; 1892 BnF Singer poster as alternate contextual illustration | Candidate A needs jurisdiction/date review; Candidate B is CC0 but not a real factory view |
+| harvester_manufacturer / agricultural_machine_maker | Deering Harvester Works postcard; McCormick 1896 reaper advertisement | Both leads only; Deering date/resolution inadequate, McCormick is product use not factory |
+| turbine_manufacturer | AEG c.1900 interior photo identified | Rejected: FAL and 679 × 505; no PD/CC0 alternative |
+| wrought_iron_works | Fitzroy puddling-furnace engraving, 1869 | Exact lead but low-resolution and image fetch not visually confirmed; no ingest |
+
+No image has been downloaded into the repository, no manifest or asset path has been changed, and no candidate is being represented as ingested or approved. The strongest new leads are Singer Wittenberge and the 1892 BnF poster; Deering and Fitzroy are useful archival leads but fail current date/resolution/visual-clearance requirements.
