@@ -1,3 +1,30 @@
+## 2026-11-22 — TECH-01 tree 1836-2026, DEMO-01, rail density, Meiji path; scorecard 0.224
+
+- **TECH-01** (CG-28): the tree grows from 38 to 130 technologies covering 1836–2026.
+  - Each new tech has its commercial-diffusion year, a CG-28 source and a `tfp` design weight; all have Vietnamese UI names.
+  - The ahead-of-time research cost is now quadratic (frontier countries hold ~128/130 by 2010, instead of exhausting the tree by ~1985).
+  - Growth now follows the knowledge stock Σtfp × literacy², with an adoption half-life of ~3 years.
+  - Telephone dated 1880 → 1885 (it predated its prerequisite).
+  - `tests/tech-catalogue.test.ts`: ids, prerequisite years, acyclic tree, sources, names.
+- **DEMO-01:**
+  - Medical-tech mortality scale 0.1 → 0.04; death floor 0.008; fertility transition (literacy × fallen mortality).
+  - World population: 1985 4.83 bn (UN 4.85), 2010 7.3 bn (6.95); before the fix, 16.4 bn.
+  - Evidence: `docs/audit/econ/LONGRUN_1836_2026_DEMO01_2026-11-22.txt`.
+- **ECON-RAIL-01:** railway effect by network density per area; Qing no longer builds 155 levels in the 1860s.
+- **HIST-JAP-01:**
+  - New `legitimacy_crisis` effect: a sustained shift that a regime change clears; the Kanagawa option applies it (CG-28 Bakumatsu).
+  - In Historical Mode, laws governed by a pending decision window are reserved for it.
+  - Japan now opens, then the Meiji Restoration fires in 1863.
+- **ECON-CAL-04 (part):** cash-crop demand is income-inelastic (Engel, 0.5) and base-year balanced.
+- **Scorecard** (`docs/audit/econ/ECON_GROWTH_SCORECARD_TECH01_2026-11-22.json`): mean |log err| at 1913 is 0.224. Japan +0.13 (was −0.48).
+  - Remaining: India +0.34; FRA/PRU/USA run fast before 1870 and slow after, which needs production methods and modern goods (**IND-01 / ECON-GOODS-01**, owner directive: Victoria 3 + modern-era mods as structural reference); Russia/Brazil/Turkey too slow.
+  - Global parameter retuning was tried and made no difference, so it was reverted.
+- Ledger test now uses a relative tolerance (an absolute 5e-7 on 1.76e9 is float noise).
+- Owner directives recorded in `docs/coordination/OWNER_DIRECTIVE_MODERN_ERA_REFERENCE_2026-11-22.md`.
+- Local: tsc 0; `npm test` **30/30 files, 335/335 tests**; build 0.
+
+---
+
 ## 2026-11-22 — CG18-04 closed; MSG-041 growth scorecard normalised on real GDP; TECH-01 identified
 
 - **CG18-04 (ChatGPT round 6):** the contract now covers:

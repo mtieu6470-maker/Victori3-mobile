@@ -29,7 +29,8 @@ describe('ECON-01a material-flow ledger', () => {
       const imports = rows.reduce((s, r) => s + r.imports, 0);
       const exports = rows.reduce((s, r) => s + (r.exports ?? 0), 0);
       const surplusOffered = rows.reduce((s, r) => s + Math.max(0, r.supply - r.demand), 0);
-      if (imports > 0) { tradedGoods++; expect(exports).toBeCloseTo(imports, 6); expect(surplusOffered).toBeGreaterThan(0); }
+      // Relative tolerance: totals reach ~1e9 units, where an absolute 1e-6 is below float resolution.
+      if (imports > 0) { tradedGoods++; expect(Math.abs(exports - imports) / imports).toBeLessThan(1e-12); expect(surplusOffered).toBeGreaterThan(0); }
       for (const r of rows) {
         // A market never both imports and exports the same good in one month.
         expect(r.imports > 0 && (r.exports ?? 0) > 0).toBe(false);

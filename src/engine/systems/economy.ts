@@ -40,6 +40,8 @@ export const RECIPES: Partial<Record<Building, { out: Good; perWorker: number; i
  */
 /** ECON-GROWTH: upper bound of the household wealth index driving consumption (design parameter). */
 export const WEALTH_CAP = 12;
+/** ECON-CAL-04: income elasticity of household cash-crop demand (Engel; design parameter). */
+export const CASH_CROP_INCOME_ELASTICITY = 0.5;
 
 export const PRODUCTIVITY_ELASTICITY = { physical: 0.15, value: 0.85, services: 1.0 } as const;
 export const physicalProductivity = (c: Pick<Country, 'productivity'>) => Math.pow(Math.max(0, c.productivity), PRODUCTIVITY_ELASTICITY.physical);
@@ -336,7 +338,11 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const grainNeed = r.pop * 200 * (1 + 0.25 * Math.log(wealth));
     demand.grain += grainNeed;
     demand.textiles += r.pop * 12 * Math.pow(wealth, 0.8);
-    demand.cash_crops += r.pop * 6 * wealth;
+    // ECON-CAL-04 (Engel): colonial goods (tea, coffee, sugar, tobacco) are income-inelastic; linear
+    // demand made rich markets absorb ever more and drove a worldwide plantation boom.
+    // Base-year calibration: 2.4 per person (was 6) so the 1836 market roughly clears at base prices,
+    // as every base price index = 1 assumes; at 6 it opened 62% short and drove a plantation boom.
+    demand.cash_crops += r.pop * 2.4 * Math.pow(wealth, CASH_CROP_INCOME_ELASTICITY);
     demand.luxury += r.pop * (sh[S.aristocrats] + sh[S.capitalists] + sh[S.middle] * 0.4) * 160 * wealth;
     demand.tools += agriWorkers * 2 + (LF * sh[S.workers]) * 8 + mineWorkers * 6;
     demand.coal += r.pop * 1.5 * wealth * householdCoalAccess(r, coalProducers.has(r.owner));
