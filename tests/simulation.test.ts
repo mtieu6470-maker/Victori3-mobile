@@ -58,7 +58,8 @@ describe('AI does not get stuck in meaningless loops', () => {
   it('no law flips back to a value it left within 15 years', () => {
     for (const c of Object.values(st.countries)) {
       const h = c.ai.lawHistory;
-      for (let i = 0; i < h.length; i++) for (let j = i + 1; j < h.length; j++) if (h[i].group === h[j].group && h[j].tick - h[i].tick < 180) {
+      // Only the government's own choices count: a revolution or civil war undoing a reform is not an AI flip-flop.
+      for (let i = 0; i < h.length; i++) for (let j = i + 1; j < h.length; j++) if (h[i].group === h[j].group && h[j].tick - h[i].tick < 180 && (h[j].cause ?? 'reform') === 'reform') {
         const before = h.slice(0, i).filter((x) => x.group === h[i].group).at(-1)?.value;
         expect(h[j].value === before && !!before, `${c.id} ${h[i].group}`).toBe(false);
       }

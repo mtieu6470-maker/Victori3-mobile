@@ -16,12 +16,29 @@ export const BUILD_COST: Record<Building, number> = {
 };
 /** Factory recipes: annual output per worker and inputs per unit of output. */
 export const RECIPES: Partial<Record<Building, { out: Good; perWorker: number; inputs: Partial<Record<Good, number>> }>> = {
-  textile_mill: { out: 'textiles', perWorker: 1800, inputs: { cotton: 0.45, coal: 0.08 } },
+  // ECON-CAL-02: cotton input 0.21 per unit (was 0.45). With the 1836 baseline techs (steam engines,
+  // mechanised spinning) and British physical productivity a mill hand then uses ~820 lb of raw cotton
+  // a year: England's 1834-35 use of ~297m lb (CG-23) over 355,373 textile factory hands (CG-24). At
+  // base prices raw cotton is ~21% of the value of finished textiles; the 0.45 coefficient matched the
+  // cost of yarn (Kennedy 1830, ~44%), not of cloth/clothing, which is what the textiles good is.
+  textile_mill: { out: 'textiles', perWorker: 1800, inputs: { cotton: 0.21, coal: 0.08 } },
   ironworks: { out: 'steel', perWorker: 1500, inputs: { iron: 0.5, coal: 0.4 } },
   tool_works: { out: 'tools', perWorker: 1700, inputs: { steel: 0.4, timber: 0.15 } },
   arms_works: { out: 'arms', perWorker: 1600, inputs: { steel: 0.35, tools: 0.15 } },
   luxury_workshop: { out: 'luxury', perWorker: 1500, inputs: { cash_crops: 0.3 } },
 };
+
+/**
+ * ECON-CAL-02: how the Maddison-calibrated country productivity factor enters the economy.
+ * Productivity is fitted so 1836 GDP matches Maddison per-capita values, so most of the gap between
+ * rich and poor economies must show up as value added per unit (prices, quality, skill), not as
+ * physical tonnage: before ECON-CAL-02 Britain's mills got ×2.55 physical output from productivity
+ * alone and consumed ~2× the whole world cotton crop (CG-23 says ~1/3). Physical elasticity is now
+ * small; value elasticity carries the rest, so GDP sensitivity is ~1.0 for every sector.
+ */
+export const PRODUCTIVITY_ELASTICITY = { physical: 0.15, value: 0.85, services: 1.0 } as const;
+export const physicalProductivity = (c: Pick<Country, 'productivity'>) => Math.pow(Math.max(0, c.productivity), PRODUCTIVITY_ELASTICITY.physical);
+export const valueProductivity = (c: Pick<Country, 'productivity'>) => Math.pow(Math.max(0, c.productivity), PRODUCTIVITY_ELASTICITY.value);
 
 export function techEffect(c: Country, key: string): number {
   const d = data(); let s = 0;
@@ -183,7 +200,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
   // ---- 1. physical production and demand per region
   for (let i = 0; i < st.regions.length; i++) {
     const r = st.regions[i]; const c = st.countries[r.owner]; if (!c) continue;
-    const A = Math.pow(c.productivity, 0.6); const Am = Math.pow(c.productivity, 0.5);
+    const A = physicalProductivity(c); const Am = A;
     const LF = r.pop * 0.45;
     const sh = r.strata;
     const rail = Math.min(5, r.buildings.railway);
@@ -277,7 +294,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     const cottage = cottageOutput(st.marketPrices[marketOf(st, c)]);
     supply.textiles += art * cottage.textiles; supply.tools += art * cottage.tools; supply.luxury += art * cottage.luxury;
     // services
-    const svc = LF * (sh[S.middle] + sh[S.capitalists] + sh[S.aristocrats] + sh[S.clergy]) * 1600 * Am * infra * occupied;
+    const svc = LF * (sh[S.middle] + sh[S.capitalists] + sh[S.aristocrats] + sh[S.clergy]) * 1600 * infra * occupied;
     // demand
     // Last month's wages feed next month's household purchasing power.
     const oldEmployment = r.employment ?? [];
@@ -439,8 +456,8 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
   for (let i = 0; i < st.regions.length; i++) {
     const r = st.regions[i]; const c = st.countries[r.owner]; const k = calc[i]; if (!c || !k) continue;
     const mk = marketOf(st, c); const p = st.marketPrices[mk]; const short = marketShort[mk];
-    const Av = Math.pow(c.productivity, 0.45);
-    let value = k.services * Math.pow(c.productivity, 0.5);
+    const Av = valueProductivity(c);
+    let value = k.services * Math.pow(Math.max(0, c.productivity), PRODUCTIVITY_ELASTICITY.services);
     for (const g of GOODS) {
       // k.supply contains base output plus realized factory output; inputsNeed contains
       // only intermediate inputs actually consumed by factories that could operate.
@@ -713,7 +730,7 @@ function queuedFactoryLedger(st: GameState, c: Country): QueuedFactoryLedger {
           : 0;
     const output = LEVEL_WORKERS * staffing * recipe.perWorker
       * (1 + techEffect(owner, 'factory_efficiency')) * (1 + specificEfficiency)
-      * Math.pow(Math.max(0, owner.productivity), 0.5)
+      * physicalProductivity(owner)
       * (1 + 0.05 * Math.min(5, Math.max(0, region.buildings.railway)))
       * Math.max(0, 1 - region.devastation)
       * (region.controller === region.owner ? 1 : 0.7);
@@ -773,8 +790,12 @@ function marketInputAvailability(st: GameState, c: Country, requiredInputs: Part
 export function buildingReturn(st: GameState, c: Country, r: Region, b: Building): number {
   const p = st.marketPrices[marketOf(st, c)] ?? st.worldPrices;
   const queued = queuedFactoryLedger(st, c);
-  const primaryProductivity = Math.pow(Math.max(0, c.productivity), 0.6);
-  const factoryProductivity = Math.pow(Math.max(0, c.productivity), 0.5);
+  const primaryProductivity = physicalProductivity(c);
+  const factoryProductivity = primaryProductivity;
+  // ECON-CAL-02: physical output now scales with productivity^0.15. Investment appraisal stays
+  // productivity-neutral as before (output and build cost both ~ sqrt(productivity)), so the private
+  // investment threshold means the same thing in every country.
+  const moneyScale = Math.sqrt(Math.max(0, c.productivity)) / Math.max(1e-9, primaryProductivity);
   const infra = 1 + 0.05 * Math.min(5, Math.max(0, r.buildings.railway));
   const condition = Math.max(0, 1 - r.devastation);
   const occupied = r.controller !== r.owner ? 0.7 : 1;
@@ -887,7 +908,7 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
       0,
     ) - LEVEL_WORKERS * staffing * 650 * primaryProductivity * p.grain * 0.6;
   }
-  return value / buildCost(c, b, st);
+  return (value * moneyScale) / buildCost(c, b, st);
 }
 
 export function privateInvestment(st: GameState, c: Country) {
@@ -935,7 +956,7 @@ function updateSiteOperations(st: GameState, calc: RegionCalc[], plannedFactoryT
     if (!c || !k) continue;
     const stats = st.marketStats[k.marketId]; const prices = st.marketPrices[k.marketId];
     if (!stats || !prices) continue;
-    const Av = Math.pow(c.productivity, 0.45);
+    const Av = valueProductivity(c);
     const seen = new Set<Building>();
     for (const site of k.sites) {
       seen.add(site.b);

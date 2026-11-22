@@ -1,0 +1,119 @@
+{
+ "task": "ECON-CAL-02",
+ "date": "2026-11-22",
+ "tool": "npx tsx tools/calib-report.ts 12 1",
+ "note": "Historical mode, seed 1, after 12 months. Cotton units are pounds of raw cotton per year. 'before' = commit 3c99f15.",
+ "evidence": {
+  "CG-23": "docs/research/history/CG23_WORLD_COTTON_SCALE_1831_1835_VI.md",
+  "CG-24": "GB textile factory hands 1835 = 355,373 (cotton 220,134)"
+ },
+ "before": {
+  "months": 12,
+  "seed": 1,
+  "worldGDP_B": 830.9,
+  "popWeightedFamine": 0.001,
+  "gbrStartMillWorkers": 1710000,
+  "cg24_gb_textile_factory_hands_1835": 355373,
+  "gbrCottonDemandShareOfWorldCrop": 1.97,
+  "cg23_target": "0.33-0.36",
+  "topCottonGrowers": [
+   "QNG:35%",
+   "USA:29%",
+   "GBR:15%",
+   "BRA:5%"
+  ],
+  "cg23_usa_share_1834": 0.51,
+  "prices_GBR": {
+   "cotton": 2.05,
+   "textiles": 0.65,
+   "grain": 0.71
+  },
+  "unsoldPct": {
+   "grain": 54,
+   "cash_crops": 10,
+   "cotton": 44,
+   "timber": 93,
+   "coal": 0,
+   "iron": 23,
+   "steel": 4,
+   "textiles": 35,
+   "tools": 87,
+   "arms": 24,
+   "luxury": 16,
+   "opium": 74
+  },
+  "meanShortPct": {
+   "grain": 0,
+   "cash_crops": 55,
+   "cotton": 4,
+   "timber": 0,
+   "coal": 98,
+   "iron": 1,
+   "steel": 44,
+   "textiles": 0,
+   "tools": 0,
+   "arms": 46,
+   "luxury": 0,
+   "opium": 47
+  }
+ },
+ "after": {
+  "months": 12,
+  "seed": 1,
+  "worldGDP_B": 832.3,
+  "popWeightedFamine": 0.009,
+  "gbrStartMillWorkers": 360000,
+  "cg24_gb_textile_factory_hands_1835": 355373,
+  "gbrCottonDemandShareOfWorldCrop": 0.365,
+  "cg23_target": "0.33-0.36",
+  "topCottonGrowers": [
+   "USA:42%",
+   "GBR:20%",
+   "QNG:18%",
+   "BRA:12%"
+  ],
+  "cg23_usa_share_1834": 0.51,
+  "prices_GBR": {
+   "cotton": 0.95,
+   "textiles": 0.72,
+   "grain": 0.85
+  },
+  "unsoldPct": {
+   "grain": 26,
+   "cash_crops": 5,
+   "cotton": 39,
+   "timber": 99,
+   "coal": 0,
+   "iron": 72,
+   "steel": 8,
+   "textiles": 16,
+   "tools": 78,
+   "arms": 0,
+   "luxury": 5,
+   "opium": 71
+  },
+  "meanShortPct": {
+   "grain": 2,
+   "cash_crops": 75,
+   "cotton": 1,
+   "timber": 0,
+   "coal": 97,
+   "iron": 0,
+   "steel": 22,
+   "textiles": 3,
+   "tools": 0,
+   "arms": 100,
+   "luxury": 3,
+   "opium": 46
+  }
+ },
+ "startOfGame_after": {
+  "worldCottonCrop_Mlb": 884,
+  "woodbury_1834_Mlb": 900,
+  "USA_Mlb": 421,
+  "woodbury_USA_1834_Mlb": 460,
+  "GBR_mill_cotton_use_Mlb": 300,
+  "england_use_1834_Mlb": "297-320"
+ },
+ "ind02a_trial_after": "siteOperations ON, 24 months: all 112 textile mills at full utilisation (before ECON-CAL-02 roughly half of all sites idled, ECON-CAL-01 finding; an intermediate variant with the yarn-level cotton coefficient 0.45 still idled 64 of 112 mills by month 24); tool_works and ironworks still idle -> ECON-CAL-03; flag stays OFF."
+}

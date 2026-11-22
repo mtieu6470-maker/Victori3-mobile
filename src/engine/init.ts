@@ -15,6 +15,34 @@ export const BASE_PRICES: Record<Good, number> = { grain: 1, cash_crops: 1, cott
 
 const TAX_BY_ECONOMY: Record<string, number> = { traditionalism: 0.06, mercantilism: 0.08, interventionism: 0.09, laissez_faire: 0.07 };
 
+/**
+ * ECON-CAL-02 (CG-24): share of the stage-based "workers" stratum that was factory labour in 1836.
+ * Calibrated on Great Britain: before this correction every worker was a factory hand and Britain
+ * started with 1.71M textile-mill workers, against 355,373 textile factory hands in the 1835 factory
+ * returns (cotton alone 220,134). 355,373 / 1,710,000 ≈ 0.21. The remainder become artisans
+ * (handloom weavers, outworkers, workshop trades), which matches the period's occupational structure.
+ * ASSUMPTION: no comparable 1836 factory census is used for other countries yet, so the British ratio
+ * is applied uniformly; Britain was the most factory-intensive economy, so elsewhere this is an
+ * upper bound. Replace with per-country evidence when research provides it.
+ */
+export const FACTORY_SHARE_OF_WORKERS_1836 = 0.21;
+
+/**
+ * ECON-CAL-02 (CG-23): share of laborers + slaves employed on commercial plantations at game start.
+ * Slave-plantation regions keep 0.9: with it the United States grows ~420m lb against Woodbury's
+ * 460m lb for 1834. Free-labour regions whose only commercial crop is cotton (Qing, Indian and
+ * Central-Asian cotton belts) had produced 2-4x Woodbury's India (185m lb) and Rest-of-Asia (110m lb)
+ * figures with 0.4, making Qing the world's largest commercial grower; 0.15 brings them to the right
+ * order of magnitude. Most such cotton was household-grown and spun locally, which the model keeps in
+ * peasant agriculture and cottage industry. Mixed cash-crop regions keep 0.4 (cash crops are already
+ * short; tracked separately).
+ */
+export function plantationLabourShare1836(slaveRegion: boolean, res: readonly string[]): number {
+  if (slaveRegion) return 0.9;
+  const cottonOnly = res.includes('cott') && !res.includes('cash') && !res.includes('opium');
+  return cottonOnly ? 0.05 : 0.4;
+}
+
 function strataFor(stage: string, decentral: boolean): number[] {
   const s = new Array(STRATA.length).fill(0);
   const set = (o: Partial<Record<(typeof STRATA)[number], number>>) => { for (const [k, v] of Object.entries(o)) s[S[k as keyof typeof S]] = v!; };
@@ -64,6 +92,10 @@ export function createGame(opts: NewGameOptions): GameState {
     if (slaveLegal) { if (diaspora(r.culture)) slaveShare = (1 - r.c2) * 0.85; else if (diaspora(r.culture2)) slaveShare = r.c2 * 0.85; }
     if (slaveShare > 0) { strata[S.slaves] = slaveShare; strata[S.peasants] = Math.max(0.05, strata[S.peasants] - slaveShare); }
     const sum = strata.reduce((a, b) => a + b, 0); for (let i = 0; i < strata.length; i++) strata[i] /= sum;
+    // ECON-CAL-02: only part of the 1836 urban working population worked in factories; the rest were
+    // handicraft and outwork producers (artisans). See FACTORY_SHARE_OF_WORKERS_1836.
+    const outworkers = strata[S.workers] * (1 - FACTORY_SHARE_OF_WORKERS_1836);
+    strata[S.workers] -= outworkers; strata[S.artisans] += outworkers;
     const buildings = Object.fromEntries(BUILDINGS.map((b) => [b, 0])) as Record<Building, number>;
     const ownerLit = initialLiteracy(owner);
     const region: Region = {
@@ -85,7 +117,7 @@ export function createGame(opts: NewGameOptions): GameState {
     const extractive = r.res.filter((x) => ['coal', 'iron', 'gold', 'silv'].includes(x)).length;
     const plant = r.res.filter((x) => ['cash', 'cott', 'opium'].includes(x)).length;
     if (extractive) buildings.mine = Math.round((lab * 0.35) / 2000);
-    if (plant) buildings.plantation = Math.round((lab * (slaveShare > 0 ? 0.9 : 0.4)) / 2000);
+    if (plant) buildings.plantation = Math.round((lab * plantationLabourShare1836(slaveShare > 0, r.res)) / 2000);
     if (r.res.includes('timb')) buildings.logging = Math.round((lab * 0.15) / 2000);
     if (stage === 'industrial' && (r.res.includes('coal') || topo.coastal)) buildings.railway = 1;
     if (r.id === 'BEL_BRU' || r.id === 'GBR_LAN' || r.id === 'GBR_LON') buildings.railway = Math.max(buildings.railway, 1);

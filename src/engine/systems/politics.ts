@@ -96,7 +96,7 @@ export function setLaw(st: GameState, c: Country, group: LawGroup, value: string
   const old = c.laws[group];
   if (old === value) return;
   c.laws[group] = value;
-  c.ai.lawHistory.push({ group, value, tick: st.tick });
+  c.ai.lawHistory.push({ group, value, tick: st.tick, cause: cause.split(/[\s:(]/)[0] });
   log(st, { type: 'law', text: `${c.name}: ${group} changed from ${old} to ${value} (${cause}).`, textVi: `${c.nameVi}: luật ${group} đổi từ ${old} sang ${value} (${cause}).`, actors: [c.id] });
 }
 

@@ -1,3 +1,22 @@
+## 2026-11-22 — ECON-CAL-02 done: 1836 cotton/textile scale matches CG-23/CG-24
+
+- **Productivity decoupled from physical output** (`src/engine/systems/economy.ts`, `PRODUCTIVITY_ELASTICITY`).
+  - Physical output now scales with productivity^0.15 and value added with ^0.85; services carry all of it at ^1.0. GDP sensitivity stays ≈ 1, and the Maddison calibration still fits (test: GBR/FRA/USA/QNG/RUS within ±10%).
+  - Investment appraisal stays productivity-neutral (√productivity, as before), so the private-investment threshold means the same in every country.
+- **1836 factory employment** (`src/engine/init.ts`, `FACTORY_SHARE_OF_WORKERS_1836 = 0.21`): only 21% of the workers stratum works in factories; the rest become artisans (outwork and handicraft).
+  - Britain now starts with **360k** textile-mill hands (CG-24: 355,373; before: 1.71M).
+  - ASSUMPTION: the same ratio is applied to other countries until per-country evidence exists.
+- **Plantations** (`plantationLabourShare1836`): slave regions stay at 0.9; free-labour cotton-only regions drop to 0.05, mixed cash-crop regions stay at 0.4.
+  - Start-of-game cotton crop: world **884m lb** (Woodbury 1834: 900), USA **421m lb ≈ 48%** (460m, 51%). Qing was the largest grower before; now the USA is.
+- **Textile recipe:** cotton input 0.45 → 0.21 per unit. The old coefficient was the cost share of yarn (Kennedy 1830); the textiles good is cloth and clothing. British mills now use **300m lb** a year (England 1834: 297–320m lb).
+  - GBR cotton demand / world crop: 1.97 → **0.365** at month 12 (target 0.33–0.36).
+- **IND-02a trial with the flag ON:** all 112 textile mills run profitably at full utilisation for 24 months. Tool works and ironworks still idle, so the flag **stays OFF**. The iron/steel/coal/tools chain becomes **ECON-CAL-03**, with research request CG-25 in MSG-027.
+- **AI anti-oscillation test fixed:** `lawHistory` entries now record the cause of the change (`reform`, `revolution`, `civil`, …). The test judges only the government's own reforms; a revolution undoing a reform is not an AI flip-flop.
+- **Tooling and evidence:** new `tools/calib-report.ts`; before/after numbers in `docs/audit/econ/ECON_CAL_02_REPORT_2026-11-22.json`; new tests in `tests/econ-calibration-cg23-cg24.test.ts` (7).
+- Local: tsc 0; `npm test` **27/27 files, 256/256 tests**; build 0.
+
+---
+
 ## 2026-11-22 — CG18-01 follow-up fixed; CG-24 accepted; ECON-CAL-02 plan
 
 - **Worker reply validation deepened** after ChatGPT's third review (MSG-023): snapshot structure, non-negative integers, valid campaign hours, `stop` enum, command result shape and optional flag types.

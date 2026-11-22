@@ -83,7 +83,8 @@ export interface ConstructionProject {
 
 export interface AIMemory {
   cooldowns: Record<string, number>; // key -> tick until which the action is blocked
-  lawHistory: { group: LawGroup; value: string; tick: number }[];
+  /** `cause` is the kind of change (reform, revolution, civil, decision, regime, treaty); absent in older saves. */
+  lawHistory: { group: LawGroup; value: string; tick: number; cause?: string }[];
   recent: string[]; // last actions (for oscillation detection)
   planTarget?: string | null;
 }

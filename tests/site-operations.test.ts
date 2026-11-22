@@ -94,7 +94,7 @@ describe('IND-02a integration (feature switch ON in this test only)', () => {
     ECONOMY_FLAGS.siteOperations = true;
     const a = createGame({ mode: 'historical', seed: 72, player: null });
     const b = createGame({ mode: 'historical', seed: 72, player: null });
-    for (let i = 0; i < 4; i++) { stepMonth(a); stepMonth(b); }
+    for (let i = 0; i < 8; i++) { stepMonth(a); stepMonth(b); }
     const ops = Object.values(a.industry);
     expect(ops.length).toBeGreaterThan(100);
     expect(ops.some((o) => o.util < 1)).toBe(true); // decisions actually took effect
