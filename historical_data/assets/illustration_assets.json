@@ -542,6 +542,276 @@
       }
     },
     {
+      "id": "ill_coke_furnace_works",
+      "type": "illustration_company",
+      "subject": "coke_furnace_works",
+      "name": "Xưởng lò luyện than cốc",
+      "description": "Coke ovens and their smoke consumers, Monongahela River, Pittsburgh; Keystone stereograph, 1905 (left view)",
+      "path": "content/illustrations/companies/coke_furnace_works.webp",
+      "thumbnail_path": "content/illustrations/companies/coke_furnace_works_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1836,
+        "to": 1930
+      },
+      "quality": "supported",
+      "date": "c1905.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/stereo/1s10000/1s15000/1s15200/1s15277v.jpg",
+        "page": "https://www.loc.gov/item/2007678126/",
+        "statement": "LoC STEREO U.S. GEOG FILE - Pennsylvania--Pittsburgh--Coke industry [item] [P&P]",
+        "title": "Coke ovens and their smoke consumers, Monongahela River, Pittsburg [sic], Pa., U.S.A.",
+        "source_pixels": [
+          1024,
+          546
+        ],
+        "crop": {
+          "inset": [
+            0.09,
+            0.06,
+            0.5,
+            0.17
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": null,
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Coke ovens (HY-03 C5); left half of the stereo card, shown whole."
+      }
+    },
+    {
+      "id": "ill_engine_manufacturer",
+      "type": "illustration_company",
+      "subject": "engine_manufacturer",
+      "name": "Hãng động cơ",
+      "description": "Workers assembling engines at Leland & Faulconer Manufacturing Co., Detroit; Detroit Publishing Co., c. 1903",
+      "path": "content/illustrations/companies/engine_manufacturer.webp",
+      "thumbnail_path": "content/illustrations/companies/engine_manufacturer_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1836,
+        "to": 1930
+      },
+      "quality": "supported",
+      "date": "[1903?]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/det/4a20000/4a26000/4a26700/4a26764v.jpg",
+        "page": "https://www.loc.gov/item/2016816767/",
+        "statement": "LoC LC-D417-1403 [P&P]",
+        "title": "[Factory workers assembling engines at Leland & Faulconer Manufacturing Co., Detroit, Mich.]",
+        "source_pixels": [
+          1024,
+          814
+        ],
+        "crop": {
+          "inset": [
+            0.04,
+            0.06,
+            0.04,
+            0.04
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Detroit Publishing Co., publisher",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Engine assembly and machining floor (HY-03 C2)."
+      }
+    },
+    {
+      "id": "ill_heavy_casting_firm",
+      "type": "illustration_company",
+      "subject": "heavy_casting_firm",
+      "name": "Xưởng đúc nặng",
+      "description": "Removing an ingot slab from a furnace, Homestead Steel Works, Pennsylvania; Detroit Publishing Co., 1900-1910",
+      "path": "content/illustrations/companies/heavy_casting_firm.webp",
+      "thumbnail_path": "content/illustrations/companies/heavy_casting_firm_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1836,
+        "to": 1930
+      },
+      "quality": "supported",
+      "date": "[between 1900 and 1910]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/det/4a20000/4a22000/4a22800/4a22874v.jpg",
+        "page": "https://www.loc.gov/item/2016814565/",
+        "statement": "LoC LC-D4-70685 [P&P]",
+        "title": "Removing ingot slab from furnace, Homestead Steel Works, Homestead, Pa.",
+        "source_pixels": [
+          1024,
+          821
+        ],
+        "crop": {
+          "inset": [
+            0.03,
+            0.03,
+            0.03,
+            0.07
+          ],
+          "focus": [
+            0.5,
+            0.55
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Detroit Publishing Co., publisher",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Furnace and ingot handling (HY-03 C4); dark original, autocontrast applied."
+      }
+    },
+    {
+      "id": "ill_machine_tool_maker",
+      "type": "illustration_company",
+      "subject": "machine_tool_maker",
+      "name": "Hãng máy công cụ",
+      "description": "Machine shop buildings of the Westinghouse Air-Brake Co., Wilmerding, Pennsylvania; Detroit Publishing Co., c. 1905",
+      "path": "content/illustrations/companies/machine_tool_maker.webp",
+      "thumbnail_path": "content/illustrations/companies/machine_tool_maker_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1836,
+        "to": 1930
+      },
+      "quality": "supported",
+      "date": "[1905?]",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/det/4a10000/4a12000/4a12700/4a12748v.jpg",
+        "page": "https://www.loc.gov/item/2016805390/",
+        "statement": "LoC LC-D4-18673 [P&P]",
+        "title": "Machine shop, the Westinghouse Air-Brake Co., Wilmerding, Pa.",
+        "source_pixels": [
+          1024,
+          804
+        ],
+        "crop": {
+          "inset": [
+            0.03,
+            0.03,
+            0.03,
+            0.07
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Detroit Publishing Co., publisher",
+      "credit": "Library of Congress, Prints & Photographs Division, Detroit Publishing Company Collection",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Engineering works exterior with rail sidings (HY-03 C1). Westinghouse made air brakes, so this shows a machine-building works in general, not a specialist machine-tool maker."
+      }
+    },
+    {
+      "id": "ill_mechanised_textile_mill",
+      "type": "illustration_company",
+      "subject": "mechanised_textile_mill",
+      "name": "Công ty dệt cơ giới",
+      "description": "Women tending spinning frames in a New England cotton mill; Bain News Service, c. 1900",
+      "path": "content/illustrations/companies/mechanised_textile_mill.webp",
+      "thumbnail_path": "content/illustrations/companies/mechanised_textile_mill_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1836,
+        "to": 1930
+      },
+      "quality": "supported",
+      "date": "ca. 1900.",
+      "source": {
+        "repository": "Library of Congress",
+        "file": "https://tile.loc.gov/storage-services/service/pnp/cph/3a40000/3a41000/3a41700/3a41760r.jpg",
+        "page": "https://www.loc.gov/item/2012647904/",
+        "statement": "LoC SSF - Industry -- Textiles [item] [P&P]",
+        "title": "[Women and machinery in New England cotton mill, ca. 1900]",
+        "source_pixels": [
+          640,
+          512
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://www.loc.gov/legal/",
+        "attribution_required": false,
+        "rights_advisory": "No known restrictions on publication."
+      },
+      "author": "Bain News Service.",
+      "credit": "Library of Congress, Prints & Photographs Division",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-22",
+        "note": "Ring-spinning frames (HY-03 C6); 640 px original shown whole."
+      }
+    },
+    {
       "id": "ill_dw_belgium_recognition",
       "type": "illustration_event",
       "subject": "dw_belgium_recognition",

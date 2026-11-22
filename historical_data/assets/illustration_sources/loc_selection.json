@@ -742,6 +742,120 @@
       "fit": "contain",
       "max_upscale": 1.5,
       "review_note": "Grand Palace, Bangkok; low-resolution source shown whole."
+    },
+    {
+      "type": "illustration_company",
+      "subject": "machine_tool_maker",
+      "loc_item": "2016805390",
+      "name": "Hãng máy công cụ",
+      "description": "Machine shop buildings of the Westinghouse Air-Brake Co., Wilmerding, Pennsylvania; Detroit Publishing Co., c. 1905",
+      "period": {
+        "from": 1836,
+        "to": 1930
+      },
+      "inset": [
+        0.03,
+        0.03,
+        0.03,
+        0.07
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Engineering works exterior with rail sidings (HY-03 C1). Westinghouse made air brakes, so this shows a machine-building works in general, not a specialist machine-tool maker."
+    },
+    {
+      "type": "illustration_company",
+      "subject": "engine_manufacturer",
+      "loc_item": "2016816767",
+      "name": "Hãng động cơ",
+      "description": "Workers assembling engines at Leland & Faulconer Manufacturing Co., Detroit; Detroit Publishing Co., c. 1903",
+      "period": {
+        "from": 1836,
+        "to": 1930
+      },
+      "inset": [
+        0.04,
+        0.06,
+        0.04,
+        0.04
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Engine assembly and machining floor (HY-03 C2)."
+    },
+    {
+      "type": "illustration_company",
+      "subject": "heavy_casting_firm",
+      "loc_item": "2016814565",
+      "name": "Xưởng đúc nặng",
+      "description": "Removing an ingot slab from a furnace, Homestead Steel Works, Pennsylvania; Detroit Publishing Co., 1900-1910",
+      "period": {
+        "from": 1836,
+        "to": 1930
+      },
+      "inset": [
+        0.03,
+        0.03,
+        0.03,
+        0.07
+      ],
+      "focus": [
+        0.5,
+        0.55
+      ],
+      "review_note": "Furnace and ingot handling (HY-03 C4); dark original, autocontrast applied."
+    },
+    {
+      "type": "illustration_company",
+      "subject": "coke_furnace_works",
+      "loc_item": "2007678126",
+      "name": "Xưởng lò luyện than cốc",
+      "description": "Coke ovens and their smoke consumers, Monongahela River, Pittsburgh; Keystone stereograph, 1905 (left view)",
+      "period": {
+        "from": 1836,
+        "to": 1930
+      },
+      "inset": [
+        0.09,
+        0.06,
+        0.5,
+        0.17
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Coke ovens (HY-03 C5); left half of the stereo card, shown whole.",
+      "fit": "contain",
+      "max_upscale": 1.5
+    },
+    {
+      "type": "illustration_company",
+      "subject": "mechanised_textile_mill",
+      "loc_item": "2012647904",
+      "name": "Công ty dệt cơ giới",
+      "description": "Women tending spinning frames in a New England cotton mill; Bain News Service, c. 1900",
+      "period": {
+        "from": 1836,
+        "to": 1930
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Ring-spinning frames (HY-03 C6); 640 px original shown whole.",
+      "fit": "contain",
+      "max_upscale": 1.5
     }
   ]
 }
