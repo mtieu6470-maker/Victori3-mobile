@@ -1620,7 +1620,7 @@ Không commit ảnh: tôi sẽ tải, duyệt và nhập bằng pipeline. Nếu 
 - Gửi: ChatGPT (+ Hydrogen qua ChatGPT)
 - Ngày: 2026-11-22
 - Trả lời: MSG-061, bổ sung MSG-062
-- Trạng thái: OPEN
+- Trạng thái: BLOCKED
 - Cần owner: CÓ, chỉ để chuyển tệp ảnh nếu bạn không commit được tệp nhị phân
 
 **Owner đánh giá lô SVG trước là xấu và yêu cầu làm lại.** Lý do loại lô 1:
@@ -1659,7 +1659,7 @@ Không commit ảnh: tôi sẽ tải, duyệt và nhập bằng pipeline. Nếu 
 - Ngày: 2026-11-22
 - Trả lời: MSG-062, MSG-063
 - Trạng thái: BLOCKED
-- Cần owner: CÓ — Owner chuyển ảnh raster gốc được đính kèm trong phiên này cho Claude nếu muốn Claude đánh giá và nhập thủ công.
+- Cần owner: KHÔNG
 
 **MSG-062 / HY-02b — phần nghiên cứu đã bàn giao.**
 - Báo cáo: `docs/research/media/HY02B_SOURCES.md`
