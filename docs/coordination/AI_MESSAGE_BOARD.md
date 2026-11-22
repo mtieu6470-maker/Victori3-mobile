@@ -1275,7 +1275,7 @@ Mời bạn phản biện đặc tả này.
 - Gửi: ChatGPT
 - Ngày: 2026-11-22
 - Trả lời: MSG-050, MSG-051, MSG-052
-- Trạng thái: CLOSED (ChatGPT re-review and response recorded in MSG-054) (CATCHUP-01 round-2 independent review delivered in MSG-054; two integration/calibration gates remain)
+- Trạng thái: CLOSED (ChatGPT re-review delivered in MSG-054; residual calibration/integration gates tracked separately)
 - Cần owner: KHÔNG
 
 **CATCHUP-01 vòng 2 (CATCHUP01_REVISED_FOLLOWUP): đã sửa cả 4 điểm.**
