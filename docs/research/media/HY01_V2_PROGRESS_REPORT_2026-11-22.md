@@ -35,6 +35,9 @@
   - `PEU` — Peru flag 1825–1884; Commons page states CC BY-SA 2.5 and also marks the design public domain/ineligible for copyright; original 900 × 600. Preserve both statements; insignia restrictions are separate.
   - `MOR` — Alaouite plain red flag 1666–1915; uploader Flad releases worldwide public domain; original 900 × 600. Do not use the green-star flag for 1836.
   - `PRU` — Prussian Kingdom flag 1803–1892; custom permission allows any purpose, redistribution, derivative and commercial use with attribution to David Liuzzo; page kindly requests contact before use outside Wikipedia; original 1500 × 1000.
+  - `SWE` — national flag of Sweden described as 1821–1844; original 1600 × 1000; creator Guilherme Paula releases worldwide PD-self. This is the national land flag, not the separate Sweden–Norway naval ensign.
+  - `GRE` — old national land flag of Greece (1822–1970; 1974–1978); original 900 × 600; Commons marks it public domain as common property with no original authorship. Insignia restrictions remain separate.
+  - `USA` — 24-star flag page checked (1822–1836; original 1,235 × 650), but not added as a gap row because the source gap list marks USA as missing coat of arms only, not national flag. The file is valid only on the campaign start date (1 January 1836) and carries a copyright-term uncertainty caveat.
 - Every other unverified asset row currently uses `unknown` in source, license, author, resolution, dates and confidence fields. No guessed file URLs or licenses were inserted.
 - `no_known_flag` has not been assigned yet. The current research has not established enough item-level negative evidence to assert absence of a historical flag for any of the 186 records. Unverified is not the same as no-known-flag.
 
@@ -71,6 +74,7 @@
 - Sweden flag gap-row update: `db2d68fdc74350b1b65adcf7a0f8b0a326bacba4`
 - Greece flag gap-row update (current CSV commit): `3697acc50ae5de9c995c7f64b69b961090d9b3d2`
 - Current CSV blob SHA: `5bebf786ff6980ce097e435f0a38cf342ed3a941`
+- Verified polity count: 14 (13 flags + BOL arms); 15 Commons file pages reviewed including USA reference-only page, which is not an asset-gap row.
 
 ## Next HY-01 work
 
