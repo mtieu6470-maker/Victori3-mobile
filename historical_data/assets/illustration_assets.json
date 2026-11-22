@@ -431,39 +431,6 @@
       }
     },
     {
-      "id": "ill_anesthesia",
-      "type": "illustration_tech",
-      "subject": "anesthesia",
-      "name": "Gây mê",
-      "description": "Historic ether apparatus and non-graphic operating theatre",
-      "path": "content/illustrations/technologies/anesthesia.svg",
-      "width": 1280,
-      "height": 720,
-      "period": {
-        "from": 1847,
-        "to": 1847
-      },
-      "source": {
-        "repository": "Victori3-mobile",
-        "file": "public/content/illustrations/technologies/anesthesia.svg",
-        "page": "Original code-generated SVG illustration, 2026-11-22"
-      },
-      "license": {
-        "short": "Project original",
-        "url": "",
-        "attribution_required": false
-      },
-      "author": "Victori3 Mobile project",
-      "credit": "Original code-generated illustration; no third-party source artwork.",
-      "provenance": {
-        "method": "code_generated",
-        "tool": "Custom SVG illustration generator",
-        "creator": "ChatGPT for Victori3 Mobile",
-        "created": "2026-11-22",
-        "prompt": "Original Historic ether apparatus and non-graphic operating theatre; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
-      }
-    },
-    {
       "id": "ill_chemical_fertilizers",
       "type": "illustration_tech",
       "subject": "chemical_fertilizers",
@@ -626,39 +593,6 @@
         "creator": "ChatGPT for Victori3 Mobile",
         "created": "2026-11-22",
         "prompt": "Original Precision gauges and interchangeable metal components; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
-      }
-    },
-    {
-      "id": "ill_quinine_prophylaxis",
-      "type": "illustration_tech",
-      "subject": "quinine_prophylaxis",
-      "name": "Phòng bệnh bằng quinine",
-      "description": "Cinchona bark, apothecary bottle and tropical station",
-      "path": "content/illustrations/technologies/quinine_prophylaxis.svg",
-      "width": 1280,
-      "height": 720,
-      "period": {
-        "from": 1854,
-        "to": 1854
-      },
-      "source": {
-        "repository": "Victori3-mobile",
-        "file": "public/content/illustrations/technologies/quinine_prophylaxis.svg",
-        "page": "Original code-generated SVG illustration, 2026-11-22"
-      },
-      "license": {
-        "short": "Project original",
-        "url": "",
-        "attribution_required": false
-      },
-      "author": "Victori3 Mobile project",
-      "credit": "Original code-generated illustration; no third-party source artwork.",
-      "provenance": {
-        "method": "code_generated",
-        "tool": "Custom SVG illustration generator",
-        "creator": "ChatGPT for Victori3 Mobile",
-        "created": "2026-11-22",
-        "prompt": "Original Cinchona bark, apothecary bottle and tropical station; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
       }
     },
     {
@@ -893,39 +827,6 @@
       }
     },
     {
-      "id": "ill_dynamite",
-      "type": "illustration_tech",
-      "subject": "dynamite",
-      "name": "Dynamite công nghiệp",
-      "description": "Quarry blasting scene, distant controlled industrial blast",
-      "path": "content/illustrations/technologies/dynamite.svg",
-      "width": 1280,
-      "height": 720,
-      "period": {
-        "from": 1870,
-        "to": 1870
-      },
-      "source": {
-        "repository": "Victori3-mobile",
-        "file": "public/content/illustrations/technologies/dynamite.svg",
-        "page": "Original code-generated SVG illustration, 2026-11-22"
-      },
-      "license": {
-        "short": "Project original",
-        "url": "",
-        "attribution_required": false
-      },
-      "author": "Victori3 Mobile project",
-      "credit": "Original code-generated illustration; no third-party source artwork.",
-      "provenance": {
-        "method": "code_generated",
-        "tool": "Custom SVG illustration generator",
-        "creator": "ChatGPT for Victori3 Mobile",
-        "created": "2026-11-22",
-        "prompt": "Original Quarry blasting scene, distant controlled industrial blast; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
-      }
-    },
-    {
       "id": "ill_oil_drilling",
       "type": "illustration_tech",
       "subject": "oil_drilling",
@@ -1055,39 +956,6 @@
         "creator": "ChatGPT for Victori3 Mobile",
         "created": "2026-11-22",
         "prompt": "Original Ottoman reform council and imperial architecture; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
-      }
-    },
-    {
-      "id": "ill_dw_ottoman_reform_edict",
-      "type": "illustration_event",
-      "subject": "dw_ottoman_reform_edict",
-      "name": "Sắc lệnh cải cách Ottoman",
-      "description": "Ottoman imperial decree scroll and state seal",
-      "path": "content/illustrations/events/dw_ottoman_reform_edict.svg",
-      "width": 1280,
-      "height": 720,
-      "period": {
-        "from": 1855,
-        "to": 1860
-      },
-      "source": {
-        "repository": "Victori3-mobile",
-        "file": "public/content/illustrations/events/dw_ottoman_reform_edict.svg",
-        "page": "Original code-generated SVG illustration, 2026-11-22"
-      },
-      "license": {
-        "short": "Project original",
-        "url": "",
-        "attribution_required": false
-      },
-      "author": "Victori3 Mobile project",
-      "credit": "Original code-generated illustration; no third-party source artwork.",
-      "provenance": {
-        "method": "code_generated",
-        "tool": "Custom SVG illustration generator",
-        "creator": "ChatGPT for Victori3 Mobile",
-        "created": "2026-11-22",
-        "prompt": "Original Ottoman imperial decree scroll and state seal; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
       }
     },
     {
@@ -1319,6 +1187,138 @@
         "creator": "ChatGPT for Victori3 Mobile",
         "created": "2026-11-22",
         "prompt": "Original Siamese river port with treaty table and merchant steamer; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_railways",
+      "type": "illustration_tech",
+      "subject": "railways",
+      "name": "Đường sắt",
+      "description": "Railway network with steam locomotive, bridge and station; available at the 1836 start despite the project's 1830 practical-adoption year.",
+      "path": "content/illustrations/technologies/railways.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1830,
+        "to": 1880
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/railways.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Railway network with steam locomotive, bridge and station; available at the 1836 start despite the project's 1830 practical-adoption year.; sepia historical engraving, etched linework, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_transatlantic_cable",
+      "type": "illustration_tech",
+      "subject": "transatlantic_cable",
+      "name": "Cáp điện tín xuyên Đại Tây Dương",
+      "description": "Submarine telegraph cable laying vessel and cable drum.",
+      "path": "content/illustrations/technologies/transatlantic_cable.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1870,
+        "to": 1870
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/transatlantic_cable.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Submarine telegraph cable laying vessel and cable drum.; sepia historical engraving, etched linework, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_reinforced_concrete",
+      "type": "illustration_tech",
+      "subject": "reinforced_concrete",
+      "name": "Bê tông cốt thép",
+      "description": "Early reinforced-concrete construction with iron rebar and concrete formwork.",
+      "path": "content/illustrations/technologies/reinforced_concrete.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1875,
+        "to": 1875
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/reinforced_concrete.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Early reinforced-concrete construction with iron rebar and concrete formwork.; sepia historical engraving, etched linework, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_zollverein_accessions",
+      "type": "illustration_event",
+      "subject": "zollverein_accessions",
+      "name": "Mở rộng Zollverein",
+      "description": "Customs-union accession represented by a customs gate, merchants and a central European trade map.",
+      "path": "content/illustrations/events/zollverein_accessions.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1842,
+        "to": 1888
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/events/zollverein_accessions.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Customs-union accession represented by a customs gate, merchants and a central European trade map.; sepia historical engraving, etched linework, parchment and ink, no text or logos."
       }
     }
   ]
