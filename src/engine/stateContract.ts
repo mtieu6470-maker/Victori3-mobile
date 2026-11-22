@@ -158,6 +158,25 @@ export function validateWarsAndTreaties(st: Obj): void {
 
 const YEAR_STAT_KEYS = ['y', 'pop', 'gdp', 'army', 'navy', 'literacy', 'power', 'regions', 'legitimacy'] as const;
 
+export function validateCompanies(st: Obj): void {
+  const seen = new Set<string>();
+  for (const [id, x] of Object.entries(obj(st.companies, 'companies'))) {
+    const p = `companies.${id}`; const c = obj(x, p);
+    if (c.id !== id) fail(`${p}.id`, `must equal its key ${id}`);
+    for (const k of ['kind', 'name', 'home', 'hq'] as const) str(c[k], `${p}.${k}`);
+    tick(c.founded, `${p}.founded`);
+    arr(c.sites, `${p}.sites`).forEach((s, i) => {
+      str(s, `${p}.sites[${i}]`);
+      if (!/^[^|]+\|[a-z_]+$/.test(s as string)) fail(`${p}.sites[${i}]`, 'must be regionId|building');
+      if (seen.has(s as string)) fail(`${p}.sites[${i}]`, 'is owned by more than one company');
+      seen.add(s as string);
+    });
+    if (!fin(c.prosperity) || c.prosperity < -1 || c.prosperity > 1) fail(`${p}.prosperity`, 'must be within -1..1');
+    nonNeg(c.lastRevenue, `${p}.lastRevenue`); nonNeg(c.lastCost, `${p}.lastCost`); tick(c.lossMonths, `${p}.lossMonths`);
+    if (c.historicalId !== undefined) str(c.historicalId, `${p}.historicalId`);
+  }
+}
+
 export function validateHistoryAndCounters(st: Obj): void {
   for (const [id, rows] of Object.entries(obj(st.history, 'history'))) {
     // CG18-04: every required YearStat key must be present and finite.
@@ -203,4 +222,5 @@ export function validateNestedState(st: GameState): void {
   validateMarketState(s);
   validateWarsAndTreaties(s);
   validateHistoryAndCounters(s);
+  validateCompanies(s);
 }

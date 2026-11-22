@@ -94,6 +94,13 @@ export interface Milestone { id: string; check_date: string; tolerance_years: nu
 
 export interface TechRecord { id: string; tree: string; cost: number; historical_year: number; prereqs: string[]; effects: Record<string, number | string>; source?: string; note?: string }
 
+/** CO-1b: a company kind unlocked by technology (CG-32). `buildings` empty = dormant until its goods exist. */
+export interface CompanyKindRecord {
+  id: string; sector: string; unlocked_by: string[]; buildings: string[];
+  rights: { id: string; right_class: 'CHARTER' | 'LICENSE' | 'CONTRACT' | 'CAPABILITY'; active: boolean }[];
+  source_ids: string[];
+}
+
 export interface HistoricalDB {
   meta: { start_date: string; built_at: string; counts: Record<string, number>; version: string };
   sources: { id: string; type: string; access: string; citation: string; url?: string }[];
@@ -109,6 +116,7 @@ export interface HistoricalDB {
   zollverein: { union_leader: string; members_at_start: string[]; historical_accessions: { entity: string; date: string }[] };
   leaders: Record<string, LeaderRecord[]>;
   technologies: TechRecord[];
+  company_kinds: CompanyKindRecord[];
   start_techs: Record<string, string[]>;
   historical_changes: { date: string; regions: string[]; to: string; event: string; partial?: boolean }[];
   equivalence: string[][];

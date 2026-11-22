@@ -1,3 +1,20 @@
+## 2026-11-22 — CO-1 companies (technology-unlocked kinds, site ownership, prosperity)
+
+- **CO-1b:**
+  - `tools/data/build_company_kinds.py` turns the CG-32 map into `historical_data/companies/company_kinds.json`: 97 kinds, each unlocked by a real technology.
+  - 24 kinds are operational on existing buildings (textile, iron/steel, machinery, railways); 73 are dormant until ECON-GOODS-01.
+  - Each kind's rights are classified CHARTER / LICENSE / CONTRACT and are all inactive (no legal basis yet, CG-30).
+  - build-data validates kinds.
+- **CO-1 (`src/engine/systems/companies.ts`):**
+  - A company forms only with an unlocking technology, joint-stock law (not traditionalism, plus the joint-stock banking technology) and ≥ 8 unowned building levels.
+  - It owns concrete sites; prosperity follows the real IND-02a margin; it dissolves after 36 loss months or when its sites vanish.
+  - No money flows and no bonuses yet (CO-2 adds them).
+  - Save/contract support: `GameState.companies`, older saves load with none, a site cannot have two owners.
+  - Historical seed 1: 12 companies by 1840 (GBR 4, FRA 3, USA 2, PRU, NED, BEL); 19 by 1880 (Japan's first after the Meiji Restoration).
+- `tests/companies.test.ts` (8). Local: tsc 0; `npm test` **33/33 files, 361/361 tests**.
+
+---
+
 ## 2026-11-22 — CATCHUP-01 A/B ablation; review round 3 closed; integrated (Director decision)
 
 - Same-seed A/B with and without CATCHUP (`--no-catchup`), seeds 1 and 2, to 2022: mean |log err| is 1.328/1.341 and 1.342/1.348.

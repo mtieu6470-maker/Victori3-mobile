@@ -144,6 +144,8 @@ function normalizeLegacyFields(st: GameState): void {
   st.constructionProjects ??= [];
   // IND-02a: saves written before site operations existed start with every site fully operating.
   st.industry ??= {};
+  // CO-1: saves written before companies existed start with none.
+  st.companies ??= {};
   for (const country of Object.values(st.countries ?? {})) {
     country.statePool ??= 0;
     country.privatePool ??= 0;

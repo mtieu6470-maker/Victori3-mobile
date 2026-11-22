@@ -347,6 +347,15 @@ for (const e of entities) {
   start_techs[e.id] = [...new Set([...(tiers[lvl] as string[]), ...((tiers.overrides[e.id] as string[]) ?? [])])];
 }
 const techIds = new Set(techFile.technologies.map((t: any) => t.id));
+// CO-1b: company kinds (generated from CG-32 by tools/data/build_company_kinds.py)
+const companyKindsFile = readJson('companies/company_kinds.json');
+const BUILDING_IDS = new Set(['plantation', 'mine', 'logging', 'textile_mill', 'ironworks', 'tool_works', 'arms_works', 'luxury_workshop', 'railway', 'university']);
+for (const k of companyKindsFile.kinds) {
+  if (!Array.isArray(k.unlocked_by) || !k.unlocked_by.length) err(`company kind ${k.id}: no unlocking technology`);
+  for (const t of k.unlocked_by ?? []) if (!techIds.has(t)) err(`company kind ${k.id}: unknown technology ${t}`);
+  for (const b of k.buildings ?? []) if (!BUILDING_IDS.has(b)) err(`company kind ${k.id}: unknown building ${b}`);
+  for (const r of k.rights ?? []) if (r.active) err(`company kind ${k.id}: right ${r.id} active without a legal basis (CG-30)`);
+}
 for (const [id, list] of Object.entries(start_techs)) for (const t of list) if (!techIds.has(t)) err(`start tech ${t} for ${id} unknown`);
 for (const t of techFile.technologies) for (const p of t.prereqs) if (!techIds.has(p)) err(`tech ${t.id}: unknown prereq ${p}`);
 
@@ -411,7 +420,7 @@ const db: HistoricalDB = {
   meta: { start_date: START, built_at: new Date().toISOString(), version: '0.1.0', counts: { entities: entities.length, regions: regions.length, sources: sources.length, alliances: alliances.length } },
   sources, cultures: cultFile.cultures, religions: cultFile.religions, entities, regions, alliances,
   wars: ev.initial_wars, exogenous: ev.exogenous, decision_windows: ev.decision_windows, structural_rules: ev.structural_rules,
-  zollverein: ev.zollverein_accessions, leaders, technologies: techFile.technologies, start_techs,
+  zollverein: ev.zollverein_accessions, leaders, technologies: techFile.technologies, company_kinds: companyKindsFile.kinds, start_techs,
   historical_changes: hc.changes, equivalence: hc.equivalence.classes, milestones: ms.milestones, territorial_checkpoints: ms.territorial_checkpoints,
   european_powers: ms.european_powers, benchmarks, gdp_pc_1836,
   coverage: { entities_total: regEntities.length, by_tier, by_model, facts_by_quality: factsByQuality, needs_source: [...new Set(needsSource)], gaps },

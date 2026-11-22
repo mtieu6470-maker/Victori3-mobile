@@ -180,6 +180,17 @@ export interface YearStat { y: number; pop: number; gdp: number; army: number; n
 
 export interface Counters { systemRuns: Record<string, number>; aiActions: Record<string, number>; aiActionsByCountry: Record<string, number>; decisionWindowsFired: number; historicalBiasApplied: number }
 
+/** CO-1: a company owning building sites (`${regionId}|${building}`); an accounting layer, no money flows yet. */
+export interface Company {
+  id: string; kind: string; name: string; home: string; hq: string; founded: number;
+  sites: string[];
+  /** Smoothed operating margin of its sites, -1..1. */
+  prosperity: number;
+  lastRevenue: number; lastCost: number; lossMonths: number;
+  /** Set only for companies seeded from verified historical evidence (CG-31). */
+  historicalId?: string;
+}
+
 export interface GameState {
   version: number;
   seed: number; rng: [number, number, number, number];
@@ -202,6 +213,8 @@ export interface GameState {
   constructionProjects: ConstructionProject[];
   /** IND-02a operating state of building sites, keyed `${regionId}|${building}`; normalized from older saves. */
   industry: Record<string, import('./systems/industry').SiteOps>;
+  /** CO-1 companies keyed by id; normalized to {} for older saves. */
+  companies: Record<string, Company>;
   log: LogEntry[];
   territoryLog: TerritoryChange[];
   history: Record<string, YearStat[]>;

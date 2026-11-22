@@ -1,0 +1,1799 @@
+{
+ "description": "Company kinds unlocked by technologies (CO-1b). Generated from docs/research/design/CG32_TECH_TO_COMPANY_MAP.csv by tools/data/build_company_kinds.py; do not edit by hand. Technology opens the capability to form a company; formation still needs law, sites and capital (CG-32 §4). Rights are inactive until a legal basis exists (CG-30).",
+ "kinds": [
+  {
+   "id": "agricultural_implements_maker",
+   "sector": "machinery",
+   "unlocked_by": [
+    "steel_plough"
+   ],
+   "rights": [
+    {
+     "id": "dealer_network",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "tool_works"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "agricultural_machine_maker",
+   "sector": "machinery",
+   "unlocked_by": [
+    "mechanical_reaper"
+   ],
+   "rights": [
+    {
+     "id": "dealer_network",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "tool_works"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "agritech_services",
+   "sector": "agriculture",
+   "unlocked_by": [
+    "precision_agriculture"
+   ],
+   "rights": [
+    {
+     "id": "service_contract",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "aircraft_manufacturer",
+   "sector": "aerospace",
+   "unlocked_by": [
+    "powered_flight"
+   ],
+   "rights": [
+    {
+     "id": "aircraft_certification",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "aluminium_smelter",
+   "sector": "metals",
+   "unlocked_by": [
+    "aluminium_electrolysis"
+   ],
+   "rights": [
+    {
+     "id": "industrial_financing",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "ironworks"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "audit_and_statistics_service",
+   "sector": "business_services",
+   "unlocked_by": [
+    "national_accounts"
+   ],
+   "rights": [
+    {
+     "id": "audit_accreditation",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "automobile_manufacturer",
+   "sector": "automotive",
+   "unlocked_by": [
+    "motor_cars"
+   ],
+   "rights": [
+    {
+     "id": "dealer_network",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "autonomous_mobility_operator",
+   "sector": "transport",
+   "unlocked_by": [
+    "autonomous_vehicles"
+   ],
+   "rights": [
+    {
+     "id": "road_testing_permit",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "battery_manufacturer",
+   "sector": "electronics",
+   "unlocked_by": [
+    "lithium_ion_batteries"
+   ],
+   "rights": [
+    {
+     "id": "supplier_contract",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "biomedical_research_firm",
+   "sector": "biotech",
+   "unlocked_by": [
+    "dna_structure"
+   ],
+   "rights": [
+    {
+     "id": "research_accreditation",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "biotech_seed_company",
+   "sector": "agriculture",
+   "unlocked_by": [
+    "gm_crops"
+   ],
+   "rights": [
+    {
+     "id": "biosafety_authorization",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "broadcast_television_company",
+   "sector": "media",
+   "unlocked_by": [
+    "television"
+   ],
+   "rights": [
+    {
+     "id": "spectrum_license",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "civil_engineering_contractor",
+   "sector": "construction",
+   "unlocked_by": [
+    "reinforced_concrete"
+   ],
+   "rights": [
+    {
+     "id": "public_tender",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "coke_furnace_works",
+   "sector": "iron",
+   "unlocked_by": [
+    "coke_smelting"
+   ],
+   "rights": [
+    {
+     "id": "industrial_financing",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "ironworks"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "cold_chain_carrier",
+   "sector": "logistics",
+   "unlocked_by": [
+    "refrigeration"
+   ],
+   "rights": [
+    {
+     "id": "cold_storage_access",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "commercial_seed_producer",
+   "sector": "agriculture",
+   "unlocked_by": [
+    "high_yield_wheat"
+   ],
+   "rights": [
+    {
+     "id": "seed_certification",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "container_logistics",
+   "sector": "logistics",
+   "unlocked_by": [
+    "containerisation"
+   ],
+   "rights": [
+    {
+     "id": "terminal_access",
+     "right_class": "CHARTER",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "crop_protection_firm",
+   "sector": "chemicals",
+   "unlocked_by": [
+    "synthetic_pesticides"
+   ],
+   "rights": [
+    {
+     "id": "chemical_registration",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "data_network_operator",
+   "sector": "digital",
+   "unlocked_by": [
+    "packet_networks"
+   ],
+   "rights": [
+    {
+     "id": "network_interconnection",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "data_processing_bureau",
+   "sector": "business_services",
+   "unlocked_by": [
+    "punched_card_tabulation"
+   ],
+   "rights": [
+    {
+     "id": "service_contract",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "diagnostics_company",
+   "sector": "biotech",
+   "unlocked_by": [
+    "pcr_amplification"
+   ],
+   "rights": [
+    {
+     "id": "diagnostics_authorization",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "diesel_engine_maker",
+   "sector": "machinery",
+   "unlocked_by": [
+    "diesel_engine"
+   ],
+   "rights": [
+    {
+     "id": "supplier_contract",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "tool_works"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "electric_utility",
+   "sector": "power",
+   "unlocked_by": [
+    "central_power_stations"
+   ],
+   "rights": [
+    {
+     "id": "grid_concession",
+     "right_class": "CHARTER",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "electric_vehicle_manufacturer",
+   "sector": "automotive",
+   "unlocked_by": [
+    "electric_vehicles"
+   ],
+   "rights": [
+    {
+     "id": "dealer_network",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "electrical_equipment_maker",
+   "sector": "electrical",
+   "unlocked_by": [
+    "electricity"
+   ],
+   "rights": [
+    {
+     "id": "equipment_supply",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "engine_manufacturer",
+   "sector": "machinery",
+   "unlocked_by": [
+    "internal_combustion"
+   ],
+   "rights": [
+    {
+     "id": "supplier_contract",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "tool_works"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "enterprise_software_vendor",
+   "sector": "digital",
+   "unlocked_by": [
+    "enterprise_software"
+   ],
+   "rights": [
+    {
+     "id": "service_distribution",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "fertilizer_producer",
+   "sector": "chemicals",
+   "unlocked_by": [
+    "chemical_fertilizers"
+   ],
+   "rights": [
+    {
+     "id": "distribution_network",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "foundation_model_services",
+   "sector": "digital",
+   "unlocked_by": [
+    "transformer_ai"
+   ],
+   "rights": [
+    {
+     "id": "service_contract",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "gene_edited_seed_company",
+   "sector": "agriculture",
+   "unlocked_by": [
+    "crispr_crops"
+   ],
+   "rights": [
+    {
+     "id": "biosafety_authorization",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "generator_manufacturer",
+   "sector": "electrical",
+   "unlocked_by": [
+    "dynamo"
+   ],
+   "rights": [
+    {
+     "id": "equipment_supply",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "genomics_lab",
+   "sector": "biotech",
+   "unlocked_by": [
+    "genome_sequencing"
+   ],
+   "rights": [
+    {
+     "id": "lab_accreditation",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "grid_storage_operator",
+   "sector": "power",
+   "unlocked_by": [
+    "grid_storage"
+   ],
+   "rights": [
+    {
+     "id": "grid_interconnection",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "harvester_manufacturer",
+   "sector": "machinery",
+   "unlocked_by": [
+    "combine_harvesters"
+   ],
+   "rights": [
+    {
+     "id": "dealer_network",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "tool_works"
+   ],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "heavy_casting_firm",
+   "sector": "steel",
+   "unlocked_by": [
+    "large_steel_casting"
+   ],
+   "rights": [
+    {
+     "id": "industrial_financing",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "ironworks"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "high_speed_rail_operator",
+   "sector": "rail",
+   "unlocked_by": [
+    "high_speed_rail"
+   ],
+   "rights": [
+    {
+     "id": "network_franchise",
+     "right_class": "CHARTER",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "railway"
+   ],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "hydropower_utility",
+   "sector": "power",
+   "unlocked_by": [
+    "hydroelectric_power"
+   ],
+   "rights": [
+    {
+     "id": "water_use_permit",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "immunotherapy_developer",
+   "sector": "pharma",
+   "unlocked_by": [
+    "immunotherapy"
+   ],
+   "rights": [
+    {
+     "id": "drug_authorization",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "industrial_ammonia_producer",
+   "sector": "chemicals",
+   "unlocked_by": [
+    "nitrogen_fixation"
+   ],
+   "rights": [
+    {
+     "id": "hazardous_goods_license",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "industrial_explosives_firm",
+   "sector": "chemicals",
+   "unlocked_by": [
+    "dynamite"
+   ],
+   "rights": [
+    {
+     "id": "hazardous_goods_license",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "industrial_management_consultancy",
+   "sector": "business_services",
+   "unlocked_by": [
+    "scientific_management"
+   ],
+   "rights": [
+    {
+     "id": "service_contract",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "integrated_circuit_fab",
+   "sector": "electronics",
+   "unlocked_by": [
+    "integrated_circuit"
+   ],
+   "rights": [
+    {
+     "id": "industrial_financing",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "integrated_steelworks",
+   "sector": "steel",
+   "unlocked_by": [
+    "bessemer_steel"
+   ],
+   "rights": [
+    {
+     "id": "industrial_financing",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "ironworks"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "internet_service_operator",
+   "sector": "digital",
+   "unlocked_by": [
+    "internet"
+   ],
+   "rights": [
+    {
+     "id": "network_interconnection",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "irrigation_equipment_firm",
+   "sector": "agriculture",
+   "unlocked_by": [
+    "drip_irrigation"
+   ],
+   "rights": [
+    {
+     "id": "water_use_permit",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "jet_aircraft_manufacturer",
+   "sector": "aerospace",
+   "unlocked_by": [
+    "jet_aircraft"
+   ],
+   "rights": [
+    {
+     "id": "aircraft_certification",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "joint_stock_bank",
+   "sector": "finance",
+   "unlocked_by": [
+    "joint_stock_banking"
+   ],
+   "rights": [
+    {
+     "id": "deposit_license",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S3"
+   ]
+  },
+  {
+   "id": "lighting_equipment_maker",
+   "sector": "electrical",
+   "unlocked_by": [
+    "electric_lighting"
+   ],
+   "rights": [
+    {
+     "id": "equipment_supply",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "long_distance_rail_operator",
+   "sector": "rail",
+   "unlocked_by": [
+    "transcontinental_railways"
+   ],
+   "rights": [
+    {
+     "id": "network_franchise",
+     "right_class": "CHARTER",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "railway"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "machine_learning_services",
+   "sector": "digital",
+   "unlocked_by": [
+    "deep_learning"
+   ],
+   "rights": [
+    {
+     "id": "service_contract",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "machine_tool_maker",
+   "sector": "machinery",
+   "unlocked_by": [
+    "machine_tools"
+   ],
+   "rights": [
+    {
+     "id": "supplier_contract",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "tool_works"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "mass_production_firm",
+   "sector": "manufacturing",
+   "unlocked_by": [
+    "assembly_line"
+   ],
+   "rights": [
+    {
+     "id": "supplier_contract",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "tool_works"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "mechanised_textile_mill",
+   "sector": "textile",
+   "unlocked_by": [
+    "mechanized_spinning"
+   ],
+   "rights": [
+    {
+     "id": "supplier_contract",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "textile_mill"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "medical_imaging_manufacturer",
+   "sector": "health",
+   "unlocked_by": [
+    "ct_scanning"
+   ],
+   "rights": [
+    {
+     "id": "device_certification",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "medical_scanner_manufacturer",
+   "sector": "health",
+   "unlocked_by": [
+    "mri_imaging"
+   ],
+   "rights": [
+    {
+     "id": "device_certification",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "microprocessor_fab",
+   "sector": "electronics",
+   "unlocked_by": [
+    "microprocessor"
+   ],
+   "rights": [
+    {
+     "id": "industrial_financing",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "mobile_carrier",
+   "sector": "telecom",
+   "unlocked_by": [
+    "mobile_networks"
+   ],
+   "rights": [
+    {
+     "id": "spectrum_license",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "mobile_payment_processor",
+   "sector": "finance",
+   "unlocked_by": [
+    "mobile_payments"
+   ],
+   "rights": [
+    {
+     "id": "payment_license",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "mrna_vaccine_manufacturer",
+   "sector": "pharma",
+   "unlocked_by": [
+    "mrna_vaccines"
+   ],
+   "rights": [
+    {
+     "id": "drug_authorization",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "nuclear_utility",
+   "sector": "power",
+   "unlocked_by": [
+    "nuclear_power"
+   ],
+   "rights": [
+    {
+     "id": "nuclear_site_license",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "oil_extraction_firm",
+   "sector": "oil",
+   "unlocked_by": [
+    "oil_drilling"
+   ],
+   "rights": [
+    {
+     "id": "drilling_concession",
+     "right_class": "CHARTER",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "open_hearth_steelworks",
+   "sector": "steel",
+   "unlocked_by": [
+    "open_hearth"
+   ],
+   "rights": [
+    {
+     "id": "industrial_financing",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "ironworks"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "payment_processor",
+   "sector": "finance",
+   "unlocked_by": [
+    "electronic_payments"
+   ],
+   "rights": [
+    {
+     "id": "payment_license",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "petroleum_refiner",
+   "sector": "oil",
+   "unlocked_by": [
+    "oil_refining"
+   ],
+   "rights": [
+    {
+     "id": "storage_license",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "pharmaceutical_manufacturer",
+   "sector": "pharma",
+   "unlocked_by": [
+    "antibiotics"
+   ],
+   "rights": [
+    {
+     "id": "drug_authorization",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "plant_tissue_culture_lab",
+   "sector": "biotech",
+   "unlocked_by": [
+    "tissue_culture"
+   ],
+   "rights": [
+    {
+     "id": "lab_accreditation",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "polymer_manufacturer",
+   "sector": "chemicals",
+   "unlocked_by": [
+    "synthetic_polymers"
+   ],
+   "rights": [
+    {
+     "id": "supplier_contract",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "precision_parts_manufacturer",
+   "sector": "machinery",
+   "unlocked_by": [
+    "interchangeable_parts"
+   ],
+   "rights": [
+    {
+     "id": "supplier_contract",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "tool_works"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "railway_operator",
+   "sector": "rail",
+   "unlocked_by": [
+    "railways"
+   ],
+   "rights": [
+    {
+     "id": "network_franchise",
+     "right_class": "CHARTER",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "railway"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "recording_media_firm",
+   "sector": "media",
+   "unlocked_by": [
+    "sound_recording"
+   ],
+   "rights": [
+    {
+     "id": "distribution_rights",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "regulated_clearing_bank",
+   "sector": "finance",
+   "unlocked_by": [
+    "central_banking"
+   ],
+   "rights": [
+    {
+     "id": "clearing_access",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S3"
+   ]
+  },
+  {
+   "id": "rice_seed_producer",
+   "sector": "agriculture",
+   "unlocked_by": [
+    "high_yield_rice"
+   ],
+   "rights": [
+    {
+     "id": "seed_certification",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "rubber_processor",
+   "sector": "rubber",
+   "unlocked_by": [
+    "vulcanized_rubber"
+   ],
+   "rights": [
+    {
+     "id": "supplier_contract",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "seed_breeder",
+   "sector": "agriculture",
+   "unlocked_by": [
+    "hybrid_maize"
+   ],
+   "rights": [
+    {
+     "id": "seed_certification",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "semiconductor_components_firm",
+   "sector": "electronics",
+   "unlocked_by": [
+    "transistor"
+   ],
+   "rights": [
+    {
+     "id": "supplier_contract",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "sewing_machine_maker",
+   "sector": "machinery",
+   "unlocked_by": [
+    "sewing_machine"
+   ],
+   "rights": [
+    {
+     "id": "dealer_network",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "tool_works"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "smartphone_manufacturer",
+   "sector": "electronics",
+   "unlocked_by": [
+    "smartphones"
+   ],
+   "rights": [
+    {
+     "id": "dealer_network",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "solar_module_manufacturer",
+   "sector": "power",
+   "unlocked_by": [
+    "solar_photovoltaics"
+   ],
+   "rights": [
+    {
+     "id": "grid_interconnection",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "specialist_hospital_operator",
+   "sector": "health",
+   "unlocked_by": [
+    "organ_transplants"
+   ],
+   "rights": [
+    {
+     "id": "clinical_accreditation",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "specialty_steelmaker",
+   "sector": "steel",
+   "unlocked_by": [
+    "high_speed_steel"
+   ],
+   "rights": [
+    {
+     "id": "industrial_financing",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "ironworks"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "steam_engine_foundry",
+   "sector": "machinery",
+   "unlocked_by": [
+    "steam_engines"
+   ],
+   "rights": [
+    {
+     "id": "industrial_financing",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "tool_works"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "steamship_carrier",
+   "sector": "shipping",
+   "unlocked_by": [
+    "steamships"
+   ],
+   "rights": [
+    {
+     "id": "route_access",
+     "right_class": "CHARTER",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "submarine_cable_operator",
+   "sector": "telecom",
+   "unlocked_by": [
+    "transatlantic_cable"
+   ],
+   "rights": [
+    {
+     "id": "landing_rights",
+     "right_class": "CHARTER",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "synthetic_fibre_producer",
+   "sector": "textile",
+   "unlocked_by": [
+    "nylon"
+   ],
+   "rights": [
+    {
+     "id": "supplier_contract",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "textile_mill"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "telegraph_finance_service",
+   "sector": "finance",
+   "unlocked_by": [
+    "telegraphic_exchanges"
+   ],
+   "rights": [
+    {
+     "id": "exchange_membership",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S3"
+   ]
+  },
+  {
+   "id": "telegraph_network",
+   "sector": "telecom",
+   "unlocked_by": [
+    "telegraph"
+   ],
+   "rights": [
+    {
+     "id": "right_of_way",
+     "right_class": "CHARTER",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "telephone_operator",
+   "sector": "telecom",
+   "unlocked_by": [
+    "telephone"
+   ],
+   "rights": [
+    {
+     "id": "network_interconnection",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "tractor_manufacturer",
+   "sector": "machinery",
+   "unlocked_by": [
+    "tractors"
+   ],
+   "rights": [
+    {
+     "id": "dealer_network",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "tool_works"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "turbine_manufacturer",
+   "sector": "machinery",
+   "unlocked_by": [
+    "steam_turbines"
+   ],
+   "rights": [
+    {
+     "id": "equipment_supply",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "tool_works"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "tyre_manufacturer",
+   "sector": "rubber",
+   "unlocked_by": [
+    "pneumatic_tyres"
+   ],
+   "rights": [
+    {
+     "id": "supplier_contract",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "urban_transit_operator",
+   "sector": "transport",
+   "unlocked_by": [
+    "urban_metro"
+   ],
+   "rights": [
+    {
+     "id": "municipal_franchise",
+     "right_class": "CHARTER",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "vaccine_manufacturer",
+   "sector": "pharma",
+   "unlocked_by": [
+    "polio_vaccine"
+   ],
+   "rights": [
+    {
+     "id": "drug_authorization",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "vacuum_tube_maker",
+   "sector": "electronics",
+   "unlocked_by": [
+    "vacuum_tubes"
+   ],
+   "rights": [
+    {
+     "id": "supplier_contract",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "web_service_company",
+   "sector": "digital",
+   "unlocked_by": [
+    "world_wide_web"
+   ],
+   "rights": [
+    {
+     "id": "service_distribution",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "wind_turbine_operator",
+   "sector": "power",
+   "unlocked_by": [
+    "wind_turbines"
+   ],
+   "rights": [
+    {
+     "id": "grid_interconnection",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S4"
+   ]
+  },
+  {
+   "id": "wireless_telegraph_operator",
+   "sector": "telecom",
+   "unlocked_by": [
+    "radio_telegraphy"
+   ],
+   "rights": [
+    {
+     "id": "spectrum_license",
+     "right_class": "LICENSE",
+     "active": false
+    }
+   ],
+   "buildings": [],
+   "source_ids": [
+    "S2"
+   ]
+  },
+  {
+   "id": "wrought_iron_works",
+   "sector": "iron",
+   "unlocked_by": [
+    "puddling_iron"
+   ],
+   "rights": [
+    {
+     "id": "industrial_financing",
+     "right_class": "CONTRACT",
+     "active": false
+    }
+   ],
+   "buildings": [
+    "ironworks"
+   ],
+   "source_ids": [
+    "S2"
+   ]
+  }
+ ]
+}

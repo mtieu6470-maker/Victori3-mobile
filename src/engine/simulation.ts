@@ -19,6 +19,7 @@
 //
 // Every system runs every boundary regardless of mode; counters record each monthly run so tests
 // can prove that neither mode skips or weakens a system.
+import { companiesMonth } from './systems/companies';
 import { growthMonth } from './systems/growth';
 import type { Cadence, GameState } from './types';
 import { computeEconomy } from './systems/economy';
@@ -42,6 +43,7 @@ export interface SimSystem { name: string; run: (st: GameState) => void }
 /** Monthly systems, in canonical order. Exported (and mutable) for instrumentation tools/tests. */
 export const SYSTEMS: SimSystem[] = [
   { name: 'economy', run: (st) => computeEconomy(st) },
+  { name: 'companies', run: companiesMonth },
   { name: 'population', run: populationMonth },
   { name: 'politics', run: politicsMonth },
   { name: 'secession', run: (st) => secessionCheck(st, (nation, regs, from) => { const id = createNation(st, nation, [], from, 'secession'); const rebels = st.countries[id]; rebels.kind = 'rebel'; rebels.capital = regs[0]; declareWar(st, id, from, [{ by: id, type: 'independence', target: from, regions: regs }], `${rebels.name} independence war`, 'independence'); for (const r of regs) st.regions[st.regions.findIndex((x) => x.id === r)].controller = id; return id; }) },
