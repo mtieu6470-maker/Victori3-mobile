@@ -1,4 +1,1325 @@
 {
- "description": "MEDIA-ILL-01 illustrations for technologies, company kinds, goods, buildings, historical events and eras. Each asset: id, type (illustration_tech|illustration_company|illustration_good|illustration_building|illustration_event|illustration_era), subject (tech id / company kind / good / building / decision window id / era id), name (Vietnamese), description, path (under public/), width, height, source {repository, file, page}, license {short, url, attribution_required}, author, credit; for 'Project original' art also provenance {method: hand_drawn|code_generated|ai_generated, tool, creator, created, prompt?}. Public-domain or CC licences only, or Project original with provenance. Never copy Victoria 3 / Paradox art or imitate its look. Style guide: docs/media/ILLUSTRATION_STYLE_GUIDE_VI.md.",
- "assets": []
+  "description": "MEDIA-ILL-01 / HY-02 first batch: 40 original code-generated SVG illustrations (10 buildings, 20 technologies 1836–1880, 10 historical decision-window events).",
+  "assets": [
+    {
+      "id": "ill_plantation",
+      "type": "illustration_building",
+      "subject": "plantation",
+      "name": "Đồn điền",
+      "description": "Plantation house, crop rows and palms",
+      "path": "content/illustrations/buildings/plantation.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1836,
+        "to": 1900
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/buildings/plantation.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Plantation house, crop rows and palms; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_mine",
+      "type": "illustration_building",
+      "subject": "mine",
+      "name": "Mỏ khai thác",
+      "description": "Coal mine headframe, shaft and ore carts",
+      "path": "content/illustrations/buildings/mine.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1836,
+        "to": 1900
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/buildings/mine.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Coal mine headframe, shaft and ore carts; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_logging",
+      "type": "illustration_building",
+      "subject": "logging",
+      "name": "Trại khai thác gỗ",
+      "description": "Timber camp, felled trunks and saw pit",
+      "path": "content/illustrations/buildings/logging.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1836,
+        "to": 1900
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/buildings/logging.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Timber camp, felled trunks and saw pit; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_textile_mill",
+      "type": "illustration_building",
+      "subject": "textile_mill",
+      "name": "Nhà máy dệt",
+      "description": "Steam textile mill, chimney and looms",
+      "path": "content/illustrations/buildings/textile_mill.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1836,
+        "to": 1900
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/buildings/textile_mill.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Steam textile mill, chimney and looms; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_ironworks",
+      "type": "illustration_building",
+      "subject": "ironworks",
+      "name": "Xưởng luyện sắt thép",
+      "description": "Ironworks, blast furnace and molten metal",
+      "path": "content/illustrations/buildings/ironworks.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1836,
+        "to": 1900
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/buildings/ironworks.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Ironworks, blast furnace and molten metal; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_tool_works",
+      "type": "illustration_building",
+      "subject": "tool_works",
+      "name": "Xưởng cơ khí",
+      "description": "Machine shop with lathe and precision tools",
+      "path": "content/illustrations/buildings/tool_works.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1836,
+        "to": 1900
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/buildings/tool_works.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Machine shop with lathe and precision tools; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_arms_works",
+      "type": "illustration_building",
+      "subject": "arms_works",
+      "name": "Xưởng quân dụng",
+      "description": "Metalworking arsenal and industrial workshops",
+      "path": "content/illustrations/buildings/arms_works.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1836,
+        "to": 1900
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/buildings/arms_works.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Metalworking arsenal and industrial workshops; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_luxury_workshop",
+      "type": "illustration_building",
+      "subject": "luxury_workshop",
+      "name": "Xưởng hàng xa xỉ",
+      "description": "Cabinetmaking studio and fine craft furniture",
+      "path": "content/illustrations/buildings/luxury_workshop.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1836,
+        "to": 1900
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/buildings/luxury_workshop.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Cabinetmaking studio and fine craft furniture; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_railway",
+      "type": "illustration_building",
+      "subject": "railway",
+      "name": "Nhà ga đường sắt",
+      "description": "Railway station, steam locomotive and tracks",
+      "path": "content/illustrations/buildings/railway.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1836,
+        "to": 1900
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/buildings/railway.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Railway station, steam locomotive and tracks; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_university",
+      "type": "illustration_building",
+      "subject": "university",
+      "name": "Đại học",
+      "description": "Classical university campus and observatory dome",
+      "path": "content/illustrations/buildings/university.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1836,
+        "to": 1900
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/buildings/university.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Classical university campus and observatory dome; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_steamships",
+      "type": "illustration_tech",
+      "subject": "steamships",
+      "name": "Tàu hơi nước",
+      "description": "Paddle steamer crossing a nineteenth-century river",
+      "path": "content/illustrations/technologies/steamships.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1838,
+        "to": 1838
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/steamships.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Paddle steamer crossing a nineteenth-century river; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_mechanical_reaper",
+      "type": "illustration_tech",
+      "subject": "mechanical_reaper",
+      "name": "Máy gặt cơ khí",
+      "description": "Horse-drawn mechanical reaper in a wheat field",
+      "path": "content/illustrations/technologies/mechanical_reaper.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1845,
+        "to": 1845
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/mechanical_reaper.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Horse-drawn mechanical reaper in a wheat field; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_telegraph",
+      "type": "illustration_tech",
+      "subject": "telegraph",
+      "name": "Điện báo",
+      "description": "Telegraph office, key and overhead wire poles",
+      "path": "content/illustrations/technologies/telegraph.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1845,
+        "to": 1845
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/telegraph.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Telegraph office, key and overhead wire poles; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_anesthesia",
+      "type": "illustration_tech",
+      "subject": "anesthesia",
+      "name": "Gây mê",
+      "description": "Historic ether apparatus and non-graphic operating theatre",
+      "path": "content/illustrations/technologies/anesthesia.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1847,
+        "to": 1847
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/anesthesia.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Historic ether apparatus and non-graphic operating theatre; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_chemical_fertilizers",
+      "type": "illustration_tech",
+      "subject": "chemical_fertilizers",
+      "name": "Phân bón hóa học",
+      "description": "Industrial fertilizer works beside cultivated fields",
+      "path": "content/illustrations/technologies/chemical_fertilizers.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1850,
+        "to": 1850
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/chemical_fertilizers.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Industrial fertilizer works beside cultivated fields; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_rifled_muskets",
+      "type": "illustration_tech",
+      "subject": "rifled_muskets",
+      "name": "Súng trường rãnh xoắn",
+      "description": "Mid-century rifled long arm as engineering object",
+      "path": "content/illustrations/technologies/rifled_muskets.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1850,
+        "to": 1850
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/rifled_muskets.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Mid-century rifled long arm as engineering object; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_vulcanized_rubber",
+      "type": "illustration_tech",
+      "subject": "vulcanized_rubber",
+      "name": "Cao su lưu hóa",
+      "description": "Rubber processing press, latex tree and rubber goods",
+      "path": "content/illustrations/technologies/vulcanized_rubber.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1850,
+        "to": 1850
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/vulcanized_rubber.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Rubber processing press, latex tree and rubber goods; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_sewing_machine",
+      "type": "illustration_tech",
+      "subject": "sewing_machine",
+      "name": "Máy may",
+      "description": "Early lockstitch sewing machine on worktable",
+      "path": "content/illustrations/technologies/sewing_machine.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1850,
+        "to": 1850
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/sewing_machine.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Early lockstitch sewing machine on worktable; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_interchangeable_parts",
+      "type": "illustration_tech",
+      "subject": "interchangeable_parts",
+      "name": "Linh kiện thay thế đồng nhất",
+      "description": "Precision gauges and interchangeable metal components",
+      "path": "content/illustrations/technologies/interchangeable_parts.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1853,
+        "to": 1853
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/interchangeable_parts.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Precision gauges and interchangeable metal components; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_quinine_prophylaxis",
+      "type": "illustration_tech",
+      "subject": "quinine_prophylaxis",
+      "name": "Phòng bệnh bằng quinine",
+      "description": "Cinchona bark, apothecary bottle and tropical station",
+      "path": "content/illustrations/technologies/quinine_prophylaxis.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1854,
+        "to": 1854
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/quinine_prophylaxis.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Cinchona bark, apothecary bottle and tropical station; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_rifled_artillery",
+      "type": "illustration_tech",
+      "subject": "rifled_artillery",
+      "name": "Pháo rãnh xoắn",
+      "description": "Rifled field artillery piece on carriage",
+      "path": "content/illustrations/technologies/rifled_artillery.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1859,
+        "to": 1859
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/rifled_artillery.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Rifled field artillery piece on carriage; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_bessemer_steel",
+      "type": "illustration_tech",
+      "subject": "bessemer_steel",
+      "name": "Thép Bessemer",
+      "description": "Bessemer converter pouring molten steel",
+      "path": "content/illustrations/technologies/bessemer_steel.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1860,
+        "to": 1860
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/bessemer_steel.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Bessemer converter pouring molten steel; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_ironclads",
+      "type": "illustration_tech",
+      "subject": "ironclads",
+      "name": "Thiết giáp hạm",
+      "description": "Ironclad warship with armored hull and steam funnel",
+      "path": "content/illustrations/technologies/ironclads.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1860,
+        "to": 1860
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/ironclads.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Ironclad warship with armored hull and steam funnel; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_oil_refining",
+      "type": "illustration_tech",
+      "subject": "oil_refining",
+      "name": "Lọc dầu",
+      "description": "Early petroleum refinery with stills and storage tanks",
+      "path": "content/illustrations/technologies/oil_refining.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1862,
+        "to": 1862
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/oil_refining.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Early petroleum refinery with stills and storage tanks; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_railway_mobilization",
+      "type": "illustration_tech",
+      "subject": "railway_mobilization",
+      "name": "Huy động đường sắt",
+      "description": "Railway logistics train carrying military supplies",
+      "path": "content/illustrations/technologies/railway_mobilization.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1866,
+        "to": 1866
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/railway_mobilization.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Railway logistics train carrying military supplies; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_open_hearth",
+      "type": "illustration_tech",
+      "subject": "open_hearth",
+      "name": "Lò Martin",
+      "description": "Open-hearth steel furnace and charging platform",
+      "path": "content/illustrations/technologies/open_hearth.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1870,
+        "to": 1870
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/open_hearth.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Open-hearth steel furnace and charging platform; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_dynamo",
+      "type": "illustration_tech",
+      "subject": "dynamo",
+      "name": "Máy phát điện dynamo",
+      "description": "Early dynamo generator with copper coils and belt drive",
+      "path": "content/illustrations/technologies/dynamo.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1870,
+        "to": 1870
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/dynamo.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Early dynamo generator with copper coils and belt drive; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_dynamite",
+      "type": "illustration_tech",
+      "subject": "dynamite",
+      "name": "Dynamite công nghiệp",
+      "description": "Quarry blasting scene, distant controlled industrial blast",
+      "path": "content/illustrations/technologies/dynamite.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1870,
+        "to": 1870
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/dynamite.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Quarry blasting scene, distant controlled industrial blast; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_oil_drilling",
+      "type": "illustration_tech",
+      "subject": "oil_drilling",
+      "name": "Khoan dầu",
+      "description": "Early oil derrick above productive well",
+      "path": "content/illustrations/technologies/oil_drilling.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1870,
+        "to": 1870
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/oil_drilling.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Early oil derrick above productive well; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_urban_metro",
+      "type": "illustration_tech",
+      "subject": "urban_metro",
+      "name": "Tàu điện ngầm đô thị",
+      "description": "Early underground railway station entrance and tunnel",
+      "path": "content/illustrations/technologies/urban_metro.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1870,
+        "to": 1870
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/technologies/urban_metro.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Early underground railway station entrance and tunnel; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_dw_belgium_recognition",
+      "type": "illustration_event",
+      "subject": "dw_belgium_recognition",
+      "name": "Công nhận độc lập Bỉ",
+      "description": "Diplomatic recognition at treaty table with European map",
+      "path": "content/illustrations/events/dw_belgium_recognition.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1838,
+        "to": 1840
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/events/dw_belgium_recognition.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Diplomatic recognition at treaty table with European map; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_dw_tanzimat",
+      "type": "illustration_event",
+      "subject": "dw_tanzimat",
+      "name": "Tanzimat",
+      "description": "Ottoman reform council and imperial architecture",
+      "path": "content/illustrations/events/dw_tanzimat.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1839,
+        "to": 1845
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/events/dw_tanzimat.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Ottoman reform council and imperial architecture; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_dw_ottoman_reform_edict",
+      "type": "illustration_event",
+      "subject": "dw_ottoman_reform_edict",
+      "name": "Sắc lệnh cải cách Ottoman",
+      "description": "Ottoman imperial decree scroll and state seal",
+      "path": "content/illustrations/events/dw_ottoman_reform_edict.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1855,
+        "to": 1860
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/events/dw_ottoman_reform_edict.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Ottoman imperial decree scroll and state seal; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_dw_corn_laws",
+      "type": "illustration_event",
+      "subject": "dw_corn_laws",
+      "name": "Bãi bỏ Corn Laws",
+      "description": "British grain market and parliamentary debate",
+      "path": "content/illustrations/events/dw_corn_laws.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1845,
+        "to": 1849
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/events/dw_corn_laws.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original British grain market and parliamentary debate; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_dw_french_abolition",
+      "type": "illustration_event",
+      "subject": "dw_french_abolition",
+      "name": "Bãi bỏ chế độ nô lệ tại Pháp",
+      "description": "Broken shackles beside colonial harbor, dignified non-graphic scene",
+      "path": "content/illustrations/events/dw_french_abolition.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1848,
+        "to": 1850
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/events/dw_french_abolition.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Broken shackles beside colonial harbor, dignified non-graphic scene; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_dw_prussian_constitution",
+      "type": "illustration_event",
+      "subject": "dw_prussian_constitution",
+      "name": "Hiến pháp Phổ",
+      "description": "Prussian constitutional chamber and assembly benches",
+      "path": "content/illustrations/events/dw_prussian_constitution.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1848,
+        "to": 1850
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/events/dw_prussian_constitution.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Prussian constitutional chamber and assembly benches; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_dw_statuto_albertino",
+      "type": "illustration_event",
+      "subject": "dw_statuto_albertino",
+      "name": "Statuto Albertino",
+      "description": "Piedmont-Sardinian royal constitution promulgation",
+      "path": "content/illustrations/events/dw_statuto_albertino.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1847,
+        "to": 1849
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/events/dw_statuto_albertino.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Piedmont-Sardinian royal constitution promulgation; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_dw_japan_opening",
+      "type": "illustration_event",
+      "subject": "dw_japan_opening",
+      "name": "Mở cửa Nhật Bản",
+      "description": "Black ships anchored off a Japanese coastal town",
+      "path": "content/illustrations/events/dw_japan_opening.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1846,
+        "to": 1860
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/events/dw_japan_opening.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Black ships anchored off a Japanese coastal town; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_dw_meiji_restoration",
+      "type": "illustration_event",
+      "subject": "dw_meiji_restoration",
+      "name": "Minh Trị Duy Tân",
+      "description": "Japanese imperial court and modernizing city in 1868",
+      "path": "content/illustrations/events/dw_meiji_restoration.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1863,
+        "to": 1872
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/events/dw_meiji_restoration.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Japanese imperial court and modernizing city in 1868; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    },
+    {
+      "id": "ill_dw_siam_bowring",
+      "type": "illustration_event",
+      "subject": "dw_siam_bowring",
+      "name": "Hiệp ước Bowring",
+      "description": "Siamese river port with treaty table and merchant steamer",
+      "path": "content/illustrations/events/dw_siam_bowring.svg",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1850,
+        "to": 1860
+      },
+      "source": {
+        "repository": "Victori3-mobile",
+        "file": "public/content/illustrations/events/dw_siam_bowring.svg",
+        "page": "Original code-generated SVG illustration, 2026-11-22"
+      },
+      "license": {
+        "short": "Project original",
+        "url": "",
+        "attribution_required": false
+      },
+      "author": "Victori3 Mobile project",
+      "credit": "Original code-generated illustration; no third-party source artwork.",
+      "provenance": {
+        "method": "code_generated",
+        "tool": "Custom SVG illustration generator",
+        "creator": "ChatGPT for Victori3 Mobile",
+        "created": "2026-11-22",
+        "prompt": "Original Siamese river port with treaty table and merchant steamer; sepia nineteenth-century engraving, etched crosshatching, parchment and ink, no text or logos."
+      }
+    }
+  ]
 }
