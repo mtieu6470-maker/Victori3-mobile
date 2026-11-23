@@ -1080,6 +1080,256 @@
       "name": "Kế hoạch phân chia Palestine 1947",
       "description": "Map of the UN 1947 partition plan for Palestine, based on a CIA map",
       "review_note": "Same map supports the immediate local response; not a photograph of community reaction."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_kenya_emergency_1952",
+      "period": {
+        "from": 1950,
+        "to": 1954
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "BRITISH_ARMY_OPERATIONS_AGAINST_THE_MAU_MAU_IN_KENYA_1952_-_1956_MAU221.jpg",
+      "year": 1952,
+      "width": 800,
+      "author": "British official photographer",
+      "name": "Chiến dịch quân sự tại Kenya",
+      "description": "British Army 3-inch mortar team during operations against Mau Mau, 1952–1956",
+      "review_note": "IWM War Office photograph; Commons page marks the work PD-UKGov. Square crop; keep the mortar crew in focus."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_rhodesia_udi_1965",
+      "period": {
+        "from": 1963,
+        "to": 1967
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "Unilateral_Declaration_of_Independence_(Rhodesia).jpg",
+      "year": 1965,
+      "width": 1587,
+      "author": "Government of Rhodesia",
+      "name": "Văn kiện UDI Rhodesia",
+      "description": "Photograph of the Rhodesian government's unilateral declaration of independence, signed 11 November 1965",
+      "review_note": "Commons page lists PD Zimbabwe and a PD-US government-edict rationale; ingestion remains authoritative."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "rhod_udi_movement_1965",
+      "period": {
+        "from": 1963,
+        "to": 1967
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "Unilateral_Declaration_of_Independence_(Rhodesia).jpg",
+      "year": 1965,
+      "width": 1587,
+      "author": "Government of Rhodesia",
+      "name": "Văn kiện UDI Rhodesia",
+      "description": "Photograph of the UDI proclamation document signed on 11 November 1965",
+      "review_note": "Same political episode as the parent UDI event; shared source is intentional."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_boer_war_1899",
+      "period": {
+        "from": 1897,
+        "to": 1901
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "The_Second_Boer_War,_1899-1902_Q71999.jpg",
+      "year": 1899,
+      "width": 800,
+      "author": "William Skeoch Cumming",
+      "name": "Chiến tranh Boer lần thứ hai",
+      "description": "The Second Boer War, 1899–1902, photograph from the Imperial War Museums collection",
+      "review_note": "Commons page states PD-UKGov; event-specific war photograph."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_vereeniging_1902",
+      "period": {
+        "from": 1900,
+        "to": 1904
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "The_Second_Boer_War,_1899-1902_Q72023.jpg",
+      "year": 1902,
+      "width": 800,
+      "author": "William Skeoch Cumming",
+      "name": "Thu giữ vũ khí Boer",
+      "description": "British soldiers collecting captured Boer rifles during the Second Boer War",
+      "review_note": "Commons page states PD-UKGov; contextual image for the settlement at the end of the war."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_easter_rising_1916",
+      "period": {
+        "from": 1914,
+        "to": 1918
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "Osteraufstand_-_Dublin_-_Barrikade.jpg",
+      "year": 1916,
+      "width": 850,
+      "author": "Unknown author",
+      "name": "Chiến lũy Dublin 1916",
+      "description": "Barricade in Dublin during the Easter Rising, April 1916",
+      "review_note": "Commons page carries Public Domain Mark 1.0; verify with ingestion tool."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_malta_independence_1964",
+      "period": {
+        "from": 1962,
+        "to": 1966
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "George_Borg_Olivier_receiving_Independence_Instruments_IMG_0891.jpg",
+      "year": 1964,
+      "width": 1000,
+      "author": "DOI Malta",
+      "name": "Malta nhận văn kiện độc lập",
+      "description": "George Borg Olivier receiving the independence instruments on 21 September 1964",
+      "review_note": "Commons page is explicitly CC0 1.0."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_nigeria_independence_1960",
+      "period": {
+        "from": 1958,
+        "to": 1962
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "Princess_Alexandra,_The_Queen's_Representative,_formally_Opened_Nigeria's_Independence_Parliament_before_a_Distinguished_Assembly_of_People_and_Diplomats,_on_October_3rd_1960.jpg",
+      "year": 1960,
+      "width": 5106,
+      "author": "National Library of Nigeria",
+      "name": "Quốc hội độc lập Nigeria",
+      "description": "Princess Alexandra formally opened Nigeria's independence parliament on 3 October 1960",
+      "review_note": "National Library of Nigeria source; rights must be confirmed by ingestion tool."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_canadian_confederation_1867",
+      "period": {
+        "from": 1882,
+        "to": 1886
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "Fathers_of_Confederation_by_Robert_Harris.jpg",
+      "year": 1884,
+      "width": 2417,
+      "author": "Robert Harris; photograph by James Ashfield",
+      "name": "Các Cha lập quốc Canada",
+      "description": "Robert Harris's 1884 painting The Fathers of Confederation, photographed from the original",
+      "review_note": "Commons page states PD in Canada and US; depicts the constitutional negotiations leading to Confederation."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "can_confederation_1867",
+      "period": {
+        "from": 1882,
+        "to": 1886
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "Fathers_of_Confederation_by_Robert_Harris.jpg",
+      "year": 1884,
+      "width": 2417,
+      "author": "Robert Harris; photograph by James Ashfield",
+      "name": "Các Cha lập quốc Canada",
+      "description": "Robert Harris's 1884 painting The Fathers of Confederation, photographed from the original",
+      "review_note": "Same event from the Canadian government's perspective; shared artwork is intentional."
     }
   ]
 }
