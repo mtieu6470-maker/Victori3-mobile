@@ -7,7 +7,7 @@
 **Ghế thường trực LHQ (owner, đã cài DIPLO-UN-01b):**
 - 4 ghế cố định cho các nước giữ London, Paris, Washington, Moskva lúc thành lập;
 - 1 ghế cho nước mạnh nhất còn lại, được 4 nước kia chấp thuận;
-- ghế là vĩnh viễn; nước kế thừa toàn bộ (≥ 90% dân số cũ) giữ ghế.
+- ghế giữ theo vị thế (owner sửa 2026-11-23): mỗi tháng Giêng, thành viên rơi khỏi top 8 sức mạnh mất ghế; nước kế thừa lớn nhất của một thành viên sụp đổ chỉ giữ ghế nếu đủ mạnh; ghế trống trao cho nước mạnh nhất được các thành viên thường trực khác chấp thuận.
 
 ## 1. Chế độ Lịch sử: hai cuộc thế chiến theo dữ liệu (CG-40)
 

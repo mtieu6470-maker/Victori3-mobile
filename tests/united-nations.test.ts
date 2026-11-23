@@ -58,6 +58,7 @@ describe('DIPLO-UN-01 power seat and succession (owner 2026-11-23)', () => {
     st.countries[strong].gdp = 1e15;
     st.date = { y: 1945, m: 10 }; st.tick += 1; unMonth(st);
     expect(st.un!.powerSeat).toBe(strong);
+    // a stronger newcomer does not take a seat from a holder that still has standing
     const other = st.un!.members.find((m) => !st.un!.permanent.includes(m))!;
     st.countries[other].gdp = 1e16; st.date = { y: 1946, m: 1 }; st.tick += 3; unMonth(st);
     expect(st.un!.powerSeat).toBe(strong);
@@ -73,16 +74,28 @@ describe('DIPLO-UN-01 power seat and succession (owner 2026-11-23)', () => {
     expect(st.un!.powerSeat).not.toBe(strong);
   });
 
-  it('a successor inheriting the whole of a collapsed permanent member keeps its seat', () => {
+  it('a strong successor of a collapsed permanent member keeps its seat; a weak one does not', () => {
+    for (const strong of [true, false]) {
+      const st = at(1945, 10); unMonth(st);
+      const old = st.un!.permanent[0];
+      const heirId = 'N_HEIR';
+      st.countries[heirId] = { ...structuredClone(st.countries[old]), id: heirId, name: 'Heir', nameVi: 'Nước kế thừa', gdp: strong ? 1e15 : 1, army: { ...st.countries[old].army, manpower: strong ? 1e7 : 0 }, navy: { ...st.countries[old].navy, strength: strong ? 500 : 0 }, prestige: strong ? 500 : 0 };
+      for (const r of st.regions) if (r.owner === old) { r.owner = heirId; r.controller = heirId; }
+      st.countries[old].alive = false;
+      st.un!.members.push(heirId);
+      unMonth(st);
+      expect(st.un!.permanent.includes(heirId)).toBe(strong);
+      expect(st.un!.permanent).not.toContain(old);
+      expect(st.un!.permanent.length).toBe(UN_PARAMS.permanentSeats);
+    }
+  });
+
+  it('a permanent member that falls out of the top band loses its seat in January', () => {
     const st = at(1945, 10); unMonth(st);
-    const old = st.un!.permanent[0];
-    const heirId = 'N_HEIR';
-    st.countries[heirId] = { ...structuredClone(st.countries[old]), id: heirId, name: 'Heir', nameVi: 'Nước kế thừa' };
-    for (const r of st.regions) if (r.owner === old) { r.owner = heirId; r.controller = heirId; }
-    st.countries[old].alive = false;
-    st.un!.members.push(heirId);
-    unMonth(st);
-    expect(st.un!.permanent).toContain(heirId);
-    expect(st.un!.permanent).not.toContain(old);
+    const weak = st.un!.permanent[1];
+    Object.assign(st.countries[weak], { gdp: 1, prestige: 0 }); st.countries[weak].army.manpower = 0; st.countries[weak].navy.strength = 0;
+    st.date = { y: 1946, m: 1 }; st.tick += 3; unMonth(st);
+    expect(st.un!.permanent).not.toContain(weak);
+    expect(st.un!.permanent.length).toBe(UN_PARAMS.permanentSeats);
   });
 });

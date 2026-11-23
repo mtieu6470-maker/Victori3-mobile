@@ -31,7 +31,7 @@ export function UnitedNationsTab({ st }: { st: GameState }) {
       </div>
       <Sec title="Thành viên thường trực (quyền phủ quyết)">
         {un.permanent.map((id) => <div class="row" key={id}><div class="grow"><CountryLink st={st} id={id} /></div><span class="chip">{id === un.powerSeat ? 'Ghế theo sức mạnh · phủ quyết' : 'Phủ quyết'}</span></div>)}
-        <div class="note">4 ghế cố định cho các nước giữ London, Paris, Washington, Moskva; ghế thứ 5 cho nước mạnh nhất còn lại lúc thành lập, được 4 nước cố định chấp thuận. Ghế là vĩnh viễn; nếu một thành viên thường trực sụp đổ, nước kế thừa toàn bộ (≥ {fmt(UN_PARAMS.successionShare * 100)}% dân số cũ) giữ ghế, nếu không ghế được trao cho nước mạnh nhất được các nước thường trực khác chấp thuận.</div>
+        <div class="note">4 ghế cố định cho các nước giữ London, Paris, Washington, Moskva; ghế thứ 5 cho nước mạnh nhất còn lại lúc thành lập, được 4 nước cố định chấp thuận. Ghế giữ theo vị thế: mỗi tháng Giêng, thành viên thường trực rơi khỏi top {fmt(UN_PARAMS.standingRank)} về sức mạnh sẽ mất ghế; nước kế thừa một thành viên sụp đổ chỉ giữ ghế nếu đủ mạnh. Ghế trống trao cho nước mạnh nhất được các thành viên thường trực khác chấp thuận.</div>
       </Sec>
       <Sec title="Thành viên không thường trực">
         {un.elected.map((e) => <div class="row" key={e.id}><div class="grow"><CountryLink st={st} id={e.id} /></div><span class="dim">đến {yearOf(e.until)}</span></div>)}
