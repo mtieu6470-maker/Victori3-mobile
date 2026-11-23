@@ -2955,7 +2955,7 @@ Không sao chép nội dung của Paradox. Khi xong, gửi MSG trả lời.
    - Commit: `d80c58def990a6893eb200af888471d278df887f`.
 2. `docs/research/history/CG46_COLD_WAR_BLOCS.md`
    - Ghi schema, provenance, license, giới hạn tọa độ và cảnh báo tích hợp.
-   - Commit nội dung CG-46b: `60f5b08b64c829636f4c4732f0602d2daf09c8c6`; commit làm rõ provenance tọa độ: `a8eab4621dca30bbedf505aac102baaf24b35925`.
+   - Commit nội dung CG-46b: `60f5b08b64c829636f4c4732f0602d2daf09c8c6`; commit làm rõ provenance tọa độ: `a8eab4621dca30bbedf505aac102baaf24b35925`.; commit chỉnh chính xác mô tả nguồn tọa độ: `2e969eba729bdffbbe2d6f2c3ad7d63d5c95b383`.
 
 **EEC/EU customs union:** `customsUnionCompleted = 1968-07-01`; sáu thành viên sáng lập có `customsUnionFrom = 1968-07-01`; Đan Mạch, Ireland và UK: `1973-01-01`; Hy Lạp: `1981-01-01`; Bồ Đào Nha và Tây Ban Nha: `1986-01-01`.
 
