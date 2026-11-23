@@ -1,0 +1,4661 @@
+{
+  "schema": "story_events_v1",
+  "country": "VNM",
+  "sources": {
+    "vietnam_registry": "Project registry and 1836 regional map; canonical entity VNM and eight VNM_* regions.",
+    "vietnam_nguyen_closed_policy": "https://www.tandfonline.com/doi/full/10.1080/23311983.2021.1973648",
+    "vietnam_saigon_treaty": "https://www.bethanyipc.com/wp-content/uploads/2020/10/Volume-5-World-Christianities-C.1815-C.1914-Sheridan-Gilley-Brian-Stanley.pdf",
+    "vietnam_monarchy_colonial": "https://www.cambridge.org/core/journals/modern-asian-studies/article/abs/vietnamese-monarchy-under-french-colonial-rule-18841945/5B56A61EA3E216EEF3C29817CA5B845A",
+    "vietnam_can_vuong_yen_the_dong_du": "https://nxbctqg.org.vn/dieuledang/pdfjs/web/SachOnline/t10.pdf",
+    "vietnam_party_timeline": "https://tulieuvankien.dangcongsan.vn/van-kien-tu-lieu-ve-dang/book/lich-su-dang/lich-su-bien-nien-dang-cong-san-viet-nam-tap-2-175",
+    "nghe_tinh_cambridge": "https://www.cambridge.org/core/journals/journal-of-southeast-asian-studies/article/abs/red-soviets-of-nghetinh-an-early-communist-rebellion-in-vietnam/562FC650B6131E0845AD42C31172E886",
+    "nghe_tinh_local_archive": "https://nghean.dcs.vn/vi-vn/tin/cong-tac-van-dong-quan-chung-trong-phong-trao-cach-mang-1930---1931-va-xo-viet-nghe-tinh/6907-682955-748485",
+    "vietnam_famine_ehs": "https://ehs.org.uk/article/causes-and-consequences-of-the-great-vietnam-famine-1944-5/",
+    "vietnam_august_revolution": "https://www.cambridge.org/core/journals/journal-of-asian-studies/article/abs/vietnamese-august-revolution-reinterpreted/83FED82A8ABBA8ACB20DDDD47DF05062",
+    "vietnam_provisional_government": "https://www.cambridge.org/core/journals/modern-asian-studies/article/abs/work-of-the-provisional-government-of-vietnam-augustdecember-1945/A14FD6F998105F07065400A0A91AE4F0"
+  },
+  "events": [
+    {
+      "id": "vnm_minh_mang_centralisation_1836",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1836-01-01",
+        "1837-12-31"
+      ],
+      "date_historical": "1836-06-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1836,
+            "to": 1837
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Triều đình siết lại quyền lực địa phương",
+      "title_en": "Centralising the Provincial Administration",
+      "text_vi": "Minh Mạng tiếp tục đưa bộ máy tỉnh và phủ vào khuôn khổ thống nhất, tăng giám sát quan lại và nguồn thu. Cải cách giúp triều đình nắm rõ nhân lực, thuế khóa và nghĩa vụ dịch trạm, nhưng cũng làm tăng gánh nặng giấy tờ và nguy cơ lạm quyền ở cấp dưới. Nhà vua phải cân nhắc giữa kiểm soát chặt và trao quyền cho quan địa phương.",
+      "text_en": "Minh Mạng continued to standardise provincial administration and tighten supervision of officials and revenue. Centralisation improved the court's reach but increased paperwork and the risk of local abuse. The court must balance control against delegated authority.",
+      "options": [
+        {
+          "id": "standardise",
+          "label_vi": "Chuẩn hóa sổ bộ và tăng thanh tra",
+          "label_en": "Standardise registers and expand inspections",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_minh_mang_centralisation_1836_standardise_modifier",
+              "name_vi": "Sổ bộ hành chính thống nhất",
+              "name_en": "Unified Administrative Registers",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "legitimacy": 2
+              }
+            }
+          ]
+        },
+        {
+          "id": "delegate",
+          "label_vi": "Trao thêm quyền xử lý cho quan tỉnh",
+          "label_en": "Delegate more discretion to provincial officials",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_minh_mang_centralisation_1836_delegate_modifier",
+              "name_vi": "Quyền chủ động của địa phương",
+              "name_en": "Provincial Discretion",
+              "months": 30,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "radicalism": 0.008,
+                "legitimacy": -1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_nguyen_closed_policy"
+      ],
+      "image": {
+        "ref": "ill_vnm_minh_mang_centralisation_1836",
+        "credit": "Wikimedia Commons candidate; pending loc_ingest.py rights and asset validation",
+        "license": "CANDIDATE — not yet ingested; Commons rights re-read required"
+      }
+    },
+    {
+      "id": "vnm_catholic_policy_1836",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1836-01-01",
+        "1837-12-31"
+      ],
+      "date_historical": "1836-09-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1836,
+            "to": 1837
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Chính sách với cộng đồng Công giáo",
+      "title_en": "Policy Toward Catholic Communities",
+      "text_vi": "Các chỉ dụ cấm đạo và việc thực thi không đồng đều khiến cộng đồng Công giáo đối mặt với rủi ro bắt bớ, trong khi một số quan lại lo ngại hoạt động truyền giáo gắn với can thiệp ngoại quốc. Cộng đồng địa phương không đồng nhất về quan hệ với giáo sĩ hay triều đình. Triều đình phải chọn giữa cưỡng chế rộng, giám sát có giới hạn hoặc bảo vệ trật tự bằng đối thoại.",
+      "text_en": "Edicts against Christianity and uneven enforcement placed Catholic communities at risk, while officials feared that missionary activity could invite foreign interference. Local communities did not share a single political position. The court must choose between broad coercion, limited supervision or dialogue.",
+      "options": [
+        {
+          "id": "enforce",
+          "label_vi": "Tăng truy xét các mạng lưới truyền giáo",
+          "label_en": "Expand investigations of missionary networks",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_catholic_policy_1836_enforce_modifier",
+              "name_vi": "Chiến dịch kiểm soát tôn giáo",
+              "name_en": "Religious Policing Campaign",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "police": 0.05,
+                "radicalism": 0.025,
+                "legitimacy": -2
+              }
+            }
+          ]
+        },
+        {
+          "id": "moderate",
+          "label_vi": "Phân biệt giáo dân với hoạt động chính trị",
+          "label_en": "Distinguish worshippers from political activity",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_catholic_policy_1836_moderate_modifier",
+              "name_vi": "Khoan dung có điều kiện",
+              "name_en": "Conditional Toleration",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "radicalism": -0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_nguyen_closed_policy"
+      ]
+    },
+    {
+      "id": "vnm_tran_tay_thanh_1836",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1836-01-01",
+        "1841-12-31"
+      ],
+      "date_historical": "1836-04-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_TTT",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1836,
+            "to": 1841
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Quản trị Trấn Tây Thành",
+      "title_en": "Governing Tran Tay Thanh",
+      "text_vi": "Trấn Tây Thành là vùng do triều Nguyễn quản trị sau các chiến dịch ở Chân Lạp, với triều đình Khmer và các cộng đồng địa phương chịu sức ép lớn. Bộ máy đồn trú và quan lại cần lương thực, nhân lực và sự hợp tác của giới chức bản địa. Huế phải quyết định mức độ trực trị và nhượng quyền tự quản.",
+      "text_en": "Tran Tay Thanh remained under Nguyen administration after campaigns in Cambodia, placing pressure on the Khmer court and local communities. Garrisons and officials required food, labour and cooperation from local elites. Hue must choose between direct rule and a measure of local autonomy.",
+      "options": [
+        {
+          "id": "direct",
+          "label_vi": "Duy trì bộ máy trực trị và đồn trú",
+          "label_en": "Maintain direct administration and garrisons",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_tran_tay_thanh_1836_direct_modifier",
+              "name_vi": "Bộ máy Trấn Tây",
+              "name_en": "Tran Tay Administration",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "radicalism": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "local",
+          "label_vi": "Dùng quan lại địa phương và giảm trưng dịch",
+          "label_en": "Rely on local officials and reduce corvee",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_tran_tay_thanh_1836_local_modifier",
+              "name_vi": "Thỏa hiệp hành chính Khmer",
+              "name_en": "Khmer Administrative Accommodation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "radicalism": -0.012,
+                "army": -0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_nguyen_closed_policy"
+      ]
+    },
+    {
+      "id": "vnm_dai_nam_title_1838",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1838-01-01",
+        "1839-12-31"
+      ],
+      "date_historical": "1838-02-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1838,
+            "to": 1839
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Đổi quốc hiệu thành Đại Nam",
+      "title_en": "The Adoption of Dai Nam",
+      "text_vi": "Triều đình Minh Mạng sử dụng quốc hiệu Đại Nam vào cuối thập niên 1830, phản ánh tham vọng về một trật tự đế chế thống nhất. Việc đổi danh xưng củng cố biểu tượng triều đại nhưng không tự thay đổi cơ cấu vùng hay địa vị pháp lý của các cộng đồng trong nước. Triều đình có thể dùng nghi lễ để củng cố tính chính danh hoặc kết hợp biểu tượng với cải cách thực chất.",
+      "text_en": "The court adopted the name Dai Nam in the late 1830s, expressing an imperial vision of a unified order. A new state title strengthened dynastic symbolism but did not itself change provincial structures or the legal standing of communities. The court may emphasise ceremony or pair the new title with administrative reform.",
+      "options": [
+        {
+          "id": "ceremony",
+          "label_vi": "Tổ chức đại lễ và chuẩn hóa nghi thức triều đình",
+          "label_en": "Stage a grand ceremony and standardise court rites",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_dai_nam_title_1838_ceremony_modifier",
+              "name_vi": "Uy nghi Đại Nam",
+              "name_en": "Dai Nam Court Prestige",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.04,
+                "legitimacy": 2
+              }
+            }
+          ]
+        },
+        {
+          "id": "reform",
+          "label_vi": "Gắn quốc hiệu mới với cải cách sổ bộ",
+          "label_en": "Link the new title to administrative reform",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_dai_nam_title_1838_reform_modifier",
+              "name_vi": "Cải cách dưới quốc hiệu mới",
+              "name_en": "Reform Under the New State Name",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.01,
+                "legitimacy": 1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_nguyen_closed_policy"
+      ]
+    },
+    {
+      "id": "vnm_minh_mang_succession_1841",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1841-01-01",
+        "1842-12-31"
+      ],
+      "date_historical": "1841-01-20",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1841,
+            "to": 1842
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Thiệu Trị kế vị Minh Mạng",
+      "title_en": "Thieu Tri Succeeds Minh Mang",
+      "text_vi": "Minh Mạng qua đời năm 1841 và Thiệu Trị kế vị trong một triều đình đã được tập trung hóa mạnh. Vị vua mới phải giữ cân bằng giữa các đại thần, hoàng thân và nhu cầu duy trì những cải cách của người tiền nhiệm. Việc kế vị có thể mở ra điều chỉnh chính sách mà không làm đứt đoạn tính liên tục của triều Nguyễn.",
+      "text_en": "Minh Mang died in 1841 and Thieu Tri inherited a highly centralised court. The new emperor had to balance senior officials, princes and the need to preserve his predecessor's reforms. Succession could permit policy adjustment without breaking Nguyen dynastic continuity.",
+      "options": [
+        {
+          "id": "continuity",
+          "label_vi": "Giữ nguyên các cơ chế giám sát của Minh Mạng",
+          "label_en": "Retain Minh Mang's supervisory system",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_minh_mang_succession_1841_continuity_modifier",
+              "name_vi": "Tính liên tục của triều chính",
+              "name_en": "Continuity of Court Government",
+              "months": 30,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "reform": 0.006,
+                "radicalism": 0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "adjust",
+          "label_vi": "Thay một số đại thần và rà soát án lệ",
+          "label_en": "Replace selected ministers and review legal precedents",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_minh_mang_succession_1841_adjust_modifier",
+              "name_vi": "Điều chỉnh triều chính",
+              "name_en": "Court Policy Adjustment",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "ig_landowners": 1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_nguyen_closed_policy"
+      ]
+    },
+    {
+      "id": "vnm_tonkin_revolt_1841",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1841-01-01",
+        "1843-12-31"
+      ],
+      "date_historical": "1842-03-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HAN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1841,
+            "to": 1843
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Bất ổn và nổi dậy ở Bắc Kỳ",
+      "title_en": "Unrest in Tonkin",
+      "text_vi": "Các cuộc nổi dậy và xung đột địa phương ở Bắc Kỳ cho thấy việc áp dụng mệnh lệnh từ Huế không phải lúc nào cũng thuận lợi. Quan tỉnh phải xử lý tranh chấp thuế, quyền lực làng xã và mạng lưới vũ trang địa phương. Triều đình có thể tăng quân, điều tra nguyên nhân kinh tế hoặc trao quyền hòa giải cho quan sở tại.",
+      "text_en": "Rebellions and local conflicts in Tonkin showed that orders from Hue were not always easily enforced. Provincial officials faced disputes over taxation, village authority and armed networks. The court can reinforce troops, investigate economic causes or empower local mediation.",
+      "options": [
+        {
+          "id": "troops",
+          "label_vi": "Điều quân và lập đồn kiểm soát",
+          "label_en": "Deploy troops and establish security posts",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_tonkin_revolt_1841_troops_modifier",
+              "name_vi": "Bình định Bắc Kỳ",
+              "name_en": "Tonkin Pacification",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "police": 0.03,
+                "radicalism": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "mediation",
+          "label_vi": "Cho phép quan tỉnh thương lượng với hào mục",
+          "label_en": "Allow provincial officials to negotiate with local notables",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_tonkin_revolt_1841_mediation_modifier",
+              "name_vi": "Hòa giải ở Bắc Kỳ",
+              "name_en": "Tonkin Local Mediation",
+              "months": 30,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "radicalism": -0.012,
+                "reform": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_nguyen_closed_policy"
+      ]
+    },
+    {
+      "id": "vnm_siam_cambodia_pressure_1841",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1841-01-01",
+        "1847-12-31"
+      ],
+      "date_historical": "1843-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_TTT",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1841,
+            "to": 1847
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Sức ép Xiêm tại Chân Lạp",
+      "title_en": "Siamese Pressure in Cambodia",
+      "text_vi": "Cạnh tranh ảnh hưởng giữa Xiêm và Đại Nam tại Chân Lạp khiến triều đình phải duy trì quân và hậu cần ở Trấn Tây Thành. Quyền lực của triều đình Khmer và sự an toàn của dân cư địa phương bị đặt giữa hai trung tâm quyền lực. Huế phải cân nhắc giữ đồn trú, tìm thỏa hiệp với Xiêm hoặc giảm can thiệp để bảo toàn nguồn lực.",
+      "text_en": "Competition between Siam and Dai Nam in Cambodia required troops and supplies in Tran Tay Thanh. The Khmer court and local population were caught between two centres of power. Hue must weigh continued garrisons, an accommodation with Siam or a reduced intervention to preserve resources.",
+      "options": [
+        {
+          "id": "hold",
+          "label_vi": "Giữ các đồn chiến lược và tuyến tiếp tế",
+          "label_en": "Hold strategic posts and supply routes",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_siam_cambodia_pressure_1841_hold_modifier",
+              "name_vi": "Tuyến phòng thủ phía tây",
+              "name_en": "Western Defensive Line",
+              "months": 30,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "prestige": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "accommodate",
+          "label_vi": "Mở thương lượng về quy chế Chân Lạp",
+          "label_en": "Open talks on Cambodia's political status",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_siam_cambodia_pressure_1841_accommodate_modifier",
+              "name_vi": "Thương lượng với Xiêm",
+              "name_en": "Accommodation with Siam",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_nguyen_closed_policy"
+      ]
+    },
+    {
+      "id": "vnm_tu_duc_succession_1847",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1847-01-01",
+        "1848-12-31"
+      ],
+      "date_historical": "1847-11-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1847,
+            "to": 1848
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Tự Đức lên ngôi giữa tranh luận kế vị",
+      "title_en": "Tu Duc's Accession",
+      "text_vi": "Thiệu Trị qua đời năm 1847 và Tự Đức lên ngôi trong bối cảnh triều đình còn tranh luận về tính chính thống và thứ tự kế vị. Các phe trong triều bất đồng về cách xử lý ngoại giao, tôn giáo và cải cách quân sự. Vua mới cần củng cố quyền lực mà không làm sâu thêm chia rẽ trong bộ máy quan liêu.",
+      "text_en": "Thieu Tri died in 1847 and Tu Duc acceded amid disputes over legitimacy and succession. Court factions disagreed over diplomacy, religion and military reform. The new emperor needed to consolidate authority without deepening divisions in the bureaucracy.",
+      "options": [
+        {
+          "id": "consolidate",
+          "label_vi": "Củng cố phe trung thành trong triều",
+          "label_en": "Consolidate loyal factions at court",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_tu_duc_succession_1847_consolidate_modifier",
+              "name_vi": "Triều đình Tự Đức",
+              "name_en": "Tu Duc's Court",
+              "months": 30,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "ig_landowners": 1,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "reconcile",
+          "label_vi": "Giữ lại các quan có năng lực từ triều trước",
+          "label_en": "Retain capable officials from the previous reign",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_tu_duc_succession_1847_reconcile_modifier",
+              "name_vi": "Hòa giải quan trường",
+              "name_en": "Bureaucratic Reconciliation",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "reform": 0.008,
+                "legitimacy": 1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_nguyen_closed_policy"
+      ]
+    },
+    {
+      "id": "vnm_french_naval_incident_1847",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1847-01-01",
+        "1848-12-31"
+      ],
+      "date_historical": "1847-04-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_SCE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1847,
+            "to": 1848
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Đụng độ hải quân Pháp tại Đà Nẵng",
+      "title_en": "French Naval Coercion at Da Nang",
+      "text_vi": "Năm 1847, tàu chiến Pháp đụng độ với lực lượng triều Nguyễn tại vùng Đà Nẵng trong lúc căng thẳng về truyền giáo và ngoại giao gia tăng. Sự kiện cho thấy chênh lệch hỏa lực trên biển và nguy cơ một tranh chấp ngoại giao biến thành chiến tranh. Triều đình phải lựa chọn tăng phòng thủ ven biển, gửi công hàm phản đối hoặc tìm cách trì hoãn đối đầu.",
+      "text_en": "In 1847, French warships clashed with Nguyen forces near Da Nang as missionary and diplomatic tensions grew. The incident exposed the naval firepower gap and the risk that a diplomatic dispute could become war. The court must strengthen coastal defences, issue a protest or seek to delay confrontation.",
+      "options": [
+        {
+          "id": "fortify",
+          "label_vi": "Gia cố cửa biển và bố trí pháo ven bờ",
+          "label_en": "Fortify the harbour and deploy coastal guns",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_french_naval_incident_1847_fortify_modifier",
+              "name_vi": "Phòng thủ cửa biển Đà Nẵng",
+              "name_en": "Da Nang Harbour Defences",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "construction": -0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "protest",
+          "label_vi": "Gửi sứ bộ và công hàm phản đối",
+          "label_en": "Send an embassy and formal protest",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_french_naval_incident_1847_protest_modifier",
+              "name_vi": "Công hàm ngoại giao",
+              "name_en": "Diplomatic Protest",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "trade": -0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_saigon_treaty",
+        "vietnam_nguyen_closed_policy"
+      ]
+    },
+    {
+      "id": "vnm_coastal_defence_reform_1850",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1848-01-01",
+        "1856-12-31"
+      ],
+      "date_historical": "1850-06-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1848,
+            "to": 1856
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Cải tổ phòng thủ duyên hải",
+      "title_en": "Coastal Defence Reform",
+      "text_vi": "Những vụ áp sát của tàu phương Tây và tiến bộ pháo hạm làm lộ giới hạn của hệ thống phòng thủ ven biển. Triều đình cần cân nhắc mua sắm pháo, đóng tàu, đào tạo thủy quân và chi phí bảo dưỡng. Một chương trình hiện đại hóa có thể tăng khả năng răn đe nhưng làm căng ngân khố vốn phải nuôi bộ máy rộng lớn.",
+      "text_en": "Western naval incursions and advances in gunboats exposed weaknesses in coastal defence. The court must weigh artillery purchases, shipbuilding, naval training and maintenance costs. Modernisation may improve deterrence but strain the treasury.",
+      "options": [
+        {
+          "id": "naval",
+          "label_vi": "Đầu tư pháo hạm và huấn luyện thủy quân",
+          "label_en": "Invest in gunboats and naval training",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_coastal_defence_reform_1850_naval_modifier",
+              "name_vi": "Thủy quân canh tân",
+              "name_en": "Naval Modernisation",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "army": 0.06,
+                "research": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "forts",
+          "label_vi": "Ưu tiên thành lũy và pháo đài ven biển",
+          "label_en": "Prioritise coastal forts and batteries",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_coastal_defence_reform_1850_forts_modifier",
+              "name_vi": "Tuyến pháo đài duyên hải",
+              "name_en": "Coastal Fortifications",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "construction": 0.015,
+                "trade": -0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_saigon_treaty"
+      ]
+    },
+    {
+      "id": "vnm_french_catholic_pressure_1856",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1856-01-01",
+        "1858-12-31"
+      ],
+      "date_historical": "1856-07-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1856,
+            "to": 1858
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Sức ép ngoại giao về truyền giáo",
+      "title_en": "Diplomatic Pressure over Missionaries",
+      "text_vi": "Các chính phủ Pháp viện dẫn việc đối xử với giáo sĩ và giáo dân để gây sức ép lên triều Nguyễn. Tranh chấp tôn giáo đan xen với lợi ích thương mại và chiến lược của Pháp tại Đông Á. Triều đình phải quyết định có nhượng bộ có giới hạn, tăng trấn áp hay cử sứ thần tìm một dàn xếp ngoại giao.",
+      "text_en": "French governments invoked the treatment of missionaries and converts to pressure the Nguyen court. Religious disputes overlapped with French commercial and strategic interests in East Asia. The court must decide whether to make limited concessions, intensify repression or seek a diplomatic settlement.",
+      "options": [
+        {
+          "id": "concede",
+          "label_vi": "Cho phép một số hoạt động truyền giáo có giám sát",
+          "label_en": "Permit limited missionary activity under supervision",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_french_catholic_pressure_1856_concede_modifier",
+              "name_vi": "Nhượng bộ có kiểm soát",
+              "name_en": "Controlled Concession",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "trade": 0.01,
+                "legitimacy": -1,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        },
+        {
+          "id": "restrict",
+          "label_vi": "Tăng kiểm soát và củng cố an ninh triều đình",
+          "label_en": "Tighten controls and reinforce court security",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_french_catholic_pressure_1856_restrict_modifier",
+              "name_vi": "Kiểm soát truyền giáo",
+              "name_en": "Missionary Restrictions",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "police": 0.04,
+                "legitimacy": 1,
+                "radicalism": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_saigon_treaty",
+        "vietnam_nguyen_closed_policy"
+      ]
+    },
+    {
+      "id": "vnm_tourane_invasion_1858",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1858-01-01",
+        "1859-12-31"
+      ],
+      "date_historical": "1858-09-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_SCE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1858,
+            "to": 1859
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Liên quân Pháp–Tây Ban Nha đổ bộ Đà Nẵng",
+      "title_en": "The Franco-Spanish Landing at Da Nang",
+      "text_vi": "Tháng 9 năm 1858, liên quân Pháp–Tây Ban Nha mở cuộc tấn công vào Đà Nẵng. Quân triều đình chống cự trong điều kiện hậu cần và hỏa lực bất lợi, nhưng địa hình và bệnh tật khiến chiến dịch của đối phương không đạt mục tiêu nhanh chóng. Triều đình phải chọn tập trung phòng thủ, kéo dài chiến tranh tiêu hao hoặc tìm một lối thoát ngoại giao.",
+      "text_en": "In September 1858, Franco-Spanish forces attacked Da Nang. Nguyen troops resisted despite disadvantages in logistics and firepower, while terrain and disease prevented a quick enemy victory. The court must choose concentrated defence, a prolonged war of attrition or a diplomatic exit.",
+      "options": [
+        {
+          "id": "defend",
+          "label_vi": "Tập trung quân giữ cửa biển và bán đảo Sơn Trà",
+          "label_en": "Concentrate forces to hold the harbour and Son Tra",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_tourane_invasion_1858_defend_modifier",
+              "name_vi": "Phòng tuyến Đà Nẵng",
+              "name_en": "Da Nang Defensive Line",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "army": 0.06,
+                "war_exhaustion": 0.03
+              }
+            }
+          ]
+        },
+        {
+          "id": "attrition",
+          "label_vi": "Cắt đường tiếp tế và kéo dài chiến dịch",
+          "label_en": "Disrupt supply lines and prolong the campaign",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_tourane_invasion_1858_attrition_modifier",
+              "name_vi": "Chiến tranh tiêu hao",
+              "name_en": "War of Attrition",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "radicalism": 0.015,
+                "construction": -0.03
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_saigon_treaty"
+      ]
+    },
+    {
+      "id": "vnm_saigon_fall_1859",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1859-01-01",
+        "1860-12-31"
+      ],
+      "date_historical": "1859-02-17",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_GDI",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1859,
+            "to": 1860
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Gia Định thất thủ",
+      "title_en": "The Fall of Gia Dinh",
+      "text_vi": "Quân Pháp chiếm thành Gia Định tháng 2 năm 1859, mở ra một mặt trận mới ở Nam Kỳ. Việc mất một trung tâm hành chính và thương mại làm suy yếu nguồn thu và liên lạc của triều đình, nhưng không đồng nghĩa toàn bộ miền Nam đã bị kiểm soát. Huế phải quyết định tổ chức phản công, chuyển sang chiến tranh du kích hay ưu tiên giữ các tỉnh còn lại.",
+      "text_en": "French forces captured Gia Dinh in February 1859, opening a new front in Cochinchina. The loss of an administrative and commercial centre weakened the court's revenue and communications but did not mean the entire south was controlled. Hue must choose a counteroffensive, dispersed resistance or the defence of remaining provinces.",
+      "options": [
+        {
+          "id": "counterattack",
+          "label_vi": "Tổ chức phản công từ các tuyến sông",
+          "label_en": "Organise a counterattack along the river routes",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_saigon_fall_1859_counterattack_modifier",
+              "name_vi": "Phản công Gia Định",
+              "name_en": "Gia Dinh Counteroffensive",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "war_exhaustion": 0.04
+              }
+            }
+          ]
+        },
+        {
+          "id": "disperse",
+          "label_vi": "Phân tán lực lượng và bảo vệ vùng nông thôn",
+          "label_en": "Disperse forces and protect the countryside",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_saigon_fall_1859_disperse_modifier",
+              "name_vi": "Kháng cự phân tán Nam Kỳ",
+              "name_en": "Dispersed Cochinchina Resistance",
+              "months": 30,
+              "decaying": true,
+              "effects": {
+                "army": 0.02,
+                "radicalism": 0.01,
+                "police": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_saigon_treaty"
+      ],
+      "image": {
+        "ref": "ill_vnm_saigon_fall_1859",
+        "credit": "Wikimedia Commons candidate; pending loc_ingest.py rights and asset validation",
+        "license": "CANDIDATE — not yet ingested; Commons rights re-read required"
+      }
+    },
+    {
+      "id": "vnm_southern_resistance_1860",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1860-01-01",
+        "1862-12-31"
+      ],
+      "date_historical": "1860-05-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_GDI",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1860,
+            "to": 1862
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Kháng chiến ở Nam Kỳ lan rộng",
+      "title_en": "Resistance in Cochinchina",
+      "text_vi": "Sau khi quân Pháp chuyển một phần lực lượng sang chiến trường khác, các nhóm nghĩa quân và quan lại địa phương tìm cách khôi phục thế chủ động. Những mạng lưới này không có một bộ chỉ huy thống nhất và khác nhau về mục tiêu, nguồn lực. Triều đình phải quyết định hỗ trợ có chọn lọc, thống nhất chỉ huy hay giữ quân chính quy cho các vị trí trọng yếu.",
+      "text_en": "As French forces redeployed troops elsewhere, local officials and resistance groups sought to regain initiative. These networks lacked a unified command and differed in aims and resources. The court must choose selective support, unified command or reserve regular troops for key positions.",
+      "options": [
+        {
+          "id": "coordinate",
+          "label_vi": "Cử quan quân phối hợp các đội nghĩa dũng",
+          "label_en": "Coordinate officials and local resistance groups",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_southern_resistance_1860_coordinate_modifier",
+              "name_vi": "Phối hợp nghĩa dũng",
+              "name_en": "Coordinated Local Resistance",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "reserve",
+          "label_vi": "Giữ quân chính quy bảo vệ các tỉnh còn lại",
+          "label_en": "Reserve regular troops for remaining provinces",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_southern_resistance_1860_reserve_modifier",
+              "name_vi": "Dự bị phòng thủ",
+              "name_en": "Defensive Reserve",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "construction": 0.01,
+                "legitimacy": 1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_saigon_treaty"
+      ]
+    },
+    {
+      "id": "vnm_treaty_saigon_1862",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1862-01-01",
+        "1863-12-31"
+      ],
+      "date_historical": "1862-06-05",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_GDI",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1862,
+            "to": 1863
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Hòa ước Nhâm Tuất",
+      "title_en": "The Treaty of Saigon",
+      "text_vi": "Hòa ước ngày 5 tháng 6 năm 1862 buộc triều Nguyễn nhượng ba tỉnh miền Đông Nam Kỳ, mở một số cửa biển và chấp nhận bồi thường. Các điều khoản còn liên quan đến truyền giáo và thương mại, đặt triều đình trước lựa chọn giữa chấp nhận để đình chiến hay tiếp tục chiến tranh trong thế bất lợi. Hòa ước không phải sự nhượng toàn bộ sáu tỉnh Nam Kỳ, vốn chỉ bị Pháp chiếm nốt năm 1867.",
+      "text_en": "The treaty of 5 June 1862 ceded three eastern Cochinchina provinces, opened ports and imposed an indemnity. Its clauses also concerned missionary activity and commerce, forcing the court to choose between accepting a ceasefire or continuing a costly war. The treaty did not cede all six southern provinces; the remaining western provinces were taken in 1867.",
+      "options": [
+        {
+          "id": "ratify",
+          "label_vi": "Chấp nhận hòa ước để đình chiến và giữ phần lãnh thổ còn lại",
+          "label_en": "Accept the treaty to halt fighting and retain remaining territory",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_treaty_saigon_1862_ratify_modifier",
+              "name_vi": "Đình chiến Nhâm Tuất",
+              "name_en": "Saigon Treaty Settlement",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -2,
+                "trade": 0.03,
+                "army": -0.03
+              }
+            }
+          ]
+        },
+        {
+          "id": "reject",
+          "label_vi": "Bác bỏ hòa ước và tiếp tục kháng chiến",
+          "label_en": "Reject the treaty and continue resistance",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_treaty_saigon_1862_reject_modifier",
+              "name_vi": "Kháng chiến sau Nhâm Tuất",
+              "name_en": "Resistance After Saigon",
+              "months": 30,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "war_exhaustion": 0.05,
+                "radicalism": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_saigon_treaty"
+      ]
+    },
+    {
+      "id": "vnm_southern_court_debate_1863",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1862-01-01",
+        "1864-12-31"
+      ],
+      "date_historical": "1863-03-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1862,
+            "to": 1864
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Tranh luận trong triều sau hòa ước",
+      "title_en": "The Court Debate after the Treaty",
+      "text_vi": "Sau Nhâm Tuất, triều đình tranh luận về việc khôi phục lực lượng, trả bồi thường và tìm cách lấy lại các tỉnh đã mất. Một phe muốn tiếp tục kháng chiến, phe khác đề nghị cải cách và tránh tạo cớ cho Pháp mở rộng chiến tranh. Quyết định của Huế ảnh hưởng trực tiếp tới ngân sách và khả năng giữ các tỉnh phía tây Nam Kỳ.",
+      "text_en": "After the Saigon Treaty, the court debated military recovery, indemnity payments and the possibility of recovering lost provinces. One faction favoured continued resistance; another urged reform and avoiding a pretext for further French expansion. Hue's decision would shape the treasury and the defence of western Cochinchina.",
+      "options": [
+        {
+          "id": "rearm",
+          "label_vi": "Tái vũ trang và chuẩn bị chiến dịch phục hồi",
+          "label_en": "Rearm and prepare a recovery campaign",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_southern_court_debate_1863_rearm_modifier",
+              "name_vi": "Chương trình phục hồi quân lực",
+              "name_en": "Military Recovery Programme",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        },
+        {
+          "id": "reform",
+          "label_vi": "Ưu tiên cải cách thuế khóa và ngoại giao",
+          "label_en": "Prioritise fiscal and diplomatic reform",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_southern_court_debate_1863_reform_modifier",
+              "name_vi": "Cải cách sau hòa ước",
+              "name_en": "Post-Treaty Reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "trade": 0.01,
+                "army": -0.02,
+                "legitimacy": 1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_saigon_treaty"
+      ]
+    },
+    {
+      "id": "vnm_six_provinces_loss_1867",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1867-01-01",
+        "1868-12-31"
+      ],
+      "date_historical": "1867-06-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_GDI",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1867,
+            "to": 1868
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Pháp chiếm nốt ba tỉnh miền Tây",
+      "title_en": "France Takes the Western Provinces",
+      "text_vi": "Năm 1867, Pháp mở rộng quyền kiểm soát sang ba tỉnh miền Tây Nam Kỳ còn lại. Sự kiện này hoàn tất việc chiếm đóng toàn bộ sáu tỉnh Nam Kỳ, làm mất một nguồn thu và vùng lúa gạo quan trọng của triều đình. Huế phải lựa chọn chuyển trọng tâm phòng thủ, duy trì yêu sách ngoại giao hay tổ chức lại bộ máy ở các vùng còn lại.",
+      "text_en": "In 1867, France extended control over the remaining western provinces of Cochinchina. This completed the occupation of all six southern provinces and deprived the court of an important revenue and rice-producing area. Hue must redirect defence, maintain diplomatic claims or reorganise administration in the remaining territories.",
+      "options": [
+        {
+          "id": "reorganise",
+          "label_vi": "Chuyển nguồn lực về Trung Kỳ và Bắc Kỳ",
+          "label_en": "Redirect resources to Annam and Tonkin",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_six_provinces_loss_1867_reorganise_modifier",
+              "name_vi": "Tái bố trí phòng thủ",
+              "name_en": "Defence Redeployment",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "construction": 0.01,
+                "legitimacy": -1
+              }
+            }
+          ]
+        },
+        {
+          "id": "diplomacy",
+          "label_vi": "Duy trì yêu sách và tìm trung gian quốc tế",
+          "label_en": "Maintain claims and seek international mediation",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_six_provinces_loss_1867_diplomacy_modifier",
+              "name_vi": "Yêu sách ngoại giao Nam Kỳ",
+              "name_en": "Cochinchina Diplomatic Claim",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.02,
+                "trade": -0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_saigon_treaty"
+      ]
+    },
+    {
+      "id": "vnm_tu_duc_reform_debate_1868",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1867-01-01",
+        "1870-12-31"
+      ],
+      "date_historical": "1868-04-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1867,
+            "to": 1870
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Tranh luận cải cách dưới triều Tự Đức",
+      "title_en": "Reform Debate under Tu Duc",
+      "text_vi": "Sau những thất bại quân sự và mất đất, một số quan lại đề nghị cải tổ quân đội, tài chính, giáo dục và quan hệ với phương Tây. Triều đình lo ngại cải cách quá nhanh sẽ phá vỡ trật tự chính trị và làm suy yếu quyền lực của các nhóm bảo thủ. Vua có thể thử nghiệm từng bước, tiếp tục mô hình cũ hoặc gửi phái bộ học hỏi nước ngoài.",
+      "text_en": "After military defeats and territorial losses, officials proposed changes to the army, finance, education and relations with Western powers. The court feared that rapid reform could disrupt political order and weaken conservative interests. The emperor may experiment gradually, preserve existing institutions or send missions abroad to study foreign systems.",
+      "options": [
+        {
+          "id": "reform",
+          "label_vi": "Thí điểm cải cách quân sự và tài chính",
+          "label_en": "Pilot military and fiscal reforms",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_tu_duc_reform_debate_1868_reform_modifier",
+              "name_vi": "Thử nghiệm canh tân",
+              "name_en": "Limited Reform Experiments",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "reform": 0.015,
+                "research": 0.02,
+                "legitimacy": -1
+              }
+            }
+          ]
+        },
+        {
+          "id": "preserve",
+          "label_vi": "Giữ ưu tiên cho lễ chế và bộ máy hiện hành",
+          "label_en": "Preserve ritual order and existing institutions",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_tu_duc_reform_debate_1868_preserve_modifier",
+              "name_vi": "Bảo toàn trật tự triều Nguyễn",
+              "name_en": "Preserving Nguyen Institutions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "ig_landowners": 1,
+                "research": -0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_nguyen_closed_policy",
+        "vietnam_saigon_treaty"
+      ]
+    },
+    {
+      "id": "vnm_nguyen_truong_to_memorials_1870",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1863-01-01",
+        "1871-12-31"
+      ],
+      "date_historical": "1870-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1863,
+            "to": 1871
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Các bản điều trần của Nguyễn Trường Tộ",
+      "title_en": "Nguyen Truong To's Reform Memorials",
+      "text_vi": "Nguyễn Trường Tộ gửi nhiều bản điều trần đề xuất cải cách giáo dục, kỹ thuật, ngoại giao và kinh tế trong thập niên 1860. Các đề nghị phản ánh nỗ lực tìm con đường tăng cường quốc lực, nhưng mức độ tiếp nhận trong triều không đồng đều và không thể coi mọi đề xuất đều có thể thực hiện ngay. Triều đình phải chọn một số lĩnh vực thử nghiệm hay gạt bỏ chương trình vì lo ngại chính trị và tài chính.",
+      "text_en": "Nguyen Truong To submitted memorials in the 1860s proposing educational, technical, diplomatic and economic reforms. His proposals reflected an effort to strengthen the state, but court reception was uneven and not every proposal was immediately feasible. The court must select limited experiments or reject the programme amid political and fiscal concerns.",
+      "options": [
+        {
+          "id": "commission",
+          "label_vi": "Lập hội đồng thẩm định các đề án kỹ thuật",
+          "label_en": "Create a council to assess technical proposals",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_nguyen_truong_to_memorials_1870_commission_modifier",
+              "name_vi": "Hội đồng canh tân",
+              "name_en": "Reform Advisory Council",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": 0.025,
+                "reform": 0.01,
+                "legitimacy": -1
+              }
+            }
+          ]
+        },
+        {
+          "id": "dismiss",
+          "label_vi": "Bác bỏ các đề án bị coi là quá cấp tiến",
+          "label_en": "Reject proposals deemed too disruptive",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_nguyen_truong_to_memorials_1870_dismiss_modifier",
+              "name_vi": "Bảo thủ triều chính",
+              "name_en": "Court Conservatism",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "ig_landowners": 1,
+                "research": -0.02,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_nguyen_closed_policy"
+      ]
+    },
+    {
+      "id": "vnm_tonkin_trade_pressure_1872",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1872-01-01",
+        "1873-12-31"
+      ],
+      "date_historical": "1872-10-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HAN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1872,
+            "to": 1873
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Tranh chấp thương mại trên sông Hồng",
+      "title_en": "Trade Pressure on the Red River",
+      "text_vi": "Các hoạt động thương mại và thăm dò của người Pháp trên sông Hồng làm gia tăng xung đột giữa thương nhân, quan lại địa phương và lực lượng vũ trang. Triều đình phải xác định phạm vi cho phép giao thương mà không để một đoàn thám hiểm tự biến thành quyền can thiệp. Một quyết định thiếu phối hợp có thể tạo cớ cho Pháp dùng vũ lực.",
+      "text_en": "French commercial activity and exploration along the Red River increased tensions among merchants, local officials and armed forces. The court had to define the limits of trade without allowing an expedition to become a claim to intervention. A poorly coordinated response could provide France with a pretext for force.",
+      "options": [
+        {
+          "id": "regulate",
+          "label_vi": "Cấp phép thương mại có kiểm soát tại các cửa sông",
+          "label_en": "License trade under supervision at river ports",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_tonkin_trade_pressure_1872_regulate_modifier",
+              "name_vi": "Quy chế thương mại sông Hồng",
+              "name_en": "Red River Trade Regulation",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "trade": 0.025,
+                "legitimacy": 1,
+                "police": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "restrict",
+          "label_vi": "Hạn chế đoàn thám hiểm và tăng tuần tra",
+          "label_en": "Restrict expeditions and increase patrols",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_tonkin_trade_pressure_1872_restrict_modifier",
+              "name_vi": "Kiểm soát tuyến sông",
+              "name_en": "River Route Restrictions",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "police": 0.04,
+                "trade": -0.02,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_saigon_treaty"
+      ]
+    },
+    {
+      "id": "vnm_garnier_hanoi_1873",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1873-01-01",
+        "1874-12-31"
+      ],
+      "date_historical": "1873-11-20",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HAN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1873,
+            "to": 1874
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Francis Garnier chiếm thành Hà Nội",
+      "title_en": "Francis Garnier Seizes Hanoi",
+      "text_vi": "Ngày 20 tháng 11 năm 1873, lực lượng của Francis Garnier chiếm thành Hà Nội trong một cuộc can thiệp bắt nguồn từ tranh chấp thương mại và quyền lực địa phương. Garnier bị giết vào tháng 12, nhưng sự kiện đã phơi bày sự mong manh của quyền kiểm soát triều đình ở Bắc Kỳ. Huế phải lựa chọn huy động lực lượng, thương lượng để tránh chiến tranh rộng hơn hoặc dựa vào các lực lượng địa phương.",
+      "text_en": "On 20 November 1873, forces led by Francis Garnier seized Hanoi amid disputes over trade and local authority. Garnier was killed in December, but the episode exposed the fragility of court control in Tonkin. Hue must mobilise troops, negotiate to prevent a wider war or rely on local forces.",
+      "options": [
+        {
+          "id": "mobilise",
+          "label_vi": "Điều quân từ các tỉnh lân cận bảo vệ Bắc Kỳ",
+          "label_en": "Mobilise troops from neighbouring provinces",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_garnier_hanoi_1873_mobilise_modifier",
+              "name_vi": "Phòng thủ Bắc Kỳ",
+              "name_en": "Tonkin Defence",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "war_exhaustion": 0.025
+              }
+            }
+          ]
+        },
+        {
+          "id": "negotiate",
+          "label_vi": "Mở đàm phán để buộc Pháp rút lực lượng",
+          "label_en": "Open talks to secure a French withdrawal",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_garnier_hanoi_1873_negotiate_modifier",
+              "name_vi": "Đàm phán Hà Nội",
+              "name_en": "Hanoi Negotiations",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -1,
+                "trade": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_saigon_treaty"
+      ]
+    },
+    {
+      "id": "vnm_treaty_giap_tuat_1874",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1874-01-01",
+        "1875-12-31"
+      ],
+      "date_historical": "1874-03-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1874,
+            "to": 1875
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Hòa ước Giáp Tuất",
+      "title_en": "The 1874 Treaty Settlement",
+      "text_vi": "Hòa ước năm 1874 công nhận một số thay đổi thực tế ở Nam Kỳ và mở rộng quyền tiếp cận thương mại, ngoại giao của Pháp. Văn bản không biến toàn bộ Việt Nam thành thuộc địa ngay lập tức, nhưng làm suy yếu thêm quyền tự chủ đối ngoại của triều đình. Huế phải quyết định thực thi các điều khoản để trì hoãn xung đột hay tìm cách hạn chế tác động của chúng.",
+      "text_en": "The 1874 settlement recognised changes in Cochinchina and expanded French commercial and diplomatic access. It did not immediately turn all Vietnam into a colony, but further constrained the court's external autonomy. Hue must implement the terms to postpone conflict or seek to limit their effects.",
+      "options": [
+        {
+          "id": "implement",
+          "label_vi": "Thi hành điều khoản để tránh một cuộc tấn công mới",
+          "label_en": "Implement the terms to avoid another attack",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_treaty_giap_tuat_1874_implement_modifier",
+              "name_vi": "Thi hành hòa ước 1874",
+              "name_en": "Implementation of the 1874 Treaty",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.03,
+                "legitimacy": -2,
+                "army": -0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "limit",
+          "label_vi": "Tìm cách diễn giải hẹp các quyền nhượng bộ",
+          "label_en": "Seek a narrow interpretation of the concessions",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_treaty_giap_tuat_1874_limit_modifier",
+              "name_vi": "Hạn chế nhượng bộ",
+              "name_en": "Limiting the Concessions",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "trade": -0.02,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_saigon_treaty"
+      ]
+    },
+    {
+      "id": "vnm_black_flag_tonkin_1870s",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1875-01-01",
+        "1885-12-31"
+      ],
+      "date_historical": "1878-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HAN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1875,
+            "to": 1885
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Quân Cờ Đen và an ninh Bắc Kỳ",
+      "title_en": "Black Flag Forces and Tonkin Security",
+      "text_vi": "Các lực lượng Cờ Đen của Lưu Vĩnh Phúc hoạt động ở Bắc Kỳ, vừa giao chiến với đối thủ địa phương vừa có lúc hợp tác với quan lại triều Nguyễn chống quân Pháp. Họ không phải một nhà nước thống nhất và quan hệ với triều đình thay đổi theo từng chiến dịch. Huế phải quyết định sử dụng họ như lực lượng phụ trợ, giải giới hoặc tìm cách đưa họ vào một cơ chế chỉ huy có điều kiện.",
+      "text_en": "Liu Yongfu's Black Flag forces operated in Tonkin, fighting local rivals and at times cooperating with Nguyen officials against French forces. They were not a unified state and their relationship with the court shifted across campaigns. Hue must decide whether to use them as auxiliaries, disarm them or place them under conditional command.",
+      "options": [
+        {
+          "id": "auxiliaries",
+          "label_vi": "Công nhận vai trò phụ trợ có giới hạn của Cờ Đen",
+          "label_en": "Recognise a limited auxiliary role for the Black Flags",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_black_flag_tonkin_1870s_auxiliaries_modifier",
+              "name_vi": "Lực lượng phụ trợ Bắc Kỳ",
+              "name_en": "Tonkin Auxiliary Forces",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "radicalism": 0.01,
+                "legitimacy": -1
+              }
+            }
+          ]
+        },
+        {
+          "id": "disarm",
+          "label_vi": "Yêu cầu giải giới các nhóm vũ trang ngoài triều đình",
+          "label_en": "Demand disarmament of armed groups outside the court",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_black_flag_tonkin_1870s_disarm_modifier",
+              "name_vi": "Giải giới lực lượng địa phương",
+              "name_en": "Disarming Local Forces",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "police": 0.04,
+                "army": -0.02,
+                "radicalism": 0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_saigon_treaty"
+      ]
+    },
+    {
+      "id": "vnm_harmand_hue_1883",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1883-01-01",
+        "1884-12-31"
+      ],
+      "date_historical": "1883-08-20",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1883,
+            "to": 1884
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Pháp tấn công Thuận An",
+      "title_en": "The Attack on Thuan An",
+      "text_vi": "Tháng 8 năm 1883, hạm đội Pháp tấn công các pháo đài cửa Thuận An, đe dọa trực tiếp kinh đô Huế. Triều đình đứng trước sức ép quân sự áp đảo và nguy cơ bị cưỡng ép ký một văn bản bảo hộ. Các đại thần phải chọn kháng cự, tìm đình chiến hay thương lượng để giữ lại một phần thiết chế hoàng gia.",
+      "text_en": "In August 1883, French forces attacked the forts at Thuan An, directly threatening the imperial capital. The court faced overwhelming military pressure and the prospect of a protectorate imposed by force. Ministers must choose resistance, an armistice or negotiations intended to preserve part of the royal institution.",
+      "options": [
+        {
+          "id": "resist",
+          "label_vi": "Tiếp tục phòng thủ cửa biển và kinh thành",
+          "label_en": "Continue defending the harbour and capital",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_harmand_hue_1883_resist_modifier",
+              "name_vi": "Phòng thủ Thuận An",
+              "name_en": "Thuan An Defence",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "army": 0.06,
+                "war_exhaustion": 0.05
+              }
+            }
+          ]
+        },
+        {
+          "id": "armistice",
+          "label_vi": "Chấp nhận đình chiến để bảo toàn triều đình",
+          "label_en": "Accept an armistice to preserve the court",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_harmand_hue_1883_armistice_modifier",
+              "name_vi": "Đình chiến trước sức ép Pháp",
+              "name_en": "Armistice under French Pressure",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -2,
+                "army": -0.04,
+                "trade": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_saigon_treaty",
+        "vietnam_monarchy_colonial"
+      ]
+    },
+    {
+      "id": "vnm_patentotre_1884",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1884-01-01",
+        "1885-12-31"
+      ],
+      "date_historical": "1884-06-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1884,
+            "to": 1885
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Hiệp ước Patenôtre",
+      "title_en": "The Patenotre Treaty",
+      "text_vi": "Hiệp ước Patenôtre năm 1884 củng cố chế độ bảo hộ của Pháp và đặt quan hệ đối ngoại của triều đình dưới sự kiểm soát của Pháp. Hoàng triều Nguyễn vẫn tồn tại, nhưng quyền lực thực tế bị giới hạn và các quan lại phải hoạt động trong một trật tự thuộc địa mới. Triều đình có thể hợp tác để duy trì thiết chế, âm thầm bảo vệ quyền tự chủ còn lại hoặc chống đối và đối mặt với nguy cơ bị phế bỏ.",
+      "text_en": "The 1884 Patenotre Treaty consolidated French protectorate control and placed the court's external relations under French authority. The Nguyen dynasty survived, but its effective power was restricted within a new colonial order. The court may cooperate to preserve the institution, quietly defend remaining autonomy or resist at the risk of abolition.",
+      "options": [
+        {
+          "id": "accommodate",
+          "label_vi": "Duy trì triều đình và thương lượng phạm vi nội trị",
+          "label_en": "Preserve the court and negotiate internal authority",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_patentotre_1884_accommodate_modifier",
+              "name_vi": "Triều đình dưới chế độ bảo hộ",
+              "name_en": "Court under Protectorate",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "trade": 0.02,
+                "radicalism": 0.01,
+                "army": -0.03
+              }
+            }
+          ]
+        },
+        {
+          "id": "resist",
+          "label_vi": "Giữ liên lạc bí mật với các quan chống bảo hộ",
+          "label_en": "Maintain covert links with anti-protectorate officials",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_patentotre_1884_resist_modifier",
+              "name_vi": "Mạng lưới chống bảo hộ",
+              "name_en": "Anti-Protectorate Network",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.025,
+                "legitimacy": -1,
+                "police": -0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_monarchy_colonial"
+      ]
+    },
+    {
+      "id": "vnm_ham_nghi_regency_1884",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1884-01-01",
+        "1885-12-31"
+      ],
+      "date_historical": "1884-08-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1884,
+            "to": 1885
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Hàm Nghi và cuộc khủng hoảng nhiếp chính",
+      "title_en": "Ham Nghi and the Regency Crisis",
+      "text_vi": "Sau biến động trong hoàng tộc, Hàm Nghi lên ngôi khi các phe chủ chiến và chủ hòa tranh giành ảnh hưởng. Tôn Thất Thuyết và những người đồng chí hướng lo ngại triều đình bị Pháp khống chế hoàn toàn. Sự chia rẽ trong triều có thể dẫn tới một cuộc rời kinh thành và kháng chiến, hoặc một thỏa hiệp để giữ ngai vàng.",
+      "text_en": "After turmoil in the royal family, Ham Nghi took the throne as pro-resistance and accommodation factions competed for influence. Ton That Thuyet and allies feared the court would become wholly controlled by France. Court divisions could lead to flight from the capital and resistance, or compromise to preserve the throne.",
+      "options": [
+        {
+          "id": "war_party",
+          "label_vi": "Ủng hộ phe chủ chiến chuẩn bị rời kinh",
+          "label_en": "Back the resistance faction and prepare to leave the capital",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_ham_nghi_regency_1884_war_party_modifier",
+              "name_vi": "Phe chủ chiến trong triều",
+              "name_en": "Resistance Faction at Court",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "radicalism": 0.02,
+                "legitimacy": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": "peace_party",
+          "label_vi": "Giữ triều đình ở Huế và tránh đối đầu trực diện",
+          "label_en": "Keep the court in Hue and avoid direct confrontation",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_ham_nghi_regency_1884_peace_party_modifier",
+              "name_vi": "Phe chủ hòa",
+              "name_en": "Accommodation Faction",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -1,
+                "trade": 0.015,
+                "army": -0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_monarchy_colonial"
+      ]
+    },
+    {
+      "id": "vnm_can_vuong_1885",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1885-01-01",
+        "1886-12-31"
+      ],
+      "date_historical": "1885-07-13",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1885,
+            "to": 1886
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Chiếu Cần Vương",
+      "title_en": "The Can Vuong Appeal",
+      "text_vi": "Sau cuộc phản công thất bại tại Huế tháng 7 năm 1885, vua Hàm Nghi và các phụ chính phát động lời kêu gọi Cần Vương chống Pháp. Phong trào tập hợp nhiều sĩ phu và lực lượng địa phương nhưng không có một bộ chỉ huy thống nhất trên toàn quốc. Triều đình lưu vong phải chọn hỗ trợ các căn cứ, tìm sự phối hợp vùng miền hay ưu tiên bảo toàn hoàng đế.",
+      "text_en": "After the failed counterattack in Hue in July 1885, Ham Nghi and his regents issued the Can Vuong appeal against French rule. The movement drew scholars and local forces but lacked a single nationwide command. The exiled court must support regional bases, coordinate local campaigns or prioritise the emperor's survival.",
+      "options": [
+        {
+          "id": "mobilise",
+          "label_vi": "Gửi chiếu thư và hậu thuẫn các căn cứ nghĩa quân",
+          "label_en": "Issue appeals and support resistance bases",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_can_vuong_1885_mobilise_modifier",
+              "name_vi": "Lời hiệu triệu Cần Vương",
+              "name_en": "Can Vuong Mobilisation",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "radicalism": 0.025
+              }
+            }
+          ]
+        },
+        {
+          "id": "preserve",
+          "label_vi": "Bảo vệ nhà vua và duy trì mạng lưới liên lạc",
+          "label_en": "Protect the emperor and preserve communication networks",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_can_vuong_1885_preserve_modifier",
+              "name_vi": "Bảo toàn triều đình lưu vong",
+              "name_en": "Preserving the Exiled Court",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "army": 0.02,
+                "trade": -0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_can_vuong_yen_the_dong_du"
+      ]
+    },
+    {
+      "id": "vnm_ba_dinh_resistance_1886",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1885-01-01",
+        "1887-12-31"
+      ],
+      "date_historical": "1886-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HAN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1885,
+            "to": 1887
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Kháng chiến Ba Đình",
+      "title_en": "The Ba Dinh Resistance",
+      "text_vi": "Căn cứ Ba Đình ở Thanh Hóa được tổ chức thành hệ thống phòng thủ liên hoàn, tận dụng địa hình và công sự để chống các chiến dịch của Pháp. Nghĩa quân có thể cầm cự nhưng thiếu vũ khí hiện đại và nguồn tiếp tế ổn định. Các thủ lĩnh phải chọn cố thủ, chuyển sang đánh phân tán hoặc tìm cách sơ tán dân cư khỏi vùng giao tranh.",
+      "text_en": "The Ba Dinh base in Thanh Hoa used linked defences and local terrain to resist French campaigns. The insurgents could hold out but lacked modern weapons and reliable supplies. Their leaders must choose to stand and fight, disperse into mobile bands or evacuate civilians from the combat zone.",
+      "options": [
+        {
+          "id": "fortify",
+          "label_vi": "Củng cố chiến lũy và kho lương",
+          "label_en": "Strengthen fortifications and supply stores",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_ba_dinh_resistance_1886_fortify_modifier",
+              "name_vi": "Công sự Ba Đình",
+              "name_en": "Ba Dinh Fortifications",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "war_exhaustion": 0.03
+              }
+            }
+          ]
+        },
+        {
+          "id": "disperse",
+          "label_vi": "Chia nhỏ lực lượng để tránh bị bao vây",
+          "label_en": "Disperse forces to avoid encirclement",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_ba_dinh_resistance_1886_disperse_modifier",
+              "name_vi": "Chiến thuật phân tán",
+              "name_en": "Dispersed Resistance",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "army": 0.02,
+                "radicalism": 0.015,
+                "police": -0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_can_vuong_yen_the_dong_du"
+      ]
+    },
+    {
+      "id": "vnm_bai_say_resistance_1887",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1883-01-01",
+        "1892-12-31"
+      ],
+      "date_historical": "1887-03-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HAN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1883,
+            "to": 1892
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Kháng chiến Bãi Sậy",
+      "title_en": "The Bai Say Resistance",
+      "text_vi": "Ở vùng đầm lầy Bãi Sậy, Nguyễn Thiện Thuật và các thủ lĩnh địa phương dựa vào địa hình để duy trì kháng chiến trong nhiều năm. Mạng lưới nghĩa quân có quan hệ lỏng lẻo, dựa vào làng xã và hậu cần tại chỗ. Triều đình và các thủ lĩnh phải cân nhắc hỗ trợ kín đáo, tìm đường thương lượng hoặc giảm tổn thất cho dân cư.",
+      "text_en": "In the Bai Say marshlands, Nguyen Thien Thuat and local leaders used the terrain to sustain resistance for years. The insurgent network was loose and relied on villages and local supply. Court loyalists and commanders must weigh covert support, negotiation or reducing civilian losses.",
+      "options": [
+        {
+          "id": "support",
+          "label_vi": "Hỗ trợ lương thực và liên lạc cho các căn cứ",
+          "label_en": "Support resistance bases with food and couriers",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_bai_say_resistance_1887_support_modifier",
+              "name_vi": "Hậu cần Bãi Sậy",
+              "name_en": "Bai Say Supply Network",
+              "months": 30,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "radicalism": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "negotiate",
+          "label_vi": "Tìm cách thương lượng đầu hàng có điều kiện",
+          "label_en": "Seek a negotiated surrender",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_bai_say_resistance_1887_negotiate_modifier",
+              "name_vi": "Đầu hàng có điều kiện",
+              "name_en": "Negotiated Surrender",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "radicalism": -0.01,
+                "legitimacy": -1,
+                "construction": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_can_vuong_yen_the_dong_du"
+      ]
+    },
+    {
+      "id": "vnm_huong_khe_resistance_1896",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1885-01-01",
+        "1896-12-31"
+      ],
+      "date_historical": "1895-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_THN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1885,
+            "to": 1896
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Khởi nghĩa Hương Khê đi tới hồi kết",
+      "title_en": "The Huong Khe Campaign Reaches Its End",
+      "text_vi": "Phong trào Hương Khê do Phan Đình Phùng và các cộng sự tổ chức trở thành một trong những trung tâm kháng chiến lớn của Cần Vương. Sau nhiều năm bị bao vây và thiếu nguồn lực, cái chết của Phan Đình Phùng năm 1895 làm suy yếu nghiêm trọng mạng lưới. Các thủ lĩnh còn lại phải chọn tiếp tục chiến đấu, giải tán lực lượng hoặc bảo vệ dân chúng bằng cách thương lượng.",
+      "text_en": "The Huong Khe movement led by Phan Dinh Phung became a major centre of Can Vuong resistance. Years of pressure and shortages, followed by Phan Dinh Phung's death in 1895, weakened the network severely. Remaining leaders must continue fighting, disband or negotiate to protect civilians.",
+      "options": [
+        {
+          "id": "continue",
+          "label_vi": "Duy trì các toán kháng chiến còn lại",
+          "label_en": "Maintain the remaining resistance bands",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_huong_khe_resistance_1896_continue_modifier",
+              "name_vi": "Kháng chiến Hương Khê",
+              "name_en": "Huong Khe Resistance",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "army": 0.02,
+                "radicalism": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "disband",
+          "label_vi": "Giải tán căn cứ và bảo toàn nhân lực",
+          "label_en": "Disband the bases and preserve personnel",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_huong_khe_resistance_1896_disband_modifier",
+              "name_vi": "Tan rã có trật tự",
+              "name_en": "Orderly Dispersal",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "radicalism": -0.012,
+                "legitimacy": -1,
+                "construction": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_can_vuong_yen_the_dong_du"
+      ],
+      "image": {
+        "ref": "ill_vnm_huong_khe_resistance_1896",
+        "credit": "Wikimedia Commons candidate; pending loc_ingest.py rights and asset validation",
+        "license": "CANDIDATE — not yet ingested; Commons rights re-read required"
+      }
+    },
+    {
+      "id": "vnm_french_indochina_union_1887",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1887-01-01",
+        "1888-12-31"
+      ],
+      "date_historical": "1887-10-17",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1887,
+            "to": 1888
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Liên bang Đông Dương được thành lập",
+      "title_en": "The Formation of French Indochina",
+      "text_vi": "Pháp thành lập Liên bang Đông Dương năm 1887, đặt các xứ thuộc địa và bảo hộ trong một khuôn khổ hành chính liên kết. Triều Nguyễn vẫn tồn tại về hình thức ở Trung Kỳ và Bắc Kỳ, nhưng quyền lực thực tế ngày càng bị giới hạn bởi bộ máy Pháp. Giới quan lại phải quyết định hợp tác để giữ vị trí, bảo vệ quyền tự trị còn lại hay rút khỏi bộ máy thuộc địa.",
+      "text_en": "France created the Indochinese Union in 1887, linking colonial and protectorate territories under a common administration. The Nguyen court survived formally in Annam and Tonkin, but effective authority was increasingly constrained by French institutions. Officials must cooperate to retain positions, defend remaining autonomy or withdraw from the colonial apparatus.",
+      "options": [
+        {
+          "id": "cooperate",
+          "label_vi": "Tham gia bộ máy mới để giữ ảnh hưởng nội trị",
+          "label_en": "Enter the new administration to retain internal influence",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_french_indochina_union_1887_cooperate_modifier",
+              "name_vi": "Hợp tác hành chính",
+              "name_en": "Administrative Cooperation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "trade": 0.02,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        },
+        {
+          "id": "withdraw",
+          "label_vi": "Từ chối chức vụ và bảo vệ mạng lưới triều đình",
+          "label_en": "Decline offices and preserve court networks",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_french_indochina_union_1887_withdraw_modifier",
+              "name_vi": "Mạng lưới quan lại độc lập",
+              "name_en": "Independent Court Networks",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "radicalism": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_monarchy_colonial"
+      ]
+    },
+    {
+      "id": "vnm_doumer_reorganisation_1897",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1897-01-01",
+        "1902-12-31"
+      ],
+      "date_historical": "1897-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HAN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1897,
+            "to": 1902
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Cải tổ hành chính và thuế khóa của Doumer",
+      "title_en": "Doumer's Fiscal and Administrative Reorganisation",
+      "text_vi": "Paul Doumer đẩy mạnh tập trung hóa ngân sách và hệ thống thuế ở Đông Dương từ cuối thập niên 1890. Hạ tầng và bộ máy hành chính được mở rộng, nhưng nhiều khoản chi được tài trợ bằng thuế gián thu và độc quyền thuộc địa. Các quan chức Việt Nam phải lựa chọn hợp tác với hệ thống mới, phản đối việc tăng thu hay tìm cách giảm tác động lên nông thôn.",
+      "text_en": "Paul Doumer expanded fiscal centralisation and taxation across Indochina from the late 1890s. Infrastructure and administration grew, but many costs were funded through indirect taxes and colonial monopolies. Vietnamese officials must decide whether to cooperate, resist new levies or mitigate their rural effects.",
+      "options": [
+        {
+          "id": "cooperate",
+          "label_vi": "Hỗ trợ xây dựng hạ tầng và bộ máy thuế",
+          "label_en": "Support infrastructure and tax administration",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_doumer_reorganisation_1897_cooperate_modifier",
+              "name_vi": "Hạ tầng thuộc địa",
+              "name_en": "Colonial Infrastructure",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "construction": 0.04,
+                "trade": 0.02,
+                "tax": 0.025,
+                "radicalism": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "mitigate",
+          "label_vi": "Vận động giảm thuế nặng lên hộ nông dân",
+          "label_en": "Press to reduce levies on peasant households",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_doumer_reorganisation_1897_mitigate_modifier",
+              "name_vi": "Giảm gánh nặng nông thôn",
+              "name_en": "Rural Tax Mitigation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": -0.01,
+                "legitimacy": 1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_monarchy_colonial"
+      ]
+    },
+    {
+      "id": "vnm_yen_the_resistance_1900",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1884-01-01",
+        "1913-12-31"
+      ],
+      "date_historical": "1900-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HAN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1884,
+            "to": 1913
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Phong trào Yên Thế tiếp tục kháng chiến",
+      "title_en": "The Yen The Resistance Continues",
+      "text_vi": "Hoàng Hoa Thám và các lực lượng ở Yên Thế duy trì kháng chiến trong nhiều năm, dựa vào địa hình rừng núi và quan hệ với các làng địa phương. Phong trào có lúc thương lượng đình chiến, nhưng không trở thành một chính quyền quốc gia thống nhất. Nhà chức trách và các thủ lĩnh phải lựa chọn giữa chiến dịch bao vây, thỏa thuận địa phương hoặc mở đường cho dân cư ổn định sinh kế.",
+      "text_en": "Hoang Hoa Tham and the Yen The forces sustained resistance for years, relying on forested terrain and village networks. The movement sometimes negotiated truces but did not become a unified national government. Authorities and local leaders must choose between encirclement, local accommodation or measures to restore civilian livelihoods.",
+      "options": [
+        {
+          "id": "campaign",
+          "label_vi": "Tăng cường các chiến dịch bao vây",
+          "label_en": "Intensify encirclement campaigns",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_yen_the_resistance_1900_campaign_modifier",
+              "name_vi": "Chiến dịch Yên Thế",
+              "name_en": "Yen The Campaign",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "police": 0.04,
+                "army": 0.03,
+                "radicalism": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "accommodate",
+          "label_vi": "Thương lượng đình chiến với các thủ lĩnh địa phương",
+          "label_en": "Negotiate local truces with commanders",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_yen_the_resistance_1900_accommodate_modifier",
+              "name_vi": "Đình chiến Yên Thế",
+              "name_en": "Yen The Truce",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "radicalism": -0.01,
+                "trade": 0.01,
+                "legitimacy": 1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_can_vuong_yen_the_dong_du"
+      ]
+    },
+    {
+      "id": "vnm_duy_tan_reform_1904",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1903-01-01",
+        "1908-12-31"
+      ],
+      "date_historical": "1904-06-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1903,
+            "to": 1908
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Phong trào Duy Tân đề xuất canh tân",
+      "title_en": "The Duy Tan Reform Movement",
+      "text_vi": "Các sĩ phu như Phan Châu Trinh cổ vũ cải cách xã hội, giáo dục và chính trị thay vì đặt trọng tâm vào khởi nghĩa vũ trang. Phong trào nhấn mạnh dân trí, dân khí và cải thiện đời sống, nhưng vấp phải cả sự kiểm soát của chính quyền thuộc địa lẫn sự dè dặt của triều đình. Nhà chức trách phải quyết định cho phép hoạt động cải cách, giám sát chặt hoặc tìm cách hấp thụ các đề xuất vào giáo dục chính quy.",
+      "text_en": "Scholars such as Phan Chau Trinh advocated social, educational and political reform rather than armed revolt. The movement emphasised public knowledge and civic improvement but faced colonial surveillance and court caution. Authorities must permit reform activity, restrict it or absorb selected proposals into formal education.",
+      "options": [
+        {
+          "id": "permit",
+          "label_vi": "Cho phép mở trường và diễn thuyết trong giới hạn",
+          "label_en": "Permit schools and lectures within limits",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_duy_tan_reform_1904_permit_modifier",
+              "name_vi": "Không gian cải cách Duy Tân",
+              "name_en": "Duy Tan Reform Space",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.03,
+                "reform": 0.012,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "restrict",
+          "label_vi": "Giám sát các hội và giới hạn diễn thuyết",
+          "label_en": "Monitor associations and restrict lectures",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_duy_tan_reform_1904_restrict_modifier",
+              "name_vi": "Giám sát phong trào Duy Tân",
+              "name_en": "Duy Tan Surveillance",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "police": 0.03,
+                "radicalism": 0.015,
+                "legitimacy": -1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_can_vuong_yen_the_dong_du"
+      ]
+    },
+    {
+      "id": "vnm_dong_du_1905",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1905-01-01",
+        "1909-12-31"
+      ],
+      "date_historical": "1905-07-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1905,
+            "to": 1909
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Phong trào Đông Du hướng sang Nhật Bản",
+      "title_en": "The Dong Du Movement Looks to Japan",
+      "text_vi": "Phan Bội Châu và các đồng chí tổ chức phong trào Đông Du, đưa thanh niên sang Nhật học tập và tìm kiếm sự hỗ trợ cho công cuộc giải phóng. Nhật Bản ban đầu là hình mẫu cải cách châu Á, nhưng chính sách của Tokyo chịu ràng buộc bởi quan hệ với Pháp. Triều đình và các nhà hoạt động phải cân nhắc duy trì mạng lưới du học, tìm nguồn hỗ trợ khác hoặc tránh để phong trào bị cô lập.",
+      "text_en": "Phan Boi Chau and his associates organised Dong Du, sending students to Japan and seeking support for national liberation. Japan initially appeared as an Asian model of reform, but Tokyo's policy was constrained by relations with France. Vietnamese activists must sustain the student network, seek other patrons or avoid isolation.",
+      "options": [
+        {
+          "id": "sustain",
+          "label_vi": "Hỗ trợ bí mật mạng lưới du học sinh",
+          "label_en": "Secretly support the student network",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_dong_du_1905_sustain_modifier",
+              "name_vi": "Mạng lưới Đông Du",
+              "name_en": "Dong Du Network",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": 0.025,
+                "literacy": 0.02,
+                "radicalism": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "diversify",
+          "label_vi": "Tìm liên hệ với các cộng đồng lưu vong khác",
+          "label_en": "Seek links with other exile communities",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_dong_du_1905_diversify_modifier",
+              "name_vi": "Mạng lưới quốc tế",
+              "name_en": "International Exile Networks",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.015,
+                "research": 0.015,
+                "legitimacy": -1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_can_vuong_yen_the_dong_du"
+      ]
+    },
+    {
+      "id": "vnm_dong_kinh_nghia_thuc_1907",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1907-01-01",
+        "1908-12-31"
+      ],
+      "date_historical": "1907-03-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HAN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1907,
+            "to": 1908
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Đông Kinh Nghĩa Thục mở cửa",
+      "title_en": "The Opening of Dong Kinh Nghia Thuc",
+      "text_vi": "Đông Kinh Nghĩa Thục mở ở Hà Nội năm 1907, truyền bá kiến thức mới và cải cách giáo dục bằng chữ quốc ngữ cùng các môn học hiện đại. Trường nhanh chóng trở thành trung tâm giao lưu tư tưởng, khiến chính quyền thuộc địa lo ngại hoạt động chính trị núp bóng giáo dục. Các nhà cải cách phải lựa chọn mở rộng chương trình, giữ hoạt động kín đáo hay chấp nhận giới hạn để trường tồn tại.",
+      "text_en": "Dong Kinh Nghia Thuc opened in Hanoi in 1907, promoting new knowledge and educational reform through quoc ngu and modern subjects. It became a centre of intellectual exchange, prompting colonial concern about political activity under an educational banner. Reformers must expand the curriculum, operate discreetly or accept limits to keep the school open.",
+      "options": [
+        {
+          "id": "expand",
+          "label_vi": "Mở rộng lớp học và xuất bản tài liệu",
+          "label_en": "Expand classes and publish learning materials",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_dong_kinh_nghia_thuc_1907_expand_modifier",
+              "name_vi": "Giáo dục khai trí",
+              "name_en": "Public Enlightenment",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.04,
+                "research": 0.015,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "discreet",
+          "label_vi": "Giảm hoạt động công khai để tránh đóng cửa",
+          "label_en": "Reduce public activity to avoid closure",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_dong_kinh_nghia_thuc_1907_discreet_modifier",
+              "name_vi": "Hoạt động giáo dục kín đáo",
+              "name_en": "Discreet Educational Work",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.02,
+                "police": -0.01,
+                "legitimacy": 1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_can_vuong_yen_the_dong_du"
+      ],
+      "image": {
+        "ref": "ill_vnm_dong_kinh_nghia_thuc_1907",
+        "credit": "Wikimedia Commons candidate; pending loc_ingest.py rights and asset validation",
+        "license": "CANDIDATE — not yet ingested; Commons rights re-read required"
+      }
+    },
+    {
+      "id": "vnm_tax_protests_1908",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1908-01-01",
+        "1909-12-31"
+      ],
+      "date_historical": "1908-03-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_THN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1908,
+            "to": 1909
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Biểu tình chống sưu thuế ở Trung Kỳ",
+      "title_en": "The Central Vietnam Tax Protests",
+      "text_vi": "Năm 1908, các cuộc biểu tình ở Trung Kỳ phản đối sưu thuế và lao dịch lan rộng từ Quảng Nam sang các địa phương lân cận. Người dân yêu cầu giảm gánh nặng và chấm dứt những khoản thu bị coi là lạm dụng; phong trào không phải một cuộc nổi dậy có cùng mục tiêu ở mọi nơi. Chính quyền phải lựa chọn điều tra quan lại, nhượng bộ về thuế hay đàn áp để khôi phục trật tự.",
+      "text_en": "In 1908, protests against taxes and corvee spread across Central Vietnam from Quang Nam to neighbouring districts. Participants demanded relief from burdens they regarded as abusive; the movement did not have identical aims everywhere. Authorities must investigate officials, grant tax concessions or suppress the demonstrations.",
+      "options": [
+        {
+          "id": "investigate",
+          "label_vi": "Điều tra các khoản thu và quan lại địa phương",
+          "label_en": "Investigate levies and local officials",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_tax_protests_1908_investigate_modifier",
+              "name_vi": "Điều tra sưu thuế",
+              "name_en": "Tax Inquiry",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "radicalism": -0.012,
+                "reform": 0.008
+              }
+            }
+          ]
+        },
+        {
+          "id": "suppress",
+          "label_vi": "Dùng lực lượng giải tán các cuộc biểu tình",
+          "label_en": "Use force to disperse demonstrations",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_tax_protests_1908_suppress_modifier",
+              "name_vi": "Trấn áp biểu tình Trung Kỳ",
+              "name_en": "Central Vietnam Crackdown",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "police": 0.04,
+                "army": 0.02,
+                "radicalism": 0.03,
+                "legitimacy": -2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_can_vuong_yen_the_dong_du"
+      ]
+    },
+    {
+      "id": "vnm_duy_tan_uprising_1916",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1916-01-01",
+        "1917-12-31"
+      ],
+      "date_historical": "1916-05-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1916,
+            "to": 1917
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Cuộc nổi dậy gắn với vua Duy Tân",
+      "title_en": "The 1916 Duy Tan Uprising",
+      "text_vi": "Năm 1916, một nhóm quan lại và sĩ phu tìm cách lôi kéo vua Duy Tân tham gia cuộc nổi dậy chống Pháp, nhưng kế hoạch bị phát hiện và thất bại. Nhà vua bị phế truất và lưu đày, còn những người tham gia chịu án nặng. Sự kiện cho thấy sự tồn tại của chủ nghĩa kháng Pháp trong hoàng tộc nhưng không tạo ra một phong trào thống nhất.",
+      "text_en": "In 1916, a group of officials and scholars sought to involve Emperor Duy Tan in an uprising against French rule, but the plan was discovered and failed. The emperor was deposed and exiled, while participants faced severe punishment. The episode showed anti-French sentiment within the royal family without creating a unified movement.",
+      "options": [
+        {
+          "id": "protect",
+          "label_vi": "Tìm cách bảo vệ nhà vua và các cộng sự",
+          "label_en": "Try to protect the emperor and his associates",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_duy_tan_uprising_1916_protect_modifier",
+              "name_vi": "Mạng lưới bảo vệ hoàng gia",
+              "name_en": "Royal Protection Network",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "radicalism": 0.02,
+                "police": -0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "distance",
+          "label_vi": "Giữ khoảng cách với âm mưu để bảo toàn triều đình",
+          "label_en": "Distance the court from the conspiracy",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_duy_tan_uprising_1916_distance_modifier",
+              "name_vi": "Triều đình tránh liên lụy",
+              "name_en": "Court Disassociation",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -1,
+                "trade": 0.01,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_can_vuong_yen_the_dong_du",
+        "vietnam_monarchy_colonial"
+      ]
+    },
+    {
+      "id": "vnm_pham_hong_thai_1924",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1924-01-01",
+        "1925-12-31"
+      ],
+      "date_historical": "1924-06-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HAN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1924,
+            "to": 1925
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Vụ ám sát hụt tại Sa Diện",
+      "title_en": "The Sa Dien Assassination Attempt",
+      "text_vi": "Tháng 6 năm 1924, Phạm Hồng Thái ném bom nhằm vào Toàn quyền Đông Dương Martial Merlin tại Quảng Châu; vụ việc không đạt mục tiêu và ông chết sau đó. Sự kiện gây tiếng vang trong các mạng lưới cách mạng lưu vong, nhưng cũng làm tăng giám sát đối với hoạt động chính trị xuyên biên giới. Các nhà hoạt động phải lựa chọn tiếp tục hành động cá nhân hay xây dựng tổ chức bền vững hơn.",
+      "text_en": "In June 1924, Pham Hong Thai attempted to bomb Indochinese Governor-General Martial Merlin in Guangzhou; the attempt failed and Thai died afterward. The episode resonated among exile networks but intensified surveillance of cross-border activism. Activists must choose between individual action and building more durable organisations.",
+      "options": [
+        {
+          "id": "organise",
+          "label_vi": "Chuyển nguồn lực sang xây dựng tổ chức",
+          "label_en": "Shift resources toward organised networks",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_pham_hong_thai_1924_organise_modifier",
+              "name_vi": "Tổ chức cách mạng có hệ thống",
+              "name_en": "Organised Revolutionary Networks",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": 0.02,
+                "literacy": 0.015,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        },
+        {
+          "id": "retaliate",
+          "label_vi": "Đáp trả bằng các hoạt động bí mật phân tán",
+          "label_en": "Respond through dispersed clandestine actions",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_pham_hong_thai_1924_retaliate_modifier",
+              "name_vi": "Hoạt động bí mật",
+              "name_en": "Clandestine Action",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "police": -0.02,
+                "radicalism": 0.025,
+                "legitimacy": -1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_party_timeline"
+      ]
+    },
+    {
+      "id": "vnm_phan_boi_chau_trial_1925",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1925-01-01",
+        "1926-12-31"
+      ],
+      "date_historical": "1925-11-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HAN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1925,
+            "to": 1926
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Phan Bội Châu bị bắt và xét xử",
+      "title_en": "The Arrest and Trial of Phan Boi Chau",
+      "text_vi": "Phan Bội Châu bị bắt tại Thượng Hải năm 1925 và bị đưa về Hà Nội xét xử, gây làn sóng phản đối và vận động ân xá. Việc giảm án và đưa ông vào quản thúc khiến hình ảnh nhà cách mạng trở thành biểu tượng chính trị rộng hơn. Chính quyền phải lựa chọn xử lý nghiêm, giảm nhẹ để hạ nhiệt hay dùng vụ việc để kiểm soát các hội đoàn.",
+      "text_en": "Phan Boi Chau was arrested in Shanghai in 1925 and brought to Hanoi for trial, prompting protests and appeals for clemency. Commutation and house arrest turned him into a wider political symbol. Authorities must choose harsh punishment, leniency to calm tensions or tighter control of associations.",
+      "options": [
+        {
+          "id": "clemency",
+          "label_vi": "Giảm án và quản thúc thay vì hành quyết",
+          "label_en": "Commute the sentence and impose house arrest",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_phan_boi_chau_trial_1925_clemency_modifier",
+              "name_vi": "Ân xá Phan Bội Châu",
+              "name_en": "Clemency for Phan Boi Chau",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "radicalism": -0.008,
+                "prestige": -0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "severity",
+          "label_vi": "Giữ án nghiêm và tăng giám sát các hội đoàn",
+          "label_en": "Maintain a harsh sentence and monitor associations",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_phan_boi_chau_trial_1925_severity_modifier",
+              "name_vi": "Giám sát phong trào yêu nước",
+              "name_en": "Nationalist Surveillance",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "police": 0.04,
+                "radicalism": 0.02,
+                "legitimacy": -2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_party_timeline"
+      ]
+    },
+    {
+      "id": "vnm_phan_chu_trinh_funeral_1926",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1926-01-01",
+        "1927-12-31"
+      ],
+      "date_historical": "1926-03-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HAN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1926,
+            "to": 1927
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Tang lễ Phan Châu Trinh và biểu tình",
+      "title_en": "The Funeral of Phan Chau Trinh",
+      "text_vi": "Phan Châu Trinh qua đời tháng 3 năm 1926; tang lễ tại nhiều địa phương trở thành dịp tưởng niệm và biểu đạt bất mãn chính trị. Người tham dự không cùng một hệ tư tưởng: có người ủng hộ cải cách ôn hòa, có người đòi quyền tự quyết sâu rộng hơn. Chính quyền phải lựa chọn cho phép tưởng niệm, kiểm soát đám đông hay mở đối thoại về cải cách.",
+      "text_en": "Phan Chau Trinh died in March 1926, and funeral commemorations became occasions for political expression. Participants did not share one ideology: some favoured gradual reform while others demanded deeper self-government. Authorities must permit commemorations, control crowds or open dialogue on reform.",
+      "options": [
+        {
+          "id": "permit",
+          "label_vi": "Cho phép tổ chức tưởng niệm công khai",
+          "label_en": "Permit public commemorations",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_phan_chu_trinh_funeral_1926_permit_modifier",
+              "name_vi": "Tưởng niệm Phan Châu Trinh",
+              "name_en": "Phan Chau Trinh Commemorations",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "literacy": 0.01,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "restrict",
+          "label_vi": "Giới hạn tuần hành và bắt giữ người tổ chức",
+          "label_en": "Restrict marches and detain organisers",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_phan_chu_trinh_funeral_1926_restrict_modifier",
+              "name_vi": "Hạn chế biểu tình",
+              "name_en": "Restrictions on Demonstrations",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "police": 0.03,
+                "radicalism": 0.02,
+                "legitimacy": -1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_can_vuong_yen_the_dong_du"
+      ]
+    },
+    {
+      "id": "vnm_vnqdd_formation_1927",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1927-01-01",
+        "1928-12-31"
+      ],
+      "date_historical": "1927-12-25",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HAN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1927,
+            "to": 1928
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Việt Nam Quốc dân Đảng ra đời",
+      "title_en": "The Founding of the Viet Nam Quoc Dan Dang",
+      "text_vi": "Việt Nam Quốc dân Đảng hình thành năm 1927, chịu ảnh hưởng của chủ nghĩa dân tộc cách mạng và các mô hình tổ chức chính trị ở Đông Á. Tổ chức tìm cách xây dựng cơ sở trong giới thanh niên, viên chức và một bộ phận binh lính, nhưng mạng lưới còn non trẻ và bị theo dõi. Các nhà hoạt động phải chọn mở rộng tuyên truyền, xây dựng cơ sở bí mật hay chuẩn bị hành động vũ trang.",
+      "text_en": "The Viet Nam Quoc Dan Dang emerged in 1927, influenced by revolutionary nationalism and political organisations elsewhere in East Asia. It sought support among youth, clerks and some soldiers, but remained vulnerable and under surveillance. Activists must choose public outreach, clandestine organisation or armed preparation.",
+      "options": [
+        {
+          "id": "build",
+          "label_vi": "Mở rộng cơ sở và tuyên truyền chính trị",
+          "label_en": "Expand local cells and political outreach",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_vnqdd_formation_1927_build_modifier",
+              "name_vi": "Mạng lưới Quốc dân Đảng",
+              "name_en": "VNQDD Organisation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.015,
+                "research": 0.015,
+                "radicalism": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "prepare",
+          "label_vi": "Tập trung vào tổ chức bí mật và kỷ luật",
+          "label_en": "Focus on clandestine organisation and discipline",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_vnqdd_formation_1927_prepare_modifier",
+              "name_vi": "Tổ chức bí mật Quốc dân Đảng",
+              "name_en": "VNQDD Underground",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "army": 0.02,
+                "police": -0.02,
+                "radicalism": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_party_timeline"
+      ]
+    },
+    {
+      "id": "vnm_yen_bai_uprising_1930",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1930-01-01",
+        "1931-12-31"
+      ],
+      "date_historical": "1930-02-10",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HAN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1930,
+            "to": 1931
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Khởi nghĩa Yên Bái",
+      "title_en": "The Yen Bai Uprising",
+      "text_vi": "Đêm 9 rạng 10 tháng 2 năm 1930, binh lính và thành viên Việt Nam Quốc dân Đảng nổi dậy tại Yên Bái cùng một số địa điểm khác. Cuộc nổi dậy thất bại nhanh chóng, kéo theo các vụ bắt giữ và án tử hình, làm suy yếu nghiêm trọng tổ chức. Chính quyền thuộc địa phải chọn đàn áp sâu rộng, xét xử có giới hạn hay mở điều tra về điều kiện trong quân đội bản xứ.",
+      "text_en": "On the night of 9–10 February 1930, soldiers and members of the VNQDD revolted at Yen Bai and other locations. The uprising was quickly defeated, followed by arrests and executions that severely weakened the organisation. Colonial authorities must choose broad repression, limited trials or an inquiry into conditions in the indigenous army.",
+      "options": [
+        {
+          "id": "crackdown",
+          "label_vi": "Mở rộng truy quét các cơ sở Quốc dân Đảng",
+          "label_en": "Expand raids on VNQDD cells",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_yen_bai_uprising_1930_crackdown_modifier",
+              "name_vi": "Trấn áp sau Yên Bái",
+              "name_en": "Post-Yen Bai Repression",
+              "months": 30,
+              "decaying": true,
+              "effects": {
+                "police": 0.05,
+                "radicalism": 0.03,
+                "legitimacy": -2
+              }
+            }
+          ]
+        },
+        {
+          "id": "limited_trials",
+          "label_vi": "Giới hạn truy tố và điều tra nguyên nhân binh biến",
+          "label_en": "Limit prosecutions and investigate the mutiny's causes",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_yen_bai_uprising_1930_limited_trials_modifier",
+              "name_vi": "Điều tra Yên Bái",
+              "name_en": "Yen Bai Inquiry",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "reform": 0.008,
+                "legitimacy": 1,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_party_timeline"
+      ]
+    },
+    {
+      "id": "vnm_icp_formation_1930",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1930-01-01",
+        "1931-12-31"
+      ],
+      "date_historical": "1930-02-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HAN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1930,
+            "to": 1931
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Đảng Cộng sản Việt Nam thành lập",
+      "title_en": "The Founding of the Communist Party of Vietnam",
+      "text_vi": "Ngày 3 tháng 2 năm 1930, các tổ chức cộng sản hợp nhất thành Đảng Cộng sản Việt Nam dưới sự chủ trì của Nguyễn Ái Quốc. Tổ chức mới tìm cách liên kết công nhân và nông dân trong một chương trình chính trị có tính toàn Đông Dương; tên gọi sau đó được đổi thành Đảng Cộng sản Đông Dương. Chính quyền thuộc địa phải lựa chọn giám sát, đàn áp hay tìm cách giải quyết các bất bình xã hội thúc đẩy phong trào.",
+      "text_en": "On 3 February 1930, communist organisations united as the Communist Party of Vietnam under Nguyen Ai Quoc's role in the process. The new organisation sought to connect workers and peasants in an Indochina-wide political programme and was later renamed the Indochinese Communist Party. Colonial authorities must choose surveillance, repression or measures addressing the grievances behind the movement.",
+      "options": [
+        {
+          "id": "surveil",
+          "label_vi": "Theo dõi các tổ chức công nhân và nông dân",
+          "label_en": "Monitor worker and peasant organisations",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_icp_formation_1930_surveil_modifier",
+              "name_vi": "Giám sát tổ chức cộng sản",
+              "name_en": "Communist Organisation Surveillance",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "police": 0.04,
+                "radicalism": 0.02,
+                "legitimacy": -1
+              }
+            }
+          ]
+        },
+        {
+          "id": "address",
+          "label_vi": "Mở kênh thương lượng về tiền công và thuế",
+          "label_en": "Open channels on wages and taxation",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_icp_formation_1930_address_modifier",
+              "name_vi": "Đối thoại về bất bình xã hội",
+              "name_en": "Dialogue on Social Grievances",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": -0.01,
+                "legitimacy": 1,
+                "reform": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_party_timeline"
+      ]
+    },
+    {
+      "id": "vnm_nghe_tinh_soviets_1930",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1930-01-01",
+        "1931-12-31"
+      ],
+      "date_historical": "1930-09-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_THN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1930,
+            "to": 1931
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Phong trào Xô viết Nghệ–Tĩnh",
+      "title_en": "The Nghe-Tinh Soviets",
+      "text_vi": "Trong năm 1930–1931, đình công và biểu tình của công nhân, nông dân ở Nghệ An và Hà Tĩnh phát triển thành phong trào rộng lớn, có nơi hình thành các hình thức tự quản được gọi là Xô viết. Phong trào có nhiều yêu sách về thuế, địa tô và quyền lực làng xã, đồng thời đối mặt với đàn áp quân sự và bắt bớ. Các tổ chức phải lựa chọn tiếp tục huy động, chuyển sang hoạt động bí mật hay ưu tiên bảo vệ người tham gia.",
+      "text_en": "In 1930–31, strikes and demonstrations by workers and peasants in Nghe An and Ha Tinh developed into a broad movement, with local self-governing bodies described as soviets in some areas. Demands concerned taxes, rents and village authority, while the movement faced military repression and arrests. Organisers must continue mobilisation, move underground or prioritise protecting participants.",
+      "options": [
+        {
+          "id": "mobilise",
+          "label_vi": "Duy trì đình công và các ủy ban địa phương",
+          "label_en": "Sustain strikes and local committees",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_nghe_tinh_soviets_1930_mobilise_modifier",
+              "name_vi": "Huy động Nghệ–Tĩnh",
+              "name_en": "Nghe-Tinh Mobilisation",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.03,
+                "reform": 0.01,
+                "police": -0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "underground",
+          "label_vi": "Chuyển cán bộ và tài liệu sang hoạt động bí mật",
+          "label_en": "Move organisers and materials underground",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_nghe_tinh_soviets_1930_underground_modifier",
+              "name_vi": "Mạng lưới bí mật Nghệ–Tĩnh",
+              "name_en": "Nghe-Tinh Underground",
+              "months": 30,
+              "decaying": true,
+              "effects": {
+                "police": -0.02,
+                "radicalism": 0.015,
+                "research": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nghe_tinh_cambridge",
+        "nghe_tinh_local_archive"
+      ]
+    },
+    {
+      "id": "vnm_famine_1944_45",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1944-01-01",
+        "1945-12-31"
+      ],
+      "date_historical": "1944-10-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HAN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1944,
+            "to": 1945
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Nạn đói 1944–1945",
+      "title_en": "The Famine of 1944–45",
+      "text_vi": "Mất mùa, chiến tranh, requisition và đứt gãy vận tải góp phần tạo nên nạn đói thảm khốc ở miền Bắc Việt Nam trong năm 1944–1945. Các nguyên nhân và mức tử vong được giới nghiên cứu thảo luận, nhưng khủng hoảng lương thực và sự bất lực của chính quyền là những yếu tố chính trị nghiêm trọng. Các nhà chức trách phải chọn cứu trợ khẩn cấp, ưu tiên vận tải cho quân đội hay tổ chức phân phối lương thực tại địa phương.",
+      "text_en": "Crop failures, war, requisitions and transport disruption contributed to the catastrophic famine in northern Vietnam in 1944–45. Scholars debate causes and mortality estimates, but food insecurity and government failure were major political factors. Authorities must choose emergency relief, military transport priorities or local food distribution.",
+      "options": [
+        {
+          "id": "relief",
+          "label_vi": "Mở kho thóc và tổ chức cứu trợ khẩn cấp",
+          "label_en": "Open granaries and organise emergency relief",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_famine_1944_45_relief_modifier",
+              "name_vi": "Cứu trợ nạn đói",
+              "name_en": "Famine Relief",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "radicalism": -0.025
+              }
+            }
+          ]
+        },
+        {
+          "id": "requisition",
+          "label_vi": "Tiếp tục trưng thu để duy trì nguồn cung chiến tranh",
+          "label_en": "Continue requisitions to sustain wartime supply",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_famine_1944_45_requisition_modifier",
+              "name_vi": "Trưng thu thời chiến",
+              "name_en": "Wartime Requisitions",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "radicalism": 0.04,
+                "legitimacy": -3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_famine_ehs"
+      ]
+    },
+    {
+      "id": "vnm_august_revolution_1945",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1945-01-01",
+        "1945-12-31"
+      ],
+      "date_historical": "1945-08-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HAN",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1945,
+            "to": 1945
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Cách mạng Tháng Tám",
+      "title_en": "The August Revolution",
+      "text_vi": "Sau khi Nhật đầu hàng Đồng minh tháng 8 năm 1945, khoảng trống quyền lực xuất hiện khi bộ máy thuộc địa Pháp đã bị Nhật gạt bỏ trước đó. Việt Minh nhanh chóng tổ chức giành chính quyền tại Hà Nội và nhiều địa phương, trong khi các lực lượng chính trị khác cũng tìm cách định hình tương lai đất nước. Các lãnh đạo phải lựa chọn tuyên bố chính quyền mới, thương lượng một chính phủ liên hiệp hay chờ đợi lực lượng Đồng minh vào giải giáp quân Nhật.",
+      "text_en": "After Japan's surrender in August 1945, a power vacuum emerged after French colonial authority had already been displaced by Japan. The Viet Minh moved rapidly to take power in Hanoi and other localities, while rival political forces also sought to shape the country's future. Leaders must proclaim a new government, negotiate a coalition or await Allied forces tasked with disarming Japan.",
+      "options": [
+        {
+          "id": "proclaim",
+          "label_vi": "Tuyên bố chính quyền cách mạng và huy động toàn quốc",
+          "label_en": "Proclaim a revolutionary government and mobilise nationwide",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_august_revolution_1945_proclaim_modifier",
+              "name_vi": "Chính quyền cách mạng tháng Tám",
+              "name_en": "August Revolutionary Government",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 3,
+                "radicalism": -0.01,
+                "prestige": 0.04
+              }
+            }
+          ]
+        },
+        {
+          "id": "coalition",
+          "label_vi": "Mở đàm phán với các lực lượng chính trị khác",
+          "label_en": "Open negotiations with other political forces",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_august_revolution_1945_coalition_modifier",
+              "name_vi": "Chính phủ liên hiệp",
+              "name_en": "Coalition Government",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "radicalism": -0.015,
+                "ig_intelligentsia": 1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_august_revolution"
+      ],
+      "image": {
+        "ref": "ill_vnm_august_revolution_1945",
+        "credit": "Wikimedia Commons candidate; pending loc_ingest.py rights and asset validation",
+        "license": "CANDIDATE — not yet ingested; Commons rights re-read required"
+      }
+    },
+    {
+      "id": "vnm_independence_1945",
+      "country": "VNM",
+      "mode": "historical",
+      "window": [
+        "1945-01-01",
+        "1945-12-31"
+      ],
+      "date_historical": "1945-09-02",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "owner_in",
+            "region": "VNM_HUE",
+            "entities": [
+              "VNM"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1945,
+            "to": 1945
+          }
+        ],
+        "mtth_months": 2
+      },
+      "title_vi": "Tuyên ngôn Độc lập ngày 2 tháng 9",
+      "title_en": "The Declaration of Independence",
+      "text_vi": "Ngày 2 tháng 9 năm 1945, Hồ Chí Minh đọc Tuyên ngôn Độc lập tại Hà Nội và tuyên bố thành lập Việt Nam Dân chủ Cộng hòa. Chính phủ mới đối mặt với nạn đói, tài chính kiệt quệ, lực lượng nước ngoài vào giải giáp quân Nhật và sự trở lại của Pháp ở miền Nam. Nhà nước phải chọn ưu tiên củng cố chính quyền, tìm công nhận quốc tế hay tập trung cứu trợ và ổn định xã hội.",
+      "text_en": "On 2 September 1945, Ho Chi Minh read the Declaration of Independence in Hanoi and proclaimed the Democratic Republic of Vietnam. The new government faced famine, fiscal collapse, foreign forces arriving to disarm Japan and the return of France in the south. The state must prioritise consolidation, seek international recognition or focus on relief and social stability.",
+      "options": [
+        {
+          "id": "consolidate",
+          "label_vi": "Củng cố chính quyền và thống nhất bộ máy hành chính",
+          "label_en": "Consolidate the government and unify administration",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_independence_1945_consolidate_modifier",
+              "name_vi": "Củng cố nhà nước mới",
+              "name_en": "Consolidating the New State",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 3,
+                "reform": 0.01,
+                "police": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "recognition",
+          "label_vi": "Tìm công nhận và hỗ trợ ngoại giao quốc tế",
+          "label_en": "Seek international recognition and diplomatic support",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "vnm_independence_1945_recognition_modifier",
+              "name_vi": "Ngoại giao công nhận độc lập",
+              "name_en": "Diplomatic Recognition Campaign",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.05,
+                "trade": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_august_revolution",
+        "vietnam_provisional_government"
+      ],
+      "image": {
+        "ref": "ill_vnm_independence_1945",
+        "credit": "Wikimedia Commons candidate; pending loc_ingest.py rights and asset validation",
+        "license": "CANDIDATE — not yet ingested; Commons rights re-read required"
+      }
+    }
+  ],
+  "journals": [
+    {
+      "id": "vnm_nguyen_state_reform",
+      "country": "VNM",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "year_between",
+            "from": 1836,
+            "to": 1858
+          }
+        ]
+      },
+      "title_vi": "Củng cố nhà nước Nguyễn",
+      "text_vi": "Tăng năng lực hành chính, tài chính và phòng thủ của triều Nguyễn trước sức ép trong nước và bên ngoài.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Năng lực nhà nước",
+        "monthly": [
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "vnm_minh_mang_centralisation_1836"
+            },
+            "add": 15
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "vnm_coastal_defence_reform_1850"
+            },
+            "add": 15
+          },
+          {
+            "add": -1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 276
+        }
+      ],
+      "timeout_months": 276,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "VNM",
+          "id": "vnm_state_reform_complete",
+          "name_vi": "Bộ máy triều Nguyễn được củng cố",
+          "name_en": "Strengthened Nguyen Administration",
+          "months": 60,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 2,
+            "reform": 0.01,
+            "construction": 0.02
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "VNM",
+          "id": "vnm_state_reform_stalled",
+          "name_vi": "Cải cách triều Nguyễn đình trệ",
+          "name_en": "Stalled Nguyen Reform",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "legitimacy": -1,
+            "research": -0.01
+          }
+        }
+      ]
+    },
+    {
+      "id": "vnm_defence_against_france",
+      "country": "VNM",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "year_between",
+            "from": 1847,
+            "to": 1885
+          }
+        ]
+      },
+      "title_vi": "Đối phó sức ép và xâm lược của Pháp",
+      "text_vi": "Triều đình phải ứng phó với cưỡng ép hải quân, chiến tranh và các hiệp ước làm suy giảm chủ quyền.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Khả năng chống chịu",
+        "monthly": [
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "vnm_french_naval_incident_1847"
+            },
+            "add": 10
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "vnm_tourane_invasion_1858"
+            },
+            "add": 15
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "vnm_treaty_saigon_1862"
+            },
+            "add": 10
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "vnm_harmand_hue_1883"
+            },
+            "add": 15
+          },
+          {
+            "add": -1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 456
+        }
+      ],
+      "timeout_months": 456,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "VNM",
+          "id": "vnm_defence_resilience",
+          "name_vi": "Kinh nghiệm phòng thủ và ngoại giao",
+          "name_en": "Defence and Diplomatic Experience",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "army": 0.03,
+            "reform": 0.01
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "VNM",
+          "id": "vnm_defence_collapse",
+          "name_vi": "Khủng hoảng chủ quyền",
+          "name_en": "Sovereignty Crisis",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": -2,
+            "radicalism": 0.02
+          }
+        }
+      ]
+    },
+    {
+      "id": "vnm_can_vuong_resistance",
+      "country": "VNM",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "year_between",
+            "from": 1885,
+            "to": 1896
+          }
+        ]
+      },
+      "title_vi": "Phong trào Cần Vương",
+      "text_vi": "Các căn cứ kháng chiến hoàng gia hoạt động phân tán, dựa vào sĩ phu và mạng lưới địa phương.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Sức bền kháng chiến",
+        "monthly": [
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "vnm_can_vuong_1885"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "vnm_ba_dinh_resistance_1886"
+            },
+            "add": 10
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "vnm_huong_khe_resistance_1896"
+            },
+            "add": 20
+          },
+          {
+            "add": -2
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 132
+        }
+      ],
+      "timeout_months": 132,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "VNM",
+          "id": "vnm_can_vuong_legacy",
+          "name_vi": "Di sản kháng chiến Cần Vương",
+          "name_en": "Can Vuong Resistance Legacy",
+          "months": 60,
+          "decaying": true,
+          "effects": {
+            "prestige": 0.03,
+            "radicalism": 0.01
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "VNM",
+          "id": "vnm_can_vuong_defeat",
+          "name_vi": "Các căn cứ Cần Vương tan rã",
+          "name_en": "Can Vuong Bases Dispersed",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "army": -0.02,
+            "legitimacy": -1
+          }
+        }
+      ]
+    },
+    {
+      "id": "vnm_reform_and_national_awakening",
+      "country": "VNM",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "year_between",
+            "from": 1903,
+            "to": 1908
+          }
+        ]
+      },
+      "title_vi": "Canh tân và thức tỉnh dân tộc",
+      "text_vi": "Các phong trào cải cách giáo dục, du học và phản đối sưu thuế tạo ra những con đường chính trị khác nhau.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Lan tỏa tư tưởng cải cách",
+        "monthly": [
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "vnm_duy_tan_reform_1904"
+            },
+            "add": 15
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "vnm_dong_du_1905"
+            },
+            "add": 15
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "vnm_dong_kinh_nghia_thuc_1907"
+            },
+            "add": 15
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "vnm_tax_protests_1908"
+            },
+            "add": 10
+          },
+          {
+            "add": -1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 72
+        }
+      ],
+      "timeout_months": 72,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "VNM",
+          "id": "vnm_reform_awakening",
+          "name_vi": "Mạng lưới giáo dục và cải cách",
+          "name_en": "Reform and Education Networks",
+          "months": 60,
+          "decaying": true,
+          "effects": {
+            "literacy": 0.04,
+            "research": 0.02
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "VNM",
+          "id": "vnm_reform_repression",
+          "name_vi": "Phong trào cải cách bị thu hẹp",
+          "name_en": "Reform Movement Restricted",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "literacy": 0.01,
+            "radicalism": 0.015
+          }
+        }
+      ]
+    },
+    {
+      "id": "vnm_mass_politics_1925_1931",
+      "country": "VNM",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "VNM"
+          },
+          {
+            "type": "year_between",
+            "from": 1925,
+            "to": 1931
+          }
+        ]
+      },
+      "title_vi": "Chính trị quần chúng và các tổ chức mới",
+      "text_vi": "Các đảng phái, phong trào công nhân và nông dân cạnh tranh ảnh hưởng trong một xã hội thuộc địa đang biến đổi.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Tổ chức chính trị",
+        "monthly": [
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "vnm_phan_boi_chau_trial_1925"
+            },
+            "add": 10
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "vnm_vnqdd_formation_1927"
+            },
+            "add": 15
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "vnm_icp_formation_1930"
+            },
+            "add": 15
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "vnm_nghe_tinh_soviets_1930"
+            },
+            "add": 15
+          },
+          {
+            "add": -1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 84
+        }
+      ],
+      "timeout_months": 84,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "VNM",
+          "id": "vnm_mass_politics_networks",
+          "name_vi": "Mạng lưới chính trị quần chúng",
+          "name_en": "Mass Political Networks",
+          "months": 60,
+          "decaying": true,
+          "effects": {
+            "literacy": 0.02,
+            "reform": 0.01,
+            "radicalism": 0.01
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "VNM",
+          "id": "vnm_mass_politics_suppressed",
+          "name_vi": "Các tổ chức chính trị bị đàn áp",
+          "name_en": "Political Organisations Suppressed",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "police": 0.03,
+            "radicalism": 0.02
+          }
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Historical event content authored from the CG-55 research queue; the event window is conditional, not a forced history script.",
+    "Only canonical VNM and the eight verified 1836 VNM_* regions are used. No non-existent Cambodian, French or Japanese polity is invented.",
+    "The 45-beat research queue is represented by 40 distinct runtime events; some closely related beats were consolidated to avoid duplicate decision prompts.",
+    "Image candidates are intentionally not fabricated in this file. Add image.ref only after a matching story_selection.json entry exists and the Commons/LoC ingest gate has evaluated the candidate.",
+    "Treaty and territorial cessions are represented as decision context and modifiers only; do not infer ownership transfer from this file. Exact region transfer requires separate, validated historical settlement data.",
+    "The event research queue flags source limitations for the 1858–1884 treaty sequence; treaty clause details should be checked against primary instruments before implementing exact effects."
+  ]
+}
