@@ -61,7 +61,7 @@ Territorial strings are deliberately **historical place names**, not guessed eng
 - Germany announced withdrawal on 19 October 1933 (effective after the two-year notice period); Japan gave notice on 27 March 1933 (effective 1935); Italy gave notice in December 1937 (effective December 1939). The USSR was **expelled** on 14 December 1939 after its attack on Finland; this was not a voluntary withdrawal.
 - The League formally dissolved on **20 April 1946**, after transfer of remaining assets and functions to the United Nations.
 
-The 1926–1939 Council year table is transcribed from a study based on the League's Official Journal. Exact non-permanent Council composition for 1920–1925 remains incomplete in this staging version and is explicitly marked unverified rather than invented.
+The Council seat-count changes are supported. Exact non-permanent composition for 1920–1925 remains incomplete. For 1933–1939, a secondary table's overlapping term spans do not normalize cleanly to annual seat counts; those member arrays are deliberately left unverified pending a primary Official Journal cross-check. The JSON does not invent annual rosters.
 
 ## 4. Fatalities: estimates and calibration cautions
 
@@ -140,7 +140,7 @@ Examples from the cited series:
 
 ## Unverified / follow-up list
 
-- Exact League Council non-permanent members in each year 1920–1925.
+- Exact League Council non-permanent members in each year 1920–1925 and 1933–1939; the latter requires primary Official Journal cross-check.
 - Full dated League membership register for all 63 members, including accessions, withdrawals and expulsions.
 - Article-level territorial crosswalk for Saint-Germain, Neuilly, Trianon, Sèvres and Paris 1947.
 - Complete belligerent lists for colonial forces, minor declarations, resistance movements and governments-in-exile.
@@ -159,4 +159,4 @@ The first staging validation caught and corrected:
 - Finland, Bulgaria and Austria civilian fatality ranges were sorted and checked for internal consistency.
 - The Council permanent-seat end markers for Germany, Japan and Italy now reflect the two-year withdrawal notice period rather than the notice date.
 
-The JSON was reparsed after the correction. It remains staging data; no engine or region ownership was changed.
+The JSON was reparsed after the correction; all war participants are unique within each war, all source IDs resolve, and fatality total intervals are ordered. It remains staging data; no engine or region ownership was changed.
