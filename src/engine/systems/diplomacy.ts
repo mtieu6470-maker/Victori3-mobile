@@ -118,6 +118,8 @@ export function declareWar(st: GameState, attacker: string, defender: string, go
   const a = st.countries[attacker], dC = st.countries[defender];
   if (!a?.alive || !dC?.alive || attacker === defender) return null;
   if (st.wars.some((w) => (w.attackers.members.includes(attacker) && w.defenders.members.includes(defender)) || (w.attackers.members.includes(defender) && w.defenders.members.includes(attacker)))) return null;
+  // DECOL-01: an independence settlement carries a truce (at most 2 years) between the two treaty parties.
+  for (const [x, y] of [[a, dC], [dC, a]] as const) if (x.truce && x.truce.with === y.id && x.truce.until > st.tick) return null;
   const sides = warSides(st, attacker, defender, goals);
   const w: War = { id: newId(st, 'war'), name: name ?? `${a.name}–${dC.name} War`, kind, attackers: { leader: attacker, members: sides.attackers }, defenders: { leader: sides.defenderLeader, members: sides.defenders }, goals, start: st.tick, score: 0, occupied: [], battles: 0, exhaustion: { a: 0, d: 0 } };
   a.infamy += sides.infamy;

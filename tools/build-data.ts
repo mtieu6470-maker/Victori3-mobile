@@ -357,6 +357,14 @@ for (const k of companyKindsFile.kinds) {
   for (const r of k.rights ?? []) if (r.active) err(`company kind ${k.id}: right ${r.id} active without a legal basis (CG-30)`);
 }
 for (const [id, list] of Object.entries(start_techs)) for (const t of list) if (!techIds.has(t)) err(`start tech ${t} for ${id} unknown`);
+// DECOL-01: Historical Mode independence events (generated from CG-37 by tools/data/build-decolonisation.ts)
+const decolFile = readJson('decolonisation/independence.json');
+const regionIdSet = new Set(regions.map((r: any) => r.id));
+for (const rec of decolFile.records) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(rec.date)) err(`independence ${rec.id}: bad date ${rec.date}`);
+  for (const r of rec.regions) if (!regionIdSet.has(r)) err(`independence ${rec.id}: unknown region ${r}`);
+  if (!rec.source) err(`independence ${rec.id}: no source`);
+}
 // TECH-02: Historical Mode technology adoption windows (documented political blocks only)
 const adoptionWindows = readJson('technologies/adoption_windows.json').windows as { country: string; tech: string; earliest: number; block: string }[];
 for (const w of adoptionWindows) {
@@ -427,7 +435,7 @@ const db: HistoricalDB = {
   meta: { start_date: START, built_at: new Date().toISOString(), version: '0.1.0', counts: { entities: entities.length, regions: regions.length, sources: sources.length, alliances: alliances.length } },
   sources, cultures: cultFile.cultures, religions: cultFile.religions, entities, regions, alliances,
   wars: ev.initial_wars, exogenous: ev.exogenous, decision_windows: ev.decision_windows, structural_rules: ev.structural_rules,
-  zollverein: ev.zollverein_accessions, leaders, technologies: techFile.technologies, company_kinds: companyKindsFile.kinds, tech_adoption_windows: adoptionWindows.map(({ country, tech, earliest }) => ({ country, tech, earliest })), start_techs,
+  zollverein: ev.zollverein_accessions, leaders, technologies: techFile.technologies, company_kinds: companyKindsFile.kinds, decolonisation: decolFile.records.filter((r: any) => r.regions.length).map(({ id, iso, name, name_vi, power, date, regions }: any) => ({ id, iso, name, name_vi, power, date, regions })), tech_adoption_windows: adoptionWindows.map(({ country, tech, earliest }) => ({ country, tech, earliest })), start_techs,
   historical_changes: hc.changes, equivalence: hc.equivalence.classes, milestones: ms.milestones, territorial_checkpoints: ms.territorial_checkpoints,
   european_powers: ms.european_powers, benchmarks, gdp_pc_1836,
   coverage: { entities_total: regEntities.length, by_tier, by_model, facts_by_quality: factsByQuality, needs_source: [...new Set(needsSource)], gaps },

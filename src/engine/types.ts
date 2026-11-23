@@ -96,6 +96,8 @@ export interface Reform { group: LawGroup; value: string; progress: number; star
 export interface Country {
   id: string; name: string; nameVi: string; color: string; kind: string; tier: string;
   alive: boolean; formedAt?: number; group?: string; decentralized: boolean;
+  /** DECOL-01: truce from an independence treaty: no war between this state and `with` until the tick. */
+  truce?: { with: string; until: number };
   overlord: string | null; subjectType: string | null;
   capital: string;
   laws: Laws; reform: Reform | null; regimeChangedAt: number | null; govLabel: string;
@@ -239,6 +241,8 @@ export interface GameState {
   territoryLog: TerritoryChange[];
   history: Record<string, YearStat[]>;
   divergence: DivergenceState;
+  /** DECOL-01: Historical Mode independence records already applied (ids from db.decolonisation). */
+  decolonised?: string[];
   counters: Counters;
   firedEvents: string[];
   pendingPlayerDecisions: { id: string; windowId: string; options: { id: string; historical: boolean }[] }[];

@@ -5,6 +5,7 @@ import { IGS } from './types';
 import { dateStr, log, relKey, setRel, newId } from './core';
 import { updatePolitics } from './systems/politics';
 import { invalidate } from './cache';
+import { setGrowthBase } from './systems/growth';
 
 export function transferRegion(st: GameState, regionId: string, to: string, cause: string) {
   const d = data();
@@ -26,6 +27,23 @@ export function transferRegion(st: GameState, regionId: string, to: string, caus
   const tc = st.countries[to]; if (tc) tc.claims = tc.claims.filter((x) => x !== regionId);
 }
 
+/**
+ * DIV-01: a new state's national productivity is the population-weighted effective productivity of the
+ * regions it starts with (not its parent's), each region's relative level is rebased on it, and the
+ * growth baseline restarts. Without this, an independent former colony would converge toward its old
+ * metropole's productivity.
+ */
+export function rebaseProductivity(st: GameState, c: Country): void {
+  const regs = st.regions.filter((r) => r.owner === c.id);
+  const pop = regs.reduce((s, r) => s + r.pop, 0);
+  if (!regs.length || pop <= 0 || !(c.productivity > 0)) return;
+  const eff = regs.reduce((s, r) => s + r.pop * c.productivity * (r.prodRel ?? 1), 0) / pop;
+  if (!(eff > 0)) return;
+  for (const r of regs) r.prodRel = Math.min(20, Math.max(0.02, (c.productivity * (r.prodRel ?? 1)) / eff));
+  c.productivity = eff;
+  setGrowthBase(c);
+}
+
 export function killCountry(st: GameState, id: string, why: string) {
   const c = st.countries[id]; if (!c || !c.alive) return;
   c.alive = false;
@@ -39,16 +57,16 @@ export function killCountry(st: GameState, id: string, why: string) {
 const NATION_TAGS: Record<string, string> = { german: 'GER', italian: 'ITA', romanian: 'ROM', polish: 'POL', hungarian: 'HUN', bulgarian: 'BUL', canadian: 'CAN', luxembourg: 'LUX' };
 
 /** Creates (or revives) a nation-state from regions. Used by secession, unification and releases in both modes. */
-export function createNation(st: GameState, nation: string, regionIds: string[], from: string | null, cause: string, template?: Country): string {
+export function createNation(st: GameState, nation: string, regionIds: string[], from: string | null, cause: string, template?: Country, names?: { en: string; vi: string }): string {
   const d = data();
   const reg = d.db.entities.find((e) => e.id === NATION_TAGS[nation]);
   let id = NATION_TAGS[nation] ?? `N_${nation.toUpperCase().slice(0, 8)}`;
   if (st.countries[id]?.alive) id = newId(st, `N_${nation.slice(0, 4).toUpperCase()}`);
   const base = template ?? (from ? st.countries[from] : undefined);
-  const name = reg?.en ?? `${nation[0].toUpperCase()}${nation.slice(1).replace(/_/g, ' ')} state`;
+  const name = names?.en ?? reg?.en ?? `${nation[0].toUpperCase()}${nation.slice(1).replace(/_/g, ' ')} state`;
   const c: Country = {
     ...(JSON.parse(JSON.stringify(base ?? Object.values(st.countries)[0])) as Country),
-    id, name, nameVi: reg?.vi ?? `Nhà nước ${nation}`, color: reg?.color ?? colorFor(id), kind: 'sovereign', tier: 'C', alive: true, formedAt: st.tick,
+    id, name, nameVi: names?.vi ?? reg?.vi ?? `Nhà nước ${nation}`, color: reg?.color ?? colorFor(id), kind: 'sovereign', tier: 'C', alive: true, formedAt: st.tick,
     decentralized: false, overlord: null, subjectType: null, capital: regionIds[0], reform: null, regimeChangedAt: st.tick, govLabel: 'new state',
     leader: { name: `Founding leader of ${name} (generated)`, born: st.date.y - 45, since: st.date.y, historical: false }, heir: null,
     legitimacy: 55, radicalism: 0.1, treasury: 0, debt: 0, igs: Object.fromEntries(IGS.map((g) => [g, { clout: 0, approval: 0 }])) as Country['igs'],
@@ -56,9 +74,11 @@ export function createNation(st: GameState, nation: string, regionIds: string[],
     prestige: 5, infamy: 0, warExhaustion: 0, lastWarLost: null, claims: [], customsUnion: null, priorities: [], foreignPressure: 0, famine: 0,
     ai: { cooldowns: {}, lawHistory: [], recent: [], planTarget: null },
   };
+  delete c.truce; // never inherited from the parent country
   if (!template && base) c.laws = { ...base.laws, power: base.laws.power === 'autocracy' ? 'census_suffrage' : base.laws.power };
   st.countries[id] = c;
   for (const r of regionIds) transferRegion(st, r, id, cause);
+  rebaseProductivity(st, c);
   if (from && st.countries[from]) setRel(st, id, from, -40);
   updatePolitics(st, c, true);
   log(st, { type: 'state', text: `${name} is established (${cause}).`, textVi: `${c.nameVi} được thành lập (${cause}).`, actors: [id, ...(from ? [from] : [])] });
