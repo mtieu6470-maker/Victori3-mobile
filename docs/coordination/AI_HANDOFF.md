@@ -1,3 +1,36 @@
+## 2026-11-23 — PB-01a/b power blocs (V3-style; owner: "the player founds a bloc, as complete as Victoria 3")
+
+- Design: `docs/design/POWER_BLOCS_VI.md`. Engine: `systems/powerBlocs.ts` (after blocs). UI: Diplomacy → "Khối quyền lực" (`PowerBlocs.tsx`).
+- **Founding:** a great power (power rank ≤ 8, sovereign, not in a bloc) founds a bloc with a name, an **identity** (trade league, sovereign empire, ideological union, military treaty, religious convocation) and a first principle (`found_bloc`).
+- **Leverage** (computed): relative power, relations, shared market, subject, alliance, border, same culture/religion, the leader's companies in the country, minus rivalry.
+  - An AI country joins if the leader's leverage plus identity fit beats every other leader's by 20 (`wouldJoin`), with relations ≥ 0, no rivalry and no war with the leader.
+  - The player gets a journal `bloc_invite` (6 months).
+- **Cohesion** (0–100, ±2/month) aims at 50 + members' attitude + identity fit + average leverage − 3 per member beyond 6.
+  - Principle slots: 1 (+1 at 40, +1 at 70, +1 with ≥ 5 members; max 4). Working levels: L2 needs ≥ 40, L3 needs ≥ 70.
+  - Below 25, members the leader no longer holds leave (20%/month).
+- **Principles** (9 groups; one change per 12 months), with effects via `Country.blocMods`:
+  - market_unification L3: a bloc customs union `cu_<bloc>`.
+  - internal_trade: openness +5%/level.
+  - advanced_research: tech import ×(1+0.1·L).
+  - defensive_cooperation: L1 +1.5 join interest between members; L2 a mutual-defence alliance `pbloc:`; L3 army quality +5%.
+  - creative_legislature: reform progress +0.01/L.
+  - police_coordination: radicalism target −5%/L.
+  - exploit_members: 2%/L of members' income to the leader.
+  - ideological_alignment: AI reform utility +0.5/L toward the leader's law.
+  - sacred_civics: clergy approval +1/L.
+- **Commands:** `found_bloc`, `bloc_invite`, `bloc_expel`, `bloc_leave` (leader leaving dissolves the bloc), `bloc_principle`. New states do not inherit a bloc, and bloc alliances are not broken by `breakAlliance`.
+- **AI:**
+  - In **Sandbox**, great powers found blocs (5%/year). The identity follows their situation, AI principles fill slots, and leaders invite twice a year while cohesion ≥ 50 and members < 12.
+  - In **Historical Mode** the AI does not found blocs (history's blocs exist), but AI countries can join the player's bloc.
+- **Sandbox seed 1 to 1910:** 4–5 blocs (Britain's sovereign empire, Russia's and the Netherlands' military treaties, Qing's trade league, a later French bloc), 1–12 members, cohesion 50–83; blocs form and dissolve.
+- UI:
+  - Founding form (name, identity cards, first principle); bloc overview (identity, cohesion, slots); principles with level buttons, a working-level tag and cooldown; members with leverage and expel.
+  - Invite list with "sẽ nhận lời / sẽ từ chối", leave/dissolve, other blocs; and the journal invitation card.
+- Tests: `tests/power-blocs.test.ts` (5). Local: `npm test` **51/51 files, 448/448**; `ui.test` green.
+- **Follow-ups (PB-01c):** a founding dialog for AI-named blocs, the leverage breakdown in the UI, bloc-level diplomatic plays, power-bloc statues/flags.
+
+---
+
 ## 2026-11-23 — REGIME-04 CG-47A world regimes; South Asia partition (CG-47B); decolonisation fixes
 
 - **CG-47A** (128 events with capital coordinates) is ingested by `build-regimes.ts`, bringing `regime_changes.json` to 212 events.

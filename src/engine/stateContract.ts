@@ -100,6 +100,8 @@ export function validateCountryRecord(id: string, v: unknown, path: string): voi
   if (c.lastGreatWar !== undefined) num(c.lastGreatWar, `${path}.lastGreatWar`);
   if (c.greatWarMonths !== undefined) num(c.greatWarMonths, `${path}.greatWarMonths`);
   if (c.ideasSince !== undefined) numRecord(c.ideasSince, `${path}.ideasSince`);
+  if (c.bloc !== undefined) str(c.bloc, `${path}.bloc`);
+  if (c.blocMods !== undefined) numRecord(c.blocMods, `${path}.blocMods`);
   const pers = obj(c.personality, `${path}.personality`);
   for (const k of ['aggression', 'expansionism', 'reformism', 'commerce', 'naval', 'isolationism', 'risk'] as const) num(pers[k], `${path}.personality.${k}`);
   if (pers.rationale !== undefined) str(pers.rationale, `${path}.personality.rationale`);
@@ -240,6 +242,13 @@ export function validateNestedState(st: GameState): void {
   validateHistoryAndCounters(s);
   validateCompanies(s);
   if (s.decolonised !== undefined) arr(s.decolonised, 'decolonised').forEach((x, i) => str(x, `decolonised[${i}]`));
+  if (s.powerBlocs !== undefined) for (const [k, v] of Object.entries(obj(s.powerBlocs, 'powerBlocs'))) {
+    const b = obj(v, `powerBlocs.${k}`);
+    for (const f of ['id', 'name', 'leader', 'identity'] as const) str(b[f], `powerBlocs.${k}.${f}`);
+    arr(b.members, `powerBlocs.${k}.members`).forEach((x, i) => str(x, `powerBlocs.${k}.members[${i}]`));
+    numRecord(b.principles, `powerBlocs.${k}.principles`);
+    for (const f of ['cohesion', 'founded', 'lastPrincipleChange'] as const) num(b[f], `powerBlocs.${k}.${f}`);
+  }
   if (s.league !== undefined) {
     const L = obj(s.league, 'league'); num(L.founded, 'league.founded'); if (L.dissolved !== undefined) num(L.dissolved, 'league.dissolved');
     for (const k of ['members', 'left', 'permanent'] as const) arr(L[k], `league.${k}`).forEach((x, i) => str(x, `league.${k}[${i}]`));
@@ -258,7 +267,7 @@ export function validateNestedState(st: GameState): void {
     for (const k of ['id', 'kind', 'event', 'country', 'status'] as const) str(j[k], `${p}.${k}`);
     num(j.started, `${p}.started`); num(j.expires, `${p}.expires`); if (j.ended !== undefined) num(j.ended, `${p}.ended`);
     if (!['active', 'completed', 'expired', 'abandoned'].includes(j.status as string)) fail(`${p}.status`, 'unknown journal status');
-    if (!['regime', 'decolonisation', 'call_to_arms'].includes(j.kind as string)) fail(`${p}.kind`, 'unknown journal kind');
+    if (!['regime', 'decolonisation', 'call_to_arms', 'bloc_invite'].includes(j.kind as string)) fail(`${p}.kind`, 'unknown journal kind');
   });
   if (s.regimesApplied !== undefined) arr(s.regimesApplied, 'regimesApplied').forEach((x, i) => str(x, `regimesApplied[${i}]`));
   if (s.worldWars !== undefined) for (const [k, v] of Object.entries(obj(s.worldWars, 'worldWars'))) { const r = obj(v, `worldWars.${k}`); if (r.war !== null) str(r.war, `worldWars.${k}.war`); bool(r.ended, `worldWars.${k}.ended`); for (const [m, c] of Object.entries(obj(r.joined, `worldWars.${k}.joined`))) str(c, `worldWars.${k}.joined.${m}`); }

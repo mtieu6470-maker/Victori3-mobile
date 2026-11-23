@@ -134,7 +134,7 @@ export function updatePolitics(st: GameState, c: Country, init = false) {
   let legitTarget = 0;
   for (const g of IGS) {
     const clout = tot > 0 ? raw[g] / tot : 0;
-    const appr = clamp(igApproval(c, g) + (sol - 0.5) * 6 + (c.warExhaustion > 50 ? -2 : 0), -10, 10);
+    const appr = clamp(igApproval(c, g) + (sol - 0.5) * 6 + (c.warExhaustion > 50 ? -2 : 0) + (g === 'clergy' ? c.blocMods?.clergy ?? 0 : 0), -10, 10);
     c.igs[g] = { clout, approval: init ? appr : c.igs[g].approval * 0.8 + appr * 0.2 };
     legitTarget += clout * c.igs[g].approval;
   }
@@ -152,7 +152,8 @@ export function updatePolitics(st: GameState, c: Country, init = false) {
     const ideas = (r.literacy * 0.5) * (c.laws.power === 'autocracy' || c.laws.power === 'theocracy' ? 1 : 0.4) * (c.laws.press === 'censorship' ? 0.6 : 1);
     const serf = c.laws.labor === 'serfdom' ? 0.08 : 0;
     const t = clamp(0.02 + Math.max(0, 0.5 - r.sol) * 0.6 + famine * 0.5 + ideas * 0.25 + serf + r.nationalism * 0.2 + (c.legitimacy < 40 ? 0.05 : 0), 0, 0.9);
-    r.radical = init ? t : r.radical + (t - r.radical) * 0.04;
+    const tt = t * (1 - (c.blocMods?.police ?? 0)); // PB-01 police coordination
+    r.radical = init ? tt : r.radical + (tt - r.radical) * 0.04;
     radPop += r.radical * r.pop;
   }
   c.radicalism = radPop / pop;
@@ -190,7 +191,7 @@ export function politicsMonth(st: GameState) {
     // reforms progress monthly with support; strong opposition can stall them
     if (c.reform) {
       const sup = reformSupport(c, c.reform.group, c.reform.value);
-      c.reform.progress += clamp(0.06 + sup * 0.25 + journalMomentum(st, c, c.reform.group, c.reform.value) + SUFFRAGE_MOVEMENT.progress * suffrageMovement(st, c, c.reform.group, c.reform.value), -0.05, 0.25);
+      c.reform.progress += clamp(0.06 + sup * 0.25 + journalMomentum(st, c, c.reform.group, c.reform.value) + SUFFRAGE_MOVEMENT.progress * suffrageMovement(st, c, c.reform.group, c.reform.value) + (c.blocMods?.reform ?? 0), -0.05, 0.25);
       if (c.reform.progress >= 1) { setLaw(st, c, c.reform.group, c.reform.value, 'reform'); c.reform = null; c.legitimacy = clamp(c.legitimacy + 2, 0, 100); }
       else if (c.reform.progress < -0.3 || st.tick - c.reform.startedTick > 48) {
         log(st, { type: 'politics', text: `${c.name}'s reform of ${c.reform.group} failed.`, textVi: `Cải cách ${c.reform.group} của ${c.nameVi} thất bại.`, actors: [c.id] });

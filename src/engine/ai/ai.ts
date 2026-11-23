@@ -275,6 +275,9 @@ export function reformUtility(st: GameState, c: Country, g: LawGroup, v: string)
   u += journalPull(st, c, g, v) - regimeLawInertia(st, c, g);
   // LAW-CAL-01: a suffrage movement pushes for the next step of the franchise.
   u += SUFFRAGE_MOVEMENT.utility * suffrageMovement(st, c, g, v);
+  // PB-01 ideological alignment: members are drawn to the bloc leader's laws
+  const pb = c.bloc ? st.powerBlocs?.[c.bloc] : undefined;
+  if (pb && pb.leader !== c.id && c.blocMods?.ideology && (st.countries[pb.leader]?.laws as Record<string, string> | undefined)?.[g] === v) u += c.blocMods.ideology;
   return u;
 }
 

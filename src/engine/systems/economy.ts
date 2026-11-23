@@ -90,7 +90,7 @@ export function marketOf(st: GameState, c: Country): string { return c.customsUn
 
 export function openness(c: Country, coastal: boolean): number {
   let o = OPENNESS[c.laws.trade] ?? 0.3;
-  o *= 1 + 0.3 * techEffect(c, 'trade_capacity') + 0.2 * (hasTech(c, 'railways') ? 1 : 0);
+  o *= 1 + 0.3 * techEffect(c, 'trade_capacity') + 0.2 * (hasTech(c, 'railways') ? 1 : 0) + (c.blocMods?.trade ?? 0);
   if (!coastal) o *= 0.6;
   return clamp(o, 0.01, 0.92);
 }
@@ -107,7 +107,7 @@ export function goodOpenness(_st: GameState, marketId: string, leader: Country, 
   const startLaw = data().entity.get(leader.id)?.laws?.value.trade;
   const ev = startLaw !== undefined && leader.laws.trade === startLaw ? TARIFF_EVIDENCE_1836[marketId]?.[good] : undefined;
   if (ev) base = opennessFromTariff(ev.tariff);
-  let o = base * (1 + 0.3 * techEffect(leader, 'trade_capacity') + 0.2 * (hasTech(leader, 'railways') ? 1 : 0));
+  let o = base * (1 + 0.3 * techEffect(leader, 'trade_capacity') + 0.2 * (hasTech(leader, 'railways') ? 1 : 0) + (leader.blocMods?.trade ?? 0));
   if (!coastal) o *= 0.6;
   return clamp(o, 0.01, 0.92);
 }

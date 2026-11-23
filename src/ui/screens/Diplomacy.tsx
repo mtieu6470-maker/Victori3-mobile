@@ -13,6 +13,7 @@ import { shortName, fullName } from '../game/names';
 import { viewedId, canCommand, send, CountryLink, Flag, openCountry, regionName } from './common';
 import { ui } from '../game/ui';
 import { UnitedNationsTab } from './UnitedNations';
+import { PowerBlocsTab } from './PowerBlocs';
 
 const TREATY_VI: Record<string, string> = { alliance: 'Liên minh', guarantee: 'Bảo đảm độc lập', customs_union: 'Liên minh thuế quan' };
 
@@ -20,6 +21,7 @@ export function DiplomacyScreen({ st, tab }: { st: GameState; tab: string }) {
   if (tab === 'treaties') return <Treaties st={st} />;
   if (tab === 'subjects') return <Subjects st={st} />;
   if (tab === 'un') return <UnitedNationsTab st={st} />;
+  if (tab === 'blocs') return <PowerBlocsTab st={st} />;
   return <Relations st={st} />;
 }
 
@@ -168,4 +170,4 @@ function WarDialog({ st, target }: { st: GameState; target: string }) {
     </div>
   );
 }
-export const DIPLOMACY_TABS: [string, string][] = [['relations', 'Quan hệ'], ['treaties', 'Hiệp ước'], ['subjects', 'Chư hầu & đối thủ'], ['un', 'Liên Hợp Quốc']];
+export const DIPLOMACY_TABS: [string, string][] = [['relations', 'Quan hệ'], ['treaties', 'Hiệp ước'], ['subjects', 'Chư hầu & đối thủ'], ['blocs', 'Khối quyền lực'], ['un', 'Liên Hợp Quốc']];

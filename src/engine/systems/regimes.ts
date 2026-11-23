@@ -19,6 +19,7 @@
 // expire after REGIME_JOURNAL.years. Laws a regime set keep an inertia for the AI afterwards, but it can
 // still change them as circumstances require. A regime change installs a new head of state whose title
 // follows the regime (e.g. a tsar becomes a general secretary) and updates the form of government.
+import { answerBlocInvite } from './powerBlocs';
 import { data } from '../data/db';
 import { dateStr, dateToTick, log, newId, rand } from '../core';
 import { createNation } from '../world';
@@ -153,6 +154,11 @@ function completeEntry(st: GameState, j: JournalEntry, e: RegimeEvent, c: Countr
 function journalMonth(st: GameState) {
   for (const j of st.journal ?? []) {
     if (j.status !== 'active') continue;
+    if (j.kind === 'bloc_invite') {
+      // PB-01: an unanswered invitation lapses; it also lapses if the bloc is gone
+      if (!st.powerBlocs?.[j.event] || st.tick > j.expires || st.countries[j.country]?.bloc === j.event) closeEntry(st, j, 'expired');
+      continue;
+    }
     if (j.kind === 'call_to_arms') {
       // CTA-01: unanswered by the deadline, or the war is over or already joined → it lapses as a refusal
       const w = st.wars.find((x) => x.id === j.event);
@@ -197,6 +203,11 @@ export function journalAction(st: GameState, playerId: string, entryId: string, 
   const j = st.journal?.find((x) => x.id === entryId);
   if (!j || j.status !== 'active') return { ok: false, reason: 'No such active journal entry' };
   if (j.country !== playerId) return { ok: false, reason: 'This journal entry belongs to a different country' };
+  if (j.kind === 'bloc_invite') {
+    const r = answerBlocInvite(st, j, action === 'complete');
+    if (r.ok) closeEntry(st, j, action === 'complete' ? 'completed' : 'abandoned');
+    return r;
+  }
   if (j.kind === 'call_to_arms') {
     if (action === 'abandon') { refuseCallToArms(st, playerId, j.event); closeEntry(st, j, 'abandoned'); return { ok: true }; }
     if (!answerCallToArms(st, playerId, j.event)) return { ok: false, reason: 'The war is over or you are already part of it' };

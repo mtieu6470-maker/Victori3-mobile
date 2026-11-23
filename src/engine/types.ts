@@ -62,7 +62,7 @@ export interface ClockState { hour: number }
 
 /** REGIME-02: a journal entry (mission). `event` is a regime_changes id; it completes when its goals are met. */
 export interface JournalEntry {
-  id: string; kind: 'regime' | 'decolonisation' | 'call_to_arms'; event: string; country: string; started: number; expires: number;
+  id: string; kind: 'regime' | 'decolonisation' | 'call_to_arms' | 'bloc_invite'; event: string; country: string; started: number; expires: number;
   status: 'active' | 'completed' | 'expired' | 'abandoned'; ended?: number;
 }
 
@@ -132,6 +132,8 @@ export interface Country {
   techs: string[]; research: { current: string | null; progress: number };
   army: Army; navy: Navy;
   prestige: number; infamy: number; warExhaustion: number; lastWarLost: number | null;
+  /** PB-01: the power bloc the country belongs to, and the principle effects it receives (recomputed monthly). */
+  bloc?: string; blocMods?: import('./systems/powerBlocs').BlocMods;
   /** LAW-CAL-02: tick each political idea (mass_politics, feminism) was adopted — movements need time to grow. */
   ideasSince?: Record<string, number>;
   /** LAW-CAL-01: last tick the country fought (not nominally) in a great war — mass mobilisation. */
@@ -282,6 +284,8 @@ export interface GameState {
   divergence: DivergenceState;
   /** DECOL-01: Historical Mode independence records already applied (ids from db.decolonisation). */
   decolonised?: string[];
+  /** PB-01: power blocs by id. */
+  powerBlocs?: Record<string, import('./systems/powerBlocs').PowerBloc>;
   /** WW-01d: the League of Nations (Historical Mode, 1920–1946). */
   league?: import('./systems/league').LeagueOfNations;
   /** BLOC-03: members (country ids) of the historical economic blocs and political organisations. */

@@ -115,7 +115,7 @@ export function formAlliance(st: GameState, a: string, b: string): boolean {
 }
 export function breakAlliance(st: GameState, a: string, b: string) {
   // bloc treaties (Historical Mode, incl. bilateral ones such as US–ROK) end only on their dates
-  st.treaties = st.treaties.filter((t) => !(t.type === 'alliance' && !t.source?.startsWith('bloc:') && t.members.length === 2 && t.members.includes(a) && t.members.includes(b)));
+  st.treaties = st.treaties.filter((t) => !(t.type === 'alliance' && !t.source?.startsWith('bloc:') && !t.source?.startsWith('pbloc:') && t.members.length === 2 && t.members.includes(a) && t.members.includes(b)));
   addRel(st, a, b, -20);
 }
 export function declareRivalry(st: GameState, a: string, b: string) {
@@ -254,6 +254,8 @@ export function joinInterest(st: GameState, who: string, attacker: string, defen
   if (c.overlord === attacker) s -= JOIN_INTEREST.subject;
   if (allied(st, who, attacker)) s -= JOIN_INTEREST.conflicted;
   if (!sharesBorder(st, who, defender) && !sharesBorder(st, who, attacker) && navalStrength(c) <= 5) s -= JOIN_INTEREST.distance;
+  // PB-01: members of one power bloc with defensive cooperation stand by each other
+  if (c.bloc && c.bloc === def?.bloc && (st.powerBlocs?.[c.bloc]?.principles.defensive_cooperation ?? 0) >= 1) s += 1.5;
   return s;
 }
 
