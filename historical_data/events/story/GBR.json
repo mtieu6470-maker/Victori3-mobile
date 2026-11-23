@@ -2566,6 +2566,7 @@
       },
       "chain": {
         "after": [
+          "gbr_ceylon_riots_1915",
           "gbr_ceylon_riots_1915"
         ]
       },
@@ -2663,6 +2664,7 @@
       },
       "chain": {
         "after": [
+          "gbr_donoughmore_1931",
           "gbr_donoughmore_1931"
         ]
       },
@@ -2766,6 +2768,7 @@
       },
       "chain": {
         "after": [
+          "gbr_ceylon_constitution_1946",
           "gbr_ceylon_constitution_1946"
         ]
       },
@@ -3192,7 +3195,7 @@
       "text_en": "Following the killings of plantation managers at Sungai Siput, the government declared a state of emergency throughout Malaya on 16 June 1948. The conflict against the Malayan National Liberation Army lasted until 1960 and required a combination of military operations, intelligence, resettlement and political reform. The administration must weigh coercive security measures, the Briggs Plan and a wider path to self-government.",
       "options": [
         {
-          "id": "malaya_br iggs",
+          "id": "malaya_briggs",
           "label_vi": "Triển khai Kế hoạch Briggs và tái định cư có kiểm soát",
           "label_en": "Implement the Briggs Plan and controlled resettlement",
           "ai_weight": 3,
@@ -3943,6 +3946,7 @@
       },
       "chain": {
         "after": [
+          "gbr_balfour_declaration_1917",
           "gbr_balfour_declaration_1917"
         ]
       },
@@ -4056,6 +4060,7 @@
       },
       "chain": {
         "after": [
+          "pal_arab_revolt_1936",
           "pal_arab_revolt_1936"
         ]
       },
@@ -4169,6 +4174,7 @@
       },
       "chain": {
         "after": [
+          "gbr_peel_commission_1937",
           "gbr_peel_commission_1937"
         ]
       },
@@ -4280,6 +4286,7 @@
       },
       "chain": {
         "after": [
+          "gbr_white_paper_1939",
           "gbr_white_paper_1939"
         ]
       },
@@ -4450,7 +4457,12 @@
       ],
       "sources": [
         "kenya_history"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_kenya_emergency_1952",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_kenya_lancaster_1960",
@@ -5053,7 +5065,17 @@
       ],
       "sources": [
         "nigeria_history"
-      ]
+      ],
+      "chain": {
+        "after": [
+          "gbr_clifford_constitution_1922"
+        ]
+      },
+      "image": {
+        "ref": "ill_evt_gbr_nigeria_independence_1960",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_southern_rhodesia_responsible_1923",
@@ -5211,12 +5233,6 @@
                 "prestige": 0.03,
                 "legitimacy": 1
               }
-            },
-            {
-              "type": "embargo",
-              "issuer": "GBR",
-              "target": "ZWE",
-              "months": 24
             }
           ]
         },
@@ -5249,7 +5265,12 @@
           ]
         }
       ],
-      "sources": ""
+      "sources": "",
+      "image": {
+        "ref": "ill_evt_gbr_rhodesia_udi_1965",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_boer_war_1899",
@@ -5345,7 +5366,12 @@
       ],
       "sources": [
         "boer_war"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_boer_war_1899",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_vereeniging_1902",
@@ -5379,6 +5405,7 @@
       },
       "chain": {
         "after": [
+          "gbr_boer_war_1899",
           "gbr_boer_war_1899"
         ]
       },
@@ -5445,7 +5472,12 @@
           ]
         }
       ],
-      "sources": ""
+      "sources": "",
+      "image": {
+        "ref": "ill_evt_gbr_vereeniging_1902",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_south_africa_union_1910",
@@ -5542,7 +5574,12 @@
       ],
       "sources": [
         "south_africa_history"
-      ]
+      ],
+      "chain": {
+        "after": [
+          "gbr_vereeniging_1902"
+        ]
+      }
     },
     {
       "id": "gbr_natives_land_act_1913",
@@ -5639,7 +5676,12 @@
       ],
       "sources": [
         "south_africa_history"
-      ]
+      ],
+      "chain": {
+        "after": [
+          "gbr_south_africa_union_1910"
+        ]
+      }
     },
     {
       "id": "gbr_jamaica_labour_1938",
@@ -6075,6 +6117,7 @@
       },
       "chain": {
         "after": [
+          "gbr_cyprus_eoka_1955",
           "gbr_cyprus_eoka_1955"
         ]
       },
@@ -6240,7 +6283,12 @@
       ],
       "sources": [
         "malta_history"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_malta_independence_1964",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_canada_durham_1839",
@@ -6433,7 +6481,17 @@
       ],
       "sources": [
         "canada_parliament"
-      ]
+      ],
+      "chain": {
+        "after": [
+          "gbr_canada_durham_1839"
+        ]
+      },
+      "image": {
+        "ref": "ill_evt_gbr_canadian_confederation_1867",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_westminster_statute_1931",
@@ -6619,7 +6677,12 @@
       ],
       "sources": [
         "ireland_difp"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_easter_rising_1916",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_anglo_irish_treaty_1921",
@@ -6718,7 +6781,12 @@
       "sources": [
         "ireland_treaty",
         "ireland_difp"
-      ]
+      ],
+      "chain": {
+        "after": [
+          "gbr_easter_rising_1916"
+        ]
+      }
     },
     {
       "id": "gbr_irish_free_state_1922",
@@ -6757,6 +6825,7 @@
       },
       "chain": {
         "after": [
+          "gbr_anglo_irish_treaty_1921",
           "gbr_anglo_irish_treaty_1921"
         ]
       },
