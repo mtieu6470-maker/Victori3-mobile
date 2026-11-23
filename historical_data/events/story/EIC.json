@@ -11,7 +11,9 @@
     "palestine_white_paper": "https://avalon.law.yale.edu/21st_century/brwh1939.asp",
     "burma_panglong": "https://commons.wikimedia.org/wiki/File:Panglong_Conference.jpg",
     "egypt_occupation": "https://www.cambridge.org/core/books/abs/cambridge-history-of-egypt/british-occupation-18821922/179398E6D722904951A25256F524C963",
-    "suez": "https://history.state.gov/milestones/1953-1960/suez"
+    "suez": "https://history.state.gov/milestones/1953-1960/suez",
+    "malaya_independence_archive": "https://www.arkib.gov.my/images/penerbitan/edaran%20awam/Malaysia%20Tanah%20Airku_Low%20Ver.pdf",
+    "malaya_independence_agreement": "https://history.state.gov/historicaldocuments/frus1955-57v22/d452"
   },
   "events": [
     {
@@ -415,8 +417,8 @@
         }
       ],
       "sources": [
-        "malaya_archives",
-        "uk_parliament_empire"
+        "malaya_independence_archive",
+        "malaya_independence_agreement"
       ],
       "image": {
         "ref": "ill_eic_malaya_independence_1957",
