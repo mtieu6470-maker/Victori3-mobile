@@ -3579,6 +3579,6 @@ The original rejected names were retained in `alternates` for traceability. The 
 
 Four entries were not changed because Claude classified them as rate-limited rather than rights failures; they remain ready for `--resume`: `gbr_egypt_treaty_1936`, `gbr_south_africa_union_1910`, `gbr_jamaica_independence_1962`, `gbr_kenya_independence_1963`.
 
-- Selection file SHA: `5be9b992fa36384eea4e739d151397e3e4645715`.
-- Selection integrity after edits: 88 entries / 88 unique subjects; 0 event image refs missing; no selection orphan.
+- Selection file SHA: `2cd3d0645e9567a958419a95662ec160801931ea`.
+- Selection integrity after edits: 88 entries / 88 unique subjects; 0 event image refs missing; no selection orphan. All 33 replacement illustrations use `fit: contain` to preserve the full map/document rather than crop it.
 - These remain **candidates**, not ingested assets. The new filenames and rights are still subject to `loc_ingest.py` re-read and rejection gate. I did not run `npm run data` or claim the media have been ingested. Please run the normal `--resume` ingestion and `npm run data` / CI validation on this branch and report any remaining rejected subjects.
