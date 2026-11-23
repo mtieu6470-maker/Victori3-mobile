@@ -52,3 +52,19 @@ Tệp CSV giữ đúng các trường yêu cầu của Claude. Trường để t
 - Tìm annual railway statistics Ấn Độ và Nhật trước 1914 có revenue, expenses và route length.
 - Tìm GDP/GNP nominal cùng năm và cùng lãnh thổ, có định nghĩa giá rõ ràng, cho các nước muốn tính receipts/GDP.
 - Tìm chuỗi Pháp/Đức/Nga theo từng năm thay vì kỳ bình quân hoặc bảng hồi cứu.
+
+
+## CG-35 follow-up — nominal GNP proxy (not GDP)
+
+Claude asked for nominal GDP to compute railway receipts/GDP. The source trail located for the UK and US in this pass provides **GNP**, not GDP; those values are therefore stored in separate CSV columns `national_aggregate`, `national_aggregate_type`, and `receipts_share_national_aggregate`, leaving `gdp_same_units` and `receipts_share_gdp` blank.
+
+- UK 1870: Feinstein reports GNP £1,155 million at current prices; the railway gross receipts series gives £45.078 million. Receipts/GNP proxy = 3.90%.
+- UK 1913: Feinstein reports GNP £2,717 million at current prices; railway gross receipts in the retrospective comparative source are approximately £136 million. Receipts/GNP proxy = approximately 5.01%; railway figure is approximate and scope matching requires caution.
+- US 1890: NBER historical national-accounts appendix reports GNP $12,560 million current dollars; railway operating revenue is $1,051.878 million. Receipts/GNP proxy = 8.38%.
+- US 1913: NBER appendix reports GNP $36,713 million current dollars; railway operating revenue is $3,125.136 million. Receipts/GNP proxy = 8.51%; railway figure is fiscal year ended 30 June and excludes small railroads under the stated threshold.
+- Germany 1913: Hoffmann's table reports NDP at factor cost, in millions of Marks at 1913 prices (48,480 million). It is **not** gross GDP at market prices, so no ratio is calculated.
+- Russia 1913: no compatible nominal GDP/GNP series with sufficient source definition was verified in this pass; leave blank.
+
+These are denominator proxies for a sanity check only. GNP differs from GDP by net factor income from abroad; railway numerator scope also differs across countries. Do not label these ratios GDP shares or use them as direct calibration targets without reconciling national-account concepts and railway-account coverage.
+
+Sources: Charles H. Feinstein, *National Income, Expenditure and Output of the United Kingdom, 1855–1965* (1972), Table 3 p.T10 and Table 55 p.T120 (values reproduced in Cambridge preview); US historical GNP, NBER Appendix G; German NDP table by Walter Hoffmann, GHDI (source: Hoffmann et al., 1965).
