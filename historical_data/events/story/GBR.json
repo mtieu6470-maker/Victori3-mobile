@@ -2325,11 +2325,6 @@
             ]
           },
           {
-            "type": "not_at_war",
-            "a": "GBR",
-            "b": "BUR"
-          },
-          {
             "type": "year_between",
             "from": 1885,
             "to": 1886
@@ -2366,16 +2361,6 @@
                 "war_exhaustion": 0.01,
                 "legitimacy": -0.5
               }
-            },
-            {
-              "type": "declare_war",
-              "attacker": "GBR",
-              "defender": "BUR",
-              "goal": "conquer",
-              "regions": [
-                "BUR_AVA",
-                "BUR_PEG"
-              ]
             },
             {
               "type": "infamy",
@@ -2767,7 +2752,8 @@
             "type": "owner_in",
             "region": "GBR_CEY",
             "entities": [
-              "GBR"
+              "GBR",
+              "LKA"
             ]
           },
           {
@@ -3255,11 +3241,6 @@
                 "radicalism": -0.015,
                 "trade": 0.01
               }
-            },
-            {
-              "type": "subject_liberty",
-              "subject": "GBR",
-              "delta": 0
             }
           ]
         }
@@ -3294,7 +3275,8 @@
             "region": "EIC_MLK",
             "entities": [
               "GBR",
-              "EIC"
+              "EIC",
+              "MYS"
             ]
           },
           {
@@ -3727,8 +3709,8 @@
             "type": "owner_in",
             "region": "EGY_CAI",
             "entities": [
-              "EGY",
-              "GBR"
+              "GBR",
+              "EGY"
             ]
           },
           {
@@ -3947,7 +3929,8 @@
             "entities": [
               "EGY",
               "TUR",
-              "GBR"
+              "GBR",
+              "JOR"
             ]
           },
           {
@@ -4055,7 +4038,8 @@
             "region": "EGY_PAL",
             "entities": [
               "GBR",
-              "EGY"
+              "EGY",
+              "JOR"
             ]
           },
           {
@@ -4167,7 +4151,8 @@
             "region": "EGY_PAL",
             "entities": [
               "GBR",
-              "EGY"
+              "EGY",
+              "JOR"
             ]
           },
           {
@@ -4277,7 +4262,8 @@
             "region": "EGY_PAL",
             "entities": [
               "GBR",
-              "EGY"
+              "EGY",
+              "JOR"
             ]
           },
           {
@@ -4586,7 +4572,8 @@
             "type": "owner_in",
             "region": "DZ_KENYA_INT",
             "entities": [
-              "GBR"
+              "GBR",
+              "KEN"
             ]
           },
           {
@@ -4787,7 +4774,8 @@
             "type": "owner_in",
             "region": "ASH_KUM",
             "entities": [
-              "GBR"
+              "GBR",
+              "GHA"
             ]
           },
           {
@@ -4989,7 +4977,8 @@
             "type": "owner_in",
             "region": "DZ_IGBO",
             "entities": [
-              "GBR"
+              "GBR",
+              "NGA"
             ]
           },
           {
@@ -5319,14 +5308,9 @@
               }
             },
             {
-              "type": "declare_war",
-              "attacker": "GBR",
-              "defender": "ZAR",
-              "goal": "conquer",
-              "regions": [
-                "GBR_CAP",
-                "GBR_CAE"
-              ]
+              "type": "war_exhaustion",
+              "entity": "GBR",
+              "delta": 3
             }
           ]
         },
@@ -5352,10 +5336,9 @@
               }
             },
             {
-              "type": "relation",
-              "a": "GBR",
-              "b": "ZAR",
-              "delta": 5
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": -0.5
             }
           ]
         }
@@ -5483,7 +5466,8 @@
             "type": "owner_in",
             "region": "GBR_CAP",
             "entities": [
-              "GBR"
+              "GBR",
+              "RSA"
             ]
           },
           {
@@ -5549,10 +5533,9 @@
               }
             },
             {
-              "type": "relation",
-              "a": "GBR",
-              "b": "GBR",
-              "delta": 0
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": -0.5
             }
           ]
         }
@@ -5580,7 +5563,8 @@
             "type": "owner_in",
             "region": "GBR_CAP",
             "entities": [
-              "GBR"
+              "GBR",
+              "RSA"
             ]
           },
           {
@@ -5618,10 +5602,9 @@
               }
             },
             {
-              "type": "relation",
-              "a": "GBR",
-              "b": "RSA",
-              "delta": -2
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": -0.3
             }
           ]
         },
@@ -5869,7 +5852,8 @@
             "type": "owner_in",
             "region": "GBR_JAM",
             "entities": [
-              "GBR"
+              "GBR",
+              "JAM"
             ]
           },
           {
@@ -6073,7 +6057,8 @@
             "region": "TUR_CYP",
             "entities": [
               "GBR",
-              "TUR"
+              "TUR",
+              "CYP"
             ]
           },
           {
@@ -6179,7 +6164,8 @@
             "type": "owner_in",
             "region": "GBR_MLT",
             "entities": [
-              "GBR"
+              "GBR",
+              "MLT"
             ]
           },
           {
@@ -6371,7 +6357,8 @@
             "type": "owner_in",
             "region": "GBR_LCA",
             "entities": [
-              "GBR"
+              "GBR",
+              "CAN"
             ]
           },
           {
@@ -6653,7 +6640,8 @@
             "type": "owner_in",
             "region": "GBR_DUB",
             "entities": [
-              "GBR"
+              "GBR",
+              "IRL"
             ]
           },
           {
@@ -6751,7 +6739,8 @@
             "type": "owner_in",
             "region": "GBR_DUB",
             "entities": [
-              "GBR"
+              "GBR",
+              "IRL"
             ]
           },
           {
