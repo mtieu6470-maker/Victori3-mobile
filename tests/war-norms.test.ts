@@ -38,3 +38,23 @@ describe('DIPLO-NORM-01', () => {
     expect(h.countries.AUS.infamy).toBeCloseTo(10 - INFAMY_DECAY_PER_MONTH, 9);
   });
 });
+
+import { infamyTier, INFAMY_TIERS, allianceAcceptance, joinCustomsUnion } from '../src/engine/systems/diplomacy';
+describe('INFAMY-01 tiers', () => {
+  it('names tiers at the thresholds', () => {
+    expect(infamyTier({ infamy: INFAMY_TIERS.infamous - 1 })).toBe('none');
+    expect(infamyTier({ infamy: INFAMY_TIERS.infamous })).toBe('infamous');
+    expect(infamyTier({ infamy: INFAMY_TIERS.notorious })).toBe('notorious');
+    expect(infamyTier({ infamy: INFAMY_TIERS.pariah })).toBe('pariah');
+  });
+  it('notoriety lowers alliance acceptance; a pariah gets no allies and no customs union', () => {
+    const st = createGame({ mode: 'historical', seed: 1, player: null });
+    const base = allianceAcceptance(st, 'BAV', 'AUS');
+    st.countries.BAV.infamy = INFAMY_TIERS.notorious;
+    expect(allianceAcceptance(st, 'BAV', 'AUS')).toBeLessThan(base - 5);
+    st.countries.BAV.infamy = INFAMY_TIERS.pariah;
+    expect(allianceAcceptance(st, 'BAV', 'AUS')).toBeLessThan(-50);
+    const cu = st.treaties.find((t) => t.type === 'customs_union' && !t.members.includes('BAV'));
+    if (cu) expect(joinCustomsUnion(st, st.countries.BAV, cu.id)).toBe(false);
+  });
+});

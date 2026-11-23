@@ -5,7 +5,7 @@ import type { GameState } from '../../engine/types';
 import { IGS } from '../../engine/types';
 import { data } from '../../engine/data/db';
 import { rankings } from '../../engine/metrics';
-import { rivals } from '../../engine/systems/diplomacy';
+import { rivals, infamyTier } from '../../engine/systems/diplomacy';
 import { techCost } from '../../engine/systems/technology';
 import { Sec, Metric, LineChart, QualityMark, HBars, Donut, details } from '../components/ui';
 import { Icon } from '../components/icons';
@@ -18,6 +18,8 @@ import { AssetImg, SourcedText, AssetCredit } from '../components/identity';
 
 const SEC_VI: Record<string, string> = { political: 'Chính trị', territory: 'Lãnh thổ', economy: 'Kinh tế', society: 'Xã hội', diplomacy: 'Ngoại giao', military: 'Quân sự', technology: 'Khoa học – công nghệ', historical_ai: 'Ưu tiên lịch sử & tính cách AI' };
 const STATUS_VI: Record<string, string> = { complete: 'Đầy đủ', partial: 'Một phần', missing: 'Thiếu' };
+
+const INFAMY_VI = { none: '', infamous: 'Khét tiếng', notorious: 'Tai tiếng lớn', pariah: 'Bị cô lập' } as const;
 
 export function CountryScreen({ st, id, tab }: { st: GameState; id: string; tab: string }) {
   const c = st.countries[id]; if (!c) return <div class="empty">Quốc gia không tồn tại.</div>;
@@ -74,7 +76,7 @@ export function CountryScreen({ st, id, tab }: { st: GameState; id: string; tab:
             <div class="kv"><span class="k">Đối thủ</span><span class="v links">{riv.length ? riv.slice(0, 4).map((a) => <CountryLink key={a} st={st} id={a} />) : '—'}</span></div>
             <div class="kv"><span class="k">Chư hầu</span><span class="v">{subjects.length ? fmt(subjects.length) : '—'}</span></div>
             <div class="kv"><span class="k">Chiến tranh</span><span class="v">{wars.length ? wars.map((w) => w.name).join('; ') : 'Hòa bình'}</span></div>
-            <div class="kv"><span class="k">Uy tín · tiếng xấu</span><span class="v num">{fmt(c.prestige)} · {fmt(c.infamy)}</span></div>
+            <div class="kv"><span class="k">Uy tín · tiếng xấu</span><span class="v num">{fmt(c.prestige)} · {fmt(c.infamy)}{infamyTier(c) !== 'none' && <span class={`chip infamy ${infamyTier(c)}`}>{INFAMY_VI[infamyTier(c)]}</span>}</span></div>
           </Sec>
           <Sec title="Vị thế thế giới" icon="prestige" x="điểm sức mạnh" go={() => ui.go('world')}>
             <HBars rows={powRows} fmtV={(v) => fmt(v)} />

@@ -64,6 +64,21 @@ export function isAggressor(st: GameState, id: string): boolean {
   return c.infamy >= CONTAIN_AGGRESSOR.infamy || st.wars.some((w) => (w.kind === 'conquest' || w.kind === 'colonial') && w.attackers.members.includes(id));
 }
 
+/**
+ * INFAMY-01 (owner 2026-11-23: infamy "as in Victoria 3"): named tiers with diplomatic consequences.
+ * Thresholds are project design values in the spirit of the reference game's tiers.
+ * - infamous (>= 25): treated as an aggressor (others fight it at reduced infamy);
+ * - notorious (>= 50): alliance offers to it are heavily penalised; third parties join wars against it
+ *   more willingly;
+ * - pariah (>= 80): no new alliances or customs-union membership; every third party is more willing to
+ *   join against it.
+ */
+export const INFAMY_TIERS = { infamous: 25, notorious: 50, pariah: 80 } as const;
+export type InfamyTier = 'none' | 'infamous' | 'notorious' | 'pariah';
+export function infamyTier(c: Pick<Country, 'infamy'>): InfamyTier {
+  return c.infamy >= INFAMY_TIERS.pariah ? 'pariah' : c.infamy >= INFAMY_TIERS.notorious ? 'notorious' : c.infamy >= INFAMY_TIERS.infamous ? 'infamous' : 'none';
+}
+
 /** Infamy a war with these goals adds to the attacker (pure; no random draws). */
 export function warInfamy(st: GameState, goals: WarGoal[], defender?: string): number {
   const containing = defender !== undefined && isAggressor(st, defender);
@@ -84,6 +99,8 @@ export function allianceAcceptance(st: GameState, from: string, to: string): num
   s += clamp(powerScore(st, a) / Math.max(1, powerScore(st, b)), 0, 3) - 1;
   if (rivals(st, from, to)) s -= 20;
   if (atWar(st, from)) s -= 2;
+  // INFAMY-01: nobody wants to be tied to a notorious state; a pariah cannot gain allies at all.
+  for (const x of [a, b]) { const t = infamyTier(x); if (t === 'notorious') s -= 6; if (t === 'pariah') s -= 100; }
   return s;
 }
 /** Subjects other than tributaries have no independent foreign policy (same rule for AI and player). */
@@ -111,6 +128,7 @@ export function guarantee(st: GameState, a: string, b: string) {
 }
 export function joinCustomsUnion(st: GameState, c: Country, unionId: string): boolean {
   const u = st.treaties.find((t) => t.id === unionId && t.type === 'customs_union'); if (!u || u.members.includes(c.id)) return false;
+  if (infamyTier(c) === 'pariah') return false; // INFAMY-01: a pariah is not admitted
   u.members.push(c.id); c.customsUnion = unionId;
   log(st, { type: 'economy', text: `${c.name} joins the customs union led by ${st.countries[u.leader!]?.name}.`, textVi: `${c.nameVi} gia nhập liên minh thuế quan do ${st.countries[u.leader!]?.nameVi} đứng đầu.`, actors: [c.id] });
   return true;
@@ -169,6 +187,9 @@ export function joinWillingness(st: GameState, who: string, attacker: string, de
   s += (armyStrength(st, c) / Math.max(1, armyStrength(st, st.countries[attacker]))) - 0.6;
   if (atWar(st, who)) s -= 2;
   s -= c.warExhaustion / 30;
+  // INFAMY-01: third parties join wars against notorious states and pariahs more willingly.
+  const at = infamyTier(st.countries[attacker] ?? { infamy: 0 });
+  if (at === 'notorious') s += 1; else if (at === 'pariah') s += 2;
   s += (rand(st) - 0.5);
   return s;
 }
