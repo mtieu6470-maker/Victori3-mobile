@@ -154,6 +154,14 @@
       "type": "European cultural heritage research synthesis",
       "quality": "supported",
       "note": "Cross-checks equal male/female voting milestones across current EU countries, including Portugal 1976 and European staged reforms."
+    },
+    {
+      "id": "aec_australia_1902",
+      "title": "Australian Electoral Commission, A short history of federal electoral reform",
+      "url": "https://www.aec.gov.au/Elections/history-of-electoral-reform.htm",
+      "type": "Australian Electoral Commission official history",
+      "quality": "verified",
+      "note": "Confirms Commonwealth Franchise Act 1902 gave men and women federal voting rights while excluding Aboriginal people; federal franchise exclusions were removed for First Nations people in 1962."
     }
   ],
   "rows": [
@@ -231,8 +239,8 @@
       "male_suffrage_year": 1902,
       "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
       "male_suffrage_source_ids": [
+        "aec_australia_1902",
         "male_suffrage_pilon",
-        "male_suffrage_europe",
         "owid_lied_male_2026"
       ],
       "female_suffrage_year": 1902,
@@ -259,9 +267,10 @@
         "male_suffrage_pilon",
         "male_suffrage_europe",
         "owid_lied_male_2026",
-        "ilo_social_2019"
+        "ilo_social_2019",
+        "aec_australia_1902"
       ],
-      "note": "Federal franchise 1902; Indigenous exclusions persisted; 1962 federal voting rights for Indigenous Australians; the federal franchise law was enacted in 1902; Aboriginal exclusions mean this was not an equal franchise for all men.",
+      "note": "Federal franchise 1902; Indigenous exclusions persisted; 1962 federal voting rights for Indigenous Australians; the federal franchise law was enacted in 1902; Aboriginal exclusions mean this was not an equal franchise for all men.; Commonwealth Franchise Act 1902 confirms the legal milestone; First Nations exclusions were removed federally in 1962.",
       "female_suffrage_quality": "verified",
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
@@ -2097,8 +2106,7 @@
       "male_suffrage_year": 1870,
       "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
       "male_suffrage_source_ids": [
-        "male_suffrage_pilon",
-        "male_suffrage_europe",
+        "europeana_womens_suffrage",
         "owid_lied_male_2026"
       ],
       "female_suffrage_year": 1920,
