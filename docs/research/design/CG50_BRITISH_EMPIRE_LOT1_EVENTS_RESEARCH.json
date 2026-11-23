@@ -24,11 +24,6 @@
       "title_vi": "Khởi nghĩa binh lính bùng nổ",
       "title_en": "Khởi nghĩa binh lính bùng nổ",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ấn Độ. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_indian_revolt_1857",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -79,12 +74,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "EIC",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -137,11 +126,6 @@
       "title_vi": "Đạo luật chuyển quyền cai trị sang Hoàng gia",
       "title_en": "Đạo luật chuyển quyền cai trị sang Hoàng gia",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ấn Độ. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_india_crown_rule_1858",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -192,12 +176,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "EIC",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -250,11 +228,6 @@
       "title_vi": "Hội nghị thành lập Quốc đại",
       "title_en": "Hội nghị thành lập Quốc đại",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ấn Độ. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_indian_national_congress_1885",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -305,12 +278,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -363,11 +330,6 @@
       "title_vi": "Chia tách Bengal",
       "title_en": "Chia tách Bengal",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ấn Độ. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_bengal_partition_1905",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -418,12 +380,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -476,11 +432,6 @@
       "title_vi": "Thảm sát tại Amritsar",
       "title_en": "Thảm sát tại Amritsar",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ấn Độ. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_amritsar_1919",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -531,12 +482,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -589,11 +534,6 @@
       "title_vi": "Chiến dịch bất tuân dân sự và hành trình muối",
       "title_en": "Chiến dịch bất tuân dân sự và hành trình muối",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ấn Độ. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_salt_march_1930",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -644,12 +584,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -702,11 +636,6 @@
       "title_vi": "Đạo luật Chính quyền Ấn Độ",
       "title_en": "Đạo luật Chính quyền Ấn Độ",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ấn Độ. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_india_act_1935",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -757,12 +686,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -815,11 +738,6 @@
       "title_vi": "Phong trào Rời khỏi Ấn Độ",
       "title_en": "Phong trào Rời khỏi Ấn Độ",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ấn Độ. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_quit_india_1942",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -870,12 +788,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -928,11 +840,6 @@
       "title_vi": "Độc lập và phân chia tiểu lục địa",
       "title_en": "Độc lập và phân chia tiểu lục địa",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ấn Độ. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_india_partition_1947",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -983,12 +890,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -1041,11 +942,6 @@
       "title_vi": "Triều Konbaung sụp đổ",
       "title_en": "Triều Konbaung sụp đổ",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Miến Điện. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_burma_annexation_1885",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -1096,12 +992,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -1154,11 +1044,6 @@
       "title_vi": "Khởi nghĩa nông dân Saya San",
       "title_en": "Khởi nghĩa nông dân Saya San",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Miến Điện. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_burma_saya_san_1930",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -1209,12 +1094,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -1267,11 +1146,6 @@
       "title_vi": "Miến Điện tách khỏi Ấn Độ thuộc Anh",
       "title_en": "Miến Điện tách khỏi Ấn Độ thuộc Anh",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Miến Điện. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_burma_separation_1937",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -1322,12 +1196,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -1380,11 +1248,6 @@
       "title_vi": "Thỏa thuận Panglong",
       "title_en": "Thỏa thuận Panglong",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Miến Điện. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_burma_panglong_1947",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -1435,12 +1298,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -1493,11 +1350,6 @@
       "title_vi": "Miến Điện giành độc lập",
       "title_en": "Miến Điện giành độc lập",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Miến Điện. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_burma_independence_1948",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -1548,12 +1400,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -1606,11 +1452,6 @@
       "title_vi": "Bạo loạn và tình trạng khẩn cấp",
       "title_en": "Bạo loạn và tình trạng khẩn cấp",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ceylon. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_ceylon_riots_1915",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -1661,12 +1502,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -1719,11 +1554,6 @@
       "title_vi": "Hiến pháp Donoughmore và phổ thông đầu phiếu",
       "title_en": "Hiến pháp Donoughmore và phổ thông đầu phiếu",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ceylon. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_ceylon_donoughmore_1931",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -1774,12 +1604,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -1832,11 +1656,6 @@
       "title_vi": "Ủy ban Soulbury xem xét tự trị",
       "title_en": "Ủy ban Soulbury xem xét tự trị",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ceylon. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_ceylon_soulbury_1944",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -1887,12 +1706,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -1945,11 +1758,6 @@
       "title_vi": "Ceylon trở thành quốc gia tự quản",
       "title_en": "Ceylon trở thành quốc gia tự quản",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ceylon. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_ceylon_independence_1948",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -2000,12 +1808,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -2058,11 +1860,6 @@
       "title_vi": "Quân Nhật đổ bộ bán đảo Mã Lai",
       "title_en": "Quân Nhật đổ bộ bán đảo Mã Lai",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Malaya và Singapore. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_malaya_invasion_1941",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -2113,12 +1910,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -2171,11 +1962,6 @@
       "title_vi": "Singapore thất thủ",
       "title_en": "Singapore thất thủ",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Malaya và Singapore. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_singapore_fall_1942",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -2226,12 +2012,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -2284,11 +2064,6 @@
       "title_vi": "Chính quyền Anh trở lại",
       "title_en": "Chính quyền Anh trở lại",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Malaya và Singapore. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_malaya_return_1945",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -2339,12 +2114,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -2397,11 +2166,6 @@
       "title_vi": "Đề án Liên hiệp Malaya",
       "title_en": "Đề án Liên hiệp Malaya",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Malaya và Singapore. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_malayan_union_1946",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -2452,12 +2216,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -2510,11 +2268,6 @@
       "title_vi": "Tình trạng khẩn cấp tại Malaya",
       "title_en": "Tình trạng khẩn cấp tại Malaya",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Malaya và Singapore. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_malayan_emergency_1948",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -2565,12 +2318,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -2623,11 +2370,6 @@
       "title_vi": "Liên bang Malaya độc lập",
       "title_en": "Liên bang Malaya độc lập",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Malaya và Singapore. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_malaya_independence_1957",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -2678,12 +2420,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -2736,11 +2472,6 @@
       "title_vi": "Liên bang Malaysia ra đời",
       "title_en": "Liên bang Malaysia ra đời",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Malaya và Singapore. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_malaysia_formation_1963",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -2791,12 +2522,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -2849,11 +2574,6 @@
       "title_vi": "Anh chiếm đóng Ai Cập",
       "title_en": "Anh chiếm đóng Ai Cập",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ai Cập và kênh Suez. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_egypt_occupation_1882",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -2904,12 +2624,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -2963,11 +2677,6 @@
       "title_vi": "Ai Cập thành xứ bảo hộ thời chiến",
       "title_en": "Ai Cập thành xứ bảo hộ thời chiến",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ai Cập và kênh Suez. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_egypt_protectorate_1914",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -3018,12 +2727,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -3077,11 +2780,6 @@
       "title_vi": "Cách mạng Ai Cập năm 1919",
       "title_en": "Cách mạng Ai Cập năm 1919",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ai Cập và kênh Suez. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_egypt_revolution_1919",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -3132,12 +2830,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -3191,11 +2883,6 @@
       "title_vi": "Tuyên bố độc lập có bảo lưu",
       "title_en": "Tuyên bố độc lập có bảo lưu",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ai Cập và kênh Suez. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_egypt_independence_1922",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -3246,12 +2933,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -3305,11 +2986,6 @@
       "title_vi": "Hiệp ước Anh–Ai Cập",
       "title_en": "Hiệp ước Anh–Ai Cập",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ai Cập và kênh Suez. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_egypt_treaty_1936",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -3360,12 +3036,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -3419,11 +3089,6 @@
       "title_vi": "Cách mạng Sĩ quan Tự do",
       "title_en": "Cách mạng Sĩ quan Tự do",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ai Cập và kênh Suez. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_egypt_revolution_1952",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -3474,12 +3139,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -3533,11 +3192,6 @@
       "title_vi": "Ai Cập quốc hữu hóa Công ty Kênh đào Suez",
       "title_en": "Ai Cập quốc hữu hóa Công ty Kênh đào Suez",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ai Cập và kênh Suez. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_suez_nationalisation_1956",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -3588,12 +3242,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -3647,11 +3295,6 @@
       "title_vi": "Tuyên bố Balfour",
       "title_en": "Tuyên bố Balfour",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Palestine. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_balfour_declaration_1917",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -3702,12 +3345,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -3761,11 +3398,6 @@
       "title_vi": "Anh tiếp nhận ủy trị Palestine",
       "title_en": "Anh tiếp nhận ủy trị Palestine",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Palestine. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_palestine_mandate_1920",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -3816,12 +3448,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -3875,11 +3501,6 @@
       "title_vi": "Cuộc tổng đình công và nổi dậy Ả Rập",
       "title_en": "Cuộc tổng đình công và nổi dậy Ả Rập",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Palestine. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_palestine_arab_revolt_1936",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -3930,12 +3551,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -3989,11 +3604,6 @@
       "title_vi": "Sách Trắng về Palestine",
       "title_en": "Sách Trắng về Palestine",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Palestine. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_palestine_white_paper_1939",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -4044,12 +3654,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -4103,11 +3707,6 @@
       "title_vi": "Kế hoạch phân chia của Liên Hợp Quốc",
       "title_en": "Kế hoạch phân chia của Liên Hợp Quốc",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Palestine. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_palestine_partition_1947",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -4158,12 +3757,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -4217,11 +3810,6 @@
       "title_vi": "Chấm dứt ủy trị và chiến tranh năm 1948",
       "title_en": "Chấm dứt ủy trị và chiến tranh năm 1948",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Palestine. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_palestine_mandate_end_1948",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -4272,12 +3860,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -4331,11 +3913,6 @@
       "title_vi": "Kenya trở thành thuộc địa Hoàng gia",
       "title_en": "Kenya trở thành thuộc địa Hoàng gia",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Kenya. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_kenya_colony_1920",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -4386,12 +3963,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -4444,11 +4015,6 @@
       "title_vi": "Tình trạng khẩn cấp và nổi dậy Mau Mau",
       "title_en": "Tình trạng khẩn cấp và nổi dậy Mau Mau",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Kenya. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_kenya_emergency_1952",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -4499,12 +4065,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -4557,11 +4117,6 @@
       "title_vi": "Phong trào vũ trang bị suy yếu nhưng bất mãn còn lại",
       "title_en": "Phong trào vũ trang bị suy yếu nhưng bất mãn còn lại",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Kenya. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_kenya_mau_mau_defeat_1956",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -4612,12 +4167,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -4670,11 +4219,6 @@
       "title_vi": "Đàm phán hiến pháp tại Lancaster House",
       "title_en": "Đàm phán hiến pháp tại Lancaster House",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Kenya. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_kenya_lancaster_1960",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -4725,12 +4269,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -4783,11 +4321,6 @@
       "title_vi": "Kenya giành độc lập",
       "title_en": "Kenya giành độc lập",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Kenya. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_kenya_independence_1963",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -4838,12 +4371,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -4896,11 +4423,6 @@
       "title_vi": "Biến động Accra và khủng hoảng chính trị",
       "title_en": "Biến động Accra và khủng hoảng chính trị",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Gold Coast / Ghana. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_gold_coast_accra_riots_1948",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -4951,12 +4473,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -5009,11 +4525,6 @@
       "title_vi": "Bầu cử mở đường cho chính quyền tự trị",
       "title_en": "Bầu cử mở đường cho chính quyền tự trị",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Gold Coast / Ghana. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_gold_coast_elections_1951",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -5064,12 +4575,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -5122,11 +4627,6 @@
       "title_vi": "Gold Coast trở thành Ghana độc lập",
       "title_en": "Gold Coast trở thành Ghana độc lập",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Gold Coast / Ghana. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_ghana_independence_1957",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -5177,12 +4677,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -5235,11 +4729,6 @@
       "title_vi": "Hiến pháp Clifford và đại diện hạn chế",
       "title_en": "Hiến pháp Clifford và đại diện hạn chế",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Nigeria. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_nigeria_clifford_1922",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -5290,12 +4779,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -5348,11 +4831,6 @@
       "title_vi": "Hiến pháp Richards và cơ cấu khu vực",
       "title_en": "Hiến pháp Richards và cơ cấu khu vực",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Nigeria. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_nigeria_richards_1946",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -5403,12 +4881,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -5461,11 +4933,6 @@
       "title_vi": "Hiến pháp Macpherson và quyền tự trị khu vực",
       "title_en": "Hiến pháp Macpherson và quyền tự trị khu vực",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Nigeria. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_nigeria_macferson_1951",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -5516,12 +4983,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -5574,11 +5035,6 @@
       "title_vi": "Nigeria giành độc lập",
       "title_en": "Nigeria giành độc lập",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Nigeria. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_nigeria_independence_1960",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -5629,12 +5085,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -5687,11 +5137,6 @@
       "title_vi": "Chính quyền tự trị của người định cư",
       "title_en": "Chính quyền tự trị của người định cư",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Nam Rhodesia. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_southern_rhodesia_responsible_1923",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -5742,12 +5187,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -5801,11 +5240,6 @@
       "title_vi": "Liên bang Rhodesia và Nyasaland",
       "title_en": "Liên bang Rhodesia và Nyasaland",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Nam Rhodesia. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_rhodesia_federation_1953",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -5856,12 +5290,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -5915,11 +5343,6 @@
       "title_vi": "Tuyên bố độc lập đơn phương và trừng phạt",
       "title_en": "Tuyên bố độc lập đơn phương và trừng phạt",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Nam Rhodesia. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_rhodesia_udi_1965",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -5970,12 +5393,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -6029,11 +5446,6 @@
       "title_vi": "Chiến tranh Nam Phi bùng nổ",
       "title_en": "Chiến tranh Nam Phi bùng nổ",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Nam Phi. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_boer_war_1899",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -6084,12 +5496,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -6142,11 +5548,6 @@
       "title_vi": "Hòa ước Vereeniging",
       "title_en": "Hòa ước Vereeniging",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Nam Phi. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_boer_peace_1902",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -6197,12 +5598,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -6255,11 +5650,6 @@
       "title_vi": "Liên hiệp Nam Phi thành lập",
       "title_en": "Liên hiệp Nam Phi thành lập",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Nam Phi. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_south_africa_union_1910",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -6310,12 +5700,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -6368,11 +5752,6 @@
       "title_vi": "Đạo luật Đất đai bản địa",
       "title_en": "Đạo luật Đất đai bản địa",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Nam Phi. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_natives_land_act_1913",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -6423,12 +5802,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -6481,11 +5854,6 @@
       "title_vi": "Chính phủ mới và chính sách phân biệt chủng tộc",
       "title_en": "Chính phủ mới và chính sách phân biệt chủng tộc",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Nam Phi. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_apartheid_election_1948",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -6536,12 +5904,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -6594,11 +5956,6 @@
       "title_vi": "Bất ổn lao động tại Trinidad",
       "title_en": "Bất ổn lao động tại Trinidad",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Caribe thuộc Anh. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_trinidad_labour_1937",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -6649,12 +6006,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -6707,11 +6058,6 @@
       "title_vi": "Đình công và nổi dậy lao động tại Jamaica",
       "title_en": "Đình công và nổi dậy lao động tại Jamaica",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Caribe thuộc Anh. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_jamaica_labour_1938",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -6762,12 +6108,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -6820,11 +6160,6 @@
       "title_vi": "Liên bang Tây Ấn thành lập",
       "title_en": "Liên bang Tây Ấn thành lập",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Caribe thuộc Anh. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_west_indies_federation_1958",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -6875,12 +6210,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -6933,11 +6262,6 @@
       "title_vi": "Jamaica độc lập và Liên bang tan rã",
       "title_en": "Jamaica độc lập và Liên bang tan rã",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Caribe thuộc Anh. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_jamaica_independence_1962",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -6988,12 +6312,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -7046,11 +6364,6 @@
       "title_vi": "Nổi dậy tháng Mười tại Síp",
       "title_en": "Nổi dậy tháng Mười tại Síp",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Síp. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_cyprus_october_1931",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -7101,12 +6414,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -7159,11 +6466,6 @@
       "title_vi": "Chiến dịch vũ trang EOKA",
       "title_en": "Chiến dịch vũ trang EOKA",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Síp. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_cyprus_eoka_1955",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -7214,12 +6516,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -7272,11 +6568,6 @@
       "title_vi": "Thỏa thuận Zürich–London",
       "title_en": "Thỏa thuận Zürich–London",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Síp. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_cyprus_zurich_london_1959",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -7327,12 +6618,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -7385,11 +6670,6 @@
       "title_vi": "Cộng hòa Síp độc lập",
       "title_en": "Cộng hòa Síp độc lập",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Síp. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_cyprus_independence_1960",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -7440,12 +6720,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -7498,11 +6772,6 @@
       "title_vi": "Aden trở thành thuộc địa Hoàng gia",
       "title_en": "Aden trở thành thuộc địa Hoàng gia",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Aden. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_aden_colony_1937",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -7553,12 +6822,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -7611,11 +6874,6 @@
       "title_vi": "Đề xuất liên bang các tiểu vương quốc",
       "title_en": "Đề xuất liên bang các tiểu vương quốc",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Aden. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_aden_federation_talks_1956",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -7666,12 +6924,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -7724,11 +6976,6 @@
       "title_vi": "Liên bang Nam Ả Rập hình thành",
       "title_en": "Liên bang Nam Ả Rập hình thành",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Aden. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_south_arabia_federation_1963",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -7779,12 +7026,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -7837,11 +7078,6 @@
       "title_vi": "Anh rút khỏi Aden",
       "title_en": "Anh rút khỏi Aden",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Aden. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_aden_independence_1967",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -7892,12 +7128,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -7950,11 +7180,6 @@
       "title_vi": "Báo cáo Durham và khủng hoảng Canada",
       "title_en": "Báo cáo Durham và khủng hoảng Canada",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Canada, Úc và New Zealand. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_canada_durham_1839",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -8005,12 +7230,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -8063,11 +7282,6 @@
       "title_vi": "Đạo luật Liên hiệp Canada",
       "title_en": "Đạo luật Liên hiệp Canada",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Canada, Úc và New Zealand. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_canada_union_1840",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -8118,12 +7332,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -8176,11 +7384,6 @@
       "title_vi": "Các thuộc địa Úc tiến tới chính phủ chịu trách nhiệm",
       "title_en": "Các thuộc địa Úc tiến tới chính phủ chịu trách nhiệm",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Canada, Úc và New Zealand. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_australian_responsible_government_1855",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -8231,12 +7434,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -8289,11 +7486,6 @@
       "title_vi": "Liên bang Canada ra đời",
       "title_en": "Liên bang Canada ra đời",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Canada, Úc và New Zealand. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_canadian_confederation_1867",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -8344,12 +7536,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -8402,11 +7588,6 @@
       "title_vi": "Thịnh vượng chung Úc thành lập",
       "title_en": "Thịnh vượng chung Úc thành lập",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Canada, Úc và New Zealand. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_australian_federation_1901",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -8457,12 +7638,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -8515,11 +7690,6 @@
       "title_vi": "New Zealand trở thành Dominion",
       "title_en": "New Zealand trở thành Dominion",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Canada, Úc và New Zealand. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_new_zealand_dominion_1907",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -8570,12 +7740,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -8628,11 +7792,6 @@
       "title_vi": "Quy chế Westminster xác lập quyền tự trị lập pháp",
       "title_en": "Quy chế Westminster xác lập quyền tự trị lập pháp",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Canada, Úc và New Zealand. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_westminster_statute_1931",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -8683,12 +7842,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -8741,11 +7894,6 @@
       "title_vi": "Các Dominion quyết định tham chiến",
       "title_en": "Các Dominion quyết định tham chiến",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Canada, Úc và New Zealand. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_dominions_war_choice_1939",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -8796,12 +7944,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -8854,11 +7996,6 @@
       "title_vi": "Đại nạn đói Ireland",
       "title_en": "Đại nạn đói Ireland",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ireland. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_irish_famine_1845",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -8909,12 +8046,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -8967,11 +8098,6 @@
       "title_vi": "Khởi nghĩa Fenian",
       "title_en": "Khởi nghĩa Fenian",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ireland. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_fenian_rising_1867",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -9022,12 +8148,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -9080,11 +8200,6 @@
       "title_vi": "Khởi nghĩa Phục Sinh",
       "title_en": "Khởi nghĩa Phục Sinh",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ireland. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_easter_rising_1916",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -9135,12 +8250,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -9193,11 +8302,6 @@
       "title_vi": "Chiến tranh giành độc lập Ireland",
       "title_en": "Chiến tranh giành độc lập Ireland",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ireland. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_irish_war_independence_1919",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -9248,12 +8352,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -9306,11 +8404,6 @@
       "title_vi": "Hiệp ước Anh–Ireland",
       "title_en": "Hiệp ước Anh–Ireland",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ireland. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_anglo_irish_treaty_1921",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -9361,12 +8454,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -9419,11 +8506,6 @@
       "title_vi": "Hiến pháp mới của Ireland",
       "title_en": "Hiến pháp mới của Ireland",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ireland. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_ireland_constitution_1937",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -9474,12 +8556,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -9532,11 +8608,6 @@
       "title_vi": "Ireland chính thức trở thành nước cộng hòa",
       "title_en": "Ireland chính thức trở thành nước cộng hòa",
       "text_vi": "Một bước ngoặt trong quan hệ giữa chính quyền Anh và Ireland. Nội các phải cân nhắc chi phí duy trì quyền kiểm soát, phản ứng của cư dân địa phương và vị thế quốc tế. Không có con đường nào miễn phí: đàn áp làm tăng chi phí chính trị; nhượng bộ hoặc thương lượng có thể giữ ảnh hưởng nhưng đòi hỏi bảo đảm lợi ích cụ thể.",
-      "image": {
-        "ref": "ill_evt_gbr_ireland_republic_1949",
-        "credit": "Chờ duyệt nguồn ảnh PD/CC0 trong CG-52",
-        "license": "PENDING_PD_CC0_REVIEW"
-      },
       "options": [
         {
           "id": "repress",
@@ -9587,12 +8658,6 @@
                 "ig_intelligentsia": 2,
                 "ig_landowners": -1
               }
-            },
-            {
-              "type": "movement",
-              "owner": "GBR",
-              "regions": [],
-              "delta": 8
             }
           ]
         },
@@ -10409,6 +9474,7 @@
     "Nhiều thuộc địa chưa có country ID playable riêng trong registry.json (ví dụ Burma, Ceylon, Malaya, Kenya, Gold Coast, Nigeria, Cyprus, Aden, Rhodesia, Ireland). Những event này hiện gắn vào GBR; cần tạo/đối chiếu country IDs và playable status trước khi làm sự kiện cho phía thuộc địa.",
     "Các region trigger cụ thể chưa gắn vào từng event vì lịch sử ownership/region mapping cần đối chiếu với decolonisation register và timeline transfer. Event có fire_date làm mốc, nhưng cần kiểm tra engine xử lý event date khi country chết/biến đổi.",
     "Các modifier là đề xuất cân bằng của Victori3, không phải con số của Victoria 3 hay số liệu lịch sử.",
-    "image.ref là placeholder; không được nhập ảnh trước khi CG-52 xác minh Commons template PD/CC0 hoặc LoC rights advisory."
+    "image.ref là placeholder; không được nhập ảnh trước khi CG-52 xác minh Commons template PD/CC0 hoặc LoC rights advisory.",
+    "Không điền image.ref khi chưa có asset id thật; tránh để UI trỏ tới ảnh không tồn tại. Claude chỉ gắn ảnh sau khi ingest và xác minh giấy phép."
   ]
 }
