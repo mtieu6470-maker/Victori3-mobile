@@ -30,7 +30,9 @@ for (const l of lines) {
   const [iso, name, power, date, mode, predecessor, source] = parse(l);
   const y = Number(date.slice(0, 4));
   if (!(y >= 1836 && y <= 2026)) continue;
-  const regions = [...shares].filter(([, m]) => (m.get(iso) ?? 0) >= 0.5).map(([id]) => id).sort();
+  // regions that left the colonial power on another date (handled elsewhere): Goa stayed Portuguese until 1961 (settlements INDIA_GOA_1961)
+  const LATER: Record<string, string[]> = { IND: ['POR_GOA'] };
+  const regions = [...shares].filter(([id, m]) => (m.get(iso) ?? 0) >= 0.5 && !(LATER[iso] ?? []).includes(id)).map(([id]) => id).sort();
   records.push({ id: `indep_${iso.toLowerCase()}`, iso, name, name_vi: VI[iso] ?? name, power, date, mode, predecessor, source, regions });
 }
 writeFileSync(new URL('../../historical_data/decolonisation/independence.json', import.meta.url), JSON.stringify({

@@ -1,3 +1,26 @@
+## 2026-11-23 — REGIME-04 CG-47A world regimes; South Asia partition (CG-47B); decolonisation fixes
+
+- **CG-47A** (128 events with capital coordinates) is ingested by `build-regimes.ts`, bringing `regime_changes.json` to 212 events.
+  - A descriptive name (regex `DESCRIPTIVE`, e.g. "Mexico under Porfirio Díaz") changes laws but not the state's name.
+  - Pakistan events use SND_HYD (Islamabad's grid cell falls in Kashmir).
+  - BGD-1971 is a partition (`independenceRegions` [EIC_BEN], effective 16 Dec 1971).
+- **`regimeActor` tightened:** a non-capital region must also share the culture of the holder's capital. Riyadh held by Egypt had renamed Egypt "Saudi Arabia"; Vichy/Paris still applies.
+- **CG-47B South Asia** (`settlements.json`):
+  - British conquest of Sindh 1843 (curated; without it there were two Pakistans).
+  - Partition 15 Aug 1947: Pakistan = Sindh, Lahore, Multan, Peshawar, Bengal (CG-47B whole-region fallback; Calcutta on the wrong side until the map splits EIC_BEN). Kashmir/Jammu to India, with a Pakistan claim (new step type `claim`).
+  - Kalat to Pakistan 1948; princely states to India 1948–49; Goa 1961; Sikkim 1975. India's events are now anchored at Delhi.
+- **Decolonisation:**
+  - CG-37b records ingested on regeneration: Vietnam, Laos, Cambodia, Malaysia, Korea, Egypt 1922, Iraq 1932, Kuwait, UAE, Cyprus, Malta, Eritrea.
+  - Goa excluded from India 1947.
+  - Curated separations: Straits Settlements from India 1867, Burma from India 1937. Without them India kept Penang and Arakan, which were EIC territory in 1836.
+  - Independence renounces the former owners' claims (Britain had retaken Iraq).
+  - A new state's capital is the most populous region of its majority culture.
+- **Seed 1, 1981:** India (incl. Kashmir, Hyderabad, Goa), Islamic Republic of Pakistan (incl. Sindh, Kalat), Bangladesh, Republic of Egypt, Islamic Republic of Iran, Republic of Tunisia, Iraq independent, Malaysia, Socialist Republic of Burma, Socialist Cuba.
+- **CG-47C** (organisation effects) is received; the mechanics design is pending.
+- Tests: targeted suites green; full suite at commit.
+
+---
+
 ## 2026-11-23 — WW-01d the League of Nations (Historical Mode)
 
 - `systems/league.ts` runs before united-nations. Data: `db.league_of_nations` (CG-40) plus the CG-40 seat schedule and US non-membership (`LEAGUE`).

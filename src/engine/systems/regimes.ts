@@ -63,7 +63,12 @@ export function regimeActor(st: GameState, e: RegimeEvent): Country | null {
   if (!region || !c?.alive || c.decentralized) return null;
   if (e.independence) return st.regions.some((r) => r.owner === c.id && e.independence!.includes(r.culture)) ? c : null;
   if (e.independenceRegions) return e.independenceRegions.some((id) => st.regions[data().regionIndex.get(id) ?? -1]?.owner === c.id) ? c : null;
-  if (c.capital !== e.capitalRegion && isColonialRegion(st, region)) return null;
+  if (c.capital === e.capitalRegion) return c;
+  // not its capital: the region must be home territory of the same culture as the capital (e.g. Vichy for
+  // France); a region of another people held by the state is another country's capital (e.g. Riyadh held by
+  // Egypt must not rename Egypt to Saudi Arabia)
+  const cap = st.regions[data().regionIndex.get(c.capital) ?? -1];
+  if (isColonialRegion(st, region) || (cap && cap.culture !== region.culture)) return null;
   return c;
 }
 

@@ -382,7 +382,7 @@ for (const b of [...blocsFile.blocs, ...(blocsFile.organisations ?? [])]) for (c
 }
 // WW-01c: unifications and peace settlements (curated; treaty facts from CG-40/CG-41)
 const settlementsFile = readJson('wars/settlements.json');
-const STEP_TYPES = new Set(['cede', 'annex_states', 'new_state', 'rename', 'move_capital', 'restore_snapshot', 'make_subject', 'release']);
+const STEP_TYPES = new Set(['cede', 'annex_states', 'new_state', 'rename', 'move_capital', 'restore_snapshot', 'make_subject', 'release', 'claim']);
 for (const s of settlementsFile.settlements) {
   const regionIds = [s.actor, ...(s.losers ?? []), ...(s.winners ?? []), ...s.steps.flatMap((x: any) => [...(x.regions ?? []), ...(x.capitals ?? []), x.from, x.to, x.target].filter(Boolean))].filter(Boolean);
   for (const id of regionIds) if (!regions.some((r: any) => r.id === id)) err(`settlement ${s.id}: unknown region ${id}`);

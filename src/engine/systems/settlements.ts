@@ -97,6 +97,13 @@ function stepApply(st: GameState, s: Settlement, step: Step, actor: Country): vo
       log(st, { type: 'state', text: `${step.name_en} (${cause}).`, textVi: `${old} → ${step.name_vi}.`, actors: [t.id], historical: true });
       return;
     }
+    case 'claim': {
+      // a disputed region: the target keeps a claim on it (e.g. Pakistan on Kashmir after 1947)
+      const t = step.target ? holderOfCapital(st, step.target) : null;
+      if (!t) return;
+      for (const id of step.regions ?? []) if (regionOf(st, id) && regionOf(st, id)!.owner !== t.id && !t.claims.includes(id)) t.claims.push(id);
+      return;
+    }
     case 'make_subject': {
       // CG-45: protectorates (e.g. Vietnam under France 1884, Tunisia 1881, Egypt 1882, Bukhara 1868)
       const t = step.target ? holderOfCapital(st, step.target) : null;

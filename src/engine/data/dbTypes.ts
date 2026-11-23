@@ -130,7 +130,7 @@ export interface HistoricalDB {
   organisations?: { id: string; name_en: string; name_vi: string; type: string; founded: string; dissolved?: string; members: { capital: string; from: string; to?: string; name: string; customsUnionFrom?: string }[] }[];
   /** WW-01c: Historical Mode unifications and peace settlements. */
   settlements?: { id: string; date: string; actor?: string; war?: string; losers?: string[]; winners?: string[]; snapshot?: string; noPlayerActor?: boolean;
-    steps: { type: 'cede' | 'annex_states' | 'new_state' | 'rename' | 'move_capital' | 'restore_snapshot' | 'make_subject' | 'release'; subjectType?: string; regions?: string[]; from?: string; to?: string; capitals?: string[]; key?: string;
+    steps: { type: 'cede' | 'annex_states' | 'new_state' | 'rename' | 'move_capital' | 'restore_snapshot' | 'make_subject' | 'release' | 'claim'; subjectType?: string; regions?: string[]; from?: string; to?: string; capitals?: string[]; key?: string;
       name_en?: string; name_vi?: string; laws?: Record<string, string>; target?: string; snapshot?: string; onlyIfFormedBySettlement?: string }[] }[];
   /** LEAD-01: 20th-century heads of state and effective leaders by capital region (CG-43). */
   leaders_20c?: { capitalRegion: string; name: string; born: string | null; died: string | null; from: string; to: string | null; role: 'head_of_state' | 'effective_leader'; title_vi: string; title_en: string }[];

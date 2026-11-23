@@ -26,10 +26,45 @@
   "KOR-1945-08",
   "VNM-GENEVA-1954-07",
   "VNM-1975-04",
-  "PRC-1949-10"
+  "PRC-1949-10",
+  "TUR-1923-10"
  ],
  "droppedLawValues": [],
  "events": [
+  {
+   "id": "DOM-1844-02",
+   "date": "1844-02-27",
+   "capitalRegion": "HAI_SDO",
+   "rename": true,
+   "name_en": "Dominican Republic",
+   "name_vi": "Cộng hòa Dominica",
+   "type": "independence_and_republic",
+   "laws": {
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "dominican_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "LIB-1847-07",
+   "date": "1847-07-26",
+   "capitalRegion": "LIB_MON",
+   "rename": true,
+   "name_en": "Republic of Liberia",
+   "name_vi": "Cộng hòa Liberia",
+   "type": "independence_and_republic",
+   "laws": {},
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "liberia_history"
+   ],
+   "quality": "verified"
+  },
   {
    "id": "FRA-1848-02",
    "date": "1848-02-24",
@@ -105,6 +140,24 @@
    "quality": "verified"
   },
   {
+   "id": "DOM-1865-08",
+   "date": "1865-08-16",
+   "capitalRegion": "HAI_SDO",
+   "rename": false,
+   "name_en": "Dominican Republic restored after the War of Restoration",
+   "name_vi": "Cộng hòa Dominica được khôi phục sau Chiến tranh Phục hồi",
+   "type": "restoration_of_independence",
+   "laws": {
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "dominican_history"
+   ],
+   "quality": "supported"
+  },
+  {
    "id": "JAP-1868-01",
    "date": "1868-01-03",
    "capitalRegion": "JAP_KIN",
@@ -164,6 +217,24 @@
    "quality": "supported"
   },
   {
+   "id": "MEX-1877-05",
+   "date": "1877-05-05",
+   "capitalRegion": "MEX_MEX",
+   "rename": false,
+   "name_en": "Mexico under Porfirio Díaz (Porfiriato)",
+   "name_vi": "Mexico dưới thời Porfirio Díaz (Porfiriato)",
+   "type": "authoritarian_presidential_consolidation",
+   "laws": {
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "mexico_crs"
+   ],
+   "quality": "supported"
+  },
+  {
    "id": "JAP-1889-02",
    "date": "1889-02-11",
    "capitalRegion": "JAP_EDO",
@@ -179,6 +250,25 @@
    "sources": [
     "japan_mext_meiji",
     "japan_ndl_constitution"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "BRA-1889-11",
+   "date": "1889-11-15",
+   "capitalRegion": "BRA_RIO",
+   "rename": true,
+   "name_en": "Republic of the United States of Brazil",
+   "name_vi": "Cộng hòa Hợp chúng quốc Brazil",
+   "type": "military_coup_and_republic",
+   "laws": {
+    "governance": "republic",
+    "power": "census_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "brazil_cambridge"
    ],
    "quality": "verified"
   },
@@ -218,6 +308,44 @@
    "quality": "verified"
   },
   {
+   "id": "ZAF-1910-05",
+   "date": "1910-05-31",
+   "capitalRegion": "NDE_MOS",
+   "rename": true,
+   "name_en": "Union of South Africa",
+   "name_vi": "Liên hiệp Nam Phi",
+   "type": "union_and_dominion_formation",
+   "laws": {
+    "governance": "monarchy",
+    "power": "census_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "south_africa_pres"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "MEX-1910-11",
+   "date": "1910-11-20",
+   "capitalRegion": "MEX_MEX",
+   "rename": false,
+   "name_en": "Revolutionary Mexico",
+   "name_vi": "Mexico thời Cách mạng",
+   "type": "revolution_and_regime_collapse",
+   "laws": {
+    "power": "autocracy",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "mexico_crs"
+   ],
+   "quality": "supported"
+  },
+  {
    "id": "QNG-1912-01",
    "date": "1912-01-01",
    "capitalRegion": "QNG_JSU",
@@ -232,6 +360,26 @@
    "independence": null,
    "sources": [
     "china_national_museum"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "MEX-1917-02",
+   "date": "1917-02-05",
+   "capitalRegion": "MEX_MEX",
+   "rename": false,
+   "name_en": "Mexican Republic under the 1917 Constitution",
+   "name_vi": "Cộng hòa Mexico theo Hiến pháp 1917",
+   "type": "constitution",
+   "laws": {
+    "power": "universal_male_suffrage",
+    "governance": "republic",
+    "labor": "free_labor"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "mexico_constitution"
    ],
    "quality": "verified"
   },
@@ -403,6 +551,43 @@
    "quality": "verified"
   },
   {
+   "id": "IRQ-1921-08",
+   "date": "1921-08-23",
+   "capitalRegion": "TUR_BAG",
+   "rename": true,
+   "name_en": "Kingdom of Iraq",
+   "name_vi": "Vương quốc Iraq",
+   "type": "monarchy_establishment",
+   "laws": {
+    "power": "census_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_mena"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "EGY-1922-02",
+   "date": "1922-02-28",
+   "capitalRegion": "EGY_CAI",
+   "rename": true,
+   "name_en": "Kingdom of Egypt",
+   "name_vi": "Vương quốc Ai Cập",
+   "type": "independence_and_monarchy",
+   "laws": {
+    "governance": "monarchy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "egy_sis",
+    "egy_un"
+   ],
+   "quality": "verified"
+  },
+  {
    "id": "ITA-1922-10",
    "date": "1922-10-30",
    "capitalRegion": "PAP_ROM",
@@ -461,6 +646,63 @@
    "quality": "verified"
   },
   {
+   "id": "PRS-1925-12",
+   "date": "1925-12-15",
+   "capitalRegion": "PRS_TEH",
+   "rename": true,
+   "name_en": "Pahlavi Iran",
+   "name_vi": "Iran triều Pahlavi",
+   "type": "dynastic_change_and_centralization",
+   "laws": {
+    "power": "autocracy",
+    "governance": "monarchy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "iran_portal",
+    "iranica_pahlavi"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "MEX-1929-03",
+   "date": "1929-03-04",
+   "capitalRegion": "MEX_MEX",
+   "rename": false,
+   "name_en": "Mexico under the National Revolutionary Party (later PRI)",
+   "name_vi": "Mexico dưới Đảng Cách mạng Quốc gia (sau là PRI)",
+   "type": "party_system_institutionalization",
+   "laws": {
+    "power": "one_party_state"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "mexico_crs"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "BRA-1930-10",
+   "date": "1930-10-24",
+   "capitalRegion": "BRA_RIO",
+   "rename": false,
+   "name_en": "Brazil under Getúlio Vargas",
+   "name_vi": "Brazil dưới thời Getúlio Vargas",
+   "type": "revolution_and_regime_change",
+   "laws": {
+    "power": "autocracy",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "brazil_cambridge"
+   ],
+   "quality": "supported"
+  },
+  {
    "id": "SPA-1931-04",
    "date": "1931-04-14",
    "capitalRegion": "SPA_MAD",
@@ -478,6 +720,44 @@
     "spain_senate_constitution"
    ],
    "quality": "supported"
+  },
+  {
+   "id": "SIA-1932-06",
+   "date": "1932-06-24",
+   "capitalRegion": "SIA_BKK",
+   "rename": false,
+   "name_en": "Kingdom of Siam under constitutional monarchy",
+   "name_vi": "Vương quốc Xiêm theo quân chủ lập hiến",
+   "type": "revolution_and_constitutional_monarchy",
+   "laws": {
+    "power": "census_suffrage",
+    "governance": "monarchy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "thailand_1932"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "SAU-1932-09",
+   "date": "1932-09-23",
+   "capitalRegion": "NAJ_RIY",
+   "rename": true,
+   "name_en": "Kingdom of Saudi Arabia",
+   "name_vi": "Vương quốc Ả Rập Xê Út",
+   "type": "unification_and_state_formation",
+   "laws": {
+    "governance": "monarchy",
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "saudi_history"
+   ],
+   "quality": "verified"
   },
   {
    "id": "GER-1933-01",
@@ -537,6 +817,25 @@
    "independence": null,
    "sources": [
     "un_rus_2017"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "BRA-1937-11",
+   "date": "1937-11-10",
+   "capitalRegion": "BRA_RIO",
+   "rename": true,
+   "name_en": "Estado Novo of Brazil",
+   "name_vi": "Nhà nước Mới Brazil",
+   "type": "self_coup_and_authoritarian_constitution",
+   "laws": {
+    "power": "autocracy",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "brazil_cambridge"
    ],
    "quality": "supported"
   },
@@ -604,6 +903,25 @@
    "quality": "supported"
   },
   {
+   "id": "BRA-1945-10",
+   "date": "1945-10-29",
+   "capitalRegion": "BRA_RIO",
+   "rename": true,
+   "name_en": "Democratic Republic of Brazil (Fourth Republic)",
+   "name_vi": "Cộng hòa Dân chủ Brazil (Đệ tứ Cộng hòa)",
+   "type": "military_transition_and_democratization",
+   "laws": {
+    "power": "universal_suffrage",
+    "press": "free_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "brazil_cambridge"
+   ],
+   "quality": "supported"
+  },
+  {
    "id": "YUG-1945-11",
    "date": "1945-11-29",
    "capitalRegion": "SER_BEL",
@@ -646,6 +964,43 @@
    "quality": "verified"
   },
   {
+   "id": "SYR-1946-04",
+   "date": "1946-04-17",
+   "capitalRegion": "EGY_DAM",
+   "rename": true,
+   "name_en": "Syrian Republic",
+   "name_vi": "Cộng hòa Syria",
+   "type": "independence",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_male_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_mena"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "JOR-1946-05",
+   "date": "1946-05-25",
+   "capitalRegion": "EGY_PAL",
+   "rename": true,
+   "name_en": "Hashemite Kingdom of Jordan",
+   "name_vi": "Vương quốc Hashemite Jordan",
+   "type": "independence_and_monarchy",
+   "laws": {
+    "governance": "monarchy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_mena"
+   ],
+   "quality": "supported"
+  },
+  {
    "id": "ITA-1946-06",
    "date": "1946-06-18",
    "capitalRegion": "PAP_ROM",
@@ -661,6 +1016,25 @@
    "independence": null,
    "sources": [
     "italian_parliament"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "PHL-1946-07",
+   "date": "1946-07-04",
+   "capitalRegion": "SPA_PHL",
+   "rename": true,
+   "name_en": "Republic of the Philippines",
+   "name_vi": "Cộng hòa Philippines",
+   "type": "independence",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_male_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_asia"
    ],
    "quality": "verified"
   },
@@ -768,6 +1142,25 @@
    "quality": "verified"
   },
   {
+   "id": "MMR-1948-01",
+   "date": "1948-01-04",
+   "capitalRegion": "BUR_PEG",
+   "rename": true,
+   "name_en": "Union of Burma",
+   "name_vi": "Liên bang Miến Điện",
+   "type": "independence",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_male_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_asia"
+   ],
+   "quality": "verified"
+  },
+  {
    "id": "CZE-1948-02",
    "date": "1948-02-25",
    "capitalRegion": "AUS_BOH",
@@ -788,6 +1181,44 @@
     "cze_us"
    ],
    "quality": "supported"
+  },
+  {
+   "id": "ISR-1948-05",
+   "date": "1948-05-14",
+   "capitalRegion": "EGY_PAL",
+   "rename": true,
+   "name_en": "State of Israel",
+   "name_vi": "Nhà nước Israel",
+   "type": "state_establishment",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "israel_mfa"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "ZAF-1948-05",
+   "date": "1948-05-26",
+   "capitalRegion": "NDE_MOS",
+   "rename": false,
+   "name_en": "Union of South Africa under National Party apartheid",
+   "name_vi": "Liên hiệp Nam Phi dưới chế độ Apartheid của Đảng Quốc gia",
+   "type": "electoral_regime_shift_and_apartheid",
+   "laws": {
+    "power": "census_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "south_africa_gov",
+    "us_apartheid"
+   ],
+   "quality": "verified"
   },
   {
    "id": "GBR-1946-07",
@@ -937,6 +1368,62 @@
    "quality": "supported"
   },
   {
+   "id": "IDN-1949-12",
+   "date": "1949-12-27",
+   "capitalRegion": "NED_JAW",
+   "rename": true,
+   "name_en": "Republic of the United States of Indonesia",
+   "name_vi": "Cộng hòa Hợp chúng quốc Indonesia",
+   "type": "sovereignty_transfer_and_state_formation",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_male_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "indonesia_springer"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "NPL-1951-02",
+   "date": "1951-02-18",
+   "capitalRegion": "NEP_KAT",
+   "rename": false,
+   "name_en": "Kingdom of Nepal under constitutional transition",
+   "name_vi": "Vương quốc Nepal trong giai đoạn chuyển đổi hiến pháp",
+   "type": "revolution_and_oligarchy_termination",
+   "laws": {
+    "power": "census_suffrage",
+    "governance": "monarchy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "nepal_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "LBY-1951-12",
+   "date": "1951-12-24",
+   "capitalRegion": "TUR_TRI",
+   "rename": true,
+   "name_en": "United Kingdom of Libya",
+   "name_vi": "Vương quốc Liên hiệp Libya",
+   "type": "independence_and_monarchy",
+   "laws": {
+    "power": "census_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "libya_cornell"
+   ],
+   "quality": "verified"
+  },
+  {
    "id": "POL-1952-07",
    "date": "1952-07-22",
    "capitalRegion": "RUS_WAR",
@@ -956,6 +1443,62 @@
    "quality": "verified"
   },
   {
+   "id": "EGY-1953-06",
+   "date": "1953-06-18",
+   "capitalRegion": "EGY_CAI",
+   "rename": true,
+   "name_en": "Republic of Egypt",
+   "name_vi": "Cộng hòa Ai Cập",
+   "type": "revolution_and_republic_proclamation",
+   "laws": {
+    "power": "autocracy",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "egy_sis",
+    "egy_un"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "KHM-1953-11",
+   "date": "1953-11-09",
+   "capitalRegion": "VNM_TTT",
+   "rename": true,
+   "name_en": "Kingdom of Cambodia",
+   "name_vi": "Vương quốc Campuchia",
+   "type": "independence_and_monarchy",
+   "laws": {
+    "governance": "monarchy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_asia"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "EGY-1954-11",
+   "date": "1954-11-14",
+   "capitalRegion": "EGY_CAI",
+   "rename": false,
+   "name_en": "Republic of Egypt under Gamal Abdel Nasser",
+   "name_vi": "Cộng hòa Ai Cập dưới thời Gamal Abdel Nasser",
+   "type": "leadership_and_regime_consolidation",
+   "laws": {
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "egy_sis"
+   ],
+   "quality": "supported"
+  },
+  {
    "id": "VNM-RVN-1955-10",
    "date": "1955-10-26",
    "capitalRegion": "VNM_GDI",
@@ -971,6 +1514,161 @@
    "independenceRegions": null,
    "sources": [
     "vietnam_embassy"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "MOR-1956-03",
+   "date": "1956-03-02",
+   "capitalRegion": "MOR_FES",
+   "rename": true,
+   "name_en": "Kingdom of Morocco",
+   "name_vi": "Vương quốc Maroc",
+   "type": "independence",
+   "laws": {
+    "governance": "monarchy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_mena",
+    "mor_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "TUN-1956-03",
+   "date": "1956-03-20",
+   "capitalRegion": "TUN_TUN",
+   "rename": true,
+   "name_en": "Kingdom of Tunisia (Husainid monarchy)",
+   "name_vi": "Vương quốc Tunisia (quân chủ Husainid)",
+   "type": "independence",
+   "laws": {
+    "governance": "monarchy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_mena",
+    "tun_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "PAK-1956-03",
+   "date": "1956-03-23",
+   "capitalRegion": "SND_HYD",
+   "rename": true,
+   "name_en": "Islamic Republic of Pakistan",
+   "name_vi": "Cộng hòa Hồi giáo Pakistan",
+   "type": "constitution_and_republic",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_male_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "pakistan_history"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "GHA-1957-03",
+   "date": "1957-03-06",
+   "capitalRegion": "DZ_FANTE",
+   "rename": false,
+   "name_en": "Dominion of Ghana",
+   "name_vi": "Lãnh thổ tự trị Ghana",
+   "type": "independence",
+   "laws": {
+    "governance": "monarchy",
+    "power": "universal_male_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_africa",
+    "ghana_coups"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "IDN-1957-03",
+   "date": "1957-03-14",
+   "capitalRegion": "NED_JAW",
+   "rename": false,
+   "name_en": "Guided Democracy under Sukarno",
+   "name_vi": "Nền Dân chủ Có chỉ đạo dưới thời Sukarno",
+   "type": "executive_consolidation_and_martial_law",
+   "laws": {
+    "power": "autocracy",
+    "press": "limited_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "indonesia_springer"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "TUN-1957-07",
+   "date": "1957-07-25",
+   "capitalRegion": "TUN_TUN",
+   "rename": true,
+   "name_en": "Tunisian Republic",
+   "name_vi": "Cộng hòa Tunisia",
+   "type": "republic_proclamation",
+   "laws": {
+    "power": "one_party_state",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "tun_history",
+    "oup_mena"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "SYR-1958-02",
+   "date": "1958-02-22",
+   "capitalRegion": "EGY_DAM",
+   "rename": true,
+   "name_en": "United Arab Republic (Syria and Egypt)",
+   "name_vi": "Cộng hòa Ả Rập Thống nhất (Syria và Ai Cập)",
+   "type": "union_and_state_merger",
+   "laws": {
+    "power": "autocracy",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_mena"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "IRQ-1958-07",
+   "date": "1958-07-14",
+   "capitalRegion": "TUR_BAG",
+   "rename": true,
+   "name_en": "Republic of Iraq",
+   "name_vi": "Cộng hòa Iraq",
+   "type": "military_coup_and_republic",
+   "laws": {
+    "power": "autocracy",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "iraq_history",
+    "oup_mena"
    ],
    "quality": "supported"
   },
@@ -993,6 +1691,118 @@
    "quality": "verified"
   },
   {
+   "id": "PAK-1958-10",
+   "date": "1958-10-07",
+   "capitalRegion": "SND_HYD",
+   "rename": false,
+   "name_en": "Pakistan under military rule of Ayub Khan",
+   "name_vi": "Pakistan dưới chế độ quân sự Ayub Khan",
+   "type": "military_coup",
+   "laws": {
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "pakistan_history"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "CUB-1959-01",
+   "date": "1959-01-01",
+   "capitalRegion": "SPA_CUB",
+   "rename": false,
+   "name_en": "Revolutionary Government of Cuba",
+   "name_vi": "Chính phủ Cách mạng Cuba",
+   "type": "revolution_and_regime_change",
+   "laws": {
+    "power": "autocracy",
+    "economy": "interventionism"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "cuba_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "TUN-1959-06",
+   "date": "1959-06-01",
+   "capitalRegion": "TUN_TUN",
+   "rename": false,
+   "name_en": "Tunisian Republic under the 1959 Constitution",
+   "name_vi": "Cộng hòa Tunisia theo Hiến pháp 1959",
+   "type": "constitution",
+   "laws": {
+    "power": "one_party_state",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "tun_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "TUR-1960-05",
+   "date": "1960-05-27",
+   "capitalRegion": "TUR_ANC",
+   "rename": false,
+   "name_en": "Republic of Turkey under military junta",
+   "name_vi": "Cộng hòa Thổ Nhĩ Kỳ dưới chính quyền quân sự",
+   "type": "military_coup",
+   "laws": {
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "turkey_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "COD-1960-06",
+   "date": "1960-06-30",
+   "capitalRegion": "DZ_KONGO",
+   "rename": true,
+   "name_en": "Republic of the Congo (Leopoldville)",
+   "name_vi": "Cộng hòa Congo (Leopoldville)",
+   "type": "independence",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_male_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_africa"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "GHA-1960-07",
+   "date": "1960-07-01",
+   "capitalRegion": "DZ_FANTE",
+   "rename": true,
+   "name_en": "Republic of Ghana",
+   "name_vi": "Cộng hòa Ghana",
+   "type": "republic_proclamation",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_male_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "ghana_coups"
+   ],
+   "quality": "supported"
+  },
+  {
    "id": "CZE-1960-07",
    "date": "1960-07-11",
    "capitalRegion": "AUS_BOH",
@@ -1008,6 +1818,197 @@
    "independenceRegions": null,
    "sources": [
     "cze_us"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "NGA-1960-10",
+   "date": "1960-10-01",
+   "capitalRegion": "OYO_OYO",
+   "rename": true,
+   "name_en": "Federation of Nigeria",
+   "name_vi": "Liên bang Nigeria",
+   "type": "independence",
+   "laws": {
+    "governance": "monarchy",
+    "power": "universal_male_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_africa",
+    "nigeria_coups"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "NPL-1960-12",
+   "date": "1960-12-15",
+   "capitalRegion": "NEP_KAT",
+   "rename": false,
+   "name_en": "Panchayat system under royal rule",
+   "name_vi": "Hệ thống Panchayat dưới quyền nhà vua",
+   "type": "royal_coup_and_partyless_system",
+   "laws": {
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "nepal_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "CUB-1961-04",
+   "date": "1961-04-16",
+   "capitalRegion": "SPA_CUB",
+   "rename": true,
+   "name_en": "Socialist Republic of Cuba",
+   "name_vi": "Cộng hòa Xã hội chủ nghĩa Cuba",
+   "type": "socialist_one_party_state",
+   "laws": {
+    "power": "one_party_state",
+    "economy": "command_economy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "cuba_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "ZAF-1961-05",
+   "date": "1961-05-31",
+   "capitalRegion": "NDE_MOS",
+   "rename": false,
+   "name_en": "Republic of South Africa under apartheid",
+   "name_vi": "Cộng hòa Nam Phi dưới chế độ Apartheid",
+   "type": "republic_proclamation",
+   "laws": {
+    "governance": "republic",
+    "power": "census_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "south_africa_pres"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "SYR-1961-09",
+   "date": "1961-09-28",
+   "capitalRegion": "EGY_DAM",
+   "rename": true,
+   "name_en": "Syrian Arab Republic",
+   "name_vi": "Cộng hòa Ả Rập Syria",
+   "type": "secession_and_republic_restoration",
+   "laws": {
+    "power": "autocracy",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_mena"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "MMR-1962-03",
+   "date": "1962-03-02",
+   "capitalRegion": "BUR_PEG",
+   "rename": false,
+   "name_en": "Burmese military government under Ne Win",
+   "name_vi": "Chính quyền quân sự Miến Điện dưới thời Ne Win",
+   "type": "military_coup",
+   "laws": {
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_asia"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "DZA-1962-07",
+   "date": "1962-07-05",
+   "capitalRegion": "FRA_ALG",
+   "rename": true,
+   "name_en": "People's Democratic Republic of Algeria",
+   "name_vi": "Cộng hòa Dân chủ Nhân dân Algeria",
+   "type": "independence_and_republic",
+   "laws": {
+    "power": "one_party_state",
+    "governance": "republic",
+    "economy": "interventionism"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "algeria_history",
+    "oup_mena"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "YEM-1962-09",
+   "date": "1962-09-26",
+   "capitalRegion": "YEM_SAN",
+   "rename": true,
+   "name_en": "Yemen Arab Republic",
+   "name_vi": "Cộng hòa Ả Rập Yemen",
+   "type": "military_revolution_and_republic",
+   "laws": {
+    "governance": "republic",
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "yemen_state"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "MOR-1962-12",
+   "date": "1962-12-07",
+   "capitalRegion": "MOR_FES",
+   "rename": false,
+   "name_en": "Kingdom of Morocco under the 1962 Constitution",
+   "name_vi": "Vương quốc Maroc theo Hiến pháp 1962",
+   "type": "constitution",
+   "laws": {
+    "power": "census_suffrage",
+    "governance": "monarchy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "mor_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "SYR-1963-03",
+   "date": "1963-03-08",
+   "capitalRegion": "EGY_DAM",
+   "rename": false,
+   "name_en": "Syrian Arab Republic under Ba'ath Party rule",
+   "name_vi": "Cộng hòa Ả Rập Syria dưới chế độ Ba'ath",
+   "type": "coup_and_one_party_rule",
+   "laws": {
+    "power": "one_party_state",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_mena"
    ],
    "quality": "supported"
   },
@@ -1031,6 +2032,581 @@
    "quality": "verified"
   },
   {
+   "id": "NGA-1963-10",
+   "date": "1963-10-01",
+   "capitalRegion": "OYO_OYO",
+   "rename": true,
+   "name_en": "Federal Republic of Nigeria",
+   "name_vi": "Cộng hòa Liên bang Nigeria",
+   "type": "republic_proclamation",
+   "laws": {
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "nigeria_coups"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "KEN-1963-12",
+   "date": "1963-12-12",
+   "capitalRegion": "DZ_KENYA_INT",
+   "rename": false,
+   "name_en": "Dominion of Kenya",
+   "name_vi": "Lãnh thổ tự trị Kenya",
+   "type": "independence",
+   "laws": {
+    "governance": "monarchy",
+    "power": "universal_male_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_africa"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "BRA-1964-04",
+   "date": "1964-04-01",
+   "capitalRegion": "BRA_GOI",
+   "rename": false,
+   "name_en": "Brazilian Military Regime",
+   "name_vi": "Chế độ Quân sự Brazil",
+   "type": "military_coup",
+   "laws": {
+    "power": "autocracy",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "brazil_military"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "TZA-1964-04",
+   "date": "1964-04-26",
+   "capitalRegion": "OMA_SWA",
+   "rename": true,
+   "name_en": "United Republic of Tanzania",
+   "name_vi": "Cộng hòa Thống nhất Tanzania",
+   "type": "union_and_state_formation",
+   "laws": {
+    "governance": "republic",
+    "power": "one_party_state"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_africa"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "KEN-1964-12",
+   "date": "1964-12-12",
+   "capitalRegion": "DZ_KENYA_INT",
+   "rename": true,
+   "name_en": "Republic of Kenya",
+   "name_vi": "Cộng hòa Kenya",
+   "type": "republic_proclamation",
+   "laws": {
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_africa"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "DZA-1965-06",
+   "date": "1965-06-19",
+   "capitalRegion": "FRA_ALG",
+   "rename": false,
+   "name_en": "Algerian Republic under Houari Boumédiène",
+   "name_vi": "Cộng hòa Algeria dưới thời Houari Boumédiène",
+   "type": "military_coup",
+   "laws": {
+    "power": "one_party_state"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "africa_coups",
+    "algeria_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "TZA-1965-07",
+   "date": "1965-07-10",
+   "capitalRegion": "OMA_SWA",
+   "rename": false,
+   "name_en": "United Republic of Tanzania under one-party constitution",
+   "name_vi": "Cộng hòa Thống nhất Tanzania theo hiến pháp một đảng",
+   "type": "constitutional_one_party_state",
+   "laws": {
+    "power": "one_party_state"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_africa"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "IDN-1965-10",
+   "date": "1965-10-01",
+   "capitalRegion": "NED_JAW",
+   "rename": false,
+   "name_en": "New Order under Suharto",
+   "name_vi": "Trật tự Mới dưới thời Suharto",
+   "type": "military_takeover_and_regime_transition",
+   "laws": {
+    "power": "one_party_state",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "indonesia_springer"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "COD-1965-11",
+   "date": "1965-11-24",
+   "capitalRegion": "DZ_KONGO",
+   "rename": false,
+   "name_en": "Republic of the Congo under Mobutu",
+   "name_vi": "Cộng hòa Congo dưới thời Mobutu",
+   "type": "military_coup",
+   "laws": {
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "africa_coups",
+    "congo_history"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "NGA-1966-01",
+   "date": "1966-01-15",
+   "capitalRegion": "OYO_OYO",
+   "rename": false,
+   "name_en": "Federal Military Government of Nigeria",
+   "name_vi": "Chính phủ Quân sự Liên bang Nigeria",
+   "type": "military_coup",
+   "laws": {
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "africa_coups",
+    "nigeria_coups"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "GHA-1966-02",
+   "date": "1966-02-24",
+   "capitalRegion": "DZ_FANTE",
+   "rename": false,
+   "name_en": "National Liberation Council military government",
+   "name_vi": "Chính quyền quân sự Hội đồng Giải phóng Dân tộc",
+   "type": "military_coup",
+   "laws": {
+    "power": "autocracy",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "africa_coups",
+    "ghana_coups"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "YMD-1967-11",
+   "date": "1967-11-30",
+   "capitalRegion": "DZ_ADEN",
+   "rename": true,
+   "name_en": "People's Republic of Southern Yemen",
+   "name_vi": "Cộng hòa Nhân dân Nam Yemen",
+   "type": "independence_and_republic",
+   "laws": {
+    "governance": "republic",
+    "power": "one_party_state"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "yemen_state"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "IRQ-1968-07",
+   "date": "1968-07-17",
+   "capitalRegion": "TUR_BAG",
+   "rename": false,
+   "name_en": "Ba'athist Republic of Iraq",
+   "name_vi": "Cộng hòa Iraq dưới Đảng Ba'ath",
+   "type": "coup_and_one_party_consolidation",
+   "laws": {
+    "power": "one_party_state",
+    "economy": "command_economy",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "iraq_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "LBY-1969-09",
+   "date": "1969-09-01",
+   "capitalRegion": "TUR_TRI",
+   "rename": false,
+   "name_en": "Libyan Arab Republic under the Revolutionary Command Council",
+   "name_vi": "Cộng hòa Ả Rập Libya dưới Hội đồng Chỉ huy Cách mạng",
+   "type": "military_coup_and_republic",
+   "laws": {
+    "power": "autocracy",
+    "governance": "republic",
+    "economy": "interventionism"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "libya_cornell",
+    "libya_crs"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "KHM-1970-10",
+   "date": "1970-10-09",
+   "capitalRegion": "VNM_TTT",
+   "rename": true,
+   "name_en": "Khmer Republic",
+   "name_vi": "Cộng hòa Khmer",
+   "type": "coup_and_republic",
+   "laws": {
+    "governance": "republic",
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_asia"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "SYR-1970-11",
+   "date": "1970-11-16",
+   "capitalRegion": "EGY_DAM",
+   "rename": false,
+   "name_en": "Syrian Arab Republic under Hafez al-Assad",
+   "name_vi": "Cộng hòa Ả Rập Syria dưới thời Hafez al-Assad",
+   "type": "corrective_movement_and_leadership_change",
+   "laws": {
+    "power": "one_party_state"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_mena"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "YMD-1970-11",
+   "date": "1970-11-30",
+   "capitalRegion": "DZ_ADEN",
+   "rename": true,
+   "name_en": "People's Democratic Republic of Yemen",
+   "name_vi": "Cộng hòa Dân chủ Nhân dân Yemen",
+   "type": "constitutional_renaming_and_socialist_state",
+   "laws": {
+    "power": "one_party_state",
+    "economy": "command_economy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "yemen_state"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "COD-1971-10",
+   "date": "1971-10-27",
+   "capitalRegion": "DZ_KONGO",
+   "rename": true,
+   "name_en": "Republic of Zaire",
+   "name_vi": "Cộng hòa Zaire",
+   "type": "state_renaming_and_authenticity_campaign",
+   "laws": {
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "congo_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "BGD-1971-03",
+   "date": "1971-12-16",
+   "capitalRegion": "EIC_BEN",
+   "rename": true,
+   "name_en": "People's Republic of Bangladesh",
+   "name_vi": "Cộng hòa Nhân dân Bangladesh",
+   "type": "independence_declaration_and_liberation_war",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_male_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": [
+    "EIC_BEN"
+   ],
+   "sources": [
+    "bangladesh_archives",
+    "bangladesh_supreme"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "GHA-1972-01",
+   "date": "1972-01-13",
+   "capitalRegion": "DZ_FANTE",
+   "rename": false,
+   "name_en": "National Redemption Council military government",
+   "name_vi": "Chính quyền quân sự Hội đồng Cứu quốc",
+   "type": "military_coup",
+   "laws": {
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "ghana_coups",
+    "africa_coups"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "LKA-1972-05",
+   "date": "1972-05-22",
+   "capitalRegion": "GBR_CEY",
+   "rename": true,
+   "name_en": "Republic of Sri Lanka",
+   "name_vi": "Cộng hòa Sri Lanka",
+   "type": "republic_and_constitution",
+   "laws": {
+    "governance": "republic",
+    "church": "state_religion"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "sri_lanka_history"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "PHL-1972-09",
+   "date": "1972-09-21",
+   "capitalRegion": "SPA_PHL",
+   "rename": false,
+   "name_en": "Republic of the Philippines under Marcos martial law",
+   "name_vi": "Cộng hòa Philippines dưới Thiết quân luật Marcos",
+   "type": "martial_law_and_authoritarian_rule",
+   "laws": {
+    "power": "autocracy",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_asia"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "AFG-1973-07",
+   "date": "1973-07-17",
+   "capitalRegion": "AFG_KAB",
+   "rename": false,
+   "name_en": "Republic of Afghanistan under Daoud Khan",
+   "name_vi": "Cộng hòa Afghanistan dưới thời Daoud Khan",
+   "type": "military_coup_and_republic",
+   "laws": {
+    "governance": "republic",
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "afghanistan_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "PAK-1973-08",
+   "date": "1973-08-14",
+   "capitalRegion": "SND_HYD",
+   "rename": false,
+   "name_en": "Islamic Republic of Pakistan under 1973 Constitution",
+   "name_vi": "Cộng hòa Hồi giáo Pakistan theo Hiến pháp 1973",
+   "type": "constitution_and_parliamentary_republic",
+   "laws": {
+    "power": "universal_male_suffrage",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "pakistan_history"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "CHL-1973-09",
+   "date": "1973-09-11",
+   "capitalRegion": "CHL_SAN",
+   "rename": false,
+   "name_en": "Military Government Junta of Chile",
+   "name_vi": "Chính quyền quân sự Chile",
+   "type": "military_coup",
+   "laws": {
+    "power": "autocracy",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "chile_history"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "MMR-1974-01",
+   "date": "1974-01-03",
+   "capitalRegion": "BUR_PEG",
+   "rename": true,
+   "name_en": "Socialist Republic of the Union of Burma",
+   "name_vi": "Cộng hòa Xã hội chủ nghĩa Liên bang Miến Điện",
+   "type": "constitution_and_one_party_state",
+   "laws": {
+    "power": "one_party_state",
+    "governance": "republic",
+    "economy": "command_economy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_asia"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "ETH-1974-09",
+   "date": "1974-09-12",
+   "capitalRegion": "SHE_ANK",
+   "rename": false,
+   "name_en": "Provisional Military Administrative Council (Derg)",
+   "name_vi": "Hội đồng Quân chính Lâm thời (Derg)",
+   "type": "military_revolution_and_monarchy_overthrow",
+   "laws": {
+    "power": "autocracy",
+    "governance": "republic",
+    "economy": "command_economy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "ethiopia_history"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "ETH-1975-03",
+   "date": "1975-03-21",
+   "capitalRegion": "SHE_ANK",
+   "rename": false,
+   "name_en": "Provisional Military Government of Socialist Ethiopia",
+   "name_vi": "Chính phủ Quân sự Lâm thời Ethiopia Xã hội chủ nghĩa",
+   "type": "republic_and_socialist_state",
+   "laws": {
+    "power": "autocracy",
+    "governance": "republic",
+    "economy": "command_economy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "ethiopia_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "KHM-1975-04",
+   "date": "1975-04-17",
+   "capitalRegion": "VNM_TTT",
+   "rename": true,
+   "name_en": "Democratic Kampuchea",
+   "name_vi": "Campuchia Dân chủ",
+   "type": "revolution_and_one_party_state",
+   "laws": {
+    "power": "one_party_state",
+    "governance": "republic",
+    "economy": "command_economy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_asia"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "BGD-1975-08",
+   "date": "1975-08-15",
+   "capitalRegion": "EIC_BEN",
+   "rename": false,
+   "name_en": "Bangladesh under military-backed presidential rule",
+   "name_vi": "Bangladesh dưới chế độ tổng thống được quân đội hậu thuẫn",
+   "type": "military_coup_and_presidential_shift",
+   "laws": {
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "bangladesh_history"
+   ],
+   "quality": "supported"
+  },
+  {
    "id": "SPA-1975-11",
    "date": "1975-11-20",
    "capitalRegion": "SPA_MAD",
@@ -1047,6 +2623,45 @@
    "sources": [
     "spain_senate_constitution",
     "spain_senate_transition"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "LAO-1975-12",
+   "date": "1975-12-02",
+   "capitalRegion": "VNM_TNI",
+   "rename": true,
+   "name_en": "Lao People's Democratic Republic",
+   "name_vi": "Cộng hòa Dân chủ Nhân dân Lào",
+   "type": "revolution_and_one_party_state",
+   "laws": {
+    "power": "one_party_state",
+    "governance": "republic",
+    "economy": "command_economy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_asia"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "ARG-1976-03",
+   "date": "1976-03-24",
+   "capitalRegion": "ARG_BAI",
+   "rename": false,
+   "name_en": "National Reorganization Process military dictatorship",
+   "name_vi": "Chế độ độc tài quân sự Tiến trình Tái tổ chức Quốc gia",
+   "type": "military_coup",
+   "laws": {
+    "power": "autocracy",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "argentina_history"
    ],
    "quality": "supported"
   },
@@ -1072,6 +2687,214 @@
    "quality": "verified"
   },
   {
+   "id": "LBY-1977-03",
+   "date": "1977-03-02",
+   "capitalRegion": "TUR_TRI",
+   "rename": true,
+   "name_en": "Great Socialist People's Libyan Arab Jamahiriya",
+   "name_vi": "Đại Dân quốc Nhân dân Xã hội chủ nghĩa Ả Rập Libya",
+   "type": "constitutional_regime_redefinition",
+   "laws": {
+    "power": "one_party_state",
+    "governance": "republic",
+    "economy": "command_economy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "libya_cornell"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "PAK-1977-07",
+   "date": "1977-07-05",
+   "capitalRegion": "SND_HYD",
+   "rename": false,
+   "name_en": "Pakistan under Zia-ul-Haq military rule",
+   "name_vi": "Pakistan dưới chế độ quân sự Zia-ul-Haq",
+   "type": "military_coup",
+   "laws": {
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "pakistan_history"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "AFG-1978-04",
+   "date": "1978-04-27",
+   "capitalRegion": "AFG_KAB",
+   "rename": true,
+   "name_en": "Democratic Republic of Afghanistan",
+   "name_vi": "Cộng hòa Dân chủ Afghanistan",
+   "type": "revolution_and_one_party_state",
+   "laws": {
+    "power": "one_party_state",
+    "economy": "command_economy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "afghanistan_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "LKA-1978-09",
+   "date": "1978-09-07",
+   "capitalRegion": "GBR_CEY",
+   "rename": true,
+   "name_en": "Democratic Socialist Republic of Sri Lanka under executive presidency",
+   "name_vi": "Cộng hòa Xã hội chủ nghĩa Dân chủ Sri Lanka",
+   "type": "constitution_and_executive_presidency",
+   "laws": {
+    "power": "universal_suffrage",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "sri_lanka_history"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "KHM-1979-01",
+   "date": "1979-01-10",
+   "capitalRegion": "VNM_TTT",
+   "rename": true,
+   "name_en": "People's Republic of Kampuchea",
+   "name_vi": "Cộng hòa Nhân dân Campuchia",
+   "type": "regime_overthrow_and_new_government",
+   "laws": {
+    "power": "one_party_state",
+    "economy": "command_economy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_asia"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "PRS-1979-02",
+   "date": "1979-02-11",
+   "capitalRegion": "PRS_TEH",
+   "rename": true,
+   "name_en": "Islamic Republic of Iran",
+   "name_vi": "Cộng hòa Hồi giáo Iran",
+   "type": "revolution_and_theocratic_republic",
+   "laws": {
+    "power": "theocracy",
+    "governance": "theocracy",
+    "church": "state_religion"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "iran_crs",
+    "iranica_constitution"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "GHA-1979-06",
+   "date": "1979-06-04",
+   "capitalRegion": "DZ_FANTE",
+   "rename": false,
+   "name_en": "Armed Forces Revolutionary Council",
+   "name_vi": "Hội đồng Cách mạng Lực lượng Vũ trang",
+   "type": "military_coup",
+   "laws": {
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "ghana_coups"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "NGA-1979-10",
+   "date": "1979-10-01",
+   "capitalRegion": "OYO_OYO",
+   "rename": true,
+   "name_en": "Second Republic of Nigeria",
+   "name_vi": "Đệ nhị Cộng hòa Nigeria",
+   "type": "civilian_transition",
+   "laws": {
+    "power": "universal_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "nigeria_coups"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "TUR-1980-09",
+   "date": "1980-09-12",
+   "capitalRegion": "TUR_ANC",
+   "rename": false,
+   "name_en": "Republic of Turkey under National Security Council military rule",
+   "name_vi": "Cộng hòa Thổ Nhĩ Kỳ dưới Hội đồng An ninh Quốc gia",
+   "type": "military_coup",
+   "laws": {
+    "power": "autocracy",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "turkey_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "ARG-1983-12",
+   "date": "1983-12-10",
+   "capitalRegion": "ARG_BAI",
+   "rename": false,
+   "name_en": "Argentine Republic under restored constitutional democracy",
+   "name_vi": "Cộng hòa Argentina khôi phục dân chủ hiến pháp",
+   "type": "democratic_transition",
+   "laws": {
+    "power": "universal_suffrage",
+    "press": "free_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "argentina_history"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "NGA-1983-12",
+   "date": "1983-12-31",
+   "capitalRegion": "OYO_OYO",
+   "rename": false,
+   "name_en": "Buhari military government",
+   "name_vi": "Chính quyền quân sự Buhari",
+   "type": "military_coup",
+   "laws": {
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "nigeria_coups"
+   ],
+   "quality": "verified"
+  },
+  {
    "id": "USSR-1985-03",
    "date": "1985-03-11",
    "capitalRegion": "RUS_MOS",
@@ -1086,6 +2909,81 @@
    "independence": null,
    "sources": [
     "un_rus_2017"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "BRA-1985-03",
+   "date": "1985-03-15",
+   "capitalRegion": "BRA_GOI",
+   "rename": true,
+   "name_en": "New Republic of Brazil",
+   "name_vi": "Tân Cộng hòa Brazil",
+   "type": "civilian_transition",
+   "laws": {
+    "power": "universal_suffrage",
+    "press": "free_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "brazil_military"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "PHL-1986-02",
+   "date": "1986-02-25",
+   "capitalRegion": "SPA_PHL",
+   "rename": true,
+   "name_en": "Fifth Republic of the Philippines",
+   "name_vi": "Đệ ngũ Cộng hòa Philippines",
+   "type": "people_power_and_democratic_transition",
+   "laws": {
+    "power": "universal_suffrage",
+    "press": "free_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_asia"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "MMR-1988-09",
+   "date": "1988-09-18",
+   "capitalRegion": "BUR_PEG",
+   "rename": false,
+   "name_en": "State Law and Order Restoration Council",
+   "name_vi": "Hội đồng Khôi phục Trật tự và Pháp luật Nhà nước",
+   "type": "military_coup",
+   "laws": {
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_asia"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "DZA-1989-02",
+   "date": "1989-02-23",
+   "capitalRegion": "FRA_ALG",
+   "rename": false,
+   "name_en": "Algerian People's Democratic Republic under multiparty constitutional order",
+   "name_vi": "Algeria theo trật tự hiến pháp đa đảng",
+   "type": "constitutional_transition",
+   "laws": {
+    "power": "universal_suffrage",
+    "press": "limited_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "algeria_history"
    ],
    "quality": "supported"
   },
@@ -1214,6 +3112,25 @@
    "quality": "supported"
   },
   {
+   "id": "CHL-1990-03",
+   "date": "1990-03-11",
+   "capitalRegion": "CHL_SAN",
+   "rename": false,
+   "name_en": "Republic of Chile under restored democracy",
+   "name_vi": "Cộng hòa Chile khôi phục dân chủ",
+   "type": "democratic_transition",
+   "laws": {
+    "power": "universal_suffrage",
+    "press": "free_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "chile_history"
+   ],
+   "quality": "verified"
+  },
+  {
    "id": "USSR-1990-03",
    "date": "1990-03-14",
    "capitalRegion": "RUS_MOS",
@@ -1252,6 +3169,24 @@
    "quality": "supported"
   },
   {
+   "id": "NPL-1990-04",
+   "date": "1990-04-08",
+   "capitalRegion": "NEP_KAT",
+   "rename": false,
+   "name_en": "Kingdom of Nepal under multiparty constitutional monarchy",
+   "name_vi": "Vương quốc Nepal theo quân chủ lập hiến đa đảng",
+   "type": "people_movement_and_constitutional_restoration",
+   "laws": {
+    "power": "universal_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "nepal_history"
+   ],
+   "quality": "supported"
+  },
+  {
    "id": "CZE-1990-04",
    "date": "1990-04-23",
    "capitalRegion": "AUS_BOH",
@@ -1269,6 +3204,25 @@
     "cze_history"
    ],
    "quality": "supported"
+  },
+  {
+   "id": "YEM-1990-05",
+   "date": "1990-05-22",
+   "capitalRegion": "YEM_SAN",
+   "rename": true,
+   "name_en": "Republic of Yemen",
+   "name_vi": "Cộng hòa Yemen",
+   "type": "unification",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_male_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "yemen_state"
+   ],
+   "quality": "verified"
   },
   {
    "id": "BUL-1990-11",
@@ -1332,6 +3286,24 @@
     "albania_pres"
    ],
    "quality": "verified"
+  },
+  {
+   "id": "ETH-1991-05",
+   "date": "1991-05-28",
+   "capitalRegion": "SHE_ANK",
+   "rename": false,
+   "name_en": "Transitional Government of Ethiopia",
+   "name_vi": "Chính phủ Chuyển tiếp Ethiopia",
+   "type": "regime_overthrow_and_transition",
+   "laws": {
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "ethiopia_history"
+   ],
+   "quality": "supported"
   },
   {
    "id": "BUL-1991-07-CONSTITUTION",
@@ -1521,6 +3493,25 @@
    "quality": "supported"
   },
   {
+   "id": "BGD-1991-09",
+   "date": "1991-09-18",
+   "capitalRegion": "EIC_BEN",
+   "rename": false,
+   "name_en": "Bangladesh under parliamentary democracy",
+   "name_vi": "Bangladesh theo chế độ dân chủ nghị viện",
+   "type": "constitutional_amendment_and_parliamentary_restoration",
+   "laws": {
+    "power": "universal_suffrage",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "bangladesh_history"
+   ],
+   "quality": "supported"
+  },
+  {
    "id": "USSR-ARM-1991",
    "date": "1991-09-21",
    "capitalRegion": "RUS_ARM",
@@ -1704,6 +3695,62 @@
    "quality": "supported"
   },
   {
+   "id": "GHA-1992-01",
+   "date": "1992-01-07",
+   "capitalRegion": "DZ_FANTE",
+   "rename": true,
+   "name_en": "Fourth Republic of Ghana",
+   "name_vi": "Đệ tứ Cộng hòa Ghana",
+   "type": "constitutional_democratic_transition",
+   "laws": {
+    "power": "universal_suffrage",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "ghana_coups"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "DZA-1992-01",
+   "date": "1992-01-11",
+   "capitalRegion": "FRA_ALG",
+   "rename": false,
+   "name_en": "Algerian Republic under military-backed emergency rule",
+   "name_vi": "Cộng hòa Algeria dưới tình trạng khẩn cấp do quân đội hậu thuẫn",
+   "type": "military_intervention",
+   "laws": {
+    "power": "autocracy",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "algeria_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "TZA-1992-02",
+   "date": "1992-02-01",
+   "capitalRegion": "DZ_NYAMWEZI",
+   "rename": false,
+   "name_en": "United Republic of Tanzania under multiparty constitution",
+   "name_vi": "Cộng hòa Thống nhất Tanzania theo hiến pháp đa đảng",
+   "type": "constitutional_transition",
+   "laws": {
+    "power": "universal_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "tanzania_history"
+   ],
+   "quality": "supported"
+  },
+  {
    "id": "YUG-BIH-1992-03",
    "date": "1992-03-06",
    "capitalRegion": "TUR_BOS",
@@ -1746,6 +3793,25 @@
    "quality": "verified"
   },
   {
+   "id": "AFG-1992-04",
+   "date": "1992-04-28",
+   "capitalRegion": "AFG_KAB",
+   "rename": true,
+   "name_en": "Islamic State of Afghanistan",
+   "name_vi": "Nhà nước Hồi giáo Afghanistan",
+   "type": "regime_collapse_and_mujahideen_government",
+   "laws": {
+    "power": "autocracy",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "afghanistan_history"
+   ],
+   "quality": "supported"
+  },
+  {
    "id": "CSK-SVK-1993-01",
    "date": "1993-01-01",
    "capitalRegion": "AUS_UPH",
@@ -1785,6 +3851,348 @@
     "yugoslavia_un"
    ],
    "quality": "supported"
+  },
+  {
+   "id": "KHM-1993-09",
+   "date": "1993-09-24",
+   "capitalRegion": "VNM_TTT",
+   "rename": false,
+   "name_en": "Kingdom of Cambodia restored",
+   "name_vi": "Vương quốc Campuchia được khôi phục",
+   "type": "monarchy_restoration_and_constitution",
+   "laws": {
+    "power": "universal_male_suffrage",
+    "governance": "monarchy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "oup_asia"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "ZAF-1994-04",
+   "date": "1994-04-27",
+   "capitalRegion": "NDE_MOS",
+   "rename": true,
+   "name_en": "Democratic Republic of South Africa",
+   "name_vi": "Cộng hòa Dân chủ Nam Phi",
+   "type": "democratic_transition",
+   "laws": {
+    "power": "universal_suffrage",
+    "press": "free_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "south_africa_gov",
+    "us_apartheid"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "AFG-1996-09",
+   "date": "1996-09-27",
+   "capitalRegion": "AFG_KAB",
+   "rename": true,
+   "name_en": "Islamic Emirate of Afghanistan (first Taliban period)",
+   "name_vi": "Tiểu vương quốc Hồi giáo Afghanistan (Taliban lần thứ nhất)",
+   "type": "military_takeover_and_emirate",
+   "laws": {
+    "power": "theocracy",
+    "governance": "theocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "afghanistan_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "ZAI-1997-05",
+   "date": "1997-05-17",
+   "capitalRegion": "DZ_KONGO",
+   "rename": true,
+   "name_en": "Democratic Republic of the Congo",
+   "name_vi": "Cộng hòa Dân chủ Congo",
+   "type": "regime_overthrow_and_state_renaming",
+   "laws": {
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "congo_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "IDN-1998-05",
+   "date": "1998-05-21",
+   "capitalRegion": "NED_JAW",
+   "rename": false,
+   "name_en": "Reformasi-era Republic of Indonesia",
+   "name_vi": "Cộng hòa Indonesia thời Reformasi",
+   "type": "resignation_and_democratic_transition",
+   "laws": {
+    "power": "universal_suffrage",
+    "press": "free_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "indonesia_springer"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "NGA-1999-05",
+   "date": "1999-05-29",
+   "capitalRegion": "SOK_ILO",
+   "rename": true,
+   "name_en": "Fourth Republic of Nigeria",
+   "name_vi": "Đệ tứ Cộng hòa Nigeria",
+   "type": "democratic_transition",
+   "laws": {
+    "power": "universal_suffrage",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "nigeria_coups"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "MEX-2000-12",
+   "date": "2000-12-01",
+   "capitalRegion": "MEX_MEX",
+   "rename": false,
+   "name_en": "Mexico under competitive multiparty alternation",
+   "name_vi": "Mexico với cạnh tranh và luân phiên đa đảng",
+   "type": "democratic_alternation",
+   "laws": {
+    "power": "universal_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "mexico_crs"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "AFG-2001-12",
+   "date": "2001-12-22",
+   "capitalRegion": "AFG_KAB",
+   "rename": false,
+   "name_en": "Afghan Interim Authority",
+   "name_vi": "Chính quyền Lâm thời Afghanistan",
+   "type": "regime_overthrow_and_interim_authority",
+   "laws": {
+    "power": "universal_male_suffrage",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "afghanistan_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "IRQ-2003-04",
+   "date": "2003-04-09",
+   "capitalRegion": "TUR_BAG",
+   "rename": false,
+   "name_en": "Republic of Iraq under Coalition occupation and transitional authority",
+   "name_vi": "Cộng hòa Iraq dưới chính quyền chiếm đóng và chuyển tiếp",
+   "type": "regime_overthrow_and_occupation",
+   "laws": {
+    "power": "autocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "iraq_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "NPL-2008-05",
+   "date": "2008-05-28",
+   "capitalRegion": "NEP_KAT",
+   "rename": true,
+   "name_en": "Federal Democratic Republic of Nepal",
+   "name_vi": "Cộng hòa Dân chủ Liên bang Nepal",
+   "type": "monarchy_abolition_and_republic",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "nepal_history"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "PAK-2008-09",
+   "date": "2008-09-09",
+   "capitalRegion": "SND_HYD",
+   "rename": false,
+   "name_en": "Pakistan under elected civilian presidency",
+   "name_vi": "Pakistan dưới tổng thống dân sự được bầu",
+   "type": "civilian_transition",
+   "laws": {
+    "power": "universal_male_suffrage"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "pakistan_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "TUN-2011-01",
+   "date": "2011-01-14",
+   "capitalRegion": "TUN_TUN",
+   "rename": false,
+   "name_en": "Tunisian Republic after the Jasmine Revolution",
+   "name_vi": "Cộng hòa Tunisia sau Cách mạng Hoa Nhài",
+   "type": "revolution_and_transition",
+   "laws": {
+    "power": "universal_suffrage",
+    "press": "free_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "tun_transition"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "MMR-2011-03",
+   "date": "2011-03-30",
+   "capitalRegion": "BUR_AVA",
+   "rename": false,
+   "name_en": "Republic of the Union of Myanmar under quasi-civilian government",
+   "name_vi": "Cộng hòa Liên bang Myanmar dưới chính phủ bán dân sự",
+   "type": "managed_transition",
+   "laws": {
+    "power": "universal_male_suffrage",
+    "press": "limited_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "myanmar_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "TUR-2017-04",
+   "date": "2017-04-16",
+   "capitalRegion": "TUR_ANC",
+   "rename": false,
+   "name_en": "Republic of Turkey under executive-presidential system",
+   "name_vi": "Cộng hòa Thổ Nhĩ Kỳ theo chế độ tổng thống hành pháp",
+   "type": "constitutional_system_change",
+   "laws": {
+    "power": "universal_male_suffrage",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "turkey_2017"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "MMR-2021-02",
+   "date": "2021-02-01",
+   "capitalRegion": "BUR_AVA",
+   "rename": false,
+   "name_en": "State Administration Council military regime",
+   "name_vi": "Chính quyền quân sự Hội đồng Quản lý Nhà nước",
+   "type": "military_coup",
+   "laws": {
+    "power": "autocracy",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "myanmar_history"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "AFG-2021-08",
+   "date": "2021-08-15",
+   "capitalRegion": "AFG_KAB",
+   "rename": true,
+   "name_en": "Islamic Emirate of Afghanistan (second Taliban period)",
+   "name_vi": "Tiểu vương quốc Hồi giáo Afghanistan (Taliban lần thứ hai)",
+   "type": "regime_overthrow_and_emirate_restoration",
+   "laws": {
+    "power": "theocracy",
+    "governance": "theocracy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "afghanistan_history"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "SYR-2024-12",
+   "date": "2024-12-08",
+   "capitalRegion": "EGY_DAM",
+   "rename": false,
+   "name_en": "Syrian Arab Republic under transitional administration",
+   "name_vi": "Cộng hòa Ả Rập Syria dưới chính quyền chuyển tiếp",
+   "type": "government_overthrow_and_transition",
+   "laws": {
+    "power": "autocracy",
+    "press": "limited_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "syria_euaa_2026",
+    "syria_un_2025"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "SYR-2025-03-13",
+   "date": "2025-03-13",
+   "capitalRegion": "EGY_DAM",
+   "rename": false,
+   "name_en": "Syrian Arab Republic under the 2025 Transitional Constitutional Declaration",
+   "name_vi": "Cộng hòa Ả Rập Syria theo Tuyên bố Hiến pháp Chuyển tiếp năm 2025",
+   "type": "transitional_constitutional_declaration",
+   "laws": {
+    "power": "autocracy",
+    "governance": "republic",
+    "press": "limited_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "syria_euaa_2026",
+    "syria_un_2025"
+   ],
+   "quality": "verified"
   }
  ]
 }

@@ -34,7 +34,6 @@
     "HOL_IND",
     "HYD_HYD",
     "NAG_NAG",
-    "POR_GOA",
     "PRI_CIN",
     "PRI_CIS",
     "PRI_KTH",
@@ -1149,6 +1148,260 @@
    "predecessor": "New Hebrides Condominium",
    "source": "UN decolonization chronology",
    "regions": []
+  },
+  {
+   "id": "indep_vnm",
+   "iso": "VNM",
+   "name": "Viet Nam",
+   "name_vi": "Viet Nam",
+   "power": "France",
+   "date": "1945-09-02",
+   "mode": "war",
+   "predecessor": "French Indochina",
+   "source": "Declaration of Independence (2 Sep 1945); Franco-Vietnamese Treaty of Independence (4 Jun 1954)",
+   "regions": [
+    "DZ_HIGHLANDS",
+    "VNM_GDI",
+    "VNM_HAN",
+    "VNM_HUE",
+    "VNM_SCE",
+    "VNM_TBC"
+   ]
+  },
+  {
+   "id": "indep_lao",
+   "iso": "LAO",
+   "name": "Laos",
+   "name_vi": "Laos",
+   "power": "France",
+   "date": "1953-10-22",
+   "mode": "negotiated",
+   "predecessor": "French Protectorate of Laos",
+   "source": "Franco-Lao Treaty of Amity and Association (22 Oct 1953); UN International Law Commission A/CN.4/730",
+   "regions": [
+    "LUA_LUA",
+    "SIA_CHA",
+    "VNM_THN",
+    "VNM_TNI"
+   ]
+  },
+  {
+   "id": "indep_khm",
+   "iso": "KHM",
+   "name": "Cambodia",
+   "name_vi": "Cambodia",
+   "power": "France",
+   "date": "1953-11-09",
+   "mode": "negotiated",
+   "predecessor": "French Protectorate of Cambodia",
+   "source": "Cambodian Royal Crusade for Independence; FRUS telegram (11 Nov 1953); Cambodian government historical records",
+   "regions": [
+    "SIA_BAT",
+    "VNM_TTT"
+   ]
+  },
+  {
+   "id": "indep_mys",
+   "iso": "MYS",
+   "name": "Malaysia",
+   "name_vi": "Malaysia",
+   "power": "United Kingdom",
+   "date": "1957-08-31",
+   "mode": "negotiated",
+   "predecessor": "Federation of Malaya",
+   "source": "Federation of Malaya Agreement 1957; Government of Malaysia historical portal",
+   "regions": [
+    "BRN_SAR",
+    "DZ_SABAH",
+    "EIC_MLK",
+    "EIC_PEN",
+    "EIC_SIN",
+    "MLY_KTR",
+    "MLY_PAH",
+    "MLY_PER"
+   ]
+  },
+  {
+   "id": "indep_sgp",
+   "iso": "SGP",
+   "name": "Singapore",
+   "name_vi": "Singapore",
+   "power": "United Kingdom / Malaysia",
+   "date": "1965-08-09",
+   "mode": "negotiated",
+   "predecessor": "State of Singapore within Malaysia",
+   "source": "Singapore Independence Act 1965; UN Treaty Series Agreement relating to separation of Singapore from Malaysia",
+   "regions": []
+  },
+  {
+   "id": "indep_brn",
+   "iso": "BRN",
+   "name": "Brunei Darussalam",
+   "name_vi": "Brunei Darussalam",
+   "power": "United Kingdom",
+   "date": "1984-01-01",
+   "mode": "negotiated",
+   "predecessor": "British Protectorate of Brunei",
+   "source": "Brunei Proclamation of Independence; US Office of the Historian; Brunei government country facts",
+   "regions": [
+    "BRN_BRN"
+   ]
+  },
+  {
+   "id": "indep_kor",
+   "iso": "KOR",
+   "name": "Republic of Korea",
+   "name_vi": "Republic of Korea",
+   "power": "Japan / United States occupation zone",
+   "date": "1948-08-15",
+   "mode": "partition",
+   "predecessor": "Japanese Korea and US-occupied southern zone",
+   "source": "National Institute of Korean History: Establishment of the Republic of Korea (1948)",
+   "regions": [
+    "KOR_GSA",
+    "KOR_GYE",
+    "KOR_JEO"
+   ]
+  },
+  {
+   "id": "indep_prk",
+   "iso": "PRK",
+   "name": "Democratic People's Republic of Korea",
+   "name_vi": "Democratic People's Republic of Korea",
+   "power": "Japan / Soviet occupation zone",
+   "date": "1948-09-09",
+   "mode": "partition",
+   "predecessor": "Japanese Korea and Soviet-occupied northern zone",
+   "source": "National Institute of Korean History: Establishment of the DPRK (1948)",
+   "regions": [
+    "KOR_HAM",
+    "KOR_PYO"
+   ]
+  },
+  {
+   "id": "indep_egy",
+   "iso": "EGY",
+   "name": "Egypt",
+   "name_vi": "Egypt",
+   "power": "United Kingdom",
+   "date": "1922-02-28",
+   "mode": "negotiated",
+   "predecessor": "Egypt under British occupation and protectorate",
+   "source": "British Declaration of 28 Feb 1922; Anglo-Egyptian Treaty of Alliance (1936); World Bank historical note",
+   "regions": [
+    "EGY_CAI",
+    "EGY_UPP"
+   ]
+  },
+  {
+   "id": "indep_irq",
+   "iso": "IRQ",
+   "name": "Iraq",
+   "name_vi": "Iraq",
+   "power": "United Kingdom / League of Nations mandate",
+   "date": "1932-10-03",
+   "mode": "negotiated",
+   "predecessor": "Kingdom of Iraq under British mandate",
+   "source": "Declaration of the Kingdom of Iraq; League of Nations admission and mandate records; UN legal study",
+   "regions": [
+    "TUR_BAG",
+    "TUR_BAS",
+    "TUR_MOS"
+   ]
+  },
+  {
+   "id": "indep_kwt",
+   "iso": "KWT",
+   "name": "Kuwait",
+   "name_vi": "Kuwait",
+   "power": "United Kingdom",
+   "date": "1961-06-19",
+   "mode": "negotiated",
+   "predecessor": "British-protected Sheikhdom of Kuwait",
+   "source": "Kuwait Government Online history; exchange of notes terminating the 1899 Anglo-Kuwaiti Treaty",
+   "regions": [
+    "DZ_KUWAIT"
+   ]
+  },
+  {
+   "id": "indep_bhr",
+   "iso": "BHR",
+   "name": "Bahrain",
+   "name_vi": "Bahrain",
+   "power": "United Kingdom",
+   "date": "1971-08-15",
+   "mode": "negotiated",
+   "predecessor": "British-protected Bahrain",
+   "source": "Bahrain government history; US Office of the Historian recognition record",
+   "regions": []
+  },
+  {
+   "id": "indep_qat",
+   "iso": "QAT",
+   "name": "Qatar",
+   "name_vi": "Qatar",
+   "power": "United Kingdom",
+   "date": "1971-09-03",
+   "mode": "negotiated",
+   "predecessor": "British-protected Qatar",
+   "source": "Qatar Ministry of Interior historical profile; US Office of the Historian recognition record",
+   "regions": []
+  },
+  {
+   "id": "indep_are",
+   "iso": "ARE",
+   "name": "United Arab Emirates",
+   "name_vi": "United Arab Emirates",
+   "power": "United Kingdom",
+   "date": "1971-12-02",
+   "mode": "negotiated",
+   "predecessor": "Trucial States",
+   "source": "UAE Ministry of Foreign Affairs: History of the UAE",
+   "regions": [
+    "DZ_TRUCIAL"
+   ]
+  },
+  {
+   "id": "indep_cyp",
+   "iso": "CYP",
+   "name": "Cyprus",
+   "name_vi": "Cyprus",
+   "power": "United Kingdom",
+   "date": "1960-08-16",
+   "mode": "negotiated",
+   "predecessor": "British Crown Colony of Cyprus",
+   "source": "Treaty concerning the Establishment of the Republic of Cyprus; UN Treaty Collection",
+   "regions": [
+    "TUR_CYP"
+   ]
+  },
+  {
+   "id": "indep_mlt",
+   "iso": "MLT",
+   "name": "Malta",
+   "name_vi": "Malta",
+   "power": "United Kingdom",
+   "date": "1964-09-21",
+   "mode": "negotiated",
+   "predecessor": "British Crown Colony of Malta",
+   "source": "Malta Independence Order 1964; Malta Independence Act 1964",
+   "regions": [
+    "GBR_MLT"
+   ]
+  },
+  {
+   "id": "indep_eri",
+   "iso": "ERI",
+   "name": "Eritrea",
+   "name_vi": "Eritrea",
+   "power": "Ethiopia",
+   "date": "1993-05-24",
+   "mode": "war",
+   "predecessor": "Eritrea under Ethiopian sovereignty / federation and annexation",
+   "source": "UNOVER referendum records; UN General Assembly resolution A/RES/47/230",
+   "regions": [
+    "ETH_TIG"
+   ]
   }
  ]
 }

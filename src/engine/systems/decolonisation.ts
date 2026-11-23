@@ -83,9 +83,15 @@ export function decolonisationMonth(st: GameState): void {
     const colonial = regs.filter((r) => isColonialRegion(st, r));
     if (!colonial.length) continue;
     const from = colonial[0].owner;
-    const ids = colonial.sort((a, b) => b.pop - a.pop).map((r) => r.id);
+    // capital: the most populous region of the majority culture (e.g. Baghdad, not Kurdish Mosul, for Iraq)
+    const byCulture = new Map<string, number>(); for (const r of colonial) byCulture.set(r.culture, (byCulture.get(r.culture) ?? 0) + r.pop);
+    const main = [...byCulture].sort((a, b) => b[1] - a[1])[0][0];
+    const ids = colonial.sort((a, b) => (a.culture === main ? 0 : 1) - (b.culture === main ? 0 : 1) || b.pop - a.pop).map((r) => r.id);
+    const formerOwners = [...new Set(colonial.map((r) => r.owner))];
     const id = createNation(st, rec.iso.toLowerCase(), ids, from, 'independence', undefined, { en: rec.name, vi: rec.name_vi });
     const nc = st.countries[id];
+    // independence by treaty: the former owners renounce their claims (no claim to reconquer it)
+    for (const o of formerOwners) if (st.countries[o]) st.countries[o].claims = st.countries[o].claims.filter((x) => !ids.includes(x));
     nc.truce = { with: from, until: st.tick + DECOL_PARAMS.truceYears * 12 };
     // A defence force proportional to population (instead of a token garrison).
     const pop = st.regions.filter((r) => r.owner === id).reduce((s, r) => s + r.pop, 0);

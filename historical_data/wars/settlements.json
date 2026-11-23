@@ -26,6 +26,29 @@
    ]
   },
   {
+   "id": "GBR_SINDH_1843",
+   "date": "1843-08-14",
+   "actor": "EIC_BEN",
+   "noPlayerActor": true,
+   "sources": [
+    "British conquest of Sindh: battles of Miani and Hyderabad (Feb-Mar 1843); annexation to the Bombay Presidency 1843 (curated by Claude; not in CG-45)"
+   ],
+   "steps": [
+    {
+     "type": "annex_states",
+     "capitals": [
+      "SND_HYD"
+     ]
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "SND_HYD"
+     ]
+    }
+   ]
+  },
+  {
    "id": "USA_TEXAS_1845",
    "date": "1845-12-29",
    "actor": "USA_MAR",
@@ -286,6 +309,25 @@
      "type": "rename",
      "name_en": "Austria-Hungary",
      "name_vi": "Đế quốc Áo-Hung"
+    }
+   ]
+  },
+  {
+   "id": "STRAITS_SETTLEMENTS_1867",
+   "date": "1867-04-01",
+   "actor": "GBR_LON",
+   "sources": [
+    "Straits Settlements become a Crown colony separate from British India, 1 April 1867 (curated by Claude)"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "EIC_PEN",
+      "EIC_MLK",
+      "EIC_SIN"
+     ],
+     "from": "EIC_BEN"
     }
    ]
   },
@@ -979,6 +1021,28 @@
    ]
   },
   {
+   "id": "BURMA_SEPARATION_1937",
+   "date": "1937-04-01",
+   "actor": "GBR_LON",
+   "sources": [
+    "Government of Burma Act 1935: Burma separated from British India on 1 April 1937 (curated by Claude)"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "BUR_AVA",
+      "BUR_PEG",
+      "BUR_SHA",
+      "EIC_ARA",
+      "EIC_TEN",
+      "DZ_KACHIN"
+     ],
+     "from": "EIC_BEN"
+    }
+   ]
+  },
+  {
    "id": "WW2_PREWAR_BORDERS",
    "date": "1937-12-31",
    "snapshot": "1937",
@@ -1148,13 +1212,116 @@
    "steps": [
     {
      "type": "release",
-     "target": "EIC_BEN"
+     "target": "EIC_DEL"
     },
     {
      "type": "rename",
-     "target": "EIC_BEN",
+     "target": "EIC_DEL",
      "name_en": "Dominion of India",
      "name_vi": "Liên bang Ấn Độ"
+    }
+   ]
+  },
+  {
+   "id": "INDIA_PAKISTAN_PARTITION_1947",
+   "date": "1947-08-15",
+   "actor": "EIC_DEL",
+   "sources": [
+    "CG-47B PAK-1947-08-14",
+    "CG-47B IND-1947-08-15",
+    "CG-47B PARTITION-1947-08-17 (Radcliffe award)",
+    "CG-47B engineRegionAllocation (whole-region fallback: Lahore region and Bengal to Pakistan by population majority)"
+   ],
+   "steps": [
+    {
+     "type": "move_capital",
+     "to": "EIC_DEL"
+    },
+    {
+     "type": "new_state",
+     "key": "pakistan",
+     "regions": [
+      "SND_HYD",
+      "SIK_LAH",
+      "SIK_MUL",
+      "SIK_PES",
+      "EIC_BEN"
+     ],
+     "name_en": "Dominion of Pakistan",
+     "name_vi": "Liên bang Pakistan",
+     "laws": {
+      "governance": "monarchy",
+      "power": "universal_male_suffrage"
+     }
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "SIK_KAS",
+      "SIK_JAM"
+     ]
+    },
+    {
+     "type": "claim",
+     "target": "SND_HYD",
+     "regions": [
+      "SIK_KAS",
+      "SIK_JAM"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "KALAT_1948",
+   "date": "1948-03-27",
+   "actor": "SND_HYD",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-47B KALAT-1948-03-27"
+   ],
+   "steps": [
+    {
+     "type": "annex_states",
+     "capitals": [
+      "KAL_KAL"
+     ]
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "KAL_KAL"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "INDIAN_INTEGRATION_1948_49",
+   "date": "1948-09-17",
+   "actor": "EIC_DEL",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-47B HYDERABAD-1948-09-17",
+    "CG-47B PATIALA-1948-07",
+    "CG-47B TRAVANCORE-1949-07",
+    "CG-47B princelyStateAccession"
+   ],
+   "steps": [
+    {
+     "type": "annex_states",
+     "capitals": [
+      "HYD_HYD",
+      "TRV_TRV",
+      "PRI_CIS",
+      "PRI_RAJW",
+      "PRI_RAJE",
+      "PRI_CIN",
+      "PRI_KTH",
+      "BRD_BRD",
+      "GWA_GWA",
+      "HOL_IND",
+      "NAG_NAG",
+      "AWA_LKO"
+     ]
     }
    ]
   },
@@ -1222,7 +1389,7 @@
   {
    "id": "INDIA_REPUBLIC_1950",
    "date": "1950-01-26",
-   "actor": "EIC_BEN",
+   "actor": "EIC_DEL",
    "sources": [
     "Constitution of India in force 26 January 1950"
    ],
@@ -1257,6 +1424,24 @@
    "noPlayerActor": true
   },
   {
+   "id": "INDIA_GOA_1961",
+   "date": "1961-12-19",
+   "actor": "EIC_DEL",
+   "noPlayerActor": true,
+   "sources": [
+    "Annexation of Goa (Operation Vijay), 19 December 1961"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "POR_GOA"
+     ],
+     "from": "POR_LIS"
+    }
+   ]
+  },
+  {
    "id": "VNM_REUNIFICATION_1975",
    "date": "1975-04-30",
    "actor": "VNM_HAN",
@@ -1271,6 +1456,23 @@
      "capitals": [
       "VNM_GDI",
       "VNM_HUE"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "INDIA_SIKKIM_1975",
+   "date": "1975-05-16",
+   "actor": "EIC_DEL",
+   "noPlayerActor": true,
+   "sources": [
+    "Sikkim becomes a state of India, 16 May 1975"
+   ],
+   "steps": [
+    {
+     "type": "annex_states",
+     "capitals": [
+      "SKM_GAN"
      ]
     }
    ]
