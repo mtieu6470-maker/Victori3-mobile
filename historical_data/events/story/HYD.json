@@ -1,0 +1,289 @@
+{
+  "schema": "story_events_v1",
+  "country": "HYD",
+  "sources": {
+    "uk_parliament_empire": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/key-dates/parliament-and-empire-1815-1970/",
+    "uk_raj": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/parliament-and-the-american-colonies-before-1765/the-raj-and-independence-1914-47/",
+    "india_chronology": "https://academic.oup.com/edited-volume/28170/chapter/213002310",
+    "canada_parliament": "https://www.ourcommons.ca/procedure/procedure-and-practice-3/ch_01_2-e.html",
+    "palestine_un": "https://www.un.org/unispal/history/",
+    "palestine_timeline": "https://www.un.org/unispal/historical-timeline/",
+    "palestine_white_paper": "https://avalon.law.yale.edu/21st_century/brwh1939.asp",
+    "burma_panglong": "https://commons.wikimedia.org/wiki/File:Panglong_Conference.jpg",
+    "egypt_occupation": "https://www.cambridge.org/core/books/abs/cambridge-history-of-egypt/british-occupation-18821922/179398E6D722904951A25256F524C963",
+    "suez": "https://history.state.gov/milestones/1953-1960/suez"
+  },
+  "events": [
+    {
+      "id": "hyd_nizam_1857",
+      "country": "HYD",
+      "mode": "historical",
+      "window": [
+        "1857-05-01",
+        "1858-06-30"
+      ],
+      "date_historical": "1857-06-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "HYD"
+          },
+          {
+            "type": "subject_of",
+            "a": "HYD",
+            "b": "EIC"
+          },
+          {
+            "type": "owner_in",
+            "region": "HYD_HYD",
+            "entities": [
+              "HYD"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1857,
+            "to": 1858
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "flag": "hyd_1857_choice"
+      },
+      "title_vi": "Nizam lựa chọn trong cuộc nổi dậy năm 1857",
+      "title_en": "The Nizam's Choice in 1857",
+      "text_vi": "Tin tức về cuộc nổi dậy lan tới Hyderabad, nơi Nizam và các quý tộc phải cân nhắc nghĩa vụ hiệp ước với Công ty Đông Ấn. Chính quyền Hyderabad trong lịch sử không tham gia cuộc nổi dậy trên quy mô của các vùng Bắc Ấn, nhưng các nhóm trong triều đình và quân đội có quan điểm khác nhau. Nizam phải quyết định giữ cam kết với Anh, bí mật giúp các lực lượng nổi dậy hay dùng khủng hoảng để đòi thêm quyền tự trị.",
+      "text_en": "News of the uprising reaches Hyderabad, where the Nizam and leading nobles must weigh treaty obligations to the East India Company. Hyderabad did not join the rebellion on the scale seen in northern India, although factions within the court and army held differing views. The Nizam must decide whether to honour the British alliance, quietly aid rebels or use the crisis to demand greater autonomy.",
+      "options": [
+        {
+          "id": "maintain_treaty",
+          "label_vi": "Giữ hiệp ước và ngăn quân nổi dậy sử dụng lãnh thổ Hyderabad",
+          "label_en": "Honour the treaty and deny rebels access to Hyderabad",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "hyd_1857_loyalty",
+              "name_vi": "Trung thành với hiệp ước Subsidiary Alliance",
+              "name_en": "Subsidiary Alliance Loyalty",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "trade": 0.02,
+                "army": 0.02
+              }
+            },
+            {
+              "type": "relation",
+              "a": "HYD",
+              "b": "EIC",
+              "delta": 10
+            }
+          ]
+        },
+        {
+          "id": "quiet_aid",
+          "label_vi": "Cho phép mạng lưới thân hữu bí mật chuyển lương thực và tin tức",
+          "label_en": "Allow discreet networks to pass food and intelligence",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "hyd_1857_covert_aid",
+              "name_vi": "Hỗ trợ kín đáo cho kháng chiến",
+              "name_en": "Covert Rebel Assistance",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.02,
+                "legitimacy": -1,
+                "army": -0.02
+              }
+            },
+            {
+              "type": "subject_liberty",
+              "subject": "HYD",
+              "delta": 5
+            }
+          ]
+        },
+        {
+          "id": "demand_autonomy",
+          "label_vi": "Đòi giảm nghĩa vụ quân sự để đổi lấy sự trung lập",
+          "label_en": "Demand reduced military obligations in return for neutrality",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "hyd_1857_neutrality_bargain",
+              "name_vi": "Thỏa thuận trung lập Hyderabad",
+              "name_en": "Hyderabad Neutrality Bargain",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "army": 0.01,
+                "trade": 0.01
+              }
+            },
+            {
+              "type": "subject_payment",
+              "subject": "HYD",
+              "delta": -0.05
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "india_chronology"
+      ],
+      "image": {
+        "ref": "ill_evt_hyd_nizam_1857",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "hyd_standstill_1947",
+      "country": "HYD",
+      "mode": "historical",
+      "window": [
+        "1947-07-01",
+        "1948-09-18"
+      ],
+      "date_historical": "1947-08-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "HYD"
+          },
+          {
+            "type": "owner_in",
+            "region": "HYD_HYD",
+            "entities": [
+              "HYD"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1947,
+            "to": 1948
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "flag": "hyd_standstill"
+      },
+      "title_vi": "Hyderabad và thỏa thuận đình chỉ",
+      "title_en": "Hyderabad and the Standstill Agreement",
+      "text_vi": "Đế quốc Anh sắp kết thúc, nhưng Hyderabad không nằm trong hai Dominion được hình thành từ British India. Nizam muốn duy trì độc lập, trong khi lãnh đạo Ấn Độ cho rằng một nhà nước nằm sâu trong lãnh thổ Ấn Độ không thể tồn tại như một đảo chủ quyền riêng. Triều đình phải chọn đàm phán quy chế chuyển tiếp, ký thỏa thuận đình chỉ quan hệ hiện hữu hay chuẩn bị đối đầu với sức ép hội nhập.",
+      "text_en": "As British paramountcy ends, Hyderabad is not one of the two Dominions created from British India. The Nizam seeks independence, while Indian leaders argue that a sovereign enclave deep inside India cannot remain separate. The court must choose a transitional settlement, a standstill agreement or preparations for confrontation with the pressure to integrate.",
+      "options": [
+        {
+          "id": "standstill_agreement",
+          "label_vi": "Ký thỏa thuận đình chỉ để duy trì tạm thời các quan hệ hiện hữu",
+          "label_en": "Sign a standstill agreement to preserve existing arrangements temporarily",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "hyd_1947_standstill",
+              "name_vi": "Thỏa thuận đình chỉ Hyderabad",
+              "name_en": "Hyderabad Standstill Agreement",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "trade": 0.02,
+                "army": -0.01
+              }
+            },
+            {
+              "type": "relation",
+              "a": "HYD",
+              "b": "GBR",
+              "delta": 5
+            }
+          ]
+        },
+        {
+          "id": "negotiate_accession",
+          "label_vi": "Mở đàm phán gia nhập Ấn Độ với bảo đảm cho Nizam",
+          "label_en": "Negotiate accession with guarantees for the Nizam",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "hyd_1947_accession_talks",
+              "name_vi": "Đàm phán gia nhập",
+              "name_en": "Accession Negotiations",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "radicalism": -0.01,
+                "trade": 0.02
+              }
+            },
+            {
+              "type": "subject_liberty",
+              "subject": "HYD",
+              "delta": -3
+            }
+          ]
+        },
+        {
+          "id": "armed_independence",
+          "label_vi": "Tăng cường lực lượng và tuyên bố Hyderabad sẽ tự bảo vệ",
+          "label_en": "Strengthen forces and declare Hyderabad will defend itself",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "hyd_1947_armed_stance",
+              "name_vi": "Lập trường độc lập vũ trang",
+              "name_en": "Armed Independence Stance",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "legitimacy": -2,
+                "radicalism": 0.03
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "HYD",
+              "months_income": -0.7
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "uk_parliament_empire"
+      ],
+      "image": {
+        "ref": "ill_evt_hyd_standstill_1947",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    }
+  ]
+}
