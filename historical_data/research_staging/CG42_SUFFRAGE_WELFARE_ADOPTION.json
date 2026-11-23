@@ -11,7 +11,7 @@
       "femaleSuffrageRows": 63,
       "maleSuffrageRows": 19,
       "socialInsuranceRows": 23,
-      "sourceCount": 17
+      "sourceCount": 21
     },
     "definitions": {
       "male_suffrage_year": "First broad/universal male national franchise milestone only when a comparative source gives a defensible year. Null means not independently verified in this package; it does not mean no male suffrage.",
@@ -167,6 +167,38 @@
       "type": "Australian Electoral Commission official history",
       "quality": "verified",
       "note": "Confirms Commonwealth Franchise Act 1902 gave men and women federal voting rights while excluding Aboriginal people; federal franchise exclusions were removed for First Nations people in 1962."
+    },
+    {
+      "id": "swiss_federal_archives_women",
+      "title": "Swiss Federal Archives, Women’s suffrage in Switzerland",
+      "url": "https://www.bar.admin.ch/en/womens-suffrage-in-switzerland",
+      "type": "Swiss Federal Archives official history",
+      "quality": "verified",
+      "note": "Confirms federal women's suffrage on 7 February 1971 and describes the preceding 1959 referendum and cantonal sequence."
+    },
+    {
+      "id": "swiss_federal_archives_male",
+      "title": "Swiss Federal Archives, The Swiss state and its citizens after 1848",
+      "url": "https://www.bar.admin.ch/en/the-swiss-state-and-its-citizens-after-1848",
+      "type": "Swiss Federal Archives official history",
+      "quality": "verified",
+      "note": "Confirms male suffrage at federal level introduced in 1848."
+    },
+    {
+      "id": "spain_reina_sofia_women",
+      "title": "Museo Reina Sofía, Women and Politics: The Road Towards Full Citizenship",
+      "url": "https://www.museoreinasofia.es/en/collection/research-projects/women-civil-war/women-and-politics/",
+      "type": "Spanish national museum historical research",
+      "quality": "verified",
+      "note": "Confirms women’s suffrage approved on 1 October 1931, first exercised in the 19 November 1933 general election."
+    },
+    {
+      "id": "spain_senate_transition_2025",
+      "title": "Spanish Senate, Constitutional periods and transition to democracy",
+      "url": "https://www.senado.es/web/conocersenado/senadohistoria/periodosconstitucionales/index.html?lang=en",
+      "type": "Spanish Senate official history",
+      "quality": "verified",
+      "note": "Confirms 1977 Political Reform Act and first free elections after Franco."
     }
   ],
   "rows": [
@@ -2321,9 +2353,8 @@
       "male_suffrage_year": 1848,
       "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
       "male_suffrage_source_ids": [
-        "male_suffrage_pilon",
-        "male_suffrage_europe",
-        "owid_lied_male_2026"
+        "swiss_federal_archives_male",
+        "male_suffrage_pilon"
       ],
       "female_suffrage_year": 1971,
       "female_suffrage_full_equal_year": null,
@@ -2349,11 +2380,13 @@
         "male_suffrage_pilon",
         "male_suffrage_europe",
         "owid_lied_male_2026",
-        "ilo_social_2019"
+        "ilo_social_2019",
+        "swiss_federal_archives_women",
+        "swiss_federal_archives_male"
       ],
       "note": "Federal female suffrage 1971; cantonal/communal rights began earlier in some cantons; federal male franchise 1848",
       "female_suffrage_quality": "verified",
-      "male_suffrage_quality": "supported",
+      "male_suffrage_quality": "verified",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
       "unemployment_insurance_quality": "supported",
@@ -2405,9 +2438,11 @@
         "owid_lied_male_2026",
         "ilo_social_2019",
         "owid_lied_female_2026",
-        "vdem_codebook_16"
+        "vdem_codebook_16",
+        "spain_reina_sofia_women",
+        "spain_senate_transition_2025"
       ],
-      "note": "Women’s suffrage recognised by 1931 Constitution and exercised in 1933; Franco dictatorship suspended competitive national elections until democratic transition 1977; broad male suffrage 1890/91",
+      "note": "Women’s suffrage recognised by 1931 Constitution and exercised in 1933; Franco dictatorship suspended competitive national elections until democratic transition 1977; broad male suffrage 1890/91 Women’s suffrage approved 1 October 1931 and first exercised nationally in November 1933; competitive elections resumed in 1977.",
       "female_suffrage_quality": "verified",
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
