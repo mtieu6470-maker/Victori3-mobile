@@ -9,7 +9,7 @@
 - **Camps:** blocs are `west` or `east`. A country can be in several blocs of one camp but never in both camps.
 - Bloc treaties (`source 'bloc:'`), including two-member ones, are never ended by `breakAlliance` or by refusing a call; they end only on their dates.
 - The US–ROK and US–ROC alliances at founding (CG-44 `allies`) are removed in favour of the CG-46 dated treaties.
-- CG-46b (MSG-104) requested: ISO3 and capital coordinates for members of the economic and political organisations, plus EEC customs-union dates.
+- CG-46b (MSG-105) requested: ISO3 and capital coordinates for members of the economic and political organisations, plus EEC customs-union dates.
 - Tests: `blocs.test.ts` and `postwar-regimes.test.ts` updated.
 
 ---
