@@ -8720,16 +8720,24 @@
           {
             "if": {
               "type": "event_fired",
-              "id": "gbr_raj_settlement"
+              "id": "gbr_indian_revolt_1857"
             },
             "add": 5
           },
           {
-            "add": -0.25
+            "if": {
+              "type": "event_fired",
+              "id": "gbr_india_partition_1947"
+            },
+            "add": 95
           }
         ]
       },
       "complete": [
+        {
+          "type": "event_fired",
+          "id": "gbr_india_partition_1947"
+        },
         {
           "type": "progress_at_least",
           "value": 100
@@ -8797,16 +8805,24 @@
           {
             "if": {
               "type": "event_fired",
-              "id": "gbr_burma_settlement"
+              "id": "gbr_burma_annexation_1885"
             },
             "add": 5
           },
           {
-            "add": -0.25
+            "if": {
+              "type": "event_fired",
+              "id": "gbr_burma_independence_1948"
+            },
+            "add": 95
           }
         ]
       },
       "complete": [
+        {
+          "type": "event_fired",
+          "id": "gbr_burma_independence_1948"
+        },
         {
           "type": "progress_at_least",
           "value": 100
@@ -8874,16 +8890,24 @@
           {
             "if": {
               "type": "event_fired",
-              "id": "gbr_ceylon_settlement"
+              "id": "gbr_ceylon_riots_1915"
             },
             "add": 5
           },
           {
-            "add": -0.25
+            "if": {
+              "type": "event_fired",
+              "id": "gbr_ceylon_independence_1948"
+            },
+            "add": 95
           }
         ]
       },
       "complete": [
+        {
+          "type": "event_fired",
+          "id": "gbr_ceylon_independence_1948"
+        },
         {
           "type": "progress_at_least",
           "value": 100
@@ -8951,16 +8975,24 @@
           {
             "if": {
               "type": "event_fired",
-              "id": "gbr_malaya_settlement"
+              "id": "gbr_malaya_invasion_1941"
             },
             "add": 5
           },
           {
-            "add": -0.25
+            "if": {
+              "type": "event_fired",
+              "id": "gbr_malaysia_formation_1963"
+            },
+            "add": 95
           }
         ]
       },
       "complete": [
+        {
+          "type": "event_fired",
+          "id": "gbr_malaysia_formation_1963"
+        },
         {
           "type": "progress_at_least",
           "value": 100
@@ -9028,16 +9060,24 @@
           {
             "if": {
               "type": "event_fired",
-              "id": "gbr_egypt_settlement"
+              "id": "gbr_egypt_occupation_1882"
             },
             "add": 5
           },
           {
-            "add": -0.25
+            "if": {
+              "type": "event_fired",
+              "id": "gbr_suez_nationalisation_1956"
+            },
+            "add": 95
           }
         ]
       },
       "complete": [
+        {
+          "type": "event_fired",
+          "id": "gbr_suez_nationalisation_1956"
+        },
         {
           "type": "progress_at_least",
           "value": 100
@@ -9105,16 +9145,24 @@
           {
             "if": {
               "type": "event_fired",
-              "id": "gbr_palestine_settlement"
+              "id": "gbr_balfour_declaration_1917"
             },
             "add": 5
           },
           {
-            "add": -0.25
+            "if": {
+              "type": "event_fired",
+              "id": "gbr_palestine_mandate_end_1948"
+            },
+            "add": 95
           }
         ]
       },
       "complete": [
+        {
+          "type": "event_fired",
+          "id": "gbr_palestine_mandate_end_1948"
+        },
         {
           "type": "progress_at_least",
           "value": 100
@@ -9182,16 +9230,24 @@
           {
             "if": {
               "type": "event_fired",
-              "id": "gbr_kenya_settlement"
+              "id": "gbr_kenya_emergency_1952"
             },
             "add": 5
           },
           {
-            "add": -0.25
+            "if": {
+              "type": "event_fired",
+              "id": "gbr_kenya_independence_1963"
+            },
+            "add": 95
           }
         ]
       },
       "complete": [
+        {
+          "type": "event_fired",
+          "id": "gbr_kenya_independence_1963"
+        },
         {
           "type": "progress_at_least",
           "value": 100
@@ -9259,16 +9315,24 @@
           {
             "if": {
               "type": "event_fired",
-              "id": "gbr_west_africa_settlement"
+              "id": "gbr_gold_coast_accra_riots_1948"
             },
             "add": 5
           },
           {
-            "add": -0.25
+            "if": {
+              "type": "event_fired",
+              "id": "gbr_nigeria_independence_1960"
+            },
+            "add": 95
           }
         ]
       },
       "complete": [
+        {
+          "type": "event_fired",
+          "id": "gbr_nigeria_independence_1960"
+        },
         {
           "type": "progress_at_least",
           "value": 100
@@ -9336,16 +9400,24 @@
           {
             "if": {
               "type": "event_fired",
-              "id": "gbr_dominions_settlement"
+              "id": "gbr_canada_durham_1839"
             },
             "add": 5
           },
           {
-            "add": -0.25
+            "if": {
+              "type": "event_fired",
+              "id": "gbr_westminster_statute_1931"
+            },
+            "add": 95
           }
         ]
       },
       "complete": [
+        {
+          "type": "event_fired",
+          "id": "gbr_westminster_statute_1931"
+        },
         {
           "type": "progress_at_least",
           "value": 100
@@ -9413,16 +9485,24 @@
           {
             "if": {
               "type": "event_fired",
-              "id": "gbr_ireland_settlement"
+              "id": "gbr_irish_famine_1845"
             },
             "add": 5
           },
           {
-            "add": -0.25
+            "if": {
+              "type": "event_fired",
+              "id": "gbr_ireland_republic_1949"
+            },
+            "add": 95
           }
         ]
       },
       "complete": [
+        {
+          "type": "event_fired",
+          "id": "gbr_ireland_republic_1949"
+        },
         {
           "type": "progress_at_least",
           "value": 100
