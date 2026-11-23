@@ -482,7 +482,7 @@
       },
       "title_vi": "Khủng hoảng ngôn ngữ tại Ceylon",
       "title_en": "The Language Crisis in Ceylon",
-      "text_vi": "Chính phủ S. W. R. D. Bandaranaike thông qua Đạo luật Sinhala Only năm 1956, xác lập tiếng Sinhala là ngôn ngữ chính thức duy nhất. Quyết định đáp ứng một phần yêu cầu của cử tri Sinhala nhưng làm dấy lên lo ngại trong cộng đồng Tamil về quyền tiếp cận dịch vụ công và cơ hội việc làm. Nội các phải lựa chọn giữa thực thi nhanh, xây dựng cơ chế song ngữ hay đàm phán một thỏa hiệp về quyền ngôn ngữ.",
+      "text_vi": "Chính phủ Bandaranaike thông qua Đạo luật Sinhala Only năm 1956, xác lập tiếng Sinhala là ngôn ngữ chính thức duy nhất. Quyết định đáp ứng một phần yêu cầu của cử tri Sinhala nhưng làm dấy lên lo ngại trong cộng đồng Tamil về quyền tiếp cận dịch vụ công và cơ hội việc làm. Nội các phải lựa chọn giữa thực thi nhanh, xây dựng cơ chế song ngữ hay đàm phán một thỏa hiệp về quyền ngôn ngữ.",
       "text_en": "The Bandaranaike government enacted the Sinhala Only Act in 1956, making Sinhala the sole official language. The measure answered a major Sinhala electoral demand but raised fears among Tamil communities over access to public services and employment. The cabinet must choose between rapid implementation, bilingual administration or a negotiated language settlement.",
       "options": [
         {
@@ -1697,6 +1697,11 @@
           "gbr_natives_land_act_1913",
           "gbr_natives_land_act_1913"
         ]
+      },
+      "image": {
+        "ref": "ill_evt_rsa_union_society_1913",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
       }
     },
     {
@@ -1791,7 +1796,12 @@
       ],
       "sources": [
         "caribbean_history"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_jam_independence_agenda_1962",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "cyp_power_sharing_1960",
@@ -1885,7 +1895,12 @@
       ],
       "sources": [
         "cyprus_history"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_cyp_power_sharing_1960",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "mlt_independent_economy_1964",
