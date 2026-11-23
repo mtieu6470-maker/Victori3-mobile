@@ -1,0 +1,4417 @@
+{
+  "meta": {
+    "task": "CG-47A",
+    "title": "Major regime and constitutional transitions outside Europe, 1836–2026",
+    "branch": "ccr-b27f3fb8-epfpd6",
+    "created": "2026-11-23",
+    "scope": "Selected major regime changes, independence, coups, republic/monarchy transitions, one-party consolidation, constitutional transitions and major state re-foundations in the Middle East/North Africa, Sub-Saharan Africa, Latin America and Asia. Not an exhaustive country-year regime dataset.",
+    "eventCount": 123,
+    "sourceCount": 52,
+    "lawGroups": [
+      "power",
+      "governance",
+      "economy",
+      "trade",
+      "labor",
+      "church",
+      "press",
+      "education",
+      "army"
+    ],
+    "schemaNote": "Uses the CG-41 event schema exactly: id, date, capitalHistorical, entityBefore, entityAfter, eventType, causes, lawChanges, territorialChanges, sources, quality, note; optional windowStart/windowEnd. Law group values are restricted to the current engine LawGroup and REFORMABLE_LAWS enums. Proposed historical entity IDs are research identifiers, not guaranteed registry IDs.",
+    "dateConvention": "ISO-8601 Gregorian. A date is the principal legal/proclamation milestone; for transitions extending over time, note the process in the event note. Do not infer instant territorial control from a regime proclamation.",
+    "qualityLegend": {
+      "verified": "Primary law, official government, UN or official archive directly confirms the date/legal act.",
+      "supported": "Credible academic or institutional synthesis supports the date and interpretation; some detail remains approximate."
+    },
+    "coverageLimitations": [
+      "This is a high-salience chronology, not a complete list of all coups, cabinet changes, electoral turnovers, constitutional amendments or civil wars.",
+      "Some events mark leadership changes within a continuing regime (e.g. Nasser/Assad) and should not be treated as changes in state form.",
+      "Some engine law mappings are deliberately conservative approximations; see each lawChanges.note. In particular, one_party_state is a gameplay abstraction for hegemonic-party rule in cases where opposition parties were not formally banned.",
+      "Events dated to a year or broad process should not be promoted to day-level precision without further primary-source review.",
+      "Syria's post-December 2024 transition is still in progress as of the research date; the March 2025 declaration is transitional, not a permanent constitution."
+    ]
+  },
+  "events": [
+    {
+      "id": "EGY-1922-02",
+      "date": "1922-02-28",
+      "capitalHistorical": "Cairo",
+      "entityBefore": {
+        "id": "EGY",
+        "name_en": "British protectorate over Egypt",
+        "name_vi": "Ai Cập dưới chế độ bảo hộ Anh"
+      },
+      "entityAfter": {
+        "id": "EGY",
+        "name_en": "Kingdom of Egypt",
+        "name_vi": "Vương quốc Ai Cập"
+      },
+      "eventType": "independence_and_monarchy",
+      "causes": [
+        "Egyptian nationalist pressure and the 1919 Revolution"
+      ],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy",
+          "note": "Formal independence recognized; the 1923 constitutional monarchy followed, while British reserved powers remained."
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "egy_sis",
+        "egy_un"
+      ],
+      "quality": "verified",
+      "note": "The United Kingdom unilaterally declared Egyptian independence; reserved matters limited effective sovereignty."
+    },
+    {
+      "id": "EGY-1953-06",
+      "date": "1953-06-18",
+      "capitalHistorical": "Cairo",
+      "entityBefore": {
+        "id": "EGY",
+        "name_en": "Kingdom of Egypt",
+        "name_vi": "Vương quốc Ai Cập"
+      },
+      "entityAfter": {
+        "id": "EGY",
+        "name_en": "Republic of Egypt",
+        "name_vi": "Cộng hòa Ai Cập"
+      },
+      "eventType": "revolution_and_republic_proclamation",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "autocracy",
+          "note": "The Free Officers dissolved the monarchy and installed military-led republican rule; this was not a liberal-democratic transition."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "egy_sis",
+        "egy_un"
+      ],
+      "quality": "verified",
+      "note": "The republic was formally proclaimed on 18 June 1953 after the July 1952 Free Officers coup."
+    },
+    {
+      "id": "EGY-1954-11",
+      "date": "1954-11-14",
+      "capitalHistorical": "Cairo",
+      "entityBefore": {
+        "id": "EGY",
+        "name_en": "Republic of Egypt under Muhammad Naguib",
+        "name_vi": "Cộng hòa Ai Cập dưới thời Muhammad Naguib"
+      },
+      "entityAfter": {
+        "id": "EGY",
+        "name_en": "Republic of Egypt under Gamal Abdel Nasser",
+        "name_vi": "Cộng hòa Ai Cập dưới thời Gamal Abdel Nasser"
+      },
+      "eventType": "leadership_and_regime_consolidation",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy",
+          "note": "Transfer within the military-led republic; do not encode as democratization."
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "egy_sis"
+      ],
+      "quality": "supported",
+      "note": "Nasser consolidated leadership after Naguib's removal; this is a leadership consolidation, not a change of state form."
+    },
+    {
+      "id": "TUN-1956-03",
+      "date": "1956-03-20",
+      "capitalHistorical": "Tunis",
+      "entityBefore": {
+        "id": "TUN",
+        "name_en": "French protectorate of Tunisia",
+        "name_vi": "Tunisia dưới chế độ bảo hộ Pháp"
+      },
+      "entityAfter": {
+        "id": "TUN",
+        "name_en": "Kingdom of Tunisia (Husainid monarchy)",
+        "name_vi": "Vương quốc Tunisia (quân chủ Husainid)"
+      },
+      "eventType": "independence",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_mena",
+        "tun_history"
+      ],
+      "quality": "supported",
+      "note": "Independence restored sovereignty under the Bey; the republic was not proclaimed until 1957."
+    },
+    {
+      "id": "TUN-1957-07",
+      "date": "1957-07-25",
+      "capitalHistorical": "Tunis",
+      "entityBefore": {
+        "id": "TUN",
+        "name_en": "Kingdom of Tunisia",
+        "name_vi": "Vương quốc Tunisia"
+      },
+      "entityAfter": {
+        "id": "TUN",
+        "name_en": "Tunisian Republic",
+        "name_vi": "Cộng hòa Tunisia"
+      },
+      "eventType": "republic_proclamation",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "one_party_state",
+          "note": "Bourguiba's Neo-Destour dominated the new republic; the one-party system consolidated over subsequent years."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "tun_history",
+        "oup_mena"
+      ],
+      "quality": "supported",
+      "note": "The Constituent Assembly abolished the monarchy and proclaimed the republic."
+    },
+    {
+      "id": "TUN-1959-06",
+      "date": "1959-06-01",
+      "capitalHistorical": "Tunis",
+      "entityBefore": {
+        "id": "TUN",
+        "name_en": "Tunisian Republic under transitional constitutional order",
+        "name_vi": "Cộng hòa Tunisia"
+      },
+      "entityAfter": {
+        "id": "TUN",
+        "name_en": "Tunisian Republic under the 1959 Constitution",
+        "name_vi": "Cộng hòa Tunisia theo Hiến pháp 1959"
+      },
+      "eventType": "constitution",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "one_party_state",
+          "note": "Constitutional institutions coexisted with hegemonic Neo-Destour rule."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "tun_history"
+      ],
+      "quality": "supported",
+      "note": "The 1959 Constitution institutionalized the republic; party competition remained highly restricted."
+    },
+    {
+      "id": "TUN-2011-01",
+      "date": "2011-01-14",
+      "capitalHistorical": "Tunis",
+      "entityBefore": {
+        "id": "TUN",
+        "name_en": "Tunisian Republic under Ben Ali",
+        "name_vi": "Cộng hòa Tunisia dưới thời Ben Ali"
+      },
+      "entityAfter": {
+        "id": "TUN",
+        "name_en": "Tunisian Republic after the Jasmine Revolution",
+        "name_vi": "Cộng hòa Tunisia sau Cách mạng Hoa Nhài"
+      },
+      "eventType": "revolution_and_transition",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "universal_suffrage",
+          "note": "Transition toward competitive elections; the 2014 constitutional order later consolidated parliamentary institutions."
+        },
+        "press": {
+          "from": "censorship",
+          "to": "free_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "tun_transition"
+      ],
+      "quality": "supported",
+      "note": "Ben Ali left office during the Tunisian Revolution; subsequent transition and later constitutional reversals are distinct events."
+    },
+    {
+      "id": "MOR-1956-03",
+      "date": "1956-03-02",
+      "capitalHistorical": "Rabat",
+      "entityBefore": {
+        "id": "MOR",
+        "name_en": "French and Spanish protectorate zones in Morocco",
+        "name_vi": "Các vùng bảo hộ Pháp và Tây Ban Nha tại Maroc"
+      },
+      "entityAfter": {
+        "id": "MOR",
+        "name_en": "Kingdom of Morocco",
+        "name_vi": "Vương quốc Maroc"
+      },
+      "eventType": "independence",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_mena",
+        "mor_history"
+      ],
+      "quality": "supported",
+      "note": "Independence was recognized in March 1956; the monarchy remained the state form."
+    },
+    {
+      "id": "MOR-1962-12",
+      "date": "1962-12-07",
+      "capitalHistorical": "Rabat",
+      "entityBefore": {
+        "id": "MOR",
+        "name_en": "Kingdom of Morocco under royal executive rule",
+        "name_vi": "Vương quốc Maroc"
+      },
+      "entityAfter": {
+        "id": "MOR",
+        "name_en": "Kingdom of Morocco under the 1962 Constitution",
+        "name_vi": "Vương quốc Maroc theo Hiến pháp 1962"
+      },
+      "eventType": "constitution",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "census_suffrage",
+          "note": "Constitution introduced elected institutions but retained extensive royal powers; do not treat as full parliamentary democracy."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "mor_history"
+      ],
+      "quality": "supported",
+      "note": "First constitution adopted by referendum; later constitutional practice remained strongly monarchical."
+    },
+    {
+      "id": "DZA-1962-07",
+      "date": "1962-07-05",
+      "capitalHistorical": "Algiers",
+      "entityBefore": {
+        "id": "DZA",
+        "name_en": "French Algeria",
+        "name_vi": "Algeria thuộc Pháp"
+      },
+      "entityAfter": {
+        "id": "DZA",
+        "name_en": "People's Democratic Republic of Algeria",
+        "name_vi": "Cộng hòa Dân chủ Nhân dân Algeria"
+      },
+      "eventType": "independence_and_republic",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "one_party_state"
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "mercantilism",
+          "to": "interventionism"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "algeria_history",
+        "oup_mena"
+      ],
+      "quality": "supported",
+      "note": "Independence followed the Evian settlement and referendum; the FLN became the dominant governing party."
+    },
+    {
+      "id": "DZA-1965-06",
+      "date": "1965-06-19",
+      "capitalHistorical": "Algiers",
+      "entityBefore": {
+        "id": "DZA",
+        "name_en": "Algerian Republic under Ahmed Ben Bella",
+        "name_vi": "Cộng hòa Algeria dưới thời Ahmed Ben Bella"
+      },
+      "entityAfter": {
+        "id": "DZA",
+        "name_en": "Algerian Republic under Houari Boumédiène",
+        "name_vi": "Cộng hòa Algeria dưới thời Houari Boumédiène"
+      },
+      "eventType": "military_coup",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "one_party_state",
+          "note": "Military-backed leadership change within the FLN one-party system."
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "africa_coups",
+        "algeria_history"
+      ],
+      "quality": "supported",
+      "note": "Boumédiène's coup replaced Ben Bella; the one-party framework remained."
+    },
+    {
+      "id": "DZA-1989-02",
+      "date": "1989-02-23",
+      "capitalHistorical": "Algiers",
+      "entityBefore": {
+        "id": "DZA",
+        "name_en": "Algerian People's Democratic Republic under FLN one-party rule",
+        "name_vi": "Algeria dưới chế độ một đảng FLN"
+      },
+      "entityAfter": {
+        "id": "DZA",
+        "name_en": "Algerian People's Democratic Republic under multiparty constitutional order",
+        "name_vi": "Algeria theo trật tự hiến pháp đa đảng"
+      },
+      "eventType": "constitutional_transition",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "universal_suffrage"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "limited_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "algeria_history"
+      ],
+      "quality": "supported",
+      "note": "The 1989 Constitution removed the FLN's constitutional monopoly and permitted multiparty competition."
+    },
+    {
+      "id": "DZA-1992-01",
+      "date": "1992-01-11",
+      "capitalHistorical": "Algiers",
+      "entityBefore": {
+        "id": "DZA",
+        "name_en": "Algerian Republic during electoral transition",
+        "name_vi": "Cộng hòa Algeria trong giai đoạn chuyển tiếp bầu cử"
+      },
+      "entityAfter": {
+        "id": "DZA",
+        "name_en": "Algerian Republic under military-backed emergency rule",
+        "name_vi": "Cộng hòa Algeria dưới tình trạng khẩn cấp do quân đội hậu thuẫn"
+      },
+      "eventType": "military_intervention",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_suffrage",
+          "to": "autocracy",
+          "note": "The army-backed interruption of the electoral process initiated a prolonged civil conflict; avoid implying all electoral institutions vanished immediately."
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "algeria_history"
+      ],
+      "quality": "supported",
+      "note": "The military-backed interruption followed the first round of the 1991 legislative election; the civil war and later political normalization were prolonged."
+    },
+    {
+      "id": "LBY-1951-12",
+      "date": "1951-12-24",
+      "capitalHistorical": "Tripoli",
+      "entityBefore": {
+        "id": "LBY",
+        "name_en": "Allied-administered Libya",
+        "name_vi": "Libya dưới quyền quản lý của Đồng minh"
+      },
+      "entityAfter": {
+        "id": "LBY",
+        "name_en": "United Kingdom of Libya",
+        "name_vi": "Vương quốc Liên hiệp Libya"
+      },
+      "eventType": "independence_and_monarchy",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "autocracy",
+          "to": "monarchy"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "census_suffrage",
+          "note": "Constitutional monarchy with restricted early electoral participation."
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "libya_cornell"
+      ],
+      "quality": "verified",
+      "note": "Libya became independent as a federal monarchy under King Idris."
+    },
+    {
+      "id": "LBY-1969-09",
+      "date": "1969-09-01",
+      "capitalHistorical": "Tripoli",
+      "entityBefore": {
+        "id": "LBY",
+        "name_en": "United Kingdom of Libya",
+        "name_vi": "Vương quốc Liên hiệp Libya"
+      },
+      "entityAfter": {
+        "id": "LBY",
+        "name_en": "Libyan Arab Republic under the Revolutionary Command Council",
+        "name_vi": "Cộng hòa Ả Rập Libya dưới Hội đồng Chỉ huy Cách mạng"
+      },
+      "eventType": "military_coup_and_republic",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "autocracy"
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "mercantilism",
+          "to": "interventionism"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "libya_cornell",
+        "libya_crs"
+      ],
+      "quality": "verified",
+      "note": "Free Officers overthrew the monarchy; the RCC became the supreme executive and legislative authority."
+    },
+    {
+      "id": "LBY-1977-03",
+      "date": "1977-03-02",
+      "capitalHistorical": "Tripoli",
+      "entityBefore": {
+        "id": "LBY",
+        "name_en": "Libyan Arab Republic under RCC rule",
+        "name_vi": "Cộng hòa Ả Rập Libya dưới Hội đồng Chỉ huy Cách mạng"
+      },
+      "entityAfter": {
+        "id": "LBY",
+        "name_en": "Great Socialist People's Libyan Arab Jamahiriya",
+        "name_vi": "Đại Dân quốc Nhân dân Xã hội chủ nghĩa Ả Rập Libya"
+      },
+      "eventType": "constitutional_regime_redefinition",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "one_party_state",
+          "note": "The Jamahiriya's claimed direct popular rule operated under Qadhafi's dominant revolutionary authority; one-party is an approximation, not a literal party constitution."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "command_economy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "libya_cornell"
+      ],
+      "quality": "supported",
+      "note": "The Declaration of the Establishment of the People's Authority proclaimed the Jamahiriya; do not model it as pluralist direct democracy."
+    },
+    {
+      "id": "IRQ-1921-08",
+      "date": "1921-08-23",
+      "capitalHistorical": "Baghdad",
+      "entityBefore": {
+        "id": "IRQ",
+        "name_en": "British Mandate of Mesopotamia",
+        "name_vi": "Lãnh thổ ủy trị Lưỡng Hà của Anh"
+      },
+      "entityAfter": {
+        "id": "IRQ",
+        "name_en": "Kingdom of Iraq",
+        "name_vi": "Vương quốc Iraq"
+      },
+      "eventType": "monarchy_establishment",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "autocracy",
+          "to": "monarchy"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "census_suffrage",
+          "note": "Limited constitutional monarchy under British influence."
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_mena"
+      ],
+      "quality": "supported",
+      "note": "Faisal I was installed as king; independence under treaty followed in 1932."
+    },
+    {
+      "id": "IRQ-1958-07",
+      "date": "1958-07-14",
+      "capitalHistorical": "Baghdad",
+      "entityBefore": {
+        "id": "IRQ",
+        "name_en": "Hashemite Kingdom of Iraq",
+        "name_vi": "Vương quốc Hashemite Iraq"
+      },
+      "entityAfter": {
+        "id": "IRQ",
+        "name_en": "Republic of Iraq",
+        "name_vi": "Cộng hòa Iraq"
+      },
+      "eventType": "military_coup_and_republic",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "autocracy"
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "iraq_history",
+        "oup_mena"
+      ],
+      "quality": "supported",
+      "note": "The 14 July Revolution overthrew the monarchy and established a republic."
+    },
+    {
+      "id": "IRQ-1968-07",
+      "date": "1968-07-17",
+      "capitalHistorical": "Baghdad",
+      "entityBefore": {
+        "id": "IRQ",
+        "name_en": "Republic of Iraq under post-1958 military governments",
+        "name_vi": "Cộng hòa Iraq sau năm 1958"
+      },
+      "entityAfter": {
+        "id": "IRQ",
+        "name_en": "Ba'athist Republic of Iraq",
+        "name_vi": "Cộng hòa Iraq dưới Đảng Ba'ath"
+      },
+      "eventType": "coup_and_one_party_consolidation",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "one_party_state"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "command_economy"
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "iraq_history"
+      ],
+      "quality": "supported",
+      "note": "The Ba'ath Party seized power; authoritarian consolidation deepened under Saddam Hussein after 1979."
+    },
+    {
+      "id": "IRQ-2003-04",
+      "date": "2003-04-09",
+      "capitalHistorical": "Baghdad",
+      "entityBefore": {
+        "id": "IRQ",
+        "name_en": "Ba'athist Republic of Iraq",
+        "name_vi": "Cộng hòa Iraq dưới Đảng Ba'ath"
+      },
+      "entityAfter": {
+        "id": "IRQ",
+        "name_en": "Republic of Iraq under Coalition occupation and transitional authority",
+        "name_vi": "Cộng hòa Iraq dưới chính quyền chiếm đóng và chuyển tiếp"
+      },
+      "eventType": "regime_overthrow_and_occupation",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "autocracy",
+          "note": "The Ba'athist monopoly ended; occupation authority preceded the later elected constitutional order."
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "iraq_history"
+      ],
+      "quality": "supported",
+      "note": "The fall of Baghdad ended Ba'athist central rule; this event does not by itself establish the later 2005 constitutional system."
+    },
+    {
+      "id": "SYR-1946-04",
+      "date": "1946-04-17",
+      "capitalHistorical": "Damascus",
+      "entityBefore": {
+        "id": "SYR",
+        "name_en": "French Mandate for Syria",
+        "name_vi": "Ủy trị Pháp tại Syria"
+      },
+      "entityAfter": {
+        "id": "SYR",
+        "name_en": "Syrian Republic",
+        "name_vi": "Cộng hòa Syria"
+      },
+      "eventType": "independence",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_mena"
+      ],
+      "quality": "supported",
+      "note": "French forces completed withdrawal; independence followed the earlier constitutional republic."
+    },
+    {
+      "id": "SYR-1958-02",
+      "date": "1958-02-22",
+      "capitalHistorical": "Damascus",
+      "entityBefore": {
+        "id": "SYR",
+        "name_en": "Syrian Republic",
+        "name_vi": "Cộng hòa Syria"
+      },
+      "entityAfter": {
+        "id": "UAR",
+        "name_en": "United Arab Republic (Syria and Egypt)",
+        "name_vi": "Cộng hòa Ả Rập Thống nhất (Syria và Ai Cập)"
+      },
+      "eventType": "union_and_state_merger",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy",
+          "note": "The union concentrated authority in Nasser's presidency and dissolved Syria's separate party system."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_mena"
+      ],
+      "quality": "supported",
+      "note": "Syria joined Egypt in the United Arab Republic; the union ended in 1961."
+    },
+    {
+      "id": "SYR-1961-09",
+      "date": "1961-09-28",
+      "capitalHistorical": "Damascus",
+      "entityBefore": {
+        "id": "UAR",
+        "name_en": "United Arab Republic (Syria and Egypt)",
+        "name_vi": "Cộng hòa Ả Rập Thống nhất"
+      },
+      "entityAfter": {
+        "id": "SYR",
+        "name_en": "Syrian Arab Republic",
+        "name_vi": "Cộng hòa Ả Rập Syria"
+      },
+      "eventType": "secession_and_republic_restoration",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_mena"
+      ],
+      "quality": "supported",
+      "note": "A military coup in Damascus ended Syria's union with Egypt; subsequent political instability continued."
+    },
+    {
+      "id": "SYR-1963-03",
+      "date": "1963-03-08",
+      "capitalHistorical": "Damascus",
+      "entityBefore": {
+        "id": "SYR",
+        "name_en": "Syrian Arab Republic",
+        "name_vi": "Cộng hòa Ả Rập Syria"
+      },
+      "entityAfter": {
+        "id": "SYR",
+        "name_en": "Syrian Arab Republic under Ba'ath Party rule",
+        "name_vi": "Cộng hòa Ả Rập Syria dưới chế độ Ba'ath"
+      },
+      "eventType": "coup_and_one_party_rule",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "one_party_state"
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_mena"
+      ],
+      "quality": "supported",
+      "note": "The Ba'athist military coup initiated a durable one-party authoritarian order."
+    },
+    {
+      "id": "SYR-1970-11",
+      "date": "1970-11-16",
+      "capitalHistorical": "Damascus",
+      "entityBefore": {
+        "id": "SYR",
+        "name_en": "Syrian Arab Republic under Salah Jadid",
+        "name_vi": "Cộng hòa Ả Rập Syria dưới thời Salah Jadid"
+      },
+      "entityAfter": {
+        "id": "SYR",
+        "name_en": "Syrian Arab Republic under Hafez al-Assad",
+        "name_vi": "Cộng hòa Ả Rập Syria dưới thời Hafez al-Assad"
+      },
+      "eventType": "corrective_movement_and_leadership_change",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "one_party_state"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_mena"
+      ],
+      "quality": "supported",
+      "note": "Assad's Corrective Movement changed the ruling leadership without ending Ba'athist one-party rule."
+    },
+    {
+      "id": "SYR-2024-12",
+      "date": "2024-12-08",
+      "capitalHistorical": "Damascus",
+      "entityBefore": {
+        "id": "SYR",
+        "name_en": "Syrian Arab Republic under Bashar al-Assad",
+        "name_vi": "Cộng hòa Ả Rập Syria dưới thời Bashar al-Assad"
+      },
+      "entityAfter": {
+        "id": "SYR",
+        "name_en": "Syrian Arab Republic under transitional administration",
+        "name_vi": "Cộng hòa Ả Rập Syria dưới chính quyền chuyển tiếp"
+      },
+      "eventType": "government_overthrow_and_transition",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "autocracy",
+          "note": "The Ba'ath monopoly ended; the transitional executive initially concentrated power. Do not label this a completed democratic transition."
+        },
+        "press": {
+          "from": "censorship",
+          "to": "limited_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "syria_euaa_2026",
+        "syria_un_2025"
+      ],
+      "quality": "verified",
+      "note": "Assad's government was overthrown on 8 December 2024; a transitional administration followed. The March 2025 constitutional declaration established a five-year transition, not a settled permanent constitution."
+    },
+    {
+      "id": "JOR-1946-05",
+      "date": "1946-05-25",
+      "capitalHistorical": "Amman",
+      "entityBefore": {
+        "id": "JOR",
+        "name_en": "Transjordan under British treaty influence",
+        "name_vi": "Transjordan dưới ảnh hưởng hiệp ước Anh"
+      },
+      "entityAfter": {
+        "id": "JOR",
+        "name_en": "Hashemite Kingdom of Jordan",
+        "name_vi": "Vương quốc Hashemite Jordan"
+      },
+      "eventType": "independence_and_monarchy",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_mena"
+      ],
+      "quality": "supported",
+      "note": "Transjordan became the independent Hashemite Kingdom of Jordan."
+    },
+    {
+      "id": "SAU-1932-09",
+      "date": "1932-09-23",
+      "capitalHistorical": "Riyadh",
+      "entityBefore": {
+        "id": "NAJ",
+        "name_en": "Kingdom of Hejaz and Nejd and its Dependencies",
+        "name_vi": "Vương quốc Hejaz và Nejd cùng các vùng phụ thuộc"
+      },
+      "entityAfter": {
+        "id": "SAU",
+        "name_en": "Kingdom of Saudi Arabia",
+        "name_vi": "Vương quốc Ả Rập Xê Út"
+      },
+      "eventType": "unification_and_state_formation",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "saudi_history"
+      ],
+      "quality": "verified",
+      "note": "The dual kingdom was unified and renamed the Kingdom of Saudi Arabia."
+    },
+    {
+      "id": "PRS-1925-12",
+      "date": "1925-12-15",
+      "capitalHistorical": "Tehran",
+      "entityBefore": {
+        "id": "PRS",
+        "name_en": "Qajar Persia",
+        "name_vi": "Ba Tư triều Qajar"
+      },
+      "entityAfter": {
+        "id": "PRS",
+        "name_en": "Pahlavi Iran",
+        "name_vi": "Iran triều Pahlavi"
+      },
+      "eventType": "dynastic_change_and_centralization",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "autocracy"
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "iran_portal",
+        "iranica_pahlavi"
+      ],
+      "quality": "supported",
+      "note": "The Majles deposed the Qajar dynasty and established the Pahlavi dynasty; Iran remained a monarchy."
+    },
+    {
+      "id": "PRS-1979-02",
+      "date": "1979-02-11",
+      "capitalHistorical": "Tehran",
+      "entityBefore": {
+        "id": "PRS",
+        "name_en": "Pahlavi Iran",
+        "name_vi": "Iran triều Pahlavi"
+      },
+      "entityAfter": {
+        "id": "IRN",
+        "name_en": "Islamic Republic of Iran",
+        "name_vi": "Cộng hòa Hồi giáo Iran"
+      },
+      "eventType": "revolution_and_theocratic_republic",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "theocracy"
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "theocracy"
+        },
+        "church": {
+          "from": "state_religion",
+          "to": "state_religion"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "iran_crs",
+        "iranica_constitution"
+      ],
+      "quality": "verified",
+      "note": "The monarchy collapsed and the Islamic Republic was proclaimed; the 1979 referendum and constitution followed."
+    },
+    {
+      "id": "TUR-1923-10",
+      "date": "1923-10-29",
+      "capitalHistorical": "Ankara",
+      "entityBefore": {
+        "id": "TUR",
+        "name_en": "Government of the Grand National Assembly / Ottoman successor",
+        "name_vi": "Chính phủ Đại Quốc hội Thổ Nhĩ Kỳ"
+      },
+      "entityAfter": {
+        "id": "TUR",
+        "name_en": "Republic of Turkey",
+        "name_vi": "Cộng hòa Thổ Nhĩ Kỳ"
+      },
+      "eventType": "republic_proclamation",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "one_party_state"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "turkey_ataturk",
+        "oup_mena"
+      ],
+      "quality": "verified",
+      "note": "The Grand National Assembly proclaimed the Republic; the single-party Republican People's Party era followed."
+    },
+    {
+      "id": "TUR-1960-05",
+      "date": "1960-05-27",
+      "capitalHistorical": "Ankara",
+      "entityBefore": {
+        "id": "TUR",
+        "name_en": "Republic of Turkey under elected Democrat Party government",
+        "name_vi": "Cộng hòa Thổ Nhĩ Kỳ dưới chính phủ Đảng Dân chủ"
+      },
+      "entityAfter": {
+        "id": "TUR",
+        "name_en": "Republic of Turkey under military junta",
+        "name_vi": "Cộng hòa Thổ Nhĩ Kỳ dưới chính quyền quân sự"
+      },
+      "eventType": "military_coup",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "turkey_history"
+      ],
+      "quality": "supported",
+      "note": "The armed forces overthrew the government; a new constitution and civilian transition followed in 1961."
+    },
+    {
+      "id": "TUR-1980-09",
+      "date": "1980-09-12",
+      "capitalHistorical": "Ankara",
+      "entityBefore": {
+        "id": "TUR",
+        "name_en": "Republic of Turkey under parliamentary government",
+        "name_vi": "Cộng hòa Thổ Nhĩ Kỳ dưới chính phủ nghị viện"
+      },
+      "entityAfter": {
+        "id": "TUR",
+        "name_en": "Republic of Turkey under National Security Council military rule",
+        "name_vi": "Cộng hòa Thổ Nhĩ Kỳ dưới Hội đồng An ninh Quốc gia"
+      },
+      "eventType": "military_coup",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy"
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "turkey_history"
+      ],
+      "quality": "supported",
+      "note": "The military seized power and suspended parliamentary politics; the 1982 Constitution structured the subsequent transition."
+    },
+    {
+      "id": "TUR-2017-04",
+      "date": "2017-04-16",
+      "capitalHistorical": "Ankara",
+      "entityBefore": {
+        "id": "TUR",
+        "name_en": "Republic of Turkey under parliamentary system",
+        "name_vi": "Cộng hòa Thổ Nhĩ Kỳ theo chế độ nghị viện"
+      },
+      "entityAfter": {
+        "id": "TUR",
+        "name_en": "Republic of Turkey under executive-presidential system",
+        "name_vi": "Cộng hòa Thổ Nhĩ Kỳ theo chế độ tổng thống hành pháp"
+      },
+      "eventType": "constitutional_system_change",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "universal_male_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "turkey_2017"
+      ],
+      "quality": "verified",
+      "note": "The constitutional referendum approved the transition to an executive presidency, implemented after the 2018 election; it did not change the republic's formal state form."
+    },
+    {
+      "id": "ISR-1948-05",
+      "date": "1948-05-14",
+      "capitalHistorical": "Tel Aviv",
+      "entityBefore": {
+        "id": "PAL",
+        "name_en": "British Mandate for Palestine",
+        "name_vi": "Ủy trị Anh tại Palestine"
+      },
+      "entityAfter": {
+        "id": "ISR",
+        "name_en": "State of Israel",
+        "name_vi": "Nhà nước Israel"
+      },
+      "eventType": "state_establishment",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "universal_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "israel_mfa"
+      ],
+      "quality": "verified",
+      "note": "The State of Israel was declared on 14 May 1948; the constitutional order developed through the Basic Laws."
+    },
+    {
+      "id": "YEM-1962-09",
+      "date": "1962-09-26",
+      "capitalHistorical": "Sana'a",
+      "entityBefore": {
+        "id": "YEM",
+        "name_en": "Mutawakkilite Kingdom of Yemen",
+        "name_vi": "Vương quốc Mutawakkilite Yemen"
+      },
+      "entityAfter": {
+        "id": "YEM",
+        "name_en": "Yemen Arab Republic",
+        "name_vi": "Cộng hòa Ả Rập Yemen"
+      },
+      "eventType": "military_revolution_and_republic",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "yemen_state"
+      ],
+      "quality": "verified",
+      "note": "The 26 September Revolution overthrew the imamate monarchy and proclaimed the Yemen Arab Republic; civil war followed."
+    },
+    {
+      "id": "YMD-1967-11",
+      "date": "1967-11-30",
+      "capitalHistorical": "Aden",
+      "entityBefore": {
+        "id": "GBR",
+        "name_en": "British Aden Protectorate and Colony",
+        "name_vi": "Thuộc địa và vùng bảo hộ Aden của Anh"
+      },
+      "entityAfter": {
+        "id": "YMD",
+        "name_en": "People's Republic of Southern Yemen",
+        "name_vi": "Cộng hòa Nhân dân Nam Yemen"
+      },
+      "eventType": "independence_and_republic",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "one_party_state"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "yemen_state"
+      ],
+      "quality": "verified",
+      "note": "British withdrawal led to the independence of South Yemen; the socialist one-party order consolidated later."
+    },
+    {
+      "id": "YMD-1970-11",
+      "date": "1970-11-30",
+      "capitalHistorical": "Aden",
+      "entityBefore": {
+        "id": "YMD",
+        "name_en": "People's Republic of Southern Yemen",
+        "name_vi": "Cộng hòa Nhân dân Nam Yemen"
+      },
+      "entityAfter": {
+        "id": "YMD",
+        "name_en": "People's Democratic Republic of Yemen",
+        "name_vi": "Cộng hòa Dân chủ Nhân dân Yemen"
+      },
+      "eventType": "constitutional_renaming_and_socialist_state",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "one_party_state"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "command_economy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "yemen_state"
+      ],
+      "quality": "supported",
+      "note": "The state was renamed the People's Democratic Republic of Yemen in 1970; the ruling National Liberation Front consolidated a Marxist-Leninist one-party system."
+    },
+    {
+      "id": "YEM-1990-05",
+      "date": "1990-05-22",
+      "capitalHistorical": "Sana'a",
+      "entityBefore": {
+        "id": "YEM",
+        "name_en": "Yemen Arab Republic and People's Democratic Republic of Yemen",
+        "name_vi": "Cộng hòa Ả Rập Yemen và Cộng hòa Dân chủ Nhân dân Yemen"
+      },
+      "entityAfter": {
+        "id": "YEM",
+        "name_en": "Republic of Yemen",
+        "name_vi": "Cộng hòa Yemen"
+      },
+      "eventType": "unification",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "power": {
+          "from": "one_party_state",
+          "to": "universal_male_suffrage",
+          "note": "Formal multiparty unification; subsequent political conflict and civil war mean democratization was not linear."
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "yemen_state"
+      ],
+      "quality": "verified",
+      "note": "North and South Yemen formally unified as the Republic of Yemen."
+    },
+    {
+      "id": "ZAF-1910-05",
+      "date": "1910-05-31",
+      "capitalHistorical": "Pretoria",
+      "entityBefore": {
+        "id": "ZAF",
+        "name_en": "British colonies in southern Africa",
+        "name_vi": "Các thuộc địa Anh ở miền nam châu Phi"
+      },
+      "entityAfter": {
+        "id": "ZAF",
+        "name_en": "Union of South Africa",
+        "name_vi": "Liên hiệp Nam Phi"
+      },
+      "eventType": "union_and_dominion_formation",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "census_suffrage",
+          "note": "Self-governing Dominion; franchise was racially restricted and excluded most Black South Africans."
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "south_africa_pres"
+      ],
+      "quality": "verified",
+      "note": "The Union amalgamated four colonies as a self-governing Dominion; the political system excluded the Black majority."
+    },
+    {
+      "id": "ZAF-1948-05",
+      "date": "1948-05-26",
+      "capitalHistorical": "Pretoria",
+      "entityBefore": {
+        "id": "ZAF",
+        "name_en": "Union of South Africa under segregationist governments",
+        "name_vi": "Liên hiệp Nam Phi dưới các chính phủ phân biệt chủng tộc"
+      },
+      "entityAfter": {
+        "id": "ZAF",
+        "name_en": "Union of South Africa under National Party apartheid",
+        "name_vi": "Liên hiệp Nam Phi dưới chế độ Apartheid của Đảng Quốc gia"
+      },
+      "eventType": "electoral_regime_shift_and_apartheid",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "census_suffrage",
+          "note": "The National Party victory entrenched white-minority rule; no universal franchise."
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "south_africa_gov",
+        "us_apartheid"
+      ],
+      "quality": "verified",
+      "note": "The National Party victory marked the formal apartheid era; racial exclusion predated 1948."
+    },
+    {
+      "id": "ZAF-1961-05",
+      "date": "1961-05-31",
+      "capitalHistorical": "Pretoria",
+      "entityBefore": {
+        "id": "ZAF",
+        "name_en": "Union of South Africa",
+        "name_vi": "Liên hiệp Nam Phi"
+      },
+      "entityAfter": {
+        "id": "ZAF",
+        "name_en": "Republic of South Africa under apartheid",
+        "name_vi": "Cộng hòa Nam Phi dưới chế độ Apartheid"
+      },
+      "eventType": "republic_proclamation",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "power": {
+          "from": "census_suffrage",
+          "to": "census_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "south_africa_pres"
+      ],
+      "quality": "verified",
+      "note": "South Africa became a republic after a whites-only referendum and left the Commonwealth."
+    },
+    {
+      "id": "ZAF-1994-04",
+      "date": "1994-04-27",
+      "capitalHistorical": "Pretoria",
+      "entityBefore": {
+        "id": "ZAF",
+        "name_en": "Republic of South Africa under apartheid",
+        "name_vi": "Cộng hòa Nam Phi dưới chế độ Apartheid"
+      },
+      "entityAfter": {
+        "id": "ZAF",
+        "name_en": "Democratic Republic of South Africa",
+        "name_vi": "Cộng hòa Dân chủ Nam Phi"
+      },
+      "eventType": "democratic_transition",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "universal_suffrage"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "free_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "south_africa_gov",
+        "us_apartheid"
+      ],
+      "quality": "verified",
+      "note": "The first non-racial democratic election established majority rule; nine provinces replaced the previous administrative structure."
+    },
+    {
+      "id": "GHA-1957-03",
+      "date": "1957-03-06",
+      "capitalHistorical": "Accra",
+      "entityBefore": {
+        "id": "GBR",
+        "name_en": "Gold Coast Colony",
+        "name_vi": "Thuộc địa Gold Coast của Anh"
+      },
+      "entityAfter": {
+        "id": "GHA",
+        "name_en": "Dominion of Ghana",
+        "name_vi": "Lãnh thổ tự trị Ghana"
+      },
+      "eventType": "independence",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_africa",
+        "ghana_coups"
+      ],
+      "quality": "verified",
+      "note": "Ghana became independent within the Commonwealth; it became a republic in 1960."
+    },
+    {
+      "id": "GHA-1960-07",
+      "date": "1960-07-01",
+      "capitalHistorical": "Accra",
+      "entityBefore": {
+        "id": "GHA",
+        "name_en": "Dominion of Ghana",
+        "name_vi": "Lãnh thổ tự trị Ghana"
+      },
+      "entityAfter": {
+        "id": "GHA",
+        "name_en": "Republic of Ghana",
+        "name_vi": "Cộng hòa Ghana"
+      },
+      "eventType": "republic_proclamation",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "universal_male_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "ghana_coups"
+      ],
+      "quality": "supported",
+      "note": "Ghana became a republic; executive authority increasingly concentrated under Nkrumah."
+    },
+    {
+      "id": "GHA-1966-02",
+      "date": "1966-02-24",
+      "capitalHistorical": "Accra",
+      "entityBefore": {
+        "id": "GHA",
+        "name_en": "Republic of Ghana under Nkrumah",
+        "name_vi": "Cộng hòa Ghana dưới thời Nkrumah"
+      },
+      "entityAfter": {
+        "id": "GHA",
+        "name_en": "National Liberation Council military government",
+        "name_vi": "Chính quyền quân sự Hội đồng Giải phóng Dân tộc"
+      },
+      "eventType": "military_coup",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "autocracy"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "africa_coups",
+        "ghana_coups"
+      ],
+      "quality": "verified",
+      "note": "The military-police coup overthrew Nkrumah's government."
+    },
+    {
+      "id": "GHA-1972-01",
+      "date": "1972-01-13",
+      "capitalHistorical": "Accra",
+      "entityBefore": {
+        "id": "GHA",
+        "name_en": "Second Republic of Ghana",
+        "name_vi": "Đệ nhị Cộng hòa Ghana"
+      },
+      "entityAfter": {
+        "id": "GHA",
+        "name_en": "National Redemption Council military government",
+        "name_vi": "Chính quyền quân sự Hội đồng Cứu quốc"
+      },
+      "eventType": "military_coup",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "ghana_coups",
+        "africa_coups"
+      ],
+      "quality": "verified",
+      "note": "Acheampong's coup ended the Second Republic."
+    },
+    {
+      "id": "GHA-1979-06",
+      "date": "1979-06-04",
+      "capitalHistorical": "Accra",
+      "entityBefore": {
+        "id": "GHA",
+        "name_en": "Supreme Military Council government",
+        "name_vi": "Chính quyền Hội đồng Quân sự Tối cao"
+      },
+      "entityAfter": {
+        "id": "GHA",
+        "name_en": "Armed Forces Revolutionary Council",
+        "name_vi": "Hội đồng Cách mạng Lực lượng Vũ trang"
+      },
+      "eventType": "military_coup",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "ghana_coups"
+      ],
+      "quality": "supported",
+      "note": "Rawlings seized power; a short military transition preceded the Third Republic."
+    },
+    {
+      "id": "GHA-1992-01",
+      "date": "1992-01-07",
+      "capitalHistorical": "Accra",
+      "entityBefore": {
+        "id": "GHA",
+        "name_en": "Provisional National Defence Council",
+        "name_vi": "Hội đồng Quốc phòng Lâm thời"
+      },
+      "entityAfter": {
+        "id": "GHA",
+        "name_en": "Fourth Republic of Ghana",
+        "name_vi": "Đệ tứ Cộng hòa Ghana"
+      },
+      "eventType": "constitutional_democratic_transition",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "ghana_coups"
+      ],
+      "quality": "supported",
+      "note": "The 1992 Constitution and subsequent elections restored multiparty constitutional government."
+    },
+    {
+      "id": "NGA-1960-10",
+      "date": "1960-10-01",
+      "capitalHistorical": "Lagos",
+      "entityBefore": {
+        "id": "GBR",
+        "name_en": "Colony and Protectorate of Nigeria",
+        "name_vi": "Thuộc địa và vùng bảo hộ Nigeria của Anh"
+      },
+      "entityAfter": {
+        "id": "NGA",
+        "name_en": "Federation of Nigeria",
+        "name_vi": "Liên bang Nigeria"
+      },
+      "eventType": "independence",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_africa",
+        "nigeria_coups"
+      ],
+      "quality": "verified",
+      "note": "Nigeria became independent as a Commonwealth federation."
+    },
+    {
+      "id": "NGA-1963-10",
+      "date": "1963-10-01",
+      "capitalHistorical": "Lagos",
+      "entityBefore": {
+        "id": "NGA",
+        "name_en": "Federation of Nigeria",
+        "name_vi": "Liên bang Nigeria"
+      },
+      "entityAfter": {
+        "id": "NGA",
+        "name_en": "Federal Republic of Nigeria",
+        "name_vi": "Cộng hòa Liên bang Nigeria"
+      },
+      "eventType": "republic_proclamation",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "nigeria_coups"
+      ],
+      "quality": "supported",
+      "note": "Nigeria became a republic while retaining a parliamentary federal constitution."
+    },
+    {
+      "id": "NGA-1966-01",
+      "date": "1966-01-15",
+      "capitalHistorical": "Lagos",
+      "entityBefore": {
+        "id": "NGA",
+        "name_en": "First Republic of Nigeria",
+        "name_vi": "Đệ nhất Cộng hòa Nigeria"
+      },
+      "entityAfter": {
+        "id": "NGA",
+        "name_en": "Federal Military Government of Nigeria",
+        "name_vi": "Chính phủ Quân sự Liên bang Nigeria"
+      },
+      "eventType": "military_coup",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "africa_coups",
+        "nigeria_coups"
+      ],
+      "quality": "verified",
+      "note": "The January coup began a prolonged period of military rule and contributed to the crisis preceding the Biafran War."
+    },
+    {
+      "id": "NGA-1979-10",
+      "date": "1979-10-01",
+      "capitalHistorical": "Lagos",
+      "entityBefore": {
+        "id": "NGA",
+        "name_en": "Federal Military Government of Nigeria",
+        "name_vi": "Chính phủ Quân sự Liên bang Nigeria"
+      },
+      "entityAfter": {
+        "id": "NGA",
+        "name_en": "Second Republic of Nigeria",
+        "name_vi": "Đệ nhị Cộng hòa Nigeria"
+      },
+      "eventType": "civilian_transition",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "nigeria_coups"
+      ],
+      "quality": "supported",
+      "note": "The military transferred power to an elected civilian government under the 1979 Constitution."
+    },
+    {
+      "id": "NGA-1983-12",
+      "date": "1983-12-31",
+      "capitalHistorical": "Lagos",
+      "entityBefore": {
+        "id": "NGA",
+        "name_en": "Second Republic of Nigeria",
+        "name_vi": "Đệ nhị Cộng hòa Nigeria"
+      },
+      "entityAfter": {
+        "id": "NGA",
+        "name_en": "Buhari military government",
+        "name_vi": "Chính quyền quân sự Buhari"
+      },
+      "eventType": "military_coup",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_suffrage",
+          "to": "autocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "nigeria_coups"
+      ],
+      "quality": "verified",
+      "note": "The military overthrew the civilian government; a second prolonged military period followed."
+    },
+    {
+      "id": "NGA-1999-05",
+      "date": "1999-05-29",
+      "capitalHistorical": "Abuja",
+      "entityBefore": {
+        "id": "NGA",
+        "name_en": "Abacha/Abubakar military transition",
+        "name_vi": "Chính quyền quân sự Abacha/Abubakar"
+      },
+      "entityAfter": {
+        "id": "NGA",
+        "name_en": "Fourth Republic of Nigeria",
+        "name_vi": "Đệ tứ Cộng hòa Nigeria"
+      },
+      "eventType": "democratic_transition",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "nigeria_coups"
+      ],
+      "quality": "verified",
+      "note": "Civilian rule resumed under the 1999 Constitution; capital moved from Lagos to Abuja in 1991 (capital relocation is a separate map event)."
+    },
+    {
+      "id": "ETH-1974-09",
+      "date": "1974-09-12",
+      "capitalHistorical": "Addis Ababa",
+      "entityBefore": {
+        "id": "ETH",
+        "name_en": "Ethiopian Empire under Haile Selassie",
+        "name_vi": "Đế quốc Ethiopia dưới thời Haile Selassie"
+      },
+      "entityAfter": {
+        "id": "ETH",
+        "name_en": "Provisional Military Administrative Council (Derg)",
+        "name_vi": "Hội đồng Quân chính Lâm thời (Derg)"
+      },
+      "eventType": "military_revolution_and_monarchy_overthrow",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy"
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "traditionalism",
+          "to": "command_economy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "ethiopia_history"
+      ],
+      "quality": "verified",
+      "note": "The Derg deposed the Emperor and assumed power; a republic was formally proclaimed later."
+    },
+    {
+      "id": "ETH-1975-03",
+      "date": "1975-03-21",
+      "capitalHistorical": "Addis Ababa",
+      "entityBefore": {
+        "id": "ETH",
+        "name_en": "Ethiopian military government",
+        "name_vi": "Chính quyền quân sự Ethiopia"
+      },
+      "entityAfter": {
+        "id": "ETH",
+        "name_en": "Provisional Military Government of Socialist Ethiopia",
+        "name_vi": "Chính phủ Quân sự Lâm thời Ethiopia Xã hội chủ nghĩa"
+      },
+      "eventType": "republic_and_socialist_state",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy"
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "command_economy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "ethiopia_history"
+      ],
+      "quality": "supported",
+      "note": "The monarchy was formally abolished; Derg military rule continued."
+    },
+    {
+      "id": "ETH-1991-05",
+      "date": "1991-05-28",
+      "capitalHistorical": "Addis Ababa",
+      "entityBefore": {
+        "id": "ETH",
+        "name_en": "People's Democratic Republic of Ethiopia under Derg",
+        "name_vi": "Cộng hòa Dân chủ Nhân dân Ethiopia dưới Derg"
+      },
+      "entityAfter": {
+        "id": "ETH",
+        "name_en": "Transitional Government of Ethiopia",
+        "name_vi": "Chính phủ Chuyển tiếp Ethiopia"
+      },
+      "eventType": "regime_overthrow_and_transition",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "autocracy",
+          "note": "The Derg collapsed; a transitional coalition followed, with the federal constitution adopted in 1995."
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "ethiopia_history"
+      ],
+      "quality": "supported",
+      "note": "The EPRDF-led coalition entered Addis Ababa and ended the Derg government."
+    },
+    {
+      "id": "COD-1960-06",
+      "date": "1960-06-30",
+      "capitalHistorical": "Leopoldville",
+      "entityBefore": {
+        "id": "BEL",
+        "name_en": "Belgian Congo",
+        "name_vi": "Congo thuộc Bỉ"
+      },
+      "entityAfter": {
+        "id": "COD",
+        "name_en": "Republic of the Congo (Leopoldville)",
+        "name_vi": "Cộng hòa Congo (Leopoldville)"
+      },
+      "eventType": "independence",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_africa"
+      ],
+      "quality": "verified",
+      "note": "The Belgian Congo became independent; immediate mutinies and the Congo Crisis followed."
+    },
+    {
+      "id": "COD-1965-11",
+      "date": "1965-11-24",
+      "capitalHistorical": "Leopoldville",
+      "entityBefore": {
+        "id": "COD",
+        "name_en": "Republic of the Congo under civilian government",
+        "name_vi": "Cộng hòa Congo dưới chính quyền dân sự"
+      },
+      "entityAfter": {
+        "id": "COD",
+        "name_en": "Republic of the Congo under Mobutu",
+        "name_vi": "Cộng hòa Congo dưới thời Mobutu"
+      },
+      "eventType": "military_coup",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "africa_coups",
+        "congo_history"
+      ],
+      "quality": "verified",
+      "note": "Mobutu seized power and established an authoritarian military-backed presidency."
+    },
+    {
+      "id": "COD-1971-10",
+      "date": "1971-10-27",
+      "capitalHistorical": "Kinshasa",
+      "entityBefore": {
+        "id": "COD",
+        "name_en": "Republic of the Congo (Leopoldville)",
+        "name_vi": "Cộng hòa Congo (Leopoldville)"
+      },
+      "entityAfter": {
+        "id": "ZAI",
+        "name_en": "Republic of Zaire",
+        "name_vi": "Cộng hòa Zaire"
+      },
+      "eventType": "state_renaming_and_authenticity_campaign",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "congo_history"
+      ],
+      "quality": "supported",
+      "note": "Mobutu renamed the state Zaire as part of Authenticité; this is a state-name change, not democratization."
+    },
+    {
+      "id": "ZAI-1997-05",
+      "date": "1997-05-17",
+      "capitalHistorical": "Kinshasa",
+      "entityBefore": {
+        "id": "ZAI",
+        "name_en": "Republic of Zaire under Mobutu",
+        "name_vi": "Cộng hòa Zaire dưới thời Mobutu"
+      },
+      "entityAfter": {
+        "id": "COD",
+        "name_en": "Democratic Republic of the Congo",
+        "name_vi": "Cộng hòa Dân chủ Congo"
+      },
+      "eventType": "regime_overthrow_and_state_renaming",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "congo_history"
+      ],
+      "quality": "supported",
+      "note": "The AFDL captured Kinshasa and renamed the state the Democratic Republic of the Congo."
+    },
+    {
+      "id": "KEN-1963-12",
+      "date": "1963-12-12",
+      "capitalHistorical": "Nairobi",
+      "entityBefore": {
+        "id": "GBR",
+        "name_en": "Colony and Protectorate of Kenya",
+        "name_vi": "Thuộc địa và vùng bảo hộ Kenya của Anh"
+      },
+      "entityAfter": {
+        "id": "KEN",
+        "name_en": "Dominion of Kenya",
+        "name_vi": "Lãnh thổ tự trị Kenya"
+      },
+      "eventType": "independence",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_africa"
+      ],
+      "quality": "verified",
+      "note": "Kenya became independent as a Commonwealth realm; it became a republic in 1964."
+    },
+    {
+      "id": "KEN-1964-12",
+      "date": "1964-12-12",
+      "capitalHistorical": "Nairobi",
+      "entityBefore": {
+        "id": "KEN",
+        "name_en": "Dominion of Kenya",
+        "name_vi": "Lãnh thổ tự trị Kenya"
+      },
+      "entityAfter": {
+        "id": "KEN",
+        "name_en": "Republic of Kenya",
+        "name_vi": "Cộng hòa Kenya"
+      },
+      "eventType": "republic_proclamation",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_africa"
+      ],
+      "quality": "supported",
+      "note": "The monarchy was replaced by a republic with an executive presidency."
+    },
+    {
+      "id": "TZA-1964-04",
+      "date": "1964-04-26",
+      "capitalHistorical": "Dar es Salaam",
+      "entityBefore": {
+        "id": "TAN",
+        "name_en": "Tanganyika and Zanzibar",
+        "name_vi": "Tanganyika và Zanzibar"
+      },
+      "entityAfter": {
+        "id": "TZA",
+        "name_en": "United Republic of Tanzania",
+        "name_vi": "Cộng hòa Thống nhất Tanzania"
+      },
+      "eventType": "union_and_state_formation",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "one_party_state"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_africa"
+      ],
+      "quality": "verified",
+      "note": "Tanganyika and Zanzibar united; TANU and later CCM established one-party dominance."
+    },
+    {
+      "id": "TZA-1965-07",
+      "date": "1965-07-10",
+      "capitalHistorical": "Dar es Salaam",
+      "entityBefore": {
+        "id": "TZA",
+        "name_en": "United Republic of Tanzania under transitional multiparty framework",
+        "name_vi": "Cộng hòa Thống nhất Tanzania"
+      },
+      "entityAfter": {
+        "id": "TZA",
+        "name_en": "United Republic of Tanzania under one-party constitution",
+        "name_vi": "Cộng hòa Thống nhất Tanzania theo hiến pháp một đảng"
+      },
+      "eventType": "constitutional_one_party_state",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "one_party_state"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_africa"
+      ],
+      "quality": "supported",
+      "note": "The 1965 interim constitution formalized the one-party state."
+    },
+    {
+      "id": "TZA-1992-02",
+      "date": "1992-02-01",
+      "capitalHistorical": "Dodoma",
+      "entityBefore": {
+        "id": "TZA",
+        "name_en": "United Republic of Tanzania under CCM one-party constitution",
+        "name_vi": "Cộng hòa Thống nhất Tanzania theo hiến pháp một đảng"
+      },
+      "entityAfter": {
+        "id": "TZA",
+        "name_en": "United Republic of Tanzania under multiparty constitution",
+        "name_vi": "Cộng hòa Thống nhất Tanzania theo hiến pháp đa đảng"
+      },
+      "eventType": "constitutional_transition",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "universal_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "tanzania_history"
+      ],
+      "quality": "supported",
+      "note": "The political system was amended to permit multiparty competition."
+    },
+    {
+      "id": "BRA-1889-11",
+      "date": "1889-11-15",
+      "capitalHistorical": "Rio de Janeiro",
+      "entityBefore": {
+        "id": "BRA",
+        "name_en": "Empire of Brazil",
+        "name_vi": "Đế quốc Brazil"
+      },
+      "entityAfter": {
+        "id": "BRA",
+        "name_en": "Republic of the United States of Brazil",
+        "name_vi": "Cộng hòa Hợp chúng quốc Brazil"
+      },
+      "eventType": "military_coup_and_republic",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "power": {
+          "from": "census_suffrage",
+          "to": "census_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "brazil_cambridge"
+      ],
+      "quality": "verified",
+      "note": "The military overthrew Emperor Pedro II; the First Republic did not immediately become a mass democracy."
+    },
+    {
+      "id": "BRA-1930-10",
+      "date": "1930-10-24",
+      "capitalHistorical": "Rio de Janeiro",
+      "entityBefore": {
+        "id": "BRA",
+        "name_en": "Old Republic of Brazil",
+        "name_vi": "Cộng hòa Cũ Brazil"
+      },
+      "entityAfter": {
+        "id": "BRA",
+        "name_en": "Brazil under Getúlio Vargas",
+        "name_vi": "Brazil dưới thời Getúlio Vargas"
+      },
+      "eventType": "revolution_and_regime_change",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "autocracy"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "brazil_cambridge"
+      ],
+      "quality": "supported",
+      "note": "The 1930 Revolution ended the Old Republic and brought Vargas to power."
+    },
+    {
+      "id": "BRA-1937-11",
+      "date": "1937-11-10",
+      "capitalHistorical": "Rio de Janeiro",
+      "entityBefore": {
+        "id": "BRA",
+        "name_en": "Brazil under Vargas provisional constitutional government",
+        "name_vi": "Brazil dưới chính phủ hiến pháp Vargas"
+      },
+      "entityAfter": {
+        "id": "BRA",
+        "name_en": "Estado Novo of Brazil",
+        "name_vi": "Nhà nước Mới Brazil"
+      },
+      "eventType": "self_coup_and_authoritarian_constitution",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy"
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "brazil_cambridge"
+      ],
+      "quality": "supported",
+      "note": "Vargas imposed the Estado Novo dictatorship and dissolved Congress."
+    },
+    {
+      "id": "BRA-1945-10",
+      "date": "1945-10-29",
+      "capitalHistorical": "Rio de Janeiro",
+      "entityBefore": {
+        "id": "BRA",
+        "name_en": "Estado Novo of Brazil",
+        "name_vi": "Nhà nước Mới Brazil"
+      },
+      "entityAfter": {
+        "id": "BRA",
+        "name_en": "Democratic Republic of Brazil (Fourth Republic)",
+        "name_vi": "Cộng hòa Dân chủ Brazil (Đệ tứ Cộng hòa)"
+      },
+      "eventType": "military_transition_and_democratization",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_suffrage"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "free_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "brazil_cambridge"
+      ],
+      "quality": "supported",
+      "note": "The military removed Vargas; elections and a new constitution followed in 1946."
+    },
+    {
+      "id": "BRA-1964-04",
+      "date": "1964-04-01",
+      "capitalHistorical": "Brasília",
+      "entityBefore": {
+        "id": "BRA",
+        "name_en": "Brazilian Fourth Republic",
+        "name_vi": "Đệ tứ Cộng hòa Brazil"
+      },
+      "entityAfter": {
+        "id": "BRA",
+        "name_en": "Brazilian Military Regime",
+        "name_vi": "Chế độ Quân sự Brazil"
+      },
+      "eventType": "military_coup",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_suffrage",
+          "to": "autocracy"
+        },
+        "press": {
+          "from": "free_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "brazil_military"
+      ],
+      "quality": "supported",
+      "note": "The armed forces overthrew President João Goulart; military rule lasted until the civilian transition of 1985."
+    },
+    {
+      "id": "BRA-1985-03",
+      "date": "1985-03-15",
+      "capitalHistorical": "Brasília",
+      "entityBefore": {
+        "id": "BRA",
+        "name_en": "Brazilian Military Regime",
+        "name_vi": "Chế độ Quân sự Brazil"
+      },
+      "entityAfter": {
+        "id": "BRA",
+        "name_en": "New Republic of Brazil",
+        "name_vi": "Tân Cộng hòa Brazil"
+      },
+      "eventType": "civilian_transition",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_suffrage"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "free_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "brazil_military"
+      ],
+      "quality": "supported",
+      "note": "A civilian president took office; the 1988 Constitution consolidated the new democratic order."
+    },
+    {
+      "id": "MEX-1910-11",
+      "date": "1910-11-20",
+      "capitalHistorical": "Mexico City",
+      "entityBefore": {
+        "id": "MEX",
+        "name_en": "Porfirian Mexico",
+        "name_vi": "Mexico thời Porfiriato"
+      },
+      "entityAfter": {
+        "id": "MEX",
+        "name_en": "Revolutionary Mexico",
+        "name_vi": "Mexico thời Cách mạng"
+      },
+      "eventType": "revolution_and_regime_collapse",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "autocracy"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "mexico_crs"
+      ],
+      "quality": "supported",
+      "note": "The Revolution began against Díaz's long authoritarian rule; conflict and successive governments followed."
+    },
+    {
+      "id": "MEX-1917-02",
+      "date": "1917-02-05",
+      "capitalHistorical": "Mexico City",
+      "entityBefore": {
+        "id": "MEX",
+        "name_en": "Revolutionary Mexico under constitutionalist government",
+        "name_vi": "Mexico cách mạng dưới chính phủ lập hiến"
+      },
+      "entityAfter": {
+        "id": "MEX",
+        "name_en": "Mexican Republic under the 1917 Constitution",
+        "name_vi": "Cộng hòa Mexico theo Hiến pháp 1917"
+      },
+      "eventType": "constitution",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "labor": {
+          "from": "traditional_tenancy",
+          "to": "free_labor"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "mexico_constitution"
+      ],
+      "quality": "verified",
+      "note": "The Constitution of 1917 created a new constitutional framework; political stability and competitive democracy developed unevenly."
+    },
+    {
+      "id": "MEX-1929-03",
+      "date": "1929-03-04",
+      "capitalHistorical": "Mexico City",
+      "entityBefore": {
+        "id": "MEX",
+        "name_en": "Post-revolutionary Mexican governments",
+        "name_vi": "Các chính phủ Mexico hậu cách mạng"
+      },
+      "entityAfter": {
+        "id": "MEX",
+        "name_en": "Mexico under the National Revolutionary Party (later PRI)",
+        "name_vi": "Mexico dưới Đảng Cách mạng Quốc gia (sau là PRI)"
+      },
+      "eventType": "party_system_institutionalization",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "one_party_state",
+          "note": "The party-state became hegemonic rather than legally exclusive; this is a gameplay approximation of long PRI dominance."
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "mexico_crs"
+      ],
+      "quality": "supported",
+      "note": "The PNR was founded in 1929; it evolved into the PRM and PRI and governed with near-hegemonic dominance until 2000."
+    },
+    {
+      "id": "MEX-2000-12",
+      "date": "2000-12-01",
+      "capitalHistorical": "Mexico City",
+      "entityBefore": {
+        "id": "MEX",
+        "name_en": "Mexico under PRI hegemonic party system",
+        "name_vi": "Mexico dưới hệ thống đảng thống trị PRI"
+      },
+      "entityAfter": {
+        "id": "MEX",
+        "name_en": "Mexico under competitive multiparty alternation",
+        "name_vi": "Mexico với cạnh tranh và luân phiên đa đảng"
+      },
+      "eventType": "democratic_alternation",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "universal_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "mexico_crs"
+      ],
+      "quality": "supported",
+      "note": "The PRI lost the presidency to Vicente Fox, ending its uninterrupted presidential dominance."
+    },
+    {
+      "id": "ARG-1976-03",
+      "date": "1976-03-24",
+      "capitalHistorical": "Buenos Aires",
+      "entityBefore": {
+        "id": "ARG",
+        "name_en": "Argentine constitutional government",
+        "name_vi": "Chính phủ hiến pháp Argentina"
+      },
+      "entityAfter": {
+        "id": "ARG",
+        "name_en": "National Reorganization Process military dictatorship",
+        "name_vi": "Chế độ độc tài quân sự Tiến trình Tái tổ chức Quốc gia"
+      },
+      "eventType": "military_coup",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_suffrage",
+          "to": "autocracy"
+        },
+        "press": {
+          "from": "free_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "argentina_history"
+      ],
+      "quality": "supported",
+      "note": "The armed forces seized power and initiated a military dictatorship."
+    },
+    {
+      "id": "ARG-1983-12",
+      "date": "1983-12-10",
+      "capitalHistorical": "Buenos Aires",
+      "entityBefore": {
+        "id": "ARG",
+        "name_en": "National Reorganization Process",
+        "name_vi": "Tiến trình Tái tổ chức Quốc gia"
+      },
+      "entityAfter": {
+        "id": "ARG",
+        "name_en": "Argentine Republic under restored constitutional democracy",
+        "name_vi": "Cộng hòa Argentina khôi phục dân chủ hiến pháp"
+      },
+      "eventType": "democratic_transition",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_suffrage"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "free_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "argentina_history"
+      ],
+      "quality": "verified",
+      "note": "Civilian constitutional rule returned with Raúl Alfonsín's inauguration."
+    },
+    {
+      "id": "CHL-1973-09",
+      "date": "1973-09-11",
+      "capitalHistorical": "Santiago",
+      "entityBefore": {
+        "id": "CHL",
+        "name_en": "Republic of Chile under Salvador Allende",
+        "name_vi": "Cộng hòa Chile dưới thời Salvador Allende"
+      },
+      "entityAfter": {
+        "id": "CHL",
+        "name_en": "Military Government Junta of Chile",
+        "name_vi": "Chính quyền quân sự Chile"
+      },
+      "eventType": "military_coup",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_suffrage",
+          "to": "autocracy"
+        },
+        "press": {
+          "from": "free_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "chile_history"
+      ],
+      "quality": "verified",
+      "note": "The armed forces overthrew Allende; the military dictatorship lasted until the 1988 plebiscite and 1990 transfer."
+    },
+    {
+      "id": "CHL-1990-03",
+      "date": "1990-03-11",
+      "capitalHistorical": "Santiago",
+      "entityBefore": {
+        "id": "CHL",
+        "name_en": "Military Government of Chile",
+        "name_vi": "Chính quyền Quân sự Chile"
+      },
+      "entityAfter": {
+        "id": "CHL",
+        "name_en": "Republic of Chile under restored democracy",
+        "name_vi": "Cộng hòa Chile khôi phục dân chủ"
+      },
+      "eventType": "democratic_transition",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_suffrage"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "free_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "chile_history"
+      ],
+      "quality": "verified",
+      "note": "Patricio Aylwin took office after the 1988 plebiscite and 1989 elections."
+    },
+    {
+      "id": "CUB-1959-01",
+      "date": "1959-01-01",
+      "capitalHistorical": "Havana",
+      "entityBefore": {
+        "id": "CUB",
+        "name_en": "Republic of Cuba under Batista",
+        "name_vi": "Cộng hòa Cuba dưới thời Batista"
+      },
+      "entityAfter": {
+        "id": "CUB",
+        "name_en": "Revolutionary Government of Cuba",
+        "name_vi": "Chính phủ Cách mạng Cuba"
+      },
+      "eventType": "revolution_and_regime_change",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy"
+        },
+        "economy": {
+          "from": "mercantilism",
+          "to": "interventionism"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "cuba_history"
+      ],
+      "quality": "supported",
+      "note": "The Cuban Revolution overthrew Batista; the socialist one-party state developed over the following years."
+    },
+    {
+      "id": "CUB-1961-04",
+      "date": "1961-04-16",
+      "capitalHistorical": "Havana",
+      "entityBefore": {
+        "id": "CUB",
+        "name_en": "Revolutionary Government of Cuba",
+        "name_vi": "Chính phủ Cách mạng Cuba"
+      },
+      "entityAfter": {
+        "id": "CUB",
+        "name_en": "Socialist Republic of Cuba",
+        "name_vi": "Cộng hòa Xã hội chủ nghĩa Cuba"
+      },
+      "eventType": "socialist_one_party_state",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "one_party_state"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "command_economy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "cuba_history"
+      ],
+      "quality": "supported",
+      "note": "The socialist character of the revolution was declared; the Communist Party later became the sole constitutional political force."
+    },
+    {
+      "id": "SIA-1932-06",
+      "date": "1932-06-24",
+      "capitalHistorical": "Bangkok",
+      "entityBefore": {
+        "id": "SIA",
+        "name_en": "Kingdom of Siam under absolute monarchy",
+        "name_vi": "Vương quốc Xiêm theo quân chủ chuyên chế"
+      },
+      "entityAfter": {
+        "id": "SIA",
+        "name_en": "Kingdom of Siam under constitutional monarchy",
+        "name_vi": "Vương quốc Xiêm theo quân chủ lập hiến"
+      },
+      "eventType": "revolution_and_constitutional_monarchy",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "census_suffrage"
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "thailand_1932"
+      ],
+      "quality": "verified",
+      "note": "The 1932 revolution ended absolute monarchy and established constitutional monarchy; military intervention remained frequent."
+    },
+    {
+      "id": "IDN-1949-12",
+      "date": "1949-12-27",
+      "capitalHistorical": "Jakarta",
+      "entityBefore": {
+        "id": "NED",
+        "name_en": "Netherlands East Indies",
+        "name_vi": "Đông Ấn Hà Lan"
+      },
+      "entityAfter": {
+        "id": "IDN",
+        "name_en": "Republic of the United States of Indonesia",
+        "name_vi": "Cộng hòa Hợp chúng quốc Indonesia"
+      },
+      "eventType": "sovereignty_transfer_and_state_formation",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "indonesia_history"
+      ],
+      "quality": "verified",
+      "note": "The Netherlands transferred sovereignty; the unitary Republic of Indonesia replaced the federal structure in August 1950."
+    },
+    {
+      "id": "IDN-1957-03",
+      "date": "1957-03-14",
+      "capitalHistorical": "Jakarta",
+      "entityBefore": {
+        "id": "IDN",
+        "name_en": "Parliamentary Republic of Indonesia",
+        "name_vi": "Cộng hòa Indonesia theo chế độ nghị viện"
+      },
+      "entityAfter": {
+        "id": "IDN",
+        "name_en": "Guided Democracy under Sukarno",
+        "name_vi": "Nền Dân chủ Có chỉ đạo dưới thời Sukarno"
+      },
+      "eventType": "executive_consolidation_and_martial_law",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy"
+        },
+        "press": {
+          "from": "free_press",
+          "to": "limited_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "indonesia_springer"
+      ],
+      "quality": "supported",
+      "note": "Sukarno imposed martial law and replaced parliamentary cabinets with appointed governments; Guided Democracy consolidated through 1959."
+    },
+    {
+      "id": "IDN-1965-10",
+      "date": "1965-10-01",
+      "capitalHistorical": "Jakarta",
+      "entityBefore": {
+        "id": "IDN",
+        "name_en": "Guided Democracy under Sukarno",
+        "name_vi": "Nền Dân chủ Có chỉ đạo dưới thời Sukarno"
+      },
+      "entityAfter": {
+        "id": "IDN",
+        "name_en": "New Order under Suharto",
+        "name_vi": "Trật tự Mới dưới thời Suharto"
+      },
+      "eventType": "military_takeover_and_regime_transition",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "one_party_state"
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "indonesia_springer"
+      ],
+      "quality": "supported",
+      "note": "The 1965 crisis and subsequent army takeover led to Suharto's rise; formal presidential transfer occurred in 1967–68. Date marks the start of the transition, not a single-day succession."
+    },
+    {
+      "id": "IDN-1998-05",
+      "date": "1998-05-21",
+      "capitalHistorical": "Jakarta",
+      "entityBefore": {
+        "id": "IDN",
+        "name_en": "New Order under Suharto",
+        "name_vi": "Trật tự Mới dưới thời Suharto"
+      },
+      "entityAfter": {
+        "id": "IDN",
+        "name_en": "Reformasi-era Republic of Indonesia",
+        "name_vi": "Cộng hòa Indonesia thời Reformasi"
+      },
+      "eventType": "resignation_and_democratic_transition",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "universal_suffrage"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "free_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "indonesia_springer"
+      ],
+      "quality": "verified",
+      "note": "Suharto resigned after mass protests; democratic reforms and competitive elections followed."
+    },
+    {
+      "id": "PHL-1946-07",
+      "date": "1946-07-04",
+      "capitalHistorical": "Manila",
+      "entityBefore": {
+        "id": "USA",
+        "name_en": "Commonwealth of the Philippines",
+        "name_vi": "Thịnh vượng chung Philippines"
+      },
+      "entityAfter": {
+        "id": "PHL",
+        "name_en": "Republic of the Philippines",
+        "name_vi": "Cộng hòa Philippines"
+      },
+      "eventType": "independence",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_asia"
+      ],
+      "quality": "verified",
+      "note": "The Philippines became independent from the United States."
+    },
+    {
+      "id": "PHL-1972-09",
+      "date": "1972-09-21",
+      "capitalHistorical": "Manila",
+      "entityBefore": {
+        "id": "PHL",
+        "name_en": "Republic of the Philippines under constitutional government",
+        "name_vi": "Cộng hòa Philippines"
+      },
+      "entityAfter": {
+        "id": "PHL",
+        "name_en": "Republic of the Philippines under Marcos martial law",
+        "name_vi": "Cộng hòa Philippines dưới Thiết quân luật Marcos"
+      },
+      "eventType": "martial_law_and_authoritarian_rule",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_suffrage",
+          "to": "autocracy"
+        },
+        "press": {
+          "from": "free_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_asia"
+      ],
+      "quality": "verified",
+      "note": "Marcos proclaimed martial law, centralizing executive power and suppressing opposition."
+    },
+    {
+      "id": "PHL-1986-02",
+      "date": "1986-02-25",
+      "capitalHistorical": "Manila",
+      "entityBefore": {
+        "id": "PHL",
+        "name_en": "Republic of the Philippines under Marcos",
+        "name_vi": "Cộng hòa Philippines dưới thời Marcos"
+      },
+      "entityAfter": {
+        "id": "PHL",
+        "name_en": "Fifth Republic of the Philippines",
+        "name_vi": "Đệ ngũ Cộng hòa Philippines"
+      },
+      "eventType": "people_power_and_democratic_transition",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_suffrage"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "free_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_asia"
+      ],
+      "quality": "verified",
+      "note": "The People Power Revolution removed Marcos; the 1987 Constitution restored democratic institutions."
+    },
+    {
+      "id": "MMR-1948-01",
+      "date": "1948-01-04",
+      "capitalHistorical": "Rangoon",
+      "entityBefore": {
+        "id": "GBR",
+        "name_en": "British Burma",
+        "name_vi": "Miến Điện thuộc Anh"
+      },
+      "entityAfter": {
+        "id": "MMR",
+        "name_en": "Union of Burma",
+        "name_vi": "Liên bang Miến Điện"
+      },
+      "eventType": "independence",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_asia"
+      ],
+      "quality": "verified",
+      "note": "Burma became an independent parliamentary republic."
+    },
+    {
+      "id": "MMR-1962-03",
+      "date": "1962-03-02",
+      "capitalHistorical": "Rangoon",
+      "entityBefore": {
+        "id": "MMR",
+        "name_en": "Union of Burma parliamentary government",
+        "name_vi": "Chính phủ nghị viện Liên bang Miến Điện"
+      },
+      "entityAfter": {
+        "id": "MMR",
+        "name_en": "Burmese military government under Ne Win",
+        "name_vi": "Chính quyền quân sự Miến Điện dưới thời Ne Win"
+      },
+      "eventType": "military_coup",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_asia"
+      ],
+      "quality": "verified",
+      "note": "Ne Win's coup ended parliamentary democracy and initiated military rule."
+    },
+    {
+      "id": "MMR-1974-01",
+      "date": "1974-01-03",
+      "capitalHistorical": "Rangoon",
+      "entityBefore": {
+        "id": "MMR",
+        "name_en": "Burmese military government",
+        "name_vi": "Chính quyền quân sự Miến Điện"
+      },
+      "entityAfter": {
+        "id": "MMR",
+        "name_en": "Socialist Republic of the Union of Burma",
+        "name_vi": "Cộng hòa Xã hội chủ nghĩa Liên bang Miến Điện"
+      },
+      "eventType": "constitution_and_one_party_state",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "one_party_state"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "command_economy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_asia"
+      ],
+      "quality": "supported",
+      "note": "The 1974 Constitution established a one-party socialist state under the Burma Socialist Programme Party."
+    },
+    {
+      "id": "MMR-1988-09",
+      "date": "1988-09-18",
+      "capitalHistorical": "Rangoon",
+      "entityBefore": {
+        "id": "MMR",
+        "name_en": "Socialist Republic under BSPP",
+        "name_vi": "Cộng hòa Xã hội chủ nghĩa dưới BSPP"
+      },
+      "entityAfter": {
+        "id": "MMR",
+        "name_en": "State Law and Order Restoration Council",
+        "name_vi": "Hội đồng Khôi phục Trật tự và Pháp luật Nhà nước"
+      },
+      "eventType": "military_coup",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "autocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_asia"
+      ],
+      "quality": "verified",
+      "note": "The military seized power after the 8888 uprising; the BSPP system ended."
+    },
+    {
+      "id": "MMR-2011-03",
+      "date": "2011-03-30",
+      "capitalHistorical": "Naypyidaw",
+      "entityBefore": {
+        "id": "MMR",
+        "name_en": "State Peace and Development Council",
+        "name_vi": "Hội đồng Hòa bình và Phát triển Nhà nước"
+      },
+      "entityAfter": {
+        "id": "MMR",
+        "name_en": "Republic of the Union of Myanmar under quasi-civilian government",
+        "name_vi": "Cộng hòa Liên bang Myanmar dưới chính phủ bán dân sự"
+      },
+      "eventType": "managed_transition",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage",
+          "note": "A limited and military-constrained electoral opening; not a fully consolidated democracy."
+        },
+        "press": {
+          "from": "censorship",
+          "to": "limited_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "myanmar_history"
+      ],
+      "quality": "supported",
+      "note": "A nominally civilian government took office under the 2008 Constitution; military reserved powers remained."
+    },
+    {
+      "id": "MMR-2021-02",
+      "date": "2021-02-01",
+      "capitalHistorical": "Naypyidaw",
+      "entityBefore": {
+        "id": "MMR",
+        "name_en": "Republic of the Union of Myanmar under elected NLD government",
+        "name_vi": "Cộng hòa Liên bang Myanmar dưới chính phủ NLD"
+      },
+      "entityAfter": {
+        "id": "MMR",
+        "name_en": "State Administration Council military regime",
+        "name_vi": "Chính quyền quân sự Hội đồng Quản lý Nhà nước"
+      },
+      "eventType": "military_coup",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy"
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "myanmar_history"
+      ],
+      "quality": "verified",
+      "note": "The military detained elected leaders and seized power, triggering nationwide resistance and civil war."
+    },
+    {
+      "id": "KHM-1953-11",
+      "date": "1953-11-09",
+      "capitalHistorical": "Phnom Penh",
+      "entityBefore": {
+        "id": "FRA",
+        "name_en": "French protectorate of Cambodia",
+        "name_vi": "Campuchia dưới chế độ bảo hộ Pháp"
+      },
+      "entityAfter": {
+        "id": "KHM",
+        "name_en": "Kingdom of Cambodia",
+        "name_vi": "Vương quốc Campuchia"
+      },
+      "eventType": "independence_and_monarchy",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_asia"
+      ],
+      "quality": "verified",
+      "note": "Cambodia gained independence from France; the monarchy remained."
+    },
+    {
+      "id": "KHM-1970-10",
+      "date": "1970-10-09",
+      "capitalHistorical": "Phnom Penh",
+      "entityBefore": {
+        "id": "KHM",
+        "name_en": "Kingdom of Cambodia under Sihanouk",
+        "name_vi": "Vương quốc Campuchia dưới thời Sihanouk"
+      },
+      "entityAfter": {
+        "id": "KHM",
+        "name_en": "Khmer Republic",
+        "name_vi": "Cộng hòa Khmer"
+      },
+      "eventType": "coup_and_republic",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_asia"
+      ],
+      "quality": "supported",
+      "note": "The National Assembly deposed Sihanouk; Lon Nol proclaimed the Khmer Republic."
+    },
+    {
+      "id": "KHM-1975-04",
+      "date": "1975-04-17",
+      "capitalHistorical": "Phnom Penh",
+      "entityBefore": {
+        "id": "KHM",
+        "name_en": "Khmer Republic",
+        "name_vi": "Cộng hòa Khmer"
+      },
+      "entityAfter": {
+        "id": "KHM",
+        "name_en": "Democratic Kampuchea",
+        "name_vi": "Campuchia Dân chủ"
+      },
+      "eventType": "revolution_and_one_party_state",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "one_party_state"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "command_economy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_asia"
+      ],
+      "quality": "supported",
+      "note": "The Khmer Rouge captured Phnom Penh and established an extreme agrarian communist state."
+    },
+    {
+      "id": "KHM-1979-01",
+      "date": "1979-01-10",
+      "capitalHistorical": "Phnom Penh",
+      "entityBefore": {
+        "id": "KHM",
+        "name_en": "Democratic Kampuchea",
+        "name_vi": "Campuchia Dân chủ"
+      },
+      "entityAfter": {
+        "id": "KHM",
+        "name_en": "People's Republic of Kampuchea",
+        "name_vi": "Cộng hòa Nhân dân Campuchia"
+      },
+      "eventType": "regime_overthrow_and_new_government",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "one_party_state"
+        },
+        "economy": {
+          "from": "command_economy",
+          "to": "command_economy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_asia"
+      ],
+      "quality": "supported",
+      "note": "Vietnamese forces and Cambodian defectors overthrew Democratic Kampuchea; a new one-party state followed."
+    },
+    {
+      "id": "KHM-1993-09",
+      "date": "1993-09-24",
+      "capitalHistorical": "Phnom Penh",
+      "entityBefore": {
+        "id": "KHM",
+        "name_en": "State of Cambodia",
+        "name_vi": "Nhà nước Campuchia"
+      },
+      "entityAfter": {
+        "id": "KHM",
+        "name_en": "Kingdom of Cambodia restored",
+        "name_vi": "Vương quốc Campuchia được khôi phục"
+      },
+      "eventType": "monarchy_restoration_and_constitution",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "universal_male_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "monarchy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_asia"
+      ],
+      "quality": "verified",
+      "note": "The monarchy was restored under a constitutional framework after UN-supervised elections."
+    },
+    {
+      "id": "LAO-1975-12",
+      "date": "1975-12-02",
+      "capitalHistorical": "Vientiane",
+      "entityBefore": {
+        "id": "LAO",
+        "name_en": "Kingdom of Laos",
+        "name_vi": "Vương quốc Lào"
+      },
+      "entityAfter": {
+        "id": "LAO",
+        "name_en": "Lao People's Democratic Republic",
+        "name_vi": "Cộng hòa Dân chủ Nhân dân Lào"
+      },
+      "eventType": "revolution_and_one_party_state",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "one_party_state"
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "command_economy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "oup_asia"
+      ],
+      "quality": "verified",
+      "note": "The Lao monarchy was abolished and the Lao People's Democratic Republic proclaimed under the Lao People's Revolutionary Party."
+    },
+    {
+      "id": "AFG-1973-07",
+      "date": "1973-07-17",
+      "capitalHistorical": "Kabul",
+      "entityBefore": {
+        "id": "AFG",
+        "name_en": "Kingdom of Afghanistan",
+        "name_vi": "Vương quốc Afghanistan"
+      },
+      "entityAfter": {
+        "id": "AFG",
+        "name_en": "Republic of Afghanistan under Daoud Khan",
+        "name_vi": "Cộng hòa Afghanistan dưới thời Daoud Khan"
+      },
+      "eventType": "military_coup_and_republic",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "afghanistan_history"
+      ],
+      "quality": "supported",
+      "note": "Daoud Khan overthrew King Zahir Shah and proclaimed a republic."
+    },
+    {
+      "id": "AFG-1978-04",
+      "date": "1978-04-27",
+      "capitalHistorical": "Kabul",
+      "entityBefore": {
+        "id": "AFG",
+        "name_en": "Republic of Afghanistan under Daoud Khan",
+        "name_vi": "Cộng hòa Afghanistan dưới thời Daoud Khan"
+      },
+      "entityAfter": {
+        "id": "AFG",
+        "name_en": "Democratic Republic of Afghanistan",
+        "name_vi": "Cộng hòa Dân chủ Afghanistan"
+      },
+      "eventType": "revolution_and_one_party_state",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "one_party_state"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "command_economy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "afghanistan_history"
+      ],
+      "quality": "supported",
+      "note": "The Saur Revolution brought the PDPA to power; Soviet intervention followed in December 1979."
+    },
+    {
+      "id": "AFG-1992-04",
+      "date": "1992-04-28",
+      "capitalHistorical": "Kabul",
+      "entityBefore": {
+        "id": "AFG",
+        "name_en": "Democratic Republic of Afghanistan",
+        "name_vi": "Cộng hòa Dân chủ Afghanistan"
+      },
+      "entityAfter": {
+        "id": "AFG",
+        "name_en": "Islamic State of Afghanistan",
+        "name_vi": "Nhà nước Hồi giáo Afghanistan"
+      },
+      "eventType": "regime_collapse_and_mujahideen_government",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "autocracy"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "afghanistan_history"
+      ],
+      "quality": "supported",
+      "note": "The Najibullah government collapsed; rival mujahideen factions formed a fragile Islamic State."
+    },
+    {
+      "id": "AFG-1996-09",
+      "date": "1996-09-27",
+      "capitalHistorical": "Kabul",
+      "entityBefore": {
+        "id": "AFG",
+        "name_en": "Islamic State of Afghanistan",
+        "name_vi": "Nhà nước Hồi giáo Afghanistan"
+      },
+      "entityAfter": {
+        "id": "AFG",
+        "name_en": "Islamic Emirate of Afghanistan (first Taliban period)",
+        "name_vi": "Tiểu vương quốc Hồi giáo Afghanistan (Taliban lần thứ nhất)"
+      },
+      "eventType": "military_takeover_and_emirate",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "theocracy"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "theocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "afghanistan_history"
+      ],
+      "quality": "supported",
+      "note": "The Taliban captured Kabul and proclaimed an Islamic Emirate; international recognition was limited."
+    },
+    {
+      "id": "AFG-2001-12",
+      "date": "2001-12-22",
+      "capitalHistorical": "Kabul",
+      "entityBefore": {
+        "id": "AFG",
+        "name_en": "Islamic Emirate of Afghanistan",
+        "name_vi": "Tiểu vương quốc Hồi giáo Afghanistan"
+      },
+      "entityAfter": {
+        "id": "AFG",
+        "name_en": "Afghan Interim Authority",
+        "name_vi": "Chính quyền Lâm thời Afghanistan"
+      },
+      "eventType": "regime_overthrow_and_interim_authority",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "theocracy",
+          "to": "universal_male_suffrage"
+        },
+        "governance": {
+          "from": "theocracy",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "afghanistan_history"
+      ],
+      "quality": "supported",
+      "note": "The Bonn process established an interim authority after the Taliban government fell; later institutions remained fragile."
+    },
+    {
+      "id": "AFG-2021-08",
+      "date": "2021-08-15",
+      "capitalHistorical": "Kabul",
+      "entityBefore": {
+        "id": "AFG",
+        "name_en": "Islamic Republic of Afghanistan",
+        "name_vi": "Cộng hòa Hồi giáo Afghanistan"
+      },
+      "entityAfter": {
+        "id": "AFG",
+        "name_en": "Islamic Emirate of Afghanistan (second Taliban period)",
+        "name_vi": "Tiểu vương quốc Hồi giáo Afghanistan (Taliban lần thứ hai)"
+      },
+      "eventType": "regime_overthrow_and_emirate_restoration",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "theocracy"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "theocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "afghanistan_history"
+      ],
+      "quality": "verified",
+      "note": "The Taliban entered Kabul and re-established de facto emirate rule; international recognition remains limited."
+    },
+    {
+      "id": "NPL-1951-02",
+      "date": "1951-02-18",
+      "capitalHistorical": "Kathmandu",
+      "entityBefore": {
+        "id": "NPL",
+        "name_en": "Rana oligarchic regime under Shah monarchy",
+        "name_vi": "Chế độ đầu sỏ Rana dưới quân chủ Shah"
+      },
+      "entityAfter": {
+        "id": "NPL",
+        "name_en": "Kingdom of Nepal under constitutional transition",
+        "name_vi": "Vương quốc Nepal trong giai đoạn chuyển đổi hiến pháp"
+      },
+      "eventType": "revolution_and_oligarchy_termination",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "census_suffrage"
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "nepal_history"
+      ],
+      "quality": "supported",
+      "note": "The 1951 revolution ended hereditary Rana prime-ministerial rule and restored royal authority; democratic institutions remained unstable."
+    },
+    {
+      "id": "NPL-1960-12",
+      "date": "1960-12-15",
+      "capitalHistorical": "Kathmandu",
+      "entityBefore": {
+        "id": "NPL",
+        "name_en": "Kingdom of Nepal under parliamentary government",
+        "name_vi": "Vương quốc Nepal dưới chính phủ nghị viện"
+      },
+      "entityAfter": {
+        "id": "NPL",
+        "name_en": "Panchayat system under royal rule",
+        "name_vi": "Hệ thống Panchayat dưới quyền nhà vua"
+      },
+      "eventType": "royal_coup_and_partyless_system",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "nepal_history"
+      ],
+      "quality": "supported",
+      "note": "King Mahendra dissolved parliament, banned parties and established the partyless Panchayat system."
+    },
+    {
+      "id": "NPL-1990-04",
+      "date": "1990-04-08",
+      "capitalHistorical": "Kathmandu",
+      "entityBefore": {
+        "id": "NPL",
+        "name_en": "Panchayat system under royal rule",
+        "name_vi": "Hệ thống Panchayat"
+      },
+      "entityAfter": {
+        "id": "NPL",
+        "name_en": "Kingdom of Nepal under multiparty constitutional monarchy",
+        "name_vi": "Vương quốc Nepal theo quân chủ lập hiến đa đảng"
+      },
+      "eventType": "people_movement_and_constitutional_restoration",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "nepal_history"
+      ],
+      "quality": "supported",
+      "note": "The People's Movement restored multiparty politics and constitutional monarchy."
+    },
+    {
+      "id": "NPL-2008-05",
+      "date": "2008-05-28",
+      "capitalHistorical": "Kathmandu",
+      "entityBefore": {
+        "id": "NPL",
+        "name_en": "Kingdom of Nepal",
+        "name_vi": "Vương quốc Nepal"
+      },
+      "entityAfter": {
+        "id": "NPL",
+        "name_en": "Federal Democratic Republic of Nepal",
+        "name_vi": "Cộng hòa Dân chủ Liên bang Nepal"
+      },
+      "eventType": "monarchy_abolition_and_republic",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "power": {
+          "from": "universal_suffrage",
+          "to": "universal_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "nepal_history"
+      ],
+      "quality": "verified",
+      "note": "The Constituent Assembly abolished the monarchy and declared a federal democratic republic."
+    },
+    {
+      "id": "PAK-1956-03",
+      "date": "1956-03-23",
+      "capitalHistorical": "Karachi",
+      "entityBefore": {
+        "id": "PAK",
+        "name_en": "Dominion of Pakistan",
+        "name_vi": "Lãnh thổ tự trị Pakistan"
+      },
+      "entityAfter": {
+        "id": "PAK",
+        "name_en": "Islamic Republic of Pakistan",
+        "name_vi": "Cộng hòa Hồi giáo Pakistan"
+      },
+      "eventType": "constitution_and_republic",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "power": {
+          "from": "census_suffrage",
+          "to": "universal_male_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "pakistan_history"
+      ],
+      "quality": "verified",
+      "note": "Pakistan's first constitution came into force and the dominion became a republic."
+    },
+    {
+      "id": "PAK-1958-10",
+      "date": "1958-10-07",
+      "capitalHistorical": "Karachi",
+      "entityBefore": {
+        "id": "PAK",
+        "name_en": "Islamic Republic of Pakistan",
+        "name_vi": "Cộng hòa Hồi giáo Pakistan"
+      },
+      "entityAfter": {
+        "id": "PAK",
+        "name_en": "Pakistan under military rule of Ayub Khan",
+        "name_vi": "Pakistan dưới chế độ quân sự Ayub Khan"
+      },
+      "eventType": "military_coup",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "pakistan_history"
+      ],
+      "quality": "verified",
+      "note": "President Iskander Mirza abrogated the constitution and declared martial law; Ayub Khan soon assumed power."
+    },
+    {
+      "id": "PAK-1973-08",
+      "date": "1973-08-14",
+      "capitalHistorical": "Islamabad",
+      "entityBefore": {
+        "id": "PAK",
+        "name_en": "Pakistan under post-1971 transitional government",
+        "name_vi": "Pakistan sau giai đoạn chuyển tiếp 1971"
+      },
+      "entityAfter": {
+        "id": "PAK",
+        "name_en": "Islamic Republic of Pakistan under 1973 Constitution",
+        "name_vi": "Cộng hòa Hồi giáo Pakistan theo Hiến pháp 1973"
+      },
+      "eventType": "constitution_and_parliamentary_republic",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage"
+        },
+        "governance": {
+          "from": "presidential_rule",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "pakistan_history"
+      ],
+      "quality": "verified",
+      "note": "The 1973 Constitution established a parliamentary federal republic; military coups later interrupted it."
+    },
+    {
+      "id": "PAK-1977-07",
+      "date": "1977-07-05",
+      "capitalHistorical": "Islamabad",
+      "entityBefore": {
+        "id": "PAK",
+        "name_en": "Islamic Republic of Pakistan under Zulfikar Ali Bhutto",
+        "name_vi": "Cộng hòa Hồi giáo Pakistan dưới thời Zulfikar Ali Bhutto"
+      },
+      "entityAfter": {
+        "id": "PAK",
+        "name_en": "Pakistan under Zia-ul-Haq military rule",
+        "name_vi": "Pakistan dưới chế độ quân sự Zia-ul-Haq"
+      },
+      "eventType": "military_coup",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "pakistan_history"
+      ],
+      "quality": "verified",
+      "note": "General Zia-ul-Haq overthrew the elected government and imposed martial law."
+    },
+    {
+      "id": "PAK-2008-09",
+      "date": "2008-09-09",
+      "capitalHistorical": "Islamabad",
+      "entityBefore": {
+        "id": "PAK",
+        "name_en": "Pakistan under Musharraf military-backed presidency",
+        "name_vi": "Pakistan dưới tổng thống được quân đội hậu thuẫn Musharraf"
+      },
+      "entityAfter": {
+        "id": "PAK",
+        "name_en": "Pakistan under elected civilian presidency",
+        "name_vi": "Pakistan dưới tổng thống dân sự được bầu"
+      },
+      "eventType": "civilian_transition",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "pakistan_history"
+      ],
+      "quality": "supported",
+      "note": "Musharraf resigned and an elected civilian president took office; civil-military imbalance persisted."
+    },
+    {
+      "id": "BGD-1971-03",
+      "date": "1971-03-26",
+      "capitalHistorical": "Dhaka",
+      "entityBefore": {
+        "id": "PAK_EAST",
+        "name_en": "East Pakistan",
+        "name_vi": "Đông Pakistan"
+      },
+      "entityAfter": {
+        "id": "BGD",
+        "name_en": "People's Republic of Bangladesh (declared)",
+        "name_vi": "Cộng hòa Nhân dân Bangladesh (tuyên bố độc lập)"
+      },
+      "eventType": "independence_declaration_and_liberation_war",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage",
+          "note": "Independence declaration; wartime government and legal institutions followed. The Proclamation of Independence was adopted 10 April with effect from 26 March."
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "bangladesh_archives",
+        "bangladesh_supreme"
+      ],
+      "quality": "verified",
+      "note": "Bangladesh's independence was declared on 26 March 1971; the Proclamation of Independence of 10 April gave it retrospective effect."
+    },
+    {
+      "id": "BGD-1975-08",
+      "date": "1975-08-15",
+      "capitalHistorical": "Dhaka",
+      "entityBefore": {
+        "id": "BGD",
+        "name_en": "People's Republic of Bangladesh under parliamentary government",
+        "name_vi": "Cộng hòa Nhân dân Bangladesh"
+      },
+      "entityAfter": {
+        "id": "BGD",
+        "name_en": "Bangladesh under military-backed presidential rule",
+        "name_vi": "Bangladesh dưới chế độ tổng thống được quân đội hậu thuẫn"
+      },
+      "eventType": "military_coup_and_presidential_shift",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "bangladesh_history"
+      ],
+      "quality": "supported",
+      "note": "The assassination of Sheikh Mujibur Rahman and subsequent coups transformed the political order."
+    },
+    {
+      "id": "BGD-1991-09",
+      "date": "1991-09-18",
+      "capitalHistorical": "Dhaka",
+      "entityBefore": {
+        "id": "BGD",
+        "name_en": "Bangladesh under presidential system",
+        "name_vi": "Bangladesh theo chế độ tổng thống"
+      },
+      "entityAfter": {
+        "id": "BGD",
+        "name_en": "Bangladesh under parliamentary democracy",
+        "name_vi": "Bangladesh theo chế độ dân chủ nghị viện"
+      },
+      "eventType": "constitutional_amendment_and_parliamentary_restoration",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_suffrage"
+        },
+        "governance": {
+          "from": "presidential_republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "bangladesh_history"
+      ],
+      "quality": "supported",
+      "note": "The Twelfth Amendment restored the parliamentary system."
+    },
+    {
+      "id": "LKA-1972-05",
+      "date": "1972-05-22",
+      "capitalHistorical": "Colombo",
+      "entityBefore": {
+        "id": "LKA",
+        "name_en": "Dominion of Ceylon",
+        "name_vi": "Lãnh thổ tự trị Ceylon"
+      },
+      "entityAfter": {
+        "id": "LKA",
+        "name_en": "Republic of Sri Lanka",
+        "name_vi": "Cộng hòa Sri Lanka"
+      },
+      "eventType": "republic_and_constitution",
+      "causes": [],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "church": {
+          "from": "freedom_of_conscience",
+          "to": "state_religion",
+          "note": "The 1972 Constitution gave Buddhism the foremost place while guaranteeing religious rights."
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "sri_lanka_history"
+      ],
+      "quality": "verified",
+      "note": "Ceylon adopted a republican constitution and changed its name to Sri Lanka."
+    },
+    {
+      "id": "LKA-1978-09",
+      "date": "1978-09-07",
+      "capitalHistorical": "Colombo",
+      "entityBefore": {
+        "id": "LKA",
+        "name_en": "Republic of Sri Lanka under parliamentary executive",
+        "name_vi": "Cộng hòa Sri Lanka"
+      },
+      "entityAfter": {
+        "id": "LKA",
+        "name_en": "Democratic Socialist Republic of Sri Lanka under executive presidency",
+        "name_vi": "Cộng hòa Xã hội chủ nghĩa Dân chủ Sri Lanka"
+      },
+      "eventType": "constitution_and_executive_presidency",
+      "causes": [],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "universal_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "sri_lanka_history"
+      ],
+      "quality": "verified",
+      "note": "The 1978 Constitution introduced an executive presidency and renamed the state the Democratic Socialist Republic of Sri Lanka."
+    }
+  ],
+  "sources": [
+    {
+      "id": "egy_sis",
+      "title": "Modern Era — Egypt State Information Service",
+      "url": "https://sis.gov.eg/en/egypt/history/egypts-history/modern-era/",
+      "type": "Official government historical chronology",
+      "quality": "verified"
+    },
+    {
+      "id": "egy_un",
+      "title": "Egypt Provisional Constitution, Declaration of 10 February 1953",
+      "url": "https://digitallibrary.un.org/record/860961/files/1953-E.pdf",
+      "type": "UN Yearbook reproduction of constitutional text",
+      "quality": "verified"
+    },
+    {
+      "id": "oup_mena",
+      "title": "Chronologies: Middle East and North Africa after 1923",
+      "url": "https://academic.oup.com/edited-volume/28170/chapter/213002310",
+      "type": "Oxford academic chronology",
+      "quality": "supported"
+    },
+    {
+      "id": "tun_history",
+      "title": "Tunisia — national independence and republican transition",
+      "url": "https://www.britannica.com/place/Tunisia/Independence",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "tun_transition",
+      "title": "Tunisia's transition after the 2011 revolution",
+      "url": "https://www.constituteproject.org/constitution/Tunisia_2014",
+      "type": "Constitution text and constitutional transition reference",
+      "quality": "supported"
+    },
+    {
+      "id": "mor_history",
+      "title": "Morocco — independence and constitutional monarchy",
+      "url": "https://www.britannica.com/place/Morocco/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "algeria_history",
+      "title": "Algeria — independence, FLN rule and 1989 constitutional transition",
+      "url": "https://www.britannica.com/place/Algeria/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "libya_cornell",
+      "title": "Libya since Independence: Chronology, 1951–1996",
+      "url": "https://www.degruyterbrill.com/document/doi/10.7591/9781501732362-004/html",
+      "type": "Cornell University Press historical chronology",
+      "quality": "supported"
+    },
+    {
+      "id": "libya_crs",
+      "title": "Libya: Background and U.S. Relations",
+      "url": "https://www.everycrsreport.com/reports/RL33142.html",
+      "type": "Congressional Research Service",
+      "quality": "supported"
+    },
+    {
+      "id": "iraq_history",
+      "title": "Iraq — modern political history",
+      "url": "https://www.britannica.com/place/Iraq/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "syria_euaa_2026",
+      "title": "Syria: Country Focus, July 2026 — State structure and governance",
+      "url": "https://dip-aws.euaa.europa.eu/syria-country-focus/1-state-structure-and-governance",
+      "type": "European Union Agency for Asylum country report",
+      "quality": "verified"
+    },
+    {
+      "id": "syria_un_2025",
+      "title": "UN Commission of Inquiry report on Syria, A/HRC/58/66",
+      "url": "https://digitallibrary.un.org/record/4081875/files/A_HRC_58_66-EN.pdf",
+      "type": "United Nations report",
+      "quality": "verified"
+    },
+    {
+      "id": "jordan_history",
+      "title": "Jordan — independence and constitutional history",
+      "url": "https://history.state.gov/countries/jordan",
+      "type": "U.S. Department of State Office of the Historian",
+      "quality": "supported"
+    },
+    {
+      "id": "saudi_history",
+      "title": "Saudi Arabia — unification and state formation",
+      "url": "https://www.britannica.com/place/Saudi-Arabia/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "iran_portal",
+      "title": "Iran Data Portal — Constitutions and Constitutional Debates",
+      "url": "https://irandataportal.syr.edu/constitutions-and-constitutional-debates/",
+      "type": "Syracuse University primary-document portal",
+      "quality": "verified"
+    },
+    {
+      "id": "iranica_pahlavi",
+      "title": "Pahlavi dynasty — Encyclopaedia Iranica",
+      "url": "https://www.iranicaonline.org/articles/pahlavi-dynasty/",
+      "type": "Academic encyclopedia",
+      "quality": "supported"
+    },
+    {
+      "id": "iran_crs",
+      "title": "Iran: Internal Politics and U.S. Policy",
+      "url": "https://www.congress.gov/crs_external_products/RL/PDF/RL32048/RL32048.324.pdf",
+      "type": "Congressional Research Service",
+      "quality": "supported"
+    },
+    {
+      "id": "iranica_constitution",
+      "title": "Constitution of the Islamic Republic — Encyclopaedia Iranica",
+      "url": "https://www.iranicaonline.org/articles/constitution-of-the-islamic-republic/",
+      "type": "Academic encyclopedia",
+      "quality": "supported"
+    },
+    {
+      "id": "turkey_ataturk",
+      "title": "Biography of Atatürk and political reforms",
+      "url": "https://www.ktb.gov.tr/EN-103908/biography-of-ataturk.html",
+      "type": "Turkish Ministry of Culture and Tourism",
+      "quality": "supported"
+    },
+    {
+      "id": "turkey_history",
+      "title": "Turkey — political history and military interventions",
+      "url": "https://www.britannica.com/place/Turkey/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "turkey_2017",
+      "title": "Turkey constitutional referendum 2017 — OSCE/ODIHR",
+      "url": "https://www.osce.org/odihr/elections/turkey/324816",
+      "type": "OSCE election assessment",
+      "quality": "verified"
+    },
+    {
+      "id": "israel_mfa",
+      "title": "Timeline of Events: Half a Century of Independence, 1948–1998",
+      "url": "https://www.gov.il/en/pages/timeline-of-events-half-a-century-of-independence",
+      "type": "Israel Ministry of Foreign Affairs",
+      "quality": "verified"
+    },
+    {
+      "id": "yemen_state",
+      "title": "Yemen — Office of the Historian",
+      "url": "https://history.state.gov/countries/yemen",
+      "type": "U.S. Department of State Office of the Historian",
+      "quality": "verified"
+    },
+    {
+      "id": "south_africa_pres",
+      "title": "History — The Presidency of South Africa",
+      "url": "https://www.thepresidency.gov.za/history",
+      "type": "South African Presidency",
+      "quality": "verified"
+    },
+    {
+      "id": "south_africa_gov",
+      "title": "History of South Africa",
+      "url": "https://www.gov.za/about-sa/history",
+      "type": "South African Government",
+      "quality": "verified"
+    },
+    {
+      "id": "us_apartheid",
+      "title": "The End of Apartheid",
+      "url": "https://history.state.gov/milestones/1989-1992/apartheid",
+      "type": "U.S. Department of State Office of the Historian",
+      "quality": "supported"
+    },
+    {
+      "id": "oup_africa",
+      "title": "Chronologies — Africa, decolonization and postcolonial state formation",
+      "url": "https://academic.oup.com/edited-volume/28170/chapter/213002310",
+      "type": "Oxford academic chronology",
+      "quality": "supported"
+    },
+    {
+      "id": "africa_coups",
+      "title": "Soldier and State in Africa",
+      "url": "https://www.cambridge.org/core/journals/journal-of-modern-african-studies/article/abs/soldier-and-state-in-africa/694B14E68815E981008281FC6691B75C",
+      "type": "Journal of Modern African Studies",
+      "quality": "supported"
+    },
+    {
+      "id": "ghana_coups",
+      "title": "Constitutional Entrenchment in Regions Prone to Military Rule: Anglophone West Africa",
+      "url": "https://www.cambridge.org/core/journals/journal-of-african-law/article/constitutional-entrenchment-in-regions-prone-to-military-rule-the-armed-forces-and-separation-of-powers-in-anglophone-west-africa/BFD7DAEBD118E9BABC4E461160586DD1",
+      "type": "Cambridge academic legal history",
+      "quality": "supported"
+    },
+    {
+      "id": "nigeria_coups",
+      "title": "Nigeria: constitutional and military-rule chronology",
+      "url": "https://www.cambridge.org/core/journals/journal-of-african-law/article/constitutional-entrenchment-in-regions-prone-to-military-rule-the-armed-forces-and-separation-of-powers-in-anglophone-west-africa/BFD7DAEBD118E9BABC4E461160586DD1",
+      "type": "Cambridge academic legal history",
+      "quality": "supported"
+    },
+    {
+      "id": "ethiopia_history",
+      "title": "Ethiopia — modern history and the Derg",
+      "url": "https://www.britannica.com/place/Ethiopia/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "congo_history",
+      "title": "Democratic Republic of the Congo — history",
+      "url": "https://www.britannica.com/place/Democratic-Republic-of-the-Congo/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "tanzania_history",
+      "title": "Tanzania — history and multiparty transition",
+      "url": "https://www.britannica.com/place/Tanzania/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "brazil_cambridge",
+      "title": "Politics in Brazil Under Vargas, 1930–1945",
+      "url": "https://www.cambridge.org/core/books/abs/cambridge-history-of-latin-america/politics-in-brazil-under-vargas-19301945/07FA29B92FF87188D2B418C3F012D92C",
+      "type": "Cambridge History of Latin America",
+      "quality": "supported"
+    },
+    {
+      "id": "brazil_military",
+      "title": "Brazil — military regime and transition to democracy",
+      "url": "https://www.britannica.com/place/Brazil/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "mexico_crs",
+      "title": "Mexico's Political History: From Revolution to Alternation, 1910–2006",
+      "url": "https://www.everycrsreport.com/reports/RS22368.html",
+      "type": "Congressional Research Service",
+      "quality": "supported"
+    },
+    {
+      "id": "mexico_constitution",
+      "title": "Political Constitution of the United Mexican States (1917)",
+      "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/CPEUM.pdf",
+      "type": "Chamber of Deputies primary law",
+      "quality": "verified"
+    },
+    {
+      "id": "argentina_history",
+      "title": "Argentina — history and return to democracy",
+      "url": "https://www.britannica.com/place/Argentina/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "chile_history",
+      "title": "Chile — 1973 coup and democratic transition",
+      "url": "https://www.britannica.com/place/Chile/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "cuba_history",
+      "title": "Cuba — revolution and one-party state",
+      "url": "https://www.britannica.com/place/Cuba/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "oup_asia",
+      "title": "Chronologies — Southeast Asia and South Asia after 1945",
+      "url": "https://academic.oup.com/edited-volume/28170/chapter/213002310",
+      "type": "Oxford academic chronology",
+      "quality": "supported"
+    },
+    {
+      "id": "indonesia_springer",
+      "title": "Democratization in Asia",
+      "url": "https://link.springer.com/chapter/10.1007/978-981-97-4375-9_12",
+      "type": "Academic chapter",
+      "quality": "supported"
+    },
+    {
+      "id": "thailand_1932",
+      "title": "Thailand — constitutional revolution of 1932",
+      "url": "https://www.britannica.com/place/Thailand/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "myanmar_history",
+      "title": "Myanmar — history and military interventions",
+      "url": "https://www.britannica.com/place/Myanmar/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "afghanistan_history",
+      "title": "Afghanistan — modern political history",
+      "url": "https://www.britannica.com/place/Afghanistan/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "nepal_history",
+      "title": "Nepal — constitutional and republican transitions",
+      "url": "https://www.britannica.com/place/Nepal/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "pakistan_history",
+      "title": "Pakistan — constitutional and military-rule chronology",
+      "url": "https://www.britannica.com/place/Pakistan/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "bangladesh_archives",
+      "title": "The Independence of Bangladesh in 1971",
+      "url": "https://www.nationalarchives.gov.uk/education/teaching-resources/independence-of-bangladesh/",
+      "type": "UK National Archives educational primary-source guide",
+      "quality": "supported"
+    },
+    {
+      "id": "bangladesh_supreme",
+      "title": "Supreme Court of Bangladesh — Proclamation of Independence",
+      "url": "https://www.supremecourt.gov.bd/translation/process.php?file=389828_WP8932of2011.pdf",
+      "type": "Bangladesh Supreme Court judgment reproducing primary proclamation",
+      "quality": "verified"
+    },
+    {
+      "id": "bangladesh_history",
+      "title": "Bangladesh — constitutional and political history",
+      "url": "https://www.britannica.com/place/Bangladesh/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "india_emergency",
+      "title": "The Emergency in India, 1975–1977",
+      "url": "https://www.pib.gov.in/FactsheetDetails.aspx?ModuleId=16&NoteId=149224&id=149224&lang=2&reg=48",
+      "type": "Government of India Press Information Bureau",
+      "quality": "verified"
+    },
+    {
+      "id": "sri_lanka_history",
+      "title": "Sri Lanka — constitutional history",
+      "url": "https://www.parliament.lk/en/learn/history",
+      "type": "Parliament of Sri Lanka",
+      "quality": "supported"
+    }
+  ]
+}
