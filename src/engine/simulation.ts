@@ -19,6 +19,7 @@
 //
 // Every system runs every boundary regardless of mode; counters record each monthly run so tests
 // can prove that neither mode skips or weakens a system.
+import { unMonth } from './systems/un';
 import { decolonisationMonth } from './systems/decolonisation';
 import { companiesMonth } from './systems/companies';
 import { growthMonth } from './systems/growth';
@@ -52,6 +53,7 @@ export const SYSTEMS: SimSystem[] = [
   { name: 'technology', run: (st) => technologyMonth(st, (c, opts) => chooseResearch(st, c, opts)) },
   { name: 'growth', run: growthMonth },
   { name: 'diplomacy', run: diplomacyMonth },
+  { name: 'united-nations', run: unMonth },
   { name: 'military', run: militaryMonth },
   { name: 'events', run: (st) => eventsMonth(st, (c, id, opts, w) => decideWindow(st, c, id, opts, w)) },
   { name: 'ai', run: aiMonth },

@@ -10,7 +10,7 @@ page.on('pageerror', (e: Error) => console.log('PAGEERROR', e.message));
 page.on('console', (m: any) => { if (m.type() === 'error' || m.type() === 'warning') console.log('CONSOLE', m.type(), m.text()); });
 const t0 = Date.now();
 await page.goto('http://localhost:4318/' + (q ? '?' + q : ''));
-await page.waitForFunction(() => document.body.dataset.ready === '1', null, { timeout: 240000 });
+await page.waitForFunction(() => document.body.dataset.ready === '1', null, { timeout: 600000 });
 console.log('ready in', Date.now() - t0, 'ms');
 await page.waitForTimeout(1500);
 // Optional: CLICK='text1|text2' taps elements by visible text in order (e.g. open a detail window).

@@ -232,4 +232,10 @@ export function validateNestedState(st: GameState): void {
   validateHistoryAndCounters(s);
   validateCompanies(s);
   if (s.decolonised !== undefined) arr(s.decolonised, 'decolonised').forEach((x, i) => str(x, `decolonised[${i}]`));
+  if (s.un !== undefined) {
+    const un = obj(s.un, 'un'); tick(un.founded, 'un.founded');
+    for (const k of ['members', 'permanent'] as const) arr(un[k], `un.${k}`).forEach((x, i) => str(x, `un.${k}[${i}]`));
+    arr(un.elected, 'un.elected').forEach((x, i) => { const e = obj(x, `un.elected[${i}]`); str(e.id, `un.elected[${i}].id`); tick(e.until, `un.elected[${i}].until`); });
+    arr(un.resolutions, 'un.resolutions').forEach((x, i) => { const r = obj(x, `un.resolutions[${i}]`); tick(r.tick, `un.resolutions[${i}].tick`); for (const k of ['war', 'attacker', 'defender'] as const) str(r[k], `un.resolutions[${i}].${k}`); bool(r.passed, `un.resolutions[${i}].passed`); arr(r.vetoedBy, `un.resolutions[${i}].vetoedBy`); for (const [m, v] of Object.entries(obj(r.votes, `un.resolutions[${i}].votes`))) oneOf(v, ['for', 'against', 'abstain'], `un.resolutions[${i}].votes.${m}`); });
+  }
 }

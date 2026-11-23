@@ -176,6 +176,17 @@ export interface War {
 
 export interface Treaty { id: string; type: 'alliance' | 'guarantee' | 'customs_union'; members: string[]; leader?: string; start: number; source?: string }
 
+/** DIPLO-UN-01: the United Nations (Historical Mode founding 24 October 1945, UN Charter). */
+export interface UnResolution {
+  tick: number; war: string; attacker: string; defender: string;
+  votes: Record<string, 'for' | 'against' | 'abstain'>; vetoedBy: string[]; passed: boolean;
+}
+export interface UnitedNations {
+  founded: number; members: string[]; permanent: string[];
+  elected: { id: string; until: number }[];
+  resolutions: UnResolution[];
+}
+
 export interface LogEntry { tick: number; date: string; type: string; text: string; textVi?: string; actors: string[]; historical?: boolean; divergence?: boolean }
 
 export interface TerritoryChange { tick: number; date: string; region: string; from: string; to: string; cause: string; historicalMatch: boolean | null }
@@ -243,6 +254,8 @@ export interface GameState {
   divergence: DivergenceState;
   /** DECOL-01: Historical Mode independence records already applied (ids from db.decolonisation). */
   decolonised?: string[];
+  /** DIPLO-UN-01: absent until the UN is founded. */
+  un?: UnitedNations;
   counters: Counters;
   firedEvents: string[];
   pendingPlayerDecisions: { id: string; windowId: string; options: { id: string; historical: boolean }[] }[];
