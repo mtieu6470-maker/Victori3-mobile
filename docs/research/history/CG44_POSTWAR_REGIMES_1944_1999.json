@@ -1,0 +1,2561 @@
+{
+  "meta": {
+    "task": "CG-44",
+    "title": "Post-war regime transitions, partitions and state dissolution, 1944–1999",
+    "branch": "ccr-b27f3fb8-epfpd6",
+    "created": "2026-11-23",
+    "scope": "Research staging for Eastern Europe, dissolution of the USSR and Yugoslavia, Czechoslovakia, Korea, Vietnam and the ROC relocation/PRC foundation. Dates are legal/proclamation milestones unless otherwise noted; not every transition implies instant full territorial control or completed democratization.",
+    "eventCount": 52,
+    "sourceCount": 29,
+    "lawGroups": [
+      "power",
+      "governance",
+      "economy",
+      "trade",
+      "labor",
+      "church",
+      "press",
+      "education",
+      "army"
+    ],
+    "schemaNote": "Uses CG-41 event fields and adds optional culturalAssignments for dominant titular culture map-splitting hints. Entity IDs not in historical_data/political_entities/registry.json are proposed research IDs. regionIds are suggestions only where explicitly supplied; empty arrays mean no safe crosswalk was established.",
+    "dateConvention": "ISO-8601 Gregorian. For processes, note declaration date separately from legal effectiveness. Military demarcation lines are not permanent borders.",
+    "qualityLegend": {
+      "verified": "Primary law, official archive or UN legal document directly confirms the date or legal act.",
+      "supported": "Official institutional chronology or credible historical synthesis supports the event; details may need primary legal verification.",
+      "unverified": "Not used as a positive event assertion; gaps are stated explicitly."
+    },
+    "entityIdWarning": "Most post-1945 states (POL-PRL, HUN-PEOPLE, CZE, ROM, BUL, YUG-FPR, YUG-SFR, ALB, USSR, LTU, GEO, EST, LVA, UKR, BLR, MDA, AZE, UZB, KGZ, ARM, TJK, TKM, KAZ, RUS-FED, CIS, MKD, BIH, YUG-FRY, SVK, ROK, PRK, DRV, SVN, RVN, PRG, VNM-SRV, ROC, PRC) require checking/mapping against the current entity registry before integration.",
+    "mapSplitWarning": "The 1836 map contains coarse regions. Korea's KOR_HAM and Vietnam's VNM_HUE straddle the 38th/17th parallel respectively; the data marks approximate splits and must not be applied as exact ownership patches without subdividing those regions.",
+    "culturalAssignmentWarning": "Dominant culture is a map allocation key, not a claim of ethnic homogeneity. Preserve minority cultures, mixed regions, and historic diasporas; do not overwrite every province with the titular group."
+  },
+  "sources": [
+    {
+      "id": "loc_poland",
+      "title": "A Brief Timeline of Modern Polish History",
+      "url": "https://guides.loc.gov/poland-manuscripts/timeline",
+      "type": "Library of Congress research guide",
+      "quality": "supported",
+      "note": "Polish People's Republic period, 1952 Constitution and 1989 constitutional restoration; cross-check with Polish presidential chronology."
+    },
+    {
+      "id": "poland_1989",
+      "title": "1989 – Freedom Day",
+      "url": "https://www.president.pl/archives/bronislaw-komorowski/freedom-day/1989",
+      "type": "President of Poland official chronology",
+      "quality": "verified",
+      "note": "24 August 1989 Mazowiecki government; 29 December 1989 restoration of Republic of Poland name and removal of PUWP leading role."
+    },
+    {
+      "id": "romania_1947",
+      "title": "Romania: Law on the New Form of State, 30 December 1947",
+      "url": "https://digitallibrary.un.org/record/860913/files/1947-E.pdf",
+      "type": "UN Yearbook reproduction of primary law",
+      "quality": "verified",
+      "note": "Primary text records abdication, abrogation of 1866 Constitution and proclamation of People's Republic."
+    },
+    {
+      "id": "bulgaria_gov",
+      "title": "History of Bulgaria",
+      "url": "https://www.gov.bg/en/About-Bulgaria/HISTORY/tabsss1",
+      "type": "Council of Ministers of Bulgaria",
+      "quality": "supported",
+      "note": "Official government chronology: 1946 People's Republic; communist regime; 1989 transition; 1991 parliamentary constitution."
+    },
+    {
+      "id": "albania_pres",
+      "title": "The History of the Institution of the President",
+      "url": "https://president.al/the-history-of-the-institution/?lang=en",
+      "type": "Presidency of Albania",
+      "quality": "verified",
+      "note": "Official chronology: People's Republic period from 11 January 1946; communist rule to 1990/91; parliamentary republic president elected 30 April 1991."
+    },
+    {
+      "id": "cze_history",
+      "title": "History – Czechia",
+      "url": "https://www.czechia.eu/history/",
+      "type": "Czech official public diplomacy portal",
+      "quality": "supported",
+      "note": "February 1948 communist takeover, November 1989 Velvet Revolution and peaceful separation on 1 January 1993."
+    },
+    {
+      "id": "cze_us",
+      "title": "Czechoslovakia – A Country Study / historical summary",
+      "url": "https://history.state.gov/countries/czechoslovakia/summary",
+      "type": "US Department of State Office of the Historian",
+      "quality": "supported",
+      "note": "Post-war political chronology and communist consolidation; use with Czech official history."
+    },
+    {
+      "id": "hungary_law",
+      "title": "Act VIII of 1991 on the national holidays of the Republic of Hungary",
+      "url": "https://njt.jog.gov.hu/jogszabaly/1991-8-00-00",
+      "type": "Hungarian National Legislation Database",
+      "quality": "verified",
+      "note": "Official law identifies 23 October as the proclamation of the Republic in 1989."
+    },
+    {
+      "id": "yugoslavia_archives",
+      "title": "Constitutive Acts of Yugoslavia",
+      "url": "https://www.arhivyu.rs/en/leksikon-jugoslavije/konstitutivni_akti_jugoslavije",
+      "type": "Archives of Yugoslavia",
+      "quality": "verified",
+      "note": "Primary/archival constitutive documents for post-war federal Yugoslav state forms."
+    },
+    {
+      "id": "yugoslavia_un",
+      "title": "Yugoslavia and Successor States",
+      "url": "https://www.un.org/en/node/123222",
+      "type": "United Nations",
+      "quality": "verified",
+      "note": "UN succession and admission chronology for successor states."
+    },
+    {
+      "id": "yugoslavia_un_tc",
+      "title": "United Nations Treaty Collection – Historical information: former Yugoslavia",
+      "url": "https://treaties-prod.un.org/pages/HistoricalInfo.aspx",
+      "type": "United Nations Treaty Collection",
+      "quality": "verified",
+      "note": "Dates of successor-state existence: Slovenia, Croatia, Macedonia, Bosnia and Herzegovina; FRY Constitution 27 April 1992."
+    },
+    {
+      "id": "yugoslavia_icty",
+      "title": "What is the former Yugoslavia?",
+      "url": "https://www.icty.org/en/about/what-former-yugoslavia",
+      "type": "International Criminal Tribunal for the former Yugoslavia",
+      "quality": "supported",
+      "note": "Six constituent republics; declarations of Slovenia and Croatia on 25 June 1991; FRY declared 27 April 1992."
+    },
+    {
+      "id": "ussr_yearbook",
+      "title": "Yearbook Express 1991 – Regional questions: Europe",
+      "url": "https://digitallibrary.un.org/record/4018544/files/1991%252520Yearbook%252520Express-EN.pdf",
+      "type": "United Nations Yearbook",
+      "quality": "verified",
+      "note": "Contemporaneous UN account of USSR breakup and independence declarations of former Soviet republics."
+    },
+    {
+      "id": "ussr_map",
+      "title": "Guidance Bulletin No. 3 (2 January 1992): Depiction of the Former Soviet Union",
+      "url": "https://data.geodata.state.gov/guidance/DoS_Bulletin_03-Soviet-Union-1992.pdf",
+      "type": "US Board on Geographic Names / Department of State",
+      "quality": "verified",
+      "note": "Official list of 12 successor republics and capitals; Baltic republics treated separately."
+    },
+    {
+      "id": "ussr_un",
+      "title": "Twenty-five years at the United Nations: My Journey",
+      "url": "https://www.un.org/en/node/25493",
+      "type": "United Nations Chronicle, first-person account by Kazakhstan's first UN representative",
+      "quality": "supported",
+      "note": "Alma-Ata Declaration 21 December 1991; Russia succeeds to USSR UN membership; Kazakhstan independence law 16 December 1991."
+    },
+    {
+      "id": "ukraine_un",
+      "title": "Letter dated 26 August 1991 from Ukraine's Foreign Minister",
+      "url": "https://digitallibrary.un.org/record/127875/files/A_46_484-EN.pdf",
+      "type": "United Nations document A/46/484",
+      "quality": "verified",
+      "note": "Reproduces Ukraine's Act of Declaration of Independence adopted 24 August 1991."
+    },
+    {
+      "id": "lithuania_un",
+      "title": "Lithuania – report to the UN under the International Covenant",
+      "url": "https://digitallibrary.un.org/record/500279/files/E_1990_5_Add.55-EN.pdf",
+      "type": "UN document / state report",
+      "quality": "verified",
+      "note": "Restoration of independence by Act of 11 March 1990."
+    },
+    {
+      "id": "tajik_un",
+      "title": "Tajikistan – Initial report under ICESCR",
+      "url": "https://documents.un.org/access.nsf/get%3FOpenAgent%26DS%3DE/C.12/TJK/1%26Lang%3DE",
+      "type": "UN state report",
+      "quality": "verified",
+      "note": "States Declaration of Independence adopted 9 September 1991."
+    },
+    {
+      "id": "turkmen_un",
+      "title": "Turkmenistan – CEDAW initial report",
+      "url": "https://digitallibrary.un.org/nanna/record/548655/files/CEDAW_C_TKM_1-2-EN.pdf?registerDownload=1&version=1&withMetadata=0&withWatermark=0",
+      "type": "UN state report",
+      "quality": "verified",
+      "note": "Constitutional Law on Independence adopted 27 October 1991."
+    },
+    {
+      "id": "moldova_un",
+      "title": "Moldova – Third Biennial Update Report",
+      "url": "https://moldova.un.org/sites/default/files/2022-01/BUR3-EN-211211_web.pdf",
+      "type": "UN country report",
+      "quality": "supported",
+      "note": "Independence declaration 27 August 1991; continued within USSR until formal dissolution."
+    },
+    {
+      "id": "kazakhstan_un",
+      "title": "Kazakhstan's first UN representative: chronology",
+      "url": "https://www.un.org/en/chronicle/article/twenty-five-years-united-nations-my-journey",
+      "type": "United Nations Chronicle",
+      "quality": "supported",
+      "note": "Constitutional Law on Independent Statehood adopted 16 December 1991; Alma-Ata Declaration 21 December."
+    },
+    {
+      "id": "russia_un",
+      "title": "Russian Federation – historical information in the UN Treaty Collection",
+      "url": "https://treaties.un.org/pages/historicalinfo.aspx",
+      "type": "United Nations Treaty Collection",
+      "quality": "verified",
+      "note": "Russia notified UN on 24 December 1991 that it continued USSR membership and requested use of the name Russian Federation."
+    },
+    {
+      "id": "korea_history",
+      "title": "Establishment of the Republic of Korea and DPRK",
+      "url": "https://contents.history.go.kr/mobile/kc/view.do?levelId=kc_i502100",
+      "type": "National Institute of Korean History",
+      "quality": "supported",
+      "note": "Historical chronology of 1945 division and establishment of the two Korean governments."
+    },
+    {
+      "id": "korea_rok",
+      "title": "Republic of Korea – Introduction book",
+      "url": "https://api.army.mil/e2/c/downloads/2024/03/07/22a06d28/rok-introduction-book.pdf",
+      "type": "US Army official country reference",
+      "quality": "supported",
+      "note": "38th parallel occupation division; ROK 15 August 1948 and DPRK 9 September 1948."
+    },
+    {
+      "id": "vietnam_embassy",
+      "title": "History of Vietnam",
+      "url": "https://www.mobile.vietnamembassy-usa.org/vietnam/history",
+      "type": "Embassy of Vietnam",
+      "quality": "supported",
+      "note": "DRV declaration 2 September 1945; Geneva Accords 1954 and provisional 17th-parallel demarcation."
+    },
+    {
+      "id": "vietnam_archive",
+      "title": "National Assembly Resolution of 2 July 1976 on the name, flag, emblem, capital and anthem",
+      "url": "https://luutru.moha.gov.vn/chinh-phu-xua-va-nay/nghi-quyet-cua-quoc-hoi-ngay-2-7-1976-ve-ten-nuoc-quoc-ky-quoc-huy-thu-do-quoc-ca-nuoc-cong-hoa-xa-hoi-chu-nghia-viet-nam.htm",
+      "type": "Vietnam National Archives III reproduction of primary resolution",
+      "quality": "verified",
+      "note": "Primary resolution formally names the unified state Socialist Republic of Vietnam and confirms Hanoi as capital."
+    },
+    {
+      "id": "vietnam_frus",
+      "title": "Agreement on Ending the War and Restoring Peace in Vietnam – Article 10",
+      "url": "https://history.state.gov/historicaldocuments/frus1969-76v42/d70",
+      "type": "US Department of State, FRUS primary document",
+      "quality": "verified",
+      "note": "Explicitly says the 17th-parallel military demarcation line was provisional, not a political or territorial boundary."
+    },
+    {
+      "id": "roc_mac",
+      "title": "Major Events across the Taiwan Strait – Chronology",
+      "url": "https://www.mac.gov.tw/en/News_Content.aspx?n=1C6028CA080A27B3&s=3DFE86AC7521F064&sms=6F070A2443531120",
+      "type": "Mainland Affairs Council, Republic of China (Taiwan)",
+      "quality": "supported",
+      "note": "ROC government moved to Taiwan 9 December 1949; official cross-strait chronology."
+    },
+    {
+      "id": "roc_us",
+      "title": "China – Office of the Historian",
+      "url": "https://history.state.gov/countries/china",
+      "type": "US Department of State Office of the Historian",
+      "quality": "supported",
+      "note": "US embassy chronology confirms ROC government move to Taipei in December 1949 and PRC establishment on 1 October 1949."
+    }
+  ],
+  "events": [
+    {
+      "id": "POL-1947-02",
+      "date": "1947-02-19",
+      "capitalHistorical": "Warsaw",
+      "entityBefore": {
+        "id": "POL",
+        "name_en": "Republic of Poland (post-war state)",
+        "name_vi": "Cộng hòa Ba Lan (nhà nước hậu chiến)"
+      },
+      "entityAfter": {
+        "id": "POL-PRL",
+        "name_en": "Polish Republic under communist-led government",
+        "name_vi": "Cộng hòa Ba Lan dưới chính quyền do cộng sản lãnh đạo"
+      },
+      "eventType": "constitutional_regime_change",
+      "causes": [
+        "Communist-dominated security apparatus and electoral coercion after the 1946 referendum",
+        "Opposition marginalisation and Soviet political pressure"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "one_party_state",
+          "note": "Project law abstraction; does not imply all adult suffrage or actual participation."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "command_economy",
+          "note": "Central planning and nationalisation were phased; the date marks political consolidation, not instant completion."
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "loc_poland"
+      ],
+      "quality": "supported",
+      "note": "The 1947 Small Constitution institutionalised the post-war state framework; the formal name Polish People's Republic was not adopted until 22 July 1952."
+    },
+    {
+      "id": "POL-1952-07",
+      "date": "1952-07-22",
+      "capitalHistorical": "Warsaw",
+      "entityBefore": {
+        "id": "POL-PRL",
+        "name_en": "Polish Republic under communist-led government",
+        "name_vi": "Cộng hòa Ba Lan dưới chính quyền do cộng sản lãnh đạo"
+      },
+      "entityAfter": {
+        "id": "POL-PRL",
+        "name_en": "Polish People's Republic",
+        "name_vi": "Cộng hòa Nhân dân Ba Lan"
+      },
+      "eventType": "constitution_and_state_renaming",
+      "causes": [
+        "Adoption of the Constitution of the Polish People's Republic"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "one_party_state"
+        },
+        "economy": {
+          "from": "command_economy",
+          "to": "command_economy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "loc_poland"
+      ],
+      "quality": "verified",
+      "note": "The constitution formalised the official state name; do not backdate that name to 1944."
+    },
+    {
+      "id": "HUN-1949-08",
+      "date": "1949-08-20",
+      "capitalHistorical": "Budapest",
+      "entityBefore": {
+        "id": "HUN",
+        "name_en": "Kingdom of Hungary / post-war Republic",
+        "name_vi": "Vương quốc Hungary / Cộng hòa hậu chiến"
+      },
+      "entityAfter": {
+        "id": "HUN-PEOPLE",
+        "name_en": "Hungarian People's Republic",
+        "name_vi": "Cộng hòa Nhân dân Hungary"
+      },
+      "eventType": "constitution_and_regime_change",
+      "causes": [
+        "Communist consolidation after the 1947 election and elimination of coalition rivals",
+        "Soviet occupation and political control"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "one_party_state",
+          "note": "Project law abstraction; does not imply all adult suffrage or actual participation."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "command_economy",
+          "note": "Central planning and nationalisation were phased; the date marks political consolidation, not instant completion."
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "hungary_law"
+      ],
+      "quality": "supported",
+      "note": "20 August 1949 is the adoption/entry date of the Stalinist constitution and People's Republic state form; 1948 was the decisive communist takeover, not a new international state."
+    },
+    {
+      "id": "CZE-1948-02",
+      "date": "1948-02-25",
+      "capitalHistorical": "Prague",
+      "entityBefore": {
+        "id": "CZE",
+        "name_en": "Czechoslovak Republic",
+        "name_vi": "Cộng hòa Tiệp Khắc"
+      },
+      "entityAfter": {
+        "id": "CZE",
+        "name_en": "Czechoslovak Republic under Communist Party rule",
+        "name_vi": "Cộng hòa Tiệp Khắc dưới quyền Đảng Cộng sản"
+      },
+      "eventType": "coup_and_regime_change",
+      "causes": [
+        "Communist seizure of the government after the February 1948 crisis",
+        "President Beneš accepted the new cabinet under pressure"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "one_party_state",
+          "note": "Project law abstraction; does not imply all adult suffrage or actual participation."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "command_economy",
+          "note": "Central planning and nationalisation were phased; the date marks political consolidation, not instant completion."
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "cze_history",
+        "cze_us"
+      ],
+      "quality": "supported",
+      "note": "The state name remained Czechoslovak Republic in 1948; this is a regime takeover, not a new sovereign state."
+    },
+    {
+      "id": "CZE-1960-07",
+      "date": "1960-07-11",
+      "capitalHistorical": "Prague",
+      "entityBefore": {
+        "id": "CZE",
+        "name_en": "Czechoslovak Republic under Communist Party rule",
+        "name_vi": "Cộng hòa Tiệp Khắc dưới quyền Đảng Cộng sản"
+      },
+      "entityAfter": {
+        "id": "CZE",
+        "name_en": "Czechoslovak Socialist Republic",
+        "name_vi": "Cộng hòa Xã hội chủ nghĩa Tiệp Khắc"
+      },
+      "eventType": "constitution_and_state_renaming",
+      "causes": [
+        "Adoption of the 1960 Constitution declaring the socialist state"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "one_party_state"
+        },
+        "economy": {
+          "from": "command_economy",
+          "to": "command_economy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "cze_us"
+      ],
+      "quality": "supported",
+      "note": "The formal state-name change occurred in 1960, not at the 1948 coup."
+    },
+    {
+      "id": "ROM-1947-12",
+      "date": "1947-12-30",
+      "capitalHistorical": "Bucharest",
+      "entityBefore": {
+        "id": "ROM",
+        "name_en": "Kingdom of Romania",
+        "name_vi": "Vương quốc Romania"
+      },
+      "entityAfter": {
+        "id": "ROM",
+        "name_en": "People's Republic of Romania",
+        "name_vi": "Cộng hòa Nhân dân Romania"
+      },
+      "eventType": "abolition_of_monarchy_and_regime_change",
+      "causes": [
+        "King Michael I was forced to abdicate",
+        "The 1866 Constitution was abrogated by the Law on the New Form of State"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "one_party_state",
+          "note": "Project law abstraction; does not imply all adult suffrage or actual participation."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "command_economy",
+          "note": "Central planning and nationalisation were phased; the date marks political consolidation, not instant completion."
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "romania_1947"
+      ],
+      "quality": "verified",
+      "note": "The 30 December 1947 law explicitly states Romania is a People's Republic; this is a legal primary-source date."
+    },
+    {
+      "id": "BUL-1946-09",
+      "date": "1946-09-15",
+      "capitalHistorical": "Sofia",
+      "entityBefore": {
+        "id": "BUL",
+        "name_en": "Kingdom of Bulgaria",
+        "name_vi": "Vương quốc Bulgaria"
+      },
+      "entityAfter": {
+        "id": "BUL",
+        "name_en": "People's Republic of Bulgaria",
+        "name_vi": "Cộng hòa Nhân dân Bulgaria"
+      },
+      "eventType": "referendum_and_abolition_of_monarchy",
+      "causes": [
+        "Republic referendum and abolition of the monarchy",
+        "Communist-led Fatherland Front consolidated state power"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "one_party_state",
+          "note": "Project law abstraction; does not imply all adult suffrage or actual participation."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "command_economy",
+          "note": "Central planning and nationalisation were phased; the date marks political consolidation, not instant completion."
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "bulgaria_gov"
+      ],
+      "quality": "supported",
+      "note": "The monarchy was abolished and the People's Republic proclaimed in September 1946; exact procedural milestones are distinguished from the 1944 change of government."
+    },
+    {
+      "id": "YUG-1945-11",
+      "date": "1945-11-29",
+      "capitalHistorical": "Belgrade",
+      "entityBefore": {
+        "id": "YUG",
+        "name_en": "Kingdom of Yugoslavia",
+        "name_vi": "Vương quốc Nam Tư"
+      },
+      "entityAfter": {
+        "id": "YUG-FPR",
+        "name_en": "Federal People's Republic of Yugoslavia",
+        "name_vi": "Cộng hòa Liên bang Nhân dân Nam Tư"
+      },
+      "eventType": "abolition_of_monarchy_and_federal_state_foundation",
+      "causes": [
+        "Partisan victory and post-war Constituent Assembly",
+        "Abolition of the monarchy and establishment of a federal republic"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "one_party_state",
+          "note": "Project law abstraction; does not imply all adult suffrage or actual participation."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "command_economy",
+          "note": "Central planning and nationalisation were phased; the date marks political consolidation, not instant completion."
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "yugoslavia_archives"
+      ],
+      "quality": "verified",
+      "note": "The 1945 federal republic was later renamed Socialist Federal Republic of Yugoslavia in 1963; it is not the same legal form as the pre-war kingdom."
+    },
+    {
+      "id": "YUG-1963-04",
+      "date": "1963-04-07",
+      "capitalHistorical": "Belgrade",
+      "entityBefore": {
+        "id": "YUG-FPR",
+        "name_en": "Federal People's Republic of Yugoslavia",
+        "name_vi": "Cộng hòa Liên bang Nhân dân Nam Tư"
+      },
+      "entityAfter": {
+        "id": "YUG-SFR",
+        "name_en": "Socialist Federal Republic of Yugoslavia",
+        "name_vi": "Cộng hòa Liên bang Xã hội chủ nghĩa Nam Tư"
+      },
+      "eventType": "constitution_and_state_renaming",
+      "causes": [
+        "Adoption of the 1963 Constitution and decentralising socialist reforms"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "one_party_state"
+        },
+        "economy": {
+          "from": "command_economy",
+          "to": "interventionism",
+          "note": "Yugoslav self-management was a distinct market-socialist model, not a Soviet-style command economy."
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "yugoslavia_archives"
+      ],
+      "quality": "verified",
+      "note": "Use a separate market-socialist economic model; do not copy the Soviet command-economy law unchanged."
+    },
+    {
+      "id": "ALB-1946-01",
+      "date": "1946-01-11",
+      "capitalHistorical": "Tirana",
+      "entityBefore": {
+        "id": "ALB",
+        "name_en": "Democratic Government of Albania",
+        "name_vi": "Chính phủ Dân chủ Albania"
+      },
+      "entityAfter": {
+        "id": "ALB",
+        "name_en": "People's Republic of Albania",
+        "name_vi": "Cộng hòa Nhân dân Albania"
+      },
+      "eventType": "constitutional_regime_change",
+      "causes": [
+        "Post-war communist-led government and abolition of monarchy",
+        "Constituent Assembly proclaimed a people's republic"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "one_party_state",
+          "note": "Project law abstraction; does not imply all adult suffrage or actual participation."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "command_economy",
+          "note": "Central planning and nationalisation were phased; the date marks political consolidation, not instant completion."
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "albania_pres"
+      ],
+      "quality": "verified",
+      "note": "The Presidency of Albania dates the communist dictatorship period from 11 January 1946; the formal socialist republic name came later."
+    },
+    {
+      "id": "POL-1989-12",
+      "date": "1989-12-29",
+      "capitalHistorical": "Warsaw",
+      "entityBefore": {
+        "id": "POL-PRL",
+        "name_en": "Polish People's Republic",
+        "name_vi": "Cộng hòa Nhân dân Ba Lan"
+      },
+      "entityAfter": {
+        "id": "POL",
+        "name_en": "Republic of Poland",
+        "name_vi": "Cộng hòa Ba Lan"
+      },
+      "eventType": "democratic_transition_and_constitutional_amendment",
+      "causes": [
+        "Round Table process and partially free elections in June 1989",
+        "Non-communist-led government formed in September 1989"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "universal_suffrage",
+          "note": "Project abstraction for transition to competitive multiparty elections; actual franchise and democratic consolidation varied."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "limited_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "poland_1989"
+      ],
+      "quality": "verified",
+      "note": "29 December 1989 restored the Republic of Poland name and removed the constitutional leading role of the PUWP; the transition was negotiated and phased."
+    },
+    {
+      "id": "HUN-1989-10",
+      "date": "1989-10-23",
+      "capitalHistorical": "Budapest",
+      "entityBefore": {
+        "id": "HUN-PEOPLE",
+        "name_en": "Hungarian People's Republic",
+        "name_vi": "Cộng hòa Nhân dân Hungary"
+      },
+      "entityAfter": {
+        "id": "HUN",
+        "name_en": "Republic of Hungary",
+        "name_vi": "Cộng hòa Hungary"
+      },
+      "eventType": "constitutional_democratic_transition",
+      "causes": [
+        "Negotiated transition and constitutional amendment",
+        "Multi-party political competition restored"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "universal_suffrage",
+          "note": "Project abstraction for transition to competitive multiparty elections; actual franchise and democratic consolidation varied."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "limited_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "hungary_law"
+      ],
+      "quality": "verified",
+      "note": "The Hungarian National Legislation Database identifies 23 October 1989 as the proclamation of the Republic."
+    },
+    {
+      "id": "CZE-1989-11",
+      "date": "1989-11-17",
+      "capitalHistorical": "Prague",
+      "entityBefore": {
+        "id": "CZE",
+        "name_en": "Czechoslovak Socialist Republic",
+        "name_vi": "Cộng hòa Xã hội chủ nghĩa Tiệp Khắc"
+      },
+      "entityAfter": {
+        "id": "CZE",
+        "name_en": "Czechoslovak Republic (post-Velvet Revolution)",
+        "name_vi": "Cộng hòa Tiệp Khắc (sau Cách mạng Nhung)"
+      },
+      "eventType": "democratic_revolution",
+      "causes": [
+        "Mass demonstrations and Civic Forum pressure",
+        "Communist leadership relinquished its monopoly on power"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "universal_suffrage",
+          "note": "Project abstraction for transition to competitive multiparty elections; actual franchise and democratic consolidation varied."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "limited_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "cze_history"
+      ],
+      "quality": "supported",
+      "note": "17 November marks the start of the Velvet Revolution; the transition unfolded over weeks, with Václav Havel elected president on 29 December 1989."
+    },
+    {
+      "id": "CZE-1990-04",
+      "date": "1990-04-23",
+      "capitalHistorical": "Prague",
+      "entityBefore": {
+        "id": "CZE",
+        "name_en": "Czechoslovak Republic (post-Velvet Revolution)",
+        "name_vi": "Cộng hòa Tiệp Khắc (sau Cách mạng Nhung)"
+      },
+      "entityAfter": {
+        "id": "CZE",
+        "name_en": "Czech and Slovak Federative Republic",
+        "name_vi": "Cộng hòa Liên bang Séc và Slovakia"
+      },
+      "eventType": "constitutional_state_renaming",
+      "causes": [
+        "Federal constitutional settlement after the Velvet Revolution"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "universal_suffrage",
+          "to": "universal_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "cze_history"
+      ],
+      "quality": "supported",
+      "note": "The new federal name took effect in April 1990; it preceded the peaceful dissolution on 1 January 1993."
+    },
+    {
+      "id": "ROM-1989-12",
+      "date": "1989-12-22",
+      "capitalHistorical": "Bucharest",
+      "entityBefore": {
+        "id": "ROM",
+        "name_en": "Socialist Republic of Romania",
+        "name_vi": "Cộng hòa Xã hội chủ nghĩa Romania"
+      },
+      "entityAfter": {
+        "id": "ROM",
+        "name_en": "Romania (post-communist provisional government)",
+        "name_vi": "Romania (chính phủ lâm thời hậu cộng sản)"
+      },
+      "eventType": "revolution_and_regime_change",
+      "causes": [
+        "December 1989 uprising and collapse of Ceaușescu government",
+        "National Salvation Front assumed provisional authority"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "universal_suffrage",
+          "note": "Project abstraction for transition to competitive multiparty elections; actual franchise and democratic consolidation varied."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "limited_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "romania_1947"
+      ],
+      "quality": "supported",
+      "note": "22 December marks the fall of the communist government; the democratic constitution was adopted later by referendum on 8 December 1991."
+    },
+    {
+      "id": "ROM-1991-12",
+      "date": "1991-12-08",
+      "capitalHistorical": "Bucharest",
+      "entityBefore": {
+        "id": "ROM",
+        "name_en": "Romania (post-communist provisional government)",
+        "name_vi": "Romania (chính phủ lâm thời hậu cộng sản)"
+      },
+      "entityAfter": {
+        "id": "ROM",
+        "name_en": "Romania (Constitutional Republic)",
+        "name_vi": "Romania (Cộng hòa theo Hiến pháp)"
+      },
+      "eventType": "constitution",
+      "causes": [
+        "Constitution approved by national referendum"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "universal_suffrage",
+          "to": "universal_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "command_economy",
+          "to": "interventionism",
+          "note": "Market transition was gradual and not completed on the constitution date."
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "romania_1947"
+      ],
+      "quality": "supported",
+      "note": "The 1991 Constitution establishes the post-communist constitutional order; the date of regime collapse and the date of constitutional settlement are separate."
+    },
+    {
+      "id": "BUL-1989-11",
+      "date": "1989-11-10",
+      "capitalHistorical": "Sofia",
+      "entityBefore": {
+        "id": "BUL",
+        "name_en": "People's Republic of Bulgaria",
+        "name_vi": "Cộng hòa Nhân dân Bulgaria"
+      },
+      "entityAfter": {
+        "id": "BUL",
+        "name_en": "Bulgaria (post-1989 transition)",
+        "name_vi": "Bulgaria (chuyển đổi sau 1989)"
+      },
+      "eventType": "leadership_change_and_democratic_transition",
+      "causes": [
+        "Todor Zhivkov removed from party leadership",
+        "Negotiated dismantling of the communist monopoly"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "universal_suffrage",
+          "note": "Project abstraction for transition to competitive multiparty elections; actual franchise and democratic consolidation varied."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "limited_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "bulgaria_gov"
+      ],
+      "quality": "supported",
+      "note": "10 November 1989 marks Zhivkov's removal; the formal Republic name was adopted 15 November 1990 and the new Constitution on 12 July 1991."
+    },
+    {
+      "id": "BUL-1990-11",
+      "date": "1990-11-15",
+      "capitalHistorical": "Sofia",
+      "entityBefore": {
+        "id": "BUL",
+        "name_en": "Bulgaria (post-1989 transition)",
+        "name_vi": "Bulgaria (chuyển đổi sau 1989)"
+      },
+      "entityAfter": {
+        "id": "BUL",
+        "name_en": "Republic of Bulgaria",
+        "name_vi": "Cộng hòa Bulgaria"
+      },
+      "eventType": "constitutional_state_renaming",
+      "causes": {
+        "power": {
+          "from": "universal_suffrage",
+          "to": "universal_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "lawChanges": [],
+      "territorialChanges": [
+        "bulgaria_gov"
+      ],
+      "sources": "supported",
+      "quality": "The National Assembly adopted the Republic of Bulgaria name in November 1990; the 1991 Constitution completed the new constitutional framework."
+    },
+    {
+      "id": "ALB-1991-04",
+      "date": "1991-04-30",
+      "capitalHistorical": "Tirana",
+      "entityBefore": {
+        "id": "ALB",
+        "name_en": "People's Socialist Republic of Albania",
+        "name_vi": "Cộng hòa Xã hội chủ nghĩa Nhân dân Albania"
+      },
+      "entityAfter": {
+        "id": "ALB",
+        "name_en": "Republic of Albania",
+        "name_vi": "Cộng hòa Albania"
+      },
+      "eventType": "constitutional_democratic_transition",
+      "causes": [
+        "First multi-party parliamentary process",
+        "Constitutional presidency restored"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "universal_suffrage",
+          "note": "Project abstraction for transition to competitive multiparty elections; actual franchise and democratic consolidation varied."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "limited_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "albania_pres"
+      ],
+      "quality": "verified",
+      "note": "The Presidency of Albania dates the first President of the Parliamentary Republic to 30 April 1991; democratic consolidation remained gradual."
+    },
+    {
+      "id": "USSR-LTU-1990",
+      "date": "1990-03-11",
+      "capitalHistorical": "Vilnius",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "entityAfter": {
+        "id": "LTU",
+        "name_en": "Lithuania",
+        "name_vi": "Cộng hòa Litva"
+      },
+      "eventType": "union_republic_independence_or_state_renaming",
+      "causes": [
+        "Soviet federal authority weakened after the failed August 1991 coup",
+        "Republic-level sovereignty declarations and dissolution of Union institutions"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Lithuania",
+          "from": "USSR",
+          "to": "LTU",
+          "date": "1990-03-11",
+          "status": "independence_or_restoration",
+          "note": "restoration of independence"
+        }
+      ],
+      "sources": [
+        "lithuania_un",
+        "ussr_map"
+      ],
+      "quality": "supported",
+      "note": "Dominant culture assignment is a proposed map-splitting key, not a claim that the republic was ethnically homogeneous. Capital: Vilnius.",
+      "culturalAssignments": [
+        {
+          "entityId": "LTU",
+          "dominantCulture": "lithuanian",
+          "capitalHistorical": "Vilnius",
+          "scope": "dominant titular/national culture for region allocation",
+          "caveat": "Do not erase local minorities or mixed regions; retain secondary cultures and regional exceptions."
+        }
+      ]
+    },
+    {
+      "id": "USSR-GEO-1991",
+      "date": "1991-04-09",
+      "capitalHistorical": "Tbilisi",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "entityAfter": {
+        "id": "GEO",
+        "name_en": "Georgia",
+        "name_vi": "Cộng hòa Georgia"
+      },
+      "eventType": "union_republic_independence_or_state_renaming",
+      "causes": [
+        "Soviet federal authority weakened after the failed August 1991 coup",
+        "Republic-level sovereignty declarations and dissolution of Union institutions"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Georgia",
+          "from": "USSR",
+          "to": "GEO",
+          "date": "1991-04-09",
+          "status": "independence_or_restoration",
+          "note": "restoration of independence after the 1991 referendum"
+        }
+      ],
+      "sources": [
+        "ussr_yearbook",
+        "ussr_map"
+      ],
+      "quality": "supported",
+      "note": "Dominant culture assignment is a proposed map-splitting key, not a claim that the republic was ethnically homogeneous. Capital: Tbilisi.",
+      "culturalAssignments": [
+        {
+          "entityId": "GEO",
+          "dominantCulture": "georgian",
+          "capitalHistorical": "Tbilisi",
+          "scope": "dominant titular/national culture for region allocation",
+          "caveat": "Do not erase local minorities or mixed regions; retain secondary cultures and regional exceptions."
+        }
+      ]
+    },
+    {
+      "id": "USSR-EST-1991",
+      "date": "1991-08-20",
+      "capitalHistorical": "Tallinn",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "entityAfter": {
+        "id": "EST",
+        "name_en": "Estonia",
+        "name_vi": "Cộng hòa Estonia"
+      },
+      "eventType": "union_republic_independence_or_state_renaming",
+      "causes": [
+        "Soviet federal authority weakened after the failed August 1991 coup",
+        "Republic-level sovereignty declarations and dissolution of Union institutions"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Estonia",
+          "from": "USSR",
+          "to": "EST",
+          "date": "1991-08-20",
+          "status": "independence_or_restoration",
+          "note": "restoration of independence"
+        }
+      ],
+      "sources": [
+        "ussr_yearbook",
+        "ussr_map"
+      ],
+      "quality": "supported",
+      "note": "Dominant culture assignment is a proposed map-splitting key, not a claim that the republic was ethnically homogeneous. Capital: Tallinn.",
+      "culturalAssignments": [
+        {
+          "entityId": "EST",
+          "dominantCulture": "estonian",
+          "capitalHistorical": "Tallinn",
+          "scope": "dominant titular/national culture for region allocation",
+          "caveat": "Do not erase local minorities or mixed regions; retain secondary cultures and regional exceptions."
+        }
+      ]
+    },
+    {
+      "id": "USSR-LVA-1991",
+      "date": "1991-08-21",
+      "capitalHistorical": "Riga",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "entityAfter": {
+        "id": "LVA",
+        "name_en": "Latvia",
+        "name_vi": "Cộng hòa Latvia"
+      },
+      "eventType": "union_republic_independence_or_state_renaming",
+      "causes": [
+        "Soviet federal authority weakened after the failed August 1991 coup",
+        "Republic-level sovereignty declarations and dissolution of Union institutions"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Latvia",
+          "from": "USSR",
+          "to": "LVA",
+          "date": "1991-08-21",
+          "status": "independence_or_restoration",
+          "note": "restoration of independence"
+        }
+      ],
+      "sources": [
+        "ussr_yearbook",
+        "ussr_map"
+      ],
+      "quality": "supported",
+      "note": "Dominant culture assignment is a proposed map-splitting key, not a claim that the republic was ethnically homogeneous. Capital: Riga.",
+      "culturalAssignments": [
+        {
+          "entityId": "LVA",
+          "dominantCulture": "latvian",
+          "capitalHistorical": "Riga",
+          "scope": "dominant titular/national culture for region allocation",
+          "caveat": "Do not erase local minorities or mixed regions; retain secondary cultures and regional exceptions."
+        }
+      ]
+    },
+    {
+      "id": "USSR-UKR-1991",
+      "date": "1991-08-24",
+      "capitalHistorical": "Kyiv",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "entityAfter": {
+        "id": "UKR",
+        "name_en": "Ukraine",
+        "name_vi": "Cộng hòa Ukraine"
+      },
+      "eventType": "union_republic_independence_or_state_renaming",
+      "causes": [
+        "Soviet federal authority weakened after the failed August 1991 coup",
+        "Republic-level sovereignty declarations and dissolution of Union institutions"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Ukraine",
+          "from": "USSR",
+          "to": "UKR",
+          "date": "1991-08-24",
+          "status": "independence_or_restoration",
+          "note": "Act of Declaration of Independence; confirmed by referendum 1 December 1991"
+        }
+      ],
+      "sources": [
+        "ukraine_un",
+        "ussr_map"
+      ],
+      "quality": "supported",
+      "note": "Dominant culture assignment is a proposed map-splitting key, not a claim that the republic was ethnically homogeneous. Capital: Kyiv.",
+      "culturalAssignments": [
+        {
+          "entityId": "UKR",
+          "dominantCulture": "ukrainian",
+          "capitalHistorical": "Kyiv",
+          "scope": "dominant titular/national culture for region allocation",
+          "caveat": "Do not erase local minorities or mixed regions; retain secondary cultures and regional exceptions."
+        }
+      ]
+    },
+    {
+      "id": "USSR-BLR-1991",
+      "date": "1991-08-25",
+      "capitalHistorical": "Minsk",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "entityAfter": {
+        "id": "BLR",
+        "name_en": "Belarus",
+        "name_vi": "Cộng hòa Belarus"
+      },
+      "eventType": "union_republic_independence_or_state_renaming",
+      "causes": [
+        "Soviet federal authority weakened after the failed August 1991 coup",
+        "Republic-level sovereignty declarations and dissolution of Union institutions"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Belarus",
+          "from": "USSR",
+          "to": "BLR",
+          "date": "1991-08-25",
+          "status": "independence_or_restoration",
+          "note": "independence declaration and subsequent renaming from Byelorussian SSR"
+        }
+      ],
+      "sources": [
+        "ussr_yearbook",
+        "ussr_map"
+      ],
+      "quality": "supported",
+      "note": "Dominant culture assignment is a proposed map-splitting key, not a claim that the republic was ethnically homogeneous. Capital: Minsk.",
+      "culturalAssignments": [
+        {
+          "entityId": "BLR",
+          "dominantCulture": "belarusian",
+          "capitalHistorical": "Minsk",
+          "scope": "dominant titular/national culture for region allocation",
+          "caveat": "Do not erase local minorities or mixed regions; retain secondary cultures and regional exceptions."
+        }
+      ]
+    },
+    {
+      "id": "USSR-MDA-1991",
+      "date": "1991-08-27",
+      "capitalHistorical": "Chișinău",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "entityAfter": {
+        "id": "MDA",
+        "name_en": "Republic of Moldova",
+        "name_vi": "Cộng hòa Moldova"
+      },
+      "eventType": "union_republic_independence_or_state_renaming",
+      "causes": [
+        "Soviet federal authority weakened after the failed August 1991 coup",
+        "Republic-level sovereignty declarations and dissolution of Union institutions"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Republic of Moldova",
+          "from": "USSR",
+          "to": "MDA",
+          "date": "1991-08-27",
+          "status": "independence_or_restoration",
+          "note": "declaration while USSR formally continued until December"
+        }
+      ],
+      "sources": [
+        "moldova_un",
+        "ussr_map"
+      ],
+      "quality": "supported",
+      "note": "Dominant culture assignment is a proposed map-splitting key, not a claim that the republic was ethnically homogeneous. Capital: Chișinău.",
+      "culturalAssignments": [
+        {
+          "entityId": "MDA",
+          "dominantCulture": "romanian",
+          "capitalHistorical": "Chișinău",
+          "scope": "dominant titular/national culture for region allocation",
+          "caveat": "Do not erase local minorities or mixed regions; retain secondary cultures and regional exceptions."
+        }
+      ]
+    },
+    {
+      "id": "USSR-AZE-1991",
+      "date": "1991-08-30",
+      "capitalHistorical": "Baku",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "entityAfter": {
+        "id": "AZE",
+        "name_en": "Azerbaijan",
+        "name_vi": "Cộng hòa Azerbaijan"
+      },
+      "eventType": "union_republic_independence_or_state_renaming",
+      "causes": [
+        "Soviet federal authority weakened after the failed August 1991 coup",
+        "Republic-level sovereignty declarations and dissolution of Union institutions"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Azerbaijan",
+          "from": "USSR",
+          "to": "AZE",
+          "date": "1991-08-30",
+          "status": "independence_or_restoration",
+          "note": "restoration declaration; Constitutional Act followed 18 October 1991"
+        }
+      ],
+      "sources": [
+        "ussr_yearbook",
+        "ussr_map"
+      ],
+      "quality": "supported",
+      "note": "Dominant culture assignment is a proposed map-splitting key, not a claim that the republic was ethnically homogeneous. Capital: Baku.",
+      "culturalAssignments": [
+        {
+          "entityId": "AZE",
+          "dominantCulture": "azeri",
+          "capitalHistorical": "Baku",
+          "scope": "dominant titular/national culture for region allocation",
+          "caveat": "Do not erase local minorities or mixed regions; retain secondary cultures and regional exceptions."
+        }
+      ]
+    },
+    {
+      "id": "USSR-UZB-1991",
+      "date": "1991-08-31",
+      "capitalHistorical": "Tashkent",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "entityAfter": {
+        "id": "UZB",
+        "name_en": "Uzbekistan",
+        "name_vi": "Cộng hòa Uzbekistan"
+      },
+      "eventType": "union_republic_independence_or_state_renaming",
+      "causes": [
+        "Soviet federal authority weakened after the failed August 1991 coup",
+        "Republic-level sovereignty declarations and dissolution of Union institutions"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Uzbekistan",
+          "from": "USSR",
+          "to": "UZB",
+          "date": "1991-08-31",
+          "status": "independence_or_restoration",
+          "note": "declaration of independence"
+        }
+      ],
+      "sources": [
+        "ussr_yearbook",
+        "ussr_map"
+      ],
+      "quality": "supported",
+      "note": "Dominant culture assignment is a proposed map-splitting key, not a claim that the republic was ethnically homogeneous. Capital: Tashkent.",
+      "culturalAssignments": [
+        {
+          "entityId": "UZB",
+          "dominantCulture": "uzbek",
+          "capitalHistorical": "Tashkent",
+          "scope": "dominant titular/national culture for region allocation",
+          "caveat": "Do not erase local minorities or mixed regions; retain secondary cultures and regional exceptions."
+        }
+      ]
+    },
+    {
+      "id": "USSR-KGZ-1991",
+      "date": "1991-08-31",
+      "capitalHistorical": "Bishkek",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "entityAfter": {
+        "id": "KGZ",
+        "name_en": "Kyrgyzstan",
+        "name_vi": "Cộng hòa Kyrgyzstan"
+      },
+      "eventType": "union_republic_independence_or_state_renaming",
+      "causes": [
+        "Soviet federal authority weakened after the failed August 1991 coup",
+        "Republic-level sovereignty declarations and dissolution of Union institutions"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Kyrgyzstan",
+          "from": "USSR",
+          "to": "KGZ",
+          "date": "1991-08-31",
+          "status": "independence_or_restoration",
+          "note": "declaration of independence; capital still named Frunze until 1991 renaming"
+        }
+      ],
+      "sources": [
+        "ussr_yearbook",
+        "ussr_map"
+      ],
+      "quality": "supported",
+      "note": "Dominant culture assignment is a proposed map-splitting key, not a claim that the republic was ethnically homogeneous. Capital: Bishkek.",
+      "culturalAssignments": [
+        {
+          "entityId": "KGZ",
+          "dominantCulture": "kyrgyz",
+          "capitalHistorical": "Bishkek",
+          "scope": "dominant titular/national culture for region allocation",
+          "caveat": "Do not erase local minorities or mixed regions; retain secondary cultures and regional exceptions."
+        }
+      ]
+    },
+    {
+      "id": "USSR-ARM-1991",
+      "date": "1991-09-21",
+      "capitalHistorical": "Yerevan",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "entityAfter": {
+        "id": "ARM",
+        "name_en": "Armenia",
+        "name_vi": "Cộng hòa Armenia"
+      },
+      "eventType": "union_republic_independence_or_state_renaming",
+      "causes": [
+        "Soviet federal authority weakened after the failed August 1991 coup",
+        "Republic-level sovereignty declarations and dissolution of Union institutions"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Armenia",
+          "from": "USSR",
+          "to": "ARM",
+          "date": "1991-09-21",
+          "status": "independence_or_restoration",
+          "note": "referendum and declaration of independence"
+        }
+      ],
+      "sources": [
+        "ussr_yearbook",
+        "ussr_map"
+      ],
+      "quality": "supported",
+      "note": "Dominant culture assignment is a proposed map-splitting key, not a claim that the republic was ethnically homogeneous. Capital: Yerevan.",
+      "culturalAssignments": [
+        {
+          "entityId": "ARM",
+          "dominantCulture": "armenian",
+          "capitalHistorical": "Yerevan",
+          "scope": "dominant titular/national culture for region allocation",
+          "caveat": "Do not erase local minorities or mixed regions; retain secondary cultures and regional exceptions."
+        }
+      ]
+    },
+    {
+      "id": "USSR-TJK-1991",
+      "date": "1991-09-09",
+      "capitalHistorical": "Dushanbe",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "entityAfter": {
+        "id": "TJK",
+        "name_en": "Tajikistan",
+        "name_vi": "Cộng hòa Tajikistan"
+      },
+      "eventType": "union_republic_independence_or_state_renaming",
+      "causes": [
+        "Soviet federal authority weakened after the failed August 1991 coup",
+        "Republic-level sovereignty declarations and dissolution of Union institutions"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Tajikistan",
+          "from": "USSR",
+          "to": "TJK",
+          "date": "1991-09-09",
+          "status": "independence_or_restoration",
+          "note": "declaration adopted by Supreme Soviet"
+        }
+      ],
+      "sources": [
+        "tajik_un",
+        "ussr_map"
+      ],
+      "quality": "supported",
+      "note": "Dominant culture assignment is a proposed map-splitting key, not a claim that the republic was ethnically homogeneous. Capital: Dushanbe.",
+      "culturalAssignments": [
+        {
+          "entityId": "TJK",
+          "dominantCulture": "tajik",
+          "capitalHistorical": "Dushanbe",
+          "scope": "dominant titular/national culture for region allocation",
+          "caveat": "Do not erase local minorities or mixed regions; retain secondary cultures and regional exceptions."
+        }
+      ]
+    },
+    {
+      "id": "USSR-TKM-1991",
+      "date": "1991-10-27",
+      "capitalHistorical": "Ashgabat",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "entityAfter": {
+        "id": "TKM",
+        "name_en": "Turkmenistan",
+        "name_vi": "Cộng hòa Turkmenistan"
+      },
+      "eventType": "union_republic_independence_or_state_renaming",
+      "causes": [
+        "Soviet federal authority weakened after the failed August 1991 coup",
+        "Republic-level sovereignty declarations and dissolution of Union institutions"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Turkmenistan",
+          "from": "USSR",
+          "to": "TKM",
+          "date": "1991-10-27",
+          "status": "independence_or_restoration",
+          "note": "referendum and Constitutional Law on Independence"
+        }
+      ],
+      "sources": [
+        "turkmen_un",
+        "ussr_map"
+      ],
+      "quality": "supported",
+      "note": "Dominant culture assignment is a proposed map-splitting key, not a claim that the republic was ethnically homogeneous. Capital: Ashgabat.",
+      "culturalAssignments": [
+        {
+          "entityId": "TKM",
+          "dominantCulture": "turkmen",
+          "capitalHistorical": "Ashgabat",
+          "scope": "dominant titular/national culture for region allocation",
+          "caveat": "Do not erase local minorities or mixed regions; retain secondary cultures and regional exceptions."
+        }
+      ]
+    },
+    {
+      "id": "USSR-KAZ-1991",
+      "date": "1991-12-16",
+      "capitalHistorical": "Almaty",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "entityAfter": {
+        "id": "KAZ",
+        "name_en": "Kazakhstan",
+        "name_vi": "Cộng hòa Kazakhstan"
+      },
+      "eventType": "union_republic_independence_or_state_renaming",
+      "causes": [
+        "Soviet federal authority weakened after the failed August 1991 coup",
+        "Republic-level sovereignty declarations and dissolution of Union institutions"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Kazakhstan",
+          "from": "USSR",
+          "to": "KAZ",
+          "date": "1991-12-16",
+          "status": "independence_or_restoration",
+          "note": "Constitutional Law on Independent Statehood"
+        }
+      ],
+      "sources": [
+        "kazakhstan_un",
+        "ussr_map"
+      ],
+      "quality": "supported",
+      "note": "Dominant culture assignment is a proposed map-splitting key, not a claim that the republic was ethnically homogeneous. Capital: Almaty.",
+      "culturalAssignments": [
+        {
+          "entityId": "KAZ",
+          "dominantCulture": "kazakh",
+          "capitalHistorical": "Almaty",
+          "scope": "dominant titular/national culture for region allocation",
+          "caveat": "Do not erase local minorities or mixed regions; retain secondary cultures and regional exceptions."
+        }
+      ]
+    },
+    {
+      "id": "USSR-RUS-FED-1991",
+      "date": "1991-12-25",
+      "capitalHistorical": "Moscow",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "entityAfter": {
+        "id": "RUS-FED",
+        "name_en": "Russian Federation",
+        "name_vi": "Liên bang Nga"
+      },
+      "eventType": "union_republic_independence_or_state_renaming",
+      "causes": [
+        "Soviet federal authority weakened after the failed August 1991 coup",
+        "Republic-level sovereignty declarations and dissolution of Union institutions"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Russian Federation",
+          "from": "USSR",
+          "to": "RUS-FED",
+          "date": "1991-12-25",
+          "status": "independence_or_restoration",
+          "note": "RSFSR adopted the name Russian Federation; Russia succeeded to USSR's UN membership, not a simple independence-from-USSR event"
+        }
+      ],
+      "sources": [
+        "russia_un",
+        "ussr_map"
+      ],
+      "quality": "supported",
+      "note": "Dominant culture assignment is a proposed map-splitting key, not a claim that the republic was ethnically homogeneous. Capital: Moscow.",
+      "culturalAssignments": [
+        {
+          "entityId": "RUS-FED",
+          "dominantCulture": "russian",
+          "capitalHistorical": "Moscow",
+          "scope": "dominant titular/national culture for region allocation",
+          "caveat": "Do not erase local minorities or mixed regions; retain secondary cultures and regional exceptions."
+        }
+      ]
+    },
+    {
+      "id": "USSR-1991-12-DISSOLVE",
+      "date": "1991-12-26",
+      "capitalHistorical": "Moscow",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "entityAfter": {
+        "id": "USSR-DISSOLVED",
+        "name_en": "Former Soviet Union (dissolved)",
+        "name_vi": "Liên Xô cũ (đã giải thể)"
+      },
+      "eventType": "state_dissolution",
+      "causes": [
+        "Belavezha Agreement of 8 December 1991",
+        "Alma-Ata Declaration of 21 December 1991",
+        "Declaration No. 142-N of 26 December 1991"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [],
+      "sources": [
+        "ussr_un",
+        "ussr_yearbook"
+      ],
+      "quality": "verified",
+      "note": "Do not use 8 December as the legal dissolution date by itself: the republic leaders agreed to end the Union, Alma-Ata broadened the CIS, and the USSR's final legal declaration followed on 26 December. Russia's UN succession was separately notified on 24 December."
+    },
+    {
+      "id": "CIS-1991-12",
+      "date": "1991-12-21",
+      "capitalHistorical": "Almaty",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "entityAfter": {
+        "id": "CIS",
+        "name_en": "Commonwealth of Independent States",
+        "name_vi": "Cộng đồng các Quốc gia Độc lập"
+      },
+      "eventType": "international_organisation_foundation",
+      "causes": [
+        "Alma-Ata Declaration signed by participating former Soviet republics"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [],
+      "sources": [
+        "ussr_un"
+      ],
+      "quality": "supported",
+      "note": "CIS was created by the Alma-Ata Declaration on 21 December 1991; not all former Soviet republics joined, and it was not a replacement state for the USSR."
+    },
+    {
+      "id": "YUG-SLO-CRO-1991-06",
+      "date": "1991-06-25",
+      "capitalHistorical": "Ljubljana / Zagreb",
+      "entityBefore": {
+        "id": "YUG-SFR",
+        "name_en": "Socialist Federal Republic of Yugoslavia",
+        "name_vi": "Cộng hòa Liên bang Xã hội chủ nghĩa Nam Tư"
+      },
+      "entityAfter": {
+        "id": "YUG-SFR",
+        "name_en": "SFR Yugoslavia entering dissolution",
+        "name_vi": "CHLBXHCN Nam Tư trong tiến trình tan rã"
+      },
+      "eventType": "federal_dissolution_and_independence_declarations",
+      "causes": [
+        "Referenda and electoral victories of independence-oriented parties",
+        "Federal crisis and escalating conflict"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Slovenia",
+          "from": "SFR Yugoslavia",
+          "to": "Slovenia",
+          "date": "1991-10-08",
+          "status": "independence_effective",
+          "regionIds": [],
+          "note": "Declaration 25 June; legal effectiveness after the three-month Brioni moratorium on 8 October."
+        },
+        {
+          "territory": "Croatia",
+          "from": "SFR Yugoslavia",
+          "to": "Croatia",
+          "date": "1991-10-08",
+          "status": "independence_effective",
+          "regionIds": [],
+          "note": "Declaration 25 June; legal effectiveness after the three-month Brioni moratorium on 8 October."
+        }
+      ],
+      "sources": [
+        "yugoslavia_icty",
+        "yugoslavia_un_tc"
+      ],
+      "quality": "supported",
+      "note": "25 June is the declaration date; 8 October 1991 is the effective independence date used by the Badinter Arbitration Commission. Keep both dates in the model."
+    },
+    {
+      "id": "YUG-MKD-1991-11",
+      "date": "1991-11-17",
+      "capitalHistorical": "Skopje",
+      "entityBefore": {
+        "id": "YUG-SFR",
+        "name_en": "Socialist Federal Republic of Yugoslavia",
+        "name_vi": "Cộng hòa Liên bang Xã hội chủ nghĩa Nam Tư"
+      },
+      "entityAfter": {
+        "id": "MKD",
+        "name_en": "Republic of Macedonia (1991 state)",
+        "name_vi": "Cộng hòa Macedonia"
+      },
+      "eventType": "independence_and_constitution",
+      "causes": [
+        "Independence referendum of 8 September 1991",
+        "Adoption of a new constitution"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "universal_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Macedonia",
+          "from": "SFR Yugoslavia",
+          "to": "MKD",
+          "date": "1991-11-17",
+          "status": "independence",
+          "regionIds": []
+        }
+      ],
+      "sources": [
+        "yugoslavia_un_tc"
+      ],
+      "quality": "supported",
+      "note": "Badinter Commission/UN Treaty Collection uses 17 November 1991 as the date the successor state came into existence; the referendum was 8 September."
+    },
+    {
+      "id": "YUG-BIH-1992-03",
+      "date": "1992-03-06",
+      "capitalHistorical": "Sarajevo",
+      "entityBefore": {
+        "id": "YUG-SFR",
+        "name_en": "Socialist Federal Republic of Yugoslavia",
+        "name_vi": "Cộng hòa Liên bang Xã hội chủ nghĩa Nam Tư"
+      },
+      "entityAfter": {
+        "id": "BIH",
+        "name_en": "Republic of Bosnia and Herzegovina",
+        "name_vi": "Cộng hòa Bosnia và Herzegovina"
+      },
+      "eventType": "independence_and_state_formation",
+      "causes": [
+        "Independence referendum 29 February–1 March 1992",
+        "Referendum results officially promulgated"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "universal_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Bosnia and Herzegovina",
+          "from": "SFR Yugoslavia",
+          "to": "BIH",
+          "date": "1992-03-06",
+          "status": "independence",
+          "regionIds": []
+        }
+      ],
+      "sources": [
+        "yugoslavia_un_tc",
+        "yugoslavia_un"
+      ],
+      "quality": "supported",
+      "note": "6 March 1992 is the Badinter Commission date for state existence; UN admission followed on 22 May 1992."
+    },
+    {
+      "id": "YUG-FRY-1992-04",
+      "date": "1992-04-27",
+      "capitalHistorical": "Belgrade",
+      "entityBefore": {
+        "id": "YUG-SFR",
+        "name_en": "Socialist Federal Republic of Yugoslavia",
+        "name_vi": "Cộng hòa Liên bang Xã hội chủ nghĩa Nam Tư"
+      },
+      "entityAfter": {
+        "id": "YUG-FRY",
+        "name_en": "Federal Republic of Yugoslavia (Serbia and Montenegro)",
+        "name_vi": "Cộng hòa Liên bang Nam Tư (Serbia và Montenegro)"
+      },
+      "eventType": "federal_reconstitution",
+      "causes": [
+        "Only Serbia and Montenegro remained in the federation after other republics' secessions",
+        "New constitution promulgated"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "universal_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Serbia and Montenegro",
+          "from": "SFR Yugoslavia",
+          "to": "YUG-FRY",
+          "date": "1992-04-27",
+          "status": "reconstituted_federation",
+          "regionIds": []
+        }
+      ],
+      "sources": [
+        "yugoslavia_un_tc",
+        "yugoslavia_icty"
+      ],
+      "quality": "verified",
+      "note": "The FRY was proclaimed on 27 April 1992. Its claim to continue the SFRY's international legal personality was disputed; do not model it as uncontested automatic succession."
+    },
+    {
+      "id": "CZE-SVK-1993-01",
+      "date": "1993-01-01",
+      "capitalHistorical": "Prague / Bratislava",
+      "entityBefore": {
+        "id": "CZE",
+        "name_en": "Czech and Slovak Federative Republic",
+        "name_vi": "Cộng hòa Liên bang Séc và Slovakia"
+      },
+      "entityAfter": {
+        "id": "CZE",
+        "name_en": "Czech Republic",
+        "name_vi": "Cộng hòa Séc"
+      },
+      "eventType": "peaceful_federal_dissolution",
+      "causes": [
+        "Constitutional agreement to dissolve the federation",
+        "Federal state ceased to exist at midnight 31 December 1992"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "universal_suffrage",
+          "to": "universal_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Czech lands",
+          "from": "Czechoslovakia",
+          "to": "CZE",
+          "date": "1993-01-01",
+          "status": "state_succession",
+          "regionIds": [],
+          "culture": "czech"
+        },
+        {
+          "territory": "Slovakia",
+          "from": "Czechoslovakia",
+          "to": "SVK",
+          "date": "1993-01-01",
+          "status": "state_succession",
+          "regionIds": [],
+          "culture": "slovak"
+        }
+      ],
+      "sources": [
+        "cze_history",
+        "yugoslavia_un"
+      ],
+      "quality": "supported",
+      "note": "Czechoslovakia ceased to exist on 31 December 1992; Czech and Slovak states came into existence on 1 January 1993. Both were admitted to the UN on 19 January 1993."
+    },
+    {
+      "id": "KOR-1945-08",
+      "date": "1945-08-15",
+      "capitalHistorical": "Seoul / Pyongyang (later)",
+      "entityBefore": {
+        "id": "KOR",
+        "name_en": "Korea under Japanese colonial rule",
+        "name_vi": "Triều Tiên dưới ách thuộc địa Nhật Bản"
+      },
+      "entityAfter": {
+        "id": "KOR-DIV",
+        "name_en": "Korea divided into Soviet and US occupation zones",
+        "name_vi": "Triều Tiên chia thành vùng chiếm đóng của Liên Xô và Hoa Kỳ"
+      },
+      "eventType": "occupation_and_partition_process",
+      "causes": [
+        "Japanese surrender in August 1945",
+        "US and Soviet forces accepted separate surrender zones divided near the 38th parallel"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Korean Peninsula north of the 38th parallel",
+          "from": "Japanese colonial administration",
+          "to": "Soviet occupation zone",
+          "date": "1945-08-15",
+          "status": "military_occupation_not_independence",
+          "regionIds": [
+            "KOR_PYO",
+            "part_of_KOR_HAM"
+          ]
+        },
+        {
+          "territory": "Korean Peninsula south of the 38th parallel",
+          "from": "Japanese colonial administration",
+          "to": "US occupation zone",
+          "date": "1945-08-15",
+          "status": "military_occupation_not_independence",
+          "regionIds": [
+            "KOR_GYE",
+            "KOR_JEO",
+            "KOR_GSA",
+            "part_of_KOR_HAM"
+          ]
+        }
+      ],
+      "sources": [
+        "korea_history",
+        "korea_rok"
+      ],
+      "quality": "supported",
+      "note": "The 38th parallel was an occupation-zone line, not a negotiated permanent international border. The current coarse KOR_HAM region crosses the line and must be split before accurate territorial transfer."
+    },
+    {
+      "id": "KOR-ROK-1948-08",
+      "date": "1948-08-15",
+      "capitalHistorical": "Seoul",
+      "entityBefore": {
+        "id": "KOR-DIV",
+        "name_en": "Korea divided into Soviet and US occupation zones",
+        "name_vi": "Triều Tiên chia thành vùng chiếm đóng của Liên Xô và Hoa Kỳ"
+      },
+      "entityAfter": {
+        "id": "ROK",
+        "name_en": "Republic of Korea",
+        "name_vi": "Đại Hàn Dân Quốc"
+      },
+      "eventType": "state_foundation",
+      "causes": [
+        "Constitutional process in the southern occupation zone",
+        "Government inaugurated 15 August 1948"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Southern Korea",
+          "from": "KOR-DIV",
+          "to": "ROK",
+          "date": "1948-08-15",
+          "status": "state_foundation",
+          "regionIds": [
+            "KOR_GYE",
+            "KOR_JEO",
+            "KOR_GSA",
+            "southern_part_of_KOR_HAM"
+          ]
+        }
+      ],
+      "sources": [
+        "korea_history",
+        "korea_rok"
+      ],
+      "quality": "supported",
+      "note": "The Republic of Korea was established 15 August 1948. Its early political system was not continuously liberal-democratic; do not equate the initial franchise with later democratic consolidation."
+    },
+    {
+      "id": "KOR-PRK-1948-09",
+      "date": "1948-09-09",
+      "capitalHistorical": "Pyongyang",
+      "entityBefore": {
+        "id": "KOR-DIV",
+        "name_en": "Korea divided into Soviet and US occupation zones",
+        "name_vi": "Triều Tiên chia thành vùng chiếm đóng của Liên Xô và Hoa Kỳ"
+      },
+      "entityAfter": {
+        "id": "PRK",
+        "name_en": "Democratic People's Republic of Korea",
+        "name_vi": "Cộng hòa Dân chủ Nhân dân Triều Tiên"
+      },
+      "eventType": "state_foundation",
+      "causes": [
+        "Soviet occupation-zone institutions and northern political consolidation",
+        "DPRK proclaimed on 9 September 1948"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "one_party_state"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "command_economy"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Northern Korea",
+          "from": "KOR-DIV",
+          "to": "PRK",
+          "date": "1948-09-09",
+          "status": "state_foundation",
+          "regionIds": [
+            "KOR_PYO",
+            "northern_part_of_KOR_HAM"
+          ]
+        }
+      ],
+      "sources": [
+        "korea_history",
+        "korea_rok"
+      ],
+      "quality": "supported",
+      "note": "The DPRK was proclaimed 9 September 1948. The present region map requires a split of KOR_HAM at the 38th parallel."
+    },
+    {
+      "id": "VNM-DRV-1945-09",
+      "date": "1945-09-02",
+      "capitalHistorical": "Hanoi",
+      "entityBefore": {
+        "id": "VNM",
+        "name_en": "Vietnam under the Nguyễn dynasty / Japanese-French rule",
+        "name_vi": "Việt Nam dưới triều Nguyễn / chế độ Pháp-Nhật"
+      },
+      "entityAfter": {
+        "id": "DRV",
+        "name_en": "Democratic Republic of Vietnam",
+        "name_vi": "Việt Nam Dân chủ Cộng hòa"
+      },
+      "eventType": "declaration_of_independence_and_revolution",
+      "causes": [
+        "August Revolution and collapse of Japanese occupation",
+        "Declaration of Independence on 2 September 1945"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "one_party_state",
+          "note": "The DRV's early coalition and wartime institutions evolved; one-party consolidation should not be backdated without qualification."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "vietnam_embassy"
+      ],
+      "quality": "supported",
+      "note": "The declaration established the DRV claim and government centred in Hanoi; effective control and recognition remained contested during the First Indochina War."
+    },
+    {
+      "id": "VNM-SVN-1949-06",
+      "date": "1949-06-14",
+      "capitalHistorical": "Saigon",
+      "entityBefore": {
+        "id": "DRV",
+        "name_en": "Democratic Republic of Vietnam",
+        "name_vi": "Việt Nam Dân chủ Cộng hòa"
+      },
+      "entityAfter": {
+        "id": "SVN",
+        "name_en": "State of Vietnam",
+        "name_vi": "Quốc gia Việt Nam"
+      },
+      "eventType": "rival_state_formation",
+      "causes": [
+        "State of Vietnam formed within the French Union under former Emperor Bảo Đại",
+        "Competing sovereignty claims during the First Indochina War"
+      ],
+      "lawChanges": {
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy",
+          "note": "Bảo Đại remained Chief of State; the State of Vietnam was not yet the later Republic of Vietnam."
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Southern Vietnam and associated territories under State of Vietnam administration (contested)",
+          "from": "French Union/associated administration",
+          "to": "SVN",
+          "date": "1949-06-14",
+          "status": "associated_state_not_full_sovereignty",
+          "regionIds": [
+            "VNM_GDI",
+            "VNM_SCE",
+            "part_of_VNM_HUE"
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_embassy"
+      ],
+      "quality": "supported",
+      "note": "Do not treat SVN as identical to the DRV or as an uncontested independent state in 1949; its status within the French Union changed over time."
+    },
+    {
+      "id": "VNM-GENEVA-1954-07",
+      "date": "1954-07-21",
+      "capitalHistorical": "Hanoi / Saigon",
+      "entityBefore": {
+        "id": "DRV",
+        "name_en": "Democratic Republic of Vietnam",
+        "name_vi": "Việt Nam Dân chủ Cộng hòa"
+      },
+      "entityAfter": {
+        "id": "DRV",
+        "name_en": "Democratic Republic of Vietnam and provisional military demarcation",
+        "name_vi": "Việt Nam Dân chủ Cộng hòa và giới tuyến quân sự tạm thời"
+      },
+      "eventType": "armistice_and_provisional_partition",
+      "causes": [
+        "Geneva Conference agreements ended the First Indochina War",
+        "Temporary military demarcation near the 17th parallel pending nationwide elections"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "North of the 17th parallel",
+          "from": "French Union forces/contested zone",
+          "to": "DRV",
+          "date": "1954-07-21",
+          "status": "military_regroupment_zone",
+          "regionIds": [
+            "VNM_HAN",
+            "VNM_TBC",
+            "VNM_THN"
+          ]
+        },
+        {
+          "territory": "South of the 17th parallel",
+          "from": "French Union forces/State of Vietnam",
+          "to": "SVN",
+          "date": "1954-07-21",
+          "status": "military_regroupment_zone",
+          "regionIds": [
+            "VNM_HUE",
+            "VNM_SCE",
+            "VNM_GDI"
+          ]
+        }
+      ],
+      "sources": [
+        "vietnam_embassy",
+        "vietnam_frus"
+      ],
+      "quality": "verified",
+      "note": "The 17th-parallel line was explicitly provisional and not a political or territorial boundary. Region mapping is approximate: VNM_HUE straddles the line and must be split; do not use this as a permanent border event."
+    },
+    {
+      "id": "VNM-RVN-1955-10",
+      "date": "1955-10-26",
+      "capitalHistorical": "Saigon",
+      "entityBefore": {
+        "id": "SVN",
+        "name_en": "State of Vietnam",
+        "name_vi": "Quốc gia Việt Nam"
+      },
+      "entityAfter": {
+        "id": "RVN",
+        "name_en": "Republic of Vietnam",
+        "name_vi": "Việt Nam Cộng hòa"
+      },
+      "eventType": "referendum_and_state_renaming",
+      "causes": [
+        "Bảo Đại removed following referendum and Ngô Đình Diệm consolidated power",
+        "Republic proclaimed 26 October 1955"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "autocracy",
+          "note": "Republican form did not imply competitive liberal democracy; the Diệm presidency concentrated executive authority."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "vietnam_embassy"
+      ],
+      "quality": "supported",
+      "note": "Separate the State of Vietnam (1949–1955) from the Republic of Vietnam (1955–1975); both used Saigon as capital."
+    },
+    {
+      "id": "VNM-1975-04",
+      "date": "1975-04-30",
+      "capitalHistorical": "Saigon",
+      "entityBefore": {
+        "id": "RVN",
+        "name_en": "Republic of Vietnam",
+        "name_vi": "Việt Nam Cộng hòa"
+      },
+      "entityAfter": {
+        "id": "PRG",
+        "name_en": "Provisional Revolutionary Government of the Republic of South Vietnam",
+        "name_vi": "Chính phủ Cách mạng lâm thời Cộng hòa miền Nam Việt Nam"
+      },
+      "eventType": "military_collapse_and_transfer_of_control",
+      "causes": [
+        "Fall of Saigon and surrender of the Republic of Vietnam government",
+        "Provisional Revolutionary Government assumed authority in the South pending reunification"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Southern Vietnam",
+          "from": "RVN",
+          "to": "PRG / provisional revolutionary administration",
+          "date": "1975-04-30",
+          "status": "military_control_transfer",
+          "regionIds": [
+            "VNM_GDI",
+            "VNM_SCE",
+            "VNM_HUE"
+          ],
+          "note": "Do not mark formal state reunification on this date."
+        }
+      ],
+      "sources": [
+        "vietnam_embassy",
+        "vietnam_archive"
+      ],
+      "quality": "supported",
+      "note": "30 April 1975 marks the collapse of the RVN government and transfer of control; legal reunification occurred later."
+    },
+    {
+      "id": "VNM-1976-07",
+      "date": "1976-07-02",
+      "capitalHistorical": "Hanoi",
+      "entityBefore": {
+        "id": "DRV",
+        "name_en": "Democratic Republic of Vietnam",
+        "name_vi": "Việt Nam Dân chủ Cộng hòa"
+      },
+      "entityAfter": {
+        "id": "VNM-SRV",
+        "name_en": "Socialist Republic of Vietnam",
+        "name_vi": "Cộng hòa Xã hội chủ nghĩa Việt Nam"
+      },
+      "eventType": "formal_reunification_and_state_renaming",
+      "causes": [
+        "First session of the unified National Assembly",
+        "National Assembly resolution adopted 2 July 1976"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "one_party_state"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "command_economy",
+          "to": "command_economy"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Former North and South Vietnam",
+          "from": "DRV and PRG administrations",
+          "to": "VNM-SRV",
+          "date": "1976-07-02",
+          "status": "legal_reunification",
+          "regionIds": [
+            "VNM_HAN",
+            "VNM_TBC",
+            "VNM_THN",
+            "VNM_HUE",
+            "VNM_SCE",
+            "VNM_GDI"
+          ],
+          "note": "The 17th-parallel military line ceased to divide the state; retain separate region identities and cultural minorities."
+        }
+      ],
+      "sources": [
+        "vietnam_archive",
+        "vietnam_embassy"
+      ],
+      "quality": "verified",
+      "note": "The National Assembly resolution explicitly names the unified state Socialist Republic of Vietnam and Hanoi as capital; the official archive identifies the original National Assembly file."
+    },
+    {
+      "id": "ROC-1949-12",
+      "date": "1949-12-09",
+      "capitalHistorical": "Taipei (effective government seat)",
+      "entityBefore": {
+        "id": "ROC",
+        "name_en": "Republic of China government on the mainland",
+        "name_vi": "Chính phủ Trung Hoa Dân Quốc trên đại lục"
+      },
+      "entityAfter": {
+        "id": "ROC",
+        "name_en": "Republic of China government relocated to Taiwan",
+        "name_vi": "Chính phủ Trung Hoa Dân Quốc chuyển sang Đài Loan"
+      },
+      "eventType": "government_relocation_and_competing_state_control",
+      "causes": [
+        "Communist victory on the mainland and establishment of the PRC on 1 October 1949",
+        "ROC Executive Yuan moved its effective seat to Taipei on 9 December 1949"
+      ],
+      "lawChanges": {},
+      "territorialChanges": [
+        {
+          "territory": "Mainland China",
+          "from": "ROC administration",
+          "to": "PRC administration (effective control)",
+          "date": "1949-10-01",
+          "status": "control_transfer_not_formal_roc_dissolution",
+          "regionIds": []
+        },
+        {
+          "territory": "Taiwan",
+          "from": "post-war Republic of China administration",
+          "to": "ROC government seat and administration",
+          "date": "1949-12-09",
+          "status": "government_relocation_not_new_independence",
+          "regionIds": [
+            "QNG_TAI"
+          ]
+        }
+      ],
+      "sources": [
+        "roc_mac",
+        "roc_us"
+      ],
+      "quality": "supported",
+      "note": "The ROC did not become a new state in 1949; its government relocated to Taiwan. Taipei was the effective seat of government, while ROC constitutional claims to China continued. Do not treat this as a universally settled sovereignty transfer over Taiwan."
+    },
+    {
+      "id": "PRC-1949-10",
+      "date": "1949-10-01",
+      "capitalHistorical": "Beijing",
+      "entityBefore": {
+        "id": "QNG-ROC",
+        "name_en": "Republic of China on mainland China",
+        "name_vi": "Trung Hoa Dân Quốc trên đại lục"
+      },
+      "entityAfter": {
+        "id": "PRC",
+        "name_en": "People's Republic of China",
+        "name_vi": "Cộng hòa Nhân dân Trung Hoa"
+      },
+      "eventType": "state_foundation_and_regime_change",
+      "causes": [
+        "Chinese Communist Party victory in the Chinese Civil War on the mainland",
+        "Proclamation of the PRC on 1 October 1949"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "one_party_state"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "command_economy"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Mainland China under PRC control",
+          "from": "ROC administration",
+          "to": "PRC",
+          "date": "1949-10-01",
+          "status": "effective_control_transfer",
+          "regionIds": []
+        }
+      ],
+      "sources": [
+        "roc_us"
+      ],
+      "quality": "supported",
+      "note": "The PRC was established on the mainland while the ROC government continued in Taiwan; this is a competing-government and territorial-control transition, not an uncontested single-state rename."
+    }
+  ]
+}
