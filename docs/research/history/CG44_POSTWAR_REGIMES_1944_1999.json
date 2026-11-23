@@ -5,7 +5,7 @@
     "branch": "ccr-b27f3fb8-epfpd6",
     "created": "2026-11-23",
     "scope": "Research staging for Eastern Europe, dissolution of the USSR and Yugoslavia, Czechoslovakia, Korea, Vietnam and the ROC relocation/PRC foundation. Dates are legal/proclamation milestones unless otherwise noted; not every transition implies instant full territorial control or completed democratization.",
-    "eventCount": 52,
+    "eventCount": 54,
     "sourceCount": 29,
     "lawGroups": [
       "power",
@@ -2556,6 +2556,82 @@
       ],
       "quality": "supported",
       "note": "The PRC was established on the mainland while the ROC government continued in Taiwan; this is a competing-government and territorial-control transition, not an uncontested single-state rename."
+    },
+    {
+      "id": "YUG-1990-MULTIPARTY",
+      "date": "1990-04-08",
+      "capitalHistorical": "Ljubljana / Zagreb / Sarajevo / Skopje / Belgrade",
+      "entityBefore": {
+        "id": "YUG-SFR",
+        "name_en": "Socialist Federal Republic of Yugoslavia",
+        "name_vi": "Cộng hòa Liên bang Xã hội chủ nghĩa Nam Tư"
+      },
+      "entityAfter": {
+        "id": "YUG-SFR",
+        "name_en": "SFR Yugoslavia in multiparty federal crisis",
+        "name_vi": "CHLBXHCN Nam Tư trong khủng hoảng liên bang đa đảng"
+      },
+      "eventType": "multi_party_transition_and_federal_disintegration",
+      "causes": [
+        "First multiparty elections held in several constituent republics during 1990",
+        "Nationalist and independence-oriented coalitions won in Slovenia and Croatia; federal authority weakened"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "one_party_state",
+          "to": "universal_suffrage",
+          "note": "Applied at republic level where multiparty elections occurred; not a single uniform federal transition."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "yugoslavia_icty",
+        "yugoslavia_un"
+      ],
+      "quality": "supported",
+      "note": "Yugoslavia did not undergo one unitary democratic transition: multiparty elections were held at different dates in constituent republics during 1990, while federal institutions remained contested. This record is a process marker only; do not apply a blanket law change to every republic without a dated republic-level election record.",
+      "windowStart": "1990-04-08",
+      "windowEnd": "1990-12-09",
+      "scope": "Republic-level transition process"
+    },
+    {
+      "id": "BUL-1991-07-CONSTITUTION",
+      "date": "1991-07-12",
+      "capitalHistorical": "Sofia",
+      "entityBefore": {
+        "id": "BUL",
+        "name_en": "Republic of Bulgaria (post-1989 transition)",
+        "name_vi": "Cộng hòa Bulgaria (chuyển đổi sau 1989)"
+      },
+      "entityAfter": {
+        "id": "BUL",
+        "name_en": "Republic of Bulgaria under the 1991 Constitution",
+        "name_vi": "Cộng hòa Bulgaria theo Hiến pháp 1991"
+      },
+      "eventType": "constitution",
+      "causes": [
+        "Adoption of a new constitution establishing a parliamentary republic and guaranteeing political rights"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "universal_suffrage",
+          "to": "universal_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "bulgaria_gov"
+      ],
+      "quality": "supported",
+      "note": "The government chronology states that the 1991 Constitution established a parliamentary republic; the exact adoption date 12 July 1991 should be checked against the original promulgated constitutional text before production."
     }
   ]
 }
