@@ -151,7 +151,14 @@
               "exitType": "separate_peace_treaty",
               "status": "principal_combatant",
               "confidence": "high",
-              "note": "Treaty of Bucharest 1918; Romania re-entered the war on 1918-11-10, one day before the general armistice."
+              "note": "Treaty of Bucharest 1918; Romania re-entered the war on 1918-11-10, one day before the general armistice.",
+              "sideChanges": [
+                {
+                  "date": "1918-11-10",
+                  "toSide": "allies",
+                  "name": "Romania re-entered the war shortly before the general armistice."
+                }
+              ]
             },
             {
               "id": "GRE",
@@ -385,11 +392,11 @@
               "name": "Second Polish Republic",
               "capital": "Warsaw",
               "entry": "1939-09-01",
-              "exit": "1945-05-08",
+              "exit": "1945-09-02",
               "exitType": "government_in_exile/continued_belligerency",
               "status": "principal_combatant",
               "confidence": "high",
-              "note": "Polish state was occupied; government-in-exile and armed forces continued with the Allies. Polish campaign ended in 1939 but belligerency did not."
+              "note": "The Polish state was occupied; government-in-exile and armed forces continued with the Allies through the end of the global war."
             },
             {
               "id": "GBR",
@@ -411,7 +418,14 @@
               "exitType": "armistice",
               "status": "principal_combatant",
               "confidence": "high",
-              "note": "Armistice of 22 June 1940 ended the Third Republic's active campaign; Free France continued fighting. Treat Vichy and Free France as distinct political authorities, not as a clean French exit from the Allied war."
+              "note": "Armistice of 22 June 1940 ended the Third Republic's active campaign; Free France continued fighting. Treat Vichy and Free France as distinct political authorities, not as a clean French exit from the Allied war.",
+              "sideChanges": [
+                {
+                  "date": "1940-06-18",
+                  "toSide": "allies",
+                  "name": "Free France under Charles de Gaulle continued the war after the armistice; represent Vichy and Free France as separate authorities where supported."
+                }
+              ]
             },
             {
               "id": "AUS",
@@ -448,11 +462,12 @@
               "id": "NLD",
               "name": "Kingdom of the Netherlands",
               "capital": "Amsterdam (government-in-exile in London)",
-              "entry": "1939-09-10",
+              "entry": "1940-05-10",
               "exit": "1945-09-02",
               "exitType": "victory/war_ended",
               "status": "principal_combatant",
-              "confidence": "high"
+              "confidence": "high",
+              "note": "Germany invaded the Netherlands on 10 May 1940; the government continued from London."
             },
             {
               "id": "CAN",
@@ -478,12 +493,12 @@
               "id": "BEL",
               "name": "Kingdom of Belgium",
               "capital": "Brussels",
-              "entry": "1939-09-10",
+              "entry": "1940-05-10",
               "exit": "1940-05-28",
               "exitType": "capitulation",
               "status": "principal_combatant",
               "confidence": "high",
-              "note": "Belgian Army surrendered; Belgian government and forces in exile continued Allied participation."
+              "note": "Germany invaded Belgium on 10 May 1940; the Belgian Army capitulated on 28 May, while the government and forces in exile continued Allied participation."
             },
             {
               "id": "NOR",
@@ -665,11 +680,12 @@
               "id": "SVK",
               "name": "Slovak Republic (1939–1945)",
               "capital": "Bratislava",
-              "entry": "1939-03-23",
+              "entry": "1939-09-01",
               "exit": "1945-04-04",
               "exitType": "capitulation/regime_collapse",
               "status": "axis_satellite",
-              "confidence": "medium"
+              "confidence": "medium",
+              "note": "The Slovak Republic participated in the invasion of Poland as a German satellite; formal Axis alignment followed later."
             },
             {
               "id": "FIN",
@@ -1480,21 +1496,21 @@
         {
           "entity": "Italy",
           "start": "1920-01-10",
-          "end": "1937-12-11",
+          "end": "1939-12-11",
           "confidence": "high",
           "note": "Italy announced withdrawal in 1937; two-year notice period under Covenant Article 1."
         },
         {
           "entity": "Japan",
           "start": "1920-01-10",
-          "end": "1933-03-27",
+          "end": "1935-03-27",
           "confidence": "high",
           "note": "Japan notified withdrawal in 1933; two-year notice period."
         },
         {
           "entity": "Germany",
           "start": "1926-09-08",
-          "end": "1933-10-19",
+          "end": "1935-10-19",
           "confidence": "high",
           "note": "Permanent Council status approved September 1926; withdrawal notice October 1933."
         },
@@ -2372,8 +2388,8 @@
           261000
         ],
         "civilianDeaths": [
-          125000,
-          123700
+          123700,
+          125000
         ],
         "totalDeaths": [
           372000,
@@ -2474,8 +2490,8 @@
           95000
         ],
         "civilianDeaths": [
-          15000,
-          2000
+          2000,
+          15000
         ],
         "totalDeaths": [
           60000,
@@ -2495,12 +2511,12 @@
           22000
         ],
         "civilianDeaths": [
-          10000,
-          3000
+          3000,
+          10000
         ],
         "totalDeaths": [
-          30000,
-          25000
+          25000,
+          30000
         ],
         "quality": "range",
         "sources": [
@@ -2688,7 +2704,7 @@
     {
       "id": "saint_germain_treaty_primary",
       "title": "Treaty of Saint-Germain-en-Laye, 1919",
-      "url": "https://treaties.un.org/",
+      "url": "https://www.dipublico.org/3671/",
       "use": "Territorial provisions; precise article-level crosswalk remains to be checked."
     },
     {
@@ -2700,7 +2716,7 @@
     {
       "id": "trianon_treaty_primary",
       "title": "Treaty of Trianon, 1920",
-      "url": "https://treaties.un.org/",
+      "url": "https://mjp.univ-perp.fr/traites/1920trianon.htm",
       "use": "Territorial provisions; precise article-level crosswalk remains to be checked."
     },
     {
@@ -2712,8 +2728,8 @@
     {
       "id": "paris_peace_treaties_1947_primary",
       "title": "Paris Peace Treaties, 1947",
-      "url": "https://treaties.un.org/",
-      "use": "Postwar territorial settlement; article-level mapping to be checked."
+      "url": "https://treaties.un.org/doc/publication/unts/volume%2049/v49.pdf",
+      "use": "Full Treaty of Peace with Italy, UNTS vol. 49, with annexes and maps."
     }
   ],
   "integrationWarnings": [
