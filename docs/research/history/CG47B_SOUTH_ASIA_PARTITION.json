@@ -190,6 +190,22 @@
       "note": "The Nawab acceded to Pakistan in September 1947; Indian forces entered in November and a February 1948 referendum supported accession to India. No matching region ID was supplied; do not invent one."
     },
     {
+      "id": "KALAT-1948-03-27",
+      "date": "1948-03-27",
+      "eventType": "princely_state_accession",
+      "entity": "PAK",
+      "title": "Kalat accedes to Pakistan",
+      "capitalHistorical": "Kalat",
+      "regionIds": [
+        "KAL_KAL"
+      ],
+      "sources": [
+        "pakistan_history"
+      ],
+      "quality": "supported",
+      "note": "The Khan of Kalat signed the Instrument of Accession to Pakistan on 27 March 1948; the state was not part of Pakistan's initial 14 August 1947 allocation."
+    },
+    {
       "id": "PATIALA-1948-07",
       "date": "1948-07-15",
       "eventType": "princely_union_integration",
