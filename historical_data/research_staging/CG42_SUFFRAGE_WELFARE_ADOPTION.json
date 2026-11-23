@@ -1,0 +1,2044 @@
+{
+  "meta": {
+    "task": "CG-42",
+    "title": "Suffrage and social-protection adoption by country",
+    "branch": "ccr-b27f3fb8-epfpd6",
+    "created": "2026-11-23",
+    "coverage": {
+      "countryRows": 62,
+      "minimumRequired": 60,
+      "scope": "61 current and historical country/polity rows, prioritising states in the UN 1953 comparative franchise memorandum and major countries. This is a first evidence-backed calibration cohort, not a complete global census."
+    },
+    "definitions": {
+      "male_suffrage_year": "First broad/universal male national franchise milestone only when a comparative source gives a defensible year. Null means not independently verified in this package; it does not mean no male suffrage.",
+      "female_suffrage_year": "First national franchise grant to women, including restricted grants where explicitly noted. It is not necessarily the year of the first actual election.",
+      "female_suffrage_full_equal_year": "Year equal national voting terms are documented where the initial grant was restricted; null means the first grant was already equal or the reviewed sources did not establish a later equalisation date.",
+      "social_insurance_year": "Earliest of the five national statutory branches in the ILO 2019 comparison: work accident, health, pension, unemployment, family support. The table is selected OECD coverage, not a global first-ever database.",
+      "old_age_pension_year": "ILO table's first pension-insurance legislation year; not necessarily the first means-tested pension, first occupational pension or universal non-contributory pension.",
+      "unemployment_insurance_year": "ILO table's first unemployment-insurance legislation year; may be voluntary subsidised, compulsory, or implemented later than enactment. Type is specified when known.",
+      "suspended": "Periods when competitive constitutional national elections or ordinary parliamentary democracy were suspended/restricted. These do not automatically mean the legal right to vote was repealed."
+    },
+    "qualityLegend": {
+      "verified": "Primary law/official chronology or UN/IPU country record directly confirms the year.",
+      "supported": "Credible comparative study or official historical synthesis supports the year; interpretive scope is documented.",
+      "partial": "Country included, but one or more requested historical dates remain unverified and are null."
+    },
+    "dateConvention": "Years only; dates are legal grant or legislation year, not first election year, unless note says otherwise.",
+    "caution": "Do not infer political openness from suffrage law alone. Formal eligibility, effective access, election competitiveness, race/property/education restrictions, gender equality and regime interruption are separate dimensions."
+  },
+  "sources": [
+    {
+      "id": "un_a2462_1953",
+      "title": "UN Secretary-General, A/2462: Franchise of women (26 August 1953)",
+      "url": "https://digitallibrary.un.org/record/855358/files/A_2462-EN.pdf",
+      "type": "UN primary comparative memorandum",
+      "quality": "verified",
+      "note": "Tables I–VII distinguish national from local franchise, restricted grants and equal rights; especially pp. 10–18."
+    },
+    {
+      "id": "crs_women_2023",
+      "title": "Congressional Research Service, Statistics on Women in National Governments Around the Globe (R45483)",
+      "url": "https://www.everycrsreport.com/reports/R45483.html",
+      "type": "US Congressional Research Service synthesis using IPU",
+      "quality": "supported",
+      "note": "Cross-checks women’s national voting rights and records staged restrictions; e.g. US racial disenfranchisement and Canada Indigenous exclusions."
+    },
+    {
+      "id": "ipu_women_dictionary",
+      "title": "IPU Parline data dictionary: women’s right to vote",
+      "url": "https://data.ipu.org/data-dictionary/suffrage.right_to_vote/",
+      "type": "IPU data dictionary",
+      "quality": "verified",
+      "note": "Defines right-to-vote year, national/local scope, restricted/unrestricted status and restriction notes."
+    },
+    {
+      "id": "owid_lied_male_2026",
+      "title": "Our World in Data: Men’s universal right to vote (Lexical Index 2026)",
+      "url": "https://ourworldindata.org/grapher/universal-suffrage-men-lexical",
+      "type": "country-year historical dataset",
+      "quality": "supported",
+      "note": "LIED v6.9, 1789–2025; binary universal male national suffrage, ignores informal barriers and some exclusions; values should be extracted for automated year detection before production calibration."
+    },
+    {
+      "id": "owid_lied_female_2026",
+      "title": "Our World in Data: Universal right to vote (Lexical Index 2026)",
+      "url": "https://ourworldindata.org/grapher/universal-suffrage-lexical",
+      "type": "country-year historical dataset",
+      "quality": "supported",
+      "note": "LIED v6.9 country-year indicator; distinguish formal universal suffrage from effective competitive elections."
+    },
+    {
+      "id": "vdem_codebook_16",
+      "title": "V-Dem Codebook v16 (2026)",
+      "url": "https://www.v-dem.net/documents/70/codebook_v16.pdf",
+      "type": "dataset codebook",
+      "quality": "verified",
+      "note": "Defines legal de jure suffrage indicators and distinguishes them from de facto enfranchisement when electoral regimes are interrupted."
+    },
+    {
+      "id": "male_suffrage_pilon",
+      "title": "Pilon, Electoral transformation in Western Europe in the 19th and early 20th century: an overview",
+      "url": "https://dalspaceb.library.dal.ca/server/api/core/bitstreams/afc025bd-1b47-48ce-8e20-f2c29f8fa21f/content",
+      "type": "academic research table",
+      "quality": "supported",
+      "note": "Comparative table of full male suffrage dates including Australia, Austria, Belgium, Canada (range), Denmark, Finland, France, Germany, Italy, Japan, Netherlands, New Zealand, Norway, Sweden, Switzerland, UK and USA."
+    },
+    {
+      "id": "male_suffrage_europe",
+      "title": "Electoral transformation in Western Europe in the 19th and early 20th century",
+      "url": "https://ora.ox.ac.uk/objects/uuid:6c3ebcf9-f25b-4ce8-a837-619230729c33/files/m8ae2548076a9d067f57bc51ab1802900",
+      "type": "academic comparative study",
+      "quality": "supported",
+      "note": "Table 3 gives universal male suffrage milestones in Western Europe; distinguishes women’s suffrage introduced together with male franchise."
+    },
+    {
+      "id": "male_suffrage_socio",
+      "title": "Global Struggle for Suffrage Expansion: The European Case for Male Suffrage in the Nineteenth Century",
+      "url": "https://www.sociostudies.org/almanac/articles/global_struggle/",
+      "type": "academic comparative study",
+      "quality": "supported",
+      "note": "Provides male franchise reform years for Greece, Spain, Argentina, Uruguay and selected European countries."
+    },
+    {
+      "id": "ilo_social_2019",
+      "title": "ILO, Global social security and economic development: Retrospect and prospect (2019)",
+      "url": "https://www.ilo.org/sites/default/files/wcmsp5/groups/public/%40asia/%40ro-bangkok/%40ilo-beijing/documents/publication/wcms_723404.pdf",
+      "type": "ILO comparative research report",
+      "quality": "supported",
+      "note": "Table 1, printed p.18, adapted from Schmidt 2005, reports first legislation years for work accidents, health insurance, pension insurance, unemployment insurance and family support in 23 selected OECD countries. Column order verified from page image."
+    },
+    {
+      "id": "ilo_unemployment_2000",
+      "title": "ILO, Whither Social Security? Annex 6: Unemployment – date of first law",
+      "url": "https://webapps.ilo.org/public/spanish/protection/ses/download/docs/bonnet.pdf",
+      "type": "ILO historical comparative report",
+      "quality": "supported",
+      "note": "Lists first unemployment-branch laws by region; distinguishes broad national dates and notes Republic of Korea implementation in 1995."
+    },
+    {
+      "id": "ssa_unemployment_1937",
+      "title": "US Social Security Administration archive: Social Security in America, unemployment compensation",
+      "url": "https://www.ssa.gov/history/reports/ces/cesbookc1.html",
+      "type": "US government historical primary compilation",
+      "quality": "verified",
+      "note": "Contemporaneous 1930s tables of compulsory and subsidized voluntary unemployment-insurance legislation, dates and coverage."
+    },
+    {
+      "id": "ssa_bismarck_pensions",
+      "title": "US Social Security Administration: historical development of social insurance",
+      "url": "https://www.ssa.gov/history/bortz.html",
+      "type": "US government historical synthesis",
+      "quality": "supported",
+      "note": "Explains German Bismarckian social insurance, Danish 1891 old-age pension, British 1908 pension and 1911 insurance reforms."
+    },
+    {
+      "id": "pension_programs_table",
+      "title": "The Political Origin of Pension Funding, Table 1: Development of Pension Systems",
+      "url": "https://www.pseweb.eu/ydepot/semin/texte0607/PER2006POL.pdf",
+      "type": "academic comparative paper",
+      "quality": "supported",
+      "note": "Distinguishes first pension program from first major broad-coverage program; first programs may cover only occupational or selected groups."
+    },
+    {
+      "id": "issa_profiles",
+      "title": "ISSA Country Profiles – methodology and coverage",
+      "url": "https://www.issa.int/databases/country-profiles/about",
+      "type": "ISSA methodology",
+      "quality": "verified",
+      "note": "Current statutory scheme descriptions for 190+ countries; use to validate present-day scheme structures, not to infer historical start dates."
+    }
+  ],
+  "rows": [
+    {
+      "iso3": "ALB",
+      "country": "Albania",
+      "capital": "Tirana",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1946,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1946; national franchise established by Constitution"
+    },
+    {
+      "iso3": "ARG",
+      "country": "Argentina",
+      "capital": "Buenos Aires",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1947,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [
+        {
+          "from": 1976,
+          "to": 1983,
+          "kind": "competitive_national_elections_suspended",
+          "note": "Military dictatorship; democratic elections restored in 1983."
+        }
+      ],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "owid_lied_female_2026",
+        "vdem_codebook_16"
+      ],
+      "note": "1947; national law, equal franchise"
+    },
+    {
+      "iso3": "AUS",
+      "country": "Australia",
+      "capital": "Canberra",
+      "male_suffrage_year": 1902,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1902,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1902,
+      "old_age_pension_year": 1908,
+      "unemployment_insurance_year": 1944,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1902,
+        "health_insurance_year": 1948,
+        "pension_insurance_year": 1908,
+        "unemployment_insurance_year": 1944,
+        "family_support_year": 1941,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026",
+        "ilo_social_2019"
+      ],
+      "note": "Federal franchise 1902; Indigenous exclusions persisted; 1962 federal voting rights for Indigenous Australians"
+    },
+    {
+      "iso3": "AUT",
+      "country": "Austria",
+      "capital": "Vienna",
+      "male_suffrage_year": 1907,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1919,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1887,
+      "old_age_pension_year": 1907,
+      "unemployment_insurance_year": 1920,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1887,
+        "health_insurance_year": 1888,
+        "pension_insurance_year": 1907,
+        "unemployment_insurance_year": 1920,
+        "family_support_year": 1948,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": "compulsory national insurance",
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026",
+        "ilo_social_2019"
+      ],
+      "note": "1919 national suffrage; 1907 male universal suffrage"
+    },
+    {
+      "iso3": "BEL",
+      "country": "Belgium",
+      "capital": "Brussels",
+      "male_suffrage_year": 1919,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1921,
+      "female_suffrage_full_equal_year": 1948,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1894,
+      "old_age_pension_year": 1900,
+      "unemployment_insurance_year": 1920,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1903,
+        "health_insurance_year": 1894,
+        "pension_insurance_year": 1900,
+        "unemployment_insurance_year": 1920,
+        "family_support_year": 1930,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026",
+        "ilo_social_2019"
+      ],
+      "note": "1921 first limited national right for specified war widows/women; general equal national suffrage 1948; plural male vote until 1919"
+    },
+    {
+      "iso3": "BOL",
+      "country": "Bolivia",
+      "capital": "Sucre / La Paz (seat of government)",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1952,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1952 full national female franchise; municipal franchise began 1945"
+    },
+    {
+      "iso3": "BRA",
+      "country": "Brazil",
+      "capital": "Brasília",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1932,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [
+        {
+          "from": 1964,
+          "to": 1985,
+          "kind": "competitive_national_elections_suspended",
+          "note": "Military regime restricted direct national political competition; civilian transition in 1985."
+        }
+      ],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "owid_lied_female_2026",
+        "vdem_codebook_16"
+      ],
+      "note": "1932 female suffrage; some state-level rights earlier; illiterate citizens remained excluded until 1985"
+    },
+    {
+      "iso3": "BGR",
+      "country": "Bulgaria",
+      "capital": "Sofia",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1947,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1947 constitutional grant"
+    },
+    {
+      "iso3": "MMR",
+      "country": "Myanmar",
+      "capital": "Naypyidaw",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1935,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "Government of Burma Act 1935 extended a wider franchise; some categories of women had voting rights from 1922; independence 1948"
+    },
+    {
+      "iso3": "BLR",
+      "country": "Belarus",
+      "capital": "Minsk",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1917,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1917 recorded for Byelorussian SSR in UN 1953 table; legal franchise in Soviet constitutional framework, not modern independent Belarus"
+    },
+    {
+      "iso3": "CAN",
+      "country": "Canada",
+      "capital": "Ottawa",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1917,
+      "female_suffrage_full_equal_year": 1918,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1927,
+      "old_age_pension_year": 1927,
+      "unemployment_insurance_year": 1940,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1930,
+        "health_insurance_year": 1977,
+        "pension_insurance_year": 1927,
+        "unemployment_insurance_year": 1940,
+        "family_support_year": null,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": "national law enacted 1935; nationwide scheme implementation 1940",
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "ilo_social_2019"
+      ],
+      "note": "1917 temporary federal franchise for women in military service/eligible relatives; 1918 broader federal franchise; Indigenous exclusions persisted"
+    },
+    {
+      "iso3": "LKA",
+      "country": "Sri Lanka",
+      "capital": "Sri Jayawardenepura Kotte",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1931,
+      "female_suffrage_full_equal_year": 1934,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1931 universal adult franchise under Donoughmore reforms; equal age threshold in 1934"
+    },
+    {
+      "iso3": "CHL",
+      "country": "Chile",
+      "capital": "Santiago",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1949,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [
+        {
+          "from": 1973,
+          "to": 1989,
+          "kind": "competitive_national_elections_suspended",
+          "note": "Military dictatorship; plebiscite and transition culminated in competitive elections in 1989–90."
+        }
+      ],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "owid_lied_female_2026",
+        "vdem_codebook_16"
+      ],
+      "note": "1949 equal national franchise; municipal franchise began 1931 with literacy/property/age restrictions"
+    },
+    {
+      "iso3": "CHN",
+      "country": "China",
+      "capital": "Beijing",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1947,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1947 Constitution; Republic of China period; PRC established separately in 1949"
+    },
+    {
+      "iso3": "CRI",
+      "country": "Costa Rica",
+      "capital": "San José",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1949,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1949 Constitution"
+    },
+    {
+      "iso3": "CUB",
+      "country": "Cuba",
+      "capital": "Havana",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1934,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1934 constitutional reform; women voted in national elections thereafter"
+    },
+    {
+      "iso3": "CZE",
+      "country": "Czechia",
+      "capital": "Prague",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1919,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "Czechoslovak founding-era suffrage; modern Czech state is successor, not separate 1919 sovereign"
+    },
+    {
+      "iso3": "DNK",
+      "country": "Denmark",
+      "capital": "Copenhagen",
+      "male_suffrage_year": 1849,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1915,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1891,
+      "old_age_pension_year": 1891,
+      "unemployment_insurance_year": 1907,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1898,
+        "health_insurance_year": 1892,
+        "pension_insurance_year": 1891,
+        "unemployment_insurance_year": 1907,
+        "family_support_year": 1952,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": "voluntary funds subsidised by public authorities",
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026",
+        "ilo_social_2019"
+      ],
+      "note": "1915 constitutional reform; broad male suffrage dated 1849"
+    },
+    {
+      "iso3": "DOM",
+      "country": "Dominican Republic",
+      "capital": "Santo Domingo",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1942,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1942 constitutional reform"
+    },
+    {
+      "iso3": "ECU",
+      "country": "Ecuador",
+      "capital": "Quito",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1929,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1929; initially subject to literacy/other qualifications; first national female vote 1924? UN table uses 1929"
+    },
+    {
+      "iso3": "SLV",
+      "country": "El Salvador",
+      "capital": "San Salvador",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1946,
+      "female_suffrage_full_equal_year": 1950,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1946 franchise carried higher age/education conditions; equal terms in 1950"
+    },
+    {
+      "iso3": "FIN",
+      "country": "Finland",
+      "capital": "Helsinki",
+      "male_suffrage_year": 1906,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1906,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1895,
+      "old_age_pension_year": 1937,
+      "unemployment_insurance_year": 1917,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1895,
+        "health_insurance_year": 1963,
+        "pension_insurance_year": 1937,
+        "unemployment_insurance_year": 1917,
+        "family_support_year": 1948,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": "voluntary funds subsidised by public authorities; 1917 law repealed and replaced 1934",
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026",
+        "ilo_social_2019"
+      ],
+      "note": "1906 reform granted equal voting and candidacy rights; first election 1907"
+    },
+    {
+      "iso3": "FRA",
+      "country": "France",
+      "capital": "Paris",
+      "male_suffrage_year": 1848,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1944,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1898,
+      "old_age_pension_year": 1910,
+      "unemployment_insurance_year": 1905,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1898,
+        "health_insurance_year": 1928,
+        "pension_insurance_year": 1910,
+        "unemployment_insurance_year": 1905,
+        "family_support_year": 1932,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": "voluntary funds subsidised by public authorities",
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026",
+        "ilo_social_2019"
+      ],
+      "note": "Ordinance of 21 April 1944; first national vote in 1945; universal male suffrage 1848"
+    },
+    {
+      "iso3": "DEU",
+      "country": "Germany",
+      "capital": "Berlin",
+      "male_suffrage_year": 1871,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1919,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1883,
+      "old_age_pension_year": 1889,
+      "unemployment_insurance_year": 1927,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1884,
+        "health_insurance_year": 1883,
+        "pension_insurance_year": 1889,
+        "unemployment_insurance_year": 1927,
+        "family_support_year": 1954,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": "compulsory national insurance",
+      "suspended": [
+        {
+          "from": 1933,
+          "to": 1945,
+          "kind": "competitive_national_elections_suspended",
+          "note": "Nazi one-party dictatorship; formal franchise was not equivalent to competitive suffrage."
+        }
+      ],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026",
+        "ilo_social_2019",
+        "owid_lied_female_2026",
+        "vdem_codebook_16"
+      ],
+      "note": "Women’s right established in 1918/19; UN table lists 1919; male Reichstag franchise 1871"
+    },
+    {
+      "iso3": "GRC",
+      "country": "Greece",
+      "capital": "Athens",
+      "male_suffrage_year": 1864,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1952,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1914,
+      "old_age_pension_year": 1934,
+      "unemployment_insurance_year": 1945,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1914,
+        "health_insurance_year": 1922,
+        "pension_insurance_year": 1934,
+        "unemployment_insurance_year": 1945,
+        "family_support_year": 1958,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": null,
+      "suspended": [
+        {
+          "from": 1967,
+          "to": 1974,
+          "kind": "constitutional_democracy_suspended",
+          "note": "Military junta; parliamentary democracy suspended."
+        }
+      ],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026",
+        "ilo_social_2019",
+        "owid_lied_female_2026",
+        "vdem_codebook_16"
+      ],
+      "note": "Equal national female suffrage 1952; limited municipal franchise 1925; broad male suffrage 1864"
+    },
+    {
+      "iso3": "GTM",
+      "country": "Guatemala",
+      "capital": "Guatemala City",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1945,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "Female vote subject to literacy qualification in 1953 UN record"
+    },
+    {
+      "iso3": "HUN",
+      "country": "Hungary",
+      "capital": "Budapest",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1920,
+      "female_suffrage_full_equal_year": 1945,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1920 initial restricted right; restrictions tightened in 1925 and 1933; equal political rights 1945"
+    },
+    {
+      "iso3": "ISL",
+      "country": "Iceland",
+      "capital": "Reykjavík",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1915,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1909,
+      "old_age_pension_year": 1909,
+      "unemployment_insurance_year": 1936,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1925,
+        "health_insurance_year": 1936,
+        "pension_insurance_year": 1909,
+        "unemployment_insurance_year": 1936,
+        "family_support_year": 1946,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "ilo_social_2019"
+      ],
+      "note": "National female franchise 1915; restricted municipal franchise 1909"
+    },
+    {
+      "iso3": "IND",
+      "country": "India",
+      "capital": "New Delhi",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1935,
+      "female_suffrage_full_equal_year": 1950,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [
+        {
+          "from": 1975,
+          "to": 1977,
+          "kind": "national_election_delayed",
+          "note": "Emergency suspended ordinary electoral competition; general election held in 1977."
+        }
+      ],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "owid_lied_female_2026",
+        "vdem_codebook_16"
+      ],
+      "note": "1935 wider but restricted provincial franchise; universal equal adult suffrage under Constitution effective 1950"
+    },
+    {
+      "iso3": "IDN",
+      "country": "Indonesia",
+      "capital": "Jakarta",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1949,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1949 provisional constitution; equal franchise retained in 1950 constitution; first general election 1955"
+    },
+    {
+      "iso3": "IRL",
+      "country": "Ireland",
+      "capital": "Dublin",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1918,
+      "female_suffrage_full_equal_year": 1922,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1897,
+      "old_age_pension_year": 1911,
+      "unemployment_insurance_year": 1911,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1897,
+        "health_insurance_year": 1911,
+        "pension_insurance_year": 1911,
+        "unemployment_insurance_year": 1911,
+        "family_support_year": 1944,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "ilo_social_2019"
+      ],
+      "note": "1918 under UK rules with higher age requirement; equal terms after independence in 1922"
+    },
+    {
+      "iso3": "ISR",
+      "country": "Israel",
+      "capital": "Jerusalem",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1948,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "Equal voting rights in 1948 Election Ordinance"
+    },
+    {
+      "iso3": "ITA",
+      "country": "Italy",
+      "capital": "Rome",
+      "male_suffrage_year": 1919,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1945,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1898,
+      "old_age_pension_year": 1919,
+      "unemployment_insurance_year": 1919,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1898,
+        "health_insurance_year": 1943,
+        "pension_insurance_year": 1919,
+        "unemployment_insurance_year": 1919,
+        "family_support_year": 1937,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": "compulsory national insurance",
+      "suspended": [
+        {
+          "from": 1926,
+          "to": 1945,
+          "kind": "competitive_national_elections_suspended",
+          "note": "Fascist dictatorship dismantled parliamentary competition."
+        }
+      ],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026",
+        "ilo_social_2019",
+        "owid_lied_female_2026",
+        "vdem_codebook_16"
+      ],
+      "note": "Women gained national vote in 1945; first voted in 1946; full male franchise dated 1919"
+    },
+    {
+      "iso3": "JPN",
+      "country": "Japan",
+      "capital": "Tokyo",
+      "male_suffrage_year": 1925,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1945,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1911,
+      "old_age_pension_year": 1941,
+      "unemployment_insurance_year": 1947,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1911,
+        "health_insurance_year": 1927,
+        "pension_insurance_year": 1941,
+        "unemployment_insurance_year": 1947,
+        "family_support_year": 1971,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026",
+        "ilo_social_2019"
+      ],
+      "note": "Women enfranchised in 1945; first voted in 1946; universal male suffrage law 1925"
+    },
+    {
+      "iso3": "KOR",
+      "country": "South Korea",
+      "capital": "Seoul",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1948,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [
+        {
+          "from": 1961,
+          "to": 1987,
+          "kind": "competitive_national_elections_restricted",
+          "note": "Military authoritarian rule; direct presidential election restored by 1987 constitutional reform."
+        }
+      ],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "owid_lied_female_2026",
+        "vdem_codebook_16"
+      ],
+      "note": "1948 founding election law; do not conflate with DPRK"
+    },
+    {
+      "iso3": "LBR",
+      "country": "Liberia",
+      "capital": "Monrovia",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1945,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "Constitutional amendment 1945; historical exclusions and citizenship restrictions require separate treatment"
+    },
+    {
+      "iso3": "LUX",
+      "country": "Luxembourg",
+      "capital": "Luxembourg",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1918,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1901,
+      "old_age_pension_year": 1911,
+      "unemployment_insurance_year": 1921,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1902,
+        "health_insurance_year": 1901,
+        "pension_insurance_year": 1911,
+        "unemployment_insurance_year": 1921,
+        "family_support_year": 1947,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "ilo_social_2019"
+      ],
+      "note": "Female franchise introduced in 1918; first general election under universal suffrage 1919"
+    },
+    {
+      "iso3": "MEX",
+      "country": "Mexico",
+      "capital": "Mexico City",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1953,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1953 constitutional amendment for all popular elections; municipal franchise 1947"
+    },
+    {
+      "iso3": "MNG",
+      "country": "Mongolia",
+      "capital": "Ulaanbaatar",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1924,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1924 constitution; early political system not equivalent to competitive multiparty elections"
+    },
+    {
+      "iso3": "NLD",
+      "country": "Netherlands",
+      "capital": "Amsterdam / The Hague (seat of government)",
+      "male_suffrage_year": 1917,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1917,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1901,
+      "old_age_pension_year": 1919,
+      "unemployment_insurance_year": 1916,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1901,
+        "health_insurance_year": 1931,
+        "pension_insurance_year": 1919,
+        "unemployment_insurance_year": 1916,
+        "family_support_year": 1939,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": "voluntary funds subsidised by public authorities",
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026",
+        "ilo_social_2019"
+      ],
+      "note": "1917 constitutional reform; women first voted nationally in 1919; male universal franchise 1917"
+    },
+    {
+      "iso3": "NZL",
+      "country": "New Zealand",
+      "capital": "Wellington",
+      "male_suffrage_year": 1879,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1893,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1898,
+      "old_age_pension_year": 1898,
+      "unemployment_insurance_year": 1930,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1908,
+        "health_insurance_year": 1938,
+        "pension_insurance_year": 1898,
+        "unemployment_insurance_year": 1930,
+        "family_support_year": 1926,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026",
+        "ilo_social_2019"
+      ],
+      "note": "Women’s national vote 1893; first voted 1893; broad male franchise 1879"
+    },
+    {
+      "iso3": "NOR",
+      "country": "Norway",
+      "capital": "Oslo",
+      "male_suffrage_year": 1897,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1913,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1895,
+      "old_age_pension_year": 1936,
+      "unemployment_insurance_year": 1906,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1895,
+        "health_insurance_year": 1909,
+        "pension_insurance_year": 1936,
+        "unemployment_insurance_year": 1906,
+        "family_support_year": 1946,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": "voluntary funds subsidised by public authorities",
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026",
+        "ilo_social_2019"
+      ],
+      "note": "Full equal national female vote 1913; municipal rights began 1901; universal male suffrage 1897"
+    },
+    {
+      "iso3": "PAK",
+      "country": "Pakistan",
+      "capital": "Islamabad",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1951,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1951–52 provincial franchise; UN 1953 report says no national-election legislation yet—do not encode as national suffrage"
+    },
+    {
+      "iso3": "PAN",
+      "country": "Panama",
+      "capital": "Panama City",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1946,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1946 Constitution"
+    },
+    {
+      "iso3": "PHL",
+      "country": "Philippines",
+      "capital": "Manila",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1937,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "Women’s suffrage approved by 1937 plebiscite"
+    },
+    {
+      "iso3": "POL",
+      "country": "Poland",
+      "capital": "Warsaw",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1919,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": "compulsory national insurance",
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1918 decree/1919 elections; UN table records 1919"
+    },
+    {
+      "iso3": "ROU",
+      "country": "Romania",
+      "capital": "Bucharest",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1946,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1946 equal national suffrage; municipal franchise began 1929"
+    },
+    {
+      "iso3": "SWE",
+      "country": "Sweden",
+      "capital": "Stockholm",
+      "male_suffrage_year": 1909,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1921,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1891,
+      "old_age_pension_year": 1913,
+      "unemployment_insurance_year": 1934,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1901,
+        "health_insurance_year": 1891,
+        "pension_insurance_year": 1913,
+        "unemployment_insurance_year": 1934,
+        "family_support_year": 1947,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": "voluntary funds subsidised by public authorities",
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026",
+        "ilo_social_2019"
+      ],
+      "note": "Equal national vote 1921; equal municipal vote 1919; male franchise reform 1907/09"
+    },
+    {
+      "iso3": "SYR",
+      "country": "Syria",
+      "capital": "Damascus",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1949,
+      "female_suffrage_full_equal_year": 1953,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1949 initial franchise with education requirement; equal rights 1953, with presidential-office exclusion in 1953 Constitution"
+    },
+    {
+      "iso3": "THA",
+      "country": "Thailand",
+      "capital": "Bangkok",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1922,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1922 recorded in UN table; first national constitutional franchise followed 1932—date needs interpretation"
+    },
+    {
+      "iso3": "TUR",
+      "country": "Türkiye",
+      "capital": "Ankara",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1934,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [
+        {
+          "from": 1980,
+          "to": 1983,
+          "kind": "parliamentary_democracy_suspended",
+          "note": "Military coup dissolved parliament; civilian constitutional order resumed in 1983."
+        }
+      ],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "owid_lied_female_2026",
+        "vdem_codebook_16"
+      ],
+      "note": "Women gained municipal vote 1930 and national vote 1934"
+    },
+    {
+      "iso3": "UKR",
+      "country": "Ukraine",
+      "capital": "Kyiv",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1917,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1917 recorded for Ukrainian SSR in UN table; early statehood and Soviet legal history must be separated"
+    },
+    {
+      "iso3": "ZAF",
+      "country": "South Africa",
+      "capital": "Pretoria / Cape Town / Bloemfontein",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1930,
+      "female_suffrage_full_equal_year": 1994,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1930–33 franchise applied to white women only; universal non-racial suffrage arrived with 1994 election"
+    },
+    {
+      "iso3": "RUS",
+      "country": "Russia",
+      "capital": "Moscow",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1917,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1917 recorded for Soviet revolutionary framework; Soviet Constitution 1918 excluded former exploiting classes from political rights"
+    },
+    {
+      "iso3": "GBR",
+      "country": "United Kingdom",
+      "capital": "London",
+      "male_suffrage_year": 1918,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1918,
+      "female_suffrage_full_equal_year": 1928,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1897,
+      "old_age_pension_year": 1908,
+      "unemployment_insurance_year": 1911,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1897,
+        "health_insurance_year": 1911,
+        "pension_insurance_year": 1908,
+        "unemployment_insurance_year": 1911,
+        "family_support_year": 1945,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": "compulsory national insurance",
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026",
+        "ilo_social_2019"
+      ],
+      "note": "1918 limited to women aged 30 meeting property/education conditions; equal terms 1928; men broadly enfranchised 1918"
+    },
+    {
+      "iso3": "USA",
+      "country": "United States",
+      "capital": "Washington, D.C.",
+      "male_suffrage_year": 1870,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1920,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1930,
+      "old_age_pension_year": 1935,
+      "unemployment_insurance_year": 1935,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1930,
+        "health_insurance_year": 1965,
+        "pension_insurance_year": 1935,
+        "unemployment_insurance_year": 1935,
+        "family_support_year": 1935,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": "federal/state unemployment compensation laws",
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026",
+        "ilo_social_2019"
+      ],
+      "note": "19th Amendment 1920; Black men’s formal constitutional right in 1870, but Southern disenfranchisement persisted until Voting Rights Act 1965"
+    },
+    {
+      "iso3": "URY",
+      "country": "Uruguay",
+      "capital": "Montevideo",
+      "male_suffrage_year": 1918,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "male_suffrage_socio",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1932,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "male_suffrage_socio",
+        "owid_lied_male_2026"
+      ],
+      "note": "Women’s national franchise 1932; broad male franchise under 1918 constitutional settlement"
+    },
+    {
+      "iso3": "VEN",
+      "country": "Venezuela",
+      "capital": "Caracas",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1947,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "1947 Constitution; women voted in national elections in 1947"
+    },
+    {
+      "iso3": "YUG",
+      "country": "Yugoslavia (historical polity)",
+      "capital": "Belgrade",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1946,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "Historical Yugoslav state, not a current sovereign state; successor-state franchise continuity is not assumed"
+    },
+    {
+      "iso3": "CHE",
+      "country": "Switzerland",
+      "capital": "Bern",
+      "male_suffrage_year": 1848,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1971,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1911,
+      "old_age_pension_year": 1946,
+      "unemployment_insurance_year": 1982,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1918,
+        "health_insurance_year": 1911,
+        "pension_insurance_year": 1946,
+        "unemployment_insurance_year": 1982,
+        "family_support_year": 1952,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": "cantonal schemes",
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "owid_lied_male_2026",
+        "ilo_social_2019"
+      ],
+      "note": "Federal female suffrage 1971; cantonal/communal rights began earlier in some cantons; federal male franchise 1848"
+    },
+    {
+      "iso3": "ESP",
+      "country": "Spain",
+      "capital": "Madrid",
+      "male_suffrage_year": 1891,
+      "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
+      "male_suffrage_source_ids": [
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "male_suffrage_socio",
+        "owid_lied_male_2026"
+      ],
+      "female_suffrage_year": 1931,
+      "female_suffrage_full_equal_year": 1977,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": 1900,
+      "old_age_pension_year": 1919,
+      "unemployment_insurance_year": 1919,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1900,
+        "health_insurance_year": 1942,
+        "pension_insurance_year": 1919,
+        "unemployment_insurance_year": 1919,
+        "family_support_year": 1938,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": "voluntary funds subsidised by public authorities",
+      "suspended": [
+        {
+          "from": 1936,
+          "to": 1977,
+          "kind": "competitive_national_elections_suspended",
+          "note": "Civil War and Franco dictatorship; democratic national elections resumed in 1977."
+        }
+      ],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary",
+        "male_suffrage_pilon",
+        "male_suffrage_europe",
+        "male_suffrage_socio",
+        "owid_lied_male_2026",
+        "ilo_social_2019",
+        "owid_lied_female_2026",
+        "vdem_codebook_16"
+      ],
+      "note": "Women’s suffrage recognised by 1931 Constitution and exercised in 1933; Franco dictatorship suspended competitive national elections until democratic transition 1977; broad male suffrage 1890/91"
+    },
+    {
+      "iso3": "SVK",
+      "country": "Slovakia",
+      "capital": "Bratislava",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1919,
+      "female_suffrage_full_equal_year": null,
+      "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
+      "social_insurance_year": null,
+      "old_age_pension_year": null,
+      "unemployment_insurance_year": null,
+      "social_security_branches": null,
+      "unemployment_scheme_type": null,
+      "suspended": [],
+      "quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "ipu_women_dictionary"
+      ],
+      "note": "Czechoslovak founding-era suffrage; Slovakia was not a separate sovereign state in 1919"
+    }
+  ]
+}
