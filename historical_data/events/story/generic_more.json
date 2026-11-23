@@ -582,7 +582,20 @@
           {
             "type": "owns",
             "entity": "$self",
-            "region": "EIC_SIN"
+            "region": "EIC_MLK"
+          },
+          {
+            "type": "any",
+            "of": [
+              {
+                "type": "event_fired",
+                "id": "gbr_malaya_independence_1957"
+              },
+              {
+                "type": "event_fired",
+                "id": "eic_malaya_independence_1957"
+              }
+            ]
           },
           {
             "type": "year_between",
@@ -622,6 +635,11 @@
               "type": "prestige",
               "entity": "$self",
               "delta": 1
+            },
+            {
+              "type": "transfer_region",
+              "region": "EIC_SIN",
+              "to": "$self"
             }
           ]
         },
@@ -650,6 +668,11 @@
               "type": "treasury",
               "entity": "$self",
               "months_income": -0.3
+            },
+            {
+              "type": "transfer_region",
+              "region": "EIC_SIN",
+              "to": "$self"
             }
           ]
         }
@@ -657,11 +680,6 @@
       "sources": [
         "malaysia_gov"
       ],
-      "chain": {
-        "after": [
-          "gbr_malaya_independence_1957"
-        ]
-      },
       "image": {
         "ref": "ill_mys_federation_1963",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
@@ -2003,7 +2021,7 @@
             {
               "type": "base_rights",
               "host": "GBR",
-              "user": "MLT"
+              "user": "$self"
             }
           ]
         }
@@ -2081,10 +2099,10 @@
               "delta": 1
             },
             {
-              "type": "movement",
-              "owner": "$owner",
-              "nation": "$nation",
-              "delta": -5
+              "type": "relation",
+              "a": "$self",
+              "b": "GBR",
+              "delta": -10
             }
           ]
         },
@@ -2110,10 +2128,10 @@
               }
             },
             {
-              "type": "movement",
-              "owner": "$owner",
-              "nation": "$nation",
-              "delta": 3
+              "type": "relation",
+              "a": "$self",
+              "b": "GBR",
+              "delta": 5
             }
           ]
         }
