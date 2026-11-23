@@ -171,7 +171,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1946; national franchise established by Constitution"
+      "note": "1946; national franchise established by Constitution",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "ARG",
@@ -204,7 +209,12 @@
         "owid_lied_female_2026",
         "vdem_codebook_16"
       ],
-      "note": "1947; national law, equal franchise"
+      "note": "1947; national law, equal franchise",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "AUS",
@@ -243,7 +253,12 @@
         "owid_lied_male_2026",
         "ilo_social_2019"
       ],
-      "note": "Federal franchise 1902; Indigenous exclusions persisted; 1962 federal voting rights for Indigenous Australians"
+      "note": "Federal franchise 1902; Indigenous exclusions persisted; 1962 federal voting rights for Indigenous Australians",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "AUT",
@@ -282,7 +297,12 @@
         "owid_lied_male_2026",
         "ilo_social_2019"
       ],
-      "note": "1919 national suffrage; 1907 male universal suffrage"
+      "note": "1919 national suffrage; 1907 male universal suffrage",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "BEL",
@@ -321,7 +341,12 @@
         "owid_lied_male_2026",
         "ilo_social_2019"
       ],
-      "note": "1921 first limited national right for specified war widows/women; general equal national suffrage 1948; plural male vote until 1919"
+      "note": "1921 first limited national right for specified war widows/women; general equal national suffrage 1948; plural male vote until 1919",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "BOL",
@@ -345,7 +370,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1952 full national female franchise; municipal franchise began 1945"
+      "note": "1952 full national female franchise; municipal franchise began 1945",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "BRA",
@@ -378,7 +408,12 @@
         "owid_lied_female_2026",
         "vdem_codebook_16"
       ],
-      "note": "1932 female suffrage; some state-level rights earlier; illiterate citizens remained excluded until 1985"
+      "note": "1932 female suffrage; some state-level rights earlier; illiterate citizens remained excluded until 1985",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "BGR",
@@ -402,7 +437,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1947 constitutional grant"
+      "note": "1947 constitutional grant",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "MMR",
@@ -426,7 +466,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "Government of Burma Act 1935 extended a wider franchise; some categories of women had voting rights from 1922; independence 1948"
+      "note": "Government of Burma Act 1935 extended a wider franchise; some categories of women had voting rights from 1922; independence 1948",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "BLR",
@@ -450,7 +495,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1917 recorded for Byelorussian SSR in UN 1953 table; legal franchise in Soviet constitutional framework, not modern independent Belarus"
+      "note": "1917 recorded for Byelorussian SSR in UN 1953 table; legal franchise in Soviet constitutional framework, not modern independent Belarus",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "CAN",
@@ -482,7 +532,12 @@
         "ipu_women_dictionary",
         "ilo_social_2019"
       ],
-      "note": "1917 temporary federal franchise for women in military service/eligible relatives; 1918 broader federal franchise; Indigenous exclusions persisted"
+      "note": "1917 temporary federal franchise for women in military service/eligible relatives; 1918 broader federal franchise; Indigenous exclusions persisted",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "LKA",
@@ -506,7 +561,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1931 universal adult franchise under Donoughmore reforms; equal age threshold in 1934"
+      "note": "1931 universal adult franchise under Donoughmore reforms; equal age threshold in 1934",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "CHL",
@@ -539,7 +599,12 @@
         "owid_lied_female_2026",
         "vdem_codebook_16"
       ],
-      "note": "1949 equal national franchise; municipal franchise began 1931 with literacy/property/age restrictions"
+      "note": "1949 equal national franchise; municipal franchise began 1931 with literacy/property/age restrictions",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "CHN",
@@ -563,7 +628,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1947 Constitution; Republic of China period; PRC established separately in 1949"
+      "note": "1947 Constitution; Republic of China period; PRC established separately in 1949",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "CRI",
@@ -587,7 +657,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1949 Constitution"
+      "note": "1949 Constitution",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "CUB",
@@ -611,7 +686,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1934 constitutional reform; women voted in national elections thereafter"
+      "note": "1934 constitutional reform; women voted in national elections thereafter",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "CZE",
@@ -635,7 +715,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "Czechoslovak founding-era suffrage; modern Czech state is successor, not separate 1919 sovereign"
+      "note": "Czechoslovak founding-era suffrage; modern Czech state is successor, not separate 1919 sovereign",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "DNK",
@@ -674,7 +759,12 @@
         "owid_lied_male_2026",
         "ilo_social_2019"
       ],
-      "note": "1915 constitutional reform; broad male suffrage dated 1849"
+      "note": "1915 constitutional reform; broad male suffrage dated 1849",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "DOM",
@@ -698,7 +788,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1942 constitutional reform"
+      "note": "1942 constitutional reform",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "ECU",
@@ -722,7 +817,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1929; initially subject to literacy/other qualifications; first national female vote 1924? UN table uses 1929"
+      "note": "1929; initially subject to literacy/other qualifications; first national female vote 1924? UN table uses 1929",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "SLV",
@@ -746,7 +846,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1946 franchise carried higher age/education conditions; equal terms in 1950"
+      "note": "1946 franchise carried higher age/education conditions; equal terms in 1950",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "FIN",
@@ -785,7 +890,12 @@
         "owid_lied_male_2026",
         "ilo_social_2019"
       ],
-      "note": "1906 reform granted equal voting and candidacy rights; first election 1907"
+      "note": "1906 reform granted equal voting and candidacy rights; first election 1907",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "FRA",
@@ -824,7 +934,12 @@
         "owid_lied_male_2026",
         "ilo_social_2019"
       ],
-      "note": "Ordinance of 21 April 1944; first national vote in 1945; universal male suffrage 1848"
+      "note": "Ordinance of 21 April 1944; first national vote in 1945; universal male suffrage 1848",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "DEU",
@@ -872,7 +987,12 @@
         "owid_lied_female_2026",
         "vdem_codebook_16"
       ],
-      "note": "Women’s right established in 1918/19; UN table lists 1919; male Reichstag franchise 1871"
+      "note": "Women’s right established in 1918/19; UN table lists 1919; male Reichstag franchise 1871",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "GRC",
@@ -920,7 +1040,12 @@
         "owid_lied_female_2026",
         "vdem_codebook_16"
       ],
-      "note": "Equal national female suffrage 1952; limited municipal franchise 1925; broad male suffrage 1864"
+      "note": "Equal national female suffrage 1952; limited municipal franchise 1925; broad male suffrage 1864",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "GTM",
@@ -944,7 +1069,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "Female vote subject to literacy qualification in 1953 UN record"
+      "note": "Female vote subject to literacy qualification in 1953 UN record",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "HUN",
@@ -968,7 +1098,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1920 initial restricted right; restrictions tightened in 1925 and 1933; equal political rights 1945"
+      "note": "1920 initial restricted right; restrictions tightened in 1925 and 1933; equal political rights 1945",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "ISL",
@@ -1000,7 +1135,12 @@
         "ipu_women_dictionary",
         "ilo_social_2019"
       ],
-      "note": "National female franchise 1915; restricted municipal franchise 1909"
+      "note": "National female franchise 1915; restricted municipal franchise 1909",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "IND",
@@ -1033,7 +1173,12 @@
         "owid_lied_female_2026",
         "vdem_codebook_16"
       ],
-      "note": "1935 wider but restricted provincial franchise; universal equal adult suffrage under Constitution effective 1950"
+      "note": "1935 wider but restricted provincial franchise; universal equal adult suffrage under Constitution effective 1950",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "IDN",
@@ -1057,7 +1202,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1949 provisional constitution; equal franchise retained in 1950 constitution; first general election 1955"
+      "note": "1949 provisional constitution; equal franchise retained in 1950 constitution; first general election 1955",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "IRL",
@@ -1089,7 +1239,12 @@
         "ipu_women_dictionary",
         "ilo_social_2019"
       ],
-      "note": "1918 under UK rules with higher age requirement; equal terms after independence in 1922"
+      "note": "1918 under UK rules with higher age requirement; equal terms after independence in 1922",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "ISR",
@@ -1113,7 +1268,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "Equal voting rights in 1948 Election Ordinance"
+      "note": "Equal voting rights in 1948 Election Ordinance",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "ITA",
@@ -1161,7 +1321,12 @@
         "owid_lied_female_2026",
         "vdem_codebook_16"
       ],
-      "note": "Women gained national vote in 1945; first voted in 1946; full male franchise dated 1919"
+      "note": "Women gained national vote in 1945; first voted in 1946; full male franchise dated 1919",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "JPN",
@@ -1200,7 +1365,12 @@
         "owid_lied_male_2026",
         "ilo_social_2019"
       ],
-      "note": "Women enfranchised in 1945; first voted in 1946; universal male suffrage law 1925"
+      "note": "Women enfranchised in 1945; first voted in 1946; universal male suffrage law 1925",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "KOR",
@@ -1233,7 +1403,12 @@
         "owid_lied_female_2026",
         "vdem_codebook_16"
       ],
-      "note": "1948 founding election law; do not conflate with DPRK"
+      "note": "1948 founding election law; do not conflate with DPRK",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "LBR",
@@ -1257,7 +1432,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "Constitutional amendment 1945; historical exclusions and citizenship restrictions require separate treatment"
+      "note": "Constitutional amendment 1945; historical exclusions and citizenship restrictions require separate treatment",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "LUX",
@@ -1289,7 +1469,12 @@
         "ipu_women_dictionary",
         "ilo_social_2019"
       ],
-      "note": "Female franchise introduced in 1918; first general election under universal suffrage 1919"
+      "note": "Female franchise introduced in 1918; first general election under universal suffrage 1919",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "MEX",
@@ -1313,7 +1498,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1953 constitutional amendment for all popular elections; municipal franchise 1947"
+      "note": "1953 constitutional amendment for all popular elections; municipal franchise 1947",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "MNG",
@@ -1337,7 +1527,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1924 constitution; early political system not equivalent to competitive multiparty elections"
+      "note": "1924 constitution; early political system not equivalent to competitive multiparty elections",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "NLD",
@@ -1376,7 +1571,12 @@
         "owid_lied_male_2026",
         "ilo_social_2019"
       ],
-      "note": "1917 constitutional reform; women first voted nationally in 1919; male universal franchise 1917"
+      "note": "1917 constitutional reform; women first voted nationally in 1919; male universal franchise 1917",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "NZL",
@@ -1415,7 +1615,12 @@
         "owid_lied_male_2026",
         "ilo_social_2019"
       ],
-      "note": "Women’s national vote 1893; first voted 1893; broad male franchise 1879"
+      "note": "Women’s national vote 1893; first voted 1893; broad male franchise 1879",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "NOR",
@@ -1454,7 +1659,12 @@
         "owid_lied_male_2026",
         "ilo_social_2019"
       ],
-      "note": "Full equal national female vote 1913; municipal rights began 1901; universal male suffrage 1897"
+      "note": "Full equal national female vote 1913; municipal rights began 1901; universal male suffrage 1897",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "PAK",
@@ -1478,7 +1688,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1951–52 provincial franchise; UN 1953 report says no national-election legislation yet—do not encode as national suffrage"
+      "note": "1951–52 provincial franchise; UN 1953 report says no national-election legislation yet—do not encode as national suffrage",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "PAN",
@@ -1502,7 +1717,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1946 Constitution"
+      "note": "1946 Constitution",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "PHL",
@@ -1526,7 +1746,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "Women’s suffrage approved by 1937 plebiscite"
+      "note": "Women’s suffrage approved by 1937 plebiscite",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "POL",
@@ -1550,7 +1775,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1918 decree/1919 elections; UN table records 1919"
+      "note": "1918 decree/1919 elections; UN table records 1919",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "ROU",
@@ -1574,7 +1804,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1946 equal national suffrage; municipal franchise began 1929"
+      "note": "1946 equal national suffrage; municipal franchise began 1929",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "SWE",
@@ -1613,7 +1848,12 @@
         "owid_lied_male_2026",
         "ilo_social_2019"
       ],
-      "note": "Equal national vote 1921; equal municipal vote 1919; male franchise reform 1907/09"
+      "note": "Equal national vote 1921; equal municipal vote 1919; male franchise reform 1907/09",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "SYR",
@@ -1637,7 +1877,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1949 initial franchise with education requirement; equal rights 1953, with presidential-office exclusion in 1953 Constitution"
+      "note": "1949 initial franchise with education requirement; equal rights 1953, with presidential-office exclusion in 1953 Constitution",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "THA",
@@ -1661,7 +1906,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1922 recorded in UN table; first national constitutional franchise followed 1932—date needs interpretation"
+      "note": "1922 recorded in UN table; first national constitutional franchise followed 1932—date needs interpretation",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "TUR",
@@ -1694,7 +1944,12 @@
         "owid_lied_female_2026",
         "vdem_codebook_16"
       ],
-      "note": "Women gained municipal vote 1930 and national vote 1934"
+      "note": "Women gained municipal vote 1930 and national vote 1934",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "UKR",
@@ -1718,7 +1973,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1917 recorded for Ukrainian SSR in UN table; early statehood and Soviet legal history must be separated"
+      "note": "1917 recorded for Ukrainian SSR in UN table; early statehood and Soviet legal history must be separated",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "ZAF",
@@ -1742,7 +2002,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1930–33 franchise applied to white women only; universal non-racial suffrage arrived with 1994 election"
+      "note": "1930–33 franchise applied to white women only; universal non-racial suffrage arrived with 1994 election",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "RUS",
@@ -1766,7 +2031,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1917 recorded for Soviet revolutionary framework; Soviet Constitution 1918 excluded former exploiting classes from political rights"
+      "note": "1917 recorded for Soviet revolutionary framework; Soviet Constitution 1918 excluded former exploiting classes from political rights",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "GBR",
@@ -1805,7 +2075,12 @@
         "owid_lied_male_2026",
         "ilo_social_2019"
       ],
-      "note": "1918 limited to women aged 30 meeting property/education conditions; equal terms 1928; men broadly enfranchised 1918"
+      "note": "1918 limited to women aged 30 meeting property/education conditions; equal terms 1928; men broadly enfranchised 1918",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "USA",
@@ -1844,7 +2119,12 @@
         "owid_lied_male_2026",
         "ilo_social_2019"
       ],
-      "note": "19th Amendment 1920; Black men’s formal constitutional right in 1870, but Southern disenfranchisement persisted until Voting Rights Act 1965"
+      "note": "19th Amendment 1920; Black men’s formal constitutional right in 1870, but Southern disenfranchisement persisted until Voting Rights Act 1965",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "URY",
@@ -1877,7 +2157,12 @@
         "male_suffrage_socio",
         "owid_lied_male_2026"
       ],
-      "note": "Women’s national franchise 1932; broad male franchise under 1918 constitutional settlement"
+      "note": "Women’s national franchise 1932; broad male franchise under 1918 constitutional settlement",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "VEN",
@@ -1901,7 +2186,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "1947 Constitution; women voted in national elections in 1947"
+      "note": "1947 Constitution; women voted in national elections in 1947",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "YUG",
@@ -1925,7 +2215,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "Historical Yugoslav state, not a current sovereign state; successor-state franchise continuity is not assumed"
+      "note": "Historical Yugoslav state, not a current sovereign state; successor-state franchise continuity is not assumed",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     },
     {
       "iso3": "CHE",
@@ -1964,7 +2259,12 @@
         "owid_lied_male_2026",
         "ilo_social_2019"
       ],
-      "note": "Federal female suffrage 1971; cantonal/communal rights began earlier in some cantons; federal male franchise 1848"
+      "note": "Federal female suffrage 1971; cantonal/communal rights began earlier in some cantons; federal male franchise 1848",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "ESP",
@@ -2014,7 +2314,12 @@
         "owid_lied_female_2026",
         "vdem_codebook_16"
       ],
-      "note": "Women’s suffrage recognised by 1931 Constitution and exercised in 1933; Franco dictatorship suspended competitive national elections until democratic transition 1977; broad male suffrage 1890/91"
+      "note": "Women’s suffrage recognised by 1931 Constitution and exercised in 1933; Franco dictatorship suspended competitive national elections until democratic transition 1977; broad male suffrage 1890/91",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "supported",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported"
     },
     {
       "iso3": "SVK",
@@ -2038,7 +2343,12 @@
         "crs_women_2023",
         "ipu_women_dictionary"
       ],
-      "note": "Czechoslovak founding-era suffrage; Slovakia was not a separate sovereign state in 1919"
+      "note": "Czechoslovak founding-era suffrage; Slovakia was not a separate sovereign state in 1919",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "unverified",
+      "old_age_pension_quality": "unverified",
+      "unemployment_insurance_quality": "unverified"
     }
   ]
 }
