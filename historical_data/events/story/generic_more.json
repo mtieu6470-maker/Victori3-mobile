@@ -11,7 +11,14 @@
     "palestine_white_paper": "https://avalon.law.yale.edu/21st_century/brwh1939.asp",
     "burma_panglong": "https://commons.wikimedia.org/wiki/File:Panglong_Conference.jpg",
     "egypt_occupation": "https://www.cambridge.org/core/books/abs/cambridge-history-of-egypt/british-occupation-18821922/179398E6D722904951A25256F524C963",
-    "suez": "https://history.state.gov/milestones/1953-1960/suez"
+    "suez": "https://history.state.gov/milestones/1953-1960/suez",
+    "ceylon_elections": "https://elections.gov.lk/en/aboutus/aboutus_history_E.html",
+    "ceylon_un": "https://digitallibrary.un.org/record/860913/files/1947-E.pdf",
+    "malaysia_gov": "https://www.malaysia.gov.my/en/government/learn-about-malaysia/malaysian-history",
+    "malaya_archives": "https://cdn.nationalarchives.gov.uk/documents/migrated-archives-guidance.pdf",
+    "egypt_suez": "https://history.state.gov/milestones/1953-1960/suez",
+    "egypt_1882": "https://www.cambridge.org/core/books/abs/cambridge-history-of-egypt/british-occupation-18821922/179398E6D722904951A25256F524C963",
+    "palestine_whitepaper": "https://avalon.law.yale.edu/21st_century/brwh1939.asp"
   },
   "events": [
     {
@@ -726,7 +733,12 @@
       ],
       "sources": [
         "egypt_suez"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_egy_revolution_1919",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "egy_revolution_1952",
@@ -822,7 +834,12 @@
       ],
       "sources": [
         "egypt_suez"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_egy_revolution_1952",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "egy_suez_nationalisation_1956",
@@ -917,7 +934,12 @@
       ],
       "sources": [
         "egypt_suez"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_egy_suez_nationalisation_1956",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "pal_arab_revolt_1936",
@@ -1018,7 +1040,12 @@
       "sources": [
         "palestine_un",
         "palestine_timeline"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_pal_arab_revolt_1936",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "pal_partition_response_1947",
@@ -1114,7 +1141,12 @@
       ],
       "sources": [
         "palestine_un"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_pal_partition_response_1947",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     }
   ],
   "notes": [
