@@ -952,6 +952,28 @@
         "historical event context for British Empire Lot 1"
       ],
       "period": "1836-1964"
+    },
+    {
+      "id": "india_constitution",
+      "type": "article",
+      "access": "web_checked",
+      "citation": "india constitution. Official constitutional text or parliamentary history; accessed 24 November 2026.",
+      "url": "https://legislative.gov.in/constitution-of-india/",
+      "covers": [
+        "India and Pakistan constitutional development"
+      ],
+      "period": "1947-1956"
+    },
+    {
+      "id": "pakistan_constitution",
+      "type": "article",
+      "access": "web_checked",
+      "citation": "pakistan constitution. Official constitutional text or parliamentary history; accessed 24 November 2026.",
+      "url": "https://na.gov.pk/en/content.php?id=1",
+      "covers": [
+        "India and Pakistan constitutional development"
+      ],
+      "period": "1947-1956"
     }
   ]
 }

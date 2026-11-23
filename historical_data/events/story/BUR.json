@@ -144,6 +144,12 @@
               "a": "BUR",
               "b": "GBR",
               "delta": 5
+            },
+            {
+              "type": "make_subject",
+              "subject": "BUR",
+              "overlord": "GBR",
+              "subject_type": "protectorate"
             }
           ]
         }

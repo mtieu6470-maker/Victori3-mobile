@@ -2567,6 +2567,7 @@
       "chain": {
         "after": [
           "gbr_ceylon_riots_1915",
+          "gbr_ceylon_riots_1915",
           "gbr_ceylon_riots_1915"
         ]
       },
@@ -2664,6 +2665,7 @@
       },
       "chain": {
         "after": [
+          "gbr_donoughmore_1931",
           "gbr_donoughmore_1931",
           "gbr_donoughmore_1931"
         ]
@@ -2768,6 +2770,7 @@
       },
       "chain": {
         "after": [
+          "gbr_ceylon_constitution_1946",
           "gbr_ceylon_constitution_1946",
           "gbr_ceylon_constitution_1946"
         ]
@@ -3947,6 +3950,7 @@
       "chain": {
         "after": [
           "gbr_balfour_declaration_1917",
+          "gbr_balfour_declaration_1917",
           "gbr_balfour_declaration_1917"
         ]
       },
@@ -4060,6 +4064,7 @@
       },
       "chain": {
         "after": [
+          "pal_arab_revolt_1936",
           "pal_arab_revolt_1936",
           "pal_arab_revolt_1936"
         ]
@@ -4175,6 +4180,7 @@
       "chain": {
         "after": [
           "gbr_peel_commission_1937",
+          "gbr_peel_commission_1937",
           "gbr_peel_commission_1937"
         ]
       },
@@ -4286,6 +4292,7 @@
       },
       "chain": {
         "after": [
+          "gbr_white_paper_1939",
           "gbr_white_paper_1939",
           "gbr_white_paper_1939"
         ]
@@ -5068,6 +5075,7 @@
       ],
       "chain": {
         "after": [
+          "gbr_clifford_constitution_1922",
           "gbr_clifford_constitution_1922"
         ]
       },
@@ -5406,6 +5414,7 @@
       "chain": {
         "after": [
           "gbr_boer_war_1899",
+          "gbr_boer_war_1899",
           "gbr_boer_war_1899"
         ]
       },
@@ -5498,8 +5507,7 @@
             "type": "owner_in",
             "region": "GBR_CAP",
             "entities": [
-              "GBR",
-              "RSA"
+              "GBR"
             ]
           },
           {
@@ -5577,6 +5585,7 @@
       ],
       "chain": {
         "after": [
+          "gbr_vereeniging_1902",
           "gbr_vereeniging_1902"
         ]
       }
@@ -5600,8 +5609,7 @@
             "type": "owner_in",
             "region": "GBR_CAP",
             "entities": [
-              "GBR",
-              "RSA"
+              "GBR"
             ]
           },
           {
@@ -5679,6 +5687,7 @@
       ],
       "chain": {
         "after": [
+          "gbr_south_africa_union_1910",
           "gbr_south_africa_union_1910"
         ]
       }
@@ -6118,6 +6127,7 @@
       "chain": {
         "after": [
           "gbr_cyprus_eoka_1955",
+          "gbr_cyprus_eoka_1955",
           "gbr_cyprus_eoka_1955"
         ]
       },
@@ -6484,6 +6494,7 @@
       ],
       "chain": {
         "after": [
+          "gbr_canada_durham_1839",
           "gbr_canada_durham_1839"
         ]
       },
@@ -6703,8 +6714,7 @@
             "type": "owner_in",
             "region": "GBR_DUB",
             "entities": [
-              "GBR",
-              "IRL"
+              "GBR"
             ]
           },
           {
@@ -6742,9 +6752,9 @@
               }
             },
             {
-              "type": "base_rights",
-              "host": "GBR",
-              "user": "IRL"
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 0.3
             }
           ]
         },
@@ -6770,10 +6780,9 @@
               }
             },
             {
-              "type": "relation",
-              "a": "GBR",
-              "b": "IRL",
-              "delta": -4
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": -0.3
             }
           ]
         }
@@ -6784,6 +6793,7 @@
       ],
       "chain": {
         "after": [
+          "gbr_easter_rising_1916",
           "gbr_easter_rising_1916"
         ]
       }
@@ -6807,8 +6817,7 @@
             "type": "owner_in",
             "region": "GBR_DUB",
             "entities": [
-              "GBR",
-              "IRL"
+              "GBR"
             ]
           },
           {
@@ -6825,6 +6834,7 @@
       },
       "chain": {
         "after": [
+          "gbr_anglo_irish_treaty_1921",
           "gbr_anglo_irish_treaty_1921",
           "gbr_anglo_irish_treaty_1921"
         ]
@@ -6859,6 +6869,11 @@
               "type": "treasury",
               "entity": "GBR",
               "months_income": -0.3
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 0.3
             }
           ]
         },
@@ -6882,11 +6897,6 @@
                 "trade": 0.02,
                 "legitimacy": -1
               }
-            },
-            {
-              "type": "base_rights",
-              "host": "GBR",
-              "user": "IRL"
             }
           ]
         }

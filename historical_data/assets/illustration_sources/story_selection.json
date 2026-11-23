@@ -1330,6 +1330,31 @@
       "name": "Các Cha lập quốc Canada",
       "description": "Robert Harris's 1884 painting The Fathers of Confederation, photographed from the original",
       "review_note": "Same event from the Canadian government's perspective; shared artwork is intentional."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "ind_constitution_1950",
+      "commons_file": "Constitution_india.jpg",
+      "year": 2011,
+      "width": 2067,
+      "author": "Balajijagadesh",
+      "name": "Trang mở đầu Hiến pháp Ấn Độ",
+      "description": "Photograph of the illuminated preamble of the Constitution of India, whose original manuscript was completed in 1948",
+      "period": {
+        "from": 1948,
+        "to": 1950
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page explicitly marks the photograph CC0 1.0; modern photograph of a period primary document, not a period photograph."
     }
   ]
 }

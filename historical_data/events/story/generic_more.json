@@ -29,7 +29,9 @@
     "cyprus_history": "https://www.britannica.com/place/Cyprus/History",
     "malta_history": "https://www.gov.mt/en/About%20Malta/Pages/History.aspx",
     "ireland_difp": "https://www.difp.ie/books/volume-1/",
-    "ireland_treaty": "https://researchbriefings.files.parliament.uk/documents/CBP-9260/CBP-9260.pdf"
+    "ireland_treaty": "https://researchbriefings.files.parliament.uk/documents/CBP-9260/CBP-9260.pdf",
+    "india_constitution": "https://legislative.gov.in/constitution-of-india/",
+    "pakistan_constitution": "https://na.gov.pk/en/content.php?id=1"
   },
   "events": [
     {
@@ -553,6 +555,7 @@
       ],
       "chain": {
         "after": [
+          "gbr_ceylon_independence_1948",
           "gbr_ceylon_independence_1948"
         ]
       }
@@ -652,6 +655,7 @@
       ],
       "chain": {
         "after": [
+          "gbr_malaya_independence_1957",
           "gbr_malaya_independence_1957"
         ]
       }
@@ -863,6 +867,7 @@
       },
       "chain": {
         "after": [
+          "gbr_egypt_treaty_1936",
           "gbr_egypt_treaty_1936"
         ]
       }
@@ -968,6 +973,7 @@
       },
       "chain": {
         "after": [
+          "egy_revolution_1952",
           "egy_revolution_1952"
         ]
       }
@@ -1079,6 +1085,7 @@
       },
       "chain": {
         "after": [
+          "gbr_palestine_mandate_1922",
           "gbr_palestine_mandate_1922"
         ]
       }
@@ -1185,6 +1192,7 @@
       },
       "chain": {
         "after": [
+          "gbr_palestine_partition_1947",
           "gbr_palestine_partition_1947"
         ]
       }
@@ -1471,6 +1479,7 @@
       ],
       "chain": {
         "after": [
+          "gbr_nigeria_independence_1960",
           "gbr_nigeria_independence_1960"
         ]
       }
@@ -1575,6 +1584,7 @@
       ],
       "chain": {
         "after": [
+          "gbr_rhodesia_udi_1965",
           "gbr_rhodesia_udi_1965"
         ]
       },
@@ -1684,6 +1694,7 @@
       ],
       "chain": {
         "after": [
+          "gbr_natives_land_act_1913",
           "gbr_natives_land_act_1913"
         ]
       }
@@ -1983,12 +1994,15 @@
         "conditions": [
           {
             "type": "exists",
-            "entity": "$self"
+            "entity": "$owner"
           },
           {
-            "type": "owns",
-            "entity": "$self",
-            "region": "GBR_DUB"
+            "type": "movement_strength_above",
+            "owner": "$owner",
+            "regions": [
+              "GBR_DUB"
+            ],
+            "value": 5
           },
           {
             "type": "year_between",
@@ -2028,6 +2042,12 @@
               "type": "prestige",
               "entity": "$self",
               "delta": 1
+            },
+            {
+              "type": "movement",
+              "owner": "$owner",
+              "nation": "$nation",
+              "delta": -5
             }
           ]
         },
@@ -2053,10 +2073,10 @@
               }
             },
             {
-              "type": "relation",
-              "a": "$self",
-              "b": "GBR",
-              "delta": 5
+              "type": "movement",
+              "owner": "$owner",
+              "nation": "$nation",
+              "delta": 3
             }
           ]
         }
@@ -2066,9 +2086,213 @@
       ],
       "chain": {
         "after": [
+          "gbr_irish_free_state_1922",
           "gbr_irish_free_state_1922"
         ]
       }
+    },
+    {
+      "id": "ind_constitution_1950",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1949-01-01",
+        "1951-12-31"
+      ],
+      "date_historical": "1950-01-26",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$self"
+          },
+          {
+            "type": "owns",
+            "entity": "$self",
+            "region": "EIC_DEL"
+          },
+          {
+            "type": "year_between",
+            "from": 1950,
+            "to": 1951
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_indian_independence_1947"
+        ]
+      },
+      "title_vi": "Ấn Độ thông qua Hiến pháp Cộng hòa",
+      "title_en": "India Adopts Its Republican Constitution",
+      "text_vi": "Hiến pháp Ấn Độ có hiệu lực ngày 26 tháng 1 năm 1950, đưa quốc gia mới trở thành một nước cộng hòa liên bang với nghị viện dân cử và các quyền cơ bản được ghi nhận. Quốc hội Lập hiến phải dung hòa ngôn ngữ, tôn giáo, luật cá nhân và quyền tự trị của các bang trong một xã hội rất đa dạng. Chính phủ có thể ưu tiên bảo vệ các bảo đảm liên bang và quyền công dân hoặc củng cố quyền lực trung ương để thúc đẩy thống nhất.",
+      "text_en": "India's Constitution came into force on 26 January 1950, establishing a federal republic with an elected parliament and codified fundamental rights. The Constituent Assembly had to reconcile language, religion, personal law and state autonomy in a highly diverse society. The government can prioritise federal safeguards and civil rights or strengthen central authority to promote unity.",
+      "options": [
+        {
+          "id": "ind_federal_rights",
+          "label_vi": "Bảo vệ quyền cơ bản và quyền tự trị của các bang",
+          "label_en": "Protect fundamental rights and state autonomy",
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "ind_1950_federal_rights",
+              "name_vi": "Bảo đảm hiến pháp Ấn Độ",
+              "name_en": "Indian Constitutional Guarantees",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 3,
+                "reform": 0.02,
+                "radicalism": -0.015,
+                "ig_intelligentsia": 2
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "$self",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "ind_central_integration",
+          "label_vi": "Tăng quyền điều phối của chính phủ liên bang",
+          "label_en": "Strengthen federal coordination powers",
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "ind_1950_central_integration",
+              "name_vi": "Hội nhập liên bang Ấn Độ",
+              "name_en": "Indian Federal Integration",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "reform": 0.015,
+                "construction": 0.02,
+                "radicalism": 0.005
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "$self",
+              "months_income": -0.3
+            }
+          ]
+        }
+      ],
+      "image": {
+        "ref": "ill_evt_ind_constitution_1950",
+        "credit": "Wikimedia Commons CC0/PD candidate; verify with ingestion",
+        "license": "CANDIDATE — verify PD/CC0"
+      },
+      "sources": [
+        "india_constitution"
+      ]
+    },
+    {
+      "id": "pak_constitution_1956",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1955-01-01",
+        "1957-12-31"
+      ],
+      "date_historical": "1956-03-23",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$self"
+          },
+          {
+            "type": "owns",
+            "entity": "$self",
+            "region": "SIK_LAH"
+          },
+          {
+            "type": "year_between",
+            "from": 1956,
+            "to": 1957
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_indian_independence_1947"
+        ]
+      },
+      "title_vi": "Pakistan ban hành Hiến pháp đầu tiên",
+      "title_en": "Pakistan Enacts Its First Constitution",
+      "text_vi": "Hiến pháp đầu tiên của Pakistan có hiệu lực ngày 23 tháng 3 năm 1956, tuyên bố quốc gia là một nước cộng hòa Hồi giáo và thiết lập nghị viện liên bang. Việc phân chia quyền lực giữa Đông và Tây Pakistan, vai trò của quân đội và đại diện của các cộng đồng ngôn ngữ tiếp tục gây tranh luận. Chính phủ có thể củng cố nghị viện và liên bang hoặc tập trung quyền lực hành pháp để đối phó bất ổn.",
+      "text_en": "Pakistan's first Constitution came into force on 23 March 1956, declaring an Islamic republic and establishing a federal parliamentary system. The distribution of power between East and West Pakistan, the role of the military and representation of linguistic communities remained contested. The government can strengthen parliament and federalism or centralise executive authority in response to instability.",
+      "options": [
+        {
+          "id": "pak_parliamentary_federalism",
+          "label_vi": "Bảo vệ nghị viện và quyền đại diện của các tỉnh",
+          "label_en": "Protect parliament and provincial representation",
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pak_1956_federalism",
+              "name_vi": "Hiến pháp liên bang Pakistan",
+              "name_en": "Pakistani Federal Constitution",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "reform": 0.015,
+                "radicalism": -0.01,
+                "ig_intelligentsia": 1
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "$self",
+              "delta": 0.5
+            }
+          ]
+        },
+        {
+          "id": "pak_executive_centralisation",
+          "label_vi": "Tăng quyền hành pháp và vai trò của bộ máy an ninh",
+          "label_en": "Strengthen executive authority and the security apparatus",
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pak_1956_centralisation",
+              "name_vi": "Tập quyền hành pháp Pakistan",
+              "name_en": "Pakistani Executive Centralisation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "police": 0.03,
+                "legitimacy": -1,
+                "radicalism": 0.015
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "$self",
+              "months_income": -0.2
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "pakistan_constitution"
+      ]
     }
   ],
   "notes": [
