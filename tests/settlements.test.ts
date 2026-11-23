@@ -57,3 +57,28 @@ describe('WW-01c unifications and settlements', () => {
     expect(() => validateNestedState(st)).not.toThrow();
   });
 });
+
+describe('CG-45 territorial changes 1836-1914', () => {
+  it('colonial expansion and the Berlin settlement happen on their dates; treaties renounce claims', () => {
+    const st = createGame({ mode: 'historical', seed: 1, player: null });
+    at(st, 1914, 1); settlementsMonth(st);
+    expect(owner(st, 'MEX_CAL')).toBe(owner(st, 'USA_MAR'));
+    expect(owner(st, 'VNM_GDI')).toBe(owner(st, 'FRA_IDF'));
+    expect(st.countries[owner(st, 'VNM_HUE')].overlord).toBe(owner(st, 'FRA_IDF')); // protectorate
+    expect(owner(st, 'KOR_GYE')).toBe(owner(st, 'JAP_EDO'));
+    expect(owner(st, 'QNG_TAI')).toBe(owner(st, 'JAP_EDO'));
+    expect(st.countries[owner(st, 'TUR_SOF')].nameVi).toBe('Thân vương quốc Bulgaria');
+    expect(st.countries[owner(st, 'TUR_ALB')].nameVi).toBe('Thân vương quốc Albania');
+    expect(owner(st, 'TUR_BOS')).toBe(owner(st, 'AUS_VIE'));
+    expect(st.countries[owner(st, 'SER_BEL')].overlord).toBeNull();
+    expect(st.countries[owner(st, 'TUR_IST')].claims).not.toContain('TUR_SOF');
+    expect(() => validateNestedState(st)).not.toThrow();
+  });
+
+  it('peacetime colonial steps never take the player country', () => {
+    const st = createGame({ mode: 'historical', seed: 1, player: 'VNM' });
+    at(st, 1900, 1); settlementsMonth(st);
+    expect(owner(st, 'VNM_GDI')).toBe('VNM');
+    expect(st.countries.VNM.overlord).toBeNull();
+  });
+});

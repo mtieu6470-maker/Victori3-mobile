@@ -11,7 +11,7 @@
 // player; world-war settlements bind the player like any belligerent (it fought and lost or won).
 import { data } from '../data/db';
 import { dateStr, log } from '../core';
-import { createNation, transferRegion, annexCountry } from '../world';
+import { createNation, transferRegion, annexCountry, makeSubject } from '../world';
 import { setLaw, govLabelFor } from './politics';
 import { isColonialRegion } from './growth';
 import type { LawGroup } from '../data/dbTypes';
@@ -60,8 +60,8 @@ function stepApply(st: GameState, s: Settlement, step: Step, actor: Country): vo
         if (spare(r.owner)) continue;
         const prev = st.countries[r.owner];
         transferRegion(st, id, to.id, cause);
-        // after an unconditional surrender the loser renounces the ceded land (no irredentist claim)
-        if (s.war === 'WW2' && prev) prev.claims = prev.claims.filter((x) => x !== id);
+        // a settlement is a recognised treaty: the former owner renounces the ceded land (no claim to reconquer)
+        if (prev) prev.claims = prev.claims.filter((x) => x !== id);
       }
       return;
     }
@@ -79,6 +79,7 @@ function stepApply(st: GameState, s: Settlement, step: Step, actor: Country): vo
       const regs = (step.regions ?? []).filter((id) => regionOf(st, id)?.owner === actor.id);
       if (!regs.length) return;
       const id = createNation(st, step.key ?? s.id.toLowerCase(), regs, actor.id, cause, undefined, { en: step.name_en!, vi: step.name_vi! });
+      actor.claims = actor.claims.filter((x) => !regs.includes(x)); // recognised by treaty
       const n = st.countries[id];
       n.army.manpower = n.army.target = Math.max(1000, Math.round(regs.reduce((t, r) => t + regionOf(st, r)!.pop, 0) * 0.003));
       applyLaws(st, n, step.laws, `founding (${s.id})`);
@@ -94,6 +95,21 @@ function stepApply(st: GameState, s: Settlement, step: Step, actor: Country): vo
       applyLaws(st, t, step.laws, `settlement (${s.id})`);
       t.govLabel = govLabelFor(t);
       log(st, { type: 'state', text: `${step.name_en} (${cause}).`, textVi: `${old} → ${step.name_vi}.`, actors: [t.id], historical: true });
+      return;
+    }
+    case 'make_subject': {
+      // CG-45: protectorates (e.g. Vietnam under France 1884, Tunisia 1881, Egypt 1882, Bukhara 1868)
+      const t = step.target ? holderOfCapital(st, step.target) : null;
+      if (!t || t.id === actor.id || spare(t.id)) return;
+      makeSubject(st, t.id, actor.id, step.subjectType ?? 'protectorate');
+      return;
+    }
+    case 'release': {
+      // a subject of the actor becomes fully independent (e.g. Serbia and Romania at Berlin 1878, Bulgaria 1908)
+      const t = step.target ? holderOfCapital(st, step.target) : null;
+      if (!t || t.overlord !== actor.id) return;
+      t.overlord = null; t.subjectType = null;
+      log(st, { type: 'diplomacy', text: `${t.name} becomes fully independent of ${actor.name} (${cause}).`, textVi: `${t.nameVi} hoàn toàn độc lập khỏi ${actor.nameVi} (${cause}).`, actors: [t.id, actor.id], historical: true });
       return;
     }
     case 'move_capital': {

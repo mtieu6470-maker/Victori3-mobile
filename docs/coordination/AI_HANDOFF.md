@@ -1,3 +1,30 @@
+## 2026-11-23 — WW-01e CG-45 territorial changes 1836–1914 (Historical Mode)
+
+- ChatGPT CG-45 (`docs/research/history/CG45_TERRITORIAL_CHANGES_1836_1914.json`, 59 events, 47 sources) is mapped by Claude to engine regions in `settlements.json`.
+- New step types: `make_subject` (protectorates) and `release` (a subject of the actor becomes fully independent).
+- **Contents:**
+  - USA: Texas 1845, Oregon 1846, Mexican Cession 1848, Hawaii 1898, Paris 1898 (Puerto Rico and the Philippines; Cuba becomes a republic under a US protectorate).
+  - India: Punjab 1849, Pegu 1852, Upper Burma 1886; British Raj 1858; Indian independence 1947; Republic of India 1950.
+  - Russia: Amur/Ussuri 1858–60, Tashkent 1866, Bukhara and Khiva protectorates 1868/1873, Kokand 1876, Turkmen 1881–85, Soviet annexation of Bukhara/Khiva 1924.
+  - France: Cochinchina 1867, Cambodia 1863, Tunisia 1881, Tonkin/Annam protectorate 1884, Laos 1893. Britain: Egypt 1882.
+  - Belgium: Congo 1885. Germany: East Africa 1885.
+  - Greece: Ionian Islands 1864, Thessaly 1881.
+  - Berlin 1878: Serbia and Romania independent, Bulgaria formed, Bosnia to Austria-Hungary. Bulgaria fully independent 1908. Balkan Wars 1913: Albania formed; Macedonia and Kosovo to Serbia; Aegean islands to Greece.
+  - Japan: Taiwan 1895, Korea 1910. Korea is liberated from Japan in 1945 (JAPAN_1945).
+  - Geneva 1954: the State of Vietnam absorbs the Nguyễn protectorate. Bosnia goes to the Kingdom SCS in 1918.
+- **Treaties as recognition:** every settlement transfer and new state removes the former owner's claim, which stops immediate reconquest (Bulgaria was retaken by the Ottomans before this fix).
+- **Seed 1:**
+  - 1914: Bulgaria, Albania and Serbia independent; Bosnia Austrian; Vietnam a French protectorate with Cochinchina French; Korea and Taiwan Japanese; Philippines American; Cuba a US protectorate.
+  - 1960: RVN including Huế; Bosnia and Macedonia in Yugoslavia; Republic of India.
+  - 1996: SRV; Bosnia and Macedonia independent.
+- **Known gaps:**
+  - The PRC still takes Taiwan between 1960 and 1996.
+  - Middle East and Africa regime names (Kingdom/Republic of Egypt, Tunisia 1956/57).
+  - Indian partition (Pakistan).
+- Tests: `settlements.test.ts` +2 (5 total). Local: `npm test` **47/47 files, 431/431**, plus the 2 new tests run green.
+
+---
+
 ## 2026-11-23 — REGIME-03 CG-44 post-war regimes, partitions and dissolutions (1944–1999)
 
 - ChatGPT CG-44 (MSG-101): 54 events in `docs/research/history/CG44_POSTWAR_REGIMES_1944_1999.json`.

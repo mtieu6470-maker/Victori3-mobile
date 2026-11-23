@@ -26,6 +26,128 @@
    ]
   },
   {
+   "id": "USA_TEXAS_1845",
+   "date": "1845-12-29",
+   "actor": "USA_MAR",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 USA-TEX-1845-12"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "TEX_TEX"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "USA_OREGON_1846",
+   "date": "1846-06-15",
+   "actor": "USA_MAR",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 USA-ORE-1846-06"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "DZ_OREGON"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "USA_MEXICAN_CESSION_1848",
+   "date": "1848-02-02",
+   "actor": "USA_MAR",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 MEX-USA-1848-02"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "MEX_CAL",
+      "MEX_NMX"
+     ],
+     "from": "MEX_MEX"
+    }
+   ]
+  },
+  {
+   "id": "GBR_PUNJAB_1849",
+   "date": "1849-03-29",
+   "actor": "EIC_BEN",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 PUN-1849-03"
+   ],
+   "steps": [
+    {
+     "type": "annex_states",
+     "capitals": [
+      "SIK_LAH"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "GBR_PEGU_1852",
+   "date": "1853-01-20",
+   "actor": "EIC_BEN",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 BUR-1853-01"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "BUR_PEG"
+     ],
+     "from": "BUR_AVA"
+    }
+   ]
+  },
+  {
+   "id": "BRITISH_RAJ_1858",
+   "date": "1858-08-02",
+   "actor": "EIC_BEN",
+   "sources": [
+    "Government of India Act 1858: Company rule ends, the Crown rules India"
+   ],
+   "steps": [
+    {
+     "type": "rename",
+     "name_en": "British India",
+     "name_vi": "Ấn Độ thuộc Anh"
+    }
+   ]
+  },
+  {
+   "id": "RUS_AMUR_1858_60",
+   "date": "1860-11-14",
+   "actor": "RUS_STP",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 RUS-CHN-1858-05",
+    "CG-45 RUS-CHN-1860-11"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "QNG_AMU"
+     ],
+     "from": "QNG_ZHI"
+    }
+   ]
+  },
+  {
    "id": "ITA_UNIFICATION_1859_61",
    "date": "1861-03-17",
    "actor": "SAR_PIE",
@@ -64,6 +186,77 @@
    ]
   },
   {
+   "id": "FRA_CAMBODIA_1863",
+   "date": "1863-08-11",
+   "actor": "FRA_IDF",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 CAM-FRA-1863-08"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "VNM_TTT"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "GRE_IONIAN_1864",
+   "date": "1864-05-21",
+   "actor": "GRE_ATH",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 GRC-ION-1864"
+   ],
+   "steps": [
+    {
+     "type": "annex_states",
+     "capitals": [
+      "ION_COR"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "GER_SCHLESWIG_1864",
+   "date": "1864-10-30",
+   "actor": "PRU_BRA",
+   "noPlayerActor": true,
+   "sources": [
+    "Treaty of Vienna 1864"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "DEN_HOL"
+     ],
+     "from": "DEN_ZEA"
+    }
+   ]
+  },
+  {
+   "id": "RUS_TASHKENT_1866",
+   "date": "1866-08-01",
+   "actor": "RUS_STP",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 RUS-TASH-1865-06",
+    "CG-45 RUS-TASH-1866-08"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "KOK_TAS"
+     ],
+     "from": "KOK_FER"
+    }
+   ]
+  },
+  {
    "id": "ITA_VENETIA_1866",
    "date": "1866-10-19",
    "actor": "SAR_PIE",
@@ -78,6 +271,56 @@
       "AUS_VEN"
      ],
      "from": "AUS_VIE"
+    }
+   ]
+  },
+  {
+   "id": "AUSGLEICH_1867",
+   "date": "1867-03-15",
+   "actor": "AUS_VIE",
+   "sources": [
+    "Austro-Hungarian Compromise 1867"
+   ],
+   "steps": [
+    {
+     "type": "rename",
+     "name_en": "Austria-Hungary",
+     "name_vi": "Đế quốc Áo-Hung"
+    }
+   ]
+  },
+  {
+   "id": "FRA_COCHINCHINA_1862_67",
+   "date": "1867-06-25",
+   "actor": "FRA_IDF",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 VNM-FRA-1862-06",
+    "CG-45 VNM-FRA-1867-06"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "VNM_GDI"
+     ],
+     "from": "VNM_HUE"
+    }
+   ]
+  },
+  {
+   "id": "RUS_BUKHARA_1868",
+   "date": "1868-06-01",
+   "actor": "RUS_STP",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 RUS-BUKHARA-1868"
+   ],
+   "steps": [
+    {
+     "type": "make_subject",
+     "target": "BUK_BUK",
+     "subjectType": "protectorate"
     }
    ]
   },
@@ -105,39 +348,6 @@
     {
      "type": "move_capital",
      "to": "PAP_ROM"
-    }
-   ]
-  },
-  {
-   "id": "AUSGLEICH_1867",
-   "date": "1867-03-15",
-   "actor": "AUS_VIE",
-   "sources": [
-    "Austro-Hungarian Compromise 1867"
-   ],
-   "steps": [
-    {
-     "type": "rename",
-     "name_en": "Austria-Hungary",
-     "name_vi": "Đế quốc Áo-Hung"
-    }
-   ]
-  },
-  {
-   "id": "GER_SCHLESWIG_1864",
-   "date": "1864-10-30",
-   "actor": "PRU_BRA",
-   "noPlayerActor": true,
-   "sources": [
-    "Treaty of Vienna 1864"
-   ],
-   "steps": [
-    {
-     "type": "cede",
-     "regions": [
-      "DEN_HOL"
-     ],
-     "from": "DEN_ZEA"
     }
    ]
   },
@@ -195,6 +405,400 @@
    ]
   },
   {
+   "id": "RUS_KHIVA_1873",
+   "date": "1873-08-12",
+   "actor": "RUS_STP",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 RUS-KHIVA-1873"
+   ],
+   "steps": [
+    {
+     "type": "make_subject",
+     "target": "KHI_KHI",
+     "subjectType": "protectorate"
+    }
+   ]
+  },
+  {
+   "id": "RUS_KOKAND_1876",
+   "date": "1876-02-19",
+   "actor": "RUS_STP",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 RUS-KOKAND-1876"
+   ],
+   "steps": [
+    {
+     "type": "annex_states",
+     "capitals": [
+      "KOK_FER"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "BERLIN_1878",
+   "date": "1878-07-13",
+   "actor": "TUR_IST",
+   "sources": [
+    "CG-45 BERLIN-1878-SER",
+    "CG-45 BERLIN-1878-ROM",
+    "CG-45 BERLIN-1878-BUL",
+    "CG-45 BERLIN-1878-BOS",
+    "Principality of Bulgaria: autonomous in law, independent in practice until formal independence 1908"
+   ],
+   "steps": [
+    {
+     "type": "release",
+     "target": "SER_BEL"
+    },
+    {
+     "type": "release",
+     "target": "WAL_BUC"
+    },
+    {
+     "type": "new_state",
+     "key": "bulgaria",
+     "regions": [
+      "TUR_SOF",
+      "TUR_BUL"
+     ],
+     "name_en": "Principality of Bulgaria",
+     "name_vi": "Thân vương quốc Bulgaria",
+     "laws": {
+      "governance": "monarchy",
+      "power": "census_suffrage"
+     }
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "TUR_BOS"
+     ],
+     "to": "AUS_VIE"
+    }
+   ]
+  },
+  {
+   "id": "FRA_TUNISIA_1881",
+   "date": "1881-05-12",
+   "actor": "FRA_IDF",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 TUN-1881-05"
+   ],
+   "steps": [
+    {
+     "type": "make_subject",
+     "target": "TUN_TUN",
+     "subjectType": "protectorate"
+    }
+   ]
+  },
+  {
+   "id": "GRE_THESSALY_1881",
+   "date": "1881-07-02",
+   "actor": "GRE_ATH",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 GRC-THESSALY-1881"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "TUR_EPI"
+     ],
+     "from": "TUR_IST"
+    }
+   ]
+  },
+  {
+   "id": "GBR_EGYPT_1882",
+   "date": "1882-09-13",
+   "actor": "GBR_LON",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 EGY-1882-09"
+   ],
+   "steps": [
+    {
+     "type": "make_subject",
+     "target": "EGY_CAI",
+     "subjectType": "protectorate"
+    }
+   ]
+  },
+  {
+   "id": "RUS_TURKMEN_1881_85",
+   "date": "1884-02-01",
+   "actor": "RUS_STP",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 RUS-TURKMEN-1881",
+    "CG-45 RUS-MERV-1884"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "DZ_TURKMEN"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "FRA_TONKIN_ANNAM_1883_84",
+   "date": "1884-06-06",
+   "actor": "FRA_IDF",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 VNM-TONKIN-1883",
+    "CG-45 VNM-TONKIN-1884",
+    "CG-45 INDOCHINA-1887"
+   ],
+   "steps": [
+    {
+     "type": "make_subject",
+     "target": "VNM_HUE",
+     "subjectType": "protectorate"
+    }
+   ]
+  },
+  {
+   "id": "BEL_CONGO_1885",
+   "date": "1885-02-26",
+   "actor": "BEL_BRU",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 CONGO-1885-02 (Congo Free State, personal possession of Leopold II; Belgian colony 1908)"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "DZ_CONGO_W",
+      "DZ_LUBA",
+      "DZ_KUBA"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "GER_EAST_AFRICA_1885",
+   "date": "1885-02-27",
+   "actor": "PRU_BRA",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 GER-EAF-1885 (protectorate charter; coast leased 1888, bought 1890)"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "DZ_NYAMWEZI",
+      "OMA_SWA"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "GBR_UPPER_BURMA_1886",
+   "date": "1886-01-01",
+   "actor": "EIC_BEN",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 BUR-1886-01"
+   ],
+   "steps": [
+    {
+     "type": "annex_states",
+     "capitals": [
+      "BUR_AVA"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "FRA_LAOS_1893",
+   "date": "1893-10-03",
+   "actor": "FRA_IDF",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 LAO-FRA-1893"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "VNM_TNI"
+     ]
+    },
+    {
+     "type": "annex_states",
+     "capitals": [
+      "LUA_LUA"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "JAP_TAIWAN_1895",
+   "date": "1895-06-02",
+   "actor": "JAP_EDO",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 TAIWAN-1895-06 (Treaty of Shimonoseki)"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "QNG_TAI"
+     ],
+     "from": "QNG_ZHI"
+    }
+   ]
+  },
+  {
+   "id": "USA_HAWAII_1898",
+   "date": "1898-07-07",
+   "actor": "USA_MAR",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 HAW-1898-07"
+   ],
+   "steps": [
+    {
+     "type": "annex_states",
+     "capitals": [
+      "HAW_OAH"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "PARIS_1898",
+   "date": "1898-12-10",
+   "actor": "USA_MAR",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 USA-1898-12",
+    "CG-45 PHL-USA-1898 (Treaty of Paris 1898)",
+    "Cuban independence 20 May 1902 (Platt Amendment)"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "SPA_PUR",
+      "SPA_PHL",
+      "SPA_VIS"
+     ],
+     "from": "SPA_MAD"
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "SPA_CUB",
+      "SPA_CUE"
+     ],
+     "from": "SPA_MAD"
+    },
+    {
+     "type": "new_state",
+     "key": "cuba",
+     "regions": [
+      "SPA_CUB",
+      "SPA_CUE"
+     ],
+     "name_en": "Republic of Cuba",
+     "name_vi": "Cộng hòa Cuba",
+     "laws": {
+      "governance": "republic",
+      "power": "census_suffrage"
+     }
+    },
+    {
+     "type": "make_subject",
+     "target": "SPA_CUB",
+     "subjectType": "protectorate"
+    }
+   ]
+  },
+  {
+   "id": "BUL_INDEPENDENCE_1908",
+   "date": "1908-10-05",
+   "actor": "TUR_IST",
+   "sources": [
+    "Bulgarian declaration of independence 5 Oct 1908 (CG-45 Berlin 1878 notes)"
+   ],
+   "steps": [
+    {
+     "type": "release",
+     "target": "TUR_SOF"
+    }
+   ]
+  },
+  {
+   "id": "JAP_KOREA_1905_10",
+   "date": "1910-08-29",
+   "actor": "JAP_EDO",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-45 KOR-1905-11",
+    "CG-45 KOR-1910-08"
+   ],
+   "steps": [
+    {
+     "type": "annex_states",
+     "capitals": [
+      "KOR_GYE"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "BALKAN_WARS_1912_13",
+   "date": "1913-08-10",
+   "actor": "TUR_IST",
+   "sources": [
+    "CG-45 ALB-1912-11",
+    "CG-45 ALB-1913-07",
+    "CG-45 BALKAN-1913-MAC (Treaty of Bucharest 1913; Treaty of London 1913)"
+   ],
+   "steps": [
+    {
+     "type": "new_state",
+     "key": "albania",
+     "regions": [
+      "TUR_ALB"
+     ],
+     "name_en": "Principality of Albania",
+     "name_vi": "Thân vương quốc Albania",
+     "laws": {
+      "governance": "monarchy"
+     }
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "TUR_MAC",
+      "TUR_KOS"
+     ],
+     "to": "SER_BEL"
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "TUR_AEG"
+     ],
+     "to": "GRE_ATH"
+    }
+   ]
+  },
+  {
    "id": "AHM_DISSOLUTION_1918",
    "date": "1918-11-12",
    "actor": "AUS_VIE",
@@ -245,7 +849,8 @@
       "AUS_MIL",
       "AUS_DAL",
       "AUS_CAR",
-      "AUS_BAN"
+      "AUS_BAN",
+      "TUR_BOS"
      ],
      "to": "SER_BEL"
     },
@@ -352,6 +957,24 @@
       "EGY_LEB"
      ],
      "to": "FRA_IDF"
+    }
+   ]
+  },
+  {
+   "id": "SOVIET_CENTRAL_ASIA_1924",
+   "date": "1924-10-27",
+   "actor": "RUS_MOS",
+   "noPlayerActor": true,
+   "sources": [
+    "Bukharan and Khorezm People's Soviet Republics 1920; national delimitation in Soviet Central Asia, 27 Oct 1924"
+   ],
+   "steps": [
+    {
+     "type": "annex_states",
+     "capitals": [
+      "BUK_BUK",
+      "KHI_KHI"
+     ]
     }
    ]
   },
@@ -463,12 +1086,30 @@
    "sources": [
     "CG-40 SAN_FRANCISCO_1951",
     "Cairo Declaration 1943",
-    "Instrument of Surrender 1945"
+    "Instrument of Surrender 1945",
+    "Korea liberated from Japan, 15 Aug 1945 (CG-44 KOR-1945-08)"
    ],
    "steps": [
     {
      "type": "restore_snapshot",
      "snapshot": "1937"
+    },
+    {
+     "type": "new_state",
+     "key": "korea",
+     "regions": [
+      "KOR_GYE",
+      "KOR_JEO",
+      "KOR_GSA",
+      "KOR_PYO",
+      "KOR_HAM"
+     ],
+     "name_en": "Korea (Allied occupation)",
+     "name_vi": "Triều Tiên (Đồng minh chiếm đóng)",
+     "laws": {
+      "governance": "republic",
+      "power": "autocracy"
+     }
     },
     {
      "type": "cede",
@@ -494,6 +1135,26 @@
     {
      "type": "restore_snapshot",
      "snapshot": "1937"
+    }
+   ]
+  },
+  {
+   "id": "INDIA_INDEPENDENCE_1947",
+   "date": "1947-08-15",
+   "actor": "GBR_LON",
+   "sources": [
+    "Indian Independence Act 1947 (CG-41 IND-PAK-1947-08, partition deferred)"
+   ],
+   "steps": [
+    {
+     "type": "release",
+     "target": "EIC_BEN"
+    },
+    {
+     "type": "rename",
+     "target": "EIC_BEN",
+     "name_en": "Dominion of India",
+     "name_vi": "Liên bang Ấn Độ"
     }
    ]
   },
@@ -559,6 +1220,62 @@
    ]
   },
   {
+   "id": "INDIA_REPUBLIC_1950",
+   "date": "1950-01-26",
+   "actor": "EIC_BEN",
+   "sources": [
+    "Constitution of India in force 26 January 1950"
+   ],
+   "steps": [
+    {
+     "type": "rename",
+     "name_en": "Republic of India",
+     "name_vi": "Cộng hòa Ấn Độ",
+     "laws": {
+      "governance": "republic",
+      "power": "universal_suffrage"
+     }
+    }
+   ]
+  },
+  {
+   "id": "GENEVA_1954",
+   "date": "1954-07-21",
+   "actor": "VNM_GDI",
+   "sources": [
+    "CG-44 VNM-GENEVA-1954-07 (Geneva Accords: end of French rule in Indochina)",
+    "State of Vietnam under Bao Dai (former Nguyen emperor) covered Annam; the protectorate ended with the Geneva Accords"
+   ],
+   "steps": [
+    {
+     "type": "annex_states",
+     "capitals": [
+      "VNM_HUE"
+     ]
+    }
+   ],
+   "noPlayerActor": true
+  },
+  {
+   "id": "VNM_REUNIFICATION_1975",
+   "date": "1975-04-30",
+   "actor": "VNM_HAN",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-44 VNM-1975-04 (fall of Saigon, 30 April 1975)",
+    "CG-44 VNM-1976-07 (formal reunification, 2 July 1976)"
+   ],
+   "steps": [
+    {
+     "type": "annex_states",
+     "capitals": [
+      "VNM_GDI",
+      "VNM_HUE"
+     ]
+    }
+   ]
+  },
+  {
    "id": "GER_REUNIFICATION_1990",
    "date": "1990-10-03",
    "actor": "PRU_RHI",
@@ -578,25 +1295,6 @@
     {
      "type": "move_capital",
      "to": "PRU_BRA"
-    }
-   ]
-  },
-  {
-   "id": "VNM_REUNIFICATION_1975",
-   "date": "1975-04-30",
-   "actor": "VNM_HAN",
-   "noPlayerActor": true,
-   "sources": [
-    "CG-44 VNM-1975-04 (fall of Saigon, 30 April 1975)",
-    "CG-44 VNM-1976-07 (formal reunification, 2 July 1976)"
-   ],
-   "steps": [
-    {
-     "type": "annex_states",
-     "capitals": [
-      "VNM_GDI",
-      "VNM_HUE"
-     ]
     }
    ]
   }
