@@ -29,5 +29,5 @@ This means the current ingester cannot deliver many valid images for the game's 
 ## Current CG-50/52 status
 
 - **87 authored event records** are present across the story data files, in addition to the 30 pre-existing generic events.
-- **63 of 87** authored events currently have a corresponding image reference and selection entry; **24** still need a suitable candidate.
+- **64 of 87** authored events currently have a corresponding image reference and selection entry; **24** still need a suitable candidate.
 - Image candidates are research candidates, not ingested assets. Do not mark CG-52 complete until the licence gate is corrected, remaining events have suitable images, and the ingester produces manifest assets successfully.
