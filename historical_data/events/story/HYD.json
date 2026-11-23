@@ -239,11 +239,6 @@
                 "radicalism": -0.01,
                 "trade": 0.02
               }
-            },
-            {
-              "type": "subject_liberty",
-              "subject": "HYD",
-              "delta": -3
             }
           ]
         },
