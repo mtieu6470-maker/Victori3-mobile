@@ -658,6 +658,11 @@
           "gbr_malaya_independence_1957",
           "gbr_malaya_independence_1957"
         ]
+      },
+      "image": {
+        "ref": "ill_evt_mys_federation_1963",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
       }
     },
     {
@@ -1289,7 +1294,12 @@
       ],
       "sources": [
         "kenya_history"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_ken_state_building_1964",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gha_independence_priorities_1957",
@@ -1382,7 +1392,12 @@
       ],
       "sources": [
         "ghana_history"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gha_independence_priorities_1957",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "nga_federal_bargain_1960",
@@ -1482,6 +1497,11 @@
           "gbr_nigeria_independence_1960",
           "gbr_nigeria_independence_1960"
         ]
+      },
+      "image": {
+        "ref": "ill_evt_nga_federal_bargain_1960",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
       }
     },
     {
@@ -1994,7 +2014,12 @@
       ],
       "sources": [
         "malta_history"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_mlt_independent_economy_1964",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "irl_constitutional_sovereignty_1937",
@@ -2104,6 +2129,11 @@
           "gbr_irish_free_state_1922",
           "gbr_irish_free_state_1922"
         ]
+      },
+      "image": {
+        "ref": "ill_evt_irl_constitutional_sovereignty_1937",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
       }
     },
     {
@@ -2307,7 +2337,12 @@
       ],
       "sources": [
         "pakistan_constitution"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_pak_constitution_1956",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     }
   ],
   "notes": [
