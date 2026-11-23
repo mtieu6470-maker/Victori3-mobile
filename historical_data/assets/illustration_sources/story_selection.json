@@ -54,7 +54,8 @@
       "alternates": [
         "Indian_Mutiny,_1857,_Lucknow.jpg",
         "Attack of the Mutineers on the Redan Battery at Lucknow, July 30th, 1857,.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -359,7 +360,8 @@
       "review_note": "Contextual map only; replaced a missing PDF candidate because the ingester's exact U.S.-rights gate was not established for that PDF.",
       "alternates": [
         "The_Government_of_India_Act,_1935.pdf"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -412,7 +414,8 @@
       "review_note": "Portrait of a principal participant, not a photograph of the 1946 Cabinet Mission; Commons lists the photograph as a 1920s work.",
       "alternates": [
         "Cabinet_mission_to_india1946.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -440,7 +443,8 @@
       "review_note": "Historical regional context map; it does not depict the 1947 transfer ceremony.",
       "alternates": [
         "Lord_Mountbatten_swears_in_Jawaharlal_Nehru_as_the_first_Prime_Minister_of_free_India_on_Aug_15,_1947.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -544,7 +548,8 @@
       "review_note": "Nineteenth-century regional map, not a depiction of the 1947 conference; Commons lists a public-domain/old-work basis.",
       "alternates": [
         "Panglong_Conference.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -572,7 +577,8 @@
       "review_note": "Nineteenth-century regional map, not a depiction of the 1948 independence ceremony.",
       "alternates": [
         "Panglong_Conference.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -650,7 +656,8 @@
       "review_note": "Period-appropriate geographic context map; Commons page identifies the 1888 source and public-domain status.",
       "alternates": [
         "SL_Independence.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -678,7 +685,8 @@
       "review_note": "Regional historical map; not an operational map of the 1941 invasion.",
       "alternates": [
         "Malayan_Invasion_Map_2.0.png"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -706,7 +714,8 @@
       "review_note": "Direct event match; Commons page records PD-Japan-oldphoto and PD-1996 with a U.S. public-domain rationale.",
       "alternates": [
         "Japanese_Soldiers_rejoicing_at_the_fall_of_Singapore,_1942.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -735,7 +744,8 @@
       "alternates": [
         "Malayan_Union_protest.png",
         "Malaya_1948_-_btv1b53196894w.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -763,7 +773,8 @@
       "review_note": "Historical regional map, not a photograph of the declaration of independence.",
       "alternates": [
         "Malayan_Declaration_of_Independence_1957_in_Tamil.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -891,7 +902,8 @@
       "review_note": "Nineteenth-century geographic context map; Commons identifies the work as public domain.",
       "alternates": [
         "Free_Officers,_1952.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -919,7 +931,8 @@
       "review_note": "Contextual map, not an image of the nationalisation announcement.",
       "alternates": [
         "Al-Ahram_Newspaper_Publish_Suez_Canal_Nationalization.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -947,7 +960,8 @@
       "review_note": "Historical context map, not a depiction of the 1956 military operation.",
       "alternates": [
         "Battle_of_Port_Said.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -1075,7 +1089,8 @@
       "review_note": "Regional map only; does not depict the Emergency or military operations.",
       "alternates": [
         "10th_May_1952_-_This_Horror_Must_End.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -1153,7 +1168,8 @@
       "review_note": "Period regional map; not a photograph of Mau Mau operations.",
       "alternates": [
         "BRITISH_ARMY_OPERATIONS_AGAINST_THE_MAU_MAU_IN_KENYA_1952_-_1956_MAU221.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -1181,7 +1197,8 @@
       "review_note": "Direct geographic context; University of Illinois catalog identifies the 1897 work as public domain.",
       "alternates": [
         "Unilateral_Declaration_of_Independence_(Rhodesia).jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -1209,7 +1226,8 @@
       "review_note": "Direct geographic context; University of Illinois catalog identifies the 1897 work as public domain.",
       "alternates": [
         "Unilateral_Declaration_of_Independence_(Rhodesia).jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -1412,7 +1430,8 @@
       "review_note": "CC0 1.0 explicitly declared by the photographer; modern photograph of the constitutional document, not a 1950 ceremony photo.",
       "alternates": [
         "Constitution_india.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -1640,7 +1659,8 @@
       "review_note": "Historical Caribbean map; Commons page identifies the map as 1894 and public domain in the United States.",
       "alternates": [
         "Independence_Proclamation_of_Jamaica.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -1668,7 +1688,8 @@
       "review_note": "Period geographic context map; Commons page identifies the 1880 work and U.S. public-domain basis.",
       "alternates": [
         "Archbishop_Makarios_III_signature.svg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -1696,7 +1717,8 @@
       "review_note": "Period geographic context map; not a depiction of the 1960 constitutional negotiations.",
       "alternates": [
         "Archbishop_Makarios_III_signature.svg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -1749,7 +1771,8 @@
       "review_note": "Historical context map; it does not depict the Donoughmore Commission.",
       "alternates": [
         "Official_Photographic_Portrait_of_C._W._W._Kannangara_(1884-1969).jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -1777,7 +1800,8 @@
       "review_note": "Historical context map, not a photograph of the 1946 constitutional settlement.",
       "alternates": [
         "SL_Independence.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -1830,7 +1854,8 @@
       "review_note": "Historical geographic context; not a photograph of the Lancaster House conference.",
       "alternates": [
         "BRITISH_ARMY_OPERATIONS_AGAINST_THE_MAU_MAU_IN_KENYA_1952_-_1956_MAU221.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -1883,7 +1908,8 @@
       "review_note": "Historical geographic context map, not a picture of a 1964 cabinet session.",
       "alternates": [
         "BRITISH_ARMY_OPERATIONS_AGAINST_THE_MAU_MAU_IN_KENYA_1952_-_1956_MAU221.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -1911,7 +1937,8 @@
       "review_note": "Direct regional context; Commons credits John George Bartholomew (died 1920) and dates the work to 1896.",
       "alternates": [
         "Ghana_Independence_overprint_on_Gold_Coast_1s_stamp_1957.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -1964,7 +1991,8 @@
       "review_note": "Historical regional map; not an image of the federation's inauguration.",
       "alternates": [
         "St._Vincent_3c_West_Indies_Federation_stamp_1958.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -1992,7 +2020,8 @@
       "review_note": "Historical geographic context map, not a depiction of EOKA operations.",
       "alternates": [
         "Street_riot_in_Nicosia_1956.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -2045,7 +2074,8 @@
       "review_note": "Historical regional map; does not show the later political boundary arrangement.",
       "alternates": [
         "Malayan_Declaration_of_Independence_1957_in_Tamil.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -2073,7 +2103,8 @@
       "review_note": "Historical context map; not a photograph of the 1957 independence administration.",
       "alternates": [
         "Ghana_Independence_overprint_on_Gold_Coast_1s_stamp_1957.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -2176,7 +2207,8 @@
       "review_note": "Regional context map only; it predates Pakistan and does not depict the 1956 constitution.",
       "alternates": [
         "Cover_of_the_first_constitiution_of_Pakistan.jpg"
-      ]
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -2308,7 +2340,8 @@
       "review_note": "Historical regional map; not a photograph of the 1957 declaration.",
       "alternates": [
         "Malayan_Declaration_of_Independence_1957_in_Tamil.jpg"
-      ]
+      ],
+      "fit": "contain"
     }
   ]
 }
