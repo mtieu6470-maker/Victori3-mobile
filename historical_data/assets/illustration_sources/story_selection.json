@@ -679,7 +679,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Ceylon constitutional transition; Commons page reports PD-BRITISHGOV."
+      "review_note": "Direct visual for the constitutional transition; Commons page reports PD-BRITISHGOV."
     },
     {
       "type": "illustration_event",
@@ -689,7 +689,7 @@
       "width": 1024,
       "author": "Unknown",
       "name": "Chiến dịch Malaya 1941–1942",
-      "description": "Map of the Japanese conquest of British Malaya from 8 December 1941 to 15 February 1942",
+      "description": "Map of the Japanese conquest of British Malaya, 8 December 1941 to 15 February 1942",
       "period": {
         "from": 1939,
         "to": 1943
@@ -709,12 +709,12 @@
     {
       "type": "illustration_event",
       "subject": "gbr_singapore_fall_1942",
-      "commons_file": "JapaneseMarchSgpCity.jpg",
+      "commons_file": "Japanese_Soldiers_rejoicing_at_the_fall_of_Singapore,_1942.jpg",
       "year": 1942,
-      "width": 1600,
+      "width": 7883,
       "author": "Unknown",
       "name": "Singapore thất thủ",
-      "description": "Japanese troops enter Singapore after the surrender in February 1942",
+      "description": "Japanese soldiers celebrating the fall of Singapore in 1942",
       "period": {
         "from": 1940,
         "to": 1944
@@ -729,7 +729,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Exact campaign context; verify source and rights at ingestion."
+      "review_note": "Exact event context; ingestion must verify source-country rights."
     },
     {
       "type": "illustration_event",
@@ -804,7 +804,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Contemporary illustration; exact historical context."
+      "review_note": "Contemporary illustration and direct historical context."
     },
     {
       "type": "illustration_event",
@@ -829,7 +829,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Period source illustration; the work is public-domain-era, ingestion must verify."
+      "review_note": "Period illustration of the end of the revolt."
     },
     {
       "type": "illustration_event",
@@ -879,7 +879,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Contextual image for the movement preceding the 1922 declaration."
+      "review_note": "Contextual visual for the nationalist pressure preceding the 1922 declaration."
     },
     {
       "type": "illustration_event",
@@ -929,7 +929,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Direct event subject; source page and rights require ingestion check."
+      "review_note": "Direct event subject; ingestion must confirm rights and source metadata."
     },
     {
       "type": "illustration_event",
@@ -979,7 +979,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Contemporary newspaper reproduction; verify source-country rights."
+      "review_note": "Contemporary newspaper reproduction; rights need the ingestion check."
     },
     {
       "type": "illustration_event",
@@ -1004,17 +1004,17 @@
         0.5,
         0.5
       ],
-      "review_note": "Historical map context for the transition to the mandate."
+      "review_note": "Contextual map for the transition to the mandate."
     },
     {
       "type": "illustration_event",
       "subject": "pal_arab_revolt_1936",
-      "commons_file": "Arab_protest_delegations,_demonstrations_and_strikes_against_British_policy_in_Palestine_(subsequent_to_the_foregoing_disturbances_(1929_riots))._Balfour_day,_Nov._2nd._Closed_bazaars_LOC_matpc.15745.tif",
-      "year": 1929,
-      "width": 3671,
-      "author": "Library of Congress",
-      "name": "Đình công và phản đối tại Palestine",
-      "description": "Library of Congress photograph of Arab protest delegations, demonstrations and closed bazaars on Balfour Day",
+      "commons_file": "Palestine_disturbances_1936._Members_of_the_Royal_Commission_leaving_the_offices_of_the_Palestine_Royal_Commission._Sir_Morris_Carter_(left),_Sir_Laurie_Hammond_(right)_LOC_matpc.18241.jpg",
+      "year": 1936,
+      "width": 5108,
+      "author": "Matson Collection",
+      "name": "Ủy ban Hoàng gia tại Palestine",
+      "description": "Members of the Palestine Royal Commission leaving its offices in 1936",
       "period": {
         "from": 1927,
         "to": 1931
@@ -1029,7 +1029,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Earlier 1929 protest, contextual only; LoC rights advisory must be checked."
+      "review_note": "Directly related to the 1936 disturbances; LoC page states no known copyright restrictions."
     },
     {
       "type": "illustration_event",
@@ -1054,7 +1054,82 @@
         0.5,
         0.5
       ],
-      "review_note": "Commons page identifies the source as US Government and Public Domain; verify the derivative's exact tag."
+      "review_note": "Commons page identifies source as US Government; ingestion must verify derivative status."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_malayan_emergency_1948",
+      "period": {
+        "from": 1950,
+        "to": 1954
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "10th_May_1952_-_This_Horror_Must_End.jpg",
+      "year": 1952,
+      "width": 960,
+      "author": "Unknown",
+      "name": "Áp phích thời kỳ Khẩn cấp Malaya",
+      "description": "Emergency-era poster from Malaya, 10 May 1952",
+      "review_note": "Related to the Emergency; use only if image content is appropriate and license check passes."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_peel_commission_1937",
+      "period": {
+        "from": 1935,
+        "to": 1939
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "Peel_map_pd.png",
+      "year": 1937,
+      "width": 1100,
+      "author": "British War Office",
+      "name": "Bản đồ đề xuất Peel",
+      "description": "Map of the Peel Commission partition proposal for Palestine, 1937",
+      "review_note": "Commons page identifies the map as Public Domain; exact subject match."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "pal_partition_response_1947",
+      "period": {
+        "from": 1971,
+        "to": 1975
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "UN_Partition_Plan_For_Palestine_1947.png",
+      "year": 1973,
+      "width": 627,
+      "author": "Central Intelligence Agency",
+      "name": "Kế hoạch phân chia Palestine 1947",
+      "description": "Map of the UN 1947 partition plan for Palestine, based on a CIA map",
+      "review_note": "Same map supports the immediate local response; not a photograph of community reaction."
     }
   ]
 }
