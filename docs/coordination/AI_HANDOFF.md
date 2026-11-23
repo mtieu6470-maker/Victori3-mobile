@@ -1,3 +1,20 @@
+## 2026-11-23 — BLOC-01 Cold War blocs (owner request)
+
+- `historical_data/diplomacy/blocs.json` (curated):
+  - NATO: in force 24 Aug 1949; accessions 1952 (Greece, Turkey), 1955 (FRG), 1982, 1999, 2004, 2009, 2017, 2020, 2023, 2024.
+  - Warsaw Pact: 4 Jun 1955 – 1 Jul 1991 (GDR 1956–90, Albania until 1968).
+  - Members are capital regions, and build-data validates them → `db.blocs`.
+- `systems/blocs.ts` (after settlements), Historical Mode only:
+  - Each bloc is one multilateral alliance treaty `bloc_<id>` (`source: 'bloc:<id>'`). Its members are the holders of the listed capitals during their membership.
+  - Ordinary alliance rules apply: allies join defensive wars and count in AI war estimates. `breakAlliance` only dissolves two-member alliances, so blocs persist.
+  - A country is never in two blocs, which guards an undivided Germany. The player is never enrolled automatically.
+  - A bloc dissolves on its date.
+- UI: the country screen shows "Khối liên minh".
+- CG-46 (MSG-103) requested: SEATO, CENTO, ANZUS, Rio, US bilateral treaties, Sino-Soviet 1950, Comecon, the EEC/EU, NAM, Arab League, OAU, ASEAN, OAS.
+- Tests: `tests/blocs.test.ts` (2). Local: `npm test` **48/48 files, 435/435**.
+
+---
+
 ## 2026-11-23 — WW-01e CG-45 territorial changes 1836–1914 (Historical Mode)
 
 - ChatGPT CG-45 (`docs/research/history/CG45_TERRITORIAL_CHANGES_1836_1914.json`, 59 events, 47 sources) is mapped by Claude to engine regions in `settlements.json`.

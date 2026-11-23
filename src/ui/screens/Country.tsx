@@ -32,6 +32,8 @@ export function CountryScreen({ st, id, tab }: { st: GameState; id: string; tab:
   const rk = rankings(st); const rank = rk.findIndex((r) => r.id === id) + 1;
   const regs = st.regions.filter((r) => r.owner === id); const area = regs.reduce((s, r) => s + r.area, 0);
   const allies = st.treaties.filter((x) => x.type === 'alliance' && x.members.includes(id)).flatMap((x) => x.members).filter((m, i, a) => m !== id && a.indexOf(m) === i);
+  // BLOC-01: Cold War bloc membership (multilateral alliance treaties sourced 'bloc:<id>')
+  const bloc = st.treaties.filter((x) => x.source?.startsWith('bloc:') && x.members.includes(id)).map((x) => data().db.blocs?.find((b) => `bloc:${b.id}` === x.source)?.name_vi ?? x.source!.slice(5)).join(', ');
   const riv = Object.keys(st.countries).filter((o) => o !== id && st.countries[o].alive && rivals(st, id, o));
   const wars = st.wars.filter((w) => w.attackers.members.includes(id) || w.defenders.members.includes(id));
   const subjects = Object.values(st.countries).filter((x) => x.alive && x.overlord === id).map((x) => x.id);
@@ -74,6 +76,7 @@ export function CountryScreen({ st, id, tab }: { st: GameState; id: string; tab:
         </div>
         <div>
           <Sec title="Đối ngoại" icon="diplomacy" go={() => ui.go('diplomacy', 'relations')}>
+            {bloc && <div class="kv"><span class="k">Khối liên minh</span><span class="v">{bloc}</span></div>}
             <div class="kv"><span class="k">Đồng minh</span><span class="v links">{allies.length ? allies.slice(0, 4).map((a) => <CountryLink key={a} st={st} id={a} />) : '—'}{allies.length > 4 ? ` +${allies.length - 4}` : ''}</span></div>
             <div class="kv"><span class="k">Đối thủ</span><span class="v links">{riv.length ? riv.slice(0, 4).map((a) => <CountryLink key={a} st={st} id={a} />) : '—'}</span></div>
             <div class="kv"><span class="k">Chư hầu</span><span class="v">{subjects.length ? fmt(subjects.length) : '—'}</span></div>

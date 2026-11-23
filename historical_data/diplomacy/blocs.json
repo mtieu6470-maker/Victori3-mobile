@@ -1,0 +1,234 @@
+{
+ "description": "BLOC-01: Cold War military blocs in Historical Mode (NATO, Warsaw Pact). Members are the holders of the listed capital regions during their membership (own capital or home territory). Dates from the treaties' official records (curated by Claude; ChatGPT CG-46 extends the set with sources). The player's country is never enrolled automatically.",
+ "blocs": [
+  {
+   "id": "NATO",
+   "name_en": "North Atlantic Treaty Organization",
+   "name_vi": "Tổ chức Hiệp ước Bắc Đại Tây Dương (NATO)",
+   "founded": "1949-08-24",
+   "sources": [
+    "North Atlantic Treaty, Washington 4 April 1949 (in force 24 August 1949)",
+    "NATO, 'Member countries' (nato.int, accession dates)"
+   ],
+   "members": [
+    {
+     "capital": "USA_MAR",
+     "from": "1949-08-24",
+     "name": "United States"
+    },
+    {
+     "capital": "GBR_LON",
+     "from": "1949-08-24",
+     "name": "United Kingdom"
+    },
+    {
+     "capital": "FRA_IDF",
+     "from": "1949-08-24",
+     "name": "France"
+    },
+    {
+     "capital": "BEL_BRU",
+     "from": "1949-08-24",
+     "name": "Belgium"
+    },
+    {
+     "capital": "NED_HOL",
+     "from": "1949-08-24",
+     "name": "Netherlands"
+    },
+    {
+     "capital": "BEL_LUX",
+     "from": "1949-08-24",
+     "name": "Luxembourg"
+    },
+    {
+     "capital": "GBR_UCA",
+     "from": "1949-08-24",
+     "name": "Canada"
+    },
+    {
+     "capital": "DEN_ZEA",
+     "from": "1949-08-24",
+     "name": "Denmark"
+    },
+    {
+     "capital": "DEN_ICE",
+     "from": "1949-08-24",
+     "name": "Iceland"
+    },
+    {
+     "capital": "PAP_ROM",
+     "from": "1949-08-24",
+     "name": "Italy"
+    },
+    {
+     "capital": "NOR_OSL",
+     "from": "1949-08-24",
+     "name": "Norway"
+    },
+    {
+     "capital": "POR_LIS",
+     "from": "1949-08-24",
+     "name": "Portugal"
+    },
+    {
+     "capital": "GRE_ATH",
+     "from": "1952-02-18",
+     "name": "Greece"
+    },
+    {
+     "capital": "TUR_ANC",
+     "from": "1952-02-18",
+     "name": "Turkey"
+    },
+    {
+     "capital": "PRU_RHI",
+     "from": "1955-05-09",
+     "name": "Federal Republic of Germany"
+    },
+    {
+     "capital": "SPA_MAD",
+     "from": "1982-05-30",
+     "name": "Spain"
+    },
+    {
+     "capital": "AUS_BOH",
+     "from": "1999-03-12",
+     "name": "Czech Republic"
+    },
+    {
+     "capital": "AUS_HUN",
+     "from": "1999-03-12",
+     "name": "Hungary"
+    },
+    {
+     "capital": "RUS_WAR",
+     "from": "1999-03-12",
+     "name": "Poland"
+    },
+    {
+     "capital": "TUR_SOF",
+     "from": "2004-03-29",
+     "name": "Bulgaria"
+    },
+    {
+     "capital": "RUS_BAL",
+     "from": "2004-03-29",
+     "name": "Latvia"
+    },
+    {
+     "capital": "RUS_VIL",
+     "from": "2004-03-29",
+     "name": "Lithuania"
+    },
+    {
+     "capital": "WAL_BUC",
+     "from": "2004-03-29",
+     "name": "Romania"
+    },
+    {
+     "capital": "AUS_UPH",
+     "from": "2004-03-29",
+     "name": "Slovakia"
+    },
+    {
+     "capital": "AUS_CAR",
+     "from": "2004-03-29",
+     "name": "Slovenia"
+    },
+    {
+     "capital": "TUR_ALB",
+     "from": "2009-04-01",
+     "name": "Albania"
+    },
+    {
+     "capital": "AUS_CRO",
+     "from": "2009-04-01",
+     "name": "Croatia"
+    },
+    {
+     "capital": "MNT_CET",
+     "from": "2017-06-05",
+     "name": "Montenegro"
+    },
+    {
+     "capital": "TUR_MAC",
+     "from": "2020-03-27",
+     "name": "North Macedonia"
+    },
+    {
+     "capital": "RUS_FIN",
+     "from": "2023-04-04",
+     "name": "Finland"
+    },
+    {
+     "capital": "SWE_STO",
+     "from": "2024-03-07",
+     "name": "Sweden"
+    }
+   ]
+  },
+  {
+   "id": "WARSAW_PACT",
+   "name_en": "Warsaw Treaty Organization",
+   "name_vi": "Tổ chức Hiệp ước Warszawa",
+   "founded": "1955-06-04",
+   "dissolved": "1991-07-01",
+   "sources": [
+    "Treaty of Friendship, Co-operation and Mutual Assistance, Warsaw 14 May 1955 (in force 4 June 1955)",
+    "Protocol on the dissolution, Prague 1 July 1991",
+    "Albania's withdrawal 13 September 1968; GDR's withdrawal 24 September 1990"
+   ],
+   "members": [
+    {
+     "capital": "RUS_MOS",
+     "from": "1955-06-04",
+     "to": "1991-07-01",
+     "name": "Soviet Union"
+    },
+    {
+     "capital": "RUS_WAR",
+     "from": "1955-06-04",
+     "to": "1991-07-01",
+     "name": "Poland"
+    },
+    {
+     "capital": "AUS_BOH",
+     "from": "1955-06-04",
+     "to": "1991-07-01",
+     "name": "Czechoslovakia"
+    },
+    {
+     "capital": "AUS_HUN",
+     "from": "1955-06-04",
+     "to": "1991-07-01",
+     "name": "Hungary"
+    },
+    {
+     "capital": "WAL_BUC",
+     "from": "1955-06-04",
+     "to": "1991-07-01",
+     "name": "Romania"
+    },
+    {
+     "capital": "TUR_SOF",
+     "from": "1955-06-04",
+     "to": "1991-07-01",
+     "name": "Bulgaria"
+    },
+    {
+     "capital": "TUR_ALB",
+     "from": "1955-06-04",
+     "to": "1968-09-13",
+     "name": "Albania"
+    },
+    {
+     "capital": "PRU_BRA",
+     "from": "1956-01-28",
+     "to": "1990-09-24",
+     "name": "German Democratic Republic"
+    }
+   ]
+  }
+ ]
+}

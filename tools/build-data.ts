@@ -374,6 +374,12 @@ for (const w of wwFile.wars) for (const side of w.sides) for (const m of side.me
   if (!regions.some((r: any) => r.id === m.capitalRegion)) err(`world war ${w.id}: unknown capital region ${m.capitalRegion}`);
   if (!(m.entry <= m.exit)) err(`world war ${w.id}: ${m.id} exits before it enters`);
 }
+// BLOC-01: Cold War blocs (curated; CG-46 extends)
+const blocsFile = readJson('diplomacy/blocs.json');
+for (const b of blocsFile.blocs) for (const m of b.members) {
+  if (!regions.some((r: any) => r.id === m.capital)) err(`bloc ${b.id}: unknown capital region ${m.capital}`);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(m.from) || (m.to && !/^\d{4}-\d{2}-\d{2}$/.test(m.to))) err(`bloc ${b.id}: bad date for ${m.name}`);
+}
 // WW-01c: unifications and peace settlements (curated; treaty facts from CG-40/CG-41)
 const settlementsFile = readJson('wars/settlements.json');
 const STEP_TYPES = new Set(['cede', 'annex_states', 'new_state', 'rename', 'move_capital', 'restore_snapshot', 'make_subject', 'release']);
@@ -475,7 +481,7 @@ const db: HistoricalDB = {
   meta: { start_date: START, built_at: new Date().toISOString(), version: '0.1.0', counts: { entities: entities.length, regions: regions.length, sources: sources.length, alliances: alliances.length } },
   sources, cultures: cultFile.cultures, religions: cultFile.religions, entities, regions, alliances,
   wars: ev.initial_wars, exogenous: ev.exogenous, decision_windows: ev.decision_windows, structural_rules: ev.structural_rules,
-  zollverein: ev.zollverein_accessions, leaders, technologies: techFile.technologies, company_kinds: companyKindsFile.kinds, production_methods: pmFile.methods, settlements: settlementsFile.settlements, leaders_20c: leaders20File.leaders.map(({ capitalRegion, name, born, died, from, to, role, title_vi, title_en }: any) => ({ capitalRegion, name, born, died, from, to, role, title_vi, title_en })), regime_changes: regimeFile.events.map(({ id, date, capitalRegion, rename, name_en, name_vi, type, laws, independence, independenceRegions, allies }: any) => ({ id, date, capitalRegion, rename, name_en, name_vi, type, laws, independence, ...(independenceRegions ? { independenceRegions } : {}), ...(allies ? { allies } : {}) })), world_wars: wwFile.wars, league_of_nations: wwFile.league, decolonisation: decolFile.records.filter((r: any) => r.regions.length).map(({ id, iso, name, name_vi, power, date, regions }: any) => ({ id, iso, name, name_vi, power, date, regions })), tech_adoption_windows: adoptionWindows.map(({ country, tech, earliest }) => ({ country, tech, earliest })), start_techs,
+  zollverein: ev.zollverein_accessions, leaders, technologies: techFile.technologies, company_kinds: companyKindsFile.kinds, production_methods: pmFile.methods, settlements: settlementsFile.settlements, blocs: blocsFile.blocs.map(({ id, name_en, name_vi, founded, dissolved, members }: any) => ({ id, name_en, name_vi, founded, ...(dissolved ? { dissolved } : {}), members: members.map(({ capital, from, to, name }: any) => ({ capital, from, ...(to ? { to } : {}), name })) })), leaders_20c: leaders20File.leaders.map(({ capitalRegion, name, born, died, from, to, role, title_vi, title_en }: any) => ({ capitalRegion, name, born, died, from, to, role, title_vi, title_en })), regime_changes: regimeFile.events.map(({ id, date, capitalRegion, rename, name_en, name_vi, type, laws, independence, independenceRegions, allies }: any) => ({ id, date, capitalRegion, rename, name_en, name_vi, type, laws, independence, ...(independenceRegions ? { independenceRegions } : {}), ...(allies ? { allies } : {}) })), world_wars: wwFile.wars, league_of_nations: wwFile.league, decolonisation: decolFile.records.filter((r: any) => r.regions.length).map(({ id, iso, name, name_vi, power, date, regions }: any) => ({ id, iso, name, name_vi, power, date, regions })), tech_adoption_windows: adoptionWindows.map(({ country, tech, earliest }) => ({ country, tech, earliest })), start_techs,
   historical_changes: hc.changes, equivalence: hc.equivalence.classes, milestones: ms.milestones, territorial_checkpoints: ms.territorial_checkpoints,
   european_powers: ms.european_powers, benchmarks, gdp_pc_1836,
   coverage: { entities_total: regEntities.length, by_tier, by_model, facts_by_quality: factsByQuality, needs_source: [...new Set(needsSource)], gaps },
