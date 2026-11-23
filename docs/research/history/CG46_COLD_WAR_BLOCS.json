@@ -613,59 +613,95 @@
         {
           "name": "Soviet Union",
           "capitalHistorical": "Moscow",
-          "from": "1949-01-25"
+          "from": "1949-01-25",
+          "iso3": "SUN",
+          "capitalLat": 55.75,
+          "capitalLon": 37.6,
+          "iso3Note": "SUN is a withdrawn historical ISO 3166-1 alpha-3 code."
         },
         {
           "name": "Bulgaria",
           "capitalHistorical": "Sofia",
-          "from": "1949-01-25"
+          "from": "1949-01-25",
+          "iso3": "BGR",
+          "capitalLat": 42.68,
+          "capitalLon": 23.32
         },
         {
           "name": "Czechoslovakia",
           "capitalHistorical": "Prague",
-          "from": "1949-01-25"
+          "from": "1949-01-25",
+          "iso3": "CSK",
+          "capitalLat": 50.08,
+          "capitalLon": 14.47,
+          "iso3Note": "CSK is a withdrawn historical ISO 3166-1 alpha-3 code; ISO 3166-3 code CSHH."
         },
         {
           "name": "Hungary",
           "capitalHistorical": "Budapest",
-          "from": "1949-01-25"
+          "from": "1949-01-25",
+          "iso3": "HUN",
+          "capitalLat": 47.5,
+          "capitalLon": 19.08
         },
         {
           "name": "Poland",
           "capitalHistorical": "Warsaw",
-          "from": "1949-01-25"
+          "from": "1949-01-25",
+          "iso3": "POL",
+          "capitalLat": 52.25,
+          "capitalLon": 21
         },
         {
           "name": "Romania",
           "capitalHistorical": "Bucharest",
-          "from": "1949-01-25"
+          "from": "1949-01-25",
+          "iso3": "ROU",
+          "capitalLat": 44.43,
+          "capitalLon": 26.1
         },
         {
           "name": "Albania",
           "capitalHistorical": "Tirana",
           "from": "1949-02",
           "to": "1961-12",
-          "notes": "De facto ceased participation in 1961; formal membership status should not be represented as a day-precise withdrawal without further legal evidence."
+          "notes": "De facto ceased participation in 1961; formal membership status should not be represented as a day-precise withdrawal without further legal evidence.",
+          "iso3": "ALB",
+          "capitalLat": 41.32,
+          "capitalLon": 19.82
         },
         {
           "name": "German Democratic Republic",
           "capitalHistorical": "East Berlin",
-          "from": "1950-09"
+          "from": "1950-09",
+          "iso3": "DDR",
+          "capitalLat": 52.52,
+          "capitalLon": 13.41,
+          "iso3Note": "DDR is a withdrawn historical ISO 3166-1 alpha-3 code; ISO 3166-3 code DDDE."
         },
         {
           "name": "Mongolia",
           "capitalHistorical": "Ulaanbaatar",
-          "from": "1962-06"
+          "from": "1962-06",
+          "iso3": "MNG",
+          "capitalLat": 47.92,
+          "capitalLon": 106.91
         },
         {
           "name": "Cuba",
           "capitalHistorical": "Havana",
-          "from": "1972-07"
+          "from": "1972-07",
+          "iso3": "CUB",
+          "capitalLat": 23.12,
+          "capitalLon": -82.35
         },
         {
           "name": "Socialist Republic of Viet Nam",
           "capitalHistorical": "Hanoi",
-          "from": "1978"
+          "from": "1978",
+          "iso3": "VNM",
+          "capitalLat": 21.03,
+          "capitalLon": 105.85
         }
       ],
       "notes": [
@@ -685,62 +721,98 @@
         {
           "name": "Belgium",
           "capitalHistorical": "Brussels",
-          "from": "1952-07-23"
+          "from": "1952-07-23",
+          "iso3": "BEL",
+          "capitalLat": 50.83,
+          "capitalLon": 4.33
         },
         {
           "name": "France",
           "capitalHistorical": "Paris",
-          "from": "1952-07-23"
+          "from": "1952-07-23",
+          "iso3": "FRA",
+          "capitalLat": 48.87,
+          "capitalLon": 2.33
         },
         {
           "name": "Federal Republic of Germany",
           "capitalHistorical": "Bonn",
-          "from": "1952-07-23"
+          "from": "1952-07-23",
+          "iso3": "DEU",
+          "capitalLat": 50.74,
+          "capitalLon": 7.1
         },
         {
           "name": "Italy",
           "capitalHistorical": "Rome",
-          "from": "1952-07-23"
+          "from": "1952-07-23",
+          "iso3": "ITA",
+          "capitalLat": 41.9,
+          "capitalLon": 12.48
         },
         {
           "name": "Luxembourg",
           "capitalHistorical": "Luxembourg",
-          "from": "1952-07-23"
+          "from": "1952-07-23",
+          "iso3": "LUX",
+          "capitalLat": 49.6,
+          "capitalLon": 6.12
         },
         {
           "name": "Netherlands",
           "capitalHistorical": "The Hague",
-          "from": "1952-07-23"
+          "from": "1952-07-23",
+          "iso3": "NLD",
+          "capitalLat": 52.08,
+          "capitalLon": 4.31
         },
         {
           "name": "Denmark",
           "capitalHistorical": "Copenhagen",
-          "from": "1973-01-01"
+          "from": "1973-01-01",
+          "iso3": "DNK",
+          "capitalLat": 55.67,
+          "capitalLon": 12.58
         },
         {
           "name": "Ireland",
           "capitalHistorical": "Dublin",
-          "from": "1973-01-01"
+          "from": "1973-01-01",
+          "iso3": "IRL",
+          "capitalLat": 53.32,
+          "capitalLon": -6.23
         },
         {
           "name": "United Kingdom",
           "capitalHistorical": "London",
-          "from": "1973-01-01"
+          "from": "1973-01-01",
+          "iso3": "GBR",
+          "capitalLat": 51.5,
+          "capitalLon": -0.08
         },
         {
           "name": "Greece",
           "capitalHistorical": "Athens",
-          "from": "1981-01-01"
+          "from": "1981-01-01",
+          "iso3": "GRC",
+          "capitalLat": 37.98,
+          "capitalLon": 23.73
         },
         {
           "name": "Portugal",
           "capitalHistorical": "Lisbon",
-          "from": "1986-01-01"
+          "from": "1986-01-01",
+          "iso3": "PRT",
+          "capitalLat": 38.72,
+          "capitalLon": -9.13
         },
         {
           "name": "Spain",
           "capitalHistorical": "Madrid",
-          "from": "1986-01-01"
+          "from": "1986-01-01",
+          "iso3": "ESP",
+          "capitalLat": 40.4,
+          "capitalLon": -3.68
         }
       ],
       "notes": [
@@ -758,68 +830,118 @@
         {
           "name": "Belgium",
           "capitalHistorical": "Brussels",
-          "from": "1958-01-01"
+          "from": "1958-01-01",
+          "iso3": "BEL",
+          "capitalLat": 50.83,
+          "capitalLon": 4.33,
+          "customsUnionFrom": "1968-07-01"
         },
         {
           "name": "France",
           "capitalHistorical": "Paris",
-          "from": "1958-01-01"
+          "from": "1958-01-01",
+          "iso3": "FRA",
+          "capitalLat": 48.87,
+          "capitalLon": 2.33,
+          "customsUnionFrom": "1968-07-01"
         },
         {
           "name": "Federal Republic of Germany",
           "capitalHistorical": "Bonn",
-          "from": "1958-01-01"
+          "from": "1958-01-01",
+          "iso3": "DEU",
+          "capitalLat": 50.74,
+          "capitalLon": 7.1,
+          "customsUnionFrom": "1968-07-01"
         },
         {
           "name": "Italy",
           "capitalHistorical": "Rome",
-          "from": "1958-01-01"
+          "from": "1958-01-01",
+          "iso3": "ITA",
+          "capitalLat": 41.9,
+          "capitalLon": 12.48,
+          "customsUnionFrom": "1968-07-01"
         },
         {
           "name": "Luxembourg",
           "capitalHistorical": "Luxembourg",
-          "from": "1958-01-01"
+          "from": "1958-01-01",
+          "iso3": "LUX",
+          "capitalLat": 49.6,
+          "capitalLon": 6.12,
+          "customsUnionFrom": "1968-07-01"
         },
         {
           "name": "Netherlands",
           "capitalHistorical": "The Hague",
-          "from": "1958-01-01"
+          "from": "1958-01-01",
+          "iso3": "NLD",
+          "capitalLat": 52.08,
+          "capitalLon": 4.31,
+          "customsUnionFrom": "1968-07-01"
         },
         {
           "name": "Denmark",
           "capitalHistorical": "Copenhagen",
-          "from": "1973-01-01"
+          "from": "1973-01-01",
+          "iso3": "DNK",
+          "capitalLat": 55.67,
+          "capitalLon": 12.58,
+          "customsUnionFrom": "1973-01-01"
         },
         {
           "name": "Ireland",
           "capitalHistorical": "Dublin",
-          "from": "1973-01-01"
+          "from": "1973-01-01",
+          "iso3": "IRL",
+          "capitalLat": 53.32,
+          "capitalLon": -6.23,
+          "customsUnionFrom": "1973-01-01"
         },
         {
           "name": "United Kingdom",
           "capitalHistorical": "London",
-          "from": "1973-01-01"
+          "from": "1973-01-01",
+          "iso3": "GBR",
+          "capitalLat": 51.5,
+          "capitalLon": -0.08,
+          "customsUnionFrom": "1973-01-01"
         },
         {
           "name": "Greece",
           "capitalHistorical": "Athens",
-          "from": "1981-01-01"
+          "from": "1981-01-01",
+          "iso3": "GRC",
+          "capitalLat": 37.98,
+          "capitalLon": 23.73,
+          "customsUnionFrom": "1981-01-01"
         },
         {
           "name": "Portugal",
           "capitalHistorical": "Lisbon",
-          "from": "1986-01-01"
+          "from": "1986-01-01",
+          "iso3": "PRT",
+          "capitalLat": 38.72,
+          "capitalLon": -9.13,
+          "customsUnionFrom": "1986-01-01"
         },
         {
           "name": "Spain",
           "capitalHistorical": "Madrid",
-          "from": "1986-01-01"
+          "from": "1986-01-01",
+          "iso3": "ESP",
+          "capitalLat": 40.4,
+          "capitalLon": -3.68,
+          "customsUnionFrom": "1986-01-01"
         }
       ],
       "notes": [
         "EEC Treaty signed 25 March 1957 and effective 1 January 1958. Maastricht Treaty entered into force 1 November 1993 and established the European Union; the 12 EEC members became the initial EU members. Austria, Finland and Sweden joined in 1995, outside this initial roster.",
         "ECSC and EEC/EU are distinct legal organizations; avoid merging their foundation and expiry dates."
-      ]
+      ],
+      "customsUnionCompleted": "1968-07-01",
+      "customsUnionNote": "The six founding EEC members entered the customs union on 1 July 1968; later members entered on their EEC accession effective date."
     },
     {
       "id": "EFTA",
@@ -832,53 +954,83 @@
         {
           "name": "Austria",
           "capitalHistorical": "Vienna",
-          "from": "1960-05-03"
+          "from": "1960-05-03",
+          "iso3": "AUT",
+          "capitalLat": 48.2,
+          "capitalLon": 16.37
         },
         {
           "name": "Denmark",
           "capitalHistorical": "Copenhagen",
-          "from": "1960-05-03"
+          "from": "1960-05-03",
+          "iso3": "DNK",
+          "capitalLat": 55.67,
+          "capitalLon": 12.58
         },
         {
           "name": "Norway",
           "capitalHistorical": "Oslo",
-          "from": "1960-05-03"
+          "from": "1960-05-03",
+          "iso3": "NOR",
+          "capitalLat": 59.92,
+          "capitalLon": 10.75
         },
         {
           "name": "Portugal",
           "capitalHistorical": "Lisbon",
-          "from": "1960-05-03"
+          "from": "1960-05-03",
+          "iso3": "PRT",
+          "capitalLat": 38.72,
+          "capitalLon": -9.13
         },
         {
           "name": "Sweden",
           "capitalHistorical": "Stockholm",
-          "from": "1960-05-03"
+          "from": "1960-05-03",
+          "iso3": "SWE",
+          "capitalLat": 59.33,
+          "capitalLon": 18.05
         },
         {
           "name": "Switzerland",
           "capitalHistorical": "Bern",
-          "from": "1960-05-03"
+          "from": "1960-05-03",
+          "iso3": "CHE",
+          "capitalLat": 46.92,
+          "capitalLon": 7.47
         },
         {
           "name": "United Kingdom",
           "capitalHistorical": "London",
-          "from": "1960-05-03"
+          "from": "1960-05-03",
+          "iso3": "GBR",
+          "capitalLat": 51.5,
+          "capitalLon": -0.08
         },
         {
           "name": "Finland",
           "capitalHistorical": "Helsinki",
           "from": "1961-01",
-          "notes": "Associate member from 1961; full member from 1986-01."
+          "notes": "Associate member from 1961; full member from 1986-01.",
+          "iso3": "FIN",
+          "capitalLat": 60.17,
+          "capitalLon": 24.93
         },
         {
           "name": "Iceland",
           "capitalHistorical": "Reykjavík",
-          "from": "1970-03"
+          "from": "1970-03",
+          "iso3": "ISL",
+          "capitalLat": 64.15,
+          "capitalLon": -21.95
         },
         {
           "name": "Liechtenstein",
           "capitalHistorical": "Vaduz",
-          "from": "1991-03"
+          "from": "1991-03",
+          "iso3": "LIE",
+          "capitalLat": 47.13,
+          "capitalLon": 9.52
         }
       ],
       "notes": [
@@ -896,151 +1048,228 @@
           "name": "Afghanistan",
           "capitalHistorical": "Kabul",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "AFG",
+          "capitalLat": 34.52,
+          "capitalLon": 69.18
         },
         {
           "name": "Algeria",
           "capitalHistorical": "Algiers",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "DZA",
+          "capitalLat": 36.75,
+          "capitalLon": 3.05
         },
         {
           "name": "Burma",
           "capitalHistorical": "Rangoon",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "MMR",
+          "capitalLat": 16.87,
+          "capitalLon": 96.2
         },
         {
           "name": "Cambodia",
           "capitalHistorical": "Phnom Penh",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "KHM",
+          "capitalLat": 11.55,
+          "capitalLon": 104.92
         },
         {
           "name": "Ceylon",
           "capitalHistorical": "Colombo",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "LKA",
+          "capitalLat": 6.93,
+          "capitalLon": 79.85
         },
         {
           "name": "Congo (Leopoldville)",
           "capitalHistorical": "Leopoldville",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "COD",
+          "capitalLat": -4.32,
+          "capitalLon": 15.31
         },
         {
           "name": "Cuba",
           "capitalHistorical": "Havana",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "CUB",
+          "capitalLat": 23.12,
+          "capitalLon": -82.35
         },
         {
           "name": "Cyprus",
           "capitalHistorical": "Nicosia",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "CYP",
+          "capitalLat": 35.17,
+          "capitalLon": 33.37
         },
         {
           "name": "Ethiopia",
           "capitalHistorical": "Addis Ababa",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "ETH",
+          "capitalLat": 9.03,
+          "capitalLon": 38.7
         },
         {
           "name": "Ghana",
           "capitalHistorical": "Accra",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "GHA",
+          "capitalLat": 5.55,
+          "capitalLon": -0.22
         },
         {
           "name": "Guinea",
           "capitalHistorical": "Conakry",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "GIN",
+          "capitalLat": 9.5,
+          "capitalLon": -13.7
         },
         {
           "name": "India",
           "capitalHistorical": "New Delhi",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "IND",
+          "capitalLat": 28.6,
+          "capitalLon": 77.2
         },
         {
           "name": "Indonesia",
           "capitalHistorical": "Jakarta",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "IDN",
+          "capitalLat": -6.17,
+          "capitalLon": 106.82
         },
         {
           "name": "Iraq",
           "capitalHistorical": "Baghdad",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "IRQ",
+          "capitalLat": 33.33,
+          "capitalLon": 44.4
         },
         {
           "name": "Lebanon",
           "capitalHistorical": "Beirut",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "LBN",
+          "capitalLat": 33.89,
+          "capitalLon": 35.5
         },
         {
           "name": "Mali",
           "capitalHistorical": "Bamako",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "MLI",
+          "capitalLat": 12.65,
+          "capitalLon": -8
         },
         {
           "name": "Morocco",
           "capitalHistorical": "Rabat",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "MAR",
+          "capitalLat": 34.02,
+          "capitalLon": -6.82
         },
         {
           "name": "Nepal",
           "capitalHistorical": "Kathmandu",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "NPL",
+          "capitalLat": 27.72,
+          "capitalLon": 85.32
         },
         {
           "name": "Saudi Arabia",
           "capitalHistorical": "Riyadh",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "SAU",
+          "capitalLat": 24.65,
+          "capitalLon": 46.7
         },
         {
           "name": "Somalia",
           "capitalHistorical": "Mogadishu",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "SOM",
+          "capitalLat": 2.07,
+          "capitalLon": 45.33
         },
         {
           "name": "Sudan",
           "capitalHistorical": "Khartoum",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "SDN",
+          "capitalLat": 15.6,
+          "capitalLon": 32.53
         },
         {
           "name": "Tunisia",
           "capitalHistorical": "Tunis",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "TUN",
+          "capitalLat": 36.8,
+          "capitalLon": 10.18
         },
         {
           "name": "United Arab Republic",
           "capitalHistorical": "Cairo",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "EGY",
+          "capitalLat": 30.05,
+          "capitalLon": 31.25,
+          "iso3Note": "EGY is only a geographic anchor; the historical UAR included Egypt and Syria and has no single current ISO 3166-1 alpha-3 equivalent."
         },
         {
           "name": "Yugoslavia",
           "capitalHistorical": "Belgrade",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "YUG",
+          "capitalLat": 44.83,
+          "capitalLon": 20.5,
+          "iso3Note": "YUG is a withdrawn historical ISO 3166-1 alpha-3 code; ISO 3166-3 code YUCS."
         },
         {
           "name": "Yemen",
           "capitalHistorical": "Taiz",
           "from": "1961-09-01",
-          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961.",
+          "iso3": "YEM",
+          "capitalLat": 13.58,
+          "capitalLon": 44.02
         }
       ],
       "notes": [
@@ -1059,113 +1288,181 @@
         {
           "name": "Egypt",
           "capitalHistorical": "Cairo",
-          "from": "1945-05-10"
+          "from": "1945-05-10",
+          "iso3": "EGY",
+          "capitalLat": 30.05,
+          "capitalLon": 31.25
         },
         {
           "name": "Iraq",
           "capitalHistorical": "Baghdad",
-          "from": "1945-05-10"
+          "from": "1945-05-10",
+          "iso3": "IRQ",
+          "capitalLat": 33.33,
+          "capitalLon": 44.4
         },
         {
           "name": "Lebanon",
           "capitalHistorical": "Beirut",
-          "from": "1945-05-10"
+          "from": "1945-05-10",
+          "iso3": "LBN",
+          "capitalLat": 33.89,
+          "capitalLon": 35.5
         },
         {
           "name": "Saudi Arabia",
           "capitalHistorical": "Riyadh",
-          "from": "1945-05-10"
+          "from": "1945-05-10",
+          "iso3": "SAU",
+          "capitalLat": 24.65,
+          "capitalLon": 46.7
         },
         {
           "name": "Syria",
           "capitalHistorical": "Damascus",
-          "from": "1945-05-10"
+          "from": "1945-05-10",
+          "iso3": "SYR",
+          "capitalLat": 33.5,
+          "capitalLon": 36.3
         },
         {
           "name": "Transjordan",
           "capitalHistorical": "Amman",
-          "from": "1945-05-10"
+          "from": "1945-05-10",
+          "iso3": "JOR",
+          "capitalLat": 31.95,
+          "capitalLon": 35.93
         },
         {
           "name": "Yemen",
           "capitalHistorical": "Taiz",
-          "from": "1945-05-10"
+          "from": "1945-05-10",
+          "iso3": "YEM",
+          "capitalLat": 13.58,
+          "capitalLon": 44.02
         },
         {
           "name": "Libya",
           "capitalHistorical": "Tripoli",
-          "from": "1953"
+          "from": "1953",
+          "iso3": "LBY",
+          "capitalLat": 32.88,
+          "capitalLon": 13.17
         },
         {
           "name": "Sudan",
           "capitalHistorical": "Khartoum",
-          "from": "1956"
+          "from": "1956",
+          "iso3": "SDN",
+          "capitalLat": 15.6,
+          "capitalLon": 32.53
         },
         {
           "name": "Morocco",
           "capitalHistorical": "Rabat",
-          "from": "1958"
+          "from": "1958",
+          "iso3": "MAR",
+          "capitalLat": 34.02,
+          "capitalLon": -6.82
         },
         {
           "name": "Tunisia",
           "capitalHistorical": "Tunis",
-          "from": "1958"
+          "from": "1958",
+          "iso3": "TUN",
+          "capitalLat": 36.8,
+          "capitalLon": 10.18
         },
         {
           "name": "Kuwait",
           "capitalHistorical": "Kuwait City",
-          "from": "1961"
+          "from": "1961",
+          "iso3": "KWT",
+          "capitalLat": 29.37,
+          "capitalLon": 47.97
         },
         {
           "name": "Algeria",
           "capitalHistorical": "Algiers",
-          "from": "1962"
+          "from": "1962",
+          "iso3": "DZA",
+          "capitalLat": 36.75,
+          "capitalLon": 3.05
         },
         {
           "name": "South Yemen",
           "capitalHistorical": "Aden",
-          "from": "1967"
+          "from": "1967",
+          "iso3": "YMD",
+          "capitalLat": 12.8,
+          "capitalLon": 45.03,
+          "iso3Note": "YMD is the historical alpha-3 code for Democratic Yemen; confirm legacy registry mapping before engine use."
         },
         {
           "name": "Bahrain",
           "capitalHistorical": "Manama",
-          "from": "1971"
+          "from": "1971",
+          "iso3": "BHR",
+          "capitalLat": 26.23,
+          "capitalLon": 50.57
         },
         {
           "name": "Qatar",
           "capitalHistorical": "Doha",
-          "from": "1971"
+          "from": "1971",
+          "iso3": "QAT",
+          "capitalLat": 25.28,
+          "capitalLon": 51.53
         },
         {
           "name": "United Arab Emirates",
           "capitalHistorical": "Abu Dhabi",
-          "from": "1971"
+          "from": "1971",
+          "iso3": "ARE",
+          "capitalLat": 24.47,
+          "capitalLon": 54.37
         },
         {
           "name": "Oman",
           "capitalHistorical": "Muscat",
-          "from": "1971"
+          "from": "1971",
+          "iso3": "OMN",
+          "capitalLat": 23.62,
+          "capitalLon": 58.58
         },
         {
           "name": "Mauritania",
           "capitalHistorical": "Nouakchott",
-          "from": "1973"
+          "from": "1973",
+          "iso3": "MRT",
+          "capitalLat": 18.07,
+          "capitalLon": -15.97
         },
         {
           "name": "Somalia",
           "capitalHistorical": "Mogadishu",
-          "from": "1974"
+          "from": "1974",
+          "iso3": "SOM",
+          "capitalLat": 2.07,
+          "capitalLon": 45.33
         },
         {
           "name": "Palestine Liberation Organization",
           "capitalHistorical": "Beirut (operational headquarters in 1976)",
           "from": "1976",
-          "notes": "Admitted as representative of Palestine; not a sovereign-state member row."
+          "notes": "Admitted as representative of Palestine; not a sovereign-state member row.",
+          "iso3": "PSE",
+          "capitalLat": 33.89,
+          "capitalLon": 35.5,
+          "iso3Note": "PSE is a geographic/state-code anchor, not an ISO code for the PLO organization."
         },
         {
           "name": "Djibouti",
           "capitalHistorical": "Djibouti",
-          "from": "1977"
+          "from": "1977",
+          "iso3": "DJI",
+          "capitalLat": 11.58,
+          "capitalLon": 43.15
         }
       ],
       "notes": [
@@ -1184,262 +1481,419 @@
         {
           "name": "Algeria",
           "capitalHistorical": "Algiers",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "DZA",
+          "capitalLat": 36.75,
+          "capitalLon": 3.05
         },
         {
           "name": "Benin (Dahomey)",
           "capitalHistorical": "Porto-Novo",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "BEN",
+          "capitalLat": 6.48,
+          "capitalLon": 2.62
         },
         {
           "name": "Burkina Faso (Upper Volta)",
           "capitalHistorical": "Ouagadougou",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "BFA",
+          "capitalLat": 12.37,
+          "capitalLon": -1.52
         },
         {
           "name": "Burundi",
           "capitalHistorical": "Bujumbura",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "BDI",
+          "capitalLat": -3.38,
+          "capitalLon": 29.36
         },
         {
           "name": "Cameroon",
           "capitalHistorical": "Yaoundé",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "CMR",
+          "capitalLat": 3.85,
+          "capitalLon": 11.5
         },
         {
           "name": "Central African Republic",
           "capitalHistorical": "Bangui",
-          "from": "1963-08-13"
+          "from": "1963-08-13",
+          "iso3": "CAF",
+          "capitalLat": 4.37,
+          "capitalLon": 18.58
         },
         {
           "name": "Chad",
           "capitalHistorical": "Fort-Lamy (N'Djamena)",
-          "from": "1963-08-13"
+          "from": "1963-08-13",
+          "iso3": "TCD",
+          "capitalLat": 12.11,
+          "capitalLon": 15.05
         },
         {
           "name": "Congo (Brazzaville)",
           "capitalHistorical": "Brazzaville",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "COG",
+          "capitalLat": -4.25,
+          "capitalLon": 15.28
         },
         {
           "name": "Congo (Leopoldville)",
           "capitalHistorical": "Leopoldville (Kinshasa)",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "COD",
+          "capitalLat": -4.32,
+          "capitalLon": 15.31
         },
         {
           "name": "Côte d’Ivoire",
           "capitalHistorical": "Abidjan",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "CIV",
+          "capitalLat": 5.35,
+          "capitalLon": -4.01
         },
         {
           "name": "Egypt",
           "capitalHistorical": "Cairo",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "EGY",
+          "capitalLat": 30.05,
+          "capitalLon": 31.25
         },
         {
           "name": "Ethiopia",
           "capitalHistorical": "Addis Ababa",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "ETH",
+          "capitalLat": 9.03,
+          "capitalLon": 38.7
         },
         {
           "name": "Gabon",
           "capitalHistorical": "Libreville",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "GAB",
+          "capitalLat": 0.38,
+          "capitalLon": 9.45
         },
         {
           "name": "Ghana",
           "capitalHistorical": "Accra",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "GHA",
+          "capitalLat": 5.55,
+          "capitalLon": -0.22
         },
         {
           "name": "Guinea",
           "capitalHistorical": "Conakry",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "GIN",
+          "capitalLat": 9.5,
+          "capitalLon": -13.7
         },
         {
           "name": "Liberia",
           "capitalHistorical": "Monrovia",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "LBR",
+          "capitalLat": 6.3,
+          "capitalLon": -10.8
         },
         {
           "name": "Libya",
           "capitalHistorical": "Tripoli",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "LBY",
+          "capitalLat": 32.88,
+          "capitalLon": 13.17
         },
         {
           "name": "Madagascar",
           "capitalHistorical": "Tananarive (Antananarivo)",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "MDG",
+          "capitalLat": -18.92,
+          "capitalLon": 47.52
         },
         {
           "name": "Mali",
           "capitalHistorical": "Bamako",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "MLI",
+          "capitalLat": 12.65,
+          "capitalLon": -8
         },
         {
           "name": "Mauritania",
           "capitalHistorical": "Nouakchott",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "MRT",
+          "capitalLat": 18.07,
+          "capitalLon": -15.97
         },
         {
           "name": "Morocco",
           "capitalHistorical": "Rabat",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "MAR",
+          "capitalLat": 34.02,
+          "capitalLon": -6.82
         },
         {
           "name": "Niger",
           "capitalHistorical": "Niamey",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "NER",
+          "capitalLat": 13.52,
+          "capitalLon": 2.12
         },
         {
           "name": "Nigeria",
           "capitalHistorical": "Lagos",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "NGA",
+          "capitalLat": 6.52,
+          "capitalLon": 3.38
         },
         {
           "name": "Rwanda",
           "capitalHistorical": "Kigali",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "RWA",
+          "capitalLat": -1.95,
+          "capitalLon": 30.05
         },
         {
           "name": "Senegal",
           "capitalHistorical": "Dakar",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "SEN",
+          "capitalLat": 14.73,
+          "capitalLon": -17.63
         },
         {
           "name": "Sierra Leone",
           "capitalHistorical": "Freetown",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "SLE",
+          "capitalLat": 8.48,
+          "capitalLon": -13.23
         },
         {
           "name": "Somalia",
           "capitalHistorical": "Mogadishu",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "SOM",
+          "capitalLat": 2.07,
+          "capitalLon": 45.33
         },
         {
           "name": "Sudan",
           "capitalHistorical": "Khartoum",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "SDN",
+          "capitalLat": 15.6,
+          "capitalLon": 32.53
         },
         {
           "name": "Tanganyika",
           "capitalHistorical": "Dar es Salaam",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "TZA",
+          "capitalLat": -6.79,
+          "capitalLon": 39.21
         },
         {
           "name": "Togo",
           "capitalHistorical": "Lomé",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "TGO",
+          "capitalLat": 6.14,
+          "capitalLon": 1.21
         },
         {
           "name": "Tunisia",
           "capitalHistorical": "Tunis",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "TUN",
+          "capitalLat": 36.8,
+          "capitalLon": 10.18
         },
         {
           "name": "Uganda",
           "capitalHistorical": "Kampala",
-          "from": "1963-05-25"
+          "from": "1963-05-25",
+          "iso3": "UGA",
+          "capitalLat": 0.32,
+          "capitalLon": 32.55
         },
         {
           "name": "Kenya",
           "capitalHistorical": "Nairobi",
-          "from": "1963-12-13"
+          "from": "1963-12-13",
+          "iso3": "KEN",
+          "capitalLat": -1.28,
+          "capitalLon": 36.82
         },
         {
           "name": "Malawi",
           "capitalHistorical": "Zomba",
-          "from": "1964-07-13"
+          "from": "1964-07-13",
+          "iso3": "MWI",
+          "capitalLat": -15.39,
+          "capitalLon": 35.32
         },
         {
           "name": "Zambia",
           "capitalHistorical": "Lusaka",
-          "from": "1964-12-16"
+          "from": "1964-12-16",
+          "iso3": "ZMB",
+          "capitalLat": -15.42,
+          "capitalLon": 28.28
         },
         {
           "name": "Gambia",
           "capitalHistorical": "Bathurst (Banjul)",
-          "from": "1965-03-09"
+          "from": "1965-03-09",
+          "iso3": "GMB",
+          "capitalLat": 13.45,
+          "capitalLon": -16.58
         },
         {
           "name": "Botswana",
           "capitalHistorical": "Gaborone",
-          "from": "1966-10-31"
+          "from": "1966-10-31",
+          "iso3": "BWA",
+          "capitalLat": -24.63,
+          "capitalLon": 25.9
         },
         {
           "name": "Lesotho",
           "capitalHistorical": "Maseru",
-          "from": "1966-10-31"
+          "from": "1966-10-31",
+          "iso3": "LSO",
+          "capitalLat": -29.32,
+          "capitalLon": 27.48
         },
         {
           "name": "Equatorial Guinea",
           "capitalHistorical": "Santa Isabel (Malabo)",
-          "from": "1968-10-12"
+          "from": "1968-10-12",
+          "iso3": "GNQ",
+          "capitalLat": 3.75,
+          "capitalLon": 8.78
         },
         {
           "name": "Swaziland",
           "capitalHistorical": "Mbabane",
-          "from": "1968-09-24"
+          "from": "1968-09-24",
+          "iso3": "SWZ",
+          "capitalLat": -26.32,
+          "capitalLon": 31.13
         },
         {
           "name": "Mauritius",
           "capitalHistorical": "Port Louis",
-          "from": "1968-08"
+          "from": "1968-08",
+          "iso3": "MUS",
+          "capitalLat": -20.15,
+          "capitalLon": 57.48
         },
         {
           "name": "Guinea-Bissau",
           "capitalHistorical": "Bissau",
-          "from": "1973-11-19"
+          "from": "1973-11-19",
+          "iso3": "GNB",
+          "capitalLat": 11.85,
+          "capitalLon": -15.58
         },
         {
           "name": "Angola",
           "capitalHistorical": "Luanda",
-          "from": "1975-02-11"
+          "from": "1975-02-11",
+          "iso3": "AGO",
+          "capitalLat": -8.83,
+          "capitalLon": 13.22
         },
         {
           "name": "Mozambique",
           "capitalHistorical": "Maputo (Lourenço Marques)",
-          "from": "1975-07-18"
+          "from": "1975-07-18",
+          "iso3": "MOZ",
+          "capitalLat": -25.97,
+          "capitalLon": 32.58
         },
         {
           "name": "Cabo Verde",
           "capitalHistorical": "Praia",
-          "from": "1975-07-18"
+          "from": "1975-07-18",
+          "iso3": "CPV",
+          "capitalLat": 14.92,
+          "capitalLon": -23.52
         },
         {
           "name": "Comoros",
           "capitalHistorical": "Moroni",
-          "from": "1975-07-18"
+          "from": "1975-07-18",
+          "iso3": "COM",
+          "capitalLat": -11.7,
+          "capitalLon": 43.23
         },
         {
           "name": "São Tomé and Príncipe",
           "capitalHistorical": "São Tomé",
-          "from": "1975-07-18"
+          "from": "1975-07-18",
+          "iso3": "STP",
+          "capitalLat": 0.34,
+          "capitalLon": 6.73
         },
         {
           "name": "Seychelles",
           "capitalHistorical": "Victoria",
-          "from": "1976-06-29"
+          "from": "1976-06-29",
+          "iso3": "SYC",
+          "capitalLat": -4.62,
+          "capitalLon": 55.45
         },
         {
           "name": "Djibouti",
           "capitalHistorical": "Djibouti",
-          "from": "1977-06-27"
+          "from": "1977-06-27",
+          "iso3": "DJI",
+          "capitalLat": 11.58,
+          "capitalLon": 43.15
         },
         {
           "name": "Zimbabwe",
           "capitalHistorical": "Salisbury (Harare)",
-          "from": "1980-06-18"
+          "from": "1980-06-18",
+          "iso3": "ZWE",
+          "capitalLat": -17.83,
+          "capitalLon": 31.05
         },
         {
           "name": "Sahrawi Arab Democratic Republic",
           "capitalHistorical": "El Aaiún (claimed); Tindouf exile institutions",
-          "from": "1982-02-22"
+          "from": "1982-02-22",
+          "iso3": "ESH",
+          "capitalLat": 27.15,
+          "capitalLon": -13.2,
+          "iso3Note": "ESH identifies Western Sahara geographically; it is not an ISO 3166-1 alpha-3 code for the SADR as a state."
         },
         {
           "name": "Namibia",
           "capitalHistorical": "Windhoek",
-          "from": "1990-06"
+          "from": "1990-06",
+          "iso3": "NAM",
+          "capitalLat": -22.57,
+          "capitalLon": 17.08
         }
       ],
       "notes": [
@@ -1458,52 +1912,82 @@
         {
           "name": "Indonesia",
           "capitalHistorical": "Jakarta",
-          "from": "1967-08-08"
+          "from": "1967-08-08",
+          "iso3": "IDN",
+          "capitalLat": -6.17,
+          "capitalLon": 106.82
         },
         {
           "name": "Malaysia",
           "capitalHistorical": "Kuala Lumpur",
-          "from": "1967-08-08"
+          "from": "1967-08-08",
+          "iso3": "MYS",
+          "capitalLat": 3.17,
+          "capitalLon": 101.7
         },
         {
           "name": "Philippines",
           "capitalHistorical": "Manila",
-          "from": "1967-08-08"
+          "from": "1967-08-08",
+          "iso3": "PHL",
+          "capitalLat": 14.6,
+          "capitalLon": 120.97
         },
         {
           "name": "Singapore",
           "capitalHistorical": "Singapore",
-          "from": "1967-08-08"
+          "from": "1967-08-08",
+          "iso3": "SGP",
+          "capitalLat": 1.28,
+          "capitalLon": 103.85
         },
         {
           "name": "Thailand",
           "capitalHistorical": "Bangkok",
-          "from": "1967-08-08"
+          "from": "1967-08-08",
+          "iso3": "THA",
+          "capitalLat": 13.75,
+          "capitalLon": 100.52
         },
         {
           "name": "Brunei",
           "capitalHistorical": "Bandar Seri Begawan",
-          "from": "1984-01-07"
+          "from": "1984-01-07",
+          "iso3": "BRN",
+          "capitalLat": 4.88,
+          "capitalLon": 114.93
         },
         {
           "name": "Viet Nam",
           "capitalHistorical": "Hanoi",
-          "from": "1995-07-28"
+          "from": "1995-07-28",
+          "iso3": "VNM",
+          "capitalLat": 21.03,
+          "capitalLon": 105.85
         },
         {
           "name": "Laos",
           "capitalHistorical": "Vientiane",
-          "from": "1997-07-23"
+          "from": "1997-07-23",
+          "iso3": "LAO",
+          "capitalLat": 17.97,
+          "capitalLon": 102.6
         },
         {
           "name": "Myanmar",
           "capitalHistorical": "Yangon",
-          "from": "1997-07-23"
+          "from": "1997-07-23",
+          "iso3": "MMR",
+          "capitalLat": 16.87,
+          "capitalLon": 96.2
         },
         {
           "name": "Cambodia",
           "capitalHistorical": "Phnom Penh",
-          "from": "1999-04-30"
+          "from": "1999-04-30",
+          "iso3": "KHM",
+          "capitalLat": 11.55,
+          "capitalLon": 104.92
         }
       ],
       "notes": [
@@ -1522,197 +2006,302 @@
           "name": "Argentina",
           "capitalHistorical": "Buenos Aires",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "ARG",
+          "capitalLat": -34.58,
+          "capitalLon": -58.67
         },
         {
           "name": "Bolivia",
           "capitalHistorical": "La Paz",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "BOL",
+          "capitalLat": -16.5,
+          "capitalLon": -68.15
         },
         {
           "name": "Brazil",
           "capitalHistorical": "Rio de Janeiro",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "BRA",
+          "capitalLat": -22.91,
+          "capitalLon": -43.17
         },
         {
           "name": "Chile",
           "capitalHistorical": "Santiago",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "CHL",
+          "capitalLat": -33.45,
+          "capitalLon": -70.67
         },
         {
           "name": "Colombia",
           "capitalHistorical": "Bogotá",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "COL",
+          "capitalLat": 4.71,
+          "capitalLon": -74.07
         },
         {
           "name": "Costa Rica",
           "capitalHistorical": "San José",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "CRI",
+          "capitalLat": 9.93,
+          "capitalLon": -84.09
         },
         {
           "name": "Cuba",
           "capitalHistorical": "Havana",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "CUB",
+          "capitalLat": 23.12,
+          "capitalLon": -82.35
         },
         {
           "name": "Dominican Republic",
           "capitalHistorical": "Santo Domingo",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "DOM",
+          "capitalLat": 18.47,
+          "capitalLon": -69.9
         },
         {
           "name": "Ecuador",
           "capitalHistorical": "Quito",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "ECU",
+          "capitalLat": -0.22,
+          "capitalLon": -78.5
         },
         {
           "name": "El Salvador",
           "capitalHistorical": "San Salvador",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "SLV",
+          "capitalLat": 13.7,
+          "capitalLon": -89.2
         },
         {
           "name": "Guatemala",
           "capitalHistorical": "Guatemala City",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "GTM",
+          "capitalLat": 14.62,
+          "capitalLon": -90.52
         },
         {
           "name": "Haiti",
           "capitalHistorical": "Port-au-Prince",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "HTI",
+          "capitalLat": 18.53,
+          "capitalLon": -72.33
         },
         {
           "name": "Honduras",
           "capitalHistorical": "Tegucigalpa",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "HND",
+          "capitalLat": 14.1,
+          "capitalLon": -87.22
         },
         {
           "name": "Mexico",
           "capitalHistorical": "Mexico City",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "MEX",
+          "capitalLat": 19.43,
+          "capitalLon": -99.13
         },
         {
           "name": "Nicaragua",
           "capitalHistorical": "Managua",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "NIC",
+          "capitalLat": 12.13,
+          "capitalLon": -86.25
         },
         {
           "name": "Panama",
           "capitalHistorical": "Panama City",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "PAN",
+          "capitalLat": 8.97,
+          "capitalLon": -79.53
         },
         {
           "name": "Paraguay",
           "capitalHistorical": "Asunción",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "PRY",
+          "capitalLat": -25.28,
+          "capitalLon": -57.57
         },
         {
           "name": "Peru",
           "capitalHistorical": "Lima",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "PER",
+          "capitalLat": -12.05,
+          "capitalLon": -77.05
         },
         {
           "name": "United States",
           "capitalHistorical": "Washington, D.C.",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "USA",
+          "capitalLat": 38.89,
+          "capitalLon": -77.05
         },
         {
           "name": "Uruguay",
           "capitalHistorical": "Montevideo",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "URY",
+          "capitalLat": -34.85,
+          "capitalLon": -56.17
         },
         {
           "name": "Venezuela",
           "capitalHistorical": "Caracas",
           "from": "1951-12-13",
-          "notes": "Original signatory; individual ratification/entry date may differ."
+          "notes": "Original signatory; individual ratification/entry date may differ.",
+          "iso3": "VEN",
+          "capitalLat": 10.48,
+          "capitalLon": -66.87
         },
         {
           "name": "Trinidad and Tobago",
           "capitalHistorical": "Port of Spain",
-          "from": "1967"
+          "from": "1967",
+          "iso3": "TTO",
+          "capitalLat": 10.65,
+          "capitalLon": -61.52
         },
         {
           "name": "Barbados",
           "capitalHistorical": "Bridgetown",
-          "from": "1967"
+          "from": "1967",
+          "iso3": "BRB",
+          "capitalLat": 13.1,
+          "capitalLon": -59.62
         },
         {
           "name": "Jamaica",
           "capitalHistorical": "Kingston",
-          "from": "1969"
+          "from": "1969",
+          "iso3": "JAM",
+          "capitalLat": 18,
+          "capitalLon": -76.79
         },
         {
           "name": "Grenada",
           "capitalHistorical": "St. George's",
-          "from": "1975"
+          "from": "1975",
+          "iso3": "GRD",
+          "capitalLat": 12.05,
+          "capitalLon": -61.75
         },
         {
           "name": "Suriname",
           "capitalHistorical": "Paramaribo",
-          "from": "1977"
+          "from": "1977",
+          "iso3": "SUR",
+          "capitalLat": 5.83,
+          "capitalLon": -55.17
         },
         {
           "name": "Dominica",
           "capitalHistorical": "Roseau",
-          "from": "1979"
+          "from": "1979",
+          "iso3": "DMA",
+          "capitalLat": 15.3,
+          "capitalLon": -61.4
         },
         {
           "name": "Saint Lucia",
           "capitalHistorical": "Castries",
-          "from": "1979"
+          "from": "1979",
+          "iso3": "LCA",
+          "capitalLat": 14,
+          "capitalLon": -61
         },
         {
           "name": "Antigua and Barbuda",
           "capitalHistorical": "St. John's",
-          "from": "1981"
+          "from": "1981",
+          "iso3": "ATG",
+          "capitalLat": 17.12,
+          "capitalLon": -61.85
         },
         {
           "name": "Saint Vincent and the Grenadines",
           "capitalHistorical": "Kingstown",
-          "from": "1981"
+          "from": "1981",
+          "iso3": "VCT",
+          "capitalLat": 13.13,
+          "capitalLon": -61.22
         },
         {
           "name": "Bahamas",
           "capitalHistorical": "Nassau",
-          "from": "1982"
+          "from": "1982",
+          "iso3": "BHS",
+          "capitalLat": 25.08,
+          "capitalLon": -77.35
         },
         {
           "name": "Saint Kitts and Nevis",
           "capitalHistorical": "Basseterre",
-          "from": "1984"
+          "from": "1984",
+          "iso3": "KNA",
+          "capitalLat": 17.3,
+          "capitalLon": -62.72
         },
         {
           "name": "Canada",
           "capitalHistorical": "Ottawa",
-          "from": "1990"
+          "from": "1990",
+          "iso3": "CAN",
+          "capitalLat": 45.42,
+          "capitalLon": -75.7
         },
         {
           "name": "Belize",
           "capitalHistorical": "Belmopan",
-          "from": "1991"
+          "from": "1991",
+          "iso3": "BLZ",
+          "capitalLat": 17.25,
+          "capitalLon": -88.77
         },
         {
           "name": "Guyana",
           "capitalHistorical": "Georgetown",
-          "from": "1991"
+          "from": "1991",
+          "iso3": "GUY",
+          "capitalLat": 6.8,
+          "capitalLon": -58.15
         }
       ],
       "notes": [
@@ -1927,6 +2516,9 @@
     "Membership date must represent legal accession/effect, not necessarily treaty signature. Where not verified to a day, retain year/month precision and do not coerce to YYYY-MM-DD.",
     "The Rio Treaty and OAS founding member rows use founding signatory/early-party cohorts; exact national ratification dates and later withdrawal/suspension histories require a dedicated member-by-member pass.",
     "The OAU list is a selected Cold War accession roster; current AU members and post-1991 accessions are not silently back-projected.",
-    "Historical capitals are time-sensitive: Karachi (Pakistan), Rangoon (Burma), Leopoldville (Congo), Lagos (Nigeria), Dar es Salaam (Tanganyika), Zomba (Malawi), Salisbury (Zimbabwe), East Berlin (GDR), Bonn (FRG), and Taiz (Yemen) are retained where historically relevant."
+    "Historical capitals are time-sensitive: Karachi (Pakistan), Rangoon (Burma), Leopoldville (Congo), Lagos (Nigeria), Dar es Salaam (Tanganyika), Zomba (Malawi), Salisbury (Zimbabwe), East Berlin (GDR), Bonn (FRG), and Taiz (Yemen) are retained where historically relevant.",
+    "CG-46b adds ISO alpha-3 identifiers and historical-capital point coordinates to all economic-bloc and political-organisation member rows only; military-alliance rows remain unchanged. Historical/legacy and geographic-anchor codes are annotated and are not canonical engine entity IDs.",
+    "capitalLat/capitalLon are approximate WGS84 city-point coordinates rounded to 0.01 degree for map placement; they are not region centroids or territorial ownership geometry.",
+    "EEC/EU customs union completed 1968-07-01; the six founding members entered on that date and later accessions entered on their EEC accession effective date."
   ]
 }
