@@ -135,7 +135,7 @@ The 1.15 patch notes are the controlling reference for this update. Legacy thres
 - Victoria 3 1.15 infamy rebalance, release-country rules and state-infamy map mode: https://steamcommunity.com/app/529340/announcements/?l=spanish
 - Victoria 3 official Dev Diary on infamy and diplomatic incidents: https://store.steampowered.com/news/posts/?enddate=1634227241&feed=steam_community_announcements
 - Community reference for legacy infamy thresholds (verify against 1.15 installed game data): https://steamcommunity.com/sharedfiles/filedetails/?id=2891239044
-- Community reference for legacy base decay define (verify against 1.15 installed game data): https://gamebox.jp/victoria3/infamy.html
+- Community reference sometimes cited for the legacy decay value (not authoritative; verify against installed 1.15 defines): https://gamebox.jp/victoria3/infamy.html
 
 ## Parity matrix review notes
 
@@ -170,7 +170,7 @@ Current branch values in `src/engine/systems/diplomacy.ts`:
 | Project implementation | Value / behavior | Victoria 3 reference |
 |---|---|---|
 | `INFAMY_TIERS` | 25 / 50 / **80** | Familiar vanilla thresholds are 25 / 50 / **100** (Pariah); the official legacy Dev Diary explicitly gives 100. Confirm installed 1.15 defines before locking values. |
-| `INFAMY_DECAY_PER_MONTH` | 0.25 = **3 per year** | Legacy vanilla base is 5 per year; unallocated Influence can increase decay. Verify the actual 1.15 define before adopting the constant. |
+| `INFAMY_DECAY_PER_MONTH` | 0.25 = **3 per year** | Some community references cite a legacy base of 5 per year; the official Dev Diary confirms slow decay and an increase from unallocated Influence but does not publish the numeric base. Treat 5/year as an unverified legacy reference and read the installed 1.15 define before adopting any constant. |
 | Decay condition | Stops while the country is an attacker in a conquest/colonial war | Public 1.15 notes and the official Infamy diary describe slow decay and an Influence-related boost, but do not establish this offensive-war pause. Treat the pause as a project rule until verified against 1.15 game data. |
 | `warInfamy()` | number of targeted regions × 3, multiplied by 4 after 1945; independence is free | Victoria 3 1.15 bases most territorial war-goal costs on a target-state value derived primarily from global GDP and population, then applies rank, recognition, subject, interest and other modifiers. A flat region multiplier is not parity. |
 | `CONTAIN_AGGRESSOR` | Target infamy ≥25 or currently attacking; attacker pays 25% normal infamy | This is a project-specific discount for fighting an aggressor. It is **not** Victoria 3's Pariah containment war goal. |
