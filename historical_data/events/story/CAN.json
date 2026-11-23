@@ -1,0 +1,114 @@
+{
+  "schema": "story_events_v1",
+  "country": "CAN",
+  "sources": {
+    "kenya_history": "https://www.nationalarchives.gov.uk/education/resources/kenya-emergency/",
+    "ghana_history": "https://www.britannica.com/place/Ghana/History",
+    "nigeria_history": "https://www.britannica.com/place/Nigeria/History",
+    "rhodesia_sanctions": "https://history.state.gov/historicaldocuments/frus1964-68v24/d559",
+    "south_africa_history": "https://sahistory.org.za/article/control-1910-1948",
+    "boer_war": "https://www.iwm.org.uk/history/what-you-need-to-know-about-the-boer-war",
+    "caribbean_history": "https://www.britannica.com/place/Jamaica/History",
+    "cyprus_history": "https://www.britannica.com/place/Cyprus/History",
+    "malta_history": "https://www.gov.mt/en/About%20Malta/Pages/History.aspx",
+    "canada_parliament": "https://www.ourcommons.ca/procedure/procedure-and-practice-3/ch_01_2-e.html",
+    "ireland_difp": "https://www.difp.ie/books/volume-1/",
+    "ireland_treaty": "https://researchbriefings.files.parliament.uk/documents/CBP-9260/CBP-9260.pdf"
+  },
+  "events": [
+    {
+      "id": "can_confederation_1867",
+      "country": "CAN",
+      "mode": "historical",
+      "window": [
+        "1867-07-01",
+        "1869-12-31"
+      ],
+      "date_historical": "1867-07-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "CAN"
+          },
+          {
+            "type": "owns",
+            "entity": "CAN",
+            "region": "GBR_LCA"
+          },
+          {
+            "type": "year_between",
+            "from": 1867,
+            "to": 1869
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Canada xây dựng liên bang mới",
+      "title_en": "Canada Builds Its New Federation",
+      "text_vi": "Dominion Canada phải chuyển các thuộc địa cũ thành một hệ thống liên bang có nghị viện, nội các và các tỉnh với quyền hạn được phân định. Quebec cần bảo đảm ngôn ngữ và luật dân sự, trong khi các tỉnh Đại Tây Dương lo ngại bị lấn át bởi Ontario và Quebec. Chính phủ có thể ưu tiên thống nhất hành chính hoặc trao bảo đảm rõ ràng hơn cho các tỉnh và cộng đồng Pháp ngữ.",
+      "text_en": "The Dominion of Canada must turn the former colonies into a federation with a parliament, cabinet and provinces whose powers are clearly defined. Quebec seeks guarantees for language and civil law, while Atlantic provinces fear domination by Ontario and Quebec. The government can prioritise administrative unity or provide stronger safeguards for provinces and French-speaking communities.",
+      "options": [
+        {
+          "id": "can_federal_guarantees",
+          "label_vi": "Bảo đảm quyền tỉnh bang và quyền ngôn ngữ của Quebec",
+          "label_en": "Guarantee provincial powers and Quebec's language rights",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "can_1867_federal_guarantees",
+              "name_vi": "Bảo đảm liên bang Canada",
+              "name_en": "Canadian Federal Guarantees",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "reform": 0.01,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "CAN",
+              "delta": 0.5
+            }
+          ]
+        },
+        {
+          "id": "can_centralise",
+          "label_vi": "Tập trung thuế quan, quốc phòng và hạ tầng vào chính phủ liên bang",
+          "label_en": "Centralise customs, defence and infrastructure under the federal government",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "can_1867_centralisation",
+              "name_vi": "Liên bang Canada tập trung",
+              "name_en": "Canadian Federal Centralisation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "army": 0.02,
+                "legitimacy": -1
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "CAN",
+              "months_income": -0.2
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "canada_parliament"
+      ]
+    }
+  ]
+}
