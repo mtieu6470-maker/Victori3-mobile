@@ -125,4 +125,5 @@ Các ví dụ có trong dữ liệu: Đức 1933–1945, Ý 1926–1945, Tây Ba
 - `ssa_unemployment_1937` — US Social Security Administration archive: Social Security in America, unemployment compensation (verified). https://www.ssa.gov/history/reports/ces/cesbookc1.html
 - `ssa_bismarck_pensions` — US Social Security Administration: historical development of social insurance (supported). https://www.ssa.gov/history/bortz.html
 - `pension_programs_table` — The Political Origin of Pension Funding, Table 1: Development of Pension Systems (supported). https://www.pseweb.eu/ydepot/semin/texte0607/PER2006POL.pdf
+- `aec_australia_1902` — Australian Electoral Commission, A short history of federal electoral reform (verified). https://www.aec.gov.au/Elections/history-of-electoral-reform.htm
 - `issa_profiles` — ISSA Country Profiles – methodology and coverage (verified). https://www.issa.int/databases/country-profiles/about
