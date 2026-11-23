@@ -218,7 +218,6 @@
               "months": 60,
               "decaying": true,
               "effects": {
-                "nationalism": 0.02,
                 "radicalism": 0.02,
                 "legitimacy": 1
               }
