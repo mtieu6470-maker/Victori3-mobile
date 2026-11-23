@@ -1,0 +1,1931 @@
+{
+  "schemaVersion": 1,
+  "project": "Victori3",
+  "researchId": "CG-46",
+  "title": "Cold War alliances, economic blocs and political organisations",
+  "coverage": "1945-1993 core Cold War period; selected treaty relationships continuing beyond 1993 are retained with explicit end-date semantics.",
+  "datePolicy": "Use treaty signature, entry-into-force, accession, withdrawal or dissolution dates according to the event described. Never infer a member withdrawal from a command-structure suspension. Where only year/month is verified, preserve partial precision in the report and do not fabricate a day.",
+  "capitalPolicy": "capitalHistorical is the capital used by the state at the membership start date; disputed, de facto or government-in-exile seats are annotated. It is a descriptive city string, not a region ID.",
+  "membershipPolicy": "Member rows represent treaty parties or formal organization members, not protected territories, observers, associate members or states covered by a treaty protocol. Those categories are separately labelled.",
+  "organizations": [
+    {
+      "id": "NATO",
+      "name_en": "North Atlantic Treaty Organization",
+      "name_vi": "Tổ chức Hiệp ước Bắc Đại Tây Dương",
+      "type": "military_alliance",
+      "founded": "1949-04-04",
+      "effective": "1949-08-24",
+      "dissolved": null,
+      "members": [
+        {
+          "name": "United States",
+          "capitalHistorical": "Washington, D.C.",
+          "from": "1949-08-24"
+        },
+        {
+          "name": "United Kingdom",
+          "capitalHistorical": "London",
+          "from": "1949-08-24"
+        },
+        {
+          "name": "France",
+          "capitalHistorical": "Paris",
+          "from": "1949-08-24"
+        },
+        {
+          "name": "Belgium",
+          "capitalHistorical": "Brussels",
+          "from": "1949-08-24"
+        },
+        {
+          "name": "Netherlands",
+          "capitalHistorical": "The Hague",
+          "from": "1949-08-24"
+        },
+        {
+          "name": "Luxembourg",
+          "capitalHistorical": "Luxembourg",
+          "from": "1949-08-24"
+        },
+        {
+          "name": "Canada",
+          "capitalHistorical": "Ottawa",
+          "from": "1949-08-24"
+        },
+        {
+          "name": "Denmark",
+          "capitalHistorical": "Copenhagen",
+          "from": "1949-08-24"
+        },
+        {
+          "name": "Iceland",
+          "capitalHistorical": "Reykjavík",
+          "from": "1949-08-24"
+        },
+        {
+          "name": "Italy",
+          "capitalHistorical": "Rome",
+          "from": "1949-08-24"
+        },
+        {
+          "name": "Norway",
+          "capitalHistorical": "Oslo",
+          "from": "1949-08-24"
+        },
+        {
+          "name": "Portugal",
+          "capitalHistorical": "Lisbon",
+          "from": "1949-08-24"
+        },
+        {
+          "name": "Greece",
+          "capitalHistorical": "Athens",
+          "from": "1952-02-18"
+        },
+        {
+          "name": "Turkey",
+          "capitalHistorical": "Ankara",
+          "from": "1952-02-18"
+        },
+        {
+          "name": "Federal Republic of Germany",
+          "capitalHistorical": "Bonn",
+          "from": "1955-05-09"
+        },
+        {
+          "name": "Spain",
+          "capitalHistorical": "Madrid",
+          "from": "1982-05-30"
+        }
+      ],
+      "notes": [
+        "The Federal Republic of Germany joined in 1955; German reunification on 3 October 1990 extended the Federal Republic's membership to the former GDR, not a separate GDR accession.",
+        "France remained a political member throughout; it withdrew from the integrated military command in 1966 and fully rejoined that structure in 2009.",
+        "Greece remained a political member while its forces withdrew from the integrated military structure in August 1974; reintegration approved 20 October 1980."
+      ]
+    },
+    {
+      "id": "WARSAW_PACT",
+      "name_en": "Warsaw Treaty Organization",
+      "name_vi": "Tổ chức Hiệp ước Warszawa",
+      "type": "military_alliance",
+      "founded": "1955-05-14",
+      "effective": "1955-06-04",
+      "dissolved": "1991-07-01",
+      "members": [
+        {
+          "name": "Soviet Union",
+          "capitalHistorical": "Moscow",
+          "from": "1955-06-04",
+          "to": "1991-07-01"
+        },
+        {
+          "name": "Poland",
+          "capitalHistorical": "Warsaw",
+          "from": "1955-06-04",
+          "to": "1991-07-01"
+        },
+        {
+          "name": "Czechoslovakia",
+          "capitalHistorical": "Prague",
+          "from": "1955-06-04",
+          "to": "1991-07-01"
+        },
+        {
+          "name": "Hungary",
+          "capitalHistorical": "Budapest",
+          "from": "1955-06-04",
+          "to": "1991-07-01"
+        },
+        {
+          "name": "Bulgaria",
+          "capitalHistorical": "Sofia",
+          "from": "1955-06-04",
+          "to": "1991-07-01"
+        },
+        {
+          "name": "Romania",
+          "capitalHistorical": "Bucharest",
+          "from": "1955-06-04",
+          "to": "1991-07-01"
+        },
+        {
+          "name": "Albania",
+          "capitalHistorical": "Tirana",
+          "from": "1955-06-04",
+          "to": "1968-09-13",
+          "notes": "De facto ceased participation in 1961; formal withdrawal notification 13 September 1968."
+        },
+        {
+          "name": "German Democratic Republic",
+          "capitalHistorical": "East Berlin",
+          "from": "1956-01-28",
+          "to": "1990-09-24",
+          "notes": "Withdrawal in preparation for German reunification."
+        }
+      ],
+      "notes": [
+        "Original treaty signed 14 May 1955; entered into force 4 June 1955.",
+        "Albania's political break/de facto non-participation dates from 1961; formal withdrawal was notified in 1968. Do not collapse these into one date.",
+        "GDR withdrawal took effect 24 September 1990; organization dissolved in 1991."
+      ]
+    },
+    {
+      "id": "SEATO",
+      "name_en": "Southeast Asia Treaty Organization",
+      "name_vi": "Tổ chức Hiệp ước Đông Nam Á",
+      "type": "military_alliance",
+      "founded": "1954-09-08",
+      "effective": "1955-02-19",
+      "dissolved": "1977-06-30",
+      "members": [
+        {
+          "name": "United States",
+          "capitalHistorical": "Washington, D.C.",
+          "from": "1955-02-19"
+        },
+        {
+          "name": "United Kingdom",
+          "capitalHistorical": "London",
+          "from": "1955-02-19"
+        },
+        {
+          "name": "France",
+          "capitalHistorical": "Paris",
+          "from": "1955-02-19"
+        },
+        {
+          "name": "Australia",
+          "capitalHistorical": "Canberra",
+          "from": "1955-02-19"
+        },
+        {
+          "name": "New Zealand",
+          "capitalHistorical": "Wellington",
+          "from": "1955-02-19"
+        },
+        {
+          "name": "Philippines",
+          "capitalHistorical": "Manila",
+          "from": "1955-02-19"
+        },
+        {
+          "name": "Thailand",
+          "capitalHistorical": "Bangkok",
+          "from": "1955-02-19"
+        },
+        {
+          "name": "Pakistan",
+          "capitalHistorical": "Karachi",
+          "from": "1955-02-19",
+          "notes": "Withdrew in 1973."
+        }
+      ],
+      "notes": [
+        "Treaty parties were eight states; Cambodia, Laos and the free territory under the jurisdiction of the State of Vietnam were designated under a protocol as protected areas, not members.",
+        "Pakistan withdrew in 1973; France's participation became inactive/withdrew from military activities in the early 1970s, but a precise formal exit date requires primary-source verification.",
+        "SEATO formally dissolved in 1977."
+      ]
+    },
+    {
+      "id": "CENTO",
+      "name_en": "Central Treaty Organization (Baghdad Pact)",
+      "name_vi": "Tổ chức Hiệp ước Trung tâm (Hiệp ước Baghdad)",
+      "type": "military_alliance",
+      "founded": "1955-02-24",
+      "effective": "1955-11-03",
+      "dissolved": "1979-09-26",
+      "members": [
+        {
+          "name": "Turkey",
+          "capitalHistorical": "Ankara",
+          "from": "1955-04-15"
+        },
+        {
+          "name": "Iraq",
+          "capitalHistorical": "Baghdad",
+          "from": "1955-02-24",
+          "to": "1959-03-24"
+        },
+        {
+          "name": "United Kingdom",
+          "capitalHistorical": "London",
+          "from": "1955-04-05"
+        },
+        {
+          "name": "Pakistan",
+          "capitalHistorical": "Karachi",
+          "from": "1955-09-23",
+          "to": "1979-03-12"
+        },
+        {
+          "name": "Iran",
+          "capitalHistorical": "Tehran",
+          "from": "1955-11-03",
+          "to": "1979-03-12"
+        }
+      ],
+      "notes": [
+        "The Baghdad Pact became CENTO on 19 August 1959; United States was an associate/observer and bilateral partner, not a full member.",
+        "Iraq withdrew in March 1959. Iran and Pakistan withdrew in March 1979; CENTO was formally dissolved on 26 September 1979."
+      ]
+    },
+    {
+      "id": "ANZUS",
+      "name_en": "Security Treaty between Australia, New Zealand and the United States",
+      "name_vi": "Hiệp ước An ninh Australia–New Zealand–Hoa Kỳ (ANZUS)",
+      "type": "military_alliance",
+      "founded": "1951-09-01",
+      "effective": "1952-04-29",
+      "dissolved": null,
+      "members": [
+        {
+          "name": "Australia",
+          "capitalHistorical": "Canberra",
+          "from": "1952-04-29"
+        },
+        {
+          "name": "New Zealand",
+          "capitalHistorical": "Wellington",
+          "from": "1952-04-29",
+          "notes": "United States suspended its treaty security obligations toward New Zealand from 1986; New Zealand was not formally expelled and the treaty continued between Australia and the United States."
+        },
+        {
+          "name": "United States",
+          "capitalHistorical": "Washington, D.C.",
+          "from": "1952-04-29"
+        }
+      ],
+      "notes": [
+        "Do not encode New Zealand as a clean formal withdrawal without a treaty termination instrument; the 1986 dispute concerned implementation of US obligations."
+      ]
+    },
+    {
+      "id": "RIO_TREATY",
+      "name_en": "Inter-American Treaty of Reciprocal Assistance (Rio Treaty)",
+      "name_vi": "Hiệp ước Liên Mỹ về trợ giúp lẫn nhau (Hiệp ước Rio)",
+      "type": "military_alliance",
+      "founded": "1947-09-02",
+      "effective": "1948-12-03",
+      "dissolved": null,
+      "members": [
+        {
+          "name": "Argentina",
+          "capitalHistorical": "Buenos Aires",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "Bolivia",
+          "capitalHistorical": "La Paz",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "Brazil",
+          "capitalHistorical": "Rio de Janeiro",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "Chile",
+          "capitalHistorical": "Santiago",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "Colombia",
+          "capitalHistorical": "Bogotá",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "Costa Rica",
+          "capitalHistorical": "San José",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "Cuba",
+          "capitalHistorical": "Havana",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "Dominican Republic",
+          "capitalHistorical": "Santo Domingo",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "Ecuador",
+          "capitalHistorical": "Quito",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "El Salvador",
+          "capitalHistorical": "San Salvador",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "Guatemala",
+          "capitalHistorical": "Guatemala City",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "Haiti",
+          "capitalHistorical": "Port-au-Prince",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "Honduras",
+          "capitalHistorical": "Tegucigalpa",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "Mexico",
+          "capitalHistorical": "Mexico City",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "Nicaragua",
+          "capitalHistorical": "Managua",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "Panama",
+          "capitalHistorical": "Panama City",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "Paraguay",
+          "capitalHistorical": "Asunción",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "Peru",
+          "capitalHistorical": "Lima",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "United States",
+          "capitalHistorical": "Washington, D.C.",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "Uruguay",
+          "capitalHistorical": "Montevideo",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        },
+        {
+          "name": "Venezuela",
+          "capitalHistorical": "Caracas",
+          "from": "1948-12-03",
+          "notes": "Founding signatory/early party; individual ratification/effective date may differ."
+        }
+      ],
+      "notes": [
+        "Treaty signed 2 September 1947; entered into force 3 December 1948. The list represents the original American republic signatories/early parties; verify each national ratification date before modelling exact membership starts.",
+        "Later accessions and withdrawals (including Cuba's 1960s suspension/withdrawal and several Latin American withdrawals in later decades) are not exhaustively enumerated here."
+      ]
+    },
+    {
+      "id": "US_JAPAN_SECURITY",
+      "name_en": "United States–Japan Security Treaty / Treaty of Mutual Cooperation and Security",
+      "name_vi": "Hiệp ước An ninh Hoa Kỳ–Nhật Bản",
+      "type": "military_alliance",
+      "founded": "1951-09-08",
+      "effective": "1952-04-28",
+      "members": [
+        {
+          "name": "United States",
+          "capitalHistorical": "Washington, D.C.",
+          "from": "1952-04-28",
+          "to": "1960-06-23"
+        },
+        {
+          "name": "Japan",
+          "capitalHistorical": "Tokyo",
+          "from": "1952-04-28",
+          "to": "1960-06-23"
+        }
+      ],
+      "notes": [
+        "The 1951 treaty was replaced by the revised treaty signed 19 January 1960, effective 23 June 1960. Model the relationship as continuous across treaty instruments; do not represent 1960 as a new bilateral alliance membership without a continuity link."
+      ]
+    },
+    {
+      "id": "US_JAPAN_1960",
+      "name_en": "Treaty of Mutual Cooperation and Security between Japan and the United States",
+      "name_vi": "Hiệp ước Hợp tác và An ninh tương hỗ Nhật Bản–Hoa Kỳ",
+      "type": "military_alliance",
+      "founded": "1960-01-19",
+      "effective": "1960-06-23",
+      "members": [
+        {
+          "name": "Japan",
+          "capitalHistorical": "Tokyo",
+          "from": "1960-06-23"
+        },
+        {
+          "name": "United States",
+          "capitalHistorical": "Washington, D.C.",
+          "from": "1960-06-23"
+        }
+      ]
+    },
+    {
+      "id": "US_ROK_MDT",
+      "name_en": "Mutual Defense Treaty between the United States and the Republic of Korea",
+      "name_vi": "Hiệp ước Phòng thủ tương hỗ Hoa Kỳ–Đại Hàn Dân Quốc",
+      "type": "military_alliance",
+      "founded": "1953-10-01",
+      "effective": "1954-11-17",
+      "members": [
+        {
+          "name": "Republic of Korea",
+          "capitalHistorical": "Seoul",
+          "from": "1954-11-17"
+        },
+        {
+          "name": "United States",
+          "capitalHistorical": "Washington, D.C.",
+          "from": "1954-11-17"
+        }
+      ]
+    },
+    {
+      "id": "US_ROC_MDT",
+      "name_en": "Sino-American Mutual Defense Treaty",
+      "name_vi": "Hiệp ước Phòng thủ tương hỗ Trung Hoa Dân Quốc–Hoa Kỳ",
+      "type": "military_alliance",
+      "founded": "1954-12-02",
+      "effective": "1955-03-03",
+      "dissolved": "1980-01-01",
+      "members": [
+        {
+          "name": "Republic of China",
+          "capitalHistorical": "Taipei",
+          "from": "1955-03-03",
+          "to": "1980-01-01"
+        },
+        {
+          "name": "United States",
+          "capitalHistorical": "Washington, D.C.",
+          "from": "1955-03-03",
+          "to": "1980-01-01"
+        }
+      ],
+      "notes": [
+        "US termination followed establishment of diplomatic relations with the PRC; termination effective 1 January 1980."
+      ]
+    },
+    {
+      "id": "US_PHILIPPINES_MDT",
+      "name_en": "Mutual Defense Treaty between the United States and the Republic of the Philippines",
+      "name_vi": "Hiệp ước Phòng thủ tương hỗ Hoa Kỳ–Philippines",
+      "type": "military_alliance",
+      "founded": "1951-08-30",
+      "effective": "1952-08-27",
+      "members": [
+        {
+          "name": "Philippines",
+          "capitalHistorical": "Manila",
+          "from": "1952-08-27"
+        },
+        {
+          "name": "United States",
+          "capitalHistorical": "Washington, D.C.",
+          "from": "1952-08-27"
+        }
+      ]
+    },
+    {
+      "id": "SINO_SOVIET_1950",
+      "name_en": "Treaty of Friendship, Alliance and Mutual Assistance between the PRC and USSR",
+      "name_vi": "Hiệp ước Hữu nghị, Liên minh và Tương trợ Trung–Xô",
+      "type": "military_alliance",
+      "founded": "1950-02-14",
+      "effective": "1950-04-11",
+      "dissolved": "1980-04-11",
+      "members": [
+        {
+          "name": "People's Republic of China",
+          "capitalHistorical": "Beijing",
+          "from": "1950-04-11",
+          "to": "1980-04-11"
+        },
+        {
+          "name": "Soviet Union",
+          "capitalHistorical": "Moscow",
+          "from": "1950-04-11",
+          "to": "1980-04-11"
+        }
+      ],
+      "notes": [
+        "Treaty stipulated a 30-year term; political rupture preceded formal expiry."
+      ]
+    },
+    {
+      "id": "SOVIET_VIETNAM_1978",
+      "name_en": "Treaty of Friendship and Cooperation between the USSR and Socialist Republic of Viet Nam",
+      "name_vi": "Hiệp ước Hữu nghị và Hợp tác Liên Xô–CHXHCN Việt Nam",
+      "type": "military_alliance",
+      "founded": "1978-11-03",
+      "effective": "1978-12-13",
+      "members": [
+        {
+          "name": "Soviet Union",
+          "capitalHistorical": "Moscow",
+          "from": "1978-12-13"
+        },
+        {
+          "name": "Socialist Republic of Viet Nam",
+          "capitalHistorical": "Hanoi",
+          "from": "1978-12-13"
+        }
+      ],
+      "notes": [
+        "Bilateral friendship/cooperation treaty with mutual assistance clauses; not a multilateral bloc. Keep it distinct from a formal mutual-defence alliance unless engine semantics support treaty subtype."
+      ]
+    },
+    {
+      "id": "COMECON",
+      "name_en": "Council for Mutual Economic Assistance (CMEA / Comecon)",
+      "name_vi": "Hội đồng Tương trợ Kinh tế (SEV / Comecon)",
+      "type": "economic_bloc",
+      "founded": "1949-01-25",
+      "dissolved": "1991-06-28",
+      "members": [
+        {
+          "name": "Soviet Union",
+          "capitalHistorical": "Moscow",
+          "from": "1949-01-25"
+        },
+        {
+          "name": "Bulgaria",
+          "capitalHistorical": "Sofia",
+          "from": "1949-01-25"
+        },
+        {
+          "name": "Czechoslovakia",
+          "capitalHistorical": "Prague",
+          "from": "1949-01-25"
+        },
+        {
+          "name": "Hungary",
+          "capitalHistorical": "Budapest",
+          "from": "1949-01-25"
+        },
+        {
+          "name": "Poland",
+          "capitalHistorical": "Warsaw",
+          "from": "1949-01-25"
+        },
+        {
+          "name": "Romania",
+          "capitalHistorical": "Bucharest",
+          "from": "1949-01-25"
+        },
+        {
+          "name": "Albania",
+          "capitalHistorical": "Tirana",
+          "from": "1949-02",
+          "to": "1961-12",
+          "notes": "De facto ceased participation in 1961; formal membership status should not be represented as a day-precise withdrawal without further legal evidence."
+        },
+        {
+          "name": "German Democratic Republic",
+          "capitalHistorical": "East Berlin",
+          "from": "1950-09"
+        },
+        {
+          "name": "Mongolia",
+          "capitalHistorical": "Ulaanbaatar",
+          "from": "1962-06"
+        },
+        {
+          "name": "Cuba",
+          "capitalHistorical": "Havana",
+          "from": "1972-07"
+        },
+        {
+          "name": "Socialist Republic of Viet Nam",
+          "capitalHistorical": "Hanoi",
+          "from": "1978"
+        }
+      ],
+      "notes": [
+        "Yugoslavia was an associate member from 1964, not a full member; Finland signed a cooperation agreement in 1973, not full membership.",
+        "Dissolution protocol signed 28 June 1991."
+      ]
+    },
+    {
+      "id": "ECSC",
+      "name_en": "European Coal and Steel Community",
+      "name_vi": "Cộng đồng Than Thép châu Âu (CECA)",
+      "type": "economic_bloc",
+      "founded": "1951-04-18",
+      "effective": "1952-07-23",
+      "dissolved": "2002-07-23",
+      "members": [
+        {
+          "name": "Belgium",
+          "capitalHistorical": "Brussels",
+          "from": "1952-07-23"
+        },
+        {
+          "name": "France",
+          "capitalHistorical": "Paris",
+          "from": "1952-07-23"
+        },
+        {
+          "name": "Federal Republic of Germany",
+          "capitalHistorical": "Bonn",
+          "from": "1952-07-23"
+        },
+        {
+          "name": "Italy",
+          "capitalHistorical": "Rome",
+          "from": "1952-07-23"
+        },
+        {
+          "name": "Luxembourg",
+          "capitalHistorical": "Luxembourg",
+          "from": "1952-07-23"
+        },
+        {
+          "name": "Netherlands",
+          "capitalHistorical": "The Hague",
+          "from": "1952-07-23"
+        },
+        {
+          "name": "Denmark",
+          "capitalHistorical": "Copenhagen",
+          "from": "1973-01-01"
+        },
+        {
+          "name": "Ireland",
+          "capitalHistorical": "Dublin",
+          "from": "1973-01-01"
+        },
+        {
+          "name": "United Kingdom",
+          "capitalHistorical": "London",
+          "from": "1973-01-01"
+        },
+        {
+          "name": "Greece",
+          "capitalHistorical": "Athens",
+          "from": "1981-01-01"
+        },
+        {
+          "name": "Portugal",
+          "capitalHistorical": "Lisbon",
+          "from": "1986-01-01"
+        },
+        {
+          "name": "Spain",
+          "capitalHistorical": "Madrid",
+          "from": "1986-01-01"
+        }
+      ],
+      "notes": [
+        "The six founding states entered the ECSC on 23 July 1952. Later accessions followed EC enlargement dates. The ECSC Treaty expired 23 July 2002; do not label it dissolved in 1993."
+      ]
+    },
+    {
+      "id": "EEC_EU",
+      "name_en": "European Economic Community / European Union",
+      "name_vi": "Cộng đồng Kinh tế châu Âu / Liên minh châu Âu",
+      "type": "economic_bloc",
+      "founded": "1957-03-25",
+      "effective": "1958-01-01",
+      "members": [
+        {
+          "name": "Belgium",
+          "capitalHistorical": "Brussels",
+          "from": "1958-01-01"
+        },
+        {
+          "name": "France",
+          "capitalHistorical": "Paris",
+          "from": "1958-01-01"
+        },
+        {
+          "name": "Federal Republic of Germany",
+          "capitalHistorical": "Bonn",
+          "from": "1958-01-01"
+        },
+        {
+          "name": "Italy",
+          "capitalHistorical": "Rome",
+          "from": "1958-01-01"
+        },
+        {
+          "name": "Luxembourg",
+          "capitalHistorical": "Luxembourg",
+          "from": "1958-01-01"
+        },
+        {
+          "name": "Netherlands",
+          "capitalHistorical": "The Hague",
+          "from": "1958-01-01"
+        },
+        {
+          "name": "Denmark",
+          "capitalHistorical": "Copenhagen",
+          "from": "1973-01-01"
+        },
+        {
+          "name": "Ireland",
+          "capitalHistorical": "Dublin",
+          "from": "1973-01-01"
+        },
+        {
+          "name": "United Kingdom",
+          "capitalHistorical": "London",
+          "from": "1973-01-01"
+        },
+        {
+          "name": "Greece",
+          "capitalHistorical": "Athens",
+          "from": "1981-01-01"
+        },
+        {
+          "name": "Portugal",
+          "capitalHistorical": "Lisbon",
+          "from": "1986-01-01"
+        },
+        {
+          "name": "Spain",
+          "capitalHistorical": "Madrid",
+          "from": "1986-01-01"
+        }
+      ],
+      "notes": [
+        "EEC Treaty signed 25 March 1957 and effective 1 January 1958. Maastricht Treaty entered into force 1 November 1993 and established the European Union; the 12 EEC members became the initial EU members. Austria, Finland and Sweden joined in 1995, outside this initial roster.",
+        "ECSC and EEC/EU are distinct legal organizations; avoid merging their foundation and expiry dates."
+      ]
+    },
+    {
+      "id": "EFTA",
+      "name_en": "European Free Trade Association",
+      "name_vi": "Hiệp hội Mậu dịch Tự do châu Âu",
+      "type": "economic_bloc",
+      "founded": "1960-01-04",
+      "effective": "1960-05-03",
+      "members": [
+        {
+          "name": "Austria",
+          "capitalHistorical": "Vienna",
+          "from": "1960-05-03"
+        },
+        {
+          "name": "Denmark",
+          "capitalHistorical": "Copenhagen",
+          "from": "1960-05-03"
+        },
+        {
+          "name": "Norway",
+          "capitalHistorical": "Oslo",
+          "from": "1960-05-03"
+        },
+        {
+          "name": "Portugal",
+          "capitalHistorical": "Lisbon",
+          "from": "1960-05-03"
+        },
+        {
+          "name": "Sweden",
+          "capitalHistorical": "Stockholm",
+          "from": "1960-05-03"
+        },
+        {
+          "name": "Switzerland",
+          "capitalHistorical": "Bern",
+          "from": "1960-05-03"
+        },
+        {
+          "name": "United Kingdom",
+          "capitalHistorical": "London",
+          "from": "1960-05-03"
+        },
+        {
+          "name": "Finland",
+          "capitalHistorical": "Helsinki",
+          "from": "1961-01",
+          "notes": "Associate member from 1961; full member from 1986-01."
+        },
+        {
+          "name": "Iceland",
+          "capitalHistorical": "Reykjavík",
+          "from": "1970-03"
+        },
+        {
+          "name": "Liechtenstein",
+          "capitalHistorical": "Vaduz",
+          "from": "1991-03"
+        }
+      ],
+      "notes": [
+        "Denmark and United Kingdom left in 1973 for EEC; Portugal left in 1986; Austria, Sweden and Finland left in 1995. Finland's associate status (1961) is distinct from full membership (1986)."
+      ]
+    },
+    {
+      "id": "NAM",
+      "name_en": "Non-Aligned Movement",
+      "name_vi": "Phong trào Không liên kết",
+      "type": "political_organisation",
+      "founded": "1961-09-01",
+      "members": [
+        {
+          "name": "Afghanistan",
+          "capitalHistorical": "Kabul",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Algeria",
+          "capitalHistorical": "Algiers",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Burma",
+          "capitalHistorical": "Rangoon",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Cambodia",
+          "capitalHistorical": "Phnom Penh",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Ceylon",
+          "capitalHistorical": "Colombo",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Congo (Leopoldville)",
+          "capitalHistorical": "Leopoldville",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Cuba",
+          "capitalHistorical": "Havana",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Cyprus",
+          "capitalHistorical": "Nicosia",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Ethiopia",
+          "capitalHistorical": "Addis Ababa",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Ghana",
+          "capitalHistorical": "Accra",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Guinea",
+          "capitalHistorical": "Conakry",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "India",
+          "capitalHistorical": "New Delhi",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Indonesia",
+          "capitalHistorical": "Jakarta",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Iraq",
+          "capitalHistorical": "Baghdad",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Lebanon",
+          "capitalHistorical": "Beirut",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Mali",
+          "capitalHistorical": "Bamako",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Morocco",
+          "capitalHistorical": "Rabat",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Nepal",
+          "capitalHistorical": "Kathmandu",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Saudi Arabia",
+          "capitalHistorical": "Riyadh",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Somalia",
+          "capitalHistorical": "Mogadishu",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Sudan",
+          "capitalHistorical": "Khartoum",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Tunisia",
+          "capitalHistorical": "Tunis",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "United Arab Republic",
+          "capitalHistorical": "Cairo",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Yugoslavia",
+          "capitalHistorical": "Belgrade",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        },
+        {
+          "name": "Yemen",
+          "capitalHistorical": "Taiz",
+          "from": "1961-09-01",
+          "notes": "Founding participant at Belgrade Summit; state naming/capital reflects 1961."
+        }
+      ],
+      "notes": [
+        "25 founding participants at the Belgrade Summit, 1–6 September 1961. NAM is a political movement, not a collective-defence treaty; no withdrawal/dissolution date is applicable.",
+        "The 25 founding roster includes the United Arab Republic as one participant; do not double-count Egypt and Syria in 1961."
+      ]
+    },
+    {
+      "id": "ARAB_LEAGUE",
+      "name_en": "League of Arab States",
+      "name_vi": "Liên đoàn Ả Rập",
+      "type": "political_organisation",
+      "founded": "1945-03-22",
+      "effective": "1945-05-10",
+      "members": [
+        {
+          "name": "Egypt",
+          "capitalHistorical": "Cairo",
+          "from": "1945-05-10"
+        },
+        {
+          "name": "Iraq",
+          "capitalHistorical": "Baghdad",
+          "from": "1945-05-10"
+        },
+        {
+          "name": "Lebanon",
+          "capitalHistorical": "Beirut",
+          "from": "1945-05-10"
+        },
+        {
+          "name": "Saudi Arabia",
+          "capitalHistorical": "Riyadh",
+          "from": "1945-05-10"
+        },
+        {
+          "name": "Syria",
+          "capitalHistorical": "Damascus",
+          "from": "1945-05-10"
+        },
+        {
+          "name": "Transjordan",
+          "capitalHistorical": "Amman",
+          "from": "1945-05-10"
+        },
+        {
+          "name": "Yemen",
+          "capitalHistorical": "Taiz",
+          "from": "1945-05-10"
+        },
+        {
+          "name": "Libya",
+          "capitalHistorical": "Tripoli",
+          "from": "1953"
+        },
+        {
+          "name": "Sudan",
+          "capitalHistorical": "Khartoum",
+          "from": "1956"
+        },
+        {
+          "name": "Morocco",
+          "capitalHistorical": "Rabat",
+          "from": "1958"
+        },
+        {
+          "name": "Tunisia",
+          "capitalHistorical": "Tunis",
+          "from": "1958"
+        },
+        {
+          "name": "Kuwait",
+          "capitalHistorical": "Kuwait City",
+          "from": "1961"
+        },
+        {
+          "name": "Algeria",
+          "capitalHistorical": "Algiers",
+          "from": "1962"
+        },
+        {
+          "name": "South Yemen",
+          "capitalHistorical": "Aden",
+          "from": "1967"
+        },
+        {
+          "name": "Bahrain",
+          "capitalHistorical": "Manama",
+          "from": "1971"
+        },
+        {
+          "name": "Qatar",
+          "capitalHistorical": "Doha",
+          "from": "1971"
+        },
+        {
+          "name": "United Arab Emirates",
+          "capitalHistorical": "Abu Dhabi",
+          "from": "1971"
+        },
+        {
+          "name": "Oman",
+          "capitalHistorical": "Muscat",
+          "from": "1971"
+        },
+        {
+          "name": "Mauritania",
+          "capitalHistorical": "Nouakchott",
+          "from": "1973"
+        },
+        {
+          "name": "Somalia",
+          "capitalHistorical": "Mogadishu",
+          "from": "1974"
+        },
+        {
+          "name": "Palestine Liberation Organization",
+          "capitalHistorical": "Beirut (operational headquarters in 1976)",
+          "from": "1976",
+          "notes": "Admitted as representative of Palestine; not a sovereign-state member row."
+        },
+        {
+          "name": "Djibouti",
+          "capitalHistorical": "Djibouti",
+          "from": "1977"
+        }
+      ],
+      "notes": [
+        "Egypt's membership was suspended in 1979 and restored in 1989; headquarters moved Cairo–Tunis–Cairo. Precise suspension/reinstatement dates require verification before date-exact simulation.",
+        "Founding Charter signed 22 March 1945; entered into force 10 May 1945. Additional membership after 1977 is outside the core roster."
+      ]
+    },
+    {
+      "id": "OAU",
+      "name_en": "Organization of African Unity",
+      "name_vi": "Tổ chức Thống nhất châu Phi",
+      "type": "political_organisation",
+      "founded": "1963-05-25",
+      "dissolved": "2002-07-09",
+      "members": [
+        {
+          "name": "Algeria",
+          "capitalHistorical": "Algiers",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Benin (Dahomey)",
+          "capitalHistorical": "Porto-Novo",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Burkina Faso (Upper Volta)",
+          "capitalHistorical": "Ouagadougou",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Burundi",
+          "capitalHistorical": "Bujumbura",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Cameroon",
+          "capitalHistorical": "Yaoundé",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Central African Republic",
+          "capitalHistorical": "Bangui",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Chad",
+          "capitalHistorical": "Fort-Lamy (N'Djamena)",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Congo (Brazzaville)",
+          "capitalHistorical": "Brazzaville",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Congo (Leopoldville)",
+          "capitalHistorical": "Leopoldville (Kinshasa)",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Côte d’Ivoire",
+          "capitalHistorical": "Abidjan",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Egypt",
+          "capitalHistorical": "Cairo",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Ethiopia",
+          "capitalHistorical": "Addis Ababa",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Gabon",
+          "capitalHistorical": "Libreville",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Ghana",
+          "capitalHistorical": "Accra",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Guinea",
+          "capitalHistorical": "Conakry",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Liberia",
+          "capitalHistorical": "Monrovia",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Libya",
+          "capitalHistorical": "Tripoli",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Madagascar",
+          "capitalHistorical": "Tananarive (Antananarivo)",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Mali",
+          "capitalHistorical": "Bamako",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Mauritania",
+          "capitalHistorical": "Nouakchott",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Morocco",
+          "capitalHistorical": "Rabat",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Niger",
+          "capitalHistorical": "Niamey",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Nigeria",
+          "capitalHistorical": "Lagos",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Rwanda",
+          "capitalHistorical": "Kigali",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Senegal",
+          "capitalHistorical": "Dakar",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Sierra Leone",
+          "capitalHistorical": "Freetown",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Somalia",
+          "capitalHistorical": "Mogadishu",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Sudan",
+          "capitalHistorical": "Khartoum",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Tanganyika",
+          "capitalHistorical": "Dar es Salaam",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Togo",
+          "capitalHistorical": "Lomé",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Tunisia",
+          "capitalHistorical": "Tunis",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Uganda",
+          "capitalHistorical": "Kampala",
+          "from": "1963-05-25"
+        },
+        {
+          "name": "Kenya",
+          "capitalHistorical": "Nairobi",
+          "from": "1963-12-13"
+        },
+        {
+          "name": "Malawi",
+          "capitalHistorical": "Zomba",
+          "from": "1964-07-13"
+        },
+        {
+          "name": "Zambia",
+          "capitalHistorical": "Lusaka",
+          "from": "1964-12-16"
+        },
+        {
+          "name": "Gambia",
+          "capitalHistorical": "Bathurst (Banjul)",
+          "from": "1965-03-09"
+        },
+        {
+          "name": "Botswana",
+          "capitalHistorical": "Gaborone",
+          "from": "1966-10-31"
+        },
+        {
+          "name": "Lesotho",
+          "capitalHistorical": "Maseru",
+          "from": "1966-10-31"
+        },
+        {
+          "name": "Equatorial Guinea",
+          "capitalHistorical": "Santa Isabel (Malabo)",
+          "from": "1968-10-12"
+        },
+        {
+          "name": "Swaziland",
+          "capitalHistorical": "Mbabane",
+          "from": "1968-09-24"
+        },
+        {
+          "name": "Mauritius",
+          "capitalHistorical": "Port Louis",
+          "from": "1968-08"
+        },
+        {
+          "name": "Guinea-Bissau",
+          "capitalHistorical": "Bissau",
+          "from": "1973-11-19"
+        },
+        {
+          "name": "Angola",
+          "capitalHistorical": "Luanda",
+          "from": "1975-02-11"
+        },
+        {
+          "name": "Mozambique",
+          "capitalHistorical": "Maputo (Lourenço Marques)",
+          "from": "1975-07-18"
+        },
+        {
+          "name": "Cabo Verde",
+          "capitalHistorical": "Praia",
+          "from": "1975-07-18"
+        },
+        {
+          "name": "Comoros",
+          "capitalHistorical": "Moroni",
+          "from": "1975-07-18"
+        },
+        {
+          "name": "São Tomé and Príncipe",
+          "capitalHistorical": "São Tomé",
+          "from": "1975-07-18"
+        },
+        {
+          "name": "Seychelles",
+          "capitalHistorical": "Victoria",
+          "from": "1976-06-29"
+        },
+        {
+          "name": "Djibouti",
+          "capitalHistorical": "Djibouti",
+          "from": "1977-06-27"
+        },
+        {
+          "name": "Zimbabwe",
+          "capitalHistorical": "Salisbury (Harare)",
+          "from": "1980-06-18"
+        },
+        {
+          "name": "Sahrawi Arab Democratic Republic",
+          "capitalHistorical": "El Aaiún (claimed); Tindouf exile institutions",
+          "from": "1982-02-22"
+        },
+        {
+          "name": "Namibia",
+          "capitalHistorical": "Windhoek",
+          "from": "1990-06"
+        }
+      ],
+      "notes": [
+        "32 independent African states founded the OAU on 25 May 1963; further states joined as decolonisation proceeded. This research roster is selected through 1990, not a full current AU roster.",
+        "Morocco withdrew in 1984 over admission of the Sahrawi Arab Democratic Republic; its return to the AU in 2017 is outside the Cold War scope.",
+        "OAU was succeeded by the African Union in 2002; the OAU is not simply a 1999 dissolution event."
+      ]
+    },
+    {
+      "id": "ASEAN",
+      "name_en": "Association of Southeast Asian Nations",
+      "name_vi": "Hiệp hội các quốc gia Đông Nam Á",
+      "type": "political_organisation",
+      "founded": "1967-08-08",
+      "members": [
+        {
+          "name": "Indonesia",
+          "capitalHistorical": "Jakarta",
+          "from": "1967-08-08"
+        },
+        {
+          "name": "Malaysia",
+          "capitalHistorical": "Kuala Lumpur",
+          "from": "1967-08-08"
+        },
+        {
+          "name": "Philippines",
+          "capitalHistorical": "Manila",
+          "from": "1967-08-08"
+        },
+        {
+          "name": "Singapore",
+          "capitalHistorical": "Singapore",
+          "from": "1967-08-08"
+        },
+        {
+          "name": "Thailand",
+          "capitalHistorical": "Bangkok",
+          "from": "1967-08-08"
+        },
+        {
+          "name": "Brunei",
+          "capitalHistorical": "Bandar Seri Begawan",
+          "from": "1984-01-07"
+        },
+        {
+          "name": "Viet Nam",
+          "capitalHistorical": "Hanoi",
+          "from": "1995-07-28"
+        },
+        {
+          "name": "Laos",
+          "capitalHistorical": "Vientiane",
+          "from": "1997-07-23"
+        },
+        {
+          "name": "Myanmar",
+          "capitalHistorical": "Yangon",
+          "from": "1997-07-23"
+        },
+        {
+          "name": "Cambodia",
+          "capitalHistorical": "Phnom Penh",
+          "from": "1999-04-30"
+        }
+      ],
+      "notes": [
+        "The organization was founded in 1967 by five states. Vietnam joined in 1995 and Laos/Myanmar in 1997, Cambodia in 1999; these post-Cold-War accessions are included as continuation context."
+      ]
+    },
+    {
+      "id": "OAS",
+      "name_en": "Organization of American States",
+      "name_vi": "Tổ chức các quốc gia châu Mỹ",
+      "type": "political_organisation",
+      "founded": "1948-04-30",
+      "effective": "1951-12-13",
+      "members": [
+        {
+          "name": "Argentina",
+          "capitalHistorical": "Buenos Aires",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Bolivia",
+          "capitalHistorical": "La Paz",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Brazil",
+          "capitalHistorical": "Rio de Janeiro",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Chile",
+          "capitalHistorical": "Santiago",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Colombia",
+          "capitalHistorical": "Bogotá",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Costa Rica",
+          "capitalHistorical": "San José",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Cuba",
+          "capitalHistorical": "Havana",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Dominican Republic",
+          "capitalHistorical": "Santo Domingo",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Ecuador",
+          "capitalHistorical": "Quito",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "El Salvador",
+          "capitalHistorical": "San Salvador",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Guatemala",
+          "capitalHistorical": "Guatemala City",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Haiti",
+          "capitalHistorical": "Port-au-Prince",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Honduras",
+          "capitalHistorical": "Tegucigalpa",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Mexico",
+          "capitalHistorical": "Mexico City",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Nicaragua",
+          "capitalHistorical": "Managua",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Panama",
+          "capitalHistorical": "Panama City",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Paraguay",
+          "capitalHistorical": "Asunción",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Peru",
+          "capitalHistorical": "Lima",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "United States",
+          "capitalHistorical": "Washington, D.C.",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Uruguay",
+          "capitalHistorical": "Montevideo",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Venezuela",
+          "capitalHistorical": "Caracas",
+          "from": "1951-12-13",
+          "notes": "Original signatory; individual ratification/entry date may differ."
+        },
+        {
+          "name": "Trinidad and Tobago",
+          "capitalHistorical": "Port of Spain",
+          "from": "1967"
+        },
+        {
+          "name": "Barbados",
+          "capitalHistorical": "Bridgetown",
+          "from": "1967"
+        },
+        {
+          "name": "Jamaica",
+          "capitalHistorical": "Kingston",
+          "from": "1969"
+        },
+        {
+          "name": "Grenada",
+          "capitalHistorical": "St. George's",
+          "from": "1975"
+        },
+        {
+          "name": "Suriname",
+          "capitalHistorical": "Paramaribo",
+          "from": "1977"
+        },
+        {
+          "name": "Dominica",
+          "capitalHistorical": "Roseau",
+          "from": "1979"
+        },
+        {
+          "name": "Saint Lucia",
+          "capitalHistorical": "Castries",
+          "from": "1979"
+        },
+        {
+          "name": "Antigua and Barbuda",
+          "capitalHistorical": "St. John's",
+          "from": "1981"
+        },
+        {
+          "name": "Saint Vincent and the Grenadines",
+          "capitalHistorical": "Kingstown",
+          "from": "1981"
+        },
+        {
+          "name": "Bahamas",
+          "capitalHistorical": "Nassau",
+          "from": "1982"
+        },
+        {
+          "name": "Saint Kitts and Nevis",
+          "capitalHistorical": "Basseterre",
+          "from": "1984"
+        },
+        {
+          "name": "Canada",
+          "capitalHistorical": "Ottawa",
+          "from": "1990"
+        },
+        {
+          "name": "Belize",
+          "capitalHistorical": "Belmopan",
+          "from": "1991"
+        },
+        {
+          "name": "Guyana",
+          "capitalHistorical": "Georgetown",
+          "from": "1991"
+        }
+      ],
+      "notes": [
+        "The OAS Charter was adopted 30 April 1948 and entered into force 13 December 1951. Cuba's participation was excluded in 1962; the 2009 resolution ended the exclusion but did not automatically restore participation. The founding roster reflects original signatories, not necessarily each state's ratification date."
+      ]
+    }
+  ],
+  "sourceRegister": [
+    {
+      "id": "nato_france",
+      "title": "France and NATO",
+      "url": "https://www.nato.int/en/about-us/nato-history/history-by-theme/my-country-and-nato/france-and-nato",
+      "supports": "France remained a member after 1966 withdrawal from integrated command; 2009 reintegration."
+    },
+    {
+      "id": "nato_greece",
+      "title": "Greece and NATO",
+      "url": "https://www.nato.int/en/about-us/nato-history/history-by-theme/my-country-and-nato/greece-and-nato",
+      "supports": "Greece's 1974 command-structure withdrawal and 1980 return."
+    },
+    {
+      "id": "nato_dpc",
+      "title": "NATO Defence Planning Committee 1963–2010",
+      "url": "https://www.nato.int/en/about-us/organization/nato-structure/defence-planning-committee-1963-2010",
+      "supports": "France not represented on DPC 1966–2009."
+    },
+    {
+      "id": "warsaw_us_state",
+      "title": "Warsaw Treaty Organization",
+      "url": "https://history.state.gov/milestones/1953-1960/warsaw-treaty",
+      "supports": "Founding members, GDR withdrawal 1990, dissolution 1991."
+    },
+    {
+      "id": "seato_us_state",
+      "title": "Southeast Asia Treaty Organization, 1954",
+      "url": "https://history.state.gov/milestones/1953-1960/seato",
+      "supports": "Eight member states, Pakistan withdrawal 1973, SEATO dissolution 1977."
+    },
+    {
+      "id": "seato_untc",
+      "title": "Southeast Asia Collective Defense Treaty, UN Treaty Collection",
+      "url": "https://treaties.un.org/Pages/showDetails.aspx?objid=080000028014b021",
+      "supports": "Treaty signature, entry into force and treaty parties."
+    },
+    {
+      "id": "cento_nara",
+      "title": "Records of International Military Agencies — CENTO",
+      "url": "https://www.archives.gov/research/guide-fed-records/groups/333.html",
+      "supports": "Baghdad Pact accession sequence, Iraq withdrawal, CENTO inactivity/dissolution context."
+    },
+    {
+      "id": "cento_nato",
+      "title": "The Baghdad Pact becomes CENTO",
+      "url": "https://www.nato.int/en/news-and-events/articles/news/1959/08/19/the-baghdad-pact-becomes-the-central-treaty-organisation-cento",
+      "supports": "CENTO full and associate membership; 1979 dissolution."
+    },
+    {
+      "id": "cento_uk_treaties",
+      "title": "UK Treaties Online — Baghdad Pact/CENTO status",
+      "url": "https://treaties.fcdo.gov.uk/awweb/awarchive?item=70493&type=file",
+      "supports": "Iran/Pakistan withdrawal dates, Iraq denunciation, UK/Turkey termination."
+    },
+    {
+      "id": "anzus_state",
+      "title": "U.S. Collective Defense Arrangements",
+      "url": "https://2009-2017.state.gov/s/l/treaty/collectivedefense/index.htm",
+      "supports": "ANZUS and bilateral treaty parties."
+    },
+    {
+      "id": "rio_untc",
+      "title": "Inter-American Treaty of Reciprocal Assistance, UN Treaty Collection",
+      "url": "https://treaties.un.org/pages/showDetails.aspx?objid=0800000280163387",
+      "supports": "Rio Treaty signature and entry into force."
+    },
+    {
+      "id": "us_japan",
+      "title": "Japan-U.S. Security Treaty",
+      "url": "https://www.mod.go.jp/en/j-us-alliance/joint-declaration/treaty/index.html",
+      "supports": "1960 revised treaty date and supersession of 1951 treaty."
+    },
+    {
+      "id": "us_rok_untc",
+      "title": "Mutual Defense Treaty between US and Republic of Korea",
+      "url": "https://treaties.un.org/Pages/showDetails.aspx?objid=0800000280146bb3",
+      "supports": "Signature and entry into force."
+    },
+    {
+      "id": "us_phil_untc",
+      "title": "Mutual Defense Treaty between US and Philippines",
+      "url": "https://treaties.un.org/Pages/showDetails.aspx?objid=080000028014df2a",
+      "supports": "Signature and entry into force."
+    },
+    {
+      "id": "us_roc_govinfo",
+      "title": "United States Defense Policies in 1963",
+      "url": "https://www.govinfo.gov/content/pkg/SERIALSET-12631_01_00-047-0335-0000/pdf/SERIALSET-12631_01_00-047-0335-0000.pdf",
+      "supports": "US–ROC treaty signature and entry into force."
+    },
+    {
+      "id": "sinosoviet_untc",
+      "title": "Treaty of Friendship, Alliance and Mutual Assistance, PRC–USSR",
+      "url": "https://treaties.un.org/Pages/showDetails.aspx?objid=0800000280147e29",
+      "supports": "Treaty signature and entry into force."
+    },
+    {
+      "id": "soviet_vietnam_untc",
+      "title": "Treaty of Friendship and Cooperation USSR–Viet Nam",
+      "url": "https://treaties.un.org/doc/Publication/UNTS/Volume%201145/v1145.pdf",
+      "supports": "Treaty signature and entry into force."
+    },
+    {
+      "id": "comecon_iaea",
+      "title": "IAEA-TECDOC-922, Economic integration in Central and Eastern Europe",
+      "url": "https://www-pub.iaea.org/MTCD/Publications/PDF/te_0922_scr.pdf",
+      "supports": "Comecon founding members, accessions, Albania's de facto withdrawal, dissolution context."
+    },
+    {
+      "id": "ecsc_eu",
+      "title": "Founding agreements",
+      "url": "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en",
+      "supports": "ECSC signature, entry into force and expiry; EC enlargements."
+    },
+    {
+      "id": "eec_consilium",
+      "title": "Treaty establishing the European Economic Community",
+      "url": "https://www.consilium.europa.eu/en/documents/treaties-agreements/agreement/?id=1957002",
+      "supports": "EEC six original states, signature and entry into force."
+    },
+    {
+      "id": "eec_ep",
+      "title": "Treaty of Rome",
+      "url": "https://www.europarl.europa.eu/about-parliament/en/in-the-past/the-parliament-and-the-treaties/treaty-of-rome",
+      "supports": "EEC six founding states and treaty dates."
+    },
+    {
+      "id": "efta_faq",
+      "title": "EFTA FAQs",
+      "url": "https://www.efta.int/about-efta/faqs",
+      "supports": "Seven founding states and establishment."
+    },
+    {
+      "id": "efta_history",
+      "title": "EFTA history",
+      "url": "https://www.efta.int/about-efta/european-free-trade-association/history",
+      "supports": "Finland, Iceland accessions; Denmark, UK and Portugal departures; later membership changes."
+    },
+    {
+      "id": "nam_history",
+      "title": "Non-Aligned Movement history",
+      "url": "https://www.nam.go.ug/history",
+      "supports": "Belgrade summit and formal establishment in 1961."
+    },
+    {
+      "id": "nam_founders",
+      "title": "NAM 16th Summit Final Document",
+      "url": "https://www.nam.go.ug/sites/default/files/2023-06/NAM-16th%20SUmmit%20Final-Document%20Tehran-Iran%202012.pdf",
+      "supports": "List of 25 founding countries."
+    },
+    {
+      "id": "arab_untc",
+      "title": "Pact of the League of Arab States",
+      "url": "https://treaties.un.org/pages/showDetails.aspx?objid=080000028015a44b",
+      "supports": "Founding states, signature and entry into force."
+    },
+    {
+      "id": "arab_unterm",
+      "title": "UNTERM — League of Arab States",
+      "url": "https://unterm.un.org/unterm2/view/38727503-9e12-41bd-9e0b-ccb02590ec3c",
+      "supports": "Founding and subsequent Arab League accessions; Egypt suspension."
+    },
+    {
+      "id": "oau_au",
+      "title": "OAU Charter",
+      "url": "https://au.int/en/treaties/oau-charter-addis-ababa-25-may-1963",
+      "supports": "OAU Charter adoption and entry into force."
+    },
+    {
+      "id": "oau_members",
+      "title": "African Union member states — OAU/AU accession dates",
+      "url": "https://au.int/en/AU_Member_States",
+      "supports": "32 OAU founders, later accession dates and Morocco's 1984 withdrawal."
+    },
+    {
+      "id": "oau_history",
+      "title": "About the African Union",
+      "url": "https://au.int/en/overview",
+      "supports": "OAU successor transition to AU in 2002."
+    },
+    {
+      "id": "asean_about",
+      "title": "About ASEAN",
+      "url": "https://asean.org/about-asean/",
+      "supports": "Founding date, five founding states and later accessions."
+    },
+    {
+      "id": "oas_charter",
+      "title": "OAS Charter — signatures and ratifications",
+      "url": "https://www.oas.org/en/iachr/mandate/Basics/charterOASrat.asp",
+      "supports": "Adoption and entry into force."
+    },
+    {
+      "id": "oas_members",
+      "title": "OAS Member States",
+      "url": "https://oas.org/en/about/member_states.asp",
+      "supports": "21 original signatories and subsequent membership accessions."
+    }
+  ],
+  "validationNotes": [
+    "This is a research package, not the engine's final diplomacy schema. Claude must map member state names and historical capitals to canonical entity IDs and map capital cities to region IDs.",
+    "Treaties with protected territories (SEATO protocol) must not be modelled as organization members.",
+    "A political organization, economic bloc, alliance, bilateral treaty and associate/observer relationship are different relationship classes.",
+    "Membership date must represent legal accession/effect, not necessarily treaty signature. Where not verified to a day, retain year/month precision and do not coerce to YYYY-MM-DD.",
+    "The Rio Treaty and OAS founding member rows use founding signatory/early-party cohorts; exact national ratification dates and later withdrawal/suspension histories require a dedicated member-by-member pass.",
+    "The OAU list is a selected Cold War accession roster; current AU members and post-1991 accessions are not silently back-projected.",
+    "Historical capitals are time-sensitive: Karachi (Pakistan), Rangoon (Burma), Leopoldville (Congo), Lagos (Nigeria), Dar es Salaam (Tanganyika), Zomba (Malawi), Salisbury (Zimbabwe), East Berlin (GDR), Bonn (FRG), and Taiz (Yemen) are retained where historically relevant."
+  ]
+}
