@@ -6,7 +6,7 @@
     "created": "2026-11-23",
     "snapshotDate": "2026-11-23",
     "recordCount": 328,
-    "sourceCount": 28,
+    "sourceCount": 33,
     "entitiesCovered": [
       "RUS/USSR",
       "GER/FRG/GDR",
@@ -253,6 +253,41 @@
       "url": "https://www.pmindia.gov.in/en/former_pm/",
       "quality": "supported",
       "note": "Prime Minister's Office historical list."
+    },
+    {
+      "id": "deutschland_empire",
+      "title": "The German Empire: Foundation, Kaiser and WW1",
+      "url": "https://www.deutschlandmuseum.de/en/history/imperial-germany/",
+      "quality": "supported",
+      "note": "German history museum synthesis for the Kaiserreich."
+    },
+    {
+      "id": "deutschlandmuseum",
+      "title": "German history timeline",
+      "url": "https://www.deutschlandmuseum.de/en/history/",
+      "quality": "supported",
+      "note": "German history museum chronology for imperial, Weimar, Nazi, divided and reunified Germany."
+    },
+    {
+      "id": "china_national_museum",
+      "title": "Imperial Edict of the Abdication of the Qing Emperor",
+      "url": "https://en.chnmuseum.cn/collections_577/collection_highlights_608/objects_of_chinese_revolutionary_history_610/202008/t20200806_246813.html",
+      "quality": "verified",
+      "note": "National Museum of China record for Qing abdication context."
+    },
+    {
+      "id": "turkey_ataturk",
+      "title": "Biography of Atatürk and political reforms",
+      "url": "https://www.ktb.gov.tr/EN-103908/biography-of-ataturk.html",
+      "quality": "supported",
+      "note": "Republic of Türkiye Ministry of Culture and Tourism."
+    },
+    {
+      "id": "ausgleich_aeiou",
+      "title": "Austro-Hungarian Compromise (Ausgleich)",
+      "url": "https://www.aeiou.at/aeiou.encyclop.a/a907407.htm",
+      "quality": "supported",
+      "note": "Austrian historical encyclopedia for the dual monarchy and Habsburg chronology."
     }
   ],
   "leaders": [
