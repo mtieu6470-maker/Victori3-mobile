@@ -29,8 +29,8 @@ export const SUBJECT_TYPES: Record<string, SubjectTypeDef> = {
   puppet: { autonomy: 0, pay: 0.25, diplomacy: false, annexable: true, more: 'dominion', less: null },
   vassal: { autonomy: 0, pay: 0.25, diplomacy: false, annexable: true, more: 'autonomous_vassal', less: null },
   colony: { autonomy: 0, pay: 0.25, diplomacy: false, annexable: true, more: 'dominion', less: null },
-  princely_state: { autonomy: 0, pay: 0.20, diplomacy: false, annexable: true, more: 'dominion', less: null },
-  chartered_company: { autonomy: 1, pay: 0.25, diplomacy: true, annexable: false, more: 'dominion', less: 'colony' },
+  princely_state: { autonomy: 0, pay: 0.15, diplomacy: false, annexable: true, more: 'dominion', less: null },
+  chartered_company: { autonomy: 1, pay: 0.15, diplomacy: true, annexable: false, more: 'dominion', less: 'colony' },
   dominion: { autonomy: 1, pay: 0.20, diplomacy: true, annexable: false, more: 'protectorate', less: 'puppet' },
   autonomous_vassal: { autonomy: 1, pay: 0.15, diplomacy: true, annexable: false, more: 'tributary', less: 'vassal' },
   personal_union: { autonomy: 1, pay: 0, diplomacy: false, annexable: false, more: null, less: null },
@@ -42,8 +42,8 @@ const def = (t: string | null) => SUBJECT_TYPES[t ?? ''] ?? SUBJECT_TYPES.protec
 /** Design parameters (PB-03a). Liberty desire moves monthly. */
 export const SUBJECT = {
   payStep: 0.10, payAdjMin: -0.10, payAdjMax: 0.10, payCap: 0.40,
-  base: 0.4, relationScale: 100, raisedPay: 4, reducedPay: 2, powerScale: 2, powerMax: 1.5,
-  sameCulture: -0.2, foreignCulture: 0.3, notorious: 0.3, pariah: 1.0, sharedMarket: -0.2,
+  base: 0.6, relationScale: 150, raisedPay: 4, reducedPay: 2, powerPivot: 0.5, powerScale: 2, powerMin: -0.3, powerMax: 0.6,
+  sameCulture: -0.2, foreignCulture: 0.2, crushed: 35, notorious: 0.3, pariah: 1.0, sharedMarket: -0.2,
   knowledge: -0.3, exempt: -0.3, support: -0.4, supportCost: 0.05, postwar: 0.5, postwarYear: 1945,
   requestAt: 75, independenceAt: 90, independenceMonths: 12, annexBelow: 25, reduceBelow: 25,
   autonomyCooldown: 60, refusalWindow: 60, annexOthers: 10, requestMonths: 6,
@@ -53,6 +53,8 @@ export const SUBJECT = {
 export interface SubjectPact {
   liberty: number; payAdj: number; knowledge?: boolean; exempt?: boolean; support?: boolean;
   lastAutonomy?: number; refusedAt?: number; highMonths?: number;
+  /** An independence war is under way (cleared when it ends). */
+  rising?: boolean;
   /** Last month's payment (subject → overlord) and liberty change, for the UI. */
   paid?: number; change?: number;
 }
@@ -83,9 +85,10 @@ export function libertyParts(st: GameState, c: Country): LibertyParts | null {
   const sharedMarket = (c.customsUnion && c.customsUnion === o.customsUnion) || c.subjectType === 'chartered_company';
   return {
     base: SUBJECT.base,
-    relations: clamp(-getRel(st, c.id, o.id) / SUBJECT.relationScale, -0.8, 0.8),
+    relations: clamp(-getRel(st, c.id, o.id) / SUBJECT.relationScale, -0.5, 0.5),
     payments: p.payAdj > 0 ? p.payAdj * SUBJECT.raisedPay : p.payAdj * SUBJECT.reducedPay,
-    power: clamp(powerScore(st, c) / Math.max(1, powerScore(st, o)) * SUBJECT.powerScale, 0, SUBJECT.powerMax),
+    // a subject far weaker than its overlord feels protected; one approaching its strength wants out
+    power: clamp((powerScore(st, c) / Math.max(1, powerScore(st, o)) - SUBJECT.powerPivot) * SUBJECT.powerScale, SUBJECT.powerMin, SUBJECT.powerMax),
     culture: sc && oc && sc.culture === oc.culture ? SUBJECT.sameCulture : SUBJECT.foreignCulture,
     infamy: tier === 'pariah' ? SUBJECT.pariah : tier === 'notorious' ? SUBJECT.notorious : 0,
     market: sharedMarket ? SUBJECT.sharedMarket : 0,
@@ -101,7 +104,7 @@ export function libertyChange(st: GameState, c: Country): number {
   const L = pactOf(st, c).liberty;
   // a sovereign empire's hold: positive pressure on its subjects is damped
   const damp = st.countries[c.overlord!]?.blocMods?.libertyDamp ?? 0;
-  return raw > 0 ? raw * (1 - damp) * (1 - L / 200) : raw * (0.5 + L / 200);
+  return raw > 0 ? raw * (1 - damp) * (1 - L / 120) : raw * (0.5 + L / 200);
 }
 
 /** Monthly: payments, liberty desire, requests and independence. Runs after the economy. */
@@ -110,6 +113,8 @@ export function subjectsMonth(st: GameState): void {
     if (!c.alive) continue;
     if (!c.overlord || !st.countries[c.overlord]?.alive) { if (c.subjectPact) delete c.subjectPact; continue; }
     const o = st.countries[c.overlord]; const p = pactOf(st, c);
+    // a rising that ended with the subject still bound was crushed: liberty desire falls back
+    if (p.rising && !atWarWith(st, c.id, o.id)) { p.rising = false; p.liberty = Math.min(p.liberty, SUBJECT.crushed); }
     // payment: a share of this month's government income
     const amt = atWarWith(st, c.id, o.id) ? 0 : Math.max(0, c.income) * paymentRate(st, c);
     if (amt > 0) { c.treasury -= amt; if (c.treasury < 0) { c.debt += -c.treasury; c.treasury = 0; } o.treasury += amt; }
@@ -160,7 +165,7 @@ export function demandIndependence(st: GameState, c: Country): boolean {
   const o = c.overlord; if (!o) return false;
   if (atWarWith(st, c.id, o)) return false;
   // the bond holds until the war is won (military.applyGoal frees the subject); a lost war leaves it a subject
-  pactOf(st, c).highMonths = -60; // no second rising for five years
+  const p = pactOf(st, c); p.highMonths = -60; p.rising = true; // no second rising for five years
   const w = declareWar(st, c.id, o, [{ by: c.id, type: 'independence', target: o, regions: [] }], `${c.name} War of Independence`, 'independence');
   log(st, { type: 'war', text: `${c.name} rises for independence from ${st.countries[o].name}.`, textVi: `${c.nameVi} nổi dậy giành độc lập khỏi ${st.countries[o].nameVi}.`, actors: [c.id, o] });
   return !!w;
