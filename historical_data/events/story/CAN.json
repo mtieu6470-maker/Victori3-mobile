@@ -108,7 +108,17 @@
       ],
       "sources": [
         "canada_parliament"
-      ]
+      ],
+      "chain": {
+        "after": [
+          "gbr_canadian_confederation_1867"
+        ]
+      },
+      "image": {
+        "ref": "ill_evt_can_confederation_1867",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     }
   ]
 }
