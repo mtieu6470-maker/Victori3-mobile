@@ -1630,6 +1630,456 @@
       "name": "Chữ ký Tổng thống Makarios",
       "description": "Vector image of Archbishop Makarios III's signature, associated with the independence settlement",
       "review_note": "Same founding constitutional settlement; shared image is intentional."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_ceylon_riots_1915",
+      "commons_file": "Ceylon._Colombo._Street_Scene_LCCN2017657635.jpg",
+      "year": 1890,
+      "width": 1024,
+      "author": "Library of Congress",
+      "name": "Colombo, Ceylon, khoảng năm 1890",
+      "description": "Street scene in Colombo, Ceylon, circa 1890; a period view of the city where the 1915 disturbances took place",
+      "period": {
+        "from": 1915,
+        "to": 1915
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "LoC-derived Commons file with Public Domain Mark and PD-old-70 tags; depicts the city setting, not the riot itself."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_donoughmore_1931",
+      "commons_file": "Official_Photographic_Portrait_of_C._W._W._Kannangara_(1884-1969).jpg",
+      "year": 1932,
+      "width": 1667,
+      "author": "Government of Ceylon",
+      "name": "C. W. W. Kannangara",
+      "description": "Official portrait of C. W. W. Kannangara, a Ceylon political figure and education minister in the State Council era",
+      "period": {
+        "from": 1931,
+        "to": 1931
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page marks a government photograph public domain; contextual political figure, not a photograph of the commission."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_ceylon_constitution_1946",
+      "commons_file": "SL_Independence.jpg",
+      "year": 1947,
+      "width": 550,
+      "author": "Government of Ceylon and UK",
+      "name": "Lễ mở Quốc hội Ceylon",
+      "description": "Formal ceremony marking self-rule and opening of the first parliament at Independence Square, 2 October 1947",
+      "period": {
+        "from": 1946,
+        "to": 1948
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Same Ceylon constitutional-transfer arc; the 1948 independence ceremony is used as a contextual image for the 1946 constitutional settlement."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_white_paper_1939",
+      "period": {
+        "from": 1937,
+        "to": 1939
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "Peel_map_pd.png",
+      "year": 1937,
+      "width": 1100,
+      "author": "British War Office",
+      "name": "Bản đồ đề xuất Peel",
+      "description": "Map of the Peel Commission partition proposal for Palestine, 1937",
+      "review_note": "Same Palestine constitutional-policy sequence; the Peel partition map is the proposal that the 1939 White Paper superseded."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_kenya_lancaster_1960",
+      "period": {
+        "from": 1960,
+        "to": 1960
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "BRITISH_ARMY_OPERATIONS_AGAINST_THE_MAU_MAU_IN_KENYA_1952_-_1956_MAU221.jpg",
+      "year": 1952,
+      "width": 800,
+      "author": "British official photographer",
+      "name": "Chiến dịch quân sự tại Kenya",
+      "description": "British Army 3-inch mortar team during operations against Mau Mau, 1952–1956",
+      "review_note": "Contextual image of the Mau Mau conflict that preceded the Lancaster House negotiations; not the conference itself."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_kenya_independence_1963",
+      "period": {
+        "from": 1963,
+        "to": 1963
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "BRITISH_ARMY_OPERATIONS_AGAINST_THE_MAU_MAU_IN_KENYA_1952_-_1956_MAU221.jpg",
+      "year": 1952,
+      "width": 800,
+      "author": "British official photographer",
+      "name": "Chiến dịch quân sự tại Kenya",
+      "description": "British Army 3-inch mortar team during operations against Mau Mau, 1952–1956",
+      "review_note": "Contextual image of the conflict that preceded Kenya's transfer of power; not the 1963 flag ceremony."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "ken_state_building_1964",
+      "period": {
+        "from": 1964,
+        "to": 1964
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "BRITISH_ARMY_OPERATIONS_AGAINST_THE_MAU_MAU_IN_KENYA_1952_-_1956_MAU221.jpg",
+      "year": 1952,
+      "width": 800,
+      "author": "British official photographer",
+      "name": "Chiến dịch quân sự tại Kenya",
+      "description": "British Army 3-inch mortar team during operations against Mau Mau, 1952–1956",
+      "review_note": "Same Kenya decolonisation arc; image shows the conflict whose aftermath shaped the early state, not a 1964 cabinet session."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_ghana_independence_1957",
+      "commons_file": "Ghana_Independence_overprint_on_Gold_Coast_1s_stamp_1957.jpg",
+      "year": 1957,
+      "width": 611,
+      "author": "British Government",
+      "name": "Tem thư độc lập Ghana 1957",
+      "description": "British Government postage stamp overprinted to mark Ghana's independence on 6 March 1957",
+      "period": {
+        "from": 1957,
+        "to": 1957
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page explicitly marks PD-UKGov; period stamp directly commemorating independence."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_southern_rhodesia_responsible_1923",
+      "commons_file": "First_government_of_rhodesia.jpg",
+      "year": 1924,
+      "width": 400,
+      "author": "United Kingdom Government",
+      "name": "Chính phủ đầu tiên của Rhodesia",
+      "description": "Photograph of the first government of Southern Rhodesia, circa 1924",
+      "period": {
+        "from": 1923,
+        "to": 1924
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page includes both PD-Zimbabwe and PD-US tags; low-resolution original (400 px wide)."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_west_indies_federation_1958",
+      "commons_file": "St._Vincent_3c_West_Indies_Federation_stamp_1958.jpg",
+      "year": 1958,
+      "width": 1115,
+      "author": "British Government",
+      "name": "Tem thư Liên bang Tây Ấn",
+      "description": "British Government stamp commemorating the West Indies Federation in 1958",
+      "period": {
+        "from": 1958,
+        "to": 1958
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page explicitly marks PD-UKGov; stamp rather than a federation inauguration photograph."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_cyprus_eoka_1955",
+      "commons_file": "Street_riot_in_Nicosia_1956.jpg",
+      "year": 1956,
+      "width": 1000,
+      "author": "British Colonial Government",
+      "name": "Bạo loạn đường phố tại Nicosia",
+      "description": "British soldiers confronting a street riot by EOKA in Nicosia, Cyprus, 1956",
+      "period": {
+        "from": 1955,
+        "to": 1956
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page explicitly marks PD-UKGov; close-in-time photograph of the Cyprus Emergency."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_canada_durham_1839",
+      "commons_file": "Lambton_-_Durham_report_(page_3).jpg",
+      "year": 1839,
+      "width": 2860,
+      "author": "John Lambton, 1st Earl of Durham",
+      "name": "Báo cáo Durham năm 1839",
+      "description": "First page of Lord Durham's Report on the Affairs of British North America, published in 1839",
+      "period": {
+        "from": 1839,
+        "to": 1839
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page marks Public Domain Mark 1.0 and US public domain; primary document image."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "mys_federation_1963",
+      "commons_file": "Malayan_Declaration_of_Independence_1957_in_Tamil.jpg",
+      "year": 2025,
+      "width": 3000,
+      "author": "Wolfiewhite",
+      "name": "Tuyên ngôn độc lập Malaya",
+      "description": "Photograph of the 1957 Malayan Declaration of Independence document in Tamil",
+      "period": {
+        "from": 1963,
+        "to": 1963
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Same Malayan independence-to-federation sequence; the 1957 declaration is used as the founding document context for the 1963 federation."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gha_independence_priorities_1957",
+      "commons_file": "Ghana_Independence_overprint_on_Gold_Coast_1s_stamp_1957.jpg",
+      "year": 1957,
+      "width": 611,
+      "author": "British Government",
+      "name": "Tem thư độc lập Ghana 1957",
+      "description": "British Government postage stamp overprinted to mark Ghana's independence on 6 March 1957",
+      "period": {
+        "from": 1957,
+        "to": 1957
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Same Ghana independence episode; the 1957 overprinted stamp remains the primary visual for the immediate post-independence priorities."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "nga_federal_bargain_1960",
+      "period": {
+        "from": 1960,
+        "to": 1960
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "Princess_Alexandra,_The_Queen's_Representative,_formally_Opened_Nigeria's_Independence_Parliament_before_a_Distinguished_Assembly_of_People_and_Diplomats,_on_October_3rd_1960.jpg",
+      "year": 1960,
+      "width": 5106,
+      "author": "National Library of Nigeria",
+      "name": "Quốc hội độc lập Nigeria",
+      "description": "Princess Alexandra formally opened Nigeria's independence parliament on 3 October 1960",
+      "review_note": "Same Nigerian independence and federal constitutional transition; the opening of the independence parliament is relevant to the federal bargain."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "mlt_independent_economy_1964",
+      "period": {
+        "from": 1964,
+        "to": 1964
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "George_Borg_Olivier_receiving_Independence_Instruments_IMG_0891.jpg",
+      "year": 1964,
+      "width": 1000,
+      "author": "DOI Malta",
+      "name": "Malta nhận văn kiện độc lập",
+      "description": "George Borg Olivier receiving the independence instruments on 21 September 1964",
+      "review_note": "Same Malta independence transition; the independence instruments are used as the contextual image for the first post-independence policy choices."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "irl_constitutional_sovereignty_1937",
+      "period": {
+        "from": 1937,
+        "to": 1937
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "Anglo-Irish_Treaty_signatures.gif",
+      "year": 1921,
+      "width": 433,
+      "author": "Unknown author; Government of the United Kingdom",
+      "name": "Chữ ký Hiệp ước Anh–Ireland",
+      "description": "Signature page of the Anglo-Irish Treaty signed in December 1921",
+      "review_note": "Same Irish constitutional-sovereignty arc; the treaty signature page is contextual to the later 1937 constitutional settlement."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "pak_constitution_1956",
+      "commons_file": "Cover_of_the_first_constitiution_of_Pakistan.jpg",
+      "year": 1956,
+      "width": 1283,
+      "author": "Government of Pakistan",
+      "name": "Bìa Hiến pháp đầu tiên của Pakistan",
+      "description": "Cover of Pakistan's first Constitution, dated 29 February 1956",
+      "period": {
+        "from": 1956,
+        "to": 1956
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page marks PD-Pakistan; verify US public-domain basis before ingestion. The ingester's current age cutoff also blocks this date."
     }
   ]
 }
