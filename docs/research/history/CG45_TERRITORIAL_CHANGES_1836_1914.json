@@ -786,7 +786,7 @@
     },
     {
       "id": "VNM-FRA-1867-06",
-      "date": "1867-06-20",
+      "date": "1867-06",
       "treatyOrEvent": "French seizure of the remaining three western Cochinchina provinces",
       "from": {
         "id": "VNM",
@@ -812,7 +812,7 @@
         "vn_cochinchina",
         "vn_french"
       ],
-      "note": "French forces occupied the remaining three provinces in June 1867. Avoid assigning all southern Vietnam to France in 1862."
+      "note": "French forces occupied the remaining three provinces in June 1867; the cited source establishes month, not day. Avoid assigning all southern Vietnam to France in 1862."
     },
     {
       "id": "RUS-TASH-1865-06",
@@ -905,7 +905,7 @@
     },
     {
       "id": "RUS-BUKHARA-1868",
-      "date": "1868-06-18",
+      "date": "1868",
       "treatyOrEvent": "Defeat of Bukhara and treaty imposing Russian protectorate conditions",
       "from": {
         "id": "BUK",
@@ -931,11 +931,11 @@
         "russia_centralasia",
         "russia_centralasia_loc"
       ],
-      "note": "Do not mark the whole Emirate of Bukhara annexed: it survived as a dependent protectorate while Samarkand/Zarafshan were annexed."
+      "note": "Bukhara was defeated in 1868 and the treaty conditions imposed protectorate status; the source does not support the day used in the earlier draft. Samarkand and some territory were annexed, while the emirate survived."
     },
     {
       "id": "RUS-KHIVA-1873",
-      "date": "1873-08-24",
+      "date": "1873",
       "treatyOrEvent": "Treaty of Gandimyan after Russian campaign against Khiva",
       "from": {
         "id": "KHIVA",
@@ -961,7 +961,7 @@
         "russia_centralasia_army",
         "russia_centralasia"
       ],
-      "note": "Khiva was not wholly annexed in 1873; treaty reduced sovereignty and imposed indemnity and foreign-policy constraints."
+      "note": "Treaty of Gandimyan followed the 1873 Russian campaign. Day precision is omitted here because sources in this package establish the year but do not verify the exact Gregorian date. Khiva survived as a protectorate."
     },
     {
       "id": "RUS-KOKAND-1876",
@@ -995,7 +995,7 @@
     },
     {
       "id": "RUS-TURKMEN-1881",
-      "date": "1881-01-24",
+      "date": "1881-01",
       "treatyOrEvent": "Russian capture of Geok Tepe",
       "from": {
         "id": "TEK",
@@ -1020,7 +1020,7 @@
       "sources": [
         "russia_centralasia_army"
       ],
-      "note": "Geok Tepe fell in January 1881; Turkmen resistance and Russian expansion continued beyond the battle."
+      "note": "Geok Tepe fell in January 1881; the source used here supports month precision. Turkmen resistance and Russian expansion continued beyond the battle."
     },
     {
       "id": "RUS-MERV-1884",
@@ -1111,7 +1111,7 @@
     },
     {
       "id": "GRC-ION-1864",
-      "date": "1864-05-21",
+      "date": "1864",
       "treatyOrEvent": "Union of the Ionian Islands with Greece",
       "from": {
         "id": "GBR",
@@ -1138,11 +1138,11 @@
       "sources": [
         "ionian_1864"
       ],
-      "note": "The islands were ceded by Britain and united with Greece in 1864."
+      "note": "The Ionian Islands were ceded by Britain and united with Greece in 1864; month/day omitted because the source in this package establishes the year."
     },
     {
       "id": "GRC-THESSALY-1881",
-      "date": "1881-07-24",
+      "date": "1881",
       "treatyOrEvent": "Convention of Constantinople",
       "from": {
         "id": "OTT",
@@ -1167,7 +1167,7 @@
       "sources": [
         "thessaly_1881"
       ],
-      "note": "Transfer implemented in 1881; do not assign all Epirus to Greece."
+      "note": "The Convention of Constantinople in 1881 transferred Thessaly and part of Epirus; exact effective day not established by the cited source."
     },
     {
       "id": "BERLIN-1878-SER",
@@ -1469,7 +1469,7 @@
       "sources": [
         "tunisia_1881"
       ],
-      "note": "The Treaty of Bardo established French control over Tunisia while preserving the Bey's formal position."
+      "note": "The Treaty of Bardo was signed on 12 May 1881; French control was established as a protectorate while the Bey retained nominal rule."
     },
     {
       "id": "EGY-1882-09",
@@ -1716,7 +1716,7 @@
     },
     {
       "id": "MAL-1896-07",
-      "date": "1896-07-01",
+      "date": "1896",
       "treatyOrEvent": "Formation of Federated Malay States",
       "from": {
         "id": "PER_PROT",
@@ -1741,7 +1741,7 @@
       "sources": [
         "malay_states"
       ],
-      "note": "1896 federation centralised selected administrative functions while Malay rulers remained."
+      "note": "Federation formed in 1896; month/day not asserted. This was an administrative union, not annexation."
     },
     {
       "id": "BUR-1886-01",
@@ -2045,7 +2045,7 @@
     },
     {
       "id": "BUL-EAST-RUMELIA-1885",
-      "date": "1885-09-18",
+      "date": "1885-09",
       "treatyOrEvent": "Union of Eastern Rumelia with the Principality of Bulgaria",
       "from": {
         "id": "OTT_E_RUM",
@@ -2070,7 +2070,7 @@
       "sources": [
         "berlin_treaty"
       ],
-      "note": "Union was proclaimed in September 1885; formal international settlement came later. Do not conflate the autonomous province with full Ottoman sovereignty or Bulgaria's 1908 independence."
+      "note": "Union was proclaimed in September 1885; exact Gregorian day should be confirmed against a primary Bulgarian source before production. Formal international settlement came later."
     },
     {
       "id": "ROM-BESSARABIA-1878",
