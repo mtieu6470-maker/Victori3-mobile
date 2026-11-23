@@ -22,7 +22,10 @@
       "VNM/DRV",
       "IND",
       "POL",
-      "FIN"
+      "FIN",
+      "SVN (State of Vietnam)",
+      "RVN (Republic of Vietnam)",
+      "PRG (Provisional Revolutionary Government of the Republic of South Vietnam)"
     ],
     "scope": "Initial research staging cohort for the states and successor regimes explicitly requested in MSG-095. Includes key heads of state and effective national leaders; it is not an exhaustive roster of every prime minister, cabinet, party secretary or acting office-holder in all 16 country families.",
     "dateConvention": "ISO-8601 Gregorian. Dates are exact where official chronologies provide them; some ranges use day precision inferred from year-level institutional lists and are marked supported or flagged in notes. Open terms end at snapshotDate.",
@@ -60,6 +63,73 @@
       "addedRecords": 132,
       "scope": "MSG-097 supplement: Beiyang ROC 1916–1928; Second Spanish Republic; Weimar chancellors; FRG presidents; GDR heads of state, ministers-president and SED leader; Japanese wartime prime ministers; CPV General Secretaries; DRV/Vietnam governments; State of Vietnam; Republic of Vietnam; PRG.",
       "datePrecision": "Records with date_precision month/year use normalized ISO date boundaries where the source only gives month/year. Do not interpret normalized day as a verified inauguration day. Secondary chronology is explicitly marked supported and requires primary archive confirmation before production."
+    },
+    "entityMetadata": {
+      "ROC": {
+        "capitalByPeriod": [
+          {
+            "from": "1912-01-01",
+            "to": "1928-06-15",
+            "capital": "Beijing"
+          },
+          {
+            "from": "1928-06-15",
+            "to": "1949-12-08",
+            "capital": "Nanjing"
+          }
+        ],
+        "note": "Beiyang government controlled from Beijing; Nationalist government moved capital to Nanjing."
+      },
+      "FRG": {
+        "capital": "Bonn",
+        "from": "1949-05-23",
+        "to": "1990-10-03",
+        "note": "Federal Republic capital before reunification."
+      },
+      "GDR": {
+        "capital": "East Berlin",
+        "from": "1949-10-07",
+        "to": "1990-10-03",
+        "note": "German Democratic Republic capital."
+      },
+      "SVN": {
+        "capital": "Saigon",
+        "from": "1949-06-14",
+        "to": "1955-10-26",
+        "note": "State of Vietnam; research key distinct from Republic of Vietnam."
+      },
+      "RVN": {
+        "capital": "Saigon",
+        "from": "1955-10-26",
+        "to": "1975-04-30",
+        "note": "Republic of Vietnam; distinct state and leadership chain."
+      },
+      "PRG": {
+        "capital": "Saigon",
+        "from": "1969-06-08",
+        "to": "1976-07-02",
+        "note": "Provisional Revolutionary Government of the Republic of South Vietnam; competing revolutionary government, not the RVN."
+      },
+      "SPA": {
+        "capitalByPeriod": [
+          {
+            "from": "1931-04-14",
+            "to": "1936-11-06",
+            "capital": "Madrid"
+          },
+          {
+            "from": "1936-11-06",
+            "to": "1937-10-31",
+            "capital": "Valencia"
+          },
+          {
+            "from": "1937-10-31",
+            "to": "1939-03-31",
+            "capital": "Barcelona"
+          }
+        ],
+        "note": "Republican government moved its seat during the Civil War; Francoist government was a rival authority."
+      }
     }
   },
   "sources": [
