@@ -5,7 +5,7 @@
     "branch": "ccr-b27f3fb8-epfpd6",
     "created": "2026-11-23",
     "coverage": {
-      "countryRows": 62,
+      "countryRows": 63,
       "minimumRequired": 60,
       "scope": "61 current and historical country/polity rows, prioritising states in the UN 1953 comparative franchise memorandum and major countries. This is a first evidence-backed calibration cohort, not a complete global census."
     },
@@ -146,6 +146,14 @@
       "type": "ISSA methodology",
       "quality": "verified",
       "note": "Current statutory scheme descriptions for 190+ countries; use to validate present-day scheme structures, not to infer historical start dates."
+    },
+    {
+      "id": "europeana_womens_suffrage",
+      "title": "Europeana Foundation, Votes for women! – equal voting rights in European countries",
+      "url": "https://www.europeana.eu/eu/stories/votes-for-women",
+      "type": "European cultural heritage research synthesis",
+      "quality": "supported",
+      "note": "Cross-checks equal male/female voting milestones across current EU countries, including Portugal 1976 and European staged reforms."
     }
   ],
   "rows": [
@@ -253,7 +261,7 @@
         "owid_lied_male_2026",
         "ilo_social_2019"
       ],
-      "note": "Federal franchise 1902; Indigenous exclusions persisted; 1962 federal voting rights for Indigenous Australians",
+      "note": "Federal franchise 1902; Indigenous exclusions persisted; 1962 federal voting rights for Indigenous Australians; the federal franchise law was enacted in 1902; Aboriginal exclusions mean this was not an equal franchise for all men.",
       "female_suffrage_quality": "verified",
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
@@ -308,7 +316,7 @@
       "iso3": "BEL",
       "country": "Belgium",
       "capital": "Brussels",
-      "male_suffrage_year": 1919,
+      "male_suffrage_year": 1893,
       "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
       "male_suffrage_source_ids": [
         "male_suffrage_pilon",
@@ -341,7 +349,7 @@
         "owid_lied_male_2026",
         "ilo_social_2019"
       ],
-      "note": "1921 first limited national right for specified war widows/women; general equal national suffrage 1948; plural male vote until 1919",
+      "note": "1921 first limited national right for specified war widows/women; general equal national suffrage 1948; plural male vote until 1919; 1893 introduced universal male suffrage with plural voting; equal one-man-one-vote followed in 1919.",
       "female_suffrage_quality": "verified",
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
@@ -987,7 +995,7 @@
         "owid_lied_female_2026",
         "vdem_codebook_16"
       ],
-      "note": "Women’s right established in 1918/19; UN table lists 1919; male Reichstag franchise 1871",
+      "note": "Women’s right established in 1918/19; UN table lists 1919; male Reichstag franchise 1871; women’s legal right was adopted in November 1918; the UN comparative table records 1919.",
       "female_suffrage_quality": "verified",
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
@@ -1815,7 +1823,7 @@
       "iso3": "SWE",
       "country": "Sweden",
       "capital": "Stockholm",
-      "male_suffrage_year": 1909,
+      "male_suffrage_year": 1907,
       "male_suffrage_scope": "first broad or universal male national franchise as reported in comparative studies; see notes",
       "male_suffrage_source_ids": [
         "male_suffrage_pilon",
@@ -1848,7 +1856,7 @@
         "owid_lied_male_2026",
         "ilo_social_2019"
       ],
-      "note": "Equal national vote 1921; equal municipal vote 1919; male franchise reform 1907/09",
+      "note": "Equal national vote 1921; equal municipal vote 1919; male franchise reform 1907/09; reform adopted 1907, with the first election under the new rules in 1909/1911.",
       "female_suffrage_quality": "verified",
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
@@ -2117,7 +2125,8 @@
         "male_suffrage_pilon",
         "male_suffrage_europe",
         "owid_lied_male_2026",
-        "ilo_social_2019"
+        "ilo_social_2019",
+        "europeana_womens_suffrage"
       ],
       "note": "19th Amendment 1920; Black men’s formal constitutional right in 1870, but Southern disenfranchisement persisted until Voting Rights Act 1965",
       "female_suffrage_quality": "verified",
@@ -2349,6 +2358,52 @@
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
       "unemployment_insurance_quality": "unverified"
+    },
+    {
+      "iso3": "PRT",
+      "country": "Portugal",
+      "capital": "Lisbon",
+      "male_suffrage_year": null,
+      "male_suffrage_scope": "not populated without a country-specific year verified in this package",
+      "male_suffrage_source_ids": [],
+      "female_suffrage_year": 1945,
+      "female_suffrage_full_equal_year": 1976,
+      "female_suffrage_scope": "national franchise initially subject to special education or tax qualifications not imposed on men",
+      "social_insurance_year": 1913,
+      "old_age_pension_year": 1935,
+      "unemployment_insurance_year": 1975,
+      "social_security_branches": {
+        "work_accident_insurance_year": 1913,
+        "health_insurance_year": 1935,
+        "pension_insurance_year": 1935,
+        "unemployment_insurance_year": 1975,
+        "family_support_year": 1942,
+        "source_id": "ilo_social_2019"
+      },
+      "unemployment_scheme_type": "national unemployment insurance legislation 1975 (ILO table)",
+      "suspended": [
+        {
+          "from": 1926,
+          "to": 1975,
+          "kind": "competitive_national_elections_suspended",
+          "note": "Military dictatorship/Estado Novo; democratic elections resumed during the 1974–76 transition."
+        }
+      ],
+      "quality": "supported",
+      "female_suffrage_quality": "verified",
+      "male_suffrage_quality": "unverified",
+      "social_insurance_quality": "supported",
+      "old_age_pension_quality": "supported",
+      "unemployment_insurance_quality": "supported",
+      "source_ids": [
+        "un_a2462_1953",
+        "crs_women_2023",
+        "europeana_womens_suffrage",
+        "ilo_social_2019",
+        "owid_lied_female_2026",
+        "vdem_codebook_16"
+      ],
+      "note": "1945 female franchise was conditional on special education or tax requirements; equal suffrage followed in 1976. ILO table gives the first pension-insurance legislation in 1935 and unemployment insurance in 1975."
     }
   ]
 }
