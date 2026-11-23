@@ -240,6 +240,12 @@ export function validateNestedState(st: GameState): void {
   validateHistoryAndCounters(s);
   validateCompanies(s);
   if (s.decolonised !== undefined) arr(s.decolonised, 'decolonised').forEach((x, i) => str(x, `decolonised[${i}]`));
+  if (s.league !== undefined) {
+    const L = obj(s.league, 'league'); num(L.founded, 'league.founded'); if (L.dissolved !== undefined) num(L.dissolved, 'league.dissolved');
+    for (const k of ['members', 'left', 'permanent'] as const) arr(L[k], `league.${k}`).forEach((x, i) => str(x, `league.${k}[${i}]`));
+    arr(L.elected, 'league.elected').forEach((x, i) => { const e = obj(x, `league.elected[${i}]`); str(e.id, `league.elected[${i}].id`); num(e.until, `league.elected[${i}].until`); });
+    arr(L.resolutions, 'league.resolutions').forEach((x, i) => { const r = obj(x, `league.resolutions[${i}]`); for (const k of ['war', 'attacker', 'defender'] as const) str(r[k], `league.resolutions[${i}].${k}`); num(r.tick, `league.resolutions[${i}].tick`); bool(r.passed, `league.resolutions[${i}].passed`); obj(r.votes, `league.resolutions[${i}].votes`); });
+  }
   if (s.organisations !== undefined) for (const [k, v] of Object.entries(obj(s.organisations, 'organisations'))) arr(v, `organisations.${k}`).forEach((x, i) => str(x, `organisations.${k}[${i}]`));
   if (s.settlements !== undefined) {
     const v = obj(s.settlements, 'settlements');

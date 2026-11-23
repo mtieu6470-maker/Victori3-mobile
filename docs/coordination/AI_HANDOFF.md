@@ -1,3 +1,20 @@
+## 2026-11-23 — WW-01d the League of Nations (Historical Mode)
+
+- `systems/league.ts` runs before united-nations. Data: `db.league_of_nations` (CG-40) plus the CG-40 seat schedule and US non-membership (`LEAGUE`).
+- **Membership:**
+  - Founded 10 Jan 1920 with the sovereign states, except the US (never joined) and great powers before their entry. Germany joins Sep 1926 and leaves Oct 1935; the USSR joins Sep 1934 and is expelled Dec 1939; Japan leaves Mar 1935; Italy leaves Dec 1939. Matching is by month.
+  - New states join a year after forming; states that left do not return. Dissolved 20 Apr 1946.
+- **Council:** permanent members are the holders of the listed capitals while they are members. Non-permanent seats follow the schedule 4 → 6 (1922) → 9 (1926) → 10 (1933) → 11 (1936), with 3-year terms elected in September.
+- **Votes:** a war of conquest between members goes to a Council vote requiring **unanimity**, with the parties not voting (Art. 5/15). Colonial wars and scripted world wars are not voted on.
+  - A condemnation costs the aggressor +5 infamy and −10 relations with members.
+  - A condemned permanent member withdraws, as Japan did in 1933.
+- State: `GameState.league`, contract-checked.
+- UI: a "Hội Quốc Liên (1920–1946)" section in the Diplomacy → Liên Hợp Quốc tab.
+- **Seed 1 to 1947:** 73 founding members; Weimar Germany 1926, USSR 1934; Japan and Germany leave 1935; Italy and the USSR 1939–40; dissolved 1946.
+- Tests: `tests/league.test.ts` (3).
+
+---
+
 ## 2026-11-23 — NAV-01 seaborne invasions need command of the sea; Taiwan
 
 - **Taiwan trace (seed 1):** Japan attacked the ROC in 1950 and lost. The PRC attacked in 1952 and annexed Taiwan in 1953, before the 1955 US treaty. Two causes: the engine had no cost for crossing the sea (a huge land army could invade an island), and the US protection of 1950 was missing.

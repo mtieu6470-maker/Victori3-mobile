@@ -282,6 +282,8 @@ export interface GameState {
   divergence: DivergenceState;
   /** DECOL-01: Historical Mode independence records already applied (ids from db.decolonisation). */
   decolonised?: string[];
+  /** WW-01d: the League of Nations (Historical Mode, 1920–1946). */
+  league?: import('./systems/league').LeagueOfNations;
   /** BLOC-03: members (country ids) of the historical economic blocs and political organisations. */
   organisations?: Record<string, string[]>;
   /** WW-01c: applied settlements, recorded border snapshots (region → owner) and states they formed. */

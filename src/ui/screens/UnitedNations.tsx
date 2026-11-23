@@ -1,6 +1,7 @@
 // DIPLO-UN-01: United Nations view (read-only engine state). No rules live here.
 import type { GameState } from '../../engine/types';
 import { councilSeats, UN_PARAMS } from '../../engine/systems/un';
+import { leagueCouncil } from '../../engine/systems/league';
 import { POST_1945_NORM, CONTAIN_AGGRESSOR } from '../../engine/systems/diplomacy';
 import { Sec, Metric } from '../components/ui';
 import { fmt } from '../i18n/vi';
@@ -9,11 +10,28 @@ import { CountryLink } from './common';
 const yearOf = (tick: number) => 1836 + Math.floor(tick / 12);
 const VOTE_VI = { for: 'Thuận', against: 'Chống', abstain: 'Trắng' } as const;
 
+/** WW-01d: the League of Nations (1920–1946), shown above the UN. */
+function LeagueSection({ st }: { st: GameState }) {
+  const lg = st.league; if (!lg) return null;
+  const council = leagueCouncil(st);
+  const recent = [...lg.resolutions].reverse().slice(0, 8);
+  return (
+    <Sec title={`Hội Quốc Liên (1920–1946)${lg.dissolved !== undefined ? ' — đã giải thể' : ''}`} x={`${lg.members.length} thành viên`}>
+      <div class="note" style="margin-top:0">Quyết định của Hội đồng cần nhất trí (các bên tranh chấp không bỏ phiếu). Lên án làm kẻ xâm lược mất uy tín, nhẹ hơn Liên Hợp Quốc; thành viên thường trực bị lên án sẽ rút khỏi Hội.</div>
+      <div class="kv"><span class="k">Thường trực Hội đồng</span><span class="v links">{lg.permanent.length ? lg.permanent.map((p) => <CountryLink key={p} st={st} id={p} />) : '—'}</span></div>
+      <div class="kv"><span class="k">Ủy viên không thường trực</span><span class="v links">{council.filter((m) => !lg.permanent.includes(m)).map((p) => <CountryLink key={p} st={st} id={p} />)}</span></div>
+      {lg.left.length > 0 && <div class="kv"><span class="k">Đã rút hoặc bị khai trừ</span><span class="v links">{lg.left.map((p) => <CountryLink key={p} st={st} id={p} />)}</span></div>}
+      {recent.map((r) => <div class="kv" key={r.war}><span class="k">{yearOf(r.tick)}: <CountryLink st={st} id={r.attacker} /> → <CountryLink st={st} id={r.defender} /></span><span class={`v ${r.passed ? 'pos' : 'dim'}`}>{r.passed ? 'Lên án' : 'Không nhất trí'}</span></div>)}
+    </Sec>
+  );
+}
+
 export function UnitedNationsTab({ st }: { st: GameState }) {
   const un = st.un;
   if (!un) {
     return (
       <div class="pad">
+        <LeagueSection st={st} />
         <div class="empty">Liên Hợp Quốc chưa được thành lập.</div>
         <div class="note">Ở chế độ Lịch sử, Liên Hợp Quốc được thành lập tháng 10/1945: 5 thành viên thường trực Hội đồng Bảo an có quyền phủ quyết (4 ghế cố định: các nước giữ London, Paris, Washington, Moskva; 1 ghế cho nước mạnh nhất còn lại), các ghế không thường trực nhiệm kỳ 2 năm (6 ghế, từ 1966 là 10 ghế).</div>
       </div>
@@ -24,6 +42,7 @@ export function UnitedNationsTab({ st }: { st: GameState }) {
   const recent = [...un.resolutions].reverse().slice(0, 20);
   return (
     <div class="pad">
+      <LeagueSection st={st} />
       <div class="metrics">
         <Metric label="Thành viên" icon="diplomacy" value={fmt(un.members.length)} d={<span class="dim">thành lập năm {yearOf(un.founded)}</span>} />
         <Metric label="Hội đồng Bảo an" icon="laws" value={`${fmt(seats.length)} ghế`} d={<span class="dim">cần {needed} phiếu, không bị phủ quyết</span>} />
