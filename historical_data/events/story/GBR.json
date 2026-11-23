@@ -2433,6 +2433,1873 @@
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
+    },
+    {
+      "id": "gbr_ceylon_riots_1915",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1915-05-01",
+        "1916-06-30"
+      ],
+      "date_historical": "1915-06-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "GBR_CEY",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1915,
+            "to": 1916
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Bạo loạn và tình trạng khẩn cấp tại Ceylon",
+      "title_en": "The Ceylon Riots and Emergency",
+      "text_vi": "Xung đột cộng đồng tại Ceylon tháng 5 năm 1915 nhanh chóng bị chính quyền thuộc địa xử lý bằng thiết quân luật và các biện pháp trấn áp trên diện rộng. Việc bắt giữ và xử tử không qua xét xử gây tranh cãi sâu sắc, trong đó có những người theo chủ nghĩa dân tộc ôn hòa như D. S. Senanayake và các luật sư địa phương. Thống đốc phải quyết định liệu có điều tra hành vi của lực lượng an ninh, khôi phục trật tự bằng nhượng bộ hay duy trì quyền lực khẩn cấp.",
+      "text_en": "Communal violence in Ceylon in May 1915 was followed by martial law and broad colonial repression. Arrests and executions without ordinary trial caused deep controversy, including among moderate nationalists and local lawyers. The Governor must decide whether to investigate security abuses, restore order through concessions or retain emergency powers.",
+      "options": [
+        {
+          "id": "ceylon_inquiry",
+          "label_vi": "Mở điều tra độc lập về các vụ xử tử và bắt giữ",
+          "label_en": "Open an independent inquiry into executions and arrests",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_ceylon_1915_inquiry",
+              "name_vi": "Điều tra thiết quân luật Ceylon",
+              "name_en": "Ceylon Martial Law Inquiry",
+              "months": 30,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "radicalism": -0.015,
+                "police": -0.02,
+                "ig_intelligentsia": 1
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.25
+            }
+          ]
+        },
+        {
+          "id": "ceylon_emergency",
+          "label_vi": "Gia hạn quyền khẩn cấp và tăng cường cảnh sát",
+          "label_en": "Extend emergency powers and reinforce the police",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_ceylon_1915_emergency",
+              "name_vi": "Quyền khẩn cấp tại Ceylon",
+              "name_en": "Ceylon Emergency Powers",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.05,
+                "radicalism": 0.025,
+                "legitimacy": -2
+              }
+            },
+            {
+              "type": "infamy",
+              "entity": "GBR",
+              "delta": 0.4
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ceylon_elections"
+      ]
+    },
+    {
+      "id": "gbr_donoughmore_1931",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1930-10-01",
+        "1932-12-31"
+      ],
+      "date_historical": "1931-07-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "GBR_CEY",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1931,
+            "to": 1932
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_ceylon_riots_1915"
+        ]
+      },
+      "title_vi": "Cải cách Donoughmore và phổ thông đầu phiếu",
+      "title_en": "The Donoughmore Reforms and Universal Franchise",
+      "text_vi": "Hiến pháp Donoughmore có hiệu lực năm 1931, lập Hội đồng Nhà nước và mở rộng quyền bầu cử cho nam giới lẫn phụ nữ trưởng thành từ 21 tuổi. Cơ chế này trao cho cử tri Ceylon một vai trò lớn hơn trong lập pháp, nhưng Thống đốc vẫn giữ quyền lực đáng kể và cơ cấu hành pháp còn gây tranh luận. Chính quyền Anh phải quyết định có để thiết chế mới phát triển thành chính phủ chịu trách nhiệm hay giữ lại các giới hạn bảo lưu.",
+      "text_en": "The Donoughmore Constitution took effect in 1931, creating a State Council and extending the vote to adult men and women aged 21 and over. Ceylonese voters gained a larger role in legislation, but the Governor retained significant powers and the executive structure remained contested. Britain must decide whether the new institutions should evolve toward responsible government or remain constrained.",
+      "options": [
+        {
+          "id": "ceylon_franchise",
+          "label_vi": "Bảo vệ phổ thông đầu phiếu và trao thêm quyền cho Hội đồng Nhà nước",
+          "label_en": "Defend universal franchise and expand the State Council's powers",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_ceylon_1931_franchise",
+              "name_vi": "Thực thi cải cách Donoughmore",
+              "name_en": "Donoughmore Reform Implementation",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "reform": 0.015,
+                "legitimacy": 2,
+                "ig_intelligentsia": 1,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "subject_liberty",
+              "subject": "GBR",
+              "delta": 0
+            }
+          ]
+        },
+        {
+          "id": "ceylon_governor_reserve",
+          "label_vi": "Giữ quyền bảo lưu của Thống đốc đối với ngân sách và an ninh",
+          "label_en": "Retain the Governor's reserved powers over finance and security",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_ceylon_1931_reserved",
+              "name_vi": "Quyền bảo lưu của Thống đốc",
+              "name_en": "Governor's Reserved Powers",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": -1,
+                "radicalism": 0.01
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 0.2
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ceylon_elections"
+      ]
+    },
+    {
+      "id": "gbr_ceylon_constitution_1946",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1945-10-01",
+        "1947-12-31"
+      ],
+      "date_historical": "1946-10-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "GBR_CEY",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1946,
+            "to": 1947
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_donoughmore_1931"
+        ]
+      },
+      "title_vi": "Hiến pháp Soulbury và con đường Dominion",
+      "title_en": "The Soulbury Constitution and the Road to Dominion Status",
+      "text_vi": "Sau các đề xuất cải cách năm 1945, hiến pháp mới của Ceylon được ban hành năm 1946, thay thế hệ thống Donoughmore bằng nghị viện lưỡng viện và nội các chịu trách nhiệm. D. S. Senanayake cùng các nhà lãnh đạo địa phương muốn tiến tới quy chế Dominion, trong khi chính quyền Anh tìm cách bảo đảm quyền lợi chiến lược và bảo vệ các nhóm thiểu số. Thỏa thuận cần giải quyết cả quyền đại diện, dịch vụ công và thời điểm chuyển giao chủ quyền.",
+      "text_en": "Following the 1945 reform proposals, Ceylon's 1946 constitution replaced the Donoughmore system with a bicameral legislature and a responsible cabinet. D. S. Senanayake and local leaders sought Dominion status, while Britain aimed to protect strategic interests and minority safeguards. The settlement must address representation, the public service and the timing of sovereignty transfer.",
+      "options": [
+        {
+          "id": "ceylon_accept_soulbury",
+          "label_vi": "Chấp nhận hiến pháp Soulbury và ấn định lộ trình Dominion",
+          "label_en": "Accept the Soulbury Constitution and set a Dominion timetable",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_ceylon_1946_soulbury",
+              "name_vi": "Lộ trình tự trị Ceylon",
+              "name_en": "Ceylon Self-Government Timetable",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "reform": 0.015,
+                "trade": 0.02,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.2
+            }
+          ]
+        },
+        {
+          "id": "ceylon_delay_status",
+          "label_vi": "Hoãn quy chế Dominion để tiếp tục rà soát bảo đảm thiểu số",
+          "label_en": "Defer Dominion status for further minority-safeguard review",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_ceylon_1946_delay",
+              "name_vi": "Trì hoãn chuyển giao Ceylon",
+              "name_en": "Ceylon Transfer Delay",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -2,
+                "radicalism": 0.015,
+                "police": 0.01
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 0.4
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ceylon_un"
+      ]
+    },
+    {
+      "id": "gbr_ceylon_independence_1948",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1947-07-01",
+        "1949-12-31"
+      ],
+      "date_historical": "1948-02-04",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "GBR_CEY",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1948,
+            "to": 1949
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_ceylon_constitution_1946"
+        ]
+      },
+      "title_vi": "Ceylon trở thành quốc gia tự quản",
+      "title_en": "Ceylon Becomes Self-Governing",
+      "text_vi": "Ceylon giành độc lập trong Khối Thịnh vượng chung ngày 4 tháng 2 năm 1948, với D. S. Senanayake trở thành Thủ tướng đầu tiên. Việc chuyển giao diễn ra thông qua hiến pháp và đàm phán, không phải một cuộc chiến tranh giành độc lập. London phải lựa chọn cách duy trì hợp tác quốc phòng, thương mại và ngoại giao mà không làm suy yếu tính chủ quyền của chính phủ mới.",
+      "text_en": "Ceylon became independent within the Commonwealth on 4 February 1948, with D. S. Senanayake as its first Prime Minister. The transfer was negotiated through constitutional arrangements rather than an independence war. London must decide how to preserve defence, trade and diplomatic cooperation without undermining the sovereignty of the new government.",
+      "options": [
+        {
+          "id": "ceylon_commonwealth",
+          "label_vi": "Chuyển giao đầy đủ và đề nghị duy trì quan hệ Khối Thịnh vượng chung",
+          "label_en": "Complete the transfer and offer continued Commonwealth ties",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_ceylon_1948_commonwealth",
+              "name_vi": "Quan hệ hậu thuộc địa với Ceylon",
+              "name_en": "Post-colonial Ceylon Relations",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "trade": 0.04,
+                "prestige": 0.04,
+                "legitimacy": 2
+              }
+            },
+            {
+              "type": "base_rights",
+              "host": "GBR",
+              "user": "LKA"
+            }
+          ]
+        },
+        {
+          "id": "ceylon_retain_bases",
+          "label_vi": "Đàm phán quyền tiếp cận căn cứ theo hiệp ước riêng",
+          "label_en": "Negotiate base access under a separate treaty",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_ceylon_1948_bases",
+              "name_vi": "Thỏa thuận căn cứ Ceylon",
+              "name_en": "Ceylon Base Agreement",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "trade": 0.02,
+                "army": 0.02,
+                "legitimacy": 1
+              }
+            },
+            {
+              "type": "base_rights",
+              "host": "GBR",
+              "user": "LKA"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ceylon_un"
+      ]
+    },
+    {
+      "id": "gbr_malaya_invasion_1941",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1941-11-01",
+        "1942-02-28"
+      ],
+      "date_historical": "1941-12-08",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_SIN",
+            "entities": [
+              "GBR",
+              "EIC"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1941,
+            "to": 1942
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Nhật Bản tiến công Malaya",
+      "title_en": "The Japanese Invasion of Malaya",
+      "text_vi": "Quân Nhật đổ bộ vào Kota Bharu ngày 8 tháng 12 năm 1941 và nhanh chóng tiến xuống bán đảo, vượt qua các tuyến phòng thủ của Anh và Khối Thịnh vượng chung. Hệ thống đường bộ, sân bay và hậu cần của quân phòng thủ không đủ để ngăn một chiến dịch cơ động được chuẩn bị kỹ. Bộ chỉ huy Anh phải quyết định tập trung lực lượng bảo vệ Singapore, rút lui có tổ chức hay cố giữ từng vị trí chiến lược.",
+      "text_en": "Japanese forces landed at Kota Bharu on 8 December 1941 and advanced rapidly down the peninsula, outflanking British and Commonwealth defences. The defenders' roads, airfields and logistics proved inadequate against a well-prepared mobile campaign. British command must decide whether to concentrate on Singapore, conduct an orderly retreat or hold each strategic position.",
+      "options": [
+        {
+          "id": "malaya_defend_peninsula",
+          "label_vi": "Tăng viện các tuyến phòng thủ phía bắc Singapore",
+          "label_en": "Reinforce the defensive line north of Singapore",
+          "ai_weight": 3,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_malaya_1941_defence",
+              "name_vi": "Phòng thủ bán đảo Malaya",
+              "name_en": "Malayan Peninsula Defence",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "war_exhaustion": 0.02,
+                "prestige": 0.01
+              }
+            },
+            {
+              "type": "war_exhaustion",
+              "entity": "GBR",
+              "delta": 2
+            }
+          ]
+        },
+        {
+          "id": "malaya_fortress_singapore",
+          "label_vi": "Rút quân về Singapore và củng cố pháo đài hải quân",
+          "label_en": "Withdraw to Singapore and reinforce the naval fortress",
+          "ai_weight": 2,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_malaya_1941_singapore",
+              "name_vi": "Phòng tuyến Singapore",
+              "name_en": "Singapore Defensive Perimeter",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "construction": 0.02,
+                "trade": -0.02
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": -0.5
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "malaysia_gov",
+        "malaya_archives"
+      ]
+    },
+    {
+      "id": "gbr_singapore_fall_1942",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1942-01-01",
+        "1942-04-30"
+      ],
+      "date_historical": "1942-02-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_SIN",
+            "entities": [
+              "GBR",
+              "EIC"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_malaya_invasion_1941"
+          },
+          {
+            "type": "year_between",
+            "from": 1942,
+            "to": 1942
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_malaya_invasion_1941"
+        ]
+      },
+      "title_vi": "Singapore thất thủ",
+      "title_en": "The Fall of Singapore",
+      "text_vi": "Ngày 15 tháng 2 năm 1942, Tướng Arthur Percival đầu hàng quân Nhật, khiến Singapore trở thành một trong những thất bại quân sự lớn nhất của Đế quốc Anh. Hàng chục nghìn binh sĩ Đồng minh bị bắt, còn dân thường phải đối mặt với chiếm đóng và bạo lực. Nội các chiến tranh phải đánh giá trách nhiệm chỉ huy, kế hoạch tái chiếm và cách khôi phục uy tín của Anh tại châu Á.",
+      "text_en": "On 15 February 1942, General Arthur Percival surrendered to Japanese forces, making Singapore one of the British Empire's greatest military defeats. Tens of thousands of Allied troops became prisoners, while civilians faced occupation and violence. The War Cabinet must assess command responsibility, plans for reconquest and how Britain's standing in Asia can be restored.",
+      "options": [
+        {
+          "id": "singapore_rebuild",
+          "label_vi": "Ưu tiên tái tổ chức lực lượng và chuẩn bị chiến dịch tái chiếm",
+          "label_en": "Prioritise force reorganisation and prepare a reconquest campaign",
+          "ai_weight": 3,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_singapore_1942_rebuild",
+              "name_vi": "Tái thiết lực lượng Viễn Đông",
+              "name_en": "Far Eastern Force Reorganisation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.06,
+                "research": 0.02,
+                "war_exhaustion": 0.02
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -1
+            }
+          ]
+        },
+        {
+          "id": "singapore_inquiry",
+          "label_vi": "Mở điều tra thất bại và cải tổ chỉ huy tại Viễn Đông",
+          "label_en": "Investigate the defeat and reform Far Eastern command",
+          "ai_weight": 2,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_singapore_1942_inquiry",
+              "name_vi": "Điều tra Singapore",
+              "name_en": "Singapore Command Inquiry",
+              "months": 30,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "army": 0.02,
+                "reform": 0.01,
+                "prestige": -0.02
+              }
+            },
+            {
+              "type": "ig_approval",
+              "entity": "GBR",
+              "ig": "ig_armed_forces",
+              "delta": -1
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "malaysia_gov"
+      ]
+    },
+    {
+      "id": "gbr_malayan_union_1946",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1945-10-01",
+        "1947-06-30"
+      ],
+      "date_historical": "1946-04-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_PEN",
+            "entities": [
+              "GBR",
+              "EIC"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1946,
+            "to": 1947
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Liên hiệp Malaya gây phản đối",
+      "title_en": "The Malayan Union Controversy",
+      "text_vi": "Liên hiệp Malaya được thành lập ngày 1 tháng 4 năm 1946, hợp nhất các bang Mã Lai và các khu định cư eo biển dưới một chính quyền trung ương. Việc thu hẹp vị thế các quân chủ Mã Lai và đề xuất nới rộng quyền công dân đã thúc đẩy sự phản đối, dẫn tới sự hình thành UMNO. Chính quyền Anh phải quyết định áp đặt kế hoạch, thương lượng lại với các Sultan hay chuyển sang mô hình liên bang.",
+      "text_en": "The Malayan Union was established on 1 April 1946, bringing the Malay states and Straits Settlements under a central administration. The reduction of the Malay rulers' status and proposed changes to citizenship provoked opposition and helped spur the formation of UMNO. Britain must decide whether to impose the plan, renegotiate with the Sultans or replace it with a federation.",
+      "options": [
+        {
+          "id": "malayan_union_impose",
+          "label_vi": "Giữ nguyên Liên hiệp và quyền lực của Toàn quyền",
+          "label_en": "Retain the Union and the Governor's central authority",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_malaya_1946_union",
+              "name_vi": "Liên hiệp Malaya",
+              "name_en": "Malayan Union Administration",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.01,
+                "legitimacy": -2,
+                "radicalism": 0.025,
+                "police": 0.02
+              }
+            },
+            {
+              "type": "infamy",
+              "entity": "GBR",
+              "delta": 0.4
+            }
+          ]
+        },
+        {
+          "id": "malayan_federation_talks",
+          "label_vi": "Đàm phán với các Sultan về một liên bang mới",
+          "label_en": "Negotiate a new federation with the Malay rulers",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_malaya_1946_federation",
+              "name_vi": "Đàm phán Liên bang Malaya",
+              "name_en": "Malayan Federation Negotiations",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "radicalism": -0.015,
+                "reform": 0.012
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.4
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "malaysia_gov",
+        "malaya_archives"
+      ]
+    },
+    {
+      "id": "gbr_malayan_emergency_1948",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1948-05-01",
+        "1949-12-31"
+      ],
+      "date_historical": "1948-06-16",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_MLK",
+            "entities": [
+              "GBR",
+              "EIC"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1948,
+            "to": 1949
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Tình trạng khẩn cấp tại Malaya",
+      "title_en": "The Malayan Emergency",
+      "text_vi": "Sau các vụ sát hại chủ đồn điền tại Sungai Siput, chính quyền tuyên bố tình trạng khẩn cấp trên toàn Malaya ngày 16 tháng 6 năm 1948. Cuộc chiến chống lực lượng Quân đội Giải phóng Dân tộc Malaya kéo dài tới năm 1960, buộc Anh và các đồng minh phải kết hợp quân sự, tình báo, tái định cư và chính sách chính trị. Chính quyền cần cân nhắc giữa chiến dịch an ninh cứng rắn, Kế hoạch Briggs và mở rộng lộ trình tự trị.",
+      "text_en": "Following the killings of plantation managers at Sungai Siput, the government declared a state of emergency throughout Malaya on 16 June 1948. The conflict against the Malayan National Liberation Army lasted until 1960 and required a combination of military operations, intelligence, resettlement and political reform. The administration must weigh coercive security measures, the Briggs Plan and a wider path to self-government.",
+      "options": [
+        {
+          "id": "malaya_br iggs",
+          "label_vi": "Triển khai Kế hoạch Briggs và tái định cư có kiểm soát",
+          "label_en": "Implement the Briggs Plan and controlled resettlement",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_malaya_1948_briggs",
+              "name_vi": "Kế hoạch Briggs",
+              "name_en": "Briggs Plan",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "police": 0.05,
+                "army": 0.03,
+                "radicalism": -0.005,
+                "legitimacy": -1
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.8
+            }
+          ]
+        },
+        {
+          "id": "malaya_political_opening",
+          "label_vi": "Mở rộng bầu cử địa phương và đàm phán với các đảng hợp pháp",
+          "label_en": "Expand local elections and negotiate with legal parties",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_malaya_1948_political",
+              "name_vi": "Mở cửa chính trị Malaya",
+              "name_en": "Malayan Political Opening",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "reform": 0.015,
+                "legitimacy": 2,
+                "radicalism": -0.015,
+                "trade": 0.01
+              }
+            },
+            {
+              "type": "subject_liberty",
+              "subject": "GBR",
+              "delta": 0
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "malaya_archives",
+        "malaysia_gov"
+      ]
+    },
+    {
+      "id": "gbr_malaya_independence_1957",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1956-02-01",
+        "1958-12-31"
+      ],
+      "date_historical": "1957-08-31",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_MLK",
+            "entities": [
+              "GBR",
+              "EIC"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1956,
+            "to": 1958
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_malayan_emergency_1948"
+        ]
+      },
+      "title_vi": "Liên bang Malaya độc lập",
+      "title_en": "The Independence of the Federation of Malaya",
+      "text_vi": "Thỏa thuận London tháng 2 năm 1956 đặt nền móng cho việc Liên bang Malaya độc lập ngày 31 tháng 8 năm 1957. Tunku Abdul Rahman và liên minh các đảng đại diện cho người Mã Lai, Hoa và Ấn Độ đã tạo ra một thỏa hiệp chính trị, trong khi tình trạng khẩn cấp vẫn tiếp diễn. Anh phải quyết định có hoàn tất chuyển giao đúng hạn, giữ căn cứ theo hiệp định hay trì hoãn vì lý do an ninh.",
+      "text_en": "The London Agreement of February 1956 paved the way for the Federation of Malaya to become independent on 31 August 1957. Tunku Abdul Rahman and a multi-ethnic party alliance forged a political compromise while the Emergency continued. Britain must decide whether to complete the transfer on schedule, retain bases under treaty or delay independence on security grounds.",
+      "options": [
+        {
+          "id": "malaya_independence",
+          "label_vi": "Công nhận độc lập và ký hiệp định hợp tác quốc phòng",
+          "label_en": "Recognise independence and sign a defence cooperation agreement",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_malaya_1957_independence",
+              "name_vi": "Độc lập Malaya",
+              "name_en": "Malayan Independence",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.05,
+                "trade": 0.04,
+                "legitimacy": 2
+              }
+            },
+            {
+              "type": "base_rights",
+              "host": "GBR",
+              "user": "MYS"
+            }
+          ]
+        },
+        {
+          "id": "malaya_delay",
+          "label_vi": "Hoãn chuyển giao cho tới khi tình trạng khẩn cấp kết thúc",
+          "label_en": "Delay the transfer until the Emergency ends",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_malaya_1957_delay",
+              "name_vi": "Trì hoãn độc lập Malaya",
+              "name_en": "Malayan Independence Delay",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "legitimacy": -3,
+                "radicalism": 0.025
+              }
+            },
+            {
+              "type": "infamy",
+              "entity": "GBR",
+              "delta": 0.5
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "malaysia_gov",
+        "malaya_archives"
+      ]
+    },
+    {
+      "id": "gbr_egypt_occupation_1882",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1882-07-01",
+        "1883-06-30"
+      ],
+      "date_historical": "1882-09-13",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "exists",
+            "entity": "EGY"
+          },
+          {
+            "type": "owner_in",
+            "region": "EGY_CAI",
+            "entities": [
+              "EGY",
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1882,
+            "to": 1883
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "egy_urabi_revolt_1882"
+        ]
+      },
+      "title_vi": "Anh chiếm đóng Ai Cập",
+      "title_en": "The British Occupation of Egypt",
+      "text_vi": "Sau khi hạm đội Anh bắn phá Alexandria tháng 7 năm 1882 và lực lượng Anh đánh bại quân Urabi tại Tel el-Kebir, Ai Cập rơi vào sự chiếm đóng trên thực tế. London tuyên bố mục tiêu là khôi phục trật tự và bảo vệ các khoản đầu tư, nhưng việc kiểm soát thung lũng Nile tạo ra một cam kết đế quốc kéo dài. Nội các phải quyết định giữ quân chiếm đóng, đặt ra thời hạn rút quân hay tìm một cơ chế quốc tế hóa việc giám sát tài chính.",
+      "text_en": "After the British fleet bombarded Alexandria in July 1882 and British forces defeated Urabi's army at Tel el-Kebir, Egypt came under de facto occupation. London claimed it sought to restore order and protect investments, but control of the Nile Valley created a long imperial commitment. The cabinet must decide whether to maintain the occupation, set a withdrawal timetable or seek an international financial oversight arrangement.",
+      "options": [
+        {
+          "id": "egypt_occupation_hold",
+          "label_vi": "Duy trì lực lượng và kiểm soát ngân khố Ai Cập",
+          "label_en": "Maintain troops and control Egyptian finances",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_egypt_1882_occupation",
+              "name_vi": "Chiếm đóng Ai Cập",
+              "name_en": "Occupation of Egypt",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.03,
+                "trade": 0.03,
+                "army": 0.03,
+                "legitimacy": -2
+              }
+            },
+            {
+              "type": "infamy",
+              "entity": "GBR",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "egypt_withdrawal_terms",
+          "label_vi": "Công bố lộ trình rút quân gắn với cải cách tài chính",
+          "label_en": "Publish a withdrawal timetable tied to fiscal reforms",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_egypt_1882_withdrawal",
+              "name_vi": "Lộ trình rút quân Ai Cập",
+              "name_en": "Egypt Withdrawal Timetable",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "trade": 0.02,
+                "prestige": -0.01
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "EGY",
+              "delta": 5
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "egypt_1882"
+      ]
+    },
+    {
+      "id": "gbr_egypt_independence_1922",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1921-10-01",
+        "1923-12-31"
+      ],
+      "date_historical": "1922-02-28",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EGY_CAI",
+            "entities": [
+              "GBR",
+              "EGY"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1922,
+            "to": 1923
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "egy_revolution_1919"
+        ]
+      },
+      "title_vi": "Tuyên bố độc lập có bảo lưu của Ai Cập",
+      "title_en": "Egypt's Conditional Declaration of Independence",
+      "text_vi": "Ngày 28 tháng 2 năm 1922, Anh đơn phương tuyên bố chấm dứt chế độ bảo hộ và công nhận Ai Cập là một quốc gia độc lập, nhưng bảo lưu các vấn đề quốc phòng, an ninh tuyến liên lạc, bảo vệ lợi ích nước ngoài và Sudan. Sự sắp xếp này mở đường cho Vương quốc Ai Cập nhưng không chấm dứt tranh chấp về chủ quyền thực chất. London phải quyết định duy trì các bảo lưu hay thương lượng một hiệp ước mới với chính phủ Cairo.",
+      "text_en": "On 28 February 1922, Britain ended the protectorate and recognised Egypt as an independent state while reserving defence, communications, foreign interests and Sudan. The arrangement paved the way for the Kingdom of Egypt but did not settle the question of effective sovereignty. London must decide whether to retain the reservations or negotiate a new treaty with Cairo.",
+      "options": [
+        {
+          "id": "egypt_reservations",
+          "label_vi": "Giữ các bảo lưu quốc phòng và Sudan trong tuyên bố độc lập",
+          "label_en": "Retain defence and Sudan reservations in the declaration",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_egypt_1922_reservations",
+              "name_vi": "Độc lập có bảo lưu",
+              "name_en": "Reserved Independence",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "trade": 0.02,
+                "prestige": 0.02,
+                "legitimacy": -1,
+                "radicalism": 0.01
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "EGY",
+              "delta": -4
+            }
+          ]
+        },
+        {
+          "id": "egypt_full_negotiation",
+          "label_vi": "Mở đàm phán hiệp ước mới để giảm các bảo lưu",
+          "label_en": "Open negotiations for a new treaty to reduce the reservations",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_egypt_1922_negotiation",
+              "name_vi": "Đàm phán chủ quyền Ai Cập",
+              "name_en": "Egyptian Sovereignty Talks",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "radicalism": -0.01,
+                "trade": 0.02
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "EGY",
+              "delta": 5
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "egypt_1882",
+        "egypt_suez"
+      ]
+    },
+    {
+      "id": "gbr_egypt_treaty_1936",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1936-04-01",
+        "1937-12-31"
+      ],
+      "date_historical": "1936-08-26",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EGY_CAI",
+            "entities": [
+              "GBR",
+              "EGY"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_egypt_independence_1922"
+          },
+          {
+            "type": "year_between",
+            "from": 1936,
+            "to": 1937
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_egypt_independence_1922"
+        ]
+      },
+      "title_vi": "Hiệp ước Anh–Ai Cập năm 1936",
+      "title_en": "The Anglo-Egyptian Treaty of 1936",
+      "text_vi": "Hiệp ước ngày 26 tháng 8 năm 1936 thay thế nhiều bảo lưu của năm 1922 bằng một thỏa thuận quốc phòng kéo dài hai mươi năm. Ai Cập được gia nhập Hội Quốc Liên và mở rộng chủ quyền hình thức, trong khi Anh giữ quyền đóng quân tại khu vực kênh đào Suez trong thời chiến. Nội các Cairo phải cân nhắc giữa chấp nhận thỏa hiệp an ninh, phản đối sự hiện diện quân sự hay đòi xem xét lại hiệp ước khi tình hình quốc tế thay đổi.",
+      "text_en": "The treaty of 26 August 1936 replaced several 1922 reservations with a twenty-year defence agreement. Egypt joined the League of Nations and gained greater formal sovereignty, while Britain retained wartime troop rights around the Suez Canal. Cairo must weigh the security compromise against opposition to the military presence and the possibility of later revision.",
+      "options": [
+        {
+          "id": "egypt_treaty_accept",
+          "label_vi": "Phê chuẩn hiệp ước và duy trì căn cứ Suez theo thời hạn",
+          "label_en": "Ratify the treaty and retain the Suez base under its terms",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_egypt_1936_treaty",
+              "name_vi": "Hiệp ước Suez 1936",
+              "name_en": "1936 Suez Treaty",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "trade": 0.03,
+                "army": 0.02,
+                "legitimacy": 1
+              }
+            },
+            {
+              "type": "base_rights",
+              "host": "GBR",
+              "user": "EGY"
+            }
+          ]
+        },
+        {
+          "id": "egypt_treaty_revise",
+          "label_vi": "Đàm phán giảm dần quân số và mở lịch rà soát",
+          "label_en": "Negotiate troop reductions and a review schedule",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_egypt_1936_revision",
+              "name_vi": "Rà soát hiệp ước Ai Cập",
+              "name_en": "Egypt Treaty Review",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "trade": 0.02,
+                "prestige": -0.01
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "EGY",
+              "delta": 5
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "egypt_suez"
+      ]
+    },
+    {
+      "id": "gbr_suez_crisis_1956",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1956-07-26",
+        "1957-03-31"
+      ],
+      "date_historical": "1956-10-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EGY_CAI",
+            "entities": [
+              "EGY",
+              "GBR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "egy_suez_nationalisation_1956"
+          },
+          {
+            "type": "year_between",
+            "from": 1956,
+            "to": 1957
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "egy_suez_nationalisation_1956"
+        ]
+      },
+      "title_vi": "Khủng hoảng Suez và sức ép quốc tế",
+      "title_en": "The Suez Crisis and International Pressure",
+      "text_vi": "Việc Ai Cập quốc hữu hóa kênh đào Suez dẫn tới kế hoạch quân sự bí mật giữa Anh, Pháp và Israel, rồi cuộc đổ bộ tại Port Said cuối tháng 10 năm 1956. Hoa Kỳ phản đối cách tiến hành chiến dịch và gây sức ép tài chính, ngoại giao để buộc các bên ngừng bắn, trong khi Liên Hợp Quốc thúc đẩy lực lượng khẩn cấp quốc tế. Nội các Anh phải chọn giữa rút lui, tìm một thỏa thuận quốc tế về kênh đào hay kéo dài chiến dịch với nguy cơ khủng hoảng đồng minh và tiền tệ.",
+      "text_en": "Egypt's nationalisation of the Suez Canal led to a secret military plan among Britain, France and Israel, followed by the landing at Port Said in late October 1956. The United States opposed the operation and applied financial and diplomatic pressure for a ceasefire, while the United Nations advanced an emergency force. The British cabinet must choose between withdrawal, an international canal settlement or prolonging the campaign at the risk of alliance and currency crises.",
+      "options": [
+        {
+          "id": "gbr_accept_ceasefire",
+          "label_vi": "Chấp nhận ngừng bắn và rút quân theo cơ chế quốc tế",
+          "label_en": "Accept a ceasefire and withdraw under an international arrangement",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1956_suez_withdrawal",
+              "name_vi": "Rút lui khỏi Suez",
+              "name_en": "Suez Withdrawal",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "prestige": -0.02,
+                "trade": 0.02,
+                "war_exhaustion": -0.02
+              }
+            },
+            {
+              "type": "war_exhaustion",
+              "entity": "GBR",
+              "delta": -3
+            }
+          ]
+        },
+        {
+          "id": "gbr_continue_operation",
+          "label_vi": "Tiếp tục chiến dịch bất chấp sức ép từ Washington",
+          "label_en": "Continue the operation despite pressure from Washington",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1956_suez_escalation",
+              "name_vi": "Leo thang tại Suez",
+              "name_en": "Suez Escalation",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "prestige": -0.04,
+                "legitimacy": -3,
+                "war_exhaustion": 0.03
+              }
+            },
+            {
+              "type": "infamy",
+              "entity": "GBR",
+              "delta": 1.5
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "egypt_suez"
+      ]
+    },
+    {
+      "id": "gbr_balfour_declaration_1917",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1917-10-01",
+        "1918-12-31"
+      ],
+      "date_historical": "1917-11-02",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EGY_PAL",
+            "entities": [
+              "EGY",
+              "TUR",
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1917,
+            "to": 1918
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Tuyên bố Balfour",
+      "title_en": "The Balfour Declaration",
+      "text_vi": "Ngày 2 tháng 11 năm 1917, Ngoại trưởng Arthur Balfour gửi thư cho Lord Rothschild, tuyên bố chính phủ Anh ủng hộ việc thiết lập một quê hương dân tộc cho người Do Thái tại Palestine. Văn bản đồng thời nêu điều kiện không được làm tổn hại các quyền dân sự và tôn giáo của những cộng đồng phi Do Thái hiện hữu. Sau chiến tranh, Anh phải đối mặt với hai kỳ vọng dân tộc ngày càng khó dung hòa và cần quyết định cách diễn giải cam kết này trong chính sách ủy trị.",
+      "text_en": "On 2 November 1917, Foreign Secretary Arthur Balfour wrote to Lord Rothschild stating British support for a national home for the Jewish people in Palestine. The declaration also said that the civil and religious rights of existing non-Jewish communities must not be prejudiced. After the war, Britain faced increasingly difficult-to-reconcile national expectations and had to decide how to interpret the pledge in its mandate policy.",
+      "options": [
+        {
+          "id": "balfour_implement",
+          "label_vi": "Ủng hộ việc thiết lập quê hương dân tộc Do Thái theo các điều kiện của thư",
+          "label_en": "Support the national home under the declaration's stated safeguards",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1917_balfour_policy",
+              "name_vi": "Chính sách Balfour",
+              "name_en": "Balfour Policy",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.02,
+                "radicalism": 0.02,
+                "legitimacy": -1
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "EGY",
+              "delta": -2
+            }
+          ]
+        },
+        {
+          "id": "balfour_balance",
+          "label_vi": "Lập cơ chế tham vấn đại diện cả cộng đồng Ả Rập và Do Thái",
+          "label_en": "Create a consultation body for both Arab and Jewish communities",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1917_palestine_consultation",
+              "name_vi": "Tham vấn cộng đồng Palestine",
+              "name_en": "Palestine Communal Consultation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "radicalism": -0.015,
+                "reform": 0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.3
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "palestine_un",
+        "palestine_timeline"
+      ]
+    },
+    {
+      "id": "gbr_palestine_mandate_1922",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1921-10-01",
+        "1923-12-31"
+      ],
+      "date_historical": "1922-07-24",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EGY_PAL",
+            "entities": [
+              "EGY",
+              "TUR",
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1922,
+            "to": 1923
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_balfour_declaration_1917"
+        ]
+      },
+      "title_vi": "Ủy trị Anh tại Palestine được phê chuẩn",
+      "title_en": "The British Mandate for Palestine Is Approved",
+      "text_vi": "Hội Quốc Liên phê chuẩn văn kiện ủy trị Palestine ngày 24 tháng 7 năm 1922, giao Anh trách nhiệm quản lý vùng lãnh thổ và thực hiện các điều khoản liên quan đến Tuyên bố Balfour. Chính quyền phải phát triển thiết chế dân sự, quản lý nhập cư và bảo đảm quyền của các cộng đồng khác nhau trong một lãnh thổ đang thay đổi nhanh chóng. Cách thực hiện ủy trị sẽ định hình quan hệ giữa chính quyền, người Ả Rập Palestine và phong trào Zionist.",
+      "text_en": "The League of Nations approved the Palestine Mandate on 24 July 1922, assigning Britain responsibility for the territory and implementation of the Balfour provisions. The administration must develop civil institutions, regulate immigration and protect the rights of different communities in a rapidly changing territory. The way the mandate is implemented will shape relations among the government, Palestinian Arabs and the Zionist movement.",
+      "options": [
+        {
+          "id": "palestine_representative_council",
+          "label_vi": "Thành lập hội đồng đại diện với quyền tham vấn thực chất",
+          "label_en": "Create a representative council with meaningful consultative powers",
+          "ai_weight": 3,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_palestine_1922_council",
+              "name_vi": "Hội đồng Palestine",
+              "name_en": "Palestine Representative Council",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "reform": 0.01,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.3
+            }
+          ]
+        },
+        {
+          "id": "palestine_admin_control",
+          "label_vi": "Ưu tiên bộ máy ủy trị trực tiếp và kiểm soát nhập cư tập trung",
+          "label_en": "Prioritise direct mandate administration and centralised immigration control",
+          "ai_weight": 2,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_palestine_1922_admin",
+              "name_vi": "Bộ máy ủy trị Palestine",
+              "name_en": "Palestine Mandate Administration",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.03,
+                "legitimacy": -1,
+                "radicalism": 0.02
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 0.3
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "palestine_un",
+        "palestine_timeline"
+      ]
+    },
+    {
+      "id": "gbr_peel_commission_1937",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1937-05-01",
+        "1938-12-31"
+      ],
+      "date_historical": "1937-07-07",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EGY_PAL",
+            "entities": [
+              "GBR",
+              "EGY"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "pal_arab_revolt_1936"
+          },
+          {
+            "type": "year_between",
+            "from": 1937,
+            "to": 1938
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "pal_arab_revolt_1936"
+        ]
+      },
+      "title_vi": "Ủy ban Peel đề xuất phân chia Palestine",
+      "title_en": "The Peel Commission Proposes Partition",
+      "text_vi": "Báo cáo của Ủy ban Peel công bố tháng 7 năm 1937 kết luận rằng mâu thuẫn giữa các cộng đồng và cam kết của Anh khó có thể giải quyết trong một nhà nước thống nhất. Ủy ban đề xuất phân chia lãnh thổ thành một nhà nước Do Thái, một nhà nước Ả Rập và khu vực đặt dưới quyền Anh, nhưng các bên phản ứng khác nhau và kế hoạch không được thực hiện. Nội các phải quyết định theo đuổi phân chia, tìm mô hình liên bang hay bác bỏ đề xuất và tiếp tục cai trị trực tiếp.",
+      "text_en": "The Peel Commission report of July 1937 concluded that communal conflict and Britain's competing commitments were difficult to reconcile in a single state. It proposed partition into Jewish and Arab states with a British-controlled area, but the parties responded differently and the plan was not implemented. The cabinet must decide whether to pursue partition, seek a federal arrangement or reject the proposal and continue direct rule.",
+      "options": [
+        {
+          "id": "pal_peel_partition",
+          "label_vi": "Đàm phán phân chia với các bảo đảm về dân cư và tài sản",
+          "label_en": "Negotiate partition with safeguards for residents and property",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_palestine_1937_partition",
+              "name_vi": "Kế hoạch phân chia Peel",
+              "name_en": "Peel Partition Plan",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "radicalism": 0.01,
+                "prestige": 0.02
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.6
+            }
+          ]
+        },
+        {
+          "id": "pal_federal_state",
+          "label_vi": "Tìm kiếm mô hình liên bang hoặc tự trị cộng đồng",
+          "label_en": "Seek a federal or communal-autonomy arrangement",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_palestine_1937_federal",
+              "name_vi": "Đề án liên bang Palestine",
+              "name_en": "Palestine Federal Proposal",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "reform": 0.015,
+                "legitimacy": 2,
+                "radicalism": -0.015
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "EGY",
+              "delta": 3
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "palestine_un"
+      ]
+    },
+    {
+      "id": "gbr_white_paper_1939",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1939-03-01",
+        "1940-12-31"
+      ],
+      "date_historical": "1939-05-17",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EGY_PAL",
+            "entities": [
+              "GBR",
+              "EGY"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_peel_commission_1937"
+          },
+          {
+            "type": "year_between",
+            "from": 1939,
+            "to": 1940
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_peel_commission_1937"
+        ]
+      },
+      "title_vi": "Sách Trắng MacDonald về Palestine",
+      "title_en": "The MacDonald White Paper",
+      "text_vi": "Sách Trắng tháng 5 năm 1939 đặt giới hạn nhập cư Do Thái trong năm năm tiếp theo và nêu mục tiêu thành lập một nhà nước Palestine độc lập trong vòng mười năm, với sự tham gia của cả người Ả Rập và người Do Thái. Lãnh đạo Zionist phản đối các hạn chế nhập cư, trong khi nhiều người Ả Rập coi đề xuất vẫn chưa đáp ứng yêu cầu độc lập ngay lập tức. Anh phải quyết định thực thi kế hoạch trong bối cảnh chiến tranh châu Âu sắp bùng nổ hay điều chỉnh để tìm sự ủng hộ rộng hơn.",
+      "text_en": "The May 1939 White Paper limited Jewish immigration for the next five years and proposed an independent Palestine within ten years with Arab and Jewish participation. Zionist leaders opposed the immigration limits, while many Arabs considered the proposal insufficient for immediate independence. Britain must decide whether to implement the plan as Europe approaches war or revise it to seek broader support.",
+      "options": [
+        {
+          "id": "pal_white_paper_enforce",
+          "label_vi": "Thực thi hạn ngạch nhập cư và lộ trình nhà nước thống nhất",
+          "label_en": "Enforce immigration quotas and the timetable for a single state",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_palestine_1939_whitepaper",
+              "name_vi": "Thực thi Sách Trắng",
+              "name_en": "White Paper Implementation",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "radicalism": 0.02,
+                "trade": 0.01
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "GBR",
+              "regions": [
+                "EGY_PAL"
+              ],
+              "delta": -3
+            }
+          ]
+        },
+        {
+          "id": "pal_white_paper_revise",
+          "label_vi": "Mở hội nghị mới với đại diện Ả Rập và Do Thái",
+          "label_en": "Convene a new conference with Arab and Jewish representatives",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_palestine_1939_conference",
+              "name_vi": "Hội nghị Palestine",
+              "name_en": "Palestine Conference",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "reform": 0.01,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.4
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "palestine_whitepaper",
+        "palestine_un"
+      ]
+    },
+    {
+      "id": "gbr_palestine_partition_1947",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1947-05-01",
+        "1948-12-31"
+      ],
+      "date_historical": "1947-11-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EGY_PAL",
+            "entities": [
+              "GBR",
+              "EGY"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_white_paper_1939"
+          },
+          {
+            "type": "year_between",
+            "from": 1947,
+            "to": 1948
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_white_paper_1939"
+        ]
+      },
+      "title_vi": "Kế hoạch phân chia Palestine của Liên Hợp Quốc",
+      "title_en": "The UN Partition Plan for Palestine",
+      "text_vi": "Đại hội đồng Liên Hợp Quốc thông qua Nghị quyết 181 ngày 29 tháng 11 năm 1947, đề xuất chấm dứt ủy trị và phân chia Palestine thành hai nhà nước với một quy chế quốc tế cho Jerusalem. Anh đã tuyên bố sẽ chấm dứt ủy trị vào tháng 5 năm 1948 và không nhận trách nhiệm thực thi kế hoạch của Liên Hợp Quốc. Chính phủ phải quyết định cách rút quân, bảo vệ dân thường và xử lý các cơ sở quân sự, cảng biển cùng tài sản công trong giai đoạn chuyển tiếp.",
+      "text_en": "The UN General Assembly adopted Resolution 181 on 29 November 1947, proposing an end to the mandate and partition into two states with an international status for Jerusalem. Britain had announced that the mandate would end in May 1948 and would not undertake to enforce the UN plan. The government must decide how to withdraw, protect civilians and handle military facilities, ports and public assets during the transition.",
+      "options": [
+        {
+          "id": "pal_orderly_withdrawal",
+          "label_vi": "Rút quân theo lịch và phối hợp bàn giao với Liên Hợp Quốc",
+          "label_en": "Withdraw on schedule and coordinate the handover with the United Nations",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_palestine_1947_withdrawal",
+              "name_vi": "Rút khỏi ủy trị Palestine",
+              "name_en": "Palestine Mandate Withdrawal",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": -0.01,
+                "legitimacy": 1,
+                "war_exhaustion": -0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.5
+            }
+          ]
+        },
+        {
+          "id": "pal_secure_assets",
+          "label_vi": "Ưu tiên bảo vệ căn cứ, cảng và công dân Anh trước khi rút",
+          "label_en": "Prioritise British bases, ports and nationals before withdrawal",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_palestine_1947_assets",
+              "name_vi": "Bảo vệ tài sản khi rút lui",
+              "name_en": "Asset Protection During Withdrawal",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "legitimacy": -1,
+                "prestige": -0.02
+              }
+            },
+            {
+              "type": "infamy",
+              "entity": "GBR",
+              "delta": 0.3
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "palestine_un",
+        "palestine_timeline"
+      ]
     }
   ]
 }
