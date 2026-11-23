@@ -1,0 +1,1864 @@
+{
+  "meta": {
+    "task": "CG-45",
+    "title": "Territorial changes and imperial expansion, 1836–1914",
+    "branch": "ccr-b27f3fb8-epfpd6",
+    "created": "2026-11-23",
+    "eventCount": 50,
+    "sourceCount": 42,
+    "scope": "Research staging proposal for territorial transfers and changes in effective control. Covers French Indochina, East Asia, Balkans, Russian Central Asia, selected African colonial milestones, United States expansion, Punjab, Burma and British Malaya.",
+    "schema": "id,date,treatyOrEvent,from,to,regions[{historicalName,principalCities,regionIds,statusNote}],type,quality,sources,note",
+    "datePrecision": "Dates are exact only where primary/official sources support them. Month/year anchors are explicitly flagged in note; entries with unknown day use a non-ISO date string only as research placeholders and must be normalised before engine import.",
+    "qualityLegend": {
+      "verified": "Primary treaty, official archive or official institutional record directly supports the legal act/date.",
+      "supported": "Credible academic or institutional historical source supports the event; primary instrument/date or boundary details may still need checking."
+    },
+    "territorialSemantics": "Distinguish de jure sovereignty, occupation, protectorate, indirect rule, administrative reorganisation and effective control. Never convert a protectorate or military occupation into annexation without a separate legal act.",
+    "mapSemantics": "regionIds are supplied only where an existing 1836 region is clearly identifiable; otherwise [] means no safe crosswalk. Do not infer ownership from modern borders or city names. Existing 1836 regions may be too coarse and require subdivision.",
+    "entitySemantics": "Entity IDs are research keys and require registry mapping. Some polities are not currently in the 1836 registry or are not sovereign; do not auto-create them as full sovereign entities without review."
+  },
+  "sources": [
+    {
+      "id": "fr_algeria_1830",
+      "title": "Algiers capitulation, 5 July 1830 (UN document reproduction)",
+      "url": "https://digitallibrary.un.org/record/3857853/files/A_C.1_PV.831-EN.pdf",
+      "type": "UN document quoting capitulation instrument",
+      "quality": "verified",
+      "note": "Surrender covered Algiers city and immediate environs only; it did not transfer sovereignty over all Algeria."
+    },
+    {
+      "id": "algeria_conquest",
+      "title": "Bugeaud’s conquest of Algeria from 1841 to 1847",
+      "url": "https://www.tandfonline.com/doi/full/10.1080/09592318.2025.2608799",
+      "type": "Journal of Strategic Studies",
+      "quality": "supported",
+      "note": "Explains long military conquest and Abd el-Kader's surrender in December 1847."
+    },
+    {
+      "id": "us_texas",
+      "title": "The Annexation of Texas, the Mexican-American War, and the Treaty of Guadalupe-Hidalgo, 1845–1848",
+      "url": "https://history.state.gov/milestones/1830-1860/texas-annexation",
+      "type": "US Department of State Office of the Historian",
+      "quality": "verified",
+      "note": "Texas admission 29 December 1845; Oregon Treaty 1846; Mexican cession 1848."
+    },
+    {
+      "id": "us_guadalupe",
+      "title": "Treaty of Guadalupe Hidalgo (1848)",
+      "url": "https://www.archives.gov/milestone-documents/treaty-of-guadalupe-hidalgo",
+      "type": "US National Archives",
+      "quality": "verified",
+      "note": "Primary treaty; signed 2 February 1848; Mexico ceded extensive northern territories."
+    },
+    {
+      "id": "us_gadsden",
+      "title": "Gadsden Purchase",
+      "url": "https://history.state.gov/milestones/1830-1860/gadsden-purchase",
+      "type": "US Department of State Office of the Historian",
+      "quality": "verified",
+      "note": "Treaty signed 30 December 1853; land purchase from Mexico."
+    },
+    {
+      "id": "us_alaska",
+      "title": "Alaska Purchase Treaty, 1867",
+      "url": "https://www.archives.gov/milestone-documents/treaty-with-russia-for-purchase-of-alaska",
+      "type": "US National Archives",
+      "quality": "verified",
+      "note": "Cession by Russia to United States; signed 30 March 1867."
+    },
+    {
+      "id": "us_hawaii",
+      "title": "Joint Resolution to Provide for Annexing the Hawaiian Islands to the United States (1898)",
+      "url": "https://www.archives.gov/milestone-documents/joint-resolution-for-annexing-the-hawaiian-islands",
+      "type": "US National Archives",
+      "quality": "verified",
+      "note": "Annexation resolution 7 July 1898; formal transfer ceremony 12 August."
+    },
+    {
+      "id": "us_spanishwar",
+      "title": "Spanish-American War and Treaty of Paris",
+      "url": "https://history.state.gov/milestones/1866-1898/spanish-american-war",
+      "type": "US Department of State Office of the Historian",
+      "quality": "verified",
+      "note": "Treaty 10 December 1898: Puerto Rico, Guam ceded; Philippines sold; Cuba sovereignty relinquished."
+    },
+    {
+      "id": "punjab_proclamation",
+      "title": "Proclamation annexing Punjab, 29 March 1849",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Annals_of_India_for_the_year_1848_-_An_outline_of_the_principal_events_which_have_occurred_in_the_British_dominions_in_India_from_1st_January_1848_to_the_end_of_the_second_Seikh_war_in_March_%28IA_dli.ministry.09248%29.pdf",
+      "type": "Contemporary official India annual record (digitized)",
+      "quality": "verified",
+      "note": "The proclamation declares Punjab a portion of British dominions; date 29 March 1849."
+    },
+    {
+      "id": "punjab_history",
+      "title": "Accumulation by Attachment: Colonial Benevolence and the Rule of Capital in Nineteenth-Century Panjab",
+      "url": "https://academic.oup.com/past/article/256/1/203/6422593",
+      "type": "Past & Present, Oxford Academic",
+      "quality": "supported",
+      "note": "Confirms March 1849 annexation after Second Anglo-Sikh War."
+    },
+    {
+      "id": "burma_annex",
+      "title": "Third Burma War",
+      "url": "https://www.nam.ac.uk/explore/third-burma-war",
+      "type": "National Army Museum",
+      "quality": "verified",
+      "note": "Upper Burma annexation proclaimed 1 January 1886 after 1885 invasion."
+    },
+    {
+      "id": "burma_lower",
+      "title": "A timeline of Burma and the Army",
+      "url": "https://www.nam.ac.uk/explore/timeline-burma-army",
+      "type": "National Army Museum",
+      "quality": "supported",
+      "note": "Lower Irrawaddy annexed 20 January 1853; earlier coastal acquisitions 1826 outside requested period."
+    },
+    {
+      "id": "pangkor",
+      "title": "Pangkor—Resistance, Retaliation, and Reflection, 1874–1877",
+      "url": "https://academic.oup.com/book/57608/chapter-abstract/469225856",
+      "type": "Oxford University Press",
+      "quality": "supported",
+      "note": "Pangkor Treaty 20 January 1874; British Resident in Perak, extended indirect rule."
+    },
+    {
+      "id": "malay_states",
+      "title": "The Early British Administrators in the Malay States, 1874–1909",
+      "url": "https://ajba.um.edu.my/index.php/SEJARAH/article/view/9310",
+      "type": "SEJARAH / University of Malaya",
+      "quality": "supported",
+      "note": "British intervention expanded to Selangor and Sungai Ujong in 1874, Pahang 1888; federation 1896."
+    },
+    {
+      "id": "vn_cochinchina",
+      "title": "The Land Boundaries of Indochina",
+      "url": "https://www.dur.ac.uk/media/durham-university/research-/research-centres/ibru-centre-for-borders-research/maps-and-databases/publications-database/Boundary--Territory-Briefings-%28Vol.-2-no.-6%29.pdf",
+      "type": "Durham University International Boundaries Research Unit",
+      "quality": "supported",
+      "note": "Treaty of Saigon 1862; occupation of remaining southern provinces 1867; Cambodia protectorate context."
+    },
+    {
+      "id": "vn_french",
+      "title": "French colonial rule in Vietnam",
+      "url": "https://www.cna.org/archive/CNA_Files/pdf/iop-2014-u-008433.pdf",
+      "type": "Center for Naval Analyses",
+      "quality": "supported",
+      "note": "French invasion 1858; Saigon 1859; 1862 treaty and 1864 formal declaration of Cochinchina as French territory."
+    },
+    {
+      "id": "cambodia_1863",
+      "title": "Treaty of 11 August 1863 establishing French protection over Cambodia (quoted in ICJ filing)",
+      "url": "https://icj-web.leman.un-icc.cloud/sites/default/files/case-related/45/9253.pdf",
+      "type": "ICJ case document reproducing treaty",
+      "quality": "supported",
+      "note": "Treaty date 11 August 1863; protectorate, not outright annexation."
+    },
+    {
+      "id": "berlin_treaty",
+      "title": "Treaty of Berlin, 13 July 1878 (FRUS text)",
+      "url": "https://history.state.gov/historicaldocuments/frus1878/d523",
+      "type": "US Department of State, FRUS primary treaty text",
+      "quality": "verified",
+      "note": "Articles define autonomous tributary Bulgaria, independence of Serbia and Montenegro, Romania, and Austro-Hungarian occupation of Bosnia-Herzegovina."
+    },
+    {
+      "id": "berlin_treaty_context",
+      "title": "Treaty of Berlin provisions and territorial settlement",
+      "url": "https://history.state.gov/historicaldocuments/frus1878/papers",
+      "type": "US Department of State, FRUS",
+      "quality": "verified",
+      "note": "Contemporaneous diplomatic index summarises treaty articles and territorial changes."
+    },
+    {
+      "id": "albania_independence",
+      "title": "Hall of Independence of Albania (1912–1939)",
+      "url": "https://www.mhk.gov.al/en/?elemenfolio=pavijoni-i-pavaresise-2",
+      "type": "National Historical Museum of Albania",
+      "quality": "verified",
+      "note": "Declaration 28 November 1912; recognition as independent neutral state 29 July 1913."
+    },
+    {
+      "id": "balkan_bucharest",
+      "title": "Treaty of Bucharest, 10 August 1913",
+      "url": "https://www.macedonianleague.org/documents/the-treaty-of-bucharest-august-10-1913",
+      "type": "Treaty transcription",
+      "quality": "supported",
+      "note": "Peace settlement among Romania, Greece, Montenegro, Serbia and Bulgaria; used with caution for exact territorial clauses."
+    },
+    {
+      "id": "russia_centralasia",
+      "title": "Central Asia vii. In the 18th–19th Centuries",
+      "url": "https://www.iranicaonline.org/articles/central-asia-vii/",
+      "type": "Encyclopaedia Iranica",
+      "quality": "supported",
+      "note": "Tashkent captured 1865 and annexed 1866; Bukhara defeated 1868; Samarkand fell; Kokand's later absorption."
+    },
+    {
+      "id": "russia_centralasia_army",
+      "title": "Russian-Soviet Unconventional Wars in the Caucasus, Central Asia, and Afghanistan",
+      "url": "https://history.army.mil/portals/143/Images/Publications/catalog/107-1.pdf",
+      "type": "US Army Center of Military History",
+      "quality": "supported",
+      "note": "Broad conquest chronology: Kazakh steppe, khanates, Khiva 1873, Turkmen lands in 1880s."
+    },
+    {
+      "id": "russia_centralasia_loc",
+      "title": "Central Asian law and Russian imperial expansion",
+      "url": "https://tile.loc.gov/storage-services/master/gdc/gdcebookspublic/20/16/03/54/32/2016035432/2016035432.pdf",
+      "type": "Library of Congress-hosted academic monograph",
+      "quality": "supported",
+      "note": "Tashkent 1865; Bukhara and Khiva protectorates; Turkestan administration."
+    },
+    {
+      "id": "taiwan_1895",
+      "title": "Takeover of Taiwan in Accordance with the Treaty",
+      "url": "https://archives.ith.sinica.edu.tw/collections_con2_en.php?no=175",
+      "type": "Academia Sinica, Archives of Institute of Taiwan History",
+      "quality": "verified",
+      "note": "Treaty signed 17 April 1895; sovereignty handover completed 2 June 1895."
+    },
+    {
+      "id": "shimonoseki",
+      "title": "Treaty of Shimonoseki (1895), Article II",
+      "url": "https://history.state.gov/historicaldocuments/frus1895p1/d203",
+      "type": "US Department of State, FRUS primary treaty text",
+      "quality": "verified",
+      "note": "Cession to Japan of Taiwan/Pescadores and Liaodong (the latter subsequently retroceded under pressure)."
+    },
+    {
+      "id": "korea_annex",
+      "title": "Japan's Annexation of Korea",
+      "url": "https://www.ndl.go.jp/modern/e/cha2/description27.html",
+      "type": "National Diet Library of Japan",
+      "quality": "verified",
+      "note": "Annexation treaty signed 22 August 1910; Japanese annexation."
+    },
+    {
+      "id": "korea_treaty",
+      "title": "Treaty on the Annexation of Korea, 1910",
+      "url": "https://history.state.gov/historicaldocuments/frus1910/d705",
+      "type": "US Department of State, FRUS primary treaty text",
+      "quality": "verified",
+      "note": "Article I transfers sovereignty; Article VIII effective upon promulgation."
+    },
+    {
+      "id": "russia_china_1858",
+      "title": "Treaty of Aigun (1858) and Russian expansion in the Amur region",
+      "url": "https://www.britannica.com/event/Treaty-of-Aigun",
+      "type": "Encyclopaedia Britannica",
+      "quality": "supported",
+      "note": "Treaty ceded left bank of Amur to Russia; Ussuri territory remained jointly administered pending later settlement."
+    },
+    {
+      "id": "russia_china_1860",
+      "title": "Convention of Peking (1860)",
+      "url": "https://www.britannica.com/event/Convention-of-Peking",
+      "type": "Encyclopaedia Britannica",
+      "quality": "supported",
+      "note": "Confirmed Russian possession east of Ussuri to Pacific, including area of Vladivostok."
+    },
+    {
+      "id": "egypt_1882",
+      "title": "The British occupation, 1882–1922",
+      "url": "https://www.cambridge.org/core/books/abs/cambridge-history-of-egypt/british-occupation-18821922/179398E6D722904951A25256F524C963",
+      "type": "Cambridge University Press",
+      "quality": "supported",
+      "note": "British military occupation from 1882 while formal Egyptian/Ottoman status continued; do not model as annexation."
+    },
+    {
+      "id": "egypt_africa",
+      "title": "Egypt and the Anglo-Egyptian Sudan",
+      "url": "https://www.cambridge.org/core/books/abs/cambridge-history-of-africa/egypt-and-the-angloegyptian-sudan/38BE40DCC9DA94C4B4F8CCB3540F24DB",
+      "type": "Cambridge University Press",
+      "quality": "supported",
+      "note": "British control over Egypt while formal Egyptian government and Ottoman status persisted."
+    },
+    {
+      "id": "congo_1885",
+      "title": "Berlin Conference and Congo Free State",
+      "url": "https://www.britannica.com/event/Berlin-West-Africa-Conference",
+      "type": "Encyclopaedia Britannica",
+      "quality": "supported",
+      "note": "Conference 1884–85 recognised framework of Congo Free State; not a transfer to Belgium until 1908."
+    },
+    {
+      "id": "germany_africa",
+      "title": "German colonial acquisitions 1884–1885",
+      "url": "https://www.britannica.com/place/German-East-Africa",
+      "type": "Encyclopaedia Britannica",
+      "quality": "supported",
+      "note": "German East Africa declared protectorate in 1885; coastal treaties/claims require distinction from effective control."
+    },
+    {
+      "id": "tunisia_1881",
+      "title": "Treaty of Bardo (1881)",
+      "url": "https://www.britannica.com/event/Treaty-of-Bardo",
+      "type": "Encyclopaedia Britannica",
+      "quality": "supported",
+      "note": "French protectorate over Tunisia; Bey retained nominal rule."
+    },
+    {
+      "id": "suez_canal",
+      "title": "Convention of Constantinople (1888)",
+      "url": "https://avalon.law.yale.edu/19th_century/suez.asp",
+      "type": "Yale Avalon Project",
+      "quality": "verified",
+      "note": "Suez Canal neutrality instrument; contextual only, not territorial transfer."
+    },
+    {
+      "id": "greece_1832",
+      "title": "Treaty of Constantinople (1832) and Greek independence",
+      "url": "https://www.britannica.com/event/Treaty-of-Constantinople-1832",
+      "type": "Encyclopaedia Britannica",
+      "quality": "supported",
+      "note": "Recognised Greece as independent kingdom; boundary and state formation."
+    },
+    {
+      "id": "ionian_1864",
+      "title": "Union of the Ionian Islands with Greece, 1864",
+      "url": "https://www.britannica.com/place/Ionian-Islands",
+      "type": "Encyclopaedia Britannica",
+      "quality": "supported",
+      "note": "Britain ceded Ionian Islands to Greece in 1864."
+    },
+    {
+      "id": "thessaly_1881",
+      "title": "Convention of Constantinople (1881)",
+      "url": "https://www.britannica.com/event/Convention-of-Constantinople-1881",
+      "type": "Encyclopaedia Britannica",
+      "quality": "supported",
+      "note": "Ottoman cession of Thessaly and part of Epirus to Greece."
+    },
+    {
+      "id": "gadsden",
+      "title": "Gadsden Purchase",
+      "url": "https://history.state.gov/milestones/1830-1860/gadsden-purchase",
+      "type": "US Department of State Office of the Historian",
+      "quality": "verified",
+      "note": "1853–54 purchase; US-Mexico boundary settlement."
+    },
+    {
+      "id": "alaska",
+      "title": "Alaska Purchase Treaty, 1867",
+      "url": "https://www.archives.gov/milestone-documents/treaty-with-russia-for-purchase-of-alaska",
+      "type": "US National Archives",
+      "quality": "verified",
+      "note": "Russia sold Alaska to the United States."
+    },
+    {
+      "id": "taiwan_japan",
+      "title": "Takeover of Taiwan in Accordance with the Treaty",
+      "url": "https://archives.ith.sinica.edu.tw/collections_con2_en.php?no=175",
+      "type": "Academia Sinica",
+      "quality": "verified",
+      "note": "Taiwan and Penghu handover 2 June 1895."
+    }
+  ],
+  "events": [
+    {
+      "id": "ALG-1830-07",
+      "date": "1830-07-05",
+      "treatyOrEvent": "Capitulation of Algiers",
+      "from": {
+        "id": "ALG",
+        "name": "Regency of Algiers",
+        "capital": "Algiers"
+      },
+      "to": {
+        "id": "FRA_OCC",
+        "name": "French military occupation of Algiers",
+        "capital": "Algiers"
+      },
+      "regions": [
+        {
+          "historicalName": "Algiers city and immediate environs",
+          "principalCities": "Algiers",
+          "regionIds": [
+            "FRA_ALG"
+          ],
+          "statusNote": "Do not transfer all Algeria: the capitulation expressly did not cede sovereignty over the hinterland."
+        }
+      ],
+      "type": "conquest_and_occupation",
+      "quality": "verified",
+      "sources": [
+        "fr_algeria_1830"
+      ],
+      "note": "Military surrender of the capital only. This event is an occupation/control change, not annexation of the entire Regency."
+    },
+    {
+      "id": "ALG-1847-12",
+      "date": "1847-12-23",
+      "treatyOrEvent": "Surrender of Emir Abd el-Kader",
+      "from": {
+        "id": "ALG_RES",
+        "name": "Algerian resistance polity under Abd el-Kader",
+        "capital": "Mascara / mobile seat"
+      },
+      "to": {
+        "id": "FRA",
+        "name": "French Algeria (expanding military control)",
+        "capital": "Algiers"
+      },
+      "regions": [
+        {
+          "historicalName": "Western Algeria / Emirate of Abd el-Kader",
+          "principalCities": "Mascara, Tlemcen, Oran",
+          "regionIds": [],
+          "statusNote": "No exact region IDs: resistance-controlled territory shifted over time."
+        }
+      ],
+      "type": "conquest",
+      "quality": "supported",
+      "sources": [
+        "algeria_conquest"
+      ],
+      "note": "Marks the collapse of the principal organised resistance, not a precise legal annexation date for every Algerian territory."
+    },
+    {
+      "id": "USA-TEX-1845-12",
+      "date": "1845-12-29",
+      "treatyOrEvent": "Admission of the Republic of Texas to the United States",
+      "from": {
+        "id": "TEX",
+        "name": "Republic of Texas",
+        "capital": "Austin"
+      },
+      "to": {
+        "id": "USA",
+        "name": "United States of America",
+        "capital": "Washington, D.C."
+      },
+      "regions": [
+        {
+          "historicalName": "Texas",
+          "principalCities": "Austin, San Antonio, Galveston",
+          "regionIds": [],
+          "statusNote": "Current map may represent Texas inside a broad US/Mexico border region; requires split."
+        }
+      ],
+      "type": "annexation",
+      "quality": "verified",
+      "sources": [
+        "us_texas"
+      ],
+      "note": "Admission date 29 December 1845. The 1844 treaty proposal failed; annexation proceeded by congressional joint resolution."
+    },
+    {
+      "id": "USA-ORE-1846-06",
+      "date": "1846-06-15",
+      "treatyOrEvent": "Oregon Treaty",
+      "from": {
+        "id": "GBR",
+        "name": "United Kingdom",
+        "capital": "London"
+      },
+      "to": {
+        "id": "USA",
+        "name": "United States of America",
+        "capital": "Washington, D.C."
+      },
+      "regions": [
+        {
+          "historicalName": "Oregon Country south of the 49th parallel",
+          "principalCities": "Portland area, Puget Sound",
+          "regionIds": [],
+          "statusNote": "Jointly claimed territory; boundary settlement, not conquest."
+        }
+      ],
+      "type": "boundary_settlement_and_cession",
+      "quality": "verified",
+      "sources": [
+        "us_texas"
+      ],
+      "note": "Treaty settled the Oregon boundary at the 49th parallel, with Vancouver Island retained by Britain."
+    },
+    {
+      "id": "MEX-USA-1848-02",
+      "date": "1848-02-02",
+      "treatyOrEvent": "Treaty of Guadalupe Hidalgo",
+      "from": {
+        "id": "MEX",
+        "name": "Mexican Republic",
+        "capital": "Mexico City"
+      },
+      "to": {
+        "id": "USA",
+        "name": "United States of America",
+        "capital": "Washington, D.C."
+      },
+      "regions": [
+        {
+          "historicalName": "Alta California",
+          "principalCities": "San Francisco, Monterey, Los Angeles",
+          "regionIds": [],
+          "statusNote": ""
+        },
+        {
+          "historicalName": "New Mexico and northern frontier territories",
+          "principalCities": "Santa Fe, San Diego, Tucson",
+          "regionIds": [],
+          "statusNote": ""
+        }
+      ],
+      "type": "cession_after_war",
+      "quality": "verified",
+      "sources": [
+        "us_guadalupe"
+      ],
+      "note": "Treaty signed 2 February 1848; Senate ratification and exchange occurred later. Use treaty date for agreement, separate effective date if engine tracks ratification."
+    },
+    {
+      "id": "MEX-USA-1853-12",
+      "date": "1853-12-30",
+      "treatyOrEvent": "Gadsden Purchase Treaty",
+      "from": {
+        "id": "MEX",
+        "name": "Mexican Republic",
+        "capital": "Mexico City"
+      },
+      "to": {
+        "id": "USA",
+        "name": "United States of America",
+        "capital": "Washington, D.C."
+      },
+      "regions": [
+        {
+          "historicalName": "Mesilla Valley and Gadsden Purchase strip",
+          "principalCities": "Mesilla, Tucson corridor",
+          "regionIds": [],
+          "statusNote": "Southern Arizona and New Mexico border strip."
+        }
+      ],
+      "type": "purchase",
+      "quality": "verified",
+      "sources": [
+        "us_gadsden"
+      ],
+      "note": "Treaty signed 30 December 1853; ratification and payment followed in 1854."
+    },
+    {
+      "id": "PUN-1849-03",
+      "date": "1849-03-29",
+      "treatyOrEvent": "Proclamation annexing the Punjab after the Second Anglo-Sikh War",
+      "from": {
+        "id": "SIK",
+        "name": "Sikh Empire",
+        "capital": "Lahore"
+      },
+      "to": {
+        "id": "GBR_IND",
+        "name": "British India / East India Company",
+        "capital": "Calcutta"
+      },
+      "regions": [
+        {
+          "historicalName": "Punjab",
+          "principalCities": "Lahore, Amritsar, Multan, Peshawar",
+          "regionIds": [],
+          "statusNote": "The historic Punjab was larger than modern Indian Punjab; boundary crosswalk must include western districts."
+        }
+      ],
+      "type": "annexation",
+      "quality": "verified",
+      "sources": [
+        "punjab_proclamation",
+        "punjab_history"
+      ],
+      "note": "Contemporary proclamation date is 29 March 1849. Do not merge this with the 1846 partial cession/residency arrangement."
+    },
+    {
+      "id": "BUR-1853-01",
+      "date": "1853-01-20",
+      "treatyOrEvent": "British annexation of Lower Burma (Pegu)",
+      "from": {
+        "id": "BUR",
+        "name": "Konbaung Burma",
+        "capital": "Mandalay"
+      },
+      "to": {
+        "id": "GBR_IND",
+        "name": "British India",
+        "capital": "Calcutta"
+      },
+      "regions": [
+        {
+          "historicalName": "Lower Irrawaddy / Pegu",
+          "principalCities": "Yangon, Bago, Pathein",
+          "regionIds": [],
+          "statusNote": "Annexed after Second Anglo-Burmese War; earlier Arakan and Tenasserim cessions occurred in 1826, outside this dataset."
+        }
+      ],
+      "type": "annexation",
+      "quality": "supported",
+      "sources": [
+        "burma_lower"
+      ],
+      "note": "British India proclaimed annexation of Lower Burma on 20 January 1853."
+    },
+    {
+      "id": "RUS-CHN-1858-05",
+      "date": "1858-05-28",
+      "treatyOrEvent": "Treaty of Aigun",
+      "from": {
+        "id": "QNG",
+        "name": "Qing Empire",
+        "capital": "Beijing"
+      },
+      "to": {
+        "id": "RUS",
+        "name": "Russian Empire",
+        "capital": "St Petersburg"
+      },
+      "regions": [
+        {
+          "historicalName": "Left bank of the Amur River",
+          "principalCities": "Blagoveshchensk region",
+          "regionIds": [],
+          "statusNote": "Cession north of the Amur; Ussuri territory was not yet fully allocated."
+        }
+      ],
+      "type": "cession_by_treaty",
+      "quality": "supported",
+      "sources": [
+        "russia_china_1858"
+      ],
+      "note": "The treaty transferred the left bank of the Amur to Russia; territory between Ussuri and the Pacific remained under joint arrangement pending 1860."
+    },
+    {
+      "id": "RUS-CHN-1860-11",
+      "date": "1860-11-14",
+      "treatyOrEvent": "Convention of Peking",
+      "from": {
+        "id": "QNG",
+        "name": "Qing Empire",
+        "capital": "Beijing"
+      },
+      "to": {
+        "id": "RUS",
+        "name": "Russian Empire",
+        "capital": "St Petersburg"
+      },
+      "regions": [
+        {
+          "historicalName": "Ussuri region and Maritime Province",
+          "principalCities": "Vladivostok, Ussuriysk",
+          "regionIds": [],
+          "statusNote": "Territory east of the Ussuri to the Pacific transferred to Russia."
+        }
+      ],
+      "type": "cession_by_treaty",
+      "quality": "supported",
+      "sources": [
+        "russia_china_1860"
+      ],
+      "note": "The convention confirmed Russian possession of the territory east of the Ussuri; Vladivostok was founded in 1860."
+    },
+    {
+      "id": "VNM-FRA-1858-09",
+      "date": "1858-09-01",
+      "treatyOrEvent": "French-Spanish invasion of Tourane (Da Nang)",
+      "from": {
+        "id": "VNM",
+        "name": "Nguyễn Vietnam",
+        "capital": "Huế"
+      },
+      "to": {
+        "id": "FRA_OCC",
+        "name": "French military occupation",
+        "capital": "Saigon / Tourane"
+      },
+      "regions": [
+        {
+          "historicalName": "Tourane / Da Nang coastal foothold",
+          "principalCities": "Da Nang",
+          "regionIds": [],
+          "statusNote": "Initial expeditionary occupation; not the transfer of all Annam."
+        }
+      ],
+      "type": "military_occupation",
+      "quality": "supported",
+      "sources": [
+        "vn_french",
+        "vn_cochinchina"
+      ],
+      "note": "French forces landed at Tourane in 1858; Saigon was captured in 1859. This is a campaign marker, not an annexation."
+    },
+    {
+      "id": "VNM-FRA-1862-06",
+      "date": "1862-06-05",
+      "treatyOrEvent": "First Treaty of Saigon",
+      "from": {
+        "id": "VNM",
+        "name": "Nguyễn Vietnam",
+        "capital": "Huế"
+      },
+      "to": {
+        "id": "FRA",
+        "name": "French Empire / Cochinchina",
+        "capital": "Saigon"
+      },
+      "regions": [
+        {
+          "historicalName": "Eastern Cochinchina ceded in 1862",
+          "principalCities": "Gia Định (Saigon), Biên Hòa, Định Tường",
+          "regionIds": [],
+          "statusNote": "Three southern provinces and Côn Sơn; ports and navigation concessions also granted."
+        }
+      ],
+      "type": "cession_by_treaty",
+      "quality": "supported",
+      "sources": [
+        "vn_cochinchina",
+        "vn_french"
+      ],
+      "note": "Treaty ceded three provinces, Con Son and strategic concessions. Treaty date is 5 June 1862."
+    },
+    {
+      "id": "CAM-FRA-1863-08",
+      "date": "1863-08-11",
+      "treatyOrEvent": "Treaty establishing French protection over Cambodia",
+      "from": {
+        "id": "CAM",
+        "name": "Kingdom of Cambodia",
+        "capital": "Oudong"
+      },
+      "to": {
+        "id": "CAM_PROT",
+        "name": "French protectorate over Cambodia",
+        "capital": "Oudong / Phnom Penh"
+      },
+      "regions": [
+        {
+          "historicalName": "Cambodia",
+          "principalCities": "Oudong, Phnom Penh, Battambang",
+          "regionIds": [],
+          "statusNote": "Protectorate: Cambodian monarchy persisted; Siamese and Vietnamese claims and border arrangements continued."
+        }
+      ],
+      "type": "protectorate",
+      "quality": "supported",
+      "sources": [
+        "cambodia_1863"
+      ],
+      "note": "The treaty established a protectorate, not outright French annexation. Effective control expanded over time."
+    },
+    {
+      "id": "VNM-FRA-1867-06",
+      "date": "1867-06-20",
+      "treatyOrEvent": "French seizure of the remaining three western Cochinchina provinces",
+      "from": {
+        "id": "VNM",
+        "name": "Nguyễn Vietnam",
+        "capital": "Huế"
+      },
+      "to": {
+        "id": "FRA",
+        "name": "French Cochinchina",
+        "capital": "Saigon"
+      },
+      "regions": [
+        {
+          "historicalName": "Western Cochinchina",
+          "principalCities": "Vĩnh Long, An Giang, Hà Tiên",
+          "regionIds": [],
+          "statusNote": "Combined with the 1862 cessions, this created French control over all six southern provinces."
+        }
+      ],
+      "type": "conquest_and_annexation",
+      "quality": "supported",
+      "sources": [
+        "vn_cochinchina",
+        "vn_french"
+      ],
+      "note": "French forces occupied the remaining three provinces in June 1867. Avoid assigning all southern Vietnam to France in 1862."
+    },
+    {
+      "id": "RUS-TASH-1865-06",
+      "date": "1865-06-29",
+      "treatyOrEvent": "Russian capture of Tashkent",
+      "from": {
+        "id": "KOK",
+        "name": "Khanate of Kokand",
+        "capital": "Kokand"
+      },
+      "to": {
+        "id": "RUS_OCC",
+        "name": "Russian military occupation of Tashkent",
+        "capital": "Tashkent"
+      },
+      "regions": [
+        {
+          "historicalName": "Tashkent oasis",
+          "principalCities": "Tashkent",
+          "regionIds": [],
+          "statusNote": "Captured 27 June and surrendered 29 June 1865; annexation decree followed in August 1866."
+        }
+      ],
+      "type": "conquest_and_occupation",
+      "quality": "supported",
+      "sources": [
+        "russia_centralasia",
+        "russia_centralasia_loc"
+      ],
+      "note": "Separate capture (1865) from formal annexation (1866)."
+    },
+    {
+      "id": "RUS-TASH-1866-08",
+      "date": "1866-08-01",
+      "treatyOrEvent": "Russian imperial annexation of Tashkent and Khujand (decree, month precision)",
+      "from": {
+        "id": "KOK",
+        "name": "Khanate of Kokand",
+        "capital": "Kokand"
+      },
+      "to": {
+        "id": "RUS",
+        "name": "Russian Empire / Turkestan",
+        "capital": "Tashkent"
+      },
+      "regions": [
+        {
+          "historicalName": "Tashkent and Khujand districts",
+          "principalCities": "Tashkent, Khujand",
+          "regionIds": [],
+          "statusNote": "Use month precision: annexation decree is dated August 1866 in the source."
+        }
+      ],
+      "type": "annexation",
+      "quality": "supported",
+      "sources": [
+        "russia_centralasia"
+      ],
+      "note": "The event uses 1 August as a month anchor only; exact day is unknown. Keep quality supported and do not treat this as an exact date."
+    },
+    {
+      "id": "RUS-TURKESTAN-1867",
+      "date": "1867-07-11",
+      "treatyOrEvent": "Creation of the Governor-Generalship of Turkestan",
+      "from": {
+        "id": "RUS",
+        "name": "Russian Empire",
+        "capital": "St Petersburg"
+      },
+      "to": {
+        "id": "RUS_TURK",
+        "name": "Russian Turkestan administration",
+        "capital": "Tashkent"
+      },
+      "regions": [
+        {
+          "historicalName": "Tashkent, Semirechye and Syr-Darya administrative districts",
+          "principalCities": "Tashkent, Verny",
+          "regionIds": [],
+          "statusNote": "Administrative consolidation; not itself a conquest or a new sovereign state."
+        }
+      ],
+      "type": "administrative_reorganisation",
+      "quality": "supported",
+      "sources": [
+        "russia_centralasia_loc",
+        "russia_centralasia_army"
+      ],
+      "note": "The Governor-Generalship was organised in 1867. The exact date is represented as year/month anchor; avoid using it as a territorial transfer."
+    },
+    {
+      "id": "RUS-BUKHARA-1868",
+      "date": "1868-06-18",
+      "treatyOrEvent": "Defeat of Bukhara and treaty imposing Russian protectorate conditions",
+      "from": {
+        "id": "BUK",
+        "name": "Emirate of Bukhara",
+        "capital": "Bukhara"
+      },
+      "to": {
+        "id": "BUK_PROT",
+        "name": "Emirate of Bukhara under Russian protectorate",
+        "capital": "Bukhara"
+      },
+      "regions": [
+        {
+          "historicalName": "Samarkand and Zarafshan Valley",
+          "principalCities": "Samarkand, Katta-Kurgan",
+          "regionIds": [],
+          "statusNote": "Samarkand and some territory annexed to Russia; Bukhara emirate survived as a protectorate."
+        }
+      ],
+      "type": "protectorate_and_partial_annexation",
+      "quality": "supported",
+      "sources": [
+        "russia_centralasia",
+        "russia_centralasia_loc"
+      ],
+      "note": "Do not mark the whole Emirate of Bukhara annexed: it survived as a dependent protectorate while Samarkand/Zarafshan were annexed."
+    },
+    {
+      "id": "RUS-KHIVA-1873",
+      "date": "1873-08-24",
+      "treatyOrEvent": "Treaty of Gandimyan after Russian campaign against Khiva",
+      "from": {
+        "id": "KHIVA",
+        "name": "Khanate of Khiva",
+        "capital": "Khiva"
+      },
+      "to": {
+        "id": "KHIVA_PROT",
+        "name": "Khanate of Khiva under Russian protectorate",
+        "capital": "Khiva"
+      },
+      "regions": [
+        {
+          "historicalName": "Amu Darya right-bank and Khivan frontier districts",
+          "principalCities": "Khiva, Urgench",
+          "regionIds": [],
+          "statusNote": "Some territory transferred to Russia; khanate survived as protectorate."
+        }
+      ],
+      "type": "protectorate_and_partial_cession",
+      "quality": "supported",
+      "sources": [
+        "russia_centralasia_army",
+        "russia_centralasia"
+      ],
+      "note": "Khiva was not wholly annexed in 1873; treaty reduced sovereignty and imposed indemnity and foreign-policy constraints."
+    },
+    {
+      "id": "RUS-KOKAND-1876",
+      "date": "1876-02-19",
+      "treatyOrEvent": "Abolition of the Khanate of Kokand and creation of Fergana Oblast",
+      "from": {
+        "id": "KOK",
+        "name": "Khanate of Kokand",
+        "capital": "Kokand"
+      },
+      "to": {
+        "id": "RUS",
+        "name": "Russian Empire / Turkestan",
+        "capital": "Tashkent"
+      },
+      "regions": [
+        {
+          "historicalName": "Fergana Valley",
+          "principalCities": "Kokand, Margilan, Andijan, Namangan",
+          "regionIds": [],
+          "statusNote": "The khanate was abolished and its territory incorporated into Russian Turkestan."
+        }
+      ],
+      "type": "annexation",
+      "quality": "supported",
+      "sources": [
+        "russia_centralasia_army",
+        "russia_centralasia"
+      ],
+      "note": "Unlike Bukhara and Khiva, Kokand was abolished and annexed."
+    },
+    {
+      "id": "RUS-TURKMEN-1881",
+      "date": "1881-01-24",
+      "treatyOrEvent": "Russian capture of Geok Tepe",
+      "from": {
+        "id": "TEK",
+        "name": "Teke Turkmen polities",
+        "capital": "Geok Tepe"
+      },
+      "to": {
+        "id": "RUS_OCC",
+        "name": "Russian military occupation of Transcaspian Turkmen territory",
+        "capital": "Ashgabat"
+      },
+      "regions": [
+        {
+          "historicalName": "Akhal oasis / Geok Tepe",
+          "principalCities": "Geok Tepe, Ashgabat",
+          "regionIds": [],
+          "statusNote": "Military conquest; not instantaneous control over all Turkmen groups."
+        }
+      ],
+      "type": "conquest",
+      "quality": "supported",
+      "sources": [
+        "russia_centralasia_army"
+      ],
+      "note": "Geok Tepe fell in January 1881; Turkmen resistance and Russian expansion continued beyond the battle."
+    },
+    {
+      "id": "RUS-MERV-1884",
+      "date": "1884-03-??",
+      "treatyOrEvent": "Merv submits to Russian rule (month/day not established)",
+      "from": {
+        "id": "MERV",
+        "name": "Merv Turkmen oasis polity",
+        "capital": "Merv"
+      },
+      "to": {
+        "id": "RUS",
+        "name": "Russian Empire / Transcaspian administration",
+        "capital": "Ashgabat"
+      },
+      "regions": [
+        {
+          "historicalName": "Merv oasis",
+          "principalCities": "Merv (Mary)",
+          "regionIds": [],
+          "statusNote": "Submission/annexation process; exact date not asserted."
+        }
+      ],
+      "type": "submission_and_annexation",
+      "quality": "supported",
+      "sources": [
+        "russia_centralasia_army"
+      ],
+      "note": "Date precision is deliberately incomplete; engine import must support year/month precision rather than treating ?? as a real date."
+    },
+    {
+      "id": "RUS-PANJDEH-1885",
+      "date": "1885-03-30",
+      "treatyOrEvent": "Panjdeh incident and Russian occupation",
+      "from": {
+        "id": "AFG",
+        "name": "Emirate of Afghanistan",
+        "capital": "Kabul"
+      },
+      "to": {
+        "id": "RUS_OCC",
+        "name": "Russian military control at Panjdeh",
+        "capital": "Ashgabat"
+      },
+      "regions": [
+        {
+          "historicalName": "Panjdeh oasis / Kushka frontier",
+          "principalCities": "Panjdeh",
+          "regionIds": [],
+          "statusNote": "Contested frontier between Afghan forces and Russian expansion; not an annexation of all Afghanistan."
+        }
+      ],
+      "type": "conquest_and_frontier_crisis",
+      "quality": "supported",
+      "sources": [
+        "russia_centralasia_army"
+      ],
+      "note": "The 1885 clash intensified the Anglo-Russian boundary crisis. Precise final boundary settlement followed later."
+    },
+    {
+      "id": "GRC-1832",
+      "date": "1832-05-07",
+      "treatyOrEvent": "Treaty of Constantinople recognising the Kingdom of Greece",
+      "from": {
+        "id": "OTT",
+        "name": "Ottoman Empire",
+        "capital": "Constantinople"
+      },
+      "to": {
+        "id": "GRC",
+        "name": "Kingdom of Greece",
+        "capital": "Athens"
+      },
+      "regions": [
+        {
+          "historicalName": "Southern Greek mainland and Cyclades",
+          "principalCities": "Athens, Nafplio, Cyclades",
+          "regionIds": [],
+          "statusNote": "Initial kingdom boundaries were much smaller than modern Greece."
+        }
+      ],
+      "type": "independence_and_cession",
+      "quality": "supported",
+      "sources": [
+        "greece_1832"
+      ],
+      "note": "Recognised Greece as an independent kingdom; the 1832 settlement and subsequent boundary protocols should be distinguished."
+    },
+    {
+      "id": "GRC-ION-1864",
+      "date": "1864-05-21",
+      "treatyOrEvent": "Union of the Ionian Islands with Greece",
+      "from": {
+        "id": "GBR",
+        "name": "United Kingdom",
+        "capital": "London"
+      },
+      "to": {
+        "id": "GRC",
+        "name": "Kingdom of Greece",
+        "capital": "Athens"
+      },
+      "regions": [
+        {
+          "historicalName": "Ionian Islands",
+          "principalCities": "Corfu, Cephalonia, Zakynthos",
+          "regionIds": [
+            "ION_COR"
+          ],
+          "statusNote": "Cession by Britain to Greece; not a conquest."
+        }
+      ],
+      "type": "cession",
+      "quality": "supported",
+      "sources": [
+        "ionian_1864"
+      ],
+      "note": "The islands were ceded by Britain and united with Greece in 1864."
+    },
+    {
+      "id": "GRC-THESSALY-1881",
+      "date": "1881-07-24",
+      "treatyOrEvent": "Convention of Constantinople",
+      "from": {
+        "id": "OTT",
+        "name": "Ottoman Empire",
+        "capital": "Constantinople"
+      },
+      "to": {
+        "id": "GRC",
+        "name": "Kingdom of Greece",
+        "capital": "Athens"
+      },
+      "regions": [
+        {
+          "historicalName": "Thessaly and part of Epirus",
+          "principalCities": "Larissa, Trikala, Arta",
+          "regionIds": [],
+          "statusNote": "Boundary adjustment; most of Epirus remained Ottoman."
+        }
+      ],
+      "type": "cession_by_treaty",
+      "quality": "supported",
+      "sources": [
+        "thessaly_1881"
+      ],
+      "note": "Transfer implemented in 1881; do not assign all Epirus to Greece."
+    },
+    {
+      "id": "BERLIN-1878-SER",
+      "date": "1878-07-13",
+      "treatyOrEvent": "Treaty of Berlin — recognition of Serbia",
+      "from": {
+        "id": "OTT",
+        "name": "Ottoman Empire",
+        "capital": "Constantinople"
+      },
+      "to": {
+        "id": "SER",
+        "name": "Principality of Serbia",
+        "capital": "Belgrade"
+      },
+      "regions": [
+        {
+          "historicalName": "Serbian principality and newly recognised frontier districts",
+          "principalCities": "Belgrade, Niš, Pirot",
+          "regionIds": [],
+          "statusNote": "Territory expanded; exact boundary needs historical map crosswalk."
+        }
+      ],
+      "type": "independence_and_territorial_adjustment",
+      "quality": "verified",
+      "sources": [
+        "berlin_treaty"
+      ],
+      "note": "Treaty recognised Serbia's independence; it was not a new declaration by Serbia in 1878."
+    },
+    {
+      "id": "BERLIN-1878-MNE",
+      "date": "1878-07-13",
+      "treatyOrEvent": "Treaty of Berlin — recognition of Montenegro",
+      "from": {
+        "id": "OTT",
+        "name": "Ottoman Empire",
+        "capital": "Constantinople"
+      },
+      "to": {
+        "id": "MNE",
+        "name": "Principality of Montenegro",
+        "capital": "Cetinje"
+      },
+      "regions": [
+        {
+          "historicalName": "Montenegro and coastal access",
+          "principalCities": "Cetinje, Bar",
+          "regionIds": [],
+          "statusNote": "Territorial expansion and access to Adriatic; exact boundaries need crosswalk."
+        }
+      ],
+      "type": "independence_and_territorial_adjustment",
+      "quality": "verified",
+      "sources": [
+        "berlin_treaty"
+      ],
+      "note": "Treaty recognised Montenegro's independence and adjusted its boundaries."
+    },
+    {
+      "id": "BERLIN-1878-ROM",
+      "date": "1878-07-13",
+      "treatyOrEvent": "Treaty of Berlin — recognition of Romania and Bessarabia/Dobruja settlement",
+      "from": {
+        "id": "OTT",
+        "name": "Ottoman Empire",
+        "capital": "Constantinople"
+      },
+      "to": {
+        "id": "ROM",
+        "name": "Kingdom of Romania",
+        "capital": "Bucharest"
+      },
+      "regions": [
+        {
+          "historicalName": "Northern Dobruja transferred to Romania",
+          "principalCities": "Constanța, Tulcea",
+          "regionIds": [],
+          "statusNote": "Southern Bessarabia was transferred from Romania to Russia; show as separate event."
+        }
+      ],
+      "type": "independence_and_territorial_exchange",
+      "quality": "verified",
+      "sources": [
+        "berlin_treaty"
+      ],
+      "note": "Romania's independence was recognised, but the treaty also compelled cession of southern Bessarabia to Russia in exchange for Northern Dobruja."
+    },
+    {
+      "id": "BERLIN-1878-BUL",
+      "date": "1878-07-13",
+      "treatyOrEvent": "Treaty of Berlin — autonomous tributary Principality of Bulgaria",
+      "from": {
+        "id": "OTT",
+        "name": "Ottoman Empire",
+        "capital": "Constantinople"
+      },
+      "to": {
+        "id": "BUL_AUT",
+        "name": "Autonomous Principality of Bulgaria under Ottoman suzerainty",
+        "capital": "Sofia"
+      },
+      "regions": [
+        {
+          "historicalName": "Northern Bulgaria and Sofia region",
+          "principalCities": "Sofia, Ruse, Varna",
+          "regionIds": [],
+          "statusNote": "Eastern Rumelia remained a separate autonomous Ottoman province until union in 1885."
+        }
+      ],
+      "type": "autonomy_and_state_formation",
+      "quality": "verified",
+      "sources": [
+        "berlin_treaty"
+      ],
+      "note": "Bulgaria was autonomous and tributary under Ottoman suzerainty, not fully independent in 1878."
+    },
+    {
+      "id": "BERLIN-1878-BOS",
+      "date": "1878-07-13",
+      "treatyOrEvent": "Treaty of Berlin Article XXV — Austro-Hungarian occupation and administration of Bosnia-Herzegovina",
+      "from": {
+        "id": "OTT",
+        "name": "Ottoman Empire",
+        "capital": "Constantinople"
+      },
+      "to": {
+        "id": "AUS_OCC",
+        "name": "Austria-Hungary military occupation and administration",
+        "capital": "Vienna"
+      },
+      "regions": [
+        {
+          "historicalName": "Bosnia and Herzegovina",
+          "principalCities": "Sarajevo, Mostar, Banja Luka",
+          "regionIds": [],
+          "statusNote": "Ottoman sovereignty was not formally extinguished by the 1878 occupation clause."
+        }
+      ],
+      "type": "occupation_and_administration",
+      "quality": "verified",
+      "sources": [
+        "berlin_treaty"
+      ],
+      "note": "Treaty authorises occupation and administration, not immediate annexation. Keep Ottoman de jure sovereignty distinct until 1908."
+    },
+    {
+      "id": "BOS-1908-10",
+      "date": "1908-10-06",
+      "treatyOrEvent": "Austria-Hungary annexes Bosnia and Herzegovina",
+      "from": {
+        "id": "OTT",
+        "name": "Ottoman Empire",
+        "capital": "Constantinople"
+      },
+      "to": {
+        "id": "AUS",
+        "name": "Austria-Hungary",
+        "capital": "Vienna"
+      },
+      "regions": [
+        {
+          "historicalName": "Bosnia and Herzegovina",
+          "principalCities": "Sarajevo, Mostar, Banja Luka",
+          "regionIds": [],
+          "statusNote": "Annexation ended the formal Ottoman sovereignty reserved after 1878."
+        }
+      ],
+      "type": "annexation",
+      "quality": "supported",
+      "sources": [
+        "berlin_treaty"
+      ],
+      "note": "Date of proclamation of annexation; crisis and international recognition negotiations followed."
+    },
+    {
+      "id": "ALB-1912-11",
+      "date": "1912-11-28",
+      "treatyOrEvent": "Albanian Declaration of Independence at Vlora",
+      "from": {
+        "id": "OTT",
+        "name": "Ottoman Empire",
+        "capital": "Constantinople"
+      },
+      "to": {
+        "id": "ALB_PROV",
+        "name": "Provisional Albanian Government",
+        "capital": "Vlora"
+      },
+      "regions": [
+        {
+          "historicalName": "Albanian-inhabited lands",
+          "principalCities": "Vlora, Shkodër, Korçë, Gjirokastër",
+          "regionIds": [],
+          "statusNote": "Borders were not yet fixed; neighbouring armies occupied several areas."
+        }
+      ],
+      "type": "declaration_of_independence",
+      "quality": "verified",
+      "sources": [
+        "albania_independence"
+      ],
+      "note": "Declaration and provisional government are not equivalent to internationally settled borders."
+    },
+    {
+      "id": "ALB-1913-07",
+      "date": "1913-07-29",
+      "treatyOrEvent": "Great Powers recognise Albania as an independent neutral state",
+      "from": {
+        "id": "OTT",
+        "name": "Ottoman Empire",
+        "capital": "Constantinople"
+      },
+      "to": {
+        "id": "ALB",
+        "name": "Principality of Albania (internationally recognised)",
+        "capital": "Vlora / Durrës"
+      },
+      "regions": [
+        {
+          "historicalName": "Albania within boundaries set by London Conference",
+          "principalCities": "Shkodër, Vlora, Korçë, Gjirokastër",
+          "regionIds": [],
+          "statusNote": "The border settlement left substantial Albanian-inhabited areas outside the new state."
+        }
+      ],
+      "type": "international_recognition_and_boundary_settlement",
+      "quality": "verified",
+      "sources": [
+        "albania_independence"
+      ],
+      "note": "Recognition on 29 July 1913; borders were determined through separate conference decisions."
+    },
+    {
+      "id": "BALKAN-1913-MAC",
+      "date": "1913-08-10",
+      "treatyOrEvent": "Treaty of Bucharest after Second Balkan War",
+      "from": {
+        "id": "OTT",
+        "name": "Ottoman Empire",
+        "capital": "Constantinople"
+      },
+      "to": {
+        "id": "SER_GRC_BUL",
+        "name": "Serbia, Greece and Bulgaria (partition of Ottoman Macedonia)",
+        "capital": "Belgrade / Athens / Sofia"
+      },
+      "regions": [
+        {
+          "historicalName": "Vardar Macedonia",
+          "principalCities": "Skopje, Bitola",
+          "regionIds": [],
+          "statusNote": "Mainly Serbia"
+        },
+        {
+          "historicalName": "Aegean Macedonia",
+          "principalCities": "Thessaloniki, Kavala",
+          "regionIds": [],
+          "statusNote": "Mainly Greece"
+        },
+        {
+          "historicalName": "Pirin Macedonia",
+          "principalCities": "Petrich, Gorna Dzhumaya",
+          "regionIds": [],
+          "statusNote": "Bulgaria"
+        }
+      ],
+      "type": "partition_and_territorial_settlement",
+      "quality": "supported",
+      "sources": [
+        "balkan_bucharest"
+      ],
+      "note": "Treaty of Bucharest was between Balkan allies after the Second Balkan War. The Ottoman Empire's loss of most remaining European territory was settled separately by the Treaty of London (30 May 1913)."
+    },
+    {
+      "id": "TUN-1881-05",
+      "date": "1881-05-12",
+      "treatyOrEvent": "Treaty of Bardo establishes French protectorate over Tunisia",
+      "from": {
+        "id": "OTT_TUN",
+        "name": "Beylik of Tunis under Ottoman suzerainty",
+        "capital": "Tunis"
+      },
+      "to": {
+        "id": "TUN_PROT",
+        "name": "French protectorate over Tunisia",
+        "capital": "Tunis"
+      },
+      "regions": [
+        {
+          "historicalName": "Tunisia",
+          "principalCities": "Tunis, Sfax, Sousse",
+          "regionIds": [],
+          "statusNote": "Bey remained nominal ruler; protectorate, not direct annexation."
+        }
+      ],
+      "type": "protectorate",
+      "quality": "supported",
+      "sources": [
+        "tunisia_1881"
+      ],
+      "note": "The Treaty of Bardo established French control over Tunisia while preserving the Bey's formal position."
+    },
+    {
+      "id": "EGY-1882-09",
+      "date": "1882-09-13",
+      "treatyOrEvent": "British occupation of Egypt after Battle of Tel el-Kebir",
+      "from": {
+        "id": "EGY",
+        "name": "Khedivate of Egypt",
+        "capital": "Cairo"
+      },
+      "to": {
+        "id": "EGY_BR_OCC",
+        "name": "Egypt under British military occupation",
+        "capital": "Cairo"
+      },
+      "regions": [
+        {
+          "historicalName": "Egypt",
+          "principalCities": "Cairo, Alexandria, Suez",
+          "regionIds": [],
+          "statusNote": "Formal Khedival/Ottoman status persisted; do not encode as British annexation."
+        }
+      ],
+      "type": "military_occupation",
+      "quality": "supported",
+      "sources": [
+        "egypt_1882",
+        "egypt_africa"
+      ],
+      "note": "British occupation began in 1882. The country remained formally under the Khedivate and Ottoman framework until later changes."
+    },
+    {
+      "id": "CONGO-1885-07",
+      "date": "1885-07-01",
+      "treatyOrEvent": "International recognition of Congo Free State following Berlin Conference",
+      "from": {
+        "id": "CONGO_POL",
+        "name": "Congo basin polities",
+        "capital": "Boma / regional capitals"
+      },
+      "to": {
+        "id": "CFS",
+        "name": "Congo Free State",
+        "capital": "Boma"
+      },
+      "regions": [
+        {
+          "historicalName": "Congo basin",
+          "principalCities": "Boma, Stanley Pool, upper Congo",
+          "regionIds": [],
+          "statusNote": "Claims and effective control were uneven; not a simple transfer to Belgium in 1885."
+        }
+      ],
+      "type": "colonial_state_creation_and_recognition",
+      "quality": "supported",
+      "sources": [
+        "congo_1885"
+      ],
+      "note": "Congo Free State was personally controlled by Leopold II; it was not annexed to Belgium until 1908."
+    },
+    {
+      "id": "GER-EAF-1885",
+      "date": "1885-02-27",
+      "treatyOrEvent": "German East Africa protectorate claim (charter)",
+      "from": {
+        "id": "LOCAL_EAF",
+        "name": "East African coastal and inland polities",
+        "capital": "Zanzibar / local capitals"
+      },
+      "to": {
+        "id": "GER_EAF",
+        "name": "German East Africa (protectorate claim)",
+        "capital": "Dar es Salaam"
+      },
+      "regions": [
+        {
+          "historicalName": "Tanganyika mainland and hinterland",
+          "principalCities": "Bagamoyo, Dar es Salaam, Tabora",
+          "regionIds": [],
+          "statusNote": "Treaty-based claims and effective occupation differed; do not assume complete control on proclamation."
+        }
+      ],
+      "type": "protectorate_and_colonial_claim",
+      "quality": "supported",
+      "sources": [
+        "germany_africa"
+      ],
+      "note": "Date represents imperial protection charter/claim; effective control expanded through subsequent treaties and military campaigns."
+    },
+    {
+      "id": "TAIWAN-1895-06",
+      "date": "1895-06-02",
+      "treatyOrEvent": "Treaty of Shimonoseki territorial handover of Taiwan and Penghu",
+      "from": {
+        "id": "QNG",
+        "name": "Qing Empire",
+        "capital": "Beijing"
+      },
+      "to": {
+        "id": "JPN",
+        "name": "Empire of Japan",
+        "capital": "Tokyo"
+      },
+      "regions": [
+        {
+          "historicalName": "Taiwan / Formosa",
+          "principalCities": "Taipei, Tainan, Keelung",
+          "regionIds": [],
+          "statusNote": ""
+        },
+        {
+          "historicalName": "Penghu / Pescadores",
+          "principalCities": "Magong",
+          "regionIds": [],
+          "statusNote": ""
+        }
+      ],
+      "type": "cession_by_treaty",
+      "quality": "verified",
+      "sources": [
+        "taiwan_1895",
+        "shimonoseki"
+      ],
+      "note": "Treaty signed 17 April 1895; sovereignty handover completed 2 June. Liaodong was also ceded in treaty but retroceded to Qing in November 1895 after Triple Intervention; do not keep it as a durable Japanese transfer."
+    },
+    {
+      "id": "KOR-1905-11",
+      "date": "1905-11-17",
+      "treatyOrEvent": "Japan-Korea Protectorate Treaty (Eulsa Treaty)",
+      "from": {
+        "id": "KOR",
+        "name": "Korean Empire",
+        "capital": "Seoul"
+      },
+      "to": {
+        "id": "JPN_PROT",
+        "name": "Korea under Japanese protectorate",
+        "capital": "Seoul"
+      },
+      "regions": [
+        {
+          "historicalName": "Korean Empire",
+          "principalCities": "Seoul, Pyongyang, Busan",
+          "regionIds": [],
+          "statusNote": "Foreign affairs placed under Japanese control; Korean sovereignty was constrained, not yet formally annexed."
+        }
+      ],
+      "type": "protectorate",
+      "quality": "supported",
+      "sources": [
+        "korea_annex",
+        "korea_treaty"
+      ],
+      "note": "Protectorate phase precedes annexation in 1910; preserve this intermediate status."
+    },
+    {
+      "id": "KOR-1910-08",
+      "date": "1910-08-29",
+      "treatyOrEvent": "Promulgation/effect of Japan-Korea Annexation Treaty",
+      "from": {
+        "id": "KOR",
+        "name": "Korean Empire",
+        "capital": "Seoul"
+      },
+      "to": {
+        "id": "JPN",
+        "name": "Empire of Japan / Korea under colonial rule",
+        "capital": "Tokyo / Seoul"
+      },
+      "regions": [
+        {
+          "historicalName": "Korean Peninsula",
+          "principalCities": "Seoul, Pyongyang, Busan",
+          "regionIds": [],
+          "statusNote": "Korea became a Japanese colony; Seoul was the colonial administrative centre."
+        }
+      ],
+      "type": "annexation",
+      "quality": "verified",
+      "sources": [
+        "korea_annex",
+        "korea_treaty"
+      ],
+      "note": "Treaty signed 22 August and promulgated 29 August 1910; the latter is used as the effective date per Article VIII."
+    },
+    {
+      "id": "MAL-1874-01",
+      "date": "1874-01-20",
+      "treatyOrEvent": "Pangkor Treaty — British Resident in Perak",
+      "from": {
+        "id": "PER",
+        "name": "Sultanate of Perak",
+        "capital": "Kuala Kangsar"
+      },
+      "to": {
+        "id": "PER_PROT",
+        "name": "Perak under British indirect rule",
+        "capital": "Kuala Kangsar"
+      },
+      "regions": [
+        {
+          "historicalName": "Perak",
+          "principalCities": "Kuala Kangsar, Ipoh, Taiping",
+          "regionIds": [],
+          "statusNote": "Sultan retained formal position; British Resident's advice was binding in most administration except religion and custom."
+        }
+      ],
+      "type": "protectorate_and_indirect_rule",
+      "quality": "supported",
+      "sources": [
+        "pangkor",
+        "malay_states"
+      ],
+      "note": "Not outright annexation. The treaty's contested signatories and local resistance should be noted."
+    },
+    {
+      "id": "MAL-1888-PAHANG",
+      "date": "1888-10-08",
+      "treatyOrEvent": "Pahang accepts British Resident / protection",
+      "from": {
+        "id": "PAH",
+        "name": "Sultanate of Pahang",
+        "capital": "Pekan"
+      },
+      "to": {
+        "id": "PAH_PROT",
+        "name": "Pahang under British protection",
+        "capital": "Pekan"
+      },
+      "regions": [
+        {
+          "historicalName": "Pahang",
+          "principalCities": "Pekan, Kuantan",
+          "regionIds": [],
+          "statusNote": ""
+        }
+      ],
+      "type": "protectorate_and_indirect_rule",
+      "quality": "supported",
+      "sources": [
+        "malay_states"
+      ],
+      "note": "British intervention extended to Pahang in 1888; exact instrument date requires primary treaty verification."
+    },
+    {
+      "id": "MAL-1896-07",
+      "date": "1896-07-01",
+      "treatyOrEvent": "Formation of Federated Malay States",
+      "from": {
+        "id": "PER_PROT",
+        "name": "Perak, Selangor, Negeri Sembilan and Pahang under British Residents",
+        "capital": "Kuala Lumpur"
+      },
+      "to": {
+        "id": "FMS",
+        "name": "Federated Malay States under British paramountcy",
+        "capital": "Kuala Lumpur"
+      },
+      "regions": [
+        {
+          "historicalName": "Perak, Selangor, Negeri Sembilan and Pahang",
+          "principalCities": "Ipoh, Kuala Lumpur, Seremban, Pekan",
+          "regionIds": [],
+          "statusNote": "Federation was an administrative union, not a formal annexation of the Malay rulers' states."
+        }
+      ],
+      "type": "federation_and_administrative_reorganisation",
+      "quality": "supported",
+      "sources": [
+        "malay_states"
+      ],
+      "note": "1896 federation centralised selected administrative functions while Malay rulers remained."
+    },
+    {
+      "id": "BUR-1886-01",
+      "date": "1886-01-01",
+      "treatyOrEvent": "British proclamation annexing Upper Burma",
+      "from": {
+        "id": "BUR",
+        "name": "Konbaung Kingdom of Burma",
+        "capital": "Mandalay"
+      },
+      "to": {
+        "id": "GBR_IND",
+        "name": "British India",
+        "capital": "Calcutta"
+      },
+      "regions": [
+        {
+          "historicalName": "Upper Burma",
+          "principalCities": "Mandalay, Ava, Bhamo",
+          "regionIds": [],
+          "statusNote": "Annexation proclaimed 1 January 1886; guerrilla resistance continued through the 1890s."
+        }
+      ],
+      "type": "annexation",
+      "quality": "verified",
+      "sources": [
+        "burma_annex"
+      ],
+      "note": "Do not model the whole country as pacified on annexation day; effective control was contested for years."
+    },
+    {
+      "id": "HAW-1898-07",
+      "date": "1898-07-07",
+      "treatyOrEvent": "Newlands Resolution annexing Hawaii",
+      "from": {
+        "id": "HAW",
+        "name": "Republic of Hawaii",
+        "capital": "Honolulu"
+      },
+      "to": {
+        "id": "USA",
+        "name": "United States of America",
+        "capital": "Washington, D.C."
+      },
+      "regions": [
+        {
+          "historicalName": "Hawaiian Islands",
+          "principalCities": "Honolulu, Hilo, Lahaina",
+          "regionIds": [],
+          "statusNote": "Republic of Hawaii consent and Native Hawaiian opposition/petitions must remain in historical notes."
+        }
+      ],
+      "type": "annexation",
+      "quality": "verified",
+      "sources": [
+        "us_hawaii"
+      ],
+      "note": "Joint resolution signed 7 July 1898; transfer ceremony 12 August 1898. This was annexation of an independent republic after the 1893 overthrow."
+    },
+    {
+      "id": "USA-1898-12",
+      "date": "1898-12-10",
+      "treatyOrEvent": "Treaty of Paris ending Spanish-American War",
+      "from": {
+        "id": "SPA",
+        "name": "Kingdom of Spain",
+        "capital": "Madrid"
+      },
+      "to": {
+        "id": "USA",
+        "name": "United States of America",
+        "capital": "Washington, D.C."
+      },
+      "regions": [
+        {
+          "historicalName": "Puerto Rico",
+          "principalCities": "San Juan",
+          "regionIds": [],
+          "statusNote": ""
+        },
+        {
+          "historicalName": "Guam",
+          "principalCities": "Hagåtña",
+          "regionIds": [],
+          "statusNote": ""
+        },
+        {
+          "historicalName": "Philippine archipelago",
+          "principalCities": "Manila, Cebu, Davao",
+          "regionIds": [],
+          "statusNote": ""
+        }
+      ],
+      "type": "cession_by_treaty",
+      "quality": "verified",
+      "sources": [
+        "us_spanishwar"
+      ],
+      "note": "Spain ceded Puerto Rico and Guam and sold the Philippines for $20 million. Cuba was not ceded to the US: Spain relinquished sovereignty and the US occupied it pending a separate political outcome."
+    },
+    {
+      "id": "PHL-USA-1898",
+      "date": "1898-12-10",
+      "treatyOrEvent": "Philippine cession under Treaty of Paris",
+      "from": {
+        "id": "SPA",
+        "name": "Kingdom of Spain",
+        "capital": "Madrid"
+      },
+      "to": {
+        "id": "USA",
+        "name": "United States of America (military occupation/claim)",
+        "capital": "Washington, D.C."
+      },
+      "regions": [
+        {
+          "historicalName": "Philippine archipelago",
+          "principalCities": "Manila, Cebu, Iloilo",
+          "regionIds": [],
+          "statusNote": "Cession treaty followed by Philippine-American War; sovereignty/control was contested and resistance continued."
+        }
+      ],
+      "type": "cession_and_contested_occupation",
+      "quality": "verified",
+      "sources": [
+        "us_spanishwar"
+      ],
+      "note": "Do not model cession as uncontested immediate control over the archipelago."
+    },
+    {
+      "id": "EGY-1882-CONTROL",
+      "date": "1882-09-13",
+      "treatyOrEvent": "British occupation status reaffirmed (not a second transfer)",
+      "from": {
+        "id": "EGY",
+        "name": "Khedivate of Egypt",
+        "capital": "Cairo"
+      },
+      "to": {
+        "id": "EGY_BR_OCC",
+        "name": "Egypt under British occupation",
+        "capital": "Cairo"
+      },
+      "regions": [
+        {
+          "historicalName": "Egypt",
+          "principalCities": "Cairo, Alexandria, Suez",
+          "regionIds": [],
+          "statusNote": "Context marker only; duplicates military occupation event for clarity in timeline."
+        }
+      ],
+      "type": "occupation_status",
+      "quality": "supported",
+      "sources": [
+        "egypt_1882"
+      ],
+      "note": "A duplicate process marker is included only if event engines require explicit status onset; omit if deduplicating by date/entity."
+    }
+  ]
+}
