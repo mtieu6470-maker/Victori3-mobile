@@ -5,8 +5,8 @@
     "branch": "ccr-b27f3fb8-epfpd6",
     "created": "2026-11-23",
     "snapshotDate": "2026-11-23",
-    "recordCount": 458,
-    "sourceCount": 51,
+    "recordCount": 465,
+    "sourceCount": 52,
     "entitiesCovered": [
       "RUS/USSR",
       "GER/FRG/GDR",
@@ -60,11 +60,11 @@
     "schemaNote": "Research staging only. This schema is richer than historical_data/leaders/heads_of_state.json and does not replace it. Entity IDs are provisional research keys; check political_entities/registry.json before integration. Duplicate names across role records are intentional when one person held separate formal and effective offices. A person with discontinuous terms has separate records.",
     "integrationWarning": "Do not import this cohort as deterministic forced succession without checking simulated regime, entity identity, office existence, and historical continuity. For parliamentary systems the Prime Minister is effective_leader while monarch/president is head_of_state. For one-party states party leader is effective_leader; formal chairman/president is separately recorded.",
     "cg43b": {
-      "addedRecords": 130,
+      "addedRecords": 137,
       "scope": "MSG-097 supplement: Beiyang ROC 1916–1928; Second Spanish Republic; Weimar chancellors; FRG presidents; GDR heads of state, ministers-president and SED leader; Japanese wartime prime ministers; CPV General Secretaries; DRV/Vietnam governments; State of Vietnam; Republic of Vietnam; PRG.",
       "datePrecision": "Records with date_precision month/year use normalized ISO date boundaries where the source only gives month/year. Do not interpret normalized day as a verified inauguration day. Secondary chronology is explicitly marked supported and requires primary archive confirmation before production.",
       "baseRecordCount": 328,
-      "netAddedRecords": 130
+      "netAddedRecords": 137
     },
     "entityMetadata": {
       "ROC": {
@@ -491,6 +491,13 @@
       "url": "https://en.wikipedia.org/wiki/List_of_leaders_of_South_Vietnam",
       "quality": "supported",
       "note": "Secondary chronology used to identify gaps only; exact dates must be validated against State Archives/official documents before production."
+    },
+    {
+      "id": "vn_pm_2026",
+      "title": "Lê Minh Hưng unanimously elected as new Prime Minister of Viet Nam",
+      "url": "https://en.baochinhphu.vn/le-minh-hung-unanimously-elected-as-new-prime-minister-of-viet-nam-111260407121245654.htm",
+      "quality": "verified",
+      "note": "Government News official account dated 7 April 2026; confirms appointment date and date of birth."
     }
   ],
   "leaders": [
@@ -5205,8 +5212,8 @@
       "born": "1957-08-15",
       "died": null,
       "from": "2024-10-21",
-      "to": "2026-11-23",
-      "end": "other",
+      "to": "2026-04-07",
+      "end": "term",
       "title_en": "President of the State",
       "title_vi": "Chủ tịch nước",
       "role": "head_of_state",
@@ -5214,7 +5221,7 @@
         "vn_const"
       ],
       "quality": "supported",
-      "note": "Open interval at snapshot; confirm exact current office before production."
+      "note": "Term ended when the 16th National Assembly elected Tô Lâm President on 7 April 2026."
     },
     {
       "entity": "IND",
@@ -8586,6 +8593,135 @@
       ],
       "quality": "supported",
       "note": "Interim head of state during vacancy after Alcalá-Zamora's removal; verify exact legal basis before production.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "VNM",
+      "name": "Võ Văn Kiệt",
+      "name_vi": "Võ Văn Kiệt",
+      "born": "1922-11-23",
+      "died": "2008-06-11",
+      "from": "1991-08-08",
+      "to": "1997-09-25",
+      "end": "resignation",
+      "title_en": "Prime Minister of the Socialist Republic of Vietnam",
+      "title_vi": "Thủ tướng Chính phủ nước Cộng hòa xã hội chủ nghĩa Việt Nam",
+      "role": "effective_leader",
+      "sources": [
+        "vn_pm_official"
+      ],
+      "quality": "supported",
+      "note": "Official government archive gives August 1991–September 1997; exact appointment day should be verified against National Assembly resolutions.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "VNM",
+      "name": "Phan Văn Khải",
+      "name_vi": "Phan Văn Khải",
+      "born": "1933-12-25",
+      "died": "2018-03-17",
+      "from": "1997-09-25",
+      "to": "2006-06-27",
+      "end": "resignation",
+      "title_en": "Prime Minister of the Socialist Republic of Vietnam",
+      "title_vi": "Thủ tướng Chính phủ nước Cộng hòa xã hội chủ nghĩa Việt Nam",
+      "role": "effective_leader",
+      "sources": [
+        "vn_pm_official"
+      ],
+      "quality": "verified",
+      "date_precision": "day"
+    },
+    {
+      "entity": "VNM",
+      "name": "Nguyễn Tấn Dũng",
+      "name_vi": "Nguyễn Tấn Dũng",
+      "born": "1949-11-17",
+      "died": null,
+      "from": "2006-06-27",
+      "to": "2016-04-07",
+      "end": "term",
+      "title_en": "Prime Minister of the Socialist Republic of Vietnam",
+      "title_vi": "Thủ tướng Chính phủ nước Cộng hòa xã hội chủ nghĩa Việt Nam",
+      "role": "effective_leader",
+      "sources": [
+        "vn_pm_official"
+      ],
+      "quality": "verified",
+      "date_precision": "day"
+    },
+    {
+      "entity": "VNM",
+      "name": "Nguyễn Xuân Phúc",
+      "name_vi": "Nguyễn Xuân Phúc",
+      "born": "1954-07-20",
+      "died": null,
+      "from": "2016-04-07",
+      "to": "2021-04-05",
+      "end": "resignation",
+      "title_en": "Prime Minister of the Socialist Republic of Vietnam",
+      "title_vi": "Thủ tướng Chính phủ nước Cộng hòa xã hội chủ nghĩa Việt Nam",
+      "role": "effective_leader",
+      "sources": [
+        "vn_pm_official"
+      ],
+      "quality": "verified",
+      "date_precision": "day"
+    },
+    {
+      "entity": "VNM",
+      "name": "Phạm Minh Chính",
+      "name_vi": "Phạm Minh Chính",
+      "born": "1958-12-10",
+      "died": null,
+      "from": "2021-04-05",
+      "to": "2026-04-07",
+      "end": "term",
+      "title_en": "Prime Minister of the Socialist Republic of Vietnam",
+      "title_vi": "Thủ tướng Chính phủ nước Cộng hòa xã hội chủ nghĩa Việt Nam",
+      "role": "effective_leader",
+      "sources": [
+        "vn_pm_official"
+      ],
+      "quality": "verified",
+      "date_precision": "day"
+    },
+    {
+      "entity": "VNM",
+      "name": "Lê Minh Hưng",
+      "name_vi": "Lê Minh Hưng",
+      "born": "1970-12-11",
+      "died": null,
+      "from": "2026-04-07",
+      "to": "2026-11-23",
+      "end": "other",
+      "title_en": "Prime Minister of the Socialist Republic of Vietnam",
+      "title_vi": "Thủ tướng Chính phủ nước Cộng hòa xã hội chủ nghĩa Việt Nam",
+      "role": "effective_leader",
+      "sources": [
+        "vn_pm_2026"
+      ],
+      "quality": "verified",
+      "note": "Elected and sworn in by the 16th National Assembly on 7 April 2026; open term at 2026-11-23 snapshot.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "VNM",
+      "name": "Tô Lâm",
+      "name_vi": "Tô Lâm",
+      "born": "1957-07-10",
+      "died": null,
+      "from": "2026-04-07",
+      "to": "2026-11-23",
+      "end": "other",
+      "title_en": "President of the Socialist Republic of Vietnam",
+      "title_vi": "Chủ tịch nước Cộng hòa xã hội chủ nghĩa Việt Nam",
+      "role": "head_of_state",
+      "sources": [
+        "vn_pm_2026"
+      ],
+      "quality": "verified",
+      "note": "Elected President by the 16th National Assembly on 7 April 2026; also serves as General Secretary of the CPV.",
       "date_precision": "day"
     }
   ]
