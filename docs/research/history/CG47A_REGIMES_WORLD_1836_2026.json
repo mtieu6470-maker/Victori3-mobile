@@ -481,10 +481,6 @@
       "eventType": "independence_and_monarchy",
       "causes": [],
       "lawChanges": {
-        "governance": {
-          "from": "autocracy",
-          "to": "monarchy"
-        },
         "power": {
           "from": "autocracy",
           "to": "census_suffrage",
@@ -591,10 +587,6 @@
       "eventType": "monarchy_establishment",
       "causes": [],
       "lawChanges": {
-        "governance": {
-          "from": "autocracy",
-          "to": "monarchy"
-        },
         "power": {
           "from": "autocracy",
           "to": "census_suffrage",
@@ -3814,7 +3806,7 @@
           "to": "universal_male_suffrage"
         },
         "governance": {
-          "from": "presidential_rule",
+          "from": "republic",
           "to": "republic"
         }
       },
@@ -3969,7 +3961,7 @@
           "to": "universal_suffrage"
         },
         "governance": {
-          "from": "presidential_republic",
+          "from": "republic",
           "to": "republic"
         }
       },
