@@ -194,7 +194,7 @@ function IdentityHeader({ st, id, rank }: { st: GameState; id: string; rank: num
       <button class="ruler" onClick={() => ruler && openCharacter(st, ruler)} disabled={!ruler} aria-label={`Nguyên thủ: ${leaderName(c.leader.name)}`}>
         <AssetImg id={ruler?.portrait} cls="portrait" fallback={<Monogram name={c.leader.name} />} />
         <span class="rt">
-          <span class="lbl">{titleVi(leaderTitle(c))}</span>
+          <span class="lbl">{c.leader.titleVi ?? titleVi(leaderTitle(c))}</span>
           <b>{ruler ? display(ruler) : leaderName(c.leader.name)}</b>
           <span class="s">{ruler?.title ? `${ruler.title} · ` : ''}từ {c.leader.since}{c.leader.historical ? '' : ' · nhân vật mô phỏng'}</span>
         </span>

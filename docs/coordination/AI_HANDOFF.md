@@ -1,3 +1,18 @@
+## 2026-11-23 — LEAD-01 20th-century leaders from CG-43 (Historical Mode)
+
+- **Owner:** when the regime changes, the person at the top changes too. ChatGPT CG-43 (MSG-096) delivered 328 records; it is a partial cohort, with some prime-minister and transition rosters missing.
+- **Data:** `tools/data/build-leaders20.ts` produces `historical_data/leaders/leaders_20c.json` with 311 records. Each record gets the capital region of its period via map-grid lookup (e.g. RUS: St Petersburg until 3/1918, then Moscow; FRA: Vichy 7/1940–6/1944; TUR: Istanbul until 10/1923, then Ankara; VNM: Huế until 8/1945, then Hanoi). FRG/GDR and ROC after 1949 are skipped. build-data validates it → `db.leaders_20c`.
+- **Engine:** `systems/leaders20.ts` (after regimes), Historical Mode only.
+  - A record is given to the holder of its capital region (own capital or home territory) only while `onHistoricalCourse`, meaning its latest regime proclamation on its own regions was completed by it.
+  - One-party and autocratic republics show the effective leader; others show the head of state, falling back to the effective leader when no head of state is recorded.
+  - The leader carries `titleVi` and `recordUntil`. `leaderHeldByRecord` stops random death and generated elections in `events.ts` while a record holds.
+- **UI:** the recorded Vietnamese title wins over the derived one (Politics, country header, top bar).
+- **Seed 1 to 1960:** Nicholas II → Lenin → Stalin → Khrushchev; Wilhelm II → Ebert → Hitler; Pétain → Auriol → de Gaulle; Yuan Shikai → Chiang → Mao; Atatürk, İnönü, Bayar; Franco; George V/VI, Elizabeth II; Wilson … Eisenhower.
+- **Gaps:** ROC 1920s, the Second Spanish Republic, Germany after 1945 (partition, WW-01c), and Mussolini (Italy shows the king, because a monarchy shows the head of state). CG-43b (MSG-097) was requested for these.
+- Tests: `tests/leaders20.test.ts` (2). Local: `npm test` **44/44 files, 421/421**.
+
+---
+
 ## 2026-11-23 — REGIME-02 regime changes as V3-style journal entries for AI and player alike; heads of state follow the regime
 
 - **Owner decisions:**

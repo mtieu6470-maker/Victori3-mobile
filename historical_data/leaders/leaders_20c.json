@@ -1,0 +1,5859 @@
+{
+ "meta": {
+  "id": "leaders_20c",
+  "generatedBy": "tools/data/build-leaders20.ts",
+  "source": "historical_data/research_staging/CG43_LEADERS_1900_2026.json (ChatGPT CG-43, staging cohort; rosters partial per MSG-096)",
+  "skipped": [
+   "FRG:Theodor Heuss",
+   "FRG:Konrad Adenauer",
+   "FRG:Ludwig Erhard",
+   "FRG:Kurt Georg Kiesinger",
+   "FRG:Willy Brandt",
+   "FRG:Helmut Schmidt",
+   "FRG:Helmut Kohl",
+   "GDR:Walter Ulbricht",
+   "GDR:Erich Honecker",
+   "GDR:Egon Krenz",
+   "ROC:Yen Chia-kan (out of period)",
+   "ROC:Chiang Ching-kuo (out of period)",
+   "ROC:Lee Teng-hui (out of period)",
+   "ROC:Chen Shui-bian (out of period)",
+   "ROC:Ma Ying-jeou (out of period)",
+   "ROC:Tsai Ing-wen (out of period)",
+   "ROC:Lai Ching-te (out of period)"
+  ]
+ },
+ "sources": [
+  {
+   "id": "uk_pm",
+   "title": "Past Prime Ministers",
+   "url": "https://www.gov.uk/government/history/past-prime-ministers",
+   "quality": "verified",
+   "note": "UK Government chronology; dates generally year-level; exact appointment dates not always supplied."
+  },
+  {
+   "id": "us_pres",
+   "title": "Presidents of the United States",
+   "url": "https://history.state.gov/departmenthistory/travels/president",
+   "quality": "supported",
+   "note": "US Department of State Office of the Historian list of presidents and service years."
+  },
+  {
+   "id": "de_chancellors",
+   "title": "Federal Chancellors since 1949",
+   "url": "https://www.bundeskanzler.de/bk-en/federal-chancellery/federal-chancellors-since-1949",
+   "quality": "verified",
+   "note": "German Federal Chancellery chronology."
+  },
+  {
+   "id": "de_presidents",
+   "title": "German Federal Presidents",
+   "url": "https://www.bundespraesident.de/EN/Role-and-Functions/role-and-functions_node.html",
+   "quality": "supported",
+   "note": "Office of the Federal President; use together with official biographies."
+  },
+  {
+   "id": "fr_pres",
+   "title": "Presidents of the Republic",
+   "url": "https://www.elysee.fr/en/french-presidency/the-presidents-of-the-republic",
+   "quality": "verified",
+   "note": "Élysée official chronology of presidents."
+  },
+  {
+   "id": "fr_pm",
+   "title": "Former Prime Ministers of the Fifth Republic",
+   "url": "https://www.info.gouv.fr/les-anciens-premiers-et-premieres-ministres-de-la-ve-republique",
+   "quality": "verified",
+   "note": "French government chronology."
+  },
+  {
+   "id": "it_pres",
+   "title": "I Presidenti della Repubblica",
+   "url": "https://presidenti.quirinale.it/",
+   "quality": "verified",
+   "note": "Quirinale official chronology."
+  },
+  {
+   "id": "it_history",
+   "title": "History of the Italian Parliament",
+   "url": "https://www.camera.it/application/xmanager/projects/camera/attachments/pubblicazione/pdfs/000/000/778/Montecitorio_ingl_def.pdf",
+   "quality": "verified",
+   "note": "Chamber of Deputies institutional history."
+  },
+  {
+   "id": "jp_pm",
+   "title": "Prime Ministers of Japan",
+   "url": "https://www.shugiin.go.jp/internet/itdb_english.nsf/html/statics/english/kokkaiannai_e2611.pdf/$File/kokkaiannai_e2611.pdf",
+   "quality": "verified",
+   "note": "House of Representatives official list of prime ministers and appointment dates."
+  },
+  {
+   "id": "jp_const",
+   "title": "Birth of the Constitution of Japan – chronology",
+   "url": "https://www.ndl.go.jp/constitution/e/etc/history.html",
+   "quality": "verified",
+   "note": "National Diet Library chronology; constitutional transition context."
+  },
+  {
+   "id": "in_pres",
+   "title": "Former Presidents of India",
+   "url": "https://presidentofindia.nic.in/former-presidents",
+   "quality": "verified",
+   "note": "President of India official former presidents list."
+  },
+  {
+   "id": "in_pm",
+   "title": "Prime Minister of India appointment communique",
+   "url": "https://presidentofindia.nic.in/press_releases/press-communique-17",
+   "quality": "verified",
+   "note": "Rashtrapati Bhavan official appointment notice, 9 June 2024."
+  },
+  {
+   "id": "cn_cpc",
+   "title": "20th CPC Central Committee communiqué",
+   "url": "https://english.www.gov.cn/news/topnews/202210/24/content_WS6355cfccc6d0a757729e19b4.html",
+   "quality": "verified",
+   "note": "State Council PRC official communiqué naming Xi Jinping General Secretary and CMC chairman."
+  },
+  {
+   "id": "tw_pres",
+   "title": "Presidents since 1947",
+   "url": "https://english.president.gov.tw/Page/81",
+   "quality": "verified",
+   "note": "Office of the President ROC (Taiwan) chronology."
+  },
+  {
+   "id": "tw_pres_zh",
+   "title": "Former Presidents of the Republic of China",
+   "url": "https://www.president.gov.tw/Page/42",
+   "quality": "verified",
+   "note": "Presidential Office official biographies and terms."
+  },
+  {
+   "id": "ru_revolution",
+   "title": "Russian Revolution 1917",
+   "url": "https://encyclopedia.ushmm.org/content/en/article/the-russian-revolution-1917",
+   "quality": "supported",
+   "note": "USHMM institutional history of the fall of the Romanovs and revolutionary transition."
+  },
+  {
+   "id": "ru_ussr",
+   "title": "Russian Federation Common Core Document HRI/CORE/RUS/2017",
+   "url": "https://digitallibrary.un.org/record/1308041/files/HRI_CORE_RUS_2017-EN.pdf",
+   "quality": "supported",
+   "note": "UN state report covering Soviet and post-Soviet constitutional chronology."
+  },
+  {
+   "id": "ru_khrushchev",
+   "title": "Khrushchev and the Twentieth Congress",
+   "url": "https://history.state.gov/milestones/1953-1960/khrushchev-20th-congress",
+   "quality": "supported",
+   "note": "US Department of State account of post-Stalin collective leadership and Khrushchev."
+  },
+  {
+   "id": "ru_gorbachev",
+   "title": "US–Soviet relations, 1981–1988",
+   "url": "https://history.state.gov/milestones/1981-1988/u.s.-soviet-relations",
+   "quality": "supported",
+   "note": "US Department of State dates Gorbachev's appointment as CPSU General Secretary in March 1985."
+  },
+  {
+   "id": "tr_ataturk",
+   "title": "Biography of Atatürk",
+   "url": "https://www.ktb.gov.tr/EN-103908/biography-of-ataturk.html",
+   "quality": "supported",
+   "note": "Türkiye Ministry of Culture and Tourism official biography."
+  },
+  {
+   "id": "es_senate",
+   "title": "The Senate in the constitutional history of Spain",
+   "url": "https://www.senado.es/web/conocersenado/temasclave/historiaconstitucional/index.html?lang=en",
+   "quality": "verified",
+   "note": "Spanish Senate official constitutional chronology."
+  },
+  {
+   "id": "es_transition",
+   "title": "Constitutional periods – Transition to Democracy",
+   "url": "https://www.senado.es/web/conocersenado/senadohistoria/periodosconstitucionales/index.html?lang=en",
+   "quality": "supported",
+   "note": "Spanish Senate account of transition."
+  },
+  {
+   "id": "at_state",
+   "title": "History of Austria – State Treaty",
+   "url": "https://www.bmeia.gv.at/oev-wien/about-austria/history",
+   "quality": "verified",
+   "note": "Austrian Federal Ministry of European and International Affairs."
+  },
+  {
+   "id": "vn_embassy",
+   "title": "Political Overview of Vietnam",
+   "url": "https://vietnamembassy-usa.org/node/56",
+   "quality": "verified",
+   "note": "Vietnamese Embassy historical overview."
+  },
+  {
+   "id": "vn_const",
+   "title": "Constitution of the Socialist Republic of Vietnam",
+   "url": "https://vietnam.gov.vn/constitution-1992-68962",
+   "quality": "verified",
+   "note": "Government of Vietnam constitutional text."
+  },
+  {
+   "id": "fi_gov",
+   "title": "Finland’s road to independence in 1917",
+   "url": "https://valtioneuvosto.fi/en/-/finland-s-centenary-is-filled-with-joy-and-dignity",
+   "quality": "verified",
+   "note": "Finnish Government independence chronology."
+  },
+  {
+   "id": "pl_mfa",
+   "title": "National Independence Day",
+   "url": "https://www.gov.pl/web/diplomacy/national-independence-day",
+   "quality": "verified",
+   "note": "Polish MFA official history."
+  },
+  {
+   "id": "in_pm_extra",
+   "title": "Prime Minister of India – official",
+   "url": "https://www.pmindia.gov.in/en/former_pm/",
+   "quality": "supported",
+   "note": "Prime Minister's Office historical list."
+  },
+  {
+   "id": "deutschland_empire",
+   "title": "The German Empire: Foundation, Kaiser and WW1",
+   "url": "https://www.deutschlandmuseum.de/en/history/imperial-germany/",
+   "quality": "supported",
+   "note": "German history museum synthesis for the Kaiserreich."
+  },
+  {
+   "id": "deutschlandmuseum",
+   "title": "German history timeline",
+   "url": "https://www.deutschlandmuseum.de/en/history/",
+   "quality": "supported",
+   "note": "German history museum chronology for imperial, Weimar, Nazi, divided and reunified Germany."
+  },
+  {
+   "id": "china_national_museum",
+   "title": "Imperial Edict of the Abdication of the Qing Emperor",
+   "url": "https://en.chnmuseum.cn/collections_577/collection_highlights_608/objects_of_chinese_revolutionary_history_610/202008/t20200806_246813.html",
+   "quality": "verified",
+   "note": "National Museum of China record for Qing abdication context."
+  },
+  {
+   "id": "turkey_ataturk",
+   "title": "Biography of Atatürk and political reforms",
+   "url": "https://www.ktb.gov.tr/EN-103908/biography-of-ataturk.html",
+   "quality": "supported",
+   "note": "Republic of Türkiye Ministry of Culture and Tourism."
+  },
+  {
+   "id": "ausgleich_aeiou",
+   "title": "Austro-Hungarian Compromise (Ausgleich)",
+   "url": "https://www.aeiou.at/aeiou.encyclop.a/a907407.htm",
+   "quality": "supported",
+   "note": "Austrian historical encyclopedia for the dual monarchy and Habsburg chronology."
+  }
+ ],
+ "leaders": [
+  {
+   "capitalRegion": "RUS_STP",
+   "entity": "RUS",
+   "name": "Nikolai II",
+   "name_en": "Nicholas II",
+   "born": "1868-05-18",
+   "died": "1918-07-17",
+   "from": "1900-01-01",
+   "to": "1917-03-15",
+   "end": "abdication",
+   "role": "head_of_state",
+   "title_en": "Emperor of All the Russias",
+   "title_vi": "Hoàng đế toàn Nga",
+   "sources": [
+    "ru_revolution"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_STP",
+   "entity": "RUS",
+   "name": "Georgy Lvov",
+   "name_en": "Georgy Lvov",
+   "born": "1861-11-02",
+   "died": "1925-03-07",
+   "from": "1917-03-15",
+   "to": "1917-07-21",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Minister-Chairman of the Provisional Government",
+   "title_vi": "Thủ tướng Chính phủ lâm thời",
+   "sources": [
+    "ru_revolution"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_STP",
+   "entity": "RUS",
+   "name": "Alexander Kerensky",
+   "name_en": "Alexander Kerensky",
+   "born": "1881-05-04",
+   "died": "1970-06-11",
+   "from": "1917-07-21",
+   "to": "1917-11-07",
+   "end": "overthrow",
+   "role": "effective_leader",
+   "title_en": "Minister-Chairman of the Provisional Government",
+   "title_vi": "Thủ tướng Chính phủ lâm thời",
+   "sources": [
+    "ru_revolution"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_STP",
+   "entity": "RUS",
+   "name": "Vladimir Lenin",
+   "name_en": "Vladimir Lenin",
+   "born": "1870-04-22",
+   "died": "1924-01-21",
+   "from": "1917-11-08",
+   "to": "1924-01-21",
+   "end": "death",
+   "role": "effective_leader",
+   "title_en": "Chairman of the Council of People's Commissars",
+   "title_vi": "Chủ tịch Hội đồng Dân ủy",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Joseph Stalin",
+   "name_en": "Joseph Stalin",
+   "born": "1878-12-18",
+   "died": "1953-03-05",
+   "from": "1922-04-03",
+   "to": "1953-03-05",
+   "end": "death",
+   "role": "effective_leader",
+   "title_en": "General Secretary of the CPSU",
+   "title_vi": "Tổng Bí thư Đảng Cộng sản Liên Xô",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Georgy Malenkov",
+   "name_en": "Georgy Malenkov",
+   "born": "1902-01-08",
+   "died": "1988-01-14",
+   "from": "1953-03-05",
+   "to": "1953-09-07",
+   "end": "replaced",
+   "role": "effective_leader",
+   "title_en": "Chairman of the Council of Ministers / Party Presidium member",
+   "title_vi": "Chủ tịch Hội đồng Bộ trưởng / Ủy viên Đoàn Chủ tịch",
+   "sources": [
+    "ru_khrushchev"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Nikita Khrushchev",
+   "name_en": "Nikita Khrushchev",
+   "born": "1894-04-15",
+   "died": "1971-09-11",
+   "from": "1953-09-07",
+   "to": "1964-10-14",
+   "end": "removed",
+   "role": "effective_leader",
+   "title_en": "First Secretary of the CPSU",
+   "title_vi": "Bí thư thứ nhất Đảng Cộng sản Liên Xô",
+   "sources": [
+    "ru_khrushchev"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Leonid Brezhnev",
+   "name_en": "Leonid Brezhnev",
+   "born": "1906-12-19",
+   "died": "1982-11-10",
+   "from": "1964-10-14",
+   "to": "1982-11-10",
+   "end": "death",
+   "role": "effective_leader",
+   "title_en": "First Secretary / General Secretary of the CPSU",
+   "title_vi": "Bí thư thứ nhất / Tổng Bí thư Đảng Cộng sản Liên Xô",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Yuri Andropov",
+   "name_en": "Yuri Andropov",
+   "born": "1914-06-15",
+   "died": "1984-02-09",
+   "from": "1982-11-12",
+   "to": "1984-02-09",
+   "end": "death",
+   "role": "effective_leader",
+   "title_en": "General Secretary of the CPSU",
+   "title_vi": "Tổng Bí thư Đảng Cộng sản Liên Xô",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Konstantin Chernenko",
+   "name_en": "Konstantin Chernenko",
+   "born": "1911-09-24",
+   "died": "1985-03-10",
+   "from": "1984-02-13",
+   "to": "1985-03-10",
+   "end": "death",
+   "role": "effective_leader",
+   "title_en": "General Secretary of the CPSU",
+   "title_vi": "Tổng Bí thư Đảng Cộng sản Liên Xô",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Mikhail Gorbachev",
+   "name_en": "Mikhail Gorbachev",
+   "born": "1931-03-02",
+   "died": "2022-08-30",
+   "from": "1985-03-11",
+   "to": "1991-12-25",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "General Secretary of the CPSU; President of the USSR",
+   "title_vi": "Tổng Bí thư Đảng Cộng sản Liên Xô; Tổng thống Liên Xô",
+   "sources": [
+    "ru_gorbachev"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Mikhail Kalinin",
+   "name_en": "Mikhail Kalinin",
+   "born": "1875-11-19",
+   "died": "1946-06-03",
+   "from": "1919-03-30",
+   "to": "1946-03-19",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "Chairman of the Central Executive Committee / Presidium",
+   "title_vi": "Chủ tịch Ban Chấp hành Trung ương / Đoàn Chủ tịch Xô viết Tối cao",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Nikolai Shvernik",
+   "name_en": "Nikolai Shvernik",
+   "born": "1888-05-19",
+   "died": "1970-12-24",
+   "from": "1946-03-19",
+   "to": "1953-03-15",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Chairman of the Presidium of the Supreme Soviet",
+   "title_vi": "Chủ tịch Đoàn Chủ tịch Xô viết Tối cao",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Kliment Voroshilov",
+   "name_en": "Kliment Voroshilov",
+   "born": "1881-02-04",
+   "died": "1969-12-02",
+   "from": "1953-03-15",
+   "to": "1960-05-07",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Chairman of the Presidium of the Supreme Soviet",
+   "title_vi": "Chủ tịch Đoàn Chủ tịch Xô viết Tối cao",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Leonid Brezhnev",
+   "name_en": "Leonid Brezhnev",
+   "born": "1906-12-19",
+   "died": "1982-11-10",
+   "from": "1960-05-07",
+   "to": "1964-07-15",
+   "end": "replaced",
+   "role": "head_of_state",
+   "title_en": "Chairman of the Presidium of the Supreme Soviet",
+   "title_vi": "Chủ tịch Đoàn Chủ tịch Xô viết Tối cao",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Anastas Mikoyan",
+   "name_en": "Anastas Mikoyan",
+   "born": "1895-11-25",
+   "died": "1978-10-21",
+   "from": "1964-07-15",
+   "to": "1965-12-09",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Chairman of the Presidium of the Supreme Soviet",
+   "title_vi": "Chủ tịch Đoàn Chủ tịch Xô viết Tối cao",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Nikolai Podgorny",
+   "name_en": "Nikolai Podgorny",
+   "born": "1903-02-18",
+   "died": "1983-09-12",
+   "from": "1965-12-09",
+   "to": "1977-06-16",
+   "end": "removed",
+   "role": "head_of_state",
+   "title_en": "Chairman of the Presidium of the Supreme Soviet",
+   "title_vi": "Chủ tịch Đoàn Chủ tịch Xô viết Tối cao",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Leonid Brezhnev",
+   "name_en": "Leonid Brezhnev",
+   "born": "1906-12-19",
+   "died": "1982-11-10",
+   "from": "1977-06-16",
+   "to": "1982-11-10",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "Chairman of the Presidium of the Supreme Soviet",
+   "title_vi": "Chủ tịch Đoàn Chủ tịch Xô viết Tối cao",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Yuri Andropov",
+   "name_en": "Yuri Andropov",
+   "born": "1914-06-15",
+   "died": "1984-02-09",
+   "from": "1983-06-16",
+   "to": "1984-02-09",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "Chairman of the Presidium of the Supreme Soviet",
+   "title_vi": "Chủ tịch Đoàn Chủ tịch Xô viết Tối cao",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Konstantin Chernenko",
+   "name_en": "Konstantin Chernenko",
+   "born": "1911-09-24",
+   "died": "1985-03-10",
+   "from": "1984-04-11",
+   "to": "1985-03-10",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "Chairman of the Presidium of the Supreme Soviet",
+   "title_vi": "Chủ tịch Đoàn Chủ tịch Xô viết Tối cao",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Andrei Gromyko",
+   "name_en": "Andrei Gromyko",
+   "born": "1909-07-18",
+   "died": "1989-07-02",
+   "from": "1985-07-02",
+   "to": "1988-10-01",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Chairman of the Presidium of the Supreme Soviet",
+   "title_vi": "Chủ tịch Đoàn Chủ tịch Xô viết Tối cao",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Mikhail Gorbachev",
+   "name_en": "Mikhail Gorbachev",
+   "born": "1931-03-02",
+   "died": "2022-08-30",
+   "from": "1988-10-01",
+   "to": "1989-05-25",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Chairman of the Presidium of the Supreme Soviet",
+   "title_vi": "Chủ tịch Đoàn Chủ tịch Xô viết Tối cao",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "USSR",
+   "name": "Mikhail Gorbachev",
+   "name_en": "Mikhail Gorbachev",
+   "born": "1931-03-02",
+   "died": "2022-08-30",
+   "from": "1990-03-15",
+   "to": "1991-12-25",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "President of the Soviet Union",
+   "title_vi": "Tổng thống Liên Xô",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "RUS",
+   "name": "Boris Yeltsin",
+   "name_en": "Boris Yeltsin",
+   "born": "1931-02-01",
+   "died": "2007-04-23",
+   "from": "1991-06-12",
+   "to": "1999-12-31",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "President of the Russian Federation",
+   "title_vi": "Tổng thống Liên bang Nga",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "RUS",
+   "name": "Vladimir Putin",
+   "name_en": "Vladimir Putin",
+   "born": "1952-10-07",
+   "died": null,
+   "from": "1999-12-31",
+   "to": "2008-05-07",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the Russian Federation",
+   "title_vi": "Tổng thống Liên bang Nga",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "RUS",
+   "name": "Dmitry Medvedev",
+   "name_en": "Dmitry Medvedev",
+   "born": "1965-09-14",
+   "died": null,
+   "from": "2008-05-07",
+   "to": "2012-05-07",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the Russian Federation",
+   "title_vi": "Tổng thống Liên bang Nga",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_MOS",
+   "entity": "RUS",
+   "name": "Vladimir Putin",
+   "name_en": "Vladimir Putin",
+   "born": "1952-10-07",
+   "died": null,
+   "from": "2012-05-07",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "head_of_state",
+   "title_en": "President of the Russian Federation",
+   "title_vi": "Tổng thống Liên bang Nga",
+   "sources": [
+    "ru_ussr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GER",
+   "name": "Wilhelm II",
+   "name_en": "Wilhelm II",
+   "born": "1859-01-27",
+   "died": "1941-06-04",
+   "from": "1900-01-01",
+   "to": "1918-11-09",
+   "end": "abdication",
+   "role": "head_of_state",
+   "title_en": "German Emperor",
+   "title_vi": "Hoàng đế Đức",
+   "sources": [
+    "deutschland_empire"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GER",
+   "name": "Friedrich Ebert",
+   "name_en": "Friedrich Ebert",
+   "born": "1871-02-04",
+   "died": "1925-02-28",
+   "from": "1919-02-11",
+   "to": "1925-02-28",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "President of the German Reich",
+   "title_vi": "Tổng thống Đế chế Đức",
+   "sources": [
+    "deutschlandmuseum"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GER",
+   "name": "Paul von Hindenburg",
+   "name_en": "Paul von Hindenburg",
+   "born": "1847-10-02",
+   "died": "1934-08-02",
+   "from": "1925-05-12",
+   "to": "1934-08-02",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "President of the German Reich",
+   "title_vi": "Tổng thống Đế chế Đức",
+   "sources": [
+    "deutschlandmuseum"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GER",
+   "name": "Adolf Hitler",
+   "name_en": "Adolf Hitler",
+   "born": "1889-04-20",
+   "died": "1945-04-30",
+   "from": "1933-01-30",
+   "to": "1945-04-30",
+   "end": "death",
+   "role": "effective_leader",
+   "title_en": "Chancellor; Führer",
+   "title_vi": "Thủ tướng; Quốc trưởng",
+   "sources": [
+    "deutschlandmuseum"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GER",
+   "name": "Karl Dönitz",
+   "name_en": "Karl Dönitz",
+   "born": "1891-09-16",
+   "died": "1980-12-24",
+   "from": "1945-04-30",
+   "to": "1945-05-23",
+   "end": "overthrow",
+   "role": "head_of_state",
+   "title_en": "Reich President",
+   "title_vi": "Tổng thống Đế chế Đức",
+   "sources": [
+    "deutschlandmuseum"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GER",
+   "name": "Richard von Weizsäcker",
+   "name_en": "Richard von Weizsäcker",
+   "born": "1920-04-15",
+   "died": "2015-01-31",
+   "from": "1984-07-01",
+   "to": "1994-06-30",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Federal President",
+   "title_vi": "Tổng thống Liên bang",
+   "sources": [
+    "de_presidents"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GER",
+   "name": "Roman Herzog",
+   "name_en": "Roman Herzog",
+   "born": "1934-04-05",
+   "died": "2017-01-10",
+   "from": "1994-07-01",
+   "to": "1999-06-30",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Federal President",
+   "title_vi": "Tổng thống Liên bang",
+   "sources": [
+    "de_presidents"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GER",
+   "name": "Johannes Rau",
+   "name_en": "Johannes Rau",
+   "born": "1931-01-16",
+   "died": "2006-01-27",
+   "from": "1999-07-01",
+   "to": "2004-06-30",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Federal President",
+   "title_vi": "Tổng thống Liên bang",
+   "sources": [
+    "de_presidents"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GER",
+   "name": "Horst Köhler",
+   "name_en": "Horst Köhler",
+   "born": "1943-02-22",
+   "died": null,
+   "from": "2004-07-01",
+   "to": "2010-05-31",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "Federal President",
+   "title_vi": "Tổng thống Liên bang",
+   "sources": [
+    "de_presidents"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GER",
+   "name": "Christian Wulff",
+   "name_en": "Christian Wulff",
+   "born": "1959-06-19",
+   "died": null,
+   "from": "2010-06-30",
+   "to": "2012-02-17",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "Federal President",
+   "title_vi": "Tổng thống Liên bang",
+   "sources": [
+    "de_presidents"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GER",
+   "name": "Joachim Gauck",
+   "name_en": "Joachim Gauck",
+   "born": "1940-03-24",
+   "died": null,
+   "from": "2012-03-18",
+   "to": "2017-03-18",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Federal President",
+   "title_vi": "Tổng thống Liên bang",
+   "sources": [
+    "de_presidents"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GER",
+   "name": "Frank-Walter Steinmeier",
+   "name_en": "Frank-Walter Steinmeier",
+   "born": "1956-01-05",
+   "died": null,
+   "from": "2017-03-19",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "head_of_state",
+   "title_en": "Federal President",
+   "title_vi": "Tổng thống Liên bang",
+   "sources": [
+    "de_presidents"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GER",
+   "name": "Gerhard Schröder",
+   "name_en": "Gerhard Schröder",
+   "born": "1944-04-07",
+   "died": null,
+   "from": "1998-10-27",
+   "to": "2005-11-22",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Federal Chancellor",
+   "title_vi": "Thủ tướng Liên bang",
+   "sources": [
+    "de_chancellors"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GER",
+   "name": "Angela Merkel",
+   "name_en": "Angela Merkel",
+   "born": "1954-07-17",
+   "died": null,
+   "from": "2005-11-22",
+   "to": "2021-12-08",
+   "end": "term",
+   "role": "effective_leader",
+   "title_en": "Federal Chancellor",
+   "title_vi": "Thủ tướng Liên bang",
+   "sources": [
+    "de_chancellors"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GER",
+   "name": "Olaf Scholz",
+   "name_en": "Olaf Scholz",
+   "born": "1958-06-14",
+   "died": null,
+   "from": "2021-12-08",
+   "to": "2025-05-06",
+   "end": "term",
+   "role": "effective_leader",
+   "title_en": "Federal Chancellor",
+   "title_vi": "Thủ tướng Liên bang",
+   "sources": [
+    "de_chancellors"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GER",
+   "name": "Friedrich Merz",
+   "name_en": "Friedrich Merz",
+   "born": "1955-11-11",
+   "died": null,
+   "from": "2025-05-06",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "effective_leader",
+   "title_en": "Federal Chancellor",
+   "title_vi": "Thủ tướng Liên bang",
+   "sources": [
+    "de_chancellors"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Edward VII",
+   "name_en": "Edward VII",
+   "born": "1841-11-09",
+   "died": "1910-05-06",
+   "from": "1901-01-22",
+   "to": "1910-05-06",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "King of the United Kingdom",
+   "title_vi": "Quốc vương Vương quốc Liên hiệp Anh",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "George V",
+   "name_en": "George V",
+   "born": "1865-06-03",
+   "died": "1936-01-20",
+   "from": "1910-05-06",
+   "to": "1936-01-20",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "King of the United Kingdom",
+   "title_vi": "Quốc vương Vương quốc Liên hiệp Anh",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Edward VIII",
+   "name_en": "Edward VIII",
+   "born": "1894-06-23",
+   "died": "1972-05-28",
+   "from": "1936-01-20",
+   "to": "1936-12-11",
+   "end": "abdication",
+   "role": "head_of_state",
+   "title_en": "King of the United Kingdom",
+   "title_vi": "Quốc vương Vương quốc Liên hiệp Anh",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "George VI",
+   "name_en": "George VI",
+   "born": "1895-12-14",
+   "died": "1952-02-06",
+   "from": "1936-12-11",
+   "to": "1952-02-06",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "King of the United Kingdom",
+   "title_vi": "Quốc vương Vương quốc Liên hiệp Anh",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Elizabeth II",
+   "name_en": "Elizabeth II",
+   "born": "1926-04-21",
+   "died": "2022-09-08",
+   "from": "1952-02-06",
+   "to": "2022-09-08",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "Queen of the United Kingdom",
+   "title_vi": "Nữ vương Vương quốc Liên hiệp Anh",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Charles III",
+   "name_en": "Charles III",
+   "born": "1948-11-14",
+   "died": null,
+   "from": "2022-09-08",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "head_of_state",
+   "title_en": "King of the United Kingdom",
+   "title_vi": "Quốc vương Vương quốc Liên hiệp Anh",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Arthur Balfour",
+   "name_en": "Arthur Balfour",
+   "born": "1848-07-25",
+   "died": "1930-03-19",
+   "from": "1902-07-11",
+   "to": "1905-12-05",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Henry Campbell-Bannerman",
+   "name_en": "Henry Campbell-Bannerman",
+   "born": "1836-09-07",
+   "died": "1908-04-22",
+   "from": "1905-12-05",
+   "to": "1908-04-05",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "H. H. Asquith",
+   "name_en": "H. H. Asquith",
+   "born": "1852-09-12",
+   "died": "1928-02-15",
+   "from": "1908-04-05",
+   "to": "1916-12-07",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "David Lloyd George",
+   "name_en": "David Lloyd George",
+   "born": "1863-01-17",
+   "died": "1945-03-26",
+   "from": "1916-12-07",
+   "to": "1922-10-23",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Bonar Law",
+   "name_en": "Bonar Law",
+   "born": "1858-09-16",
+   "died": "1923-10-30",
+   "from": "1922-10-23",
+   "to": "1923-05-22",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Stanley Baldwin",
+   "name_en": "Stanley Baldwin",
+   "born": "1867-08-03",
+   "died": "1947-12-14",
+   "from": "1923-05-22",
+   "to": "1924-01-22",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Ramsay MacDonald",
+   "name_en": "Ramsay MacDonald",
+   "born": "1866-10-12",
+   "died": "1937-11-09",
+   "from": "1924-01-22",
+   "to": "1924-11-04",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Stanley Baldwin",
+   "name_en": "Stanley Baldwin",
+   "born": "1867-08-03",
+   "died": "1947-12-14",
+   "from": "1924-11-04",
+   "to": "1929-06-05",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Ramsay MacDonald",
+   "name_en": "Ramsay MacDonald",
+   "born": "1866-10-12",
+   "died": "1937-11-09",
+   "from": "1929-06-05",
+   "to": "1935-06-07",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Neville Chamberlain",
+   "name_en": "Neville Chamberlain",
+   "born": "1869-03-18",
+   "died": "1940-11-09",
+   "from": "1937-05-28",
+   "to": "1940-05-10",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Winston Churchill",
+   "name_en": "Winston Churchill",
+   "born": "1874-11-30",
+   "died": "1965-01-24",
+   "from": "1940-05-10",
+   "to": "1945-07-26",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Clement Attlee",
+   "name_en": "Clement Attlee",
+   "born": "1883-01-03",
+   "died": "1967-10-08",
+   "from": "1945-07-26",
+   "to": "1951-10-26",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Winston Churchill",
+   "name_en": "Winston Churchill",
+   "born": "1874-11-30",
+   "died": "1965-01-24",
+   "from": "1951-10-26",
+   "to": "1955-04-06",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Anthony Eden",
+   "name_en": "Anthony Eden",
+   "born": "1897-06-12",
+   "died": "1977-01-14",
+   "from": "1955-04-06",
+   "to": "1957-01-10",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Harold Macmillan",
+   "name_en": "Harold Macmillan",
+   "born": "1894-02-10",
+   "died": "1986-12-29",
+   "from": "1957-01-10",
+   "to": "1963-10-19",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Alec Douglas-Home",
+   "name_en": "Alec Douglas-Home",
+   "born": "1903-07-02",
+   "died": "1995-10-09",
+   "from": "1963-10-19",
+   "to": "1964-10-16",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Harold Wilson",
+   "name_en": "Harold Wilson",
+   "born": "1916-03-11",
+   "died": "1995-05-24",
+   "from": "1964-10-16",
+   "to": "1970-06-19",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Edward Heath",
+   "name_en": "Edward Heath",
+   "born": "1916-07-09",
+   "died": "2005-07-17",
+   "from": "1970-06-19",
+   "to": "1974-03-04",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Harold Wilson",
+   "name_en": "Harold Wilson",
+   "born": "1916-03-11",
+   "died": "1995-05-24",
+   "from": "1974-03-04",
+   "to": "1976-04-05",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "James Callaghan",
+   "name_en": "James Callaghan",
+   "born": "1912-03-27",
+   "died": "2005-03-26",
+   "from": "1976-04-05",
+   "to": "1979-05-04",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Margaret Thatcher",
+   "name_en": "Margaret Thatcher",
+   "born": "1925-10-13",
+   "died": "2013-04-08",
+   "from": "1979-05-04",
+   "to": "1990-11-28",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "John Major",
+   "name_en": "John Major",
+   "born": "1943-03-29",
+   "died": null,
+   "from": "1990-11-28",
+   "to": "1997-05-02",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Tony Blair",
+   "name_en": "Tony Blair",
+   "born": "1953-05-06",
+   "died": null,
+   "from": "1997-05-02",
+   "to": "2007-06-27",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Gordon Brown",
+   "name_en": "Gordon Brown",
+   "born": "1951-02-20",
+   "died": null,
+   "from": "2007-06-27",
+   "to": "2010-05-11",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "David Cameron",
+   "name_en": "David Cameron",
+   "born": "1966-10-09",
+   "died": null,
+   "from": "2010-05-11",
+   "to": "2016-07-13",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Theresa May",
+   "name_en": "Theresa May",
+   "born": "1956-10-01",
+   "died": null,
+   "from": "2016-07-13",
+   "to": "2019-07-24",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Boris Johnson",
+   "name_en": "Boris Johnson",
+   "born": "1964-06-19",
+   "died": null,
+   "from": "2019-07-24",
+   "to": "2022-09-06",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Liz Truss",
+   "name_en": "Liz Truss",
+   "born": "1975-07-26",
+   "died": null,
+   "from": "2022-09-06",
+   "to": "2022-10-25",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Rishi Sunak",
+   "name_en": "Rishi Sunak",
+   "born": "1980-05-12",
+   "died": null,
+   "from": "2022-10-25",
+   "to": "2024-07-05",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Keir Starmer",
+   "name_en": "Keir Starmer",
+   "born": "1962-09-02",
+   "died": null,
+   "from": "2024-07-05",
+   "to": "2026-07-20",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "GBR_LON",
+   "entity": "GBR",
+   "name": "Andy Burnham",
+   "name_en": "Andy Burnham",
+   "born": "1970-03-07",
+   "died": null,
+   "from": "2026-07-20",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "effective_leader",
+   "title_en": "Prime Minister",
+   "title_vi": "Thủ tướng",
+   "sources": [
+    "uk_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "Theodore Roosevelt",
+   "name_en": "Theodore Roosevelt",
+   "born": "1858-10-27",
+   "died": "1919-01-06",
+   "from": "1901-09-14",
+   "to": "1909-03-04",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "William Howard Taft",
+   "name_en": "William Howard Taft",
+   "born": "1857-09-15",
+   "died": "1930-03-08",
+   "from": "1909-03-04",
+   "to": "1913-03-04",
+   "end": "election_loss",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "Woodrow Wilson",
+   "name_en": "Woodrow Wilson",
+   "born": "1856-12-28",
+   "died": "1924-02-03",
+   "from": "1913-03-04",
+   "to": "1921-03-04",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "Warren G. Harding",
+   "name_en": "Warren G. Harding",
+   "born": "1865-11-02",
+   "died": "1923-08-02",
+   "from": "1921-03-04",
+   "to": "1923-08-02",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "Calvin Coolidge",
+   "name_en": "Calvin Coolidge",
+   "born": "1872-07-04",
+   "died": "1933-01-05",
+   "from": "1923-08-02",
+   "to": "1929-03-04",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "Herbert Hoover",
+   "name_en": "Herbert Hoover",
+   "born": "1874-08-10",
+   "died": "1964-10-20",
+   "from": "1929-03-04",
+   "to": "1933-03-04",
+   "end": "election_loss",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "Franklin D. Roosevelt",
+   "name_en": "Franklin D. Roosevelt",
+   "born": "1882-01-30",
+   "died": "1945-04-12",
+   "from": "1933-03-04",
+   "to": "1945-04-12",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "Harry S. Truman",
+   "name_en": "Harry S. Truman",
+   "born": "1884-05-08",
+   "died": "1972-12-26",
+   "from": "1945-04-12",
+   "to": "1953-01-20",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "Dwight D. Eisenhower",
+   "name_en": "Dwight D. Eisenhower",
+   "born": "1890-10-14",
+   "died": "1969-03-28",
+   "from": "1953-01-20",
+   "to": "1961-01-20",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "John F. Kennedy",
+   "name_en": "John F. Kennedy",
+   "born": "1917-05-29",
+   "died": "1963-11-22",
+   "from": "1961-01-20",
+   "to": "1963-11-22",
+   "end": "assassination",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "Lyndon B. Johnson",
+   "name_en": "Lyndon B. Johnson",
+   "born": "1908-08-27",
+   "died": "1973-01-22",
+   "from": "1963-11-22",
+   "to": "1969-01-20",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "Richard Nixon",
+   "name_en": "Richard Nixon",
+   "born": "1913-01-09",
+   "died": "1994-04-22",
+   "from": "1969-01-20",
+   "to": "1974-08-09",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "Gerald Ford",
+   "name_en": "Gerald Ford",
+   "born": "1913-07-14",
+   "died": "2006-12-26",
+   "from": "1974-08-09",
+   "to": "1977-01-20",
+   "end": "election_loss",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "Jimmy Carter",
+   "name_en": "Jimmy Carter",
+   "born": "1924-10-01",
+   "died": "2024-12-29",
+   "from": "1977-01-20",
+   "to": "1981-01-20",
+   "end": "election_loss",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "Ronald Reagan",
+   "name_en": "Ronald Reagan",
+   "born": "1911-02-06",
+   "died": "2004-06-05",
+   "from": "1981-01-20",
+   "to": "1989-01-20",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "George H. W. Bush",
+   "name_en": "George H. W. Bush",
+   "born": "1924-06-12",
+   "died": "2018-11-30",
+   "from": "1989-01-20",
+   "to": "1993-01-20",
+   "end": "election_loss",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "Bill Clinton",
+   "name_en": "Bill Clinton",
+   "born": "1946-08-19",
+   "died": null,
+   "from": "1993-01-20",
+   "to": "2001-01-20",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "George W. Bush",
+   "name_en": "George W. Bush",
+   "born": "1946-07-06",
+   "died": null,
+   "from": "2001-01-20",
+   "to": "2009-01-20",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "Barack Obama",
+   "name_en": "Barack Obama",
+   "born": "1961-08-04",
+   "died": null,
+   "from": "2009-01-20",
+   "to": "2017-01-20",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "Donald Trump",
+   "name_en": "Donald Trump",
+   "born": "1946-06-14",
+   "died": null,
+   "from": "2017-01-20",
+   "to": "2021-01-20",
+   "end": "election_loss",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "Joe Biden",
+   "name_en": "Joe Biden",
+   "born": "1942-11-20",
+   "died": null,
+   "from": "2021-01-20",
+   "to": "2025-01-20",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "USA_MAR",
+   "entity": "USA",
+   "name": "Donald Trump",
+   "name_en": "Donald Trump",
+   "born": "1946-06-14",
+   "died": null,
+   "from": "2025-01-20",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "head_of_state",
+   "title_en": "President of the United States",
+   "title_vi": "Tổng thống Hoa Kỳ",
+   "sources": [
+    "us_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "Émile Loubet",
+   "name_en": "Émile Loubet",
+   "born": "1838-12-30",
+   "died": "1929-12-20",
+   "from": "1900-01-01",
+   "to": "1906-02-18",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the French Republic",
+   "title_vi": "Tổng thống Cộng hòa Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "Armand Fallières",
+   "name_en": "Armand Fallières",
+   "born": "1841-11-06",
+   "died": "1931-06-22",
+   "from": "1906-02-18",
+   "to": "1913-02-18",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the French Republic",
+   "title_vi": "Tổng thống Cộng hòa Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "Raymond Poincaré",
+   "name_en": "Raymond Poincaré",
+   "born": "1860-08-20",
+   "died": "1934-10-15",
+   "from": "1913-02-18",
+   "to": "1920-02-18",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the French Republic",
+   "title_vi": "Tổng thống Cộng hòa Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "Paul Deschanel",
+   "name_en": "Paul Deschanel",
+   "born": "1855-02-13",
+   "died": "1922-04-28",
+   "from": "1920-02-18",
+   "to": "1920-09-21",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "President of the French Republic",
+   "title_vi": "Tổng thống Cộng hòa Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "Alexandre Millerand",
+   "name_en": "Alexandre Millerand",
+   "born": "1859-02-10",
+   "died": "1943-04-07",
+   "from": "1920-09-23",
+   "to": "1924-06-11",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "President of the French Republic",
+   "title_vi": "Tổng thống Cộng hòa Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "Gaston Doumergue",
+   "name_en": "Gaston Doumergue",
+   "born": "1863-08-01",
+   "died": "1937-06-18",
+   "from": "1924-06-13",
+   "to": "1931-06-13",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the French Republic",
+   "title_vi": "Tổng thống Cộng hòa Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "Paul Doumer",
+   "name_en": "Paul Doumer",
+   "born": "1857-03-22",
+   "died": "1932-05-07",
+   "from": "1931-06-13",
+   "to": "1932-05-07",
+   "end": "assassination",
+   "role": "head_of_state",
+   "title_en": "President of the French Republic",
+   "title_vi": "Tổng thống Cộng hòa Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "Albert Lebrun",
+   "name_en": "Albert Lebrun",
+   "born": "1871-08-29",
+   "died": "1950-03-06",
+   "from": "1932-05-10",
+   "to": "1940-07-11",
+   "end": "overthrow",
+   "role": "head_of_state",
+   "title_en": "President of the French Republic",
+   "title_vi": "Tổng thống Cộng hòa Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_AUV",
+   "entity": "FRA",
+   "name": "Philippe Pétain",
+   "name_en": "Philippe Pétain",
+   "born": "1856-04-24",
+   "died": "1951-07-23",
+   "from": "1940-07-11",
+   "to": "1944-08-20",
+   "end": "overthrow",
+   "role": "effective_leader",
+   "title_en": "Chief of the French State",
+   "title_vi": "Nguyên thủ Nhà nước Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "Charles de Gaulle",
+   "name_en": "Charles de Gaulle",
+   "born": "1890-11-22",
+   "died": "1970-11-09",
+   "from": "1944-06-03",
+   "to": "1946-01-20",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "President of the Provisional Government",
+   "title_vi": "Chủ tịch Chính phủ lâm thời",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "Vincent Auriol",
+   "name_en": "Vincent Auriol",
+   "born": "1884-08-27",
+   "died": "1966-01-01",
+   "from": "1947-01-16",
+   "to": "1954-01-16",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the French Republic",
+   "title_vi": "Tổng thống Cộng hòa Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "René Coty",
+   "name_en": "René Coty",
+   "born": "1882-03-20",
+   "died": "1962-11-22",
+   "from": "1954-01-16",
+   "to": "1959-01-08",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the French Republic",
+   "title_vi": "Tổng thống Cộng hòa Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "Charles de Gaulle",
+   "name_en": "Charles de Gaulle",
+   "born": "1890-11-22",
+   "died": "1970-11-09",
+   "from": "1959-01-08",
+   "to": "1969-04-28",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "President of the French Republic",
+   "title_vi": "Tổng thống Cộng hòa Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "Georges Pompidou",
+   "name_en": "Georges Pompidou",
+   "born": "1911-07-05",
+   "died": "1974-04-02",
+   "from": "1969-06-20",
+   "to": "1974-04-02",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "President of the French Republic",
+   "title_vi": "Tổng thống Cộng hòa Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "Valéry Giscard d'Estaing",
+   "name_en": "Valéry Giscard d'Estaing",
+   "born": "1926-02-02",
+   "died": "2020-12-02",
+   "from": "1974-05-27",
+   "to": "1981-05-21",
+   "end": "election_loss",
+   "role": "head_of_state",
+   "title_en": "President of the French Republic",
+   "title_vi": "Tổng thống Cộng hòa Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "François Mitterrand",
+   "name_en": "François Mitterrand",
+   "born": "1916-10-26",
+   "died": "1996-01-08",
+   "from": "1981-05-21",
+   "to": "1995-05-17",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the French Republic",
+   "title_vi": "Tổng thống Cộng hòa Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "Jacques Chirac",
+   "name_en": "Jacques Chirac",
+   "born": "1932-11-29",
+   "died": "2019-09-26",
+   "from": "1995-05-17",
+   "to": "2007-05-16",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the French Republic",
+   "title_vi": "Tổng thống Cộng hòa Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "Nicolas Sarkozy",
+   "name_en": "Nicolas Sarkozy",
+   "born": "1955-01-28",
+   "died": null,
+   "from": "2007-05-16",
+   "to": "2012-05-15",
+   "end": "election_loss",
+   "role": "head_of_state",
+   "title_en": "President of the French Republic",
+   "title_vi": "Tổng thống Cộng hòa Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "François Hollande",
+   "name_en": "François Hollande",
+   "born": "1954-08-12",
+   "died": null,
+   "from": "2012-05-15",
+   "to": "2017-05-14",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the French Republic",
+   "title_vi": "Tổng thống Cộng hòa Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "FRA_IDF",
+   "entity": "FRA",
+   "name": "Emmanuel Macron",
+   "name_en": "Emmanuel Macron",
+   "born": "1977-12-21",
+   "died": null,
+   "from": "2017-05-14",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "head_of_state",
+   "title_en": "President of the French Republic",
+   "title_vi": "Tổng thống Cộng hòa Pháp",
+   "sources": [
+    "fr_pres"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "PAP_ROM",
+   "entity": "ITA",
+   "name": "Victor Emmanuel III",
+   "name_en": "Victor Emmanuel III",
+   "born": "1869-11-11",
+   "died": "1947-12-28",
+   "from": "1900-07-29",
+   "to": "1946-05-09",
+   "end": "abdication",
+   "role": "head_of_state",
+   "title_en": "King of Italy",
+   "title_vi": "Quốc vương Ý",
+   "sources": [
+    "it_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PAP_ROM",
+   "entity": "ITA",
+   "name": "Benito Mussolini",
+   "name_en": "Benito Mussolini",
+   "born": "1883-07-29",
+   "died": "1945-04-28",
+   "from": "1922-10-31",
+   "to": "1943-07-25",
+   "end": "dismissal",
+   "role": "effective_leader",
+   "title_en": "Head of Government / Duce",
+   "title_vi": "Thủ tướng / Duce",
+   "sources": [
+    "it_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PAP_ROM",
+   "entity": "ITA",
+   "name": "Umberto II",
+   "name_en": "Umberto II",
+   "born": "1904-09-15",
+   "died": "1983-03-18",
+   "from": "1946-05-09",
+   "to": "1946-06-18",
+   "end": "referendum",
+   "role": "head_of_state",
+   "title_en": "King of Italy",
+   "title_vi": "Quốc vương Ý",
+   "sources": [
+    "it_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PAP_ROM",
+   "entity": "ITA",
+   "name": "Enrico De Nicola",
+   "name_en": "Enrico De Nicola",
+   "born": "1877-11-09",
+   "died": "1959-10-01",
+   "from": "1948-01-01",
+   "to": "1948-05-12",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Provisional Head of State / President",
+   "title_vi": "Nguyên thủ lâm thời / Tổng thống",
+   "sources": [
+    "it_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PAP_ROM",
+   "entity": "ITA",
+   "name": "Luigi Einaudi",
+   "name_en": "Luigi Einaudi",
+   "born": "1874-03-24",
+   "died": "1961-10-30",
+   "from": "1948-05-12",
+   "to": "1955-05-11",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the Italian Republic",
+   "title_vi": "Tổng thống Cộng hòa Ý",
+   "sources": [
+    "it_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PAP_ROM",
+   "entity": "ITA",
+   "name": "Giovanni Gronchi",
+   "name_en": "Giovanni Gronchi",
+   "born": "1887-09-10",
+   "died": "1978-10-17",
+   "from": "1955-05-11",
+   "to": "1962-05-11",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the Italian Republic",
+   "title_vi": "Tổng thống Cộng hòa Ý",
+   "sources": [
+    "it_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PAP_ROM",
+   "entity": "ITA",
+   "name": "Antonio Segni",
+   "name_en": "Antonio Segni",
+   "born": "1891-02-02",
+   "died": "1972-12-01",
+   "from": "1962-05-11",
+   "to": "1964-12-06",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "President of the Italian Republic",
+   "title_vi": "Tổng thống Cộng hòa Ý",
+   "sources": [
+    "it_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PAP_ROM",
+   "entity": "ITA",
+   "name": "Giuseppe Saragat",
+   "name_en": "Giuseppe Saragat",
+   "born": "1898-09-19",
+   "died": "1988-06-11",
+   "from": "1964-12-29",
+   "to": "1971-12-29",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the Italian Republic",
+   "title_vi": "Tổng thống Cộng hòa Ý",
+   "sources": [
+    "it_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PAP_ROM",
+   "entity": "ITA",
+   "name": "Giovanni Leone",
+   "name_en": "Giovanni Leone",
+   "born": "1908-11-03",
+   "died": "2001-11-09",
+   "from": "1971-12-29",
+   "to": "1978-06-15",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "President of the Italian Republic",
+   "title_vi": "Tổng thống Cộng hòa Ý",
+   "sources": [
+    "it_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PAP_ROM",
+   "entity": "ITA",
+   "name": "Sandro Pertini",
+   "name_en": "Sandro Pertini",
+   "born": "1896-09-25",
+   "died": "1990-02-24",
+   "from": "1978-07-09",
+   "to": "1985-06-29",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the Italian Republic",
+   "title_vi": "Tổng thống Cộng hòa Ý",
+   "sources": [
+    "it_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PAP_ROM",
+   "entity": "ITA",
+   "name": "Francesco Cossiga",
+   "name_en": "Francesco Cossiga",
+   "born": "1928-07-26",
+   "died": "2010-08-17",
+   "from": "1985-07-03",
+   "to": "1992-04-28",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "President of the Italian Republic",
+   "title_vi": "Tổng thống Cộng hòa Ý",
+   "sources": [
+    "it_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PAP_ROM",
+   "entity": "ITA",
+   "name": "Oscar Luigi Scalfaro",
+   "name_en": "Oscar Luigi Scalfaro",
+   "born": "1918-09-09",
+   "died": "2012-01-29",
+   "from": "1992-05-28",
+   "to": "1999-05-15",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the Italian Republic",
+   "title_vi": "Tổng thống Cộng hòa Ý",
+   "sources": [
+    "it_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PAP_ROM",
+   "entity": "ITA",
+   "name": "Carlo Azeglio Ciampi",
+   "name_en": "Carlo Azeglio Ciampi",
+   "born": "1920-12-09",
+   "died": "2016-09-16",
+   "from": "1999-05-18",
+   "to": "2006-05-15",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the Italian Republic",
+   "title_vi": "Tổng thống Cộng hòa Ý",
+   "sources": [
+    "it_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PAP_ROM",
+   "entity": "ITA",
+   "name": "Giorgio Napolitano",
+   "name_en": "Giorgio Napolitano",
+   "born": "1925-06-29",
+   "died": "2023-09-22",
+   "from": "2006-05-15",
+   "to": "2015-01-14",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "President of the Italian Republic",
+   "title_vi": "Tổng thống Cộng hòa Ý",
+   "sources": [
+    "it_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PAP_ROM",
+   "entity": "ITA",
+   "name": "Sergio Mattarella",
+   "name_en": "Sergio Mattarella",
+   "born": "1941-07-23",
+   "died": null,
+   "from": "2015-02-03",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "head_of_state",
+   "title_en": "President of the Italian Republic",
+   "title_vi": "Tổng thống Cộng hòa Ý",
+   "sources": [
+    "it_pres"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Meiji",
+   "name_en": "Meiji",
+   "born": "1852-11-03",
+   "died": "1912-07-30",
+   "from": "1900-01-01",
+   "to": "1912-07-30",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "Emperor of Japan",
+   "title_vi": "Thiên hoàng Nhật Bản",
+   "sources": [
+    "jp_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Taishō",
+   "name_en": "Taishō",
+   "born": "1879-08-31",
+   "died": "1926-12-25",
+   "from": "1912-07-30",
+   "to": "1926-12-25",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "Emperor of Japan",
+   "title_vi": "Thiên hoàng Nhật Bản",
+   "sources": [
+    "jp_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Chiêu Hòa (Hirohito)",
+   "name_en": "Shōwa (Hirohito)",
+   "born": "1901-04-29",
+   "died": "1989-01-07",
+   "from": "1926-12-25",
+   "to": "1989-01-07",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "Emperor of Japan",
+   "title_vi": "Thiên hoàng Nhật Bản",
+   "sources": [
+    "jp_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Akihito",
+   "name_en": "Akihito",
+   "born": "1933-12-23",
+   "died": null,
+   "from": "1989-01-07",
+   "to": "2019-04-30",
+   "end": "abdication",
+   "role": "head_of_state",
+   "title_en": "Emperor of Japan",
+   "title_vi": "Thiên hoàng Nhật Bản",
+   "sources": [
+    "jp_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Naruhito",
+   "name_en": "Naruhito",
+   "born": "1960-02-23",
+   "died": null,
+   "from": "2019-05-01",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "head_of_state",
+   "title_en": "Emperor of Japan",
+   "title_vi": "Thiên hoàng Nhật Bản",
+   "sources": [
+    "jp_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Itō Hirobumi",
+   "name_en": "Itō Hirobumi",
+   "born": "1841-10-16",
+   "died": "1909-10-26",
+   "from": "1900-10-19",
+   "to": "1901-06-02",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Katsura Tarō",
+   "name_en": "Katsura Tarō",
+   "born": "1848-12-04",
+   "died": "1913-10-10",
+   "from": "1901-06-02",
+   "to": "1906-01-07",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Saionji Kinmochi",
+   "name_en": "Saionji Kinmochi",
+   "born": "1849-10-23",
+   "died": "1940-11-24",
+   "from": "1906-01-07",
+   "to": "1908-07-14",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Katsura Tarō",
+   "name_en": "Katsura Tarō",
+   "born": "1848-12-04",
+   "died": "1913-10-10",
+   "from": "1908-07-14",
+   "to": "1911-08-30",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Saionji Kinmochi",
+   "name_en": "Saionji Kinmochi",
+   "born": "1849-10-23",
+   "died": "1940-11-24",
+   "from": "1911-08-30",
+   "to": "1912-12-21",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Katsura Tarō",
+   "name_en": "Katsura Tarō",
+   "born": "1848-12-04",
+   "died": "1913-10-10",
+   "from": "1912-12-21",
+   "to": "1913-02-20",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Yamamoto Gonnohyōe",
+   "name_en": "Yamamoto Gonnohyōe",
+   "born": "1852-11-26",
+   "died": "1933-12-08",
+   "from": "1913-02-20",
+   "to": "1914-04-16",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Ōkuma Shigenobu",
+   "name_en": "Ōkuma Shigenobu",
+   "born": "1838-03-11",
+   "died": "1922-01-10",
+   "from": "1914-04-16",
+   "to": "1916-10-09",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Terauchi Masatake",
+   "name_en": "Terauchi Masatake",
+   "born": "1852-02-05",
+   "died": "1919-11-03",
+   "from": "1916-10-09",
+   "to": "1918-09-29",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Hara Takashi",
+   "name_en": "Hara Takashi",
+   "born": "1856-03-15",
+   "died": "1921-11-04",
+   "from": "1918-09-29",
+   "to": "1921-11-04",
+   "end": "assassination",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Takahashi Korekiyo",
+   "name_en": "Takahashi Korekiyo",
+   "born": "1854-07-27",
+   "died": "1936-02-26",
+   "from": "1921-11-13",
+   "to": "1922-06-12",
+   "end": "term",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Katō Tomosaburō",
+   "name_en": "Katō Tomosaburō",
+   "born": "1861-02-22",
+   "died": "1923-08-24",
+   "from": "1922-06-12",
+   "to": "1923-08-24",
+   "end": "death",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Yamamoto Gonnohyōe",
+   "name_en": "Yamamoto Gonnohyōe",
+   "born": "1852-11-26",
+   "died": "1933-12-08",
+   "from": "1923-09-02",
+   "to": "1924-01-07",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Kiyoura Keigo",
+   "name_en": "Kiyoura Keigo",
+   "born": "1850-02-14",
+   "died": "1942-11-05",
+   "from": "1924-01-07",
+   "to": "1924-06-11",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Takahashi Korekiyo",
+   "name_en": "Takahashi Korekiyo",
+   "born": "1854-07-27",
+   "died": "1936-02-26",
+   "from": "1924-06-11",
+   "to": "1926-01-30",
+   "end": "term",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Shigeru Yoshida",
+   "name_en": "Shigeru Yoshida",
+   "born": "1878-09-22",
+   "died": "1967-10-20",
+   "from": "1946-05-22",
+   "to": "1954-12-10",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Nobusuke Kishi",
+   "name_en": "Nobusuke Kishi",
+   "born": "1896-11-13",
+   "died": "1987-08-07",
+   "from": "1957-02-25",
+   "to": "1960-07-19",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Hayato Ikeda",
+   "name_en": "Hayato Ikeda",
+   "born": "1899-12-03",
+   "died": "1965-08-13",
+   "from": "1960-07-19",
+   "to": "1964-11-09",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Eisaku Satō",
+   "name_en": "Eisaku Satō",
+   "born": "1901-03-27",
+   "died": "1975-06-03",
+   "from": "1964-11-09",
+   "to": "1972-07-07",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Kakuei Tanaka",
+   "name_en": "Kakuei Tanaka",
+   "born": "1918-05-04",
+   "died": "1993-12-16",
+   "from": "1972-07-07",
+   "to": "1974-12-09",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Takeo Fukuda",
+   "name_en": "Takeo Fukuda",
+   "born": "1905-01-14",
+   "died": "1995-07-05",
+   "from": "1976-12-24",
+   "to": "1978-12-07",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Masayoshi Ōhira",
+   "name_en": "Masayoshi Ōhira",
+   "born": "1910-03-12",
+   "died": "1980-06-12",
+   "from": "1978-12-07",
+   "to": "1980-06-12",
+   "end": "death",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Yasuhiro Nakasone",
+   "name_en": "Yasuhiro Nakasone",
+   "born": "1918-05-27",
+   "died": "2019-11-29",
+   "from": "1982-11-27",
+   "to": "1987-11-06",
+   "end": "term",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Kiichi Miyazawa",
+   "name_en": "Kiichi Miyazawa",
+   "born": "1919-10-08",
+   "died": "2007-06-28",
+   "from": "1991-11-05",
+   "to": "1993-08-09",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Junichiro Koizumi",
+   "name_en": "Junichiro Koizumi",
+   "born": "1942-01-08",
+   "died": null,
+   "from": "2001-04-26",
+   "to": "2006-09-26",
+   "end": "term",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Shinzo Abe",
+   "name_en": "Shinzo Abe",
+   "born": "1954-09-21",
+   "died": "2022-07-08",
+   "from": "2012-12-26",
+   "to": "2020-09-16",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Fumio Kishida",
+   "name_en": "Fumio Kishida",
+   "born": "1957-07-29",
+   "died": null,
+   "from": "2021-10-04",
+   "to": "2024-10-01",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Shigeru Ishiba",
+   "name_en": "Shigeru Ishiba",
+   "born": "1957-02-04",
+   "died": null,
+   "from": "2024-10-01",
+   "to": "2025-10-21",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "JAP_EDO",
+   "entity": "JPN",
+   "name": "Sanae Takaichi",
+   "name_en": "Sanae Takaichi",
+   "born": "1961-03-07",
+   "died": null,
+   "from": "2025-10-21",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of Japan",
+   "title_vi": "Thủ tướng Nhật Bản",
+   "sources": [
+    "jp_pm"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "QNG_ZHI",
+   "entity": "QNG",
+   "name": "Quang Tự",
+   "name_en": "Guangxu Emperor",
+   "born": "1871-08-14",
+   "died": "1908-11-14",
+   "from": "1900-01-01",
+   "to": "1908-11-14",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "Emperor of the Great Qing",
+   "title_vi": "Hoàng đế Đại Thanh",
+   "sources": [
+    "china_national_museum"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "QNG_ZHI",
+   "entity": "QNG",
+   "name": "Tuyên Thống (Phổ Nghi)",
+   "name_en": "Xuantong Emperor (Puyi)",
+   "born": "1906-02-07",
+   "died": "1967-10-17",
+   "from": "1908-12-02",
+   "to": "1912-02-12",
+   "end": "abdication",
+   "role": "head_of_state",
+   "title_en": "Emperor of the Great Qing",
+   "title_vi": "Hoàng đế Đại Thanh",
+   "sources": [
+    "china_national_museum"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "QNG_ZHI",
+   "entity": "ROC",
+   "name": "Tôn Trung Sơn",
+   "name_en": "Sun Yat-sen",
+   "born": "1866-11-12",
+   "died": "1925-03-12",
+   "from": "1912-01-01",
+   "to": "1912-03-10",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "Provisional President of the Republic of China",
+   "title_vi": "Tổng thống lâm thời Trung Hoa Dân Quốc",
+   "sources": [
+    "china_national_museum"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "QNG_ZHI",
+   "entity": "ROC",
+   "name": "Viên Thế Khải",
+   "name_en": "Yuan Shikai",
+   "born": "1859-09-16",
+   "died": "1916-06-06",
+   "from": "1912-03-10",
+   "to": "1916-06-06",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of China",
+   "title_vi": "Tổng thống Trung Hoa Dân Quốc",
+   "sources": [
+    "china_national_museum"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "QNG_JSU",
+   "entity": "ROC",
+   "name": "Tưởng Giới Thạch",
+   "name_en": "Chiang Kai-shek",
+   "born": "1887-10-31",
+   "died": "1975-04-05",
+   "from": "1928-10-10",
+   "to": "1975-04-05",
+   "end": "death",
+   "role": "effective_leader",
+   "title_en": "Chairman of the National Government; President of the Republic of China",
+   "title_vi": "Chủ tịch Chính phủ Quốc dân; Tổng thống Trung Hoa Dân Quốc",
+   "sources": [
+    "tw_pres_zh"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "QNG_JSU",
+   "entity": "ROC",
+   "name": "Tưởng Giới Thạch",
+   "name_en": "Chiang Kai-shek",
+   "born": "1887-10-31",
+   "died": "1975-04-05",
+   "from": "1948-05-20",
+   "to": "1975-04-05",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of China",
+   "title_vi": "Tổng thống Trung Hoa Dân Quốc",
+   "sources": [
+    "tw_pres_zh"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "QNG_ZHI",
+   "entity": "PRC",
+   "name": "Mao Trạch Đông",
+   "name_en": "Mao Zedong",
+   "born": "1893-12-26",
+   "died": "1976-09-09",
+   "from": "1949-10-01",
+   "to": "1976-09-09",
+   "end": "death",
+   "role": "effective_leader",
+   "title_en": "Chairman of the Chinese Communist Party",
+   "title_vi": "Chủ tịch Đảng Cộng sản Trung Quốc",
+   "sources": [
+    "cn_cpc"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "QNG_ZHI",
+   "entity": "PRC",
+   "name": "Đặng Tiểu Bình",
+   "name_en": "Deng Xiaoping",
+   "born": "1904-08-22",
+   "died": "1997-02-19",
+   "from": "1978-12-18",
+   "to": "1989-11-09",
+   "end": "other",
+   "role": "effective_leader",
+   "title_en": "Paramount leader; Chairman of the Central Military Commission",
+   "title_vi": "Lãnh tụ tối cao; Chủ tịch Quân ủy Trung ương",
+   "sources": [
+    "cn_cpc"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "QNG_ZHI",
+   "entity": "PRC",
+   "name": "Giang Trạch Dân",
+   "name_en": "Jiang Zemin",
+   "born": "1926-08-17",
+   "died": "2022-11-30",
+   "from": "1989-06-24",
+   "to": "2002-11-15",
+   "end": "term",
+   "role": "effective_leader",
+   "title_en": "General Secretary of the CPC",
+   "title_vi": "Tổng Bí thư Đảng Cộng sản Trung Quốc",
+   "sources": [
+    "cn_cpc"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "QNG_ZHI",
+   "entity": "PRC",
+   "name": "Hồ Cẩm Đào",
+   "name_en": "Hu Jintao",
+   "born": "1942-12-21",
+   "died": null,
+   "from": "2002-11-15",
+   "to": "2012-11-15",
+   "end": "term",
+   "role": "effective_leader",
+   "title_en": "General Secretary of the CPC",
+   "title_vi": "Tổng Bí thư Đảng Cộng sản Trung Quốc",
+   "sources": [
+    "cn_cpc"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "QNG_ZHI",
+   "entity": "PRC",
+   "name": "Tập Cận Bình",
+   "name_en": "Xi Jinping",
+   "born": "1953-06-15",
+   "died": null,
+   "from": "2012-11-15",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "effective_leader",
+   "title_en": "General Secretary of the CPC; President of the PRC",
+   "title_vi": "Tổng Bí thư Đảng Cộng sản Trung Quốc; Chủ tịch nước CHND Trung Hoa",
+   "sources": [
+    "cn_cpc"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "QNG_ZHI",
+   "entity": "PRC",
+   "name": "Mao Trạch Đông",
+   "name_en": "Mao Zedong",
+   "born": "1893-12-26",
+   "died": "1976-09-09",
+   "from": "1954-09-27",
+   "to": "1959-04-27",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Chairman of the People's Republic of China",
+   "title_vi": "Chủ tịch nước CHND Trung Hoa",
+   "sources": [
+    "cn_cpc"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "QNG_ZHI",
+   "entity": "PRC",
+   "name": "Lưu Thiếu Kỳ",
+   "name_en": "Liu Shaoqi",
+   "born": "1898-11-24",
+   "died": "1969-11-12",
+   "from": "1959-04-27",
+   "to": "1968-10-31",
+   "end": "removed",
+   "role": "head_of_state",
+   "title_en": "Chairman of the People's Republic of China",
+   "title_vi": "Chủ tịch nước CHND Trung Hoa",
+   "sources": [
+    "cn_cpc"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "QNG_ZHI",
+   "entity": "PRC",
+   "name": "Lý Tiên Niệm",
+   "name_en": "Li Xiannian",
+   "born": "1909-06-23",
+   "died": "1992-06-21",
+   "from": "1983-06-18",
+   "to": "1988-04-08",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the People's Republic of China",
+   "title_vi": "Chủ tịch nước CHND Trung Hoa",
+   "sources": [
+    "cn_cpc"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "QNG_ZHI",
+   "entity": "PRC",
+   "name": "Dương Thượng Côn",
+   "name_en": "Yang Shangkun",
+   "born": "1907-07-03",
+   "died": "1998-09-14",
+   "from": "1988-04-08",
+   "to": "1993-03-27",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the People's Republic of China",
+   "title_vi": "Chủ tịch nước CHND Trung Hoa",
+   "sources": [
+    "cn_cpc"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "QNG_ZHI",
+   "entity": "PRC",
+   "name": "Giang Trạch Dân",
+   "name_en": "Jiang Zemin",
+   "born": "1926-08-17",
+   "died": "2022-11-30",
+   "from": "1993-03-27",
+   "to": "2003-03-15",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the People's Republic of China",
+   "title_vi": "Chủ tịch nước CHND Trung Hoa",
+   "sources": [
+    "cn_cpc"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "QNG_ZHI",
+   "entity": "PRC",
+   "name": "Hồ Cẩm Đào",
+   "name_en": "Hu Jintao",
+   "born": "1942-12-21",
+   "died": null,
+   "from": "2003-03-15",
+   "to": "2013-03-14",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the People's Republic of China",
+   "title_vi": "Chủ tịch nước CHND Trung Hoa",
+   "sources": [
+    "cn_cpc"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "QNG_ZHI",
+   "entity": "PRC",
+   "name": "Tập Cận Bình",
+   "name_en": "Xi Jinping",
+   "born": "1953-06-15",
+   "died": null,
+   "from": "2013-03-14",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "head_of_state",
+   "title_en": "President of the People's Republic of China",
+   "title_vi": "Chủ tịch nước CHND Trung Hoa",
+   "sources": [
+    "cn_cpc"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "TUR_IST",
+   "entity": "TUR",
+   "name": "Abdul Hamid II",
+   "name_en": "Abdul Hamid II",
+   "born": "1842-09-21",
+   "died": "1918-02-10",
+   "from": "1900-01-01",
+   "to": "1909-04-27",
+   "end": "deposed",
+   "role": "head_of_state",
+   "title_en": "Sultan of the Ottoman Empire",
+   "title_vi": "Sultan Đế quốc Ottoman",
+   "sources": [
+    "turkey_ataturk"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "TUR_IST",
+   "entity": "TUR",
+   "name": "Mehmed V",
+   "name_en": "Mehmed V",
+   "born": "1844-11-02",
+   "died": "1918-07-03",
+   "from": "1909-04-27",
+   "to": "1918-07-03",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "Sultan of the Ottoman Empire",
+   "title_vi": "Sultan Đế quốc Ottoman",
+   "sources": [
+    "turkey_ataturk"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "TUR_IST",
+   "entity": "TUR",
+   "name": "Mehmed VI",
+   "name_en": "Mehmed VI",
+   "born": "1861-01-14",
+   "died": "1926-05-16",
+   "from": "1918-07-04",
+   "to": "1922-11-01",
+   "end": "abolition",
+   "role": "head_of_state",
+   "title_en": "Sultan of the Ottoman Empire",
+   "title_vi": "Sultan Đế quốc Ottoman",
+   "sources": [
+    "turkey_ataturk"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "TUR_ANC",
+   "entity": "TUR",
+   "name": "Mustafa Kemal Atatürk",
+   "name_en": "Mustafa Kemal Atatürk",
+   "born": "1881-05-19",
+   "died": "1938-11-10",
+   "from": "1923-10-29",
+   "to": "1938-11-10",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Türkiye",
+   "title_vi": "Tổng thống Cộng hòa Thổ Nhĩ Kỳ",
+   "sources": [
+    "turkey_ataturk"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "TUR_ANC",
+   "entity": "TUR",
+   "name": "İsmet İnönü",
+   "name_en": "İsmet İnönü",
+   "born": "1884-09-24",
+   "died": "1973-12-25",
+   "from": "1938-11-11",
+   "to": "1950-05-22",
+   "end": "election_loss",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Türkiye",
+   "title_vi": "Tổng thống Cộng hòa Thổ Nhĩ Kỳ",
+   "sources": [
+    "turkey_ataturk"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "TUR_ANC",
+   "entity": "TUR",
+   "name": "Celâl Bayar",
+   "name_en": "Celâl Bayar",
+   "born": "1883-05-16",
+   "died": "1986-08-22",
+   "from": "1950-05-22",
+   "to": "1960-05-27",
+   "end": "overthrow",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Türkiye",
+   "title_vi": "Tổng thống Cộng hòa Thổ Nhĩ Kỳ",
+   "sources": [
+    "turkey_ataturk"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "TUR_ANC",
+   "entity": "TUR",
+   "name": "Cemal Gürsel",
+   "name_en": "Cemal Gürsel",
+   "born": "1895-10-13",
+   "died": "1966-09-14",
+   "from": "1961-10-27",
+   "to": "1966-03-28",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Türkiye",
+   "title_vi": "Tổng thống Cộng hòa Thổ Nhĩ Kỳ",
+   "sources": [
+    "turkey_ataturk"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "TUR_ANC",
+   "entity": "TUR",
+   "name": "Cevdet Sunay",
+   "name_en": "Cevdet Sunay",
+   "born": "1899-02-10",
+   "died": "1982-05-22",
+   "from": "1966-03-28",
+   "to": "1973-03-28",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Türkiye",
+   "title_vi": "Tổng thống Cộng hòa Thổ Nhĩ Kỳ",
+   "sources": [
+    "turkey_ataturk"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "TUR_ANC",
+   "entity": "TUR",
+   "name": "Fahri Korutürk",
+   "name_en": "Fahri Korutürk",
+   "born": "1903-08-03",
+   "died": "1987-10-12",
+   "from": "1973-04-06",
+   "to": "1980-04-06",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Türkiye",
+   "title_vi": "Tổng thống Cộng hòa Thổ Nhĩ Kỳ",
+   "sources": [
+    "turkey_ataturk"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "TUR_ANC",
+   "entity": "TUR",
+   "name": "Kenan Evren",
+   "name_en": "Kenan Evren",
+   "born": "1917-07-17",
+   "died": "2015-05-09",
+   "from": "1982-11-09",
+   "to": "1989-11-09",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Türkiye",
+   "title_vi": "Tổng thống Cộng hòa Thổ Nhĩ Kỳ",
+   "sources": [
+    "turkey_ataturk"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "TUR_ANC",
+   "entity": "TUR",
+   "name": "Turgut Özal",
+   "name_en": "Turgut Özal",
+   "born": "1927-10-13",
+   "died": "1993-04-17",
+   "from": "1989-11-09",
+   "to": "1993-04-17",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Türkiye",
+   "title_vi": "Tổng thống Cộng hòa Thổ Nhĩ Kỳ",
+   "sources": [
+    "turkey_ataturk"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "TUR_ANC",
+   "entity": "TUR",
+   "name": "Süleyman Demirel",
+   "name_en": "Süleyman Demirel",
+   "born": "1924-11-01",
+   "died": "2015-06-17",
+   "from": "1993-05-16",
+   "to": "2000-05-16",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Türkiye",
+   "title_vi": "Tổng thống Cộng hòa Thổ Nhĩ Kỳ",
+   "sources": [
+    "turkey_ataturk"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "TUR_ANC",
+   "entity": "TUR",
+   "name": "Ahmet Necdet Sezer",
+   "name_en": "Ahmet Necdet Sezer",
+   "born": "1941-09-13",
+   "died": null,
+   "from": "2000-05-16",
+   "to": "2007-08-28",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Türkiye",
+   "title_vi": "Tổng thống Cộng hòa Thổ Nhĩ Kỳ",
+   "sources": [
+    "turkey_ataturk"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "TUR_ANC",
+   "entity": "TUR",
+   "name": "Abdullah Gül",
+   "name_en": "Abdullah Gül",
+   "born": "1950-10-29",
+   "died": null,
+   "from": "2007-08-28",
+   "to": "2014-08-28",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Türkiye",
+   "title_vi": "Tổng thống Cộng hòa Thổ Nhĩ Kỳ",
+   "sources": [
+    "turkey_ataturk"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "TUR_ANC",
+   "entity": "TUR",
+   "name": "Recep Tayyip Erdoğan",
+   "name_en": "Recep Tayyip Erdoğan",
+   "born": "1954-02-26",
+   "died": null,
+   "from": "2014-08-28",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Türkiye",
+   "title_vi": "Tổng thống Cộng hòa Thổ Nhĩ Kỳ",
+   "sources": [
+    "turkey_ataturk"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "SPA_MAD",
+   "entity": "SPA",
+   "name": "Alfonso XIII",
+   "name_en": "Alfonso XIII",
+   "born": "1886-05-17",
+   "died": "1941-02-28",
+   "from": "1900-01-01",
+   "to": "1931-04-14",
+   "end": "exile",
+   "role": "head_of_state",
+   "title_en": "King of Spain",
+   "title_vi": "Quốc vương Tây Ban Nha",
+   "sources": [
+    "es_senate"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "SPA_MAD",
+   "entity": "SPA",
+   "name": "Francisco Franco",
+   "name_en": "Francisco Franco",
+   "born": "1892-12-04",
+   "died": "1975-11-20",
+   "from": "1939-04-01",
+   "to": "1975-11-20",
+   "end": "death",
+   "role": "effective_leader",
+   "title_en": "Head of State / Caudillo of Spain",
+   "title_vi": "Nguyên thủ quốc gia / Caudillo Tây Ban Nha",
+   "sources": [
+    "es_senate"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "SPA_MAD",
+   "entity": "SPA",
+   "name": "Juan Carlos I",
+   "name_en": "Juan Carlos I",
+   "born": "1938-01-05",
+   "died": null,
+   "from": "1975-11-22",
+   "to": "2014-06-19",
+   "end": "abdication",
+   "role": "head_of_state",
+   "title_en": "King of Spain",
+   "title_vi": "Quốc vương Tây Ban Nha",
+   "sources": [
+    "es_transition"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "SPA_MAD",
+   "entity": "SPA",
+   "name": "Felipe VI",
+   "name_en": "Felipe VI",
+   "born": "1968-01-30",
+   "died": null,
+   "from": "2014-06-19",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "head_of_state",
+   "title_en": "King of Spain",
+   "title_vi": "Quốc vương Tây Ban Nha",
+   "sources": [
+    "es_transition"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "SPA_MAD",
+   "entity": "SPA",
+   "name": "Adolfo Suárez",
+   "name_en": "Adolfo Suárez",
+   "born": "1932-09-25",
+   "died": "2014-03-23",
+   "from": "1976-07-05",
+   "to": "1981-02-25",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "President of the Government",
+   "title_vi": "Thủ tướng Tây Ban Nha",
+   "sources": [
+    "es_transition"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "SPA_MAD",
+   "entity": "SPA",
+   "name": "Leopoldo Calvo-Sotelo",
+   "name_en": "Leopoldo Calvo-Sotelo",
+   "born": "1926-04-14",
+   "died": "2008-05-03",
+   "from": "1981-02-25",
+   "to": "1982-12-02",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "President of the Government",
+   "title_vi": "Thủ tướng Tây Ban Nha",
+   "sources": [
+    "es_transition"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "SPA_MAD",
+   "entity": "SPA",
+   "name": "Felipe González",
+   "name_en": "Felipe González",
+   "born": "1942-03-05",
+   "died": null,
+   "from": "1982-12-02",
+   "to": "1996-05-05",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "President of the Government",
+   "title_vi": "Thủ tướng Tây Ban Nha",
+   "sources": [
+    "es_transition"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "SPA_MAD",
+   "entity": "SPA",
+   "name": "José María Aznar",
+   "name_en": "José María Aznar",
+   "born": "1953-02-25",
+   "died": null,
+   "from": "1996-05-05",
+   "to": "2004-04-17",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "President of the Government",
+   "title_vi": "Thủ tướng Tây Ban Nha",
+   "sources": [
+    "es_transition"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "SPA_MAD",
+   "entity": "SPA",
+   "name": "José Luis Rodríguez Zapatero",
+   "name_en": "José Luis Rodríguez Zapatero",
+   "born": "1960-08-04",
+   "died": null,
+   "from": "2004-04-17",
+   "to": "2011-12-21",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "President of the Government",
+   "title_vi": "Thủ tướng Tây Ban Nha",
+   "sources": [
+    "es_transition"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "SPA_MAD",
+   "entity": "SPA",
+   "name": "Mariano Rajoy",
+   "name_en": "Mariano Rajoy",
+   "born": "1955-03-27",
+   "died": null,
+   "from": "2011-12-21",
+   "to": "2018-06-02",
+   "end": "vote_of_no_confidence",
+   "role": "effective_leader",
+   "title_en": "President of the Government",
+   "title_vi": "Thủ tướng Tây Ban Nha",
+   "sources": [
+    "es_transition"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "SPA_MAD",
+   "entity": "SPA",
+   "name": "Pedro Sánchez",
+   "name_en": "Pedro Sánchez",
+   "born": "1972-02-29",
+   "died": null,
+   "from": "2018-06-02",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "effective_leader",
+   "title_en": "President of the Government",
+   "title_vi": "Thủ tướng Tây Ban Nha",
+   "sources": [
+    "es_transition"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "AUS_VIE",
+   "entity": "AHM",
+   "name": "Franz Joseph I",
+   "name_en": "Franz Joseph I",
+   "born": "1830-08-18",
+   "died": "1916-11-21",
+   "from": "1900-01-01",
+   "to": "1916-11-21",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "Emperor of Austria; King of Hungary",
+   "title_vi": "Hoàng đế Áo; Quốc vương Hungary",
+   "sources": [
+    "ausgleich_aeiou"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "AUS_VIE",
+   "entity": "AHM",
+   "name": "Charles I of Austria",
+   "name_en": "Charles I of Austria",
+   "born": "1887-08-17",
+   "died": "1922-04-01",
+   "from": "1916-11-21",
+   "to": "1918-11-11",
+   "end": "abdication",
+   "role": "head_of_state",
+   "title_en": "Emperor of Austria; King of Hungary",
+   "title_vi": "Hoàng đế Áo; Quốc vương Hungary",
+   "sources": [
+    "ausgleich_aeiou"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "AUS_VIE",
+   "entity": "AUT",
+   "name": "Karl Renner",
+   "name_en": "Karl Renner",
+   "born": "1870-12-14",
+   "died": "1950-12-31",
+   "from": "1918-11-12",
+   "to": "1920-07-07",
+   "end": "term",
+   "role": "effective_leader",
+   "title_en": "State Chancellor / President of the National Assembly",
+   "title_vi": "Thủ tướng Nhà nước / Chủ tịch Quốc hội",
+   "sources": [
+    "at_state"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "AUS_VIE",
+   "entity": "AUT",
+   "name": "Wilhelm Miklas",
+   "name_en": "Wilhelm Miklas",
+   "born": "1872-10-15",
+   "died": "1956-03-20",
+   "from": "1928-12-10",
+   "to": "1938-03-13",
+   "end": "annexation",
+   "role": "head_of_state",
+   "title_en": "Federal President of Austria",
+   "title_vi": "Tổng thống Liên bang Áo",
+   "sources": [
+    "at_state"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "AUS_VIE",
+   "entity": "AUT",
+   "name": "Karl Renner",
+   "name_en": "Karl Renner",
+   "born": "1870-12-14",
+   "died": "1950-12-31",
+   "from": "1945-12-20",
+   "to": "1950-12-31",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "Federal President of Austria",
+   "title_vi": "Tổng thống Liên bang Áo",
+   "sources": [
+    "at_state"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "AUS_VIE",
+   "entity": "AUT",
+   "name": "Theodor Körner",
+   "name_en": "Theodor Körner",
+   "born": "1873-04-24",
+   "died": "1957-01-04",
+   "from": "1951-06-21",
+   "to": "1957-01-04",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "Federal President of Austria",
+   "title_vi": "Tổng thống Liên bang Áo",
+   "sources": [
+    "at_state"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "AUS_VIE",
+   "entity": "AUT",
+   "name": "Adolf Schärf",
+   "name_en": "Adolf Schärf",
+   "born": "1890-04-20",
+   "died": "1965-02-28",
+   "from": "1957-05-22",
+   "to": "1965-02-28",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "Federal President of Austria",
+   "title_vi": "Tổng thống Liên bang Áo",
+   "sources": [
+    "at_state"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "AUS_VIE",
+   "entity": "AUT",
+   "name": "Franz Jonas",
+   "name_en": "Franz Jonas",
+   "born": "1899-10-04",
+   "died": "1974-04-24",
+   "from": "1965-06-09",
+   "to": "1974-04-24",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "Federal President of Austria",
+   "title_vi": "Tổng thống Liên bang Áo",
+   "sources": [
+    "at_state"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "AUS_VIE",
+   "entity": "AUT",
+   "name": "Rudolf Kirchschläger",
+   "name_en": "Rudolf Kirchschläger",
+   "born": "1915-03-20",
+   "died": "2000-03-30",
+   "from": "1974-07-08",
+   "to": "1986-07-08",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Federal President of Austria",
+   "title_vi": "Tổng thống Liên bang Áo",
+   "sources": [
+    "at_state"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "AUS_VIE",
+   "entity": "AUT",
+   "name": "Kurt Waldheim",
+   "name_en": "Kurt Waldheim",
+   "born": "1918-12-21",
+   "died": "2007-06-14",
+   "from": "1986-07-08",
+   "to": "1992-07-08",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Federal President of Austria",
+   "title_vi": "Tổng thống Liên bang Áo",
+   "sources": [
+    "at_state"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "AUS_VIE",
+   "entity": "AUT",
+   "name": "Thomas Klestil",
+   "name_en": "Thomas Klestil",
+   "born": "1932-11-04",
+   "died": "2004-07-06",
+   "from": "1992-07-08",
+   "to": "2004-07-06",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "Federal President of Austria",
+   "title_vi": "Tổng thống Liên bang Áo",
+   "sources": [
+    "at_state"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "AUS_VIE",
+   "entity": "AUT",
+   "name": "Heinz Fischer",
+   "name_en": "Heinz Fischer",
+   "born": "1938-10-09",
+   "died": null,
+   "from": "2004-07-08",
+   "to": "2016-07-08",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Federal President of Austria",
+   "title_vi": "Tổng thống Liên bang Áo",
+   "sources": [
+    "at_state"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "AUS_VIE",
+   "entity": "AUT",
+   "name": "Alexander Van der Bellen",
+   "name_en": "Alexander Van der Bellen",
+   "born": "1944-01-18",
+   "died": null,
+   "from": "2017-01-26",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "head_of_state",
+   "title_en": "Federal President of Austria",
+   "title_vi": "Tổng thống Liên bang Áo",
+   "sources": [
+    "at_state"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "VNM_HUE",
+   "entity": "VNM",
+   "name": "Thành Thái",
+   "name_en": "Thành Thái",
+   "born": "1879-03-14",
+   "died": "1954-03-24",
+   "from": "1900-01-01",
+   "to": "1907-09-03",
+   "end": "abdication",
+   "role": "head_of_state",
+   "title_en": "Emperor of Đại Nam",
+   "title_vi": "Hoàng đế Đại Nam",
+   "sources": [
+    "vn_embassy"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HUE",
+   "entity": "VNM",
+   "name": "Duy Tân",
+   "name_en": "Duy Tân",
+   "born": "1900-08-19",
+   "died": "1945-12-26",
+   "from": "1907-09-05",
+   "to": "1916-05-13",
+   "end": "deposed",
+   "role": "head_of_state",
+   "title_en": "Emperor of Đại Nam",
+   "title_vi": "Hoàng đế Đại Nam",
+   "sources": [
+    "vn_embassy"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HUE",
+   "entity": "VNM",
+   "name": "Khải Định",
+   "name_en": "Khải Định",
+   "born": "1885-10-08",
+   "died": "1925-11-06",
+   "from": "1916-05-18",
+   "to": "1925-11-06",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "Emperor of Đại Nam",
+   "title_vi": "Hoàng đế Đại Nam",
+   "sources": [
+    "vn_embassy"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HUE",
+   "entity": "VNM",
+   "name": "Bảo Đại",
+   "name_en": "Bảo Đại",
+   "born": "1913-10-22",
+   "died": "1997-07-30",
+   "from": "1926-01-08",
+   "to": "1945-08-25",
+   "end": "abdication",
+   "role": "head_of_state",
+   "title_en": "Emperor of Đại Nam / Head of State of Vietnam",
+   "title_vi": "Hoàng đế Đại Nam / Quốc trưởng Việt Nam",
+   "sources": [
+    "vn_embassy"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "DRV",
+   "name": "Hồ Chí Minh",
+   "name_en": "Hồ Chí Minh",
+   "born": "1890-05-19",
+   "died": "1969-09-02",
+   "from": "1945-09-02",
+   "to": "1969-09-02",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "President of the Democratic Republic of Vietnam",
+   "title_vi": "Chủ tịch nước Việt Nam Dân chủ Cộng hòa",
+   "sources": [
+    "vn_embassy"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "DRV",
+   "name": "Lê Duẩn",
+   "name_en": "Lê Duẩn",
+   "born": "1907-04-07",
+   "died": "1986-07-10",
+   "from": "1960-09-10",
+   "to": "1986-07-10",
+   "end": "death",
+   "role": "effective_leader",
+   "title_en": "First Secretary / General Secretary of the Workers' Party of Vietnam",
+   "title_vi": "Bí thư thứ nhất / Tổng Bí thư Đảng Lao động Việt Nam",
+   "sources": [
+    "vn_embassy"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "DRV",
+   "name": "Trường Chinh",
+   "name_en": "Trường Chinh",
+   "born": "1907-02-09",
+   "died": "1988-09-30",
+   "from": "1986-07-14",
+   "to": "1986-12-18",
+   "end": "term",
+   "role": "effective_leader",
+   "title_en": "General Secretary of the Communist Party of Vietnam",
+   "title_vi": "Tổng Bí thư Đảng Cộng sản Việt Nam",
+   "sources": [
+    "vn_embassy"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Nguyễn Văn Linh",
+   "name_en": "Nguyễn Văn Linh",
+   "born": "1915-07-01",
+   "died": "1998-04-27",
+   "from": "1986-12-18",
+   "to": "1991-06-27",
+   "end": "term",
+   "role": "effective_leader",
+   "title_en": "General Secretary of the Communist Party of Vietnam",
+   "title_vi": "Tổng Bí thư Đảng Cộng sản Việt Nam",
+   "sources": [
+    "vn_embassy"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Đỗ Mười",
+   "name_en": "Đỗ Mười",
+   "born": "1917-02-02",
+   "died": "2018-10-01",
+   "from": "1991-06-27",
+   "to": "1997-12-29",
+   "end": "term",
+   "role": "effective_leader",
+   "title_en": "General Secretary of the Communist Party of Vietnam",
+   "title_vi": "Tổng Bí thư Đảng Cộng sản Việt Nam",
+   "sources": [
+    "vn_embassy"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Lê Khả Phiêu",
+   "name_en": "Lê Khả Phiêu",
+   "born": "1931-12-27",
+   "died": "2020-08-07",
+   "from": "1997-12-29",
+   "to": "2001-04-22",
+   "end": "term",
+   "role": "effective_leader",
+   "title_en": "General Secretary of the Communist Party of Vietnam",
+   "title_vi": "Tổng Bí thư Đảng Cộng sản Việt Nam",
+   "sources": [
+    "vn_embassy"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Nông Đức Mạnh",
+   "name_en": "Nông Đức Mạnh",
+   "born": "1940-09-11",
+   "died": null,
+   "from": "2001-04-22",
+   "to": "2011-01-19",
+   "end": "term",
+   "role": "effective_leader",
+   "title_en": "General Secretary of the Communist Party of Vietnam",
+   "title_vi": "Tổng Bí thư Đảng Cộng sản Việt Nam",
+   "sources": [
+    "vn_embassy"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Nguyễn Phú Trọng",
+   "name_en": "Nguyễn Phú Trọng",
+   "born": "1944-04-14",
+   "died": "2024-07-19",
+   "from": "2011-01-19",
+   "to": "2024-07-19",
+   "end": "death",
+   "role": "effective_leader",
+   "title_en": "General Secretary of the Communist Party of Vietnam",
+   "title_vi": "Tổng Bí thư Đảng Cộng sản Việt Nam",
+   "sources": [
+    "vn_embassy"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Tô Lâm",
+   "name_en": "Tô Lâm",
+   "born": "1957-07-10",
+   "died": null,
+   "from": "2024-08-03",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "effective_leader",
+   "title_en": "General Secretary of the Communist Party of Vietnam",
+   "title_vi": "Tổng Bí thư Đảng Cộng sản Việt Nam",
+   "sources": [
+    "vn_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Tôn Đức Thắng",
+   "name_en": "Tôn Đức Thắng",
+   "born": "1888-08-20",
+   "died": "1980-03-30",
+   "from": "1969-09-23",
+   "to": "1976-07-02",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the Democratic Republic of Vietnam",
+   "title_vi": "Chủ tịch nước Việt Nam Dân chủ Cộng hòa",
+   "sources": [
+    "vn_embassy"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Tôn Đức Thắng",
+   "name_en": "Tôn Đức Thắng",
+   "born": "1888-08-20",
+   "died": "1980-03-30",
+   "from": "1976-07-02",
+   "to": "1980-03-30",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "President of the Socialist Republic of Vietnam",
+   "title_vi": "Chủ tịch nước Cộng hòa Xã hội chủ nghĩa Việt Nam",
+   "sources": [
+    "vn_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Trường Chinh",
+   "name_en": "Trường Chinh",
+   "born": "1907-02-09",
+   "died": "1988-09-30",
+   "from": "1981-07-04",
+   "to": "1987-06-18",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Chairman of the State Council",
+   "title_vi": "Chủ tịch Hội đồng Nhà nước",
+   "sources": [
+    "vn_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Võ Chí Công",
+   "name_en": "Võ Chí Công",
+   "born": "1912-08-07",
+   "died": "2011-09-08",
+   "from": "1987-06-18",
+   "to": "1992-09-22",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Chairman of the State Council / President",
+   "title_vi": "Chủ tịch Hội đồng Nhà nước / Chủ tịch nước",
+   "sources": [
+    "vn_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Lê Đức Anh",
+   "name_en": "Lê Đức Anh",
+   "born": "1920-12-01",
+   "died": "2019-04-22",
+   "from": "1992-09-22",
+   "to": "1997-09-24",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the State",
+   "title_vi": "Chủ tịch nước",
+   "sources": [
+    "vn_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Trần Đức Lương",
+   "name_en": "Trần Đức Lương",
+   "born": "1937-05-05",
+   "died": "2025-05-20",
+   "from": "1997-09-24",
+   "to": "2006-06-27",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the State",
+   "title_vi": "Chủ tịch nước",
+   "sources": [
+    "vn_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Nguyễn Minh Triết",
+   "name_en": "Nguyễn Minh Triết",
+   "born": "1942-10-08",
+   "died": null,
+   "from": "2006-06-27",
+   "to": "2011-07-25",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the State",
+   "title_vi": "Chủ tịch nước",
+   "sources": [
+    "vn_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Trương Tấn Sang",
+   "name_en": "Trương Tấn Sang",
+   "born": "1949-01-21",
+   "died": null,
+   "from": "2011-07-25",
+   "to": "2016-04-02",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the State",
+   "title_vi": "Chủ tịch nước",
+   "sources": [
+    "vn_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Trần Đại Quang",
+   "name_en": "Trần Đại Quang",
+   "born": "1956-10-12",
+   "died": "2018-09-21",
+   "from": "2016-04-02",
+   "to": "2018-09-21",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "President of the State",
+   "title_vi": "Chủ tịch nước",
+   "sources": [
+    "vn_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Nguyễn Phú Trọng",
+   "name_en": "Nguyễn Phú Trọng",
+   "born": "1944-04-14",
+   "died": "2024-07-19",
+   "from": "2018-10-23",
+   "to": "2021-04-05",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the State",
+   "title_vi": "Chủ tịch nước",
+   "sources": [
+    "vn_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Nguyễn Xuân Phúc",
+   "name_en": "Nguyễn Xuân Phúc",
+   "born": "1954-07-20",
+   "died": null,
+   "from": "2021-04-05",
+   "to": "2023-01-18",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "President of the State",
+   "title_vi": "Chủ tịch nước",
+   "sources": [
+    "vn_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Võ Thị Ánh Xuân",
+   "name_en": "Võ Thị Ánh Xuân",
+   "born": "1970-01-08",
+   "died": null,
+   "from": "2023-01-18",
+   "to": "2023-03-02",
+   "end": "other",
+   "role": "head_of_state",
+   "title_en": "Acting President",
+   "title_vi": "Quyền Chủ tịch nước",
+   "sources": [
+    "vn_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Võ Văn Thưởng",
+   "name_en": "Võ Văn Thưởng",
+   "born": "1970-12-13",
+   "died": null,
+   "from": "2023-03-02",
+   "to": "2024-03-21",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "President of the State",
+   "title_vi": "Chủ tịch nước",
+   "sources": [
+    "vn_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Võ Thị Ánh Xuân",
+   "name_en": "Võ Thị Ánh Xuân",
+   "born": "1970-01-08",
+   "died": null,
+   "from": "2024-03-21",
+   "to": "2024-05-22",
+   "end": "other",
+   "role": "head_of_state",
+   "title_en": "Acting President",
+   "title_vi": "Quyền Chủ tịch nước",
+   "sources": [
+    "vn_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Tô Lâm",
+   "name_en": "Tô Lâm",
+   "born": "1957-07-10",
+   "died": null,
+   "from": "2024-05-22",
+   "to": "2024-10-21",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "President of the State",
+   "title_vi": "Chủ tịch nước",
+   "sources": [
+    "vn_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "VNM_HAN",
+   "entity": "VNM",
+   "name": "Lương Cường",
+   "name_en": "Lương Cường",
+   "born": "1957-08-15",
+   "died": null,
+   "from": "2024-10-21",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "head_of_state",
+   "title_en": "President of the State",
+   "title_vi": "Chủ tịch nước",
+   "sources": [
+    "vn_const"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Rajendra Prasad",
+   "name_en": "Rajendra Prasad",
+   "born": "1884-12-03",
+   "died": "1963-02-28",
+   "from": "1950-01-26",
+   "to": "1962-05-13",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of India",
+   "title_vi": "Tổng thống Ấn Độ",
+   "sources": [
+    "in_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Sarvepalli Radhakrishnan",
+   "name_en": "Sarvepalli Radhakrishnan",
+   "born": "1888-09-05",
+   "died": "1975-04-17",
+   "from": "1962-05-13",
+   "to": "1967-05-13",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of India",
+   "title_vi": "Tổng thống Ấn Độ",
+   "sources": [
+    "in_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Zakir Husain",
+   "name_en": "Zakir Husain",
+   "born": "1897-02-08",
+   "died": "1969-05-03",
+   "from": "1967-05-13",
+   "to": "1969-05-03",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "President of India",
+   "title_vi": "Tổng thống Ấn Độ",
+   "sources": [
+    "in_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "V. V. Giri",
+   "name_en": "V. V. Giri",
+   "born": "1894-08-10",
+   "died": "1980-06-24",
+   "from": "1969-08-24",
+   "to": "1974-08-24",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of India",
+   "title_vi": "Tổng thống Ấn Độ",
+   "sources": [
+    "in_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Fakhruddin Ali Ahmed",
+   "name_en": "Fakhruddin Ali Ahmed",
+   "born": "1905-05-13",
+   "died": "1977-02-11",
+   "from": "1974-08-24",
+   "to": "1977-02-11",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "President of India",
+   "title_vi": "Tổng thống Ấn Độ",
+   "sources": [
+    "in_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Neelam Sanjiva Reddy",
+   "name_en": "Neelam Sanjiva Reddy",
+   "born": "1913-05-19",
+   "died": "1996-06-01",
+   "from": "1977-07-25",
+   "to": "1982-07-25",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of India",
+   "title_vi": "Tổng thống Ấn Độ",
+   "sources": [
+    "in_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Zail Singh",
+   "name_en": "Zail Singh",
+   "born": "1916-05-05",
+   "died": "1994-12-25",
+   "from": "1982-07-25",
+   "to": "1987-07-25",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of India",
+   "title_vi": "Tổng thống Ấn Độ",
+   "sources": [
+    "in_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "R. Venkataraman",
+   "name_en": "R. Venkataraman",
+   "born": "1910-12-04",
+   "died": "2009-01-27",
+   "from": "1987-07-25",
+   "to": "1992-07-25",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of India",
+   "title_vi": "Tổng thống Ấn Độ",
+   "sources": [
+    "in_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Shankar Dayal Sharma",
+   "name_en": "Shankar Dayal Sharma",
+   "born": "1918-08-19",
+   "died": "1999-12-26",
+   "from": "1992-07-25",
+   "to": "1997-07-25",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of India",
+   "title_vi": "Tổng thống Ấn Độ",
+   "sources": [
+    "in_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "K. R. Narayanan",
+   "name_en": "K. R. Narayanan",
+   "born": "1920-02-04",
+   "died": "2005-11-09",
+   "from": "1997-07-25",
+   "to": "2002-07-25",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of India",
+   "title_vi": "Tổng thống Ấn Độ",
+   "sources": [
+    "in_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "A. P. J. Abdul Kalam",
+   "name_en": "A. P. J. Abdul Kalam",
+   "born": "1931-10-15",
+   "died": "2015-07-27",
+   "from": "2002-07-25",
+   "to": "2007-07-25",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of India",
+   "title_vi": "Tổng thống Ấn Độ",
+   "sources": [
+    "in_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Pratibha Patil",
+   "name_en": "Pratibha Patil",
+   "born": "1934-12-19",
+   "died": null,
+   "from": "2007-07-25",
+   "to": "2012-07-25",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of India",
+   "title_vi": "Tổng thống Ấn Độ",
+   "sources": [
+    "in_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Pranab Mukherjee",
+   "name_en": "Pranab Mukherjee",
+   "born": "1935-12-11",
+   "died": "2020-08-31",
+   "from": "2012-07-25",
+   "to": "2017-07-25",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of India",
+   "title_vi": "Tổng thống Ấn Độ",
+   "sources": [
+    "in_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Ram Nath Kovind",
+   "name_en": "Ram Nath Kovind",
+   "born": "1945-10-01",
+   "died": null,
+   "from": "2017-07-25",
+   "to": "2022-07-25",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of India",
+   "title_vi": "Tổng thống Ấn Độ",
+   "sources": [
+    "in_pres"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Droupadi Murmu",
+   "name_en": "Droupadi Murmu",
+   "born": "1958-06-20",
+   "died": null,
+   "from": "2022-07-25",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "head_of_state",
+   "title_en": "President of India",
+   "title_vi": "Tổng thống Ấn Độ",
+   "sources": [
+    "in_pres"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Jawaharlal Nehru",
+   "name_en": "Jawaharlal Nehru",
+   "born": "1889-11-14",
+   "died": "1964-05-27",
+   "from": "1947-08-15",
+   "to": "1964-05-27",
+   "end": "death",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of India",
+   "title_vi": "Thủ tướng Ấn Độ",
+   "sources": [
+    "in_pm_extra"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Lal Bahadur Shastri",
+   "name_en": "Lal Bahadur Shastri",
+   "born": "1904-10-02",
+   "died": "1966-01-11",
+   "from": "1964-06-09",
+   "to": "1966-01-11",
+   "end": "death",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of India",
+   "title_vi": "Thủ tướng Ấn Độ",
+   "sources": [
+    "in_pm_extra"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Indira Gandhi",
+   "name_en": "Indira Gandhi",
+   "born": "1917-11-19",
+   "died": "1984-10-31",
+   "from": "1966-01-24",
+   "to": "1977-03-24",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of India",
+   "title_vi": "Thủ tướng Ấn Độ",
+   "sources": [
+    "in_pm_extra"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Morarji Desai",
+   "name_en": "Morarji Desai",
+   "born": "1896-02-29",
+   "died": "1995-04-10",
+   "from": "1977-03-24",
+   "to": "1979-07-28",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of India",
+   "title_vi": "Thủ tướng Ấn Độ",
+   "sources": [
+    "in_pm_extra"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Charan Singh",
+   "name_en": "Charan Singh",
+   "born": "1902-12-23",
+   "died": "1987-05-29",
+   "from": "1979-07-28",
+   "to": "1980-01-14",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of India",
+   "title_vi": "Thủ tướng Ấn Độ",
+   "sources": [
+    "in_pm_extra"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Indira Gandhi",
+   "name_en": "Indira Gandhi",
+   "born": "1917-11-19",
+   "died": "1984-10-31",
+   "from": "1980-01-14",
+   "to": "1984-10-31",
+   "end": "assassination",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of India",
+   "title_vi": "Thủ tướng Ấn Độ",
+   "sources": [
+    "in_pm_extra"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Rajiv Gandhi",
+   "name_en": "Rajiv Gandhi",
+   "born": "1944-08-20",
+   "died": "1991-05-21",
+   "from": "1984-10-31",
+   "to": "1989-12-02",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of India",
+   "title_vi": "Thủ tướng Ấn Độ",
+   "sources": [
+    "in_pm_extra"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "V. P. Singh",
+   "name_en": "V. P. Singh",
+   "born": "1931-06-25",
+   "died": "2008-11-27",
+   "from": "1989-12-02",
+   "to": "1990-11-10",
+   "end": "vote_of_no_confidence",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of India",
+   "title_vi": "Thủ tướng Ấn Độ",
+   "sources": [
+    "in_pm_extra"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "P. V. Narasimha Rao",
+   "name_en": "P. V. Narasimha Rao",
+   "born": "1921-06-28",
+   "died": "2004-12-23",
+   "from": "1991-06-21",
+   "to": "1996-05-16",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of India",
+   "title_vi": "Thủ tướng Ấn Độ",
+   "sources": [
+    "in_pm_extra"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Atal Bihari Vajpayee",
+   "name_en": "Atal Bihari Vajpayee",
+   "born": "1924-12-25",
+   "died": "2018-08-16",
+   "from": "1996-05-16",
+   "to": "1996-06-01",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of India",
+   "title_vi": "Thủ tướng Ấn Độ",
+   "sources": [
+    "in_pm_extra"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "H. D. Deve Gowda",
+   "name_en": "H. D. Deve Gowda",
+   "born": "1933-05-18",
+   "died": null,
+   "from": "1996-06-01",
+   "to": "1997-04-21",
+   "end": "vote_of_no_confidence",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of India",
+   "title_vi": "Thủ tướng Ấn Độ",
+   "sources": [
+    "in_pm_extra"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "I. K. Gujral",
+   "name_en": "I. K. Gujral",
+   "born": "1919-12-04",
+   "died": "2012-11-30",
+   "from": "1997-04-21",
+   "to": "1998-03-19",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of India",
+   "title_vi": "Thủ tướng Ấn Độ",
+   "sources": [
+    "in_pm_extra"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Atal Bihari Vajpayee",
+   "name_en": "Atal Bihari Vajpayee",
+   "born": "1924-12-25",
+   "died": "2018-08-16",
+   "from": "1998-03-19",
+   "to": "2004-05-22",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of India",
+   "title_vi": "Thủ tướng Ấn Độ",
+   "sources": [
+    "in_pm_extra"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Manmohan Singh",
+   "name_en": "Manmohan Singh",
+   "born": "1932-09-26",
+   "died": "2024-12-26",
+   "from": "2004-05-22",
+   "to": "2014-05-26",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of India",
+   "title_vi": "Thủ tướng Ấn Độ",
+   "sources": [
+    "in_pm_extra"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "EIC_DEL",
+   "entity": "IND",
+   "name": "Narendra Modi",
+   "name_en": "Narendra Modi",
+   "born": "1950-09-17",
+   "died": null,
+   "from": "2014-05-26",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "effective_leader",
+   "title_en": "Prime Minister of India",
+   "title_vi": "Thủ tướng Ấn Độ",
+   "sources": [
+    "in_pm"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "RUS_WAR",
+   "entity": "POL",
+   "name": "Józef Piłsudski",
+   "name_en": "Józef Piłsudski",
+   "born": "1867-12-05",
+   "died": "1935-05-12",
+   "from": "1926-05-14",
+   "to": "1935-05-12",
+   "end": "death",
+   "role": "effective_leader",
+   "title_en": "Chief of State / Marshal; de facto leader",
+   "title_vi": "Nguyên thủ quốc gia / Thống chế; lãnh đạo thực quyền",
+   "sources": [
+    "pl_mfa"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_WAR",
+   "entity": "POL",
+   "name": "Ignacy Mościcki",
+   "name_en": "Ignacy Mościcki",
+   "born": "1867-12-01",
+   "died": "1946-10-02",
+   "from": "1926-12-04",
+   "to": "1939-09-30",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Poland",
+   "title_vi": "Tổng thống Cộng hòa Ba Lan",
+   "sources": [
+    "pl_mfa"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_WAR",
+   "entity": "POL",
+   "name": "Bolesław Bierut",
+   "name_en": "Bolesław Bierut",
+   "born": "1892-04-18",
+   "died": "1956-03-12",
+   "from": "1947-02-05",
+   "to": "1952-11-20",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Poland",
+   "title_vi": "Chủ tịch nước Cộng hòa Ba Lan",
+   "sources": [
+    "pl_mfa"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_WAR",
+   "entity": "POL",
+   "name": "Aleksander Zawadzki",
+   "name_en": "Aleksander Zawadzki",
+   "born": "1899-12-16",
+   "died": "1964-08-07",
+   "from": "1952-11-20",
+   "to": "1964-08-07",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "Chairman of the Council of State",
+   "title_vi": "Chủ tịch Hội đồng Nhà nước",
+   "sources": [
+    "pl_mfa"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_WAR",
+   "entity": "POL",
+   "name": "Wojciech Jaruzelski",
+   "name_en": "Wojciech Jaruzelski",
+   "born": "1923-07-06",
+   "died": "2014-05-25",
+   "from": "1981-10-18",
+   "to": "1989-07-19",
+   "end": "term",
+   "role": "effective_leader",
+   "title_en": "First Secretary of the Polish United Workers' Party; Chairman of the Council of State",
+   "title_vi": "Bí thư thứ nhất Đảng Công nhân Thống nhất Ba Lan; Chủ tịch Hội đồng Nhà nước",
+   "sources": [
+    "pl_mfa"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_WAR",
+   "entity": "POL",
+   "name": "Lech Wałęsa",
+   "name_en": "Lech Wałęsa",
+   "born": "1943-09-29",
+   "died": null,
+   "from": "1990-12-22",
+   "to": "1995-12-22",
+   "end": "election_loss",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Poland",
+   "title_vi": "Tổng thống Cộng hòa Ba Lan",
+   "sources": [
+    "pl_mfa"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_WAR",
+   "entity": "POL",
+   "name": "Aleksander Kwaśniewski",
+   "name_en": "Aleksander Kwaśniewski",
+   "born": "1954-11-15",
+   "died": null,
+   "from": "1995-12-23",
+   "to": "2005-12-23",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Poland",
+   "title_vi": "Tổng thống Cộng hòa Ba Lan",
+   "sources": [
+    "pl_mfa"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_WAR",
+   "entity": "POL",
+   "name": "Lech Kaczyński",
+   "name_en": "Lech Kaczyński",
+   "born": "1949-06-18",
+   "died": "2010-04-10",
+   "from": "2005-12-23",
+   "to": "2010-04-10",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Poland",
+   "title_vi": "Tổng thống Cộng hòa Ba Lan",
+   "sources": [
+    "pl_mfa"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_WAR",
+   "entity": "POL",
+   "name": "Bronisław Komorowski",
+   "name_en": "Bronisław Komorowski",
+   "born": "1952-06-04",
+   "died": null,
+   "from": "2010-08-06",
+   "to": "2015-08-06",
+   "end": "election_loss",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Poland",
+   "title_vi": "Tổng thống Cộng hòa Ba Lan",
+   "sources": [
+    "pl_mfa"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_WAR",
+   "entity": "POL",
+   "name": "Andrzej Duda",
+   "name_en": "Andrzej Duda",
+   "born": "1972-05-16",
+   "died": null,
+   "from": "2015-08-06",
+   "to": "2025-08-06",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Poland",
+   "title_vi": "Tổng thống Cộng hòa Ba Lan",
+   "sources": [
+    "pl_mfa"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_WAR",
+   "entity": "POL",
+   "name": "Karol Nawrocki",
+   "name_en": "Karol Nawrocki",
+   "born": "1983-03-03",
+   "died": null,
+   "from": "2025-08-06",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "head_of_state",
+   "title_en": "President of the Republic of Poland",
+   "title_vi": "Tổng thống Cộng hòa Ba Lan",
+   "sources": [
+    "pl_mfa"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_FIN",
+   "entity": "FIN",
+   "name": "Kaarlo Juho Ståhlberg",
+   "name_en": "Kaarlo Juho Ståhlberg",
+   "born": "1865-01-28",
+   "died": "1952-09-22",
+   "from": "1919-07-25",
+   "to": "1925-03-01",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of Finland",
+   "title_vi": "Tổng thống Phần Lan",
+   "sources": [
+    "fi_gov"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_FIN",
+   "entity": "FIN",
+   "name": "Lauri Kristian Relander",
+   "name_en": "Lauri Kristian Relander",
+   "born": "1883-05-31",
+   "died": "1942-02-09",
+   "from": "1925-03-01",
+   "to": "1931-03-01",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of Finland",
+   "title_vi": "Tổng thống Phần Lan",
+   "sources": [
+    "fi_gov"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_FIN",
+   "entity": "FIN",
+   "name": "Pehr Evind Svinhufvud",
+   "name_en": "Pehr Evind Svinhufvud",
+   "born": "1861-12-15",
+   "died": "1944-02-29",
+   "from": "1931-03-01",
+   "to": "1937-03-01",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of Finland",
+   "title_vi": "Tổng thống Phần Lan",
+   "sources": [
+    "fi_gov"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_FIN",
+   "entity": "FIN",
+   "name": "Kyösti Kallio",
+   "name_en": "Kyösti Kallio",
+   "born": "1873-04-10",
+   "died": "1940-12-19",
+   "from": "1937-03-01",
+   "to": "1940-12-19",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "President of Finland",
+   "title_vi": "Tổng thống Phần Lan",
+   "sources": [
+    "fi_gov"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_FIN",
+   "entity": "FIN",
+   "name": "Risto Ryti",
+   "name_en": "Risto Ryti",
+   "born": "1889-02-03",
+   "died": "1956-10-25",
+   "from": "1940-12-19",
+   "to": "1944-08-04",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "President of Finland",
+   "title_vi": "Tổng thống Phần Lan",
+   "sources": [
+    "fi_gov"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_FIN",
+   "entity": "FIN",
+   "name": "Carl Gustaf Emil Mannerheim",
+   "name_en": "Carl Gustaf Emil Mannerheim",
+   "born": "1867-06-04",
+   "died": "1951-01-27",
+   "from": "1944-08-04",
+   "to": "1946-03-11",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "President of Finland",
+   "title_vi": "Tổng thống Phần Lan",
+   "sources": [
+    "fi_gov"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_FIN",
+   "entity": "FIN",
+   "name": "Juho Kusti Paasikivi",
+   "name_en": "Juho Kusti Paasikivi",
+   "born": "1870-11-27",
+   "died": "1956-12-14",
+   "from": "1946-03-11",
+   "to": "1956-03-01",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of Finland",
+   "title_vi": "Tổng thống Phần Lan",
+   "sources": [
+    "fi_gov"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_FIN",
+   "entity": "FIN",
+   "name": "Urho Kekkonen",
+   "name_en": "Urho Kekkonen",
+   "born": "1900-09-03",
+   "died": "1986-08-31",
+   "from": "1956-03-01",
+   "to": "1982-01-27",
+   "end": "resignation",
+   "role": "head_of_state",
+   "title_en": "President of Finland",
+   "title_vi": "Tổng thống Phần Lan",
+   "sources": [
+    "fi_gov"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_FIN",
+   "entity": "FIN",
+   "name": "Mauno Koivisto",
+   "name_en": "Mauno Koivisto",
+   "born": "1923-11-25",
+   "died": "2017-05-12",
+   "from": "1982-01-27",
+   "to": "1994-03-01",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of Finland",
+   "title_vi": "Tổng thống Phần Lan",
+   "sources": [
+    "fi_gov"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_FIN",
+   "entity": "FIN",
+   "name": "Martti Ahtisaari",
+   "name_en": "Martti Ahtisaari",
+   "born": "1937-06-23",
+   "died": "2023-10-16",
+   "from": "1994-03-01",
+   "to": "2000-03-01",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of Finland",
+   "title_vi": "Tổng thống Phần Lan",
+   "sources": [
+    "fi_gov"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_FIN",
+   "entity": "FIN",
+   "name": "Tarja Halonen",
+   "name_en": "Tarja Halonen",
+   "born": "1943-12-24",
+   "died": null,
+   "from": "2000-03-01",
+   "to": "2012-03-01",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of Finland",
+   "title_vi": "Tổng thống Phần Lan",
+   "sources": [
+    "fi_gov"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_FIN",
+   "entity": "FIN",
+   "name": "Sauli Niinistö",
+   "name_en": "Sauli Niinistö",
+   "born": "1948-08-24",
+   "died": null,
+   "from": "2012-03-01",
+   "to": "2024-03-01",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "President of Finland",
+   "title_vi": "Tổng thống Phần Lan",
+   "sources": [
+    "fi_gov"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "RUS_FIN",
+   "entity": "FIN",
+   "name": "Alexander Stubb",
+   "name_en": "Alexander Stubb",
+   "born": "1968-04-01",
+   "died": null,
+   "from": "2024-03-01",
+   "to": "2026-11-23",
+   "end": "other",
+   "role": "head_of_state",
+   "title_en": "President of Finland",
+   "title_vi": "Tổng thống Phần Lan",
+   "sources": [
+    "fi_gov"
+   ],
+   "quality": "supported"
+  }
+ ]
+}

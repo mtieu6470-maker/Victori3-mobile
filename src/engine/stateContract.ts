@@ -72,6 +72,7 @@ export function validateCountryRecord(id: string, v: unknown, path: string): voi
   str(leader.name, `${path}.leader.name`); numOrNull(leader.born, `${path}.leader.born`); num(leader.since, `${path}.leader.since`); bool(leader.historical, `${path}.leader.historical`);
   if (leader.female !== undefined) bool(leader.female, `${path}.leader.female`);
   if (leader.title !== undefined) str(leader.title, `${path}.leader.title`);
+  for (const k of ['titleVi', 'recordUntil'] as const) if (leader[k] !== undefined) str(leader[k], `${path}.leader.${k}`);
   for (const k of ['diesOn', 'termEnds'] as const) if (leader[k] !== undefined) strOrNull(leader[k], `${path}.leader.${k}`);
   if (c.heir !== null) {
     const heir = obj(c.heir, `${path}.heir`);

@@ -236,7 +236,7 @@ function TopBar({ portrait }: { portrait: boolean }) {
     { icon: 'army', mc: '#e38c7c', v: compact(c.army.manpower), go: () => ui.go('military', 'forces'), open: 'Quân sự', tip: { title: 'Lực lượng', lines: [['Lục quân', `${compact(c.army.manpower)} / mục tiêu ${compact(c.army.target)}`], ['Hải quân', `${fmt(c.navy.strength)} tàu`], ['Chiến tranh', fmt(st.wars.filter((w) => w.attackers.members.includes(id) || w.defenders.members.includes(id)).length)]] } },
   ];
   const identity = (
-    <Tip c={{ title: fullName(st, id), lines: [['Chính thể', govVi(c.govLabel)], ['Nguyên thủ', `${titleVi(leaderTitle(c))} ${leaderName(c.leader.name)}`], ['Chế độ', st.mode === 'historical' ? 'Lịch sử' : 'Sandbox']], note: st.player ? undefined : 'Chế độ quan sát: chọn nước theo dõi ở Thế giới.' }}>
+    <Tip c={{ title: fullName(st, id), lines: [['Chính thể', govVi(c.govLabel)], ['Nguyên thủ', `${c.leader.titleVi ?? titleVi(leaderTitle(c))} ${leaderName(c.leader.name)}`], ['Chế độ', st.mode === 'historical' ? 'Lịch sử' : 'Sandbox']], note: st.player ? undefined : 'Chế độ quan sát: chọn nước theo dõi ở Thế giới.' }}>
       <button class="ident" onClick={() => ui.set({ country: id, screen: 'country', tabs: { ...ui.get().tabs, country: 'overview' }, winCollapsed: false, fullMap: false })} aria-label={fullName(st, id)}>
         <Flag c={c} />
         <span style="min-width:0;display:flex;flex-direction:column"><span class="nm ellipsis">{shortName(st, id)}</span><span class="sub">{st.player ? (st.mode === 'historical' ? 'Lịch sử' : 'Sandbox') : 'Quan sát'}</span></span>

@@ -70,6 +70,8 @@ export interface Leader {
   name: string; born: number | null; since: number; historical: boolean; diesOn?: string | null; female?: boolean; termEnds?: string | null;
   /** REGIME-02: recorded title of a historical office-holder; otherwise derived by `leaderTitle`. */
   title?: string;
+  /** LEAD-01: recorded Vietnamese title (CG-43) and the end of the record's term (ISO date). */
+  titleVi?: string; recordUntil?: string;
 }
 
 export interface Army { manpower: number; target: number; quality: number; morale: number; supply: number }

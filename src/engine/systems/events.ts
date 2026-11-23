@@ -1,5 +1,6 @@
 // Event system: exogenous shocks, leader mortality and succession, structural rules, decision windows,
 // customs-union accession windows. Mode differences are confined to what MODES allows.
+import { leaderHeldByRecord } from './leaders20';
 import { data } from '../data/db';
 import type { Country, GameState } from '../types';
 import { MODES } from '../modes';
@@ -27,7 +28,7 @@ export function eventsMonth(st: GameState, decide: (c: Country, windowId: string
   for (const c of Object.values(st.countries)) if (c.alive && !c.decentralized) succession(st, c);
   // ---- republic elections at the end of a term (both modes; Historical Mode names the recorded office-holder while the regime matches)
   for (const c of Object.values(st.countries)) {
-    if (!c.alive || c.decentralized || c.laws.governance !== 'republic') continue;
+    if (!c.alive || c.decentralized || c.laws.governance !== 'republic' || leaderHeldByRecord(st, c)) continue;
     const ends = c.leader.termEnds ?? `${c.leader.since + 4}-03-01`;
     if (iso.slice(0, 7) < ends.slice(0, 7)) continue;
     const rec = mode.historicalSuccession && !c.regimeChangedAt ? d.leadersOf(c.id).find((l) => l.governance === 'republic' && l.from.slice(0, 7) <= iso.slice(0, 7) && l.to.slice(0, 7) > iso.slice(0, 7)) : undefined;
@@ -451,6 +452,7 @@ function applyExogenous(st: GameState, id: string, type: string, regions: string
 }
 
 function succession(st: GameState, c: Country) {
+  if (leaderHeldByRecord(st, c)) return; // LEAD-01: the CG-43 record decides
   const d = data(); const mode = MODES[st.mode]; const iso = dateStr(st.date);
   const L = c.leader;
   let dies = false;

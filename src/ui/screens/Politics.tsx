@@ -38,7 +38,7 @@ export function PoliticsScreen({ st, tab }: { st: GameState; tab: string }) {
       </div>
       <div class="cols c2">
         <Sec title="Nguyên thủ" icon="crown">
-          <div class="kv"><span class="k">Chức danh</span><span class="v">{titleVi(leaderTitle(c))}</span></div>
+          <div class="kv"><span class="k">Chức danh</span><span class="v">{c.leader.titleVi ?? titleVi(leaderTitle(c))}</span></div>
           <div class="kv"><span class="k">Họ tên</span><span class="v">{leaderName(c.leader.name)}</span></div>
           <div class="kv"><span class="k">Nguồn gốc</span><span class="v">{c.leader.historical ? 'Nhân vật lịch sử' : 'Nhân vật mô phỏng'}</span></div>
           <div class="kv"><span class="k">Tại vị từ</span><span class="v num">{c.leader.since}</span></div>
