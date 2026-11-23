@@ -30,12 +30,12 @@
     {
       "type": "illustration_event",
       "subject": "eic_sepoy_council_1857",
-      "commons_file": "Indian_Mutiny,_1857,_Lucknow.jpg",
-      "year": 1857,
-      "width": 955,
-      "author": "Unknown",
-      "name": "Cuộc nổi dậy tại Lucknow",
-      "description": "Contemporary lithograph depicting the siege of Lucknow during the Indian Rebellion of 1857",
+      "commons_file": "BritishIndianEmpireandEnvirons2.jpg",
+      "year": 1909,
+      "width": 1200,
+      "author": "Imperial Gazetteer of India / John G. Bartholomew",
+      "name": "Bản đồ Đế quốc Ấn Độ",
+      "description": "Bản đồ Đế quốc Ấn Độ và các vùng lân cận năm 1909; tư liệu địa lý bối cảnh cho cuộc khủng hoảng của Công ty Đông Ấn năm 1857, không phải bản đồ tác chiến năm 1857.",
       "period": {
         "from": 1857,
         "to": 1858
@@ -50,8 +50,11 @@
         0.5,
         0.5
       ],
-      "review_note": "Direct subject match for the Company's military crisis.",
-      "alternates": "Attack of the Mutineers on the Redan Battery at Lucknow, July 30th, 1857,.jpg"
+      "review_note": "Historical regional context map, not a contemporaneous battle map; Commons page dates it to 1909 and records public-domain status.",
+      "alternates": [
+        "Indian_Mutiny,_1857,_Lucknow.jpg",
+        "Attack of the Mutineers on the Redan Battery at Lucknow, July 30th, 1857,.jpg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -333,12 +336,12 @@
     {
       "type": "illustration_event",
       "subject": "gbr_goi_act_1935",
-      "commons_file": "The_Government_of_India_Act,_1935.pdf",
-      "year": 1935,
-      "width": 1237,
-      "author": "Government of British India",
-      "name": "Đạo luật Chính quyền Ấn Độ 1935",
-      "description": "Official legislative text of the Government of India Act, 1935",
+      "commons_file": "BritishIndianEmpireandEnvirons2.jpg",
+      "year": 1909,
+      "width": 1200,
+      "author": "Imperial Gazetteer of India / John G. Bartholomew",
+      "name": "Bản đồ Đế quốc Ấn Độ",
+      "description": "Bản đồ hành chính–địa lý Đế quốc Ấn Độ năm 1909, dùng làm hình bối cảnh cho cải cách hiến pháp và Đạo luật Chính phủ Ấn Độ 1935.",
       "period": {
         "from": 1935,
         "to": 1935
@@ -353,7 +356,10 @@
         0.5,
         0.5
       ],
-      "review_note": "Archival legal document rather than a photograph; retain only if the image ingestion pipeline supports rendering source pages."
+      "review_note": "Contextual map only; replaced a missing PDF candidate because the ingester's exact U.S.-rights gate was not established for that PDF.",
+      "alternates": [
+        "The_Government_of_India_Act,_1935.pdf"
+      ]
     },
     {
       "type": "illustration_event",
@@ -383,12 +389,12 @@
     {
       "type": "illustration_event",
       "subject": "gbr_cabinet_mission_1946",
-      "commons_file": "Cabinet_mission_to_india1946.jpg",
-      "year": 1946,
-      "width": 500,
+      "commons_file": "Nehru1920.jpg",
+      "year": 1920,
+      "width": 300,
       "author": "Unknown author",
-      "name": "Phái bộ Nội các 1946",
-      "description": "British government photograph of the Cabinet Mission meeting Muhammad Ali Jinnah in 1946",
+      "name": "Jawaharlal Nehru thập niên 1920",
+      "description": "Chân dung Jawaharlal Nehru từ thập niên 1920; hình ảnh nhân vật chính trong các cuộc thương lượng hiến pháp Ấn Độ sau chiến tranh.",
       "period": {
         "from": 1946,
         "to": 1947
@@ -403,17 +409,20 @@
         0.5,
         0.5
       ],
-      "review_note": "Direct subject match for the Cabinet Mission negotiations."
+      "review_note": "Portrait of a principal participant, not a photograph of the 1946 Cabinet Mission; Commons lists the photograph as a 1920s work.",
+      "alternates": [
+        "Cabinet_mission_to_india1946.jpg"
+      ]
     },
     {
       "type": "illustration_event",
       "subject": "gbr_indian_independence_1947",
-      "commons_file": "Lord_Mountbatten_swears_in_Jawaharlal_Nehru_as_the_first_Prime_Minister_of_free_India_on_Aug_15,_1947.jpg",
-      "year": 1947,
-      "width": 667,
-      "author": "Ministry of Defence (India)",
-      "name": "Lễ tuyên thệ độc lập Ấn Độ",
-      "description": "Lord Mountbatten swears in Jawaharlal Nehru as the first Prime Minister of free India on 15 August 1947",
+      "commons_file": "BritishIndianEmpireandEnvirons2.jpg",
+      "year": 1909,
+      "width": 1200,
+      "author": "Imperial Gazetteer of India / John G. Bartholomew",
+      "name": "Bản đồ Đế quốc Ấn Độ",
+      "description": "Bản đồ Đế quốc Ấn Độ và các vùng lân cận năm 1909, cung cấp bối cảnh lãnh thổ cho việc chuyển giao quyền lực và phân chia năm 1947.",
       "period": {
         "from": 1947,
         "to": 1948
@@ -428,7 +437,10 @@
         0.5,
         0.5
       ],
-      "review_note": "Exact date and subject; the ingestion tool must verify rights and the correct source metadata."
+      "review_note": "Historical regional context map; it does not depict the 1947 transfer ceremony.",
+      "alternates": [
+        "Lord_Mountbatten_swears_in_Jawaharlal_Nehru_as_the_first_Prime_Minister_of_free_India_on_Aug_15,_1947.jpg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -509,12 +521,12 @@
     {
       "type": "illustration_event",
       "subject": "bur_panglong_1947",
-      "commons_file": "Panglong_Conference.jpg",
-      "year": 1947,
-      "width": 479,
-      "author": "Unknown author",
-      "name": "Hội nghị Panglong",
-      "description": "Aung San and frontier leaders at Panglong, 12 February 1947",
+      "commons_file": "Map of Burma, Siam, Cochin-China and Malaya.png",
+      "year": 1864,
+      "width": 3840,
+      "author": "James Wyld",
+      "name": "Bản đồ Miến Điện và Đông Nam Á lục địa",
+      "description": "Bản đồ khu vực Miến Điện, Xiêm, Đông Dương và Malaya xuất bản năm 1864; dùng làm bối cảnh địa lý cho các cuộc thương lượng liên bang Panglong.",
       "period": {
         "from": 1947,
         "to": 1947
@@ -529,17 +541,20 @@
         0.5,
         0.5
       ],
-      "review_note": "Commons page describes the historical conference and reports public-domain status in Myanmar."
+      "review_note": "Nineteenth-century regional map, not a depiction of the 1947 conference; Commons lists a public-domain/old-work basis.",
+      "alternates": [
+        "Panglong_Conference.jpg"
+      ]
     },
     {
       "type": "illustration_event",
       "subject": "bur_independence_1948",
-      "commons_file": "Panglong_Conference.jpg",
-      "year": 1947,
-      "width": 479,
-      "author": "Unknown author",
-      "name": "Hội nghị Panglong",
-      "description": "Panglong Conference, a visual for the negotiated transition to independence",
+      "commons_file": "Map of Burma, Siam, Cochin-China and Malaya.png",
+      "year": 1864,
+      "width": 3840,
+      "author": "James Wyld",
+      "name": "Bản đồ Miến Điện và Đông Nam Á lục địa",
+      "description": "Bản đồ khu vực Miến Điện, Xiêm, Đông Dương và Malaya xuất bản năm 1864; dùng làm bối cảnh địa lý cho sự hình thành nhà nước Miến Điện độc lập.",
       "period": {
         "from": 1947,
         "to": 1948
@@ -554,7 +569,10 @@
         0.5,
         0.5
       ],
-      "review_note": "Candidate is related to the constitutional settlement preceding independence."
+      "review_note": "Nineteenth-century regional map, not a depiction of the 1948 independence ceremony.",
+      "alternates": [
+        "Panglong_Conference.jpg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -609,12 +627,12 @@
     {
       "type": "illustration_event",
       "subject": "gbr_ceylon_independence_1948",
-      "commons_file": "SL_Independence.jpg",
-      "year": 1947,
-      "width": 550,
-      "author": "Government of Ceylon and UK",
-      "name": "Lễ mở Quốc hội Ceylon",
-      "description": "Formal ceremony marking self-rule and opening of the first parliament at Independence Square, 2 October 1947",
+      "commons_file": "Map of Ceylon (1888).jpg",
+      "year": 1888,
+      "width": 1219,
+      "author": "British Library Mechanical Curator; map from A Historical Geography of the British Colonies",
+      "name": "Bản đồ Ceylon năm 1888",
+      "description": "Bản đồ Ceylon năm 1888, thể hiện các khu vực và địa danh của đảo trong giai đoạn thuộc địa trước khi chuyển sang Dominion năm 1948.",
       "period": {
         "from": 1945,
         "to": 1949
@@ -629,17 +647,20 @@
         0.5,
         0.5
       ],
-      "review_note": "Direct visual for the constitutional transition; Commons page reports PD-BRITISHGOV."
+      "review_note": "Period-appropriate geographic context map; Commons page identifies the 1888 source and public-domain status.",
+      "alternates": [
+        "SL_Independence.jpg"
+      ]
     },
     {
       "type": "illustration_event",
       "subject": "gbr_malaya_invasion_1941",
-      "commons_file": "Malayan_Invasion_Map_2.0.png",
-      "year": 1941,
-      "width": 1024,
-      "author": "Unknown",
-      "name": "Chiến dịch Malaya 1941–1942",
-      "description": "Map of the Japanese conquest of British Malaya, 8 December 1941 to 15 February 1942",
+      "commons_file": "Map of Burma, Siam, Cochin-China and Malaya.png",
+      "year": 1864,
+      "width": 3840,
+      "author": "James Wyld",
+      "name": "Bản đồ bán đảo Đông Nam Á",
+      "description": "Bản đồ năm 1864 bao quát Miến Điện, Xiêm, Đông Dương và Malaya; cung cấp bối cảnh địa lý cho chiến dịch Malaya 1941–1942, không thể hiện đường tiến quân năm 1941.",
       "period": {
         "from": 1939,
         "to": 1943
@@ -654,17 +675,20 @@
         0.5,
         0.5
       ],
-      "review_note": "Direct geographic context; portrait map, crop conservatively."
+      "review_note": "Regional historical map; not an operational map of the 1941 invasion.",
+      "alternates": [
+        "Malayan_Invasion_Map_2.0.png"
+      ]
     },
     {
       "type": "illustration_event",
       "subject": "gbr_singapore_fall_1942",
-      "commons_file": "Japanese_Soldiers_rejoicing_at_the_fall_of_Singapore,_1942.jpg",
+      "commons_file": "Singapore 1942.jpg",
       "year": 1942,
-      "width": 7883,
-      "author": "Unknown",
-      "name": "Singapore thất thủ",
-      "description": "Japanese soldiers celebrating the fall of Singapore in 1942",
+      "width": 799,
+      "author": "Unknown author",
+      "name": "Quân Nhật tiến vào Singapore năm 1942",
+      "description": "Ảnh tư liệu mô tả quân đội Nhật tiến vào Singapore năm 1942, gắn trực tiếp với sự sụp đổ của pháo đài Singapore.",
       "period": {
         "from": 1940,
         "to": 1944
@@ -679,17 +703,20 @@
         0.5,
         0.5
       ],
-      "review_note": "Exact event context; ingestion must verify source-country rights."
+      "review_note": "Direct event match; Commons page records PD-Japan-oldphoto and PD-1996 with a U.S. public-domain rationale.",
+      "alternates": [
+        "Japanese_Soldiers_rejoicing_at_the_fall_of_Singapore,_1942.jpg"
+      ]
     },
     {
       "type": "illustration_event",
       "subject": "gbr_malayan_union_1946",
-      "commons_file": "Malayan_Union_protest.png",
-      "year": 1946,
-      "width": 699,
-      "author": "British Government",
-      "name": "Biểu tình phản đối Malayan Union",
-      "description": "British-era photograph of protests against the Malayan Union and its constitutional framework",
+      "commons_file": "Map of Burma, Siam, Cochin-China and Malaya.png",
+      "year": 1864,
+      "width": 3840,
+      "author": "James Wyld",
+      "name": "Bản đồ Malaya và Đông Nam Á",
+      "description": "Bản đồ khu vực Malaya năm 1864; dùng làm bối cảnh địa lý cho việc đề xuất Liên bang Malaya năm 1946, không phải ảnh cuộc biểu tình phản đối.",
       "period": {
         "from": 1946,
         "to": 1946
@@ -704,18 +731,21 @@
         0.5,
         0.5
       ],
-      "review_note": "Direct visual match for the 1946 opposition campaign; Commons page labels the work PD-UKGov.",
-      "alternates": "Malaya_1948_-_btv1b53196894w.jpg"
+      "review_note": "Regional map only; no claim that it depicts the 1946 protest.",
+      "alternates": [
+        "Malayan_Union_protest.png",
+        "Malaya_1948_-_btv1b53196894w.jpg"
+      ]
     },
     {
       "type": "illustration_event",
       "subject": "gbr_malaya_independence_1957",
-      "commons_file": "Malayan_Declaration_of_Independence_1957_in_Tamil.jpg",
-      "year": 2025,
-      "width": 3000,
-      "author": "Wolfiewhite",
-      "name": "Tuyên ngôn độc lập Malaya",
-      "description": "Photograph of the 1957 Malayan Declaration of Independence document in Tamil",
+      "commons_file": "Map of Burma, Siam, Cochin-China and Malaya.png",
+      "year": 1864,
+      "width": 3840,
+      "author": "James Wyld",
+      "name": "Bản đồ Malaya và Đông Nam Á",
+      "description": "Bản đồ Malaya và các vùng lân cận năm 1864, làm bối cảnh địa lý cho quá trình hình thành Liên bang Malaya độc lập năm 1957.",
       "period": {
         "from": 1955,
         "to": 1959
@@ -730,7 +760,10 @@
         0.5,
         0.5
       ],
-      "review_note": "CC0 1.0. Modern photograph of a historical primary document; current ingester's age cutoff blocks CC0 unless corrected."
+      "review_note": "Historical regional map, not a photograph of the declaration of independence.",
+      "alternates": [
+        "Malayan_Declaration_of_Independence_1957_in_Tamil.jpg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -835,12 +868,12 @@
     {
       "type": "illustration_event",
       "subject": "egy_revolution_1952",
-      "commons_file": "Free_Officers,_1952.jpg",
-      "year": 1952,
-      "width": 743,
-      "author": "Unknown author",
-      "name": "Phong trào Sĩ quan Tự do",
-      "description": "The Free Officers Movement of Egypt, February 1952",
+      "commons_file": "Egypt map.png",
+      "year": 1880,
+      "width": 1024,
+      "author": "Museum",
+      "name": "Bản đồ Ai Cập năm 1880",
+      "description": "Bản đồ Ai Cập năm 1880, thể hiện địa bàn và vị trí chiến lược trong giai đoạn trước Cách mạng Ai Cập 1952.",
       "period": {
         "from": 1950,
         "to": 1954
@@ -855,17 +888,20 @@
         0.5,
         0.5
       ],
-      "review_note": "Commons page reports Public Domain Egypt; verify jurisdictional template."
+      "review_note": "Nineteenth-century geographic context map; Commons identifies the work as public domain.",
+      "alternates": [
+        "Free_Officers,_1952.jpg"
+      ]
     },
     {
       "type": "illustration_event",
       "subject": "egy_suez_nationalisation_1956",
-      "commons_file": "Al-Ahram_Newspaper_Publish_Suez_Canal_Nationalization.jpg",
-      "year": 1956,
-      "width": 812,
-      "author": "Al-Ahram",
-      "name": "Báo Al-Ahram về quốc hữu hóa Suez",
-      "description": "Al-Ahram newspaper coverage of the nationalisation of the Suez Canal Company, July 1956",
+      "commons_file": "Egypt map.png",
+      "year": 1880,
+      "width": 1024,
+      "author": "Museum",
+      "name": "Bản đồ Ai Cập và khu vực kênh đào Suez",
+      "description": "Bản đồ Ai Cập năm 1880 dùng làm bối cảnh địa lý cho việc quốc hữu hóa Kênh đào Suez năm 1956; không phải ảnh buổi phát biểu của Nasser.",
       "period": {
         "from": 1954,
         "to": 1958
@@ -880,17 +916,20 @@
         0.5,
         0.5
       ],
-      "review_note": "Direct event subject; ingestion must confirm rights and source metadata."
+      "review_note": "Contextual map, not an image of the nationalisation announcement.",
+      "alternates": [
+        "Al-Ahram_Newspaper_Publish_Suez_Canal_Nationalization.jpg"
+      ]
     },
     {
       "type": "illustration_event",
       "subject": "gbr_suez_crisis_1956",
-      "commons_file": "Battle_of_Port_Said.jpg",
-      "year": 1956,
-      "width": 640,
-      "author": "Imperial War Museums",
-      "name": "Quân Anh tại Port Said",
-      "description": "British troops and tanks in Port Said, Egypt, 5 November 1956",
+      "commons_file": "Egypt map.png",
+      "year": 1880,
+      "width": 1024,
+      "author": "Museum",
+      "name": "Bản đồ Ai Cập năm 1880",
+      "description": "Bản đồ Ai Cập năm 1880 cung cấp bối cảnh địa lý cho Khủng hoảng Suez 1956.",
       "period": {
         "from": 1954,
         "to": 1958
@@ -905,7 +944,10 @@
         0.5,
         0.5
       ],
-      "review_note": "Commons page reports UK Government Public Domain for the pre-June-1957 photograph."
+      "review_note": "Historical context map, not a depiction of the 1956 military operation.",
+      "alternates": [
+        "Battle_of_Port_Said.jpg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -1024,13 +1066,16 @@
         0.5,
         0.5
       ],
-      "commons_file": "10th_May_1952_-_This_Horror_Must_End.jpg",
-      "year": 1952,
-      "width": 960,
-      "author": "Unknown",
-      "name": "Áp phích thời kỳ Khẩn cấp Malaya",
-      "description": "Emergency-era poster from Malaya, 10 May 1952",
-      "review_note": "Related to the Emergency; use only if image content is appropriate and license check passes."
+      "commons_file": "Map of Burma, Siam, Cochin-China and Malaya.png",
+      "year": 1864,
+      "width": 3840,
+      "author": "James Wyld",
+      "name": "Bản đồ Malaya và Đông Nam Á",
+      "description": "Bản đồ khu vực Malaya và Đông Nam Á năm 1864, dùng làm bối cảnh địa lý cho tình trạng khẩn cấp Malaya bắt đầu năm 1948.",
+      "review_note": "Regional map only; does not depict the Emergency or military operations.",
+      "alternates": [
+        "10th_May_1952_-_This_Horror_Must_End.jpg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -1099,13 +1144,16 @@
         0.5,
         0.5
       ],
-      "commons_file": "BRITISH_ARMY_OPERATIONS_AGAINST_THE_MAU_MAU_IN_KENYA_1952_-_1956_MAU221.jpg",
-      "year": 1952,
-      "width": 800,
-      "author": "British official photographer",
-      "name": "Chiến dịch quân sự tại Kenya",
-      "description": "British Army 3-inch mortar team during operations against Mau Mau, 1952–1956",
-      "review_note": "IWM War Office photograph; Commons page marks the work PD-UKGov. Square crop; keep the mortar crew in focus."
+      "commons_file": "Kenya map 1919.jpg",
+      "year": 1919,
+      "width": 1920,
+      "author": "Public Works Department, British East Africa Protectorate",
+      "name": "Bản đồ Đông Phi thuộc Anh năm 1919",
+      "description": "Bản đồ Đông Phi thuộc Anh năm 1919, có giá trị bối cảnh về địa lý và khu vực hành chính trong cuộc khẩn cấp Kenya 1952–1960.",
+      "review_note": "Period regional map; not a photograph of Mau Mau operations.",
+      "alternates": [
+        "BRITISH_ARMY_OPERATIONS_AGAINST_THE_MAU_MAU_IN_KENYA_1952_-_1956_MAU221.jpg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -1124,13 +1172,16 @@
         0.5,
         0.5
       ],
-      "commons_file": "Unilateral_Declaration_of_Independence_(Rhodesia).jpg",
-      "year": 1965,
-      "width": 1587,
-      "author": "Government of Rhodesia",
-      "name": "Văn kiện UDI Rhodesia",
-      "description": "Photograph of the Rhodesian government's unilateral declaration of independence, signed 11 November 1965",
-      "review_note": "Commons page lists PD Zimbabwe and a PD-US government-edict rationale; ingestion remains authoritative."
+      "commons_file": "Orographical Map of Southern Rhodesia - DPLA - e11dc30c3b8b2af2e73e722ee37c4017.jpg",
+      "year": 1897,
+      "width": 1000,
+      "author": "J. G. Bartholomew; University of Illinois Urbana-Champaign University Library",
+      "name": "Bản đồ địa hình Nam Rhodesia năm 1897",
+      "description": "Bản đồ địa hình Nam Rhodesia năm 1897, thể hiện không gian lãnh thổ của cuộc khủng hoảng Tuyên bố Độc lập Đơn phương năm 1965.",
+      "review_note": "Direct geographic context; University of Illinois catalog identifies the 1897 work as public domain.",
+      "alternates": [
+        "Unilateral_Declaration_of_Independence_(Rhodesia).jpg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -1149,13 +1200,16 @@
         0.5,
         0.5
       ],
-      "commons_file": "Unilateral_Declaration_of_Independence_(Rhodesia).jpg",
-      "year": 1965,
-      "width": 1587,
-      "author": "Government of Rhodesia",
-      "name": "Văn kiện UDI Rhodesia",
-      "description": "Photograph of the UDI proclamation document signed on 11 November 1965",
-      "review_note": "Same political episode as the parent UDI event; shared source is intentional."
+      "commons_file": "Orographical Map of Southern Rhodesia - DPLA - e11dc30c3b8b2af2e73e722ee37c4017.jpg",
+      "year": 1897,
+      "width": 1000,
+      "author": "J. G. Bartholomew; University of Illinois Urbana-Champaign University Library",
+      "name": "Bản đồ địa hình Nam Rhodesia năm 1897",
+      "description": "Bản đồ địa hình Nam Rhodesia năm 1897, dùng làm bối cảnh lãnh thổ cho phong trào phản đối và khủng hoảng UDI năm 1965.",
+      "review_note": "Direct geographic context; University of Illinois catalog identifies the 1897 work as public domain.",
+      "alternates": [
+        "Unilateral_Declaration_of_Independence_(Rhodesia).jpg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -1335,12 +1389,12 @@
     {
       "type": "illustration_event",
       "subject": "ind_constitution_1950",
-      "commons_file": "Constitution_india.jpg",
+      "commons_file": "Constitution of india.jpg",
       "year": 2011,
       "width": 2067,
       "author": "Balajijagadesh",
-      "name": "Trang mở đầu Hiến pháp Ấn Độ",
-      "description": "Photograph of the illuminated preamble of the Constitution of India, whose original manuscript was completed in 1948",
+      "name": "Lời mở đầu Hiến pháp Ấn Độ",
+      "description": "Ảnh chụp lời mở đầu Hiến pháp Ấn Độ tại khuôn viên Đại học Mumbai; hình ảnh tài liệu hiến pháp nền tảng của nước Cộng hòa Ấn Độ.",
       "period": {
         "from": 1948,
         "to": 1950
@@ -1355,7 +1409,10 @@
         0.5,
         0.5
       ],
-      "review_note": "Commons page explicitly marks the photograph CC0 1.0; modern photograph of a period primary document, not a period photograph."
+      "review_note": "CC0 1.0 explicitly declared by the photographer; modern photograph of the constitutional document, not a 1950 ceremony photo.",
+      "alternates": [
+        "Constitution_india.jpg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -1574,13 +1631,16 @@
         0.5,
         0.5
       ],
-      "commons_file": "Independence_Proclamation_of_Jamaica.jpg",
-      "year": 1962,
-      "width": 1000,
-      "author": "Royal Constitutional Convention",
-      "name": "Tuyên ngôn độc lập Jamaica",
-      "description": "The Independence Proclamation of Jamaica, 1962",
-      "review_note": "Same founding document and immediate post-independence transition; shared image is intentional."
+      "commons_file": "Map of the Caribbean.jpg",
+      "year": 1894,
+      "width": 1280,
+      "author": "Dodd, Mead, and Company",
+      "name": "Bản đồ Caribe năm 1894",
+      "description": "Bản đồ vùng Caribe năm 1894, dùng làm bối cảnh địa lý cho chương trình độc lập và hợp tác khu vực của Jamaica.",
+      "review_note": "Historical Caribbean map; Commons page identifies the map as 1894 and public domain in the United States.",
+      "alternates": [
+        "Independence_Proclamation_of_Jamaica.jpg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -1599,13 +1659,16 @@
         0.5,
         0.5
       ],
-      "commons_file": "Archbishop_Makarios_III_signature.svg",
-      "year": 2021,
-      "width": 512,
-      "author": "Archbishop Makarios III; vectorisation by uploader",
-      "name": "Chữ ký Tổng thống Makarios",
-      "description": "Vector image of Archbishop Makarios III's signature, associated with the independence settlement",
-      "review_note": "PD text/signature basis; modern vectorisation and not a period photograph. Current age cutoff blocks it."
+      "commons_file": "(1880) MAP OF CYPRUS.jpg",
+      "year": 1880,
+      "width": 3717,
+      "author": "British Library Mechanical Curator; map from Our Home in Cyprus",
+      "name": "Bản đồ Cyprus năm 1880",
+      "description": "Bản đồ Cyprus năm 1880, thể hiện địa lý và các đô thị của đảo trước thỏa thuận độc lập năm 1960.",
+      "review_note": "Period geographic context map; Commons page identifies the 1880 work and U.S. public-domain basis.",
+      "alternates": [
+        "Archbishop_Makarios_III_signature.svg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -1624,13 +1687,16 @@
         0.5,
         0.5
       ],
-      "commons_file": "Archbishop_Makarios_III_signature.svg",
-      "year": 2021,
-      "width": 512,
-      "author": "Archbishop Makarios III; vectorisation by uploader",
-      "name": "Chữ ký Tổng thống Makarios",
-      "description": "Vector image of Archbishop Makarios III's signature, associated with the independence settlement",
-      "review_note": "Same founding constitutional settlement; shared image is intentional."
+      "commons_file": "(1880) MAP OF CYPRUS.jpg",
+      "year": 1880,
+      "width": 3717,
+      "author": "British Library Mechanical Curator; map from Our Home in Cyprus",
+      "name": "Bản đồ Cyprus năm 1880",
+      "description": "Bản đồ Cyprus năm 1880, dùng làm bối cảnh địa lý cho cơ chế chia sẻ quyền lực giữa các cộng đồng Hy Lạp và Thổ Nhĩ Kỳ sau độc lập.",
+      "review_note": "Period geographic context map; not a depiction of the 1960 constitutional negotiations.",
+      "alternates": [
+        "Archbishop_Makarios_III_signature.svg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -1660,12 +1726,12 @@
     {
       "type": "illustration_event",
       "subject": "gbr_donoughmore_1931",
-      "commons_file": "Official_Photographic_Portrait_of_C._W._W._Kannangara_(1884-1969).jpg",
-      "year": 1932,
-      "width": 1667,
-      "author": "Government of Ceylon",
-      "name": "C. W. W. Kannangara",
-      "description": "Official portrait of C. W. W. Kannangara, a Ceylon political figure and education minister in the State Council era",
+      "commons_file": "Map of Ceylon (1888).jpg",
+      "year": 1888,
+      "width": 1219,
+      "author": "British Library Mechanical Curator; map from A Historical Geography of the British Colonies",
+      "name": "Bản đồ Ceylon năm 1888",
+      "description": "Bản đồ Ceylon năm 1888, cung cấp bối cảnh địa lý cho cải cách hiến pháp Donoughmore năm 1931.",
       "period": {
         "from": 1931,
         "to": 1931
@@ -1680,17 +1746,20 @@
         0.5,
         0.5
       ],
-      "review_note": "Commons page marks a government photograph public domain; contextual political figure, not a photograph of the commission."
+      "review_note": "Historical context map; it does not depict the Donoughmore Commission.",
+      "alternates": [
+        "Official_Photographic_Portrait_of_C._W._W._Kannangara_(1884-1969).jpg"
+      ]
     },
     {
       "type": "illustration_event",
       "subject": "gbr_ceylon_constitution_1946",
-      "commons_file": "SL_Independence.jpg",
-      "year": 1947,
-      "width": 550,
-      "author": "Government of Ceylon and UK",
-      "name": "Lễ mở Quốc hội Ceylon",
-      "description": "Formal ceremony marking self-rule and opening of the first parliament at Independence Square, 2 October 1947",
+      "commons_file": "Map of Ceylon (1888).jpg",
+      "year": 1888,
+      "width": 1219,
+      "author": "British Library Mechanical Curator; map from A Historical Geography of the British Colonies",
+      "name": "Bản đồ Ceylon năm 1888",
+      "description": "Bản đồ Ceylon năm 1888, thể hiện địa bàn của quá trình chuyển từ hệ thống Donoughmore sang hiến pháp Soulbury năm 1946.",
       "period": {
         "from": 1946,
         "to": 1948
@@ -1705,7 +1774,10 @@
         0.5,
         0.5
       ],
-      "review_note": "Same Ceylon constitutional-transfer arc; the 1948 independence ceremony is used as a contextual image for the 1946 constitutional settlement."
+      "review_note": "Historical context map, not a photograph of the 1946 constitutional settlement.",
+      "alternates": [
+        "SL_Independence.jpg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -1749,13 +1821,16 @@
         0.5,
         0.5
       ],
-      "commons_file": "BRITISH_ARMY_OPERATIONS_AGAINST_THE_MAU_MAU_IN_KENYA_1952_-_1956_MAU221.jpg",
-      "year": 1952,
-      "width": 800,
-      "author": "British official photographer",
-      "name": "Chiến dịch quân sự tại Kenya",
-      "description": "British Army 3-inch mortar team during operations against Mau Mau, 1952–1956",
-      "review_note": "Contextual image of the Mau Mau conflict that preceded the Lancaster House negotiations; not the conference itself."
+      "commons_file": "Kenya map 1919.jpg",
+      "year": 1919,
+      "width": 1920,
+      "author": "Public Works Department, British East Africa Protectorate",
+      "name": "Bản đồ Đông Phi thuộc Anh năm 1919",
+      "description": "Bản đồ Đông Phi thuộc Anh năm 1919, cung cấp bối cảnh lãnh thổ cho tiến trình đàm phán Lancaster House về Kenya.",
+      "review_note": "Historical geographic context; not a photograph of the Lancaster House conference.",
+      "alternates": [
+        "BRITISH_ARMY_OPERATIONS_AGAINST_THE_MAU_MAU_IN_KENYA_1952_-_1956_MAU221.jpg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -1799,23 +1874,26 @@
         0.5,
         0.5
       ],
-      "commons_file": "BRITISH_ARMY_OPERATIONS_AGAINST_THE_MAU_MAU_IN_KENYA_1952_-_1956_MAU221.jpg",
-      "year": 1952,
-      "width": 800,
-      "author": "British official photographer",
-      "name": "Chiến dịch quân sự tại Kenya",
-      "description": "British Army 3-inch mortar team during operations against Mau Mau, 1952–1956",
-      "review_note": "Same Kenya decolonisation arc; image shows the conflict whose aftermath shaped the early state, not a 1964 cabinet session."
+      "commons_file": "Kenya map 1919.jpg",
+      "year": 1919,
+      "width": 1920,
+      "author": "Public Works Department, British East Africa Protectorate",
+      "name": "Bản đồ Kenya năm 1919",
+      "description": "Bản đồ Kenya thuộc địa năm 1919, dùng làm bối cảnh địa lý cho việc xây dựng nhà nước Kenya sau độc lập.",
+      "review_note": "Historical geographic context map, not a picture of a 1964 cabinet session.",
+      "alternates": [
+        "BRITISH_ARMY_OPERATIONS_AGAINST_THE_MAU_MAU_IN_KENYA_1952_-_1956_MAU221.jpg"
+      ]
     },
     {
       "type": "illustration_event",
       "subject": "gbr_ghana_independence_1957",
-      "commons_file": "Ghana_Independence_overprint_on_Gold_Coast_1s_stamp_1957.jpg",
-      "year": 1957,
-      "width": 611,
-      "author": "British Government",
-      "name": "Tem thư độc lập Ghana 1957",
-      "description": "British Government postage stamp overprinted to mark Ghana's independence on 6 March 1957",
+      "commons_file": "Gold Coast Map 1896.jpg",
+      "year": 1896,
+      "width": 960,
+      "author": "John George Bartholomew",
+      "name": "Bản đồ Gold Coast năm 1896",
+      "description": "Bản đồ thuộc địa Gold Coast năm 1896, vùng lãnh thổ trở thành Ghana độc lập năm 1957.",
       "period": {
         "from": 1957,
         "to": 1957
@@ -1830,7 +1908,10 @@
         0.5,
         0.5
       ],
-      "review_note": "Commons page explicitly marks PD-UKGov; period stamp directly commemorating independence."
+      "review_note": "Direct regional context; Commons credits John George Bartholomew (died 1920) and dates the work to 1896.",
+      "alternates": [
+        "Ghana_Independence_overprint_on_Gold_Coast_1s_stamp_1957.jpg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -1860,12 +1941,12 @@
     {
       "type": "illustration_event",
       "subject": "gbr_west_indies_federation_1958",
-      "commons_file": "St._Vincent_3c_West_Indies_Federation_stamp_1958.jpg",
-      "year": 1958,
-      "width": 1115,
-      "author": "British Government",
-      "name": "Tem thư Liên bang Tây Ấn",
-      "description": "British Government stamp commemorating the West Indies Federation in 1958",
+      "commons_file": "Map of the Caribbean.jpg",
+      "year": 1894,
+      "width": 1280,
+      "author": "Dodd, Mead, and Company",
+      "name": "Bản đồ Caribe năm 1894",
+      "description": "Bản đồ vùng Caribe năm 1894, thể hiện bối cảnh địa lý của các lãnh thổ tham gia Liên bang Tây Ấn.",
       "period": {
         "from": 1958,
         "to": 1958
@@ -1880,17 +1961,20 @@
         0.5,
         0.5
       ],
-      "review_note": "Commons page explicitly marks PD-UKGov; stamp rather than a federation inauguration photograph."
+      "review_note": "Historical regional map; not an image of the federation's inauguration.",
+      "alternates": [
+        "St._Vincent_3c_West_Indies_Federation_stamp_1958.jpg"
+      ]
     },
     {
       "type": "illustration_event",
       "subject": "gbr_cyprus_eoka_1955",
-      "commons_file": "Street_riot_in_Nicosia_1956.jpg",
-      "year": 1956,
-      "width": 1000,
-      "author": "British Colonial Government",
-      "name": "Bạo loạn đường phố tại Nicosia",
-      "description": "British soldiers confronting a street riot by EOKA in Nicosia, Cyprus, 1956",
+      "commons_file": "(1880) MAP OF CYPRUS.jpg",
+      "year": 1880,
+      "width": 3717,
+      "author": "British Library Mechanical Curator; map from Our Home in Cyprus",
+      "name": "Bản đồ Cyprus năm 1880",
+      "description": "Bản đồ Cyprus năm 1880, cung cấp bối cảnh địa lý cho cuộc nổi dậy EOKA và tình trạng khẩn cấp tại đảo từ năm 1955.",
       "period": {
         "from": 1955,
         "to": 1956
@@ -1905,7 +1989,10 @@
         0.5,
         0.5
       ],
-      "review_note": "Commons page explicitly marks PD-UKGov; close-in-time photograph of the Cyprus Emergency."
+      "review_note": "Historical geographic context map, not a depiction of EOKA operations.",
+      "alternates": [
+        "Street_riot_in_Nicosia_1956.jpg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -1935,12 +2022,12 @@
     {
       "type": "illustration_event",
       "subject": "mys_federation_1963",
-      "commons_file": "Malayan_Declaration_of_Independence_1957_in_Tamil.jpg",
-      "year": 2025,
-      "width": 3000,
-      "author": "Wolfiewhite",
-      "name": "Tuyên ngôn độc lập Malaya",
-      "description": "Photograph of the 1957 Malayan Declaration of Independence document in Tamil",
+      "commons_file": "Map of Burma, Siam, Cochin-China and Malaya.png",
+      "year": 1864,
+      "width": 3840,
+      "author": "James Wyld",
+      "name": "Bản đồ Malaya và Đông Nam Á",
+      "description": "Bản đồ Malaya và các vùng lân cận năm 1864, dùng làm bối cảnh địa lý cho quá trình hình thành Malaysia năm 1963.",
       "period": {
         "from": 1963,
         "to": 1963
@@ -1955,17 +2042,20 @@
         0.5,
         0.5
       ],
-      "review_note": "Same Malayan independence-to-federation sequence; the 1957 declaration is used as the founding document context for the 1963 federation."
+      "review_note": "Historical regional map; does not show the later political boundary arrangement.",
+      "alternates": [
+        "Malayan_Declaration_of_Independence_1957_in_Tamil.jpg"
+      ]
     },
     {
       "type": "illustration_event",
       "subject": "gha_independence_priorities_1957",
-      "commons_file": "Ghana_Independence_overprint_on_Gold_Coast_1s_stamp_1957.jpg",
-      "year": 1957,
-      "width": 611,
-      "author": "British Government",
-      "name": "Tem thư độc lập Ghana 1957",
-      "description": "British Government postage stamp overprinted to mark Ghana's independence on 6 March 1957",
+      "commons_file": "Gold Coast Map 1896.jpg",
+      "year": 1896,
+      "width": 960,
+      "author": "John George Bartholomew",
+      "name": "Bản đồ Gold Coast năm 1896",
+      "description": "Bản đồ Gold Coast năm 1896, cung cấp bối cảnh lãnh thổ cho các ưu tiên của chính phủ Ghana mới độc lập.",
       "period": {
         "from": 1957,
         "to": 1957
@@ -1980,7 +2070,10 @@
         0.5,
         0.5
       ],
-      "review_note": "Same Ghana independence episode; the 1957 overprinted stamp remains the primary visual for the immediate post-independence priorities."
+      "review_note": "Historical context map; not a photograph of the 1957 independence administration.",
+      "alternates": [
+        "Ghana_Independence_overprint_on_Gold_Coast_1s_stamp_1957.jpg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -2060,12 +2153,12 @@
     {
       "type": "illustration_event",
       "subject": "pak_constitution_1956",
-      "commons_file": "Cover_of_the_first_constitiution_of_Pakistan.jpg",
-      "year": 1956,
-      "width": 1283,
-      "author": "Government of Pakistan",
-      "name": "Bìa Hiến pháp đầu tiên của Pakistan",
-      "description": "Cover of Pakistan's first Constitution, dated 29 February 1956",
+      "commons_file": "BritishIndianEmpireandEnvirons2.jpg",
+      "year": 1909,
+      "width": 1200,
+      "author": "Imperial Gazetteer of India / John G. Bartholomew",
+      "name": "Bản đồ Đế quốc Ấn Độ và các vùng lân cận",
+      "description": "Bản đồ Đế quốc Ấn Độ năm 1909, cung cấp bối cảnh địa lý lịch sử cho việc Pakistan xây dựng trật tự hiến pháp sau phân chia.",
       "period": {
         "from": 1956,
         "to": 1956
@@ -2080,7 +2173,10 @@
         0.5,
         0.5
       ],
-      "review_note": "Commons page marks PD-Pakistan; verify US public-domain basis before ingestion. The ingester's current age cutoff also blocks this date."
+      "review_note": "Regional context map only; it predates Pakistan and does not depict the 1956 constitution.",
+      "alternates": [
+        "Cover_of_the_first_constitiution_of_Pakistan.jpg"
+      ]
     },
     {
       "type": "illustration_event",
@@ -2189,12 +2285,12 @@
     {
       "type": "illustration_event",
       "subject": "eic_malaya_independence_1957",
-      "commons_file": "Malayan_Declaration_of_Independence_1957_in_Tamil.jpg",
-      "year": 2025,
-      "width": 3000,
-      "author": "Wolfiewhite",
-      "name": "Tuyên ngôn độc lập Malaya",
-      "description": "Photograph of the 1957 Malayan Declaration of Independence document in Tamil",
+      "commons_file": "Map of Burma, Siam, Cochin-China and Malaya.png",
+      "year": 1864,
+      "width": 3840,
+      "author": "James Wyld",
+      "name": "Bản đồ Malaya và Đông Nam Á",
+      "description": "Bản đồ Malaya năm 1864, dùng làm bối cảnh địa lý cho việc bàn giao Malacca và Penang trong tiến trình độc lập năm 1957.",
       "period": {
         "from": 1957,
         "to": 1957
@@ -2209,7 +2305,10 @@
         0.5,
         0.5
       ],
-      "review_note": "Same 1957 transfer from the East India Company perspective; CC0 candidate. Ingestion owner should verify the Commons file page."
+      "review_note": "Historical regional map; not a photograph of the 1957 declaration.",
+      "alternates": [
+        "Malayan_Declaration_of_Independence_1957_in_Tamil.jpg"
+      ]
     }
   ]
 }
