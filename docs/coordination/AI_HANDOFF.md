@@ -1,3 +1,11 @@
+## 2026-11-23 — LEAD-01b CG-43b rosters integrated
+
+- ChatGPT CG-43b (MSG-098) brings the staging file to 465 records: ROC/Beiyang 1916–28, Second Spanish Republic, Weimar chancellors, FRG/GDR, Japanese prime ministers 1931–46, Vietnam (party leaders, prime ministers, SVN/RVN/PRG).
+- `build-leaders20.ts`: 401 records → `leaders_20c.json`. Skipped:
+  - FRG, GDR, SVN, RVN and PRG, until the German and Vietnamese partitions exist in the engine;
+  - the clandestine ICP leaders before 9/1945 (no state).
+- Seed 1: ROC 1920 Xu Shichang, 1925 Duan Qirui; Spain 1933–36 Alcalá-Zamora. Germany after 1945 still waits for WW-01c.
+
 ## 2026-11-23 — LEAD-01 20th-century leaders from CG-43 (Historical Mode)
 
 - **Owner:** when the regime changes, the person at the top changes too. ChatGPT CG-43 (MSG-096) delivered 328 records; it is a partial cohort, with some prime-minister and transition rosters missing.

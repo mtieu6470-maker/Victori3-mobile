@@ -2,7 +2,7 @@
 // into historical_data/leaders/leaders_20c.json for Historical Mode. Each record is tied to the capital region
 // of its state in that period (map-grid lookup of the city); the engine gives it to the holder of that region
 // while the country follows the historical course (src/engine/systems/leaders20.ts).
-// FRG and GDR wait for the post-war partition (WW-01c); ROC after 1949 (Taiwan) is left out.
+// CG-43b (MSG-098) completed the rosters. FRG/GDR and South Vietnam wait for the partitions; ROC after 1949 (Taiwan) is left out.
 //   npx tsx tools/data/build-leaders20.ts
 import { readFileSync, writeFileSync } from 'node:fs';
 import { loadNodeData } from '../../src/engine/node';
@@ -21,7 +21,10 @@ const CAPITALS: Record<string, [string | null, string][]> = {
   PRC: [[null, 'Beijing']], SPA: [[null, 'Madrid']], AHM: [[null, 'Vienna']], AUT: [[null, 'Vienna']], VNM: [['1945-08-26', 'Hue'], [null, 'Hanoi']], DRV: [[null, 'Hanoi']],
   IND: [[null, 'New Delhi']], POL: [[null, 'Warsaw']], FIN: [[null, 'Helsinki']], GBR: [[null, 'London']], USA: [[null, 'Washington']], JAP: [[null, 'Tokyo']],
 };
-const SKIP = new Set(['FRG', 'GDR']);
+// FRG/GDR and the South Vietnamese states (SVN, RVN, PRG) wait for the partitions (WW-01c, deferred CG-41 events).
+const SKIP = new Set(['FRG', 'GDR', 'SVN', 'RVN', 'PRG']);
+/** Records left out: the clandestine Indochinese Communist Party leaders before the 1945 revolution held no state. */
+const excluded = (l: { entity: string; role: string; from: string }) => l.entity === 'VNM' && l.role === 'effective_leader' && l.from < '1945-09-02';
 
 const W = 8192, CPD = W / 360, H = Math.round(170 * CPD), LAT0 = 85;
 const runs = new Uint16Array(readFileSync(new URL('../../public/generated/map.bin', import.meta.url)).buffer.slice(0));
@@ -41,7 +44,7 @@ const regionOf = (city: string) => OVERRIDE[city] ?? regionAt(...CITY[city]);
 const src = JSON.parse(readFileSync(new URL('../../historical_data/research_staging/CG43_LEADERS_1900_2026.json', import.meta.url), 'utf8'));
 const out: unknown[] = []; const skipped: string[] = [];
 for (const l of src.leaders) {
-  if (SKIP.has(l.entity)) { skipped.push(`${l.entity}:${l.name}`); continue; }
+  if (SKIP.has(l.entity) || excluded(l)) { skipped.push(`${l.entity}:${l.name}`); continue; }
   const periods = CAPITALS[l.entity];
   if (!periods) { skipped.push(`${l.entity}:${l.name} (no capital)`); continue; }
   const period = periods.find(([until]) => until === null || l.from < until);
