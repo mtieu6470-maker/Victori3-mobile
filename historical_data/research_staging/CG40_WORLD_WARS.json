@@ -361,7 +361,7 @@
         "wwi_ushmm",
         "wwi_us_entry",
         "wwi_statcan_entry",
-        "treaty_brest_primary",
+        "wwi_brest_primary",
         "wwi_casualties_census",
         "wwi_casualties_ayres"
       ]
