@@ -131,7 +131,7 @@ export interface HistoricalDB {
   /** LEAD-01: 20th-century heads of state and effective leaders by capital region (CG-43). */
   leaders_20c?: { capitalRegion: string; name: string; born: string | null; died: string | null; from: string; to: string | null; role: 'head_of_state' | 'effective_leader'; title_vi: string; title_en: string }[];
   /** REGIME-01a: Historical Mode regime changes and state formations (CG-41). */
-  regime_changes?: { id: string; date: string; capitalRegion: string; rename: boolean; name_en: string; name_vi: string; type: string; laws: Record<string, string>; independence: string[] | null }[];
+  regime_changes?: { id: string; date: string; capitalRegion: string; rename: boolean; name_en: string; name_vi: string; type: string; laws: Record<string, string>; independence: string[] | null; independenceRegions?: string[] | null; allies?: string[] }[];
   /** DECOL-01: Historical Mode independence events (CG-37). */
   decolonisation?: { id: string; iso: string; name: string; name_vi: string; power: string; date: string; regions: string[] }[];
   start_techs: Record<string, string[]>;

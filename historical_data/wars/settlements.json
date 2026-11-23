@@ -580,6 +580,25 @@
      "to": "PRU_BRA"
     }
    ]
+  },
+  {
+   "id": "VNM_REUNIFICATION_1975",
+   "date": "1975-04-30",
+   "actor": "VNM_HAN",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-44 VNM-1975-04 (fall of Saigon, 30 April 1975)",
+    "CG-44 VNM-1976-07 (formal reunification, 2 July 1976)"
+   ],
+   "steps": [
+    {
+     "type": "annex_states",
+     "capitals": [
+      "VNM_GDI",
+      "VNM_HUE"
+     ]
+    }
+   ]
   }
  ]
 }

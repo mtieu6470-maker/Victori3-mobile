@@ -16,7 +16,17 @@
   "UKR-1918-01",
   "IND-PAK-1947-08",
   "KOR-1948-08",
-  "RUS-1918-22-CIVILWAR"
+  "RUS-1918-22-CIVILWAR",
+  "USSR-EST-1991",
+  "USSR-TJK-1991",
+  "USSR-1991-12-DISSOLVE",
+  "CIS-1991-12",
+  "YUG-SLO-CRO-1991-06",
+  "CZE-SVK-1993-01",
+  "KOR-1945-08",
+  "VNM-GENEVA-1954-07",
+  "VNM-1975-04",
+  "PRC-1949-10"
  ],
  "droppedLawValues": [],
  "events": [
@@ -570,6 +580,72 @@
    "quality": "verified"
   },
   {
+   "id": "VNM-DRV-1945-09",
+   "date": "1945-09-02",
+   "capitalRegion": "VNM_HAN",
+   "rename": true,
+   "name_en": "Democratic Republic of Vietnam",
+   "name_vi": "Việt Nam Dân chủ Cộng hòa",
+   "type": "declaration_of_independence_and_revolution",
+   "laws": {
+    "power": "one_party_state",
+    "governance": "republic",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": [
+    "VNM_HAN",
+    "VNM_TBC",
+    "VNM_THN"
+   ],
+   "sources": [
+    "vietnam_embassy"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "YUG-1945-11",
+   "date": "1945-11-29",
+   "capitalRegion": "SER_BEL",
+   "rename": true,
+   "name_en": "Federal People's Republic of Yugoslavia",
+   "name_vi": "Cộng hòa Liên bang Nhân dân Nam Tư",
+   "type": "abolition_of_monarchy_and_federal_state_foundation",
+   "laws": {
+    "power": "one_party_state",
+    "governance": "republic",
+    "economy": "command_economy",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "yugoslavia_archives"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "ALB-1946-01",
+   "date": "1946-01-11",
+   "capitalRegion": "TUR_ALB",
+   "rename": true,
+   "name_en": "People's Republic of Albania",
+   "name_vi": "Cộng hòa Nhân dân Albania",
+   "type": "constitutional_regime_change",
+   "laws": {
+    "power": "one_party_state",
+    "governance": "republic",
+    "economy": "command_economy",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "albania_pres"
+   ],
+   "quality": "verified"
+  },
+  {
    "id": "ITA-1946-06",
    "date": "1946-06-18",
    "capitalRegion": "PAP_ROM",
@@ -589,6 +665,27 @@
    "quality": "verified"
   },
   {
+   "id": "BUL-1946-09",
+   "date": "1946-09-15",
+   "capitalRegion": "TUR_SOF",
+   "rename": true,
+   "name_en": "People's Republic of Bulgaria",
+   "name_vi": "Cộng hòa Nhân dân Bulgaria",
+   "type": "referendum_and_abolition_of_monarchy",
+   "laws": {
+    "power": "one_party_state",
+    "governance": "republic",
+    "economy": "command_economy",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "bulgaria_gov"
+   ],
+   "quality": "supported"
+  },
+  {
    "id": "FRA-1946-10",
    "date": "1946-10-27",
    "capitalRegion": "FRA_IDF",
@@ -606,6 +703,27 @@
     "fr_assemblee_regimes"
    ],
    "quality": "verified"
+  },
+  {
+   "id": "POL-1947-02",
+   "date": "1947-02-19",
+   "capitalRegion": "RUS_WAR",
+   "rename": false,
+   "name_en": "Polish Republic under communist-led government",
+   "name_vi": "Cộng hòa Ba Lan dưới chính quyền do cộng sản lãnh đạo",
+   "type": "constitutional_regime_change",
+   "laws": {
+    "power": "one_party_state",
+    "governance": "republic",
+    "economy": "command_economy",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "loc_poland"
+   ],
+   "quality": "supported"
   },
   {
    "id": "JAP-1947-05",
@@ -629,6 +747,49 @@
    "quality": "verified"
   },
   {
+   "id": "ROM-1947-12",
+   "date": "1947-12-30",
+   "capitalRegion": "WAL_BUC",
+   "rename": true,
+   "name_en": "People's Republic of Romania",
+   "name_vi": "Cộng hòa Nhân dân Romania",
+   "type": "abolition_of_monarchy_and_regime_change",
+   "laws": {
+    "power": "one_party_state",
+    "governance": "republic",
+    "economy": "command_economy",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "romania_1947"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "CZE-1948-02",
+   "date": "1948-02-25",
+   "capitalRegion": "AUS_BOH",
+   "rename": false,
+   "name_en": "Czechoslovak Republic under Communist Party rule",
+   "name_vi": "Cộng hòa Tiệp Khắc dưới quyền Đảng Cộng sản",
+   "type": "coup_and_regime_change",
+   "laws": {
+    "power": "one_party_state",
+    "governance": "republic",
+    "economy": "command_economy",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "cze_history",
+    "cze_us"
+   ],
+   "quality": "supported"
+  },
+  {
    "id": "GBR-1946-07",
    "date": "1948-07-05",
    "capitalRegion": "GBR_LON",
@@ -644,6 +805,96 @@
     "uk_nhs_1946"
    ],
    "quality": "verified"
+  },
+  {
+   "id": "KOR-ROK-1948-08",
+   "date": "1948-08-15",
+   "capitalRegion": "KOR_GYE",
+   "rename": true,
+   "name_en": "Republic of Korea",
+   "name_vi": "Đại Hàn Dân Quốc",
+   "type": "state_foundation",
+   "laws": {
+    "power": "universal_male_suffrage",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "allies": [
+    "USA_MAR"
+   ],
+   "sources": [
+    "korea_history",
+    "korea_rok"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "KOR-PRK-1948-09",
+   "date": "1948-09-09",
+   "capitalRegion": "KOR_PYO",
+   "rename": true,
+   "name_en": "Democratic People's Republic of Korea",
+   "name_vi": "Cộng hòa Dân chủ Nhân dân Triều Tiên",
+   "type": "state_foundation",
+   "laws": {
+    "power": "one_party_state",
+    "governance": "republic",
+    "economy": "command_economy"
+   },
+   "independence": null,
+   "independenceRegions": [
+    "KOR_PYO",
+    "KOR_HAM"
+   ],
+   "sources": [
+    "korea_history",
+    "korea_rok"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "VNM-SVN-1949-06",
+   "date": "1949-06-14",
+   "capitalRegion": "VNM_GDI",
+   "rename": true,
+   "name_en": "State of Vietnam",
+   "name_vi": "Quốc gia Việt Nam",
+   "type": "rival_state_formation",
+   "laws": {
+    "governance": "monarchy"
+   },
+   "independence": null,
+   "independenceRegions": [
+    "VNM_HUE",
+    "VNM_SCE",
+    "VNM_GDI"
+   ],
+   "sources": [
+    "vietnam_embassy"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "HUN-1949-08",
+   "date": "1949-08-20",
+   "capitalRegion": "AUS_HUN",
+   "rename": true,
+   "name_en": "Hungarian People's Republic",
+   "name_vi": "Cộng hòa Nhân dân Hungary",
+   "type": "constitution_and_regime_change",
+   "laws": {
+    "power": "one_party_state",
+    "governance": "republic",
+    "economy": "command_economy",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "hungary_law"
+   ],
+   "quality": "supported"
   },
   {
    "id": "CHN-1949-10",
@@ -666,6 +917,70 @@
    "quality": "supported"
   },
   {
+   "id": "ROC-1949-12",
+   "date": "1949-12-09",
+   "capitalRegion": "QNG_TAI",
+   "rename": true,
+   "name_en": "Republic of China (Taiwan)",
+   "name_vi": "Trung Hoa Dân Quốc (Đài Loan)",
+   "type": "government_relocation_and_competing_state_control",
+   "laws": {
+    "governance": "republic",
+    "power": "autocracy",
+    "press": "censorship"
+   },
+   "independence": null,
+   "independenceRegions": [
+    "QNG_TAI"
+   ],
+   "allies": [
+    "USA_MAR"
+   ],
+   "sources": [
+    "roc_mac",
+    "roc_us"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "POL-1952-07",
+   "date": "1952-07-22",
+   "capitalRegion": "RUS_WAR",
+   "rename": true,
+   "name_en": "Polish People's Republic",
+   "name_vi": "Cộng hòa Nhân dân Ba Lan",
+   "type": "constitution_and_state_renaming",
+   "laws": {
+    "power": "one_party_state",
+    "economy": "command_economy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "loc_poland"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "VNM-RVN-1955-10",
+   "date": "1955-10-26",
+   "capitalRegion": "VNM_GDI",
+   "rename": true,
+   "name_en": "Republic of Vietnam",
+   "name_vi": "Việt Nam Cộng hòa",
+   "type": "referendum_and_state_renaming",
+   "laws": {
+    "power": "autocracy",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "vietnam_embassy"
+   ],
+   "quality": "supported"
+  },
+  {
    "id": "FRA-1958-10",
    "date": "1958-10-04",
    "capitalRegion": "FRA_IDF",
@@ -680,6 +995,44 @@
    "independence": null,
    "sources": [
     "fr_assemblee_5rep"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "CZE-1960-07",
+   "date": "1960-07-11",
+   "capitalRegion": "AUS_BOH",
+   "rename": true,
+   "name_en": "Czechoslovak Socialist Republic",
+   "name_vi": "Cộng hòa Xã hội chủ nghĩa Tiệp Khắc",
+   "type": "constitution_and_state_renaming",
+   "laws": {
+    "power": "one_party_state",
+    "economy": "command_economy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "cze_us"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "YUG-1963-04",
+   "date": "1963-04-07",
+   "capitalRegion": "SER_BEL",
+   "rename": true,
+   "name_en": "Socialist Federal Republic of Yugoslavia",
+   "name_vi": "Cộng hòa Liên bang Xã hội chủ nghĩa Nam Tư",
+   "type": "constitution_and_state_renaming",
+   "laws": {
+    "power": "one_party_state",
+    "economy": "interventionism"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "yugoslavia_archives"
    ],
    "quality": "verified"
   },
@@ -704,6 +1057,27 @@
    "quality": "supported"
   },
   {
+   "id": "VNM-1976-07",
+   "date": "1976-07-02",
+   "capitalRegion": "VNM_HAN",
+   "rename": true,
+   "name_en": "Socialist Republic of Vietnam",
+   "name_vi": "Cộng hòa Xã hội chủ nghĩa Việt Nam",
+   "type": "formal_reunification_and_state_renaming",
+   "laws": {
+    "power": "one_party_state",
+    "governance": "republic",
+    "economy": "command_economy"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "vietnam_archive",
+    "vietnam_embassy"
+   ],
+   "quality": "verified"
+  },
+  {
    "id": "USSR-1985-03",
    "date": "1985-03-11",
    "capitalRegion": "RUS_MOS",
@@ -722,6 +1096,130 @@
    "quality": "supported"
   },
   {
+   "id": "HUN-1989-10",
+   "date": "1989-10-23",
+   "capitalRegion": "AUS_HUN",
+   "rename": true,
+   "name_en": "Republic of Hungary",
+   "name_vi": "Cộng hòa Hungary",
+   "type": "constitutional_democratic_transition",
+   "laws": {
+    "power": "universal_suffrage",
+    "governance": "republic",
+    "press": "limited_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "hungary_law"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "BUL-1989-11",
+   "date": "1989-11-10",
+   "capitalRegion": "TUR_SOF",
+   "rename": false,
+   "name_en": "Bulgaria (post-1989 transition)",
+   "name_vi": "Bulgaria (chuyển đổi sau 1989)",
+   "type": "leadership_change_and_democratic_transition",
+   "laws": {
+    "power": "universal_suffrage",
+    "governance": "republic",
+    "press": "limited_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "bulgaria_gov"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "CZE-1989-11",
+   "date": "1989-11-17",
+   "capitalRegion": "AUS_BOH",
+   "rename": false,
+   "name_en": "Czechoslovak Republic (post-Velvet Revolution)",
+   "name_vi": "Cộng hòa Tiệp Khắc (sau Cách mạng Nhung)",
+   "type": "democratic_revolution",
+   "laws": {
+    "power": "universal_suffrage",
+    "governance": "republic",
+    "press": "limited_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "cze_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "ROM-1989-12",
+   "date": "1989-12-22",
+   "capitalRegion": "WAL_BUC",
+   "rename": true,
+   "name_en": "Romania",
+   "name_vi": "Romania",
+   "type": "revolution_and_regime_change",
+   "laws": {
+    "power": "universal_suffrage",
+    "governance": "republic",
+    "press": "limited_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "romania_1947"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "POL-1989-12",
+   "date": "1989-12-29",
+   "capitalRegion": "RUS_WAR",
+   "rename": true,
+   "name_en": "Republic of Poland",
+   "name_vi": "Cộng hòa Ba Lan",
+   "type": "democratic_transition_and_constitutional_amendment",
+   "laws": {
+    "power": "universal_suffrage",
+    "governance": "republic",
+    "press": "limited_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "poland_1989"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "USSR-LTU-1990",
+   "date": "1990-03-11",
+   "capitalRegion": "RUS_VIL",
+   "rename": true,
+   "name_en": "Lithuania",
+   "name_vi": "Cộng hòa Litva",
+   "type": "union_republic_independence_or_state_renaming",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_suffrage",
+    "economy": "interventionism",
+    "press": "free_press"
+   },
+   "independence": [
+    "lithuanian"
+   ],
+   "independenceRegions": null,
+   "sources": [
+    "lithuania_un",
+    "ussr_map"
+   ],
+   "quality": "supported"
+  },
+  {
    "id": "USSR-1990-03",
    "date": "1990-03-14",
    "capitalRegion": "RUS_MOS",
@@ -736,6 +1234,561 @@
    "independence": null,
    "sources": [
     "un_rus_2017"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "YUG-1990-MULTIPARTY",
+   "date": "1990-04-08",
+   "capitalRegion": "SER_BEL",
+   "rename": false,
+   "name_en": "SFR Yugoslavia in multiparty federal crisis",
+   "name_vi": "CHLBXHCN Nam Tư trong khủng hoảng liên bang đa đảng",
+   "type": "multi_party_transition_and_federal_disintegration",
+   "laws": {
+    "power": "universal_suffrage",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "yugoslavia_icty",
+    "yugoslavia_un"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "CZE-1990-04",
+   "date": "1990-04-23",
+   "capitalRegion": "AUS_BOH",
+   "rename": true,
+   "name_en": "Czech and Slovak Federative Republic",
+   "name_vi": "Cộng hòa Liên bang Séc và Slovakia",
+   "type": "constitutional_state_renaming",
+   "laws": {
+    "power": "universal_suffrage",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "cze_history"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "BUL-1990-11",
+   "date": "1990-11-15",
+   "capitalRegion": "TUR_SOF",
+   "rename": true,
+   "name_en": "Republic of Bulgaria",
+   "name_vi": "Cộng hòa Bulgaria",
+   "type": "constitutional_state_renaming",
+   "laws": {
+    "power": "universal_suffrage",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "bulgaria_gov"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "USSR-GEO-1991",
+   "date": "1991-04-09",
+   "capitalRegion": "RUS_GEO",
+   "rename": true,
+   "name_en": "Georgia",
+   "name_vi": "Cộng hòa Georgia",
+   "type": "union_republic_independence_or_state_renaming",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_suffrage",
+    "economy": "interventionism",
+    "press": "free_press"
+   },
+   "independence": [
+    "georgian"
+   ],
+   "independenceRegions": null,
+   "sources": [
+    "ussr_yearbook",
+    "ussr_map"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "ALB-1991-04",
+   "date": "1991-04-30",
+   "capitalRegion": "TUR_ALB",
+   "rename": true,
+   "name_en": "Republic of Albania",
+   "name_vi": "Cộng hòa Albania",
+   "type": "constitutional_democratic_transition",
+   "laws": {
+    "power": "universal_suffrage",
+    "governance": "republic",
+    "press": "limited_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "albania_pres"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "BUL-1991-07-CONSTITUTION",
+   "date": "1991-07-12",
+   "capitalRegion": "TUR_SOF",
+   "rename": false,
+   "name_en": "Republic of Bulgaria under the 1991 Constitution",
+   "name_vi": "Cộng hòa Bulgaria theo Hiến pháp 1991",
+   "type": "constitution",
+   "laws": {
+    "power": "universal_suffrage",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "bulgaria_gov"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "USSR-LVA-1991",
+   "date": "1991-08-21",
+   "capitalRegion": "RUS_BAL",
+   "rename": true,
+   "name_en": "Latvia",
+   "name_vi": "Cộng hòa Latvia",
+   "type": "union_republic_independence_or_state_renaming",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_suffrage",
+    "economy": "interventionism",
+    "press": "free_press"
+   },
+   "independence": [
+    "latvian"
+   ],
+   "independenceRegions": null,
+   "sources": [
+    "ussr_yearbook",
+    "ussr_map"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "USSR-UKR-1991",
+   "date": "1991-08-24",
+   "capitalRegion": "RUS_KIE",
+   "rename": true,
+   "name_en": "Ukraine",
+   "name_vi": "Cộng hòa Ukraine",
+   "type": "union_republic_independence_or_state_renaming",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_suffrage",
+    "economy": "interventionism",
+    "press": "free_press"
+   },
+   "independence": [
+    "ukrainian"
+   ],
+   "independenceRegions": null,
+   "sources": [
+    "ukraine_un",
+    "ussr_map"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "USSR-BLR-1991",
+   "date": "1991-08-25",
+   "capitalRegion": "RUS_MIN",
+   "rename": true,
+   "name_en": "Belarus",
+   "name_vi": "Cộng hòa Belarus",
+   "type": "union_republic_independence_or_state_renaming",
+   "laws": {
+    "governance": "republic",
+    "power": "autocracy",
+    "economy": "interventionism",
+    "press": "limited_press"
+   },
+   "independence": [
+    "belarusian"
+   ],
+   "independenceRegions": null,
+   "sources": [
+    "ussr_yearbook",
+    "ussr_map"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "USSR-MDA-1991",
+   "date": "1991-08-27",
+   "capitalRegion": "RUS_BES",
+   "rename": true,
+   "name_en": "Republic of Moldova",
+   "name_vi": "Cộng hòa Moldova",
+   "type": "union_republic_independence_or_state_renaming",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_suffrage",
+    "economy": "interventionism",
+    "press": "free_press"
+   },
+   "independence": [
+    "romanian"
+   ],
+   "independenceRegions": null,
+   "sources": [
+    "moldova_un",
+    "ussr_map"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "USSR-AZE-1991",
+   "date": "1991-08-30",
+   "capitalRegion": "RUS_AZE",
+   "rename": true,
+   "name_en": "Azerbaijan",
+   "name_vi": "Cộng hòa Azerbaijan",
+   "type": "union_republic_independence_or_state_renaming",
+   "laws": {
+    "governance": "republic",
+    "power": "autocracy",
+    "economy": "interventionism",
+    "press": "limited_press"
+   },
+   "independence": [
+    "azeri"
+   ],
+   "independenceRegions": null,
+   "sources": [
+    "ussr_yearbook",
+    "ussr_map"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "USSR-UZB-1991",
+   "date": "1991-08-31",
+   "capitalRegion": "KOK_TAS",
+   "rename": true,
+   "name_en": "Uzbekistan",
+   "name_vi": "Cộng hòa Uzbekistan",
+   "type": "union_republic_independence_or_state_renaming",
+   "laws": {
+    "governance": "republic",
+    "power": "autocracy",
+    "economy": "interventionism",
+    "press": "limited_press"
+   },
+   "independence": [
+    "uzbek"
+   ],
+   "independenceRegions": null,
+   "sources": [
+    "ussr_yearbook",
+    "ussr_map"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "USSR-KGZ-1991",
+   "date": "1991-08-31",
+   "capitalRegion": "DZ_KYRGYZ",
+   "rename": true,
+   "name_en": "Kyrgyzstan",
+   "name_vi": "Cộng hòa Kyrgyzstan",
+   "type": "union_republic_independence_or_state_renaming",
+   "laws": {
+    "governance": "republic",
+    "power": "autocracy",
+    "economy": "interventionism",
+    "press": "limited_press"
+   },
+   "independence": [
+    "kyrgyz"
+   ],
+   "independenceRegions": null,
+   "sources": [
+    "ussr_yearbook",
+    "ussr_map"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "USSR-ARM-1991",
+   "date": "1991-09-21",
+   "capitalRegion": "RUS_ARM",
+   "rename": true,
+   "name_en": "Armenia",
+   "name_vi": "Cộng hòa Armenia",
+   "type": "union_republic_independence_or_state_renaming",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_suffrage",
+    "economy": "interventionism",
+    "press": "free_press"
+   },
+   "independence": [
+    "armenian"
+   ],
+   "independenceRegions": null,
+   "sources": [
+    "ussr_yearbook",
+    "ussr_map"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "YUG-SVN-1991-10",
+   "date": "1991-10-08",
+   "capitalRegion": "AUS_CAR",
+   "rename": true,
+   "name_en": "Republic of Slovenia",
+   "name_vi": "Cộng hòa Slovenia",
+   "type": "federal_dissolution_and_independence_declarations",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_suffrage",
+    "economy": "interventionism",
+    "press": "free_press"
+   },
+   "independence": [
+    "slovene"
+   ],
+   "independenceRegions": null,
+   "sources": [
+    "yugoslavia_icty",
+    "yugoslavia_un_tc"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "YUG-HRV-1991-10",
+   "date": "1991-10-08",
+   "capitalRegion": "AUS_CRO",
+   "rename": true,
+   "name_en": "Republic of Croatia",
+   "name_vi": "Cộng hòa Croatia",
+   "type": "federal_dissolution_and_independence_declarations",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_suffrage",
+    "economy": "interventionism",
+    "press": "free_press"
+   },
+   "independence": [
+    "croat"
+   ],
+   "independenceRegions": null,
+   "sources": [
+    "yugoslavia_icty",
+    "yugoslavia_un_tc"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "USSR-TKM-1991",
+   "date": "1991-10-27",
+   "capitalRegion": "DZ_TURKMEN",
+   "rename": true,
+   "name_en": "Turkmenistan",
+   "name_vi": "Cộng hòa Turkmenistan",
+   "type": "union_republic_independence_or_state_renaming",
+   "laws": {
+    "governance": "republic",
+    "power": "autocracy",
+    "economy": "interventionism",
+    "press": "limited_press"
+   },
+   "independence": [
+    "turkmen"
+   ],
+   "independenceRegions": null,
+   "sources": [
+    "turkmen_un",
+    "ussr_map"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "YUG-MKD-1991-11",
+   "date": "1991-11-17",
+   "capitalRegion": "TUR_MAC",
+   "rename": true,
+   "name_en": "Republic of Macedonia (1991 state)",
+   "name_vi": "Cộng hòa Macedonia",
+   "type": "independence_and_constitution",
+   "laws": {
+    "power": "universal_suffrage",
+    "governance": "republic"
+   },
+   "independence": [
+    "macedonian_slav"
+   ],
+   "independenceRegions": null,
+   "sources": [
+    "yugoslavia_un_tc"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "ROM-1991-12",
+   "date": "1991-12-08",
+   "capitalRegion": "WAL_BUC",
+   "rename": false,
+   "name_en": "Romania (Constitutional Republic)",
+   "name_vi": "Romania (Cộng hòa theo Hiến pháp)",
+   "type": "constitution",
+   "laws": {
+    "power": "universal_suffrage",
+    "governance": "republic",
+    "economy": "interventionism"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "romania_1947"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "USSR-KAZ-1991",
+   "date": "1991-12-16",
+   "capitalRegion": "DZ_SEMIRECHYE",
+   "rename": true,
+   "name_en": "Kazakhstan",
+   "name_vi": "Cộng hòa Kazakhstan",
+   "type": "union_republic_independence_or_state_renaming",
+   "laws": {
+    "governance": "republic",
+    "power": "autocracy",
+    "economy": "interventionism",
+    "press": "limited_press"
+   },
+   "independence": [
+    "kazakh"
+   ],
+   "independenceRegions": null,
+   "sources": [
+    "kazakhstan_un",
+    "ussr_map"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "USSR-RUS-FED-1991",
+   "date": "1991-12-25",
+   "capitalRegion": "RUS_MOS",
+   "rename": true,
+   "name_en": "Russian Federation",
+   "name_vi": "Liên bang Nga",
+   "type": "union_republic_independence_or_state_renaming",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_suffrage",
+    "economy": "interventionism",
+    "press": "free_press"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "russia_un",
+    "ussr_map"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "YUG-BIH-1992-03",
+   "date": "1992-03-06",
+   "capitalRegion": "TUR_BOS",
+   "rename": true,
+   "name_en": "Republic of Bosnia and Herzegovina",
+   "name_vi": "Cộng hòa Bosnia và Herzegovina",
+   "type": "independence_and_state_formation",
+   "laws": {
+    "power": "universal_suffrage",
+    "governance": "republic"
+   },
+   "independence": [
+    "bosniak"
+   ],
+   "independenceRegions": null,
+   "sources": [
+    "yugoslavia_un_tc",
+    "yugoslavia_un"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "YUG-FRY-1992-04",
+   "date": "1992-04-27",
+   "capitalRegion": "SER_BEL",
+   "rename": true,
+   "name_en": "Federal Republic of Yugoslavia (Serbia and Montenegro)",
+   "name_vi": "Cộng hòa Liên bang Nam Tư (Serbia và Montenegro)",
+   "type": "federal_reconstitution",
+   "laws": {
+    "power": "universal_suffrage",
+    "governance": "republic"
+   },
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "yugoslavia_un_tc",
+    "yugoslavia_icty"
+   ],
+   "quality": "verified"
+  },
+  {
+   "id": "CSK-SVK-1993-01",
+   "date": "1993-01-01",
+   "capitalRegion": "AUS_UPH",
+   "rename": true,
+   "name_en": "Slovak Republic",
+   "name_vi": "Cộng hòa Slovakia",
+   "type": "peaceful_federal_dissolution",
+   "laws": {
+    "governance": "republic",
+    "power": "universal_suffrage",
+    "economy": "interventionism",
+    "press": "free_press"
+   },
+   "independence": [
+    "slovak"
+   ],
+   "independenceRegions": null,
+   "sources": [
+    "cze_history",
+    "yugoslavia_un"
+   ],
+   "quality": "supported"
+  },
+  {
+   "id": "CSK-CZE-1993-01",
+   "date": "1993-01-01",
+   "capitalRegion": "AUS_BOH",
+   "rename": true,
+   "name_en": "Czech Republic",
+   "name_vi": "Cộng hòa Séc",
+   "type": "peaceful_federal_dissolution",
+   "laws": {},
+   "independence": null,
+   "independenceRegions": null,
+   "sources": [
+    "cze_history",
+    "yugoslavia_un"
    ],
    "quality": "supported"
   }

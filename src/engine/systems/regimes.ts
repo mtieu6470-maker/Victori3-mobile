@@ -20,7 +20,7 @@
 // still change them as circumstances require. A regime change installs a new head of state whose title
 // follows the regime (e.g. a tsar becomes a general secretary) and updates the form of government.
 import { data } from '../data/db';
-import { dateStr, dateToTick, log, rand } from '../core';
+import { dateStr, dateToTick, log, newId, rand } from '../core';
 import { createNation } from '../world';
 import { setLaw, govLabelFor, leaderTitle, generatedName } from './politics';
 import { isColonialRegion } from './growth';
@@ -41,7 +41,7 @@ const COVERED_BY_WINDOW: Record<string, string> = { 'JAP-1868-01': 'dw_meiji_res
 const REFORM_TYPES = /^(constitution($|_and_|al_reform|al_amendment)|reform_process|social_|welfare_|political_transition|referendum_)/;
 export type RegimeEntryKind = 'reform' | 'proclaim' | 'independence';
 /** A new regime or state (renamed) is proclaimed in one act; reforms inside a regime go through its laws. */
-export const regimeEntryKind = (e: { type: string; independence: string[] | null; rename: boolean }): RegimeEntryKind => e.independence ? 'independence' : !e.rename && REFORM_TYPES.test(e.type) ? 'reform' : 'proclaim';
+export const regimeEntryKind = (e: { type: string; independence: string[] | null; independenceRegions?: string[] | null; rename: boolean }): RegimeEntryKind => e.independence || e.independenceRegions ? 'independence' : !e.rename && REFORM_TYPES.test(e.type) ? 'reform' : 'proclaim';
 
 export const regimeEvent = (id: string): RegimeEvent | undefined => (data().db.regime_changes ?? []).find((e) => e.id === id);
 
@@ -61,6 +61,7 @@ export function regimeActor(st: GameState, e: RegimeEvent): Country | null {
   const c = region ? st.countries[region.owner] : undefined;
   if (!region || !c?.alive || c.decentralized) return null;
   if (e.independence) return st.regions.some((r) => r.owner === c.id && e.independence!.includes(r.culture)) ? c : null;
+  if (e.independenceRegions) return e.independenceRegions.some((id) => st.regions[data().regionIndex.get(id) ?? -1]?.owner === c.id) ? c : null;
   if (c.capital !== e.capitalRegion && isColonialRegion(st, region)) return null;
   return c;
 }
@@ -75,11 +76,25 @@ function newLeader(st: GameState, c: Country, e: RegimeEvent): Country['leader']
   return { name: generatedName(st, c, title), born: st.date.y - 45 - Math.floor(rand(st) * 15), since: st.date.y, historical: false, ...(elected ? { termEnds: `${st.date.y + 4}-03-01` } : {}) };
 }
 
+/** CG-44: defence treaties concluded with the (new) state, e.g. the US with the ROC and the ROK. */
+function treatyAllies(st: GameState, e: RegimeEvent, id: string) {
+  for (const cap of e.allies ?? []) {
+    const r = st.regions[data().regionIndex.get(cap) ?? -1]; const a = r ? st.countries[r.owner] : undefined;
+    if (!a?.alive || a.id === id || st.treaties.some((t) => t.type === 'alliance' && t.members.includes(a.id) && t.members.includes(id))) continue;
+    st.treaties.push({ id: newId(st, 'ally'), type: 'alliance', members: [a.id, id], start: st.tick });
+    log(st, { type: 'diplomacy', text: `${a.name} and ${st.countries[id].name} sign a defence treaty.`, textVi: `${a.nameVi} và ${st.countries[id].nameVi} ký hiệp ước phòng thủ.`, actors: [a.id, id], historical: true });
+  }
+}
+
 /** Carries out one regime event for its country (laws, name, form of government, head of state). */
 export function applyRegimeEvent(st: GameState, e: RegimeEvent, c: Country): void {
   const d = data();
-  if (e.independence) {
-    const regs = st.regions.filter((r) => r.owner === c.id && e.independence!.includes(r.culture)).sort((a, b) => (a.id === e.capitalRegion ? -1 : b.id === e.capitalRegion ? 1 : b.pop - a.pop)).map((r) => r.id);
+  // CG-44 partition lines (Korea, Vietnam, Taiwan): a state formed from explicit regions. If the holder's own
+  // capital lies inside them, the holder itself is that state and is renamed instead (e.g. the Nguyễn state
+  // becoming the State of Vietnam in 1949).
+  const splitRegions = e.independenceRegions && !e.independenceRegions.includes(c.capital) ? e.independenceRegions : null;
+  if (e.independence || splitRegions) {
+    const regs = st.regions.filter((r) => r.owner === c.id && (splitRegions ? splitRegions.includes(r.id) : e.independence!.includes(r.culture))).sort((a, b) => (a.id === e.capitalRegion ? -1 : b.id === e.capitalRegion ? 1 : b.pop - a.pop)).map((r) => r.id);
     if (!regs.length) return;
     const id = createNation(st, e.id.toLowerCase(), regs, c.id, 'independence', undefined, { en: e.name_en, vi: e.name_vi });
     const n = st.countries[id];
@@ -93,6 +108,7 @@ export function applyRegimeEvent(st: GameState, e: RegimeEvent, c: Country): voi
     if (n.id !== st.player) holdLaws(st, n, e);
     n.govLabel = govLabelFor(n);
     n.leader = newLeader(st, n, e);
+    treatyAllies(st, e, n.id);
     return;
   }
   for (const [g, v] of Object.entries(e.laws)) if ((c.laws as Record<string, string>)[g] !== v) setLaw(st, c, g as LawGroup, v, `regime change (${e.id})`);
@@ -103,6 +119,7 @@ export function applyRegimeEvent(st: GameState, e: RegimeEvent, c: Country): voi
     c.leader = newLeader(st, c, e); c.heir = null;
   }
   c.govLabel = govLabelFor(c);
+  treatyAllies(st, e, c.id);
   delete c.crisis;
   log(st, { type: 'state', text: e.rename ? `${e.name_en} is proclaimed (${e.type.replace(/_/g, ' ')}).` : `${c.name}: ${e.type.replace(/_/g, ' ')}.`, textVi: e.rename ? `${oldVi} → ${e.name_vi}.` : `${c.nameVi}: ${e.name_vi}.`, actors: [c.id], historical: true });
 }

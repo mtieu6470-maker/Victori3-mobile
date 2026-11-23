@@ -1,3 +1,27 @@
+## 2026-11-23 — REGIME-03 CG-44 post-war regimes, partitions and dissolutions (1944–1999)
+
+- ChatGPT CG-44 (MSG-101): 54 events in `docs/research/history/CG44_POSTWAR_REGIMES_1944_1999.json`.
+- `build-regimes.ts` now also ingests CG-44, bringing `regime_changes.json` to 86 events.
+- **Mapping:**
+  - Eastern Bloc regimes 1945–49 and transitions 1989–91 become renames and laws.
+  - USSR 1990–91 republics become independence by the dominant culture (CG-44 `culturalAssignments`); Russia becomes the Russian Federation.
+  - Yugoslavia and Czechoslovakia use synthetic split events: Slovenia, Croatia, Macedonia, Bosnia, FRY, and Czech/Slovak 1993.
+  - **Partition lines** use the new `independenceRegions` field: DPRK [KOR_PYO, KOR_HAM]; DRV 1945 [VNM_HAN, VNM_TBC, VNM_THN]; State of Vietnam [south]; ROC on Taiwan [QNG_TAI]. If the holder's own capital lies inside the listed regions, the holder is renamed instead (the Nguyễn state becomes the State of Vietnam).
+  - Defence treaties (`allies`): US–ROK and US–ROC alliances at founding.
+  - Vietnam reunification 1975 is in `settlements.json` (DRV annexes the south); 1976 renames it the SRV.
+  - Skipped: KOR-1945 occupation, CIS, the USSR dissolve record, PRC (duplicate of CG-41), Geneva 1954 (covered by the 1945 split), Tajikistan and Estonia (no matching region).
+- **Seed 1 to 1995:**
+  - Poland, Hungary, Czechoslovakia, Romania and Yugoslavia go communist, then democratic in 1989–90.
+  - Korea divided 1948; Vietnam DRV 1945, RVN 1955, SRV 1976.
+  - The USSR splits into Ukraine, Georgia, Uzbekistan, Kazakhstan, Lithuania… and the Russian Federation.
+  - Croatia separates in 1991; Czechia and Slovakia in 1993.
+- **Known issues:**
+  - The PRC conquers Taiwan between 1977 and 1995 despite the US alliance (to investigate).
+  - Pre-1914 territorial history is missing: France never colonises Indochina, Japan never annexes Korea, and the Balkans stay Ottoman (Bosnia becomes independent from Turkey in 1992). This needs a CG research task on territorial changes 1836–1914.
+- Tests: `tests/postwar-regimes.test.ts` (3). Local: `npm test` **47/47 files, 431/431**.
+
+---
+
 ## 2026-11-23 — WW-01c unifications and peace settlements (Historical Mode)
 
 - **Finding:** in Historical runs, Germany never unified. Bavaria and Saxony were still independent in 1946, and the 1871 event only renamed Prussia. Italy was incomplete (Venice Austrian, the Two Sicilies holding Rome, two "Italies"), and Austria-Hungary never formed or dissolved. Germany stayed the Nazi state after 1945, and Syria stayed Egyptian.
