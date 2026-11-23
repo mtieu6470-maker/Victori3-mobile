@@ -1,0 +1,2670 @@
+{
+  "schemaVersion": "1.0.0",
+  "dataset": "CG40_WORLD_WARS",
+  "researchDate": "2026-11-23",
+  "status": "research_staging",
+  "scope": "Historical Mode data for World War I, World War II, postwar treaties, League of Nations and country-level fatality estimates. This is research data, not yet an engine import contract.",
+  "datePolicy": {
+    "ww1": {
+      "start": "1914-07-28",
+      "end": "1918-11-11",
+      "endMeaning": "Western Front armistice; Central Powers ceased fighting on separate dates. Treaty of Versailles was signed 1919-06-28 and is not the war end date."
+    },
+    "ww2": {
+      "start": "1939-09-01",
+      "endEurope": "1945-05-08",
+      "endGlobal": "1945-09-02",
+      "endMeaning": "Germany's surrender took effect 8 May 1945 (9 May in Moscow); Japan signed the Instrument of Surrender 2 September 1945. China-Japan war began 1937-07-07 and is represented as a prelude theatre."
+    }
+  },
+  "wars": [
+    {
+      "id": "WW1",
+      "name": "World War I / Great War",
+      "start": "1914-07-28",
+      "end": "1918-11-11",
+      "startEvent": "Austria-Hungary declared war on Serbia, following the July Crisis.",
+      "endEvent": "Compiègne Armistice signed 1918-11-11; fighting ceased at 11:00 CET on the Western Front. Separate armistices: Bulgaria 1918-09-29; Ottoman Empire 1918-10-30; Austria-Hungary 1918-11-03. Treaty of Brest-Litovsk removed Soviet Russia from the war on 1918-03-03.",
+      "theatres": [
+        {
+          "id": "europe",
+          "name": "European theatre"
+        },
+        {
+          "id": "middle_east",
+          "name": "Middle Eastern theatre"
+        },
+        {
+          "id": "africa",
+          "name": "African campaigns"
+        },
+        {
+          "id": "asia_pacific",
+          "name": "Asia-Pacific theatre"
+        }
+      ],
+      "sides": [
+        {
+          "id": "allies",
+          "name": "Allied and Associated Powers",
+          "members": [
+            {
+              "id": "SER",
+              "name": "Kingdom of Serbia",
+              "capital": "Belgrade",
+              "entry": "1914-07-28",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "principal_combatant",
+              "confidence": "high"
+            },
+            {
+              "id": "RUS",
+              "name": "Russian Empire",
+              "capital": "Saint Petersburg (Petrograd from 1914)",
+              "entry": "1914-08-01",
+              "exit": "1918-03-03",
+              "exitType": "separate_peace_treaty",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "note": "Bolshevik government signed Brest-Litovsk; do not use 1917 revolution date as the legal end of the war."
+            },
+            {
+              "id": "BEL",
+              "name": "Belgium",
+              "capital": "Brussels",
+              "entry": "1914-08-04",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "principal_combatant",
+              "confidence": "high"
+            },
+            {
+              "id": "FRA",
+              "name": "French Republic",
+              "capital": "Paris",
+              "entry": "1914-08-03",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "principal_combatant",
+              "confidence": "high"
+            },
+            {
+              "id": "GBR",
+              "name": "United Kingdom / British Empire",
+              "capital": "London",
+              "entry": "1914-08-04",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "note": "Colonial and Dominion forces are included in imperial casualty sources; do not double count them as separate sovereign belligerents."
+            },
+            {
+              "id": "MNG",
+              "name": "Kingdom of Montenegro",
+              "capital": "Cetinje",
+              "entry": "1914-08-05",
+              "exit": "1916-01-25",
+              "exitType": "capitulation/occupation",
+              "status": "principal_combatant",
+              "confidence": "medium",
+              "note": "Montenegro capitulated in January 1916; government-in-exile and later military formations complicate a single exit date."
+            },
+            {
+              "id": "JAP",
+              "name": "Empire of Japan",
+              "capital": "Tokyo",
+              "entry": "1914-08-23",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "belligerent",
+              "confidence": "high"
+            },
+            {
+              "id": "ITA",
+              "name": "Kingdom of Italy",
+              "capital": "Rome",
+              "entry": "1915-05-23",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "principal_combatant",
+              "confidence": "high"
+            },
+            {
+              "id": "POR",
+              "name": "Portuguese Republic",
+              "capital": "Lisbon",
+              "entry": "1916-03-09",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "belligerent",
+              "confidence": "high",
+              "note": "Formal German declaration followed Portuguese seizure of German ships; Portuguese forces had been deployed earlier."
+            },
+            {
+              "id": "ROM",
+              "name": "Kingdom of Romania",
+              "capital": "Bucharest",
+              "entry": "1916-08-27",
+              "exit": "1918-05-07",
+              "exitType": "separate_peace_treaty",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "note": "Treaty of Bucharest 1918; Romania re-entered the war on 1918-11-10, one day before the general armistice.",
+              "sideChanges": [
+                {
+                  "date": "1918-11-10",
+                  "toSide": "allies",
+                  "name": "Romania re-entered the war shortly before the general armistice."
+                }
+              ]
+            },
+            {
+              "id": "GRE",
+              "name": "Kingdom of Greece",
+              "capital": "Athens",
+              "entry": "1917-06-27",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "belligerent",
+              "confidence": "medium",
+              "note": "National Schism: pro-Allied government declared war; exact legal entry date is given as 27 June 1917 in standard chronologies."
+            },
+            {
+              "id": "USA",
+              "name": "United States of America",
+              "capital": "Washington, D.C.",
+              "entry": "1917-04-06",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "associated_power",
+              "confidence": "high",
+              "note": "Congress declared war on Germany 6 April 1917; declaration against Austria-Hungary followed 7 December 1917."
+            },
+            {
+              "id": "CHN",
+              "name": "Republic of China",
+              "capital": "Beijing",
+              "entry": "1917-08-14",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "belligerent",
+              "confidence": "high",
+              "note": "Declared war on Germany and Austria-Hungary; Chinese Labour Corps service predates the declaration."
+            },
+            {
+              "id": "SIA",
+              "name": "Kingdom of Siam",
+              "capital": "Bangkok",
+              "entry": "1917-07-22",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "belligerent",
+              "confidence": "high",
+              "note": "CoW historical code SIA; modern ISO3 is THA."
+            },
+            {
+              "id": "BRA",
+              "name": "United States of Brazil",
+              "capital": "Rio de Janeiro",
+              "entry": "1917-10-26",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "belligerent",
+              "confidence": "high"
+            },
+            {
+              "id": "LIB",
+              "name": "Republic of Liberia",
+              "capital": "Monrovia",
+              "entry": "1917-08-04",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "belligerent",
+              "confidence": "medium",
+              "note": "Declared war on Germany; limited direct combat participation."
+            },
+            {
+              "id": "CUB",
+              "name": "Republic of Cuba",
+              "capital": "Havana",
+              "entry": "1917-04-07",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "belligerent",
+              "confidence": "high"
+            },
+            {
+              "id": "PAN",
+              "name": "Republic of Panama",
+              "capital": "Panama City",
+              "entry": "1917-04-07",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "belligerent",
+              "confidence": "high"
+            },
+            {
+              "id": "GUA",
+              "name": "Guatemala",
+              "capital": "Guatemala City",
+              "entry": "1918-04-23",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "belligerent",
+              "confidence": "medium"
+            },
+            {
+              "id": "NIC",
+              "name": "Nicaragua",
+              "capital": "Managua",
+              "entry": "1918-05-08",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "belligerent",
+              "confidence": "medium"
+            },
+            {
+              "id": "CRC",
+              "name": "Costa Rica",
+              "capital": "San José",
+              "entry": "1918-05-23",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "belligerent",
+              "confidence": "medium"
+            },
+            {
+              "id": "HAI",
+              "name": "Haiti",
+              "capital": "Port-au-Prince",
+              "entry": "1918-07-12",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "belligerent",
+              "confidence": "medium"
+            },
+            {
+              "id": "HON",
+              "name": "Honduras",
+              "capital": "Tegucigalpa",
+              "entry": "1918-07-19",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "belligerent",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "id": "central_powers",
+          "name": "Central Powers",
+          "members": [
+            {
+              "id": "GMY",
+              "name": "German Empire",
+              "capital": "Berlin",
+              "entry": "1914-08-01",
+              "exit": "1918-11-11",
+              "exitType": "armistice/general_armistice",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "note": "CoW historical code GMY."
+            },
+            {
+              "id": "AUH",
+              "name": "Austria-Hungary",
+              "capital": "Vienna",
+              "entry": "1914-07-28",
+              "exit": "1918-11-03",
+              "exitType": "armistice",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "note": "Villa Giusti Armistice; the Habsburg monarchy dissolved in November 1918."
+            },
+            {
+              "id": "TUR",
+              "name": "Ottoman Empire",
+              "capital": "Constantinople (Istanbul)",
+              "entry": "1914-10-29",
+              "exit": "1918-10-30",
+              "exitType": "armistice",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "note": "Armistice of Mudros; Ottoman state did not sign the final 1919 Treaty of Sèvres until the later postwar settlement."
+            },
+            {
+              "id": "BUL",
+              "name": "Kingdom of Bulgaria",
+              "capital": "Sofia",
+              "entry": "1915-10-14",
+              "exit": "1918-09-29",
+              "exitType": "armistice",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "note": "Armistice of Salonica."
+            }
+          ]
+        }
+      ],
+      "peaceSettlement": [
+        "Brest-Litovsk 1918",
+        "Versailles 1919",
+        "Saint-Germain-en-Laye 1919",
+        "Neuilly-sur-Seine 1919",
+        "Trianon 1920",
+        "Sèvres 1920 (not implemented; superseded by Lausanne 1923)",
+        "Lausanne 1923"
+      ],
+      "sources": [
+        "wwi_ushmm",
+        "wwi_us_entry",
+        "wwi_statcan_entry",
+        "wwi_brest_primary",
+        "wwi_casualties_census",
+        "wwi_casualties_ayres"
+      ]
+    },
+    {
+      "id": "WW2",
+      "name": "World War II",
+      "start": "1939-09-01",
+      "end": "1945-09-02",
+      "endEurope": "1945-05-08",
+      "startEvent": "Germany invaded Poland on 1939-09-01; United Kingdom and France declared war on Germany on 1939-09-03.",
+      "endEvent": "German surrender signed at Reims 1945-05-07 and Berlin 1945-05-08; effective 1945-05-08 23:01 CET. Japan formally signed surrender on 1945-09-02.",
+      "prelude": [
+        {
+          "id": "SINO_JAPANESE_WAR",
+          "start": "1937-07-07",
+          "end": "1945-09-02",
+          "note": "Second Sino-Japanese War is treated as a major prelude/theatre of the wider conflict; the conventional global-war start remains 1939-09-01."
+        }
+      ],
+      "sides": [
+        {
+          "id": "allies",
+          "name": "Allied Powers",
+          "members": [
+            {
+              "id": "POL",
+              "name": "Second Polish Republic",
+              "capital": "Warsaw",
+              "entry": "1939-09-01",
+              "exit": "1945-09-02",
+              "exitType": "government_in_exile/continued_belligerency",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "note": "The Polish state was occupied; government-in-exile and armed forces continued with the Allies through the end of the global war."
+            },
+            {
+              "id": "GBR",
+              "name": "United Kingdom and British Empire",
+              "capital": "London",
+              "entry": "1939-09-03",
+              "exit": "1945-09-02",
+              "exitType": "victory/war_ended",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "note": "Dominions and India had distinct constitutional declarations/status; do not collapse all imperial forces into one population record."
+            },
+            {
+              "id": "FRA",
+              "name": "French Republic / Free France",
+              "capital": "Paris (Vichy government at Vichy after 1940; Free French provisional capital Algiers then Paris)",
+              "entry": "1939-09-03",
+              "exit": "1940-06-22",
+              "exitType": "armistice",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "note": "Armistice of 22 June 1940 ended the Third Republic's active campaign; Free France continued fighting. Treat Vichy and Free France as distinct political authorities, not as a clean French exit from the Allied war.",
+              "sideChanges": [
+                {
+                  "date": "1940-06-18",
+                  "toSide": "allies",
+                  "name": "Free France under Charles de Gaulle continued the war after the armistice; represent Vichy and Free France as separate authorities where supported."
+                }
+              ]
+            },
+            {
+              "id": "AUS",
+              "name": "Commonwealth of Australia",
+              "capital": "Canberra",
+              "entry": "1939-09-03",
+              "exit": "1945-09-02",
+              "exitType": "victory/war_ended",
+              "status": "principal_combatant",
+              "confidence": "high"
+            },
+            {
+              "id": "NZL",
+              "name": "New Zealand",
+              "capital": "Wellington",
+              "entry": "1939-09-03",
+              "exit": "1945-09-02",
+              "exitType": "victory/war_ended",
+              "status": "belligerent",
+              "confidence": "high"
+            },
+            {
+              "id": "NPL",
+              "name": "Nepal",
+              "capital": "Kathmandu",
+              "entry": "1939-09-04",
+              "exit": "1945-09-02",
+              "exitType": "victory/war_ended",
+              "status": "belligerent",
+              "confidence": "medium",
+              "note": "Nepal declared war on Germany in September 1939; not an independent UN-style declaration chronology."
+            },
+            {
+              "id": "NLD",
+              "name": "Kingdom of the Netherlands",
+              "capital": "Amsterdam (government-in-exile in London)",
+              "entry": "1940-05-10",
+              "exit": "1945-09-02",
+              "exitType": "victory/war_ended",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "note": "Germany invaded the Netherlands on 10 May 1940; the government continued from London."
+            },
+            {
+              "id": "CAN",
+              "name": "Canada",
+              "capital": "Ottawa",
+              "entry": "1939-09-10",
+              "exit": "1945-09-02",
+              "exitType": "victory/war_ended",
+              "status": "principal_combatant",
+              "confidence": "high"
+            },
+            {
+              "id": "ZAF",
+              "name": "Union of South Africa",
+              "capital": "Pretoria (executive); Cape Town (legislative)",
+              "entry": "1939-09-06",
+              "exit": "1945-09-02",
+              "exitType": "victory/war_ended",
+              "status": "belligerent",
+              "confidence": "high"
+            },
+            {
+              "id": "BEL",
+              "name": "Kingdom of Belgium",
+              "capital": "Brussels",
+              "entry": "1940-05-10",
+              "exit": "1940-05-28",
+              "exitType": "capitulation",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "note": "Germany invaded Belgium on 10 May 1940; the Belgian Army capitulated on 28 May, while the government and forces in exile continued Allied participation."
+            },
+            {
+              "id": "NOR",
+              "name": "Kingdom of Norway",
+              "capital": "Oslo",
+              "entry": "1940-04-09",
+              "exit": "1940-06-10",
+              "exitType": "capitulation/metropolitan_campaign_end",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "note": "Norwegian forces in exile and merchant fleet continued for the Allies."
+            },
+            {
+              "id": "GRE",
+              "name": "Kingdom of Greece",
+              "capital": "Athens",
+              "entry": "1940-10-28",
+              "exit": "1941-04-23",
+              "exitType": "capitulation/metropolitan_campaign_end",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "note": "Greek government and forces continued in exile after mainland surrender."
+            },
+            {
+              "id": "YUG",
+              "name": "Kingdom of Yugoslavia",
+              "capital": "Belgrade",
+              "entry": "1941-04-06",
+              "exit": "1941-04-17",
+              "exitType": "capitulation",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "note": "Royal government and resistance continued; partisan-led Yugoslavia became a major Allied belligerent."
+            },
+            {
+              "id": "CHN",
+              "name": "Republic of China",
+              "capital": "Nanjing (wartime government at Chongqing)",
+              "entry": "1937-07-07",
+              "exit": "1945-09-02",
+              "exitType": "victory/war_ended",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "note": "War with Japan began in 1937; China is the key pre-1939 theatre exception."
+            },
+            {
+              "id": "USSR",
+              "name": "Union of Soviet Socialist Republics",
+              "capital": "Moscow",
+              "entry": "1941-06-22",
+              "exit": "1945-09-02",
+              "exitType": "victory/war_ended",
+              "status": "principal_combatant",
+              "confidence": "high"
+            },
+            {
+              "id": "USA",
+              "name": "United States of America",
+              "capital": "Washington, D.C.",
+              "entry": "1941-12-08",
+              "exit": "1945-09-02",
+              "exitType": "victory/war_ended",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "note": "Declared war on Japan 8 Dec 1941; Germany and Italy declared war on the USA on 11 Dec 1941."
+            },
+            {
+              "id": "BRA",
+              "name": "United States of Brazil",
+              "capital": "Rio de Janeiro",
+              "entry": "1942-08-22",
+              "exit": "1945-09-02",
+              "exitType": "victory/war_ended",
+              "status": "belligerent",
+              "confidence": "high"
+            },
+            {
+              "id": "MEX",
+              "name": "United Mexican States",
+              "capital": "Mexico City",
+              "entry": "1942-05-22",
+              "exit": "1945-09-02",
+              "exitType": "victory/war_ended",
+              "status": "belligerent",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "axis",
+          "name": "Axis Powers and co-belligerents",
+          "members": [
+            {
+              "id": "GMY",
+              "name": "German Reich",
+              "capital": "Berlin",
+              "entry": "1939-09-01",
+              "exit": "1945-05-08",
+              "exitType": "unconditional_surrender",
+              "status": "principal_combatant",
+              "confidence": "high"
+            },
+            {
+              "id": "ITA",
+              "name": "Kingdom of Italy (Fascist regime)",
+              "capital": "Rome",
+              "entry": "1940-06-10",
+              "exit": "1943-09-08",
+              "exitType": "armistice",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "sideChanges": [
+                {
+                  "date": "1943-10-13",
+                  "toSide": "allies",
+                  "name": "Kingdom of Italy declared war on Germany; co-belligerent with the Allies."
+                }
+              ],
+              "note": "Italian Social Republic in the north remained aligned with Germany; model post-armistice Italy as split authorities if the engine supports it."
+            },
+            {
+              "id": "JAP",
+              "name": "Empire of Japan",
+              "capital": "Tokyo",
+              "entry": "1937-07-07",
+              "exit": "1945-09-02",
+              "exitType": "unconditional_surrender",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "note": "Second Sino-Japanese War began in 1937; formal global-war chronology begins 1939."
+            },
+            {
+              "id": "HUN",
+              "name": "Kingdom of Hungary",
+              "capital": "Budapest",
+              "entry": "1941-06-27",
+              "exit": "1945-01-20",
+              "exitType": "armistice",
+              "status": "principal_combatant",
+              "confidence": "medium",
+              "note": "Armistice signed 20 Jan 1945 by the provisional government; German occupation and Arrow Cross regime continued fighting."
+            },
+            {
+              "id": "ROM",
+              "name": "Kingdom of Romania",
+              "capital": "Bucharest",
+              "entry": "1941-06-22",
+              "exit": "1944-08-23",
+              "exitType": "side_switch/coup_and_armistice",
+              "status": "principal_combatant",
+              "confidence": "high",
+              "sideChanges": [
+                {
+                  "date": "1944-08-23",
+                  "toSide": "allies",
+                  "name": "King Michael's coup; Romania ceased fighting the USSR and turned against Germany. Armistice signed 12 Sep 1944."
+                }
+              ]
+            },
+            {
+              "id": "BUL",
+              "name": "Kingdom of Bulgaria",
+              "capital": "Sofia",
+              "entry": "1941-03-01",
+              "exit": "1944-09-08",
+              "exitType": "side_switch/armistice",
+              "status": "axis_aligned",
+              "confidence": "high",
+              "sideChanges": [
+                {
+                  "date": "1944-09-08",
+                  "toSide": "allies",
+                  "name": "Bulgaria declared war on Germany after Soviet forces entered; armistice with Allies signed 28 Oct 1944."
+                }
+              ],
+              "note": "Bulgaria joined the Axis Tripartite Pact 1 Mar 1941, declared war on Britain and the USA in Dec 1941, but did not declare war on the USSR before the Soviet invasion in Sep 1944."
+            },
+            {
+              "id": "SVK",
+              "name": "Slovak Republic (1939–1945)",
+              "capital": "Bratislava",
+              "entry": "1939-09-01",
+              "exit": "1945-04-04",
+              "exitType": "capitulation/regime_collapse",
+              "status": "axis_satellite",
+              "confidence": "medium",
+              "note": "The Slovak Republic participated in the invasion of Poland as a German satellite; formal Axis alignment followed later."
+            },
+            {
+              "id": "FIN",
+              "name": "Republic of Finland (co-belligerent)",
+              "capital": "Helsinki",
+              "entry": "1941-06-25",
+              "exit": "1944-09-19",
+              "exitType": "armistice",
+              "status": "co_belligerent_not_formal_axis_member",
+              "confidence": "high",
+              "note": "Finland fought the USSR alongside Germany but was not a signatory to the Tripartite Pact; Moscow Armistice 19 Sep 1944; Lapland War against Germany began 15 Sep 1944."
+            },
+            {
+              "id": "THA",
+              "name": "Kingdom of Thailand",
+              "capital": "Bangkok",
+              "entry": "1942-01-25",
+              "exit": "1945-08-16",
+              "exitType": "declaration_voided/armistice_political_settlement",
+              "status": "axis_aligned",
+              "confidence": "medium",
+              "note": "Declared war on Britain and the USA; the Thai ambassador in Washington did not deliver the declaration to the US government, and the Free Thai movement resisted Japanese control."
+            },
+            {
+              "id": "HRV",
+              "name": "Independent State of Croatia",
+              "capital": "Zagreb",
+              "entry": "1941-06-15",
+              "exit": "1945-05-08",
+              "exitType": "regime_collapse",
+              "status": "axis_satellite",
+              "confidence": "medium"
+            },
+            {
+              "id": "ALB",
+              "name": "Albania (under Italian then German occupation)",
+              "capital": "Tirana",
+              "entry": "1941-12-17",
+              "exit": "1944-11-29",
+              "exitType": "liberation/regime_collapse",
+              "status": "axis_occupied_or_aligned",
+              "confidence": "medium",
+              "note": "Not a fully sovereign Axis partner throughout; the status field prevents treating occupation as a normal sovereign declaration."
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ww2_ushmm_timeline",
+        "ww2_ushmm_axis",
+        "ww2_ushmm_depth",
+        "ww2_german_surrender_archives",
+        "ww2_japan_surrender_ushmm"
+      ]
+    }
+  ],
+  "treaties": [
+    {
+      "id": "BREST_LITOVSK_1918",
+      "name": "Treaty of Brest-Litovsk",
+      "date": "1918-03-03",
+      "parties": [
+        "Russian SFSR",
+        "Central Powers"
+      ],
+      "status": "signed_and_in_force_until_1918-11-11",
+      "territorialChanges": [
+        {
+          "from": "Russian Empire / Soviet Russia",
+          "to": "German and Austro-Hungarian spheres; subsequent outcomes altered after the 1918 defeat",
+          "regions": [
+            "Congress Poland",
+            "Lithuania",
+            "Courland",
+            "Livonia",
+            "Estonia",
+            "parts of Belarus west of the agreed line"
+          ],
+          "certainty": "medium",
+          "note": "Article III renounced Russian sovereignty west of a line defined by the treaty map; exact control and successor state outcomes must be modelled by dated follow-up events, not as a permanent single transfer."
+        },
+        {
+          "from": "Russian SFSR",
+          "to": "Ukrainian People's Republic (recognition in separate Central Powers treaty of 1918-02-09)",
+          "regions": [
+            "Ukraine"
+          ],
+          "certainty": "medium",
+          "note": "Ukraine was not simply ceded under the 3 March treaty; separate treaty and occupation dynamics matter."
+        }
+      ],
+      "sources": [
+        "wwi_brest_primary"
+      ]
+    },
+    {
+      "id": "VERSAILLES_1919",
+      "name": "Treaty of Versailles",
+      "date": "1919-06-28",
+      "parties": [
+        "Allied and Associated Powers",
+        "Germany"
+      ],
+      "territorialChanges": [
+        {
+          "from": "Germany",
+          "to": "France",
+          "regions": [
+            "Alsace",
+            "Moselle",
+            "Lorraine"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Germany",
+          "to": "Belgium",
+          "regions": [
+            "Eupen",
+            "Malmedy",
+            "Neutral Moresnet"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Germany",
+          "to": "Poland",
+          "regions": [
+            "Posen / Poznań",
+            "most of West Prussia",
+            "parts of Upper Silesia after plebiscite"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Germany",
+          "to": "Czechoslovakia",
+          "regions": [
+            "Hultschin / Hlučín"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Germany",
+          "to": "Denmark",
+          "regions": [
+            "Northern Schleswig (after 1920 plebiscite)"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Germany",
+          "to": "Free City of Danzig / League administration",
+          "regions": [
+            "Danzig / Gdańsk"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Germany",
+          "to": "League of Nations mandate administrations",
+          "regions": [
+            "Saar Basin (15-year League administration, plebiscite later)",
+            "German colonies in Africa and the Pacific"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Germany",
+          "to": "Allied control then Lithuania",
+          "regions": [
+            "Memel Territory / Klaipėda (1923 Lithuanian seizure; later international recognition)"
+          ],
+          "certainty": "medium"
+        }
+      ],
+      "sources": [
+        "versailles_ushmm",
+        "versailles_ghdi",
+        "versailles_frus"
+      ]
+    },
+    {
+      "id": "SAINT_GERMAIN_1919",
+      "name": "Treaty of Saint-Germain-en-Laye",
+      "date": "1919-09-10",
+      "parties": [
+        "Allied and Associated Powers",
+        "Austria"
+      ],
+      "territorialChanges": [
+        {
+          "from": "Austria",
+          "to": "Italy",
+          "regions": [
+            "South Tyrol / Alto Adige",
+            "Trentino",
+            "Trieste",
+            "Istria",
+            "parts of Carinthia's Canal Valley"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Austria-Hungary",
+          "to": "Czechoslovakia",
+          "regions": [
+            "Bohemia",
+            "Moravia",
+            "Austrian Silesia (mostly)"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Austria-Hungary",
+          "to": "Kingdom of Serbs, Croats and Slovenes",
+          "regions": [
+            "Carniola",
+            "southern Styria (parts)",
+            "Dalmatia (previously Austrian)"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Austria-Hungary",
+          "to": "Romania",
+          "regions": [
+            "Bukovina"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Austria-Hungary",
+          "to": "Poland",
+          "regions": [
+            "eastern Galicia (later confirmed by international decisions)"
+          ],
+          "certainty": "medium"
+        },
+        {
+          "from": "Austria",
+          "to": "Austria (retained)",
+          "regions": [
+            "Burgenland (except Sopron area later awarded to Hungary)"
+          ],
+          "certainty": "medium"
+        }
+      ],
+      "sources": [
+        "saint_germain_treaty_primary",
+        "paris_conference_archives"
+      ]
+    },
+    {
+      "id": "NEUILLY_1919",
+      "name": "Treaty of Neuilly-sur-Seine",
+      "date": "1919-11-27",
+      "parties": [
+        "Allied and Associated Powers",
+        "Bulgaria"
+      ],
+      "territorialChanges": [
+        {
+          "from": "Bulgaria",
+          "to": "Kingdom of Serbs, Croats and Slovenes",
+          "regions": [
+            "Strumica area",
+            "western border districts"
+          ],
+          "certainty": "medium"
+        },
+        {
+          "from": "Bulgaria",
+          "to": "Greece",
+          "regions": [
+            "Western Thrace (ceded to the Allied Powers; transferred to Greece in 1920)"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Bulgaria",
+          "to": "Romania",
+          "regions": [
+            "No major new transfer under Neuilly; Southern Dobruja had already been ceded in 1913"
+          ],
+          "certainty": "high",
+          "note": "Do not attribute Southern Dobruja's transfer to this treaty."
+        }
+      ],
+      "sources": [
+        "neuilly_treaty_primary",
+        "paris_conference_archives"
+      ]
+    },
+    {
+      "id": "TRIANON_1920",
+      "name": "Treaty of Trianon",
+      "date": "1920-06-04",
+      "parties": [
+        "Allied Powers",
+        "Hungary"
+      ],
+      "territorialChanges": [
+        {
+          "from": "Hungary",
+          "to": "Czechoslovakia",
+          "regions": [
+            "Slovakia",
+            "Carpathian Ruthenia"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Hungary",
+          "to": "Romania",
+          "regions": [
+            "Transylvania",
+            "Partium",
+            "eastern Banat"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Hungary",
+          "to": "Kingdom of Serbs, Croats and Slovenes",
+          "regions": [
+            "Croatia-Slavonia",
+            "Bačka",
+            "western Banat",
+            "Prekmurje"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Hungary",
+          "to": "Austria",
+          "regions": [
+            "Burgenland (Sopron remained Hungarian after 1921 plebiscite)"
+          ],
+          "certainty": "high"
+        }
+      ],
+      "sources": [
+        "trianon_treaty_primary",
+        "paris_conference_archives"
+      ]
+    },
+    {
+      "id": "SEVRES_1920",
+      "name": "Treaty of Sèvres",
+      "date": "1920-08-10",
+      "parties": [
+        "Allied Powers",
+        "Ottoman Empire"
+      ],
+      "status": "signed_but_never_ratified_or_implemented_as_written",
+      "territorialChanges": [
+        {
+          "from": "Ottoman Empire",
+          "to": "Greece (proposed; sovereignty subject to later process)",
+          "regions": [
+            "Eastern Thrace",
+            "Smyrna/İzmir zone (Greek administration pending plebiscite)"
+          ],
+          "certainty": "high",
+          "note": "Do not apply as a durable transfer; Turkish National Movement rejected the treaty."
+        },
+        {
+          "from": "Ottoman Empire",
+          "to": "United Kingdom mandate",
+          "regions": [
+            "Iraq",
+            "Palestine",
+            "Transjordan"
+          ],
+          "certainty": "high",
+          "note": "Mandate arrangements were implemented through later League mandates, not simply by the unratified Sèvres text."
+        },
+        {
+          "from": "Ottoman Empire",
+          "to": "French mandate",
+          "regions": [
+            "Syria",
+            "Lebanon"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Ottoman Empire",
+          "to": "Italy / Allied influence",
+          "regions": [
+            "Dodecanese (Italian control already established; confirmed in subsequent settlement)"
+          ],
+          "certainty": "medium"
+        },
+        {
+          "from": "Ottoman Empire",
+          "to": "proposed Armenia / proposed Kurdish autonomy",
+          "regions": [
+            "Eastern Anatolia / Armenian frontier",
+            "Kurdish-majority districts"
+          ],
+          "certainty": "low",
+          "note": "Treaty provisions and proposed boundaries were never implemented; mark as unimplemented claims, not actual transfers."
+        }
+      ],
+      "sources": [
+        "sevres_treaty_primary",
+        "paris_conference_archives"
+      ]
+    },
+    {
+      "id": "LAUSANNE_1923",
+      "name": "Treaty of Lausanne",
+      "date": "1923-07-24",
+      "parties": [
+        "Turkey",
+        "United Kingdom",
+        "France",
+        "Italy",
+        "Japan",
+        "Greece",
+        "Romania",
+        "Kingdom of Serbs, Croats and Slovenes"
+      ],
+      "territorialChanges": [
+        {
+          "from": "Ottoman Empire / unratified Sèvres settlement",
+          "to": "Republic of Turkey",
+          "regions": [
+            "Anatolia",
+            "Eastern Thrace",
+            "Constantinople/Istanbul"
+          ],
+          "certainty": "high",
+          "note": "Recognized modern Turkish sovereignty within defined borders; superseded Sèvres."
+        },
+        {
+          "from": "Turkey",
+          "to": "Italy",
+          "regions": [
+            "Dodecanese Islands including Rhodes and Kos"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Turkey",
+          "to": "United Kingdom / British Cyprus administration",
+          "regions": [
+            "Cyprus (Turkey recognized British annexation effective 1914-11-05)"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Turkey",
+          "to": "Iraq / League process",
+          "regions": [
+            "Mosul Vilayet"
+          ],
+          "certainty": "medium",
+          "note": "Lausanne left the Turkey-Iraq frontier to negotiation; League Council decision in 1925/26 awarded Mosul to Iraq under British mandate."
+        },
+        {
+          "from": "Greece",
+          "to": "Turkey",
+          "regions": [
+            "Karaağaç / Karagatch (near Edirne)"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Greece",
+          "to": "Turkey",
+          "regions": [
+            "Imbros / Gökçeada",
+            "Tenedos / Bozcaada"
+          ],
+          "certainty": "high"
+        }
+      ],
+      "sources": [
+        "lausanne_turkey_mfa",
+        "lausanne_treaty_primary"
+      ]
+    },
+    {
+      "id": "YALTA_1945",
+      "name": "Yalta Conference agreements",
+      "date": "1945-02-04/1945-02-11",
+      "parties": [
+        "USSR",
+        "United States",
+        "United Kingdom"
+      ],
+      "status": "conference_protocol_not_comprehensive_peace_treaty",
+      "territorialChanges": [
+        {
+          "from": "Poland",
+          "to": "USSR",
+          "regions": [
+            "Eastern Polish territories east of the Curzon Line (largely incorporated into Ukrainian SSR and Byelorussian SSR)"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Germany",
+          "to": "Poland (provisional western administration agreed at Potsdam)",
+          "regions": [
+            "No final Oder-Neisse cession at Yalta; western Polish frontier left for later determination"
+          ],
+          "certainty": "high",
+          "note": "Do not encode final postwar German territorial transfer as completed by Yalta."
+        },
+        {
+          "from": "Japan",
+          "to": "USSR (promised after war against Japan)",
+          "regions": [
+            "Southern Sakhalin",
+            "Kuril Islands"
+          ],
+          "certainty": "medium",
+          "note": "Yalta secret agreement promised Soviet entry into war against Japan in return for territorial concessions; actual occupation/renunciation was settled in later instruments."
+        }
+      ],
+      "sources": [
+        "yalta_protocol_frus"
+      ]
+    },
+    {
+      "id": "POTSDAM_1945",
+      "name": "Potsdam Protocol",
+      "date": "1945-07-17/1945-08-02",
+      "parties": [
+        "USSR",
+        "United States",
+        "United Kingdom"
+      ],
+      "status": "occupation_and_administration_agreement_pending_final_peace_settlement",
+      "territorialChanges": [
+        {
+          "from": "Germany",
+          "to": "Poland (under provisional administration pending final peace settlement)",
+          "regions": [
+            "former German territories east of the Oder-Neisse line, including most of Silesia",
+            "southern East Prussia",
+            "former Free City of Danzig",
+            "eastern Pomerania"
+          ],
+          "certainty": "high",
+          "note": "Potsdam placed territories under Polish administration; the protocol did not itself constitute a final peace treaty ceding all territory."
+        },
+        {
+          "from": "Germany",
+          "to": "USSR",
+          "regions": [
+            "northern East Prussia including Königsberg (later Kaliningrad)"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Germany",
+          "to": "France, United Kingdom, United States, USSR",
+          "regions": [
+            "four occupation zones"
+          ],
+          "certainty": "high",
+          "note": "Occupation zones are not sovereign cessions."
+        }
+      ],
+      "sources": [
+        "potsdam_frus_territory",
+        "potsdam_protocol_primary"
+      ]
+    },
+    {
+      "id": "PARIS_PEACE_1947",
+      "name": "Paris Peace Treaties",
+      "date": "1947-02-10",
+      "parties": [
+        "Allied and Associated Powers",
+        "Italy",
+        "Romania",
+        "Hungary",
+        "Bulgaria",
+        "Finland"
+      ],
+      "territorialChanges": [
+        {
+          "from": "Italy",
+          "to": "Yugoslavia",
+          "regions": [
+            "most of Istria",
+            "Fiume/Rijeka",
+            "Zara/Zadar",
+            "Dalmatian islands and adjacent territories specified in treaty"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Italy",
+          "to": "Free Territory of Trieste",
+          "regions": [
+            "Trieste and surrounding territory (Free Territory; de facto partition followed later)"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Italy",
+          "to": "Greece",
+          "regions": [
+            "Dodecanese Islands including Rhodes and Kos"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Italy",
+          "to": "France",
+          "regions": [
+            "Tende",
+            "La Brigue",
+            "small Alpine border adjustments"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Finland",
+          "to": "USSR",
+          "regions": [
+            "Petsamo/Pechenga",
+            "Karelian territories retained from 1940 settlement"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Romania",
+          "to": "USSR",
+          "regions": [
+            "Bessarabia",
+            "Northern Bukovina"
+          ],
+          "certainty": "high",
+          "note": "Confirmed the 1940 Soviet annexations; not a new 1947 transfer in the ordinary sense."
+        },
+        {
+          "from": "Hungary",
+          "to": "Czechoslovakia",
+          "regions": [
+            "three villages south of Bratislava"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Bulgaria",
+          "to": "Bulgaria (retained)",
+          "regions": [
+            "Southern Dobruja"
+          ],
+          "certainty": "high",
+          "note": "Treaty restored Bulgaria's 1 January 1941 borders; Southern Dobruja remained Bulgarian."
+        }
+      ],
+      "sources": [
+        "paris_peace_treaties_1947_primary",
+        "paris_conference_archives"
+      ]
+    },
+    {
+      "id": "SAN_FRANCISCO_1951",
+      "name": "Treaty of Peace with Japan (San Francisco)",
+      "date": "1951-09-08",
+      "parties": [
+        "Japan",
+        "Allied Powers signatories"
+      ],
+      "status": "in_force_1952-04-28",
+      "territorialChanges": [
+        {
+          "from": "Japan",
+          "to": "renounced; recipient not specified by treaty",
+          "regions": [
+            "Korea (including Jeju/Quelpart, Port Hamilton, Dagelet)"
+          ],
+          "certainty": "high",
+          "note": "Article 2(a) recognizes Korean independence and Japan's renunciation; it does not name a receiving sovereign."
+        },
+        {
+          "from": "Japan",
+          "to": "renounced; recipient not specified by treaty",
+          "regions": [
+            "Formosa/Taiwan",
+            "Pescadores/Penghu"
+          ],
+          "certainty": "high",
+          "note": "Article 2(b) renounces title but does not specify a transferee."
+        },
+        {
+          "from": "Japan",
+          "to": "renounced; recipient not specified by treaty",
+          "regions": [
+            "Kurile Islands",
+            "southern Sakhalin and adjacent islands acquired under 1905 Treaty of Portsmouth"
+          ],
+          "certainty": "high",
+          "note": "Article 2(c) renounces title; the treaty does not settle the competing sovereignty claims."
+        },
+        {
+          "from": "Japan",
+          "to": "renounced",
+          "regions": [
+            "Spratly Islands",
+            "Paracel Islands"
+          ],
+          "certainty": "high"
+        },
+        {
+          "from": "Japan",
+          "to": "United States trusteeship arrangement (later returned to Japan)",
+          "regions": [
+            "Ryukyu Islands south of 29° north latitude",
+            "Bonin/Ogasawara Islands"
+          ],
+          "certainty": "medium",
+          "note": "Article 3 allowed US trusteeship proposal; not an immediate sovereignty cession."
+        }
+      ],
+      "sources": [
+        "san_francisco_frus_primary"
+      ]
+    }
+  ],
+  "leagueOfNations": {
+    "founded": "1920-01-10",
+    "firstAssembly": "1920-11-15",
+    "dissolved": "1946-04-20",
+    "headquarters": "Geneva, Switzerland",
+    "membership": {
+      "totalEverMembers": 63,
+      "maxConcurrentMembers": 60,
+      "unitedStates": {
+        "member": false,
+        "note": "The US signed the Covenant as part of the Treaty of Versailles but the Senate did not ratify the treaty; the United States never joined the League."
+      },
+      "foundingCovenantAnnexSignatories": [
+        "United States (signed, never joined)",
+        "Belgium",
+        "Bolivia",
+        "Brazil",
+        "British Empire",
+        "Canada",
+        "Australia",
+        "South Africa",
+        "New Zealand",
+        "India",
+        "China",
+        "Cuba",
+        "Ecuador",
+        "France",
+        "Greece",
+        "Guatemala",
+        "Haiti",
+        "Hedjaz",
+        "Honduras",
+        "Italy",
+        "Japan",
+        "Liberia",
+        "Nicaragua",
+        "Panama",
+        "Peru",
+        "Poland",
+        "Portugal",
+        "Romania",
+        "Serb-Croat-Slovene State",
+        "Siam",
+        "Czechoslovakia",
+        "Uruguay"
+      ],
+      "earlyAccessionInvitations": [
+        "Argentina",
+        "Chile",
+        "Colombia",
+        "Denmark",
+        "Netherlands",
+        "Norway",
+        "Paraguay",
+        "Persia",
+        "El Salvador",
+        "Spain",
+        "Sweden",
+        "Switzerland",
+        "Venezuela"
+      ],
+      "note": "The Covenant Annex separates original signatories from states invited to accede. The annex is not a safe substitute for a dated membership ledger: some accessions took effect later, and the League reached 63 members over its life."
+    },
+    "council": {
+      "permanentMembers": [
+        {
+          "entity": "British Empire",
+          "start": "1920-01-10",
+          "end": "1946-04-20",
+          "confidence": "high"
+        },
+        {
+          "entity": "France",
+          "start": "1920-01-10",
+          "end": "1946-04-20",
+          "confidence": "high"
+        },
+        {
+          "entity": "Italy",
+          "start": "1920-01-10",
+          "end": "1939-12-11",
+          "confidence": "high",
+          "note": "Italy announced withdrawal in 1937; two-year notice period under Covenant Article 1."
+        },
+        {
+          "entity": "Japan",
+          "start": "1920-01-10",
+          "end": "1935-03-27",
+          "confidence": "high",
+          "note": "Japan notified withdrawal in 1933; two-year notice period."
+        },
+        {
+          "entity": "Germany",
+          "start": "1926-09-08",
+          "end": "1935-10-19",
+          "confidence": "high",
+          "note": "Permanent Council status approved September 1926; withdrawal notice October 1933."
+        },
+        {
+          "entity": "USSR",
+          "start": "1934-09-18",
+          "end": "1939-12-14",
+          "confidence": "high",
+          "note": "Permanent Council status in 1934; expelled after attack on Finland."
+        }
+      ],
+      "nonPermanentSeatCounts": [
+        {
+          "from": "1920-12-16",
+          "to": "1922-09-24",
+          "seats": 4
+        },
+        {
+          "from": "1922-09-25",
+          "to": "1926-09-07",
+          "seats": 6
+        },
+        {
+          "from": "1926-09-08",
+          "to": "1933-10-08",
+          "seats": 9
+        },
+        {
+          "from": "1933-10-09",
+          "to": "1936-10-07",
+          "seats": 10
+        },
+        {
+          "from": "1936-10-08",
+          "to": "1939-12-14",
+          "seats": 11
+        }
+      ],
+      "initialNonPermanent": [
+        "Belgium",
+        "Brazil",
+        "Spain",
+        "Greece"
+      ],
+      "byYear": [
+        {
+          "year": 1926,
+          "permanent": [
+            "France",
+            "Germany",
+            "Italy",
+            "Japan",
+            "United Kingdom"
+          ],
+          "nonPermanent": [
+            "Chile",
+            "Poland",
+            "Romania",
+            "China",
+            "Colombia",
+            "Netherlands",
+            "Belgium",
+            "Czechoslovakia",
+            "El Salvador"
+          ]
+        },
+        {
+          "year": 1927,
+          "permanent": [
+            "France",
+            "Germany",
+            "Italy",
+            "Japan",
+            "United Kingdom"
+          ],
+          "nonPermanent": [
+            "Chile",
+            "Poland",
+            "Romania",
+            "China",
+            "Colombia",
+            "Netherlands",
+            "Canada",
+            "Cuba",
+            "Finland"
+          ]
+        },
+        {
+          "year": 1928,
+          "permanent": [
+            "France",
+            "Germany",
+            "Italy",
+            "Japan",
+            "United Kingdom"
+          ],
+          "nonPermanent": [
+            "Chile",
+            "Poland",
+            "Romania",
+            "Persia",
+            "Spain",
+            "Venezuela",
+            "Canada",
+            "Cuba",
+            "Finland"
+          ]
+        },
+        {
+          "year": 1929,
+          "permanent": [
+            "France",
+            "Germany",
+            "Italy",
+            "Japan",
+            "United Kingdom"
+          ],
+          "nonPermanent": [
+            "Chile",
+            "Poland",
+            "Romania",
+            "Persia",
+            "Spain",
+            "Venezuela",
+            "Canada",
+            "Cuba",
+            "Finland"
+          ]
+        },
+        {
+          "year": 1930,
+          "permanent": [
+            "France",
+            "Germany",
+            "Italy",
+            "Japan",
+            "United Kingdom"
+          ],
+          "nonPermanent": [
+            "Peru",
+            "Poland",
+            "Yugoslavia",
+            "China",
+            "Panama",
+            "Spain",
+            "Guatemala",
+            "Ireland",
+            "Norway"
+          ]
+        },
+        {
+          "year": 1931,
+          "permanent": [
+            "France",
+            "Germany",
+            "Italy",
+            "Japan",
+            "United Kingdom"
+          ],
+          "nonPermanent": [
+            "Peru",
+            "Poland",
+            "Yugoslavia",
+            "China",
+            "Panama",
+            "Spain",
+            "Guatemala",
+            "Ireland",
+            "Norway"
+          ]
+        },
+        {
+          "year": 1932,
+          "permanent": [
+            "France",
+            "Germany",
+            "Italy",
+            "Japan",
+            "United Kingdom"
+          ],
+          "nonPermanent": [
+            "Peru",
+            "Poland",
+            "Yugoslavia",
+            "China",
+            "Panama",
+            "Spain",
+            "Guatemala",
+            "Ireland",
+            "Norway"
+          ]
+        },
+        {
+          "year": 1933,
+          "permanent": [
+            "France",
+            "Germany",
+            "Italy",
+            "Japan",
+            "United Kingdom"
+          ],
+          "nonPermanent": [],
+          "nonPermanentCompositionStatus": "unverified_pending_primary_journal_crosscheck"
+        },
+        {
+          "year": 1934,
+          "permanent": [
+            "France",
+            "Italy",
+            "Japan",
+            "United Kingdom",
+            "USSR"
+          ],
+          "nonPermanent": [],
+          "nonPermanentCompositionStatus": "unverified_pending_primary_journal_crosscheck"
+        },
+        {
+          "year": 1935,
+          "permanent": [
+            "France",
+            "Italy",
+            "Japan",
+            "United Kingdom",
+            "USSR"
+          ],
+          "nonPermanent": [],
+          "nonPermanentCompositionStatus": "unverified_pending_primary_journal_crosscheck"
+        },
+        {
+          "year": 1936,
+          "permanent": [
+            "France",
+            "Italy",
+            "Japan",
+            "United Kingdom",
+            "USSR"
+          ],
+          "nonPermanent": [],
+          "nonPermanentCompositionStatus": "unverified_pending_primary_journal_crosscheck"
+        },
+        {
+          "year": 1937,
+          "permanent": [
+            "France",
+            "Italy",
+            "Japan",
+            "United Kingdom",
+            "USSR"
+          ],
+          "nonPermanent": [],
+          "nonPermanentCompositionStatus": "unverified_pending_primary_journal_crosscheck"
+        },
+        {
+          "year": 1938,
+          "permanent": [
+            "France",
+            "USSR",
+            "United Kingdom"
+          ],
+          "nonPermanent": [],
+          "nonPermanentCompositionStatus": "unverified_pending_primary_journal_crosscheck"
+        },
+        {
+          "year": 1939,
+          "permanent": [
+            "France",
+            "USSR",
+            "United Kingdom"
+          ],
+          "nonPermanent": [],
+          "nonPermanentCompositionStatus": "unverified_pending_primary_journal_crosscheck"
+        }
+      ],
+      "earlyYearsCaveat": "Exact elected Council composition for 1920–1925 remains unverified. For 1933–1939, seat counts are supported but the secondary table's overlapping term spans are not normalized here; the by-year member arrays are deliberately null/empty pending primary Official Journal cross-check. Do not infer exact annual lists from this file.",
+      "unanimity": "Covenant Article 5: decisions of Assembly and Council generally required agreement of all members represented, except matters of procedure and express exceptions. Article 15 has a dispute-report exception excluding parties to the dispute from the unanimity calculation.",
+      "sources": [
+        "league_ungeneva_overview",
+        "league_ungeneva_organs",
+        "league_covenant",
+        "league_council_reform_study",
+        "league_us_withdrawal"
+      ]
+    },
+    "withdrawalsAndExpulsion": [
+      {
+        "entity": "Germany",
+        "notice": "1933-10-19",
+        "effective": "1935-10-19",
+        "action": "withdrawal_notice_then_two_year_period",
+        "confidence": "high"
+      },
+      {
+        "entity": "Japan",
+        "notice": "1933-03-27",
+        "effective": "1935-03-27",
+        "action": "withdrawal_notice_then_two_year_period",
+        "confidence": "high"
+      },
+      {
+        "entity": "Italy",
+        "notice": "1937-12-11",
+        "effective": "1939-12-11",
+        "action": "withdrawal_notice_then_two_year_period",
+        "confidence": "high"
+      },
+      {
+        "entity": "USSR",
+        "notice": "1939-12-14",
+        "effective": "1939-12-14",
+        "action": "expelled_by_League_Council",
+        "confidence": "high",
+        "note": "Expulsion followed the Soviet attack on Finland; this was not a voluntary withdrawal."
+      }
+    ],
+    "sources": [
+      "league_ungeneva_overview",
+      "league_covenant",
+      "league_council_reform_study",
+      "league_us_withdrawal"
+    ]
+  },
+  "casualties": {
+    "method": "Use ranges and preserve source-specific estimates. Military deaths are not identical to battle deaths; civilian estimates may include famine, disease, genocide, occupation and postwar mortality depending on source. Never sum incompatible source series into one false-precision total.",
+    "ww1": [
+      {
+        "entity": "German Empire",
+        "id": "GMY",
+        "militaryDeaths": [
+          1600000,
+          2037000
+        ],
+        "civilianDeaths": [
+          426000,
+          700000
+        ],
+        "totalDeaths": [
+          2026000,
+          2737000
+        ],
+        "quality": "range",
+        "sources": [
+          "wwi_casualties_ayres",
+          "wwi_casualties_open_university"
+        ]
+      },
+      {
+        "entity": "Russian Empire",
+        "id": "RUS",
+        "militaryDeaths": [
+          1700000,
+          1997500
+        ],
+        "civilianDeaths": [
+          1500000,
+          2000000
+        ],
+        "totalDeaths": [
+          3200000,
+          3997500
+        ],
+        "quality": "range",
+        "sources": [
+          "wwi_ushmm",
+          "wwi_casualties_open_university"
+        ]
+      },
+      {
+        "entity": "France",
+        "id": "FRA",
+        "militaryDeaths": [
+          1327800,
+          1397800
+        ],
+        "civilianDeaths": [
+          40000,
+          600000
+        ],
+        "totalDeaths": [
+          1367800,
+          1997800
+        ],
+        "quality": "wide_range",
+        "sources": [
+          "wwi_ushmm",
+          "wwi_casualties_open_university",
+          "wwi_casualties_census"
+        ]
+      },
+      {
+        "entity": "Austria-Hungary",
+        "id": "AUH",
+        "militaryDeaths": [
+          1100000,
+          1200000
+        ],
+        "civilianDeaths": null,
+        "totalDeaths": null,
+        "quality": "partial",
+        "sources": [
+          "wwi_casualties_open_university",
+          "wwi_casualties_ayres"
+        ],
+        "note": "Reliable civilian split not provided in the sources selected; mark unverified rather than infer."
+      },
+      {
+        "entity": "United Kingdom and Empire",
+        "id": "GBR",
+        "militaryDeaths": [
+          885138,
+          908371
+        ],
+        "civilianDeaths": [
+          109000,
+          111000
+        ],
+        "totalDeaths": [
+          994138,
+          1019371
+        ],
+        "quality": "range",
+        "sources": [
+          "wwi_casualties_census",
+          "wwi_casualties_open_university"
+        ]
+      },
+      {
+        "entity": "Italy",
+        "id": "ITA",
+        "militaryDeaths": [
+          578000,
+          651000
+        ],
+        "civilianDeaths": [
+          589000,
+          589000
+        ],
+        "totalDeaths": [
+          1167000,
+          1240000
+        ],
+        "quality": "single_source_civilian_estimate",
+        "sources": [
+          "wwi_casualties_census",
+          "wwi_casualties_open_university"
+        ]
+      },
+      {
+        "entity": "Romania",
+        "id": "ROM",
+        "militaryDeaths": [
+          250000,
+          335706
+        ],
+        "civilianDeaths": [
+          430000,
+          430000
+        ],
+        "totalDeaths": [
+          680000,
+          765706
+        ],
+        "quality": "range",
+        "sources": [
+          "wwi_casualties_census",
+          "wwi_casualties_open_university"
+        ]
+      },
+      {
+        "entity": "Serbia",
+        "id": "SER",
+        "militaryDeaths": [
+          275000,
+          278000
+        ],
+        "civilianDeaths": [
+          300000,
+          650000
+        ],
+        "totalDeaths": [
+          575000,
+          928000
+        ],
+        "quality": "wide_range",
+        "sources": [
+          "wwi_casualties_census",
+          "wwi_casualties_open_university"
+        ]
+      },
+      {
+        "entity": "Belgium",
+        "id": "BEL",
+        "militaryDeaths": [
+          38716,
+          58637
+        ],
+        "civilianDeaths": [
+          2000,
+          62000
+        ],
+        "totalDeaths": [
+          40716,
+          120637
+        ],
+        "quality": "wide_range",
+        "sources": [
+          "wwi_casualties_census",
+          "wwi_casualties_open_university"
+        ]
+      },
+      {
+        "entity": "Ottoman Empire",
+        "id": "TUR",
+        "militaryDeaths": [
+          250000,
+          804000
+        ],
+        "civilianDeaths": null,
+        "totalDeaths": null,
+        "quality": "partial",
+        "sources": [
+          "wwi_casualties_ayres",
+          "wwi_casualties_open_university"
+        ],
+        "note": "Civilian deaths, including Armenian genocide and famine, are not harmonized in the cited series; no single number asserted."
+      },
+      {
+        "entity": "Bulgaria",
+        "id": "BUL",
+        "militaryDeaths": [
+          87500,
+          100000
+        ],
+        "civilianDeaths": null,
+        "totalDeaths": null,
+        "quality": "partial",
+        "sources": [
+          "wwi_casualties_ayres",
+          "wwi_casualties_open_university"
+        ]
+      },
+      {
+        "entity": "United States",
+        "id": "USA",
+        "militaryDeaths": [
+          114000,
+          126000
+        ],
+        "civilianDeaths": [
+          757,
+          757
+        ],
+        "totalDeaths": [
+          114757,
+          126757
+        ],
+        "quality": "range",
+        "sources": [
+          "wwi_casualties_census",
+          "wwi_casualties_ayres"
+        ]
+      }
+    ],
+    "ww2": [
+      {
+        "entity": "Soviet Union",
+        "id": "USSR",
+        "militaryDeaths": [
+          8800000,
+          10700000
+        ],
+        "civilianDeaths": [
+          13300000,
+          15200000
+        ],
+        "totalDeaths": [
+          24000000,
+          24000000
+        ],
+        "quality": "range",
+        "sources": [
+          "ww2_museum",
+          "ww2_sipri"
+        ],
+        "note": "Museum source gives 24 million total; civilian interval here is a residual range and should be treated as derived/approximate, not an independent census."
+      },
+      {
+        "entity": "China",
+        "id": "CHN",
+        "militaryDeaths": [
+          3000000,
+          4000000
+        ],
+        "civilianDeaths": [
+          16000000,
+          17000000
+        ],
+        "totalDeaths": [
+          20000000,
+          20000000
+        ],
+        "quality": "range",
+        "sources": [
+          "ww2_museum"
+        ],
+        "note": "The museum explicitly warns some estimates exceed 50 million total; use the cited 20m as a conservative baseline, not settled consensus."
+      },
+      {
+        "entity": "Germany",
+        "id": "GMY",
+        "militaryDeaths": [
+          4750000,
+          5533000
+        ],
+        "civilianDeaths": [
+          1067000,
+          3267000
+        ],
+        "totalDeaths": [
+          6600000,
+          8800000
+        ],
+        "quality": "range",
+        "sources": [
+          "ww2_sipri",
+          "ww2_museum"
+        ]
+      },
+      {
+        "entity": "Poland",
+        "id": "POL",
+        "militaryDeaths": [
+          240000,
+          240000
+        ],
+        "civilianDeaths": [
+          5360000,
+          5360000
+        ],
+        "totalDeaths": [
+          5600000,
+          5600000
+        ],
+        "quality": "single_source_estimate",
+        "sources": [
+          "ww2_museum"
+        ]
+      },
+      {
+        "entity": "Japan",
+        "id": "JAP",
+        "militaryDeaths": [
+          1500000,
+          2120000
+        ],
+        "civilianDeaths": [
+          480000,
+          980000
+        ],
+        "totalDeaths": [
+          2600000,
+          3100000
+        ],
+        "quality": "range",
+        "sources": [
+          "ww2_sipri",
+          "ww2_museum"
+        ]
+      },
+      {
+        "entity": "Yugoslavia",
+        "id": "YUG",
+        "militaryDeaths": [
+          300000,
+          446000
+        ],
+        "civilianDeaths": [
+          554000,
+          700000
+        ],
+        "totalDeaths": [
+          1000000,
+          1000000
+        ],
+        "quality": "range",
+        "sources": [
+          "ww2_sipri",
+          "ww2_museum"
+        ]
+      },
+      {
+        "entity": "France",
+        "id": "FRA",
+        "militaryDeaths": [
+          200000,
+          217600
+        ],
+        "civilianDeaths": [
+          350000,
+          367600
+        ],
+        "totalDeaths": [
+          567600,
+          567600
+        ],
+        "quality": "range",
+        "sources": [
+          "ww2_sipri",
+          "ww2_museum"
+        ]
+      },
+      {
+        "entity": "Romania",
+        "id": "ROM",
+        "militaryDeaths": [
+          300000,
+          370000
+        ],
+        "civilianDeaths": [
+          463000,
+          533000
+        ],
+        "totalDeaths": [
+          833000,
+          833000
+        ],
+        "quality": "range",
+        "sources": [
+          "ww2_sipri",
+          "ww2_museum"
+        ]
+      },
+      {
+        "entity": "Italy",
+        "id": "ITA",
+        "militaryDeaths": [
+          291000,
+          301400
+        ],
+        "civilianDeaths": [
+          155600,
+          440000
+        ],
+        "totalDeaths": [
+          457000,
+          731000
+        ],
+        "quality": "range",
+        "sources": [
+          "ww2_sipri",
+          "ww2_museum"
+        ]
+      },
+      {
+        "entity": "Greece",
+        "id": "GRE",
+        "militaryDeaths": [
+          20000,
+          35000
+        ],
+        "civilianDeaths": [
+          265000,
+          780000
+        ],
+        "totalDeaths": [
+          300000,
+          800000
+        ],
+        "quality": "wide_range",
+        "sources": [
+          "ww2_museum"
+        ]
+      },
+      {
+        "entity": "Hungary",
+        "id": "HUN",
+        "militaryDeaths": [
+          110000,
+          300000
+        ],
+        "civilianDeaths": [
+          280000,
+          290000
+        ],
+        "totalDeaths": [
+          400000,
+          580000
+        ],
+        "quality": "range",
+        "sources": [
+          "ww2_sipri",
+          "ww2_museum"
+        ]
+      },
+      {
+        "entity": "Austria",
+        "id": "AUS",
+        "militaryDeaths": [
+          247000,
+          261000
+        ],
+        "civilianDeaths": [
+          123700,
+          125000
+        ],
+        "totalDeaths": [
+          372000,
+          384700
+        ],
+        "quality": "range",
+        "sources": [
+          "ww2_sipri",
+          "ww2_museum"
+        ]
+      },
+      {
+        "entity": "United Kingdom",
+        "id": "GBR",
+        "militaryDeaths": [
+          383600,
+          383600
+        ],
+        "civilianDeaths": [
+          67100,
+          67100
+        ],
+        "totalDeaths": [
+          450700,
+          450700
+        ],
+        "quality": "single_source_estimate",
+        "sources": [
+          "ww2_museum"
+        ]
+      },
+      {
+        "entity": "United States",
+        "id": "USA",
+        "militaryDeaths": [
+          416800,
+          416800
+        ],
+        "civilianDeaths": [
+          1700,
+          1700
+        ],
+        "totalDeaths": [
+          418500,
+          418500
+        ],
+        "quality": "single_source_estimate",
+        "sources": [
+          "ww2_museum"
+        ]
+      },
+      {
+        "entity": "Belgium",
+        "id": "BEL",
+        "militaryDeaths": [
+          10000,
+          12100
+        ],
+        "civilianDeaths": [
+          74000,
+          90000
+        ],
+        "totalDeaths": [
+          86100,
+          100000
+        ],
+        "quality": "range",
+        "sources": [
+          "ww2_sipri",
+          "ww2_museum"
+        ]
+      },
+      {
+        "entity": "Netherlands",
+        "id": "NLD",
+        "militaryDeaths": [
+          17000,
+          17000
+        ],
+        "civilianDeaths": [
+          284000,
+          284000
+        ],
+        "totalDeaths": [
+          301000,
+          301000
+        ],
+        "quality": "single_source_estimate",
+        "sources": [
+          "ww2_museum"
+        ]
+      },
+      {
+        "entity": "Finland",
+        "id": "FIN",
+        "militaryDeaths": [
+          45000,
+          95000
+        ],
+        "civilianDeaths": [
+          2000,
+          15000
+        ],
+        "totalDeaths": [
+          60000,
+          97000
+        ],
+        "quality": "range",
+        "sources": [
+          "ww2_sipri",
+          "ww2_museum"
+        ]
+      },
+      {
+        "entity": "Bulgaria",
+        "id": "BUL",
+        "militaryDeaths": [
+          20000,
+          22000
+        ],
+        "civilianDeaths": [
+          3000,
+          10000
+        ],
+        "totalDeaths": [
+          25000,
+          30000
+        ],
+        "quality": "range",
+        "sources": [
+          "ww2_sipri",
+          "ww2_museum"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "wwi_ushmm",
+      "title": "World War I",
+      "url": "https://encyclopedia.ushmm.org/content/en/article/world-war-i",
+      "use": "Central Powers armistice sequence; German armistice and general chronology."
+    },
+    {
+      "id": "wwi_us_entry",
+      "title": "U.S. Entry into World War I, 1917",
+      "url": "https://history.state.gov/milestones/1914-1920/wwi",
+      "use": "US declaration dates."
+    },
+    {
+      "id": "wwi_statcan_entry",
+      "title": "History of the Great War of 1914 to 1918",
+      "url": "https://www65.statcan.gc.ca/acyb07/acyb07_2017f-eng.htm",
+      "use": "Contemporary government historical summary of Allied entry dates."
+    },
+    {
+      "id": "wwi_brest_primary",
+      "title": "Treaty of Brest-Litovsk, 3 March 1918",
+      "url": "https://avalon.law.yale.edu/20th_century/brest.asp",
+      "use": "Article III and cessation of state of war."
+    },
+    {
+      "id": "wwi_casualties_census",
+      "title": "World War I casualties (REPERES / CVCE table reproduced by US Census history resource)",
+      "url": "https://www.census.gov/history/pdf/reperes112018.pdf",
+      "use": "Military and civilian losses for Allied states."
+    },
+    {
+      "id": "wwi_casualties_ayres",
+      "title": "The War with Germany: A Statistical Survey, 1919",
+      "url": "https://www.govinfo.gov/content/pkg/GPO-CRECB-1919-pt4-v58/pdf/GPO-CRECB-1919-pt4-v58-4-1.pdf",
+      "use": "Contemporary battle-death estimates by country."
+    },
+    {
+      "id": "wwi_casualties_open_university",
+      "title": "Open University: First World War trauma and memory",
+      "url": "https://www.open.edu/openlearn/mod/oucontent/view.php?id=79698&section=_unit1.1.3",
+      "use": "Military and civilian ranges; explains estimates and Spanish flu attribution caveat."
+    },
+    {
+      "id": "ww2_ushmm_timeline",
+      "title": "World War II: Key Dates",
+      "url": "https://encyclopedia.ushmm.org/content/en/article/world-war-ii-key-dates",
+      "use": "War start/end, France armistice, German surrender, Japan surrender."
+    },
+    {
+      "id": "ww2_ushmm_axis",
+      "title": "Axis Powers in World War II",
+      "url": "https://encyclopedia.ushmm.org/content/en/article/axis-powers-in-world-war-ii",
+      "use": "Italy 1943, Romania 1944, Bulgaria 1944, Finland armistice."
+    },
+    {
+      "id": "ww2_ushmm_depth",
+      "title": "World War II: In Depth",
+      "url": "https://encyclopedia.ushmm.org/content/en/article/world-war-ii-in-depth",
+      "use": "Soviet advance and country surrender sequence."
+    },
+    {
+      "id": "ww2_german_surrender_archives",
+      "title": "Surrender of Germany (1945), US National Archives",
+      "url": "https://www.archives.gov/milestone-documents/surrender-of-germany",
+      "use": "Reims surrender text and effective time."
+    },
+    {
+      "id": "ww2_japan_surrender_ushmm",
+      "title": "World War II: Key Dates",
+      "url": "https://encyclopedia.ushmm.org/content/en/article/world-war-ii-key-dates",
+      "use": "Japan surrender 2 September 1945."
+    },
+    {
+      "id": "ww2_museum",
+      "title": "National WWII Museum: Worldwide Deaths by Country",
+      "url": "https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/research-starters-worldwide-deaths-world-war",
+      "use": "Military deaths and total military+civilian deaths by country; source warns estimates vary."
+    },
+    {
+      "id": "ww2_sipri",
+      "title": "SIPRI: Fatalities in World War II, Korean War and Second Indochina War (approximation)",
+      "url": "https://www.sipri.org/sites/default/files/files/books/SIPRI80Westing.pdf",
+      "use": "Separate military and civilian fatality approximations for selected countries."
+    },
+    {
+      "id": "league_ungeneva_overview",
+      "title": "The League of Nations (1920–1946), UN Geneva",
+      "url": "https://www.ungeneva.org/en/about/league-of-nations/overview",
+      "use": "Founding, first Assembly, member count and US non-membership."
+    },
+    {
+      "id": "league_ungeneva_organs",
+      "title": "Main Organs of the League of Nations, UN Geneva",
+      "url": "https://www.ungeneva.org/en/about/league-of-nations/organs",
+      "use": "Council membership, elected terms and seat count changes."
+    },
+    {
+      "id": "league_covenant",
+      "title": "Covenant of the League of Nations, UN Geneva",
+      "url": "https://www.ungeneva.org/en/about/league-of-nations/covenant",
+      "use": "Articles 1, 4, 5, 15 and Annex."
+    },
+    {
+      "id": "league_council_reform_study",
+      "title": "Institutional Reforms and the Politics of Inequality Reproduction: The Case of the League of Nations Council Crisis in 1926",
+      "url": "https://www.tandfonline.com/doi/full/10.1080/13600826.2020.1739629",
+      "use": "Council membership by year 1926–1939 and permanent membership history."
+    },
+    {
+      "id": "league_us_withdrawal",
+      "title": "Withdrawal of Germany from the League of Nations, Library of Congress",
+      "url": "https://www.loc.gov/resource/gdcwdl.wdl_11598/",
+      "use": "Germany's withdrawal notice dated 19 October 1933."
+    },
+    {
+      "id": "versailles_ushmm",
+      "title": "World War I: Treaties and Reparations, USHMM",
+      "url": "https://encyclopedia.ushmm.org/content/en/article/world-war-i-treaties-and-reparations",
+      "use": "Versailles territorial changes."
+    },
+    {
+      "id": "versailles_ghdi",
+      "title": "Versailles Treaty: The Boundaries of Germany, German History in Documents and Images",
+      "url": "https://germanhistorydocs.org/en/weimar-germany-1918-1933/ghdi:document-3932",
+      "use": "Treaty boundary clauses."
+    },
+    {
+      "id": "versailles_frus",
+      "title": "Treaty of Versailles, FRUS 1919, Office of the Historian",
+      "url": "https://history.state.gov/historicaldocuments/frus1919Parisv13/ch10subch1",
+      "use": "Treaty text and League Covenant."
+    },
+    {
+      "id": "paris_conference_archives",
+      "title": "Records of the American Commission to Negotiate Peace, US National Archives",
+      "url": "https://www.archives.gov/files/research/foreign-policy/related-records/rg-256-inventory.pdf",
+      "use": "Dates and sequence of post-WWI treaties."
+    },
+    {
+      "id": "lausanne_turkey_mfa",
+      "title": "Lausanne Peace Treaty, Republic of Türkiye Ministry of Foreign Affairs",
+      "url": "https://www.mfa.gov.tr/lausanne-peace-treaty.en.mfa",
+      "use": "Lausanne treaty clauses and protocols."
+    },
+    {
+      "id": "lausanne_treaty_primary",
+      "title": "Lausanne Treaty, Political Clauses, Republic of Türkiye MFA",
+      "url": "https://www.mfa.gov.tr/lausanne-peace-treaty-part-i_-political-clauses.en.mfa",
+      "use": "Borders, Dodecanese, renunciations."
+    },
+    {
+      "id": "yalta_protocol_frus",
+      "title": "Yalta / Potsdam territorial settlement documents, FRUS",
+      "url": "https://history.state.gov/historicaldocuments/frus1945Berlinv01/d509",
+      "use": "Distinguishes Yalta decisions from Potsdam territorial administration."
+    },
+    {
+      "id": "potsdam_frus_territory",
+      "title": "European Territorial Settlements, FRUS 1945",
+      "url": "https://history.state.gov/historicaldocuments/frus1945Berlinv01/d509",
+      "use": "Polish administration east of Oder and East Prussia."
+    },
+    {
+      "id": "potsdam_protocol_primary",
+      "title": "Protocol of the Proceedings of the Berlin Conference (Potsdam)",
+      "url": "https://avalon.law.yale.edu/20th_century/decade17.asp",
+      "use": "Potsdam occupation and administration arrangements."
+    },
+    {
+      "id": "san_francisco_frus_primary",
+      "title": "Treaty of Peace with Japan, 8 September 1951, FRUS",
+      "url": "https://history.state.gov/historicaldocuments/frus1951v06p1/d596",
+      "use": "Article 2 territorial renunciations and Article 3 trusteeship."
+    },
+    {
+      "id": "saint_germain_treaty_primary",
+      "title": "Treaty of Saint-Germain-en-Laye, 1919",
+      "url": "https://www.dipublico.org/3671/",
+      "use": "Territorial provisions; precise article-level crosswalk remains to be checked."
+    },
+    {
+      "id": "neuilly_treaty_primary",
+      "title": "Treaty of Neuilly-sur-Seine, 1919",
+      "url": "https://treaties.un.org/",
+      "use": "Territorial provisions; precise article-level crosswalk remains to be checked."
+    },
+    {
+      "id": "trianon_treaty_primary",
+      "title": "Treaty of Trianon, 1920",
+      "url": "https://mjp.univ-perp.fr/traites/1920trianon.htm",
+      "use": "Territorial provisions; precise article-level crosswalk remains to be checked."
+    },
+    {
+      "id": "sevres_treaty_primary",
+      "title": "Treaty of Sèvres, 1920",
+      "url": "https://treaties.un.org/",
+      "use": "Unratified treaty terms; do not apply as actual transfers."
+    },
+    {
+      "id": "paris_peace_treaties_1947_primary",
+      "title": "Paris Peace Treaties, 1947",
+      "url": "https://treaties.un.org/doc/publication/unts/volume%2049/v49.pdf",
+      "use": "Full Treaty of Peace with Italy, UNTS vol. 49, with annexes and maps."
+    }
+  ],
+  "integrationWarnings": [
+    "This staging dataset does not assert that all belligerents in all theatres are covered; it contains principal belligerents and selected formal declarations. A future exhaustive pass should add colonial forces, governments-in-exile, resistance forces and all minor declarations.",
+    "Capital strings are historical city names, not engine region IDs. Resolve them through the actual region registry and record a mapping confidence before engine use.",
+    "WWI and WWII dates describe legal entry, armistice, surrender or campaign end depending on the participant; these event types must not be collapsed into a single boolean.",
+    "WWII France, Poland, Belgium, Norway and Greece continued Allied belligerency after metropolitan capitulation; do not remove their governments-in-exile or armed forces from the Allied side.",
+    "Italy, Romania and Bulgaria require side-switch events. Finland was a co-belligerent with Germany against the USSR, not a formal Axis Pact member. Bulgaria's wartime relationship with the USSR is exceptional.",
+    "Sèvres was not ratified/implemented as written; Lausanne superseded it. Yalta and Potsdam were conference protocols, not comprehensive peace treaties. San Francisco 1951 renounced claims but often did not specify a recipient state.",
+    "The League Covenant Annex is a signatory/accession list, not a complete dated membership register. The 1920–1925 Council elected-member sequence remains partly unverified in this version.",
+    "WWI civilian deaths are especially uncertain and sometimes include famine, disease or influenza. WW2 casualty estimates vary substantially; source series have different definitions and boundaries.",
+    "The treaty-to-region entries are historical place names only. No automatic transfer should run until Claude matches each name against the engine region registry and checks date, sovereignty and successor-state rules."
+  ]
+}
