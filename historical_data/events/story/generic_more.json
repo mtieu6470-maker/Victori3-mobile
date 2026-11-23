@@ -558,6 +558,11 @@
           "gbr_ceylon_independence_1948",
           "gbr_ceylon_independence_1948"
         ]
+      },
+      "image": {
+        "ref": "ill_lka_language_crisis_1956",
+        "credit": "Wikimedia Commons candidate; owner ingestion will verify PD/CC0",
+        "license": "Candidate — pending ingestion verification"
       }
     },
     {
@@ -2200,7 +2205,8 @@
               "entity": "$self",
               "delta": 1
             }
-          ]
+          ],
+          "historical": true
         },
         {
           "id": "ind_central_integration",
@@ -2304,7 +2310,8 @@
               "entity": "$self",
               "delta": 0.5
             }
-          ]
+          ],
+          "historical": true
         },
         {
           "id": "pak_executive_centralisation",
