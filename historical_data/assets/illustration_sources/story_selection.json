@@ -655,6 +655,406 @@
         0.5
       ],
       "review_note": "Period image of the defeat immediately preceding the royal exile; contextual rather than a portrait of the king."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_ceylon_independence_1948",
+      "commons_file": "SL_Independence.jpg",
+      "year": 1947,
+      "width": 550,
+      "author": "Government of Ceylon and UK",
+      "name": "Lễ mở Quốc hội Ceylon",
+      "description": "Formal ceremony marking self-rule and opening of the first parliament at Independence Square, 2 October 1947",
+      "period": {
+        "from": 1945,
+        "to": 1949
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Ceylon constitutional transition; Commons page reports PD-BRITISHGOV."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_malaya_invasion_1941",
+      "commons_file": "Malayan_Invasion_Map_2.0.png",
+      "year": 1941,
+      "width": 1024,
+      "author": "Unknown",
+      "name": "Chiến dịch Malaya 1941–1942",
+      "description": "Map of the Japanese conquest of British Malaya from 8 December 1941 to 15 February 1942",
+      "period": {
+        "from": 1939,
+        "to": 1943
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Direct geographic context; portrait map, crop conservatively."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_singapore_fall_1942",
+      "commons_file": "JapaneseMarchSgpCity.jpg",
+      "year": 1942,
+      "width": 1600,
+      "author": "Unknown",
+      "name": "Singapore thất thủ",
+      "description": "Japanese troops enter Singapore after the surrender in February 1942",
+      "period": {
+        "from": 1940,
+        "to": 1944
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Exact campaign context; verify source and rights at ingestion."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_malayan_union_1946",
+      "commons_file": "Malaya_1948_-_btv1b53196894w.jpg",
+      "year": 1948,
+      "width": 890,
+      "author": "Survey Department (Malaya)",
+      "name": "Bản đồ Malaya 1948",
+      "description": "Survey Department map of the Malayan Union and peninsula administrative divisions, 1948",
+      "period": {
+        "from": 1946,
+        "to": 1950
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Contextual administrative map; verify exact width and PD/CC0 at ingestion."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_malaya_independence_1957",
+      "commons_file": "Federation_of_Malaya_Independence_Order_in_Council_1957.pdf",
+      "year": 1957,
+      "width": 900,
+      "author": "Queen's Most Excellent Majesty in Council",
+      "name": "Sắc lệnh độc lập Malaya 1957",
+      "description": "Federation of Malaya Independence Order in Council, 23 August 1957",
+      "period": {
+        "from": 1955,
+        "to": 1959
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Primary legal document; PDF ingestion support must be confirmed."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "egy_urabi_revolt_1882",
+      "commons_file": "The_Crisis_in_Egypt_Types_of_the_Egyptian_Army.jpg",
+      "year": 1882,
+      "width": 2943,
+      "author": "The Illustrated London News",
+      "name": "Quân đội Ai Cập thời Urabi",
+      "description": "Illustration of Egyptian army figures during the Urabi Revolt, published 3 June 1882",
+      "period": {
+        "from": 1880,
+        "to": 1884
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Contemporary illustration; exact historical context."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_egypt_occupation_1882",
+      "commons_file": "Surrender_of_Ahmed_Urabi.jpg",
+      "year": 1895,
+      "width": 1458,
+      "author": "Illustrated Battles of the Nineteenth Century",
+      "name": "Ahmed Urabi đầu hàng",
+      "description": "Ahmed Urabi surrenders to Drury-Lowe in 1882, from the 1895 British Library book",
+      "period": {
+        "from": 1893,
+        "to": 1897
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Period source illustration; the work is public-domain-era, ingestion must verify."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "egy_revolution_1919",
+      "commons_file": "Taxiphote1919.jpg",
+      "year": 1919,
+      "width": 1092,
+      "author": "Unknown author",
+      "name": "Biểu tình Ai Cập năm 1919",
+      "description": "Protesters during the Egyptian Revolution of 1919",
+      "period": {
+        "from": 1917,
+        "to": 1921
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page reports Public Domain; direct date and subject match."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_egypt_independence_1922",
+      "commons_file": "Cairo-Demonstrations1919.jpg",
+      "year": 1919,
+      "width": 1170,
+      "author": "Unknown author",
+      "name": "Biểu tình Cairo năm 1919",
+      "description": "Nationalists demonstrating in Cairo during the 1919 revolution",
+      "period": {
+        "from": 1917,
+        "to": 1921
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Contextual image for the movement preceding the 1922 declaration."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "egy_revolution_1952",
+      "commons_file": "Free_Officers,_1952.jpg",
+      "year": 1952,
+      "width": 743,
+      "author": "Unknown author",
+      "name": "Phong trào Sĩ quan Tự do",
+      "description": "The Free Officers Movement of Egypt, February 1952",
+      "period": {
+        "from": 1950,
+        "to": 1954
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page reports Public Domain Egypt; verify jurisdictional template."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "egy_suez_nationalisation_1956",
+      "commons_file": "Al-Ahram_Newspaper_Publish_Suez_Canal_Nationalization.jpg",
+      "year": 1956,
+      "width": 812,
+      "author": "Al-Ahram",
+      "name": "Báo Al-Ahram về quốc hữu hóa Suez",
+      "description": "Al-Ahram newspaper coverage of the nationalisation of the Suez Canal Company, July 1956",
+      "period": {
+        "from": 1954,
+        "to": 1958
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Direct event subject; source page and rights require ingestion check."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_suez_crisis_1956",
+      "commons_file": "Battle_of_Port_Said.jpg",
+      "year": 1956,
+      "width": 640,
+      "author": "Imperial War Museums",
+      "name": "Quân Anh tại Port Said",
+      "description": "British troops and tanks in Port Said, Egypt, 5 November 1956",
+      "period": {
+        "from": 1954,
+        "to": 1958
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page reports UK Government Public Domain for the pre-June-1957 photograph."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_balfour_declaration_1917",
+      "commons_file": "Balfour_Declaration_in_the_Times_9_November_1917.jpg",
+      "year": 1917,
+      "width": 437,
+      "author": "The Times",
+      "name": "Tuyên bố Balfour trên báo Times",
+      "description": "The Balfour Declaration as printed in The Times on 9 November 1917",
+      "period": {
+        "from": 1915,
+        "to": 1919
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Contemporary newspaper reproduction; verify source-country rights."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_palestine_mandate_1922",
+      "commons_file": "World_War_I_Palestine_campaign,_Military_situation_immediately_prior_to_the_release_of_the_Balfour_Declaration.jpg",
+      "year": 1921,
+      "width": 4725,
+      "author": "British Library",
+      "name": "Bản đồ chiến dịch Palestine",
+      "description": "British Library map of the Palestine campaign immediately before the Balfour Declaration",
+      "period": {
+        "from": 1919,
+        "to": 1923
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Historical map context for the transition to the mandate."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "pal_arab_revolt_1936",
+      "commons_file": "Arab_protest_delegations,_demonstrations_and_strikes_against_British_policy_in_Palestine_(subsequent_to_the_foregoing_disturbances_(1929_riots))._Balfour_day,_Nov._2nd._Closed_bazaars_LOC_matpc.15745.tif",
+      "year": 1929,
+      "width": 3671,
+      "author": "Library of Congress",
+      "name": "Đình công và phản đối tại Palestine",
+      "description": "Library of Congress photograph of Arab protest delegations, demonstrations and closed bazaars on Balfour Day",
+      "period": {
+        "from": 1927,
+        "to": 1931
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Earlier 1929 protest, contextual only; LoC rights advisory must be checked."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_palestine_partition_1947",
+      "commons_file": "UN_Partition_Plan_For_Palestine_1947.png",
+      "year": 1973,
+      "width": 627,
+      "author": "Central Intelligence Agency",
+      "name": "Kế hoạch phân chia Palestine 1947",
+      "description": "Map of the UN 1947 partition plan for Palestine, based on a CIA map",
+      "period": {
+        "from": 1971,
+        "to": 1975
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page identifies the source as US Government and Public Domain; verify the derivative's exact tag."
     }
   ]
 }
