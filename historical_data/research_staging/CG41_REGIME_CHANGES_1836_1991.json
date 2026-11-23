@@ -5,7 +5,7 @@
     "branch": "ccr-b27f3fb8-epfpd6",
     "created": "2026-11-23",
     "scope": "Selected major powers, successor states and major 20th-century regime transitions; not an exhaustive world chronology. Additional law milestones added for Russian emancipation (1861), Finnish equal suffrage (1906), and social-insurance/welfare reforms (US 1935; UK NHS 1948).",
-    "eventCount": 52,
+    "eventCount": 53,
     "sourceCount": 41,
     "lawGroups": [
       "power",
@@ -3364,6 +3364,64 @@
       ],
       "quality": "verified",
       "note": "The National Health Service Act was passed in 1946 and the NHS came into operation on 5 July 1948. The National Insurance Act 1946 was a parallel pillar."
+    },
+    {
+      "id": "RUS-1918-22-CIVILWAR",
+      "date": "1922-10-25",
+      "windowStart": "1918-01-01",
+      "windowEnd": "1922-10-25",
+      "capitalHistorical": "Moscow (Bolshevik government); multiple rival capitals and fronts",
+      "entityBefore": {
+        "id": "RSFSR",
+        "name_en": "Russian Soviet Federative Socialist Republic amid civil war",
+        "name_vi": "Cộng hòa Xã hội chủ nghĩa Xô viết Liên bang Nga trong Nội chiến"
+      },
+      "entityAfter": {
+        "id": "RSFSR",
+        "name_en": "Russian Soviet Federative Socialist Republic after Bolshevik victory",
+        "name_vi": "Cộng hòa Xã hội chủ nghĩa Xô viết Liên bang Nga sau chiến thắng của Bolshevik"
+      },
+      "eventType": "civil_war_and_state_consolidation",
+      "causes": [
+        "Collapse of imperial and Provisional Government authority after 1917",
+        "Conflict among Bolshevik Reds, White armies, national movements and other factions",
+        "Foreign intervention and regional secessionist conflicts"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy",
+          "note": "Soviet institutions existed, but the Communist Party consolidated effective control through the civil-war period."
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "interventionism",
+          "note": "War Communism (1918–21) was followed by the New Economic Policy from 1921; do not model the whole period as one stable economic law."
+        },
+        "trade": {
+          "from": "protectionism",
+          "to": "protectionism"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Former Russian imperial periphery and borderlands",
+          "from": "Contested between Soviet, White, national and foreign-backed authorities",
+          "to": "Mostly consolidated under Bolshevik/Soviet authority by 1922, while Finland, Poland and Baltic states remained independent",
+          "date": "1922-10-25",
+          "status": "military_consolidation",
+          "note": "This is a process endpoint, not a single treaty transfer; the Far Eastern Republic was absorbed into the RSFSR in November 1922."
+        }
+      ],
+      "sources": [
+        "un_rus_2017"
+      ],
+      "quality": "supported",
+      "note": "The UN historical overview states the civil war broke out in 1918 and ended in 1922 with Bolshevik victory. 25 October 1922 is used as a practical Far Eastern campaign endpoint, not a universally agreed end date; retain the broad window."
     }
   ]
 }
