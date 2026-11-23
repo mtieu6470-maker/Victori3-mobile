@@ -185,6 +185,10 @@ export interface UnResolution {
 }
 export interface UnitedNations {
   founded: number; members: string[]; permanent: string[];
+  /** The permanent seat given at founding to the strongest other member (owner 2026-11-23). */
+  powerSeat?: string | null;
+  /** Regions each permanent member held (refreshed yearly), to find a successor that inherits it whole. */
+  seatTerritory?: Record<string, string[]>;
   elected: { id: string; until: number }[];
   resolutions: UnResolution[];
 }

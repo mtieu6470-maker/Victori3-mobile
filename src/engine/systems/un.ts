@@ -3,8 +3,14 @@
 // Rules taken from the UN Charter (1945, as amended 1963/1965):
 // - founded 24 October 1945 (Historical Mode);
 // - Security Council: the Charter (Art. 23) names five permanent members (China, France, the USSR, the
-//   United Kingdom, the United States). OWNER DECISION 2026-11-23: the game has FOUR permanent seats,
-//   given to the four strongest of the five states holding those historical capitals at founding.
+//   United Kingdom, the United States). OWNER DECISION 2026-11-23: four FIXED permanent seats for the
+//   states holding London, Paris, Washington and Moscow, plus one POWER seat for the highest-ranked
+//   other member (any country, including the player's), nominated by power and accepted by the fixed
+//   permanent members (any of them can veto a nominee, then the next is nominated). Seats are assigned
+//   ONCE at founding and are then permanent (owner 2026-11-23). If a permanent member collapses, a
+//   successor that inherits the whole of it (>= SUCCESSION_SHARE of its former population) keeps the
+//   seat; otherwise the seat goes to the strongest other member accepted by the remaining permanent
+//   members. A fixed seat whose capital holder is not a sovereign member at founding is filled the same way.
 //   Non-permanent members are elected for two-year terms, six until 1965 and ten from 1 January 1966
 //   (1963 amendment in force 1965);
 // - a substantive decision needs nine votes (seven before 1966) with no negative vote of a permanent
@@ -21,7 +27,7 @@ import { allied, powerScore } from './diplomacy';
 import type { Country, GameState, UnResolution } from '../types';
 
 export const UN_PARAMS = {
-  foundingDate: '1945-10', permanentSeats: 4, seatRegions: { USA: 'USA_MAR', GBR: 'GBR_LON', FRA: 'FRA_IDF', SOV: 'RUS_MOS', CHN: 'QNG_ZHI' } as Record<string, string>,
+  foundingDate: '1945-10', permanentSeats: 5, successionShare: 0.9, seatRegions: { USA: 'USA_MAR', GBR: 'GBR_LON', FRA: 'FRA_IDF', SOV: 'RUS_MOS' } as Record<string, string>,
   electedBefore1966: 6, electedFrom1966: 10, votesNeededBefore1966: 7, votesNeededFrom1966: 9, admissionDelayMonths: 12,
   condemnInfamy: 10, condemnExhaustion: 10, condemnRelations: 20,
 } as const;
@@ -33,18 +39,68 @@ export function councilSeats(st: GameState): string[] {
   return [...un.permanent, ...un.elected.map((e) => e.id)].filter((id) => st.countries[id]?.alive);
 }
 
-function foundUn(st: GameState): void {
-  const d = st.regions;
-  const candidates: string[] = [];
+/** Would a fixed permanent member veto this nominee for the power seat? (rival, or relations below -30) */
+function vetoesNominee(st: GameState, member: string, nominee: string): boolean {
+  return member !== nominee && (getRel(st, member, nominee) < -30 || st.rivalries.includes([member, nominee].sort().join('|')));
+}
+
+/** Highest-ranked member outside `exclude` that no fixed permanent member vetoes. */
+function nominatePowerSeat(st: GameState, members: string[], fixed: string[], exclude: Set<string>): string | null {
+  const ranked = members.filter((m) => !exclude.has(m) && sovereign(st.countries[m])).sort((a, b) => powerScore(st, st.countries[b]) - powerScore(st, st.countries[a]) || a.localeCompare(b));
+  for (const n of ranked) if (!fixed.some((f) => vetoesNominee(st, f, n))) return n;
+  return null;
+}
+
+/** Founding: fixed seats (capital holders) plus power-ranked seats up to UN_PARAMS.permanentSeats. */
+function assignPermanentAtFounding(st: GameState): void {
+  const un = st.un!;
+  const fixed: string[] = [];
   for (const rid of Object.values(UN_PARAMS.seatRegions)) {
-    const owner = d.find((r) => r.id === rid)?.owner;
-    if (owner && sovereign(st.countries[owner]) && !candidates.includes(owner)) candidates.push(owner);
+    const owner = st.regions.find((r) => r.id === rid)?.owner;
+    if (owner && sovereign(st.countries[owner]) && un.members.includes(owner) && !fixed.includes(owner)) fixed.push(owner);
   }
-  // Four permanent seats (owner decision): the strongest candidates by national power.
-  const permanent = candidates.sort((a, b) => powerScore(st, st.countries[b]) - powerScore(st, st.countries[a]) || a.localeCompare(b)).slice(0, UN_PARAMS.permanentSeats);
+  const perm = [...fixed];
+  const power = nominatePowerSeat(st, un.members, fixed, new Set(fixed));
+  if (power) perm.push(power);
+  while (perm.length < UN_PARAMS.permanentSeats) { const n = nominatePowerSeat(st, un.members, perm, new Set(perm)); if (!n) break; perm.push(n); }
+  un.permanent = perm; un.powerSeat = power;
+  snapshotSeats(st);
+}
+
+function snapshotSeats(st: GameState): void {
+  const un = st.un!; un.seatTerritory = {};
+  for (const p of un.permanent) if (st.countries[p]?.alive) un.seatTerritory[p] = st.regions.filter((r) => r.owner === p).map((r) => r.id);
+}
+
+/** A permanent member that no longer exists: a whole-country successor keeps the seat, else a new member. */
+function succeedSeats(st: GameState): void {
+  const un = st.un!;
+  const next: string[] = [];
+  for (const p of un.permanent) {
+    if (st.countries[p]?.alive && un.members.includes(p)) { next.push(p); continue; }
+    const regs = (un.seatTerritory?.[p] ?? []).map((id) => st.regions.find((r) => r.id === id)).filter(Boolean) as GameState['regions'];
+    const total = regs.reduce((s, r) => s + r.pop, 0);
+    const by = new Map<string, number>(); for (const r of regs) by.set(r.owner, (by.get(r.owner) ?? 0) + r.pop);
+    const [heir, pop] = [...by].sort((a, b) => b[1] - a[1])[0] ?? [];
+    let succ: string | null = null;
+    if (heir && total > 0 && pop / total >= UN_PARAMS.successionShare && sovereign(st.countries[heir]) && !next.includes(heir) && !un.permanent.includes(heir)) succ = heir;
+    if (!succ) succ = nominatePowerSeat(st, un.members, un.permanent.filter((x) => x !== p && st.countries[x]?.alive), new Set([...next, ...un.permanent]));
+    if (succ) {
+      next.push(succ);
+      if (p === un.powerSeat) un.powerSeat = succ;
+      log(st, { type: 'diplomacy', text: `${st.countries[succ].name} takes the permanent Security Council seat of ${st.countries[p]?.name ?? p}.`, textVi: `${st.countries[succ].nameVi} kế thừa ghế thường trực Hội đồng Bảo an của ${st.countries[p]?.nameVi ?? p}.`, actors: [succ] });
+    }
+  }
+  un.permanent = next;
+  un.elected = un.elected.filter((e) => !next.includes(e.id));
+}
+
+function foundUn(st: GameState): void {
   const members = Object.values(st.countries).filter(sovereign).map((c) => c.id).sort();
-  st.un = { founded: st.tick, members, permanent, elected: [], resolutions: [] };
+  st.un = { founded: st.tick, members, permanent: [], powerSeat: null, elected: [], resolutions: [] };
+  assignPermanentAtFounding(st);
   electSeats(st);
+  const permanent = st.un.permanent;
   log(st, { type: 'diplomacy', text: `The United Nations is founded (${members.length} members; permanent members: ${permanent.map((p) => st.countries[p].name).join(', ')}).`, textVi: `Liên Hợp Quốc được thành lập (${members.length} thành viên; thường trực Hội đồng Bảo an: ${permanent.map((p) => st.countries[p].nameVi).join(', ')}).`, actors: permanent, historical: true });
 }
 
@@ -106,9 +162,9 @@ export function unMonth(st: GameState): void {
   const un = st.un;
   // membership: drop dead members, admit sovereign states a year after they form
   un.members = un.members.filter((m) => st.countries[m]?.alive);
-  un.permanent = un.permanent.filter((m) => st.countries[m]?.alive);
+  if (un.permanent.some((m) => !st.countries[m]?.alive || !un.members.includes(m))) { succeedSeats(st); snapshotSeats(st); }
   for (const c of Object.values(st.countries)) if (sovereign(c) && !un.members.includes(c.id) && st.tick - (c.formedAt ?? 0) >= UN_PARAMS.admissionDelayMonths) un.members.push(c.id);
-  if (st.date.m === 1) electSeats(st);
+  if (st.date.m === 1) { snapshotSeats(st); electSeats(st); }
   // the Council votes on every new war of conquest between members
   const voted = new Set(un.resolutions.map((r) => r.war));
   for (const w of st.wars) {

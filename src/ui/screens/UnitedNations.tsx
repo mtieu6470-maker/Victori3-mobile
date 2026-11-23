@@ -15,7 +15,7 @@ export function UnitedNationsTab({ st }: { st: GameState }) {
     return (
       <div class="pad">
         <div class="empty">Liên Hợp Quốc chưa được thành lập.</div>
-        <div class="note">Ở chế độ Lịch sử, Liên Hợp Quốc được thành lập tháng 10/1945: 4 thành viên thường trực Hội đồng Bảo an có quyền phủ quyết (4 nước mạnh nhất trong các nước giữ Washington, London, Paris, Moskva, Bắc Kinh), các ghế không thường trực nhiệm kỳ 2 năm (6 ghế, từ 1966 là 10 ghế).</div>
+        <div class="note">Ở chế độ Lịch sử, Liên Hợp Quốc được thành lập tháng 10/1945: 5 thành viên thường trực Hội đồng Bảo an có quyền phủ quyết (4 ghế cố định: các nước giữ London, Paris, Washington, Moskva; 1 ghế cho nước mạnh nhất còn lại), các ghế không thường trực nhiệm kỳ 2 năm (6 ghế, từ 1966 là 10 ghế).</div>
       </div>
     );
   }
@@ -30,7 +30,8 @@ export function UnitedNationsTab({ st }: { st: GameState }) {
         <Metric label="Nghị quyết lên án" icon="military" value={fmt(un.resolutions.length)} d={<span class="dim">thông qua {un.resolutions.filter((r) => r.passed).length} · phủ quyết {un.resolutions.filter((r) => r.vetoedBy.length).length}</span>} />
       </div>
       <Sec title="Thành viên thường trực (quyền phủ quyết)">
-        {un.permanent.map((id) => <div class="row" key={id}><div class="grow"><CountryLink st={st} id={id} /></div><span class="chip">Phủ quyết</span></div>)}
+        {un.permanent.map((id) => <div class="row" key={id}><div class="grow"><CountryLink st={st} id={id} /></div><span class="chip">{id === un.powerSeat ? 'Ghế theo sức mạnh · phủ quyết' : 'Phủ quyết'}</span></div>)}
+        <div class="note">4 ghế cố định cho các nước giữ London, Paris, Washington, Moskva; ghế thứ 5 cho nước mạnh nhất còn lại lúc thành lập, được 4 nước cố định chấp thuận. Ghế là vĩnh viễn; nếu một thành viên thường trực sụp đổ, nước kế thừa toàn bộ (≥ {fmt(UN_PARAMS.successionShare * 100)}% dân số cũ) giữ ghế, nếu không ghế được trao cho nước mạnh nhất được các nước thường trực khác chấp thuận.</div>
       </Sec>
       <Sec title="Thành viên không thường trực">
         {un.elected.map((e) => <div class="row" key={e.id}><div class="grow"><CountryLink st={st} id={e.id} /></div><span class="dim">đến {yearOf(e.until)}</span></div>)}
