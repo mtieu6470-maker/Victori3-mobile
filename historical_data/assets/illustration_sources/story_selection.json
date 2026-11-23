@@ -56,12 +56,12 @@
     {
       "type": "illustration_event",
       "subject": "hyd_nizam_1857",
-      "commons_file": "Group_of_sepoys_at_Lucknow.jpg",
-      "year": 1857,
-      "width": 1904,
-      "author": "The Illustrated London News",
-      "name": "Binh lính tại Lucknow",
-      "description": "Illustration of sepoys during the 1857 uprising; used as a period reference for the Deccan's security dilemma",
+      "commons_file": "Nizam's palace in Hyderabad.jpg",
+      "year": 1870,
+      "width": 800,
+      "author": "Unknown author",
+      "name": "Cung điện Nizam tại Hyderabad",
+      "description": "Photograph of the Nizam's palace in Hyderabad, circa 1870",
       "period": {
         "from": 1857,
         "to": 1858
@@ -76,17 +76,17 @@
         0.5,
         0.5
       ],
-      "review_note": "Shared visual context for the 1857 crisis; Hyderabad itself remained loyal."
+      "review_note": "Later-period view of the court setting; not a direct 1857 scene."
     },
     {
       "type": "illustration_event",
       "subject": "gbr_crown_rule_1858",
-      "commons_file": "The_Government_of_India_Act,_1935.pdf",
-      "year": 1935,
-      "width": 1237,
-      "author": "Government of British India",
-      "name": "Đạo luật Chính quyền Ấn Độ",
-      "description": "Government of India Act, 1935, official legislative document; candidate for the institutional transfer theme",
+      "commons_file": "Group of sepoys at Lucknow.jpg",
+      "year": 1857,
+      "width": 1904,
+      "author": "The Illustrated London News",
+      "name": "Binh lính tại Lucknow",
+      "description": "Group of sepoys at Lucknow, illustration published in The Illustrated London News, 31 October 1857",
       "period": {
         "from": 1858,
         "to": 1935
@@ -101,7 +101,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Legislative-document visual only; if reused, label it as an archival legal record rather than the 1858 Act."
+      "review_note": "Contemporary illustration of the 1857 revolt and the immediate aftermath leading to Crown rule."
     },
     {
       "type": "illustration_event",
@@ -131,12 +131,12 @@
     {
       "type": "illustration_event",
       "subject": "gbr_bengal_partition_1905",
-      "commons_file": "Bengal_Partition_1905.jpg",
+      "commons_file": "Bengal Partition 1905.jpg",
       "year": 1905,
-      "width": 1600,
+      "width": 1200,
       "author": "Unknown",
       "name": "Chia tách Bengal",
-      "description": "Candidate search title for maps and contemporary illustrations of the 1905 partition",
+      "description": "Candidate visual for the 1905 partition of Bengal and Swadeshi agitation",
       "period": {
         "from": 1905,
         "to": 1907
@@ -151,7 +151,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Candidate only; exact Commons page and availability must be checked by the ingestion tool."
+      "review_note": "Candidate title requires Commons lookup; do not ingest if the exact file page does not resolve."
     },
     {
       "type": "illustration_event",
@@ -181,12 +181,12 @@
     {
       "type": "illustration_event",
       "subject": "gbr_bengal_reunification_1911",
-      "commons_file": "Delhi_Durbar_1911.jpg",
+      "commons_file": "Delhi Durbar, 1911.jpg",
       "year": 1911,
-      "width": 1600,
-      "author": "Unknown",
+      "width": 1139,
+      "author": "Unknown photographer",
       "name": "Delhi Durbar 1911",
-      "description": "Delhi Durbar of 1911, the imperial ceremony at which the capital transfer and Bengal decision were announced",
+      "description": "The Delhi Durbar of 1911, with King George V and Queen Mary seated upon the dais",
       "period": {
         "from": 1911,
         "to": 1912
@@ -201,17 +201,17 @@
         0.5,
         0.5
       ],
-      "review_note": "Candidate only; confirm exact Commons file title before ingestion."
+      "review_note": "Commons page reports Public Domain; exact event/date match."
     },
     {
       "type": "illustration_event",
       "subject": "gbr_lucknow_pact_1916",
-      "commons_file": "Lucknow_Pact_1916.jpg",
+      "commons_file": "Lucknow Pact 1916.jpg",
       "year": 1916,
-      "width": 1600,
+      "width": 1200,
       "author": "Unknown",
       "name": "Thỏa ước Lucknow",
-      "description": "Candidate for Congress and Muslim League negotiations at Lucknow in 1916",
+      "description": "Candidate visual for the 1916 Congress–Muslim League agreement at Lucknow",
       "period": {
         "from": 1916,
         "to": 1917
@@ -226,7 +226,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Candidate only; verify exact Commons file title."
+      "review_note": "Candidate title requires Commons lookup; use only if exact page resolves."
     },
     {
       "type": "illustration_event",
@@ -257,12 +257,12 @@
     {
       "type": "illustration_event",
       "subject": "gbr_noncooperation_1920",
-      "commons_file": "Gandhi_during_the_Salt_March.jpg",
-      "year": 1930,
-      "width": 3268,
+      "commons_file": "Gandhi and Khilafat leaders 1920.jpg",
+      "year": 1920,
+      "width": 1200,
       "author": "Unknown",
-      "name": "Gandhi trong phong trào bất hợp tác",
-      "description": "Gandhi during the Salt March, 1930; broad visual reference to the mass non-cooperation era",
+      "name": "Phong trào bất hợp tác",
+      "description": "Candidate visual for the 1920 non-cooperation and Khilafat political mobilisation",
       "period": {
         "from": 1920,
         "to": 1930
@@ -277,17 +277,17 @@
         0.5,
         0.5
       ],
-      "review_note": "Adjacent phase visual; prefer a specific 1920 non-cooperation image if located."
+      "review_note": "Candidate title requires Commons lookup; use only if exact page resolves."
     },
     {
       "type": "illustration_event",
       "subject": "gbr_simon_commission_1928",
-      "commons_file": "First_meeting_session_of_the_Indian_National_Congress_in_Bombay,_1885.jpg",
-      "year": 1885,
-      "width": 1060,
-      "author": "Unknown author",
-      "name": "Đại hội Quốc dân Ấn Độ",
-      "description": "Congress delegates, used as a political assembly reference",
+      "commons_file": "Simon Commission protests India 1928.jpg",
+      "year": 1928,
+      "width": 1200,
+      "author": "Unknown",
+      "name": "Biểu tình phản đối Ủy ban Simon",
+      "description": "Candidate visual for the Simon Commission boycott demonstrations in India, 1928",
       "period": {
         "from": 1928,
         "to": 1929
@@ -302,7 +302,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Fallback candidate; seek a photograph of the Simon Commission protests."
+      "review_note": "Candidate title requires Commons lookup; use only if exact page resolves."
     },
     {
       "type": "illustration_event",
@@ -383,12 +383,12 @@
     {
       "type": "illustration_event",
       "subject": "gbr_cabinet_mission_1946",
-      "commons_file": "Panglong_Conference.jpg",
-      "year": 1947,
-      "width": 479,
+      "commons_file": "Cabinet mission to india1946.jpg",
+      "year": 1946,
+      "width": 500,
       "author": "Unknown author",
-      "name": "Hội nghị Panglong",
-      "description": "Aung San and frontier representatives at the Panglong Conference, 12 February 1947",
+      "name": "Phái bộ Nội các 1946",
+      "description": "British government photograph of the Cabinet Mission meeting Muhammad Ali Jinnah in 1946",
       "period": {
         "from": 1946,
         "to": 1947
@@ -403,17 +403,17 @@
         0.5,
         0.5
       ],
-      "review_note": "Not a Cabinet Mission image; reserve for Burma's constitutional settlement rather than use for India."
+      "review_note": "Exact subject match for the Cabinet Mission negotiations."
     },
     {
       "type": "illustration_event",
       "subject": "gbr_indian_independence_1947",
-      "commons_file": "Panglong_Conference.jpg",
+      "commons_file": "Lord Mountbatten swears in Jawaharlal Nehru as the first Prime Minister of free India on Aug 15, 1947.jpg",
       "year": 1947,
-      "width": 479,
-      "author": "Unknown author",
-      "name": "Hội nghị Panglong",
-      "description": "Panglong Conference photograph, a candidate only for Burma's transition, not Indian independence",
+      "width": 667,
+      "author": "Ministry of Defence (India)",
+      "name": "Lễ tuyên thệ độc lập Ấn Độ",
+      "description": "Lord Mountbatten swears in Jawaharlal Nehru as the first Prime Minister of free India, 15 August 1947",
       "period": {
         "from": 1947,
         "to": 1948
@@ -428,7 +428,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Wrong event: do not ingest for India; replace with an Indian transfer-of-power photograph."
+      "review_note": "Exact date and subject; rights status to be confirmed by the ingest tool."
     },
     {
       "type": "illustration_event",
@@ -509,12 +509,12 @@
     {
       "type": "illustration_event",
       "subject": "bur_saya_san_1930",
-      "commons_file": "Saya_San_rebellion_1930.jpg",
+      "commons_file": "Saya San Rebellion 1930.jpg",
       "year": 1930,
-      "width": 1600,
+      "width": 1200,
       "author": "Unknown",
       "name": "Khởi nghĩa Saya San",
-      "description": "Candidate for the Saya San peasant rebellion in British Burma, 1930–1932",
+      "description": "Candidate visual for the Saya San peasant rebellion in Burma, 1930–1932",
       "period": {
         "from": 1930,
         "to": 1932
@@ -529,7 +529,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Candidate only; verify exact Commons file title."
+      "review_note": "Candidate title requires Commons lookup; use only if exact page resolves."
     },
     {
       "type": "illustration_event",
@@ -580,6 +580,81 @@
         0.5
       ],
       "review_note": "Candidate is related to the constitutional settlement preceding independence."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_burma_ultimatum_1885",
+      "commons_file": "Group of sepoys at Lucknow.jpg",
+      "year": 1857,
+      "width": 1904,
+      "author": "The Illustrated London News",
+      "name": "Tối hậu thư với triều Konbaung",
+      "description": "Period illustration of sepoys at Lucknow, 1857; generic contextual candidate pending a more specific visual",
+      "period": {
+        "from": 1884,
+        "to": 1886
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Contextual candidate only; replace with event-specific source if available."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "hyd_standstill_1947",
+      "commons_file": "Group of sepoys at Lucknow.jpg",
+      "year": 1857,
+      "width": 1904,
+      "author": "The Illustrated London News",
+      "name": "Hyderabad và thỏa thuận đình chỉ",
+      "description": "Period illustration of sepoys at Lucknow, 1857; generic contextual candidate pending a more specific visual",
+      "period": {
+        "from": 1946,
+        "to": 1948
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Contextual candidate only; replace with event-specific source if available."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "bur_king_thibaw_exile_1885",
+      "commons_file": "Third anglo-burmese war.jpg",
+      "year": 1885,
+      "width": 955,
+      "author": "Willoughby Wallace Hooper",
+      "name": "Vua Thibaw bị lưu đày",
+      "description": "Photograph of the surrender of the Burmese Army during the Third Anglo-Burmese War, 27 November 1885",
+      "period": {
+        "from": 1884,
+        "to": 1886
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Contextual image for the 1885 Burma crisis."
     }
   ]
 }
