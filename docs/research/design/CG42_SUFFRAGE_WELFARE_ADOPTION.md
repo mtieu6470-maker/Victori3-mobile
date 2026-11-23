@@ -6,7 +6,7 @@
 
 ## 1. Tóm tắt
 
-Bộ dữ liệu có **62 dòng chính thể/quốc gia**, vượt ngưỡng tối thiểu 60 của yêu cầu. Mỗi dòng ghi ISO3 (mã lịch sử khi cần), thủ đô, năm phổ thông đầu phiếu nam nếu đã xác minh, năm quyền bầu cử nữ, năm bình đẳng đầy đủ khi quyền ban đầu bị hạn chế, năm bảo hiểm xã hội đầu tiên, năm bảo hiểm hưu trí và năm bảo hiểm thất nghiệp. Có thêm các giai đoạn đình chỉ hoặc hạn chế bầu cử cạnh tranh.
+Bộ dữ liệu có **63 dòng chính thể/quốc gia**, vượt ngưỡng tối thiểu 60 của yêu cầu. Mỗi dòng ghi ISO3 (mã lịch sử khi cần), thủ đô, năm phổ thông đầu phiếu nam nếu đã xác minh, năm quyền bầu cử nữ, năm bình đẳng đầy đủ khi quyền ban đầu bị hạn chế, năm bảo hiểm xã hội đầu tiên, năm bảo hiểm hưu trí và năm bảo hiểm thất nghiệp. Có thêm các giai đoạn đình chỉ hoặc hạn chế bầu cử cạnh tranh.
 
 **Không điền năm bằng suy đoán.** Trường chưa có nguồn đủ chắc chắn được để `null`; điều này có nghĩa là chưa xác minh trong gói nghiên cứu, không có nghĩa là quốc gia chưa từng có chế độ đó.
 
@@ -76,7 +76,7 @@ Bảng ILO chỉ bao phủ 23 nước OECD được chọn. Không ngoại suy s
 | NLD | Netherlands | 1901 | 1919 | 1916 |
 | NZL | New Zealand | 1898 | 1898 | 1930 |
 | NOR | Norway | 1895 | 1936 | 1906 |
-| PRT | PRT | 1913 | 1935 | 1975 |
+| PRT | Portugal | 1913 | 1935 | 1975 |
 | ESP | Spain | 1900 | 1919 | 1919 |
 | SWE | Sweden | 1891 | 1913 | 1934 |
 | CHE | Switzerland | 1911 | 1946 | 1982 |
