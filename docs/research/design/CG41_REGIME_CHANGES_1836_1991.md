@@ -6,19 +6,19 @@
 
 ## Executive summary
 
-This package contains **52 sourced transition records**, **41 references**, and a proposed minimal 20th-century law catalogue. It addresses the principal owner concern: Historical Mode must not leave the Russian Empire, Qing dynasty, July Monarchy, Tokugawa shogunate and other 1836 regimes frozen in place into the 20th century.
+This package contains **53 sourced transition records**, **41 references**, and a proposed minimal 20th-century law catalogue. It addresses the principal owner concern: Historical Mode must not leave the Russian Empire, Qing dynasty, July Monarchy, Tokugawa shogunate and other 1836 regimes frozen in place into the 20th century.
 
 The central Russian sequence is explicitly represented as:
 1. February Revolution and Nicholas II's abdication (15 March 1917 Gregorian).
 2. Bolshevik seizure of power / October Revolution (7 November 1917 Gregorian; 25 October Old Style).
-3. RSFSR constitution (10 July 1918).
+3. RSFSR constitution (10 July 1918), with the 1918–22 Civil War and territorial consolidation tracked as a separate process.
 4. USSR foundation (30 December 1922).
 5. Stalin-era constitutional and planned-economy consolidation (1936 Constitution; central planning developed through the Five-Year Plans).
 6. Perestroika/glasnost from 1985, Article 6 amendment in March 1990, and dissolution of the USSR (formal termination recognised 26 December 1991).
 
 ## Data contents
 
-- 52 event records with a principal date, process window, historical capital, predecessor/successor names in English and Vietnamese, event type, causal context, law changes, territorial changes and source IDs.
+- 53 event records with a principal date, process window, historical capital, predecessor/successor names in English and Vietnamese, event type, causal context, law changes, territorial changes and source IDs.
 - 41 source entries, prioritising official state histories, national archives, constitutional texts, UN country reports and academic historical reference works.
 - 18 proposed laws to extend the current nine-group law model.
 
