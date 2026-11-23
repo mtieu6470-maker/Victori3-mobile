@@ -148,7 +148,7 @@
         "india_chronology"
       ],
       "image": {
-        "ref": "ill_evt_eic_sepoy_council_1857",
+        "ref": "ill_eic_sepoy_council_1857",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -289,10 +289,135 @@
         "uk_parliament_empire"
       ],
       "image": {
-        "ref": "ill_evt_eic_dissolution_1858",
+        "ref": "ill_eic_dissolution_1858",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
+    },
+    {
+      "id": "eic_malaya_independence_1957",
+      "country": "EIC",
+      "mode": "historical",
+      "window": [
+        "1956-02-01",
+        "1958-12-31"
+      ],
+      "date_historical": "1957-08-31",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "EIC"
+          },
+          {
+            "type": "subject_of",
+            "a": "EIC",
+            "b": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_MLK",
+            "entities": [
+              "EIC"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_malayan_emergency_1948"
+          },
+          {
+            "type": "year_between",
+            "from": 1956,
+            "to": 1958
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_malayan_emergency_1948"
+        ]
+      },
+      "title_vi": "Công ty Đông Ấn bàn giao các khu định cư Malaya",
+      "title_en": "The East India Company Transfers Its Malayan Settlements",
+      "text_vi": "Sau khi tình trạng khẩn cấp làm thay đổi cục diện chính trị, các khu định cư tại Malacca và Penang không thể tiếp tục được quản lý như một mạng lưới thương mại của Công ty. Các đại diện Malaya yêu cầu một liên bang tự trị, còn London muốn duy trì quan hệ quốc phòng và thương mại. Ban lãnh đạo Công ty phải lựa chọn giữa chuyển giao quyền lực theo quy chế Dominion hoặc trao độc lập với các ràng buộc hợp tác.",
+      "text_en": "After the Emergency reshaped the political landscape, the settlements at Malacca and Penang could no longer be administered as a Company trading network. Malayan representatives demanded a self-governing federation, while London sought to preserve defence and commercial links. Company directors must choose between a Dominion transfer or independence under a close cooperation arrangement.",
+      "options": [
+        {
+          "id": "eic_malaya_dominion",
+          "label_vi": "Chuyển giao Malaya thành một Dominion trong Khối Thịnh vượng chung",
+          "label_en": "Transfer Malaya as a Commonwealth dominion",
+          "historical": true,
+          "ai_weight": 4,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "eic_malaya_1957_dominion",
+              "name_vi": "Chuyển giao Malaya",
+              "name_en": "Malayan Transfer",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.03,
+                "trade": 0.02,
+                "legitimacy": 1
+              }
+            },
+            {
+              "type": "grant_independence",
+              "owner": "EIC",
+              "regions": [
+                "EIC_MLK",
+                "EIC_PEN"
+              ],
+              "nation": "malayan",
+              "name_en": "Federation of Malaya",
+              "name_vi": "Liên bang Malaya",
+              "mode": "dominion"
+            }
+          ]
+        },
+        {
+          "id": "eic_malaya_ties",
+          "label_vi": "Trao độc lập kèm hiệp ước thị trường và quốc phòng",
+          "label_en": "Grant independence with market and defence ties",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "eic_malaya_1957_ties",
+              "name_vi": "Quan hệ hậu thuộc địa Malaya",
+              "name_en": "Post-colonial Malayan Ties",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "trade": 0.04,
+                "army": 0.02,
+                "prestige": 0.02
+              }
+            },
+            {
+              "type": "grant_independence",
+              "owner": "EIC",
+              "regions": [
+                "EIC_MLK",
+                "EIC_PEN"
+              ],
+              "nation": "malayan",
+              "name_en": "Federation of Malaya",
+              "name_vi": "Liên bang Malaya",
+              "mode": "ties"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "malaya_archives",
+        "uk_parliament_empire"
+      ]
     }
   ]
 }

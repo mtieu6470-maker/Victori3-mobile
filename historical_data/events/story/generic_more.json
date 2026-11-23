@@ -166,7 +166,7 @@
         "burma_panglong"
       ],
       "image": {
-        "ref": "ill_evt_bur_saya_san_1930",
+        "ref": "ill_bur_saya_san_1930",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -303,7 +303,7 @@
         "burma_panglong"
       ],
       "image": {
-        "ref": "ill_evt_bur_panglong_1947",
+        "ref": "ill_bur_panglong_1947",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -447,7 +447,7 @@
         "burma_panglong"
       ],
       "image": {
-        "ref": "ill_evt_bur_independence_1948",
+        "ref": "ill_bur_independence_1948",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -555,7 +555,6 @@
       ],
       "chain": {
         "after": [
-          "gbr_ceylon_independence_1948",
           "gbr_ceylon_independence_1948"
         ]
       },
@@ -660,12 +659,11 @@
       ],
       "chain": {
         "after": [
-          "gbr_malaya_independence_1957",
           "gbr_malaya_independence_1957"
         ]
       },
       "image": {
-        "ref": "ill_evt_mys_federation_1963",
+        "ref": "ill_mys_federation_1963",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -770,7 +768,7 @@
         "egypt_suez"
       ],
       "image": {
-        "ref": "ill_evt_egy_revolution_1919",
+        "ref": "ill_egy_revolution_1919",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -871,13 +869,12 @@
         "egypt_suez"
       ],
       "image": {
-        "ref": "ill_evt_egy_revolution_1952",
+        "ref": "ill_egy_revolution_1952",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       },
       "chain": {
         "after": [
-          "gbr_egypt_treaty_1936",
           "gbr_egypt_treaty_1936"
         ]
       }
@@ -977,13 +974,12 @@
         "egypt_suez"
       ],
       "image": {
-        "ref": "ill_evt_egy_suez_nationalisation_1956",
+        "ref": "ill_egy_suez_nationalisation_1956",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       },
       "chain": {
         "after": [
-          "egy_revolution_1952",
           "egy_revolution_1952"
         ]
       }
@@ -1089,13 +1085,12 @@
         "palestine_timeline"
       ],
       "image": {
-        "ref": "ill_evt_pal_arab_revolt_1936",
+        "ref": "ill_pal_arab_revolt_1936",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       },
       "chain": {
         "after": [
-          "gbr_palestine_mandate_1922",
           "gbr_palestine_mandate_1922"
         ]
       }
@@ -1196,13 +1191,12 @@
         "palestine_un"
       ],
       "image": {
-        "ref": "ill_evt_pal_partition_response_1947",
+        "ref": "ill_pal_partition_response_1947",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       },
       "chain": {
         "after": [
-          "gbr_palestine_partition_1947",
           "gbr_palestine_partition_1947"
         ]
       }
@@ -1301,7 +1295,7 @@
         "kenya_history"
       ],
       "image": {
-        "ref": "ill_evt_ken_state_building_1964",
+        "ref": "ill_ken_state_building_1964",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -1399,7 +1393,7 @@
         "ghana_history"
       ],
       "image": {
-        "ref": "ill_evt_gha_independence_priorities_1957",
+        "ref": "ill_gha_independence_priorities_1957",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -1499,12 +1493,11 @@
       ],
       "chain": {
         "after": [
-          "gbr_nigeria_independence_1960",
           "gbr_nigeria_independence_1960"
         ]
       },
       "image": {
-        "ref": "ill_evt_nga_federal_bargain_1960",
+        "ref": "ill_nga_federal_bargain_1960",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -1609,12 +1602,11 @@
       ],
       "chain": {
         "after": [
-          "gbr_rhodesia_udi_1965",
           "gbr_rhodesia_udi_1965"
         ]
       },
       "image": {
-        "ref": "ill_evt_rhod_udi_movement_1965",
+        "ref": "ill_rhod_udi_movement_1965",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -1719,12 +1711,11 @@
       ],
       "chain": {
         "after": [
-          "gbr_natives_land_act_1913",
           "gbr_natives_land_act_1913"
         ]
       },
       "image": {
-        "ref": "ill_evt_rsa_union_society_1913",
+        "ref": "ill_rsa_union_society_1913",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -1823,7 +1814,7 @@
         "caribbean_history"
       ],
       "image": {
-        "ref": "ill_evt_jam_independence_agenda_1962",
+        "ref": "ill_jam_independence_agenda_1962",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -1922,7 +1913,7 @@
         "cyprus_history"
       ],
       "image": {
-        "ref": "ill_evt_cyp_power_sharing_1960",
+        "ref": "ill_cyp_power_sharing_1960",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -2021,7 +2012,7 @@
         "malta_history"
       ],
       "image": {
-        "ref": "ill_evt_mlt_independent_economy_1964",
+        "ref": "ill_mlt_independent_economy_1964",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -2039,15 +2030,16 @@
         "conditions": [
           {
             "type": "exists",
-            "entity": "$owner"
+            "entity": "$self"
           },
           {
-            "type": "movement_strength_above",
-            "owner": "$owner",
-            "regions": [
-              "GBR_DUB"
-            ],
-            "value": 5
+            "type": "owns",
+            "entity": "$self",
+            "region": "GBR_DUB"
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_irish_free_state_1922"
           },
           {
             "type": "year_between",
@@ -2131,12 +2123,11 @@
       ],
       "chain": {
         "after": [
-          "gbr_irish_free_state_1922",
           "gbr_irish_free_state_1922"
         ]
       },
       "image": {
-        "ref": "ill_evt_irl_constitutional_sovereignty_1937",
+        "ref": "ill_irl_constitutional_sovereignty_1937",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -2238,7 +2229,7 @@
         }
       ],
       "image": {
-        "ref": "ill_evt_ind_constitution_1950",
+        "ref": "ill_ind_constitution_1950",
         "credit": "Wikimedia Commons CC0/PD candidate; verify with ingestion",
         "license": "CANDIDATE — verify PD/CC0"
       },
@@ -2346,7 +2337,7 @@
         "pakistan_constitution"
       ],
       "image": {
-        "ref": "ill_evt_pak_constitution_1956",
+        "ref": "ill_pak_constitution_1956",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }

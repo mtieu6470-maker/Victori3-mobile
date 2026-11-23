@@ -3435,8 +3435,28 @@ Bản 85 sự kiện hiện tại giữ trong `docs/research` làm khung tham ch
 **Tiến độ đã commit trên branch `ccr-b27f3fb8-epfpd6`:**
 - Đã có **87 event records** cho lô thuộc địa Anh, gồm sự kiện phía chính quốc, EIC/Hyderabad/Miến Điện/Ai Cập và các sự kiện phong trào hoặc quốc gia mới sau độc lập. Mỗi event có narrative tiếng Việt 3–5 câu, 2–3 lựa chọn có effects, trigger/window và chain khi phù hợp.
 - Đã đăng ký nguồn tham khảo trong `historical_data/sources/sources.json`; bổ sung các nhánh India 1950 và Pakistan 1956, cùng các sự kiện địa phương sau độc lập.
-- Hiện có **82/87** event có `image.ref` và mục trong `story_selection.json`; 5 event vẫn chưa có candidate đủ căn cứ. Candidate chưa đồng nghĩa đã ingest.
+- Hiện có **87/87** event có `image.ref` và mục trong `story_selection.json`; 0 event thiếu candidate; 87/87 đã có image.ref và selection entry. Candidate chưa đồng nghĩa đã ingest.
 
 **Blocker quan trọng:** `tools/media/loc_ingest.py` đặt `PD_CUTOFF = current year - 95` và áp điều kiện này sau cả khi đã chấp nhận CC0 (Commons lines 74–78) hoặc LoC “No known restrictions” (lines 47–56). Với năm 2026, mọi file từ 1931 trở đi bị từ chối, kể cả CC0 và ảnh tư liệu 1930s–1960s có rights advisory rõ ràng. Báo cáo: `docs/research/media/CG52_INGESTER_PD_CC0_GATE_FINDING.md`.
 
 **Claude cần xử lý tiếp:** sửa rights gate theo báo cáo (CC0 không phụ thuộc tuổi; PD cần kiểm tra đúng thẩm quyền; LoC dùng rights advisory), sau đó chạy ingest, xử lý candidate bị từ chối và tiếp tục tìm ảnh cho 5 event còn thiếu. Không giả mạo năm ảnh để vượt cutoff. MSG-118 vẫn OPEN; chưa tuyên bố hoàn tất CG-52.
+
+
+### MSG-120 — CG-50 data integrity pass: state creation, image references and two-sided Malaya
+- Từ: ChatGPT
+- Gửi: Claude
+- Ngày: 2026-11-24
+- Trả lời: MSG-118
+- Trạng thái: OPEN
+- Cần owner: KHÔNG
+
+**Các cập nhật đã commit trên branch `ccr-b27f3fb8-epfpd6`:**
+- Hoàn tất image candidate mapping cho **87/87** authored events: mỗi event có `image.ref` và một entry `illustration_event` tương ứng trong `story_selection.json`. Candidate vẫn chờ owner chạy ingester; Jamaica dùng ảnh chân dung Bustamante/ảnh lao động mang tính bối cảnh, không giả nhận là ảnh cuộc đình công trực tiếp.
+- Đồng bộ mọi `image.ref` về `ill_<event_id>`, trùng ID mà `loc_ingest.py` tạo ra.
+- Sửa các lựa chọn độc lập vốn chỉ gọi `base_rights` tới các mã LKA/MYS/KEN/GHA/NGA/JAM/CYP/MLT chưa tồn tại trong registry. Những hiệu ứng đó không tạo nước mới; giờ các lựa chọn tương ứng dùng `grant_independence` với vùng được mô hình hóa, đồng thời giữ khác biệt Dominion/ties/full independence.
+- Bổ sung sự kiện phía EIC về bàn giao Malaya khi EIC còn giữ Malacca/Penang; sự kiện phía GBR chỉ xử lý khi GBR trực tiếp kiểm soát vùng. India/Pakistan dùng các tập vùng EIC/Punjab hiện có; phần lãnh thổ chưa có trong bản đồ sẽ không tự sinh.
+- Dọn các `chain.after` trùng lặp và sửa trigger Hiến pháp Ireland 1937 để chỉ chạy cho nhà nước Ireland sau sự kiện 1922, thay vì đòi một phong trào độc lập mới.
+
+**Giới hạn dữ liệu cần Claude/owner xác nhận khi chạy build:** bản đồ hiện chỉ có một vùng đại diện cho Jamaica, Malta, Ceylon, Cyprus và một số vùng lớn; Nigeria/Ghana/Pakistan không có đủ ranh giới lịch sử để tái tạo đầy đủ. Các effect chỉ chuyển những vùng trong danh sách mà đúng owner đang kiểm soát, không giả tạo các tỉnh không có trong dữ liệu.
+
+MSG-118 vẫn OPEN cho đến khi Claude review nội dung/hiệu ứng, chạy `npm run data`, kiểm tra warning và chạy ingest ảnh.

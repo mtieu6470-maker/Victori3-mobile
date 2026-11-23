@@ -231,7 +231,7 @@
         "india_chronology"
       ],
       "image": {
-        "ref": "ill_evt_gbr_indian_rebellion_1857",
+        "ref": "ill_gbr_indian_rebellion_1857",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -375,7 +375,7 @@
         "uk_raj"
       ],
       "image": {
-        "ref": "ill_evt_gbr_crown_rule_1858",
+        "ref": "ill_gbr_crown_rule_1858",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -515,7 +515,7 @@
         "uk_raj"
       ],
       "image": {
-        "ref": "ill_evt_gbr_inc_1885",
+        "ref": "ill_gbr_inc_1885",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -673,7 +673,7 @@
         "india_chronology"
       ],
       "image": {
-        "ref": "ill_evt_gbr_bengal_partition_1905",
+        "ref": "ill_gbr_bengal_partition_1905",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -814,7 +814,7 @@
         "india_chronology"
       ],
       "image": {
-        "ref": "ill_evt_gbr_morley_minto_1909",
+        "ref": "ill_gbr_morley_minto_1909",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -954,7 +954,7 @@
         "india_chronology"
       ],
       "image": {
-        "ref": "ill_evt_gbr_bengal_reunification_1911",
+        "ref": "ill_gbr_bengal_reunification_1911",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -1096,7 +1096,7 @@
         "india_chronology"
       ],
       "image": {
-        "ref": "ill_evt_gbr_lucknow_pact_1916",
+        "ref": "ill_gbr_lucknow_pact_1916",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -1241,7 +1241,7 @@
         "uk_raj"
       ],
       "image": {
-        "ref": "ill_evt_gbr_amritsar_1919",
+        "ref": "ill_gbr_amritsar_1919",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -1386,7 +1386,7 @@
         "india_chronology"
       ],
       "image": {
-        "ref": "ill_evt_gbr_noncooperation_1920",
+        "ref": "ill_gbr_noncooperation_1920",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -1526,7 +1526,7 @@
         "india_chronology"
       ],
       "image": {
-        "ref": "ill_evt_gbr_simon_commission_1928",
+        "ref": "ill_gbr_simon_commission_1928",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -1713,7 +1713,7 @@
         "india_chronology"
       ],
       "image": {
-        "ref": "ill_evt_gbr_salt_march_1930",
+        "ref": "ill_gbr_salt_march_1930",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -1856,7 +1856,7 @@
         "uk_raj"
       ],
       "image": {
-        "ref": "ill_evt_gbr_goi_act_1935",
+        "ref": "ill_gbr_goi_act_1935",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -2009,7 +2009,7 @@
         "uk_raj"
       ],
       "image": {
-        "ref": "ill_evt_gbr_quit_india_1942",
+        "ref": "ill_gbr_quit_india_1942",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -2151,7 +2151,7 @@
         "india_chronology"
       ],
       "image": {
-        "ref": "ill_evt_gbr_cabinet_mission_1946",
+        "ref": "ill_gbr_cabinet_mission_1946",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -2228,6 +2228,47 @@
               "type": "treasury",
               "entity": "GBR",
               "months_income": -1.2
+            },
+            {
+              "type": "grant_independence",
+              "owner": "EIC",
+              "regions": [
+                "EIC_BEN",
+                "EIC_BIH",
+                "EIC_ORI",
+                "EIC_ASS",
+                "EIC_ARA",
+                "EIC_TEN",
+                "EIC_DEL",
+                "EIC_ROH",
+                "EIC_ALL",
+                "EIC_SAU",
+                "EIC_MAD",
+                "EIC_NSR",
+                "EIC_CED",
+                "EIC_MAL",
+                "EIC_SMD",
+                "EIC_MYS",
+                "EIC_BOM",
+                "EIC_DEC",
+                "EIC_GUJ"
+              ],
+              "nation": "indian",
+              "name_en": "Dominion of India",
+              "name_vi": "Liên bang Ấn Độ",
+              "mode": "dominion"
+            },
+            {
+              "type": "grant_independence",
+              "owner": "EIC",
+              "regions": [
+                "SIK_LAH",
+                "SIK_MUL"
+              ],
+              "nation": "pakistani",
+              "name_en": "Dominion of Pakistan",
+              "name_vi": "Liên bang Pakistan",
+              "mode": "dominion"
             }
           ]
         },
@@ -2256,6 +2297,47 @@
               "type": "prestige",
               "entity": "GBR",
               "delta": 1
+            },
+            {
+              "type": "grant_independence",
+              "owner": "EIC",
+              "regions": [
+                "EIC_BEN",
+                "EIC_BIH",
+                "EIC_ORI",
+                "EIC_ASS",
+                "EIC_ARA",
+                "EIC_TEN",
+                "EIC_DEL",
+                "EIC_ROH",
+                "EIC_ALL",
+                "EIC_SAU",
+                "EIC_MAD",
+                "EIC_NSR",
+                "EIC_CED",
+                "EIC_MAL",
+                "EIC_SMD",
+                "EIC_MYS",
+                "EIC_BOM",
+                "EIC_DEC",
+                "EIC_GUJ"
+              ],
+              "nation": "indian",
+              "name_en": "Dominion of India",
+              "name_vi": "Liên bang Ấn Độ",
+              "mode": "ties"
+            },
+            {
+              "type": "grant_independence",
+              "owner": "EIC",
+              "regions": [
+                "SIK_LAH",
+                "SIK_MUL"
+              ],
+              "nation": "pakistani",
+              "name_en": "Dominion of Pakistan",
+              "name_vi": "Liên bang Pakistan",
+              "mode": "ties"
             }
           ]
         },
@@ -2284,6 +2366,47 @@
               "type": "war_exhaustion",
               "entity": "GBR",
               "delta": -1
+            },
+            {
+              "type": "grant_independence",
+              "owner": "EIC",
+              "regions": [
+                "EIC_BEN",
+                "EIC_BIH",
+                "EIC_ORI",
+                "EIC_ASS",
+                "EIC_ARA",
+                "EIC_TEN",
+                "EIC_DEL",
+                "EIC_ROH",
+                "EIC_ALL",
+                "EIC_SAU",
+                "EIC_MAD",
+                "EIC_NSR",
+                "EIC_CED",
+                "EIC_MAL",
+                "EIC_SMD",
+                "EIC_MYS",
+                "EIC_BOM",
+                "EIC_DEC",
+                "EIC_GUJ"
+              ],
+              "nation": "indian",
+              "name_en": "Dominion of India",
+              "name_vi": "Liên bang Ấn Độ",
+              "mode": "full"
+            },
+            {
+              "type": "grant_independence",
+              "owner": "EIC",
+              "regions": [
+                "SIK_LAH",
+                "SIK_MUL"
+              ],
+              "nation": "pakistani",
+              "name_en": "Dominion of Pakistan",
+              "name_vi": "Liên bang Pakistan",
+              "mode": "full"
             }
           ]
         }
@@ -2293,7 +2416,7 @@
         "india_chronology"
       ],
       "image": {
-        "ref": "ill_evt_gbr_indian_independence_1947",
+        "ref": "ill_gbr_indian_independence_1947",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -2432,7 +2555,7 @@
         "burma_panglong"
       ],
       "image": {
-        "ref": "ill_evt_gbr_burma_ultimatum_1885",
+        "ref": "ill_gbr_burma_ultimatum_1885",
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
@@ -2534,7 +2657,7 @@
         "ceylon_elections"
       ],
       "image": {
-        "ref": "ill_evt_gbr_ceylon_riots_1915",
+        "ref": "ill_gbr_ceylon_riots_1915",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -2571,8 +2694,6 @@
       },
       "chain": {
         "after": [
-          "gbr_ceylon_riots_1915",
-          "gbr_ceylon_riots_1915",
           "gbr_ceylon_riots_1915"
         ]
       },
@@ -2638,7 +2759,7 @@
         "ceylon_elections"
       ],
       "image": {
-        "ref": "ill_evt_gbr_donoughmore_1931",
+        "ref": "ill_gbr_donoughmore_1931",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -2675,8 +2796,6 @@
       },
       "chain": {
         "after": [
-          "gbr_donoughmore_1931",
-          "gbr_donoughmore_1931",
           "gbr_donoughmore_1931"
         ]
       },
@@ -2747,7 +2866,7 @@
         "ceylon_un"
       ],
       "image": {
-        "ref": "ill_evt_gbr_ceylon_constitution_1946",
+        "ref": "ill_gbr_ceylon_constitution_1946",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -2771,8 +2890,7 @@
             "type": "owner_in",
             "region": "GBR_CEY",
             "entities": [
-              "GBR",
-              "LKA"
+              "GBR"
             ]
           },
           {
@@ -2785,8 +2903,6 @@
       },
       "chain": {
         "after": [
-          "gbr_ceylon_constitution_1946",
-          "gbr_ceylon_constitution_1946",
           "gbr_ceylon_constitution_1946"
         ]
       },
@@ -2817,9 +2933,16 @@
               }
             },
             {
-              "type": "base_rights",
-              "host": "GBR",
-              "user": "LKA"
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "GBR_CEY",
+                "GBR_JAF"
+              ],
+              "nation": "ceylon",
+              "name_en": "Dominion of Ceylon",
+              "name_vi": "Dominion Ceylon",
+              "mode": "dominion"
             }
           ]
         },
@@ -2845,9 +2968,16 @@
               }
             },
             {
-              "type": "base_rights",
-              "host": "GBR",
-              "user": "LKA"
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "GBR_CEY",
+                "GBR_JAF"
+              ],
+              "nation": "ceylon",
+              "name_en": "Ceylon",
+              "name_vi": "Ceylon",
+              "mode": "ties"
             }
           ]
         }
@@ -2856,7 +2986,7 @@
         "ceylon_un"
       ],
       "image": {
-        "ref": "ill_evt_gbr_ceylon_independence_1948",
+        "ref": "ill_gbr_ceylon_independence_1948",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -2959,7 +3089,7 @@
         "malaya_archives"
       ],
       "image": {
-        "ref": "ill_evt_gbr_malaya_invasion_1941",
+        "ref": "ill_gbr_malaya_invasion_1941",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -3072,7 +3202,7 @@
         "malaysia_gov"
       ],
       "image": {
-        "ref": "ill_evt_gbr_singapore_fall_1942",
+        "ref": "ill_gbr_singapore_fall_1942",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -3276,7 +3406,7 @@
         "malaysia_gov"
       ],
       "image": {
-        "ref": "ill_evt_gbr_malayan_emergency_1948",
+        "ref": "ill_gbr_malayan_emergency_1948",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -3300,9 +3430,7 @@
             "type": "owner_in",
             "region": "EIC_MLK",
             "entities": [
-              "GBR",
-              "EIC",
-              "MYS"
+              "GBR"
             ]
           },
           {
@@ -3345,9 +3473,16 @@
               }
             },
             {
-              "type": "base_rights",
-              "host": "GBR",
-              "user": "MYS"
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "EIC_MLK",
+                "EIC_PEN"
+              ],
+              "nation": "malayan",
+              "name_en": "Federation of Malaya",
+              "name_vi": "Liên bang Malaya",
+              "mode": "dominion"
             }
           ]
         },
@@ -3385,7 +3520,7 @@
         "malaya_archives"
       ],
       "image": {
-        "ref": "ill_evt_gbr_malaya_independence_1957",
+        "ref": "ill_gbr_malaya_independence_1957",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -3498,7 +3633,7 @@
         "egypt_1882"
       ],
       "image": {
-        "ref": "ill_evt_gbr_egypt_occupation_1882",
+        "ref": "ill_gbr_egypt_occupation_1882",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -3609,7 +3744,7 @@
         "egypt_suez"
       ],
       "image": {
-        "ref": "ill_evt_gbr_egypt_independence_1922",
+        "ref": "ill_gbr_egypt_independence_1922",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -3721,7 +3856,7 @@
         "egypt_suez"
       ],
       "image": {
-        "ref": "ill_evt_gbr_egypt_treaty_1936",
+        "ref": "ill_gbr_egypt_treaty_1936",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -3834,7 +3969,7 @@
         "egypt_suez"
       ],
       "image": {
-        "ref": "ill_evt_gbr_suez_crisis_1956",
+        "ref": "ill_gbr_suez_crisis_1956",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -3939,7 +4074,7 @@
         "palestine_timeline"
       ],
       "image": {
-        "ref": "ill_evt_gbr_balfour_declaration_1917",
+        "ref": "ill_gbr_balfour_declaration_1917",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -3979,8 +4114,6 @@
       },
       "chain": {
         "after": [
-          "gbr_balfour_declaration_1917",
-          "gbr_balfour_declaration_1917",
           "gbr_balfour_declaration_1917"
         ]
       },
@@ -4051,7 +4184,7 @@
         "palestine_timeline"
       ],
       "image": {
-        "ref": "ill_evt_gbr_palestine_mandate_1922",
+        "ref": "ill_gbr_palestine_mandate_1922",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -4094,8 +4227,6 @@
       },
       "chain": {
         "after": [
-          "pal_arab_revolt_1936",
-          "pal_arab_revolt_1936",
           "pal_arab_revolt_1936"
         ]
       },
@@ -4166,7 +4297,7 @@
         "palestine_un"
       ],
       "image": {
-        "ref": "ill_evt_gbr_peel_commission_1937",
+        "ref": "ill_gbr_peel_commission_1937",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -4209,8 +4340,6 @@
       },
       "chain": {
         "after": [
-          "gbr_peel_commission_1937",
-          "gbr_peel_commission_1937",
           "gbr_peel_commission_1937"
         ]
       },
@@ -4284,7 +4413,7 @@
         "palestine_un"
       ],
       "image": {
-        "ref": "ill_evt_gbr_white_paper_1939",
+        "ref": "ill_gbr_white_paper_1939",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -4327,8 +4456,6 @@
       },
       "chain": {
         "after": [
-          "gbr_white_paper_1939",
-          "gbr_white_paper_1939",
           "gbr_white_paper_1939"
         ]
       },
@@ -4399,7 +4526,7 @@
         "palestine_timeline"
       ],
       "image": {
-        "ref": "ill_evt_gbr_palestine_partition_1947",
+        "ref": "ill_gbr_palestine_partition_1947",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -4501,7 +4628,7 @@
         "kenya_history"
       ],
       "image": {
-        "ref": "ill_evt_gbr_kenya_emergency_1952",
+        "ref": "ill_gbr_kenya_emergency_1952",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -4607,7 +4734,7 @@
         "kenya_history"
       ],
       "image": {
-        "ref": "ill_evt_gbr_kenya_lancaster_1960",
+        "ref": "ill_gbr_kenya_lancaster_1960",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -4631,8 +4758,7 @@
             "type": "owner_in",
             "region": "DZ_KENYA_INT",
             "entities": [
-              "GBR",
-              "KEN"
+              "GBR"
             ]
           },
           {
@@ -4679,9 +4805,15 @@
               }
             },
             {
-              "type": "base_rights",
-              "host": "GBR",
-              "user": "KEN"
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "DZ_KENYA_INT"
+              ],
+              "nation": "kenyan",
+              "name_en": "Republic of Kenya",
+              "name_vi": "Cộng hòa Kenya",
+              "mode": "dominion"
             }
           ]
         },
@@ -4710,6 +4842,17 @@
               "type": "treasury",
               "entity": "GBR",
               "months_income": 0.3
+            },
+            {
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "DZ_KENYA_INT"
+              ],
+              "nation": "kenyan",
+              "name_en": "Republic of Kenya",
+              "name_vi": "Cộng hòa Kenya",
+              "mode": "full"
             }
           ]
         }
@@ -4718,7 +4861,7 @@
         "kenya_history"
       ],
       "image": {
-        "ref": "ill_evt_gbr_kenya_independence_1963",
+        "ref": "ill_gbr_kenya_independence_1963",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -4819,7 +4962,7 @@
         "ghana_history"
       ],
       "image": {
-        "ref": "ill_evt_gbr_gold_coast_accra_1948",
+        "ref": "ill_gbr_gold_coast_accra_1948",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -4843,8 +4986,7 @@
             "type": "owner_in",
             "region": "ASH_KUM",
             "entities": [
-              "GBR",
-              "GHA"
+              "GBR"
             ]
           },
           {
@@ -4891,9 +5033,16 @@
               }
             },
             {
-              "type": "base_rights",
-              "host": "GBR",
-              "user": "GHA"
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "DZ_FANTE",
+                "ASH_KUM"
+              ],
+              "nation": "ghana",
+              "name_en": "Ghana",
+              "name_vi": "Ghana",
+              "mode": "dominion"
             }
           ]
         },
@@ -4919,10 +5068,16 @@
               }
             },
             {
-              "type": "relation",
-              "a": "GBR",
-              "b": "GHA",
-              "delta": 5
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "DZ_FANTE",
+                "ASH_KUM"
+              ],
+              "nation": "ghana",
+              "name_en": "Ghana",
+              "name_vi": "Ghana",
+              "mode": "ties"
             }
           ]
         }
@@ -4931,7 +5086,7 @@
         "ghana_history"
       ],
       "image": {
-        "ref": "ill_evt_gbr_ghana_independence_1957",
+        "ref": "ill_gbr_ghana_independence_1957",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -5056,8 +5211,7 @@
             "type": "owner_in",
             "region": "DZ_IGBO",
             "entities": [
-              "GBR",
-              "NGA"
+              "GBR"
             ]
           },
           {
@@ -5095,9 +5249,18 @@
               }
             },
             {
-              "type": "base_rights",
-              "host": "GBR",
-              "user": "NGA"
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "DZ_IGBO",
+                "SOK_SOK",
+                "SOK_KAN",
+                "SOK_ZAR"
+              ],
+              "nation": "nigerian",
+              "name_en": "Federal Republic of Nigeria",
+              "name_vi": "Cộng hòa Liên bang Nigeria",
+              "mode": "dominion"
             }
           ]
         },
@@ -5123,9 +5286,18 @@
               }
             },
             {
-              "type": "base_rights",
-              "host": "GBR",
-              "user": "NGA"
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "DZ_IGBO",
+                "SOK_SOK",
+                "SOK_KAN",
+                "SOK_ZAR"
+              ],
+              "nation": "nigerian",
+              "name_en": "Federal Republic of Nigeria",
+              "name_vi": "Cộng hòa Liên bang Nigeria",
+              "mode": "ties"
             }
           ]
         }
@@ -5135,12 +5307,11 @@
       ],
       "chain": {
         "after": [
-          "gbr_clifford_constitution_1922",
           "gbr_clifford_constitution_1922"
         ]
       },
       "image": {
-        "ref": "ill_evt_gbr_nigeria_independence_1960",
+        "ref": "ill_gbr_nigeria_independence_1960",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -5241,7 +5412,7 @@
         "rhodesia_sanctions"
       ],
       "image": {
-        "ref": "ill_evt_gbr_southern_rhodesia_responsible_1923",
+        "ref": "ill_gbr_southern_rhodesia_responsible_1923",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -5340,7 +5511,7 @@
       ],
       "sources": "",
       "image": {
-        "ref": "ill_evt_gbr_rhodesia_udi_1965",
+        "ref": "ill_gbr_rhodesia_udi_1965",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -5441,7 +5612,7 @@
         "boer_war"
       ],
       "image": {
-        "ref": "ill_evt_gbr_boer_war_1899",
+        "ref": "ill_gbr_boer_war_1899",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -5478,8 +5649,6 @@
       },
       "chain": {
         "after": [
-          "gbr_boer_war_1899",
-          "gbr_boer_war_1899",
           "gbr_boer_war_1899"
         ]
       },
@@ -5548,7 +5717,7 @@
       ],
       "sources": "",
       "image": {
-        "ref": "ill_evt_gbr_vereeniging_1902",
+        "ref": "ill_gbr_vereeniging_1902",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -5650,12 +5819,11 @@
       ],
       "chain": {
         "after": [
-          "gbr_vereeniging_1902",
           "gbr_vereeniging_1902"
         ]
       },
       "image": {
-        "ref": "ill_evt_gbr_south_africa_union_1910",
+        "ref": "ill_gbr_south_africa_union_1910",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -5757,12 +5925,11 @@
       ],
       "chain": {
         "after": [
-          "gbr_south_africa_union_1910",
           "gbr_south_africa_union_1910"
         ]
       },
       "image": {
-        "ref": "ill_evt_gbr_natives_land_act_1913",
+        "ref": "ill_gbr_natives_land_act_1913",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -5964,7 +6131,7 @@
         "caribbean_history"
       ],
       "image": {
-        "ref": "ill_evt_gbr_west_indies_federation_1958",
+        "ref": "ill_gbr_west_indies_federation_1958",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -5988,8 +6155,7 @@
             "type": "owner_in",
             "region": "GBR_JAM",
             "entities": [
-              "GBR",
-              "JAM"
+              "GBR"
             ]
           },
           {
@@ -6036,9 +6202,15 @@
               }
             },
             {
-              "type": "base_rights",
-              "host": "GBR",
-              "user": "JAM"
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "GBR_JAM"
+              ],
+              "nation": "jamaican",
+              "name_en": "Jamaica",
+              "name_vi": "Jamaica",
+              "mode": "dominion"
             }
           ]
         },
@@ -6064,9 +6236,15 @@
               }
             },
             {
-              "type": "base_rights",
-              "host": "GBR",
-              "user": "JAM"
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "GBR_JAM"
+              ],
+              "nation": "jamaican",
+              "name_en": "Jamaica",
+              "name_vi": "Jamaica",
+              "mode": "ties"
             }
           ]
         }
@@ -6075,7 +6253,7 @@
         "caribbean_history"
       ],
       "image": {
-        "ref": "ill_evt_gbr_jamaica_independence_1962",
+        "ref": "ill_gbr_jamaica_independence_1962",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -6178,7 +6356,7 @@
         "cyprus_history"
       ],
       "image": {
-        "ref": "ill_evt_gbr_cyprus_eoka_1955",
+        "ref": "ill_gbr_cyprus_eoka_1955",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -6202,9 +6380,7 @@
             "type": "owner_in",
             "region": "TUR_CYP",
             "entities": [
-              "GBR",
-              "TUR",
-              "CYP"
+              "GBR"
             ]
           },
           {
@@ -6221,8 +6397,6 @@
       },
       "chain": {
         "after": [
-          "gbr_cyprus_eoka_1955",
-          "gbr_cyprus_eoka_1955",
           "gbr_cyprus_eoka_1955"
         ]
       },
@@ -6253,9 +6427,15 @@
               }
             },
             {
-              "type": "base_rights",
-              "host": "GBR",
-              "user": "CYP"
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "TUR_CYP"
+              ],
+              "nation": "cypriot",
+              "name_en": "Republic of Cyprus",
+              "name_vi": "Cộng hòa Síp",
+              "mode": "ties"
             }
           ]
         },
@@ -6281,10 +6461,15 @@
               }
             },
             {
-              "type": "relation",
-              "a": "GBR",
-              "b": "CYP",
-              "delta": 8
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "TUR_CYP"
+              ],
+              "nation": "cypriot",
+              "name_en": "Republic of Cyprus",
+              "name_vi": "Cộng hòa Síp",
+              "mode": "full"
             }
           ]
         }
@@ -6293,7 +6478,7 @@
         "cyprus_history"
       ],
       "image": {
-        "ref": "ill_evt_gbr_cyprus_independence_1960",
+        "ref": "ill_gbr_cyprus_independence_1960",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -6317,8 +6502,7 @@
             "type": "owner_in",
             "region": "GBR_MLT",
             "entities": [
-              "GBR",
-              "MLT"
+              "GBR"
             ]
           },
           {
@@ -6356,9 +6540,15 @@
               }
             },
             {
-              "type": "base_rights",
-              "host": "GBR",
-              "user": "MLT"
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "GBR_MLT"
+              ],
+              "nation": "maltese",
+              "name_en": "Malta",
+              "name_vi": "Malta",
+              "mode": "dominion"
             }
           ]
         },
@@ -6387,6 +6577,17 @@
               "type": "treasury",
               "entity": "GBR",
               "months_income": -0.3
+            },
+            {
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "GBR_MLT"
+              ],
+              "nation": "maltese",
+              "name_en": "Malta",
+              "name_vi": "Malta",
+              "mode": "full"
             }
           ]
         }
@@ -6395,7 +6596,7 @@
         "malta_history"
       ],
       "image": {
-        "ref": "ill_evt_gbr_malta_independence_1964",
+        "ref": "ill_gbr_malta_independence_1964",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -6496,7 +6697,7 @@
         "canada_parliament"
       ],
       "image": {
-        "ref": "ill_evt_gbr_canada_durham_1839",
+        "ref": "ill_gbr_canada_durham_1839",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -6520,8 +6721,7 @@
             "type": "owner_in",
             "region": "GBR_LCA",
             "entities": [
-              "GBR",
-              "CAN"
+              "GBR"
             ]
           },
           {
@@ -6562,6 +6762,19 @@
               "type": "prestige",
               "entity": "GBR",
               "delta": 1
+            },
+            {
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "GBR_LCA",
+                "GBR_UCA",
+                "GBR_NSC"
+              ],
+              "nation": "canadian",
+              "name_en": "Dominion of Canada",
+              "name_vi": "Canada",
+              "mode": "dominion"
             }
           ]
         },
@@ -6587,9 +6800,17 @@
               }
             },
             {
-              "type": "base_rights",
-              "host": "GBR",
-              "user": "CAN"
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "GBR_LCA",
+                "GBR_UCA",
+                "GBR_NSC"
+              ],
+              "nation": "canadian",
+              "name_en": "Dominion of Canada",
+              "name_vi": "Canada",
+              "mode": "dominion"
             }
           ]
         }
@@ -6599,12 +6820,11 @@
       ],
       "chain": {
         "after": [
-          "gbr_canada_durham_1839",
           "gbr_canada_durham_1839"
         ]
       },
       "image": {
-        "ref": "ill_evt_gbr_canadian_confederation_1867",
+        "ref": "ill_gbr_canadian_confederation_1867",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -6800,7 +7020,7 @@
         "ireland_difp"
       ],
       "image": {
-        "ref": "ill_evt_gbr_easter_rising_1916",
+        "ref": "ill_gbr_easter_rising_1916",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -6903,12 +7123,11 @@
       ],
       "chain": {
         "after": [
-          "gbr_easter_rising_1916",
           "gbr_easter_rising_1916"
         ]
       },
       "image": {
-        "ref": "ill_evt_gbr_anglo_irish_treaty_1921",
+        "ref": "ill_gbr_anglo_irish_treaty_1921",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
@@ -6949,8 +7168,6 @@
       },
       "chain": {
         "after": [
-          "gbr_anglo_irish_treaty_1921",
-          "gbr_anglo_irish_treaty_1921",
           "gbr_anglo_irish_treaty_1921"
         ]
       },
@@ -6989,6 +7206,17 @@
               "type": "prestige",
               "entity": "GBR",
               "delta": 0.3
+            },
+            {
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "GBR_DUB"
+              ],
+              "nation": "irish",
+              "name_en": "Irish Free State",
+              "name_vi": "Nhà nước Tự do Ireland",
+              "mode": "dominion"
             }
           ]
         },
@@ -7012,6 +7240,17 @@
                 "trade": 0.02,
                 "legitimacy": -1
               }
+            },
+            {
+              "type": "grant_independence",
+              "owner": "GBR",
+              "regions": [
+                "GBR_DUB"
+              ],
+              "nation": "irish",
+              "name_en": "Irish Free State",
+              "name_vi": "Nhà nước Tự do Ireland",
+              "mode": "dominion"
             }
           ]
         }
@@ -7021,7 +7260,7 @@
         "ireland_difp"
       ],
       "image": {
-        "ref": "ill_evt_gbr_irish_free_state_1922",
+        "ref": "ill_gbr_irish_free_state_1922",
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
