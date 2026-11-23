@@ -8,6 +8,8 @@ import { Sec, modals } from '../components/ui';
 import { GROUP_VI, IG_VI, fmt, lawVi } from '../i18n/vi';
 import { shortName } from '../game/names';
 import { send, canCommand } from './common';
+import { asset, assetUrl, illustrationFor } from '../game/content';
+import { openCredit } from '../components/identity';
 
 const pct = (v: number) => `${v > 0 ? '+' : ''}${Math.round(v * 100)}%`;
 const sgn = (v: number, d = 0) => `${v > 0 ? '+' : ''}${fmt(v, d)}`;
@@ -78,9 +80,11 @@ function OptionButton({ st, p, o }: { st: GameState; p: PendingStory; o: StoryEv
 export function StoryEventCard({ st, p }: { st: GameState; p: PendingStory }) {
   const e = data().db.story_events?.find((x) => x.id === p.event) as StoryEvent | undefined; if (!e) return null;
   const mine = canCommand(st, p.country);
+  // the event's illustration: a reviewed public-domain image from the content pack (CG-52), by event id or image.ref
+  const pic = illustrationFor('event', e.id) ?? asset(e.image?.ref);
   return (
     <div class="story-event" style="display:flex;gap:12px;flex-wrap:wrap">
-      {e.image?.ref && /^https?:|\.(jpg|png|webp)$/.test(e.image.ref) && <figure style="flex:1 1 200px;margin:0;min-width:180px"><img src={e.image.ref} alt="" style="width:100%;border-radius:6px" />{e.image.credit && <figcaption class="s dim">{e.image.credit}{e.image.license ? ` · ${e.image.license}` : ''}</figcaption>}</figure>}
+      {pic && <figure style="flex:1 1 220px;margin:0;min-width:180px"><img src={assetUrl(pic)} alt={pic.name} style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px" /><figcaption class="s dim" style="cursor:pointer" onClick={() => openCredit(pic)}>{pic.credit ?? pic.author ?? ''} · {pic.license}</figcaption></figure>}
       <div style="flex:2 1 260px;min-width:220px">
         <div class="s dim">Sự kiện ở {name(st, p.country)} · {String(st.date.m).padStart(2, '0')}/{st.date.y}</div>
         <p style="margin:6px 0">{e.text_vi}</p>
