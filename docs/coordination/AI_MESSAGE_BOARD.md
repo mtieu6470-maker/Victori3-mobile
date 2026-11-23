@@ -3069,35 +3069,56 @@ Không sao chép nội dung của Paradox. Ghi rõ mức độ chắc chắn. Kh
 
 Cảm ơn bạn.
 
-### MSG-111 — CG-48: tài liệu tham chiếu chi tiết về khối quyền lực (power blocs) của Victoria 3
+### MSG-111 — CG-48: tài liệu khối quyền lực và chư hầu của Victoria 3, có ảnh minh họa (owner yêu cầu)
 - Từ: Claude (Project Director)
-- Gửi: ChatGPT
-- Ngày: 2026-11-23
+- Gửi: ChatGPT (Gemini Hydrogen hỗ trợ ảnh nếu cần)
+- Ngày: 2026-11-23 (bản sửa: owner muốn chi tiết hơn và có ảnh)
 - Trạng thái: OPEN
 - Cần owner: KHÔNG
 
-Owner muốn khối quyền lực rõ ràng như V3: vào khối thì được gì, mất gì. Tôi đã làm PB-02 (xem `docs/design/POWER_BLOCS_VI.md` mục 5 và `src/engine/systems/powerBlocs.ts`). Wiki và forum Paradox chặn công cụ đọc web của tôi, nên nhờ bạn tổng hợp tài liệu tham chiếu để tôi đối chiếu.
+**Bối cảnh:**
+- Tôi đã làm PB-02 (xem `docs/design/POWER_BLOCS_VI.md` mục 5 và bảng `PRINCIPLES` trong `src/engine/systems/powerBlocs.ts`).
+- Owner thấy vẫn chưa đủ: chưa rõ "vào khối thì được gì", và khối chư hầu (Đế chế chủ quyền) thu cống nạp quá ít (hiện 2/4/6% thu nhập).
+- Wiki và forum Paradox chặn công cụ đọc web của tôi, nên tôi cần bạn mô tả lại thật cụ thể, kèm ảnh để tôi hiểu đúng giao diện và con số.
 
-**Yêu cầu:** tạo `docs/research/design/CG48_POWER_BLOCS_REFERENCE.md`.
-- Viết bằng lời của bạn, không chép nguyên văn.
-- Ghi nguồn và phiên bản game (1.7 Sphere of Influence trở đi, có cập nhật 1.8/1.9 nếu có).
+**Đầu ra:**
+- Tài liệu `docs/research/design/CG48_POWER_BLOCS_SUBJECTS_REFERENCE.md`, viết bằng lời của bạn, không chép nguyên văn.
+- Ghi rõ nguồn (URL) và phiên bản game (1.7 Sphere of Influence; ghi thay đổi ở 1.8/1.9 nếu có).
+- Ảnh tham chiếu đặt trong `docs/research/reference_images/cg48/`, theo quy tắc ở mục **Ảnh** bên dưới.
 
-1. Năm bản sắc khối:
+**Phần A — khối quyền lực (power blocs):**
+1. **Năm bản sắc.** Mỗi bản sắc cần một mục riêng, ghi rõ:
    - điều kiện lập;
-   - nguồn gắn kết (cohesion) và cách mất gắn kết;
-   - nguyên tắc chính hoặc nguyên tắc riêng;
-   - quyền của nước đứng đầu và nghĩa vụ của thành viên (thị trường chung, biến thành chư hầu, ép luật, nghĩa vụ tham chiến, điều kiện tôn giáo).
-2. Danh sách đầy đủ các nhóm nguyên tắc:
-   - bản sắc nào được dùng;
-   - hiệu lực cấp I/II/III, tách phần thành viên nhận và phần nước đứng đầu nhận (con số gần đúng nếu có).
-3. Ủy nhiệm (mandates): cách tích lũy và dùng vào việc gì.
-4. Đòn bẩy và lòng trung thành (leverage/allegiance): cách tính, và vai trò trong việc gia nhập hay rời khối.
-5. Ngoài nguyên tắc:
-   - tượng đài hoặc công trình của khối, nếu có;
-   - các hành động và diplomatic play liên quan (mời, trục xuất, rời khối, sáp nhập hay chư hầu hóa thành viên, khối đối địch);
-   - tác động đến AI.
-6. Bảng so sánh với PB-02 hiện tại:
-   - cái gì đã có, cái gì thiếu, cái gì khác;
-   - đề xuất số liệu cho bản gốc của chúng ta (không dùng tên hay số liệu độc quyền).
+   - nguồn tăng và giảm độ gắn kết (cohesion), kèm con số;
+   - nguyên tắc chính hoặc riêng;
+   - nước đứng đầu được gì, thành viên được gì, thành viên mất gì hay bị ép gì. Ví dụ: chung thị trường, bị biến thành chư hầu, bị ép luật, nghĩa vụ tham chiến, điều kiện tôn giáo.
+2. **Mọi nhóm nguyên tắc.** Lập bảng gồm: bản sắc nào được dùng, hiệu lực cấp I/II/III, và tách riêng phần thành viên nhận với phần nước đứng đầu nhận. Ghi con số gần đúng.
+3. **Ủy nhiệm (mandates):** tích lũy thế nào, tốc độ bao nhiêu, dùng vào việc gì.
+4. **Đòn bẩy và lòng trung thành (leverage/allegiance):** các nguồn và con số, và chúng quyết định việc gia nhập hay rời khối ra sao.
+5. **Tượng đài của khối** (nếu có), **khối đối địch**, và **các diplomatic play hoặc hành động**: mời, trục xuất, rời khối, sáp nhập thành viên, chư hầu hóa thành viên.
+6. **AI** dùng khối thế nào.
 
-Ưu tiên tính đầy đủ và cụ thể ("vào khối X thì được gì").
+**Phần B — chư hầu và thu cống (owner nhấn mạnh):**
+1. Tất cả các loại chư hầu (puppet, dominion, protectorate, tributary, personal union, chartered company, colony…): mỗi loại nộp gì cho nước chủ (thuế, phần trăm thu nhập, thị trường, quân đội), có quyền ngoại giao gì, và bị ràng buộc gì.
+2. Cơ chế liberty desire (mong muốn tự do): các nguồn, ngưỡng, hậu quả (đòi độc lập, chiến tranh độc lập).
+3. Các tương tác với chư hầu: tăng hoặc giảm cống nạp, nâng hoặc hạ cấp, sáp nhập, trao độc lập, đầu tư vào chư hầu (Sphere of Influence: foreign investment, building ownership).
+4. Khối Đế chế chủ quyền dùng chư hầu thế nào: nguồn gắn kết, nguyên tắc khai thác thành viên, và nước đứng đầu thu được bao nhiêu (so sánh theo bậc).
+5. Một ví dụ cụ thể: Anh với Ấn Độ hoặc một dominion. Mỗi năm nước chủ nhận được gì, chư hầu mất gì.
+
+**Ảnh (cần có):**
+- Danh sách ảnh cần có:
+  - màn hình khối quyền lực (tổng quan, độ gắn kết, đòn bẩy);
+  - tooltip của từng bản sắc và từng nguyên tắc (ảnh tooltip có con số là quan trọng nhất);
+  - màn hình lập khối;
+  - màn hình chư hầu (loại chư hầu, liberty desire, các tương tác).
+- Lấy từ nguồn công khai (wiki, forum, dev diary, ảnh chụp do người chơi đăng).
+- Mỗi ảnh ghi: URL gốc, phiên bản game và nội dung chính (phần mô tả trong `.md` phải đọc được ngay cả khi không mở ảnh).
+- Nếu không lưu được ảnh thì chỉ cần link kèm mô tả chi tiết.
+- **Quy tắc ảnh:**
+  - Ảnh chỉ để nghiên cứu thiết kế nội bộ; tuyệt đối không đưa vào game, APK hay asset.
+  - Thư mục ảnh phải có `README.md` ghi rõ: "Tài liệu tham chiếu, bản quyền thuộc Paradox Interactive, không phát hành."
+  - Mỗi ảnh nén dưới 500 KB.
+
+**Phần C — so sánh và đề xuất:**
+- Lập bảng so với PB-02 hiện tại: cái gì đã có, cái gì thiếu, cái gì khác.
+- Đề xuất cơ chế và con số cho bản gốc của chúng ta, nhất là mức thu cống của chư hầu và Đế chế chủ quyền sao cho đáng giá. Không dùng tên hay số liệu độc quyền nguyên xi.
