@@ -483,31 +483,6 @@
     },
     {
       "type": "illustration_event",
-      "subject": "bur_king_thibaw_exile_1885",
-      "commons_file": "Mindhla_after_capture1885.jpg",
-      "year": 1885,
-      "width": 938,
-      "author": "Willoughby Wallace Hooper",
-      "name": "Minhla sau khi bị chiếm",
-      "description": "Photograph of Minhla after its capture during the Third Anglo-Burmese War, November 1885",
-      "period": {
-        "from": 1885,
-        "to": 1886
-      },
-      "inset": [
-        0.02,
-        0.02,
-        0.02,
-        0.02
-      ],
-      "focus": [
-        0.5,
-        0.5
-      ],
-      "review_note": "British Library photograph; author died 1912; candidate for PD review."
-    },
-    {
-      "type": "illustration_event",
       "subject": "bur_saya_san_1930",
       "commons_file": "Sayar_San.png",
       "year": 1930,
@@ -630,31 +605,6 @@
         0.5
       ],
       "review_note": "Contextual candidate only; replace with event-specific source if available."
-    },
-    {
-      "type": "illustration_event",
-      "subject": "bur_king_thibaw_exile_1885",
-      "commons_file": "Third_anglo-burmese_war.jpg",
-      "year": 1885,
-      "width": 955,
-      "author": "Willoughby Wallace Hooper",
-      "name": "Chiến tranh Anh–Miến lần thứ ba",
-      "description": "Photograph of the surrender of the Burmese Army during the Third Anglo-Burmese War, 27 November 1885",
-      "period": {
-        "from": 1884,
-        "to": 1886
-      },
-      "inset": [
-        0.02,
-        0.02,
-        0.02,
-        0.02
-      ],
-      "focus": [
-        0.5,
-        0.5
-      ],
-      "review_note": "Period image of the defeat immediately preceding the royal exile; contextual rather than a portrait of the king."
     },
     {
       "type": "illustration_event",
