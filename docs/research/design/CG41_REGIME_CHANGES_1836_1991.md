@@ -6,7 +6,7 @@
 
 ## Executive summary
 
-This package contains **48 sourced transition records**, **37 references**, and a proposed minimal 20th-century law catalogue. It addresses the principal owner concern: Historical Mode must not leave the Russian Empire, Qing dynasty, July Monarchy, Tokugawa shogunate and other 1836 regimes frozen in place into the 20th century.
+This package contains **52 sourced transition records**, **41 references**, and a proposed minimal 20th-century law catalogue. It addresses the principal owner concern: Historical Mode must not leave the Russian Empire, Qing dynasty, July Monarchy, Tokugawa shogunate and other 1836 regimes frozen in place into the 20th century.
 
 The central Russian sequence is explicitly represented as:
 1. February Revolution and Nicholas II's abdication (15 March 1917 Gregorian).
@@ -18,9 +18,9 @@ The central Russian sequence is explicitly represented as:
 
 ## Data contents
 
-- 48 event records with a principal date, process window, historical capital, predecessor/successor names in English and Vietnamese, event type, causal context, law changes, territorial changes and source IDs.
-- 37 source entries, prioritising official state histories, national archives, constitutional texts, UN country reports and academic historical reference works.
-- 13 proposed laws to extend the current nine-group law model.
+- 52 event records with a principal date, process window, historical capital, predecessor/successor names in English and Vietnamese, event type, causal context, law changes, territorial changes and source IDs.
+- 41 source entries, prioritising official state histories, national archives, constitutional texts, UN country reports and academic historical reference works.
+- 18 proposed laws to extend the current nine-group law model.
 
 ## Chronological coverage
 
@@ -46,9 +46,13 @@ The 1867 Ausgleich created a dualist monarchy with separate Austrian and Hungari
 ### Other successor states and partitions
 The dataset includes the independence/state-formation milestones of Finland, Poland, Lithuania, Estonia, Latvia and the Ukrainian People's Republic. It also includes the 1947 partition of British India and the 1948 establishment of the Republic of Korea and DPRK. These are essential because the 1917–49 period was not simply a change of Russian or European regimes: it produced new states and competing claims to sovereignty. [Sources: finland_gov, poland_mfa, baltic_mfa, estonia_state, latvia_president, ukraine_encyclopedia, india_partition_archives, korea_history]
 
+
+### Social and political law milestones
+The research now records the 1861 Russian Emancipation Reform, Finland's 1906 equal suffrage reform (while Finland was still a Russian Grand Duchy), the US Social Security Act of 1935, and the UK National Health Service becoming operational on 5 July 1948. These additions prevent the simulation from treating labour, women's political rights and welfare as static background conditions. [Sources: russia_emancipation_1861, finland_parliament_1906, us_social_security_1935, uk_nhs_1946]
+
 ## Minimal 20th-century law extension proposal
 
-The current engine exposes these groups and values (from `src/engine/data/dbTypes.ts` and `historical_data/countries/_law_presets.json`):
+The current engine exposes these nine law groups and values (from `src/engine/data/dbTypes.ts` and `historical_data/countries/_law_presets.json`):
 - power: autocracy, oligarchy, census_suffrage, universal_male_suffrage, theocracy, tribal_council
 - governance: monarchy, republic, theocracy, chiefdom, colonial_company
 - economy: traditionalism, mercantilism, interventionism, laissez_faire
@@ -74,6 +78,9 @@ Recommended additions (detailed in JSON):
 | trade | State foreign-trade monopoly | USSR 1918; PRC 1950 | Distinguishes state monopoly from ordinary protectionism |
 | labor | State-directed labour system | USSR 1930 | Captures state allocation and coercive labour controls |
 | army | Constitutional renunciation of war | Japan 1947 | Article 9 is not equivalent to low military spending or professional army |
+| political_ideology (new dimension) | Communist / Fascist / National Socialist state ideology | USSR 1922; Italy 1925; Germany 1933 | Ideology is not interchangeable with government form or party-system law |
+| welfare (new dimension) | Social insurance and welfare state | USA 1935; UK 1948 | Welfare provision is cross-cutting and does not imply a planned economy |
+| gender_equality (new dimension) | Equal citizenship and suffrage | Finland 1906; Italy 1946 | Universal male suffrage is not universal adult suffrage |
 
 **Do not implement all proposed laws as if they existed in the current enum.** They are a design proposal. Existing values in `lawChanges` are best-effort coarse mappings; new concepts are explicitly listed in `proposedLawChanges`.
 
@@ -103,7 +110,7 @@ Recommended additions (detailed in JSON):
 - The 1918–20 Baltic and Finnish independence wars mean declaration dates do not equal complete effective sovereignty.
 - India's universal adult suffrage was implemented with the 1950 Constitution; 1947 Dominion status did not itself equal immediate universal adult voting.
 - The exact effective territorial reach of DRV in 1945 and the Republic of Vietnam after 1954 varied; do not infer that the 1945 declaration immediately transferred every province.
-- The current law model cannot faithfully encode party-state monopoly, command economy, welfare state, women's suffrage, state foreign-trade monopoly, constitutional pacifism or semi-presidentialism without new enums. Welfare state and women’s suffrage should be treated as separate dimensions rather than forcing them into unrelated existing groups.
+- The current law model cannot faithfully encode party-state monopoly, command economy, welfare state, women's suffrage, state foreign-trade monopoly, constitutional pacifism or semi-presidentialism without new enums. The added `political_ideology`, `welfare` and `gender_equality` proposals are intentionally separate dimensions rather than being forced into unrelated existing groups.
 
 ## Source register
 
@@ -144,3 +151,8 @@ Recommended additions (detailed in JSON):
 - `ussr_belavezha` — Belovezha Agreement, 8 December 1991 (supported). https://governmentussr.org/en/pravitelstvo/voenno-narodnyy-sovet-sssr/belovezhskoe-soglashenie-08-12-1991-g/
 - `ussr_dissolution_declaration` — Declaration No. 142-N, 26 December 1991 (supported). https://base.garant.ru/74619820/
 - `aus_state_treaty` — History of Austria – 1955 State Treaty (verified). https://www.bmeia.gv.at/oev-wien/about-austria/history
+- `finland_parliament_1906` — Brief history of Parliament – 1906 universal suffrage (verified). https://www.eduskunta.fi/en/parliament-and-its-activities/brief-history-of-parliament
+- `russia_emancipation_1861` — Emancipation reform of 1861 – historical overview (supported). https://www.britannica.com/event/Emancipation-Manifesto
+- `us_social_security_1935` — Social Security Act of 1935 (verified). https://www.ssa.gov/history/35act.html
+- `uk_nhs_1946` — National Health Service Act 1946 (verified). https://www.parliament.uk/about/living-heritage/transformingsociety/livinglearning/coll-9-health1/health-01/
+
