@@ -60,9 +60,11 @@
     "schemaNote": "Research staging only. This schema is richer than historical_data/leaders/heads_of_state.json and does not replace it. Entity IDs are provisional research keys; check political_entities/registry.json before integration. Duplicate names across role records are intentional when one person held separate formal and effective offices. A person with discontinuous terms has separate records.",
     "integrationWarning": "Do not import this cohort as deterministic forced succession without checking simulated regime, entity identity, office existence, and historical continuity. For parliamentary systems the Prime Minister is effective_leader while monarch/president is head_of_state. For one-party states party leader is effective_leader; formal chairman/president is separately recorded.",
     "cg43b": {
-      "addedRecords": 132,
+      "addedRecords": 130,
       "scope": "MSG-097 supplement: Beiyang ROC 1916–1928; Second Spanish Republic; Weimar chancellors; FRG presidents; GDR heads of state, ministers-president and SED leader; Japanese wartime prime ministers; CPV General Secretaries; DRV/Vietnam governments; State of Vietnam; Republic of Vietnam; PRG.",
-      "datePrecision": "Records with date_precision month/year use normalized ISO date boundaries where the source only gives month/year. Do not interpret normalized day as a verified inauguration day. Secondary chronology is explicitly marked supported and requires primary archive confirmation before production."
+      "datePrecision": "Records with date_precision month/year use normalized ISO date boundaries where the source only gives month/year. Do not interpret normalized day as a verified inauguration day. Secondary chronology is explicitly marked supported and requires primary archive confirmation before production.",
+      "baseRecordCount": 328,
+      "netAddedRecords": 130
     },
     "entityMetadata": {
       "ROC": {
