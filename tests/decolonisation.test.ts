@@ -49,3 +49,26 @@ describe('DECOL-01 Historical Mode independence', () => {
     expect(Object.keys(sb.countries).length).toBe(m);
   });
 });
+
+describe('DECOL-02 the player decides about its own colonies', () => {
+  const atD = (st: ReturnType<typeof createGame>, y: number, m: number) => { st.date = { y, m }; st.tick = (y - 1836) * 12 + m - 1; };
+  it('a player colony is not freed by date: a journal entry offers independence or keeping it (with unrest)', async () => {
+    const { execute } = await import('../src/engine/commands');
+    const { data } = await import('../src/engine/data/db');
+    const st = createGame({ mode: 'historical', seed: 1, player: 'FRA' });
+    atD(st, 1962, 8); decolonisationMonth(st);
+    const alg = () => st.regions[data().regionIndex.get('FRA_ALG')!];
+    expect(alg().owner).toBe('FRA');
+    const j = st.journal!.find((x) => x.event === 'indep_dza')!;
+    expect(j.kind).toBe('decolonisation');
+    const rad = alg().radical;
+    expect(execute(st, { type: 'journal', entry: j.id, action: 'abandon' }).ok).toBe(true);
+    expect(alg().owner).toBe('FRA');
+    expect(alg().radical).toBeGreaterThan(rad);
+    const st2 = createGame({ mode: 'historical', seed: 1, player: 'FRA' });
+    atD(st2, 1962, 8); decolonisationMonth(st2);
+    const j2 = st2.journal!.find((x) => x.event === 'indep_dza')!;
+    expect(execute(st2, { type: 'journal', entry: j2.id, action: 'complete' }).ok).toBe(true);
+    expect(st2.regions[data().regionIndex.get('FRA_ALG')!].owner).not.toBe('FRA');
+  });
+});

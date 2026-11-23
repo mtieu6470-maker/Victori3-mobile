@@ -3,7 +3,7 @@
 import { data } from '../data/db';
 import type { Country, GameState, War, WarGoal } from '../types';
 import { clamp, getRel, addRel, relKey, log, newId, rand } from '../core';
-import { armyStrength, atWar } from './military';
+import { armyStrength, atWar, navalStrength } from './military';
 import { sharesBorder } from './politics';
 import { coreNationOf } from './population';
 
@@ -145,11 +145,14 @@ export function warSides(st: GameState, attacker: string, defender: string, goal
   const attackers = [attacker];
   const defenders = [...new Set([defender, defLeader])];
   const joined: { id: string; reason: 'subject' | 'alliance' | 'guarantee' | 'great_power' }[] = [];
+  const refused: string[] = []; // allies of the defender who decline the call to arms
   // subjects follow overlords
   for (const c of Object.values(st.countries)) if (c.alive && c.overlord === attacker && c.subjectType !== 'tributary' && c.subjectType !== 'personal_union') { attackers.push(c.id); joined.push({ id: c.id, reason: 'subject' }); }
   // defensive alliances and guarantees (a country already fighting for the attacker, e.g. its subject, cannot also defend)
   for (const t of st.treaties) {
-    if (t.type === 'alliance' && t.members.includes(defender)) for (const m of t.members) if (m !== defender && !attackers.includes(m) && !defenders.includes(m) && st.countries[m]?.alive && !t.members.includes(attacker) && joinWillingness(st, m, attacker, defender) > 0) { defenders.push(m); joined.push({ id: m, reason: 'alliance' }); }
+    if (t.type === 'alliance' && t.members.includes(defender)) for (const m of t.members) if (m !== defender && !attackers.includes(m) && !defenders.includes(m) && st.countries[m]?.alive && !t.members.includes(attacker)) {
+      if (joinWillingness(st, m, attacker, defender) > 0) { defenders.push(m); joined.push({ id: m, reason: 'alliance' }); } else if (!refused.includes(m)) refused.push(m);
+    }
     if (t.type === 'guarantee' && t.members[1] === defender && !attackers.includes(t.members[0]) && !defenders.includes(t.members[0])) { defenders.push(t.members[0]); joined.push({ id: t.members[0], reason: 'guarantee' }); }
   }
   // great-power intervention against an aggressive rival
@@ -162,8 +165,11 @@ export function warSides(st: GameState, attacker: string, defender: string, goal
     }
   }
   const infamy = warInfamy(st, goals, defender);
-  return { attackerLeader: attacker, defenderLeader: defLeader, attackers, defenders, joined, infamy, attackerName: a.name };
+  return { attackerLeader: attacker, defenderLeader: defLeader, attackers, defenders, joined, refused: refused.filter((m) => !defenders.includes(m)), infamy, attackerName: a.name };
 }
+
+/** AI-INT-01 design parameter: relations lost with the defender when an ally declines its call to arms. */
+export const REFUSED_CALL = { relation: 25 } as const;
 
 export function declareWar(st: GameState, attacker: string, defender: string, goals: WarGoal[], name?: string, kind: War['kind'] = 'conquest'): War | null {
   const a = st.countries[attacker], dC = st.countries[defender];
@@ -176,20 +182,57 @@ export function declareWar(st: GameState, attacker: string, defender: string, go
   a.infamy += sides.infamy;
   for (const x of w.attackers.members) for (const y of w.defenders.members) st.relations[relKey(x, y)] = Math.min(st.relations[relKey(x, y)] ?? 0, -60);
   st.wars.push(w);
+  // AI-INT-01: an ally that declines the call to arms pays for it: trust falls and a bilateral alliance ends
+  // (a bloc treaty survives). The player is not judged for a choice the AI made on its behalf.
+  for (const m of sides.refused) {
+    if (m === st.player) continue;
+    addRel(st, m, defender, -REFUSED_CALL.relation);
+    if (st.treaties.some((t) => t.type === 'alliance' && t.members.length === 2 && t.members.includes(m) && t.members.includes(defender))) {
+      breakAlliance(st, m, defender);
+      log(st, { type: 'diplomacy', text: `${st.countries[m].name} refuses ${dC.name}'s call to arms; their alliance ends.`, textVi: `${st.countries[m].nameVi} từ chối lời kêu gọi tham chiến của ${dC.nameVi}; liên minh tan vỡ.`, actors: [m, defender] });
+    }
+  }
   if (!dC.decentralized || a.tier === 'A' || st.player === attacker || st.player === defender)
     log(st, { type: 'war', text: `${a.name} declares war on ${dC.name} (${goals.map((g) => g.type).join(', ')}).`, textVi: `${a.nameVi} tuyên chiến với ${dC.nameVi} (${goals.map((g) => g.type).join(', ')}).`, actors: [attacker, defender, ...w.defenders.members.filter((m) => m !== defender)] });
   return w;
 }
 
-export function joinWillingness(st: GameState, who: string, attacker: string, defender: string): number {
+/**
+ * AI-INT-01 design parameters (owner 2026-11-23: allies and enemies alike weigh their own interests before
+ * acting). threat: a stronger neighbour attacking someone is a danger to contain; market: a shared customs union
+ * is a stake worth defending; subject: an overlord protects its subject (and a subject will not fight its
+ * overlord); conflicted: allied to both sides; distance: no border with either side and no navy to get there.
+ */
+export const JOIN_INTEREST = { threat: 0.8, market: 0.5, subject: 3, conflicted: 2, distance: 1, threatPowerShare: 0.7 } as const;
+
+/** Deterministic willingness of `who` to fight for `defender` against `attacker` (no dice). */
+export function joinInterest(st: GameState, who: string, attacker: string, defender: string): number {
   const c = st.countries[who]; if (!c || c.decentralized) return -1;
+  const att = st.countries[attacker]; const def = st.countries[defender];
   let s = getRel(st, who, defender) / 20 - getRel(st, who, attacker) / 25 + (rivals(st, who, attacker) ? 2 : 0) + (allied(st, who, defender) ? 2 : 0);
-  s += (armyStrength(st, c) / Math.max(1, armyStrength(st, st.countries[attacker]))) - 0.6;
+  s += (armyStrength(st, c) / Math.max(1, armyStrength(st, att))) - 0.6;
   if (atWar(st, who)) s -= 2;
   s -= c.warExhaustion / 30;
   // INFAMY-01: third parties join wars against notorious states and pariahs more willingly.
-  const at = infamyTier(st.countries[attacker] ?? { infamy: 0 });
+  const at = infamyTier(att ?? { infamy: 0 });
   if (at === 'notorious') s += 1; else if (at === 'pariah') s += 2;
-  s += (rand(st) - 0.5);
+  // AI-INT-01: its own interests
+  if (att && sharesBorder(st, who, attacker) && powerScore(st, att) > powerScore(st, c) * JOIN_INTEREST.threatPowerShare) s += JOIN_INTEREST.threat;
+  if (c.customsUnion && def && c.customsUnion === def.customsUnion) s += JOIN_INTEREST.market;
+  if (def?.overlord === who) s += JOIN_INTEREST.subject;
+  if (c.overlord === attacker) s -= JOIN_INTEREST.subject;
+  if (allied(st, who, attacker)) s -= JOIN_INTEREST.conflicted;
+  if (!sharesBorder(st, who, defender) && !sharesBorder(st, who, attacker) && navalStrength(c) <= 5) s -= JOIN_INTEREST.distance;
   return s;
+}
+
+/** The decision itself: interests plus a measure of judgement (seeded noise). */
+export function joinWillingness(st: GameState, who: string, attacker: string, defender: string): number {
+  const c = st.countries[who]; if (!c || c.decentralized) return -1;
+  return joinInterest(st, who, attacker, defender) + (rand(st) - 0.5);
+}
+
+/** AI-INT-01: an attacker's estimate of the chance that `who` really comes to the defender's aid. */
+export function joinProbability(st: GameState, who: string, attacker: string, defender: string): number {
+  return 1 / (1 + Math.exp(-1.5 * joinInterest(st, who, attacker, defender)));
 }

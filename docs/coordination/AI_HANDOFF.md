@@ -1,3 +1,34 @@
+## 2026-11-23 — AI-INT-01 allies and enemies weigh their own interests (owner)
+
+- **Owner:** an AI, ally or enemy, should weigh its own interests before acting.
+- `diplomacy.ts`: `joinInterest` (deterministic) now adds, on top of relations, obligation, rivalry, strength, other wars, exhaustion and infamy (`JOIN_INTEREST`):
+  - a stronger neighbouring attacker to contain (+0.8);
+  - a shared customs union with the defender (+0.5);
+  - protecting its own subject (+3), and a subject never fights its overlord (−3);
+  - being allied to both sides (−2);
+  - unable to reach the war, with no border with either side and no navy (−1).
+  - `joinWillingness` is this plus seeded judgement noise.
+- **Attacker estimates (`ai.ts`):** each ally of the target counts with `joinProbability` (logistic of `joinInterest`) instead of a flat 0.5; rival great powers count with 0.7 × probability.
+- **Refusing a call to arms:** relations with the defender −25 (`REFUSED_CALL`) and a two-member alliance ends (bloc treaties survive). Not applied to the player, whose choice is still made by the AI for now. A real player call-to-arms decision is a follow-up.
+- Also in this commit: DECOL-02 (the player decides about its own colonies; see below).
+- Tests: `tests/ai-interests.test.ts` (2).
+
+---
+
+## 2026-11-23 — DECOL-02 the player decides about its own colonies
+
+- **Owner question:** "what if I take Burma before Britain?" Answer from the code:
+  - Peacetime settlements never take the player's land (`spare`).
+  - `cede ... from` steps need the named state to hold the region, and `annex_states` skips the player. So the British steps do nothing, and Britain must conquer by ordinary war.
+- **Gap found and fixed:** decolonisation freed the player's colonies by date. Now (`decolonisation.ts`):
+  - The player's colonial regions, or a subject of the player, in a record are excluded from the automatic step.
+  - A journal entry of kind `decolonisation` asks the player. **"Trao độc lập"** (`grantIndependence`) creates the state with a 2-year truce and renounces claims. **"Giữ thuộc địa"** (`refuseIndependence`) adds radicalism +0.15 in those regions, which feeds the existing secession and revolt rules.
+  - The entry expires after 10 years or when the colony is gone.
+  - `JournalEntry.kind` is now `regime | decolonisation` (contract-checked). The Journal UI shows a newspaper card with the two buttons.
+- Tests: `decolonisation.test.ts` +1.
+
+---
+
 ## 2026-11-23 — BLOC-01 Cold War blocs (owner request)
 
 - `historical_data/diplomacy/blocs.json` (curated):

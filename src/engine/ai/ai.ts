@@ -14,6 +14,7 @@ import { CATCHUP_FLAGS } from '../systems/technology';
 import { enqueueConstruction, constructionQueueLength, constructionQueueCap, withInvestmentCache, buildingReturn, canBuild, hasTech, marketOf, queuedFactorySupply, privateInvestment, SHIP_COST } from '../systems/economy';
 import { reformSupport, startReform, sharesBorder, suffrageMovement, SUFFRAGE_MOVEMENT } from '../systems/politics';
 import { techCost } from '../systems/technology';
+import { joinProbability } from '../systems/diplomacy';
 import { allied, allianceAcceptance, declareRivalry, declareWar, formAlliance, greatPowers, guarantee, improveRelations, joinCustomsUnion, powerScore, rivals } from '../systems/diplomacy';
 import { armyStrength, atWar, enemiesOf, navalStrength } from '../systems/military';
 import { coreNationOf } from '../systems/population';
@@ -398,8 +399,11 @@ function warAI(st: GameState, c: Country) {
     if (!goals.length) continue;
     // expected strength including likely defenders
     let enemy = armyStrength(st, t) + (t.overlord ? armyStrength(st, st.countries[t.overlord]) * 0.7 : 0);
-    for (const tr of st.treaties) if (tr.type === 'alliance' && tr.members.includes(tid)) for (const m of tr.members) if (m !== tid && m !== c.id) enemy += armyStrength(st, st.countries[m]) * 0.5;
-    for (const gp of greatPowers(st)) if (gp !== c.id && rivals(st, gp, c.id) && getRel(st, gp, tid) > 10) enemy += armyStrength(st, st.countries[gp]) * 0.35;
+    // AI-INT-01: weigh each ally of the target by the chance it really comes (its own interests), not a flat half
+    const helpers = new Set<string>();
+    for (const tr of st.treaties) if (tr.type === 'alliance' && tr.members.includes(tid)) for (const m of tr.members) if (m !== tid && m !== c.id) helpers.add(m);
+    for (const m of helpers) if (st.countries[m]?.alive) enemy += armyStrength(st, st.countries[m]) * joinProbability(st, m, c.id, tid);
+    for (const gp of greatPowers(st)) if (gp !== c.id && !helpers.has(gp) && rivals(st, gp, c.id) && getRel(st, gp, tid) > 10) enemy += armyStrength(st, st.countries[gp]) * 0.7 * joinProbability(st, gp, c.id, tid);
     const ratio = mine / Math.max(1, enemy);
     const pWin = clamp((ratio - 0.6) / 1.4, 0, 0.95);
     // DIPLO-NORM-01: the infamy this war would add counts in the decision (heavier after 1945).

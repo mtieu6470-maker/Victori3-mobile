@@ -24,7 +24,7 @@ import { dateStr, dateToTick, log, newId, rand } from '../core';
 import { createNation } from '../world';
 import { setLaw, govLabelFor, leaderTitle, generatedName } from './politics';
 import { isColonialRegion } from './growth';
-import { DECOL_PARAMS } from './decolonisation';
+import { DECOL_PARAMS, decolRecord, playerDecolonisation, grantIndependence, refuseIndependence } from './decolonisation';
 import type { LawGroup } from '../data/dbTypes';
 import type { Country, GameState, JournalEntry } from '../types';
 
@@ -147,6 +147,12 @@ function completeEntry(st: GameState, j: JournalEntry, e: RegimeEvent, c: Countr
 function journalMonth(st: GameState) {
   for (const j of st.journal ?? []) {
     if (j.status !== 'active') continue;
+    if (j.kind === 'decolonisation') {
+      // DECOL-02: closes when the player no longer holds the colony, or the decision window ends
+      const rec = decolRecord(j.event); const mine = rec ? playerDecolonisation(st, rec) : null;
+      if (!mine || (!mine.subject && !mine.regions.length) || st.tick > j.expires || j.country !== st.player) closeEntry(st, j, 'expired');
+      continue;
+    }
     const e = regimeEvent(j.event); const c = st.countries[j.country];
     if (!e || !c?.alive || regimeActor(st, e)?.id !== c.id || st.tick > j.expires) { closeEntry(st, j, 'expired'); continue; }
     if (regimeEntryKind(e) !== 'independence' && journalGoals(st, j).every((g) => g.done)) completeEntry(st, j, e, c);
@@ -178,6 +184,14 @@ export function journalAction(st: GameState, playerId: string, entryId: string, 
   const j = st.journal?.find((x) => x.id === entryId);
   if (!j || j.status !== 'active') return { ok: false, reason: 'No such active journal entry' };
   if (j.country !== playerId) return { ok: false, reason: 'This journal entry belongs to a different country' };
+  if (j.kind === 'decolonisation') {
+    const rec = decolRecord(j.event);
+    if (!rec) return { ok: false, reason: 'Unknown independence record' };
+    if (action === 'abandon') { refuseIndependence(st, rec); closeEntry(st, j, 'abandoned'); log(st, { type: 'decision', text: `${st.countries[playerId].name} keeps ${rec.name} as a colony; unrest grows.`, textVi: `${st.countries[playerId].nameVi} giữ ${rec.name_vi} làm thuộc địa; bất ổn gia tăng.`, actors: [playerId], historical: false, divergence: true }); return { ok: true }; }
+    if (!grantIndependence(st, rec)) return { ok: false, reason: 'The colony is no longer yours' };
+    closeEntry(st, j, 'completed');
+    return { ok: true };
+  }
   const e = regimeEvent(j.event); const c = st.countries[j.country];
   if (action === 'abandon') {
     closeEntry(st, j, 'abandoned');

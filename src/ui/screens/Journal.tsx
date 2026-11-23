@@ -10,6 +10,7 @@ import { viewedId, send, canCommand, Flag, focusRegion, regionName, LOG_ICON } f
 import { game } from '../game/controller';
 import type { LawGroup } from '../../engine/data/dbTypes';
 import { journalGoals, regimeEvent, regimeEntryKind } from '../../engine/systems/regimes';
+import { decolRecord } from '../../engine/systems/decolonisation';
 import { lawUnlocked, LAW_TECH } from '../../engine/laws';
 import { techName } from '../i18n/vi';
 
@@ -58,6 +59,20 @@ function Missions({ st, id, mine }: { st: GameState; id: string; mine: boolean }
   return (
     <>
       {active.map((j) => {
+        if (j.kind === 'decolonisation') {
+          const rec = decolRecord(j.event); if (!rec) return null;
+          return (
+            <section class="journal news" key={j.id}>
+              <div class="masthead"><span>Tin tức</span><span>{monthYear(j.started)}</span></div>
+              <header><Icon name="scroll" /><h4>Phong trào độc lập: {rec.name_vi}</h4><span class="ctx">hạn {monthYear(j.expires)}</span></header>
+              <div class="s">Theo lịch sử, {rec.name_vi} giành độc lập ngày {rec.date.split('-').reverse().join('/')}. Quyền quyết định thuộc về bạn: trao độc lập (nước mới đình chiến 2 năm với bạn), hoặc giữ thuộc địa — dân cực đoan ở đó tăng và vùng đất có thể nổi dậy ly khai.</div>
+              {mine && <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+                <button class="btn sm" onClick={() => send({ type: 'journal', entry: j.id, action: 'complete' }, `Trao độc lập cho ${rec.name_vi}`)}>Trao độc lập</button>
+                <button class="btn sm" onClick={() => send({ type: 'journal', entry: j.id, action: 'abandon' }, `Giữ ${rec.name_vi}`)}>Giữ thuộc địa</button>
+              </div>}
+            </section>
+          );
+        }
         const e = regimeEvent(j.event); if (!e) return null;
         const goals = journalGoals(st, j); const done = goals.filter((g) => g.done).length; const kind = regimeEntryKind(e);
         return (
@@ -92,7 +107,7 @@ function Missions({ st, id, mine }: { st: GameState; id: string; mine: boolean }
         );
       })}
       {past.length > 0 && <Sec title="Nhiệm vụ đã kết thúc" x={`${past.length}`}>
-        {past.map((j) => <div class="kv" key={j.id}><span class="k">{regimeEvent(j.event)?.name_vi ?? j.event}</span><span class="v">{{ completed: 'Hoàn thành', expired: 'Hết thời cơ', abandoned: 'Đã từ bỏ', active: '' }[j.status]}{j.ended !== undefined ? ` · ${monthYear(j.ended)}` : ''}</span></div>)}
+        {past.map((j) => <div class="kv" key={j.id}><span class="k">{j.kind === 'decolonisation' ? `Độc lập: ${decolRecord(j.event)?.name_vi ?? j.event}` : regimeEvent(j.event)?.name_vi ?? j.event}</span><span class="v">{{ completed: 'Hoàn thành', expired: 'Hết thời cơ', abandoned: 'Đã từ bỏ', active: '' }[j.status]}{j.ended !== undefined ? ` · ${monthYear(j.ended)}` : ''}</span></div>)}
       </Sec>}
     </>
   );
