@@ -2511,14 +2511,14 @@ Không sao chép nội dung của Paradox. Chỉ dùng dữ kiện lịch sử, 
 
 ## Quy mô và kiểm định
 - **63** dòng quốc gia/chính thể, vượt ngưỡng tối thiểu 60.
-- **63/63** có mốc quyền bầu cử nữ từ UN A/2462 (1953), kèm ghi chú giới hạn; có trường riêng cho năm bình đẳng đầy đủ nếu quyền ban đầu bị hạn chế.
+- **63/63** có mốc quyền bầu cử nữ từ UN A/2462 (1953), IPU và hồ sơ chính thức cấp quốc gia, kèm ghi chú giới hạn; có trường riêng cho năm bình đẳng đầy đủ nếu quyền ban đầu bị hạn chế.
 - **19/63** có năm phổ thông đầu phiếu nam đã xác minh trong các nguồn so sánh đã rà soát. Các trường còn lại là `null`, không suy đoán; dữ liệu có trường riêng `male_suffrage_full_equal_year` cho một số trường hợp loại trừ chủng tộc/bản địa.
 - **23/63** có dữ liệu bảo hiểm xã hội theo bảng so sánh ILO 2019: tai nạn lao động, y tế, hưu trí, thất nghiệp và trợ cấp gia đình. Các trường social insurance / pension / unemployment được tách riêng.
-- **17 nguồn** được đăng ký; mọi source ID trong các dòng đều khớp source register.
+- **21 nguồn** được đăng ký; mọi source ID trong các dòng đều khớp source register.
 - JSON parse thành công; không trùng ISO3; các năm social insurance khớp với nhánh thành phần; không có source reference thiếu.
 
 ## Nguồn trọng yếu
-- UN A/2462 (1953), bảng VI–VII: quyền bầu cử nữ ở cấp quốc gia, cấp địa phương và các hạn chế theo giới.
+- UN A/2462 (1953), bảng VI–VII: quyền bầu cử nữ ở cấp quốc gia, cấp địa phương và các hạn chế theo giới; hồ sơ Swiss Federal Archives và Museo Reina Sofía bổ sung Thụy Sĩ/Tây Ban Nha.
 - IPU Parline: định nghĩa trường ngày, cấp bầu cử và trạng thái restricted/unrestricted.
 - OWID/Lexical Index và V-Dem: khung kiểm định country-year, phân biệt quyền pháp lý với thực tế bầu cử.
 - ILO 2019, bảng 1 trang in 18: 23 nước OECD, năm đầu luật về tai nạn lao động, y tế, hưu trí, thất nghiệp và trợ cấp gia đình. Thứ tự cột đã được xác minh trực tiếp trên ảnh trang.
