@@ -19,6 +19,7 @@
 // expire after REGIME_JOURNAL.years. Laws a regime set keep an inertia for the AI afterwards, but it can
 // still change them as circumstances require. A regime change installs a new head of state whose title
 // follows the regime (e.g. a tsar becomes a general secretary) and updates the form of government.
+import { movementAction } from './independence';
 import { answerSubjectRequest } from './subjects';
 import { answerBlocInvite } from './powerBlocs';
 import { data } from '../data/db';
@@ -160,6 +161,12 @@ function journalMonth(st: GameState) {
       if (!st.powerBlocs?.[j.event] || st.tick > j.expires || st.countries[j.country]?.bloc === j.event) closeEntry(st, j, 'expired');
       continue;
     }
+    if (j.kind === 'independence_movement') {
+      // DECOL-03: closes when the movement is gone; unanswered → refused
+      if (!st.movements?.[j.event] || st.movements[j.event].owner !== j.country) { closeEntry(st, j, 'expired'); continue; }
+      if (st.tick > j.expires) { movementAction(st, j.event, 'refuse'); closeEntry(st, j, 'expired'); }
+      continue;
+    }
     if (j.kind === 'subject_request') {
       // PB-03a: unanswered → treated as a refusal
       const sc = st.countries[j.event];
@@ -215,6 +222,11 @@ export function journalAction(st: GameState, playerId: string, entryId: string, 
     const r = answerBlocInvite(st, j, action === 'complete');
     if (r.ok) closeEntry(st, j, action === 'complete' ? 'completed' : 'abandoned');
     return r;
+  }
+  if (j.kind === 'independence_movement') {
+    const why = movementAction(st, j.event, action === 'complete' ? 'grant_ties' : 'refuse');
+    if (!why) closeEntry(st, j, action === 'complete' ? 'completed' : 'abandoned');
+    return why ? { ok: false, reason: why } : { ok: true };
   }
   if (j.kind === 'subject_request') {
     const r = answerSubjectRequest(st, j, action === 'complete');

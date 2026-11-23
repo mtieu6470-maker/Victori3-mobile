@@ -1,7 +1,7 @@
 // Diplomacy window: Relations (searchable, sortable ledger; a row opens the country's diplomatic detail window
 // with the actions the engine allows), Treaties (grouped by type) and Subjects & rivals. The declare-war sheet
 // previews sides with the engine's own warSides() rule and requires a press-and-hold.
-import { MySubjectStatus, OverlordSubjects, SubjectTypesTable } from './SubjectsPanel';
+import { ColonialMovements, MySubjectStatus, OverlordSubjects, SubjectTypesTable } from './SubjectsPanel';
 import { useRef, useState } from 'preact/hooks';
 import type { GameState } from '../../engine/types';
 import { getRel } from '../../engine/core';
@@ -83,6 +83,7 @@ function Subjects({ st }: { st: GameState }) {
     <div class="pad">
       {me.overlord && <MySubjectStatus st={st} id={id} />}
       <OverlordSubjects st={st} id={id} />
+      <ColonialMovements st={st} id={id} />
       <div class="cols c2">
         <Sec title="Các loại chư hầu" x={subs.length ? '' : ''}><SubjectTypesTable /></Sec>
         <Sec title="Đối thủ" x={riv.length}>
@@ -127,6 +128,9 @@ function CountryActions({ st, target }: { st: GameState; target: string }) {
           {isAlly ? action('Hủy liên minh', 'Giảm quan hệ và uy tín', 'Hủy', () => send({ type: 'break_alliance', target }, `Đã hủy liên minh với ${shortName(st, target)}`), { danger: true })
             : action('Đề nghị liên minh', subj ? 'Không thể: có quan hệ chư hầu' : `Đối phương ${acc >= 0 ? 'sẽ chấp nhận' : 'sẽ từ chối'} (${acc >= 0 ? '+' : '−'}${fmt(Math.abs(acc), 1)})`, 'Đề nghị', () => send({ type: 'propose_alliance', target }, `Liên minh với ${shortName(st, target)} được thiết lập`), { disabled: subj })}
           {!isRiv && action('Tuyên bố đối thủ', 'Quan hệ giảm dần theo thời gian', 'Tuyên bố', () => send({ type: 'declare_rival', target }, `${shortName(st, target)} là đối thủ của ta`))}
+          {me && me !== target && ((st.embargoes ?? []).some((e) => e.by === me && e.target === target)
+            ? action('Dỡ bỏ cấm vận', 'Thương mại của họ phục hồi', 'Dỡ bỏ', () => send({ type: 'embargo', target, on: false }, `Dỡ cấm vận ${shortName(st, target)}`))
+            : action('Cấm vận', 'Cắt thương mại của họ (cường quốc −8%, nước khác −3%); quan hệ −30', 'Cấm vận', () => send({ type: 'embargo', target, on: true }, `Cấm vận ${shortName(st, target)}`), { danger: true }))}
           {action('Bảo đảm độc lập', 'Ta sẽ tham chiến nếu nước này bị tấn công', 'Bảo đảm', () => send({ type: 'guarantee', target }, `Đã bảo đảm độc lập cho ${shortName(st, target)}`))}
           {!atWarWith && action('Tuyên chiến…', 'Xem trước phe tham chiến và mục tiêu', 'Xem xét', () => modals.open(`Tuyên chiến với ${shortName(st, target)}`, () => <WarDialog st={st} target={target} />), { danger: true })}
           {atWarWith && <div class="note">Đang có chiến tranh với nước này — xem Quân sự › Chiến tranh.</div>}

@@ -9,6 +9,11 @@ import { dateStr, log } from '../core';
 import { holderOfCapital } from './settlements';
 import type { GameState } from '../types';
 
+/** DECOL-03: the Cold War camp a country belongs to through its military bloc (null = none). */
+export function campOfCountry(st: GameState, id: string): string | null {
+  const t = st.treaties.find((x) => x.source?.startsWith('bloc:') && x.members.includes(id));
+  return t ? campOf(t.source!.slice(5)) : null;
+}
 export const blocTreatyId = (id: string) => `bloc_${id}`;
 const campOf = (id: string) => data().db.blocs?.find((b) => b.id === id)?.camp ?? 'west';
 

@@ -6,6 +6,9 @@ import { clamp, chance, log, rand } from '../core';
 import { coreNationOf } from './population';
 import { regionsOf, bordersOf } from '../cache';
 import { lawUnlocked } from '../laws';
+import { eraWave, overseasColonial } from './independence';
+/** DECOL-03: radicalism added in nationalist overseas colonies by the anti-colonial wave. */
+const colonialRadical = (y: number) => 0.25 * eraWave(y);
 
 /** Law preferences of interest groups (+ supports, - opposes). Same table in both modes. */
 export const IG_PREFS: Record<IG, Partial<Record<string, number>>> = {
@@ -151,7 +154,8 @@ export function updatePolitics(st: GameState, c: Country, init = false) {
     const famine = (r as any).famine ?? 0;
     const ideas = (r.literacy * 0.5) * (c.laws.power === 'autocracy' || c.laws.power === 'theocracy' ? 1 : 0.4) * (c.laws.press === 'censorship' ? 0.6 : 1);
     const serf = c.laws.labor === 'serfdom' ? 0.08 : 0;
-    const t = clamp(0.02 + Math.max(0, 0.5 - r.sol) * 0.6 + famine * 0.5 + ideas * 0.25 + serf + r.nationalism * 0.2 + (c.legitimacy < 40 ? 0.05 : 0), 0, 0.9);
+    const colonialWave = r.nationalism > 0.3 && overseasColonial(st, r) ? colonialRadical(st.date.y) : 0; // DECOL-03
+    const t = clamp(0.02 + Math.max(0, 0.5 - r.sol) * 0.6 + famine * 0.5 + ideas * 0.25 + serf + r.nationalism * 0.2 + (c.legitimacy < 40 ? 0.05 : 0) + colonialWave, 0, 0.9);
     const tt = t * (1 - (c.blocMods?.police ?? 0)); // PB-01 police coordination
     r.radical = init ? tt : r.radical + (tt - r.radical) * 0.04;
     radPop += r.radical * r.pop;
@@ -296,6 +300,7 @@ export function secessionCheck(st: GameState, createNation: (nation: string, reg
     const c = st.countries[r.owner]; if (!c || c.decentralized) continue;
     const nation = d.cultureNation.get(r.culture)!;
     if (nation === coreNationOf(st, c) || r.nationalism < 0.45 || r.radical < 0.25) continue;
+    if (overseasColonial(st, r)) continue; // DECOL-03: overseas colonies rise through independence movements
     const k = `${nation}|${r.owner}`; const e = byKey.get(k) ?? { nation, owner: r.owner, regs: [], strength: 0 };
     e.regs.push(r.id); e.strength += r.pop * r.nationalism * r.radical; byKey.set(k, e);
   }

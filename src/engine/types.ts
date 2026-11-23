@@ -62,7 +62,7 @@ export interface ClockState { hour: number }
 
 /** REGIME-02: a journal entry (mission). `event` is a regime_changes id; it completes when its goals are met. */
 export interface JournalEntry {
-  id: string; kind: 'regime' | 'decolonisation' | 'call_to_arms' | 'bloc_invite' | 'subject_request'; event: string; country: string; started: number; expires: number;
+  id: string; kind: 'regime' | 'decolonisation' | 'call_to_arms' | 'bloc_invite' | 'subject_request' | 'independence_movement'; event: string; country: string; started: number; expires: number;
   status: 'active' | 'completed' | 'expired' | 'abandoned'; ended?: number;
 }
 
@@ -136,6 +136,8 @@ export interface Country {
   bloc?: string; blocMods?: import('./systems/powerBlocs').BlocMods;
   /** PB-03a: the subject's pact with its overlord (liberty desire, payments, pacts); absent when sovereign. */
   subjectPact?: import('./systems/subjects').SubjectPact;
+  /** DECOL-03: trade penalty from embargoes this month (fraction of openness); absent when none. */
+  embargoed?: number;
   /** LAW-CAL-02: tick each political idea (mass_politics, feminism) was adopted — movements need time to grow. */
   ideasSince?: Record<string, number>;
   /** LAW-CAL-01: last tick the country fought (not nominally) in a great war — mass mobilisation. */
@@ -286,6 +288,9 @@ export interface GameState {
   divergence: DivergenceState;
   /** DECOL-01: Historical Mode independence records already applied (ids from db.decolonisation). */
   decolonised?: string[];
+  /** DECOL-03: independence movements (key nation|owner) and embargoes. */
+  movements?: Record<string, import('./systems/independence').MovementState>;
+  embargoes?: import('./systems/independence').Embargo[];
   /** PB-01: power blocs by id. */
   powerBlocs?: Record<string, import('./systems/powerBlocs').PowerBloc>;
   /** WW-01d: the League of Nations (Historical Mode, 1920–1946). */

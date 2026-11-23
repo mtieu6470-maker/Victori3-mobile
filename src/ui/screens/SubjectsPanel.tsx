@@ -5,6 +5,7 @@ import { useState } from 'preact/hooks';
 import type { Country, GameState } from '../../engine/types';
 import { SUBJECT, SUBJECT_TYPES, libertyParts, pactOf, paymentRate, subjectActionBlocker, type SubjectAction } from '../../engine/systems/subjects';
 import { Sec } from '../components/ui';
+import { INDEP, eraWave, movementParts, ownerCalculus, type MovementAction } from '../../engine/systems/independence';
 import { SUBJECT_VI, fmt, money } from '../i18n/vi';
 const d2 = (v: number) => `${v > 0 ? '+' : v < 0 ? '−' : ''}${Math.abs(v).toFixed(2).replace('.', ',')}`;
 import { shortName } from '../game/names';
@@ -92,4 +93,55 @@ export function MySubjectStatus({ st, id }: { st: GameState; id: string }) {
     <LibertyBreakdown st={st} c={c} />
     {mine && <button class="btn sm danger" disabled={p.liberty < SUBJECT.requestAt} title={p.liberty < SUBJECT.requestAt ? `Cần mong muốn tự do ≥ ${SUBJECT.requestAt}` : ''} onClick={() => send({ type: 'subject_independence' }, `Giành độc lập khỏi ${shortName(st, c.overlord!)}`)}>Tuyên chiến giành độc lập</button>}
   </Sec>;
+}
+
+// DECOL-03: independence movements in colonies (the owner's calculus, actions) and abroad (support).
+const MPART_VI: Record<string, string> = { nationalism: 'Chủ nghĩa dân tộc', radicalism: 'Tinh thần cấp tiến', wave: 'Làn sóng độc lập của thời đại', supporters: 'Nước ngoài hỗ trợ', weakness: 'Chính quốc suy yếu (thua trận, kiệt quệ)', repression: 'Đang bị đàn áp' };
+const CPART_VI: Record<string, string> = { movement: 'Sức mạnh phong trào', embargoes: 'Cấm vận của các cường quốc', supporters: 'Nước ngoài hỗ trợ phong trào', allies: 'Đồng minh gây sức ép', exhaustion: 'Kiệt quệ vì chiến tranh', lostWar: 'Vừa thua trận' };
+export const MOVEMENT_ACTIONS: [MovementAction, string, string][] = [
+  ['repress', 'Đàn áp', `tốn ${INDEP.repressCost * 100}% thu nhập một tháng, kiệt quệ +${INDEP.repressExhaustion}; phong trào −${INDEP.repression} trong ${INDEP.repressMonths / 12} năm nhưng cấp tiến tăng`],
+  ['grant_ties', 'Trao độc lập kèm ràng buộc', `nước mới vào thị trường, liên minh và khối của bạn; quan hệ +${INDEP.tiesRelation}`],
+  ['grant_dominion', 'Trao quyền tự trị (lãnh thổ tự trị)', `nước mới thành chư hầu tự trị, vẫn nộp 20% thu nhập; quan hệ +${INDEP.dominionRelation}`],
+  ['grant', 'Trao độc lập hoàn toàn', `quan hệ +${INDEP.fullRelation}`],
+  ['refuse', 'Bác bỏ', 'cấp tiến ở các vùng đó tăng; phong trào có thể nổi dậy'],
+];
+
+export function MovementDetail({ st, k }: { st: GameState; k: string }) {
+  const m = st.movements?.[k]; if (!m) return null;
+  const parts = movementParts(st, m); const calc = ownerCalculus(st, m);
+  return <>
+    <div class="s">Sức mạnh: <b>{fmt(m.strength)}</b>/100 · đòi lập quốc từ {INDEP.demand}, nổi dậy khi giữ ở {INDEP.rising} trong {INDEP.risingMonths} tháng · {m.regions.length} vùng, {fmt(m.pop / 1e6, 1)} tr dân</div>
+    {Object.entries(parts).filter(([, v]) => v).map(([kk, v]) => <div class="kv" key={kk}><span class="k s">{MPART_VI[kk]}</span><span class={`v ${v > 0 ? 'neg' : 'pos'}`}>{v > 0 ? '+' : ''}{fmt(v)}</span></div>)}
+    {m.supporters.length > 0 && <div class="s">Được hỗ trợ bởi: {m.supporters.map((s) => shortName(st, s)).join(', ')}</div>}
+    <div class="s" style="margin-top:6px"><b>Tính toán của chính quốc:</b> giá trị giữ thuộc địa {fmt(calc.value)} · chi phí giữ {fmt(calc.cost)}{calc.strong ? ' (cường quốc hàng đầu: chịu được sức ép hơn, ×0,7)' : ''}</div>
+    {Object.entries(calc.parts).filter(([, v]) => v).map(([kk, v]) => <div class="kv" key={kk}><span class="k s">{CPART_VI[kk]}</span><span class="v neg">+{fmt(v)}</span></div>)}
+  </>;
+}
+
+export function ColonialMovements({ st, id }: { st: GameState; id: string }) {
+  const mine = canCommand(st, id);
+  const [open, setOpen] = useState<string | null>(null);
+  const all = Object.entries(st.movements ?? {}).filter(([, m]) => m.strength >= 20).sort((a, b) => b[1].strength - a[1].strength);
+  const own = all.filter(([, m]) => m.owner === id);
+  const abroad = all.filter(([, m]) => m.owner !== id).slice(0, 12);
+  const embargoes = (st.embargoes ?? []).filter((e) => e.target === id || e.by === id);
+  return <>
+    <Sec title="Phong trào độc lập ở thuộc địa của bạn" x={`${own.length}`}>
+      <div class="note" style="margin-top:0">Làn sóng độc lập của thời đại hiện ở mức {fmt(eraWave(st.date.y) * 100)}%. Giữ thuộc địa càng tốn kém khi phong trào mạnh, khi bị cấm vận, khi nước ngoài hỗ trợ phong trào và khi đồng minh gây sức ép.</div>
+      {!own.length && <div class="empty sm">Không có phong trào đáng kể.</div>}
+      {own.map(([k, m]) => <div class="option" key={k}>
+        <div class="oh" style="cursor:pointer" onClick={() => setOpen(open === k ? null : k)}><span class="ot">Người {m.nation}</span><span class={`tag ${m.strength >= INDEP.demand ? 'down' : 'flat'}`}>sức mạnh {fmt(m.strength)}</span></div>
+        {open === k && <><MovementDetail st={st} k={k} />
+          {mine && <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:6px;margin-top:6px">{MOVEMENT_ACTIONS.filter(([a]) => a !== 'refuse').map(([a, label, sub]) => <button key={a} class={`btn sm${a === 'repress' ? ' danger' : ''}`} style="text-align:left;white-space:normal" onClick={() => send({ type: 'movement', key: k, action: a }, `${label}: người ${m.nation}`)}><b>{label}</b><br /><span class="s">{sub}</span></button>)}</div>}
+        </>}
+      </div>)}
+    </Sec>
+    <Sec title="Phong trào độc lập ở nơi khác" x={`${abroad.length}`}>
+      <div class="note" style="margin-top:0">Hỗ trợ một phong trào làm nó mạnh hơn và kéo nước mới về phía bạn (quan hệ +{INDEP.supporterRelation} khi độc lập), nhưng chính quốc sẽ thù bạn.</div>
+      {abroad.map(([k, m]) => { const on = m.supporters.includes(id); return <div class="kv" key={k}><span class="k">Người {m.nation} · <CountryLink st={st} id={m.owner} /></span><span class="v">sức mạnh {fmt(m.strength)}{mine && <button class="btn sm" style="margin-left:8px" onClick={() => send({ type: 'support_movement', key: k, on: !on }, on ? `Ngừng hỗ trợ người ${m.nation}` : `Hỗ trợ người ${m.nation}`)}>{on ? 'Ngừng hỗ trợ' : 'Hỗ trợ'}</button>}</span></div>; })}
+    </Sec>
+    {embargoes.length > 0 && <Sec title="Cấm vận" x={`${embargoes.length}`}>
+      {embargoes.map((e, i) => <div class="kv" key={i}><span class="k"><CountryLink st={st} id={e.by} /> → <CountryLink st={st} id={e.target} /></span><span class="v">{e.target === id ? `thương mại của bạn −${Math.round((st.countries[id].embargoed ?? 0) * 100)}%` : 'do bạn áp đặt'}{mine && e.by === id && <button class="btn sm" style="margin-left:8px" onClick={() => send({ type: 'embargo', target: e.target, on: false }, `Dỡ cấm vận ${shortName(st, e.target)}`)}>Dỡ bỏ</button>}</span></div>)}
+    </Sec>}
+  </>;
 }

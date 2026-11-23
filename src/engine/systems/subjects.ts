@@ -11,6 +11,7 @@ import { clamp, getRel, log } from '../core';
 import { data } from '../data/db';
 import { declareWar, infamyTier, powerScore } from './diplomacy';
 import { annexCountry } from '../world';
+import { eraWave } from './independence';
 import type { Country, GameState, JournalEntry } from '../types';
 
 export interface SubjectTypeDef {
@@ -94,7 +95,7 @@ export function libertyParts(st: GameState, c: Country): LibertyParts | null {
     market: sharedMarket ? SUBJECT.sharedMarket : 0,
     pacts: (p.knowledge ? SUBJECT.knowledge : 0) + (p.exempt ? SUBJECT.exempt : 0) + (p.support ? SUBJECT.support : 0),
     bloc: o.blocMods?.liberty ?? 0,
-    era: st.date.y >= SUBJECT.postwarYear ? SUBJECT.postwar : 0,
+    era: st.date.y >= SUBJECT.postwarYear ? SUBJECT.postwar * eraWave(st.date.y) / 0.6 : 0, // DECOL-03 wave
   };
 }
 /** Monthly change after saturation: pressure slows near the ends of the scale. */

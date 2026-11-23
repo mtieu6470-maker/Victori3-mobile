@@ -5,6 +5,9 @@ import { S, type Country, type GameState, type Region } from '../types';
 import { clamp } from '../core';
 import { techEffect, LEVEL_WORKERS } from './economy';
 import { regionsOf } from '../cache';
+import { eraWave, overseasColonial } from './independence';
+/** DECOL-03: nationalism added in overseas colonies at the anti-colonial wave's peak (see systems/independence). */
+export const WAVE_NATIONALISM = 0.6;
 
 /** DEMO-01 design parameters (calibrated on world population benchmarks; not historical data). */
 export const MORTALITY_TECH_SCALE = 0.04;
@@ -46,7 +49,9 @@ export function populationMonth(st: GameState) {
     const core = coreNationOf(st, c);
     const foreign = d.cultureNation.get(r.culture) !== core;
     const press = c.laws.press === 'free_press' ? 1 : c.laws.press === 'limited_press' ? 0.7 : 0.4;
-    const nTarget = foreign ? clamp(0.1 + r.literacy * 0.6 * press + (1 - r.sol) * 0.2, 0, 1) : 0.02;
+    // DECOL-03: in colonies the anti-colonial wave mobilises people beyond the literate elite
+    const wave = foreign && overseasColonial(st, r) ? eraWave(st.date.y) * WAVE_NATIONALISM : 0;
+    const nTarget = foreign ? clamp(0.1 + r.literacy * 0.6 * press + (1 - r.sol) * 0.2 + wave, 0, 1) : 0.02;
     r.nationalism = clamp(r.nationalism + (nTarget - r.nationalism) * 0.01, 0, 1);
   }
   // international migration: to open, attractive, low-density destinations

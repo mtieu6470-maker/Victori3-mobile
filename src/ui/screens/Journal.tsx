@@ -12,6 +12,7 @@ import type { LawGroup } from '../../engine/data/dbTypes';
 import { journalGoals, regimeEvent, regimeEntryKind } from '../../engine/systems/regimes';
 import { decolRecord } from '../../engine/systems/decolonisation';
 import { PRINCIPLE_VI, JoinPreview } from './PowerBlocs';
+import { MOVEMENT_ACTIONS, MovementDetail } from './SubjectsPanel';
 import { lawUnlocked, LAW_TECH } from '../../engine/laws';
 import { techName } from '../i18n/vi';
 
@@ -71,6 +72,33 @@ function Missions({ st, id, mine }: { st: GameState; id: string; mine: boolean }
               {mine && <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
                 <button class="btn sm" onClick={() => send({ type: 'journal', entry: j.id, action: 'complete' }, `Gia nhập ${pb.name}`)}>Gia nhập</button>
                 <button class="btn sm" onClick={() => send({ type: 'journal', entry: j.id, action: 'abandon' }, 'Từ chối')}>Từ chối</button>
+              </div>}
+            </section>
+          );
+        }
+        if (j.kind === 'independence_movement') {
+          const m = st.movements?.[j.event]; if (!m) return null;
+          return (
+            <section class="journal news" key={j.id}>
+              <div class="masthead"><span>Thuộc địa</span><span>{monthYear(j.started)}</span></div>
+              <header><Icon name="scroll" /><h4>Phong trào độc lập của người {m.nation}</h4><span class="ctx">hạn {monthYear(j.expires)}</span></header>
+              <MovementDetail st={st} k={j.event} />
+              {mine && <div style="margin-top:8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:6px">
+                {MOVEMENT_ACTIONS.map(([a, label, sub]) => <button key={a} class={`btn sm${a === 'repress' || a === 'refuse' ? ' danger' : ''}`} style="text-align:left;white-space:normal" onClick={() => send(a === 'refuse' ? { type: 'journal', entry: j.id, action: 'abandon' } : { type: 'movement', key: j.event, action: a }, `${label}: người ${m.nation}`)}><b>{label}</b><br /><span class="s">{sub}</span></button>)}
+              </div>}
+            </section>
+          );
+        }
+        if (j.kind === 'subject_request') {
+          const c = st.countries[j.event]; if (!c) return null;
+          return (
+            <section class="journal news" key={j.id}>
+              <div class="masthead"><span>Chư hầu</span><span>{monthYear(j.started)}</span></div>
+              <header><Icon name="scroll" /><h4>{shortName(st, c.id)} đòi được tự trị hơn</h4><span class="ctx">hạn {monthYear(j.expires)}</span></header>
+              <div class="s">Mong muốn tự do của {shortName(st, c.id)} đã lên {Math.round(c.subjectPact?.liberty ?? 0)}. Chấp nhận: lên loại chư hầu tự trị hơn, mong muốn tự do −30. Từ chối (hoặc để quá hạn): mong muốn tự do +10; nếu lên 90 và giữ một năm, họ có thể nổi dậy giành độc lập.</div>
+              {mine && <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+                <button class="btn sm" onClick={() => send({ type: 'journal', entry: j.id, action: 'complete' }, `Cho ${shortName(st, c.id)} tự trị hơn`)}>Chấp nhận</button>
+                <button class="btn sm danger" onClick={() => send({ type: 'journal', entry: j.id, action: 'abandon' }, 'Từ chối')}>Từ chối</button>
               </div>}
             </section>
           );
@@ -139,7 +167,7 @@ function Missions({ st, id, mine }: { st: GameState; id: string; mine: boolean }
         );
       })}
       {past.length > 0 && <Sec title="Nhiệm vụ đã kết thúc" x={`${past.length}`}>
-        {past.map((j) => <div class="kv" key={j.id}><span class="k">{j.kind === 'bloc_invite' ? 'Lời mời gia nhập khối' : j.kind === 'call_to_arms' ? 'Lời kêu gọi tham chiến' : j.kind === 'decolonisation' ? `Độc lập: ${decolRecord(j.event)?.name_vi ?? j.event}` : regimeEvent(j.event)?.name_vi ?? j.event}</span><span class="v">{{ completed: 'Hoàn thành', expired: 'Hết thời cơ', abandoned: 'Đã từ bỏ', active: '' }[j.status]}{j.ended !== undefined ? ` · ${monthYear(j.ended)}` : ''}</span></div>)}
+        {past.map((j) => <div class="kv" key={j.id}><span class="k">{j.kind === 'bloc_invite' ? 'Lời mời gia nhập khối' : j.kind === 'independence_movement' ? `Phong trào độc lập: ${j.event.split('|')[0]}` : j.kind === 'subject_request' ? `Chư hầu đòi tự trị: ${shortName(st, j.event)}` : j.kind === 'call_to_arms' ? 'Lời kêu gọi tham chiến' : j.kind === 'decolonisation' ? `Độc lập: ${decolRecord(j.event)?.name_vi ?? j.event}` : regimeEvent(j.event)?.name_vi ?? j.event}</span><span class="v">{{ completed: 'Hoàn thành', expired: 'Hết thời cơ', abandoned: 'Đã từ bỏ', active: '' }[j.status]}{j.ended !== undefined ? ` · ${monthYear(j.ended)}` : ''}</span></div>)}
       </Sec>}
     </>
   );

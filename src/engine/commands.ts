@@ -1,5 +1,6 @@
 // Player command API. Every command calls the SAME functions the AI uses, so the player plays by the AI's rules.
 // The UI layer must only issue these commands (no rule logic in the UI).
+import { movementAction, setEmbargo, supportMovement, type MovementAction } from './systems/independence';
 import { LAW_GROUPS } from './data/dbTypes';
 import { SUBJECT, demandIndependence, subjectAction, type SubjectAction } from './systems/subjects';
 import { BLOC_IDENTITIES, PRINCIPLES, canFound, foundBloc, blocOf, imposeLaw, invite, leaveBloc, setPrinciple, subjugateMember, type BlocIdentity } from './systems/powerBlocs';
@@ -50,7 +51,10 @@ export type Command =
   | { type: 'bloc_subjugate'; target: string }
   | { type: 'bloc_impose_law'; target: string; group: string }
   | { type: 'subject_pact'; target: string; action: string }
-  | { type: 'subject_independence' };
+  | { type: 'subject_independence' }
+  | { type: 'movement'; key: string; action: string }
+  | { type: 'support_movement'; key: string; on: boolean }
+  | { type: 'embargo'; target: string; on: boolean };
 
 export interface CommandResult { ok: boolean; reason?: string }
 
@@ -76,6 +80,9 @@ export function validateCommand(st: GameState, me: { id: string }, cmd: Command)
     case 'bloc_impose_law': return typeof cmd.target === 'string' && st.countries[cmd.target] && (LAW_GROUPS as string[]).includes(cmd.group) ? null : 'Invalid law';
     case 'subject_pact': return typeof cmd.target === 'string' && st.countries[cmd.target] && SUBJECT_ACTIONS.includes(cmd.action as SubjectAction) ? null : 'Invalid subject action';
     case 'subject_independence': return null;
+    case 'movement': return typeof cmd.key === 'string' && ['repress', 'grant_ties', 'grant_dominion', 'grant', 'refuse'].includes(cmd.action) ? null : 'Invalid movement action';
+    case 'support_movement': return typeof cmd.key === 'string' && typeof cmd.on === 'boolean' ? null : 'Invalid support';
+    case 'embargo': return typeof cmd.target === 'string' && st.countries[cmd.target] && typeof cmd.on === 'boolean' ? null : 'Invalid embargo';
     case 'bloc_principle': return typeof cmd.group === 'string' && cmd.group in PRINCIPLES && Number.isInteger(cmd.level) ? null : 'Invalid principle';
     case 'journal': return typeof cmd.entry === 'string' && (cmd.action === 'complete' || cmd.action === 'abandon') ? null : 'Invalid journal action';
     case 'found_company': return typeof cmd.kind === 'string' && data().db.company_kinds.some((k) => k.id === cmd.kind) ? null : 'Unknown company kind';
@@ -167,6 +174,14 @@ export function execute(st: GameState, cmd: Command): CommandResult {
       if ((me.subjectPact?.liberty ?? 0) < SUBJECT.requestAt) return { ok: false, reason: `Liberty desire must be at least ${SUBJECT.requestAt}` };
       return demandIndependence(st, me) ? { ok: true } : { ok: false, reason: 'Could not start the war of independence' };
     }
+    case 'movement': {
+      const m = st.movements?.[cmd.key]; if (!m || m.owner !== me.id) return { ok: false, reason: 'Not a movement in your colonies' };
+      const why = movementAction(st, cmd.key, cmd.action as MovementAction); if (why) return { ok: false, reason: why };
+      for (const j of st.journal ?? []) if (j.kind === 'independence_movement' && j.event === cmd.key && j.status === 'active') { j.status = 'completed'; j.ended = st.tick; }
+      return { ok: true };
+    }
+    case 'support_movement': { const why = supportMovement(st, me.id, cmd.key, cmd.on); return why ? { ok: false, reason: why } : { ok: true }; }
+    case 'embargo': { const why = setEmbargo(st, me.id, cmd.target, cmd.on); return why ? { ok: false, reason: why } : { ok: true }; }
     case 'bloc_leave': { if (!blocOf(st, me.id)) return { ok: false, reason: 'Not in a bloc' }; leaveBloc(st, me.id); return { ok: true }; }
     case 'bloc_principle': { const b = blocOf(st, me.id); if (!b || b.leader !== me.id) return { ok: false, reason: 'Only a bloc leader sets principles' }; const why = setPrinciple(st, b, cmd.group, cmd.level); return why ? { ok: false, reason: why } : { ok: true }; }
     default:

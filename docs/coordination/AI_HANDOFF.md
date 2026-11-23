@@ -1,3 +1,26 @@
+## 2026-11-23 — DECOL-03 independence movements, embargoes, foreign support (owner: "after 1950 movements were strong everywhere"; "no grant without a benefit or cause")
+
+- Design: `docs/design/INDEPENDENCE_MOVEMENTS_VI.md`. Engine: `systems/independence.ts`, system `independence` after `decolonisation`.
+- **Movements:** overseas colonies only (UN "salt-water" criterion: not land-connected to the owner's home). Excluded: indigenous peoples of settler states (families `various`, `australian`, `uto_aztecan`, `athabaskan`, `eskimo_aleut`).
+- **The era wave** (`eraWave`: 1885 0.1, 1919 0.25, 1945 0.6, 1955 1.0, 1966 0.8, 1976 0.4) adds nationalism (population) and radicalism (politics) in overseas colonies, and feeds subjects' liberty desire.
+- **Strength:** nationalism, radicalism, wave, supporters, owner weakness, minus repression. Demand at 55; a rising at 85 held for 12 months.
+- **The player decides** through an `independence_movement` journal entry or the `movement` command: repress, grant with ties (customs union, alliance, bloc), grant as a dominion, grant outright, or refuse.
+- **AI:** no grant without a concrete cause (embargo, allies' pressure, lost war, exhaustion, imminent rising). The cause is logged.
+- **International pressure:**
+  - `support_movement`: AI rivals, the other camp and anti-colonial powers back movements.
+  - `embargo`: generic, usable by the player against anyone; trade openness −8% per great power, capped at 35%; AI supporters embargo owners of strong movements.
+- **Historical Mode:** an AI owner's register colonies follow CG-37 dates; no support or embargoes for them.
+- Overseas colonies no longer secede through `secessionCheck`.
+- **UI:**
+  - Diplomacy → subjects tab: movements in your colonies (strength factors, the owner's calculus, actions); movements abroad (support); embargoes.
+  - Country actions: embargo / lift.
+  - Journal cards for `independence_movement` and `subject_request`.
+- **Tests:** `tests/independence.test.ts` (6).
+- **Calibration** (Sandbox seed 1, before the cause rule): interwar repression (64), main wave of grants 1945–1953, mostly with ties or as dominions.
+- **Next:** CG-49 (MSG-113), events with options for decolonisation, subjects and embargoes. Also investigate Historical seed 1, 1970: Egypt holding Angolan regions.
+
+---
+
 ## 2026-11-23 — PB-03 subjects (V3-style) and reworked power-bloc principles (owner: "a sovereign empire earns too little"; CG-48 + owner screenshots)
 
 - Design: `docs/design/POWER_BLOCS_VI.md` §6. Reference: `docs/research/design/CG48_POWER_BLOCS_SUBJECTS_REFERENCE.md`.
