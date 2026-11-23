@@ -16,7 +16,7 @@
   },
   "events": [
     {
-      "id": "vnm__mang_centralisation_1836",
+      "id": "vnm_minh_mang_centralisation_1836",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -60,15 +60,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__mang_centralisation_1836_standardise",
+              "id": "vnm_minh_mang_centralisation_1836_standardise_modifier",
               "name_vi": "Sổ bộ hành chính thống nhất",
               "name_en": "Unified Administrative Registers",
               "months": 36,
               "decaying": true,
               "effects": {
                 "reform": 0.012,
-                "legitimacy": 2,
-                "treasury": -0.15
+                "legitimacy": 2
               }
             }
           ]
@@ -83,7 +82,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__mang_centralisation_1836_delegate",
+              "id": "vnm_minh_mang_centralisation_1836_delegate_modifier",
               "name_vi": "Quyền chủ động của địa phương",
               "name_en": "Provincial Discretion",
               "months": 30,
@@ -102,7 +101,7 @@
       ]
     },
     {
-      "id": "vnm_olic_policy_1836",
+      "id": "vnm_catholic_policy_1836",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -146,7 +145,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_olic_policy_1836_enforce",
+              "id": "vnm_catholic_policy_1836_enforce_modifier",
               "name_vi": "Chiến dịch kiểm soát tôn giáo",
               "name_en": "Religious Policing Campaign",
               "months": 24,
@@ -169,15 +168,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_olic_policy_1836_moderate",
+              "id": "vnm_catholic_policy_1836_moderate_modifier",
               "name_vi": "Khoan dung có điều kiện",
               "name_en": "Conditional Toleration",
               "months": 36,
               "decaying": true,
               "effects": {
                 "legitimacy": 1,
-                "radicalism": -0.01,
-                "relation": 0
+                "radicalism": -0.01
               }
             }
           ]
@@ -188,7 +186,7 @@
       ]
     },
     {
-      "id": "vnm__tay_thanh_1836",
+      "id": "vnm_tran_tay_thanh_1836",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -232,14 +230,13 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__tay_thanh_1836_direct",
+              "id": "vnm_tran_tay_thanh_1836_direct_modifier",
               "name_vi": "Bộ máy Trấn Tây",
               "name_en": "Tran Tay Administration",
               "months": 36,
               "decaying": true,
               "effects": {
                 "army": 0.03,
-                "treasury": -0.2,
                 "radicalism": 0.02
               }
             }
@@ -255,7 +252,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__tay_thanh_1836_local",
+              "id": "vnm_tran_tay_thanh_1836_local_modifier",
               "name_vi": "Thỏa hiệp hành chính Khmer",
               "name_en": "Khmer Administrative Accommodation",
               "months": 36,
@@ -274,7 +271,7 @@
       ]
     },
     {
-      "id": "vnm_nam_title_1838",
+      "id": "vnm_dai_nam_title_1838",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -318,15 +315,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_nam_title_1838_ceremony",
+              "id": "vnm_dai_nam_title_1838_ceremony_modifier",
               "name_vi": "Uy nghi Đại Nam",
               "name_en": "Dai Nam Court Prestige",
               "months": 24,
               "decaying": true,
               "effects": {
                 "prestige": 0.04,
-                "legitimacy": 2,
-                "treasury": -0.12
+                "legitimacy": 2
               }
             }
           ]
@@ -341,15 +337,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_nam_title_1838_reform",
+              "id": "vnm_dai_nam_title_1838_reform_modifier",
               "name_vi": "Cải cách dưới quốc hiệu mới",
               "name_en": "Reform Under the New State Name",
               "months": 36,
               "decaying": true,
               "effects": {
                 "reform": 0.01,
-                "legitimacy": 1,
-                "treasury": -0.08
+                "legitimacy": 1
               }
             }
           ]
@@ -360,7 +355,7 @@
       ]
     },
     {
-      "id": "vnm__mang_succession_1841",
+      "id": "vnm_minh_mang_succession_1841",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -404,7 +399,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__mang_succession_1841_continuity",
+              "id": "vnm_minh_mang_succession_1841_continuity_modifier",
               "name_vi": "Tính liên tục của triều chính",
               "name_en": "Continuity of Court Government",
               "months": 30,
@@ -427,15 +422,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__mang_succession_1841_adjust",
+              "id": "vnm_minh_mang_succession_1841_adjust_modifier",
               "name_vi": "Điều chỉnh triều chính",
               "name_en": "Court Policy Adjustment",
               "months": 24,
               "decaying": true,
               "effects": {
                 "legitimacy": 1,
-                "ig_landowners": 1,
-                "treasury": -0.08
+                "ig_landowners": 1
               }
             }
           ]
@@ -446,7 +440,7 @@
       ]
     },
     {
-      "id": "vnm_in_revolt_1841",
+      "id": "vnm_tonkin_revolt_1841",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -490,7 +484,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_in_revolt_1841_troops",
+              "id": "vnm_tonkin_revolt_1841_troops_modifier",
               "name_vi": "Bình định Bắc Kỳ",
               "name_en": "Tonkin Pacification",
               "months": 24,
@@ -498,7 +492,6 @@
               "effects": {
                 "army": 0.04,
                 "police": 0.03,
-                "treasury": -0.12,
                 "radicalism": 0.02
               }
             }
@@ -514,7 +507,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_in_revolt_1841_mediation",
+              "id": "vnm_tonkin_revolt_1841_mediation_modifier",
               "name_vi": "Hòa giải ở Bắc Kỳ",
               "name_en": "Tonkin Local Mediation",
               "months": 30,
@@ -533,7 +526,7 @@
       ]
     },
     {
-      "id": "vnm__cambodia_pressure_1841",
+      "id": "vnm_siam_cambodia_pressure_1841",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -577,14 +570,13 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__cambodia_pressure_1841_hold",
+              "id": "vnm_siam_cambodia_pressure_1841_hold_modifier",
               "name_vi": "Tuyến phòng thủ phía tây",
               "name_en": "Western Defensive Line",
               "months": 30,
               "decaying": true,
               "effects": {
                 "army": 0.04,
-                "treasury": -0.18,
                 "prestige": 0.02
               }
             }
@@ -600,15 +592,13 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__cambodia_pressure_1841_accommodate",
+              "id": "vnm_siam_cambodia_pressure_1841_accommodate_modifier",
               "name_vi": "Thương lượng với Xiêm",
               "name_en": "Accommodation with Siam",
               "months": 36,
               "decaying": true,
               "effects": {
-                "treasury": 0.08,
-                "legitimacy": -1,
-                "relation": 0
+                "legitimacy": -1
               }
             }
           ]
@@ -619,7 +609,7 @@
       ]
     },
     {
-      "id": "vnm_uc_succession_1847",
+      "id": "vnm_tu_duc_succession_1847",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -663,7 +653,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_uc_succession_1847_consolidate",
+              "id": "vnm_tu_duc_succession_1847_consolidate_modifier",
               "name_vi": "Triều đình Tự Đức",
               "name_en": "Tu Duc's Court",
               "months": 30,
@@ -686,15 +676,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_uc_succession_1847_reconcile",
+              "id": "vnm_tu_duc_succession_1847_reconcile_modifier",
               "name_vi": "Hòa giải quan trường",
               "name_en": "Bureaucratic Reconciliation",
               "months": 24,
               "decaying": true,
               "effects": {
                 "reform": 0.008,
-                "legitimacy": 1,
-                "treasury": -0.06
+                "legitimacy": 1
               }
             }
           ]
@@ -705,7 +694,7 @@
       ]
     },
     {
-      "id": "vnm_ch_naval_incident_1847",
+      "id": "vnm_french_naval_incident_1847",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -749,15 +738,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_ch_naval_incident_1847_fortify",
+              "id": "vnm_french_naval_incident_1847_fortify_modifier",
               "name_vi": "Phòng thủ cửa biển Đà Nẵng",
               "name_en": "Da Nang Harbour Defences",
               "months": 24,
               "decaying": true,
               "effects": {
                 "army": 0.04,
-                "construction": -0.02,
-                "treasury": -0.12
+                "construction": -0.02
               }
             }
           ]
@@ -772,14 +760,13 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_ch_naval_incident_1847_protest",
+              "id": "vnm_french_naval_incident_1847_protest_modifier",
               "name_vi": "Công hàm ngoại giao",
               "name_en": "Diplomatic Protest",
               "months": 18,
               "decaying": true,
               "effects": {
                 "legitimacy": 1,
-                "relation": 0,
                 "trade": -0.01
               }
             }
@@ -792,7 +779,7 @@
       ]
     },
     {
-      "id": "vnm_tal_defence_reform_1850",
+      "id": "vnm_coastal_defence_reform_1850",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -836,15 +823,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_tal_defence_reform_1850_naval",
+              "id": "vnm_coastal_defence_reform_1850_naval_modifier",
               "name_vi": "Thủy quân canh tân",
               "name_en": "Naval Modernisation",
               "months": 48,
               "decaying": true,
               "effects": {
                 "army": 0.06,
-                "research": 0.015,
-                "treasury": -0.25
+                "research": 0.015
               }
             }
           ]
@@ -859,7 +845,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_tal_defence_reform_1850_forts",
+              "id": "vnm_coastal_defence_reform_1850_forts_modifier",
               "name_vi": "Tuyến pháo đài duyên hải",
               "name_en": "Coastal Fortifications",
               "months": 36,
@@ -878,7 +864,7 @@
       ]
     },
     {
-      "id": "vnm_ch_catholic_pressure_1856",
+      "id": "vnm_french_catholic_pressure_1856",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -922,13 +908,12 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_ch_catholic_pressure_1856_concede",
+              "id": "vnm_french_catholic_pressure_1856_concede_modifier",
               "name_vi": "Nhượng bộ có kiểm soát",
               "name_en": "Controlled Concession",
               "months": 24,
               "decaying": true,
               "effects": {
-                "relation": 0,
                 "trade": 0.01,
                 "legitimacy": -1,
                 "radicalism": 0.008
@@ -946,7 +931,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_ch_catholic_pressure_1856_restrict",
+              "id": "vnm_french_catholic_pressure_1856_restrict_modifier",
               "name_vi": "Kiểm soát truyền giáo",
               "name_en": "Missionary Restrictions",
               "months": 24,
@@ -966,7 +951,7 @@
       ]
     },
     {
-      "id": "vnm_ane_invasion_1858",
+      "id": "vnm_tourane_invasion_1858",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -1010,15 +995,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_ane_invasion_1858_defend",
+              "id": "vnm_tourane_invasion_1858_defend_modifier",
               "name_vi": "Phòng tuyến Đà Nẵng",
               "name_en": "Da Nang Defensive Line",
               "months": 24,
               "decaying": true,
               "effects": {
                 "army": 0.06,
-                "war_exhaustion": 0.03,
-                "treasury": -0.2
+                "war_exhaustion": 0.03
               }
             }
           ]
@@ -1033,7 +1017,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_ane_invasion_1858_attrition",
+              "id": "vnm_tourane_invasion_1858_attrition_modifier",
               "name_vi": "Chiến tranh tiêu hao",
               "name_en": "War of Attrition",
               "months": 36,
@@ -1041,8 +1025,7 @@
               "effects": {
                 "army": 0.03,
                 "radicalism": 0.015,
-                "construction": -0.03,
-                "treasury": -0.12
+                "construction": -0.03
               }
             }
           ]
@@ -1053,7 +1036,7 @@
       ]
     },
     {
-      "id": "vnm_on_fall_1859",
+      "id": "vnm_saigon_fall_1859",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -1097,15 +1080,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_on_fall_1859_counterattack",
+              "id": "vnm_saigon_fall_1859_counterattack_modifier",
               "name_vi": "Phản công Gia Định",
               "name_en": "Gia Dinh Counteroffensive",
               "months": 18,
               "decaying": true,
               "effects": {
                 "army": 0.05,
-                "war_exhaustion": 0.04,
-                "treasury": -0.18
+                "war_exhaustion": 0.04
               }
             }
           ]
@@ -1120,7 +1102,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_on_fall_1859_disperse",
+              "id": "vnm_saigon_fall_1859_disperse_modifier",
               "name_vi": "Kháng cự phân tán Nam Kỳ",
               "name_en": "Dispersed Cochinchina Resistance",
               "months": 30,
@@ -1139,7 +1121,7 @@
       ]
     },
     {
-      "id": "vnm_hern_resistance_1860",
+      "id": "vnm_southern_resistance_1860",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -1183,15 +1165,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_hern_resistance_1860_coordinate",
+              "id": "vnm_southern_resistance_1860_coordinate_modifier",
               "name_vi": "Phối hợp nghĩa dũng",
               "name_en": "Coordinated Local Resistance",
               "months": 24,
               "decaying": true,
               "effects": {
                 "army": 0.04,
-                "radicalism": -0.005,
-                "treasury": -0.1
+                "radicalism": -0.005
               }
             }
           ]
@@ -1206,7 +1187,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_hern_resistance_1860_reserve",
+              "id": "vnm_southern_resistance_1860_reserve_modifier",
               "name_vi": "Dự bị phòng thủ",
               "name_en": "Defensive Reserve",
               "months": 24,
@@ -1225,7 +1206,7 @@
       ]
     },
     {
-      "id": "vnm_ty_saigon_1862",
+      "id": "vnm_treaty_saigon_1862",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -1269,7 +1250,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_ty_saigon_1862_ratify",
+              "id": "vnm_treaty_saigon_1862_ratify_modifier",
               "name_vi": "Đình chiến Nhâm Tuất",
               "name_en": "Saigon Treaty Settlement",
               "months": 36,
@@ -1277,7 +1258,6 @@
               "effects": {
                 "legitimacy": -2,
                 "trade": 0.03,
-                "treasury": -0.12,
                 "army": -0.03
               }
             }
@@ -1293,7 +1273,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_ty_saigon_1862_reject",
+              "id": "vnm_treaty_saigon_1862_reject_modifier",
               "name_vi": "Kháng chiến sau Nhâm Tuất",
               "name_en": "Resistance After Saigon",
               "months": 30,
@@ -1301,7 +1281,6 @@
               "effects": {
                 "army": 0.05,
                 "war_exhaustion": 0.05,
-                "treasury": -0.25,
                 "radicalism": 0.02
               }
             }
@@ -1313,7 +1292,7 @@
       ]
     },
     {
-      "id": "vnm_hern_court_debate_1863",
+      "id": "vnm_southern_court_debate_1863",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -1357,14 +1336,13 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_hern_court_debate_1863_rearm",
+              "id": "vnm_southern_court_debate_1863_rearm_modifier",
               "name_vi": "Chương trình phục hồi quân lực",
               "name_en": "Military Recovery Programme",
               "months": 36,
               "decaying": true,
               "effects": {
                 "army": 0.05,
-                "treasury": -0.2,
                 "radicalism": 0.012
               }
             }
@@ -1380,7 +1358,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_hern_court_debate_1863_reform",
+              "id": "vnm_southern_court_debate_1863_reform_modifier",
               "name_vi": "Cải cách sau hòa ước",
               "name_en": "Post-Treaty Reform",
               "months": 36,
@@ -1400,7 +1378,7 @@
       ]
     },
     {
-      "id": "vnm_provinces_loss_1867",
+      "id": "vnm_six_provinces_loss_1867",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -1444,7 +1422,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_provinces_loss_1867_reorganise",
+              "id": "vnm_six_provinces_loss_1867_reorganise_modifier",
               "name_vi": "Tái bố trí phòng thủ",
               "name_en": "Defence Redeployment",
               "months": 36,
@@ -1452,7 +1430,6 @@
               "effects": {
                 "army": 0.03,
                 "construction": 0.01,
-                "treasury": -0.1,
                 "legitimacy": -1
               }
             }
@@ -1468,14 +1445,13 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_provinces_loss_1867_diplomacy",
+              "id": "vnm_six_provinces_loss_1867_diplomacy_modifier",
               "name_vi": "Yêu sách ngoại giao Nam Kỳ",
               "name_en": "Cochinchina Diplomatic Claim",
               "months": 24,
               "decaying": true,
               "effects": {
                 "prestige": 0.02,
-                "relation": 0,
                 "trade": -0.01
               }
             }
@@ -1487,7 +1463,7 @@
       ]
     },
     {
-      "id": "vnm_uc_reform_debate_1868",
+      "id": "vnm_tu_duc_reform_debate_1868",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -1531,7 +1507,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_uc_reform_debate_1868_reform",
+              "id": "vnm_tu_duc_reform_debate_1868_reform_modifier",
               "name_vi": "Thử nghiệm canh tân",
               "name_en": "Limited Reform Experiments",
               "months": 48,
@@ -1539,7 +1515,6 @@
               "effects": {
                 "reform": 0.015,
                 "research": 0.02,
-                "treasury": -0.18,
                 "legitimacy": -1
               }
             }
@@ -1555,7 +1530,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_uc_reform_debate_1868_preserve",
+              "id": "vnm_tu_duc_reform_debate_1868_preserve_modifier",
               "name_vi": "Bảo toàn trật tự triều Nguyễn",
               "name_en": "Preserving Nguyen Institutions",
               "months": 36,
@@ -1575,7 +1550,7 @@
       ]
     },
     {
-      "id": "vnm_en_truong_to_memorials_1870",
+      "id": "vnm_nguyen_truong_to_memorials_1870",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -1619,7 +1594,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_en_truong_to_memorials_1870_commission",
+              "id": "vnm_nguyen_truong_to_memorials_1870_commission_modifier",
               "name_vi": "Hội đồng canh tân",
               "name_en": "Reform Advisory Council",
               "months": 36,
@@ -1627,7 +1602,6 @@
               "effects": {
                 "research": 0.025,
                 "reform": 0.01,
-                "treasury": -0.1,
                 "legitimacy": -1
               }
             }
@@ -1643,7 +1617,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_en_truong_to_memorials_1870_dismiss",
+              "id": "vnm_nguyen_truong_to_memorials_1870_dismiss_modifier",
               "name_vi": "Bảo thủ triều chính",
               "name_en": "Court Conservatism",
               "months": 36,
@@ -1663,7 +1637,7 @@
       ]
     },
     {
-      "id": "vnm_in_trade_pressure_1872",
+      "id": "vnm_tonkin_trade_pressure_1872",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -1707,7 +1681,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_in_trade_pressure_1872_regulate",
+              "id": "vnm_tonkin_trade_pressure_1872_regulate_modifier",
               "name_vi": "Quy chế thương mại sông Hồng",
               "name_en": "Red River Trade Regulation",
               "months": 24,
@@ -1730,7 +1704,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_in_trade_pressure_1872_restrict",
+              "id": "vnm_tonkin_trade_pressure_1872_restrict_modifier",
               "name_vi": "Kiểm soát tuyến sông",
               "name_en": "River Route Restrictions",
               "months": 18,
@@ -1749,7 +1723,7 @@
       ]
     },
     {
-      "id": "vnm_ier_hanoi_1873",
+      "id": "vnm_garnier_hanoi_1873",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -1793,15 +1767,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_ier_hanoi_1873_mobilise",
+              "id": "vnm_garnier_hanoi_1873_mobilise_modifier",
               "name_vi": "Phòng thủ Bắc Kỳ",
               "name_en": "Tonkin Defence",
               "months": 24,
               "decaying": true,
               "effects": {
                 "army": 0.05,
-                "war_exhaustion": 0.025,
-                "treasury": -0.16
+                "war_exhaustion": 0.025
               }
             }
           ]
@@ -1816,13 +1789,12 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_ier_hanoi_1873_negotiate",
+              "id": "vnm_garnier_hanoi_1873_negotiate_modifier",
               "name_vi": "Đàm phán Hà Nội",
               "name_en": "Hanoi Negotiations",
               "months": 18,
               "decaying": true,
               "effects": {
-                "relation": 0,
                 "legitimacy": -1,
                 "trade": 0.01
               }
@@ -1835,7 +1807,7 @@
       ]
     },
     {
-      "id": "vnm_ty_giap_tuat_1874",
+      "id": "vnm_treaty_giap_tuat_1874",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -1879,7 +1851,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_ty_giap_tuat_1874_implement",
+              "id": "vnm_treaty_giap_tuat_1874_implement_modifier",
               "name_vi": "Thi hành hòa ước 1874",
               "name_en": "Implementation of the 1874 Treaty",
               "months": 36,
@@ -1887,7 +1859,6 @@
               "effects": {
                 "trade": 0.03,
                 "legitimacy": -2,
-                "relation": 0,
                 "army": -0.02
               }
             }
@@ -1903,7 +1874,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_ty_giap_tuat_1874_limit",
+              "id": "vnm_treaty_giap_tuat_1874_limit_modifier",
               "name_vi": "Hạn chế nhượng bộ",
               "name_en": "Limiting the Concessions",
               "months": 24,
@@ -1922,7 +1893,7 @@
       ]
     },
     {
-      "id": "vnm_k_flag_tonkin_1870s",
+      "id": "vnm_black_flag_tonkin_1870s",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -1966,7 +1937,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_k_flag_tonkin_1870s_auxiliaries",
+              "id": "vnm_black_flag_tonkin_1870s_auxiliaries_modifier",
               "name_vi": "Lực lượng phụ trợ Bắc Kỳ",
               "name_en": "Tonkin Auxiliary Forces",
               "months": 24,
@@ -1989,7 +1960,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_k_flag_tonkin_1870s_disarm",
+              "id": "vnm_black_flag_tonkin_1870s_disarm_modifier",
               "name_vi": "Giải giới lực lượng địa phương",
               "name_en": "Disarming Local Forces",
               "months": 18,
@@ -2008,7 +1979,7 @@
       ]
     },
     {
-      "id": "vnm_and_hue_1883",
+      "id": "vnm_harmand_hue_1883",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -2052,15 +2023,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_and_hue_1883_resist",
+              "id": "vnm_harmand_hue_1883_resist_modifier",
               "name_vi": "Phòng thủ Thuận An",
               "name_en": "Thuan An Defence",
               "months": 18,
               "decaying": true,
               "effects": {
                 "army": 0.06,
-                "war_exhaustion": 0.05,
-                "treasury": -0.22
+                "war_exhaustion": 0.05
               }
             }
           ]
@@ -2075,7 +2045,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_and_hue_1883_armistice",
+              "id": "vnm_harmand_hue_1883_armistice_modifier",
               "name_vi": "Đình chiến trước sức ép Pháp",
               "name_en": "Armistice under French Pressure",
               "months": 24,
@@ -2095,7 +2065,7 @@
       ]
     },
     {
-      "id": "vnm_ntotre_1884",
+      "id": "vnm_patentotre_1884",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -2139,7 +2109,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_ntotre_1884_accommodate",
+              "id": "vnm_patentotre_1884_accommodate_modifier",
               "name_vi": "Triều đình dưới chế độ bảo hộ",
               "name_en": "Court under Protectorate",
               "months": 48,
@@ -2163,7 +2133,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_ntotre_1884_resist",
+              "id": "vnm_patentotre_1884_resist_modifier",
               "name_vi": "Mạng lưới chống bảo hộ",
               "name_en": "Anti-Protectorate Network",
               "months": 36,
@@ -2182,7 +2152,7 @@
       ]
     },
     {
-      "id": "vnm_nghi_regency_1884",
+      "id": "vnm_ham_nghi_regency_1884",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -2226,7 +2196,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_nghi_regency_1884_war_party",
+              "id": "vnm_ham_nghi_regency_1884_war_party_modifier",
               "name_vi": "Phe chủ chiến trong triều",
               "name_en": "Resistance Faction at Court",
               "months": 24,
@@ -2249,7 +2219,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_nghi_regency_1884_peace_party",
+              "id": "vnm_ham_nghi_regency_1884_peace_party_modifier",
               "name_vi": "Phe chủ hòa",
               "name_en": "Accommodation Faction",
               "months": 24,
@@ -2268,7 +2238,7 @@
       ]
     },
     {
-      "id": "vnm_vuong_1885",
+      "id": "vnm_can_vuong_1885",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -2312,15 +2282,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_vuong_1885_mobilise",
+              "id": "vnm_can_vuong_1885_mobilise_modifier",
               "name_vi": "Lời hiệu triệu Cần Vương",
               "name_en": "Can Vuong Mobilisation",
               "months": 48,
               "decaying": true,
               "effects": {
                 "army": 0.05,
-                "radicalism": 0.025,
-                "treasury": -0.12
+                "radicalism": 0.025
               }
             }
           ]
@@ -2335,7 +2304,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_vuong_1885_preserve",
+              "id": "vnm_can_vuong_1885_preserve_modifier",
               "name_vi": "Bảo toàn triều đình lưu vong",
               "name_en": "Preserving the Exiled Court",
               "months": 36,
@@ -2354,7 +2323,7 @@
       ]
     },
     {
-      "id": "vnm_inh_resistance_1886",
+      "id": "vnm_ba_dinh_resistance_1886",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -2398,14 +2367,13 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_inh_resistance_1886_fortify",
+              "id": "vnm_ba_dinh_resistance_1886_fortify_modifier",
               "name_vi": "Công sự Ba Đình",
               "name_en": "Ba Dinh Fortifications",
               "months": 18,
               "decaying": true,
               "effects": {
                 "army": 0.05,
-                "treasury": -0.08,
                 "war_exhaustion": 0.03
               }
             }
@@ -2421,7 +2389,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_inh_resistance_1886_disperse",
+              "id": "vnm_ba_dinh_resistance_1886_disperse_modifier",
               "name_vi": "Chiến thuật phân tán",
               "name_en": "Dispersed Resistance",
               "months": 24,
@@ -2440,7 +2408,7 @@
       ]
     },
     {
-      "id": "vnm_say_resistance_1887",
+      "id": "vnm_bai_say_resistance_1887",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -2484,15 +2452,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_say_resistance_1887_support",
+              "id": "vnm_bai_say_resistance_1887_support_modifier",
               "name_vi": "Hậu cần Bãi Sậy",
               "name_en": "Bai Say Supply Network",
               "months": 30,
               "decaying": true,
               "effects": {
                 "army": 0.03,
-                "radicalism": 0.015,
-                "treasury": -0.06
+                "radicalism": 0.015
               }
             }
           ]
@@ -2507,7 +2474,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_say_resistance_1887_negotiate",
+              "id": "vnm_bai_say_resistance_1887_negotiate_modifier",
               "name_vi": "Đầu hàng có điều kiện",
               "name_en": "Negotiated Surrender",
               "months": 18,
@@ -2526,7 +2493,7 @@
       ]
     },
     {
-      "id": "vnm_g_khe_resistance_1896",
+      "id": "vnm_huong_khe_resistance_1896",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -2570,15 +2537,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_g_khe_resistance_1896_continue",
+              "id": "vnm_huong_khe_resistance_1896_continue_modifier",
               "name_vi": "Kháng chiến Hương Khê",
               "name_en": "Huong Khe Resistance",
               "months": 18,
               "decaying": true,
               "effects": {
                 "army": 0.02,
-                "radicalism": 0.015,
-                "treasury": -0.08
+                "radicalism": 0.015
               }
             }
           ]
@@ -2593,7 +2559,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_g_khe_resistance_1896_disband",
+              "id": "vnm_huong_khe_resistance_1896_disband_modifier",
               "name_vi": "Tan rã có trật tự",
               "name_en": "Orderly Dispersal",
               "months": 24,
@@ -2612,7 +2578,7 @@
       ]
     },
     {
-      "id": "vnm_ch_indochina_union_1887",
+      "id": "vnm_french_indochina_union_1887",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -2656,7 +2622,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_ch_indochina_union_1887_cooperate",
+              "id": "vnm_french_indochina_union_1887_cooperate_modifier",
               "name_vi": "Hợp tác hành chính",
               "name_en": "Administrative Cooperation",
               "months": 36,
@@ -2679,15 +2645,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_ch_indochina_union_1887_withdraw",
+              "id": "vnm_french_indochina_union_1887_withdraw_modifier",
               "name_vi": "Mạng lưới quan lại độc lập",
               "name_en": "Independent Court Networks",
               "months": 36,
               "decaying": true,
               "effects": {
                 "legitimacy": 1,
-                "radicalism": 0.02,
-                "treasury": -0.05
+                "radicalism": 0.02
               }
             }
           ]
@@ -2698,7 +2663,7 @@
       ]
     },
     {
-      "id": "vnm_er_reorganisation_1897",
+      "id": "vnm_doumer_reorganisation_1897",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -2742,7 +2707,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_er_reorganisation_1897_cooperate",
+              "id": "vnm_doumer_reorganisation_1897_cooperate_modifier",
               "name_vi": "Hạ tầng thuộc địa",
               "name_en": "Colonial Infrastructure",
               "months": 48,
@@ -2766,15 +2731,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_er_reorganisation_1897_mitigate",
+              "id": "vnm_doumer_reorganisation_1897_mitigate_modifier",
               "name_vi": "Giảm gánh nặng nông thôn",
               "name_en": "Rural Tax Mitigation",
               "months": 36,
               "decaying": true,
               "effects": {
                 "radicalism": -0.01,
-                "legitimacy": 1,
-                "treasury": -0.08
+                "legitimacy": 1
               }
             }
           ]
@@ -2785,7 +2749,7 @@
       ]
     },
     {
-      "id": "vnm_the_resistance_1900",
+      "id": "vnm_yen_the_resistance_1900",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -2829,7 +2793,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_the_resistance_1900_campaign",
+              "id": "vnm_yen_the_resistance_1900_campaign_modifier",
               "name_vi": "Chiến dịch Yên Thế",
               "name_en": "Yen The Campaign",
               "months": 24,
@@ -2837,8 +2801,7 @@
               "effects": {
                 "police": 0.04,
                 "army": 0.03,
-                "radicalism": 0.02,
-                "treasury": -0.1
+                "radicalism": 0.02
               }
             }
           ]
@@ -2853,7 +2816,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_the_resistance_1900_accommodate",
+              "id": "vnm_yen_the_resistance_1900_accommodate_modifier",
               "name_vi": "Đình chiến Yên Thế",
               "name_en": "Yen The Truce",
               "months": 24,
@@ -2872,7 +2835,7 @@
       ]
     },
     {
-      "id": "vnm_tan_reform_1904",
+      "id": "vnm_duy_tan_reform_1904",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -2916,7 +2879,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_tan_reform_1904_permit",
+              "id": "vnm_duy_tan_reform_1904_permit_modifier",
               "name_vi": "Không gian cải cách Duy Tân",
               "name_en": "Duy Tan Reform Space",
               "months": 36,
@@ -2939,7 +2902,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_tan_reform_1904_restrict",
+              "id": "vnm_duy_tan_reform_1904_restrict_modifier",
               "name_vi": "Giám sát phong trào Duy Tân",
               "name_en": "Duy Tan Surveillance",
               "months": 24,
@@ -2958,7 +2921,7 @@
       ]
     },
     {
-      "id": "vnm__du_1905",
+      "id": "vnm_dong_du_1905",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -3002,7 +2965,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__du_1905_sustain",
+              "id": "vnm_dong_du_1905_sustain_modifier",
               "name_vi": "Mạng lưới Đông Du",
               "name_en": "Dong Du Network",
               "months": 36,
@@ -3010,8 +2973,7 @@
               "effects": {
                 "research": 0.025,
                 "literacy": 0.02,
-                "radicalism": 0.015,
-                "treasury": -0.08
+                "radicalism": 0.015
               }
             }
           ]
@@ -3026,7 +2988,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__du_1905_diversify",
+              "id": "vnm_dong_du_1905_diversify_modifier",
               "name_vi": "Mạng lưới quốc tế",
               "name_en": "International Exile Networks",
               "months": 36,
@@ -3045,7 +3007,7 @@
       ]
     },
     {
-      "id": "vnm__kinh_nghia_thuc_1907",
+      "id": "vnm_dong_kinh_nghia_thuc_1907",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -3089,7 +3051,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__kinh_nghia_thuc_1907_expand",
+              "id": "vnm_dong_kinh_nghia_thuc_1907_expand_modifier",
               "name_vi": "Giáo dục khai trí",
               "name_en": "Public Enlightenment",
               "months": 36,
@@ -3112,7 +3074,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__kinh_nghia_thuc_1907_discreet",
+              "id": "vnm_dong_kinh_nghia_thuc_1907_discreet_modifier",
               "name_vi": "Hoạt động giáo dục kín đáo",
               "name_en": "Discreet Educational Work",
               "months": 24,
@@ -3131,7 +3093,7 @@
       ]
     },
     {
-      "id": "vnm_protests_1908",
+      "id": "vnm_tax_protests_1908",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -3175,7 +3137,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_protests_1908_investigate",
+              "id": "vnm_tax_protests_1908_investigate_modifier",
               "name_vi": "Điều tra sưu thuế",
               "name_en": "Tax Inquiry",
               "months": 24,
@@ -3198,7 +3160,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_protests_1908_suppress",
+              "id": "vnm_tax_protests_1908_suppress_modifier",
               "name_vi": "Trấn áp biểu tình Trung Kỳ",
               "name_en": "Central Vietnam Crackdown",
               "months": 18,
@@ -3218,7 +3180,7 @@
       ]
     },
     {
-      "id": "vnm_tan_uprising_1916",
+      "id": "vnm_duy_tan_uprising_1916",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -3262,7 +3224,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_tan_uprising_1916_protect",
+              "id": "vnm_duy_tan_uprising_1916_protect_modifier",
               "name_vi": "Mạng lưới bảo vệ hoàng gia",
               "name_en": "Royal Protection Network",
               "months": 18,
@@ -3285,7 +3247,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_tan_uprising_1916_distance",
+              "id": "vnm_duy_tan_uprising_1916_distance_modifier",
               "name_vi": "Triều đình tránh liên lụy",
               "name_en": "Court Disassociation",
               "months": 24,
@@ -3305,7 +3267,7 @@
       ]
     },
     {
-      "id": "vnm__hong_thai_1924",
+      "id": "vnm_pham_hong_thai_1924",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -3349,7 +3311,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__hong_thai_1924_organise",
+              "id": "vnm_pham_hong_thai_1924_organise_modifier",
               "name_vi": "Tổ chức cách mạng có hệ thống",
               "name_en": "Organised Revolutionary Networks",
               "months": 36,
@@ -3372,7 +3334,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__hong_thai_1924_retaliate",
+              "id": "vnm_pham_hong_thai_1924_retaliate_modifier",
               "name_vi": "Hoạt động bí mật",
               "name_en": "Clandestine Action",
               "months": 18,
@@ -3391,7 +3353,7 @@
       ]
     },
     {
-      "id": "vnm__boi_chau_trial_1925",
+      "id": "vnm_phan_boi_chau_trial_1925",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -3435,7 +3397,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__boi_chau_trial_1925_clemency",
+              "id": "vnm_phan_boi_chau_trial_1925_clemency_modifier",
               "name_vi": "Ân xá Phan Bội Châu",
               "name_en": "Clemency for Phan Boi Chau",
               "months": 24,
@@ -3458,7 +3420,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__boi_chau_trial_1925_severity",
+              "id": "vnm_phan_boi_chau_trial_1925_severity_modifier",
               "name_vi": "Giám sát phong trào yêu nước",
               "name_en": "Nationalist Surveillance",
               "months": 24,
@@ -3477,7 +3439,7 @@
       ]
     },
     {
-      "id": "vnm__chu_trinh_funeral_1926",
+      "id": "vnm_phan_chu_trinh_funeral_1926",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -3521,7 +3483,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__chu_trinh_funeral_1926_permit",
+              "id": "vnm_phan_chu_trinh_funeral_1926_permit_modifier",
               "name_vi": "Tưởng niệm Phan Châu Trinh",
               "name_en": "Phan Chau Trinh Commemorations",
               "months": 18,
@@ -3544,7 +3506,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__chu_trinh_funeral_1926_restrict",
+              "id": "vnm_phan_chu_trinh_funeral_1926_restrict_modifier",
               "name_vi": "Hạn chế biểu tình",
               "name_en": "Restrictions on Demonstrations",
               "months": 18,
@@ -3563,7 +3525,7 @@
       ]
     },
     {
-      "id": "vnm_d_formation_1927",
+      "id": "vnm_vnqdd_formation_1927",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -3607,7 +3569,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_d_formation_1927_build",
+              "id": "vnm_vnqdd_formation_1927_build_modifier",
               "name_vi": "Mạng lưới Quốc dân Đảng",
               "name_en": "VNQDD Organisation",
               "months": 36,
@@ -3630,7 +3592,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_d_formation_1927_prepare",
+              "id": "vnm_vnqdd_formation_1927_prepare_modifier",
               "name_vi": "Tổ chức bí mật Quốc dân Đảng",
               "name_en": "VNQDD Underground",
               "months": 24,
@@ -3649,7 +3611,7 @@
       ]
     },
     {
-      "id": "vnm_bai_uprising_1930",
+      "id": "vnm_yen_bai_uprising_1930",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -3693,7 +3655,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_bai_uprising_1930_crackdown",
+              "id": "vnm_yen_bai_uprising_1930_crackdown_modifier",
               "name_vi": "Trấn áp sau Yên Bái",
               "name_en": "Post-Yen Bai Repression",
               "months": 30,
@@ -3716,7 +3678,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_bai_uprising_1930_limited_trials",
+              "id": "vnm_yen_bai_uprising_1930_limited_trials_modifier",
               "name_vi": "Điều tra Yên Bái",
               "name_en": "Yen Bai Inquiry",
               "months": 24,
@@ -3735,7 +3697,7 @@
       ]
     },
     {
-      "id": "vnm_formation_1930",
+      "id": "vnm_icp_formation_1930",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -3779,7 +3741,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_formation_1930_surveil",
+              "id": "vnm_icp_formation_1930_surveil_modifier",
               "name_vi": "Giám sát tổ chức cộng sản",
               "name_en": "Communist Organisation Surveillance",
               "months": 24,
@@ -3802,7 +3764,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_formation_1930_address",
+              "id": "vnm_icp_formation_1930_address_modifier",
               "name_vi": "Đối thoại về bất bình xã hội",
               "name_en": "Dialogue on Social Grievances",
               "months": 36,
@@ -3821,7 +3783,7 @@
       ]
     },
     {
-      "id": "vnm__tinh_soviets_1930",
+      "id": "vnm_nghe_tinh_soviets_1930",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -3865,7 +3827,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__tinh_soviets_1930_mobilise",
+              "id": "vnm_nghe_tinh_soviets_1930_mobilise_modifier",
               "name_vi": "Huy động Nghệ–Tĩnh",
               "name_en": "Nghe-Tinh Mobilisation",
               "months": 24,
@@ -3888,7 +3850,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm__tinh_soviets_1930_underground",
+              "id": "vnm_nghe_tinh_soviets_1930_underground_modifier",
               "name_vi": "Mạng lưới bí mật Nghệ–Tĩnh",
               "name_en": "Nghe-Tinh Underground",
               "months": 30,
@@ -3908,7 +3870,7 @@
       ]
     },
     {
-      "id": "vnm_ne_1944_45",
+      "id": "vnm_famine_1944_45",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -3952,15 +3914,14 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_ne_1944_45_relief",
+              "id": "vnm_famine_1944_45_relief_modifier",
               "name_vi": "Cứu trợ nạn đói",
               "name_en": "Famine Relief",
               "months": 18,
               "decaying": true,
               "effects": {
                 "legitimacy": 2,
-                "radicalism": -0.025,
-                "treasury": -0.25
+                "radicalism": -0.025
               }
             }
           ]
@@ -3975,7 +3936,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_ne_1944_45_requisition",
+              "id": "vnm_famine_1944_45_requisition_modifier",
               "name_vi": "Trưng thu thời chiến",
               "name_en": "Wartime Requisitions",
               "months": 18,
@@ -3994,7 +3955,7 @@
       ]
     },
     {
-      "id": "vnm_st_revolution_1945",
+      "id": "vnm_august_revolution_1945",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -4038,7 +3999,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_st_revolution_1945_proclaim",
+              "id": "vnm_august_revolution_1945_proclaim_modifier",
               "name_vi": "Chính quyền cách mạng tháng Tám",
               "name_en": "August Revolutionary Government",
               "months": 24,
@@ -4061,7 +4022,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_st_revolution_1945_coalition",
+              "id": "vnm_august_revolution_1945_coalition_modifier",
               "name_vi": "Chính phủ liên hiệp",
               "name_en": "Coalition Government",
               "months": 18,
@@ -4080,7 +4041,7 @@
       ]
     },
     {
-      "id": "vnm_pendence_1945",
+      "id": "vnm_independence_1945",
       "country": "VNM",
       "mode": "historical",
       "window": [
@@ -4124,7 +4085,7 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_pendence_1945_consolidate",
+              "id": "vnm_independence_1945_consolidate_modifier",
               "name_vi": "Củng cố nhà nước mới",
               "name_en": "Consolidating the New State",
               "months": 24,
@@ -4132,8 +4093,7 @@
               "effects": {
                 "legitimacy": 3,
                 "reform": 0.01,
-                "police": 0.02,
-                "treasury": -0.12
+                "police": 0.02
               }
             }
           ]
@@ -4148,14 +4108,13 @@
             {
               "type": "modifier",
               "entity": "$self",
-              "id": "vnm_pendence_1945_recognition",
+              "id": "vnm_independence_1945_recognition_modifier",
               "name_vi": "Ngoại giao công nhận độc lập",
               "name_en": "Diplomatic Recognition Campaign",
               "months": 24,
               "decaying": true,
               "effects": {
                 "prestige": 0.05,
-                "relation": 0,
                 "trade": 0.01
               }
             }
