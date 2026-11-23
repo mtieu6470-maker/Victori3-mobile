@@ -784,7 +784,8 @@ export function constructionMonth(st: GameState): void {
           if (payer) { payer.cash = Math.max(0, available - spend); payer.invested += spend; }
           else c[poolKey] = Math.max(0, available - spend);
           if (funding === 'state') c.treasury = Math.max(0, c.treasury - spend);
-          project.invested = Math.min(project.totalCost, project.invested + spend);
+          // PB-02: a bloc's construction principles make the same money go further
+          project.invested = Math.min(project.totalCost, project.invested + spend * (1 + (c.blocMods?.construction ?? 0)));
         }
         if (project.invested + 1e-6 < project.totalCost) continue;
         st.constructionProjects = st.constructionProjects.filter((p) => p.id !== project.id);

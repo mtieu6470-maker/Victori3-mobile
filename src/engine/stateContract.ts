@@ -248,6 +248,7 @@ export function validateNestedState(st: GameState): void {
     arr(b.members, `powerBlocs.${k}.members`).forEach((x, i) => str(x, `powerBlocs.${k}.members[${i}]`));
     numRecord(b.principles, `powerBlocs.${k}.principles`);
     for (const f of ['cohesion', 'founded', 'lastPrincipleChange'] as const) num(b[f], `powerBlocs.${k}.${f}`);
+    for (const f of ['mandates', 'mandateProgress'] as const) if (b[f] !== undefined) num(b[f], `powerBlocs.${k}.${f}`);
   }
   if (s.league !== undefined) {
     const L = obj(s.league, 'league'); num(L.founded, 'league.founded'); if (L.dissolved !== undefined) num(L.dissolved, 'league.dissolved');

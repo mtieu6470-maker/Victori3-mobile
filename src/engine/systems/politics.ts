@@ -143,7 +143,7 @@ export function updatePolitics(st: GameState, c: Country, init = false) {
   const target = clamp(30 + legitTarget * 2.4 + tradition + clamp(c.prestige, -50, 100) * 0.08 - (c.lastWarLost !== null && st.tick - c.lastWarLost < 60 ? 15 : 0) - c.famine * 30, 5, 100);
   const crisis = c.crisis && st.tick < c.crisis.until ? c.crisis.delta : 0;
   if (c.crisis && st.tick >= c.crisis.until) delete c.crisis;
-  const crisisTarget = clamp(target + crisis, 0, 100);
+  const crisisTarget = clamp(target + crisis + (c.blocMods?.legitimacy ?? 0), 0, 100); // PB-02 bloc legitimacy
   c.legitimacy = init ? crisisTarget : c.legitimacy + (crisisTarget - c.legitimacy) * 0.05;
   // radicalism per region
   let radPop = 0;

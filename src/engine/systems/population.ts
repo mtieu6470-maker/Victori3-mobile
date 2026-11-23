@@ -63,12 +63,16 @@ export function populationMonth(st: GameState) {
     }
     dests.sort((a, b) => b.w - a.w);
     const top = dests.slice(0, 4).filter((x) => x.regions.length);
-    const tw = top.reduce((s, x) => s + x.w, 0);
-    if (tw > 0) for (const e of emig) for (const t of top) {
-      const share = (e.n * t.w) / tw; const rs = t.regions;
+    // PB-02 freedom of movement: emigrants prefer destinations in their own power bloc
+    const pull = (e: { from: Region }, t: { c: Country; w: number }) => { const o = st.countries[e.from.owner]; return t.w * (o?.bloc && o.bloc === t.c.bloc ? 1 + (o.blocMods?.migration ?? 0) : 1); };
+    if (top.length) for (const e of emig) {
+      const tw = top.reduce((s, x) => s + pull(e, x), 0); if (tw <= 0) continue;
+      for (const t of top) {
+      const share = (e.n * pull(e, t)) / tw; const rs = t.regions;
       const tgt = rs[(st.tick + rs.length) % rs.length];
       tgt.pop += share;
       if (tgt.culture !== e.from.culture && tgt.c2 < 0.5) { tgt.culture2 = tgt.culture2 ?? e.from.culture; tgt.c2 = clamp(tgt.c2 + share / tgt.pop * 0.5, 0, 0.5); }
+      }
     }
   }
 }

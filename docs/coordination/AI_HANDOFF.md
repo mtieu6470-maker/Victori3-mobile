@@ -1,3 +1,27 @@
+## 2026-11-23 — PB-02 distinct power-bloc identities (owner: "make clear what joining gives, like V3")
+
+- Design: `docs/design/POWER_BLOCS_VI.md` §5.
+- **Identities** (`identityRequirement`, `CORE_PRINCIPLE`):
+  - trade league: no isolationism; one bloc customs union from day one; trade ×1.5; AI members drop isolationism.
+  - sovereign empire: ≥ 1 subject; subjects auto-join; tribute; `bloc_subjugate` (weak member → protectorate).
+  - ideological union: label from the leader's laws; aligned members radicalism −10%; L3 `bloc_push_law`.
+  - military treaty: a rival or ally; mutual-defence alliance from day one; cohesion = the leader's share of bloc power; a refused call costs −10 cohesion.
+  - religious convocation: state religion; same faith only; legitimacy.
+- **Principles**: 14 groups; each level is a list of effects with `who` (all/members/leader).
+  - `blocModsFor(st, bloc, country)` computes what a country gets (also the "if you join" preview).
+  - New hooks: construction speed (economy), migration preference (population), legitimacy (politics), defend/attack war-joining (diplomacy `joinInterest`/`warSides`).
+- **Mandates** replace the 12-month cooldown (5 × cohesion/100 × size factor per month; 100 = one; bank 3).
+- **Breakdowns**: `leverageParts`, `cohesionParts`.
+- **UI**:
+  - identity cards with requirement, cohesion source, core principle, leader rights, member gains and duties;
+  - "effects in force" for the leader and members;
+  - cohesion breakdown; principle levels with effects; mandates; leverage breakdown per member; subjugate and press-law buttons;
+  - other blocs with "if you join"; journal invitation with a join preview.
+- **Research:** the V3 wiki and forum block automated reads. ChatGPT was asked for a reference (MSG-111 / CG-48), to reconcile later.
+- **Tests:** `tests/power-blocs.test.ts` 11/11. Sandbox seed 1 to 1860: 4 blocs, 2–12 members, cohesion 63–90.
+
+---
+
 ## 2026-11-23 — PB-01a/b power blocs (V3-style; owner: "the player founds a bloc, as complete as Victoria 3")
 
 - Design: `docs/design/POWER_BLOCS_VI.md`. Engine: `systems/powerBlocs.ts` (after blocs). UI: Diplomacy → "Khối quyền lực" (`PowerBlocs.tsx`).

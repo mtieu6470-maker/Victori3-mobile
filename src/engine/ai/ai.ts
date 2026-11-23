@@ -278,6 +278,8 @@ export function reformUtility(st: GameState, c: Country, g: LawGroup, v: string)
   // PB-01 ideological alignment: members are drawn to the bloc leader's laws
   const pb = c.bloc ? st.powerBlocs?.[c.bloc] : undefined;
   if (pb && pb.leader !== c.id && c.blocMods?.ideology && (st.countries[pb.leader]?.laws as Record<string, string> | undefined)?.[g] === v) u += c.blocMods.ideology;
+  // PB-02 trade league: members leave isolationism behind
+  if (pb && c.blocMods?.openTrade && g === 'trade' && c.laws.trade === 'isolationism' && v !== 'isolationism') u += 1;
   return u;
 }
 

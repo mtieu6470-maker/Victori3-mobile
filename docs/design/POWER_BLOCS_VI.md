@@ -59,3 +59,31 @@ Victoria 3's power blocs as the reference; code, names and text are original.
 2. PB-01b UI: Diplomacy → "Khối quyền lực" tab (overview, members with leverage, principles, actions);
    founding dialog; journal invitation for the player.
 3. PB-01c balance: calibration runs (bloc counts, sizes, stability) in Sandbox.
+
+## 5. PB-02 — distinct identities and concrete effects (owner 2026-11-23: "make clear what joining gives")
+
+Each identity has a **founding requirement**, its own **cohesion source**, a **core principle** (always in
+force, no slot, level = what cohesion allows), **rights for the leader**, **gains for members** and
+**obligations for members**. The UI shows all of these at founding, on the bloc card and as an "if you join"
+preview for other blocs and in the journal invitation.
+
+| identity | requirement | cohesion from | core principle | leader may | members gain | members must |
+|---|---|---|---|---|---|---|
+| trade_league | not isolationism | members in the leader's market | market_unification | one bloc customs union from day one; internal trade ×1.5 | the leader's market without tariffs; L2–3 trade +5/10%, construction +5% | share the market; AI drops isolationism |
+| sovereign_empire | ≥ 1 subject | members that are the leader's subjects | exploit_members | subjects join automatically; tribute 2/4/6%; make weak members (power ≤ 25%, leverage ≥ 50, cohesion ≥ 60) protectorates; L3 legitimacy +5 | the leader's protection (defend +2); L2–3 army +3/5% | pay tribute; may become protectorates |
+| ideological_union | — (label from leader's laws) | members sharing power and economy laws | ideological_alignment | pulls members' laws; L3 presses a reform on an AI member (cohesion ≥ 60) | aligned members radicalism −10%; L2–3 −5/10% more | AI prefers the leader's laws; may be pressed |
+| military_treaty | a rival or an ally | the leader's share of the bloc's power | defensive_cooperation | a mutual-defence alliance from day one | defence by the whole bloc; L3 army +5% | answer calls to arms; a refusal costs cohesion −10 |
+| religious_convocation | state religion / theocracy | shared faith (only the leader's faith may join) | sacred_civics | legitimacy +2 for the whole bloc | legitimacy +2/4/6, clergy approval +1/2/3 | same faith |
+
+**Principles** (each level is the full effect; tiers stack like the reference): internal_trade,
+advanced_research, creative_legislature, police_coordination, shared_construction, freedom_of_movement,
+aggressive_coordination (members join the leader's offensive wars), colonial_partnership, holy_alliance, plus
+the five cores. The exact numbers live in `PRINCIPLES` in `src/engine/systems/powerBlocs.ts`; effect keys
+reach trade capacity, tech import, reform speed, radicalism, army quality, AI law utility, clergy approval,
+construction speed, migration choice, legitimacy, war-joining interest, tribute, alliance and customs union.
+
+**Mandates** replace the 12-month cooldown: progress per month = 5 × cohesion/100 × (1 + other members/10,
+max 2); 100 = one mandate (bank of 3). Adding or raising a principle costs one mandate; dropping one is free.
+
+**Breakdowns**: `leverageParts` (power, relations, market, subject, alliance, border, culture, religion,
+companies, rivalry) and `cohesionParts` (base, attitude, identity, leverage, size) are shown in the UI.

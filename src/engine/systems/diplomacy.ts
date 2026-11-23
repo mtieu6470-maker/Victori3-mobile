@@ -158,6 +158,13 @@ export function warSides(st: GameState, attacker: string, defender: string, goal
     }
     if (t.type === 'guarantee' && t.members[1] === defender && !attackers.includes(t.members[0]) && !defenders.includes(t.members[0])) { defenders.push(t.members[0]); joined.push({ id: t.members[0], reason: 'guarantee' }); }
   }
+  // PB-02: members of the attacker's power bloc with offensive coordination may join its war (AI only)
+  const ab = a.bloc ? st.powerBlocs?.[a.bloc] : undefined;
+  if (ab?.leader === attacker) for (const m of ab.members) {
+    const mc = st.countries[m];
+    if (m === attacker || m === st.player || !mc?.alive || attackers.includes(m) || defenders.includes(m) || !(mc.blocMods?.attack)) continue;
+    if (joinWillingness(st, m, defender, attacker) + mc.blocMods.attack > 1) { attackers.push(m); joined.push({ id: m, reason: 'alliance' }); }
+  }
   // great-power intervention against an aggressive rival
   for (const gp of greatPowers(st)) {
     if (attackers.includes(gp) || defenders.includes(gp) || gp === st.player) continue; // the player is never drafted
@@ -173,6 +180,12 @@ export function warSides(st: GameState, attacker: string, defender: string, goal
 
 /** AI-INT-01 design parameter: relations lost with the defender when an ally declines its call to arms. */
 export const REFUSED_CALL = { relation: 25 } as const;
+/** PB-02: refusing to defend a partner in a bloc whose principles make it a mutual-defence pact costs cohesion. */
+export const BLOC_REFUSAL = { cohesion: 10 } as const;
+function blocRefusal(st: GameState, who: string, defender: string): void {
+  const c = st.countries[who]; const b = c?.bloc ? st.powerBlocs?.[c.bloc] : undefined;
+  if (b && b.members.includes(defender) && (c.blocMods?.alliance ?? 0) >= 1) b.cohesion = clamp(b.cohesion - BLOC_REFUSAL.cohesion, 0, 100);
+}
 /** CTA-01 design parameter: months the player has to answer an ally's call to arms. */
 export const CALL_TO_ARMS = { months: 3 } as const;
 
@@ -191,6 +204,7 @@ export function refuseCallToArms(st: GameState, who: string, warId: string): voi
   const w = st.wars.find((x) => x.id === warId);
   const defender = w?.defenders.leader; if (!defender) return;
   addRel(st, who, defender, -REFUSED_CALL.relation);
+  blocRefusal(st, who, defender);
   if (st.treaties.some((t) => t.type === 'alliance' && !t.source?.startsWith('bloc:') && t.members.length === 2 && t.members.includes(who) && t.members.includes(defender))) {
     breakAlliance(st, who, defender);
     log(st, { type: 'diplomacy', text: `${st.countries[who].name} refuses ${st.countries[defender].name}'s call to arms; their alliance ends.`, textVi: `${st.countries[who].nameVi} từ chối lời kêu gọi tham chiến của ${st.countries[defender].nameVi}; liên minh tan vỡ.`, actors: [who, defender] });
@@ -218,6 +232,7 @@ export function declareWar(st: GameState, attacker: string, defender: string, go
   for (const m of sides.refused) {
     if (m === st.player) continue;
     addRel(st, m, defender, -REFUSED_CALL.relation);
+    blocRefusal(st, m, defender);
     if (st.treaties.some((t) => t.type === 'alliance' && !t.source?.startsWith('bloc:') && t.members.length === 2 && t.members.includes(m) && t.members.includes(defender))) {
       breakAlliance(st, m, defender);
       log(st, { type: 'diplomacy', text: `${st.countries[m].name} refuses ${dC.name}'s call to arms; their alliance ends.`, textVi: `${st.countries[m].nameVi} từ chối lời kêu gọi tham chiến của ${dC.nameVi}; liên minh tan vỡ.`, actors: [m, defender] });
@@ -255,7 +270,8 @@ export function joinInterest(st: GameState, who: string, attacker: string, defen
   if (allied(st, who, attacker)) s -= JOIN_INTEREST.conflicted;
   if (!sharesBorder(st, who, defender) && !sharesBorder(st, who, attacker) && navalStrength(c) <= 5) s -= JOIN_INTEREST.distance;
   // PB-01: members of one power bloc with defensive cooperation stand by each other
-  if (c.bloc && c.bloc === def?.bloc && (st.powerBlocs?.[c.bloc]?.principles.defensive_cooperation ?? 0) >= 1) s += 1.5;
+  // (PB-02: the strength comes from the bloc's principles in force — Country.blocMods.defend)
+  if (c.bloc && c.bloc === def?.bloc) s += c.blocMods?.defend ?? 0;
   return s;
 }
 

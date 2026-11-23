@@ -11,7 +11,7 @@ import { game } from '../game/controller';
 import type { LawGroup } from '../../engine/data/dbTypes';
 import { journalGoals, regimeEvent, regimeEntryKind } from '../../engine/systems/regimes';
 import { decolRecord } from '../../engine/systems/decolonisation';
-import { PRINCIPLE_VI } from './PowerBlocs';
+import { PRINCIPLE_VI, JoinPreview } from './PowerBlocs';
 import { lawUnlocked, LAW_TECH } from '../../engine/laws';
 import { techName } from '../i18n/vi';
 
@@ -67,6 +67,7 @@ function Missions({ st, id, mine }: { st: GameState; id: string; mine: boolean }
               <div class="masthead"><span>Ngoại giao</span><span>{monthYear(j.started)}</span></div>
               <header><Icon name="scroll" /><h4>Lời mời gia nhập {pb.name}</h4><span class="ctx">hạn {monthYear(j.expires)}</span></header>
               <div class="s">{shortName(st, pb.leader)} mời bạn vào khối ({pb.members.length} thành viên, độ gắn kết {Math.round(pb.cohesion)}). Nguyên tắc: {Object.keys(pb.principles).map((g) => PRINCIPLE_VI[g]?.[0] ?? g).join(', ') || 'chưa có'}.</div>
+              <JoinPreview st={st} b={pb} id={j.country} />
               {mine && <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
                 <button class="btn sm" onClick={() => send({ type: 'journal', entry: j.id, action: 'complete' }, `Gia nhập ${pb.name}`)}>Gia nhập</button>
                 <button class="btn sm" onClick={() => send({ type: 'journal', entry: j.id, action: 'abandon' }, 'Từ chối')}>Từ chối</button>
