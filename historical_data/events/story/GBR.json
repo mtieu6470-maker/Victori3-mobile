@@ -18,7 +18,18 @@
     "malaya_archives": "https://cdn.nationalarchives.gov.uk/documents/migrated-archives-guidance.pdf",
     "egypt_suez": "https://history.state.gov/milestones/1953-1960/suez",
     "egypt_1882": "https://www.cambridge.org/core/books/abs/cambridge-history-of-egypt/british-occupation-18821922/179398E6D722904951A25256F524C963",
-    "palestine_whitepaper": "https://avalon.law.yale.edu/21st_century/brwh1939.asp"
+    "palestine_whitepaper": "https://avalon.law.yale.edu/21st_century/brwh1939.asp",
+    "kenya_history": "https://www.nationalarchives.gov.uk/education/resources/kenya-emergency/",
+    "ghana_history": "https://www.britannica.com/place/Ghana/History",
+    "nigeria_history": "https://www.britannica.com/place/Nigeria/History",
+    "rhodesia_sanctions": "https://history.state.gov/historicaldocuments/frus1964-68v24/d559",
+    "south_africa_history": "https://sahistory.org.za/article/control-1910-1948",
+    "boer_war": "https://www.iwm.org.uk/history/what-you-need-to-know-about-the-boer-war",
+    "caribbean_history": "https://www.britannica.com/place/Jamaica/History",
+    "cyprus_history": "https://www.britannica.com/place/Cyprus/History",
+    "malta_history": "https://www.gov.mt/en/About%20Malta/Pages/History.aspx",
+    "ireland_difp": "https://www.difp.ie/books/volume-1/",
+    "ireland_treaty": "https://researchbriefings.files.parliament.uk/documents/CBP-9260/CBP-9260.pdf"
   },
   "events": [
     {
@@ -4357,6 +4368,2475 @@
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
+    },
+    {
+      "id": "gbr_kenya_emergency_1952",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1952-09-01",
+        "1953-12-31"
+      ],
+      "date_historical": "1952-10-20",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "DZ_KENYA_INT",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1952,
+            "to": 1953
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Tình trạng khẩn cấp tại Kenya",
+      "title_en": "The Kenya Emergency",
+      "text_vi": "Thống đốc Evelyn Baring tuyên bố tình trạng khẩn cấp ngày 20 tháng 10 năm 1952 sau khi chính quyền cáo buộc mạng lưới Mau Mau tổ chức bạo lực chống lại chính quyền thuộc địa và những người định cư. Chiến dịch bắt giữ quy mô lớn, các trại giam và biện pháp tập trung dân cư làm gia tăng tranh cãi về luật pháp và quyền dân sự. London phải lựa chọn giữa ưu tiên chiến dịch quân sự, điều tra các vi phạm hay mở rộng cải cách chính trị để tách lực lượng nổi dậy khỏi cộng đồng nông thôn.",
+      "text_en": "Governor Evelyn Baring declared a state of emergency on 20 October 1952 after the administration accused Mau Mau networks of organising violence against colonial authorities and settlers. Mass arrests, detention camps and population-control measures intensified disputes over legality and civil rights. London must choose between military suppression, investigations into abuses or political reform aimed at separating insurgents from rural communities.",
+      "options": [
+        {
+          "id": "kenya_security",
+          "label_vi": "Mở rộng chiến dịch an ninh và bắt giữ các mạng lưới vũ trang",
+          "label_en": "Expand security operations and arrest armed networks",
+          "ai_weight": 3,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_kenya_1952_security",
+              "name_vi": "Chiến dịch an ninh Kenya",
+              "name_en": "Kenya Security Campaign",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.06,
+                "army": 0.03,
+                "radicalism": 0.04,
+                "legitimacy": -2
+              }
+            },
+            {
+              "type": "infamy",
+              "entity": "GBR",
+              "delta": 0.5
+            }
+          ]
+        },
+        {
+          "id": "kenya_inquiry",
+          "label_vi": "Điều tra điều kiện giam giữ và mở kênh đại diện chính trị",
+          "label_en": "Investigate detention conditions and open political representation",
+          "ai_weight": 2,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_kenya_1952_inquiry",
+              "name_vi": "Điều tra tình trạng khẩn cấp Kenya",
+              "name_en": "Kenya Emergency Inquiry",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "reform": 0.01,
+                "radicalism": -0.015
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.4
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "kenya_history"
+      ]
+    },
+    {
+      "id": "gbr_kenya_lancaster_1960",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1959-10-01",
+        "1961-12-31"
+      ],
+      "date_historical": "1960-01-18",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "DZ_KENYA_INT",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1960,
+            "to": 1961
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_kenya_emergency_1952"
+        ]
+      },
+      "title_vi": "Đàm phán Lancaster House về Kenya",
+      "title_en": "The Lancaster House Talks on Kenya",
+      "text_vi": "Đàm phán hiến pháp tại Lancaster House năm 1960 đưa các lãnh đạo Kenya, trong đó có đại diện KANU và KADU, vào tiến trình bàn về quyền tự trị và chuyển giao quyền lực. Những tranh chấp lớn xoay quanh đại diện khu vực, quyền sở hữu đất của người định cư và bảo đảm cho các cộng đồng thiểu số. Chính phủ Anh phải chọn một lộ trình chuyển giao nhanh hay tiếp tục thương lượng các bảo đảm hiến pháp và đất đai.",
+      "text_en": "Constitutional talks at Lancaster House in 1960 brought Kenyan leaders, including representatives of KANU and KADU, into negotiations on self-government and transfer of power. Major disputes concerned regional representation, settler landholding and safeguards for minorities. Britain must choose between a rapid timetable or further negotiations over constitutional and land guarantees.",
+      "options": [
+        {
+          "id": "kenya_transfer",
+          "label_vi": "Chấp nhận lộ trình chuyển giao và bầu cử toàn quốc",
+          "label_en": "Accept a transfer timetable and nationwide elections",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_kenya_1960_transfer",
+              "name_vi": "Lộ trình độc lập Kenya",
+              "name_en": "Kenya Independence Timetable",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "reform": 0.015,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 0.03
+            }
+          ]
+        },
+        {
+          "id": "kenya_land_guarantees",
+          "label_vi": "Kéo dài đàm phán về đất đai và bảo đảm thiểu số",
+          "label_en": "Extend negotiations on land and minority safeguards",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_kenya_1960_land",
+              "name_vi": "Bảo đảm đất đai Kenya",
+              "name_en": "Kenya Land Guarantees",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "radicalism": 0.01,
+                "trade": -0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.5
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "kenya_history"
+      ]
+    },
+    {
+      "id": "gbr_kenya_independence_1963",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1962-06-01",
+        "1964-12-31"
+      ],
+      "date_historical": "1963-12-12",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "DZ_KENYA_INT",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_kenya_lancaster_1960"
+          },
+          {
+            "type": "year_between",
+            "from": 1963,
+            "to": 1964
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_kenya_lancaster_1960"
+        ]
+      },
+      "title_vi": "Kenya giành độc lập",
+      "title_en": "Kenya Becomes Independent",
+      "text_vi": "Kenya trở thành quốc gia độc lập ngày 12 tháng 12 năm 1963 với Jomo Kenyatta làm Thủ tướng, sau nhiều năm khẩn cấp và đàm phán hiến pháp. Nhà nước mới phải thống nhất các vùng, giải quyết vấn đề đất đai và tái hòa nhập những người bị giam giữ hoặc di dời. Anh phải quyết định hỗ trợ chuyển giao, duy trì hợp tác quốc phòng hay rút khỏi mọi cam kết thuộc địa.",
+      "text_en": "Kenya became independent on 12 December 1963 with Jomo Kenyatta as Prime Minister, following years of emergency rule and constitutional negotiations. The new state must integrate its regions, address land questions and reintegrate people detained or displaced during the conflict. Britain must decide whether to support the transition, maintain defence cooperation or withdraw from colonial commitments.",
+      "options": [
+        {
+          "id": "kenya_commonwealth",
+          "label_vi": "Chuyển giao chủ quyền và duy trì hợp tác Khối Thịnh vượng chung",
+          "label_en": "Transfer sovereignty and maintain Commonwealth cooperation",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_kenya_1963_commonwealth",
+              "name_vi": "Quan hệ hậu thuộc địa Kenya",
+              "name_en": "Post-colonial Kenya Relations",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "trade": 0.03,
+                "prestige": 0.04,
+                "legitimacy": 2
+              }
+            },
+            {
+              "type": "base_rights",
+              "host": "GBR",
+              "user": "KEN"
+            }
+          ]
+        },
+        {
+          "id": "kenya_rapid_exit",
+          "label_vi": "Rút nhanh và để chính phủ mới tự quyết định chính sách an ninh",
+          "label_en": "Withdraw rapidly and leave security policy to the new government",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_kenya_1963_exit",
+              "name_vi": "Rút khỏi Kenya",
+              "name_en": "Withdrawal from Kenya",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "prestige": -0.02,
+                "trade": -0.02,
+                "legitimacy": -1
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": 0.3
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "kenya_history"
+      ]
+    },
+    {
+      "id": "gbr_gold_coast_accra_1948",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1948-02-01",
+        "1949-06-30"
+      ],
+      "date_historical": "1948-02-28",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "ASH_KUM",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1948,
+            "to": 1949
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Biến động Accra và khủng hoảng Gold Coast",
+      "title_en": "The Accra Riots and the Gold Coast Crisis",
+      "text_vi": "Ngày 28 tháng 2 năm 1948, cảnh sát nổ súng vào đoàn cựu binh tuần hành tại Accra, làm bùng phát bạo loạn và đình công trên diện rộng. Ủy ban Watson được thành lập để điều tra, trong khi phong trào UGCC yêu cầu hiến pháp mới và quyền tự trị nhanh hơn. Chính quyền Anh phải quyết định mở cải cách, trấn áp các tổ chức dân tộc chủ nghĩa hay đưa các lãnh đạo địa phương vào quá trình lập hiến.",
+      "text_en": "On 28 February 1948, police fired on ex-servicemen marching in Accra, triggering riots and widespread strikes. The Watson Commission was established to investigate, while the UGCC demanded a new constitution and faster self-government. Britain must decide whether to open reforms, suppress nationalist organisations or bring local leaders into constitution-making.",
+      "options": [
+        {
+          "id": "gold_coast_watson",
+          "label_vi": "Công bố điều tra Watson và mở đàm phán hiến pháp",
+          "label_en": "Publish the Watson inquiry and open constitutional talks",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_ghana_1948_watson",
+              "name_vi": "Điều tra Watson",
+              "name_en": "Watson Commission Inquiry",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "reform": 0.012,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.3
+            }
+          ]
+        },
+        {
+          "id": "gold_coast_detain",
+          "label_vi": "Bắt giữ lãnh đạo và khôi phục trật tự bằng lực lượng cảnh sát",
+          "label_en": "Detain leaders and restore order through police force",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_ghana_1948_detentions",
+              "name_vi": "Bắt giữ tại Gold Coast",
+              "name_en": "Gold Coast Detentions",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "police": 0.05,
+                "radicalism": 0.03,
+                "legitimacy": -2
+              }
+            },
+            {
+              "type": "infamy",
+              "entity": "GBR",
+              "delta": 0.4
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghana_history"
+      ]
+    },
+    {
+      "id": "gbr_ghana_independence_1957",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1956-01-01",
+        "1958-12-31"
+      ],
+      "date_historical": "1957-03-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "ASH_KUM",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_gold_coast_accra_1948"
+          },
+          {
+            "type": "year_between",
+            "from": 1957,
+            "to": 1958
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_gold_coast_accra_1948"
+        ]
+      },
+      "title_vi": "Gold Coast trở thành Ghana độc lập",
+      "title_en": "The Gold Coast Becomes Independent Ghana",
+      "text_vi": "Ghana giành độc lập ngày 6 tháng 3 năm 1957 dưới sự lãnh đạo của Kwame Nkrumah, trở thành thuộc địa châu Phi hạ Sahara đầu tiên của Anh giành độc lập trong làn sóng phi thực dân hóa sau chiến tranh. Chính phủ mới phải cân bằng kỳ vọng pan-African, đầu tư cơ sở hạ tầng và quan hệ với các thủ lĩnh truyền thống. London phải quyết định chuyển giao đầy đủ, duy trì hỗ trợ kỹ thuật hay bảo vệ lợi ích thương mại bằng hiệp định riêng.",
+      "text_en": "Ghana became independent on 6 March 1957 under Kwame Nkrumah, the first sub-Saharan African British colony to gain independence in the post-war decolonisation wave. The new government must balance Pan-African ambitions, infrastructure investment and relations with traditional authorities. London must decide whether to complete the transfer, maintain technical assistance or protect commercial interests through a separate agreement.",
+      "options": [
+        {
+          "id": "ghana_transfer",
+          "label_vi": "Công nhận độc lập và hỗ trợ đào tạo công vụ",
+          "label_en": "Recognise independence and support civil-service training",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_ghana_1957_transfer",
+              "name_vi": "Chuyển giao Ghana",
+              "name_en": "Ghana Power Transfer",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.05,
+                "trade": 0.03,
+                "legitimacy": 2
+              }
+            },
+            {
+              "type": "base_rights",
+              "host": "GBR",
+              "user": "GHA"
+            }
+          ]
+        },
+        {
+          "id": "ghana_trade_terms",
+          "label_vi": "Ưu tiên hiệp định thương mại và quyền tiếp cận cảng",
+          "label_en": "Prioritise a trade agreement and port access",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_ghana_1957_trade",
+              "name_vi": "Quan hệ thương mại Ghana",
+              "name_en": "Ghana Trade Relations",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "trade": 0.04,
+                "prestige": 0.02,
+                "legitimacy": 1
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "GHA",
+              "delta": 5
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghana_history"
+      ]
+    },
+    {
+      "id": "gbr_clifford_constitution_1922",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1922-05-01",
+        "1923-12-31"
+      ],
+      "date_historical": "1922-09-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "DZ_IGBO",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1922,
+            "to": 1923
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Hiến pháp Clifford tại Nigeria",
+      "title_en": "The Clifford Constitution in Nigeria",
+      "text_vi": "Hiến pháp Clifford năm 1922 mở rộng cơ cấu lập pháp Nigeria và cho phép bầu cử hạn chế tại Lagos và Calabar, nhưng phần lớn dân cư vẫn không có quyền đại diện trực tiếp. Các nhà hoạt động đô thị coi đây là bước mở đầu, trong khi giới chức thuộc địa muốn duy trì quyền lực của Thống đốc và hệ thống cai trị gián tiếp ở phía bắc. Chính quyền phải quyết định có mở rộng đại diện hay giữ mô hình phân vùng và quyền phủ quyết.",
+      "text_en": "The 1922 Clifford Constitution expanded Nigeria's legislative structure and introduced limited elections in Lagos and Calabar, while most of the population remained without direct representation. Urban activists saw it as a beginning, while colonial officials sought to preserve the Governor's authority and indirect rule in the north. The administration must decide whether to widen representation or retain regional administration and executive vetoes.",
+      "options": [
+        {
+          "id": "nigeria_electoral_expansion",
+          "label_vi": "Mở rộng ghế bầu cử và quyền chất vấn ngân sách",
+          "label_en": "Expand elected seats and budget-questioning powers",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_nigeria_1922_elections",
+              "name_vi": "Đại diện Nigeria",
+              "name_en": "Nigerian Representation",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "legitimacy": 2,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.2
+            }
+          ]
+        },
+        {
+          "id": "nigeria_indirect_rule",
+          "label_vi": "Giữ quyền điều hành của Thống đốc và các hội đồng bản địa",
+          "label_en": "Retain Governor control and native administrative councils",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_nigeria_1922_indirect",
+              "name_vi": "Cai trị gián tiếp Nigeria",
+              "name_en": "Nigerian Indirect Rule",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": -1,
+                "ig_landowners": 1
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 0.2
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nigeria_history"
+      ]
+    },
+    {
+      "id": "gbr_nigeria_independence_1960",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1959-01-01",
+        "1961-12-31"
+      ],
+      "date_historical": "1960-10-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "DZ_IGBO",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1960,
+            "to": 1961
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Nigeria giành độc lập",
+      "title_en": "Nigeria Becomes Independent",
+      "text_vi": "Nigeria trở thành quốc gia độc lập ngày 1 tháng 10 năm 1960 theo mô hình liên bang gồm ba vùng lớn, với Abubakar Tafawa Balewa làm Thủ tướng. Sự đa dạng về vùng, ngôn ngữ, tôn giáo và cấu trúc quyền lực truyền thống khiến việc phân chia nguồn thu và đại diện trung ương trở thành vấn đề sống còn. Anh phải quyết định bàn giao đầy đủ, duy trì hợp tác quốc phòng hay giữ các thỏa thuận thương mại và kỹ thuật.",
+      "text_en": "Nigeria became independent on 1 October 1960 as a federation of three major regions, with Abubakar Tafawa Balewa as Prime Minister. Regional, linguistic, religious and traditional political diversity made revenue-sharing and central representation critical issues. Britain must decide whether to complete the transfer, maintain defence cooperation or preserve commercial and technical arrangements.",
+      "options": [
+        {
+          "id": "nigeria_commonwealth",
+          "label_vi": "Chuyển giao chủ quyền và duy trì quan hệ Khối Thịnh vượng chung",
+          "label_en": "Transfer sovereignty and maintain Commonwealth ties",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_nigeria_1960_commonwealth",
+              "name_vi": "Quan hệ hậu thuộc địa Nigeria",
+              "name_en": "Post-colonial Nigeria Relations",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "trade": 0.04,
+                "prestige": 0.04,
+                "legitimacy": 2
+              }
+            },
+            {
+              "type": "base_rights",
+              "host": "GBR",
+              "user": "NGA"
+            }
+          ]
+        },
+        {
+          "id": "nigeria_defence_pact",
+          "label_vi": "Đề xuất hiệp định huấn luyện và hợp tác quốc phòng",
+          "label_en": "Offer a training and defence cooperation agreement",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_nigeria_1960_defence",
+              "name_vi": "Hợp tác quốc phòng Nigeria",
+              "name_en": "Nigeria Defence Cooperation",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "army": 0.02,
+                "trade": 0.02,
+                "prestige": 0.02
+              }
+            },
+            {
+              "type": "base_rights",
+              "host": "GBR",
+              "user": "NGA"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nigeria_history"
+      ]
+    },
+    {
+      "id": "gbr_southern_rhodesia_responsible_1923",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1923-07-01",
+        "1924-12-31"
+      ],
+      "date_historical": "1923-09-12",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "DZ_SHONA",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1923,
+            "to": 1924
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Nam Rhodesia nhận quyền tự trị của người định cư",
+      "title_en": "Settler Self-Government in Southern Rhodesia",
+      "text_vi": "Trưng cầu dân ý của người định cư năm 1922 dẫn tới việc Nam Rhodesia trở thành thuộc địa tự trị năm 1923 thay vì gia nhập Liên bang Nam Phi. Quyền tự trị chủ yếu thuộc về cộng đồng người định cư châu Âu, trong khi đại đa số người Phi bản địa không có quyền bầu cử tương đương. London phải quyết định mức độ giám sát hiến pháp và cách bảo vệ quyền lợi của cư dân bản địa.",
+      "text_en": "A 1922 settler referendum led Southern Rhodesia to become a self-governing colony in 1923 rather than join the Union of South Africa. Self-government largely benefited the European settler community, while most Africans lacked equivalent voting rights. London must decide how closely to supervise the constitution and protect the rights of indigenous residents.",
+      "options": [
+        {
+          "id": "rhodesia_settler_autonomy",
+          "label_vi": "Trao quyền tự trị rộng cho chính phủ người định cư",
+          "label_en": "Grant broad autonomy to the settler government",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_rhodesia_1923_autonomy",
+              "name_vi": "Tự trị Nam Rhodesia",
+              "name_en": "Southern Rhodesian Autonomy",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "trade": 0.02,
+                "radicalism": 0.02
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 0.5
+            }
+          ]
+        },
+        {
+          "id": "rhodesia_native_safeguards",
+          "label_vi": "Đặt điều kiện bảo vệ quyền đất đai và đại diện của người Phi",
+          "label_en": "Condition autonomy on African land and representation safeguards",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_rhodesia_1923_safeguards",
+              "name_vi": "Bảo đảm quyền người Phi",
+              "name_en": "African Rights Safeguards",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "reform": 0.01,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.2
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "rhodesia_sanctions"
+      ]
+    },
+    {
+      "id": "gbr_rhodesia_udi_1965",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1965-10-01",
+        "1966-12-31"
+      ],
+      "date_historical": "1965-11-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "DZ_SHONA",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1965,
+            "to": 1966
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_southern_rhodesia_responsible_1923"
+        ]
+      },
+      "title_vi": "Nam Rhodesia tuyên bố độc lập đơn phương",
+      "title_en": "Southern Rhodesia's Unilateral Declaration of Independence",
+      "text_vi": "Chính phủ Ian Smith tuyên bố độc lập đơn phương ngày 11 tháng 11 năm 1965 nhằm duy trì quyền lực chính trị của thiểu số da trắng và bác bỏ nguyên tắc đa số. London không công nhận tuyên bố, trong khi Hội đồng Bảo an Liên Hợp Quốc kêu gọi các biện pháp chống lại chính quyền thiểu số và tiến tới trừng phạt kinh tế bắt buộc cuối năm 1966. Anh phải quyết định dùng trừng phạt, đàm phán hiến pháp hay xem xét biện pháp quân sự.",
+      "text_en": "Ian Smith's government issued a unilateral declaration of independence on 11 November 1965 to preserve white-minority political control and reject majority rule. London refused recognition, while the UN Security Council moved toward economic sanctions, including mandatory measures by the end of 1966. Britain must decide whether to rely on sanctions, pursue constitutional negotiations or consider military action.",
+      "options": [
+        {
+          "id": "rhodesia_sanctions",
+          "label_vi": "Áp dụng trừng phạt thương mại và tài chính phối hợp quốc tế",
+          "label_en": "Apply coordinated international trade and financial sanctions",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_rhodesia_1965_sanctions",
+              "name_vi": "Trừng phạt Rhodesia",
+              "name_en": "Rhodesia Sanctions",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "trade": -0.04,
+                "prestige": 0.03,
+                "legitimacy": 1
+              }
+            },
+            {
+              "type": "embargo",
+              "issuer": "GBR",
+              "target": "ZWE",
+              "months": 24
+            }
+          ]
+        },
+        {
+          "id": "rhodesia_constitutional_talks",
+          "label_vi": "Mở đàm phán hiến pháp với điều kiện chuyển giao quyền lực theo đa số",
+          "label_en": "Open constitutional talks conditioned on majority rule",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_rhodesia_1965_talks",
+              "name_vi": "Đàm phán hiến pháp Rhodesia",
+              "name_en": "Rhodesia Constitutional Talks",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "reform": 0.012,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.3
+            }
+          ]
+        }
+      ],
+      "sources": ""
+    },
+    {
+      "id": "gbr_boer_war_1899",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1899-09-01",
+        "1900-12-31"
+      ],
+      "date_historical": "1899-10-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "GBR_CAP",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1899,
+            "to": 1900
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Chiến tranh Nam Phi bùng nổ",
+      "title_en": "The Second Boer War Begins",
+      "text_vi": "Chiến tranh bùng nổ ngày 11 tháng 10 năm 1899 sau khi căng thẳng giữa Cộng hòa Nam Phi và Đế quốc Anh leo thang vì quyền của người Uitlander, quyền kiểm soát mỏ vàng và chủ quyền của các nước Boer. Các chiến thắng ban đầu của Boer gây bất ngờ cho quân Anh, buộc London phải huy động lực lượng lớn từ khắp đế quốc. Nội các phải lựa chọn giữa một chiến dịch ngắn để áp đặt điều kiện hay chuẩn bị cho cuộc chiến kéo dài với chi phí chính trị và tài chính cao.",
+      "text_en": "The war began on 11 October 1899 after tensions between the South African Republic and Britain escalated over Uitlander rights, gold-mining interests and Boer sovereignty. Early Boer victories shocked British forces and forced London to mobilise troops across the Empire. The cabinet must choose between a short campaign to impose terms or preparation for a prolonged war with high political and fiscal costs.",
+      "options": [
+        {
+          "id": "boer_war_full_campaign",
+          "label_vi": "Huy động lực lượng đế quốc và mở chiến dịch toàn diện",
+          "label_en": "Mobilise imperial forces and launch a full campaign",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_boer_1899_campaign",
+              "name_vi": "Chiến dịch Nam Phi",
+              "name_en": "South African Campaign",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.07,
+                "prestige": 0.03,
+                "war_exhaustion": 0.03
+              }
+            },
+            {
+              "type": "declare_war",
+              "attacker": "GBR",
+              "defender": "ZAR",
+              "goal": "conquer",
+              "regions": [
+                "GBR_CAP",
+                "GBR_CAE"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "boer_war_negotiate",
+          "label_vi": "Thăm dò đàm phán về quyền Uitlander và quyền tự trị",
+          "label_en": "Explore negotiations over Uitlander rights and autonomy",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_boer_1899_negotiation",
+              "name_vi": "Thăm dò hòa đàm Boer",
+              "name_en": "Boer Peace Soundings",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "prestige": -0.02,
+                "war_exhaustion": -0.01
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "ZAR",
+              "delta": 5
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "boer_war"
+      ]
+    },
+    {
+      "id": "gbr_vereeniging_1902",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1902-03-01",
+        "1903-06-30"
+      ],
+      "date_historical": "1902-05-31",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "GBR_CAP",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1902,
+            "to": 1903
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_boer_war_1899"
+        ]
+      },
+      "title_vi": "Hòa ước Vereeniging",
+      "title_en": "The Treaty of Vereeniging",
+      "text_vi": "Hòa ước Vereeniging được ký ngày 31 tháng 5 năm 1902, chấm dứt chiến tranh và đưa các nước Boer vào quyền kiểm soát của Anh với lời hứa về chính phủ tự trị trong tương lai. Các điều khoản bao gồm tái thiết kinh tế, hồi hương và một tương lai chính trị chưa bình đẳng cho người Phi bản địa. Chính quyền Anh phải quyết định ưu tiên hòa giải với người Boer hay gắn tái thiết với cải cách quyền chính trị và đất đai rộng hơn.",
+      "text_en": "The Treaty of Vereeniging was signed on 31 May 1902, ending the war and bringing the Boer republics under British control with a promise of future self-government. Its terms included reconstruction and repatriation but left African political equality unresolved. Britain must decide whether to prioritise reconciliation with the Boers or tie reconstruction to wider political and land reform.",
+      "options": [
+        {
+          "id": "boer_reconstruction",
+          "label_vi": "Tài trợ tái thiết và hòa giải với các cộng đồng Boer",
+          "label_en": "Fund reconstruction and reconciliation with Boer communities",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_boer_1902_reconstruction",
+              "name_vi": "Tái thiết sau chiến tranh Boer",
+              "name_en": "Post-Boer War Reconstruction",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "construction": 0.04,
+                "legitimacy": 2,
+                "trade": 0.02
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -1
+            }
+          ]
+        },
+        {
+          "id": "boer_equal_rights",
+          "label_vi": "Gắn tái thiết với bảo đảm quyền đất đai và lao động cho người Phi",
+          "label_en": "Link reconstruction to African land and labour protections",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_boer_1902_african_rights",
+              "name_vi": "Bảo vệ quyền người Phi",
+              "name_en": "African Rights Protection",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "reform": 0.01,
+                "radicalism": -0.01,
+                "ig_landowners": -1
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 0.5
+            }
+          ]
+        }
+      ],
+      "sources": ""
+    },
+    {
+      "id": "gbr_south_africa_union_1910",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1909-01-01",
+        "1911-12-31"
+      ],
+      "date_historical": "1910-05-31",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "GBR_CAP",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1910,
+            "to": 1911
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Liên hiệp Nam Phi thành lập",
+      "title_en": "The Union of South Africa",
+      "text_vi": "Liên hiệp Nam Phi ra đời ngày 31 tháng 5 năm 1910, hợp nhất Cape, Natal, Transvaal và Orange River Colony thành một Dominion tự quản. Hiến pháp mới trao quyền chính trị chủ yếu cho người da trắng, trong khi phần lớn người Phi bản địa và người da màu bị loại khỏi quyền bầu cử ở cấp quốc gia. Chính phủ Anh phải quyết định có can thiệp để bảo vệ quyền của người bản địa hay tôn trọng thỏa hiệp quyền lực giữa các chính phủ thuộc địa da trắng.",
+      "text_en": "The Union of South Africa was established on 31 May 1910, uniting Cape, Natal, Transvaal and the Orange River Colony as a self-governing Dominion. The new constitution concentrated political power among whites, while most Africans and Coloured people were excluded from national voting rights. Britain must decide whether to intervene to protect indigenous rights or respect the settlement among white colonial governments.",
+      "options": [
+        {
+          "id": "south_africa_union",
+          "label_vi": "Chấp nhận quyền tự trị Dominion theo hiến pháp mới",
+          "label_en": "Accept Dominion autonomy under the new constitution",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_sa_1910_union",
+              "name_vi": "Liên hiệp Nam Phi",
+              "name_en": "Union of South Africa",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "trade": 0.03,
+                "prestige": 0.03
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "south_africa_rights_reserve",
+          "label_vi": "Đặt bảo lưu về quyền bầu cử và đất đai trong thỏa thuận",
+          "label_en": "Attach reservations on voting and land rights to the settlement",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_sa_1910_reservations",
+              "name_vi": "Bảo lưu quyền chính trị Nam Phi",
+              "name_en": "South African Political Reservations",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "reform": 0.01,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "GBR",
+              "delta": 0
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "south_africa_history"
+      ]
+    },
+    {
+      "id": "gbr_natives_land_act_1913",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1913-04-01",
+        "1914-12-31"
+      ],
+      "date_historical": "1913-06-19",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "GBR_CAP",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1913,
+            "to": 1914
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Đạo luật Đất đai bản địa năm 1913",
+      "title_en": "The Natives Land Act of 1913",
+      "text_vi": "Đạo luật Đất đai bản địa năm 1913 giới hạn mạnh quyền sở hữu và thuê đất của người Phi vào các khu vực được chỉ định, làm suy yếu nền kinh tế nông dân và đẩy nhiều gia đình vào lao động làm thuê. Sol Plaatje và các nhà hoạt động khác phản đối đạo luật vì nó biến bất bình đẳng đất đai thành một cấu trúc pháp lý lâu dài. Chính quyền Anh phải quyết định có gây sức ép lên chính phủ Liên hiệp hay chấp nhận việc quản lý đất đai thuộc thẩm quyền nội trị của Dominion.",
+      "text_en": "The 1913 Natives Land Act sharply restricted African ownership and tenancy to designated areas, undermining peasant livelihoods and pushing many families into wage labour. Sol Plaatje and other activists opposed the law because it entrenched land inequality in a permanent legal structure. Britain must decide whether to pressure the Union government or accept land policy as a Dominion domestic matter.",
+      "options": [
+        {
+          "id": "sa_protest_land_act",
+          "label_vi": "Công khai phản đối đạo luật và hỗ trợ điều tra đất đai",
+          "label_en": "Publicly oppose the Act and support a land inquiry",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_sa_1913_land_inquiry",
+              "name_vi": "Điều tra đất đai Nam Phi",
+              "name_en": "South African Land Inquiry",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "radicalism": -0.01,
+                "prestige": 0.01
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "RSA",
+              "delta": -2
+            }
+          ]
+        },
+        {
+          "id": "sa_respect_dominion",
+          "label_vi": "Tôn trọng quyền tự trị của chính phủ Liên hiệp",
+          "label_en": "Respect the Union government's domestic autonomy",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_sa_1913_dominion",
+              "name_vi": "Quyền tự trị Dominion",
+              "name_en": "Dominion Autonomy",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -1,
+                "trade": 0.02,
+                "prestige": 0.02
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 0.5
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "south_africa_history"
+      ]
+    },
+    {
+      "id": "gbr_jamaica_labour_1938",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1938-04-01",
+        "1939-12-31"
+      ],
+      "date_historical": "1938-06-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "GBR_JAM",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1938,
+            "to": 1939
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Đình công và nổi dậy lao động tại Jamaica",
+      "title_en": "The 1938 Labour Disturbances in Jamaica",
+      "text_vi": "Đình công tại các đồn điền đường, cảng và khu công nghiệp Jamaica năm 1938 phản ánh tiền lương thấp, thất nghiệp và điều kiện lao động khắc nghiệt trong Đại suy thoái. Phong trào lan rộng, góp phần thúc đẩy sự hình thành các tổ chức công đoàn và chính đảng mới như People's National Party. Chính quyền thuộc địa phải quyết định đàn áp đình công, điều tra tiền lương hay mở rộng quyền đại diện chính trị.",
+      "text_en": "Strikes on Jamaican sugar estates, ports and industrial sites in 1938 reflected low wages, unemployment and harsh labour conditions during the Depression. The unrest helped spur new trade unions and political organisations such as the People's National Party. The colonial government must decide whether to suppress the strikes, investigate wages or widen political representation.",
+      "options": [
+        {
+          "id": "jamaica_labour_inquiry",
+          "label_vi": "Thành lập ủy ban tiền lương và công nhận thương lượng tập thể",
+          "label_en": "Establish a wage commission and recognise collective bargaining",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_jamaica_1938_labour",
+              "name_vi": "Cải cách lao động Jamaica",
+              "name_en": "Jamaican Labour Reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "radicalism": -0.015,
+                "trade": 0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.2
+            }
+          ]
+        },
+        {
+          "id": "jamaica_police",
+          "label_vi": "Dùng cảnh sát bảo vệ đồn điền và tuyến vận tải",
+          "label_en": "Use police to protect estates and transport routes",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_jamaica_1938_police",
+              "name_vi": "Trấn áp đình công Jamaica",
+              "name_en": "Jamaican Strike Suppression",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "police": 0.04,
+                "radicalism": 0.03,
+                "legitimacy": -2
+              }
+            },
+            {
+              "type": "infamy",
+              "entity": "GBR",
+              "delta": 0.3
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "caribbean_history"
+      ]
+    },
+    {
+      "id": "gbr_west_indies_federation_1958",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1957-01-01",
+        "1959-12-31"
+      ],
+      "date_historical": "1958-01-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "GBR_JAM",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1958,
+            "to": 1959
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Liên bang Tây Ấn ra đời",
+      "title_en": "The West Indies Federation",
+      "text_vi": "Liên bang Tây Ấn bắt đầu hoạt động ngày 3 tháng 1 năm 1958, tập hợp nhiều thuộc địa Caribe của Anh trong một cấu trúc liên bang nhằm chuẩn bị cho tự trị và độc lập. Các đảo khác nhau về quy mô dân số, nguồn thu, khoảng cách địa lý và lợi ích chính trị, khiến việc phân bổ quyền lực trung ương gây tranh cãi. London phải quyết định trao thêm quyền tài khóa cho liên bang, giữ quyền giám sát thuộc địa hay hỗ trợ một cuộc trưng cầu về tương lai liên bang.",
+      "text_en": "The West Indies Federation began on 3 January 1958, bringing several British Caribbean territories into a federal structure intended to prepare them for self-government and independence. The islands differed in population, revenue, geography and political interests, making the distribution of central powers contentious. London must decide whether to grant the federation more fiscal authority, retain colonial oversight or support a referendum on its future.",
+      "options": [
+        {
+          "id": "west_indies_federal_powers",
+          "label_vi": "Trao quyền thuế quan và ngân sách cho cơ quan liên bang",
+          "label_en": "Grant customs and budget powers to the federal authority",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_wif_1958_federal",
+              "name_vi": "Liên bang Tây Ấn",
+              "name_en": "West Indies Federation",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "reform": 0.015,
+                "trade": 0.02
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.3
+            }
+          ]
+        },
+        {
+          "id": "west_indies_colonial_veto",
+          "label_vi": "Giữ quyền phủ quyết của chính quốc đối với ngân sách liên bang",
+          "label_en": "Retain metropolitan veto over the federal budget",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_wif_1958_veto",
+              "name_vi": "Quyền phủ quyết Caribe",
+              "name_en": "Caribbean Federal Veto",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -2,
+                "radicalism": 0.02,
+                "police": 0.01
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 0.3
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "caribbean_history"
+      ]
+    },
+    {
+      "id": "gbr_jamaica_independence_1962",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1961-01-01",
+        "1963-12-31"
+      ],
+      "date_historical": "1962-08-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "GBR_JAM",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_west_indies_federation_1958"
+          },
+          {
+            "type": "year_between",
+            "from": 1962,
+            "to": 1963
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_west_indies_federation_1958"
+        ]
+      },
+      "title_vi": "Jamaica giành độc lập",
+      "title_en": "Jamaica Becomes Independent",
+      "text_vi": "Jamaica giành độc lập ngày 6 tháng 8 năm 1962 sau khi rời Liên bang Tây Ấn, vốn tan rã sau cuộc trưng cầu tại Jamaica năm 1961. Chính phủ Alexander Bustamante phải thiết lập bộ máy ngoại giao, an ninh và tài chính độc lập, đồng thời giữ quan hệ kinh tế với Anh và các đảo Caribe khác. London phải quyết định chuyển giao hoàn toàn hay đàm phán các thỏa thuận quốc phòng và thương mại riêng.",
+      "text_en": "Jamaica became independent on 6 August 1962 after leaving the West Indies Federation, which unravelled following Jamaica's 1961 referendum. Alexander Bustamante's government must establish independent diplomatic, security and fiscal institutions while preserving economic ties with Britain and other Caribbean islands. London must decide whether to complete the transfer or negotiate separate defence and trade arrangements.",
+      "options": [
+        {
+          "id": "jamaica_independence",
+          "label_vi": "Công nhận độc lập và duy trì hợp tác thương mại",
+          "label_en": "Recognise independence and maintain trade cooperation",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_jamaica_1962_independence",
+              "name_vi": "Độc lập Jamaica",
+              "name_en": "Jamaican Independence",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.04,
+                "trade": 0.03,
+                "legitimacy": 2
+              }
+            },
+            {
+              "type": "base_rights",
+              "host": "GBR",
+              "user": "JAM"
+            }
+          ]
+        },
+        {
+          "id": "jamaica_security_treaty",
+          "label_vi": "Đề nghị hiệp định an ninh và đào tạo cảnh sát",
+          "label_en": "Offer a security and police-training agreement",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_jamaica_1962_security",
+              "name_vi": "Hợp tác an ninh Jamaica",
+              "name_en": "Jamaican Security Cooperation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "trade": 0.02,
+                "prestige": 0.02
+              }
+            },
+            {
+              "type": "base_rights",
+              "host": "GBR",
+              "user": "JAM"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "caribbean_history"
+      ]
+    },
+    {
+      "id": "gbr_cyprus_eoka_1955",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1955-03-01",
+        "1957-12-31"
+      ],
+      "date_historical": "1955-04-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "TUR_CYP",
+            "entities": [
+              "GBR",
+              "TUR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1955,
+            "to": 1956
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Chiến dịch EOKA tại Síp",
+      "title_en": "The EOKA Campaign in Cyprus",
+      "text_vi": "EOKA bắt đầu chiến dịch vũ trang ngày 1 tháng 4 năm 1955 nhằm chấm dứt quyền cai trị của Anh và thúc đẩy Enosis, tức liên minh Síp với Hy Lạp. Chính quyền Anh đối mặt với các cuộc tấn công vào cơ sở quân sự và cảnh sát, trong khi cộng đồng người Síp gốc Thổ lo ngại bị gạt khỏi tương lai chính trị của đảo. Thống đốc phải lựa chọn giữa chiến dịch an ninh, đàm phán hiến pháp hay tìm một giải pháp quốc tế bảo đảm quyền của cả hai cộng đồng.",
+      "text_en": "EOKA began its armed campaign on 1 April 1955 to end British rule and pursue Enosis, union with Greece. British authorities faced attacks on military and police facilities, while Turkish Cypriots feared exclusion from the island's political future. The Governor must choose between security operations, constitutional negotiations or an international settlement safeguarding both communities.",
+      "options": [
+        {
+          "id": "cyprus_security",
+          "label_vi": "Tăng cường kiểm soát an ninh và bắt giữ các thành viên EOKA",
+          "label_en": "Increase security controls and arrest EOKA members",
+          "ai_weight": 3,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_cyprus_1955_security",
+              "name_vi": "Chiến dịch an ninh Síp",
+              "name_en": "Cyprus Security Campaign",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.05,
+                "army": 0.02,
+                "radicalism": 0.03,
+                "legitimacy": -2
+              }
+            },
+            {
+              "type": "infamy",
+              "entity": "GBR",
+              "delta": 0.4
+            }
+          ]
+        },
+        {
+          "id": "cyprus_constitution",
+          "label_vi": "Mời đại diện Hy Lạp và Thổ Nhĩ Kỳ đàm phán hiến pháp",
+          "label_en": "Invite Greek and Turkish representatives to constitutional talks",
+          "ai_weight": 2,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_cyprus_1955_talks",
+              "name_vi": "Đối thoại hiến pháp Síp",
+              "name_en": "Cyprus Constitutional Dialogue",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "reform": 0.015,
+                "legitimacy": 2,
+                "radicalism": -0.015
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.3
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cyprus_history"
+      ]
+    },
+    {
+      "id": "gbr_cyprus_independence_1960",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1959-02-01",
+        "1961-12-31"
+      ],
+      "date_historical": "1960-08-16",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "TUR_CYP",
+            "entities": [
+              "GBR",
+              "TUR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_cyprus_eoka_1955"
+          },
+          {
+            "type": "year_between",
+            "from": 1960,
+            "to": 1961
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_cyprus_eoka_1955"
+        ]
+      },
+      "title_vi": "Cộng hòa Síp độc lập",
+      "title_en": "The Republic of Cyprus Becomes Independent",
+      "text_vi": "Thỏa thuận Zürich–London năm 1959 đặt nền tảng cho Cộng hòa Síp độc lập, chính thức ra đời ngày 16 tháng 8 năm 1960. Hiến pháp thiết lập cơ chế chia sẻ quyền lực giữa cộng đồng Hy Lạp và Thổ Nhĩ Kỳ, trong khi Anh, Hy Lạp và Thổ Nhĩ Kỳ trở thành các nước bảo đảm. Anh phải quyết định duy trì các căn cứ chủ quyền theo hiệp ước hay đàm phán lại quyền tiếp cận quân sự và quan hệ với chính phủ mới.",
+      "text_en": "The 1959 Zurich–London agreements paved the way for the Republic of Cyprus, which became independent on 16 August 1960. Its constitution established power-sharing between Greek and Turkish Cypriots, while Britain, Greece and Turkey became guarantor powers. Britain must decide whether to retain sovereign base areas under treaty or renegotiate military access and relations with the new government.",
+      "options": [
+        {
+          "id": "cyprus_sovereign_bases",
+          "label_vi": "Giữ căn cứ Akrotiri và Dhekelia theo hiệp ước",
+          "label_en": "Retain Akrotiri and Dhekelia under treaty",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_cyprus_1960_bases",
+              "name_vi": "Căn cứ chủ quyền Síp",
+              "name_en": "Cyprus Sovereign Bases",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "trade": 0.02,
+                "prestige": 0.04
+              }
+            },
+            {
+              "type": "base_rights",
+              "host": "GBR",
+              "user": "CYP"
+            }
+          ]
+        },
+        {
+          "id": "cyprus_full_exit",
+          "label_vi": "Rút lực lượng và chỉ duy trì hợp tác ngoại giao",
+          "label_en": "Withdraw forces and retain only diplomatic cooperation",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_cyprus_1960_exit",
+              "name_vi": "Rút khỏi Síp",
+              "name_en": "Cyprus Withdrawal",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": -0.01,
+                "legitimacy": 2,
+                "trade": 0.01
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "CYP",
+              "delta": 8
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cyprus_history"
+      ]
+    },
+    {
+      "id": "gbr_malta_independence_1964",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1963-01-01",
+        "1965-12-31"
+      ],
+      "date_historical": "1964-09-21",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "GBR_MLT",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1964,
+            "to": 1965
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Malta giành độc lập",
+      "title_en": "Malta Becomes Independent",
+      "text_vi": "Malta giành độc lập ngày 21 tháng 9 năm 1964 nhưng vẫn duy trì quân chủ lập hiến trong Khối Thịnh vượng chung. Vị trí chiến lược của đảo giữa Địa Trung Hải khiến các căn cứ hải quân, việc làm tại xưởng đóng tàu và quan hệ với NATO trở thành vấn đề trọng tâm. Anh phải quyết định giữ quyền sử dụng căn cứ theo hiệp ước hay rút lui để Malta tự định hình chính sách đối ngoại.",
+      "text_en": "Malta became independent on 21 September 1964 while remaining a constitutional monarchy within the Commonwealth. The island's strategic position in the Mediterranean made naval bases, dockyard employment and relations with NATO central questions. Britain must decide whether to retain base access under treaty or withdraw and allow Malta to shape its own foreign policy.",
+      "options": [
+        {
+          "id": "malta_base_treaty",
+          "label_vi": "Ký hiệp định thuê căn cứ và bảo đảm việc làm tại xưởng tàu",
+          "label_en": "Sign a base-access agreement and safeguard dockyard employment",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_malta_1964_bases",
+              "name_vi": "Thỏa thuận căn cứ Malta",
+              "name_en": "Malta Base Agreement",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "army": 0.02,
+                "trade": 0.02,
+                "prestige": 0.03
+              }
+            },
+            {
+              "type": "base_rights",
+              "host": "GBR",
+              "user": "MLT"
+            }
+          ]
+        },
+        {
+          "id": "malta_complete_withdrawal",
+          "label_vi": "Rút căn cứ và hỗ trợ chuyển đổi kinh tế",
+          "label_en": "Withdraw bases and support economic conversion",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_malta_1964_withdrawal",
+              "name_vi": "Chuyển đổi hậu căn cứ Malta",
+              "name_en": "Malta Post-Base Conversion",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": -0.01,
+                "legitimacy": 2,
+                "trade": 0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.3
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "malta_history"
+      ]
+    },
+    {
+      "id": "gbr_canada_durham_1839",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1838-10-01",
+        "1840-12-31"
+      ],
+      "date_historical": "1839-02-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "GBR_LCA",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1839,
+            "to": 1840
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Báo cáo Durham về Canada",
+      "title_en": "The Durham Report on Canada",
+      "text_vi": "Lord Durham nộp báo cáo năm 1839 sau các cuộc nổi dậy năm 1837–1838 tại Thượng và Hạ Canada, đề xuất hợp nhất hai thuộc địa và thiết lập chính phủ chịu trách nhiệm. Báo cáo cũng gây tranh cãi vì đề xuất đồng hóa người Canada gốc Pháp, trong khi yêu cầu đại diện và quyền tự quản ngày càng mạnh. London phải quyết định thực hiện cải cách nghị viện hay duy trì quyền điều hành trực tiếp của Thống đốc.",
+      "text_en": "Lord Durham submitted his report in 1839 after the 1837–1838 rebellions in Upper and Lower Canada, recommending union of the colonies and responsible government. The report also provoked controversy over its assimilationist approach toward French Canadians, while demands for representation and self-government were growing. London must decide whether to reform colonial government or retain direct executive control.",
+      "options": [
+        {
+          "id": "canada_union_plan",
+          "label_vi": "Thực hiện hợp nhất hai Canada và cải tổ nghị viện",
+          "label_en": "Implement the union of the Canadas and reform the legislature",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_canada_1839_union",
+              "name_vi": "Kế hoạch hợp nhất Canada",
+              "name_en": "Canada Union Plan",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "legitimacy": 1,
+                "trade": 0.02
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 0.5
+            }
+          ]
+        },
+        {
+          "id": "canada_responsible_gov",
+          "label_vi": "Cam kết chính phủ chịu trách nhiệm và mở rộng quyền bầu cử",
+          "label_en": "Commit to responsible government and broaden representation",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_canada_1839_responsible",
+              "name_vi": "Cam kết tự trị Canada",
+              "name_en": "Canadian Responsible Government Commitment",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.015,
+                "legitimacy": 2,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.2
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "canada_parliament"
+      ]
+    },
+    {
+      "id": "gbr_canadian_confederation_1867",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1866-01-01",
+        "1868-12-31"
+      ],
+      "date_historical": "1867-07-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "GBR_LCA",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1867,
+            "to": 1868
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Liên bang Canada ra đời",
+      "title_en": "Canadian Confederation",
+      "text_vi": "Đạo luật Bắc Mỹ thuộc Anh có hiệu lực ngày 1 tháng 7 năm 1867, hợp nhất Ontario, Quebec, Nova Scotia và New Brunswick thành Dominion Canada. Liên bang mới có chính phủ liên bang và các tỉnh với quyền hạn riêng, tạo ra một mô hình tự quản trong đế quốc. London phải quyết định mức độ can thiệp còn lại và cách xử lý việc mở rộng liên bang về phía tây.",
+      "text_en": "The British North America Act took effect on 1 July 1867, uniting Ontario, Quebec, Nova Scotia and New Brunswick as the Dominion of Canada. The new federation had a central government and provinces with distinct powers, creating a model of self-government within the Empire. London must decide how much oversight to retain and how to manage westward expansion.",
+      "options": [
+        {
+          "id": "canada_dominion",
+          "label_vi": "Công nhận quyền tự trị Dominion và chuyển giao trách nhiệm nội trị",
+          "label_en": "Recognise Dominion autonomy and transfer domestic responsibilities",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_canada_1867_dominion",
+              "name_vi": "Quy chế Dominion Canada",
+              "name_en": "Canadian Dominion Status",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "prestige": 0.04,
+                "trade": 0.02
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "canada_imperial_coordination",
+          "label_vi": "Giữ cơ chế phối hợp quốc phòng và thương mại với chính quốc",
+          "label_en": "Retain imperial defence and trade coordination",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_canada_1867_coordination",
+              "name_vi": "Phối hợp đế quốc Canada",
+              "name_en": "Canadian Imperial Coordination",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "army": 0.02,
+                "trade": 0.03,
+                "prestige": 0.02
+              }
+            },
+            {
+              "type": "base_rights",
+              "host": "GBR",
+              "user": "CAN"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "canada_parliament"
+      ]
+    },
+    {
+      "id": "gbr_westminster_statute_1931",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1931-09-01",
+        "1933-12-31"
+      ],
+      "date_historical": "1931-12-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "year_between",
+            "from": 1931,
+            "to": 1933
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Quy chế Westminster năm 1931",
+      "title_en": "The Statute of Westminster 1931",
+      "text_vi": "Quy chế Westminster xác lập quyền tự chủ lập pháp của các Dominion, chấm dứt nguyên tắc Quốc hội Anh có thể đơn phương làm luật cho họ nếu không có yêu cầu và đồng thuận. Canada, Australia, New Zealand, Nam Phi và Nhà nước Tự do Ireland có vị thế khác nhau trong việc áp dụng các điều khoản, nhưng nguyên tắc bình đẳng chủ quyền trong Khối Thịnh vượng chung được củng cố. London phải quyết định duy trì cơ chế phối hợp tự nguyện hay tiếp tục dựa vào thẩm quyền pháp lý của Quốc hội Anh.",
+      "text_en": "The Statute of Westminster recognised the legislative autonomy of the Dominions, ending the principle that the British Parliament could legislate for them unilaterally without request and consent. Canada, Australia, New Zealand, South Africa and the Irish Free State differed in how they applied the provisions, but the principle of equal status within the Commonwealth was strengthened. London must choose voluntary coordination or continued reliance on Westminster's legal authority.",
+      "options": [
+        {
+          "id": "westminster_equal_status",
+          "label_vi": "Chấp nhận bình đẳng lập pháp giữa các Dominion",
+          "label_en": "Accept legislative equality among the Dominions",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1931_westminster",
+              "name_vi": "Bình đẳng trong Khối Thịnh vượng chung",
+              "name_en": "Commonwealth Legislative Equality",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "prestige": 0.05,
+                "trade": 0.02
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "westminster_coordination",
+          "label_vi": "Giữ các hội nghị đế quốc và phối hợp quốc phòng tự nguyện",
+          "label_en": "Retain imperial conferences and voluntary defence coordination",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1931_imperial_conferences",
+              "name_vi": "Hội nghị Khối Thịnh vượng chung",
+              "name_en": "Commonwealth Conferences",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "army": 0.02,
+                "trade": 0.03,
+                "legitimacy": 1
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "CAN",
+              "delta": 4
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "canada_parliament"
+      ]
+    },
+    {
+      "id": "gbr_easter_rising_1916",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1916-03-01",
+        "1917-12-31"
+      ],
+      "date_historical": "1916-04-24",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "GBR_DUB",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1916,
+            "to": 1917
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Khởi nghĩa Phục Sinh tại Dublin",
+      "title_en": "The Easter Rising in Dublin",
+      "text_vi": "Ngày 24 tháng 4 năm 1916, các lực lượng Cộng hòa Ireland chiếm Tổng cục Bưu điện Dublin và tuyên bố thành lập nước Cộng hòa Ireland. Cuộc khởi nghĩa bị quân Anh dập tắt trong vòng một tuần, nhưng việc xử tử các thủ lĩnh và bắt giữ hàng loạt đã làm thay đổi mạnh dư luận Ireland. Chính phủ Anh phải quyết định tiếp tục đàn áp, mở lại tiến trình Home Rule hay tìm một thỏa hiệp chính trị sau chiến tranh.",
+      "text_en": "On 24 April 1916, Irish republican forces occupied Dublin's General Post Office and proclaimed an Irish Republic. British troops suppressed the rising within a week, but the executions of leaders and mass arrests transformed Irish public opinion. The British government must decide whether to continue repression, revive Home Rule or seek a post-war political compromise.",
+      "options": [
+        {
+          "id": "ireland_home_rule",
+          "label_vi": "Khôi phục dự luật Home Rule và mở đối thoại với các đại biểu ôn hòa",
+          "label_en": "Revive Home Rule and open talks with moderate representatives",
+          "ai_weight": 3,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_ireland_1916_home_rule",
+              "name_vi": "Đàm phán Home Rule",
+              "name_en": "Home Rule Negotiations",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.015,
+                "legitimacy": 2,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.2
+            }
+          ]
+        },
+        {
+          "id": "ireland_martial_law",
+          "label_vi": "Duy trì thiết quân luật và xét xử các thủ lĩnh nổi dậy",
+          "label_en": "Maintain martial law and prosecute the rebel leaders",
+          "ai_weight": 2,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_ireland_1916_martial",
+              "name_vi": "Thiết quân luật Ireland",
+              "name_en": "Irish Martial Law",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "police": 0.05,
+                "radicalism": 0.04,
+                "legitimacy": -3
+              }
+            },
+            {
+              "type": "infamy",
+              "entity": "GBR",
+              "delta": 0.5
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ireland_difp"
+      ]
+    },
+    {
+      "id": "gbr_anglo_irish_treaty_1921",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1921-10-01",
+        "1922-12-31"
+      ],
+      "date_historical": "1921-12-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "GBR_DUB",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1921,
+            "to": 1922
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Hiệp ước Anh–Ireland",
+      "title_en": "The Anglo-Irish Treaty",
+      "text_vi": "Hiệp ước Anh–Ireland được ký ngày 6 tháng 12 năm 1921 sau các cuộc đàm phán giữa chính phủ Anh và phái đoàn Sinn Féin do Arthur Griffith và Michael Collins dẫn đầu. Văn kiện tạo ra Nhà nước Tự do Ireland với quy chế Dominion, nhưng giữ lời thề trung thành với Vương miện và cho phép Bắc Ireland ở lại Vương quốc Anh. Nội các Anh phải quyết định chấp nhận thỏa hiệp, yêu cầu sửa đổi về các cảng quân sự hay đối mặt với nguy cơ chiến tranh tiếp diễn.",
+      "text_en": "The Anglo-Irish Treaty was signed on 6 December 1921 after negotiations between the British government and the Sinn Féin delegation led by Arthur Griffith and Michael Collins. It created the Irish Free State as a Dominion, retained an oath to the Crown and allowed Northern Ireland to remain in the United Kingdom. The British cabinet must decide whether to accept the compromise, seek changes to the naval ports or risk continued conflict.",
+      "options": [
+        {
+          "id": "irish_treaty_ratify",
+          "label_vi": "Phê chuẩn hiệp ước và chấp nhận Nhà nước Tự do Ireland",
+          "label_en": "Ratify the treaty and accept the Irish Free State",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_ireland_1921_treaty",
+              "name_vi": "Hiệp ước Anh–Ireland",
+              "name_en": "Anglo-Irish Treaty",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "prestige": 0.03,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "base_rights",
+              "host": "GBR",
+              "user": "IRL"
+            }
+          ]
+        },
+        {
+          "id": "irish_treaty_revise",
+          "label_vi": "Yêu cầu sửa các điều khoản về cảng và lời thề trung thành",
+          "label_en": "Seek revisions to the ports and oath provisions",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_ireland_1921_revision",
+              "name_vi": "Tranh chấp hiệp ước Ireland",
+              "name_en": "Irish Treaty Dispute",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -1,
+                "radicalism": 0.02,
+                "prestige": -0.01
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "IRL",
+              "delta": -4
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ireland_treaty",
+        "ireland_difp"
+      ]
+    },
+    {
+      "id": "gbr_irish_free_state_1922",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1922-06-01",
+        "1923-12-31"
+      ],
+      "date_historical": "1922-12-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "GBR_DUB",
+            "entities": [
+              "GBR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_anglo_irish_treaty_1921"
+          },
+          {
+            "type": "year_between",
+            "from": 1922,
+            "to": 1923
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_anglo_irish_treaty_1921"
+        ]
+      },
+      "title_vi": "Nhà nước Tự do Ireland ra đời",
+      "title_en": "The Irish Free State Comes into Being",
+      "text_vi": "Nhà nước Tự do Ireland chính thức ra đời ngày 6 tháng 12 năm 1922, đúng một năm sau khi hiệp ước được ký. Bắc Ireland chọn ở lại Vương quốc Anh, còn cuộc nội chiến Ireland nổ ra giữa những người ủng hộ và phản đối hiệp ước. Chính phủ Anh phải quyết định hỗ trợ ổn định chính trị, duy trì quyền sử dụng các cảng hiệp ước hay để chính phủ Ireland tự giải quyết xung đột nội bộ.",
+      "text_en": "The Irish Free State formally came into being on 6 December 1922, exactly one year after the treaty was signed. Northern Ireland opted to remain in the United Kingdom, while civil war erupted between pro- and anti-Treaty forces. Britain must decide whether to support political stabilisation, retain access to treaty ports or leave the Irish government to resolve its internal conflict.",
+      "options": [
+        {
+          "id": "irish_stabilisation",
+          "label_vi": "Hỗ trợ chính phủ mới và công nhận đầy đủ quy chế Dominion",
+          "label_en": "Support the new government and recognise full Dominion status",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_ireland_1922_stabilisation",
+              "name_vi": "Ổn định Nhà nước Tự do Ireland",
+              "name_en": "Irish Free State Stabilisation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "trade": 0.02,
+                "prestige": 0.03
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.3
+            }
+          ]
+        },
+        {
+          "id": "irish_ports",
+          "label_vi": "Giữ quyền sử dụng các cảng hiệp ước và giám sát an ninh biển",
+          "label_en": "Retain treaty-port access and maritime security oversight",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_ireland_1922_ports",
+              "name_vi": "Cảng hiệp ước Ireland",
+              "name_en": "Irish Treaty Ports",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "army": 0.02,
+                "trade": 0.02,
+                "legitimacy": -1
+              }
+            },
+            {
+              "type": "base_rights",
+              "host": "GBR",
+              "user": "IRL"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ireland_treaty",
+        "ireland_difp"
+      ]
     }
   ]
 }
