@@ -361,7 +361,7 @@
         "wwi_ushmm",
         "wwi_us_entry",
         "wwi_statcan_entry",
-        "wwi_brest_primary",
+        "treaty_brest_primary",
         "wwi_casualties_census",
         "wwi_casualties_ayres"
       ]
@@ -1712,18 +1712,8 @@
             "Japan",
             "United Kingdom"
           ],
-          "nonPermanent": [
-            "Czechoslovakia",
-            "Mexico",
-            "Poland",
-            "Argentina",
-            "Chile",
-            "Spain",
-            "Turkey",
-            "Austria",
-            "Denmark",
-            "Portugal"
-          ]
+          "nonPermanent": [],
+          "nonPermanentCompositionStatus": "unverified_pending_primary_journal_crosscheck"
         },
         {
           "year": 1934,
@@ -1734,18 +1724,8 @@
             "United Kingdom",
             "USSR"
           ],
-          "nonPermanent": [
-            "Czechoslovakia",
-            "Mexico",
-            "Poland",
-            "Argentina",
-            "Chile",
-            "Spain",
-            "Turkey",
-            "Ecuador",
-            "Poland",
-            "Romania"
-          ]
+          "nonPermanent": [],
+          "nonPermanentCompositionStatus": "unverified_pending_primary_journal_crosscheck"
         },
         {
           "year": 1935,
@@ -1756,20 +1736,8 @@
             "United Kingdom",
             "USSR"
           ],
-          "nonPermanent": [
-            "Bolivia",
-            "China",
-            "Sweden",
-            "Lithuania",
-            "New Zealand",
-            "Argentina",
-            "Chile",
-            "Spain",
-            "Turkey",
-            "Ecuador",
-            "Poland",
-            "Romania"
-          ]
+          "nonPermanent": [],
+          "nonPermanentCompositionStatus": "unverified_pending_primary_journal_crosscheck"
         },
         {
           "year": 1936,
@@ -1780,19 +1748,8 @@
             "United Kingdom",
             "USSR"
           ],
-          "nonPermanent": [
-            "Bolivia",
-            "China",
-            "Sweden",
-            "Lithuania",
-            "New Zealand",
-            "Belgium",
-            "Persia",
-            "Peru",
-            "Ecuador",
-            "Poland",
-            "Romania"
-          ]
+          "nonPermanent": [],
+          "nonPermanentCompositionStatus": "unverified_pending_primary_journal_crosscheck"
         },
         {
           "year": 1937,
@@ -1803,19 +1760,8 @@
             "United Kingdom",
             "USSR"
           ],
-          "nonPermanent": [
-            "Bolivia",
-            "China",
-            "Sweden",
-            "Lithuania",
-            "New Zealand",
-            "Belgium",
-            "Persia",
-            "Peru",
-            "Ecuador",
-            "Poland",
-            "Romania"
-          ]
+          "nonPermanent": [],
+          "nonPermanentCompositionStatus": "unverified_pending_primary_journal_crosscheck"
         },
         {
           "year": 1938,
@@ -1824,19 +1770,8 @@
             "USSR",
             "United Kingdom"
           ],
-          "nonPermanent": [
-            "Greece",
-            "Dominican Republic",
-            "Yugoslavia",
-            "Bolivia",
-            "China",
-            "Egypt",
-            "Finland",
-            "South Africa",
-            "Belgium",
-            "Persia",
-            "Peru"
-          ]
+          "nonPermanent": [],
+          "nonPermanentCompositionStatus": "unverified_pending_primary_journal_crosscheck"
         },
         {
           "year": 1939,
@@ -1845,22 +1780,11 @@
             "USSR",
             "United Kingdom"
           ],
-          "nonPermanent": [
-            "Greece",
-            "Dominican Republic",
-            "Yugoslavia",
-            "Bolivia",
-            "China",
-            "Egypt",
-            "Finland",
-            "South Africa",
-            "Belgium",
-            "Persia",
-            "Peru"
-          ]
+          "nonPermanent": [],
+          "nonPermanentCompositionStatus": "unverified_pending_primary_journal_crosscheck"
         }
       ],
-      "earlyYearsCaveat": "1920–1925 exact non-permanent composition by calendar year is not fully reconstructed in this staging file; only initial members and seat-count changes are asserted. 1926–1939 table is transcribed from a published institutional-history study based on League Official Journal records.",
+      "earlyYearsCaveat": "Exact elected Council composition for 1920–1925 remains unverified. For 1933–1939, seat counts are supported but the secondary table's overlapping term spans are not normalized here; the by-year member arrays are deliberately null/empty pending primary Official Journal cross-check. Do not infer exact annual lists from this file.",
       "unanimity": "Covenant Article 5: decisions of Assembly and Council generally required agreement of all members represented, except matters of procedure and express exceptions. Article 15 has a dispute-report exception excluding parties to the dispute from the unanimity calculation.",
       "sources": [
         "league_ungeneva_overview",
