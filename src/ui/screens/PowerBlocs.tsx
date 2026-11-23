@@ -22,23 +22,23 @@ export const IDENTITY_TEXT: Record<BlocIdentity, IdentityText> = {
     need: 'Nước lập khối không theo chính sách bế quan tỏa cảng.',
     cohesion: 'Thành viên càng gắn với thị trường của nước đứng đầu, khối càng bền.',
     leader: ['Cả khối là một liên minh thuế quan ngay từ đầu', 'Năng lực thương mại của nước đứng đầu +10%', 'Có thể áp luật thương mại lên thành viên (gắn kết ≥ 60)'],
-    members: ['Vào thị trường lớn của nước đứng đầu: hàng hóa lưu thông không thuế', 'Thương mại nội khối: thương mại +5/10/15%, thuế quan với ngoài khối +10/15/20%', 'Ngoại thương: thương mại +10/15/25%'],
+    members: ['Vào thị trường lớn của nước đứng đầu: hàng hóa lưu thông không thuế', 'Thương mại nội khối I/II/III: thương mại +5/10/15%, thuế quan với ngoài khối +10/15/20%', 'Ngoại thương I/II/III: thương mại +10/15/25%'],
     duties: ['Mất chính sách thuế quan riêng (dùng chung thị trường khối)', 'AI thành viên dần bỏ bế quan tỏa cảng', 'Có thể bị áp luật thương mại'],
   },
   sovereign_empire: {
     name: 'Đế chế chủ quyền', idea: 'Nước đứng đầu và các chư hầu, cộng thêm những nước nhỏ dưới sự bảo hộ.',
     need: 'Nước lập khối phải có ít nhất 1 chư hầu.',
     cohesion: 'Càng nhiều thành viên là chư hầu của nước đứng đầu, khối càng bền; chư hầu bất mãn (mong muốn tự do > 50) làm khối yếu đi.',
-    leader: ['Mọi chư hầu tự động vào khối; mong muốn tự do của chư hầu tăng chậm hơn 20%', 'Chư hầu nộp 5–25% thu nhập tùy loại; Chư hầu hóa II–III: thu từ chư hầu +25%', 'Khai thác thành viên: thêm 2/3/5% thu nhập của mọi thành viên, chính danh +3/5/5', 'Có thể biến thành viên yếu (sức mạnh ≤ 25%, đòn bẩy ≥ 50) thành xứ bảo hộ khi gắn kết ≥ 60'],
+    leader: ['Mọi chư hầu tự động vào khối; mong muốn tự do của chư hầu tăng chậm hơn 20%', 'Chư hầu nộp 5–25% thu nhập tùy loại; Chư hầu hóa II–III: thu từ chư hầu +25%', 'Khai thác thành viên I/II/III: thêm 2/3/5% thu nhập của mọi thành viên, chính danh +3/5/5', 'Có thể biến thành viên yếu (sức mạnh ≤ 25%, đòn bẩy ≥ 50) thành xứ bảo hộ khi gắn kết ≥ 60'],
     members: ['Được nước đứng đầu bảo vệ: nước đứng đầu sẵn lòng tham chiến khi thành viên bị tấn công'],
-    duties: ['Nộp cống nạp hằng tháng (khai thác thành viên: 2/3/5% thu nhập; chính danh −3/−5)', 'Nước yếu có thể bị biến thành xứ bảo hộ', 'Khai thác càng nặng, khối càng mất gắn kết (−5/−10/−20)'],
+    duties: ['Nộp cống nạp hằng tháng (Khai thác thành viên I/II/III: 2/3/5% thu nhập; chính danh −3/−5/−5)', 'Nước yếu có thể bị biến thành xứ bảo hộ', 'Khai thác I/II/III làm khối mất gắn kết −5/−10/−20'],
   },
   ideological_union: {
     name: 'Liên minh ý thức hệ', idea: 'Các nước cùng thể chế đứng chung dưới một ngọn cờ.',
     need: 'Không có điều kiện riêng; ý thức hệ của khối lấy theo luật của nước đứng đầu.',
     cohesion: 'Thành viên càng cùng luật quyền lực và kinh tế với nước đứng đầu, khối càng bền.',
     leader: ['Có thể áp luật quyền lực và chính thể lên thành viên (gắn kết ≥ 60; mỗi lần quan hệ −30, gắn kết −20)', 'Chân lý ý thức hệ III: áp cả luật báo chí'],
-    members: ['Thành viên cùng luật quyền lực và kinh tế: dân cực đoan −10%', 'Chân lý ý thức hệ: dân cực đoan −5/10/15%, chính danh +3/+8', 'Lập pháp sáng tạo: cải cách luật nhanh hơn'],
+    members: ['Thành viên cùng luật quyền lực và kinh tế: dân cực đoan −10%', 'Chân lý ý thức hệ I/II/III: dân cực đoan −5/10/15%, chính danh 0/+3/+8', 'Lập pháp sáng tạo: cải cách luật nhanh hơn'],
     duties: ['AI thành viên ưu tiên cải cách theo luật nước đứng đầu', 'Có thể bị áp luật quyền lực, chính thể'],
   },
   military_treaty: {
@@ -54,7 +54,7 @@ export const IDENTITY_TEXT: Record<BlocIdentity, IdentityText> = {
     need: 'Nước lập khối phải có quốc giáo (hoặc thần quyền).',
     cohesion: 'Mọi thành viên phải cùng tôn giáo với nước đứng đầu; điều đó giữ khối bền.',
     leader: ['Chỉ các nước cùng tôn giáo được vào', 'Có thể áp luật tôn giáo lên thành viên', 'Công dân thiêng liêng II–III: chư hầu bớt muốn tự do'],
-    members: ['Chính danh +2; Công dân thiêng liêng: +2/4/6, tăng lữ ủng hộ +1/2/3', 'Kinh tế thần thánh: thương mại +5/10%, xây dựng +5%'],
+    members: ['Chính danh +2; Công dân thiêng liêng I/II/III: +2/4/6, tăng lữ ủng hộ +1/2/3', 'Kinh tế thần thánh I/II/III: thương mại +5/5/10%, xây dựng 0/+5/+5%'],
     duties: ['Chỉ nước cùng tôn giáo được ở lại', 'Có thể bị áp luật tôn giáo'],
   },
 };
@@ -62,7 +62,7 @@ export const IDENTITY_TEXT: Record<BlocIdentity, IdentityText> = {
 export const IDENTITY_VI = Object.fromEntries(BLOC_IDENTITIES.map((k) => [k, [IDENTITY_TEXT[k].name, IDENTITY_TEXT[k].idea]])) as Record<BlocIdentity, [string, string]>;
 
 export const PRINCIPLE_VI: Record<string, [string, string]> = {
-  market_unification: ['Hợp nhất thị trường', 'Một liên minh thuế quan chung cho cả khối (từ cấp 2).'],
+  market_unification: ['Hợp nhất thị trường', 'Một liên minh thuế quan chung cho cả khối (từ bậc II).'],
   external_trade: ['Ngoại thương', 'Một chính sách ngoại thương chung để buôn bán với bên ngoài.'],
   exploit_members: ['Khai thác thành viên', 'Nước đứng đầu dùng tài nguyên của các thành viên yếu hơn.'],
   vassalization: ['Chư hầu hóa', 'Quản lý chặt các chư hầu để thu nhiều hơn mà vẫn giữ họ yên.'],
@@ -110,9 +110,9 @@ const EFFECT_VI: Record<EffectKey, (v: number) => string> = {
   noInternalWar: () => 'Không được tấn công thành viên trong khối',
   cohesion: (v) => `Độ gắn kết của khối ${fmt(v)}`,
 };
-const WHO_VI: Record<Effect['who'], string> = { all: 'cả khối', members: 'thành viên', leader: 'nước đứng đầu' };
 const IDEOLOGY_VI = { socialist: 'xã hội chủ nghĩa', single_party: 'độc đảng', democratic: 'dân chủ', monarchist: 'quân chủ', constitutional: 'lập hiến' } as const;
-const LEVEL_VI = ['—', 'Cấp 1', 'Cấp 2', 'Cấp 3'];
+const LEVEL_VI = ['—', 'I', 'II', 'III'];
+const LEVEL_COHESION = ['', '', '40', '70'];
 const LEVER_VI: Record<string, string> = { power: 'Sức mạnh tương đối', relations: 'Quan hệ', market: 'Chung thị trường', subject: 'Là chư hầu', alliance: 'Đồng minh', border: 'Láng giềng', culture: 'Cùng văn hóa', religion: 'Cùng tôn giáo', companies: 'Công ty của nước đứng đầu', rivalry: 'Đối thủ' };
 const COHESION_VI: Record<string, string> = { base: 'Cơ bản', attitude: 'Thái độ thành viên với nước đứng đầu', identity: 'Bản sắc khối', leverage: 'Đòn bẩy của nước đứng đầu', size: 'Khối quá đông', principles: 'Cái giá của các nguyên tắc', liberty: 'Chư hầu bất mãn nhất' };
 
@@ -126,13 +126,30 @@ function EffectList({ mods, empty = 'Chưa có hiệu lực nào' }: { mods: Blo
 function Bullets({ items }: { items: string[] }) {
   return <ul class="s" style="margin:2px 0 0 16px;padding:0">{items.map((x) => <li key={x}>{x}</li>)}</ul>;
 }
-/** One principle level's effects, grouped by who receives them. */
-function LevelEffects({ effects }: { effects: Effect[] }) {
-  return <span>{effects.map((e) => `${EFFECT_VI[e.key](e.value)} (${WHO_VI[e.who]})`).join(' · ')}</span>;
-}
-function PrincipleLevels({ group, current }: { group: string; current: number }) {
+/** One principle tier, laid out like a tooltip: who receives what (each tier includes the tiers below). */
+function TierCard({ group, tier, state, note }: { group: string; tier: number; state: 'active' | 'chosen' | 'next' | 'idle'; note?: string }) {
+  const effs = PRINCIPLES[group].levels[tier - 1];
   const imp = PRINCIPLES[group].imposes;
-  return <div style="margin-top:4px">{PRINCIPLES[group].levels.map((effs, i) => <div class="s" key={i} style={i + 1 === current ? 'font-weight:600' : i + 1 > current ? 'opacity:.7' : ''}>{LEVEL_VI[i + 1]}{i + 1 === current ? ' (đang có)' : ''}: <LevelEffects effects={effs} />{imp && imp.level === i + 1 ? ` · Nước đứng đầu được áp luật ${imp.groups.map((g) => GROUP_VI[g].toLowerCase()).join(', ')} lên thành viên` : ''}</div>)}</div>;
+  const bloc = effs.filter((e) => e.key === 'cohesion');
+  const rows: [string, Effect[]][] = [['Cả khối', effs.filter((e) => e.who === 'all')], ['Chỉ nước đứng đầu', effs.filter((e) => e.who === 'leader' && e.key !== 'cohesion')], ['Thành viên (không gồm nước đứng đầu)', effs.filter((e) => e.who === 'members')]];
+  const imposes = imp && tier >= imp.level ? imp.groups : [];
+  return (
+    <div style={`border:1px solid var(--line,#555);border-radius:6px;padding:6px 8px;margin-top:6px;${state === 'active' ? 'border-color:var(--gold,#c9a24a)' : state === 'idle' ? 'opacity:.75' : ''}`}>
+      <div class="oh"><span class="ot">{PRINCIPLE_VI[group][0]} {LEVEL_VI[tier]}</span>{state === 'active' ? <span class="tag up">đang có hiệu lực</span> : state === 'chosen' ? <span class="tag warn">đã chọn, chưa đủ gắn kết</span> : note ? <span class="tag flat">{note}</span> : null}</div>
+      {bloc.length > 0 && <div class="s"><b>Khối:</b> {bloc.map((e) => EFFECT_VI[e.key](e.value)).join(' · ')}</div>}
+      {rows.filter(([, l]) => l.length).map(([who, l]) => <div class="s" key={who}><b>{who}:</b><ul style="margin:0 0 0 16px;padding:0">{l.map((e, k) => <li key={k}>{EFFECT_VI[e.key](e.value)}</li>)}</ul></div>)}
+      {imposes.length > 0 && <div class="s"><b>Nước đứng đầu được:</b> áp luật {imposes.map((g) => GROUP_VI[g].toLowerCase()).join(', ')} lên thành viên</div>}
+      {tier > 1 && <div class="s dim">Gồm cả hiệu lực bậc dưới · cần độ gắn kết ≥ {LEVEL_COHESION[tier]}</div>}
+    </div>
+  );
+}
+/** The three tiers I/II/III of a principle. `chosen` = the tier picked, `working` = the tier in force. */
+function PrincipleLevels({ group, current, chosen = current, costFrom }: { group: string; current: number; chosen?: number; costFrom?: number }) {
+  return <div>{[1, 2, 3].map((t) => {
+    const state = t === current ? 'active' : t === chosen && chosen > current ? 'chosen' : t > chosen ? 'next' : 'idle';
+    const cost = costFrom !== undefined && t > costFrom ? t - costFrom : 0;
+    return <TierCard key={t} group={group} tier={t} state={state} note={state === 'next' && cost ? `cần ${cost} ủy nhiệm` : undefined} />;
+  })}</div>;
 }
 
 function IdentityCard({ k, cur, onPick, why }: { k: BlocIdentity; cur?: boolean; onPick?: () => void; why?: string | null }) {
@@ -158,7 +175,7 @@ export function PowerBlocsTab({ st }: { st: GameState }) {
   const others = Object.values(st.powerBlocs ?? {}).filter((x) => x.id !== b?.id);
   return (
     <div class="pad">
-      <div class="note" style="margin-top:0">Khối quyền lực: một cường quốc lập khối với một <b>bản sắc</b> (quyết định điều kiện, nguồn gắn kết, quyền và nghĩa vụ) và các <b>nguyên tắc</b> (mỗi nguyên tắc có 3 cấp với hiệu lực cụ thể). Mỗi bản sắc có hai nhóm nguyên tắc chính. Khối tích lũy <b>ủy nhiệm</b> theo thời gian; nâng nguyên tắc tốn số ủy nhiệm bằng số cấp nâng. Có 2 ô nguyên tắc, thêm ô khi khối mạnh và đông. Độ gắn kết quyết định cấp tối đa (cấp 2 cần 40, cấp 3 cần 70); gắn kết thấp thì thành viên bỏ đi.</div>
+      <div class="note" style="margin-top:0">Khối quyền lực: một cường quốc lập khối với một <b>bản sắc</b> (quyết định điều kiện, nguồn gắn kết, quyền và nghĩa vụ) và các <b>nguyên tắc</b> (mỗi nguyên tắc có 3 bậc I, II, III với hiệu lực cụ thể). Mỗi bản sắc có hai nhóm nguyên tắc chính. Khối tích lũy <b>ủy nhiệm</b> theo thời gian; nâng nguyên tắc tốn số ủy nhiệm bằng số bậc nâng. Có 2 ô nguyên tắc, thêm ô khi khối mạnh và đông. Độ gắn kết quyết định bậc tối đa (II cần 40, III cần 70); gắn kết thấp thì thành viên bỏ đi.</div>
       {b ? <BlocCard st={st} b={b} me={id} mine={mine} /> : <FoundCard st={st} id={id} mine={mine} />}
       {others.length > 0 && <Sec title="Các khối khác" x={`${others.length}`}>
         {others.map((o) => <OtherBloc key={o.id} st={st} o={o} me={id} inBloc={!!b} />)}
@@ -202,7 +219,7 @@ function FoundCard({ st, id, mine }: { st: GameState; id: string; mine: boolean 
       {BLOC_IDENTITIES.map((k) => <IdentityCard key={k} k={k} cur={identity === k} why={c ? identityRequirement(st, c, k) : null} onPick={() => { setIdentity(k); if (!isPrimary(k, principle)) setPrinciple(PRIMARY_GROUPS[k][0]); }} />)}
       {!why && mine && <>
         <div class="kv"><span class="k">Tên khối</span><span class="v"><input value={name} maxLength={48} onInput={(e) => setName((e.target as HTMLInputElement).value)} /></span></div>
-        <div class="s" style="margin:6px 0">Nguyên tắc đầu tiên (một nhóm chính của bản sắc, cấp 1, miễn phí):</div>
+        <div class="s" style="margin:6px 0">Nguyên tắc đầu tiên (một nhóm chính của bản sắc, bậc I, miễn phí):</div>
         {allowed.map((g) => <div class={`option${principle === g ? ' cur' : ''}`} key={g} onClick={() => setPrinciple(g)} style="cursor:pointer"><div class="oh"><span class="ot">{PRINCIPLE_VI[g][0]}</span></div><div class="s">{PRINCIPLE_VI[g][1]}</div><PrincipleLevels group={g} current={principle === g ? 1 : 0} /></div>)}
         {req && <div class="note">Chưa đủ điều kiện cho {IDENTITY_TEXT[identity].name}: {IDENTITY_TEXT[identity].need}</div>}
         <div style="margin-top:8px"><button class="btn" disabled={!!req} onClick={() => send({ type: 'found_bloc', name, identity, principle }, `Lập ${name}`)}>Lập khối</button></div>
@@ -231,7 +248,7 @@ function BlocCard({ st, b, me, mine }: { st: GameState; b: PowerBloc; me: string
     <>
       <div class="metrics">
         <Metric label={b.name} icon="diplomacy" value={blocName(b, st)} d={<span class="dim">đứng đầu: {shortName(st, b.leader)} · hạng {blocRank(st, b)}</span>} />
-        <Metric label="Độ gắn kết" icon="legitimacy" value={fmt(b.cohesion)} d={<span class={b.cohesion < BLOC.lowCohesion ? 'neg' : 'dim'}>{b.cohesion < BLOC.lowCohesion ? 'thấp: thành viên có thể bỏ đi' : `cấp tối đa ${maxL}`}</span>} />
+        <Metric label="Độ gắn kết" icon="legitimacy" value={fmt(b.cohesion)} d={<span class={b.cohesion < BLOC.lowCohesion ? 'neg' : 'dim'}>{b.cohesion < BLOC.lowCohesion ? 'thấp: thành viên có thể bỏ đi' : `bậc tối đa ${LEVEL_VI[maxL]}`}</span>} />
         <Metric label="Ủy nhiệm" icon="scroll" value={`${fmt(mandates)}/${BLOC.mandateMax}`} d={<span class="dim">{Number.isFinite(next) ? `cái tiếp theo sau ~${next} tháng` : mandates >= BLOC.mandateMax ? 'đã đầy' : 'không tăng'}</span>} />
         <Metric label="Thành viên" icon="people" value={fmt(b.members.length)} d={<span class="dim">ô nguyên tắc {chosen.length}/{slots}</span>} />
       </div>
@@ -244,24 +261,24 @@ function BlocCard({ st, b, me, mine }: { st: GameState; b: PowerBloc; me: string
       </Sec>
       <Sec title="Độ gắn kết hướng tới" x={fmt(Math.max(0, Math.min(100, Object.values(parts).reduce((a, x) => a + x, 0))))}>
         {Object.entries(parts).filter(([k, v]) => v || k === 'base').map(([k, v]) => <div class="kv" key={k}><span class="k">{COHESION_VI[k]}</span><span class={`v ${v > 0 && k !== 'base' ? 'pos' : v < 0 ? 'neg' : ''}`}>{v > 0 && k !== 'base' ? '+' : ''}{fmt(v)}</span></div>)}
-        <div class="s dim">{IDENTITY_TEXT[b.identity].cohesion} Cấp 2 cần gắn kết ≥ 40, cấp 3 cần ≥ 70. Ô thứ 3: khối hạng ≤ 5 và ≥ 5 thành viên; ô thứ 4: hạng ≤ 3 và ≥ 10 thành viên.</div>
+        <div class="s dim">{IDENTITY_TEXT[b.identity].cohesion} Bậc II cần gắn kết ≥ 40, bậc III cần ≥ 70. Ô thứ 3: khối hạng ≤ 5 và ≥ 5 thành viên; ô thứ 4: hạng ≤ 3 và ≥ 10 thành viên.</div>
       </Sec>
       <Sec title="Nguyên tắc" x={`${mandates} ủy nhiệm`}>
         {chosen.map((g) => {
           const work = principleLevel(b, g); const cur = b.principles[g];
           return (
             <div class="option" key={g}>
-              <div class="oh"><span class="ot">{PRINCIPLE_VI[g][0]} — {LEVEL_VI[cur]}{isPrimary(b.identity, g) ? ' · nhóm chính' : ''}</span><span class={`tag ${work ? 'up' : 'flat'}`}>{work ? `hiệu lực ${LEVEL_VI[work]}` : 'chưa hiệu lực'}</span></div>
+              <div class="oh"><span class="ot">{PRINCIPLE_VI[g][0]} {LEVEL_VI[cur]}{isPrimary(b.identity, g) ? ' · nhóm chính' : ''}</span><span class={`tag ${work ? 'up' : 'flat'}`}>{work ? `đang có hiệu lực: bậc ${LEVEL_VI[work]}` : 'chưa có hiệu lực'}</span></div>
               <div class="s">{PRINCIPLE_VI[g][1]}</div>
-              <PrincipleLevels group={g} current={work} />
+              <PrincipleLevels group={g} current={work} chosen={cur} costFrom={cur} />
               {lead && <div style="margin-top:6px;display:flex;gap:6px;flex-wrap:wrap">
-                {[1, 2, 3].filter((l) => l !== cur && l <= maxL).map((l) => { const cost = Math.max(0, l - cur); return <button key={l} class="btn sm" disabled={cost > mandates} onClick={() => send({ type: 'bloc_principle', group: g, level: l }, `${PRINCIPLE_VI[g][0]}: ${LEVEL_VI[l]}`)}>{LEVEL_VI[l]}{cost ? ` (${cost} ủy nhiệm)` : ''}</button>; })}
+                {[1, 2, 3].filter((l) => l !== cur && l <= maxL).map((l) => { const cost = Math.max(0, l - cur); return <button key={l} class="btn sm" disabled={cost > mandates} onClick={() => send({ type: 'bloc_principle', group: g, level: l }, `${PRINCIPLE_VI[g][0]} ${LEVEL_VI[l]}`)}>{l > cur ? 'Nâng lên' : 'Hạ xuống'} {LEVEL_VI[l]}{cost ? ` (${cost} ủy nhiệm)` : ''}</button>; })}
                 {!(isPrimary(b.identity, g) && primaryCount <= 1) && <button class="btn sm" onClick={() => send({ type: 'bloc_principle', group: g, level: 0 }, `Bỏ ${PRINCIPLE_VI[g][0]}`)}>Bỏ</button>}
               </div>}
             </div>
           );
         })}
-        {lead && chosen.length < slots && free.map((g) => <div class="option" key={g}><div class="oh"><span class="ot">{PRINCIPLE_VI[g][0]}{isPrimary(b.identity, g) ? ' · nhóm chính' : ''}</span><button class="btn sm" disabled={mandates < 1} onClick={() => send({ type: 'bloc_principle', group: g, level: 1 }, `Thêm ${PRINCIPLE_VI[g][0]}`)}>Thêm (1 ủy nhiệm)</button></div><div class="s">{PRINCIPLE_VI[g][1]}</div><PrincipleLevels group={g} current={0} /></div>)}
+        {lead && chosen.length < slots && free.map((g) => <div class="option" key={g}><div class="oh"><span class="ot">{PRINCIPLE_VI[g][0]}{isPrimary(b.identity, g) ? ' · nhóm chính' : ''}</span><button class="btn sm" disabled={mandates < 1} onClick={() => send({ type: 'bloc_principle', group: g, level: 1 }, `Thêm ${PRINCIPLE_VI[g][0]}`)}>Chọn bậc I (1 ủy nhiệm)</button></div><div class="s">{PRINCIPLE_VI[g][1]}</div><PrincipleLevels group={g} current={0} costFrom={0} /></div>)}
       </Sec>
       <Sec title="Thành viên" x={`${b.members.length}`}>
         {b.members.map((m) => {
