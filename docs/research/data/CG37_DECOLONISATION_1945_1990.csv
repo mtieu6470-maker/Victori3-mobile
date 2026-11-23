@@ -1,0 +1,96 @@
+modern_country (ISO3),colonial_power,independence_date,mode,predecessor_unit,source,notes
+IND,India,United Kingdom,1947-08-15,partition,British India,UN decolonization chronology; Indian Independence Act 1947,Independence and partition; successor states India and Pakistan; violence and boundary displacement.
+PAK,Pakistan,United Kingdom,1947-08-14,partition,British India,UN decolonization chronology; Indian Independence Act 1947,Pakistan established at partition.
+LKA,Sri Lanka,United Kingdom,1948-02-04,negotiated,Ceylon,UN decolonization chronology,Independence as Ceylon.
+MMR,Myanmar,United Kingdom,1948-01-04,negotiated,British Burma,UN decolonization chronology,Negotiated independence; armed conflicts continued after independence.
+IDN,Indonesia,Netherlands,1949-12-27,war,Netherlands East Indies,UN decolonization chronology; Dutch-Indonesian Round Table Conference,Proclaimed 1945; Dutch transfer of sovereignty recognized 1949 after armed and diplomatic conflict.
+PHL,Philippines,United States,1946-07-04,negotiated,Commonwealth of the Philippines,UN decolonization chronology; Treaty of Manila 1946,Formal independence following Commonwealth period; US retained specified bases/economic arrangements.
+JOR,Jordan,United Kingdom,1946-05-25,negotiated,Transjordan Emirate,UN decolonization chronology,Independence recognized 1946; Anglo-Transjordan treaty followed.
+LBN,Lebanon,France,1943-11-22,negotiated,French Mandate for Syria and Lebanon,UN decolonization chronology; French mandate records,Independence declared 1943; French forces withdrew 1946.
+SYR,Syria,France,1946-04-17,negotiated,French Mandate for Syria and Lebanon,UN decolonization chronology,French evacuation completed 1946.
+ISR,Israel,United Kingdom,1948-05-14,partition,British Mandate for Palestine,UN partition plan 181; British Mandate termination records,Declaration of independence amid termination of mandate and war; classification reflects partition/war context.
+LBY,Libya,Italy / Allied administration,1951-12-24,negotiated,Italian Libya; UN trusteeship arrangements,UN decolonization chronology; UN General Assembly Resolution 289 A (IV),Independence as United Kingdom of Libya.
+MAR,Morocco,France / Spain,1956-03-02,negotiated,French Protectorate in Morocco; Spanish zones,UN decolonization chronology,French protectorate ended 1956; Spanish zone ended through subsequent agreements.
+TUN,Tunisia,France,1956-03-20,negotiated,French Protectorate of Tunisia,UN decolonization chronology,Independence 1956; internal autonomy agreement preceded it.
+SDN,Sudan,United Kingdom / Egypt,1956-01-01,negotiated,Anglo-Egyptian Sudan,UN decolonization chronology; Anglo-Egyptian Agreement 1953,Self-determination process; independence 1956.
+GHA,Ghana,United Kingdom,1957-03-06,negotiated,Gold Coast,UN decolonization chronology,First sub-Saharan African colony to gain independence in the post-war wave.
+GIN,Guinea,France,1958-10-02,negotiated,French Guinea,UN decolonization chronology,Voted no in 1958 French Community referendum and became independent.
+CMR,Cameroon,France / United Kingdom,1960-01-01,negotiated,French Cameroun; British Southern Cameroons,UN decolonization chronology,French-administered territory independent 1960; British Southern Cameroons later joined Cameroon in 1961.
+TGO,Togo,France,1960-04-27,negotiated,French Togoland trusteeship,UN decolonization chronology,Independence after UN trust territory process.
+MDG,Madagascar,France,1960-06-26,negotiated,Malagasy Protectorate / French colony,UN decolonization chronology,Independence 1960.
+COD,DR Congo,Belgium,1960-06-30,negotiated,Belgian Congo,UN decolonization chronology,Formal transfer; immediate Congo Crisis followed.
+SOM,Somalia,Italy / United Kingdom,1960-07-01,negotiated,Trust Territory of Somaliland under Italian administration; British Somaliland,UN decolonization chronology,Italian-administered trust territory and British Somaliland united; British Somaliland became independent 26 June 1960.
+BEN,Benin,France,1960-08-01,negotiated,Dahomey,UN decolonization chronology,Independence as Dahomey.
+NER,Niger,France,1960-08-03,negotiated,French Niger,UN decolonization chronology,Independence 1960.
+BFA,Burkina Faso,France,1960-08-05,negotiated,Upper Volta,UN decolonization chronology,Independence as Upper Volta.
+CIV,Côte d’Ivoire,France,1960-08-07,negotiated,French Ivory Coast,UN decolonization chronology,Independence 1960.
+TCD,Chad,France,1960-08-11,negotiated,French Chad,UN decolonization chronology,Independence 1960.
+CAF,Central African Republic,France,1960-08-13,negotiated,Ubangi-Shari,UN decolonization chronology,Independence 1960.
+COG,Republic of the Congo,France,1960-08-15,negotiated,Middle Congo,UN decolonization chronology,Independence 1960; distinct from former Belgian Congo.
+GAB,Gabon,France,1960-08-17,negotiated,French Gabon,UN decolonization chronology,Independence 1960.
+SEN,Senegal,France,1960-08-20,negotiated,French Senegal; Mali Federation,UN decolonization chronology,Federation with Mali dissolved; Senegal independent.
+MLI,Mali,France,1960-09-22,negotiated,French Sudan; Mali Federation,UN decolonization chronology,"Independent as Sudanese Republic, renamed Mali."
+MRT,Mauritania,France,1960-11-28,negotiated,French Mauritania,UN decolonization chronology,Independence 1960.
+NGA,Nigeria,United Kingdom,1960-10-01,negotiated,Federation of Nigeria,UN decolonization chronology,Independence 1960.
+SLE,Sierra Leone,United Kingdom,1961-04-27,negotiated,British Sierra Leone,UN decolonization chronology,Independence 1961.
+TZA,Tanzania,United Kingdom,1961-12-09,negotiated,Tanganyika; later Zanzibar,UN decolonization chronology,Tanganyika independent 1961; Zanzibar independent 1963 and union with Tanganyika 1964.
+UGA,Uganda,United Kingdom,1962-10-09,negotiated,Uganda Protectorate,UN decolonization chronology,Independence 1962.
+DZA,Algeria,France,1962-07-05,war,French Algeria,UN decolonization chronology; Évian Accords 1962,War of independence; ceasefire and self-determination accords preceded independence.
+RWA,Rwanda,Belgium / UN trusteeship,1962-07-01,partition,Ruanda-Urundi trusteeship,UN decolonization chronology,Ruanda-Urundi separated into Rwanda and Burundi.
+BDI,Burundi,Belgium / UN trusteeship,1962-07-01,partition,Ruanda-Urundi trusteeship,UN decolonization chronology,Ruanda-Urundi separated into Rwanda and Burundi.
+KEN,Kenya,United Kingdom,1963-12-12,war,Kenya Colony and Protectorate,UN decolonization chronology,Mau Mau uprising and political negotiation preceded independence.
+MWI,Malawi,United Kingdom,1964-07-06,negotiated,Nyasaland,UN decolonization chronology,Independence as Malawi.
+ZMB,Zambia,United Kingdom,1964-10-24,negotiated,Northern Rhodesia,UN decolonization chronology,Independence 1964.
+GMB,Gambia,United Kingdom,1965-02-18,negotiated,Gambia Colony and Protectorate,UN decolonization chronology,Independence 1965; republic 1970.
+BWA,Botswana,United Kingdom,1966-09-30,negotiated,Bechuanaland Protectorate,UN decolonization chronology,Independence 1966.
+LSO,Lesotho,United Kingdom,1966-10-04,negotiated,Basutoland,UN decolonization chronology,Independence 1966.
+MUS,Mauritius,United Kingdom,1968-03-12,negotiated,British Mauritius,UN decolonization chronology,Independence 1968.
+SWZ,Eswatini,United Kingdom,1968-09-06,negotiated,Swaziland,UN decolonization chronology,Independence as Swaziland; renamed Eswatini 2018.
+GNQ,Equatorial Guinea,Spain,1968-10-12,negotiated,Spanish Guinea,UN decolonization chronology,Independence 1968.
+SYC,Seychelles,United Kingdom,1976-06-29,negotiated,British Seychelles,UN decolonization chronology,Independence 1976.
+AGO,Angola,Portugal,1975-11-11,war,Portuguese Angola,UN decolonization chronology,Armed liberation struggle; independence followed Portuguese revolution and Alvor process; civil war began.
+MOZ,Mozambique,Portugal,1975-06-25,war,Portuguese Mozambique,UN decolonization chronology,Armed liberation struggle; independence 1975.
+CPV,Cabo Verde,Portugal,1975-07-05,negotiated,Portuguese Cape Verde,UN decolonization chronology,Independence 1975; linked political struggle with Guinea-Bissau.
+STP,São Tomé and Príncipe,Portugal,1975-07-12,negotiated,Portuguese São Tomé and Príncipe,UN decolonization chronology,Independence 1975.
+COM,Comoros,France,1975-07-06,negotiated,French Comoros,UN decolonization chronology,Independence declared 1975; Mayotte remained under French administration.
+DJI,Djibouti,France,1977-06-27,negotiated,French Territory of the Afars and Issas,UN decolonization chronology,Independence after referendum.
+ZWE,Zimbabwe,United Kingdom,1980-04-18,war,Southern Rhodesia / Rhodesia,UN decolonization chronology; Lancaster House Agreement 1979,Liberation war and negotiated settlement; internationally recognized independence 1980.
+NAM,Namibia,South Africa / UN,1990-03-21,war,South West Africa mandate,UN decolonization chronology; UN Security Council Resolution 435,Long liberation struggle; transition under UN-supervised plan.
+JAM,Jamaica,United Kingdom,1962-08-06,negotiated,British Jamaica,UN decolonization chronology,Independence 1962.
+TTO,Trinidad and Tobago,United Kingdom,1962-08-31,negotiated,British Trinidad and Tobago,UN decolonization chronology,Independence 1962.
+BRB,Barbados,United Kingdom,1966-11-30,negotiated,British Barbados,UN decolonization chronology,Independence 1966.
+GUY,Guyana,United Kingdom,1966-05-26,negotiated,British Guiana,UN decolonization chronology,Independence 1966.
+BHS,Bahamas,United Kingdom,1973-07-10,negotiated,Bahamas,UN decolonization chronology,Independence 1973.
+GRD,Grenada,United Kingdom,1974-02-07,negotiated,British Grenada,UN decolonization chronology,Independence 1974.
+SUR,Suriname,Netherlands,1975-11-25,negotiated,Dutch Suriname,UN decolonization chronology,Independence 1975.
+DMA,Dominica,United Kingdom,1978-11-03,negotiated,British Dominica,UN decolonization chronology,Independence 1978.
+LCA,Saint Lucia,United Kingdom,1979-02-22,negotiated,British Saint Lucia,UN decolonization chronology,Independence 1979.
+VCT,Saint Vincent and the Grenadines,United Kingdom,1979-10-27,negotiated,British Saint Vincent,UN decolonization chronology,Independence 1979.
+ATG,Antigua and Barbuda,United Kingdom,1981-11-01,negotiated,British Antigua and Barbuda,UN decolonization chronology,Independence 1981.
+BLZ,Belize,United Kingdom,1981-09-21,negotiated,British Honduras,UN decolonization chronology,Independence 1981.
+KNA,Saint Kitts and Nevis,United Kingdom,1983-09-19,negotiated,British Saint Christopher-Nevis-Anguilla,UN decolonization chronology,Independence 1983; Anguilla separated earlier.
+WSM,Samoa,New Zealand / League mandate / UN trusteeship,1962-01-01,negotiated,Western Samoa,UN decolonization chronology,First Pacific island country to become independent in the post-war period.
+NRU,Nauru,Australia / United Kingdom / New Zealand,1968-01-31,negotiated,Nauru UN Trust Territory,UN decolonization chronology,Jointly administered trust territory.
+FJI,Fiji,United Kingdom,1970-10-10,negotiated,British Fiji,UN decolonization chronology,Independence 1970.
+TON,Tonga,United Kingdom,1970-06-04,negotiated,Tonga protected state,UN decolonization chronology,Ended British protected-state relationship; not a conventional colony.
+PNG,Papua New Guinea,Australia / UN,1975-09-16,negotiated,Territory of Papua and New Guinea,UN decolonization chronology,Independence from Australian administration following UN trust arrangements.
+SLB,Solomon Islands,United Kingdom,1978-07-07,negotiated,British Solomon Islands Protectorate,UN decolonization chronology,Independence 1978.
+TUV,Tuvalu,United Kingdom,1978-10-01,negotiated,Ellice Islands,UN decolonization chronology,Separated from Gilbert Islands and became independent.
+KIR,Kiribati,United Kingdom,1979-07-12,negotiated,Gilbert Islands,UN decolonization chronology,Independence 1979.
+VUT,Vanuatu,United Kingdom / France,1980-07-30,war,New Hebrides Condominium,UN decolonization chronology,Condominium; rebellion and political crisis preceded independence.
+MEX,Mexico,Spain,1821-09-27,war,Viceroyalty of New Spain,Britannica / national historical chronology,War of independence; entry of Trigarante Army and independence settlement.
+GTM,Guatemala,Spain,1821-09-15,negotiated,Captaincy General of Guatemala,"Central American Act of Independence, 1821",Independence declaration; later federation and dissolution.
+HND,Honduras,Spain,1821-09-15,negotiated,Captaincy General of Guatemala,"Central American Act of Independence, 1821",Declared independence with Central America.
+SLV,El Salvador,Spain,1821-09-15,negotiated,Captaincy General of Guatemala,"Central American Act of Independence, 1821",Declared independence with Central America.
+NIC,Nicaragua,Spain,1821-09-15,negotiated,Captaincy General of Guatemala,"Central American Act of Independence, 1821",Declared independence with Central America.
+CRI,Costa Rica,Spain,1821-09-15,negotiated,Captaincy General of Guatemala,"Central American Act of Independence, 1821",Declared independence with Central America.
+ARG,Argentina,Spain,1816-07-09,war,Viceroyalty of the Río de la Plata,Argentine Declaration of Independence 1816,War of independence; declaration at Tucumán.
+CHL,Chile,Spain,1818-02-12,war,Captaincy General of Chile,Chilean Declaration of Independence 1818,War of independence.
+COL,Colombia,Spain,1819-08-07,war,Viceroyalty of New Granada,Battle of Boyacá / Colombian national historical chronology,Military victory at Boyacá; independence process declared 1810 and consolidated 1819.
+VEN,Venezuela,Spain,1811-07-05,war,Captaincy General of Venezuela,Venezuelan Declaration of Independence 1811,First declaration; military independence consolidated 1821.
+PRY,Paraguay,Spain,1811-05-14,war,Intendancy of Paraguay,Paraguayan national historical chronology,Revolution of May 1811; relatively low-intensity conflict.
+PER,Peru,Spain,1821-07-28,war,Viceroyalty of Peru,Peruvian Declaration of Independence 1821,Declaration followed military campaign; royalist forces defeated 1824.
+ECU,Ecuador,Spain,1822-05-24,war,Royal Audience of Quito,Battle of Pichincha 1822 / Ecuadorian national history,Military victory secured independence process; later part of Gran Colombia.
+BOL,Bolivia,Spain,1825-08-06,war,Upper Peru,Bolivian Declaration of Independence 1825,Independence after wars in Upper Peru.
+URY,Uruguay,Brazil / Portugal; Spanish imperial predecessor,1828-08-27,partition,Cisplatine Province,"Preliminary Peace Convention 1828, Britain-mediated",Created independent buffer state after Brazil–United Provinces conflict; not a straightforward colonial liberation.
+BRA,Brazil,Portugal,1822-09-07,negotiated,"United Kingdom of Portugal, Brazil and the Algarves",Brazilian Declaration of Independence 1822; Treaty of Rio de Janeiro 1825,Dynastic separation; Portugal recognized independence in 1825.
