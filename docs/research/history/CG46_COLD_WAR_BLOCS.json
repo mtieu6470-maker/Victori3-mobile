@@ -218,7 +218,8 @@
           "name": "Pakistan",
           "capitalHistorical": "Karachi",
           "from": "1955-02-19",
-          "notes": "Withdrew in 1973."
+          "notes": "Withdrew in 1973.",
+          "to": "1973"
         }
       ],
       "notes": [
@@ -239,7 +240,7 @@
         {
           "name": "Turkey",
           "capitalHistorical": "Ankara",
-          "from": "1955-04-15"
+          "from": "1955-02-24"
         },
         {
           "name": "Iraq",
@@ -1208,12 +1209,12 @@
         {
           "name": "Central African Republic",
           "capitalHistorical": "Bangui",
-          "from": "1963-05-25"
+          "from": "1963-08-13"
         },
         {
           "name": "Chad",
           "capitalHistorical": "Fort-Lamy (N'Djamena)",
-          "from": "1963-05-25"
+          "from": "1963-08-13"
         },
         {
           "name": "Congo (Brazzaville)",
