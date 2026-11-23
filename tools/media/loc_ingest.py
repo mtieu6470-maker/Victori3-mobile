@@ -75,7 +75,19 @@ def fetch_commons(e):
     if not lic or re.search(r'\{\{\s*cc-by-nc|non-?commercial|fair use', wikitext, re.I): return None, 'no public-domain/CC0 licence template'
     field = lambda k: (re.search(rf'\|\s*{k}\s*=\s*([^\n]*)', wikitext, re.I) or [None, ''])[1].strip()
     y = e.get('year') or latest_year(field('date'))
-    if y is None or y >= PD_CUTOFF: return None, f'date {field("date")!r} / year {y} not before {PD_CUTOFF}'
+    # CG-52 (ChatGPT finding): a single 95-year cutoff also refused CC0 and US-government works, which are free
+    # whatever their date. Rights classes:
+    #   free at any date: CC0 / Cc-zero, PD-USGov*, PD-self / PD-author / PD-release (the author's own release);
+    #   dated works (PD-old*, PD-Art, PD-Scan, country PD templates): before the cutoff, or after it only when the
+    #   page ALSO carries a US public-domain template (PD-1996, PD-US-*) — public domain in the source country and
+    #   in the United States. Anything else stays refused (pending manual review).
+    tpl = ' '.join(lic)
+    free_any_date = re.search(r'\{\{\s*(CC0|Cc-zero|PD-USGov[^|}]*|PD-self|PD-author|PD-release)', tpl, re.I)
+    us_pd = re.search(r'\{\{\s*(PD-1996|PD-US-[A-Za-z-]+|PD-US)\b', wikitext, re.I)
+    if not free_any_date:
+        if y is None: return None, f'no date for a dated public-domain basis ({tpl})'
+        if y >= PD_CUTOFF and not us_pd: return None, f'year {y} not before {PD_CUTOFF} and no US public-domain template ({tpl})'
+    lic_short = 'CC0' if re.search(r'CC0|Cc-zero', tpl, re.I) else 'Public domain'
     time.sleep(4)
     src = f"https://commons.wikimedia.org/w/thumb.php?f={q}&w={e.get('width', 2000)}"
     img = urllib.request.urlopen(urllib.request.Request(src, headers=COMMONS_UA), timeout=90).read()
@@ -83,8 +95,8 @@ def fetch_commons(e):
     return {'id': name, 'year': y, 'src': src, 'image': img, 'date': e.get('date') or clean(field('date')),
             'source': {'repository': 'Wikimedia Commons', 'file': name, 'page': f'https://commons.wikimedia.org/wiki/File:{q}',
                        'statement': ' '.join(lic), 'title': e['description'], 'original_source': clean(field('source'))},
-            'license': {'short': 'Public domain', 'url': f'https://commons.wikimedia.org/wiki/File:{q}', 'attribution_required': False, 'rights_advisory': ' '.join(lic)},
-            'author': e.get('author') or clean(field('author')), 'credit': e.get('credit') or 'Wikimedia Commons (public domain)'}, None
+            'license': {'short': lic_short, 'url': f'https://commons.wikimedia.org/wiki/File:{q}', 'attribution_required': False, 'rights_advisory': ' '.join(lic)},
+            'author': e.get('author') or clean(field('author')), 'credit': e.get('credit') or f'Wikimedia Commons ({lic_short.lower()})'}, None
 
 def main():
     sel = json.load(open(sys.argv[1], encoding='utf-8'))
