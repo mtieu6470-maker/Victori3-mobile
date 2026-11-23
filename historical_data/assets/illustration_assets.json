@@ -3338,6 +3338,61 @@
       }
     },
     {
+      "id": "ill_gbr_egypt_treaty_1936",
+      "type": "illustration_event",
+      "subject": "gbr_egypt_treaty_1936",
+      "name": "Bản đồ tổng thể Cairo năm 1920",
+      "description": "Bản đồ tổng thể Cairo do Survey of Egypt xuất bản năm 1920; tư liệu địa lý cùng thời kỳ cho trung tâm chính trị Ai Cập trong giai đoạn ký Hiệp ước Anh–Ai Cập năm 1936.",
+      "path": "content/illustrations/events/gbr_egypt_treaty_1936.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_egypt_treaty_1936_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1935,
+        "to": 1937
+      },
+      "quality": "supported",
+      "date": "1920",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "General map of Cairo. LOC 2009580102.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:General%20map%20of%20Cairo.%20LOC%202009580102.jpg",
+        "statement": "{{PD-Art|PD-old-80-1923}}",
+        "title": "Bản đồ tổng thể Cairo do Survey of Egypt xuất bản năm 1920; tư liệu địa lý cùng thời kỳ cho trung tâm chính trị Ai Cập trong giai đoạn ký Hiệp ước Anh–Ai Cập năm 1936.",
+        "original_source": "https://www.loc.gov/item/2009580102/",
+        "source_pixels": [
+          3840,
+          2884
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:General%20map%20of%20Cairo.%20LOC%202009580102.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Art|PD-old-80-1923}}"
+      },
+      "author": "Survey of Egypt (Giza)",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Pre-1931 map with explicit U.S. public-domain basis on Commons; contextual image, not a photograph of the treaty signing."
+      }
+    },
+    {
       "id": "ill_gbr_ghana_independence_1957",
       "type": "illustration_event",
       "subject": "gbr_ghana_independence_1957",
@@ -3723,6 +3778,61 @@
       }
     },
     {
+      "id": "ill_gbr_jamaica_independence_1962",
+      "type": "illustration_event",
+      "subject": "gbr_jamaica_independence_1962",
+      "name": "Bản đồ Jamaica năm 1888",
+      "description": "Bản đồ Jamaica năm 1888, thể hiện các khu vực và địa danh của đảo trước quá trình chuyển đổi thành quốc gia độc lập năm 1962.",
+      "path": "content/illustrations/events/gbr_jamaica_independence_1962.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_jamaica_independence_1962_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1961,
+        "to": 1963
+      },
+      "quality": "supported",
+      "date": "1888",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Map of Jamaica (1888).jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Map%20of%20Jamaica%20%281888%29.jpg",
+        "statement": "{{PD-old-70-1923}}",
+        "title": "Bản đồ Jamaica năm 1888, thể hiện các khu vực và địa danh của đảo trước quá trình chuyển đổi thành quốc gia độc lập năm 1962.",
+        "original_source": "Image extracted from page 113 of volume 2 of A Historical Geography of the British Colonies, by Charles P. Lucas. Original held and digitised by the British Library. Copied from Flickr.",
+        "source_pixels": [
+          1937,
+          1255
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Map%20of%20Jamaica%20%281888%29.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-70-1923}}"
+      },
+      "author": "British Library Mechanical Curator; map from A Historical Geography of the British Colonies",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Pre-1931 historical map; Commons page records U.S. public-domain status. Context map, not a photograph of the 1962 ceremony."
+      }
+    },
+    {
       "id": "ill_gbr_jamaica_labour_1938",
       "type": "illustration_event",
       "subject": "gbr_jamaica_labour_1938",
@@ -3830,6 +3940,61 @@
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-23",
         "note": "Period regional map; not a photograph of Mau Mau operations."
+      }
+    },
+    {
+      "id": "ill_gbr_kenya_independence_1963",
+      "type": "illustration_event",
+      "subject": "gbr_kenya_independence_1963",
+      "name": "Bản đồ Đông Phi thuộc Anh và Uganda năm 1898",
+      "description": "Bản đồ Đông Phi thuộc Anh và Uganda năm 1898, thể hiện bối cảnh lãnh thổ lịch sử của Kenya trước độc lập năm 1963.",
+      "path": "content/illustrations/events/gbr_kenya_independence_1963.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_kenya_independence_1963_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1963,
+        "to": 1963
+      },
+      "quality": "supported",
+      "date": "1898",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Map of East Africa Protectorate and Uganda (1898).png",
+        "page": "https://commons.wikimedia.org/wiki/File:Map%20of%20East%20Africa%20Protectorate%20and%20Uganda%20%281898%29.png",
+        "statement": "{{PD-US-expired}}",
+        "title": "Bản đồ Đông Phi thuộc Anh và Uganda năm 1898, thể hiện bối cảnh lãnh thổ lịch sử của Kenya trước độc lập năm 1963.",
+        "original_source": "Wikimedia Commons",
+        "source_pixels": [
+          640,
+          590
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "contain"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Map%20of%20East%20Africa%20Protectorate%20and%20Uganda%20%281898%29.png",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-US-expired}}"
+      },
+      "author": "Unknown author",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Pre-1931 map with explicit PD-US-expired notice on Commons. Contextual map; not a photograph of the 1963 flag ceremony."
       }
     },
     {
