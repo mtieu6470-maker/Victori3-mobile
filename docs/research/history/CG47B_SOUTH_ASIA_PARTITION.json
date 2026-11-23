@@ -1,0 +1,665 @@
+{
+  "meta": {
+    "task": "CG-47B",
+    "title": "South Asian Partition: India–Pakistan 1947 and Bangladesh 1971",
+    "branch": "ccr-b27f3fb8-epfpd6",
+    "created": "2026-11-23",
+    "scope": "Research staging for the legal creation of India and Pakistan, partition of Punjab and Bengal, accession/integration of major princely states, the Kashmir dispute and ceasefire line, and East Pakistan's secession as Bangladesh.",
+    "dateConvention": "ISO-8601 Gregorian. Distinguish declaration, legal effectiveness, accession instrument, military control and international ceasefire line. Do not equate accession with uncontested sovereignty.",
+    "mapConstraint": "The current map is too coarse to represent the Radcliffe line within Punjab/Bengal or the 1949 Kashmir ceasefire line. The recommendations below are explicit whole-region fallbacks, not claims that the historical border followed the current region edges.",
+    "qualityLegend": {
+      "verified": "Primary legal text, UN treaty record or official government/archival source confirms the date or instrument.",
+      "supported": "Institutional or academic historical synthesis supports the date and interpretation.",
+      "estimated": "Population split is a census-based approximation used for whole-region allocation; not a precise GIS overlay."
+    }
+  },
+  "entities": [
+    {
+      "id": "IND",
+      "name_en": "Dominion of India",
+      "name_vi": "Liên bang Ấn Độ",
+      "capitalHistorical": "New Delhi",
+      "capitalRegion": "EIC_DEL",
+      "statusFrom": "1947-08-15",
+      "statusTo": "1950-01-26",
+      "government": "Dominion; constitutional monarchy under the British Crown",
+      "quality": "verified"
+    },
+    {
+      "id": "IND",
+      "name_en": "Republic of India",
+      "name_vi": "Cộng hòa Ấn Độ",
+      "capitalHistorical": "New Delhi",
+      "capitalRegion": "EIC_DEL",
+      "statusFrom": "1950-01-26",
+      "government": "Federal parliamentary republic under the Constitution of India",
+      "quality": "verified"
+    },
+    {
+      "id": "PAK",
+      "name_en": "Dominion of Pakistan",
+      "name_vi": "Liên bang Pakistan",
+      "capitalHistorical": "Karachi",
+      "capitalRegion": "SND_HYD (coarse proxy; Karachi is not a distinct region in the supplied list)",
+      "statusFrom": "1947-08-14",
+      "statusTo": "1956-03-23",
+      "government": "Dominion; constitutional monarchy under the British Crown",
+      "components": [
+        {
+          "id": "PAK_WEST",
+          "name_en": "West Pakistan",
+          "capitalHistorical": "Karachi"
+        },
+        {
+          "id": "PAK_EAST",
+          "name_en": "East Pakistan",
+          "capitalHistorical": "Dacca/Dhaka"
+        }
+      ],
+      "quality": "verified"
+    },
+    {
+      "id": "PAK",
+      "name_en": "Islamic Republic of Pakistan",
+      "name_vi": "Cộng hòa Hồi giáo Pakistan",
+      "capitalHistorical": "Karachi (until 1959 capital relocation); Islamabad thereafter",
+      "capitalRegion": "SND_HYD (coarse proxy)",
+      "statusFrom": "1956-03-23",
+      "government": "Federal republic; parliamentary under 1956 and 1973 constitutions, interrupted by military regimes",
+      "quality": "verified"
+    },
+    {
+      "id": "PAK_EAST",
+      "name_en": "East Pakistan",
+      "name_vi": "Đông Pakistan",
+      "capitalHistorical": "Dacca (Dhaka)",
+      "capitalRegion": "EIC_BEN (coarse Bengal proxy)",
+      "statusFrom": "1955-10-14",
+      "statusTo": "1971-12-16",
+      "government": "Eastern wing of Pakistan; not a separate sovereign state",
+      "quality": "supported"
+    },
+    {
+      "id": "BGD",
+      "name_en": "People's Republic of Bangladesh",
+      "name_vi": "Cộng hòa Nhân dân Bangladesh",
+      "capitalHistorical": "Dhaka",
+      "capitalRegion": "EIC_BEN (coarse Bengal proxy)",
+      "statusFrom": "1971-03-26",
+      "government": "Independent republic; independence declaration effective 26 March 1971; victory and effective control in December 1971",
+      "quality": "verified"
+    }
+  ],
+  "events": [
+    {
+      "id": "INDPAK-1947-07-18",
+      "date": "1947-07-18",
+      "eventType": "independence_act",
+      "title": "Indian Independence Act 1947",
+      "note": "The Act provided for two independent Dominions, India and Pakistan, from the appointed dates. The legal act is distinct from the Radcliffe boundary award and from later integration of princely states.",
+      "sources": [
+        "uk_india_act"
+      ],
+      "quality": "verified"
+    },
+    {
+      "id": "PAK-1947-08-14",
+      "date": "1947-08-14",
+      "eventType": "dominion_independence",
+      "entity": "PAK",
+      "name_en": "Dominion of Pakistan",
+      "name_vi": "Liên bang Pakistan",
+      "capitalHistorical": "Karachi",
+      "territoryRegions": [
+        "SIK_LAH",
+        "SIK_MUL",
+        "SIK_PES",
+        "SND_HYD",
+        "KAL_KAL",
+        "EIC_BEN"
+      ],
+      "sources": [
+        "uk_national_archives_partition",
+        "india_mea_partition"
+      ],
+      "quality": "verified",
+      "note": "Pakistan became independent on 14 August 1947. East and West wings were geographically non-contiguous."
+    },
+    {
+      "id": "IND-1947-08-15",
+      "date": "1947-08-15",
+      "eventType": "dominion_independence",
+      "entity": "IND",
+      "name_en": "Dominion of India",
+      "name_vi": "Liên bang Ấn Độ",
+      "capitalHistorical": "New Delhi",
+      "territoryRegions": [
+        "EIC_DEL",
+        "EIC_ASS",
+        "SIK_KAS",
+        "SIK_JAM",
+        "PRI_CIS"
+      ],
+      "sources": [
+        "uk_national_archives_partition",
+        "india_mea_partition"
+      ],
+      "quality": "verified",
+      "note": "India became independent on 15 August 1947; it remained a Dominion until 26 January 1950."
+    },
+    {
+      "id": "PARTITION-1947-08-17",
+      "date": "1947-08-17",
+      "eventType": "radcliffe_boundary_award",
+      "title": "Publication of the Radcliffe Awards",
+      "note": "The Punjab and Bengal boundary awards were gazetted two days after the Dominions' independence. They split both provinces; Sylhet's referendum was a separate process. The current map does not contain enough subregions to reproduce the line.",
+      "sources": [
+        "india_mea_partition",
+        "uk_national_archives_partition"
+      ],
+      "quality": "verified"
+    },
+    {
+      "id": "KASHMIR-1947-10-26",
+      "date": "1947-10-26",
+      "eventType": "princely_accession_disputed",
+      "entity": "IND",
+      "title": "Maharaja Hari Singh signs Instrument of Accession to India",
+      "capitalHistorical": "Srinagar/Jammu (seasonal court)",
+      "regionIds": [
+        "SIK_KAS",
+        "SIK_JAM"
+      ],
+      "sources": [
+        "unmogip_background",
+        "india_mea_partition"
+      ],
+      "quality": "verified",
+      "note": "India treats accession as legally effective; Pakistan disputes the circumstances and the final status. The whole SIK_KAS region should not be treated as uncontested Indian territory."
+    },
+    {
+      "id": "JUNAGADH-1947-11",
+      "date": "1947-11-09",
+      "eventType": "princely_state_integration",
+      "entity": "IND",
+      "title": "Junagadh administration transferred to India",
+      "capitalHistorical": "Junagadh",
+      "sources": [
+        "junagadh_history"
+      ],
+      "quality": "supported",
+      "note": "The Nawab acceded to Pakistan in September 1947; Indian forces entered in November and a February 1948 referendum supported accession to India. No matching region ID was supplied; do not invent one."
+    },
+    {
+      "id": "PATIALA-1948-07",
+      "date": "1948-07-15",
+      "eventType": "princely_union_integration",
+      "entity": "IND",
+      "title": "Patiala and East Punjab States Union (PEPSU) formed",
+      "capitalHistorical": "Patiala",
+      "regionIds": [
+        "PRI_CIS"
+      ],
+      "sources": [
+        "patiala_history"
+      ],
+      "quality": "supported",
+      "note": "Patiala and several East Punjab princely states formed PEPSU, later merged into Punjab in 1956. Assign PRI_CIS to India."
+    },
+    {
+      "id": "HYDERABAD-1948-09-17",
+      "date": "1948-09-17",
+      "eventType": "princely_state_integration",
+      "entity": "IND",
+      "title": "Hyderabad State brought under Indian Union control",
+      "capitalHistorical": "Hyderabad",
+      "regionIds": [
+        "HYD_HYD"
+      ],
+      "sources": [
+        "hyderabad_history"
+      ],
+      "quality": "verified",
+      "note": "Operation Polo ended the Nizam's independent claim; the region should transfer to India from this date, with a short military-administration interval."
+    },
+    {
+      "id": "KASHMIR-1949-01-01",
+      "date": "1949-01-01",
+      "eventType": "ceasefire_line",
+      "title": "UN-supervised India–Pakistan ceasefire in Jammu and Kashmir",
+      "regionIds": [
+        "SIK_KAS",
+        "SIK_JAM"
+      ],
+      "sources": [
+        "unmogip_background",
+        "karachi_ceasefire_un"
+      ],
+      "quality": "verified",
+      "note": "The ceasefire took effect on 1 January 1949. The Karachi Agreement of 27 July 1949 delineated the ceasefire line; this was a military line, not a final international border."
+    },
+    {
+      "id": "KASHMIR-1949-07-27",
+      "date": "1949-07-27",
+      "eventType": "ceasefire_line_agreement",
+      "title": "Karachi Agreement establishes the ceasefire line",
+      "regionIds": [
+        "SIK_KAS",
+        "SIK_JAM"
+      ],
+      "sources": [
+        "karachi_ceasefire_un",
+        "unmogip_background"
+      ],
+      "quality": "verified",
+      "note": "UN military observers supervised the ceasefire line. The current single Kashmir/Jammu regions cannot represent the line; retain a contested status and do not split or duplicate ownership."
+    },
+    {
+      "id": "TRAVANCORE-1949-07",
+      "date": "1949-07-01",
+      "eventType": "princely_union_integration",
+      "entity": "IND",
+      "title": "Travancore-Cochin Union established",
+      "capitalHistorical": "Trivandrum (Thiruvananthapuram)",
+      "regionIds": [
+        "TRV_TRV"
+      ],
+      "sources": [
+        "travancore_history"
+      ],
+      "quality": "supported",
+      "note": "Travancore and Cochin merged as a constituent state within the Indian Union; assign TRV_TRV to India."
+    },
+    {
+      "id": "IND-1950-01-26",
+      "date": "1950-01-26",
+      "eventType": "republic_constitution",
+      "entity": "IND",
+      "name_en": "Republic of India",
+      "name_vi": "Cộng hòa Ấn Độ",
+      "capitalHistorical": "New Delhi",
+      "sources": [
+        "india_constitution"
+      ],
+      "quality": "verified",
+      "note": "The Constitution came into force and India became a sovereign democratic republic; universal adult suffrage was provided for."
+    },
+    {
+      "id": "PAK-1955-10-14",
+      "date": "1955-10-14",
+      "eventType": "administrative_reorganization",
+      "entity": "PAK",
+      "title": "One Unit scheme creates West Pakistan; East Bengal renamed East Pakistan",
+      "capitalHistorical": "Karachi / Dacca",
+      "sources": [
+        "pakistan_history"
+      ],
+      "quality": "supported",
+      "note": "West Pakistan's provinces and princely states were amalgamated into one province; East Pakistan remained the eastern wing."
+    },
+    {
+      "id": "PAK-1956-03-23",
+      "date": "1956-03-23",
+      "eventType": "republic_constitution",
+      "entity": "PAK",
+      "name_en": "Islamic Republic of Pakistan",
+      "name_vi": "Cộng hòa Hồi giáo Pakistan",
+      "capitalHistorical": "Karachi",
+      "sources": [
+        "pakistan_constitution"
+      ],
+      "quality": "verified",
+      "note": "Pakistan's first Constitution came into force and ended Dominion status."
+    },
+    {
+      "id": "BGD-1971-03-26",
+      "date": "1971-03-26",
+      "eventType": "independence_declaration",
+      "entity": "BGD",
+      "name_en": "People's Republic of Bangladesh",
+      "name_vi": "Cộng hòa Nhân dân Bangladesh",
+      "capitalHistorical": "Dhaka",
+      "sources": [
+        "bangladesh_national_archives",
+        "bangladesh_proclamation"
+      ],
+      "quality": "verified",
+      "note": "The declaration was made on 26 March; the Proclamation of Independence adopted on 10 April 1971 had effect from 26 March."
+    },
+    {
+      "id": "BGD-1971-12-16",
+      "date": "1971-12-16",
+      "eventType": "liberation_war_end",
+      "entity": "BGD",
+      "title": "Pakistani Eastern Command surrenders in Dhaka",
+      "capitalHistorical": "Dhaka",
+      "sources": [
+        "bangladesh_national_archives"
+      ],
+      "quality": "verified",
+      "note": "The surrender ended the nine-month Liberation War and established Bangladesh's effective independence. Do not use 16 December as the declaration date."
+    }
+  ],
+  "partitionDemography": [
+    {
+      "unit": "Punjab Province (1941 census baseline)",
+      "sourceId": "india_mea_partition",
+      "totalOldProvincePopulationMillions": 28.4,
+      "westPakistanSide": {
+        "populationMillions": 15.8,
+        "muslimPopulationMillions": 11.85,
+        "shareOfOldProvincePopulationPct": 55.6
+      },
+      "eastIndiaSide": {
+        "populationMillions": 12.6,
+        "muslimPopulationMillions": 4.375,
+        "shareOfOldProvincePopulationPct": 44.4
+      },
+      "allocationRecommendation": "For the single Lahore-centred region SIK_LAH, assign Pakistan because Lahore lies west of the Radcliffe line. Use the 55.6/44.4 whole-province split only as contextual evidence; it is not the population share inside SIK_LAH itself.",
+      "quality": "estimated",
+      "limitations": "The source totals refer to the two post-award territorial portions of undivided Punjab, not to a direct population raster for the game's coarse SIK_LAH region."
+    },
+    {
+      "unit": "Bengal Province (1941 census baseline)",
+      "sourceId": "india_mea_partition",
+      "totalOldProvincePopulationMillions": 60.3,
+      "eastPakistanSide": {
+        "populationMillions": 39.1,
+        "muslimPopulationMillions": 27.7,
+        "shareOfOldProvincePopulationPct": 64.8
+      },
+      "westIndiaSide": {
+        "populationMillions": 21.2,
+        "muslimPopulationMillions": 5.3,
+        "shareOfOldProvincePopulationPct": 35.2
+      },
+      "allocationRecommendation": "If EIC_BEN must remain indivisible, assign it to Pakistan/East Pakistan because the East Bengal/East Pakistan portion held about 64.8% of the old province's population and Dhaka is the eastern-wing capital. This necessarily misassigns Calcutta/West Bengal; it is a known major map distortion, not an acceptable final border model.",
+      "quality": "estimated",
+      "limitations": "EIC_BEN combines Calcutta and Dacca and cannot represent the Radcliffe line. Split it into at least EIC_BEN_WEST and EIC_BEN_EAST before treating the map as historically accurate."
+    }
+  ],
+  "engineRegionAllocation": [
+    {
+      "regionId": "SIK_LAH",
+      "description": "Lahore / central Punjab coarse region",
+      "recommendedOwner": "PAK",
+      "from": "1947-08-14",
+      "confidence": "supported",
+      "reason": "Lahore lies west of the Radcliffe line; this region should follow West Punjab."
+    },
+    {
+      "regionId": "SIK_MUL",
+      "description": "Multan / western Punjab",
+      "recommendedOwner": "PAK",
+      "from": "1947-08-14",
+      "confidence": "supported",
+      "reason": "West Punjab."
+    },
+    {
+      "regionId": "SIK_PES",
+      "description": "Peshawar / North-West Frontier Province",
+      "recommendedOwner": "PAK",
+      "from": "1947-08-14",
+      "confidence": "supported",
+      "reason": "The NWFP voted to join Pakistan in the 1947 referendum."
+    },
+    {
+      "regionId": "SND_HYD",
+      "description": "Sindh / Hyderabad",
+      "recommendedOwner": "PAK",
+      "from": "1947-08-14",
+      "confidence": "supported",
+      "reason": "Sindh joined Pakistan; Karachi was the federal capital but is not a distinct supplied region."
+    },
+    {
+      "regionId": "KAL_KAL",
+      "description": "Kalat / Baluchistan",
+      "recommendedOwner": "PAK",
+      "from": "1948-03-27",
+      "confidence": "supported",
+      "reason": "Kalat acceded to Pakistan in March 1948; the date is not the same as Pakistan's independence."
+    },
+    {
+      "regionId": "EIC_BEN",
+      "description": "Whole Bengal coarse region, including Calcutta and Dacca",
+      "recommendedOwner": "PAK_EAST",
+      "from": "1947-08-14",
+      "confidence": "estimated",
+      "reason": "East Bengal had about 64.8% of undivided Bengal's 1941 population, but this puts Calcutta in Pakistan. This is only a temporary majority-population fallback; split region required."
+    },
+    {
+      "regionId": "EIC_ASS",
+      "description": "Assam coarse region",
+      "recommendedOwner": "IND",
+      "from": "1947-08-15",
+      "confidence": "supported",
+      "reason": "Most of Assam remained in India; Sylhet district joined East Pakistan except Karimganj after the 1947 referendum. Current region cannot represent that district carve-out."
+    },
+    {
+      "regionId": "SIK_KAS",
+      "description": "Kashmir Valley / Kashmir coarse region",
+      "recommendedOwner": "IND (provisional whole-region holder)",
+      "from": "1947-10-26",
+      "confidence": "disputed",
+      "reason": "India's legal claim rests on the Instrument of Accession; Pakistan disputes it. The 1949 ceasefire line divided control, but the coarse region must be marked contested and not presented as uncontested Indian territory."
+    },
+    {
+      "regionId": "SIK_JAM",
+      "description": "Jammu coarse region",
+      "recommendedOwner": "IND (provisional whole-region holder)",
+      "from": "1947-10-26",
+      "confidence": "disputed",
+      "reason": "Part of the princely state whose accession India relies on; exact postwar control is split and must be modelled separately if map granularity allows."
+    },
+    {
+      "regionId": "PRI_CIS",
+      "description": "Patiala / East Punjab princely-state aggregate",
+      "recommendedOwner": "IND",
+      "from": "1948-07-15",
+      "confidence": "supported",
+      "reason": "Patiala and associated East Punjab princely states formed PEPSU within India."
+    },
+    {
+      "regionId": "EIC_DEL",
+      "description": "Delhi / New Delhi",
+      "recommendedOwner": "IND",
+      "from": "1947-08-15",
+      "confidence": "verified",
+      "reason": "Capital of the Dominion and Republic of India."
+    },
+    {
+      "regionId": "HYD_HYD",
+      "description": "Hyderabad State",
+      "recommendedOwner": "IND",
+      "from": "1948-09-17",
+      "confidence": "verified",
+      "reason": "Nizam's state integrated after Operation Polo."
+    },
+    {
+      "regionId": "TRV_TRV",
+      "description": "Travancore",
+      "recommendedOwner": "IND",
+      "from": "1949-07-01",
+      "confidence": "supported",
+      "reason": "Travancore-Cochin was constituted within the Indian Union."
+    }
+  ],
+  "princelyStateAccession": [
+    {
+      "state": "Jammu and Kashmir",
+      "date": "1947-10-26",
+      "accessionTo": "IND",
+      "status": "disputed",
+      "regionIds": [
+        "SIK_KAS",
+        "SIK_JAM"
+      ],
+      "note": "Accession signed by Maharaja Hari Singh during invasion/war; legal validity and final status disputed by Pakistan; UN-mediated ceasefire line 1949."
+    },
+    {
+      "state": "Junagadh",
+      "date": "1947-11-09",
+      "accessionTo": "IND (after military takeover; referendum 1948)",
+      "status": "contested-then-integrated",
+      "regionIds": [],
+      "note": "Nawab initially acceded to Pakistan; India took control in November 1947 and held a referendum in February 1948. No supplied map region ID."
+    },
+    {
+      "state": "Mysore",
+      "date": "1947-08-09",
+      "accessionTo": "IND",
+      "status": "integrated",
+      "regionIds": [],
+      "note": "Acceded before independence; later became a constituent state. No supplied region ID in MSG-108."
+    },
+    {
+      "state": "Patiala and East Punjab princely states",
+      "date": "1948-07-15",
+      "accessionTo": "IND",
+      "status": "integrated-as-PEPSU",
+      "regionIds": [
+        "PRI_CIS"
+      ],
+      "note": "PEPSU formed 15 July 1948; merged into Punjab in 1956."
+    },
+    {
+      "state": "Hyderabad",
+      "date": "1948-09-17",
+      "accessionTo": "IND",
+      "status": "integrated-after-Operation-Polo",
+      "regionIds": [
+        "HYD_HYD"
+      ],
+      "note": "Military action ended the Nizam's separate rule; use 17 September 1948 for effective integration."
+    },
+    {
+      "state": "Travancore-Cochin",
+      "date": "1949-07-01",
+      "accessionTo": "IND",
+      "status": "integrated-union",
+      "regionIds": [
+        "TRV_TRV"
+      ],
+      "note": "Union formed on 1 July 1949."
+    },
+    {
+      "state": "Kalat",
+      "date": "1948-03-27",
+      "accessionTo": "PAK",
+      "status": "integrated",
+      "regionIds": [
+        "KAL_KAL"
+      ],
+      "note": "The Khan of Kalat signed accession in March 1948; distinguish this from 1947 independence."
+    }
+  ],
+  "sources": [
+    {
+      "id": "uk_india_act",
+      "title": "Indian Independence Act 1947",
+      "url": "https://www.legislation.gov.uk/ukpga/Geo6/10-11/30/contents",
+      "type": "United Kingdom primary statute",
+      "quality": "verified"
+    },
+    {
+      "id": "uk_national_archives_partition",
+      "title": "Partition of British India",
+      "url": "https://www.nationalarchives.gov.uk/education/teaching-resources/partition-of-british-india/",
+      "type": "UK National Archives research and primary-source guide",
+      "quality": "supported"
+    },
+    {
+      "id": "india_mea_partition",
+      "title": "India–Pakistan Standard Reference: Radcliffe Award and 1941 population figures",
+      "url": "https://www.mea.gov.in/Images/pdf/India-Pakistan-std.pdf",
+      "type": "Government of India Ministry of External Affairs document",
+      "quality": "supported"
+    },
+    {
+      "id": "unmogip_background",
+      "title": "UNMOGIP — Background",
+      "url": "https://unmogip.unmissions.org/en/node/77267",
+      "type": "United Nations Peacekeeping",
+      "quality": "verified"
+    },
+    {
+      "id": "karachi_ceasefire_un",
+      "title": "Agreement between Military Representatives of India and Pakistan regarding cease-fire line in Jammu and Kashmir",
+      "url": "https://treaties.un.org/Pages/showDetails.aspx?objid=08000002801573a6",
+      "type": "UN Treaty Collection",
+      "quality": "verified"
+    },
+    {
+      "id": "bangladesh_national_archives",
+      "title": "The Independence of Bangladesh in 1971",
+      "url": "https://www.nationalarchives.gov.uk/education/teaching-resources/independence-of-bangladesh/",
+      "type": "UK National Archives",
+      "quality": "supported"
+    },
+    {
+      "id": "bangladesh_proclamation",
+      "title": "Supreme Court of Bangladesh — Proclamation of Independence",
+      "url": "https://www.supremecourt.gov.bd/translation/process.php?file=389828_WP8932of2011.pdf",
+      "type": "Bangladesh Supreme Court judgment reproducing primary proclamation",
+      "quality": "verified"
+    },
+    {
+      "id": "junagadh_history",
+      "title": "Junagadh accession and referendum",
+      "url": "https://www.britannica.com/place/Junagadh",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "patiala_history",
+      "title": "Patiala and East Punjab States Union",
+      "url": "https://www.britannica.com/place/Patiala",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "hyderabad_history",
+      "title": "Operation Polo and integration of Hyderabad",
+      "url": "https://www.britannica.com/event/Hyderabad-Police-Action",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "travancore_history",
+      "title": "Travancore-Cochin integration",
+      "url": "https://www.britannica.com/place/Travancore",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "india_constitution",
+      "title": "Constitution of India — commencement on 26 January 1950",
+      "url": "https://legislative.gov.in/constitution-of-india/",
+      "type": "Government of India primary legal source",
+      "quality": "verified"
+    },
+    {
+      "id": "pakistan_history",
+      "title": "Pakistan — constitutional and political history",
+      "url": "https://www.britannica.com/place/Pakistan/History",
+      "type": "Historical reference",
+      "quality": "supported"
+    },
+    {
+      "id": "pakistan_constitution",
+      "title": "Constitution of Pakistan — historical constitutional documents",
+      "url": "https://na.gov.pk/en/content.php?id=75",
+      "type": "National Assembly of Pakistan",
+      "quality": "verified"
+    }
+  ],
+  "validationNotes": [
+    "No engine region was invented. All region IDs in this package were supplied in MSG-108; blank regionIds explicitly mean the current list contains no safe mapping.",
+    "The Radcliffe line cannot be represented by the current coarse SIK_LAH and EIC_BEN regions. The recommended whole-region assignments are stopgap decisions only.",
+    "EIC_BEN assigned to East Pakistan by majority-population fallback would put Calcutta/West Bengal on the wrong side. This is a high-severity map fidelity defect; split EIC_BEN before a production historical start.",
+    "EIC_ASS remains India although Sylhet district (except Karimganj) joined East Pakistan after a referendum; this subregional transfer is not represented by EIC_ASS as a single region.",
+    "SIK_KAS and SIK_JAM are provisionally held by India for the legal accession path but must carry a contested status and a Pakistan claim. The Karachi ceasefire line is not the international border and cannot be mapped within the supplied coarse regions.",
+    "Kashmir accession is not the same as a final settlement; avoid presenting the whole princely state as uncontested Indian territory.",
+    "The 1941 population values are pre-partition census-derived estimates for post-award territories; the percentage is the share of the undivided province population, not the fraction of a game's individual coarse region."
+  ]
+}
