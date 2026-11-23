@@ -37,7 +37,7 @@ def latest_year(text):
 
 COMMONS_UA = {'User-Agent': 'Victori3MobileAssetBot/0.1 (educational game; open-access image research)'}
 # Commons licence templates accepted as public domain / CC0. Anything else (CC BY-NC, fair use, ...) is refused.
-COMMONS_OK = re.compile(r'\{\{\s*(PD-[A-Za-z0-9-]+|PD-Art|PD-Scan|CC0|Cc-zero|Public domain)[^}]*\}\}', re.I)
+COMMONS_OK = re.compile(r'\{\{\s*(PD-[A-Za-z0-9-]+|PD-Art|PD-Scan|CC0|Cc-zero|Public domain|self\s*\|[^}]*\b(?:cc-zero|CC0|PD-self)\b)[^}]*\}\}', re.I)
 
 def fetch_loc(e):
     item_id = e['loc_item']
@@ -82,8 +82,8 @@ def fetch_commons(e):
     #   page ALSO carries a US public-domain template (PD-1996, PD-US-*) — public domain in the source country and
     #   in the United States. Anything else stays refused (pending manual review).
     tpl = ' '.join(lic)
-    free_any_date = re.search(r'\{\{\s*(CC0|Cc-zero|PD-USGov[^|}]*|PD-self|PD-author|PD-release)', tpl, re.I)
-    us_pd = re.search(r'\{\{\s*(PD-1996|PD-US-[A-Za-z-]+|PD-US)\b', wikitext, re.I)
+    free_any_date = re.search(r'\{\{\s*(CC0|Cc-zero|PD-USGov[^|}]*|PD-self|PD-author|PD-release)|\{\{\s*self\s*\|[^}]*\b(cc-zero|CC0|PD-self)\b', tpl, re.I)
+    us_pd = re.search(r'\{\{\s*(PD-1996|PD-US-[A-Za-z-]+|PD-US)\b|\|\s*(PD-1996|PD-US-[A-Za-z-]+)\s*[|}]', wikitext, re.I)
     if not free_any_date:
         if y is None: return None, f'no date for a dated public-domain basis ({tpl})'
         if y >= PD_CUTOFF and not us_pd: return None, f'year {y} not before {PD_CUTOFF} and no US public-domain template ({tpl})'
