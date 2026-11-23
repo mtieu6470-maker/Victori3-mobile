@@ -87,3 +87,69 @@ max 2); 100 = one mandate (bank of 3). Adding or raising a principle costs one m
 
 **Breakdowns**: `leverageParts` (power, relations, market, subject, alliance, border, culture, religion,
 companies, rivalry) and `cohesionParts` (base, attitude, identity, leverage, size) are shown in the UI.
+
+## 6. PB-03 — subjects and V3-style principles (owner 2026-11-23: "a sovereign empire earns too little"; CG-48)
+
+Reference: `docs/research/design/CG48_POWER_BLOCS_SUBJECTS_REFERENCE.md` and the owner's screenshots. The
+mechanics follow the reference; the numbers are our own.
+
+### 6.1 Subjects (`systems/subjects.ts`)
+
+| type | autonomy | own diplomacy | base payment | annexable | more → / ← less |
+|---|---|---|---:|---|---|
+| puppet, vassal, colony | low | no | 25% | yes | dominion / autonomous vassal |
+| princely state | low | no | 15% | yes | dominion |
+| chartered company | medium | yes | 15% | no | dominion / colony |
+| dominion | medium | yes | 20% | no | protectorate / puppet |
+| autonomous vassal | medium | yes | 15% | no | tributary / vassal |
+| personal union | medium | no | 0% | no | — |
+| protectorate | high | yes | 5% | no | — / dominion |
+| tributary | high | yes | 10% | no | — / autonomous vassal |
+
+- **Payment:** each month the subject pays `(base + adjustment ±10%) × (1 + overlord's bloc subjectPay)` of its government income, capped at 40%. Nothing is paid while the two are at war.
+- **Liberty desire** (0–100, monthly) comes from named factors, shown in the UI:
+  - base +0.6;
+  - relations ±0.5;
+  - raised payments +0.4 / reduced −0.2;
+  - power relative to the overlord: −0.3 (a weak subject feels protected) to +0.6;
+  - culture: same −0.2 / foreign +0.2;
+  - overlord infamy: notorious +0.3, pariah +1;
+  - shared market −0.2;
+  - pacts: knowledge sharing −0.3, exemption from service −0.3, regime support −0.4;
+  - the overlord's bloc;
+  - after 1945 +0.5.
+
+  Rising pressure is damped by (1 − L/120) and by a sovereign empire (−20%).
+- **Thresholds:**
+  - At 75 or more, an AI subject asks for more autonomy. An AI overlord decides; a player overlord gets a `subject_request` journal entry (no answer counts as a refusal and adds +10).
+  - A subject held at 90 or more for 12 months, with no autonomy left to gain or refused in the last 5 years, starts an independence war. This happens in Sandbox, or in Historical Mode only against the player.
+  - A rising that fails sets liberty desire back to 35.
+- **Overlord actions** (`subject_pact`):
+  - raise/reduce payments; knowledge sharing (+10% tech import); exemption from service (does not join wars); regime support (costs 5% of the subject's income);
+  - more/less autonomy (less needs liberty < 25 and has a 5-year cooldown);
+  - annex (annexable types, liberty < 25, or the bloc's annexBelow; other subjects +10); release.
+- **Player as subject:** `subject_independence` at liberty ≥ 75.
+- **AI overlords (yearly):** raise payments below 30, reduce above 60, knowledge sharing above 55, regime support above 75. Sandbox only: they annex tiny contented subjects.
+
+### 6.2 Principles (PB-03b)
+
+- **Primary groups.** Each identity has two primary groups and must keep at least one; the founding principle is a primary group at level 1, free.
+  - trade league: internal trade / external trade;
+  - sovereign empire: exploitation / vassalization;
+  - ideological union: ideological truth / creative legislature;
+  - military treaty: defensive / aggressive coordination;
+  - religious convocation: sacred civics / divine economics.
+- **Slots:** 2. A 3rd at bloc power rank ≤ 5 with 5+ members; a 4th at rank ≤ 3 with 10+ members. Once won, slots are kept.
+- **Mandate cost** equals the levels gained; lowering a principle is free.
+- **Imposing laws** (`bloc_impose_law`): the leader can impose a law on a member if the identity or a principle allows that law group. It needs cohesion ≥ 60 and positive relations, and costs −30 relations and −20 cohesion.
+  - identity: trade league → trade law; ideological union → power and governance; religious convocation → church;
+  - principles: advanced research I → education; defensive cooperation II → army; ideological truth III → press; sacred civics III → church.
+- **Defensive cooperation:**
+  - I: members cannot attack each other;
+  - II: mutual-defence alliance;
+  - III: members are obliged to defend a partner (AI always joins).
+- **Aggressive coordination:** members join the leader's offensive wars; infamy −15%; level III costs −10 cohesion.
+- **Exploitation:** members pay 2/3/5% of income; leader legitimacy +3/+5, members −3/−5; cohesion −5/−10/−20; level III also gives +10% on subject payments.
+- **Vassalization:** subjects' liberty desire −0.3/−0.3/−0.5 per month; subject payments +25% from level II; level III allows annexation below liberty 40.
+- **Internal trade:** the bloc's external tariff gives +10/15/20% tariff income.
+- **Cohesion** also counts the principles' own costs and, for a sovereign empire, its most restless subject (−(L−50)/5).

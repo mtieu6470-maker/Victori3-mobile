@@ -1,3 +1,27 @@
+## 2026-11-23 — PB-03 subjects (V3-style) and reworked power-bloc principles (owner: "a sovereign empire earns too little"; CG-48 + owner screenshots)
+
+- Design: `docs/design/POWER_BLOCS_VI.md` §6. Reference: `docs/research/design/CG48_POWER_BLOCS_SUBJECTS_REFERENCE.md`.
+- **Subjects** (`systems/subjects.ts`, system `subjects` after economy):
+  - 10 types, each with autonomy, diplomacy, base payment 0–25% and annexation rules; `Country.subjectPact`.
+  - Liberty desire with named factors; AI autonomy requests, with a `subject_request` journal entry for the player overlord.
+  - Independence wars: Sandbox, or against the player.
+  - Overlord pacts and actions: `subject_pact`; the player as subject: `subject_independence`.
+  - Hooks: exemption from service (`warSides`), knowledge sharing (`importPoints`).
+- **Power blocs:**
+  - two primary groups per identity; slots by bloc rank and size; mandates priced by tier;
+  - leader law imposition (`bloc_impose_law`);
+  - defensive cooperation I–III: no internal wars / alliance / obliged;
+  - exploitation with cohesion costs; vassalization; external tariff (economy) and infamy reduction (`declareWar`).
+- **UI:**
+  - Diplomacy → "Chư hầu & đối thủ": subject types table, each subject's liberty bar with monthly factors, payment and action grid; own status and an independence button for a subject.
+  - The bloc card shows primary groups, mandate costs, imposable laws and law-imposition buttons.
+- **Calibration** (seed 1, to 1900):
+  - Historical: no autonomy changes or risings among AI subjects; liberty mostly 20–55. The East India Company pays about 7–10% of Britain's income.
+  - Sandbox: liberty 15–75, no runaway risings.
+- **Tests:** `tests/subjects.test.ts` (5) and `tests/power-blocs.test.ts` (11).
+
+---
+
 ## 2026-11-23 — PB-02 distinct power-bloc identities (owner: "make clear what joining gives, like V3")
 
 - Design: `docs/design/POWER_BLOCS_VI.md` §5.

@@ -5,7 +5,8 @@ import { useState } from 'preact/hooks';
 import type { Country, GameState } from '../../engine/types';
 import { SUBJECT, SUBJECT_TYPES, libertyParts, pactOf, paymentRate, subjectActionBlocker, type SubjectAction } from '../../engine/systems/subjects';
 import { Sec } from '../components/ui';
-import { SUBJECT_VI, fmt } from '../i18n/vi';
+import { SUBJECT_VI, fmt, money } from '../i18n/vi';
+const d2 = (v: number) => `${v > 0 ? '+' : v < 0 ? '−' : ''}${Math.abs(v).toFixed(2).replace('.', ',')}`;
 import { shortName } from '../game/names';
 import { CountryLink, canCommand, send } from './common';
 
@@ -37,8 +38,8 @@ function LibertyBreakdown({ st, c }: { st: GameState; c: Country }) {
   const parts = libertyParts(st, c); const p = pactOf(st, c);
   if (!parts) return null;
   return <div style="margin:4px 0 6px 12px">
-    <div class="s">Thay đổi mỗi tháng: <b class={(p.change ?? 0) > 0 ? 'neg' : 'pos'}>{(p.change ?? 0) > 0 ? '+' : ''}{fmt(p.change ?? 0)}</b> (càng gần hai đầu thang càng chậm)</div>
-    {Object.entries(parts).filter(([, v]) => v).map(([k, v]) => <div class="kv" key={k}><span class="k s">{PART_VI[k]}</span><span class={`v ${v > 0 ? 'neg' : 'pos'}`}>{v > 0 ? '+' : ''}{fmt(v)}</span></div>)}
+    <div class="s">Thay đổi mỗi tháng: <b class={(p.change ?? 0) > 0 ? 'neg' : 'pos'}>{d2(p.change ?? 0)}</b> (càng gần hai đầu thang càng chậm)</div>
+    {Object.entries(parts).filter(([, v]) => v).map(([k, v]) => <div class="kv" key={k}><span class="k s">{PART_VI[k]}</span><span class={`v ${v > 0 ? 'neg' : 'pos'}`}>{d2(v)}</span></div>)}
   </div>;
 }
 
@@ -54,12 +55,12 @@ export function OverlordSubjects({ st, id }: { st: GameState; id: string }) {
   const subs = Object.values(st.countries).filter((c) => c.alive && c.overlord === id);
   const [open, setOpen] = useState<string | null>(null);
   const total = subs.reduce((s, c) => s + (c.subjectPact?.paid ?? 0), 0);
-  return <Sec title="Chư hầu" x={`${subs.length} · nhận ${fmt(total)}/tháng`}>
+  return <Sec title="Chư hầu" x={`${subs.length} · nhận ${money(total)}/tháng`}>
     {!subs.length && <div class="empty sm">Không có.</div>}
     {subs.map((c) => {
       const p = pactOf(st, c); const t = SUBJECT_TYPES[c.subjectType ?? ''];
       return <div class="option" key={c.id}>
-        <div class="oh" style="cursor:pointer" onClick={() => setOpen(open === c.id ? null : c.id)}><span class="ot"><CountryLink st={st} id={c.id} /> · {TYPE_VI[c.subjectType ?? ''] ?? c.subjectType}</span><span class="tag flat">nộp {Math.round(paymentRate(st, c) * 100)}% · {fmt(p.paid ?? 0)}/tháng</span></div>
+        <div class="oh" style="cursor:pointer" onClick={() => setOpen(open === c.id ? null : c.id)}><span class="ot"><CountryLink st={st} id={c.id} /> · {TYPE_VI[c.subjectType ?? ''] ?? c.subjectType}</span><span class="tag flat">nộp {Math.round(paymentRate(st, c) * 100)}% · {money(p.paid ?? 0)}/tháng</span></div>
         <LibertyBar v={p.liberty} />
         <div class="s">{[p.payAdj > 0 ? 'đang tăng cống nạp' : p.payAdj < 0 ? 'đang giảm cống nạp' : '', p.knowledge ? 'chia sẻ tri thức' : '', p.exempt ? 'miễn quân dịch' : '', p.support ? 'hỗ trợ chính quyền' : ''].filter(Boolean).join(' · ') || 'chưa có hiệp ước'}{t ? ` · tự trị ${AUTONOMY_VI[t.autonomy]}` : ''}</div>
         {open === c.id && <>
@@ -85,7 +86,7 @@ export function MySubjectStatus({ st, id }: { st: GameState; id: string }) {
   const p = pactOf(st, c); const mine = canCommand(st, id);
   return <Sec title="Quan hệ lệ thuộc">
     <div class="kv"><span class="k">{TYPE_VI[c.subjectType ?? ''] ?? 'Chư hầu'} của</span><span class="v"><CountryLink st={st} id={c.overlord} /></span></div>
-    <div class="kv"><span class="k">Nộp cho tông chủ</span><span class="v">{Math.round(paymentRate(st, c) * 100)}% thu nhập · {fmt(p.paid ?? 0)}/tháng</span></div>
+    <div class="kv"><span class="k">Nộp cho tông chủ</span><span class="v">{Math.round(paymentRate(st, c) * 100)}% thu nhập · {money(p.paid ?? 0)}/tháng</span></div>
     <div class="s" style="margin-top:4px">Mong muốn tự do:</div>
     <LibertyBar v={p.liberty} />
     <LibertyBreakdown st={st} c={c} />
