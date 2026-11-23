@@ -140,3 +140,92 @@ The 1.15 patch notes are the controlling reference for this update. Legacy thres
 ## Parity matrix review notes
 
 The current global parity matrix still marks diplomatic plays as missing and power blocs as missing, while Infamy and United Nations are partial. The matrix's production-method row should be rechecked against the current branch because the latest code commit includes an initial PM-1 implementation. For CG-39, keep UN membership, Council/veto/resolution simulation and sanctions as separate tracked capabilities; the 193-row membership dataset alone does not constitute a working UN feature.
+
+## 7. Current-branch implementation audit (read-only)
+
+Files inspected on this branch:
+
+- `src/engine/systems/un.ts` — the live UN implementation.
+- `src/engine/systems/diplomacy.ts` — infamy, aggression, decay, alliances and war declaration.
+- `src/engine/systems/politics.ts` — interest groups, legitimacy, reforms and revolution checks.
+- `docs/audit/GLOBAL_VICTORIA3_FEATURE_PARITY_MATRIX.csv` — 63 tracked parity rows.
+
+### UN engine versus the historical record
+
+The current engine already implements the owner's deliberate **four-permanent-seat** rule, 6/10 elected seats, 7/9 affirmative-vote thresholds, an October 1945 founding event, veto counting, and automatic condemnation of certain member-on-member wars. Keep the four-seat rule as an owner-directed gameplay abstraction; do not silently describe it as the actual P5 arrangement.
+
+The research identifies several gaps between the present code and historical process:
+
+1. `foundUn()` adds every sovereign country alive in the simulated world in October 1945. That is not the historical 51-member founding list. Use the membership register and the game's country/territory mapping to seed 1945 members.
+2. Later members are admitted automatically 12 months after a country forms. Real admission requires a Security Council recommendation and a General Assembly decision; P5 vetoes can block the Council recommendation. The 1955 package and continuity cases in the CSV are not yet consumed by the engine.
+3. Elected seats are selected by weighted random power/prestige, not a General Assembly election with regional allocation. Terms rotate, but the current initial one-year/two-year staggering is a game approximation.
+4. A Council vote is currently triggered automatically for every qualifying conquest/colonial war between members. Historically the Council does not automatically vote on every war; an item must reach the Council's agenda. The current automatic rule is a project abstraction.
+5. The engine currently models condemnation as one outcome with fixed project effects (+10 infamy, +10 war exhaustion, −20 relations). It does not yet model resolution types, sanctions, peacekeeping mandates, delegated force authorizations, reporting, compliance or enforcement delays.
+6. `holdVote()` models substantive veto logic but has no separate procedural-vote path, admission recommendation, or General Assembly vote. An abstention is not a veto, and that distinction should remain explicit.
+
+### Infamy: concrete parity differences
+
+Current branch values in `src/engine/systems/diplomacy.ts`:
+
+| Project implementation | Value / behavior | Victoria 3 reference |
+|---|---|---|
+| `INFAMY_TIERS` | 25 / 50 / **80** | Familiar vanilla thresholds are 25 / 50 / **100** (Pariah); the official legacy Dev Diary explicitly gives 100. Confirm installed 1.15 defines before locking values. |
+| `INFAMY_DECAY_PER_MONTH` | 0.25 = **3 per year** | Legacy vanilla base is 5 per year; unallocated Influence can increase decay. Verify the actual 1.15 define before adopting the constant. |
+| Decay condition | Stops while the country is an attacker in a conquest/colonial war | Public 1.15 notes and the official Infamy diary describe slow decay and an Influence-related boost, but do not establish this offensive-war pause. Treat the pause as a project rule until verified against 1.15 game data. |
+| `warInfamy()` | number of targeted regions × 3, multiplied by 4 after 1945; independence is free | Victoria 3 1.15 bases most territorial war-goal costs on a target-state value derived primarily from global GDP and population, then applies rank, recognition, subject, interest and other modifiers. A flat region multiplier is not parity. |
+| `CONTAIN_AGGRESSOR` | Target infamy ≥25 or currently attacking; attacker pays 25% normal infamy | This is a project-specific discount for fighting an aggressor. It is **not** Victoria 3's Pariah containment war goal. |
+| `POST_1945_NORM` | Conquest multiplier ×4 from 1945 | This is a project historical-norm rule, not the Victoria 3 infamy formula. Keep it separate and label it as a project rule. |
+
+### What “containment” means in Victoria 3
+
+The older official Dev Diary calls the play **Contain Threat**; current references and 1.15 notes use **Cut Down to Size**. It is a punitive war goal against a **Pariah** (legacy threshold 100), not a blanket rule that makes every war against a country with 25 infamy cheap.
+
+The reference play is launched by a Great Power against a Pariah; the Great Powers are drawn into the response. If enforced, the target must release states and subjects acquired through conquest in the previous ten years, and its other active war-goal claims are removed. In 1.15, Cut Down to Size is one of the exceptional war goals that is enforced only through capitulation or a peace deal, not by the normal mid-war occupation progress bar.
+
+Infamy itself is generated when aggressive demands are added to a diplomatic play and creates diplomatic incidents/relationship damage. It decays over time; available sources do not support a universal claim that merely being at war erases or suspends the infamy value. Some unpressed demands can receive refunds, but the relationship damage is not reversed. Thus:
+- **Containment war** = other Great Powers attempt to roll back recent expansion by a Pariah.
+- **Project anti-aggressor discount** = a separate owner rule that makes fighting an aggressor cheaper.
+- **Offensive-war decay pause** = currently implemented project behavior, not verified as Victoria 3 parity.
+
+## 8. Core Victoria 3 parity gaps, ranked by gameplay dependency
+
+The matrix has 63 rows. The list below prioritizes the systems that create the actual grand-strategy loop, not optional visual or content-pack detail.
+
+### P0 — must become functional before claiming Victoria 3-like depth
+
+1. **Diplomatic plays — MISSING / NOT_STARTED (`DIPLOMATIC_PLAYS`).** Add opening moves, escalation, maneuvers, primary/secondary demands, sways, neutrality, backdown, countdown and transition into war. Immediate `declareWar()` is not a substitute. This is the largest blocker for meaningful diplomacy and UN interaction.
+2. **POP cohorts, needs and identity — PARTIAL (`POP_COHORTS`, `POP_NEEDS`, `IDENTITY_RIGHTS`).** Cohorts need population, culture, religion, strata/class, occupation, age/household structure, wealth and political identity. Needs baskets and Standard of Living must respond to prices, wages, taxes, shortages and access; discrimination and accepted-culture/religion rules must feed jobs, migration, radicalism and politics.
+3. **Employment, qualifications and wages — PARTIAL (`EMPLOYMENT_WAGES`).** Buildings need job slots by profession, qualification eligibility, hiring competition, wage setting, unemployment, layoffs and labor mobility. Without this, production cannot react credibly to shortages or profitability.
+4. **Production methods and full supply chains — PM-1 now IMPLEMENTED as an initial slice; matrix status is stale.** Commit `3d47b0274726f8c72c862a6a8928d65e4194aa3c` adds methods for four factory buildings and player selection, but the methods currently change input mix; output per worker remains RECIPES × technology. Extend to the remaining building sectors, method-specific productivity, goods (including electricity), by-products, throughput and technology unlocks. Then make supply/demand, inventories or unsold-output handling, input shortages and prices interact consistently.
+5. **Markets, trade and logistics — PARTIAL (`MARKETS`, `TRADE`, `LOGISTICS`).** Add market membership/market access, buy/sell orders, price convergence and bounds, tariffs, trade routes, ports, convoys, shipping capacity and blockade effects. This is a direct dependency for industrialization and naval strategy.
+6. **Construction, budget and credit — PARTIAL (`CONSTRUCTION`, `FINANCE`).** Construction sectors must consume goods and labor, queue projects, compete for inputs and be limited by throughput. Budget must model taxes by base, tariffs, government wages, institutions, interest, debt service, credit constraints, deficits and default/creditworthiness.
+7. **Interest groups, laws, institutions and organized movements — PARTIAL / NOT_STARTED (`INTEREST_GROUPS`, `LAWS_INSTITUTIONS`, `MOVEMENTS`).** The current code has clout/approval, law reform progress and a stochastic revolution check; it does not yet have organized movements with activism, radicalism, support, demands, political agitation and movement-driven law changes/revolutions. Implement `POL-03` before treating politics as parity.
+8. **Military, war support and peace — PARTIAL (`ARMIES`, `NAVIES`, `WAR_SUPPORT`, `PEACE`).** Complete formations, fronts, commanders, mobilization, supply, naval missions/invasions, battle resolution, war-support dynamics, occupation and negotiated peace/war-goal enforcement. 1.15's mid-war goal enforcement and 0–100 war-support loop are important reference behaviors.
+9. **National AI planner — PARTIAL (`AI`).** AI needs goals, strategic regions, budgets, industrial priorities, diplomacy, war-risk evaluation, coalition preferences and consistent multi-year planning; isolated heuristics are not enough.
+10. **Journal and event chains — PARTIAL (`JOURNAL`, `EVENTS`).** Add persistent objectives with triggers, progress, completion/failure, rewards and branching event chains; support both historically grounded and emergent outcomes.
+11. **Save compatibility and Android performance — NEEDS_QA (`SAVE`, `MOBILE_PERF`, `CLOCK_HOURLY`).** Regression tests, long-run determinism, save migrations, memory/CPU/thermal profiling and large-world AI turn budgets are release gates, not polish.
+
+### P1 — important depth after the P0 loop is stable
+
+- **Parties, elections and legislature** (`PARTIES_ELECTIONS`, NOT_STARTED): party formation, vote eligibility, electoral systems, seats, government formation and legislative constraints.
+- **Subjects and autonomy** (`SUBJECTS`, PARTIAL): subject types, obligations, autonomy, liberty desire, overlord interventions and independence plays.
+- **Power blocs** (`POWER_BLOCS`, MISSING): membership, cohesion, leverage, principles, bloc leader, joining/leaving and treaty-based defensive/offensive coordination. Do not substitute the UN for this system.
+- **National awakening / colonization / indigenous agency** (`NATIONALISM_FORMATION`, `COLONIZATION`): cultural movements, unification candidacies, decentralized polities, colonial claims, resistance and decolonization.
+- **Ship design and gunboat diplomacy** (`SHIP_DESIGN`, NOT_STARTED): hulls/modules, ship classes, fleet roles, ship transfer treaties and power projection.
+- **Map, UI, localization and observer mode**: complete strategic overlays, readable ledgers/tooltips, Vietnamese historical names and reliable AI-vs-AI observation.
+
+### P2 — content breadth, not substitutes for core mechanics
+
+Companies/charters, individual released content packs, portraits, building art, music/audio/video and cosmetic asset delivery expand flavor and presentation. They should not displace the P0 simulation systems above.
+
+## 9. Recommended next slices for Claude
+
+1. **DIP-02:** implement the diplomatic-play state machine and tests before deepening the automatic UN condemnation rule.
+2. **POP-01 / POP-02 / POP-03:** cohort model, needs/SoL, discrimination and identity, with migration and radicalism derived from those cohorts.
+3. **IND-01 continuation + GOODS-1 + ECON-01/02:** mark PM-1 as partial/implemented, add goods and method productivity, then close the input/output and market-price loop.
+4. **FIN-01 / IND-04:** connect construction and fiscal capacity to the goods/labor market.
+5. **POL-03:** movements/activism before adding more revolutions or election UI.
+6. **MIL-01..05 / WS-01:** complete military logistics, war support and peace settlement.
+7. **AI-01..03 + HIST-02:** national planning and journal/event chains, then run long historical and sandbox benchmarks.
+
+The above order is a dependency recommendation from the matrix, not a request to abandon the current branch plan or change branches.
