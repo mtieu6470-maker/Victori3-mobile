@@ -240,6 +240,7 @@ export function validateNestedState(st: GameState): void {
   validateHistoryAndCounters(s);
   validateCompanies(s);
   if (s.decolonised !== undefined) arr(s.decolonised, 'decolonised').forEach((x, i) => str(x, `decolonised[${i}]`));
+  if (s.organisations !== undefined) for (const [k, v] of Object.entries(obj(s.organisations, 'organisations'))) arr(v, `organisations.${k}`).forEach((x, i) => str(x, `organisations.${k}[${i}]`));
   if (s.settlements !== undefined) {
     const v = obj(s.settlements, 'settlements');
     arr(v.applied, 'settlements.applied').forEach((x, i) => str(x, `settlements.applied[${i}]`));

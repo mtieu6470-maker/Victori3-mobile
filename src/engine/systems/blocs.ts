@@ -44,4 +44,54 @@ export function blocsMonth(st: GameState): void {
     for (const id of [...t.members]) if (!want.includes(id)) { t.members = t.members.filter((x) => x !== id); log(st, { type: 'diplomacy', text: `${st.countries[id]?.name ?? id} leaves ${b.name_en}.`, textVi: `${st.countries[id]?.nameVi ?? id} rời ${b.name_vi}.`, actors: [id], historical: true }); }
     if (t.leader && !t.members.includes(t.leader)) t.leader = t.members[0];
   }
+  organisationsMonth(st, today);
+}
+
+/**
+ * BLOC-03: economic blocs and political organisations (CG-46b). Membership is recorded for the holders of the
+ * member capitals (shown in the UI). The EEC's customs union is a real common market (V3-style customs union):
+ * the founders join on 1 July 1968, later members on their accession. The player is never enrolled.
+ */
+export const EEC_UNION = 'cu_EEC_EU';
+function organisationsMonth(st: GameState, today: string): void {
+  const orgs = data().db.organisations ?? [];
+  if (!orgs.length) return;
+  st.organisations ??= {};
+  for (const o of orgs) {
+    const active = o.founded <= today && (!o.dissolved || today < o.dissolved);
+    const members: string[] = []; const union: string[] = [];
+    if (active) for (const m of o.members) {
+      if (m.from > today || (m.to && today >= m.to)) continue;
+      const c = holderOfCapital(st, m.capital);
+      if (!c || c.id === st.player || members.includes(c.id)) continue;
+      members.push(c.id);
+      if (m.customsUnionFrom && m.customsUnionFrom <= today) union.push(c.id);
+    }
+    if (members.length) st.organisations[o.id] = members; else delete st.organisations[o.id];
+    if (o.id === 'EEC_EU') eecUnion(st, union);
+  }
+}
+
+function leaveUnion(st: GameState, id: string) {
+  const c = st.countries[id]; if (!c?.customsUnion) return;
+  const u = st.treaties.find((t) => t.id === c.customsUnion);
+  c.customsUnion = null;
+  if (!u) return;
+  u.members = u.members.filter((m) => m !== id);
+  if (u.leader === id) u.leader = u.members[0];
+  if (u.members.length < 2) { for (const m of u.members) if (st.countries[m]) st.countries[m].customsUnion = null; st.treaties = st.treaties.filter((t) => t.id !== u.id); }
+}
+
+function eecUnion(st: GameState, want: string[]) {
+  let u = st.treaties.find((t) => t.id === EEC_UNION);
+  if (!u && want.length >= 2) {
+    u = { id: EEC_UNION, type: 'customs_union', members: [], leader: want[0], start: st.tick, source: 'bloc:EEC_EU' };
+    st.treaties.push(u);
+    log(st, { type: 'economy', text: 'The EEC customs union is completed.', textVi: 'Liên minh thuế quan của Cộng đồng Kinh tế châu Âu hoàn thành.', actors: want.slice(0, 6), historical: true });
+  }
+  if (!u) return;
+  for (const id of want) if (!u.members.includes(id)) { if (st.countries[id].customsUnion !== EEC_UNION) leaveUnion(st, id); u.members.push(id); st.countries[id].customsUnion = EEC_UNION; }
+  for (const id of [...u.members]) if (!want.includes(id)) { st.countries[id] && (st.countries[id].customsUnion = null); u.members = u.members.filter((m) => m !== id); }
+  if (u.leader && !u.members.includes(u.leader)) u.leader = u.members[0];
+  if (u.members.length < 2) { for (const m of u.members) if (st.countries[m]) st.countries[m].customsUnion = null; st.treaties = st.treaties.filter((t) => t.id !== EEC_UNION); }
 }

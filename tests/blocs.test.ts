@@ -41,3 +41,21 @@ describe('BLOC-01 Cold War blocs', () => {
     expect(sb.treaties.some((t) => t.id === blocTreatyId('NATO'))).toBe(false);
   });
 });
+
+describe('BLOC-03 economic blocs and organisations (CG-46b)', () => {
+  it('records memberships and completes the EEC customs union in 1968 as a common market', async () => {
+    const { EEC_UNION } = await import('../src/engine/systems/blocs');
+    const { marketOf } = await import('../src/engine/systems/economy');
+    const st = createGame({ mode: 'historical', seed: 1, player: null });
+    at(st, 1960, 1); blocsMonth(st);
+    expect(st.organisations!.COMECON).toContain('RUS');
+    expect(st.organisations!.EEC_EU).toEqual(expect.arrayContaining(['FRA', 'BEL']));
+    expect(st.treaties.some((t) => t.id === EEC_UNION)).toBe(false);
+    at(st, 1968, 8); blocsMonth(st);
+    const u = st.treaties.find((t) => t.id === EEC_UNION)!;
+    expect(u.type).toBe('customs_union');
+    expect(u.members).toEqual(expect.arrayContaining(['FRA', 'BEL']));
+    expect(marketOf(st, st.countries.FRA)).toBe(marketOf(st, st.countries.BEL));
+    expect(() => validateNestedState(st)).not.toThrow();
+  });
+});

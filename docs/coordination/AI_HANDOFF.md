@@ -1,3 +1,15 @@
+## 2026-11-23 — BLOC-03 CG-46b economic blocs and political organisations; EEC customs union
+
+- ChatGPT CG-46b (MSG-106) added `iso3`, `capitalLat`/`capitalLon` and the EEC customs-union dates to CG-46.
+- `build-blocs.ts` now also emits `organisations` into `blocs.json`: COMECON, ECSC, EEC/EU, EFTA, NAM, Arab League, OAU, ASEAN, OAS. Capitals come from the coordinates via the map grid; only Seychelles is skipped (no region). build-data validates → `db.organisations`.
+- `blocs.ts` `organisationsMonth`:
+  - `GameState.organisations` records, per organisation, the countries holding member capitals (contract-checked; the player is never enrolled).
+  - **The EEC customs union** (`cu_EEC_EU`) is a real customs union and so a common market (`marketOf`). The founders join on 1 Jul 1968; later members on their customs-union dates. Joining leaves any previous union; a union of fewer than 2 dissolves.
+- UI: the country screen shows a "Tổ chức" row with memberships.
+- Tests: `blocs.test.ts` +1.
+
+---
+
 ## 2026-11-23 — BLOC-02 CG-46 military alliances integrated
 
 - ChatGPT CG-46 (`docs/research/history/CG46_COLD_WAR_BLOCS.json`) contains 22 organisations.
