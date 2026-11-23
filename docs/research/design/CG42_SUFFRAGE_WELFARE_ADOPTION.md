@@ -13,7 +13,7 @@ Bộ dữ liệu có **63 dòng chính thể/quốc gia**, vượt ngưỡng t�
 ## 2. Nguồn và phương pháp
 
 ### Quyền bầu cử nữ
-Nguồn nền tảng là bản ghi nhớ của Tổng Thư ký Liên Hợp Quốc A/2462 ngày 26/8/1953. Tài liệu phân biệt:
+Nguồn nền tảng là bản ghi nhớ của Tổng Thư ký Liên Hợp Quốc A/2462 ngày 26/8/1953, được bổ sung bằng hồ sơ IPU và nguồn chính thức cấp quốc gia cho các trường hợp ngoài bảng UN hoặc có lịch sử riêng (đặc biệt Tây Ban Nha và Thụy Sĩ). Tài liệu phân biệt:
 - quyền bầu cử cấp quốc gia với cấp địa phương/tỉnh;
 - quyền hạn chế với quyền bình đẳng;
 - năm ban hành quyền với năm phụ nữ lần đầu thực sự bỏ phiếu;
@@ -126,4 +126,8 @@ Các ví dụ có trong dữ liệu: Đức 1933–1945, Ý 1926–1945, Tây Ba
 - `ssa_bismarck_pensions` — US Social Security Administration: historical development of social insurance (supported). https://www.ssa.gov/history/bortz.html
 - `pension_programs_table` — The Political Origin of Pension Funding, Table 1: Development of Pension Systems (supported). https://www.pseweb.eu/ydepot/semin/texte0607/PER2006POL.pdf
 - `aec_australia_1902` — Australian Electoral Commission, A short history of federal electoral reform (verified). https://www.aec.gov.au/Elections/history-of-electoral-reform.htm
+- `swiss_federal_archives_women` — Swiss Federal Archives, Women’s suffrage in Switzerland (verified). https://www.bar.admin.ch/en/womens-suffrage-in-switzerland
+- `swiss_federal_archives_male` — Swiss Federal Archives, The Swiss state and its citizens after 1848 (verified). https://www.bar.admin.ch/en/the-swiss-state-and-its-citizens-after-1848
+- `spain_reina_sofia_women` — Museo Reina Sofía, Women and Politics: The Road Towards Full Citizenship (verified). https://www.museoreinasofia.es/en/collection/research-projects/women-civil-war/women-and-politics/
+- `spain_senate_transition_2025` — Spanish Senate, Constitutional periods and transition to democracy (verified). https://www.senado.es/web/conocersenado/senadohistoria/periodosconstitucionales/index.html?lang=en
 - `issa_profiles` — ISSA Country Profiles – methodology and coverage (verified). https://www.issa.int/databases/country-profiles/about
