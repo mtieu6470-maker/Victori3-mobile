@@ -252,7 +252,7 @@ export function validateNestedState(st: GameState): void {
     for (const k of ['id', 'kind', 'event', 'country', 'status'] as const) str(j[k], `${p}.${k}`);
     num(j.started, `${p}.started`); num(j.expires, `${p}.expires`); if (j.ended !== undefined) num(j.ended, `${p}.ended`);
     if (!['active', 'completed', 'expired', 'abandoned'].includes(j.status as string)) fail(`${p}.status`, 'unknown journal status');
-    if (!['regime', 'decolonisation'].includes(j.kind as string)) fail(`${p}.kind`, 'unknown journal kind');
+    if (!['regime', 'decolonisation', 'call_to_arms'].includes(j.kind as string)) fail(`${p}.kind`, 'unknown journal kind');
   });
   if (s.regimesApplied !== undefined) arr(s.regimesApplied, 'regimesApplied').forEach((x, i) => str(x, `regimesApplied[${i}]`));
   if (s.worldWars !== undefined) for (const [k, v] of Object.entries(obj(s.worldWars, 'worldWars'))) { const r = obj(v, `worldWars.${k}`); if (r.war !== null) str(r.war, `worldWars.${k}.war`); bool(r.ended, `worldWars.${k}.ended`); for (const [m, c] of Object.entries(obj(r.joined, `worldWars.${k}.joined`))) str(c, `worldWars.${k}.joined.${m}`); }

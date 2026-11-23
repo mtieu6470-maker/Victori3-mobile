@@ -147,18 +147,20 @@ export function warSides(st: GameState, attacker: string, defender: string, goal
   const defenders = [...new Set([defender, defLeader])];
   const joined: { id: string; reason: 'subject' | 'alliance' | 'guarantee' | 'great_power' }[] = [];
   const refused: string[] = []; // allies of the defender who decline the call to arms
+  const called: string[] = []; // CTA-01: the player, if an ally of the defender, decides for itself
   // subjects follow overlords
   for (const c of Object.values(st.countries)) if (c.alive && c.overlord === attacker && c.subjectType !== 'tributary' && c.subjectType !== 'personal_union') { attackers.push(c.id); joined.push({ id: c.id, reason: 'subject' }); }
   // defensive alliances and guarantees (a country already fighting for the attacker, e.g. its subject, cannot also defend)
   for (const t of st.treaties) {
     if (t.type === 'alliance' && t.members.includes(defender)) for (const m of t.members) if (m !== defender && !attackers.includes(m) && !defenders.includes(m) && st.countries[m]?.alive && !t.members.includes(attacker)) {
+      if (m === st.player) { if (!called.includes(m)) called.push(m); continue; }
       if (joinWillingness(st, m, attacker, defender) > 0) { defenders.push(m); joined.push({ id: m, reason: 'alliance' }); } else if (!refused.includes(m)) refused.push(m);
     }
     if (t.type === 'guarantee' && t.members[1] === defender && !attackers.includes(t.members[0]) && !defenders.includes(t.members[0])) { defenders.push(t.members[0]); joined.push({ id: t.members[0], reason: 'guarantee' }); }
   }
   // great-power intervention against an aggressive rival
   for (const gp of greatPowers(st)) {
-    if (attackers.includes(gp) || defenders.includes(gp)) continue;
+    if (attackers.includes(gp) || defenders.includes(gp) || gp === st.player) continue; // the player is never drafted
     const conquest = goals.some((g) => g.type !== 'independence');
     if (postwarNorm(st) && conquest && getRel(st, gp, defender) >= 0 && joinWillingness(st, gp, attacker, defender) > POST_1945_NORM.interventionThreshold) { defenders.push(gp); joined.push({ id: gp, reason: 'great_power' }); continue; }
     if ((rivals(st, gp, attacker) && getRel(st, gp, defender) > 10) || (st.countries[gp].ai.planTarget === `support:${defender}`)) {
@@ -166,11 +168,34 @@ export function warSides(st: GameState, attacker: string, defender: string, goal
     }
   }
   const infamy = warInfamy(st, goals, defender);
-  return { attackerLeader: attacker, defenderLeader: defLeader, attackers, defenders, joined, refused: refused.filter((m) => !defenders.includes(m)), infamy, attackerName: a.name };
+  return { attackerLeader: attacker, defenderLeader: defLeader, attackers, defenders, joined, refused: refused.filter((m) => !defenders.includes(m)), called: called.filter((m) => !defenders.includes(m) && !attackers.includes(m)), infamy, attackerName: a.name };
 }
 
 /** AI-INT-01 design parameter: relations lost with the defender when an ally declines its call to arms. */
 export const REFUSED_CALL = { relation: 25 } as const;
+/** CTA-01 design parameter: months the player has to answer an ally's call to arms. */
+export const CALL_TO_ARMS = { months: 3 } as const;
+
+/** CTA-01: the player answers the call — joins the defending side of the war. */
+export function answerCallToArms(st: GameState, who: string, warId: string): boolean {
+  const w = st.wars.find((x) => x.id === warId);
+  if (!w || w.attackers.members.includes(who) || w.defenders.members.includes(who) || !st.countries[who]?.alive) return false;
+  w.defenders.members.push(who);
+  for (const y of w.attackers.members) st.relations[relKey(who, y)] = Math.min(st.relations[relKey(who, y)] ?? 0, -60);
+  log(st, { type: 'war', text: `${st.countries[who].name} answers the call to arms and joins ${w.name}.`, textVi: `${st.countries[who].nameVi} đáp lời kêu gọi và tham gia ${w.name}.`, actors: [who, w.defenders.leader, w.attackers.leader] });
+  return true;
+}
+
+/** CTA-01: the player declines — trust falls and a bilateral (non-bloc) alliance ends, as for the AI. */
+export function refuseCallToArms(st: GameState, who: string, warId: string): void {
+  const w = st.wars.find((x) => x.id === warId);
+  const defender = w?.defenders.leader; if (!defender) return;
+  addRel(st, who, defender, -REFUSED_CALL.relation);
+  if (st.treaties.some((t) => t.type === 'alliance' && !t.source?.startsWith('bloc:') && t.members.length === 2 && t.members.includes(who) && t.members.includes(defender))) {
+    breakAlliance(st, who, defender);
+    log(st, { type: 'diplomacy', text: `${st.countries[who].name} refuses ${st.countries[defender].name}'s call to arms; their alliance ends.`, textVi: `${st.countries[who].nameVi} từ chối lời kêu gọi tham chiến của ${st.countries[defender].nameVi}; liên minh tan vỡ.`, actors: [who, defender] });
+  }
+}
 
 export function declareWar(st: GameState, attacker: string, defender: string, goals: WarGoal[], name?: string, kind: War['kind'] = 'conquest'): War | null {
   const a = st.countries[attacker], dC = st.countries[defender];
@@ -183,6 +208,11 @@ export function declareWar(st: GameState, attacker: string, defender: string, go
   a.infamy += sides.infamy;
   for (const x of w.attackers.members) for (const y of w.defenders.members) st.relations[relKey(x, y)] = Math.min(st.relations[relKey(x, y)] ?? 0, -60);
   st.wars.push(w);
+  // CTA-01 (owner 2026-11-23): the player's ally is attacked — a journal entry asks the player to answer the call
+  for (const m of sides.called) {
+    (st.journal ??= []).push({ id: `jc_${w.id}`, kind: 'call_to_arms', event: w.id, country: m, started: st.tick, expires: st.tick + CALL_TO_ARMS.months, status: 'active' });
+    log(st, { type: 'decision', text: `${dC.name}, your ally, is attacked by ${a.name}. Will you answer the call to arms?`, textVi: `${dC.nameVi}, đồng minh của bạn, bị ${a.nameVi} tấn công. Bạn có đáp lời kêu gọi tham chiến?`, actors: [m, defender, attacker] });
+  }
   // AI-INT-01: an ally that declines the call to arms pays for it: trust falls and a bilateral alliance ends
   // (a bloc treaty survives). The player is not judged for a choice the AI made on its behalf.
   for (const m of sides.refused) {

@@ -24,6 +24,7 @@ import { dateStr, dateToTick, log, newId, rand } from '../core';
 import { createNation } from '../world';
 import { setLaw, govLabelFor, leaderTitle, generatedName } from './politics';
 import { isColonialRegion } from './growth';
+import { answerCallToArms, refuseCallToArms } from './diplomacy';
 import { DECOL_PARAMS, decolRecord, playerDecolonisation, grantIndependence, refuseIndependence } from './decolonisation';
 import type { LawGroup } from '../data/dbTypes';
 import type { Country, GameState, JournalEntry } from '../types';
@@ -147,6 +148,13 @@ function completeEntry(st: GameState, j: JournalEntry, e: RegimeEvent, c: Countr
 function journalMonth(st: GameState) {
   for (const j of st.journal ?? []) {
     if (j.status !== 'active') continue;
+    if (j.kind === 'call_to_arms') {
+      // CTA-01: unanswered by the deadline, or the war is over or already joined → it lapses as a refusal
+      const w = st.wars.find((x) => x.id === j.event);
+      if (!w || w.defenders.members.includes(j.country)) { closeEntry(st, j, 'expired'); continue; }
+      if (st.tick > j.expires) { refuseCallToArms(st, j.country, j.event); closeEntry(st, j, 'expired'); }
+      continue;
+    }
     if (j.kind === 'decolonisation') {
       // DECOL-02: closes when the player no longer holds the colony, or the decision window ends
       const rec = decolRecord(j.event); const mine = rec ? playerDecolonisation(st, rec) : null;
@@ -184,6 +192,12 @@ export function journalAction(st: GameState, playerId: string, entryId: string, 
   const j = st.journal?.find((x) => x.id === entryId);
   if (!j || j.status !== 'active') return { ok: false, reason: 'No such active journal entry' };
   if (j.country !== playerId) return { ok: false, reason: 'This journal entry belongs to a different country' };
+  if (j.kind === 'call_to_arms') {
+    if (action === 'abandon') { refuseCallToArms(st, playerId, j.event); closeEntry(st, j, 'abandoned'); return { ok: true }; }
+    if (!answerCallToArms(st, playerId, j.event)) return { ok: false, reason: 'The war is over or you are already part of it' };
+    closeEntry(st, j, 'completed');
+    return { ok: true };
+  }
   if (j.kind === 'decolonisation') {
     const rec = decolRecord(j.event);
     if (!rec) return { ok: false, reason: 'Unknown independence record' };
@@ -206,8 +220,8 @@ export function journalAction(st: GameState, playerId: string, entryId: string, 
 }
 
 export function regimesMonth(st: GameState): void {
+  journalMonth(st); // journal entries (e.g. calls to arms) exist in both modes
   if (st.mode !== 'historical') return;
-  journalMonth(st);
   const events = data().db.regime_changes ?? [];
   if (!events.length) return;
   st.regimesApplied ??= [];

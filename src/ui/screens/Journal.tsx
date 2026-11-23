@@ -59,6 +59,22 @@ function Missions({ st, id, mine }: { st: GameState; id: string; mine: boolean }
   return (
     <>
       {active.map((j) => {
+        if (j.kind === 'call_to_arms') {
+          const w = st.wars.find((x) => x.id === j.event); if (!w) return null;
+          const def = w.defenders.leader; const att = w.attackers.leader;
+          return (
+            <section class="journal news" key={j.id}>
+              <div class="masthead"><span>Khẩn cấp</span><span>{monthYear(j.started)}</span></div>
+              <header><Icon name="scroll" /><h4>Lời kêu gọi tham chiến: {shortName(st, def)}</h4><span class="ctx">hạn {monthYear(j.expires)}</span></header>
+              <div class="s">Đồng minh của bạn, {shortName(st, def)}, bị {shortName(st, att)} tấn công ({w.name}). Phe tấn công: {w.attackers.members.map((m) => shortName(st, m)).join(', ')}. Phe phòng thủ: {w.defenders.members.map((m) => shortName(st, m)).join(', ')}.</div>
+              <div class="s">Tham chiến: bạn vào phe phòng thủ. Từ chối (hoặc để quá hạn): quan hệ với {shortName(st, def)} giảm mạnh và liên minh song phương tan vỡ (khối liên minh như NATO vẫn còn).</div>
+              {mine && <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+                <button class="btn sm" onClick={() => send({ type: 'journal', entry: j.id, action: 'complete' }, `Tham chiến bảo vệ ${shortName(st, def)}`)}>Tham chiến</button>
+                <button class="btn sm" onClick={() => send({ type: 'journal', entry: j.id, action: 'abandon' }, 'Từ chối lời kêu gọi')}>Từ chối</button>
+              </div>}
+            </section>
+          );
+        }
         if (j.kind === 'decolonisation') {
           const rec = decolRecord(j.event); if (!rec) return null;
           return (
@@ -107,7 +123,7 @@ function Missions({ st, id, mine }: { st: GameState; id: string; mine: boolean }
         );
       })}
       {past.length > 0 && <Sec title="Nhiệm vụ đã kết thúc" x={`${past.length}`}>
-        {past.map((j) => <div class="kv" key={j.id}><span class="k">{j.kind === 'decolonisation' ? `Độc lập: ${decolRecord(j.event)?.name_vi ?? j.event}` : regimeEvent(j.event)?.name_vi ?? j.event}</span><span class="v">{{ completed: 'Hoàn thành', expired: 'Hết thời cơ', abandoned: 'Đã từ bỏ', active: '' }[j.status]}{j.ended !== undefined ? ` · ${monthYear(j.ended)}` : ''}</span></div>)}
+        {past.map((j) => <div class="kv" key={j.id}><span class="k">{j.kind === 'call_to_arms' ? 'Lời kêu gọi tham chiến' : j.kind === 'decolonisation' ? `Độc lập: ${decolRecord(j.event)?.name_vi ?? j.event}` : regimeEvent(j.event)?.name_vi ?? j.event}</span><span class="v">{{ completed: 'Hoàn thành', expired: 'Hết thời cơ', abandoned: 'Đã từ bỏ', active: '' }[j.status]}{j.ended !== undefined ? ` · ${monthYear(j.ended)}` : ''}</span></div>)}
       </Sec>}
     </>
   );

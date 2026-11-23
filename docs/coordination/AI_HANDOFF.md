@@ -1,3 +1,18 @@
+## 2026-11-23 — CTA-01 the player answers an ally's call to arms (V3-style)
+
+- **Before:** the AI decided for the player whether to join an ally's defensive war, and great-power intervention could also draft the player.
+- **Now (`diplomacy.ts`):**
+  - In `warSides`, the player is listed in `called` instead of being joined or refused, and great-power intervention skips the player.
+  - `declareWar` opens a journal entry of kind `call_to_arms` (event = war id) with 3 months to answer (`CALL_TO_ARMS`).
+  - **"Tham chiến"** (`answerCallToArms`) joins the defending side, with relations −60 against the attackers.
+  - **"Từ chối"**, or letting the deadline pass (`refuseCallToArms`), costs relations −25 with the defender and ends a bilateral non-bloc alliance, the same rule as for the AI.
+  - The entry lapses if the war ends or the player is already in it.
+- `regimesMonth` now runs `journalMonth` in **both** modes, because calls to arms exist in Sandbox too.
+- UI: Journal "Khẩn cấp" card listing the sides, with Tham chiến / Từ chối. The outliner now says "N việc cần quyết định".
+- Tests: `ai-interests.test.ts` +1.
+
+---
+
 ## 2026-11-23 — BLOC-03 CG-46b economic blocs and political organisations; EEC customs union
 
 - ChatGPT CG-46b (MSG-106) added `iso3`, `capitalLat`/`capitalLon` and the EEC customs-union dates to CG-46.

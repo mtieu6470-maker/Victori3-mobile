@@ -36,3 +36,26 @@ describe('AI-INT-01 interests in war decisions', () => {
     expect(getRel(st, 'SWE', 'SAR')).toBeLessThanOrEqual(rel - REFUSED_CALL.relation + 1e-9);
   });
 });
+
+describe('CTA-01 the player answers an ally\'s call to arms', () => {
+  it('is asked instead of being drafted; answering joins the defence, refusing costs trust and the alliance', async () => {
+    const { execute } = await import('../src/engine/commands');
+    const st = createGame({ mode: 'sandbox', seed: 1, player: 'SWE' });
+    st.treaties.push({ id: 'ally_t1', type: 'alliance', members: ['SAR', 'SWE'], start: st.tick });
+    const w = declareWar(st, 'AUS', 'SAR', [{ by: 'AUS', type: 'humiliate', target: 'SAR' }])!;
+    expect(w.defenders.members).not.toContain('SWE');
+    const j = st.journal!.find((x) => x.kind === 'call_to_arms' && x.event === w.id)!;
+    expect(j.country).toBe('SWE');
+    expect(execute(st, { type: 'journal', entry: j.id, action: 'complete' }).ok).toBe(true);
+    expect(w.defenders.members).toContain('SWE');
+
+    const st2 = createGame({ mode: 'sandbox', seed: 1, player: 'SWE' });
+    st2.treaties.push({ id: 'ally_t2', type: 'alliance', members: ['SAR', 'SWE'], start: st2.tick });
+    const w2 = declareWar(st2, 'AUS', 'SAR', [{ by: 'AUS', type: 'humiliate', target: 'SAR' }])!;
+    const j2 = st2.journal!.find((x) => x.kind === 'call_to_arms' && x.event === w2.id)!;
+    const rel = getRel(st2, 'SWE', 'SAR');
+    expect(execute(st2, { type: 'journal', entry: j2.id, action: 'abandon' }).ok).toBe(true);
+    expect(allied(st2, 'SWE', 'SAR')).toBe(false);
+    expect(getRel(st2, 'SWE', 'SAR')).toBeLessThan(rel);
+  });
+});

@@ -62,7 +62,7 @@ export interface ClockState { hour: number }
 
 /** REGIME-02: a journal entry (mission). `event` is a regime_changes id; it completes when its goals are met. */
 export interface JournalEntry {
-  id: string; kind: 'regime' | 'decolonisation'; event: string; country: string; started: number; expires: number;
+  id: string; kind: 'regime' | 'decolonisation' | 'call_to_arms'; event: string; country: string; started: number; expires: number;
   status: 'active' | 'completed' | 'expired' | 'abandoned'; ended?: number;
 }
 
