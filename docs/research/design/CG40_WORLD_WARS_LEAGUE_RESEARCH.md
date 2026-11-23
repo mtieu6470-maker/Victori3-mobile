@@ -26,10 +26,10 @@ The conventional global start is **1 September 1939** (Germany's invasion of Pol
 China's war with Japan began on **7 July 1937**; this is represented as a prelude theatre, not as a replacement for the conventional 1939 global start. France's armistice in June 1940, Belgium's capitulation in May 1940 and Norway/Greece/Yugoslavia's metropolitan defeats do not mean their governments-in-exile and forces ceased Allied participation.
 
 **Side changes:**
-- Italy: armistice announced 8 September 1943; Kingdom of Italy declared war on Germany on 13 October 1943 and became a co-belligerent. The Italian Social Republic in northern Italy remained aligned with Germany.
+- Italy: armistice announced 8 September 1943; Kingdom of Italy declared war on Germany on 13 October 1943 and became a co-belligerent. The Italian Social Republic in northern Italy remained aligned with Germany. The Slovak Republic participated in the invasion of Poland from 1 September 1939 as a German satellite; formal Axis alignment followed later.
 - Romania: King Michael's coup on 23 August 1944 ended the Antonescu regime and turned Romania against Germany; armistice signed 12 September 1944.
 - Bulgaria: joined the Axis Pact in March 1941 and declared war on Britain/US in December 1941, but did not declare war on the USSR before the Soviet invasion. Bulgaria declared war on Germany in September 1944; armistice with the Allies followed on 28 October.
-- Finland: co-belligerent with Germany against the USSR, not a formal Tripartite Pact member; armistice 19 September 1944 and Lapland War against Germany began 15 September.
+- Finland: co-belligerent with Germany against the USSR, not a formal Tripartite Pact member; armistice 19 September 1944 and Lapland War against Germany began 15 September. The Netherlands and Belgium entered the war when Germany invaded them on 10 May 1940, not in September 1939. Poland's government-in-exile continued belligerency through the end of the global war.
 
 ## 2. Peace treaties and territorial crosswalk
 
@@ -80,7 +80,7 @@ For Austria-Hungary, Ottoman Empire and Bulgaria, the selected sources do not pr
 
 ### World War II
 
-The National WWII Museum provides country military deaths and total civilian-plus-military deaths; SIPRI provides separate military and civilian approximations for a selected group. The JSON preserves source variation and marks derived/residual estimates. The Museum warns that estimates vary widely and that China may exceed the cited 20 million total.
+The National WWII Museum provides country military deaths and total civilian-plus-military deaths; SIPRI provides separate military and civilian approximations for a selected group. For Finland and Bulgaria, source intervals are sorted numerically in the JSON (Finland civilian 2,000–15,000; Bulgaria 3,000–10,000), while preserving the source totals. The JSON preserves source variation and marks derived/residual estimates. The Museum warns that estimates vary widely and that China may exceed the cited 20 million total.
 
 Examples from the cited series:
 - USSR: about 24 million total; SIPRI's separate estimates put military deaths around 4.75 million and civilian around 1.47 million for Germany, while Soviet source ranges vary materially.
@@ -124,7 +124,7 @@ Examples from the cited series:
 - Lausanne Treaty, Türkiye MFA: https://www.mfa.gov.tr/lausanne-peace-treaty.en.mfa
 - Potsdam territorial settlement, FRUS: https://history.state.gov/historicaldocuments/frus1945Berlinv01/d509
 - San Francisco Treaty of Peace with Japan, FRUS: https://history.state.gov/historicaldocuments/frus1951v06p1/d596
-- Treaty repositories for Saint-Germain, Neuilly, Trianon, Sèvres and Paris 1947: https://treaties.un.org/
+- Treaty of Saint-Germain text: https://www.dipublico.org/3671/\n- Treaty of Trianon text: https://mjp.univ-perp.fr/traites/1920trianon.htm\n- Treaty of Peace with Italy (Paris 1947), UN Treaty Series vol. 49: https://treaties.un.org/doc/publication/unts/volume%2049/v49.pdf\n- Treaty repositories for Neuilly and Sèvres: https://treaties.un.org/
 
 ## 6. Integration instructions for Claude
 
@@ -146,3 +146,17 @@ Examples from the cited series:
 - Complete belligerent lists for colonial forces, minor declarations, resistance movements and governments-in-exile.
 - Harmonized civilian casualty ranges for Austria-Hungary, Ottoman Empire, Bulgaria and several smaller states.
 - Exact casualty definitions and source series for USSR/China; some source totals conflict substantially.
+
+
+## 7. Corrections from validation pass
+
+The first staging validation caught and corrected:
+- Netherlands and Belgium were initially assigned a 1939 entry date; both entered after the German invasion on **10 May 1940**.
+- Slovakia's 1939 state-formation date was not a valid war-entry date; its participation in the invasion of Poland is dated **1 September 1939**.
+- Poland's government-in-exile continued Allied belligerency beyond the 1939 campaign; its global-war end marker is now 2 September 1945.
+- Romania's 1918 re-entry is explicitly represented as a side event on 10 November 1918 after the separate Treaty of Bucharest.
+- The French armistice is separated from Free France's continued Allied war.
+- Finland, Bulgaria and Austria civilian fatality ranges were sorted and checked for internal consistency.
+- The Council permanent-seat end markers for Germany, Japan and Italy now reflect the two-year withdrawal notice period rather than the notice date.
+
+The JSON was reparsed after the correction. It remains staging data; no engine or region ownership was changed.
