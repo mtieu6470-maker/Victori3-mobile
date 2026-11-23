@@ -1,0 +1,298 @@
+{
+  "schema": "story_events_v1",
+  "country": "EIC",
+  "sources": {
+    "uk_parliament_empire": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/key-dates/parliament-and-empire-1815-1970/",
+    "uk_raj": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/parliament-and-the-american-colonies-before-1765/the-raj-and-independence-1914-47/",
+    "india_chronology": "https://academic.oup.com/edited-volume/28170/chapter/213002310",
+    "canada_parliament": "https://www.ourcommons.ca/procedure/procedure-and-practice-3/ch_01_2-e.html",
+    "palestine_un": "https://www.un.org/unispal/history/",
+    "palestine_timeline": "https://www.un.org/unispal/historical-timeline/",
+    "palestine_white_paper": "https://avalon.law.yale.edu/21st_century/brwh1939.asp",
+    "burma_panglong": "https://commons.wikimedia.org/wiki/File:Panglong_Conference.jpg",
+    "egypt_occupation": "https://www.cambridge.org/core/books/abs/cambridge-history-of-egypt/british-occupation-18821922/179398E6D722904951A25256F524C963",
+    "suez": "https://history.state.gov/milestones/1953-1960/suez"
+  },
+  "events": [
+    {
+      "id": "eic_sepoy_council_1857",
+      "country": "EIC",
+      "mode": "historical",
+      "window": [
+        "1857-04-01",
+        "1858-03-31"
+      ],
+      "date_historical": "1857-05-10",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "EIC"
+          },
+          {
+            "type": "subject_of",
+            "a": "EIC",
+            "b": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_DEL",
+            "entities": [
+              "EIC"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1857,
+            "to": 1858
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "flag": "eic_sepoy_council"
+      },
+      "title_vi": "Hội đồng Công ty trước cuộc nổi dậy",
+      "title_en": "The Company's Crisis Council",
+      "text_vi": "Tin binh lính nổi dậy tại Meerut tới Calcutta trong lúc các đơn vị Bengal Army bất mãn vì điều kiện phục vụ và tin đồn về đạn giấy bôi mỡ. Các nhà chức trách Công ty phải quyết định liệu đây là một cuộc binh biến có thể cô lập hay dấu hiệu của khủng hoảng rộng hơn về đất đai, thuế và quyền lực địa phương. Cách xử lý của hội đồng có thể quyết định liệu các trung đoàn còn lại giữ trung thành hay gia nhập cuộc nổi dậy.",
+      "text_en": "Reports of the Meerut uprising reach Calcutta amid discontent in the Bengal Army over service conditions and rumours surrounding cartridge grease. Company officials must decide whether this is an isolated mutiny or a wider crisis over land, taxation and local authority. The council's response may determine whether remaining regiments stay loyal or join the revolt.",
+      "options": [
+        {
+          "id": "replace_cartridges",
+          "label_vi": "Thu hồi lô đạn gây tranh cãi và cho phép nghi thức tôn giáo của binh lính",
+          "label_en": "Withdraw disputed cartridges and respect soldiers' religious practices",
+          "ai_weight": 3,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "eic_1857_cartridge_recall",
+              "name_vi": "Thu hồi đạn giấy Enfield",
+              "name_en": "Enfield Cartridge Recall",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "army": -0.02,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "EIC",
+              "months_income": -0.3
+            }
+          ]
+        },
+        {
+          "id": "court_martial_mutineers",
+          "label_vi": "Tòa án binh xử các đơn vị từ chối mệnh lệnh",
+          "label_en": "Court-martial units refusing orders",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "eic_1857_court_martial",
+              "name_vi": "Kỷ luật Bengal Army",
+              "name_en": "Bengal Army Discipline",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "police": 0.03,
+                "radicalism": 0.025,
+                "legitimacy": -2
+              }
+            },
+            {
+              "type": "war_exhaustion",
+              "entity": "EIC",
+              "delta": 2
+            }
+          ]
+        },
+        {
+          "id": "seek_princely_support",
+          "label_vi": "Xin các thân vương hỗ trợ quân lương và bảo vệ tuyến đường",
+          "label_en": "Seek princely support for supplies and communications",
+          "ai_weight": 2,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "eic_1857_princely_support",
+              "name_vi": "Hậu cần từ các thân vương",
+              "name_en": "Princely Logistical Support",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "trade": 0.01,
+                "legitimacy": 1
+              }
+            },
+            {
+              "type": "relation",
+              "a": "EIC",
+              "b": "HYD",
+              "delta": 6
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "india_chronology"
+      ],
+      "image": {
+        "ref": "ill_evt_eic_sepoy_council_1857",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "eic_dissolution_1858",
+      "country": "EIC",
+      "mode": "historical",
+      "window": [
+        "1858-07-01",
+        "1858-11-01"
+      ],
+      "date_historical": "1858-10-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "EIC"
+          },
+          {
+            "type": "subject_of",
+            "a": "EIC",
+            "b": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_BEN",
+            "entities": [
+              "EIC"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1858,
+            "to": 1858
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "eic_sepoy_council_1857"
+        ],
+        "flag": "eic_dissolution"
+      },
+      "title_vi": "Công ty Đông Ấn mất quyền cai trị",
+      "title_en": "The End of Company Rule",
+      "text_vi": "Đạo luật năm 1858 chuyển quyền cai trị các lãnh thổ của Công ty sang Hoàng gia, chấm dứt một mô hình kết hợp thương mại và chủ quyền đã tồn tại nhiều thế hệ. Cổ đông, quan chức và các nhà buôn phải đối mặt với việc tài sản, nghĩa vụ và mạng lưới hành chính bị tái cấu trúc. Ban lãnh đạo có thể hợp tác bàn giao, tìm cách bảo vệ lợi ích thương mại hoặc phản đối việc giải thể quyền lực chính trị của Công ty.",
+      "text_en": "The 1858 Act transferred government of the Company's territories to the Crown, ending a system that had combined commerce and sovereignty for generations. Shareholders, officials and merchants now face the restructuring of assets, obligations and administrative networks. Company leadership can cooperate with the transfer, protect commercial interests or resist the loss of its political authority.",
+      "options": [
+        {
+          "id": "orderly_transfer",
+          "label_vi": "Bàn giao hồ sơ, kho bạc và bộ máy cho Hoàng gia",
+          "label_en": "Transfer records, treasury and administration to the Crown",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "eic_1858_orderly_transfer",
+              "name_vi": "Bàn giao có trật tự",
+              "name_en": "Orderly Transfer",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "trade": 0.02,
+                "prestige": 0.02
+              }
+            },
+            {
+              "type": "subject_liberty",
+              "subject": "EIC",
+              "delta": -5
+            }
+          ]
+        },
+        {
+          "id": "protect_shareholders",
+          "label_vi": "Đàm phán bồi thường và bảo vệ hợp đồng của cổ đông",
+          "label_en": "Negotiate compensation and protect shareholder contracts",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "eic_1858_shareholder_settlement",
+              "name_vi": "Thỏa thuận cổ đông",
+              "name_en": "Shareholder Settlement",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.03,
+                "legitimacy": -1,
+                "ig_industrialists": 1
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.5
+            }
+          ]
+        },
+        {
+          "id": "retain_commercial_network",
+          "label_vi": "Xin giữ các đặc quyền thương mại nhưng từ bỏ quyền cai trị",
+          "label_en": "Seek commercial privileges while surrendering government",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "eic_1858_commercial_residue",
+              "name_vi": "Di sản thương mại của Công ty",
+              "name_en": "Company Commercial Legacy",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "trade": 0.04,
+                "tariff": 0.02,
+                "legitimacy": 1
+              }
+            },
+            {
+              "type": "relation",
+              "a": "EIC",
+              "b": "GBR",
+              "delta": 5
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "uk_parliament_empire"
+      ],
+      "image": {
+        "ref": "ill_evt_eic_dissolution_1858",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    }
+  ]
+}
