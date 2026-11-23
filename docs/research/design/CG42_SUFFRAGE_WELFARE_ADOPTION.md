@@ -30,7 +30,7 @@ Ví dụ:
 IPU Parline là nguồn dữ liệu hiện hành có trường riêng cho năm, cấp bầu cử, tính hạn chế và chi tiết giới hạn. CRS đối chiếu các trường hợp theo giai đoạn. Không gộp quyền địa phương thành quyền bầu cử quốc gia.
 
 ### Phổ thông đầu phiếu nam
-Các năm được điền chỉ khi tài liệu so sánh cung cấp mốc có thể kiểm chứng. Nguồn chính gồm nghiên cứu về chuyển đổi bầu cử Tây Âu, Pilon và các nghiên cứu lịch sử so sánh. OWID/Lexical Index v6.9 là nguồn country-year để Claude có thể trích xuất tự động và kiểm tra lại trước khi calibration production.
+Các năm được điền chỉ khi tài liệu so sánh cung cấp mốc có thể kiểm chứng. Nguồn chính gồm nghiên cứu về chuyển đổi bầu cử Tây Âu, Pilon và các nghiên cứu lịch sử so sánh. OWID/Lexical Index v6.9 là nguồn country-year để Claude có thể trích xuất tự động và kiểm tra lại trước khi calibration production. Trường `male_suffrage_full_equal_year` được tách riêng cho các trường hợp franchise ban đầu còn loại trừ nhóm chủng tộc/bản địa hoặc nhóm công dân: Australia 1962, Canada 1960, Hoa Kỳ 1965, Nam Phi 1994 và Ấn Độ 1950. Đây không phải năm lần đầu nam giới được quyền bỏ phiếu.
 
 Một số điểm mốc đã điền:
 - Pháp 1848; Đan Mạch 1849; Thụy Sĩ 1848; Hy Lạp 1864.
