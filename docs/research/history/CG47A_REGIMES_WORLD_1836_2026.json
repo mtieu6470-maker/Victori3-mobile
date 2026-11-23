@@ -5,7 +5,7 @@
     "branch": "ccr-b27f3fb8-epfpd6",
     "created": "2026-11-23",
     "scope": "Selected major regime changes, independence, coups, republic/monarchy transitions, one-party consolidation, constitutional transitions and major state re-foundations in the Middle East/North Africa, Sub-Saharan Africa, Latin America and Asia. Not an exhaustive country-year regime dataset.",
-    "eventCount": 127,
+    "eventCount": 128,
     "sourceCount": 54,
     "lawGroups": [
       "power",
@@ -29,9 +29,11 @@
       "Some events mark leadership changes within a continuing regime (e.g. Nasser/Assad) and should not be treated as changes in state form.",
       "Some engine law mappings are deliberately conservative approximations; see each lawChanges.note. In particular, one_party_state is a gameplay abstraction for hegemonic-party rule in cases where opposition parties were not formally banned.",
       "Events dated to a year or broad process should not be promoted to day-level precision without further primary-source review.",
-      "Syria's post-December 2024 transition is still in progress as of the research date; the March 2025 declaration is transitional, not a permanent constitution."
+      "Syria's post-December 2024 transition is still in progress as of the research date; the March 2025 declaration is transitional, not a permanent constitution.",
+      "The date range is 1836–2026, but the latest included high-salience regime transition is Syria's 13 March 2025 transitional constitutional declaration. No 2026 regime-change milestone was added without a substantiated qualifying event; the absence of a 2026 event is not a claim that no political developments occurred."
     ],
-    "capitalCoordinateExtension": "Optional capitalCoordinates are approximate WGS84 city points added as integration hints because the current build-regimes.ts CITY table does not cover these non-European capitals. Claude must independently verify each map-grid lookup and must not treat coordinates as a political-region assignment."
+    "capitalCoordinateExtension": "Optional capitalCoordinates are approximate WGS84 city points added as integration hints because the current build-regimes.ts CITY table does not cover these non-European capitals. Claude must independently verify each map-grid lookup and must not treat coordinates as a political-region assignment.",
+    "researchCutoff": "2026-11-23"
   },
   "events": [
     {
@@ -4913,6 +4915,54 @@
         "datum": "WGS84",
         "precision": "approximate city point; map-grid lookup hint only"
       }
+    },
+    {
+      "id": "SYR-2025-03-13",
+      "date": "2025-03-13",
+      "capitalHistorical": "Damascus",
+      "capitalCoordinates": {
+        "lat": 33.5138,
+        "lon": 36.2765,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      },
+      "entityBefore": {
+        "id": "SYR",
+        "name_en": "Syrian Arab Republic under transitional administration",
+        "name_vi": "Cộng hòa Ả Rập Syria dưới chính quyền chuyển tiếp"
+      },
+      "entityAfter": {
+        "id": "SYR",
+        "name_en": "Syrian Arab Republic under the 2025 Transitional Constitutional Declaration",
+        "name_vi": "Cộng hòa Ả Rập Syria theo Tuyên bố Hiến pháp Chuyển tiếp năm 2025"
+      },
+      "eventType": "transitional_constitutional_declaration",
+      "causes": [
+        "End of the Assad-era 2012 constitutional order",
+        "National Dialogue Conference and transitional constitutional process"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy",
+          "note": "The declaration established a five-year transition with strong presidential powers; this is not a return to competitive democracy."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "limited_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "syria_euaa_2026",
+        "syria_un_2025"
+      ],
+      "quality": "verified",
+      "note": "The 13 March 2025 Constitutional Declaration replaced the 2012 Constitution for a five-year transitional period. As of the July 2026 EUAA country focus, a permanent constitution and national elections remained envisaged for the end of the transition; do not treat the declaration as a completed democratic settlement."
     }
   ],
   "sources": [
