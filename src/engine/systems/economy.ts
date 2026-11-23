@@ -1,5 +1,6 @@
 // Economy Engine (shared by both modes): production by sector, national/customs-union markets blended with a
 // world market, prices, food security, standard of living, state finance and private investment.
+import { mod } from '../mods';
 import { data } from '../data/db';
 import { GOODS, STRATA, S, type Country, type GameState, type Good, type Region, type Building, type MarketGoodStats, type ConstructionFunding, type ConstructionProject } from '../types';
 import { clamp, log, newId } from '../core';
@@ -90,7 +91,7 @@ export function marketOf(st: GameState, c: Country): string { return c.customsUn
 
 export function openness(c: Country, coastal: boolean): number {
   let o = OPENNESS[c.laws.trade] ?? 0.3;
-  o *= 1 + 0.3 * techEffect(c, 'trade_capacity') + 0.2 * (hasTech(c, 'railways') ? 1 : 0) + (c.blocMods?.trade ?? 0);
+  o *= 1 + 0.3 * techEffect(c, 'trade_capacity') + 0.2 * (hasTech(c, 'railways') ? 1 : 0) + mod(c, 'trade');
   o *= 1 - (c.embargoed ?? 0); // DECOL-03 embargoes
   if (!coastal) o *= 0.6;
   return clamp(o, 0.01, 0.92);
@@ -108,7 +109,7 @@ export function goodOpenness(_st: GameState, marketId: string, leader: Country, 
   const startLaw = data().entity.get(leader.id)?.laws?.value.trade;
   const ev = startLaw !== undefined && leader.laws.trade === startLaw ? TARIFF_EVIDENCE_1836[marketId]?.[good] : undefined;
   if (ev) base = opennessFromTariff(ev.tariff);
-  let o = base * (1 + 0.3 * techEffect(leader, 'trade_capacity') + 0.2 * (hasTech(leader, 'railways') ? 1 : 0) + (leader.blocMods?.trade ?? 0)) * (1 - (leader.embargoed ?? 0));
+  let o = base * (1 + 0.3 * techEffect(leader, 'trade_capacity') + 0.2 * (hasTech(leader, 'railways') ? 1 : 0) + mod(leader, 'trade')) * (1 - (leader.embargoed ?? 0));
   if (!coastal) o *= 0.6;
   return clamp(o, 0.01, 0.92);
 }
@@ -588,9 +589,9 @@ export const SHIP_COST = 150000;
 
 function financeMonth(st: GameState, c: Country, gdpYear: number, pop: number, importsValue: number) {
   const gdpPc = pop > 0 ? gdpYear / pop : 0;
-  const taxEff = clamp(0.45 + 1.4 * c.budget.admin + 0.1 * (c.laws.power === 'autocracy' ? 0 : 1) + techEffect(c, 'admin_efficiency'), 0.25, 1.05);
+  const taxEff = clamp(0.45 + 1.4 * c.budget.admin + 0.1 * (c.laws.power === 'autocracy' ? 0 : 1) + techEffect(c, 'admin_efficiency') + mod(c, 'tax'), 0.25, 1.05);
   const tax = (c.taxRate * gdpYear * taxEff) / 12;
-  const tariff = (importsValue * (TARIFF[c.laws.trade] ?? 0.2) * (1 + (c.blocMods?.tariff ?? 0))) / 12; // PB-03b bloc external tariff
+  const tariff = (importsValue * (TARIFF[c.laws.trade] ?? 0.2) * (1 + mod(c, 'tariff'))) / 12; // PB-03b bloc external tariff
   c.tariffIncome = tariff;
   const income = tax + tariff;
   const armyCost = (c.army.manpower * SOLDIER_COST(gdpPc)) / 12;
@@ -786,7 +787,7 @@ export function constructionMonth(st: GameState): void {
           else c[poolKey] = Math.max(0, available - spend);
           if (funding === 'state') c.treasury = Math.max(0, c.treasury - spend);
           // PB-02: a bloc's construction principles make the same money go further
-          project.invested = Math.min(project.totalCost, project.invested + spend * (1 + (c.blocMods?.construction ?? 0)));
+          project.invested = Math.min(project.totalCost, project.invested + spend * (1 + mod(c, 'construction')));
         }
         if (project.invested + 1e-6 < project.totalCost) continue;
         st.constructionProjects = st.constructionProjects.filter((p) => p.id !== project.id);

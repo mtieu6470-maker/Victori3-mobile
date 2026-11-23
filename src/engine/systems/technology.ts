@@ -1,5 +1,6 @@
 // Technology (shared): research points from literacy, middle classes and universities; diffusion from the
 // share of countries that already know a technology; the same era-cost rule in both modes.
+import { mod } from '../mods';
 import { data } from '../data/db';
 import type { Country, GameState } from '../types';
 import { S } from '../types';
@@ -68,7 +69,7 @@ export function researchPoints(st: GameState, c: Country): number {
   for (const r of regs) p += (r.pop / 1e6) * (r.literacy * r.literacy * 3 + r.strata[S.middle] * 10 * r.literacy) * (1 + 0.2 * r.buildings.university);
   const inst = c.laws.education === 'public_schools' ? 1.5 : c.laws.education === 'religious_schools' ? 0.8 : 0.3;
   const exposure = 0.3 + 0.7 * Math.min(1, (OPEN[c.laws.trade] ?? 0.3) / 0.7);
-  p *= inst * exposure * (1 + c.budget.education * 5 + 0.3 * (c.laws.press === 'free_press' ? 1 : 0));
+  p *= inst * exposure * (1 + c.budget.education * 5 + 0.3 * (c.laws.press === 'free_press' ? 1 : 0)) * (1 + mod(c, 'innovation'));
   return p * 40; // per month
 }
 
@@ -102,7 +103,7 @@ export function importPoints(st: GameState, c: Country, techId: string): number 
   // nobody imported reapers or Bessemer plant the year they were invented.
   const age = st.date.y - (data().tech.get(techId)?.historical_year ?? st.date.y);
   const codified = Math.min(1, Math.max(0, age) / TECH_CODIFICATION_YEARS);
-  return Number.isFinite(pc) ? TECH_IMPORT.rate * pc * share * access * codified * (1 + (c.blocMods?.research ?? 0) + (c.subjectPact?.knowledge ? 0.1 : 0)) /* PB-03a knowledge sharing */ : 0;
+  return Number.isFinite(pc) ? TECH_IMPORT.rate * pc * share * access * codified * (1 + mod(c, 'research') + (c.subjectPact?.knowledge ? 0.1 : 0)) /* PB-03a knowledge sharing */ : 0;
 }
 
 /**

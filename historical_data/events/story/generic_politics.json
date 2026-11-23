@@ -1,0 +1,3263 @@
+{
+ "schema": "story_events_v1",
+ "country": "$any",
+ "note": "EVT-01 starter pack (Claude). Original text; mechanics inspired by Victoria 3 events.",
+ "events": [
+  {
+   "id": "gen_petition_armed_forces_professional_army",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "ig_clout_above",
+      "entity": "$self",
+      "ig": "armed_forces",
+      "value": 0.08
+     },
+     {
+      "type": "law_not",
+      "entity": "$self",
+      "group": "army",
+      "value": "professional_army"
+     },
+     {
+      "type": "not_flag",
+      "flag": "petition_armed_forces"
+     }
+    ],
+    "mtth_months": 96
+   },
+   "chain": {
+    "flag": "petition_armed_forces"
+   },
+   "title_vi": "Quân đội kiến nghị chính phủ",
+   "title_en": "Quân nhân petition",
+   "text_vi": "Các sĩ quan cấp cao gửi kiến nghị chính thức: họ muốn một quân đội chuyên nghiệp, được huấn luyện và trả lương đàng hoàng thay cho lối gọi lính cũ. Trong phòng họp, ai cũng hiểu họ sẽ không chấp nhận câu trả lời 'không'.",
+   "text_en": "An interest group petitions the government for a new law.",
+   "options": [
+    {
+     "id": "promise",
+     "label_vi": "Chúng ta sẽ xem xét.",
+     "effects": [
+      {
+       "type": "start_journal",
+       "entity": "$self",
+       "id": "gen_expect_armed_forces_professional_army"
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_armed_forces_professional_army_hope",
+       "name_vi": "Quân nhân chờ đợi",
+       "months": 12,
+       "effects": {
+        "ig_armed_forces": 2
+       }
+      }
+     ],
+     "ai_weight": 3,
+     "label_en": "We will see what we can do."
+    },
+    {
+     "id": "refuse",
+     "label_vi": "Chính phủ không nhận lệnh từ ai.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_armed_forces_professional_army_snub",
+       "name_vi": "Quân nhân bị gạt bỏ",
+       "months": 36,
+       "effects": {
+        "ig_armed_forces": -3,
+        "legitimacy": -2
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "The government takes orders from no one."
+    },
+    {
+     "id": "buy_off",
+     "label_vi": "Ban ơn để họ im lặng (tốn ngân khố).",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1.5
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_armed_forces_professional_army_paid",
+       "name_vi": "Quân nhân được ban ơn",
+       "months": 24,
+       "effects": {
+        "ig_armed_forces": 1
+       }
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "Buy their silence."
+    }
+   ]
+  },
+  {
+   "id": "gen_petition_armed_forces_mass_conscription",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "ig_clout_above",
+      "entity": "$self",
+      "ig": "armed_forces",
+      "value": 0.08
+     },
+     {
+      "type": "law_not",
+      "entity": "$self",
+      "group": "army",
+      "value": "mass_conscription"
+     },
+     {
+      "type": "not_flag",
+      "flag": "petition_armed_forces"
+     }
+    ],
+    "mtth_months": 96
+   },
+   "chain": {
+    "flag": "petition_armed_forces"
+   },
+   "title_vi": "Bộ Tổng tham mưu đòi nghĩa vụ quân sự toàn dân",
+   "title_en": "Quân nhân petition",
+   "text_vi": "Tổng tham mưu trưởng trình bản ghi nhớ: các nước láng giềng đã có hàng triệu quân dự bị, còn ta thì không. Họ đòi luật nghĩa vụ quân sự toàn dân.",
+   "text_en": "An interest group petitions the government for a new law.",
+   "options": [
+    {
+     "id": "promise",
+     "label_vi": "Chúng ta sẽ xem xét.",
+     "effects": [
+      {
+       "type": "start_journal",
+       "entity": "$self",
+       "id": "gen_expect_armed_forces_mass_conscription"
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_armed_forces_mass_conscription_hope",
+       "name_vi": "Quân nhân chờ đợi",
+       "months": 12,
+       "effects": {
+        "ig_armed_forces": 2
+       }
+      }
+     ],
+     "ai_weight": 3,
+     "label_en": "We will see what we can do."
+    },
+    {
+     "id": "refuse",
+     "label_vi": "Chính phủ không nhận lệnh từ ai.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_armed_forces_mass_conscription_snub",
+       "name_vi": "Quân nhân bị gạt bỏ",
+       "months": 36,
+       "effects": {
+        "ig_armed_forces": -3,
+        "legitimacy": -2
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "The government takes orders from no one."
+    },
+    {
+     "id": "buy_off",
+     "label_vi": "Ban ơn để họ im lặng (tốn ngân khố).",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1.5
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_armed_forces_mass_conscription_paid",
+       "name_vi": "Quân nhân được ban ơn",
+       "months": 24,
+       "effects": {
+        "ig_armed_forces": 1
+       }
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "Buy their silence."
+    }
+   ]
+  },
+  {
+   "id": "gen_petition_industrialists_free_trade",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "ig_clout_above",
+      "entity": "$self",
+      "ig": "industrialists",
+      "value": 0.08
+     },
+     {
+      "type": "law_not",
+      "entity": "$self",
+      "group": "trade",
+      "value": "free_trade"
+     },
+     {
+      "type": "not_flag",
+      "flag": "petition_industrialists"
+     }
+    ],
+    "mtth_months": 96
+   },
+   "chain": {
+    "flag": "petition_industrialists"
+   },
+   "title_vi": "Phòng thương mại kêu gọi tự do thương mại",
+   "title_en": "Nhà công nghiệp petition",
+   "text_vi": "Các chủ xưởng và nhà buôn ký chung một lá thư: hàng rào thuế quan đang bóp nghẹt xuất khẩu. Họ muốn mở cửa thị trường.",
+   "text_en": "An interest group petitions the government for a new law.",
+   "options": [
+    {
+     "id": "promise",
+     "label_vi": "Chúng ta sẽ xem xét.",
+     "effects": [
+      {
+       "type": "start_journal",
+       "entity": "$self",
+       "id": "gen_expect_industrialists_free_trade"
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_industrialists_free_trade_hope",
+       "name_vi": "Nhà công nghiệp chờ đợi",
+       "months": 12,
+       "effects": {
+        "ig_industrialists": 2
+       }
+      }
+     ],
+     "ai_weight": 3,
+     "label_en": "We will see what we can do."
+    },
+    {
+     "id": "refuse",
+     "label_vi": "Chính phủ không nhận lệnh từ ai.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_industrialists_free_trade_snub",
+       "name_vi": "Nhà công nghiệp bị gạt bỏ",
+       "months": 36,
+       "effects": {
+        "ig_industrialists": -3,
+        "legitimacy": -2
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "The government takes orders from no one."
+    },
+    {
+     "id": "buy_off",
+     "label_vi": "Ban ơn để họ im lặng (tốn ngân khố).",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1.5
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_industrialists_free_trade_paid",
+       "name_vi": "Nhà công nghiệp được ban ơn",
+       "months": 24,
+       "effects": {
+        "ig_industrialists": 1
+       }
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "Buy their silence."
+    }
+   ]
+  },
+  {
+   "id": "gen_petition_industrialists_laissez_faire",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "ig_clout_above",
+      "entity": "$self",
+      "ig": "industrialists",
+      "value": 0.08
+     },
+     {
+      "type": "law_not",
+      "entity": "$self",
+      "group": "economy",
+      "value": "laissez_faire"
+     },
+     {
+      "type": "not_flag",
+      "flag": "petition_industrialists"
+     }
+    ],
+    "mtth_months": 96
+   },
+   "chain": {
+    "flag": "petition_industrialists"
+   },
+   "title_vi": "Giới chủ đòi nhà nước đứng ngoài thị trường",
+   "title_en": "Nhà công nghiệp petition",
+   "text_vi": "Hiệp hội các nhà công nghiệp cho rằng quy định của nhà nước làm chậm mọi dự án. Họ đòi chính sách kinh tế tự do.",
+   "text_en": "An interest group petitions the government for a new law.",
+   "options": [
+    {
+     "id": "promise",
+     "label_vi": "Chúng ta sẽ xem xét.",
+     "effects": [
+      {
+       "type": "start_journal",
+       "entity": "$self",
+       "id": "gen_expect_industrialists_laissez_faire"
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_industrialists_laissez_faire_hope",
+       "name_vi": "Nhà công nghiệp chờ đợi",
+       "months": 12,
+       "effects": {
+        "ig_industrialists": 2
+       }
+      }
+     ],
+     "ai_weight": 3,
+     "label_en": "We will see what we can do."
+    },
+    {
+     "id": "refuse",
+     "label_vi": "Chính phủ không nhận lệnh từ ai.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_industrialists_laissez_faire_snub",
+       "name_vi": "Nhà công nghiệp bị gạt bỏ",
+       "months": 36,
+       "effects": {
+        "ig_industrialists": -3,
+        "legitimacy": -2
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "The government takes orders from no one."
+    },
+    {
+     "id": "buy_off",
+     "label_vi": "Ban ơn để họ im lặng (tốn ngân khố).",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1.5
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_industrialists_laissez_faire_paid",
+       "name_vi": "Nhà công nghiệp được ban ơn",
+       "months": 24,
+       "effects": {
+        "ig_industrialists": 1
+       }
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "Buy their silence."
+    }
+   ]
+  },
+  {
+   "id": "gen_petition_trade_unions_free_labor",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "ig_clout_above",
+      "entity": "$self",
+      "ig": "trade_unions",
+      "value": 0.08
+     },
+     {
+      "type": "law_not",
+      "entity": "$self",
+      "group": "labor",
+      "value": "free_labor"
+     },
+     {
+      "type": "not_flag",
+      "flag": "petition_trade_unions"
+     }
+    ],
+    "mtth_months": 96
+   },
+   "chain": {
+    "flag": "petition_trade_unions"
+   },
+   "title_vi": "Công đoàn đòi xóa bỏ lao động cưỡng bức",
+   "title_en": "Công đoàn petition",
+   "text_vi": "Những người thợ tập hợp trước trụ sở chính phủ, giương biểu ngữ đòi tự do lao động cho mọi người.",
+   "text_en": "An interest group petitions the government for a new law.",
+   "options": [
+    {
+     "id": "promise",
+     "label_vi": "Chúng ta sẽ xem xét.",
+     "effects": [
+      {
+       "type": "start_journal",
+       "entity": "$self",
+       "id": "gen_expect_trade_unions_free_labor"
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_trade_unions_free_labor_hope",
+       "name_vi": "Công đoàn chờ đợi",
+       "months": 12,
+       "effects": {
+        "ig_trade_unions": 2
+       }
+      }
+     ],
+     "ai_weight": 3,
+     "label_en": "We will see what we can do."
+    },
+    {
+     "id": "refuse",
+     "label_vi": "Chính phủ không nhận lệnh từ ai.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_trade_unions_free_labor_snub",
+       "name_vi": "Công đoàn bị gạt bỏ",
+       "months": 36,
+       "effects": {
+        "ig_trade_unions": -3,
+        "legitimacy": -2
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "The government takes orders from no one."
+    },
+    {
+     "id": "buy_off",
+     "label_vi": "Ban ơn để họ im lặng (tốn ngân khố).",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1.5
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_trade_unions_free_labor_paid",
+       "name_vi": "Công đoàn được ban ơn",
+       "months": 24,
+       "effects": {
+        "ig_trade_unions": 1
+       }
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "Buy their silence."
+    }
+   ]
+  },
+  {
+   "id": "gen_petition_trade_unions_universal_male_suffrage",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "ig_clout_above",
+      "entity": "$self",
+      "ig": "trade_unions",
+      "value": 0.08
+     },
+     {
+      "type": "law_not",
+      "entity": "$self",
+      "group": "power",
+      "value": "universal_male_suffrage"
+     },
+     {
+      "type": "not_flag",
+      "flag": "petition_trade_unions"
+     }
+    ],
+    "mtth_months": 96
+   },
+   "chain": {
+    "flag": "petition_trade_unions"
+   },
+   "title_vi": "Công nhân đòi quyền bầu cử",
+   "title_en": "Công đoàn petition",
+   "text_vi": "Hàng vạn chữ ký được gửi tới nghị viện: người lao động muốn có lá phiếu như những người có tài sản.",
+   "text_en": "An interest group petitions the government for a new law.",
+   "options": [
+    {
+     "id": "promise",
+     "label_vi": "Chúng ta sẽ xem xét.",
+     "effects": [
+      {
+       "type": "start_journal",
+       "entity": "$self",
+       "id": "gen_expect_trade_unions_universal_male_suffrage"
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_trade_unions_universal_male_suffrage_hope",
+       "name_vi": "Công đoàn chờ đợi",
+       "months": 12,
+       "effects": {
+        "ig_trade_unions": 2
+       }
+      }
+     ],
+     "ai_weight": 3,
+     "label_en": "We will see what we can do."
+    },
+    {
+     "id": "refuse",
+     "label_vi": "Chính phủ không nhận lệnh từ ai.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_trade_unions_universal_male_suffrage_snub",
+       "name_vi": "Công đoàn bị gạt bỏ",
+       "months": 36,
+       "effects": {
+        "ig_trade_unions": -3,
+        "legitimacy": -2
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "The government takes orders from no one."
+    },
+    {
+     "id": "buy_off",
+     "label_vi": "Ban ơn để họ im lặng (tốn ngân khố).",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1.5
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_trade_unions_universal_male_suffrage_paid",
+       "name_vi": "Công đoàn được ban ơn",
+       "months": 24,
+       "effects": {
+        "ig_trade_unions": 1
+       }
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "Buy their silence."
+    }
+   ]
+  },
+  {
+   "id": "gen_petition_intelligentsia_free_press",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "ig_clout_above",
+      "entity": "$self",
+      "ig": "intelligentsia",
+      "value": 0.08
+     },
+     {
+      "type": "law_not",
+      "entity": "$self",
+      "group": "press",
+      "value": "free_press"
+     },
+     {
+      "type": "not_flag",
+      "flag": "petition_intelligentsia"
+     }
+    ],
+    "mtth_months": 96
+   },
+   "chain": {
+    "flag": "petition_intelligentsia"
+   },
+   "title_vi": "Giới trí thức đòi tự do báo chí",
+   "title_en": "Trí thức petition",
+   "text_vi": "Các nhà văn, giáo sư và chủ báo cùng ký một bản tuyên ngôn: không thể có tiến bộ khi tư tưởng bị kiểm duyệt.",
+   "text_en": "An interest group petitions the government for a new law.",
+   "options": [
+    {
+     "id": "promise",
+     "label_vi": "Chúng ta sẽ xem xét.",
+     "effects": [
+      {
+       "type": "start_journal",
+       "entity": "$self",
+       "id": "gen_expect_intelligentsia_free_press"
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_intelligentsia_free_press_hope",
+       "name_vi": "Trí thức chờ đợi",
+       "months": 12,
+       "effects": {
+        "ig_intelligentsia": 2
+       }
+      }
+     ],
+     "ai_weight": 3,
+     "label_en": "We will see what we can do."
+    },
+    {
+     "id": "refuse",
+     "label_vi": "Chính phủ không nhận lệnh từ ai.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_intelligentsia_free_press_snub",
+       "name_vi": "Trí thức bị gạt bỏ",
+       "months": 36,
+       "effects": {
+        "ig_intelligentsia": -3,
+        "legitimacy": -2
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "The government takes orders from no one."
+    },
+    {
+     "id": "buy_off",
+     "label_vi": "Ban ơn để họ im lặng (tốn ngân khố).",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1.5
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_intelligentsia_free_press_paid",
+       "name_vi": "Trí thức được ban ơn",
+       "months": 24,
+       "effects": {
+        "ig_intelligentsia": 1
+       }
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "Buy their silence."
+    }
+   ]
+  },
+  {
+   "id": "gen_petition_intelligentsia_public_schools",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "ig_clout_above",
+      "entity": "$self",
+      "ig": "intelligentsia",
+      "value": 0.08
+     },
+     {
+      "type": "law_not",
+      "entity": "$self",
+      "group": "education",
+      "value": "public_schools"
+     },
+     {
+      "type": "not_flag",
+      "flag": "petition_intelligentsia"
+     }
+    ],
+    "mtth_months": 96
+   },
+   "chain": {
+    "flag": "petition_intelligentsia"
+   },
+   "title_vi": "Đề án trường công cho mọi trẻ em",
+   "title_en": "Trí thức petition",
+   "text_vi": "Một nhóm nhà giáo dục trình đề án mở trường công miễn phí ở mọi làng xã.",
+   "text_en": "An interest group petitions the government for a new law.",
+   "options": [
+    {
+     "id": "promise",
+     "label_vi": "Chúng ta sẽ xem xét.",
+     "effects": [
+      {
+       "type": "start_journal",
+       "entity": "$self",
+       "id": "gen_expect_intelligentsia_public_schools"
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_intelligentsia_public_schools_hope",
+       "name_vi": "Trí thức chờ đợi",
+       "months": 12,
+       "effects": {
+        "ig_intelligentsia": 2
+       }
+      }
+     ],
+     "ai_weight": 3,
+     "label_en": "We will see what we can do."
+    },
+    {
+     "id": "refuse",
+     "label_vi": "Chính phủ không nhận lệnh từ ai.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_intelligentsia_public_schools_snub",
+       "name_vi": "Trí thức bị gạt bỏ",
+       "months": 36,
+       "effects": {
+        "ig_intelligentsia": -3,
+        "legitimacy": -2
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "The government takes orders from no one."
+    },
+    {
+     "id": "buy_off",
+     "label_vi": "Ban ơn để họ im lặng (tốn ngân khố).",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1.5
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_intelligentsia_public_schools_paid",
+       "name_vi": "Trí thức được ban ơn",
+       "months": 24,
+       "effects": {
+        "ig_intelligentsia": 1
+       }
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "Buy their silence."
+    }
+   ]
+  },
+  {
+   "id": "gen_petition_clergy_state_religion",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "ig_clout_above",
+      "entity": "$self",
+      "ig": "clergy",
+      "value": 0.08
+     },
+     {
+      "type": "law_not",
+      "entity": "$self",
+      "group": "church",
+      "value": "state_religion"
+     },
+     {
+      "type": "not_flag",
+      "flag": "petition_clergy"
+     }
+    ],
+    "mtth_months": 96
+   },
+   "chain": {
+    "flag": "petition_clergy"
+   },
+   "title_vi": "Giáo hội đòi khôi phục vị thế quốc giáo",
+   "title_en": "Giáo sĩ petition",
+   "text_vi": "Các chức sắc tôn giáo kêu gọi chính phủ bảo vệ đức tin của tổ tiên bằng luật pháp.",
+   "text_en": "An interest group petitions the government for a new law.",
+   "options": [
+    {
+     "id": "promise",
+     "label_vi": "Chúng ta sẽ xem xét.",
+     "effects": [
+      {
+       "type": "start_journal",
+       "entity": "$self",
+       "id": "gen_expect_clergy_state_religion"
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_clergy_state_religion_hope",
+       "name_vi": "Giáo sĩ chờ đợi",
+       "months": 12,
+       "effects": {
+        "ig_clergy": 2
+       }
+      }
+     ],
+     "ai_weight": 3,
+     "label_en": "We will see what we can do."
+    },
+    {
+     "id": "refuse",
+     "label_vi": "Chính phủ không nhận lệnh từ ai.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_clergy_state_religion_snub",
+       "name_vi": "Giáo sĩ bị gạt bỏ",
+       "months": 36,
+       "effects": {
+        "ig_clergy": -3,
+        "legitimacy": -2
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "The government takes orders from no one."
+    },
+    {
+     "id": "buy_off",
+     "label_vi": "Ban ơn để họ im lặng (tốn ngân khố).",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1.5
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_clergy_state_religion_paid",
+       "name_vi": "Giáo sĩ được ban ơn",
+       "months": 24,
+       "effects": {
+        "ig_clergy": 1
+       }
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "Buy their silence."
+    }
+   ]
+  },
+  {
+   "id": "gen_petition_clergy_religious_schools",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "ig_clout_above",
+      "entity": "$self",
+      "ig": "clergy",
+      "value": 0.08
+     },
+     {
+      "type": "law_not",
+      "entity": "$self",
+      "group": "education",
+      "value": "religious_schools"
+     },
+     {
+      "type": "not_flag",
+      "flag": "petition_clergy"
+     }
+    ],
+    "mtth_months": 96
+   },
+   "chain": {
+    "flag": "petition_clergy"
+   },
+   "title_vi": "Giáo hội xin quyền mở trường học",
+   "title_en": "Giáo sĩ petition",
+   "text_vi": "Giáo hội đề nghị tự đứng ra dạy chữ và đạo đức cho trẻ em, với sự hỗ trợ của nhà nước.",
+   "text_en": "An interest group petitions the government for a new law.",
+   "options": [
+    {
+     "id": "promise",
+     "label_vi": "Chúng ta sẽ xem xét.",
+     "effects": [
+      {
+       "type": "start_journal",
+       "entity": "$self",
+       "id": "gen_expect_clergy_religious_schools"
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_clergy_religious_schools_hope",
+       "name_vi": "Giáo sĩ chờ đợi",
+       "months": 12,
+       "effects": {
+        "ig_clergy": 2
+       }
+      }
+     ],
+     "ai_weight": 3,
+     "label_en": "We will see what we can do."
+    },
+    {
+     "id": "refuse",
+     "label_vi": "Chính phủ không nhận lệnh từ ai.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_clergy_religious_schools_snub",
+       "name_vi": "Giáo sĩ bị gạt bỏ",
+       "months": 36,
+       "effects": {
+        "ig_clergy": -3,
+        "legitimacy": -2
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "The government takes orders from no one."
+    },
+    {
+     "id": "buy_off",
+     "label_vi": "Ban ơn để họ im lặng (tốn ngân khố).",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1.5
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_clergy_religious_schools_paid",
+       "name_vi": "Giáo sĩ được ban ơn",
+       "months": 24,
+       "effects": {
+        "ig_clergy": 1
+       }
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "Buy their silence."
+    }
+   ]
+  },
+  {
+   "id": "gen_petition_landowners_protectionism",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "ig_clout_above",
+      "entity": "$self",
+      "ig": "landowners",
+      "value": 0.08
+     },
+     {
+      "type": "law_not",
+      "entity": "$self",
+      "group": "trade",
+      "value": "protectionism"
+     },
+     {
+      "type": "not_flag",
+      "flag": "petition_landowners"
+     }
+    ],
+    "mtth_months": 96
+   },
+   "chain": {
+    "flag": "petition_landowners"
+   },
+   "title_vi": "Địa chủ đòi đánh thuế lúa mì ngoại",
+   "title_en": "Địa chủ petition",
+   "text_vi": "Lúa mì giá rẻ từ nước ngoài tràn vào. Các đại điền chủ đòi dựng hàng rào thuế quan.",
+   "text_en": "An interest group petitions the government for a new law.",
+   "options": [
+    {
+     "id": "promise",
+     "label_vi": "Chúng ta sẽ xem xét.",
+     "effects": [
+      {
+       "type": "start_journal",
+       "entity": "$self",
+       "id": "gen_expect_landowners_protectionism"
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_landowners_protectionism_hope",
+       "name_vi": "Địa chủ chờ đợi",
+       "months": 12,
+       "effects": {
+        "ig_landowners": 2
+       }
+      }
+     ],
+     "ai_weight": 3,
+     "label_en": "We will see what we can do."
+    },
+    {
+     "id": "refuse",
+     "label_vi": "Chính phủ không nhận lệnh từ ai.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_landowners_protectionism_snub",
+       "name_vi": "Địa chủ bị gạt bỏ",
+       "months": 36,
+       "effects": {
+        "ig_landowners": -3,
+        "legitimacy": -2
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "The government takes orders from no one."
+    },
+    {
+     "id": "buy_off",
+     "label_vi": "Ban ơn để họ im lặng (tốn ngân khố).",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1.5
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_landowners_protectionism_paid",
+       "name_vi": "Địa chủ được ban ơn",
+       "months": 24,
+       "effects": {
+        "ig_landowners": 1
+       }
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "Buy their silence."
+    }
+   ]
+  },
+  {
+   "id": "gen_petition_rural_folk_free_labor",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "ig_clout_above",
+      "entity": "$self",
+      "ig": "rural_folk",
+      "value": 0.08
+     },
+     {
+      "type": "law_not",
+      "entity": "$self",
+      "group": "labor",
+      "value": "free_labor"
+     },
+     {
+      "type": "not_flag",
+      "flag": "petition_rural_folk"
+     }
+    ],
+    "mtth_months": 96
+   },
+   "chain": {
+    "flag": "petition_rural_folk"
+   },
+   "title_vi": "Nông dân đòi ruộng đất và tự do",
+   "title_en": "Nông dân petition",
+   "text_vi": "Đại diện các làng gửi kiến nghị: họ muốn được tự do rời làng, tự do làm thuê và có ruộng của riêng mình.",
+   "text_en": "An interest group petitions the government for a new law.",
+   "options": [
+    {
+     "id": "promise",
+     "label_vi": "Chúng ta sẽ xem xét.",
+     "effects": [
+      {
+       "type": "start_journal",
+       "entity": "$self",
+       "id": "gen_expect_rural_folk_free_labor"
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_rural_folk_free_labor_hope",
+       "name_vi": "Nông dân chờ đợi",
+       "months": 12,
+       "effects": {
+        "ig_rural_folk": 2
+       }
+      }
+     ],
+     "ai_weight": 3,
+     "label_en": "We will see what we can do."
+    },
+    {
+     "id": "refuse",
+     "label_vi": "Chính phủ không nhận lệnh từ ai.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_rural_folk_free_labor_snub",
+       "name_vi": "Nông dân bị gạt bỏ",
+       "months": 36,
+       "effects": {
+        "ig_rural_folk": -3,
+        "legitimacy": -2
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "The government takes orders from no one."
+    },
+    {
+     "id": "buy_off",
+     "label_vi": "Ban ơn để họ im lặng (tốn ngân khố).",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1.5
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_rural_folk_free_labor_paid",
+       "name_vi": "Nông dân được ban ơn",
+       "months": 24,
+       "effects": {
+        "ig_rural_folk": 1
+       }
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "Buy their silence."
+    }
+   ]
+  },
+  {
+   "id": "gen_petition_petty_bourgeoisie_census_suffrage",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "ig_clout_above",
+      "entity": "$self",
+      "ig": "petty_bourgeoisie",
+      "value": 0.08
+     },
+     {
+      "type": "law_not",
+      "entity": "$self",
+      "group": "power",
+      "value": "census_suffrage"
+     },
+     {
+      "type": "not_flag",
+      "flag": "petition_petty_bourgeoisie"
+     }
+    ],
+    "mtth_months": 96
+   },
+   "chain": {
+    "flag": "petition_petty_bourgeoisie"
+   },
+   "title_vi": "Thị dân đòi quyền bầu cử theo tài sản",
+   "title_en": "Tiểu tư sản petition",
+   "text_vi": "Các chủ tiệm và thợ cả cho rằng người đóng thuế phải có tiếng nói. Họ đòi chế độ bầu cử theo tài sản.",
+   "text_en": "An interest group petitions the government for a new law.",
+   "options": [
+    {
+     "id": "promise",
+     "label_vi": "Chúng ta sẽ xem xét.",
+     "effects": [
+      {
+       "type": "start_journal",
+       "entity": "$self",
+       "id": "gen_expect_petty_bourgeoisie_census_suffrage"
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_petty_bourgeoisie_census_suffrage_hope",
+       "name_vi": "Tiểu tư sản chờ đợi",
+       "months": 12,
+       "effects": {
+        "ig_petty_bourgeoisie": 2
+       }
+      }
+     ],
+     "ai_weight": 3,
+     "label_en": "We will see what we can do."
+    },
+    {
+     "id": "refuse",
+     "label_vi": "Chính phủ không nhận lệnh từ ai.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_petty_bourgeoisie_census_suffrage_snub",
+       "name_vi": "Tiểu tư sản bị gạt bỏ",
+       "months": 36,
+       "effects": {
+        "ig_petty_bourgeoisie": -3,
+        "legitimacy": -2
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "The government takes orders from no one."
+    },
+    {
+     "id": "buy_off",
+     "label_vi": "Ban ơn để họ im lặng (tốn ngân khố).",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1.5
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gen_petition_petty_bourgeoisie_census_suffrage_paid",
+       "name_vi": "Tiểu tư sản được ban ơn",
+       "months": 24,
+       "effects": {
+        "ig_petty_bourgeoisie": 1
+       }
+      }
+     ],
+     "ai_weight": 1,
+     "label_en": "Buy their silence."
+    }
+   ]
+  },
+  {
+   "id": "gen_heroic_era",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "year_between",
+      "from": 1880,
+      "to": 1960
+     },
+     {
+      "type": "ig_clout_above",
+      "entity": "$self",
+      "ig": "trade_unions",
+      "value": 0.08
+     }
+    ],
+    "mtth_months": 90
+   },
+   "title_vi": "Kỷ nguyên Anh hùng của phong trào lao động",
+   "text_vi": "Công đoàn ngày càng có tiếng nói. Khắp các thành phố công nghiệp, những tổ chức của người thợ đứng lên đòi quyền lợi, hát vang những bài ca về lá cờ đỏ.",
+   "options": [
+    {
+     "id": "embrace",
+     "label_vi": "Cách mạng xã hội muôn năm!",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "heroic_era",
+       "name_vi": "Kỷ nguyên Anh hùng",
+       "months": 24,
+       "effects": {
+        "reform": 0.02,
+        "ig_trade_unions": 2,
+        "radicalism": 0.02
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1
+    },
+    {
+     "id": "rights",
+     "label_vi": "Tự do, bình đẳng và quyền của người lao động!",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "labor_rights",
+       "name_vi": "Quyền lao động",
+       "months": 24,
+       "effects": {
+        "ig_trade_unions": 1,
+        "reform": 0.01
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "order",
+     "label_vi": "Không có gì để nói với kẻ thù của trật tự.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "order_first",
+       "name_vi": "Trật tự trên hết",
+       "months": 24,
+       "effects": {
+        "police": 0.05,
+        "ig_trade_unions": -3,
+        "ig_industrialists": 1
+       }
+      }
+     ],
+     "ai_weight": 2
+    }
+   ]
+  },
+  {
+   "id": "gen_cholera",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "year_between",
+      "from": 1836,
+      "to": 1910
+     }
+    ],
+    "mtth_months": 120
+   },
+   "title_vi": "Dịch tả bùng phát",
+   "text_vi": "Một trận dịch tả quét qua các khu phố chật chội. Bác sĩ khuyên làm hệ thống nước sạch; các quan chức lo ngân sách.",
+   "options": [
+    {
+     "id": "sanitation",
+     "label_vi": "Xây hệ thống nước sạch và cống ngầm.",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -2
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "sanitation",
+       "name_vi": "Cải cách vệ sinh",
+       "months": 120,
+       "effects": {
+        "birth": 0.001,
+        "legitimacy": 2
+       }
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "quarantine",
+     "label_vi": "Cách ly các khu phố nhiễm bệnh.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "quarantine",
+       "name_vi": "Lệnh cách ly",
+       "months": 12,
+       "effects": {
+        "trade": -0.05,
+        "legitimacy": -2
+       }
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "pray",
+     "label_vi": "Cầu nguyện và chờ dịch qua.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "plague_years",
+       "name_vi": "Những năm dịch bệnh",
+       "months": 24,
+       "effects": {
+        "birth": -0.002,
+        "ig_clergy": 1,
+        "legitimacy": -3
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1
+    }
+   ]
+  },
+  {
+   "id": "gen_inventor",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "year_between",
+      "from": 1836,
+      "to": 2026
+     }
+    ],
+    "mtth_months": 100
+   },
+   "title_vi": "Một nhà phát minh xin tài trợ",
+   "text_vi": "Một kỹ sư trẻ mang tới bộ bản vẽ đầy tham vọng. Ông khẳng định cỗ máy của mình sẽ thay đổi cả ngành công nghiệp, chỉ cần nhà nước rót vốn.",
+   "options": [
+    {
+     "id": "fund",
+     "label_vi": "Rót vốn cho ông ấy.",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "inventor",
+       "name_vi": "Nhà phát minh được nhà nước bảo trợ",
+       "months": 60,
+       "effects": {
+        "innovation": 0.08,
+        "ig_intelligentsia": 1
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "private",
+     "label_vi": "Giới thiệu ông với các nhà tư bản.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "venture",
+       "name_vi": "Vốn tư nhân cho sáng chế",
+       "months": 36,
+       "effects": {
+        "innovation": 0.04,
+        "ig_industrialists": 1
+       }
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "dismiss",
+     "label_vi": "Ảo tưởng. Mời ông ra.",
+     "effects": [],
+     "ai_weight": 1
+    }
+   ]
+  },
+  {
+   "id": "gen_corruption_scandal",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "year_between",
+      "from": 1836,
+      "to": 2026
+     },
+     {
+      "type": "legitimacy_below",
+      "entity": "$self",
+      "value": 60
+     }
+    ],
+    "mtth_months": 75
+   },
+   "title_vi": "Bê bối tham nhũng",
+   "text_vi": "Báo chí đăng tin một bộ trưởng nhận hối lộ trong hợp đồng xây đường sắt. Dư luận sôi sục.",
+   "options": [
+    {
+     "id": "sack",
+     "label_vi": "Cách chức và đưa ra xét xử.",
+     "effects": [
+      {
+       "type": "legitimacy",
+       "entity": "$self",
+       "delta": 3
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "clean_hands",
+       "name_vi": "Chiến dịch bàn tay sạch",
+       "months": 24,
+       "effects": {
+        "tax": 0.03,
+        "ig_landowners": -1
+       }
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "coverup",
+     "label_vi": "Ỉm đi và kiện tờ báo.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "coverup",
+       "name_vi": "Che giấu bê bối",
+       "months": 36,
+       "effects": {
+        "legitimacy": -5,
+        "radicalism": 0.02
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1
+    },
+    {
+     "id": "scapegoat",
+     "label_vi": "Đổ lỗi cho một quan chức cấp dưới.",
+     "effects": [
+      {
+       "type": "legitimacy",
+       "entity": "$self",
+       "delta": -1
+      }
+     ],
+     "ai_weight": 2
+    }
+   ]
+  },
+  {
+   "id": "gen_general_strike",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "year_between",
+      "from": 1870,
+      "to": 2026
+     },
+     {
+      "type": "radicalism_above",
+      "entity": "$self",
+      "value": 0.2
+     }
+    ],
+    "mtth_months": 60
+   },
+   "title_vi": "Tổng bãi công",
+   "text_vi": "Đường sắt dừng chạy, nhà máy im tiếng, bến cảng ùn ứ hàng. Ban lãnh đạo bãi công đòi tăng lương và rút ngắn giờ làm.",
+   "options": [
+    {
+     "id": "concede",
+     "label_vi": "Nhượng bộ: tăng lương, rút giờ làm.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "strike_won",
+       "name_vi": "Thắng lợi của bãi công",
+       "months": 36,
+       "effects": {
+        "ig_trade_unions": 3,
+        "ig_industrialists": -2,
+        "radicalism": -0.03,
+        "tax": -0.02
+       }
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "troops",
+     "label_vi": "Đưa quân đội vào phá bãi công.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "strike_broken",
+       "name_vi": "Bãi công bị đàn áp",
+       "months": 48,
+       "effects": {
+        "ig_trade_unions": -4,
+        "ig_armed_forces": 1,
+        "radicalism": 0.04,
+        "legitimacy": -3
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1,
+     "ai_modifiers": [
+      {
+       "if": {
+        "type": "gov_power",
+        "entity": "$self",
+        "value": "autocracy"
+       },
+       "factor": 3
+      }
+     ]
+    },
+    {
+     "id": "mediate",
+     "label_vi": "Mời hai bên ra bàn đàm phán.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "arbitration",
+       "name_vi": "Trọng tài lao động",
+       "months": 24,
+       "effects": {
+        "ig_trade_unions": 1,
+        "radicalism": -0.01,
+        "reform": 0.005
+       }
+      }
+     ],
+     "ai_weight": 2
+    }
+   ]
+  },
+  {
+   "id": "gen_bad_harvest",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "year_between",
+      "from": 1836,
+      "to": 1950
+     },
+     {
+      "type": "food_shortage",
+      "entity": "$self"
+     }
+    ],
+    "mtth_months": 12
+   },
+   "title_vi": "Mất mùa",
+   "text_vi": "Mưa trái mùa làm thối rữa cả vụ lúa. Giá bánh mì tăng gấp đôi; trong các khu nghèo đã có người chết đói.",
+   "options": [
+    {
+     "id": "relief",
+     "label_vi": "Mở kho cứu đói.",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1.5
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "famine_relief",
+       "name_vi": "Cứu đói",
+       "months": 12,
+       "effects": {
+        "legitimacy": 3,
+        "radicalism": -0.03
+       }
+      }
+     ],
+     "ai_weight": 3
+    },
+    {
+     "id": "import",
+     "label_vi": "Bỏ thuế nhập khẩu lương thực.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "grain_free",
+       "name_vi": "Mở cửa nhập lương thực",
+       "months": 24,
+       "effects": {
+        "trade": 0.05,
+        "tariff": -0.3,
+        "ig_landowners": -2,
+        "ig_rural_folk": 1
+       }
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "nothing",
+     "label_vi": "Thị trường sẽ tự điều chỉnh.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "hunger",
+       "name_vi": "Nạn đói",
+       "months": 24,
+       "effects": {
+        "radicalism": 0.05,
+        "legitimacy": -4,
+        "birth": -0.003
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1
+    }
+   ]
+  },
+  {
+   "id": "gen_suffragettes",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "year_between",
+      "from": 1890,
+      "to": 1960
+     },
+     {
+      "type": "law",
+      "entity": "$self",
+      "group": "power",
+      "value": "universal_male_suffrage"
+     }
+    ],
+    "mtth_months": 60
+   },
+   "title_vi": "Phong trào đòi quyền bầu cử cho phụ nữ",
+   "text_vi": "Những người phụ nữ xích tay mình vào hàng rào nghị viện. Họ hỏi: vì sao một nửa dân tộc không có lá phiếu?",
+   "options": [
+    {
+     "id": "listen",
+     "label_vi": "Đưa vấn đề ra nghị viện.",
+     "effects": [
+      {
+       "type": "start_journal",
+       "entity": "$self",
+       "id": "gen_votes_for_women"
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "suffrage_debate",
+       "name_vi": "Tranh luận về quyền bầu cử",
+       "months": 24,
+       "effects": {
+        "ig_intelligentsia": 2,
+        "ig_clergy": -1
+       }
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "arrest",
+     "label_vi": "Bắt giữ những kẻ gây rối.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "suffrage_arrests",
+       "name_vi": "Bắt giữ người biểu tình",
+       "months": 36,
+       "effects": {
+        "radicalism": 0.02,
+        "ig_intelligentsia": -2,
+        "legitimacy": -2
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1
+    }
+   ]
+  },
+  {
+   "id": "gen_war_weariness",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "year_between",
+      "from": 1836,
+      "to": 2026
+     },
+     {
+      "type": "at_war",
+      "entity": "$self"
+     },
+     {
+      "type": "war_exhaustion_above",
+      "entity": "$self",
+      "value": 40
+     }
+    ],
+    "mtth_months": 12
+   },
+   "title_vi": "Dư luận chán chiến tranh",
+   "text_vi": "Danh sách tử sĩ dài thêm mỗi tuần. Trên phố, những người mẹ giương ảnh con mình; báo chí bắt đầu hỏi: chúng ta đánh vì cái gì?",
+   "options": [
+    {
+     "id": "propaganda",
+     "label_vi": "Tăng cường tuyên truyền yêu nước.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "war_propaganda",
+       "name_vi": "Tuyên truyền thời chiến",
+       "months": 12,
+       "effects": {
+        "war_exhaustion": -1.0,
+        "legitimacy": -1,
+        "police": 0.03
+       }
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "rationing",
+     "label_vi": "Phân phối tem phiếu công bằng.",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "rationing",
+       "name_vi": "Chế độ tem phiếu",
+       "months": 18,
+       "effects": {
+        "war_exhaustion": -0.6,
+        "radicalism": -0.02
+       }
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "censor",
+     "label_vi": "Kiểm duyệt danh sách tử sĩ.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "war_censorship",
+       "name_vi": "Kiểm duyệt thời chiến",
+       "months": 18,
+       "effects": {
+        "war_exhaustion": -0.8,
+        "ig_intelligentsia": -2,
+        "legitimacy": -2
+       }
+      }
+     ],
+     "ai_weight": 1
+    }
+   ]
+  },
+  {
+   "id": "gen_foreign_advisers",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "year_between",
+      "from": 1840,
+      "to": 1914
+     },
+     {
+      "type": "law",
+      "entity": "$self",
+      "group": "army",
+      "value": "feudal_levies"
+     }
+    ],
+    "mtth_months": 75
+   },
+   "title_vi": "Cố vấn quân sự nước ngoài",
+   "text_vi": "Một cường quốc phương Tây đề nghị cử sĩ quan sang huấn luyện quân đội ta theo lối mới, với điều kiện ta mua súng của họ. Điều khoản có vẻ có lợi, nhưng ta có nên mắc nợ người ngoài?",
+   "options": [
+    {
+     "id": "welcome",
+     "label_vi": "Hoan nghênh sự giúp đỡ.",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "foreign_drill",
+       "name_vi": "Huấn luyện theo lối phương Tây",
+       "months": 60,
+       "effects": {
+        "army": 0.08,
+        "ig_armed_forces": 1,
+        "ig_landowners": -1
+       }
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "decline",
+     "label_vi": "Chúng ta không uống chén độc của họ.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "self_reliance",
+       "name_vi": "Tự lực",
+       "months": 24,
+       "effects": {
+        "legitimacy": 2,
+        "ig_clergy": 1
+       }
+      }
+     ],
+     "ai_weight": 1
+    }
+   ]
+  },
+  {
+   "id": "gen_railway_boom",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "year_between",
+      "from": 1840,
+      "to": 1900
+     }
+    ],
+    "mtth_months": 80
+   },
+   "title_vi": "Cơn sốt đường sắt",
+   "text_vi": "Cổ phiếu đường sắt tăng vùn vụt. Ai cũng muốn đặt ray tới thị trấn của mình, kể cả những nơi chẳng có hàng hóa gì để chở.",
+   "options": [
+    {
+     "id": "subsidize",
+     "label_vi": "Nhà nước bảo lãnh lãi suất.",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "rail_mania",
+       "name_vi": "Cơn sốt đường sắt",
+       "months": 48,
+       "effects": {
+        "construction": 0.1,
+        "trade": 0.03,
+        "ig_industrialists": 2
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "regulate",
+     "label_vi": "Đặt quy định chặt chẽ.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "rail_regulation",
+       "name_vi": "Quản lý đường sắt",
+       "months": 36,
+       "effects": {
+        "construction": 0.04,
+        "tax": 0.02
+       }
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "let_be",
+     "label_vi": "Để thị trường tự lo.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "rail_bubble",
+       "name_vi": "Bong bóng đường sắt",
+       "months": 24,
+       "effects": {
+        "construction": 0.06,
+        "legitimacy": -1
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1
+    }
+   ]
+  },
+  {
+   "id": "gen_emigration_wave",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "year_between",
+      "from": 1840,
+      "to": 1920
+     },
+     {
+      "type": "radicalism_above",
+      "entity": "$self",
+      "value": 0.15
+     }
+    ],
+    "mtth_months": 75
+   },
+   "title_vi": "Làn sóng di cư",
+   "text_vi": "Các bến cảng chật kín người mang theo hành lý ít ỏi, mong tới một miền đất mới. Làng mạc vắng dần.",
+   "options": [
+    {
+     "id": "let_go",
+     "label_vi": "Để họ đi: bớt miệng ăn, bớt bất mãn.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "emigration",
+       "name_vi": "Làn sóng di cư",
+       "months": 36,
+       "effects": {
+        "radicalism": -0.03,
+        "birth": -0.001
+       }
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "restrict",
+     "label_vi": "Hạn chế xuất cảnh.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "exit_ban",
+       "name_vi": "Cấm xuất cảnh",
+       "months": 36,
+       "effects": {
+        "radicalism": 0.02,
+        "ig_landowners": 1,
+        "legitimacy": -1
+       }
+      }
+     ],
+     "ai_weight": 1
+    }
+   ]
+  },
+  {
+   "id": "gen_national_exhibition",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "year_between",
+      "from": 1851,
+      "to": 1939
+     }
+    ],
+    "mtth_months": 110
+   },
+   "title_vi": "Triển lãm quốc gia",
+   "text_vi": "Một cung điện bằng kính và sắt sẽ trưng bày những thành tựu của đất nước trước bạn bè năm châu. Chi phí không hề nhỏ.",
+   "options": [
+    {
+     "id": "grand",
+     "label_vi": "Làm thật hoành tráng.",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1.5
+      },
+      {
+       "type": "prestige",
+       "entity": "$self",
+       "delta": 15
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "exhibition",
+       "name_vi": "Dư âm triển lãm",
+       "months": 36,
+       "effects": {
+        "innovation": 0.05,
+        "trade": 0.03
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "modest",
+     "label_vi": "Làm vừa phải.",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -0.5
+      },
+      {
+       "type": "prestige",
+       "entity": "$self",
+       "delta": 5
+      }
+     ],
+     "ai_weight": 2
+    }
+   ]
+  },
+  {
+   "id": "gen_anarchist_attack",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "year_between",
+      "from": 1880,
+      "to": 1925
+     },
+     {
+      "type": "radicalism_above",
+      "entity": "$self",
+      "value": 0.2
+     }
+    ],
+    "mtth_months": 100
+   },
+   "title_vi": "Vụ ám sát của phe vô chính phủ",
+   "text_vi": "Một quả bom phát nổ trên đại lộ, nhắm vào cỗ xe của một bộ trưởng. Phe vô chính phủ nhận trách nhiệm.",
+   "options": [
+    {
+     "id": "crackdown",
+     "label_vi": "Lập lực lượng cảnh sát chính trị.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "secret_police",
+       "name_vi": "Cảnh sát chính trị",
+       "months": 60,
+       "effects": {
+        "police": 0.1,
+        "ig_intelligentsia": -2,
+        "legitimacy": -1
+       }
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "reforms",
+     "label_vi": "Cải cách để tước vũ khí lý lẽ của họ.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "reform_answer",
+       "name_vi": "Cải cách để trấn an",
+       "months": 36,
+       "effects": {
+        "reform": 0.02,
+        "radicalism": -0.02
+       }
+      }
+     ],
+     "ai_weight": 1
+    }
+   ]
+  },
+  {
+   "id": "gen_gold_rush",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "year_between",
+      "from": 1840,
+      "to": 1910
+     }
+    ],
+    "mtth_months": 150
+   },
+   "title_vi": "Phát hiện mỏ vàng",
+   "text_vi": "Một người chăn cừu nhặt được hòn đá lấp lánh bên bờ suối. Chỉ vài tuần sau, hàng nghìn người đổ về.",
+   "options": [
+    {
+     "id": "state",
+     "label_vi": "Nhà nước kiểm soát và đánh thuế mỏ.",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": 2
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gold_tax",
+       "name_vi": "Thuế mỏ vàng",
+       "months": 36,
+       "effects": {
+        "legitimacy": -1,
+        "tax": 0.03
+       }
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "rush",
+     "label_vi": "Mở cửa cho mọi người.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "gold_rush",
+       "name_vi": "Cơn sốt vàng",
+       "months": 48,
+       "effects": {
+        "attraction": 0.4,
+        "trade": 0.04
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 2
+    }
+   ]
+  },
+  {
+   "id": "gen_university_reform",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "year_between",
+      "from": 1836,
+      "to": 2026
+     },
+     {
+      "type": "law",
+      "entity": "$self",
+      "group": "education",
+      "value": "public_schools"
+     }
+    ],
+    "mtth_months": 100
+   },
+   "title_vi": "Cải cách đại học",
+   "text_vi": "Các giáo sư đề xuất mô hình đại học nghiên cứu: phòng thí nghiệm, hội thảo khoa học và tự do học thuật.",
+   "options": [
+    {
+     "id": "fund",
+     "label_vi": "Tài trợ mô hình mới.",
+     "effects": [
+      {
+       "type": "treasury",
+       "entity": "$self",
+       "months_income": -1
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "research_university",
+       "name_vi": "Đại học nghiên cứu",
+       "months": 120,
+       "effects": {
+        "innovation": 0.1,
+        "literacy": 0.1,
+        "ig_intelligentsia": 2
+       }
+      }
+     ],
+     "ai_weight": 2
+    },
+    {
+     "id": "control",
+     "label_vi": "Đặt trường dưới sự giám sát của bộ.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "state_university",
+       "name_vi": "Đại học nhà nước",
+       "months": 60,
+       "effects": {
+        "innovation": 0.03,
+        "police": 0.02,
+        "ig_intelligentsia": -1
+       }
+      }
+     ],
+     "ai_weight": 1
+    }
+   ]
+  },
+  {
+   "id": "gen_revolution_victorious",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "journal_active",
+      "id": "__never__"
+     }
+    ]
+   },
+   "title_vi": "Cách mạng thắng lợi",
+   "text_vi": "Những chiến lũy đã thắng. Một hiến pháp mới được ban hành, và những người từng bị cấm nói nay ngồi trong nghị viện.",
+   "options": [
+    {
+     "id": "liberal",
+     "label_vi": "Một kỷ nguyên tự do bắt đầu!",
+     "effects": [
+      {
+       "type": "set_law",
+       "entity": "$self",
+       "group": "press",
+       "value": "limited_press"
+      },
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "springtime_won",
+       "name_vi": "Mùa xuân thắng lợi",
+       "months": 60,
+       "effects": {
+        "reform": 0.02,
+        "legitimacy": 5,
+        "ig_intelligentsia": 3,
+        "ig_landowners": -2
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1
+    }
+   ]
+  },
+  {
+   "id": "gen_revolution_vanquished",
+   "country": "$any",
+   "mode": "both",
+   "trigger": {
+    "conditions": [
+     {
+      "type": "journal_active",
+      "id": "__never__"
+     }
+    ]
+   },
+   "title_vi": "Cách mạng bị dập tắt",
+   "text_vi": "Quân đội đã quét sạch các chiến lũy. Những người cầm đầu bị lưu đày, còn trật tự cũ trở lại.",
+   "options": [
+    {
+     "id": "reaction",
+     "label_vi": "Trật tự đã được khôi phục.",
+     "effects": [
+      {
+       "type": "modifier",
+       "entity": "$self",
+       "id": "reaction",
+       "name_vi": "Thời kỳ phản động",
+       "months": 60,
+       "effects": {
+        "police": 0.08,
+        "ig_landowners": 2,
+        "ig_intelligentsia": -3,
+        "radicalism": -0.03
+       },
+       "decaying": true
+      }
+     ],
+     "ai_weight": 1
+    }
+   ]
+  }
+ ],
+ "journals": [
+  {
+   "id": "gen_expect_armed_forces_professional_army",
+   "country": "$any",
+   "mode": "both",
+   "title_vi": "Quân nhân chờ luật professional army",
+   "text_vi": "Quân nhân kỳ vọng chính phủ thông qua luật này trong 5 năm. Làm được, họ sẽ ủng hộ mạnh mẽ; thất hứa, họ sẽ quay lưng.",
+   "complete": [
+    {
+     "type": "law",
+     "entity": "$self",
+     "group": "army",
+     "value": "professional_army"
+    }
+   ],
+   "timeout_months": 60,
+   "on_complete": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_armed_forces_professional_army_kept",
+     "name_vi": "Giữ lời với quân nhân",
+     "months": 60,
+     "effects": {
+      "ig_armed_forces": 3,
+      "legitimacy": 3
+     },
+     "decaying": true
+    }
+   ],
+   "on_fail": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_armed_forces_professional_army_broken",
+     "name_vi": "Thất hứa với quân nhân",
+     "months": 60,
+     "effects": {
+      "ig_armed_forces": -4,
+      "legitimacy": -3,
+      "radicalism": 0.02
+     },
+     "decaying": true
+    }
+   ]
+  },
+  {
+   "id": "gen_expect_armed_forces_mass_conscription",
+   "country": "$any",
+   "mode": "both",
+   "title_vi": "Quân nhân chờ luật mass conscription",
+   "text_vi": "Quân nhân kỳ vọng chính phủ thông qua luật này trong 5 năm. Làm được, họ sẽ ủng hộ mạnh mẽ; thất hứa, họ sẽ quay lưng.",
+   "complete": [
+    {
+     "type": "law",
+     "entity": "$self",
+     "group": "army",
+     "value": "mass_conscription"
+    }
+   ],
+   "timeout_months": 60,
+   "on_complete": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_armed_forces_mass_conscription_kept",
+     "name_vi": "Giữ lời với quân nhân",
+     "months": 60,
+     "effects": {
+      "ig_armed_forces": 3,
+      "legitimacy": 3
+     },
+     "decaying": true
+    }
+   ],
+   "on_fail": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_armed_forces_mass_conscription_broken",
+     "name_vi": "Thất hứa với quân nhân",
+     "months": 60,
+     "effects": {
+      "ig_armed_forces": -4,
+      "legitimacy": -3,
+      "radicalism": 0.02
+     },
+     "decaying": true
+    }
+   ]
+  },
+  {
+   "id": "gen_expect_industrialists_free_trade",
+   "country": "$any",
+   "mode": "both",
+   "title_vi": "Nhà công nghiệp chờ luật free trade",
+   "text_vi": "Nhà công nghiệp kỳ vọng chính phủ thông qua luật này trong 5 năm. Làm được, họ sẽ ủng hộ mạnh mẽ; thất hứa, họ sẽ quay lưng.",
+   "complete": [
+    {
+     "type": "law",
+     "entity": "$self",
+     "group": "trade",
+     "value": "free_trade"
+    }
+   ],
+   "timeout_months": 60,
+   "on_complete": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_industrialists_free_trade_kept",
+     "name_vi": "Giữ lời với nhà công nghiệp",
+     "months": 60,
+     "effects": {
+      "ig_industrialists": 3,
+      "legitimacy": 3
+     },
+     "decaying": true
+    }
+   ],
+   "on_fail": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_industrialists_free_trade_broken",
+     "name_vi": "Thất hứa với nhà công nghiệp",
+     "months": 60,
+     "effects": {
+      "ig_industrialists": -4,
+      "legitimacy": -3,
+      "radicalism": 0.02
+     },
+     "decaying": true
+    }
+   ]
+  },
+  {
+   "id": "gen_expect_industrialists_laissez_faire",
+   "country": "$any",
+   "mode": "both",
+   "title_vi": "Nhà công nghiệp chờ luật laissez faire",
+   "text_vi": "Nhà công nghiệp kỳ vọng chính phủ thông qua luật này trong 5 năm. Làm được, họ sẽ ủng hộ mạnh mẽ; thất hứa, họ sẽ quay lưng.",
+   "complete": [
+    {
+     "type": "law",
+     "entity": "$self",
+     "group": "economy",
+     "value": "laissez_faire"
+    }
+   ],
+   "timeout_months": 60,
+   "on_complete": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_industrialists_laissez_faire_kept",
+     "name_vi": "Giữ lời với nhà công nghiệp",
+     "months": 60,
+     "effects": {
+      "ig_industrialists": 3,
+      "legitimacy": 3
+     },
+     "decaying": true
+    }
+   ],
+   "on_fail": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_industrialists_laissez_faire_broken",
+     "name_vi": "Thất hứa với nhà công nghiệp",
+     "months": 60,
+     "effects": {
+      "ig_industrialists": -4,
+      "legitimacy": -3,
+      "radicalism": 0.02
+     },
+     "decaying": true
+    }
+   ]
+  },
+  {
+   "id": "gen_expect_trade_unions_free_labor",
+   "country": "$any",
+   "mode": "both",
+   "title_vi": "Công đoàn chờ luật free labor",
+   "text_vi": "Công đoàn kỳ vọng chính phủ thông qua luật này trong 5 năm. Làm được, họ sẽ ủng hộ mạnh mẽ; thất hứa, họ sẽ quay lưng.",
+   "complete": [
+    {
+     "type": "law",
+     "entity": "$self",
+     "group": "labor",
+     "value": "free_labor"
+    }
+   ],
+   "timeout_months": 60,
+   "on_complete": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_trade_unions_free_labor_kept",
+     "name_vi": "Giữ lời với công đoàn",
+     "months": 60,
+     "effects": {
+      "ig_trade_unions": 3,
+      "legitimacy": 3
+     },
+     "decaying": true
+    }
+   ],
+   "on_fail": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_trade_unions_free_labor_broken",
+     "name_vi": "Thất hứa với công đoàn",
+     "months": 60,
+     "effects": {
+      "ig_trade_unions": -4,
+      "legitimacy": -3,
+      "radicalism": 0.02
+     },
+     "decaying": true
+    }
+   ]
+  },
+  {
+   "id": "gen_expect_trade_unions_universal_male_suffrage",
+   "country": "$any",
+   "mode": "both",
+   "title_vi": "Công đoàn chờ luật universal male suffrage",
+   "text_vi": "Công đoàn kỳ vọng chính phủ thông qua luật này trong 5 năm. Làm được, họ sẽ ủng hộ mạnh mẽ; thất hứa, họ sẽ quay lưng.",
+   "complete": [
+    {
+     "type": "law",
+     "entity": "$self",
+     "group": "power",
+     "value": "universal_male_suffrage"
+    }
+   ],
+   "timeout_months": 60,
+   "on_complete": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_trade_unions_universal_male_suffrage_kept",
+     "name_vi": "Giữ lời với công đoàn",
+     "months": 60,
+     "effects": {
+      "ig_trade_unions": 3,
+      "legitimacy": 3
+     },
+     "decaying": true
+    }
+   ],
+   "on_fail": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_trade_unions_universal_male_suffrage_broken",
+     "name_vi": "Thất hứa với công đoàn",
+     "months": 60,
+     "effects": {
+      "ig_trade_unions": -4,
+      "legitimacy": -3,
+      "radicalism": 0.02
+     },
+     "decaying": true
+    }
+   ]
+  },
+  {
+   "id": "gen_expect_intelligentsia_free_press",
+   "country": "$any",
+   "mode": "both",
+   "title_vi": "Trí thức chờ luật free press",
+   "text_vi": "Trí thức kỳ vọng chính phủ thông qua luật này trong 5 năm. Làm được, họ sẽ ủng hộ mạnh mẽ; thất hứa, họ sẽ quay lưng.",
+   "complete": [
+    {
+     "type": "law",
+     "entity": "$self",
+     "group": "press",
+     "value": "free_press"
+    }
+   ],
+   "timeout_months": 60,
+   "on_complete": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_intelligentsia_free_press_kept",
+     "name_vi": "Giữ lời với trí thức",
+     "months": 60,
+     "effects": {
+      "ig_intelligentsia": 3,
+      "legitimacy": 3
+     },
+     "decaying": true
+    }
+   ],
+   "on_fail": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_intelligentsia_free_press_broken",
+     "name_vi": "Thất hứa với trí thức",
+     "months": 60,
+     "effects": {
+      "ig_intelligentsia": -4,
+      "legitimacy": -3,
+      "radicalism": 0.02
+     },
+     "decaying": true
+    }
+   ]
+  },
+  {
+   "id": "gen_expect_intelligentsia_public_schools",
+   "country": "$any",
+   "mode": "both",
+   "title_vi": "Trí thức chờ luật public schools",
+   "text_vi": "Trí thức kỳ vọng chính phủ thông qua luật này trong 5 năm. Làm được, họ sẽ ủng hộ mạnh mẽ; thất hứa, họ sẽ quay lưng.",
+   "complete": [
+    {
+     "type": "law",
+     "entity": "$self",
+     "group": "education",
+     "value": "public_schools"
+    }
+   ],
+   "timeout_months": 60,
+   "on_complete": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_intelligentsia_public_schools_kept",
+     "name_vi": "Giữ lời với trí thức",
+     "months": 60,
+     "effects": {
+      "ig_intelligentsia": 3,
+      "legitimacy": 3
+     },
+     "decaying": true
+    }
+   ],
+   "on_fail": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_intelligentsia_public_schools_broken",
+     "name_vi": "Thất hứa với trí thức",
+     "months": 60,
+     "effects": {
+      "ig_intelligentsia": -4,
+      "legitimacy": -3,
+      "radicalism": 0.02
+     },
+     "decaying": true
+    }
+   ]
+  },
+  {
+   "id": "gen_expect_clergy_state_religion",
+   "country": "$any",
+   "mode": "both",
+   "title_vi": "Giáo sĩ chờ luật state religion",
+   "text_vi": "Giáo sĩ kỳ vọng chính phủ thông qua luật này trong 5 năm. Làm được, họ sẽ ủng hộ mạnh mẽ; thất hứa, họ sẽ quay lưng.",
+   "complete": [
+    {
+     "type": "law",
+     "entity": "$self",
+     "group": "church",
+     "value": "state_religion"
+    }
+   ],
+   "timeout_months": 60,
+   "on_complete": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_clergy_state_religion_kept",
+     "name_vi": "Giữ lời với giáo sĩ",
+     "months": 60,
+     "effects": {
+      "ig_clergy": 3,
+      "legitimacy": 3
+     },
+     "decaying": true
+    }
+   ],
+   "on_fail": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_clergy_state_religion_broken",
+     "name_vi": "Thất hứa với giáo sĩ",
+     "months": 60,
+     "effects": {
+      "ig_clergy": -4,
+      "legitimacy": -3,
+      "radicalism": 0.02
+     },
+     "decaying": true
+    }
+   ]
+  },
+  {
+   "id": "gen_expect_clergy_religious_schools",
+   "country": "$any",
+   "mode": "both",
+   "title_vi": "Giáo sĩ chờ luật religious schools",
+   "text_vi": "Giáo sĩ kỳ vọng chính phủ thông qua luật này trong 5 năm. Làm được, họ sẽ ủng hộ mạnh mẽ; thất hứa, họ sẽ quay lưng.",
+   "complete": [
+    {
+     "type": "law",
+     "entity": "$self",
+     "group": "education",
+     "value": "religious_schools"
+    }
+   ],
+   "timeout_months": 60,
+   "on_complete": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_clergy_religious_schools_kept",
+     "name_vi": "Giữ lời với giáo sĩ",
+     "months": 60,
+     "effects": {
+      "ig_clergy": 3,
+      "legitimacy": 3
+     },
+     "decaying": true
+    }
+   ],
+   "on_fail": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_clergy_religious_schools_broken",
+     "name_vi": "Thất hứa với giáo sĩ",
+     "months": 60,
+     "effects": {
+      "ig_clergy": -4,
+      "legitimacy": -3,
+      "radicalism": 0.02
+     },
+     "decaying": true
+    }
+   ]
+  },
+  {
+   "id": "gen_expect_landowners_protectionism",
+   "country": "$any",
+   "mode": "both",
+   "title_vi": "Địa chủ chờ luật protectionism",
+   "text_vi": "Địa chủ kỳ vọng chính phủ thông qua luật này trong 5 năm. Làm được, họ sẽ ủng hộ mạnh mẽ; thất hứa, họ sẽ quay lưng.",
+   "complete": [
+    {
+     "type": "law",
+     "entity": "$self",
+     "group": "trade",
+     "value": "protectionism"
+    }
+   ],
+   "timeout_months": 60,
+   "on_complete": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_landowners_protectionism_kept",
+     "name_vi": "Giữ lời với địa chủ",
+     "months": 60,
+     "effects": {
+      "ig_landowners": 3,
+      "legitimacy": 3
+     },
+     "decaying": true
+    }
+   ],
+   "on_fail": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_landowners_protectionism_broken",
+     "name_vi": "Thất hứa với địa chủ",
+     "months": 60,
+     "effects": {
+      "ig_landowners": -4,
+      "legitimacy": -3,
+      "radicalism": 0.02
+     },
+     "decaying": true
+    }
+   ]
+  },
+  {
+   "id": "gen_expect_rural_folk_free_labor",
+   "country": "$any",
+   "mode": "both",
+   "title_vi": "Nông dân chờ luật free labor",
+   "text_vi": "Nông dân kỳ vọng chính phủ thông qua luật này trong 5 năm. Làm được, họ sẽ ủng hộ mạnh mẽ; thất hứa, họ sẽ quay lưng.",
+   "complete": [
+    {
+     "type": "law",
+     "entity": "$self",
+     "group": "labor",
+     "value": "free_labor"
+    }
+   ],
+   "timeout_months": 60,
+   "on_complete": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_rural_folk_free_labor_kept",
+     "name_vi": "Giữ lời với nông dân",
+     "months": 60,
+     "effects": {
+      "ig_rural_folk": 3,
+      "legitimacy": 3
+     },
+     "decaying": true
+    }
+   ],
+   "on_fail": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_rural_folk_free_labor_broken",
+     "name_vi": "Thất hứa với nông dân",
+     "months": 60,
+     "effects": {
+      "ig_rural_folk": -4,
+      "legitimacy": -3,
+      "radicalism": 0.02
+     },
+     "decaying": true
+    }
+   ]
+  },
+  {
+   "id": "gen_expect_petty_bourgeoisie_census_suffrage",
+   "country": "$any",
+   "mode": "both",
+   "title_vi": "Tiểu tư sản chờ luật census suffrage",
+   "text_vi": "Tiểu tư sản kỳ vọng chính phủ thông qua luật này trong 5 năm. Làm được, họ sẽ ủng hộ mạnh mẽ; thất hứa, họ sẽ quay lưng.",
+   "complete": [
+    {
+     "type": "law",
+     "entity": "$self",
+     "group": "power",
+     "value": "census_suffrage"
+    }
+   ],
+   "timeout_months": 60,
+   "on_complete": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_petty_bourgeoisie_census_suffrage_kept",
+     "name_vi": "Giữ lời với tiểu tư sản",
+     "months": 60,
+     "effects": {
+      "ig_petty_bourgeoisie": 3,
+      "legitimacy": 3
+     },
+     "decaying": true
+    }
+   ],
+   "on_fail": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "gen_expect_petty_bourgeoisie_census_suffrage_broken",
+     "name_vi": "Thất hứa với tiểu tư sản",
+     "months": 60,
+     "effects": {
+      "ig_petty_bourgeoisie": -4,
+      "legitimacy": -3,
+      "radicalism": 0.02
+     },
+     "decaying": true
+    }
+   ]
+  },
+  {
+   "id": "gen_votes_for_women",
+   "country": "$any",
+   "mode": "both",
+   "title_vi": "Quyền bầu cử cho phụ nữ",
+   "text_vi": "Nghị viện tranh luận về quyền bầu cử của phụ nữ. Thông qua luật bầu cử phổ thông trong 10 năm để hoàn thành.",
+   "complete": [
+    {
+     "type": "law",
+     "entity": "$self",
+     "group": "power",
+     "value": "universal_suffrage"
+    }
+   ],
+   "timeout_months": 120,
+   "on_complete": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "women_vote",
+     "name_vi": "Phụ nữ đi bầu",
+     "months": 120,
+     "effects": {
+      "legitimacy": 4,
+      "literacy": 0.05,
+      "ig_intelligentsia": 2
+     },
+     "decaying": true
+    }
+   ],
+   "on_fail": [
+    {
+     "type": "modifier",
+     "entity": "$self",
+     "id": "women_denied",
+     "name_vi": "Phụ nữ bị khước từ",
+     "months": 60,
+     "effects": {
+      "radicalism": 0.02,
+      "ig_intelligentsia": -2
+     },
+     "decaying": true
+    }
+   ]
+  },
+  {
+   "id": "gen_springtime_1848",
+   "country": "$any",
+   "mode": "both",
+   "window": [
+    "1847-06-01",
+    "1852-12-31"
+   ],
+   "trigger": {
+    "conditions": [
+     {
+      "type": "year_between",
+      "from": 1847,
+      "to": 1849
+     },
+     {
+      "type": "radicalism_above",
+      "entity": "$self",
+      "value": 0.18
+     },
+     {
+      "type": "any",
+      "of": [
+       {
+        "type": "law",
+        "entity": "$self",
+        "group": "power",
+        "value": "autocracy"
+       },
+       {
+        "type": "law",
+        "entity": "$self",
+        "group": "power",
+        "value": "oligarchy"
+       }
+      ]
+     }
+    ]
+   },
+   "title_vi": "Mùa xuân của các dân tộc",
+   "text_vi": "Lời kêu gọi cách mạng tự do lan khắp châu lục. Hoặc nhượng bộ (bầu cử theo tài sản hoặc phổ thông) để thắng lợi cách mạng, hoặc giữ hòa bình và hạ nhiệt cực đoan để phe bảo thủ thắng.",
+   "progress": {
+    "start": 50,
+    "max": 100,
+    "label_vi": "Cách mạng (100) – Phản động (0)",
+    "monthly": [
+     {
+      "if": {
+       "type": "radicalism_above",
+       "entity": "$self",
+       "value": 0.25
+      },
+      "add": 3
+     },
+     {
+      "if": {
+       "type": "law",
+       "entity": "$self",
+       "group": "press",
+       "value": "censorship"
+      },
+      "add": -2
+     },
+     {
+      "if": {
+       "type": "legitimacy_below",
+       "entity": "$self",
+       "value": 40
+      },
+      "add": 2
+     },
+     {
+      "add": -1
+     }
+    ]
+   },
+   "complete": [
+    {
+     "type": "any",
+     "of": [
+      {
+       "type": "law",
+       "entity": "$self",
+       "group": "power",
+       "value": "census_suffrage"
+      },
+      {
+       "type": "law",
+       "entity": "$self",
+       "group": "power",
+       "value": "universal_male_suffrage"
+      },
+      {
+       "type": "progress_at_least",
+       "value": 100
+      }
+     ]
+    }
+   ],
+   "fail": [
+    {
+     "type": "months_elapsed",
+     "value": 36
+    }
+   ],
+   "on_complete": [
+    {
+     "type": "trigger_event",
+     "entity": "$self",
+     "id": "gen_revolution_victorious"
+    }
+   ],
+   "on_fail": [
+    {
+     "type": "trigger_event",
+     "entity": "$self",
+     "id": "gen_revolution_vanquished"
+    }
+   ]
+  }
+ ]
+}

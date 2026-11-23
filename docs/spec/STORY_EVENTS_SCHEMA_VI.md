@@ -112,5 +112,43 @@ Example trigger: `{ "type": "movement_strength_above", "owner": "$self", "value"
 | `trigger_event` | `id`, `delay_months` | |
 | `army` | `entity`, `delta_share` (±fraction of manpower) | |
 | `trade` | `entity`, `delta` (temporary openness ±, `months`) | |
+| **`modifier`** | `entity`, `id`, `name_vi`, `name_en`, `months`, `decaying` (bool), `effects` {key: value} | **a timed buff/debuff, V3-style** (e.g. "The Heroic Era, 2 years, decaying") |
+| `start_journal` | `entity`, `id` | opens a story journal (below) |
+| `trigger_event` | `entity`, `id` | fires a follow-up event now (chains) |
+
+### Modifier keys (`effects` of `modifier`)
+
+| key | meaning |
+|---|---|
+| `trade`, `tariff`, `construction`, `research`, `innovation`, `tax`, `literacy`, `attraction`, `army`, `police` | fractions, e.g. 0.05 = +5% |
+| `reform` | law reform progress per month (0.01 = +1%/month) |
+| `radicalism` | target radicalism ± (0.02 = +2 points) |
+| `legitimacy` | legitimacy target ± (points) |
+| `birth` | birth rate ± (0.001 = +1‰) |
+| `prestige`, `war_exhaustion` | per month ± |
+| `clergy` | clergy approval ± |
+| `ig_landowners`, `ig_industrialists`, `ig_intelligentsia`, `ig_petty_bourgeoisie`, `ig_clergy`, `ig_armed_forces`, `ig_rural_folk`, `ig_trade_unions` | approval of that interest group ± (−10…10 scale) |
+
+**Owner rule (2026-11-23): every option must give something.** Each option carries at least one `modifier` (buff or debuff, with a name and a duration) or another concrete effect. Options trade gains for costs so that no option is free.
+
+## Story journals (V3-style journal entries)
+
+In the same file, put `"journals": [ … ]`:
+
+```json
+{ "id": "ita_risorgimento", "country": "SAR", "mode": "both",
+  "trigger": { "conditions": [ … ] },
+  "title_vi": "…", "text_vi": "…",
+  "progress": { "start": 0, "max": 100, "label_vi": "Thống nhất", "monthly": [ { "if": { … }, "add": 2 }, { "add": -1 } ] },
+  "complete": [ conditions, all must hold; may use { "type": "progress_at_least", "value": 100 } ],
+  "fail": [ conditions, any one fails it; may use { "type": "months_elapsed", "value": 120 } ],
+  "timeout_months": 120, "on_timeout": "fail",
+  "on_complete": [ effects ], "on_fail": [ effects ] }
+```
+
+- A journal opens by its `trigger`, or by a `start_journal` effect.
+- Use `trigger_event` in `on_complete` / `on_fail` for outcome events.
+- **Interest-group petitions** are a journal with a deadline: "Expect law X within 5 years" → kept: approval buff; broken: debuff.
+- See `historical_data/events/story/generic_politics.json` (written by Claude, `tools/data/build-story-generic.py`) for working examples: petitions, 1848, strikes, epidemics, inventors.
 
 Ids of countries and regions must exist in `historical_data/political_entities/registry.json` and `historical_data/borders/regions_1836.csv`. If an id is missing, write `"TODO:<name>"` and list it at the end of the file; the build reports it.

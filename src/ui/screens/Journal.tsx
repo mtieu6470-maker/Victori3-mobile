@@ -1,4 +1,5 @@
 // Journal: historical decision windows (Historical Mode), event log, territorial changes, comparison with real history.
+import { StoryJournalSection } from './StoryEvents';
 import { useState } from 'preact/hooks';
 import type { GameState } from '../../engine/types';
 import { data } from '../../engine/data/db';
@@ -180,6 +181,7 @@ function Decisions({ st }: { st: GameState }) {
   const status = (w: (typeof windows)[number]) => (pend.some((p) => p.windowId === w.id) ? ['Đang chờ quyết định', 'warn'] : st.firedEvents.includes(w.id) ? ['Đã diễn ra', 'flat'] : now > w.window[1].slice(0, 7) ? ['Đã đóng', 'flat'] : now < w.window[0].slice(0, 7) ? ['Chưa mở', 'flat'] : ['Đang mở — chờ điều kiện', 'up']);
   return (
     <div class="pad">
+      <StoryJournalSection st={st} id={id} />
       <Missions st={st} id={id} mine={mine} />
       {st.mode === 'sandbox' && <div class="banner"><Icon name="scroll" /><div class="grow">Sandbox không có cửa sổ quyết định lịch sử; biến cố xuất hiện theo cùng hệ thống mô phỏng.</div></div>}
       {pend.map((p) => { const w = data().db.decision_windows.find((x) => x.id === p.windowId); if (!w) return null; return (

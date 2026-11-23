@@ -1,3 +1,25 @@
+## 2026-11-23 — EVT-01 story events, timed modifiers, story journals (owner: "events for every country like V3; every option gives a buff/debuff; the more the better")
+
+- **Spec:** `docs/spec/STORY_EVENTS_SCHEMA_VI.md`. **Data:** `historical_data/events/story/*.json` → `db.story_events` / `db.story_journals` (`tools/build-data.ts`; bad ids skip with a warning).
+- **Engine** `systems/storyEvents.ts`, system `story-events` after `events`:
+  - **Events:** mode historical/both/sandbox; window and chain (after, flag); conditions (shared ones plus about 20 new); mtth or fire_date.
+  - **Roles** `$self` / `$owner` / `$colony` / `$nation` / `$subject` / `$overlord` / `$supporter`.
+  - **Choices:** the player gets `pendingStory` (12 months, then the AI's pick); the AI picks by weight (×4 for the historical option in Historical Mode, times modifiers). Each (event, binding) fires once.
+  - **Effects:** the old decision-window set plus movement, grant_independence, subjects, treasury, war_exhaustion, prestige, infamy, radicalism/nationalism, embargo, support_movement, alliance, base_rights, customs_union_join, declare_war, flags, army, trade, modifier, start_journal, trigger_event.
+  - **Timed modifiers** (`Country.modifiers`, aggregated to `Country.eventMods`, optionally decaying), read through `mods.ts` `mod(c, key)`. This replaces the direct `blocMods` reads at hook sites.
+    - Hook keys: trade, tariff, construction, research, innovation, reform, police, radicalism, army, legitimacy, tax, literacy, birth, attraction, prestige, war_exhaustion, clergy, ig_*.
+  - **Story journals:** progress with monthly steps; complete/fail conditions (`progress_at_least`, `months_elapsed`); timeout; on_complete / on_fail effects.
+- **UI:** `screens/StoryEvents.tsx`.
+  - The event window opens automatically and pauses the game; each option lists its effects in Vietnamese (`describeEffect`).
+  - The journal shows pending events, story journals (progress, condition checklist, outcomes) and active modifiers. The outliner shows them too.
+  - QA hook: `?story=<id>`.
+- **Starter pack** (Claude, `tools/data/build-story-generic.py`): 30 events and 15 journals, including 13 interest-group petitions with 5-year expectation journals, 1848 Springtime with outcome events, strikes, cholera, inventor, corruption, harvest, suffrage, war weariness, foreign advisers, railway boom, emigration, exhibition, anarchists, gold rush, university reform.
+- **Frequency** (Historical seed 1, 10 years): about 500 events across 142 countries.
+- **Board:** MSG-114 (CG-50, per-country packs) and MSG-115 (more journals, ≥ 300 generic events; CG-51 V3 reference for events, military and diplomatic plays, with images).
+- **Tests:** `tests/story-events.test.ts` (5).
+
+---
+
 ## 2026-11-23 — DECOL-03 independence movements, embargoes, foreign support (owner: "after 1950 movements were strong everywhere"; "no grant without a benefit or cause")
 
 - Design: `docs/design/INDEPENDENCE_MOVEMENTS_VI.md`. Engine: `systems/independence.ts`, system `independence` after `decolonisation`.

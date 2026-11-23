@@ -112,6 +112,9 @@ export interface HistoricalDB {
   wars: WarSeed[];
   exogenous: ExogenousEvent[];
   decision_windows: DecisionWindow[];
+  /** EVT-01: story events (docs/spec/STORY_EVENTS_SCHEMA_VI.md), flattened from historical_data/events/story/*.json. */
+  story_events?: StoryEvent[];
+  story_journals?: StoryJournal[];
   structural_rules: Record<string, unknown>[];
   zollverein: { union_leader: string; members_at_start: string[]; historical_accessions: { entity: string; date: string }[] };
   leaders: Record<string, LeaderRecord[]>;
@@ -150,4 +153,32 @@ export interface HistoricalDB {
     entities_total: number; by_tier: Record<string, number>; by_model: Record<string, number>;
     facts_by_quality: Record<Quality, number>; needs_source: string[]; gaps: { entity: string; section: string; note: string }[];
   };
+}
+
+/** EVT-01 story event (data; see docs/spec/STORY_EVENTS_SCHEMA_VI.md). Conditions and effects are open records. */
+export interface StoryEventOption {
+  id: string; label_vi: string; label_en?: string; historical?: boolean; ai_weight?: number;
+  ai_modifiers?: { if: Record<string, unknown>; factor: number }[];
+  effects: Record<string, unknown>[];
+}
+export interface StoryEvent {
+  id: string; country: string; mode: 'historical' | 'both' | 'sandbox';
+  window?: [string, string]; date_historical?: string;
+  trigger?: { conditions?: Record<string, unknown>[]; mtth_months?: number; fire_date?: string };
+  chain?: { after?: string[]; flag?: string };
+  title_vi: string; title_en?: string; text_vi: string; text_en?: string;
+  image?: { ref: string; credit?: string; license?: string };
+  options: StoryEventOption[];
+  sources?: unknown[];
+}
+
+/** EVT-01 story journal (V3-style journal entry): progress, complete/fail conditions and outcomes. */
+export interface StoryJournal {
+  id: string; country: string; mode: 'historical' | 'both' | 'sandbox'; window?: [string, string];
+  title_vi: string; title_en?: string; text_vi: string; text_en?: string; image?: { ref: string; credit?: string; license?: string };
+  trigger?: { conditions?: Record<string, unknown>[] };
+  progress?: { start?: number; max?: number; label_vi?: string; monthly?: { if?: Record<string, unknown>; add: number }[] };
+  complete?: Record<string, unknown>[]; fail?: Record<string, unknown>[];
+  timeout_months?: number; on_timeout?: 'complete' | 'fail';
+  on_complete?: Record<string, unknown>[]; on_fail?: Record<string, unknown>[];
 }

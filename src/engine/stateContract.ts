@@ -103,6 +103,8 @@ export function validateCountryRecord(id: string, v: unknown, path: string): voi
   if (c.bloc !== undefined) str(c.bloc, `${path}.bloc`);
   if (c.blocMods !== undefined) numRecord(c.blocMods, `${path}.blocMods`);
   if (c.embargoed !== undefined) num(c.embargoed, `${path}.embargoed`);
+  if (c.eventMods !== undefined) numRecord(c.eventMods, `${path}.eventMods`);
+  if (c.modifiers !== undefined) arr(c.modifiers, `${path}.modifiers`).forEach((m, i) => { const x = obj(m, `${path}.modifiers[${i}]`); str(x.id, `${path}.modifiers[${i}].id`); num(x.start, `${path}.modifiers[${i}].start`); num(x.until, `${path}.modifiers[${i}].until`); numRecord(x.effects, `${path}.modifiers[${i}].effects`); });
   if (c.subjectPact !== undefined) {
     const sp = obj(c.subjectPact, `${path}.subjectPact`);
     for (const [k, v] of Object.entries(sp)) if (typeof v === 'boolean') continue; else num(v, `${path}.subjectPact.${k}`);
@@ -254,6 +256,9 @@ export function validateNestedState(st: GameState): void {
     arr(m.supporters, `movements.${k}.supporters`).forEach((x, i) => str(x, `movements.${k}.supporters[${i}]`));
     arr(m.regions, `movements.${k}.regions`).forEach((x, i) => str(x, `movements.${k}.regions[${i}]`));
   }
+  for (const f of ['storyFired', 'flags'] as const) if (s[f] !== undefined) arr(s[f], f).forEach((x, i) => str(x, `${f}[${i}]`));
+  if (s.pendingStory !== undefined) arr(s.pendingStory, 'pendingStory').forEach((p, i) => { const x = obj(p, `pendingStory[${i}]`); for (const f of ['id', 'event', 'country'] as const) str(x[f], `pendingStory[${i}].${f}`); num(x.firedAt, `pendingStory[${i}].firedAt`); num(x.expires, `pendingStory[${i}].expires`); });
+  if (s.storyJournals !== undefined) arr(s.storyJournals, 'storyJournals').forEach((p, i) => { const x = obj(p, `storyJournals[${i}]`); str(x.id, `storyJournals[${i}].id`); str(x.country, `storyJournals[${i}].country`); num(x.started, `storyJournals[${i}].started`); num(x.progress, `storyJournals[${i}].progress`); });
   if (s.embargoes !== undefined) arr(s.embargoes, 'embargoes').forEach((e, i) => { const x = obj(e, `embargoes[${i}]`); str(x.by, `embargoes[${i}].by`); str(x.target, `embargoes[${i}].target`); num(x.since, `embargoes[${i}].since`); });
   if (s.powerBlocs !== undefined) for (const [k, v] of Object.entries(obj(s.powerBlocs, 'powerBlocs'))) {
     const b = obj(v, `powerBlocs.${k}`);

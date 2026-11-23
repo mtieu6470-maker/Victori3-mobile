@@ -1,5 +1,6 @@
 // Population Engine (shared): births/deaths, famine and epidemics, strata change following jobs and laws,
 // literacy, migration (internal and international) and nationalism.
+import { mod } from '../mods';
 import { data } from '../data/db';
 import { S, type Country, type GameState, type Region } from '../types';
 import { clamp } from '../core';
@@ -32,7 +33,7 @@ export function populationMonth(st: GameState) {
     // DEMO-01 demographic transition: fertility falls once mortality has fallen and literacy is high,
     // so births follow deaths down with a lag instead of staying at pre-industrial levels forever.
     const transition = clamp((r.literacy - 0.55) / 0.4, 0, 1) * clamp(1 - (death - DEATH_RATE_FLOOR) / 0.017, 0, 1);
-    const birth = 0.037 - 0.008 * r.literacy - 0.006 * urban + 0.012 * frontier + ((c as any).fertilityAdj ?? 0) - FERTILITY_TRANSITION_DROP * transition;
+    const birth = mod(c, 'birth') + 0.037 - 0.008 * r.literacy - 0.006 * urban + 0.012 * frontier + ((c as any).fertilityAdj ?? 0) - FERTILITY_TRANSITION_DROP * transition;
     r.pop = Math.max(100, r.pop * (1 + (birth - death) / 12));
     // emigration from distress (coastal regions can reach overseas destinations)
     if ((r.sol < 0.42 || famine > 0.1) && r.coastal && c.laws.labor !== 'serfdom' && c.laws.trade !== 'isolationism') {
@@ -42,7 +43,7 @@ export function populationMonth(st: GameState) {
     // literacy
     const edu = c.laws.education === 'public_schools' ? 0.012 : c.laws.education === 'religious_schools' ? 0.004 : 0.0005;
     const target = clamp(0.03 + c.budget.education * 3 + (c.laws.education === 'public_schools' ? 0.45 : c.laws.education === 'religious_schools' ? 0.15 : 0), 0, 0.98);
-    r.literacy = clamp(r.literacy + ((target - r.literacy) * (edu + 0.01 * techEffect(c, 'literacy_growth')) * (1 + c.budget.education * 4)) / 12, 0, 0.99);
+    r.literacy = clamp(r.literacy + ((target - r.literacy) * (edu + 0.01 * techEffect(c, 'literacy_growth')) * (1 + c.budget.education * 4) * (1 + mod(c, 'literacy'))) / 12, 0, 0.99);
     shiftStrata(st, c, r);
     r.devastation = Math.max(0, r.devastation - 0.01);
     // nationalism: non-core nations under foreign rule, raised by literacy and the press
@@ -63,7 +64,7 @@ export function populationMonth(st: GameState) {
       if (!regs.length) continue;
       const sol = regs.reduce((s, r) => s + r.sol * r.pop, 0) / Math.max(1, regs.reduce((s, r) => s + r.pop, 0));
       const space = regs.reduce((s, r) => s + Math.max(0, 1 - r.pop / Math.max(50, r.area) / 25) * r.area, 0);
-      const w = Math.max(0, sol - 0.55) * Math.sqrt(space);
+      const w = Math.max(0, sol - 0.55) * Math.sqrt(space) * (1 + mod(c, 'attraction'));
       if (w > 0) dests.push({ c, w, regions: regs.filter((r) => r.pop / Math.max(50, r.area) < 25) });
     }
     dests.sort((a, b) => b.w - a.w);

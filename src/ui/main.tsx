@@ -61,6 +61,8 @@ async function boot() {
     if (q.get('zoom')) { const [cx, cy, sc] = q.get('zoom')!.split(',').map(Number); ui.set({ camera: { cx, cy, scale: sc } }); }
     render(<App assets={assets} />, root);
     await game.fastForward(months);
+    // QA: ?story=<event id> fires a story event for the player (screenshots of the event window)
+    if (q.get('story') && game.st?.player) { const { applyEffect } = await import('../engine/systems/storyEvents'); applyEffect(game.st, { type: 'trigger_event', entity: game.st.player, id: q.get('story') }, 'qa'); game.emit(); }
     // QA hook for scripted screenshots (tools/ui-shots.ts); only present when the page is opened with QA parameters
     (window as any).__qa = { ui, game, details, modals, mapControls, data };
     document.body.dataset.ready = '1';

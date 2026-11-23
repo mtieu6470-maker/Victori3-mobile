@@ -472,6 +472,50 @@ const by_tier: Record<string, number> = {}; const by_model: Record<string, numbe
 for (const e of regEntities) { by_tier[e.tier] = (by_tier[e.tier] ?? 0) + 1; by_model[e.model.split(':')[0]] = (by_model[e.model.split(':')[0]] ?? 0) + 1; }
 by_model['placeholder_polities'] = decentralizedRegions.length;
 
+// ---------------------------------------------------------------- EVT-01 story events
+const storyEvents: any[] = [];
+const storyJournals: any[] = [];
+{
+  const dir = path.join(HD, 'events/story');
+  const entIds = new Set(entities.map((e: any) => e.id));
+  const regIds = new Set(regions.map((r: any) => r.id));
+  const ENT_KEYS = ['entity', 'a', 'b', 'owner', 'subject', 'overlord', 'by', 'target', 'host', 'user', 'with', 'attacker', 'defender', 'to'];
+  const seen = new Set<string>();
+  const scan = (o: any, bad: string[]) => {
+    if (Array.isArray(o)) { for (const x of o) scan(x, bad); return; }
+    if (!o || typeof o !== 'object') return;
+    for (const [k, v] of Object.entries(o)) {
+      if (k === 'region' && typeof v === 'string' && !regIds.has(v)) bad.push(`region ${v}`);
+      else if (k === 'regions' && Array.isArray(v)) for (const r of v) { if (typeof r === 'string' && !r.startsWith('$') && !regIds.has(r)) bad.push(`region ${r}`); }
+      else if (ENT_KEYS.includes(k) && typeof v === 'string' && !v.startsWith('$') && !entIds.has(v) && !regIds.has(v) && v.startsWith('TODO:')) bad.push(`entity ${v}`);
+      else if (typeof v === 'object') scan(v, bad);
+    }
+  };
+  if (fs.existsSync(dir)) for (const f of fs.readdirSync(dir).filter((x) => x.endsWith('.json')).sort()) {
+    const file = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
+    for (const jn of file.journals ?? []) {
+      const j = { ...jn, country: jn.country ?? file.country, mode: jn.mode ?? 'both' };
+      const bad: string[] = [];
+      if (!j.id || !j.country || !j.title_vi || !j.text_vi) bad.push('missing id/country/title/text');
+      if (seen.has(`J:${j.id}`)) bad.push('duplicate journal id');
+      scan([j.trigger, j.complete, j.fail, j.on_complete, j.on_fail, j.progress], bad);
+      if (bad.length) { warnings.push(`story ${f}:journal ${j.id}: skipped (${[...new Set(bad)].slice(0, 4).join('; ')})`); continue; }
+      seen.add(`J:${j.id}`); storyJournals.push(j);
+    }
+    for (const e of file.events ?? []) {
+      const ev = { ...e, country: e.country ?? file.country, mode: e.mode ?? 'both' };
+      const bad: string[] = [];
+      if (!ev.id || !ev.country || !ev.title_vi || !ev.text_vi || !Array.isArray(ev.options) || ev.options.length < 1) bad.push('missing id/country/title/text/options');
+      if (seen.has(ev.id)) bad.push('duplicate id');
+      if (!['historical', 'both', 'sandbox'].includes(ev.mode)) bad.push(`mode ${ev.mode}`);
+      if (ev.mode === 'historical' && !ev.window && !ev.trigger?.fire_date) bad.push('historical event without window');
+      scan([ev.trigger, ev.options], bad);
+      if (bad.length) { warnings.push(`story ${f}:${ev.id}: skipped (${[...new Set(bad)].slice(0, 4).join('; ')})`); continue; }
+      seen.add(ev.id); storyEvents.push(ev);
+    }
+  }
+}
+
 if (errors.length) {
   console.error(`build-data: ${errors.length} validation error(s):\n  - ` + errors.slice(0, 80).join('\n  - '));
   process.exit(1);
@@ -480,7 +524,7 @@ if (errors.length) {
 const db: HistoricalDB = {
   meta: { start_date: START, built_at: new Date().toISOString(), version: '0.1.0', counts: { entities: entities.length, regions: regions.length, sources: sources.length, alliances: alliances.length } },
   sources, cultures: cultFile.cultures, religions: cultFile.religions, entities, regions, alliances,
-  wars: ev.initial_wars, exogenous: ev.exogenous, decision_windows: ev.decision_windows, structural_rules: ev.structural_rules,
+  wars: ev.initial_wars, exogenous: ev.exogenous, decision_windows: ev.decision_windows, story_events: storyEvents, story_journals: storyJournals, structural_rules: ev.structural_rules,
   zollverein: ev.zollverein_accessions, leaders, technologies: techFile.technologies, company_kinds: companyKindsFile.kinds, production_methods: pmFile.methods, settlements: settlementsFile.settlements, blocs: blocsFile.blocs.map(({ id, name_en, name_vi, camp, founded, dissolved, members }: any) => ({ id, name_en, name_vi, camp, founded, ...(dissolved ? { dissolved } : {}), members: members.map(({ capital, from, to, name }: any) => ({ capital, from, ...(to ? { to } : {}), name })) })), organisations: (blocsFile.organisations ?? []).map(({ id, name_en, name_vi, type, founded, dissolved, members }: any) => ({ id, name_en, name_vi, type, founded, ...(dissolved ? { dissolved } : {}), members: members.map(({ capital, from, to, name, customsUnionFrom }: any) => ({ capital, from, ...(to ? { to } : {}), name, ...(customsUnionFrom ? { customsUnionFrom } : {}) })) })), leaders_20c: leaders20File.leaders.map(({ capitalRegion, name, born, died, from, to, role, title_vi, title_en }: any) => ({ capitalRegion, name, born, died, from, to, role, title_vi, title_en })), regime_changes: regimeFile.events.map(({ id, date, capitalRegion, rename, name_en, name_vi, type, laws, independence, independenceRegions, allies }: any) => ({ id, date, capitalRegion, rename, name_en, name_vi, type, laws, independence, ...(independenceRegions ? { independenceRegions } : {}), ...(allies ? { allies } : {}) })), world_wars: wwFile.wars, league_of_nations: wwFile.league, decolonisation: decolFile.records.filter((r: any) => r.regions.length).map(({ id, iso, name, name_vi, power, date, regions }: any) => ({ id, iso, name, name_vi, power, date, regions })), tech_adoption_windows: adoptionWindows.map(({ country, tech, earliest }) => ({ country, tech, earliest })), start_techs,
   historical_changes: hc.changes, equivalence: hc.equivalence.classes, milestones: ms.milestones, territorial_checkpoints: ms.territorial_checkpoints,
   european_powers: ms.european_powers, benchmarks, gdp_pc_1836,
@@ -488,5 +532,6 @@ const db: HistoricalDB = {
 };
 fs.mkdirSync(OUT, { recursive: true });
 fs.writeFileSync(path.join(OUT, 'db.json'), JSON.stringify(db));
+console.log(`build-data: story events ${storyEvents.length}, story journals ${storyJournals.length}`);
 console.log(`build-data: OK — ${entities.length} entities (${decentralizedRegions.length} placeholder polities), ${regions.length} regions, ${alliances.length} active alliances, ${warnings.length} warnings`);
 if (process.env.VERBOSE) for (const w of warnings) console.log('  warn:', w);

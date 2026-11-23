@@ -1,4 +1,5 @@
 // Military Engine (shared): army/navy strength, recruitment, fronts, battles, occupation, war score, peace.
+import { mod } from '../mods';
 import { postwarNorm, POST_1945_NORM } from './diplomacy';
 import { data } from '../data/db';
 import type { Country, GameState, War, WarGoal } from '../types';
@@ -30,7 +31,7 @@ export function militaryMonth(st: GameState) {
   for (const c of Object.values(st.countries)) {
     if (!c.alive) continue;
     const war = atWar(st, c.id);
-    c.army.quality = (ARMY_LAW[c.laws.army] ?? 1) * (1 + techEffect(c, 'army_quality') + (c.blocMods?.army ?? 0)) * (c.decentralized ? 0.55 : 1);
+    c.army.quality = (ARMY_LAW[c.laws.army] ?? 1) * (1 + techEffect(c, 'army_quality') + mod(c, 'army')) * (c.decentralized ? 0.55 : 1);
     const p = st.marketPrices[c.customsUnion ?? c.id] ?? st.worldPrices;
     c.army.supply = clamp(1.4 - p.arms * 0.35, 0.35, 1);
     c.army.morale = clamp(0.45 + c.legitimacy / 200 - c.warExhaustion / 250, 0.2, 1);

@@ -3,6 +3,8 @@
 // map-mode dock, zoom, legend and outliner in the corners of the free map area, a context card where the player
 // taps a region, and framed windows that can be collapsed to their title strip, widened or closed. Windows never
 // take the full height of the screen in landscape and are bottom sheets with three heights in portrait.
+import { StoryEventCard } from './screens/StoryEvents';
+import { journalDef } from '../engine/systems/storyEvents';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import type { VNode } from 'preact';
 import { game, campaignFinished } from './game/controller';
@@ -96,6 +98,15 @@ export function App({ assets }: { assets: MapAssets }) {
     };
     window.addEventListener('keydown', k); return () => window.removeEventListener('keydown', k);
   }, []);
+  // EVT-01: a new story event for the player pauses the game and opens the event window
+  const shownStory = useRef<string | null>(null);
+  useEffect(() => {
+    const p = st?.pendingStory?.find((x) => x.country === st.player);
+    if (!st || !p || shownStory.current === p.id || modals.get()) return;
+    shownStory.current = p.id; game.setPaused(true);
+    const ev = data().db.story_events?.find((x) => x.id === p.event);
+    modals.open(ev?.title_vi ?? 'Sự kiện', () => { const g2 = game.st!; const q = g2.pendingStory?.find((x) => x.id === p.id); return q ? <StoryEventCard st={g2} p={q} /> : <div class="s">Đã quyết định.</div>; }, true);
+  });
   const tabKey = scopeKey();
   useEffect(() => { const d = details.get(); if (d && d.scope !== tabKey) details.close(); hideTip(); }, [tabKey]);
   useEffect(() => { if (!u.region) setPick(null); }, [u.region]);
@@ -410,6 +421,9 @@ function Outliner({ x, y }: { x: number; y: number }) {
   for (const w of st.wars.filter((x) => x.attackers.members.includes(id) || x.defenders.members.includes(id)).slice(0, 3)) { const sc = Math.round(w.attackers.members.includes(id) ? w.score : -w.score) || 0; items.push(<button class="oi" key={w.id} onClick={() => ui.go('military', 'wars')}><Mdl icon="military" color="#e38c7c" /><span class="grow"><span class="ot">{w.name}</span></span><span class={`num ${sc > 0 ? 'pos' : sc < 0 ? 'neg' : ''}`}>{sc > 0 ? '+' : ''}{fmt(sc)}</span></button>); }
   const missions = (st.journal ?? []).filter((j) => j.status === 'active' && j.country === id && st.player === id).length;
   if (missions) items.push(<button class="oi warn" key="jr" onClick={() => ui.go('chronicle', 'decisions')}><Mdl icon="scroll" color="var(--warn)" /><span class="grow"><span class="ot">{missions} việc cần quyết định</span></span></button>);
+  const storyN = (st.pendingStory ?? []).filter((p) => p.country === id && st.player === id).length;
+  if (storyN) items.push(<button class="oi warn" key="se" onClick={() => ui.go('chronicle', 'decisions')}><Mdl icon="scroll" color="var(--warn)" /><span class="grow"><span class="ot">{storyN} sự kiện đang chờ</span></span></button>);
+  for (const j of (st.storyJournals ?? []).filter((x) => x.country === id).slice(0, 3)) { const def = journalDef(j.id); if (def) items.push(<button class="oi" key={`sj${j.id}`} onClick={() => ui.go('chronicle', 'decisions')}><Mdl icon="scroll" color="#c9a24a" /><span class="grow"><span class="ot">{def.title_vi}</span>{def.progress && <span class="pbar"><i style={`width:${Math.min(100, j.progress / (def.progress.max ?? 100) * 100)}%`} /></span>}</span></button>); }
   if (st.pendingPlayerDecisions.length && st.player === id) items.push(<button class="oi warn" key="d" onClick={() => ui.go('chronicle', 'decisions')}><Mdl icon="scroll" color="var(--warn)" /><span class="grow"><span class="ot">{st.pendingPlayerDecisions.length} quyết định đang chờ</span></span></button>);
   const stats = st.marketStats?.[marketOf(st, c)]; const short = stats ? Object.entries(stats).filter(([, v]) => v.short >= 0.1).sort((a, b) => b[1].short - a[1].short).slice(0, 2) : [];
   for (const [gd, v] of short) items.push(<button class="oi" key={`s${gd}`} onClick={() => ui.go('economy', 'market')}><Mdl icon={gd} color="#e9c46a" /><span class="grow"><span class="ot">Thiếu {GOOD_VI[gd].toLowerCase()}</span></span><span class="num neg">{pct(v.short)}</span></button>);

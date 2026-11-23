@@ -232,28 +232,33 @@ export function movementAction(st: GameState, key: string, a: MovementAction): s
   }
 }
 
-function newState(st: GameState, m: MovementState): string {
-  const d = data();
-  const regs = m.regions.map((id) => st.regions[d.regionIndex.get(id) ?? -1]).filter((r) => r && r.owner === m.owner).sort((a, b) => b.pop - a.pop);
-  const id = createNation(st, m.nation, regs.map((r) => r.id), m.owner, 'independence');
+/** A new state from an owner's colonial regions: independence with ties, as a dominion, or outright (also used by
+ * story events). Returns the new state's id. */
+export function createIndependentState(st: GameState, owner: string, regionIds: string[], nation: string, mode: 'ties' | 'dominion' | 'full', names?: { en: string; vi: string }): string | null {
+  const d = data(); const o = st.countries[owner]; if (!o) return null;
+  const regs = regionIds.map((id) => st.regions[d.regionIndex.get(id) ?? -1]).filter((r) => r && r.owner === owner).sort((a, b) => b.pop - a.pop);
+  if (!regs.length) return null;
+  const id = createNation(st, nation, regs.map((r) => r.id), owner, 'independence', undefined, names);
   const nc = st.countries[id];
   nc.army.manpower = nc.army.target = Math.max(1000, Math.round(regs.reduce((s, r) => s + r.pop, 0) * 0.003));
-  st.countries[m.owner].claims = st.countries[m.owner].claims.filter((x) => !m.regions.includes(x));
+  o.claims = o.claims.filter((x) => !regionIds.includes(x));
+  nc.truce = { with: owner, until: st.tick + 24 };
+  if (mode === 'dominion') { makeSubject(st, id, owner, 'dominion'); addRel(st, id, owner, INDEP.dominionRelation); }
+  else if (mode === 'ties') {
+    // independence in exchange for ties: the former owner's market, an alliance and its power bloc
+    addRel(st, id, owner, INDEP.tiesRelation);
+    if (o.customsUnion) { const u = st.treaties.find((t) => t.id === o.customsUnion); if (u && !u.members.includes(id)) { u.members.push(id); nc.customsUnion = u.id; } }
+    st.treaties.push({ id: `ties_${owner}_${id}`, type: 'alliance', members: [owner, id], leader: owner, start: st.tick, source: 'ties' });
+    const b = blocOf(st, owner); if (b) joinBloc(st, b, id);
+  } else addRel(st, id, owner, INDEP.fullRelation);
   return id;
 }
 
 function grant(st: GameState, key: string, a: 'grant_ties' | 'grant_dominion' | 'grant'): string | null {
   const m = st.movements![key]; const o = st.countries[m.owner];
-  const id = newState(st, m); const nc = st.countries[id];
-  nc.truce = { with: o.id, until: st.tick + 24 };
-  if (a === 'grant_dominion') { makeSubject(st, id, o.id, 'dominion'); addRel(st, id, o.id, INDEP.dominionRelation); }
-  else if (a === 'grant_ties') {
-    // independence in exchange for ties: the former owner's market, an alliance and its power bloc
-    addRel(st, id, o.id, INDEP.tiesRelation);
-    if (o.customsUnion) { const u = st.treaties.find((t) => t.id === o.customsUnion); if (u && !u.members.includes(id)) { u.members.push(id); nc.customsUnion = u.id; } }
-    st.treaties.push({ id: `ties_${o.id}_${id}`, type: 'alliance', members: [o.id, id], leader: o.id, start: st.tick, source: 'ties' });
-    const b = blocOf(st, o.id); if (b) joinBloc(st, b, id);
-  } else addRel(st, id, o.id, INDEP.fullRelation);
+  const id = createIndependentState(st, m.owner, m.regions, m.nation, a === 'grant_ties' ? 'ties' : a === 'grant_dominion' ? 'dominion' : 'full');
+  if (!id) return 'No regions left to grant';
+  const nc = st.countries[id];
   for (const s of m.supporters) addRel(st, id, s, INDEP.supporterRelation);
   const how = a === 'grant_dominion' ? 'as a dominion' : a === 'grant_ties' ? 'with close ties' : 'outright';
   const howVi = a === 'grant_dominion' ? 'thành lãnh thổ tự trị' : a === 'grant_ties' ? 'kèm ràng buộc (thị trường, liên minh)' : 'hoàn toàn';

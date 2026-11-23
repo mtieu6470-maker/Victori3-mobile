@@ -138,6 +138,9 @@ export interface Country {
   subjectPact?: import('./systems/subjects').SubjectPact;
   /** DECOL-03: trade penalty from embargoes this month (fraction of openness); absent when none. */
   embargoed?: number;
+  /** EVT-01: timed event modifiers and their aggregate this month. */
+  modifiers?: import('./systems/storyEvents').Modifier[];
+  eventMods?: Record<string, number>;
   /** LAW-CAL-02: tick each political idea (mass_politics, feminism) was adopted — movements need time to grow. */
   ideasSince?: Record<string, number>;
   /** LAW-CAL-01: last tick the country fought (not nominally) in a great war — mass mobilisation. */
@@ -291,6 +294,11 @@ export interface GameState {
   /** DECOL-03: independence movements (key nation|owner) and embargoes. */
   movements?: Record<string, import('./systems/independence').MovementState>;
   embargoes?: import('./systems/independence').Embargo[];
+  /** EVT-01: fired story events (event id or id|binding), flags, the player's pending events and running story journals. */
+  storyFired?: string[];
+  flags?: string[];
+  pendingStory?: import('./systems/storyEvents').PendingStory[];
+  storyJournals?: import('./systems/storyEvents').StoryJournalState[];
   /** PB-01: power blocs by id. */
   powerBlocs?: Record<string, import('./systems/powerBlocs').PowerBloc>;
   /** WW-01d: the League of Nations (Historical Mode, 1920–1946). */

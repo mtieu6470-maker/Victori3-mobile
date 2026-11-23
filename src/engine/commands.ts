@@ -1,5 +1,6 @@
 // Player command API. Every command calls the SAME functions the AI uses, so the player plays by the AI's rules.
 // The UI layer must only issue these commands (no rule logic in the UI).
+import { answerStory } from './systems/storyEvents';
 import { movementAction, setEmbargo, supportMovement, type MovementAction } from './systems/independence';
 import { LAW_GROUPS } from './data/dbTypes';
 import { SUBJECT, demandIndependence, subjectAction, type SubjectAction } from './systems/subjects';
@@ -54,7 +55,8 @@ export type Command =
   | { type: 'subject_independence' }
   | { type: 'movement'; key: string; action: string }
   | { type: 'support_movement'; key: string; on: boolean }
-  | { type: 'embargo'; target: string; on: boolean };
+  | { type: 'embargo'; target: string; on: boolean }
+  | { type: 'story_choice'; pending: string; option: string };
 
 export interface CommandResult { ok: boolean; reason?: string }
 
@@ -82,6 +84,7 @@ export function validateCommand(st: GameState, me: { id: string }, cmd: Command)
     case 'subject_independence': return null;
     case 'movement': return typeof cmd.key === 'string' && ['repress', 'grant_ties', 'grant_dominion', 'grant', 'refuse'].includes(cmd.action) ? null : 'Invalid movement action';
     case 'support_movement': return typeof cmd.key === 'string' && typeof cmd.on === 'boolean' ? null : 'Invalid support';
+    case 'story_choice': return typeof cmd.pending === 'string' && typeof cmd.option === 'string' ? null : 'Invalid choice';
     case 'embargo': return typeof cmd.target === 'string' && st.countries[cmd.target] && typeof cmd.on === 'boolean' ? null : 'Invalid embargo';
     case 'bloc_principle': return typeof cmd.group === 'string' && cmd.group in PRINCIPLES && Number.isInteger(cmd.level) ? null : 'Invalid principle';
     case 'journal': return typeof cmd.entry === 'string' && (cmd.action === 'complete' || cmd.action === 'abandon') ? null : 'Invalid journal action';
@@ -181,6 +184,7 @@ export function execute(st: GameState, cmd: Command): CommandResult {
       return { ok: true };
     }
     case 'support_movement': { const why = supportMovement(st, me.id, cmd.key, cmd.on); return why ? { ok: false, reason: why } : { ok: true }; }
+    case 'story_choice': { const p = st.pendingStory?.find((x) => x.id === cmd.pending); if (!p || p.country !== me.id) return { ok: false, reason: 'Not your event' }; return answerStory(st, cmd.pending, cmd.option); }
     case 'embargo': { const why = setEmbargo(st, me.id, cmd.target, cmd.on); return why ? { ok: false, reason: why } : { ok: true }; }
     case 'bloc_leave': { if (!blocOf(st, me.id)) return { ok: false, reason: 'Not in a bloc' }; leaveBloc(st, me.id); return { ok: true }; }
     case 'bloc_principle': { const b = blocOf(st, me.id); if (!b || b.leader !== me.id) return { ok: false, reason: 'Only a bloc leader sets principles' }; const why = setPrinciple(st, b, cmd.group, cmd.level); return why ? { ok: false, reason: why } : { ok: true }; }
