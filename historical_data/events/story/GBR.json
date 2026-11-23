@@ -75,8 +75,8 @@
               "effects": {
                 "army": 0.06,
                 "police": 0.04,
-                "treasury": -0.02,
-                "radicalism": 0.015
+                "radicalism": 0.015,
+                "legitimacy": -0.5
               }
             },
             {
@@ -892,8 +892,7 @@
               "months": 60,
               "decaying": true,
               "effects": {
-                "construction": 0.05,
-                "treasury": -0.02,
+                "construction": -0.01,
                 "legitimacy": 1
               }
             },
@@ -2258,8 +2257,7 @@
               "months": 24,
               "decaying": true,
               "effects": {
-                "treasury": -0.01,
-                "prestige": -0.03,
+                "prestige": -0.02,
                 "legitimacy": -1,
                 "radicalism": 0.02
               }
@@ -2347,15 +2345,15 @@
               "effects": {
                 "army": 0.06,
                 "prestige": 0.03,
-                "treasury": -0.02,
-                "war_exhaustion": 0.01
+                "war_exhaustion": 0.01,
+                "legitimacy": -0.5
               }
             },
             {
               "type": "declare_war",
               "attacker": "GBR",
               "defender": "BUR",
-              "goal": "subjugate",
+              "goal": "conquer",
               "regions": [
                 "BUR_AVA",
                 "BUR_PEG"
