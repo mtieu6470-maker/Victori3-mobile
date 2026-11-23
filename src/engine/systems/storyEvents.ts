@@ -79,7 +79,11 @@ function candidateBindings(st: GameState, e: StoryEvent, self: Country): Binding
   const base: Bindings = { self: self.id, ...(self.overlord ? { overlord: self.overlord } : {}) };
   if (/\$(colony|nation|supporter)/.test(text) || (/\$owner/.test(text) && !/\$subject/.test(text))) {
     // a movement in $self's colonies, or (for a colony's own events) a movement of which $self is the people
-    return Object.values(st.movements ?? {}).filter((m) => m.owner === self.id).map((m) => ({ ...base, owner: m.owner, colony: m.regions, nation: m.nation, ...(m.supporters[0] ? { supporter: m.supporters[0] } : {}) }));
+    // a movement condition that names regions or a nation selects THE movement the event is about (e.g. Burma's,
+    // not every movement in the owner's colonies)
+    const mc = (e.trigger?.conditions ?? []).filter((c) => c.type === 'movement_strength_above') as Record<string, any>[];
+    const fits = (m: { nation: string; regions: string[] }) => mc.every((c) => (!c.nation || c.nation === m.nation) && (!Array.isArray(c.regions) || (c.regions as string[]).some((r) => m.regions.includes(r))));
+    return Object.values(st.movements ?? {}).filter((m) => m.owner === self.id && fits(m)).map((m) => ({ ...base, owner: m.owner, colony: m.regions, nation: m.nation, ...(m.supporters[0] ? { supporter: m.supporters[0] } : {}) }));
   }
   if (/\$subject/.test(text)) return Object.values(st.countries).filter((x) => x.alive && x.overlord === self.id).map((x) => ({ ...base, subject: x.id }));
   return [base];

@@ -11,7 +11,7 @@ after visual review of contact sheets (tools/media/loc_candidates.py). For every
   3. replaces the manifest entry for the same type:subject in historical_data/assets/illustration_assets.json
      with a full provenance record (source page, call number, rights statement, credit line).
 """
-import datetime, html, json, os, re, sys, time, urllib.parse, urllib.request
+import datetime, html, json, os, re, sys, time, urllib.error, urllib.parse, urllib.request
 from io import BytesIO
 from pathlib import Path
 from PIL import Image, ImageEnhance, ImageFilter, ImageOps
@@ -90,7 +90,12 @@ def fetch_commons(e):
     lic_short = 'CC0' if re.search(r'CC0|Cc-zero', tpl, re.I) else 'Public domain'
     time.sleep(4)
     src = f"https://commons.wikimedia.org/w/thumb.php?f={q}&w={e.get('width', 2000)}"
-    img = urllib.request.urlopen(urllib.request.Request(src, headers=COMMONS_UA), timeout=90).read()
+    img = None
+    for i in range(6):  # Commons rate-limits thumbnail rendering (HTTP 429): back off and retry
+        try: img = urllib.request.urlopen(urllib.request.Request(src, headers=COMMONS_UA), timeout=90).read(); break
+        except urllib.error.HTTPError as ex:
+            if ex.code != 429 or i == 5: return None, f'download failed: HTTP {ex.code}'
+            time.sleep(20 * (i + 1))
     clean = lambda t: re.sub(r'\{\{[^}]*\}\}|\[\[|\]\]|\[https?://\S+ ?|\]|\'\'', '', t).strip() or None
     return {'id': name, 'year': y, 'src': src, 'image': img, 'date': e.get('date') or clean(field('date')),
             'source': {'repository': 'Wikimedia Commons', 'file': name, 'page': f'https://commons.wikimedia.org/wiki/File:{q}',
@@ -105,7 +110,11 @@ def main():
     skipped = []
     for e in sel['selections']:
         if only and e['subject'] != only: continue
-        meta, why = fetch_commons(e) if 'commons_file' in e else fetch_loc(e)
+        # --resume: keep subjects already in the manifest (a rerun after rate limiting)
+        if '--resume' in sys.argv and any(x.get('type') == e['type'] and x.get('subject') == e['subject'] for x in manifest.get('assets', [])): continue
+        try: meta, why = fetch_commons(e) if 'commons_file' in e else fetch_loc(e)
+        except Exception as ex: meta, why = None, f'error: {ex}'  # noqa: BLE001
+        time.sleep(3)
         if not meta: print(f"SKIP {e['subject']}: {why}"); skipped.append(e['subject']); continue
         item_id, y = meta['id'], meta['year']
         im = Image.open(BytesIO(meta['image'])).convert('RGB'); W, H = im.size
