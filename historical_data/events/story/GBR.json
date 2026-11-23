@@ -83,6 +83,24 @@
               "type": "war_exhaustion",
               "entity": "GBR",
               "delta": 3
+            },
+            {
+              "type": "movement",
+              "owner": "EIC",
+              "regions": [
+                "EIC_DEL",
+                "EIC_BEN"
+              ],
+              "delta": -4
+            },
+            {
+              "type": "movement",
+              "owner": "GBR",
+              "regions": [
+                "EIC_DEL",
+                "EIC_BEN"
+              ],
+              "delta": -4
             }
           ],
           "ai_modifiers": [
@@ -122,6 +140,24 @@
               "a": "GBR",
               "b": "HYD",
               "delta": 8
+            },
+            {
+              "type": "movement",
+              "owner": "EIC",
+              "regions": [
+                "EIC_DEL",
+                "EIC_BEN"
+              ],
+              "delta": -2
+            },
+            {
+              "type": "movement",
+              "owner": "GBR",
+              "regions": [
+                "EIC_DEL",
+                "EIC_BEN"
+              ],
+              "delta": -2
             }
           ]
         },
@@ -150,6 +186,24 @@
               "type": "subject_liberty",
               "subject": "EIC",
               "delta": 8
+            },
+            {
+              "type": "movement",
+              "owner": "EIC",
+              "regions": [
+                "EIC_DEL",
+                "EIC_BEN"
+              ],
+              "delta": 3
+            },
+            {
+              "type": "movement",
+              "owner": "GBR",
+              "regions": [
+                "EIC_DEL",
+                "EIC_BEN"
+              ],
+              "delta": 3
             }
           ]
         }
@@ -515,6 +569,22 @@
             {
               "type": "movement",
               "owner": "$self",
+              "regions": [
+                "EIC_BEN"
+              ],
+              "delta": 8
+            },
+            {
+              "type": "movement",
+              "owner": "EIC",
+              "regions": [
+                "EIC_BEN"
+              ],
+              "delta": 8
+            },
+            {
+              "type": "movement",
+              "owner": "GBR",
               "regions": [
                 "EIC_BEN"
               ],
@@ -1309,10 +1379,10 @@
       "country": "GBR",
       "mode": "historical",
       "window": [
-        "1928-02-01",
+        "1928-01-01",
         "1929-12-31"
       ],
-      "date_historical": "1928-11-03",
+      "date_historical": "1928-02-03",
       "trigger": {
         "conditions": [
           {
@@ -1520,6 +1590,26 @@
                 "EIC_BEN"
               ],
               "delta": 6
+            },
+            {
+              "type": "movement",
+              "owner": "EIC",
+              "regions": [
+                "EIC_BOM",
+                "EIC_MAD",
+                "EIC_BEN"
+              ],
+              "delta": 6
+            },
+            {
+              "type": "movement",
+              "owner": "GBR",
+              "regions": [
+                "EIC_BOM",
+                "EIC_MAD",
+                "EIC_BEN"
+              ],
+              "delta": 6
             }
           ]
         },
@@ -1549,6 +1639,26 @@
               "type": "treasury",
               "entity": "GBR",
               "months_income": -0.4
+            },
+            {
+              "type": "movement",
+              "owner": "EIC",
+              "regions": [
+                "EIC_BOM",
+                "EIC_MAD",
+                "EIC_BEN"
+              ],
+              "delta": -5
+            },
+            {
+              "type": "movement",
+              "owner": "GBR",
+              "regions": [
+                "EIC_BOM",
+                "EIC_MAD",
+                "EIC_BEN"
+              ],
+              "delta": -5
             }
           ]
         },
@@ -2126,9 +2236,9 @@
               }
             },
             {
-              "type": "base_rights",
-              "host": "GBR",
-              "user": "EIC"
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 1
             }
           ]
         },
