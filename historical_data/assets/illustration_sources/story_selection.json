@@ -1,0 +1,585 @@
+{
+  "description": "CG-52 candidate list for CG-50 British Empire Lot 1. These are candidate file titles only; no licence is asserted here. The repository ingestion tool must resolve exact Commons titles and reject anything not PD/CC0. Some entries are explicitly marked wrong-event or provisional and must not be ingested without review.",
+  "selections": [
+    {
+      "type": "illustration_event",
+      "subject": "gbr_indian_rebellion_1857",
+      "commons_file": "Group_of_sepoys_at_Lucknow.jpg",
+      "year": 1857,
+      "width": 1904,
+      "author": "The Illustrated London News",
+      "name": "Binh lính tại Lucknow",
+      "description": "Group of sepoys at Lucknow, illustration published in The Illustrated London News, 31 October 1857",
+      "period": {
+        "from": 1857,
+        "to": 1858
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Contemporary illustration of the Bengal Army and the 1857 uprising; landscape source.",
+      "alternates": "Indian Mutiny, 1857, Lucknow.jpg"
+    },
+    {
+      "type": "illustration_event",
+      "subject": "eic_sepoy_council_1857",
+      "commons_file": "Indian_Mutiny,_1857,_Lucknow.jpg",
+      "year": 1857,
+      "width": 955,
+      "author": "Unknown",
+      "name": "Cuộc nổi dậy tại Lucknow",
+      "description": "Contemporary lithograph depicting the siege of Lucknow during the Indian Rebellion of 1857",
+      "period": {
+        "from": 1857,
+        "to": 1858
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Direct subject match for the Company's military crisis.",
+      "alternates": "Attack of the Mutineers on the Redan Battery at Lucknow, July 30th, 1857,.jpg"
+    },
+    {
+      "type": "illustration_event",
+      "subject": "hyd_nizam_1857",
+      "commons_file": "Group_of_sepoys_at_Lucknow.jpg",
+      "year": 1857,
+      "width": 1904,
+      "author": "The Illustrated London News",
+      "name": "Binh lính tại Lucknow",
+      "description": "Illustration of sepoys during the 1857 uprising; used as a period reference for the Deccan's security dilemma",
+      "period": {
+        "from": 1857,
+        "to": 1858
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Shared visual context for the 1857 crisis; Hyderabad itself remained loyal."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_crown_rule_1858",
+      "commons_file": "The_Government_of_India_Act,_1935.pdf",
+      "year": 1935,
+      "width": 1237,
+      "author": "Government of British India",
+      "name": "Đạo luật Chính quyền Ấn Độ",
+      "description": "Government of India Act, 1935, official legislative document; candidate for the institutional transfer theme",
+      "period": {
+        "from": 1858,
+        "to": 1935
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Legislative-document visual only; if reused, label it as an archival legal record rather than the 1858 Act."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_inc_1885",
+      "commons_file": "First_meeting_session_of_the_Indian_National_Congress_in_Bombay,_1885.jpg",
+      "year": 1885,
+      "width": 1060,
+      "author": "Unknown author",
+      "name": "Đại hội Quốc dân Ấn Độ đầu tiên",
+      "description": "First session of Indian National Congress, Bombay, 28–31 December 1885",
+      "period": {
+        "from": 1885,
+        "to": 1885
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Directly depicts the first Congress session; Commons page identifies public-domain status."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_bengal_partition_1905",
+      "commons_file": "Bengal_Partition_1905.jpg",
+      "year": 1905,
+      "width": 1600,
+      "author": "Unknown",
+      "name": "Chia tách Bengal",
+      "description": "Candidate search title for maps and contemporary illustrations of the 1905 partition",
+      "period": {
+        "from": 1905,
+        "to": 1907
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Candidate only; exact Commons page and availability must be checked by the ingestion tool."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_morley_minto_1909",
+      "commons_file": "First_meeting_session_of_the_Indian_National_Congress_in_Bombay,_1885.jpg",
+      "year": 1885,
+      "width": 1060,
+      "author": "Unknown author",
+      "name": "Đại hội Quốc dân Ấn Độ",
+      "description": "Congress delegates at Bombay, used as a period political-representation visual",
+      "period": {
+        "from": 1908,
+        "to": 1910
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Related political assembly image; use only if a more specific 1909 council image is unavailable."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_bengal_reunification_1911",
+      "commons_file": "Delhi_Durbar_1911.jpg",
+      "year": 1911,
+      "width": 1600,
+      "author": "Unknown",
+      "name": "Delhi Durbar 1911",
+      "description": "Delhi Durbar of 1911, the imperial ceremony at which the capital transfer and Bengal decision were announced",
+      "period": {
+        "from": 1911,
+        "to": 1912
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Candidate only; confirm exact Commons file title before ingestion."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_lucknow_pact_1916",
+      "commons_file": "Lucknow_Pact_1916.jpg",
+      "year": 1916,
+      "width": 1600,
+      "author": "Unknown",
+      "name": "Thỏa ước Lucknow",
+      "description": "Candidate for Congress and Muslim League negotiations at Lucknow in 1916",
+      "period": {
+        "from": 1916,
+        "to": 1917
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Candidate only; verify exact Commons file title."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_amritsar_1919",
+      "commons_file": "Jallianwallah.jpg",
+      "year": 1919,
+      "width": 500,
+      "author": "Unknown",
+      "name": "Jallianwala Bagh",
+      "description": "The Jallianwalla Bagh in Amritsar, 1919, months after the massacre",
+      "period": {
+        "from": 1919,
+        "to": 1919
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Public-domain India tag reported on Commons; low resolution, retain as a candidate pending crop test.",
+      "alternates": "Depiction of the Jallianwala Bagh Massacre, 1919.jpg"
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_noncooperation_1920",
+      "commons_file": "Gandhi_during_the_Salt_March.jpg",
+      "year": 1930,
+      "width": 3268,
+      "author": "Unknown",
+      "name": "Gandhi trong phong trào bất hợp tác",
+      "description": "Gandhi during the Salt March, 1930; broad visual reference to the mass non-cooperation era",
+      "period": {
+        "from": 1920,
+        "to": 1930
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Adjacent phase visual; prefer a specific 1920 non-cooperation image if located."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_simon_commission_1928",
+      "commons_file": "First_meeting_session_of_the_Indian_National_Congress_in_Bombay,_1885.jpg",
+      "year": 1885,
+      "width": 1060,
+      "author": "Unknown author",
+      "name": "Đại hội Quốc dân Ấn Độ",
+      "description": "Congress delegates, used as a political assembly reference",
+      "period": {
+        "from": 1928,
+        "to": 1929
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Fallback candidate; seek a photograph of the Simon Commission protests."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_salt_march_1930",
+      "commons_file": "Gandhi_during_the_Salt_March.jpg",
+      "year": 1930,
+      "width": 3268,
+      "author": "Unknown author",
+      "name": "Hành trình muối",
+      "description": "Gandhi during the Salt March, 1930",
+      "period": {
+        "from": 1930,
+        "to": 1930
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page reports public-domain India status and a landscape original suitable for 16:9 crop.",
+      "alternates": "Gandhi picking up salt at Dandi.JPG"
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_goi_act_1935",
+      "commons_file": "The_Government_of_India_Act,_1935.pdf",
+      "year": 1935,
+      "width": 1237,
+      "author": "Government of British India",
+      "name": "Đạo luật Chính quyền Ấn Độ 1935",
+      "description": "The Government of India Act, 1935, official legislative text",
+      "period": {
+        "from": 1935,
+        "to": 1935
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Official law document; public-domain India notice reported on Commons."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_quit_india_1942",
+      "commons_file": "Mohandas_Gandhi_was_driven_to_Gowalia_Tank_Maidan,_1942.jpg",
+      "year": 1942,
+      "width": 800,
+      "author": "Unknown author",
+      "name": "Phong trào Rời khỏi Ấn Độ",
+      "description": "Gandhi at Gowalia Tank Maidan, Mumbai, calling for the Quit India Movement, August 1942",
+      "period": {
+        "from": 1942,
+        "to": 1942
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page reports public-domain India status; image relates directly to the movement."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_cabinet_mission_1946",
+      "commons_file": "Panglong_Conference.jpg",
+      "year": 1947,
+      "width": 479,
+      "author": "Unknown author",
+      "name": "Hội nghị Panglong",
+      "description": "Aung San and frontier representatives at the Panglong Conference, 12 February 1947",
+      "period": {
+        "from": 1946,
+        "to": 1947
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Not a Cabinet Mission image; reserve for Burma's constitutional settlement rather than use for India."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_indian_independence_1947",
+      "commons_file": "Panglong_Conference.jpg",
+      "year": 1947,
+      "width": 479,
+      "author": "Unknown author",
+      "name": "Hội nghị Panglong",
+      "description": "Panglong Conference photograph, a candidate only for Burma's transition, not Indian independence",
+      "period": {
+        "from": 1947,
+        "to": 1948
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Wrong event: do not ingest for India; replace with an Indian transfer-of-power photograph."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "eic_dissolution_1858",
+      "commons_file": "Group_of_sepoys_at_Lucknow.jpg",
+      "year": 1857,
+      "width": 1904,
+      "author": "The Illustrated London News",
+      "name": "Binh lính tại Lucknow",
+      "description": "Illustration from the Indian Rebellion period",
+      "period": {
+        "from": 1857,
+        "to": 1858
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Period visual for the immediate transition following the rebellion."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "bur_resist_1885",
+      "commons_file": "Third_anglo-burmese_war.jpg",
+      "year": 1885,
+      "width": 955,
+      "author": "Willoughby Wallace Hooper",
+      "name": "Chiến tranh Anh–Miến lần thứ ba",
+      "description": "Photograph of the surrender of the Burmese Army during the Third Anglo-Burmese War, 27 November 1885",
+      "period": {
+        "from": 1885,
+        "to": 1885
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "British Library photograph; author died 1912; candidate for PD review.",
+      "alternates": "Mindhla after capture1885.jpg"
+    },
+    {
+      "type": "illustration_event",
+      "subject": "bur_king_exile_1886",
+      "commons_file": "Mindhla_after_capture1885.jpg",
+      "year": 1885,
+      "width": 938,
+      "author": "Willoughby Wallace Hooper",
+      "name": "Minhla sau khi bị chiếm",
+      "description": "Photograph of Minhla after its capture during the Third Anglo-Burmese War, November 1885",
+      "period": {
+        "from": 1885,
+        "to": 1886
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "British Library photograph; author died 1912; candidate for PD review."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "bur_saya_san_1930",
+      "commons_file": "Saya_San_rebellion_1930.jpg",
+      "year": 1930,
+      "width": 1600,
+      "author": "Unknown",
+      "name": "Khởi nghĩa Saya San",
+      "description": "Candidate for the Saya San peasant rebellion in British Burma, 1930–1932",
+      "period": {
+        "from": 1930,
+        "to": 1932
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Candidate only; verify exact Commons file title."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "bur_panglong_1947",
+      "commons_file": "Panglong_Conference.jpg",
+      "year": 1947,
+      "width": 479,
+      "author": "Unknown author",
+      "name": "Hội nghị Panglong",
+      "description": "Aung San and frontier leaders at Panglong, 12 February 1947",
+      "period": {
+        "from": 1947,
+        "to": 1947
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page describes the historical conference and reports public-domain status in Myanmar."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "bur_independence_1948",
+      "commons_file": "Panglong_Conference.jpg",
+      "year": 1947,
+      "width": 479,
+      "author": "Unknown author",
+      "name": "Hội nghị Panglong",
+      "description": "Panglong Conference, a visual for the negotiated transition to independence",
+      "period": {
+        "from": 1947,
+        "to": 1948
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Candidate is related to the constitutional settlement preceding independence."
+    }
+  ]
+}
