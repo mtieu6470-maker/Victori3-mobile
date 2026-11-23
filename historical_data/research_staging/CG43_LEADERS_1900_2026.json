@@ -5,8 +5,8 @@
     "branch": "ccr-b27f3fb8-epfpd6",
     "created": "2026-11-23",
     "snapshotDate": "2026-11-23",
-    "recordCount": 328,
-    "sourceCount": 33,
+    "recordCount": 441,
+    "sourceCount": 49,
     "entitiesCovered": [
       "RUS/USSR",
       "GER/FRG/GDR",
@@ -55,7 +55,12 @@
       "unverified": "Not used as a positive production assertion; gaps are listed."
     },
     "schemaNote": "Research staging only. This schema is richer than historical_data/leaders/heads_of_state.json and does not replace it. Entity IDs are provisional research keys; check political_entities/registry.json before integration. Duplicate names across role records are intentional when one person held separate formal and effective offices. A person with discontinuous terms has separate records.",
-    "integrationWarning": "Do not import this cohort as deterministic forced succession without checking simulated regime, entity identity, office existence, and historical continuity. For parliamentary systems the Prime Minister is effective_leader while monarch/president is head_of_state. For one-party states party leader is effective_leader; formal chairman/president is separately recorded."
+    "integrationWarning": "Do not import this cohort as deterministic forced succession without checking simulated regime, entity identity, office existence, and historical continuity. For parliamentary systems the Prime Minister is effective_leader while monarch/president is head_of_state. For one-party states party leader is effective_leader; formal chairman/president is separately recorded.",
+    "cg43b": {
+      "addedRecords": 113,
+      "scope": "Supplement requested by MSG-097: Beiyang ROC 1916–1928, Second Spanish Republic, Weimar chancellors, FRG/GDR offices, wartime Japanese prime ministers, CPV General Secretaries, DRV/Vietnam governments, State of Vietnam, Republic of Vietnam and PRG.",
+      "datePrecision": "For records sourced only at month/year level, date_precision is month and ISO day is a normalized placeholder, not a verified inauguration date. Engine ingestion must not treat these as exact-day facts."
+    }
   },
   "sources": [
     {
@@ -288,6 +293,118 @@
       "url": "https://www.aeiou.at/aeiou.encyclop.a/a907407.htm",
       "quality": "supported",
       "note": "Austrian historical encyclopedia for the dual monarchy and Habsburg chronology."
+    },
+    {
+      "id": "de_weimar_bundarchiv",
+      "title": "Weimar Republic digital source portal",
+      "url": "https://weimar.bundesarchiv.de/",
+      "quality": "verified",
+      "note": "German Federal Archives chronology and primary-source portal for the Weimar period."
+    },
+    {
+      "id": "de_bundestag_dhb",
+      "title": "Data Handbook of the German Bundestag — Federal Presidents and Chancellors",
+      "url": "https://www.bundestag.de/resource/blob/196238/Kapitel_16_03_Bundespr__sident__Bundestagspr__sident__Bundesratspr__sident__Bundeskanzler.pdf",
+      "quality": "verified",
+      "note": "Official Bundestag year-by-year officeholder and term chronology."
+    },
+    {
+      "id": "de_bpb_gdr",
+      "title": "Staatsoberhäupter und Regierungschefs der DDR",
+      "url": "https://www.bpb.de/system/files/pdf/YJFYXR.pdf",
+      "quality": "supported",
+      "note": "Federal Agency for Civic Education chronology of GDR heads of state, ministers-president and election context."
+    },
+    {
+      "id": "de_bundesarchiv_pres",
+      "title": "Persons register of the Federal President's Office since 1949",
+      "url": "https://www.bundesarchiv.de/digitalisate/_foxpublic/files/Bundespraesidenten_1949_2011_Bilder.pdf",
+      "quality": "verified",
+      "note": "Bundesarchiv list with exact start and end dates of Federal Presidents and acting office-holders."
+    },
+    {
+      "id": "es_lamoncloa",
+      "title": "Chronological list of Presidents of the Council of Ministers and Government",
+      "url": "https://www.lamoncloa.gob.es/presidente/presidentes-desde-1823/Paginas/index.aspx",
+      "quality": "verified",
+      "note": "Spanish Government official chronology with day-month-year dates, including Second Republic cabinets."
+    },
+    {
+      "id": "vn_party_secretaries",
+      "title": "General Secretary — Communist Party of Vietnam",
+      "url": "https://tulieuvankien.dangcongsan.vn/lanh-dao-dang-nha-nuoc/tong-bi-thu?categoryId=102000125",
+      "quality": "verified",
+      "note": "Official Party document archive with month/year ranges for General Secretaries."
+    },
+    {
+      "id": "vn_party_secretaries_detail",
+      "title": "General Secretary chronology and biographies",
+      "url": "https://baonghean.vn/en/dai-hoi-dang-toan-quoc/tong-bi-thu",
+      "quality": "supported",
+      "note": "Provincial Party newspaper biographies; provides month/year periods and biographies."
+    },
+    {
+      "id": "vn_pm_official",
+      "title": "Prime Ministers of Vietnam since 1945",
+      "url": "https://chinhphu.vn/thu-tuong-chinh-phu-cac-nhiem-ky-tu-1945-den-nay-70558",
+      "quality": "verified",
+      "note": "Government of Vietnam official chronology of Prime Ministers and government periods."
+    },
+    {
+      "id": "vn_archives_rvn",
+      "title": "Presidential Office of the Second Republic of Vietnam (1967–1975)",
+      "url": "https://dms.luutru.gov.vn/files/ecm/source_files/2017/07/03/phongvasuutapluutru-104416-030717-19.pdf",
+      "quality": "verified",
+      "note": "State Records and Archives Department of Vietnam collection description with dates for Nguyễn Văn Thiệu, Trần Văn Hương and Dương Văn Minh."
+    },
+    {
+      "id": "vn_independence_palace",
+      "title": "Final days of the Republic of Vietnam Government",
+      "url": "https://dinhdoclap.gov.vn/en/the-independence-palace-during-the-final-days-of-the-republic-of-vietnam-government/",
+      "quality": "verified",
+      "note": "Independence Palace historical site account of 1975 presidential handovers."
+    },
+    {
+      "id": "vn_cp_premiers",
+      "title": "Vietnamese Prime Ministers — Party and State leaders archive",
+      "url": "https://tulieuvankien.dangcongsan.vn/lanh-dao-dang-nha-nuoc/thu-tuong-chinh-phu?categoryId=102000123",
+      "quality": "verified",
+      "note": "Official Party document archive listing Prime Ministers and broad term ranges."
+    },
+    {
+      "id": "roc_beiyang_pres",
+      "title": "ROC Presidency — Beiyang Government presidents",
+      "url": "https://taiwan-database.net/LL-M02.htm",
+      "quality": "supported",
+      "note": "Research chronology with dates for Beiyang presidents and acting heads; use with caution because authority fragmented among warlords."
+    },
+    {
+      "id": "roc_beiyang_pm",
+      "title": "Executive Yuan — Beiyang Government premiers 1916–1928",
+      "url": "https://www.taiwan-database.net/LL-M03a.htm",
+      "quality": "supported",
+      "note": "Research chronology for Beiyang cabinet heads, including acting premiers; date precision is month-level in many rows."
+    },
+    {
+      "id": "jp_kantei_past",
+      "title": "Previous Prime Ministers",
+      "url": "https://japan.kantei.go.jp/past_cabinet/index.html",
+      "quality": "verified",
+      "note": "Prime Minister's Office of Japan official cabinet chronology with exact dates, including wartime cabinets."
+    },
+    {
+      "id": "jp_house_pm",
+      "title": "Prime Ministers of Japan",
+      "url": "https://www.shugiin.go.jp/internet/itdb_english.nsf/html/statics/english/kokkaiannai_e2611.pdf/$File/kokkaiannai_e2611.pdf",
+      "quality": "verified",
+      "note": "House of Representatives official list with dates of taking office."
+    },
+    {
+      "id": "vn_rvn_pres",
+      "title": "Presidents of the Republic of Vietnam — archive and official historical records",
+      "url": "https://dms.luutru.gov.vn/files/ecm/source_files/2017/07/03/phongvasuutapluutru-104416-030717-19.pdf",
+      "quality": "verified",
+      "note": "State Archives description of Second Republic presidential office; supplemented by Independence Palace for 1975 handovers."
     }
   ],
   "leaders": [
@@ -975,7 +1092,7 @@
       "name_vi": "Walter Ulbricht",
       "born": "1893-06-30",
       "died": "1973-08-01",
-      "from": "1960-09-12",
+      "from": "1950-07-25",
       "to": "1971-05-03",
       "end": "removed",
       "title_en": "First Secretary / General Secretary of the Socialist Unity Party",
@@ -985,7 +1102,7 @@
         "deutschlandmuseum"
       ],
       "quality": "supported",
-      "note": "Dominant party leader of GDR; formal head of state was a separate office."
+      "note": "Dominant party leader of GDR; formal head of state was a separate office. Start corrected to 1950-07-25 (SED General Secretary), based on GDR institutional chronology."
     },
     {
       "entity": "GDR",
@@ -5939,6 +6056,2128 @@
       ],
       "quality": "supported",
       "note": "Incumbent at snapshot."
+    },
+    {
+      "entity": "ROC",
+      "name": "Li Yuanhong",
+      "name_vi": "Lê Nguyên Hồng",
+      "born": "1864-10-19",
+      "died": "1928-06-03",
+      "from": "1916-06-07",
+      "to": "1917-07-17",
+      "end": "resignation",
+      "title_en": "President of the Republic of China (Beiyang Government)",
+      "title_vi": "Tổng thống Trung Hoa Dân Quốc (Chính phủ Bắc Dương)",
+      "role": "head_of_state",
+      "sources": [
+        "roc_beiyang_pres"
+      ],
+      "quality": "supported",
+      "note": "National government authority contested by provincial military governors.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "ROC",
+      "name": "Feng Guozhang",
+      "name_vi": "Phùng Quốc Chương",
+      "born": "1859-01-07",
+      "died": "1919-12-12",
+      "from": "1917-07-17",
+      "to": "1918-10-10",
+      "end": "term",
+      "title_en": "Acting President of the Republic of China (Beiyang Government)",
+      "title_vi": "Quyền Tổng thống Trung Hoa Dân Quốc (Chính phủ Bắc Dương)",
+      "role": "head_of_state",
+      "sources": [
+        "roc_beiyang_pres"
+      ],
+      "quality": "supported",
+      "note": "Acting president; Beiyang authority remained contested.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "ROC",
+      "name": "Xu Shichang",
+      "name_vi": "Từ Thế Xương",
+      "born": "1855-10-20",
+      "died": "1939-06-05",
+      "from": "1918-10-10",
+      "to": "1922-06-02",
+      "end": "resignation",
+      "title_en": "President of the Republic of China (Beiyang Government)",
+      "title_vi": "Tổng thống Trung Hoa Dân Quốc (Chính phủ Bắc Dương)",
+      "role": "head_of_state",
+      "sources": [
+        "roc_beiyang_pres"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "ROC",
+      "name": "Zhou Ziqi",
+      "name_vi": "Chu Tự Tề",
+      "born": "1869-11-01",
+      "died": "1923-10-21",
+      "from": "1922-06-02",
+      "to": "1922-06-11",
+      "end": "term",
+      "title_en": "Acting President of the Republic of China (Beiyang Government)",
+      "title_vi": "Quyền Tổng thống Trung Hoa Dân Quốc (Chính phủ Bắc Dương)",
+      "role": "head_of_state",
+      "sources": [
+        "roc_beiyang_pres"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "ROC",
+      "name": "Li Yuanhong",
+      "name_vi": "Lê Nguyên Hồng",
+      "born": "1864-10-19",
+      "died": "1928-06-03",
+      "from": "1922-06-11",
+      "to": "1923-06-13",
+      "end": "resignation",
+      "title_en": "President of the Republic of China (Beiyang Government)",
+      "title_vi": "Tổng thống Trung Hoa Dân Quốc (Chính phủ Bắc Dương)",
+      "role": "head_of_state",
+      "sources": [
+        "roc_beiyang_pres"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "ROC",
+      "name": "Gao Lingwei",
+      "name_vi": "Cao Lăng Úy",
+      "born": "1870-09-12",
+      "died": "1940-03-18",
+      "from": "1923-06-13",
+      "to": "1923-10-10",
+      "end": "term",
+      "title_en": "Acting President of the Republic of China (Beiyang Government)",
+      "title_vi": "Quyền Tổng thống Trung Hoa Dân Quốc (Chính phủ Bắc Dương)",
+      "role": "head_of_state",
+      "sources": [
+        "roc_beiyang_pres"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "ROC",
+      "name": "Cao Kun",
+      "name_vi": "Tào Côn",
+      "born": "1862-12-12",
+      "died": "1938-05-15",
+      "from": "1923-10-10",
+      "to": "1924-11-02",
+      "end": "overthrow",
+      "title_en": "President of the Republic of China (Beiyang Government)",
+      "title_vi": "Tổng thống Trung Hoa Dân Quốc (Chính phủ Bắc Dương)",
+      "role": "head_of_state",
+      "sources": [
+        "roc_beiyang_pres"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "ROC",
+      "name": "Huang Fu",
+      "name_vi": "Hoàng Phủ",
+      "born": "1880-01-01",
+      "died": "1936-12-06",
+      "from": "1924-11-02",
+      "to": "1924-11-24",
+      "end": "term",
+      "title_en": "Acting President of the Republic of China (Beiyang Government)",
+      "title_vi": "Quyền Tổng thống Trung Hoa Dân Quốc (Chính phủ Bắc Dương)",
+      "role": "head_of_state",
+      "sources": [
+        "roc_beiyang_pres"
+      ],
+      "quality": "supported",
+      "note": "Brief acting administration; month/day requires primary archive confirmation.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "ROC",
+      "name": "Duan Qirui",
+      "name_vi": "Đoàn Kỳ Thụy",
+      "born": "1865-03-06",
+      "died": "1936-11-02",
+      "from": "1924-11-24",
+      "to": "1926-04-20",
+      "end": "resignation",
+      "title_en": "Provisional Chief Executive of the Republic of China",
+      "title_vi": "Lâm thời Chấp chính Trung Hoa Dân Quốc",
+      "role": "effective_leader",
+      "sources": [
+        "roc_beiyang_pres"
+      ],
+      "quality": "supported",
+      "note": "Provisional government; authority contested.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "ROC",
+      "name": "Hu Weide",
+      "name_vi": "Hồ Duy Đức",
+      "born": "1863-01-01",
+      "died": "1933-11-24",
+      "from": "1926-04-20",
+      "to": "1926-05-13",
+      "end": "term",
+      "title_en": "Acting President of the Republic of China (Beiyang Government)",
+      "title_vi": "Quyền Tổng thống Trung Hoa Dân Quốc (Chính phủ Bắc Dương)",
+      "role": "head_of_state",
+      "sources": [
+        "roc_beiyang_pres"
+      ],
+      "quality": "supported",
+      "note": "Month/day is a normalized boundary; source precision is month-level.",
+      "date_precision": "month"
+    },
+    {
+      "entity": "ROC",
+      "name": "Yan Huiqing",
+      "name_vi": "Yên Huệ Khanh",
+      "born": "1877-07-02",
+      "died": "1950-05-24",
+      "from": "1926-05-13",
+      "to": "1926-06-22",
+      "end": "term",
+      "title_en": "Acting President of the Republic of China (Beiyang Government)",
+      "title_vi": "Quyền Tổng thống Trung Hoa Dân Quốc (Chính phủ Bắc Dương)",
+      "role": "head_of_state",
+      "sources": [
+        "roc_beiyang_pres"
+      ],
+      "quality": "supported",
+      "note": "Month/day is a normalized boundary; source precision is month-level.",
+      "date_precision": "month"
+    },
+    {
+      "entity": "ROC",
+      "name": "Du Xigui",
+      "name_vi": "Đỗ Tích Khuê",
+      "born": "1874-01-12",
+      "died": "1933-03-28",
+      "from": "1926-06-22",
+      "to": "1926-10-01",
+      "end": "term",
+      "title_en": "Acting President of the Republic of China (Beiyang Government)",
+      "title_vi": "Quyền Tổng thống Trung Hoa Dân Quốc (Chính phủ Bắc Dương)",
+      "role": "head_of_state",
+      "sources": [
+        "roc_beiyang_pres"
+      ],
+      "quality": "supported",
+      "note": "Month/day is a normalized boundary; source precision is month-level.",
+      "date_precision": "month"
+    },
+    {
+      "entity": "ROC",
+      "name": "Wellington Koo",
+      "name_vi": "Cố Duy Quân",
+      "born": "1888-01-29",
+      "died": "1985-11-14",
+      "from": "1926-10-01",
+      "to": "1927-06-18",
+      "end": "term",
+      "title_en": "Acting President of the Republic of China (Beiyang Government)",
+      "title_vi": "Quyền Tổng thống Trung Hoa Dân Quốc (Chính phủ Bắc Dương)",
+      "role": "head_of_state",
+      "sources": [
+        "roc_beiyang_pres"
+      ],
+      "quality": "supported",
+      "note": "Acting head of the internationally recognized Beijing government; not sole national authority.",
+      "date_precision": "month"
+    },
+    {
+      "entity": "ROC",
+      "name": "Zhang Zuolin",
+      "name_vi": "Trương Tác Lâm",
+      "born": "1875-03-19",
+      "died": "1928-06-04",
+      "from": "1927-06-18",
+      "to": "1928-06-04",
+      "end": "assassination",
+      "title_en": "Generalissimo / Head of the Beiyang Government",
+      "title_vi": "Đại nguyên soái / Người đứng đầu Chính phủ Bắc Dương",
+      "role": "effective_leader",
+      "sources": [
+        "roc_beiyang_pres"
+      ],
+      "quality": "supported",
+      "note": "Dominant military ruler of the Beijing government; assassinated before Northern Expedition ended.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "ROC",
+      "name": "Duan Qirui",
+      "name_vi": "Đoàn Kỳ Thụy",
+      "born": "1865-03-06",
+      "died": "1936-11-02",
+      "from": "1916-06-01",
+      "to": "1917-05-01",
+      "end": "resignation",
+      "title_en": "Premier of the Beiyang Government",
+      "title_vi": "Thủ tướng Chính phủ Bắc Dương",
+      "role": "effective_leader",
+      "sources": [
+        "roc_beiyang_pm"
+      ],
+      "quality": "supported",
+      "note": "Cabinet head during fragmented warlord era; not proof of unified effective control.",
+      "date_precision": "month"
+    },
+    {
+      "entity": "ROC",
+      "name": "Wang Shizhen",
+      "name_vi": "Vương Sĩ Trân",
+      "born": "1861-01-01",
+      "died": "1930-01-01",
+      "from": "1917-11-01",
+      "to": "1918-02-01",
+      "end": "resignation",
+      "title_en": "Premier of the Beiyang Government",
+      "title_vi": "Thủ tướng Chính phủ Bắc Dương",
+      "role": "effective_leader",
+      "sources": [
+        "roc_beiyang_pm"
+      ],
+      "quality": "supported",
+      "note": "Cabinet head during fragmented warlord era; not proof of unified effective control.",
+      "date_precision": "month"
+    },
+    {
+      "entity": "ROC",
+      "name": "Qian Nengxun",
+      "name_vi": "Tiền Năng Huân",
+      "born": "1869-01-01",
+      "died": "1924-01-01",
+      "from": "1918-02-01",
+      "to": "1918-03-01",
+      "end": "resignation",
+      "title_en": "Premier of the Beiyang Government",
+      "title_vi": "Thủ tướng Chính phủ Bắc Dương",
+      "role": "effective_leader",
+      "sources": [
+        "roc_beiyang_pm"
+      ],
+      "quality": "supported",
+      "note": "Cabinet head during fragmented warlord era; not proof of unified effective control.",
+      "date_precision": "month"
+    },
+    {
+      "entity": "ROC",
+      "name": "Duan Qirui",
+      "name_vi": "Đoàn Kỳ Thụy",
+      "born": "1865-03-06",
+      "died": "1936-11-02",
+      "from": "1918-03-01",
+      "to": "1918-10-01",
+      "end": "resignation",
+      "title_en": "Premier of the Beiyang Government",
+      "title_vi": "Thủ tướng Chính phủ Bắc Dương",
+      "role": "effective_leader",
+      "sources": [
+        "roc_beiyang_pm"
+      ],
+      "quality": "supported",
+      "note": "Cabinet head during fragmented warlord era; not proof of unified effective control.",
+      "date_precision": "month"
+    },
+    {
+      "entity": "ROC",
+      "name": "Qian Nengxun",
+      "name_vi": "Tiền Năng Huân",
+      "born": "1869-01-01",
+      "died": "1924-01-01",
+      "from": "1918-10-01",
+      "to": "1919-06-01",
+      "end": "resignation",
+      "title_en": "Premier of the Beiyang Government",
+      "title_vi": "Thủ tướng Chính phủ Bắc Dương",
+      "role": "effective_leader",
+      "sources": [
+        "roc_beiyang_pm"
+      ],
+      "quality": "supported",
+      "note": "Cabinet head during fragmented warlord era; not proof of unified effective control.",
+      "date_precision": "month"
+    },
+    {
+      "entity": "ROC",
+      "name": "Jin Yunpeng",
+      "name_vi": "Cận Vân Bằng",
+      "born": "1877-01-01",
+      "died": "1951-01-01",
+      "from": "1919-09-01",
+      "to": "1920-07-01",
+      "end": "resignation",
+      "title_en": "Premier of the Beiyang Government",
+      "title_vi": "Thủ tướng Chính phủ Bắc Dương",
+      "role": "effective_leader",
+      "sources": [
+        "roc_beiyang_pm"
+      ],
+      "quality": "supported",
+      "note": "Cabinet head during fragmented warlord era; not proof of unified effective control.",
+      "date_precision": "month"
+    },
+    {
+      "entity": "ROC",
+      "name": "Liang Shiyi",
+      "name_vi": "Lương Sĩ Di",
+      "born": "1869-01-01",
+      "died": "1933-01-01",
+      "from": "1921-12-01",
+      "to": "1922-05-01",
+      "end": "resignation",
+      "title_en": "Premier of the Beiyang Government",
+      "title_vi": "Thủ tướng Chính phủ Bắc Dương",
+      "role": "effective_leader",
+      "sources": [
+        "roc_beiyang_pm"
+      ],
+      "quality": "supported",
+      "note": "Cabinet head during fragmented warlord era; not proof of unified effective control.",
+      "date_precision": "month"
+    },
+    {
+      "entity": "ROC",
+      "name": "Duan Qirui",
+      "name_vi": "Đoàn Kỳ Thụy",
+      "born": "1865-03-06",
+      "died": "1936-11-02",
+      "from": "1924-11-01",
+      "to": "1926-04-01",
+      "end": "resignation",
+      "title_en": "Premier of the Beiyang Government",
+      "title_vi": "Thủ tướng Chính phủ Bắc Dương",
+      "role": "effective_leader",
+      "sources": [
+        "roc_beiyang_pm"
+      ],
+      "quality": "supported",
+      "note": "Cabinet head during fragmented warlord era; not proof of unified effective control.",
+      "date_precision": "month"
+    },
+    {
+      "entity": "ROC",
+      "name": "Wellington Koo",
+      "name_vi": "Cố Duy Quân",
+      "born": "1888-01-29",
+      "died": "1985-11-14",
+      "from": "1926-10-01",
+      "to": "1927-06-01",
+      "end": "resignation",
+      "title_en": "Premier of the Beiyang Government",
+      "title_vi": "Thủ tướng Chính phủ Bắc Dương",
+      "role": "effective_leader",
+      "sources": [
+        "roc_beiyang_pm"
+      ],
+      "quality": "supported",
+      "note": "Cabinet head during fragmented warlord era; not proof of unified effective control.",
+      "date_precision": "month"
+    },
+    {
+      "entity": "ROC",
+      "name": "Pan Fu",
+      "name_vi": "Phan Phục",
+      "born": "1883-01-01",
+      "died": "1936-01-01",
+      "from": "1927-06-01",
+      "to": "1928-06-01",
+      "end": "overthrow",
+      "title_en": "Premier of the Beiyang Government",
+      "title_vi": "Thủ tướng Chính phủ Bắc Dương",
+      "role": "effective_leader",
+      "sources": [
+        "roc_beiyang_pm"
+      ],
+      "quality": "supported",
+      "note": "Cabinet head during fragmented warlord era; not proof of unified effective control.",
+      "date_precision": "month"
+    },
+    {
+      "entity": "SPA",
+      "name": "Niceto Alcalá-Zamora",
+      "name_vi": "Niceto Alcalá-Zamora",
+      "born": "1877-07-06",
+      "died": "1949-02-18",
+      "from": "1931-04-14",
+      "to": "1936-04-07",
+      "end": "removed",
+      "title_en": "President of the Second Spanish Republic",
+      "title_vi": "Tổng thống Đệ nhị Cộng hòa Tây Ban Nha",
+      "role": "head_of_state",
+      "sources": [
+        "es_lamoncloa"
+      ],
+      "quality": "verified",
+      "note": "Removed by the Cortes; succeeded by Manuel Azaña.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "SPA",
+      "name": "Manuel Azaña",
+      "name_vi": "Manuel Azaña",
+      "born": "1880-01-10",
+      "died": "1940-11-03",
+      "from": "1936-05-10",
+      "to": "1939-03-27",
+      "end": "exile",
+      "title_en": "President of the Second Spanish Republic",
+      "title_vi": "Tổng thống Đệ nhị Cộng hòa Tây Ban Nha",
+      "role": "head_of_state",
+      "sources": [
+        "es_lamoncloa"
+      ],
+      "quality": "supported",
+      "note": "Presidency continued during Civil War; Republican government lost effective control by 1939.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "SPA",
+      "name": "Niceto Alcalá-Zamora",
+      "name_vi": "Niceto Alcalá-Zamora",
+      "born": "1877-07-06",
+      "died": "1949-02-18",
+      "from": "1931-04-14",
+      "to": "1931-10-14",
+      "end": "resignation",
+      "title_en": "President of the Council of Ministers (Second Republic)",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng (Đệ nhị Cộng hòa)",
+      "role": "effective_leader",
+      "sources": [
+        "es_lamoncloa"
+      ],
+      "quality": "verified",
+      "note": "Civil War and political legitimacy diverged after July 1936.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "SPA",
+      "name": "Manuel Azaña",
+      "name_vi": "Manuel Azaña",
+      "born": "1880-01-10",
+      "died": "1940-11-03",
+      "from": "1931-10-14",
+      "to": "1933-09-12",
+      "end": "resignation",
+      "title_en": "President of the Council of Ministers (Second Republic)",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng (Đệ nhị Cộng hòa)",
+      "role": "effective_leader",
+      "sources": [
+        "es_lamoncloa"
+      ],
+      "quality": "verified",
+      "note": "Civil War and political legitimacy diverged after July 1936.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "SPA",
+      "name": "Alejandro Lerroux",
+      "name_vi": "Alejandro Lerroux",
+      "born": "1864-03-04",
+      "died": "1949-06-25",
+      "from": "1933-09-12",
+      "to": "1933-10-08",
+      "end": "resignation",
+      "title_en": "President of the Council of Ministers (Second Republic)",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng (Đệ nhị Cộng hòa)",
+      "role": "effective_leader",
+      "sources": [
+        "es_lamoncloa"
+      ],
+      "quality": "verified",
+      "note": "Civil War and political legitimacy diverged after July 1936.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "SPA",
+      "name": "Diego Martínez Barrio",
+      "name_vi": "Diego Martínez Barrio",
+      "born": "1883-11-25",
+      "died": "1962-01-01",
+      "from": "1933-10-08",
+      "to": "1933-12-16",
+      "end": "resignation",
+      "title_en": "President of the Council of Ministers (Second Republic)",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng (Đệ nhị Cộng hòa)",
+      "role": "effective_leader",
+      "sources": [
+        "es_lamoncloa"
+      ],
+      "quality": "verified",
+      "note": "Civil War and political legitimacy diverged after July 1936.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "SPA",
+      "name": "Alejandro Lerroux",
+      "name_vi": "Alejandro Lerroux",
+      "born": "1864-03-04",
+      "died": "1949-06-25",
+      "from": "1933-12-16",
+      "to": "1934-04-28",
+      "end": "resignation",
+      "title_en": "President of the Council of Ministers (Second Republic)",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng (Đệ nhị Cộng hòa)",
+      "role": "effective_leader",
+      "sources": [
+        "es_lamoncloa"
+      ],
+      "quality": "verified",
+      "note": "Civil War and political legitimacy diverged after July 1936.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "SPA",
+      "name": "Ricardo Samper",
+      "name_vi": "Ricardo Samper",
+      "born": "1881-08-25",
+      "died": "1938-10-27",
+      "from": "1934-04-28",
+      "to": "1934-10-04",
+      "end": "resignation",
+      "title_en": "President of the Council of Ministers (Second Republic)",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng (Đệ nhị Cộng hòa)",
+      "role": "effective_leader",
+      "sources": [
+        "es_lamoncloa"
+      ],
+      "quality": "verified",
+      "note": "Civil War and political legitimacy diverged after July 1936.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "SPA",
+      "name": "Alejandro Lerroux",
+      "name_vi": "Alejandro Lerroux",
+      "born": "1864-03-04",
+      "died": "1949-06-25",
+      "from": "1934-10-04",
+      "to": "1935-09-25",
+      "end": "resignation",
+      "title_en": "President of the Council of Ministers (Second Republic)",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng (Đệ nhị Cộng hòa)",
+      "role": "effective_leader",
+      "sources": [
+        "es_lamoncloa"
+      ],
+      "quality": "verified",
+      "note": "Civil War and political legitimacy diverged after July 1936.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "SPA",
+      "name": "Joaquín Chapaprieta",
+      "name_vi": "Joaquín Chapaprieta",
+      "born": "1871-10-26",
+      "died": "1951-10-15",
+      "from": "1935-09-25",
+      "to": "1935-12-14",
+      "end": "resignation",
+      "title_en": "President of the Council of Ministers (Second Republic)",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng (Đệ nhị Cộng hòa)",
+      "role": "effective_leader",
+      "sources": [
+        "es_lamoncloa"
+      ],
+      "quality": "verified",
+      "note": "Civil War and political legitimacy diverged after July 1936.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "SPA",
+      "name": "Manuel Portela Valladares",
+      "name_vi": "Manuel Portela Valladares",
+      "born": "1867-01-31",
+      "died": "1952-04-29",
+      "from": "1935-12-14",
+      "to": "1936-02-19",
+      "end": "resignation",
+      "title_en": "President of the Council of Ministers (Second Republic)",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng (Đệ nhị Cộng hòa)",
+      "role": "effective_leader",
+      "sources": [
+        "es_lamoncloa"
+      ],
+      "quality": "verified",
+      "note": "Civil War and political legitimacy diverged after July 1936.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "SPA",
+      "name": "Manuel Azaña",
+      "name_vi": "Manuel Azaña",
+      "born": "1880-01-10",
+      "died": "1940-11-03",
+      "from": "1936-02-19",
+      "to": "1936-05-10",
+      "end": "overthrow",
+      "title_en": "President of the Council of Ministers (Second Republic)",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng (Đệ nhị Cộng hòa)",
+      "role": "effective_leader",
+      "sources": [
+        "es_lamoncloa"
+      ],
+      "quality": "verified",
+      "note": "Civil War cabinet; end marks Republican government collapse/exile.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "SPA",
+      "name": "Augusto Barcia",
+      "name_vi": "Augusto Barcia",
+      "born": "1881-03-05",
+      "died": "1961-03-01",
+      "from": "1936-05-10",
+      "to": "1936-05-13",
+      "end": "overthrow",
+      "title_en": "President of the Council of Ministers (Second Republic)",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng (Đệ nhị Cộng hòa)",
+      "role": "effective_leader",
+      "sources": [
+        "es_lamoncloa"
+      ],
+      "quality": "verified",
+      "note": "Civil War cabinet; end marks Republican government collapse/exile.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "SPA",
+      "name": "Santiago Casares Quiroga",
+      "name_vi": "Santiago Casares Quiroga",
+      "born": "1884-05-08",
+      "died": "1950-02-17",
+      "from": "1936-05-13",
+      "to": "1936-07-19",
+      "end": "overthrow",
+      "title_en": "President of the Council of Ministers (Second Republic)",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng (Đệ nhị Cộng hòa)",
+      "role": "effective_leader",
+      "sources": [
+        "es_lamoncloa"
+      ],
+      "quality": "verified",
+      "note": "Civil War cabinet; end marks Republican government collapse/exile.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "SPA",
+      "name": "Diego Martínez Barrio",
+      "name_vi": "Diego Martínez Barrio",
+      "born": "1883-11-25",
+      "died": "1962-01-01",
+      "from": "1936-07-19",
+      "to": "1936-07-19",
+      "end": "overthrow",
+      "title_en": "President of the Council of Ministers (Second Republic)",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng (Đệ nhị Cộng hòa)",
+      "role": "effective_leader",
+      "sources": [
+        "es_lamoncloa"
+      ],
+      "quality": "verified",
+      "note": "Civil War cabinet; end marks Republican government collapse/exile.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "SPA",
+      "name": "José Giral",
+      "name_vi": "José Giral",
+      "born": "1879-10-22",
+      "died": "1962-12-23",
+      "from": "1936-07-19",
+      "to": "1936-09-04",
+      "end": "overthrow",
+      "title_en": "President of the Council of Ministers (Second Republic)",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng (Đệ nhị Cộng hòa)",
+      "role": "effective_leader",
+      "sources": [
+        "es_lamoncloa"
+      ],
+      "quality": "verified",
+      "note": "Civil War cabinet; end marks Republican government collapse/exile.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "SPA",
+      "name": "Francisco Largo Caballero",
+      "name_vi": "Francisco Largo Caballero",
+      "born": "1869-10-15",
+      "died": "1946-03-23",
+      "from": "1936-09-04",
+      "to": "1937-05-17",
+      "end": "overthrow",
+      "title_en": "President of the Council of Ministers (Second Republic)",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng (Đệ nhị Cộng hòa)",
+      "role": "effective_leader",
+      "sources": [
+        "es_lamoncloa"
+      ],
+      "quality": "verified",
+      "note": "Civil War cabinet; end marks Republican government collapse/exile.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "SPA",
+      "name": "Juan Negrín",
+      "name_vi": "Juan Negrín",
+      "born": "1892-02-03",
+      "died": "1956-11-12",
+      "from": "1937-05-17",
+      "to": "1939-03-31",
+      "end": "overthrow",
+      "title_en": "President of the Council of Ministers (Second Republic)",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng (Đệ nhị Cộng hòa)",
+      "role": "effective_leader",
+      "sources": [
+        "es_lamoncloa"
+      ],
+      "quality": "verified",
+      "note": "Civil War cabinet; end marks Republican government collapse/exile.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GER",
+      "name": "Philipp Scheidemann",
+      "name_vi": "Philipp Scheidemann",
+      "born": "1865-07-26",
+      "died": "1939-11-29",
+      "from": "1919-02-13",
+      "to": "1919-06-20",
+      "end": "resignation",
+      "title_en": "Chancellor of the German Reich (Weimar Republic)",
+      "title_vi": "Thủ tướng Đế chế Đức (Cộng hòa Weimar)",
+      "role": "effective_leader",
+      "sources": [
+        "de_weimar_bundarchiv"
+      ],
+      "quality": "supported",
+      "note": "Weimar cabinet chronology; cabinet changes were frequent and coalition-dependent.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GER",
+      "name": "Gustav Bauer",
+      "name_vi": "Gustav Bauer",
+      "born": "1870-01-06",
+      "died": "1944-11-16",
+      "from": "1919-06-21",
+      "to": "1920-03-26",
+      "end": "resignation",
+      "title_en": "Chancellor of the German Reich (Weimar Republic)",
+      "title_vi": "Thủ tướng Đế chế Đức (Cộng hòa Weimar)",
+      "role": "effective_leader",
+      "sources": [
+        "de_weimar_bundarchiv"
+      ],
+      "quality": "supported",
+      "note": "Weimar cabinet chronology; cabinet changes were frequent and coalition-dependent.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GER",
+      "name": "Hermann Müller",
+      "name_vi": "Hermann Müller",
+      "born": "1876-05-18",
+      "died": "1931-03-20",
+      "from": "1920-03-27",
+      "to": "1920-06-08",
+      "end": "resignation",
+      "title_en": "Chancellor of the German Reich (Weimar Republic)",
+      "title_vi": "Thủ tướng Đế chế Đức (Cộng hòa Weimar)",
+      "role": "effective_leader",
+      "sources": [
+        "de_weimar_bundarchiv"
+      ],
+      "quality": "supported",
+      "note": "Weimar cabinet chronology; cabinet changes were frequent and coalition-dependent.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GER",
+      "name": "Konstantin Fehrenbach",
+      "name_vi": "Konstantin Fehrenbach",
+      "born": "1852-01-11",
+      "died": "1926-11-26",
+      "from": "1920-06-25",
+      "to": "1921-05-04",
+      "end": "resignation",
+      "title_en": "Chancellor of the German Reich (Weimar Republic)",
+      "title_vi": "Thủ tướng Đế chế Đức (Cộng hòa Weimar)",
+      "role": "effective_leader",
+      "sources": [
+        "de_weimar_bundarchiv"
+      ],
+      "quality": "supported",
+      "note": "Weimar cabinet chronology; cabinet changes were frequent and coalition-dependent.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GER",
+      "name": "Joseph Wirth",
+      "name_vi": "Joseph Wirth",
+      "born": "1879-09-06",
+      "died": "1956-01-03",
+      "from": "1921-05-10",
+      "to": "1922-11-14",
+      "end": "resignation",
+      "title_en": "Chancellor of the German Reich (Weimar Republic)",
+      "title_vi": "Thủ tướng Đế chế Đức (Cộng hòa Weimar)",
+      "role": "effective_leader",
+      "sources": [
+        "de_weimar_bundarchiv"
+      ],
+      "quality": "supported",
+      "note": "Weimar cabinet chronology; cabinet changes were frequent and coalition-dependent.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GER",
+      "name": "Wilhelm Cuno",
+      "name_vi": "Wilhelm Cuno",
+      "born": "1876-07-02",
+      "died": "1933-01-03",
+      "from": "1922-11-22",
+      "to": "1923-08-12",
+      "end": "resignation",
+      "title_en": "Chancellor of the German Reich (Weimar Republic)",
+      "title_vi": "Thủ tướng Đế chế Đức (Cộng hòa Weimar)",
+      "role": "effective_leader",
+      "sources": [
+        "de_weimar_bundarchiv"
+      ],
+      "quality": "supported",
+      "note": "Weimar cabinet chronology; cabinet changes were frequent and coalition-dependent.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GER",
+      "name": "Gustav Stresemann",
+      "name_vi": "Gustav Stresemann",
+      "born": "1878-05-10",
+      "died": "1929-10-03",
+      "from": "1923-08-13",
+      "to": "1923-11-23",
+      "end": "resignation",
+      "title_en": "Chancellor of the German Reich (Weimar Republic)",
+      "title_vi": "Thủ tướng Đế chế Đức (Cộng hòa Weimar)",
+      "role": "effective_leader",
+      "sources": [
+        "de_weimar_bundarchiv"
+      ],
+      "quality": "supported",
+      "note": "Weimar cabinet chronology; cabinet changes were frequent and coalition-dependent.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GER",
+      "name": "Wilhelm Marx",
+      "name_vi": "Wilhelm Marx",
+      "born": "1863-01-15",
+      "died": "1946-08-05",
+      "from": "1923-11-30",
+      "to": "1925-01-15",
+      "end": "resignation",
+      "title_en": "Chancellor of the German Reich (Weimar Republic)",
+      "title_vi": "Thủ tướng Đế chế Đức (Cộng hòa Weimar)",
+      "role": "effective_leader",
+      "sources": [
+        "de_weimar_bundarchiv"
+      ],
+      "quality": "supported",
+      "note": "Weimar cabinet chronology; cabinet changes were frequent and coalition-dependent.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GER",
+      "name": "Hans Luther",
+      "name_vi": "Hans Luther",
+      "born": "1879-03-10",
+      "died": "1962-05-11",
+      "from": "1925-01-15",
+      "to": "1926-05-12",
+      "end": "resignation",
+      "title_en": "Chancellor of the German Reich (Weimar Republic)",
+      "title_vi": "Thủ tướng Đế chế Đức (Cộng hòa Weimar)",
+      "role": "effective_leader",
+      "sources": [
+        "de_weimar_bundarchiv"
+      ],
+      "quality": "supported",
+      "note": "Weimar cabinet chronology; cabinet changes were frequent and coalition-dependent.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GER",
+      "name": "Wilhelm Marx",
+      "name_vi": "Wilhelm Marx",
+      "born": "1863-01-15",
+      "died": "1946-08-05",
+      "from": "1926-05-17",
+      "to": "1928-06-12",
+      "end": "resignation",
+      "title_en": "Chancellor of the German Reich (Weimar Republic)",
+      "title_vi": "Thủ tướng Đế chế Đức (Cộng hòa Weimar)",
+      "role": "effective_leader",
+      "sources": [
+        "de_weimar_bundarchiv"
+      ],
+      "quality": "supported",
+      "note": "Weimar cabinet chronology; cabinet changes were frequent and coalition-dependent.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GER",
+      "name": "Hermann Müller",
+      "name_vi": "Hermann Müller",
+      "born": "1876-05-18",
+      "died": "1931-03-20",
+      "from": "1928-06-28",
+      "to": "1930-03-27",
+      "end": "resignation",
+      "title_en": "Chancellor of the German Reich (Weimar Republic)",
+      "title_vi": "Thủ tướng Đế chế Đức (Cộng hòa Weimar)",
+      "role": "effective_leader",
+      "sources": [
+        "de_weimar_bundarchiv"
+      ],
+      "quality": "supported",
+      "note": "Weimar cabinet chronology; cabinet changes were frequent and coalition-dependent.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GER",
+      "name": "Heinrich Brüning",
+      "name_vi": "Heinrich Brüning",
+      "born": "1885-11-26",
+      "died": "1970-03-30",
+      "from": "1930-03-30",
+      "to": "1932-05-30",
+      "end": "resignation",
+      "title_en": "Chancellor of the German Reich (Weimar Republic)",
+      "title_vi": "Thủ tướng Đế chế Đức (Cộng hòa Weimar)",
+      "role": "effective_leader",
+      "sources": [
+        "de_weimar_bundarchiv"
+      ],
+      "quality": "supported",
+      "note": "Weimar cabinet chronology; cabinet changes were frequent and coalition-dependent.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GER",
+      "name": "Franz von Papen",
+      "name_vi": "Franz von Papen",
+      "born": "1879-10-29",
+      "died": "1969-05-02",
+      "from": "1932-06-01",
+      "to": "1932-11-17",
+      "end": "resignation",
+      "title_en": "Chancellor of the German Reich (Weimar Republic)",
+      "title_vi": "Thủ tướng Đế chế Đức (Cộng hòa Weimar)",
+      "role": "effective_leader",
+      "sources": [
+        "de_weimar_bundarchiv"
+      ],
+      "quality": "supported",
+      "note": "Weimar cabinet chronology; cabinet changes were frequent and coalition-dependent.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GER",
+      "name": "Kurt von Schleicher",
+      "name_vi": "Kurt von Schleicher",
+      "born": "1882-04-07",
+      "died": "1934-06-30",
+      "from": "1932-12-03",
+      "to": "1933-01-30",
+      "end": "resignation",
+      "title_en": "Chancellor of the German Reich (Weimar Republic)",
+      "title_vi": "Thủ tướng Đế chế Đức (Cộng hòa Weimar)",
+      "role": "effective_leader",
+      "sources": [
+        "de_weimar_bundarchiv"
+      ],
+      "quality": "supported",
+      "note": "Weimar cabinet chronology; cabinet changes were frequent and coalition-dependent.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "FRG",
+      "name": "Theodor Heuss",
+      "name_vi": "Theodor Heuss",
+      "born": "1884-01-31",
+      "died": "1963-12-12",
+      "from": "1949-09-12",
+      "to": "1959-09-12",
+      "end": "term",
+      "title_en": "Federal President of the Federal Republic of Germany",
+      "title_vi": "Tổng thống Liên bang Đức",
+      "role": "head_of_state",
+      "sources": [
+        "de_bundesarchiv_pres"
+      ],
+      "quality": "verified",
+      "date_precision": "day"
+    },
+    {
+      "entity": "FRG",
+      "name": "Heinrich Lübke",
+      "name_vi": "Heinrich Lübke",
+      "born": "1894-10-14",
+      "died": "1972-04-06",
+      "from": "1959-09-13",
+      "to": "1969-06-30",
+      "end": "term",
+      "title_en": "Federal President of the Federal Republic of Germany",
+      "title_vi": "Tổng thống Liên bang Đức",
+      "role": "head_of_state",
+      "sources": [
+        "de_bundesarchiv_pres"
+      ],
+      "quality": "verified",
+      "date_precision": "day"
+    },
+    {
+      "entity": "FRG",
+      "name": "Gustav Heinemann",
+      "name_vi": "Gustav Heinemann",
+      "born": "1899-07-23",
+      "died": "1976-07-07",
+      "from": "1969-07-01",
+      "to": "1974-06-30",
+      "end": "term",
+      "title_en": "Federal President of the Federal Republic of Germany",
+      "title_vi": "Tổng thống Liên bang Đức",
+      "role": "head_of_state",
+      "sources": [
+        "de_bundesarchiv_pres"
+      ],
+      "quality": "verified",
+      "date_precision": "day"
+    },
+    {
+      "entity": "FRG",
+      "name": "Walter Scheel",
+      "name_vi": "Walter Scheel",
+      "born": "1919-07-08",
+      "died": "2016-08-24",
+      "from": "1974-07-01",
+      "to": "1979-06-30",
+      "end": "term",
+      "title_en": "Federal President of the Federal Republic of Germany",
+      "title_vi": "Tổng thống Liên bang Đức",
+      "role": "head_of_state",
+      "sources": [
+        "de_bundesarchiv_pres"
+      ],
+      "quality": "verified",
+      "date_precision": "day"
+    },
+    {
+      "entity": "FRG",
+      "name": "Karl Carstens",
+      "name_vi": "Karl Carstens",
+      "born": "1914-12-14",
+      "died": "1992-05-30",
+      "from": "1979-07-01",
+      "to": "1984-06-30",
+      "end": "term",
+      "title_en": "Federal President of the Federal Republic of Germany",
+      "title_vi": "Tổng thống Liên bang Đức",
+      "role": "head_of_state",
+      "sources": [
+        "de_bundesarchiv_pres"
+      ],
+      "quality": "verified",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GER",
+      "name": "Helmut Kohl",
+      "name_vi": "Helmut Kohl",
+      "born": "1930-04-03",
+      "died": "2017-06-16",
+      "from": "1990-10-03",
+      "to": "1998-10-27",
+      "end": "election_loss",
+      "title_en": "Federal Chancellor of Germany",
+      "title_vi": "Thủ tướng Liên bang Đức",
+      "role": "effective_leader",
+      "sources": [
+        "de_bundestag_dhb"
+      ],
+      "quality": "verified",
+      "note": "Continuation of his FRG chancellorship after reunification; entity changes to unified Germany.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GDR",
+      "name": "Wilhelm Pieck",
+      "name_vi": "Wilhelm Pieck",
+      "born": "1876-01-03",
+      "died": "1960-09-07",
+      "from": "1949-10-11",
+      "to": "1960-09-07",
+      "end": "death",
+      "title_en": "President of the German Democratic Republic",
+      "title_vi": "Chủ tịch nước CHDC Đức",
+      "role": "head_of_state",
+      "sources": [
+        "de_bpb_gdr"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GDR",
+      "name": "Willi Stoph",
+      "name_vi": "Willi Stoph",
+      "born": "1914-07-09",
+      "died": "1999-04-13",
+      "from": "1973-10-03",
+      "to": "1976-10-29",
+      "end": "replaced",
+      "title_en": "Chairman of the Council of State of the GDR",
+      "title_vi": "Chủ tịch Hội đồng Nhà nước CHDC Đức",
+      "role": "head_of_state",
+      "sources": [
+        "de_bpb_gdr"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GDR",
+      "name": "Manfred Gerlach",
+      "name_vi": "Manfred Gerlach",
+      "born": "1928-05-08",
+      "died": "2011-10-17",
+      "from": "1989-12-06",
+      "to": "1990-04-05",
+      "end": "term",
+      "title_en": "Acting Chairman of the Council of State of the GDR",
+      "title_vi": "Quyền Chủ tịch Hội đồng Nhà nước CHDC Đức",
+      "role": "head_of_state",
+      "sources": [
+        "de_bpb_gdr"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GDR",
+      "name": "Sabine Bergmann-Pohl",
+      "name_vi": "Sabine Bergmann-Pohl",
+      "born": "1946-04-20",
+      "died": null,
+      "from": "1990-04-05",
+      "to": "1990-10-03",
+      "end": "reunification",
+      "title_en": "President of the People's Chamber / Acting Head of State",
+      "title_vi": "Chủ tịch Volkskammer / Quyền nguyên thủ",
+      "role": "head_of_state",
+      "sources": [
+        "de_bpb_gdr"
+      ],
+      "quality": "supported",
+      "note": "Acting head of state during final transition to German reunification.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GDR",
+      "name": "Otto Grotewohl",
+      "name_vi": "Otto Grotewohl",
+      "born": "1894-03-11",
+      "died": "1964-09-21",
+      "from": "1949-10-12",
+      "to": "1964-09-21",
+      "end": "death",
+      "title_en": "Minister-President of the GDR",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng CHDC Đức",
+      "role": "effective_leader",
+      "sources": [
+        "de_bpb_gdr"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GDR",
+      "name": "Willi Stoph",
+      "name_vi": "Willi Stoph",
+      "born": "1914-07-09",
+      "died": "1999-04-13",
+      "from": "1964-09-21",
+      "to": "1973-10-03",
+      "end": "replaced",
+      "title_en": "Minister-President of the GDR",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng CHDC Đức",
+      "role": "effective_leader",
+      "sources": [
+        "de_bpb_gdr"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GDR",
+      "name": "Horst Sindermann",
+      "name_vi": "Horst Sindermann",
+      "born": "1915-09-05",
+      "died": "1990-04-20",
+      "from": "1973-10-03",
+      "to": "1976-10-29",
+      "end": "replaced",
+      "title_en": "Minister-President of the GDR",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng CHDC Đức",
+      "role": "effective_leader",
+      "sources": [
+        "de_bpb_gdr"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GDR",
+      "name": "Willi Stoph",
+      "name_vi": "Willi Stoph",
+      "born": "1914-07-09",
+      "died": "1999-04-13",
+      "from": "1976-10-29",
+      "to": "1989-11-07",
+      "end": "resignation",
+      "title_en": "Minister-President of the GDR",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng CHDC Đức",
+      "role": "effective_leader",
+      "sources": [
+        "de_bpb_gdr"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GDR",
+      "name": "Hans Modrow",
+      "name_vi": "Hans Modrow",
+      "born": "1928-01-27",
+      "died": "2023-02-10",
+      "from": "1989-11-13",
+      "to": "1990-04-12",
+      "end": "election_loss",
+      "title_en": "Minister-President of the GDR",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng CHDC Đức",
+      "role": "effective_leader",
+      "sources": [
+        "de_bpb_gdr"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GDR",
+      "name": "Lothar de Maizière",
+      "name_vi": "Lothar de Maizière",
+      "born": "1940-03-02",
+      "died": null,
+      "from": "1990-04-12",
+      "to": "1990-10-03",
+      "end": "reunification",
+      "title_en": "Minister-President of the GDR",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng CHDC Đức",
+      "role": "effective_leader",
+      "sources": [
+        "de_bpb_gdr"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "GDR",
+      "name": "Walter Ulbricht",
+      "name_vi": "Walter Ulbricht",
+      "born": "1893-06-30",
+      "died": "1973-08-01",
+      "from": "1950-07-25",
+      "to": "1971-05-03",
+      "end": "removed",
+      "title_en": "General Secretary / First Secretary of the SED",
+      "title_vi": "Tổng Bí thư / Bí thư thứ nhất Đảng SED",
+      "role": "effective_leader",
+      "sources": [
+        "de_bpb_gdr"
+      ],
+      "quality": "supported",
+      "note": "Corrects original staging start from 1960 to 1950, when Ulbricht became General Secretary; not merely head of state. Start corrected to 1950-07-25 (SED General Secretary), based on GDR institutional chronology.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "VNM",
+      "name": "Trần Phú",
+      "name_vi": "Trần Phú",
+      "born": "1904-05-01",
+      "died": "1931-09-06",
+      "from": "1930-10-27",
+      "to": "1931-04-19",
+      "end": "arrested",
+      "title_en": "General Secretary of the Communist Party of Indochina",
+      "title_vi": "Tổng Bí thư Đảng Cộng sản Đông Dương",
+      "role": "effective_leader",
+      "sources": [
+        "vn_party_secretaries_detail"
+      ],
+      "quality": "supported",
+      "note": "First General Secretary; arrested 19 April 1931 and died in custody 6 September 1931.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "VNM",
+      "name": "Lê Hồng Phong",
+      "name_vi": "Lê Hồng Phong",
+      "born": "1902-09-06",
+      "died": "1942-09-06",
+      "from": "1935-03-31",
+      "to": "1936-07-26",
+      "end": "replaced",
+      "title_en": "General Secretary of the Communist Party of Indochina",
+      "title_vi": "Tổng Bí thư Đảng Cộng sản Đông Dương",
+      "role": "effective_leader",
+      "sources": [
+        "vn_party_secretaries_detail"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "VNM",
+      "name": "Hà Huy Tập",
+      "name_vi": "Hà Huy Tập",
+      "born": "1906-04-24",
+      "died": "1941-10-28",
+      "from": "1936-07-26",
+      "to": "1938-03-30",
+      "end": "replaced",
+      "title_en": "General Secretary of the Communist Party of Indochina",
+      "title_vi": "Tổng Bí thư Đảng Cộng sản Đông Dương",
+      "role": "effective_leader",
+      "sources": [
+        "vn_party_secretaries_detail"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "VNM",
+      "name": "Nguyễn Văn Cừ",
+      "name_vi": "Nguyễn Văn Cừ",
+      "born": "1912-07-09",
+      "died": "1941-08-28",
+      "from": "1938-03-30",
+      "to": "1940-11-09",
+      "end": "arrested",
+      "title_en": "General Secretary of the Communist Party of Indochina",
+      "title_vi": "Tổng Bí thư Đảng Cộng sản Đông Dương",
+      "role": "effective_leader",
+      "sources": [
+        "vn_party_secretaries_detail"
+      ],
+      "quality": "supported",
+      "note": "Arrested in 1940; exact transition to Trường Chinh follows Party chronology.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "VNM",
+      "name": "Trường Chinh",
+      "name_vi": "Trường Chinh",
+      "born": "1907-02-09",
+      "died": "1988-09-30",
+      "from": "1941-05-01",
+      "to": "1956-10-05",
+      "end": "replaced",
+      "title_en": "General Secretary of the Communist Party of Indochina / Workers' Party of Vietnam",
+      "title_vi": "Tổng Bí thư Đảng Cộng sản Đông Dương / Đảng Lao động Việt Nam",
+      "role": "effective_leader",
+      "sources": [
+        "vn_party_secretaries"
+      ],
+      "quality": "supported",
+      "note": "Month precision for May 1941 start; exact date not asserted.",
+      "date_precision": "month"
+    },
+    {
+      "entity": "VNM",
+      "name": "Hồ Chí Minh",
+      "name_vi": "Hồ Chí Minh",
+      "born": "1890-05-19",
+      "died": "1969-09-02",
+      "from": "1956-10-05",
+      "to": "1960-09-10",
+      "end": "term",
+      "title_en": "General Secretary of the Workers' Party of Vietnam",
+      "title_vi": "Tổng Bí thư Đảng Lao động Việt Nam",
+      "role": "effective_leader",
+      "sources": [
+        "vn_party_secretaries"
+      ],
+      "quality": "supported",
+      "note": "Party chronology records October 1956; exact date standardized to 5 October and requires primary congress-minute confirmation.",
+      "date_precision": "month"
+    },
+    {
+      "entity": "VNM",
+      "name": "Lê Duẩn",
+      "name_vi": "Lê Duẩn",
+      "born": "1907-04-07",
+      "died": "1986-07-10",
+      "from": "1960-09-10",
+      "to": "1986-07-10",
+      "end": "death",
+      "title_en": "First Secretary / General Secretary of the Workers' Party of Vietnam",
+      "title_vi": "Bí thư thứ nhất / Tổng Bí thư Đảng Lao động Việt Nam",
+      "role": "effective_leader",
+      "sources": [
+        "vn_party_secretaries"
+      ],
+      "quality": "verified",
+      "note": "The Party chronology gives September 1960–July 1986; day precision uses known congress/leadership dates.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "VNM",
+      "name": "Trường Chinh",
+      "name_vi": "Trường Chinh",
+      "born": "1907-02-09",
+      "died": "1988-09-30",
+      "from": "1986-07-14",
+      "to": "1986-12-18",
+      "end": "resignation",
+      "title_en": "General Secretary of the Communist Party of Vietnam",
+      "title_vi": "Tổng Bí thư Đảng Cộng sản Việt Nam",
+      "role": "effective_leader",
+      "sources": [
+        "vn_party_secretaries"
+      ],
+      "quality": "supported",
+      "note": "Short interim tenure; date precision for the start is day-level in historical chronology.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "DRV",
+      "name": "Hồ Chí Minh",
+      "name_vi": "Hồ Chí Minh",
+      "born": "1890-05-19",
+      "died": "1969-09-02",
+      "from": "1945-09-02",
+      "to": "1955-09-20",
+      "end": "term",
+      "title_en": "President and Prime Minister of the Democratic Republic of Vietnam",
+      "title_vi": "Chủ tịch nước kiêm Thủ tướng Việt Nam Dân chủ Cộng hòa",
+      "role": "effective_leader",
+      "sources": [
+        "vn_pm_official"
+      ],
+      "quality": "verified",
+      "note": "Combined head-of-state and head-of-government role in the early DRV; source describes transition to Phạm Văn Đồng in 1955.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "DRV",
+      "name": "Phạm Văn Đồng",
+      "name_vi": "Phạm Văn Đồng",
+      "born": "1906-03-01",
+      "died": "2000-04-29",
+      "from": "1955-09-20",
+      "to": "1976-07-02",
+      "end": "term",
+      "title_en": "Prime Minister of the Democratic Republic of Vietnam",
+      "title_vi": "Thủ tướng Việt Nam Dân chủ Cộng hòa",
+      "role": "effective_leader",
+      "sources": [
+        "vn_pm_official"
+      ],
+      "quality": "verified",
+      "note": "Exact appointment day needs further cabinet-resolution check; source establishes September 1955.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "VNM",
+      "name": "Phạm Văn Đồng",
+      "name_vi": "Phạm Văn Đồng",
+      "born": "1906-03-01",
+      "died": "2000-04-29",
+      "from": "1976-07-02",
+      "to": "1987-06-18",
+      "end": "resignation",
+      "title_en": "Prime Minister / Chairman of the Council of Ministers of Vietnam",
+      "title_vi": "Thủ tướng / Chủ tịch Hội đồng Bộ trưởng Việt Nam",
+      "role": "effective_leader",
+      "sources": [
+        "vn_pm_official"
+      ],
+      "quality": "verified",
+      "note": "Continued as head of government after reunification until June 1987.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "VNM",
+      "name": "Phạm Hùng",
+      "name_vi": "Phạm Hùng",
+      "born": "1912-06-11",
+      "died": "1988-03-10",
+      "from": "1987-06-18",
+      "to": "1988-03-10",
+      "end": "death",
+      "title_en": "Chairman of the Council of Ministers of Vietnam",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng Việt Nam",
+      "role": "effective_leader",
+      "sources": [
+        "vn_pm_official"
+      ],
+      "quality": "verified",
+      "date_precision": "day"
+    },
+    {
+      "entity": "VNM",
+      "name": "Võ Văn Kiệt",
+      "name_vi": "Võ Văn Kiệt",
+      "born": "1922-11-23",
+      "died": "2008-06-11",
+      "from": "1988-03-10",
+      "to": "1988-06-22",
+      "end": "acting",
+      "title_en": "Acting Chairman of the Council of Ministers",
+      "title_vi": "Quyền Chủ tịch Hội đồng Bộ trưởng",
+      "role": "effective_leader",
+      "sources": [
+        "vn_pm_official"
+      ],
+      "quality": "supported",
+      "note": "Acting interval between Phạm Hùng and Đỗ Mười; dates require exact resolution validation.",
+      "date_precision": "month"
+    },
+    {
+      "entity": "VNM",
+      "name": "Đỗ Mười",
+      "name_vi": "Đỗ Mười",
+      "born": "1917-02-02",
+      "died": "2018-10-01",
+      "from": "1988-06-22",
+      "to": "1991-08-08",
+      "end": "term",
+      "title_en": "Chairman of the Council of Ministers of Vietnam",
+      "title_vi": "Chủ tịch Hội đồng Bộ trưởng Việt Nam",
+      "role": "effective_leader",
+      "sources": [
+        "vn_pm_official"
+      ],
+      "quality": "verified",
+      "note": "Source records June 1988–July 1991; exact date normalized and should be checked against National Assembly record.",
+      "date_precision": "month"
+    },
+    {
+      "entity": "SVN",
+      "name": "Bảo Đại",
+      "name_vi": "Bảo Đại",
+      "born": "1913-10-22",
+      "died": "1997-07-30",
+      "from": "1949-06-14",
+      "to": "1955-10-26",
+      "end": "referendum",
+      "title_en": "Chief of State of the State of Vietnam",
+      "title_vi": "Quốc trưởng Quốc gia Việt Nam",
+      "role": "head_of_state",
+      "sources": [
+        "vn_embassy"
+      ],
+      "quality": "supported",
+      "note": "State of Vietnam was a distinct associated state; not the DRV and not the later Republic of Vietnam.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "SVN",
+      "name": "Ngô Đình Diệm",
+      "name_vi": "Ngô Đình Diệm",
+      "born": "1901-01-03",
+      "died": "1963-11-02",
+      "from": "1954-06-19",
+      "to": "1955-10-26",
+      "end": "referendum",
+      "title_en": "Prime Minister of the State of Vietnam",
+      "title_vi": "Thủ tướng Quốc gia Việt Nam",
+      "role": "effective_leader",
+      "sources": [
+        "vn_embassy"
+      ],
+      "quality": "supported",
+      "note": "Premier before the 1955 referendum and proclamation of the Republic.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "RVN",
+      "name": "Ngô Đình Diệm",
+      "name_vi": "Ngô Đình Diệm",
+      "born": "1901-01-03",
+      "died": "1963-11-02",
+      "from": "1955-10-26",
+      "to": "1963-11-02",
+      "end": "assassination",
+      "title_en": "President of the Republic of Vietnam",
+      "title_vi": "Tổng thống Việt Nam Cộng hòa",
+      "role": "head_of_state",
+      "sources": [
+        "vn_rvn_pres"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "RVN",
+      "name": "Nguyễn Văn Thiệu",
+      "name_vi": "Nguyễn Văn Thiệu",
+      "born": "1923-04-05",
+      "died": "2001-09-29",
+      "from": "1967-10-31",
+      "to": "1975-04-21",
+      "end": "resignation",
+      "title_en": "President of the Republic of Vietnam",
+      "title_vi": "Tổng thống Việt Nam Cộng hòa",
+      "role": "head_of_state",
+      "sources": [
+        "vn_archives_rvn"
+      ],
+      "quality": "verified",
+      "note": "The archive records the Second Republic inauguration 31 October 1967 and resignation 21 April 1975.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "RVN",
+      "name": "Trần Văn Hương",
+      "name_vi": "Trần Văn Hương",
+      "born": "1902-12-01",
+      "died": "1982-01-27",
+      "from": "1975-04-21",
+      "to": "1975-04-28",
+      "end": "resignation",
+      "title_en": "President of the Republic of Vietnam",
+      "title_vi": "Tổng thống Việt Nam Cộng hòa",
+      "role": "head_of_state",
+      "sources": [
+        "vn_independence_palace"
+      ],
+      "quality": "verified",
+      "note": "Took office after Thiệu's resignation; handed over on 28 April 1975.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "RVN",
+      "name": "Dương Văn Minh",
+      "name_vi": "Dương Văn Minh",
+      "born": "1916-02-16",
+      "died": "2001-08-06",
+      "from": "1975-04-28",
+      "to": "1975-04-30",
+      "end": "overthrow",
+      "title_en": "President of the Republic of Vietnam",
+      "title_vi": "Tổng thống Việt Nam Cộng hòa",
+      "role": "head_of_state",
+      "sources": [
+        "vn_independence_palace"
+      ],
+      "quality": "verified",
+      "note": "Final president; announced transfer of power on 30 April 1975.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "RVN",
+      "name": "Nguyễn Cao Kỳ",
+      "name_vi": "Nguyễn Cao Kỳ",
+      "born": "1930-09-08",
+      "died": "2011-07-23",
+      "from": "1965-06-19",
+      "to": "1967-10-31",
+      "end": "term",
+      "title_en": "Prime Minister of the Republic of Vietnam",
+      "title_vi": "Thủ tướng Việt Nam Cộng hòa",
+      "role": "effective_leader",
+      "sources": [
+        "vn_rvn_pres"
+      ],
+      "quality": "supported",
+      "note": "Head of government under the military regime; later Vice President.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "RVN",
+      "name": "Trần Văn Hương",
+      "name_vi": "Trần Văn Hương",
+      "born": "1902-12-01",
+      "died": "1982-01-27",
+      "from": "1968-05-28",
+      "to": "1969-08-22",
+      "end": "resignation",
+      "title_en": "Prime Minister of the Republic of Vietnam",
+      "title_vi": "Thủ tướng Việt Nam Cộng hòa",
+      "role": "effective_leader",
+      "sources": [
+        "vn_rvn_pres"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "RVN",
+      "name": "Trần Thiện Khiêm",
+      "name_vi": "Trần Thiện Khiêm",
+      "born": "1925-12-15",
+      "died": "2021-06-24",
+      "from": "1969-08-22",
+      "to": "1975-04-04",
+      "end": "resignation",
+      "title_en": "Prime Minister of the Republic of Vietnam",
+      "title_vi": "Thủ tướng Việt Nam Cộng hòa",
+      "role": "effective_leader",
+      "sources": [
+        "vn_rvn_pres"
+      ],
+      "quality": "supported",
+      "date_precision": "day"
+    },
+    {
+      "entity": "PRG",
+      "name": "Huỳnh Tấn Phát",
+      "name_vi": "Huỳnh Tấn Phát",
+      "born": "1913-02-15",
+      "died": "1989-09-30",
+      "from": "1969-06-08",
+      "to": "1976-07-02",
+      "end": "reunification",
+      "title_en": "President of the Provisional Revolutionary Government of the Republic of South Vietnam",
+      "title_vi": "Chủ tịch Chính phủ Cách mạng lâm thời Cộng hòa miền Nam Việt Nam",
+      "role": "effective_leader",
+      "sources": [
+        "vn_pm_official"
+      ],
+      "quality": "verified",
+      "note": "Separate southern revolutionary government; not the Republic of Vietnam administration.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "JPN",
+      "name": "Wakatsuki Reijirō",
+      "name_vi": "Wakatsuki Reijirō",
+      "born": "1866-03-21",
+      "died": "1949-11-21",
+      "from": "1931-04-14",
+      "to": "1931-12-13",
+      "end": "resignation",
+      "title_en": "Prime Minister of Japan",
+      "title_vi": "Thủ tướng Nhật Bản",
+      "role": "effective_leader",
+      "sources": [
+        "jp_kantei_past"
+      ],
+      "quality": "supported",
+      "note": "Prime Minister was the head of government; Emperor remained formal head of state.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "JPN",
+      "name": "Inukai Tsuyoshi",
+      "name_vi": "Inukai Tsuyoshi",
+      "born": "1855-06-04",
+      "died": "1932-05-15",
+      "from": "1931-12-13",
+      "to": "1932-05-15",
+      "end": "assassination",
+      "title_en": "Prime Minister of Japan",
+      "title_vi": "Thủ tướng Nhật Bản",
+      "role": "effective_leader",
+      "sources": [
+        "jp_kantei_past"
+      ],
+      "quality": "verified",
+      "note": "Prime Minister was the head of government; Emperor remained formal head of state.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "JPN",
+      "name": "Saitō Makoto",
+      "name_vi": "Saitō Makoto",
+      "born": "1858-12-02",
+      "died": "1936-02-26",
+      "from": "1932-05-26",
+      "to": "1934-07-08",
+      "end": "resignation",
+      "title_en": "Prime Minister of Japan",
+      "title_vi": "Thủ tướng Nhật Bản",
+      "role": "effective_leader",
+      "sources": [
+        "jp_kantei_past"
+      ],
+      "quality": "supported",
+      "note": "Prime Minister was the head of government; Emperor remained formal head of state.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "JPN",
+      "name": "Okada Keisuke",
+      "name_vi": "Okada Keisuke",
+      "born": "1868-01-20",
+      "died": "1952-10-17",
+      "from": "1934-07-08",
+      "to": "1936-03-09",
+      "end": "resignation",
+      "title_en": "Prime Minister of Japan",
+      "title_vi": "Thủ tướng Nhật Bản",
+      "role": "effective_leader",
+      "sources": [
+        "jp_kantei_past"
+      ],
+      "quality": "supported",
+      "note": "Prime Minister was the head of government; Emperor remained formal head of state.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "JPN",
+      "name": "Hirota Kōki",
+      "name_vi": "Hirota Kōki",
+      "born": "1878-02-14",
+      "died": "1948-12-23",
+      "from": "1936-03-09",
+      "to": "1937-02-02",
+      "end": "resignation",
+      "title_en": "Prime Minister of Japan",
+      "title_vi": "Thủ tướng Nhật Bản",
+      "role": "effective_leader",
+      "sources": [
+        "jp_kantei_past"
+      ],
+      "quality": "supported",
+      "note": "Prime Minister was the head of government; Emperor remained formal head of state.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "JPN",
+      "name": "Hayashi Senjūrō",
+      "name_vi": "Hayashi Senjūrō",
+      "born": "1876-02-23",
+      "died": "1943-02-04",
+      "from": "1937-02-02",
+      "to": "1937-06-04",
+      "end": "resignation",
+      "title_en": "Prime Minister of Japan",
+      "title_vi": "Thủ tướng Nhật Bản",
+      "role": "effective_leader",
+      "sources": [
+        "jp_kantei_past"
+      ],
+      "quality": "supported",
+      "note": "Prime Minister was the head of government; Emperor remained formal head of state.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "JPN",
+      "name": "Konoe Fumimaro",
+      "name_vi": "Konoe Fumimaro",
+      "born": "1891-10-12",
+      "died": "1945-12-16",
+      "from": "1937-06-04",
+      "to": "1939-01-05",
+      "end": "resignation",
+      "title_en": "Prime Minister of Japan",
+      "title_vi": "Thủ tướng Nhật Bản",
+      "role": "effective_leader",
+      "sources": [
+        "jp_kantei_past"
+      ],
+      "quality": "supported",
+      "note": "Prime Minister was the head of government; Emperor remained formal head of state.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "JPN",
+      "name": "Hiranuma Kiichirō",
+      "name_vi": "Hiranuma Kiichirō",
+      "born": "1867-08-25",
+      "died": "1952-08-22",
+      "from": "1939-01-05",
+      "to": "1939-08-30",
+      "end": "resignation",
+      "title_en": "Prime Minister of Japan",
+      "title_vi": "Thủ tướng Nhật Bản",
+      "role": "effective_leader",
+      "sources": [
+        "jp_kantei_past"
+      ],
+      "quality": "supported",
+      "note": "Prime Minister was the head of government; Emperor remained formal head of state.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "JPN",
+      "name": "Abe Nobuyuki",
+      "name_vi": "Abe Nobuyuki",
+      "born": "1875-11-24",
+      "died": "1953-09-07",
+      "from": "1939-08-30",
+      "to": "1940-01-16",
+      "end": "resignation",
+      "title_en": "Prime Minister of Japan",
+      "title_vi": "Thủ tướng Nhật Bản",
+      "role": "effective_leader",
+      "sources": [
+        "jp_kantei_past"
+      ],
+      "quality": "supported",
+      "note": "Prime Minister was the head of government; Emperor remained formal head of state.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "JPN",
+      "name": "Yonai Mitsumasa",
+      "name_vi": "Yonai Mitsumasa",
+      "born": "1880-03-02",
+      "died": "1948-04-20",
+      "from": "1940-01-16",
+      "to": "1940-07-22",
+      "end": "resignation",
+      "title_en": "Prime Minister of Japan",
+      "title_vi": "Thủ tướng Nhật Bản",
+      "role": "effective_leader",
+      "sources": [
+        "jp_kantei_past"
+      ],
+      "quality": "supported",
+      "note": "Prime Minister was the head of government; Emperor remained formal head of state.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "JPN",
+      "name": "Konoe Fumimaro",
+      "name_vi": "Konoe Fumimaro",
+      "born": "1891-10-12",
+      "died": "1945-12-16",
+      "from": "1940-07-22",
+      "to": "1941-10-18",
+      "end": "resignation",
+      "title_en": "Prime Minister of Japan",
+      "title_vi": "Thủ tướng Nhật Bản",
+      "role": "effective_leader",
+      "sources": [
+        "jp_kantei_past"
+      ],
+      "quality": "supported",
+      "note": "Prime Minister was the head of government; Emperor remained formal head of state.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "JPN",
+      "name": "Tōjō Hideki",
+      "name_vi": "Tōjō Hideki",
+      "born": "1884-12-30",
+      "died": "1948-12-23",
+      "from": "1941-10-18",
+      "to": "1944-07-22",
+      "end": "resignation",
+      "title_en": "Prime Minister of Japan",
+      "title_vi": "Thủ tướng Nhật Bản",
+      "role": "effective_leader",
+      "sources": [
+        "jp_kantei_past"
+      ],
+      "quality": "verified",
+      "note": "Wartime prime minister and head of the wartime cabinet; classified as effective leader, not head of state.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "JPN",
+      "name": "Koiso Kuniaki",
+      "name_vi": "Koiso Kuniaki",
+      "born": "1880-03-22",
+      "died": "1950-11-03",
+      "from": "1944-07-22",
+      "to": "1945-04-07",
+      "end": "resignation",
+      "title_en": "Prime Minister of Japan",
+      "title_vi": "Thủ tướng Nhật Bản",
+      "role": "effective_leader",
+      "sources": [
+        "jp_kantei_past"
+      ],
+      "quality": "verified",
+      "note": "Prime Minister was the head of government; Emperor remained formal head of state.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "JPN",
+      "name": "Suzuki Kantarō",
+      "name_vi": "Suzuki Kantarō",
+      "born": "1868-01-18",
+      "died": "1948-04-17",
+      "from": "1945-04-07",
+      "to": "1945-08-17",
+      "end": "resignation",
+      "title_en": "Prime Minister of Japan",
+      "title_vi": "Thủ tướng Nhật Bản",
+      "role": "effective_leader",
+      "sources": [
+        "jp_kantei_past"
+      ],
+      "quality": "verified",
+      "note": "Prime Minister was the head of government; Emperor remained formal head of state.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "JPN",
+      "name": "Higashikuni Naruhiko",
+      "name_vi": "Higashikuni Naruhiko",
+      "born": "1887-12-03",
+      "died": "1990-01-20",
+      "from": "1945-08-17",
+      "to": "1945-10-09",
+      "end": "resignation",
+      "title_en": "Prime Minister of Japan",
+      "title_vi": "Thủ tướng Nhật Bản",
+      "role": "effective_leader",
+      "sources": [
+        "jp_kantei_past"
+      ],
+      "quality": "verified",
+      "note": "Prime Minister was the head of government; Emperor remained formal head of state.",
+      "date_precision": "day"
+    },
+    {
+      "entity": "JPN",
+      "name": "Shidehara Kijūrō",
+      "name_vi": "Shidehara Kijūrō",
+      "born": "1872-08-11",
+      "died": "1951-03-10",
+      "from": "1945-10-09",
+      "to": "1946-05-22",
+      "end": "resignation",
+      "title_en": "Prime Minister of Japan",
+      "title_vi": "Thủ tướng Nhật Bản",
+      "role": "effective_leader",
+      "sources": [
+        "jp_kantei_past"
+      ],
+      "quality": "verified",
+      "note": "Prime Minister was the head of government; Emperor remained formal head of state.",
+      "date_precision": "day"
     }
   ]
 }
