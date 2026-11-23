@@ -1,0 +1,2330 @@
+{
+  "schema": "story_events_v1",
+  "country": "GBR",
+  "sources": {
+    "uk_parliament_empire": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/key-dates/parliament-and-empire-1815-1970/",
+    "uk_raj": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/parliament-and-the-american-colonies-before-1765/the-raj-and-independence-1914-47/",
+    "india_chronology": "https://academic.oup.com/edited-volume/28170/chapter/213002310",
+    "canada_parliament": "https://www.ourcommons.ca/procedure/procedure-and-practice-3/ch_01_2-e.html",
+    "palestine_un": "https://www.un.org/unispal/history/",
+    "palestine_timeline": "https://www.un.org/unispal/historical-timeline/",
+    "palestine_white_paper": "https://avalon.law.yale.edu/21st_century/brwh1939.asp",
+    "burma_panglong": "https://commons.wikimedia.org/wiki/File:Panglong_Conference.jpg",
+    "egypt_occupation": "https://www.cambridge.org/core/books/abs/cambridge-history-of-egypt/british-occupation-18821922/179398E6D722904951A25256F524C963",
+    "suez": "https://history.state.gov/milestones/1953-1960/suez"
+  },
+  "events": [
+    {
+      "id": "gbr_indian_rebellion_1857",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1857-04-01",
+        "1858-03-31"
+      ],
+      "date_historical": "1857-05-10",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_DEL",
+            "entities": [
+              "EIC"
+            ]
+          },
+          {
+            "type": "subject_of",
+            "a": "EIC",
+            "b": "GBR"
+          },
+          {
+            "type": "year_between",
+            "from": 1857,
+            "to": 1858
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "flag": "gbr_india_rebellion"
+      },
+      "title_vi": "Khởi nghĩa Ấn Độ năm 1857",
+      "title_en": "The Indian Rebellion of 1857",
+      "text_vi": "Ngày 10 tháng 5, binh lính nổi dậy tại Meerut rồi tiến về Delhi, nơi họ tuyên xưng Bahadur Shah Zafar làm biểu tượng hoàng đế. Cuộc nổi dậy lan qua nhiều trung tâm ở Bắc Ấn, nhưng các vùng và cộng đồng phản ứng rất khác nhau; đây không phải một phong trào thống nhất trên toàn tiểu lục địa. Chính quyền Công ty phải chọn giữa tái chiếm bằng quân sự, thương lượng với các thủ lĩnh địa phương hay thay đổi cách cai trị.",
+      "text_en": "On 10 May, soldiers rebelled at Meerut and moved toward Delhi, where Bahadur Shah Zafar became a symbolic imperial figure. The revolt spread through several centres in northern India, while other regions and rulers responded differently. Company authorities must decide whether to reconquer, bargain with local elites or alter the governing system.",
+      "options": [
+        {
+          "id": "relief_columns",
+          "label_vi": "Tập trung quân giải vây Delhi và Lucknow",
+          "label_en": "Concentrate forces to relieve Delhi and Lucknow",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1857_relief",
+              "name_vi": "Chiến dịch tái chiếm Bắc Ấn",
+              "name_en": "Northern India Relief Campaign",
+              "months": 30,
+              "decaying": true,
+              "effects": {
+                "army": 0.06,
+                "police": 0.04,
+                "treasury": -0.02,
+                "radicalism": 0.015
+              }
+            },
+            {
+              "type": "war_exhaustion",
+              "entity": "GBR",
+              "delta": 3
+            }
+          ],
+          "ai_modifiers": [
+            {
+              "if": {
+                "type": "at_war",
+                "entity": "GBR"
+              },
+              "factor": 1.4
+            }
+          ]
+        },
+        {
+          "id": "negotiate_princes",
+          "label_vi": "Bảo đảm quyền lợi cho các vương công còn trung thành",
+          "label_en": "Guarantee the rights of loyal princes",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1857_princely_guarantees",
+              "name_vi": "Liên minh vương công",
+              "name_en": "Princely Guarantees",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "ig_landowners": 1,
+                "trade": 0.02,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "HYD",
+              "delta": 8
+            }
+          ]
+        },
+        {
+          "id": "company_reform",
+          "label_vi": "Đưa bộ máy Công ty dưới giám sát trực tiếp của Quốc hội",
+          "label_en": "Place Company rule under direct parliamentary scrutiny",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1857_company_review",
+              "name_vi": "Khủng hoảng quản trị Công ty",
+              "name_en": "Company Governance Crisis",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -2,
+                "reform": 0.015,
+                "prestige": -0.02
+              }
+            },
+            {
+              "type": "subject_liberty",
+              "subject": "EIC",
+              "delta": 8
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "uk_parliament_empire",
+        "india_chronology"
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_indian_rebellion_1857",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "gbr_crown_rule_1858",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1858-05-01",
+        "1859-06-30"
+      ],
+      "date_historical": "1858-08-02",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_BEN",
+            "entities": [
+              "EIC",
+              "GBR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_indian_rebellion_1857"
+          },
+          {
+            "type": "year_between",
+            "from": 1858,
+            "to": 1859
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_indian_rebellion_1857"
+        ],
+        "flag": "gbr_crown_rule"
+      },
+      "title_vi": "Đạo luật Chính quyền Ấn Độ",
+      "title_en": "The Government of India Act 1858",
+      "text_vi": "Quốc hội thông qua đạo luật ngày 2 tháng 8 năm 1858, chấm dứt quyền cai trị của Công ty Đông Ấn và chuyển trách nhiệm về Hoàng gia. Vương quyền hứa tôn trọng các hiệp ước với các thân vương và tránh can thiệp tùy tiện vào tôn giáo, nhưng bộ máy thuộc địa vẫn được giữ lại. Nội các phải quyết định mức độ cải tổ hành chính và cách trấn an các cộng đồng vừa trải qua chiến tranh.",
+      "text_en": "Parliament passed the Act on 2 August 1858, ending East India Company government and transferring authority to the Crown. The Crown promised to honour treaties with princely rulers and avoid arbitrary interference in religion, while much of the colonial apparatus remained. Ministers must decide how far to reform administration and reassure communities emerging from war.",
+      "options": [
+        {
+          "id": "crown_secretary",
+          "label_vi": "Lập Bộ trưởng phụ trách Ấn Độ và Hội đồng Ấn Độ",
+          "label_en": "Create the India Office and Council of India",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1858_india_office",
+              "name_vi": "Bộ máy Ấn Độ thuộc Hoàng gia",
+              "name_en": "Crown Administration of India",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 3,
+                "police": 0.04,
+                "research": 0.02,
+                "radicalism": 0.01
+              }
+            },
+            {
+              "type": "subject_type",
+              "subject": "EIC",
+              "to": "chartered_company"
+            }
+          ]
+        },
+        {
+          "id": "provincial_councils",
+          "label_vi": "Mở rộng vai trò cố vấn của giới tinh hoa bản địa",
+          "label_en": "Expand advisory roles for Indian elites",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1858_advisory_councils",
+              "name_vi": "Hội đồng cố vấn bản địa",
+              "name_en": "Indian Advisory Councils",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "reform": 0.01,
+                "ig_landowners": 1,
+                "legitimacy": 1,
+                "radicalism": -0.005
+              }
+            },
+            {
+              "type": "subject_liberty",
+              "subject": "EIC",
+              "delta": 4
+            }
+          ]
+        },
+        {
+          "id": "security_first",
+          "label_vi": "Ưu tiên giải giáp và tái tổ chức quân đội thuộc địa",
+          "label_en": "Prioritise disarmament and colonial army reorganisation",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1858_security_reorganisation",
+              "name_vi": "Tái tổ chức quân đội Ấn Độ",
+              "name_en": "Indian Army Reorganisation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "police": 0.05,
+                "construction": -0.02,
+                "radicalism": 0.02
+              }
+            },
+            {
+              "type": "war_exhaustion",
+              "entity": "GBR",
+              "delta": -2
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "uk_parliament_empire",
+        "uk_raj"
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_crown_rule_1858",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "gbr_inc_1885",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1885-10-01",
+        "1886-12-31"
+      ],
+      "date_historical": "1885-12-28",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_BOM",
+            "entities": [
+              "EIC",
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1885,
+            "to": 1887
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_crown_rule_1858"
+        ],
+        "flag": "gbr_inc_1885"
+      },
+      "title_vi": "Đại hội Quốc dân Ấn Độ đầu tiên",
+      "title_en": "The First Indian National Congress",
+      "text_vi": "Đại hội đầu tiên khai mạc tại Bombay ngày 28 tháng 12 năm 1885 với sự tham dự của các đại biểu từ nhiều miền và cộng đồng. Allan Octavian Hume cùng những người tổ chức kỳ vọng tạo ra một diễn đàn kiến nghị hợp hiến, trong khi các nhà hoạt động Ấn Độ muốn tiếng nói của họ được lắng nghe trong bộ máy đế quốc. Chính quyền có thể tiếp nhận các kiến nghị, giới hạn hoạt động của đại hội hoặc thử đưa đại diện vào hội đồng lập pháp.",
+      "text_en": "The first Congress opened in Bombay on 28 December 1885, bringing delegates from several regions and communities together. Allan Octavian Hume and the organisers envisaged a constitutional forum, while Indian public figures sought a stronger voice in imperial government. The administration can hear the petitions, restrict the gathering or experiment with legislative representation.",
+      "options": [
+        {
+          "id": "hear_petitions",
+          "label_vi": "Mời đại biểu trình kiến nghị trước Hội đồng Ấn Độ",
+          "label_en": "Invite delegates to present petitions to the India Council",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1885_petition_channel",
+              "name_vi": "Kênh kiến nghị hợp hiến",
+              "name_en": "Constitutional Petition Channel",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "reform": 0.008,
+                "radicalism": -0.008,
+                "ig_intelligentsia": 2
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "EIC",
+              "delta": 3
+            }
+          ]
+        },
+        {
+          "id": "restrict_congress",
+          "label_vi": "Giám sát chặt các cuộc họp và báo chí của đại hội",
+          "label_en": "Tighten surveillance of Congress meetings and its press",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1885_surveillance",
+              "name_vi": "Giám sát Quốc đại",
+              "name_en": "Congress Surveillance",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.04,
+                "radicalism": 0.015,
+                "legitimacy": -1
+              }
+            },
+            {
+              "type": "infamy",
+              "entity": "GBR",
+              "delta": 0.3
+            }
+          ]
+        },
+        {
+          "id": "council_seats",
+          "label_vi": "Đề xuất ghế đại diện hạn chế trong hội đồng tỉnh",
+          "label_en": "Offer limited representative seats in provincial councils",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1885_council_reform",
+              "name_vi": "Đại diện có giới hạn",
+              "name_en": "Limited Council Representation",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "legitimacy": 1,
+                "ig_intelligentsia": 1,
+                "ig_landowners": -1
+              }
+            },
+            {
+              "type": "subject_liberty",
+              "subject": "EIC",
+              "delta": 3
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "india_chronology",
+        "uk_raj"
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_inc_1885",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "gbr_bengal_partition_1905",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1905-07-01",
+        "1907-12-31"
+      ],
+      "date_historical": "1905-10-16",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_BEN",
+            "entities": [
+              "EIC",
+              "GBR"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1905,
+            "to": 1907
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_inc_1885"
+        ],
+        "flag": "gbr_bengal_partition"
+      },
+      "title_vi": "Chia tách tỉnh Bengal",
+      "title_en": "The Partition of Bengal",
+      "text_vi": "Ngày 16 tháng 10 năm 1905, kế hoạch chia tỉnh Bengal có hiệu lực, tách vùng đông Bengal và Assam khỏi phần còn lại. Chính quyền viện dẫn quy mô hành chính quá lớn; những người phản đối coi đây là cách chia rẽ một trung tâm chính trị đang lớn mạnh. Phong trào Swadeshi kêu gọi tẩy chay hàng hóa Anh và thúc đẩy sản xuất trong nước, khiến quyết định hành chính trở thành khủng hoảng chính trị.",
+      "text_en": "The partition took effect on 16 October 1905, separating eastern Bengal and Assam from the western province. Officials defended the measure as an administrative response to an oversized province; opponents saw an attempt to divide an increasingly influential political centre. The Swadeshi movement called for boycotts of British goods and domestic production, turning an administrative reorganisation into a political crisis.",
+      "options": [
+        {
+          "id": "hold_partition",
+          "label_vi": "Giữ nguyên tỉnh mới và bảo vệ quyết định của Curzon",
+          "label_en": "Maintain the new province and defend Curzon's decision",
+          "ai_weight": 3,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1905_partition_enforced",
+              "name_vi": "Bengal bị chia tách",
+              "name_en": "Enforced Bengal Partition",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.04,
+                "trade": -0.02,
+                "radicalism": 0.035,
+                "legitimacy": -2
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "$self",
+              "regions": [
+                "EIC_BEN"
+              ],
+              "delta": 8
+            }
+          ]
+        },
+        {
+          "id": "consult_reversal",
+          "label_vi": "Mở điều tra và tham vấn các hội đồng địa phương",
+          "label_en": "Open an inquiry and consult local councils",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1905_bengal_inquiry",
+              "name_vi": "Ủy ban điều tra Bengal",
+              "name_en": "Bengal Inquiry Commission",
+              "months": 30,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "reform": 0.01,
+                "radicalism": -0.01,
+                "ig_intelligentsia": 1
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.4
+            }
+          ]
+        },
+        {
+          "id": "repeal_partition",
+          "label_vi": "Hủy việc chia tách để đổi lấy hạ nhiệt biểu tình",
+          "label_en": "Reverse the partition to defuse the agitation",
+          "ai_weight": 2,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1905_partition_reversal",
+              "name_vi": "Nhượng bộ Bengal",
+              "name_en": "Bengal Reversal Concession",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 3,
+                "radicalism": -0.02,
+                "ig_landowners": -1,
+                "trade": 0.01
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": -1
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "india_chronology"
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_bengal_partition_1905",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "gbr_morley_minto_1909",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1908-10-01",
+        "1910-12-31"
+      ],
+      "date_historical": "1909-05-25",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_BEN",
+            "entities": [
+              "EIC",
+              "GBR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_bengal_partition_1905"
+          },
+          {
+            "type": "year_between",
+            "from": 1908,
+            "to": 1910
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_bengal_partition_1905"
+        ],
+        "flag": "gbr_morley_minto"
+      },
+      "title_vi": "Cải cách Morley–Minto",
+      "title_en": "The Morley–Minto Reforms",
+      "text_vi": "Đạo luật Hội đồng Ấn Độ năm 1909 mở rộng các hội đồng lập pháp và cho phép một số đại diện Ấn Độ tham gia sâu hơn vào thảo luận chính sách. Cải cách vẫn giới hạn quyền kiểm soát của các hội đồng và thiết lập khu vực bầu cử riêng cho cử tri Hồi giáo. Nội các phải cân bằng yêu cầu đại diện với nguy cơ thể chế hóa chia rẽ cộng đồng.",
+      "text_en": "The Indian Councils Act of 1909 enlarged legislative councils and allowed more Indian participation in policy discussion. The councils remained constrained, and separate electorates were established for Muslim voters. Ministers must balance demands for representation against the risk of institutionalising communal divisions.",
+      "options": [
+        {
+          "id": "expand_councils",
+          "label_vi": "Cho hội đồng thêm quyền chất vấn ngân sách",
+          "label_en": "Give councils greater powers to question budgets",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1909_council_voice",
+              "name_vi": "Tiếng nói trong hội đồng",
+              "name_en": "Council Voice",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "legitimacy": 2,
+                "ig_intelligentsia": 1
+              }
+            },
+            {
+              "type": "subject_liberty",
+              "subject": "EIC",
+              "delta": 4
+            }
+          ]
+        },
+        {
+          "id": "communal_electorates",
+          "label_vi": "Duy trì đại diện riêng theo cộng đồng như đạo luật quy định",
+          "label_en": "Retain separate communal representation",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1909_separate_electorates",
+              "name_vi": "Đại diện cộng đồng riêng",
+              "name_en": "Separate Communal Electorates",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "radicalism": 0.01,
+                "ig_clergy": 1,
+                "ig_intelligentsia": -1
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 0.5
+            }
+          ]
+        },
+        {
+          "id": "limited_reform",
+          "label_vi": "Giữ quyền phủ quyết của chính quyền thuộc địa",
+          "label_en": "Preserve the colonial executive veto",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1909_executive_veto",
+              "name_vi": "Quyền phủ quyết thuộc địa",
+              "name_en": "Colonial Executive Veto",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": -1,
+                "radicalism": 0.015
+              }
+            },
+            {
+              "type": "infamy",
+              "entity": "GBR",
+              "delta": 0.2
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "india_chronology"
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_morley_minto_1909",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "gbr_bengal_reunification_1911",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1911-08-01",
+        "1912-12-31"
+      ],
+      "date_historical": "1911-12-12",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_BEN",
+            "entities": [
+              "EIC",
+              "GBR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_morley_minto_1909"
+          },
+          {
+            "type": "year_between",
+            "from": 1911,
+            "to": 1912
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_morley_minto_1909"
+        ],
+        "flag": "gbr_bengal_reversal"
+      },
+      "title_vi": "Hủy bỏ việc chia tách Bengal",
+      "title_en": "The Annulment of the Bengal Partition",
+      "text_vi": "Tại Delhi Durbar tháng 12 năm 1911, Hoàng gia công bố hủy bỏ việc chia tách Bengal và chuyển thủ đô Ấn Độ thuộc Anh từ Calcutta tới Delhi. Quyết định xoa dịu một phần phong trào Swadeshi nhưng cũng khiến nhiều cư dân Đông Bengal cảm thấy lợi ích của họ bị hy sinh. Chính quyền phải giải thích việc tái tổ chức tỉnh và đầu tư cho thủ đô mới.",
+      "text_en": "At the Delhi Durbar in December 1911, the Crown announced the reversal of Bengal's partition and the transfer of the imperial capital from Calcutta to Delhi. The decision eased some Swadeshi opposition but disappointed many in eastern Bengal. The administration must explain the provincial reorganisation while financing a new imperial capital.",
+      "options": [
+        {
+          "id": "reunify_bengal",
+          "label_vi": "Khôi phục Bengal thống nhất và lập cơ chế chuyển tiếp",
+          "label_en": "Restore united Bengal with a transitional administration",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1911_bengal_reunited",
+              "name_vi": "Bengal tái thống nhất",
+              "name_en": "Bengal Reunification",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "radicalism": -0.012,
+                "trade": 0.02,
+                "construction": -0.01
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "fund_new_delhi",
+          "label_vi": "Ưu tiên xây dựng Delhi làm trung tâm đế quốc",
+          "label_en": "Prioritise the new imperial capital at Delhi",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1911_new_delhi",
+              "name_vi": "Công trình thủ đô mới",
+              "name_en": "New Capital Works",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "construction": 0.05,
+                "treasury": -0.02,
+                "legitimacy": 1
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -1
+            }
+          ]
+        },
+        {
+          "id": "compensate_east",
+          "label_vi": "Cấp ngân sách và ghế hội đồng cho Đông Bengal",
+          "label_en": "Compensate eastern Bengal with funds and council seats",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1911_east_bengal_compromise",
+              "name_vi": "Thỏa hiệp Đông Bengal",
+              "name_en": "Eastern Bengal Compensation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "ig_landowners": 1,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.6
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "india_chronology"
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_bengal_reunification_1911",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "gbr_lucknow_pact_1916",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1916-10-01",
+        "1917-12-31"
+      ],
+      "date_historical": "1916-12-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_BEN",
+            "entities": [
+              "EIC",
+              "GBR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_bengal_reunification_1911"
+          },
+          {
+            "type": "year_between",
+            "from": 1916,
+            "to": 1917
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_bengal_reversal"
+        ],
+        "flag": "gbr_lucknow_pact"
+      },
+      "title_vi": "Thỏa ước Lucknow",
+      "title_en": "The Lucknow Pact",
+      "text_vi": "Đại hội Quốc dân và Liên đoàn Hồi giáo toàn Ấn Độ đạt thỏa thuận tại Lucknow năm 1916 về cải cách đại diện và phối hợp chính trị. Sự hợp tác này tạo sức ép mới lên chính quyền trong bối cảnh chiến tranh thế giới đang đòi hỏi nhân lực và nguồn lực từ Ấn Độ. Viceroy có thể mở đàm phán hiến pháp, chia rẽ các yêu sách hoặc trì hoãn cho đến khi chiến tranh kết thúc.",
+      "text_en": "The Indian National Congress and the All-India Muslim League reached an agreement at Lucknow in 1916 on representation and political cooperation. Their joint position increased pressure on the government while the world war demanded Indian manpower and resources. The Viceroy can open constitutional talks, play competing demands against one another or defer reform until the war ends.",
+      "options": [
+        {
+          "id": "constitutional_conference",
+          "label_vi": "Triệu tập hội nghị về cải cách đại diện sau chiến tranh",
+          "label_en": "Convene a post-war conference on representative reform",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1916_lucknow_dialogue",
+              "name_vi": "Đối thoại Lucknow",
+              "name_en": "Lucknow Constitutional Dialogue",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "legitimacy": 2,
+                "ig_intelligentsia": 2,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "subject_liberty",
+              "subject": "EIC",
+              "delta": 5
+            }
+          ]
+        },
+        {
+          "id": "separate_negotiations",
+          "label_vi": "Đàm phán riêng với từng tổ chức chính trị",
+          "label_en": "Negotiate separately with each political organisation",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1916_divided_negotiations",
+              "name_vi": "Đàm phán phân tán",
+              "name_en": "Fragmented Negotiations",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -1,
+                "police": 0.02,
+                "radicalism": 0.012
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "EIC",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "wartime_delay",
+          "label_vi": "Hoãn cải cách cho tới khi chiến tranh kết thúc",
+          "label_en": "Defer reforms until the war is over",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1916_wartime_delay",
+              "name_vi": "Trì hoãn cải cách thời chiến",
+              "name_en": "Wartime Reform Delay",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "legitimacy": -2,
+                "radicalism": 0.02
+              }
+            },
+            {
+              "type": "war_exhaustion",
+              "entity": "GBR",
+              "delta": 1
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "india_chronology"
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_lucknow_pact_1916",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "gbr_amritsar_1919",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1919-03-01",
+        "1920-06-30"
+      ],
+      "date_historical": "1919-04-13",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_BEN",
+            "entities": [
+              "EIC",
+              "GBR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_lucknow_pact_1916"
+          },
+          {
+            "type": "year_between",
+            "from": 1919,
+            "to": 1920
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_lucknow_pact_1916"
+        ],
+        "flag": "gbr_amritsar"
+      },
+      "title_vi": "Thảm sát Jallianwala Bagh",
+      "title_en": "The Jallianwala Bagh Massacre",
+      "text_vi": "Ngày 13 tháng 4 năm 1919, đám đông tụ tập tại Jallianwala Bagh ở Amritsar trong bối cảnh lệnh cấm tụ họp và căng thẳng sau Đạo luật Rowlatt. Chuẩn tướng Reginald Dyer ra lệnh cho binh lính nổ súng vào đám đông, gây thương vong lớn và làm rung chuyển dư luận Ấn Độ. Chính quyền phải quyết định có điều tra trách nhiệm chỉ huy, bảo vệ Dyer hay tìm cách khôi phục lòng tin bằng một cuộc cải tổ sâu hơn.",
+      "text_en": "On 13 April 1919, a crowd gathered at Jallianwala Bagh in Amritsar amid restrictions on assembly and tension over the Rowlatt legislation. Brigadier-General Reginald Dyer ordered troops to fire, causing heavy casualties and shocking Indian public opinion. The government must decide whether to investigate command responsibility, defend Dyer or rebuild trust through deeper reform.",
+      "options": [
+        {
+          "id": "hunter_inquiry",
+          "label_vi": "Thành lập Ủy ban Hunter và công khai điều tra",
+          "label_en": "Establish the Hunter Committee and publish an inquiry",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1919_hunter_inquiry",
+              "name_vi": "Điều tra Amritsar",
+              "name_en": "Amritsar Inquiry",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "radicalism": -0.015,
+                "ig_intelligentsia": 2,
+                "police": -0.02
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": -0.5
+            }
+          ]
+        },
+        {
+          "id": "court_martial",
+          "label_vi": "Đưa Dyer ra xét xử kỷ luật và bãi nhiệm",
+          "label_en": "Court-martial and dismiss Dyer",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1919_command_accountability",
+              "name_vi": "Trách nhiệm chỉ huy tại Punjab",
+              "name_en": "Punjab Command Accountability",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 3,
+                "radicalism": -0.02,
+                "ig_armed_forces": -1,
+                "ig_intelligentsia": 2
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "EIC",
+              "delta": 5
+            }
+          ]
+        },
+        {
+          "id": "defend_dyer",
+          "label_vi": "Bảo vệ quyết định của Dyer trước các chỉ trích",
+          "label_en": "Defend Dyer against public criticism",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1919_defend_dyer",
+              "name_vi": "Khủng hoảng uy tín tại Punjab",
+              "name_en": "Punjab Legitimacy Crisis",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -4,
+                "radicalism": 0.04,
+                "police": 0.03,
+                "ig_armed_forces": 1
+              }
+            },
+            {
+              "type": "infamy",
+              "entity": "GBR",
+              "delta": 1
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "india_chronology",
+        "uk_raj"
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_amritsar_1919",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "gbr_noncooperation_1920",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1920-07-01",
+        "1921-12-31"
+      ],
+      "date_historical": "1920-09-04",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_BEN",
+            "entities": [
+              "EIC",
+              "GBR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_amritsar_1919"
+          },
+          {
+            "type": "year_between",
+            "from": 1920,
+            "to": 1921
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_amritsar_1919"
+        ],
+        "flag": "gbr_noncooperation"
+      },
+      "title_vi": "Phong trào bất hợp tác",
+      "title_en": "The Non-Cooperation Movement",
+      "text_vi": "Đại hội Quốc dân tại Calcutta và sau đó tại Nagpur chấp nhận đường lối bất hợp tác do Gandhi thúc đẩy. Người tham gia được kêu gọi rời trường học, tòa án và các thiết chế do Anh bảo trợ, đồng thời tẩy chay hàng hóa nhập khẩu. Chính quyền phải lựa chọn giữa bắt giữ lãnh đạo, nhượng bộ về cải cách hay tách những người ôn hòa khỏi lực lượng bất hợp tác.",
+      "text_en": "The Congress adopted Gandhi's non-cooperation programme at Calcutta and later ratified it at Nagpur. Supporters were urged to leave government schools and courts and boycott imported goods. The administration must choose between arrests, constitutional concessions or efforts to separate moderates from the movement.",
+      "options": [
+        {
+          "id": "arrest_leaders_1921",
+          "label_vi": "Bắt các nhà tổ chức chủ chốt và cấm một số hội đoàn",
+          "label_en": "Arrest leading organisers and prohibit selected associations",
+          "ai_weight": 3,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1920_noncooperation_arrests",
+              "name_vi": "Đàn áp bất hợp tác",
+              "name_en": "Non-Cooperation Arrests",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.05,
+                "radicalism": 0.03,
+                "legitimacy": -2
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "$self",
+              "regions": [
+                "EIC_BEN",
+                "EIC_DEL"
+              ],
+              "delta": -5
+            }
+          ]
+        },
+        {
+          "id": "release_political_prisoners",
+          "label_vi": "Thả tù nhân chính trị và mở đối thoại với Quốc đại",
+          "label_en": "Release political prisoners and open talks with Congress",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1920_conciliation",
+              "name_vi": "Đối thoại sau bất hợp tác",
+              "name_en": "Post-Non-Cooperation Conciliation",
+              "months": 30,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "radicalism": -0.02,
+                "reform": 0.008
+              }
+            },
+            {
+              "type": "subject_liberty",
+              "subject": "EIC",
+              "delta": 5
+            }
+          ]
+        },
+        {
+          "id": "economic_boycott_response",
+          "label_vi": "Giảm thuế hàng dệt và mở quỹ hỗ trợ công nghiệp địa phương",
+          "label_en": "Reduce textile duties and support local industry",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1920_textile_concession",
+              "name_vi": "Nhượng bộ ngành dệt Ấn Độ",
+              "name_en": "Indian Textile Concession",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.02,
+                "tariff": -0.03,
+                "ig_industrialists": -1,
+                "legitimacy": 1
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.5
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "india_chronology"
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_noncooperation_1920",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "gbr_simon_commission_1928",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1928-02-01",
+        "1929-12-31"
+      ],
+      "date_historical": "1928-11-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_BOM",
+            "entities": [
+              "EIC",
+              "GBR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_noncooperation_1920"
+          },
+          {
+            "type": "year_between",
+            "from": 1928,
+            "to": 1929
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_noncooperation_1920"
+        ],
+        "flag": "gbr_simon_commission"
+      },
+      "title_vi": "Ủy ban Simon đến Ấn Độ",
+      "title_en": "The Simon Commission in India",
+      "text_vi": "Ủy ban Simon đến Bombay tháng 2 năm 1928 để xem xét việc vận hành các cải cách hiến pháp, nhưng toàn bộ thành viên đều là người Anh. Các đảng phái Ấn Độ phản đối việc không có đại diện bản địa; khẩu hiệu tẩy chay lan rộng và các cuộc biểu tình đối đầu với cảnh sát. London phải chọn một cơ chế rà soát có người Ấn tham gia hoặc chấp nhận nguy cơ phong trào độc lập chuyển sang đòi quyền tự quyết rõ rệt hơn.",
+      "text_en": "The Simon Commission arrived in Bombay in February 1928 to review constitutional reforms, but all its members were British. Indian political organisations protested the absence of Indian representatives; boycott demonstrations spread and clashed with police. London must create a review process with Indian participation or risk a sharper demand for self-determination.",
+      "options": [
+        {
+          "id": "all_party_conference",
+          "label_vi": "Mời các đảng phái Ấn Độ tham gia hội nghị hiến pháp",
+          "label_en": "Invite Indian parties to an all-party constitutional conference",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1928_all_party_talks",
+              "name_vi": "Hội nghị hiến pháp đa đảng",
+              "name_en": "All-Party Constitutional Talks",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "legitimacy": 2,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "subject_liberty",
+              "subject": "EIC",
+              "delta": 4
+            }
+          ]
+        },
+        {
+          "id": "publish_commission_report",
+          "label_vi": "Công bố báo cáo và bảo vệ phương pháp làm việc của ủy ban",
+          "label_en": "Publish the report and defend the Commission's procedure",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1928_simon_report",
+              "name_vi": "Báo cáo Simon gây tranh cãi",
+              "name_en": "Contested Simon Report",
+              "months": 30,
+              "decaying": true,
+              "effects": {
+                "research": 0.02,
+                "legitimacy": -2,
+                "radicalism": 0.02
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 0.3
+            }
+          ]
+        },
+        {
+          "id": "appoint_indian_members",
+          "label_vi": "Bổ sung thành viên Ấn Độ vào giai đoạn tham vấn",
+          "label_en": "Add Indian members to the consultation stage",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1928_indian_members",
+              "name_vi": "Tham vấn có đại diện Ấn Độ",
+              "name_en": "Indian Participation in Review",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "ig_intelligentsia": 2,
+                "reform": 0.008
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.25
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "india_chronology"
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_simon_commission_1928",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "gbr_salt_march_1930",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1930-02-01",
+        "1931-04-30"
+      ],
+      "date_historical": "1930-03-12",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_BOM",
+            "entities": [
+              "EIC",
+              "GBR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_simon_commission_1928"
+          },
+          {
+            "type": "year_between",
+            "from": 1930,
+            "to": 1931
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_simon_commission_1928"
+        ],
+        "flag": "gbr_salt_march"
+      },
+      "title_vi": "Hành trình muối và bất tuân dân sự",
+      "title_en": "The Salt March and Civil Disobedience",
+      "text_vi": "Ngày 12 tháng 3 năm 1930, Gandhi rời Sabarmati cùng những người đồng hành để đi bộ tới Dandi, nơi họ công khai phá vỡ độc quyền muối của chính quyền. Hành động nhỏ về thuế và quyền khai thác muối trở thành chiến dịch bất tuân dân sự trên khắp đất nước, thu hút cả phụ nữ và các cộng đồng địa phương. Viceroy phải cân nhắc bắt giữ Gandhi, sửa chính sách muối hoặc mời Quốc đại vào một vòng đàm phán mới.",
+      "text_en": "On 12 March 1930, Gandhi left Sabarmati with a group of companions and marched to Dandi, where they openly broke the salt monopoly. A protest over a tax and the right to make salt became a nationwide civil-disobedience campaign, drawing in women and local communities. The Viceroy must decide whether to arrest Gandhi, revise salt policy or invite Congress into a new round of talks.",
+      "options": [
+        {
+          "id": "arrest_gandhi",
+          "label_vi": "Bắt Gandhi trước khi phong trào lan rộng",
+          "label_en": "Arrest Gandhi before the campaign spreads",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1930_gandhi_arrest",
+              "name_vi": "Bắt giữ lãnh đạo Satyagraha",
+              "name_en": "Satyagraha Leadership Arrests",
+              "months": 30,
+              "decaying": true,
+              "effects": {
+                "police": 0.06,
+                "radicalism": 0.04,
+                "legitimacy": -2
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "$self",
+              "regions": [
+                "EIC_BOM",
+                "EIC_MAD",
+                "EIC_BEN"
+              ],
+              "delta": 6
+            }
+          ]
+        },
+        {
+          "id": "salt_tax_concession",
+          "label_vi": "Bãi bỏ hoặc giảm độc quyền muối để mở đường đối thoại",
+          "label_en": "Abolish or reduce the salt monopoly to open talks",
+          "ai_weight": 2,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1930_salt_concession",
+              "name_vi": "Nhượng bộ thuế muối",
+              "name_en": "Salt Tax Concession",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "radicalism": -0.02,
+                "trade": 0.01,
+                "tariff": -0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.4
+            }
+          ]
+        },
+        {
+          "id": "round_table_invitation",
+          "label_vi": "Mời Quốc đại tham dự Hội nghị Bàn tròn",
+          "label_en": "Invite Congress to the Round Table Conference",
+          "ai_weight": 3,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1930_round_table",
+              "name_vi": "Đàm phán Bàn tròn",
+              "name_en": "Round Table Negotiations",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "reform": 0.015,
+                "legitimacy": 2,
+                "ig_intelligentsia": 2,
+                "radicalism": -0.015
+              }
+            },
+            {
+              "type": "subject_liberty",
+              "subject": "EIC",
+              "delta": 6
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "india_chronology"
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_salt_march_1930",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "gbr_goi_act_1935",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1935-05-01",
+        "1937-06-30"
+      ],
+      "date_historical": "1935-08-02",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_DEL",
+            "entities": [
+              "EIC",
+              "GBR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_salt_march_1930"
+          },
+          {
+            "type": "year_between",
+            "from": 1935,
+            "to": 1937
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_salt_march_1930"
+        ],
+        "flag": "gbr_goi_act"
+      },
+      "title_vi": "Đạo luật Chính quyền Ấn Độ năm 1935",
+      "title_en": "The Government of India Act 1935",
+      "text_vi": "Đạo luật năm 1935 mở rộng quyền tự quản cấp tỉnh, tái cấu trúc các cơ quan lập pháp và dự kiến một liên bang Ấn Độ nếu các thân vương tham gia. Miến Điện được tách khỏi Ấn Độ thuộc Anh từ năm 1937, còn quyền kiểm soát quốc phòng và nhiều lĩnh vực trung ương vẫn nằm trong tay Anh. Nội các phải quyết định cách triển khai bầu cử và liệu có chấp nhận sức ép mở rộng quyền lực của các cơ quan đại diện.",
+      "text_en": "The 1935 Act expanded provincial autonomy, reorganised legislatures and envisaged an Indian federation if the princely states joined. Burma was separated from British India in 1937, while defence and important central powers remained under British control. Ministers must decide how to implement elections and whether to accept further demands for representative authority.",
+      "options": [
+        {
+          "id": "implement_provincial_elections",
+          "label_vi": "Tổ chức bầu cử tỉnh và chuyển giao nội trị theo luật",
+          "label_en": "Hold provincial elections and transfer provincial responsibilities",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1935_provincial_autonomy",
+              "name_vi": "Tự trị cấp tỉnh",
+              "name_en": "Provincial Autonomy",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "reform": 0.02,
+                "legitimacy": 3,
+                "ig_intelligentsia": 2,
+                "police": -0.01
+              }
+            },
+            {
+              "type": "subject_liberty",
+              "subject": "EIC",
+              "delta": 7
+            }
+          ]
+        },
+        {
+          "id": "delay_federation",
+          "label_vi": "Hoãn liên bang cho đến khi các thân vương đồng thuận",
+          "label_en": "Defer federation until the princes agree",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1935_federal_delay",
+              "name_vi": "Liên bang bị trì hoãn",
+              "name_en": "Federal Scheme Delayed",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -1,
+                "reform": 0.005,
+                "ig_landowners": 1,
+                "radicalism": 0.01
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "GBR",
+              "delta": 0.5
+            }
+          ]
+        },
+        {
+          "id": "retain_central_veto",
+          "label_vi": "Giữ quyền phủ quyết của Toàn quyền đối với các vấn đề trọng yếu",
+          "label_en": "Retain the Viceroy's veto over reserved subjects",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1935_viceroy_veto",
+              "name_vi": "Quyền bảo lưu của Toàn quyền",
+              "name_en": "Viceroy's Reserved Powers",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.03,
+                "legitimacy": -2,
+                "radicalism": 0.015
+              }
+            },
+            {
+              "type": "infamy",
+              "entity": "GBR",
+              "delta": 0.2
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "india_chronology",
+        "uk_raj"
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_goi_act_1935",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "gbr_quit_india_1942",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1942-07-01",
+        "1943-12-31"
+      ],
+      "date_historical": "1942-08-08",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_DEL",
+            "entities": [
+              "EIC",
+              "GBR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_goi_act_1935"
+          },
+          {
+            "type": "year_between",
+            "from": 1942,
+            "to": 1943
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_goi_act_1935"
+        ],
+        "flag": "gbr_quit_india"
+      },
+      "title_vi": "Phong trào Rời khỏi Ấn Độ",
+      "title_en": "The Quit India Movement",
+      "text_vi": "Ủy ban Toàn Ấn của Quốc đại thông qua nghị quyết Rời khỏi Ấn Độ tại Bombay ngày 8 tháng 8 năm 1942, yêu cầu chấm dứt quyền cai trị của Anh. Sáng hôm sau, Gandhi, Nehru và nhiều lãnh đạo khác bị bắt; các cuộc đình công, phá hoại đường sắt và biểu tình bùng phát ở nhiều nơi. Trong lúc chiến tranh chống phe Trục đang diễn ra, chính quyền phải cân nhắc an ninh thời chiến, sự ủng hộ của người dân và cái giá của đàn áp.",
+      "text_en": "The All-India Congress Committee adopted the Quit India resolution in Bombay on 8 August 1942, demanding an end to British rule. Gandhi, Nehru and other leaders were arrested the following morning; strikes, railway sabotage and demonstrations spread across several regions. With the war against the Axis still underway, the government must weigh wartime security, public consent and the cost of repression.",
+      "options": [
+        {
+          "id": "mass_detentions",
+          "label_vi": "Bắt giữ ban lãnh đạo Quốc đại và áp dụng kiểm duyệt thời chiến",
+          "label_en": "Detain Congress leaders and impose wartime censorship",
+          "ai_weight": 3,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1942_mass_detentions",
+              "name_vi": "Bắt giữ phong trào Rời khỏi Ấn Độ",
+              "name_en": "Quit India Detentions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.07,
+                "army": 0.02,
+                "radicalism": 0.05,
+                "legitimacy": -3
+              }
+            },
+            {
+              "type": "war_exhaustion",
+              "entity": "GBR",
+              "delta": 2
+            }
+          ],
+          "ai_modifiers": [
+            {
+              "if": {
+                "type": "at_war",
+                "entity": "GBR"
+              },
+              "factor": 1.5
+            }
+          ]
+        },
+        {
+          "id": "release_cripps_offer",
+          "label_vi": "Khôi phục đề nghị Cripps và cam kết chuyển giao sau chiến tranh",
+          "label_en": "Revive the Cripps offer and promise post-war transfer",
+          "ai_weight": 2,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1942_cripps_commitment",
+              "name_vi": "Cam kết hiến pháp sau chiến tranh",
+              "name_en": "Post-war Constitutional Commitment",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "reform": 0.015,
+                "radicalism": -0.015,
+                "ig_intelligentsia": 2
+              }
+            },
+            {
+              "type": "subject_liberty",
+              "subject": "EIC",
+              "delta": 8
+            }
+          ]
+        },
+        {
+          "id": "war_cabinet_indian_seats",
+          "label_vi": "Mời đại diện Ấn Độ vào cơ chế tham vấn chiến tranh",
+          "label_en": "Bring Indian representatives into wartime consultation",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1942_war_council",
+              "name_vi": "Hội đồng chiến tranh Ấn Độ",
+              "name_en": "Indian War Council",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "legitimacy": 1,
+                "ig_intelligentsia": 1,
+                "ig_armed_forces": 1
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.3
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "india_chronology",
+        "uk_raj"
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_quit_india_1942",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "gbr_cabinet_mission_1946",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1946-02-01",
+        "1947-03-31"
+      ],
+      "date_historical": "1946-03-24",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_DEL",
+            "entities": [
+              "EIC",
+              "GBR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_quit_india_1942"
+          },
+          {
+            "type": "year_between",
+            "from": 1946,
+            "to": 1947
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_quit_india_1942"
+        ],
+        "flag": "gbr_cabinet_mission"
+      },
+      "title_vi": "Phái bộ Nội các tới Ấn Độ",
+      "title_en": "The Cabinet Mission to India",
+      "text_vi": "Phái bộ Nội các Anh tới Ấn Độ tháng 3 năm 1946 để thương lượng về một cấu trúc chính trị sau khi chiến tranh kết thúc. Quốc đại ủng hộ một nhà nước liên bang thống nhất, trong khi Liên đoàn Hồi giáo yêu cầu bảo đảm quyền tự quyết cho các vùng đa số Hồi giáo. Nhiệm vụ của phái bộ là tìm một thỏa hiệp về trung ương, nhóm tỉnh và tiến trình lập hiến trước khi bạo lực cộng đồng vượt khỏi kiểm soát.",
+      "text_en": "The British Cabinet Mission arrived in March 1946 to negotiate a post-war political settlement. Congress favoured a united federal state, while the Muslim League demanded safeguards for Muslim-majority areas. The mission must find a compromise on the centre, provincial groupings and constitution-making before communal violence overwhelms negotiations.",
+      "options": [
+        {
+          "id": "accept_grouped_federation",
+          "label_vi": "Chấp nhận liên bang với các nhóm tỉnh có quyền tự chủ rộng",
+          "label_en": "Accept a federation with powerful provincial groupings",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1946_cabinet_federal_plan",
+              "name_vi": "Kế hoạch liên bang phức hợp",
+              "name_en": "Grouped Federal Settlement",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "reform": 0.018,
+                "radicalism": -0.015,
+                "ig_intelligentsia": 2
+              }
+            },
+            {
+              "type": "subject_liberty",
+              "subject": "EIC",
+              "delta": 10
+            }
+          ]
+        },
+        {
+          "id": "referendum_partition",
+          "label_vi": "Đưa phương án phân chia ra trưng cầu tại các vùng tranh chấp",
+          "label_en": "Refer partition proposals to votes in disputed regions",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1946_partition_consultation",
+              "name_vi": "Tham vấn về phân chia",
+              "name_en": "Partition Consultation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -1,
+                "radicalism": 0.01,
+                "prestige": -0.02
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -0.8
+            }
+          ]
+        },
+        {
+          "id": "retain_central_union",
+          "label_vi": "Giữ một trung ương mạnh và yêu cầu các bên nhượng bộ",
+          "label_en": "Preserve a strong centre and demand concessions from both sides",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1946_strong_centre",
+              "name_vi": "Trung ương mạnh",
+              "name_en": "Strong Federal Centre",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -2,
+                "radicalism": 0.025,
+                "police": 0.02
+              }
+            },
+            {
+              "type": "infamy",
+              "entity": "GBR",
+              "delta": 0.3
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "uk_raj",
+        "india_chronology"
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_cabinet_mission_1946",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "gbr_indian_independence_1947",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1947-02-01",
+        "1948-03-31"
+      ],
+      "date_historical": "1947-08-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "owner_in",
+            "region": "EIC_DEL",
+            "entities": [
+              "EIC",
+              "GBR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "gbr_cabinet_mission_1946"
+          },
+          {
+            "type": "year_between",
+            "from": 1947,
+            "to": 1948
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "gbr_cabinet_mission_1946"
+        ],
+        "flag": "gbr_indian_independence"
+      },
+      "title_vi": "Chuyển giao quyền lực và phân chia Ấn Độ",
+      "title_en": "The Transfer of Power and Partition of India",
+      "text_vi": "Đạo luật Độc lập Ấn Độ được thông qua tháng 7 năm 1947 và quyền lực được chuyển giao vào tháng 8, tạo ra hai Dominion là Ấn Độ và Pakistan. Đường ranh giới Radcliffe được công bố sát ngày độc lập, khiến hàng triệu người phải rời nhà và bạo lực lan rộng ở Punjab cùng Bengal. Chính phủ Anh phải quyết định mức độ hỗ trợ cứu trợ, trách nhiệm đối với các lực lượng rút đi và những quan hệ hậu đế quốc sẽ được giữ lại.",
+      "text_en": "The Indian Independence Act passed in July 1947 and power was transferred in August, creating the Dominions of India and Pakistan. The Radcliffe boundary was announced close to independence, displacing millions and unleashing violence in Punjab and Bengal. Britain must decide how much relief to provide, what responsibility to retain for withdrawing forces and which post-imperial ties to preserve.",
+      "options": [
+        {
+          "id": "recognise_two_dominions",
+          "label_vi": "Công nhận hai Dominion và tài trợ cứu trợ người tị nạn",
+          "label_en": "Recognise both Dominions and fund refugee relief",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1947_refugee_relief",
+              "name_vi": "Cứu trợ sau phân chia",
+              "name_en": "Post-Partition Relief",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "prestige": 0.04,
+                "radicalism": -0.015,
+                "trade": 0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "GBR",
+              "months_income": -1.2
+            }
+          ]
+        },
+        {
+          "id": "preserve_commonwealth_links",
+          "label_vi": "Ưu tiên giữ quan hệ Khối Thịnh vượng chung và hợp tác quốc phòng",
+          "label_en": "Prioritise Commonwealth ties and defence cooperation",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1947_commonwealth_links",
+              "name_vi": "Quan hệ Khối Thịnh vượng chung",
+              "name_en": "Commonwealth Links",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "trade": 0.04,
+                "prestige": 0.05,
+                "legitimacy": 1
+              }
+            },
+            {
+              "type": "base_rights",
+              "host": "GBR",
+              "user": "EIC"
+            }
+          ]
+        },
+        {
+          "id": "rapid_withdrawal",
+          "label_vi": "Rút nhanh và chuyển trách nhiệm an ninh cho chính quyền mới",
+          "label_en": "Withdraw rapidly and transfer security responsibility to the new governments",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1947_rapid_withdrawal",
+              "name_vi": "Rút quân gấp rút",
+              "name_en": "Rapid Imperial Withdrawal",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "treasury": -0.01,
+                "prestige": -0.03,
+                "legitimacy": -1,
+                "radicalism": 0.02
+              }
+            },
+            {
+              "type": "war_exhaustion",
+              "entity": "GBR",
+              "delta": -1
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "uk_raj",
+        "india_chronology"
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_indian_independence_1947",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "gbr_burma_ultimatum_1885",
+      "country": "GBR",
+      "mode": "historical",
+      "window": [
+        "1885-09-01",
+        "1886-02-28"
+      ],
+      "date_historical": "1885-11-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "GBR"
+          },
+          {
+            "type": "exists",
+            "entity": "BUR"
+          },
+          {
+            "type": "owner_in",
+            "region": "BUR_AVA",
+            "entities": [
+              "BUR"
+            ]
+          },
+          {
+            "type": "not_at_war",
+            "a": "GBR",
+            "b": "BUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1885,
+            "to": 1886
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "flag": "gbr_burma_ultimatum"
+      },
+      "title_vi": "Tối hậu thư với triều Konbaung",
+      "title_en": "The Ultimatum to the Konbaung Court",
+      "text_vi": "Chính phủ Anh cáo buộc triều đình Thibaw cản trở quyền lợi thương mại và đàm phán với đối thủ châu Âu, rồi đưa ra tối hậu thư vào mùa thu năm 1885. Các điều kiện của Anh đe dọa quyền tự chủ của Miến Điện và dẫn tới chiến dịch quân sự ngược dòng sông Irrawaddy. Nội các tại London phải chọn giữa chấp nhận một thỏa thuận có giám sát, gây chiến để áp đặt quyền kiểm soát hoặc tìm một dàn xếp ngoại giao ít tốn kém hơn.",
+      "text_en": "Britain accused King Thibaw's court of obstructing commercial interests and negotiating with rival European powers, then issued an ultimatum in autumn 1885. The terms threatened Burma's autonomy and led to a military expedition up the Irrawaddy. The cabinet in London must choose between a supervised settlement, war to impose control or a less costly diplomatic arrangement.",
+      "options": [
+        {
+          "id": "launch_expedition",
+          "label_vi": "Phát động chiến dịch tiến tới Mandalay",
+          "label_en": "Launch the expedition toward Mandalay",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1885_burma_expedition",
+              "name_vi": "Chiến dịch Irrawaddy",
+              "name_en": "Irrawaddy Expedition",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "army": 0.06,
+                "prestige": 0.03,
+                "treasury": -0.02,
+                "war_exhaustion": 0.01
+              }
+            },
+            {
+              "type": "declare_war",
+              "attacker": "GBR",
+              "defender": "BUR",
+              "goal": "subjugate",
+              "regions": [
+                "BUR_AVA",
+                "BUR_PEG"
+              ]
+            },
+            {
+              "type": "infamy",
+              "entity": "GBR",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "accept_supervised_trade",
+          "label_vi": "Chấp nhận một hiệp ước thương mại có giám sát thay vì chiến tranh",
+          "label_en": "Accept a supervised trade treaty instead of war",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1885_burma_trade_treaty",
+              "name_vi": "Hiệp ước thương mại Miến Điện",
+              "name_en": "Burma Trade Convention",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.03,
+                "prestige": -0.01,
+                "legitimacy": 1
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "BUR",
+              "delta": 8
+            }
+          ]
+        },
+        {
+          "id": "international_mediation",
+          "label_vi": "Yêu cầu trung gian ngoại giao và tạm hoãn tối hậu thư",
+          "label_en": "Seek mediation and suspend the ultimatum",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gbr_1885_burma_mediation",
+              "name_vi": "Trung gian Miến Điện",
+              "name_en": "Burma Mediation",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "prestige": -0.02,
+                "trade": -0.01
+              }
+            },
+            {
+              "type": "relation",
+              "a": "GBR",
+              "b": "BUR",
+              "delta": 4
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "burma_panglong"
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_burma_ultimatum_1885",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    }
+  ]
+}
