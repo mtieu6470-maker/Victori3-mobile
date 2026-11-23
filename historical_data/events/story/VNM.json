@@ -98,7 +98,12 @@
       ],
       "sources": [
         "vietnam_nguyen_closed_policy"
-      ]
+      ],
+      "image": {
+        "ref": "ill_vnm_minh_mang_centralisation_1836",
+        "credit": "Wikimedia Commons candidate; pending loc_ingest.py rights and asset validation",
+        "license": "CANDIDATE — not yet ingested; Commons rights re-read required"
+      }
     },
     {
       "id": "vnm_catholic_policy_1836",
@@ -1118,7 +1123,12 @@
       ],
       "sources": [
         "vietnam_saigon_treaty"
-      ]
+      ],
+      "image": {
+        "ref": "ill_vnm_saigon_fall_1859",
+        "credit": "Wikimedia Commons candidate; pending loc_ingest.py rights and asset validation",
+        "license": "CANDIDATE — not yet ingested; Commons rights re-read required"
+      }
     },
     {
       "id": "vnm_southern_resistance_1860",
@@ -2575,7 +2585,12 @@
       ],
       "sources": [
         "vietnam_can_vuong_yen_the_dong_du"
-      ]
+      ],
+      "image": {
+        "ref": "ill_vnm_huong_khe_resistance_1896",
+        "credit": "Wikimedia Commons candidate; pending loc_ingest.py rights and asset validation",
+        "license": "CANDIDATE — not yet ingested; Commons rights re-read required"
+      }
     },
     {
       "id": "vnm_french_indochina_union_1887",
@@ -3090,7 +3105,12 @@
       ],
       "sources": [
         "vietnam_can_vuong_yen_the_dong_du"
-      ]
+      ],
+      "image": {
+        "ref": "ill_vnm_dong_kinh_nghia_thuc_1907",
+        "credit": "Wikimedia Commons candidate; pending loc_ingest.py rights and asset validation",
+        "license": "CANDIDATE — not yet ingested; Commons rights re-read required"
+      }
     },
     {
       "id": "vnm_tax_protests_1908",
@@ -4038,7 +4058,12 @@
       ],
       "sources": [
         "vietnam_august_revolution"
-      ]
+      ],
+      "image": {
+        "ref": "ill_vnm_august_revolution_1945",
+        "credit": "Wikimedia Commons candidate; pending loc_ingest.py rights and asset validation",
+        "license": "CANDIDATE — not yet ingested; Commons rights re-read required"
+      }
     },
     {
       "id": "vnm_independence_1945",
@@ -4124,7 +4149,12 @@
       "sources": [
         "vietnam_august_revolution",
         "vietnam_provisional_government"
-      ]
+      ],
+      "image": {
+        "ref": "ill_vnm_independence_1945",
+        "credit": "Wikimedia Commons candidate; pending loc_ingest.py rights and asset validation",
+        "license": "CANDIDATE — not yet ingested; Commons rights re-read required"
+      }
     }
   ],
   "journals": [
