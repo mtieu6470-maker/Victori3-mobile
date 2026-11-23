@@ -44,7 +44,7 @@ describe('GameController hourly clock pacing (CLOCK-02 host)', () => {
     expect(c.st!.clock.hour).toBeLessThanOrEqual(24);
   });
 
-  it('fixed 6h/s takes 4 s per game day; 1h/s takes 24 s', async () => {
+  it('fixed 6h/s takes 4 s per game day; 3h/s takes 8 s', async () => {
     const slow = await started();
     slow.setSpeedSetting({ kind: 'fixed', hps: 6 });
     slow.setPaused(false);
@@ -53,9 +53,9 @@ describe('GameController hourly clock pacing (CLOCK-02 host)', () => {
     expect(slow.st!.clock.hour).toBeLessThanOrEqual(24);
 
     const slowest = await started();
-    slowest.setSpeedSetting({ kind: 'fixed', hps: 1 });
+    slowest.setSpeedSetting({ kind: 'fixed', hps: 3 });
     slowest.setPaused(false);
-    await frames(slowest, 24_000);
+    await frames(slowest, 8000);
     expect(slowest.st!.clock.hour).toBeGreaterThanOrEqual(23);
     expect(slowest.st!.clock.hour).toBeLessThanOrEqual(24);
   });

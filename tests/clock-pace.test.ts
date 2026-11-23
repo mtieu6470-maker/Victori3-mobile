@@ -18,11 +18,11 @@ describe('CLOCK-01 pace accumulator (exact integer accounting)', () => {
   it('derives the owner reference timings: 12h/s → 2 s per day, 6h/s → 4 s per day', () => {
     expect(realSecondsPerDay(12)).toBe(2);
     expect(realSecondsPerDay(6)).toBe(4);
-    expect(FIXED_RATES_HPS).toEqual([1, 2, 3, 6, 12]); // owner 2026-11-22: 12h/s is the maximum
+    expect(FIXED_RATES_HPS).toEqual([3, 6, 12]); // owner 2026-11-22: 12h/s is the maximum; 2026-11-24: three steps
     expect([AUTO_NOMINAL_HPS, AUTO_FALLBACK_HPS]).toEqual([12, 6]);
   });
 
-  it.each([1, 2, 3, 6, 12])('credits exactly %i hours per real second without drift over 10 simulated minutes of 60 fps frames', (rate) => {
+  it.each([3, 6, 12])('credits exactly %i hours per real second without drift over 10 simulated minutes of 60 fps frames', (rate) => {
     let pace: PaceState = createPaceState();
     let hours = 0;
     // 36,000 frames of 1000/60 ms: the per-frame rounding to whole microseconds must not accumulate.
@@ -86,7 +86,9 @@ describe('CLOCK-01 pace accumulator (exact integer accounting)', () => {
   });
 
   it('parses untrusted preferences fail-safe to AUTO and cycles presets', () => {
-    expect(parseSpeedSetting({ kind: 'fixed', hps: 2 })).toEqual({ kind: 'fixed', hps: 2 });
+    expect(parseSpeedSetting({ kind: 'fixed', hps: 6 })).toEqual({ kind: 'fixed', hps: 6 });
+    // Slow presets removed on 2026-11-24 (1/2 h/s) clamp to the slowest step.
+    expect(parseSpeedSetting({ kind: 'fixed', hps: 2 })).toEqual({ kind: 'fixed', hps: 3 });
     // Presets removed on 2026-11-22 (24/48 h/s) clamp to the 12h/s maximum.
     expect(parseSpeedSetting({ kind: 'fixed', hps: 24 })).toEqual({ kind: 'fixed', hps: 12 });
     expect(parseSpeedSetting({ kind: 'fixed', hps: 48 })).toEqual({ kind: 'fixed', hps: 12 });
@@ -94,8 +96,8 @@ describe('CLOCK-01 pace accumulator (exact integer accounting)', () => {
     const seen: string[] = [];
     let s = parseSpeedSetting(null);
     for (let i = 0; i < 6; i++) { seen.push(s.kind === 'auto' ? 'AUTO' : String(s.hps)); s = nextSpeedSetting(s); }
-    expect(seen).toEqual(['AUTO', '1', '2', '3', '6', '12']);
-    expect(s).toEqual({ kind: 'auto' });
+    expect(seen).toEqual(['AUTO', '3', '6', '12', 'AUTO', '3']);
+    expect(s).toEqual({ kind: 'fixed', hps: 6 });
   });
 });
 

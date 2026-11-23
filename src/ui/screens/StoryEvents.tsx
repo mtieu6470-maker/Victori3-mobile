@@ -12,7 +12,7 @@ import { asset, assetUrl, illustrationFor, useContent } from '../game/content';
 import { openCredit } from '../components/identity';
 
 const pct = (v: number) => `${v > 0 ? '+' : ''}${Math.round(v * 100)}%`;
-const sgn = (v: number, d = 0) => `${v > 0 ? '+' : ''}${fmt(v, d)}`;
+const sgn = (v: number, d = 0) => `${v > 0 ? '+' : ''}${fmt(v, v !== 0 && Math.abs(v) < 1 && d < 2 ? (Math.abs(v) < 0.1 ? 2 : 1) : d)}`;
 /** Vietnamese labels of modifier keys (mods.MOD_KEYS). */
 export const MOD_VI: Record<string, (v: number) => string> = {
   trade: (v) => `Năng lực thương mại ${pct(v)}`, tariff: (v) => `Thu thuế quan ${pct(v)}`, construction: (v) => `Tốc độ xây dựng ${pct(v)}`,

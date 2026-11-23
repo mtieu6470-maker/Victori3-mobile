@@ -1,3 +1,11 @@
+## 2026-11-24 — Owner: three speed steps (3/6/12 h/s, max 12); small per-month values formatted
+
+- `FIXED_RATES_HPS` = [3, 6, 12] (owner 2026-11-24). Saved 1/2 h/s preferences clamp to 3; 24/48 clamp to 12. AUTO stays (12 → 6 under sustained load).
+  - HUD cycle: AUTO → 3 → 6 → 12; keys 1–3.
+- Event effect text shows two decimals for small values (e.g. prestige +0,02/month, not +0,0).
+
+---
+
 ## 2026-11-23 — EVT-01 story events, timed modifiers, story journals (owner: "events for every country like V3; every option gives a buff/debuff; the more the better")
 
 - **Spec:** `docs/spec/STORY_EVENTS_SCHEMA_VI.md`. **Data:** `historical_data/events/story/*.json` → `db.story_events` / `db.story_journals` (`tools/build-data.ts`; bad ids skip with a warning).
