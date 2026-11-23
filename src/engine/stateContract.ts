@@ -82,6 +82,8 @@ export function validateCountryRecord(id: string, v: unknown, path: string): voi
   for (const k of ['treasury', 'taxRate', 'statePool', 'privatePool', 'gdp', 'income', 'expense', 'tariffIncome', 'prestige', 'infamy', 'warExhaustion', 'foreignPressure'] as const) num(c[k], `${path}.${k}`);
   nonNeg(c.debt, `${path}.debt`);
   if (!fin(c.productivity) || c.productivity <= 0) fail(`${path}.productivity`, 'must be a finite positive number');
+  if (c.pm !== undefined) for (const [b, m] of Object.entries(obj(c.pm, `${path}.pm`))) str(m, `${path}.pm.${b}`);
+  if (c.pmManual !== undefined) for (const [b, m] of Object.entries(obj(c.pmManual, `${path}.pmManual`))) bool(m, `${path}.pmManual.${b}`);
   if (c.truce !== undefined) { const t = obj(c.truce, `${path}.truce`); str(t.with, `${path}.truce.with`); tick(t.until, `${path}.truce.until`); }
   unit(c.famine, `${path}.famine`);
   for (const [g, x] of Object.entries(obj(c.igs, `${path}.igs`))) { const ig = obj(x, `${path}.igs.${g}`); num(ig.clout, `${path}.igs.${g}.clout`); num(ig.approval, `${path}.igs.${g}.approval`); }

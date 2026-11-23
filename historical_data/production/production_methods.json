@@ -1,0 +1,24 @@
+{
+  "description": "IND-01 PM-1: production methods for existing factory buildings (Victoria 3-style structure; project data, not Paradox content). A method sets the input mix per unit of output; output per worker stays in RECIPES x technology efficiency effects. Owners use the cheapest unlocked method at their market prices (hysteresis); a player may fix a method. Values are project design values unless a source is given; the coke iron mix is ECON-CAL-03 (CG-25, Kane 1845 / Staffordshire 1828-37).",
+  "methods": {
+    "textile_mill": [
+      {"id": "hand_powered", "name_vi": "Thủ công, sức nước", "requires": [], "inputs": {"cotton": 0.21}, "note": "Water and hand power; no coal."},
+      {"id": "steam_mills", "name_vi": "Máy hơi nước", "requires": ["steam_engines"], "inputs": {"cotton": 0.21, "coal": 0.01}, "source": "ECON-CAL-02 baseline recipe"},
+      {"id": "electric_mills", "name_vi": "Máy chạy điện", "requires": ["central_power_stations"], "inputs": {"cotton": 0.21, "coal": 0.02}, "note": "Grid electricity represented by its coal until GOODS-1 adds electricity."}
+    ],
+    "ironworks": [
+      {"id": "charcoal_iron", "name_vi": "Lò than củi", "requires": [], "inputs": {"iron": 0.21, "timber": 0.4}, "note": "Charcoal smelting and forging; timber per unit is a design value."},
+      {"id": "coke_iron", "name_vi": "Lò than cốc", "requires": ["coke_smelting"], "inputs": {"iron": 0.21, "coal": 0.37}, "source": "ECON-CAL-03 (CG-25)"},
+      {"id": "bessemer", "name_vi": "Lò Bessemer", "requires": ["bessemer_steel"], "inputs": {"iron": 0.23, "coal": 0.27}, "note": "Converter steel: less fuel per ton (design value)."},
+      {"id": "open_hearth", "name_vi": "Lò Martin", "requires": ["open_hearth"], "inputs": {"iron": 0.21, "coal": 0.3}, "note": "Regenerative open hearth, scrap-tolerant (design value)."}
+    ],
+    "tool_works": [
+      {"id": "artisan_tools", "name_vi": "Thợ rèn thủ công", "requires": [], "inputs": {"steel": 0.4, "timber": 0.15}},
+      {"id": "machine_tooling", "name_vi": "Máy công cụ", "requires": ["machine_tools"], "inputs": {"steel": 0.42, "timber": 0.05, "coal": 0.05}, "note": "Powered machine tools (design value)."}
+    ],
+    "arms_works": [
+      {"id": "gunsmiths", "name_vi": "Thợ súng", "requires": [], "inputs": {"steel": 0.35, "tools": 0.15}},
+      {"id": "armoury_system", "name_vi": "Dây chuyền linh kiện chuẩn", "requires": ["interchangeable_parts"], "inputs": {"steel": 0.33, "tools": 0.2}, "note": "Interchangeable parts: more machinery, less waste (design value)."}
+    ]
+  }
+}

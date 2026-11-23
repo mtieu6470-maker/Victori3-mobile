@@ -19,6 +19,8 @@
 //
 // Every system runs every boundary regardless of mode; counters record each monthly run so tests
 // can prove that neither mode skips or weakens a system.
+import { productionMethodsMonth } from './systems/productionMethods';
+import { marketOf } from './systems/economy';
 import { unMonth } from './systems/un';
 import { decolonisationMonth } from './systems/decolonisation';
 import { companiesMonth } from './systems/companies';
@@ -45,6 +47,7 @@ export interface SimSystem { name: string; run: (st: GameState) => void }
 /** Monthly systems, in canonical order. Exported (and mutable) for instrumentation tools/tests. */
 export const SYSTEMS: SimSystem[] = [
   { name: 'economy', run: (st) => computeEconomy(st) },
+  { name: 'production-methods', run: (st) => productionMethodsMonth(st, (c) => marketOf(st, c)) },
   { name: 'companies', run: companiesMonth },
   { name: 'population', run: populationMonth },
   { name: 'politics', run: politicsMonth },

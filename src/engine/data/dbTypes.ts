@@ -119,6 +119,8 @@ export interface HistoricalDB {
   company_kinds: CompanyKindRecord[];
   /** TECH-02: Historical Mode earliest adoption years (documented political blocks). */
   tech_adoption_windows?: { country: string; tech: string; earliest: number }[];
+  /** IND-01 PM-1: production methods per factory building. */
+  production_methods?: Record<string, { id: string; name_vi: string; requires: string[]; inputs: Record<string, number> }[]>;
   /** DECOL-01: Historical Mode independence events (CG-37). */
   decolonisation?: { id: string; iso: string; name: string; name_vi: string; power: string; date: string; regions: string[] }[];
   start_techs: Record<string, string[]>;

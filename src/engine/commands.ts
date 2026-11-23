@@ -3,6 +3,7 @@
 import type { LawGroup } from './data/dbTypes';
 import type { Building, GameState, WarGoal } from './types';
 import { enqueueConstruction, cancelConstruction } from './systems/economy';
+import { setProductionMethod } from './systems/productionMethods';
 import { foundCompany, foundCompanyBlocker, charterBlocker, grantCharter, revokeCharter } from './systems/companies';
 import { startReform, reformSupport } from './systems/politics';
 import { availableTechs } from './systems/technology';
@@ -22,6 +23,7 @@ export type Command =
   | { type: 'build'; region: string; building: Building }
   | { type: 'cancel_construction'; projectId: string }
   | { type: 'found_company'; kind: string }
+  | { type: 'set_production_method'; building: Building; method: string | null }
   | { type: 'grant_charter'; company: string }
   | { type: 'revoke_charter'; company: string }
   | { type: 'set_research'; tech: string }
@@ -95,6 +97,8 @@ export function execute(st: GameState, cmd: Command): CommandResult {
       if (blocker) return { ok: false, reason: blocker };
       return foundCompany(st, me, cmd.kind) ? { ok: true } : { ok: false, reason: 'The company could not be founded' };
     }
+    case 'set_production_method':
+      return setProductionMethod(me, cmd.building, cmd.method) ? { ok: true } : { ok: false, reason: 'Production method not unlocked' };
     case 'grant_charter': case 'revoke_charter': {
       const co = st.companies?.[cmd.company];
       if (!co || co.home !== me.id) return { ok: false, reason: 'Unknown company' };

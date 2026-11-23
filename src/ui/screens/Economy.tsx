@@ -4,10 +4,12 @@
 import { useState } from 'preact/hooks';
 import type { GameState, Good, Building, Region } from '../../engine/types';
 import { GOODS, BUILDINGS } from '../../engine/types';
-import { marketOf, buildCost, buildingReturn, canBuild, RECIPES, LEVEL_WORKERS } from '../../engine/systems/economy';
+import { marketOf, buildCost, buildingReturn, canBuild, RECIPES, LEVEL_WORKERS, recipeFor } from '../../engine/systems/economy';
 import { Icon } from '../components/icons';
 import { Illustration } from '../components/Illustration';
 import { CompaniesTab } from './Companies';
+import { methodsFor, activeMethod, methodUnitCost } from '../../engine/systems/productionMethods';
+import { techName } from '../i18n/vi';
 import { Sec, Metric, Delta, DBar, Bar, HBars, LineChart, Donut, Seg, modals, details, useWidth, useSort } from '../components/ui';
 import { GOOD_VI, GOOD_GROUP, BUILD_VI, lawVi, fmt, pct, money, compact } from '../i18n/vi';
 import { shortName } from '../game/names';
@@ -161,7 +163,25 @@ export function openBuilding(st: GameState, b: Building, scope?: string) {
     <div>
       <Illustration kind="building" subject={b} />
       <div class="kv"><span class="k">Sản phẩm</span><span class="v">{outText(b)}</span></div>
-      {RECIPES[b] && <div class="kv"><span class="k">Đầu vào / đơn vị</span><span class="v">{Object.entries(RECIPES[b]!.inputs).map(([g, q]) => `${GOOD_VI[g]} × ${fmt(q as number, 2)}`).join(' · ')}</span></div>}
+      {RECIPES[b] && <div class="kv"><span class="k">Đầu vào / đơn vị</span><span class="v">{Object.entries(recipeFor(st.countries[id], b)!.inputs).map(([g, q]) => `${GOOD_VI[g]} × ${fmt(q as number, 2)}`).join(' · ')}</span></div>}
+      {methodsFor(b).length > 0 && <Sec title="Phương thức sản xuất" icon="buildings">
+        {methodsFor(b).map((m) => {
+          const c = st.countries[id]; const on = activeMethod(c, b)?.id === m.id; const unlocked = m.requires.every((t) => c.techs.includes(t));
+          const prices = st.marketPrices[marketOf(st, c)] ?? st.worldPrices;
+          return (
+            <div class={`row${on ? ' on' : ''}`} key={m.id}>
+              <div class="grow">
+                <div class="t sm">{m.name_vi}{on && <span class="chip">Đang dùng{c.pmManual?.[b] ? ' (cố định)' : ''}</span>}</div>
+                <div class="s">{Object.entries(m.inputs).map(([g, q]) => `${GOOD_VI[g]} × ${fmt(q as number, 2)}`).join(' · ')} · chi phí đầu vào {fmt(methodUnitCost(m, prices), 2)}/đơn vị</div>
+                {!unlocked && <div class="s neg">Cần: {m.requires.filter((t) => !c.techs.includes(t)).map(techName).join(', ')}</div>}
+              </div>
+              {canCommand(st, id) && unlocked && !on && <button class="btn sm" onClick={() => { void send({ type: 'set_production_method', building: b, method: m.id }, `Đã chuyển sang ${m.name_vi}`); }}>Dùng</button>}
+            </div>
+          );
+        })}
+        {canCommand(st, id) && st.countries[id].pmManual?.[b] && <button class="btn sm" onClick={() => { void send({ type: 'set_production_method', building: b, method: null }, 'Phương thức tự động (tiên tiến nhất)'); }}>Tự động</button>}
+        <div class="note">Mặc định dùng phương thức tiên tiến nhất đã mở khóa; năng suất của phương thức mới nằm trong hiệu ứng công nghệ.</div>
+      </Sec>}
       {b !== 'railway' && b !== 'university' && <div class="kv"><span class="k">Việc làm</span><span class="v num">{compact(levels * LEVEL_WORKERS)}</span></div>}
       <Sec title="Theo vùng" x="chạm để xem trên bản đồ">
         {regs.length ? regs.map((r) => <div class="row tap" key={r.id} onClick={() => focusRegion(r.id)}><div class="grow"><div class="t sm">{regionName(r.id)}</div></div><span class="num">cấp {r.buildings[b]}</span></div>) : <div class="empty sm">Quốc gia chưa có công trình này.</div>}

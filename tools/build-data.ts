@@ -357,6 +357,17 @@ for (const k of companyKindsFile.kinds) {
   for (const r of k.rights ?? []) if (r.active) err(`company kind ${k.id}: right ${r.id} active without a legal basis (CG-30)`);
 }
 for (const [id, list] of Object.entries(start_techs)) for (const t of list) if (!techIds.has(t)) err(`start tech ${t} for ${id} unknown`);
+// IND-01 PM-1: production methods
+const pmFile = readJson('production/production_methods.json');
+const GOOD_IDS = new Set(['grain', 'cash_crops', 'cotton', 'timber', 'coal', 'iron', 'steel', 'textiles', 'tools', 'arms', 'luxury', 'opium']);
+for (const [b, list] of Object.entries<any[]>(pmFile.methods)) {
+  if (!BUILDING_IDS.has(b)) err(`production method building ${b} unknown`);
+  if (!list.some((m) => !m.requires.length)) err(`production methods for ${b}: no method without requirements`);
+  for (const m of list) {
+    for (const t of m.requires) if (!techIds.has(t)) err(`production method ${b}/${m.id}: unknown technology ${t}`);
+    for (const [g, q] of Object.entries(m.inputs)) if (!GOOD_IDS.has(g) || !(typeof q === 'number' && q >= 0)) err(`production method ${b}/${m.id}: bad input ${g}`);
+  }
+}
 // DECOL-01: Historical Mode independence events (generated from CG-37 by tools/data/build-decolonisation.ts)
 const decolFile = readJson('decolonisation/independence.json');
 const regionIdSet = new Set(regions.map((r: any) => r.id));
@@ -435,7 +446,7 @@ const db: HistoricalDB = {
   meta: { start_date: START, built_at: new Date().toISOString(), version: '0.1.0', counts: { entities: entities.length, regions: regions.length, sources: sources.length, alliances: alliances.length } },
   sources, cultures: cultFile.cultures, religions: cultFile.religions, entities, regions, alliances,
   wars: ev.initial_wars, exogenous: ev.exogenous, decision_windows: ev.decision_windows, structural_rules: ev.structural_rules,
-  zollverein: ev.zollverein_accessions, leaders, technologies: techFile.technologies, company_kinds: companyKindsFile.kinds, decolonisation: decolFile.records.filter((r: any) => r.regions.length).map(({ id, iso, name, name_vi, power, date, regions }: any) => ({ id, iso, name, name_vi, power, date, regions })), tech_adoption_windows: adoptionWindows.map(({ country, tech, earliest }) => ({ country, tech, earliest })), start_techs,
+  zollverein: ev.zollverein_accessions, leaders, technologies: techFile.technologies, company_kinds: companyKindsFile.kinds, production_methods: pmFile.methods, decolonisation: decolFile.records.filter((r: any) => r.regions.length).map(({ id, iso, name, name_vi, power, date, regions }: any) => ({ id, iso, name, name_vi, power, date, regions })), tech_adoption_windows: adoptionWindows.map(({ country, tech, earliest }) => ({ country, tech, earliest })), start_techs,
   historical_changes: hc.changes, equivalence: hc.equivalence.classes, milestones: ms.milestones, territorial_checkpoints: ms.territorial_checkpoints,
   european_powers: ms.european_powers, benchmarks, gdp_pc_1836,
   coverage: { entities_total: regEntities.length, by_tier, by_model, facts_by_quality: factsByQuality, needs_source: [...new Set(needsSource)], gaps },

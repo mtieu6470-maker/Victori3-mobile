@@ -48,3 +48,16 @@
 
 - Thêm hàng hóa làm thay đổi kích thước mọi bảng thị trường (hiệu năng, kích thước save, giao diện). Cần đo hiệu năng mỗi tháng và kích thước snapshot.
 - Phải migrate save: v3 → v4 thêm hàng mới với cung/cầu bằng 0 và giá cơ sở.
+
+## 5. PM-1 đã triển khai (2026-11-23)
+
+- **Dữ liệu:** `historical_data/production/production_methods.json` chứa phương thức cho dệt, luyện kim, công cụ và vũ khí, được build-data kiểm tra.
+- **Phạm vi:** phương thức chỉ quyết định **cơ cấu đầu vào**. Sản lượng trên mỗi công nhân vẫn lấy từ RECIPES × hiệu ứng công nghệ.
+- **Quy tắc chọn:** chủ sở hữu dùng **phương thức mới nhất đã mở khóa**. Chọn theo giá đầu vào rẻ nhất đã được thử và bị loại, vì khi đó cả thế giới dùng than củi mãi: than củi rẻ về nguyên liệu nhưng thua về quy mô và năng suất. Người chơi có thể cố định phương thức (lệnh `set_production_method`); giao diện nằm trong cửa sổ chi tiết công trình.
+- **Kết quả (seed 1):**
+  - 1837: Anh, Pháp, Phổ dùng than cốc; Mỹ, Nga, Áo, Nhật dùng than củi.
+  - 1860: tất cả dùng than cốc.
+  - 1880: lò Martin hoặc Bessemer.
+  - 1900: nhà máy dệt chạy điện ở các nước dẫn đầu.
+  - Scorecard 1913 giữ 0,140.
+- **Tiếp theo:** GOODS-1 (hàng `electricity`, `power_plant`), rồi thêm hệ số năng suất của phương thức khi tách được khỏi hiệu ứng công nghệ.

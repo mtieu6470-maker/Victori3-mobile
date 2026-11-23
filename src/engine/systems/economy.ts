@@ -5,6 +5,7 @@ import { GOODS, STRATA, S, type Country, type GameState, type Good, type Region,
 import { clamp, log, newId } from '../core';
 import { regionsOf } from '../cache';
 import { decideSite, ECONOMY_FLAGS, newSiteOps, siteKey, type SiteOps } from './industry';
+import { activeMethod } from './productionMethods';
 import { opennessFromTariff, TARIFF_EVIDENCE_1836 } from '../data/tradePolicy1836';
 
 export const OPENNESS: Record<string, number> = { isolationism: 0.03, protectionism: 0.3, free_trade: 0.7 };
@@ -15,6 +16,16 @@ export const BUILD_COST: Record<Building, number> = {
   plantation: 4e6, mine: 6e6, logging: 3e6, textile_mill: 10e6, ironworks: 14e6, tool_works: 11e6, arms_works: 12e6, luxury_workshop: 8e6, railway: 25e6, university: 6e6,
 };
 /** Factory recipes: annual output per worker and inputs per unit of output. */
+/**
+ * IND-01 PM-1: the recipe a country's building actually uses: RECIPES' output and output per worker with
+ * the input mix of its active production method (systems/productionMethods.ts).
+ */
+export function recipeFor(c: Pick<Country, 'techs' | 'pm'> | undefined, b: Building) {
+  const base = RECIPES[b]; if (!base) return undefined;
+  const m = c ? activeMethod(c, b) : null;
+  return m ? { ...base, inputs: m.inputs } : base;
+}
+
 export const RECIPES: Partial<Record<Building, { out: Good; perWorker: number; inputs: Partial<Record<Good, number>> }>> = {
   // ECON-CAL-02: cotton input 0.21 per unit (was 0.45). With the 1836 baseline techs (steam engines,
   // mechanised spinning) and British physical productivity a mill hand then uses ~820 lb of raw cotton
@@ -311,7 +322,7 @@ export function computeEconomy(st: GameState, calibrate = false, iter = 0): void
     let factoryWorkersEmployed = 0;
     const facEff = 1 + techEffect(c, 'factory_efficiency', r);
     for (const b of factoryBuildings) {
-      const rec = RECIPES[b]!;
+      const rec = recipeFor(c, b)!;
       const w = Math.max(0, r.buildings[b]) * LEVEL_WORKERS * factoryStaffing * siteUtil(st, r.id, b);
       factoryWorkersEmployed += w;
       if (w <= 0) continue;
@@ -874,7 +885,7 @@ function computeQueuedFactoryLedger(st: GameState, marketId: string): QueuedFact
     const owner = st.countries[project.countryId];
     const regionIndex = data().regionIndex.get(project.regionId);
     const region = regionIndex === undefined ? undefined : st.regions[regionIndex];
-    const recipe = RECIPES[project.building];
+    const recipe = recipeFor(owner, project.building);
     if (!owner || !region || region.owner !== owner.id || !recipe) continue;
 
     const queuedInRegion = projectsByRegion.get(project.regionId) ?? [];
@@ -1022,7 +1033,7 @@ export function buildingReturn(st: GameState, c: Country, r: Region, b: Building
   } else if (b === 'university') {
     value = r.pop * 0.45 * (0.2 + r.literacy * 1.2) * 3;
   } else if (RECIPES[b]) {
-    const rec = RECIPES[b]!;
+    const rec = recipeFor(c, b)!;
     const specificEfficiency = b === 'textile_mill'
       ? techEffect(c, 'textile_efficiency', r)
       : b === 'ironworks'
