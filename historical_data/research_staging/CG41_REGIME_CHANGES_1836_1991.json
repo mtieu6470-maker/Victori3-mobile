@@ -4,9 +4,9 @@
     "title": "Regime changes and state formation/dissolution, 1836–1991",
     "branch": "ccr-b27f3fb8-epfpd6",
     "created": "2026-11-23",
-    "scope": "Selected major powers, successor states and major 20th-century regime transitions; not an exhaustive world chronology.",
-    "eventCount": 48,
-    "sourceCount": 37,
+    "scope": "Selected major powers, successor states and major 20th-century regime transitions; not an exhaustive world chronology. Additional law milestones added for Russian emancipation (1861), Finnish equal suffrage (1906), and social-insurance/welfare reforms (US 1935; UK NHS 1948).",
+    "eventCount": 52,
+    "sourceCount": 41,
     "lawGroups": [
       "power",
       "governance",
@@ -287,6 +287,34 @@
       "url": "https://www.bmeia.gv.at/oev-wien/about-austria/history",
       "type": "Austrian Federal Ministry for European and International Affairs",
       "quality": "verified"
+    },
+    {
+      "id": "finland_parliament_1906",
+      "title": "Brief history of Parliament – 1906 universal suffrage",
+      "url": "https://www.eduskunta.fi/en/parliament-and-its-activities/brief-history-of-parliament",
+      "type": "Parliament of Finland official history",
+      "quality": "verified"
+    },
+    {
+      "id": "russia_emancipation_1861",
+      "title": "Emancipation reform of 1861 – historical overview",
+      "url": "https://www.britannica.com/event/Emancipation-Manifesto",
+      "type": "reference synthesis",
+      "quality": "supported"
+    },
+    {
+      "id": "us_social_security_1935",
+      "title": "Social Security Act of 1935",
+      "url": "https://www.ssa.gov/history/35act.html",
+      "type": "US Social Security Administration primary legal archive",
+      "quality": "verified"
+    },
+    {
+      "id": "uk_nhs_1946",
+      "title": "National Health Service Act 1946",
+      "url": "https://www.parliament.uk/about/living-heritage/transformingsociety/livinglearning/coll-9-health1/health-01/",
+      "type": "UK Parliament official history",
+      "quality": "verified"
     }
   ],
   "proposedLaws": [
@@ -492,6 +520,95 @@
         {
           "country": "Japan",
           "year": 1947
+        }
+      ]
+    },
+    {
+      "dimension": "political_ideology",
+      "id": "communist_state_ideology",
+      "name_en": "Communist state ideology",
+      "name_vi": "Hệ tư tưởng nhà nước cộng sản",
+      "description": "Official Marxist-Leninist or Communist Party ideology; track separately from ownership and the party-system law.",
+      "examples": [
+        {
+          "country": "USSR",
+          "year": 1922
+        },
+        {
+          "country": "PRC",
+          "year": 1949
+        },
+        {
+          "country": "DRV",
+          "year": 1945
+        }
+      ]
+    },
+    {
+      "dimension": "political_ideology",
+      "id": "fascist_state_ideology",
+      "name_en": "Fascist state ideology",
+      "name_vi": "Hệ tư tưởng nhà nước phát xít",
+      "description": "Ultranationalist, authoritarian, anti-liberal state ideology; do not conflate all authoritarian regimes with fascism.",
+      "examples": [
+        {
+          "country": "Italy",
+          "year": 1925
+        },
+        {
+          "country": "Germany",
+          "year": 1933
+        }
+      ]
+    },
+    {
+      "dimension": "political_ideology",
+      "id": "national_socialist_state_ideology",
+      "name_en": "National Socialist state ideology",
+      "name_vi": "Hệ tư tưởng Quốc xã",
+      "description": "Racial hierarchy, Führer principle and genocidal expansionism; separate from generic fascist or authoritarian ideology.",
+      "examples": [
+        {
+          "country": "Germany",
+          "year": 1933
+        }
+      ]
+    },
+    {
+      "dimension": "welfare",
+      "id": "social_insurance_welfare_state",
+      "name_en": "Social insurance and welfare state",
+      "name_vi": "Bảo hiểm xã hội và nhà nước phúc lợi",
+      "description": "Public pensions, unemployment insurance, family support and social protection; cross-cutting social-policy dimension rather than a substitute for economy ownership.",
+      "examples": [
+        {
+          "country": "United States",
+          "year": 1935
+        },
+        {
+          "country": "United Kingdom",
+          "year": 1948
+        }
+      ]
+    },
+    {
+      "dimension": "gender_equality",
+      "id": "equal_citizenship_and_suffrage",
+      "name_en": "Equal citizenship and suffrage",
+      "name_vi": "Quyền công dân và bầu cử bình đẳng",
+      "description": "Women and men have equal political rights, including voting and eligibility for elected office; distinguish legal suffrage from broader equality.",
+      "examples": [
+        {
+          "country": "Finland",
+          "year": 1906
+        },
+        {
+          "country": "Italy",
+          "year": 1946
+        },
+        {
+          "country": "France",
+          "year": 1944
         }
       ]
     }
@@ -3079,6 +3196,174 @@
       ],
       "quality": "supported",
       "note": "Separate states were proclaimed 15 August (South) and 9 September (North) 1948; both claimed legitimacy over all Korea."
+    },
+    {
+      "id": "RUS-1861-02",
+      "date": "1861-03-03",
+      "windowStart": "1856-03-30",
+      "windowEnd": "1866-06-19",
+      "capitalHistorical": "Saint Petersburg",
+      "entityBefore": {
+        "id": "RUS",
+        "name_en": "Russian Empire",
+        "name_vi": "Đế quốc Nga"
+      },
+      "entityAfter": {
+        "id": "RUS",
+        "name_en": "Russian Empire after the Emancipation Reform",
+        "name_vi": "Đế quốc Nga sau Cải cách Giải phóng nông nô"
+      },
+      "eventType": "social_reform_and_law_change",
+      "causes": [
+        "Defeat in the Crimean War exposed institutional and military weaknesses",
+        "Serfdom constrained agricultural productivity and state modernisation"
+      ],
+      "lawChanges": {
+        "labor": {
+          "from": "serfdom",
+          "to": "traditional_tenancy",
+          "note": "The Emancipation Manifesto freed privately held serfs in 1861; land redemption obligations and communal restrictions continued."
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "russia_emancipation_1861",
+        "un_rus_2017"
+      ],
+      "quality": "supported",
+      "note": "The 3 March 1861 date is Gregorian (19 February Old Style). Emancipation was phased and did not immediately eliminate all peasant obligations or state peasant dependencies."
+    },
+    {
+      "id": "FIN-1906-07",
+      "date": "1906-07-01",
+      "windowStart": "1905-11-04",
+      "windowEnd": "1907-03-16",
+      "capitalHistorical": "Helsinki",
+      "entityBefore": {
+        "id": "FIN_GD",
+        "name_en": "Grand Duchy of Finland under the Russian Empire",
+        "name_vi": "Đại công quốc Phần Lan thuộc Đế quốc Nga"
+      },
+      "entityAfter": {
+        "id": "FIN_GD",
+        "name_en": "Grand Duchy of Finland with unicameral parliament and universal suffrage",
+        "name_vi": "Đại công quốc Phần Lan với nghị viện đơn viện và phổ thông đầu phiếu"
+      },
+      "eventType": "constitutional_reform_and_womens_suffrage",
+      "causes": [
+        "1905 general strike and constitutional crisis in the Russian Empire",
+        "Finnish Parliament Act replaced the four-estate Diet"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "universal_male_suffrage",
+          "note": "The game enum is male-specific; Finland's reform enfranchised women and men equally and allowed women to stand for election."
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "dimension": "gender_equality",
+          "id": "equal_citizenship_and_suffrage",
+          "name_en": "Equal citizenship and suffrage",
+          "name_vi": "Quyền công dân và bầu cử bình đẳng",
+          "description": "Equal political rights for women and men, including voting and eligibility for elected office."
+        }
+      ],
+      "territorialChanges": [],
+      "sources": [
+        "finland_parliament_1906"
+      ],
+      "quality": "verified",
+      "note": "Parliamentary reform adopted in 1906; first elections were held in March 1907. Finland was still a Russian Grand Duchy, not yet independent."
+    },
+    {
+      "id": "USA-1935-08",
+      "date": "1935-08-14",
+      "windowStart": "1933-03-04",
+      "windowEnd": "1935-08-14",
+      "capitalHistorical": "Washington, D.C.",
+      "entityBefore": {
+        "id": "USA",
+        "name_en": "United States before the Social Security Act",
+        "name_vi": "Hoa Kỳ trước Đạo luật An sinh Xã hội"
+      },
+      "entityAfter": {
+        "id": "USA",
+        "name_en": "United States with federal social insurance framework",
+        "name_vi": "Hoa Kỳ với hệ thống bảo hiểm xã hội liên bang"
+      },
+      "eventType": "social_policy_reform",
+      "causes": [
+        "Great Depression and mass unemployment",
+        "Federal response to old-age poverty, unemployment and dependent families"
+      ],
+      "lawChanges": {
+        "economy": {
+          "from": "laissez_faire",
+          "to": "interventionism",
+          "note": "This is a broad mapping only; the Act created social insurance and grants, not a planned economy."
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "dimension": "welfare",
+          "id": "social_insurance_welfare_state",
+          "name_en": "Social insurance and welfare state",
+          "name_vi": "Bảo hiểm xã hội và nhà nước phúc lợi",
+          "description": "Publicly mandated social insurance, old-age benefits, unemployment protection and family support."
+        }
+      ],
+      "territorialChanges": [],
+      "sources": [
+        "us_social_security_1935"
+      ],
+      "quality": "verified",
+      "note": "The Social Security Act was signed 14 August 1935; it created old-age benefits, unemployment insurance and aid programmes. It is a representative welfare-policy milestone, not the origin of all US welfare policy."
+    },
+    {
+      "id": "GBR-1946-07",
+      "date": "1948-07-05",
+      "windowStart": "1942-11-01",
+      "windowEnd": "1948-07-05",
+      "capitalHistorical": "London",
+      "entityBefore": {
+        "id": "GBR",
+        "name_en": "United Kingdom before post-war welfare settlement",
+        "name_vi": "Vương quốc Anh trước dàn xếp phúc lợi hậu chiến"
+      },
+      "entityAfter": {
+        "id": "GBR",
+        "name_en": "United Kingdom with National Health Service and expanded social insurance",
+        "name_vi": "Vương quốc Anh với Dịch vụ Y tế Quốc gia và bảo hiểm xã hội mở rộng"
+      },
+      "eventType": "welfare_state_reform",
+      "causes": [
+        "Beveridge Report and wartime social-policy debate",
+        "Labour government implemented National Health Service and National Insurance legislation"
+      ],
+      "lawChanges": {
+        "economy": {
+          "from": "laissez_faire",
+          "to": "interventionism",
+          "note": "Public provision expanded; this does not mean the UK became a planned economy."
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "dimension": "welfare",
+          "id": "universal_health_and_social_insurance",
+          "name_en": "Universal health and social insurance",
+          "name_vi": "Y tế phổ quát và bảo hiểm xã hội",
+          "description": "Universal public health service and broad social insurance coverage."
+        }
+      ],
+      "territorialChanges": [],
+      "sources": [
+        "uk_nhs_1946"
+      ],
+      "quality": "verified",
+      "note": "The National Health Service Act was passed in 1946 and the NHS came into operation on 5 July 1948. The National Insurance Act 1946 was a parallel pillar."
     }
   ]
 }
