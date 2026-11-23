@@ -1,3 +1,19 @@
+## 2026-11-23 — BLOC-02 CG-46 military alliances integrated
+
+- ChatGPT CG-46 (`docs/research/history/CG46_COLD_WAR_BLOCS.json`) contains 22 organisations.
+- `tools/data/build-blocs.ts` generates `historical_data/diplomacy/blocs.json` with the 13 military alliances:
+  - NATO, Warsaw Pact, SEATO 1954–77, CENTO 1955–79, ANZUS, Rio Treaty 1947;
+  - US–Japan 1951 and 1960, US–ROK 1953, US–ROC 1955–80, US–Philippines 1951;
+  - Sino-Soviet 1950–80, Soviet–Vietnamese 1978.
+  - Members are capitals via map-grid lookup; 0 skipped. NATO accessions after 1990 are kept from the curated list. Year-only dates become 1 January.
+- **Camps:** blocs are `west` or `east`. A country can be in several blocs of one camp but never in both camps.
+- Bloc treaties (`source 'bloc:'`), including two-member ones, are never ended by `breakAlliance` or by refusing a call; they end only on their dates.
+- The US–ROK and US–ROC alliances at founding (CG-44 `allies`) are removed in favour of the CG-46 dated treaties.
+- CG-46b (MSG-104) requested: ISO3 and capital coordinates for members of the economic and political organisations, plus EEC customs-union dates.
+- Tests: `blocs.test.ts` and `postwar-regimes.test.ts` updated.
+
+---
+
 ## 2026-11-23 — AI-INT-01 allies and enemies weigh their own interests (owner)
 
 - **Owner:** an AI, ally or enemy, should weigh its own interests before acting.

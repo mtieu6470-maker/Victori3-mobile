@@ -24,6 +24,7 @@ describe('BLOC-01 Cold War blocs', () => {
     const wp = st.treaties.find((t) => t.id === blocTreatyId('WARSAW_PACT'))!;
     expect(wp.members).toContain('RUS');
     for (const m of wp.members) expect(nato.members).not.toContain(m);
+    expect(st.treaties.some((t) => t.id === blocTreatyId('SEATO') && t.members.includes('USA'))).toBe(true); // same camp: several blocs
     breakAlliance(st, 'USA', 'GBR'); // two-member rule: the bloc survives
     expect(allied(st, 'USA', 'GBR')).toBe(true);
     expect(() => validateNestedState(st)).not.toThrow();

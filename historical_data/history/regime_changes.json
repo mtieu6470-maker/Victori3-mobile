@@ -820,9 +820,6 @@
    },
    "independence": null,
    "independenceRegions": null,
-   "allies": [
-    "USA_MAR"
-   ],
    "sources": [
     "korea_history",
     "korea_rok"
@@ -932,9 +929,6 @@
    "independence": null,
    "independenceRegions": [
     "QNG_TAI"
-   ],
-   "allies": [
-    "USA_MAR"
    ],
    "sources": [
     "roc_mac",

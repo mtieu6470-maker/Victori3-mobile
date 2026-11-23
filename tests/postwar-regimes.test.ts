@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { loadNodeData } from '../src/engine/node';
 import { createGame } from '../src/engine/init';
 import { regimesMonth } from '../src/engine/systems/regimes';
+import { blocsMonth } from '../src/engine/systems/blocs';
 import { data } from '../src/engine/data/db';
 import { validateNestedState } from '../src/engine/stateContract';
 
@@ -13,18 +14,23 @@ const holder = (st: St, r: string) => st.countries[st.regions[data().regionIndex
 const allied = (st: St, a: string, b: string) => st.treaties.some((t) => t.type === 'alliance' && t.members.includes(a) && t.members.includes(b));
 
 describe('CG-44 post-war regimes and partitions', () => {
-  it('Korea is divided in 1948; the Republic of Korea and Taiwan get US defence treaties', () => {
+  it('Korea is divided in 1948; the ROK and Taiwan get US defence treaties on their CG-46 dates', () => {
     const st = createGame({ mode: 'historical', seed: 1, player: null });
     at(st, 1950, 1); regimesMonth(st);
     const rok = holder(st, 'KOR_GYE'); const prk = holder(st, 'KOR_PYO');
     expect(rok.nameVi).toBe('Đại Hàn Dân Quốc');
     expect(prk.nameVi).toBe('Cộng hòa Dân chủ Nhân dân Triều Tiên');
     expect(prk.laws.power).toBe('one_party_state');
-    const usa = holder(st, 'USA_MAR');
-    expect(allied(st, usa.id, rok.id)).toBe(true);
     const roc = holder(st, 'QNG_TAI');
     expect(roc.nameVi).toBe('Trung Hoa Dân Quốc (Đài Loan)');
+    // CG-46: the US–ROK (1953) and US–ROC (1955–1980) mutual defence treaties on their dates
+    const usa = holder(st, 'USA_MAR');
+    expect(allied(st, usa.id, rok.id)).toBe(false);
+    at(st, 1956, 1); blocsMonth(st);
+    expect(allied(st, usa.id, rok.id)).toBe(true);
     expect(allied(st, usa.id, roc.id)).toBe(true);
+    at(st, 1981, 1); blocsMonth(st);
+    expect(allied(st, usa.id, roc.id)).toBe(false);
     expect(() => validateNestedState(st)).not.toThrow();
   });
 

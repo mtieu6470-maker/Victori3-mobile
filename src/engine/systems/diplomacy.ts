@@ -114,7 +114,8 @@ export function formAlliance(st: GameState, a: string, b: string): boolean {
   return true;
 }
 export function breakAlliance(st: GameState, a: string, b: string) {
-  st.treaties = st.treaties.filter((t) => !(t.type === 'alliance' && t.members.length === 2 && t.members.includes(a) && t.members.includes(b)));
+  // bloc treaties (Historical Mode, incl. bilateral ones such as US–ROK) end only on their dates
+  st.treaties = st.treaties.filter((t) => !(t.type === 'alliance' && !t.source?.startsWith('bloc:') && t.members.length === 2 && t.members.includes(a) && t.members.includes(b)));
   addRel(st, a, b, -20);
 }
 export function declareRivalry(st: GameState, a: string, b: string) {
@@ -187,7 +188,7 @@ export function declareWar(st: GameState, attacker: string, defender: string, go
   for (const m of sides.refused) {
     if (m === st.player) continue;
     addRel(st, m, defender, -REFUSED_CALL.relation);
-    if (st.treaties.some((t) => t.type === 'alliance' && t.members.length === 2 && t.members.includes(m) && t.members.includes(defender))) {
+    if (st.treaties.some((t) => t.type === 'alliance' && !t.source?.startsWith('bloc:') && t.members.length === 2 && t.members.includes(m) && t.members.includes(defender))) {
       breakAlliance(st, m, defender);
       log(st, { type: 'diplomacy', text: `${st.countries[m].name} refuses ${dC.name}'s call to arms; their alliance ends.`, textVi: `${st.countries[m].nameVi} từ chối lời kêu gọi tham chiến của ${dC.nameVi}; liên minh tan vỡ.`, actors: [m, defender] });
     }

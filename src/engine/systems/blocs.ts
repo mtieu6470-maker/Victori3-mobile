@@ -10,6 +10,7 @@ import { holderOfCapital } from './settlements';
 import type { GameState } from '../types';
 
 export const blocTreatyId = (id: string) => `bloc_${id}`;
+const campOf = (id: string) => data().db.blocs?.find((b) => b.id === id)?.camp ?? 'west';
 
 export function blocsMonth(st: GameState): void {
   if (st.mode !== 'historical') return;
@@ -29,8 +30,8 @@ export function blocsMonth(st: GameState): void {
       if (m.from > today || (m.to && today >= m.to)) continue;
       const c = holderOfCapital(st, m.capital);
       if (!c || c.id === st.player || want.includes(c.id)) continue;
-      // never in two rival blocs at once (e.g. an undivided Germany holding both Bonn and Berlin)
-      if (st.treaties.some((x) => x.id !== tid && x.source?.startsWith('bloc:') && x.members.includes(c.id))) continue;
+      // never in blocs of both camps at once (e.g. an undivided Germany holding both Bonn and Berlin)
+      if (st.treaties.some((x) => x.id !== tid && x.source?.startsWith('bloc:') && x.members.includes(c.id) && campOf(x.source.slice(5)) !== (b.camp ?? 'west'))) continue;
       want.push(c.id);
     }
     if (!t) {

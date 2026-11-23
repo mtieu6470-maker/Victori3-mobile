@@ -97,7 +97,8 @@ const LAW44: Record<string, Record<string, string>> = {
   'VNM-1976-07': { economy: 'command_economy' },
 };
 /** Defence treaties concluded with the new state (capital regions of the allies): US–ROC Mutual Defense Treaty 1954, US–ROK 1953. */
-const ALLIES44: Record<string, string[]> = { 'ROC-1949-12': ['USA_MAR'], 'KOR-ROK-1948-08': ['USA_MAR'] };
+// Defence treaties now come from CG-46 (historical_data/diplomacy/blocs.json, with their dates).
+const ALLIES44: Record<string, string[]> = {};
 /** Synthetic events splitting CG-44 records that cover two states (sources as in the parent record). */
 const SYNTH44 = [
   { id: 'YUG-SVN-1991-10', parent: 'YUG-SLO-CRO-1991-06', date: '1991-10-08', city: 'Ljubljana', cultures: ['slovene'], en: 'Republic of Slovenia', vi: 'Cộng hòa Slovenia', laws: FREE },
