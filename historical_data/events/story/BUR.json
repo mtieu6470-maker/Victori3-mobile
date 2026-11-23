@@ -1,0 +1,301 @@
+{
+  "schema": "story_events_v1",
+  "country": "BUR",
+  "sources": {
+    "uk_parliament_empire": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/key-dates/parliament-and-empire-1815-1970/",
+    "uk_raj": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/parliament-and-the-american-colonies-before-1765/the-raj-and-independence-1914-47/",
+    "india_chronology": "https://academic.oup.com/edited-volume/28170/chapter/213002310",
+    "canada_parliament": "https://www.ourcommons.ca/procedure/procedure-and-practice-3/ch_01_2-e.html",
+    "palestine_un": "https://www.un.org/unispal/history/",
+    "palestine_timeline": "https://www.un.org/unispal/historical-timeline/",
+    "palestine_white_paper": "https://avalon.law.yale.edu/21st_century/brwh1939.asp",
+    "burma_panglong": "https://commons.wikimedia.org/wiki/File:Panglong_Conference.jpg",
+    "egypt_occupation": "https://www.cambridge.org/core/books/abs/cambridge-history-of-egypt/british-occupation-18821922/179398E6D722904951A25256F524C963",
+    "suez": "https://history.state.gov/milestones/1953-1960/suez"
+  },
+  "events": [
+    {
+      "id": "bur_resist_1885",
+      "country": "BUR",
+      "mode": "historical",
+      "window": [
+        "1885-09-01",
+        "1886-02-28"
+      ],
+      "date_historical": "1885-11-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "BUR"
+          },
+          {
+            "type": "owner_in",
+            "region": "BUR_AVA",
+            "entities": [
+              "BUR"
+            ]
+          },
+          {
+            "type": "not_at_war",
+            "a": "GBR",
+            "b": "BUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1885,
+            "to": 1886
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "flag": "bur_resistance_1885"
+      },
+      "title_vi": "Triều đình Ava trước cuộc tiến công của Anh",
+      "title_en": "The Ava Court Faces the British Invasion",
+      "text_vi": "Quân Anh vượt biên giới từ Hạ Miến và tiến dọc sông Irrawaddy sau khi triều đình bác bỏ các yêu sách của London. Vua Thibaw và các đại thần phải đối mặt với chênh lệch lớn về hỏa lực, hậu cần và khả năng vận chuyển đường sông. Triều đình có thể cố thủ Mandalay, rút lui để duy trì một cuộc kháng chiến phân tán hoặc chấp nhận một thỏa thuận bảo hộ nhằm giữ lại bộ máy hoàng gia.",
+      "text_en": "British forces advance from Lower Burma along the Irrawaddy after the court rejects London's demands. King Thibaw and his ministers face a severe imbalance in firepower, logistics and river transport. The court can defend Mandalay, retreat to sustain dispersed resistance or accept a protectorate arrangement in an attempt to preserve the monarchy.",
+      "options": [
+        {
+          "id": "defend_mandalay",
+          "label_vi": "Tập trung quân bảo vệ Mandalay và các bến sông",
+          "label_en": "Concentrate forces to defend Mandalay and river crossings",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "bur_1885_mandalay_defence",
+              "name_vi": "Phòng thủ Mandalay",
+              "name_en": "Defence of Mandalay",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "legitimacy": 2,
+                "war_exhaustion": 0.02
+              }
+            },
+            {
+              "type": "declare_war",
+              "attacker": "BUR",
+              "defender": "GBR",
+              "goal": "independence",
+              "regions": [
+                "BUR_AVA",
+                "BUR_PEG"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "retreat_shan_hills",
+          "label_vi": "Rút quân về vùng đồi để kéo dài kháng chiến",
+          "label_en": "Withdraw into the hills to prolong resistance",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "bur_1885_shan_retreat",
+              "name_vi": "Kháng chiến vùng đồi",
+              "name_en": "Hill Country Resistance",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "radicalism": 0.02,
+                "construction": -0.02
+              }
+            },
+            {
+              "type": "war_exhaustion",
+              "entity": "BUR",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "accept_residency",
+          "label_vi": "Đàm phán chấp nhận cố vấn Anh nhưng giữ triều đình",
+          "label_en": "Accept British advisers while retaining the royal court",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "bur_1885_residency",
+              "name_vi": "Triều đình dưới giám sát",
+              "name_en": "Court under Supervision",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -2,
+                "trade": 0.02,
+                "army": -0.03
+              }
+            },
+            {
+              "type": "make_subject",
+              "subject": "BUR",
+              "overlord": "GBR",
+              "subject_type": "protectorate"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "burma_panglong"
+      ],
+      "image": {
+        "ref": "ill_evt_bur_resist_1885",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "bur_king_exile_1886",
+      "country": "BUR",
+      "mode": "historical",
+      "window": [
+        "1885-12-01",
+        "1887-06-30"
+      ],
+      "date_historical": "1886-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "BUR"
+          },
+          {
+            "type": "owner_in",
+            "region": "BUR_AVA",
+            "entities": [
+              "BUR"
+            ]
+          },
+          {
+            "type": "event_fired",
+            "id": "bur_resist_1885"
+          },
+          {
+            "type": "year_between",
+            "from": 1885,
+            "to": 1887
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "bur_resist_1885"
+        ],
+        "flag": "bur_king_exile"
+      },
+      "title_vi": "Vua Thibaw bị lưu đày",
+      "title_en": "The Exile of King Thibaw",
+      "text_vi": "Quân Anh chiếm Mandalay vào cuối tháng 11 năm 1885 và đưa vua Thibaw cùng hoàng hậu Supayalat đi lưu đày sang Ấn Độ. Việc sáp nhập Thượng Miến Điện năm 1886 chấm dứt triều Konbaung, nhưng không lập tức chấm dứt kháng chiến ở nông thôn và các vùng đồi. Những người còn lại trong triều đình phải chọn cách bảo tồn tính chính danh, tiếp tục kháng cự hay tìm vị trí trong bộ máy mới.",
+      "text_en": "British troops occupied Mandalay in late November 1885 and sent King Thibaw and Queen Supayalat into exile in India. The annexation of Upper Burma in 1886 ended the Konbaung dynasty but did not immediately end resistance in the countryside and hill regions. Remaining court figures must decide whether to preserve dynastic legitimacy, continue resistance or seek a place in the new administration.",
+      "options": [
+        {
+          "id": "preserve_dynastic_claim",
+          "label_vi": "Giữ biểu tượng hoàng gia và nuôi dưỡng yêu sách phục hồi",
+          "label_en": "Preserve the royal claim and maintain a restoration movement",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "bur_1886_dynastic_claim",
+              "name_vi": "Yêu sách triều Konbaung",
+              "name_en": "Konbaung Dynastic Claim",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "nationalism": 0.02,
+                "radicalism": 0.02,
+                "legitimacy": 1
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "BUR",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "rural_resistance",
+          "label_vi": "Hỗ trợ các thủ lĩnh địa phương tiếp tục kháng chiến",
+          "label_en": "Support local leaders who continue resistance",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "bur_1886_rural_resistance",
+              "name_vi": "Kháng chiến nông thôn Miến Điện",
+              "name_en": "Burmese Rural Resistance",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "radicalism": 0.03,
+                "trade": -0.02
+              }
+            },
+            {
+              "type": "war_exhaustion",
+              "entity": "BUR",
+              "delta": 2
+            }
+          ]
+        },
+        {
+          "id": "administrative_accommodation",
+          "label_vi": "Đưa quan lại vào bộ máy thuộc địa để bảo vệ cộng đồng",
+          "label_en": "Enter the colonial administration to protect local communities",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "bur_1886_administrative_accommodation",
+              "name_vi": "Thỏa hiệp hành chính",
+              "name_en": "Administrative Accommodation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "trade": 0.02,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "relation",
+              "a": "BUR",
+              "b": "GBR",
+              "delta": 6
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "burma_panglong"
+      ],
+      "image": {
+        "ref": "ill_evt_bur_king_exile_1886",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    }
+  ]
+}
