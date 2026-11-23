@@ -96,7 +96,7 @@ export interface ConstructionProject {
 export interface AIMemory {
   cooldowns: Record<string, number>; // key -> tick until which the action is blocked
   /** `cause` is the kind of change (reform, revolution, civil, decision, regime, treaty); absent in older saves. */
-  lawHistory: { group: LawGroup; value: string; tick: number; cause?: string }[];
+  lawHistory: { group: LawGroup; value: string; tick: number; cause?: string; from?: string }[];
   recent: string[]; // last actions (for oscillation detection)
   planTarget?: string | null;
 }
@@ -132,6 +132,8 @@ export interface Country {
   techs: string[]; research: { current: string | null; progress: number };
   army: Army; navy: Navy;
   prestige: number; infamy: number; warExhaustion: number; lastWarLost: number | null;
+  /** LAW-CAL-01: last tick the country fought (not nominally) in a great war — mass mobilisation. */
+  lastGreatWar?: number;
   personality: Personality;
   ai: AIMemory;
   claims: string[];

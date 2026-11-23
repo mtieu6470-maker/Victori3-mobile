@@ -12,7 +12,7 @@ import { clamp, count, getRel, rand, chance, relKey } from '../core';
 import { historicalBias } from '../historical';
 import { CATCHUP_FLAGS } from '../systems/technology';
 import { enqueueConstruction, constructionQueueLength, constructionQueueCap, withInvestmentCache, buildingReturn, canBuild, hasTech, marketOf, queuedFactorySupply, privateInvestment, SHIP_COST } from '../systems/economy';
-import { reformSupport, startReform, sharesBorder } from '../systems/politics';
+import { reformSupport, startReform, sharesBorder, suffrageMovement, SUFFRAGE_MOVEMENT } from '../systems/politics';
 import { techCost } from '../systems/technology';
 import { allied, allianceAcceptance, declareRivalry, declareWar, formAlliance, greatPowers, guarantee, improveRelations, joinCustomsUnion, powerScore, rivals } from '../systems/diplomacy';
 import { armyStrength, atWar, enemiesOf, navalStrength } from '../systems/military';
@@ -272,7 +272,25 @@ export function reformUtility(st: GameState, c: Country, g: LawGroup, v: string)
   u += lawEmulation(st, c, g, v);
   // REGIME-02: a regime journal entry pulls towards its laws; a regime's laws resist change (soft).
   u += journalPull(st, c, g, v) - regimeLawInertia(st, c, g);
+  // LAW-CAL-01: a suffrage movement pushes for the next step of the franchise.
+  u += SUFFRAGE_MOVEMENT.utility * suffrageMovement(st, c, g, v);
   return u;
+}
+
+/**
+ * Anti-oscillation: true if `v` was replaced in group `g` within the last 15 years. LAW-CAL-01 fix: the
+ * check used to block every change of the group for 15 years after any change, which froze further steps
+ * of a reform path (e.g. women's suffrage after universal male suffrage). Older entries without `from` take
+ * the value of the previous entry of the same group.
+ */
+export function abandonedRecently(st: GameState, c: Country, g: LawGroup, v: string): boolean {
+  let prev: string | undefined;
+  for (const h of c.ai.lawHistory) {
+    if (h.group !== g) continue;
+    if (st.tick - h.tick < 180 && (h.from ?? prev) === v) return true;
+    prev = h.value;
+  }
+  return false;
 }
 
 /** Monthly reform decision of one AI country (exported for integration tests). */
@@ -285,7 +303,7 @@ export function reformAI(st: GameState, c: Country) {
     for (const v of new Set([...LAW_ALTERNATIVES[g], ...journalGoalValues(st, c, g)])) {
       if (v === c.laws[g] || !lawUnlocked(c, v)) continue;
       // anti-oscillation: never return to a value abandoned in the last 15 years
-      if (c.ai.lawHistory.some((h) => h.group === g && st.tick - h.tick < 180)) continue;
+      if (abandonedRecently(st, c, g, v)) continue;
       if (g === 'labor' && v === 'slavery') continue;
       if (g === 'labor' && v === 'serfdom' && c.laws.labor !== 'serfdom') continue;
       const u = reformUtility(st, c, g, v);

@@ -23,6 +23,8 @@ export function armyStrength(st: GameState, c: Country): number {
 export function navalStrength(c: Country) { return c.navy.strength * c.navy.quality * (1 + techEffect(c, 'navy_quality')); }
 
 export function militaryMonth(st: GameState) {
+  // LAW-CAL-01: record mass mobilisation (fighting members of great wars) for the suffrage movement
+  for (const w of st.wars) if (w.kind === 'great') for (const id of [...w.attackers.members, ...w.defenders.members]) if (!(w.nominal ?? []).includes(id) && st.countries[id]) st.countries[id].lastGreatWar = st.tick;
   for (const c of Object.values(st.countries)) {
     if (!c.alive) continue;
     const war = atWar(st, c.id);

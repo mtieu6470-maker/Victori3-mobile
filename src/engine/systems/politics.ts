@@ -74,6 +74,31 @@ export function journalMomentum(st: GameState, c: Country, group: string, value:
   return 0;
 }
 
+/**
+ * LAW-CAL-01: suffrage movements (V3-style political movements). People outside the electorate push for the
+ * next step of the franchise once mass politics is known; the movement's strength grows with literacy
+ * (population-weighted), so countries with low literacy keep lagging. A strong movement makes the AI take up
+ * the reform and helps any reform of that step through (AI and player alike). One-party states suppress it.
+ * Design parameters, calibrated against ChatGPT CG-42 adoption years (tools/law-adoption-report.ts).
+ */
+export const SUFFRAGE_MOVEMENT = { tech: 'mass_politics', litFloor: 0.35, litSpan: 0.45, utility: 4.5, progress: 0.35 } as const;
+/**
+ * Women's suffrage needs a more literate society; mass mobilisation in a great war (within warYears) adds
+ * warBoost — the wave after 1914-18 (UK 1918, Germany 1919, USA 1920; CG-42).
+ */
+export const WOMENS_SUFFRAGE_MOVEMENT = { litFloor: 0.68, litSpan: 0.35, warBoost: 0.8, warYears: 8 } as const;
+const SUFFRAGE_DEMAND: Record<string, string> = { autocracy: 'census_suffrage', oligarchy: 'census_suffrage', census_suffrage: 'universal_male_suffrage', universal_male_suffrage: 'universal_suffrage' };
+export function suffrageMovement(st: GameState, c: Country, group: string, value: string): number {
+  if (group !== 'power' || SUFFRAGE_DEMAND[c.laws.power] !== value || !c.techs.includes(SUFFRAGE_MOVEMENT.tech) || !lawUnlocked(c, value)) return 0;
+  const regs = regionsOf(st, c.id); const pop = regs.reduce((s, r) => s + r.pop, 0);
+  if (pop <= 0) return 0;
+  const lit = regs.reduce((s, r) => s + r.literacy * r.pop, 0) / pop;
+  if (value !== 'universal_suffrage') return clamp((lit - SUFFRAGE_MOVEMENT.litFloor) / SUFFRAGE_MOVEMENT.litSpan, 0, 1);
+  const W = WOMENS_SUFFRAGE_MOVEMENT;
+  const war = c.lastGreatWar !== undefined && st.tick - c.lastGreatWar <= W.warYears * 12 ? W.warBoost : 0;
+  return clamp((lit - W.litFloor) / W.litSpan + war, 0, 1);
+}
+
 export function igApproval(c: Country, ig: IG, laws = c.laws): number {
   let a = 0; const pref = IG_PREFS[ig];
   for (const g of LAW_GROUPS) a += pref[laws[g]] ?? 0;
@@ -146,7 +171,7 @@ export function setLaw(st: GameState, c: Country, group: LawGroup, value: string
   const old = c.laws[group];
   if (old === value) return;
   c.laws[group] = value;
-  c.ai.lawHistory.push({ group, value, tick: st.tick, cause: cause.split(/[\s:(]/)[0] });
+  c.ai.lawHistory.push({ group, value, tick: st.tick, cause: cause.split(/[\s:(]/)[0], from: old });
   log(st, { type: 'law', text: `${c.name}: ${group} changed from ${old} to ${value} (${cause}).`, textVi: `${c.nameVi}: luật ${group} đổi từ ${old} sang ${value} (${cause}).`, actors: [c.id] });
 }
 
@@ -157,7 +182,7 @@ export function politicsMonth(st: GameState) {
     // reforms progress monthly with support; strong opposition can stall them
     if (c.reform) {
       const sup = reformSupport(c, c.reform.group, c.reform.value);
-      c.reform.progress += clamp(0.06 + sup * 0.25 + journalMomentum(st, c, c.reform.group, c.reform.value), -0.05, 0.25);
+      c.reform.progress += clamp(0.06 + sup * 0.25 + journalMomentum(st, c, c.reform.group, c.reform.value) + SUFFRAGE_MOVEMENT.progress * suffrageMovement(st, c, c.reform.group, c.reform.value), -0.05, 0.25);
       if (c.reform.progress >= 1) { setLaw(st, c, c.reform.group, c.reform.value, 'reform'); c.reform = null; c.legitimacy = clamp(c.legitimacy + 2, 0, 100); }
       else if (c.reform.progress < -0.3 || st.tick - c.reform.startedTick > 48) {
         log(st, { type: 'politics', text: `${c.name}'s reform of ${c.reform.group} failed.`, textVi: `Cải cách ${c.reform.group} của ${c.nameVi} thất bại.`, actors: [c.id] });

@@ -90,15 +90,18 @@ describe('REGIME-01b 20th-century laws', () => {
     expect(companySlots(st, c)).toBe(0);
   });
 
-  it('20th-century laws need socialist thought before they can be debated', () => {
+  it('20th-century laws need their ideas before they can be debated (socialist thought; feminism for universal suffrage)', () => {
     const st = createGame({ mode: 'sandbox', seed: 1, player: null });
     const c = st.countries.GBR;
-    c.techs = c.techs.filter((t) => t !== 'socialist_thought');
+    c.techs = c.techs.filter((t) => t !== 'socialist_thought' && t !== 'feminism');
     expect(startReform(st, c, 'power', 'universal_suffrage')).toBe(false);
     expect(startReform(st, c, 'economy', 'command_economy')).toBe(false);
     c.techs.push('socialist_thought');
+    expect(startReform(st, c, 'power', 'universal_suffrage')).toBe(false);
+    c.techs.push('feminism');
     expect(startReform(st, c, 'power', 'universal_suffrage')).toBe(true);
   });
+
 });
 
 describe('REGIME-01b historical law hold', () => {

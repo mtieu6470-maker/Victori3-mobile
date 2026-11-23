@@ -19,7 +19,7 @@ export const REFORMABLE_LAWS: Readonly<Record<LawGroup, readonly string[]>> = {
  * REGIME-01b: 20th-century laws (V3-style) need the political ideas behind them before a country can
  * debate them. Historical regime-change events set them on their dates regardless.
  */
-export const LAW_TECH: Readonly<Record<string, string>> = { universal_suffrage: 'socialist_thought', one_party_state: 'socialist_thought', command_economy: 'socialist_thought' };
+export const LAW_TECH: Readonly<Record<string, string>> = { universal_suffrage: 'feminism', one_party_state: 'socialist_thought', command_economy: 'socialist_thought' };
 export function lawUnlocked(c: { techs: readonly string[] }, value: string): boolean {
   const t = LAW_TECH[value];
   return !t || c.techs.includes(t);

@@ -1,3 +1,26 @@
+## 2026-11-23 — LAW-CAL-01 suffrage reform calibrated against CG-42 (V3-style suffrage movements)
+
+- **Tool:** `tools/law-adoption-report.ts [endYear] [seed]`. For each CG-42 country, the governing state is the holder of most of the population of its present territory (admin-1 grid). The tool compares the first year with universal male suffrage, and with universal suffrage, against CG-42.
+- **Baseline (seed 1, 1960):**
+  - male: 7/19 adopted; universal: 9/62, almost all from regime events.
+  - The AI practically never reformed suffrage. Interest groups are static, so propertied groups always oppose the reform (support −0.9 to −1.2).
+- **Changes:**
+  - New society techs (V3-style political ideas): `mass_politics` (1860, prerequisite steam_press) and `feminism` (1890, prerequisites mass_politics and public_schooling). `universal_suffrage` now needs `feminism` (it was socialist_thought).
+  - `politics.ts` `SUFFRAGE_MOVEMENT {litFloor 0.35, litSpan 0.45, utility 4.5, progress 0.35}`:
+    - With mass politics, people outside the electorate push for the next franchise step (autocracy/oligarchy → census → universal male → universal), with strength from population-weighted literacy.
+    - The movement adds AI reform utility, and adds reform progress for both AI and player.
+    - Women's suffrage uses `WOMENS_SUFFRAGE_MOVEMENT {litFloor 0.68, litSpan 0.35, warBoost 0.8, warYears 8}`: mass mobilisation in a great war (`Country.lastGreatWar`, set by `militaryMonth` for fighting, non-nominal members) adds the boost.
+  - **Bug fix (anti-oscillation):** `abandonedRecently` blocks returning to a value replaced in the last 15 years. It used to block any change of the group for 15 years. `lawHistory` entries now record `from`.
+- **Result (seed 1, 1960):**
+  - male: 12/19, median error +7 y.
+  - universal: 16/62 (in scope), median −2 y, mean |error| 7 y. UK 1916 (CG-42: 1918), Germany 1917 (1919), Spain 1932 (1931), Italy 1947 (1945), Japan 1944 (1945), USA 1909 (1920, early).
+- **Remaining gaps:**
+  - Latin American oligarchies and colonies never reach universal suffrage. This needs post-1945 norm diffusion, independence constitutions (decolonisation laws) and literacy calibration.
+  - Sweden's literacy in the engine is far below history, so it never reforms.
+- Tests: `tests/law-calibration.test.ts` (3). Local: `npm test` **45/45 files, 424/424** (the 2 failures in the first run, a stale gating expectation and the new techs' provenance field, were fixed and their files rerun green).
+
+---
+
 ## 2026-11-23 — LEAD-01b CG-43b rosters integrated
 
 - ChatGPT CG-43b (MSG-098) brings the staging file to 465 records: ROC/Beiyang 1916–28, Second Spanish Republic, Weimar chancellors, FRG/GDR, Japanese prime ministers 1931–46, Vietnam (party leaders, prime ministers, SVN/RVN/PRG).

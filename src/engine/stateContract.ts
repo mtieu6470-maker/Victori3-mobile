@@ -97,12 +97,13 @@ export function validateCountryRecord(id: string, v: unknown, path: string): voi
   numRecord(c.army, `${path}.army`, nonNeg);
   numRecord(c.navy, `${path}.navy`, nonNeg);
   if (c.lastWarLost !== null) num(c.lastWarLost, `${path}.lastWarLost`);
+  if (c.lastGreatWar !== undefined) num(c.lastGreatWar, `${path}.lastGreatWar`);
   const pers = obj(c.personality, `${path}.personality`);
   for (const k of ['aggression', 'expansionism', 'reformism', 'commerce', 'naval', 'isolationism', 'risk'] as const) num(pers[k], `${path}.personality.${k}`);
   if (pers.rationale !== undefined) str(pers.rationale, `${path}.personality.rationale`);
   const ai = obj(c.ai, `${path}.ai`);
   numRecord(ai.cooldowns, `${path}.ai.cooldowns`);
-  arr(ai.lawHistory, `${path}.ai.lawHistory`).forEach((h, i) => { const e = obj(h, `${path}.ai.lawHistory[${i}]`); str(e.group, `${path}.ai.lawHistory[${i}].group`); str(e.value, `${path}.ai.lawHistory[${i}].value`); tick(e.tick, `${path}.ai.lawHistory[${i}].tick`); });
+  arr(ai.lawHistory, `${path}.ai.lawHistory`).forEach((h, i) => { const e = obj(h, `${path}.ai.lawHistory[${i}]`); str(e.group, `${path}.ai.lawHistory[${i}].group`); str(e.value, `${path}.ai.lawHistory[${i}].value`); tick(e.tick, `${path}.ai.lawHistory[${i}].tick`); if (e.from !== undefined) str(e.from, `${path}.ai.lawHistory[${i}].from`); });
   strings(ai.recent, `${path}.ai.recent`);
   strings(c.claims, `${path}.claims`);
   strings(c.priorities, `${path}.priorities`);

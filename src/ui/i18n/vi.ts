@@ -153,7 +153,7 @@ export const TECH_VI: Record<string, string> = {
   percussion_caps: 'Kíp nổ', general_staff: 'Bộ tổng tham mưu', rifled_muskets: 'Súng nòng xoắn', breech_loading_rifles: 'Súng trường nạp hậu', rifled_artillery: 'Pháo nòng xoắn', ironclads: 'Tàu bọc sắt',
   railway_mobilization: 'Động viên bằng đường sắt', quinine_prophylaxis: 'Dự phòng bằng quinine', machine_guns: 'Súng máy', smokeless_powder: 'Thuốc súng không khói', steel_warships: 'Chiến hạm thép',
   quick_firing_artillery: 'Pháo bắn nhanh', dreadnoughts: 'Thiết giáp hạm dreadnought', joint_stock_banking: 'Ngân hàng cổ phần', public_schooling: 'Trường học công', steam_press: 'Máy in hơi nước',
-  public_health: 'Y tế công cộng', anesthesia: 'Gây mê', germ_theory: 'Thuyết vi trùng', telephone: 'Điện thoại', socialist_thought: 'Tư tưởng xã hội chủ nghĩa',
+  public_health: 'Y tế công cộng', anesthesia: 'Gây mê', germ_theory: 'Thuyết vi trùng', telephone: 'Điện thoại', socialist_thought: 'Tư tưởng xã hội chủ nghĩa', mass_politics: 'Chính trị quần chúng', feminism: 'Nữ quyền',
 };
 
 // ---------------------------------------------------------------- numbers (vi-VN: "." thousands, "," decimals)
