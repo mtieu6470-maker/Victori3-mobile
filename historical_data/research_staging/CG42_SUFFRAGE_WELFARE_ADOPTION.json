@@ -7,7 +7,7 @@
     "coverage": {
       "countryRows": 63,
       "minimumRequired": 60,
-      "scope": "61 current and historical country/polity rows, prioritising states in the UN 1953 comparative franchise memorandum and major countries. This is a first evidence-backed calibration cohort, not a complete global census.",
+      "scope": "63 current and historical country/polity rows, prioritising states in the UN 1953 comparative franchise memorandum and major countries. This is a first evidence-backed calibration cohort, not a complete global census.",
       "femaleSuffrageRows": 63,
       "maleSuffrageRows": 19,
       "socialInsuranceRows": 23,
@@ -251,7 +251,7 @@
         "owid_lied_male_2026"
       ],
       "female_suffrage_year": 1902,
-      "female_suffrage_full_equal_year": null,
+      "female_suffrage_full_equal_year": 1962,
       "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
       "social_insurance_year": 1902,
       "old_age_pension_year": 1908,
@@ -284,7 +284,8 @@
       "old_age_pension_quality": "supported",
       "unemployment_insurance_quality": "supported",
       "male_suffrage_full_equal_year": 1962,
-      "male_suffrage_full_equal_quality": "supported"
+      "male_suffrage_full_equal_quality": "supported",
+      "female_suffrage_full_equal_quality": "supported"
     },
     {
       "iso3": "AUT",
@@ -544,7 +545,7 @@
       "male_suffrage_scope": "not populated without a country-specific year verified in the reviewed sources",
       "male_suffrage_source_ids": [],
       "female_suffrage_year": 1917,
-      "female_suffrage_full_equal_year": 1918,
+      "female_suffrage_full_equal_year": 1960,
       "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
       "social_insurance_year": 1927,
       "old_age_pension_year": 1927,
@@ -573,7 +574,8 @@
       "old_age_pension_quality": "supported",
       "unemployment_insurance_quality": "supported",
       "male_suffrage_full_equal_year": 1960,
-      "male_suffrage_full_equal_quality": "supported"
+      "male_suffrage_full_equal_quality": "supported",
+      "female_suffrage_full_equal_quality": "supported"
     },
     {
       "iso3": "LKA",
@@ -1233,7 +1235,8 @@
       "old_age_pension_quality": "unverified",
       "unemployment_insurance_quality": "unverified",
       "male_suffrage_full_equal_year": 1950,
-      "male_suffrage_full_equal_quality": "supported"
+      "male_suffrage_full_equal_quality": "supported",
+      "female_suffrage_full_equal_quality": "supported"
     },
     {
       "iso3": "IDN",
@@ -2087,7 +2090,8 @@
       "old_age_pension_quality": "unverified",
       "unemployment_insurance_quality": "unverified",
       "male_suffrage_full_equal_year": 1994,
-      "male_suffrage_full_equal_quality": "supported"
+      "male_suffrage_full_equal_quality": "supported",
+      "female_suffrage_full_equal_quality": "supported"
     },
     {
       "iso3": "RUS",
@@ -2175,7 +2179,7 @@
         "owid_lied_male_2026"
       ],
       "female_suffrage_year": 1920,
-      "female_suffrage_full_equal_year": null,
+      "female_suffrage_full_equal_year": 1965,
       "female_suffrage_scope": "national unless notes explicitly identify a provincial/local or restricted first grant",
       "social_insurance_year": 1930,
       "old_age_pension_year": 1935,
@@ -2208,7 +2212,8 @@
       "old_age_pension_quality": "supported",
       "unemployment_insurance_quality": "supported",
       "male_suffrage_full_equal_year": 1965,
-      "male_suffrage_full_equal_quality": "supported"
+      "male_suffrage_full_equal_quality": "supported",
+      "female_suffrage_full_equal_quality": "supported"
     },
     {
       "iso3": "URY",
