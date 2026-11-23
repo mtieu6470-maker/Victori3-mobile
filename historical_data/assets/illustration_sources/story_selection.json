@@ -709,12 +709,12 @@
     {
       "type": "illustration_event",
       "subject": "gbr_malaya_independence_1957",
-      "commons_file": "Federation_of_Malaya_Independence_Order_in_Council_1957.pdf",
-      "year": 1957,
-      "width": 900,
-      "author": "Queen's Most Excellent Majesty in Council",
-      "name": "Sắc lệnh độc lập Malaya 1957",
-      "description": "Federation of Malaya Independence Order in Council, 23 August 1957",
+      "commons_file": "Malayan_Declaration_of_Independence_1957_in_Tamil.jpg",
+      "year": 2025,
+      "width": 3000,
+      "author": "Wolfiewhite",
+      "name": "Tuyên ngôn độc lập Malaya",
+      "description": "Photograph of the 1957 Malayan Declaration of Independence document in Tamil",
       "period": {
         "from": 1955,
         "to": 1959
@@ -729,7 +729,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Primary legal document; PDF ingestion support must be confirmed."
+      "review_note": "CC0 1.0. Modern photograph of a historical primary document; current ingester's age cutoff blocks CC0 unless corrected."
     },
     {
       "type": "illustration_event",
@@ -1355,6 +1355,281 @@
         0.5
       ],
       "review_note": "Commons page explicitly marks the photograph CC0 1.0; modern photograph of a period primary document, not a period photograph."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_egypt_treaty_1936",
+      "period": {
+        "from": 1935,
+        "to": 1937
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "Anglo_Egyptian_treaty_of_1936_signing_-_18-November_1936.jpg",
+      "year": 1936,
+      "width": 500,
+      "author": "Egypt Post",
+      "name": "Hiệp ước Anh–Ai Cập năm 1936",
+      "description": "Egyptian commemorative stamp depicting the signing of the Anglo-Egyptian Treaty on 18 November 1936",
+      "review_note": "Commons page marks PD-Egypt and a US public-domain basis; stamp rather than a documentary photograph."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_anglo_irish_treaty_1921",
+      "period": {
+        "from": 1920,
+        "to": 1922
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "Anglo-Irish_Treaty_signatures.gif",
+      "year": 1921,
+      "width": 433,
+      "author": "Unknown author; Government of the United Kingdom",
+      "name": "Chữ ký Hiệp ước Anh–Ireland",
+      "description": "Signature page of the Anglo-Irish Treaty signed in December 1921",
+      "review_note": "Commons page marks the government document Public Domain; source is the treaty signature page."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_irish_free_state_1922",
+      "period": {
+        "from": 1920,
+        "to": 1922
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "Anglo-Irish_Treaty_signatures.gif",
+      "year": 1921,
+      "width": 433,
+      "author": "Unknown author; Government of the United Kingdom",
+      "name": "Chữ ký Hiệp ước Anh–Ireland",
+      "description": "Signature page of the Anglo-Irish Treaty that established the Irish Free State",
+      "review_note": "Same treaty and constitutional transition; shared image is intentional."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_gold_coast_accra_1948",
+      "period": {
+        "from": 2006,
+        "to": 2008
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "Accra_Riots_1.jpg",
+      "year": 2007,
+      "width": 1067,
+      "author": "Obruni",
+      "name": "Đài tưởng niệm nạn nhân biến động Accra",
+      "description": "Memorial in Accra commemorating the ex-servicemen killed during the 1948 Accra Riots",
+      "review_note": "Commons page marks the photograph public domain worldwide; modern memorial image, not a period photograph."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_south_africa_union_1910",
+      "period": {
+        "from": 1909,
+        "to": 1911
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "General_Louis_Botha,_Union_of_South_Africa.jpg",
+      "year": 1910,
+      "width": 1401,
+      "author": "The Marion Daily Mirror",
+      "name": "Louis Botha và Liên hiệp Nam Phi",
+      "description": "Portrait of General Louis Botha, first Prime Minister of the Union of South Africa",
+      "review_note": "PD-US newspaper photograph; portrait of the central political leader, not the ceremony itself."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_natives_land_act_1913",
+      "period": {
+        "from": 1913,
+        "to": 1915
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "ANC1914.jpg",
+      "year": 1914,
+      "width": 689,
+      "author": "Unknown photographer",
+      "name": "Phái đoàn ANC tại Anh năm 1914",
+      "description": "South African Native National Congress delegation in England, 1914, campaigning against the Natives Land Act",
+      "review_note": "Period photograph of the delegation opposing the Act; Commons page lists public-domain status."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "rsa_union_society_1913",
+      "period": {
+        "from": 1913,
+        "to": 1915
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "ANC1914.jpg",
+      "year": 1914,
+      "width": 689,
+      "author": "Unknown photographer",
+      "name": "Phái đoàn ANC tại Anh năm 1914",
+      "description": "South African Native National Congress delegation in England, 1914, campaigning against the Natives Land Act",
+      "review_note": "Same protest movement and immediate aftermath; shared image is intentional."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_jamaica_independence_1962",
+      "period": {
+        "from": 1961,
+        "to": 1963
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "Independence_Proclamation_of_Jamaica.jpg",
+      "year": 1962,
+      "width": 1000,
+      "author": "Royal Constitutional Convention",
+      "name": "Tuyên ngôn độc lập Jamaica",
+      "description": "The Independence Proclamation of Jamaica, 1962",
+      "review_note": "Commons page marks PD-Jamaica; document image, not a flag-raising photograph. Current age cutoff blocks it."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "jam_independence_agenda_1962",
+      "period": {
+        "from": 1961,
+        "to": 1963
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "Independence_Proclamation_of_Jamaica.jpg",
+      "year": 1962,
+      "width": 1000,
+      "author": "Royal Constitutional Convention",
+      "name": "Tuyên ngôn độc lập Jamaica",
+      "description": "The Independence Proclamation of Jamaica, 1962",
+      "review_note": "Same founding document and immediate post-independence transition; shared image is intentional."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "gbr_cyprus_independence_1960",
+      "period": {
+        "from": 2020,
+        "to": 2022
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "Archbishop_Makarios_III_signature.svg",
+      "year": 2021,
+      "width": 512,
+      "author": "Archbishop Makarios III; vectorisation by uploader",
+      "name": "Chữ ký Tổng thống Makarios",
+      "description": "Vector image of Archbishop Makarios III's signature, associated with the independence settlement",
+      "review_note": "PD text/signature basis; modern vectorisation and not a period photograph. Current age cutoff blocks it."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "cyp_power_sharing_1960",
+      "period": {
+        "from": 2020,
+        "to": 2022
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "commons_file": "Archbishop_Makarios_III_signature.svg",
+      "year": 2021,
+      "width": 512,
+      "author": "Archbishop Makarios III; vectorisation by uploader",
+      "name": "Chữ ký Tổng thống Makarios",
+      "description": "Vector image of Archbishop Makarios III's signature, associated with the independence settlement",
+      "review_note": "Same founding constitutional settlement; shared image is intentional."
     }
   ]
 }
