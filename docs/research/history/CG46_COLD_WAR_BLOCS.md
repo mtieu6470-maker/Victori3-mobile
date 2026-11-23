@@ -94,6 +94,31 @@ The structured companion contains 22 organisations/treaty relationships and 264 
 - **oas_charter** — [OAS Charter — signatures and ratifications](https://www.oas.org/en/iachr/mandate/Basics/charterOASrat.asp). Adoption and entry into force.
 - **oas_members** — [OAS Member States](https://oas.org/en/about/member_states.asp). 21 original signatories and subsequent membership accessions.
 
+## CG-46b — ISO codes, historical-capital coordinates and EEC customs union
+
+**Added fields (economic blocs and political organisations only):**
+- `iso3`: three-letter country/geographic code. Historical codes are retained for former states where available (USSR `SUN`, Czechoslovakia `CSK`, GDR `DDR`, Yugoslavia `YUG`, Democratic Yemen `YMD`) and annotated.
+- `capitalLat`, `capitalLon`: WGS84 city-point coordinates, decimal degrees rounded to two decimal places, for the historical capital named in `capitalHistorical`.
+- `iso3Note` is included where a historical state, disputed entity, movement or non-sovereign organization needs an explicit interpretation warning.
+
+**Coverage and validation:**
+- Enriched all 9 economic/political organizations: COMECON, ECSC, EEC/EU, EFTA, NAM, Arab League, OAU, ASEAN and OAS.
+- Enriched **189 member rows**. Military alliance and bilateral treaty rows are intentionally unchanged.
+- All enriched rows have a three-character `iso3` string and finite latitude/longitude within WGS84 bounds; coordinates are rounded to 0.01 degree.
+- EEC/EU: `customsUnionCompleted = 1968-07-01`. The six founding members receive `customsUnionFrom = 1968-07-01`; Denmark, Ireland and the UK use 1973-01-01; Greece 1981-01-01; Portugal and Spain 1986-01-01.
+- Coordinates are approximate city points for map labels/pins, not administrative boundaries, region centroids or ownership geometry. The PLO record uses Beirut as its operational headquarters; the SADR record uses claimed El Aaiún.
+
+**Sources and licensing:**
+- ISO code structure and current/withdrawn codes: [ISO 3166 glossary](https://www.iso.org/glossary-for-iso-3166.html) and [ISO 3166 country codes](https://www.iso.org/iso-3166-country-codes.html).
+- City point reference and coordinate conventions: [Natural Earth populated places](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-populated-places/) (public domain; [terms](https://www.naturalearthdata.com/about/terms-of-use/)); [GeoNames](https://www.geonames.org/about.html) (CC BY attribution; WGS84 coordinates). Coordinates are approximate and require in-game map verification.
+- EEC customs union completion and enlargement: [European Commission — History of the EU, 1960–69](https://european-union.europa.eu/principles-countries-history/history-eu/1960-69_en), [Council of the EU — EU customs union](https://www.consilium.europa.eu/en/policies/the-eu-customs-union/), [European Parliament — developments up to the Single European Act](https://www.europarl.europa.eu/factsheets/en/sheet/2/1138710100).
+
+**Integration cautions:**
+- `iso3` is a research identifier, not a substitute for Victori3's canonical polity/entity registry. Map `SUN`, `CSK`, `DDR`, `YUG`, `YMD`, UAR, PLO and SADR explicitly before engine ingestion.
+- UAR uses `EGY` only as a geographic anchor (it included Egypt and Syria); PLO uses `PSE` as a geographic anchor, not an organization code; SADR uses `ESH` as Western Sahara geography.
+- Coordinates are city points, not region centroids; historical-name aliases and disputed/headquarters locations need independent region verification before promotion.
+- Existing Rio Treaty, OAS and OAU roster limitations remain unchanged.
+
 ## Promotion gate
 
 This package is in `docs/research/history/` only. Claude should review the member rows against primary treaty instruments and institutional membership lists, map state names to canonical entity IDs, map historical capitals to region IDs, decide whether the diplomacy engine can represent bilateral treaties/associate members/suspension separately from full bloc membership, then create and validate the staging representation. In particular, do not silently promote the explicitly partial Rio Treaty/OAS/OAU coverage to exhaustive member lists.
