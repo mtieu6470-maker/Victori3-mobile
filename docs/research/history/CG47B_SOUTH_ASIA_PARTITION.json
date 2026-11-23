@@ -115,7 +115,6 @@
         "SIK_MUL",
         "SIK_PES",
         "SND_HYD",
-        "KAL_KAL",
         "EIC_BEN"
       ],
       "sources": [
@@ -123,7 +122,7 @@
         "india_mea_partition"
       ],
       "quality": "verified",
-      "note": "Pakistan became independent on 14 August 1947. East and West wings were geographically non-contiguous."
+      "note": "Pakistan became independent on 14 August 1947. East and West wings were geographically non-contiguous. Kalat is excluded from this initial allocation because its accession to Pakistan is dated 27 March 1948 (separate event)."
     },
     {
       "id": "IND-1947-08-15",
