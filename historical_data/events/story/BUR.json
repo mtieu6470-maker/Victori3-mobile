@@ -19,10 +19,10 @@
       "country": "BUR",
       "mode": "historical",
       "window": [
-        "1885-09-01",
-        "1886-02-28"
+        "1885-11-01",
+        "1885-11-29"
       ],
-      "date_historical": "1885-11-14",
+      "date_historical": "1885-11-29",
       "trigger": {
         "conditions": [
           {
@@ -47,15 +47,15 @@
       "chain": {
         "flag": "bur_resistance_1885"
       },
-      "title_vi": "Triều đình Ava trước cuộc tiến công của Anh",
-      "title_en": "The Ava Court Faces the British Invasion",
-      "text_vi": "Quân Anh vượt biên giới từ Hạ Miến và tiến dọc sông Irrawaddy sau khi triều đình bác bỏ các yêu sách của London. Vua Thibaw và các đại thần phải đối mặt với chênh lệch lớn về hỏa lực, hậu cần và khả năng vận chuyển đường sông. Triều đình có thể cố thủ Mandalay, rút lui để duy trì một cuộc kháng chiến phân tán hoặc chấp nhận một thỏa thuận bảo hộ nhằm giữ lại bộ máy hoàng gia.",
-      "text_en": "British forces advance from Lower Burma along the Irrawaddy after the court rejects London's demands. King Thibaw and his ministers face a severe imbalance in firepower, logistics and river transport. The court can defend Mandalay, retreat to sustain dispersed resistance or accept a protectorate arrangement in an attempt to preserve the monarchy.",
+      "title_vi": "Mandalay thất thủ và vua Thibaw bị lưu đày",
+      "title_en": "The Fall of Mandalay and the Exile of King Thibaw",
+      "text_vi": "Quân Anh tiến tới Mandalay và chiếm kinh đô ngày 28 tháng 11 năm 1885; hôm sau vua Thibaw cùng hoàng hậu Supayalat bị đưa đi lưu đày tại Ấn Độ. Triều Konbaung sụp đổ, nhưng các nhóm kháng chiến vẫn tiếp tục hoạt động tại nông thôn và vùng đồi. Triều đình phải lựa chọn giữa đầu hàng để bảo toàn sinh mạng, rút lui để duy trì yêu sách phục hồi hay tiếp tục kháng chiến dù tương quan lực lượng bất lợi.",
+      "text_en": "British forces reached Mandalay and occupied the capital on 28 November 1885; the following day King Thibaw and Queen Supayalat were sent into exile in India. The Konbaung dynasty fell, although resistance continued in the countryside and hill regions. The court must choose between surrender to preserve lives, retreat to maintain a restoration claim or continue resistance despite the military imbalance.",
       "options": [
         {
           "id": "defend_mandalay",
           "label_vi": "Tập trung quân bảo vệ Mandalay và các bến sông",
-          "label_en": "Concentrate forces to defend Mandalay and river crossings",
+          "label_en": "Concentrate forces to defend Mandalay and the river crossings",
           "ai_weight": 4,
           "historical": true,
           "effects": [
@@ -115,8 +115,8 @@
         },
         {
           "id": "accept_residency",
-          "label_vi": "Đàm phán chấp nhận cố vấn Anh nhưng giữ triều đình",
-          "label_en": "Accept British advisers while retaining the royal court",
+          "label_vi": "Chấp nhận thỏa thuận bảo hộ để giữ lại triều đình",
+          "label_en": "Accept a protectorate arrangement to preserve the royal court",
           "ai_weight": 1,
           "historical": false,
           "effects": [
@@ -135,10 +135,15 @@
               }
             },
             {
-              "type": "make_subject",
-              "subject": "BUR",
-              "overlord": "GBR",
-              "subject_type": "protectorate"
+              "type": "prestige",
+              "entity": "BUR",
+              "delta": -1
+            },
+            {
+              "type": "relation",
+              "a": "BUR",
+              "b": "GBR",
+              "delta": 5
             }
           ]
         }
