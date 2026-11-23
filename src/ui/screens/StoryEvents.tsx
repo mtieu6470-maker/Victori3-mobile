@@ -8,7 +8,7 @@ import { Sec, modals } from '../components/ui';
 import { GROUP_VI, IG_VI, fmt, lawVi } from '../i18n/vi';
 import { shortName } from '../game/names';
 import { send, canCommand } from './common';
-import { asset, assetUrl, illustrationFor } from '../game/content';
+import { asset, assetUrl, illustrationFor, useContent } from '../game/content';
 import { openCredit } from '../components/identity';
 
 const pct = (v: number) => `${v > 0 ? '+' : ''}${Math.round(v * 100)}%`;
@@ -81,6 +81,7 @@ export function StoryEventCard({ st, p }: { st: GameState; p: PendingStory }) {
   const e = data().db.story_events?.find((x) => x.id === p.event) as StoryEvent | undefined; if (!e) return null;
   const mine = canCommand(st, p.country);
   // the event's illustration: a reviewed public-domain image from the content pack (CG-52), by event id or image.ref
+  useContent(); // loads the content pack (lazily) and re-renders when it arrives
   const pic = illustrationFor('event', e.id) ?? asset(e.image?.ref);
   return (
     <div class="story-event" style="display:flex;gap:12px;flex-wrap:wrap">

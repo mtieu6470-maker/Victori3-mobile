@@ -977,6 +977,171 @@
       }
     },
     {
+      "id": "ill_bur_resist_1885",
+      "type": "illustration_event",
+      "subject": "bur_resist_1885",
+      "name": "Chiến tranh Anh–Miến lần thứ ba",
+      "description": "Photograph of the surrender of the Burmese Army during the Third Anglo-Burmese War, 27 November 1885",
+      "path": "content/illustrations/events/bur_resist_1885.webp",
+      "thumbnail_path": "content/illustrations/events/bur_resist_1885_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1885,
+        "to": 1885
+      },
+      "quality": "supported",
+      "date": "1885-11-27",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Third_anglo-burmese_war.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Third_anglo-burmese_war.jpg",
+        "statement": "{{PD-old-70-1923}}",
+        "title": "Photograph of the surrender of the Burmese Army during the Third Anglo-Burmese War, 27 November 1885",
+        "original_source": "British Library",
+        "source_pixels": [
+          955,
+          712
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Third_anglo-burmese_war.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-70-1923}}"
+      },
+      "author": "Willoughby Wallace Hooper",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "British Library photograph; author died 1912; candidate for PD review."
+      }
+    },
+    {
+      "id": "ill_bur_saya_san_1930",
+      "type": "illustration_event",
+      "subject": "bur_saya_san_1930",
+      "name": "Saya San",
+      "description": "Portrait of Saya San, leader of the 1930–1932 Burmese peasant rebellion",
+      "path": "content/illustrations/events/bur_saya_san_1930.webp",
+      "thumbnail_path": "content/illustrations/events/bur_saya_san_1930_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1930,
+        "to": 1932
+      },
+      "quality": "supported",
+      "date": null,
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Sayar_San.png",
+        "page": "https://commons.wikimedia.org/wiki/File:Sayar_San.png",
+        "statement": "{{PD-Myanmar}}",
+        "title": "Portrait of Saya San, leader of the 1930–1932 Burmese peasant rebellion",
+        "original_source": "Old book",
+        "source_pixels": [
+          441,
+          685
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Sayar_San.png",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Myanmar}}"
+      },
+      "author": "Unknown author",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Direct portrait of the movement's leader; portrait orientation will need a carefully composed crop."
+      }
+    },
+    {
+      "id": "ill_can_confederation_1867",
+      "type": "illustration_event",
+      "subject": "can_confederation_1867",
+      "name": "Các Cha lập quốc Canada",
+      "description": "Robert Harris's 1884 painting The Fathers of Confederation, photographed from the original",
+      "path": "content/illustrations/events/can_confederation_1867.webp",
+      "thumbnail_path": "content/illustrations/events/can_confederation_1867_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1882,
+        "to": 1886
+      },
+      "quality": "supported",
+      "date": "2008-08-22 (original artwork completed 1884, photo 1885)",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Fathers_of_Confederation_by_Robert_Harris.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Fathers_of_Confederation_by_Robert_Harris.jpg",
+        "statement": "{{PD-Art-two|PD-Canada|PD-1923}}",
+        "title": "Robert Harris's 1884 painting The Fathers of Confederation, photographed from the original",
+        "original_source": "Own work by uploader (photo of PD image - Robert Harris original artist, James Ashfield original photographer)",
+        "source_pixels": [
+          2417,
+          1720
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Fathers_of_Confederation_by_Robert_Harris.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Art-two|PD-Canada|PD-1923}}"
+      },
+      "author": "Robert Harris; photograph by James Ashfield",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Same event from the Canadian government's perspective; shared artwork is intentional."
+      }
+    },
+    {
       "id": "ill_dw_belgium_recognition",
       "type": "illustration_event",
       "subject": "dw_belgium_recognition",
@@ -1465,6 +1630,2646 @@
         "reviewed_by": "Claude (Project Director)",
         "reviewed": "2026-11-22",
         "note": "Contemporary view of the Ottoman capital at the start of the Tanzimat era."
+      }
+    },
+    {
+      "id": "ill_egy_revolution_1919",
+      "type": "illustration_event",
+      "subject": "egy_revolution_1919",
+      "name": "Biểu tình Ai Cập năm 1919",
+      "description": "Protesters during the Egyptian Revolution of 1919",
+      "path": "content/illustrations/events/egy_revolution_1919.webp",
+      "thumbnail_path": "content/illustrations/events/egy_revolution_1919_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1917,
+        "to": 1921
+      },
+      "quality": "supported",
+      "date": "1919-04-08",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Taxiphote1919.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Taxiphote1919.jpg",
+        "statement": "{{PD-old-70-1923}}",
+        "title": "Protesters during the Egyptian Revolution of 1919",
+        "original_source": "Rare Books and Special Collections Library; The American University in Cairo",
+        "source_pixels": [
+          1092,
+          458
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Taxiphote1919.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-70-1923}}"
+      },
+      "author": "Unknown author",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Commons page reports Public Domain; direct date and subject match."
+      }
+    },
+    {
+      "id": "ill_egy_urabi_revolt_1882",
+      "type": "illustration_event",
+      "subject": "egy_urabi_revolt_1882",
+      "name": "Quân đội Ai Cập thời Urabi",
+      "description": "Illustration of Egyptian army figures during the Urabi Revolt, published 3 June 1882",
+      "path": "content/illustrations/events/egy_urabi_revolt_1882.webp",
+      "thumbnail_path": "content/illustrations/events/egy_urabi_revolt_1882_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1880,
+        "to": 1884
+      },
+      "quality": "supported",
+      "date": "1882-06-03",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "The_Crisis_in_Egypt_Types_of_the_Egyptian_Army.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:The_Crisis_in_Egypt_Types_of_the_Egyptian_Army.jpg",
+        "statement": "{{PD-US-expired}} {{PD-old-70}}",
+        "title": "Illustration of Egyptian army figures during the Urabi Revolt, published 3 June 1882",
+        "original_source": "The Illustrated London News, June 3, 1882.",
+        "source_pixels": [
+          2943,
+          3935
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Crisis_in_Egypt_Types_of_the_Egyptian_Army.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-US-expired}} {{PD-old-70}}"
+      },
+      "author": "The Illustrated London News",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Contemporary illustration and direct historical context."
+      }
+    },
+    {
+      "id": "ill_eic_dissolution_1858",
+      "type": "illustration_event",
+      "subject": "eic_dissolution_1858",
+      "name": "Binh lính tại Lucknow",
+      "description": "Illustration from the Indian Rebellion period",
+      "path": "content/illustrations/events/eic_dissolution_1858.webp",
+      "thumbnail_path": "content/illustrations/events/eic_dissolution_1858_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1857,
+        "to": 1858
+      },
+      "quality": "supported",
+      "date": "1857-10-31",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Group_of_sepoys_at_Lucknow.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Group_of_sepoys_at_Lucknow.jpg",
+        "statement": "{{PD-Art|PD-old-100-expired}}",
+        "title": "Illustration from the Indian Rebellion period",
+        "original_source": "http://www.columbia.edu/itc/mealac/pritchett/00routesdata/1800_1899/1857revolt/warriors/warriors.html",
+        "source_pixels": [
+          1904,
+          1249
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Group_of_sepoys_at_Lucknow.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Art|PD-old-100-expired}}"
+      },
+      "author": "The Illustrated London News",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Period visual for the immediate transition following the rebellion."
+      }
+    },
+    {
+      "id": "ill_gbr_amritsar_1919",
+      "type": "illustration_event",
+      "subject": "gbr_amritsar_1919",
+      "name": "Jallianwala Bagh",
+      "description": "The Jallianwalla Bagh in Amritsar, 1919, months after the massacre",
+      "path": "content/illustrations/events/gbr_amritsar_1919.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_amritsar_1919_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1919,
+        "to": 1919
+      },
+      "quality": "supported",
+      "date": null,
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Jallianwallah.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Jallianwallah.jpg",
+        "statement": "{{PD-India}}",
+        "title": "The Jallianwalla Bagh in Amritsar, 1919, months after the massacre",
+        "original_source": null,
+        "source_pixels": [
+          500,
+          345
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Jallianwallah.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-India}}"
+      },
+      "author": "Unknown",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Public-domain India tag reported on Commons; low resolution, retain as a candidate pending crop test."
+      }
+    },
+    {
+      "id": "ill_gbr_anglo_irish_treaty_1921",
+      "type": "illustration_event",
+      "subject": "gbr_anglo_irish_treaty_1921",
+      "name": "Chữ ký Hiệp ước Anh–Ireland",
+      "description": "Signature page of the Anglo-Irish Treaty signed in December 1921",
+      "path": "content/illustrations/events/gbr_anglo_irish_treaty_1921.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_anglo_irish_treaty_1921_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1920,
+        "to": 1922
+      },
+      "quality": "supported",
+      "date": null,
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Anglo-Irish_Treaty_signatures.gif",
+        "page": "https://commons.wikimedia.org/wiki/File:Anglo-Irish_Treaty_signatures.gif",
+        "statement": "{{PD-UKGov}}",
+        "title": "Signature page of the Anglo-Irish Treaty signed in December 1921",
+        "original_source": null,
+        "source_pixels": [
+          433,
+          684
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Anglo-Irish_Treaty_signatures.gif",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-UKGov}}"
+      },
+      "author": "Unknown author; Government of the United Kingdom",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Commons page marks the government document Public Domain; source is the treaty signature page."
+      }
+    },
+    {
+      "id": "ill_gbr_balfour_declaration_1917",
+      "type": "illustration_event",
+      "subject": "gbr_balfour_declaration_1917",
+      "name": "Tuyên bố Balfour trên báo Times",
+      "description": "The Balfour Declaration as printed in The Times on 9 November 1917",
+      "path": "content/illustrations/events/gbr_balfour_declaration_1917.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_balfour_declaration_1917_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1915,
+        "to": 1919
+      },
+      "quality": "supported",
+      "date": "2013-08-24 20:19:58",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Balfour_Declaration_in_the_Times_9_November_1917.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Balfour_Declaration_in_the_Times_9_November_1917.jpg",
+        "statement": "{{PD-old-70-expired}}",
+        "title": "The Balfour Declaration as printed in The Times on 9 November 1917",
+        "original_source": "The Times of London",
+        "source_pixels": [
+          437,
+          605
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Balfour_Declaration_in_the_Times_9_November_1917.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-70-expired}}"
+      },
+      "author": "The Times",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Contemporary newspaper reproduction; rights need the ingestion check."
+      }
+    },
+    {
+      "id": "ill_gbr_bengal_partition_1905",
+      "type": "illustration_event",
+      "subject": "gbr_bengal_partition_1905",
+      "name": "Cuộc mít tinh ủng hộ chia tách Bengal",
+      "description": "A mass meeting of Muslims held at Dhaka on 4 September 1906 in favour of the partition of Bengal, published in The Sphere on 27 October 1906",
+      "path": "content/illustrations/events/gbr_bengal_partition_1905.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_bengal_partition_1905_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1905,
+        "to": 1907
+      },
+      "quality": "supported",
+      "date": "1906-10-27",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Bengal_Partition_Mass_1906.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Bengal_Partition_Mass_1906.jpg",
+        "statement": "{{PD-India}}",
+        "title": "A mass meeting of Muslims held at Dhaka on 4 September 1906 in favour of the partition of Bengal, published in The Sphere on 27 October 1906",
+        "original_source": "The decision to partition Bengal in 1905",
+        "source_pixels": [
+          1275,
+          408
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Bengal_Partition_Mass_1906.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-India}}"
+      },
+      "author": "The Sphere",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Contemporary image of the political mobilisation around the 1905 partition; Commons page reports Public Domain India."
+      }
+    },
+    {
+      "id": "ill_gbr_bengal_reunification_1911",
+      "type": "illustration_event",
+      "subject": "gbr_bengal_reunification_1911",
+      "name": "Delhi Durbar 1911",
+      "description": "The Delhi Durbar of 1911, with King George V and Queen Mary seated upon the dais",
+      "path": "content/illustrations/events/gbr_bengal_reunification_1911.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_bengal_reunification_1911_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1911,
+        "to": 1912
+      },
+      "quality": "supported",
+      "date": "1911-12-12",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Delhi_Durbar,_1911.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Delhi_Durbar%2C_1911.jpg",
+        "statement": "{{PD-old-100-1923}}",
+        "title": "The Delhi Durbar of 1911, with King George V and Queen Mary seated upon the dais",
+        "original_source": "Scanned print obtained by the uploader via a seller on ebay.com.",
+        "source_pixels": [
+          1139,
+          634
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Delhi_Durbar%2C_1911.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-100-1923}}"
+      },
+      "author": "Unknown photographer",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Commons page reports Public Domain; direct event/date match."
+      }
+    },
+    {
+      "id": "ill_gbr_boer_war_1899",
+      "type": "illustration_event",
+      "subject": "gbr_boer_war_1899",
+      "name": "Chiến tranh Boer lần thứ hai",
+      "description": "The Second Boer War, 1899–1902, photograph from the Imperial War Museums collection",
+      "path": "content/illustrations/events/gbr_boer_war_1899.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_boer_war_1899_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1897,
+        "to": 1901
+      },
+      "quality": "supported",
+      "date": "(Pre-1914)",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "The_Second_Boer_War,_1899-1902_Q71999.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:The_Second_Boer_War%2C_1899-1902_Q71999.jpg",
+        "statement": "{{PD-Scan|1=PD-UKGov|category=}}",
+        "title": "The Second Boer War, 1899–1902, photograph from the Imperial War Museums collection",
+        "original_source": "http://media.iwm.org.uk/iwm/mediaLib//342/media-342239/large.jpg",
+        "source_pixels": [
+          800,
+          526
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Second_Boer_War%2C_1899-1902_Q71999.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Scan|1=PD-UKGov|category=}}"
+      },
+      "author": "William Skeoch Cumming",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Commons page states PD-UKGov; event-specific war photograph."
+      }
+    },
+    {
+      "id": "ill_gbr_burma_ultimatum_1885",
+      "type": "illustration_event",
+      "subject": "gbr_burma_ultimatum_1885",
+      "name": "Tối hậu thư với triều Konbaung",
+      "description": "Period illustration of sepoys at Lucknow, 1857; generic contextual candidate pending a more specific visual",
+      "path": "content/illustrations/events/gbr_burma_ultimatum_1885.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_burma_ultimatum_1885_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1884,
+        "to": 1886
+      },
+      "quality": "supported",
+      "date": "1857-10-31",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Group of sepoys at Lucknow.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Group%20of%20sepoys%20at%20Lucknow.jpg",
+        "statement": "{{PD-Art|PD-old-100-expired}}",
+        "title": "Period illustration of sepoys at Lucknow, 1857; generic contextual candidate pending a more specific visual",
+        "original_source": "http://www.columbia.edu/itc/mealac/pritchett/00routesdata/1800_1899/1857revolt/warriors/warriors.html",
+        "source_pixels": [
+          1904,
+          1249
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Group%20of%20sepoys%20at%20Lucknow.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Art|PD-old-100-expired}}"
+      },
+      "author": "The Illustrated London News",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Contextual candidate only; replace with event-specific source if available."
+      }
+    },
+    {
+      "id": "ill_gbr_canada_durham_1839",
+      "type": "illustration_event",
+      "subject": "gbr_canada_durham_1839",
+      "name": "Báo cáo Durham năm 1839",
+      "description": "First page of Lord Durham's Report on the Affairs of British North America, published in 1839",
+      "path": "content/illustrations/events/gbr_canada_durham_1839.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_canada_durham_1839_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1839,
+        "to": 1839
+      },
+      "quality": "supported",
+      "date": "1839-06-19",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Lambton_-_Durham_report_(page_3).jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Lambton_-_Durham_report_%28page_3%29.jpg",
+        "statement": "{{PD-US-expired}}",
+        "title": "First page of Lord Durham's Report on the Affairs of British North America, published in 1839",
+        "original_source": "https://www.canadiana.ca/view/oocihm.32374/3",
+        "source_pixels": [
+          2860,
+          4681
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Lambton_-_Durham_report_%28page_3%29.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-US-expired}}"
+      },
+      "author": "John Lambton, 1st Earl of Durham",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Commons page marks Public Domain Mark 1.0 and US public domain; primary document image."
+      }
+    },
+    {
+      "id": "ill_gbr_canadian_confederation_1867",
+      "type": "illustration_event",
+      "subject": "gbr_canadian_confederation_1867",
+      "name": "Các Cha lập quốc Canada",
+      "description": "Robert Harris's 1884 painting The Fathers of Confederation, photographed from the original",
+      "path": "content/illustrations/events/gbr_canadian_confederation_1867.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_canadian_confederation_1867_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1882,
+        "to": 1886
+      },
+      "quality": "supported",
+      "date": "2008-08-22 (original artwork completed 1884, photo 1885)",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Fathers_of_Confederation_by_Robert_Harris.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Fathers_of_Confederation_by_Robert_Harris.jpg",
+        "statement": "{{PD-Art-two|PD-Canada|PD-1923}}",
+        "title": "Robert Harris's 1884 painting The Fathers of Confederation, photographed from the original",
+        "original_source": "Own work by uploader (photo of PD image - Robert Harris original artist, James Ashfield original photographer)",
+        "source_pixels": [
+          2417,
+          1720
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Fathers_of_Confederation_by_Robert_Harris.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Art-two|PD-Canada|PD-1923}}"
+      },
+      "author": "Robert Harris; photograph by James Ashfield",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Commons page states PD in Canada and US; depicts the constitutional negotiations leading to Confederation."
+      }
+    },
+    {
+      "id": "ill_gbr_ceylon_riots_1915",
+      "type": "illustration_event",
+      "subject": "gbr_ceylon_riots_1915",
+      "name": "Colombo, Ceylon, khoảng năm 1890",
+      "description": "Street scene in Colombo, Ceylon, circa 1890; a period view of the city where the 1915 disturbances took place",
+      "path": "content/illustrations/events/gbr_ceylon_riots_1915.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_ceylon_riots_1915_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1915,
+        "to": 1915
+      },
+      "quality": "supported",
+      "date": "1890",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Ceylon._Colombo._Street_Scene_LCCN2017657635.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Ceylon._Colombo._Street_Scene_LCCN2017657635.jpg",
+        "statement": "{{PD-old-70-1923}}",
+        "title": "Street scene in Colombo, Ceylon, circa 1890; a period view of the city where the 1915 disturbances took place",
+        "original_source": "Library of Congress",
+        "source_pixels": [
+          1024,
+          800
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Ceylon._Colombo._Street_Scene_LCCN2017657635.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-70-1923}}"
+      },
+      "author": "Library of Congress",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "LoC-derived Commons file with Public Domain Mark and PD-old-70 tags; depicts the city setting, not the riot itself."
+      }
+    },
+    {
+      "id": "ill_gbr_clifford_constitution_1922",
+      "type": "illustration_event",
+      "subject": "gbr_clifford_constitution_1922",
+      "name": "Sir Hugh Clifford tại Tây Phi",
+      "description": "Press photograph portrait of Sir Hugh Clifford, Governor of Nigeria, published circa May 1919",
+      "path": "content/illustrations/events/gbr_clifford_constitution_1922.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_clifford_constitution_1922_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1922,
+        "to": 1922
+      },
+      "quality": "supported",
+      "date": "1919",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Sir_Hugh_Clifford,_gouverneur_du_Niger_-_btv1b53016293d.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Sir_Hugh_Clifford%2C_gouverneur_du_Niger_-_btv1b53016293d.jpg",
+        "statement": "{{PD-France}} {{PD-1996}} {{PD-US-expired}}",
+        "title": "Press photograph portrait of Sir Hugh Clifford, Governor of Nigeria, published circa May 1919",
+        "original_source": null,
+        "source_pixels": [
+          3054,
+          4194
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Sir_Hugh_Clifford%2C_gouverneur_du_Niger_-_btv1b53016293d.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-France}} {{PD-1996}} {{PD-US-expired}}"
+      },
+      "author": "Agence Rol; Bibliothèque nationale de France",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Portrait of the governor after whom the 1922 constitution is named; Commons lists PD in France and the United States."
+      }
+    },
+    {
+      "id": "ill_gbr_crown_rule_1858",
+      "type": "illustration_event",
+      "subject": "gbr_crown_rule_1858",
+      "name": "Binh lính tại Lucknow",
+      "description": "Group of sepoys at Lucknow, illustration published in The Illustrated London News on 31 October 1857",
+      "path": "content/illustrations/events/gbr_crown_rule_1858.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_crown_rule_1858_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1858,
+        "to": 1935
+      },
+      "quality": "supported",
+      "date": "1857-10-31",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Group_of_sepoys_at_Lucknow.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Group_of_sepoys_at_Lucknow.jpg",
+        "statement": "{{PD-Art|PD-old-100-expired}}",
+        "title": "Group of sepoys at Lucknow, illustration published in The Illustrated London News on 31 October 1857",
+        "original_source": "http://www.columbia.edu/itc/mealac/pritchett/00routesdata/1800_1899/1857revolt/warriors/warriors.html",
+        "source_pixels": [
+          1904,
+          1249
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Group_of_sepoys_at_Lucknow.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Art|PD-old-100-expired}}"
+      },
+      "author": "The Illustrated London News",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Contemporary illustration of the 1857 revolt and immediate aftermath leading to Crown rule."
+      }
+    },
+    {
+      "id": "ill_gbr_easter_rising_1916",
+      "type": "illustration_event",
+      "subject": "gbr_easter_rising_1916",
+      "name": "Chiến lũy Dublin 1916",
+      "description": "Barricade in Dublin during the Easter Rising, April 1916",
+      "path": "content/illustrations/events/gbr_easter_rising_1916.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_easter_rising_1916_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1914,
+        "to": 1918
+      },
+      "quality": "supported",
+      "date": "1916-04",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Osteraufstand_-_Dublin_-_Barrikade.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Osteraufstand_-_Dublin_-_Barrikade.jpg",
+        "statement": "{{PD-old}}",
+        "title": "Barricade in Dublin during the Easter Rising, April 1916",
+        "original_source": "http://cdn4.spiegel.de/images/image-970153-galleryV9-nmbx-970153.jpg",
+        "source_pixels": [
+          850,
+          567
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Osteraufstand_-_Dublin_-_Barrikade.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old}}"
+      },
+      "author": "Unknown author",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Commons page carries Public Domain Mark 1.0; verify with ingestion tool."
+      }
+    },
+    {
+      "id": "ill_gbr_egypt_independence_1922",
+      "type": "illustration_event",
+      "subject": "gbr_egypt_independence_1922",
+      "name": "Biểu tình Cairo năm 1919",
+      "description": "Nationalists demonstrating in Cairo during the 1919 revolution",
+      "path": "content/illustrations/events/gbr_egypt_independence_1922.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_egypt_independence_1922_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1917,
+        "to": 1921
+      },
+      "quality": "supported",
+      "date": "1919-03",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Cairo-Demonstrations1919.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Cairo-Demonstrations1919.jpg",
+        "statement": "{{PD-Egypt}}",
+        "title": "Nationalists demonstrating in Cairo during the 1919 revolution",
+        "original_source": "http://mideastimage.com/photo/standard/Cairo-Demonstrations%201919.jpg",
+        "source_pixels": [
+          1170,
+          1875
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Cairo-Demonstrations1919.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Egypt}}"
+      },
+      "author": "Unknown author",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Contextual visual for the nationalist pressure preceding the 1922 declaration."
+      }
+    },
+    {
+      "id": "ill_gbr_egypt_occupation_1882",
+      "type": "illustration_event",
+      "subject": "gbr_egypt_occupation_1882",
+      "name": "Ahmed Urabi đầu hàng",
+      "description": "Ahmed Urabi surrenders to Drury-Lowe in 1882, from the 1895 British Library book",
+      "path": "content/illustrations/events/gbr_egypt_occupation_1882.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_egypt_occupation_1882_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1893,
+        "to": 1897
+      },
+      "quality": "supported",
+      "date": "1895",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Surrender_of_Ahmed_Urabi.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Surrender_of_Ahmed_Urabi.jpg",
+        "statement": "{{PD-old-70-1923}}",
+        "title": "Ahmed Urabi surrenders to Drury-Lowe in 1882, from the 1895 British Library book",
+        "original_source": "From page 608 of the 1895 British book Illustrated Battles of the Nineteenth Century, volume 1.  Uploaded by the British Library to Flickr here.  Cropped and rotated.",
+        "source_pixels": [
+          1458,
+          1263
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Surrender_of_Ahmed_Urabi.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-70-1923}}"
+      },
+      "author": "Illustrated Battles of the Nineteenth Century",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Period illustration of the end of the revolt."
+      }
+    },
+    {
+      "id": "ill_gbr_gold_coast_accra_1948",
+      "type": "illustration_event",
+      "subject": "gbr_gold_coast_accra_1948",
+      "name": "Đài tưởng niệm nạn nhân biến động Accra",
+      "description": "Memorial in Accra commemorating the ex-servicemen killed during the 1948 Accra Riots",
+      "path": "content/illustrations/events/gbr_gold_coast_accra_1948.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_gold_coast_accra_1948_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 2006,
+        "to": 2008
+      },
+      "quality": "supported",
+      "date": "2007-10",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Accra_Riots_1.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Accra_Riots_1.jpg",
+        "statement": "{{PD-self}}",
+        "title": "Memorial in Accra commemorating the ex-servicemen killed during the 1948 Accra Riots",
+        "original_source": null,
+        "source_pixels": [
+          1067,
+          1600
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Accra_Riots_1.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-self}}"
+      },
+      "author": "Obruni",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Commons page marks the photograph public domain worldwide; modern memorial image, not a period photograph."
+      }
+    },
+    {
+      "id": "ill_gbr_inc_1885",
+      "type": "illustration_event",
+      "subject": "gbr_inc_1885",
+      "name": "Đại hội Quốc dân Ấn Độ đầu tiên",
+      "description": "First session of Indian National Congress, Bombay, 28–31 December 1885",
+      "path": "content/illustrations/events/gbr_inc_1885.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_inc_1885_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1885,
+        "to": 1885
+      },
+      "quality": "supported",
+      "date": "1885",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "First_meeting_session_of_the_Indian_National_Congress_in_Bombay,_1885.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:First_meeting_session_of_the_Indian_National_Congress_in_Bombay%2C_1885.jpg",
+        "statement": "{{PD-old-100}} {{PD-US}}",
+        "title": "First session of Indian National Congress, Bombay, 28–31 December 1885",
+        "original_source": "http://www.movinghere.org.uk/galleries/histories/asian/origins/origins.htm#relationship Moving Here - Heritage.  Originally uploaded on English Wikipedia by User:Fowler&amp;fowler|Fowler&amp;fowler (User talk:Fowler&amp;fowler|<span class=\"signature-talk\">talk</span>)",
+        "source_pixels": [
+          1060,
+          696
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:First_meeting_session_of_the_Indian_National_Congress_in_Bombay%2C_1885.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-100}} {{PD-US}}"
+      },
+      "author": "Unknown author",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Directly depicts the first Congress session; Commons page identifies public-domain status."
+      }
+    },
+    {
+      "id": "ill_gbr_indian_rebellion_1857",
+      "type": "illustration_event",
+      "subject": "gbr_indian_rebellion_1857",
+      "name": "Binh lính tại Lucknow",
+      "description": "Group of sepoys at Lucknow, illustration published in The Illustrated London News, 31 October 1857",
+      "path": "content/illustrations/events/gbr_indian_rebellion_1857.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_indian_rebellion_1857_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1857,
+        "to": 1858
+      },
+      "quality": "supported",
+      "date": "1857-10-31",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Group_of_sepoys_at_Lucknow.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Group_of_sepoys_at_Lucknow.jpg",
+        "statement": "{{PD-Art|PD-old-100-expired}}",
+        "title": "Group of sepoys at Lucknow, illustration published in The Illustrated London News, 31 October 1857",
+        "original_source": "http://www.columbia.edu/itc/mealac/pritchett/00routesdata/1800_1899/1857revolt/warriors/warriors.html",
+        "source_pixels": [
+          1904,
+          1249
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Group_of_sepoys_at_Lucknow.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Art|PD-old-100-expired}}"
+      },
+      "author": "The Illustrated London News",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Contemporary illustration of the Bengal Army and the 1857 uprising; landscape source."
+      }
+    },
+    {
+      "id": "ill_gbr_irish_free_state_1922",
+      "type": "illustration_event",
+      "subject": "gbr_irish_free_state_1922",
+      "name": "Chữ ký Hiệp ước Anh–Ireland",
+      "description": "Signature page of the Anglo-Irish Treaty that established the Irish Free State",
+      "path": "content/illustrations/events/gbr_irish_free_state_1922.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_irish_free_state_1922_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1920,
+        "to": 1922
+      },
+      "quality": "supported",
+      "date": null,
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Anglo-Irish_Treaty_signatures.gif",
+        "page": "https://commons.wikimedia.org/wiki/File:Anglo-Irish_Treaty_signatures.gif",
+        "statement": "{{PD-UKGov}}",
+        "title": "Signature page of the Anglo-Irish Treaty that established the Irish Free State",
+        "original_source": null,
+        "source_pixels": [
+          433,
+          684
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Anglo-Irish_Treaty_signatures.gif",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-UKGov}}"
+      },
+      "author": "Unknown author; Government of the United Kingdom",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Same treaty and constitutional transition; shared image is intentional."
+      }
+    },
+    {
+      "id": "ill_gbr_jamaica_labour_1938",
+      "type": "illustration_event",
+      "subject": "gbr_jamaica_labour_1938",
+      "name": "Lao động trên cánh đồng mía Jamaica",
+      "description": "Photograph of Jamaican sugar-cane workers and carts, within the archive's circa 1875–1940 coverage",
+      "path": "content/illustrations/events/gbr_jamaica_labour_1938.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_jamaica_labour_1938_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1938,
+        "to": 1938
+      },
+      "quality": "supported",
+      "date": "/1940",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Sugar_Cane_Field,_Jamaica,_ca.1875-ca.1940_(imp-cswc-GB-237-CSWC47-LS11-024).jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Sugar_Cane_Field%2C_Jamaica%2C_ca.1875-ca.1940_%28imp-cswc-GB-237-CSWC47-LS11-024%29.jpg",
+        "statement": "{{PD-old-70-1923}}",
+        "title": "Photograph of Jamaican sugar-cane workers and carts, within the archive's circa 1875–1940 coverage",
+        "original_source": "http://digitallibrary.usc.edu/cdm/ref/collection/p15799coll123/id/64916",
+        "source_pixels": [
+          4855,
+          4870
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Sugar_Cane_Field%2C_Jamaica%2C_ca.1875-ca.1940_%28imp-cswc-GB-237-CSWC47-LS11-024%29.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-70-1923}}"
+      },
+      "author": "Unknown photographer; International Mission Photography Archive",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Contextual labour photograph, not a direct depiction of the 1938 strike. Commons lists public-domain status in the country of origin and US publication before 1931; alternate is a 1962 US-government photograph of Bustamante."
+      }
+    },
+    {
+      "id": "ill_gbr_lucknow_pact_1916",
+      "type": "illustration_event",
+      "subject": "gbr_lucknow_pact_1916",
+      "name": "Ambica Charan Mazumdar",
+      "description": "Ambica Charan Mazumdar, president of the 31st session of the Indian National Congress in 1916",
+      "path": "content/illustrations/events/gbr_lucknow_pact_1916.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_lucknow_pact_1916_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1916,
+        "to": 1917
+      },
+      "quality": "supported",
+      "date": "1916",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "1916muzumdar.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:1916muzumdar.jpg",
+        "statement": "{{PD-old}}",
+        "title": "Ambica Charan Mazumdar, president of the 31st session of the Indian National Congress in 1916",
+        "original_source": "http://www.columbia.edu/itc/mealac/pritchett/00routesdata/1800_1899/congress/presidents/1916muzumdar.jpg",
+        "source_pixels": [
+          650,
+          867
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:1916muzumdar.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old}}"
+      },
+      "author": "Unknown author",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Contemporary portrait of the Congress president in the year of the Lucknow Pact; contextual, not a photograph of the signing."
+      }
+    },
+    {
+      "id": "ill_gbr_malta_independence_1964",
+      "type": "illustration_event",
+      "subject": "gbr_malta_independence_1964",
+      "name": "Malta nhận văn kiện độc lập",
+      "description": "George Borg Olivier receiving the independence instruments on 21 September 1964",
+      "path": "content/illustrations/events/gbr_malta_independence_1964.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_malta_independence_1964_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1962,
+        "to": 1966
+      },
+      "quality": "supported",
+      "date": "1964-09-21",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "George_Borg_Olivier_receiving_Independence_Instruments_IMG_0891.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:George_Borg_Olivier_receiving_Independence_Instruments_IMG_0891.jpg",
+        "statement": "{{cc-zero}}",
+        "title": "George Borg Olivier receiving the independence instruments on 21 September 1964",
+        "original_source": "Public domain",
+        "source_pixels": [
+          1000,
+          616
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "CC0",
+        "url": "https://commons.wikimedia.org/wiki/File:George_Borg_Olivier_receiving_Independence_Instruments_IMG_0891.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{cc-zero}}"
+      },
+      "author": "DOI Malta",
+      "credit": "Wikimedia Commons (cc0)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Commons page is explicitly CC0 1.0."
+      }
+    },
+    {
+      "id": "ill_gbr_morley_minto_1909",
+      "type": "illustration_event",
+      "subject": "gbr_morley_minto_1909",
+      "name": "Đại hội Quốc dân Ấn Độ năm 1904",
+      "description": "Indian National Congress meeting photograph, 1904",
+      "path": "content/illustrations/events/gbr_morley_minto_1909.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_morley_minto_1909_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1908,
+        "to": 1910
+      },
+      "quality": "supported",
+      "date": "1904",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "INC_1904.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:INC_1904.jpg",
+        "statement": "{{pd-old}}",
+        "title": "Indian National Congress meeting photograph, 1904",
+        "original_source": "Indian & home memories by Sir Henry Cotton",
+        "source_pixels": [
+          2914,
+          2289
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:INC_1904.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{pd-old}}"
+      },
+      "author": "Unknown author",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Political assembly image from the years immediately preceding the Morley–Minto reforms; contextual, not a depiction of the Act."
+      }
+    },
+    {
+      "id": "ill_gbr_natives_land_act_1913",
+      "type": "illustration_event",
+      "subject": "gbr_natives_land_act_1913",
+      "name": "Phái đoàn ANC tại Anh năm 1914",
+      "description": "South African Native National Congress delegation in England, 1914, campaigning against the Natives Land Act",
+      "path": "content/illustrations/events/gbr_natives_land_act_1913.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_natives_land_act_1913_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1913,
+        "to": 1915
+      },
+      "quality": "supported",
+      "date": "1914-06",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "ANC1914.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:ANC1914.jpg",
+        "statement": "{{PD-old-70-1923}}",
+        "title": "South African Native National Congress delegation in England, 1914, campaigning against the Natives Land Act",
+        "original_source": "ZAR.co.za",
+        "source_pixels": [
+          689,
+          518
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:ANC1914.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-70-1923}}"
+      },
+      "author": "Unknown photographer",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Period photograph of the delegation opposing the Act; Commons page lists public-domain status."
+      }
+    },
+    {
+      "id": "ill_gbr_nigeria_independence_1960",
+      "type": "illustration_event",
+      "subject": "gbr_nigeria_independence_1960",
+      "name": "Quốc hội độc lập Nigeria",
+      "description": "Princess Alexandra formally opened Nigeria's independence parliament on 3 October 1960",
+      "path": "content/illustrations/events/gbr_nigeria_independence_1960.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_nigeria_independence_1960_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1958,
+        "to": 1962
+      },
+      "quality": "supported",
+      "date": "2024-02-08",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Princess_Alexandra,_The_Queen's_Representative,_formally_Opened_Nigeria's_Independence_Parliament_before_a_Distinguished_Assembly_of_People_and_Diplomats,_on_October_3rd_1960.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Princess_Alexandra%2C_The_Queen%27s_Representative%2C_formally_Opened_Nigeria%27s_Independence_Parliament_before_a_Distinguished_Assembly_of_People_and_Diplomats%2C_on_October_3rd_1960.jpg",
+        "statement": "{{cc-zero}}",
+        "title": "Princess Alexandra formally opened Nigeria's independence parliament on 3 October 1960",
+        "original_source": "National Library of Nigeria",
+        "source_pixels": [
+          5106,
+          4047
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "CC0",
+        "url": "https://commons.wikimedia.org/wiki/File:Princess_Alexandra%2C_The_Queen%27s_Representative%2C_formally_Opened_Nigeria%27s_Independence_Parliament_before_a_Distinguished_Assembly_of_People_and_Diplomats%2C_on_October_3rd_1960.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{cc-zero}}"
+      },
+      "author": "National Library of Nigeria",
+      "credit": "Wikimedia Commons (cc0)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "National Library of Nigeria source; rights must be confirmed by ingestion tool."
+      }
+    },
+    {
+      "id": "ill_gbr_noncooperation_1920",
+      "type": "illustration_event",
+      "subject": "gbr_noncooperation_1920",
+      "name": "Gandhi và Tagore năm 1920",
+      "description": "Gandhi and Rabindranath Tagore in 1920, a period portrait from the mass non-cooperation era",
+      "path": "content/illustrations/events/gbr_noncooperation_1920.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_noncooperation_1920_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1920,
+        "to": 1930
+      },
+      "quality": "supported",
+      "date": "1920",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Gandhi_and_Tagore_1920.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Gandhi_and_Tagore_1920.jpg",
+        "statement": "{{PD-India}} {{PD-US}}",
+        "title": "Gandhi and Rabindranath Tagore in 1920, a period portrait from the mass non-cooperation era",
+        "original_source": "Gandhi, Phaidon, 2002",
+        "source_pixels": [
+          2283,
+          2437
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Gandhi_and_Tagore_1920.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-India}} {{PD-US}}"
+      },
+      "author": "Unknown author",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Contemporary portrait from 1920; candidate visual for the political mobilisation, not a depiction of a boycott itself."
+      }
+    },
+    {
+      "id": "ill_gbr_palestine_mandate_1922",
+      "type": "illustration_event",
+      "subject": "gbr_palestine_mandate_1922",
+      "name": "Bản đồ chiến dịch Palestine",
+      "description": "British Library map of the Palestine campaign immediately before the Balfour Declaration",
+      "path": "content/illustrations/events/gbr_palestine_mandate_1922.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_palestine_mandate_1922_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1919,
+        "to": 1923
+      },
+      "quality": "supported",
+      "date": "1921",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "World_War_I_Palestine_campaign,_Military_situation_immediately_prior_to_the_release_of_the_Balfour_Declaration.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:World_War_I_Palestine_campaign%2C_Military_situation_immediately_prior_to_the_release_of_the_Balfour_Declaration.jpg",
+        "statement": "{{PD-UKGov}} {{PD-old}} {{PD-US}}",
+        "title": "British Library map of the Palestine campaign immediately before the Balfour Declaration",
+        "original_source": "British Library: http://www.bl.uk/onlinegallery/onlineex/maps/asia/4997940.html",
+        "source_pixels": [
+          4725,
+          4497
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:World_War_I_Palestine_campaign%2C_Military_situation_immediately_prior_to_the_release_of_the_Balfour_Declaration.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-UKGov}} {{PD-old}} {{PD-US}}"
+      },
+      "author": "British Library",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Contextual map for the transition to the mandate."
+      }
+    },
+    {
+      "id": "ill_gbr_palestine_partition_1947",
+      "type": "illustration_event",
+      "subject": "gbr_palestine_partition_1947",
+      "name": "Kế hoạch phân chia Palestine 1947",
+      "description": "Map of the UN 1947 partition plan for Palestine, based on a CIA map",
+      "path": "content/illustrations/events/gbr_palestine_partition_1947.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_palestine_partition_1947_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1971,
+        "to": 1975
+      },
+      "quality": "supported",
+      "date": "1973",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "UN_Partition_Plan_For_Palestine_1947.png",
+        "page": "https://commons.wikimedia.org/wiki/File:UN_Partition_Plan_For_Palestine_1947.png",
+        "statement": "{{PD-USGov}}",
+        "title": "Map of the UN 1947 partition plan for Palestine, based on a CIA map",
+        "original_source": "Crop and edit of http://www.lib.utexas.edu/maps/historical/israel_hist_1973.jpg, Scan from “Issues in the Middle East”, Atlas, U.S. Central Intelligence Agency, 1973.",
+        "source_pixels": [
+          627,
+          1147
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:UN_Partition_Plan_For_Palestine_1947.png",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-USGov}}"
+      },
+      "author": "Central Intelligence Agency",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Commons page identifies source as US Government; ingestion must verify derivative status."
+      }
+    },
+    {
+      "id": "ill_gbr_peel_commission_1937",
+      "type": "illustration_event",
+      "subject": "gbr_peel_commission_1937",
+      "name": "Bản đồ đề xuất Peel",
+      "description": "Map of the Peel Commission partition proposal for Palestine, 1937",
+      "path": "content/illustrations/events/gbr_peel_commission_1937.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_peel_commission_1937_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1935,
+        "to": 1939
+      },
+      "quality": "supported",
+      "date": "2006-08-13",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Peel_map_pd.png",
+        "page": "https://commons.wikimedia.org/wiki/File:Peel_map_pd.png",
+        "statement": "{{PD-self}}",
+        "title": "Map of the Peel Commission partition proposal for Palestine, 1937",
+        "original_source": null,
+        "source_pixels": [
+          1100,
+          2106
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Peel_map_pd.png",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-self}}"
+      },
+      "author": "British War Office",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Commons page identifies the map as Public Domain; exact subject match."
+      }
+    },
+    {
+      "id": "ill_gbr_quit_india_1942",
+      "type": "illustration_event",
+      "subject": "gbr_quit_india_1942",
+      "name": "Phong trào Rời khỏi Ấn Độ",
+      "description": "Gandhi at Gowalia Tank Maidan, Mumbai, calling for the Quit India Movement, August 1942",
+      "path": "content/illustrations/events/gbr_quit_india_1942.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_quit_india_1942_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1942,
+        "to": 1942
+      },
+      "quality": "supported",
+      "date": "1942-08",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Mohandas_Gandhi_was_driven_to_Gowalia_Tank_Maidan,_1942.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Mohandas_Gandhi_was_driven_to_Gowalia_Tank_Maidan%2C_1942.jpg",
+        "statement": "{{PD-India}} {{PD-1996}}",
+        "title": "Gandhi at Gowalia Tank Maidan, Mumbai, calling for the Quit India Movement, August 1942",
+        "original_source": "https://www.bridgemanimages.com/en-US/noartistknown/mohandas-gandhi-was-driven-to-gowalia-tank-maidan-1940/nomedium/asset/3507932",
+        "source_pixels": [
+          800,
+          611
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Mohandas_Gandhi_was_driven_to_Gowalia_Tank_Maidan%2C_1942.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-India}} {{PD-1996}}"
+      },
+      "author": "Unknown author",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Commons page reports public-domain India status; image relates directly to the movement."
+      }
+    },
+    {
+      "id": "ill_gbr_salt_march_1930",
+      "type": "illustration_event",
+      "subject": "gbr_salt_march_1930",
+      "name": "Hành trình muối",
+      "description": "Gandhi during the Salt March, 1930",
+      "path": "content/illustrations/events/gbr_salt_march_1930.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_salt_march_1930_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1930,
+        "to": 1930
+      },
+      "quality": "supported",
+      "date": "1930",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Gandhi_during_the_Salt_March.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Gandhi_during_the_Salt_March.jpg",
+        "statement": "{{PD-India}}",
+        "title": "Gandhi during the Salt March, 1930",
+        "original_source": "gandhiserve.org",
+        "source_pixels": [
+          3268,
+          2360
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Gandhi_during_the_Salt_March.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-India}}"
+      },
+      "author": "Unknown author",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Commons page reports public-domain India status and a landscape original suitable for 16:9 crop."
+      }
+    },
+    {
+      "id": "ill_gbr_simon_commission_1928",
+      "type": "illustration_event",
+      "subject": "gbr_simon_commission_1928",
+      "name": "Ủy ban Simon",
+      "description": "Portrait of the men involved in the Simon Commission, 1928",
+      "path": "content/illustrations/events/gbr_simon_commission_1928.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_simon_commission_1928_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1928,
+        "to": 1929
+      },
+      "quality": "supported",
+      "date": "1928-07-06",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "The_simon_commission.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:The_simon_commission.jpg",
+        "statement": "{{PD-US-expired}} {{PD-US}}",
+        "title": "Portrait of the men involved in the Simon Commission, 1928",
+        "original_source": "https://timelessmoon.getarchive.net",
+        "source_pixels": [
+          287,
+          176
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:The_simon_commission.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-US-expired}} {{PD-US}}"
+      },
+      "author": "Unknown author",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Direct subject match but low resolution; Commons page reports US public-domain status only, so ingest tool must check jurisdictional rights and may reject."
+      }
+    },
+    {
+      "id": "ill_gbr_southern_rhodesia_responsible_1923",
+      "type": "illustration_event",
+      "subject": "gbr_southern_rhodesia_responsible_1923",
+      "name": "Chính phủ đầu tiên của Rhodesia",
+      "description": "Photograph of the first government of Southern Rhodesia, circa 1924",
+      "path": "content/illustrations/events/gbr_southern_rhodesia_responsible_1923.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_southern_rhodesia_responsible_1923_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1923,
+        "to": 1924
+      },
+      "quality": "supported",
+      "date": "1924",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "First_government_of_rhodesia.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:First_government_of_rhodesia.jpg",
+        "statement": "{{PD-Zimbabwe}} {{PD-1996|Zimbabwe|Jan 1st, 1996}}",
+        "title": "Photograph of the first government of Southern Rhodesia, circa 1924",
+        "original_source": "http://en.wikipedia.org/wiki/Image:First_government_of_rhodesia.jpg",
+        "source_pixels": [
+          400,
+          253
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:First_government_of_rhodesia.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Zimbabwe}} {{PD-1996|Zimbabwe|Jan 1st, 1996}}"
+      },
+      "author": "United Kingdom Government",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Commons page includes both PD-Zimbabwe and PD-US tags; low-resolution original (400 px wide)."
+      }
+    },
+    {
+      "id": "ill_gbr_vereeniging_1902",
+      "type": "illustration_event",
+      "subject": "gbr_vereeniging_1902",
+      "name": "Thu giữ vũ khí Boer",
+      "description": "British soldiers collecting captured Boer rifles during the Second Boer War",
+      "path": "content/illustrations/events/gbr_vereeniging_1902.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_vereeniging_1902_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1900,
+        "to": 1904
+      },
+      "quality": "supported",
+      "date": "(Pre-1914)",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "The_Second_Boer_War,_1899-1902_Q72023.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:The_Second_Boer_War%2C_1899-1902_Q72023.jpg",
+        "statement": "{{PD-Scan|1=PD-UKGov|category=}}",
+        "title": "British soldiers collecting captured Boer rifles during the Second Boer War",
+        "original_source": "http://media.iwm.org.uk/iwm/mediaLib//342/media-342260/large.jpg",
+        "source_pixels": [
+          800,
+          644
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Second_Boer_War%2C_1899-1902_Q72023.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Scan|1=PD-UKGov|category=}}"
+      },
+      "author": "William Skeoch Cumming",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Commons page states PD-UKGov; contextual image for the settlement at the end of the war."
+      }
+    },
+    {
+      "id": "ill_gbr_westminster_statute_1931",
+      "type": "illustration_event",
+      "subject": "gbr_westminster_statute_1931",
+      "name": "Quốc huy George V trong văn kiện Westminster",
+      "description": "Royal coat of arms designed by Kruger Gray in 1924 and extracted from the Statute of Westminster 1931 source document",
+      "path": "content/illustrations/events/gbr_westminster_statute_1931.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_westminster_statute_1931_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1931,
+        "to": 1931
+      },
+      "quality": "supported",
+      "date": "1931-12-11",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "King_George_V_Coat_of_Arms_(from_Statute_of_Westminster_1931).jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:King_George_V_Coat_of_Arms_%28from_Statute_of_Westminster_1931%29.jpg",
+        "statement": "{{PD-UKGov}}",
+        "title": "Royal coat of arms designed by Kruger Gray in 1924 and extracted from the Statute of Westminster 1931 source document",
+        "original_source": "http://www.legislation.gov.uk/id/ukpga/Geo5/22-23/4",
+        "source_pixels": [
+          937,
+          794
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:King_George_V_Coat_of_Arms_%28from_Statute_of_Westminster_1931%29.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-UKGov}}"
+      },
+      "author": "Kruger Gray",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Image is associated with the statute source; Commons marks it PD-UKGov. Alternate is the source statute PDF and may require rasterisation."
+      }
+    },
+    {
+      "id": "ill_gbr_white_paper_1939",
+      "type": "illustration_event",
+      "subject": "gbr_white_paper_1939",
+      "name": "Bản đồ đề xuất Peel",
+      "description": "Map of the Peel Commission partition proposal for Palestine, 1937",
+      "path": "content/illustrations/events/gbr_white_paper_1939.webp",
+      "thumbnail_path": "content/illustrations/events/gbr_white_paper_1939_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1937,
+        "to": 1939
+      },
+      "quality": "supported",
+      "date": "2006-08-13",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Peel_map_pd.png",
+        "page": "https://commons.wikimedia.org/wiki/File:Peel_map_pd.png",
+        "statement": "{{PD-self}}",
+        "title": "Map of the Peel Commission partition proposal for Palestine, 1937",
+        "original_source": null,
+        "source_pixels": [
+          1100,
+          2106
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Peel_map_pd.png",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-self}}"
+      },
+      "author": "British War Office",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Same Palestine constitutional-policy sequence; the Peel partition map is the proposal that the 1939 White Paper superseded."
+      }
+    },
+    {
+      "id": "ill_hyd_nizam_1857",
+      "type": "illustration_event",
+      "subject": "hyd_nizam_1857",
+      "name": "Cung điện Nizam tại Hyderabad",
+      "description": "Photograph of the Nizam's palace in Hyderabad, circa 1870",
+      "path": "content/illustrations/events/hyd_nizam_1857.webp",
+      "thumbnail_path": "content/illustrations/events/hyd_nizam_1857_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1857,
+        "to": 1858
+      },
+      "quality": "supported",
+      "date": null,
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Nizam's_palace_in_Hyderabad.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Nizam%27s_palace_in_Hyderabad.jpg",
+        "statement": "{{PD-Art}}",
+        "title": "Photograph of the Nizam's palace in Hyderabad, circa 1870",
+        "original_source": "http://www.columbia.edu/itc/mealac/pritchett/00routesdata/1700_1799/hyderabad/photosearly/photosearly.html",
+        "source_pixels": [
+          800,
+          630
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Nizam%27s_palace_in_Hyderabad.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Art}}"
+      },
+      "author": "Unknown author",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Later-period view of the court setting; contextual rather than a direct 1857 scene."
+      }
+    },
+    {
+      "id": "ill_hyd_standstill_1947",
+      "type": "illustration_event",
+      "subject": "hyd_standstill_1947",
+      "name": "Hyderabad và thỏa thuận đình chỉ",
+      "description": "Period illustration of sepoys at Lucknow, 1857; generic contextual candidate pending a more specific visual",
+      "path": "content/illustrations/events/hyd_standstill_1947.webp",
+      "thumbnail_path": "content/illustrations/events/hyd_standstill_1947_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1946,
+        "to": 1948
+      },
+      "quality": "supported",
+      "date": "1857-10-31",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Group of sepoys at Lucknow.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Group%20of%20sepoys%20at%20Lucknow.jpg",
+        "statement": "{{PD-Art|PD-old-100-expired}}",
+        "title": "Period illustration of sepoys at Lucknow, 1857; generic contextual candidate pending a more specific visual",
+        "original_source": "http://www.columbia.edu/itc/mealac/pritchett/00routesdata/1800_1899/1857revolt/warriors/warriors.html",
+        "source_pixels": [
+          1904,
+          1249
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Group%20of%20sepoys%20at%20Lucknow.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Art|PD-old-100-expired}}"
+      },
+      "author": "The Illustrated London News",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Contextual candidate only; replace with event-specific source if available."
+      }
+    },
+    {
+      "id": "ill_irl_constitutional_sovereignty_1937",
+      "type": "illustration_event",
+      "subject": "irl_constitutional_sovereignty_1937",
+      "name": "Chữ ký Hiệp ước Anh–Ireland",
+      "description": "Signature page of the Anglo-Irish Treaty signed in December 1921",
+      "path": "content/illustrations/events/irl_constitutional_sovereignty_1937.webp",
+      "thumbnail_path": "content/illustrations/events/irl_constitutional_sovereignty_1937_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1937,
+        "to": 1937
+      },
+      "quality": "supported",
+      "date": null,
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Anglo-Irish_Treaty_signatures.gif",
+        "page": "https://commons.wikimedia.org/wiki/File:Anglo-Irish_Treaty_signatures.gif",
+        "statement": "{{PD-UKGov}}",
+        "title": "Signature page of the Anglo-Irish Treaty signed in December 1921",
+        "original_source": null,
+        "source_pixels": [
+          433,
+          684
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Anglo-Irish_Treaty_signatures.gif",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-UKGov}}"
+      },
+      "author": "Unknown author; Government of the United Kingdom",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Same Irish constitutional-sovereignty arc; the treaty signature page is contextual to the later 1937 constitutional settlement."
+      }
+    },
+    {
+      "id": "ill_lka_language_crisis_1956",
+      "type": "illustration_event",
+      "subject": "lka_language_crisis_1956",
+      "name": "Bandaranaike tại Hội nghị Thủ tướng Khối Thịnh vượng chung",
+      "description": "Group photograph at the 1956 Commonwealth Prime Ministers' Conference in London; Ceylon Prime Minister S. W. R. D. Bandaranaike is among the participants",
+      "path": "content/illustrations/events/lka_language_crisis_1956.webp",
+      "thumbnail_path": "content/illustrations/events/lka_language_crisis_1956_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1956,
+        "to": 1956
+      },
+      "quality": "supported",
+      "date": "1956-06-27",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Group_photo_taken_before_the_opening_of_the_1956_Commonwealth_Prime_Ministers'_Conference.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Group_photo_taken_before_the_opening_of_the_1956_Commonwealth_Prime_Ministers%27_Conference.jpg",
+        "statement": "{{cc-zero}}",
+        "title": "Group photograph at the 1956 Commonwealth Prime Ministers' Conference in London; Ceylon Prime Minister S. W. R. D. Bandaranaike is among the participants",
+        "original_source": "https://archive.org/search?tab=all&query=Bandarnaike",
+        "source_pixels": [
+          869,
+          617
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "CC0",
+        "url": "https://commons.wikimedia.org/wiki/File:Group_photo_taken_before_the_opening_of_the_1956_Commonwealth_Prime_Ministers%27_Conference.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{cc-zero}}"
+      },
+      "author": "Photo Division; Public Resource",
+      "credit": "Wikimedia Commons (cc0)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "The group photograph is marked CC0 1.0 on Commons and directly includes Bandaranaike in the year of the Sinhala Only Act; alternate is his official portrait."
+      }
+    },
+    {
+      "id": "ill_mlt_independent_economy_1964",
+      "type": "illustration_event",
+      "subject": "mlt_independent_economy_1964",
+      "name": "Malta nhận văn kiện độc lập",
+      "description": "George Borg Olivier receiving the independence instruments on 21 September 1964",
+      "path": "content/illustrations/events/mlt_independent_economy_1964.webp",
+      "thumbnail_path": "content/illustrations/events/mlt_independent_economy_1964_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1964,
+        "to": 1964
+      },
+      "quality": "supported",
+      "date": "1964-09-21",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "George_Borg_Olivier_receiving_Independence_Instruments_IMG_0891.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:George_Borg_Olivier_receiving_Independence_Instruments_IMG_0891.jpg",
+        "statement": "{{cc-zero}}",
+        "title": "George Borg Olivier receiving the independence instruments on 21 September 1964",
+        "original_source": "Public domain",
+        "source_pixels": [
+          1000,
+          616
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "CC0",
+        "url": "https://commons.wikimedia.org/wiki/File:George_Borg_Olivier_receiving_Independence_Instruments_IMG_0891.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{cc-zero}}"
+      },
+      "author": "DOI Malta",
+      "credit": "Wikimedia Commons (cc0)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Same Malta independence transition; the independence instruments are used as the contextual image for the first post-independence policy choices."
+      }
+    },
+    {
+      "id": "ill_nga_federal_bargain_1960",
+      "type": "illustration_event",
+      "subject": "nga_federal_bargain_1960",
+      "name": "Quốc hội độc lập Nigeria",
+      "description": "Princess Alexandra formally opened Nigeria's independence parliament on 3 October 1960",
+      "path": "content/illustrations/events/nga_federal_bargain_1960.webp",
+      "thumbnail_path": "content/illustrations/events/nga_federal_bargain_1960_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1960,
+        "to": 1960
+      },
+      "quality": "supported",
+      "date": "2024-02-08",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Princess_Alexandra,_The_Queen's_Representative,_formally_Opened_Nigeria's_Independence_Parliament_before_a_Distinguished_Assembly_of_People_and_Diplomats,_on_October_3rd_1960.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Princess_Alexandra%2C_The_Queen%27s_Representative%2C_formally_Opened_Nigeria%27s_Independence_Parliament_before_a_Distinguished_Assembly_of_People_and_Diplomats%2C_on_October_3rd_1960.jpg",
+        "statement": "{{cc-zero}}",
+        "title": "Princess Alexandra formally opened Nigeria's independence parliament on 3 October 1960",
+        "original_source": "National Library of Nigeria",
+        "source_pixels": [
+          5106,
+          4047
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "CC0",
+        "url": "https://commons.wikimedia.org/wiki/File:Princess_Alexandra%2C_The_Queen%27s_Representative%2C_formally_Opened_Nigeria%27s_Independence_Parliament_before_a_Distinguished_Assembly_of_People_and_Diplomats%2C_on_October_3rd_1960.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{cc-zero}}"
+      },
+      "author": "National Library of Nigeria",
+      "credit": "Wikimedia Commons (cc0)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Same Nigerian independence and federal constitutional transition; the opening of the independence parliament is relevant to the federal bargain."
+      }
+    },
+    {
+      "id": "ill_pal_arab_revolt_1936",
+      "type": "illustration_event",
+      "subject": "pal_arab_revolt_1936",
+      "name": "Ủy ban Hoàng gia tại Palestine",
+      "description": "Members of the Palestine Royal Commission leaving its offices in 1936",
+      "path": "content/illustrations/events/pal_arab_revolt_1936.webp",
+      "thumbnail_path": "content/illustrations/events/pal_arab_revolt_1936_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1927,
+        "to": 1931
+      },
+      "quality": "supported",
+      "date": "1936",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "Palestine_disturbances_1936._Members_of_the_Royal_Commission_leaving_the_offices_of_the_Palestine_Royal_Commission._Sir_Morris_Carter_(left),_Sir_Laurie_Hammond_(right)_LOC_matpc.18241.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:Palestine_disturbances_1936._Members_of_the_Royal_Commission_leaving_the_offices_of_the_Palestine_Royal_Commission._Sir_Morris_Carter_%28left%29%2C_Sir_Laurie_Hammond_%28right%29_LOC_matpc.18241.jpg",
+        "statement": "{{PD-Matson}} {{PD-US-no notice}}",
+        "title": "Members of the Palestine Royal Commission leaving its offices in 1936",
+        "original_source": "Library of Congress",
+        "source_pixels": [
+          5108,
+          3637
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:Palestine_disturbances_1936._Members_of_the_Royal_Commission_leaving_the_offices_of_the_Palestine_Royal_Commission._Sir_Morris_Carter_%28left%29%2C_Sir_Laurie_Hammond_%28right%29_LOC_matpc.18241.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-Matson}} {{PD-US-no notice}}"
+      },
+      "author": "Matson Collection",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Directly related to the 1936 disturbances; LoC page states no known copyright restrictions."
+      }
+    },
+    {
+      "id": "ill_pal_partition_response_1947",
+      "type": "illustration_event",
+      "subject": "pal_partition_response_1947",
+      "name": "Kế hoạch phân chia Palestine 1947",
+      "description": "Map of the UN 1947 partition plan for Palestine, based on a CIA map",
+      "path": "content/illustrations/events/pal_partition_response_1947.webp",
+      "thumbnail_path": "content/illustrations/events/pal_partition_response_1947_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1971,
+        "to": 1975
+      },
+      "quality": "supported",
+      "date": "1973",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "UN_Partition_Plan_For_Palestine_1947.png",
+        "page": "https://commons.wikimedia.org/wiki/File:UN_Partition_Plan_For_Palestine_1947.png",
+        "statement": "{{PD-USGov}}",
+        "title": "Map of the UN 1947 partition plan for Palestine, based on a CIA map",
+        "original_source": "Crop and edit of http://www.lib.utexas.edu/maps/historical/israel_hist_1973.jpg, Scan from “Issues in the Middle East”, Atlas, U.S. Central Intelligence Agency, 1973.",
+        "source_pixels": [
+          627,
+          1147
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:UN_Partition_Plan_For_Palestine_1947.png",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-USGov}}"
+      },
+      "author": "Central Intelligence Agency",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Same map supports the immediate local response; not a photograph of community reaction."
+      }
+    },
+    {
+      "id": "ill_rsa_union_society_1913",
+      "type": "illustration_event",
+      "subject": "rsa_union_society_1913",
+      "name": "Phái đoàn ANC tại Anh năm 1914",
+      "description": "South African Native National Congress delegation in England, 1914, campaigning against the Natives Land Act",
+      "path": "content/illustrations/events/rsa_union_society_1913.webp",
+      "thumbnail_path": "content/illustrations/events/rsa_union_society_1913_480.webp",
+      "width": 1280,
+      "height": 720,
+      "period": {
+        "from": 1913,
+        "to": 1915
+      },
+      "quality": "supported",
+      "date": "1914-06",
+      "source": {
+        "repository": "Wikimedia Commons",
+        "file": "ANC1914.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:ANC1914.jpg",
+        "statement": "{{PD-old-70-1923}}",
+        "title": "South African Native National Congress delegation in England, 1914, campaigning against the Natives Land Act",
+        "original_source": "ZAR.co.za",
+        "source_pixels": [
+          689,
+          518
+        ],
+        "crop": {
+          "inset": [
+            0.02,
+            0.02,
+            0.02,
+            0.02
+          ],
+          "focus": [
+            0.5,
+            0.5
+          ],
+          "fit": "cover"
+        }
+      },
+      "license": {
+        "short": "Public domain",
+        "url": "https://commons.wikimedia.org/wiki/File:ANC1914.jpg",
+        "attribution_required": false,
+        "rights_advisory": "{{PD-old-70-1923}}"
+      },
+      "author": "Unknown photographer",
+      "credit": "Wikimedia Commons (public domain)",
+      "review": {
+        "reviewed_by": "Claude (Project Director)",
+        "reviewed": "2026-11-23",
+        "note": "Same protest movement and immediate aftermath; shared image is intentional."
       }
     },
     {
