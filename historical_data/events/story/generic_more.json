@@ -1,0 +1,438 @@
+{
+  "schema": "story_events_v1",
+  "country": "$any",
+  "sources": {
+    "uk_parliament_empire": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/key-dates/parliament-and-empire-1815-1970/",
+    "uk_raj": "https://www.parliament.uk/about/living-heritage/evolutionofparliament/legislativescrutiny/parliament-and-empire/parliament-and-the-american-colonies-before-1765/the-raj-and-independence-1914-47/",
+    "india_chronology": "https://academic.oup.com/edited-volume/28170/chapter/213002310",
+    "canada_parliament": "https://www.ourcommons.ca/procedure/procedure-and-practice-3/ch_01_2-e.html",
+    "palestine_un": "https://www.un.org/unispal/history/",
+    "palestine_timeline": "https://www.un.org/unispal/historical-timeline/",
+    "palestine_white_paper": "https://avalon.law.yale.edu/21st_century/brwh1939.asp",
+    "burma_panglong": "https://commons.wikimedia.org/wiki/File:Panglong_Conference.jpg",
+    "egypt_occupation": "https://www.cambridge.org/core/books/abs/cambridge-history-of-egypt/british-occupation-18821922/179398E6D722904951A25256F524C963",
+    "suez": "https://history.state.gov/milestones/1953-1960/suez"
+  },
+  "events": [
+    {
+      "id": "bur_saya_san_1930",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1930-10-01",
+        "1932-12-31"
+      ],
+      "date_historical": "1930-12-22",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$owner"
+          },
+          {
+            "type": "movement_strength_above",
+            "owner": "$owner",
+            "regions": [
+              "BUR_AVA",
+              "BUR_PEG"
+            ],
+            "value": 15
+          },
+          {
+            "type": "year_between",
+            "from": 1930,
+            "to": 1932
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "flag": "bur_saya_san"
+      },
+      "title_vi": "Khởi nghĩa Saya San",
+      "title_en": "The Saya San Rebellion",
+      "text_vi": "Cuối năm 1930, cuộc nổi dậy nông dân do Saya San gắn liền bùng phát ở vùng Tharrawaddy, phản đối thuế khóa, nợ nần và sự xói mòn quyền lực làng xã. Những người nổi dậy sử dụng biểu tượng vương quyền và nghi lễ Phật giáo để tập hợp lực lượng, trong khi chính quyền thuộc địa coi đây là mối đe dọa an ninh. Nhà cầm quyền phải lựa chọn giữa chiến dịch quân sự, giảm gánh nặng thuế nông thôn hay mở điều tra về quyền sở hữu đất.",
+      "text_en": "In late 1930, a peasant uprising associated with Saya San erupted in Tharrawaddy, protesting taxation, debt and the erosion of village authority. Rebels used royal and Buddhist symbols to mobilise support, while the colonial administration treated the revolt as a security threat. Authorities must choose between military suppression, rural tax relief or an inquiry into landholding.",
+      "options": [
+        {
+          "id": "arrest_saya_san",
+          "label_vi": "Truy bắt Saya San và giải tán các hội kín ở nông thôn",
+          "label_en": "Capture Saya San and dismantle rural secret societies",
+          "ai_weight": 3,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "bur_1930_saya_san_suppression",
+              "name_vi": "Chiến dịch trấn áp Saya San",
+              "name_en": "Saya San Suppression Campaign",
+              "months": 30,
+              "decaying": true,
+              "effects": {
+                "police": 0.06,
+                "army": 0.03,
+                "radicalism": 0.04,
+                "legitimacy": -2
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "$owner",
+              "nation": "$nation",
+              "delta": -12
+            }
+          ]
+        },
+        {
+          "id": "rural_tax_relief",
+          "label_vi": "Giảm thuế đất và tạm hoãn tịch thu ruộng vì nợ",
+          "label_en": "Reduce land taxes and suspend debt-related land seizures",
+          "ai_weight": 2,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "bur_1930_rural_relief",
+              "name_vi": "Cứu trợ nông thôn Miến Điện",
+              "name_en": "Burmese Rural Relief",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": -0.02,
+                "legitimacy": 2,
+                "tax": -0.02
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "$owner",
+              "nation": "$nation",
+              "delta": -5
+            }
+          ]
+        },
+        {
+          "id": "land_commission",
+          "label_vi": "Lập ủy ban điều tra nợ nông thôn và quyền sử dụng đất",
+          "label_en": "Establish a commission on rural debt and land tenure",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "bur_1930_land_commission",
+              "name_vi": "Điều tra đất đai Miến Điện",
+              "name_en": "Burmese Land Commission",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "reform": 0.01,
+                "legitimacy": 1,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "$self",
+              "months_income": -0.3
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "burma_panglong"
+      ],
+      "image": {
+        "ref": "ill_evt_bur_saya_san_1930",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "bur_panglong_1947",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1946-10-01",
+        "1947-12-31"
+      ],
+      "date_historical": "1947-02-12",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$owner"
+          },
+          {
+            "type": "movement_strength_above",
+            "owner": "$owner",
+            "regions": [
+              "BUR_AVA",
+              "BUR_PEG"
+            ],
+            "value": 20
+          },
+          {
+            "type": "year_between",
+            "from": 1946,
+            "to": 1947
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "flag": "bur_panglong"
+      },
+      "title_vi": "Thỏa thuận Panglong",
+      "title_en": "The Panglong Agreement",
+      "text_vi": "Ngày 12 tháng 2 năm 1947, Aung San và đại diện các cộng đồng Shan, Kachin, Chin ký thỏa thuận Panglong về hợp tác trong một Miến Điện độc lập. Văn bản đặt nền tảng cho sự tham gia của các vùng biên giới vào tiến trình lập quốc, nhưng không tự giải quyết mọi tranh chấp về quyền tự trị và phân chia quyền lực. Chính quyền thuộc địa phải quyết định có bảo đảm thực thi cam kết trước khi rút lui hay để các nhà lãnh đạo địa phương tự thương lượng.",
+      "text_en": "On 12 February 1947, Aung San and representatives of Shan, Kachin and Chin communities signed the Panglong Agreement on cooperation in an independent Burma. The accord laid a foundation for frontier participation in state-building but did not settle every dispute over autonomy and power-sharing. The colonial government must decide whether to guarantee implementation before withdrawal or leave local leaders to negotiate the details.",
+      "options": [
+        {
+          "id": "guarantee_federal_terms",
+          "label_vi": "Bảo đảm tiến trình lập hiến liên bang và quyền tự trị vùng",
+          "label_en": "Guarantee a federal constitution and regional autonomy",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "bur_1947_panglong_guarantee",
+              "name_vi": "Cam kết liên bang Panglong",
+              "name_en": "Panglong Federal Guarantees",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "radicalism": -0.02,
+                "reform": 0.015
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "$owner",
+              "nation": "$nation",
+              "delta": -8
+            }
+          ]
+        },
+        {
+          "id": "rapid_transfer",
+          "label_vi": "Ấn định ngày độc lập sớm và bàn giao cho chính phủ trung ương",
+          "label_en": "Set an early independence date and transfer to a central government",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "bur_1947_rapid_transfer",
+              "name_vi": "Bàn giao quyền lực Miến Điện",
+              "name_en": "Burmese Power Transfer",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.03,
+                "legitimacy": 1,
+                "radicalism": 0.01
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "$owner",
+              "nation": "$nation",
+              "delta": -4
+            }
+          ]
+        },
+        {
+          "id": "retain_frontier_control",
+          "label_vi": "Giữ quyền giám sát biên giới cho đến khi hiến pháp được phê chuẩn",
+          "label_en": "Retain frontier oversight until the constitution is ratified",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "bur_1947_frontier_oversight",
+              "name_vi": "Giám sát biên giới",
+              "name_en": "Frontier Oversight",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.03,
+                "legitimacy": -2,
+                "radicalism": 0.02
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "$owner",
+              "nation": "$nation",
+              "delta": 5
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "burma_panglong"
+      ],
+      "image": {
+        "ref": "ill_evt_bur_panglong_1947",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    },
+    {
+      "id": "bur_independence_1948",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1947-10-01",
+        "1948-12-31"
+      ],
+      "date_historical": "1948-01-04",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$owner"
+          },
+          {
+            "type": "movement_strength_above",
+            "owner": "$owner",
+            "regions": [
+              "BUR_AVA",
+              "BUR_PEG"
+            ],
+            "value": 25
+          },
+          {
+            "type": "event_fired",
+            "id": "bur_panglong_1947"
+          },
+          {
+            "type": "year_between",
+            "from": 1947,
+            "to": 1948
+          }
+        ],
+        "mtth_months": 3
+      },
+      "chain": {
+        "after": [
+          "bur_panglong_1947"
+        ],
+        "flag": "bur_independence"
+      },
+      "title_vi": "Miến Điện giành độc lập",
+      "title_en": "Burma Becomes Independent",
+      "text_vi": "Liên bang Miến Điện giành độc lập ngày 4 tháng 1 năm 1948, chấm dứt hơn sáu thập kỷ cai trị của Anh sau khi triều Konbaung bị lật đổ. Chính phủ mới phải xây dựng quân đội, bộ máy thuế và quan hệ với các vùng biên giới trong khi đối mặt với nổi dậy vũ trang. Cựu chính quốc có thể hỗ trợ chuyển giao, duy trì quan hệ thương mại và quốc phòng hoặc rút lui khỏi mọi cam kết.",
+      "text_en": "The Union of Burma became independent on 4 January 1948, ending more than six decades of British rule after the fall of the Konbaung dynasty. The new government must build armed forces, revenue institutions and relations with frontier communities while facing armed insurgencies. The former imperial power can support the transition, preserve trade and defence ties or withdraw from all commitments.",
+      "options": [
+        {
+          "id": "honour_transition_terms",
+          "label_vi": "Thực hiện cam kết chuyển giao và hỗ trợ đào tạo hành chính",
+          "label_en": "Honour the transfer commitments and assist administrative training",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "bur_1948_orderly_independence",
+              "name_vi": "Chuyển giao độc lập có trật tự",
+              "name_en": "Orderly Burmese Independence",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.04,
+                "trade": 0.03,
+                "legitimacy": 2
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "$owner",
+              "nation": "$nation",
+              "delta": -15
+            }
+          ]
+        },
+        {
+          "id": "retain_defence_access",
+          "label_vi": "Đề nghị hiệp định quốc phòng và quyền tiếp cận cảng theo thỏa thuận",
+          "label_en": "Offer a defence agreement and negotiated port access",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "bur_1948_defence_access",
+              "name_vi": "Hợp tác quốc phòng hậu thuộc địa",
+              "name_en": "Post-colonial Defence Cooperation",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "army": 0.02,
+                "trade": 0.04,
+                "prestige": 0.03
+              }
+            },
+            {
+              "type": "base_rights",
+              "host": "GBR",
+              "user": "BUR"
+            }
+          ]
+        },
+        {
+          "id": "withdraw_without_pact",
+          "label_vi": "Rút toàn bộ cố vấn và để chính phủ mới tự quyết định",
+          "label_en": "Withdraw advisers and leave the new government to decide",
+          "ai_weight": 1,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "bur_1948_complete_withdrawal",
+              "name_vi": "Rút khỏi Miến Điện",
+              "name_en": "Withdrawal from Burma",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "prestige": -0.02,
+                "trade": -0.02,
+                "legitimacy": -1
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "$owner",
+              "nation": "$nation",
+              "delta": -5
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "burma_panglong"
+      ],
+      "image": {
+        "ref": "ill_evt_bur_independence_1948",
+        "credit": "Wikimedia Commons candidate; pending repository ingestion",
+        "license": "CANDIDATE — ingest tool must verify PD/CC0"
+      }
+    }
+  ],
+  "notes": [
+    "$any movement events bind $owner/$nation/$colony to a live overseas movement; these are presented to the movement's current owner as event decisions, matching current EVT-01 binding semantics."
+  ]
+}
