@@ -691,12 +691,12 @@
     {
       "type": "illustration_event",
       "subject": "gbr_singapore_fall_1942",
-      "commons_file": "Singapore 1942.jpg",
+      "commons_file": "Japanese Soldiers rejoicing at the fall of Singapore, 1942.jpg",
       "year": 1942,
-      "width": 799,
-      "author": "Unknown author",
-      "name": "Quân Nhật tiến vào Singapore năm 1942",
-      "description": "Ảnh tư liệu mô tả quân đội Nhật tiến vào Singapore năm 1942, gắn trực tiếp với sự sụp đổ của pháo đài Singapore.",
+      "width": 7883,
+      "author": "Asahi Shimbun",
+      "name": "Binh sĩ Nhật ăn mừng sau khi Singapore thất thủ",
+      "description": "Ảnh báo chí ngày 16 tháng 2 năm 1942 ghi lại binh sĩ Nhật ăn mừng sau khi Singapore thất thủ; đây là hình ảnh trực tiếp của sự kiện, thay cho tệp trước không thể chứng minh rõ PD-1996.",
       "period": {
         "from": 1940,
         "to": 1944
@@ -711,8 +711,9 @@
         0.5,
         0.5
       ],
-      "review_note": "Direct event match; Commons page records PD-Japan-oldphoto and PD-1996 with a U.S. public-domain rationale.",
+      "review_note": "Commons page explicitly lists PD-Japan-oldphoto and PD-1996 with a U.S. public-domain rationale; exact event match.",
       "alternates": [
+        "Singapore 1942.jpg",
         "Japanese_Soldiers_rejoicing_at_the_fall_of_Singapore,_1942.jpg"
       ],
       "fit": "contain"
@@ -1450,13 +1451,17 @@
         0.5,
         0.5
       ],
-      "commons_file": "Anglo_Egyptian_treaty_of_1936_signing_-_18-November_1936.jpg",
-      "year": 1936,
-      "width": 500,
-      "author": "Egypt Post",
-      "name": "Hiệp ước Anh–Ai Cập năm 1936",
-      "description": "Egyptian commemorative stamp depicting the signing of the Anglo-Egyptian Treaty on 18 November 1936",
-      "review_note": "Commons page marks PD-Egypt and a US public-domain basis; stamp rather than a documentary photograph."
+      "commons_file": "General map of Cairo. LOC 2009580102.jpg",
+      "year": 1920,
+      "width": 3840,
+      "author": "Survey of Egypt (Giza)",
+      "name": "Bản đồ tổng thể Cairo năm 1920",
+      "description": "Bản đồ tổng thể Cairo do Survey of Egypt xuất bản năm 1920; tư liệu địa lý cùng thời kỳ cho trung tâm chính trị Ai Cập trong giai đoạn ký Hiệp ước Anh–Ai Cập năm 1936.",
+      "review_note": "Pre-1931 map with explicit U.S. public-domain basis on Commons; contextual image, not a photograph of the treaty signing.",
+      "alternates": [
+        "Anglo_Egyptian_treaty_of_1936_signing_-_18-November_1936.jpg"
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -1625,13 +1630,17 @@
         0.5,
         0.5
       ],
-      "commons_file": "Independence_Proclamation_of_Jamaica.jpg",
-      "year": 1962,
-      "width": 1000,
-      "author": "Royal Constitutional Convention",
-      "name": "Tuyên ngôn độc lập Jamaica",
-      "description": "The Independence Proclamation of Jamaica, 1962",
-      "review_note": "Commons page marks PD-Jamaica; document image, not a flag-raising photograph. Current age cutoff blocks it."
+      "commons_file": "Map of Jamaica (1888).jpg",
+      "year": 1888,
+      "width": 1937,
+      "author": "British Library Mechanical Curator; map from A Historical Geography of the British Colonies",
+      "name": "Bản đồ Jamaica năm 1888",
+      "description": "Bản đồ Jamaica năm 1888, thể hiện các khu vực và địa danh của đảo trước quá trình chuyển đổi thành quốc gia độc lập năm 1962.",
+      "review_note": "Pre-1931 historical map; Commons page records U.S. public-domain status. Context map, not a photograph of the 1962 ceremony.",
+      "alternates": [
+        "Independence_Proclamation_of_Jamaica.jpg"
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
@@ -1874,13 +1883,17 @@
         0.5,
         0.5
       ],
-      "commons_file": "BRITISH_ARMY_OPERATIONS_AGAINST_THE_MAU_MAU_IN_KENYA_1952_-_1956_MAU221.jpg",
-      "year": 1952,
-      "width": 800,
-      "author": "British official photographer",
-      "name": "Chiến dịch quân sự tại Kenya",
-      "description": "British Army 3-inch mortar team during operations against Mau Mau, 1952–1956",
-      "review_note": "Contextual image of the conflict that preceded Kenya's transfer of power; not the 1963 flag ceremony."
+      "commons_file": "Map of East Africa Protectorate and Uganda (1898).png",
+      "year": 1898,
+      "width": 640,
+      "author": "Unknown author",
+      "name": "Bản đồ Đông Phi thuộc Anh và Uganda năm 1898",
+      "description": "Bản đồ Đông Phi thuộc Anh và Uganda năm 1898, thể hiện bối cảnh lãnh thổ lịch sử của Kenya trước độc lập năm 1963.",
+      "review_note": "Pre-1931 map with explicit PD-US-expired notice on Commons. Contextual map; not a photograph of the 1963 flag ceremony.",
+      "alternates": [
+        "BRITISH_ARMY_OPERATIONS_AGAINST_THE_MAU_MAU_IN_KENYA_1952_-_1956_MAU221.jpg"
+      ],
+      "fit": "contain"
     },
     {
       "type": "illustration_event",
