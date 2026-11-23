@@ -124,6 +124,10 @@ export interface HistoricalDB {
   /** WW-01b: historical world wars (CG-40). sides[0] is the Allied side (historical winner). */
   world_wars?: { id: string; start: string; end: string; winnerSide: number; sides: { name: string; members: { id: string; name: string; capitalRegion: string; entry: string; exit: string; exitType: string; status: string }[] }[] }[];
   league_of_nations?: { founded: string; dissolved: string; permanent: { entity: string; capitalRegion: string; start: string; end: string }[] };
+  /** WW-01c: Historical Mode unifications and peace settlements. */
+  settlements?: { id: string; date: string; actor?: string; war?: string; losers?: string[]; winners?: string[]; snapshot?: string; noPlayerActor?: boolean;
+    steps: { type: 'cede' | 'annex_states' | 'new_state' | 'rename' | 'move_capital' | 'restore_snapshot'; regions?: string[]; from?: string; to?: string; capitals?: string[]; key?: string;
+      name_en?: string; name_vi?: string; laws?: Record<string, string>; target?: string; snapshot?: string; onlyIfFormedBySettlement?: string }[] }[];
   /** LEAD-01: 20th-century heads of state and effective leaders by capital region (CG-43). */
   leaders_20c?: { capitalRegion: string; name: string; born: string | null; died: string | null; from: string; to: string | null; role: 'head_of_state' | 'effective_leader'; title_vi: string; title_en: string }[];
   /** REGIME-01a: Historical Mode regime changes and state formations (CG-41). */

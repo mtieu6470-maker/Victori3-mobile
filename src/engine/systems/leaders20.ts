@@ -10,7 +10,7 @@
 // and constitutional republics show the head of state, with the effective leader where no head of state is
 // recorded. While a record holds, the leader neither dies at random nor is replaced by a generated election.
 import { data } from '../data/db';
-import { dateStr, log } from '../core';
+import { dateStr, log, tickToDate } from '../core';
 import { isColonialRegion } from './growth';
 import { regimeEntryKind } from './regimes';
 import type { Country, GameState } from '../types';
@@ -23,7 +23,9 @@ const prefersEffective = (c: Country) => c.laws.power === 'one_party_state' || (
 export function onHistoricalCourse(st: GameState, c: Country, today = dateStr(st.date)): boolean {
   const d = data();
   const own = (id: string) => { const r = st.regions[d.regionIndex.get(id) ?? -1]; return r?.owner === c.id && (c.capital === r.id || !isColonialRegion(st, r)); };
-  const latest = (d.db.regime_changes ?? []).filter((e) => e.date <= today && regimeEntryKind(e) === 'proclaim' && own(e.capitalRegion))
+  // a state formed later (independence, a partition) is not judged by regime events from before it existed
+  const born = c.formedAt ? dateStr(tickToDate(c.formedAt)) : '';
+  const latest = (d.db.regime_changes ?? []).filter((e) => e.date <= today && e.date >= born && regimeEntryKind(e) === 'proclaim' && own(e.capitalRegion))
     .sort((a, b) => b.date.localeCompare(a.date))[0];
   if (!latest) return true;
   return (st.journal ?? []).some((j) => j.event === latest.id && j.country === c.id && j.status === 'completed');

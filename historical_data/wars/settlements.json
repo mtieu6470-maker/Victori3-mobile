@@ -1,0 +1,585 @@
+{
+ "description": "WW-01c: Historical Mode unifications and peace settlements (Italy 1859-70, Germany 1864-71, Austria-Hungary 1867, the WW1 settlements 1918-20, the WW2 settlements 1945-49 and German reunification 1990). States are identified by the holder of a capital region at the time (own capital or home territory), so the steps act on whoever holds the land. A settlement tied to a world war applies only if that war ended and the listed losers fought on the losing side. Treaty facts from ChatGPT CG-40 (historical_data/research_staging/CG40_WORLD_WARS.json) and CG-41; region choices by Claude (curated, engine region ids). Unifications are not applied when the unifying state is the player's (the player unifies by its own means).",
+ "settlements": [
+  {
+   "id": "LONDON_1840",
+   "date": "1840-11-27",
+   "actor": "TUR_IST",
+   "sources": [
+    "Convention of London 1840 (Oriental Crisis): Muhammad Ali withdraws from Syria, Adana, Crete and the Hejaz"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "EGY_DAM",
+      "EGY_ALE",
+      "EGY_LEB",
+      "EGY_PAL",
+      "EGY_ADA",
+      "EGY_CRE",
+      "EGY_HEJ",
+      "EGY_TIH"
+     ],
+     "from": "EGY_CAI"
+    }
+   ]
+  },
+  {
+   "id": "ITA_UNIFICATION_1859_61",
+   "date": "1861-03-17",
+   "actor": "SAR_PIE",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-41 ITA-1861-03",
+    "Treaty of Zurich 1859 (Lombardy)",
+    "plebiscites 1860"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "AUS_LOM"
+     ],
+     "from": "AUS_VIE"
+    },
+    {
+     "type": "annex_states",
+     "capitals": [
+      "SIC_NAP",
+      "TUS_FLO",
+      "MOD_MOD",
+      "PMA_PAR",
+      "LUC_LUC"
+     ]
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "PAP_ROG",
+      "PAP_UMB"
+     ],
+     "from": "PAP_ROM"
+    }
+   ]
+  },
+  {
+   "id": "ITA_VENETIA_1866",
+   "date": "1866-10-19",
+   "actor": "SAR_PIE",
+   "noPlayerActor": true,
+   "sources": [
+    "Treaty of Vienna 1866"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "AUS_VEN"
+     ],
+     "from": "AUS_VIE"
+    }
+   ]
+  },
+  {
+   "id": "ITA_ROME_1870",
+   "date": "1870-10-02",
+   "actor": "SAR_PIE",
+   "noPlayerActor": true,
+   "sources": [
+    "Capture of Rome 1870; plebiscite 2 Oct 1870"
+   ],
+   "steps": [
+    {
+     "type": "annex_states",
+     "capitals": [
+      "PAP_ROM"
+     ]
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "PAP_ROM"
+     ]
+    },
+    {
+     "type": "move_capital",
+     "to": "PAP_ROM"
+    }
+   ]
+  },
+  {
+   "id": "AUSGLEICH_1867",
+   "date": "1867-03-15",
+   "actor": "AUS_VIE",
+   "sources": [
+    "Austro-Hungarian Compromise 1867"
+   ],
+   "steps": [
+    {
+     "type": "rename",
+     "name_en": "Austria-Hungary",
+     "name_vi": "Đế quốc Áo-Hung"
+    }
+   ]
+  },
+  {
+   "id": "GER_SCHLESWIG_1864",
+   "date": "1864-10-30",
+   "actor": "PRU_BRA",
+   "noPlayerActor": true,
+   "sources": [
+    "Treaty of Vienna 1864"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "DEN_HOL"
+     ],
+     "from": "DEN_ZEA"
+    }
+   ]
+  },
+  {
+   "id": "GER_UNIFICATION_1866_71",
+   "date": "1871-01-18",
+   "actor": "PRU_BRA",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-41 GER-1871-01",
+    "Peace of Prague 1866",
+    "North German Confederation 1867",
+    "accession treaties of the southern states 1870"
+   ],
+   "steps": [
+    {
+     "type": "annex_states",
+     "capitals": [
+      "HAN_HAN",
+      "BAV_MUN",
+      "SAX_DRE",
+      "WUR_STU",
+      "BAD_KAR",
+      "HKA_KAS",
+      "HDA_DAR",
+      "MSC_SCH",
+      "MST_STR",
+      "OLD_OLD",
+      "BRU_BRU",
+      "NAS_WIE",
+      "SWM_WEI",
+      "SCG_GOT",
+      "SMN_MEI",
+      "SAA_ALT",
+      "ADE_DES",
+      "AKO_KOT",
+      "ABE_BER",
+      "SSO_SON",
+      "SRU_RUD",
+      "RGR_GRE",
+      "RSC_GER",
+      "RLE_LOB",
+      "LIP_DET",
+      "SLI_BUC",
+      "WLD_ARO",
+      "HHO_HOM",
+      "HHE_HEC",
+      "HSI_SIG",
+      "HAM_HAM",
+      "BRE_BRE",
+      "LUB_LUB",
+      "FRK_FRA"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "AHM_DISSOLUTION_1918",
+   "date": "1918-11-12",
+   "actor": "AUS_VIE",
+   "war": "WW1",
+   "losers": [
+    "AUS_VIE"
+   ],
+   "sources": [
+    "CG-40 SAINT_GERMAIN_1919",
+    "CG-40 TRIANON_1920",
+    "CG-41 AHM-1918-10"
+   ],
+   "steps": [
+    {
+     "type": "new_state",
+     "key": "czechoslovakia",
+     "regions": [
+      "AUS_BOH",
+      "AUS_MOR",
+      "AUS_UPH"
+     ],
+     "name_en": "Czechoslovak Republic",
+     "name_vi": "Cộng hòa Tiệp Khắc",
+     "laws": {
+      "governance": "republic",
+      "power": "universal_suffrage"
+     }
+    },
+    {
+     "type": "new_state",
+     "key": "hungary",
+     "regions": [
+      "AUS_HUN",
+      "AUS_TIS",
+      "AUS_TRW"
+     ],
+     "name_en": "Kingdom of Hungary",
+     "name_vi": "Vương quốc Hungary",
+     "laws": {
+      "governance": "monarchy",
+      "power": "census_suffrage"
+     }
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "AUS_CRO",
+      "AUS_MIL",
+      "AUS_DAL",
+      "AUS_CAR",
+      "AUS_BAN"
+     ],
+     "to": "SER_BEL"
+    },
+    {
+     "type": "rename",
+     "target": "SER_BEL",
+     "name_en": "Kingdom of Serbs, Croats and Slovenes",
+     "name_vi": "Vương quốc Serb, Croat và Slovene"
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "AUS_TRA",
+      "AUS_BUK"
+     ],
+     "to": "WAL_BUC"
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "AUS_GAL",
+      "AUS_LEM"
+     ],
+     "to": "RUS_WAR"
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "AUS_LOM",
+      "AUS_VEN"
+     ],
+     "to": "PAP_ROM"
+    },
+    {
+     "type": "rename",
+     "name_en": "Republic of Austria",
+     "name_vi": "Cộng hòa Áo",
+     "laws": {
+      "governance": "republic",
+      "power": "universal_suffrage"
+     }
+    }
+   ]
+  },
+  {
+   "id": "VERSAILLES_1919",
+   "date": "1919-06-28",
+   "actor": "PRU_BRA",
+   "war": "WW1",
+   "losers": [
+    "PRU_BRA"
+   ],
+   "sources": [
+    "CG-40 VERSAILLES_1919"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "FRA_ALS",
+      "FRA_LOR"
+     ],
+     "to": "FRA_IDF"
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "PRU_POS",
+      "PRU_WPR"
+     ],
+     "to": "RUS_WAR"
+    }
+   ]
+  },
+  {
+   "id": "OTTOMAN_MANDATES_1920",
+   "date": "1920-04-25",
+   "actor": "TUR_IST",
+   "war": "WW1",
+   "losers": [
+    "TUR_IST"
+   ],
+   "sources": [
+    "CG-40 SEVRES_1920",
+    "CG-40 LAUSANNE_1923",
+    "San Remo conference 1920"
+   ],
+   "steps": [
+    {
+     "type": "cede",
+     "regions": [
+      "TUR_BAG",
+      "TUR_BAS",
+      "TUR_MOS",
+      "EGY_PAL"
+     ],
+     "to": "GBR_LON"
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "EGY_DAM",
+      "EGY_ALE",
+      "EGY_LEB"
+     ],
+     "to": "FRA_IDF"
+    }
+   ]
+  },
+  {
+   "id": "WW2_PREWAR_BORDERS",
+   "date": "1937-12-31",
+   "snapshot": "1937",
+   "sources": [
+    "Allied reference frontier of Germany: 31 December 1937 (London Protocol 1944; Potsdam)"
+   ],
+   "steps": []
+  },
+  {
+   "id": "POTSDAM_1945",
+   "date": "1945-08-02",
+   "actor": "PRU_BRA",
+   "war": "WW2",
+   "losers": [
+    "PRU_BRA"
+   ],
+   "sources": [
+    "CG-40 YALTA_1945",
+    "CG-40 POTSDAM_1945",
+    "Berlin Declaration 5 June 1945 (Allied Control Council assumes supreme authority)"
+   ],
+   "steps": [
+    {
+     "type": "restore_snapshot",
+     "snapshot": "1937"
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "PRU_EPR",
+      "PRU_SIL",
+      "PRU_POM",
+      "PRU_POS",
+      "PRU_WPR"
+     ],
+     "to": "RUS_WAR"
+    },
+    {
+     "type": "rename",
+     "name_en": "Germany (Allied occupation)",
+     "name_vi": "Nước Đức (Đồng minh chiếm đóng)",
+     "laws": {
+      "power": "autocracy",
+      "governance": "republic",
+      "press": "censorship",
+      "economy": "interventionism"
+     }
+    }
+   ]
+  },
+  {
+   "id": "SOVIET_WEST_1945",
+   "date": "1945-08-02",
+   "actor": "RUS_MOS",
+   "war": "WW2",
+   "winners": [
+    "RUS_MOS"
+   ],
+   "sources": [
+    "CG-40 YALTA_1945 (Curzon line)",
+    "Moscow Peace Treaty 1940 / Paris Peace Treaty 1947 (Karelia)",
+    "Soviet annexation of the Baltic states 1940 (not recognised by many states)"
+   ],
+   "steps": [
+    {
+     "type": "annex_states",
+     "capitals": [
+      "RUS_VIL",
+      "RUS_BAL"
+     ]
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "AUS_LEM",
+      "RUS_MIN",
+      "RUS_VIL"
+     ],
+     "from": "RUS_WAR"
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "RUS_BES"
+     ],
+     "from": "WAL_BUC"
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "RUS_FIN2"
+     ],
+     "from": "RUS_FIN"
+    }
+   ]
+  },
+  {
+   "id": "JAPAN_1945",
+   "date": "1945-09-02",
+   "actor": "JAP_EDO",
+   "war": "WW2",
+   "losers": [
+    "JAP_EDO"
+   ],
+   "sources": [
+    "CG-40 SAN_FRANCISCO_1951",
+    "Cairo Declaration 1943",
+    "Instrument of Surrender 1945"
+   ],
+   "steps": [
+    {
+     "type": "restore_snapshot",
+     "snapshot": "1937"
+    },
+    {
+     "type": "cede",
+     "regions": [
+      "QNG_TAI"
+     ],
+     "to": "QNG_ZHI"
+    }
+   ]
+  },
+  {
+   "id": "ITALY_1947",
+   "date": "1947-02-10",
+   "actor": "PAP_ROM",
+   "war": "WW2",
+   "losers": [
+    "PAP_ROM"
+   ],
+   "sources": [
+    "CG-40 PARIS_PEACE_1947"
+   ],
+   "steps": [
+    {
+     "type": "restore_snapshot",
+     "snapshot": "1937"
+    }
+   ]
+  },
+  {
+   "id": "GER_PARTITION_1949",
+   "date": "1949-10-07",
+   "actor": "PRU_BRA",
+   "war": "WW2",
+   "losers": [
+    "PRU_BRA"
+   ],
+   "sources": [
+    "CG-41 GER-1949-05",
+    "CG-41 GER-1949-10",
+    "Basic Law 23 May 1949; GDR constitution 7 Oct 1949"
+   ],
+   "steps": [
+    {
+     "type": "move_capital",
+     "to": "PRU_RHI"
+    },
+    {
+     "type": "new_state",
+     "key": "gdr",
+     "regions": [
+      "PRU_BRA",
+      "PRU_SAX",
+      "SAX_DRE",
+      "MSC_SCH",
+      "MST_STR",
+      "SWM_WEI",
+      "SCG_GOT",
+      "SMN_MEI",
+      "SAA_ALT",
+      "ADE_DES",
+      "AKO_KOT",
+      "ABE_BER",
+      "SSO_SON",
+      "SRU_RUD",
+      "RGR_GRE",
+      "RSC_GER",
+      "RLE_LOB"
+     ],
+     "name_en": "German Democratic Republic",
+     "name_vi": "Cộng hòa Dân chủ Đức",
+     "laws": {
+      "governance": "republic",
+      "power": "one_party_state",
+      "economy": "command_economy",
+      "press": "censorship"
+     }
+    },
+    {
+     "type": "rename",
+     "name_en": "Federal Republic of Germany",
+     "name_vi": "Cộng hòa Liên bang Đức",
+     "laws": {
+      "governance": "republic",
+      "power": "universal_suffrage",
+      "press": "free_press"
+     }
+    }
+   ]
+  },
+  {
+   "id": "GER_REUNIFICATION_1990",
+   "date": "1990-10-03",
+   "actor": "PRU_RHI",
+   "noPlayerActor": true,
+   "sources": [
+    "CG-41 GER-1990-10",
+    "Treaty on the Final Settlement with Respect to Germany 1990"
+   ],
+   "steps": [
+    {
+     "type": "annex_states",
+     "capitals": [
+      "PRU_BRA"
+     ],
+     "onlyIfFormedBySettlement": "GER_PARTITION_1949"
+    },
+    {
+     "type": "move_capital",
+     "to": "PRU_BRA"
+    }
+   ]
+  }
+ ]
+}

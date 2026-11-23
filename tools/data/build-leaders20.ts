@@ -11,18 +11,19 @@ import { createGame } from '../../src/engine/init';
 const CITY: Record<string, [number, number]> = {
   'Saint Petersburg': [59.93, 30.34], Moscow: [55.76, 37.62], Berlin: [52.52, 13.4], Paris: [48.86, 2.35], Vichy: [46.13, 3.43], Rome: [41.9, 12.5],
   Istanbul: [41.01, 28.98], Ankara: [39.93, 32.86], Tokyo: [35.68, 139.69], Beijing: [39.9, 116.4], Nanjing: [32.06, 118.8], Madrid: [40.42, -3.7],
-  Vienna: [48.21, 16.37], Hue: [16.46, 107.59], Hanoi: [21.03, 105.85], 'New Delhi': [28.61, 77.21], Warsaw: [52.23, 21.01], Helsinki: [60.17, 24.94], London: [51.51, -0.13],
+  Vienna: [48.21, 16.37], Bonn: [50.73, 7.1], Hue: [16.46, 107.59], Hanoi: [21.03, 105.85], 'New Delhi': [28.61, 77.21], Warsaw: [52.23, 21.01], Helsinki: [60.17, 24.94], London: [51.51, -0.13],
 };
 const OVERRIDE: Record<string, string> = { Washington: 'USA_MAR' };
 /** Capital city of each CG-43 entity by period: [until (exclusive, ISO date) or null, city]. */
 const CAPITALS: Record<string, [string | null, string][]> = {
   RUS: [['1918-03-12', 'Saint Petersburg'], [null, 'Moscow']], USSR: [[null, 'Moscow']], GER: [[null, 'Berlin']], FRA: [['1940-07-10', 'Paris'], ['1944-06-01', 'Vichy'], [null, 'Paris']],
-  ITA: [[null, 'Rome']], TUR: [['1923-10-13', 'Istanbul'], [null, 'Ankara']], JPN: [[null, 'Tokyo']], QNG: [[null, 'Beijing']], ROC: [['1928-06-15', 'Beijing'], ['1949-12-08', 'Nanjing']],
+  ITA: [[null, 'Rome']], FRG: [['1990-10-03', 'Bonn']], GDR: [['1990-10-03', 'Berlin']], TUR: [['1923-10-13', 'Istanbul'], [null, 'Ankara']], JPN: [[null, 'Tokyo']], QNG: [[null, 'Beijing']], ROC: [['1928-06-15', 'Beijing'], ['1949-12-08', 'Nanjing']],
   PRC: [[null, 'Beijing']], SPA: [[null, 'Madrid']], AHM: [[null, 'Vienna']], AUT: [[null, 'Vienna']], VNM: [['1945-08-26', 'Hue'], [null, 'Hanoi']], DRV: [[null, 'Hanoi']],
   IND: [[null, 'New Delhi']], POL: [[null, 'Warsaw']], FIN: [[null, 'Helsinki']], GBR: [[null, 'London']], USA: [[null, 'Washington']], JAP: [[null, 'Tokyo']],
 };
-// FRG/GDR and the South Vietnamese states (SVN, RVN, PRG) wait for the partitions (WW-01c, deferred CG-41 events).
-const SKIP = new Set(['FRG', 'GDR', 'SVN', 'RVN', 'PRG']);
+// The South Vietnamese states (SVN, RVN, PRG) wait for the partition of Vietnam (deferred CG-41 events).
+// FRG (Bonn) and GDR (East Berlin) apply from the 1949 partition (WW-01c settlements).
+const SKIP = new Set(['SVN', 'RVN', 'PRG']);
 /** Records left out: the clandestine Indochinese Communist Party leaders before the 1945 revolution held no state. */
 const excluded = (l: { entity: string; role: string; from: string }) => l.entity === 'VNM' && l.role === 'effective_leader' && l.from < '1945-09-02';
 

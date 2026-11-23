@@ -282,6 +282,8 @@ export interface GameState {
   divergence: DivergenceState;
   /** DECOL-01: Historical Mode independence records already applied (ids from db.decolonisation). */
   decolonised?: string[];
+  /** WW-01c: applied settlements, recorded border snapshots (region → owner) and states they formed. */
+  settlements?: { applied: string[]; snapshots: Record<string, Record<string, string>>; formed: Record<string, string> };
   /** REGIME-02: journal entries (V3-style missions) of the player, e.g. a historical regime change to enact. */
   journal?: JournalEntry[];
   /** REGIME-01a: Historical Mode regime changes already applied (or found not applicable). */

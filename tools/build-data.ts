@@ -374,6 +374,15 @@ for (const w of wwFile.wars) for (const side of w.sides) for (const m of side.me
   if (!regions.some((r: any) => r.id === m.capitalRegion)) err(`world war ${w.id}: unknown capital region ${m.capitalRegion}`);
   if (!(m.entry <= m.exit)) err(`world war ${w.id}: ${m.id} exits before it enters`);
 }
+// WW-01c: unifications and peace settlements (curated; treaty facts from CG-40/CG-41)
+const settlementsFile = readJson('wars/settlements.json');
+const STEP_TYPES = new Set(['cede', 'annex_states', 'new_state', 'rename', 'move_capital', 'restore_snapshot']);
+for (const s of settlementsFile.settlements) {
+  const regionIds = [s.actor, ...(s.losers ?? []), ...(s.winners ?? []), ...s.steps.flatMap((x: any) => [...(x.regions ?? []), ...(x.capitals ?? []), x.from, x.to, x.target].filter(Boolean))].filter(Boolean);
+  for (const id of regionIds) if (!regions.some((r: any) => r.id === id)) err(`settlement ${s.id}: unknown region ${id}`);
+  for (const x of s.steps) if (!STEP_TYPES.has(x.type)) err(`settlement ${s.id}: unknown step ${x.type}`);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(s.date)) err(`settlement ${s.id}: bad date`);
+}
 // LEAD-01: 20th-century leaders (generated from CG-43 by tools/data/build-leaders20.ts)
 const leaders20File = readJson('leaders/leaders_20c.json');
 for (const l of leaders20File.leaders) {
@@ -465,7 +474,7 @@ const db: HistoricalDB = {
   meta: { start_date: START, built_at: new Date().toISOString(), version: '0.1.0', counts: { entities: entities.length, regions: regions.length, sources: sources.length, alliances: alliances.length } },
   sources, cultures: cultFile.cultures, religions: cultFile.religions, entities, regions, alliances,
   wars: ev.initial_wars, exogenous: ev.exogenous, decision_windows: ev.decision_windows, structural_rules: ev.structural_rules,
-  zollverein: ev.zollverein_accessions, leaders, technologies: techFile.technologies, company_kinds: companyKindsFile.kinds, production_methods: pmFile.methods, leaders_20c: leaders20File.leaders.map(({ capitalRegion, name, born, died, from, to, role, title_vi, title_en }: any) => ({ capitalRegion, name, born, died, from, to, role, title_vi, title_en })), regime_changes: regimeFile.events.map(({ id, date, capitalRegion, rename, name_en, name_vi, type, laws, independence }: any) => ({ id, date, capitalRegion, rename, name_en, name_vi, type, laws, independence })), world_wars: wwFile.wars, league_of_nations: wwFile.league, decolonisation: decolFile.records.filter((r: any) => r.regions.length).map(({ id, iso, name, name_vi, power, date, regions }: any) => ({ id, iso, name, name_vi, power, date, regions })), tech_adoption_windows: adoptionWindows.map(({ country, tech, earliest }) => ({ country, tech, earliest })), start_techs,
+  zollverein: ev.zollverein_accessions, leaders, technologies: techFile.technologies, company_kinds: companyKindsFile.kinds, production_methods: pmFile.methods, settlements: settlementsFile.settlements, leaders_20c: leaders20File.leaders.map(({ capitalRegion, name, born, died, from, to, role, title_vi, title_en }: any) => ({ capitalRegion, name, born, died, from, to, role, title_vi, title_en })), regime_changes: regimeFile.events.map(({ id, date, capitalRegion, rename, name_en, name_vi, type, laws, independence }: any) => ({ id, date, capitalRegion, rename, name_en, name_vi, type, laws, independence })), world_wars: wwFile.wars, league_of_nations: wwFile.league, decolonisation: decolFile.records.filter((r: any) => r.regions.length).map(({ id, iso, name, name_vi, power, date, regions }: any) => ({ id, iso, name, name_vi, power, date, regions })), tech_adoption_windows: adoptionWindows.map(({ country, tech, earliest }) => ({ country, tech, earliest })), start_techs,
   historical_changes: hc.changes, equivalence: hc.equivalence.classes, milestones: ms.milestones, territorial_checkpoints: ms.territorial_checkpoints,
   european_powers: ms.european_powers, benchmarks, gdp_pc_1836,
   coverage: { entities_total: regEntities.length, by_tier, by_model, facts_by_quality: factsByQuality, needs_source: [...new Set(needsSource)], gaps },

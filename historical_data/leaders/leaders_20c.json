@@ -4,16 +4,6 @@
   "generatedBy": "tools/data/build-leaders20.ts",
   "source": "historical_data/research_staging/CG43_LEADERS_1900_2026.json (ChatGPT CG-43, staging cohort; rosters partial per MSG-096)",
   "skipped": [
-   "FRG:Theodor Heuss",
-   "FRG:Konrad Adenauer",
-   "FRG:Ludwig Erhard",
-   "FRG:Kurt Georg Kiesinger",
-   "FRG:Willy Brandt",
-   "FRG:Helmut Schmidt",
-   "FRG:Helmut Kohl",
-   "GDR:Walter Ulbricht",
-   "GDR:Erich Honecker",
-   "GDR:Egon Krenz",
    "ROC:Yen Chia-kan (out of period)",
    "ROC:Chiang Ching-kuo (out of period)",
    "ROC:Lee Teng-hui (out of period)",
@@ -21,21 +11,6 @@
    "ROC:Ma Ying-jeou (out of period)",
    "ROC:Tsai Ing-wen (out of period)",
    "ROC:Lai Ching-te (out of period)",
-   "FRG:Theodor Heuss",
-   "FRG:Heinrich Lübke",
-   "FRG:Gustav Heinemann",
-   "FRG:Walter Scheel",
-   "FRG:Karl Carstens",
-   "GDR:Wilhelm Pieck",
-   "GDR:Willi Stoph",
-   "GDR:Manfred Gerlach",
-   "GDR:Sabine Bergmann-Pohl",
-   "GDR:Otto Grotewohl",
-   "GDR:Willi Stoph",
-   "GDR:Horst Sindermann",
-   "GDR:Willi Stoph",
-   "GDR:Hans Modrow",
-   "GDR:Lothar de Maizière",
    "VNM:Trần Phú",
    "VNM:Lê Hồng Phong",
    "VNM:Hà Huy Tập",
@@ -1008,6 +983,186 @@
    "role": "head_of_state",
    "title_en": "Reich President",
    "title_vi": "Tổng thống Đế chế Đức",
+   "sources": [
+    "deutschlandmuseum"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_RHI",
+   "entity": "FRG",
+   "name": "Theodor Heuss",
+   "name_en": "Theodor Heuss",
+   "born": "1884-01-31",
+   "died": "1963-12-12",
+   "from": "1949-09-13",
+   "to": "1959-09-12",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Federal President",
+   "title_vi": "Tổng thống Liên bang",
+   "sources": [
+    "de_presidents"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_RHI",
+   "entity": "FRG",
+   "name": "Konrad Adenauer",
+   "name_en": "Konrad Adenauer",
+   "born": "1876-01-05",
+   "died": "1967-04-19",
+   "from": "1949-09-15",
+   "to": "1963-10-16",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Federal Chancellor",
+   "title_vi": "Thủ tướng Liên bang",
+   "sources": [
+    "de_chancellors"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "PRU_RHI",
+   "entity": "FRG",
+   "name": "Ludwig Erhard",
+   "name_en": "Ludwig Erhard",
+   "born": "1897-02-04",
+   "died": "1977-05-05",
+   "from": "1963-10-16",
+   "to": "1966-12-01",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Federal Chancellor",
+   "title_vi": "Thủ tướng Liên bang",
+   "sources": [
+    "de_chancellors"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "PRU_RHI",
+   "entity": "FRG",
+   "name": "Kurt Georg Kiesinger",
+   "name_en": "Kurt Georg Kiesinger",
+   "born": "1904-04-06",
+   "died": "1988-03-09",
+   "from": "1966-12-01",
+   "to": "1969-10-21",
+   "end": "term",
+   "role": "effective_leader",
+   "title_en": "Federal Chancellor",
+   "title_vi": "Thủ tướng Liên bang",
+   "sources": [
+    "de_chancellors"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "PRU_RHI",
+   "entity": "FRG",
+   "name": "Willy Brandt",
+   "name_en": "Willy Brandt",
+   "born": "1913-12-18",
+   "died": "1992-10-08",
+   "from": "1969-10-21",
+   "to": "1974-05-07",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Federal Chancellor",
+   "title_vi": "Thủ tướng Liên bang",
+   "sources": [
+    "de_chancellors"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "PRU_RHI",
+   "entity": "FRG",
+   "name": "Helmut Schmidt",
+   "name_en": "Helmut Schmidt",
+   "born": "1918-12-23",
+   "died": "2015-11-10",
+   "from": "1974-05-16",
+   "to": "1982-10-01",
+   "end": "vote_of_no_confidence",
+   "role": "effective_leader",
+   "title_en": "Federal Chancellor",
+   "title_vi": "Thủ tướng Liên bang",
+   "sources": [
+    "de_chancellors"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "PRU_RHI",
+   "entity": "FRG",
+   "name": "Helmut Kohl",
+   "name_en": "Helmut Kohl",
+   "born": "1930-04-03",
+   "died": "2017-06-16",
+   "from": "1982-10-01",
+   "to": "1990-10-03",
+   "end": "other",
+   "role": "effective_leader",
+   "title_en": "Federal Chancellor",
+   "title_vi": "Thủ tướng Liên bang",
+   "sources": [
+    "de_chancellors"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GDR",
+   "name": "Walter Ulbricht",
+   "name_en": "Walter Ulbricht",
+   "born": "1893-06-30",
+   "died": "1973-08-01",
+   "from": "1950-07-25",
+   "to": "1971-05-03",
+   "end": "removed",
+   "role": "effective_leader",
+   "title_en": "First Secretary / General Secretary of the Socialist Unity Party",
+   "title_vi": "Bí thư thứ nhất / Tổng Bí thư Đảng Thống nhất Xã hội chủ nghĩa",
+   "sources": [
+    "deutschlandmuseum"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GDR",
+   "name": "Erich Honecker",
+   "name_en": "Erich Honecker",
+   "born": "1912-08-25",
+   "died": "1994-05-29",
+   "from": "1971-05-03",
+   "to": "1989-10-18",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "General Secretary of the Socialist Unity Party",
+   "title_vi": "Tổng Bí thư Đảng Thống nhất Xã hội chủ nghĩa",
+   "sources": [
+    "deutschlandmuseum"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GDR",
+   "name": "Egon Krenz",
+   "name_en": "Egon Krenz",
+   "born": "1937-03-19",
+   "died": null,
+   "from": "1989-10-18",
+   "to": "1989-12-06",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "General Secretary of the Socialist Unity Party; State Council Chairman",
+   "title_vi": "Tổng Bí thư Đảng Thống nhất Xã hội chủ nghĩa; Chủ tịch Hội đồng Nhà nước",
    "sources": [
     "deutschlandmuseum"
    ],
@@ -7044,6 +7199,96 @@
    "quality": "supported"
   },
   {
+   "capitalRegion": "PRU_RHI",
+   "entity": "FRG",
+   "name": "Theodor Heuss",
+   "name_en": "Theodor Heuss",
+   "born": "1884-01-31",
+   "died": "1963-12-12",
+   "from": "1949-09-12",
+   "to": "1959-09-12",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Federal President of the Federal Republic of Germany",
+   "title_vi": "Tổng thống Liên bang Đức",
+   "sources": [
+    "de_bundesarchiv_pres"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "PRU_RHI",
+   "entity": "FRG",
+   "name": "Heinrich Lübke",
+   "name_en": "Heinrich Lübke",
+   "born": "1894-10-14",
+   "died": "1972-04-06",
+   "from": "1959-09-13",
+   "to": "1969-06-30",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Federal President of the Federal Republic of Germany",
+   "title_vi": "Tổng thống Liên bang Đức",
+   "sources": [
+    "de_bundesarchiv_pres"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "PRU_RHI",
+   "entity": "FRG",
+   "name": "Gustav Heinemann",
+   "name_en": "Gustav Heinemann",
+   "born": "1899-07-23",
+   "died": "1976-07-07",
+   "from": "1969-07-01",
+   "to": "1974-06-30",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Federal President of the Federal Republic of Germany",
+   "title_vi": "Tổng thống Liên bang Đức",
+   "sources": [
+    "de_bundesarchiv_pres"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "PRU_RHI",
+   "entity": "FRG",
+   "name": "Walter Scheel",
+   "name_en": "Walter Scheel",
+   "born": "1919-07-08",
+   "died": "2016-08-24",
+   "from": "1974-07-01",
+   "to": "1979-06-30",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Federal President of the Federal Republic of Germany",
+   "title_vi": "Tổng thống Liên bang Đức",
+   "sources": [
+    "de_bundesarchiv_pres"
+   ],
+   "quality": "verified"
+  },
+  {
+   "capitalRegion": "PRU_RHI",
+   "entity": "FRG",
+   "name": "Karl Carstens",
+   "name_en": "Karl Carstens",
+   "born": "1914-12-14",
+   "died": "1992-05-30",
+   "from": "1979-07-01",
+   "to": "1984-06-30",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Federal President of the Federal Republic of Germany",
+   "title_vi": "Tổng thống Liên bang Đức",
+   "sources": [
+    "de_bundesarchiv_pres"
+   ],
+   "quality": "verified"
+  },
+  {
    "capitalRegion": "PRU_BRA",
    "entity": "GER",
    "name": "Helmut Kohl",
@@ -7060,6 +7305,186 @@
     "de_bundestag_dhb"
    ],
    "quality": "verified"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GDR",
+   "name": "Wilhelm Pieck",
+   "name_en": "Wilhelm Pieck",
+   "born": "1876-01-03",
+   "died": "1960-09-07",
+   "from": "1949-10-11",
+   "to": "1960-09-07",
+   "end": "death",
+   "role": "head_of_state",
+   "title_en": "President of the German Democratic Republic",
+   "title_vi": "Chủ tịch nước CHDC Đức",
+   "sources": [
+    "de_bpb_gdr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GDR",
+   "name": "Willi Stoph",
+   "name_en": "Willi Stoph",
+   "born": "1914-07-09",
+   "died": "1999-04-13",
+   "from": "1973-10-03",
+   "to": "1976-10-29",
+   "end": "replaced",
+   "role": "head_of_state",
+   "title_en": "Chairman of the Council of State of the GDR",
+   "title_vi": "Chủ tịch Hội đồng Nhà nước CHDC Đức",
+   "sources": [
+    "de_bpb_gdr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GDR",
+   "name": "Manfred Gerlach",
+   "name_en": "Manfred Gerlach",
+   "born": "1928-05-08",
+   "died": "2011-10-17",
+   "from": "1989-12-06",
+   "to": "1990-04-05",
+   "end": "term",
+   "role": "head_of_state",
+   "title_en": "Acting Chairman of the Council of State of the GDR",
+   "title_vi": "Quyền Chủ tịch Hội đồng Nhà nước CHDC Đức",
+   "sources": [
+    "de_bpb_gdr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GDR",
+   "name": "Sabine Bergmann-Pohl",
+   "name_en": "Sabine Bergmann-Pohl",
+   "born": "1946-04-20",
+   "died": null,
+   "from": "1990-04-05",
+   "to": "1990-10-03",
+   "end": "reunification",
+   "role": "head_of_state",
+   "title_en": "President of the People's Chamber / Acting Head of State",
+   "title_vi": "Chủ tịch Volkskammer / Quyền nguyên thủ",
+   "sources": [
+    "de_bpb_gdr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GDR",
+   "name": "Otto Grotewohl",
+   "name_en": "Otto Grotewohl",
+   "born": "1894-03-11",
+   "died": "1964-09-21",
+   "from": "1949-10-12",
+   "to": "1964-09-21",
+   "end": "death",
+   "role": "effective_leader",
+   "title_en": "Minister-President of the GDR",
+   "title_vi": "Chủ tịch Hội đồng Bộ trưởng CHDC Đức",
+   "sources": [
+    "de_bpb_gdr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GDR",
+   "name": "Willi Stoph",
+   "name_en": "Willi Stoph",
+   "born": "1914-07-09",
+   "died": "1999-04-13",
+   "from": "1964-09-21",
+   "to": "1973-10-03",
+   "end": "replaced",
+   "role": "effective_leader",
+   "title_en": "Minister-President of the GDR",
+   "title_vi": "Chủ tịch Hội đồng Bộ trưởng CHDC Đức",
+   "sources": [
+    "de_bpb_gdr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GDR",
+   "name": "Horst Sindermann",
+   "name_en": "Horst Sindermann",
+   "born": "1915-09-05",
+   "died": "1990-04-20",
+   "from": "1973-10-03",
+   "to": "1976-10-29",
+   "end": "replaced",
+   "role": "effective_leader",
+   "title_en": "Minister-President of the GDR",
+   "title_vi": "Chủ tịch Hội đồng Bộ trưởng CHDC Đức",
+   "sources": [
+    "de_bpb_gdr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GDR",
+   "name": "Willi Stoph",
+   "name_en": "Willi Stoph",
+   "born": "1914-07-09",
+   "died": "1999-04-13",
+   "from": "1976-10-29",
+   "to": "1989-11-07",
+   "end": "resignation",
+   "role": "effective_leader",
+   "title_en": "Minister-President of the GDR",
+   "title_vi": "Chủ tịch Hội đồng Bộ trưởng CHDC Đức",
+   "sources": [
+    "de_bpb_gdr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GDR",
+   "name": "Hans Modrow",
+   "name_en": "Hans Modrow",
+   "born": "1928-01-27",
+   "died": "2023-02-10",
+   "from": "1989-11-13",
+   "to": "1990-04-12",
+   "end": "election_loss",
+   "role": "effective_leader",
+   "title_en": "Minister-President of the GDR",
+   "title_vi": "Chủ tịch Hội đồng Bộ trưởng CHDC Đức",
+   "sources": [
+    "de_bpb_gdr"
+   ],
+   "quality": "supported"
+  },
+  {
+   "capitalRegion": "PRU_BRA",
+   "entity": "GDR",
+   "name": "Lothar de Maizière",
+   "name_en": "Lothar de Maizière",
+   "born": "1940-03-02",
+   "died": null,
+   "from": "1990-04-12",
+   "to": "1990-10-03",
+   "end": "reunification",
+   "role": "effective_leader",
+   "title_en": "Minister-President of the GDR",
+   "title_vi": "Chủ tịch Hội đồng Bộ trưởng CHDC Đức",
+   "sources": [
+    "de_bpb_gdr"
+   ],
+   "quality": "supported"
   },
   {
    "capitalRegion": "VNM_HAN",

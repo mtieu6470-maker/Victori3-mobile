@@ -1,3 +1,31 @@
+## 2026-11-23 — WW-01c unifications and peace settlements (Historical Mode)
+
+- **Finding:** in Historical runs, Germany never unified. Bavaria and Saxony were still independent in 1946, and the 1871 event only renamed Prussia. Italy was incomplete (Venice Austrian, the Two Sicilies holding Rome, two "Italies"), and Austria-Hungary never formed or dissolved. Germany stayed the Nazi state after 1945, and Syria stayed Egyptian.
+- **Data:** `historical_data/wars/settlements.json`, curated with treaty facts from ChatGPT CG-40/CG-41 and engine region ids. build-data validates it → `db.settlements`. Contents:
+  - London 1840 (Egypt returns Syria, Adana, Crete and the Hejaz to the Ottomans);
+  - Italian unification 1861, Venetia 1866, Rome 1870 (capital moves);
+  - Schleswig-Holstein 1864, German unification 1871 (34 states), Ausgleich 1867;
+  - WW1: dissolution of Austria-Hungary 1918, Versailles 1919, Ottoman mandates 1920;
+  - WW2: the 1937 frontier snapshot; Potsdam 1945 (restore 1937 borders, eastern territories to Poland, Allied occupation); the Soviet western annexations 1945; Japan 1945; Italy 1947;
+  - the German partition 1949 (FRG in Bonn, GDR) and reunification 1990.
+- **Engine:** `systems/settlements.ts` runs after world-wars.
+  - The actor is the holder of a capital region (own capital or home territory).
+  - War settlements wait for the world war to end, and apply only if the named losers or winners fought on that side (`worldWars.joined`).
+  - Step types: `cede`, `annex_states`, `new_state`, `rename` (with laws, which end the regime's law hold), `move_capital`, and `restore_snapshot` (which revives states annexed before the war).
+  - After WW2 the losers renounce claims on ceded land.
+  - Unifications are not imposed when the actor is the player, and peacetime steps never take the player's land. World-war treaties bind the player like any belligerent.
+  - State: `GameState.settlements {applied, snapshots, formed}`, validated by the contract.
+- **Leaders:** FRG (Bonn) and GDR (Berlin) records apply from 1949. States formed later are judged only by regime events after their formation (`onHistoricalCourse`).
+- **Seed 1 to 1991:**
+  - 1871 Germany unified; Italy unified by 1870; Austria-Hungary 1867.
+  - 1918–20: Czechoslovakia, Hungary, Kingdom SCS, Romania with Transylvania, Poland with Galicia, Iraq to Britain.
+  - 1945: Silesia and East Prussia to Poland; Lithuania and Latvia to the USSR.
+  - 1949 FRG/GDR; 1990 reunification.
+- **Not yet:** the League of Nations (WW-01d); Eastern Bloc regime changes (e.g. Hungary 1949); Korea and Vietnam partitions; USSR 1991 dissolution; Yugoslavia's 1929 name; Anschluss and Munich 1938 as events (the 1937 snapshot covers their reversal).
+- Tests: `tests/settlements.test.ts` (3). Local: `npm test` **46/46 files, 428/428**.
+
+---
+
 ## 2026-11-23 — LAW-CAL-02 suffrage closer to reality (owner request)
 
 - Movements grow over decades after their idea arrives. `Country.ideasSince` records when `mass_politics` and `feminism` were adopted; ideas held before 1836, or never recorded, count as mature. Maturity takes 45 years for male suffrage and 40 years for women's suffrage.
