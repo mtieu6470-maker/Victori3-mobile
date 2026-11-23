@@ -11,7 +11,14 @@
     "palestine_white_paper": "https://avalon.law.yale.edu/21st_century/brwh1939.asp",
     "burma_panglong": "https://commons.wikimedia.org/wiki/File:Panglong_Conference.jpg",
     "egypt_occupation": "https://www.cambridge.org/core/books/abs/cambridge-history-of-egypt/british-occupation-18821922/179398E6D722904951A25256F524C963",
-    "suez": "https://history.state.gov/milestones/1953-1960/suez"
+    "suez": "https://history.state.gov/milestones/1953-1960/suez",
+    "ceylon_elections": "https://elections.gov.lk/en/aboutus/aboutus_history_E.html",
+    "ceylon_un": "https://digitallibrary.un.org/record/860913/files/1947-E.pdf",
+    "malaysia_gov": "https://www.malaysia.gov.my/en/government/learn-about-malaysia/malaysian-history",
+    "malaya_archives": "https://cdn.nationalarchives.gov.uk/documents/migrated-archives-guidance.pdf",
+    "egypt_suez": "https://history.state.gov/milestones/1953-1960/suez",
+    "egypt_1882": "https://www.cambridge.org/core/books/abs/cambridge-history-of-egypt/british-occupation-18821922/179398E6D722904951A25256F524C963",
+    "palestine_whitepaper": "https://avalon.law.yale.edu/21st_century/brwh1939.asp"
   },
   "events": [
     {
@@ -2592,11 +2599,6 @@
                 "ig_intelligentsia": 1,
                 "radicalism": -0.01
               }
-            },
-            {
-              "type": "subject_liberty",
-              "subject": "GBR",
-              "delta": 0
             }
           ]
         },
@@ -2834,7 +2836,12 @@
       ],
       "sources": [
         "ceylon_un"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_ceylon_independence_1948",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_malaya_invasion_1941",
@@ -2932,7 +2939,12 @@
       "sources": [
         "malaysia_gov",
         "malaya_archives"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_malaya_invasion_1941",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_singapore_fall_1942",
@@ -3040,7 +3052,12 @@
       ],
       "sources": [
         "malaysia_gov"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_singapore_fall_1942",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_malayan_union_1946",
@@ -3239,7 +3256,12 @@
       "sources": [
         "malaya_archives",
         "malaysia_gov"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_malayan_emergency_1948",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_malaya_independence_1957",
@@ -3450,7 +3472,12 @@
       ],
       "sources": [
         "egypt_1882"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_egypt_occupation_1882",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_egypt_independence_1922",
@@ -3556,7 +3583,12 @@
       "sources": [
         "egypt_1882",
         "egypt_suez"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_egypt_independence_1922",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_egypt_treaty_1936",
@@ -3771,7 +3803,12 @@
       ],
       "sources": [
         "egypt_suez"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_suez_crisis_1956",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_balfour_declaration_1917",
@@ -3871,7 +3908,12 @@
       "sources": [
         "palestine_un",
         "palestine_timeline"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_balfour_declaration_1917",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_palestine_mandate_1922",
@@ -3975,7 +4017,12 @@
       "sources": [
         "palestine_un",
         "palestine_timeline"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_palestine_mandate_1922",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_peel_commission_1937",
@@ -4082,7 +4129,12 @@
       ],
       "sources": [
         "palestine_un"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_peel_commission_1937",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_white_paper_1939",
@@ -4299,7 +4351,12 @@
       "sources": [
         "palestine_un",
         "palestine_timeline"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_palestine_partition_1947",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     }
   ]
 }
