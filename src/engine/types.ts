@@ -171,6 +171,10 @@ export interface WarSide { leader: string; members: string[] }
 export interface WarGoal { by: string; type: string; target: string; regions?: string[] }
 export interface War {
   id: string; name: string; kind: 'conquest' | 'civil' | 'colonial' | 'independence' | 'great';
+  /** WW-01b: id of a historical world war driven by data (no AI peace; ends on its historical date). */
+  scripted?: string;
+  /** WW-01b: members that declared war but do not fight (nominal belligerents): no armies, not targeted. */
+  nominal?: string[];
   attackers: WarSide; defenders: WarSide; goals: WarGoal[];
   start: number; score: number; // +100 attackers win, -100 defenders win
   occupied: string[]; battles: number; exhaustion: { a: number; d: number }; historicalSeed?: boolean;
@@ -260,6 +264,8 @@ export interface GameState {
   divergence: DivergenceState;
   /** DECOL-01: Historical Mode independence records already applied (ids from db.decolonisation). */
   decolonised?: string[];
+  /** WW-01b: progress of the historical world wars (Historical Mode). */
+  worldWars?: Record<string, { war: string | null; ended: boolean; joined: Record<string, string> }>;
   /** DIPLO-UN-01: absent until the UN is founded. */
   un?: UnitedNations;
   counters: Counters;

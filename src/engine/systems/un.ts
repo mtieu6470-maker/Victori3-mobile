@@ -177,7 +177,12 @@ export function holdVote(st: GameState, warId: string, attacker: string, defende
 
 export function unMonth(st: GameState): void {
   if (!st.un) {
-    if (st.mode === 'historical' && dateStr(st.date).slice(0, 7) >= UN_PARAMS.foundingDate) foundUn(st);
+    // WW-01 (owner): the UN is founded after World War II. In Historical Mode it follows the end of the
+    // simulated WW2 (the month after it ends); if WW2 never formed in this world, the dated fallback
+    // (October 1945) applies. Sandbox founding after an emergent world war is WW-01a.
+    const ww2 = st.worldWars?.WW2;
+    const afterWar = !!ww2?.ended && (ww2.war !== null || dateStr(st.date).slice(0, 7) >= UN_PARAMS.foundingDate);
+    if (st.mode === 'historical' && (afterWar || (!ww2?.war && dateStr(st.date).slice(0, 7) >= UN_PARAMS.foundingDate))) foundUn(st);
     return;
   }
   const un = st.un;

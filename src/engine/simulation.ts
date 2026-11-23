@@ -19,6 +19,7 @@
 //
 // Every system runs every boundary regardless of mode; counters record each monthly run so tests
 // can prove that neither mode skips or weakens a system.
+import { worldWarsMonth } from './systems/worldWars';
 import { productionMethodsMonth } from './systems/productionMethods';
 import { marketOf } from './systems/economy';
 import { unMonth } from './systems/un';
@@ -55,6 +56,7 @@ export const SYSTEMS: SimSystem[] = [
   { name: 'secession', run: (st) => secessionCheck(st, (nation, regs, from) => { const id = createNation(st, nation, [], from, 'secession'); const rebels = st.countries[id]; rebels.kind = 'rebel'; rebels.capital = regs[0]; declareWar(st, id, from, [{ by: id, type: 'independence', target: from, regions: regs }], `${rebels.name} independence war`, 'independence'); for (const r of regs) st.regions[st.regions.findIndex((x) => x.id === r)].controller = id; return id; }) },
   { name: 'technology', run: (st) => technologyMonth(st, (c, opts) => chooseResearch(st, c, opts)) },
   { name: 'growth', run: growthMonth },
+  { name: 'world-wars', run: worldWarsMonth },
   { name: 'diplomacy', run: diplomacyMonth },
   { name: 'united-nations', run: unMonth },
   { name: 'military', run: militaryMonth },

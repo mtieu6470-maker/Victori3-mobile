@@ -368,6 +368,12 @@ for (const [b, list] of Object.entries<any[]>(pmFile.methods)) {
     for (const [g, q] of Object.entries(m.inputs)) if (!GOOD_IDS.has(g) || !(typeof q === 'number' && q >= 0)) err(`production method ${b}/${m.id}: bad input ${g}`);
   }
 }
+// WW-01b: historical world wars (generated from CG-40 by tools/data/build-world-wars.ts)
+const wwFile = readJson('wars/world_wars.json');
+for (const w of wwFile.wars) for (const side of w.sides) for (const m of side.members) {
+  if (!regions.some((r: any) => r.id === m.capitalRegion)) err(`world war ${w.id}: unknown capital region ${m.capitalRegion}`);
+  if (!(m.entry <= m.exit)) err(`world war ${w.id}: ${m.id} exits before it enters`);
+}
 // DECOL-01: Historical Mode independence events (generated from CG-37 by tools/data/build-decolonisation.ts)
 const decolFile = readJson('decolonisation/independence.json');
 const regionIdSet = new Set(regions.map((r: any) => r.id));
@@ -446,7 +452,7 @@ const db: HistoricalDB = {
   meta: { start_date: START, built_at: new Date().toISOString(), version: '0.1.0', counts: { entities: entities.length, regions: regions.length, sources: sources.length, alliances: alliances.length } },
   sources, cultures: cultFile.cultures, religions: cultFile.religions, entities, regions, alliances,
   wars: ev.initial_wars, exogenous: ev.exogenous, decision_windows: ev.decision_windows, structural_rules: ev.structural_rules,
-  zollverein: ev.zollverein_accessions, leaders, technologies: techFile.technologies, company_kinds: companyKindsFile.kinds, production_methods: pmFile.methods, decolonisation: decolFile.records.filter((r: any) => r.regions.length).map(({ id, iso, name, name_vi, power, date, regions }: any) => ({ id, iso, name, name_vi, power, date, regions })), tech_adoption_windows: adoptionWindows.map(({ country, tech, earliest }) => ({ country, tech, earliest })), start_techs,
+  zollverein: ev.zollverein_accessions, leaders, technologies: techFile.technologies, company_kinds: companyKindsFile.kinds, production_methods: pmFile.methods, world_wars: wwFile.wars, league_of_nations: wwFile.league, decolonisation: decolFile.records.filter((r: any) => r.regions.length).map(({ id, iso, name, name_vi, power, date, regions }: any) => ({ id, iso, name, name_vi, power, date, regions })), tech_adoption_windows: adoptionWindows.map(({ country, tech, earliest }) => ({ country, tech, earliest })), start_techs,
   historical_changes: hc.changes, equivalence: hc.equivalence.classes, milestones: ms.milestones, territorial_checkpoints: ms.territorial_checkpoints,
   european_powers: ms.european_powers, benchmarks, gdp_pc_1836,
   coverage: { entities_total: regEntities.length, by_tier, by_model, facts_by_quality: factsByQuality, needs_source: [...new Set(needsSource)], gaps },

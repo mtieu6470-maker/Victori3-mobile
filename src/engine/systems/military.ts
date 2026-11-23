@@ -66,13 +66,17 @@ function warMonth(st: GameState, w: War) {
   w.defenders.members = w.defenders.members.filter((m) => st.countries[m]?.alive);
   if (!w.attackers.members.length || !w.defenders.members.length) return endWar(st, w, w.attackers.members.length ? 'attackers' : 'defenders', 'collapse');
   const enemyCount = (id: string) => st.wars.filter((x) => x.attackers.members.includes(id) || x.defenders.members.includes(id)).length;
-  const A = sideStrength(st, w.attackers.members, enemyCount), D = sideStrength(st, w.defenders.members, enemyCount);
-  const navA = w.attackers.members.reduce((s, m) => s + navalStrength(st.countries[m]), 0);
-  const navD = w.defenders.members.reduce((s, m) => s + navalStrength(st.countries[m]), 0);
+  // WW-01b: nominal belligerents (declared war, did not fight) neither fight nor are attacked.
+  const active = (ms: string[]) => (w.nominal?.length ? ms.filter((m) => !w.nominal!.includes(m)) : ms);
+  const actA = active(w.attackers.members), actD = active(w.defenders.members);
+  const A = sideStrength(st, actA, enemyCount), D = sideStrength(st, actD, enemyCount);
+  const navA = actA.reduce((s, m) => s + navalStrength(st.countries[m]), 0);
+  const navD = actD.reduce((s, m) => s + navalStrength(st.countries[m]), 0);
   const battles = 1 + Math.min(2, Math.floor(Math.min(A, D) / 150000));
   for (let b = 0; b < battles; b++) {
     const attackerTurn = rand(st) < A / Math.max(1, A + D);
-    const off = attackerTurn ? w.attackers.members : w.defenders.members, dfn = attackerTurn ? w.defenders.members : w.attackers.members;
+    const off = attackerTurn ? actA : actD, dfn = attackerTurn ? actD : actA;
+    if (!off.length || !dfn.length) continue;
     const so = attackerTurn ? A : D, sd = attackerTurn ? D : A;
     const navalOk = (attackerTurn ? navA : navD) >= 0.6 * (attackerTurn ? navD : navA) && (attackerTurn ? navA : navD) > 0.5;
     let targets = frontTargets(st, off, dfn, navalOk);
@@ -121,6 +125,8 @@ function warMonth(st: GameState, w: War) {
   const exD = Math.max(...w.defenders.members.map((m) => st.countries[m].warExhaustion));
   w.exhaustion = { a: exA, d: exD };
   const months = st.tick - w.start;
+  // WW-01b: a historical world war has no AI peace; it ends on its historical date (systems/worldWars.ts)
+  if (w.scripted) return;
   // peace logic (AI acceptance thresholds; player wars resolve the same way unless the player negotiates)
   if (w.score > 55 || (w.score > 25 && exD > 60) || (w.score > 10 && exD > 85)) return endWar(st, w, 'attackers', 'capitulation');
   // exhaustion alone never forces capitulation: an exhausted side gives up only while it is also losing

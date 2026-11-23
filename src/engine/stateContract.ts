@@ -128,7 +128,7 @@ const TREATY_TYPES = ['alliance', 'guarantee', 'customs_union'] as const;
 export function validateWarsAndTreaties(st: Obj): void {
   arr(st.wars, 'wars').forEach((x, i) => {
     const p = `wars[${i}]`; const w = obj(x, p);
-    str(w.id, `${p}.id`); str(w.name, `${p}.name`); oneOf(w.kind, WAR_KINDS, `${p}.kind`);
+    str(w.id, `${p}.id`); str(w.name, `${p}.name`); oneOf(w.kind, WAR_KINDS, `${p}.kind`); if (w.scripted !== undefined) str(w.scripted, `${p}.scripted`); if (w.nominal !== undefined) arr(w.nominal, `${p}.nominal`).forEach((x, i) => str(x, `${p}.nominal[${i}]`));
     for (const side of ['attackers', 'defenders'] as const) { const s = obj(w[side], `${p}.${side}`); str(s.leader, `${p}.${side}.leader`); strings(s.members, `${p}.${side}.members`); }
     arr(w.goals, `${p}.goals`).forEach((gx, j) => {
       const gp = `${p}.goals[${j}]`; const g = obj(gx, gp);
@@ -234,6 +234,7 @@ export function validateNestedState(st: GameState): void {
   validateHistoryAndCounters(s);
   validateCompanies(s);
   if (s.decolonised !== undefined) arr(s.decolonised, 'decolonised').forEach((x, i) => str(x, `decolonised[${i}]`));
+  if (s.worldWars !== undefined) for (const [k, v] of Object.entries(obj(s.worldWars, 'worldWars'))) { const r = obj(v, `worldWars.${k}`); if (r.war !== null) str(r.war, `worldWars.${k}.war`); bool(r.ended, `worldWars.${k}.ended`); for (const [m, c] of Object.entries(obj(r.joined, `worldWars.${k}.joined`))) str(c, `worldWars.${k}.joined.${m}`); }
   if (s.un !== undefined) {
     const un = obj(s.un, 'un'); tick(un.founded, 'un.founded'); if (un.powerSeat !== undefined && un.powerSeat !== null) str(un.powerSeat, 'un.powerSeat'); if (un.seatTerritory !== undefined) for (const [k, v] of Object.entries(obj(un.seatTerritory, 'un.seatTerritory'))) arr(v, `un.seatTerritory.${k}`).forEach((x, i) => str(x, `un.seatTerritory.${k}[${i}]`));
     for (const k of ['members', 'permanent'] as const) arr(un[k], `un.${k}`).forEach((x, i) => str(x, `un.${k}[${i}]`));
