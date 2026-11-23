@@ -35,6 +35,9 @@ This means the current ingester cannot deliver many valid images for the game's 
 
 ## Follow-up after CG-50 data integrity pass
 
-All 87 authored events now have an `image.ref` plus a matching `illustration_event` selection record. Event image refs are normalised to `ill_<event_id>`, matching the ingester's output asset ID. Five final candidates were added: Malayan Union protest, Hugh Clifford portrait, Jamaica labour-context image, Westminster statute-associated coat of arms, and a CC0 1956 Commonwealth conference group photo including Ceylon's prime minister. The Jamaica image is explicitly contextual, not a direct strike photograph.
+All 88 authored events now have an `image.ref` plus a matching `illustration_event` selection record. Event image refs are normalised to `ill_<event_id>`, matching the ingester's output asset ID. Five final candidates were added: Malayan Union protest, Hugh Clifford portrait, Jamaica labour-context image, Westminster statute-associated coat of arms, and a CC0 1956 Commonwealth conference group photo including Ceylon's prime minister. The Jamaica image is explicitly contextual, not a direct strike photograph.
 
 A separate simulation-integrity pass found that several decolonisation choices previously created only `base_rights` treaties against future-country IDs absent from the 1836 registry. Those effects could not create the independent country. The data now uses `grant_independence` on represented map regions, with the EIC-side Malaya event added and the post-1937 Irish constitutional event gated on Ireland's actual formation. This remains subject to `npm run data` and in-game validation; territories absent from the map cannot be granted by an event.
+
+
+The final total is 88 authored events: the original 87-event CG-50 data set plus the EIC-side Malaya independence event. All 88 have matching selection records and image refs. This does not mean images have been ingested or that the Android build has passed.
