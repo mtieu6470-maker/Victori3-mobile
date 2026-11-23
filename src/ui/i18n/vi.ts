@@ -30,6 +30,7 @@ export const GOV_VI: Record<string, string> = {
   tribal_monarchy: 'Quân chủ bộ lạc', collective_monarchy: 'Quân chủ tập thể', princely_state: 'Phiên vương quốc', aggregate_princely_states: 'Nhóm phiên vương quốc', feudal_shogunate: 'Mạc phủ phong kiến',
   aggregate_sultanates: 'Nhóm vương quốc Hồi giáo', confederation_of_chiefs: 'Liên minh tù trưởng', fragmented_monarchy: 'Quân chủ phân quyền', caliphate: 'Vương triều Caliph', collapsing_monarchy: 'Quân chủ suy tàn',
   theocratic_imamate: 'Lãnh địa Imam thần quyền', private_colony: 'Thuộc địa tư nhân', provisional_government: 'Chính phủ lâm thời', dictatorship: 'Độc tài', rebel_republic: 'Cộng hòa nổi dậy', republic: 'Cộng hòa',
+  socialist_republic: 'Cộng hòa xã hội chủ nghĩa', single_party_state: 'Nhà nước độc đảng',
 };
 export const TECH_TREE_VI: Record<string, string> = { production: 'Sản xuất', society: 'Xã hội', military: 'Quân sự' };
 export const SUBJECT_VI: Record<string, string> = { protectorate: 'Xứ bảo hộ', puppet: 'Bù nhìn', personal_union: 'Liên minh cá nhân', tributary: 'Triều cống', chartered_company: 'Công ty đặc quyền', dominion: 'Lãnh thổ tự trị', colony: 'Thuộc địa', vassal: 'Chư hầu' };
@@ -42,6 +43,12 @@ export const QUALITY_VI: Record<string, { sym: string; label: string; cls: strin
 };
 export const LOG_TYPE_VI: Record<string, string> = { war: 'Chiến tranh', law: 'Luật', state: 'Nhà nước', diplomacy: 'Ngoại giao', succession: 'Kế vị', revolution: 'Cách mạng', economy: 'Kinh tế', territory: 'Lãnh thổ', tech: 'Công nghệ', event: 'Sự kiện', decision: 'Quyết định', disaster: 'Thiên tai' };
 
+/** REGIME-02: head-of-state titles (engine keys from leaderTitle, or a historical record's English title). */
+export const TITLE_VI: Record<string, string> = {
+  emperor: 'Hoàng đế', king: 'Quốc vương', president: 'Tổng thống', general_secretary: 'Tổng Bí thư', party_leader: 'Lãnh tụ đảng cầm quyền',
+  head_of_state: 'Quốc trưởng', supreme_leader: 'Lãnh tụ tối cao', chief: 'Tù trưởng', queen: 'Nữ vương', empress: 'Nữ hoàng', tsar: 'Sa hoàng', sultan: 'Sultan', shogun: 'Tướng quân (Shōgun)',
+};
+export const titleVi = (t: string) => TITLE_VI[t] ?? TITLE_VI[t.toLowerCase().replace(/ /g, '_')] ?? t;
 export const lawVi = (v: string) => LAW_VI[v] ?? v.replace(/_/g, ' ');
 export const govVi = (v: string) => GOV_VI[v] ?? v.replace(/_/g, ' ');
 export const techName = (id: string) => TECH_VI[id] ?? id.replace(/_/g, ' ').replace(/^./, (c) => c.toUpperCase());

@@ -1,3 +1,35 @@
+## 2026-11-23 — REGIME-02 regime changes as V3-style journal entries for AI and player alike; heads of state follow the regime
+
+- **Owner decisions:**
+  - For the player, a historical regime change is a mission (journal entry) listing the laws the regime needs.
+  - The AI follows the same rules, and can still change laws as circumstances require.
+  - When the regime changes, the head of state changes too (a tsar becomes a general secretary).
+- `regimes.ts`: on its date an event opens a journal entry for the country holding the capital. Entries live in `GameState.journal` as `{id, kind, event, country, started, expires, status}`, validated by the contract. There are three kinds (`regimeEntryKind`):
+  - **proclaim**: a new regime or state (rename), such as a revolution, coup, unification or new republic. All laws are installed in one action. The AI acts at once; the player presses "Tiến hành" or keeps the regime.
+  - **reform**: constitutions, reforms and welfare inside a regime. The laws are passed one by one through ordinary reforms, and the entry completes when all are in force (+10 legitimacy).
+    - For the AI, `journalPull` (+2.0) favours the laws and `journalGoalValues` adds them to its reform candidates.
+    - For both AI and player, `JOURNAL_REFORM_MOMENTUM` (+0.08 progress per month) applies while an entry asks for the law. Strong interest-group opposition can still make the entry expire.
+  - **independence**: completed by recognising the new state; the AI does it at once.
+  - Entries expire after 10 years or when the country no longer holds the capital. Player actions are the `journal` command (`complete` or `abandon`).
+- The former hard law hold is now **soft inertia** (`regimeLawInertia` −0.6 in `reformUtility`): the AI can still change a regime's laws if circumstances warrant.
+- **Heads of state:**
+  - `leaderTitle(c)`: emperor or king, president, general secretary (one-party state with a command economy or a socialist name), party leader, head of state (autocratic republic), supreme leader, chief. A recorded `Leader.title` wins.
+  - `govLabelFor(c)` adds `socialist_republic` and `single_party_state`.
+  - A rename installs a new leader: the recorded office-holder from the leaders data (±1 year), else a generated one with that title. Revolutions also update `govLabel`.
+- UI:
+  - Journal tab "Nhiệm vụ & quyết định": newspaper-style cards with a masthead, the law checklist with "Bắt đầu cải cách" and tech requirements, progress, deadline, and "Tiến hành", "Công nhận độc lập" or "Giữ chế độ hiện tại". Finished entries are listed.
+  - Outliner: "N nhiệm vụ lịch sử".
+  - Titles appear in Politics, the country header and the top-bar tooltip.
+  - Screenshot: Russia 1/1918 with the Provisional Government entry.
+- Seed 1, Historical to 1960:
+  - Most entries complete. The USSR passes the command economy in 1940 via its 1936 entry. France goes Vichy → Fourth → Fifth Republic; Japan and Italy change after the war.
+  - Expired entries: RSFSR-1918 (too much opposition), JAP-1889 and FIN-1906.
+  - Germany is still the Nazi state in 1960 because the partition belongs to WW-01c.
+- CG-42 received (MSG-094); calibration of AI law-reform pace is next. CG-43 (MSG-095) requested: 20th-century leaders with titles.
+- Tests: `regimes.test.ts` (11). Local: `npm test` **43/43 files, 419/419** (one test rewritten after the full run; it was the only failure, and the rewrite passes).
+
+---
+
 ## 2026-11-23 — REGIME-01b 20th-century laws (V3-style): universal suffrage, one-party state, command economy
 
 - `laws.ts`: three new reformable values — `power: universal_suffrage`, `power: one_party_state` and `economy: command_economy`. `LAW_TECH` and `lawUnlocked`: all three need `socialist_thought` before a debate (`startReform`, AI candidates, and Politics UI shows the required tech). Historical events set them regardless.

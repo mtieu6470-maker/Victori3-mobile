@@ -1,5 +1,6 @@
 // Player command API. Every command calls the SAME functions the AI uses, so the player plays by the AI's rules.
 // The UI layer must only issue these commands (no rule logic in the UI).
+import { journalAction } from './systems/regimes';
 import type { LawGroup } from './data/dbTypes';
 import type { Building, GameState, WarGoal } from './types';
 import { enqueueConstruction, cancelConstruction } from './systems/economy';
@@ -35,7 +36,8 @@ export type Command =
   | { type: 'join_customs_union'; union: string }
   | { type: 'declare_war'; target: string; goals: WarGoal[] }
   | { type: 'offer_white_peace'; war: string }
-  | { type: 'decide'; pendingId: string; option: string };
+  | { type: 'decide'; pendingId: string; option: string }
+  | { type: 'journal'; entry: string; action: 'complete' | 'abandon' };
 
 export interface CommandResult { ok: boolean; reason?: string }
 
@@ -55,6 +57,7 @@ export function validateCommand(st: GameState, me: { id: string }, cmd: Command)
     case 'set_army_target': return fin(cmd.manpower) ? null : 'Invalid army target';
     case 'set_navy_target': return fin(cmd.ships) ? null : 'Invalid navy target';
     case 'start_reform': return isReformableLaw(cmd.group, cmd.value) ? null : 'Unknown law group or law value';
+    case 'journal': return typeof cmd.entry === 'string' && (cmd.action === 'complete' || cmd.action === 'abandon') ? null : 'Invalid journal action';
     case 'found_company': return typeof cmd.kind === 'string' && data().db.company_kinds.some((k) => k.id === cmd.kind) ? null : 'Unknown company kind';
     default: break;
   }
@@ -125,6 +128,8 @@ export function execute(st: GameState, cmd: Command): CommandResult {
     }
     case 'decide':
       return resolvePlayerDecision(st, me.id, cmd.pendingId, cmd.option);
+    case 'journal':
+      return journalAction(st, me.id, cmd.entry, cmd.action);
     default:
       return { ok: false, reason: 'Unknown command' };
   }

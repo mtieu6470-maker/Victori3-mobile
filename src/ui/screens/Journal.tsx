@@ -9,6 +9,9 @@ import { shortName } from '../game/names';
 import { viewedId, send, canCommand, Flag, focusRegion, regionName, LOG_ICON } from './common';
 import { game } from '../game/controller';
 import type { LawGroup } from '../../engine/data/dbTypes';
+import { journalGoals, regimeEvent, regimeEntryKind } from '../../engine/systems/regimes';
+import { lawUnlocked, LAW_TECH } from '../../engine/laws';
+import { techName } from '../i18n/vi';
 
 // UI copy for the decision windows defined in the Historical Database (titles are not stored in the database).
 export const DW_TITLE: Record<string, string> = {
@@ -33,6 +36,68 @@ export function JournalScreen({ st, tab }: { st: GameState; tab: string }) {
   return <Decisions st={st} />;
 }
 
+const EVENT_TYPE_VI: Record<string, string> = {
+  authoritarian_takeover: 'Chính quyền độc tài lên nắm quyền', civil_war_victory_and_dictatorship: 'Thắng nội chiến, lập chế độ độc tài', constitution: 'Hiến pháp mới',
+  constitution_and_centralisation: 'Hiến pháp và tập trung quyền lực', constitution_and_democratic_transition: 'Hiến pháp và chuyển đổi dân chủ', constitution_and_regime_change: 'Hiến pháp và đổi chế độ',
+  constitution_and_socialisation: 'Hiến pháp và xã hội hóa', constitutional_amendment: 'Sửa đổi hiến pháp', constitutional_coup: 'Đảo chính hiến pháp', constitutional_reform: 'Cải cách hiến pháp',
+  constitutional_reform_and_womens_suffrage: 'Cải cách hiến pháp, phụ nữ được bầu cử', coup_and_regime_change: 'Đảo chính và đổi chế độ', federal_union_formation: 'Thành lập liên bang',
+  independence: 'Độc lập', independence_and_state_formation: 'Độc lập và lập quốc', independence_declaration: 'Tuyên bố độc lập', political_transition: 'Chuyển đổi chính trị',
+  referendum_and_regime_change: 'Trưng cầu dân ý và đổi chế độ', reform_process: 'Tiến trình cải cách', regime_change: 'Đổi chế độ', revolution: 'Cách mạng',
+  revolution_and_abdication: 'Cách mạng và thoái vị', revolution_and_government_seizure: 'Cách mạng giành chính quyền', revolution_and_regime_change: 'Cách mạng và đổi chế độ',
+  revolution_and_state_centralisation: 'Cách mạng và tập trung nhà nước', revolution_and_state_formation: 'Cách mạng và lập quốc', social_policy_reform: 'Cải cách chính sách xã hội',
+  social_reform_and_law_change: 'Cải cách xã hội và đổi luật', state_restoration_and_independence: 'Khôi phục nhà nước và độc lập', unification: 'Thống nhất', welfare_state_reform: 'Cải cách nhà nước phúc lợi',
+};
+const monthYear = (t: number) => `${String((t % 12) + 1).padStart(2, '0')}/${1836 + Math.floor(t / 12)}`;
+
+/** REGIME-02: V3-style journal entries — a historical regime change the player enacts through reforms. */
+function Missions({ st, id, mine }: { st: GameState; id: string; mine: boolean }) {
+  const all = (st.journal ?? []).filter((j) => j.country === id);
+  if (!all.length) return null;
+  const active = all.filter((j) => j.status === 'active'); const past = all.filter((j) => j.status !== 'active');
+  const c = st.countries[id];
+  return (
+    <>
+      {active.map((j) => {
+        const e = regimeEvent(j.event); if (!e) return null;
+        const goals = journalGoals(st, j); const done = goals.filter((g) => g.done).length; const kind = regimeEntryKind(e);
+        return (
+          <section class="journal news" key={j.id}>
+            <div class="masthead"><span>Tin tức</span><span>{monthYear(j.started)}</span></div>
+            <header><Icon name="scroll" /><h4>{e.name_vi}</h4><span class="ctx">hạn {monthYear(j.expires)}</span></header>
+            <div class="s">{EVENT_TYPE_VI[e.type] ?? e.type.replace(/_/g, ' ')} · sự kiện lịch sử ngày {e.date.split('-').reverse().join('/')}{e.rename ? ` · nước sẽ đổi tên thành ${e.name_vi}` : ''}</div>
+            {e.independence
+              ? <div class="s">Công nhận nền độc lập: các vùng có văn hóa {e.independence.join(', ')} sẽ tách thành một nước mới. Nước cũ từ bỏ yêu sách lãnh thổ, hai bên đình chiến 2 năm.</div>
+              : <>
+                  <div class="s">{kind === 'reform'
+                    ? 'Để chế độ này ra đời như trong lịch sử, hãy thông qua các luật sau bằng cải cách. Khi đủ luật, quốc gia đổi chính thể, đổi tên và có người đứng đầu mới (+10 chính danh).'
+                    : 'Biến cố này (cách mạng, đảo chính, thống nhất…) áp đặt cùng lúc các luật dưới đây khi được tiến hành. Cũng có thể đi từng bước bằng cải cách: đủ luật thì chế độ mới ra đời (+10 chính danh).'}</div>
+                  <div class="pbar" style="margin:6px 0"><i style={`width:${goals.length ? (done / goals.length) * 100 : 0}%`} /></div>
+                  {goals.map((g) => {
+                    const locked = !lawUnlocked(c, g.value);
+                    return (
+                      <div class="option" key={g.group}>
+                        <div class="oh"><span class="ot">{g.done ? '✓ ' : ''}{GROUP_VI[g.group] ?? g.group}: {lawVi(g.value)}</span>{g.done ? <span class="tag up">Đã có</span> : <span class="tag flat">hiện: {lawVi(c.laws[g.group])}</span>}</div>
+                        {!g.done && locked && <div class="s">Cần công nghệ: {techName(LAW_TECH[g.value])}</div>}
+                        {!g.done && mine && <div style="margin-top:6px"><button class="btn sm" disabled={!!c.reform || locked} onClick={() => send({ type: 'start_reform', group: g.group, value: g.value }, `Bắt đầu cải cách: ${lawVi(g.value)}`)}>{c.reform?.group === g.group && c.reform.value === g.value ? 'Đang cải cách' : 'Bắt đầu cải cách'}</button></div>}
+                      </div>
+                    );
+                  })}
+                </>}
+            {mine && <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+              {kind === 'independence' && <button class="btn sm" onClick={() => send({ type: 'journal', entry: j.id, action: 'complete' }, `Công nhận ${e.name_vi}`)}>Công nhận độc lập</button>}
+              {kind === 'proclaim' && <button class="btn sm" onClick={() => send({ type: 'journal', entry: j.id, action: 'complete' }, `Tiến hành: ${e.name_vi}`)}>Tiến hành</button>}
+              <button class="btn sm" onClick={() => send({ type: 'journal', entry: j.id, action: 'abandon' }, 'Giữ chế độ hiện tại')}>Giữ chế độ hiện tại</button>
+            </div>}
+          </section>
+        );
+      })}
+      {past.length > 0 && <Sec title="Nhiệm vụ đã kết thúc" x={`${past.length}`}>
+        {past.map((j) => <div class="kv" key={j.id}><span class="k">{regimeEvent(j.event)?.name_vi ?? j.event}</span><span class="v">{{ completed: 'Hoàn thành', expired: 'Hết thời cơ', abandoned: 'Đã từ bỏ', active: '' }[j.status]}{j.ended !== undefined ? ` · ${monthYear(j.ended)}` : ''}</span></div>)}
+      </Sec>}
+    </>
+  );
+}
+
 function Decisions({ st }: { st: GameState }) {
   const id = viewedId(st); const pend = st.pendingPlayerDecisions; const mine = canCommand(st, id);
   const windows = data().db.decision_windows.filter((w) => w.entity === id);
@@ -40,6 +105,7 @@ function Decisions({ st }: { st: GameState }) {
   const status = (w: (typeof windows)[number]) => (pend.some((p) => p.windowId === w.id) ? ['Đang chờ quyết định', 'warn'] : st.firedEvents.includes(w.id) ? ['Đã diễn ra', 'flat'] : now > w.window[1].slice(0, 7) ? ['Đã đóng', 'flat'] : now < w.window[0].slice(0, 7) ? ['Chưa mở', 'flat'] : ['Đang mở — chờ điều kiện', 'up']);
   return (
     <div class="pad">
+      <Missions st={st} id={id} mine={mine} />
       {st.mode === 'sandbox' && <div class="banner"><Icon name="scroll" /><div class="grow">Sandbox không có cửa sổ quyết định lịch sử; biến cố xuất hiện theo cùng hệ thống mô phỏng.</div></div>}
       {pend.map((p) => { const w = data().db.decision_windows.find((x) => x.id === p.windowId); if (!w) return null; return (
         <section class="journal" key={p.id}>
@@ -53,7 +119,7 @@ function Decisions({ st }: { st: GameState }) {
             </div>
           ))}
         </section>); })}
-      {!pend.length && <div class="empty sm">Không có quyết định nào đang chờ.</div>}
+      {!pend.length && !(st.journal ?? []).some((j) => j.status === 'active' && j.country === id) && <div class="empty sm">Không có nhiệm vụ hay quyết định nào đang chờ.</div>}
       {windows.length > 0 && <Sec title="Cửa sổ quyết định của quốc gia" x={`${windows.length}`}>
         <table class="dt"><thead><tr><th>Quyết định</th><th class="r">Cửa sổ</th><th class="r">Trạng thái</th></tr></thead>
           <tbody>{windows.map((w) => { const [t, cls] = status(w); return <tr key={w.id} style="cursor:default"><td style="white-space:normal"><div class="nm">{DW_TITLE[w.id] ?? w.id}</div><div class="sub">lịch sử: {w.date_historical}</div></td><td class="r num">{w.window[0].slice(0, 4)}–{w.window[1].slice(0, 4)}</td><td class="r"><span class={`tag ${cls}`}>{t}</span></td></tr>; })}</tbody></table>
@@ -133,4 +199,4 @@ export function InboxScreen({ st }: { st: GameState }) {
     </div>
   );
 }
-export const JOURNAL_TABS: [string, string][] = [['decisions', 'Quyết định'], ['log', 'Nhật ký'], ['territory', 'Lãnh thổ'], ['history', 'So với lịch sử']];
+export const JOURNAL_TABS: [string, string][] = [['decisions', 'Nhiệm vụ & quyết định'], ['log', 'Nhật ký'], ['territory', 'Lãnh thổ'], ['history', 'So với lịch sử']];

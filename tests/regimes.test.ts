@@ -5,7 +5,9 @@ import { createGame } from '../src/engine/init';
 import { regimesMonth } from '../src/engine/systems/regimes';
 import { data } from '../src/engine/data/db';
 import { validateNestedState } from '../src/engine/stateContract';
-import { startReform } from '../src/engine/systems/politics';
+import { startReform, leaderTitle } from '../src/engine/systems/politics';
+import { journalGoals, journalGoalValues, regimeLawInertia, regimeEntryKind, regimeEvent } from '../src/engine/systems/regimes';
+import { execute as executeCommand } from '../src/engine/commands';
 import { computeEconomy } from '../src/engine/systems/economy';
 import { companySlots } from '../src/engine/systems/companies';
 
@@ -43,12 +45,13 @@ describe('REGIME-01a regime changes', () => {
     expect(() => validateNestedState(st)).not.toThrow();
   });
 
-  it('the player country and Sandbox Mode are untouched', () => {
+  it('the player country is not forced (journal entries instead) and Sandbox Mode is untouched', () => {
     const st = createGame({ mode: 'historical', seed: 1, player: 'RUS' });
     const before = st.countries.RUS.nameVi;
     at(st, 1923, 1); regimesMonth(st);
     expect(st.countries.RUS.nameVi).toBe(before);
     expect(holder(st, 'RUS_FIN')).toBe('RUS');
+    expect(st.journal!.some((j) => j.event === 'RUS-1917-11' && j.status === 'active')).toBe(true);
     const sb = createGame({ mode: 'sandbox', seed: 1, player: null }); const name = sb.countries[holder(sb, 'RUS_MOS')].nameVi;
     at(sb, 1923, 1); regimesMonth(sb);
     expect(sb.countries[holder(sb, 'RUS_MOS')].nameVi).toBe(name);
@@ -61,9 +64,15 @@ describe('REGIME-01b 20th-century laws', () => {
     const st = createGame({ mode: 'historical', seed: 1, player: null });
     const rus = holder(st, 'RUS_MOS'); const ger = holder(st, 'PRU_BRA');
     at(st, 1937, 1); regimesMonth(st);
-    expect(st.countries[rus].laws.power).toBe('one_party_state');
+    expect(st.countries[rus].laws.power).toBe('one_party_state'); // USSR 1922 (proclaimed)
+    expect(st.countries[ger].laws.power).toBe('one_party_state'); // 1933 seizure of power (proclaimed)
+    // the 1936 constitution is a reform entry: the command economy comes once the AI's reforms pass it
+    const j = st.journal!.find((x) => x.event === 'USSR-1936-12')!;
+    expect(j.status).toBe('active');
+    for (const g of journalGoals(st, j)) st.countries[rus].laws[g.group] = g.value; // as if the reforms had passed
+    at(st, 1937, 2); regimesMonth(st);
+    expect(j.status).toBe('completed');
     expect(st.countries[rus].laws.economy).toBe('command_economy');
-    expect(st.countries[ger].laws.power).toBe('one_party_state');
     const st2 = createGame({ mode: 'historical', seed: 1, player: null });
     at(st2, 1919, 1); regimesMonth(st2);
     expect(st2.countries[holder(st2, 'PRU_BRA')].laws.power).toBe('universal_suffrage');
@@ -93,14 +102,76 @@ describe('REGIME-01b 20th-century laws', () => {
 });
 
 describe('REGIME-01b historical law hold', () => {
-  it('Historical AI keeps a regime law until the next event for that capital changes it', async () => {
-    const { lawReservedByHistory } = await import('../src/engine/ai/ai');
+  it('a regime law resists change (soft inertia, not a block) until the next event for that capital changes it', async () => {
+    const { reformUtility } = await import('../src/engine/ai/ai');
     const st = createGame({ mode: 'historical', seed: 1, player: null });
     const rus = holder(st, 'RUS_MOS');
-    at(st, 1937, 1); regimesMonth(st);
+    at(st, 1923, 1); regimesMonth(st);
     const c = st.countries[rus];
-    expect(lawReservedByHistory(st, c, 'economy')).toBe(true);
-    at(st, 1984, 12); expect(lawReservedByHistory(st, c, 'economy')).toBe(true);
-    at(st, 1985, 4); expect(lawReservedByHistory(st, c, 'economy')).toBe(false);
+    expect(regimeLawInertia(st, c, 'economy')).toBeGreaterThan(0); // NEP set by the 1922 union
+    const held = reformUtility(st, c, 'economy', 'laissez_faire');
+    at(st, 1937, 1); expect(regimeLawInertia(st, c, 'economy')).toBe(0); // the 1936 constitution changes it
+    expect(reformUtility(st, c, 'economy', 'laissez_faire')).toBeGreaterThan(held);
+  });
+});
+
+describe('REGIME-02 journal entries and heads of state', () => {
+  it('a player reform entry completes only when its laws are in force (US Social Security 1935); a new republic is proclaimed', () => {
+    const st = createGame({ mode: 'historical', seed: 1, player: 'USA' });
+    at(st, 1935, 8); regimesMonth(st);
+    const j = st.journal!.find((x) => x.event === 'USA-1935-08' && x.status === 'active')!;
+    expect(regimeEntryKind(regimeEvent(j.event)!)).toBe('reform');
+    st.countries.USA.laws.economy = 'laissez_faire';
+    expect(executeCommand(st, { type: 'journal', entry: j.id, action: 'complete' }).ok).toBe(false);
+    const legit = st.countries.USA.legitimacy;
+    st.countries.USA.laws.economy = 'interventionism'; // as if the reform had passed
+    at(st, 1935, 9); regimesMonth(st);
+    expect(j.status).toBe('completed');
+    expect(st.countries.USA.legitimacy).toBeGreaterThan(legit);
+    expect(regimeEntryKind(regimeEvent('FRA-1946-10')!)).toBe('proclaim');
+  });
+
+  it('a player proclaim entry (revolution) is carried out in one action; the player may also keep the regime', () => {
+    const st = createGame({ mode: 'historical', seed: 1, player: 'RUS' });
+    at(st, 1917, 11); regimesMonth(st);
+    const feb = st.journal!.find((x) => x.event === 'RUS-1917-03')!;
+    const oct = st.journal!.find((x) => x.event === 'RUS-1917-11')!;
+    expect(executeCommand(st, { type: 'journal', entry: feb.id, action: 'abandon' }).ok).toBe(true);
+    expect(feb.status).toBe('abandoned');
+    expect(executeCommand(st, { type: 'journal', entry: oct.id, action: 'complete' }).ok).toBe(true);
+    expect(st.countries.RUS.nameVi).toBe('Nước Nga Xô viết');
+    expect(st.countries.RUS.govLabel).toBe('dictatorship');
+    at(st, 1917, 12); regimesMonth(st);
+    const fin = st.journal!.find((x) => x.event === 'FIN-1917-12')!;
+    expect(executeCommand(st, { type: 'journal', entry: fin.id, action: 'complete' }).ok).toBe(true);
+    expect(st.countries[holder(st, 'RUS_FIN')].nameVi).toBe('Cộng hòa Phần Lan');
+    expect(() => validateNestedState(st)).not.toThrow();
+  });
+
+  it('AI and player use the same entries; the AI pursues reform entries through its reforms', async () => {
+    const { reformUtility } = await import('../src/engine/ai/ai');
+    const st = createGame({ mode: 'historical', seed: 1, player: null });
+    const rus = holder(st, 'RUS_MOS');
+    at(st, 1918, 7); regimesMonth(st);
+    const j = st.journal!.find((x) => x.event === 'RSFSR-1918-07')!;
+    expect(j.country).toBe(rus);
+    expect(j.status).toBe('active');
+    const c = st.countries[rus];
+    const goal = journalGoals(st, j).find((g) => !g.done)!;
+    expect(journalGoalValues(st, c, goal.group)).toContain(goal.value);
+    const pulled = reformUtility(st, c, goal.group, goal.value);
+    j.status = 'abandoned';
+    expect(pulled).toBeGreaterThan(reformUtility(st, c, goal.group, goal.value));
+  });
+
+  it('a tsar becomes a general secretary: titles and forms of government follow the regime', () => {
+    const st = createGame({ mode: 'historical', seed: 1, player: null });
+    const rus = holder(st, 'RUS_MOS');
+    expect(leaderTitle(st.countries[rus])).toBe('emperor');
+    at(st, 1937, 1); regimesMonth(st);
+    expect(leaderTitle(st.countries[rus])).toBe('general_secretary');
+    expect(st.countries[rus].govLabel).toBe('socialist_republic');
+    expect(st.countries[rus].leader.name).toMatch(/general_secretary/);
+    expect(leaderTitle(st.countries[holder(st, 'FRA_IDF')])).toBe('president');
   });
 });

@@ -32,6 +32,48 @@ const POWER_WEIGHTS: Record<string, Record<IG, number>> = {
   tribal_council: { landowners: 1.5, industrialists: 0.1, intelligentsia: 0.2, petty_bourgeoisie: 0.3, clergy: 1.0, armed_forces: 1.5, rural_folk: 1.0, trade_unions: 0 },
 };
 
+/**
+ * REGIME-02 (owner 2026-11-23): the head of state's title follows the regime — a tsar or king under a
+ * monarchy, a president in a republic, a general secretary where a communist party rules (one-party
+ * state with a command economy or a socialist state name), a party leader in other one-party states,
+ * a head of state in a military or personal dictatorship. A historical record's own title wins.
+ */
+export type LeaderTitle = 'emperor' | 'king' | 'president' | 'general_secretary' | 'party_leader' | 'head_of_state' | 'supreme_leader' | 'chief';
+const IMPERIAL = /Empire|Reich|Qing|Mughal|Japan|Đế quốc|Đế chế|Đại Thanh|Đại Nam|Nhật Bản/;
+const SOCIALIST = /Soviet|Socialist|People's|Xô viết|Xã hội chủ nghĩa|Nhân dân/;
+export function leaderTitle(c: Pick<Country, 'laws' | 'name' | 'nameVi' | 'leader'>): string {
+  if (c.leader.title) return c.leader.title.toLowerCase().replace(/ /g, '_');
+  const { governance, power, economy } = c.laws;
+  if (power === 'tribal_council' || governance === 'chiefdom') return 'chief';
+  if (governance === 'theocracy' || power === 'theocracy') return 'supreme_leader';
+  if (power === 'one_party_state') return economy === 'command_economy' || SOCIALIST.test(c.name) || SOCIALIST.test(c.nameVi) ? 'general_secretary' : 'party_leader';
+  if (governance === 'monarchy') return IMPERIAL.test(c.name) || IMPERIAL.test(c.nameVi) ? 'emperor' : 'king';
+  if (governance === 'republic' && power === 'autocracy') return 'head_of_state';
+  return 'president';
+}
+/** REGIME-02: government label (form of state) derived from the laws after a regime change. */
+export function govLabelFor(c: Pick<Country, 'laws' | 'name' | 'nameVi' | 'govLabel'>): string {
+  const { governance, power, economy } = c.laws;
+  if (governance === 'theocracy' || power === 'theocracy') return 'theocracy';
+  if (power === 'one_party_state') return economy === 'command_economy' || SOCIALIST.test(c.name) || SOCIALIST.test(c.nameVi) ? 'socialist_republic' : 'single_party_state';
+  if (governance === 'monarchy') return power === 'autocracy' ? 'absolute_monarchy' : 'constitutional_monarchy';
+  if (governance === 'republic') return power === 'autocracy' ? 'dictatorship' : 'presidential_republic';
+  return c.govLabel;
+}
+
+/**
+ * REGIME-02 design parameter: monthly reform progress added while an active regime journal entry asks for
+ * the law (the regime's programme carries it, like a V3 journal-entry modifier). Same for AI and player.
+ */
+export const JOURNAL_REFORM_MOMENTUM = 0.08;
+export function journalMomentum(st: GameState, c: Country, group: string, value: string): number {
+  for (const j of st.journal ?? []) {
+    if (j.status !== 'active' || j.country !== c.id) continue;
+    if (data().db.regime_changes?.find((e) => e.id === j.event)?.laws[group] === value) return JOURNAL_REFORM_MOMENTUM;
+  }
+  return 0;
+}
+
 export function igApproval(c: Country, ig: IG, laws = c.laws): number {
   let a = 0; const pref = IG_PREFS[ig];
   for (const g of LAW_GROUPS) a += pref[laws[g]] ?? 0;
@@ -115,7 +157,7 @@ export function politicsMonth(st: GameState) {
     // reforms progress monthly with support; strong opposition can stall them
     if (c.reform) {
       const sup = reformSupport(c, c.reform.group, c.reform.value);
-      c.reform.progress += clamp(0.06 + sup * 0.25, -0.05, 0.25);
+      c.reform.progress += clamp(0.06 + sup * 0.25 + journalMomentum(st, c, c.reform.group, c.reform.value), -0.05, 0.25);
       if (c.reform.progress >= 1) { setLaw(st, c, c.reform.group, c.reform.value, 'reform'); c.reform = null; c.legitimacy = clamp(c.legitimacy + 2, 0, 100); }
       else if (c.reform.progress < -0.3 || st.tick - c.reform.startedTick > 48) {
         log(st, { type: 'politics', text: `${c.name}'s reform of ${c.reform.group} failed.`, textVi: `Cải cách ${c.reform.group} của ${c.nameVi} thất bại.`, actors: [c.id] });
@@ -154,7 +196,8 @@ function revolutionCheck(st: GameState, c: Country) {
   if (!socialist && c.laws.governance === 'monarchy' && rand(st) < 0.35 + liberal * 0.3) changes.push(['governance', 'republic']);
   for (const [g, v] of changes) setLaw(st, c, g, v, 'revolution');
   c.regimeChangedAt = st.tick;
-  c.leader = { name: generatedName(st, c, before.governance !== c.laws.governance ? 'president' : 'ruler'), born: st.date.y - 45 - Math.floor(rand(st) * 15), since: st.date.y, historical: false };
+  c.govLabel = govLabelFor(c);
+  c.leader = { name: generatedName(st, c, leaderTitle({ ...c, leader: { ...c.leader, title: undefined } })), born: st.date.y - 45 - Math.floor(rand(st) * 15), since: st.date.y, historical: false };
   c.heir = null;
   c.legitimacy = 55; c.reform = null;
   for (const r of regionsOf(st, c.id)) r.radical *= 0.4;

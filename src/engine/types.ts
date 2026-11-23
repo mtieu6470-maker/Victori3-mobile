@@ -60,8 +60,16 @@ export type Cadence = 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly';
  */
 export interface ClockState { hour: number }
 
+/** REGIME-02: a journal entry (mission). `event` is a regime_changes id; it completes when its goals are met. */
+export interface JournalEntry {
+  id: string; kind: 'regime'; event: string; country: string; started: number; expires: number;
+  status: 'active' | 'completed' | 'expired' | 'abandoned'; ended?: number;
+}
+
 export interface Leader {
   name: string; born: number | null; since: number; historical: boolean; diesOn?: string | null; female?: boolean; termEnds?: string | null;
+  /** REGIME-02: recorded title of a historical office-holder; otherwise derived by `leaderTitle`. */
+  title?: string;
 }
 
 export interface Army { manpower: number; target: number; quality: number; morale: number; supply: number }
@@ -266,6 +274,8 @@ export interface GameState {
   divergence: DivergenceState;
   /** DECOL-01: Historical Mode independence records already applied (ids from db.decolonisation). */
   decolonised?: string[];
+  /** REGIME-02: journal entries (V3-style missions) of the player, e.g. a historical regime change to enact. */
+  journal?: JournalEntry[];
   /** REGIME-01a: Historical Mode regime changes already applied (or found not applicable). */
   regimesApplied?: string[];
   /** WW-01b: progress of the historical world wars (Historical Mode). */

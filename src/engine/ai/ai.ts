@@ -2,6 +2,7 @@
 // function built from the country's state and personality; in Historical Mode the historical layer adds a bias
 // term (historicalBias) to some utilities. Anti-stagnation safeguards: cooldowns, anti-oscillation of laws,
 // war duration caps (military.ts) and minimum activity guarantees.
+import { journalPull, journalGoalValues, regimeLawInertia } from '../systems/regimes';
 import { lawUnlocked } from '../laws';
 import { warInfamy } from '../systems/diplomacy';
 import { data } from '../data/db';
@@ -177,7 +178,6 @@ function constructionAI(st: GameState, c: Country) {
  */
 export function lawReservedByHistory(st: GameState, c: Country, group: LawGroup): boolean {
   if (st.mode !== 'historical') return false;
-  if ((c.regimeLaws?.[group] ?? -1) > st.tick) return true; // REGIME-01b: held by a historical regime
   const now = `${st.date.y}-${String(st.date.m).padStart(2, '0')}-01`;
   for (const w of data().db.decision_windows) {
     if (w.entity !== c.id || st.firedEvents.includes(w.id) || now > w.window[1]) continue;
@@ -270,6 +270,8 @@ export function reformUtility(st: GameState, c: Country, g: LawGroup, v: string)
   // CATCHUP-01 emulation (revised): a small, conditional foreign influence on an explicit
   // modernisation step; it never replaces domestic support (sup above) and grows with exposure.
   u += lawEmulation(st, c, g, v);
+  // REGIME-02: a regime journal entry pulls towards its laws; a regime's laws resist change (soft).
+  u += journalPull(st, c, g, v) - regimeLawInertia(st, c, g);
   return u;
 }
 
@@ -280,7 +282,7 @@ export function reformAI(st: GameState, c: Country) {
   for (const g of LAW_GROUPS) {
     if ((c.ai.cooldowns[`reform:${g}`] ?? 0) > st.tick) continue;
     if (lawReservedByHistory(st, c, g)) continue;
-    for (const v of LAW_ALTERNATIVES[g]) {
+    for (const v of new Set([...LAW_ALTERNATIVES[g], ...journalGoalValues(st, c, g)])) {
       if (v === c.laws[g] || !lawUnlocked(c, v)) continue;
       // anti-oscillation: never return to a value abandoned in the last 15 years
       if (c.ai.lawHistory.some((h) => h.group === g && st.tick - h.tick < 180)) continue;

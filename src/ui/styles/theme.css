@@ -578,3 +578,9 @@ button.cocard:hover { border-color: var(--line-3); }
 .cocard-name .chip.charter { margin-left: 6px; font: 600 10px var(--sans, sans-serif); padding: 1px 6px; border-radius: 9px; vertical-align: middle; color: var(--ink-0); background: var(--gold-2); }
 .chip.infamy { margin-left: 6px; font-size: 10.5px; padding: 1px 6px; border-radius: 9px; border: 1px solid var(--neg); color: var(--neg); }
 .chip.infamy.pariah { background: var(--neg); color: var(--ink-0); }
+
+/* REGIME-02: journal entry styled as a newspaper front page */
+.journal.news { background: linear-gradient(180deg, #2a2620, #17140f); }
+.journal.news .masthead { display: flex; justify-content: space-between; padding: 5px 12px; font: 700 12px var(--serif); letter-spacing: 0.12em; text-transform: uppercase; color: #e8dcc0; border-bottom: 3px double var(--gold-0); }
+.journal.news > .s, .journal.news > .option, .journal.news > .pbar, .journal.news > div { margin-left: 12px; margin-right: 12px; }
+.journal.news > div:last-child { padding-bottom: 10px; }

@@ -71,6 +71,7 @@ export function validateCountryRecord(id: string, v: unknown, path: string): voi
   const leader = obj(c.leader, `${path}.leader`);
   str(leader.name, `${path}.leader.name`); numOrNull(leader.born, `${path}.leader.born`); num(leader.since, `${path}.leader.since`); bool(leader.historical, `${path}.leader.historical`);
   if (leader.female !== undefined) bool(leader.female, `${path}.leader.female`);
+  if (leader.title !== undefined) str(leader.title, `${path}.leader.title`);
   for (const k of ['diesOn', 'termEnds'] as const) if (leader[k] !== undefined) strOrNull(leader[k], `${path}.leader.${k}`);
   if (c.heir !== null) {
     const heir = obj(c.heir, `${path}.heir`);
@@ -235,6 +236,12 @@ export function validateNestedState(st: GameState): void {
   validateHistoryAndCounters(s);
   validateCompanies(s);
   if (s.decolonised !== undefined) arr(s.decolonised, 'decolonised').forEach((x, i) => str(x, `decolonised[${i}]`));
+  if (s.journal !== undefined) arr(s.journal, 'journal').forEach((x, i) => {
+    const p = `journal[${i}]`; const j = obj(x, p);
+    for (const k of ['id', 'kind', 'event', 'country', 'status'] as const) str(j[k], `${p}.${k}`);
+    num(j.started, `${p}.started`); num(j.expires, `${p}.expires`); if (j.ended !== undefined) num(j.ended, `${p}.ended`);
+    if (!['active', 'completed', 'expired', 'abandoned'].includes(j.status as string)) fail(`${p}.status`, 'unknown journal status');
+  });
   if (s.regimesApplied !== undefined) arr(s.regimesApplied, 'regimesApplied').forEach((x, i) => str(x, `regimesApplied[${i}]`));
   if (s.worldWars !== undefined) for (const [k, v] of Object.entries(obj(s.worldWars, 'worldWars'))) { const r = obj(v, `worldWars.${k}`); if (r.war !== null) str(r.war, `worldWars.${k}.war`); bool(r.ended, `worldWars.${k}.ended`); for (const [m, c] of Object.entries(obj(r.joined, `worldWars.${k}.joined`))) str(c, `worldWars.${k}.joined.${m}`); }
   if (s.un !== undefined) {

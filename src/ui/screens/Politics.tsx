@@ -8,7 +8,8 @@ import { IG_PREFS, igApproval, reformSupport } from '../../engine/systems/politi
 import { Sec, Metric, Bar, Donut, Mdl, details, useWidth } from '../components/ui';
 import { Icon } from '../components/icons';
 import { lawUnlocked, LAW_TECH } from '../../engine/laws';
-import { IG_VI, GROUP_VI, LAW_OPTIONS, techName, lawVi, govVi, fmt, pct } from '../i18n/vi';
+import { leaderTitle } from '../../engine/systems/politics';
+import { IG_VI, GROUP_VI, LAW_OPTIONS, techName, titleVi, lawVi, govVi, fmt, pct } from '../i18n/vi';
 import { viewedId, canCommand, send, IG_COL, leaderName } from './common';
 import { ui } from '../game/ui';
 
@@ -37,6 +38,7 @@ export function PoliticsScreen({ st, tab }: { st: GameState; tab: string }) {
       </div>
       <div class="cols c2">
         <Sec title="Nguyên thủ" icon="crown">
+          <div class="kv"><span class="k">Chức danh</span><span class="v">{titleVi(leaderTitle(c))}</span></div>
           <div class="kv"><span class="k">Họ tên</span><span class="v">{leaderName(c.leader.name)}</span></div>
           <div class="kv"><span class="k">Nguồn gốc</span><span class="v">{c.leader.historical ? 'Nhân vật lịch sử' : 'Nhân vật mô phỏng'}</span></div>
           <div class="kv"><span class="k">Tại vị từ</span><span class="v num">{c.leader.since}</span></div>

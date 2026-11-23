@@ -20,7 +20,8 @@ import { marketOf } from '../engine/systems/economy';
 import { CAMPAIGN_END_YEAR, CAMPAIGN_START_YEAR } from '../engine/core';
 import { data } from '../engine/data/db';
 import { shortName, fullName } from './game/names';
-import { compact, fmt, pct, techName, govVi, lawVi, GOOD_VI } from './i18n/vi';
+import { compact, fmt, pct, techName, govVi, lawVi, GOOD_VI, titleVi } from './i18n/vi';
+import { leaderTitle } from '../engine/systems/politics';
 import { viewedId, Flag, regionName, leaderName, openCountry } from './screens/common';
 import { Setup } from './screens/Setup';
 import { CountryScreen, COUNTRY_TABS } from './screens/Country';
@@ -235,7 +236,7 @@ function TopBar({ portrait }: { portrait: boolean }) {
     { icon: 'army', mc: '#e38c7c', v: compact(c.army.manpower), go: () => ui.go('military', 'forces'), open: 'Quân sự', tip: { title: 'Lực lượng', lines: [['Lục quân', `${compact(c.army.manpower)} / mục tiêu ${compact(c.army.target)}`], ['Hải quân', `${fmt(c.navy.strength)} tàu`], ['Chiến tranh', fmt(st.wars.filter((w) => w.attackers.members.includes(id) || w.defenders.members.includes(id)).length)]] } },
   ];
   const identity = (
-    <Tip c={{ title: fullName(st, id), lines: [['Chính thể', govVi(c.govLabel)], ['Nguyên thủ', leaderName(c.leader.name)], ['Chế độ', st.mode === 'historical' ? 'Lịch sử' : 'Sandbox']], note: st.player ? undefined : 'Chế độ quan sát: chọn nước theo dõi ở Thế giới.' }}>
+    <Tip c={{ title: fullName(st, id), lines: [['Chính thể', govVi(c.govLabel)], ['Nguyên thủ', `${titleVi(leaderTitle(c))} ${leaderName(c.leader.name)}`], ['Chế độ', st.mode === 'historical' ? 'Lịch sử' : 'Sandbox']], note: st.player ? undefined : 'Chế độ quan sát: chọn nước theo dõi ở Thế giới.' }}>
       <button class="ident" onClick={() => ui.set({ country: id, screen: 'country', tabs: { ...ui.get().tabs, country: 'overview' }, winCollapsed: false, fullMap: false })} aria-label={fullName(st, id)}>
         <Flag c={c} />
         <span style="min-width:0;display:flex;flex-direction:column"><span class="nm ellipsis">{shortName(st, id)}</span><span class="sub">{st.player ? (st.mode === 'historical' ? 'Lịch sử' : 'Sandbox') : 'Quan sát'}</span></span>
@@ -407,6 +408,8 @@ function Outliner({ x, y }: { x: number; y: number }) {
   else items.push(<button class="oi warn" key="r0" onClick={() => ui.go('tech', 'production')}><Mdl icon="research" color="var(--warn)" /><span class="grow"><span class="ot">Chưa chọn nghiên cứu</span></span></button>);
   if (c.reform) items.push(<button class="oi" key="f" onClick={() => ui.go('politics', 'laws')}><Mdl icon="laws" color="#e3a7a0" /><span class="grow"><span class="ot">Cải cách: {lawVi(c.reform.value)}</span><span class="pbar"><i style={`width:${c.reform.progress * 100}%`} /></span></span><span class="num">{pct(c.reform.progress)}</span></button>);
   for (const w of st.wars.filter((x) => x.attackers.members.includes(id) || x.defenders.members.includes(id)).slice(0, 3)) { const sc = Math.round(w.attackers.members.includes(id) ? w.score : -w.score) || 0; items.push(<button class="oi" key={w.id} onClick={() => ui.go('military', 'wars')}><Mdl icon="military" color="#e38c7c" /><span class="grow"><span class="ot">{w.name}</span></span><span class={`num ${sc > 0 ? 'pos' : sc < 0 ? 'neg' : ''}`}>{sc > 0 ? '+' : ''}{fmt(sc)}</span></button>); }
+  const missions = (st.journal ?? []).filter((j) => j.status === 'active' && j.country === id && st.player === id).length;
+  if (missions) items.push(<button class="oi warn" key="jr" onClick={() => ui.go('chronicle', 'decisions')}><Mdl icon="scroll" color="var(--warn)" /><span class="grow"><span class="ot">{missions} nhiệm vụ lịch sử</span></span></button>);
   if (st.pendingPlayerDecisions.length && st.player === id) items.push(<button class="oi warn" key="d" onClick={() => ui.go('chronicle', 'decisions')}><Mdl icon="scroll" color="var(--warn)" /><span class="grow"><span class="ot">{st.pendingPlayerDecisions.length} quyết định đang chờ</span></span></button>);
   const stats = st.marketStats?.[marketOf(st, c)]; const short = stats ? Object.entries(stats).filter(([, v]) => v.short >= 0.1).sort((a, b) => b[1].short - a[1].short).slice(0, 2) : [];
   for (const [gd, v] of short) items.push(<button class="oi" key={`s${gd}`} onClick={() => ui.go('economy', 'market')}><Mdl icon={gd} color="#e9c46a" /><span class="grow"><span class="ot">Thiếu {GOOD_VI[gd].toLowerCase()}</span></span><span class="num neg">{pct(v.short)}</span></button>);
