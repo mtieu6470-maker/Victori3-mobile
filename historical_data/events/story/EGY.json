@@ -1,0 +1,120 @@
+{
+  "schema": "story_events_v1",
+  "country": "EGY",
+  "sources": {
+    "ceylon_elections": "https://elections.gov.lk/en/aboutus/aboutus_history_E.html",
+    "ceylon_un": "https://digitallibrary.un.org/record/860913/files/1947-E.pdf",
+    "malaysia_gov": "https://www.malaysia.gov.my/en/government/learn-about-malaysia/malaysian-history",
+    "malaya_archives": "https://cdn.nationalarchives.gov.uk/documents/migrated-archives-guidance.pdf",
+    "egypt_suez": "https://history.state.gov/milestones/1953-1960/suez",
+    "egypt_1882": "https://www.cambridge.org/core/books/abs/cambridge-history-of-egypt/british-occupation-18821922/179398E6D722904951A25256F524C963",
+    "palestine_un": "https://www.un.org/unispal/history/",
+    "palestine_timeline": "https://www.un.org/unispal/historical-timeline/",
+    "palestine_whitepaper": "https://avalon.law.yale.edu/21st_century/brwh1939.asp"
+  },
+  "events": [
+    {
+      "id": "egy_urabi_revolt_1882",
+      "country": "EGY",
+      "mode": "historical",
+      "window": [
+        "1881-09-01",
+        "1882-09-15"
+      ],
+      "date_historical": "1882-06-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "EGY"
+          },
+          {
+            "type": "owner_in",
+            "region": "EGY_CAI",
+            "entities": [
+              "EGY"
+            ]
+          },
+          {
+            "type": "year_between",
+            "from": 1881,
+            "to": 1882
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Phong trào Urabi thách thức quyền lực Khedivate",
+      "title_en": "The Urabi Movement Challenges the Khedivate",
+      "text_vi": "Phong trào do Ahmed Urabi dẫn dắt phản đối ảnh hưởng của các chủ nợ châu Âu và quyền lực của giới sĩ quan Thổ–Circassia trong quân đội Ai Cập. Những người ủng hộ đòi một chính phủ chịu trách nhiệm hơn và hạn chế sự can thiệp từ bên ngoài, trong khi Khedive Tawfiq dựa vào sự hậu thuẫn của Anh và Pháp. Ai Cập phải lựa chọn giữa cải cách hiến pháp, củng cố quân đội quốc gia hay tìm một thỏa hiệp với các cường quốc.",
+      "text_en": "The movement led by Ahmed Urabi opposed European creditor influence and the dominance of Turkish-Circassian officers in Egypt's army. Supporters demanded a more accountable government and limits on foreign interference, while Khedive Tawfiq relied on British and French backing. Egypt must choose between constitutional reform, strengthening the national army or a compromise with the powers.",
+      "options": [
+        {
+          "id": "egypt_constitutional_reform",
+          "label_vi": "Chấp nhận cải cách hiến pháp và mở rộng trách nhiệm của nội các",
+          "label_en": "Accept constitutional reform and expand cabinet responsibility",
+          "ai_weight": 3,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "egy_1882_constitution",
+              "name_vi": "Cải cách hiến pháp Ai Cập",
+              "name_en": "Egyptian Constitutional Reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "reform": 0.012,
+                "radicalism": -0.01,
+                "ig_armed_forces": 1
+              }
+            },
+            {
+              "type": "relation",
+              "a": "EGY",
+              "b": "GBR",
+              "delta": -3
+            }
+          ]
+        },
+        {
+          "id": "egypt_army_resistance",
+          "label_vi": "Ủng hộ Urabi và huy động quân đội chống can thiệp",
+          "label_en": "Back Urabi and mobilise the army against intervention",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "egy_1882_urabi_army",
+              "name_vi": "Quân đội quốc gia Ai Cập",
+              "name_en": "Egyptian National Army",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "legitimacy": 1,
+                "war_exhaustion": 0.02
+              }
+            },
+            {
+              "type": "declare_war",
+              "attacker": "EGY",
+              "defender": "GBR",
+              "goal": "conquer",
+              "regions": [
+                "EGY_CAI",
+                "EGY_UPP"
+              ]
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "egypt_1882"
+      ]
+    }
+  ]
+}
