@@ -234,6 +234,7 @@ export function validateNestedState(st: GameState): void {
   validateHistoryAndCounters(s);
   validateCompanies(s);
   if (s.decolonised !== undefined) arr(s.decolonised, 'decolonised').forEach((x, i) => str(x, `decolonised[${i}]`));
+  if (s.regimesApplied !== undefined) arr(s.regimesApplied, 'regimesApplied').forEach((x, i) => str(x, `regimesApplied[${i}]`));
   if (s.worldWars !== undefined) for (const [k, v] of Object.entries(obj(s.worldWars, 'worldWars'))) { const r = obj(v, `worldWars.${k}`); if (r.war !== null) str(r.war, `worldWars.${k}.war`); bool(r.ended, `worldWars.${k}.ended`); for (const [m, c] of Object.entries(obj(r.joined, `worldWars.${k}.joined`))) str(c, `worldWars.${k}.joined.${m}`); }
   if (s.un !== undefined) {
     const un = obj(s.un, 'un'); tick(un.founded, 'un.founded'); if (un.powerSeat !== undefined && un.powerSeat !== null) str(un.powerSeat, 'un.powerSeat'); if (un.seatTerritory !== undefined) for (const [k, v] of Object.entries(obj(un.seatTerritory, 'un.seatTerritory'))) arr(v, `un.seatTerritory.${k}`).forEach((x, i) => str(x, `un.seatTerritory.${k}[${i}]`));

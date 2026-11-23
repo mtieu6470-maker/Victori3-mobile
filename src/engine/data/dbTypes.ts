@@ -124,6 +124,8 @@ export interface HistoricalDB {
   /** WW-01b: historical world wars (CG-40). sides[0] is the Allied side (historical winner). */
   world_wars?: { id: string; start: string; end: string; winnerSide: number; sides: { name: string; members: { id: string; name: string; capitalRegion: string; entry: string; exit: string; exitType: string; status: string }[] }[] }[];
   league_of_nations?: { founded: string; dissolved: string; permanent: { entity: string; capitalRegion: string; start: string; end: string }[] };
+  /** REGIME-01a: Historical Mode regime changes and state formations (CG-41). */
+  regime_changes?: { id: string; date: string; capitalRegion: string; rename: boolean; name_en: string; name_vi: string; type: string; laws: Record<string, string>; independence: string[] | null }[];
   /** DECOL-01: Historical Mode independence events (CG-37). */
   decolonisation?: { id: string; iso: string; name: string; name_vi: string; power: string; date: string; regions: string[] }[];
   start_techs: Record<string, string[]>;

@@ -264,6 +264,8 @@ export interface GameState {
   divergence: DivergenceState;
   /** DECOL-01: Historical Mode independence records already applied (ids from db.decolonisation). */
   decolonised?: string[];
+  /** REGIME-01a: Historical Mode regime changes already applied (or found not applicable). */
+  regimesApplied?: string[];
   /** WW-01b: progress of the historical world wars (Historical Mode). */
   worldWars?: Record<string, { war: string | null; ended: boolean; joined: Record<string, string> }>;
   /** DIPLO-UN-01: absent until the UN is founded. */

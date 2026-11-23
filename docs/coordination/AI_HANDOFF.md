@@ -1,3 +1,26 @@
+## 2026-11-23 — REGIME-01a Historical Mode regime changes and state formations (CG-41)
+
+- **Owner decision:** Historical Mode follows history, e.g. the October Revolution leads to the USSR.
+- Data: `tools/data/build-regimes.ts` turns the CG-41 staging file into `historical_data/history/regime_changes.json`.
+  - 37 events are mapped to their historical capital region by city coordinates. Only existing law values are kept, so 0 laws are dropped.
+  - 16 events are deferred: partitions, the Russian Civil War, USSR 1991, Korea, Vietnam and India–Pakistan. Short names are overridden where the CG-41 name was a description.
+  - build-data validates the events and emits `db.regime_changes`.
+- `systems/regimes.ts` (after decolonisation), Historical Mode only, runs in the event's month:
+  - Applies to the holder of the capital region, if that region is its own capital or home territory; otherwise the event is skipped.
+  - Effects: `setLaw` for each law, rename when the event is a new regime or state, `regimeChangedAt`, and the crisis is cleared. A historical log entry is written.
+  - Independence events (Finland 1917, Lithuania 1918, Poland 1918, Latvia 1918) form a state from the holder's regions of that culture. Recognition, as in Tartu/Riga 1920–21: the former owner renounces its claims, a 2-year truce applies (owner cap), and the army is 0.3% of the population.
+  - The player's country is exempt. `GameState.regimesApplied` is validated by the contract.
+- Seed 1 to 1950: France goes through the Second Republic, Second Empire, Third Republic, Vichy and Fourth Republic. The other changes:
+  - Prussia → German Empire → Weimar → Nazi Germany.
+  - Russia → Provisional Government → Soviet Russia → USSR.
+  - Qing → Republic of China → People's Republic of China; Ottoman Empire → Turkish Republic.
+  - Spain → Second Republic → Spanish State; Japan → Empire of Japan → Japan; Italy → Italian Republic.
+  - WW2 now joins the USSR via Moscow. Before the recognition settlement, the USSR reconquered Poland, Finland and both Baltic states in 1922–28 (they had 1,000 troops each); afterwards all four survive past 1937.
+- Known gaps: Germany is still "Đế chế Đức (Quốc xã)" in 1950 (partition is deferred to WW-01c). The event laws reuse 19th-century law values until REGIME-01b. Generated leader names for new states are not localised (e.g. a Hungarian name in Finland).
+- Tests: `tests/regimes.test.ts` (3). Local: `npm test` **43/43 files, 411/411**.
+
+---
+
 ## 2026-11-23 — DIPLO-NORM-01 post-1945 norm and infamy; DIPLO-UN-01 United Nations (4 permanent seats, owner)
 
 - **Owner decisions:**
