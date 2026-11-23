@@ -53,7 +53,7 @@ export const COMPANY_PARAMS = {
 
 /** Laws under which joint-stock companies may be formed (economy law), plus the banking technology. */
 export function companyLawAllows(c: Country): boolean {
-  return c.laws.economy !== 'traditionalism' && c.techs.includes('joint_stock_banking');
+  return c.laws.economy !== 'traditionalism' && c.laws.economy !== 'command_economy' && c.techs.includes('joint_stock_banking');
 }
 
 /** Company kinds this country has unlocked that can own existing building types (not dormant). */
@@ -185,7 +185,7 @@ export function siteOwners(st: GameState): Map<string, string> {
 }
 
 /** CO-3 design parameter: company slots granted by the economy law (no slots under traditionalism). */
-export const SLOTS_BY_ECONOMY_LAW: Record<string, number> = { traditionalism: 0, mercantilism: 1, interventionism: 2, laissez_faire: 3 };
+export const SLOTS_BY_ECONOMY_LAW: Record<string, number> = { traditionalism: 0, mercantilism: 1, interventionism: 2, laissez_faire: 3, command_economy: 0 };
 /** CO-3 design parameter: one more slot per this many industrial, mining and railway building levels. */
 export const LEVELS_PER_SLOT = 150;
 const SLOT_BUILDINGS: Building[] = ['textile_mill', 'ironworks', 'tool_works', 'arms_works', 'luxury_workshop', 'railway', 'mine'];
@@ -283,13 +283,16 @@ export function companiesMonth(st: GameState): void {
     const home = st.countries[co.home];
     companyFinance(co, home?.alive ? home : undefined);
     if (co.charter && st.tick >= co.charter.expires) revokeCharter(st, co, ' (term ended)');
-    if (!co.sites.length || co.lossMonths >= COMPANY_PARAMS.dissolveAfterLossMonths || !home?.alive) {
+    // REGIME-01b: a command economy nationalises its companies; their cash passes to the state.
+    const nationalised = home?.alive && home.laws.economy === 'command_economy';
+    if (!co.sites.length || co.lossMonths >= COMPANY_PARAMS.dissolveAfterLossMonths || !home?.alive || nationalised) {
       // Remaining cash returns to the owners' savings; unfinished projects pass to the private pool.
-      if (home?.alive) home.privatePool = (home.privatePool ?? 0) + co.cash;
+      if (nationalised) { home.treasury += co.cash; home.statePool += co.cash; }
+      else if (home?.alive) home.privatePool = (home.privatePool ?? 0) + co.cash;
       co.cash = 0;
       for (const p of st.constructionProjects ?? []) if (p.company === co.id) delete p.company;
       delete st.companies[co.id];
-      if (st.player === co.home) log(st, { type: 'economy', text: `${co.name} is dissolved.`, textVi: `${co.name} giải thể.`, actors: [co.home] });
+      if (st.player === co.home) log(st, { type: 'economy', text: nationalised ? `${co.name} is nationalised.` : `${co.name} is dissolved.`, textVi: nationalised ? `${co.name} bị quốc hữu hóa.` : `${co.name} giải thể.`, actors: [co.home] });
     }
   }
   // ---- 2. formation (yearly, staggered per country). The player's country never forms companies by

@@ -1,3 +1,25 @@
+## 2026-11-23 — REGIME-01b 20th-century laws (V3-style): universal suffrage, one-party state, command economy
+
+- `laws.ts`: three new reformable values — `power: universal_suffrage`, `power: one_party_state` and `economy: command_economy`. `LAW_TECH` and `lawUnlocked`: all three need `socialist_thought` before a debate (`startReform`, AI candidates, and Politics UI shows the required tech). Historical events set them regardless.
+- `politics.ts`:
+  - IG preferences for the new values.
+  - Power weights: universal suffrage widens the electorate; a one-party state favours the army and organised labour.
+  - **Socialist revolution path (both modes):** when trade unions dominate a revolution and socialist ideas are known, it installs a one-party state, a command economy, censorship and a republic.
+- Command economy:
+  - `privateSavingsRate` 0, and the state invests `COMMAND_ECONOMY_STATE_SAVINGS` (0.9% of GDP) into treasury and statePool;
+  - company slots 0 and `companyLawAllows` false; existing companies are nationalised (cash → treasury and statePool).
+- AI: `universal_suffrage` rank 4 and emulation step from universal male suffrage.
+- `Country.regimeLaws`: Historical Mode AI does not reform a law set by a regime event until the next event for that capital changes the same group (cap `REGIME_LAW_HOLD_YEARS` 60). Example: the USSR keeps its command economy from 1936 to 1985. Not inherited by `createNation`; validated by the contract.
+- `build-regimes.ts` `LAW_OVERRIDE`:
+  - women's suffrage: Finland 1906, Weimar, Poland, Baltics, Spain 1931, postwar Italy, France, Japan;
+  - one-party state: RSFSR/USSR, Nazi Germany, Turkey 1923, PRC;
+  - command economy: 1918 and 1936; NEP (interventionism) in 1922.
+- Seed 2 Historical 1960: one-party = USSR, Nazi Germany, Turkey, PRC; the USSR keeps its command economy.
+- **Known gap (pre-existing):** AI law reform is slow. By 1960 only 7 countries have universal suffrage, and most are autocracy, oligarchy or census suffrage. CG-42 (MSG-093) asks ChatGPT for per-country suffrage and welfare adoption years to calibrate. A welfare law group (V3 social security) is the next law slice.
+- Tests: `regimes.test.ts` (7). Local: `npm test` **43/43 files, 415/415**.
+
+---
+
 ## 2026-11-23 — REGIME-01a Historical Mode regime changes and state formations (CG-41)
 
 - **Owner decision:** Historical Mode follows history, e.g. the October Revolution leads to the USSR.

@@ -5,17 +5,18 @@ import { IGS, S, type Country, type GameState, type IG } from '../types';
 import { clamp, chance, log, rand } from '../core';
 import { coreNationOf } from './population';
 import { regionsOf, bordersOf } from '../cache';
+import { lawUnlocked } from '../laws';
 
 /** Law preferences of interest groups (+ supports, - opposes). Same table in both modes. */
 export const IG_PREFS: Record<IG, Partial<Record<string, number>>> = {
-  landowners: { autocracy: 1, oligarchy: 2, census_suffrage: 0, universal_male_suffrage: -2, traditionalism: 2, mercantilism: 1, laissez_faire: -1, protectionism: 1, free_trade: -1, serfdom: 2, slavery: 1, traditional_tenancy: 1, free_labor: -2, state_religion: 1, censorship: 1, feudal_levies: 1, monarchy: 1, republic: -1 },
-  industrialists: { census_suffrage: 2, autocracy: -1, laissez_faire: 2, interventionism: 1, traditionalism: -2, free_trade: 1, protectionism: 1, isolationism: -2, free_labor: 2, serfdom: -2, slavery: -1, public_schools: 1, limited_press: 1, professional_army: 1 },
-  intelligentsia: { universal_male_suffrage: 2, census_suffrage: 1, autocracy: -2, theocracy: -2, free_press: 2, censorship: -2, secularism: 2, freedom_of_conscience: 1, state_religion: -1, public_schools: 2, free_labor: 1, slavery: -2, serfdom: -2, republic: 1 },
-  petty_bourgeoisie: { census_suffrage: 1, protectionism: 2, mercantilism: 1, free_trade: -1, state_religion: 1, limited_press: 1, monarchy: 1, free_labor: 1, mass_conscription: 1 },
-  clergy: { state_religion: 2, secularism: -2, freedom_of_conscience: -1, religious_schools: 2, public_schools: -1, censorship: 1, theocracy: 2, monarchy: 1, autocracy: 1 },
-  armed_forces: { autocracy: 1, professional_army: 2, mass_conscription: 1, feudal_levies: -1, monarchy: 1, protectionism: 1 },
-  rural_folk: { traditional_tenancy: 1, serfdom: -2, free_labor: 1, protectionism: 1, state_religion: 1, universal_male_suffrage: 1, mass_conscription: -1 },
-  trade_unions: { universal_male_suffrage: 2, free_labor: 1, interventionism: 2, laissez_faire: -1, free_press: 1, public_schools: 1, secularism: 1 },
+  landowners: { universal_suffrage: -2, one_party_state: -2, command_economy: -3, autocracy: 1, oligarchy: 2, census_suffrage: 0, universal_male_suffrage: -2, traditionalism: 2, mercantilism: 1, laissez_faire: -1, protectionism: 1, free_trade: -1, serfdom: 2, slavery: 1, traditional_tenancy: 1, free_labor: -2, state_religion: 1, censorship: 1, feudal_levies: 1, monarchy: 1, republic: -1 },
+  industrialists: { one_party_state: -2, command_economy: -3, universal_suffrage: -1, census_suffrage: 2, autocracy: -1, laissez_faire: 2, interventionism: 1, traditionalism: -2, free_trade: 1, protectionism: 1, isolationism: -2, free_labor: 2, serfdom: -2, slavery: -1, public_schools: 1, limited_press: 1, professional_army: 1 },
+  intelligentsia: { universal_suffrage: 2, one_party_state: -2, universal_male_suffrage: 1, census_suffrage: 1, autocracy: -2, theocracy: -2, free_press: 2, censorship: -2, secularism: 2, freedom_of_conscience: 1, state_religion: -1, public_schools: 2, free_labor: 1, slavery: -2, serfdom: -2, republic: 1 },
+  petty_bourgeoisie: { one_party_state: -1, command_economy: -2, census_suffrage: 1, protectionism: 2, mercantilism: 1, free_trade: -1, state_religion: 1, limited_press: 1, monarchy: 1, free_labor: 1, mass_conscription: 1 },
+  clergy: { one_party_state: -1, universal_suffrage: -1, state_religion: 2, secularism: -2, freedom_of_conscience: -1, religious_schools: 2, public_schools: -1, censorship: 1, theocracy: 2, monarchy: 1, autocracy: 1 },
+  armed_forces: { one_party_state: 1, autocracy: 1, professional_army: 2, mass_conscription: 1, feudal_levies: -1, monarchy: 1, protectionism: 1 },
+  rural_folk: { universal_suffrage: 1, command_economy: -1, traditional_tenancy: 1, serfdom: -2, free_labor: 1, protectionism: 1, state_religion: 1, universal_male_suffrage: 1, mass_conscription: -1 },
+  trade_unions: { universal_suffrage: 2, command_economy: 2, one_party_state: 1, universal_male_suffrage: 1, free_labor: 1, interventionism: 2, laissez_faire: -1, free_press: 1, public_schools: 1, secularism: 1 },
 };
 
 const POWER_WEIGHTS: Record<string, Record<IG, number>> = {
@@ -23,6 +24,10 @@ const POWER_WEIGHTS: Record<string, Record<IG, number>> = {
   oligarchy: { landowners: 2.0, industrialists: 1.0, intelligentsia: 0.5, petty_bourgeoisie: 0.6, clergy: 1.0, armed_forces: 1.2, rural_folk: 0.15, trade_unions: 0.05 },
   census_suffrage: { landowners: 1.3, industrialists: 1.6, intelligentsia: 1.0, petty_bourgeoisie: 1.0, clergy: 0.8, armed_forces: 0.8, rural_folk: 0.3, trade_unions: 0.2 },
   universal_male_suffrage: { landowners: 0.8, industrialists: 1.0, intelligentsia: 1.0, petty_bourgeoisie: 1.0, clergy: 0.7, armed_forces: 0.6, rural_folk: 1.0, trade_unions: 1.0 },
+  // REGIME-01b: universal suffrage widens the electorate further; in a one-party state the ruling party
+  // draws on the army and organised labour, and the old propertied groups lose their voice.
+  universal_suffrage: { landowners: 0.7, industrialists: 0.9, intelligentsia: 1.1, petty_bourgeoisie: 1.0, clergy: 0.7, armed_forces: 0.6, rural_folk: 1.2, trade_unions: 1.2 },
+  one_party_state: { landowners: 0.2, industrialists: 0.3, intelligentsia: 0.6, petty_bourgeoisie: 0.4, clergy: 0.2, armed_forces: 1.8, rural_folk: 0.4, trade_unions: 1.5 },
   theocracy: { landowners: 1.0, industrialists: 0.3, intelligentsia: 0.3, petty_bourgeoisie: 0.5, clergy: 3.0, armed_forces: 1.0, rural_folk: 0.3, trade_unions: 0.05 },
   tribal_council: { landowners: 1.5, industrialists: 0.1, intelligentsia: 0.2, petty_bourgeoisie: 0.3, clergy: 1.0, armed_forces: 1.5, rural_folk: 1.0, trade_unions: 0 },
 };
@@ -89,7 +94,7 @@ export function reformSupport(c: Country, group: LawGroup, value: string): numbe
 }
 
 export function startReform(st: GameState, c: Country, group: LawGroup, value: string): boolean {
-  if (c.reform || c.laws[group] === value) return false;
+  if (c.reform || c.laws[group] === value || !lawUnlocked(c, value)) return false;
   c.reform = { group, value, progress: 0, startedTick: st.tick };
   log(st, { type: 'politics', text: `${c.name} begins debating ${group}: ${value}.`, textVi: `${c.nameVi} bắt đầu tranh luận luật ${group}: ${value}.`, actors: [c.id] });
   return true;
@@ -138,11 +143,15 @@ function revolutionCheck(st: GameState, c: Country) {
   const before = { ...c.laws };
   const liberal = c.igs.intelligentsia.clout + c.igs.petty_bourgeoisie.clout + c.igs.industrialists.clout;
   const changes: [LawGroup, string][] = [];
-  if (c.laws.power === 'autocracy' || c.laws.power === 'oligarchy' || c.laws.power === 'theocracy') changes.push(['power', liberal > 0.45 && rand(st) < 0.4 ? 'universal_male_suffrage' : 'census_suffrage']);
+  // REGIME-01b: where organised labour dominates the revolution and socialist ideas are known, it installs a
+  // one-party state with a command economy (V3-style); otherwise the liberal path below applies.
+  const socialist = lawUnlocked(c, 'one_party_state') && c.igs.trade_unions.clout > Math.max(0.2, liberal * 0.6) && rand(st) < 0.6;
+  if (socialist) changes.push(['power', 'one_party_state'], ['economy', 'command_economy'], ['press', 'censorship'], ['governance', 'republic']);
+  else if (c.laws.power === 'autocracy' || c.laws.power === 'oligarchy' || c.laws.power === 'theocracy') changes.push(['power', liberal > 0.45 && rand(st) < 0.4 ? 'universal_male_suffrage' : 'census_suffrage']);
   else if (c.laws.power === 'census_suffrage' && rand(st) < 0.5) changes.push(['power', 'universal_male_suffrage']);
-  if (c.laws.press === 'censorship') changes.push(['press', 'limited_press']);
+  if (!socialist && c.laws.press === 'censorship') changes.push(['press', 'limited_press']);
   if (c.laws.labor === 'serfdom') changes.push(['labor', 'traditional_tenancy']);
-  if (c.laws.governance === 'monarchy' && rand(st) < 0.35 + liberal * 0.3) changes.push(['governance', 'republic']);
+  if (!socialist && c.laws.governance === 'monarchy' && rand(st) < 0.35 + liberal * 0.3) changes.push(['governance', 'republic']);
   for (const [g, v] of changes) setLaw(st, c, g, v, 'revolution');
   c.regimeChangedAt = st.tick;
   c.leader = { name: generatedName(st, c, before.governance !== c.laws.governance ? 'president' : 'ruler'), born: st.date.y - 45 - Math.floor(rand(st) * 15), since: st.date.y, historical: false };

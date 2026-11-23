@@ -66,6 +66,7 @@ export function validateCountryRecord(id: string, v: unknown, path: string): voi
     str(r.group, `${path}.reform.group`); str(r.value, `${path}.reform.value`); num(r.progress, `${path}.reform.progress`); tick(r.startedTick, `${path}.reform.startedTick`);
   }
   if (c.regimeChangedAt !== null) num(c.regimeChangedAt, `${path}.regimeChangedAt`);
+  if (c.regimeLaws !== undefined) numRecord(c.regimeLaws, `${path}.regimeLaws`);
   // CG18-04: every required Leader / heir field.
   const leader = obj(c.leader, `${path}.leader`);
   str(leader.name, `${path}.leader.name`); numOrNull(leader.born, `${path}.leader.born`); num(leader.since, `${path}.leader.since`); bool(leader.historical, `${path}.leader.historical`);

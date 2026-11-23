@@ -103,6 +103,8 @@ export interface Country {
   overlord: string | null; subjectType: string | null;
   capital: string;
   laws: Laws; reform: Reform | null; regimeChangedAt: number | null; govLabel: string;
+  /** REGIME-01b: law groups held by a historical regime (Historical Mode AI does not reform them) until this tick. */
+  regimeLaws?: Record<string, number>;
   leader: Leader; heir: { name: string; born: number | null; female: boolean } | null;
   legitimacy: number; // 0..100 score
   radicalism: number; // 0..1 share of population radical

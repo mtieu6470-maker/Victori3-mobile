@@ -7,7 +7,8 @@ import type { LawGroup } from '../../engine/data/dbTypes';
 import { IG_PREFS, igApproval, reformSupport } from '../../engine/systems/politics';
 import { Sec, Metric, Bar, Donut, Mdl, details, useWidth } from '../components/ui';
 import { Icon } from '../components/icons';
-import { IG_VI, GROUP_VI, LAW_OPTIONS, lawVi, govVi, fmt, pct } from '../i18n/vi';
+import { lawUnlocked, LAW_TECH } from '../../engine/laws';
+import { IG_VI, GROUP_VI, LAW_OPTIONS, techName, lawVi, govVi, fmt, pct } from '../i18n/vi';
 import { viewedId, canCommand, send, IG_COL, leaderName } from './common';
 import { ui } from '../game/ui';
 
@@ -121,7 +122,8 @@ function LawDetail({ st, id, g }: { st: GameState; id: string; g: LawGroup }) {
           <div class={`option${isCur ? ' cur' : ''}`} key={v}>
             <div class="oh"><span class="ot">{lawVi(v)}</span>{isCur ? <span class="tag flat">Hiện hành</span> : <span class={`num ${sup > 0 ? 'pos' : sup < 0 ? 'neg' : 'muted'}`} style="font-weight:600">{sup >= 0 ? '+' : '−'}{fmt(Math.abs(sup), 2)}</span>}</div>
             {!isCur && (movers.length ? <div class="movers">{movers.map(([ig, d]) => <span key={ig} class={d > 0 ? 'pos' : 'neg'}><i class="sw" style={`background:${IG_COL[ig]}`} />{IG_VI[ig]} {d > 0 ? '+' : '−'}{fmt(Math.abs(d), 2)}</span>)}</div> : <div class="s">Không nhóm nào thay đổi thái độ.</div>)}
-            {!isCur && mine && <div style="margin-top:6px"><button class="btn sm" disabled={!!c.reform} onClick={() => { void send({ type: 'start_reform', group: g, value: v }, `Bắt đầu cải cách: ${lawVi(v)}`).then((ok) => { if (ok) details.close(); }); }}>Bắt đầu cải cách</button></div>}
+            {!isCur && !lawUnlocked(c, v) && <div class="s">Cần công nghệ: {techName(LAW_TECH[v])}</div>}
+            {!isCur && mine && <div style="margin-top:6px"><button class="btn sm" disabled={!!c.reform || !lawUnlocked(c, v)} onClick={() => { void send({ type: 'start_reform', group: g, value: v }, `Bắt đầu cải cách: ${lawVi(v)}`).then((ok) => { if (ok) details.close(); }); }}>Bắt đầu cải cách</button></div>}
           </div>
         );
       })}

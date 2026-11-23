@@ -623,6 +623,9 @@ function financeMonth(st: GameState, c: Country, gdpYear: number, pop: number, i
   c.finance = { tax, tariff, army: armyCost, navy: navyCost, admin: income * c.budget.admin, education: income * c.budget.education, health: income * c.budget.health, construction, interest };
   // private investment from the savings of property-owning strata
   c.privatePool = (c.privatePool ?? 0) + (gdpYear * privateSavingsRate(c)) / 12;
+  // REGIME-01b: under a command economy there is no private investment; the state plans and funds
+  // construction from the surplus that owners would otherwise have invested (V3-style).
+  if (c.laws.economy === 'command_economy') { const planned = (gdpYear * COMMAND_ECONOMY_STATE_SAVINGS * (1 + techEffect(c, 'investment'))) / 12; c.treasury += planned; c.statePool += planned; }
   // default
   if (income > 0 && c.debt > income * 12 * 4) {
     c.debt *= 0.5; c.legitimacy = clamp(c.legitimacy - 15, 0, 100); c.prestige -= 10;
@@ -669,9 +672,12 @@ export function maxRailLevels(r: Pick<Region, 'area'>): number {
   return Math.min(60, Math.max(5, Math.ceil((5 * Math.max(RAIL_LEVEL_KM2, r.area || 0)) / RAIL_LEVEL_KM2)));
 }
 
+/** REGIME-01b: share of GDP the state invests under a command economy (design parameter, ~private rate under interventionism). */
+export const COMMAND_ECONOMY_STATE_SAVINGS = 0.009;
+
 /** Share of GDP saved by property owners and offered for private construction each year. */
 export function privateSavingsRate(c: Country): number {
-  const lawF = { laissez_faire: 1, interventionism: 0.75, mercantilism: 0.5, traditionalism: 0.25 }[c.laws.economy] ?? 0.4;
+  const lawF = { laissez_faire: 1, interventionism: 0.75, mercantilism: 0.5, traditionalism: 0.25, command_economy: 0 }[c.laws.economy] ?? 0.4;
   return 0.012 * lawF * (1 + techEffect(c, 'investment'));
 }
 

@@ -199,7 +199,7 @@
    "name_vi": "Đại công quốc Phần Lan với nghị viện đơn viện và phổ thông đầu phiếu",
    "type": "constitutional_reform_and_womens_suffrage",
    "laws": {
-    "power": "universal_male_suffrage"
+    "power": "universal_suffrage"
    },
    "independence": null,
    "sources": [
@@ -279,7 +279,7 @@
    "name_vi": "Cộng hòa Phần Lan",
    "type": "independence",
    "laws": {
-    "power": "universal_male_suffrage",
+    "power": "universal_suffrage",
     "governance": "republic"
    },
    "independence": [
@@ -299,7 +299,7 @@
    "name_vi": "Cộng hòa Litva",
    "type": "independence_declaration",
    "laws": {
-    "power": "universal_male_suffrage",
+    "power": "universal_suffrage",
     "governance": "republic"
    },
    "independence": [
@@ -319,8 +319,8 @@
    "name_vi": "Cộng hòa Xã hội chủ nghĩa Xô viết Liên bang Nga theo Hiến pháp 1918",
    "type": "constitution_and_socialisation",
    "laws": {
-    "power": "autocracy",
-    "economy": "interventionism",
+    "power": "one_party_state",
+    "economy": "command_economy",
     "labor": "free_labor",
     "church": "secularism",
     "education": "public_schools"
@@ -340,7 +340,7 @@
    "name_vi": "Cộng hòa Weimar",
    "type": "revolution_and_regime_change",
    "laws": {
-    "power": "universal_male_suffrage",
+    "power": "universal_suffrage",
     "governance": "republic",
     "press": "free_press"
    },
@@ -360,7 +360,7 @@
    "name_vi": "Cộng hòa Ba Lan",
    "type": "state_restoration_and_independence",
    "laws": {
-    "power": "universal_male_suffrage",
+    "power": "universal_suffrage",
     "governance": "republic"
    },
    "independence": [
@@ -380,7 +380,7 @@
    "name_vi": "Cộng hòa Latvia",
    "type": "independence_and_state_formation",
    "laws": {
-    "power": "universal_male_suffrage",
+    "power": "universal_suffrage",
     "governance": "republic"
    },
    "independence": [
@@ -421,7 +421,7 @@
    "name_vi": "Cộng hòa Thổ Nhĩ Kỳ",
    "type": "revolution_and_state_formation",
    "laws": {
-    "power": "universal_male_suffrage",
+    "power": "one_party_state",
     "governance": "republic",
     "church": "secularism"
    },
@@ -440,7 +440,7 @@
    "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết",
    "type": "federal_union_formation",
    "laws": {
-    "power": "autocracy",
+    "power": "one_party_state",
     "governance": "republic",
     "economy": "interventionism"
    },
@@ -459,7 +459,7 @@
    "name_vi": "Đệ nhị Cộng hòa Tây Ban Nha",
    "type": "regime_change",
    "laws": {
-    "power": "universal_male_suffrage",
+    "power": "universal_suffrage",
     "governance": "republic",
     "church": "secularism"
    },
@@ -478,7 +478,7 @@
    "name_vi": "Đế chế Đức (Quốc xã)",
    "type": "authoritarian_takeover",
    "laws": {
-    "power": "autocracy",
+    "power": "one_party_state",
     "governance": "republic",
     "economy": "interventionism",
     "trade": "protectionism",
@@ -518,8 +518,8 @@
    "name_vi": "Liên Xô theo Hiến pháp 1936",
    "type": "constitution_and_centralisation",
    "laws": {
-    "power": "autocracy",
-    "economy": "interventionism",
+    "power": "one_party_state",
+    "economy": "command_economy",
     "trade": "protectionism",
     "labor": "free_labor",
     "education": "public_schools"
@@ -578,7 +578,7 @@
    "name_vi": "Cộng hòa Ý",
    "type": "referendum_and_regime_change",
    "laws": {
-    "power": "universal_male_suffrage",
+    "power": "universal_suffrage",
     "governance": "republic",
     "press": "free_press"
    },
@@ -597,7 +597,7 @@
    "name_vi": "Đệ tứ Cộng hòa Pháp",
    "type": "constitution",
    "laws": {
-    "power": "universal_male_suffrage",
+    "power": "universal_suffrage",
     "governance": "republic",
     "education": "public_schools"
    },
@@ -616,7 +616,7 @@
    "name_vi": "Nhật Bản",
    "type": "constitution_and_democratic_transition",
    "laws": {
-    "power": "universal_male_suffrage",
+    "power": "universal_suffrage",
     "governance": "monarchy",
     "press": "free_press",
     "church": "secularism"
@@ -654,7 +654,7 @@
    "name_vi": "Cộng hòa Nhân dân Trung Hoa",
    "type": "revolution_and_state_formation",
    "laws": {
-    "power": "autocracy",
+    "power": "one_party_state",
     "governance": "republic",
     "economy": "interventionism",
     "press": "censorship"
@@ -674,7 +674,7 @@
    "name_vi": "Đệ ngũ Cộng hòa Pháp",
    "type": "constitution_and_regime_change",
    "laws": {
-    "power": "universal_male_suffrage",
+    "power": "universal_suffrage",
     "governance": "republic"
    },
    "independence": null,
@@ -692,7 +692,7 @@
    "name_vi": "Vương quốc Tây Ban Nha",
    "type": "political_transition",
    "laws": {
-    "power": "universal_male_suffrage",
+    "power": "universal_suffrage",
     "governance": "monarchy",
     "press": "free_press"
    },
@@ -730,7 +730,7 @@
    "name_vi": "Liên Xô cho phép cạnh tranh chính trị đa đảng về mặt pháp lý",
    "type": "constitutional_amendment",
    "laws": {
-    "power": "universal_male_suffrage",
+    "power": "universal_suffrage",
     "press": "free_press"
    },
    "independence": null,

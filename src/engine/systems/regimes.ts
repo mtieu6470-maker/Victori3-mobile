@@ -8,13 +8,26 @@
 // the 20th-century law set is REGIME-01b) and, for a new regime or state, its name. Independence events
 // form a new state from the holder's regions of the listed cultures. The player's country is exempt.
 import { data } from '../data/db';
-import { dateStr, log } from '../core';
+import { dateStr, dateToTick, log } from '../core';
 import { createNation } from '../world';
 import { setLaw } from './politics';
 import { isColonialRegion } from './growth';
 import { DECOL_PARAMS } from './decolonisation';
 import type { LawGroup } from '../data/dbTypes';
 import type { GameState } from '../types';
+
+/** REGIME-01b design parameter: longest time a regime's laws are held without a later event (years). */
+export const REGIME_LAW_HOLD_YEARS = 60;
+
+/** Holds the event's laws for the AI until a later event for the same capital changes the same group. */
+function holdLaws(st: GameState, c: GameState['countries'][string], e: NonNullable<ReturnType<typeof data>['db']['regime_changes']>[number]) {
+  const later = (data().db.regime_changes ?? []).filter((x) => x.capitalRegion === e.capitalRegion && x.date > e.date);
+  c.regimeLaws ??= {};
+  for (const g of Object.keys(e.laws)) {
+    const next = later.find((x) => g in x.laws);
+    c.regimeLaws[g] = Math.min(next ? dateToTick(next.date) : Infinity, st.tick + REGIME_LAW_HOLD_YEARS * 12);
+  }
+}
 
 export function regimesMonth(st: GameState): void {
   if (st.mode !== 'historical') return;
@@ -42,10 +55,12 @@ export function regimesMonth(st: GameState): void {
       n.truce = { with: c.id, until: st.tick + DECOL_PARAMS.truceYears * 12 };
       n.army.manpower = n.army.target = Math.max(1000, Math.round(regs.reduce((s, r) => s + st.regions[d.regionIndex.get(r)!].pop, 0) * DECOL_PARAMS.armyShare));
       for (const [g, v] of Object.entries(e.laws)) setLaw(st, n, g as LawGroup, v, `founding (${e.id})`);
+      holdLaws(st, n, e);
       continue;
     }
     if (c.capital !== e.capitalRegion && isColonialRegion(st, region)) continue;
     for (const [g, v] of Object.entries(e.laws)) if ((c.laws as Record<string, string>)[g] !== v) setLaw(st, c, g as LawGroup, v, `regime change (${e.id})`);
+    holdLaws(st, c, e);
     const oldVi = c.nameVi;
     if (e.rename) { c.name = e.name_en; c.nameVi = e.name_vi; }
     c.regimeChangedAt = st.tick;

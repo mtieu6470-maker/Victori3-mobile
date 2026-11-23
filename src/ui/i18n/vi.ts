@@ -5,9 +5,9 @@ import type { LawGroup } from '../../engine/data/dbTypes';
 import type { IG } from '../../engine/types';
 
 export const LAW_VI: Record<string, string> = {
-  autocracy: 'Chuyên chế', oligarchy: 'Đầu sỏ', census_suffrage: 'Bầu cử theo tài sản', universal_male_suffrage: 'Phổ thông đầu phiếu nam', theocracy: 'Thần quyền', tribal_council: 'Hội đồng bộ lạc',
+  autocracy: 'Chuyên chế', oligarchy: 'Đầu sỏ', census_suffrage: 'Bầu cử theo tài sản', universal_male_suffrage: 'Phổ thông đầu phiếu nam', universal_suffrage: 'Phổ thông đầu phiếu', one_party_state: 'Nhà nước độc đảng', theocracy: 'Thần quyền', tribal_council: 'Hội đồng bộ lạc',
   monarchy: 'Quân chủ', republic: 'Cộng hòa', colonial_company: 'Công ty thuộc địa', chiefdom: 'Tù trưởng',
-  traditionalism: 'Truyền thống', mercantilism: 'Trọng thương', interventionism: 'Can thiệp', laissez_faire: 'Tự do kinh doanh',
+  traditionalism: 'Truyền thống', mercantilism: 'Trọng thương', interventionism: 'Can thiệp', laissez_faire: 'Tự do kinh doanh', command_economy: 'Kinh tế chỉ huy',
   protectionism: 'Bảo hộ', free_trade: 'Thương mại tự do', isolationism: 'Bế quan',
   serfdom: 'Nông nô', slavery: 'Nô lệ', traditional_tenancy: 'Tá điền truyền thống', free_labor: 'Lao động tự do',
   state_religion: 'Quốc giáo', freedom_of_conscience: 'Tự do tín ngưỡng', secularism: 'Thế tục',

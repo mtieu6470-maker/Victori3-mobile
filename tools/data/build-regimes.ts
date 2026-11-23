@@ -1,7 +1,7 @@
 // REGIME-01a: turn ChatGPT's CG-41 staging research (historical_data/research_staging/
 // CG41_REGIME_CHANGES_1836_1991.json) into historical_data/history/regime_changes.json for Historical Mode.
 // Each event is applied to the state holding its historical capital region (map-grid lookup of the city).
-// Only law values the engine already has are kept (new 20th-century laws are REGIME-01b); independence
+// Only law values the engine has are kept; LAW_OVERRIDE adds the 20th-century laws (REGIME-01b); independence
 // events carry the culture(s) whose regions form the new state.
 //   npx tsx tools/data/build-regimes.ts
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -33,6 +33,18 @@ const W = 8192, CPD = W / 360, H = Math.round(170 * CPD), LAT0 = 85;
 const runs = new Uint16Array(readFileSync(new URL('../../public/generated/map.bin', import.meta.url)).buffer.slice(0));
 const grid = new Uint16Array(W * H); { let k = 0; for (let i = 0; i < runs.length; i += 2) { grid.fill(runs[i], k, k + runs[i + 1]); k += runs[i + 1]; } }
 loadNodeData();
+// REGIME-01b: 20th-century law values for events whose CG-41 law changes predate them (women's suffrage,
+// one-party rule, planned economy). Dates follow the CG-41 sources and its proposedLaws examples.
+const LAW_OVERRIDE: Record<string, Record<string, string>> = {
+  'FIN-1906-07': { power: 'universal_suffrage' }, 'FIN-1917-12': { power: 'universal_suffrage' }, 'POL-1918-11': { power: 'universal_suffrage' },
+  'LTU-1918-02': { power: 'universal_suffrage' }, 'LVA-1918-11': { power: 'universal_suffrage' }, 'GER-1918-11': { power: 'universal_suffrage' },
+  'SPA-1931-04': { power: 'universal_suffrage' }, 'ITA-1946-06': { power: 'universal_suffrage' }, 'FRA-1946-10': { power: 'universal_suffrage' },
+  'JAP-1947-05': { power: 'universal_suffrage' }, 'FRA-1958-10': { power: 'universal_suffrage' }, 'SPA-1975-11': { power: 'universal_suffrage' },
+  'USSR-1990-03': { power: 'universal_suffrage' },
+  'RSFSR-1918-07': { power: 'one_party_state', economy: 'command_economy' }, 'RUS-1922-12': { power: 'one_party_state', economy: 'interventionism' },
+  'USSR-1936-12': { power: 'one_party_state', economy: 'command_economy' }, 'GER-1933-01': { power: 'one_party_state' },
+  'TUR-1922-11': { power: 'one_party_state' }, 'CHN-1949-10': { power: 'one_party_state' },
+};
 const st = createGame({ mode: 'historical', seed: 1, player: null });
 const regionAt = (lat: number, lon: number) => {
   const x0 = Math.floor((lon + 180) * CPD), y0 = Math.floor((LAT0 - lat) * CPD);
@@ -55,6 +67,7 @@ for (const e of src.events) {
     const to = typeof v === 'string' ? v : v?.to;
     if (to && (REFORMABLE_LAWS as any)[g]?.includes(to)) laws[g] = to; else if (to) droppedLaws.push(`${e.id}:${g}=${to}`);
   }
+  Object.assign(laws, LAW_OVERRIDE[e.id] ?? {});
   const [en, vi] = NAME_OVERRIDE[e.id] ?? [e.entityAfter.name_en, e.entityAfter.name_vi];
   out.push({ id: e.id, date: e.date, capitalRegion, rename: RENAME.has(e.id), name_en: en, name_vi: vi, type: e.eventType, laws,
     independence: INDEPENDENCE_CULTURES[e.id] ?? null, sources: e.sources, quality: e.quality });

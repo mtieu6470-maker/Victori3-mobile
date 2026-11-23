@@ -2,6 +2,7 @@
 // function built from the country's state and personality; in Historical Mode the historical layer adds a bias
 // term (historicalBias) to some utilities. Anti-stagnation safeguards: cooldowns, anti-oscillation of laws,
 // war duration caps (military.ts) and minimum activity guarantees.
+import { lawUnlocked } from '../laws';
 import { warInfamy } from '../systems/diplomacy';
 import { data } from '../data/db';
 import { LAW_GROUPS, type LawGroup } from '../data/dbTypes';
@@ -18,7 +19,7 @@ import { coreNationOf } from '../systems/population';
 import { regionsOf, bordersOf } from '../cache';
 
 const LAW_ALTERNATIVES: Record<LawGroup, string[]> = Object.fromEntries(LAW_GROUPS.map((g) => [g, []])) as any;
-LAW_ALTERNATIVES.power = ['autocracy', 'oligarchy', 'census_suffrage', 'universal_male_suffrage'];
+LAW_ALTERNATIVES.power = ['autocracy', 'oligarchy', 'census_suffrage', 'universal_male_suffrage', 'universal_suffrage'];
 LAW_ALTERNATIVES.economy = ['traditionalism', 'mercantilism', 'interventionism', 'laissez_faire'];
 LAW_ALTERNATIVES.trade = ['isolationism', 'protectionism', 'free_trade'];
 LAW_ALTERNATIVES.labor = ['slavery', 'serfdom', 'traditional_tenancy', 'free_labor'];
@@ -176,6 +177,7 @@ function constructionAI(st: GameState, c: Country) {
  */
 export function lawReservedByHistory(st: GameState, c: Country, group: LawGroup): boolean {
   if (st.mode !== 'historical') return false;
+  if ((c.regimeLaws?.[group] ?? -1) > st.tick) return true; // REGIME-01b: held by a historical regime
   const now = `${st.date.y}-${String(st.date.m).padStart(2, '0')}-01`;
   for (const w of data().db.decision_windows) {
     if (w.entity !== c.id || st.firedEvents.includes(w.id) || now > w.window[1]) continue;
@@ -197,7 +199,7 @@ export function lawReservedByHistory(st: GameState, c: Country, group: LawGroup)
 export const LAW_MODERNISATION_RANK: Record<LawGroup, Record<string, number>> = {
   // tribal_council and theocracy are starting forms outside the AI's reform ladder (no AI moves to them);
   // ranked below it so stepping onto the ladder keeps its former meaning.
-  power: { tribal_council: -1, theocracy: -1, autocracy: 0, oligarchy: 1, census_suffrage: 2, universal_male_suffrage: 3 },
+  power: { tribal_council: -1, theocracy: -1, autocracy: 0, oligarchy: 1, census_suffrage: 2, universal_male_suffrage: 3, universal_suffrage: 4 },
   economy: { traditionalism: 0, mercantilism: 1, interventionism: 2, laissez_faire: 3 },
   trade: { isolationism: 0, protectionism: 1, free_trade: 2 },
   labor: { slavery: 0, serfdom: 1, traditional_tenancy: 2, free_labor: 3 },
@@ -227,7 +229,7 @@ export const EMULATION_STEPS: Partial<Record<LawGroup, Record<string, string>>> 
   education: { no_schools: 'religious_schools', religious_schools: 'public_schools' },
   labor: { slavery: 'traditional_tenancy', serfdom: 'traditional_tenancy', traditional_tenancy: 'free_labor' },
   press: { censorship: 'limited_press', limited_press: 'free_press' },
-  power: { autocracy: 'oligarchy', oligarchy: 'census_suffrage', census_suffrage: 'universal_male_suffrage' },
+  power: { autocracy: 'oligarchy', oligarchy: 'census_suffrage', census_suffrage: 'universal_male_suffrage', universal_male_suffrage: 'universal_suffrage' },
 };
 
 /** Emulation pull for `group: current → v`: world adoption beyond 30% × the country's trade exposure. */
@@ -279,7 +281,7 @@ export function reformAI(st: GameState, c: Country) {
     if ((c.ai.cooldowns[`reform:${g}`] ?? 0) > st.tick) continue;
     if (lawReservedByHistory(st, c, g)) continue;
     for (const v of LAW_ALTERNATIVES[g]) {
-      if (v === c.laws[g]) continue;
+      if (v === c.laws[g] || !lawUnlocked(c, v)) continue;
       // anti-oscillation: never return to a value abandoned in the last 15 years
       if (c.ai.lawHistory.some((h) => h.group === g && st.tick - h.tick < 180)) continue;
       if (g === 'labor' && v === 'slavery') continue;

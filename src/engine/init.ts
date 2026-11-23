@@ -14,7 +14,7 @@ export interface NewGameOptions { mode: GameMode; seed: number; player: string |
 
 export const BASE_PRICES: Record<Good, number> = { grain: 1, cash_crops: 1, cotton: 1, timber: 1, coal: 1, iron: 1, steel: 1, textiles: 1, tools: 1, arms: 1, luxury: 1, opium: 1 };
 
-const TAX_BY_ECONOMY: Record<string, number> = { traditionalism: 0.06, mercantilism: 0.08, interventionism: 0.09, laissez_faire: 0.07 };
+const TAX_BY_ECONOMY: Record<string, number> = { traditionalism: 0.06, mercantilism: 0.08, interventionism: 0.09, laissez_faire: 0.07, command_economy: 0.12 };
 
 /**
  * ECON-CAL-02 (CG-24): share of the stage-based "workers" stratum that was factory labour in 1836.
