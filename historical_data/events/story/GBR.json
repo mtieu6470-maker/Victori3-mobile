@@ -2532,7 +2532,12 @@
       ],
       "sources": [
         "ceylon_elections"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_ceylon_riots_1915",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_donoughmore_1931",
@@ -2631,7 +2636,12 @@
       ],
       "sources": [
         "ceylon_elections"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_donoughmore_1931",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_ceylon_constitution_1946",
@@ -2735,7 +2745,12 @@
       ],
       "sources": [
         "ceylon_un"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_ceylon_constitution_1946",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_ceylon_independence_1948",
@@ -4262,7 +4277,12 @@
       "sources": [
         "palestine_whitepaper",
         "palestine_un"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_white_paper_1939",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_palestine_partition_1947",
@@ -4580,7 +4600,12 @@
       ],
       "sources": [
         "kenya_history"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_kenya_lancaster_1960",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_kenya_independence_1963",
@@ -4686,7 +4711,12 @@
       ],
       "sources": [
         "kenya_history"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_kenya_independence_1963",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_gold_coast_accra_1948",
@@ -4894,7 +4924,12 @@
       ],
       "sources": [
         "ghana_history"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_ghana_independence_1957",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_clifford_constitution_1922",
@@ -5194,7 +5229,12 @@
       ],
       "sources": [
         "rhodesia_sanctions"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_southern_rhodesia_responsible_1923",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_rhodesia_udi_1965",
@@ -5907,7 +5947,12 @@
       ],
       "sources": [
         "caribbean_history"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_west_indies_federation_1958",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_jamaica_independence_1962",
@@ -6116,7 +6161,12 @@
       ],
       "sources": [
         "cyprus_history"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_cyprus_eoka_1955",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_cyprus_independence_1960",
@@ -6429,7 +6479,12 @@
       ],
       "sources": [
         "canada_parliament"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_canada_durham_1839",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_canadian_confederation_1867",
