@@ -1,4 +1,5 @@
 // Military Engine (shared): army/navy strength, recruitment, fronts, battles, occupation, war score, peace.
+import { postwarNorm, POST_1945_NORM } from './diplomacy';
 import { data } from '../data/db';
 import type { Country, GameState, War, WarGoal } from '../types';
 import { clamp, log, rand, addRel, setRel, dateStr } from '../core';
@@ -92,7 +93,7 @@ function warMonth(st: GameState, w: War) {
     const win = rand(st) < effO / Math.max(1, effO + effD);
     // casualties
     const engaged = Math.min(so, sd) * 0.08;
-    const cas = (ids: string[], f: number) => { for (const id of ids) { const c = st.countries[id]; const loss = (c.army.manpower / Math.max(1, ids.reduce((s, x) => s + st.countries[x].army.manpower, 0))) * engaged * f; c.army.manpower = Math.max(0, c.army.manpower - loss); c.warExhaustion = clamp(c.warExhaustion + (loss / Math.max(1, c.stats.pop)) * 4000 + 0.3, 0, 100); } };
+    const cas = (ids: string[], f: number) => { for (const id of ids) { const c = st.countries[id]; const loss = (c.army.manpower / Math.max(1, ids.reduce((s, x) => s + st.countries[x].army.manpower, 0))) * engaged * f; c.army.manpower = Math.max(0, c.army.manpower - loss); const normX = postwarNorm(st) && (w.kind === 'conquest' || w.kind === 'colonial') && w.attackers.members.includes(id) ? POST_1945_NORM.exhaustion : 1; c.warExhaustion = clamp(c.warExhaustion + ((loss / Math.max(1, c.stats.pop)) * 4000 + 0.3) * normX, 0, 100); } };
     cas(off, win ? 0.6 : 1.2); cas(dfn, win ? 1.2 : 0.6);
     w.battles++;
     if (win) {

@@ -38,9 +38,40 @@ export function diplomacyMonth(st: GameState) {
     base -= (ca.infamy + cb.infamy) * 0.3;
     st.relations[k] += (base - st.relations[k]) * 0.04;
   }
-  for (const id of ids) { const c = st.countries[id]; c.infamy = Math.max(0, c.infamy - 0.25); }
+  const aggressors = new Set(st.wars.flatMap((w) => (w.kind === 'conquest' || w.kind === 'colonial' ? w.attackers.members : [])));
+  for (const id of ids) { const c = st.countries[id]; if (!aggressors.has(id)) c.infamy = Math.max(0, c.infamy - INFAMY_DECAY_PER_MONTH); }
   void d; void sharesBorder;
 }
+
+/**
+ * DIPLO-NORM-01 (owner 2026-11-23): after the United Nations Charter (1945) aggression became an
+ * international norm violation. In Historical Mode from 1945, conquest war goals cost
+ * POST_1945_NORM.infamy times the usual infamy, a defender attracts great powers more readily, and the
+ * aggressor's war exhaustion rises faster. Nothing is forbidden: a state willing to pay can still attack
+ * (some did). Before 1945 there is no such norm. Sandbox Mode: pending an in-game founding event.
+ */
+export const POST_1945_NORM = { year: 1945, infamy: 4, exhaustion: 1.5, interventionThreshold: 0.5 } as const;
+export const postwarNorm = (st: GameState) => st.mode === 'historical' && st.date.y >= POST_1945_NORM.year;
+/**
+ * Collective security (owner 2026-11-23): fighting a country that is itself waging a war of conquest, or
+ * that carries infamy of at least CONTAIN_AGGRESSOR.infamy, is "containing aggression" and costs only
+ * CONTAIN_AGGRESSOR.factor of the usual infamy (no post-1945 multiplier).
+ */
+export const CONTAIN_AGGRESSOR = { infamy: 25, factor: 0.25 } as const;
+export function isAggressor(st: GameState, id: string): boolean {
+  const c = st.countries[id];
+  if (!c) return false;
+  return c.infamy >= CONTAIN_AGGRESSOR.infamy || st.wars.some((w) => (w.kind === 'conquest' || w.kind === 'colonial') && w.attackers.members.includes(id));
+}
+
+/** Infamy a war with these goals adds to the attacker (pure; no random draws). */
+export function warInfamy(st: GameState, goals: WarGoal[], defender?: string): number {
+  const containing = defender !== undefined && isAggressor(st, defender);
+  const norm = containing ? CONTAIN_AGGRESSOR.factor : postwarNorm(st) ? POST_1945_NORM.infamy : 1;
+  return goals.reduce((s, g) => s + (g.type === 'independence' ? 0 : (g.regions?.length ?? 1) * (g.type === 'colonize' ? 1 : 3) * norm), 0);
+}
+/** Infamy decays only in months a country is not waging an offensive war (Victoria 3-like). */
+export const INFAMY_DECAY_PER_MONTH = 0.25;
 
 // ---------------------------------------------------------------- actions (used by AI and player alike)
 export function improveRelations(st: GameState, a: string, b: string) { addRel(st, a, b, 3); }
@@ -106,11 +137,13 @@ export function warSides(st: GameState, attacker: string, defender: string, goal
   // great-power intervention against an aggressive rival
   for (const gp of greatPowers(st)) {
     if (attackers.includes(gp) || defenders.includes(gp)) continue;
+    const conquest = goals.some((g) => g.type !== 'independence');
+    if (postwarNorm(st) && conquest && getRel(st, gp, defender) >= 0 && joinWillingness(st, gp, attacker, defender) > POST_1945_NORM.interventionThreshold) { defenders.push(gp); joined.push({ id: gp, reason: 'great_power' }); continue; }
     if ((rivals(st, gp, attacker) && getRel(st, gp, defender) > 10) || (st.countries[gp].ai.planTarget === `support:${defender}`)) {
       if (joinWillingness(st, gp, attacker, defender) > 1.5) { defenders.push(gp); joined.push({ id: gp, reason: 'great_power' }); }
     }
   }
-  const infamy = goals.reduce((s, g) => s + (g.regions?.length ?? 1) * (g.type === 'colonize' ? 1 : 3), 0);
+  const infamy = warInfamy(st, goals, defender);
   return { attackerLeader: attacker, defenderLeader: defLeader, attackers, defenders, joined, infamy, attackerName: a.name };
 }
 

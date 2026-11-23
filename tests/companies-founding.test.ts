@@ -30,7 +30,8 @@ describe('CO-3 company slots', () => {
       stepMonth(st);
       for (const c of Object.values(st.countries)) {
         const b = before[c.id]; if (!b) continue;
-        if (companiesOf(st, c.id).length > b.n) expect(b.n, `${c.id} ${st.date.y}`).toBeLessThan(b.slots);
+        // Construction completed earlier in the same month can add a slot before the company step runs.
+        if (companiesOf(st, c.id).length > b.n) expect(b.n, `${c.id} ${st.date.y}`).toBeLessThan(Math.max(b.slots, companySlots(st, c)));
       }
     }
   });

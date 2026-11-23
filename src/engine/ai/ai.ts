@@ -2,6 +2,7 @@
 // function built from the country's state and personality; in Historical Mode the historical layer adds a bias
 // term (historicalBias) to some utilities. Anti-stagnation safeguards: cooldowns, anti-oscillation of laws,
 // war duration caps (military.ts) and minimum activity guarantees.
+import { warInfamy } from '../systems/diplomacy';
 import { data } from '../data/db';
 import { LAW_GROUPS, type LawGroup } from '../data/dbTypes';
 import { BUILDINGS, type Building, type Country, type GameState, type Good, type WarGoal } from '../types';
@@ -379,7 +380,9 @@ function warAI(st: GameState, c: Country) {
     for (const gp of greatPowers(st)) if (gp !== c.id && rivals(st, gp, c.id) && getRel(st, gp, tid) > 10) enemy += armyStrength(st, st.countries[gp]) * 0.35;
     const ratio = mine / Math.max(1, enemy);
     const pWin = clamp((ratio - 0.6) / 1.4, 0, 0.95);
-    const cost = 0.55 + c.warExhaustion / 50 + (t.decentralized ? 0.2 + (['ju', 'sa'].includes(goalRegs[0]?.terrain ?? '') && !c.techs.includes('quinine_prophylaxis') ? 0.6 : 0) : 0.5) + c.infamy / 25 + historicalBias(st, c, 'avoid_war', tid) * 3 - historicalBias(st, c, 'contain', tid) * 0.6;
+    // DIPLO-NORM-01: the infamy this war would add counts in the decision (heavier after 1945).
+    const addedInfamy = warInfamy(st, goals, tid);
+    const cost = addedInfamy / 25 + 0.55 + c.warExhaustion / 50 + (t.decentralized ? 0.2 + (['ju', 'sa'].includes(goalRegs[0]?.terrain ?? '') && !c.techs.includes('quinine_prophylaxis') ? 0.6 : 0) : 0.5) + c.infamy / 25 + historicalBias(st, c, 'avoid_war', tid) * 3 - historicalBias(st, c, 'contain', tid) * 0.6;
     let u = pWin * value - (1 - pWin) * 0.8 - cost + (c.personality.aggression - 0.4) * 0.8 + (c.personality.expansionism - 0.4) * 0.6;
     // Sandbox: leaders misjudge odds and opportunities. Seeded noise makes different seeds diverge;
     // without it every sandbox seed fought the same wars (only battle rolls were random).
