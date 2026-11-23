@@ -62,7 +62,7 @@
     "cg43b": {
       "addedRecords": 137,
       "scope": "MSG-097 supplement: Beiyang ROC 1916–1928; Second Spanish Republic; Weimar chancellors; FRG presidents; GDR heads of state, ministers-president and SED leader; Japanese wartime prime ministers; CPV General Secretaries; DRV/Vietnam governments; State of Vietnam; Republic of Vietnam; PRG.",
-      "datePrecision": "Records with date_precision month/year use normalized ISO date boundaries where the source only gives month/year. Do not interpret normalized day as a verified inauguration day. Secondary chronology is explicitly marked supported and requires primary archive confirmation before production.",
+      "datePrecision": "For records with date_precision month/year, ISO dates are normalized month/year boundaries or coverage cutoffs, not verified exact inauguration/accession days. Secondary chronology is marked supported and requires primary archive confirmation before production.",
       "baseRecordCount": 328,
       "netAddedRecords": 137
     },
@@ -517,7 +517,8 @@
         "ru_revolution"
       ],
       "quality": "supported",
-      "note": "Reign began before coverage window; abdicated during February Revolution (Gregorian date)."
+      "note": "Reign began before coverage window; abdicated during February Revolution (Gregorian date). Left-censored at 1900: the reign began before the dataset window; 1900-01-01 is a coverage boundary, not accession date.",
+      "date_precision": "year"
     },
     {
       "entity": "RUS",
@@ -987,7 +988,8 @@
         "deutschland_empire"
       ],
       "quality": "supported",
-      "note": "Reign began 1888; abdicated in November 1918."
+      "note": "Reign began 1888; abdicated in November 1918. Left-censored at 1900: the reign began before the dataset window; 1900-01-01 is a coverage boundary, not accession date.",
+      "date_precision": "year"
     },
     {
       "entity": "GER",
@@ -2446,7 +2448,8 @@
         "fr_pres"
       ],
       "quality": "supported",
-      "note": "Term began before the 1900 coverage window."
+      "note": "Term began before the 1900 coverage window. Left-censored at 1900: the reign began before the dataset window; 1900-01-01 is a coverage boundary, not accession date.",
+      "date_precision": "year"
     },
     {
       "entity": "FRA",
@@ -3048,7 +3051,8 @@
         "jp_const"
       ],
       "quality": "supported",
-      "note": "Reign began 1867; coverage starts 1900."
+      "note": "Reign began 1867; coverage starts 1900. Left-censored at 1900: the reign began before the dataset window; 1900-01-01 is a coverage boundary, not accession date.",
+      "date_precision": "year"
     },
     {
       "entity": "JPN",
@@ -3630,7 +3634,8 @@
         "china_national_museum"
       ],
       "quality": "supported",
-      "note": "Nominal emperor under regency and court control."
+      "note": "Nominal emperor under regency and court control. Left-censored at 1900: the reign began before the dataset window; 1900-01-01 is a coverage boundary, not accession date.",
+      "date_precision": "year"
     },
     {
       "entity": "QNG",
@@ -4062,7 +4067,9 @@
       "sources": [
         "turkey_ataturk"
       ],
-      "quality": "supported"
+      "quality": "supported",
+      "date_precision": "year",
+      "note": "Left-censored at 1900: the reign began before the dataset window; 1900-01-01 is a coverage boundary, not accession date."
     },
     {
       "entity": "TUR",
@@ -4319,7 +4326,8 @@
         "es_senate"
       ],
       "quality": "supported",
-      "note": "Reign began 1886; constitutional monarchy ended with proclamation of Second Republic."
+      "note": "Reign began 1886; constitutional monarchy ended with proclamation of Second Republic. Left-censored at 1900: the reign began before the dataset window; 1900-01-01 is a coverage boundary, not accession date.",
+      "date_precision": "year"
     },
     {
       "entity": "SPA",
@@ -4510,7 +4518,8 @@
         "ausgleich_aeiou"
       ],
       "quality": "supported",
-      "note": "Reign began 1848; dual monarchy from 1867."
+      "note": "Reign began 1848; dual monarchy from 1867. Left-censored at 1900: the reign began before the dataset window; 1900-01-01 is a coverage boundary, not accession date.",
+      "date_precision": "year"
     },
     {
       "entity": "AHM",
@@ -4736,7 +4745,8 @@
         "vn_embassy"
       ],
       "quality": "supported",
-      "note": "French protectorate; emperor's authority heavily constrained."
+      "note": "French protectorate; emperor's authority heavily constrained. Left-censored at 1900: the reign began before the dataset window; 1900-01-01 is a coverage boundary, not accession date.",
+      "date_precision": "year"
     },
     {
       "entity": "VNM",
@@ -6282,7 +6292,7 @@
       "entity": "ROC",
       "name": "Huang Fu",
       "name_vi": "Hoàng Phủ",
-      "born": "1880-01-01",
+      "born": null,
       "died": "1936-12-06",
       "from": "1924-11-02",
       "to": "1924-11-24",
@@ -6320,7 +6330,7 @@
       "entity": "ROC",
       "name": "Hu Weide",
       "name_vi": "Hồ Duy Đức",
-      "born": "1863-01-01",
+      "born": null,
       "died": "1933-11-24",
       "from": "1926-04-20",
       "to": "1926-05-13",
@@ -6434,7 +6444,7 @@
       "entity": "ROC",
       "name": "Wang Shizhen",
       "name_vi": "Vương Sĩ Trân",
-      "born": "1861-01-01",
+      "born": null,
       "died": "1930-01-01",
       "from": "1917-11-01",
       "to": "1918-02-01",
@@ -6453,7 +6463,7 @@
       "entity": "ROC",
       "name": "Qian Nengxun",
       "name_vi": "Tiền Năng Huân",
-      "born": "1869-01-01",
+      "born": null,
       "died": "1924-01-01",
       "from": "1918-02-01",
       "to": "1918-03-01",
@@ -6491,7 +6501,7 @@
       "entity": "ROC",
       "name": "Qian Nengxun",
       "name_vi": "Tiền Năng Huân",
-      "born": "1869-01-01",
+      "born": null,
       "died": "1924-01-01",
       "from": "1918-10-01",
       "to": "1919-06-01",
@@ -6510,7 +6520,7 @@
       "entity": "ROC",
       "name": "Jin Yunpeng",
       "name_vi": "Cận Vân Bằng",
-      "born": "1877-01-01",
+      "born": null,
       "died": "1951-01-01",
       "from": "1919-09-01",
       "to": "1920-07-01",
@@ -6529,7 +6539,7 @@
       "entity": "ROC",
       "name": "Liang Shiyi",
       "name_vi": "Lương Sĩ Di",
-      "born": "1869-01-01",
+      "born": null,
       "died": "1933-01-01",
       "from": "1921-12-01",
       "to": "1922-05-01",
@@ -6586,7 +6596,7 @@
       "entity": "ROC",
       "name": "Pan Fu",
       "name_vi": "Phan Phục",
-      "born": "1883-01-01",
+      "born": null,
       "died": "1936-01-01",
       "from": "1927-06-01",
       "to": "1928-06-01",
