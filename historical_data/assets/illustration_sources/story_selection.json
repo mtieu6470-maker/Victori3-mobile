@@ -56,7 +56,7 @@
     {
       "type": "illustration_event",
       "subject": "hyd_nizam_1857",
-      "commons_file": "Nizam's palace in Hyderabad.jpg",
+      "commons_file": "Nizam's_palace_in_Hyderabad.jpg",
       "year": 1870,
       "width": 800,
       "author": "Unknown author",
@@ -76,17 +76,17 @@
         0.5,
         0.5
       ],
-      "review_note": "Later-period view of the court setting; not a direct 1857 scene."
+      "review_note": "Later-period view of the court setting; contextual rather than a direct 1857 scene."
     },
     {
       "type": "illustration_event",
       "subject": "gbr_crown_rule_1858",
-      "commons_file": "Group of sepoys at Lucknow.jpg",
+      "commons_file": "Group_of_sepoys_at_Lucknow.jpg",
       "year": 1857,
       "width": 1904,
       "author": "The Illustrated London News",
       "name": "Binh lính tại Lucknow",
-      "description": "Group of sepoys at Lucknow, illustration published in The Illustrated London News, 31 October 1857",
+      "description": "Group of sepoys at Lucknow, illustration published in The Illustrated London News on 31 October 1857",
       "period": {
         "from": 1858,
         "to": 1935
@@ -101,7 +101,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Contemporary illustration of the 1857 revolt and the immediate aftermath leading to Crown rule."
+      "review_note": "Contemporary illustration of the 1857 revolt and immediate aftermath leading to Crown rule."
     },
     {
       "type": "illustration_event",
@@ -131,12 +131,12 @@
     {
       "type": "illustration_event",
       "subject": "gbr_bengal_partition_1905",
-      "commons_file": "Bengal Partition 1905.jpg",
-      "year": 1905,
-      "width": 1200,
-      "author": "Unknown",
-      "name": "Chia tách Bengal",
-      "description": "Candidate visual for the 1905 partition of Bengal and Swadeshi agitation",
+      "commons_file": "Bengal_Partition_Mass_1906.jpg",
+      "year": 1906,
+      "width": 1275,
+      "author": "The Sphere",
+      "name": "Cuộc mít tinh ủng hộ chia tách Bengal",
+      "description": "A mass meeting of Muslims held at Dhaka on 4 September 1906 in favour of the partition of Bengal, published in The Sphere on 27 October 1906",
       "period": {
         "from": 1905,
         "to": 1907
@@ -151,17 +151,17 @@
         0.5,
         0.5
       ],
-      "review_note": "Candidate title requires Commons lookup; do not ingest if the exact file page does not resolve."
+      "review_note": "Contemporary image of the political mobilisation around the 1905 partition; Commons page reports Public Domain India."
     },
     {
       "type": "illustration_event",
       "subject": "gbr_morley_minto_1909",
-      "commons_file": "First_meeting_session_of_the_Indian_National_Congress_in_Bombay,_1885.jpg",
-      "year": 1885,
-      "width": 1060,
+      "commons_file": "INC_1904.jpg",
+      "year": 1904,
+      "width": 2914,
       "author": "Unknown author",
-      "name": "Đại hội Quốc dân Ấn Độ",
-      "description": "Congress delegates at Bombay, used as a period political-representation visual",
+      "name": "Đại hội Quốc dân Ấn Độ năm 1904",
+      "description": "Indian National Congress meeting photograph, 1904",
       "period": {
         "from": 1908,
         "to": 1910
@@ -176,12 +176,12 @@
         0.5,
         0.5
       ],
-      "review_note": "Related political assembly image; use only if a more specific 1909 council image is unavailable."
+      "review_note": "Political assembly image from the years immediately preceding the Morley–Minto reforms; contextual, not a depiction of the Act."
     },
     {
       "type": "illustration_event",
       "subject": "gbr_bengal_reunification_1911",
-      "commons_file": "Delhi Durbar, 1911.jpg",
+      "commons_file": "Delhi_Durbar,_1911.jpg",
       "year": 1911,
       "width": 1139,
       "author": "Unknown photographer",
@@ -201,17 +201,17 @@
         0.5,
         0.5
       ],
-      "review_note": "Commons page reports Public Domain; exact event/date match."
+      "review_note": "Commons page reports Public Domain; direct event/date match."
     },
     {
       "type": "illustration_event",
       "subject": "gbr_lucknow_pact_1916",
-      "commons_file": "Lucknow Pact 1916.jpg",
+      "commons_file": "1916muzumdar.jpg",
       "year": 1916,
-      "width": 1200,
-      "author": "Unknown",
-      "name": "Thỏa ước Lucknow",
-      "description": "Candidate visual for the 1916 Congress–Muslim League agreement at Lucknow",
+      "width": 650,
+      "author": "Unknown author",
+      "name": "Ambica Charan Mazumdar",
+      "description": "Ambica Charan Mazumdar, president of the 31st session of the Indian National Congress in 1916",
       "period": {
         "from": 1916,
         "to": 1917
@@ -226,7 +226,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Candidate title requires Commons lookup; use only if exact page resolves."
+      "review_note": "Contemporary portrait of the Congress president in the year of the Lucknow Pact; contextual, not a photograph of the signing."
     },
     {
       "type": "illustration_event",
@@ -257,12 +257,12 @@
     {
       "type": "illustration_event",
       "subject": "gbr_noncooperation_1920",
-      "commons_file": "Gandhi and Khilafat leaders 1920.jpg",
+      "commons_file": "Gandhi_and_Tagore_1920.jpg",
       "year": 1920,
-      "width": 1200,
-      "author": "Unknown",
-      "name": "Phong trào bất hợp tác",
-      "description": "Candidate visual for the 1920 non-cooperation and Khilafat political mobilisation",
+      "width": 2283,
+      "author": "Unknown author",
+      "name": "Gandhi và Tagore năm 1920",
+      "description": "Gandhi and Rabindranath Tagore in 1920, a period portrait from the mass non-cooperation era",
       "period": {
         "from": 1920,
         "to": 1930
@@ -277,17 +277,17 @@
         0.5,
         0.5
       ],
-      "review_note": "Candidate title requires Commons lookup; use only if exact page resolves."
+      "review_note": "Contemporary portrait from 1920; candidate visual for the political mobilisation, not a depiction of a boycott itself."
     },
     {
       "type": "illustration_event",
       "subject": "gbr_simon_commission_1928",
-      "commons_file": "Simon Commission protests India 1928.jpg",
+      "commons_file": "The_simon_commission.jpg",
       "year": 1928,
-      "width": 1200,
-      "author": "Unknown",
-      "name": "Biểu tình phản đối Ủy ban Simon",
-      "description": "Candidate visual for the Simon Commission boycott demonstrations in India, 1928",
+      "width": 287,
+      "author": "Unknown author",
+      "name": "Ủy ban Simon",
+      "description": "Portrait of the men involved in the Simon Commission, 1928",
       "period": {
         "from": 1928,
         "to": 1929
@@ -302,7 +302,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Candidate title requires Commons lookup; use only if exact page resolves."
+      "review_note": "Direct subject match but low resolution; Commons page reports US public-domain status only, so ingest tool must check jurisdictional rights and may reject."
     },
     {
       "type": "illustration_event",
@@ -338,7 +338,7 @@
       "width": 1237,
       "author": "Government of British India",
       "name": "Đạo luật Chính quyền Ấn Độ 1935",
-      "description": "The Government of India Act, 1935, official legislative text",
+      "description": "Official legislative text of the Government of India Act, 1935",
       "period": {
         "from": 1935,
         "to": 1935
@@ -353,7 +353,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Official law document; public-domain India notice reported on Commons."
+      "review_note": "Archival legal document rather than a photograph; retain only if the image ingestion pipeline supports rendering source pages."
     },
     {
       "type": "illustration_event",
@@ -383,7 +383,7 @@
     {
       "type": "illustration_event",
       "subject": "gbr_cabinet_mission_1946",
-      "commons_file": "Cabinet mission to india1946.jpg",
+      "commons_file": "Cabinet_mission_to_india1946.jpg",
       "year": 1946,
       "width": 500,
       "author": "Unknown author",
@@ -403,17 +403,17 @@
         0.5,
         0.5
       ],
-      "review_note": "Exact subject match for the Cabinet Mission negotiations."
+      "review_note": "Direct subject match for the Cabinet Mission negotiations."
     },
     {
       "type": "illustration_event",
       "subject": "gbr_indian_independence_1947",
-      "commons_file": "Lord Mountbatten swears in Jawaharlal Nehru as the first Prime Minister of free India on Aug 15, 1947.jpg",
+      "commons_file": "Lord_Mountbatten_swears_in_Jawaharlal_Nehru_as_the_first_Prime_Minister_of_free_India_on_Aug_15,_1947.jpg",
       "year": 1947,
       "width": 667,
       "author": "Ministry of Defence (India)",
       "name": "Lễ tuyên thệ độc lập Ấn Độ",
-      "description": "Lord Mountbatten swears in Jawaharlal Nehru as the first Prime Minister of free India, 15 August 1947",
+      "description": "Lord Mountbatten swears in Jawaharlal Nehru as the first Prime Minister of free India on 15 August 1947",
       "period": {
         "from": 1947,
         "to": 1948
@@ -428,7 +428,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Exact date and subject; rights status to be confirmed by the ingest tool."
+      "review_note": "Exact date and subject; the ingestion tool must verify rights and the correct source metadata."
     },
     {
       "type": "illustration_event",
@@ -509,12 +509,12 @@
     {
       "type": "illustration_event",
       "subject": "bur_saya_san_1930",
-      "commons_file": "Saya San Rebellion 1930.jpg",
+      "commons_file": "Sayar_San.png",
       "year": 1930,
-      "width": 1200,
-      "author": "Unknown",
-      "name": "Khởi nghĩa Saya San",
-      "description": "Candidate visual for the Saya San peasant rebellion in Burma, 1930–1932",
+      "width": 441,
+      "author": "Unknown author",
+      "name": "Saya San",
+      "description": "Portrait of Saya San, leader of the 1930–1932 Burmese peasant rebellion",
       "period": {
         "from": 1930,
         "to": 1932
@@ -529,7 +529,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Candidate title requires Commons lookup; use only if exact page resolves."
+      "review_note": "Direct portrait of the movement's leader; portrait orientation will need a carefully composed crop."
     },
     {
       "type": "illustration_event",
@@ -634,11 +634,11 @@
     {
       "type": "illustration_event",
       "subject": "bur_king_thibaw_exile_1885",
-      "commons_file": "Third anglo-burmese war.jpg",
+      "commons_file": "Third_anglo-burmese_war.jpg",
       "year": 1885,
       "width": 955,
       "author": "Willoughby Wallace Hooper",
-      "name": "Vua Thibaw bị lưu đày",
+      "name": "Chiến tranh Anh–Miến lần thứ ba",
       "description": "Photograph of the surrender of the Burmese Army during the Third Anglo-Burmese War, 27 November 1885",
       "period": {
         "from": 1884,
@@ -654,7 +654,7 @@
         0.5,
         0.5
       ],
-      "review_note": "Contextual image for the 1885 Burma crisis."
+      "review_note": "Period image of the defeat immediately preceding the royal exile; contextual rather than a portrait of the king."
     }
   ]
 }
