@@ -3363,7 +3363,12 @@
       "sources": [
         "malaysia_gov",
         "malaya_archives"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_malaya_independence_1957",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_egypt_occupation_1882",
@@ -3694,7 +3699,12 @@
       ],
       "sources": [
         "egypt_suez"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_egypt_treaty_1936",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_suez_crisis_1956",
@@ -4772,7 +4782,12 @@
       ],
       "sources": [
         "ghana_history"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_gold_coast_accra_1948",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_ghana_independence_1957",
@@ -5588,6 +5603,11 @@
           "gbr_vereeniging_1902",
           "gbr_vereeniging_1902"
         ]
+      },
+      "image": {
+        "ref": "ill_evt_gbr_south_africa_union_1910",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
       }
     },
     {
@@ -5690,6 +5710,11 @@
           "gbr_south_africa_union_1910",
           "gbr_south_africa_union_1910"
         ]
+      },
+      "image": {
+        "ref": "ill_evt_gbr_natives_land_act_1913",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
       }
     },
     {
@@ -5988,7 +6013,12 @@
       ],
       "sources": [
         "caribbean_history"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_jamaica_independence_1962",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_cyprus_eoka_1955",
@@ -6196,7 +6226,12 @@
       ],
       "sources": [
         "cyprus_history"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_cyprus_independence_1960",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     },
     {
       "id": "gbr_malta_independence_1964",
@@ -6796,6 +6831,11 @@
           "gbr_easter_rising_1916",
           "gbr_easter_rising_1916"
         ]
+      },
+      "image": {
+        "ref": "ill_evt_gbr_anglo_irish_treaty_1921",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
       }
     },
     {
@@ -6904,7 +6944,12 @@
       "sources": [
         "ireland_treaty",
         "ireland_difp"
-      ]
+      ],
+      "image": {
+        "ref": "ill_evt_gbr_irish_free_state_1922",
+        "credit": "Wikimedia Commons candidate; ingestion rights check required",
+        "license": "CANDIDATE — verify PD/CC0"
+      }
     }
   ]
 }
