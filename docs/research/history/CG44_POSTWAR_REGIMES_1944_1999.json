@@ -988,7 +988,10 @@
         "name_vi": "Cộng hòa Bulgaria"
       },
       "eventType": "constitutional_state_renaming",
-      "causes": {
+      "causes": [
+        "Formal adoption of the Republic of Bulgaria state name during the transition"
+      ],
+      "lawChanges": {
         "power": {
           "from": "universal_suffrage",
           "to": "universal_suffrage"
@@ -998,12 +1001,12 @@
           "to": "republic"
         }
       },
-      "lawChanges": [],
-      "territorialChanges": [
+      "territorialChanges": [],
+      "sources": [
         "bulgaria_gov"
       ],
-      "sources": "supported",
-      "quality": "The National Assembly adopted the Republic of Bulgaria name in November 1990; the 1991 Constitution completed the new constitutional framework."
+      "quality": "supported",
+      "note": "The National Assembly adopted the Republic of Bulgaria name in November 1990; the 1991 Constitution completed the new constitutional framework."
     },
     {
       "id": "ALB-1991-04",
