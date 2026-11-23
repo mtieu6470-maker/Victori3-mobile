@@ -3174,7 +3174,12 @@
       "sources": [
         "malaysia_gov",
         "malaya_archives"
-      ]
+      ],
+      "image": {
+        "ref": "ill_gbr_malayan_union_1946",
+        "credit": "Wikimedia Commons candidate; owner ingestion will verify PD/CC0",
+        "license": "Candidate — pending ingestion verification"
+      }
     },
     {
       "id": "gbr_malayan_emergency_1948",
@@ -5025,7 +5030,12 @@
       ],
       "sources": [
         "nigeria_history"
-      ]
+      ],
+      "image": {
+        "ref": "ill_gbr_clifford_constitution_1922",
+        "credit": "Wikimedia Commons candidate; owner ingestion will verify PD/CC0",
+        "license": "Candidate — pending ingestion verification"
+      }
     },
     {
       "id": "gbr_nigeria_independence_1960",
@@ -5851,7 +5861,12 @@
       ],
       "sources": [
         "caribbean_history"
-      ]
+      ],
+      "image": {
+        "ref": "ill_gbr_jamaica_labour_1938",
+        "credit": "Wikimedia Commons candidate; owner ingestion will verify PD/CC0",
+        "license": "Candidate — pending ingestion verification"
+      }
     },
     {
       "id": "gbr_west_indies_federation_1958",
@@ -6682,7 +6697,12 @@
       ],
       "sources": [
         "canada_parliament"
-      ]
+      ],
+      "image": {
+        "ref": "ill_gbr_westminster_statute_1931",
+        "credit": "Wikimedia Commons candidate; owner ingestion will verify PD/CC0",
+        "license": "Candidate — pending ingestion verification"
+      }
     },
     {
       "id": "gbr_easter_rising_1916",
