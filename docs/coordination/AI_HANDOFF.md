@@ -1,3 +1,15 @@
+## 2026-11-23 — NAV-01 seaborne invasions need command of the sea; Taiwan
+
+- **Taiwan trace (seed 1):** Japan attacked the ROC in 1950 and lost. The PRC attacked in 1952 and annexed Taiwan in 1953, before the 1955 US treaty. Two causes: the engine had no cost for crossing the sea (a huge land army could invade an island), and the US protection of 1950 was missing.
+- **`ai.ts` NAV-01** (general rule, `AMPHIBIOUS {superiority 1.2, risk 0.75}`): a seaborne invasion is one where no goal region borders the attacker by land. It needs a navy at least 1.2× the defender's navy plus its likely helpers' navies, weighted by `joinProbability`. Even then the odds are multiplied by 0.75.
+- **Curated US–ROC ties** in `blocs.json`, kept by `build-blocs.ts` (`CURATED_EXTRA`):
+  - Seventh Fleet neutralisation of the Strait, 27 Jun 1950 – 3 Mar 1955;
+  - the Taiwan Relations Act from 1 Jan 1980, modelled as an alliance. It is legally not a defence treaty; this is documented in its sources.
+- **Result:** the ROC survives to 1997 with no war: 1950–55 Strait, 1955–80 treaty, 1980– TRA.
+- Tests: the `postwar-regimes` Taiwan test now checks the treaty end in 1980 and the TRA continuation.
+
+---
+
 ## 2026-11-23 — CTA-01 the player answers an ally's call to arms (V3-style)
 
 - **Before:** the AI decided for the player whether to join an ally's defensive war, and great-power intervention could also draft the player.

@@ -30,7 +30,9 @@ describe('CG-44 post-war regimes and partitions', () => {
     expect(allied(st, usa.id, rok.id)).toBe(true);
     expect(allied(st, usa.id, roc.id)).toBe(true);
     at(st, 1981, 1); blocsMonth(st);
-    expect(allied(st, usa.id, roc.id)).toBe(false);
+    // the 1954 treaty ends on 1 Jan 1980; the Taiwan Relations Act (curated) continues the US commitment
+    expect(st.treaties.some((t) => t.id === 'bloc_US_ROC_MDT')).toBe(false);
+    expect(st.treaties.some((t) => t.id === 'bloc_US_TAIWAN_RELATIONS_ACT_1979' && t.members.includes(roc.id))).toBe(true);
     expect(() => validateNestedState(st)).not.toThrow();
   });
 

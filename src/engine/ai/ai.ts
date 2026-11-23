@@ -368,6 +368,9 @@ function neighboursOf(st: GameState, c: Country): Set<string> {
   return out;
 }
 
+/** NAV-01 design parameters: naval superiority needed for a seaborne invasion, and the remaining risk factor on the odds. */
+export const AMPHIBIOUS = { superiority: 1.2, risk: 0.75 } as const;
+
 /** Spread of the seeded misjudgement added to each war option's utility in Sandbox Mode (design parameter). */
 export const SANDBOX_WAR_JUDGEMENT_NOISE = 0.5;
 
@@ -405,7 +408,17 @@ function warAI(st: GameState, c: Country) {
     for (const m of helpers) if (st.countries[m]?.alive) enemy += armyStrength(st, st.countries[m]) * joinProbability(st, m, c.id, tid);
     for (const gp of greatPowers(st)) if (gp !== c.id && !helpers.has(gp) && rivals(st, gp, c.id) && getRel(st, gp, tid) > 10) enemy += armyStrength(st, st.countries[gp]) * 0.7 * joinProbability(st, gp, c.id, tid);
     const ratio = mine / Math.max(1, enemy);
-    const pWin = clamp((ratio - 0.6) / 1.4, 0, 0.95);
+    let pWin = clamp((ratio - 0.6) / 1.4, 0, 0.95);
+    // NAV-01: a seaborne invasion (no goal region on a land border) needs command of the sea against the
+    // defender's navy and its likely helpers' navies; even then the crossing is risky (e.g. the PRC and Taiwan 1950).
+    const regionsAtStake = goalRegs.length ? goalRegs : reachable;
+    const overland = regionsAtStake.some((r) => d.landNeighbors[d.regionIndex.get(r.id)!].some((n) => st.regions[d.regionIndex.get(n)!].owner === c.id));
+    if (!overland && !t.decentralized) {
+      let theirNavy = navalStrength(t);
+      for (const m of helpers) if (st.countries[m]?.alive) theirNavy += navalStrength(st.countries[m]) * joinProbability(st, m, c.id, tid);
+      if (navalStrength(c) < theirNavy * AMPHIBIOUS.superiority) continue;
+      pWin *= AMPHIBIOUS.risk;
+    }
     // DIPLO-NORM-01: the infamy this war would add counts in the decision (heavier after 1945).
     const addedInfamy = warInfamy(st, goals, tid);
     const cost = addedInfamy / 25 + 0.55 + c.warExhaustion / 50 + (t.decentralized ? 0.2 + (['ju', 'sa'].includes(goalRegs[0]?.terrain ?? '') && !c.techs.includes('quinine_prophylaxis') ? 0.6 : 0) : 0.5) + c.infamy / 25 + historicalBias(st, c, 'avoid_war', tid) * 3 - historicalBias(st, c, 'contain', tid) * 0.6;
