@@ -18,7 +18,18 @@
     "malaya_archives": "https://cdn.nationalarchives.gov.uk/documents/migrated-archives-guidance.pdf",
     "egypt_suez": "https://history.state.gov/milestones/1953-1960/suez",
     "egypt_1882": "https://www.cambridge.org/core/books/abs/cambridge-history-of-egypt/british-occupation-18821922/179398E6D722904951A25256F524C963",
-    "palestine_whitepaper": "https://avalon.law.yale.edu/21st_century/brwh1939.asp"
+    "palestine_whitepaper": "https://avalon.law.yale.edu/21st_century/brwh1939.asp",
+    "kenya_history": "https://www.nationalarchives.gov.uk/education/resources/kenya-emergency/",
+    "ghana_history": "https://www.britannica.com/place/Ghana/History",
+    "nigeria_history": "https://www.britannica.com/place/Nigeria/History",
+    "rhodesia_sanctions": "https://history.state.gov/historicaldocuments/frus1964-68v24/d559",
+    "south_africa_history": "https://sahistory.org.za/article/control-1910-1948",
+    "boer_war": "https://www.iwm.org.uk/history/what-you-need-to-know-about-the-boer-war",
+    "caribbean_history": "https://www.britannica.com/place/Jamaica/History",
+    "cyprus_history": "https://www.britannica.com/place/Cyprus/History",
+    "malta_history": "https://www.gov.mt/en/About%20Malta/Pages/History.aspx",
+    "ireland_difp": "https://www.difp.ie/books/volume-1/",
+    "ireland_treaty": "https://researchbriefings.files.parliament.uk/documents/CBP-9260/CBP-9260.pdf"
   },
   "events": [
     {
@@ -1147,6 +1158,863 @@
         "credit": "Wikimedia Commons candidate; ingestion rights check required",
         "license": "CANDIDATE — verify PD/CC0"
       }
+    },
+    {
+      "id": "ken_state_building_1964",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1963-12-12",
+        "1965-12-31"
+      ],
+      "date_historical": "1964-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$self"
+          },
+          {
+            "type": "owns",
+            "entity": "$self",
+            "region": "DZ_KENYA_INT"
+          },
+          {
+            "type": "year_between",
+            "from": 1964,
+            "to": 1965
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Xây dựng nhà nước Kenya độc lập",
+      "title_en": "Building the Independent Kenyan State",
+      "text_vi": "Chính phủ Kenyatta kế thừa bộ máy hành chính thuộc địa nhưng phải biến nó thành một nhà nước có tính chính danh trong một xã hội đa sắc tộc. Việc tái định cư đất đai, phân bổ công chức và xây dựng lực lượng an ninh tạo ra những lợi ích đối lập giữa các vùng và cộng đồng. Nội các có thể ưu tiên hòa giải và cải cách đất đai hoặc tập trung quyền lực để củng cố chính phủ trung ương.",
+      "text_en": "Kenyatta's government inherited the colonial administration but had to turn it into a legitimate state in a multi-ethnic society. Land resettlement, civil-service appointments and security-force formation created competing regional interests. The cabinet can prioritise reconciliation and land reform or centralise authority to consolidate the new government.",
+      "options": [
+        {
+          "id": "ken_reconciliation",
+          "label_vi": "Ưu tiên hòa giải cộng đồng và chương trình tái định cư đất đai",
+          "label_en": "Prioritise communal reconciliation and land resettlement",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "ken_1964_reconciliation",
+              "name_vi": "Hòa giải quốc gia Kenya",
+              "name_en": "Kenyan National Reconciliation",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "radicalism": -0.015,
+                "reform": 0.01
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "$self",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "ken_centralise",
+          "label_vi": "Tập trung quyền lực hành pháp và bộ máy an ninh",
+          "label_en": "Centralise executive authority and security institutions",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "ken_1964_centralisation",
+              "name_vi": "Củng cố chính quyền trung ương",
+              "name_en": "Central Government Consolidation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.04,
+                "legitimacy": -1,
+                "radicalism": 0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "$self",
+              "months_income": -0.3
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "kenya_history"
+      ]
+    },
+    {
+      "id": "gha_independence_priorities_1957",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1957-03-06",
+        "1958-12-31"
+      ],
+      "date_historical": "1957-03-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$self"
+          },
+          {
+            "type": "owns",
+            "entity": "$self",
+            "region": "ASH_KUM"
+          },
+          {
+            "type": "year_between",
+            "from": 1957,
+            "to": 1958
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Ưu tiên của chính phủ Ghana độc lập",
+      "title_en": "The Priorities of Independent Ghana",
+      "text_vi": "Chính phủ Nkrumah phải chuyển khẩu hiệu độc lập thành năng lực nhà nước, trong đó có mở rộng giáo dục, đường sá và công nghiệp chế biến ca cao. Nguồn thu từ xuất khẩu ca cao tạo cơ hội đầu tư nhưng biến động giá thế giới có thể làm ngân sách mất ổn định. Nội các có thể tập trung vào phát triển hạ tầng hoặc ưu tiên giáo dục và tổ chức chính trị để xây dựng một quốc gia thống nhất.",
+      "text_en": "Nkrumah's government must turn independence into state capacity by expanding education, roads and cocoa processing. Cocoa export revenues create opportunities for investment but world-price volatility can destabilise the budget. The cabinet can prioritise infrastructure or focus on education and political organisation to build a unified nation.",
+      "options": [
+        {
+          "id": "gha_infrastructure",
+          "label_vi": "Dồn vốn vào đường sắt, cảng và nhà máy chế biến",
+          "label_en": "Invest in railways, ports and processing plants",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gha_1957_infrastructure",
+              "name_vi": "Công nghiệp hóa Ghana",
+              "name_en": "Ghana Industrialisation",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "construction": 0.04,
+                "trade": 0.02,
+                "treasury": -0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "$self",
+              "months_income": -0.5
+            }
+          ]
+        },
+        {
+          "id": "gha_education",
+          "label_vi": "Mở rộng trường học và đào tạo công chức địa phương",
+          "label_en": "Expand schools and train local civil servants",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "gha_1957_education",
+              "name_vi": "Giáo dục và công vụ Ghana",
+              "name_en": "Ghana Education and Civil Service",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.04,
+                "research": 0.02,
+                "legitimacy": 2
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "$self",
+              "delta": 0.5
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghana_history"
+      ]
+    },
+    {
+      "id": "nga_federal_bargain_1960",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1960-10-01",
+        "1962-12-31"
+      ],
+      "date_historical": "1960-10-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$self"
+          },
+          {
+            "type": "owns",
+            "entity": "$self",
+            "region": "DZ_IGBO"
+          },
+          {
+            "type": "year_between",
+            "from": 1960,
+            "to": 1962
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Thỏa hiệp liên bang Nigeria",
+      "title_en": "The Nigerian Federal Bargain",
+      "text_vi": "Chính phủ độc lập phải phân định quyền lực giữa trung ương và các vùng Bắc, Tây và Đông, đồng thời thiết kế cơ chế phân chia thuế xuất khẩu và nguồn thu dầu mỏ mới nổi. Nếu một vùng cảm thấy bị gạt khỏi quyền lực, tranh chấp chính trị có thể nhanh chóng biến thành khủng hoảng hiến pháp. Nội các có thể tăng quyền trung ương để bảo đảm thống nhất hoặc trao thêm quyền tài khóa cho các vùng.",
+      "text_en": "The independent government must divide authority between the Northern, Western and Eastern regions while designing rules for export revenues and emerging oil income. If a region feels excluded, political disputes can quickly become a constitutional crisis. The cabinet can strengthen the centre to preserve unity or grant regions greater fiscal authority.",
+      "options": [
+        {
+          "id": "nga_central_federalism",
+          "label_vi": "Tăng quyền trung ương đối với ngân sách và an ninh",
+          "label_en": "Strengthen federal control over finance and security",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "nga_1960_central_federalism",
+              "name_vi": "Liên bang tập trung Nigeria",
+              "name_en": "Centralised Nigerian Federation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "police": 0.03,
+                "radicalism": 0.015
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "$self",
+              "delta": 0.5
+            }
+          ]
+        },
+        {
+          "id": "nga_regional_fiscal",
+          "label_vi": "Bảo đảm quyền tài khóa và ngân sách phát triển cho các vùng",
+          "label_en": "Guarantee regional fiscal powers and development budgets",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "nga_1960_regional_fiscal",
+              "name_vi": "Thỏa hiệp tài khóa liên bang",
+              "name_en": "Federal Fiscal Compromise",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "trade": 0.02,
+                "radicalism": -0.015
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "$self",
+              "months_income": -0.3
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nigeria_history"
+      ]
+    },
+    {
+      "id": "rhod_udi_movement_1965",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1965-10-01",
+        "1967-12-31"
+      ],
+      "date_historical": "1965-11-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$owner"
+          },
+          {
+            "type": "movement_strength_above",
+            "owner": "$owner",
+            "regions": [
+              "DZ_SHONA"
+            ],
+            "value": 10
+          },
+          {
+            "type": "year_between",
+            "from": 1965,
+            "to": 1967
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Phản ứng của phong trào đa số trước UDI",
+      "title_en": "Majority Rule Activists Respond to UDI",
+      "text_vi": "Tuyên bố UDI khóa chặt quyền lực trong tay chính phủ thiểu số và làm suy yếu triển vọng chuyển giao hòa bình. Các tổ chức dân tộc chủ nghĩa phải lựa chọn giữa vận động quốc tế, bất tuân dân sự hay tăng cường đấu tranh vũ trang, trong khi các nước láng giềng lo ngại bất ổn lan rộng. Phản ứng của phong trào sẽ quyết định mức độ cô lập của chính quyền và khả năng hình thành một dàn xếp chính trị.",
+      "text_en": "The UDI entrenched minority rule and weakened prospects for a peaceful transfer. Nationalist organisations must choose between international advocacy, civil disobedience or intensified armed struggle, while neighbouring states fear regional instability. The movement's response will shape the government's isolation and the prospects for a political settlement.",
+      "options": [
+        {
+          "id": "rhod_nonviolent",
+          "label_vi": "Tập trung vận động ngoại giao và bất tuân dân sự",
+          "label_en": "Focus on diplomacy and civil disobedience",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rhod_1965_nonviolent",
+              "name_vi": "Vận động chống UDI",
+              "name_en": "Anti-UDI Civil Campaign",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "radicalism": -0.01,
+                "prestige": 0.02
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "$owner",
+              "nation": "$nation",
+              "delta": 5
+            }
+          ]
+        },
+        {
+          "id": "rhod_armed",
+          "label_vi": "Tăng cường mạng lưới kháng chiến và hỗ trợ xuyên biên giới",
+          "label_en": "Expand resistance networks and cross-border support",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rhod_1965_armed",
+              "name_vi": "Kháng chiến chống thiểu số",
+              "name_en": "Anti-minority Resistance",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "radicalism": 0.03,
+                "war_exhaustion": 0.02
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "$owner",
+              "nation": "$nation",
+              "delta": 10
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "rhodesia_sanctions"
+      ]
+    },
+    {
+      "id": "rsa_union_society_1913",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1913-06-19",
+        "1915-12-31"
+      ],
+      "date_historical": "1913-06-19",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$owner"
+          },
+          {
+            "type": "movement_strength_above",
+            "owner": "$owner",
+            "regions": [
+              "GBR_CAP",
+              "GBR_CAE"
+            ],
+            "value": 10
+          },
+          {
+            "type": "year_between",
+            "from": 1913,
+            "to": 1915
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Phản ứng của cộng đồng trước Đạo luật Đất đai",
+      "title_en": "Communities Respond to the Land Act",
+      "text_vi": "Đạo luật năm 1913 làm thay đổi khả năng tiếp cận đất đai của hàng triệu người Phi và đẩy nhiều hộ nông dân vào tình trạng mất sinh kế. Các tổ chức như South African Native National Congress phản đối bằng kiến nghị và vận động pháp lý, trong khi một số cộng đồng tìm cách giữ đất thông qua thỏa thuận địa phương. Chính phủ có thể tổ chức phản đối hợp hiến, hỗ trợ các quỹ pháp lý hay chuyển sang các hình thức kháng cự trực tiếp.",
+      "text_en": "The 1913 Act changed land access for millions of Africans and threatened the livelihoods of many farming households. Organisations such as the South African Native National Congress protested through petitions and legal advocacy, while some communities sought local arrangements to retain land. Leaders can organise constitutional opposition, support legal funds or turn to direct resistance.",
+      "options": [
+        {
+          "id": "rsa_legal_petition",
+          "label_vi": "Tổ chức kiến nghị và vận động pháp lý chống đạo luật",
+          "label_en": "Organise petitions and legal advocacy against the Act",
+          "ai_weight": 2,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rsa_1913_legal_campaign",
+              "name_vi": "Chiến dịch pháp lý chống Land Act",
+              "name_en": "Land Act Legal Campaign",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "radicalism": -0.005,
+                "prestige": 0.01
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "$owner",
+              "nation": "$nation",
+              "delta": 5
+            }
+          ]
+        },
+        {
+          "id": "rsa_direct_resistance",
+          "label_vi": "Hỗ trợ các cộng đồng bảo vệ đất và chống trục xuất",
+          "label_en": "Support communities resisting land loss and eviction",
+          "ai_weight": 3,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "rsa_1913_land_resistance",
+              "name_vi": "Kháng cự mất đất",
+              "name_en": "Land Dispossession Resistance",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.03,
+                "legitimacy": -1
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "$owner",
+              "nation": "$nation",
+              "delta": 8
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "south_africa_history"
+      ]
+    },
+    {
+      "id": "jam_independence_agenda_1962",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1962-08-06",
+        "1964-12-31"
+      ],
+      "date_historical": "1962-08-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$self"
+          },
+          {
+            "type": "owns",
+            "entity": "$self",
+            "region": "GBR_JAM"
+          },
+          {
+            "type": "year_between",
+            "from": 1962,
+            "to": 1964
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Chương trình quốc gia Jamaica độc lập",
+      "title_en": "Jamaica's Independent National Programme",
+      "text_vi": "Chính phủ Jamaica mới phải chuyển từ các thiết chế thuộc địa sang bộ máy quốc gia, đồng thời xử lý thất nghiệp, bất bình đẳng đất đai và sự phụ thuộc vào xuất khẩu đường và bauxite. Việc tham gia Khối Thịnh vượng chung giúp duy trì quan hệ đối ngoại nhưng không giải quyết các vấn đề phân phối trong nước. Nội các có thể ưu tiên đa dạng hóa kinh tế hoặc mở rộng dịch vụ xã hội và giáo dục.",
+      "text_en": "Jamaica's new government must transform colonial institutions into national ones while addressing unemployment, land inequality and dependence on sugar and bauxite exports. Commonwealth membership preserves external ties but does not resolve domestic distributional problems. The cabinet can prioritise economic diversification or expand social services and education.",
+      "options": [
+        {
+          "id": "jam_diversify",
+          "label_vi": "Đầu tư vào du lịch, bauxite và chế biến công nghiệp",
+          "label_en": "Invest in tourism, bauxite and industrial processing",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jam_1962_diversification",
+              "name_vi": "Đa dạng hóa Jamaica",
+              "name_en": "Jamaican Economic Diversification",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "construction": 0.03,
+                "trade": 0.03,
+                "legitimacy": 1
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "$self",
+              "months_income": -0.4
+            }
+          ]
+        },
+        {
+          "id": "jam_social_programme",
+          "label_vi": "Mở rộng giáo dục, y tế và nhà ở công cộng",
+          "label_en": "Expand education, healthcare and public housing",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jam_1962_social",
+              "name_vi": "Chương trình xã hội Jamaica",
+              "name_en": "Jamaican Social Programme",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.03,
+                "legitimacy": 2,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "$self",
+              "months_income": -0.5
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "caribbean_history"
+      ]
+    },
+    {
+      "id": "cyp_power_sharing_1960",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1960-08-16",
+        "1962-12-31"
+      ],
+      "date_historical": "1960-08-16",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$self"
+          },
+          {
+            "type": "owns",
+            "entity": "$self",
+            "region": "TUR_CYP"
+          },
+          {
+            "type": "year_between",
+            "from": 1960,
+            "to": 1962
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Vận hành cơ chế chia sẻ quyền lực tại Síp",
+      "title_en": "Operating Cyprus's Power-Sharing Constitution",
+      "text_vi": "Cộng hòa Síp mới phải vận hành một hệ thống tổng thống, phó tổng thống và cơ quan công quyền với các quyền phủ quyết được phân bổ giữa hai cộng đồng. Cơ chế bảo đảm đại diện nhưng cũng có thể làm đình trệ ngân sách, tuyển dụng công chức và chính sách an ninh. Chính phủ có thể ưu tiên tuân thủ nghiêm ngặt các bảo đảm hiến pháp hoặc thương lượng sửa đổi thủ tục để tăng khả năng ra quyết định.",
+      "text_en": "The new Republic of Cyprus must operate a presidency, vice-presidency and public institutions with veto powers divided between the two communities. The safeguards protect representation but can also deadlock budgets, civil-service appointments and security policy. The government can strictly preserve constitutional guarantees or negotiate procedural changes to improve decision-making.",
+      "options": [
+        {
+          "id": "cyp_strict_sharing",
+          "label_vi": "Giữ nguyên các bảo đảm chia sẻ quyền lực",
+          "label_en": "Preserve the power-sharing safeguards",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "cyp_1960_strict_sharing",
+              "name_vi": "Bảo đảm hiến pháp Síp",
+              "name_en": "Cypriot Constitutional Guarantees",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "radicalism": -0.01,
+                "reform": 0.005
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "$self",
+              "delta": 0.5
+            }
+          ]
+        },
+        {
+          "id": "cyp_procedural_reform",
+          "label_vi": "Đàm phán sửa thủ tục ngân sách và bổ nhiệm công chức",
+          "label_en": "Negotiate procedural reforms for budgets and appointments",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "cyp_1960_procedural_reform",
+              "name_vi": "Cải cách thủ tục Síp",
+              "name_en": "Cyprus Procedural Reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.015,
+                "legitimacy": 1,
+                "radicalism": 0.01
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "$self",
+              "months_income": -0.2
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cyprus_history"
+      ]
+    },
+    {
+      "id": "mlt_independent_economy_1964",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1964-09-21",
+        "1966-12-31"
+      ],
+      "date_historical": "1964-09-21",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$self"
+          },
+          {
+            "type": "owns",
+            "entity": "$self",
+            "region": "GBR_MLT"
+          },
+          {
+            "type": "year_between",
+            "from": 1964,
+            "to": 1966
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Kinh tế Malta sau độc lập",
+      "title_en": "Malta's Post-Independence Economy",
+      "text_vi": "Malta phải giảm sự phụ thuộc vào chi tiêu quân sự và việc làm tại các căn cứ Anh, đồng thời phát triển cảng biển, du lịch và công nghiệp nhẹ. Việc chuyển đổi quá nhanh có thể làm tăng thất nghiệp, nhưng duy trì quá lâu các thỏa thuận căn cứ sẽ hạn chế quyền tự chủ chính sách. Nội các có thể đàm phán giai đoạn chuyển tiếp có bồi thường hoặc đầu tư mạnh vào các ngành dân sự.",
+      "text_en": "Malta must reduce dependence on military spending and British base employment while developing ports, tourism and light industry. Rapid conversion could increase unemployment, but prolonged base arrangements would constrain policy autonomy. The cabinet can negotiate a compensated transition or invest heavily in civilian industries.",
+      "options": [
+        {
+          "id": "mlt_civilian_investment",
+          "label_vi": "Đầu tư cảng dân sự, du lịch và đào tạo nghề",
+          "label_en": "Invest in civilian ports, tourism and vocational training",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "mlt_1964_civilian",
+              "name_vi": "Chuyển đổi kinh tế Malta",
+              "name_en": "Malta Civilian Conversion",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "construction": 0.03,
+                "trade": 0.03,
+                "legitimacy": 2
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "$self",
+              "months_income": -0.4
+            }
+          ]
+        },
+        {
+          "id": "mlt_base_transition",
+          "label_vi": "Duy trì căn cứ theo hợp đồng ngắn hạn để tài trợ chuyển đổi",
+          "label_en": "Retain bases on a short contract to finance conversion",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "mlt_1964_base_transition",
+              "name_vi": "Giai đoạn chuyển tiếp căn cứ",
+              "name_en": "Malta Base Transition",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.02,
+                "legitimacy": 1,
+                "prestige": 0.01
+              }
+            },
+            {
+              "type": "base_rights",
+              "host": "GBR",
+              "user": "MLT"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "malta_history"
+      ]
+    },
+    {
+      "id": "irl_constitutional_sovereignty_1937",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1937-01-01",
+        "1938-12-31"
+      ],
+      "date_historical": "1937-12-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$self"
+          },
+          {
+            "type": "owns",
+            "entity": "$self",
+            "region": "GBR_DUB"
+          },
+          {
+            "type": "year_between",
+            "from": 1937,
+            "to": 1938
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Hiến pháp mới của Ireland",
+      "title_en": "Ireland's New Constitution",
+      "text_vi": "Hiến pháp năm 1937 thay thế Nhà nước Tự do bằng một nhà nước mới mang tên Éire, củng cố chức vụ Tổng thống và khẳng định chủ quyền quốc gia trong khi vẫn chưa chính thức tuyên bố cộng hòa. Các điều khoản về lãnh thổ bao gồm toàn bộ đảo Ireland, gây tranh cãi với chính phủ Bắc Ireland và London. Chính phủ có thể ưu tiên xây dựng thể chế trong nước hoặc đàm phán với Anh về các cảng và quan hệ đối ngoại.",
+      "text_en": "The 1937 Constitution replaced the Irish Free State with a new state called Éire, establishing a presidency and asserting national sovereignty without formally declaring a republic. Its territorial claim covered the whole island, provoking disputes with Northern Ireland and London. The government can prioritise domestic institution-building or negotiate with Britain over ports and foreign relations.",
+      "options": [
+        {
+          "id": "irl_constitutional_state",
+          "label_vi": "Củng cố thể chế cộng hòa và quyền tự chủ lập pháp",
+          "label_en": "Strengthen republican institutions and legislative autonomy",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "irl_1937_constitution",
+              "name_vi": "Hiến pháp Ireland",
+              "name_en": "Irish Constitution",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "reform": 0.015,
+                "prestige": 0.03
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "$self",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "irl_british_settlement",
+          "label_vi": "Mở đàm phán về cảng, thương mại và quan hệ với Bắc Ireland",
+          "label_en": "Open talks on ports, trade and relations with Northern Ireland",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "irl_1937_british_talks",
+              "name_vi": "Đàm phán Anh–Ireland",
+              "name_en": "Anglo-Irish Talks",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.03,
+                "legitimacy": 1,
+                "radicalism": -0.005
+              }
+            },
+            {
+              "type": "relation",
+              "a": "$self",
+              "b": "GBR",
+              "delta": 5
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ireland_difp"
+      ]
     }
   ],
   "notes": [
