@@ -417,7 +417,12 @@
       "sources": [
         "malaya_archives",
         "uk_parliament_empire"
-      ]
+      ],
+      "image": {
+        "ref": "ill_eic_malaya_independence_1957",
+        "credit": "Wikimedia Commons candidate; owner ingestion will verify PD/CC0",
+        "license": "Candidate — pending ingestion verification"
+      }
     }
   ]
 }

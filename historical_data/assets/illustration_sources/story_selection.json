@@ -2185,6 +2185,31 @@
       },
       "alternates": "Official_Photographic_Portrait_of_S.W.R.D.Bandaranayaka_(1899-1959).jpg",
       "review_note": "The group photograph is marked CC0 1.0 on Commons and directly includes Bandaranaike in the year of the Sinhala Only Act; alternate is his official portrait."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "eic_malaya_independence_1957",
+      "commons_file": "Malayan_Declaration_of_Independence_1957_in_Tamil.jpg",
+      "year": 2025,
+      "width": 3000,
+      "author": "Wolfiewhite",
+      "name": "Tuyên ngôn độc lập Malaya",
+      "description": "Photograph of the 1957 Malayan Declaration of Independence document in Tamil",
+      "period": {
+        "from": 1957,
+        "to": 1957
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Same 1957 transfer from the East India Company perspective; CC0 candidate. Ingestion owner should verify the Commons file page."
     }
   ]
 }
