@@ -431,6 +431,690 @@
         "credit": "Wikimedia Commons candidate; pending repository ingestion",
         "license": "CANDIDATE — ingest tool must verify PD/CC0"
       }
+    },
+    {
+      "id": "lka_language_crisis_1956",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1956-04-01",
+        "1957-12-31"
+      ],
+      "date_historical": "1956-06-05",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$self"
+          },
+          {
+            "type": "owns",
+            "entity": "$self",
+            "region": "GBR_CEY"
+          },
+          {
+            "type": "year_between",
+            "from": 1956,
+            "to": 1957
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Khủng hoảng ngôn ngữ tại Ceylon",
+      "title_en": "The Language Crisis in Ceylon",
+      "text_vi": "Chính phủ S. W. R. D. Bandaranaike thông qua Đạo luật Sinhala Only năm 1956, xác lập tiếng Sinhala là ngôn ngữ chính thức duy nhất. Quyết định đáp ứng một phần yêu cầu của cử tri Sinhala nhưng làm dấy lên lo ngại trong cộng đồng Tamil về quyền tiếp cận dịch vụ công và cơ hội việc làm. Nội các phải lựa chọn giữa thực thi nhanh, xây dựng cơ chế song ngữ hay đàm phán một thỏa hiệp về quyền ngôn ngữ.",
+      "text_en": "The Bandaranaike government enacted the Sinhala Only Act in 1956, making Sinhala the sole official language. The measure answered a major Sinhala electoral demand but raised fears among Tamil communities over access to public services and employment. The cabinet must choose between rapid implementation, bilingual administration or a negotiated language settlement.",
+      "options": [
+        {
+          "id": "lka_sinhala_only",
+          "label_vi": "Thực thi nhanh Đạo luật Sinhala Only",
+          "label_en": "Implement the Sinhala Only Act rapidly",
+          "ai_weight": 2,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "lka_1956_sinhala_only",
+              "name_vi": "Chính sách một ngôn ngữ",
+              "name_en": "Single Official Language Policy",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "radicalism": 0.03,
+                "reform": -0.01
+              }
+            },
+            {
+              "type": "radicalism",
+              "entity": "$self",
+              "regions": [
+                "GBR_CEY",
+                "GBR_JAF"
+              ],
+              "delta": 0.025
+            }
+          ]
+        },
+        {
+          "id": "lka_bilingual_compromise",
+          "label_vi": "Bảo đảm dịch vụ công song ngữ và đàm phán với đại diện Tamil",
+          "label_en": "Guarantee bilingual public services and negotiate with Tamil representatives",
+          "ai_weight": 3,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "lka_1956_bilingual",
+              "name_vi": "Thỏa hiệp ngôn ngữ",
+              "name_en": "Bilingual Language Compromise",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "radicalism": -0.025,
+                "reform": 0.01
+              }
+            },
+            {
+              "type": "radicalism",
+              "entity": "$self",
+              "regions": [
+                "GBR_CEY",
+                "GBR_JAF"
+              ],
+              "delta": -0.02
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ceylon_elections"
+      ]
+    },
+    {
+      "id": "mys_federation_1963",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1961-05-01",
+        "1964-12-31"
+      ],
+      "date_historical": "1963-09-16",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$self"
+          },
+          {
+            "type": "owns",
+            "entity": "$self",
+            "region": "EIC_SIN"
+          },
+          {
+            "type": "year_between",
+            "from": 1963,
+            "to": 1964
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Malaysia ra đời",
+      "title_en": "The Formation of Malaysia",
+      "text_vi": "Malaysia được thành lập ngày 16 tháng 9 năm 1963 sau các cuộc đàm phán giữa Malaya, Singapore, Sabah và Sarawak; Brunei cuối cùng không tham gia. Liên bang mới phải cân bằng quyền tự trị của các bang, lợi ích kinh tế và lo ngại an ninh trong bối cảnh Indonesia phản đối việc thành lập. Chính phủ có thể ưu tiên hội nhập nhanh, trao bảo đảm liên bang rộng hơn hay thương lượng lại vị thế Singapore.",
+      "text_en": "Malaysia was formed on 16 September 1963 after negotiations among Malaya, Singapore, Sabah and Sarawak; Brunei ultimately did not join. The new federation must balance state autonomy, economic interests and security concerns amid Indonesian opposition. The government can pursue rapid integration, grant stronger federal guarantees or renegotiate Singapore's position.",
+      "options": [
+        {
+          "id": "mys_federal_guarantees",
+          "label_vi": "Bảo đảm quyền tự trị bang và cơ chế chia sẻ ngân sách",
+          "label_en": "Guarantee state autonomy and revenue-sharing arrangements",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "mys_1963_federal_guarantees",
+              "name_vi": "Thỏa hiệp liên bang Malaysia",
+              "name_en": "Malaysian Federal Compromise",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "trade": 0.03,
+                "radicalism": -0.01
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "$self",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "mys_centralise",
+          "label_vi": "Tập trung quyền lực liên bang để đối phó sức ép an ninh",
+          "label_en": "Centralise federal authority to meet security pressures",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "mys_1963_centralisation",
+              "name_vi": "Tập quyền liên bang",
+              "name_en": "Federal Centralisation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "legitimacy": -1,
+                "radicalism": 0.015
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "$self",
+              "months_income": -0.3
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "malaysia_gov"
+      ]
+    },
+    {
+      "id": "egy_revolution_1919",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1919-02-01",
+        "1920-12-31"
+      ],
+      "date_historical": "1919-03-09",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$owner"
+          },
+          {
+            "type": "movement_strength_above",
+            "owner": "$owner",
+            "regions": [
+              "EGY_CAI",
+              "EGY_UPP"
+            ],
+            "value": 12
+          },
+          {
+            "type": "year_between",
+            "from": 1919,
+            "to": 1920
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Cách mạng Ai Cập năm 1919",
+      "title_en": "The Egyptian Revolution of 1919",
+      "text_vi": "Việc Anh lưu đày Saad Zaghlul và các lãnh đạo Wafd vào tháng 3 năm 1919 châm ngòi cho biểu tình, đình công và bất tuân dân sự trên khắp Ai Cập. Sinh viên, công nhân đường sắt, luật sư và phụ nữ tham gia phong trào, biến yêu sách độc lập thành một chiến dịch toàn xã hội. Chính quyền thuộc địa phải chọn giữa đàn áp, cho phép phái đoàn Wafd vận động quốc tế hay mở đàm phán về quy chế tự trị.",
+      "text_en": "The British exile of Saad Zaghlul and other Wafd leaders in March 1919 triggered demonstrations, strikes and civil disobedience across Egypt. Students, railway workers, lawyers and women joined the movement, turning the demand for independence into a broad social campaign. The colonial authorities must choose between repression, allowing a Wafd delegation to lobby abroad or opening talks on self-government.",
+      "options": [
+        {
+          "id": "egypt_suppress_1919",
+          "label_vi": "Giới nghiêm và giải tán các cuộc đình công",
+          "label_en": "Impose curfews and break up strikes",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "egy_1919_suppression",
+              "name_vi": "Trấn áp Cách mạng 1919",
+              "name_en": "1919 Revolution Suppression",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "police": 0.05,
+                "radicalism": 0.04,
+                "legitimacy": -2
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "$owner",
+              "nation": "$nation",
+              "delta": 4
+            }
+          ]
+        },
+        {
+          "id": "egypt_wafd_talks",
+          "label_vi": "Cho phép Wafd tham gia đàm phán về độc lập",
+          "label_en": "Allow the Wafd to negotiate on independence",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "egy_1919_wafd_talks",
+              "name_vi": "Đàm phán với Wafd",
+              "name_en": "Wafd Negotiations",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "radicalism": -0.02,
+                "reform": 0.01
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "$owner",
+              "nation": "$nation",
+              "delta": -7
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "egypt_suez"
+      ]
+    },
+    {
+      "id": "egy_revolution_1952",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1952-06-01",
+        "1953-12-31"
+      ],
+      "date_historical": "1952-07-23",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$self"
+          },
+          {
+            "type": "owns",
+            "entity": "$self",
+            "region": "EGY_CAI"
+          },
+          {
+            "type": "year_between",
+            "from": 1952,
+            "to": 1953
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Cách mạng Sĩ quan Tự do",
+      "title_en": "The Free Officers Revolution",
+      "text_vi": "Nhóm Sĩ quan Tự do lật đổ Vua Farouk ngày 23 tháng 7 năm 1952, chấm dứt nền quân chủ và mở đầu quá trình tái cấu trúc nhà nước Ai Cập. Tướng Muhammad Naguib và Gamal Abdel Nasser trở thành những gương mặt chủ chốt của chính quyền mới, nhưng con đường chuyển sang cộng hòa và phân phối quyền lực vẫn chưa rõ ràng. Chính phủ có thể ưu tiên cải cách ruộng đất, củng cố quân đội hay nhanh chóng thiết lập một thể chế dân sự.",
+      "text_en": "The Free Officers overthrew King Farouk on 23 July 1952, ending the monarchy and beginning a major restructuring of the Egyptian state. Muhammad Naguib and Gamal Abdel Nasser emerged as leading figures, but the transition to a republic and the distribution of power remained unsettled. The new government can prioritise land reform, strengthen the armed forces or move rapidly toward civilian institutions.",
+      "options": [
+        {
+          "id": "egy_land_reform",
+          "label_vi": "Ưu tiên cải cách ruộng đất và giới hạn quyền đại địa chủ",
+          "label_en": "Prioritise land reform and limit large estates",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "egy_1952_land_reform",
+              "name_vi": "Cải cách ruộng đất Ai Cập",
+              "name_en": "Egyptian Land Reform",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 2,
+                "radicalism": -0.01,
+                "ig_landowners": -2,
+                "ig_rural_folk": 2
+              }
+            },
+            {
+              "type": "treasury",
+              "entity": "$self",
+              "months_income": -0.4
+            }
+          ]
+        },
+        {
+          "id": "egy_military_state",
+          "label_vi": "Tập trung quyền lực vào Hội đồng Chỉ huy Cách mạng",
+          "label_en": "Concentrate authority in the Revolutionary Command Council",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "egy_1952_military_rule",
+              "name_vi": "Chính quyền Sĩ quan Tự do",
+              "name_en": "Free Officers Government",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "police": 0.04,
+                "legitimacy": -1,
+                "reform": -0.01
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "$self",
+              "delta": 1
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "egypt_suez"
+      ]
+    },
+    {
+      "id": "egy_suez_nationalisation_1956",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1956-06-01",
+        "1957-06-30"
+      ],
+      "date_historical": "1956-07-26",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$self"
+          },
+          {
+            "type": "owns",
+            "entity": "$self",
+            "region": "EGY_CAI"
+          },
+          {
+            "type": "year_between",
+            "from": 1956,
+            "to": 1956
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Ai Cập quốc hữu hóa Công ty Kênh đào Suez",
+      "title_en": "Egypt Nationalises the Suez Canal Company",
+      "text_vi": "Ngày 26 tháng 7 năm 1956, Nasser tuyên bố quốc hữu hóa Công ty Kênh đào Suez và cam kết dùng doanh thu để bồi thường cổ đông, đồng thời tài trợ đập Aswan sau khi phương Tây rút cam kết tài chính. Quyết định khẳng định chủ quyền kinh tế nhưng đẩy Ai Cập vào khủng hoảng quốc tế với Anh, Pháp và Israel. Cairo phải lựa chọn giữa thương lượng bồi thường, chuẩn bị phòng thủ hay tìm kiếm hậu thuẫn ngoại giao từ các nước không liên kết.",
+      "text_en": "On 26 July 1956, Nasser nationalised the Suez Canal Company and promised compensation to shareholders, while redirecting canal revenues toward the Aswan project after Western financing was withdrawn. The decision asserted economic sovereignty but triggered an international crisis with Britain, France and Israel. Cairo must choose between compensation negotiations, defensive preparations or diplomatic support from non-aligned states.",
+      "options": [
+        {
+          "id": "egy_compensation",
+          "label_vi": "Bảo đảm bồi thường cho cổ đông và duy trì lưu thông quốc tế",
+          "label_en": "Guarantee shareholder compensation and keep international shipping open",
+          "ai_weight": 3,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "egy_1956_suez_compensation",
+              "name_vi": "Quốc hữu hóa có bồi thường",
+              "name_en": "Compensated Nationalisation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.02,
+                "legitimacy": 2,
+                "prestige": 0.02
+              }
+            },
+            {
+              "type": "relation",
+              "a": "$self",
+              "b": "GBR",
+              "delta": 3
+            }
+          ]
+        },
+        {
+          "id": "egy_defend_canal",
+          "label_vi": "Huy động lực lượng bảo vệ kênh đào và chủ quyền quốc gia",
+          "label_en": "Mobilise forces to defend the canal and national sovereignty",
+          "ai_weight": 4,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "egy_1956_suez_defence",
+              "name_vi": "Phòng thủ kênh đào Suez",
+              "name_en": "Suez Canal Defence",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "radicalism": 0.015,
+                "war_exhaustion": 0.02
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "$self",
+              "delta": 1
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "egypt_suez"
+      ]
+    },
+    {
+      "id": "pal_arab_revolt_1936",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1936-03-01",
+        "1937-12-31"
+      ],
+      "date_historical": "1936-04-19",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$owner"
+          },
+          {
+            "type": "movement_strength_above",
+            "owner": "$owner",
+            "regions": [
+              "EGY_PAL"
+            ],
+            "value": 12
+          },
+          {
+            "type": "year_between",
+            "from": 1936,
+            "to": 1937
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Cuộc tổng đình công và nổi dậy Ả Rập tại Palestine",
+      "title_en": "The Arab Revolt in Mandatory Palestine",
+      "text_vi": "Ngày 19 tháng 4 năm 1936, một cuộc tổng đình công bắt đầu tại Palestine, nhanh chóng phát triển thành phong trào phản đối nhập cư, đất đai và chính sách ủy trị của Anh. Ủy ban Tối cao Ả Rập phối hợp đình công và bất tuân dân sự, trong khi các nhóm vũ trang mở rộng hoạt động ở nông thôn. Phong trào đặt ra câu hỏi về đại diện chính trị và chủ quyền, buộc chính quyền phải lựa chọn giữa đàn áp, cải cách hiến pháp hay điều tra quốc tế.",
+      "text_en": "On 19 April 1936, a general strike began in Palestine and grew into a movement against immigration, land transfers and British mandate policy. The Arab Higher Committee coordinated strikes and civil disobedience while armed groups expanded activity in rural areas. The revolt raised fundamental questions of political representation and sovereignty, forcing the administration to choose between repression, constitutional reform or an international inquiry.",
+      "options": [
+        {
+          "id": "pal_repress_revolt",
+          "label_vi": "Cấm Ủy ban Tối cao Ả Rập và mở chiến dịch an ninh",
+          "label_en": "Ban the Arab Higher Committee and launch a security campaign",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pal_1936_repression",
+              "name_vi": "Chiến dịch trấn áp Palestine",
+              "name_en": "Palestine Repression Campaign",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.06,
+                "army": 0.03,
+                "radicalism": 0.04,
+                "legitimacy": -2
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "$owner",
+              "nation": "$nation",
+              "delta": 5
+            }
+          ]
+        },
+        {
+          "id": "pal_royal_commission",
+          "label_vi": "Chấp nhận Ủy ban Peel điều tra nguyên nhân xung đột",
+          "label_en": "Accept the Peel Commission to investigate the causes of unrest",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pal_1936_peel_inquiry",
+              "name_vi": "Điều tra hoàng gia Palestine",
+              "name_en": "Palestine Royal Inquiry",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "reform": 0.01,
+                "radicalism": -0.005
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "$owner",
+              "nation": "$nation",
+              "delta": -4
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "palestine_un",
+        "palestine_timeline"
+      ]
+    },
+    {
+      "id": "pal_partition_response_1947",
+      "country": "$any",
+      "mode": "historical",
+      "window": [
+        "1947-10-01",
+        "1948-05-31"
+      ],
+      "date_historical": "1947-11-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "$self"
+          },
+          {
+            "type": "owns",
+            "entity": "$self",
+            "region": "EGY_PAL"
+          },
+          {
+            "type": "year_between",
+            "from": 1947,
+            "to": 1948
+          }
+        ],
+        "mtth_months": 3
+      },
+      "title_vi": "Các cộng đồng Palestine trước kế hoạch phân chia",
+      "title_en": "Palestinian Communities Face the Partition Plan",
+      "text_vi": "Nghị quyết 181 đặt ra viễn cảnh hai nhà nước, nhưng các cộng đồng tại Palestine không có cùng quan điểm về tính chính danh và đường biên giới được đề xuất. Các tổ chức Ả Rập bác bỏ kế hoạch, trong khi nhiều tổ chức Zionist chấp nhận nó như một cơ sở pháp lý cho nhà nước mới; bạo lực liên cộng đồng tăng mạnh sau khi nghị quyết được thông qua. Người dân và các tổ chức địa phương phải lựa chọn giữa chấp nhận thương lượng, tổ chức phòng vệ cộng đồng hay tìm kiếm sự bảo trợ quốc tế.",
+      "text_en": "Resolution 181 proposed two states, but communities in Palestine disagreed over the legitimacy and boundaries of the plan. Arab organisations rejected it, while many Zionist organisations accepted it as a legal basis for statehood; intercommunal violence escalated after the vote. Local leaders must choose between negotiations, communal defence or seeking international protection.",
+      "options": [
+        {
+          "id": "pal_local_negotiation",
+          "label_vi": "Tìm kiếm thỏa thuận địa phương về an ninh và quyền cư trú",
+          "label_en": "Seek local agreements on security and residence rights",
+          "ai_weight": 2,
+          "historical": false,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pal_1947_local_agreement",
+              "name_vi": "Thỏa thuận cộng đồng Palestine",
+              "name_en": "Palestinian Communal Agreement",
+              "months": 24,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1,
+                "radicalism": -0.015
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "$self",
+              "delta": 0.5
+            }
+          ]
+        },
+        {
+          "id": "pal_local_mobilise",
+          "label_vi": "Huy động lực lượng bảo vệ các khu dân cư và tuyến giao thông",
+          "label_en": "Mobilise forces to protect neighbourhoods and transport routes",
+          "ai_weight": 3,
+          "historical": true,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pal_1947_local_defence",
+              "name_vi": "Phòng vệ cộng đồng",
+              "name_en": "Communal Defence",
+              "months": 18,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "radicalism": 0.03,
+                "war_exhaustion": 0.02
+              }
+            },
+            {
+              "type": "radicalism",
+              "entity": "$self",
+              "regions": [
+                "EGY_PAL"
+              ],
+              "delta": 0.02
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "palestine_un"
+      ]
     }
   ],
   "notes": [
