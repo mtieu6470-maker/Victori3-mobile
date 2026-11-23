@@ -30,7 +30,8 @@
       "Some engine law mappings are deliberately conservative approximations; see each lawChanges.note. In particular, one_party_state is a gameplay abstraction for hegemonic-party rule in cases where opposition parties were not formally banned.",
       "Events dated to a year or broad process should not be promoted to day-level precision without further primary-source review.",
       "Syria's post-December 2024 transition is still in progress as of the research date; the March 2025 declaration is transitional, not a permanent constitution."
-    ]
+    ],
+    "capitalCoordinateExtension": "Optional capitalCoordinates are approximate WGS84 city points added as integration hints because the current build-regimes.ts CITY table does not cover these non-European capitals. Claude must independently verify each map-grid lookup and must not treat coordinates as a political-region assignment."
   },
   "events": [
     {
@@ -64,7 +65,13 @@
         "egy_un"
       ],
       "quality": "verified",
-      "note": "The United Kingdom unilaterally declared Egyptian independence; reserved matters limited effective sovereignty."
+      "note": "The United Kingdom unilaterally declared Egyptian independence; reserved matters limited effective sovereignty.",
+      "capitalCoordinates": {
+        "lat": 30.0444,
+        "lon": 31.2357,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "EGY-1953-06",
@@ -99,7 +106,13 @@
         "egy_un"
       ],
       "quality": "verified",
-      "note": "The republic was formally proclaimed on 18 June 1953 after the July 1952 Free Officers coup."
+      "note": "The republic was formally proclaimed on 18 June 1953 after the July 1952 Free Officers coup.",
+      "capitalCoordinates": {
+        "lat": 30.0444,
+        "lon": 31.2357,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "EGY-1954-11",
@@ -129,7 +142,13 @@
         "egy_sis"
       ],
       "quality": "supported",
-      "note": "Nasser consolidated leadership after Naguib's removal; this is a leadership consolidation, not a change of state form."
+      "note": "Nasser consolidated leadership after Naguib's removal; this is a leadership consolidation, not a change of state form.",
+      "capitalCoordinates": {
+        "lat": 30.0444,
+        "lon": 31.2357,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "TUN-1956-03",
@@ -159,7 +178,13 @@
         "tun_history"
       ],
       "quality": "supported",
-      "note": "Independence restored sovereignty under the Bey; the republic was not proclaimed until 1957."
+      "note": "Independence restored sovereignty under the Bey; the republic was not proclaimed until 1957.",
+      "capitalCoordinates": {
+        "lat": 36.8065,
+        "lon": 10.1815,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "TUN-1957-07",
@@ -194,7 +219,13 @@
         "oup_mena"
       ],
       "quality": "supported",
-      "note": "The Constituent Assembly abolished the monarchy and proclaimed the republic."
+      "note": "The Constituent Assembly abolished the monarchy and proclaimed the republic.",
+      "capitalCoordinates": {
+        "lat": 36.8065,
+        "lon": 10.1815,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "TUN-1959-06",
@@ -228,7 +259,13 @@
         "tun_history"
       ],
       "quality": "supported",
-      "note": "The 1959 Constitution institutionalized the republic; party competition remained highly restricted."
+      "note": "The 1959 Constitution institutionalized the republic; party competition remained highly restricted.",
+      "capitalCoordinates": {
+        "lat": 36.8065,
+        "lon": 10.1815,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "TUN-2011-01",
@@ -262,7 +299,13 @@
         "tun_transition"
       ],
       "quality": "supported",
-      "note": "Ben Ali left office during the Tunisian Revolution; subsequent transition and later constitutional reversals are distinct events."
+      "note": "Ben Ali left office during the Tunisian Revolution; subsequent transition and later constitutional reversals are distinct events.",
+      "capitalCoordinates": {
+        "lat": 36.8065,
+        "lon": 10.1815,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "MOR-1956-03",
@@ -292,7 +335,13 @@
         "mor_history"
       ],
       "quality": "supported",
-      "note": "Independence was recognized in March 1956; the monarchy remained the state form."
+      "note": "Independence was recognized in March 1956; the monarchy remained the state form.",
+      "capitalCoordinates": {
+        "lat": 34.0209,
+        "lon": -6.8416,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "MOR-1962-12",
@@ -326,7 +375,13 @@
         "mor_history"
       ],
       "quality": "supported",
-      "note": "First constitution adopted by referendum; later constitutional practice remained strongly monarchical."
+      "note": "First constitution adopted by referendum; later constitutional practice remained strongly monarchical.",
+      "capitalCoordinates": {
+        "lat": 34.0209,
+        "lon": -6.8416,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "DZA-1962-07",
@@ -364,7 +419,13 @@
         "oup_mena"
       ],
       "quality": "supported",
-      "note": "Independence followed the Evian settlement and referendum; the FLN became the dominant governing party."
+      "note": "Independence followed the Evian settlement and referendum; the FLN became the dominant governing party.",
+      "capitalCoordinates": {
+        "lat": 36.7538,
+        "lon": 3.0588,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "DZA-1965-06",
@@ -395,7 +456,13 @@
         "algeria_history"
       ],
       "quality": "supported",
-      "note": "Boumédiène's coup replaced Ben Bella; the one-party framework remained."
+      "note": "Boumédiène's coup replaced Ben Bella; the one-party framework remained.",
+      "capitalCoordinates": {
+        "lat": 36.7538,
+        "lon": 3.0588,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "DZA-1989-02",
@@ -428,7 +495,13 @@
         "algeria_history"
       ],
       "quality": "supported",
-      "note": "The 1989 Constitution removed the FLN's constitutional monopoly and permitted multiparty competition."
+      "note": "The 1989 Constitution removed the FLN's constitutional monopoly and permitted multiparty competition.",
+      "capitalCoordinates": {
+        "lat": 36.7538,
+        "lon": 3.0588,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "DZA-1992-01",
@@ -462,7 +535,13 @@
         "algeria_history"
       ],
       "quality": "supported",
-      "note": "The military-backed interruption followed the first round of the 1991 legislative election; the civil war and later political normalization were prolonged."
+      "note": "The military-backed interruption followed the first round of the 1991 legislative election; the civil war and later political normalization were prolonged.",
+      "capitalCoordinates": {
+        "lat": 36.7538,
+        "lon": 3.0588,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "LBY-1951-12",
@@ -492,7 +571,13 @@
         "libya_cornell"
       ],
       "quality": "verified",
-      "note": "Libya became independent as a federal monarchy under King Idris."
+      "note": "Libya became independent as a federal monarchy under King Idris.",
+      "capitalCoordinates": {
+        "lat": 32.8872,
+        "lon": 13.1913,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "LBY-1969-09",
@@ -530,7 +615,13 @@
         "libya_crs"
       ],
       "quality": "verified",
-      "note": "Free Officers overthrew the monarchy; the RCC became the supreme executive and legislative authority."
+      "note": "Free Officers overthrew the monarchy; the RCC became the supreme executive and legislative authority.",
+      "capitalCoordinates": {
+        "lat": 32.8872,
+        "lon": 13.1913,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "LBY-1977-03",
@@ -568,7 +659,13 @@
         "libya_cornell"
       ],
       "quality": "supported",
-      "note": "The Declaration of the Establishment of the People's Authority proclaimed the Jamahiriya; do not model it as pluralist direct democracy."
+      "note": "The Declaration of the Establishment of the People's Authority proclaimed the Jamahiriya; do not model it as pluralist direct democracy.",
+      "capitalCoordinates": {
+        "lat": 32.8872,
+        "lon": 13.1913,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "IRQ-1921-08",
@@ -598,7 +695,13 @@
         "oup_mena"
       ],
       "quality": "supported",
-      "note": "Faisal I was installed as king; independence under treaty followed in 1932."
+      "note": "Faisal I was installed as king; independence under treaty followed in 1932.",
+      "capitalCoordinates": {
+        "lat": 33.3152,
+        "lon": 44.3661,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "IRQ-1958-07",
@@ -632,7 +735,13 @@
         "oup_mena"
       ],
       "quality": "supported",
-      "note": "The 14 July Revolution overthrew the monarchy and established a republic."
+      "note": "The 14 July Revolution overthrew the monarchy and established a republic.",
+      "capitalCoordinates": {
+        "lat": 33.3152,
+        "lon": 44.3661,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "IRQ-1968-07",
@@ -669,7 +778,13 @@
         "iraq_history"
       ],
       "quality": "supported",
-      "note": "The Ba'ath Party seized power; authoritarian consolidation deepened under Saddam Hussein after 1979."
+      "note": "The Ba'ath Party seized power; authoritarian consolidation deepened under Saddam Hussein after 1979.",
+      "capitalCoordinates": {
+        "lat": 33.3152,
+        "lon": 44.3661,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "IRQ-2003-04",
@@ -699,7 +814,13 @@
         "iraq_history"
       ],
       "quality": "supported",
-      "note": "The fall of Baghdad ended Ba'athist central rule; this event does not by itself establish the later 2005 constitutional system."
+      "note": "The fall of Baghdad ended Ba'athist central rule; this event does not by itself establish the later 2005 constitutional system.",
+      "capitalCoordinates": {
+        "lat": 33.3152,
+        "lon": 44.3661,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "SYR-1946-04",
@@ -732,7 +853,13 @@
         "oup_mena"
       ],
       "quality": "supported",
-      "note": "French forces completed withdrawal; independence followed the earlier constitutional republic."
+      "note": "French forces completed withdrawal; independence followed the earlier constitutional republic.",
+      "capitalCoordinates": {
+        "lat": 33.5138,
+        "lon": 36.2765,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "SYR-1958-02",
@@ -766,7 +893,13 @@
         "oup_mena"
       ],
       "quality": "supported",
-      "note": "Syria joined Egypt in the United Arab Republic; the union ended in 1961."
+      "note": "Syria joined Egypt in the United Arab Republic; the union ended in 1961.",
+      "capitalCoordinates": {
+        "lat": 33.5138,
+        "lon": 36.2765,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "SYR-1961-09",
@@ -799,7 +932,13 @@
         "oup_mena"
       ],
       "quality": "supported",
-      "note": "A military coup in Damascus ended Syria's union with Egypt; subsequent political instability continued."
+      "note": "A military coup in Damascus ended Syria's union with Egypt; subsequent political instability continued.",
+      "capitalCoordinates": {
+        "lat": 33.5138,
+        "lon": 36.2765,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "SYR-1963-03",
@@ -832,7 +971,13 @@
         "oup_mena"
       ],
       "quality": "supported",
-      "note": "The Ba'athist military coup initiated a durable one-party authoritarian order."
+      "note": "The Ba'athist military coup initiated a durable one-party authoritarian order.",
+      "capitalCoordinates": {
+        "lat": 33.5138,
+        "lon": 36.2765,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "SYR-1970-11",
@@ -861,7 +1006,13 @@
         "oup_mena"
       ],
       "quality": "supported",
-      "note": "Assad's Corrective Movement changed the ruling leadership without ending Ba'athist one-party rule."
+      "note": "Assad's Corrective Movement changed the ruling leadership without ending Ba'athist one-party rule.",
+      "capitalCoordinates": {
+        "lat": 33.5138,
+        "lon": 36.2765,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "SYR-2024-12",
@@ -896,7 +1047,13 @@
         "syria_un_2025"
       ],
       "quality": "verified",
-      "note": "Assad's government was overthrown on 8 December 2024; a transitional administration followed. The March 2025 constitutional declaration established a five-year transition, not a settled permanent constitution."
+      "note": "Assad's government was overthrown on 8 December 2024; a transitional administration followed. The March 2025 constitutional declaration established a five-year transition, not a settled permanent constitution.",
+      "capitalCoordinates": {
+        "lat": 33.5138,
+        "lon": 36.2765,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "JOR-1946-05",
@@ -925,7 +1082,13 @@
         "oup_mena"
       ],
       "quality": "supported",
-      "note": "Transjordan became the independent Hashemite Kingdom of Jordan."
+      "note": "Transjordan became the independent Hashemite Kingdom of Jordan.",
+      "capitalCoordinates": {
+        "lat": 31.9539,
+        "lon": 35.9106,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "SAU-1932-09",
@@ -958,7 +1121,13 @@
         "saudi_history"
       ],
       "quality": "verified",
-      "note": "The dual kingdom was unified and renamed the Kingdom of Saudi Arabia."
+      "note": "The dual kingdom was unified and renamed the Kingdom of Saudi Arabia.",
+      "capitalCoordinates": {
+        "lat": 24.7136,
+        "lon": 46.6753,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "PRS-1925-12",
@@ -992,7 +1161,13 @@
         "iranica_pahlavi"
       ],
       "quality": "supported",
-      "note": "The Majles deposed the Qajar dynasty and established the Pahlavi dynasty; Iran remained a monarchy."
+      "note": "The Majles deposed the Qajar dynasty and established the Pahlavi dynasty; Iran remained a monarchy.",
+      "capitalCoordinates": {
+        "lat": 35.6892,
+        "lon": 51.389,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "PRS-1979-02",
@@ -1030,7 +1205,13 @@
         "iranica_constitution"
       ],
       "quality": "verified",
-      "note": "The monarchy collapsed and the Islamic Republic was proclaimed; the 1979 referendum and constitution followed."
+      "note": "The monarchy collapsed and the Islamic Republic was proclaimed; the 1979 referendum and constitution followed.",
+      "capitalCoordinates": {
+        "lat": 35.6892,
+        "lon": 51.389,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "TUR-1923-10",
@@ -1064,7 +1245,13 @@
         "oup_mena"
       ],
       "quality": "verified",
-      "note": "The Grand National Assembly proclaimed the Republic; the single-party Republican People's Party era followed."
+      "note": "The Grand National Assembly proclaimed the Republic; the single-party Republican People's Party era followed.",
+      "capitalCoordinates": {
+        "lat": 39.9334,
+        "lon": 32.8597,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "TUR-1960-05",
@@ -1093,7 +1280,13 @@
         "turkey_history"
       ],
       "quality": "supported",
-      "note": "The armed forces overthrew the government; a new constitution and civilian transition followed in 1961."
+      "note": "The armed forces overthrew the government; a new constitution and civilian transition followed in 1961.",
+      "capitalCoordinates": {
+        "lat": 39.9334,
+        "lon": 32.8597,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "TUR-1980-09",
@@ -1126,7 +1319,13 @@
         "turkey_history"
       ],
       "quality": "supported",
-      "note": "The military seized power and suspended parliamentary politics; the 1982 Constitution structured the subsequent transition."
+      "note": "The military seized power and suspended parliamentary politics; the 1982 Constitution structured the subsequent transition.",
+      "capitalCoordinates": {
+        "lat": 39.9334,
+        "lon": 32.8597,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "TUR-2017-04",
@@ -1159,7 +1358,13 @@
         "turkey_2017"
       ],
       "quality": "verified",
-      "note": "The constitutional referendum approved the transition to an executive presidency, implemented after the 2018 election; it did not change the republic's formal state form."
+      "note": "The constitutional referendum approved the transition to an executive presidency, implemented after the 2018 election; it did not change the republic's formal state form.",
+      "capitalCoordinates": {
+        "lat": 39.9334,
+        "lon": 32.8597,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "ISR-1948-05",
@@ -1192,7 +1397,13 @@
         "israel_mfa"
       ],
       "quality": "verified",
-      "note": "The State of Israel was declared on 14 May 1948; the constitutional order developed through the Basic Laws."
+      "note": "The State of Israel was declared on 14 May 1948; the constitutional order developed through the Basic Laws.",
+      "capitalCoordinates": {
+        "lat": 32.0853,
+        "lon": 34.7818,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "YEM-1962-09",
@@ -1225,7 +1436,13 @@
         "yemen_state"
       ],
       "quality": "verified",
-      "note": "The 26 September Revolution overthrew the imamate monarchy and proclaimed the Yemen Arab Republic; civil war followed."
+      "note": "The 26 September Revolution overthrew the imamate monarchy and proclaimed the Yemen Arab Republic; civil war followed.",
+      "capitalCoordinates": {
+        "lat": 15.3694,
+        "lon": 44.191,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "YMD-1967-11",
@@ -1258,7 +1475,13 @@
         "yemen_state"
       ],
       "quality": "verified",
-      "note": "British withdrawal led to the independence of South Yemen; the socialist one-party order consolidated later."
+      "note": "British withdrawal led to the independence of South Yemen; the socialist one-party order consolidated later.",
+      "capitalCoordinates": {
+        "lat": 12.7855,
+        "lon": 45.0187,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "YMD-1970-11",
@@ -1291,7 +1514,13 @@
         "yemen_state"
       ],
       "quality": "supported",
-      "note": "The state was renamed the People's Democratic Republic of Yemen in 1970; the ruling National Liberation Front consolidated a Marxist-Leninist one-party system."
+      "note": "The state was renamed the People's Democratic Republic of Yemen in 1970; the ruling National Liberation Front consolidated a Marxist-Leninist one-party system.",
+      "capitalCoordinates": {
+        "lat": 12.7855,
+        "lon": 45.0187,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "YEM-1990-05",
@@ -1325,7 +1554,13 @@
         "yemen_state"
       ],
       "quality": "verified",
-      "note": "North and South Yemen formally unified as the Republic of Yemen."
+      "note": "North and South Yemen formally unified as the Republic of Yemen.",
+      "capitalCoordinates": {
+        "lat": 15.3694,
+        "lon": 44.191,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "ZAF-1910-05",
@@ -1359,7 +1594,13 @@
         "south_africa_pres"
       ],
       "quality": "verified",
-      "note": "The Union amalgamated four colonies as a self-governing Dominion; the political system excluded the Black majority."
+      "note": "The Union amalgamated four colonies as a self-governing Dominion; the political system excluded the Black majority.",
+      "capitalCoordinates": {
+        "lat": -25.7479,
+        "lon": 28.2293,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "ZAF-1948-05",
@@ -1390,7 +1631,13 @@
         "us_apartheid"
       ],
       "quality": "verified",
-      "note": "The National Party victory marked the formal apartheid era; racial exclusion predated 1948."
+      "note": "The National Party victory marked the formal apartheid era; racial exclusion predated 1948.",
+      "capitalCoordinates": {
+        "lat": -25.7479,
+        "lon": 28.2293,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "ZAF-1961-05",
@@ -1423,7 +1670,13 @@
         "south_africa_pres"
       ],
       "quality": "verified",
-      "note": "South Africa became a republic after a whites-only referendum and left the Commonwealth."
+      "note": "South Africa became a republic after a whites-only referendum and left the Commonwealth.",
+      "capitalCoordinates": {
+        "lat": -25.7479,
+        "lon": 28.2293,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "ZAF-1994-04",
@@ -1457,7 +1710,13 @@
         "us_apartheid"
       ],
       "quality": "verified",
-      "note": "The first non-racial democratic election established majority rule; nine provinces replaced the previous administrative structure."
+      "note": "The first non-racial democratic election established majority rule; nine provinces replaced the previous administrative structure.",
+      "capitalCoordinates": {
+        "lat": -25.7479,
+        "lon": 28.2293,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "GHA-1957-03",
@@ -1491,7 +1750,13 @@
         "ghana_coups"
       ],
       "quality": "verified",
-      "note": "Ghana became independent within the Commonwealth; it became a republic in 1960."
+      "note": "Ghana became independent within the Commonwealth; it became a republic in 1960.",
+      "capitalCoordinates": {
+        "lat": 5.6037,
+        "lon": -0.187,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "GHA-1960-07",
@@ -1524,7 +1789,13 @@
         "ghana_coups"
       ],
       "quality": "supported",
-      "note": "Ghana became a republic; executive authority increasingly concentrated under Nkrumah."
+      "note": "Ghana became a republic; executive authority increasingly concentrated under Nkrumah.",
+      "capitalCoordinates": {
+        "lat": 5.6037,
+        "lon": -0.187,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "GHA-1966-02",
@@ -1558,7 +1829,13 @@
         "ghana_coups"
       ],
       "quality": "verified",
-      "note": "The military-police coup overthrew Nkrumah's government."
+      "note": "The military-police coup overthrew Nkrumah's government.",
+      "capitalCoordinates": {
+        "lat": 5.6037,
+        "lon": -0.187,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "GHA-1972-01",
@@ -1588,7 +1865,13 @@
         "africa_coups"
       ],
       "quality": "verified",
-      "note": "Acheampong's coup ended the Second Republic."
+      "note": "Acheampong's coup ended the Second Republic.",
+      "capitalCoordinates": {
+        "lat": 5.6037,
+        "lon": -0.187,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "GHA-1979-06",
@@ -1617,7 +1900,13 @@
         "ghana_coups"
       ],
       "quality": "supported",
-      "note": "Rawlings seized power; a short military transition preceded the Third Republic."
+      "note": "Rawlings seized power; a short military transition preceded the Third Republic.",
+      "capitalCoordinates": {
+        "lat": 5.6037,
+        "lon": -0.187,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "GHA-1992-01",
@@ -1650,7 +1939,13 @@
         "ghana_coups"
       ],
       "quality": "supported",
-      "note": "The 1992 Constitution and subsequent elections restored multiparty constitutional government."
+      "note": "The 1992 Constitution and subsequent elections restored multiparty constitutional government.",
+      "capitalCoordinates": {
+        "lat": 5.6037,
+        "lon": -0.187,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "NGA-1960-10",
@@ -1684,7 +1979,13 @@
         "nigeria_coups"
       ],
       "quality": "verified",
-      "note": "Nigeria became independent as a Commonwealth federation."
+      "note": "Nigeria became independent as a Commonwealth federation.",
+      "capitalCoordinates": {
+        "lat": 6.5244,
+        "lon": 3.3792,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "NGA-1963-10",
@@ -1713,7 +2014,13 @@
         "nigeria_coups"
       ],
       "quality": "supported",
-      "note": "Nigeria became a republic while retaining a parliamentary federal constitution."
+      "note": "Nigeria became a republic while retaining a parliamentary federal constitution.",
+      "capitalCoordinates": {
+        "lat": 6.5244,
+        "lon": 3.3792,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "NGA-1966-01",
@@ -1743,7 +2050,13 @@
         "nigeria_coups"
       ],
       "quality": "verified",
-      "note": "The January coup began a prolonged period of military rule and contributed to the crisis preceding the Biafran War."
+      "note": "The January coup began a prolonged period of military rule and contributed to the crisis preceding the Biafran War.",
+      "capitalCoordinates": {
+        "lat": 6.5244,
+        "lon": 3.3792,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "NGA-1979-10",
@@ -1772,7 +2085,13 @@
         "nigeria_coups"
       ],
       "quality": "supported",
-      "note": "The military transferred power to an elected civilian government under the 1979 Constitution."
+      "note": "The military transferred power to an elected civilian government under the 1979 Constitution.",
+      "capitalCoordinates": {
+        "lat": 6.5244,
+        "lon": 3.3792,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "NGA-1983-12",
@@ -1801,7 +2120,13 @@
         "nigeria_coups"
       ],
       "quality": "verified",
-      "note": "The military overthrew the civilian government; a second prolonged military period followed."
+      "note": "The military overthrew the civilian government; a second prolonged military period followed.",
+      "capitalCoordinates": {
+        "lat": 6.5244,
+        "lon": 3.3792,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "NGA-1999-05",
@@ -1834,7 +2159,13 @@
         "nigeria_coups"
       ],
       "quality": "verified",
-      "note": "Civilian rule resumed under the 1999 Constitution; capital moved from Lagos to Abuja in 1991 (capital relocation is a separate map event)."
+      "note": "Civilian rule resumed under the 1999 Constitution; capital moved from Lagos to Abuja in 1991 (capital relocation is a separate map event).",
+      "capitalCoordinates": {
+        "lat": 9.0765,
+        "lon": 7.3986,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "ETH-1974-09",
@@ -1871,7 +2202,13 @@
         "ethiopia_history"
       ],
       "quality": "verified",
-      "note": "The Derg deposed the Emperor and assumed power; a republic was formally proclaimed later."
+      "note": "The Derg deposed the Emperor and assumed power; a republic was formally proclaimed later.",
+      "capitalCoordinates": {
+        "lat": 8.9806,
+        "lon": 38.7578,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "ETH-1975-03",
@@ -1908,7 +2245,13 @@
         "ethiopia_history"
       ],
       "quality": "supported",
-      "note": "The monarchy was formally abolished; Derg military rule continued."
+      "note": "The monarchy was formally abolished; Derg military rule continued.",
+      "capitalCoordinates": {
+        "lat": 8.9806,
+        "lon": 38.7578,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "ETH-1991-05",
@@ -1938,7 +2281,13 @@
         "ethiopia_history"
       ],
       "quality": "supported",
-      "note": "The EPRDF-led coalition entered Addis Ababa and ended the Derg government."
+      "note": "The EPRDF-led coalition entered Addis Ababa and ended the Derg government.",
+      "capitalCoordinates": {
+        "lat": 8.9806,
+        "lon": 38.7578,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "COD-1960-06",
@@ -1971,7 +2320,13 @@
         "oup_africa"
       ],
       "quality": "verified",
-      "note": "The Belgian Congo became independent; immediate mutinies and the Congo Crisis followed."
+      "note": "The Belgian Congo became independent; immediate mutinies and the Congo Crisis followed.",
+      "capitalCoordinates": {
+        "lat": -4.3224,
+        "lon": 15.307,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "COD-1965-11",
@@ -2001,7 +2356,13 @@
         "congo_history"
       ],
       "quality": "verified",
-      "note": "Mobutu seized power and established an authoritarian military-backed presidency."
+      "note": "Mobutu seized power and established an authoritarian military-backed presidency.",
+      "capitalCoordinates": {
+        "lat": -4.3224,
+        "lon": 15.307,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "COD-1971-10",
@@ -2030,7 +2391,13 @@
         "congo_history"
       ],
       "quality": "supported",
-      "note": "Mobutu renamed the state Zaire as part of Authenticité; this is a state-name change, not democratization."
+      "note": "Mobutu renamed the state Zaire as part of Authenticité; this is a state-name change, not democratization.",
+      "capitalCoordinates": {
+        "lat": -4.4419,
+        "lon": 15.2663,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "ZAI-1997-05",
@@ -2059,7 +2426,13 @@
         "congo_history"
       ],
       "quality": "supported",
-      "note": "The AFDL captured Kinshasa and renamed the state the Democratic Republic of the Congo."
+      "note": "The AFDL captured Kinshasa and renamed the state the Democratic Republic of the Congo.",
+      "capitalCoordinates": {
+        "lat": -4.4419,
+        "lon": 15.2663,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "KEN-1963-12",
@@ -2092,7 +2465,13 @@
         "oup_africa"
       ],
       "quality": "verified",
-      "note": "Kenya became independent as a Commonwealth realm; it became a republic in 1964."
+      "note": "Kenya became independent as a Commonwealth realm; it became a republic in 1964.",
+      "capitalCoordinates": {
+        "lat": -1.2921,
+        "lon": 36.8219,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "KEN-1964-12",
@@ -2121,7 +2500,13 @@
         "oup_africa"
       ],
       "quality": "supported",
-      "note": "The monarchy was replaced by a republic with an executive presidency."
+      "note": "The monarchy was replaced by a republic with an executive presidency.",
+      "capitalCoordinates": {
+        "lat": -1.2921,
+        "lon": 36.8219,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "TZA-1964-04",
@@ -2154,7 +2539,13 @@
         "oup_africa"
       ],
       "quality": "verified",
-      "note": "Tanganyika and Zanzibar united; TANU and later CCM established one-party dominance."
+      "note": "Tanganyika and Zanzibar united; TANU and later CCM established one-party dominance.",
+      "capitalCoordinates": {
+        "lat": -6.7924,
+        "lon": 39.2083,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "TZA-1965-07",
@@ -2183,7 +2574,13 @@
         "oup_africa"
       ],
       "quality": "supported",
-      "note": "The 1965 interim constitution formalized the one-party state."
+      "note": "The 1965 interim constitution formalized the one-party state.",
+      "capitalCoordinates": {
+        "lat": -6.7924,
+        "lon": 39.2083,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "TZA-1992-02",
@@ -2212,7 +2609,13 @@
         "tanzania_history"
       ],
       "quality": "supported",
-      "note": "The political system was amended to permit multiparty competition."
+      "note": "The political system was amended to permit multiparty competition.",
+      "capitalCoordinates": {
+        "lat": -6.163,
+        "lon": 35.7516,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "BRA-1889-11",
@@ -2245,7 +2648,13 @@
         "brazil_cambridge"
       ],
       "quality": "verified",
-      "note": "The military overthrew Emperor Pedro II; the First Republic did not immediately become a mass democracy."
+      "note": "The military overthrew Emperor Pedro II; the First Republic did not immediately become a mass democracy.",
+      "capitalCoordinates": {
+        "lat": -22.9068,
+        "lon": -43.1729,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "BRA-1930-10",
@@ -2278,7 +2687,13 @@
         "brazil_cambridge"
       ],
       "quality": "supported",
-      "note": "The 1930 Revolution ended the Old Republic and brought Vargas to power."
+      "note": "The 1930 Revolution ended the Old Republic and brought Vargas to power.",
+      "capitalCoordinates": {
+        "lat": -22.9068,
+        "lon": -43.1729,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "BRA-1937-11",
@@ -2311,7 +2726,13 @@
         "brazil_cambridge"
       ],
       "quality": "supported",
-      "note": "Vargas imposed the Estado Novo dictatorship and dissolved Congress."
+      "note": "Vargas imposed the Estado Novo dictatorship and dissolved Congress.",
+      "capitalCoordinates": {
+        "lat": -22.9068,
+        "lon": -43.1729,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "BRA-1945-10",
@@ -2344,7 +2765,13 @@
         "brazil_cambridge"
       ],
       "quality": "supported",
-      "note": "The military removed Vargas; elections and a new constitution followed in 1946."
+      "note": "The military removed Vargas; elections and a new constitution followed in 1946.",
+      "capitalCoordinates": {
+        "lat": -22.9068,
+        "lon": -43.1729,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "BRA-1964-04",
@@ -2377,7 +2804,13 @@
         "brazil_military"
       ],
       "quality": "supported",
-      "note": "The armed forces overthrew President João Goulart; military rule lasted until the civilian transition of 1985."
+      "note": "The armed forces overthrew President João Goulart; military rule lasted until the civilian transition of 1985.",
+      "capitalCoordinates": {
+        "lat": -15.7939,
+        "lon": -47.8828,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "BRA-1985-03",
@@ -2410,7 +2843,13 @@
         "brazil_military"
       ],
       "quality": "supported",
-      "note": "A civilian president took office; the 1988 Constitution consolidated the new democratic order."
+      "note": "A civilian president took office; the 1988 Constitution consolidated the new democratic order.",
+      "capitalCoordinates": {
+        "lat": -15.7939,
+        "lon": -47.8828,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "MEX-1910-11",
@@ -2443,7 +2882,13 @@
         "mexico_crs"
       ],
       "quality": "supported",
-      "note": "The Revolution began against Díaz's long authoritarian rule; conflict and successive governments followed."
+      "note": "The Revolution began against Díaz's long authoritarian rule; conflict and successive governments followed.",
+      "capitalCoordinates": {
+        "lat": 19.4326,
+        "lon": -99.1332,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "MEX-1917-02",
@@ -2480,7 +2925,13 @@
         "mexico_constitution"
       ],
       "quality": "verified",
-      "note": "The Constitution of 1917 created a new constitutional framework; political stability and competitive democracy developed unevenly."
+      "note": "The Constitution of 1917 created a new constitutional framework; political stability and competitive democracy developed unevenly.",
+      "capitalCoordinates": {
+        "lat": 19.4326,
+        "lon": -99.1332,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "MEX-1929-03",
@@ -2510,7 +2961,13 @@
         "mexico_crs"
       ],
       "quality": "supported",
-      "note": "The PNR was founded in 1929; it evolved into the PRM and PRI and governed with near-hegemonic dominance until 2000."
+      "note": "The PNR was founded in 1929; it evolved into the PRM and PRI and governed with near-hegemonic dominance until 2000.",
+      "capitalCoordinates": {
+        "lat": 19.4326,
+        "lon": -99.1332,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "MEX-2000-12",
@@ -2539,7 +2996,13 @@
         "mexico_crs"
       ],
       "quality": "supported",
-      "note": "The PRI lost the presidency to Vicente Fox, ending its uninterrupted presidential dominance."
+      "note": "The PRI lost the presidency to Vicente Fox, ending its uninterrupted presidential dominance.",
+      "capitalCoordinates": {
+        "lat": 19.4326,
+        "lon": -99.1332,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "ARG-1976-03",
@@ -2572,7 +3035,13 @@
         "argentina_history"
       ],
       "quality": "supported",
-      "note": "The armed forces seized power and initiated a military dictatorship."
+      "note": "The armed forces seized power and initiated a military dictatorship.",
+      "capitalCoordinates": {
+        "lat": -34.6037,
+        "lon": -58.3816,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "ARG-1983-12",
@@ -2605,7 +3074,13 @@
         "argentina_history"
       ],
       "quality": "verified",
-      "note": "Civilian constitutional rule returned with Raúl Alfonsín's inauguration."
+      "note": "Civilian constitutional rule returned with Raúl Alfonsín's inauguration.",
+      "capitalCoordinates": {
+        "lat": -34.6037,
+        "lon": -58.3816,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "CHL-1973-09",
@@ -2638,7 +3113,13 @@
         "chile_history"
       ],
       "quality": "verified",
-      "note": "The armed forces overthrew Allende; the military dictatorship lasted until the 1988 plebiscite and 1990 transfer."
+      "note": "The armed forces overthrew Allende; the military dictatorship lasted until the 1988 plebiscite and 1990 transfer.",
+      "capitalCoordinates": {
+        "lat": -33.4489,
+        "lon": -70.6693,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "CHL-1990-03",
@@ -2671,7 +3152,13 @@
         "chile_history"
       ],
       "quality": "verified",
-      "note": "Patricio Aylwin took office after the 1988 plebiscite and 1989 elections."
+      "note": "Patricio Aylwin took office after the 1988 plebiscite and 1989 elections.",
+      "capitalCoordinates": {
+        "lat": -33.4489,
+        "lon": -70.6693,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "CUB-1959-01",
@@ -2704,7 +3191,13 @@
         "cuba_history"
       ],
       "quality": "supported",
-      "note": "The Cuban Revolution overthrew Batista; the socialist one-party state developed over the following years."
+      "note": "The Cuban Revolution overthrew Batista; the socialist one-party state developed over the following years.",
+      "capitalCoordinates": {
+        "lat": 23.1136,
+        "lon": -82.3666,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "CUB-1961-04",
@@ -2737,7 +3230,13 @@
         "cuba_history"
       ],
       "quality": "supported",
-      "note": "The socialist character of the revolution was declared; the Communist Party later became the sole constitutional political force."
+      "note": "The socialist character of the revolution was declared; the Communist Party later became the sole constitutional political force.",
+      "capitalCoordinates": {
+        "lat": 23.1136,
+        "lon": -82.3666,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "SIA-1932-06",
@@ -2770,7 +3269,13 @@
         "thailand_1932"
       ],
       "quality": "verified",
-      "note": "The 1932 revolution ended absolute monarchy and established constitutional monarchy; military intervention remained frequent."
+      "note": "The 1932 revolution ended absolute monarchy and established constitutional monarchy; military intervention remained frequent.",
+      "capitalCoordinates": {
+        "lat": 13.7563,
+        "lon": 100.5018,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "IDN-1949-12",
@@ -2803,7 +3308,13 @@
         "indonesia_history"
       ],
       "quality": "verified",
-      "note": "The Netherlands transferred sovereignty; the unitary Republic of Indonesia replaced the federal structure in August 1950."
+      "note": "The Netherlands transferred sovereignty; the unitary Republic of Indonesia replaced the federal structure in August 1950.",
+      "capitalCoordinates": {
+        "lat": -6.2088,
+        "lon": 106.8456,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "IDN-1957-03",
@@ -2836,7 +3347,13 @@
         "indonesia_springer"
       ],
       "quality": "supported",
-      "note": "Sukarno imposed martial law and replaced parliamentary cabinets with appointed governments; Guided Democracy consolidated through 1959."
+      "note": "Sukarno imposed martial law and replaced parliamentary cabinets with appointed governments; Guided Democracy consolidated through 1959.",
+      "capitalCoordinates": {
+        "lat": -6.2088,
+        "lon": 106.8456,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "IDN-1965-10",
@@ -2869,7 +3386,13 @@
         "indonesia_springer"
       ],
       "quality": "supported",
-      "note": "The 1965 crisis and subsequent army takeover led to Suharto's rise; formal presidential transfer occurred in 1967–68. Date marks the start of the transition, not a single-day succession."
+      "note": "The 1965 crisis and subsequent army takeover led to Suharto's rise; formal presidential transfer occurred in 1967–68. Date marks the start of the transition, not a single-day succession.",
+      "capitalCoordinates": {
+        "lat": -6.2088,
+        "lon": 106.8456,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "IDN-1998-05",
@@ -2902,7 +3425,13 @@
         "indonesia_springer"
       ],
       "quality": "verified",
-      "note": "Suharto resigned after mass protests; democratic reforms and competitive elections followed."
+      "note": "Suharto resigned after mass protests; democratic reforms and competitive elections followed.",
+      "capitalCoordinates": {
+        "lat": -6.2088,
+        "lon": 106.8456,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "PHL-1946-07",
@@ -2935,7 +3464,13 @@
         "oup_asia"
       ],
       "quality": "verified",
-      "note": "The Philippines became independent from the United States."
+      "note": "The Philippines became independent from the United States.",
+      "capitalCoordinates": {
+        "lat": 14.5995,
+        "lon": 120.9842,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "PHL-1972-09",
@@ -2968,7 +3503,13 @@
         "oup_asia"
       ],
       "quality": "verified",
-      "note": "Marcos proclaimed martial law, centralizing executive power and suppressing opposition."
+      "note": "Marcos proclaimed martial law, centralizing executive power and suppressing opposition.",
+      "capitalCoordinates": {
+        "lat": 14.5995,
+        "lon": 120.9842,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "PHL-1986-02",
@@ -3001,7 +3542,13 @@
         "oup_asia"
       ],
       "quality": "verified",
-      "note": "The People Power Revolution removed Marcos; the 1987 Constitution restored democratic institutions."
+      "note": "The People Power Revolution removed Marcos; the 1987 Constitution restored democratic institutions.",
+      "capitalCoordinates": {
+        "lat": 14.5995,
+        "lon": 120.9842,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "MMR-1948-01",
@@ -3034,7 +3581,13 @@
         "oup_asia"
       ],
       "quality": "verified",
-      "note": "Burma became an independent parliamentary republic."
+      "note": "Burma became an independent parliamentary republic.",
+      "capitalCoordinates": {
+        "lat": 16.8661,
+        "lon": 96.1951,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "MMR-1962-03",
@@ -3063,7 +3616,13 @@
         "oup_asia"
       ],
       "quality": "verified",
-      "note": "Ne Win's coup ended parliamentary democracy and initiated military rule."
+      "note": "Ne Win's coup ended parliamentary democracy and initiated military rule.",
+      "capitalCoordinates": {
+        "lat": 16.8661,
+        "lon": 96.1951,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "MMR-1974-01",
@@ -3100,7 +3659,13 @@
         "oup_asia"
       ],
       "quality": "supported",
-      "note": "The 1974 Constitution established a one-party socialist state under the Burma Socialist Programme Party."
+      "note": "The 1974 Constitution established a one-party socialist state under the Burma Socialist Programme Party.",
+      "capitalCoordinates": {
+        "lat": 16.8661,
+        "lon": 96.1951,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "MMR-1988-09",
@@ -3129,7 +3694,13 @@
         "oup_asia"
       ],
       "quality": "verified",
-      "note": "The military seized power after the 8888 uprising; the BSPP system ended."
+      "note": "The military seized power after the 8888 uprising; the BSPP system ended.",
+      "capitalCoordinates": {
+        "lat": 16.8661,
+        "lon": 96.1951,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "MMR-2011-03",
@@ -3163,7 +3734,13 @@
         "myanmar_history"
       ],
       "quality": "supported",
-      "note": "A nominally civilian government took office under the 2008 Constitution; military reserved powers remained."
+      "note": "A nominally civilian government took office under the 2008 Constitution; military reserved powers remained.",
+      "capitalCoordinates": {
+        "lat": 19.7633,
+        "lon": 96.0785,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "MMR-2021-02",
@@ -3196,7 +3773,13 @@
         "myanmar_history"
       ],
       "quality": "verified",
-      "note": "The military detained elected leaders and seized power, triggering nationwide resistance and civil war."
+      "note": "The military detained elected leaders and seized power, triggering nationwide resistance and civil war.",
+      "capitalCoordinates": {
+        "lat": 19.7633,
+        "lon": 96.0785,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "KHM-1953-11",
@@ -3225,7 +3808,13 @@
         "oup_asia"
       ],
       "quality": "verified",
-      "note": "Cambodia gained independence from France; the monarchy remained."
+      "note": "Cambodia gained independence from France; the monarchy remained.",
+      "capitalCoordinates": {
+        "lat": 11.5564,
+        "lon": 104.9282,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "KHM-1970-10",
@@ -3258,7 +3847,13 @@
         "oup_asia"
       ],
       "quality": "supported",
-      "note": "The National Assembly deposed Sihanouk; Lon Nol proclaimed the Khmer Republic."
+      "note": "The National Assembly deposed Sihanouk; Lon Nol proclaimed the Khmer Republic.",
+      "capitalCoordinates": {
+        "lat": 11.5564,
+        "lon": 104.9282,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "KHM-1975-04",
@@ -3295,7 +3890,13 @@
         "oup_asia"
       ],
       "quality": "supported",
-      "note": "The Khmer Rouge captured Phnom Penh and established an extreme agrarian communist state."
+      "note": "The Khmer Rouge captured Phnom Penh and established an extreme agrarian communist state.",
+      "capitalCoordinates": {
+        "lat": 11.5564,
+        "lon": 104.9282,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "KHM-1979-01",
@@ -3328,7 +3929,13 @@
         "oup_asia"
       ],
       "quality": "supported",
-      "note": "Vietnamese forces and Cambodian defectors overthrew Democratic Kampuchea; a new one-party state followed."
+      "note": "Vietnamese forces and Cambodian defectors overthrew Democratic Kampuchea; a new one-party state followed.",
+      "capitalCoordinates": {
+        "lat": 11.5564,
+        "lon": 104.9282,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "KHM-1993-09",
@@ -3361,7 +3968,13 @@
         "oup_asia"
       ],
       "quality": "verified",
-      "note": "The monarchy was restored under a constitutional framework after UN-supervised elections."
+      "note": "The monarchy was restored under a constitutional framework after UN-supervised elections.",
+      "capitalCoordinates": {
+        "lat": 11.5564,
+        "lon": 104.9282,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "LAO-1975-12",
@@ -3398,7 +4011,13 @@
         "oup_asia"
       ],
       "quality": "verified",
-      "note": "The Lao monarchy was abolished and the Lao People's Democratic Republic proclaimed under the Lao People's Revolutionary Party."
+      "note": "The Lao monarchy was abolished and the Lao People's Democratic Republic proclaimed under the Lao People's Revolutionary Party.",
+      "capitalCoordinates": {
+        "lat": 17.9757,
+        "lon": 102.6331,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "AFG-1973-07",
@@ -3431,7 +4050,13 @@
         "afghanistan_history"
       ],
       "quality": "supported",
-      "note": "Daoud Khan overthrew King Zahir Shah and proclaimed a republic."
+      "note": "Daoud Khan overthrew King Zahir Shah and proclaimed a republic.",
+      "capitalCoordinates": {
+        "lat": 34.5553,
+        "lon": 69.2075,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "AFG-1978-04",
@@ -3464,7 +4089,13 @@
         "afghanistan_history"
       ],
       "quality": "supported",
-      "note": "The Saur Revolution brought the PDPA to power; Soviet intervention followed in December 1979."
+      "note": "The Saur Revolution brought the PDPA to power; Soviet intervention followed in December 1979.",
+      "capitalCoordinates": {
+        "lat": 34.5553,
+        "lon": 69.2075,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "AFG-1992-04",
@@ -3497,7 +4128,13 @@
         "afghanistan_history"
       ],
       "quality": "supported",
-      "note": "The Najibullah government collapsed; rival mujahideen factions formed a fragile Islamic State."
+      "note": "The Najibullah government collapsed; rival mujahideen factions formed a fragile Islamic State.",
+      "capitalCoordinates": {
+        "lat": 34.5553,
+        "lon": 69.2075,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "AFG-1996-09",
@@ -3530,7 +4167,13 @@
         "afghanistan_history"
       ],
       "quality": "supported",
-      "note": "The Taliban captured Kabul and proclaimed an Islamic Emirate; international recognition was limited."
+      "note": "The Taliban captured Kabul and proclaimed an Islamic Emirate; international recognition was limited.",
+      "capitalCoordinates": {
+        "lat": 34.5553,
+        "lon": 69.2075,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "AFG-2001-12",
@@ -3563,7 +4206,13 @@
         "afghanistan_history"
       ],
       "quality": "supported",
-      "note": "The Bonn process established an interim authority after the Taliban government fell; later institutions remained fragile."
+      "note": "The Bonn process established an interim authority after the Taliban government fell; later institutions remained fragile.",
+      "capitalCoordinates": {
+        "lat": 34.5553,
+        "lon": 69.2075,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "AFG-2021-08",
@@ -3596,7 +4245,13 @@
         "afghanistan_history"
       ],
       "quality": "verified",
-      "note": "The Taliban entered Kabul and re-established de facto emirate rule; international recognition remains limited."
+      "note": "The Taliban entered Kabul and re-established de facto emirate rule; international recognition remains limited.",
+      "capitalCoordinates": {
+        "lat": 34.5553,
+        "lon": 69.2075,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "NPL-1951-02",
@@ -3629,7 +4284,13 @@
         "nepal_history"
       ],
       "quality": "supported",
-      "note": "The 1951 revolution ended hereditary Rana prime-ministerial rule and restored royal authority; democratic institutions remained unstable."
+      "note": "The 1951 revolution ended hereditary Rana prime-ministerial rule and restored royal authority; democratic institutions remained unstable.",
+      "capitalCoordinates": {
+        "lat": 27.7172,
+        "lon": 85.324,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "NPL-1960-12",
@@ -3658,7 +4319,13 @@
         "nepal_history"
       ],
       "quality": "supported",
-      "note": "King Mahendra dissolved parliament, banned parties and established the partyless Panchayat system."
+      "note": "King Mahendra dissolved parliament, banned parties and established the partyless Panchayat system.",
+      "capitalCoordinates": {
+        "lat": 27.7172,
+        "lon": 85.324,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "NPL-1990-04",
@@ -3687,7 +4354,13 @@
         "nepal_history"
       ],
       "quality": "supported",
-      "note": "The People's Movement restored multiparty politics and constitutional monarchy."
+      "note": "The People's Movement restored multiparty politics and constitutional monarchy.",
+      "capitalCoordinates": {
+        "lat": 27.7172,
+        "lon": 85.324,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "NPL-2008-05",
@@ -3720,7 +4393,13 @@
         "nepal_history"
       ],
       "quality": "verified",
-      "note": "The Constituent Assembly abolished the monarchy and declared a federal democratic republic."
+      "note": "The Constituent Assembly abolished the monarchy and declared a federal democratic republic.",
+      "capitalCoordinates": {
+        "lat": 27.7172,
+        "lon": 85.324,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "PAK-1956-03",
@@ -3753,7 +4432,13 @@
         "pakistan_history"
       ],
       "quality": "verified",
-      "note": "Pakistan's first constitution came into force and the dominion became a republic."
+      "note": "Pakistan's first constitution came into force and the dominion became a republic.",
+      "capitalCoordinates": {
+        "lat": 24.8607,
+        "lon": 67.0011,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "PAK-1958-10",
@@ -3782,7 +4467,13 @@
         "pakistan_history"
       ],
       "quality": "verified",
-      "note": "President Iskander Mirza abrogated the constitution and declared martial law; Ayub Khan soon assumed power."
+      "note": "President Iskander Mirza abrogated the constitution and declared martial law; Ayub Khan soon assumed power.",
+      "capitalCoordinates": {
+        "lat": 24.8607,
+        "lon": 67.0011,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "PAK-1973-08",
@@ -3815,7 +4506,13 @@
         "pakistan_history"
       ],
       "quality": "verified",
-      "note": "The 1973 Constitution established a parliamentary federal republic; military coups later interrupted it."
+      "note": "The 1973 Constitution established a parliamentary federal republic; military coups later interrupted it.",
+      "capitalCoordinates": {
+        "lat": 33.6844,
+        "lon": 73.0479,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "PAK-1977-07",
@@ -3844,7 +4541,13 @@
         "pakistan_history"
       ],
       "quality": "verified",
-      "note": "General Zia-ul-Haq overthrew the elected government and imposed martial law."
+      "note": "General Zia-ul-Haq overthrew the elected government and imposed martial law.",
+      "capitalCoordinates": {
+        "lat": 33.6844,
+        "lon": 73.0479,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "PAK-2008-09",
@@ -3873,7 +4576,13 @@
         "pakistan_history"
       ],
       "quality": "supported",
-      "note": "Musharraf resigned and an elected civilian president took office; civil-military imbalance persisted."
+      "note": "Musharraf resigned and an elected civilian president took office; civil-military imbalance persisted.",
+      "capitalCoordinates": {
+        "lat": 33.6844,
+        "lon": 73.0479,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "BGD-1971-03",
@@ -3908,7 +4617,13 @@
         "bangladesh_supreme"
       ],
       "quality": "verified",
-      "note": "Bangladesh's independence was declared on 26 March 1971; the Proclamation of Independence of 10 April gave it retrospective effect."
+      "note": "Bangladesh's independence was declared on 26 March 1971; the Proclamation of Independence of 10 April gave it retrospective effect.",
+      "capitalCoordinates": {
+        "lat": 23.8103,
+        "lon": 90.4125,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "BGD-1975-08",
@@ -3937,7 +4652,13 @@
         "bangladesh_history"
       ],
       "quality": "supported",
-      "note": "The assassination of Sheikh Mujibur Rahman and subsequent coups transformed the political order."
+      "note": "The assassination of Sheikh Mujibur Rahman and subsequent coups transformed the political order.",
+      "capitalCoordinates": {
+        "lat": 23.8103,
+        "lon": 90.4125,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "BGD-1991-09",
@@ -3970,7 +4691,13 @@
         "bangladesh_history"
       ],
       "quality": "supported",
-      "note": "The Twelfth Amendment restored the parliamentary system."
+      "note": "The Twelfth Amendment restored the parliamentary system.",
+      "capitalCoordinates": {
+        "lat": 23.8103,
+        "lon": 90.4125,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "LKA-1972-05",
@@ -4004,7 +4731,13 @@
         "sri_lanka_history"
       ],
       "quality": "verified",
-      "note": "Ceylon adopted a republican constitution and changed its name to Sri Lanka."
+      "note": "Ceylon adopted a republican constitution and changed its name to Sri Lanka.",
+      "capitalCoordinates": {
+        "lat": 6.9271,
+        "lon": 79.8612,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     },
     {
       "id": "LKA-1978-09",
@@ -4037,7 +4770,13 @@
         "sri_lanka_history"
       ],
       "quality": "verified",
-      "note": "The 1978 Constitution introduced an executive presidency and renamed the state the Democratic Socialist Republic of Sri Lanka."
+      "note": "The 1978 Constitution introduced an executive presidency and renamed the state the Democratic Socialist Republic of Sri Lanka.",
+      "capitalCoordinates": {
+        "lat": 6.9271,
+        "lon": 79.8612,
+        "datum": "WGS84",
+        "precision": "approximate city point; map-grid lookup hint only"
+      }
     }
   ],
   "sources": [
