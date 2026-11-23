@@ -1,0 +1,3084 @@
+{
+  "meta": {
+    "task": "CG-41",
+    "title": "Regime changes and state formation/dissolution, 1836–1991",
+    "branch": "ccr-b27f3fb8-epfpd6",
+    "created": "2026-11-23",
+    "scope": "Selected major powers, successor states and major 20th-century regime transitions; not an exhaustive world chronology.",
+    "eventCount": 48,
+    "sourceCount": 37,
+    "lawGroups": [
+      "power",
+      "governance",
+      "economy",
+      "trade",
+      "labor",
+      "church",
+      "press",
+      "education",
+      "army"
+    ],
+    "schemaNote": "Research staging only. `entityBefore/After.id` values are historical or proposed identifiers; IDs not present in political_entities/registry.json are marked in mapping notes in the companion report. `capitalHistorical` is a city name, not an engine region ID. `lawChanges` only uses current enum values when known; concepts needing new enum values are in `proposedLawChanges` and `proposedLaws`.",
+    "dateConvention": "ISO-8601 Gregorian dates. Where an event is a process, windowStart/windowEnd delimit the transition; the `date` field is the principal legal/proclamation milestone.",
+    "qualityLegend": {
+      "verified": "Official primary/legal/archival source confirms date or text.",
+      "supported": "Credible institutional or academic secondary source; some interpretation remains.",
+      "estimated": "Not used in this file.",
+      "unverified": "Not used for core dates; explicit gaps are noted in report."
+    }
+  },
+  "sources": [
+    {
+      "id": "un_rus_2017",
+      "title": "Russian Federation common core document, HRI/CORE/RUS/2017",
+      "url": "https://digitallibrary.un.org/record/1308041/files/HRI_CORE_RUS_2017-EN.pdf",
+      "type": "UN state report / official chronology",
+      "quality": "supported",
+      "note": "Covers 1905–1991, February/October revolutions, RSFSR, USSR formation, 1936 constitution, perestroika, Article 6, Belavezha."
+    },
+    {
+      "id": "ushmm_russian_revolution",
+      "title": "Russian Revolution, 1917",
+      "url": "https://encyclopedia.ushmm.org/content/en/article/the-russian-revolution-1917",
+      "type": "museum historical synthesis",
+      "quality": "supported"
+    },
+    {
+      "id": "fr_assemblee_regimes",
+      "title": "Régimes français depuis 1789",
+      "url": "https://www.assemblee-nationale.fr/gouv_parl/regimes.asp",
+      "type": "French National Assembly official chronology",
+      "quality": "verified"
+    },
+    {
+      "id": "fr_assemblee_vichy",
+      "title": "Pétain full powers, 10 July 1940",
+      "url": "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/deuxieme-guerre-mondiale/des-decrets-lois-du-gouvernement-daladier-au-vote-par-la-chambre-des-deputes-et-le-senat-des-pleins-pouvoirs-au-marechal-petain",
+      "type": "French National Assembly official history",
+      "quality": "verified"
+    },
+    {
+      "id": "fr_assemblee_5rep",
+      "title": "Constitution of the Fifth Republic",
+      "url": "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/cinquieme-republique",
+      "type": "French National Assembly official history",
+      "quality": "verified"
+    },
+    {
+      "id": "deutschlandmuseum",
+      "title": "German history timeline",
+      "url": "https://www.deutschlandmuseum.de/en/history/",
+      "type": "history museum synthesis",
+      "quality": "supported"
+    },
+    {
+      "id": "deutschland_empire",
+      "title": "The German Empire: Foundation, Kaiser and WW1",
+      "url": "https://www.deutschlandmuseum.de/en/history/imperial-germany/",
+      "type": "history museum synthesis",
+      "quality": "supported"
+    },
+    {
+      "id": "german_history_docs",
+      "title": "Creation of the German Empire (1866–1871)",
+      "url": "https://germanhistorydocs.org/en/forging-an-empire-bismarckian-germany-1866-1890/creation-of-the-german-empire-1866-1871",
+      "type": "academic primary-source collection",
+      "quality": "supported"
+    },
+    {
+      "id": "de_basic_law",
+      "title": "Basic Law for the Federal Republic of Germany",
+      "url": "https://www.gesetze-im-internet.de/englisch_gg/englisch_gg.html",
+      "type": "primary constitutional text",
+      "quality": "verified"
+    },
+    {
+      "id": "italian_parliament",
+      "title": "The History of the Italian Parliament",
+      "url": "https://www.camera.it/application/xmanager/projects/camera/attachments/pubblicazione/pdfs/000/000/778/Montecitorio_ingl_def.pdf",
+      "type": "Italian Chamber of Deputies official history",
+      "quality": "verified"
+    },
+    {
+      "id": "italy_un_core",
+      "title": "Italy common core document HRI/CORE/ITA/2016",
+      "url": "https://digitallibrary.un.org/record/844446/files/HRI_CORE_ITA_2016-EN.pdf",
+      "type": "UN state report",
+      "quality": "supported"
+    },
+    {
+      "id": "ausgleich_aeiou",
+      "title": "Austro-Hungarian Compromise (Ausgleich)",
+      "url": "https://www.aeiou.at/aeiou.encyclop.a/a907407.htm",
+      "type": "Austrian historical encyclopedia",
+      "quality": "supported"
+    },
+    {
+      "id": "us_historian_austria",
+      "title": "Austria – Office of the Historian",
+      "url": "https://history.state.gov/countries/austria",
+      "type": "US State Department historical record",
+      "quality": "supported"
+    },
+    {
+      "id": "us_historian_hungary",
+      "title": "Hungary – Office of the Historian",
+      "url": "https://history.state.gov/countries/hungary",
+      "type": "US State Department historical record",
+      "quality": "supported"
+    },
+    {
+      "id": "us_historian_czechoslovakia",
+      "title": "Czechoslovakia – Office of the Historian",
+      "url": "https://history.state.gov/countries/czechoslovakia/summary",
+      "type": "US State Department historical record",
+      "quality": "supported"
+    },
+    {
+      "id": "yugoslav_archives",
+      "title": "Constituent Acts of Yugoslavia",
+      "url": "https://www.arhivyu.rs/en/leksikon-jugoslavije/konstitutivni_akti_jugoslavije",
+      "type": "Archives of Yugoslavia",
+      "quality": "verified"
+    },
+    {
+      "id": "turkey_ataturk",
+      "title": "Biography of Atatürk and political reforms",
+      "url": "https://www.ktb.gov.tr/EN-103908/biography-of-ataturk.html",
+      "type": "Republic of Türkiye Ministry of Culture and Tourism",
+      "quality": "supported"
+    },
+    {
+      "id": "china_national_museum",
+      "title": "Imperial Edict of the Abdication of the Qing Emperor",
+      "url": "https://en.chnmuseum.cn/collections_577/collection_highlights_608/objects_of_chinese_revolutionary_history_610/202008/t20200806_246813.html",
+      "type": "National Museum of China collection record",
+      "quality": "verified"
+    },
+    {
+      "id": "us_historian_china_1949",
+      "title": "The Chinese Revolution of 1949",
+      "url": "https://history.state.gov/milestones/1945-1952/chinese-rev",
+      "type": "US State Department historical synthesis",
+      "quality": "supported"
+    },
+    {
+      "id": "japan_mext_meiji",
+      "title": "Promulgation and entry into force of the Meiji Constitution",
+      "url": "https://www.mext.go.jp/b_menu/hakusho/html/others/detail/1317324.htm",
+      "type": "Japan Ministry of Education official history",
+      "quality": "verified"
+    },
+    {
+      "id": "japan_ndl_constitution",
+      "title": "Birth of the Constitution of Japan – chronology",
+      "url": "https://www.ndl.go.jp/constitution/e/etc/history.html",
+      "type": "National Diet Library official chronology",
+      "quality": "verified"
+    },
+    {
+      "id": "japan_house_reps",
+      "title": "Constitution of Japan",
+      "url": "https://www.shugiin.go.jp/internet/itdb_english.nsf/html/statics/english/constitution_e.htm",
+      "type": "House of Representatives constitutional text",
+      "quality": "verified"
+    },
+    {
+      "id": "spain_senate_constitution",
+      "title": "The Senate in the constitutional history of Spain",
+      "url": "https://www.senado.es/web/conocersenado/temasclave/historiaconstitucional/index.html?lang=en",
+      "type": "Spanish Senate official history",
+      "quality": "verified"
+    },
+    {
+      "id": "spain_senate_transition",
+      "title": "Constitutional periods – Transition to Democracy",
+      "url": "https://www.senado.es/web/conocersenado/senadohistoria/periodosconstitucionales/index.html?lang=en",
+      "type": "Spanish Senate official history",
+      "quality": "supported"
+    },
+    {
+      "id": "vietnam_embassy",
+      "title": "Political Overview of Vietnam",
+      "url": "https://vietnamembassy-usa.org/node/56",
+      "type": "Vietnam Embassy official history",
+      "quality": "verified"
+    },
+    {
+      "id": "vietnam_constitution",
+      "title": "Constitution of the Socialist Republic of Vietnam",
+      "url": "https://vietnam.gov.vn/constitution-1992-68962",
+      "type": "Government of Vietnam constitutional text",
+      "quality": "verified"
+    },
+    {
+      "id": "finland_gov",
+      "title": "Finland’s road to independence in 1917",
+      "url": "https://valtioneuvosto.fi/en/-/finland-s-centenary-is-filled-with-joy-and-dignity",
+      "type": "Finnish Government official chronology",
+      "quality": "verified"
+    },
+    {
+      "id": "baltic_mfa",
+      "title": "The roads to independence – Baltic States",
+      "url": "https://www.urm.lt/en/news/928/the-roads-to-independence-lithuania-in-the-world-no-2-2008-p.-4-7%3A28291",
+      "type": "Lithuanian Ministry of Foreign Affairs",
+      "quality": "supported"
+    },
+    {
+      "id": "estonia_state",
+      "title": "National holiday and proclamation of Estonia",
+      "url": "https://riigikantselei.ee/en/national-holiday",
+      "type": "Estonian State Chancellery",
+      "quality": "verified"
+    },
+    {
+      "id": "latvia_president",
+      "title": "History of the Republic of Latvia",
+      "url": "https://www.president.lv/en/history",
+      "type": "President of Latvia official history",
+      "quality": "verified"
+    },
+    {
+      "id": "poland_mfa",
+      "title": "National Independence Day",
+      "url": "https://www.gov.pl/web/diplomacy/national-independence-day",
+      "type": "Polish Ministry of Foreign Affairs",
+      "quality": "verified"
+    },
+    {
+      "id": "ukraine_encyclopedia",
+      "title": "Struggle for Independence (1917–20)",
+      "url": "https://www.encyclopediaofukraine.com/display.asp?linkpath=pagesSTStruggleforIndependence1917hD720.htm",
+      "type": "Encyclopedia of Ukraine",
+      "quality": "supported"
+    },
+    {
+      "id": "india_partition_archives",
+      "title": "Partition of British India",
+      "url": "https://www.nationalarchives.gov.uk/education/teaching-resources/partition-of-british-india/",
+      "type": "UK National Archives",
+      "quality": "supported"
+    },
+    {
+      "id": "korea_history",
+      "title": "Establishment of the Republic of Korea and DPRK",
+      "url": "https://contents.history.go.kr/mobile/kc/view.do?levelId=kc_i502100",
+      "type": "Korean History Database / National Institute of Korean History",
+      "quality": "supported"
+    },
+    {
+      "id": "ussr_belavezha",
+      "title": "Belovezha Agreement, 8 December 1991",
+      "url": "https://governmentussr.org/en/pravitelstvo/voenno-narodnyy-sovet-sssr/belovezhskoe-soglashenie-08-12-1991-g/",
+      "type": "reproduced primary text",
+      "quality": "supported"
+    },
+    {
+      "id": "ussr_dissolution_declaration",
+      "title": "Declaration No. 142-N, 26 December 1991",
+      "url": "https://base.garant.ru/74619820/",
+      "type": "reproduced primary legal text",
+      "quality": "supported"
+    },
+    {
+      "id": "aus_state_treaty",
+      "title": "History of Austria – 1955 State Treaty",
+      "url": "https://www.bmeia.gv.at/oev-wien/about-austria/history",
+      "type": "Austrian Federal Ministry for European and International Affairs",
+      "quality": "verified"
+    }
+  ],
+  "proposedLaws": [
+    {
+      "group": "power",
+      "id": "one_party_state",
+      "name_en": "One-party state",
+      "name_vi": "Nhà nước độc đảng",
+      "description": "A single ruling party holds a constitutionally or practically exclusive position in national political power.",
+      "examples": [
+        {
+          "country": "USSR",
+          "year": 1922
+        },
+        {
+          "country": "PRC",
+          "year": 1949
+        },
+        {
+          "country": "DRV/SRV",
+          "year": 1954
+        }
+      ]
+    },
+    {
+      "group": "power",
+      "id": "one_party_dictatorship",
+      "name_en": "One-party dictatorship",
+      "name_vi": "Độc tài độc đảng",
+      "description": "A ruling party monopolises political authority and bans or suppresses opposition parties.",
+      "examples": [
+        {
+          "country": "Nazi Germany",
+          "year": 1933
+        },
+        {
+          "country": "Fascist Italy",
+          "year": 1926
+        }
+      ]
+    },
+    {
+      "group": "power",
+      "id": "universal_suffrage",
+      "name_en": "Universal adult suffrage",
+      "name_vi": "Phổ thông đầu phiếu phổ quát",
+      "description": "Adult citizens can vote irrespective of sex; use instead of the current male-only universal_suffrage enum.",
+      "examples": [
+        {
+          "country": "Finland",
+          "year": 1906
+        },
+        {
+          "country": "Italy",
+          "year": 1946
+        },
+        {
+          "country": "France",
+          "year": 1944
+        }
+      ]
+    },
+    {
+      "group": "power",
+      "id": "multiparty_presidential_republic",
+      "name_en": "Multiparty presidential republic",
+      "name_vi": "Cộng hòa tổng thống đa đảng",
+      "description": "Competitive parties, elected executive presidency and constitutional checks.",
+      "examples": [
+        {
+          "country": "Russia",
+          "year": 1991
+        }
+      ]
+    },
+    {
+      "group": "power",
+      "id": "authoritarian_state",
+      "name_en": "Authoritarian state",
+      "name_vi": "Nhà nước độc tài",
+      "description": "Executive authority concentrated in a leader; legislature and electoral accountability suspended.",
+      "examples": [
+        {
+          "country": "Vichy France",
+          "year": 1940
+        }
+      ]
+    },
+    {
+      "group": "governance",
+      "id": "semi_presidential_republic",
+      "name_en": "Semi-presidential republic",
+      "name_vi": "Cộng hòa bán tổng thống",
+      "description": "President has independent constitutional powers alongside a government accountable to parliament.",
+      "examples": [
+        {
+          "country": "France",
+          "year": 1958
+        }
+      ]
+    },
+    {
+      "group": "governance",
+      "id": "authoritarian_state",
+      "name_en": "Authoritarian state",
+      "name_vi": "Nhà nước độc tài",
+      "description": "Formal state title may remain republican or monarchical while actual constitutional government is replaced by executive dictatorship.",
+      "examples": [
+        {
+          "country": "Vichy France",
+          "year": 1940
+        }
+      ]
+    },
+    {
+      "group": "economy",
+      "id": "central_planned_economy",
+      "name_en": "Central planned economy",
+      "name_vi": "Kinh tế kế hoạch hóa tập trung",
+      "description": "State ownership of strategic productive assets and binding central plans allocate investment, output and inputs.",
+      "examples": [
+        {
+          "country": "USSR",
+          "year": 1928
+        },
+        {
+          "country": "PRC",
+          "year": 1953
+        },
+        {
+          "country": "GDR",
+          "year": 1949
+        }
+      ]
+    },
+    {
+      "group": "economy",
+      "id": "state_socialist_economy",
+      "name_en": "State socialist economy",
+      "name_vi": "Kinh tế xã hội chủ nghĩa nhà nước",
+      "description": "Land and major industry placed under state or collective ownership, before the mature command-planning system.",
+      "examples": [
+        {
+          "country": "RSFSR",
+          "year": 1918
+        }
+      ]
+    },
+    {
+      "group": "economy",
+      "id": "market_socialism_transition",
+      "name_en": "Market-socialist transition",
+      "name_vi": "Chuyển đổi kinh tế thị trường trong khuôn khổ xã hội chủ nghĩa",
+      "description": "Limited markets, enterprise autonomy and private/cooperative activity introduced while party-state control remains.",
+      "examples": [
+        {
+          "country": "USSR",
+          "year": 1987
+        },
+        {
+          "country": "China",
+          "year": 1978
+        }
+      ]
+    },
+    {
+      "group": "trade",
+      "id": "state_trade_monopoly",
+      "name_en": "State foreign-trade monopoly",
+      "name_vi": "Nhà nước độc quyền ngoại thương",
+      "description": "Foreign trade and foreign-exchange access are administered through state monopolies and plans.",
+      "examples": [
+        {
+          "country": "USSR",
+          "year": 1918
+        },
+        {
+          "country": "PRC",
+          "year": 1950
+        }
+      ]
+    },
+    {
+      "group": "labor",
+      "id": "state_directed_labor",
+      "name_en": "State-directed labour system",
+      "name_vi": "Hệ thống lao động do nhà nước điều phối",
+      "description": "Employment allocation and labour mobility are substantially controlled by the state; coercive practices must be separately represented.",
+      "examples": [
+        {
+          "country": "USSR",
+          "year": 1930
+        }
+      ]
+    },
+    {
+      "group": "army",
+      "id": "constitutional_renunciation_of_war",
+      "name_en": "Constitutional renunciation of war",
+      "name_vi": "Từ bỏ chiến tranh theo hiến pháp",
+      "description": "Constitutional prohibition on war and maintaining war potential; distinct from ordinary army size or conscription laws.",
+      "examples": [
+        {
+          "country": "Japan",
+          "year": 1947
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "RUS-1905-10",
+      "date": "1905-10-30",
+      "windowStart": "1905-01-22",
+      "windowEnd": "1906-05-06",
+      "capitalHistorical": "Saint Petersburg",
+      "entityBefore": {
+        "id": "RUS",
+        "name_en": "Russian Empire",
+        "name_vi": "Đế quốc Nga"
+      },
+      "entityAfter": {
+        "id": "RUS",
+        "name_en": "Russian Empire under the Fundamental Laws",
+        "name_vi": "Đế quốc Nga theo Luật Cơ bản"
+      },
+      "eventType": "constitutional_reform",
+      "causes": [
+        "Defeat in the Russo-Japanese War",
+        "The 1905 Revolution and mass strikes"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy",
+          "note": "The October Manifesto promised civil liberties and an elected Duma; it did not create parliamentary sovereignty or end autocracy."
+        },
+        "press": {
+          "from": "censorship",
+          "to": "limited_press",
+          "note": "Temporary easing followed, but censorship and repression persisted."
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "un_rus_2017"
+      ],
+      "quality": "supported",
+      "note": "Do not model as a full constitutional monarchy. The 1906 Fundamental Laws retained the Emperor's dominant executive and legislative powers."
+    },
+    {
+      "id": "FRA-1848-02",
+      "date": "1848-02-24",
+      "windowStart": "1848-02-22",
+      "windowEnd": "1848-05-04",
+      "capitalHistorical": "Paris",
+      "entityBefore": {
+        "id": "FRA",
+        "name_en": "Kingdom of the French (July Monarchy)",
+        "name_vi": "Vương quốc Pháp (Quân chủ tháng Bảy)"
+      },
+      "entityAfter": {
+        "id": "FRA",
+        "name_en": "French Second Republic",
+        "name_vi": "Đệ nhị Cộng hòa Pháp"
+      },
+      "eventType": "revolution",
+      "causes": [
+        "Banquet campaign and political exclusion",
+        "Economic crisis and urban unrest"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "universal_male_suffrage",
+          "note": "Universal male suffrage was decreed in March 1848."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "fr_assemblee_regimes"
+      ],
+      "quality": "verified",
+      "note": "Republic proclaimed at Paris City Hall on 24 February; Constituent Assembly formally proclaimed it on 4 May 1848."
+    },
+    {
+      "id": "FRA-1852-12",
+      "date": "1852-12-02",
+      "windowStart": "1851-12-02",
+      "windowEnd": "1852-12-02",
+      "capitalHistorical": "Paris",
+      "entityBefore": {
+        "id": "FRA",
+        "name_en": "French Second Republic",
+        "name_vi": "Đệ nhị Cộng hòa Pháp"
+      },
+      "entityAfter": {
+        "id": "FRA",
+        "name_en": "French Second Empire",
+        "name_vi": "Đệ nhị Đế chế Pháp"
+      },
+      "eventType": "coup_and_regime_change",
+      "causes": [
+        "Louis-Napoléon Bonaparte's coup of 2 December 1851",
+        "Constitutional deadlock over presidential re-election"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy",
+          "note": "Plebiscitary legitimacy remained, but executive power was concentrated in Napoleon III."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "monarchy"
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "censorship"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "fr_assemblee_regimes"
+      ],
+      "quality": "verified",
+      "note": "The coup occurred 2 December 1851; the Empire was proclaimed after the plebiscite on 2 December 1852."
+    },
+    {
+      "id": "FRA-1870-09",
+      "date": "1870-09-04",
+      "windowStart": "1870-09-02",
+      "windowEnd": "1875-01-30",
+      "capitalHistorical": "Paris",
+      "entityBefore": {
+        "id": "FRA",
+        "name_en": "French Second Empire",
+        "name_vi": "Đệ nhị Đế chế Pháp"
+      },
+      "entityAfter": {
+        "id": "FRA",
+        "name_en": "French Third Republic",
+        "name_vi": "Đệ tam Cộng hòa Pháp"
+      },
+      "eventType": "revolution_and_regime_change",
+      "causes": [
+        "French defeat at Sedan in the Franco-Prussian War",
+        "Capture of Napoleon III and collapse of imperial authority"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage",
+          "note": "Universal male suffrage survived from 1848; republican institutions were consolidated over several years."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Alsace and part of Lorraine",
+          "from": "France",
+          "to": "German Empire",
+          "date": "1871-05-10",
+          "status": "treaty_confirmed",
+          "note": "Treaty of Frankfurt; territorial loss followed the 1870–71 defeat."
+        }
+      ],
+      "sources": [
+        "fr_assemblee_regimes",
+        "fr_assemblee_5rep"
+      ],
+      "quality": "verified",
+      "note": "Republic proclaimed 4 September 1870; constitutional laws establishing its institutions were adopted in 1875."
+    },
+    {
+      "id": "FRA-1940-07",
+      "date": "1940-07-10",
+      "windowStart": "1940-06-16",
+      "windowEnd": "1940-07-11",
+      "capitalHistorical": "Vichy (de facto seat); Paris occupied",
+      "entityBefore": {
+        "id": "FRA",
+        "name_en": "French Third Republic",
+        "name_vi": "Đệ tam Cộng hòa Pháp"
+      },
+      "entityAfter": {
+        "id": "FRA-VICHY",
+        "name_en": "French State (Vichy)",
+        "name_vi": "Nhà nước Pháp (Vichy)"
+      },
+      "eventType": "constitutional_coup",
+      "causes": [
+        "Military defeat and armistice with Germany",
+        "Collapse of the Third Republic's wartime government"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy",
+          "note": "Parliament transferred constituent powers to Pétain; elected chambers were then adjourned."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic",
+          "note": "Vichy formally styled itself État français; do not treat as a normal constitutional republic."
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "censorship"
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "group": "governance",
+          "id": "authoritarian_state",
+          "name_en": "Authoritarian State",
+          "name_vi": "Nhà nước độc tài",
+          "description": "Executive sovereignty concentrated in a leader; elected legislature suspended."
+        }
+      ],
+      "territorialChanges": [
+        {
+          "territory": "Metropolitan France",
+          "from": "Third Republic",
+          "to": "Vichy administration in unoccupied zone; German military occupation in north and west",
+          "date": "1940-06-22",
+          "status": "armistice_and_occupation",
+          "note": "Split sovereignty and occupation; Free France continued the war outside Vichy control."
+        }
+      ],
+      "sources": [
+        "fr_assemblee_vichy"
+      ],
+      "quality": "verified",
+      "note": "10 July 1940 is the full-powers vote; first constitutional acts on 11 July created the authoritarian Vichy order. Vichy was not simply the whole of France."
+    },
+    {
+      "id": "FRA-1944-08",
+      "date": "1944-08-25",
+      "windowStart": "1943-06-03",
+      "windowEnd": "1946-10-27",
+      "capitalHistorical": "Algiers (1943–44); Paris from August 1944",
+      "entityBefore": {
+        "id": "FRA-VICHY",
+        "name_en": "French State (Vichy)",
+        "name_vi": "Nhà nước Pháp (Vichy)"
+      },
+      "entityAfter": {
+        "id": "FRA-GPRF",
+        "name_en": "Provisional Government of the French Republic",
+        "name_vi": "Chính phủ Lâm thời Cộng hòa Pháp"
+      },
+      "eventType": "restoration",
+      "causes": [
+        "Allied liberation of France",
+        "Free France and Resistance institutions claimed republican legitimacy"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage",
+          "note": "Women voted in the 1945 elections; suffrage became universal adult suffrage."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "limited_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "fr_assemblee_regimes"
+      ],
+      "quality": "supported",
+      "note": "The CFLN was formed in Algiers on 3 June 1943 and became the GPRF on 3 June 1944; Paris was liberated on 25 August 1944. The GPRF governed until the Fourth Republic."
+    },
+    {
+      "id": "FRA-1946-10",
+      "date": "1946-10-27",
+      "windowStart": "1946-10-13",
+      "windowEnd": "1947-01-16",
+      "capitalHistorical": "Paris",
+      "entityBefore": {
+        "id": "FRA-GPRF",
+        "name_en": "Provisional Government of the French Republic",
+        "name_vi": "Chính phủ Lâm thời Cộng hòa Pháp"
+      },
+      "entityAfter": {
+        "id": "FRA",
+        "name_en": "French Fourth Republic",
+        "name_vi": "Đệ tứ Cộng hòa Pháp"
+      },
+      "eventType": "constitution",
+      "causes": [
+        "Post-war constituent process",
+        "Referendum approval of the Constitution"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "universal_male_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "education": {
+          "from": "public_schools",
+          "to": "public_schools"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "fr_assemblee_regimes"
+      ],
+      "quality": "verified",
+      "note": "Constitution promulgated 27 October 1946; Fourth Republic's institutional period conventionally begins 16 January 1947 in the National Assembly chronology."
+    },
+    {
+      "id": "FRA-1958-10",
+      "date": "1958-10-04",
+      "windowStart": "1958-05-13",
+      "windowEnd": "1958-10-04",
+      "capitalHistorical": "Paris",
+      "entityBefore": {
+        "id": "FRA",
+        "name_en": "French Fourth Republic",
+        "name_vi": "Đệ tứ Cộng hòa Pháp"
+      },
+      "entityAfter": {
+        "id": "FRA",
+        "name_en": "French Fifth Republic",
+        "name_vi": "Đệ ngũ Cộng hòa Pháp"
+      },
+      "eventType": "constitution_and_regime_change",
+      "causes": [
+        "Algerian crisis and May 1958 political-military crisis",
+        "Collapse of Fourth Republic government"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "universal_male_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "group": "governance",
+          "id": "semi_presidential_republic",
+          "name_en": "Semi-presidential republic",
+          "name_vi": "Cộng hòa bán tổng thống",
+          "description": "President with substantial constitutional powers alongside a Prime Minister responsible to Parliament."
+        }
+      ],
+      "territorialChanges": [],
+      "sources": [
+        "fr_assemblee_5rep"
+      ],
+      "quality": "verified",
+      "note": "Constitution approved by referendum 28 September and promulgated 4 October 1958."
+    },
+    {
+      "id": "GER-1871-01",
+      "date": "1871-01-18",
+      "windowStart": "1866-08-18",
+      "windowEnd": "1871-01-18",
+      "capitalHistorical": "Berlin",
+      "entityBefore": {
+        "id": "PRU",
+        "name_en": "Kingdom of Prussia and North German Confederation",
+        "name_vi": "Vương quốc Phổ và Liên bang Bắc Đức"
+      },
+      "entityAfter": {
+        "id": "GER-1871",
+        "name_en": "German Empire (Deutsches Reich)",
+        "name_vi": "Đế quốc Đức"
+      },
+      "eventType": "unification",
+      "causes": [
+        "Prussian victory over Austria in 1866",
+        "North German Confederation and southern German states joined after Franco-Prussian War"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage",
+          "note": "Reichstag elected by universal male suffrage; executive power remained with Emperor and Chancellor."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        },
+        "army": {
+          "from": "mass_conscription",
+          "to": "mass_conscription"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "German states north and south of Main",
+          "from": "independent German Confederation states",
+          "to": "German Empire",
+          "date": "1871-01-18",
+          "status": "unification",
+          "note": "Bavaria, Württemberg, Baden and Hesse joined; Austria excluded."
+        }
+      ],
+      "sources": [
+        "german_history_docs",
+        "deutschland_empire"
+      ],
+      "quality": "supported",
+      "note": "The new Empire was founded legally on 1 January 1871; Wilhelm I was proclaimed Emperor at Versailles on 18 January. Use 18 January for public proclamation, 1 January for legal foundation."
+    },
+    {
+      "id": "GER-1918-11",
+      "date": "1918-11-09",
+      "windowStart": "1918-10-29",
+      "windowEnd": "1919-08-11",
+      "capitalHistorical": "Berlin",
+      "entityBefore": {
+        "id": "GER-1871",
+        "name_en": "German Empire",
+        "name_vi": "Đế quốc Đức"
+      },
+      "entityAfter": {
+        "id": "GER-WEIMAR",
+        "name_en": "German Republic (Weimar Republic)",
+        "name_vi": "Cộng hòa Đức (Cộng hòa Weimar)"
+      },
+      "eventType": "revolution_and_regime_change",
+      "causes": [
+        "Military defeat in World War I",
+        "Kiel sailors' mutiny and November Revolution",
+        "Kaiser Wilhelm II abdicated"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "universal_male_suffrage",
+          "note": "Women gained national voting rights in 1918; universal suffrage was extended."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "free_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "deutschlandmuseum",
+        "deutschland_empire"
+      ],
+      "quality": "supported",
+      "note": "Republic proclaimed 9 November 1918; Weimar Constitution signed 11 August 1919. Germany's 1918 revolution is distinct from the 1919 constitutional settlement."
+    },
+    {
+      "id": "GER-1933-01",
+      "date": "1933-01-30",
+      "windowStart": "1933-01-30",
+      "windowEnd": "1934-08-02",
+      "capitalHistorical": "Berlin",
+      "entityBefore": {
+        "id": "GER-WEIMAR",
+        "name_en": "Weimar Republic",
+        "name_vi": "Cộng hòa Weimar"
+      },
+      "entityAfter": {
+        "id": "GER-NAZI",
+        "name_en": "German Reich under National Socialist rule",
+        "name_vi": "Đế chế Đức dưới chế độ Quốc xã"
+      },
+      "eventType": "authoritarian_takeover",
+      "causes": [
+        "Great Depression and mass unemployment",
+        "Fragmented parliamentary coalitions and emergency rule",
+        "Hitler appointed Chancellor; Enabling Act dismantled constitutional checks"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic",
+          "note": "The state retained the Reich name and formal republican shell; actual government became a Führer dictatorship."
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "interventionism"
+        },
+        "trade": {
+          "from": "free_trade",
+          "to": "protectionism"
+        },
+        "press": {
+          "from": "free_press",
+          "to": "censorship"
+        },
+        "army": {
+          "from": "mass_conscription",
+          "to": "mass_conscription"
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "group": "power",
+          "id": "one_party_dictatorship",
+          "name_en": "One-party dictatorship",
+          "name_vi": "Độc tài độc đảng",
+          "description": "All opposition parties banned; ruling party monopolises political power."
+        }
+      ],
+      "territorialChanges": [],
+      "sources": [
+        "deutschlandmuseum",
+        "deutschland_empire"
+      ],
+      "quality": "supported",
+      "note": "30 January 1933 marks appointment, not instant completion; Enabling Act 23 March 1933 and subsequent coordination destroyed democracy."
+    },
+    {
+      "id": "GER-1949-05",
+      "date": "1949-05-23",
+      "windowStart": "1945-05-08",
+      "windowEnd": "1949-10-07",
+      "capitalHistorical": "Bonn (FRG); East Berlin (GDR)",
+      "entityBefore": {
+        "id": "GER-NAZI",
+        "name_en": "German Reich under National Socialist rule",
+        "name_vi": "Đế chế Đức dưới chế độ Quốc xã"
+      },
+      "entityAfter": {
+        "id": "GER-FRG",
+        "name_en": "Federal Republic of Germany",
+        "name_vi": "Cộng hòa Liên bang Đức"
+      },
+      "eventType": "partition_and_constitution",
+      "causes": [
+        "Unconditional German surrender and four-power occupation",
+        "Cold War division between Western Allies and Soviet Union"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage",
+          "note": "Federal elections included women; the 1949 Basic Law established democratic institutions."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "free_press"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Western occupation zones",
+          "from": "Allied occupation administration",
+          "to": "Federal Republic of Germany",
+          "date": "1949-05-23",
+          "status": "state_formation"
+        },
+        {
+          "territory": "Soviet occupation zone",
+          "from": "Soviet occupation administration",
+          "to": "German Democratic Republic",
+          "date": "1949-10-07",
+          "status": "state_formation",
+          "note": "Separate record GER-1949-10 captures the GDR."
+        }
+      ],
+      "sources": [
+        "deutschlandmuseum",
+        "de_basic_law"
+      ],
+      "quality": "verified",
+      "note": "FRG founded 23 May 1949; this record does not imply it alone represented all German territory."
+    },
+    {
+      "id": "GER-1949-10",
+      "date": "1949-10-07",
+      "windowStart": "1945-05-08",
+      "windowEnd": "1949-10-07",
+      "capitalHistorical": "East Berlin",
+      "entityBefore": {
+        "id": "SOV_OCC_GERMANY",
+        "name_en": "Soviet occupation zone in Germany",
+        "name_vi": "Vùng chiếm đóng của Liên Xô tại Đức"
+      },
+      "entityAfter": {
+        "id": "GDR",
+        "name_en": "German Democratic Republic",
+        "name_vi": "Cộng hòa Dân chủ Đức"
+      },
+      "eventType": "state_formation",
+      "causes": [
+        "Cold War confrontation and failure to agree on an all-German settlement",
+        "Soviet-backed constitutional process in the eastern occupation zone"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "interventionism"
+        },
+        "trade": {
+          "from": "protectionism",
+          "to": "protectionism"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "censorship"
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "group": "power",
+          "id": "one_party_state",
+          "name_en": "One-party state",
+          "name_vi": "Nhà nước độc đảng",
+          "description": "SED-led political monopoly; formally front parties and mass organisations remained."
+        },
+        {
+          "group": "economy",
+          "id": "central_planned_economy",
+          "name_en": "Central planned economy",
+          "name_vi": "Kinh tế kế hoạch hóa tập trung",
+          "description": "State ownership and binding central production plans."
+        }
+      ],
+      "territorialChanges": [
+        {
+          "territory": "Soviet occupation zone",
+          "from": "Allied occupation administration",
+          "to": "German Democratic Republic",
+          "date": "1949-10-07",
+          "status": "state_formation"
+        }
+      ],
+      "sources": [
+        "deutschlandmuseum"
+      ],
+      "quality": "supported",
+      "note": "GDR formation date 7 October 1949; it ceased to exist when it acceded to the FRG on 3 October 1990."
+    },
+    {
+      "id": "GER-1990-10",
+      "date": "1990-10-03",
+      "windowStart": "1989-11-09",
+      "windowEnd": "1990-10-03",
+      "capitalHistorical": "Berlin",
+      "entityBefore": {
+        "id": "GDR",
+        "name_en": "German Democratic Republic",
+        "name_vi": "Cộng hòa Dân chủ Đức"
+      },
+      "entityAfter": {
+        "id": "GER-FRG",
+        "name_en": "Federal Republic of Germany (unified)",
+        "name_vi": "Cộng hòa Liên bang Đức (thống nhất)"
+      },
+      "eventType": "reunification_by_accession",
+      "causes": [
+        "Peaceful Revolution in East Germany",
+        "Fall of Berlin Wall and negotiations among Two Plus Four powers"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "laissez_faire"
+        },
+        "trade": {
+          "from": "protectionism",
+          "to": "free_trade"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "free_press"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "GDR territory (five Länder and East Berlin)",
+          "from": "German Democratic Republic",
+          "to": "Federal Republic of Germany",
+          "date": "1990-10-03",
+          "status": "accession",
+          "note": "GDR acceded to the FRG; not a merger of two equal sovereign states under a new constitution."
+        }
+      ],
+      "sources": [
+        "deutschlandmuseum",
+        "de_basic_law"
+      ],
+      "quality": "verified",
+      "note": "German unity became effective 3 October 1990; Basic Law extended to the former GDR."
+    },
+    {
+      "id": "ITA-1861-03",
+      "date": "1861-03-17",
+      "windowStart": "1859-04-27",
+      "windowEnd": "1870-09-20",
+      "capitalHistorical": "Turin (1861); Florence (1865); Rome (from 1871)",
+      "entityBefore": {
+        "id": "SAR",
+        "name_en": "Kingdom of Sardinia and Italian states",
+        "name_vi": "Vương quốc Sardinia và các quốc gia Ý"
+      },
+      "entityAfter": {
+        "id": "ITA",
+        "name_en": "Kingdom of Italy",
+        "name_vi": "Vương quốc Ý"
+      },
+      "eventType": "unification",
+      "causes": [
+        "Risorgimento nationalist movement",
+        "Second Italian War of Independence and Garibaldi's Expedition of the Thousand"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "census_suffrage",
+          "note": "The Statuto Albertino was extended; electorate remained narrow."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        },
+        "trade": {
+          "from": "protectionism",
+          "to": "free_trade"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Most Italian states and Kingdom of Two Sicilies",
+          "from": "multiple sovereign states",
+          "to": "Kingdom of Italy",
+          "date": "1861-03-17",
+          "status": "unification"
+        },
+        {
+          "territory": "Rome and Lazio",
+          "from": "Papal States",
+          "to": "Kingdom of Italy",
+          "date": "1870-09-20",
+          "status": "military_annexation"
+        }
+      ],
+      "sources": [
+        "italian_parliament"
+      ],
+      "quality": "verified",
+      "note": "Kingdom proclaimed 17 March 1861; Rome was taken in 1870 and became capital in 1871. Italian unification was a multi-stage process."
+    },
+    {
+      "id": "ITA-1922-10",
+      "date": "1922-10-30",
+      "windowStart": "1922-10-28",
+      "windowEnd": "1926-11-09",
+      "capitalHistorical": "Rome",
+      "entityBefore": {
+        "id": "ITA",
+        "name_en": "Kingdom of Italy (constitutional monarchy)",
+        "name_vi": "Vương quốc Ý (quân chủ lập hiến)"
+      },
+      "entityAfter": {
+        "id": "ITA",
+        "name_en": "Kingdom of Italy under Fascist dictatorship",
+        "name_vi": "Vương quốc Ý dưới chế độ độc tài Phát xít"
+      },
+      "eventType": "authoritarian_takeover",
+      "causes": [
+        "Post-war social conflict and political violence",
+        "March on Rome; King Victor Emmanuel III appointed Mussolini Prime Minister"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "autocracy"
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy",
+          "note": "The monarchy remained; the Fascist Party destroyed parliamentary democracy."
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "censorship"
+        },
+        "army": {
+          "from": "mass_conscription",
+          "to": "mass_conscription"
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "group": "power",
+          "id": "one_party_dictatorship",
+          "name_en": "One-party dictatorship",
+          "name_vi": "Độc tài độc đảng",
+          "description": "Fascist Party monopolises political authority; opposition suppressed."
+        }
+      ],
+      "territorialChanges": [],
+      "sources": [
+        "italian_parliament"
+      ],
+      "quality": "supported",
+      "note": "Mussolini was appointed on 30 October 1922; consolidation into dictatorship took several years, especially 1925–26."
+    },
+    {
+      "id": "ITA-1946-06",
+      "date": "1946-06-18",
+      "windowStart": "1946-06-02",
+      "windowEnd": "1948-01-01",
+      "capitalHistorical": "Rome",
+      "entityBefore": {
+        "id": "ITA",
+        "name_en": "Kingdom of Italy under Fascist/post-war transition",
+        "name_vi": "Vương quốc Ý thời hậu Phát xít"
+      },
+      "entityAfter": {
+        "id": "ITA",
+        "name_en": "Italian Republic",
+        "name_vi": "Cộng hòa Ý"
+      },
+      "eventType": "referendum_and_regime_change",
+      "causes": [
+        "Fall of Fascism and end of monarchy's wartime legitimacy",
+        "Institutional referendum on 2 June 1946 chose a republic"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "universal_male_suffrage",
+          "note": "Women voted in the 1946 referendum and Constituent Assembly election; use proposed universal_suffrage because current enum is male-specific."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "free_press"
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "group": "power",
+          "id": "universal_suffrage",
+          "name_en": "Universal adult suffrage",
+          "name_vi": "Phổ thông đầu phiếu phổ quát",
+          "description": "Voting rights for adult citizens irrespective of sex."
+        }
+      ],
+      "territorialChanges": [],
+      "sources": [
+        "italian_parliament"
+      ],
+      "quality": "verified",
+      "note": "The referendum was held 2 June; the republic was officially proclaimed 18 June. Constitution entered into force 1 January 1948."
+    },
+    {
+      "id": "AUS-1867-06",
+      "date": "1867-06-08",
+      "windowStart": "1867-02-17",
+      "windowEnd": "1867-06-08",
+      "capitalHistorical": "Vienna and Budapest",
+      "entityBefore": {
+        "id": "AUS",
+        "name_en": "Austrian Empire",
+        "name_vi": "Đế quốc Áo"
+      },
+      "entityAfter": {
+        "id": "AHM",
+        "name_en": "Austro-Hungarian Monarchy",
+        "name_vi": "Quân chủ Áo-Hungary"
+      },
+      "eventType": "constitutional_compromise",
+      "causes": [
+        "Austrian defeat in the Austro-Prussian War of 1866",
+        "Hungarian political pressure for restoration of constitutional autonomy"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "census_suffrage",
+          "note": "Dualist constitutional institutions; franchise remained restricted and unequal."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Kingdom of Hungary and associated lands",
+          "from": "Austrian imperial central administration",
+          "to": "Hungarian Crown lands with separate parliament and government under shared monarch",
+          "date": "1867-06-08",
+          "status": "dual_monarchy_compromise"
+        }
+      ],
+      "sources": [
+        "ausgleich_aeiou"
+      ],
+      "quality": "supported",
+      "note": "Ausgleich signed 15 March 1867; Hungarian coronation and constitutional settlement followed in June. The monarchy had two constituent halves, not a unitary state with simple provinces."
+    },
+    {
+      "id": "AHM-1918-10",
+      "date": "1918-10-28",
+      "windowStart": "1918-10-16",
+      "windowEnd": "1918-12-01",
+      "capitalHistorical": "Vienna and Budapest; successor capitals include Prague, Belgrade and Zagreb",
+      "entityBefore": {
+        "id": "AHM",
+        "name_en": "Austro-Hungarian Monarchy",
+        "name_vi": "Quân chủ Áo-Hungary"
+      },
+      "entityAfter": {
+        "id": "AHM-SUCCESSORS",
+        "name_en": "Successor states of Austria-Hungary",
+        "name_vi": "Các quốc gia kế thừa Áo-Hungary"
+      },
+      "eventType": "dissolution",
+      "causes": [
+        "Military defeat and armistice in World War I",
+        "National councils proclaimed sovereignty and withdrew allegiance from Habsburg institutions"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "universal_male_suffrage",
+          "note": "Successor-state laws diverged; women's suffrage was adopted in some, not all, states."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic",
+          "note": "This is a composite event; Hungary briefly became a republic, while the Kingdom of Serbs, Croats and Slovenes was a monarchy."
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Bohemia, Moravia and Slovakia",
+          "from": "Austria-Hungary",
+          "to": "Czechoslovakia",
+          "date": "1918-10-28",
+          "status": "state_formation"
+        },
+        {
+          "territory": "German-Austrian lands",
+          "from": "Austria-Hungary",
+          "to": "Republic of German-Austria",
+          "date": "1918-11-12",
+          "status": "state_formation"
+        },
+        {
+          "territory": "Hungary",
+          "from": "Austria-Hungary",
+          "to": "Hungarian People's Republic (later Kingdom of Hungary)",
+          "date": "1918-11-16",
+          "status": "state_formation"
+        },
+        {
+          "territory": "Croatia-Slavonia, Slovenia, Bosnia-Herzegovina and other South Slavic lands",
+          "from": "Austria-Hungary",
+          "to": "State of Slovenes, Croats and Serbs; later Kingdom of Serbs, Croats and Slovenes",
+          "date": "1918-12-01",
+          "status": "state_formation"
+        }
+      ],
+      "sources": [
+        "us_historian_austria",
+        "us_historian_hungary",
+        "us_historian_czechoslovakia",
+        "yugoslav_archives"
+      ],
+      "quality": "supported",
+      "note": "No single date captures the dissolution. Successor proclamations occurred between October and December 1918; treaties later formalised borders."
+    },
+    {
+      "id": "TUR-1922-11",
+      "date": "1922-11-01",
+      "windowStart": "1919-05-19",
+      "windowEnd": "1923-10-29",
+      "capitalHistorical": "Ankara (national movement); Istanbul (Ottoman court until abolition)",
+      "entityBefore": {
+        "id": "TUR",
+        "name_en": "Ottoman Empire",
+        "name_vi": "Đế quốc Ottoman"
+      },
+      "entityAfter": {
+        "id": "TUR",
+        "name_en": "Republic of Türkiye",
+        "name_vi": "Cộng hòa Thổ Nhĩ Kỳ"
+      },
+      "eventType": "revolution_and_state_formation",
+      "causes": [
+        "Defeat and partition pressure after World War I",
+        "Turkish National Movement and War of Independence",
+        "Grand National Assembly abolished the Sultanate"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage",
+          "note": "Republican sovereignty was declared; actual pluralist elections evolved later."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "church": {
+          "from": "state_religion",
+          "to": "secularism",
+          "note": "Secularisation proceeded in stages; caliphate abolished 3 March 1924."
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Anatolia and Eastern Thrace",
+          "from": "Ottoman imperial sovereignty",
+          "to": "Republic of Türkiye",
+          "date": "1923-10-29",
+          "status": "state_formation",
+          "note": "Lausanne Treaty signed 24 July 1923; republic proclaimed 29 October."
+        }
+      ],
+      "sources": [
+        "turkey_ataturk"
+      ],
+      "quality": "verified",
+      "note": "Sultanate abolished 1 November 1922; Republic proclaimed 29 October 1923. These are distinct legal milestones."
+    },
+    {
+      "id": "QNG-1912-01",
+      "date": "1912-01-01",
+      "windowStart": "1911-10-10",
+      "windowEnd": "1912-02-12",
+      "capitalHistorical": "Nanjing (provisional government); Beijing (after Yuan Shikai transfer)",
+      "entityBefore": {
+        "id": "QNG",
+        "name_en": "Great Qing",
+        "name_vi": "Đại Thanh"
+      },
+      "entityAfter": {
+        "id": "ROC",
+        "name_en": "Republic of China",
+        "name_vi": "Trung Hoa Dân Quốc"
+      },
+      "eventType": "revolution_and_state_formation",
+      "causes": [
+        "Wuchang Uprising and provincial secessions",
+        "Collapse of Qing authority and negotiated abdication"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "census_suffrage",
+          "note": "Republican institutions were proclaimed; political participation remained limited and unstable."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Qing imperial core",
+          "from": "Great Qing",
+          "to": "Republic of China",
+          "date": "1912-02-12",
+          "status": "dynastic_transition",
+          "note": "Qing abdication on 12 February formalised the end of the dynasty; frontier control and later warlord fragmentation remained contested."
+        }
+      ],
+      "sources": [
+        "china_national_museum"
+      ],
+      "quality": "verified",
+      "note": "The Republic was inaugurated 1 January 1912; the Qing abdication edict followed 12 February 1912. Do not collapse these dates."
+    },
+    {
+      "id": "CHN-1949-10",
+      "date": "1949-10-01",
+      "windowStart": "1945-08-15",
+      "windowEnd": "1950-05-01",
+      "capitalHistorical": "Beijing",
+      "entityBefore": {
+        "id": "ROC",
+        "name_en": "Republic of China (mainland government)",
+        "name_vi": "Trung Hoa Dân Quốc (chính quyền đại lục)"
+      },
+      "entityAfter": {
+        "id": "PRC",
+        "name_en": "People's Republic of China",
+        "name_vi": "Cộng hòa Nhân dân Trung Hoa"
+      },
+      "eventType": "revolution_and_state_formation",
+      "causes": [
+        "Resumption and victory of the Chinese Civil War by the Chinese Communist Party",
+        "Collapse of Nationalist control over mainland China"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "autocracy",
+          "note": "The PRC established Communist Party-led people's democratic dictatorship; current enum cannot express one-party state."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "interventionism",
+          "note": "Nationalisation and planning were implemented progressively, not all on proclamation day."
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "censorship"
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "group": "power",
+          "id": "one_party_state",
+          "name_en": "One-party state",
+          "name_vi": "Nhà nước độc đảng",
+          "description": "Communist Party leadership constitutionally and institutionally monopolises national political direction."
+        },
+        {
+          "group": "economy",
+          "id": "central_planned_economy",
+          "name_en": "Central planned economy",
+          "name_vi": "Kinh tế kế hoạch hóa tập trung",
+          "description": "State ownership of major productive assets and binding national plans, consolidated in the 1950s."
+        }
+      ],
+      "territorialChanges": [
+        {
+          "territory": "Mainland China",
+          "from": "Republic of China government",
+          "to": "People's Republic of China",
+          "date": "1949-10-01",
+          "status": "regime_replacement",
+          "note": "The ROC government retreated to Taiwan and continued to exist; this is not a universally recognised extinction of the ROC."
+        }
+      ],
+      "sources": [
+        "us_historian_china_1949"
+      ],
+      "quality": "supported",
+      "note": "PRC proclaimed 1 October 1949. The ROC continued in Taiwan; treat sovereignty/recognition as contested rather than a seamless rename."
+    },
+    {
+      "id": "JAP-1868-01",
+      "date": "1868-01-03",
+      "windowStart": "1867-11-09",
+      "windowEnd": "1869-06-27",
+      "capitalHistorical": "Kyoto (imperial court); Tokyo from 1868/1869",
+      "entityBefore": {
+        "id": "JAP",
+        "name_en": "Tokugawa Shogunate",
+        "name_vi": "Mạc phủ Tokugawa"
+      },
+      "entityAfter": {
+        "id": "JAP-MEIJI",
+        "name_en": "Empire of Japan under Meiji Restoration",
+        "name_vi": "Đế quốc Nhật Bản thời Minh Trị Duy Tân"
+      },
+      "eventType": "revolution_and_state_centralisation",
+      "causes": [
+        "Tokugawa political crisis after forced opening to foreign powers",
+        "Satsuma-Chōshū alliance and transfer of governing authority to the Emperor"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "oligarchy",
+          "to": "autocracy",
+          "note": "Meiji oligarchs centralised authority in the imperial state; the 1889 Constitution later created a restricted Diet."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        },
+        "trade": {
+          "from": "isolationism",
+          "to": "protectionism",
+          "note": "Unequal treaties and managed opening replaced sakoku."
+        },
+        "army": {
+          "from": "feudal_levies",
+          "to": "mass_conscription"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "japan_mext_meiji"
+      ],
+      "quality": "supported",
+      "note": "Restoration edict dated 3 January 1868; civil war and dismantling of domains continued through 1869–71. Do not make all reforms instantaneous."
+    },
+    {
+      "id": "JAP-1889-02",
+      "date": "1889-02-11",
+      "windowStart": "1881-10-12",
+      "windowEnd": "1890-11-29",
+      "capitalHistorical": "Tokyo",
+      "entityBefore": {
+        "id": "JAP-MEIJI",
+        "name_en": "Empire of Japan under Meiji Restoration",
+        "name_vi": "Đế quốc Nhật Bản thời Minh Trị"
+      },
+      "entityAfter": {
+        "id": "JAP-MEIJI",
+        "name_en": "Empire of Japan under the Meiji Constitution",
+        "name_vi": "Đế quốc Nhật Bản theo Hiến pháp Minh Trị"
+      },
+      "eventType": "constitution",
+      "causes": [
+        "Meiji state's centralisation and promise of constitutional government",
+        "Drafting and promulgation of an imperial constitution"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "census_suffrage",
+          "note": "The Diet existed but franchise was initially restricted to tax-qualified men; Emperor retained sovereignty."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "japan_mext_meiji",
+        "japan_ndl_constitution"
+      ],
+      "quality": "verified",
+      "note": "Constitution promulgated 11 February 1889; entered into force with the first Imperial Diet on 29 November 1890."
+    },
+    {
+      "id": "JAP-1947-05",
+      "date": "1947-05-03",
+      "windowStart": "1945-08-15",
+      "windowEnd": "1947-05-03",
+      "capitalHistorical": "Tokyo",
+      "entityBefore": {
+        "id": "JAP-MEIJI",
+        "name_en": "Empire of Japan under the Meiji Constitution",
+        "name_vi": "Đế quốc Nhật Bản theo Hiến pháp Minh Trị"
+      },
+      "entityAfter": {
+        "id": "JAP",
+        "name_en": "Japan under the Constitution of Japan",
+        "name_vi": "Nhật Bản theo Hiến pháp Nhật Bản năm 1947"
+      },
+      "eventType": "constitution_and_democratic_transition",
+      "causes": [
+        "Defeat and surrender in World War II",
+        "Allied occupation and constitutional reform"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "universal_male_suffrage",
+          "note": "Women obtained the vote in 1945; use proposed universal_suffrage to represent the 1947 constitutional order."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy",
+          "note": "Emperor retained as symbol of the State, sovereignty vested in the people."
+        },
+        "press": {
+          "from": "censorship",
+          "to": "free_press"
+        },
+        "church": {
+          "from": "state_religion",
+          "to": "secularism"
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "group": "power",
+          "id": "universal_suffrage",
+          "name_en": "Universal adult suffrage",
+          "name_vi": "Phổ thông đầu phiếu phổ quát",
+          "description": "Equal voting rights for adult citizens, including women."
+        },
+        {
+          "group": "army",
+          "id": "constitutional_renunciation_of_war",
+          "name_en": "Constitutional renunciation of war",
+          "name_vi": "Từ bỏ chiến tranh theo hiến pháp",
+          "description": "Article 9 renounces war and prohibits maintaining war potential; distinguish from ordinary disarmament."
+        }
+      ],
+      "territorialChanges": [],
+      "sources": [
+        "japan_ndl_constitution",
+        "japan_house_reps"
+      ],
+      "quality": "verified",
+      "note": "Constitution promulgated 3 November 1946 and entered into force 3 May 1947. The emperor's constitutional role was transformed, but the monarchy was not abolished."
+    },
+    {
+      "id": "SPA-1931-04",
+      "date": "1931-04-14",
+      "windowStart": "1931-04-12",
+      "windowEnd": "1931-12-09",
+      "capitalHistorical": "Madrid",
+      "entityBefore": {
+        "id": "SPA",
+        "name_en": "Kingdom of Spain under Alfonso XIII",
+        "name_vi": "Vương quốc Tây Ban Nha dưới thời Alfonso XIII"
+      },
+      "entityAfter": {
+        "id": "SPA",
+        "name_en": "Second Spanish Republic",
+        "name_vi": "Đệ nhị Cộng hòa Tây Ban Nha"
+      },
+      "eventType": "regime_change",
+      "causes": [
+        "Monarchist defeat in municipal elections in major cities",
+        "King Alfonso XIII left Spain and republic proclaimed"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "universal_male_suffrage",
+          "note": "Women gained the vote in the 1931 Constitution, with first national general election voting in 1933."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "church": {
+          "from": "state_religion",
+          "to": "secularism"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "spain_senate_constitution"
+      ],
+      "quality": "supported",
+      "note": "14 April is the proclamation date; Constitution adopted in December 1931."
+    },
+    {
+      "id": "SPA-1939-04",
+      "date": "1939-04-01",
+      "windowStart": "1936-07-17",
+      "windowEnd": "1939-04-01",
+      "capitalHistorical": "Burgos (Nationalist headquarters during war); Madrid after victory",
+      "entityBefore": {
+        "id": "SPA",
+        "name_en": "Second Spanish Republic",
+        "name_vi": "Đệ nhị Cộng hòa Tây Ban Nha"
+      },
+      "entityAfter": {
+        "id": "SPA-FRANCO",
+        "name_en": "Spanish State under Franco",
+        "name_vi": "Nhà nước Tây Ban Nha dưới quyền Franco"
+      },
+      "eventType": "civil_war_victory_and_dictatorship",
+      "causes": [
+        "Military coup of July 1936 and ensuing Spanish Civil War",
+        "Nationalist victory with Axis assistance and collapse of Republican resistance"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "monarchy",
+          "note": "The Francoist state did not function as a monarchy until the 1969 succession designation; monarchy is an imperfect enum fallback."
+        },
+        "press": {
+          "from": "free_press",
+          "to": "censorship"
+        },
+        "church": {
+          "from": "secularism",
+          "to": "state_religion"
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "group": "power",
+          "id": "one_party_authoritarian_state",
+          "name_en": "Authoritarian single-party state",
+          "name_vi": "Nhà nước độc tài một đảng",
+          "description": "FET y de las JONS and Francoist institutions dominate; other parties prohibited."
+        }
+      ],
+      "territorialChanges": [],
+      "sources": [
+        "spain_senate_transition"
+      ],
+      "quality": "supported",
+      "note": "Franco declared victory 1 April 1939; the dictatorship began through a 1936 military uprising and wartime consolidation, not solely on this date."
+    },
+    {
+      "id": "SPA-1975-11",
+      "date": "1975-11-20",
+      "windowStart": "1975-11-20",
+      "windowEnd": "1978-12-06",
+      "capitalHistorical": "Madrid",
+      "entityBefore": {
+        "id": "SPA-FRANCO",
+        "name_en": "Spanish State under Franco",
+        "name_vi": "Nhà nước Tây Ban Nha dưới quyền Franco"
+      },
+      "entityAfter": {
+        "id": "SPA",
+        "name_en": "Kingdom of Spain in democratic transition",
+        "name_vi": "Vương quốc Tây Ban Nha trong quá trình chuyển đổi dân chủ"
+      },
+      "eventType": "political_transition",
+      "causes": [
+        "Death of Francisco Franco",
+        "King Juan Carlos I and reformist political actors opened a legal transition"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage",
+          "note": "1977 elections and 1978 Constitution restored democratic elections; use universal_suffrage proposed value."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "monarchy"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "free_press"
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "group": "power",
+          "id": "universal_suffrage",
+          "name_en": "Universal adult suffrage",
+          "name_vi": "Phổ thông đầu phiếu phổ quát",
+          "description": "Adult citizens vote without sex-based exclusion."
+        }
+      ],
+      "territorialChanges": [],
+      "sources": [
+        "spain_senate_constitution",
+        "spain_senate_transition"
+      ],
+      "quality": "supported",
+      "note": "Franco died 20 November 1975; Political Reform Act 1977, elections 15 June 1977, Constitution approved by referendum 6 December and promulgated 27 December 1978."
+    },
+    {
+      "id": "VNM-1945-09",
+      "date": "1945-09-02",
+      "windowStart": "1945-08-19",
+      "windowEnd": "1946-01-06",
+      "capitalHistorical": "Hanoi",
+      "entityBefore": {
+        "id": "VNM",
+        "name_en": "Empire of Vietnam / French colonial administration",
+        "name_vi": "Đế quốc Việt Nam / chính quyền thuộc địa Pháp"
+      },
+      "entityAfter": {
+        "id": "DRV",
+        "name_en": "Democratic Republic of Vietnam",
+        "name_vi": "Việt Nam Dân chủ Cộng hòa"
+      },
+      "eventType": "revolution_and_independence",
+      "causes": [
+        "Japanese surrender and collapse of wartime colonial authority",
+        "August Revolution and transfer of power by revolutionary committees"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage",
+          "note": "The 1946 general election was universal suffrage; constitutional equality declared irrespective of sex."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "limited_press"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Vietnam (claimed national territory)",
+          "from": "French colonial and Japanese wartime administrations",
+          "to": "Democratic Republic of Vietnam",
+          "date": "1945-09-02",
+          "status": "declaration_of_independence",
+          "note": "The declaration did not immediately end French control or create uncontested effective sovereignty over the entire territory."
+        }
+      ],
+      "sources": [
+        "vietnam_embassy",
+        "vietnam_constitution"
+      ],
+      "quality": "verified",
+      "note": "Independence declared 2 September 1945; nationwide universal-suffrage election held 6 January 1946."
+    },
+    {
+      "id": "VNM-1954-07",
+      "date": "1954-07-21",
+      "windowStart": "1954-05-07",
+      "windowEnd": "1955-10-26",
+      "capitalHistorical": "Hanoi (DRV); Saigon (State of Vietnam)",
+      "entityBefore": {
+        "id": "VNM",
+        "name_en": "Vietnam under the First Indochina War settlement",
+        "name_vi": "Việt Nam trong bối cảnh dàn xếp sau Chiến tranh Đông Dương lần thứ nhất"
+      },
+      "entityAfter": {
+        "id": "DRV",
+        "name_en": "Democratic Republic of Vietnam (North); State of Vietnam (South)",
+        "name_vi": "Việt Nam Dân chủ Cộng hòa (miền Bắc); Quốc gia Việt Nam (miền Nam)"
+      },
+      "eventType": "partition_and_competing_state_authorities",
+      "causes": [
+        "French defeat at Dien Bien Phu",
+        "Geneva Conference settlement and temporary military demarcation"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy",
+          "note": "North and South developed different political systems; this event is not a single national law transition."
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Territory north of the 17th parallel",
+          "from": "French Union / State of Vietnam control",
+          "to": "Democratic Republic of Vietnam administration",
+          "date": "1954-07-21",
+          "status": "temporary_military_demarcation"
+        },
+        {
+          "territory": "Territory south of the 17th parallel",
+          "from": "French Union / State of Vietnam control",
+          "to": "State of Vietnam, later Republic of Vietnam",
+          "date": "1954-07-21",
+          "status": "temporary_military_demarcation"
+        }
+      ],
+      "sources": [
+        "vietnam_embassy"
+      ],
+      "quality": "supported",
+      "note": "Geneva settlement described the line as provisional and envisaged nationwide elections in 1956; do not encode the 17th parallel as a permanent international border."
+    },
+    {
+      "id": "VNM-1975-04",
+      "date": "1975-04-30",
+      "windowStart": "1975-03-10",
+      "windowEnd": "1975-04-30",
+      "capitalHistorical": "Saigon; Hanoi remained capital of DRV",
+      "entityBefore": {
+        "id": "RVN",
+        "name_en": "Republic of Vietnam",
+        "name_vi": "Việt Nam Cộng hòa"
+      },
+      "entityAfter": {
+        "id": "DRV",
+        "name_en": "Democratic Republic of Vietnam authority over the South",
+        "name_vi": "Chính quyền Việt Nam Dân chủ Cộng hòa tại miền Nam"
+      },
+      "eventType": "military_collapse_and_reunification_process",
+      "causes": [
+        "Collapse of South Vietnamese armed forces and government",
+        "North Vietnamese military offensive culminated in the fall of Saigon"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy",
+          "note": "South Vietnamese state institutions ceased functioning; national reunification was formalised in 1976."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "South Vietnam",
+          "from": "Republic of Vietnam",
+          "to": "Provisional Revolutionary Government / DRV-controlled administration",
+          "date": "1975-04-30",
+          "status": "military_surrender_and_regime_collapse"
+        }
+      ],
+      "sources": [
+        "vietnam_embassy"
+      ],
+      "quality": "verified",
+      "note": "30 April 1975 marks the fall of Saigon and collapse of the Republic of Vietnam; formal state reunification followed in 1976."
+    },
+    {
+      "id": "VNM-1976-07",
+      "date": "1976-07-02",
+      "windowStart": "1975-04-30",
+      "windowEnd": "1976-07-02",
+      "capitalHistorical": "Hanoi",
+      "entityBefore": {
+        "id": "DRV",
+        "name_en": "Democratic Republic of Vietnam and southern transitional administration",
+        "name_vi": "Việt Nam Dân chủ Cộng hòa và chính quyền chuyển tiếp miền Nam"
+      },
+      "entityAfter": {
+        "id": "VNM",
+        "name_en": "Socialist Republic of Vietnam",
+        "name_vi": "Cộng hòa Xã hội Chủ nghĩa Việt Nam"
+      },
+      "eventType": "state_reunification_and_renaming",
+      "causes": [
+        "End of Republic of Vietnam government and national reunification election",
+        "First unified National Assembly adopted state name and institutions"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "interventionism"
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "group": "power",
+          "id": "one_party_state",
+          "name_en": "One-party state",
+          "name_vi": "Nhà nước độc đảng",
+          "description": "Constitutional leading role of the Communist Party of Vietnam; one-party national political system."
+        },
+        {
+          "group": "economy",
+          "id": "central_planned_economy",
+          "name_en": "Central planned economy",
+          "name_vi": "Kinh tế kế hoạch hóa tập trung",
+          "description": "State-directed allocation and production planning, especially after reunification."
+        }
+      ],
+      "territorialChanges": [
+        {
+          "territory": "North and South Vietnam",
+          "from": "Separate wartime administrations",
+          "to": "Socialist Republic of Vietnam",
+          "date": "1976-07-02",
+          "status": "formal_state_reunification"
+        }
+      ],
+      "sources": [
+        "vietnam_embassy",
+        "vietnam_constitution"
+      ],
+      "quality": "verified",
+      "note": "National Assembly adopted the name Socialist Republic of Vietnam on 2 July 1976."
+    },
+    {
+      "id": "RUS-1917-03",
+      "date": "1917-03-15",
+      "windowStart": "1917-03-08",
+      "windowEnd": "1917-03-16",
+      "capitalHistorical": "Petrograd",
+      "entityBefore": {
+        "id": "RUS",
+        "name_en": "Russian Empire",
+        "name_vi": "Đế quốc Nga"
+      },
+      "entityAfter": {
+        "id": "RUS-PROV",
+        "name_en": "Russian Provisional Government",
+        "name_vi": "Chính phủ Lâm thời Nga"
+      },
+      "eventType": "revolution_and_abdication",
+      "causes": [
+        "World War I military and supply crisis",
+        "Mass strikes, mutiny and loss of elite support"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage",
+          "note": "Provisional Government committed to Constituent Assembly elections; women participated in 1917 political process."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        },
+        "press": {
+          "from": "censorship",
+          "to": "free_press"
+        }
+      },
+      "territorialChanges": [],
+      "sources": [
+        "ushmm_russian_revolution",
+        "un_rus_2017"
+      ],
+      "quality": "supported",
+      "note": "Gregorian date 15 March 1917 (2 March Old Style) is Nicholas II's abdication; February Revolution terminology follows Julian calendar."
+    },
+    {
+      "id": "RUS-1917-11",
+      "date": "1917-11-07",
+      "windowStart": "1917-10-24",
+      "windowEnd": "1917-11-08",
+      "capitalHistorical": "Petrograd",
+      "entityBefore": {
+        "id": "RUS-PROV",
+        "name_en": "Russian Provisional Government",
+        "name_vi": "Chính phủ Lâm thời Nga"
+      },
+      "entityAfter": {
+        "id": "RSFSR",
+        "name_en": "Russian Soviet Federative Socialist Republic (RSFSR)",
+        "name_vi": "Cộng hòa Xã hội chủ nghĩa Xô viết Liên bang Nga"
+      },
+      "eventType": "revolution_and_government_seizure",
+      "causes": [
+        "Provisional Government's failure to end war and resolve land/food crisis",
+        "Bolshevik-led seizure of key Petrograd institutions"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "autocracy",
+          "note": "Soviet sovereignty was declared; effective political power concentrated in Bolshevik party structures during consolidation."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "interventionism",
+          "note": "Decrees began nationalisation and socialisation; central planning was not yet the mature 1930s system."
+        },
+        "trade": {
+          "from": "protectionism",
+          "to": "protectionism"
+        },
+        "labor": {
+          "from": "free_labor",
+          "to": "free_labor"
+        },
+        "church": {
+          "from": "state_religion",
+          "to": "secularism"
+        },
+        "press": {
+          "from": "free_press",
+          "to": "censorship"
+        },
+        "education": {
+          "from": "religious_schools",
+          "to": "public_schools"
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "group": "power",
+          "id": "one_party_state",
+          "name_en": "One-party state",
+          "name_vi": "Nhà nước độc đảng",
+          "description": "Single party holds effective monopoly of state power; formal soviet institutions remain."
+        },
+        {
+          "group": "economy",
+          "id": "state_socialist_economy",
+          "name_en": "State socialist economy",
+          "name_vi": "Kinh tế xã hội chủ nghĩa nhà nước",
+          "description": "Land nationalisation and state control of major industry; later evolves toward central planning."
+        }
+      ],
+      "territorialChanges": [],
+      "sources": [
+        "ushmm_russian_revolution",
+        "un_rus_2017"
+      ],
+      "quality": "supported",
+      "note": "7 November Gregorian = 25 October Julian. RSFSR state formation was declared in the revolutionary period; the 1918 Constitution was adopted 10 July 1918."
+    },
+    {
+      "id": "RSFSR-1918-07",
+      "date": "1918-07-10",
+      "windowStart": "1918-01-12",
+      "windowEnd": "1918-07-10",
+      "capitalHistorical": "Moscow (capital transferred from Petrograd in March 1918)",
+      "entityBefore": {
+        "id": "RSFSR",
+        "name_en": "Russian Soviet Republic",
+        "name_vi": "Cộng hòa Xô viết Nga"
+      },
+      "entityAfter": {
+        "id": "RSFSR",
+        "name_en": "Russian Soviet Federative Socialist Republic under 1918 Constitution",
+        "name_vi": "Cộng hòa Xã hội chủ nghĩa Xô viết Liên bang Nga theo Hiến pháp 1918"
+      },
+      "eventType": "constitution_and_socialisation",
+      "causes": [
+        "Bolshevik consolidation after October Revolution",
+        "Civil War and need to institutionalise Soviet authority"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy",
+          "note": "Constitution defined Soviets as state authority but excluded former exploiting classes from political rights."
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "interventionism"
+        },
+        "labor": {
+          "from": "free_labor",
+          "to": "free_labor"
+        },
+        "church": {
+          "from": "state_religion",
+          "to": "secularism"
+        },
+        "education": {
+          "from": "religious_schools",
+          "to": "public_schools"
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "group": "economy",
+          "id": "state_socialist_economy",
+          "name_en": "State socialist economy",
+          "name_vi": "Kinh tế xã hội chủ nghĩa nhà nước",
+          "description": "Land declared national property; banks and major productive assets moved to state control."
+        }
+      ],
+      "territorialChanges": [],
+      "sources": [
+        "un_rus_2017"
+      ],
+      "quality": "supported",
+      "note": "The 1918 Constitution proclaimed a federation of Soviet national republics. Wartime Communism and total central planning were later policy developments, not identical to the constitutional text."
+    },
+    {
+      "id": "RUS-1922-12",
+      "date": "1922-12-30",
+      "windowStart": "1922-12-29",
+      "windowEnd": "1924-01-31",
+      "capitalHistorical": "Moscow",
+      "entityBefore": {
+        "id": "RSFSR",
+        "name_en": "Russian Soviet Federative Socialist Republic",
+        "name_vi": "Cộng hòa Xã hội chủ nghĩa Xô viết Liên bang Nga"
+      },
+      "entityAfter": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "eventType": "federal_union_formation",
+      "causes": [
+        "Bolshevik victory in the Russian Civil War",
+        "Constitutional agreement among Soviet republics around the RSFSR"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy",
+          "note": "Formal federation of republics with a Communist Party monopoly in practice."
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "interventionism"
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "group": "power",
+          "id": "one_party_federal_state",
+          "name_en": "One-party federal state",
+          "name_vi": "Nhà nước liên bang độc đảng",
+          "description": "Union of constituent Soviet republics under a single ruling Communist Party."
+        },
+        {
+          "group": "economy",
+          "id": "central_planned_economy",
+          "name_en": "Central planned economy",
+          "name_vi": "Kinh tế kế hoạch hóa tập trung",
+          "description": "National production and investment directed by central state plans; mature form established later."
+        }
+      ],
+      "territorialChanges": [
+        {
+          "territory": "RSFSR, Ukrainian SSR, Byelorussian SSR and Transcaucasian SFSR",
+          "from": "Separate Soviet republics",
+          "to": "USSR",
+          "date": "1922-12-30",
+          "status": "federal_union",
+          "note": "The 1922 founding Union included four founding units; subsequent Union republics joined later."
+        }
+      ],
+      "sources": [
+        "un_rus_2017"
+      ],
+      "quality": "verified",
+      "note": "Union treaty/declaration adopted 30 December 1922; 1924 Constitution formalised the federal structure. The founding USSR is not identical to the Russian Empire."
+    },
+    {
+      "id": "USSR-1936-12",
+      "date": "1936-12-05",
+      "windowStart": "1928-10-01",
+      "windowEnd": "1936-12-05",
+      "capitalHistorical": "Moscow",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics under the 1924 Constitution",
+        "name_vi": "Liên Xô theo Hiến pháp 1924"
+      },
+      "entityAfter": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics under the 1936 Constitution",
+        "name_vi": "Liên Xô theo Hiến pháp 1936"
+      },
+      "eventType": "constitution_and_centralisation",
+      "causes": [
+        "Stalin's consolidation of power",
+        "Forced collectivisation and rapid industrialisation under Five-Year Plans"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "autocracy"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "interventionism"
+        },
+        "trade": {
+          "from": "protectionism",
+          "to": "protectionism"
+        },
+        "labor": {
+          "from": "free_labor",
+          "to": "free_labor"
+        },
+        "education": {
+          "from": "public_schools",
+          "to": "public_schools"
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "group": "power",
+          "id": "one_party_state",
+          "name_en": "One-party state",
+          "name_vi": "Nhà nước độc đảng",
+          "description": "Communist Party leadership is constitutionally and practically dominant."
+        },
+        {
+          "group": "economy",
+          "id": "central_planned_economy",
+          "name_en": "Central planned economy",
+          "name_vi": "Kinh tế kế hoạch hóa tập trung",
+          "description": "State ownership of major industry, collective farms and binding national economic plans."
+        },
+        {
+          "group": "labor",
+          "id": "state_directed_labor",
+          "name_en": "State-directed labour system",
+          "name_vi": "Hệ thống lao động do nhà nước điều phối",
+          "description": "Employment and labour allocation subject to state planning and coercive controls; not equivalent to ordinary free labour."
+        }
+      ],
+      "territorialChanges": [],
+      "sources": [
+        "un_rus_2017"
+      ],
+      "quality": "supported",
+      "note": "Constitution formally proclaimed the USSR a socialist state and promised rights; actual political repression and purges are not represented by constitutional text alone."
+    },
+    {
+      "id": "USSR-1985-03",
+      "date": "1985-03-11",
+      "windowStart": "1985-03-11",
+      "windowEnd": "1991-12-26",
+      "capitalHistorical": "Moscow",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "USSR under late Brezhnev and Andropov/Chernenko stagnation",
+        "name_vi": "Liên Xô thời kỳ trì trệ cuối Brezhnev và các nhiệm kỳ kế tiếp"
+      },
+      "entityAfter": {
+        "id": "USSR",
+        "name_en": "USSR during Perestroika and Glasnost",
+        "name_vi": "Liên Xô thời kỳ Cải tổ và Công khai hóa"
+      },
+      "eventType": "reform_process",
+      "causes": [
+        "Economic stagnation and structural inefficiencies",
+        "Leadership change under Mikhail Gorbachev"
+      ],
+      "lawChanges": {
+        "press": {
+          "from": "censorship",
+          "to": "limited_press",
+          "note": "Glasnost relaxed censorship progressively, with widening public debate."
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "interventionism",
+          "note": "Perestroika introduced enterprise autonomy and market-like elements but did not immediately replace the planned economy."
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "group": "economy",
+          "id": "market_socialism_transition",
+          "name_en": "Market-socialist transition",
+          "name_vi": "Chuyển đổi kinh tế thị trường định hướng xã hội chủ nghĩa",
+          "description": "Partial enterprise autonomy, cooperatives and limited market mechanisms within a socialist framework."
+        }
+      ],
+      "territorialChanges": [],
+      "sources": [
+        "un_rus_2017"
+      ],
+      "quality": "supported",
+      "note": "Gorbachev became General Secretary 11 March 1985. Perestroika/glasnost were multi-year processes, not a single legal event."
+    },
+    {
+      "id": "USSR-1990-03",
+      "date": "1990-03-14",
+      "windowStart": "1989-03-26",
+      "windowEnd": "1990-03-14",
+      "capitalHistorical": "Moscow",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "USSR with constitutional Communist Party monopoly",
+        "name_vi": "Liên Xô với độc quyền lãnh đạo của Đảng Cộng sản theo hiến pháp"
+      },
+      "entityAfter": {
+        "id": "USSR",
+        "name_en": "USSR with multiparty political competition legally permitted",
+        "name_vi": "Liên Xô cho phép cạnh tranh chính trị đa đảng về mặt pháp lý"
+      },
+      "eventType": "constitutional_amendment",
+      "causes": [
+        "Glasnost and public pressure for political pluralism",
+        "Competitive elections to Congress of People's Deputies in 1989"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage",
+          "note": "Article 6 was amended to remove the constitutional monopoly; suffrage and elections became more competitive."
+        },
+        "press": {
+          "from": "limited_press",
+          "to": "free_press",
+          "note": "Legal and practical liberalisation continued; censorship did not vanish instantly."
+        }
+      },
+      "proposedLawChanges": [
+        {
+          "group": "power",
+          "id": "multiparty_presidential_republic",
+          "name_en": "Multiparty presidential republic",
+          "name_vi": "Cộng hòa tổng thống đa đảng",
+          "description": "Competitive parties and a presidency coexist with a union-level federal constitution."
+        }
+      ],
+      "territorialChanges": [],
+      "sources": [
+        "un_rus_2017"
+      ],
+      "quality": "supported",
+      "note": "Article 6 amendment adopted 14 March 1990. Do not treat this as USSR dissolution; the Union persisted until December 1991."
+    },
+    {
+      "id": "USSR-1991-12",
+      "date": "1991-12-26",
+      "windowStart": "1991-08-19",
+      "windowEnd": "1991-12-26",
+      "capitalHistorical": "Moscow",
+      "entityBefore": {
+        "id": "USSR",
+        "name_en": "Union of Soviet Socialist Republics",
+        "name_vi": "Liên bang Cộng hòa Xã hội chủ nghĩa Xô viết"
+      },
+      "entityAfter": {
+        "id": "POST-USSR",
+        "name_en": "Independent successor states of the USSR",
+        "name_vi": "Các quốc gia độc lập kế thừa Liên Xô"
+      },
+      "eventType": "dissolution",
+      "causes": [
+        "Failed August 1991 coup accelerated the loss of central authority",
+        "Union republics declared sovereignty/independence and formed the CIS",
+        "Belavezha and Alma-Ata agreements rejected the 1922 Union Treaty"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "universal_male_suffrage",
+          "to": "universal_male_suffrage"
+        },
+        "governance": {
+          "from": "republic",
+          "to": "republic"
+        },
+        "economy": {
+          "from": "interventionism",
+          "to": "interventionism",
+          "note": "Successor states adopted different economic paths; market transition was not instantaneous."
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Union republics (15)",
+          "from": "USSR",
+          "to": "15 successor sovereign states",
+          "date": "1991-12-26",
+          "status": "dissolution",
+          "note": "The Baltic republics restored independence in 1990–91; Ukraine, Belarus and Russia were central signatories. Russia continued the USSR's UN seat by international practice."
+        }
+      ],
+      "sources": [
+        "un_rus_2017",
+        "ussr_belavezha",
+        "ussr_dissolution_declaration"
+      ],
+      "quality": "supported",
+      "note": "Distinguish de facto collapse/resignation (25 December), Belavezha agreement (8 December), Alma-Ata declaration (21 December) and formal USSR termination recognised by Declaration 142-N (26 December 1991)."
+    },
+    {
+      "id": "FIN-1917-12",
+      "date": "1917-12-06",
+      "windowStart": "1917-07-18",
+      "windowEnd": "1917-12-31",
+      "capitalHistorical": "Helsinki",
+      "entityBefore": {
+        "id": "FIN_GD",
+        "name_en": "Grand Duchy of Finland within the Russian Empire",
+        "name_vi": "Đại công quốc Phần Lan thuộc Đế quốc Nga"
+      },
+      "entityAfter": {
+        "id": "FIN",
+        "name_en": "Republic of Finland (independent state)",
+        "name_vi": "Cộng hòa Phần Lan (quốc gia độc lập)"
+      },
+      "eventType": "independence",
+      "causes": [
+        "Russian imperial collapse and competing claims to sovereignty after February Revolution",
+        "Finnish Parliament adopted declaration of independence"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "universal_male_suffrage",
+          "note": "Finland's 1906 reform had already established universal and equal suffrage including women."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Grand Duchy of Finland",
+          "from": "Russian Empire",
+          "to": "Independent Finland",
+          "date": "1917-12-06",
+          "status": "declaration_of_independence",
+          "note": "Russia recognised independence on 31 December 1917."
+        }
+      ],
+      "sources": [
+        "finland_gov"
+      ],
+      "quality": "verified",
+      "note": "Independence declaration adopted 6 December 1917; civil war followed in 1918; republican constitution adopted in 1919."
+    },
+    {
+      "id": "POL-1918-11",
+      "date": "1918-11-11",
+      "windowStart": "1918-10-07",
+      "windowEnd": "1918-11-16",
+      "capitalHistorical": "Warsaw",
+      "entityBefore": {
+        "id": "POL_CONGRESS",
+        "name_en": "Congress Poland under Russian rule",
+        "name_vi": "Ba Lan Quốc hội dưới quyền Nga"
+      },
+      "entityAfter": {
+        "id": "POL",
+        "name_en": "Republic of Poland",
+        "name_vi": "Cộng hòa Ba Lan"
+      },
+      "eventType": "state_restoration_and_independence",
+      "causes": [
+        "Collapse of the partitioning empires after World War I",
+        "Józef Piłsudski took military command and then civil authority"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage",
+          "note": "Women obtained voting rights in 1918."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Former Russian, German and Austro-Hungarian Polish lands",
+          "from": "Three partitioning empires",
+          "to": "Reconstituted Polish state",
+          "date": "1918-11-11",
+          "status": "state_restoration",
+          "note": "Borders were not settled on 11 November; territorial consolidation continued through 1921."
+        }
+      ],
+      "sources": [
+        "poland_mfa"
+      ],
+      "quality": "verified",
+      "note": "11 November is the commemorated restoration date; Piłsudski notified foreign governments on 16 November."
+    },
+    {
+      "id": "LTU-1918-02",
+      "date": "1918-02-16",
+      "windowStart": "1917-09-21",
+      "windowEnd": "1920-05-15",
+      "capitalHistorical": "Vilnius (claimed); Kaunas (temporary capital during Polish control)",
+      "entityBefore": {
+        "id": "AHM",
+        "name_en": "German-occupied Lithuanian lands within the former Russian Empire",
+        "name_vi": "Các vùng đất Litva bị Đức chiếm đóng, trước đó thuộc Đế quốc Nga"
+      },
+      "entityAfter": {
+        "id": "LTU",
+        "name_en": "Republic of Lithuania",
+        "name_vi": "Cộng hòa Litva"
+      },
+      "eventType": "independence_declaration",
+      "causes": [
+        "Collapse of Russian imperial authority",
+        "Lithuanian Council's national self-determination movement under German occupation"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage",
+          "note": "Democratic constitutional institutions were established later; women gained suffrage."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Lithuanian lands",
+          "from": "German military occupation / former Russian Empire",
+          "to": "Lithuanian state claimed by Council",
+          "date": "1918-02-16",
+          "status": "declaration_under_occupation",
+          "note": "Effective sovereignty required subsequent diplomatic and military struggle; independence restored 11 March 1990."
+        }
+      ],
+      "sources": [
+        "baltic_mfa"
+      ],
+      "quality": "supported",
+      "note": "The declaration is a clear founding act, but not the date of complete effective control."
+    },
+    {
+      "id": "EST-1918-02",
+      "date": "1918-02-24",
+      "windowStart": "1917-11-28",
+      "windowEnd": "1920-02-02",
+      "capitalHistorical": "Tallinn",
+      "entityBefore": {
+        "id": "RUS",
+        "name_en": "Russian Empire / German-occupied Estonian territory",
+        "name_vi": "Đế quốc Nga / lãnh thổ Estonia bị Đức chiếm đóng"
+      },
+      "entityAfter": {
+        "id": "EST",
+        "name_en": "Republic of Estonia",
+        "name_vi": "Cộng hòa Estonia"
+      },
+      "eventType": "independence_declaration",
+      "causes": [
+        "Russian Revolution and collapse of imperial authority",
+        "Estonian Salvation Committee proclaimed a republic before German occupation"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage",
+          "note": "Constituent Assembly and democratic constitution followed in 1920."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Estonian lands",
+          "from": "Russian Empire / German occupation",
+          "to": "Republic of Estonia",
+          "date": "1918-02-24",
+          "status": "declaration_and_state_formation",
+          "note": "German occupation followed immediately; effective government began after German withdrawal in November 1918."
+        }
+      ],
+      "sources": [
+        "estonia_state",
+        "baltic_mfa"
+      ],
+      "quality": "verified",
+      "note": "Republic officially proclaimed 24 February 1918; War of Independence continued until 1920."
+    },
+    {
+      "id": "LVA-1918-11",
+      "date": "1918-11-18",
+      "windowStart": "1917-12-02",
+      "windowEnd": "1920-08-11",
+      "capitalHistorical": "Riga",
+      "entityBefore": {
+        "id": "RUS",
+        "name_en": "Russian Empire / German-occupied Latvian lands",
+        "name_vi": "Đế quốc Nga / các vùng đất Latvia bị Đức chiếm đóng"
+      },
+      "entityAfter": {
+        "id": "LVA",
+        "name_en": "Republic of Latvia",
+        "name_vi": "Cộng hòa Latvia"
+      },
+      "eventType": "independence_and_state_formation",
+      "causes": [
+        "Russian imperial collapse",
+        "German defeat and withdrawal",
+        "Latvian People's Council proclaimed a republic"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage",
+          "note": "Constituent Assembly elected in 1920."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Latvian lands",
+          "from": "Russian Empire / German occupation",
+          "to": "Republic of Latvia",
+          "date": "1918-11-18",
+          "status": "proclamation_and_state_formation"
+        }
+      ],
+      "sources": [
+        "latvia_president",
+        "baltic_mfa"
+      ],
+      "quality": "verified",
+      "note": "Proclamation date 18 November 1918; War of Independence delayed full consolidation until 1920."
+    },
+    {
+      "id": "UKR-1918-01",
+      "date": "1918-01-22",
+      "windowStart": "1917-03-17",
+      "windowEnd": "1921-11-21",
+      "capitalHistorical": "Kyiv",
+      "entityBefore": {
+        "id": "RUS",
+        "name_en": "Russian Empire / Russian Provisional Government",
+        "name_vi": "Đế quốc Nga / Chính phủ Lâm thời Nga"
+      },
+      "entityAfter": {
+        "id": "UNR",
+        "name_en": "Ukrainian People's Republic",
+        "name_vi": "Cộng hòa Nhân dân Ukraina"
+      },
+      "eventType": "independence_and_revolution",
+      "causes": [
+        "February Revolution and formation of the Central Rada",
+        "Bolshevik ultimatum and outbreak of the Ukrainian-Soviet War"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage",
+          "note": "The Central Rada's republican programme included broad electoral rights."
+        },
+        "governance": {
+          "from": "monarchy",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Central Ukrainian lands",
+          "from": "Russian Empire",
+          "to": "Ukrainian People's Republic (contested)",
+          "date": "1918-01-22",
+          "status": "independence_declaration",
+          "note": "The Central Rada's Fourth Universal was dated 22 January and proclaimed independence on 25 January; Ukrainian statehood was contested in the ensuing war."
+        }
+      ],
+      "sources": [
+        "ukraine_encyclopedia"
+      ],
+      "quality": "supported",
+      "note": "This is a multi-stage and contested state-building process; Soviet Ukraine was proclaimed separately by Bolsheviks in Kharkiv in December 1917."
+    },
+    {
+      "id": "IND-PAK-1947-08",
+      "date": "1947-08-15",
+      "windowStart": "1947-06-03",
+      "windowEnd": "1947-08-17",
+      "capitalHistorical": "New Delhi (India); Karachi (Pakistan)",
+      "entityBefore": {
+        "id": "BRI",
+        "name_en": "British India",
+        "name_vi": "Ấn Độ thuộc Anh"
+      },
+      "entityAfter": {
+        "id": "IND",
+        "name_en": "Dominion of India",
+        "name_vi": "Liên bang tự trị Ấn Độ"
+      },
+      "eventType": "partition_and_independence",
+      "causes": [
+        "British withdrawal after World War II",
+        "Political deadlock and Mountbatten Plan partitioned British India"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "census_suffrage",
+          "to": "universal_male_suffrage",
+          "note": "The 1947 dominions inherited limited franchise; universal adult suffrage followed under later constitutions."
+        },
+        "governance": {
+          "from": "colonial_company",
+          "to": "monarchy",
+          "note": "Dominions remained constitutional monarchies under the British Crown until republican constitutions."
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Western Punjab, Sindh, NWFP and East Bengal (with boundary details)",
+          "from": "British India",
+          "to": "Dominion of Pakistan",
+          "date": "1947-08-14",
+          "status": "partition_and_independence"
+        },
+        {
+          "territory": "Remaining British Indian provinces and princely states acceding to India",
+          "from": "British India",
+          "to": "Dominion of India",
+          "date": "1947-08-15",
+          "status": "partition_and_independence"
+        }
+      ],
+      "sources": [
+        "india_partition_archives"
+      ],
+      "quality": "supported",
+      "note": "Independence dates are 14 August for Pakistan and 15 August for India; Radcliffe boundary award was published 17 August."
+    },
+    {
+      "id": "KOR-1948-08",
+      "date": "1948-08-15",
+      "windowStart": "1945-08-15",
+      "windowEnd": "1948-09-09",
+      "capitalHistorical": "Seoul (ROK); Pyongyang (DPRK)",
+      "entityBefore": {
+        "id": "KOR",
+        "name_en": "Korea under Japanese colonial rule and Allied occupation",
+        "name_vi": "Triều Tiên dưới ách thuộc địa Nhật và sự chiếm đóng của Đồng minh"
+      },
+      "entityAfter": {
+        "id": "ROK",
+        "name_en": "Republic of Korea",
+        "name_vi": "Đại Hàn Dân Quốc"
+      },
+      "eventType": "partition_and_state_formation",
+      "causes": [
+        "Japanese surrender and division of occupation zones at the 38th parallel",
+        "Failure of US–Soviet joint arrangements and separate elections"
+      ],
+      "lawChanges": {
+        "power": {
+          "from": "autocracy",
+          "to": "universal_male_suffrage",
+          "note": "Constitutional republic established in the South; democratic practice was imperfect under early presidents."
+        },
+        "governance": {
+          "from": "colonial_company",
+          "to": "republic"
+        }
+      },
+      "territorialChanges": [
+        {
+          "territory": "Korean peninsula south of 38th parallel",
+          "from": "Allied occupation zone",
+          "to": "Republic of Korea",
+          "date": "1948-08-15",
+          "status": "state_formation"
+        },
+        {
+          "territory": "Korean peninsula north of 38th parallel",
+          "from": "Soviet occupation zone",
+          "to": "Democratic People's Republic of Korea",
+          "date": "1948-09-09",
+          "status": "state_formation"
+        }
+      ],
+      "sources": [
+        "korea_history"
+      ],
+      "quality": "supported",
+      "note": "Separate states were proclaimed 15 August (South) and 9 September (North) 1948; both claimed legitimacy over all Korea."
+    }
+  ]
+}
