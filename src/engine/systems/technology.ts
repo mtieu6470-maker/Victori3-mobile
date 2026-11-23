@@ -128,6 +128,7 @@ export function technologyMonth(st: GameState, chooser: (c: Country, options: st
     c.research.progress += researchPoints(st, c) + importPoints(st, c, cur);
     if (c.research.progress >= techCost(st, c, cur)) {
       c.techs.push(cur);
+      if (cur === 'mass_politics' || cur === 'feminism') (c.ideasSince ??= {})[cur] = st.tick; // LAW-CAL-02
       c.research = { current: null, progress: 0 };
       const t = data().tech.get(cur)!;
       if (!c.decentralized && (c.tier === 'A' || st.player === c.id)) log(st, { type: 'tech', text: `${c.name} adopts ${cur}.`, textVi: `${c.nameVi} áp dụng ${cur}.`, actors: [c.id] });

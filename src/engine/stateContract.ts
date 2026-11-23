@@ -98,6 +98,8 @@ export function validateCountryRecord(id: string, v: unknown, path: string): voi
   numRecord(c.navy, `${path}.navy`, nonNeg);
   if (c.lastWarLost !== null) num(c.lastWarLost, `${path}.lastWarLost`);
   if (c.lastGreatWar !== undefined) num(c.lastGreatWar, `${path}.lastGreatWar`);
+  if (c.greatWarMonths !== undefined) num(c.greatWarMonths, `${path}.greatWarMonths`);
+  if (c.ideasSince !== undefined) numRecord(c.ideasSince, `${path}.ideasSince`);
   const pers = obj(c.personality, `${path}.personality`);
   for (const k of ['aggression', 'expansionism', 'reformism', 'commerce', 'naval', 'isolationism', 'risk'] as const) num(pers[k], `${path}.personality.${k}`);
   if (pers.rationale !== undefined) str(pers.rationale, `${path}.personality.rationale`);

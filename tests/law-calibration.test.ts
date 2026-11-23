@@ -31,10 +31,27 @@ describe('LAW-CAL-01 suffrage movements', () => {
     c.laws.power = 'universal_male_suffrage'; c.techs.push('mass_politics', 'feminism');
     for (const r of regionsOf(st, c.id)) r.literacy = 0.7;
     const peace = suffrageMovement(st, c, 'power', 'universal_suffrage');
-    c.lastGreatWar = st.tick;
-    expect(suffrageMovement(st, c, 'power', 'universal_suffrage')).toBeGreaterThan(peace);
+    c.lastGreatWar = st.tick; c.greatWarMonths = 6;
+    const early = suffrageMovement(st, c, 'power', 'universal_suffrage');
+    c.greatWarMonths = 36; // mobilisation builds over the years of war
+    expect(suffrageMovement(st, c, 'power', 'universal_suffrage')).toBeGreaterThan(early);
+    expect(early).toBeGreaterThanOrEqual(peace);
     c.techs = c.techs.filter((t) => t !== 'feminism');
     expect(suffrageMovement(st, c, 'power', 'universal_suffrage')).toBe(0);
+  });
+
+  it('a movement grows over the decades after its idea arrives (LAW-CAL-02)', () => {
+    const st = createGame({ mode: 'sandbox', seed: 1, player: null });
+    const c = st.countries.GBR;
+    c.laws.power = 'census_suffrage'; c.techs.push('mass_politics');
+    for (const r of regionsOf(st, c.id)) r.literacy = 0.8;
+    c.ideasSince = { mass_politics: st.tick };
+    expect(suffrageMovement(st, c, 'power', 'universal_male_suffrage')).toBe(0);
+    c.ideasSince = { mass_politics: st.tick - 20 * 12 };
+    const mid = suffrageMovement(st, c, 'power', 'universal_male_suffrage');
+    c.ideasSince = { mass_politics: st.tick - 50 * 12 };
+    expect(suffrageMovement(st, c, 'power', 'universal_male_suffrage')).toBeGreaterThan(mid);
+    expect(mid).toBeGreaterThan(0);
   });
 
   it('the AI may take the next reform step soon after a change, but not return to an abandoned value', () => {

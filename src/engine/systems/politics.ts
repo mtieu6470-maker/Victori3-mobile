@@ -79,24 +79,32 @@ export function journalMomentum(st: GameState, c: Country, group: string, value:
  * next step of the franchise once mass politics is known; the movement's strength grows with literacy
  * (population-weighted), so countries with low literacy keep lagging. A strong movement makes the AI take up
  * the reform and helps any reform of that step through (AI and player alike). One-party states suppress it.
+ * LAW-CAL-02 (owner: make it closer to reality): a movement grows over decades after its idea arrives
+ * (`matureYears`; e.g. the UK Reform League 1865 → universal male suffrage 1918), and mass mobilisation in a
+ * great war strengthens both the male and the women's franchise (UK 1918, Netherlands 1917, Italy 1919),
+ * growing with the months of mobilisation. Women's suffrage in peacetime needs a very literate society
+ * (early adopters were small, literate societies: New Zealand 1893, Finland 1906, Norway 1913).
+ * Ideas a country had before 1836 or never recorded count as mature.
  * Design parameters, calibrated against ChatGPT CG-42 adoption years (tools/law-adoption-report.ts).
  */
-export const SUFFRAGE_MOVEMENT = { tech: 'mass_politics', litFloor: 0.35, litSpan: 0.45, utility: 4.5, progress: 0.35 } as const;
+export const SUFFRAGE_MOVEMENT = { tech: 'mass_politics', litFloor: 0.35, litSpan: 0.45, utility: 4.5, progress: 0.35, matureYears: 45, warBoost: 0.4, warYears: 8, warFullMonths: 36 } as const;
 /**
  * Women's suffrage needs a more literate society; mass mobilisation in a great war (within warYears) adds
  * warBoost — the wave after 1914-18 (UK 1918, Germany 1919, USA 1920; CG-42).
  */
-export const WOMENS_SUFFRAGE_MOVEMENT = { litFloor: 0.68, litSpan: 0.35, warBoost: 0.8, warYears: 8 } as const;
+export const WOMENS_SUFFRAGE_MOVEMENT = { tech: 'feminism', litFloor: 0.7, litSpan: 0.3, warBoost: 0.8, warYears: 8, matureYears: 40, warFullMonths: 36 } as const;
 const SUFFRAGE_DEMAND: Record<string, string> = { autocracy: 'census_suffrage', oligarchy: 'census_suffrage', census_suffrage: 'universal_male_suffrage', universal_male_suffrage: 'universal_suffrage' };
 export function suffrageMovement(st: GameState, c: Country, group: string, value: string): number {
   if (group !== 'power' || SUFFRAGE_DEMAND[c.laws.power] !== value || !c.techs.includes(SUFFRAGE_MOVEMENT.tech) || !lawUnlocked(c, value)) return 0;
   const regs = regionsOf(st, c.id); const pop = regs.reduce((s, r) => s + r.pop, 0);
   if (pop <= 0) return 0;
   const lit = regs.reduce((s, r) => s + r.literacy * r.pop, 0) / pop;
-  if (value !== 'universal_suffrage') return clamp((lit - SUFFRAGE_MOVEMENT.litFloor) / SUFFRAGE_MOVEMENT.litSpan, 0, 1);
-  const W = WOMENS_SUFFRAGE_MOVEMENT;
-  const war = c.lastGreatWar !== undefined && st.tick - c.lastGreatWar <= W.warYears * 12 ? W.warBoost : 0;
-  return clamp((lit - W.litFloor) / W.litSpan + war, 0, 1);
+  const P = value === 'universal_suffrage' ? WOMENS_SUFFRAGE_MOVEMENT : SUFFRAGE_MOVEMENT;
+  const since = c.ideasSince?.[P.tech];
+  const maturity = since === undefined ? 1 : clamp((st.tick - since) / (P.matureYears * 12), 0, 1);
+  // the effect of mobilisation builds over the years of war (full after warFullMonths)
+  const war = c.lastGreatWar !== undefined && st.tick - c.lastGreatWar <= P.warYears * 12 ? P.warBoost * clamp((c.greatWarMonths ?? 0) / P.warFullMonths, 0, 1) : 0;
+  return clamp(clamp((lit - P.litFloor) / P.litSpan, 0, 1) * maturity + war, 0, 1);
 }
 
 export function igApproval(c: Country, ig: IG, laws = c.laws): number {

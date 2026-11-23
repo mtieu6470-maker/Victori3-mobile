@@ -1,3 +1,16 @@
+## 2026-11-23 — LAW-CAL-02 suffrage closer to reality (owner request)
+
+- Movements grow over decades after their idea arrives. `Country.ideasSince` records when `mass_politics` and `feminism` were adopted; ideas held before 1836, or never recorded, count as mature. Maturity takes 45 years for male suffrage and 40 years for women's suffrage.
+- Mass mobilisation in a great war strengthens both franchises, and the effect builds over the months of war. `Country.greatWarMonths` reaches full effect at 36 months; the boost is 0.4 for male and 0.8 for women's suffrage, lasting 8 years after the war.
+- Women's suffrage in peacetime needs a very literate society (litFloor 0.7).
+- Result (seed 1, 1960):
+  - **Universal suffrage:** 18/62, median −1 y, mean |error| 8 y. UK 1917 (1918), Germany 1917 (1919), Canada 1917 (1917), France 1919 (1944), Spain 1932 (1931), Japan 1944 (1945), Italy 1947 (1945), USA 1939 (1920, late: only ~18 months of WW1 mobilisation).
+  - **Universal male suffrage:** 12/19, median +12 y. UK 1901 (1918; inside the 1890–1910 European wave), Australia 1901 (1902).
+- Not tuned further, to avoid overfitting one seed. The remaining gaps are coverage: Latin America, colonies, post-1945 diffusion, and Swedish literacy.
+- Tests: `tests/law-calibration.test.ts` (4). Local: `npm test` **45/45 files, 425/425**.
+
+---
+
 ## 2026-11-23 — LAW-CAL-01 suffrage reform calibrated against CG-42 (V3-style suffrage movements)
 
 - **Tool:** `tools/law-adoption-report.ts [endYear] [seed]`. For each CG-42 country, the governing state is the holder of most of the population of its present territory (admin-1 grid). The tool compares the first year with universal male suffrage, and with universal suffrage, against CG-42.

@@ -132,8 +132,12 @@ export interface Country {
   techs: string[]; research: { current: string | null; progress: number };
   army: Army; navy: Navy;
   prestige: number; infamy: number; warExhaustion: number; lastWarLost: number | null;
+  /** LAW-CAL-02: tick each political idea (mass_politics, feminism) was adopted — movements need time to grow. */
+  ideasSince?: Record<string, number>;
   /** LAW-CAL-01: last tick the country fought (not nominally) in a great war — mass mobilisation. */
   lastGreatWar?: number;
+  /** LAW-CAL-02: months of mass mobilisation in the current or latest great-war period. */
+  greatWarMonths?: number;
   personality: Personality;
   ai: AIMemory;
   claims: string[];
