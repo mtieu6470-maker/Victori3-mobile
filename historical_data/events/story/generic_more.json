@@ -386,9 +386,10 @@
               }
             },
             {
-              "type": "base_rights",
-              "host": "GBR",
-              "user": "BUR"
+              "type": "trade",
+              "entity": "$self",
+              "delta": 0.03,
+              "months": 36
             }
           ]
         },
