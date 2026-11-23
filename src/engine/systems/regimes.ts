@@ -19,6 +19,7 @@
 // expire after REGIME_JOURNAL.years. Laws a regime set keep an inertia for the AI afterwards, but it can
 // still change them as circumstances require. A regime change installs a new head of state whose title
 // follows the regime (e.g. a tsar becomes a general secretary) and updates the form of government.
+import { answerSubjectRequest } from './subjects';
 import { answerBlocInvite } from './powerBlocs';
 import { data } from '../data/db';
 import { dateStr, dateToTick, log, newId, rand } from '../core';
@@ -159,6 +160,13 @@ function journalMonth(st: GameState) {
       if (!st.powerBlocs?.[j.event] || st.tick > j.expires || st.countries[j.country]?.bloc === j.event) closeEntry(st, j, 'expired');
       continue;
     }
+    if (j.kind === 'subject_request') {
+      // PB-03a: unanswered → treated as a refusal
+      const sc = st.countries[j.event];
+      if (!sc?.alive || sc.overlord !== j.country) { closeEntry(st, j, 'expired'); continue; }
+      if (st.tick > j.expires) { answerSubjectRequest(st, j, false); closeEntry(st, j, 'expired'); }
+      continue;
+    }
     if (j.kind === 'call_to_arms') {
       // CTA-01: unanswered by the deadline, or the war is over or already joined → it lapses as a refusal
       const w = st.wars.find((x) => x.id === j.event);
@@ -205,6 +213,11 @@ export function journalAction(st: GameState, playerId: string, entryId: string, 
   if (j.country !== playerId) return { ok: false, reason: 'This journal entry belongs to a different country' };
   if (j.kind === 'bloc_invite') {
     const r = answerBlocInvite(st, j, action === 'complete');
+    if (r.ok) closeEntry(st, j, action === 'complete' ? 'completed' : 'abandoned');
+    return r;
+  }
+  if (j.kind === 'subject_request') {
+    const r = answerSubjectRequest(st, j, action === 'complete');
     if (r.ok) closeEntry(st, j, action === 'complete' ? 'completed' : 'abandoned');
     return r;
   }

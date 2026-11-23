@@ -1,6 +1,7 @@
 // Diplomacy window: Relations (searchable, sortable ledger; a row opens the country's diplomatic detail window
 // with the actions the engine allows), Treaties (grouped by type) and Subjects & rivals. The declare-war sheet
 // previews sides with the engine's own warSides() rule and requires a press-and-hold.
+import { MySubjectStatus, OverlordSubjects, SubjectTypesTable } from './SubjectsPanel';
 import { useRef, useState } from 'preact/hooks';
 import type { GameState } from '../../engine/types';
 import { getRel } from '../../engine/core';
@@ -80,11 +81,10 @@ function Subjects({ st }: { st: GameState }) {
   const riv = Object.keys(st.countries).filter((o) => o !== id && st.countries[o].alive && rivals(st, id, o));
   return (
     <div class="pad">
-      {me.overlord && <Sec title="Quan hệ lệ thuộc"><div class="kv"><span class="k">{SUBJECT_VI[me.subjectType ?? ''] ?? 'Chư hầu'} của</span><span class="v"><CountryLink st={st} id={me.overlord} /></span></div></Sec>}
+      {me.overlord && <MySubjectStatus st={st} id={id} />}
+      <OverlordSubjects st={st} id={id} />
       <div class="cols c2">
-        <Sec title="Chư hầu & xứ bảo hộ" x={subs.length}>
-          {subs.length ? <table class="dt"><thead><tr><th>Quốc gia</th><th>Loại</th><th class="r">Quan hệ</th></tr></thead><tbody>{subs.map((c) => <tr key={c.id} onClick={() => openCountryActions(st, c.id)}><td><span class="cell-ic"><Flag c={c} sm /><span class="nm">{shortName(st, c.id)}</span></span></td><td class="muted">{SUBJECT_VI[c.subjectType ?? ''] ?? c.subjectType}</td><td class="r num">{fmt(getRel(st, id, c.id))}</td></tr>)}</tbody></table> : <div class="empty sm">Không có.</div>}
-        </Sec>
+        <Sec title="Các loại chư hầu" x={subs.length ? '' : ''}><SubjectTypesTable /></Sec>
         <Sec title="Đối thủ" x={riv.length}>
           {riv.length ? <table class="dt"><thead><tr><th>Quốc gia</th><th class="r">Quan hệ</th><th class="r">Sức mạnh</th></tr></thead><tbody>{riv.map((o) => <tr key={o} onClick={() => openCountryActions(st, o)}><td><span class="cell-ic"><Flag c={st.countries[o]} sm /><span class="nm">{shortName(st, o)}</span></span></td><td class="r num neg">{fmt(getRel(st, id, o))}</td><td class="r num">{fmt(powerScore(st, st.countries[o]))}</td></tr>)}</tbody></table> : <div class="empty sm">Không có đối thủ.</div>}
         </Sec>

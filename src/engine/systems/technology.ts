@@ -102,7 +102,7 @@ export function importPoints(st: GameState, c: Country, techId: string): number 
   // nobody imported reapers or Bessemer plant the year they were invented.
   const age = st.date.y - (data().tech.get(techId)?.historical_year ?? st.date.y);
   const codified = Math.min(1, Math.max(0, age) / TECH_CODIFICATION_YEARS);
-  return Number.isFinite(pc) ? TECH_IMPORT.rate * pc * share * access * codified * (1 + (c.blocMods?.research ?? 0)) : 0;
+  return Number.isFinite(pc) ? TECH_IMPORT.rate * pc * share * access * codified * (1 + (c.blocMods?.research ?? 0) + (c.subjectPact?.knowledge ? 0.1 : 0)) /* PB-03a knowledge sharing */ : 0;
 }
 
 /**

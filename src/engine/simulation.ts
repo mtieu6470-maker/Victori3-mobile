@@ -19,6 +19,7 @@
 //
 // Every system runs every boundary regardless of mode; counters record each monthly run so tests
 // can prove that neither mode skips or weakens a system.
+import { subjectsMonth } from './systems/subjects';
 import { powerBlocsMonth } from './systems/powerBlocs';
 import { leagueMonth } from './systems/league';
 import { blocsMonth } from './systems/blocs';
@@ -54,6 +55,7 @@ export interface SimSystem { name: string; run: (st: GameState) => void }
 /** Monthly systems, in canonical order. Exported (and mutable) for instrumentation tools/tests. */
 export const SYSTEMS: SimSystem[] = [
   { name: 'economy', run: (st) => computeEconomy(st) },
+  { name: 'subjects', run: subjectsMonth },
   { name: 'production-methods', run: (st) => productionMethodsMonth(st, (c) => marketOf(st, c)) },
   { name: 'companies', run: companiesMonth },
   { name: 'population', run: populationMonth },

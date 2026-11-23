@@ -589,7 +589,7 @@ function financeMonth(st: GameState, c: Country, gdpYear: number, pop: number, i
   const gdpPc = pop > 0 ? gdpYear / pop : 0;
   const taxEff = clamp(0.45 + 1.4 * c.budget.admin + 0.1 * (c.laws.power === 'autocracy' ? 0 : 1) + techEffect(c, 'admin_efficiency'), 0.25, 1.05);
   const tax = (c.taxRate * gdpYear * taxEff) / 12;
-  const tariff = (importsValue * (TARIFF[c.laws.trade] ?? 0.2)) / 12;
+  const tariff = (importsValue * (TARIFF[c.laws.trade] ?? 0.2) * (1 + (c.blocMods?.tariff ?? 0))) / 12; // PB-03b bloc external tariff
   c.tariffIncome = tariff;
   const income = tax + tariff;
   const armyCost = (c.army.manpower * SOLDIER_COST(gdpPc)) / 12;

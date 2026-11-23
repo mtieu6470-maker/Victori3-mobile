@@ -62,7 +62,7 @@ export interface ClockState { hour: number }
 
 /** REGIME-02: a journal entry (mission). `event` is a regime_changes id; it completes when its goals are met. */
 export interface JournalEntry {
-  id: string; kind: 'regime' | 'decolonisation' | 'call_to_arms' | 'bloc_invite'; event: string; country: string; started: number; expires: number;
+  id: string; kind: 'regime' | 'decolonisation' | 'call_to_arms' | 'bloc_invite' | 'subject_request'; event: string; country: string; started: number; expires: number;
   status: 'active' | 'completed' | 'expired' | 'abandoned'; ended?: number;
 }
 
@@ -134,6 +134,8 @@ export interface Country {
   prestige: number; infamy: number; warExhaustion: number; lastWarLost: number | null;
   /** PB-01: the power bloc the country belongs to, and the principle effects it receives (recomputed monthly). */
   bloc?: string; blocMods?: import('./systems/powerBlocs').BlocMods;
+  /** PB-03a: the subject's pact with its overlord (liberty desire, payments, pacts); absent when sovereign. */
+  subjectPact?: import('./systems/subjects').SubjectPact;
   /** LAW-CAL-02: tick each political idea (mass_politics, feminism) was adopted — movements need time to grow. */
   ideasSince?: Record<string, number>;
   /** LAW-CAL-01: last tick the country fought (not nominally) in a great war — mass mobilisation. */

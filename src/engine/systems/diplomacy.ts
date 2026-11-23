@@ -149,12 +149,14 @@ export function warSides(st: GameState, attacker: string, defender: string, goal
   const refused: string[] = []; // allies of the defender who decline the call to arms
   const called: string[] = []; // CTA-01: the player, if an ally of the defender, decides for itself
   // subjects follow overlords
-  for (const c of Object.values(st.countries)) if (c.alive && c.overlord === attacker && c.subjectType !== 'tributary' && c.subjectType !== 'personal_union') { attackers.push(c.id); joined.push({ id: c.id, reason: 'subject' }); }
+  for (const c of Object.values(st.countries)) if (c.alive && c.overlord === attacker && c.subjectType !== 'tributary' && c.subjectType !== 'personal_union' && !c.subjectPact?.exempt /* PB-03a: exempt from service */) { attackers.push(c.id); joined.push({ id: c.id, reason: 'subject' }); }
   // defensive alliances and guarantees (a country already fighting for the attacker, e.g. its subject, cannot also defend)
   for (const t of st.treaties) {
     if (t.type === 'alliance' && t.members.includes(defender)) for (const m of t.members) if (m !== defender && !attackers.includes(m) && !defenders.includes(m) && st.countries[m]?.alive && !t.members.includes(attacker)) {
       if (m === st.player) { if (!called.includes(m)) called.push(m); continue; }
-      if (joinWillingness(st, m, attacker, defender) > 0) { defenders.push(m); joined.push({ id: m, reason: 'alliance' }); } else if (!refused.includes(m)) refused.push(m);
+      // PB-03b defensive cooperation III: bloc members are obliged to stand by a partner
+      const obliged = t.source?.startsWith('pbloc:') && !!st.countries[m].blocMods?.obliged;
+      if (obliged || joinWillingness(st, m, attacker, defender) > 0) { defenders.push(m); joined.push({ id: m, reason: 'alliance' }); } else if (!refused.includes(m)) refused.push(m);
     }
     if (t.type === 'guarantee' && t.members[1] === defender && !attackers.includes(t.members[0]) && !defenders.includes(t.members[0])) { defenders.push(t.members[0]); joined.push({ id: t.members[0], reason: 'guarantee' }); }
   }
@@ -217,9 +219,11 @@ export function declareWar(st: GameState, attacker: string, defender: string, go
   if (st.wars.some((w) => (w.attackers.members.includes(attacker) && w.defenders.members.includes(defender)) || (w.attackers.members.includes(defender) && w.defenders.members.includes(attacker)))) return null;
   // DECOL-01: an independence settlement carries a truce (at most 2 years) between the two treaty parties.
   for (const [x, y] of [[a, dC], [dC, a]] as const) if (x.truce && x.truce.with === y.id && x.truce.until > st.tick) return null;
+  // PB-03b defensive cooperation: members of one bloc cannot attack each other
+  if (a.bloc && a.bloc === dC.bloc && a.blocMods?.noInternalWar) return null;
   const sides = warSides(st, attacker, defender, goals);
   const w: War = { id: newId(st, 'war'), name: name ?? `${a.name}–${dC.name} War`, kind, attackers: { leader: attacker, members: sides.attackers }, defenders: { leader: sides.defenderLeader, members: sides.defenders }, goals, start: st.tick, score: 0, occupied: [], battles: 0, exhaustion: { a: 0, d: 0 } };
-  a.infamy += sides.infamy;
+  a.infamy += sides.infamy * (1 - (a.blocMods?.infamy ?? 0)); // PB-03b aggressive coordination
   for (const x of w.attackers.members) for (const y of w.defenders.members) st.relations[relKey(x, y)] = Math.min(st.relations[relKey(x, y)] ?? 0, -60);
   st.wars.push(w);
   // CTA-01 (owner 2026-11-23): the player's ally is attacked — a journal entry asks the player to answer the call

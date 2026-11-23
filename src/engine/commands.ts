@@ -1,9 +1,12 @@
 // Player command API. Every command calls the SAME functions the AI uses, so the player plays by the AI's rules.
 // The UI layer must only issue these commands (no rule logic in the UI).
-import { BLOC_IDENTITIES, PRINCIPLES, canFound, foundBloc, blocOf, invite, leaveBloc, pushLaw, setPrinciple, subjugateMember, type BlocIdentity } from './systems/powerBlocs';
+import { LAW_GROUPS } from './data/dbTypes';
+import { SUBJECT, demandIndependence, subjectAction, type SubjectAction } from './systems/subjects';
+import { BLOC_IDENTITIES, PRINCIPLES, canFound, foundBloc, blocOf, imposeLaw, invite, leaveBloc, setPrinciple, subjugateMember, type BlocIdentity } from './systems/powerBlocs';
 import { journalAction } from './systems/regimes';
 import type { LawGroup } from './data/dbTypes';
 import type { Building, GameState, WarGoal } from './types';
+const SUBJECT_ACTIONS: SubjectAction[] = ['raise_pay', 'reduce_pay', 'knowledge', 'exempt', 'support', 'more_autonomy', 'less_autonomy', 'annex', 'release'];
 import { enqueueConstruction, cancelConstruction } from './systems/economy';
 import { setProductionMethod } from './systems/productionMethods';
 import { foundCompany, foundCompanyBlocker, charterBlocker, grantCharter, revokeCharter } from './systems/companies';
@@ -45,7 +48,9 @@ export type Command =
   | { type: 'bloc_leave' }
   | { type: 'bloc_principle'; group: string; level: number }
   | { type: 'bloc_subjugate'; target: string }
-  | { type: 'bloc_push_law'; target: string };
+  | { type: 'bloc_impose_law'; target: string; group: string }
+  | { type: 'subject_pact'; target: string; action: string }
+  | { type: 'subject_independence' };
 
 export interface CommandResult { ok: boolean; reason?: string }
 
@@ -66,8 +71,11 @@ export function validateCommand(st: GameState, me: { id: string }, cmd: Command)
     case 'set_navy_target': return fin(cmd.ships) ? null : 'Invalid navy target';
     case 'start_reform': return isReformableLaw(cmd.group, cmd.value) ? null : 'Unknown law group or law value';
     case 'found_bloc': return typeof cmd.name === 'string' && (BLOC_IDENTITIES as string[]).includes(cmd.identity) && (cmd.principle === null || (typeof cmd.principle === 'string' && cmd.principle in PRINCIPLES)) ? null : 'Invalid bloc';
-    case 'bloc_invite': case 'bloc_expel': case 'bloc_subjugate': case 'bloc_push_law': return typeof cmd.target === 'string' && st.countries[cmd.target] ? null : 'Unknown target country';
+    case 'bloc_invite': case 'bloc_expel': case 'bloc_subjugate': return typeof cmd.target === 'string' && st.countries[cmd.target] ? null : 'Unknown target country';
     case 'bloc_leave': return null;
+    case 'bloc_impose_law': return typeof cmd.target === 'string' && st.countries[cmd.target] && (LAW_GROUPS as string[]).includes(cmd.group) ? null : 'Invalid law';
+    case 'subject_pact': return typeof cmd.target === 'string' && st.countries[cmd.target] && SUBJECT_ACTIONS.includes(cmd.action as SubjectAction) ? null : 'Invalid subject action';
+    case 'subject_independence': return null;
     case 'bloc_principle': return typeof cmd.group === 'string' && cmd.group in PRINCIPLES && Number.isInteger(cmd.level) ? null : 'Invalid principle';
     case 'journal': return typeof cmd.entry === 'string' && (cmd.action === 'complete' || cmd.action === 'abandon') ? null : 'Invalid journal action';
     case 'found_company': return typeof cmd.kind === 'string' && data().db.company_kinds.some((k) => k.id === cmd.kind) ? null : 'Unknown company kind';
@@ -148,10 +156,16 @@ export function execute(st: GameState, cmd: Command): CommandResult {
     }
     case 'bloc_invite': { const b = blocOf(st, me.id); if (!b || b.leader !== me.id) return { ok: false, reason: 'Only a bloc leader can invite' }; return invite(st, b, cmd.target); }
     case 'bloc_expel': { const b = blocOf(st, me.id); if (!b || b.leader !== me.id || !b.members.includes(cmd.target) || cmd.target === me.id) return { ok: false, reason: 'Not a member you can expel' }; leaveBloc(st, cmd.target); return { ok: true }; }
-    case 'bloc_subjugate': case 'bloc_push_law': {
+    case 'bloc_subjugate': case 'bloc_impose_law': {
       const b = blocOf(st, me.id); if (!b || b.leader !== me.id) return { ok: false, reason: 'Only a bloc leader can do this' };
-      const why = cmd.type === 'bloc_subjugate' ? subjugateMember(st, b, cmd.target) : pushLaw(st, b, cmd.target);
+      const why = cmd.type === 'bloc_subjugate' ? subjugateMember(st, b, cmd.target) : imposeLaw(st, b, cmd.target, cmd.group as LawGroup);
       return why ? { ok: false, reason: why } : { ok: true };
+    }
+    case 'subject_pact': { const why = subjectAction(st, me.id, cmd.target, cmd.action as SubjectAction); return why ? { ok: false, reason: why } : { ok: true }; }
+    case 'subject_independence': {
+      if (!me.overlord) return { ok: false, reason: 'Not a subject' };
+      if ((me.subjectPact?.liberty ?? 0) < SUBJECT.requestAt) return { ok: false, reason: `Liberty desire must be at least ${SUBJECT.requestAt}` };
+      return demandIndependence(st, me) ? { ok: true } : { ok: false, reason: 'Could not start the war of independence' };
     }
     case 'bloc_leave': { if (!blocOf(st, me.id)) return { ok: false, reason: 'Not in a bloc' }; leaveBloc(st, me.id); return { ok: true }; }
     case 'bloc_principle': { const b = blocOf(st, me.id); if (!b || b.leader !== me.id) return { ok: false, reason: 'Only a bloc leader sets principles' }; const why = setPrinciple(st, b, cmd.group, cmd.level); return why ? { ok: false, reason: why } : { ok: true }; }

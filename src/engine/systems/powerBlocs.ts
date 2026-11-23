@@ -10,18 +10,29 @@ import { clamp, getRel, log, rand } from '../core';
 import { data } from '../data/db';
 import { allied, greatPowers, powerScore, rivals } from './diplomacy';
 import { atWar } from './military';
-import { sharesBorder } from './politics';
 import { regionsOf } from '../cache';
 import { makeSubject } from '../world';
 import type { Country, GameState, JournalEntry } from '../types';
+import type { LawGroup } from '../data/dbTypes';
+import { setLaw, sharesBorder } from './politics';
 
 export type BlocIdentity = 'trade_league' | 'sovereign_empire' | 'ideological_union' | 'military_treaty' | 'religious_convocation';
 export const BLOC_IDENTITIES: BlocIdentity[] = ['trade_league', 'sovereign_empire', 'ideological_union', 'military_treaty', 'religious_convocation'];
 
-/** PB-02: each identity's core principle — always in force at the level cohesion allows, using no slot. */
-export const CORE_PRINCIPLE: Record<BlocIdentity, string> = {
-  trade_league: 'market_unification', sovereign_empire: 'exploit_members', ideological_union: 'ideological_alignment',
-  military_treaty: 'defensive_cooperation', religious_convocation: 'sacred_civics',
+/**
+ * PB-03b (V3 reference, CG-48 and the owner's screenshots): each identity has two **primary principle groups**.
+ * A bloc is founded with one of them at level 1 (free) and must always keep at least one. Primary and other
+ * principles share the bloc's slots; raising a principle costs mandates equal to the levels gained.
+ */
+export const PRIMARY_GROUPS: Record<BlocIdentity, [string, string]> = {
+  trade_league: ['internal_trade', 'external_trade'], sovereign_empire: ['exploit_members', 'vassalization'],
+  ideological_union: ['ideological_alignment', 'creative_legislature'], military_treaty: ['defensive_cooperation', 'aggressive_coordination'],
+  religious_convocation: ['sacred_civics', 'divine_economics'],
+};
+export const isPrimary = (identity: BlocIdentity, group: string) => PRIMARY_GROUPS[identity].includes(group);
+/** Law groups an identity lets its leader impose on members (with enough cohesion). */
+export const IDENTITY_IMPOSES: Record<BlocIdentity, LawGroup[]> = {
+  trade_league: ['trade'], sovereign_empire: [], ideological_union: ['power', 'governance'], military_treaty: [], religious_convocation: ['church'],
 };
 
 /** PB-02: what a would-be leader needs for each identity (null = allowed). */
@@ -54,51 +65,73 @@ export function blocIdeology(c: Country): 'socialist' | 'single_party' | 'democr
  *  legitimacy target · defend: readiness to defend a bloc partner (join-war interest) · attack: readiness to
  *  join the leader's offensive wars · tribute: share of income paid to the leader · alliance: one
  *  mutual-defence alliance · market: one bloc customs union · subjugate: the leader may make weak members
- *  protectorates · pushLaw: the leader may press a law on an AI member · openTrade: AI members drop
- *  isolationism.
+ *  protectorates · openTrade: AI members drop isolationism · subjectPay: more income from the leader's
+ *  subjects (fraction) · liberty: monthly liberty-desire change of the leader's subjects · libertyDamp: damping
+ *  of their rising liberty desire · annexBelow: liberty desire under which subjects can be annexed · tariff:
+ *  tariff income (bloc's external tariff) · infamy: less infamy from wars · obliged: members must answer a
+ *  partner's call to arms · noInternalWar: members cannot attack each other · cohesion: the principle's own cost
+ *  to cohesion (leader-side, counted once).
  */
-export type EffectKey = 'trade' | 'research' | 'reform' | 'police' | 'army' | 'ideology' | 'clergy' | 'construction' | 'migration' | 'legitimacy' | 'defend' | 'attack' | 'tribute' | 'alliance' | 'market' | 'subjugate' | 'pushLaw' | 'openTrade';
+export type EffectKey = 'trade' | 'research' | 'reform' | 'police' | 'army' | 'ideology' | 'clergy' | 'construction' | 'migration' | 'legitimacy' | 'defend' | 'attack' | 'tribute' | 'alliance' | 'market' | 'subjugate' | 'openTrade'
+  | 'subjectPay' | 'liberty' | 'libertyDamp' | 'annexBelow' | 'tariff' | 'infamy' | 'obliged' | 'noInternalWar' | 'cohesion';
 export interface Effect { who: 'all' | 'members' | 'leader'; key: EffectKey; value: number }
 const E = (who: Effect['who'], key: EffectKey, value: number): Effect => ({ who, key, value });
 
-/** Principle groups: the identities that may choose a group (null = any) and its effects per level 1–3. */
-export const PRINCIPLES: Record<string, { identity: BlocIdentity[] | null; levels: [Effect[], Effect[], Effect[]] }> = {
-  // identity cores (always in force, no slot)
-  market_unification: { identity: ['trade_league'], levels: [
-    [E('all', 'market', 1), E('members', 'openTrade', 1)],
-    [E('all', 'market', 1), E('members', 'openTrade', 1), E('all', 'trade', 0.05)],
-    [E('all', 'market', 1), E('members', 'openTrade', 1), E('all', 'trade', 0.10), E('all', 'construction', 0.05)]] },
-  exploit_members: { identity: ['sovereign_empire'], levels: [
-    [E('members', 'tribute', 0.02), E('leader', 'subjugate', 1), E('leader', 'defend', 2)],
-    [E('members', 'tribute', 0.04), E('leader', 'subjugate', 1), E('leader', 'defend', 2), E('members', 'army', 0.03)],
-    [E('members', 'tribute', 0.06), E('leader', 'subjugate', 1), E('leader', 'defend', 2), E('members', 'army', 0.05), E('leader', 'legitimacy', 5)]] },
-  ideological_alignment: { identity: ['ideological_union'], levels: [
-    [E('members', 'ideology', 0.5)],
-    [E('members', 'ideology', 1.0), E('all', 'police', 0.05)],
-    [E('members', 'ideology', 1.5), E('all', 'police', 0.10), E('leader', 'pushLaw', 1)]] },
-  defensive_cooperation: { identity: null, levels: [
-    [E('all', 'defend', 1.5)],
-    [E('all', 'defend', 1.5), E('all', 'alliance', 1)],
-    [E('all', 'defend', 2), E('all', 'alliance', 1), E('all', 'army', 0.05)]] },
-  sacred_civics: { identity: ['religious_convocation'], levels: [
-    [E('all', 'clergy', 1), E('all', 'legitimacy', 2)],
-    [E('all', 'clergy', 2), E('all', 'legitimacy', 4)],
-    [E('all', 'clergy', 3), E('all', 'legitimacy', 6), E('all', 'police', 0.05)]] },
-  // choosable
+/** Principle groups: the identities that may choose a group (null = any), its effects per level 1–3 (each level is
+ * the full effect) and, optionally, the level from which the leader may impose a law group on members. */
+export const PRINCIPLES: Record<string, { identity: BlocIdentity[] | null; levels: [Effect[], Effect[], Effect[]]; imposes?: { level: 1 | 2 | 3; groups: LawGroup[] } }> = {
+  // trade league primaries
   internal_trade: { identity: null, levels: [
-    [E('all', 'trade', 0.05)], [E('all', 'trade', 0.10)], [E('all', 'trade', 0.15), E('all', 'research', 0.05)]] },
-  advanced_research: { identity: null, levels: [
-    [E('all', 'research', 0.10)], [E('all', 'research', 0.20)], [E('all', 'research', 0.30), E('all', 'reform', 0.005)]] },
+    [E('all', 'trade', 0.05), E('all', 'tariff', 0.10)],
+    [E('all', 'trade', 0.10), E('all', 'tariff', 0.15)],
+    [E('all', 'trade', 0.15), E('all', 'tariff', 0.20), E('all', 'construction', 0.05)]] },
+  external_trade: { identity: ['trade_league'], levels: [
+    [E('all', 'trade', 0.10)], [E('all', 'trade', 0.15), E('all', 'research', 0.05)], [E('all', 'trade', 0.25), E('all', 'research', 0.05), E('leader', 'trade', 0.05)]] },
+  // sovereign empire primaries
+  exploit_members: { identity: ['sovereign_empire'], levels: [
+    [E('members', 'tribute', 0.02), E('leader', 'legitimacy', 3), E('members', 'legitimacy', -3), E('leader', 'cohesion', -5)],
+    [E('members', 'tribute', 0.03), E('leader', 'legitimacy', 5), E('members', 'legitimacy', -5), E('leader', 'cohesion', -10)],
+    [E('members', 'tribute', 0.05), E('leader', 'legitimacy', 5), E('members', 'legitimacy', -5), E('leader', 'subjectPay', 0.10), E('leader', 'cohesion', -20)]] },
+  vassalization: { identity: ['sovereign_empire'], levels: [
+    [E('leader', 'liberty', -0.3)],
+    [E('leader', 'liberty', -0.3), E('leader', 'subjectPay', 0.25)],
+    [E('leader', 'liberty', -0.5), E('leader', 'subjectPay', 0.25), E('leader', 'annexBelow', 40)]] },
+  // ideological union primaries
+  ideological_alignment: { identity: ['ideological_union'], levels: [
+    [E('all', 'police', 0.05), E('members', 'ideology', 0.5)],
+    [E('all', 'police', 0.10), E('members', 'ideology', 1.0), E('all', 'legitimacy', 3)],
+    [E('all', 'police', 0.15), E('members', 'ideology', 1.5), E('all', 'legitimacy', 8)]], imposes: { level: 3, groups: ['press'] } },
   creative_legislature: { identity: null, levels: [
     [E('all', 'reform', 0.01)], [E('all', 'reform', 0.02)], [E('all', 'reform', 0.03), E('all', 'legitimacy', 2)]] },
+  // military treaty primaries
+  defensive_cooperation: { identity: null, levels: [
+    [E('all', 'defend', 1.5), E('all', 'noInternalWar', 1)],
+    [E('all', 'defend', 1.5), E('all', 'noInternalWar', 1), E('all', 'alliance', 1)],
+    [E('all', 'defend', 2), E('all', 'noInternalWar', 1), E('all', 'alliance', 1), E('all', 'obliged', 1), E('all', 'army', 0.03)]], imposes: { level: 2, groups: ['army'] } },
+  aggressive_coordination: { identity: ['military_treaty', 'sovereign_empire', 'ideological_union'], levels: [
+    [E('members', 'attack', 1), E('all', 'infamy', 0.15)],
+    [E('members', 'attack', 1.5), E('all', 'infamy', 0.15), E('all', 'army', 0.02)],
+    [E('members', 'attack', 2), E('all', 'infamy', 0.15), E('all', 'army', 0.04), E('leader', 'cohesion', -10)]] },
+  // religious convocation primaries
+  sacred_civics: { identity: ['religious_convocation'], levels: [
+    [E('all', 'clergy', 1), E('all', 'legitimacy', 2)],
+    [E('all', 'clergy', 2), E('all', 'legitimacy', 4), E('leader', 'liberty', -0.2)],
+    [E('all', 'clergy', 3), E('all', 'legitimacy', 6), E('leader', 'liberty', -0.2)]], imposes: { level: 3, groups: ['church'] } },
+  divine_economics: { identity: ['religious_convocation'], levels: [
+    [E('all', 'trade', 0.05)], [E('all', 'trade', 0.05), E('all', 'construction', 0.05)], [E('all', 'trade', 0.10), E('all', 'construction', 0.05), E('all', 'legitimacy', 3)]] },
+  // general
+  market_unification: { identity: null, levels: [
+    [E('all', 'trade', 0.03), E('members', 'openTrade', 1)],
+    [E('all', 'market', 1), E('members', 'openTrade', 1)],
+    [E('all', 'market', 1), E('members', 'openTrade', 1), E('all', 'trade', 0.05)]] },
+  advanced_research: { identity: null, levels: [
+    [E('all', 'research', 0.10)], [E('all', 'research', 0.20)], [E('all', 'research', 0.30), E('all', 'reform', 0.005)]], imposes: { level: 1, groups: ['education'] } },
   police_coordination: { identity: null, levels: [
     [E('all', 'police', 0.05)], [E('all', 'police', 0.10)], [E('all', 'police', 0.15)]] },
   shared_construction: { identity: null, levels: [
     [E('all', 'construction', 0.05)], [E('all', 'construction', 0.10)], [E('all', 'construction', 0.15)]] },
-  freedom_of_movement: { identity: ['trade_league', 'ideological_union', 'religious_convocation', 'military_treaty'], levels: [
+  freedom_of_movement: { identity: null, levels: [
     [E('all', 'migration', 0.5)], [E('all', 'migration', 1.0)], [E('all', 'migration', 1.5), E('all', 'trade', 0.03)]] },
-  aggressive_coordination: { identity: ['military_treaty', 'sovereign_empire', 'ideological_union'], levels: [
-    [E('members', 'attack', 1)], [E('members', 'attack', 1.5)], [E('members', 'attack', 2), E('all', 'army', 0.03)]] },
   colonial_partnership: { identity: ['sovereign_empire', 'trade_league'], levels: [
     [E('leader', 'trade', 0.05), E('members', 'construction', 0.05)],
     [E('leader', 'trade', 0.08), E('members', 'construction', 0.10)],
@@ -112,10 +145,12 @@ export { allowedFor as principleAllowed };
 /** Design parameters (PB-01a, PB-02). */
 export const BLOC = {
   foundRank: 8, joinMargin: 20, cohesionStep: 2, sizeStrainFrom: 6, sizeStrain: 3, lowCohesion: 25,
-  slotCohesion: [40, 70], levelCohesion: [0, 40, 70], inviteMonths: 6,
+  levelCohesion: [0, 40, 70], inviteMonths: 6,
+  // slots: 2, +1 at bloc power rank ≤ 3rd–5th with 5+ members, +1 at rank ≤ 3rd with 10+ members (kept once won)
+  slotRanks: [5, 3], slotMembers: [5, 10], imposeCohesion: 60, imposeRelation: -30, imposeCost: 20,
   // mandates: progress per month = rate × cohesion/100 × (1 + other members/10, at most 2); 100 = one mandate
   mandateRate: 5, mandateMax: 3,
-  subjugateCohesion: 60, subjugatePowerShare: 0.25, subjugateLeverage: 50, pushLawCohesion: 60,
+  subjugateCohesion: 60, subjugatePowerShare: 0.25, subjugateLeverage: 50,
   aiFoundChance: 0.05, aiInviteMinCohesion: 50, aiMaxMembers: 12, leaveChance: 0.2,
 } as const;
 
@@ -124,22 +159,32 @@ export interface PowerBloc {
   principles: Record<string, number>; cohesion: number; founded: number; lastPrincipleChange: number;
   /** PB-02: unspent mandates (each buys one principle change) and progress toward the next (0–100). */
   mandates?: number; mandateProgress?: number;
+  /** PB-03b: principle slots won (2–4; kept once won). */
+  slots?: number;
 }
 export type BlocMods = Partial<Record<EffectKey, number>>;
 
 export const blocOf = (st: GameState, id: string): PowerBloc | undefined => { const b = st.countries[id]?.bloc; return b ? st.powerBlocs?.[b] : undefined; };
 const capitalRegion = (st: GameState, c: Country) => st.regions[data().regionIndex.get(c.capital) ?? -1];
 
-/** Principle slots: 1, +1 at each cohesion step, +1 with 5+ members (max 4). */
-export function principleSlots(b: PowerBloc): number {
-  return Math.min(4, 1 + BLOC.slotCohesion.filter((x) => b.cohesion >= x).length + (b.members.length >= 5 ? 1 : 0));
+/** Principle slots (PB-03b): 2, +1 with rank ≤ 5 and 5 members, +1 with rank ≤ 3 and 10 members; kept once won. */
+export function principleSlots(b: PowerBloc): number { return Math.max(2, b.slots ?? 2); }
+/** The bloc's rank by its members' total power among all blocs (1 = strongest). */
+export function blocRank(st: GameState, b: PowerBloc): number {
+  const total = (x: PowerBloc) => x.members.reduce((s, m) => s + (st.countries[m]?.alive ? powerScore(st, st.countries[m]) : 0), 0);
+  const mine = total(b);
+  return 1 + Object.values(st.powerBlocs ?? {}).filter((x) => x.id !== b.id && total(x) > mine).length;
+}
+function updateSlots(st: GameState, b: PowerBloc): void {
+  const r = blocRank(st, b); let n = 2;
+  BLOC.slotRanks.forEach((rk, i) => { if (r <= rk && b.members.length >= BLOC.slotMembers[i]) n = 3 + i; });
+  b.slots = Math.max(b.slots ?? 2, n);
 }
 /** Highest level a principle can work at with this cohesion. */
 export const maxPrincipleLevel = (b: PowerBloc) => BLOC.levelCohesion.filter((x) => b.cohesion >= x).length;
 /** Working level of a group (0 if not chosen, beyond the slots or above what cohesion allows). */
 export function principleLevel(b: PowerBloc, group: string): number {
-  if (CORE_PRINCIPLE[b.identity] === group) return Math.max(1, maxPrincipleLevel(b)); // the core principle
-  const chosen = Object.keys(b.principles).filter((g) => g !== CORE_PRINCIPLE[b.identity]).slice(0, principleSlots(b));
+  const chosen = Object.keys(b.principles).slice(0, principleSlots(b));
   return chosen.includes(group) ? Math.min(b.principles[group], maxPrincipleLevel(b)) : 0;
 }
 
@@ -206,7 +251,8 @@ export function foundBloc(st: GameState, leader: string, name: string, identity:
   if (!BLOC_IDENTITIES.includes(identity) || canFound(st, leader, identity)) return null;
   const id = `pb_${leader}_${st.tick}`;
   const b: PowerBloc = { id, name: name.trim().slice(0, 48) || `Khối ${st.countries[leader].nameVi}`, leader, members: [leader], identity, principles: {}, cohesion: 50, founded: st.tick, lastPrincipleChange: st.tick, mandates: 0, mandateProgress: 0 };
-  if (principle && principle !== CORE_PRINCIPLE[identity] && allowedFor(principle, identity)) b.principles[principle] = 1;
+  // the first principle — one of the identity's primary groups — is free at level 1
+  b.principles[principle && isPrimary(identity, principle) ? principle : PRIMARY_GROUPS[identity][0]] = 1;
   (st.powerBlocs ??= {})[id] = b;
   st.countries[leader].bloc = id;
   log(st, { type: 'diplomacy', text: `${st.countries[leader].name} founds the power bloc "${b.name}".`, textVi: `${st.countries[leader].nameVi} lập khối quyền lực "${b.name}".`, actors: [leader] });
@@ -235,19 +281,23 @@ function dissolveBloc(st: GameState, b: PowerBloc): void {
   log(st, { type: 'diplomacy', text: `${b.name} is dissolved.`, textVi: `${b.name} giải thể.`, actors: [b.leader] });
 }
 
-/** Choose a principle at a level (0 removes); one change per cooldown period; identity and slots permitting. */
+/** Choose a principle at a level (0 removes). Raising costs mandates equal to the levels gained; lowering and
+ * dropping are free, but the last primary group cannot be dropped. */
 export function setPrinciple(st: GameState, b: PowerBloc, group: string, level: number): string | null {
   const p = PRINCIPLES[group]; if (!p) return 'Unknown principle';
-  if (CORE_PRINCIPLE[b.identity] === group) return 'This is the bloc\'s core principle; it is always in force';
   if (!allowedFor(group, b.identity)) return 'This principle needs another identity';
-  if (level < 0 || level > 3) return 'Invalid level';
-  if (level === 0) delete b.principles[group]; // dropping a principle is free
-  else {
-    if (!(group in b.principles) && Object.keys(b.principles).filter((g) => g !== CORE_PRINCIPLE[b.identity]).length >= principleSlots(b)) return 'No free principle slot';
+  if (level < 0 || level > 3 || !Number.isInteger(level)) return 'Invalid level';
+  const cur = b.principles[group] ?? 0;
+  if (level === cur) return null;
+  if (level === 0) {
+    if (isPrimary(b.identity, group) && !Object.keys(b.principles).some((g) => g !== group && isPrimary(b.identity, g))) return 'The bloc must keep at least one primary principle';
+    delete b.principles[group];
+  } else {
+    if (!(group in b.principles) && Object.keys(b.principles).length >= principleSlots(b)) return 'No free principle slot';
     if (level > maxPrincipleLevel(b)) return 'Cohesion is too low for this level';
-    if (b.principles[group] === level) return null;
-    if ((b.mandates ?? 0) < 1) return 'No mandate: the bloc earns mandates over time from cohesion and members';
-    b.mandates = (b.mandates ?? 0) - 1;
+    const cost = Math.max(0, level - cur);
+    if ((b.mandates ?? 0) < cost) return `Needs ${cost} mandate(s): the bloc earns mandates over time from cohesion and members`;
+    b.mandates = (b.mandates ?? 0) - cost;
     b.principles[group] = level;
   }
   b.lastPrincipleChange = st.tick;
@@ -255,10 +305,16 @@ export function setPrinciple(st: GameState, b: PowerBloc, group: string, level: 
 }
 
 /** PB-02: the sources of a bloc's cohesion target, shown in the UI. */
-export interface CohesionParts { base: number; attitude: number; identity: number; leverage: number; size: number }
+export interface CohesionParts { base: number; attitude: number; identity: number; leverage: number; size: number; principles: number; liberty: number }
 export function cohesionParts(st: GameState, b: PowerBloc): CohesionParts {
   const others = b.members.filter((m) => m !== b.leader && st.countries[m]?.alive);
-  if (!others.length) return { base: 50, attitude: 0, identity: 0, leverage: 0, size: 0 };
+  // the chosen principles' own cost (from the chosen level, so it cannot flicker around a cohesion threshold)
+  let cost = 0;
+  for (const [g, l] of Object.entries(b.principles)) for (const e of PRINCIPLES[g]?.levels[l - 1] ?? []) if (e.key === 'cohesion') cost += e.value;
+  // a sovereign empire is as stable as its most restless subject
+  const worst = b.identity === 'sovereign_empire' ? Math.max(0, ...b.members.map((m) => st.countries[m]?.overlord === b.leader ? st.countries[m].subjectPact?.liberty ?? 0 : 0)) : 0;
+  const liberty = -Math.max(0, worst - 50) / 5;
+  if (!others.length) return { base: 50, attitude: 0, identity: 0, leverage: 0, size: 0, principles: cost, liberty: 0 };
   return {
     base: 50,
     attitude: others.reduce((s, m) => s + clamp(getRel(st, m, b.leader) / 4, -20, 20), 0) / others.length,
@@ -268,30 +324,64 @@ export function cohesionParts(st: GameState, b: PowerBloc): CohesionParts {
       : others.reduce((s, m) => s + identityFit(st, b, m), 0) / others.length * 25 - 10,
     leverage: others.reduce((s, m) => s + clamp(leverage(st, b.leader, m) / 5, 0, 10), 0) / others.length,
     size: -Math.max(0, b.members.length - BLOC.sizeStrainFrom) * BLOC.sizeStrain,
+    principles: cost, liberty,
   };
 }
 function cohesionTarget(st: GameState, b: PowerBloc): number {
   const p = cohesionParts(st, b);
-  return clamp(p.base + p.attitude + p.identity + p.leverage + p.size, 0, 100);
+  return clamp(Object.values(p).reduce((a, x) => a + x, 0), 0, 100);
 }
 
 /** PB-02: the effects a country receives (or would receive) in this bloc, from every principle in force. */
 export function blocModsFor(st: GameState, b: PowerBloc, id: string): BlocMods {
   const role = id === b.leader ? 'leader' : 'members';
   const mods: BlocMods = {};
-  const groups = new Set([CORE_PRINCIPLE[b.identity], ...Object.keys(b.principles)]);
-  for (const g of groups) {
+  const add = (k: EffectKey, v: number) => { mods[k] = (mods[k] ?? 0) + v; };
+  for (const g of Object.keys(b.principles)) {
     const lvl = principleLevel(b, g); if (!lvl) continue;
-    for (const e of PRINCIPLES[g].levels[lvl - 1]) if (e.who === 'all' || e.who === role) mods[e.key] = (mods[e.key] ?? 0) + e.value;
+    for (const e of PRINCIPLES[g].levels[lvl - 1]) if ((e.who === 'all' || e.who === role) && e.key !== 'cohesion') add(e.key, e.value);
   }
   // identity rules (not principles)
   const c = st.countries[id], L = st.countries[b.leader];
-  if (b.identity === 'trade_league') mods.trade = (mods.trade ?? 0) * 1.5; // a trade league trades harder
-  if (b.identity === 'ideological_union' && role === 'members' && c && L && c.laws.power === L.laws.power && c.laws.economy === L.laws.economy) mods.police = (mods.police ?? 0) + 0.10;
-  if (b.identity === 'religious_convocation') mods.legitimacy = (mods.legitimacy ?? 0) + 2;
-  if (b.identity === 'military_treaty') mods.alliance = 1; // mutual defence is the treaty itself
+  switch (b.identity) {
+    case 'trade_league': add('market', 1); if (role === 'leader') add('trade', 0.10); else add('openTrade', 1); break;
+    case 'sovereign_empire': if (role === 'leader') { add('subjugate', 1); add('libertyDamp', 0.2); add('defend', 2); } break;
+    case 'ideological_union': if (role === 'members' && c && L && c.laws.power === L.laws.power && c.laws.economy === L.laws.economy) add('police', 0.10); break;
+    case 'military_treaty': add('alliance', 1); add('army', 0.02); break;
+    case 'religious_convocation': add('legitimacy', 2); break;
+  }
+  for (const k of ['market', 'alliance', 'obliged', 'noInternalWar', 'openTrade', 'subjugate'] as const) if (mods[k]) mods[k] = 1;
   return mods;
 }
+
+/** PB-03b: the law groups the leader may impose on members now (identity and principles in force). */
+export function imposableGroups(b: PowerBloc): LawGroup[] {
+  const out = new Set<LawGroup>(IDENTITY_IMPOSES[b.identity]);
+  for (const g of Object.keys(b.principles)) { const imp = PRINCIPLES[g].imposes; if (imp && principleLevel(b, g) >= imp.level) imp.groups.forEach((x) => out.add(x)); }
+  return [...out];
+}
+/** Why the leader cannot impose its law of `group` on `target` (null = it can). */
+export function imposeBlocker(st: GameState, b: PowerBloc, target: string, group: LawGroup): string | null {
+  const c = st.countries[target], L = st.countries[b.leader];
+  if (!b.members.includes(target) || target === b.leader) return 'Not a member';
+  if (!imposableGroups(b).includes(group)) return 'The bloc\'s identity and principles do not allow imposing this law';
+  if (b.cohesion < BLOC.imposeCohesion) return `Cohesion must be at least ${BLOC.imposeCohesion}`;
+  if (getRel(st, target, b.leader) <= 0) return 'Relations with the member must be positive';
+  if (c.laws[group] === L.laws[group]) return 'Its law already matches';
+  return null;
+}
+/** The leader imposes its law of `group` on a member: the law changes at once; relations and cohesion suffer. */
+export function imposeLaw(st: GameState, b: PowerBloc, target: string, group: LawGroup): string | null {
+  const why = imposeBlocker(st, b, target, group); if (why) return why;
+  const c = st.countries[target], L = st.countries[b.leader];
+  setLaw(st, c, group, L.laws[group], `imposed by ${L.name}`);
+  if (c.reform?.group === group) c.reform = null;
+  st.relations[relKeyOf(target, b.leader)] = clamp((st.relations[relKeyOf(target, b.leader)] ?? 0) + BLOC.imposeRelation, -100, 100);
+  b.cohesion = clamp(b.cohesion - BLOC.imposeCost, 0, 100);
+  log(st, { type: 'politics', text: `${L.name} imposes its ${group} law on ${c.name}.`, textVi: `${L.nameVi} áp luật ${group} của mình lên ${c.nameVi}.`, actors: [target, b.leader] });
+  return null;
+}
+const relKeyOf = (a: string, b: string) => (a < b ? `${a}|${b}` : `${b}|${a}`);
 
 function applyEffects(st: GameState, b: PowerBloc): void {
   for (const m of b.members) if (st.countries[m]) st.countries[m].blocMods = blocModsFor(st, b, m);
@@ -356,11 +446,11 @@ function aiIdentity(st: GameState, c: Country): BlocIdentity {
   return 'trade_league';
 }
 const AI_PRINCIPLES: Record<BlocIdentity, string[]> = {
-  trade_league: ['internal_trade', 'advanced_research', 'creative_legislature', 'defensive_cooperation'],
-  sovereign_empire: ['police_coordination', 'defensive_cooperation', 'internal_trade', 'advanced_research'],
-  ideological_union: ['police_coordination', 'defensive_cooperation', 'advanced_research', 'creative_legislature'],
-  military_treaty: ['advanced_research', 'internal_trade', 'police_coordination', 'creative_legislature'],
-  religious_convocation: ['defensive_cooperation', 'internal_trade', 'creative_legislature', 'police_coordination'],
+  trade_league: ['internal_trade', 'external_trade', 'advanced_research', 'market_unification', 'shared_construction'],
+  sovereign_empire: ['vassalization', 'exploit_members', 'police_coordination', 'defensive_cooperation', 'internal_trade'],
+  ideological_union: ['ideological_alignment', 'creative_legislature', 'police_coordination', 'defensive_cooperation', 'advanced_research'],
+  military_treaty: ['defensive_cooperation', 'aggressive_coordination', 'advanced_research', 'internal_trade', 'police_coordination'],
+  religious_convocation: ['sacred_civics', 'divine_economics', 'holy_alliance', 'internal_trade', 'creative_legislature'],
 };
 
 function aiBlocs(st: GameState): void {
@@ -369,19 +459,19 @@ function aiBlocs(st: GameState): void {
     if (id === st.player || canFound(st, id) || rand(st) > BLOC.aiFoundChance) continue;
     const c = st.countries[id]; let identity = aiIdentity(st, c);
     if (identityRequirement(st, c, identity)) identity = 'ideological_union'; // always allowed
-    foundBloc(st, id, `Khối ${c.nameVi}`, identity, AI_PRINCIPLES[identity][0]);
+    foundBloc(st, id, `Khối ${c.nameVi}`, identity, PRIMARY_GROUPS[identity][0]);
   }
   for (const b of Object.values(st.powerBlocs ?? {})) {
     if (b.leader === st.player) continue;
     // principles: fill free slots at the highest level cohesion allows
     if ((b.mandates ?? 0) >= 1) {
-      const free = AI_PRINCIPLES[b.identity].find((g) => !(g in b.principles) && Object.keys(b.principles).filter((x) => x !== CORE_PRINCIPLE[b.identity]).length < principleSlots(b));
+      const free = AI_PRINCIPLES[b.identity].find((g) => !(g in b.principles) && Object.keys(b.principles).length < principleSlots(b));
       const up = Object.keys(b.principles).find((g) => b.principles[g] < maxPrincipleLevel(b));
-      if (free) setPrinciple(st, b, free, Math.max(1, Math.min(maxPrincipleLevel(b), 3)));
+      if (free) setPrinciple(st, b, free, 1);
       else if (up) setPrinciple(st, b, up, b.principles[up] + 1);
     }
-    // ideological union L3: the leader presses a law on a member that differs (once a year)
-    if (st.date.m === 7) for (const m of b.members) pushLaw(st, b, m);
+    // imposing laws (once a year, with high cohesion): the leader's power, church, army… law on a member
+    if (st.date.m === 7 && b.cohesion >= BLOC.imposeCohesion + 15) for (const m of b.members) { const g = imposableGroups(b).find((x) => !imposeBlocker(st, b, m, x)); if (g && m !== st.player) { imposeLaw(st, b, m, g); break; } }
     // invitations twice a year: the best candidate among neighbours, allies and subjects
     if (st.date.m % 6 === 0 && b.cohesion >= BLOC.aiInviteMinCohesion && b.members.length < BLOC.aiMaxMembers) {
       const cands = Object.values(st.countries).filter((c) => c.alive && !c.decentralized && !b.members.includes(c.id) && c.id !== st.player && (sharesBorder(st, b.leader, c.id) || allied(st, b.leader, c.id) || c.overlord === b.leader));
@@ -406,6 +496,7 @@ export function powerBlocsMonth(st: GameState): void {
       if ((getRel(st, m, b.leader) < 0 || leverage(st, b.leader, m) < BLOC.joinMargin) && rand(st) < BLOC.leaveChance) leaveBloc(st, m);
     }
     earnMandates(b);
+    updateSlots(st, b);
     applyEffects(st, b);
   }
   aiBlocs(st);
@@ -430,20 +521,5 @@ export function subjugateMember(st: GameState, b: PowerBloc, target: string): st
   if (powerScore(st, c) > powerScore(st, L) * BLOC.subjugatePowerShare) return 'The member is too strong';
   if (leverage(st, b.leader, target) < BLOC.subjugateLeverage) return 'Not enough leverage';
   makeSubject(st, target, b.leader, 'protectorate');
-  return null;
-}
-
-/** PB-02 ideological union: the leader starts a reform in an AI member toward one of its own power/economy laws. */
-export function pushLaw(st: GameState, b: PowerBloc, target: string): string | null {
-  const c = st.countries[target], L = st.countries[b.leader];
-  if (!(L?.blocMods?.pushLaw)) return 'Needs the ideological union\'s core principle at level 3';
-  if (!b.members.includes(target) || target === b.leader) return 'Not a member';
-  if (target === st.player) return 'The player decides its own laws';
-  if (b.cohesion < BLOC.pushLawCohesion) return 'Cohesion is too low';
-  if (c.reform) return 'A reform is already under way';
-  const g = (['power', 'economy'] as const).find((x) => c.laws[x] !== L.laws[x]);
-  if (!g) return 'Its laws already match';
-  c.reform = { group: g, value: L.laws[g], progress: 0, startedTick: st.tick };
-  log(st, { type: 'politics', text: `${L.name} presses ${c.name} to adopt its ${g} law.`, textVi: `${L.nameVi} ép ${c.nameVi} theo luật ${g} của mình.`, actors: [target, b.leader] });
   return null;
 }

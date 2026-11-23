@@ -74,7 +74,7 @@ export function createNation(st: GameState, nation: string, regionIds: string[],
     prestige: 5, infamy: 0, warExhaustion: 0, lastWarLost: null, claims: [], customsUnion: null, priorities: [], foreignPressure: 0, famine: 0,
     ai: { cooldowns: {}, lawHistory: [], recent: [], planTarget: null },
   };
-  delete c.truce; delete c.regimeLaws; delete c.bloc; delete c.blocMods; // never inherited from the parent country
+  delete c.truce; delete c.regimeLaws; delete c.bloc; delete c.blocMods; delete c.subjectPact; // never inherited from the parent country
   if (!template && base) c.laws = { ...base.laws, power: base.laws.power === 'autocracy' ? 'census_suffrage' : base.laws.power };
   st.countries[id] = c;
   for (const r of regionIds) transferRegion(st, r, id, cause);

@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { loadNodeData } from '../src/engine/node';
 import { createGame } from '../src/engine/init';
 import { execute } from '../src/engine/commands';
-import { powerBlocsMonth, foundBloc, invite, leverage, leverageParts, principleSlots, setPrinciple, blocOf, leaveBloc, BLOC, canFound, blocModsFor, cohesionParts, monthsToMandate, subjugateMember, pushLaw, wouldJoin, joinBloc, PRINCIPLES } from '../src/engine/systems/powerBlocs';
+import { powerBlocsMonth, foundBloc, invite, leverage, leverageParts, principleSlots, setPrinciple, blocOf, leaveBloc, BLOC, canFound, blocModsFor, cohesionParts, monthsToMandate, subjugateMember, imposeLaw, wouldJoin, joinBloc, PRINCIPLES, PRIMARY_GROUPS } from '../src/engine/systems/powerBlocs';
 import { greatPowers } from '../src/engine/systems/diplomacy';
 import { validateNestedState } from '../src/engine/stateContract';
 
@@ -32,25 +32,29 @@ describe('PB-01a power blocs', () => {
     expect(invite(st, b, 'RUS').ok).toBe(false);
   });
 
-  it('principles need the identity, a free slot, cohesion for the level and a mandate; effects reach members', () => {
+  it('principles: a primary group at founding, identity rules, slots, cohesion gates and mandates priced by tier', () => {
     const st = createGame({ mode: 'sandbox', seed: 1, player: null });
     st.rivalries.push(['GBR', 'RUS'].sort().join('|'));
     const b = foundBloc(st, 'GBR', 'B', 'military_treaty', 'advanced_research')!;
+    expect(b.principles).toEqual({ defensive_cooperation: 1 }); // the first principle must be a primary group
     invite(st, b, 'ION');
     expect(setPrinciple(st, b, 'exploit_members', 1)).toMatch(/identity/);
-    expect(setPrinciple(st, b, 'defensive_cooperation', 3)).toMatch(/core/);
+    expect(setPrinciple(st, b, 'defensive_cooperation', 0)).toMatch(/primary/);
     b.cohesion = 90;
-    expect(principleSlots(b)).toBeGreaterThanOrEqual(3);
-    expect(setPrinciple(st, b, 'internal_trade', 1)).toMatch(/mandate/);
+    expect(principleSlots(b)).toBe(2);
     b.mandates = 1;
-    expect(setPrinciple(st, b, 'internal_trade', 2)).toBeNull();
-    expect(b.mandates).toBe(0);
-    expect(setPrinciple(st, b, 'police_coordination', 1)).toMatch(/mandate/);
+    expect(setPrinciple(st, b, 'defensive_cooperation', 3)).toMatch(/2 mandate/);
+    b.mandates = 3;
+    expect(setPrinciple(st, b, 'defensive_cooperation', 3)).toBeNull();
+    expect(b.mandates).toBe(1);
+    expect(setPrinciple(st, b, 'internal_trade', 1)).toBeNull();
+    expect(setPrinciple(st, b, 'police_coordination', 1)).toMatch(/slot/);
     powerBlocsMonth(st);
-    // a military treaty is a mutual-defence alliance from the start; its core principle reaches L3 at cohesion ≥ 70
     expect(st.treaties.some((t) => t.source === `pbloc:${b.id}` && t.members.includes('ION'))).toBe(true);
-    expect(st.countries.ION.blocMods?.army).toBeGreaterThan(0);
-    expect(st.countries.ION.blocMods?.trade).toBeCloseTo(0.10);
+    expect(st.countries.ION.blocMods?.obliged).toBe(1);
+    expect(st.countries.ION.blocMods?.noInternalWar).toBe(1);
+    expect(st.countries.ION.blocMods?.army).toBeCloseTo(0.05);
+    expect(st.countries.ION.blocMods?.trade).toBeCloseTo(0.05);
   });
 
   it('the player is invited through the journal and decides', () => {
@@ -93,12 +97,15 @@ describe('PB-02 distinct identities', () => {
   it('every principle level lists concrete effects; the preview shows what a country would get', () => {
     for (const [g, p] of Object.entries(PRINCIPLES)) for (const lvl of p.levels) expect(lvl.length, g).toBeGreaterThan(0);
     const st = createGame({ mode: 'sandbox', seed: 1, player: null });
-    const b = foundBloc(st, 'GBR', 'B', 'sovereign_empire', 'internal_trade')!;
+    const b = foundBloc(st, 'GBR', 'B', 'sovereign_empire', 'exploit_members')!;
+    b.principles.exploit_members = 3; b.cohesion = 80;
     const asMember = blocModsFor(st, b, 'ION'), asLeader = blocModsFor(st, b, 'GBR');
-    expect(asMember.tribute).toBeCloseTo(0.04); // core principle at cohesion 50 → L2
+    expect(asMember.tribute).toBeCloseTo(0.05);
+    expect(asMember.legitimacy).toBeLessThan(0);
     expect(asLeader.tribute).toBeUndefined();
     expect(asLeader.subjugate).toBe(1);
-    expect(asMember.trade).toBeCloseTo(0.05);
+    expect(asLeader.subjectPay).toBeCloseTo(0.10);
+    expect(cohesionParts(st, b).principles).toBe(-20); // exploitation costs cohesion
   });
 
   it('a sovereign empire takes in the leader\'s subjects and collects tribute; it can make a weak member a protectorate', () => {
@@ -145,16 +152,21 @@ describe('PB-02 distinct identities', () => {
     expect(() => validateNestedState(st)).not.toThrow();
   });
 
-  it('an ideological union presses its laws on an AI member', () => {
+  it('an ideological union imposes its laws on a member at a price in relations and cohesion', () => {
     const st = createGame({ mode: 'sandbox', seed: 1, player: null });
     const b = foundBloc(st, 'GBR', 'B', 'ideological_union', null)!;
-    const t = Object.values(st.countries).find((c) => c.alive && !c.decentralized && c.id !== 'GBR' && !c.reform && (c.laws.power !== st.countries.GBR.laws.power || c.laws.economy !== st.countries.GBR.laws.economy))!;
+    expect(PRIMARY_GROUPS.ideological_union).toContain(Object.keys(b.principles)[0]);
+    const t = Object.values(st.countries).find((c) => c.alive && !c.decentralized && c.id !== 'GBR' && c.laws.power !== st.countries.GBR.laws.power)!;
     joinBloc(st, b, t.id);
-    b.cohesion = 50; powerBlocsMonth(st);
-    expect(pushLaw(st, b, t.id)).toMatch(/level 3/);
-    b.cohesion = 90; powerBlocsMonth(st); b.cohesion = 90;
-    expect(pushLaw(st, b, t.id)).toBeNull();
-    expect(st.countries[t.id].reform).not.toBeNull();
+    st.relations[[t.id, 'GBR'].sort().join('|')] = 60;
+    b.cohesion = 50;
+    expect(imposeLaw(st, b, t.id, 'power')).toMatch(/Cohesion/);
+    expect(imposeLaw(st, b, t.id, 'church')).toMatch(/do not allow/);
+    b.cohesion = 80;
+    expect(imposeLaw(st, b, t.id, 'power')).toBeNull();
+    expect(st.countries[t.id].laws.power).toBe(st.countries.GBR.laws.power);
+    expect(b.cohesion).toBe(60);
   });
+
 });
 
