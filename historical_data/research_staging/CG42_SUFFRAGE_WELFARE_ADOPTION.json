@@ -7,7 +7,11 @@
     "coverage": {
       "countryRows": 63,
       "minimumRequired": 60,
-      "scope": "61 current and historical country/polity rows, prioritising states in the UN 1953 comparative franchise memorandum and major countries. This is a first evidence-backed calibration cohort, not a complete global census."
+      "scope": "61 current and historical country/polity rows, prioritising states in the UN 1953 comparative franchise memorandum and major countries. This is a first evidence-backed calibration cohort, not a complete global census.",
+      "femaleSuffrageRows": 63,
+      "maleSuffrageRows": 19,
+      "socialInsuranceRows": 23,
+      "sourceCount": 17
     },
     "definitions": {
       "male_suffrage_year": "First broad/universal male national franchise milestone only when a comparative source gives a defensible year. Null means not independently verified in this package; it does not mean no male suffrage.",
@@ -16,7 +20,8 @@
       "social_insurance_year": "Earliest of the five national statutory branches in the ILO 2019 comparison: work accident, health, pension, unemployment, family support. The table is selected OECD coverage, not a global first-ever database.",
       "old_age_pension_year": "ILO table's first pension-insurance legislation year; not necessarily the first means-tested pension, first occupational pension or universal non-contributory pension.",
       "unemployment_insurance_year": "ILO table's first unemployment-insurance legislation year; may be voluntary subsidised, compulsory, or implemented later than enactment. Type is specified when known.",
-      "suspended": "Periods when competitive constitutional national elections or ordinary parliamentary democracy were suspended/restricted. These do not automatically mean the legal right to vote was repealed."
+      "suspended": "Periods when competitive constitutional national elections or ordinary parliamentary democracy were suspended/restricted. These do not automatically mean the legal right to vote was repealed.",
+      "male_suffrage_full_equal_year": "Where an early national franchise had significant racial/citizenship exclusions, this is the later milestone when those exclusions were removed at the national level; it is distinct from the initial legal franchise."
     },
     "qualityLegend": {
       "verified": "Primary law/official chronology or UN/IPU country record directly confirms the year.",
@@ -192,7 +197,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "ARG",
@@ -230,7 +236,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "AUS",
@@ -275,7 +282,9 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": 1962,
+      "male_suffrage_full_equal_quality": "supported"
     },
     {
       "iso3": "AUT",
@@ -319,7 +328,8 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "BEL",
@@ -363,7 +373,8 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "BOL",
@@ -392,7 +403,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "BRA",
@@ -430,7 +442,9 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": 1985,
+      "male_suffrage_full_equal_quality": "supported"
     },
     {
       "iso3": "BGR",
@@ -459,7 +473,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "MMR",
@@ -488,7 +503,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "BLR",
@@ -517,7 +533,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "CAN",
@@ -554,7 +571,9 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": 1960,
+      "male_suffrage_full_equal_quality": "supported"
     },
     {
       "iso3": "LKA",
@@ -583,7 +602,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "CHL",
@@ -621,7 +641,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "CHN",
@@ -650,7 +671,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "CRI",
@@ -679,7 +701,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "CUB",
@@ -708,7 +731,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "CZE",
@@ -737,7 +761,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "DNK",
@@ -781,7 +806,8 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "DOM",
@@ -810,7 +836,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "ECU",
@@ -839,7 +866,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "SLV",
@@ -868,7 +896,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "FIN",
@@ -912,7 +941,8 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "FRA",
@@ -956,7 +986,8 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "DEU",
@@ -1009,7 +1040,8 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "GRC",
@@ -1062,7 +1094,8 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "GTM",
@@ -1091,7 +1124,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "HUN",
@@ -1120,7 +1154,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "ISL",
@@ -1157,7 +1192,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "IND",
@@ -1195,7 +1231,9 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": 1950,
+      "male_suffrage_full_equal_quality": "supported"
     },
     {
       "iso3": "IDN",
@@ -1224,7 +1262,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "IRL",
@@ -1261,7 +1300,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "ISR",
@@ -1290,7 +1330,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "ITA",
@@ -1343,7 +1384,8 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "JPN",
@@ -1387,7 +1429,8 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "KOR",
@@ -1425,7 +1468,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "LBR",
@@ -1454,7 +1498,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "LUX",
@@ -1491,7 +1536,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "MEX",
@@ -1520,7 +1566,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "MNG",
@@ -1549,7 +1596,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "NLD",
@@ -1593,7 +1641,8 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "NZL",
@@ -1637,7 +1686,8 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "NOR",
@@ -1681,7 +1731,8 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "PAK",
@@ -1710,7 +1761,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "PAN",
@@ -1739,7 +1791,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "PHL",
@@ -1768,7 +1821,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "POL",
@@ -1797,7 +1851,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "ROU",
@@ -1826,7 +1881,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "SWE",
@@ -1870,7 +1926,8 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "SYR",
@@ -1899,7 +1956,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "THA",
@@ -1928,7 +1986,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "TUR",
@@ -1966,7 +2025,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "UKR",
@@ -1995,7 +2055,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "ZAF",
@@ -2024,7 +2085,9 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": 1994,
+      "male_suffrage_full_equal_quality": "supported"
     },
     {
       "iso3": "RUS",
@@ -2053,7 +2116,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "GBR",
@@ -2097,7 +2161,8 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "USA",
@@ -2141,7 +2206,9 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": 1965,
+      "male_suffrage_full_equal_quality": "supported"
     },
     {
       "iso3": "URY",
@@ -2179,7 +2246,8 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "VEN",
@@ -2208,7 +2276,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "YUG",
@@ -2237,7 +2306,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "CHE",
@@ -2281,7 +2351,8 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "ESP",
@@ -2336,7 +2407,8 @@
       "male_suffrage_quality": "supported",
       "social_insurance_quality": "supported",
       "old_age_pension_quality": "supported",
-      "unemployment_insurance_quality": "supported"
+      "unemployment_insurance_quality": "supported",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "SVK",
@@ -2365,7 +2437,8 @@
       "male_suffrage_quality": "unverified",
       "social_insurance_quality": "unverified",
       "old_age_pension_quality": "unverified",
-      "unemployment_insurance_quality": "unverified"
+      "unemployment_insurance_quality": "unverified",
+      "male_suffrage_full_equal_year": null
     },
     {
       "iso3": "PRT",
@@ -2411,7 +2484,8 @@
         "owid_lied_female_2026",
         "vdem_codebook_16"
       ],
-      "note": "1945 female franchise was conditional on special education or tax requirements; equal suffrage followed in 1976. ILO table gives the first pension-insurance legislation in 1935 and unemployment insurance in 1975."
+      "note": "1945 female franchise was conditional on special education or tax requirements; equal suffrage followed in 1976. ILO table gives the first pension-insurance legislation in 1935 and unemployment insurance in 1975.",
+      "male_suffrage_full_equal_year": null
     }
   ]
 }
