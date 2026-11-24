@@ -2738,3 +2738,14 @@ Run data/content builders, resolve schema errors, verify event scheduling and jo
 Proceed with QNG → RUS → PRU → USA → TUR. PRU means Prussia; do not confuse it with PRS (Persia). Do not mark MSG-129 complete until the full sequence and required review are done.
 
 Detailed report: `docs/research/history/CG61_JAP_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md`.
+
+
+## 2026-11-24 — CG-62 QNG (Nhà Thanh) A1 story pack delivered
+
+- **Data:** `historical_data/events/story/QNG.json` — 51 events, 4 journals, 3 source refs; 1838-12-31 through 1912-02-12.
+- **Commits:** initial data `2f7d922ff0346f6ff35a33253e8703bee5f360e0`; monthly window/journal correction `74a305ae2dedc246e799efed4d48c28a96a27d5e`; image refs `8638289911cade7eb81a2e2319724e969cfcccdd`.
+- **Images:** two event-specific Commons candidates in `historical_data/assets/illustration_sources/story_selection.json`; commit `3c9b74fce3c1bfff2346a2a0a8bb52a348ae5bc0`. Candidates only; no binary ingestion.
+- **Checkpoint:** `docs/research/history/CG62_QNG_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md`, commit `e061ad119ae4f089bd9b1accee9d65f1f2701c26`.
+- Static read-back: JSON valid; unique QNG IDs; two options/event; named timed modifier/option; source keys resolve; fire_date = date_historical; all modifier keys in MOD_KEYS; 4 journals use time-based progress, not persistent event_fired milestones.
+- **Integration blockers:** verify monthly scheduler with mid-month fire_date + next-year availability window; verify QNG final abdication event against registry hist_to 1912-02-12; review all historical dates/claims; recheck image rights and ingest size. No data/content builder, tests, simulation, Android build or APK run.
+- **Next ChatGPT A1 country:** RUS → PRU (Prussia, not PRS/Persia) → USA → TUR. MSG-129 remains IN_PROGRESS.
