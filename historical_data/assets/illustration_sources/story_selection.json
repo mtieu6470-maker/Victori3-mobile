@@ -3290,6 +3290,162 @@
         0.5
       ],
       "review_note": "Commons page links the Library of Congress record ppmsca.04928, states the work is public domain in source country and US, and includes an attribution requirement for restoration by Adam Cuerden. Original is about 5.8 MB; use a derivative and retain attribution. This is a contextual portrait, not the Sultan's departure photograph."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "jap_perry_arrival",
+      "commons_file": "The American expedition, under Commodore Perry, landing in Japan, July 14, 1853 - Lith. & print by Hatch & Severyn, 140 Fulton St. N.Y. ; Severyn del. LCCN2014647410.jpg",
+      "year": 1853,
+      "width": 8704,
+      "height": 6568,
+      "author": "Hatch & Severyn; Charles Severyn, artist; Bayard Taylor, caption",
+      "name": "Perry's landing in Japan, 14 July 1853",
+      "description": "Library of Congress lithograph depicting Commodore Perry's expedition landing at Gore-Hama, Japan, on 14 July 1853",
+      "period": {
+        "from": 1853,
+        "to": 1853
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page identifies Library of Congress item LCCN 2014647410 and the rights advisory 'No known restrictions on publication'; the print was published in 1853. Original is 9.61 MB and over 8,700 px; ingest a controlled derivative."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "jap_meiji_restoration",
+      "commons_file": "Meiji Emperor.jpg",
+      "year": 1873,
+      "width": 1424,
+      "height": 1884,
+      "author": "Uchida Kuichi (1844–1875)",
+      "name": "Portrait of Emperor Meiji",
+      "description": "Albumen-silver portrait of Emperor Meiji photographed by Uchida Kuichi in 1873, during the early Meiji state-building period",
+      "period": {
+        "from": 1873,
+        "to": 1873
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page identifies Uchida Kuichi, date 1873, and public-domain status in Japan and the United States; Public Domain Mark. Portrait is contextual, not a depiction of the Restoration proclamation."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "jap_sino_japanese_war",
+      "commons_file": "Sino Japanese war 1894.jpg",
+      "year": 1894,
+      "width": 2837,
+      "height": 1935,
+      "author": "Oomoto (1894)",
+      "name": "First Sino-Japanese War photograph",
+      "description": "Contemporary 1894 photograph associated with the First Sino-Japanese War; source cited as Ozawa Kenshin, Bakumatsu Meiji no Shashin, p.340",
+      "period": {
+        "from": 1894,
+        "to": 1894
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page marks the photograph public domain in Japan and the United States under the expired Japanese photo term. The page notes source details are incomplete; verify provenance before approval."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "jap_russo_japanese_war",
+      "commons_file": "Japanese soldiers near Chemulpo Korea August September 1904 Russo Japanese War.jpg",
+      "year": 1904,
+      "width": 2464,
+      "height": 1804,
+      "author": "Unknown; source Musée de l'Armée, Paris",
+      "name": "Japanese soldiers near Chemulpo",
+      "description": "Photograph of Japanese soldiers near Chemulpo, Korea, during the opening phase of the Russo-Japanese War in 1904",
+      "period": {
+        "from": 1904,
+        "to": 1904
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page identifies the Musée de l'Armée as source and reports public-domain status in Japan and the United States under the expired Japanese photograph term. The page warns the publication history should be checked; candidate only."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "jap_kanto_earthquake",
+      "commons_file": "1923 Great Kantō earthquake destructions.jpg",
+      "year": 1923,
+      "width": 6316,
+      "height": 3815,
+      "author": "Unknown author; source Flickr collection",
+      "name": "Great Kantō Earthquake destruction",
+      "description": "Photograph of destruction after the Great Kantō Earthquake of 1923",
+      "period": {
+        "from": 1923,
+        "to": 1923
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page reports public-domain status in Japan and the United States under the expired Japanese photograph term. Original is 18.42 MB; verify source provenance and use a derivative."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "jap_pearl_harbor",
+      "commons_file": "Japanese aircraft attacking Pearl Harbor, 1941.jpg",
+      "year": 1941,
+      "width": 2577,
+      "height": 1906,
+      "author": "Unknown; Library of Congress source recorded",
+      "name": "Japanese aircraft attack Pearl Harbor",
+      "description": "Photograph depicting a Japanese aircraft during the attack on Pearl Harbor on 7 December 1941",
+      "period": {
+        "from": 1941,
+        "to": 1941
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page dedicates the image to CC0 1.0 worldwide. Source metadata names the Library of Congress but cites a secondary hosting page; verify the original archival identifier during ingestion."
     }
   ]
 }
