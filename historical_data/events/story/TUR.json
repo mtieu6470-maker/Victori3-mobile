@@ -1,0 +1,3997 @@
+{
+  "schema": "story_events_v1",
+  "country": "TUR",
+  "sources": {
+    "cambridge_turkey_chronology": "Cambridge University Press, The Cambridge History of Turkey, Volume 4: Turkey in the Modern World, chronology. https://assets.cambridge.org/97805216/20963/frontmatter/9780521620963_frontmatter.pdf",
+    "quataert_ottoman_chronology": "Donald Quataert, The Ottoman Empire, 1700–1922, chronology (Cambridge University Press). https://assets.cambridge.org/97805218/39105/frontmatter/9780521839105_frontmatter.pdf",
+    "oxford_tanzimat": "Carter V. Findley, The Return Toward Centralization, 1789–1908, Oxford Academic. https://academic.oup.com/book/62681/chapter/561957455",
+    "oxford_final_crises": "Carter V. Findley, Final Crises, 1908–22, Oxford Academic. https://academic.oup.com/book/62681/chapter/561960801",
+    "wiley_ottoman": "Encyclopedia of the Ottoman Empire, Ottoman Empire overview, Wiley. https://onlinelibrary.wiley.com/doi/full/10.1002/9781118455074.wbeoe408",
+    "belleten_wwi": "Belleten, The Entry of the Ottoman Empire into World War I. https://belleten.gov.tr/eng/full-text/37/eng",
+    "sciencespo_mass_violence": "Sciences Po, The General Ottoman and Turkish Contexts, From the Tanzimat to the Suppression of the Dersim Rebellion. https://www.sciencespo.fr/mass-violence-war-massacre-resistance/fr/document/general-ottoman-and-turkish-contexts-tanzimat-1838-suppression-dersim-rebellion-1938.html",
+    "ucsd_ottoman_final": "University of California San Diego, Events in the Final Ottoman Decades. https://history.ucsd.edu/doc/review/current/mp/a-1-2-revised.pdf",
+    "brit_ottoman_1922": "Encyclopaedia Britannica (1922 edition), Ottoman Empire. https://en.wikisource.org/wiki/1922_Encyclop%C3%A6dia_Britannica/Ottoman_Empire"
+  },
+  "events": [
+    {
+      "id": "tur_gulhane_edict_1839",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1839-01-01",
+        "1840-12-31"
+      ],
+      "date_historical": "1839-11-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1839,
+            "to": 1840
+          }
+        ],
+        "fire_date": "1839-11-03"
+      },
+      "title_vi": "Sắc lệnh Gülhane mở đầu Tanzimat",
+      "title_en": "The Gülhane Edict Opens the Tanzimat",
+      "text_vi": "Sultan Abdülmecid công bố sắc lệnh Gülhane, hứa bảo đảm an toàn tính mạng, danh dự và tài sản, đồng thời cải tổ thuế khóa và nghĩa vụ quân sự. Văn kiện mở đầu giai đoạn Tanzimat, nhằm tái tổ chức nhà nước và củng cố lòng trung thành của các cộng đồng đa tôn giáo.",
+      "text_en": "Sultan Abdülmecid proclaims the Gülhane Edict, promising safeguards for life, honour and property while reforming taxation and military service. The decree opens the Tanzimat era, seeking to reorganise the state and strengthen the loyalty of its multi-religious communities.",
+      "image": {
+        "ref": "tur_abdulmejid_portrait_1839"
+      },
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thực thi cải cách pháp lý nhất quán tại các tỉnh",
+          "label_en": "Implement consistent legal reforms across the provinces",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_gulhane_edict_1839_historical",
+              "name_vi": "Hệ quả chính sách: Thực thi cải cách pháp lý nhất quán tại các tỉnh",
+              "name_en": "Policy consequence: Implement consistent legal reforms across the provinces",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.02,
+                "legitimacy": 0.3
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên cải cách hành chính tại trung tâm trước",
+          "label_en": "Prioritise administrative reform at the centre first",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_gulhane_edict_1839_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên cải cách hành chính tại trung tâm trước",
+              "name_en": "Policy consequence: Prioritise administrative reform at the centre first",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.015,
+                "legitimacy": 0.15
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_tanzimat"
+      ]
+    },
+    {
+      "id": "tur_battle_nezib_1839",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1839-01-01",
+        "1840-12-31"
+      ],
+      "date_historical": "1839-06-24",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1839,
+            "to": 1840
+          }
+        ],
+        "fire_date": "1839-06-24"
+      },
+      "title_vi": "Thất bại tại Nezib",
+      "title_en": "Defeat at Nezib",
+      "text_vi": "Quân Ottoman thất bại trước lực lượng của Muhammad Ali tại Nezib, phơi bày khủng hoảng trong tổ chức quân đội và quyền kiểm soát Syria. Cái chết của Mahmud II ngay sau đó khiến triều đình mới phải đối diện đồng thời với khủng hoảng kế vị và can thiệp ngoại bang.",
+      "text_en": "Ottoman forces are defeated by Muhammad Ali’s army at Nezib, exposing weaknesses in military organisation and control of Syria. Mahmud II’s death soon afterwards leaves the new court facing both a succession crisis and foreign intervention.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tái tổ chức quân đội và tìm hỗ trợ ngoại giao",
+          "label_en": "Reorganise the army and seek diplomatic support",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_battle_nezib_1839_historical",
+              "name_vi": "Hệ quả chính sách: Tái tổ chức quân đội và tìm hỗ trợ ngoại giao",
+              "name_en": "Policy consequence: Reorganise the army and seek diplomatic support",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "research": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung khôi phục quyền kiểm soát bằng quân sự",
+          "label_en": "Concentrate on restoring control by force",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_battle_nezib_1839_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung khôi phục quyền kiểm soát bằng quân sự",
+              "name_en": "Policy consequence: Concentrate on restoring control by force",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.035,
+                "war_exhaustion": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "quataert_ottoman_chronology",
+        "oxford_tanzimat"
+      ]
+    },
+    {
+      "id": "tur_london_convention_1840",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1840-01-01",
+        "1841-12-31"
+      ],
+      "date_historical": "1840-07-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1840,
+            "to": 1841
+          }
+        ],
+        "fire_date": "1840-07-15"
+      },
+      "title_vi": "Công ước London về khủng hoảng Ai Cập",
+      "title_en": "The London Convention and the Egyptian Crisis",
+      "text_vi": "Các cường quốc châu Âu ký thỏa thuận nhằm buộc Muhammad Ali rút khỏi Syria và các vùng lãnh thổ Ottoman khác, đổi lại quyền cai trị cha truyền con nối tại Ai Cập. Sự can thiệp giúp đế quốc giữ được hình thức thống nhất nhưng làm lộ sự phụ thuộc vào cân bằng quyền lực châu Âu.",
+      "text_en": "European powers agree to compel Muhammad Ali to withdraw from Syria and other Ottoman territories in exchange for hereditary rule in Egypt. Intervention preserves the empire’s formal unity but exposes its dependence on the European balance of power.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tận dụng bảo đảm quốc tế để tái lập quyền lực trung ương",
+          "label_en": "Use international guarantees to restore central authority",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_london_convention_1840_historical",
+              "name_vi": "Hệ quả chính sách: Tận dụng bảo đảm quốc tế để tái lập quyền lực trung ương",
+              "name_en": "Policy consequence: Use international guarantees to restore central authority",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.03,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tránh phụ thuộc lâu dài vào các cường quốc",
+          "label_en": "Avoid long-term dependence on the powers",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_london_convention_1840_alternative",
+              "name_vi": "Hệ quả chính sách: Tránh phụ thuộc lâu dài vào các cường quốc",
+              "name_en": "Policy consequence: Avoid long-term dependence on the powers",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "relation": 0.02,
+                "war_exhaustion": -0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "quataert_ottoman_chronology"
+      ]
+    },
+    {
+      "id": "tur_straits_convention_1841",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1841-01-01",
+        "1842-12-31"
+      ],
+      "date_historical": "1841-07-13",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1841,
+            "to": 1842
+          }
+        ],
+        "fire_date": "1841-07-13"
+      },
+      "title_vi": "Công ước Eo biển London",
+      "title_en": "The London Straits Convention",
+      "text_vi": "Các cường quốc xác nhận nguyên tắc đóng eo biển Bosporus và Dardanelles đối với tàu chiến nước ngoài trong thời bình, theo quy ước của Sultan. Thỏa thuận bảo vệ một phần chủ quyền Ottoman nhưng cũng quốc tế hóa vấn đề kiểm soát các tuyến đường chiến lược.",
+      "text_en": "The powers confirm the peacetime closure of the Bosporus and Dardanelles to foreign warships under the Sultan’s convention. The agreement protects part of Ottoman sovereignty while internationalising control of strategic waterways.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giữ nguyên tắc chủ quyền và quản lý eo biển chặt chẽ",
+          "label_en": "Preserve sovereignty and tightly manage the Straits",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_straits_convention_1841_historical",
+              "name_vi": "Hệ quả chính sách: Giữ nguyên tắc chủ quyền và quản lý eo biển chặt chẽ",
+              "name_en": "Policy consequence: Preserve sovereignty and tightly manage the Straits",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.035,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Nhượng bộ ngoại giao để tránh đối đầu hải quân",
+          "label_en": "Make diplomatic concessions to avoid naval confrontation",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_straits_convention_1841_alternative",
+              "name_vi": "Hệ quả chính sách: Nhượng bộ ngoại giao để tránh đối đầu hải quân",
+              "name_en": "Policy consequence: Make diplomatic concessions to avoid naval confrontation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "relation": 0.02,
+                "tax": 0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "quataert_ottoman_chronology"
+      ]
+    },
+    {
+      "id": "tur_crimean_war_1853",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1853-01-01",
+        "1854-12-31"
+      ],
+      "date_historical": "1853-10-04",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1853,
+            "to": 1854
+          }
+        ],
+        "fire_date": "1853-10-04"
+      },
+      "title_vi": "Đế quốc Ottoman bước vào Chiến tranh Krym",
+      "title_en": "The Ottoman Empire Enters the Crimean War",
+      "text_vi": "Sau khi căng thẳng với Nga leo thang quanh quyền bảo hộ các địa điểm thánh và cộng đồng Chính thống giáo, Ottoman tuyên chiến với Nga. Anh và Pháp sau đó tham chiến bên phía Ottoman, biến cuộc xung đột thành chiến tranh quốc tế lớn tại Biển Đen.",
+      "text_en": "After tensions with Russia escalate over protection of holy sites and Orthodox communities, the Ottomans declare war on Russia. Britain and France later join on the Ottoman side, turning the conflict into a major international war in the Black Sea.",
+      "image": {
+        "ref": "tur_crimean_war_1853"
+      },
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Phối hợp liên minh và bảo vệ các tuyến tiếp tế",
+          "label_en": "Coordinate the alliance and protect supply routes",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_crimean_war_1853_historical",
+              "name_vi": "Hệ quả chính sách: Phối hợp liên minh và bảo vệ các tuyến tiếp tế",
+              "name_en": "Policy consequence: Coordinate the alliance and protect supply routes",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "prestige": 0.04
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung phòng thủ biên giới và giảm phụ thuộc đồng minh",
+          "label_en": "Focus on frontier defence and limit reliance on allies",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_crimean_war_1853_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung phòng thủ biên giới và giảm phụ thuộc đồng minh",
+              "name_en": "Policy consequence: Focus on frontier defence and limit reliance on allies",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "war_exhaustion": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "quataert_ottoman_chronology"
+      ]
+    },
+    {
+      "id": "tur_crimean_alliance_1854",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1854-01-01",
+        "1855-12-31"
+      ],
+      "date_historical": "1854-03-28",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1854,
+            "to": 1855
+          }
+        ],
+        "fire_date": "1854-03-28"
+      },
+      "title_vi": "Anh và Pháp tuyên chiến với Nga",
+      "title_en": "Britain and France Declare War on Russia",
+      "text_vi": "Anh và Pháp chính thức đứng về phía Ottoman trong cuộc chiến với Nga. Liên minh tăng khả năng quân sự của đế quốc nhưng cũng làm các quyết định chiến lược và hậu cần phụ thuộc hơn vào đồng minh châu Âu.",
+      "text_en": "Britain and France formally join the war against Russia on the Ottoman side. The alliance increases Ottoman military capacity but makes strategic and logistical decisions more dependent on European partners.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Phối hợp chiến dịch nhưng giữ quyền chủ động Ottoman",
+          "label_en": "Coordinate operations while retaining Ottoman initiative",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_crimean_alliance_1854_historical",
+              "name_vi": "Hệ quả chính sách: Phối hợp chiến dịch nhưng giữ quyền chủ động Ottoman",
+              "name_en": "Policy consequence: Coordinate operations while retaining Ottoman initiative",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "prestige": 0.035
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Trao quyền điều phối rộng hơn cho đồng minh",
+          "label_en": "Grant allies broader operational control",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_crimean_alliance_1854_alternative",
+              "name_vi": "Hệ quả chính sách: Trao quyền điều phối rộng hơn cho đồng minh",
+              "name_en": "Policy consequence: Grant allies broader operational control",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "relation": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "quataert_ottoman_chronology"
+      ]
+    },
+    {
+      "id": "tur_reform_edict_1856",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1856-01-01",
+        "1857-12-31"
+      ],
+      "date_historical": "1856-02-18",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1856,
+            "to": 1857
+          }
+        ],
+        "fire_date": "1856-02-18"
+      },
+      "title_vi": "Sắc lệnh Cải cách Islahat",
+      "title_en": "The Islahat Reform Edict",
+      "text_vi": "Sắc lệnh Cải cách cam kết bình đẳng pháp lý rộng hơn giữa các thần dân Hồi giáo và không Hồi giáo, mở rộng khả năng tham gia công vụ và cải tổ hệ thống tòa án. Cải cách đáp ứng một phần áp lực ngoại giao châu Âu nhưng cũng gây tranh luận về quyền lực và bản sắc của đế quốc.",
+      "text_en": "The Reform Edict promises broader legal equality between Muslim and non-Muslim subjects, expands access to public service and reforms the courts. It answers some European diplomatic pressure while provoking debate over imperial authority and identity.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Biến cam kết bình đẳng thành quy trình pháp lý thống nhất",
+          "label_en": "Turn equality commitments into uniform legal procedures",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_reform_edict_1856_historical",
+              "name_vi": "Hệ quả chính sách: Biến cam kết bình đẳng thành quy trình pháp lý thống nhất",
+              "name_en": "Policy consequence: Turn equality commitments into uniform legal procedures",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.02,
+                "legitimacy": 0.35
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Triển khai thận trọng để tránh phản ứng từ các cộng đồng",
+          "label_en": "Implement cautiously to avoid backlash among communities",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_reform_edict_1856_alternative",
+              "name_vi": "Hệ quả chính sách: Triển khai thận trọng để tránh phản ứng từ các cộng đồng",
+              "name_en": "Policy consequence: Implement cautiously to avoid backlash among communities",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "radicalism": 0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_tanzimat"
+      ]
+    },
+    {
+      "id": "tur_treaty_paris_1856",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1856-01-01",
+        "1857-12-31"
+      ],
+      "date_historical": "1856-03-30",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1856,
+            "to": 1857
+          }
+        ],
+        "fire_date": "1856-03-30"
+      },
+      "title_vi": "Hiệp ước Paris tái xác nhận toàn vẹn Ottoman",
+      "title_en": "The Treaty of Paris Reaffirms Ottoman Territorial Integrity",
+      "text_vi": "Hiệp ước Paris kết thúc Chiến tranh Krym và đưa Đế quốc Ottoman vào khuôn khổ hòa ước châu Âu, đồng thời tái xác nhận toàn vẹn lãnh thổ của đế quốc. Việc được công nhận trong hệ thống châu Âu đi kèm áp lực cải cách và giám sát quốc tế.",
+      "text_en": "The Treaty of Paris ends the Crimean War and brings the Ottoman Empire into the European peace framework, reaffirming its territorial integrity. Recognition within the European system comes with pressure for reform and international scrutiny.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tận dụng hòa bình để cải cách tài chính và quân đội",
+          "label_en": "Use peace to reform finance and the army",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_treaty_paris_1856_historical",
+              "name_vi": "Hệ quả chính sách: Tận dụng hòa bình để cải cách tài chính và quân đội",
+              "name_en": "Policy consequence: Use peace to reform finance and the army",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.04,
+                "war_exhaustion": -0.025
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Dựa vào bảo đảm ngoại giao để trì hoãn cải cách sâu",
+          "label_en": "Rely on diplomatic guarantees and defer deeper reforms",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_treaty_paris_1856_alternative",
+              "name_vi": "Hệ quả chính sách: Dựa vào bảo đảm ngoại giao để trì hoãn cải cách sâu",
+              "name_en": "Policy consequence: Rely on diplomatic guarantees and defer deeper reforms",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.15,
+                "reform": -0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology"
+      ]
+    },
+    {
+      "id": "tur_abdulaziz_accession_1861",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1861-01-01",
+        "1862-12-31"
+      ],
+      "date_historical": "1861-06-25",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1861,
+            "to": 1862
+          }
+        ],
+        "fire_date": "1861-06-25"
+      },
+      "title_vi": "Abdülaziz lên ngôi Sultan",
+      "title_en": "Abdülaziz Becomes Sultan",
+      "text_vi": "Abdülaziz kế vị Abdülmecid trong bối cảnh cải cách Tanzimat tiếp tục mở rộng. Triều đình đầu tư vào quân đội, hải quân và hạ tầng, nhưng chi tiêu hoàng gia và vay nợ ngày càng tạo áp lực lên ngân khố.",
+      "text_en": "Abdülaziz succeeds Abdülmecid as sultan while Tanzimat reforms continue. The court invests in the army, navy and infrastructure, but royal spending and borrowing increasingly strain the treasury.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Hiện đại hóa quân đội gắn với kỷ luật tài khóa",
+          "label_en": "Modernise the armed forces with fiscal discipline",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_abdulaziz_accession_1861_historical",
+              "name_vi": "Hệ quả chính sách: Hiện đại hóa quân đội gắn với kỷ luật tài khóa",
+              "name_en": "Policy consequence: Modernise the armed forces with fiscal discipline",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "construction": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở rộng hạm đội và chi tiêu hoàng gia nhanh chóng",
+          "label_en": "Expand the fleet and court spending rapidly",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_abdulaziz_accession_1861_alternative",
+              "name_vi": "Hệ quả chính sách: Mở rộng hạm đội và chi tiêu hoàng gia nhanh chóng",
+              "name_en": "Policy consequence: Expand the fleet and court spending rapidly",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.035,
+                "tax": 0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "quataert_ottoman_chronology"
+      ]
+    },
+    {
+      "id": "tur_vilayet_law_1864",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1864-01-01",
+        "1865-12-31"
+      ],
+      "date_historical": "1864-11-08",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1864,
+            "to": 1865
+          }
+        ],
+        "fire_date": "1864-11-08"
+      },
+      "title_vi": "Luật Vilayet tái tổ chức tỉnh",
+      "title_en": "The Vilayet Law Reorganises the Provinces",
+      "text_vi": "Luật Vilayet thiết lập một cấu trúc hành chính tỉnh mới, với các cấp tỉnh, huyện và làng được quy định rõ hơn. Cải cách nhằm tăng năng lực thu thuế, duy trì trật tự và mở rộng sự hiện diện của nhà nước ở các vùng xa trung tâm.",
+      "text_en": "The Vilayet Law establishes a more formal provincial structure, defining administrative levels from province to district and village. The reform seeks to improve taxation, public order and state presence in distant regions.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chuẩn hóa hành chính và đào tạo công chức địa phương",
+          "label_en": "Standardise administration and train local officials",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_vilayet_law_1864_historical",
+              "name_vi": "Hệ quả chính sách: Chuẩn hóa hành chính và đào tạo công chức địa phương",
+              "name_en": "Policy consequence: Standardise administration and train local officials",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.018,
+                "tax": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung quyền bổ nhiệm và kiểm soát tại Istanbul",
+          "label_en": "Centralise appointments and control in Istanbul",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_vilayet_law_1864_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung quyền bổ nhiệm và kiểm soát tại Istanbul",
+              "name_en": "Policy consequence: Centralise appointments and control in Istanbul",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": 0.15
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "oxford_tanzimat",
+        "quataert_ottoman_chronology"
+      ]
+    },
+    {
+      "id": "tur_abdulaziz_european_tour_1867",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1867-01-01",
+        "1868-12-31"
+      ],
+      "date_historical": "1867-06-21",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1867,
+            "to": 1868
+          }
+        ],
+        "fire_date": "1867-06-21"
+      },
+      "title_vi": "Sultan Abdülaziz thăm châu Âu",
+      "title_en": "Sultan Abdülaziz Tours Europe",
+      "text_vi": "Abdülaziz thực hiện chuyến công du châu Âu hiếm có đối với một Sultan Ottoman, gặp các hoàng gia và quan chức tại Paris, London và các thủ đô khác. Chuyến đi thể hiện mong muốn hiện đại hóa và hội nhập ngoại giao, nhưng cũng làm dấy lên tranh luận về chi phí và tính biểu tượng của triều đình.",
+      "text_en": "Abdülaziz undertakes a rare European tour for an Ottoman sultan, meeting rulers and officials in Paris, London and other capitals. The journey signals modernisation and diplomatic engagement but also raises debate over cost and court symbolism.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở rộng hợp tác kỹ thuật và giáo dục",
+          "label_en": "Expand technical and educational cooperation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_abdulaziz_european_tour_1867_historical",
+              "name_vi": "Hệ quả chính sách: Mở rộng hợp tác kỹ thuật và giáo dục",
+              "name_en": "Policy consequence: Expand technical and educational cooperation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.04,
+                "research": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ chuyến đi ở vai trò biểu tượng ngoại giao",
+          "label_en": "Keep the tour primarily symbolic",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_abdulaziz_european_tour_1867_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ chuyến đi ở vai trò biểu tượng ngoại giao",
+              "name_en": "Policy consequence: Keep the tour primarily symbolic",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.01,
+                "prestige": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "oxford_tanzimat"
+      ]
+    },
+    {
+      "id": "tur_nationality_law_1869",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1869-01-01",
+        "1870-12-31"
+      ],
+      "date_historical": "1869-01-23",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1869,
+            "to": 1870
+          }
+        ],
+        "fire_date": "1869-01-23"
+      },
+      "title_vi": "Luật Quốc tịch Ottoman",
+      "title_en": "The Ottoman Nationality Law",
+      "text_vi": "Luật Quốc tịch xác định rõ hơn quan hệ pháp lý giữa nhà nước và các thần dân thuộc nhiều cộng đồng tôn giáo, ngôn ngữ. Khái niệm chủ thể Ottoman được chuẩn hóa, dù chưa đồng nghĩa với quyền công dân bình đẳng theo nghĩa hiện đại.",
+      "text_en": "The Nationality Law more clearly defines the legal relationship between the state and subjects from diverse religious and linguistic communities. Ottoman subjecthood is standardised, although it is not equivalent to modern equal citizenship.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Củng cố tư cách thần dân chung và quyền pháp lý",
+          "label_en": "Strengthen common subjecthood and legal rights",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_nationality_law_1869_historical",
+              "name_vi": "Hệ quả chính sách: Củng cố tư cách thần dân chung và quyền pháp lý",
+              "name_en": "Policy consequence: Strengthen common subjecthood and legal rights",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "reform": 0.012
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên phân loại cộng đồng theo các quy chế hiện hành",
+          "label_en": "Prioritise community categories under existing statutes",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_nationality_law_1869_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên phân loại cộng đồng theo các quy chế hiện hành",
+              "name_en": "Policy consequence: Prioritise community categories under existing statutes",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "clergy": 0.02,
+                "radicalism": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "oxford_tanzimat"
+      ]
+    },
+    {
+      "id": "tur_debt_default_1875",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1875-01-01",
+        "1876-12-31"
+      ],
+      "date_historical": "1875-10-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1875,
+            "to": 1876
+          }
+        ],
+        "fire_date": "1875-10-06"
+      },
+      "title_vi": "Đế quốc tuyên bố vỡ nợ một phần",
+      "title_en": "The Empire Defaults on Part of Its Debt",
+      "text_vi": "Chính phủ tuyên bố giảm một nửa các khoản thanh toán nợ nước ngoài trong bối cảnh thu ngân sách suy giảm và chi tiêu chiến tranh, cung đình tăng cao. Khủng hoảng tín dụng làm suy yếu chủ quyền tài chính và tạo điều kiện cho sự can thiệp của chủ nợ châu Âu.",
+      "text_en": "The government announces a reduction of half its foreign debt payments amid falling revenues and high military and court spending. The credit crisis weakens fiscal sovereignty and opens the way for European creditor intervention.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đàm phán tái cơ cấu nợ và kiểm soát chi tiêu",
+          "label_en": "Negotiate debt restructuring and control spending",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_debt_default_1875_historical",
+              "name_vi": "Hệ quả chính sách: Đàm phán tái cơ cấu nợ và kiểm soát chi tiêu",
+              "name_en": "Policy consequence: Negotiate debt restructuring and control spending",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.02,
+                "legitimacy": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tiếp tục vay để duy trì chi tiêu nhà nước",
+          "label_en": "Continue borrowing to sustain state expenditure",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_debt_default_1875_alternative",
+              "name_vi": "Hệ quả chính sách: Tiếp tục vay để duy trì chi tiêu nhà nước",
+              "name_en": "Policy consequence: Continue borrowing to sustain state expenditure",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.025,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "quataert_ottoman_chronology",
+        "oxford_tanzimat"
+      ]
+    },
+    {
+      "id": "tur_abdulaziz_deposition_1876",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1876-01-01",
+        "1877-12-31"
+      ],
+      "date_historical": "1876-05-30",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1876,
+            "to": 1877
+          }
+        ],
+        "fire_date": "1876-05-30"
+      },
+      "title_vi": "Abdülaziz bị phế truất",
+      "title_en": "Abdülaziz Is Deposed",
+      "text_vi": "Một cuộc đảo chính trong cung đình phế truất Abdülaziz giữa khủng hoảng tài chính và chính trị. Murad V lên ngôi nhưng triều đại ngắn ngủi, cho thấy sự bất ổn sâu sắc trong giới tinh hoa và bộ máy quân sự–quan liêu.",
+      "text_en": "A palace coup deposes Abdülaziz amid financial and political crisis. Murad V succeeds but reigns briefly, revealing deep instability among the elite and military-bureaucratic establishment.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ổn định kế vị bằng thỏa thuận với giới quan chức",
+          "label_en": "Stabilise succession through agreement with officials",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_abdulaziz_deposition_1876_historical",
+              "name_vi": "Hệ quả chính sách: Ổn định kế vị bằng thỏa thuận với giới quan chức",
+              "name_en": "Policy consequence: Stabilise succession through agreement with officials",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "reform": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Dùng quyền lực triều đình để trấn áp đối thủ",
+          "label_en": "Use court power to suppress rivals",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_abdulaziz_deposition_1876_alternative",
+              "name_vi": "Hệ quả chính sách: Dùng quyền lực triều đình để trấn áp đối thủ",
+              "name_en": "Policy consequence: Use court power to suppress rivals",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.025,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "quataert_ottoman_chronology"
+      ]
+    },
+    {
+      "id": "tur_first_constitution_1876",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1876-01-01",
+        "1877-12-31"
+      ],
+      "date_historical": "1876-12-23",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1876,
+            "to": 1877
+          }
+        ],
+        "fire_date": "1876-12-23"
+      },
+      "title_vi": "Hiến pháp Kanûn-ı Esâsî được ban hành",
+      "title_en": "The Kanûn-ı Esâsî Constitution Is Promulgated",
+      "text_vi": "Sultan Abdülhamid II ban hành hiến pháp đầu tiên của đế quốc, thiết lập nghị viện lưỡng viện và các nguyên tắc đại diện. Hiến pháp phản ánh nỗ lực cứu vãn nhà nước bằng cải cách thể chế trong bối cảnh áp lực ngoại giao và khủng hoảng Balkan.",
+      "text_en": "Sultan Abdülhamid II promulgates the empire’s first constitution, establishing a bicameral parliament and principles of representation. The constitution is an attempt to preserve the state through institutional reform amid diplomatic pressure and the Balkan crisis.",
+      "image": {
+        "ref": "tur_constitution_1876"
+      },
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ nghị viện và phát triển cơ chế hiến định",
+          "label_en": "Protect parliament and develop constitutional institutions",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_first_constitution_1876_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ nghị viện và phát triển cơ chế hiến định",
+              "name_en": "Policy consequence: Protect parliament and develop constitutional institutions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.025,
+                "legitimacy": 0.35
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ quyền đình chỉ nghị viện của Sultan ở mức rộng",
+          "label_en": "Preserve broad sultanic powers to suspend parliament",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_first_constitution_1876_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ quyền đình chỉ nghị viện của Sultan ở mức rộng",
+              "name_en": "Policy consequence: Preserve broad sultanic powers to suspend parliament",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.15,
+                "police": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_tanzimat"
+      ]
+    },
+    {
+      "id": "tur_first_parliament_1877",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1877-01-01",
+        "1878-12-31"
+      ],
+      "date_historical": "1877-03-19",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1877,
+            "to": 1878
+          }
+        ],
+        "fire_date": "1877-03-19"
+      },
+      "title_vi": "Nghị viện Ottoman đầu tiên khai mạc",
+      "title_en": "The First Ottoman Parliament Opens",
+      "text_vi": "Nghị viện đầu tiên họp tại Istanbul với đại biểu từ nhiều cộng đồng và tỉnh. Các phiên tranh luận đặt vấn đề trách nhiệm của chính phủ, quản trị tỉnh và quyền của các thần dân, nhưng cuộc chiến sắp tới nhanh chóng chi phối chương trình nghị sự.",
+      "text_en": "The first parliament meets in Istanbul with representatives from multiple communities and provinces. Debates address government accountability, provincial administration and subjects’ rights, but the approaching war soon dominates the agenda.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Duy trì nghị viện như diễn đàn trách nhiệm chính phủ",
+          "label_en": "Maintain parliament as a forum for government accountability",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_first_parliament_1877_historical",
+              "name_vi": "Hệ quả chính sách: Duy trì nghị viện như diễn đàn trách nhiệm chính phủ",
+              "name_en": "Policy consequence: Maintain parliament as a forum for government accountability",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "reform": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Trao ưu tiên tuyệt đối cho điều hành thời chiến",
+          "label_en": "Give absolute priority to wartime executive control",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_first_parliament_1877_alternative",
+              "name_vi": "Hệ quả chính sách: Trao ưu tiên tuyệt đối cho điều hành thời chiến",
+              "name_en": "Policy consequence: Give absolute priority to wartime executive control",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.02,
+                "legitimacy": 0.1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "quataert_ottoman_chronology"
+      ]
+    },
+    {
+      "id": "tur_russo_ottoman_war_1877",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1877-01-01",
+        "1878-12-31"
+      ],
+      "date_historical": "1877-04-24",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1877,
+            "to": 1878
+          }
+        ],
+        "fire_date": "1877-04-24"
+      },
+      "title_vi": "Chiến tranh Nga–Ottoman bùng nổ",
+      "title_en": "The Russo-Ottoman War Begins",
+      "text_vi": "Nga tuyên chiến với Ottoman trong bối cảnh khủng hoảng Balkan và thất bại ngoại giao của các cường quốc trong việc đạt thỏa thuận cải cách. Chiến tranh diễn ra ở Balkan và Caucasus, gây tổn thất lớn và làm thay đổi sâu sắc cán cân lãnh thổ.",
+      "text_en": "Russia declares war on the Ottomans amid the Balkan crisis and the failure of the powers to secure a reform settlement. Fighting in the Balkans and Caucasus causes heavy losses and profoundly changes the territorial balance.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tổ chức phòng thủ nhiều mặt trận và bảo đảm hậu cần",
+          "label_en": "Organise multi-front defence and secure logistics",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_russo_ottoman_war_1877_historical",
+              "name_vi": "Hệ quả chính sách: Tổ chức phòng thủ nhiều mặt trận và bảo đảm hậu cần",
+              "name_en": "Policy consequence: Organise multi-front defence and secure logistics",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "war_exhaustion": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung lực lượng vào một chiến trường quyết định",
+          "label_en": "Concentrate forces on one decisive front",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_russo_ottoman_war_1877_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung lực lượng vào một chiến trường quyết định",
+              "name_en": "Policy consequence: Concentrate forces on one decisive front",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.045,
+                "war_exhaustion": 0.035
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "quataert_ottoman_chronology"
+      ]
+    },
+    {
+      "id": "tur_treaty_san_stefano_1878",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1878-01-01",
+        "1879-12-31"
+      ],
+      "date_historical": "1878-03-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1878,
+            "to": 1879
+          }
+        ],
+        "fire_date": "1878-03-03"
+      },
+      "title_vi": "Hiệp ước San Stefano",
+      "title_en": "The Treaty of San Stefano",
+      "text_vi": "Sau thất bại, Ottoman ký hiệp ước San Stefano với Nga, chấp nhận những thay đổi lãnh thổ lớn ở Balkan và các điều khoản bất lợi. Các cường quốc châu Âu phản đối việc Nga mở rộng ảnh hưởng, dẫn tới việc triệu tập Hội nghị Berlin.",
+      "text_en": "After defeat, the Ottomans sign the Treaty of San Stefano with Russia, accepting major territorial changes in the Balkans and unfavourable terms. Other European powers oppose Russia’s expanding influence, leading to the Congress of Berlin.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tìm sửa đổi hiệp ước thông qua ngoại giao đa phương",
+          "label_en": "Seek treaty revisions through multilateral diplomacy",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_treaty_san_stefano_1878_historical",
+              "name_vi": "Hệ quả chính sách: Tìm sửa đổi hiệp ước thông qua ngoại giao đa phương",
+              "name_en": "Policy consequence: Seek treaty revisions through multilateral diplomacy",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": -0.03,
+                "war_exhaustion": -0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chấp nhận điều khoản để chấm dứt chiến tranh nhanh",
+          "label_en": "Accept the terms to end the war quickly",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_treaty_san_stefano_1878_alternative",
+              "name_vi": "Hệ quả chính sách: Chấp nhận điều khoản để chấm dứt chiến tranh nhanh",
+              "name_en": "Policy consequence: Accept the terms to end the war quickly",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": -0.05,
+                "legitimacy": -0.15
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology"
+      ]
+    },
+    {
+      "id": "tur_berlin_treaty_1878",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1878-01-01",
+        "1879-12-31"
+      ],
+      "date_historical": "1878-07-13",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1878,
+            "to": 1879
+          }
+        ],
+        "fire_date": "1878-07-13"
+      },
+      "title_vi": "Hiệp ước Berlin điều chỉnh biên giới Balkan",
+      "title_en": "The Treaty of Berlin Reshapes the Balkans",
+      "text_vi": "Hội nghị Berlin sửa đổi các điều khoản San Stefano, công nhận độc lập hoặc quyền tự trị của nhiều thực thể Balkan và thu hẹp lãnh thổ Ottoman tại châu Âu. Đế quốc tránh được một số điều khoản nặng hơn nhưng tiếp tục mất ảnh hưởng và dân số.",
+      "text_en": "The Congress of Berlin revises San Stefano, recognising independence or autonomy for several Balkan entities and reducing Ottoman territory in Europe. The empire avoids some harsher terms but continues to lose influence and population.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tập trung tái thiết các tỉnh còn lại và cải cách hành chính",
+          "label_en": "Rebuild remaining provinces and reform administration",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_berlin_treaty_1878_historical",
+              "name_vi": "Hệ quả chính sách: Tập trung tái thiết các tỉnh còn lại và cải cách hành chính",
+              "name_en": "Policy consequence: Rebuild remaining provinces and reform administration",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "reform": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Theo đuổi phục hồi lãnh thổ bằng đối đầu",
+          "label_en": "Pursue territorial recovery through confrontation",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_berlin_treaty_1878_alternative",
+              "name_vi": "Hệ quả chính sách: Theo đuổi phục hồi lãnh thổ bằng đối đầu",
+              "name_en": "Policy consequence: Pursue territorial recovery through confrontation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "tax": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "quataert_ottoman_chronology"
+      ]
+    },
+    {
+      "id": "tur_constitution_suspended_1878",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1878-01-01",
+        "1879-12-31"
+      ],
+      "date_historical": "1878-02-14",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1878,
+            "to": 1879
+          }
+        ],
+        "fire_date": "1878-02-14"
+      },
+      "title_vi": "Abdülhamid II đình chỉ nghị viện",
+      "title_en": "Abdülhamid II Suspends Parliament",
+      "text_vi": "Sultan đình chỉ hoạt động nghị viện trong bối cảnh chiến tranh và khủng hoảng chính trị, mở đầu giai đoạn cai trị tập quyền kéo dài. Các cải cách hành chính và giáo dục vẫn tiếp tục, nhưng đời sống chính trị bị kiểm soát chặt hơn.",
+      "text_en": "The sultan suspends parliament amid war and political crisis, beginning a long period of centralised rule. Administrative and educational reforms continue, but political life comes under tighter control.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giữ cải cách hành chính nhưng khôi phục cơ chế đại diện",
+          "label_en": "Continue administrative reform while restoring representation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_constitution_suspended_1878_historical",
+              "name_vi": "Hệ quả chính sách: Giữ cải cách hành chính nhưng khôi phục cơ chế đại diện",
+              "name_en": "Policy consequence: Continue administrative reform while restoring representation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "reform": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung quyền lực tại cung điện và bộ máy mật vụ",
+          "label_en": "Concentrate authority in the palace and security apparatus",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_constitution_suspended_1878_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung quyền lực tại cung điện và bộ máy mật vụ",
+              "name_en": "Policy consequence: Concentrate authority in the palace and security apparatus",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.03,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_tanzimat"
+      ]
+    },
+    {
+      "id": "tur_public_debt_administration_1881",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1881-01-01",
+        "1882-12-31"
+      ],
+      "date_historical": "1881-12-20",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1881,
+            "to": 1882
+          }
+        ],
+        "fire_date": "1881-12-20"
+      },
+      "title_vi": "Cơ quan Quản lý Nợ công Ottoman",
+      "title_en": "The Ottoman Public Debt Administration",
+      "text_vi": "Thỏa thuận Muharrem thành lập cơ quan quản lý nợ công, trao cho đại diện chủ nợ châu Âu quyền thu một số nguồn thu để trả nợ. Cơ chế giúp tái lập tín dụng nhưng hạn chế chủ quyền tài chính của chính phủ Ottoman.",
+      "text_en": "The Muharrem Decree establishes a public debt administration, giving European creditor representatives control over selected revenue streams for debt repayment. The arrangement restores some credit but restricts Ottoman fiscal sovereignty.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tái cơ cấu nợ và tìm cách khôi phục quyền kiểm soát thuế",
+          "label_en": "Restructure debt and seek to restore revenue control",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_public_debt_administration_1881_historical",
+              "name_vi": "Hệ quả chính sách: Tái cơ cấu nợ và tìm cách khôi phục quyền kiểm soát thuế",
+              "name_en": "Policy consequence: Restructure debt and seek to restore revenue control",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.015,
+                "legitimacy": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chấp nhận cơ chế để tiếp cận tín dụng quốc tế",
+          "label_en": "Accept the arrangement to regain access to international credit",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_public_debt_administration_1881_alternative",
+              "name_vi": "Hệ quả chính sách: Chấp nhận cơ chế để tiếp cận tín dụng quốc tế",
+              "name_en": "Policy consequence: Accept the arrangement to regain access to international credit",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.015,
+                "prestige": -0.025
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "quataert_ottoman_chronology",
+        "oxford_tanzimat"
+      ]
+    },
+    {
+      "id": "tur_british_occupation_egypt_1882",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1882-01-01",
+        "1883-12-31"
+      ],
+      "date_historical": "1882-09-13",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1882,
+            "to": 1883
+          }
+        ],
+        "fire_date": "1882-09-13"
+      },
+      "title_vi": "Anh chiếm đóng Ai Cập",
+      "title_en": "Britain Occupies Egypt",
+      "text_vi": "Quân đội Anh chiếm đóng Ai Cập sau cuộc nổi dậy Urabi và khủng hoảng tài chính. Dù Ai Cập vẫn giữ địa vị pháp lý gắn với Ottoman, quyền kiểm soát thực tế chuyển sang Anh, làm suy giảm ảnh hưởng của Istanbul tại Đông Địa Trung Hải.",
+      "text_en": "British forces occupy Egypt after the Urabi revolt and financial crisis. Although Egypt retains a formal legal connection to the Ottoman Empire, effective control shifts to Britain, reducing Istanbul’s influence in the eastern Mediterranean.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Phản đối ngoại giao và củng cố các vị trí còn lại",
+          "label_en": "Protest diplomatically and strengthen remaining positions",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_british_occupation_egypt_1882_historical",
+              "name_vi": "Hệ quả chính sách: Phản đối ngoại giao và củng cố các vị trí còn lại",
+              "name_en": "Policy consequence: Protest diplomatically and strengthen remaining positions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": -0.02,
+                "research": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tránh đối đầu trực tiếp với Anh",
+          "label_en": "Avoid direct confrontation with Britain",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_british_occupation_egypt_1882_alternative",
+              "name_vi": "Hệ quả chính sách: Tránh đối đầu trực tiếp với Anh",
+              "name_en": "Policy consequence: Avoid direct confrontation with Britain",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "relation": 0.02,
+                "war_exhaustion": -0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "ucsd_ottoman_final"
+      ]
+    },
+    {
+      "id": "tur_hamidian_massacres_1894_1896",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1894-01-01",
+        "1895-12-31"
+      ],
+      "date_historical": "1894-11-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1894,
+            "to": 1895
+          }
+        ],
+        "fire_date": "1894-11-01"
+      },
+      "title_vi": "Bạo lực hàng loạt nhằm vào người Armenia",
+      "title_en": "Mass Violence against Armenians",
+      "text_vi": "Trong giai đoạn 1894–1896, các vụ thảm sát và bạo lực quy mô lớn nhằm vào cộng đồng Armenia xảy ra tại nhiều tỉnh phía Đông Ottoman, trong bối cảnh nổi dậy, đàn áp và xung đột cộng đồng. Các ước tính thương vong khác nhau giữa các nghiên cứu; sự kiện này cần được ghi nhận như một phần của lịch sử bạo lực nhà nước và liên cộng đồng.",
+      "text_en": "Between 1894 and 1896, mass killings and large-scale violence against Armenian communities occur across several eastern Ottoman provinces amid revolt, repression and intercommunal conflict. Casualty estimates vary among studies; the events must be recorded as part of the history of state and intercommunal violence.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ dân thường và điều tra trách nhiệm chỉ huy",
+          "label_en": "Protect civilians and investigate command responsibility",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_hamidian_massacres_1894_1896_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ dân thường và điều tra trách nhiệm chỉ huy",
+              "name_en": "Policy consequence: Protect civilians and investigate command responsibility",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.25,
+                "reform": 0.012
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở rộng quyền trấn áp để khôi phục trật tự",
+          "label_en": "Expand coercive powers to restore order",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_hamidian_massacres_1894_1896_alternative",
+              "name_vi": "Hệ quả chính sách: Mở rộng quyền trấn áp để khôi phục trật tự",
+              "name_en": "Policy consequence: Expand coercive powers to restore order",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.035,
+                "radicalism": 0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "sciencespo_mass_violence",
+        "wiley_ottoman"
+      ]
+    },
+    {
+      "id": "tur_greco_ottoman_war_1897",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1897-01-01",
+        "1898-12-31"
+      ],
+      "date_historical": "1897-04-17",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1897,
+            "to": 1898
+          }
+        ],
+        "fire_date": "1897-04-17"
+      },
+      "title_vi": "Chiến tranh Hy Lạp–Ottoman",
+      "title_en": "The Greco-Ottoman War",
+      "text_vi": "Chiến tranh bùng nổ sau căng thẳng quanh Crete và phong trào thống nhất đảo với Hy Lạp. Ottoman giành thắng lợi quân sự trên bộ nhưng các cường quốc can thiệp, khiến kết quả ngoại giao hạn chế hơn thắng lợi chiến trường.",
+      "text_en": "War breaks out after tensions over Crete and the movement for union with Greece. The Ottomans win on land, but great-power intervention limits the diplomatic gains of military victory.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận dàn xếp quốc tế để ổn định Crete",
+          "label_en": "Accept an international settlement to stabilise Crete",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_greco_ottoman_war_1897_historical",
+              "name_vi": "Hệ quả chính sách: Chấp nhận dàn xếp quốc tế để ổn định Crete",
+              "name_en": "Policy consequence: Accept an international settlement to stabilise Crete",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.02,
+                "prestige": 0.03
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì sức ép quân sự để giữ quyền kiểm soát",
+          "label_en": "Maintain military pressure to retain control",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_greco_ottoman_war_1897_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì sức ép quân sự để giữ quyền kiểm soát",
+              "name_en": "Policy consequence: Maintain military pressure to retain control",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "war_exhaustion": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "quataert_ottoman_chronology"
+      ]
+    },
+    {
+      "id": "tur_young_turk_revolution_1908",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1908-01-01",
+        "1909-12-31"
+      ],
+      "date_historical": "1908-07-23",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1908,
+            "to": 1909
+          }
+        ],
+        "fire_date": "1908-07-23"
+      },
+      "title_vi": "Cách mạng Young Turk khôi phục hiến pháp",
+      "title_en": "The Young Turk Revolution Restores the Constitution",
+      "text_vi": "Các sĩ quan và mạng lưới Ủy ban Liên hiệp và Tiến bộ buộc Sultan khôi phục hiến pháp 1876 và triệu tập nghị viện. Cuộc cách mạng mở ra kỳ vọng về bình đẳng và chính trị đại diện, nhưng nhanh chóng đối mặt với cạnh tranh dân tộc, phe phái và áp lực từ các cường quốc.",
+      "text_en": "Officers and the Committee of Union and Progress compel the sultan to restore the 1876 constitution and reconvene parliament. The revolution raises hopes for equality and representative politics but soon faces nationalist competition, factional conflict and great-power pressure.",
+      "image": {
+        "ref": "tur_young_turk_revolution_1908"
+      },
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ hiến pháp và mở rộng tham gia chính trị",
+          "label_en": "Protect the constitution and broaden political participation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_young_turk_revolution_1908_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ hiến pháp và mở rộng tham gia chính trị",
+              "name_en": "Policy consequence: Protect the constitution and broaden political participation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.025,
+                "legitimacy": 0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung quyền lực vào tổ chức cách mạng để duy trì trật tự",
+          "label_en": "Concentrate power in the revolutionary organisation to maintain order",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_young_turk_revolution_1908_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung quyền lực vào tổ chức cách mạng để duy trì trật tự",
+              "name_en": "Policy consequence: Concentrate power in the revolutionary organisation to maintain order",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.025,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_final_crises"
+      ]
+    },
+    {
+      "id": "tur_counterrevolution_1909",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1909-01-01",
+        "1910-12-31"
+      ],
+      "date_historical": "1909-04-13",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1909,
+            "to": 1910
+          }
+        ],
+        "fire_date": "1909-04-13"
+      },
+      "title_vi": "Biến động phản cách mạng tháng Tư",
+      "title_en": "The April Counter-Revolution",
+      "text_vi": "Một cuộc nổi dậy tại Istanbul chống lại chính phủ hiến định và các cải cách của Young Turks làm bùng phát khủng hoảng. Quân đội Hành động tiến vào thủ đô, dập tắt cuộc nổi dậy và dẫn tới việc phế truất Abdülhamid II.",
+      "text_en": "An uprising in Istanbul against the constitutional government and Young Turk reforms triggers a crisis. The Action Army enters the capital, suppresses the revolt and leads to the deposition of Abdülhamid II.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Khôi phục trật tự dưới khuôn khổ hiến pháp",
+          "label_en": "Restore order under the constitutional framework",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_counterrevolution_1909_historical",
+              "name_vi": "Hệ quả chính sách: Khôi phục trật tự dưới khuôn khổ hiến pháp",
+              "name_en": "Policy consequence: Restore order under the constitutional framework",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.25,
+                "reform": 0.012
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tăng quyền lực quân đội và tổ chức CUP",
+          "label_en": "Increase the power of the army and the CUP",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_counterrevolution_1909_alternative",
+              "name_vi": "Hệ quả chính sách: Tăng quyền lực quân đội và tổ chức CUP",
+              "name_en": "Policy consequence: Increase the power of the army and the CUP",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.035,
+                "police": 0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_final_crises"
+      ]
+    },
+    {
+      "id": "tur_italian_war_libya_1911",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1911-01-01",
+        "1912-12-31"
+      ],
+      "date_historical": "1911-09-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1911,
+            "to": 1912
+          }
+        ],
+        "fire_date": "1911-09-29"
+      },
+      "title_vi": "Italy xâm lược Tripolitania và Cyrenaica",
+      "title_en": "Italy Invades Tripolitania and Cyrenaica",
+      "text_vi": "Italy tuyên chiến và đổ bộ vào các tỉnh Bắc Phi của Ottoman, mở đầu chiến tranh nhằm chiếm Libya và quần đảo Dodecanese. Đế quốc gặp khó khăn trong việc đưa quân qua Địa Trung Hải do ưu thế hải quân của Italy.",
+      "text_en": "Italy declares war and lands in Ottoman North African provinces, beginning a campaign to seize Libya and the Dodecanese. The empire struggles to reinforce the region across the Mediterranean because of Italian naval superiority.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Hỗ trợ kháng cự địa phương và tìm trung gian ngoại giao",
+          "label_en": "Support local resistance and seek diplomatic mediation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_italian_war_libya_1911_historical",
+              "name_vi": "Hệ quả chính sách: Hỗ trợ kháng cự địa phương và tìm trung gian ngoại giao",
+              "name_en": "Policy consequence: Support local resistance and seek diplomatic mediation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "prestige": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung lực lượng vào phòng thủ các tuyến ven biển",
+          "label_en": "Concentrate forces on coastal defence",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_italian_war_libya_1911_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung lực lượng vào phòng thủ các tuyến ven biển",
+              "name_en": "Policy consequence: Concentrate forces on coastal defence",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": 0.025,
+                "tax": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "quataert_ottoman_chronology"
+      ]
+    },
+    {
+      "id": "tur_first_balkan_war_1912",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1912-01-01",
+        "1913-12-31"
+      ],
+      "date_historical": "1912-10-08",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1912,
+            "to": 1913
+          }
+        ],
+        "fire_date": "1912-10-08"
+      },
+      "title_vi": "Chiến tranh Balkan lần thứ nhất",
+      "title_en": "The First Balkan War",
+      "text_vi": "Liên minh Balkan tuyên chiến với Ottoman và nhanh chóng tiến công tại châu Âu. Quân đội Ottoman thất bại trên nhiều mặt trận, dẫn đến mất phần lớn lãnh thổ châu Âu còn lại và làn sóng người tị nạn Hồi giáo tràn về Anatolia.",
+      "text_en": "The Balkan League declares war on the Ottomans and rapidly advances in Europe. Ottoman forces suffer defeats on several fronts, leading to the loss of most remaining European territory and a large influx of Muslim refugees into Anatolia.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tổ chức phòng thủ và cứu trợ người tị nạn",
+          "label_en": "Organise defence and relief for refugees",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_first_balkan_war_1912_historical",
+              "name_vi": "Hệ quả chính sách: Tổ chức phòng thủ và cứu trợ người tị nạn",
+              "name_en": "Policy consequence: Organise defence and relief for refugees",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung tái chiếm lãnh thổ bằng phản công tổng lực",
+          "label_en": "Concentrate on retaking territory through a major counteroffensive",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_first_balkan_war_1912_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung tái chiếm lãnh thổ bằng phản công tổng lực",
+              "name_en": "Policy consequence: Concentrate on retaking territory through a major counteroffensive",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.045,
+                "war_exhaustion": 0.03
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "quataert_ottoman_chronology"
+      ]
+    },
+    {
+      "id": "tur_coup_1913",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1913-01-01",
+        "1914-12-31"
+      ],
+      "date_historical": "1913-01-23",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1913,
+            "to": 1914
+          }
+        ],
+        "fire_date": "1913-01-23"
+      },
+      "title_vi": "Đảo chính Bab-ı Âli",
+      "title_en": "The Raid on the Sublime Porte",
+      "text_vi": "Các thành viên CUP đột kích trụ sở chính phủ, buộc Đại Vizier Kâmil Pasha từ chức và củng cố quyền lực của nhóm lãnh đạo trẻ. Chính trị Ottoman chuyển sang thời kỳ độc quyền quyền lực của CUP trong bối cảnh chiến tranh và mất lãnh thổ.",
+      "text_en": "CUP members raid the government headquarters, force Grand Vizier Kâmil Pasha to resign and consolidate the power of the younger leadership. Ottoman politics moves towards CUP dominance amid war and territorial losses.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Khôi phục cơ chế nội các và trách nhiệm nghị viện",
+          "label_en": "Restore cabinet government and parliamentary accountability",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_coup_1913_historical",
+              "name_vi": "Hệ quả chính sách: Khôi phục cơ chế nội các và trách nhiệm nghị viện",
+              "name_en": "Policy consequence: Restore cabinet government and parliamentary accountability",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chấp nhận chính phủ tập trung để điều hành khủng hoảng",
+          "label_en": "Accept a centralised government to manage the crisis",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_coup_1913_alternative",
+              "name_vi": "Hệ quả chính sách: Chấp nhận chính phủ tập trung để điều hành khủng hoảng",
+              "name_en": "Policy consequence: Accept a centralised government to manage the crisis",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.025,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "oxford_final_crises",
+        "quataert_ottoman_chronology"
+      ]
+    },
+    {
+      "id": "tur_second_balkan_war_1913",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1913-01-01",
+        "1914-12-31"
+      ],
+      "date_historical": "1913-06-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1913,
+            "to": 1914
+          }
+        ],
+        "fire_date": "1913-06-29"
+      },
+      "title_vi": "Chiến tranh Balkan lần thứ hai",
+      "title_en": "The Second Balkan War",
+      "text_vi": "Các cựu đồng minh Balkan xung đột về việc phân chia lãnh thổ sau chiến tranh. Ottoman tận dụng tình thế để tái chiếm Edirne và một phần Đông Thrace, nhưng đế quốc vẫn mất phần lớn các tỉnh châu Âu.",
+      "text_en": "Former Balkan allies fight over the postwar territorial settlement. The Ottomans use the opportunity to retake Edirne and part of Eastern Thrace, but the empire still loses most of its European provinces.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Củng cố vùng đất tái chiếm và ưu tiên tái thiết",
+          "label_en": "Consolidate recovered territory and prioritise reconstruction",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_second_balkan_war_1913_historical",
+              "name_vi": "Hệ quả chính sách: Củng cố vùng đất tái chiếm và ưu tiên tái thiết",
+              "name_en": "Policy consequence: Consolidate recovered territory and prioritise reconstruction",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.03,
+                "construction": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tiếp tục mở rộng chiến dịch vượt quá mục tiêu phòng thủ",
+          "label_en": "Continue operations beyond defensive aims",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_second_balkan_war_1913_alternative",
+              "name_vi": "Hệ quả chính sách: Tiếp tục mở rộng chiến dịch vượt quá mục tiêu phòng thủ",
+              "name_en": "Policy consequence: Continue operations beyond defensive aims",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "war_exhaustion": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology"
+      ]
+    },
+    {
+      "id": "tur_german_ottoman_alliance_1914",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1914-01-01",
+        "1915-12-31"
+      ],
+      "date_historical": "1914-08-02",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1914,
+            "to": 1915
+          }
+        ],
+        "fire_date": "1914-08-02"
+      },
+      "title_vi": "Liên minh bí mật với Đức",
+      "title_en": "The Secret Alliance with Germany",
+      "text_vi": "Chính phủ Ottoman ký hiệp ước liên minh bí mật với Đức trong bối cảnh bị cô lập ngoại giao và lo ngại Nga. Thỏa thuận ràng buộc đế quốc sâu hơn vào cuộc chiến châu Âu, dù một bộ phận lãnh đạo vẫn hy vọng trì hoãn tham chiến.",
+      "text_en": "The Ottoman government signs a secret alliance with Germany amid diplomatic isolation and fears of Russia. The agreement ties the empire more closely to the European war, although some leaders still hope to delay entry.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giữ trung lập thực tế cho đến khi quân đội sẵn sàng",
+          "label_en": "Maintain practical neutrality until the army is ready",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_german_ottoman_alliance_1914_historical",
+              "name_vi": "Hệ quả chính sách: Giữ trung lập thực tế cho đến khi quân đội sẵn sàng",
+              "name_en": "Policy consequence: Maintain practical neutrality until the army is ready",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.02,
+                "research": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Thực hiện đầy đủ cam kết liên minh",
+          "label_en": "Fulfil the alliance commitment",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_german_ottoman_alliance_1914_alternative",
+              "name_vi": "Hệ quả chính sách: Thực hiện đầy đủ cam kết liên minh",
+              "name_en": "Policy consequence: Fulfil the alliance commitment",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.035,
+                "war_exhaustion": 0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "belleten_wwi",
+        "oxford_final_crises"
+      ]
+    },
+    {
+      "id": "tur_enters_world_war_i_1914",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1914-01-01",
+        "1915-12-31"
+      ],
+      "date_historical": "1914-11-02",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1914,
+            "to": 1915
+          }
+        ],
+        "fire_date": "1914-11-02"
+      },
+      "title_vi": "Ottoman tham chiến trong Thế chiến thứ nhất",
+      "title_en": "The Ottoman Empire Enters World War I",
+      "text_vi": "Sau khi các tàu chiến Ottoman có thủy thủ và chỉ huy Đức tấn công các cảng Nga ở Biển Đen, Nga tuyên chiến và Ottoman chính thức tham chiến bên phe Trung tâm. Đế quốc phải chiến đấu trên nhiều mặt trận từ Caucasus đến Mesopotamia và bán đảo Ả Rập.",
+      "text_en": "After Ottoman warships crewed and commanded by Germans attack Russian Black Sea ports, Russia declares war and the empire enters the conflict on the Central Powers’ side. The Ottomans must fight across fronts from the Caucasus to Mesopotamia and Arabia.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Phân bổ nguồn lực theo ưu tiên phòng thủ và hậu cần",
+          "label_en": "Allocate resources by defensive and logistical priorities",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_enters_world_war_i_1914_historical",
+              "name_vi": "Hệ quả chính sách: Phân bổ nguồn lực theo ưu tiên phòng thủ và hậu cần",
+              "name_en": "Policy consequence: Allocate resources by defensive and logistical priorities",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "war_exhaustion": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở nhiều chiến dịch tấn công để giành lợi thế",
+          "label_en": "Launch multiple offensives to gain the initiative",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_enters_world_war_i_1914_alternative",
+              "name_vi": "Hệ quả chính sách: Mở nhiều chiến dịch tấn công để giành lợi thế",
+              "name_en": "Policy consequence: Launch multiple offensives to gain the initiative",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "war_exhaustion": 0.035
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "belleten_wwi",
+        "oxford_final_crises"
+      ]
+    },
+    {
+      "id": "tur_gallipoli_campaign_1915",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1915-01-01",
+        "1916-12-31"
+      ],
+      "date_historical": "1915-04-25",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1915,
+            "to": 1916
+          }
+        ],
+        "fire_date": "1915-04-25"
+      },
+      "title_vi": "Đổ bộ Đồng minh tại Gallipoli",
+      "title_en": "The Allied Landings at Gallipoli",
+      "text_vi": "Lực lượng Anh, Pháp và các đơn vị ANZAC đổ bộ lên bán đảo Gallipoli nhằm mở đường tới Istanbul qua eo biển. Quân Ottoman phòng thủ thành công dưới sự chỉ huy của nhiều sĩ quan, trong đó có Mustafa Kemal, biến chiến dịch thành một thất bại nặng nề của Đồng minh.",
+      "text_en": "British, French and ANZAC forces land on the Gallipoli peninsula seeking a route to Istanbul through the Straits. Ottoman defenders, including officers such as Mustafa Kemal, hold the line and turn the campaign into a major Allied failure.",
+      "image": {
+        "ref": "tur_gallipoli_1915"
+      },
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Củng cố phòng thủ bờ biển và luân chuyển tiếp tế",
+          "label_en": "Strengthen coastal defence and rotate supplies",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_gallipoli_campaign_1915_historical",
+              "name_vi": "Hệ quả chính sách: Củng cố phòng thủ bờ biển và luân chuyển tiếp tế",
+              "name_en": "Policy consequence: Strengthen coastal defence and rotate supplies",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.045,
+                "prestige": 0.05
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Phản công liên tục để đẩy quân Đồng minh xuống biển",
+          "label_en": "Counterattack continuously to drive the Allies into the sea",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_gallipoli_campaign_1915_alternative",
+              "name_vi": "Hệ quả chính sách: Phản công liên tục để đẩy quân Đồng minh xuống biển",
+              "name_en": "Policy consequence: Counterattack continuously to drive the Allies into the sea",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.035,
+                "war_exhaustion": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_final_crises"
+      ]
+    },
+    {
+      "id": "tur_armenian_deportations_1915",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1915-01-01",
+        "1916-12-31"
+      ],
+      "date_historical": "1915-05-27",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1915,
+            "to": 1916
+          }
+        ],
+        "fire_date": "1915-05-27"
+      },
+      "title_vi": "Luật Trục xuất và các cuộc trục xuất người Armenia",
+      "title_en": "The Deportation Law and Armenian Deportations",
+      "text_vi": "Chính quyền ban hành luật cho phép di dời dân cư trong thời chiến; từ đó các cuộc trục xuất quy mô lớn người Armenia khỏi Anatolia và các tỉnh phía Đông diễn ra cùng với giết chóc, chết đói và mất mát hàng loạt. Nhiều học giả và cơ quan nghiên cứu lịch sử xác định đây là tội diệt chủng Armenia; thuật ngữ và cách diễn giải chính trị vẫn bị tranh cãi ở một số quốc gia.",
+      "text_en": "The government enacts a wartime deportation law; large-scale deportations of Armenians from Anatolia and eastern provinces follow, accompanied by mass killing, starvation and widespread loss of life. Many scholars and historical institutions classify these events as the Armenian Genocide; terminology and political interpretation remain contested in some states.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ dân thường, ngăn trục xuất tập thể và điều tra tội ác",
+          "label_en": "Protect civilians, halt collective deportations and investigate atrocities",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_armenian_deportations_1915_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ dân thường, ngăn trục xuất tập thể và điều tra tội ác",
+              "name_en": "Policy consequence: Protect civilians, halt collective deportations and investigate atrocities",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "reform": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tiếp tục chính sách trục xuất dưới danh nghĩa an ninh chiến tranh",
+          "label_en": "Continue deportations in the name of wartime security",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_armenian_deportations_1915_alternative",
+              "name_vi": "Hệ quả chính sách: Tiếp tục chính sách trục xuất dưới danh nghĩa an ninh chiến tranh",
+              "name_en": "Policy consequence: Continue deportations in the name of wartime security",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.04,
+                "radicalism": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "sciencespo_mass_violence",
+        "oxford_final_crises"
+      ]
+    },
+    {
+      "id": "tur_arab_revolt_1916",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1916-01-01",
+        "1917-12-31"
+      ],
+      "date_historical": "1916-06-10",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1916,
+            "to": 1917
+          }
+        ],
+        "fire_date": "1916-06-10"
+      },
+      "title_vi": "Khởi nghĩa Ả Rập",
+      "title_en": "The Arab Revolt",
+      "text_vi": "Sharif Hussein phát động cuộc nổi dậy chống quyền cai trị Ottoman tại Hejaz, với sự hỗ trợ của Anh. Cuộc nổi dậy làm suy yếu tuyến đường sắt Hejaz và buộc quân Ottoman phải phân tán lực lượng trong bối cảnh chiến tranh tổng lực.",
+      "text_en": "Sharif Hussein launches a revolt against Ottoman rule in the Hejaz with British support. The uprising threatens the Hejaz Railway and forces Ottoman forces to disperse during total war.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đàm phán quyền tự trị và củng cố liên lạc hậu cần",
+          "label_en": "Negotiate autonomy and secure logistical links",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_arab_revolt_1916_historical",
+              "name_vi": "Hệ quả chính sách: Đàm phán quyền tự trị và củng cố liên lạc hậu cần",
+              "name_en": "Policy consequence: Negotiate autonomy and secure logistical links",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "reform": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên đàn áp nổi dậy bằng quân sự",
+          "label_en": "Prioritise military suppression of the revolt",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_arab_revolt_1916_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên đàn áp nổi dậy bằng quân sự",
+              "name_en": "Policy consequence: Prioritise military suppression of the revolt",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "war_exhaustion": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_final_crises"
+      ]
+    },
+    {
+      "id": "tur_caucasus_armistice_1917",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1917-01-01",
+        "1918-12-31"
+      ],
+      "date_historical": "1917-12-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1917,
+            "to": 1918
+          }
+        ],
+        "fire_date": "1917-12-15"
+      },
+      "title_vi": "Đình chiến tại Mặt trận Kavkaz",
+      "title_en": "The Caucasus Front Armistice",
+      "text_vi": "Sau Cách mạng Nga, chính quyền Bolshevik và Ottoman đạt thỏa thuận đình chiến tại mặt trận Kavkaz. Sự tan rã của quân đội Nga tạo ra khoảng trống quyền lực và mở đường cho những biến động lãnh thổ mới ở vùng biên phía Đông.",
+      "text_en": "After the Russian Revolution, the Bolshevik government and the Ottomans reach an armistice on the Caucasus front. The collapse of Russian forces creates a power vacuum and opens the way for new territorial changes on the eastern frontier.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên ổn định biên giới và đàm phán",
+          "label_en": "Prioritise border stability and negotiations",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_caucasus_armistice_1917_historical",
+              "name_vi": "Hệ quả chính sách: Ưu tiên ổn định biên giới và đàm phán",
+              "name_en": "Policy consequence: Prioritise border stability and negotiations",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.01,
+                "prestige": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tận dụng khoảng trống để tiến quân sâu",
+          "label_en": "Exploit the vacuum for a deeper advance",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_caucasus_armistice_1917_alternative",
+              "name_vi": "Hệ quả chính sách: Tận dụng khoảng trống để tiến quân sâu",
+              "name_en": "Policy consequence: Exploit the vacuum for a deeper advance",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "war_exhaustion": 0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "oxford_final_crises",
+        "cambridge_turkey_chronology"
+      ]
+    },
+    {
+      "id": "tur_mudros_armistice_1918",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1918-01-01",
+        "1919-12-31"
+      ],
+      "date_historical": "1918-10-30",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1918,
+            "to": 1919
+          }
+        ],
+        "fire_date": "1918-10-30"
+      },
+      "title_vi": "Đình chiến Mudros",
+      "title_en": "The Armistice of Mudros",
+      "text_vi": "Đại diện Ottoman ký đình chiến với Đồng minh trên chiến hạm HMS Agamemnon tại cảng Mudros. Các điều khoản cho phép Đồng minh chiếm đóng những vị trí chiến lược và giải giáp lực lượng Ottoman, mở đầu quá trình tan rã quyền lực đế quốc.",
+      "text_en": "Ottoman representatives sign an armistice with the Allies aboard HMS Agamemnon at Mudros. The terms allow Allied occupation of strategic positions and demobilisation of Ottoman forces, opening the empire’s final dissolution.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đàm phán điều khoản để bảo vệ dân cư và bộ máy dân sự",
+          "label_en": "Negotiate terms to protect civilians and civil administration",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_mudros_armistice_1918_historical",
+              "name_vi": "Hệ quả chính sách: Đàm phán điều khoản để bảo vệ dân cư và bộ máy dân sự",
+              "name_en": "Policy consequence: Negotiate terms to protect civilians and civil administration",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.03,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chấp nhận giải giáp nhanh để chấm dứt chiến tranh",
+          "label_en": "Accept rapid demobilisation to end the war",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_mudros_armistice_1918_alternative",
+              "name_vi": "Hệ quả chính sách: Chấp nhận giải giáp nhanh để chấm dứt chiến tranh",
+              "name_en": "Policy consequence: Accept rapid demobilisation to end the war",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": -0.04,
+                "army": -0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_final_crises"
+      ]
+    },
+    {
+      "id": "tur_allied_occupation_istanbul_1918",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1918-01-01",
+        "1919-12-31"
+      ],
+      "date_historical": "1918-11-13",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1918,
+            "to": 1919
+          }
+        ],
+        "fire_date": "1918-11-13"
+      },
+      "title_vi": "Quân Đồng minh tiến vào Istanbul",
+      "title_en": "Allied Forces Enter Istanbul",
+      "text_vi": "Hạm đội Đồng minh tiến vào Istanbul sau đình chiến, đặt chính quyền Ottoman dưới sức ép trực tiếp. Sultan và nội các vẫn tồn tại trên danh nghĩa, nhưng quyền tự chủ chính trị và quân sự bị thu hẹp nghiêm trọng.",
+      "text_en": "Allied forces enter Istanbul after the armistice, placing the Ottoman government under direct pressure. The sultan and cabinet remain in office formally, but political and military autonomy is sharply curtailed.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ dân sự và duy trì cơ quan nhà nước",
+          "label_en": "Protect civilians and preserve state institutions",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_allied_occupation_istanbul_1918_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ dân sự và duy trì cơ quan nhà nước",
+              "name_en": "Policy consequence: Protect civilians and preserve state institutions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.15,
+                "police": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chấp nhận sự giám sát của Đồng minh để tránh xung đột",
+          "label_en": "Accept Allied supervision to avoid confrontation",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_allied_occupation_istanbul_1918_alternative",
+              "name_vi": "Hệ quả chính sách: Chấp nhận sự giám sát của Đồng minh để tránh xung đột",
+              "name_en": "Policy consequence: Accept Allied supervision to avoid confrontation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": -0.03,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_final_crises"
+      ]
+    },
+    {
+      "id": "tur_greek_landing_smyrna_1919",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1919-01-01",
+        "1920-12-31"
+      ],
+      "date_historical": "1919-05-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1919,
+            "to": 1920
+          }
+        ],
+        "fire_date": "1919-05-15"
+      },
+      "title_vi": "Quân Hy Lạp đổ bộ Smyrna",
+      "title_en": "Greek Forces Land at Smyrna",
+      "text_vi": "Quân Hy Lạp đổ bộ Smyrna theo sự chấp thuận của các cường quốc Đồng minh, gây ra bạo lực và khủng hoảng chính trị tại miền Tây Anatolia. Sự kiện thúc đẩy các lực lượng dân tộc chủ nghĩa tổ chức kháng chiến chống chiếm đóng.",
+      "text_en": "Greek forces land at Smyrna with Allied approval, triggering violence and political crisis in western Anatolia. The event accelerates nationalist organisation against occupation.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ dân thường và tổ chức kháng chiến có kỷ luật",
+          "label_en": "Protect civilians and organise disciplined resistance",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_greek_landing_smyrna_1919_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ dân thường và tổ chức kháng chiến có kỷ luật",
+              "name_en": "Policy consequence: Protect civilians and organise disciplined resistance",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.25,
+                "army": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung phản công quân sự ngay lập tức",
+          "label_en": "Concentrate on immediate military counterattack",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_greek_landing_smyrna_1919_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung phản công quân sự ngay lập tức",
+              "name_en": "Policy consequence: Concentrate on immediate military counterattack",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.035,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_final_crises"
+      ]
+    },
+    {
+      "id": "tur_mustafa_kemal_samsun_1919",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1919-01-01",
+        "1920-12-31"
+      ],
+      "date_historical": "1919-05-19",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1919,
+            "to": 1920
+          }
+        ],
+        "fire_date": "1919-05-19"
+      },
+      "title_vi": "Mustafa Kemal đến Samsun",
+      "title_en": "Mustafa Kemal Arrives in Samsun",
+      "text_vi": "Mustafa Kemal đến Samsun với nhiệm vụ kiểm soát tình hình quân sự tại Anatolia, nhưng nhanh chóng trở thành nhân vật trung tâm của phong trào kháng chiến dân tộc. Sự kiện thường được xem là mốc mở đầu cuộc đấu tranh giành độc lập của Thổ Nhĩ Kỳ.",
+      "text_en": "Mustafa Kemal arrives in Samsun with a mission to oversee military conditions in Anatolia but soon becomes a central figure in the nationalist resistance. The date is widely treated as the opening of Turkey’s national struggle.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tổ chức phong trào thành một mạng lưới chính trị thống nhất",
+          "label_en": "Organise the movement into a unified political network",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_mustafa_kemal_samsun_1919_historical",
+              "name_vi": "Hệ quả chính sách: Tổ chức phong trào thành một mạng lưới chính trị thống nhất",
+              "name_en": "Policy consequence: Organise the movement into a unified political network",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "army": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì các nhóm kháng chiến địa phương tự chủ",
+          "label_en": "Keep local resistance groups autonomous",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_mustafa_kemal_samsun_1919_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì các nhóm kháng chiến địa phương tự chủ",
+              "name_en": "Policy consequence: Keep local resistance groups autonomous",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.008,
+                "prestige": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_final_crises"
+      ]
+    },
+    {
+      "id": "tur_sivas_congress_1919",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1919-01-01",
+        "1920-12-31"
+      ],
+      "date_historical": "1919-09-04",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1919,
+            "to": 1920
+          }
+        ],
+        "fire_date": "1919-09-04"
+      },
+      "title_vi": "Đại hội Sivas",
+      "title_en": "The Sivas Congress",
+      "text_vi": "Các đại biểu phong trào dân tộc họp tại Sivas, thống nhất các tổ chức kháng chiến và khẳng định toàn vẹn lãnh thổ của Anatolia. Đại hội đặt nền tảng cho một trung tâm chính trị cạnh tranh với chính phủ Ottoman tại Istanbul.",
+      "text_en": "Nationalist delegates meet at Sivas, unify resistance organisations and affirm the territorial integrity of Anatolia. The congress lays the foundations for a political centre competing with the Ottoman government in Istanbul.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Xây dựng cơ chế đại diện và chương trình thống nhất",
+          "label_en": "Build representative institutions and a unified programme",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_sivas_congress_1919_historical",
+              "name_vi": "Hệ quả chính sách: Xây dựng cơ chế đại diện và chương trình thống nhất",
+              "name_en": "Policy consequence: Build representative institutions and a unified programme",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.015,
+                "legitimacy": 0.25
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung quyền chỉ huy vào một nhóm lãnh đạo nhỏ",
+          "label_en": "Concentrate command in a small leadership group",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_sivas_congress_1919_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung quyền chỉ huy vào một nhóm lãnh đạo nhỏ",
+              "name_en": "Policy consequence: Concentrate command in a small leadership group",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.02,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_final_crises"
+      ]
+    },
+    {
+      "id": "tur_grand_national_assembly_1920",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1920-01-01",
+        "1921-12-31"
+      ],
+      "date_historical": "1920-04-23",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1920,
+            "to": 1921
+          }
+        ],
+        "fire_date": "1920-04-23"
+      },
+      "title_vi": "Đại Quốc hội Quốc dân khai mạc tại Ankara",
+      "title_en": "The Grand National Assembly Opens in Ankara",
+      "text_vi": "Đại Quốc hội Quốc dân khai mạc tại Ankara và tuyên bố đại diện cho ý chí quốc gia trong bối cảnh Istanbul bị chiếm đóng. Cơ quan mới tổ chức chính quyền, quân đội và ngoại giao cho cuộc chiến tranh giành độc lập.",
+      "text_en": "The Grand National Assembly opens in Ankara and claims to represent the national will while Istanbul is occupied. The new body organises government, armed forces and diplomacy for the national struggle.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thiết lập chính quyền dân sự có trách nhiệm nghị viện",
+          "label_en": "Establish a civilian government accountable to parliament",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_grand_national_assembly_1920_historical",
+              "name_vi": "Hệ quả chính sách: Thiết lập chính quyền dân sự có trách nhiệm nghị viện",
+              "name_en": "Policy consequence: Establish a civilian government accountable to parliament",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.35,
+                "reform": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung quyền lực thời chiến vào nội các và quân đội",
+          "label_en": "Concentrate wartime power in the cabinet and army",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_grand_national_assembly_1920_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung quyền lực thời chiến vào nội các và quân đội",
+              "name_en": "Policy consequence: Concentrate wartime power in the cabinet and army",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "police": 0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_final_crises"
+      ]
+    },
+    {
+      "id": "tur_treaty_sevres_1920",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1920-01-01",
+        "1921-12-31"
+      ],
+      "date_historical": "1920-08-10",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1920,
+            "to": 1921
+          }
+        ],
+        "fire_date": "1920-08-10"
+      },
+      "title_vi": "Hiệp ước Sèvres dự kiến phân chia Ottoman",
+      "title_en": "The Treaty of Sèvres Proposes the Partition of the Empire",
+      "text_vi": "Chính phủ Ottoman ký Hiệp ước Sèvres, chấp nhận các điều khoản phân chia và hạn chế chủ quyền nghiêm trọng. Phong trào Ankara bác bỏ hiệp ước, coi nó là không có tính chính danh và tiếp tục chiến tranh giành độc lập.",
+      "text_en": "The Ottoman government signs the Treaty of Sèvres, accepting severe territorial partition and restrictions on sovereignty. The Ankara movement rejects the treaty as illegitimate and continues the war of independence.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tìm một hiệp định thay thế dựa trên chủ quyền dân tộc",
+          "label_en": "Seek a replacement settlement based on national sovereignty",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_treaty_sevres_1920_historical",
+              "name_vi": "Hệ quả chính sách: Tìm một hiệp định thay thế dựa trên chủ quyền dân tộc",
+              "name_en": "Policy consequence: Seek a replacement settlement based on national sovereignty",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": -0.04,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chấp nhận điều khoản để chấm dứt xung đột",
+          "label_en": "Accept the terms to end the conflict",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_treaty_sevres_1920_alternative",
+              "name_vi": "Hệ quả chính sách: Chấp nhận điều khoản để chấm dứt xung đột",
+              "name_en": "Policy consequence: Accept the terms to end the conflict",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.02,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_final_crises"
+      ]
+    },
+    {
+      "id": "tur_battle_sakarya_1921",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1921-01-01",
+        "1922-12-31"
+      ],
+      "date_historical": "1921-08-23",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1921,
+            "to": 1922
+          }
+        ],
+        "fire_date": "1921-08-23"
+      },
+      "title_vi": "Trận Sakarya",
+      "title_en": "The Battle of Sakarya",
+      "text_vi": "Quân đội Ankara chặn được cuộc tiến công của Hy Lạp sau nhiều tuần giao tranh ở phía tây Ankara. Chiến thắng làm thay đổi cán cân chiến lược, củng cố uy tín của Mustafa Kemal và mở đường cho cuộc phản công năm sau.",
+      "text_en": "Ankara’s forces halt the Greek advance after weeks of fighting west of Ankara. The victory changes the strategic balance, strengthens Mustafa Kemal’s standing and prepares the way for the following year’s offensive.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Củng cố quân đội và chuẩn bị phản công có hậu cần",
+          "label_en": "Consolidate the army and prepare a logistically sound counteroffensive",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_battle_sakarya_1921_historical",
+              "name_vi": "Hệ quả chính sách: Củng cố quân đội và chuẩn bị phản công có hậu cần",
+              "name_en": "Policy consequence: Consolidate the army and prepare a logistically sound counteroffensive",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "prestige": 0.05
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Theo đuổi phản công sớm để tận dụng đà chiến thắng",
+          "label_en": "Launch an early counteroffensive to exploit momentum",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_battle_sakarya_1921_alternative",
+              "name_vi": "Hệ quả chính sách: Theo đuổi phản công sớm để tận dụng đà chiến thắng",
+              "name_en": "Policy consequence: Launch an early counteroffensive to exploit momentum",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.035,
+                "war_exhaustion": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_final_crises"
+      ]
+    },
+    {
+      "id": "tur_great_offensive_1922",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1922-01-01",
+        "1922-12-31"
+      ],
+      "date_historical": "1922-08-26",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1922,
+            "to": 1922
+          }
+        ],
+        "fire_date": "1922-08-26"
+      },
+      "title_vi": "Đại phản công của Thổ Nhĩ Kỳ",
+      "title_en": "The Great Offensive",
+      "text_vi": "Quân đội Ankara mở cuộc tiến công lớn tại mặt trận phía Tây, đánh bại lực lượng Hy Lạp và tiến về Smyrna. Chiến thắng quân sự quyết định làm sụp đổ vị thế của chính quyền chiếm đóng và buộc các cường quốc mở đàm phán đình chiến.",
+      "text_en": "Ankara’s forces launch a major offensive on the western front, defeat Greek forces and advance towards Smyrna. The decisive military victory collapses the occupation government’s position and forces the powers into armistice negotiations.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên bảo vệ dân thường và nhanh chóng chuyển sang ngoại giao",
+          "label_en": "Prioritise civilian protection and move quickly to diplomacy",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_great_offensive_1922_historical",
+              "name_vi": "Hệ quả chính sách: Ưu tiên bảo vệ dân thường và nhanh chóng chuyển sang ngoại giao",
+              "name_en": "Policy consequence: Prioritise civilian protection and move quickly to diplomacy",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.06,
+                "army": 0.03
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tiếp tục chiến dịch để tối đa hóa lợi thế quân sự",
+          "label_en": "Continue operations to maximise military leverage",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_great_offensive_1922_alternative",
+              "name_vi": "Hệ quả chính sách: Tiếp tục chiến dịch để tối đa hóa lợi thế quân sự",
+              "name_en": "Policy consequence: Continue operations to maximise military leverage",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "war_exhaustion": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_final_crises"
+      ]
+    },
+    {
+      "id": "tur_mudanya_armistice_1922",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1922-01-01",
+        "1922-12-31"
+      ],
+      "date_historical": "1922-10-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1922,
+            "to": 1922
+          }
+        ],
+        "fire_date": "1922-10-11"
+      },
+      "title_vi": "Đình chiến Mudanya",
+      "title_en": "The Mudanya Armistice",
+      "text_vi": "Thỏa thuận đình chiến được ký giữa Ankara và các cường quốc Đồng minh, mở đường cho việc rút quân Hy Lạp khỏi Đông Thrace và chuyển giao quyền kiểm soát. Hiệp định tạo điều kiện cho hội nghị hòa bình nhưng cũng đặt câu hỏi về tương lai của Sultanate.",
+      "text_en": "An armistice is signed between Ankara and the Allied powers, paving the way for Greek withdrawal from Eastern Thrace and a transfer of control. The agreement enables a peace conference but raises the question of the sultanate’s future.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chuyển thắng lợi quân sự thành dàn xếp hòa bình",
+          "label_en": "Turn military success into a peace settlement",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_mudanya_armistice_1922_historical",
+              "name_vi": "Hệ quả chính sách: Chuyển thắng lợi quân sự thành dàn xếp hòa bình",
+              "name_en": "Policy consequence: Turn military success into a peace settlement",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.025,
+                "legitimacy": 0.25
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì sức ép quân sự đến khi đạt thêm nhượng bộ",
+          "label_en": "Maintain military pressure for further concessions",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_mudanya_armistice_1922_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì sức ép quân sự đến khi đạt thêm nhượng bộ",
+              "name_en": "Policy consequence: Maintain military pressure for further concessions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.03,
+                "war_exhaustion": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_final_crises"
+      ]
+    },
+    {
+      "id": "tur_abolition_sultanate_1922",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1922-01-01",
+        "1922-12-31"
+      ],
+      "date_historical": "1922-11-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1922,
+            "to": 1922
+          }
+        ],
+        "fire_date": "1922-11-01"
+      },
+      "title_vi": "Đại Quốc hội bãi bỏ Sultanate",
+      "title_en": "The Grand National Assembly Abolishes the Sultanate",
+      "text_vi": "Đại Quốc hội tại Ankara bãi bỏ chức vụ Sultan, chấm dứt thể chế quân chủ Ottoman kéo dài nhiều thế kỷ. Mehmed VI rời Istanbul sau đó, còn tiến trình xây dựng nhà nước cộng hòa mới tiếp tục trong năm 1923.",
+      "text_en": "The Grand National Assembly in Ankara abolishes the sultanate, ending the Ottoman monarchy after centuries of rule. Mehmed VI leaves Istanbul later, while the creation of a new republican state continues into 1923.",
+      "image": {
+        "ref": "tur_sultanate_abolished_1922"
+      },
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Hoàn tất chuyển giao thể chế và bảo đảm trật tự dân sự",
+          "label_en": "Complete the institutional transition and protect civil order",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_abolition_sultanate_1922_historical",
+              "name_vi": "Hệ quả chính sách: Hoàn tất chuyển giao thể chế và bảo đảm trật tự dân sự",
+              "name_en": "Policy consequence: Complete the institutional transition and protect civil order",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.4,
+                "reform": 0.025
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì biểu tượng triều đại trong một cơ chế mới",
+          "label_en": "Retain dynastic symbolism within a new arrangement",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_abolition_sultanate_1922_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì biểu tượng triều đại trong một cơ chế mới",
+              "name_en": "Policy consequence: Retain dynastic symbolism within a new arrangement",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.012,
+                "legitimacy": 0.1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_final_crises",
+        "brit_ottoman_1922"
+      ]
+    }
+  ],
+  "journals": [
+    {
+      "id": "tur_tanzimat_reform_1839_1876",
+      "country": "TUR",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1839,
+            "to": 1876
+          }
+        ]
+      },
+      "title_vi": "Tanzimat và tái tổ chức nhà nước",
+      "title_en": "Tanzimat and State Reorganisation",
+      "text_vi": "Đế quốc tìm cách hiện đại hóa luật pháp, quân đội, thuế khóa và quản trị tỉnh trong khi giữ tính chính danh của triều đại. Cải cách phải dung hòa quyền của các cộng đồng đa tôn giáo với sức ép ngoại giao và tài chính.",
+      "text_en": "The empire seeks to modernise law, the army, taxation and provincial administration while preserving dynastic legitimacy. Reform must reconcile the rights of multi-religious communities with diplomatic and fiscal pressure.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Tiến độ",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 120
+        }
+      ],
+      "timeout_months": 120,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "TUR",
+          "id": "tur_tanzimat_reform_1839_1876_complete",
+          "name_vi": "Nhà nước cải cách có năng lực hơn",
+          "name_en": "A More Capable Reform State",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "reform": 0.02,
+            "legitimacy": 0.4
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "TUR",
+          "id": "tur_tanzimat_reform_1839_1876_failed",
+          "name_vi": "Cải cách nửa vời và khủng hoảng tài chính",
+          "name_en": "Partial Reform and Fiscal Crisis",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "tax": 0.02,
+            "legitimacy": -0.25
+          }
+        }
+      ]
+    },
+    {
+      "id": "tur_constitutional_crisis_1876_1908",
+      "country": "TUR",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1876,
+            "to": 1908
+          }
+        ]
+      },
+      "title_vi": "Hiến pháp, tập quyền và đối lập",
+      "title_en": "Constitution, Centralisation and Opposition",
+      "text_vi": "Hiến pháp năm 1876 tạo ra một thử nghiệm đại diện ngắn ngủi, sau đó bị đình chỉ dưới Abdülhamid II. Nhà nước tiếp tục mở rộng giáo dục và hành chính, trong khi các mạng lưới đối lập tìm cách khôi phục hiến pháp.",
+      "text_en": "The 1876 constitution creates a brief experiment in representation before being suspended under Abdülhamid II. The state continues expanding education and administration while opposition networks seek constitutional restoration.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Tiến độ",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 120
+        }
+      ],
+      "timeout_months": 120,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "TUR",
+          "id": "tur_constitutional_crisis_1876_1908_complete",
+          "name_vi": "Khôi phục hiến pháp và ổn định chính trị",
+          "name_en": "Constitutional Restoration and Political Stability",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 0.4,
+            "reform": 0.015
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "TUR",
+          "id": "tur_constitutional_crisis_1876_1908_failed",
+          "name_vi": "Tập quyền kéo dài và bất ổn phe phái",
+          "name_en": "Prolonged Centralisation and Factional Instability",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "police": 0.025,
+            "radicalism": 0.012
+          }
+        }
+      ]
+    },
+    {
+      "id": "tur_balkan_and_cup_crisis_1908_1914",
+      "country": "TUR",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1908,
+            "to": 1914
+          }
+        ]
+      },
+      "title_vi": "Cách mạng hiến pháp và khủng hoảng Balkan",
+      "title_en": "Constitutional Revolution and Balkan Crisis",
+      "text_vi": "Cách mạng Young Turk mở ra kỳ vọng về chính trị đại diện nhưng đế quốc nhanh chóng đối diện chiến tranh Italy, chiến tranh Balkan và đảo chính nội bộ. CUP phải lựa chọn giữa liên minh, cải cách và tập trung quyền lực.",
+      "text_en": "The Young Turk Revolution raises hopes for representative politics, but the empire soon faces war with Italy, the Balkan Wars and internal coups. The CUP must choose among coalition-building, reform and centralisation.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Tiến độ",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 120
+        }
+      ],
+      "timeout_months": 120,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "TUR",
+          "id": "tur_balkan_and_cup_crisis_1908_1914_complete",
+          "name_vi": "Thể chế hiến định ổn định và phòng thủ lãnh thổ",
+          "name_en": "Stable Constitutional Institutions and Territorial Defence",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "reform": 0.015,
+            "army": 0.02
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "TUR",
+          "id": "tur_balkan_and_cup_crisis_1908_1914_failed",
+          "name_vi": "Đảo chính, chiến tranh và mất lãnh thổ",
+          "name_en": "Coups, War and Territorial Loss",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "radicalism": 0.015,
+            "war_exhaustion": 0.02
+          }
+        }
+      ]
+    },
+    {
+      "id": "tur_world_war_and_dissolution_1914_1922",
+      "country": "TUR",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1914,
+            "to": 1922
+          }
+        ]
+      },
+      "title_vi": "Thế chiến và sự tan rã của đế quốc",
+      "title_en": "World War and Imperial Dissolution",
+      "text_vi": "Thế chiến thứ nhất làm cạn kiệt quân đội, tài chính và sự gắn kết của các tỉnh Ottoman. Sau đình chiến, phong trào Ankara tổ chức kháng chiến, xây dựng chính quyền mới và chấm dứt Sultanate năm 1922.",
+      "text_en": "World War I exhausts Ottoman forces, finances and provincial cohesion. After the armistice, the Ankara movement organises resistance, builds a new government and abolishes the sultanate in 1922.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Tiến độ",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 120
+        }
+      ],
+      "timeout_months": 120,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "TUR",
+          "id": "tur_world_war_and_dissolution_1914_1922_complete",
+          "name_vi": "Chuyển giao quyền lực và kết thúc chiến tranh có trật tự",
+          "name_en": "Orderly Transfer of Power and End of War",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 0.45,
+            "reform": 0.02
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "TUR",
+          "id": "tur_world_war_and_dissolution_1914_1922_failed",
+          "name_vi": "Sụp đổ quân sự và khủng hoảng chính trị",
+          "name_en": "Military Collapse and Political Crisis",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "war_exhaustion": 0.025,
+            "radicalism": 0.02
+          }
+        }
+      ]
+    }
+  ]
+}
