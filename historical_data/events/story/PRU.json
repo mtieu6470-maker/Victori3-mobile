@@ -971,7 +971,7 @@
       "text_vi": "Sau khi Friedrich Wilhelm IV qua đời, Wilhelm I chính thức kế vị. Nhà vua đặt ưu tiên vào cải tổ quân đội và củng cố vị thế Phổ, trong khi nghị viện và giới tự do đòi hỏi kiểm soát ngân sách.",
       "text_en": "After Frederick William IV dies, William I becomes king. He prioritises army reform and Prussian influence, while parliament and liberals demand control over public expenditure.",
       "image": {
-        "ref": "pru_wilhelm_coronation_1861"
+        "ref": "pru_wilhelm_i_accession_1861"
       },
       "options": [
         {
@@ -1021,83 +1021,6 @@
       ],
       "sources": [
         "ghdi_vormaerz"
-      ]
-    },
-    {
-      "id": "pru_blood_iron_speech_1862",
-      "country": "PRU",
-      "mode": "historical",
-      "window": [
-        "1862-01-01",
-        "1863-12-31"
-      ],
-      "date_historical": "1862-09-30",
-      "trigger": {
-        "conditions": [
-          {
-            "type": "exists",
-            "entity": "PRU"
-          },
-          {
-            "type": "year_between",
-            "from": 1862,
-            "to": 1863
-          }
-        ],
-        "fire_date": "1862-09-30"
-      },
-      "title_vi": "Bismarck phát biểu về sắt và máu",
-      "title_en": "Bismarck Delivers the Blood and Iron Speech",
-      "text_vi": "Trong tranh luận ngân sách, Thủ tướng Bismarck lập luận rằng những vấn đề lớn của thời đại sẽ không được giải quyết chỉ bằng diễn văn và nghị quyết đa số. Ông đặt sức mạnh nhà nước và quân đội vào trung tâm chiến lược thống nhất Đức dưới quyền Phổ.",
-      "text_en": "During the budget debate, Minister President Bismarck argues that the great questions of the age will not be settled by speeches and majority resolutions alone. He places state power and the army at the centre of a Prussian-led unification strategy.",
-      "options": [
-        {
-          "id": "historical_course",
-          "label_vi": "Tập trung nguồn lực cho chính sách đối ngoại và quân đội",
-          "label_en": "Concentrate resources on foreign policy and the army",
-          "historical": true,
-          "ai_weight": 3,
-          "effects": [
-            {
-              "type": "modifier",
-              "entity": "$self",
-              "id": "pru_blood_iron_speech_1862_historical",
-              "name_vi": "Hệ quả chính sách: Tập trung nguồn lực cho chính sách đối ngoại và quân đội",
-              "name_en": "Policy consequence: Concentrate resources on foreign policy and the army",
-              "months": 36,
-              "decaying": true,
-              "effects": {
-                "army": 0.025,
-                "prestige": 0.04
-              }
-            }
-          ]
-        },
-        {
-          "id": "alternative_course",
-          "label_vi": "Tìm thỏa hiệp ngân sách để giảm khủng hoảng hiến pháp",
-          "label_en": "Seek a budget compromise to reduce the constitutional crisis",
-          "historical": false,
-          "ai_weight": 1,
-          "effects": [
-            {
-              "type": "modifier",
-              "entity": "$self",
-              "id": "pru_blood_iron_speech_1862_alternative",
-              "name_vi": "Hệ quả chính sách: Tìm thỏa hiệp ngân sách để giảm khủng hoảng hiến pháp",
-              "name_en": "Policy consequence: Seek a budget compromise to reduce the constitutional crisis",
-              "months": 36,
-              "decaying": true,
-              "effects": {
-                "legitimacy": 0.3,
-                "radicalism": -0.004
-              }
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "ghdi_bismarck_1862"
       ]
     },
     {
@@ -1168,6 +1091,83 @@
               "effects": {
                 "legitimacy": 0.35,
                 "reform": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_bismarck_1862"
+      ]
+    },
+    {
+      "id": "pru_blood_iron_speech_1862",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1862-01-01",
+        "1863-12-31"
+      ],
+      "date_historical": "1862-09-30",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1862,
+            "to": 1863
+          }
+        ],
+        "fire_date": "1862-09-30"
+      },
+      "title_vi": "Bismarck phát biểu về sắt và máu",
+      "title_en": "Bismarck Delivers the Blood and Iron Speech",
+      "text_vi": "Trong tranh luận ngân sách, Thủ tướng Bismarck lập luận rằng những vấn đề lớn của thời đại sẽ không được giải quyết chỉ bằng diễn văn và nghị quyết đa số. Ông đặt sức mạnh nhà nước và quân đội vào trung tâm chiến lược thống nhất Đức dưới quyền Phổ.",
+      "text_en": "During the budget debate, Minister President Bismarck argues that the great questions of the age will not be settled by speeches and majority resolutions alone. He places state power and the army at the centre of a Prussian-led unification strategy.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tập trung nguồn lực cho chính sách đối ngoại và quân đội",
+          "label_en": "Concentrate resources on foreign policy and the army",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_blood_iron_speech_1862_historical",
+              "name_vi": "Hệ quả chính sách: Tập trung nguồn lực cho chính sách đối ngoại và quân đội",
+              "name_en": "Policy consequence: Concentrate resources on foreign policy and the army",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "prestige": 0.04
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tìm thỏa hiệp ngân sách để giảm khủng hoảng hiến pháp",
+          "label_en": "Seek a budget compromise to reduce the constitutional crisis",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_blood_iron_speech_1862_alternative",
+              "name_vi": "Hệ quả chính sách: Tìm thỏa hiệp ngân sách để giảm khủng hoảng hiến pháp",
+              "name_en": "Policy consequence: Seek a budget compromise to reduce the constitutional crisis",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "radicalism": -0.004
               }
             }
           ]
@@ -2051,7 +2051,7 @@
       "text_vi": "Quân đội Phổ và đồng minh bao vây, đánh bại lực lượng Pháp tại Sedan; Napoleon III bị bắt. Chiến thắng làm sụp đổ Đế chế thứ Hai nhưng chiến tranh vẫn tiếp diễn và Paris bị vây hãm.",
       "text_en": "Prussian and allied forces defeat the French army at Sedan and capture Napoleon III. The victory brings down the Second Empire, but the war continues and Paris is besieged.",
       "image": {
-        "ref": "pru_sedan_1870"
+        "ref": "pru_sedan_victory_1870"
       },
       "options": [
         {
@@ -2209,7 +2209,7 @@
       "text_vi": "Wilhelm I được tuyên bố là Hoàng đế Đức trong Sảnh Gương tại Versailles khi chiến tranh với Pháp vẫn chưa kết thúc. Nhà nước mới là liên bang các vương triều, trong đó Phổ giữ vai trò áp đảo nhờ quy mô lãnh thổ, dân số và quyền lực quân sự.",
       "text_en": "William I is proclaimed German Emperor in the Hall of Mirrors at Versailles while the war with France is still ongoing. The new state is a federation of dynasties in which Prussia dominates through its territory, population and military power.",
       "image": {
-        "ref": "pru_empire_proclamation_1871"
+        "ref": "pru_german_empire_proclamation_1871"
       },
       "options": [
         {
@@ -3679,7 +3679,7 @@
       "text_vi": "Tòa nhà Reichstag mới tại Berlin trở thành biểu tượng kiến trúc của nghị viện Đế quốc Đức. Dù nghị viện có quyền lập pháp và ngân sách, chính phủ vẫn chịu trách nhiệm trước hoàng đế chứ không phụ thuộc vào đa số nghị viện.",
       "text_en": "The new Reichstag building in Berlin becomes an architectural symbol of the German Empire’s parliament. Although parliament holds legislative and budgetary powers, the government remains responsible to the emperor rather than a parliamentary majority.",
       "image": {
-        "ref": "pru_reichstag_1894"
+        "ref": "pru_reichstag_building_opens_1894"
       },
       "options": [
         {
