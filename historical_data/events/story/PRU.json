@@ -1175,7 +1175,10 @@
       ],
       "sources": [
         "ghdi_bismarck_1862"
-      ]
+      ],
+      "image": {
+        "ref": "pru_blood_iron_speech_1862"
+      }
     },
     {
       "id": "pru_alvensleben_convention_1863",
