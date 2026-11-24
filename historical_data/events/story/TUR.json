@@ -238,8 +238,8 @@
               "months": 36,
               "decaying": true,
               "effects": {
-                "relation": 0.02,
-                "war_exhaustion": -0.01
+                "war_exhaustion": -0.01,
+                "prestige": 0.02
               }
             }
           ]
@@ -315,8 +315,8 @@
               "months": 36,
               "decaying": true,
               "effects": {
-                "relation": 0.02,
-                "tax": 0.005
+                "tax": 0.005,
+                "prestige": 0.02
               }
             }
           ]
@@ -474,7 +474,7 @@
               "decaying": true,
               "effects": {
                 "army": 0.025,
-                "relation": 0.02
+                "prestige": 0.02
               }
             }
           ]
@@ -1717,8 +1717,8 @@
               "months": 36,
               "decaying": true,
               "effects": {
-                "relation": 0.02,
-                "war_exhaustion": -0.01
+                "war_exhaustion": -0.01,
+                "prestige": 0.02
               }
             }
           ]
