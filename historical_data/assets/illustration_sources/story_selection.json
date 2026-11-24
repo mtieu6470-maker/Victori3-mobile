@@ -2697,6 +2697,56 @@
       ],
       "fit": "contain",
       "review_note": "US federal-government work / PD-US basis only. Do not infer worldwide or French public-domain status; keep pending unless distribution territory is approved after legal review."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "qng_boxer_movement",
+      "commons_file": "Boxer1900.jpg",
+      "year": 1900,
+      "width": 825,
+      "author": "Department of the Army, Office of the Chief Signal Officer",
+      "name": "A Chinese Boxer during the 1900 uprising",
+      "description": "A Chinese Boxer photographed in 1900; the flag reads as an imperial supply station of the Boxer movement. Source record: U.S. National Archives 530870.",
+      "period": {
+        "from": 1899,
+        "to": 1901
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons records the source as U.S. National Archives and identifies the author as a U.S. Army official acting in official duties; U.S. federal-government public-domain basis. Candidate only; ingestion tool must recheck rights and image integrity."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "qng_eight_nation_alliance",
+      "commons_file": "Beijing_Castle_Boxer_Rebellion_1900_ORIGINAL.jpg",
+      "year": 1900,
+      "width": 10164,
+      "author": "Torajirō Kasai",
+      "name": "Attack on the Beijing city wall during the Boxer crisis",
+      "description": "Contemporary image of an attack on Beijing's city wall during the Boxer Rebellion, September 1900; Commons lists the Library of Congress as source.",
+      "period": {
+        "from": 1900,
+        "to": 1900
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page records public domain in the United States and identifies the Library of Congress as source. Very large original (over 50 MB); ingestion should select an appropriate derivative and recheck source/rights."
     }
   ]
 }
