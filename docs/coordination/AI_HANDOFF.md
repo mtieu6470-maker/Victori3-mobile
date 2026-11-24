@@ -2657,3 +2657,49 @@ The owner requested one Claude review/correction pass after ChatGPT's first impl
 - **Signing:** Android Debug certificate; APK v1 and v2 verification true; certificate SHA-256 `89f494b021eedecdb4d1ceaa6f1d22bd96380f361c3b0404ed99e13d9f6e4a33`. This is a debug APK, not a production/release-signed package.
 - **Integrity check:** downloaded APK bytes were extracted from the CI artifact and independently SHA-256 hashed in the session; result exactly matches the CI evidence manifest.
 - **Device QA:** NOT_TESTED — no installation, upgrade, save/load, lifecycle, thermal or performance test on the owner's iQOO device. Claude independent review and owner acceptance remain pending; this does not change any S0/S1/S22 gate verdict.
+
+
+## 12. ChatGPT research data checkpoint — France (FRA), 2026-11-24
+
+- **Branch:** `ccr-b27f3fb8-epfpd6`
+- **Base:** `e15a417ff8cebc8cf198337d35ddc35f56564d6e`
+- **Latest checkpoint before this handoff append:** `50739a7a5659fcaf116f8f6a0fcc5246fcc77572`
+- **Assignment:** MSG-129 / MSG-126 Part A1, France first in the seven-country sequence.
+- **Status:** FRA content data delivered for Claude integration review; A1 remains IN_PROGRESS.
+
+### Deliverables
+
+- `historical_data/events/story/FRA.json`: 59 historical events, 6 journals, 31 source references. Events currently span 1848-02-24 through 2024-07-26.
+- `historical_data/assets/illustration_sources/story_selection.json`: seven event-specific image candidates; 101 selections in total after addition. Candidates are not ingested binary assets.
+- `docs/research/history/CG60_FRA_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md`: scope, commit ledger, static validation, rights caveats, engine integration checklist and next-country sequence.
+- `docs/roadmap/OPEN_WORK_FOR_CHATGPT_2026-11-24_VI.md`: appended dated progress update; earlier baseline text remains historical.
+
+### Commit ledger
+
+- FRA data created: `1f47785ae8b230715258d101d532e5e3294a8c12`
+- Seven image candidates: `52677f83801dd3ddfb0eee8bef577289522c3555`
+- Split 1881/1882 school reforms and corrected euro changeover source: `4b3bad321d810bc8135afb063952705ccaf8ccf5`
+- Corrected Dreyfus image publication/degradation date description: `2586da5b04e31023632d55f4c6582f5083aea3a5`
+- Added exact `trigger.fire_date` and event-linked journal milestones: `e740546861c32f6180c79f88ab20ce6edd7ba379`
+- Detailed checkpoint report: `aeef7c47c85ec10697d9d5da6b4fe098bce42f52`
+- Updated open-work register: `50739a7a5659fcaf116f8f6a0fcc5246fcc77572`
+
+### Static verification / boundaries
+
+At the reviewed FRA data HEAD `e740546861c32f6180c79f88ab20ce6edd7ba379`:
+- 59 unique event IDs; each event has Vietnamese/English narrative and two choices with named timed modifiers.
+- Source IDs, chain targets, allowed modifier keys, cross-border region IDs and all seven image refs resolve.
+- Six journals have event milestone references; each milestone-weight total is 100.
+- Static structural audit passed. No data-builder, content ingestion, runtime, automated tests, Android build, APK or device QA was run by ChatGPT. Do not report integration or gameplay as verified.
+
+### Claude integration checklist
+
+1. Confirm `fire_date` handling in the story-event engine and scheduler. The engine's current monthly clock may skip mid-month dates if event dispatch only runs on month boundaries.
+2. Confirm `event_fired` journal progress is a one-time occurrence; if it remains true permanently, milestone points must not accrue every month after the event.
+3. Run `npm run data` and `npm run content`; fix/reject issues with evidence. Re-run standard image ingestion with the existing rights gate.
+4. Play-test France event and journal sequences, including France–Vietnam counterpart effects. Confirm region transfer/movement effects do not imply unsupported sovereignty changes.
+5. Complete missing French story coverage for 1836–1847 and 2025–2026 before claiming the full campaign coverage is complete.
+
+### Next ChatGPT A1 work
+
+Proceed JAP → QNG → RUS → PRU → USA → TUR, each as its own country event/journal/image-candidate batch plus a dated GitHub checkpoint. Do not mark MSG-129 complete until every required country pack is delivered. The three paths `docs/VICTORI3_COMPLETE_GAME_SPEC.md`, `docs/VICTORI3_EXECUTION_PLAN.md`, and `docs/VICTORI3_SIMULATION_ROADMAP.md` were absent (404) on the checked branch; the active continuity sources remain the coordination, roadmap and checkpoint files named above.
