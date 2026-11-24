@@ -119,3 +119,24 @@ Owner nhắn: "Đọc `docs/roadmap/OPEN_WORK_FOR_CHATGPT_2026-11-24_VI.md`, so�
 - Chưa chạy builders, tests, simulation, media ingestion, Android build/APK hoặc device QA. Chưa release-ready.
 - Báo cáo: `docs/research/history/CG65_PRU_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md`.
 - **Tiếp theo A1: USA → TUR.** MSG-129 vẫn IN_PROGRESS cho đến khi đủ 7 nước và Claude nghiệm thu.
+
+
+## Tổng kết A1 — đủ 7/7 quốc gia (CG-68, 2026-11-24)
+
+| Quốc gia | Sự kiện | Journal | Ảnh ứng viên |
+|---|---:|---:|---:|
+| FRA | 59 | 6 | 7 |
+| JAP | 53 | 6 | 6 |
+| QNG | 51 | 4 | 2 |
+| RUS | 54 | 5 | 3 |
+| PRU | 60 | 5 | 6 |
+| USA | 55 | 5 | 6 |
+| TUR | 47 | 4 | 6 |
+| **Tổng** | **379** | **35** | **36** |
+
+- **A1 authoring: DONE 7/7.** Có 758 lựa chọn và 758 timed modifiers; 451 event-level source refs; 130 subjects trong `story_selection.json`, không trùng subject. Tất cả 379 event IDs và 35 journal IDs duy nhất toàn bộ bảy gói.
+- Static audit read-back: JSON, registry, nguồn, image asset IDs và modifier keys đều đạt. Event image refs theo dạng `ill_<subject>`; ảnh vẫn chỉ là candidate, chưa ingest binary.
+- **Các việc Claude phải xử lý trước nghiệm thu:** 85 bước journal `event_fired` trong FRA/JAP có thể cộng lặp; 339/379 event dùng ngày giữa tháng nhưng engine chạy theo tháng; có 6 khoảng tháng/nước có 2 event cạnh tranh cùng tick; test entity `hist_to` cuối tuyến.
+- Báo cáo tổng: `docs/research/history/CG68_A1_SEVEN_COUNTRY_COMPLETION_AUDIT_2026-11-24_VI.md`.
+- Checkpoints mới: USA `CG66_USA_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md`; TUR `CG67_TUR_OTTOMAN_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md`.
+- **A1 không còn nước nào để ChatGPT author tiếp.** Chờ Claude review/nhập/build; A2–A8 vẫn còn mở. MSG-129 chưa DONE toàn phần.
