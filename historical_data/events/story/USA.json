@@ -16,7 +16,10 @@
     "commission_911": "National Commission on Terrorist Attacks Upon the United States, The 9/11 Commission Report, Chapter 9. https://911commission.gov/report/911Report_Ch9.htm",
     "whitehouse_covid": "The White House Archives, Proclamation on Declaring a National Emergency Concerning COVID-19 (13 March 2020). https://trumpwhitehouse.archives.gov/presidential-actions/proclamation-declaring-national-emergency-concerning-novel-coronavirus-disease-covid-19-outbreak/",
     "obama_aca": "Barack Obama Presidential Library, Timeline: Signing of the Affordable Care Act (23 March 2010). https://www.obamalibrary.gov/timeline",
-    "fed_crisis": "Federal Reserve Bank of Kansas City, Timeline: Federal Reserve and Financial Crisis, 2007–2011. https://www.kansascityfed.org/documents/33/summer2011-timeline.pdf"
+    "fed_crisis": "Federal Reserve Bank of Kansas City, Timeline: Federal Reserve and Financial Crisis, 2007–2011. https://www.kansascityfed.org/documents/33/summer2011-timeline.pdf",
+    "fec_2024": "Federal Election Commission, Official 2024 Presidential General Election Results. https://www.fec.gov/resources/cms-content/documents/2024presgeresults.pdf",
+    "nara_electoral_college_2024": "U.S. National Archives, 2024 Electoral College Results and key dates. https://www.archives.gov/electoral-college/2024",
+    "senate_inauguration_2025": "Joint Congressional Committee on Inaugural Ceremonies, 60th Inaugural Ceremonies (20 January 2025). https://www.inaugural.senate.gov/60th-inaugural-ceremonies/"
   },
   "events": [
     {
@@ -4137,6 +4140,162 @@
       ],
       "sources": [
         "loc_us_timeline"
+      ]
+    },
+    {
+      "id": "usa_presidential_election_2024",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "2024-01-01",
+        "2025-12-31"
+      ],
+      "date_historical": "2024-11-05",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 2024,
+            "to": 2025
+          }
+        ],
+        "fire_date": "2024-11-05"
+      },
+      "title_vi": "Bầu cử tổng thống Hoa Kỳ năm 2024",
+      "title_en": "The 2024 United States Presidential Election",
+      "text_vi": "Cử tri các bang bỏ phiếu chọn đại cử tri trong cuộc bầu cử tổng thống năm 2024. Kết quả được chứng nhận qua quy trình của các bang và Đại cử tri đoàn, với Donald Trump giành 312 phiếu đại cử tri và Kamala Harris 226 phiếu.",
+      "text_en": "Voters across the states choose electors in the 2024 presidential election. Results are certified through state processes and the Electoral College, with Donald Trump receiving 312 electoral votes and Kamala Harris 226.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tôn trọng kết quả được chứng nhận và chuẩn bị chuyển giao",
+          "label_en": "Respect the certified result and prepare the transition",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_presidential_election_2024_historical",
+              "name_vi": "Chuyển giao quyền lực theo hiến pháp",
+              "name_en": "Constitutional Transfer of Power",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.35,
+                "reform": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tăng giám sát bầu cử và đối thoại liên bang–tiểu bang",
+          "label_en": "Expand election oversight and federal–state dialogue",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_presidential_election_2024_alternative",
+              "name_vi": "Cải thiện quản trị bầu cử",
+              "name_en": "Improved Election Administration",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.015,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "fec_2024",
+        "nara_electoral_college_2024"
+      ]
+    },
+    {
+      "id": "usa_inauguration_2025",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "2025-01-01",
+        "2026-12-31"
+      ],
+      "date_historical": "2025-01-20",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 2025,
+            "to": 2026
+          }
+        ],
+        "fire_date": "2025-01-20"
+      },
+      "title_vi": "Lễ nhậm chức tổng thống năm 2025",
+      "title_en": "The 2025 Presidential Inauguration",
+      "text_vi": "Donald Trump tuyên thệ nhậm chức Tổng thống thứ 47 của Hoa Kỳ, bắt đầu nhiệm kỳ thứ hai không liên tiếp; JD Vance tuyên thệ làm Phó Tổng thống thứ 50. Buổi lễ diễn ra tại Rotunda Điện Capitol do điều kiện thời tiết lạnh.",
+      "text_en": "Donald Trump is sworn in as the 47th President of the United States, beginning a second, non-consecutive term; JD Vance is sworn in as the 50th Vice President. The ceremony takes place in the Capitol Rotunda because of cold weather.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Duy trì tính liên tục của hiến pháp và quy trình chuyển giao",
+          "label_en": "Maintain constitutional continuity and the transfer process",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_inauguration_2025_historical",
+              "name_vi": "Chuyển giao hành pháp hoàn tất",
+              "name_en": "Executive Transition Completed",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "prestige": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên ổn định hành chính và phối hợp lưỡng đảng",
+          "label_en": "Prioritise administrative stability and bipartisan coordination",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_inauguration_2025_alternative",
+              "name_vi": "Ổn định bộ máy hành chính",
+              "name_en": "Administrative Stability",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.01,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "senate_inauguration_2025",
+        "nara_electoral_college_2024"
       ]
     }
   ],
