@@ -1,0 +1,4421 @@
+{
+  "schema": "story_events_v1",
+  "country": "QNG",
+  "sources": {
+    "smithsonian": "Smithsonian National Museum of Asian Art, China's Long Nineteenth Century; Qing dynasty and timeline resources: https://asia.si.edu/education/educator-resources/teaching-china-with-the-smithsonian/lesson-plans/chinas-long-nineteenth-century-foreign-influence-and-the-end-of-dynastic-china/ ; https://asia-archive.si.edu/learn/for-educators/teaching-china-with-the-smithsonian/interactives/timelines/timeline-of-chinese-history-art-and-culture/",
+    "princeton": "Princeton University Art Museum, China Timeline, Qing dynasty 1644–1912: https://static.artmuseum.princeton.edu/asian-art/china/timeline",
+    "yale": "Yale University, Autocratic Rule and Social Capital: Evidence from Imperial China, historical timeline: https://economics.yale.edu/sites/default/files/autocracy_ada-ns.pdf"
+  },
+  "events": [
+    {
+      "id": "qng_lin_zexu_appointment",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1838-01-01",
+        "1838-12-31"
+      ],
+      "date_historical": "1838-12-31",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1838,
+            "to": 1838
+          }
+        ],
+        "fire_date": "1838-12-31"
+      },
+      "title_vi": "Lâm Tắc Từ được cử tới Quảng Đông",
+      "title_en": "Lin Zexu Is Appointed to Guangdong",
+      "text_vi": "Đạo Quang đế giao cho Lâm Tắc Từ nhiệm vụ xử lý nạn thuốc phiện tại Quảng Đông. Triều đình phải đối mặt với một lựa chọn khó: thực thi lệnh cấm đến cùng hay tránh một cuộc đối đầu với thương nhân và hải quân Anh.",
+      "text_en": "The Daoguang emperor gives Lin Zexu authority to confront the opium trade in Guangdong. The court must choose between enforcing the prohibition and risking a confrontation with British merchants and naval power.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giữ nguyên lệnh cấm và trao quyền rộng cho khâm sai",
+          "label_en": "Enforce the ban and empower the commissioner",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_lin_zexu_appointment_historical",
+              "name_vi": "Hệ quả chính sách: Giữ nguyên lệnh cấm và trao quyền rộng cho khâm sai",
+              "name_en": "Policy consequence: Enforce the ban and empower the commissioner",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.1,
+                "radicalism": -0.004,
+                "police": 0.03
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tăng cường kiểm soát thương mại bằng biện pháp có giới hạn",
+          "label_en": "Use a limited commercial enforcement policy",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_lin_zexu_appointment_alternative",
+              "name_vi": "Hệ quả chính sách: Tăng cường kiểm soát thương mại bằng biện pháp có giới hạn",
+              "name_en": "Policy consequence: Use a limited commercial enforcement policy",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.025,
+                "legitimacy": -0.5,
+                "radicalism": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_opium_suppression_edict",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1839-01-01",
+        "1839-12-31"
+      ],
+      "date_historical": "1839-03-18",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1839,
+            "to": 1839
+          }
+        ],
+        "fire_date": "1839-03-18"
+      },
+      "title_vi": "Chiến dịch trấn áp thuốc phiện tại Quảng Đông",
+      "title_en": "The Opium Suppression Campaign",
+      "text_vi": "Lâm Tắc Từ yêu cầu thương nhân nước ngoài giao nộp thuốc phiện và siết chặt hoạt động buôn lậu. Chiến dịch đánh trực tiếp vào một mạng lưới thương mại có lợi nhuận lớn, đồng thời làm căng thẳng quan hệ với các thế lực nước ngoài.",
+      "text_en": "Lin Zexu demands that foreign merchants surrender opium and intensifies action against smuggling. The campaign strikes a lucrative commercial network while raising tensions with foreign powers.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thi hành lệnh cấm nghiêm ngặt",
+          "label_en": "Enforce the prohibition strictly",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_opium_suppression_edict_historical",
+              "name_vi": "Hệ quả chính sách: Thi hành lệnh cấm nghiêm ngặt",
+              "name_en": "Policy consequence: Enforce the prohibition strictly",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": -0.005,
+                "legitimacy": 0.8,
+                "police": 0.025
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên giám sát và thương lượng",
+          "label_en": "Prioritise surveillance and negotiation",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_opium_suppression_edict_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên giám sát và thương lượng",
+              "name_en": "Policy consequence: Prioritise surveillance and negotiation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.02,
+                "legitimacy": -0.3,
+                "research": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_humen_destruction",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1839-01-01",
+        "1839-12-31"
+      ],
+      "date_historical": "1839-06-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1839,
+            "to": 1839
+          }
+        ],
+        "fire_date": "1839-06-03"
+      },
+      "title_vi": "Tiêu hủy thuốc phiện tại Hổ Môn",
+      "title_en": "Destruction of Opium at Humen",
+      "text_vi": "Sau khi thu giữ lượng thuốc phiện lớn từ các thương nhân Anh, chính quyền cho tiêu hủy công khai tại Hổ Môn. Hành động thể hiện quyết tâm của triều đình nhưng cũng khiến tranh chấp thương mại chuyển thành khủng hoảng ngoại giao và quân sự.",
+      "text_en": "After seizing a large stock of opium from British merchants, Qing officials destroy it publicly at Humen. The act demonstrates the court's resolve but turns a commercial dispute into a diplomatic and military crisis.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Công khai khẳng định chủ quyền",
+          "label_en": "Assert sovereignty publicly",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_humen_destruction_historical",
+              "name_vi": "Hệ quả chính sách: Công khai khẳng định chủ quyền",
+              "name_en": "Policy consequence: Assert sovereignty publicly",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.2,
+                "radicalism": -0.003,
+                "prestige": 0.04
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ đường lui ngoại giao",
+          "label_en": "Preserve a diplomatic exit",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_humen_destruction_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ đường lui ngoại giao",
+              "name_en": "Policy consequence: Preserve a diplomatic exit",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.02,
+                "legitimacy": -0.6,
+                "war_exhaustion": 0.04
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_first_opium_war",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1840-01-01",
+        "1840-12-31"
+      ],
+      "date_historical": "1840-06-28",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1840,
+            "to": 1840
+          }
+        ],
+        "fire_date": "1840-06-28"
+      },
+      "title_vi": "Chiến tranh Nha phiến lần thứ nhất",
+      "title_en": "The First Opium War",
+      "text_vi": "Hạm đội Anh mở chiến dịch quân sự dọc bờ biển Trung Quốc sau khi khủng hoảng thuốc phiện không được giải quyết. Hệ thống phòng thủ ven biển và cơ chế chỉ huy của nhà Thanh bộc lộ những hạn chế nghiêm trọng trước hỏa lực và khả năng cơ động của đối phương.",
+      "text_en": "British forces begin a sustained campaign along the Chinese coast after the opium crisis remains unresolved. Qing coastal defences and command structures face serious disadvantages against British firepower and mobility.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tập trung ngân sách cho phòng thủ ven biển",
+          "label_en": "Prioritise coastal defence",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_first_opium_war_historical",
+              "name_vi": "Hệ quả chính sách: Tập trung ngân sách cho phòng thủ ven biển",
+              "name_en": "Policy consequence: Prioritise coastal defence",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.06,
+                "war_exhaustion": 0.15,
+                "tax": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tìm cách đình chiến để bảo toàn lực lượng",
+          "label_en": "Seek an armistice to preserve forces",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_first_opium_war_alternative",
+              "name_vi": "Hệ quả chính sách: Tìm cách đình chiến để bảo toàn lực lượng",
+              "name_en": "Policy consequence: Seek an armistice to preserve forces",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.25,
+                "legitimacy": -1.2,
+                "prestige": -0.03
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_chuenpi_convention",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1841-01-01",
+        "1841-12-31"
+      ],
+      "date_historical": "1841-01-20",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1841,
+            "to": 1841
+          }
+        ],
+        "fire_date": "1841-01-20"
+      },
+      "title_vi": "Công ước Xuyên Tị gây chia rẽ triều đình",
+      "title_en": "The Chuenpi Convention Divides the Court",
+      "text_vi": "Các điều khoản đình chiến sơ bộ do Kỳ Thiện thương lượng bị triều đình bác bỏ, trong khi chiến sự tiếp tục lan rộng. Vụ việc phơi bày xung đột giữa quan lại chủ chiến, phe chủ hòa và trung ương đang mất quyền kiểm soát tình hình.",
+      "text_en": "Preliminary terms negotiated by Qishan are rejected by the court as fighting continues to spread. The episode exposes the conflict between war advocates, accommodationists and a centre losing control of events.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Kỷ luật quan lại và tiếp tục kháng cự",
+          "label_en": "Discipline officials and continue resistance",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_chuenpi_convention_historical",
+              "name_vi": "Hệ quả chính sách: Kỷ luật quan lại và tiếp tục kháng cự",
+              "name_en": "Policy consequence: Discipline officials and continue resistance",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.7,
+                "army": 0.03,
+                "radicalism": 0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chấp nhận thương lượng thực dụng",
+          "label_en": "Accept pragmatic negotiations",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_chuenpi_convention_alternative",
+              "name_vi": "Hệ quả chính sách: Chấp nhận thương lượng thực dụng",
+              "name_en": "Policy consequence: Accept pragmatic negotiations",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.12,
+                "trade": 0.02,
+                "legitimacy": -0.7
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "princeton"
+      ]
+    },
+    {
+      "id": "qng_treaty_nanjing",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1842-01-01",
+        "1842-12-31"
+      ],
+      "date_historical": "1842-08-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1842,
+            "to": 1842
+          }
+        ],
+        "fire_date": "1842-08-29"
+      },
+      "title_vi": "Hiệp ước Nam Kinh",
+      "title_en": "The Treaty of Nanjing",
+      "text_vi": "Sau thất bại quân sự, nhà Thanh ký hiệp ước chấm dứt chiến tranh với Anh. Trung Quốc phải bồi thường, nhượng Hồng Kông và mở năm cảng cho thương mại; đây là bước ngoặt làm suy giảm quyền tự chủ đối ngoại và thương mại của triều đình.",
+      "text_en": "After military defeat, the Qing sign a treaty ending the war with Britain. China pays an indemnity, cedes Hong Kong and opens five ports to trade, marking a major loss of control over foreign and commercial affairs.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thi hành hiệp ước để ổn định tình hình",
+          "label_en": "Implement the treaty to stabilise the state",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_treaty_nanjing_historical",
+              "name_vi": "Hệ quả chính sách: Thi hành hiệp ước để ổn định tình hình",
+              "name_en": "Policy consequence: Implement the treaty to stabilise the state",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.06,
+                "legitimacy": -1.1,
+                "reform": 0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chậm thi hành và tìm cách giảm nhượng bộ",
+          "label_en": "Delay implementation and seek narrower concessions",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_treaty_nanjing_alternative",
+              "name_vi": "Hệ quả chính sách: Chậm thi hành và tìm cách giảm nhượng bộ",
+              "name_en": "Policy consequence: Delay implementation and seek narrower concessions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -1.8,
+                "radicalism": 0.012,
+                "war_exhaustion": 0.08
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_treaty_bogue",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1843-01-01",
+        "1843-12-31"
+      ],
+      "date_historical": "1843-10-08",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1843,
+            "to": 1843
+          }
+        ],
+        "fire_date": "1843-10-08"
+      },
+      "title_vi": "Hiệp ước Hổ Môn mở rộng đặc quyền Anh",
+      "title_en": "The Treaty of the Bogue",
+      "text_vi": "Hiệp ước Hổ Môn bổ sung các quyền thương mại và pháp lý cho Anh, củng cố trật tự cảng hiệp ước. Triều đình phải thích nghi với một môi trường trong đó thương nhân và lãnh sự nước ngoài có vị thế vượt khỏi cơ chế quản lý truyền thống.",
+      "text_en": "The Treaty of the Bogue adds commercial and legal privileges for Britain and consolidates the treaty-port system. The court must adapt to an environment in which foreign merchants and consuls operate beyond ordinary Qing jurisdiction.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thiết lập cơ quan giám sát ngoại thương",
+          "label_en": "Create an office to supervise foreign trade",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_treaty_bogue_historical",
+              "name_vi": "Hệ quả chính sách: Thiết lập cơ quan giám sát ngoại thương",
+              "name_en": "Policy consequence: Create an office to supervise foreign trade",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": 0.006,
+                "trade": 0.025,
+                "legitimacy": 0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì cơ chế quan lại địa phương",
+          "label_en": "Retain the existing local-official system",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_treaty_bogue_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì cơ chế quan lại địa phương",
+              "name_en": "Policy consequence: Retain the existing local-official system",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.4,
+                "tax": 0.01,
+                "radicalism": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "princeton"
+      ]
+    },
+    {
+      "id": "qng_wangxia_treaty",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1844-01-01",
+        "1844-12-31"
+      ],
+      "date_historical": "1844-07-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1844,
+            "to": 1844
+          }
+        ],
+        "fire_date": "1844-07-03"
+      },
+      "title_vi": "Hiệp ước Vọng Hạ với Hoa Kỳ",
+      "title_en": "The Treaty of Wanghia",
+      "text_vi": "Nhà Thanh ký hiệp ước với Hoa Kỳ, mở rộng khuôn khổ thương mại và quyền lãnh sự của phương Tây. Việc các nước khác đòi quy chế tương tự khiến triều đình khó kiểm soát nhượng bộ theo từng trường hợp.",
+      "text_en": "The Qing sign a treaty with the United States, extending the framework of Western trade and consular privileges. Similar demands from other powers make it harder for the court to contain concessions case by case.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đàm phán để giới hạn phạm vi đặc quyền",
+          "label_en": "Negotiate to limit the scope of privileges",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_wangxia_treaty_historical",
+              "name_vi": "Hệ quả chính sách: Đàm phán để giới hạn phạm vi đặc quyền",
+              "name_en": "Policy consequence: Negotiate to limit the scope of privileges",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.4,
+                "research": 0.004,
+                "trade": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chấp nhận quy chế để tránh khủng hoảng mới",
+          "label_en": "Accept the terms to avoid another crisis",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_wangxia_treaty_alternative",
+              "name_vi": "Hệ quả chính sách: Chấp nhận quy chế để tránh khủng hoảng mới",
+              "name_en": "Policy consequence: Accept the terms to avoid another crisis",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.04,
+                "legitimacy": -0.5,
+                "radicalism": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "princeton"
+      ]
+    },
+    {
+      "id": "qng_shanghai_concession",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1845-01-01",
+        "1845-12-31"
+      ],
+      "date_historical": "1845-11-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1845,
+            "to": 1845
+          }
+        ],
+        "fire_date": "1845-11-29"
+      },
+      "title_vi": "Nhượng địa nước ngoài hình thành tại Thượng Hải",
+      "title_en": "Foreign Concessions Take Shape in Shanghai",
+      "text_vi": "Các dàn xếp về đất thuê tại Thượng Hải tạo nền tảng cho khu định cư nước ngoài với quyền quản trị riêng. Thành phố cảng trở thành nơi giao thoa giữa dòng vốn, kỹ thuật và ảnh hưởng ngoại quốc với giới thương nhân và quan lại địa phương.",
+      "text_en": "Land arrangements in Shanghai lay the foundations for foreign settlements with their own forms of administration. The port becomes a meeting point for foreign capital and technology, local officials and Chinese commercial networks.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tận dụng thương mại nhưng giám sát chặt",
+          "label_en": "Use the trade while maintaining oversight",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_shanghai_concession_historical",
+              "name_vi": "Hệ quả chính sách: Tận dụng thương mại nhưng giám sát chặt",
+              "name_en": "Policy consequence: Use the trade while maintaining oversight",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.05,
+                "tax": 0.015,
+                "legitimacy": -0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Hạn chế mở rộng khu định cư",
+          "label_en": "Restrict the expansion of settlements",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_shanghai_concession_alternative",
+              "name_vi": "Hệ quả chính sách: Hạn chế mở rộng khu định cư",
+              "name_en": "Policy consequence: Restrict the expansion of settlements",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.5,
+                "trade": -0.02,
+                "radicalism": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "princeton"
+      ]
+    },
+    {
+      "id": "qng_taiping_uprising",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1850-01-01",
+        "1850-12-31"
+      ],
+      "date_historical": "1850-01-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1850,
+            "to": 1850
+          }
+        ],
+        "fire_date": "1850-01-11"
+      },
+      "title_vi": "Khởi nghĩa Thái Bình bùng nổ tại Kim Điền",
+      "title_en": "The Taiping Uprising Begins",
+      "text_vi": "Phong trào do Hồng Tú Toàn lãnh đạo nổi dậy ở Quảng Tây, kết hợp tư tưởng tôn giáo riêng với chương trình lật đổ trật tự nhà Thanh. Cuộc nổi dậy nhanh chóng thu hút đông đảo người bất mãn và đe dọa quyền kiểm soát của triều đình ở miền nam.",
+      "text_en": "Hong Xiuquan's movement rises in Guangxi, combining a distinctive religious vision with a programme to overthrow Qing rule. It rapidly attracts discontented followers and threatens imperial control in the south.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Huy động quân chính quy và trấn an địa phương",
+          "label_en": "Mobilise regular forces and reassure local communities",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_taiping_uprising_historical",
+              "name_vi": "Hệ quả chính sách: Huy động quân chính quy và trấn an địa phương",
+              "name_en": "Policy consequence: Mobilise regular forces and reassure local communities",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.07,
+                "war_exhaustion": 0.12,
+                "legitimacy": -0.5
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Trao quyền tuyển quân cho các quan tỉnh",
+          "label_en": "Delegate recruitment to provincial officials",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_taiping_uprising_alternative",
+              "name_vi": "Hệ quả chính sách: Trao quyền tuyển quân cho các quan tỉnh",
+              "name_en": "Policy consequence: Delegate recruitment to provincial officials",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "ig_landowners": 1.2,
+                "legitimacy": -0.8
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_taiping_kingdom",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1851-01-01",
+        "1851-12-31"
+      ],
+      "date_historical": "1851-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1851,
+            "to": 1851
+          }
+        ],
+        "fire_date": "1851-01-01"
+      },
+      "title_vi": "Thái Bình Thiên Quốc tuyên bố lập quốc",
+      "title_en": "The Taiping Heavenly Kingdom",
+      "text_vi": "Lực lượng Thái Bình củng cố một chính quyền đối địch và xây dựng hệ thống chỉ huy, thuế khóa cùng quy tắc xã hội riêng. Nhà Thanh phải đối phó với một cuộc chiến tranh quy mô lớn chứ không còn là các vụ nổi loạn địa phương rời rạc.",
+      "text_en": "The Taiping consolidate a rival regime with its own command, taxation and social rules. The Qing now face a large-scale civil war rather than scattered local disturbances.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tập trung nguồn lực dẹp loạn",
+          "label_en": "Concentrate resources against the rebellion",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_taiping_kingdom_historical",
+              "name_vi": "Hệ quả chính sách: Tập trung nguồn lực dẹp loạn",
+              "name_en": "Policy consequence: Concentrate resources against the rebellion",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.08,
+                "tax": 0.02,
+                "war_exhaustion": 0.15
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tổ chức phòng thủ địa phương lâu dài",
+          "label_en": "Build a durable local defence system",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_taiping_kingdom_alternative",
+              "name_vi": "Hệ quả chính sách: Tổ chức phòng thủ địa phương lâu dài",
+              "name_en": "Policy consequence: Build a durable local defence system",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "police": 0.04,
+                "legitimacy": -0.6
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_taiping_nanjing",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1853-01-01",
+        "1853-12-31"
+      ],
+      "date_historical": "1853-03-19",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1853,
+            "to": 1853
+          }
+        ],
+        "fire_date": "1853-03-19"
+      },
+      "title_vi": "Quân Thái Bình chiếm Nam Kinh",
+      "title_en": "The Taiping Capture Nanjing",
+      "text_vi": "Quân Thái Bình chiếm Nam Kinh và biến thành trung tâm chính trị của họ, đặt vùng hạ lưu Trường Giang vào tình trạng khẩn cấp. Mất một đô thị trọng yếu làm suy yếu nguồn thu, giao thông và uy tín của triều đình.",
+      "text_en": "Taiping forces capture Nanjing and make it their political centre, placing the lower Yangtze in crisis. The loss of a major city damages Qing revenue, transport and authority.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên tái chiếm trung tâm chiến lược",
+          "label_en": "Prioritise the recovery of the strategic centre",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_taiping_nanjing_historical",
+              "name_vi": "Hệ quả chính sách: Ưu tiên tái chiếm trung tâm chiến lược",
+              "name_en": "Policy consequence: Prioritise the recovery of the strategic centre",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.06,
+                "war_exhaustion": 0.18,
+                "tax": -0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Bảo vệ các tuyến thuế và vận tải còn lại",
+          "label_en": "Protect the remaining revenue and transport routes",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_taiping_nanjing_alternative",
+              "name_vi": "Hệ quả chính sách: Bảo vệ các tuyến thuế và vận tải còn lại",
+              "name_en": "Policy consequence: Protect the remaining revenue and transport routes",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.02,
+                "construction": 0.025,
+                "legitimacy": -0.8
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_arrow_incident",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1856-01-01",
+        "1856-12-31"
+      ],
+      "date_historical": "1856-10-08",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1856,
+            "to": 1856
+          }
+        ],
+        "fire_date": "1856-10-08"
+      },
+      "title_vi": "Sự kiện Arrow châm ngòi chiến tranh mới",
+      "title_en": "The Arrow Incident",
+      "text_vi": "Vụ bắt giữ thủy thủ trên con tàu Arrow tại Quảng Châu trở thành cái cớ để Anh gây sức ép quân sự, sau đó Pháp cũng tham chiến. Triều đình phải đối diện một cuộc xung đột mới khi vẫn chưa khôi phục được nguồn lực sau nội chiến.",
+      "text_en": "The seizure of sailors aboard the Arrow in Guangzhou becomes a pretext for British military pressure, later joined by France. The court faces a new conflict before recovering from the civil war.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tăng cường phòng thủ và huy động tỉnh",
+          "label_en": "Strengthen defence and mobilise the provinces",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_arrow_incident_historical",
+              "name_vi": "Hệ quả chính sách: Tăng cường phòng thủ và huy động tỉnh",
+              "name_en": "Policy consequence: Strengthen defence and mobilise the provinces",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "war_exhaustion": 0.12,
+                "legitimacy": -0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tìm giải pháp ngoại giao để tránh hai mặt trận",
+          "label_en": "Seek a diplomatic settlement to avoid a two-front crisis",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_arrow_incident_alternative",
+              "name_vi": "Hệ quả chính sách: Tìm giải pháp ngoại giao để tránh hai mặt trận",
+              "name_en": "Policy consequence: Seek a diplomatic settlement to avoid a two-front crisis",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.12,
+                "trade": 0.015,
+                "legitimacy": -0.8
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_treaty_aigun",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1858-01-01",
+        "1858-12-31"
+      ],
+      "date_historical": "1858-05-28",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1858,
+            "to": 1858
+          }
+        ],
+        "fire_date": "1858-05-28"
+      },
+      "title_vi": "Hiệp ước Ái Hồn với Nga",
+      "title_en": "The Treaty of Aigun",
+      "text_vi": "Trong bối cảnh chiến tranh ở phía nam, đại diện nhà Thanh ký thỏa thuận với Nga về biên giới vùng Amur. Việc nhượng lãnh thổ cho thấy triều đình phải xử lý nhiều sức ép đồng thời, từ các cường quốc có lợi ích khác nhau.",
+      "text_en": "Amid war in the south, Qing representatives sign an agreement with Russia over the Amur frontier. The territorial concession shows how the court must manage simultaneous pressure from powers with different interests.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Từ chối công nhận và chuẩn bị đàm phán lại",
+          "label_en": "Refuse recognition and seek a new negotiation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_treaty_aigun_historical",
+              "name_vi": "Hệ quả chính sách: Từ chối công nhận và chuẩn bị đàm phán lại",
+              "name_en": "Policy consequence: Refuse recognition and seek a new negotiation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "legitimacy": 0.7,
+                "prestige": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chấp nhận đường biên để tập trung mặt trận phía nam",
+          "label_en": "Accept the frontier to focus on the southern war",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_treaty_aigun_alternative",
+              "name_vi": "Hệ quả chính sách: Chấp nhận đường biên để tập trung mặt trận phía nam",
+              "name_en": "Policy consequence: Accept the frontier to focus on the southern war",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.08,
+                "tax": 0.01,
+                "legitimacy": -0.9
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "yale"
+      ]
+    },
+    {
+      "id": "qng_treaty_tianjin",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1858-01-01",
+        "1858-12-31"
+      ],
+      "date_historical": "1858-06-26",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1858,
+            "to": 1858
+          }
+        ],
+        "fire_date": "1858-06-26"
+      },
+      "title_vi": "Các hiệp ước Thiên Tân",
+      "title_en": "The Treaties of Tianjin",
+      "text_vi": "Sau các thất bại quân sự, triều đình chấp nhận những điều khoản mở thêm cảng và mở rộng quyền của người nước ngoài. Việc trì hoãn phê chuẩn và thực thi dẫn tới một vòng đối đầu mới quanh cửa biển và thủ đô.",
+      "text_en": "Following military defeats, the court accepts terms opening additional ports and extending foreign privileges. Delays over ratification and implementation lead to another confrontation near the coast and capital.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận điều khoản để mua thời gian cải tổ",
+          "label_en": "Accept the terms to buy time for reform",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_treaty_tianjin_historical",
+              "name_vi": "Hệ quả chính sách: Chấp nhận điều khoản để mua thời gian cải tổ",
+              "name_en": "Policy consequence: Accept the terms to buy time for reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": 0.008,
+                "trade": 0.03,
+                "legitimacy": -0.7
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tiếp tục phản đối các điều khoản gây tranh cãi",
+          "label_en": "Continue resisting the disputed terms",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_treaty_tianjin_alternative",
+              "name_vi": "Hệ quả chính sách: Tiếp tục phản đối các điều khoản gây tranh cãi",
+              "name_en": "Policy consequence: Continue resisting the disputed terms",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": 0.1,
+                "radicalism": 0.01,
+                "legitimacy": -0.8
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_convention_peking",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1860-01-01",
+        "1860-12-31"
+      ],
+      "date_historical": "1860-10-24",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1860,
+            "to": 1860
+          }
+        ],
+        "fire_date": "1860-10-24"
+      },
+      "title_vi": "Công ước Bắc Kinh khép lại chiến tranh",
+      "title_en": "The Convention of Peking",
+      "text_vi": "Liên quân Anh–Pháp tiến vào Bắc Kinh và triều đình ký Công ước Bắc Kinh để chấm dứt chiến sự. Các nhượng bộ mới, khoản bồi thường và việc mở rộng quyền ngoại quốc khiến uy tín triều đình suy giảm sâu sắc.",
+      "text_en": "Anglo-French forces enter Beijing and the Qing sign the Convention of Peking to end the war. Further concessions, indemnities and expanded foreign rights deeply damage the court's standing.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tái thiết thủ đô và khôi phục ngân khố",
+          "label_en": "Rebuild the capital and restore the treasury",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_convention_peking_historical",
+              "name_vi": "Hệ quả chính sách: Tái thiết thủ đô và khôi phục ngân khố",
+              "name_en": "Policy consequence: Rebuild the capital and restore the treasury",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.05,
+                "legitimacy": -0.8,
+                "reform": 0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Dồn ưu tiên cho quân đội và biên giới",
+          "label_en": "Prioritise the army and frontiers",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_convention_peking_alternative",
+              "name_vi": "Hệ quả chính sách: Dồn ưu tiên cho quân đội và biên giới",
+              "name_en": "Policy consequence: Prioritise the army and frontiers",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "tax": 0.015,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_zongli_yamen",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1861-01-01",
+        "1861-12-31"
+      ],
+      "date_historical": "1861-01-20",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1861,
+            "to": 1861
+          }
+        ],
+        "fire_date": "1861-01-20"
+      },
+      "title_vi": "Thành lập Tổng lý nha môn",
+      "title_en": "The Zongli Yamen Is Established",
+      "text_vi": "Triều đình lập Tổng lý nha môn để xử lý quan hệ với các nước phương Tây theo một cơ chế chuyên trách hơn. Đây là bước điều chỉnh thể chế đáng kể, dù quyền lực của cơ quan mới vẫn bị giới hạn bởi cấu trúc quan liêu và tranh chấp trong nội bộ triều đình.",
+      "text_en": "The court establishes the Zongli Yamen to handle relations with Western powers through a more specialised institution. This is a significant institutional adjustment, though its authority remains constrained by bureaucracy and court politics.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Trao quyền và nhân lực chuyên môn cho nha môn",
+          "label_en": "Give the office authority and specialist staff",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_zongli_yamen_historical",
+              "name_vi": "Hệ quả chính sách: Trao quyền và nhân lực chuyên môn cho nha môn",
+              "name_en": "Policy consequence: Give the office authority and specialist staff",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": 0.012,
+                "reform": 0.006,
+                "legitimacy": 0.5
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ nha môn dưới sự kiểm soát chặt của nội đình",
+          "label_en": "Keep the office under tight palace control",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_zongli_yamen_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ nha môn dưới sự kiểm soát chặt của nội đình",
+              "name_en": "Policy consequence: Keep the office under tight palace control",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.6,
+                "research": -0.004,
+                "reform": -0.003
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "princeton"
+      ]
+    },
+    {
+      "id": "qng_xinyou_coup",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1861-01-01",
+        "1861-12-31"
+      ],
+      "date_historical": "1861-11-02",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1861,
+            "to": 1861
+          }
+        ],
+        "fire_date": "1861-11-02"
+      },
+      "title_vi": "Chính biến Tân Dậu và quyền lực Từ Hi",
+      "title_en": "The Xinyou Coup",
+      "text_vi": "Sau khi Hàm Phong đế qua đời, liên minh của Từ Hi, Từ An và các đại thần thân cận loại bỏ nhóm phụ chính đối lập. Từ đó, quyền lực nhiếp chính định hình chính trường trong nhiều thập niên, đặt ra câu hỏi về cân bằng giữa cải cách và bảo vệ quyền lực cung đình.",
+      "text_en": "After the Xianfeng emperor dies, the alliance of Cixi, Ci'an and allied officials removes the opposing regents. Regency politics shape the court for decades, raising the question of how reform can coexist with palace authority.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Củng cố triều đình nhưng mở cửa cho cải cách",
+          "label_en": "Consolidate the court while permitting reform",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_xinyou_coup_historical",
+              "name_vi": "Hệ quả chính sách: Củng cố triều đình nhưng mở cửa cho cải cách",
+              "name_en": "Policy consequence: Consolidate the court while permitting reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.7,
+                "reform": 0.004,
+                "ig_landowners": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Đặt ưu tiên tuyệt đối vào trật tự cung đình",
+          "label_en": "Make palace stability the overriding priority",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_xinyou_coup_alternative",
+              "name_vi": "Hệ quả chính sách: Đặt ưu tiên tuyệt đối vào trật tự cung đình",
+              "name_en": "Policy consequence: Make palace stability the overriding priority",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.5,
+                "reform": -0.006,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_tongzhi_restoration",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1862-01-01",
+        "1862-12-31"
+      ],
+      "date_historical": "1862-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1862,
+            "to": 1862
+          }
+        ],
+        "fire_date": "1862-01-01"
+      },
+      "title_vi": "Khởi đầu thời kỳ Đồng Trị trung hưng",
+      "title_en": "The Tongzhi Restoration",
+      "text_vi": "Các đại thần như Tăng Quốc Phiên và Lý Hồng Chương được giao vai trò lớn hơn trong việc tái lập trật tự và phục hồi tài chính sau nội chiến. Triều đình thử kết hợp trung hưng Nho giáo với những điều chỉnh thực dụng về quân sự, thuế và ngoại giao.",
+      "text_en": "Officials such as Zeng Guofan and Li Hongzhang gain greater responsibility for restoring order and finances after civil war. The court attempts to combine Confucian restoration with pragmatic changes in military affairs, taxation and diplomacy.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Dựa vào quan lại có năng lực và tỉnh quyền",
+          "label_en": "Rely on capable officials and provincial authority",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_tongzhi_restoration_historical",
+              "name_vi": "Hệ quả chính sách: Dựa vào quan lại có năng lực và tỉnh quyền",
+              "name_en": "Policy consequence: Rely on capable officials and provincial authority",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.006,
+                "legitimacy": 0.8,
+                "tax": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tái tập trung quyền lực vào trung ương",
+          "label_en": "Recentralise authority in the capital",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_tongzhi_restoration_alternative",
+              "name_vi": "Hệ quả chính sách: Tái tập trung quyền lực vào trung ương",
+              "name_en": "Policy consequence: Recentralise authority in the capital",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.4,
+                "police": 0.02,
+                "reform": -0.003
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "yale"
+      ]
+    },
+    {
+      "id": "qng_taiping_fall",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1864-01-01",
+        "1864-12-31"
+      ],
+      "date_historical": "1864-07-19",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1864,
+            "to": 1864
+          }
+        ],
+        "fire_date": "1864-07-19"
+      },
+      "title_vi": "Nam Kinh thất thủ, Thái Bình Thiên Quốc sụp đổ",
+      "title_en": "The Fall of the Taiping Capital",
+      "text_vi": "Quân Thanh và các lực lượng địa phương chiếm lại Nam Kinh, chấm dứt trung tâm quyền lực của Thái Bình Thiên Quốc. Chiến thắng không xóa được hậu quả của nhiều năm chiến tranh: dân số, nông nghiệp và ngân khố ở nhiều vùng vẫn kiệt quệ.",
+      "text_en": "Qing and provincial forces retake Nanjing, ending the Taiping Heavenly Kingdom's central government. Victory does not erase years of devastation: populations, agriculture and public finances across many regions remain exhausted.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giải ngũ có kiểm soát và cứu trợ vùng chiến sự",
+          "label_en": "Demobilise carefully and aid war-torn regions",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_taiping_fall_historical",
+              "name_vi": "Hệ quả chính sách: Giải ngũ có kiểm soát và cứu trợ vùng chiến sự",
+              "name_en": "Policy consequence: Demobilise carefully and aid war-torn regions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.2,
+                "war_exhaustion": -0.3,
+                "tax": -0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì quân đội tỉnh để đề phòng tái loạn",
+          "label_en": "Retain provincial forces against renewed revolt",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_taiping_fall_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì quân đội tỉnh để đề phòng tái loạn",
+              "name_en": "Policy consequence: Retain provincial forces against renewed revolt",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "ig_armed_forces": 1.1,
+                "legitimacy": 0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_jiangnan_arsenal",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1865-01-01",
+        "1865-12-31"
+      ],
+      "date_historical": "1865-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1865,
+            "to": 1865
+          }
+        ],
+        "fire_date": "1865-01-01"
+      },
+      "title_vi": "Khởi công Giang Nam chế tạo cục",
+      "title_en": "The Jiangnan Arsenal",
+      "text_vi": "Giang Nam chế tạo cục tại Thượng Hải trở thành một trung tâm quan trọng trong nỗ lực sản xuất vũ khí, tàu thuyền và dịch thuật kỹ thuật phương Tây. Câu hỏi cốt lõi là liệu triều đình có thể xây dựng năng lực công nghiệp bền vững thay vì chỉ mua sắm thiết bị ngoại quốc.",
+      "text_en": "The Jiangnan Arsenal in Shanghai becomes a major centre for weapons production, shipbuilding and translation of Western technical works. The central question is whether the court can build durable industrial capacity rather than merely purchase foreign equipment.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đầu tư vào kỹ sư, máy móc và đào tạo",
+          "label_en": "Invest in engineers, machinery and training",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_jiangnan_arsenal_historical",
+              "name_vi": "Hệ quả chính sách: Đầu tư vào kỹ sư, máy móc và đào tạo",
+              "name_en": "Policy consequence: Invest in engineers, machinery and training",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": 0.014,
+                "construction": 0.035,
+                "army": 0.025
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên sản lượng quân dụng trước mắt",
+          "label_en": "Prioritise immediate military output",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_jiangnan_arsenal_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên sản lượng quân dụng trước mắt",
+              "name_en": "Policy consequence: Prioritise immediate military output",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "tax": -0.012,
+                "research": -0.003
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "yale"
+      ]
+    },
+    {
+      "id": "qng_fuzhou_shipyard",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1866-01-01",
+        "1866-12-31"
+      ],
+      "date_historical": "1866-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1866,
+            "to": 1866
+          }
+        ],
+        "fire_date": "1866-01-01"
+      },
+      "title_vi": "Thành lập xưởng đóng tàu Phúc Châu",
+      "title_en": "The Fuzhou Shipyard",
+      "text_vi": "Triều đình thúc đẩy đóng tàu và đào tạo kỹ thuật hàng hải tại Phúc Châu với sự tham gia của chuyên gia nước ngoài. Dự án mở ra khả năng xây dựng hải quân hiện đại nhưng đòi hỏi nguồn vốn, nhân lực và quản trị lâu dài.",
+      "text_en": "The court promotes shipbuilding and naval training at Fuzhou with foreign technical assistance. The project offers a path toward a modern navy but requires sustained capital, skilled personnel and administration.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Xây dựng chương trình đào tạo nội địa",
+          "label_en": "Build a domestic training programme",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_fuzhou_shipyard_historical",
+              "name_vi": "Hệ quả chính sách: Xây dựng chương trình đào tạo nội địa",
+              "name_en": "Policy consequence: Build a domestic training programme",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": 0.01,
+                "army": 0.035,
+                "construction": 0.025
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Thuê chuyên gia nước ngoài trong giai đoạn đầu",
+          "label_en": "Hire foreign specialists during the initial phase",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_fuzhou_shipyard_alternative",
+              "name_vi": "Hệ quả chính sách: Thuê chuyên gia nước ngoài trong giai đoạn đầu",
+              "name_en": "Policy consequence: Hire foreign specialists during the initial phase",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.02,
+                "army": 0.025,
+                "tax": -0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "yale"
+      ]
+    },
+    {
+      "id": "qng_tianjin_massacre",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1870-01-01",
+        "1870-12-31"
+      ],
+      "date_historical": "1870-06-21",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1870,
+            "to": 1870
+          }
+        ],
+        "fire_date": "1870-06-21"
+      },
+      "title_vi": "Vụ thảm sát Thiên Tân",
+      "title_en": "The Tianjin Massacre",
+      "text_vi": "Tin đồn bắt cóc trẻ em và căng thẳng quanh các cơ sở truyền giáo dẫn tới bạo lực chống người nước ngoài tại Thiên Tân. Khủng hoảng buộc triều đình phải cân bằng áp lực từ dân chúng, yêu cầu bồi thường của các nước và nguy cơ chiến tranh mới.",
+      "text_en": "Rumours of child abductions and tensions around missionary institutions trigger anti-foreign violence in Tianjin. The crisis forces the court to balance popular anger, foreign demands for compensation and the danger of another war.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Điều tra và trừng phạt theo thủ tục",
+          "label_en": "Investigate and punish through legal process",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_tianjin_massacre_historical",
+              "name_vi": "Hệ quả chính sách: Điều tra và trừng phạt theo thủ tục",
+              "name_en": "Policy consequence: Investigate and punish through legal process",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.6,
+                "police": 0.02,
+                "radicalism": -0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Nhượng bộ ngoại giao để tránh chiến tranh",
+          "label_en": "Make diplomatic concessions to avoid war",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_tianjin_massacre_alternative",
+              "name_vi": "Hệ quả chính sách: Nhượng bộ ngoại giao để tránh chiến tranh",
+              "name_en": "Policy consequence: Make diplomatic concessions to avoid war",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.02,
+                "legitimacy": -1,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "princeton"
+      ]
+    },
+    {
+      "id": "qng_china_merchants",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1872-01-01",
+        "1872-12-31"
+      ],
+      "date_historical": "1872-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1872,
+            "to": 1872
+          }
+        ],
+        "fire_date": "1872-01-01"
+      },
+      "title_vi": "Thành lập Công ty Thương thuyền Trung Quốc",
+      "title_en": "The China Merchants Steam Navigation Company",
+      "text_vi": "Lý Hồng Chương bảo trợ một doanh nghiệp vận tải hơi nước do người Trung Quốc điều hành nhằm cạnh tranh trong lĩnh vực hàng hải thương mại. Công ty thể hiện nỗ lực đưa vốn tư nhân, bảo trợ nhà nước và kỹ thuật mới vào cùng một dự án hiện đại hóa.",
+      "text_en": "Li Hongzhang sponsors a Chinese-operated steam navigation enterprise to compete in commercial shipping. The company brings private capital, state patronage and new technology into a single modernisation project.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ doanh nghiệp nội địa bằng hợp đồng và vốn",
+          "label_en": "Support the enterprise through contracts and capital",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_china_merchants_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ doanh nghiệp nội địa bằng hợp đồng và vốn",
+              "name_en": "Policy consequence: Support the enterprise through contracts and capital",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.04,
+                "construction": 0.025,
+                "tax": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Cho phép cạnh tranh rộng hơn với hãng nước ngoài",
+          "label_en": "Allow broader competition with foreign firms",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_china_merchants_alternative",
+              "name_vi": "Hệ quả chính sách: Cho phép cạnh tranh rộng hơn với hãng nước ngoài",
+              "name_en": "Policy consequence: Allow broader competition with foreign firms",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.06,
+                "ig_industrialists": 1.1,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "yale"
+      ]
+    },
+    {
+      "id": "qng_guangxu_accession",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1875-01-01",
+        "1875-12-31"
+      ],
+      "date_historical": "1875-02-25",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1875,
+            "to": 1875
+          }
+        ],
+        "fire_date": "1875-02-25"
+      },
+      "title_vi": "Quang Tự đế lên ngôi khi còn nhỏ",
+      "title_en": "The Guangxu Emperor Ascends the Throne",
+      "text_vi": "Sau khi Đồng Trị đế qua đời, Từ Hi lựa chọn người cháu nhỏ tuổi Tải Điềm lên ngôi, mở đầu một giai đoạn nhiếp chính mới. Việc kế vị không giải quyết được các bất đồng về cải cách, mà tiếp tục đặt quyền lực thực tế trong tay nhóm cung đình.",
+      "text_en": "After the Tongzhi emperor dies, Cixi selects her young nephew Zaitian as emperor, beginning another regency. The succession does not settle disagreements over reform; practical power remains concentrated among court factions.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ổn định kế vị và chuẩn bị cải cách có lộ trình",
+          "label_en": "Secure the succession and prepare gradual reform",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_guangxu_accession_historical",
+              "name_vi": "Hệ quả chính sách: Ổn định kế vị và chuẩn bị cải cách có lộ trình",
+              "name_en": "Policy consequence: Secure the succession and prepare gradual reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.8,
+                "reform": 0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ nguyên cấu trúc nhiếp chính",
+          "label_en": "Retain the existing regency structure",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_guangxu_accession_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ nguyên cấu trúc nhiếp chính",
+              "name_en": "Policy consequence: Retain the existing regency structure",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "reform": -0.004,
+                "radicalism": 0.003
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_ryukyu_annexation",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1879-01-01",
+        "1879-12-31"
+      ],
+      "date_historical": "1879-04-04",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1879,
+            "to": 1879
+          }
+        ],
+        "fire_date": "1879-04-04"
+      },
+      "title_vi": "Nhật Bản sáp nhập vương quốc Lưu Cầu",
+      "title_en": "Japan Annexes the Ryukyu Kingdom",
+      "text_vi": "Nhật Bản chấm dứt vương quốc Lưu Cầu và tổ chức lại thành Okinawa, làm suy yếu một mắt xích quan trọng trong mạng lưới triều cống của nhà Thanh. Triều đình phản đối nhưng không có đủ sức mạnh ngoại giao và quân sự để đảo ngược sự việc.",
+      "text_en": "Japan abolishes the Ryukyu Kingdom and reorganises it as Okinawa, weakening an important link in the Qing tributary network. The court protests but lacks the diplomatic and military leverage to reverse the decision.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Phản đối ngoại giao và tăng cường quan sát Nhật Bản",
+          "label_en": "Protest diplomatically and monitor Japan",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_ryukyu_annexation_historical",
+              "name_vi": "Hệ quả chính sách: Phản đối ngoại giao và tăng cường quan sát Nhật Bản",
+              "name_en": "Policy consequence: Protest diplomatically and monitor Japan",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "research": 0.006,
+                "legitimacy": -0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tránh đối đầu, tập trung cải tổ nội bộ",
+          "label_en": "Avoid confrontation and focus on domestic reform",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_ryukyu_annexation_alternative",
+              "name_vi": "Hệ quả chính sách: Tránh đối đầu, tập trung cải tổ nội bộ",
+              "name_en": "Policy consequence: Avoid confrontation and focus on domestic reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.006,
+                "war_exhaustion": -0.05,
+                "prestige": -0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "princeton"
+      ]
+    },
+    {
+      "id": "qng_ili_treaty",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1881-01-01",
+        "1881-12-31"
+      ],
+      "date_historical": "1881-02-24",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1881,
+            "to": 1881
+          }
+        ],
+        "fire_date": "1881-02-24"
+      },
+      "title_vi": "Hiệp ước Ili điều chỉnh quan hệ với Nga",
+      "title_en": "The Treaty of Saint Petersburg",
+      "text_vi": "Sau khi Nga chiếm đóng vùng Ili trong khủng hoảng Trung Á, hiệp ước mới quy định việc hoàn trả phần lớn lãnh thổ nhưng kèm nhượng bộ và bồi thường. Cuộc khủng hoảng cho thấy các vùng biên viễn cần được bảo vệ bằng ngoại giao, hậu cần và năng lực quân sự phối hợp.",
+      "text_en": "After Russia occupies the Ili region during a Central Asian crisis, a new treaty provides for the return of most territory but includes concessions and indemnities. The crisis shows that frontier regions require coordinated diplomacy, logistics and military capacity.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Củng cố biên phòng và cơ chế ngoại giao",
+          "label_en": "Strengthen frontier defence and diplomacy",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_ili_treaty_historical",
+              "name_vi": "Hệ quả chính sách: Củng cố biên phòng và cơ chế ngoại giao",
+              "name_en": "Policy consequence: Strengthen frontier defence and diplomacy",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.035,
+                "research": 0.005,
+                "tax": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chấp nhận dàn xếp để tránh xung đột kéo dài",
+          "label_en": "Accept the settlement to avoid prolonged conflict",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_ili_treaty_alternative",
+              "name_vi": "Hệ quả chính sách: Chấp nhận dàn xếp để tránh xung đột kéo dài",
+              "name_en": "Policy consequence: Accept the settlement to avoid prolonged conflict",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.06,
+                "trade": 0.015,
+                "legitimacy": -0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "yale"
+      ]
+    },
+    {
+      "id": "qng_sino_french_war",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1884-01-01",
+        "1884-12-31"
+      ],
+      "date_historical": "1884-08-23",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1884,
+            "to": 1884
+          }
+        ],
+        "fire_date": "1884-08-23"
+      },
+      "title_vi": "Chiến tranh Pháp–Thanh tại Bắc Kỳ và Đài Loan",
+      "title_en": "The Sino-French War",
+      "text_vi": "Tranh chấp về ảnh hưởng tại Việt Nam biến thành chiến tranh giữa Pháp và nhà Thanh. Hải quân Pháp tấn công các vị trí ven biển, phơi bày khoảng cách giữa tham vọng bảo vệ ảnh hưởng khu vực và năng lực chiến đấu thực tế của triều đình.",
+      "text_en": "A dispute over influence in Vietnam becomes a war between France and the Qing. French naval attacks on coastal positions expose the gap between the court's regional ambitions and its actual military capacity.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tập trung phòng thủ biển và phối hợp các tỉnh",
+          "label_en": "Focus on coastal defence and provincial coordination",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_sino_french_war_historical",
+              "name_vi": "Hệ quả chính sách: Tập trung phòng thủ biển và phối hợp các tỉnh",
+              "name_en": "Policy consequence: Focus on coastal defence and provincial coordination",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.055,
+                "war_exhaustion": 0.13,
+                "prestige": -0.025
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chấp nhận thương lượng để giữ nguồn lực",
+          "label_en": "Negotiate to preserve resources",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_sino_french_war_alternative",
+              "name_vi": "Hệ quả chính sách: Chấp nhận thương lượng để giữ nguồn lực",
+              "name_en": "Policy consequence: Negotiate to preserve resources",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.1,
+                "tax": 0.01,
+                "legitimacy": -0.8
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_tientsin_convention_1885",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1885-01-01",
+        "1885-12-31"
+      ],
+      "date_historical": "1885-06-09",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1885,
+            "to": 1885
+          }
+        ],
+        "fire_date": "1885-06-09"
+      },
+      "title_vi": "Công ước Thiên Tân với Pháp",
+      "title_en": "The Convention of Tientsin",
+      "text_vi": "Công ước chấm dứt chiến tranh với Pháp và xác lập khuôn khổ ảnh hưởng mới tại Việt Nam. Nhà Thanh phải xem xét lại vai trò truyền thống trong khu vực và cách phân bổ nguồn lực cho các biên giới khác.",
+      "text_en": "The convention ends the war with France and establishes a new framework of influence in Vietnam. The Qing must reconsider their traditional regional role and how to allocate resources across other frontiers.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận thực tế và cải tổ bộ máy đối ngoại",
+          "label_en": "Accept the new reality and reform foreign affairs",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_tientsin_convention_1885_historical",
+              "name_vi": "Hệ quả chính sách: Chấp nhận thực tế và cải tổ bộ máy đối ngoại",
+              "name_en": "Policy consequence: Accept the new reality and reform foreign affairs",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.007,
+                "research": 0.006,
+                "legitimacy": -0.5
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tiếp tục duy trì yêu sách biểu tượng",
+          "label_en": "Retain symbolic claims",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_tientsin_convention_1885_alternative",
+              "name_vi": "Hệ quả chính sách: Tiếp tục duy trì yêu sách biểu tượng",
+              "name_en": "Policy consequence: Retain symbolic claims",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.015,
+                "legitimacy": -0.7,
+                "tax": -0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "princeton"
+      ]
+    },
+    {
+      "id": "qng_beiyang_fleet",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1888-01-01",
+        "1888-12-31"
+      ],
+      "date_historical": "1888-12-17",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1888,
+            "to": 1888
+          }
+        ],
+        "fire_date": "1888-12-17"
+      },
+      "title_vi": "Hạm đội Bắc Dương được tổ chức thành lực lượng hiện đại",
+      "title_en": "The Beiyang Fleet",
+      "text_vi": "Hạm đội Bắc Dương trở thành biểu tượng cho nỗ lực xây dựng hải quân hiện đại của nhà Thanh. Tuy nhiên, tàu chiến hiện đại chỉ phát huy tác dụng khi đi cùng huấn luyện, bảo dưỡng, hậu cần, chỉ huy thống nhất và nguồn ngân sách ổn định.",
+      "text_en": "The Beiyang Fleet becomes a symbol of Qing efforts to build a modern navy. Modern warships can only deliver results when supported by training, maintenance, logistics, unified command and reliable funding.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Duy trì ngân sách huấn luyện và bảo dưỡng",
+          "label_en": "Fund training and maintenance",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_beiyang_fleet_historical",
+              "name_vi": "Hệ quả chính sách: Duy trì ngân sách huấn luyện và bảo dưỡng",
+              "name_en": "Policy consequence: Fund training and maintenance",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "research": 0.006,
+                "tax": -0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở rộng số lượng tàu bằng ngân sách ngắn hạn",
+          "label_en": "Expand the fleet through short-term spending",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_beiyang_fleet_alternative",
+              "name_vi": "Hệ quả chính sách: Mở rộng số lượng tàu bằng ngân sách ngắn hạn",
+              "name_en": "Policy consequence: Expand the fleet through short-term spending",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "legitimacy": 0.3,
+                "tax": -0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "yale"
+      ]
+    },
+    {
+      "id": "qng_first_sino_japanese_war",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1894-01-01",
+        "1894-12-31"
+      ],
+      "date_historical": "1894-08-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1894,
+            "to": 1894
+          }
+        ],
+        "fire_date": "1894-08-01"
+      },
+      "title_vi": "Chiến tranh Thanh–Nhật lần thứ nhất",
+      "title_en": "The First Sino-Japanese War",
+      "text_vi": "Xung đột về ảnh hưởng tại Triều Tiên bùng nổ thành chiến tranh giữa nhà Thanh và Nhật Bản. Kết quả sẽ kiểm nghiệm toàn diện cải cách quân sự, khả năng huy động tài chính và tính thống nhất của bộ máy chỉ huy nhà Thanh.",
+      "text_en": "A struggle over influence in Korea becomes a war between the Qing and Japan. The conflict tests Qing military reforms, fiscal mobilisation and the unity of its command structure.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Huy động toàn quốc và thống nhất chỉ huy",
+          "label_en": "Mobilise nationally under unified command",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_first_sino_japanese_war_historical",
+              "name_vi": "Hệ quả chính sách: Huy động toàn quốc và thống nhất chỉ huy",
+              "name_en": "Policy consequence: Mobilise nationally under unified command",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.07,
+                "war_exhaustion": 0.16,
+                "legitimacy": -0.5
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Dựa vào các hạm đội và lực lượng tỉnh",
+          "label_en": "Rely on provincial forces and fleets",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_first_sino_japanese_war_alternative",
+              "name_vi": "Hệ quả chính sách: Dựa vào các hạm đội và lực lượng tỉnh",
+              "name_en": "Policy consequence: Rely on provincial forces and fleets",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "tax": 0.012,
+                "legitimacy": -1.1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_treaty_shimonoseki",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1895-01-01",
+        "1895-12-31"
+      ],
+      "date_historical": "1895-04-17",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1895,
+            "to": 1895
+          }
+        ],
+        "fire_date": "1895-04-17"
+      },
+      "title_vi": "Hiệp ước Shimonoseki",
+      "title_en": "The Treaty of Shimonoseki",
+      "text_vi": "Nhà Thanh thất bại và ký hiệp ước công nhận Triều Tiên độc lập, nhượng Đài Loan cùng Bành Hồ cho Nhật Bản và chấp nhận khoản bồi thường lớn. Thất bại trước một nước châu Á vừa hiện đại hóa làm khủng hoảng niềm tin vào triều đình trở nên sâu sắc.",
+      "text_en": "The Qing defeat leads to a treaty recognising Korean independence, ceding Taiwan and the Pescadores to Japan and imposing a large indemnity. Defeat by a recently modernised Asian power deepens the crisis of confidence in the court.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận hiệp ước và khởi động cải tổ sâu rộng",
+          "label_en": "Accept the treaty and begin deep reform",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_treaty_shimonoseki_historical",
+              "name_vi": "Hệ quả chính sách: Chấp nhận hiệp ước và khởi động cải tổ sâu rộng",
+              "name_en": "Policy consequence: Accept the treaty and begin deep reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "research": 0.008,
+                "legitimacy": -1.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tìm cách trì hoãn và tập hợp phản kháng",
+          "label_en": "Delay implementation and rally resistance",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_treaty_shimonoseki_alternative",
+              "name_vi": "Hệ quả chính sách: Tìm cách trì hoãn và tập hợp phản kháng",
+              "name_en": "Policy consequence: Delay implementation and rally resistance",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -1.8,
+                "radicalism": 0.016,
+                "war_exhaustion": 0.1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_li_lobanov_treaty",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1895-01-01",
+        "1895-12-31"
+      ],
+      "date_historical": "1895-06-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1895,
+            "to": 1895
+          }
+        ],
+        "fire_date": "1895-06-03"
+      },
+      "title_vi": "Liên minh bí mật với Nga sau chiến tranh",
+      "title_en": "The Li–Lobanov Treaty",
+      "text_vi": "Lý Hồng Chương ký thỏa thuận với Nga nhằm tìm kiếm đối trọng trước sức ép Nhật Bản. Sự hỗ trợ của một cường quốc có thể đem lại thời gian, nhưng cũng kéo nhà Thanh sâu hơn vào cạnh tranh chiến lược của các đế quốc.",
+      "text_en": "Li Hongzhang reaches an agreement with Russia to counter pressure from Japan. Support from a great power may buy time, but it also draws the Qing deeper into imperial rivalry.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tận dụng quan hệ nhưng giữ quyền tự chủ",
+          "label_en": "Use the partnership while preserving autonomy",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_li_lobanov_treaty_historical",
+              "name_vi": "Hệ quả chính sách: Tận dụng quan hệ nhưng giữ quyền tự chủ",
+              "name_en": "Policy consequence: Use the partnership while preserving autonomy",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": 0.006,
+                "prestige": 0.025,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Dựa sâu hơn vào bảo trợ của Nga",
+          "label_en": "Rely more heavily on Russian protection",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_li_lobanov_treaty_alternative",
+              "name_vi": "Hệ quả chính sách: Dựa sâu hơn vào bảo trợ của Nga",
+              "name_en": "Policy consequence: Rely more heavily on Russian protection",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.02,
+                "army": 0.025,
+                "legitimacy": -0.5
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "yale"
+      ]
+    },
+    {
+      "id": "qng_jiaozhou_occupation",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1897-01-01",
+        "1897-12-31"
+      ],
+      "date_historical": "1897-11-14",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1897,
+            "to": 1897
+          }
+        ],
+        "fire_date": "1897-11-14"
+      },
+      "title_vi": "Đức chiếm đóng vịnh Giao Châu",
+      "title_en": "Germany Occupies Jiaozhou Bay",
+      "text_vi": "Sau vụ sát hại các nhà truyền giáo Đức tại Sơn Đông, Đức chiếm vịnh Giao Châu và buộc triều đình chấp nhận tô giới dài hạn. Các cường quốc khác gia tăng cạnh tranh lãnh thổ, khiến chủ quyền nhà Thanh bị chia cắt trên thực tế.",
+      "text_en": "After the killing of German missionaries in Shandong, Germany occupies Jiaozhou Bay and compels the Qing to accept a long-term lease. Other powers intensify territorial competition, fragmenting Qing sovereignty in practice.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Phản đối và tìm liên minh kiềm chế",
+          "label_en": "Protest and seek balancing partners",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_jiaozhou_occupation_historical",
+              "name_vi": "Hệ quả chính sách: Phản đối và tìm liên minh kiềm chế",
+              "name_en": "Policy consequence: Protest and seek balancing partners",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.6,
+                "army": 0.025,
+                "research": 0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Nhượng bộ để tránh chiến tranh trực tiếp",
+          "label_en": "Concede to avoid direct war",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_jiaozhou_occupation_alternative",
+              "name_vi": "Hệ quả chính sách: Nhượng bộ để tránh chiến tranh trực tiếp",
+              "name_en": "Policy consequence: Concede to avoid direct war",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.06,
+                "legitimacy": -1,
+                "prestige": -0.025
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "princeton"
+      ]
+    },
+    {
+      "id": "qng_hundred_days_reform",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1898-01-01",
+        "1898-12-31"
+      ],
+      "date_historical": "1898-06-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1898,
+            "to": 1898
+          }
+        ],
+        "fire_date": "1898-06-11"
+      },
+      "title_vi": "Bắt đầu phong trào cải cách Mậu Tuất",
+      "title_en": "The Hundred Days' Reform",
+      "text_vi": "Quang Tự đế ban hành một loạt chiếu chỉ nhằm cải tổ giáo dục, hành chính, quân đội và kinh tế. Những người cải cách muốn tăng tốc thay đổi, nhưng họ thiếu mạng lưới quyền lực đủ mạnh để vượt qua sự phản kháng của các nhóm bảo thủ trong triều đình.",
+      "text_en": "The Guangxu emperor issues a series of edicts to reform education, administration, the military and the economy. Reformers seek rapid change but lack the political network needed to overcome conservative resistance at court.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ cải cách và mở rộng liên minh chính trị",
+          "label_en": "Protect reform and broaden the political coalition",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_hundred_days_reform_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ cải cách và mở rộng liên minh chính trị",
+              "name_en": "Policy consequence: Protect reform and broaden the political coalition",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.014,
+                "research": 0.01,
+                "legitimacy": 0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Điều chỉnh tốc độ để tránh phản ứng dây chuyền",
+          "label_en": "Moderate the pace to avoid a backlash",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_hundred_days_reform_alternative",
+              "name_vi": "Hệ quả chính sách: Điều chỉnh tốc độ để tránh phản ứng dây chuyền",
+              "name_en": "Policy consequence: Moderate the pace to avoid a backlash",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.7,
+                "reform": 0.004,
+                "radicalism": 0.003
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_wuxu_coup",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1898-01-01",
+        "1898-12-31"
+      ],
+      "date_historical": "1898-09-21",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1898,
+            "to": 1898
+          }
+        ],
+        "fire_date": "1898-09-21"
+      },
+      "title_vi": "Chính biến Mậu Tuất chấm dứt cải cách",
+      "title_en": "The Coup of 1898",
+      "text_vi": "Từ Hi và phe bảo thủ giành lại quyền kiểm soát, Quang Tự bị quản thúc và nhiều nhà cải cách bị xử tử hoặc buộc phải lưu vong. Cải cách bị đình chỉ, làm gia tăng khoảng cách giữa triều đình và những người muốn thay đổi hệ thống.",
+      "text_en": "Cixi and conservative allies regain control, place the Guangxu emperor under house arrest and execute or exile reformers. The reform programme is halted, widening the divide between the court and advocates of systemic change.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giữ trật tự nhưng mở lối cải cách từng bước",
+          "label_en": "Preserve order while allowing gradual reform",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_wuxu_coup_historical",
+              "name_vi": "Hệ quả chính sách: Giữ trật tự nhưng mở lối cải cách từng bước",
+              "name_en": "Policy consequence: Preserve order while allowing gradual reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.4,
+                "police": 0.03,
+                "reform": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Đàn áp triệt để các mạng lưới cải cách",
+          "label_en": "Suppress reform networks decisively",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_wuxu_coup_alternative",
+              "name_vi": "Hệ quả chính sách: Đàn áp triệt để các mạng lưới cải cách",
+              "name_en": "Policy consequence: Suppress reform networks decisively",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.012,
+                "research": -0.008,
+                "legitimacy": -0.8
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_boxer_movement",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1899-01-01",
+        "1899-12-31"
+      ],
+      "date_historical": "1899-10-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1899,
+            "to": 1899
+          }
+        ],
+        "fire_date": "1899-10-01"
+      },
+      "title_vi": "Phong trào Nghĩa Hòa Đoàn lan rộng",
+      "title_en": "The Boxer Movement Spreads",
+      "text_vi": "Các nhóm Nghĩa Hòa Đoàn phát triển trong bối cảnh bất ổn xã hội, thiên tai và phản ứng trước sự bành trướng của người nước ngoài. Bạo lực chống truyền giáo và cộng đồng ngoại quốc đặt triều đình trước lựa chọn nguy hiểm giữa đàn áp, dung túng và điều hướng phong trào.",
+      "text_en": "Boxer groups expand amid social unrest, disasters and opposition to foreign encroachment. Violence against missionaries and foreign communities places the court before a dangerous choice between suppression, tolerance and attempted control.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ngăn bạo lực và bảo vệ dân thường",
+          "label_en": "Stop violence and protect civilians",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_boxer_movement_historical",
+              "name_vi": "Hệ quả chính sách: Ngăn bạo lực và bảo vệ dân thường",
+              "name_en": "Policy consequence: Stop violence and protect civilians",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.035,
+                "legitimacy": 0.6,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Dung túng phong trào như công cụ chống ngoại bang",
+          "label_en": "Tolerate the movement as an anti-foreign instrument",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_boxer_movement_alternative",
+              "name_vi": "Hệ quả chính sách: Dung túng phong trào như công cụ chống ngoại bang",
+              "name_en": "Policy consequence: Tolerate the movement as an anti-foreign instrument",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.014,
+                "legitimacy": -0.9,
+                "war_exhaustion": 0.06
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_boxer_crisis",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1900-01-01",
+        "1900-12-31"
+      ],
+      "date_historical": "1900-06-21",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1900,
+            "to": 1900
+          }
+        ],
+        "fire_date": "1900-06-21"
+      },
+      "title_vi": "Khủng hoảng Nghĩa Hòa Đoàn tại Bắc Kinh",
+      "title_en": "The Boxer Crisis in Beijing",
+      "text_vi": "Triều đình tuyên chiến với các cường quốc nước ngoài trong khi lực lượng Nghĩa Hòa Đoàn vây khu công sứ tại Bắc Kinh. Quyết định đặt nhà Thanh vào cuộc chiến không cân sức, đồng thời làm sâu sắc thêm chia rẽ giữa các quan đại thần và địa phương.",
+      "text_en": "The court declares war on foreign powers as Boxer forces besiege the diplomatic quarter in Beijing. The decision commits the Qing to an unequal conflict and deepens divisions among senior officials and provincial authorities.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ kinh đô và tìm đường rút lui ngoại giao",
+          "label_en": "Defend the capital while seeking a diplomatic exit",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_boxer_crisis_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ kinh đô và tìm đường rút lui ngoại giao",
+              "name_en": "Policy consequence: Defend the capital while seeking a diplomatic exit",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "war_exhaustion": 0.2,
+                "legitimacy": -0.5
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Đặt cược vào chiến tranh tổng lực",
+          "label_en": "Commit to total war",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_boxer_crisis_alternative",
+              "name_vi": "Hệ quả chính sách: Đặt cược vào chiến tranh tổng lực",
+              "name_en": "Policy consequence: Commit to total war",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.07,
+                "war_exhaustion": 0.25,
+                "legitimacy": -1.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_eight_nation_alliance",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1900-01-01",
+        "1900-12-31"
+      ],
+      "date_historical": "1900-08-14",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1900,
+            "to": 1900
+          }
+        ],
+        "fire_date": "1900-08-14"
+      },
+      "title_vi": "Liên quân tám nước tiến vào Bắc Kinh",
+      "title_en": "The Eight-Nation Alliance Enters Beijing",
+      "text_vi": "Quân đội liên quân chiếm Bắc Kinh, buộc triều đình và Từ Hi rời kinh đô chạy về phía tây. Sự kiện cho thấy sự sụp đổ của năng lực bảo vệ trung tâm chính trị và mở đường cho các điều khoản trừng phạt nặng nề.",
+      "text_en": "The allied forces capture Beijing, forcing the court and Cixi to flee west. The event exposes the collapse of the state's ability to protect its political centre and sets the stage for severe punitive terms.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tổ chức rút lui và bảo toàn bộ máy nhà nước",
+          "label_en": "Organise a retreat and preserve the state",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_eight_nation_alliance_historical",
+              "name_vi": "Hệ quả chính sách: Tổ chức rút lui và bảo toàn bộ máy nhà nước",
+              "name_en": "Policy consequence: Organise a retreat and preserve the state",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.7,
+                "war_exhaustion": 0.12,
+                "reform": 0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tiếp tục kháng cự bằng lực lượng còn lại",
+          "label_en": "Continue resistance with remaining forces",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_eight_nation_alliance_alternative",
+              "name_vi": "Hệ quả chính sách: Tiếp tục kháng cự bằng lực lượng còn lại",
+              "name_en": "Policy consequence: Continue resistance with remaining forces",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.035,
+                "war_exhaustion": 0.22,
+                "legitimacy": -1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_boxer_protocol",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1901-01-01",
+        "1901-12-31"
+      ],
+      "date_historical": "1901-09-07",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1901,
+            "to": 1901
+          }
+        ],
+        "fire_date": "1901-09-07"
+      },
+      "title_vi": "Nghị định thư Tân Sửu",
+      "title_en": "The Boxer Protocol",
+      "text_vi": "Nhà Thanh ký Nghị định thư Boxer, chấp nhận bồi thường lớn, hạn chế quân sự và sự hiện diện của lực lượng nước ngoài tại Bắc Kinh. Gánh nặng tài chính kéo dài nhiều năm, làm giảm nguồn lực dành cho cải cách và cứu trợ trong nước.",
+      "text_en": "The Qing sign the Boxer Protocol, accepting a large indemnity, military restrictions and a foreign presence in Beijing. The long-term fiscal burden reduces resources available for domestic reform and relief.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tái cơ cấu ngân sách và ưu tiên cải cách",
+          "label_en": "Restructure the budget and prioritise reform",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_boxer_protocol_historical",
+              "name_vi": "Hệ quả chính sách: Tái cơ cấu ngân sách và ưu tiên cải cách",
+              "name_en": "Policy consequence: Restructure the budget and prioritise reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.008,
+                "research": 0.006,
+                "legitimacy": -0.7
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tăng thuế để đáp ứng nghĩa vụ quốc tế",
+          "label_en": "Raise taxes to meet international obligations",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_boxer_protocol_alternative",
+              "name_vi": "Hệ quả chính sách: Tăng thuế để đáp ứng nghĩa vụ quốc tế",
+              "name_en": "Policy consequence: Raise taxes to meet international obligations",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.025,
+                "radicalism": 0.01,
+                "legitimacy": -0.8
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_court_returns_beijing",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1902-01-01",
+        "1902-12-31"
+      ],
+      "date_historical": "1902-01-07",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1902,
+            "to": 1902
+          }
+        ],
+        "fire_date": "1902-01-07"
+      },
+      "title_vi": "Triều đình trở lại Bắc Kinh",
+      "title_en": "The Court Returns to Beijing",
+      "text_vi": "Sau thời gian lưu vong, triều đình trở lại Bắc Kinh và tuyên bố theo đuổi các chính sách Tân Chính. Những cải cách về quân đội, giáo dục và hành chính được thúc đẩy, nhưng lòng tin xã hội vẫn bị tổn thương bởi chiến tranh và các khoản bồi thường.",
+      "text_en": "After its flight, the court returns to Beijing and announces the New Policies. Military, educational and administrative reforms advance, but public confidence remains damaged by war and indemnities.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Trao quyền cho cải cách hành chính và giáo dục",
+          "label_en": "Empower administrative and educational reform",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_court_returns_beijing_historical",
+              "name_vi": "Hệ quả chính sách: Trao quyền cho cải cách hành chính và giáo dục",
+              "name_en": "Policy consequence: Empower administrative and educational reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.01,
+                "research": 0.008,
+                "legitimacy": 0.5
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ cải cách trong giới hạn an toàn của triều đình",
+          "label_en": "Keep reforms within safe court limits",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_court_returns_beijing_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ cải cách trong giới hạn an toàn của triều đình",
+              "name_en": "Policy consequence: Keep reforms within safe court limits",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.7,
+                "reform": 0.003,
+                "tax": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_examination_abolition",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1905-01-01",
+        "1905-12-31"
+      ],
+      "date_historical": "1905-09-02",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1905,
+            "to": 1905
+          }
+        ],
+        "fire_date": "1905-09-02"
+      },
+      "title_vi": "Bãi bỏ khoa cử truyền thống",
+      "title_en": "The Imperial Examination System Is Abolished",
+      "text_vi": "Triều đình quyết định chấm dứt hệ thống khoa cử kinh điển vốn là con đường tuyển chọn quan lại suốt nhiều thế kỷ. Quyết định mở đường cho giáo dục mới nhưng cũng làm lung lay địa vị của tầng lớp sĩ đại phu và mạng lưới quyền lực địa phương.",
+      "text_en": "The court abolishes the classical examination system that had recruited officials for centuries. The decision opens space for modern education but unsettles the status of the scholar-gentry and local power networks.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở rộng trường học và đào tạo công chức mới",
+          "label_en": "Expand schools and train a new civil service",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_examination_abolition_historical",
+              "name_vi": "Hệ quả chính sách: Mở rộng trường học và đào tạo công chức mới",
+              "name_en": "Policy consequence: Expand schools and train a new civil service",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": 0.015,
+                "reform": 0.01,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì đặc quyền chuyển tiếp cho sĩ phu",
+          "label_en": "Preserve transitional privileges for the scholar-gentry",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_examination_abolition_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì đặc quyền chuyển tiếp cho sĩ phu",
+              "name_en": "Policy consequence: Preserve transitional privileges for the scholar-gentry",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.5,
+                "reform": 0.004,
+                "research": -0.003
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_constitutional_preparations",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1906-01-01",
+        "1906-12-31"
+      ],
+      "date_historical": "1906-09-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1906,
+            "to": 1906
+          }
+        ],
+        "fire_date": "1906-09-01"
+      },
+      "title_vi": "Công bố chuẩn bị lập hiến",
+      "title_en": "Preparations for Constitutional Government",
+      "text_vi": "Triều đình công bố lộ trình chuẩn bị hiến chính sau sức ép cải cách trong và ngoài nước. Tuy nhiên, việc trì hoãn nghị viện và duy trì quyền lực tối cao của hoàng gia khiến nhiều người nghi ngờ cam kết thay đổi thực chất.",
+      "text_en": "The court announces a timetable for constitutional preparation under pressure for reform. Yet delays to representative institutions and the preservation of imperial supremacy lead many to question the sincerity of change.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đẩy nhanh hội đồng tỉnh và trách nhiệm giải trình",
+          "label_en": "Accelerate provincial assemblies and accountability",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_constitutional_preparations_historical",
+              "name_vi": "Hệ quả chính sách: Đẩy nhanh hội đồng tỉnh và trách nhiệm giải trình",
+              "name_en": "Policy consequence: Accelerate provincial assemblies and accountability",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.009,
+                "legitimacy": 0.4,
+                "research": 0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ lộ trình chậm để bảo vệ quyền lực hoàng gia",
+          "label_en": "Keep a slow timetable to protect imperial authority",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_constitutional_preparations_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ lộ trình chậm để bảo vệ quyền lực hoàng gia",
+              "name_en": "Policy consequence: Keep a slow timetable to protect imperial authority",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "reform": -0.003,
+                "radicalism": 0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "princeton"
+      ]
+    },
+    {
+      "id": "qng_guangxu_death",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1908-01-01",
+        "1908-12-31"
+      ],
+      "date_historical": "1908-11-14",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1908,
+            "to": 1908
+          }
+        ],
+        "fire_date": "1908-11-14"
+      },
+      "title_vi": "Quang Tự đế qua đời",
+      "title_en": "The Guangxu Emperor Dies",
+      "text_vi": "Quang Tự đế qua đời trong bối cảnh triều đình vẫn chia rẽ sâu sắc về cải cách và quyền lực. Cái chết của ông ngay trước khi Từ Hi qua đời làm tăng bất ổn kế vị và khiến tương lai của chương trình lập hiến trở nên mong manh.",
+      "text_en": "The Guangxu emperor dies while the court remains deeply divided over reform and authority. His death shortly before Cixi's adds succession uncertainty and leaves the constitutional programme fragile.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Duy trì lộ trình cải cách đã công bố",
+          "label_en": "Maintain the announced reform programme",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_guangxu_death_historical",
+              "name_vi": "Hệ quả chính sách: Duy trì lộ trình cải cách đã công bố",
+              "name_en": "Policy consequence: Maintain the announced reform programme",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.6,
+                "reform": 0.004,
+                "radicalism": 0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tạm dừng thay đổi trong thời kỳ kế vị",
+          "label_en": "Pause changes during the succession",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_guangxu_death_alternative",
+              "name_vi": "Hệ quả chính sách: Tạm dừng thay đổi trong thời kỳ kế vị",
+              "name_en": "Policy consequence: Pause changes during the succession",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.5,
+                "reform": -0.006,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_cixi_death",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1908-01-01",
+        "1908-12-31"
+      ],
+      "date_historical": "1908-11-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1908,
+            "to": 1908
+          }
+        ],
+        "fire_date": "1908-11-15"
+      },
+      "title_vi": "Từ Hi Thái hậu qua đời",
+      "title_en": "The Death of Empress Dowager Cixi",
+      "text_vi": "Từ Hi qua đời sau nhiều thập niên chi phối chính trường nhà Thanh. Quyền lực chuyển sang triều đình mới với Tuyên Thống đế còn nhỏ tuổi, trong khi các phe phái quan lại, quân đội và cải cách gia tăng cạnh tranh.",
+      "text_en": "Cixi dies after decades of dominating Qing politics. Authority passes to a new court under the child Xuantong emperor as officials, military leaders and reform factions intensify their competition.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tổ chức nhiếp chính có trách nhiệm và ổn định",
+          "label_en": "Create an accountable and stable regency",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_cixi_death_historical",
+              "name_vi": "Hệ quả chính sách: Tổ chức nhiếp chính có trách nhiệm và ổn định",
+              "name_en": "Policy consequence: Create an accountable and stable regency",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.6,
+                "reform": 0.005,
+                "police": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung quyền lực vào thân vương nhiếp chính",
+          "label_en": "Concentrate authority in the prince regent",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_cixi_death_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung quyền lực vào thân vương nhiếp chính",
+              "name_en": "Policy consequence: Concentrate authority in the prince regent",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.4,
+                "reform": -0.004,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_provincial_assemblies",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1909-01-01",
+        "1909-12-31"
+      ],
+      "date_historical": "1909-10-14",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1909,
+            "to": 1909
+          }
+        ],
+        "fire_date": "1909-10-14"
+      },
+      "title_vi": "Các nghị viện tỉnh bắt đầu hoạt động",
+      "title_en": "Provincial Assemblies Begin Operating",
+      "text_vi": "Các hội nghị tư vấn cấp tỉnh khai mạc, tạo diễn đàn mới cho giới tinh hoa địa phương và những người vận động hiến chính. Họ nhanh chóng đòi hỏi ngân sách minh bạch hơn, nghị viện quốc gia và vai trò thực chất trong quản trị.",
+      "text_en": "Provincial consultative assemblies open new forums for local elites and constitutional activists. They soon demand clearer budgets, a national parliament and a meaningful role in government.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Hợp tác với đại biểu tỉnh và công khai ngân sách",
+          "label_en": "Work with provincial delegates and publish budgets",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_provincial_assemblies_historical",
+              "name_vi": "Hệ quả chính sách: Hợp tác với đại biểu tỉnh và công khai ngân sách",
+              "name_en": "Policy consequence: Work with provincial delegates and publish budgets",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.008,
+                "legitimacy": 0.7,
+                "tax": 0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giới hạn quyền của hội đồng",
+          "label_en": "Limit the assemblies' authority",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_provincial_assemblies_alternative",
+              "name_vi": "Hệ quả chính sách: Giới hạn quyền của hội đồng",
+              "name_en": "Policy consequence: Limit the assemblies' authority",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.4,
+                "radicalism": 0.009,
+                "reform": -0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "princeton"
+      ]
+    },
+    {
+      "id": "qng_national_assembly_petition",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1910-01-01",
+        "1910-12-31"
+      ],
+      "date_historical": "1910-10-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1910,
+            "to": 1910
+          }
+        ],
+        "fire_date": "1910-10-03"
+      },
+      "title_vi": "Làn sóng kiến nghị triệu tập nghị viện",
+      "title_en": "The National Assembly Petition Movement",
+      "text_vi": "Các đại biểu và giới sĩ thân cải cách yêu cầu triều đình triệu tập nghị viện quốc gia sớm hơn kế hoạch. Việc từ chối hoặc trì hoãn có nguy cơ biến bất mãn của tầng lớp tinh hoa thành một phong trào chống triều đình rộng hơn.",
+      "text_en": "Delegates and reform-minded gentry demand that the court convene a national parliament ahead of schedule. Refusal or delay risks turning elite dissatisfaction into a broader anti-dynastic movement.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đàm phán lộ trình nghị viện có thời hạn",
+          "label_en": "Negotiate a time-bound parliamentary timetable",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_national_assembly_petition_historical",
+              "name_vi": "Hệ quả chính sách: Đàm phán lộ trình nghị viện có thời hạn",
+              "name_en": "Policy consequence: Negotiate a time-bound parliamentary timetable",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.009,
+                "legitimacy": 0.5,
+                "radicalism": -0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Bác bỏ yêu cầu để bảo vệ quyền lực trung ương",
+          "label_en": "Reject the demand to protect central authority",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_national_assembly_petition_alternative",
+              "name_vi": "Hệ quả chính sách: Bác bỏ yêu cầu để bảo vệ quyền lực trung ương",
+              "name_en": "Policy consequence: Reject the demand to protect central authority",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.012,
+                "legitimacy": -0.9,
+                "reform": -0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "princeton"
+      ]
+    },
+    {
+      "id": "qng_railway_protection",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1911-01-01",
+        "1911-12-31"
+      ],
+      "date_historical": "1911-05-09",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1911,
+            "to": 1911
+          }
+        ],
+        "fire_date": "1911-05-09"
+      },
+      "title_vi": "Phong trào bảo vệ đường sắt bùng nổ",
+      "title_en": "The Railway Protection Movement",
+      "text_vi": "Quyết định quốc hữu hóa các tuyến đường sắt địa phương và vay vốn nước ngoài gây phản ứng mạnh tại Tứ Xuyên và các tỉnh khác. Tranh chấp về quyền sở hữu, bồi thường và chủ quyền tài chính làm suy yếu sự ủng hộ dành cho triều đình.",
+      "text_en": "The nationalisation of locally financed railways and foreign borrowing provoke strong resistance in Sichuan and other provinces. Disputes over ownership, compensation and fiscal sovereignty weaken support for the court.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thương lượng bồi thường và chia sẻ quản trị",
+          "label_en": "Negotiate compensation and shared oversight",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_railway_protection_historical",
+              "name_vi": "Hệ quả chính sách: Thương lượng bồi thường và chia sẻ quản trị",
+              "name_en": "Policy consequence: Negotiate compensation and shared oversight",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.5,
+                "reform": 0.004,
+                "tax": -0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Dùng quân đội để khôi phục trật tự",
+          "label_en": "Use troops to restore order",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_railway_protection_alternative",
+              "name_vi": "Hệ quả chính sách: Dùng quân đội để khôi phục trật tự",
+              "name_en": "Policy consequence: Use troops to restore order",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.014,
+                "legitimacy": -1,
+                "police": 0.025
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "princeton"
+      ]
+    },
+    {
+      "id": "qng_wuchang_uprising",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1911-01-01",
+        "1911-12-31"
+      ],
+      "date_historical": "1911-10-10",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1911,
+            "to": 1911
+          }
+        ],
+        "fire_date": "1911-10-10"
+      },
+      "title_vi": "Khởi nghĩa Vũ Xương mở đầu Cách mạng Tân Hợi",
+      "title_en": "The Wuchang Uprising",
+      "text_vi": "Một cuộc nổi dậy của binh sĩ tại Vũ Xương nhanh chóng lan thành cuộc khủng hoảng chính trị trên toàn đế quốc. Các tỉnh lần lượt tuyên bố ly khai, khiến triều đình phải lựa chọn giữa cải cách khẩn cấp, thương lượng với phe cách mạng và sử dụng quân đội.",
+      "text_en": "A soldiers' uprising in Wuchang rapidly becomes an empire-wide political crisis. Provinces declare independence in succession, forcing the court to choose between emergency reform, negotiation with revolutionaries and military force.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận thương lượng về chuyển đổi thể chế",
+          "label_en": "Accept negotiations on institutional transition",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_wuchang_uprising_historical",
+              "name_vi": "Hệ quả chính sách: Chấp nhận thương lượng về chuyển đổi thể chế",
+              "name_en": "Policy consequence: Accept negotiations on institutional transition",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.01,
+                "legitimacy": -0.6,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập hợp quân đội để tái lập quyền lực",
+          "label_en": "Mobilise the army to restore authority",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_wuchang_uprising_alternative",
+              "name_vi": "Hệ quả chính sách: Tập hợp quân đội để tái lập quyền lực",
+              "name_en": "Policy consequence: Mobilise the army to restore authority",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.06,
+                "war_exhaustion": 0.16,
+                "legitimacy": -1.4
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_roc_provisional_government",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1911-01-01",
+        "1911-12-31"
+      ],
+      "date_historical": "1911-12-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1911,
+            "to": 1911
+          }
+        ],
+        "fire_date": "1911-12-29"
+      },
+      "title_vi": "Chính phủ lâm thời Trung Hoa Dân Quốc được thành lập",
+      "title_en": "The Provisional Republic Is Established",
+      "text_vi": "Đại diện các tỉnh cách mạng bầu Tôn Trung Sơn làm tổng thống lâm thời tại Nam Kinh. Cuộc cạnh tranh quyền lực chuyển sang thương lượng giữa chính phủ cộng hòa, triều đình và Viên Thế Khải, người nắm lực lượng quân sự chủ chốt ở miền bắc.",
+      "text_en": "Revolutionary provincial delegates elect Sun Yat-sen provisional president in Nanjing. The struggle shifts toward negotiations among the republicans, the Qing court and Yuan Shikai, who commands the principal northern army.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên chuyển giao có điều kiện và tránh nội chiến",
+          "label_en": "Prioritise a conditional transfer and avoid civil war",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_roc_provisional_government_historical",
+              "name_vi": "Hệ quả chính sách: Ưu tiên chuyển giao có điều kiện và tránh nội chiến",
+              "name_en": "Policy consequence: Prioritise a conditional transfer and avoid civil war",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.5,
+                "reform": 0.006,
+                "war_exhaustion": -0.05
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tìm cách duy trì triều đình bằng nhượng bộ hạn chế",
+          "label_en": "Preserve the court through limited concessions",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_roc_provisional_government_alternative",
+              "name_vi": "Hệ quả chính sách: Tìm cách duy trì triều đình bằng nhượng bộ hạn chế",
+              "name_en": "Policy consequence: Preserve the court through limited concessions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -1,
+                "radicalism": 0.01,
+                "army": 0.025
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "qng_qing_abdication",
+      "country": "QNG",
+      "mode": "historical",
+      "window": [
+        "1912-01-01",
+        "1912-12-31"
+      ],
+      "date_historical": "1912-02-12",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1912,
+            "to": 1912
+          }
+        ],
+        "fire_date": "1912-02-12"
+      },
+      "title_vi": "Chiếu thoái vị của Tuyên Thống đế",
+      "title_en": "The Abdication of the Xuantong Emperor",
+      "text_vi": "Long Dụ Thái hậu ký chiếu thoái vị thay mặt vị hoàng đế nhỏ tuổi, chấm dứt triều đại nhà Thanh và nền quân chủ đế quốc tại Trung Quốc. Bản tuyên bố mở đường cho một nước cộng hòa nhưng không giải quyết được ngay câu hỏi về thống nhất, quyền lực quân sự và trật tự hiến định.",
+      "text_en": "Empress Dowager Longyu signs the abdication edict on behalf of the child emperor, ending the Qing dynasty and imperial monarchy in China. The declaration opens the way for a republic but does not settle questions of unity, military power or constitutional order.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận chuyển giao và bảo toàn di sản thể chế",
+          "label_en": "Accept the transfer and preserve institutional continuity",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_qing_abdication_historical",
+              "name_vi": "Hệ quả chính sách: Chấp nhận chuyển giao và bảo toàn di sản thể chế",
+              "name_en": "Policy consequence: Accept the transfer and preserve institutional continuity",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.4,
+                "reform": 0.006,
+                "prestige": -0.04
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Phản đối chuyển giao và giữ biểu tượng hoàng triều",
+          "label_en": "Resist the transfer and preserve the imperial claim",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "qng_qing_abdication_alternative",
+              "name_vi": "Hệ quả chính sách: Phản đối chuyển giao và giữ biểu tượng hoàng triều",
+              "name_en": "Policy consequence: Resist the transfer and preserve the imperial claim",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.015,
+                "legitimacy": -1.1,
+                "war_exhaustion": 0.08
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "smithsonian"
+      ]
+    }
+  ],
+  "journals": [
+    {
+      "id": "qng_opium_crisis_1838_1845",
+      "country": "QNG",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1838,
+            "to": 1838
+          }
+        ]
+      },
+      "title_vi": "Khủng hoảng thuốc phiện và chủ quyền",
+      "title_en": "The Opium Crisis and Sovereignty",
+      "text_vi": "Triều đình phải xử lý thương mại thuốc phiện, sức ép quân sự và sự thay đổi của trật tự cảng biển. Mục tiêu là khôi phục năng lực quản trị mà không để khủng hoảng ngoại giao phá vỡ nền tài chính.",
+      "text_en": "The court must confront the opium trade, military pressure and a changing coastal order. The challenge is to restore state capacity without allowing diplomatic crisis to break the fiscal system.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Năng lực ứng phó khủng hoảng",
+        "monthly": [
+          {
+            "add": 0.2
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 720
+        }
+      ],
+      "timeout_months": 720,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "QNG",
+          "id": "qng_opium_crisis_resolved",
+          "name_vi": "Kinh nghiệm cải tổ ngoại giao",
+          "name_en": "Diplomatic Reform Experience",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "research": 0.008,
+            "legitimacy": 0.6
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "QNG",
+          "id": "qng_opium_crisis_unresolved",
+          "name_vi": "Di sản khủng hoảng ngoại giao",
+          "name_en": "Diplomatic Crisis Legacy",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "legitimacy": -0.8,
+            "radicalism": 0.008
+          }
+        }
+      ]
+    },
+    {
+      "id": "qng_internal_rebellions_1850_1865",
+      "country": "QNG",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1850,
+            "to": 1850
+          }
+        ]
+      },
+      "title_vi": "Nội chiến và tái lập quyền lực",
+      "title_en": "Civil War and the Restoration of Authority",
+      "text_vi": "Các cuộc nổi dậy quy mô lớn đe dọa sự tồn tại của triều đại và làm suy kiệt nhiều vùng kinh tế trọng yếu. Triều đình phải lựa chọn cách huy động quân đội, tài chính và quyền lực tỉnh để tái lập trật tự.",
+      "text_en": "Large-scale rebellions threaten the dynasty and devastate key economic regions. The court must decide how to mobilise armies, finances and provincial authority to restore order.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Khả năng phục hồi sau nội chiến",
+        "monthly": [
+          {
+            "add": 0.2
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 720
+        }
+      ],
+      "timeout_months": 720,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "QNG",
+          "id": "qng_rebellion_recovery",
+          "name_vi": "Phục hồi sau nội chiến",
+          "name_en": "Postwar Recovery",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 0.8,
+            "construction": 0.025
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "QNG",
+          "id": "qng_rebellion_exhaustion",
+          "name_vi": "Kiệt quệ sau nội chiến",
+          "name_en": "Civil War Exhaustion",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "tax": -0.02,
+            "radicalism": 0.01
+          }
+        }
+      ]
+    },
+    {
+      "id": "qng_self_strengthening_1861_1895",
+      "country": "QNG",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1861,
+            "to": 1861
+          }
+        ]
+      },
+      "title_vi": "Tự cường và hiện đại hóa có giới hạn",
+      "title_en": "Self-Strengthening and Limited Modernisation",
+      "text_vi": "Nhà Thanh tìm cách tiếp thu kỹ thuật quân sự, công nghiệp và ngoại giao mới trong khi bảo vệ nền tảng chính trị truyền thống. Thành công phụ thuộc vào khả năng biến các dự án rời rạc thành hệ thống tài chính, đào tạo và chỉ huy thống nhất.",
+      "text_en": "The Qing seek to adopt new military, industrial and diplomatic techniques while preserving traditional political foundations. Success depends on turning isolated projects into coherent systems of finance, training and command.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Năng lực hiện đại hóa",
+        "monthly": [
+          {
+            "add": 0.2
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 720
+        }
+      ],
+      "timeout_months": 720,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "QNG",
+          "id": "qng_self_strengthening_success",
+          "name_vi": "Năng lực kỹ thuật được tích lũy",
+          "name_en": "Accumulated Technical Capacity",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "research": 0.012,
+            "construction": 0.03
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "QNG",
+          "id": "qng_self_strengthening_failure",
+          "name_vi": "Hiện đại hóa thiếu đồng bộ",
+          "name_en": "Fragmented Modernisation",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "research": -0.008,
+            "legitimacy": -0.6
+          }
+        }
+      ]
+    },
+    {
+      "id": "qng_reform_crisis_1895_1908",
+      "country": "QNG",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1895,
+            "to": 1895
+          }
+        ]
+      },
+      "title_vi": "Khủng hoảng cải cách cuối Thanh",
+      "title_en": "The Late Qing Reform Crisis",
+      "text_vi": "Thất bại quân sự và sức ép quốc tế thúc đẩy yêu cầu cải cách sâu rộng, từ giáo dục đến hiến chính. Triều đình phải dung hòa tốc độ thay đổi với lợi ích của các nhóm đang nắm quyền và nguy cơ bất ổn chính trị.",
+      "text_en": "Military defeat and foreign pressure intensify demands for reform, from education to constitutional government. The court must balance the pace of change against entrenched interests and political instability.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Năng lực chuyển đổi thể chế",
+        "monthly": [
+          {
+            "add": 0.2
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 720
+        }
+      ],
+      "timeout_months": 720,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "QNG",
+          "id": "qng_late_reform_success",
+          "name_vi": "Thể chế thích nghi",
+          "name_en": "Adaptive Institutions",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "reform": 0.01,
+            "legitimacy": 0.7
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "QNG",
+          "id": "qng_late_reform_failure",
+          "name_vi": "Khủng hoảng tính chính danh",
+          "name_en": "Legitimacy Crisis",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "radicalism": 0.012,
+            "legitimacy": -0.9
+          }
+        }
+      ]
+    },
+    {
+      "id": "qng_dynastic_transition_1911_1912",
+      "country": "QNG",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "QNG"
+          },
+          {
+            "type": "year_between",
+            "from": 1911,
+            "to": 1911
+          }
+        ]
+      },
+      "title_vi": "Chuyển giao từ đế chế sang cộng hòa",
+      "title_en": "The Transition from Empire to Republic",
+      "text_vi": "Cách mạng Tân Hợi làm tan rã quyền lực của triều đình và mở ra tiến trình chuyển giao chính thể. Kết quả lâu dài phụ thuộc vào thỏa thuận giữa các lực lượng cách mạng, quân đội và những người đại diện cho hoàng triều.",
+      "text_en": "The Xinhai Revolution dismantles the court's authority and opens a transition to a republic. The long-term outcome depends on agreements among revolutionaries, military commanders and representatives of the imperial house.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Chuyển giao quyền lực",
+        "monthly": [
+          {
+            "add": 0.2
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 720
+        }
+      ],
+      "timeout_months": 720,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "QNG",
+          "id": "qng_transition_memory",
+          "name_vi": "Kinh nghiệm chuyển đổi chính thể",
+          "name_en": "Regime Transition Experience",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "reform": 0.006,
+            "legitimacy": 0.4
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "QNG",
+          "id": "qng_transition_instability",
+          "name_vi": "Di sản chuyển giao bất ổn",
+          "name_en": "Unstable Transition Legacy",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "radicalism": 0.012,
+            "legitimacy": -0.8
+          }
+        }
+      ]
+    }
+  ]
+}
