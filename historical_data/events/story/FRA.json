@@ -1,0 +1,5313 @@
+{
+  "schema": "story_events_v1",
+  "country": "FRA",
+  "sources": {
+    "assembly_regimes": "https://www.assemblee-nationale.fr/gouv_parl/regimes.asp",
+    "assembly_history": "https://www.assemblee-nationale.fr/histoire/histoire-sommaire.asp",
+    "assembly_1848": "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/deuxieme-republique/gouvernement-provisoire-et-proclamation-de-la-deuxieme-republique",
+    "assembly_suffrage": "https://www2.assemblee-nationale.fr/decouvrir-l-assemblee/histoire/le-suffrage-universel/la-republique-et-le-suffrage-universel/1848-la-deuxieme-republique-met-en-place-le-suffrage-universel-masculin",
+    "assembly_1848_presidential": "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/deuxieme-republique/election-presidentielle-et-victoire-de-louis-napoleon-bonaparte",
+    "indochina_mofa": "https://www.diplomatie.gouv.fr/IMG/pdf/indochine_1945-1954_cle0bd5f4.pdf",
+    "algeria_defense": "https://www.defense.gouv.fr/chemins-memoire/histoire-memoires/ressources-historiques/guerre-dalgerie/sorties-guerre-constructions-1",
+    "assembly_fifth": "https://www.assemblee-nationale.fr/dyn/histoire-et-patrimoine/cinquieme-republique",
+    "women_suffrage": "https://www2.assemblee-nationale.fr/decouvrir-l-assemblee/histoire/le-suffrage-universel/la-conquete-de-la-citoyennete-politique-des-femmes/chronologie-du-droit-de-vote-et-d-eligibilite-des-femmes",
+    "gaulle_appeal": "https://www.elysee.fr/charles-de-gaulle/2020/06/18/lappel-du-18-juin",
+    "social_security": "https://www.securite-sociale.fr/la-secu-cest-quoi/histoire-de-la-securite-sociale",
+    "law_1905": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000508749/",
+    "treaty_rome": "https://www.europarl.europa.eu/about-parliament/en/in-the-past/the-parliament-and-the-treaties/treaty-of-rome",
+    "maastricht": "https://european-union.europa.eu/principles-countries-history/principles-and-values/founding-agreements_en",
+    "mitterrand": "https://www.elysee.fr/francois-mitterrand",
+    "referendums": "https://www.vie-publique.fr/files/rapport/pdf/295786.pdf",
+    "referendum_2005": "https://www.vie-publique.fr/questions-reponses/290760-le-referendum-en-france-en-sept-questions",
+    "yellow_vests": "https://www.vie-publique.fr/files/2019-11/France-2020-extrait.pdf",
+    "covid": "https://www.info.gouv.fr/conseil-des-ministres/compte-rendu-du-conseil-des-ministres-du-18-03-2020",
+    "paris_attacks": "https://www.elysee.fr/emmanuel-macron/2025/11/13/commemoration-des-10-ans-des-attentats-du-13-novembre-2015",
+    "dissolution_2024": "https://www.elysee.fr/emmanuel-macron/2024/06/09/adresse-aux-francais-4",
+    "olympics_2024": "https://stillmed.olympics.com/media/Documents/Olympic-Games/Factsheets/The-Games-of-the-Olympiad.pdf",
+    "image_1848": "https://commons.wikimedia.org/wiki/File:Plan_des_barricades_de_f%C3%A9vrier_(1848)_-_Nous_devons_ce_plan_et_ces_indications_%C3%A0_l%27obligeance_de_Mr_le_colonel_du_g%C3%A9nie_Leblanc_-_btv1b53136035z.jpg",
+    "image_coup": "https://commons.wikimedia.org/wiki/File:Coup_d%27%C3%89tat_2_d%C3%A9cembre_1851.jpg",
+    "image_commune": "https://commons.wikimedia.org/wiki/File:Commune_de_Paris_barricade_de_la_Chauss%C3%A9e_M%C3%A9nilmontant.jpg",
+    "image_eiffel": "https://commons.wikimedia.org/wiki/File:Tour_Eiffel_exposition_universelle_1889.jpg",
+    "image_dreyfus": "https://commons.wikimedia.org/wiki/File:Degradation_alfred_dreyfus.jpg",
+    "image_verdun": "https://commons.wikimedia.org/wiki/File:Bataille_de_Verdun_1916.jpg",
+    "image_liberation": "https://commons.wikimedia.org/wiki/File:Paris1944.jpg"
+  },
+  "events": [
+    {
+      "id": "fra_revolution_feb_1848",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1848-01-01",
+        "1848-12-31"
+      ],
+      "date_historical": "1848-02-24",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1848,
+            "to": 1848
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Cách mạng tháng Hai lật đổ Louis-Philippe",
+      "title_en": "The February Revolution",
+      "text_vi": "Biểu tình tại Paris leo thang sau khi một yến tiệc cải cách bị cấm và xảy ra nổ súng tại đại lộ Capucines. Louis-Philippe thoái vị ngày 24 tháng 2; phe cộng hòa tuyên bố lập chính phủ lâm thời.",
+      "text_en": "Paris protests escalated after a reform banquet was banned and shooting occurred on the Boulevard des Capucines. Louis-Philippe abdicated on 24 February and republicans proclaimed a provisional government.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận nền cộng hòa và lập chính phủ lâm thời",
+          "label_en": "Accept a republic and form a provisional government",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_revolution_feb_1848_hist",
+              "name_vi": "Hệ quả: Chấp nhận nền cộng hòa và lập chính phủ lâm thời",
+              "name_en": "Policy consequence: Accept a republic and form a provisional government",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.1,
+                "reform": 0.008,
+                "radicalism": -0.006
+              }
+            },
+            {
+              "type": "prestige",
+              "entity": "FRA",
+              "delta": 1
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tìm cách duy trì nhiếp chính quân chủ",
+          "label_en": "Attempt to preserve a monarchical regency",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_revolution_feb_1848_alt",
+              "name_vi": "Hệ quả: Tìm cách duy trì nhiếp chính quân chủ",
+              "name_en": "Policy consequence: Attempt to preserve a monarchical regency",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.9,
+                "reform": -0.004,
+                "radicalism": 0.012
+              }
+            },
+            {
+              "type": "legitimacy",
+              "entity": "FRA",
+              "delta": -2
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_1848"
+      ],
+      "image": {
+        "ref": "ill_fra_february_revolution_1848",
+        "credit": "Commons file page and originating collection are recorded in story_selection.json",
+        "license": "Candidate only; re-read live Commons rights before ingestion or distribution"
+      }
+    },
+    {
+      "id": "fra_suffrage_1848",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1848-01-01",
+        "1848-12-31"
+      ],
+      "date_historical": "1848-03-05",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1848,
+            "to": 1848
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Sắc lệnh phổ thông đầu phiếu nam giới",
+      "title_en": "Universal Male Suffrage Decree",
+      "text_vi": "Ngày 5 tháng 3 năm 1848, chính phủ lâm thời ban hành sắc lệnh bầu cử trực tiếp cho nam công dân đủ điều kiện. Phụ nữ vẫn chưa có quyền bầu cử; phổ thông đầu phiếu khi đó chỉ áp dụng cho nam giới.",
+      "text_en": "On 5 March 1848, the provisional government decreed direct elections for eligible adult men. Women remained excluded; universal suffrage at this point meant male suffrage only.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giữ nguyên phổ thông đầu phiếu nam giới",
+          "label_en": "Retain universal male suffrage",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_suffrage_1848_hist",
+              "name_vi": "Hệ quả: Giữ nguyên phổ thông đầu phiếu nam giới",
+              "name_en": "Policy consequence: Retain universal male suffrage",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "legitimacy": 0.6,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Siết điều kiện đăng ký và cư trú",
+          "label_en": "Tighten registration and residence conditions",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_suffrage_1848_alt",
+              "name_vi": "Hệ quả: Siết điều kiện đăng ký và cư trú",
+              "name_en": "Policy consequence: Tighten registration and residence conditions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": 0.8,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_suffrage"
+      ],
+      "chain": {
+        "after": [
+          "fra_revolution_feb_1848"
+        ],
+        "flag": "fra_chain_suffrage_1848"
+      }
+    },
+    {
+      "id": "fra_slavery_abolition_1848",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1848-01-01",
+        "1848-12-31"
+      ],
+      "date_historical": "1848-04-27",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1848,
+            "to": 1848
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Bãi bỏ chế độ nô lệ tại thuộc địa Pháp",
+      "title_en": "Abolition of Slavery in French Colonies",
+      "text_vi": "Sắc lệnh ngày 27 tháng 4 năm 1848 bãi bỏ chế độ nô lệ tại các thuộc địa Pháp. Việc thi hành đòi hỏi tổ chức lại lao động và quan hệ chính trị ở những vùng từng dựa vào lao động cưỡng bức.",
+      "text_en": "The decree of 27 April 1848 abolished slavery in French colonies. Implementation required the reorganisation of labour and political relations in territories structured around coerced work.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên quyền tự do và hỗ trợ chuyển đổi lao động",
+          "label_en": "Prioritise emancipation and support labour transition",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_slavery_abolition_1848_hist",
+              "name_vi": "Hệ quả: Ưu tiên quyền tự do và hỗ trợ chuyển đổi lao động",
+              "name_en": "Policy consequence: Prioritise emancipation and support labour transition",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.018,
+                "reform": 0.009,
+                "ig_landowners": -0.8
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Trao quyền tự chủ lớn cho chính quyền thuộc địa",
+          "label_en": "Give colonial administrations broad discretion",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_slavery_abolition_1848_alt",
+              "name_vi": "Hệ quả: Trao quyền tự chủ lớn cho chính quyền thuộc địa",
+              "name_en": "Policy consequence: Give colonial administrations broad discretion",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.7,
+                "police": 0.012,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_1848"
+      ],
+      "chain": {
+        "after": [
+          "fra_suffrage_1848"
+        ],
+        "flag": "fra_chain_slavery_abolition_1848"
+      }
+    },
+    {
+      "id": "fra_june_days_1848",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1848-01-01",
+        "1848-12-31"
+      ],
+      "date_historical": "1848-06-23",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1848,
+            "to": 1848
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Khởi nghĩa tháng Sáu tại Paris",
+      "title_en": "The June Days Uprising",
+      "text_vi": "Việc đóng cửa các Xưởng quốc gia khiến người lao động Paris nổi dậy từ ngày 23 tháng 6 năm 1848. Cuộc nổi dậy bị đàn áp, làm sâu sắc rạn nứt giữa nền cộng hòa non trẻ và phong trào công nhân.",
+      "text_en": "The closure of the National Workshops triggered an uprising among Paris workers from 23 June 1848. Its suppression deepened the rupture between the young republic and the labour movement.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Khôi phục trật tự kèm nhượng bộ xã hội",
+          "label_en": "Restore order while offering social concessions",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_june_days_1848_hist",
+              "name_vi": "Hệ quả: Khôi phục trật tự kèm nhượng bộ xã hội",
+              "name_en": "Policy consequence: Restore order while offering social concessions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.025,
+                "legitimacy": 0.7,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Dùng quân đội trấn áp nhanh",
+          "label_en": "Use force for rapid suppression",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_june_days_1848_alt",
+              "name_vi": "Hệ quả: Dùng quân đội trấn áp nhanh",
+              "name_en": "Policy consequence: Use force for rapid suppression",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.008,
+                "legitimacy": -0.2,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_1848"
+      ],
+      "chain": {
+        "after": [
+          "fra_slavery_abolition_1848"
+        ],
+        "flag": "fra_chain_june_days_1848"
+      }
+    },
+    {
+      "id": "fra_presidential_election_1848",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1848-01-01",
+        "1848-12-31"
+      ],
+      "date_historical": "1848-12-10",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1848,
+            "to": 1848
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Louis-Napoléon Bonaparte thắng cử tổng thống",
+      "title_en": "Louis-Napoléon Bonaparte Wins the Presidency",
+      "text_vi": "Cuộc bầu cử ngày 10 tháng 12 năm 1848 là lần đầu nam giới Pháp trực tiếp bầu tổng thống theo phổ thông đầu phiếu. Louis-Napoléon Bonaparte chiến thắng áp đảo, mở đầu xung đột giữa quyền lực tổng thống và nghị viện.",
+      "text_en": "The election of 10 December 1848 was France's first direct presidential vote under universal male suffrage. Louis-Napoléon Bonaparte won decisively, setting up a conflict between presidential and parliamentary authority.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tôn trọng cân bằng tổng thống–nghị viện",
+          "label_en": "Respect the presidential-parliamentary balance",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_presidential_election_1848_hist",
+              "name_vi": "Hệ quả: Tôn trọng cân bằng tổng thống–nghị viện",
+              "name_en": "Policy consequence: Respect the presidential-parliamentary balance",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.1,
+                "reform": 0.008,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Dồn quyền lực vào phủ tổng thống",
+          "label_en": "Concentrate authority in the presidency",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_presidential_election_1848_alt",
+              "name_vi": "Hệ quả: Dồn quyền lực vào phủ tổng thống",
+              "name_en": "Policy consequence: Concentrate authority in the presidency",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.9,
+                "reform": -0.004,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_1848_presidential"
+      ],
+      "chain": {
+        "after": [
+          "fra_june_days_1848"
+        ],
+        "flag": "fra_chain_presidential_election_1848"
+      }
+    },
+    {
+      "id": "fra_electoral_restriction_1850",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1850-01-01",
+        "1850-12-31"
+      ],
+      "date_historical": "1850-05-31",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1850,
+            "to": 1850
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Luật hạn chế lại quyền bầu cử",
+      "title_en": "The Electoral Restriction Law",
+      "text_vi": "Ngày 31 tháng 5 năm 1850, đa số bảo thủ siết điều kiện cư trú khi đăng ký cử tri. Biện pháp này loại nhiều người khỏi danh sách và đảo ngược một phần thành quả dân chủ năm 1848.",
+      "text_en": "On 31 May 1850, the conservative majority tightened residence requirements for voter registration. The measure removed many voters from the rolls and reversed part of the democratic expansion of 1848.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ quyền bầu cử rộng rãi",
+          "label_en": "Defend broad electoral participation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_electoral_restriction_1850_hist",
+              "name_vi": "Hệ quả: Bảo vệ quyền bầu cử rộng rãi",
+              "name_en": "Policy consequence: Defend broad electoral participation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.1,
+                "reform": 0.008,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chấp nhận thu hẹp danh sách cử tri",
+          "label_en": "Accept a narrower electorate",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_electoral_restriction_1850_alt",
+              "name_vi": "Hệ quả: Chấp nhận thu hẹp danh sách cử tri",
+              "name_en": "Policy consequence: Accept a narrower electorate",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.9,
+                "reform": -0.004,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_1848"
+      ],
+      "chain": {
+        "after": [
+          "fra_presidential_election_1848"
+        ],
+        "flag": "fra_chain_electoral_restriction_1850"
+      }
+    },
+    {
+      "id": "fra_coup_1851",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1851-01-01",
+        "1851-12-31"
+      ],
+      "date_historical": "1851-12-02",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1851,
+            "to": 1851
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Đảo chính ngày 2 tháng 12",
+      "title_en": "The Coup of 2 December",
+      "text_vi": "Louis-Napoléon Bonaparte giải tán Quốc hội và bắt giữ đối thủ trong cuộc đảo chính ngày 2 tháng 12 năm 1851. Trưng cầu dân ý sau đó tạo cơ sở chính trị cho việc tái lập quyền lực cá nhân.",
+      "text_en": "Louis-Napoléon Bonaparte dissolved the Assembly and arrested opponents in the coup of 2 December 1851. A subsequent plebiscite supplied a political mandate for personal rule.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tìm tính chính danh bằng trưng cầu dân ý",
+          "label_en": "Seek legitimacy through a plebiscite",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_coup_1851_hist",
+              "name_vi": "Hệ quả: Tìm tính chính danh bằng trưng cầu dân ý",
+              "name_en": "Policy consequence: Seek legitimacy through a plebiscite",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.1,
+                "reform": 0.008,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì tình trạng khẩn cấp bằng sắc lệnh",
+          "label_en": "Maintain emergency rule by decree",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_coup_1851_alt",
+              "name_vi": "Hệ quả: Duy trì tình trạng khẩn cấp bằng sắc lệnh",
+              "name_en": "Policy consequence: Maintain emergency rule by decree",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.9,
+                "reform": -0.004,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_1848"
+      ],
+      "chain": {
+        "after": [
+          "fra_electoral_restriction_1850"
+        ],
+        "flag": "fra_chain_coup_1851"
+      },
+      "image": {
+        "ref": "ill_fra_coup_1851",
+        "credit": "Commons file page and originating collection are recorded in story_selection.json",
+        "license": "Candidate only; re-read live Commons rights before ingestion or distribution"
+      }
+    },
+    {
+      "id": "fra_second_empire_1852",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1852-01-01",
+        "1852-12-31"
+      ],
+      "date_historical": "1852-12-02",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1852,
+            "to": 1852
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Tuyên lập Đệ nhị Đế chế",
+      "title_en": "Proclamation of the Second Empire",
+      "text_vi": "Ngày 2 tháng 12 năm 1852, Louis-Napoléon trở thành Napoléon III và tuyên bố Đệ nhị Đế chế. Chế độ kết hợp hành pháp mạnh, kiểm soát báo chí và trưng cầu dân ý để chứng minh sự ủng hộ.",
+      "text_en": "On 2 December 1852, Louis-Napoléon became Napoleon III and proclaimed the Second Empire. The regime combined a powerful executive and press controls with plebiscites intended to demonstrate support.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Duy trì đế chế tập quyền",
+          "label_en": "Maintain a centralised Empire",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_second_empire_1852_hist",
+              "name_vi": "Hệ quả: Duy trì đế chế tập quyền",
+              "name_en": "Policy consequence: Maintain a centralised Empire",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.1,
+                "reform": 0.008,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở rộng dần nghị viện và tự do báo chí",
+          "label_en": "Gradually expand parliament and press freedom",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_second_empire_1852_alt",
+              "name_vi": "Hệ quả: Mở rộng dần nghị viện và tự do báo chí",
+              "name_en": "Policy consequence: Gradually expand parliament and press freedom",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.9,
+                "reform": -0.004,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_regimes"
+      ],
+      "chain": {
+        "after": [
+          "fra_coup_1851"
+        ],
+        "flag": "fra_chain_second_empire_1852"
+      }
+    },
+    {
+      "id": "fra_crimean_war_1854",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1854-01-01",
+        "1854-12-31"
+      ],
+      "date_historical": "1854-03-27",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1854,
+            "to": 1854
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Pháp tham chiến trong Chiến tranh Krym",
+      "title_en": "France Enters the Crimean War",
+      "text_vi": "Pháp cùng Anh và Đế quốc Ottoman tham chiến chống Nga trong Chiến tranh Krym. Cuộc chiến khôi phục vị thế ngoại giao sau năm 1815 nhưng tạo gánh nặng ngân sách, hậu cần và nhân lực.",
+      "text_en": "France joined Britain and the Ottoman Empire in the Crimean War against Russia. The conflict restored diplomatic standing after 1815 but imposed fiscal, logistical and manpower costs.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên chiến dịch liên minh",
+          "label_en": "Prioritise coalition operations",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_crimean_war_1854_hist",
+              "name_vi": "Hệ quả: Ưu tiên chiến dịch liên minh",
+              "name_en": "Policy consequence: Prioritise coalition operations",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "war_exhaustion": 0.006,
+                "legitimacy": -0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giới hạn mục tiêu và tìm lối thoát ngoại giao",
+          "label_en": "Limit war aims and seek a diplomatic exit",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_crimean_war_1854_alt",
+              "name_vi": "Hệ quả: Giới hạn mục tiêu và tìm lối thoát ngoại giao",
+              "name_en": "Policy consequence: Limit war aims and seek a diplomatic exit",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": -0.012,
+                "trade": 0.012,
+                "war_exhaustion": -0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ]
+    },
+    {
+      "id": "fra_orsini_attempt_1858",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1858-01-01",
+        "1858-12-31"
+      ],
+      "date_historical": "1858-01-14",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1858,
+            "to": 1858
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Vụ ám sát hụt Orsini",
+      "title_en": "The Orsini Assassination Attempt",
+      "text_vi": "Một vụ ném bom nhằm vào đoàn xe Napoléon III và Hoàng hậu Eugénie tại Paris gây nhiều thương vong, dù hoàng gia sống sót. Vụ việc thúc đẩy tranh luận về an ninh, tự do chính trị và chủ nghĩa dân tộc Ý.",
+      "text_en": "Bombs thrown at Napoleon III's and Empress Eugénie's carriage in Paris caused many casualties, although the imperial couple survived. The attack intensified debate over security, political liberty and Italian nationalism.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tăng an ninh với giám sát tư pháp",
+          "label_en": "Strengthen security with judicial oversight",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_orsini_attempt_1858_hist",
+              "name_vi": "Hệ quả: Tăng an ninh với giám sát tư pháp",
+              "name_en": "Policy consequence: Strengthen security with judicial oversight",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.025,
+                "legitimacy": 0.7,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở rộng quyền cảnh sát và kiểm soát báo chí",
+          "label_en": "Expand police powers and press controls",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_orsini_attempt_1858_alt",
+              "name_vi": "Hệ quả: Mở rộng quyền cảnh sát và kiểm soát báo chí",
+              "name_en": "Policy consequence: Expand police powers and press controls",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.008,
+                "legitimacy": -0.2,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ]
+    },
+    {
+      "id": "fra_tourane_1858",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1858-01-01",
+        "1858-12-31"
+      ],
+      "date_historical": "1858-09-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1858,
+            "to": 1858
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Hạm đội Pháp–Tây Ban Nha đổ bộ Tourane",
+      "title_en": "Franco-Spanish Landing at Tourane",
+      "text_vi": "Ngày 1 tháng 9 năm 1858, lực lượng Pháp và Tây Ban Nha tấn công Đà Nẵng, mở đầu chiến dịch chống triều Nguyễn. Kháng cự kéo dài cho thấy đổ bộ ven biển không đồng nghĩa với kiểm soát nhanh toàn quốc.",
+      "text_en": "On 1 September 1858, French and Spanish forces attacked Tourane (Da Nang), opening a campaign against the Nguyễn dynasty. Sustained resistance showed that a coastal landing did not mean rapid national control.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở rộng chiến dịch về phía Nam",
+          "label_en": "Expand operations southward",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_tourane_1858_hist",
+              "name_vi": "Hệ quả: Mở rộng chiến dịch về phía Nam",
+              "name_en": "Policy consequence: Expand operations southward",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "prestige": 0.018,
+                "radicalism": 0.01
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "VNM",
+              "regions": [
+                "VNM_GDI",
+                "VNM_TTT"
+              ],
+              "delta": 5
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tìm đàm phán sau khi giữ vị trí ven biển",
+          "label_en": "Seek talks after securing a coastal position",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_tourane_1858_alt",
+              "name_vi": "Hệ quả: Tìm đàm phán sau khi giữ vị trí ven biển",
+              "name_en": "Policy consequence: Seek talks after securing a coastal position",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.015,
+                "research": 0.009,
+                "legitimacy": -0.3
+              }
+            },
+            {
+              "type": "relation",
+              "a": "FRA",
+              "b": "VNM",
+              "delta": 4
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "indochina_mofa"
+      ]
+    },
+    {
+      "id": "fra_italian_campaign_1859",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1859-01-01",
+        "1859-12-31"
+      ],
+      "date_historical": "1859-04-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1859,
+            "to": 1859
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Chiến tranh Pháp–Áo tại Ý",
+      "title_en": "Franco-Austrian War in Italy",
+      "text_vi": "Pháp liên minh với Piedmont-Sardinia chống Áo năm 1859, với những trận đánh lớn tại Magenta và Solferino. Thắng lợi làm suy yếu Áo nhưng thương vong và nguy cơ leo thang khiến Napoléon III tìm đình chiến.",
+      "text_en": "France allied with Piedmont-Sardinia against Austria in 1859, including Magenta and Solferino. Victory weakened Austria, but casualties and escalation risks encouraged Napoleon III to seek an armistice.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Theo đuổi chiến dịch liên minh",
+          "label_en": "Continue the coalition campaign",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_italian_campaign_1859_hist",
+              "name_vi": "Hệ quả: Theo đuổi chiến dịch liên minh",
+              "name_en": "Policy consequence: Continue the coalition campaign",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "war_exhaustion": 0.006,
+                "legitimacy": -0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chấp nhận đình chiến để hạn chế tổn thất",
+          "label_en": "Accept an armistice to limit losses",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_italian_campaign_1859_alt",
+              "name_vi": "Hệ quả: Chấp nhận đình chiến để hạn chế tổn thất",
+              "name_en": "Policy consequence: Accept an armistice to limit losses",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": -0.012,
+                "trade": 0.012,
+                "war_exhaustion": -0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ]
+    },
+    {
+      "id": "fra_savoy_nice_1860",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1860-01-01",
+        "1860-12-31"
+      ],
+      "date_historical": "1860-03-24",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1860,
+            "to": 1860
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Hiệp ước Turin và sáp nhập Savoy–Nice",
+      "title_en": "Treaty of Turin and Annexation of Savoy and Nice",
+      "text_vi": "Hiệp ước Turin ngày 24 tháng 3 năm 1860 quy định Savoy và Nice chuyển sang Pháp, sau đó được đưa ra trưng cầu dân ý địa phương. Mở rộng lãnh thổ tăng vị thế ở dãy Alps nhưng đặt ra yêu cầu hội nhập và chính danh.",
+      "text_en": "The Treaty of Turin of 24 March 1860 provided for Savoy and Nice to pass to France, followed by local plebiscites. Expansion strengthened France's Alpine position but created integration and legitimacy challenges.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Hội nhập bằng bảo đảm quyền địa phương",
+          "label_en": "Integrate with local guarantees",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_savoy_nice_1860_hist",
+              "name_vi": "Hệ quả: Hội nhập bằng bảo đảm quyền địa phương",
+              "name_en": "Policy consequence: Integrate with local guarantees",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.1,
+                "reform": 0.008,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Áp dụng nhanh luật và bộ máy Pháp",
+          "label_en": "Apply French law and administration rapidly",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_savoy_nice_1860_alt",
+              "name_vi": "Hệ quả: Áp dụng nhanh luật và bộ máy Pháp",
+              "name_en": "Policy consequence: Apply French law and administration rapidly",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.9,
+                "reform": -0.004,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ]
+    },
+    {
+      "id": "fra_mexico_intervention_1862",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1862-01-01",
+        "1862-12-31"
+      ],
+      "date_historical": "1862-04-16",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1862,
+            "to": 1862
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Can thiệp quân sự của Pháp tại Mexico",
+      "title_en": "French Intervention in Mexico",
+      "text_vi": "Pháp tham gia can thiệp đa quốc gia vào Mexico giữa tranh chấp nợ công, rồi theo đuổi mục tiêu riêng sau khi Anh và Tây Ban Nha rút lui. Chiến dịch dần biến thành dự án dựng một đế chế thân Pháp.",
+      "text_en": "France joined a multinational intervention in Mexico amid a debt dispute, then pursued its own aims after Britain and Spain withdrew. The campaign evolved into an attempt to establish a French-backed empire.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tiếp tục can thiệp vì ảnh hưởng chiến lược",
+          "label_en": "Continue intervention for strategic influence",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_mexico_intervention_1862_hist",
+              "name_vi": "Hệ quả: Tiếp tục can thiệp vì ảnh hưởng chiến lược",
+              "name_en": "Policy consequence: Continue intervention for strategic influence",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "prestige": 0.018,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Thu hẹp nhiệm vụ và thương lượng rút quân",
+          "label_en": "Narrow the mission and negotiate withdrawal",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_mexico_intervention_1862_alt",
+              "name_vi": "Hệ quả: Thu hẹp nhiệm vụ và thương lượng rút quân",
+              "name_en": "Policy consequence: Narrow the mission and negotiate withdrawal",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.015,
+                "research": 0.009,
+                "legitimacy": -0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ]
+    },
+    {
+      "id": "fra_right_to_strike_1864",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1864-01-01",
+        "1864-12-31"
+      ],
+      "date_historical": "1864-05-25",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1864,
+            "to": 1864
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Luật Ollivier nới quyền đình công",
+      "title_en": "The Ollivier Law and Right to Strike",
+      "text_vi": "Luật ngày 25 tháng 5 năm 1864 loại bỏ một số hình phạt hình sự đối với liên kết đình công. Quyền này vẫn bị giới hạn nhưng đánh dấu thay đổi trong quan hệ giữa nhà nước Đế chế và phong trào công nhân.",
+      "text_en": "The law of 25 May 1864 removed criminal penalties for certain worker coalitions and strikes. The right remained constrained but marked a shift in relations between the Empire and organised labour.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Cho phép đình công có quy tắc",
+          "label_en": "Permit regulated strikes",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_right_to_strike_1864_hist",
+              "name_vi": "Hệ quả: Cho phép đình công có quy tắc",
+              "name_en": "Policy consequence: Permit regulated strikes",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.018,
+                "reform": 0.009,
+                "ig_landowners": -0.8
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giới hạn đình công để bảo vệ sản xuất",
+          "label_en": "Restrict strikes to protect production",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_right_to_strike_1864_alt",
+              "name_vi": "Hệ quả: Giới hạn đình công để bảo vệ sản xuất",
+              "name_en": "Policy consequence: Restrict strikes to protect production",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.7,
+                "police": 0.012,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ]
+    },
+    {
+      "id": "fra_franco_prussian_war_1870",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1870-01-01",
+        "1870-12-31"
+      ],
+      "date_historical": "1870-07-19",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1870,
+            "to": 1870
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Pháp tuyên chiến với Phổ",
+      "title_en": "France Declares War on Prussia",
+      "text_vi": "Pháp tuyên chiến với Phổ ngày 19 tháng 7 năm 1870 giữa khủng hoảng ngoại giao về ngai vàng Tây Ban Nha. Quân đội Pháp gặp bất lợi huy động và chỉ huy; thất bại tại Sedan dẫn tới sụp đổ Đế chế.",
+      "text_en": "France declared war on Prussia on 19 July 1870 amid a diplomatic crisis over the Spanish succession. French forces were outmatched in mobilisation and command, and the defeat at Sedan led to the Empire's collapse.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Huy động tổng lực",
+          "label_en": "Mobilise fully",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_franco_prussian_war_1870_hist",
+              "name_vi": "Hệ quả: Huy động tổng lực",
+              "name_en": "Policy consequence: Mobilise fully",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "war_exhaustion": 0.006,
+                "legitimacy": -0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Phòng thủ chiều sâu và bảo toàn quân lực",
+          "label_en": "Defend in depth and preserve forces",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_franco_prussian_war_1870_alt",
+              "name_vi": "Hệ quả: Phòng thủ chiều sâu và bảo toàn quân lực",
+              "name_en": "Policy consequence: Defend in depth and preserve forces",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": -0.012,
+                "trade": 0.012,
+                "war_exhaustion": -0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_regimes"
+      ]
+    },
+    {
+      "id": "fra_third_republic_1870",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1870-01-01",
+        "1870-12-31"
+      ],
+      "date_historical": "1870-09-04",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1870,
+            "to": 1870
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Tuyên bố thành lập Đệ tam Cộng hòa",
+      "title_en": "Proclamation of the Third Republic",
+      "text_vi": "Sau khi Napoléon III bị bắt tại Sedan, phe cộng hòa tuyên bố nền cộng hòa ngày 4 tháng 9 năm 1870 tại Paris. Chính phủ mới vừa phải tiếp tục chiến tranh vừa xây dựng thiết chế bền vững.",
+      "text_en": "After Napoleon III was captured at Sedan, republicans proclaimed a republic in Paris on 4 September 1870. The new government had to continue the war while building durable institutions.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Củng cố chính quyền cộng hòa",
+          "label_en": "Consolidate republican rule",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_third_republic_1870_hist",
+              "name_vi": "Hệ quả: Củng cố chính quyền cộng hòa",
+              "name_en": "Policy consequence: Consolidate republican rule",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.1,
+                "reform": 0.008,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên đình chiến để bảo toàn chính quyền",
+          "label_en": "Prioritise an armistice to preserve government",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_third_republic_1870_alt",
+              "name_vi": "Hệ quả: Ưu tiên đình chiến để bảo toàn chính quyền",
+              "name_en": "Policy consequence: Prioritise an armistice to preserve government",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.9,
+                "reform": -0.004,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_regimes"
+      ],
+      "chain": {
+        "after": [
+          "fra_franco_prussian_war_1870"
+        ],
+        "flag": "fra_chain_third_republic_1870"
+      }
+    },
+    {
+      "id": "fra_paris_commune_1871",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1871-01-01",
+        "1871-12-31"
+      ],
+      "date_historical": "1871-03-18",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1871,
+            "to": 1871
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Công xã Paris",
+      "title_en": "The Paris Commune",
+      "text_vi": "Ngày 18 tháng 3 năm 1871, nỗ lực thu hồi đại bác của Vệ binh Quốc gia dẫn tới cuộc nổi dậy và hình thành Công xã Paris. Chính quyền mới theo đuổi tự quản nhưng bị cô lập và cuối cùng bị quân đội chính phủ đánh bại.",
+      "text_en": "On 18 March 1871, an attempt to seize National Guard artillery triggered an uprising and the formation of the Commune. The new authority pursued self-government but was isolated and ultimately defeated by government forces.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở đối thoại về tự quản địa phương",
+          "label_en": "Open dialogue on local self-government",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_paris_commune_1871_hist",
+              "name_vi": "Hệ quả: Mở đối thoại về tự quản địa phương",
+              "name_en": "Policy consequence: Open dialogue on local self-government",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.025,
+                "legitimacy": -0.4,
+                "radicalism": 0.009
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung lực lượng tái chiếm Paris",
+          "label_en": "Concentrate forces to retake Paris",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_paris_commune_1871_alt",
+              "name_vi": "Hệ quả: Tập trung lực lượng tái chiếm Paris",
+              "name_en": "Policy consequence: Concentrate forces to retake Paris",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.008,
+                "legitimacy": 0.5,
+                "radicalism": -0.003
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ],
+      "chain": {
+        "after": [
+          "fra_third_republic_1870"
+        ],
+        "flag": "fra_chain_paris_commune_1871"
+      },
+      "image": {
+        "ref": "ill_fra_commune_1871",
+        "credit": "Commons file page and originating collection are recorded in story_selection.json",
+        "license": "Candidate only; re-read live Commons rights before ingestion or distribution"
+      }
+    },
+    {
+      "id": "fra_frankfurt_treaty_1871",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1871-01-01",
+        "1871-12-31"
+      ],
+      "date_historical": "1871-05-10",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1871,
+            "to": 1871
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Hiệp ước Frankfurt kết thúc chiến tranh",
+      "title_en": "The Treaty of Frankfurt",
+      "text_vi": "Hiệp ước Frankfurt ngày 10 tháng 5 năm 1871 kết thúc chiến tranh, buộc Pháp bồi thường lớn và nhượng Alsace cùng một phần Lorraine. Thất bại định hình chính trị Pháp nhiều thập niên và nuôi dưỡng chủ nghĩa phục thù.",
+      "text_en": "The Treaty of Frankfurt of 10 May 1871 ended the war, requiring a large indemnity and the cession of Alsace and part of Lorraine. The defeat shaped French politics for decades and fuelled revanchism.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận hòa ước và tập trung tái thiết",
+          "label_en": "Accept peace and focus on reconstruction",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_frankfurt_treaty_1871_hist",
+              "name_vi": "Hệ quả: Chấp nhận hòa ước và tập trung tái thiết",
+              "name_en": "Policy consequence: Accept peace and focus on reconstruction",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.018,
+                "trade": 0.01,
+                "army": 0.012
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ phục hồi lãnh thổ làm ưu tiên",
+          "label_en": "Make territorial recovery the priority",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_frankfurt_treaty_1871_alt",
+              "name_vi": "Hệ quả: Giữ phục hồi lãnh thổ làm ưu tiên",
+              "name_en": "Policy consequence: Make territorial recovery the priority",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.018,
+                "prestige": -0.008,
+                "legitimacy": -0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_regimes"
+      ],
+      "chain": {
+        "after": [
+          "fra_paris_commune_1871"
+        ],
+        "flag": "fra_chain_frankfurt_treaty_1871"
+      }
+    },
+    {
+      "id": "fra_constitutional_laws_1875",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1875-01-01",
+        "1875-12-31"
+      ],
+      "date_historical": "1875-02-25",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1875,
+            "to": 1875
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Các đạo luật hiến pháp năm 1875",
+      "title_en": "The Constitutional Laws of 1875",
+      "text_vi": "Các đạo luật hiến pháp năm 1875 tạo khung thể chế Đệ tam Cộng hòa, xác lập hai viện và chức vụ tổng thống. Thỏa hiệp giữa các phe giúp hệ thống vận hành nhưng để lại tranh chấp về vai trò hành pháp.",
+      "text_en": "The 1875 constitutional laws established the Third Republic's framework, including two chambers and a presidency. Compromise made the system workable but left disputes over executive authority.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giữ thỏa hiệp nghị viện",
+          "label_en": "Preserve parliamentary compromise",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_constitutional_laws_1875_hist",
+              "name_vi": "Hệ quả: Giữ thỏa hiệp nghị viện",
+              "name_en": "Policy consequence: Preserve parliamentary compromise",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.1,
+                "reform": 0.008,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tăng quyền chủ động cho tổng thống",
+          "label_en": "Strengthen presidential initiative",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_constitutional_laws_1875_alt",
+              "name_vi": "Hệ quả: Tăng quyền chủ động cho tổng thống",
+              "name_en": "Policy consequence: Strengthen presidential initiative",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.9,
+                "reform": -0.004,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_regimes"
+      ],
+      "chain": {
+        "after": [
+          "fra_frankfurt_treaty_1871"
+        ],
+        "flag": "fra_chain_constitutional_laws_1875"
+      }
+    },
+    {
+      "id": "fra_sixteenth_may_1877",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1877-01-01",
+        "1877-12-31"
+      ],
+      "date_historical": "1877-05-16",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1877,
+            "to": 1877
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Khủng hoảng ngày 16 tháng Năm",
+      "title_en": "The Crisis of 16 May",
+      "text_vi": "Tổng thống MacMahon xung đột với đa số cộng hòa và thay thủ tướng Jules Simon ngày 16 tháng 5 năm 1877. Cuộc giải tán nghị viện và bầu cử sau đó trở thành phép thử về quyền lực tổng thống và đa số nghị viện.",
+      "text_en": "President MacMahon clashed with the republican majority and dismissed Jules Simon on 16 May 1877. Dissolution and the subsequent election tested presidential authority against the parliamentary majority.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tôn trọng kết quả bầu cử và trách nhiệm nghị viện",
+          "label_en": "Respect the election and parliamentary responsibility",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_sixteenth_may_1877_hist",
+              "name_vi": "Hệ quả: Tôn trọng kết quả bầu cử và trách nhiệm nghị viện",
+              "name_en": "Policy consequence: Respect the election and parliamentary responsibility",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.1,
+                "reform": 0.008,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tiếp tục đối đầu bằng quyền tổng thống",
+          "label_en": "Continue confrontation using presidential powers",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_sixteenth_may_1877_alt",
+              "name_vi": "Hệ quả: Tiếp tục đối đầu bằng quyền tổng thống",
+              "name_en": "Policy consequence: Continue confrontation using presidential powers",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.9,
+                "reform": -0.004,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ],
+      "chain": {
+        "after": [
+          "fra_constitutional_laws_1875"
+        ],
+        "flag": "fra_chain_sixteenth_may_1877"
+      }
+    },
+    {
+      "id": "fra_ferry_school_laws_1881",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1881-01-01",
+        "1881-12-31"
+      ],
+      "date_historical": "1881-06-16",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1881,
+            "to": 1881
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Cải cách trường học Jules Ferry",
+      "title_en": "The Jules Ferry School Reforms",
+      "text_vi": "Các cải cách đầu thập niên 1880 đặt nền móng cho giáo dục tiểu học miễn phí, bắt buộc và thế tục. Trường công được xem là công cụ phổ cập đọc viết và công dân, nhưng cải cách làm tranh luận với Giáo hội gay gắt hơn.",
+      "text_en": "The early-1880s reforms laid foundations for free, compulsory and secular primary education. Public schooling was treated as a means of spreading literacy and citizenship, while the reforms intensified conflict with the Church.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đầu tư vào giáo viên và trường công",
+          "label_en": "Invest in teachers and public schools",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_ferry_school_laws_1881_hist",
+              "name_vi": "Hệ quả: Đầu tư vào giáo viên và trường công",
+              "name_en": "Policy consequence: Invest in teachers and public schools",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.018,
+                "reform": 0.009,
+                "ig_landowners": -0.8
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Triển khai chậm để giảm xung đột địa phương",
+          "label_en": "Implement slowly to limit local conflict",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_ferry_school_laws_1881_alt",
+              "name_vi": "Hệ quả: Triển khai chậm để giảm xung đột địa phương",
+              "name_en": "Policy consequence: Implement slowly to limit local conflict",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.7,
+                "police": 0.012,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ]
+    },
+    {
+      "id": "fra_trade_union_law_1884",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1884-01-01",
+        "1884-12-31"
+      ],
+      "date_historical": "1884-03-21",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1884,
+            "to": 1884
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Luật Waldeck-Rousseau công nhận công đoàn",
+      "title_en": "The Waldeck-Rousseau Trade Union Law",
+      "text_vi": "Luật ngày 21 tháng 3 năm 1884 cho phép người lao động và giới chủ lập nghiệp đoàn nghề nghiệp theo quy định. Tổ chức tập thể trở nên chính thức hơn trong đời sống công nghiệp nhưng quyền thương lượng vẫn còn giới hạn.",
+      "text_en": "The law of 21 March 1884 allowed workers and employers to form professional unions under statutory rules. Collective organisation became more formal, although bargaining rights remained constrained.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Công nhận công đoàn và khuyến khích thương lượng",
+          "label_en": "Recognise unions and encourage bargaining",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_trade_union_law_1884_hist",
+              "name_vi": "Hệ quả: Công nhận công đoàn và khuyến khích thương lượng",
+              "name_en": "Policy consequence: Recognise unions and encourage bargaining",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.018,
+                "reform": 0.009,
+                "ig_landowners": -0.8
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giám sát chặt tổ chức và giới hạn ảnh hưởng",
+          "label_en": "Closely supervise unions and limit influence",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_trade_union_law_1884_alt",
+              "name_vi": "Hệ quả: Giám sát chặt tổ chức và giới hạn ảnh hưởng",
+              "name_en": "Policy consequence: Closely supervise unions and limit influence",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.7,
+                "police": 0.012,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ]
+    },
+    {
+      "id": "fra_eiffel_exposition_1889",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1889-01-01",
+        "1889-12-31"
+      ],
+      "date_historical": "1889-05-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1889,
+            "to": 1889
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Triển lãm thế giới và tháp Eiffel",
+      "title_en": "The World's Fair and Eiffel Tower",
+      "text_vi": "Triển lãm thế giới năm 1889 tại Paris trưng bày thành tựu kỹ thuật; tháp Eiffel trở thành biểu tượng nổi bật. Sự kiện diễn ra trong dịp kỷ niệm một trăm năm Cách mạng Pháp.",
+      "text_en": "The 1889 World's Fair in Paris showcased engineering; the Eiffel Tower became its landmark. The event coincided with the centenary of the French Revolution.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Biến triển lãm thành chương trình công nghệ lâu dài",
+          "label_en": "Turn the fair into a lasting technology programme",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_eiffel_exposition_1889_hist",
+              "name_vi": "Hệ quả: Biến triển lãm thành chương trình công nghệ lâu dài",
+              "name_en": "Policy consequence: Turn the fair into a lasting technology programme",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "innovation": 0.018,
+                "literacy": 0.014,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên uy tín quốc gia và công trình biểu tượng",
+          "label_en": "Prioritise prestige and monumental works",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_eiffel_exposition_1889_alt",
+              "name_vi": "Hệ quả: Ưu tiên uy tín quốc gia và công trình biểu tượng",
+              "name_en": "Policy consequence: Prioritise prestige and monumental works",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.7,
+                "radicalism": -0.004,
+                "innovation": -0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ],
+      "image": {
+        "ref": "ill_fra_exposition_1889",
+        "credit": "Commons file page and originating collection are recorded in story_selection.json",
+        "license": "Candidate only; re-read live Commons rights before ingestion or distribution"
+      }
+    },
+    {
+      "id": "fra_dreyfus_1894",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1894-01-01",
+        "1894-12-31"
+      ],
+      "date_historical": "1894-12-22",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1894,
+            "to": 1894
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Kết án Alfred Dreyfus",
+      "title_en": "The Conviction of Alfred Dreyfus",
+      "text_vi": "Đại úy Alfred Dreyfus bị kết án phản quốc trong một phiên tòa quân sự dựa trên chứng cứ sai lệch và định kiến. Vụ án trở thành khủng hoảng về công lý, bài Do Thái, quyền lực quân đội và lòng trung thành với nền cộng hòa.",
+      "text_en": "Captain Alfred Dreyfus was convicted of treason in a military trial based on flawed evidence and prejudice. The case became a crisis involving justice, antisemitism, military authority and loyalty to the Republic.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ tính độc lập tư pháp và rà soát chứng cứ",
+          "label_en": "Protect judicial independence and re-examine evidence",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_dreyfus_1894_hist",
+              "name_vi": "Hệ quả: Bảo vệ tính độc lập tư pháp và rà soát chứng cứ",
+              "name_en": "Policy consequence: Protect judicial independence and re-examine evidence",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.01,
+                "legitimacy": 0.7,
+                "ig_intelligentsia": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Đặt uy tín quân đội lên trên việc xét lại",
+          "label_en": "Place military prestige above reopening the case",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_dreyfus_1894_alt",
+              "name_vi": "Hệ quả: Đặt uy tín quân đội lên trên việc xét lại",
+              "name_en": "Policy consequence: Place military prestige above reopening the case",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "police": 0.015,
+                "ig_clergy": 0.8
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ],
+      "image": {
+        "ref": "ill_fra_dreyfus_1895",
+        "credit": "Commons file page and originating collection are recorded in story_selection.json",
+        "license": "Candidate only; re-read live Commons rights before ingestion or distribution"
+      }
+    },
+    {
+      "id": "fra_jaccuse_1898",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1898-01-01",
+        "1898-12-31"
+      ],
+      "date_historical": "1898-01-13",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1898,
+            "to": 1898
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Émile Zola công bố J'accuse…!",
+      "title_en": "Émile Zola Publishes J'accuse…!",
+      "text_vi": "Bức thư ngỏ của Émile Zola đăng trên L'Aurore ngày 13 tháng 1 năm 1898 cáo buộc giới chức che giấu sai phạm trong vụ Dreyfus. Tranh luận chia rẽ xã hội và đặt tự do báo chí trước thử thách.",
+      "text_en": "Émile Zola's open letter in L'Aurore on 13 January 1898 accused officials of concealing misconduct in the Dreyfus case. The controversy divided society and tested press freedom.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở điều tra độc lập và công khai hồ sơ",
+          "label_en": "Open an independent inquiry and publish the record",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_jaccuse_1898_hist",
+              "name_vi": "Hệ quả: Mở điều tra độc lập và công khai hồ sơ",
+              "name_en": "Policy consequence: Open an independent inquiry and publish the record",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.01,
+                "legitimacy": 0.7,
+                "ig_intelligentsia": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Bảo vệ phán quyết cũ để tránh khủng hoảng",
+          "label_en": "Defend the existing verdict to avoid crisis",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_jaccuse_1898_alt",
+              "name_vi": "Hệ quả: Bảo vệ phán quyết cũ để tránh khủng hoảng",
+              "name_en": "Policy consequence: Defend the existing verdict to avoid crisis",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "police": 0.015,
+                "ig_clergy": 0.8
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ],
+      "chain": {
+        "after": [
+          "fra_dreyfus_1894"
+        ],
+        "flag": "fra_chain_jaccuse_1898"
+      }
+    },
+    {
+      "id": "fra_separation_1905",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1905-01-01",
+        "1905-12-31"
+      ],
+      "date_historical": "1905-12-09",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1905,
+            "to": 1905
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Luật phân tách Giáo hội và Nhà nước",
+      "title_en": "The Law on Separation of Church and State",
+      "text_vi": "Luật ngày 9 tháng 12 năm 1905 xác lập tự do lương tâm và chấm dứt cơ chế nhà nước công nhận, trả lương cho các giáo hội. Việc thực thi gây tranh cãi về tài sản, trường học và quan hệ với cộng đồng tôn giáo.",
+      "text_en": "The law of 9 December 1905 established freedom of conscience and ended the state's former system of recognising and paying religious bodies. Implementation provoked disputes over property, schools and religious communities.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thực thi thế tục hóa với bảo đảm tự do tín ngưỡng",
+          "label_en": "Implement secularisation while safeguarding belief",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_separation_1905_hist",
+              "name_vi": "Hệ quả: Thực thi thế tục hóa với bảo đảm tự do tín ngưỡng",
+              "name_en": "Policy consequence: Implement secularisation while safeguarding belief",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.01,
+                "legitimacy": 0.7,
+                "ig_intelligentsia": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên đồng nhất các thiết chế công",
+          "label_en": "Prioritise uniformity across public institutions",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_separation_1905_alt",
+              "name_vi": "Hệ quả: Ưu tiên đồng nhất các thiết chế công",
+              "name_en": "Policy consequence: Prioritise uniformity across public institutions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "police": 0.015,
+                "ig_clergy": 0.8
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "law_1905"
+      ]
+    },
+    {
+      "id": "fra_mobilisation_1914",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1914-01-01",
+        "1914-12-31"
+      ],
+      "date_historical": "1914-08-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1914,
+            "to": 1914
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Tổng động viên năm 1914",
+      "title_en": "General Mobilisation in 1914",
+      "text_vi": "Pháp ban hành lệnh tổng động viên ngày 1 tháng 8 năm 1914; Đức tuyên chiến với Pháp ngày 3 tháng 8. Chiến tranh buộc nhà nước tổ chức lại công nghiệp, tài chính và xã hội cho xung đột kéo dài.",
+      "text_en": "France ordered general mobilisation on 1 August 1914; Germany declared war on France on 3 August. The war forced the state to reorganise industry, finance and society for a prolonged conflict.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Huy động công nghiệp và quân lực toàn quốc",
+          "label_en": "Mobilise industry and armed forces nationally",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_mobilisation_1914_hist",
+              "name_vi": "Hệ quả: Huy động công nghiệp và quân lực toàn quốc",
+              "name_en": "Policy consequence: Mobilise industry and armed forces nationally",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "war_exhaustion": 0.006,
+                "legitimacy": -0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ dự trữ kinh tế và giới hạn huy động dân sự",
+          "label_en": "Preserve economic reserves and limit civilian mobilisation",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_mobilisation_1914_alt",
+              "name_vi": "Hệ quả: Giữ dự trữ kinh tế và giới hạn huy động dân sự",
+              "name_en": "Policy consequence: Preserve economic reserves and limit civilian mobilisation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": -0.012,
+                "trade": 0.012,
+                "war_exhaustion": -0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ]
+    },
+    {
+      "id": "fra_verdun_1916",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1916-01-01",
+        "1916-12-31"
+      ],
+      "date_historical": "1916-02-21",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1916,
+            "to": 1916
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Trận Verdun",
+      "title_en": "The Battle of Verdun",
+      "text_vi": "Cuộc tấn công của Đức tại Verdun bắt đầu ngày 21 tháng 2 năm 1916 và kéo dài gần hết năm, trở thành biểu tượng của sức chịu đựng và tổn thất lớn. Quân Pháp luân chuyển lực lượng và giữ được khu vực phòng thủ trọng yếu.",
+      "text_en": "The German offensive at Verdun began on 21 February 1916 and continued for much of the year, becoming a symbol of endurance and heavy losses. French forces rotated units and held the key defensive sector.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giữ Verdun bằng tiếp tế và luân chuyển",
+          "label_en": "Hold Verdun through supply and troop rotation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_verdun_1916_hist",
+              "name_vi": "Hệ quả: Giữ Verdun bằng tiếp tế và luân chuyển",
+              "name_en": "Policy consequence: Hold Verdun through supply and troop rotation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "war_exhaustion": 0.006,
+                "legitimacy": -0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Rút khỏi vị trí để giảm tổn thất",
+          "label_en": "Withdraw to reduce losses",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_verdun_1916_alt",
+              "name_vi": "Hệ quả: Rút khỏi vị trí để giảm tổn thất",
+              "name_en": "Policy consequence: Withdraw to reduce losses",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": -0.012,
+                "trade": 0.012,
+                "war_exhaustion": -0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ],
+      "chain": {
+        "after": [
+          "fra_mobilisation_1914"
+        ],
+        "flag": "fra_chain_verdun_1916"
+      },
+      "image": {
+        "ref": "ill_fra_verdun_1916",
+        "credit": "Commons file page and originating collection are recorded in story_selection.json",
+        "license": "Candidate only; re-read live Commons rights before ingestion or distribution"
+      }
+    },
+    {
+      "id": "fra_mutinies_1917",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1917-01-01",
+        "1917-12-31"
+      ],
+      "date_historical": "1917-05-20",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1917,
+            "to": 1917
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Binh biến trong quân đội Pháp",
+      "title_en": "French Army Mutinies",
+      "text_vi": "Sau thất bại cuộc tấn công Nivelle, một bộ phận binh sĩ từ chối các đợt tiến công mới nhưng phần lớn vẫn giữ phòng tuyến. Tướng Pétain cải thiện nghỉ phép và tiếp tế trong khi trấn áp có chọn lọc.",
+      "text_en": "After the failure of the Nivelle Offensive, some French soldiers refused further attacks while most held the line. General Pétain improved leave and supply while selectively punishing mutiny.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Cải thiện nghỉ phép, khẩu phần và giới hạn tấn công",
+          "label_en": "Improve leave, rations and limits on offensives",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_mutinies_1917_hist",
+              "name_vi": "Hệ quả: Cải thiện nghỉ phép, khẩu phần và giới hạn tấn công",
+              "name_en": "Policy consequence: Improve leave, rations and limits on offensives",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "war_exhaustion": 0.006,
+                "legitimacy": -0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tăng kỷ luật và ưu tiên phục tùng",
+          "label_en": "Tighten discipline and prioritise obedience",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_mutinies_1917_alt",
+              "name_vi": "Hệ quả: Tăng kỷ luật và ưu tiên phục tùng",
+              "name_en": "Policy consequence: Tighten discipline and prioritise obedience",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": -0.012,
+                "trade": 0.012,
+                "war_exhaustion": -0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ],
+      "chain": {
+        "after": [
+          "fra_verdun_1916"
+        ],
+        "flag": "fra_chain_mutinies_1917"
+      }
+    },
+    {
+      "id": "fra_armistice_1918",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1918-01-01",
+        "1918-12-31"
+      ],
+      "date_historical": "1918-11-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1918,
+            "to": 1918
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Đình chiến ngày 11 tháng 11",
+      "title_en": "The Armistice of 11 November",
+      "text_vi": "Lệnh đình chiến ký tại Compiègne ngày 11 tháng 11 năm 1918 chấm dứt giao tranh ở Mặt trận phía Tây. Chiến thắng đi kèm tổn thất, nợ công và yêu cầu chuyển sang tái thiết.",
+      "text_en": "The armistice signed at Compiègne on 11 November 1918 ended fighting on the Western Front. Victory came with losses, public debt and the need for reconstruction.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên tái thiết và phục hồi cựu binh",
+          "label_en": "Prioritise reconstruction and veterans",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_armistice_1918_hist",
+              "name_vi": "Hệ quả: Ưu tiên tái thiết và phục hồi cựu binh",
+              "name_en": "Policy consequence: Prioritise reconstruction and veterans",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.1,
+                "reform": 0.008,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì huy động để bảo đảm hòa ước",
+          "label_en": "Maintain mobilisation to enforce the peace",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_armistice_1918_alt",
+              "name_vi": "Hệ quả: Duy trì huy động để bảo đảm hòa ước",
+              "name_en": "Policy consequence: Maintain mobilisation to enforce the peace",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.9,
+                "reform": -0.004,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ],
+      "chain": {
+        "after": [
+          "fra_mutinies_1917"
+        ],
+        "flag": "fra_chain_armistice_1918"
+      }
+    },
+    {
+      "id": "fra_versailles_1919",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1919-01-01",
+        "1919-12-31"
+      ],
+      "date_historical": "1919-06-28",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1919,
+            "to": 1919
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Ký Hiệp ước Versailles",
+      "title_en": "The Treaty of Versailles",
+      "text_vi": "Pháp là một trong các cường quốc thắng trận ký Hiệp ước Versailles ngày 28 tháng 6 năm 1919. Paris theo đuổi bảo đảm an ninh và bồi thường nhưng điều khoản cứng rắn tạo tranh luận về độ bền của hòa bình.",
+      "text_en": "France was among the victorious powers signing the Treaty of Versailles on 28 June 1919. Paris pursued security guarantees and reparations, while the severity of the settlement raised questions about durable peace.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Theo đuổi bảo đảm an ninh và giám sát",
+          "label_en": "Pursue security guarantees and enforcement",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_versailles_1919_hist",
+              "name_vi": "Hệ quả: Theo đuổi bảo đảm an ninh và giám sát",
+              "name_en": "Policy consequence: Pursue security guarantees and enforcement",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.018,
+                "trade": 0.01,
+                "army": 0.012
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên hòa giải và phục hồi châu Âu",
+          "label_en": "Prioritise reconciliation and European recovery",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_versailles_1919_alt",
+              "name_vi": "Hệ quả: Ưu tiên hòa giải và phục hồi châu Âu",
+              "name_en": "Policy consequence: Prioritise reconciliation and European recovery",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.018,
+                "prestige": -0.008,
+                "legitimacy": -0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ],
+      "chain": {
+        "after": [
+          "fra_armistice_1918"
+        ],
+        "flag": "fra_chain_versailles_1919"
+      }
+    },
+    {
+      "id": "fra_popular_front_1936",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1936-01-01",
+        "1936-12-31"
+      ],
+      "date_historical": "1936-06-04",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1936,
+            "to": 1936
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Chính phủ Mặt trận Bình dân lên nắm quyền",
+      "title_en": "The Popular Front Takes Office",
+      "text_vi": "Liên minh Mặt trận Bình dân thắng cử năm 1936; Léon Blum trở thành thủ tướng tháng 6. Thỏa thuận Matignon mở rộng quyền công đoàn, thương lượng tập thể và nghỉ phép có lương, đồng thời gây áp lực lên doanh nghiệp và ngân sách.",
+      "text_en": "The Popular Front coalition won the 1936 election; Léon Blum became prime minister in June. The Matignon agreements expanded union rights, collective bargaining and paid holidays, while pressuring firms and public finances.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thực hiện cải cách lao động và thương lượng",
+          "label_en": "Implement labour reform and negotiate",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_popular_front_1936_hist",
+              "name_vi": "Hệ quả: Thực hiện cải cách lao động và thương lượng",
+              "name_en": "Policy consequence: Implement labour reform and negotiate",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.018,
+                "reform": 0.009,
+                "ig_landowners": -0.8
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giảm tốc cải cách để bảo vệ đầu tư",
+          "label_en": "Slow reforms to protect investment",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_popular_front_1936_alt",
+              "name_vi": "Hệ quả: Giảm tốc cải cách để bảo vệ đầu tư",
+              "name_en": "Policy consequence: Slow reforms to protect investment",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.7,
+                "police": 0.012,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ]
+    },
+    {
+      "id": "fra_war_1939",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1939-01-01",
+        "1939-12-31"
+      ],
+      "date_historical": "1939-09-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1939,
+            "to": 1939
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Pháp tuyên chiến với Đức",
+      "title_en": "France Declares War on Germany",
+      "text_vi": "Sau khi Đức tấn công Ba Lan, Pháp tuyên chiến ngày 3 tháng 9 năm 1939 cùng Anh. Giai đoạn Chiến tranh kỳ lạ khiến xã hội chuẩn bị chiến tranh dài hạn và tranh luận về phòng thủ, phối hợp đồng minh.",
+      "text_en": "After Germany invaded Poland, France declared war on 3 September 1939 alongside Britain. The Phoney War saw preparations for a long conflict and debate over defence and allied coordination.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Củng cố phối hợp liên minh và hậu cần",
+          "label_en": "Strengthen allied coordination and logistics",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_war_1939_hist",
+              "name_vi": "Hệ quả: Củng cố phối hợp liên minh và hậu cần",
+              "name_en": "Policy consequence: Strengthen allied coordination and logistics",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "war_exhaustion": 0.006,
+                "legitimacy": -0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung phòng thủ biên giới và bảo toàn lực lượng",
+          "label_en": "Concentrate on frontier defence and preserve forces",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_war_1939_alt",
+              "name_vi": "Hệ quả: Tập trung phòng thủ biên giới và bảo toàn lực lượng",
+              "name_en": "Policy consequence: Concentrate on frontier defence and preserve forces",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": -0.012,
+                "trade": 0.012,
+                "war_exhaustion": -0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ]
+    },
+    {
+      "id": "fra_vichy_1940",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1940-01-01",
+        "1940-12-31"
+      ],
+      "date_historical": "1940-07-10",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1940,
+            "to": 1940
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Quốc hội trao toàn quyền cho Pétain",
+      "title_en": "Parliament Grants Full Powers to Pétain",
+      "text_vi": "Ngày 10 tháng 7 năm 1940, Quốc hội tại Vichy bỏ phiếu trao toàn quyền lập hiến cho Thống chế Pétain. Chính quyền Vichy thay thế thiết chế cộng hòa, hợp tác với Đức Quốc xã và tham gia chính sách đàn áp.",
+      "text_en": "On 10 July 1940, Parliament at Vichy voted to grant Marshal Pétain full constituent powers. The Vichy regime displaced republican institutions, collaborated with Nazi Germany and participated in repression.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Phản đối việc xóa bỏ thể chế cộng hòa",
+          "label_en": "Reject destruction of republican institutions",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_vichy_1940_hist",
+              "name_vi": "Hệ quả: Phản đối việc xóa bỏ thể chế cộng hòa",
+              "name_en": "Policy consequence: Reject destruction of republican institutions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.1,
+                "reform": 0.008,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chấp nhận chính quyền mới và hợp tác với Đức",
+          "label_en": "Accept the new regime and collaborate with Germany",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_vichy_1940_alt",
+              "name_vi": "Hệ quả: Chấp nhận chính quyền mới và hợp tác với Đức",
+              "name_en": "Policy consequence: Accept the new regime and collaborate with Germany",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.9,
+                "reform": -0.004,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_regimes"
+      ]
+    },
+    {
+      "id": "fra_appeal_18_june_1940",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1940-01-01",
+        "1940-12-31"
+      ],
+      "date_historical": "1940-06-18",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1940,
+            "to": 1940
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Lời kêu gọi ngày 18 tháng Sáu",
+      "title_en": "The Appeal of 18 June",
+      "text_vi": "Từ London, Tướng Charles de Gaulle kêu gọi tiếp tục kháng chiến sau thất bại và việc chính phủ Pétain tìm đình chiến. Lời kêu gọi trở thành biểu tượng Nước Pháp Tự do dù lực lượng ban đầu còn nhỏ.",
+      "text_en": "From London, General Charles de Gaulle called for continued resistance after defeat and the Pétain government's move toward an armistice. The appeal became a symbol of Free France although its initial following was small.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tập hợp lực lượng kháng chiến và liên minh",
+          "label_en": "Rally resistance forces and the alliance",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_appeal_18_june_1940_hist",
+              "name_vi": "Hệ quả: Tập hợp lực lượng kháng chiến và liên minh",
+              "name_en": "Policy consequence: Rally resistance forces and the alliance",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "war_exhaustion": 0.006,
+                "legitimacy": -0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Bảo toàn lực lượng tại lãnh thổ còn tự do",
+          "label_en": "Preserve forces in territories still free",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_appeal_18_june_1940_alt",
+              "name_vi": "Hệ quả: Bảo toàn lực lượng tại lãnh thổ còn tự do",
+              "name_en": "Policy consequence: Preserve forces in territories still free",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": -0.012,
+                "trade": 0.012,
+                "war_exhaustion": -0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "gaulle_appeal"
+      ]
+    },
+    {
+      "id": "fra_liberation_paris_1944",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1944-01-01",
+        "1944-12-31"
+      ],
+      "date_historical": "1944-08-25",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1944,
+            "to": 1944
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Giải phóng Paris",
+      "title_en": "The Liberation of Paris",
+      "text_vi": "Lực lượng Pháp Tự do và quân Đồng minh tiến vào Paris; ngày 25 tháng 8 năm 1944, quân Đức đầu hàng tại thủ đô. Chính phủ lâm thời phải tái lập chính quyền dân sự và thống nhất các lực lượng kháng chiến.",
+      "text_en": "Free French and Allied forces entered Paris; on 25 August 1944 German forces surrendered in the capital. The provisional government had to restore civil administration and integrate resistance forces.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tái lập chính quyền dân sự và thống nhất lực lượng",
+          "label_en": "Restore civil government and unify resistance forces",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_liberation_paris_1944_hist",
+              "name_vi": "Hệ quả: Tái lập chính quyền dân sự và thống nhất lực lượng",
+              "name_en": "Policy consequence: Restore civil government and unify resistance forces",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.1,
+                "reform": 0.008,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì quyền tự quản địa phương tạm thời",
+          "label_en": "Retain temporary local self-government",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_liberation_paris_1944_alt",
+              "name_vi": "Hệ quả: Duy trì quyền tự quản địa phương tạm thời",
+              "name_en": "Policy consequence: Retain temporary local self-government",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.9,
+                "reform": -0.004,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ],
+      "chain": {
+        "after": [
+          "fra_appeal_18_june_1940"
+        ],
+        "flag": "fra_chain_liberation_paris_1944"
+      },
+      "image": {
+        "ref": "ill_fra_paris_liberation_1944",
+        "credit": "Commons file page and originating collection are recorded in story_selection.json",
+        "license": "Candidate only; re-read live Commons rights before ingestion or distribution"
+      }
+    },
+    {
+      "id": "fra_women_vote_1944",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1944-01-01",
+        "1944-12-31"
+      ],
+      "date_historical": "1944-04-21",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1944,
+            "to": 1944
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Phụ nữ Pháp được trao quyền bầu cử",
+      "title_en": "French Women Gain the Vote",
+      "text_vi": "Sắc lệnh ngày 21 tháng 4 năm 1944 công nhận quyền bầu cử và ứng cử của phụ nữ. Việc thực thi trong các cuộc bầu cử năm 1945 mở rộng nền dân chủ hậu chiến và thay đổi thành phần đại diện.",
+      "text_en": "The ordinance of 21 April 1944 granted French women the right to vote and stand for election. Its implementation in the 1945 elections broadened post-war democracy and changed representation.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Khuyến khích tham gia chính trị và mở rộng đại diện",
+          "label_en": "Encourage participation and broaden representation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_women_vote_1944_hist",
+              "name_vi": "Hệ quả: Khuyến khích tham gia chính trị và mở rộng đại diện",
+              "name_en": "Policy consequence: Encourage participation and broaden representation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "legitimacy": 0.6,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Triển khai từng bước để bảo đảm đăng ký cử tri",
+          "label_en": "Phase implementation to ensure voter registration",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_women_vote_1944_alt",
+              "name_vi": "Hệ quả: Triển khai từng bước để bảo đảm đăng ký cử tri",
+              "name_en": "Policy consequence: Phase implementation to ensure voter registration",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": 0.8,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "women_suffrage"
+      ]
+    },
+    {
+      "id": "fra_social_security_1945",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1945-01-01",
+        "1945-12-31"
+      ],
+      "date_historical": "1945-10-04",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1945,
+            "to": 1945
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Thành lập hệ thống An sinh xã hội",
+      "title_en": "Creation of Social Security",
+      "text_vi": "Sắc lệnh ngày 4 tháng 10 năm 1945 đặt nền tảng cho hệ thống An sinh xã hội hiện đại. Bảo hiểm dựa trên đóng góp mở rộng bảo vệ trước bệnh tật, tuổi già và rủi ro nghề nghiệp, đồng thời tạo thách thức tài chính dài hạn.",
+      "text_en": "The ordinance of 4 October 1945 laid the foundations for modern Social Security. Contribution-based insurance expanded protection against illness, old age and occupational risks, while creating long-term fiscal challenges.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở rộng bao phủ và chia sẻ rủi ro",
+          "label_en": "Expand coverage and pool risks",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_social_security_1945_hist",
+              "name_vi": "Hệ quả: Mở rộng bao phủ và chia sẻ rủi ro",
+              "name_en": "Policy consequence: Expand coverage and pool risks",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.018,
+                "reform": 0.009,
+                "ig_landowners": -0.8
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Triển khai thận trọng để giữ cân bằng tài chính",
+          "label_en": "Phase in cautiously to preserve fiscal balance",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_social_security_1945_alt",
+              "name_vi": "Hệ quả: Triển khai thận trọng để giữ cân bằng tài chính",
+              "name_en": "Policy consequence: Phase in cautiously to preserve fiscal balance",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.7,
+                "police": 0.012,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "social_security"
+      ]
+    },
+    {
+      "id": "fra_fourth_republic_1946",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1946-01-01",
+        "1946-12-31"
+      ],
+      "date_historical": "1946-10-27",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1946,
+            "to": 1946
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Hiến pháp Đệ tứ Cộng hòa",
+      "title_en": "The Constitution of the Fourth Republic",
+      "text_vi": "Hiến pháp công bố ngày 27 tháng 10 năm 1946 mở đầu Đệ tứ Cộng hòa với nghị viện mạnh và chính phủ phụ thuộc liên minh đa đảng. Thiết chế mới khôi phục trật tự hiến định nhưng các nội các ngắn hạn làm suy yếu quyết định chính sách.",
+      "text_en": "The Constitution promulgated on 27 October 1946 established the Fourth Republic with a powerful parliament and coalition governments. It restored constitutional order, but short-lived cabinets weakened policy-making.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Xây dựng liên minh nghị viện ổn định",
+          "label_en": "Build stable parliamentary coalitions",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_fourth_republic_1946_hist",
+              "name_vi": "Hệ quả: Xây dựng liên minh nghị viện ổn định",
+              "name_en": "Policy consequence: Build stable parliamentary coalitions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.1,
+                "reform": 0.008,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tìm hành pháp mạnh hơn để giảm khủng hoảng nội các",
+          "label_en": "Seek a stronger executive to reduce cabinet crises",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_fourth_republic_1946_alt",
+              "name_vi": "Hệ quả: Tìm hành pháp mạnh hơn để giảm khủng hoảng nội các",
+              "name_en": "Policy consequence: Seek a stronger executive to reduce cabinet crises",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.9,
+                "reform": -0.004,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_regimes"
+      ]
+    },
+    {
+      "id": "fra_dien_bien_phu_1954",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1954-01-01",
+        "1954-12-31"
+      ],
+      "date_historical": "1954-05-07",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1954,
+            "to": 1954
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Thất thủ Điện Biên Phủ và kết thúc chiến tranh Đông Dương",
+      "title_en": "Dien Bien Phu and the End of the Indochina War",
+      "text_vi": "Quân Pháp thất thủ tại Điện Biên Phủ ngày 7 tháng 5 năm 1954. Thất bại thúc đẩy đàm phán Genève và việc Pháp rút khỏi chiến tranh Đông Dương, trong khi tương lai chính trị Việt Nam vẫn tranh chấp.",
+      "text_en": "French forces were defeated at Dien Bien Phu on 7 May 1954. The defeat accelerated the Geneva negotiations and France's withdrawal from Indochina, while Vietnam's political future remained contested.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận thỏa thuận và rút quân có trật tự",
+          "label_en": "Accept a settlement and withdraw orderly",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_dien_bien_phu_1954_hist",
+              "name_vi": "Hệ quả: Chấp nhận thỏa thuận và rút quân có trật tự",
+              "name_en": "Policy consequence: Accept a settlement and withdraw orderly",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "war_exhaustion": 0.006,
+                "legitimacy": -0.4
+              }
+            },
+            {
+              "type": "movement",
+              "owner": "VNM",
+              "regions": [
+                "VNM_HAN",
+                "VNM_TTT"
+              ],
+              "delta": 5
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì hiện diện để bảo vệ ảnh hưởng còn lại",
+          "label_en": "Maintain a presence to protect remaining influence",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_dien_bien_phu_1954_alt",
+              "name_vi": "Hệ quả: Duy trì hiện diện để bảo vệ ảnh hưởng còn lại",
+              "name_en": "Policy consequence: Maintain a presence to protect remaining influence",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": -0.012,
+                "trade": 0.012,
+                "war_exhaustion": -0.006
+              }
+            },
+            {
+              "type": "war_exhaustion",
+              "entity": "FRA",
+              "delta": 2
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "indochina_mofa"
+      ],
+      "chain": {
+        "after": [
+          "fra_fourth_republic_1946"
+        ],
+        "flag": "fra_chain_dien_bien_phu_1954"
+      }
+    },
+    {
+      "id": "fra_suez_1956",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1956-01-01",
+        "1956-12-31"
+      ],
+      "date_historical": "1956-10-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1956,
+            "to": 1956
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Khủng hoảng kênh đào Suez",
+      "title_en": "The Suez Crisis",
+      "text_vi": "Sau khi Ai Cập quốc hữu hóa Công ty Kênh đào Suez, Pháp, Anh và Israel phối hợp hành động quân sự tháng 10 năm 1956. Áp lực quốc tế buộc các bên ngừng chiến và phơi bày giới hạn quyền lực thực dân châu Âu.",
+      "text_en": "After Egypt nationalised the Suez Canal Company, France, Britain and Israel coordinated military action in October 1956. International pressure forced a ceasefire and exposed the limits of European colonial power.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Rút quân và tìm thỏa thuận vận tải quốc tế",
+          "label_en": "Withdraw and seek an international navigation pact",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_suez_1956_hist",
+              "name_vi": "Hệ quả: Rút quân và tìm thỏa thuận vận tải quốc tế",
+              "name_en": "Policy consequence: Withdraw and seek an international navigation pact",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.018,
+                "trade": 0.01,
+                "army": 0.012
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tiếp tục gây sức ép để khôi phục quyền kiểm soát",
+          "label_en": "Continue pressure to restore control",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_suez_1956_alt",
+              "name_vi": "Hệ quả: Tiếp tục gây sức ép để khôi phục quyền kiểm soát",
+              "name_en": "Policy consequence: Continue pressure to restore control",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.018,
+                "prestige": -0.008,
+                "legitimacy": -0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ]
+    },
+    {
+      "id": "fra_fifth_republic_1958",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1958-01-01",
+        "1958-12-31"
+      ],
+      "date_historical": "1958-10-04",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1958,
+            "to": 1958
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Hiến pháp Đệ ngũ Cộng hòa có hiệu lực",
+      "title_en": "The Constitution of the Fifth Republic",
+      "text_vi": "Khủng hoảng tháng 5 năm 1958 và chiến tranh Algeria làm lung lay Đệ tứ Cộng hòa. Hiến pháp được thông qua trưng cầu dân ý tháng 9 và công bố ngày 4 tháng 10, tạo hành pháp mạnh hơn và vai trò trung tâm cho tổng thống.",
+      "text_en": "The May 1958 crisis and Algerian War destabilised the Fourth Republic. A constitution approved by referendum in September was promulgated on 4 October, creating a stronger executive and central presidential role.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Hành pháp mạnh với kiểm soát nghị viện",
+          "label_en": "Strong executive with parliamentary checks",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_fifth_republic_1958_hist",
+              "name_vi": "Hệ quả: Hành pháp mạnh với kiểm soát nghị viện",
+              "name_en": "Policy consequence: Strong executive with parliamentary checks",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.1,
+                "reform": 0.008,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở rộng quyền tổng thống để chấm dứt bất ổn",
+          "label_en": "Expand presidential power to end instability",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_fifth_republic_1958_alt",
+              "name_vi": "Hệ quả: Mở rộng quyền tổng thống để chấm dứt bất ổn",
+              "name_en": "Policy consequence: Expand presidential power to end instability",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.9,
+                "reform": -0.004,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_fifth"
+      ],
+      "chain": {
+        "after": [
+          "fra_suez_1956"
+        ],
+        "flag": "fra_chain_fifth_republic_1958"
+      }
+    },
+    {
+      "id": "fra_evian_1962",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1962-01-01",
+        "1962-12-31"
+      ],
+      "date_historical": "1962-03-18",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1962,
+            "to": 1962
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Ký Hiệp định Évian về Algeria",
+      "title_en": "The Évian Accords on Algeria",
+      "text_vi": "Hiệp định Évian ký ngày 18 tháng 3 năm 1962 đặt khuôn khổ ngừng bắn và chuyển tiếp dẫn tới độc lập Algeria. Cuộc chiến từ năm 1954 đã chia rẽ xã hội Pháp và để lại hậu quả lâu dài.",
+      "text_en": "The Évian Accords signed on 18 March 1962 established a ceasefire and transition leading to Algerian independence. The war since 1954 divided French society and left lasting consequences.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thực thi thỏa thuận và bảo vệ dân thường",
+          "label_en": "Implement the agreement and protect civilians",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_evian_1962_hist",
+              "name_vi": "Hệ quả: Thực thi thỏa thuận và bảo vệ dân thường",
+              "name_en": "Policy consequence: Implement the agreement and protect civilians",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.018,
+                "trade": 0.01,
+                "army": 0.012
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ ảnh hưởng bằng hợp tác kinh tế song phương",
+          "label_en": "Preserve influence through bilateral economic cooperation",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_evian_1962_alt",
+              "name_vi": "Hệ quả: Giữ ảnh hưởng bằng hợp tác kinh tế song phương",
+              "name_en": "Policy consequence: Preserve influence through bilateral economic cooperation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.018,
+                "prestige": -0.008,
+                "legitimacy": -0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "algeria_defense"
+      ],
+      "chain": {
+        "after": [
+          "fra_fifth_republic_1958"
+        ],
+        "flag": "fra_chain_evian_1962"
+      }
+    },
+    {
+      "id": "fra_direct_vote_1965",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1965-01-01",
+        "1965-12-31"
+      ],
+      "date_historical": "1965-12-05",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1965,
+            "to": 1965
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Cuộc bầu cử tổng thống trực tiếp đầu tiên",
+      "title_en": "The First Direct Presidential Election",
+      "text_vi": "Sau sửa đổi hiến pháp năm 1962, người dân Pháp trực tiếp bầu tổng thống lần đầu năm 1965. De Gaulle không đạt đa số vòng đầu và phải bước vào vòng hai, cho thấy quyền lực tổng thống vẫn chịu cạnh tranh chính trị.",
+      "text_en": "Following the 1962 constitutional revision, French voters directly elected the president for the first time in 1965. De Gaulle failed to win an outright first-round majority and faced a runoff, showing presidential power remained contested.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tôn trọng cạnh tranh và trách nhiệm giải trình",
+          "label_en": "Respect competition and accountability",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_direct_vote_1965_hist",
+              "name_vi": "Hệ quả: Tôn trọng cạnh tranh và trách nhiệm giải trình",
+              "name_en": "Policy consequence: Respect competition and accountability",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "legitimacy": 0.6,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên liên tục chính sách của tổng thống",
+          "label_en": "Prioritise presidential policy continuity",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_direct_vote_1965_alt",
+              "name_vi": "Hệ quả: Ưu tiên liên tục chính sách của tổng thống",
+              "name_en": "Policy consequence: Prioritise presidential policy continuity",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": 0.8,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_fifth"
+      ]
+    },
+    {
+      "id": "fra_may_1968",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1968-01-01",
+        "1968-12-31"
+      ],
+      "date_historical": "1968-05-13",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1968,
+            "to": 1968
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Biểu tình tháng Năm và tổng đình công",
+      "title_en": "The May 1968 Protests and General Strike",
+      "text_vi": "Biểu tình sinh viên tại Paris lan thành đình công quy mô lớn trong nhiều ngành. Khủng hoảng đặt ra yêu cầu cải cách giáo dục, điều kiện lao động và quan hệ quyền lực tại nơi làm việc.",
+      "text_en": "Student protests in Paris spread into a large general strike across sectors. The crisis raised demands for educational reform, improved working conditions and changes in workplace authority.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đàm phán tiền lương và mở cải cách xã hội",
+          "label_en": "Negotiate wages and open social reform",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_may_1968_hist",
+              "name_vi": "Hệ quả: Đàm phán tiền lương và mở cải cách xã hội",
+              "name_en": "Policy consequence: Negotiate wages and open social reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.025,
+                "legitimacy": -0.4,
+                "radicalism": 0.009
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Khôi phục trật tự trước, cải cách sau",
+          "label_en": "Restore order first and defer reform",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_may_1968_alt",
+              "name_vi": "Hệ quả: Khôi phục trật tự trước, cải cách sau",
+              "name_en": "Policy consequence: Restore order first and defer reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.008,
+                "legitimacy": 0.5,
+                "radicalism": -0.003
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ]
+    },
+    {
+      "id": "fra_de_gaulle_1969",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1969-01-01",
+        "1969-12-31"
+      ],
+      "date_historical": "1969-04-28",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1969,
+            "to": 1969
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "De Gaulle từ chức sau thất bại trưng cầu dân ý",
+      "title_en": "De Gaulle Resigns after the Referendum",
+      "text_vi": "Cử tri bác bỏ đề xuất cải cách Thượng viện và khu vực hóa ngày 27 tháng 4 năm 1969; De Gaulle từ chức hôm sau. Kết quả cho thấy tổng thống có thể gắn tính chính danh với trưng cầu dân ý nhưng thất bại cũng buộc họ rời chức.",
+      "text_en": "Voters rejected Senate and regional reform proposals on 27 April 1969; De Gaulle resigned the next day. The episode showed that a president could tie legitimacy to a referendum but might have to leave office after defeat.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tôn trọng kết quả và chuyển giao bình ổn",
+          "label_en": "Respect the result and ensure orderly transfer",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_de_gaulle_1969_hist",
+              "name_vi": "Hệ quả: Tôn trọng kết quả và chuyển giao bình ổn",
+              "name_en": "Policy consequence: Respect the result and ensure orderly transfer",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.1,
+                "reform": 0.008,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tiếp tục chương trình cải cách qua nghị viện",
+          "label_en": "Continue reform through parliament",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_de_gaulle_1969_alt",
+              "name_vi": "Hệ quả: Tiếp tục chương trình cải cách qua nghị viện",
+              "name_en": "Policy consequence: Continue reform through parliament",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.9,
+                "reform": -0.004,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "referendums"
+      ],
+      "chain": {
+        "after": [
+          "fra_may_1968"
+        ],
+        "flag": "fra_chain_de_gaulle_1969"
+      }
+    },
+    {
+      "id": "fra_veil_law_1975",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1975-01-01",
+        "1975-12-31"
+      ],
+      "date_historical": "1975-01-17",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1975,
+            "to": 1975
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Luật Veil hợp pháp hóa phá thai có điều kiện",
+      "title_en": "The Veil Law",
+      "text_vi": "Luật ngày 17 tháng 1 năm 1975 do Simone Veil thúc đẩy cho phép chấm dứt thai kỳ trong điều kiện nhất định. Tranh luận nghị viện phản ánh thay đổi xã hội về quyền phụ nữ, y tế công và vai trò nhà nước.",
+      "text_en": "The law of 17 January 1975, championed by Simone Veil, permitted abortion under defined conditions. Parliamentary debate reflected changing views on women's rights, public health and the state's role.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đầu tư vào tư vấn y tế và tiếp cận an toàn",
+          "label_en": "Invest in health counselling and safe access",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_veil_law_1975_hist",
+              "name_vi": "Hệ quả: Đầu tư vào tư vấn y tế và tiếp cận an toàn",
+              "name_en": "Policy consequence: Invest in health counselling and safe access",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.018,
+                "reform": 0.009,
+                "ig_landowners": -0.8
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giới hạn thực thi và nhường quyền quyết định địa phương",
+          "label_en": "Restrict implementation and leave discretion locally",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_veil_law_1975_alt",
+              "name_vi": "Hệ quả: Giới hạn thực thi và nhường quyền quyết định địa phương",
+              "name_en": "Policy consequence: Restrict implementation and leave discretion locally",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.7,
+                "police": 0.012,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "assembly_history"
+      ]
+    },
+    {
+      "id": "fra_mitterrand_1981",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1981-01-01",
+        "1981-12-31"
+      ],
+      "date_historical": "1981-05-10",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1981,
+            "to": 1981
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "François Mitterrand thắng cử tổng thống",
+      "title_en": "François Mitterrand Wins the Presidency",
+      "text_vi": "Ngày 10 tháng 5 năm 1981, Mitterrand đánh bại tổng thống đương nhiệm Giscard d'Estaing, đưa cánh tả lên nắm quyền. Chương trình cải cách xã hội và công nghiệp phải thích nghi với ràng buộc kinh tế.",
+      "text_en": "On 10 May 1981, Mitterrand defeated incumbent Giscard d'Estaing, bringing the left to power. His programme of social and industrial reform had to adapt to economic constraints.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thực hiện cải cách theo lộ trình",
+          "label_en": "Implement reforms in stages",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_mitterrand_1981_hist",
+              "name_vi": "Hệ quả: Thực hiện cải cách theo lộ trình",
+              "name_en": "Policy consequence: Implement reforms in stages",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.1,
+                "reform": 0.008,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên ổn định tiền tệ và ngân sách",
+          "label_en": "Prioritise monetary and fiscal stability",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_mitterrand_1981_alt",
+              "name_vi": "Hệ quả: Ưu tiên ổn định tiền tệ và ngân sách",
+              "name_en": "Policy consequence: Prioritise monetary and fiscal stability",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.9,
+                "reform": -0.004,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "mitterrand"
+      ]
+    },
+    {
+      "id": "fra_death_penalty_1981",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1981-01-01",
+        "1981-12-31"
+      ],
+      "date_historical": "1981-10-09",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1981,
+            "to": 1981
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Pháp bãi bỏ án tử hình",
+      "title_en": "France Abolishes the Death Penalty",
+      "text_vi": "Quốc hội thông qua luật ngày 9 tháng 10 năm 1981 bãi bỏ án tử hình, gắn với Bộ trưởng Tư pháp Robert Badinter. Quyết định đặt nhân quyền và giới hạn quyền trừng phạt của nhà nước thành nguyên tắc pháp lý lâu dài.",
+      "text_en": "Parliament adopted the law abolishing capital punishment on 9 October 1981, associated with Justice Minister Robert Badinter. The decision made human rights and limits on state punishment enduring legal principles.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Củng cố bảo đảm tư pháp và tái hòa nhập",
+          "label_en": "Strengthen judicial safeguards and rehabilitation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_death_penalty_1981_hist",
+              "name_vi": "Hệ quả: Củng cố bảo đảm tư pháp và tái hòa nhập",
+              "name_en": "Policy consequence: Strengthen judicial safeguards and rehabilitation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.01,
+                "legitimacy": 0.7,
+                "ig_intelligentsia": 0.8
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung an ninh và điều kiện giam giữ",
+          "label_en": "Focus on public safety and prison conditions",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_death_penalty_1981_alt",
+              "name_vi": "Hệ quả: Tập trung an ninh và điều kiện giam giữ",
+              "name_en": "Policy consequence: Focus on public safety and prison conditions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "police": 0.015,
+                "ig_clergy": 0.8
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "mitterrand"
+      ]
+    },
+    {
+      "id": "fra_maastricht_1992",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1992-01-01",
+        "1992-12-31"
+      ],
+      "date_historical": "1992-09-20",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1992,
+            "to": 1992
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Trưng cầu dân ý về Hiệp ước Maastricht",
+      "title_en": "The Maastricht Referendum",
+      "text_vi": "Ngày 20 tháng 9 năm 1992, cử tri Pháp sít sao ủng hộ phê chuẩn Hiệp ước Maastricht, mở đường cho Liên minh châu Âu. Kết quả bộc lộ đồng thời sự ủng hộ hội nhập và lo ngại về chủ quyền, tiền tệ.",
+      "text_en": "On 20 September 1992, French voters narrowly approved the Maastricht Treaty, paving the way for the European Union. The result revealed support for integration alongside concerns over sovereignty and monetary policy.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tiếp tục hội nhập và chuẩn bị liên minh tiền tệ",
+          "label_en": "Continue integration and prepare monetary union",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_maastricht_1992_hist",
+              "name_vi": "Hệ quả: Tiếp tục hội nhập và chuẩn bị liên minh tiền tệ",
+              "name_en": "Policy consequence: Continue integration and prepare monetary union",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.025,
+                "research": 0.012,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ thêm quyền quyết định cấp quốc gia",
+          "label_en": "Retain more decisions at the national level",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_maastricht_1992_alt",
+              "name_vi": "Hệ quả: Giữ thêm quyền quyết định cấp quốc gia",
+              "name_en": "Policy consequence: Retain more decisions at the national level",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": -0.012,
+                "legitimacy": 0.6,
+                "ig_rural_folk": 0.8
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "maastricht"
+      ]
+    },
+    {
+      "id": "fra_euro_cash_2002",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "2002-01-01",
+        "2002-12-31"
+      ],
+      "date_historical": "2002-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 2002,
+            "to": 2002
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Euro tiền giấy và tiền xu được lưu thông",
+      "title_en": "Euro Banknotes and Coins Enter Circulation",
+      "text_vi": "Ngày 1 tháng 1 năm 2002, tiền giấy và tiền xu euro bắt đầu lưu thông tại Pháp. Việc đổi tiền đòi hỏi phối hợp ngân hàng, doanh nghiệp và người dân; thị trường chung đi kèm chi phí chuyển đổi và mất công cụ tỷ giá quốc gia.",
+      "text_en": "On 1 January 2002, euro banknotes and coins entered circulation in France. The change required coordination among banks, businesses and households; a common market came with transition costs and the loss of a national exchange-rate instrument.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Hỗ trợ doanh nghiệp và người dân chuyển đổi",
+          "label_en": "Support business and household conversion",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_euro_cash_2002_hist",
+              "name_vi": "Hệ quả: Hỗ trợ doanh nghiệp và người dân chuyển đổi",
+              "name_en": "Policy consequence: Support business and household conversion",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.025,
+                "research": 0.012,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giảm chi phí và để thị trường tự điều chỉnh",
+          "label_en": "Minimise costs and let markets adjust",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_euro_cash_2002_alt",
+              "name_vi": "Hệ quả: Giảm chi phí và để thị trường tự điều chỉnh",
+              "name_en": "Policy consequence: Minimise costs and let markets adjust",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": -0.012,
+                "legitimacy": 0.6,
+                "ig_rural_folk": 0.8
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "treaty_rome"
+      ]
+    },
+    {
+      "id": "fra_eu_constitution_2005",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "2005-01-01",
+        "2005-12-31"
+      ],
+      "date_historical": "2005-05-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 2005,
+            "to": 2005
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Cử tri bác bỏ Hiệp ước Hiến pháp châu Âu",
+      "title_en": "Voters Reject the European Constitution Treaty",
+      "text_vi": "Trong trưng cầu dân ý ngày 29 tháng 5 năm 2005, đa số cử tri Pháp bỏ phiếu Không đối với Hiệp ước Hiến pháp châu Âu. Kết quả buộc giới lãnh đạo tìm con đường sửa đổi khác và làm nổi bật khoảng cách giữa hội nhập với đồng thuận trong nước.",
+      "text_en": "In the 29 May 2005 referendum, a majority of French voters rejected the European Constitution Treaty. The result forced leaders to seek another reform path and highlighted the gap between integration and domestic consent.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đối thoại công khai về định hướng châu Âu",
+          "label_en": "Hold public debate on Europe's direction",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_eu_constitution_2005_hist",
+              "name_vi": "Hệ quả: Đối thoại công khai về định hướng châu Âu",
+              "name_en": "Policy consequence: Hold public debate on Europe's direction",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.025,
+                "research": 0.012,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Đàm phán lại điều khoản và giảm tốc hội nhập",
+          "label_en": "Renegotiate terms and slow integration",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_eu_constitution_2005_alt",
+              "name_vi": "Hệ quả: Đàm phán lại điều khoản và giảm tốc hội nhập",
+              "name_en": "Policy consequence: Renegotiate terms and slow integration",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": -0.012,
+                "legitimacy": 0.6,
+                "ig_rural_folk": 0.8
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "referendum_2005"
+      ]
+    },
+    {
+      "id": "fra_paris_attacks_2015",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "2015-01-01",
+        "2015-12-31"
+      ],
+      "date_historical": "2015-11-13",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 2015,
+            "to": 2015
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Các vụ tấn công tại Paris và Saint-Denis",
+      "title_en": "The Paris and Saint-Denis Attacks",
+      "text_vi": "Các vụ tấn công phối hợp ngày 13 tháng 11 năm 2015 nhằm vào nhiều địa điểm tại Paris và Saint-Denis gây thương vong lớn. Pháp ban bố tình trạng khẩn cấp và phải cân bằng an ninh với các quyền tự do dân sự.",
+      "text_en": "Coordinated attacks on 13 November 2015 targeted multiple sites in Paris and Saint-Denis, causing extensive casualties. France declared a state of emergency and had to balance security with civil liberties.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tăng hợp tác tình báo dưới giám sát tư pháp",
+          "label_en": "Expand intelligence cooperation with judicial oversight",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_paris_attacks_2015_hist",
+              "name_vi": "Hệ quả: Tăng hợp tác tình báo dưới giám sát tư pháp",
+              "name_en": "Policy consequence: Expand intelligence cooperation with judicial oversight",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.025,
+                "legitimacy": 0.7,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở rộng quyền khẩn cấp để phản ứng nhanh",
+          "label_en": "Expand emergency powers for a rapid response",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_paris_attacks_2015_alt",
+              "name_vi": "Hệ quả: Mở rộng quyền khẩn cấp để phản ứng nhanh",
+              "name_en": "Policy consequence: Expand emergency powers for a rapid response",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.008,
+                "legitimacy": -0.2,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "paris_attacks"
+      ]
+    },
+    {
+      "id": "fra_yellow_vests_2018",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "2018-01-01",
+        "2018-12-31"
+      ],
+      "date_historical": "2018-11-17",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 2018,
+            "to": 2018
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Phong trào Áo vàng bùng nổ",
+      "title_en": "The Yellow Vests Movement",
+      "text_vi": "Phong tỏa đường bộ và biểu tình lan rộng từ tháng 11 năm 2018, ban đầu gắn với giá nhiên liệu và chi phí sinh hoạt. Phong trào chuyển thành phản đối rộng hơn về thu nhập, đại diện chính trị và khoảng cách vùng miền.",
+      "text_en": "Road blockades and demonstrations spread from November 2018, initially linked to fuel prices and living costs. The movement became a broader protest over income, political representation and regional divides.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đối thoại quốc gia và điều chỉnh gánh nặng sinh hoạt",
+          "label_en": "National dialogue and living-cost relief",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_yellow_vests_2018_hist",
+              "name_vi": "Hệ quả: Đối thoại quốc gia và điều chỉnh gánh nặng sinh hoạt",
+              "name_en": "Policy consequence: National dialogue and living-cost relief",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.025,
+                "legitimacy": -0.4,
+                "radicalism": 0.009
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên khôi phục lưu thông và trật tự",
+          "label_en": "Prioritise restoring traffic and order",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_yellow_vests_2018_alt",
+              "name_vi": "Hệ quả: Ưu tiên khôi phục lưu thông và trật tự",
+              "name_en": "Policy consequence: Prioritise restoring traffic and order",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.008,
+                "legitimacy": 0.5,
+                "radicalism": -0.003
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "yellow_vests"
+      ]
+    },
+    {
+      "id": "fra_covid_lockdown_2020",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "2020-01-01",
+        "2020-12-31"
+      ],
+      "date_historical": "2020-03-17",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 2020,
+            "to": 2020
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Phong tỏa toàn quốc trong đại dịch COVID-19",
+      "title_en": "Nationwide Lockdown during COVID-19",
+      "text_vi": "Hạn chế đi lại có hiệu lực toàn quốc từ ngày 17 tháng 3 năm 2020 nhằm làm chậm COVID-19. Chính phủ huy động y tế, bảo vệ thu nhập và hỗ trợ doanh nghiệp trong lúc hoạt động kinh tế suy giảm.",
+      "text_en": "Nationwide movement restrictions took effect on 17 March 2020 to slow COVID-19. The government mobilised healthcare, protected incomes and supported businesses as economic activity contracted.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên y tế công cộng và hỗ trợ thu nhập",
+          "label_en": "Prioritise public health and income support",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_covid_lockdown_2020_hist",
+              "name_vi": "Hệ quả: Ưu tiên y tế công cộng và hỗ trợ thu nhập",
+              "name_en": "Policy consequence: Prioritise public health and income support",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.025,
+                "legitimacy": -0.4,
+                "radicalism": 0.009
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ thêm hoạt động kinh tế với kiểm soát tập trung",
+          "label_en": "Preserve more economic activity with central controls",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_covid_lockdown_2020_alt",
+              "name_vi": "Hệ quả: Giữ thêm hoạt động kinh tế với kiểm soát tập trung",
+              "name_en": "Policy consequence: Preserve more economic activity with central controls",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.008,
+                "legitimacy": 0.5,
+                "radicalism": -0.003
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "covid"
+      ]
+    },
+    {
+      "id": "fra_dissolution_2024",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "2024-01-01",
+        "2024-12-31"
+      ],
+      "date_historical": "2024-06-09",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 2024,
+            "to": 2024
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Giải tán Quốc hội và bầu cử trước hạn",
+      "title_en": "Dissolution of the National Assembly",
+      "text_vi": "Tối 9 tháng 6 năm 2024, Tổng thống Macron tuyên bố giải tán Quốc hội sau kết quả bầu cử Nghị viện châu Âu. Bầu cử lập pháp trước hạn ngày 30 tháng 6 và 7 tháng 7 tạo ra nghị viện phân mảnh, khiến thỏa hiệp liên minh trở thành ưu tiên.",
+      "text_en": "On 9 June 2024, President Macron announced the dissolution of the National Assembly after the European election result. Snap elections on 30 June and 7 July produced a fragmented legislature, making coalition compromise a priority.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tìm thỏa hiệp nghị viện tối thiểu",
+          "label_en": "Seek minimum parliamentary compromise",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_dissolution_2024_hist",
+              "name_vi": "Hệ quả: Tìm thỏa hiệp nghị viện tối thiểu",
+              "name_en": "Policy consequence: Seek minimum parliamentary compromise",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 1.1,
+                "reform": 0.008,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ lập trường rõ ràng và chấp nhận bế tắc",
+          "label_en": "Maintain a clear line and accept deadlock",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_dissolution_2024_alt",
+              "name_vi": "Hệ quả: Giữ lập trường rõ ràng và chấp nhận bế tắc",
+              "name_en": "Policy consequence: Maintain a clear line and accept deadlock",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.9,
+                "reform": -0.004,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "dissolution_2024"
+      ]
+    },
+    {
+      "id": "fra_paris_olympics_2024",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "2024-01-01",
+        "2024-12-31"
+      ],
+      "date_historical": "2024-07-26",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 2024,
+            "to": 2024
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Khai mạc Thế vận hội Paris 2024",
+      "title_en": "Opening of the Paris 2024 Olympic Games",
+      "text_vi": "Thế vận hội Paris diễn ra từ ngày 26 tháng 7 đến 11 tháng 8 năm 2024, đưa thể thao tới nhiều không gian đô thị và di sản. Sự kiện tạo cơ hội ngoại giao văn hóa và du lịch nhưng gây áp lực lên giao thông, an ninh và ngân sách.",
+      "text_en": "The Paris Olympics ran from 26 July to 11 August 2024, placing sport across urban and heritage sites. The event offered cultural diplomacy and tourism opportunities but pressured transport, security and budgets.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đầu tư vào di sản và giao thông công cộng",
+          "label_en": "Invest in legacy and public transport",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_paris_olympics_2024_hist",
+              "name_vi": "Hệ quả: Đầu tư vào di sản và giao thông công cộng",
+              "name_en": "Policy consequence: Invest in legacy and public transport",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "innovation": 0.018,
+                "literacy": 0.014,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên an ninh, tiến độ và kiểm soát chi phí",
+          "label_en": "Prioritise security, schedules and cost control",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_paris_olympics_2024_alt",
+              "name_vi": "Hệ quả: Ưu tiên an ninh, tiến độ và kiểm soát chi phí",
+              "name_en": "Policy consequence: Prioritise security, schedules and cost control",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.7,
+                "radicalism": -0.004,
+                "innovation": -0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "olympics_2024"
+      ]
+    }
+  ],
+  "journals": [
+    {
+      "id": "fra_republican_settlement_1848_1852",
+      "country": "FRA",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1848,
+            "to": 1852
+          }
+        ]
+      },
+      "title_vi": "Giải quyết khủng hoảng nền cộng hòa",
+      "text_vi": "Từ cách mạng tháng Hai đến đảo chính năm 1851, nền cộng hòa phải dung hòa phổ thông đầu phiếu, xung đột xã hội và quyền lực hành pháp.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Ổn định hiến định",
+        "monthly": [
+          {
+            "if": {
+              "type": "year_between",
+              "from": 1848,
+              "to": 1852
+            },
+            "add": 2
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 72
+        }
+      ],
+      "timeout_months": 72,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "FRA",
+          "id": "fra_republican_settlement_1848_1852_done",
+          "name_vi": "Thỏa hiệp cộng hòa bền vững",
+          "name_en": "Thỏa hiệp cộng hòa bền vững Completed",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 1,
+            "reform": 0.008,
+            "prestige": 0.012
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "FRA",
+          "id": "fra_republican_settlement_1848_1852_stalled",
+          "name_vi": "Khủng hoảng thể chế kéo dài",
+          "name_en": "Khủng hoảng thể chế kéo dài Stalled",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "legitimacy": -1,
+            "radicalism": 0.008,
+            "research": -0.005
+          }
+        }
+      ]
+    },
+    {
+      "id": "fra_second_empire_1852_1870",
+      "country": "FRA",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1852,
+            "to": 1870
+          }
+        ]
+      },
+      "title_vi": "Củng cố và chuyển đổi Đệ nhị Đế chế",
+      "text_vi": "Đế chế kết hợp tập quyền với hiện đại hóa đô thị, công nghiệp và tham vọng đối ngoại. Cải cách hay tiếp tục chế độ cá nhân sẽ quyết định sức chống chịu trước chiến tranh.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Năng lực và tính chính danh",
+        "monthly": [
+          {
+            "if": {
+              "type": "year_between",
+              "from": 1852,
+              "to": 1870
+            },
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 240
+        }
+      ],
+      "timeout_months": 240,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "FRA",
+          "id": "fra_second_empire_1852_1870_done",
+          "name_vi": "Đế chế cải cách thành công",
+          "name_en": "Đế chế cải cách thành công Completed",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 1,
+            "reform": 0.008,
+            "prestige": 0.012
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "FRA",
+          "id": "fra_second_empire_1852_1870_stalled",
+          "name_vi": "Đế chế suy yếu và phân rã",
+          "name_en": "Đế chế suy yếu và phân rã Stalled",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "legitimacy": -1,
+            "radicalism": 0.008,
+            "research": -0.005
+          }
+        }
+      ]
+    },
+    {
+      "id": "fra_third_republic_1870_1914",
+      "country": "FRA",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1870,
+            "to": 1914
+          }
+        ]
+      },
+      "title_vi": "Xây dựng nền cộng hòa nghị viện",
+      "text_vi": "Pháp cần tái thiết, xác lập hiến pháp, mở rộng giáo dục và định hình quyền tự do công dân. Tranh chấp về Giáo hội, quân đội và Dreyfus thử thách tính trung lập của nhà nước.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Thể chế và đồng thuận",
+        "monthly": [
+          {
+            "if": {
+              "type": "year_between",
+              "from": 1870,
+              "to": 1914
+            },
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 552
+        }
+      ],
+      "timeout_months": 552,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "FRA",
+          "id": "fra_third_republic_1870_1914_done",
+          "name_vi": "Nền cộng hòa được củng cố",
+          "name_en": "Nền cộng hòa được củng cố Completed",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 1,
+            "reform": 0.008,
+            "prestige": 0.012
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "FRA",
+          "id": "fra_third_republic_1870_1914_stalled",
+          "name_vi": "Xung đột phe phái làm suy yếu nhà nước",
+          "name_en": "Xung đột phe phái làm suy yếu nhà nước Stalled",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "legitimacy": -1,
+            "radicalism": 0.008,
+            "research": -0.005
+          }
+        }
+      ]
+    },
+    {
+      "id": "fra_total_war_1914_1946",
+      "country": "FRA",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1914,
+            "to": 1946
+          }
+        ]
+      },
+      "title_vi": "Chiến tranh tổng lực và tái lập cộng hòa",
+      "text_vi": "Hai cuộc chiến tranh thế giới biến đổi dân số, kinh tế và bản sắc chính trị. Nhà nước phải cân bằng an ninh, phúc lợi và tính chính danh dân chủ từ chiến hào đến tái thiết.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Sức bền và tái thiết",
+        "monthly": [
+          {
+            "if": {
+              "type": "year_between",
+              "from": 1914,
+              "to": 1946
+            },
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 408
+        }
+      ],
+      "timeout_months": 408,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "FRA",
+          "id": "fra_total_war_1914_1946_done",
+          "name_vi": "Cộng hòa được tái lập vững chắc",
+          "name_en": "Cộng hòa được tái lập vững chắc Completed",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 1,
+            "reform": 0.008,
+            "prestige": 0.012
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "FRA",
+          "id": "fra_total_war_1914_1946_stalled",
+          "name_vi": "Xã hội và thể chế kiệt quệ",
+          "name_en": "Xã hội và thể chế kiệt quệ Stalled",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "legitimacy": -1,
+            "radicalism": 0.008,
+            "research": -0.005
+          }
+        }
+      ]
+    },
+    {
+      "id": "fra_decolonisation_1946_1992",
+      "country": "FRA",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1946,
+            "to": 1992
+          }
+        ]
+      },
+      "title_vi": "Giải thực và định hình Đệ ngũ Cộng hòa",
+      "text_vi": "Sự tan rã của đế quốc thuộc địa làm rung chuyển thiết chế hậu chiến. Nền cộng hòa mới phải giải quyết chiến tranh Algeria, quan hệ với thuộc địa cũ và vai trò của Pháp ở châu Âu.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Chuyển đổi hậu thuộc địa",
+        "monthly": [
+          {
+            "if": {
+              "type": "year_between",
+              "from": 1946,
+              "to": 1992
+            },
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 576
+        }
+      ],
+      "timeout_months": 576,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "FRA",
+          "id": "fra_decolonisation_1946_1992_done",
+          "name_vi": "Chuyển đổi được quản trị ổn định",
+          "name_en": "Chuyển đổi được quản trị ổn định Completed",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 1,
+            "reform": 0.008,
+            "prestige": 0.012
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "FRA",
+          "id": "fra_decolonisation_1946_1992_stalled",
+          "name_vi": "Xung đột thuộc địa kéo dài",
+          "name_en": "Xung đột thuộc địa kéo dài Stalled",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "legitimacy": -1,
+            "radicalism": 0.008,
+            "research": -0.005
+          }
+        }
+      ]
+    },
+    {
+      "id": "fra_europe_social_1992_2026",
+      "country": "FRA",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1992,
+            "to": 2026
+          }
+        ]
+      },
+      "title_vi": "Hội nhập châu Âu và thỏa ước xã hội hiện đại",
+      "text_vi": "Pháp hội nhập sâu hơn vào châu Âu trong khi đối mặt bất bình đẳng, toàn cầu hóa, khủng hoảng an ninh, dịch bệnh và thay đổi lao động. Nhiệm vụ là duy trì niềm tin dân chủ, năng lực cạnh tranh và gắn kết xã hội.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Hội nhập và gắn kết xã hội",
+        "monthly": [
+          {
+            "if": {
+              "type": "year_between",
+              "from": 1992,
+              "to": 2026
+            },
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 432
+        }
+      ],
+      "timeout_months": 432,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "FRA",
+          "id": "fra_europe_social_1992_2026_done",
+          "name_vi": "Thỏa ước xã hội được củng cố",
+          "name_en": "Thỏa ước xã hội được củng cố Completed",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 1,
+            "reform": 0.008,
+            "prestige": 0.012
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "FRA",
+          "id": "fra_europe_social_1992_2026_stalled",
+          "name_vi": "Phân cực và bất ổn chính sách gia tăng",
+          "name_en": "Phân cực và bất ổn chính sách gia tăng Stalled",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "legitimacy": -1,
+            "radicalism": 0.008,
+            "research": -0.005
+          }
+        }
+      ]
+    }
+  ]
+}
