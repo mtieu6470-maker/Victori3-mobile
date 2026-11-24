@@ -2769,3 +2769,15 @@ Detailed report: `docs/research/history/CG61_JAP_STORY_EVENT_BATCH_CHECKPOINT_20
 - Review caveats: monthly scheduler limits one event per country per month; two pairs share a month (March 1848 and September 1862); final event 1918-11-09 coincides with `PRU.hist_to`; source claims and media rights still require independent verification. No builders/tests/simulation/Android/APK/device QA run.
 - Checkpoint: `docs/research/history/CG65_PRU_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md`.
 - **Next ChatGPT A1 country: USA**, then TUR. MSG-129 remains IN_PROGRESS.
+
+
+## 2026-11-24 — CG-68 MSG-129 A1 authoring complete (7/7)
+
+- Delivered seven country packs on `ccr-b27f3fb8-epfpd6`: FRA 59/6, JAP 53/6, QNG 51/4, RUS 54/5, PRU 60/5, USA 55/5, TUR 47/4 (events/journals).
+- Aggregate: **379 events, 35 journals, 758 choices, 758 timed modifiers, 451 event source refs, 36 event-specific image candidates**. `story_selection.json` contains 130 unique subjects. All 379 event IDs and 35 journal IDs are unique across the seven packages.
+- Read-back static audit passed JSON, registry membership, source references, image asset-ID mapping (`ill_<subject>`) and the 25-key engine `MOD_KEYS` allowlist.
+- **Not runtime accepted:** 85 persistent `event_fired` journal steps in FRA/JAP may award progress repeatedly; 339/379 event dates are mid-month but dispatch is monthly; six country-month periods have two competing events; final event/entity `hist_to` boundaries require tests.
+- No data/content builders, media ingestion, tests, simulation, Android build, APK or device QA run. No playable build or CI success claimed.
+- Aggregate audit: `docs/research/history/CG68_A1_SEVEN_COUNTRY_COMPLETION_AUDIT_2026-11-24_VI.md`.
+- USA checkpoint CG-66; TUR checkpoint CG-67. JAP CG-61 report updated with six later image candidates; PRU CG-65 report updated with final asset-ID convention.
+- **Next owner/Claude action:** integrate and review all seven packs, fix journal one-shot semantics, validate monthly scheduling, run builders/tests/simulation, ingest only rights-cleared media, build and QA APK. A1 authoring is complete; MSG-129 remains open for integration acceptance and A2–A8.
