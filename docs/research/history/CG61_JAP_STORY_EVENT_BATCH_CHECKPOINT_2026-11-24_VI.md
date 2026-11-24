@@ -55,3 +55,14 @@ No data/content builder, image ingestion, automated tests, runtime play-test, we
 
 France checkpoint: `docs/research/history/CG60_FRA_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md`.
 This Japan checkpoint is the second A1 country data batch. MSG-129 remains IN_PROGRESS until all required country packages and integration gates are complete.
+
+
+
+## Post-checkpoint correction — six image candidates added (2026-11-24)
+
+The original CG-61 report stated that no image candidates were added. That was true at the original checkpoint but is superseded by this update:
+- Six event-specific candidates were added to `story_selection.json`: Perry arrival, Meiji portrait, Sino-Japanese War, Russo-Japanese War, Great Kantō earthquake and Pearl Harbor.
+- The six corresponding JAP events now reference `ill_<subject>` asset IDs.
+- Candidate sources and rights notes are recorded in `story_selection.json`; they are not ingested binaries. Recheck rights, provenance and source records through the normal ingestion gate.
+- Updated JAP data blob: `7c8d9840dd81b5d5e444b175eb7b5ee9f92ef523`; selection blob: `b2dacd04961b906bc18b9bb9b9c85471734ab7a9`.
+- A1 authoring has now advanced beyond this report: see `docs/research/history/CG68_A1_SEVEN_COUNTRY_COMPLETION_AUDIT_2026-11-24_VI.md` for the seven-country aggregate and remaining engine gates.
