@@ -71,3 +71,14 @@ Owner nhắn: "Đọc `docs/roadmap/OPEN_WORK_FOR_CHATGPT_2026-11-24_VI.md`, so�
 - Commit dữ liệu: `1f47785ae8b230715258d101d532e5e3294a8c12`, `4b3bad321d810bc8135afb063952705ccaf8ccf5`, `e740546861c32f6180c79f88ab20ce6edd7ba379`. Ảnh: `52677f83801dd3ddfb0eee8bef577289522c3555`, `2586da5b04e31023632d55f4c6582f5083aea3a5`.
 - Báo cáo đầy đủ và checklist Claude: `docs/research/history/CG60_FRA_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md` (commit `aeef7c47c85ec10697d9d5da6b4fe098bce42f52`).
 - **Tiếp theo A1:** JAP → QNG → RUS → PRU → USA → TUR. MSG-129 vẫn IN_PROGRESS; chưa đánh dấu DONE cho đến khi đủ bảy gói.
+
+
+## Cập nhật tiến độ — JAP checkpoint (2026-11-24)
+
+- **A1 / JAP — initial data batch delivered.** `historical_data/events/story/JAP.json`: 53 sự kiện, 6 journal, 18 source references; ngày hiện có 1836-09-01 → 2024-01-01.
+- Read-back audit: JSON hợp lệ, 53 ID duy nhất, source refs và journal milestone refs resolve; mỗi journal có 5 mốc × 20 = 100; không có mã vùng không tồn tại trong effects. Mỗi event có 2 lựa chọn và named timed modifier; `fire_date` khớp `date_historical`.
+- Commit: `f14bbbd5e946e77dd1cd89727efdda1515c92675`.
+- Báo cáo: `docs/research/history/CG61_JAP_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md` (commit `08f34f4848e8df582b37856a0b8514bffe1f5b32`).
+- **Chưa release-ready:** narratives hiện là mô tả khung song ngữ ngắn, cần nghiên cứu/viết lại theo từng sự kiện; source links chưa được mở xác minh từng claim; chưa có ảnh; chưa chạy data/content builder, runtime, tests, Android build/APK.
+- Claude cần kiểm tra monthly `fire_date`, one-shot journal milestone semantics và tính liên tục entity/regime JAP (registry ghi Tokugawa Japan); không tự ý tạo country ID mới.
+- **Tiếp theo A1:** QNG → RUS → PRU → USA → TUR. MSG-129 tiếp tục IN_PROGRESS.
