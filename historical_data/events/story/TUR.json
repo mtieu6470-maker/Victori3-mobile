@@ -14,6 +14,84 @@
   },
   "events": [
     {
+      "id": "tur_battle_nezib_1839",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1839-01-01",
+        "1840-12-31"
+      ],
+      "date_historical": "1839-06-24",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1839,
+            "to": 1840
+          }
+        ],
+        "fire_date": "1839-06-24"
+      },
+      "title_vi": "Thất bại tại Nezib",
+      "title_en": "Defeat at Nezib",
+      "text_vi": "Quân Ottoman thất bại trước lực lượng của Muhammad Ali tại Nezib, phơi bày khủng hoảng trong tổ chức quân đội và quyền kiểm soát Syria. Cái chết của Mahmud II ngay sau đó khiến triều đình mới phải đối diện đồng thời với khủng hoảng kế vị và can thiệp ngoại bang.",
+      "text_en": "Ottoman forces are defeated by Muhammad Ali’s army at Nezib, exposing weaknesses in military organisation and control of Syria. Mahmud II’s death soon afterwards leaves the new court facing both a succession crisis and foreign intervention.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tái tổ chức quân đội và tìm hỗ trợ ngoại giao",
+          "label_en": "Reorganise the army and seek diplomatic support",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_battle_nezib_1839_historical",
+              "name_vi": "Hệ quả chính sách: Tái tổ chức quân đội và tìm hỗ trợ ngoại giao",
+              "name_en": "Policy consequence: Reorganise the army and seek diplomatic support",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "research": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung khôi phục quyền kiểm soát bằng quân sự",
+          "label_en": "Concentrate on restoring control by force",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_battle_nezib_1839_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung khôi phục quyền kiểm soát bằng quân sự",
+              "name_en": "Policy consequence: Concentrate on restoring control by force",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.035,
+                "war_exhaustion": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "quataert_ottoman_chronology",
+        "oxford_tanzimat"
+      ]
+    },
+    {
       "id": "tur_gulhane_edict_1839",
       "country": "TUR",
       "mode": "historical",
@@ -91,84 +169,6 @@
       ],
       "sources": [
         "cambridge_turkey_chronology",
-        "oxford_tanzimat"
-      ]
-    },
-    {
-      "id": "tur_battle_nezib_1839",
-      "country": "TUR",
-      "mode": "historical",
-      "window": [
-        "1839-01-01",
-        "1840-12-31"
-      ],
-      "date_historical": "1839-06-24",
-      "trigger": {
-        "conditions": [
-          {
-            "type": "exists",
-            "entity": "TUR"
-          },
-          {
-            "type": "year_between",
-            "from": 1839,
-            "to": 1840
-          }
-        ],
-        "fire_date": "1839-06-24"
-      },
-      "title_vi": "Thất bại tại Nezib",
-      "title_en": "Defeat at Nezib",
-      "text_vi": "Quân Ottoman thất bại trước lực lượng của Muhammad Ali tại Nezib, phơi bày khủng hoảng trong tổ chức quân đội và quyền kiểm soát Syria. Cái chết của Mahmud II ngay sau đó khiến triều đình mới phải đối diện đồng thời với khủng hoảng kế vị và can thiệp ngoại bang.",
-      "text_en": "Ottoman forces are defeated by Muhammad Ali’s army at Nezib, exposing weaknesses in military organisation and control of Syria. Mahmud II’s death soon afterwards leaves the new court facing both a succession crisis and foreign intervention.",
-      "options": [
-        {
-          "id": "historical_course",
-          "label_vi": "Tái tổ chức quân đội và tìm hỗ trợ ngoại giao",
-          "label_en": "Reorganise the army and seek diplomatic support",
-          "historical": true,
-          "ai_weight": 3,
-          "effects": [
-            {
-              "type": "modifier",
-              "entity": "$self",
-              "id": "tur_battle_nezib_1839_historical",
-              "name_vi": "Hệ quả chính sách: Tái tổ chức quân đội và tìm hỗ trợ ngoại giao",
-              "name_en": "Policy consequence: Reorganise the army and seek diplomatic support",
-              "months": 36,
-              "decaying": true,
-              "effects": {
-                "army": 0.025,
-                "research": 0.01
-              }
-            }
-          ]
-        },
-        {
-          "id": "alternative_course",
-          "label_vi": "Tập trung khôi phục quyền kiểm soát bằng quân sự",
-          "label_en": "Concentrate on restoring control by force",
-          "historical": false,
-          "ai_weight": 1,
-          "effects": [
-            {
-              "type": "modifier",
-              "entity": "$self",
-              "id": "tur_battle_nezib_1839_alternative",
-              "name_vi": "Hệ quả chính sách: Tập trung khôi phục quyền kiểm soát bằng quân sự",
-              "name_en": "Policy consequence: Concentrate on restoring control by force",
-              "months": 36,
-              "decaying": true,
-              "effects": {
-                "army": 0.035,
-                "war_exhaustion": 0.02
-              }
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "quataert_ottoman_chronology",
         "oxford_tanzimat"
       ]
     },
@@ -1341,6 +1341,84 @@
       ]
     },
     {
+      "id": "tur_constitution_suspended_1878",
+      "country": "TUR",
+      "mode": "historical",
+      "window": [
+        "1878-01-01",
+        "1879-12-31"
+      ],
+      "date_historical": "1878-02-14",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "TUR"
+          },
+          {
+            "type": "year_between",
+            "from": 1878,
+            "to": 1879
+          }
+        ],
+        "fire_date": "1878-02-14"
+      },
+      "title_vi": "Abdülhamid II đình chỉ nghị viện",
+      "title_en": "Abdülhamid II Suspends Parliament",
+      "text_vi": "Sultan đình chỉ hoạt động nghị viện trong bối cảnh chiến tranh và khủng hoảng chính trị, mở đầu giai đoạn cai trị tập quyền kéo dài. Các cải cách hành chính và giáo dục vẫn tiếp tục, nhưng đời sống chính trị bị kiểm soát chặt hơn.",
+      "text_en": "The sultan suspends parliament amid war and political crisis, beginning a long period of centralised rule. Administrative and educational reforms continue, but political life comes under tighter control.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giữ cải cách hành chính nhưng khôi phục cơ chế đại diện",
+          "label_en": "Continue administrative reform while restoring representation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_constitution_suspended_1878_historical",
+              "name_vi": "Hệ quả chính sách: Giữ cải cách hành chính nhưng khôi phục cơ chế đại diện",
+              "name_en": "Policy consequence: Continue administrative reform while restoring representation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "reform": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung quyền lực tại cung điện và bộ máy mật vụ",
+          "label_en": "Concentrate authority in the palace and security apparatus",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "tur_constitution_suspended_1878_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung quyền lực tại cung điện và bộ máy mật vụ",
+              "name_en": "Policy consequence: Concentrate authority in the palace and security apparatus",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.03,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cambridge_turkey_chronology",
+        "oxford_tanzimat"
+      ]
+    },
+    {
       "id": "tur_treaty_san_stefano_1878",
       "country": "TUR",
       "mode": "historical",
@@ -1493,84 +1571,6 @@
       "sources": [
         "cambridge_turkey_chronology",
         "quataert_ottoman_chronology"
-      ]
-    },
-    {
-      "id": "tur_constitution_suspended_1878",
-      "country": "TUR",
-      "mode": "historical",
-      "window": [
-        "1878-01-01",
-        "1879-12-31"
-      ],
-      "date_historical": "1878-02-14",
-      "trigger": {
-        "conditions": [
-          {
-            "type": "exists",
-            "entity": "TUR"
-          },
-          {
-            "type": "year_between",
-            "from": 1878,
-            "to": 1879
-          }
-        ],
-        "fire_date": "1878-02-14"
-      },
-      "title_vi": "Abdülhamid II đình chỉ nghị viện",
-      "title_en": "Abdülhamid II Suspends Parliament",
-      "text_vi": "Sultan đình chỉ hoạt động nghị viện trong bối cảnh chiến tranh và khủng hoảng chính trị, mở đầu giai đoạn cai trị tập quyền kéo dài. Các cải cách hành chính và giáo dục vẫn tiếp tục, nhưng đời sống chính trị bị kiểm soát chặt hơn.",
-      "text_en": "The sultan suspends parliament amid war and political crisis, beginning a long period of centralised rule. Administrative and educational reforms continue, but political life comes under tighter control.",
-      "options": [
-        {
-          "id": "historical_course",
-          "label_vi": "Giữ cải cách hành chính nhưng khôi phục cơ chế đại diện",
-          "label_en": "Continue administrative reform while restoring representation",
-          "historical": true,
-          "ai_weight": 3,
-          "effects": [
-            {
-              "type": "modifier",
-              "entity": "$self",
-              "id": "tur_constitution_suspended_1878_historical",
-              "name_vi": "Hệ quả chính sách: Giữ cải cách hành chính nhưng khôi phục cơ chế đại diện",
-              "name_en": "Policy consequence: Continue administrative reform while restoring representation",
-              "months": 36,
-              "decaying": true,
-              "effects": {
-                "legitimacy": 0.2,
-                "reform": 0.01
-              }
-            }
-          ]
-        },
-        {
-          "id": "alternative_course",
-          "label_vi": "Tập trung quyền lực tại cung điện và bộ máy mật vụ",
-          "label_en": "Concentrate authority in the palace and security apparatus",
-          "historical": false,
-          "ai_weight": 1,
-          "effects": [
-            {
-              "type": "modifier",
-              "entity": "$self",
-              "id": "tur_constitution_suspended_1878_alternative",
-              "name_vi": "Hệ quả chính sách: Tập trung quyền lực tại cung điện và bộ máy mật vụ",
-              "name_en": "Policy consequence: Concentrate authority in the palace and security apparatus",
-              "months": 36,
-              "decaying": true,
-              "effects": {
-                "police": 0.03,
-                "radicalism": 0.008
-              }
-            }
-          ]
-        }
-      ],
-      "sources": [
-        "cambridge_turkey_chronology",
-        "oxford_tanzimat"
       ]
     },
     {
