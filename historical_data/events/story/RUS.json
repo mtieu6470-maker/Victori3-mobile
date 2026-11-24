@@ -3249,8 +3249,8 @@
       ],
       "image": {
         "ref": "ill_rus_bloody_sunday",
-        "credit": "Vyacheslav Viskovsky, 1925 reconstruction / Commons PD-Art reproduction",
-        "license": "Underlying 1925 work identified as public domain in the United States; confirm source-country term during ingestion"
+        "credit": "Vyacheslav Viskovsky; 1925 reconstitution, Commons PD-Art reproduction",
+        "license": "Public domain in the United States as stated by the Commons page for the underlying public-domain artwork"
       }
     },
     {
@@ -3491,8 +3491,8 @@
       ],
       "image": {
         "ref": "ill_rus_first_duma",
-        "credit": "Russian Empire / archive photograph, 1906",
-        "license": "Commons file page states public domain in the United States; ingestion must verify source provenance and derivative size"
+        "credit": "Russian Empire; archive photograph, 1906; Jewish Historical Institute Archives",
+        "license": "Commons file page states public domain in the United States; source provenance and high-resolution derivative must be checked"
       }
     },
     {
@@ -4287,7 +4287,7 @@
       "image": {
         "ref": "ill_rus_nicholas_abdication",
         "credit": "Library of Congress, Prints and Photographs Division, digital ID ggbain.25191",
-        "license": "Commons page identifies Library of Congress source; U.S. public-domain basis requires final verification"
+        "license": "Commons page identifies Library of Congress source; confirm U.S. public-domain and territorial rights in ingestion"
       }
     }
   ],
