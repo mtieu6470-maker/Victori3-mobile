@@ -2511,7 +2511,7 @@
     },
     {
       "type": "illustration_event",
-      "subject": "ill_fra_february_revolution_1848",
+      "subject": "fra_february_revolution_1848",
       "commons_file": "Plan des barricades de février (1848) - Nous devons ce plan et ces indications à l'obligeance de Mr le colonel du génie Leblanc - btv1b53136035z.jpg",
       "year": 1848,
       "width": 5830,
@@ -2538,7 +2538,7 @@
     },
     {
       "type": "illustration_event",
-      "subject": "ill_fra_coup_1851",
+      "subject": "fra_coup_1851",
       "commons_file": "Coup d'État 2 décembre 1851.jpg",
       "year": 1853,
       "width": 1285,
@@ -2565,7 +2565,7 @@
     },
     {
       "type": "illustration_event",
-      "subject": "ill_fra_commune_1871",
+      "subject": "fra_commune_1871",
       "commons_file": "Commune de Paris barricade de la Chaussée Ménilmontant.jpg",
       "year": 1871,
       "width": 1535,
@@ -2592,7 +2592,7 @@
     },
     {
       "type": "illustration_event",
-      "subject": "ill_fra_exposition_1889",
+      "subject": "fra_exposition_1889",
       "commons_file": "Tour Eiffel exposition universelle 1889.jpg",
       "year": 1889,
       "width": 473,
@@ -2619,7 +2619,7 @@
     },
     {
       "type": "illustration_event",
-      "subject": "ill_fra_dreyfus_1895",
+      "subject": "fra_dreyfus_1895",
       "commons_file": "Degradation alfred dreyfus.jpg",
       "year": 1895,
       "width": 2841,
@@ -2646,7 +2646,7 @@
     },
     {
       "type": "illustration_event",
-      "subject": "ill_fra_verdun_1916",
+      "subject": "fra_verdun_1916",
       "commons_file": "Bataille de Verdun 1916.jpg",
       "year": 1916,
       "width": 1875,
@@ -2673,7 +2673,7 @@
     },
     {
       "type": "illustration_event",
-      "subject": "ill_fra_paris_liberation_1944",
+      "subject": "fra_paris_liberation_1944",
       "commons_file": "Paris1944.jpg",
       "year": 1944,
       "width": 7290,
