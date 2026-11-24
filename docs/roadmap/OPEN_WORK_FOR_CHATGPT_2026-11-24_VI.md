@@ -58,3 +58,16 @@ Owner nhắn: "Đọc `docs/roadmap/OPEN_WORK_FOR_CHATGPT_2026-11-24_VI.md`, so�
 3. nhập ảnh, build lại nội dung, chạy mô phỏng thử và bộ test đầy đủ;
 4. ghi kết quả vào bảng tin và bàn giao, đẩy lên cả hai nhánh, rồi build APK cho owner thử;
 5. sau đó làm tiếp mục B theo thứ tự trên.
+
+
+---
+
+## Cập nhật tiến độ — 2026-11-24 (ChatGPT, FRA checkpoint)
+
+- **A1: FRA — DATA PACKAGE DELIVERED FOR CLAUDE REVIEW.** File `historical_data/events/story/FRA.json` hiện có 59 sự kiện và 6 nhật ký; 31 nguồn tham chiếu. Dải thời gian hiện có: 1848-02-24 đến 2024-07-26. Đây chưa phải phạm vi đầy đủ 1836–2026; còn thiếu giai đoạn 1836–1847 và 2025–2026.
+- Mọi sự kiện dùng `trigger.fire_date` theo `date_historical`; các nhật ký có tiến độ dựa trên `event_fired` milestones (mỗi tuyến tổng 100 điểm). Claude phải xác minh ngữ nghĩa ngày và journal trong runtime, vì kiểm tra cấu trúc không chứng minh engine xử lý đúng.
+- Đã thêm 7 ứng viên ảnh riêng cho sự kiện vào `story_selection.json`; chưa nhập ảnh, chưa có binary asset mới. Verdun và Paris Liberation cần xét quyền theo lãnh thổ; không nới rights gate.
+- Kiểm tra cấu trúc tĩnh: JSON parse, 59 ID duy nhất, nguồn/chain/modifier/region/image refs đều resolve, 6 journal và milestone IDs hợp lệ. **Chưa chạy** `npm run data`, `npm run content`, mô phỏng, automated tests, Android build hoặc APK.
+- Commit dữ liệu: `1f47785ae8b230715258d101d532e5e3294a8c12`, `4b3bad321d810bc8135afb063952705ccaf8ccf5`, `e740546861c32f6180c79f88ab20ce6edd7ba379`. Ảnh: `52677f83801dd3ddfb0eee8bef577289522c3555`, `2586da5b04e31023632d55f4c6582f5083aea3a5`.
+- Báo cáo đầy đủ và checklist Claude: `docs/research/history/CG60_FRA_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md` (commit `aeef7c47c85ec10697d9d5da6b4fe098bce42f52`).
+- **Tiếp theo A1:** JAP → QNG → RUS → PRU → USA → TUR. MSG-129 vẫn IN_PROGRESS; chưa đánh dấu DONE cho đến khi đủ bảy gói.
