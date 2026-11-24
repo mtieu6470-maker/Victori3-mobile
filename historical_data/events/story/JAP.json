@@ -1,0 +1,4851 @@
+{
+  "schema": "story_events_v1",
+  "country": "JAP",
+  "sources": {
+    "jacar_edo": "https://www.jacar.go.jp/english/learning/menu01.html",
+    "jacar_meiji": "https://www.jacar.go.jp/english/learning/menu02.html",
+    "jacar_imperial": "https://www.jacar.go.jp/english/learning/menu03.html",
+    "jacar_taisho": "https://www.jacar.go.jp/english/learning/menu04.html",
+    "jacar_wartime": "https://www.jacar.go.jp/english/learning/menu05.html",
+    "jacar_postwar": "https://www.jacar.go.jp/english/learning/menu06.html",
+    "ndl_chronology": "https://www.ndl.go.jp/modern/e/utility/chronology.html",
+    "ndl_korea": "https://www.ndl.go.jp/modern/e/cha2/description27.html",
+    "us_portsmouth": "https://history.state.gov/milestones/1899-1913/portsmouth-treaty",
+    "energy_agency": "https://www.enecho.meti.go.jp/en/",
+    "disaster_cabinet": "https://www.bousai.go.jp/kokusai/wcdr/info/index.html",
+    "moj_sarin": "https://www.moj.go.jp/psia/25years_after_the_tokyo_subway_sarin_gas_attacks",
+    "jma_2011": "https://www.jma.go.jp/jma/en/2011_Earthquake/2011_Earthquake.html",
+    "reconstruction": "https://www.reconstruction.go.jp/english/",
+    "olympics": "https://olympics.com/en/olympic-games/tokyo-2020",
+    "cabinet": "https://japan.kantei.go.jp/",
+    "jansen": "Marius B. Jansen, The Making of Modern Japan, Harvard University Press, 2000.",
+    "beasley": "W. G. Beasley, The Modern History of Japan, Weidenfeld & Nicolson, 1963."
+  },
+  "events": [
+    {
+      "id": "jap_tenpo_famine",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1836-01-01",
+        "1836-12-31"
+      ],
+      "date_historical": "1836-09-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1836,
+            "to": 1836
+          }
+        ],
+        "fire_date": "1836-09-01"
+      },
+      "title_vi": "Đại nạn đói Tenpō",
+      "title_en": "The Tenpō Famine",
+      "text_vi": "Đại nạn đói Tenpō là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Tenpō Famine was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở kho dự trữ và cứu tế",
+          "label_en": "Mở kho dự trữ và cứu tế",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_tenpo_famine_historical_course",
+              "name_vi": "Hệ quả chính sách: Mở kho dự trữ và cứu tế",
+              "name_en": "Policy consequence: Mở kho dự trữ và cứu tế",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.008,
+                "legitimacy": 0.5,
+                "radicalism": -0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Bảo vệ ngân khố, để các phiên tự ứng phó",
+          "label_en": "Bảo vệ ngân khố, để các phiên tự ứng phó",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_tenpo_famine_alternative_course",
+              "name_vi": "Hệ quả chính sách: Bảo vệ ngân khố, để các phiên tự ứng phó",
+              "name_en": "Policy consequence: Bảo vệ ngân khố, để các phiên tự ứng phó",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.012,
+                "legitimacy": -0.3,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_edo"
+      ]
+    },
+    {
+      "id": "jap_oshio_rebellion",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1837-01-01",
+        "1837-12-31"
+      ],
+      "date_historical": "1837-03-25",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1837,
+            "to": 1837
+          }
+        ],
+        "fire_date": "1837-03-25"
+      },
+      "title_vi": "Khởi nghĩa Ōshio tại Osaka",
+      "title_en": "The Ōshio Uprising",
+      "text_vi": "Khởi nghĩa Ōshio tại Osaka là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Ōshio Uprising was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Cải tổ cứu tế và kiểm soát đầu cơ",
+          "label_en": "Cải tổ cứu tế và kiểm soát đầu cơ",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_oshio_rebellion_historical_course",
+              "name_vi": "Hệ quả chính sách: Cải tổ cứu tế và kiểm soát đầu cơ",
+              "name_en": "Policy consequence: Cải tổ cứu tế và kiểm soát đầu cơ",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "legitimacy": 0.5,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tăng tuần tra và trấn áp nổi dậy",
+          "label_en": "Tăng tuần tra và trấn áp nổi dậy",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_oshio_rebellion_alternative_course",
+              "name_vi": "Hệ quả chính sách: Tăng tuần tra và trấn áp nổi dậy",
+              "name_en": "Policy consequence: Tăng tuần tra và trấn áp nổi dậy",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": -0.4,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jansen"
+      ]
+    },
+    {
+      "id": "jap_perry_arrival",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1853-01-01",
+        "1853-12-31"
+      ],
+      "date_historical": "1853-07-08",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1853,
+            "to": 1853
+          }
+        ],
+        "fire_date": "1853-07-08"
+      },
+      "title_vi": "Hạm đội Perry đến Uraga",
+      "title_en": "Perry's Squadron Arrives at Uraga",
+      "text_vi": "Hạm đội Perry đến Uraga là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "Perry's Squadron Arrives at Uraga was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tiếp nhận thư và chuẩn bị đàm phán",
+          "label_en": "Tiếp nhận thư và chuẩn bị đàm phán",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_perry_arrival_historical_course",
+              "name_vi": "Hệ quả chính sách: Tiếp nhận thư và chuẩn bị đàm phán",
+              "name_en": "Policy consequence: Tiếp nhận thư và chuẩn bị đàm phán",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.015,
+                "trade": 0.008,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Củng cố phòng thủ ven biển, trì hoãn",
+          "label_en": "Củng cố phòng thủ ven biển, trì hoãn",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_perry_arrival_alternative_course",
+              "name_vi": "Hệ quả chính sách: Củng cố phòng thủ ven biển, trì hoãn",
+              "name_en": "Policy consequence: Củng cố phòng thủ ven biển, trì hoãn",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.015,
+                "trade": -0.01,
+                "legitimacy": -0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_edo"
+      ]
+    },
+    {
+      "id": "jap_kanagawa_treaty",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1854-01-01",
+        "1854-12-31"
+      ],
+      "date_historical": "1854-03-31",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1854,
+            "to": 1854
+          }
+        ],
+        "fire_date": "1854-03-31"
+      },
+      "title_vi": "Hiệp ước Kanagawa",
+      "title_en": "The Treaty of Kanagawa",
+      "text_vi": "Hiệp ước Kanagawa là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Treaty of Kanagawa was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở cảng có giới hạn để tránh chiến tranh",
+          "label_en": "Mở cảng có giới hạn để tránh chiến tranh",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_kanagawa_treaty_historical_course",
+              "name_vi": "Hệ quả chính sách: Mở cảng có giới hạn để tránh chiến tranh",
+              "name_en": "Policy consequence: Mở cảng có giới hạn để tránh chiến tranh",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.015,
+                "trade": 0.008,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Từ chối nhượng bộ và chuẩn bị đối đầu",
+          "label_en": "Từ chối nhượng bộ và chuẩn bị đối đầu",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_kanagawa_treaty_alternative_course",
+              "name_vi": "Hệ quả chính sách: Từ chối nhượng bộ và chuẩn bị đối đầu",
+              "name_en": "Policy consequence: Từ chối nhượng bộ và chuẩn bị đối đầu",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.015,
+                "trade": -0.01,
+                "legitimacy": -0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_edo"
+      ]
+    },
+    {
+      "id": "jap_harris_treaty",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1858-01-01",
+        "1858-12-31"
+      ],
+      "date_historical": "1858-07-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1858,
+            "to": 1858
+          }
+        ],
+        "fire_date": "1858-07-29"
+      },
+      "title_vi": "Hiệp ước Thương mại Harris",
+      "title_en": "The Harris Treaty",
+      "text_vi": "Hiệp ước Thương mại Harris là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Harris Treaty was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận và tìm cách sửa đổi bằng ngoại giao",
+          "label_en": "Chấp nhận và tìm cách sửa đổi bằng ngoại giao",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_harris_treaty_historical_course",
+              "name_vi": "Hệ quả chính sách: Chấp nhận và tìm cách sửa đổi bằng ngoại giao",
+              "name_en": "Policy consequence: Chấp nhận và tìm cách sửa đổi bằng ngoại giao",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.015,
+                "trade": 0.008,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Từ chối hiệp ước, đối đầu sức ép hải quân",
+          "label_en": "Từ chối hiệp ước, đối đầu sức ép hải quân",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_harris_treaty_alternative_course",
+              "name_vi": "Hệ quả chính sách: Từ chối hiệp ước, đối đầu sức ép hải quân",
+              "name_en": "Policy consequence: Từ chối hiệp ước, đối đầu sức ép hải quân",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.015,
+                "trade": -0.01,
+                "legitimacy": -0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_edo"
+      ]
+    },
+    {
+      "id": "jap_sakuradamon",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1860-01-01",
+        "1860-12-31"
+      ],
+      "date_historical": "1860-03-24",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1860,
+            "to": 1860
+          }
+        ],
+        "fire_date": "1860-03-24"
+      },
+      "title_vi": "Ám sát Ii Naosuke tại Sakuradamon",
+      "title_en": "The Sakuradamon Assassination",
+      "text_vi": "Ám sát Ii Naosuke tại Sakuradamon là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Sakuradamon Assassination was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Hòa giải các phiên và khôi phục đồng thuận",
+          "label_en": "Hòa giải các phiên và khôi phục đồng thuận",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_sakuradamon_historical_course",
+              "name_vi": "Hệ quả chính sách: Hòa giải các phiên và khôi phục đồng thuận",
+              "name_en": "Policy consequence: Hòa giải các phiên và khôi phục đồng thuận",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "legitimacy": 0.5,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Trấn áp phe chống Mạc phủ",
+          "label_en": "Trấn áp phe chống Mạc phủ",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_sakuradamon_alternative_course",
+              "name_vi": "Hệ quả chính sách: Trấn áp phe chống Mạc phủ",
+              "name_en": "Policy consequence: Trấn áp phe chống Mạc phủ",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": -0.4,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_edo"
+      ]
+    },
+    {
+      "id": "jap_satsuma_choshu",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1866-01-01",
+        "1866-12-31"
+      ],
+      "date_historical": "1866-01-21",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1866,
+            "to": 1866
+          }
+        ],
+        "fire_date": "1866-01-21"
+      },
+      "title_vi": "Liên minh Satsuma–Chōshū",
+      "title_en": "The Satsuma–Chōshū Alliance",
+      "text_vi": "Liên minh Satsuma–Chōshū là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Satsuma–Chōshū Alliance was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Xây dựng liên minh cải cách",
+          "label_en": "Xây dựng liên minh cải cách",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_satsuma_choshu_historical_course",
+              "name_vi": "Hệ quả chính sách: Xây dựng liên minh cải cách",
+              "name_en": "Policy consequence: Xây dựng liên minh cải cách",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.9,
+                "reform": 0.008,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tìm thỏa hiệp với Mạc phủ",
+          "label_en": "Tìm thỏa hiệp với Mạc phủ",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_satsuma_choshu_alternative_course",
+              "name_vi": "Hệ quả chính sách: Tìm thỏa hiệp với Mạc phủ",
+              "name_en": "Policy consequence: Tìm thỏa hiệp với Mạc phủ",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.015,
+                "legitimacy": -0.6,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_edo"
+      ]
+    },
+    {
+      "id": "jap_taisei_hokan",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1867-01-01",
+        "1867-12-31"
+      ],
+      "date_historical": "1867-11-09",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1867,
+            "to": 1867
+          }
+        ],
+        "fire_date": "1867-11-09"
+      },
+      "title_vi": "Trao trả quyền chính trị cho triều đình",
+      "title_en": "The Return of Governing Authority",
+      "text_vi": "Trao trả quyền chính trị cho triều đình là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Return of Governing Authority was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thương lượng chuyển tiếp có đại diện các phiên",
+          "label_en": "Thương lượng chuyển tiếp có đại diện các phiên",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_taisei_hokan_historical_course",
+              "name_vi": "Hệ quả chính sách: Thương lượng chuyển tiếp có đại diện các phiên",
+              "name_en": "Policy consequence: Thương lượng chuyển tiếp có đại diện các phiên",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.9,
+                "reform": 0.008,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Trao quyền nhanh cho triều đình",
+          "label_en": "Trao quyền nhanh cho triều đình",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_taisei_hokan_alternative_course",
+              "name_vi": "Hệ quả chính sách: Trao quyền nhanh cho triều đình",
+              "name_en": "Policy consequence: Trao quyền nhanh cho triều đình",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.015,
+                "legitimacy": -0.6,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_edo"
+      ]
+    },
+    {
+      "id": "jap_meiji_restoration",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1868-01-01",
+        "1868-12-31"
+      ],
+      "date_historical": "1868-01-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1868,
+            "to": 1868
+          }
+        ],
+        "fire_date": "1868-01-03"
+      },
+      "title_vi": "Tuyên bố Vương chính phục cổ",
+      "title_en": "The Meiji Restoration Proclamation",
+      "text_vi": "Tuyên bố Vương chính phục cổ là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Meiji Restoration Proclamation was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tập trung quyền lực, lập chính quyền trung ương",
+          "label_en": "Tập trung quyền lực, lập chính quyền trung ương",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_meiji_restoration_historical_course",
+              "name_vi": "Hệ quả chính sách: Tập trung quyền lực, lập chính quyền trung ương",
+              "name_en": "Policy consequence: Tập trung quyền lực, lập chính quyền trung ương",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.9,
+                "reform": 0.008,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì vai trò các phiên trong chuyển tiếp",
+          "label_en": "Duy trì vai trò các phiên trong chuyển tiếp",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_meiji_restoration_alternative_course",
+              "name_vi": "Hệ quả chính sách: Duy trì vai trò các phiên trong chuyển tiếp",
+              "name_en": "Policy consequence: Duy trì vai trò các phiên trong chuyển tiếp",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.015,
+                "legitimacy": -0.6,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_meiji"
+      ]
+    },
+    {
+      "id": "jap_charter_oath",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1868-01-01",
+        "1868-12-31"
+      ],
+      "date_historical": "1868-04-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1868,
+            "to": 1868
+          }
+        ],
+        "fire_date": "1868-04-06"
+      },
+      "title_vi": "Ngũ điều ngự thệ văn",
+      "title_en": "The Charter Oath",
+      "text_vi": "Ngũ điều ngự thệ văn là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Charter Oath was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở rộng tham vấn và tiếp thu kỹ thuật",
+          "label_en": "Mở rộng tham vấn và tiếp thu kỹ thuật",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_charter_oath_historical_course",
+              "name_vi": "Hệ quả chính sách: Mở rộng tham vấn và tiếp thu kỹ thuật",
+              "name_en": "Policy consequence: Mở rộng tham vấn và tiếp thu kỹ thuật",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": 0.015,
+                "literacy": 0.012,
+                "reform": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ cải cách dưới quyền kiểm soát chặt",
+          "label_en": "Giữ cải cách dưới quyền kiểm soát chặt",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_charter_oath_alternative_course",
+              "name_vi": "Hệ quả chính sách: Giữ cải cách dưới quyền kiểm soát chặt",
+              "name_en": "Policy consequence: Giữ cải cách dưới quyền kiểm soát chặt",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.7,
+                "tax": 0.01,
+                "research": -0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_meiji"
+      ]
+    },
+    {
+      "id": "jap_boshin_end",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1869-01-01",
+        "1869-12-31"
+      ],
+      "date_historical": "1869-05-18",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1869,
+            "to": 1869
+          }
+        ],
+        "fire_date": "1869-05-18"
+      },
+      "title_vi": "Kết thúc chiến tranh Boshin tại Hakodate",
+      "title_en": "The Boshin War Ends at Hakodate",
+      "text_vi": "Kết thúc chiến tranh Boshin tại Hakodate là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Boshin War Ends at Hakodate was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tái hòa nhập cựu phiên và võ sĩ",
+          "label_en": "Tái hòa nhập cựu phiên và võ sĩ",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_boshin_end_historical_course",
+              "name_vi": "Hệ quả chính sách: Tái hòa nhập cựu phiên và võ sĩ",
+              "name_en": "Policy consequence: Tái hòa nhập cựu phiên và võ sĩ",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.9,
+                "reform": 0.008,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tước bỏ nhanh đặc quyền võ sĩ",
+          "label_en": "Tước bỏ nhanh đặc quyền võ sĩ",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_boshin_end_alternative_course",
+              "name_vi": "Hệ quả chính sách: Tước bỏ nhanh đặc quyền võ sĩ",
+              "name_en": "Policy consequence: Tước bỏ nhanh đặc quyền võ sĩ",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.015,
+                "legitimacy": -0.6,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_meiji"
+      ]
+    },
+    {
+      "id": "jap_abolition_han",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1871-01-01",
+        "1871-12-31"
+      ],
+      "date_historical": "1871-08-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1871,
+            "to": 1871
+          }
+        ],
+        "fire_date": "1871-08-29"
+      },
+      "title_vi": "Bãi bỏ các phiên phong kiến",
+      "title_en": "Abolition of the Han Domains",
+      "text_vi": "Bãi bỏ các phiên phong kiến là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "Abolition of the Han Domains was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chuyển đổi dần và bồi thường",
+          "label_en": "Chuyển đổi dần và bồi thường",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_abolition_han_historical_course",
+              "name_vi": "Hệ quả chính sách: Chuyển đổi dần và bồi thường",
+              "name_en": "Policy consequence: Chuyển đổi dần và bồi thường",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.9,
+                "reform": 0.008,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Áp dụng thống nhất nhanh",
+          "label_en": "Áp dụng thống nhất nhanh",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_abolition_han_alternative_course",
+              "name_vi": "Hệ quả chính sách: Áp dụng thống nhất nhanh",
+              "name_en": "Policy consequence: Áp dụng thống nhất nhanh",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.015,
+                "legitimacy": -0.6,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_meiji"
+      ]
+    },
+    {
+      "id": "jap_conscription",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1873-01-01",
+        "1873-12-31"
+      ],
+      "date_historical": "1873-01-10",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1873,
+            "to": 1873
+          }
+        ],
+        "fire_date": "1873-01-10"
+      },
+      "title_vi": "Lệnh Nghĩa vụ quân sự",
+      "title_en": "The Conscription Ordinance",
+      "text_vi": "Lệnh Nghĩa vụ quân sự là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Conscription Ordinance was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Xây dựng quân đội quốc gia",
+          "label_en": "Xây dựng quân đội quốc gia",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_conscription_historical_course",
+              "name_vi": "Hệ quả chính sách: Xây dựng quân đội quốc gia",
+              "name_en": "Policy consequence: Xây dựng quân đội quốc gia",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "war_exhaustion": 0.008,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Triển khai nghĩa vụ từng bước",
+          "label_en": "Triển khai nghĩa vụ từng bước",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_conscription_alternative_course",
+              "name_vi": "Hệ quả chính sách: Triển khai nghĩa vụ từng bước",
+              "name_en": "Policy consequence: Triển khai nghĩa vụ từng bước",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": -0.01,
+                "trade": 0.01,
+                "war_exhaustion": -0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_meiji"
+      ]
+    },
+    {
+      "id": "jap_ganghwa_treaty",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1876-01-01",
+        "1876-12-31"
+      ],
+      "date_historical": "1876-02-26",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1876,
+            "to": 1876
+          }
+        ],
+        "fire_date": "1876-02-26"
+      },
+      "title_vi": "Hiệp ước Ganghwa với Triều Tiên",
+      "title_en": "The Treaty of Ganghwa",
+      "text_vi": "Hiệp ước Ganghwa với Triều Tiên là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Treaty of Ganghwa was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Theo đuổi ảnh hưởng qua thương mại",
+          "label_en": "Theo đuổi ảnh hưởng qua thương mại",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_ganghwa_treaty_historical_course",
+              "name_vi": "Hệ quả chính sách: Theo đuổi ảnh hưởng qua thương mại",
+              "name_en": "Policy consequence: Theo đuổi ảnh hưởng qua thương mại",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.015,
+                "trade": 0.008,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tăng sức ép quân sự",
+          "label_en": "Tăng sức ép quân sự",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_ganghwa_treaty_alternative_course",
+              "name_vi": "Hệ quả chính sách: Tăng sức ép quân sự",
+              "name_en": "Policy consequence: Tăng sức ép quân sự",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.015,
+                "trade": -0.01,
+                "legitimacy": -0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_meiji"
+      ]
+    },
+    {
+      "id": "jap_satsuma_rebellion",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1877-01-01",
+        "1877-12-31"
+      ],
+      "date_historical": "1877-02-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1877,
+            "to": 1877
+          }
+        ],
+        "fire_date": "1877-02-15"
+      },
+      "title_vi": "Khởi nghĩa Satsuma",
+      "title_en": "The Satsuma Rebellion",
+      "text_vi": "Khởi nghĩa Satsuma là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Satsuma Rebellion was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Hòa giải và tái hòa nhập cựu võ sĩ",
+          "label_en": "Hòa giải và tái hòa nhập cựu võ sĩ",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_satsuma_rebellion_historical_course",
+              "name_vi": "Hệ quả chính sách: Hòa giải và tái hòa nhập cựu võ sĩ",
+              "name_en": "Policy consequence: Hòa giải và tái hòa nhập cựu võ sĩ",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "war_exhaustion": 0.008,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Trấn áp và củng cố quân đội",
+          "label_en": "Trấn áp và củng cố quân đội",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_satsuma_rebellion_alternative_course",
+              "name_vi": "Hệ quả chính sách: Trấn áp và củng cố quân đội",
+              "name_en": "Policy consequence: Trấn áp và củng cố quân đội",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": -0.01,
+                "trade": 0.01,
+                "war_exhaustion": -0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_meiji"
+      ]
+    },
+    {
+      "id": "jap_ryukyu_annexation",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1879-01-01",
+        "1879-12-31"
+      ],
+      "date_historical": "1879-04-04",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1879,
+            "to": 1879
+          }
+        ],
+        "fire_date": "1879-04-04"
+      },
+      "title_vi": "Sáp nhập Lưu Cầu thành tỉnh Okinawa",
+      "title_en": "Ryukyu Becomes Okinawa Prefecture",
+      "text_vi": "Sáp nhập Lưu Cầu thành tỉnh Okinawa là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "Ryukyu Becomes Okinawa Prefecture was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Hội nhập với bảo đảm văn hóa địa phương",
+          "label_en": "Hội nhập với bảo đảm văn hóa địa phương",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_ryukyu_annexation_historical_course",
+              "name_vi": "Hệ quả chính sách: Hội nhập với bảo đảm văn hóa địa phương",
+              "name_en": "Policy consequence: Hội nhập với bảo đảm văn hóa địa phương",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.015,
+                "army": 0.02,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Áp dụng đồng nhất hành chính",
+          "label_en": "Áp dụng đồng nhất hành chính",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_ryukyu_annexation_alternative_course",
+              "name_vi": "Hệ quả chính sách: Áp dụng đồng nhất hành chính",
+              "name_en": "Policy consequence: Áp dụng đồng nhất hành chính",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.6,
+                "trade": 0.012,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_meiji"
+      ]
+    },
+    {
+      "id": "jap_meiji_constitution",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1889-01-01",
+        "1889-12-31"
+      ],
+      "date_historical": "1889-02-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1889,
+            "to": 1889
+          }
+        ],
+        "fire_date": "1889-02-11"
+      },
+      "title_vi": "Công bố Hiến pháp Minh Trị",
+      "title_en": "The Meiji Constitution",
+      "text_vi": "Công bố Hiến pháp Minh Trị là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Meiji Constitution was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở nghị viện và phát triển quy tắc hiến định",
+          "label_en": "Mở nghị viện và phát triển quy tắc hiến định",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_meiji_constitution_historical_course",
+              "name_vi": "Hệ quả chính sách: Mở nghị viện và phát triển quy tắc hiến định",
+              "name_en": "Policy consequence: Mở nghị viện và phát triển quy tắc hiến định",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.9,
+                "reform": 0.008,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì quyền kiểm soát hành pháp",
+          "label_en": "Duy trì quyền kiểm soát hành pháp",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_meiji_constitution_alternative_course",
+              "name_vi": "Hệ quả chính sách: Duy trì quyền kiểm soát hành pháp",
+              "name_en": "Policy consequence: Duy trì quyền kiểm soát hành pháp",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.015,
+                "legitimacy": -0.6,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_meiji"
+      ]
+    },
+    {
+      "id": "jap_first_diet",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1890-01-01",
+        "1890-12-31"
+      ],
+      "date_historical": "1890-11-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1890,
+            "to": 1890
+          }
+        ],
+        "fire_date": "1890-11-29"
+      },
+      "title_vi": "Khai mạc Quốc hội Đế quốc đầu tiên",
+      "title_en": "The First Imperial Diet",
+      "text_vi": "Khai mạc Quốc hội Đế quốc đầu tiên là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The First Imperial Diet was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thương lượng ngân sách với nghị viện",
+          "label_en": "Thương lượng ngân sách với nghị viện",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_first_diet_historical_course",
+              "name_vi": "Hệ quả chính sách: Thương lượng ngân sách với nghị viện",
+              "name_en": "Policy consequence: Thương lượng ngân sách với nghị viện",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.9,
+                "reform": 0.008,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên quyền chủ động của nội các",
+          "label_en": "Ưu tiên quyền chủ động của nội các",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_first_diet_alternative_course",
+              "name_vi": "Hệ quả chính sách: Ưu tiên quyền chủ động của nội các",
+              "name_en": "Policy consequence: Ưu tiên quyền chủ động của nội các",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.015,
+                "legitimacy": -0.6,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ndl_chronology"
+      ]
+    },
+    {
+      "id": "jap_sino_japanese_war",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1894-01-01",
+        "1894-12-31"
+      ],
+      "date_historical": "1894-08-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1894,
+            "to": 1894
+          }
+        ],
+        "fire_date": "1894-08-01"
+      },
+      "title_vi": "Chiến tranh Nhật–Thanh",
+      "title_en": "The First Sino-Japanese War",
+      "text_vi": "Chiến tranh Nhật–Thanh là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The First Sino-Japanese War was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giới hạn mục tiêu và bảo đảm hậu cần",
+          "label_en": "Giới hạn mục tiêu và bảo đảm hậu cần",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_sino_japanese_war_historical_course",
+              "name_vi": "Hệ quả chính sách: Giới hạn mục tiêu và bảo đảm hậu cần",
+              "name_en": "Policy consequence: Giới hạn mục tiêu và bảo đảm hậu cần",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "war_exhaustion": 0.008,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Theo đuổi chiến thắng quyết định",
+          "label_en": "Theo đuổi chiến thắng quyết định",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_sino_japanese_war_alternative_course",
+              "name_vi": "Hệ quả chính sách: Theo đuổi chiến thắng quyết định",
+              "name_en": "Policy consequence: Theo đuổi chiến thắng quyết định",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": -0.01,
+                "trade": 0.01,
+                "war_exhaustion": -0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_imperial"
+      ]
+    },
+    {
+      "id": "jap_shimonoseki_treaty",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1895-01-01",
+        "1895-12-31"
+      ],
+      "date_historical": "1895-04-17",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1895,
+            "to": 1895
+          }
+        ],
+        "fire_date": "1895-04-17"
+      },
+      "title_vi": "Hiệp ước Shimonoseki",
+      "title_en": "The Treaty of Shimonoseki",
+      "text_vi": "Hiệp ước Shimonoseki là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Treaty of Shimonoseki was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Củng cố ngoại giao và quản trị lãnh thổ",
+          "label_en": "Củng cố ngoại giao và quản trị lãnh thổ",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_shimonoseki_treaty_historical_course",
+              "name_vi": "Hệ quả chính sách: Củng cố ngoại giao và quản trị lãnh thổ",
+              "name_en": "Policy consequence: Củng cố ngoại giao và quản trị lãnh thổ",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.015,
+                "trade": 0.008,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên mở rộng quân sự",
+          "label_en": "Ưu tiên mở rộng quân sự",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_shimonoseki_treaty_alternative_course",
+              "name_vi": "Hệ quả chính sách: Ưu tiên mở rộng quân sự",
+              "name_en": "Policy consequence: Ưu tiên mở rộng quân sự",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.015,
+                "trade": -0.01,
+                "legitimacy": -0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_imperial"
+      ]
+    },
+    {
+      "id": "jap_anglo_japanese_alliance",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1902-01-01",
+        "1902-12-31"
+      ],
+      "date_historical": "1902-01-30",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1902,
+            "to": 1902
+          }
+        ],
+        "fire_date": "1902-01-30"
+      },
+      "title_vi": "Liên minh Anh–Nhật",
+      "title_en": "The Anglo-Japanese Alliance",
+      "text_vi": "Liên minh Anh–Nhật là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Anglo-Japanese Alliance was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Củng cố liên minh với giới hạn phòng thủ",
+          "label_en": "Củng cố liên minh với giới hạn phòng thủ",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_anglo_japanese_alliance_historical_course",
+              "name_vi": "Hệ quả chính sách: Củng cố liên minh với giới hạn phòng thủ",
+              "name_en": "Policy consequence: Củng cố liên minh với giới hạn phòng thủ",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.015,
+                "trade": 0.008,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Dùng liên minh mở rộng sức ép khu vực",
+          "label_en": "Dùng liên minh mở rộng sức ép khu vực",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_anglo_japanese_alliance_alternative_course",
+              "name_vi": "Hệ quả chính sách: Dùng liên minh mở rộng sức ép khu vực",
+              "name_en": "Policy consequence: Dùng liên minh mở rộng sức ép khu vực",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.015,
+                "trade": -0.01,
+                "legitimacy": -0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ndl_chronology"
+      ]
+    },
+    {
+      "id": "jap_russo_japanese_war",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1904-01-01",
+        "1904-12-31"
+      ],
+      "date_historical": "1904-02-10",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1904,
+            "to": 1904
+          }
+        ],
+        "fire_date": "1904-02-10"
+      },
+      "title_vi": "Chiến tranh Nga–Nhật",
+      "title_en": "The Russo-Japanese War",
+      "text_vi": "Chiến tranh Nga–Nhật là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Russo-Japanese War was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tập trung nguồn lực vào mục tiêu giới hạn",
+          "label_en": "Tập trung nguồn lực vào mục tiêu giới hạn",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_russo_japanese_war_historical_course",
+              "name_vi": "Hệ quả chính sách: Tập trung nguồn lực vào mục tiêu giới hạn",
+              "name_en": "Policy consequence: Tập trung nguồn lực vào mục tiêu giới hạn",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "war_exhaustion": 0.008,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tiếp tục chiến dịch dù chi phí tăng",
+          "label_en": "Tiếp tục chiến dịch dù chi phí tăng",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_russo_japanese_war_alternative_course",
+              "name_vi": "Hệ quả chính sách: Tiếp tục chiến dịch dù chi phí tăng",
+              "name_en": "Policy consequence: Tiếp tục chiến dịch dù chi phí tăng",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": -0.01,
+                "trade": 0.01,
+                "war_exhaustion": -0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_imperial"
+      ]
+    },
+    {
+      "id": "jap_portsmouth_treaty",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1905-01-01",
+        "1905-12-31"
+      ],
+      "date_historical": "1905-09-05",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1905,
+            "to": 1905
+          }
+        ],
+        "fire_date": "1905-09-05"
+      },
+      "title_vi": "Hiệp ước Portsmouth",
+      "title_en": "The Treaty of Portsmouth",
+      "text_vi": "Hiệp ước Portsmouth là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Treaty of Portsmouth was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận hòa ước và phục hồi tài chính",
+          "label_en": "Chấp nhận hòa ước và phục hồi tài chính",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_portsmouth_treaty_historical_course",
+              "name_vi": "Hệ quả chính sách: Chấp nhận hòa ước và phục hồi tài chính",
+              "name_en": "Policy consequence: Chấp nhận hòa ước và phục hồi tài chính",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.015,
+                "trade": 0.008,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ lập trường cứng rắn",
+          "label_en": "Giữ lập trường cứng rắn",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_portsmouth_treaty_alternative_course",
+              "name_vi": "Hệ quả chính sách: Giữ lập trường cứng rắn",
+              "name_en": "Policy consequence: Giữ lập trường cứng rắn",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.015,
+                "trade": -0.01,
+                "legitimacy": -0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "us_portsmouth"
+      ]
+    },
+    {
+      "id": "jap_korea_annexation",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1910-01-01",
+        "1910-12-31"
+      ],
+      "date_historical": "1910-08-22",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1910,
+            "to": 1910
+          }
+        ],
+        "fire_date": "1910-08-22"
+      },
+      "title_vi": "Sáp nhập Triều Tiên",
+      "title_en": "The Annexation of Korea",
+      "text_vi": "Sáp nhập Triều Tiên là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Annexation of Korea was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Công nhận quyền tự quyết và lộ trình tự trị",
+          "label_en": "Công nhận quyền tự quyết và lộ trình tự trị",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_korea_annexation_historical_course",
+              "name_vi": "Hệ quả chính sách: Công nhận quyền tự quyết và lộ trình tự trị",
+              "name_en": "Policy consequence: Công nhận quyền tự quyết và lộ trình tự trị",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.015,
+                "army": 0.02,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì cai trị thuộc địa trực tiếp",
+          "label_en": "Duy trì cai trị thuộc địa trực tiếp",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_korea_annexation_alternative_course",
+              "name_vi": "Hệ quả chính sách: Duy trì cai trị thuộc địa trực tiếp",
+              "name_en": "Policy consequence: Duy trì cai trị thuộc địa trực tiếp",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.6,
+                "trade": 0.012,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ndl_korea"
+      ]
+    },
+    {
+      "id": "jap_rice_riots",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1918-01-01",
+        "1918-12-31"
+      ],
+      "date_historical": "1918-07-23",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1918,
+            "to": 1918
+          }
+        ],
+        "fire_date": "1918-07-23"
+      },
+      "title_vi": "Bạo loạn gạo năm 1918",
+      "title_en": "The Rice Riots of 1918",
+      "text_vi": "Bạo loạn gạo năm 1918 là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Rice Riots of 1918 was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Can thiệp giá và mở rộng cung ứng",
+          "label_en": "Can thiệp giá và mở rộng cung ứng",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_rice_riots_historical_course",
+              "name_vi": "Hệ quả chính sách: Can thiệp giá và mở rộng cung ứng",
+              "name_en": "Policy consequence: Can thiệp giá và mở rộng cung ứng",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "legitimacy": 0.5,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì thị trường và ưu tiên trật tự",
+          "label_en": "Duy trì thị trường và ưu tiên trật tự",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_rice_riots_alternative_course",
+              "name_vi": "Hệ quả chính sách: Duy trì thị trường và ưu tiên trật tự",
+              "name_en": "Policy consequence: Duy trì thị trường và ưu tiên trật tự",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": -0.4,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_taisho"
+      ]
+    },
+    {
+      "id": "jap_kanto_earthquake",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1923-01-01",
+        "1923-12-31"
+      ],
+      "date_historical": "1923-09-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1923,
+            "to": 1923
+          }
+        ],
+        "fire_date": "1923-09-01"
+      },
+      "title_vi": "Đại động đất Kantō",
+      "title_en": "The Great Kantō Earthquake",
+      "text_vi": "Đại động đất Kantō là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Great Kantō Earthquake was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tái thiết với tiêu chuẩn an toàn",
+          "label_en": "Tái thiết với tiêu chuẩn an toàn",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_kanto_earthquake_historical_course",
+              "name_vi": "Hệ quả chính sách: Tái thiết với tiêu chuẩn an toàn",
+              "name_en": "Policy consequence: Tái thiết với tiêu chuẩn an toàn",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "legitimacy": 0.5,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Phục hồi nhanh theo quy tắc cũ",
+          "label_en": "Phục hồi nhanh theo quy tắc cũ",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_kanto_earthquake_alternative_course",
+              "name_vi": "Hệ quả chính sách: Phục hồi nhanh theo quy tắc cũ",
+              "name_en": "Policy consequence: Phục hồi nhanh theo quy tắc cũ",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": -0.4,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ndl_chronology"
+      ]
+    },
+    {
+      "id": "jap_universal_suffrage",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1925-01-01",
+        "1925-12-31"
+      ],
+      "date_historical": "1925-05-05",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1925,
+            "to": 1925
+          }
+        ],
+        "fire_date": "1925-05-05"
+      },
+      "title_vi": "Phổ thông đầu phiếu nam giới",
+      "title_en": "Universal Male Suffrage",
+      "text_vi": "Phổ thông đầu phiếu nam giới là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "Universal Male Suffrage was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở rộng tham gia và giáo dục cử tri",
+          "label_en": "Mở rộng tham gia và giáo dục cử tri",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_universal_suffrage_historical_course",
+              "name_vi": "Hệ quả chính sách: Mở rộng tham gia và giáo dục cử tri",
+              "name_en": "Policy consequence: Mở rộng tham gia và giáo dục cử tri",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.01,
+                "legitimacy": 0.8,
+                "radicalism": -0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ cải cách có giới hạn",
+          "label_en": "Giữ cải cách có giới hạn",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_universal_suffrage_alternative_course",
+              "name_vi": "Hệ quả chính sách: Giữ cải cách có giới hạn",
+              "name_en": "Policy consequence: Giữ cải cách có giới hạn",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.015,
+                "legitimacy": -0.3,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_taisho"
+      ]
+    },
+    {
+      "id": "jap_peace_preservation",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1925-01-01",
+        "1925-12-31"
+      ],
+      "date_historical": "1925-04-22",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1925,
+            "to": 1925
+          }
+        ],
+        "fire_date": "1925-04-22"
+      },
+      "title_vi": "Luật Bảo tồn Trật tự Công cộng",
+      "title_en": "The Peace Preservation Law",
+      "text_vi": "Luật Bảo tồn Trật tự Công cộng là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Peace Preservation Law was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ tự do hội họp và tranh luận",
+          "label_en": "Bảo vệ tự do hội họp và tranh luận",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_peace_preservation_historical_course",
+              "name_vi": "Hệ quả chính sách: Bảo vệ tự do hội họp và tranh luận",
+              "name_en": "Policy consequence: Bảo vệ tự do hội họp và tranh luận",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.8,
+                "reform": 0.008,
+                "ig_intelligentsia": 0.6
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên kiểm soát an ninh",
+          "label_en": "Ưu tiên kiểm soát an ninh",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_peace_preservation_alternative_course",
+              "name_vi": "Hệ quả chính sách: Ưu tiên kiểm soát an ninh",
+              "name_en": "Policy consequence: Ưu tiên kiểm soát an ninh",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": -0.7,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_taisho"
+      ]
+    },
+    {
+      "id": "jap_manchurian_incident",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1931-01-01",
+        "1931-12-31"
+      ],
+      "date_historical": "1931-09-18",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1931,
+            "to": 1931
+          }
+        ],
+        "fire_date": "1931-09-18"
+      },
+      "title_vi": "Sự biến Mãn Châu",
+      "title_en": "The Manchurian Incident",
+      "text_vi": "Sự biến Mãn Châu là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Manchurian Incident was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đưa quân đội về dưới quyền dân sự",
+          "label_en": "Đưa quân đội về dưới quyền dân sự",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_manchurian_incident_historical_course",
+              "name_vi": "Hệ quả chính sách: Đưa quân đội về dưới quyền dân sự",
+              "name_en": "Policy consequence: Đưa quân đội về dưới quyền dân sự",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "war_exhaustion": 0.008,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chấp nhận mở rộng chiếm đóng",
+          "label_en": "Chấp nhận mở rộng chiếm đóng",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_manchurian_incident_alternative_course",
+              "name_vi": "Hệ quả chính sách: Chấp nhận mở rộng chiếm đóng",
+              "name_en": "Policy consequence: Chấp nhận mở rộng chiếm đóng",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": -0.01,
+                "trade": 0.01,
+                "war_exhaustion": -0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_wartime"
+      ]
+    },
+    {
+      "id": "jap_february_26",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1936-01-01",
+        "1936-12-31"
+      ],
+      "date_historical": "1936-02-26",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1936,
+            "to": 1936
+          }
+        ],
+        "fire_date": "1936-02-26"
+      },
+      "title_vi": "Biến cố ngày 26 tháng Hai",
+      "title_en": "The February 26 Incident",
+      "text_vi": "Biến cố ngày 26 tháng Hai là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The February 26 Incident was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Khôi phục kiểm soát dân sự",
+          "label_en": "Khôi phục kiểm soát dân sự",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_february_26_historical_course",
+              "name_vi": "Hệ quả chính sách: Khôi phục kiểm soát dân sự",
+              "name_en": "Policy consequence: Khôi phục kiểm soát dân sự",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "legitimacy": 0.5,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Nhượng bộ để giữ ổn định nội bộ",
+          "label_en": "Nhượng bộ để giữ ổn định nội bộ",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_february_26_alternative_course",
+              "name_vi": "Hệ quả chính sách: Nhượng bộ để giữ ổn định nội bộ",
+              "name_en": "Policy consequence: Nhượng bộ để giữ ổn định nội bộ",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": -0.4,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_wartime"
+      ]
+    },
+    {
+      "id": "jap_marco_polo_bridge",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1937-01-01",
+        "1937-12-31"
+      ],
+      "date_historical": "1937-07-07",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1937,
+            "to": 1937
+          }
+        ],
+        "fire_date": "1937-07-07"
+      },
+      "title_vi": "Sự kiện Lư Câu Kiều",
+      "title_en": "The Marco Polo Bridge Incident",
+      "text_vi": "Sự kiện Lư Câu Kiều là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Marco Polo Bridge Incident was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tìm lối thoát ngoại giao",
+          "label_en": "Tìm lối thoát ngoại giao",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_marco_polo_bridge_historical_course",
+              "name_vi": "Hệ quả chính sách: Tìm lối thoát ngoại giao",
+              "name_en": "Policy consequence: Tìm lối thoát ngoại giao",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "war_exhaustion": 0.008,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở rộng chiến tranh",
+          "label_en": "Mở rộng chiến tranh",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_marco_polo_bridge_alternative_course",
+              "name_vi": "Hệ quả chính sách: Mở rộng chiến tranh",
+              "name_en": "Policy consequence: Mở rộng chiến tranh",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": -0.01,
+                "trade": 0.01,
+                "war_exhaustion": -0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_wartime"
+      ]
+    },
+    {
+      "id": "jap_national_mobilization",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1938-01-01",
+        "1938-12-31"
+      ],
+      "date_historical": "1938-04-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1938,
+            "to": 1938
+          }
+        ],
+        "fire_date": "1938-04-01"
+      },
+      "title_vi": "Luật Tổng động viên Quốc gia",
+      "title_en": "The National Mobilization Law",
+      "text_vi": "Luật Tổng động viên Quốc gia là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The National Mobilization Law was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ nguồn cung dân sự, giám sát quyền khẩn cấp",
+          "label_en": "Bảo vệ nguồn cung dân sự, giám sát quyền khẩn cấp",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_national_mobilization_historical_course",
+              "name_vi": "Hệ quả chính sách: Bảo vệ nguồn cung dân sự, giám sát quyền khẩn cấp",
+              "name_en": "Policy consequence: Bảo vệ nguồn cung dân sự, giám sát quyền khẩn cấp",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "trade": 0.015,
+                "innovation": 0.008
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Huy động toàn diện công nghiệp",
+          "label_en": "Huy động toàn diện công nghiệp",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_national_mobilization_alternative_course",
+              "name_vi": "Hệ quả chính sách: Huy động toàn diện công nghiệp",
+              "name_en": "Policy consequence: Huy động toàn diện công nghiệp",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.012,
+                "legitimacy": 0.5,
+                "trade": -0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_wartime"
+      ]
+    },
+    {
+      "id": "jap_pearl_harbor",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1941-01-01",
+        "1941-12-31"
+      ],
+      "date_historical": "1941-12-08",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1941,
+            "to": 1941
+          }
+        ],
+        "fire_date": "1941-12-08"
+      },
+      "title_vi": "Tấn công Trân Châu Cảng theo giờ Nhật",
+      "title_en": "The Attack on Pearl Harbor",
+      "text_vi": "Tấn công Trân Châu Cảng theo giờ Nhật là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Attack on Pearl Harbor was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tìm cơ hội kết thúc chiến tranh sớm",
+          "label_en": "Tìm cơ hội kết thúc chiến tranh sớm",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_pearl_harbor_historical_course",
+              "name_vi": "Hệ quả chính sách: Tìm cơ hội kết thúc chiến tranh sớm",
+              "name_en": "Policy consequence: Tìm cơ hội kết thúc chiến tranh sớm",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "war_exhaustion": 0.008,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Huy động toàn lực cho chiến tranh dài hạn",
+          "label_en": "Huy động toàn lực cho chiến tranh dài hạn",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_pearl_harbor_alternative_course",
+              "name_vi": "Hệ quả chính sách: Huy động toàn lực cho chiến tranh dài hạn",
+              "name_en": "Policy consequence: Huy động toàn lực cho chiến tranh dài hạn",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": -0.01,
+                "trade": 0.01,
+                "war_exhaustion": -0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_wartime"
+      ]
+    },
+    {
+      "id": "jap_midway",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1942-01-01",
+        "1942-12-31"
+      ],
+      "date_historical": "1942-06-05",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1942,
+            "to": 1942
+          }
+        ],
+        "fire_date": "1942-06-05"
+      },
+      "title_vi": "Thất bại tại Midway",
+      "title_en": "The Defeat at Midway",
+      "text_vi": "Thất bại tại Midway là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Defeat at Midway was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo toàn hạm đội và phòng thủ chiều sâu",
+          "label_en": "Bảo toàn hạm đội và phòng thủ chiều sâu",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_midway_historical_course",
+              "name_vi": "Hệ quả chính sách: Bảo toàn hạm đội và phòng thủ chiều sâu",
+              "name_en": "Policy consequence: Bảo toàn hạm đội và phòng thủ chiều sâu",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "war_exhaustion": 0.008,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tiếp tục chiến dịch tiến công",
+          "label_en": "Tiếp tục chiến dịch tiến công",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_midway_alternative_course",
+              "name_vi": "Hệ quả chính sách: Tiếp tục chiến dịch tiến công",
+              "name_en": "Policy consequence: Tiếp tục chiến dịch tiến công",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": -0.01,
+                "trade": 0.01,
+                "war_exhaustion": -0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_wartime"
+      ]
+    },
+    {
+      "id": "jap_atomic_bombings",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1945-01-01",
+        "1945-12-31"
+      ],
+      "date_historical": "1945-08-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1945,
+            "to": 1945
+          }
+        ],
+        "fire_date": "1945-08-06"
+      },
+      "title_vi": "Ném bom nguyên tử Hiroshima và Nagasaki",
+      "title_en": "The Atomic Bombings of Hiroshima and Nagasaki",
+      "text_vi": "Ném bom nguyên tử Hiroshima và Nagasaki là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Atomic Bombings of Hiroshima and Nagasaki was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận đầu hàng để ngăn hủy diệt",
+          "label_en": "Chấp nhận đầu hàng để ngăn hủy diệt",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_atomic_bombings_historical_course",
+              "name_vi": "Hệ quả chính sách: Chấp nhận đầu hàng để ngăn hủy diệt",
+              "name_en": "Policy consequence: Chấp nhận đầu hàng để ngăn hủy diệt",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "legitimacy": 0.5,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tiếp tục chiến đấu với nguy cơ thảm khốc",
+          "label_en": "Tiếp tục chiến đấu với nguy cơ thảm khốc",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_atomic_bombings_alternative_course",
+              "name_vi": "Hệ quả chính sách: Tiếp tục chiến đấu với nguy cơ thảm khốc",
+              "name_en": "Policy consequence: Tiếp tục chiến đấu với nguy cơ thảm khốc",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": -0.4,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_wartime"
+      ]
+    },
+    {
+      "id": "jap_surrender",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1945-01-01",
+        "1945-12-31"
+      ],
+      "date_historical": "1945-08-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1945,
+            "to": 1945
+          }
+        ],
+        "fire_date": "1945-08-15"
+      },
+      "title_vi": "Tuyên bố chấm dứt chiến tranh",
+      "title_en": "The Imperial Rescript Ending the War",
+      "text_vi": "Tuyên bố chấm dứt chiến tranh là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Imperial Rescript Ending the War was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên cứu trợ và cải cách thể chế",
+          "label_en": "Ưu tiên cứu trợ và cải cách thể chế",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_surrender_historical_course",
+              "name_vi": "Hệ quả chính sách: Ưu tiên cứu trợ và cải cách thể chế",
+              "name_en": "Policy consequence: Ưu tiên cứu trợ và cải cách thể chế",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.9,
+                "reform": 0.008,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ nhiều thiết chế cũ trong chuyển tiếp",
+          "label_en": "Giữ nhiều thiết chế cũ trong chuyển tiếp",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_surrender_alternative_course",
+              "name_vi": "Hệ quả chính sách: Giữ nhiều thiết chế cũ trong chuyển tiếp",
+              "name_en": "Policy consequence: Giữ nhiều thiết chế cũ trong chuyển tiếp",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.015,
+                "legitimacy": -0.6,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_postwar"
+      ]
+    },
+    {
+      "id": "jap_constitution",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1947-01-01",
+        "1947-12-31"
+      ],
+      "date_historical": "1947-05-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1947,
+            "to": 1947
+          }
+        ],
+        "fire_date": "1947-05-03"
+      },
+      "title_vi": "Hiến pháp hậu chiến có hiệu lực",
+      "title_en": "The Postwar Constitution Takes Effect",
+      "text_vi": "Hiến pháp hậu chiến có hiệu lực là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Postwar Constitution Takes Effect was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Củng cố thiết chế dân chủ",
+          "label_en": "Củng cố thiết chế dân chủ",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_constitution_historical_course",
+              "name_vi": "Hệ quả chính sách: Củng cố thiết chế dân chủ",
+              "name_en": "Policy consequence: Củng cố thiết chế dân chủ",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.9,
+                "reform": 0.008,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên ổn định hành chính",
+          "label_en": "Ưu tiên ổn định hành chính",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_constitution_alternative_course",
+              "name_vi": "Hệ quả chính sách: Ưu tiên ổn định hành chính",
+              "name_en": "Policy consequence: Ưu tiên ổn định hành chính",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.015,
+                "legitimacy": -0.6,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_postwar"
+      ]
+    },
+    {
+      "id": "jap_sovereignty",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1952-01-01",
+        "1952-12-31"
+      ],
+      "date_historical": "1952-04-28",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1952,
+            "to": 1952
+          }
+        ],
+        "fire_date": "1952-04-28"
+      },
+      "title_vi": "Khôi phục chủ quyền",
+      "title_en": "Japan Regains Sovereignty",
+      "text_vi": "Khôi phục chủ quyền là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "Japan Regains Sovereignty was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở rộng ngoại giao đa phương",
+          "label_en": "Mở rộng ngoại giao đa phương",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_sovereignty_historical_course",
+              "name_vi": "Hệ quả chính sách: Mở rộng ngoại giao đa phương",
+              "name_en": "Policy consequence: Mở rộng ngoại giao đa phương",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.015,
+                "trade": 0.008,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Dựa sâu vào bảo đảm an ninh Hoa Kỳ",
+          "label_en": "Dựa sâu vào bảo đảm an ninh Hoa Kỳ",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_sovereignty_alternative_course",
+              "name_vi": "Hệ quả chính sách: Dựa sâu vào bảo đảm an ninh Hoa Kỳ",
+              "name_en": "Policy consequence: Dựa sâu vào bảo đảm an ninh Hoa Kỳ",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.015,
+                "trade": -0.01,
+                "legitimacy": -0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_postwar"
+      ]
+    },
+    {
+      "id": "jap_jsdf",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1954-01-01",
+        "1954-12-31"
+      ],
+      "date_historical": "1954-07-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1954,
+            "to": 1954
+          }
+        ],
+        "fire_date": "1954-07-01"
+      },
+      "title_vi": "Thành lập Lực lượng Phòng vệ Nhật Bản",
+      "title_en": "Establishment of the Japan Self-Defense Forces",
+      "text_vi": "Thành lập Lực lượng Phòng vệ Nhật Bản là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "Establishment of the Japan Self-Defense Forces was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Xây dựng năng lực dưới giám sát dân sự",
+          "label_en": "Xây dựng năng lực dưới giám sát dân sự",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_jsdf_historical_course",
+              "name_vi": "Hệ quả chính sách: Xây dựng năng lực dưới giám sát dân sự",
+              "name_en": "Policy consequence: Xây dựng năng lực dưới giám sát dân sự",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "war_exhaustion": 0.008,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giới hạn ngân sách và quy mô",
+          "label_en": "Giới hạn ngân sách và quy mô",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_jsdf_alternative_course",
+              "name_vi": "Hệ quả chính sách: Giới hạn ngân sách và quy mô",
+              "name_en": "Policy consequence: Giới hạn ngân sách và quy mô",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": -0.01,
+                "trade": 0.01,
+                "war_exhaustion": -0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_postwar"
+      ]
+    },
+    {
+      "id": "jap_security_treaty",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1960-01-01",
+        "1960-12-31"
+      ],
+      "date_historical": "1960-06-23",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1960,
+            "to": 1960
+          }
+        ],
+        "fire_date": "1960-06-23"
+      },
+      "title_vi": "Hiệp ước An ninh Nhật–Mỹ sửa đổi",
+      "title_en": "The Revised US–Japan Security Treaty",
+      "text_vi": "Hiệp ước An ninh Nhật–Mỹ sửa đổi là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Revised US–Japan Security Treaty was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tăng minh bạch và đối thoại công chúng",
+          "label_en": "Tăng minh bạch và đối thoại công chúng",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_security_treaty_historical_course",
+              "name_vi": "Hệ quả chính sách: Tăng minh bạch và đối thoại công chúng",
+              "name_en": "Policy consequence: Tăng minh bạch và đối thoại công chúng",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.9,
+                "reform": 0.008,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ liên minh ổn định",
+          "label_en": "Giữ liên minh ổn định",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_security_treaty_alternative_course",
+              "name_vi": "Hệ quả chính sách: Giữ liên minh ổn định",
+              "name_en": "Policy consequence: Giữ liên minh ổn định",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.015,
+                "legitimacy": -0.6,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_postwar"
+      ]
+    },
+    {
+      "id": "jap_shinkansen",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1964-01-01",
+        "1964-12-31"
+      ],
+      "date_historical": "1964-10-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1964,
+            "to": 1964
+          }
+        ],
+        "fire_date": "1964-10-01"
+      },
+      "title_vi": "Khai trương Tōkaidō Shinkansen",
+      "title_en": "Opening of the Tōkaidō Shinkansen",
+      "text_vi": "Khai trương Tōkaidō Shinkansen là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "Opening of the Tōkaidō Shinkansen was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tiếp tục đầu tư công nghệ và hạ tầng",
+          "label_en": "Tiếp tục đầu tư công nghệ và hạ tầng",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_shinkansen_historical_course",
+              "name_vi": "Hệ quả chính sách: Tiếp tục đầu tư công nghệ và hạ tầng",
+              "name_en": "Policy consequence: Tiếp tục đầu tư công nghệ và hạ tầng",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "trade": 0.015,
+                "innovation": 0.008
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên bảo trì và cân bằng vùng",
+          "label_en": "Ưu tiên bảo trì và cân bằng vùng",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_shinkansen_alternative_course",
+              "name_vi": "Hệ quả chính sách: Ưu tiên bảo trì và cân bằng vùng",
+              "name_en": "Policy consequence: Ưu tiên bảo trì và cân bằng vùng",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.012,
+                "legitimacy": 0.5,
+                "trade": -0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jacar_postwar"
+      ]
+    },
+    {
+      "id": "jap_oil_shock",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1973-01-01",
+        "1973-12-31"
+      ],
+      "date_historical": "1973-10-16",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1973,
+            "to": 1973
+          }
+        ],
+        "fire_date": "1973-10-16"
+      },
+      "title_vi": "Cú sốc dầu mỏ",
+      "title_en": "The Oil Shock",
+      "text_vi": "Cú sốc dầu mỏ là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Oil Shock was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đa dạng hóa năng lượng và tiết kiệm",
+          "label_en": "Đa dạng hóa năng lượng và tiết kiệm",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_oil_shock_historical_course",
+              "name_vi": "Hệ quả chính sách: Đa dạng hóa năng lượng và tiết kiệm",
+              "name_en": "Policy consequence: Đa dạng hóa năng lượng và tiết kiệm",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "trade": 0.015,
+                "innovation": 0.008
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Trợ cấp ngắn hạn cho ngành tiêu thụ năng lượng",
+          "label_en": "Trợ cấp ngắn hạn cho ngành tiêu thụ năng lượng",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_oil_shock_alternative_course",
+              "name_vi": "Hệ quả chính sách: Trợ cấp ngắn hạn cho ngành tiêu thụ năng lượng",
+              "name_en": "Policy consequence: Trợ cấp ngắn hạn cho ngành tiêu thụ năng lượng",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.012,
+                "legitimacy": 0.5,
+                "trade": -0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "energy_agency"
+      ]
+    },
+    {
+      "id": "jap_plaza_accord",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1985-01-01",
+        "1985-12-31"
+      ],
+      "date_historical": "1985-09-22",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1985,
+            "to": 1985
+          }
+        ],
+        "fire_date": "1985-09-22"
+      },
+      "title_vi": "Thỏa thuận Plaza",
+      "title_en": "The Plaza Accord",
+      "text_vi": "Thỏa thuận Plaza là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Plaza Accord was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Nâng năng suất và điều chỉnh công nghiệp",
+          "label_en": "Nâng năng suất và điều chỉnh công nghiệp",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_plaza_accord_historical_course",
+              "name_vi": "Hệ quả chính sách: Nâng năng suất và điều chỉnh công nghiệp",
+              "name_en": "Policy consequence: Nâng năng suất và điều chỉnh công nghiệp",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "trade": 0.015,
+                "innovation": 0.008
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Nới lỏng tiền tệ để bảo vệ tăng trưởng",
+          "label_en": "Nới lỏng tiền tệ để bảo vệ tăng trưởng",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_plaza_accord_alternative_course",
+              "name_vi": "Hệ quả chính sách: Nới lỏng tiền tệ để bảo vệ tăng trưởng",
+              "name_en": "Policy consequence: Nới lỏng tiền tệ để bảo vệ tăng trưởng",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.012,
+                "legitimacy": 0.5,
+                "trade": -0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "beasley"
+      ]
+    },
+    {
+      "id": "jap_asset_bubble",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1990-01-01",
+        "1990-12-31"
+      ],
+      "date_historical": "1990-01-04",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1990,
+            "to": 1990
+          }
+        ],
+        "fire_date": "1990-01-04"
+      },
+      "title_vi": "Bong bóng tài sản bắt đầu sụp đổ",
+      "title_en": "Japan's Asset Bubble Begins to Burst",
+      "text_vi": "Bong bóng tài sản bắt đầu sụp đổ là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "Japan's Asset Bubble Begins to Burst was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Xử lý nợ xấu và củng cố giám sát",
+          "label_en": "Xử lý nợ xấu và củng cố giám sát",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_asset_bubble_historical_course",
+              "name_vi": "Hệ quả chính sách: Xử lý nợ xấu và củng cố giám sát",
+              "name_en": "Policy consequence: Xử lý nợ xấu và củng cố giám sát",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "trade": 0.015,
+                "innovation": 0.008
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Kích cầu và trì hoãn xử lý bảng cân đối",
+          "label_en": "Kích cầu và trì hoãn xử lý bảng cân đối",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_asset_bubble_alternative_course",
+              "name_vi": "Hệ quả chính sách: Kích cầu và trì hoãn xử lý bảng cân đối",
+              "name_en": "Policy consequence: Kích cầu và trì hoãn xử lý bảng cân đối",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.012,
+                "legitimacy": 0.5,
+                "trade": -0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "beasley"
+      ]
+    },
+    {
+      "id": "jap_hanshin_earthquake",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1995-01-01",
+        "1995-12-31"
+      ],
+      "date_historical": "1995-01-17",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1995,
+            "to": 1995
+          }
+        ],
+        "fire_date": "1995-01-17"
+      },
+      "title_vi": "Động đất Hanshin–Awaji",
+      "title_en": "The Hanshin-Awaji Earthquake",
+      "text_vi": "Động đất Hanshin–Awaji là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Hanshin-Awaji Earthquake was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tái thiết an toàn và tăng cứu hộ",
+          "label_en": "Tái thiết an toàn và tăng cứu hộ",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_hanshin_earthquake_historical_course",
+              "name_vi": "Hệ quả chính sách: Tái thiết an toàn và tăng cứu hộ",
+              "name_en": "Policy consequence: Tái thiết an toàn và tăng cứu hộ",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "legitimacy": 0.5,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Phục hồi nhanh theo hạ tầng cũ",
+          "label_en": "Phục hồi nhanh theo hạ tầng cũ",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_hanshin_earthquake_alternative_course",
+              "name_vi": "Hệ quả chính sách: Phục hồi nhanh theo hạ tầng cũ",
+              "name_en": "Policy consequence: Phục hồi nhanh theo hạ tầng cũ",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": -0.4,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "disaster_cabinet"
+      ]
+    },
+    {
+      "id": "jap_tokyo_sarin",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "1995-01-01",
+        "1995-12-31"
+      ],
+      "date_historical": "1995-03-20",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 1995,
+            "to": 1995
+          }
+        ],
+        "fire_date": "1995-03-20"
+      },
+      "title_vi": "Tấn công sarin trên tàu điện ngầm Tokyo",
+      "title_en": "The Tokyo Subway Sarin Attack",
+      "text_vi": "Tấn công sarin trên tàu điện ngầm Tokyo là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Tokyo Subway Sarin Attack was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Phối hợp tình báo dưới giám sát pháp quyền",
+          "label_en": "Phối hợp tình báo dưới giám sát pháp quyền",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_tokyo_sarin_historical_course",
+              "name_vi": "Hệ quả chính sách: Phối hợp tình báo dưới giám sát pháp quyền",
+              "name_en": "Policy consequence: Phối hợp tình báo dưới giám sát pháp quyền",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": 0.5,
+                "radicalism": -0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở rộng quyền giám sát khẩn cấp",
+          "label_en": "Mở rộng quyền giám sát khẩn cấp",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_tokyo_sarin_alternative_course",
+              "name_vi": "Hệ quả chính sách: Mở rộng quyền giám sát khẩn cấp",
+              "name_en": "Policy consequence: Mở rộng quyền giám sát khẩn cấp",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.03,
+                "legitimacy": -0.5,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "moj_sarin"
+      ]
+    },
+    {
+      "id": "jap_lehman_shock",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "2008-01-01",
+        "2008-12-31"
+      ],
+      "date_historical": "2008-09-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 2008,
+            "to": 2008
+          }
+        ],
+        "fire_date": "2008-09-15"
+      },
+      "title_vi": "Khủng hoảng Lehman",
+      "title_en": "The Lehman Shock",
+      "text_vi": "Khủng hoảng Lehman là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Lehman Shock was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Hỗ trợ việc làm và ổn định tín dụng",
+          "label_en": "Hỗ trợ việc làm và ổn định tín dụng",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_lehman_shock_historical_course",
+              "name_vi": "Hệ quả chính sách: Hỗ trợ việc làm và ổn định tín dụng",
+              "name_en": "Policy consequence: Hỗ trợ việc làm và ổn định tín dụng",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "trade": 0.015,
+                "innovation": 0.008
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên cân bằng ngân sách",
+          "label_en": "Ưu tiên cân bằng ngân sách",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_lehman_shock_alternative_course",
+              "name_vi": "Hệ quả chính sách: Ưu tiên cân bằng ngân sách",
+              "name_en": "Policy consequence: Ưu tiên cân bằng ngân sách",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.012,
+                "legitimacy": 0.5,
+                "trade": -0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "beasley"
+      ]
+    },
+    {
+      "id": "jap_great_east_japan",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "2011-01-01",
+        "2011-12-31"
+      ],
+      "date_historical": "2011-03-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 2011,
+            "to": 2011
+          }
+        ],
+        "fire_date": "2011-03-11"
+      },
+      "title_vi": "Đại động đất Đông Nhật Bản và Fukushima",
+      "title_en": "The Great East Japan Earthquake and Fukushima",
+      "text_vi": "Đại động đất Đông Nhật Bản và Fukushima là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Great East Japan Earthquake and Fukushima was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên an toàn và chuyển đổi năng lượng",
+          "label_en": "Ưu tiên an toàn và chuyển đổi năng lượng",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_great_east_japan_historical_course",
+              "name_vi": "Hệ quả chính sách: Ưu tiên an toàn và chuyển đổi năng lượng",
+              "name_en": "Policy consequence: Ưu tiên an toàn và chuyển đổi năng lượng",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "legitimacy": 0.5,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Khôi phục nhanh nguồn điện hiện hữu",
+          "label_en": "Khôi phục nhanh nguồn điện hiện hữu",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_great_east_japan_alternative_course",
+              "name_vi": "Hệ quả chính sách: Khôi phục nhanh nguồn điện hiện hữu",
+              "name_en": "Policy consequence: Khôi phục nhanh nguồn điện hiện hữu",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": -0.4,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "jma_2011"
+      ]
+    },
+    {
+      "id": "jap_abenomics",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "2013-01-01",
+        "2013-12-31"
+      ],
+      "date_historical": "2013-01-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 2013,
+            "to": 2013
+          }
+        ],
+        "fire_date": "2013-01-11"
+      },
+      "title_vi": "Khởi động Abenomics",
+      "title_en": "Abenomics Begins",
+      "text_vi": "Khởi động Abenomics là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "Abenomics Begins was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Kết hợp kích thích với cải cách năng suất",
+          "label_en": "Kết hợp kích thích với cải cách năng suất",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_abenomics_historical_course",
+              "name_vi": "Hệ quả chính sách: Kết hợp kích thích với cải cách năng suất",
+              "name_en": "Policy consequence: Kết hợp kích thích với cải cách năng suất",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "trade": 0.015,
+                "innovation": 0.008
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung nới lỏng tiền tệ",
+          "label_en": "Tập trung nới lỏng tiền tệ",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_abenomics_alternative_course",
+              "name_vi": "Hệ quả chính sách: Tập trung nới lỏng tiền tệ",
+              "name_en": "Policy consequence: Tập trung nới lỏng tiền tệ",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.012,
+                "legitimacy": 0.5,
+                "trade": -0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cabinet"
+      ]
+    },
+    {
+      "id": "jap_reiwa",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "2019-01-01",
+        "2019-12-31"
+      ],
+      "date_historical": "2019-05-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 2019,
+            "to": 2019
+          }
+        ],
+        "fire_date": "2019-05-01"
+      },
+      "title_vi": "Niên hiệu Reiwa bắt đầu",
+      "title_en": "The Reiwa Era Begins",
+      "text_vi": "Niên hiệu Reiwa bắt đầu là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Reiwa Era Begins was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Hiện đại hóa dịch vụ công và thích ứng nhân khẩu",
+          "label_en": "Hiện đại hóa dịch vụ công và thích ứng nhân khẩu",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_reiwa_historical_course",
+              "name_vi": "Hệ quả chính sách: Hiện đại hóa dịch vụ công và thích ứng nhân khẩu",
+              "name_en": "Policy consequence: Hiện đại hóa dịch vụ công và thích ứng nhân khẩu",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.9,
+                "reform": 0.008,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên ổn định và liên tục chính sách",
+          "label_en": "Ưu tiên ổn định và liên tục chính sách",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_reiwa_alternative_course",
+              "name_vi": "Hệ quả chính sách: Ưu tiên ổn định và liên tục chính sách",
+              "name_en": "Policy consequence: Ưu tiên ổn định và liên tục chính sách",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.015,
+                "legitimacy": -0.6,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cabinet"
+      ]
+    },
+    {
+      "id": "jap_covid_emergency",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "2020-01-01",
+        "2020-12-31"
+      ],
+      "date_historical": "2020-04-07",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 2020,
+            "to": 2020
+          }
+        ],
+        "fire_date": "2020-04-07"
+      },
+      "title_vi": "Tình trạng khẩn cấp COVID-19",
+      "title_en": "The COVID-19 State of Emergency",
+      "text_vi": "Tình trạng khẩn cấp COVID-19 là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The COVID-19 State of Emergency was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ nhóm dễ tổn thương và hỗ trợ thu nhập",
+          "label_en": "Bảo vệ nhóm dễ tổn thương và hỗ trợ thu nhập",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_covid_emergency_historical_course",
+              "name_vi": "Hệ quả chính sách: Bảo vệ nhóm dễ tổn thương và hỗ trợ thu nhập",
+              "name_en": "Policy consequence: Bảo vệ nhóm dễ tổn thương và hỗ trợ thu nhập",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "legitimacy": 0.5,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ chuỗi cung ứng với hạn chế có mục tiêu",
+          "label_en": "Giữ chuỗi cung ứng với hạn chế có mục tiêu",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_covid_emergency_alternative_course",
+              "name_vi": "Hệ quả chính sách: Giữ chuỗi cung ứng với hạn chế có mục tiêu",
+              "name_en": "Policy consequence: Giữ chuỗi cung ứng với hạn chế có mục tiêu",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": -0.4,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "cabinet"
+      ]
+    },
+    {
+      "id": "jap_tokyo_olympics",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "2021-01-01",
+        "2021-12-31"
+      ],
+      "date_historical": "2021-07-23",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 2021,
+            "to": 2021
+          }
+        ],
+        "fire_date": "2021-07-23"
+      },
+      "title_vi": "Khai mạc Olympic Tokyo 2020",
+      "title_en": "The Tokyo 2020 Olympics Open",
+      "text_vi": "Khai mạc Olympic Tokyo 2020 là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Tokyo 2020 Olympics Open was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên an toàn y tế",
+          "label_en": "Ưu tiên an toàn y tế",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_tokyo_olympics_historical_course",
+              "name_vi": "Hệ quả chính sách: Ưu tiên an toàn y tế",
+              "name_en": "Policy consequence: Ưu tiên an toàn y tế",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.015,
+                "innovation": 0.01,
+                "trade": 0.008
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung tối đa vào hình ảnh quốc gia",
+          "label_en": "Tập trung tối đa vào hình ảnh quốc gia",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_tokyo_olympics_alternative_course",
+              "name_vi": "Hệ quả chính sách: Tập trung tối đa vào hình ảnh quốc gia",
+              "name_en": "Policy consequence: Tập trung tối đa vào hình ảnh quốc gia",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.01,
+                "legitimacy": 0.4,
+                "construction": -0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "olympics"
+      ]
+    },
+    {
+      "id": "jap_noto_earthquake",
+      "country": "JAP",
+      "mode": "historical",
+      "window": [
+        "2024-01-01",
+        "2024-12-31"
+      ],
+      "date_historical": "2024-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          },
+          {
+            "type": "year_between",
+            "from": 2024,
+            "to": 2024
+          }
+        ],
+        "fire_date": "2024-01-01"
+      },
+      "title_vi": "Động đất bán đảo Noto",
+      "title_en": "The Noto Peninsula Earthquake",
+      "text_vi": "Động đất bán đảo Noto là một bước ngoặt trong quá trình biến đổi của Nhật Bản. Sự kiện đặt ra lựa chọn giữa ổn định chính trị, nguồn lực kinh tế và vị thế quốc tế; quyết định của chính quyền để lại hệ quả lâu dài cho xã hội.",
+      "text_en": "The Noto Peninsula Earthquake was a turning point in Japan's transformation. It forced choices among political stability, economic resources and international standing; the government's response had lasting consequences for society.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên cứu hộ và hạ tầng thiết yếu",
+          "label_en": "Ưu tiên cứu hộ và hạ tầng thiết yếu",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_noto_earthquake_historical_course",
+              "name_vi": "Hệ quả chính sách: Ưu tiên cứu hộ và hạ tầng thiết yếu",
+              "name_en": "Policy consequence: Ưu tiên cứu hộ và hạ tầng thiết yếu",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "legitimacy": 0.5,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Khôi phục kinh tế theo thứ tự chi phí",
+          "label_en": "Khôi phục kinh tế theo thứ tự chi phí",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "jap_noto_earthquake_alternative_course",
+              "name_vi": "Hệ quả chính sách: Khôi phục kinh tế theo thứ tự chi phí",
+              "name_en": "Policy consequence: Khôi phục kinh tế theo thứ tự chi phí",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": -0.4,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "disaster_cabinet"
+      ]
+    }
+  ],
+  "journals": [
+    {
+      "id": "jap_late_edo_journal",
+      "country": "JAP",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          }
+        ]
+      },
+      "title_vi": "Khủng hoảng và kết thúc trật tự Tokugawa",
+      "text_vi": "Mạc phủ đối mặt với nạn đói, sức ép phương Tây và khủng hoảng chính danh. Ngoại giao và liên minh các phiên quyết định con đường chuyển đổi.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Các mốc lịch sử",
+        "monthly": [
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_tenpo_famine"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_oshio_rebellion"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_perry_arrival"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_kanagawa_treaty"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_harris_treaty"
+            },
+            "add": 20
+          },
+          {
+            "add": -1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 600
+        }
+      ],
+      "timeout_months": 600,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "JAP",
+          "id": "jap_late_edo_journal_done",
+          "name_vi": "Di sản lịch sử được củng cố",
+          "name_en": "Historical legacy consolidated",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 1,
+            "research": 0.01,
+            "prestige": 0.01
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "JAP",
+          "id": "jap_late_edo_journal_failed",
+          "name_vi": "Di sản lịch sử dang dở",
+          "name_en": "Unfinished historical legacy",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "legitimacy": -1,
+            "radicalism": 0.008,
+            "trade": -0.005
+          }
+        }
+      ]
+    },
+    {
+      "id": "jap_meiji_journal",
+      "country": "JAP",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          }
+        ]
+      },
+      "title_vi": "Xây dựng nhà nước Minh Trị",
+      "text_vi": "Tập trung quyền lực, bãi bỏ phiên, xây dựng quân đội và thiết lập thể chế hiến định đã định hình nhà nước Nhật Bản hiện đại.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Các mốc lịch sử",
+        "monthly": [
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_meiji_restoration"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_charter_oath"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_abolition_han"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_conscription"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_meiji_constitution"
+            },
+            "add": 20
+          },
+          {
+            "add": -1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 600
+        }
+      ],
+      "timeout_months": 600,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "JAP",
+          "id": "jap_meiji_journal_done",
+          "name_vi": "Di sản lịch sử được củng cố",
+          "name_en": "Historical legacy consolidated",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 1,
+            "research": 0.01,
+            "prestige": 0.01
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "JAP",
+          "id": "jap_meiji_journal_failed",
+          "name_vi": "Di sản lịch sử dang dở",
+          "name_en": "Unfinished historical legacy",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "legitimacy": -1,
+            "radicalism": 0.008,
+            "trade": -0.005
+          }
+        }
+      ]
+    },
+    {
+      "id": "jap_imperial_journal",
+      "country": "JAP",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          }
+        ]
+      },
+      "title_vi": "Trỗi dậy thành cường quốc đế quốc",
+      "text_vi": "Chiến tranh, liên minh và chủ nghĩa đế quốc mở rộng vị thế Nhật Bản nhưng kéo theo chi phí và xung đột khu vực.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Các mốc lịch sử",
+        "monthly": [
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_sino_japanese_war"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_shimonoseki_treaty"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_anglo_japanese_alliance"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_russo_japanese_war"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_korea_annexation"
+            },
+            "add": 20
+          },
+          {
+            "add": -1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 600
+        }
+      ],
+      "timeout_months": 600,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "JAP",
+          "id": "jap_imperial_journal_done",
+          "name_vi": "Di sản lịch sử được củng cố",
+          "name_en": "Historical legacy consolidated",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 1,
+            "research": 0.01,
+            "prestige": 0.01
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "JAP",
+          "id": "jap_imperial_journal_failed",
+          "name_vi": "Di sản lịch sử dang dở",
+          "name_en": "Unfinished historical legacy",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "legitimacy": -1,
+            "radicalism": 0.008,
+            "trade": -0.005
+          }
+        }
+      ]
+    },
+    {
+      "id": "jap_militarism_journal",
+      "country": "JAP",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          }
+        ]
+      },
+      "title_vi": "Khủng hoảng dân chủ và quân phiệt hóa",
+      "text_vi": "Khủng hoảng xã hội và quyền lực quân đội dẫn tới chiến tranh tổng lực, cuối cùng buộc Nhật Bản đầu hàng.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Các mốc lịch sử",
+        "monthly": [
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_manchurian_incident"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_february_26"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_marco_polo_bridge"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_pearl_harbor"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_surrender"
+            },
+            "add": 20
+          },
+          {
+            "add": -1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 600
+        }
+      ],
+      "timeout_months": 600,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "JAP",
+          "id": "jap_militarism_journal_done",
+          "name_vi": "Di sản lịch sử được củng cố",
+          "name_en": "Historical legacy consolidated",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 1,
+            "research": 0.01,
+            "prestige": 0.01
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "JAP",
+          "id": "jap_militarism_journal_failed",
+          "name_vi": "Di sản lịch sử dang dở",
+          "name_en": "Unfinished historical legacy",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "legitimacy": -1,
+            "radicalism": 0.008,
+            "trade": -0.005
+          }
+        }
+      ]
+    },
+    {
+      "id": "jap_postwar_journal",
+      "country": "JAP",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          }
+        ]
+      },
+      "title_vi": "Tái thiết và tăng trưởng hậu chiến",
+      "text_vi": "Nhật Bản xây dựng trật tự hiến định, khôi phục chủ quyền, tái tổ chức an ninh và đầu tư hạ tầng.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Các mốc lịch sử",
+        "monthly": [
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_constitution"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_sovereignty"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_jsdf"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_security_treaty"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_shinkansen"
+            },
+            "add": 20
+          },
+          {
+            "add": -1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 600
+        }
+      ],
+      "timeout_months": 600,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "JAP",
+          "id": "jap_postwar_journal_done",
+          "name_vi": "Di sản lịch sử được củng cố",
+          "name_en": "Historical legacy consolidated",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 1,
+            "research": 0.01,
+            "prestige": 0.01
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "JAP",
+          "id": "jap_postwar_journal_failed",
+          "name_vi": "Di sản lịch sử dang dở",
+          "name_en": "Unfinished historical legacy",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "legitimacy": -1,
+            "radicalism": 0.008,
+            "trade": -0.005
+          }
+        }
+      ]
+    },
+    {
+      "id": "jap_modern_journal",
+      "country": "JAP",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "JAP"
+          }
+        ]
+      },
+      "title_vi": "Các thập niên mất mát và khả năng chống chịu",
+      "text_vi": "Suy giảm kinh tế, thiên tai và khủng hoảng hiện đại thử thách khả năng thích ứng của nhà nước và xã hội.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Các mốc lịch sử",
+        "monthly": [
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_asset_bubble"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_hanshin_earthquake"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_tokyo_sarin"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_great_east_japan"
+            },
+            "add": 20
+          },
+          {
+            "if": {
+              "type": "event_fired",
+              "id": "jap_noto_earthquake"
+            },
+            "add": 20
+          },
+          {
+            "add": -1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 600
+        }
+      ],
+      "timeout_months": 600,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "JAP",
+          "id": "jap_modern_journal_done",
+          "name_vi": "Di sản lịch sử được củng cố",
+          "name_en": "Historical legacy consolidated",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 1,
+            "research": 0.01,
+            "prestige": 0.01
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "JAP",
+          "id": "jap_modern_journal_failed",
+          "name_vi": "Di sản lịch sử dang dở",
+          "name_en": "Unfinished historical legacy",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "legitimacy": -1,
+            "radicalism": 0.008,
+            "trade": -0.005
+          }
+        }
+      ]
+    }
+  ]
+}
