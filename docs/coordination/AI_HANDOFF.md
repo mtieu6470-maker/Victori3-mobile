@@ -2703,3 +2703,38 @@ At the reviewed FRA data HEAD `e740546861c32f6180c79f88ab20ce6edd7ba379`:
 ### Next ChatGPT A1 work
 
 Proceed JAP → QNG → RUS → PRU → USA → TUR, each as its own country event/journal/image-candidate batch plus a dated GitHub checkpoint. Do not mark MSG-129 complete until every required country pack is delivered. The three paths `docs/VICTORI3_COMPLETE_GAME_SPEC.md`, `docs/VICTORI3_EXECUTION_PLAN.md`, and `docs/VICTORI3_SIMULATION_ROADMAP.md` were absent (404) on the checked branch; the active continuity sources remain the coordination, roadmap and checkpoint files named above.
+
+
+## 13. ChatGPT A1 checkpoint — Japan (JAP), 2026-11-24
+
+- Branch: `ccr-b27f3fb8-epfpd6`
+- JAP data commit: `f14bbbd5e946e77dd1cd89727efdda1515c92675`
+- JAP report commit: `08f34f4848e8df582b37856a0b8514bffe1f5b32`
+- Open-work update commit: `55f1c18c335b214b128b16de082cfe8ab7d9d125`
+- File: `historical_data/events/story/JAP.json`
+- Status: initial JAP authoring batch delivered; **not release-ready**, Claude integration and content enrichment pending. MSG-129 remains IN_PROGRESS.
+
+### Package and static checks
+
+- 53 unique `jap_*` events, 6 journals, 18 source-reference entries; date coverage 1836-09-01 through 2024-01-01.
+- Bilingual fields, two choices, named timed modifier per choice, and exact `trigger.fire_date` equal to `date_historical`.
+- Read-back confirmed JSON parse, source refs resolve, journal milestone IDs resolve, five milestone weights per journal total 100, and no unknown region IDs in effects.
+- No image candidates or binary assets added.
+
+### Required caveats
+
+- Narratives are concise generic bilingual framing, not yet fully researched event-specific accounts. Rewrite/enrich before release.
+- Source URLs/references were not individually opened and claim-verified in this session.
+- Registry describes `JAP` as Tokugawa Japan. Claude must determine how the game models continuity through later Meiji/modern regimes; do not invent a new entity ID in this data-only package.
+- Confirm monthly scheduler handles mid-month `fire_date` and journal `event_fired` progress is one-shot, not re-awarded every month.
+- No `npm run data`, `npm run content`, runtime, automated tests, Android build, APK or device QA was run.
+
+### Claude actions
+
+Run data/content builders, resolve schema errors, verify event scheduling and journal semantics, and test the country/regime continuity issue. Review/enrich event-specific dates and source citations before accepting the pack.
+
+### Next A1 country sequence
+
+Proceed with QNG → RUS → PRU → USA → TUR. PRU means Prussia; do not confuse it with PRS (Persia). Do not mark MSG-129 complete until the full sequence and required review are done.
+
+Detailed report: `docs/research/history/CG61_JAP_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md`.
