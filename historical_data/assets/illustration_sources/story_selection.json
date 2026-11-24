@@ -3134,6 +3134,162 @@
         0.5
       ],
       "review_note": "Commons file page records the Navy image ID 010915-N-3995K-024 and marks it public domain as a U.S. federal-government work. It depicts the aftermath and memorial response, not the attacks themselves."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "tur_abdulmejid_portrait_1839",
+      "commons_file": "Abdulmejid portrait.jpg",
+      "year": 1846,
+      "width": 1045,
+      "height": 1331,
+      "author": "Konstantin Cretius (1814–1901)",
+      "name": "Portrait of Sultan Abdülmecid I",
+      "description": "Portrait of Abdülmecid I, Sultan during the opening years of the Tanzimat reforms",
+      "period": {
+        "from": 1839,
+        "to": 1861
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page attributes the portrait to Konstantin Cretius, who died in 1901, and states PD in source country and US with Public Domain Mark. This is a period portrait, not a depiction of the Gülhane proclamation itself."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "tur_crimean_war_1853",
+      "commons_file": "Kırım Savaşı, Ömer Paşa subaylarıyla 1854.jpg",
+      "year": 1854,
+      "width": 503,
+      "height": 377,
+      "author": "Carol Szathmari (1812–1887)",
+      "name": "Omar Pasha with his officers during the Crimean War",
+      "description": "Photograph of Ottoman commander Omar Pasha with officers during the Crimean War, 1854",
+      "period": {
+        "from": 1853,
+        "to": 1856
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page cites the Royal Collection, identifies Carol Szathmari and marks PD in source country, US and Turkey with Public Domain Mark. Contemporary photograph, suitable for the Crimean War context."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "tur_constitution_1876",
+      "commons_file": "Kanun-i Esasi.jpg",
+      "year": 1876,
+      "width": 339,
+      "height": 583,
+      "author": "Ahmed Kamil Printing House (publisher)",
+      "name": "First page of the Ottoman Constitution",
+      "description": "First page of the Kanûn-ı Esâsî, promulgated on 23 December 1876",
+      "period": {
+        "from": 1876,
+        "to": 1876
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page identifies the first page of the 1876 constitution and reports PD in source country and US, plus Public Domain Mark. Verify the source scan and legibility in the ingestion pipeline."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "tur_young_turk_revolution_1908",
+      "commons_file": "The Flag of Freedom escorted by Young Turkish Revolutionaries.jpg",
+      "year": 1908,
+      "width": 750,
+      "height": 1179,
+      "author": "Unknown author",
+      "name": "The Flag of Freedom and Young Turkish Revolutionaries",
+      "description": "1908 image depicting the constitutionalist movement and Young Turkish revolutionaries",
+      "period": {
+        "from": 1908,
+        "to": 1908
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page dates the image to 1908 and marks it public domain under Ottoman-era copyright rules. Author is unknown; keep as a candidate and preserve the Commons provenance note."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "tur_gallipoli_1915",
+      "commons_file": "Assault of Ottoman soldiers.jpg",
+      "year": 1915,
+      "width": 902,
+      "height": 606,
+      "author": "Unknown author; Turkish General Staff source",
+      "name": "Ottoman soldiers assault at Gallipoli",
+      "description": "Photograph from the Turkish General Staff depicting Ottoman soldiers during the Gallipoli campaign in 1915",
+      "period": {
+        "from": 1915,
+        "to": 1915
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page identifies the Turkish General Staff as source and marks PD in source country with Public Domain Mark; the page explicitly says a US public-domain tag is also required. Confirm that US tag at ingestion before approval."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "tur_sultanate_abolished_1922",
+      "commons_file": "Sébah & Joaillier - Sultan Mehmed VI.jpg",
+      "year": 1920,
+      "width": 2631,
+      "height": 4075,
+      "author": "Jean Pascal Sébah (1872–1947) and Polycarpe Joaillier (1848–1904); restoration by Adam Cuerden",
+      "name": "Portrait of Mehmed VI, the last Ottoman sultan",
+      "description": "Photograph of Mehmed VI from the final years of the Ottoman Empire, held by the Library of Congress",
+      "period": {
+        "from": 1918,
+        "to": 1922
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page links the Library of Congress record ppmsca.04928, states the work is public domain in source country and US, and includes an attribution requirement for restoration by Adam Cuerden. Original is about 5.8 MB; use a derivative and retain attribution. This is a contextual portrait, not the Sultan's departure photograph."
     }
   ]
 }
