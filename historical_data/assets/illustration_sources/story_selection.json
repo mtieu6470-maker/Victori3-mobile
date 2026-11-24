@@ -2626,7 +2626,7 @@
       "height": 3225,
       "author": "Henri Meyer (1841–1899)",
       "name": "Lễ tước quân hàm Alfred Dreyfus",
-      "description": "Tranh minh họa cảnh tước quân hàm Alfred Dreyfus ngày 13 tháng 1 năm 1895, từ Gallica.",
+      "description": "Tranh bìa phụ trương Le Petit Journal số 217, xuất bản ngày 13 tháng 1 năm 1895, mô tả lễ tước quân hàm Dreyfus diễn ra ngày 5 tháng 1 năm 1895; nguồn Gallica.",
       "period": {
         "from": 1894,
         "to": 1895
@@ -2642,7 +2642,7 @@
         0.5
       ],
       "fit": "contain",
-      "review_note": "Commons page attributes the work to Henri Meyer (d. 1899), sourced from Gallica, and states PD in country of origin and US. Retain attribution and re-read page before ingestion."
+      "review_note": "Commons/Gallica attribution identifies Henri Meyer (d. 1899); distinguish publication date (13 Jan 1895) from depicted degradation ceremony (5 Jan 1895). Commons states PD in country of origin and US. Retain attribution and re-read rights before ingestion."
     },
     {
       "type": "illustration_event",
