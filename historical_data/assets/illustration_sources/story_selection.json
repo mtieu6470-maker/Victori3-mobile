@@ -2747,6 +2747,81 @@
         0.5
       ],
       "review_note": "Commons file page records public domain in the United States and identifies the Library of Congress as source. Very large original (over 50 MB); ingestion should select an appropriate derivative and recheck source/rights."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "rus_bloody_sunday",
+      "commons_file": "Bloody_Sunday_Russia_1905.png",
+      "year": 1925,
+      "width": 1420,
+      "author": "Vyacheslav Viskovsky",
+      "name": "Bloody Sunday in St Petersburg (historical reconstruction)",
+      "description": "A 1925 reconstruction of the Bloody Sunday events in St Petersburg, depicting the confrontation between demonstrators and imperial troops.",
+      "period": {
+        "from": 1905,
+        "to": 1905
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page describes this as a 1925 reconstruction and PD-Art reproduction of an underlying public-domain work; U.S. public-domain basis is stated. It is an illustration, not a contemporary photograph."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "rus_first_duma",
+      "commons_file": "Russian_Duma_Members,_1906.jpg",
+      "year": 1906,
+      "width": 9814,
+      "author": "Russian Empire",
+      "name": "Members of the First State Duma",
+      "description": "Group portrait of members of the Russian Empire's State Duma in 1906; archive source listed as the Center for Jewish History digital collections.",
+      "period": {
+        "from": 1906,
+        "to": 1906
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page states U.S. public-domain status. Original file is about 124 MB; do not ingest the original as-is. Verify source metadata and create a quality-controlled derivative."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "rus_nicholas_ii_abdication",
+      "commons_file": "The_last_photo_of_Nicholas_II.jpg",
+      "year": 1917,
+      "width": 793,
+      "author": "Unknown; Library of Congress source",
+      "name": "Nicholas II after abdication",
+      "description": "Portrait of Nicholas II at Tsarskoye Selo after his abdication in March 1917; Library of Congress Prints and Photographs digital ID ggbain.25191.",
+      "period": {
+        "from": 1917,
+        "to": 1917
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons identifies the Library of Congress as source and records a PD-old missing structured copyright status; final rights verification required before ingestion."
     }
   ]
 }
