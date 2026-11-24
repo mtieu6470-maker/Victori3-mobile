@@ -2508,6 +2508,195 @@
       ],
       "review_note": "6,896 × 2,924 landscape document. Commons applies Vietnam's official-document public-domain rationale; U.S. status is not independently established here, so ingestion must decide.",
       "fit": "contain"
+    },
+    {
+      "type": "illustration_event",
+      "subject": "ill_fra_february_revolution_1848",
+      "commons_file": "Plan des barricades de février (1848) - Nous devons ce plan et ces indications à l'obligeance de Mr le colonel du génie Leblanc - btv1b53136035z.jpg",
+      "year": 1848,
+      "width": 5830,
+      "height": 4096,
+      "author": "Leblanc (mapmaker attribution; biographical identity not independently established)",
+      "name": "Sơ đồ các chiến lũy Paris tháng 2 năm 1848",
+      "description": "Bản đồ các chiến lũy trong Cách mạng tháng Hai, lưu tại Bibliothèque nationale de France / Gallica.",
+      "period": {
+        "from": 1848,
+        "to": 1848
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "fit": "contain",
+      "review_note": "Commons file page identifies the BnF/Gallica source and a pre-1931 publication. PD-US basis is stated; France term/anonymous-work basis is stated on page. Preserve BnF attribution; ingester must re-read page and rights before distribution."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "ill_fra_coup_1851",
+      "commons_file": "Coup d'État 2 décembre 1851.jpg",
+      "year": 1853,
+      "width": 1285,
+      "height": 1867,
+      "author": "Eugène Leguay (engraving; d. 1883), after Philippoteaux (d. 1884)",
+      "name": "Đảo chính ngày 2 tháng 12 năm 1851",
+      "description": "Bản khắc đương thời mô tả cuộc đảo chính Louis-Napoléon Bonaparte; bản in ghi năm 1853.",
+      "period": {
+        "from": 1851,
+        "to": 1852
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "fit": "contain",
+      "review_note": "Commons page cites Gallica and the engraver/artist death dates; it states PD in country of origin and US, with no known restrictions. Attribution to Gallica/artist should be retained; re-read live rights during ingestion."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "ill_fra_commune_1871",
+      "commons_file": "Commune de Paris barricade de la Chaussée Ménilmontant.jpg",
+      "year": 1871,
+      "width": 1535,
+      "height": 1535,
+      "author": "Unknown (period photograph)",
+      "name": "Chiến lũy Công xã Paris tại Chaussée Ménilmontant",
+      "description": "Ảnh tư liệu về chiến lũy trong Công xã Paris, gắn với ngày 18 tháng 3 năm 1871.",
+      "period": {
+        "from": 1871,
+        "to": 1871
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "fit": "contain",
+      "review_note": "Commons page describes a faithful reproduction of a public-domain historical photograph/work and records PD in origin and US; page also links a CC0 statement for the reproduction. Preserve source attribution and re-check exact file status before ingestion."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "ill_fra_exposition_1889",
+      "commons_file": "Tour Eiffel exposition universelle 1889.jpg",
+      "year": 1889,
+      "width": 473,
+      "height": 577,
+      "author": "Anonymous (period photograph)",
+      "name": "Tháp Eiffel tại Triển lãm thế giới 1889",
+      "description": "Ảnh tư liệu tháp Eiffel trong khuôn khổ Triển lãm thế giới Paris năm 1889; nguồn Goupil / Bộ Văn hóa Pháp.",
+      "period": {
+        "from": 1889,
+        "to": 1889
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "fit": "contain",
+      "review_note": "Commons page identifies Ministry of Culture/Goupil provenance and explains PD for anonymous EU work and pre-1931 publication in the US. Preserve source credit; re-read rights at ingest."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "ill_fra_dreyfus_1895",
+      "commons_file": "Degradation alfred dreyfus.jpg",
+      "year": 1895,
+      "width": 2841,
+      "height": 3225,
+      "author": "Henri Meyer (1841–1899)",
+      "name": "Lễ tước quân hàm Alfred Dreyfus",
+      "description": "Tranh minh họa cảnh tước quân hàm Alfred Dreyfus ngày 13 tháng 1 năm 1895, từ Gallica.",
+      "period": {
+        "from": 1894,
+        "to": 1895
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "fit": "contain",
+      "review_note": "Commons page attributes the work to Henri Meyer (d. 1899), sourced from Gallica, and states PD in country of origin and US. Retain attribution and re-read page before ingestion."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "ill_fra_verdun_1916",
+      "commons_file": "Bataille de Verdun 1916.jpg",
+      "year": 1916,
+      "width": 1875,
+      "height": 1402,
+      "author": "Collection DocAnciens / docpix.fr",
+      "name": "Binh sĩ Pháp tại Verdun năm 1916",
+      "description": "Ảnh tư liệu về trận Verdun, nguồn bộ sưu tập DocAnciens / docpix.fr.",
+      "period": {
+        "from": 1916,
+        "to": 1916
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "fit": "contain",
+      "review_note": "Commons page states PD-US and PD-France on its stated basis and requires attribution; this is not a global-rights clearance. Keep pending until ingestion/legal review confirms distribution territories."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "ill_fra_paris_liberation_1944",
+      "commons_file": "Paris1944.jpg",
+      "year": 1944,
+      "width": 7290,
+      "height": 5681,
+      "author": "Jack Downey / U.S. Office of War Information",
+      "name": "Paris trong ngày giải phóng năm 1944",
+      "description": "Ảnh Library of Congress về Paris trong ngày giải phóng, do Jack Downey / Office of War Information chụp.",
+      "period": {
+        "from": 1944,
+        "to": 1944
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "fit": "contain",
+      "review_note": "US federal-government work / PD-US basis only. Do not infer worldwide or French public-domain status; keep pending unless distribution territory is approved after legal review."
     }
   ]
 }
