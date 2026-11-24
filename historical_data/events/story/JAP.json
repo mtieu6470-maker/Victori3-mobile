@@ -257,7 +257,10 @@
       ],
       "sources": [
         "jacar_edo"
-      ]
+      ],
+      "image": {
+        "ref": "ill_jap_perry_arrival"
+      }
     },
     {
       "id": "jap_kanagawa_treaty",
@@ -731,7 +734,10 @@
       ],
       "sources": [
         "jacar_meiji"
-      ]
+      ],
+      "image": {
+        "ref": "ill_jap_meiji_restoration"
+      }
     },
     {
       "id": "jap_charter_oath",
@@ -1521,7 +1527,10 @@
       ],
       "sources": [
         "jacar_imperial"
-      ]
+      ],
+      "image": {
+        "ref": "ill_jap_sino_japanese_war"
+      }
     },
     {
       "id": "jap_shimonoseki_treaty",
@@ -1758,7 +1767,10 @@
       ],
       "sources": [
         "jacar_imperial"
-      ]
+      ],
+      "image": {
+        "ref": "ill_jap_russo_japanese_war"
+      }
     },
     {
       "id": "jap_portsmouth_treaty",
@@ -2074,7 +2086,10 @@
       ],
       "sources": [
         "ndl_chronology"
-      ]
+      ],
+      "image": {
+        "ref": "ill_jap_kanto_earthquake"
+      }
     },
     {
       "id": "jap_universal_suffrage",
@@ -2627,7 +2642,10 @@
       ],
       "sources": [
         "jacar_wartime"
-      ]
+      ],
+      "image": {
+        "ref": "ill_jap_pearl_harbor"
+      }
     },
     {
       "id": "jap_midway",
