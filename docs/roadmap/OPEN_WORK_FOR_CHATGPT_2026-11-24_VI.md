@@ -140,3 +140,10 @@ Owner nhắn: "Đọc `docs/roadmap/OPEN_WORK_FOR_CHATGPT_2026-11-24_VI.md`, so�
 - Báo cáo tổng: `docs/research/history/CG68_A1_SEVEN_COUNTRY_COMPLETION_AUDIT_2026-11-24_VI.md`.
 - Checkpoints mới: USA `CG66_USA_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md`; TUR `CG67_TUR_OTTOMAN_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md`.
 - **A1 không còn nước nào để ChatGPT author tiếp.** Chờ Claude review/nhập/build; A2–A8 vẫn còn mở. MSG-129 chưa DONE toàn phần.
+
+
+## Bàn giao tích hợp A1 — PR #2
+
+- Đã mở draft PR: https://github.com/mtieu6470-maker/Victori3-mobile/pull/2 (head `ccr-b27f3fb8-epfpd6` → base `claude/game-historical-sandbox-modes-kg7rj7`).
+- GitHub trả `mergeable=false`; compare branch là `diverged` (head ahead 34, behind 7). **Chưa merge vào nhánh game.** Cần hòa giải các cập nhật docs hai nhánh trước, không force-push và không bỏ thay đổi của Claude.
+- PR gồm PRU/USA/TUR, bổ sung 6 ảnh ứng viên JAP, chuẩn hóa subject ảnh FRA, sửa ref ảnh RUS và các báo cáo CG-65–CG-68.
