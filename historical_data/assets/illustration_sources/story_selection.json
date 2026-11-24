@@ -2822,6 +2822,162 @@
         0.5
       ],
       "review_note": "Commons identifies the Library of Congress as source and records a PD-old missing structured copyright status; final rights verification required before ingestion."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "pru_march_revolution_1848",
+      "commons_file": "Painting of a barricade battle in Berlin's Alexanderplatz in 1848.png",
+      "year": 1848,
+      "width": 1400,
+      "height": 1001,
+      "author": "Unknown author",
+      "name": "Barricade fighting at Berlin Alexanderplatz",
+      "description": "Contemporary-era depiction of the March Revolution barricade fighting in Berlin, 1848",
+      "period": {
+        "from": 1848,
+        "to": 1848
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page reports Public Domain in source country and US, and Public Domain Mark. Candidate only; recheck file status and distribution rights in ingestion."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "pru_wilhelm_coronation_1861",
+      "commons_file": "Krönung Wilhelm I. zum König von Preußen 1861.png",
+      "year": 1861,
+      "width": 420,
+      "height": 312,
+      "author": "Unknown painter",
+      "name": "Coronation of Wilhelm I as King of Prussia",
+      "description": "Depiction of Wilhelm I's coronation at Königsberg in 1861",
+      "period": {
+        "from": 1861,
+        "to": 1861
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page reports Public Domain and Public Domain Mark. The Commons record cites university teaching material as source; verify provenance at ingestion."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "pru_bismarck_speech_1862",
+      "commons_file": "Otto von Bismarck.jpg",
+      "year": 1873,
+      "width": 350,
+      "height": 503,
+      "author": "Portrait artist not identified in file record",
+      "name": "Otto von Bismarck portrait",
+      "description": "Portrait of Otto von Bismarck, suitable as a period portrait for his 1862 ministerial period",
+      "period": {
+        "from": 1862,
+        "to": 1873
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page identifies a faithful reproduction of a public-domain work and requires a US public-domain tag. The image is contextual rather than a verified 1862 sitting; retain as a portrait candidate only."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "pru_sedan_1870",
+      "commons_file": "The battle of Sedan...Die schlacht bei Sedan LCCN2003679775.jpg",
+      "year": 1870,
+      "width": 9067,
+      "height": 7346,
+      "author": "Popular Graphic Arts",
+      "name": "Battle of Sedan",
+      "description": "Library of Congress print depicting the Battle of Sedan in 1870",
+      "period": {
+        "from": 1870,
+        "to": 1870
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page identifies Library of Congress digital ID pga.02507 and states PD in source country and US (published before 1931). Original is over 9,000 px; use a controlled derivative, not the full original."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "pru_empire_proclamation_1871",
+      "commons_file": "Anton von Werner - Kaiserproklamation in Versailles 1871.jpg",
+      "year": 1871,
+      "width": 1292,
+      "height": 1095,
+      "author": "Anton von Werner (1843–1915)",
+      "name": "Proclamation of the German Empire at Versailles",
+      "description": "Anton von Werner's depiction of Wilhelm I's proclamation as German Emperor in Versailles on 18 January 1871",
+      "period": {
+        "from": 1871,
+        "to": 1871
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page states the artist died in 1915, the work and faithful 2D reproduction are PD, with US PD tag / Public Domain Mark. Recheck territorial terms at ingestion."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "pru_reichstag_1894",
+      "commons_file": "Reichstag-1894.jpg",
+      "year": 1894,
+      "width": 2852,
+      "height": 2006,
+      "author": "Willy Stöwer (1864–1931), original illustration in Die Gartenlaube",
+      "name": "Reichstag building interior, 1894",
+      "description": "Period image of the Reichstag building in Berlin around 1894, published in Die Gartenlaube",
+      "period": {
+        "from": 1894,
+        "to": 1894
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page reports Public Domain in source country and US, with Public Domain Mark. Confirm the attribution and use the Commons derivative at ingestion."
     }
   ]
 }
