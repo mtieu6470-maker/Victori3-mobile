@@ -1,0 +1,5050 @@
+{
+  "schema": "story_events_v1",
+  "country": "PRU",
+  "sources": {
+    "ghdi_vormaerz": "German History in Documents and Images, From Vormärz to Prussian Dominance (1815–1866), introduction. https://germanhistorydocs.org/en/from-vormaerz-to-prussian-dominance-1815-1866/ghdi:introduction-3",
+    "ghdi_bismarck_1862": "German History in Documents and Images, Excerpts from Bismarck’s “Blood and Iron” Speech (30 September 1862). https://germanhistorydocs.org/en/from-vormaerz-to-prussian-dominance-1815-1866/ghdi:document-250",
+    "ghdi_unification": "German History in Documents and Images, Creation of the German Empire (1866–1871). https://germanhistorydocs.org/en/forging-an-empire-bismarckian-germany-1866-1890/creation-of-the-german-empire-1866-1871",
+    "ghdi_nikolsburg": "German History in Documents and Images, Preliminary Peace of Nikolsburg (26 July 1866). https://germanhistorydocs.org/en/forging-an-empire-bismarckian-germany-1866-1890/ghdi:document-1846",
+    "dhm_innenpolitik": "Deutsches Historisches Museum, LeMO, Kaiserreich: Innenpolitik. https://www.dhm.de/lemo/kapitel/kaiserreich/innenpolitik",
+    "dhm_kulturkampf": "Deutsches Historisches Museum, LeMO, Kulturkampf. https://www.dhm.de/lemo/kapitel/kaiserreich/innenpolitik/kulturkampf",
+    "dhm_social": "Deutsches Historisches Museum, LeMO, Sozialgesetzgebung. https://www.dhm.de/lemo/kapitel/kaiserreich/innenpolitik/sozialgesetze",
+    "dhm_socialist_law": "Deutsches Historisches Museum, LeMO, Sozialistengesetz (21 October 1878). https://www.dhm.de/lemo/bestand/objekt/sozialistengesetz-1878",
+    "bundestag_empire": "German Bundestag, The Empire (1871–1918). https://www.bundestag.de/en/parliament/history/parliamentarism/empire",
+    "bundestag_revolution": "German Bundestag, November 1918: Revolution in Deutschland – Kampf für die Demokratie. https://www.bundestag.de/dokumente/textarchiv/1918-10-03-revolutionskalender-0-einleitung-570046",
+    "bpb_unification": "Bundeszentrale für politische Bildung, Proklamation des Deutschen Kaiserreichs (18 January 1871). https://www.bpb.de/kurz-knapp/hintergrund-aktuell/325614/vor-150-jahren-proklamation-des-deutschen-kaiserreichs/",
+    "brit_germany": "Encyclopaedia Britannica, History of Germany: Germany from 1871 to 1918. https://www.britannica.com/topic/history-of-Germany/Germany-from-1871-to-1918"
+  },
+  "events": [
+    {
+      "id": "pru_crown_separates_hanover_1837",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1837-01-01",
+        "1838-12-31"
+      ],
+      "date_historical": "1837-06-20",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1837,
+            "to": 1838
+          }
+        ],
+        "fire_date": "1837-06-20"
+      },
+      "title_vi": "Hai vương miện, hai triều đại",
+      "title_en": "Two Crowns, Two Dynasties",
+      "text_vi": "Việc Victoria lên ngôi khiến luật kế vị Salic tại Hannover tách ngai vàng Hannover khỏi vương quyền Anh. Phổ theo dõi sự thay đổi cán cân trong các bang Đức và cơ hội ngoại giao mới.",
+      "text_en": "Victoria’s accession separates the British and Hanoverian crowns under Hanover’s Salic succession law. Prussian officials watch the shift in the balance among the German states and its diplomatic implications.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giữ quan hệ với Hannover và củng cố phối hợp trong Liên minh Đức",
+          "label_en": "Maintain ties with Hanover and coordinate within the German Confederation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_crown_separates_hanover_1837_historical",
+              "name_vi": "Hệ quả chính sách: Giữ quan hệ với Hannover và củng cố phối hợp trong Liên minh Đức",
+              "name_en": "Policy consequence: Maintain ties with Hanover and coordinate within the German Confederation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.025,
+                "relation": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung lợi ích Phổ và tránh cam kết mới",
+          "label_en": "Prioritise Prussian interests and avoid new commitments",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_crown_separates_hanover_1837_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung lợi ích Phổ và tránh cam kết mới",
+              "name_en": "Policy consequence: Prioritise Prussian interests and avoid new commitments",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "treasury": 0,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_vormaerz"
+      ]
+    },
+    {
+      "id": "pru_frederick_william_iv_1840",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1840-01-01",
+        "1841-12-31"
+      ],
+      "date_historical": "1840-06-07",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1840,
+            "to": 1841
+          }
+        ],
+        "fire_date": "1840-06-07"
+      },
+      "title_vi": "Friedrich Wilhelm IV lên ngôi",
+      "title_en": "Frederick William IV Takes the Throne",
+      "text_vi": "Friedrich Wilhelm IV kế vị phụ vương, đem theo kỳ vọng về một quân chủ có học thức và khả năng cải cách. Giới tự do hy vọng được mở rộng vai trò hiến định, trong khi triều đình muốn giữ quyền quyết định cuối cùng.",
+      "text_en": "Frederick William IV succeeds his father, raising hopes for an educated monarch and measured reform. Liberals seek a stronger constitutional role, while the court intends to retain the final say.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở đối thoại có giới hạn với các đại diện tỉnh",
+          "label_en": "Open limited dialogue with provincial representatives",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_frederick_william_iv_1840_historical",
+              "name_vi": "Hệ quả chính sách: Mở đối thoại có giới hạn với các đại diện tỉnh",
+              "name_en": "Policy consequence: Open limited dialogue with provincial representatives",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.4,
+                "reform": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Bảo vệ quyền chủ động của vương quyền",
+          "label_en": "Preserve the Crown’s freedom of action",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_frederick_william_iv_1840_alternative",
+              "name_vi": "Hệ quả chính sách: Bảo vệ quyền chủ động của vương quyền",
+              "name_en": "Policy consequence: Preserve the Crown’s freedom of action",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_vormaerz"
+      ]
+    },
+    {
+      "id": "pru_united_diet_1847",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1847-01-01",
+        "1848-12-31"
+      ],
+      "date_historical": "1847-04-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1847,
+            "to": 1848
+          }
+        ],
+        "fire_date": "1847-04-11"
+      },
+      "title_vi": "Nghị viện Thống nhất được triệu tập",
+      "title_en": "The United Diet Convenes",
+      "text_vi": "Nhà vua triệu tập Nghị viện Thống nhất để xin ngân sách và bàn các vấn đề chung, nhưng cơ quan này không phải nghị viện thường trực do dân bầu. Tranh luận về quyền phê chuẩn thuế và ngân sách phơi bày giới hạn của cơ chế đại diện.",
+      "text_en": "The king convenes the United Diet to approve funds and discuss common affairs, but it is not a permanent popularly elected parliament. Debate over taxation and budgetary consent exposes the limits of representation.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận một quy trình ngân sách có thể dự đoán",
+          "label_en": "Accept a more predictable budget process",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_united_diet_1847_historical",
+              "name_vi": "Hệ quả chính sách: Chấp nhận một quy trình ngân sách có thể dự đoán",
+              "name_en": "Policy consequence: Accept a more predictable budget process",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.35,
+                "reform": 0.012
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ quyền triệu tập và giải tán trong tay nhà vua",
+          "label_en": "Keep convocation and dissolution powers with the Crown",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_united_diet_1847_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ quyền triệu tập và giải tán trong tay nhà vua",
+              "name_en": "Policy consequence: Keep convocation and dissolution powers with the Crown",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.25,
+                "ig_landowners": 0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_vormaerz"
+      ]
+    },
+    {
+      "id": "pru_march_revolution_1848",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1848-01-01",
+        "1849-12-31"
+      ],
+      "date_historical": "1848-03-18",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1848,
+            "to": 1849
+          }
+        ],
+        "fire_date": "1848-03-18"
+      },
+      "title_vi": "Cách mạng tháng Ba tại Berlin",
+      "title_en": "The March Revolution in Berlin",
+      "text_vi": "Biểu tình và đụng độ trên đường phố Berlin biến yêu cầu tự do báo chí, hiến pháp và thống nhất nước Đức thành khủng hoảng chế độ. Sau khi quân đội nổ súng và dựng chiến lũy, nhà vua phải đối diện với sức ép quần chúng chưa từng có.",
+      "text_en": "Demonstrations and street fighting in Berlin turn demands for press freedom, a constitution and German unity into a regime crisis. After troops fire and barricades rise, the king faces unprecedented popular pressure.",
+      "image": {
+        "ref": "pru_march_revolution_1848"
+      },
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Rút quân khỏi trung tâm và mở thương lượng hiến pháp",
+          "label_en": "Withdraw troops from the centre and negotiate a constitution",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_march_revolution_1848_historical",
+              "name_vi": "Hệ quả chính sách: Rút quân khỏi trung tâm và mở thương lượng hiến pháp",
+              "name_en": "Policy consequence: Withdraw troops from the centre and negotiate a constitution",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.55,
+                "radicalism": -0.006,
+                "reform": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Khôi phục trật tự bằng quân đội",
+          "label_en": "Restore order through the army",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_march_revolution_1848_alternative",
+              "name_vi": "Hệ quả chính sách: Khôi phục trật tự bằng quân đội",
+              "name_en": "Policy consequence: Restore order through the army",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.04,
+                "radicalism": 0.018,
+                "legitimacy": -0.6
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_vormaerz"
+      ]
+    },
+    {
+      "id": "pru_black_red_gold_1848",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1848-01-01",
+        "1849-12-31"
+      ],
+      "date_historical": "1848-03-21",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1848,
+            "to": 1849
+          }
+        ],
+        "fire_date": "1848-03-21"
+      },
+      "title_vi": "Nhà vua xuất hiện dưới biểu tượng thống nhất",
+      "title_en": "The King Adopts the National Colours",
+      "text_vi": "Trong những ngày cách mạng, Friedrich Wilhelm IV xuất hiện với biểu tượng đen–đỏ–vàng và tuyên bố ủng hộ mục tiêu thống nhất Đức. Cử chỉ này làm dịu tình hình trước mắt nhưng chưa giải quyết xung đột giữa chủ quyền nhân dân và quyền lực quân chủ.",
+      "text_en": "During the revolution, Frederick William IV appears with the black-red-gold colours and signals support for German unity. The gesture eases immediate tensions but does not settle the conflict between popular sovereignty and monarchical power.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Dùng biểu tượng dân tộc để mở tiến trình hiến định",
+          "label_en": "Use national symbolism to open a constitutional process",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_black_red_gold_1848_historical",
+              "name_vi": "Hệ quả chính sách: Dùng biểu tượng dân tộc để mở tiến trình hiến định",
+              "name_en": "Policy consequence: Use national symbolism to open a constitutional process",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.05,
+                "legitimacy": 0.25
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Không để biểu tượng cách mạng ràng buộc triều đình",
+          "label_en": "Do not let revolutionary symbolism bind the Crown",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_black_red_gold_1848_alternative",
+              "name_vi": "Hệ quả chính sách: Không để biểu tượng cách mạng ràng buộc triều đình",
+              "name_en": "Policy consequence: Do not let revolutionary symbolism bind the Crown",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.25,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_vormaerz"
+      ]
+    },
+    {
+      "id": "pru_frankfurt_assembly_1848",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1848-01-01",
+        "1849-12-31"
+      ],
+      "date_historical": "1848-05-18",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1848,
+            "to": 1849
+          }
+        ],
+        "fire_date": "1848-05-18"
+      },
+      "title_vi": "Quốc hội Frankfurt khai mạc",
+      "title_en": "The Frankfurt National Assembly Opens",
+      "text_vi": "Các đại biểu được bầu từ nhiều bang Đức họp tại Frankfurt để soạn hiến pháp và tìm mô hình nhà nước dân tộc. Phổ phải quyết định liệu mình sẽ dẫn dắt một trật tự liên bang mới hay bảo vệ quyền tự chủ của các vương triều.",
+      "text_en": "Delegates elected across the German states meet in Frankfurt to draft a constitution and define a national state. Prussia must decide whether to lead a new federal order or defend the autonomy of the dynasties.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tham gia đàm phán nhưng giữ vai trò của các bang",
+          "label_en": "Join negotiations while preserving the states’ role",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_frankfurt_assembly_1848_historical",
+              "name_vi": "Hệ quả chính sách: Tham gia đàm phán nhưng giữ vai trò của các bang",
+              "name_en": "Policy consequence: Join negotiations while preserving the states’ role",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.04,
+                "reform": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Từ chối trao tính chính danh cho nghị viện toàn Đức",
+          "label_en": "Refuse to legitimise an all-German parliament",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_frankfurt_assembly_1848_alternative",
+              "name_vi": "Hệ quả chính sách: Từ chối trao tính chính danh cho nghị viện toàn Đức",
+              "name_en": "Policy consequence: Refuse to legitimise an all-German parliament",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "relation": -0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_vormaerz"
+      ]
+    },
+    {
+      "id": "pru_counterrevolution_berlin_1848",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1848-01-01",
+        "1849-12-31"
+      ],
+      "date_historical": "1848-11-10",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1848,
+            "to": 1849
+          }
+        ],
+        "fire_date": "1848-11-10"
+      },
+      "title_vi": "Quân đội trở lại Berlin",
+      "title_en": "The Army Returns to Berlin",
+      "text_vi": "Chính phủ chuyển trung tâm quyền lực và quân đội tiến vào Berlin, giải tán lực lượng dân quân và chấm dứt giai đoạn cách mạng trực tiếp tại thủ đô. Trật tự được tái lập, nhưng mâu thuẫn về đại diện và quyền hiến định vẫn còn.",
+      "text_en": "The government relocates the centre of authority and troops enter Berlin, disarming civic guards and ending the immediate revolutionary phase in the capital. Order is restored, but disputes over representation and constitutional authority remain.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Khôi phục hành chính đồng thời giữ một số quyền dân sự",
+          "label_en": "Restore administration while retaining selected civil rights",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_counterrevolution_berlin_1848_historical",
+              "name_vi": "Hệ quả chính sách: Khôi phục hành chính đồng thời giữ một số quyền dân sự",
+              "name_en": "Policy consequence: Restore administration while retaining selected civil rights",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.25,
+                "police": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Thiết lập chế độ an ninh nghiêm ngặt",
+          "label_en": "Impose a strict security regime",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_counterrevolution_berlin_1848_alternative",
+              "name_vi": "Hệ quả chính sách: Thiết lập chế độ an ninh nghiêm ngặt",
+              "name_en": "Policy consequence: Impose a strict security regime",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.035,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_vormaerz"
+      ]
+    },
+    {
+      "id": "pru_crown_rejected_1849",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1849-01-01",
+        "1850-12-31"
+      ],
+      "date_historical": "1849-04-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1849,
+            "to": 1850
+          }
+        ],
+        "fire_date": "1849-04-03"
+      },
+      "title_vi": "Nhà vua từ chối vương miện Frankfurt",
+      "title_en": "The King Rejects the Frankfurt Crown",
+      "text_vi": "Phái đoàn Quốc hội Frankfurt đề nghị Friedrich Wilhelm IV nhận ngôi hoàng đế Đức theo hiến pháp do nghị viện soạn. Nhà vua từ chối một vương miện xuất phát từ chủ quyền nghị viện, khiến dự án thống nhất theo con đường nghị viện suy sụp.",
+      "text_en": "A Frankfurt delegation offers Frederick William IV the German imperial crown under a parliament-drafted constitution. He refuses a crown derived from parliamentary sovereignty, and the parliamentary route to unification collapses.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Theo đuổi thống nhất từ các vương triều do Phổ dẫn dắt",
+          "label_en": "Pursue unification through a Prussian-led agreement of princes",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_crown_rejected_1849_historical",
+              "name_vi": "Hệ quả chính sách: Theo đuổi thống nhất từ các vương triều do Phổ dẫn dắt",
+              "name_en": "Policy consequence: Pursue unification through a Prussian-led agreement of princes",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.04,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên chủ quyền vương triều và hoãn thống nhất",
+          "label_en": "Prioritise dynastic sovereignty and defer unification",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_crown_rejected_1849_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên chủ quyền vương triều và hoãn thống nhất",
+              "name_en": "Policy consequence: Prioritise dynastic sovereignty and defer unification",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": -0.01,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_vormaerz"
+      ]
+    },
+    {
+      "id": "pru_erfurt_union_1849",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1849-01-01",
+        "1850-12-31"
+      ],
+      "date_historical": "1849-05-26",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1849,
+            "to": 1850
+          }
+        ],
+        "fire_date": "1849-05-26"
+      },
+      "title_vi": "Liên minh Erfurt được đề xuất",
+      "title_en": "The Erfurt Union Proposal",
+      "text_vi": "Phổ tìm cách lập một liên minh Đức nhỏ hơn, dựa trên hiến pháp và không có Áo. Dự án thu hút một số bang nhưng vấp phải phản đối từ các triều đình và sức ép ngoại giao của Áo.",
+      "text_en": "Prussia seeks a narrower German union based on a constitution and excluding Austria. The project attracts several states but faces resistance from dynasties and diplomatic pressure from Austria.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tiếp tục vận động các bang ủng hộ liên minh",
+          "label_en": "Continue to organise support among the states",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_erfurt_union_1849_historical",
+              "name_vi": "Hệ quả chính sách: Tiếp tục vận động các bang ủng hộ liên minh",
+              "name_en": "Policy consequence: Continue to organise support among the states",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.04,
+                "relation": 0.025
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giảm tham vọng để tránh đối đầu với Áo",
+          "label_en": "Scale back ambitions to avoid confrontation with Austria",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_erfurt_union_1849_alternative",
+              "name_vi": "Hệ quả chính sách: Giảm tham vọng để tránh đối đầu với Áo",
+              "name_en": "Policy consequence: Scale back ambitions to avoid confrontation with Austria",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "treasury": 0,
+                "war_exhaustion": -0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_vormaerz"
+      ]
+    },
+    {
+      "id": "pru_olmutz_punctation_1850",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1850-01-01",
+        "1851-12-31"
+      ],
+      "date_historical": "1850-11-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1850,
+            "to": 1851
+          }
+        ],
+        "fire_date": "1850-11-29"
+      },
+      "title_vi": "Thỏa ước Olmütz buộc Phổ lùi bước",
+      "title_en": "The Olmütz Agreement Forces a Prussian Retreat",
+      "text_vi": "Đối diện sức ép quân sự và ngoại giao, Phổ chấp nhận từ bỏ kế hoạch Liên minh Erfurt và khôi phục vai trò của Liên minh Đức do Áo chi phối. Sự nhượng bộ làm lộ rõ giới hạn quyền lực Phổ khi chưa sẵn sàng chiến tranh.",
+      "text_en": "Under military and diplomatic pressure, Prussia abandons the Erfurt Union project and accepts the restoration of the Austrian-led German Confederation. The concession exposes the limits of Prussian power before it is ready for war.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận thỏa hiệp và tái thiết năng lực nhà nước",
+          "label_en": "Accept the compromise and rebuild state capacity",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_olmutz_punctation_1850_historical",
+              "name_vi": "Hệ quả chính sách: Chấp nhận thỏa hiệp và tái thiết năng lực nhà nước",
+              "name_en": "Policy consequence: Accept the compromise and rebuild state capacity",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.02,
+                "research": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì đối đầu ngoại giao kéo dài",
+          "label_en": "Sustain a prolonged diplomatic confrontation",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_olmutz_punctation_1850_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì đối đầu ngoại giao kéo dài",
+              "name_en": "Policy consequence: Sustain a prolonged diplomatic confrontation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": -0.04,
+                "tariff": -0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_vormaerz"
+      ]
+    },
+    {
+      "id": "pru_regency_wilhelm_1857",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1857-01-01",
+        "1858-12-31"
+      ],
+      "date_historical": "1857-10-07",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1857,
+            "to": 1858
+          }
+        ],
+        "fire_date": "1857-10-07"
+      },
+      "title_vi": "Wilhelm đảm nhiệm quyền nhiếp chính",
+      "title_en": "William Assumes the Regency",
+      "text_vi": "Khi sức khỏe Friedrich Wilhelm IV suy sụp, Thân vương Wilhelm tiếp nhận quyền nhiếp chính. Sự chuyển giao mở đường cho thay đổi nhân sự và chính sách, dù chưa lập tức giải quyết xung đột hiến pháp.",
+      "text_en": "As Frederick William IV’s health deteriorates, Prince William assumes the regency. The transition opens space for changes in personnel and policy without immediately resolving the constitutional conflict.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chuẩn bị cải tổ hành chính và quân đội có tham vấn",
+          "label_en": "Prepare administrative and military reform with consultation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_regency_wilhelm_1857_historical",
+              "name_vi": "Hệ quả chính sách: Chuẩn bị cải tổ hành chính và quân đội có tham vấn",
+              "name_en": "Policy consequence: Prepare administrative and military reform with consultation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "legitimacy": 0.25
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ nguyên bộ máy để tránh bất ổn",
+          "label_en": "Keep the existing machinery to avoid instability",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_regency_wilhelm_1857_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ nguyên bộ máy để tránh bất ổn",
+              "name_en": "Policy consequence: Keep the existing machinery to avoid instability",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.15,
+                "police": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_vormaerz"
+      ]
+    },
+    {
+      "id": "pru_new_era_1858",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1858-01-01",
+        "1859-12-31"
+      ],
+      "date_historical": "1858-11-08",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1858,
+            "to": 1859
+          }
+        ],
+        "fire_date": "1858-11-08"
+      },
+      "title_vi": "Kỷ nguyên Mới và kỳ vọng tự do",
+      "title_en": "The New Era and Liberal Expectations",
+      "text_vi": "Chính phủ mới dưới quyền nhiếp chính Wilhelm được gắn với kỳ vọng về một giai đoạn tự do hơn, cải cách hành chính và hợp tác với phe tự do ôn hòa. Tuy nhiên, quyền lực quân chủ và lợi ích địa chủ vẫn đặt giới hạn cho thay đổi.",
+      "text_en": "The new ministry under Regent William raises expectations of a more liberal period, administrative reform and cooperation with moderate liberals. Monarchical authority and landed interests, however, still constrain change.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thử nghiệm cải cách có kiểm soát",
+          "label_en": "Test controlled reforms",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_new_era_1858_historical",
+              "name_vi": "Hệ quả chính sách: Thử nghiệm cải cách có kiểm soát",
+              "name_en": "Policy consequence: Test controlled reforms",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.018,
+                "legitimacy": 0.3
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Bảo vệ liên minh với giới bảo thủ",
+          "label_en": "Protect the alliance with conservatives",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_new_era_1858_alternative",
+              "name_vi": "Hệ quả chính sách: Bảo vệ liên minh với giới bảo thủ",
+              "name_en": "Policy consequence: Protect the alliance with conservatives",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "ig_landowners": 0.35,
+                "reform": -0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_vormaerz"
+      ]
+    },
+    {
+      "id": "pru_wilhelm_i_accession_1861",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1861-01-01",
+        "1862-12-31"
+      ],
+      "date_historical": "1861-01-02",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1861,
+            "to": 1862
+          }
+        ],
+        "fire_date": "1861-01-02"
+      },
+      "title_vi": "Wilhelm I trở thành vua Phổ",
+      "title_en": "William I Becomes King of Prussia",
+      "text_vi": "Sau khi Friedrich Wilhelm IV qua đời, Wilhelm I chính thức kế vị. Nhà vua đặt ưu tiên vào cải tổ quân đội và củng cố vị thế Phổ, trong khi nghị viện và giới tự do đòi hỏi kiểm soát ngân sách.",
+      "text_en": "After Frederick William IV dies, William I becomes king. He prioritises army reform and Prussian influence, while parliament and liberals demand control over public expenditure.",
+      "image": {
+        "ref": "pru_wilhelm_coronation_1861"
+      },
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đàm phán ngân sách với Hạ viện",
+          "label_en": "Negotiate the budget with the House of Deputies",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_wilhelm_i_accession_1861_historical",
+              "name_vi": "Hệ quả chính sách: Đàm phán ngân sách với Hạ viện",
+              "name_en": "Policy consequence: Negotiate the budget with the House of Deputies",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.25,
+                "reform": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Đẩy nhanh cải tổ quân đội bằng quyền lực hành pháp",
+          "label_en": "Accelerate army reform through executive authority",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_wilhelm_i_accession_1861_alternative",
+              "name_vi": "Hệ quả chính sách: Đẩy nhanh cải tổ quân đội bằng quyền lực hành pháp",
+              "name_en": "Policy consequence: Accelerate army reform through executive authority",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.035,
+                "legitimacy": -0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_vormaerz"
+      ]
+    },
+    {
+      "id": "pru_blood_iron_speech_1862",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1862-01-01",
+        "1863-12-31"
+      ],
+      "date_historical": "1862-09-30",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1862,
+            "to": 1863
+          }
+        ],
+        "fire_date": "1862-09-30"
+      },
+      "title_vi": "Bismarck phát biểu về sắt và máu",
+      "title_en": "Bismarck Delivers the Blood and Iron Speech",
+      "text_vi": "Trong tranh luận ngân sách, Thủ tướng Bismarck lập luận rằng những vấn đề lớn của thời đại sẽ không được giải quyết chỉ bằng diễn văn và nghị quyết đa số. Ông đặt sức mạnh nhà nước và quân đội vào trung tâm chiến lược thống nhất Đức dưới quyền Phổ.",
+      "text_en": "During the budget debate, Minister President Bismarck argues that the great questions of the age will not be settled by speeches and majority resolutions alone. He places state power and the army at the centre of a Prussian-led unification strategy.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tập trung nguồn lực cho chính sách đối ngoại và quân đội",
+          "label_en": "Concentrate resources on foreign policy and the army",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_blood_iron_speech_1862_historical",
+              "name_vi": "Hệ quả chính sách: Tập trung nguồn lực cho chính sách đối ngoại và quân đội",
+              "name_en": "Policy consequence: Concentrate resources on foreign policy and the army",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "prestige": 0.04
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tìm thỏa hiệp ngân sách để giảm khủng hoảng hiến pháp",
+          "label_en": "Seek a budget compromise to reduce the constitutional crisis",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_blood_iron_speech_1862_alternative",
+              "name_vi": "Hệ quả chính sách: Tìm thỏa hiệp ngân sách để giảm khủng hoảng hiến pháp",
+              "name_en": "Policy consequence: Seek a budget compromise to reduce the constitutional crisis",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_bismarck_1862"
+      ]
+    },
+    {
+      "id": "pru_bismarck_minister_president_1862",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1862-01-01",
+        "1863-12-31"
+      ],
+      "date_historical": "1862-09-23",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1862,
+            "to": 1863
+          }
+        ],
+        "fire_date": "1862-09-23"
+      },
+      "title_vi": "Bismarck được bổ nhiệm làm Thủ tướng Phổ",
+      "title_en": "Bismarck Becomes Prussian Minister President",
+      "text_vi": "Wilhelm I bổ nhiệm Otto von Bismarck làm Thủ tướng trong lúc xung đột ngân sách và cải tổ quân đội chưa được giải quyết. Chính phủ lựa chọn tiếp tục thu thuế và chi tiêu trong khi tranh cãi hiến pháp còn bỏ ngỏ.",
+      "text_en": "William I appoints Otto von Bismarck as minister president while the budget and army-reform conflict remains unresolved. The government continues collecting taxes and spending while the constitutional dispute remains unsettled.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Củng cố chính phủ và chấp nhận rủi ro hiến pháp",
+          "label_en": "Consolidate the ministry and accept constitutional risk",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_bismarck_minister_president_1862_historical",
+              "name_vi": "Hệ quả chính sách: Củng cố chính phủ và chấp nhận rủi ro hiến pháp",
+              "name_en": "Policy consequence: Consolidate the ministry and accept constitutional risk",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.25,
+                "army": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở lại thương lượng với nghị viện",
+          "label_en": "Reopen negotiations with parliament",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_bismarck_minister_president_1862_alternative",
+              "name_vi": "Hệ quả chính sách: Mở lại thương lượng với nghị viện",
+              "name_en": "Policy consequence: Reopen negotiations with parliament",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.35,
+                "reform": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_bismarck_1862"
+      ]
+    },
+    {
+      "id": "pru_alvensleben_convention_1863",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1863-01-01",
+        "1864-12-31"
+      ],
+      "date_historical": "1863-01-08",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1863,
+            "to": 1864
+          }
+        ],
+        "fire_date": "1863-01-08"
+      },
+      "title_vi": "Công ước Alvensleben với Nga",
+      "title_en": "The Alvensleben Convention with Russia",
+      "text_vi": "Trong cuộc khởi nghĩa tháng Giêng tại Ba Lan thuộc Nga, Phổ ký thỏa thuận cho phép phối hợp truy bắt những người nổi dậy qua biên giới. Chính sách này bảo vệ an ninh biên giới nhưng gây phản ứng từ những người theo chủ nghĩa tự do và dân tộc.",
+      "text_en": "During the January Uprising in Russian Poland, Prussia signs an agreement allowing cooperation against insurgents across the border. The policy protects frontier security but provokes liberal and nationalist criticism.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Phối hợp an ninh với Nga và tăng kiểm soát biên giới",
+          "label_en": "Coordinate security with Russia and tighten frontier controls",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_alvensleben_convention_1863_historical",
+              "name_vi": "Hệ quả chính sách: Phối hợp an ninh với Nga và tăng kiểm soát biên giới",
+              "name_en": "Policy consequence: Coordinate security with Russia and tighten frontier controls",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.025,
+                "relation": 0.03
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ khoảng cách để tránh làm tổn hại dư luận Đức",
+          "label_en": "Keep distance to avoid alienating German opinion",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_alvensleben_convention_1863_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ khoảng cách để tránh làm tổn hại dư luận Đức",
+              "name_en": "Policy consequence: Keep distance to avoid alienating German opinion",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.025,
+                "relation": -0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_vormaerz"
+      ]
+    },
+    {
+      "id": "pru_second_schleswig_war_1864",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1864-01-01",
+        "1865-12-31"
+      ],
+      "date_historical": "1864-02-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1864,
+            "to": 1865
+          }
+        ],
+        "fire_date": "1864-02-01"
+      },
+      "title_vi": "Chiến tranh Schleswig lần thứ hai",
+      "title_en": "The Second Schleswig War",
+      "text_vi": "Phổ và Áo cùng tiến hành chiến tranh chống Đan Mạch về các công quốc Schleswig và Holstein. Chiến thắng mở ra tranh chấp mới về cách quản lý lãnh thổ và làm tăng căng thẳng giữa hai cường quốc Đức.",
+      "text_en": "Prussia and Austria wage war against Denmark over the duchies of Schleswig and Holstein. Victory opens a new dispute over administration of the territories and increases tension between the two German powers.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Phối hợp với Áo nhưng giữ quyền chỉ huy thực tế",
+          "label_en": "Cooperate with Austria while retaining operational control",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_second_schleswig_war_1864_historical",
+              "name_vi": "Hệ quả chính sách: Phối hợp với Áo nhưng giữ quyền chỉ huy thực tế",
+              "name_en": "Policy consequence: Cooperate with Austria while retaining operational control",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "prestige": 0.04
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên giải pháp ngoại giao và hạn chế chi phí chiến tranh",
+          "label_en": "Prioritise diplomacy and limit the cost of war",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_second_schleswig_war_1864_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên giải pháp ngoại giao và hạn chế chi phí chiến tranh",
+              "name_en": "Policy consequence: Prioritise diplomacy and limit the cost of war",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.01,
+                "treasury": 0
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_unification"
+      ]
+    },
+    {
+      "id": "pru_gastein_convention_1865",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1865-01-01",
+        "1866-12-31"
+      ],
+      "date_historical": "1865-08-14",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1865,
+            "to": 1866
+          }
+        ],
+        "fire_date": "1865-08-14"
+      },
+      "title_vi": "Công ước Gastein phân chia quyền quản lý",
+      "title_en": "The Gastein Convention Divides Administration",
+      "text_vi": "Theo Công ước Gastein, Phổ quản lý Schleswig còn Áo quản lý Holstein. Thỏa thuận tạm thời giải quyết việc cai trị nhưng tạo ra một điểm xung đột mới trong cuộc cạnh tranh quyền lực tại Đức.",
+      "text_en": "Under the Gastein Convention, Prussia administers Schleswig while Austria administers Holstein. The temporary arrangement settles immediate governance but creates a new flashpoint in the struggle for influence in Germany.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Củng cố quản trị tại Schleswig và chuẩn bị phương án dự phòng",
+          "label_en": "Consolidate administration in Schleswig and prepare contingencies",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_gastein_convention_1865_historical",
+              "name_vi": "Hệ quả chính sách: Củng cố quản trị tại Schleswig và chuẩn bị phương án dự phòng",
+              "name_en": "Policy consequence: Consolidate administration in Schleswig and prepare contingencies",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "research": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tìm một cơ chế liên bang để chia sẻ trách nhiệm",
+          "label_en": "Seek a federal mechanism for shared responsibility",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_gastein_convention_1865_alternative",
+              "name_vi": "Hệ quả chính sách: Tìm một cơ chế liên bang để chia sẻ trách nhiệm",
+              "name_en": "Policy consequence: Seek a federal mechanism for shared responsibility",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "relation": 0.025,
+                "war_exhaustion": -0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_unification"
+      ]
+    },
+    {
+      "id": "pru_austro_prussian_war_1866",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1866-01-01",
+        "1867-12-31"
+      ],
+      "date_historical": "1866-06-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1866,
+            "to": 1867
+          }
+        ],
+        "fire_date": "1866-06-15"
+      },
+      "title_vi": "Chiến tranh Phổ–Áo bùng nổ",
+      "title_en": "The Austro-Prussian War Begins",
+      "text_vi": "Phổ và Áo bước vào cuộc chiến quyết định quyền lãnh đạo các bang Đức. Phổ dựa vào cải tổ quân đội, đường sắt và phối hợp với Italy; chiến tranh nhanh chóng làm tan rã trật tự Liên minh Đức cũ.",
+      "text_en": "Prussia and Austria enter a war that will decide leadership among the German states. Prussia relies on army reform, railways and cooperation with Italy; the conflict rapidly destroys the old German Confederation order.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Theo đuổi chiến dịch ngắn và tập trung",
+          "label_en": "Pursue a short, concentrated campaign",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_austro_prussian_war_1866_historical",
+              "name_vi": "Hệ quả chính sách: Theo đuổi chiến dịch ngắn và tập trung",
+              "name_en": "Policy consequence: Pursue a short, concentrated campaign",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "war_exhaustion": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giảm mục tiêu chiến tranh để mở lối thương lượng",
+          "label_en": "Limit war aims to preserve room for negotiation",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_austro_prussian_war_1866_alternative",
+              "name_vi": "Hệ quả chính sách: Giảm mục tiêu chiến tranh để mở lối thương lượng",
+              "name_en": "Policy consequence: Limit war aims to preserve room for negotiation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.02,
+                "prestige": -0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_unification"
+      ]
+    },
+    {
+      "id": "pru_koniggratz_1866",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1866-01-01",
+        "1867-12-31"
+      ],
+      "date_historical": "1866-07-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1866,
+            "to": 1867
+          }
+        ],
+        "fire_date": "1866-07-03"
+      },
+      "title_vi": "Chiến thắng Königgrätz",
+      "title_en": "Victory at Königgrätz",
+      "text_vi": "Quân đội Phổ đánh bại lực lượng Áo tại Königgrätz/Sadowa, quyết định cục diện chiến tranh. Bismarck lựa chọn không làm nhục Áo quá mức, nhằm giữ khả năng tái lập quan hệ và cô lập đối thủ trong tương lai.",
+      "text_en": "The Prussian army defeats Austria at Königgrätz/Sadowa, deciding the war’s outcome. Bismarck avoids excessively humiliating Austria in order to preserve future relations and isolate potential rivals.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận hòa ước có giới hạn và tái tổ chức miền Bắc Đức",
+          "label_en": "Accept a limited peace and reorganise northern Germany",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_koniggratz_1866_historical",
+              "name_vi": "Hệ quả chính sách: Chấp nhận hòa ước có giới hạn và tái tổ chức miền Bắc Đức",
+              "name_en": "Policy consequence: Accept a limited peace and reorganise northern Germany",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.07,
+                "war_exhaustion": -0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Đòi bồi thường và nhượng bộ tối đa",
+          "label_en": "Demand maximum indemnities and concessions",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_koniggratz_1866_alternative",
+              "name_vi": "Hệ quả chính sách: Đòi bồi thường và nhượng bộ tối đa",
+              "name_en": "Policy consequence: Demand maximum indemnities and concessions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.04,
+                "relation": -0.03
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_unification",
+        "ghdi_nikolsburg"
+      ]
+    },
+    {
+      "id": "pru_prague_peace_1866",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1866-01-01",
+        "1867-12-31"
+      ],
+      "date_historical": "1866-08-23",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1866,
+            "to": 1867
+          }
+        ],
+        "fire_date": "1866-08-23"
+      },
+      "title_vi": "Hòa ước Praha kết thúc chiến tranh",
+      "title_en": "The Peace of Prague Ends the War",
+      "text_vi": "Hòa ước Praha xác nhận việc giải thể Liên minh Đức cũ và loại Áo khỏi cơ cấu thống nhất Đức do Phổ dẫn dắt. Phổ có được khoảng trống chính trị để sắp xếp miền Bắc, nhưng vẫn phải tính đến các bang miền Nam.",
+      "text_en": "The Peace of Prague confirms the dissolution of the old German Confederation and excludes Austria from the Prussian-led unification framework. Prussia gains room to reorganise the north but must still account for the southern states.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giữ hòa ước tương đối khoan dung với Áo",
+          "label_en": "Keep the peace relatively lenient towards Austria",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_prague_peace_1866_historical",
+              "name_vi": "Hệ quả chính sách: Giữ hòa ước tương đối khoan dung với Áo",
+              "name_en": "Policy consequence: Keep the peace relatively lenient towards Austria",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "relation": 0.035,
+                "prestige": 0.04
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Áp đặt điều kiện nặng để răn đe đối thủ",
+          "label_en": "Impose harsh terms to deter rivals",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_prague_peace_1866_alternative",
+              "name_vi": "Hệ quả chính sách: Áp đặt điều kiện nặng để răn đe đối thủ",
+              "name_en": "Policy consequence: Impose harsh terms to deter rivals",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.035,
+                "radicalism": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_nikolsburg",
+        "ghdi_unification"
+      ]
+    },
+    {
+      "id": "pru_north_german_annexations_1866",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1866-01-01",
+        "1867-12-31"
+      ],
+      "date_historical": "1866-10-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1866,
+            "to": 1867
+          }
+        ],
+        "fire_date": "1866-10-03"
+      },
+      "title_vi": "Sáp nhập Hannover và các bang phía Bắc",
+      "title_en": "Annexation of Hanover and Northern States",
+      "text_vi": "Sau chiến thắng, Phổ sáp nhập Hannover, Hessen-Kassel, Nassau, Frankfurt và Schleswig-Holstein, nối liền các vùng lãnh thổ phía Đông và phía Tây. Việc mở rộng củng cố sức mạnh Phổ nhưng chấm dứt chủ quyền của các triều đại bị sáp nhập.",
+      "text_en": "After victory, Prussia annexes Hanover, Hesse-Kassel, Nassau, Frankfurt and Schleswig-Holstein, linking its eastern and western territories. Expansion strengthens Prussia but ends the sovereignty of the annexed dynasties.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Hợp nhất hành chính và đầu tư vào hạ tầng vùng mới",
+          "label_en": "Integrate administration and invest in infrastructure",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_north_german_annexations_1866_historical",
+              "name_vi": "Hệ quả chính sách: Hợp nhất hành chính và đầu tư vào hạ tầng vùng mới",
+              "name_en": "Policy consequence: Integrate administration and invest in infrastructure",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.025,
+                "legitimacy": 0.25
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Áp đặt kiểm soát tập trung để nhanh chóng ổn định",
+          "label_en": "Impose central control for rapid consolidation",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_north_german_annexations_1866_alternative",
+              "name_vi": "Hệ quả chính sách: Áp đặt kiểm soát tập trung để nhanh chóng ổn định",
+              "name_en": "Policy consequence: Impose central control for rapid consolidation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.025,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_unification"
+      ]
+    },
+    {
+      "id": "pru_north_german_constitution_1867",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1867-01-01",
+        "1868-12-31"
+      ],
+      "date_historical": "1867-02-24",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1867,
+            "to": 1868
+          }
+        ],
+        "fire_date": "1867-02-24"
+      },
+      "title_vi": "Hiến pháp Liên bang Bắc Đức",
+      "title_en": "The North German Confederation Constitution",
+      "text_vi": "Liên bang Bắc Đức hình thành dưới quyền lãnh đạo Phổ với nghị viện được bầu phổ thông nam giới và Hội đồng Liên bang đại diện các chính phủ thành viên. Phổ có vị thế áp đảo, nhưng phải dung hòa quyền liên bang với chủ quyền các bang.",
+      "text_en": "The North German Confederation forms under Prussian leadership, with a male-suffrage Reichstag and a Federal Council representing member governments. Prussia dominates the federation but must balance federal authority with state sovereignty.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Xây dựng thể chế liên bang do Phổ dẫn dắt",
+          "label_en": "Build a Prussian-led federal framework",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_north_german_constitution_1867_historical",
+              "name_vi": "Hệ quả chính sách: Xây dựng thể chế liên bang do Phổ dẫn dắt",
+              "name_en": "Policy consequence: Build a Prussian-led federal framework",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.35,
+                "reform": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ quyền kiểm soát tối đa của vương triều Phổ",
+          "label_en": "Retain maximum control for the Prussian dynasty",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_north_german_constitution_1867_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ quyền kiểm soát tối đa của vương triều Phổ",
+              "name_en": "Policy consequence: Retain maximum control for the Prussian dynasty",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "ig_landowners": 0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_unification"
+      ]
+    },
+    {
+      "id": "pru_north_german_union_operates_1867",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1867-01-01",
+        "1868-12-31"
+      ],
+      "date_historical": "1867-07-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1867,
+            "to": 1868
+          }
+        ],
+        "fire_date": "1867-07-01"
+      },
+      "title_vi": "Liên bang Bắc Đức bắt đầu vận hành",
+      "title_en": "The North German Confederation Begins Operating",
+      "text_vi": "Hiến pháp và các cơ quan liên bang đi vào hoạt động, thống nhất nhiều lĩnh vực quân sự, ngoại giao và thương mại ở miền Bắc. Quá trình này tăng hiệu quả phối hợp nhưng làm các bang nhỏ lo ngại bị Phổ chi phối.",
+      "text_en": "The constitution and federal institutions begin operating, coordinating military, foreign and commercial affairs across northern Germany. Coordination improves efficiency but smaller states fear Prussian domination.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chuẩn hóa luật và bộ máy liên bang",
+          "label_en": "Standardise federal law and administration",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_north_german_union_operates_1867_historical",
+              "name_vi": "Hệ quả chính sách: Chuẩn hóa luật và bộ máy liên bang",
+              "name_en": "Policy consequence: Standardise federal law and administration",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.025,
+                "research": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Cho các bang thành viên thêm quyền tự quyết",
+          "label_en": "Give member states greater autonomy",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_north_german_union_operates_1867_alternative",
+              "name_vi": "Hệ quả chính sách: Cho các bang thành viên thêm quyền tự quyết",
+              "name_en": "Policy consequence: Give member states greater autonomy",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "relation": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_unification"
+      ]
+    },
+    {
+      "id": "pru_ruhr_industrial_expansion_1869",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1869-01-01",
+        "1870-12-31"
+      ],
+      "date_historical": "1869-05-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1869,
+            "to": 1870
+          }
+        ],
+        "fire_date": "1869-05-01"
+      },
+      "title_vi": "Công nghiệp Ruhr tăng tốc",
+      "title_en": "Industrial Expansion in the Ruhr",
+      "text_vi": "Các mỏ than và luyện kim ở vùng Ruhr mở rộng cùng nhu cầu đường sắt, máy móc và quân nhu. Tăng trưởng công nghiệp làm thay đổi cấu trúc lao động và nâng tầm ảnh hưởng của các doanh nghiệp công nghiệp.",
+      "text_en": "Coal mining and iron production in the Ruhr expand alongside demand for railways, machinery and military supplies. Industrial growth transforms the labour force and increases the influence of industrial firms.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Khuyến khích đầu tư công nghiệp và đường sắt",
+          "label_en": "Encourage industrial and railway investment",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_ruhr_industrial_expansion_1869_historical",
+              "name_vi": "Hệ quả chính sách: Khuyến khích đầu tư công nghiệp và đường sắt",
+              "name_en": "Policy consequence: Encourage industrial and railway investment",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.035,
+                "trade": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên ổn định xã hội và kiểm soát tốc độ đô thị hóa",
+          "label_en": "Prioritise social stability and manage urbanisation",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_ruhr_industrial_expansion_1869_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên ổn định xã hội và kiểm soát tốc độ đô thị hóa",
+              "name_en": "Policy consequence: Prioritise social stability and manage urbanisation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.25,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "brit_germany"
+      ]
+    },
+    {
+      "id": "pru_franco_prussian_war_1870",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1870-01-01",
+        "1871-12-31"
+      ],
+      "date_historical": "1870-07-19",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1870,
+            "to": 1871
+          }
+        ],
+        "fire_date": "1870-07-19"
+      },
+      "title_vi": "Pháp tuyên chiến với Phổ",
+      "title_en": "France Declares War on Prussia",
+      "text_vi": "Khủng hoảng kế vị Tây Ban Nha và điện tín Ems đẩy Pháp tuyên chiến với Phổ. Các bang miền Nam tham gia theo cam kết quân sự, biến cuộc chiến thành bước quyết định của tiến trình thống nhất Đức.",
+      "text_en": "The Spanish succession crisis and the Ems dispatch lead France to declare war on Prussia. Southern German states join under their military agreements, turning the conflict into a decisive stage of German unification.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Điều phối liên quân và duy trì mục tiêu chiến tranh rõ ràng",
+          "label_en": "Coordinate the coalition and keep war aims focused",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_franco_prussian_war_1870_historical",
+              "name_vi": "Hệ quả chính sách: Điều phối liên quân và duy trì mục tiêu chiến tranh rõ ràng",
+              "name_en": "Policy consequence: Coordinate the coalition and keep war aims focused",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "prestige": 0.05
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở rộng mục tiêu để áp đặt ưu thế lâu dài",
+          "label_en": "Expand war aims to impose lasting dominance",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_franco_prussian_war_1870_alternative",
+              "name_vi": "Hệ quả chính sách: Mở rộng mục tiêu để áp đặt ưu thế lâu dài",
+              "name_en": "Policy consequence: Expand war aims to impose lasting dominance",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": 0.025,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_unification"
+      ]
+    },
+    {
+      "id": "pru_sedan_victory_1870",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1870-01-01",
+        "1871-12-31"
+      ],
+      "date_historical": "1870-09-02",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1870,
+            "to": 1871
+          }
+        ],
+        "fire_date": "1870-09-02"
+      },
+      "title_vi": "Chiến thắng Sedan và Napoleon III bị bắt",
+      "title_en": "Victory at Sedan and the Capture of Napoleon III",
+      "text_vi": "Quân đội Phổ và đồng minh bao vây, đánh bại lực lượng Pháp tại Sedan; Napoleon III bị bắt. Chiến thắng làm sụp đổ Đế chế thứ Hai nhưng chiến tranh vẫn tiếp diễn và Paris bị vây hãm.",
+      "text_en": "Prussian and allied forces defeat the French army at Sedan and capture Napoleon III. The victory brings down the Second Empire, but the war continues and Paris is besieged.",
+      "image": {
+        "ref": "pru_sedan_1870"
+      },
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tận dụng thắng lợi để đàm phán với các bang miền Nam",
+          "label_en": "Use the victory to negotiate with the southern states",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_sedan_victory_1870_historical",
+              "name_vi": "Hệ quả chính sách: Tận dụng thắng lợi để đàm phán với các bang miền Nam",
+              "name_en": "Policy consequence: Use the victory to negotiate with the southern states",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.07,
+                "war_exhaustion": -0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tiếp tục chiến dịch quân sự trước khi thương lượng",
+          "label_en": "Continue military operations before negotiating",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_sedan_victory_1870_alternative",
+              "name_vi": "Hệ quả chính sách: Tiếp tục chiến dịch quân sự trước khi thương lượng",
+              "name_en": "Policy consequence: Continue military operations before negotiating",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "war_exhaustion": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_unification"
+      ]
+    },
+    {
+      "id": "pru_november_treaties_1870",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1870-01-01",
+        "1871-12-31"
+      ],
+      "date_historical": "1870-11-23",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1870,
+            "to": 1871
+          }
+        ],
+        "fire_date": "1870-11-23"
+      },
+      "title_vi": "Các hiệp ước tháng Mười Một",
+      "title_en": "The November Treaties",
+      "text_vi": "Các bang miền Nam ký những thỏa thuận gia nhập trật tự liên bang mới, với các điều khoản riêng về quân đội và quyền bang. Thống nhất được thúc đẩy bởi chiến tranh nhưng vẫn giữ cấu trúc liên bang phức tạp.",
+      "text_en": "The southern states sign agreements to join the new federal order, with special arrangements for their armies and state rights. Unification is accelerated by war but retains a complex federal structure.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tôn trọng các bảo đảm liên bang để hoàn tất thống nhất",
+          "label_en": "Respect federal guarantees to complete unification",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_november_treaties_1870_historical",
+              "name_vi": "Hệ quả chính sách: Tôn trọng các bảo đảm liên bang để hoàn tất thống nhất",
+              "name_en": "Policy consequence: Respect federal guarantees to complete unification",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.05,
+                "legitimacy": 0.3
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Thu hẹp các ngoại lệ để tăng quyền điều phối trung ương",
+          "label_en": "Limit exemptions to strengthen central coordination",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_november_treaties_1870_alternative",
+              "name_vi": "Hệ quả chính sách: Thu hẹp các ngoại lệ để tăng quyền điều phối trung ương",
+              "name_en": "Policy consequence: Limit exemptions to strengthen central coordination",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.015,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_unification",
+        "bpb_unification"
+      ]
+    },
+    {
+      "id": "pru_german_empire_proclamation_1871",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1871-01-01",
+        "1872-12-31"
+      ],
+      "date_historical": "1871-01-18",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1871,
+            "to": 1872
+          }
+        ],
+        "fire_date": "1871-01-18"
+      },
+      "title_vi": "Tuyên bố thành lập Đế quốc Đức tại Versailles",
+      "title_en": "Proclamation of the German Empire at Versailles",
+      "text_vi": "Wilhelm I được tuyên bố là Hoàng đế Đức trong Sảnh Gương tại Versailles khi chiến tranh với Pháp vẫn chưa kết thúc. Nhà nước mới là liên bang các vương triều, trong đó Phổ giữ vai trò áp đảo nhờ quy mô lãnh thổ, dân số và quyền lực quân sự.",
+      "text_en": "William I is proclaimed German Emperor in the Hall of Mirrors at Versailles while the war with France is still ongoing. The new state is a federation of dynasties in which Prussia dominates through its territory, population and military power.",
+      "image": {
+        "ref": "pru_empire_proclamation_1871"
+      },
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Củng cố liên bang nhưng bảo đảm quyền đặc thù của Phổ",
+          "label_en": "Consolidate the federation while securing Prussian privileges",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_german_empire_proclamation_1871_historical",
+              "name_vi": "Hệ quả chính sách: Củng cố liên bang nhưng bảo đảm quyền đặc thù của Phổ",
+              "name_en": "Policy consequence: Consolidate the federation while securing Prussian privileges",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.08,
+                "legitimacy": 0.4
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung quyền lực hoàng đế và bộ máy Phổ",
+          "label_en": "Centralise authority in the emperor and Prussian machinery",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_german_empire_proclamation_1871_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung quyền lực hoàng đế và bộ máy Phổ",
+              "name_en": "Policy consequence: Centralise authority in the emperor and Prussian machinery",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.02,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ghdi_unification",
+        "bpb_unification"
+      ]
+    },
+    {
+      "id": "pru_imperial_constitution_1871",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1871-01-01",
+        "1872-12-31"
+      ],
+      "date_historical": "1871-04-16",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1871,
+            "to": 1872
+          }
+        ],
+        "fire_date": "1871-04-16"
+      },
+      "title_vi": "Hiến pháp Đế quốc Đức có hiệu lực",
+      "title_en": "The Imperial Constitution Takes Effect",
+      "text_vi": "Hiến pháp xác lập Hội đồng Liên bang và Reichstag, đồng thời duy trì quyền hành pháp mạnh của hoàng đế và thủ tướng. Phổ có số ghế và ảnh hưởng vượt trội trong liên bang, nhưng hệ thống vẫn phải xử lý khác biệt giữa chính trị Phổ và chính trị toàn đế quốc.",
+      "text_en": "The constitution establishes the Bundesrat and Reichstag while preserving strong executive authority for the emperor and chancellor. Prussia holds disproportionate influence in the federation, yet the system must manage differences between Prussian and imperial politics.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đầu tư vào bộ máy liên bang và phối hợp luật pháp",
+          "label_en": "Invest in federal administration and legal coordination",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_imperial_constitution_1871_historical",
+              "name_vi": "Hệ quả chính sách: Đầu tư vào bộ máy liên bang và phối hợp luật pháp",
+              "name_en": "Policy consequence: Invest in federal administration and legal coordination",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "legitimacy": 0.3
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì ưu thế của vương quốc Phổ trong liên bang",
+          "label_en": "Preserve Prussia’s privileged position in the federation",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_imperial_constitution_1871_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì ưu thế của vương quốc Phổ trong liên bang",
+              "name_en": "Policy consequence: Preserve Prussia’s privileged position in the federation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "ig_landowners": 0.3,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "bundestag_empire"
+      ]
+    },
+    {
+      "id": "pru_kulturkampf_begins_1871",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1871-01-01",
+        "1872-12-31"
+      ],
+      "date_historical": "1871-07-08",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1871,
+            "to": 1872
+          }
+        ],
+        "fire_date": "1871-07-08"
+      },
+      "title_vi": "Khởi đầu Kulturkampf",
+      "title_en": "The Kulturkampf Begins",
+      "text_vi": "Chính phủ Phổ bắt đầu các biện pháp nhằm hạn chế ảnh hưởng chính trị của Giáo hội Công giáo, trong bối cảnh nghi ngờ về lòng trung thành của cộng đồng Công giáo với nhà nước do Phổ thống trị. Chính sách làm sâu sắc thêm chia rẽ tôn giáo và chính trị.",
+      "text_en": "The Prussian government begins measures to restrict the Catholic Church’s political influence amid doubts about Catholic loyalty to a Prussian-dominated state. The policy deepens religious and political divisions.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đối thoại với Giáo hội và giảm đối đầu",
+          "label_en": "Negotiate with the Church and reduce confrontation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_kulturkampf_begins_1871_historical",
+              "name_vi": "Hệ quả chính sách: Đối thoại với Giáo hội và giảm đối đầu",
+              "name_en": "Policy consequence: Negotiate with the Church and reduce confrontation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "radicalism": -0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tiếp tục kiểm soát nhà nước đối với các định chế tôn giáo",
+          "label_en": "Continue state control over religious institutions",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_kulturkampf_begins_1871_alternative",
+              "name_vi": "Hệ quả chính sách: Tiếp tục kiểm soát nhà nước đối với các định chế tôn giáo",
+              "name_en": "Policy consequence: Continue state control over religious institutions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.025,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "dhm_kulturkampf"
+      ]
+    },
+    {
+      "id": "pru_school_supervision_law_1872",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1872-01-01",
+        "1873-12-31"
+      ],
+      "date_historical": "1872-03-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1872,
+            "to": 1873
+          }
+        ],
+        "fire_date": "1872-03-11"
+      },
+      "title_vi": "Luật giám sát trường học",
+      "title_en": "The School Supervision Law",
+      "text_vi": "Phổ chuyển quyền giám sát trường học sang nhà nước, làm suy giảm vai trò trực tiếp của các giáo hội trong hệ thống giáo dục. Cải cách tăng tính thống nhất hành chính nhưng khiến tranh chấp với cộng đồng Công giáo gay gắt hơn.",
+      "text_en": "Prussia places school supervision under the state, reducing the churches’ direct role in education. The reform increases administrative uniformity but intensifies conflict with Catholic communities.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở rộng giáo dục công với bảo đảm tôn giáo",
+          "label_en": "Expand public education with religious safeguards",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_school_supervision_law_1872_historical",
+              "name_vi": "Hệ quả chính sách: Mở rộng giáo dục công với bảo đảm tôn giáo",
+              "name_en": "Policy consequence: Expand public education with religious safeguards",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.012,
+                "research": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Áp dụng kiểm soát nhà nước đồng nhất",
+          "label_en": "Apply uniform state supervision",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_school_supervision_law_1872_alternative",
+              "name_vi": "Hệ quả chính sách: Áp dụng kiểm soát nhà nước đồng nhất",
+              "name_en": "Policy consequence: Apply uniform state supervision",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.008,
+                "police": 0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "dhm_kulturkampf"
+      ]
+    },
+    {
+      "id": "pru_may_laws_1873",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1873-01-01",
+        "1874-12-31"
+      ],
+      "date_historical": "1873-05-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1873,
+            "to": 1874
+          }
+        ],
+        "fire_date": "1873-05-11"
+      },
+      "title_vi": "Các đạo luật Tháng Năm",
+      "title_en": "The May Laws",
+      "text_vi": "Các đạo luật Tháng Năm đặt đào tạo và bổ nhiệm giáo sĩ Công giáo dưới sự kiểm soát chặt hơn của nhà nước. Nhiều giáo sĩ phản đối hoặc bị trừng phạt, khiến một số giáo phận thiếu người đứng đầu và cộng đồng Công giáo đoàn kết hơn quanh Đảng Trung tâm.",
+      "text_en": "The May Laws place Catholic clerical training and appointments under tighter state control. Clergy resist or face penalties, leaving some dioceses without leaders and strengthening Catholic solidarity around the Centre Party.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tìm lối thỏa hiệp để giảm khủng hoảng giáo hội",
+          "label_en": "Seek compromise to ease the church crisis",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_may_laws_1873_historical",
+              "name_vi": "Hệ quả chính sách: Tìm lối thỏa hiệp để giảm khủng hoảng giáo hội",
+              "name_en": "Policy consequence: Seek compromise to ease the church crisis",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.25,
+                "radicalism": -0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì các biện pháp cưỡng chế để khẳng định quyền lực nhà nước",
+          "label_en": "Maintain coercive measures to assert state authority",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_may_laws_1873_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì các biện pháp cưỡng chế để khẳng định quyền lực nhà nước",
+              "name_en": "Policy consequence: Maintain coercive measures to assert state authority",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.03,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "dhm_kulturkampf"
+      ]
+    },
+    {
+      "id": "pru_long_depression_1873",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1873-01-01",
+        "1874-12-31"
+      ],
+      "date_historical": "1873-10-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1873,
+            "to": 1874
+          }
+        ],
+        "fire_date": "1873-10-01"
+      },
+      "title_vi": "Khủng hoảng kinh tế sau bùng nổ đầu cơ",
+      "title_en": "The Economic Crisis after the Boom",
+      "text_vi": "Sự sụp đổ thị trường năm 1873 mở đầu giai đoạn suy giảm kéo dài, ảnh hưởng đến công nghiệp, tín dụng và việc làm tại các thành phố Phổ. Khó khăn kinh tế làm tăng sức ép từ công nhân và các doanh nghiệp đang tìm bảo hộ.",
+      "text_en": "The market crash of 1873 begins a prolonged downturn affecting industry, credit and employment in Prussian cities. Economic hardship increases pressure from workers and firms seeking protection.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Hỗ trợ tín dụng có mục tiêu và việc làm công",
+          "label_en": "Provide targeted credit and public employment",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_long_depression_1873_historical",
+              "name_vi": "Hệ quả chính sách: Hỗ trợ tín dụng có mục tiêu và việc làm công",
+              "name_en": "Policy consequence: Provide targeted credit and public employment",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.015,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Để thị trường tự điều chỉnh và siết chi tiêu",
+          "label_en": "Let markets adjust and restrain spending",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_long_depression_1873_alternative",
+              "name_vi": "Hệ quả chính sách: Để thị trường tự điều chỉnh và siết chi tiêu",
+              "name_en": "Policy consequence: Let markets adjust and restrain spending",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.02,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "dhm_social"
+      ]
+    },
+    {
+      "id": "pru_gotha_program_1875",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1875-01-01",
+        "1876-12-31"
+      ],
+      "date_historical": "1875-05-22",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1875,
+            "to": 1876
+          }
+        ],
+        "fire_date": "1875-05-22"
+      },
+      "title_vi": "Chương trình Gotha và phong trào công nhân",
+      "title_en": "The Gotha Programme and the Labour Movement",
+      "text_vi": "Các tổ chức công nhân theo xu hướng Lassalle và Marxist hợp nhất tại Gotha, tạo nền tảng cho một phong trào chính trị xã hội chủ nghĩa rộng hơn. Nhà nước Phổ phải đối diện với lực lượng chính trị mới gắn với đô thị hóa và công nghiệp hóa.",
+      "text_en": "Lassallean and Marxist worker organisations unite at Gotha, laying foundations for a broader socialist political movement. The Prussian state faces a new political force linked to urbanisation and industrialisation.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở kênh đối thoại với đại diện công nhân",
+          "label_en": "Open channels with worker representatives",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_gotha_program_1875_historical",
+              "name_vi": "Hệ quả chính sách: Mở kênh đối thoại với đại diện công nhân",
+              "name_en": "Policy consequence: Open channels with worker representatives",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tăng giám sát các hội và báo chí công nhân",
+          "label_en": "Increase surveillance of worker associations and newspapers",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_gotha_program_1875_alternative",
+              "name_vi": "Hệ quả chính sách: Tăng giám sát các hội và báo chí công nhân",
+              "name_en": "Policy consequence: Increase surveillance of worker associations and newspapers",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.025,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "dhm_innenpolitik"
+      ]
+    },
+    {
+      "id": "pru_anti_socialist_law_1878",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1878-01-01",
+        "1879-12-31"
+      ],
+      "date_historical": "1878-10-21",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1878,
+            "to": 1879
+          }
+        ],
+        "fire_date": "1878-10-21"
+      },
+      "title_vi": "Luật chống các xu hướng nguy hiểm của dân chủ xã hội",
+      "title_en": "The Anti-Socialist Law",
+      "text_vi": "Sau hai vụ ám sát Wilhelm I, Bismarck tận dụng bầu không khí khủng hoảng để thông qua luật cấm nhiều tổ chức, hội họp và ấn phẩm xã hội chủ nghĩa. Đảng viên vẫn có thể tranh cử với tư cách cá nhân, nhưng mạng lưới hoạt động bị bóp nghẹt.",
+      "text_en": "After two attempts on William I’s life, Bismarck uses the crisis to enact a law banning many socialist organisations, meetings and publications. Individual candidates can still stand for election, but the movement’s organisational network is suppressed.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Kết hợp an ninh với cải cách xã hội thực chất",
+          "label_en": "Pair public security with substantive social reform",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_anti_socialist_law_1878_historical",
+              "name_vi": "Hệ quả chính sách: Kết hợp an ninh với cải cách xã hội thực chất",
+              "name_en": "Policy consequence: Pair public security with substantive social reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.035,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Dựa chủ yếu vào cấm đoán và cảnh sát",
+          "label_en": "Rely primarily on prohibition and policing",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_anti_socialist_law_1878_alternative",
+              "name_vi": "Hệ quả chính sách: Dựa chủ yếu vào cấm đoán và cảnh sát",
+              "name_en": "Policy consequence: Rely primarily on prohibition and policing",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "legitimacy": 0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "dhm_socialist_law",
+        "dhm_innenpolitik"
+      ]
+    },
+    {
+      "id": "pru_protectionist_tariff_1879",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1879-01-01",
+        "1880-12-31"
+      ],
+      "date_historical": "1879-07-12",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1879,
+            "to": 1880
+          }
+        ],
+        "fire_date": "1879-07-12"
+      },
+      "title_vi": "Chuyển hướng sang thuế quan bảo hộ",
+      "title_en": "The Turn to Protectionist Tariffs",
+      "text_vi": "Chính phủ chuyển sang chính sách thuế quan bảo hộ cho nông nghiệp và công nghiệp nặng, tìm liên minh giữa địa chủ miền Đông và các nhà công nghiệp. Chính sách giúp một số ngành giảm áp lực cạnh tranh nhưng làm giá nhập khẩu và xung đột lợi ích tăng lên.",
+      "text_en": "The government turns towards protective tariffs for agriculture and heavy industry, seeking an alliance between eastern landowners and industrialists. The policy shields some sectors but raises import costs and intensifies conflicts of interest.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo hộ có chọn lọc, tránh đóng cửa thương mại",
+          "label_en": "Use selective protection without closing trade",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_protectionist_tariff_1879_historical",
+              "name_vi": "Hệ quả chính sách: Bảo hộ có chọn lọc, tránh đóng cửa thương mại",
+              "name_en": "Policy consequence: Use selective protection without closing trade",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.01,
+                "ig_industrialists": 0.35
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Bảo hộ mạnh để củng cố liên minh địa chủ–công nghiệp",
+          "label_en": "Use strong protection to cement the landed-industrial alliance",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_protectionist_tariff_1879_alternative",
+              "name_vi": "Hệ quả chính sách: Bảo hộ mạnh để củng cố liên minh địa chủ–công nghiệp",
+              "name_en": "Policy consequence: Use strong protection to cement the landed-industrial alliance",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tariff": 0.035,
+                "ig_landowners": 0.4
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "dhm_innenpolitik"
+      ]
+    },
+    {
+      "id": "pru_kulturkampf_moderation_1880",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1880-01-01",
+        "1881-12-31"
+      ],
+      "date_historical": "1880-07-14",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1880,
+            "to": 1881
+          }
+        ],
+        "fire_date": "1880-07-14"
+      },
+      "title_vi": "Bắt đầu nới lỏng Kulturkampf",
+      "title_en": "The First Moderation of the Kulturkampf",
+      "text_vi": "Sau nhiều năm đối đầu, chính phủ bắt đầu nới một số quy định chống Công giáo và cho phép bổ nhiệm lại một số chức sắc. Sự điều chỉnh thừa nhận rằng cưỡng chế đã không phá vỡ được mạng lưới xã hội và chính trị Công giáo.",
+      "text_en": "After years of confrontation, the government begins relaxing some anti-Catholic provisions and allows certain clerical appointments to resume. The adjustment recognises that coercion has not broken Catholic social and political networks.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Khôi phục thương lượng với Vatican và các giáo phận",
+          "label_en": "Resume negotiations with the Vatican and dioceses",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_kulturkampf_moderation_1880_historical",
+              "name_vi": "Hệ quả chính sách: Khôi phục thương lượng với Vatican và các giáo phận",
+              "name_en": "Policy consequence: Resume negotiations with the Vatican and dioceses",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.35,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ lại các công cụ giám sát cốt lõi",
+          "label_en": "Retain core instruments of state supervision",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_kulturkampf_moderation_1880_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ lại các công cụ giám sát cốt lõi",
+              "name_en": "Policy consequence: Retain core instruments of state supervision",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.01,
+                "legitimacy": 0.1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "dhm_kulturkampf"
+      ]
+    },
+    {
+      "id": "pru_health_insurance_1883",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1883-01-01",
+        "1884-12-31"
+      ],
+      "date_historical": "1883-06-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1883,
+            "to": 1884
+          }
+        ],
+        "fire_date": "1883-06-15"
+      },
+      "title_vi": "Bảo hiểm y tế cho công nhân",
+      "title_en": "Health Insurance for Workers",
+      "text_vi": "Đạo luật năm 1883 thiết lập bảo hiểm y tế bắt buộc cho nhiều nhóm công nhân công nghiệp, với đóng góp từ người lao động và giới chủ. Chính sách mở rộng trách nhiệm xã hội của nhà nước, dù mức trợ cấp và phạm vi bảo vệ còn hạn chế.",
+      "text_en": "The 1883 law establishes compulsory health insurance for many industrial workers, funded by contributions from workers and employers. It expands the state’s social responsibilities, although benefits and coverage remain limited.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở rộng quản lý bảo hiểm và chăm sóc y tế",
+          "label_en": "Expand insurance administration and medical care",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_health_insurance_1883_historical",
+              "name_vi": "Hệ quả chính sách: Mở rộng quản lý bảo hiểm và chăm sóc y tế",
+              "name_en": "Policy consequence: Expand insurance administration and medical care",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.35,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ mức đóng góp thấp để giảm gánh nặng doanh nghiệp",
+          "label_en": "Keep contributions low to limit the burden on employers",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_health_insurance_1883_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ mức đóng góp thấp để giảm gánh nặng doanh nghiệp",
+              "name_en": "Policy consequence: Keep contributions low to limit the burden on employers",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.015,
+                "legitimacy": 0.1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "dhm_social"
+      ]
+    },
+    {
+      "id": "pru_accident_insurance_1884",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1884-01-01",
+        "1885-12-31"
+      ],
+      "date_historical": "1884-07-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1884,
+            "to": 1885
+          }
+        ],
+        "fire_date": "1884-07-06"
+      },
+      "title_vi": "Bảo hiểm tai nạn lao động",
+      "title_en": "Accident Insurance",
+      "text_vi": "Luật bảo hiểm tai nạn chuyển trách nhiệm bồi thường tai nạn công nghiệp sang các hiệp hội nghề nghiệp do giới chủ tài trợ. Người lao động bị thương có cơ sở pháp lý để nhận trợ cấp, trong khi doanh nghiệp phải tính đến chi phí an toàn và bảo hiểm.",
+      "text_en": "The accident-insurance law places industrial injury compensation within employer-funded trade associations. Injured workers gain a legal basis for benefits, while firms must account for safety and insurance costs.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thực thi bảo hiểm và cải thiện an toàn lao động",
+          "label_en": "Enforce insurance and improve workplace safety",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_accident_insurance_1884_historical",
+              "name_vi": "Hệ quả chính sách: Thực thi bảo hiểm và cải thiện an toàn lao động",
+              "name_en": "Policy consequence: Enforce insurance and improve workplace safety",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.25,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giảm nghĩa vụ hành chính cho các cơ sở nhỏ",
+          "label_en": "Reduce administrative obligations for small firms",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_accident_insurance_1884_alternative",
+              "name_vi": "Hệ quả chính sách: Giảm nghĩa vụ hành chính cho các cơ sở nhỏ",
+              "name_en": "Policy consequence: Reduce administrative obligations for small firms",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.015,
+                "legitimacy": 0.1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "dhm_social"
+      ]
+    },
+    {
+      "id": "pru_berlin_conference_1884",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1884-01-01",
+        "1885-12-31"
+      ],
+      "date_historical": "1884-11-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1884,
+            "to": 1885
+          }
+        ],
+        "fire_date": "1884-11-15"
+      },
+      "title_vi": "Hội nghị Berlin và tham vọng thuộc địa",
+      "title_en": "The Berlin Conference and Colonial Ambitions",
+      "text_vi": "Hội nghị Berlin đặt ra quy tắc ngoại giao cho việc các cường quốc châu Âu tuyên bố quyền kiểm soát tại châu Phi. Chính sách thuộc địa của Đế quốc Đức mở rộng trong thời kỳ này, dù lợi ích và chi phí của nó gây tranh luận tại Phổ và Reichstag.",
+      "text_en": "The Berlin Conference sets diplomatic rules for European claims in Africa. The German Empire’s colonial policy expands during this period, although its benefits and costs remain contested in Prussia and the Reichstag.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Đặt giới hạn ngân sách và yêu cầu giám sát nghị viện",
+          "label_en": "Set budget limits and require parliamentary oversight",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_berlin_conference_1884_historical",
+              "name_vi": "Hệ quả chính sách: Đặt giới hạn ngân sách và yêu cầu giám sát nghị viện",
+              "name_en": "Policy consequence: Set budget limits and require parliamentary oversight",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.025,
+                "treasury": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ủng hộ mở rộng ảnh hưởng hải ngoại",
+          "label_en": "Support expansion of overseas influence",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_berlin_conference_1884_alternative",
+              "name_vi": "Hệ quả chính sách: Ủng hộ mở rộng ảnh hưởng hải ngoại",
+              "name_en": "Policy consequence: Support expansion of overseas influence",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.045,
+                "tax": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "bundestag_empire"
+      ]
+    },
+    {
+      "id": "pru_wilhelm_i_death_1888",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1888-01-01",
+        "1889-12-31"
+      ],
+      "date_historical": "1888-03-09",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1888,
+            "to": 1889
+          }
+        ],
+        "fire_date": "1888-03-09"
+      },
+      "title_vi": "Wilhelm I qua đời",
+      "title_en": "The Death of William I",
+      "text_vi": "Wilhelm I qua đời sau thời kỳ trị vì gắn với thống nhất Đức và sự trỗi dậy của Phổ. Friedrich III kế vị trong thời gian ngắn, khiến triều đình và chính phủ chuẩn bị cho một giai đoạn chuyển tiếp bất định.",
+      "text_en": "William I dies after a reign associated with German unification and Prussia’s rise. Frederick III succeeds briefly, leaving court and government preparing for an uncertain transition.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giữ ổn định nội các và tránh thay đổi đột ngột",
+          "label_en": "Maintain cabinet stability and avoid abrupt change",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_wilhelm_i_death_1888_historical",
+              "name_vi": "Hệ quả chính sách: Giữ ổn định nội các và tránh thay đổi đột ngột",
+              "name_en": "Policy consequence: Maintain cabinet stability and avoid abrupt change",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "prestige": 0.03
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tận dụng chuyển giao để thúc đẩy cải cách",
+          "label_en": "Use the transition to advance reform",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_wilhelm_i_death_1888_alternative",
+              "name_vi": "Hệ quả chính sách: Tận dụng chuyển giao để thúc đẩy cải cách",
+              "name_en": "Policy consequence: Use the transition to advance reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.015,
+                "legitimacy": 0.1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "bundestag_empire"
+      ]
+    },
+    {
+      "id": "pru_wilhelm_ii_accession_1888",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1888-01-01",
+        "1889-12-31"
+      ],
+      "date_historical": "1888-06-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1888,
+            "to": 1889
+          }
+        ],
+        "fire_date": "1888-06-15"
+      },
+      "title_vi": "Wilhelm II lên ngôi",
+      "title_en": "William II Takes the Throne",
+      "text_vi": "Sau khi Friedrich III qua đời, Wilhelm II trở thành hoàng đế. Nhà vua trẻ muốn thể hiện quyền lãnh đạo cá nhân, mở ra khả năng thay đổi trong quan hệ giữa hoàng đế, thủ tướng, quân đội và nghị viện.",
+      "text_en": "After Frederick III’s death, William II becomes emperor. The young monarch seeks a more personal style of leadership, opening the possibility of changes in relations among the emperor, chancellor, army and parliament.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Duy trì phối hợp thể chế với chính phủ và nghị viện",
+          "label_en": "Maintain institutional coordination with government and parliament",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_wilhelm_ii_accession_1888_historical",
+              "name_vi": "Hệ quả chính sách: Duy trì phối hợp thể chế với chính phủ và nghị viện",
+              "name_en": "Policy consequence: Maintain institutional coordination with government and parliament",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.25,
+                "reform": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Đề cao quyền quyết định cá nhân của hoàng đế",
+          "label_en": "Emphasise the emperor’s personal authority",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_wilhelm_ii_accession_1888_alternative",
+              "name_vi": "Hệ quả chính sách: Đề cao quyền quyết định cá nhân của hoàng đế",
+              "name_en": "Policy consequence: Emphasise the emperor’s personal authority",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.1,
+                "prestige": 0.035
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "bundestag_empire"
+      ]
+    },
+    {
+      "id": "pru_bismarck_dismissal_1890",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1890-01-01",
+        "1891-12-31"
+      ],
+      "date_historical": "1890-03-18",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1890,
+            "to": 1891
+          }
+        ],
+        "fire_date": "1890-03-18"
+      },
+      "title_vi": "Bismarck rời chức Thủ tướng",
+      "title_en": "Bismarck Leaves Office",
+      "text_vi": "Bất đồng với Wilhelm II về chính sách lao động và quyền điều hành khiến Bismarck từ chức. Sự ra đi của kiến trúc sư thống nhất Đức mở đầu giai đoạn chính sách mới, trong đó hoàng đế can dự trực tiếp hơn vào chính quyền.",
+      "text_en": "Disagreements with William II over labour policy and executive authority lead Bismarck to resign. The architect of German unification leaves office, opening a new phase in which the emperor intervenes more directly in government.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ổn định chuyển giao và cải thiện quan hệ với nghị viện",
+          "label_en": "Stabilise the transition and improve relations with parliament",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_bismarck_dismissal_1890_historical",
+              "name_vi": "Hệ quả chính sách: Ổn định chuyển giao và cải thiện quan hệ với nghị viện",
+              "name_en": "Policy consequence: Stabilise the transition and improve relations with parliament",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.015,
+                "legitimacy": 0.3
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ đường lối cứng rắn để tránh nhượng bộ chính trị",
+          "label_en": "Maintain a hard line to avoid political concessions",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_bismarck_dismissal_1890_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ đường lối cứng rắn để tránh nhượng bộ chính trị",
+              "name_en": "Policy consequence: Maintain a hard line to avoid political concessions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.025,
+                "radicalism": 0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "dhm_innenpolitik",
+        "bundestag_empire"
+      ]
+    },
+    {
+      "id": "pru_anti_socialist_law_ends_1890",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1890-01-01",
+        "1891-12-31"
+      ],
+      "date_historical": "1890-09-30",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1890,
+            "to": 1891
+          }
+        ],
+        "fire_date": "1890-09-30"
+      },
+      "title_vi": "Luật chống xã hội chủ nghĩa hết hiệu lực",
+      "title_en": "The Anti-Socialist Law Expires",
+      "text_vi": "Quốc hội không gia hạn luật chống xã hội chủ nghĩa sau mười hai năm. Các tổ chức và báo chí công nhân có điều kiện hoạt động công khai trở lại, trong khi phong trào xã hội dân chủ tiếp tục tăng ảnh hưởng qua bầu cử.",
+      "text_en": "The Reichstag does not renew the Anti-Socialist Law after twelve years. Worker organisations and newspapers can operate openly again, while social democracy continues to gain influence through elections.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chuyển từ đàn áp sang cạnh tranh chính trị hợp pháp",
+          "label_en": "Shift from repression to lawful political competition",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_anti_socialist_law_ends_1890_historical",
+              "name_vi": "Hệ quả chính sách: Chuyển từ đàn áp sang cạnh tranh chính trị hợp pháp",
+              "name_en": "Policy consequence: Shift from repression to lawful political competition",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": -0.006,
+                "legitimacy": 0.35
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tăng giám sát hành chính thay cho cấm đoán công khai",
+          "label_en": "Increase administrative surveillance instead of open bans",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_anti_socialist_law_ends_1890_alternative",
+              "name_vi": "Hệ quả chính sách: Tăng giám sát hành chính thay cho cấm đoán công khai",
+              "name_en": "Policy consequence: Increase administrative surveillance instead of open bans",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.015,
+                "legitimacy": 0.1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "dhm_innenpolitik",
+        "dhm_socialist_law"
+      ]
+    },
+    {
+      "id": "pru_erfurt_program_1891",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1891-01-01",
+        "1892-12-31"
+      ],
+      "date_historical": "1891-10-14",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1891,
+            "to": 1892
+          }
+        ],
+        "fire_date": "1891-10-14"
+      },
+      "title_vi": "Chương trình Erfurt của dân chủ xã hội",
+      "title_en": "The Erfurt Programme",
+      "text_vi": "Đảng Dân chủ Xã hội thông qua chương trình Erfurt, kết hợp mục tiêu chính trị dân chủ với phê phán xã hội chủ nghĩa về nền kinh tế tư bản. Phong trào công nhân trở thành đối thủ chính trị lâu dài của trật tự quân chủ–bảo thủ.",
+      "text_en": "The Social Democratic Party adopts the Erfurt Programme, combining democratic political demands with a socialist critique of capitalism. The labour movement becomes a durable political challenger to the monarchical-conservative order.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở rộng cải cách xã hội và đối thoại với công đoàn",
+          "label_en": "Expand social reform and dialogue with unions",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_erfurt_program_1891_historical",
+              "name_vi": "Hệ quả chính sách: Mở rộng cải cách xã hội và đối thoại với công đoàn",
+              "name_en": "Policy consequence: Expand social reform and dialogue with unions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "radicalism": -0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tăng cường liên minh bảo thủ và quyền lực cảnh sát",
+          "label_en": "Strengthen the conservative alliance and police powers",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_erfurt_program_1891_alternative",
+              "name_vi": "Hệ quả chính sách: Tăng cường liên minh bảo thủ và quyền lực cảnh sát",
+              "name_en": "Policy consequence: Strengthen the conservative alliance and police powers",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "dhm_innenpolitik"
+      ]
+    },
+    {
+      "id": "pru_army_bill_1893",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1893-01-01",
+        "1894-12-31"
+      ],
+      "date_historical": "1893-07-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1893,
+            "to": 1894
+          }
+        ],
+        "fire_date": "1893-07-15"
+      },
+      "title_vi": "Cải tổ quy mô quân đội",
+      "title_en": "The Army Bill",
+      "text_vi": "Chính phủ tìm cách tăng quy mô quân đội thường trực trong bối cảnh dân số và nghĩa vụ quân sự thay đổi. Tranh luận ngân sách cho thấy quân đội vẫn là trụ cột quyền lực của nhà nước Phổ, nhưng phải được tài trợ qua cơ chế nghị viện.",
+      "text_en": "The government seeks to expand the standing army as population and military obligations change. Budget debates show that the army remains a pillar of Prussian state power but must still be funded through parliamentary procedures.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tăng quân số theo lộ trình và giám sát ngân sách",
+          "label_en": "Expand forces gradually with budget oversight",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_army_bill_1893_historical",
+              "name_vi": "Hệ quả chính sách: Tăng quân số theo lộ trình và giám sát ngân sách",
+              "name_en": "Policy consequence: Expand forces gradually with budget oversight",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "tax": 0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên sẵn sàng quân sự dù chi phí tăng",
+          "label_en": "Prioritise military readiness despite rising costs",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_army_bill_1893_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên sẵn sàng quân sự dù chi phí tăng",
+              "name_en": "Policy consequence: Prioritise military readiness despite rising costs",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.045,
+                "treasury": 0
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "bundestag_empire"
+      ]
+    },
+    {
+      "id": "pru_reichstag_building_opens_1894",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1894-01-01",
+        "1895-12-31"
+      ],
+      "date_historical": "1894-12-05",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1894,
+            "to": 1895
+          }
+        ],
+        "fire_date": "1894-12-05"
+      },
+      "title_vi": "Tòa nhà Reichstag được khánh thành",
+      "title_en": "The Reichstag Building Opens",
+      "text_vi": "Tòa nhà Reichstag mới tại Berlin trở thành biểu tượng kiến trúc của nghị viện Đế quốc Đức. Dù nghị viện có quyền lập pháp và ngân sách, chính phủ vẫn chịu trách nhiệm trước hoàng đế chứ không phụ thuộc vào đa số nghị viện.",
+      "text_en": "The new Reichstag building in Berlin becomes an architectural symbol of the German Empire’s parliament. Although parliament holds legislative and budgetary powers, the government remains responsible to the emperor rather than a parliamentary majority.",
+      "image": {
+        "ref": "pru_reichstag_1894"
+      },
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Củng cố năng lực nghị viện và minh bạch ngân sách",
+          "label_en": "Strengthen parliamentary capacity and budget transparency",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_reichstag_building_opens_1894_historical",
+              "name_vi": "Hệ quả chính sách: Củng cố năng lực nghị viện và minh bạch ngân sách",
+              "name_en": "Policy consequence: Strengthen parliamentary capacity and budget transparency",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "reform": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ nghị viện ở vai trò kiểm soát hạn chế",
+          "label_en": "Keep parliament in a limited supervisory role",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_reichstag_building_opens_1894_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ nghị viện ở vai trò kiểm soát hạn chế",
+              "name_en": "Policy consequence: Keep parliament in a limited supervisory role",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.1,
+                "ig_landowners": 0.25
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "bundestag_empire"
+      ]
+    },
+    {
+      "id": "pru_tirpitz_naval_policy_1897",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1897-01-01",
+        "1898-12-31"
+      ],
+      "date_historical": "1897-06-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1897,
+            "to": 1898
+          }
+        ],
+        "fire_date": "1897-06-15"
+      },
+      "title_vi": "Chính sách hải quân Tirpitz",
+      "title_en": "Tirpitz and the Naval Policy",
+      "text_vi": "Việc bổ nhiệm Alfred von Tirpitz mở đầu giai đoạn xây dựng hạm đội biển khơi có tham vọng hơn. Chính sách hải quân làm tăng ảnh hưởng của giới công nghiệp và quân sự, đồng thời khiến quan hệ với Anh trở nên nhạy cảm.",
+      "text_en": "The appointment of Alfred von Tirpitz begins a more ambitious programme for a high-seas fleet. Naval policy increases the influence of industrial and military interests while making relations with Britain more sensitive.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Phát triển hải quân theo giới hạn tài khóa",
+          "label_en": "Develop the navy within fiscal limits",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_tirpitz_naval_policy_1897_historical",
+              "name_vi": "Hệ quả chính sách: Phát triển hải quân theo giới hạn tài khóa",
+              "name_en": "Policy consequence: Develop the navy within fiscal limits",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": 0.012,
+                "trade": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tăng tốc đóng tàu để cạnh tranh vị thế cường quốc",
+          "label_en": "Accelerate shipbuilding to compete as a great power",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_tirpitz_naval_policy_1897_alternative",
+              "name_vi": "Hệ quả chính sách: Tăng tốc đóng tàu để cạnh tranh vị thế cường quốc",
+              "name_en": "Policy consequence: Accelerate shipbuilding to compete as a great power",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.04,
+                "tax": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "brit_germany"
+      ]
+    },
+    {
+      "id": "pru_second_naval_law_1900",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1900-01-01",
+        "1901-12-31"
+      ],
+      "date_historical": "1900-06-14",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1900,
+            "to": 1901
+          }
+        ],
+        "fire_date": "1900-06-14"
+      },
+      "title_vi": "Đạo luật Hải quân thứ hai",
+      "title_en": "The Second Naval Law",
+      "text_vi": "Đạo luật Hải quân năm 1900 mở rộng kế hoạch xây dựng hạm đội Đức, phản ánh tham vọng toàn cầu và cạnh tranh chiến lược. Chi phí đóng tàu dài hạn tăng lên, còn Anh ngày càng xem chương trình này là thách thức an ninh.",
+      "text_en": "The 1900 Naval Law expands Germany’s fleet-building programme, reflecting global ambitions and strategic competition. Long-term shipbuilding costs rise, while Britain increasingly views the programme as a security challenge.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Điều chỉnh mục tiêu hạm đội để giảm căng thẳng",
+          "label_en": "Adjust fleet ambitions to reduce tensions",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_second_naval_law_1900_historical",
+              "name_vi": "Hệ quả chính sách: Điều chỉnh mục tiêu hạm đội để giảm căng thẳng",
+              "name_en": "Policy consequence: Adjust fleet ambitions to reduce tensions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "relation": 0.02,
+                "treasury": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì chương trình đóng tàu quy mô lớn",
+          "label_en": "Maintain a large-scale shipbuilding programme",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_second_naval_law_1900_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì chương trình đóng tàu quy mô lớn",
+              "name_en": "Policy consequence: Maintain a large-scale shipbuilding programme",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.04,
+                "tax": 0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "brit_germany"
+      ]
+    },
+    {
+      "id": "pru_posen_school_strike_1905",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1905-01-01",
+        "1906-12-31"
+      ],
+      "date_historical": "1905-03-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1905,
+            "to": 1906
+          }
+        ],
+        "fire_date": "1905-03-01"
+      },
+      "title_vi": "Tranh chấp ngôn ngữ và trường học tại Posen",
+      "title_en": "Language and School Conflict in Posen",
+      "text_vi": "Chính sách Đức hóa tại các tỉnh phía Đông gây phản kháng trong cộng đồng Ba Lan, đặc biệt quanh ngôn ngữ giảng dạy và quyền văn hóa. Nhà nước Phổ phải cân nhắc giữa đồng hóa hành chính và ổn định xã hội ở vùng biên.",
+      "text_en": "Germanisation policies in the eastern provinces provoke resistance among Polish communities, especially over language of instruction and cultural rights. The Prussian state must weigh administrative assimilation against social stability in its borderlands.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo đảm quyền ngôn ngữ có giới hạn và giảm đối đầu",
+          "label_en": "Provide limited language protections and reduce confrontation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_posen_school_strike_1905_historical",
+              "name_vi": "Hệ quả chính sách: Bảo đảm quyền ngôn ngữ có giới hạn và giảm đối đầu",
+              "name_en": "Policy consequence: Provide limited language protections and reduce confrontation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "radicalism": -0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Siết đồng hóa để củng cố bản sắc nhà nước",
+          "label_en": "Tighten assimilation to reinforce state identity",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_posen_school_strike_1905_alternative",
+              "name_vi": "Hệ quả chính sách: Siết đồng hóa để củng cố bản sắc nhà nước",
+              "name_en": "Policy consequence: Tighten assimilation to reinforce state identity",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "brit_germany"
+      ]
+    },
+    {
+      "id": "pru_hottentot_election_1907",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1907-01-01",
+        "1908-12-31"
+      ],
+      "date_historical": "1907-02-25",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1907,
+            "to": 1908
+          }
+        ],
+        "fire_date": "1907-02-25"
+      },
+      "title_vi": "Bầu cử Reichstag sau chiến tranh Herero",
+      "title_en": "The Reichstag Election after the Herero War",
+      "text_vi": "Cuộc bầu cử năm 1907 diễn ra sau tranh cãi về chi phí và cách tiến hành chiến tranh thuộc địa tại Tây Nam Phi thuộc Đức. Các đảng tranh luận về ngân sách, trách nhiệm chính phủ và giới hạn của chủ nghĩa đế quốc.",
+      "text_en": "The 1907 election follows controversy over the cost and conduct of the colonial war in German South West Africa. Parties debate budgets, government accountability and the limits of imperialism.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tăng giám sát nghị viện đối với ngân sách thuộc địa",
+          "label_en": "Increase parliamentary oversight of colonial spending",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_hottentot_election_1907_historical",
+              "name_vi": "Hệ quả chính sách: Tăng giám sát nghị viện đối với ngân sách thuộc địa",
+              "name_en": "Policy consequence: Increase parliamentary oversight of colonial spending",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.25,
+                "radicalism": -0.002
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Bảo vệ chính sách thuộc địa của chính phủ",
+          "label_en": "Defend the government’s colonial policy",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_hottentot_election_1907_alternative",
+              "name_vi": "Hệ quả chính sách: Bảo vệ chính sách thuộc địa của chính phủ",
+              "name_en": "Policy consequence: Defend the government’s colonial policy",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.025,
+                "tax": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "bundestag_empire"
+      ]
+    },
+    {
+      "id": "pru_spd_election_1912",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1912-01-01",
+        "1913-12-31"
+      ],
+      "date_historical": "1912-01-12",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1912,
+            "to": 1913
+          }
+        ],
+        "fire_date": "1912-01-12"
+      },
+      "title_vi": "SPD trở thành phe lớn nhất Reichstag",
+      "title_en": "The SPD Becomes the Largest Reichstag Group",
+      "text_vi": "Trong cuộc bầu cử Reichstag năm 1912, SPD giành số ghế lớn nhất, phản ánh sức mạnh của phong trào công nhân và đô thị hóa. Tuy vậy, chính phủ vẫn không phụ thuộc vào đa số nghị viện, làm nổi bật khoảng cách giữa đại diện dân cử và quyền hành pháp.",
+      "text_en": "In the 1912 Reichstag election, the SPD wins the largest parliamentary group, reflecting the strength of the labour movement and urbanisation. The government still does not depend on a parliamentary majority, exposing the gap between elected representation and executive power.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tìm thỏa hiệp về cải cách xã hội và ngân sách",
+          "label_en": "Seek compromise on social reform and budgets",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_spd_election_1912_historical",
+              "name_vi": "Hệ quả chính sách: Tìm thỏa hiệp về cải cách xã hội và ngân sách",
+              "name_en": "Policy consequence: Seek compromise on social reform and budgets",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.015,
+                "legitimacy": 0.3
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì liên minh bảo thủ trong hệ thống hiện hành",
+          "label_en": "Maintain the conservative alliance within the existing system",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_spd_election_1912_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì liên minh bảo thủ trong hệ thống hiện hành",
+              "name_en": "Policy consequence: Maintain the conservative alliance within the existing system",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "ig_landowners": 0.35,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "dhm_innenpolitik",
+        "bundestag_empire"
+      ]
+    },
+    {
+      "id": "pru_first_world_war_1914",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1914-01-01",
+        "1915-12-31"
+      ],
+      "date_historical": "1914-08-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1914,
+            "to": 1915
+          }
+        ],
+        "fire_date": "1914-08-01"
+      },
+      "title_vi": "Đế quốc Đức bước vào Thế chiến thứ nhất",
+      "title_en": "The German Empire Enters the First World War",
+      "text_vi": "Sau khủng hoảng tháng Bảy, Đức tuyên chiến với Nga và nhanh chóng mở rộng chiến tranh ở Tây Âu. Xã hội Phổ huy động quân đội và kinh tế trong kỳ vọng chiến tranh ngắn, nhưng xung đột sẽ kéo dài và gây tổn thất lớn.",
+      "text_en": "After the July Crisis, Germany declares war on Russia and rapidly widens the conflict in western Europe. Prussian society mobilises its army and economy expecting a short war, but the conflict becomes prolonged and devastating.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tổ chức huy động có phối hợp dân sự và quân sự",
+          "label_en": "Coordinate civilian and military mobilisation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_first_world_war_1914_historical",
+              "name_vi": "Hệ quả chính sách: Tổ chức huy động có phối hợp dân sự và quân sự",
+              "name_en": "Policy consequence: Coordinate civilian and military mobilisation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.045,
+                "construction": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên toàn bộ nguồn lực cho chiến tranh",
+          "label_en": "Prioritise all available resources for war",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_first_world_war_1914_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên toàn bộ nguồn lực cho chiến tranh",
+              "name_en": "Policy consequence: Prioritise all available resources for war",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.06,
+                "war_exhaustion": 0.025
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "bundestag_empire",
+        "brit_germany"
+      ]
+    },
+    {
+      "id": "pru_verdun_attrition_1916",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1916-01-01",
+        "1917-12-31"
+      ],
+      "date_historical": "1916-02-21",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1916,
+            "to": 1917
+          }
+        ],
+        "fire_date": "1916-02-21"
+      },
+      "title_vi": "Chiến tranh tiêu hao tại Verdun",
+      "title_en": "The War of Attrition at Verdun",
+      "text_vi": "Trận Verdun trở thành biểu tượng của chiến tranh tiêu hao ở Mặt trận phía Tây, với tổn thất nhân mạng và vật chất khổng lồ cho cả hai phía. Bộ chỉ huy phải đối mặt với câu hỏi liệu tiếp tục tiến công có đem lại lợi ích tương xứng hay không.",
+      "text_en": "The Battle of Verdun becomes a symbol of attrition on the Western Front, inflicting enormous human and material losses on both sides. Commanders face the question of whether continued offensives can justify their cost.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên phòng ngự và bảo toàn lực lượng",
+          "label_en": "Prioritise defence and preserve manpower",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_verdun_attrition_1916_historical",
+              "name_vi": "Hệ quả chính sách: Ưu tiên phòng ngự và bảo toàn lực lượng",
+              "name_en": "Policy consequence: Prioritise defence and preserve manpower",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.015,
+                "army": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tiếp tục gây sức ép quân sự bất chấp tổn thất",
+          "label_en": "Continue military pressure despite the losses",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_verdun_attrition_1916_alternative",
+              "name_vi": "Hệ quả chính sách: Tiếp tục gây sức ép quân sự bất chấp tổn thất",
+              "name_en": "Policy consequence: Continue military pressure despite the losses",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "war_exhaustion": 0.035
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "brit_germany"
+      ]
+    },
+    {
+      "id": "pru_war_economy_hindenburg_program_1916",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1916-01-01",
+        "1917-12-31"
+      ],
+      "date_historical": "1916-12-12",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1916,
+            "to": 1917
+          }
+        ],
+        "fire_date": "1916-12-12"
+      },
+      "title_vi": "Chương trình Hindenburg và kinh tế chiến tranh",
+      "title_en": "The Hindenburg Programme and the War Economy",
+      "text_vi": "Bộ chỉ huy tối cao thúc đẩy huy động sâu hơn công nghiệp, lao động và nguyên liệu cho chiến tranh. Sản lượng quân sự tăng ưu tiên nhưng tiêu dùng dân sự suy giảm, làm căng thẳng xã hội và thiếu hụt ngày càng trầm trọng.",
+      "text_en": "The Supreme Army Command pushes deeper mobilisation of industry, labour and raw materials for war. Military output receives priority while civilian consumption declines, worsening social strain and shortages.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giữ một phần nguồn lực cho lương thực và dân sinh",
+          "label_en": "Reserve resources for food and civilian needs",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_war_economy_hindenburg_program_1916_historical",
+              "name_vi": "Hệ quả chính sách: Giữ một phần nguồn lực cho lương thực và dân sinh",
+              "name_en": "Policy consequence: Reserve resources for food and civilian needs",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "radicalism": -0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tối đa hóa sản lượng quân sự",
+          "label_en": "Maximise military production",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_war_economy_hindenburg_program_1916_alternative",
+              "name_vi": "Hệ quả chính sách: Tối đa hóa sản lượng quân sự",
+              "name_en": "Policy consequence: Maximise military production",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "war_exhaustion": 0.035
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "brit_germany"
+      ]
+    },
+    {
+      "id": "pru_peace_resolution_1917",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1917-01-01",
+        "1918-12-31"
+      ],
+      "date_historical": "1917-07-19",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1917,
+            "to": 1918
+          }
+        ],
+        "fire_date": "1917-07-19"
+      },
+      "title_vi": "Nghị quyết Hòa bình của Reichstag",
+      "title_en": "The Reichstag Peace Resolution",
+      "text_vi": "Đa số nghị sĩ thông qua nghị quyết kêu gọi hòa bình thỏa thuận và phản đối sáp nhập lãnh thổ bằng vũ lực. Nghị quyết cho thấy áp lực chính trị ngày càng lớn đối với đường lối chiến tranh do giới quân sự chi phối.",
+      "text_en": "A Reichstag majority adopts a resolution calling for a negotiated peace and opposing forced territorial annexations. It reveals growing political pressure against a war policy increasingly directed by the military leadership.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở kênh đàm phán và khôi phục vai trò nghị viện",
+          "label_en": "Open negotiations and restore parliament’s role",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_peace_resolution_1917_historical",
+              "name_vi": "Hệ quả chính sách: Mở kênh đàm phán và khôi phục vai trò nghị viện",
+              "name_en": "Policy consequence: Open negotiations and restore parliament’s role",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "war_exhaustion": -0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tiếp tục chiến tranh đến khi đạt mục tiêu quân sự",
+          "label_en": "Continue the war until military aims are achieved",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_peace_resolution_1917_alternative",
+              "name_vi": "Hệ quả chính sách: Tiếp tục chiến tranh đến khi đạt mục tiêu quân sự",
+              "name_en": "Policy consequence: Continue the war until military aims are achieved",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "bundestag_empire"
+      ]
+    },
+    {
+      "id": "pru_brest_litovsk_1918",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1918-01-01",
+        "1919-12-31"
+      ],
+      "date_historical": "1918-03-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1918,
+            "to": 1919
+          }
+        ],
+        "fire_date": "1918-03-03"
+      },
+      "title_vi": "Hòa ước Brest-Litovsk",
+      "title_en": "The Treaty of Brest-Litovsk",
+      "text_vi": "Đức và các đồng minh ký hòa ước với chính quyền Bolshevik, kết thúc chiến tranh ở Mặt trận phía Đông và áp đặt những điều kiện lãnh thổ nặng nề lên nước Nga Xô viết. Bộ chỉ huy chuyển lực lượng sang phía Tây, hy vọng tạo đột phá trước khi Mỹ triển khai đầy đủ sức mạnh.",
+      "text_en": "Germany and its allies sign a treaty with the Bolshevik government, ending the Eastern Front war and imposing severe territorial terms on Soviet Russia. Commanders transfer forces west, hoping for a breakthrough before American strength is fully deployed.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tận dụng thời gian để tìm lối kết thúc chiến tranh",
+          "label_en": "Use the respite to seek an end to the war",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_brest_litovsk_1918_historical",
+              "name_vi": "Hệ quả chính sách: Tận dụng thời gian để tìm lối kết thúc chiến tranh",
+              "name_en": "Policy consequence: Use the respite to seek an end to the war",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.01,
+                "prestige": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chuyển toàn bộ lực lượng sang một cuộc tổng tiến công",
+          "label_en": "Transfer forces to a major western offensive",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_brest_litovsk_1918_alternative",
+              "name_vi": "Hệ quả chính sách: Chuyển toàn bộ lực lượng sang một cuộc tổng tiến công",
+              "name_en": "Policy consequence: Transfer forces to a major western offensive",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "war_exhaustion": 0.035
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "brit_germany"
+      ]
+    },
+    {
+      "id": "pru_october_reforms_1918",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1918-01-01",
+        "1919-12-31"
+      ],
+      "date_historical": "1918-10-28",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1918,
+            "to": 1919
+          }
+        ],
+        "fire_date": "1918-10-28"
+      },
+      "title_vi": "Cải cách tháng Mười chuyển sang quân chủ nghị viện",
+      "title_en": "The October Reforms Move Germany towards Parliamentary Monarchy",
+      "text_vi": "Các sửa đổi hiến pháp chuyển trách nhiệm chính phủ gần hơn với đa số nghị viện và hạn chế quyền đơn phương của hoàng đế trong một số quyết định chiến tranh và hòa bình. Cải cách diễn ra quá muộn để xóa bỏ khủng hoảng niềm tin trong xã hội và quân đội.",
+      "text_en": "Constitutional amendments make the government more dependent on a parliamentary majority and restrict the emperor’s unilateral role in some decisions of war and peace. The reforms come too late to resolve the crisis of confidence in society and the armed forces.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Trao quyền thực chất cho nghị viện và tìm đình chiến",
+          "label_en": "Give parliament real authority and seek an armistice",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_october_reforms_1918_historical",
+              "name_vi": "Hệ quả chính sách: Trao quyền thực chất cho nghị viện và tìm đình chiến",
+              "name_en": "Policy consequence: Give parliament real authority and seek an armistice",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.35,
+                "reform": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ quyền lực hoàng gia trong quá trình chuyển tiếp",
+          "label_en": "Preserve royal authority during the transition",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_october_reforms_1918_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ quyền lực hoàng gia trong quá trình chuyển tiếp",
+              "name_en": "Policy consequence: Preserve royal authority during the transition",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.35,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "bundestag_empire",
+        "bundestag_revolution"
+      ]
+    },
+    {
+      "id": "pru_november_revolution_1918",
+      "country": "PRU",
+      "mode": "historical",
+      "window": [
+        "1918-01-01",
+        "1919-12-31"
+      ],
+      "date_historical": "1918-11-09",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1918,
+            "to": 1919
+          }
+        ],
+        "fire_date": "1918-11-09"
+      },
+      "title_vi": "Cách mạng tháng Mười Một và sự sụp đổ quân chủ",
+      "title_en": "The November Revolution and the Fall of Monarchy",
+      "text_vi": "Sau binh biến hải quân và làn sóng hội đồng công nhân–binh sĩ, cách mạng lan tới Berlin. Wilhelm II thoái vị và nền quân chủ Phổ–Đức sụp đổ; quyền lực chuyển sang các lực lượng cộng hòa trong một cuộc chuyển đổi đầy bất định.",
+      "text_en": "After the naval mutiny and the spread of workers’ and soldiers’ councils, revolution reaches Berlin. William II abdicates and the Prussian-German monarchy collapses, transferring power to republican forces in an uncertain transition.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chấp nhận chuyển giao và bảo đảm trật tự dân sự",
+          "label_en": "Accept the transition and protect civilian order",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_november_revolution_1918_historical",
+              "name_vi": "Hệ quả chính sách: Chấp nhận chuyển giao và bảo đảm trật tự dân sự",
+              "name_en": "Policy consequence: Accept the transition and protect civilian order",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.4,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Dùng lực lượng còn trung thành để chống cách mạng",
+          "label_en": "Use remaining loyal forces to resist the revolution",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "pru_november_revolution_1918_alternative",
+              "name_vi": "Hệ quả chính sách: Dùng lực lượng còn trung thành để chống cách mạng",
+              "name_en": "Policy consequence: Use remaining loyal forces to resist the revolution",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "radicalism": 0.025
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "bundestag_revolution",
+        "bundestag_empire"
+      ]
+    }
+  ],
+  "journals": [
+    {
+      "id": "pru_constitutional_monarchy_1837_1862",
+      "country": "PRU",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1837,
+            "to": 1862
+          }
+        ]
+      },
+      "title_vi": "Quân chủ, nghị viện và cải cách nhà nước",
+      "title_en": "Monarchy, Parliament and State Reform",
+      "text_vi": "Phổ phải dung hòa yêu cầu hiến pháp, đại diện chính trị và quyền lực của vương triều. Từ khủng hoảng năm 1848 đến xung đột ngân sách đầu thập niên 1860, lựa chọn của triều đình định hình tính chính danh của nhà nước.",
+      "text_en": "Prussia must reconcile constitutional demands, political representation and dynastic authority. From the 1848 crisis to the budget conflict of the early 1860s, the Crown’s choices shape the legitimacy of the state.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Tiến độ",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 120
+        }
+      ],
+      "timeout_months": 120,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "PRU",
+          "id": "pru_constitutional_monarchy_1837_1862_complete",
+          "name_vi": "Thỏa hiệp hiến định có kiểm soát",
+          "name_en": "Managed Constitutional Settlement",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 0.6,
+            "reform": 0.012
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "PRU",
+          "id": "pru_constitutional_monarchy_1837_1862_failed",
+          "name_vi": "Khủng hoảng chính danh kéo dài",
+          "name_en": "Prolonged Legitimacy Crisis",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "radicalism": 0.012,
+            "legitimacy": -0.4
+          }
+        }
+      ]
+    },
+    {
+      "id": "pru_german_hegemony_1862_1871",
+      "country": "PRU",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1862,
+            "to": 1871
+          }
+        ]
+      },
+      "title_vi": "Xây dựng quyền bá chủ Phổ tại Đức",
+      "title_en": "Building Prussian Hegemony in Germany",
+      "text_vi": "Phổ tìm cách thay đổi cán cân quyền lực trong Liên minh Đức bằng cải tổ quân đội, chiến tranh và thỏa thuận liên bang. Thành công đòi hỏi kết hợp sức mạnh quân sự với ngoại giao và nhượng bộ có tính toán.",
+      "text_en": "Prussia seeks to change the balance of power in the German Confederation through army reform, war and federal agreements. Success requires combining military strength with diplomacy and calculated concessions.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Tiến độ",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 120
+        }
+      ],
+      "timeout_months": 120,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "PRU",
+          "id": "pru_german_hegemony_1862_1871_complete",
+          "name_vi": "Liên bang thống nhất dưới quyền Phổ",
+          "name_en": "A Unified Federation under Prussian Leadership",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "prestige": 0.07,
+            "legitimacy": 0.5
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "PRU",
+          "id": "pru_german_hegemony_1862_1871_failed",
+          "name_vi": "Chiến tranh và chia rẽ làm suy yếu vị thế Phổ",
+          "name_en": "War and Division Weaken Prussia",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "war_exhaustion": 0.025,
+            "prestige": -0.03
+          }
+        }
+      ]
+    },
+    {
+      "id": "pru_imperial_state_1871_1890",
+      "country": "PRU",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1871,
+            "to": 1890
+          }
+        ]
+      },
+      "title_vi": "Quản trị đế quốc và xung đột xã hội",
+      "title_en": "Governing the Empire and Social Conflict",
+      "text_vi": "Sau năm 1871, Phổ là bang lớn nhất trong Đế quốc Đức nhưng phải xử lý xung đột tôn giáo, phong trào công nhân, công nghiệp hóa và quan hệ giữa nghị viện với hành pháp. Sự ổn định không thể chỉ dựa vào quyền lực cưỡng chế.",
+      "text_en": "After 1871, Prussia is the largest state in the German Empire but must manage religious conflict, the labour movement, industrialisation and tensions between parliament and the executive. Stability cannot rest on coercion alone.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Tiến độ",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 120
+        }
+      ],
+      "timeout_months": 120,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "PRU",
+          "id": "pru_imperial_state_1871_1890_complete",
+          "name_vi": "Bộ máy đế quốc ổn định và cải cách xã hội",
+          "name_en": "Stable Imperial Administration and Social Reform",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 0.5,
+            "literacy": 0.012
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "PRU",
+          "id": "pru_imperial_state_1871_1890_failed",
+          "name_vi": "Đối đầu xã hội và chính trị leo thang",
+          "name_en": "Escalating Social and Political Conflict",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "radicalism": 0.015,
+            "legitimacy": -0.4
+          }
+        }
+      ]
+    },
+    {
+      "id": "pru_weltpolitik_1890_1914",
+      "country": "PRU",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1890,
+            "to": 1914
+          }
+        ]
+      },
+      "title_vi": "Cường quốc công nghiệp và chính sách thế giới",
+      "title_en": "Industrial Power and Weltpolitik",
+      "text_vi": "Phổ giữ vai trò trung tâm trong một đế quốc công nghiệp đang mở rộng hải quân và ảnh hưởng toàn cầu. Tăng trưởng kinh tế tạo nguồn lực nhưng cạnh tranh vũ trang, chủ nghĩa đế quốc và bất bình đẳng chính trị làm tăng rủi ro chiến lược.",
+      "text_en": "Prussia remains central to an industrial empire expanding its navy and global influence. Economic growth provides resources, but arms competition, imperial ambitions and political inequality increase strategic risk.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Tiến độ",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 120
+        }
+      ],
+      "timeout_months": 120,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "PRU",
+          "id": "pru_weltpolitik_1890_1914_complete",
+          "name_vi": "Tăng trưởng đi cùng cân bằng ngoại giao",
+          "name_en": "Growth with Diplomatic Balance",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "trade": 0.025,
+            "research": 0.015
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "PRU",
+          "id": "pru_weltpolitik_1890_1914_failed",
+          "name_vi": "Cạnh tranh chiến lược và gánh nặng ngân sách",
+          "name_en": "Strategic Rivalry and Fiscal Strain",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "war_exhaustion": 0.015,
+            "tax": 0.015
+          }
+        }
+      ]
+    },
+    {
+      "id": "pru_war_and_revolution_1914_1918",
+      "country": "PRU",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "PRU"
+          },
+          {
+            "type": "year_between",
+            "from": 1914,
+            "to": 1918
+          }
+        ]
+      },
+      "title_vi": "Chiến tranh tổng lực và kết thúc quân chủ",
+      "title_en": "Total War and the End of Monarchy",
+      "text_vi": "Chiến tranh kéo dài làm kiệt quệ quân đội, kinh tế và niềm tin xã hội. Cải cách hiến pháp cuối năm 1918 không thể ngăn cách mạng tháng Mười Một và sự chấm dứt của nhà nước quân chủ Phổ.",
+      "text_en": "Prolonged war exhausts the army, economy and public confidence. Constitutional reform in late 1918 cannot prevent the November Revolution and the end of the Prussian monarchy.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Tiến độ",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 120
+        }
+      ],
+      "timeout_months": 120,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "PRU",
+          "id": "pru_war_and_revolution_1914_1918_complete",
+          "name_vi": "Chuyển tiếp chính trị có trật tự",
+          "name_en": "An Orderly Political Transition",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 0.5,
+            "radicalism": -0.008
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "PRU",
+          "id": "pru_war_and_revolution_1914_1918_failed",
+          "name_vi": "Sụp đổ thể chế và bất ổn xã hội",
+          "name_en": "Institutional Collapse and Social Unrest",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "radicalism": 0.02,
+            "legitimacy": -0.5
+          }
+        }
+      ]
+    }
+  ]
+}
