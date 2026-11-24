@@ -2749,3 +2749,13 @@ Detailed report: `docs/research/history/CG61_JAP_STORY_EVENT_BATCH_CHECKPOINT_20
 - Static read-back: JSON valid; unique QNG IDs; two options/event; named timed modifier/option; source keys resolve; fire_date = date_historical; all modifier keys in MOD_KEYS; 4 journals use time-based progress, not persistent event_fired milestones.
 - **Integration blockers:** verify monthly scheduler with mid-month fire_date + next-year availability window; verify QNG final abdication event against registry hist_to 1912-02-12; review all historical dates/claims; recheck image rights and ingest size. No data/content builder, tests, simulation, Android build or APK run.
 - **Next ChatGPT A1 country:** RUS → PRU (Prussia, not PRS/Persia) → USA → TUR. MSG-129 remains IN_PROGRESS.
+
+
+## 2026-11-24 — CG-63 RUS (Đế quốc Nga) A1 story pack delivered
+
+- **Data:** `historical_data/events/story/RUS.json` — 54 events, 5 journals, 5 source refs; 1837-02-10 through 1917-03-15.
+- **Commits:** initial data `bf32b6b75266e4042d07d8a507b006d8cbb1f9de`; image refs `1cfcb140e341d96067d05172dccad8b712d88995`; image candidates `b65104e64a5989a5956cb01e2cb7ad5f9dd57144`.
+- **Checkpoint:** `docs/research/history/CG63_RUS_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md`, commit `68398132f75769f180f61a7ef26f2a5ac791a638`.
+- Static read-back: 54 unique RUS IDs; two options/event; named timed modifiers; all source keys resolve; fire_date matches date_historical; modifier keys match MOD_KEYS; five time-based journals; three image subjects map to events.
+- **Integration blockers:** verify Julian/Gregorian convention, monthly scheduler and next-year windows; final abdication event date equals registry hist_to 1917-03-15; verify journal cleanup on entity retirement; recheck Commons rights and create a manageable derivative for the 124 MB Duma original. No builders, tests, simulation, Android build or APK run.
+- **Next ChatGPT A1 country:** PRU (Prussia, not PRS/Persia) → USA → TUR. MSG-129 remains IN_PROGRESS.
