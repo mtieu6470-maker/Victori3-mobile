@@ -30,7 +30,9 @@
     "image_eiffel": "https://commons.wikimedia.org/wiki/File:Tour_Eiffel_exposition_universelle_1889.jpg",
     "image_dreyfus": "https://commons.wikimedia.org/wiki/File:Degradation_alfred_dreyfus.jpg",
     "image_verdun": "https://commons.wikimedia.org/wiki/File:Bataille_de_Verdun_1916.jpg",
-    "image_liberation": "https://commons.wikimedia.org/wiki/File:Paris1944.jpg"
+    "image_liberation": "https://commons.wikimedia.org/wiki/File:Paris1944.jpg",
+    "education_senate": "https://www.senat.fr/connaitre-le-senat/lhistoire-du-senat/dossiers-dhistoire/jules-ferry-le-president-du-senat-au-mandat-le-plus-court/jules-ferry-politique-scolaire.html",
+    "ecb_cash_changeover": "https://www.ecb.europa.eu/euro/changeover/2002/html/index.en.html"
   },
   "events": [
     {
@@ -1827,10 +1829,10 @@
         ],
         "mtth_months": 1
       },
-      "title_vi": "Cải cách trường học Jules Ferry",
-      "title_en": "The Jules Ferry School Reforms",
-      "text_vi": "Các cải cách đầu thập niên 1880 đặt nền móng cho giáo dục tiểu học miễn phí, bắt buộc và thế tục. Trường công được xem là công cụ phổ cập đọc viết và công dân, nhưng cải cách làm tranh luận với Giáo hội gay gắt hơn.",
-      "text_en": "The early-1880s reforms laid foundations for free, compulsory and secular primary education. Public schooling was treated as a means of spreading literacy and citizenship, while the reforms intensified conflict with the Church.",
+      "title_vi": "Luật Jules Ferry về giáo dục tiểu học miễn phí",
+      "title_en": "The Jules Ferry Law on Free Primary Education",
+      "text_vi": "Luật ngày 16 tháng 6 năm 1881 thiết lập giáo dục tiểu học miễn phí trong các trường công lập. Đây là bước đầu của chương trình cải cách rộng hơn: luật ngày 28 tháng 3 năm 1882 tiếp tục quy định giáo dục bắt buộc và thế tục. Việc mở rộng trường học giúp phổ cập năng lực đọc viết nhưng đòi hỏi ngân sách, giáo viên và bộ máy hành chính.",
+      "text_en": "The law of 16 June 1881 made primary education free in public schools. It was the first step in a wider reform programme: the law of 28 March 1882 subsequently made primary education compulsory and secular. Expanding schools supported literacy but required public funding, teachers and administrative capacity.",
       "options": [
         {
           "id": "historical_course",
@@ -1880,7 +1882,86 @@
         }
       ],
       "sources": [
-        "assembly_history"
+        "education_senate"
+      ]
+    },
+    {
+      "id": "fra_compulsory_education_1882",
+      "country": "FRA",
+      "mode": "historical",
+      "window": [
+        "1882-01-01",
+        "1882-12-31"
+      ],
+      "date_historical": "1882-03-28",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "FRA"
+          },
+          {
+            "type": "year_between",
+            "from": 1882,
+            "to": 1882
+          }
+        ],
+        "mtth_months": 1
+      },
+      "title_vi": "Luật giáo dục tiểu học bắt buộc năm 1882",
+      "title_en": "The 1882 Compulsory Primary Education Law",
+      "text_vi": "Ngày 28 tháng 3 năm 1882, Quốc hội thông qua luật quy định trẻ em từ 6 đến 13 tuổi phải đi học tiểu học, đồng thời đưa giáo dục thế tục vào chương trình trường công. Luật củng cố vai trò của nền cộng hòa trong giáo dục công dân, nhưng đặt ra yêu cầu tuyển dụng giáo viên và bảo đảm trường học tới các vùng nông thôn.",
+      "text_en": "On 28 March 1882, Parliament passed a law requiring children aged six to thirteen to receive primary education and establishing secular instruction in public schools. The law strengthened the Republic's role in civic education, while increasing the need for teachers and schools in rural communities.",
+      "options": [
+        {
+          "id": "fund_public_schools",
+          "label_vi": "Tăng ngân sách và mở rộng trường công",
+          "label_en": "Expand public schools and funding",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_1882_compulsory_education_expansion",
+              "name_vi": "Mạng lưới trường học cộng hòa",
+              "name_en": "Republican School Network",
+              "months": 60,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.025,
+                "research": 0.012,
+                "tax": 0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "phase_in_rural",
+          "label_vi": "Triển khai theo giai đoạn tại vùng nông thôn",
+          "label_en": "Phase implementation in rural areas",
+          "historical": false,
+          "ai_weight": 2,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "fra_1882_compulsory_education_gradual",
+              "name_vi": "Chuyển đổi giáo dục từng bước",
+              "name_en": "Gradual Education Transition",
+              "months": 48,
+              "decaying": true,
+              "effects": {
+                "literacy": 0.014,
+                "legitimacy": 0.8,
+                "construction": -0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "education_senate"
       ]
     },
     {
@@ -4344,7 +4425,7 @@
         }
       ],
       "sources": [
-        "treaty_rome"
+        "ecb_cash_changeover"
       ]
     },
     {
