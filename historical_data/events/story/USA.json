@@ -1,0 +1,4526 @@
+{
+  "schema": "story_events_v1",
+  "country": "USA",
+  "sources": {
+    "loc_us_timeline": "Library of Congress, U.S. History Primary Source Timeline. https://www.loc.gov/classroom-materials/united-states-history-primary-source-timeline/ris",
+    "nara_milestones": "U.S. National Archives, Milestone Documents and timeline. https://www.archives.gov/milestone-documents/list",
+    "nara_13th": "U.S. National Archives, 13th Amendment to the U.S. Constitution (1865). https://www.archives.gov/milestone-documents/13th-amendment",
+    "loc_civil_rights": "Library of Congress, The Civil Rights Act of 1964: Legal Timeline. https://www.loc.gov/exhibits/civil-rights-act/legal-events-timeline",
+    "nara_civil_rights": "U.S. National Archives, Civil Rights Act (1964). https://www.archives.gov/milestone-documents/civil-rights-act",
+    "senate_civil_rights": "U.S. Senate Historical Office, Civil Rights Act of 1964 chronology. https://www.senate.gov/legislative/landmark-legislation/civil-rights-act-of-1964/civil-rights-chronology.htm",
+    "house_new_deal": "U.S. House of Representatives, Legislative Interests and Achievements (New Deal and Social Security). https://history.house.gov/Exhibitions-and-Publications/WIC/Historical-Essays/National-Stage/Legislative-Interests/",
+    "house_wwii": "U.S. House of Representatives, Great Depression & World War II: 1929–1945. https://history.house.gov/Education/NHD/NHD-Depression-WWII/",
+    "house_postwar": "U.S. House of Representatives, Postwar: 1945–1967. https://history.house.gov/Education/NHD/NHD-Postwar/",
+    "nara_foreign": "U.S. National Archives, Seeing the Big Picture: One Hundred Years of U.S. Foreign Policy 1920–2019. https://www.archives.gov/files/legislative/resources/education/foreign-policy-1920-2020/timeline-large.pdf",
+    "nara_911": "U.S. National Archives, Remembering 9/11. https://www.archives.gov/news/topics/9-11-anniversary",
+    "commission_911": "National Commission on Terrorist Attacks Upon the United States, The 9/11 Commission Report, Chapter 9. https://911commission.gov/report/911Report_Ch9.htm",
+    "whitehouse_covid": "The White House Archives, Proclamation on Declaring a National Emergency Concerning COVID-19 (13 March 2020). https://trumpwhitehouse.archives.gov/presidential-actions/proclamation-declaring-national-emergency-concerning-novel-coronavirus-disease-covid-19-outbreak/",
+    "obama_aca": "Barack Obama Presidential Library, Timeline: Signing of the Affordable Care Act (23 March 2010). https://www.obamalibrary.gov/timeline",
+    "fed_crisis": "Federal Reserve Bank of Kansas City, Timeline: Federal Reserve and Financial Crisis, 2007–2011. https://www.kansascityfed.org/documents/33/summer2011-timeline.pdf"
+  },
+  "events": [
+    {
+      "id": "usa_texas_recognition_1837",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1837-01-01",
+        "1838-12-31"
+      ],
+      "date_historical": "1837-03-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1837,
+            "to": 1838
+          }
+        ],
+        "fire_date": "1837-03-03"
+      },
+      "title_vi": "Hoa Kỳ công nhận Cộng hòa Texas",
+      "title_en": "The United States Recognises the Republic of Texas",
+      "text_vi": "Chính phủ Hoa Kỳ chính thức công nhận nền độc lập của Texas, nhưng việc sáp nhập vẫn gây tranh cãi vì nguy cơ mở rộng chế độ nô lệ và xung đột với Mexico. Washington phải cân bằng lợi ích chiến lược với nguy cơ chiến tranh và chia rẽ trong nước.",
+      "text_en": "The United States formally recognises the independence of Texas, but annexation remains contentious because of slavery’s expansion and the risk of conflict with Mexico. Washington must balance strategic interests against war and domestic division.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Duy trì công nhận và mở đàm phán có điều kiện",
+          "label_en": "Maintain recognition and open conditional negotiations",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_texas_recognition_1837_historical",
+              "name_vi": "Hệ quả chính sách: Duy trì công nhận và mở đàm phán có điều kiện",
+              "name_en": "Policy consequence: Maintain recognition and open conditional negotiations",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.03,
+                "relation": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Trì hoãn cam kết để giảm nguy cơ đối đầu",
+          "label_en": "Delay commitment to reduce the risk of confrontation",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_texas_recognition_1837_alternative",
+              "name_vi": "Hệ quả chính sách: Trì hoãn cam kết để giảm nguy cơ đối đầu",
+              "name_en": "Policy consequence: Delay commitment to reduce the risk of confrontation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.15,
+                "radicalism": -0.002
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_us_timeline"
+      ]
+    },
+    {
+      "id": "usa_texas_annexation_1845",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1845-01-01",
+        "1846-12-31"
+      ],
+      "date_historical": "1845-12-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1845,
+            "to": 1846
+          }
+        ],
+        "fire_date": "1845-12-29"
+      },
+      "title_vi": "Texas gia nhập Liên bang",
+      "title_en": "Texas Joins the Union",
+      "text_vi": "Quốc hội thông qua nghị quyết sáp nhập và Texas trở thành bang thứ 28. Việc mở rộng lãnh thổ làm thay đổi cán cân giữa các bang tự do và bang nô lệ, đồng thời khiến quan hệ với Mexico xấu đi nhanh chóng.",
+      "text_en": "Congress approves annexation and Texas becomes the twenty-eighth state. Expansion alters the balance between free and slave states and sharply worsens relations with Mexico.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tiếp nhận Texas kèm thỏa hiệp về tổ chức lãnh thổ",
+          "label_en": "Admit Texas with a negotiated territorial framework",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_texas_annexation_1845_historical",
+              "name_vi": "Hệ quả chính sách: Tiếp nhận Texas kèm thỏa hiệp về tổ chức lãnh thổ",
+              "name_en": "Policy consequence: Admit Texas with a negotiated territorial framework",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.25,
+                "prestige": 0.03
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Đẩy nhanh mở rộng biên giới và quyền lực liên bang",
+          "label_en": "Accelerate frontier expansion and federal authority",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_texas_annexation_1845_alternative",
+              "name_vi": "Hệ quả chính sách: Đẩy nhanh mở rộng biên giới và quyền lực liên bang",
+              "name_en": "Policy consequence: Accelerate frontier expansion and federal authority",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.008,
+                "war_exhaustion": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_us_timeline"
+      ]
+    },
+    {
+      "id": "usa_mexican_war_1846",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1846-01-01",
+        "1847-12-31"
+      ],
+      "date_historical": "1846-05-13",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1846,
+            "to": 1847
+          }
+        ],
+        "fire_date": "1846-05-13"
+      },
+      "title_vi": "Chiến tranh với Mexico",
+      "title_en": "War with Mexico",
+      "text_vi": "Sau các cuộc đụng độ tại vùng biên tranh chấp giữa Texas và Mexico, Tổng thống James K. Polk yêu cầu Quốc hội tuyên chiến. Cuộc chiến mở ra khả năng mở rộng lớn về phía Tây nhưng làm dấy lên tranh luận về quyền lực hành pháp và tương lai của chế độ nô lệ tại các lãnh thổ mới.",
+      "text_en": "After clashes in the disputed Texas–Mexico borderlands, President James K. Polk asks Congress to recognise a state of war. The conflict creates an opportunity for western expansion but intensifies debate over executive power and slavery in new territories.",
+      "image": {
+        "ref": "usa_mexican_war_1846"
+      },
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tiến hành chiến tranh với mục tiêu giới hạn và giám sát của Quốc hội",
+          "label_en": "Fight with limited aims and congressional oversight",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_mexican_war_1846_historical",
+              "name_vi": "Hệ quả chính sách: Tiến hành chiến tranh với mục tiêu giới hạn và giám sát của Quốc hội",
+              "name_en": "Policy consequence: Fight with limited aims and congressional oversight",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.035,
+                "prestige": 0.04
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Theo đuổi chiến thắng quyết định và mở rộng lãnh thổ",
+          "label_en": "Pursue decisive victory and territorial expansion",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_mexican_war_1846_alternative",
+              "name_vi": "Hệ quả chính sách: Theo đuổi chiến thắng quyết định và mở rộng lãnh thổ",
+              "name_en": "Policy consequence: Pursue decisive victory and territorial expansion",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_us_timeline"
+      ]
+    },
+    {
+      "id": "usa_treaty_guadalupe_hidalgo_1848",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1848-01-01",
+        "1849-12-31"
+      ],
+      "date_historical": "1848-02-02",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1848,
+            "to": 1849
+          }
+        ],
+        "fire_date": "1848-02-02"
+      },
+      "title_vi": "Hiệp ước Guadalupe Hidalgo",
+      "title_en": "The Treaty of Guadalupe Hidalgo",
+      "text_vi": "Hiệp ước kết thúc chiến tranh với Mexico, chuyển giao một vùng lãnh thổ rộng lớn ở miền Tây cho Hoa Kỳ và xác định lại biên giới. Việc mở rộng đặt ra câu hỏi mới về quyền của cư dân tại vùng đất nhượng lại và liệu chế độ nô lệ có được phép mở rộng hay không.",
+      "text_en": "The treaty ends the war with Mexico, transfers a vast western territory to the United States and redraws the border. Expansion raises new questions about the rights of residents in the ceded lands and whether slavery may spread there.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tổ chức quản trị lãnh thổ và bảo vệ quyền cư dân",
+          "label_en": "Organise territorial government and protect residents’ rights",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_treaty_guadalupe_hidalgo_1848_historical",
+              "name_vi": "Hệ quả chính sách: Tổ chức quản trị lãnh thổ và bảo vệ quyền cư dân",
+              "name_en": "Policy consequence: Organise territorial government and protect residents’ rights",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "legitimacy": 0.25
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên định cư và kiểm soát nhanh vùng mới",
+          "label_en": "Prioritise settlement and rapid control of the new territory",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_treaty_guadalupe_hidalgo_1848_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên định cư và kiểm soát nhanh vùng mới",
+              "name_en": "Policy consequence: Prioritise settlement and rapid control of the new territory",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.04,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_us_timeline"
+      ]
+    },
+    {
+      "id": "usa_fugitive_slave_act_1850",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1850-01-01",
+        "1851-12-31"
+      ],
+      "date_historical": "1850-09-18",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1850,
+            "to": 1851
+          }
+        ],
+        "fire_date": "1850-09-18"
+      },
+      "title_vi": "Đạo luật Nô lệ Bỏ trốn",
+      "title_en": "The Fugitive Slave Act",
+      "text_vi": "Một phần của Thỏa hiệp 1850 buộc chính quyền liên bang và người dân hỗ trợ bắt giữ người bị cáo buộc bỏ trốn khỏi chế độ nô lệ. Đạo luật làm gia tăng phản kháng tại miền Bắc, củng cố mạng lưới trợ giúp người trốn chạy và làm sâu sắc chia rẽ giữa các vùng.",
+      "text_en": "As part of the Compromise of 1850, federal authorities and citizens are required to assist in capturing people accused of escaping slavery. The law intensifies resistance in the North, strengthens networks aiding escapees and deepens sectional divisions.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ quyền tố tụng và hạn chế lạm quyền liên bang",
+          "label_en": "Protect due process and restrain federal overreach",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_fugitive_slave_act_1850_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ quyền tố tụng và hạn chế lạm quyền liên bang",
+              "name_en": "Policy consequence: Protect due process and restrain federal overreach",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.25,
+                "radicalism": -0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Thực thi đạo luật để giữ thỏa hiệp chính trị",
+          "label_en": "Enforce the law to preserve the political compromise",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_fugitive_slave_act_1850_alternative",
+              "name_vi": "Hệ quả chính sách: Thực thi đạo luật để giữ thỏa hiệp chính trị",
+              "name_en": "Policy consequence: Enforce the law to preserve the political compromise",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_civil_rights",
+        "loc_us_timeline"
+      ]
+    },
+    {
+      "id": "usa_kansas_nebraska_act_1854",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1854-01-01",
+        "1855-12-31"
+      ],
+      "date_historical": "1854-05-30",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1854,
+            "to": 1855
+          }
+        ],
+        "fire_date": "1854-05-30"
+      },
+      "title_vi": "Đạo luật Kansas–Nebraska",
+      "title_en": "The Kansas–Nebraska Act",
+      "text_vi": "Quốc hội cho phép cư dân Kansas và Nebraska quyết định vấn đề nô lệ theo nguyên tắc chủ quyền nhân dân, đồng thời làm mất hiệu lực thỏa hiệp Missouri về giới hạn địa lý. Các nhóm ủng hộ và phản đối nô lệ đổ tới Kansas, gây bạo lực và làm suy yếu hệ thống đảng cũ.",
+      "text_en": "Congress allows settlers in Kansas and Nebraska to decide slavery through popular sovereignty, effectively overturning the Missouri Compromise line. Pro- and anti-slavery groups move into Kansas, producing violence and weakening the old party system.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tăng cường giám sát bầu cử và bảo vệ tiến trình dân sự",
+          "label_en": "Strengthen election oversight and protect civil processes",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_kansas_nebraska_act_1854_historical",
+              "name_vi": "Hệ quả chính sách: Tăng cường giám sát bầu cử và bảo vệ tiến trình dân sự",
+              "name_en": "Policy consequence: Strengthen election oversight and protect civil processes",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "police": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Để các phe tự quyết với sự can thiệp liên bang tối thiểu",
+          "label_en": "Leave the factions to decide with minimal federal intervention",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_kansas_nebraska_act_1854_alternative",
+              "name_vi": "Hệ quả chính sách: Để các phe tự quyết với sự can thiệp liên bang tối thiểu",
+              "name_en": "Policy consequence: Leave the factions to decide with minimal federal intervention",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.015,
+                "legitimacy": -0.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_civil_rights",
+        "loc_us_timeline"
+      ]
+    },
+    {
+      "id": "usa_dred_scott_decision_1857",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1857-01-01",
+        "1858-12-31"
+      ],
+      "date_historical": "1857-03-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1857,
+            "to": 1858
+          }
+        ],
+        "fire_date": "1857-03-06"
+      },
+      "title_vi": "Phán quyết Dred Scott",
+      "title_en": "The Dred Scott Decision",
+      "text_vi": "Tòa án Tối cao phán quyết rằng người gốc Phi không thể là công dân Hoa Kỳ theo cách hiểu của đa số thẩm phán và Quốc hội không có quyền cấm chế độ nô lệ tại các lãnh thổ liên bang. Phán quyết làm trầm trọng thêm khủng hoảng chính trị trước Nội chiến.",
+      "text_en": "The Supreme Court rules that people of African descent cannot be citizens under the majority’s interpretation and that Congress cannot prohibit slavery in federal territories. The decision intensifies the political crisis before the Civil War.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tìm giải pháp lập pháp để giảm xung đột hiến pháp",
+          "label_en": "Seek a legislative path to reduce constitutional conflict",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_dred_scott_decision_1857_historical",
+              "name_vi": "Hệ quả chính sách: Tìm giải pháp lập pháp để giảm xung đột hiến pháp",
+              "name_en": "Policy consequence: Seek a legislative path to reduce constitutional conflict",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.01,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Bảo vệ phán quyết và quyền của chủ nô tại lãnh thổ",
+          "label_en": "Defend the ruling and slaveholders’ territorial claims",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_dred_scott_decision_1857_alternative",
+              "name_vi": "Hệ quả chính sách: Bảo vệ phán quyết và quyền của chủ nô tại lãnh thổ",
+              "name_en": "Policy consequence: Defend the ruling and slaveholders’ territorial claims",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.018,
+                "legitimacy": -0.25
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_civil_rights"
+      ]
+    },
+    {
+      "id": "usa_lincoln_election_1860",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1860-01-01",
+        "1861-12-31"
+      ],
+      "date_historical": "1860-11-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1860,
+            "to": 1861
+          }
+        ],
+        "fire_date": "1860-11-06"
+      },
+      "title_vi": "Abraham Lincoln đắc cử tổng thống",
+      "title_en": "Abraham Lincoln Is Elected President",
+      "text_vi": "Lincoln thắng cử với nền tảng phản đối việc mở rộng chế độ nô lệ sang các lãnh thổ mới. Nhiều bang miền Nam coi kết quả này là mối đe dọa đối với trật tự chính trị và kinh tế của họ, mở đầu làn sóng ly khai.",
+      "text_en": "Lincoln wins on a platform opposing the extension of slavery into new territories. Several southern states view the result as a threat to their political and economic order, setting off a wave of secession.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tìm thỏa hiệp liên bang nhưng không nhượng bộ ly khai",
+          "label_en": "Seek federal compromise without conceding secession",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_lincoln_election_1860_historical",
+              "name_vi": "Hệ quả chính sách: Tìm thỏa hiệp liên bang nhưng không nhượng bộ ly khai",
+              "name_en": "Policy consequence: Seek federal compromise without conceding secession",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "reform": 0.012
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chuẩn bị biện pháp cưỡng chế để giữ Liên bang",
+          "label_en": "Prepare coercive measures to preserve the Union",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_lincoln_election_1860_alternative",
+              "name_vi": "Hệ quả chính sách: Chuẩn bị biện pháp cưỡng chế để giữ Liên bang",
+              "name_en": "Policy consequence: Prepare coercive measures to preserve the Union",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "radicalism": 0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_us_timeline"
+      ]
+    },
+    {
+      "id": "usa_fort_sumter_1861",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1861-01-01",
+        "1862-12-31"
+      ],
+      "date_historical": "1861-04-12",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1861,
+            "to": 1862
+          }
+        ],
+        "fire_date": "1861-04-12"
+      },
+      "title_vi": "Pháo đài Sumter bị tấn công",
+      "title_en": "Fort Sumter Comes Under Attack",
+      "text_vi": "Lực lượng Liên minh miền Nam nổ súng vào pháo đài Sumter tại cảng Charleston, mở đầu Nội chiến Hoa Kỳ. Lincoln kêu gọi các bang cung cấp quân, trong khi xung đột biến thành cuộc chiến về sự tồn tại của Liên bang và tương lai của chế độ nô lệ.",
+      "text_en": "Confederate forces fire on Fort Sumter in Charleston harbour, beginning the American Civil War. Lincoln calls on the states for troops as the conflict becomes a war over the Union’s survival and the future of slavery.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Huy động quân đội với mục tiêu bảo toàn Liên bang",
+          "label_en": "Mobilise forces to preserve the Union",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_fort_sumter_1861_historical",
+              "name_vi": "Hệ quả chính sách: Huy động quân đội với mục tiêu bảo toàn Liên bang",
+              "name_en": "Policy consequence: Mobilise forces to preserve the Union",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "prestige": 0.04
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở rộng chiến tranh thành chiến dịch trừng phạt toàn diện",
+          "label_en": "Expand the war into a comprehensive punitive campaign",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_fort_sumter_1861_alternative",
+              "name_vi": "Hệ quả chính sách: Mở rộng chiến tranh thành chiến dịch trừng phạt toàn diện",
+              "name_en": "Policy consequence: Expand the war into a comprehensive punitive campaign",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.06,
+                "war_exhaustion": 0.025
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_us_timeline"
+      ]
+    },
+    {
+      "id": "usa_homestead_act_1862",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1862-01-01",
+        "1863-12-31"
+      ],
+      "date_historical": "1862-05-20",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1862,
+            "to": 1863
+          }
+        ],
+        "fire_date": "1862-05-20"
+      },
+      "title_vi": "Đạo luật Homestead",
+      "title_en": "The Homestead Act",
+      "text_vi": "Đạo luật Homestead cho phép người định cư đủ điều kiện yêu cầu quyền sở hữu đất công sau thời gian cư trú và cải tạo. Chính sách thúc đẩy định cư miền Tây nhưng cũng gắn với việc tước đoạt đất đai của các cộng đồng bản địa và xung đột về quyền sử dụng đất.",
+      "text_en": "The Homestead Act allows eligible settlers to claim public land after residence and improvement. It accelerates western settlement while also operating alongside the dispossession of Indigenous communities and conflicts over land rights.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Kết hợp định cư với bảo vệ quyền và hiệp ước bản địa",
+          "label_en": "Pair settlement with protection of Indigenous rights and treaties",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_homestead_act_1862_historical",
+              "name_vi": "Hệ quả chính sách: Kết hợp định cư với bảo vệ quyền và hiệp ước bản địa",
+              "name_en": "Policy consequence: Pair settlement with protection of Indigenous rights and treaties",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.025,
+                "attraction": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên phân đất nhanh để thúc đẩy nông nghiệp",
+          "label_en": "Prioritise rapid land distribution to expand agriculture",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_homestead_act_1862_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên phân đất nhanh để thúc đẩy nông nghiệp",
+              "name_en": "Policy consequence: Prioritise rapid land distribution to expand agriculture",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.025,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nara_milestones"
+      ]
+    },
+    {
+      "id": "usa_emancipation_proclamation_1863",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1863-01-01",
+        "1864-12-31"
+      ],
+      "date_historical": "1863-01-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1863,
+            "to": 1864
+          }
+        ],
+        "fire_date": "1863-01-01"
+      },
+      "title_vi": "Tuyên ngôn Giải phóng",
+      "title_en": "The Emancipation Proclamation",
+      "text_vi": "Lincoln ban hành Tuyên ngôn Giải phóng, tuyên bố tự do cho những người bị nô lệ tại các khu vực đang nổi loạn chống Liên bang. Văn kiện thay đổi mục tiêu đạo đức và chính trị của chiến tranh, đồng thời mở rộng cơ hội tuyển mộ binh sĩ da đen cho quân đội Liên bang.",
+      "text_en": "Lincoln issues the Emancipation Proclamation, declaring freedom for enslaved people in areas still in rebellion against the Union. The measure changes the war’s political and moral purpose and opens wider recruitment of Black soldiers into Union forces.",
+      "image": {
+        "ref": "usa_emancipation_1863"
+      },
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Biến giải phóng thành mục tiêu chiến tranh và bảo đảm thi hành",
+          "label_en": "Make emancipation a war aim and enforce it",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_emancipation_proclamation_1863_historical",
+              "name_vi": "Hệ quả chính sách: Biến giải phóng thành mục tiêu chiến tranh và bảo đảm thi hành",
+              "name_en": "Policy consequence: Make emancipation a war aim and enforce it",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.35,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên đoàn kết quân sự trước mắt và giới hạn phạm vi thi hành",
+          "label_en": "Prioritise immediate military unity and limit enforcement",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_emancipation_proclamation_1863_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên đoàn kết quân sự trước mắt và giới hạn phạm vi thi hành",
+              "name_en": "Policy consequence: Prioritise immediate military unity and limit enforcement",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.025,
+                "legitimacy": 0.15
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nara_milestones",
+        "nara_13th"
+      ]
+    },
+    {
+      "id": "usa_gettysburg_1863",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1863-01-01",
+        "1864-12-31"
+      ],
+      "date_historical": "1863-07-01",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1863,
+            "to": 1864
+          }
+        ],
+        "fire_date": "1863-07-01"
+      },
+      "title_vi": "Trận Gettysburg",
+      "title_en": "The Battle of Gettysburg",
+      "text_vi": "Quân đội Liên bang chặn được cuộc tiến quân của Robert E. Lee vào miền Bắc sau ba ngày giao tranh tại Pennsylvania. Thất bại buộc quân miền Nam rút lui, nhưng chiến tranh vẫn tiếp diễn với tổn thất lớn và chưa có kết quả chắc chắn.",
+      "text_en": "Union forces halt Robert E. Lee’s invasion of the North after three days of fighting in Pennsylvania. Confederate forces withdraw, but the war continues with heavy losses and no certain outcome.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giữ thế phòng ngự chiến lược và củng cố tiếp tế",
+          "label_en": "Hold the strategic defence and strengthen supply",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_gettysburg_1863_historical",
+              "name_vi": "Hệ quả chính sách: Giữ thế phòng ngự chiến lược và củng cố tiếp tế",
+              "name_en": "Policy consequence: Hold the strategic defence and strengthen supply",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.035,
+                "prestige": 0.05
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chuyển ngay sang truy kích sâu vào lãnh thổ miền Nam",
+          "label_en": "Launch an immediate deep pursuit into the South",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_gettysburg_1863_alternative",
+              "name_vi": "Hệ quả chính sách: Chuyển ngay sang truy kích sâu vào lãnh thổ miền Nam",
+              "name_en": "Policy consequence: Launch an immediate deep pursuit into the South",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "war_exhaustion": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_us_timeline"
+      ]
+    },
+    {
+      "id": "usa_appomattox_surrender_1865",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1865-01-01",
+        "1866-12-31"
+      ],
+      "date_historical": "1865-04-09",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1865,
+            "to": 1866
+          }
+        ],
+        "fire_date": "1865-04-09"
+      },
+      "title_vi": "Quân đội Lee đầu hàng tại Appomattox",
+      "title_en": "Lee’s Army Surrenders at Appomattox",
+      "text_vi": "Robert E. Lee đầu hàng Ulysses S. Grant tại Appomattox Court House, đánh dấu sự kết thúc trên thực tế của chiến dịch quân sự lớn của Liên minh miền Nam. Chính phủ liên bang phải lựa chọn cách tái thiết miền Nam và bảo đảm quyền tự do mới được công nhận.",
+      "text_en": "Robert E. Lee surrenders to Ulysses S. Grant at Appomattox Court House, effectively ending the Confederacy’s main military campaign. The federal government must decide how to rebuild the South and secure newly recognised freedoms.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Hòa giải có điều kiện và bảo vệ quyền công dân",
+          "label_en": "Offer conditional reconciliation and protect civil rights",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_appomattox_surrender_1865_historical",
+              "name_vi": "Hệ quả chính sách: Hòa giải có điều kiện và bảo vệ quyền công dân",
+              "name_en": "Policy consequence: Offer conditional reconciliation and protect civil rights",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "war_exhaustion": -0.025
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Áp đặt kiểm soát quân sự kéo dài",
+          "label_en": "Impose prolonged military control",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_appomattox_surrender_1865_alternative",
+              "name_vi": "Hệ quả chính sách: Áp đặt kiểm soát quân sự kéo dài",
+              "name_en": "Policy consequence: Impose prolonged military control",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.025,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nara_milestones"
+      ]
+    },
+    {
+      "id": "usa_thirteenth_amendment_1865",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1865-01-01",
+        "1866-12-31"
+      ],
+      "date_historical": "1865-12-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1865,
+            "to": 1866
+          }
+        ],
+        "fire_date": "1865-12-06"
+      },
+      "title_vi": "Tu chính án thứ 13 bãi bỏ chế độ nô lệ",
+      "title_en": "The Thirteenth Amendment Abolishes Slavery",
+      "text_vi": "Tu chính án thứ 13 được phê chuẩn, bãi bỏ chế độ nô lệ trên toàn quốc, ngoại trừ hình phạt đối với người bị kết án theo quy định hiến pháp. Việc xóa bỏ chế độ nô lệ không tự động bảo đảm bình đẳng kinh tế, chính trị hay an toàn cho người được giải phóng.",
+      "text_en": "The Thirteenth Amendment is ratified, abolishing slavery nationwide except as punishment for crime after conviction. Ending slavery does not automatically guarantee economic, political or physical security for formerly enslaved people.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thiết lập cơ chế liên bang bảo vệ người được giải phóng",
+          "label_en": "Build federal protections for freedpeople",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_thirteenth_amendment_1865_historical",
+              "name_vi": "Hệ quả chính sách: Thiết lập cơ chế liên bang bảo vệ người được giải phóng",
+              "name_en": "Policy consequence: Build federal protections for freedpeople",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.45,
+                "reform": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Để các bang tự quyết phần lớn chính sách hậu chiến",
+          "label_en": "Leave most postwar policy to the states",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_thirteenth_amendment_1865_alternative",
+              "name_vi": "Hệ quả chính sách: Để các bang tự quyết phần lớn chính sách hậu chiến",
+              "name_en": "Policy consequence: Leave most postwar policy to the states",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nara_13th"
+      ]
+    },
+    {
+      "id": "usa_fourteenth_amendment_1868",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1868-01-01",
+        "1869-12-31"
+      ],
+      "date_historical": "1868-07-09",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1868,
+            "to": 1869
+          }
+        ],
+        "fire_date": "1868-07-09"
+      },
+      "title_vi": "Tu chính án thứ 14 xác lập quyền công dân",
+      "title_en": "The Fourteenth Amendment Defines Citizenship",
+      "text_vi": "Tu chính án thứ 14 xác lập quyền công dân cho người sinh ra hoặc nhập tịch tại Hoa Kỳ và yêu cầu các bang tôn trọng thủ tục pháp lý cùng sự bảo vệ bình đẳng. Việc thực thi điều khoản này trở thành trọng tâm của tranh chấp liên bang–tiểu bang trong nhiều thế hệ.",
+      "text_en": "The Fourteenth Amendment establishes citizenship for people born or naturalised in the United States and requires states to respect due process and equal protection. Enforcement becomes a central federal–state dispute for generations.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tăng năng lực liên bang để bảo vệ quyền hiến định",
+          "label_en": "Strengthen federal capacity to protect constitutional rights",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_fourteenth_amendment_1868_historical",
+              "name_vi": "Hệ quả chính sách: Tăng năng lực liên bang để bảo vệ quyền hiến định",
+              "name_en": "Policy consequence: Strengthen federal capacity to protect constitutional rights",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.02,
+                "legitimacy": 0.35
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên quyền tự chủ bang trong thực thi",
+          "label_en": "Prioritise state autonomy in enforcement",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_fourteenth_amendment_1868_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên quyền tự chủ bang trong thực thi",
+              "name_en": "Policy consequence: Prioritise state autonomy in enforcement",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.15,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nara_milestones",
+        "loc_civil_rights"
+      ]
+    },
+    {
+      "id": "usa_fifteenth_amendment_1870",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1870-01-01",
+        "1871-12-31"
+      ],
+      "date_historical": "1870-02-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1870,
+            "to": 1871
+          }
+        ],
+        "fire_date": "1870-02-03"
+      },
+      "title_vi": "Tu chính án thứ 15 bảo vệ quyền bầu cử nam giới da đen",
+      "title_en": "The Fifteenth Amendment Protects Black Men’s Voting Rights",
+      "text_vi": "Tu chính án thứ 15 cấm chính quyền liên bang và tiểu bang tước quyền bầu cử vì chủng tộc, màu da hoặc tình trạng nô lệ trước đây. Trên thực tế, thuế thân, kiểm tra chữ đọc và bạo lực vẫn được dùng để ngăn cản cử tri da đen tại nhiều nơi.",
+      "text_en": "The Fifteenth Amendment bars federal and state governments from denying the vote on grounds of race, colour or previous servitude. In practice, poll taxes, literacy tests and violence continue to obstruct Black voters in many places.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ quyền bầu cử bằng thực thi liên bang",
+          "label_en": "Enforce voting rights through federal action",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_fifteenth_amendment_1870_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ quyền bầu cử bằng thực thi liên bang",
+              "name_en": "Policy consequence: Enforce voting rights through federal action",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.35,
+                "reform": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giới hạn can thiệp liên bang vào bầu cử địa phương",
+          "label_en": "Limit federal intervention in local elections",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_fifteenth_amendment_1870_alternative",
+              "name_vi": "Hệ quả chính sách: Giới hạn can thiệp liên bang vào bầu cử địa phương",
+              "name_en": "Policy consequence: Limit federal intervention in local elections",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.01,
+                "legitimacy": 0.1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nara_milestones",
+        "loc_civil_rights"
+      ]
+    },
+    {
+      "id": "usa_reconstruction_compromise_1877",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1877-01-01",
+        "1878-12-31"
+      ],
+      "date_historical": "1877-03-02",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1877,
+            "to": 1878
+          }
+        ],
+        "fire_date": "1877-03-02"
+      },
+      "title_vi": "Thỏa hiệp năm 1877 khép lại Tái thiết",
+      "title_en": "The Compromise of 1877 Ends Reconstruction",
+      "text_vi": "Thỏa thuận chính trị sau bầu cử tổng thống tranh chấp dẫn tới việc rút phần lớn quân đội liên bang khỏi miền Nam. Chính quyền miền Nam giành lại quyền kiểm soát, trong khi các biện pháp bảo vệ quyền chính trị của người Mỹ gốc Phi suy yếu nhanh chóng.",
+      "text_en": "A political settlement after the disputed presidential election leads to the withdrawal of most federal troops from the South. Southern governments regain control while protections for African Americans’ political rights rapidly weaken.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Duy trì giám sát quyền công dân và chống bạo lực",
+          "label_en": "Maintain civil-rights oversight and oppose violence",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_reconstruction_compromise_1877_historical",
+              "name_vi": "Hệ quả chính sách: Duy trì giám sát quyền công dân và chống bạo lực",
+              "name_en": "Policy consequence: Maintain civil-rights oversight and oppose violence",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "radicalism": -0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Rút quân để đổi lấy ổn định chính trị ngắn hạn",
+          "label_en": "Withdraw troops in exchange for short-term political stability",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_reconstruction_compromise_1877_alternative",
+              "name_vi": "Hệ quả chính sách: Rút quân để đổi lấy ổn định chính trị ngắn hạn",
+              "name_en": "Policy consequence: Withdraw troops in exchange for short-term political stability",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": -0.25,
+                "radicalism": 0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_civil_rights",
+        "loc_us_timeline"
+      ]
+    },
+    {
+      "id": "usa_chinese_exclusion_act_1882",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1882-01-01",
+        "1883-12-31"
+      ],
+      "date_historical": "1882-05-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1882,
+            "to": 1883
+          }
+        ],
+        "fire_date": "1882-05-06"
+      },
+      "title_vi": "Đạo luật Loại trừ người Trung Quốc",
+      "title_en": "The Chinese Exclusion Act",
+      "text_vi": "Quốc hội thông qua đạo luật đình chỉ nhập cư của lao động Trung Quốc và hạn chế quyền nhập tịch của người Trung Quốc. Đây là bước ngoặt trong chính sách nhập cư liên bang, hợp thức hóa phân biệt đối xử theo nguồn gốc quốc gia.",
+      "text_en": "Congress passes a law suspending immigration by Chinese labourers and restricting naturalisation for Chinese people. It marks a turning point in federal immigration policy and institutionalises discrimination by national origin.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ quyền bình đẳng và xem xét lại hạn chế nhập cư",
+          "label_en": "Protect equal rights and reconsider immigration restrictions",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_chinese_exclusion_act_1882_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ quyền bình đẳng và xem xét lại hạn chế nhập cư",
+              "name_en": "Policy consequence: Protect equal rights and reconsider immigration restrictions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.25,
+                "attraction": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ hạn chế để đáp ứng áp lực chính trị trong nước",
+          "label_en": "Retain restrictions to answer domestic political pressure",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_chinese_exclusion_act_1882_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ hạn chế để đáp ứng áp lực chính trị trong nước",
+              "name_en": "Policy consequence: Retain restrictions to answer domestic political pressure",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.01,
+                "prestige": -0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_us_timeline"
+      ]
+    },
+    {
+      "id": "usa_sherman_antitrust_act_1890",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1890-01-01",
+        "1891-12-31"
+      ],
+      "date_historical": "1890-07-02",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1890,
+            "to": 1891
+          }
+        ],
+        "fire_date": "1890-07-02"
+      },
+      "title_vi": "Đạo luật Chống độc quyền Sherman",
+      "title_en": "The Sherman Antitrust Act",
+      "text_vi": "Quốc hội thông qua đạo luật liên bang đầu tiên nhằm hạn chế các thỏa thuận và tổ hợp thương mại cản trở cạnh tranh. Hiệu quả ban đầu còn hạn chế, nhưng luật tạo công cụ pháp lý cho các chiến dịch chống độc quyền trong thời kỳ Tiến bộ.",
+      "text_en": "Congress passes the first federal law aimed at restricting trusts and commercial combinations that restrain competition. Its early impact is limited, but it creates a legal tool for later Progressive Era antitrust campaigns.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thực thi chống độc quyền có mục tiêu",
+          "label_en": "Enforce targeted antitrust action",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_sherman_antitrust_act_1890_historical",
+              "name_vi": "Hệ quả chính sách: Thực thi chống độc quyền có mục tiêu",
+              "name_en": "Policy consequence: Enforce targeted antitrust action",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.02,
+                "legitimacy": 0.25
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tránh can thiệp mạnh vào doanh nghiệp lớn",
+          "label_en": "Avoid strong intervention in large businesses",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_sherman_antitrust_act_1890_alternative",
+              "name_vi": "Hệ quả chính sách: Tránh can thiệp mạnh vào doanh nghiệp lớn",
+              "name_en": "Policy consequence: Avoid strong intervention in large businesses",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.015,
+                "ig_industrialists": 0.35
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_us_timeline"
+      ]
+    },
+    {
+      "id": "usa_plessy_ferguson_1896",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1896-01-01",
+        "1897-12-31"
+      ],
+      "date_historical": "1896-05-18",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1896,
+            "to": 1897
+          }
+        ],
+        "fire_date": "1896-05-18"
+      },
+      "title_vi": "Phán quyết Plessy v. Ferguson",
+      "title_en": "Plessy v. Ferguson",
+      "text_vi": "Tòa án Tối cao duy trì tính hợp hiến của phân biệt chủng tộc theo học thuyết “riêng biệt nhưng bình đẳng”. Phán quyết tạo cơ sở pháp lý cho hệ thống Jim Crow và sẽ chỉ bị bác bỏ trong lĩnh vực giáo dục nhiều thập kỷ sau.",
+      "text_en": "The Supreme Court upholds racial segregation under the doctrine of “separate but equal.” The ruling provides a legal foundation for Jim Crow and will be overturned in public education only decades later.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ủng hộ thách thức pháp lý đối với phân biệt chủng tộc",
+          "label_en": "Support legal challenges to segregation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_plessy_ferguson_1896_historical",
+              "name_vi": "Hệ quả chính sách: Ủng hộ thách thức pháp lý đối với phân biệt chủng tộc",
+              "name_en": "Policy consequence: Support legal challenges to segregation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.012,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chấp nhận quyền bang và tiền lệ của tòa",
+          "label_en": "Accept state authority and the Court’s precedent",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_plessy_ferguson_1896_alternative",
+              "name_vi": "Hệ quả chính sách: Chấp nhận quyền bang và tiền lệ của tòa",
+              "name_en": "Policy consequence: Accept state authority and the Court’s precedent",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.01,
+                "legitimacy": 0.1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_civil_rights"
+      ]
+    },
+    {
+      "id": "usa_spanish_american_war_1898",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1898-01-01",
+        "1899-12-31"
+      ],
+      "date_historical": "1898-04-25",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1898,
+            "to": 1899
+          }
+        ],
+        "fire_date": "1898-04-25"
+      },
+      "title_vi": "Chiến tranh Tây Ban Nha–Hoa Kỳ",
+      "title_en": "The Spanish–American War",
+      "text_vi": "Sau vụ nổ thiết giáp hạm USS Maine và khủng hoảng Cuba, Hoa Kỳ bước vào chiến tranh với Tây Ban Nha. Chiến thắng đưa Puerto Rico, Guam và Philippines vào quyền kiểm soát của Hoa Kỳ, đồng thời đặt ra tranh luận về chủ nghĩa đế quốc và quyền tự quyết.",
+      "text_en": "After the explosion of USS Maine and the Cuban crisis, the United States enters war with Spain. Victory brings Puerto Rico, Guam and the Philippines under U.S. control and raises debate over imperialism and self-determination.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Hạn chế chiếm đóng và chuẩn bị lộ trình tự trị",
+          "label_en": "Limit occupation and prepare a path to self-government",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_spanish_american_war_1898_historical",
+              "name_vi": "Hệ quả chính sách: Hạn chế chiếm đóng và chuẩn bị lộ trình tự trị",
+              "name_en": "Policy consequence: Limit occupation and prepare a path to self-government",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.05,
+                "army": 0.025
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì quyền kiểm soát hải ngoại để củng cố vị thế",
+          "label_en": "Retain overseas control to strengthen national power",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_spanish_american_war_1898_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì quyền kiểm soát hải ngoại để củng cố vị thế",
+              "name_en": "Policy consequence: Retain overseas control to strengthen national power",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.04,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_us_timeline"
+      ]
+    },
+    {
+      "id": "usa_theodore_roosevelt_presidency_1901",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1901-01-01",
+        "1902-12-31"
+      ],
+      "date_historical": "1901-09-14",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1901,
+            "to": 1902
+          }
+        ],
+        "fire_date": "1901-09-14"
+      },
+      "title_vi": "Theodore Roosevelt trở thành tổng thống",
+      "title_en": "Theodore Roosevelt Becomes President",
+      "text_vi": "Sau khi William McKinley bị ám sát, Phó Tổng thống Theodore Roosevelt tuyên thệ nhậm chức. Chính quyền mới thúc đẩy vai trò liên bang mạnh hơn trong điều tiết doanh nghiệp, bảo tồn tài nguyên và chính sách đối ngoại.",
+      "text_en": "After William McKinley is assassinated, Vice President Theodore Roosevelt takes office. The new administration advances a stronger federal role in business regulation, conservation and foreign policy.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Theo đuổi cải cách điều tiết và bảo tồn",
+          "label_en": "Pursue regulatory and conservation reforms",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_theodore_roosevelt_presidency_1901_historical",
+              "name_vi": "Hệ quả chính sách: Theo đuổi cải cách điều tiết và bảo tồn",
+              "name_en": "Policy consequence: Pursue regulatory and conservation reforms",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.015,
+                "legitimacy": 0.3
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên tăng trưởng công nghiệp và quyền tự do doanh nghiệp",
+          "label_en": "Prioritise industrial growth and business freedom",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_theodore_roosevelt_presidency_1901_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên tăng trưởng công nghiệp và quyền tự do doanh nghiệp",
+              "name_en": "Policy consequence: Prioritise industrial growth and business freedom",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "ig_industrialists": 0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_us_timeline"
+      ]
+    },
+    {
+      "id": "usa_pure_food_drug_act_1906",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1906-01-01",
+        "1907-12-31"
+      ],
+      "date_historical": "1906-06-30",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1906,
+            "to": 1907
+          }
+        ],
+        "fire_date": "1906-06-30"
+      },
+      "title_vi": "Đạo luật Thực phẩm và Dược phẩm tinh khiết",
+      "title_en": "The Pure Food and Drug Act",
+      "text_vi": "Sau các chiến dịch cải cách và lo ngại về điều kiện sản xuất thực phẩm, Quốc hội thông qua luật liên bang kiểm soát ghi nhãn và lưu thông thực phẩm, dược phẩm sai lệch hoặc pha trộn. Nhà nước mở rộng vai trò giám sát thị trường tiêu dùng.",
+      "text_en": "After reform campaigns and concerns over food production, Congress passes federal rules against misbranded or adulterated food and drugs. The state expands its role in supervising consumer markets.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tăng năng lực kiểm định và bảo vệ người tiêu dùng",
+          "label_en": "Expand inspection and consumer protection",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_pure_food_drug_act_1906_historical",
+              "name_vi": "Hệ quả chính sách: Tăng năng lực kiểm định và bảo vệ người tiêu dùng",
+              "name_en": "Policy consequence: Expand inspection and consumer protection",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "research": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giảm gánh nặng tuân thủ cho nhà sản xuất nhỏ",
+          "label_en": "Reduce compliance burdens for small producers",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_pure_food_drug_act_1906_alternative",
+              "name_vi": "Hệ quả chính sách: Giảm gánh nặng tuân thủ cho nhà sản xuất nhỏ",
+              "name_en": "Policy consequence: Reduce compliance burdens for small producers",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.02,
+                "legitimacy": 0.1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_us_timeline"
+      ]
+    },
+    {
+      "id": "usa_sixteenth_amendment_1913",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1913-01-01",
+        "1914-12-31"
+      ],
+      "date_historical": "1913-02-03",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1913,
+            "to": 1914
+          }
+        ],
+        "fire_date": "1913-02-03"
+      },
+      "title_vi": "Tu chính án thứ 16 cho phép thuế thu nhập liên bang",
+      "title_en": "The Sixteenth Amendment Authorises Federal Income Tax",
+      "text_vi": "Tu chính án thứ 16 được phê chuẩn, cho phép Quốc hội đánh thuế thu nhập mà không phải phân bổ theo dân số giữa các bang. Nguồn thu mới giúp chính phủ liên bang có công cụ tài khóa lớn hơn cho các chương trình và nghĩa vụ quốc gia.",
+      "text_en": "The Sixteenth Amendment is ratified, allowing Congress to tax income without apportionment among states by population. The new revenue source gives the federal government greater fiscal capacity for national programmes and obligations.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Xây dựng hệ thống thuế lũy tiến có trách nhiệm",
+          "label_en": "Build an accountable progressive tax system",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_sixteenth_amendment_1913_historical",
+              "name_vi": "Hệ quả chính sách: Xây dựng hệ thống thuế lũy tiến có trách nhiệm",
+              "name_en": "Policy consequence: Build an accountable progressive tax system",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.02,
+                "legitimacy": 0.25
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ thuế suất thấp để khuyến khích đầu tư",
+          "label_en": "Keep rates low to encourage investment",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_sixteenth_amendment_1913_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ thuế suất thấp để khuyến khích đầu tư",
+              "name_en": "Policy consequence: Keep rates low to encourage investment",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.02,
+                "ig_industrialists": 0.3
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_us_timeline"
+      ]
+    },
+    {
+      "id": "usa_enters_world_war_i_1917",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1917-01-01",
+        "1918-12-31"
+      ],
+      "date_historical": "1917-04-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1917,
+            "to": 1918
+          }
+        ],
+        "fire_date": "1917-04-06"
+      },
+      "title_vi": "Hoa Kỳ tham chiến trong Thế chiến thứ nhất",
+      "title_en": "The United States Enters World War I",
+      "text_vi": "Sau chiến tranh tàu ngầm không hạn chế của Đức và việc công bố điện tín Zimmermann, Quốc hội tuyên chiến với Đức. Hoa Kỳ huy động quân đội, công nghiệp và tài chính cho chiến tranh ở châu Âu.",
+      "text_en": "After Germany resumes unrestricted submarine warfare and the Zimmermann Telegram becomes public, Congress declares war on Germany. The United States mobilises its army, industry and finance for the European conflict.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Huy động có giới hạn và phối hợp với đồng minh",
+          "label_en": "Mobilise within limits and coordinate with allies",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_enters_world_war_i_1917_historical",
+              "name_vi": "Hệ quả chính sách: Huy động có giới hạn và phối hợp với đồng minh",
+              "name_en": "Policy consequence: Mobilise within limits and coordinate with allies",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "prestige": 0.04
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung toàn bộ nguồn lực vào chiến thắng quân sự",
+          "label_en": "Commit all resources to military victory",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_enters_world_war_i_1917_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung toàn bộ nguồn lực vào chiến thắng quân sự",
+              "name_en": "Policy consequence: Commit all resources to military victory",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.055,
+                "war_exhaustion": 0.025
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nara_foreign"
+      ]
+    },
+    {
+      "id": "usa_world_war_i_armistice_1918",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1918-01-01",
+        "1919-12-31"
+      ],
+      "date_historical": "1918-11-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1918,
+            "to": 1919
+          }
+        ],
+        "fire_date": "1918-11-11"
+      },
+      "title_vi": "Đình chiến kết thúc giao tranh tại châu Âu",
+      "title_en": "The Armistice Ends Fighting in Europe",
+      "text_vi": "Đình chiến có hiệu lực, chấm dứt giao tranh chính giữa phe Đồng minh và Đức. Tổng thống Woodrow Wilson thúc đẩy trật tự hậu chiến dựa trên ngoại giao và Hội Quốc Liên, nhưng các tranh chấp về điều khoản hòa bình vẫn chia rẽ chính trường Hoa Kỳ.",
+      "text_en": "The armistice takes effect, ending major fighting between the Allies and Germany. President Woodrow Wilson advocates a postwar order based on diplomacy and a League of Nations, but disputes over the peace settlement divide American politics.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tham gia định hình trật tự an ninh tập thể",
+          "label_en": "Help shape a collective security order",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_world_war_i_armistice_1918_historical",
+              "name_vi": "Hệ quả chính sách: Tham gia định hình trật tự an ninh tập thể",
+              "name_en": "Policy consequence: Help shape a collective security order",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.04,
+                "war_exhaustion": -0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ khoảng cách với các cam kết quốc tế lâu dài",
+          "label_en": "Avoid long-term international commitments",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_world_war_i_armistice_1918_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ khoảng cách với các cam kết quốc tế lâu dài",
+              "name_en": "Policy consequence: Avoid long-term international commitments",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "relation": -0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nara_foreign"
+      ]
+    },
+    {
+      "id": "usa_nineteenth_amendment_1920",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1920-01-01",
+        "1921-12-31"
+      ],
+      "date_historical": "1920-08-18",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1920,
+            "to": 1921
+          }
+        ],
+        "fire_date": "1920-08-18"
+      },
+      "title_vi": "Tu chính án thứ 19 bảo vệ quyền bầu cử của phụ nữ",
+      "title_en": "The Nineteenth Amendment Secures Women’s Suffrage",
+      "text_vi": "Tu chính án thứ 19 được phê chuẩn, cấm chính quyền liên bang và tiểu bang từ chối quyền bầu cử vì giới tính. Thành tựu này là kết quả của nhiều thập kỷ vận động, dù các rào cản chủng tộc và địa phương vẫn ngăn nhiều phụ nữ tham gia bầu cử.",
+      "text_en": "The Nineteenth Amendment is ratified, prohibiting federal and state governments from denying the vote on account of sex. The achievement follows decades of organising, although racial and local barriers still prevent many women from voting.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo đảm đăng ký và tiếp cận bầu cử bình đẳng",
+          "label_en": "Ensure equal access to voter registration",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_nineteenth_amendment_1920_historical",
+              "name_vi": "Hệ quả chính sách: Bảo đảm đăng ký và tiếp cận bầu cử bình đẳng",
+              "name_en": "Policy consequence: Ensure equal access to voter registration",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.35,
+                "reform": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Để việc thực thi cho các bang quyết định",
+          "label_en": "Leave enforcement to the states",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_nineteenth_amendment_1920_alternative",
+              "name_vi": "Hệ quả chính sách: Để việc thực thi cho các bang quyết định",
+              "name_en": "Policy consequence: Leave enforcement to the states",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "radicalism": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_civil_rights"
+      ]
+    },
+    {
+      "id": "usa_wall_street_crash_1929",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1929-01-01",
+        "1930-12-31"
+      ],
+      "date_historical": "1929-10-29",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1929,
+            "to": 1930
+          }
+        ],
+        "fire_date": "1929-10-29"
+      },
+      "title_vi": "Sụp đổ thị trường chứng khoán",
+      "title_en": "The Stock Market Crash",
+      "text_vi": "Giá cổ phiếu lao dốc sau nhiều tháng đầu cơ và tín dụng tăng nóng, góp phần mở đầu Đại Suy thoái. Thất nghiệp và phá sản ngân hàng tăng, đặt ra câu hỏi về trách nhiệm của chính phủ trong ổn định tài chính và bảo vệ người gửi tiền.",
+      "text_en": "Stock prices collapse after months of speculation and expanding credit, helping trigger the Great Depression. Unemployment and bank failures rise, raising questions about the government’s role in financial stability and depositor protection.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Can thiệp để ổn định ngân hàng và duy trì tín dụng",
+          "label_en": "Intervene to stabilise banks and preserve credit",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_wall_street_crash_1929_historical",
+              "name_vi": "Hệ quả chính sách: Can thiệp để ổn định ngân hàng và duy trì tín dụng",
+              "name_en": "Policy consequence: Intervene to stabilise banks and preserve credit",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.25,
+                "tax": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Cắt giảm chi tiêu và để thị trường tự điều chỉnh",
+          "label_en": "Cut spending and let markets adjust",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_wall_street_crash_1929_alternative",
+              "name_vi": "Hệ quả chính sách: Cắt giảm chi tiêu và để thị trường tự điều chỉnh",
+              "name_en": "Policy consequence: Cut spending and let markets adjust",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.015,
+                "construction": -0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "house_new_deal",
+        "fed_crisis"
+      ]
+    },
+    {
+      "id": "usa_new_deal_banking_1933",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1933-01-01",
+        "1934-12-31"
+      ],
+      "date_historical": "1933-03-09",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1933,
+            "to": 1934
+          }
+        ],
+        "fire_date": "1933-03-09"
+      },
+      "title_vi": "Chính quyền Roosevelt khởi động New Deal",
+      "title_en": "The Roosevelt Administration Launches the New Deal",
+      "text_vi": "Trong những ngày đầu nhiệm kỳ, Quốc hội thông qua các biện pháp khẩn cấp nhằm khôi phục niềm tin vào hệ thống ngân hàng và mở rộng chương trình cứu trợ, việc làm công. New Deal đánh dấu sự thay đổi lớn trong vai trò của chính phủ liên bang đối với nền kinh tế.",
+      "text_en": "In the administration’s first days, Congress passes emergency measures to restore confidence in banks and expands relief and public-works programmes. The New Deal marks a major shift in the federal government’s role in the economy.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Kết hợp cứu trợ, phục hồi và cải cách thể chế",
+          "label_en": "Combine relief, recovery and institutional reform",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_new_deal_banking_1933_historical",
+              "name_vi": "Hệ quả chính sách: Kết hợp cứu trợ, phục hồi và cải cách thể chế",
+              "name_en": "Policy consequence: Combine relief, recovery and institutional reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "construction": 0.035,
+                "legitimacy": 0.35
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung vào ổn định ngân sách và hỗ trợ doanh nghiệp",
+          "label_en": "Focus on budget stability and business support",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_new_deal_banking_1933_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung vào ổn định ngân sách và hỗ trợ doanh nghiệp",
+              "name_en": "Policy consequence: Focus on budget stability and business support",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.02,
+                "tax": 0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "house_new_deal"
+      ]
+    },
+    {
+      "id": "usa_social_security_act_1935",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1935-01-01",
+        "1936-12-31"
+      ],
+      "date_historical": "1935-08-14",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1935,
+            "to": 1936
+          }
+        ],
+        "fire_date": "1935-08-14"
+      },
+      "title_vi": "Đạo luật An sinh Xã hội",
+      "title_en": "The Social Security Act",
+      "text_vi": "Đạo luật An sinh Xã hội thiết lập bảo hiểm thất nghiệp, lương hưu tuổi già và các chương trình hỗ trợ công. Hệ thống tạo lưới an sinh liên bang mới, dù phạm vi ban đầu loại trừ hoặc bảo vệ không đầy đủ nhiều nhóm lao động.",
+      "text_en": "The Social Security Act establishes unemployment insurance, old-age pensions and public assistance programmes. It creates a new federal safety net, although the original coverage excludes or inadequately protects many categories of workers.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Mở rộng bảo hiểm và giảm khoảng trống bao phủ",
+          "label_en": "Expand insurance and reduce coverage gaps",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_social_security_act_1935_historical",
+              "name_vi": "Hệ quả chính sách: Mở rộng bảo hiểm và giảm khoảng trống bao phủ",
+              "name_en": "Policy consequence: Expand insurance and reduce coverage gaps",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.4,
+                "radicalism": -0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giữ chương trình ở quy mô tài khóa thận trọng",
+          "label_en": "Keep the programme fiscally restrained",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_social_security_act_1935_alternative",
+              "name_vi": "Hệ quả chính sách: Giữ chương trình ở quy mô tài khóa thận trọng",
+              "name_en": "Policy consequence: Keep the programme fiscally restrained",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.015,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "house_new_deal"
+      ]
+    },
+    {
+      "id": "usa_fair_labor_standards_1938",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1938-01-01",
+        "1939-12-31"
+      ],
+      "date_historical": "1938-06-25",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1938,
+            "to": 1939
+          }
+        ],
+        "fire_date": "1938-06-25"
+      },
+      "title_vi": "Đạo luật Tiêu chuẩn Lao động Công bằng",
+      "title_en": "The Fair Labor Standards Act",
+      "text_vi": "Đạo luật thiết lập mức lương tối thiểu liên bang, giới hạn giờ làm và hạn chế lao động trẻ em trong nhiều ngành. Việc thực thi đặt ra thách thức giữa bảo vệ người lao động, chi phí doanh nghiệp và sự khác biệt giữa các khu vực kinh tế.",
+      "text_en": "The law establishes a federal minimum wage, limits working hours and restricts child labour in many industries. Enforcement must balance worker protection, business costs and differences among regional economies.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thực thi tiêu chuẩn lao động đồng đều",
+          "label_en": "Enforce uniform labour standards",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_fair_labor_standards_1938_historical",
+              "name_vi": "Hệ quả chính sách: Thực thi tiêu chuẩn lao động đồng đều",
+              "name_en": "Policy consequence: Enforce uniform labour standards",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "radicalism": -0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Cho phép linh hoạt rộng hơn theo ngành và địa phương",
+          "label_en": "Allow broader industry and local flexibility",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_fair_labor_standards_1938_alternative",
+              "name_vi": "Hệ quả chính sách: Cho phép linh hoạt rộng hơn theo ngành và địa phương",
+              "name_en": "Policy consequence: Allow broader industry and local flexibility",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.02,
+                "ig_industrialists": 0.25
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "house_wwii",
+        "house_new_deal"
+      ]
+    },
+    {
+      "id": "usa_pearl_harbor_1941",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1941-01-01",
+        "1942-12-31"
+      ],
+      "date_historical": "1941-12-07",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1941,
+            "to": 1942
+          }
+        ],
+        "fire_date": "1941-12-07"
+      },
+      "title_vi": "Nhật Bản tấn công Trân Châu Cảng",
+      "title_en": "Japan Attacks Pearl Harbor",
+      "text_vi": "Cuộc tấn công bất ngờ của Nhật Bản vào căn cứ hải quân Hoa Kỳ tại Hawaii gây tổn thất nặng nề và làm thay đổi dư luận về chiến tranh. Ngày hôm sau, Quốc hội tuyên chiến với Nhật Bản; Hoa Kỳ bước vào Thế chiến thứ hai.",
+      "text_en": "Japan’s surprise attack on the U.S. naval base at Hawaii causes severe losses and transforms public opinion about the war. Congress declares war on Japan the following day, bringing the United States into World War II.",
+      "image": {
+        "ref": "usa_pearl_harbor_1941"
+      },
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Huy động toàn quốc và phối hợp với đồng minh",
+          "label_en": "Mobilise nationally and coordinate with allies",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_pearl_harbor_1941_historical",
+              "name_vi": "Hệ quả chính sách: Huy động toàn quốc và phối hợp với đồng minh",
+              "name_en": "Policy consequence: Mobilise nationally and coordinate with allies",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.055,
+                "prestige": 0.05
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung trả đũa tại Thái Bình Dương trước",
+          "label_en": "Prioritise retaliation in the Pacific",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_pearl_harbor_1941_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung trả đũa tại Thái Bình Dương trước",
+              "name_en": "Policy consequence: Prioritise retaliation in the Pacific",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.045,
+                "war_exhaustion": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "house_wwii",
+        "nara_foreign"
+      ]
+    },
+    {
+      "id": "usa_executive_order_9066_1942",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1942-01-01",
+        "1943-12-31"
+      ],
+      "date_historical": "1942-02-19",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1942,
+            "to": 1943
+          }
+        ],
+        "fire_date": "1942-02-19"
+      },
+      "title_vi": "Sắc lệnh 9066 và việc giam giữ người Mỹ gốc Nhật",
+      "title_en": "Executive Order 9066 and the Incarceration of Japanese Americans",
+      "text_vi": "Sắc lệnh 9066 trao quyền thiết lập các khu vực quân sự và dẫn tới việc cưỡng bức di dời, giam giữ hàng chục nghìn người Mỹ gốc Nhật, phần lớn là công dân Hoa Kỳ. Chính sách an ninh thời chiến vi phạm quyền tự do dân sự và để lại hậu quả lâu dài.",
+      "text_en": "Executive Order 9066 authorises military exclusion zones and leads to the forced removal and incarceration of tens of thousands of Japanese Americans, most of them U.S. citizens. Wartime security policy violates civil liberties and leaves a lasting legacy.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ quyền hiến định và rà soát lệnh loại trừ",
+          "label_en": "Protect constitutional rights and review exclusion orders",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_executive_order_9066_1942_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ quyền hiến định và rà soát lệnh loại trừ",
+              "name_en": "Policy consequence: Protect constitutional rights and review exclusion orders",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.25,
+                "reform": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì lệnh quân sự trong tình trạng chiến tranh",
+          "label_en": "Maintain military orders during wartime",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_executive_order_9066_1942_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì lệnh quân sự trong tình trạng chiến tranh",
+              "name_en": "Policy consequence: Maintain military orders during wartime",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.02,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "house_wwii"
+      ]
+    },
+    {
+      "id": "usa_d_day_1944",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1944-01-01",
+        "1945-12-31"
+      ],
+      "date_historical": "1944-06-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1944,
+            "to": 1945
+          }
+        ],
+        "fire_date": "1944-06-06"
+      },
+      "title_vi": "Đổ bộ Normandy",
+      "title_en": "The Normandy Landings",
+      "text_vi": "Lực lượng Đồng minh đổ bộ lên bờ biển Normandy, mở mặt trận lớn ở Tây Âu chống Đức Quốc xã. Chiến dịch đòi hỏi phối hợp hậu cần, hải quân, không quân và lực lượng đa quốc gia ở quy mô chưa từng có.",
+      "text_en": "Allied forces land on the Normandy coast, opening a major western front against Nazi Germany. The operation requires unprecedented coordination of logistics, naval, air and multinational forces.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Duy trì phối hợp liên minh và bảo đảm tiếp tế",
+          "label_en": "Maintain allied coordination and secure supply",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_d_day_1944_historical",
+              "name_vi": "Hệ quả chính sách: Duy trì phối hợp liên minh và bảo đảm tiếp tế",
+              "name_en": "Policy consequence: Maintain allied coordination and secure supply",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "prestige": 0.05
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tập trung lực lượng để đẩy nhanh tiến quân",
+          "label_en": "Concentrate forces to accelerate the advance",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_d_day_1944_alternative",
+              "name_vi": "Hệ quả chính sách: Tập trung lực lượng để đẩy nhanh tiến quân",
+              "name_en": "Policy consequence: Concentrate forces to accelerate the advance",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "war_exhaustion": 0.015
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "house_wwii",
+        "nara_foreign"
+      ]
+    },
+    {
+      "id": "usa_hiroshima_atomic_bomb_1945",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1945-01-01",
+        "1946-12-31"
+      ],
+      "date_historical": "1945-08-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1945,
+            "to": 1946
+          }
+        ],
+        "fire_date": "1945-08-06"
+      },
+      "title_vi": "Bom nguyên tử được thả xuống Hiroshima",
+      "title_en": "The Atomic Bombing of Hiroshima",
+      "text_vi": "Hoa Kỳ thả bom nguyên tử xuống Hiroshima trong giai đoạn cuối của chiến tranh Thái Bình Dương. Quyết định này góp phần dẫn tới sự đầu hàng của Nhật Bản nhưng mở ra kỷ nguyên hạt nhân và tranh luận kéo dài về đạo đức, chiến lược và hậu quả nhân đạo.",
+      "text_en": "The United States drops an atomic bomb on Hiroshima during the final phase of the Pacific War. The decision contributes to Japan’s surrender but opens the nuclear age and enduring debate over ethics, strategy and humanitarian consequences.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên kết thúc chiến tranh và xây dựng cơ chế kiểm soát hạt nhân",
+          "label_en": "End the war and build nuclear-control mechanisms",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_hiroshima_atomic_bomb_1945_historical",
+              "name_vi": "Hệ quả chính sách: Ưu tiên kết thúc chiến tranh và xây dựng cơ chế kiểm soát hạt nhân",
+              "name_en": "Policy consequence: End the war and build nuclear-control mechanisms",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.04,
+                "research": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Dựa vào ưu thế hạt nhân để răn đe đối thủ",
+          "label_en": "Rely on nuclear superiority to deter rivals",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_hiroshima_atomic_bomb_1945_alternative",
+              "name_vi": "Hệ quả chính sách: Dựa vào ưu thế hạt nhân để răn đe đối thủ",
+              "name_en": "Policy consequence: Rely on nuclear superiority to deter rivals",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.04,
+                "radicalism": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "house_wwii",
+        "nara_foreign"
+      ]
+    },
+    {
+      "id": "usa_truman_doctrine_1947",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1947-01-01",
+        "1948-12-31"
+      ],
+      "date_historical": "1947-03-12",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1947,
+            "to": 1948
+          }
+        ],
+        "fire_date": "1947-03-12"
+      },
+      "title_vi": "Học thuyết Truman",
+      "title_en": "The Truman Doctrine",
+      "text_vi": "Tổng thống Harry Truman đề nghị viện trợ cho Hy Lạp và Thổ Nhĩ Kỳ, tuyên bố Hoa Kỳ sẽ hỗ trợ các chính phủ chống lại sức ép từ các phong trào vũ trang và cường quốc bên ngoài. Chính sách đánh dấu sự hình thành rõ nét của chiến lược ngăn chặn trong Chiến tranh Lạnh.",
+      "text_en": "President Harry Truman requests aid for Greece and Turkey and declares that the United States will support governments facing pressure from armed movements and external powers. The policy marks a clear turn towards Cold War containment.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Kết hợp viện trợ kinh tế với ngoại giao đa phương",
+          "label_en": "Combine economic aid with multilateral diplomacy",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_truman_doctrine_1947_historical",
+              "name_vi": "Hệ quả chính sách: Kết hợp viện trợ kinh tế với ngoại giao đa phương",
+              "name_en": "Policy consequence: Combine economic aid with multilateral diplomacy",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.04,
+                "trade": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên răn đe quân sự và cam kết an ninh",
+          "label_en": "Prioritise military deterrence and security commitments",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_truman_doctrine_1947_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên răn đe quân sự và cam kết an ninh",
+              "name_en": "Policy consequence: Prioritise military deterrence and security commitments",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "tax": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nara_foreign",
+        "house_postwar"
+      ]
+    },
+    {
+      "id": "usa_korean_war_1950",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1950-01-01",
+        "1951-12-31"
+      ],
+      "date_historical": "1950-06-25",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1950,
+            "to": 1951
+          }
+        ],
+        "fire_date": "1950-06-25"
+      },
+      "title_vi": "Chiến tranh Triều Tiên bùng nổ",
+      "title_en": "The Korean War Begins",
+      "text_vi": "Quân đội Bắc Triều Tiên vượt vĩ tuyến 38 tiến vào miền Nam, dẫn tới can thiệp quân sự của Hoa Kỳ dưới danh nghĩa lực lượng Liên Hợp Quốc. Cuộc chiến củng cố chính sách ngăn chặn nhưng cũng làm tăng chi phí quân sự và nguy cơ đối đầu trực tiếp với Trung Quốc.",
+      "text_en": "North Korean forces cross the 38th parallel into the South, prompting U.S. military intervention under the United Nations command. The war reinforces containment but raises military costs and the risk of direct confrontation with China.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giữ chiến tranh trong khuôn khổ liên minh và giới hạn mục tiêu",
+          "label_en": "Keep the war within coalition limits and defined aims",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_korean_war_1950_historical",
+              "name_vi": "Hệ quả chính sách: Giữ chiến tranh trong khuôn khổ liên minh và giới hạn mục tiêu",
+              "name_en": "Policy consequence: Keep the war within coalition limits and defined aims",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.035,
+                "prestige": 0.035
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở rộng chiến dịch để tìm kiếm thắng lợi quyết định",
+          "label_en": "Expand operations to seek decisive victory",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_korean_war_1950_alternative",
+              "name_vi": "Hệ quả chính sách: Mở rộng chiến dịch để tìm kiếm thắng lợi quyết định",
+              "name_en": "Policy consequence: Expand operations to seek decisive victory",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.05,
+                "war_exhaustion": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nara_foreign",
+        "house_postwar"
+      ]
+    },
+    {
+      "id": "usa_brown_v_board_1954",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1954-01-01",
+        "1955-12-31"
+      ],
+      "date_historical": "1954-05-17",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1954,
+            "to": 1955
+          }
+        ],
+        "fire_date": "1954-05-17"
+      },
+      "title_vi": "Brown v. Board of Education",
+      "title_en": "Brown v. Board of Education",
+      "text_vi": "Tòa án Tối cao nhất trí tuyên bố phân biệt chủng tộc trong trường công lập là vi hiến. Phán quyết bác bỏ nền tảng pháp lý của việc tách biệt trường học, nhưng quá trình thực thi gặp phản kháng và trì hoãn tại nhiều bang.",
+      "text_en": "The Supreme Court unanimously rules that racial segregation in public schools is unconstitutional. The decision rejects the legal basis of segregated schooling, but implementation faces resistance and delay in many states.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo đảm thi hành phán quyết và bảo vệ học sinh",
+          "label_en": "Enforce the ruling and protect students",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_brown_v_board_1954_historical",
+              "name_vi": "Hệ quả chính sách: Bảo đảm thi hành phán quyết và bảo vệ học sinh",
+              "name_en": "Policy consequence: Enforce the ruling and protect students",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "reform": 0.02,
+                "legitimacy": 0.35
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Cho các bang thêm thời gian tự điều chỉnh",
+          "label_en": "Give states more time to adjust",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_brown_v_board_1954_alternative",
+              "name_vi": "Hệ quả chính sách: Cho các bang thêm thời gian tự điều chỉnh",
+              "name_en": "Policy consequence: Give states more time to adjust",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.1,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "house_postwar",
+        "loc_civil_rights"
+      ]
+    },
+    {
+      "id": "usa_little_rock_crisis_1957",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1957-01-01",
+        "1958-12-31"
+      ],
+      "date_historical": "1957-09-24",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1957,
+            "to": 1958
+          }
+        ],
+        "fire_date": "1957-09-24"
+      },
+      "title_vi": "Khủng hoảng Little Rock",
+      "title_en": "The Little Rock Crisis",
+      "text_vi": "Sau khi bang Arkansas chống lại việc hội nhập trường học, Tổng thống Eisenhower điều quân liên bang tới Little Rock để bảo đảm học sinh da đen có thể nhập học tại Central High. Khủng hoảng cho thấy chính quyền liên bang phải trực tiếp bảo vệ quyền hiến định trước sự chống đối của bang.",
+      "text_en": "After Arkansas resists school integration, President Eisenhower sends federal troops to Little Rock to ensure Black students can attend Central High. The crisis shows the federal government directly enforcing constitutional rights against state resistance.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ quyền học tập bằng thực thi liên bang",
+          "label_en": "Protect school access through federal enforcement",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_little_rock_crisis_1957_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ quyền học tập bằng thực thi liên bang",
+              "name_en": "Policy consequence: Protect school access through federal enforcement",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "reform": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên thương lượng với chính quyền bang",
+          "label_en": "Prioritise negotiation with state authorities",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_little_rock_crisis_1957_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên thương lượng với chính quyền bang",
+              "name_en": "Policy consequence: Prioritise negotiation with state authorities",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.1,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "house_postwar",
+        "loc_civil_rights"
+      ]
+    },
+    {
+      "id": "usa_march_on_washington_1963",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1963-01-01",
+        "1964-12-31"
+      ],
+      "date_historical": "1963-08-28",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1963,
+            "to": 1964
+          }
+        ],
+        "fire_date": "1963-08-28"
+      },
+      "title_vi": "Cuộc tuần hành tại Washington vì việc làm và tự do",
+      "title_en": "The March on Washington for Jobs and Freedom",
+      "text_vi": "Hàng trăm nghìn người tập trung tại thủ đô để yêu cầu quyền dân sự, cơ hội việc làm và chấm dứt phân biệt chủng tộc. Bài phát biểu của Martin Luther King Jr. trở thành một biểu tượng của phong trào, đồng thời gia tăng sức ép lên Quốc hội về luật dân quyền.",
+      "text_en": "Hundreds of thousands gather in the capital to demand civil rights, jobs and an end to racial discrimination. Martin Luther King Jr.’s speech becomes a defining symbol of the movement and increases pressure on Congress to act.",
+      "image": {
+        "ref": "usa_march_on_washington_1963"
+      },
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Chuyển sức ép xã hội thành luật dân quyền",
+          "label_en": "Translate public pressure into civil-rights legislation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_march_on_washington_1963_historical",
+              "name_vi": "Hệ quả chính sách: Chuyển sức ép xã hội thành luật dân quyền",
+              "name_en": "Policy consequence: Translate public pressure into civil-rights legislation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.35,
+                "reform": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tăng cường trật tự công cộng và trì hoãn cải cách",
+          "label_en": "Prioritise public order and delay reform",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_march_on_washington_1963_alternative",
+              "name_vi": "Hệ quả chính sách: Tăng cường trật tự công cộng và trì hoãn cải cách",
+              "name_en": "Policy consequence: Prioritise public order and delay reform",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.015,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "senate_civil_rights",
+        "house_postwar"
+      ]
+    },
+    {
+      "id": "usa_civil_rights_act_1964",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1964-01-01",
+        "1965-12-31"
+      ],
+      "date_historical": "1964-07-02",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1964,
+            "to": 1965
+          }
+        ],
+        "fire_date": "1964-07-02"
+      },
+      "title_vi": "Đạo luật Dân quyền năm 1964",
+      "title_en": "The Civil Rights Act of 1964",
+      "text_vi": "Tổng thống Lyndon B. Johnson ký đạo luật cấm phân biệt chủng tộc tại nhiều cơ sở công cộng, thúc đẩy hội nhập trường học và cấm phân biệt đối xử trong việc làm. Luật tạo bước ngoặt trong quyền lực liên bang nhằm bảo vệ quyền dân sự.",
+      "text_en": "President Lyndon B. Johnson signs legislation prohibiting racial discrimination in many public accommodations, advancing school integration and banning employment discrimination. The law marks a major expansion of federal civil-rights enforcement.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Thi hành mạnh mẽ và mở rộng bảo vệ quyền",
+          "label_en": "Enforce the law robustly and expand protections",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_civil_rights_act_1964_historical",
+              "name_vi": "Hệ quả chính sách: Thi hành mạnh mẽ và mở rộng bảo vệ quyền",
+              "name_en": "Policy consequence: Enforce the law robustly and expand protections",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.4,
+                "reform": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên thỏa hiệp hành chính trong triển khai",
+          "label_en": "Prioritise administrative compromise in implementation",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_civil_rights_act_1964_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên thỏa hiệp hành chính trong triển khai",
+              "name_en": "Policy consequence: Prioritise administrative compromise in implementation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "radicalism": 0.005
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nara_civil_rights",
+        "senate_civil_rights",
+        "loc_civil_rights"
+      ]
+    },
+    {
+      "id": "usa_voting_rights_act_1965",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1965-01-01",
+        "1966-12-31"
+      ],
+      "date_historical": "1965-08-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1965,
+            "to": 1966
+          }
+        ],
+        "fire_date": "1965-08-06"
+      },
+      "title_vi": "Đạo luật Quyền Bầu cử",
+      "title_en": "The Voting Rights Act",
+      "text_vi": "Đạo luật trao cho chính phủ liên bang công cụ mạnh hơn để ngăn các bang và địa phương cản trở cử tri vì chủng tộc. Các thủ tục như kiểm tra chữ đọc và nhiều rào cản đăng ký bị đặt dưới giám sát liên bang.",
+      "text_en": "The Act gives the federal government stronger tools to prevent states and localities from obstructing voters on racial grounds. Literacy tests and other registration barriers come under federal scrutiny.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Giám sát liên bang và bảo vệ đăng ký cử tri",
+          "label_en": "Use federal oversight to protect voter registration",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_voting_rights_act_1965_historical",
+              "name_vi": "Hệ quả chính sách: Giám sát liên bang và bảo vệ đăng ký cử tri",
+              "name_en": "Policy consequence: Use federal oversight to protect voter registration",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.35,
+                "reform": 0.02
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Giảm can thiệp và để địa phương thực thi",
+          "label_en": "Reduce intervention and leave enforcement local",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_voting_rights_act_1965_alternative",
+              "name_vi": "Hệ quả chính sách: Giảm can thiệp và để địa phương thực thi",
+              "name_en": "Policy consequence: Reduce intervention and leave enforcement local",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.15,
+                "radicalism": 0.008
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nara_civil_rights",
+        "senate_civil_rights"
+      ]
+    },
+    {
+      "id": "usa_apollo_11_moon_landing_1969",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1969-01-01",
+        "1970-12-31"
+      ],
+      "date_historical": "1969-07-20",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1969,
+            "to": 1970
+          }
+        ],
+        "fire_date": "1969-07-20"
+      },
+      "title_vi": "Apollo 11 đưa con người lên Mặt Trăng",
+      "title_en": "Apollo 11 Lands Humans on the Moon",
+      "text_vi": "Neil Armstrong và Buzz Aldrin đặt chân lên Mặt Trăng trong sứ mệnh Apollo 11, đánh dấu thành tựu nổi bật của chương trình không gian Hoa Kỳ. Thành công thể hiện năng lực khoa học và công nghiệp nhưng cũng đặt ra câu hỏi về chi phí, ưu tiên ngân sách và mục tiêu dân sự sau cuộc chạy đua không gian.",
+      "text_en": "Neil Armstrong and Buzz Aldrin walk on the Moon during Apollo 11, marking a major achievement of the U.S. space programme. The success demonstrates scientific and industrial capacity while raising questions about costs, public spending and civilian priorities after the space race.",
+      "image": {
+        "ref": "usa_apollo_11_1969"
+      },
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Duy trì đầu tư khoa học và chuyển giao công nghệ dân sự",
+          "label_en": "Sustain science investment and civilian technology transfer",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_apollo_11_moon_landing_1969_historical",
+              "name_vi": "Hệ quả chính sách: Duy trì đầu tư khoa học và chuyển giao công nghệ dân sự",
+              "name_en": "Policy consequence: Sustain science investment and civilian technology transfer",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "research": 0.04,
+                "prestige": 0.06
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Chuyển nguồn lực sang các ưu tiên xã hội trong nước",
+          "label_en": "Shift resources towards domestic social priorities",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_apollo_11_moon_landing_1969_alternative",
+              "name_vi": "Hệ quả chính sách: Chuyển nguồn lực sang các ưu tiên xã hội trong nước",
+              "name_en": "Policy consequence: Shift resources towards domestic social priorities",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.01,
+                "legitimacy": 0.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "house_postwar"
+      ]
+    },
+    {
+      "id": "usa_paris_peace_accords_1973",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1973-01-01",
+        "1974-12-31"
+      ],
+      "date_historical": "1973-01-27",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1973,
+            "to": 1974
+          }
+        ],
+        "fire_date": "1973-01-27"
+      },
+      "title_vi": "Hiệp định Paris và rút quân khỏi Việt Nam",
+      "title_en": "The Paris Peace Accords and U.S. Withdrawal from Vietnam",
+      "text_vi": "Hiệp định Paris được ký, tạo khuôn khổ cho việc rút quân Mỹ và trao trả tù binh. Thỏa thuận không chấm dứt ngay chiến tranh tại Việt Nam, nhưng đánh dấu kết thúc vai trò chiến đấu trực tiếp quy mô lớn của Hoa Kỳ.",
+      "text_en": "The Paris Peace Accords are signed, providing for U.S. troop withdrawal and the return of prisoners of war. The agreement does not immediately end the war in Vietnam, but marks the end of large-scale direct U.S. combat involvement.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Rút quân theo thỏa thuận và tập trung phục hồi trong nước",
+          "label_en": "Withdraw under the agreement and focus on domestic recovery",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_paris_peace_accords_1973_historical",
+              "name_vi": "Hệ quả chính sách: Rút quân theo thỏa thuận và tập trung phục hồi trong nước",
+              "name_en": "Policy consequence: Withdraw under the agreement and focus on domestic recovery",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "war_exhaustion": -0.02,
+                "legitimacy": 0.25
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì hỗ trợ quân sự để bảo vệ đồng minh",
+          "label_en": "Continue military aid to support an ally",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_paris_peace_accords_1973_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì hỗ trợ quân sự để bảo vệ đồng minh",
+              "name_en": "Policy consequence: Continue military aid to support an ally",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.015,
+                "war_exhaustion": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nara_foreign"
+      ]
+    },
+    {
+      "id": "usa_nixon_resignation_1974",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1974-01-01",
+        "1975-12-31"
+      ],
+      "date_historical": "1974-08-09",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1974,
+            "to": 1975
+          }
+        ],
+        "fire_date": "1974-08-09"
+      },
+      "title_vi": "Richard Nixon từ chức",
+      "title_en": "Richard Nixon Resigns",
+      "text_vi": "Sau cuộc điều tra Watergate và phán quyết của Tòa án Tối cao về băng ghi âm Nhà Trắng, Nixon tuyên bố từ chức. Sự kiện làm suy giảm niềm tin công chúng vào chính quyền và thúc đẩy tranh luận về giám sát tổng thống, quyền lực hành pháp và trách nhiệm giải trình.",
+      "text_en": "After the Watergate investigation and the Supreme Court’s ruling on White House tapes, Nixon announces his resignation. The event damages public trust and renews debate over presidential oversight, executive power and accountability.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tăng minh bạch và giám sát quyền hành pháp",
+          "label_en": "Strengthen transparency and executive oversight",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_nixon_resignation_1974_historical",
+              "name_vi": "Hệ quả chính sách: Tăng minh bạch và giám sát quyền hành pháp",
+              "name_en": "Policy consequence: Strengthen transparency and executive oversight",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.35,
+                "reform": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên ổn định bộ máy và hạn chế điều tra tiếp",
+          "label_en": "Prioritise institutional stability and limit further inquiries",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_nixon_resignation_1974_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên ổn định bộ máy và hạn chế điều tra tiếp",
+              "name_en": "Policy consequence: Prioritise institutional stability and limit further inquiries",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.15,
+                "police": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_us_timeline"
+      ]
+    },
+    {
+      "id": "usa_gulf_war_1991",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "1991-01-01",
+        "1992-12-31"
+      ],
+      "date_historical": "1991-01-17",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1991,
+            "to": 1992
+          }
+        ],
+        "fire_date": "1991-01-17"
+      },
+      "title_vi": "Chiến dịch Bão táp Sa mạc",
+      "title_en": "Operation Desert Storm",
+      "text_vi": "Liên quân do Hoa Kỳ dẫn đầu mở chiến dịch quân sự nhằm buộc Iraq rút khỏi Kuwait theo các nghị quyết của Hội đồng Bảo an Liên Hợp Quốc. Chiến dịch nhanh chóng đánh bại lực lượng Iraq tại Kuwait, nhưng để lại tranh luận về trật tự an ninh khu vực và các biện pháp tiếp theo.",
+      "text_en": "A U.S.-led coalition launches military operations to compel Iraq to leave Kuwait under United Nations Security Council resolutions. The campaign rapidly defeats Iraqi forces in Kuwait but leaves debate over regional security and subsequent policy.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Kết thúc chiến dịch khi mục tiêu giải phóng Kuwait đạt được",
+          "label_en": "End operations once Kuwait is liberated",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_gulf_war_1991_historical",
+              "name_vi": "Hệ quả chính sách: Kết thúc chiến dịch khi mục tiêu giải phóng Kuwait đạt được",
+              "name_en": "Policy consequence: End operations once Kuwait is liberated",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "prestige": 0.05,
+                "war_exhaustion": -0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở rộng mục tiêu để thay đổi chính quyền Iraq",
+          "label_en": "Expand aims towards regime change",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_gulf_war_1991_alternative",
+              "name_vi": "Hệ quả chính sách: Mở rộng mục tiêu để thay đổi chính quyền Iraq",
+              "name_en": "Policy consequence: Expand aims towards regime change",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.035,
+                "war_exhaustion": 0.02
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nara_foreign"
+      ]
+    },
+    {
+      "id": "usa_september_11_attacks_2001",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "2001-01-01",
+        "2002-12-31"
+      ],
+      "date_historical": "2001-09-11",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 2001,
+            "to": 2002
+          }
+        ],
+        "fire_date": "2001-09-11"
+      },
+      "title_vi": "Các cuộc tấn công ngày 11 tháng 9",
+      "title_en": "The September 11 Attacks",
+      "text_vi": "Bốn máy bay thương mại bị không tặc chiếm quyền điều khiển; hai chiếc đâm vào Trung tâm Thương mại Thế giới, một chiếc vào Lầu Năm Góc và chiếc còn lại rơi tại Pennsylvania sau khi hành khách phản kháng. Gần 3.000 người thiệt mạng, làm thay đổi sâu sắc chính sách an ninh và đối ngoại Hoa Kỳ.",
+      "text_en": "Four commercial aircraft are hijacked; two strike the World Trade Center, one hits the Pentagon and another crashes in Pennsylvania after passengers resist. Nearly 3,000 people are killed, profoundly reshaping U.S. security and foreign policy.",
+      "image": {
+        "ref": "usa_911_aftermath_2001"
+      },
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên cứu hộ, điều tra và hợp tác quốc tế",
+          "label_en": "Prioritise rescue, investigation and international cooperation",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_september_11_attacks_2001_historical",
+              "name_vi": "Hệ quả chính sách: Ưu tiên cứu hộ, điều tra và hợp tác quốc tế",
+              "name_en": "Policy consequence: Prioritise rescue, investigation and international cooperation",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.35,
+                "police": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Mở rộng quyền an ninh khẩn cấp trong nước và ngoài nước",
+          "label_en": "Expand emergency security powers at home and abroad",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_september_11_attacks_2001_alternative",
+              "name_vi": "Hệ quả chính sách: Mở rộng quyền an ninh khẩn cấp trong nước và ngoài nước",
+              "name_en": "Policy consequence: Expand emergency security powers at home and abroad",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.04,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nara_911",
+        "commission_911"
+      ]
+    },
+    {
+      "id": "usa_iraq_invasion_2003",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "2003-01-01",
+        "2004-12-31"
+      ],
+      "date_historical": "2003-03-20",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 2003,
+            "to": 2004
+          }
+        ],
+        "fire_date": "2003-03-20"
+      },
+      "title_vi": "Hoa Kỳ xâm lược Iraq",
+      "title_en": "The United States Invades Iraq",
+      "text_vi": "Liên quân do Hoa Kỳ dẫn đầu mở chiến dịch quân sự tại Iraq, viện dẫn các cáo buộc về vũ khí hủy diệt hàng loạt và việc thực thi các nghị quyết quốc tế. Chính quyền Saddam Hussein sụp đổ nhanh chóng, nhưng bất ổn kéo dài và các tuyên bố về vũ khí bị tranh cãi gay gắt.",
+      "text_en": "A U.S.-led coalition invades Iraq, citing allegations about weapons of mass destruction and enforcement of international resolutions. Saddam Hussein’s government falls quickly, but prolonged instability follows and the weapons claims become deeply contested.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ưu tiên tái thiết đa phương và chuyển giao chính trị",
+          "label_en": "Prioritise multilateral reconstruction and political transition",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_iraq_invasion_2003_historical",
+              "name_vi": "Hệ quả chính sách: Ưu tiên tái thiết đa phương và chuyển giao chính trị",
+              "name_en": "Policy consequence: Prioritise multilateral reconstruction and political transition",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "war_exhaustion": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Duy trì chiếm đóng quân sự để kiểm soát an ninh",
+          "label_en": "Maintain military occupation to control security",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_iraq_invasion_2003_alternative",
+              "name_vi": "Hệ quả chính sách: Duy trì chiếm đóng quân sự để kiểm soát an ninh",
+              "name_en": "Policy consequence: Maintain military occupation to control security",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "army": 0.03,
+                "war_exhaustion": 0.025
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nara_foreign",
+        "nara_911"
+      ]
+    },
+    {
+      "id": "usa_financial_crisis_2008",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "2008-01-01",
+        "2009-12-31"
+      ],
+      "date_historical": "2008-09-15",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 2008,
+            "to": 2009
+          }
+        ],
+        "fire_date": "2008-09-15"
+      },
+      "title_vi": "Khủng hoảng tài chính toàn cầu",
+      "title_en": "The Global Financial Crisis",
+      "text_vi": "Lehman Brothers nộp đơn phá sản trong bối cảnh khủng hoảng nhà ở và tín dụng lan rộng. Chính phủ và Cục Dự trữ Liên bang triển khai các biện pháp khẩn cấp để ngăn hệ thống tài chính sụp đổ, đồng thời tranh luận về cứu trợ ngân hàng và trách nhiệm giám sát.",
+      "text_en": "Lehman Brothers files for bankruptcy as the housing and credit crisis spreads. The government and Federal Reserve deploy emergency measures to prevent financial collapse, while debate intensifies over bank rescues and regulatory responsibility.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Ổn định hệ thống tài chính kèm cải cách giám sát",
+          "label_en": "Stabilise finance while reforming oversight",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_financial_crisis_2008_historical",
+              "name_vi": "Hệ quả chính sách: Ổn định hệ thống tài chính kèm cải cách giám sát",
+              "name_en": "Policy consequence: Stabilise finance while reforming oversight",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.25,
+                "trade": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Cứu trợ khẩn cấp với điều kiện tối thiểu",
+          "label_en": "Provide emergency relief with minimal conditions",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_financial_crisis_2008_alternative",
+              "name_vi": "Hệ quả chính sách: Cứu trợ khẩn cấp với điều kiện tối thiểu",
+              "name_en": "Policy consequence: Provide emergency relief with minimal conditions",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.02,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "fed_crisis",
+        "nara_foreign"
+      ]
+    },
+    {
+      "id": "usa_affordable_care_act_2010",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "2010-01-01",
+        "2011-12-31"
+      ],
+      "date_historical": "2010-03-23",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 2010,
+            "to": 2011
+          }
+        ],
+        "fire_date": "2010-03-23"
+      },
+      "title_vi": "Đạo luật Chăm sóc Sức khỏe Giá phải chăng",
+      "title_en": "The Affordable Care Act",
+      "text_vi": "Tổng thống Barack Obama ký đạo luật cải cách bảo hiểm y tế, mở rộng phạm vi tiếp cận bảo hiểm và đặt ra các quy định mới cho thị trường bảo hiểm. Chính sách làm thay đổi hệ thống y tế nhưng tiếp tục là chủ đề tranh luận chính trị và pháp lý.",
+      "text_en": "President Barack Obama signs health-insurance reform expanding coverage and introducing new rules for insurance markets. The policy changes the health system while remaining a subject of political and legal debate.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tập trung thực thi và giảm khoảng trống bảo hiểm",
+          "label_en": "Focus on implementation and close coverage gaps",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_affordable_care_act_2010_historical",
+              "name_vi": "Hệ quả chính sách: Tập trung thực thi và giảm khoảng trống bảo hiểm",
+              "name_en": "Policy consequence: Focus on implementation and close coverage gaps",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "reform": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Điều chỉnh quy định để giảm chi phí tuân thủ",
+          "label_en": "Adjust regulations to reduce compliance costs",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_affordable_care_act_2010_alternative",
+              "name_vi": "Hệ quả chính sách: Điều chỉnh quy định để giảm chi phí tuân thủ",
+              "name_en": "Policy consequence: Adjust regulations to reduce compliance costs",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "tax": 0.01,
+                "ig_industrialists": 0.2
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "obama_aca"
+      ]
+    },
+    {
+      "id": "usa_covid_national_emergency_2020",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "2020-01-01",
+        "2021-12-31"
+      ],
+      "date_historical": "2020-03-13",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 2020,
+            "to": 2021
+          }
+        ],
+        "fire_date": "2020-03-13"
+      },
+      "title_vi": "Tuyên bố tình trạng khẩn cấp quốc gia vì COVID-19",
+      "title_en": "National Emergency Declared for COVID-19",
+      "text_vi": "Chính phủ liên bang tuyên bố tình trạng khẩn cấp quốc gia, mở rộng quyền điều phối nguồn lực và hỗ trợ ứng phó với đại dịch. Biện pháp y tế công cộng, đóng cửa hoạt động và cứu trợ kinh tế tạo ra đánh đổi lớn giữa bảo vệ sức khỏe, sinh kế và quyền tự do cá nhân.",
+      "text_en": "The federal government declares a national emergency, expanding its ability to coordinate resources and respond to the pandemic. Public-health measures, business closures and economic relief create difficult trade-offs among health, livelihoods and civil liberties.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Phối hợp dữ liệu y tế, hỗ trợ kinh tế và giám sát minh bạch",
+          "label_en": "Coordinate health data, economic aid and transparent oversight",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_covid_national_emergency_2020_historical",
+              "name_vi": "Hệ quả chính sách: Phối hợp dữ liệu y tế, hỗ trợ kinh tế và giám sát minh bạch",
+              "name_en": "Policy consequence: Coordinate health data, economic aid and transparent oversight",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.25,
+                "research": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Ưu tiên mở cửa kinh tế sớm và phân quyền cho bang",
+          "label_en": "Prioritise early reopening and state-level discretion",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_covid_national_emergency_2020_alternative",
+              "name_vi": "Hệ quả chính sách: Ưu tiên mở cửa kinh tế sớm và phân quyền cho bang",
+              "name_en": "Policy consequence: Prioritise early reopening and state-level discretion",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "trade": 0.025,
+                "radicalism": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "whitehouse_covid"
+      ]
+    },
+    {
+      "id": "usa_capitol_attack_2021",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "2021-01-01",
+        "2022-12-31"
+      ],
+      "date_historical": "2021-01-06",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 2021,
+            "to": 2022
+          }
+        ],
+        "fire_date": "2021-01-06"
+      },
+      "title_vi": "Bạo loạn tại Điện Capitol",
+      "title_en": "The Attack on the U.S. Capitol",
+      "text_vi": "Một đám đông xâm nhập Điện Capitol trong phiên họp kiểm phiếu đại cử tri, làm gián đoạn quy trình hiến định và gây thương vong. Quốc hội trở lại phiên họp trong đêm để hoàn tất việc kiểm phiếu, còn các cuộc điều tra và tranh luận về an ninh, trách nhiệm chính trị tiếp tục sau đó.",
+      "text_en": "A crowd breaches the Capitol during the electoral-vote count, disrupting a constitutional process and causing casualties. Congress reconvenes that night to complete the count, while investigations and debates over security and political accountability continue.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Bảo vệ thể chế và điều tra độc lập theo pháp luật",
+          "label_en": "Protect institutions and conduct lawful independent investigations",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_capitol_attack_2021_historical",
+              "name_vi": "Hệ quả chính sách: Bảo vệ thể chế và điều tra độc lập theo pháp luật",
+              "name_en": "Policy consequence: Protect institutions and conduct lawful independent investigations",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.3,
+                "reform": 0.015
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Tăng cường an ninh và quyền lực hành pháp khẩn cấp",
+          "label_en": "Expand security and emergency executive powers",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_capitol_attack_2021_alternative",
+              "name_vi": "Hệ quả chính sách: Tăng cường an ninh và quyền lực hành pháp khẩn cấp",
+              "name_en": "Policy consequence: Expand security and emergency executive powers",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "police": 0.03,
+                "radicalism": 0.012
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "nara_milestones"
+      ]
+    },
+    {
+      "id": "usa_dobbs_decision_2022",
+      "country": "USA",
+      "mode": "historical",
+      "window": [
+        "2022-01-01",
+        "2023-12-31"
+      ],
+      "date_historical": "2022-06-24",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 2022,
+            "to": 2023
+          }
+        ],
+        "fire_date": "2022-06-24"
+      },
+      "title_vi": "Phán quyết Dobbs đảo ngược Roe v. Wade",
+      "title_en": "The Dobbs Decision Overturns Roe v. Wade",
+      "text_vi": "Tòa án Tối cao tuyên bố Hiến pháp không trao quyền phá thai như một quyền hiến định và đảo ngược tiền lệ Roe v. Wade. Quyền điều chỉnh được trả lại phần lớn cho các bang, tạo ra khác biệt pháp lý lớn giữa các khu vực và tranh luận gay gắt về quyền cá nhân.",
+      "text_en": "The Supreme Court rules that the Constitution does not confer a right to abortion and overturns Roe v. Wade. Regulatory authority largely returns to the states, creating major regional legal differences and intense debate over individual rights.",
+      "options": [
+        {
+          "id": "historical_course",
+          "label_vi": "Tìm cơ chế bảo đảm tiếp cận và tính nhất quán pháp lý",
+          "label_en": "Seek safeguards for access and legal consistency",
+          "historical": true,
+          "ai_weight": 3,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_dobbs_decision_2022_historical",
+              "name_vi": "Hệ quả chính sách: Tìm cơ chế bảo đảm tiếp cận và tính nhất quán pháp lý",
+              "name_en": "Policy consequence: Seek safeguards for access and legal consistency",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "legitimacy": 0.2,
+                "reform": 0.01
+              }
+            }
+          ]
+        },
+        {
+          "id": "alternative_course",
+          "label_vi": "Để các bang tự quyết hoàn toàn",
+          "label_en": "Leave decisions entirely to the states",
+          "historical": false,
+          "ai_weight": 1,
+          "effects": [
+            {
+              "type": "modifier",
+              "entity": "$self",
+              "id": "usa_dobbs_decision_2022_alternative",
+              "name_vi": "Hệ quả chính sách: Để các bang tự quyết hoàn toàn",
+              "name_en": "Policy consequence: Leave decisions entirely to the states",
+              "months": 36,
+              "decaying": true,
+              "effects": {
+                "radicalism": 0.012,
+                "legitimacy": 0.1
+              }
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "loc_us_timeline"
+      ]
+    }
+  ],
+  "journals": [
+    {
+      "id": "usa_continental_expansion_1837_1857",
+      "country": "USA",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1837,
+            "to": 1857
+          }
+        ]
+      },
+      "title_vi": "Mở rộng lãnh thổ và khủng hoảng chế độ nô lệ",
+      "title_en": "Territorial Expansion and the Slavery Crisis",
+      "text_vi": "Hoa Kỳ mở rộng về phía Tây trong khi tranh chấp về chế độ nô lệ làm suy yếu thỏa hiệp chính trị giữa các bang. Mỗi vùng lãnh thổ mới đặt ra câu hỏi về quyền lực liên bang và sự cân bằng trong Quốc hội.",
+      "text_en": "The United States expands westward as disputes over slavery undermine political compromise among the states. Every new territory raises questions about federal authority and congressional balance.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Tiến độ",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 120
+        }
+      ],
+      "timeout_months": 120,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "USA",
+          "id": "usa_continental_expansion_1837_1857_complete",
+          "name_vi": "Mở rộng có trật tự và thỏa hiệp bền vững",
+          "name_en": "Orderly Expansion and Durable Compromise",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "prestige": 0.05,
+            "legitimacy": 0.5
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "USA",
+          "id": "usa_continental_expansion_1837_1857_failed",
+          "name_vi": "Phân cực vùng miền gia tăng",
+          "name_en": "Growing Sectional Polarisation",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "radicalism": 0.02,
+            "legitimacy": -0.4
+          }
+        }
+      ]
+    },
+    {
+      "id": "usa_union_and_reconstruction_1860_1877",
+      "country": "USA",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1860,
+            "to": 1877
+          }
+        ]
+      },
+      "title_vi": "Bảo toàn Liên bang và Tái thiết",
+      "title_en": "Preserving the Union and Reconstruction",
+      "text_vi": "Nội chiến đặt sự tồn tại của Liên bang và tương lai của chế độ nô lệ vào trung tâm chính trị. Sau chiến thắng quân sự, chính phủ phải chuyển các tu chính án thành quyền được bảo vệ trong đời sống thực tế.",
+      "text_en": "The Civil War places the Union’s survival and the future of slavery at the centre of politics. After military victory, the government must turn constitutional amendments into rights protected in daily life.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Tiến độ",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 120
+        }
+      ],
+      "timeout_months": 120,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "USA",
+          "id": "usa_union_and_reconstruction_1860_1877_complete",
+          "name_vi": "Liên bang được bảo toàn và quyền công dân được bảo vệ",
+          "name_en": "Union Preserved and Citizenship Protected",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 0.55,
+            "reform": 0.02
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "USA",
+          "id": "usa_union_and_reconstruction_1860_1877_failed",
+          "name_vi": "Tái thiết đổ vỡ và quyền công dân suy yếu",
+          "name_en": "Failed Reconstruction and Weakened Rights",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "radicalism": 0.02,
+            "legitimacy": -0.45
+          }
+        }
+      ]
+    },
+    {
+      "id": "usa_industrial_progressive_1877_1918",
+      "country": "USA",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1877,
+            "to": 1918
+          }
+        ]
+      },
+      "title_vi": "Công nghiệp hóa và cải cách Tiến bộ",
+      "title_en": "Industrialisation and Progressive Reform",
+      "text_vi": "Các tập đoàn, đô thị và dòng di cư làm thay đổi xã hội Hoa Kỳ. Chính phủ phải lựa chọn giữa laissez-faire, điều tiết doanh nghiệp, cải thiện điều kiện lao động và mở rộng quyền chính trị.",
+      "text_en": "Corporations, cities and migration transform American society. Government must choose between laissez-faire, business regulation, better labour conditions and broader political rights.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Tiến độ",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 120
+        }
+      ],
+      "timeout_months": 120,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "USA",
+          "id": "usa_industrial_progressive_1877_1918_complete",
+          "name_vi": "Tăng trưởng đi cùng cải cách thể chế",
+          "name_en": "Growth with Institutional Reform",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "trade": 0.025,
+            "research": 0.015
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "USA",
+          "id": "usa_industrial_progressive_1877_1918_failed",
+          "name_vi": "Độc quyền và bất bình đẳng tích tụ",
+          "name_en": "Accumulating Monopolies and Inequality",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "radicalism": 0.015,
+            "legitimacy": -0.25
+          }
+        }
+      ]
+    },
+    {
+      "id": "usa_depression_and_global_war_1929_1945",
+      "country": "USA",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1929,
+            "to": 1945
+          }
+        ]
+      },
+      "title_vi": "Đại Suy thoái và chiến tranh toàn cầu",
+      "title_en": "The Great Depression and Global War",
+      "text_vi": "Khủng hoảng kinh tế buộc chính phủ mở rộng trách nhiệm đối với ngân hàng, việc làm và an sinh xã hội. Thế chiến thứ hai tiếp tục huy động toàn bộ nền kinh tế và đưa Hoa Kỳ thành một cường quốc toàn cầu.",
+      "text_en": "Economic crisis forces government to expand its responsibilities for banks, jobs and social security. World War II then mobilises the entire economy and establishes the United States as a global power.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Tiến độ",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 120
+        }
+      ],
+      "timeout_months": 120,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "USA",
+          "id": "usa_depression_and_global_war_1929_1945_complete",
+          "name_vi": "Phục hồi kinh tế và chiến thắng trong liên minh",
+          "name_en": "Economic Recovery and Allied Victory",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "construction": 0.035,
+            "prestige": 0.05
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "USA",
+          "id": "usa_depression_and_global_war_1929_1945_failed",
+          "name_vi": "Khủng hoảng kéo dài và gánh nặng chiến tranh",
+          "name_en": "Prolonged Crisis and Wartime Strain",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "radicalism": 0.015,
+            "war_exhaustion": 0.02
+          }
+        }
+      ]
+    },
+    {
+      "id": "usa_civil_rights_and_global_power_1945_1974",
+      "country": "USA",
+      "mode": "historical",
+      "trigger": {
+        "conditions": [
+          {
+            "type": "exists",
+            "entity": "USA"
+          },
+          {
+            "type": "year_between",
+            "from": 1945,
+            "to": 1974
+          }
+        ]
+      },
+      "title_vi": "Siêu cường, Chiến tranh Lạnh và quyền dân sự",
+      "title_en": "Superpower, Cold War and Civil Rights",
+      "text_vi": "Hoa Kỳ mở rộng vai trò toàn cầu trong khi các phong trào dân quyền yêu cầu thực thi bình đẳng trong nước. Chiến tranh, cải cách và xung đột chính trị buộc thể chế phải thích nghi với xã hội thay đổi nhanh chóng.",
+      "text_en": "The United States expands its global role while civil-rights movements demand equality at home. War, reform and political conflict force institutions to adapt to a rapidly changing society.",
+      "progress": {
+        "start": 0,
+        "max": 100,
+        "label_vi": "Tiến độ",
+        "monthly": [
+          {
+            "add": 1
+          }
+        ]
+      },
+      "complete": [
+        {
+          "type": "progress_at_least",
+          "value": 100
+        }
+      ],
+      "fail": [
+        {
+          "type": "months_elapsed",
+          "value": 120
+        }
+      ],
+      "timeout_months": 120,
+      "on_timeout": "fail",
+      "on_complete": [
+        {
+          "type": "modifier",
+          "entity": "USA",
+          "id": "usa_civil_rights_and_global_power_1945_1974_complete",
+          "name_vi": "Vai trò toàn cầu đi cùng mở rộng quyền công dân",
+          "name_en": "Global Leadership with Expanded Civil Rights",
+          "months": 48,
+          "decaying": true,
+          "effects": {
+            "legitimacy": 0.5,
+            "research": 0.015
+          }
+        }
+      ],
+      "on_fail": [
+        {
+          "type": "modifier",
+          "entity": "USA",
+          "id": "usa_civil_rights_and_global_power_1945_1974_failed",
+          "name_vi": "Phân cực và khủng hoảng niềm tin",
+          "name_en": "Polarisation and a Crisis of Trust",
+          "months": 36,
+          "decaying": true,
+          "effects": {
+            "radicalism": 0.015,
+            "legitimacy": -0.4
+          }
+        }
+      ]
+    }
+  ]
+}
