@@ -68,3 +68,12 @@ Continue in the roadmap order:
 2. TUR — 40–60 events, 3–6 journals, event-specific image candidates.
 
 MSG-129 remains IN_PROGRESS until all seven A1 packages (FRA, JAP, QNG, RUS, PRU, USA, TUR) are delivered and Claude completes the required integration checks.
+
+
+
+## Post-checkpoint correction — final image asset IDs and A1 completion (2026-11-24)
+
+- The six event image references were normalised to the engine asset-ID convention `ill_<subject>`; the six subjects in `story_selection.json` are the unprefixed subject keys consumed by the ingestion tool.
+- Final PRU data blob: `ce9ac77dd4a1d3e0701e56f5d3cf341c19c59ae6`; final PRU data commit for that correction: `683d5407a65faec32cc5f057e1da1f21e5aedd23`.
+- A1 is now authoring-complete 7/7. Next work is Claude's integration review, builders, runtime tests and media ingestion—not another A1 country package.
+- Aggregate report: `docs/research/history/CG68_A1_SEVEN_COUNTRY_COMPLETION_AUDIT_2026-11-24_VI.md`.
