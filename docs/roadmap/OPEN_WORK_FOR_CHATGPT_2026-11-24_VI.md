@@ -107,3 +107,15 @@ Owner nhắn: "Đọc `docs/roadmap/OPEN_WORK_FOR_CHATGPT_2026-11-24_VI.md`, so�
 - Báo cáo đầy đủ: `docs/research/history/CG63_RUS_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md`.
 - **Chưa release-ready:** cần xác minh lịch Julian/Gregorian, scheduler tháng với fire_date giữa tháng, event thoái vị trùng `hist_to=1917-03-15`, nguồn từng claim và rights/size ảnh. Chưa chạy builders, tests, simulation, Android build/APK.
 - **Tiếp theo A1:** PRU → USA → TUR. PRU là Phổ, không phải PRS/Ba Tư. MSG-129 vẫn IN_PROGRESS.
+
+
+## Cập nhật tiến độ — PRU / Phổ (CG-65, 2026-11-24)
+
+- **A1 / PRU — gói dữ liệu đã bàn giao để Claude soát.** File `historical_data/events/story/PRU.json`: **60 sự kiện, 5 journal, 120 lựa chọn, 120 timed modifiers**, 12 mục nguồn và 71 event-level source refs.
+- Bao phủ Phổ từ 1837 đến cách mạng tháng 11/1918: cách mạng 1848, khủng hoảng hiến pháp, Bismarck, các cuộc chiến thống nhất, Liên bang Bắc Đức, Đế quốc Đức, Kulturkampf, luật xã hội, công nghiệp/hải quân, Thế chiến I và sụp đổ quân chủ.
+- Đã thêm 6 ứng viên ảnh Commons riêng trong `story_selection.json`; 6 event image refs trỏ đúng subject. Chưa ingest binary.
+- Static read-back: JSON parse; 60 event IDs và 5 journal IDs duy nhất; country `PRU` tồn tại trong registry; 120 lựa chọn có modifier có tên/thời hạn; tất cả modifier keys khớp `MOD_KEYS`; 71 source refs và 6 image refs resolve.
+- **Caveats cần Claude xác minh:** monthly scheduler có tối đa một event/quốc gia/tháng; có hai cặp cùng tháng (03/1848, 09/1862), có thể bị dời tick; 9/11/1918 trùng `PRU.hist_to`; nguồn là điểm khởi đầu, chưa kiểm chứng từng claim; ảnh vẫn cần kiểm rights/provenance/derivative.
+- Chưa chạy builders, tests, simulation, media ingestion, Android build/APK hoặc device QA. Chưa release-ready.
+- Báo cáo: `docs/research/history/CG65_PRU_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md`.
+- **Tiếp theo A1: USA → TUR.** MSG-129 vẫn IN_PROGRESS cho đến khi đủ 7 nước và Claude nghiệm thu.
