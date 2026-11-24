@@ -2978,6 +2978,162 @@
         0.5
       ],
       "review_note": "Commons page reports Public Domain in source country and US, with Public Domain Mark. Confirm the attribution and use the Commons derivative at ingestion."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "usa_mexican_war_1846",
+      "commons_file": "Mexican war map summary 1846 1847.jpg",
+      "year": 1846,
+      "width": 1311,
+      "height": 1015,
+      "author": "U.S. Military Academy history atlas (creator not identified in Commons record)",
+      "name": "Mexican-American War operations map",
+      "description": "Map of the principal operations during the Mexican-American War, 1846–1847",
+      "period": {
+        "from": 1846,
+        "to": 1847
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page identifies source as the U.S. Military Academy history atlas and marks the work PD-USGov / Public Domain Mark. This is a map, intentionally tied only to this war event; verify original source and map content before ingestion."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "usa_emancipation_1863",
+      "commons_file": "Abraham Lincoln O-77 by Gardner, 1863.jpg",
+      "year": 1863,
+      "width": 4322,
+      "height": 5441,
+      "author": "Alexander Gardner",
+      "name": "Abraham Lincoln portrait, 8 November 1863",
+      "description": "Library of Congress portrait of Abraham Lincoln photographed by Alexander Gardner in Washington on 8 November 1863",
+      "period": {
+        "from": 1863,
+        "to": 1863
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page attributes the photograph to Alexander Gardner (1821–1882) and marks it public domain. The photograph is a contemporary Lincoln portrait, not a depiction of the signing of the Emancipation Proclamation. Use a derivative; original is 4.4 MB."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "usa_pearl_harbor_1941",
+      "commons_file": "Pearl Harbor Attack, 7 December 1941 - 80-G-32920.jpg",
+      "year": 1941,
+      "width": 5713,
+      "height": 4569,
+      "author": "U.S. Navy",
+      "name": "USS Arizona ablaze during Pearl Harbor attack",
+      "description": "Official U.S. Navy photograph of USS Arizona burning during the Japanese attack on Pearl Harbor, 7 December 1941",
+      "period": {
+        "from": 1941,
+        "to": 1941
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page identifies official U.S. Navy photograph 80-G-32920 and PD-USGov / Public Domain Mark. Original is 11.7 MB; create a controlled derivative during ingestion."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "usa_march_on_washington_1963",
+      "commons_file": "March on washington Aug 28 1963.jpg",
+      "year": 1963,
+      "width": 1978,
+      "height": 1567,
+      "author": "Unknown photographer; U.S. Information Agency record",
+      "name": "Leaders at the March on Washington",
+      "description": "National Archives photograph of civil-rights and labour leaders at the head of the March on Washington, 28 August 1963",
+      "period": {
+        "from": 1963,
+        "to": 1963
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons page identifies the U.S. Information Agency photograph in NARA holdings (NAID 542002) and reports USIA/U.S. federal-government public-domain status. Confirm archive record and derivative metadata during ingestion."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "usa_apollo_11_1969",
+      "commons_file": "Buzz Aldrin on the Lunar Surface.jpg",
+      "year": 1969,
+      "width": 4322,
+      "height": 5521,
+      "author": "Neil Armstrong / NASA",
+      "name": "Buzz Aldrin on the lunar surface",
+      "description": "NASA Apollo 11 photograph of Buzz Aldrin standing on the lunar surface during the 20 July 1969 EVA",
+      "period": {
+        "from": 1969,
+        "to": 1969
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page attributes the photograph to Neil Armstrong / NASA and marks it public domain as a NASA work. Original is 9.3 MB; use an optimised derivative and retain NASA attribution."
+    },
+    {
+      "type": "illustration_event",
+      "subject": "usa_september_11_attacks_2001",
+      "commons_file": "010915-N-3995K-024 Old Glory at ground zero.jpg",
+      "year": 2001,
+      "width": 3008,
+      "height": 1960,
+      "author": "Preston Keres / U.S. Navy",
+      "name": "Old Glory at Ground Zero",
+      "description": "U.S. Navy photograph of the American flag at the World Trade Center site, New York, 15 September 2001",
+      "period": {
+        "from": 2001,
+        "to": 2001
+      },
+      "inset": [
+        0.02,
+        0.02,
+        0.02,
+        0.02
+      ],
+      "focus": [
+        0.5,
+        0.5
+      ],
+      "review_note": "Commons file page records the Navy image ID 010915-N-3995K-024 and marks it public domain as a U.S. federal-government work. It depicts the aftermath and memorial response, not the attacks themselves."
     }
   ]
 }
