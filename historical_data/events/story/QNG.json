@@ -2927,7 +2927,12 @@
       ],
       "sources": [
         "smithsonian"
-      ]
+      ],
+      "image": {
+        "ref": "ill_qng_boxer_movement",
+        "credit": "Department of the Army, Office of the Chief Signal Officer; U.S. National Archives record 530870",
+        "license": "U.S. federal government work; public domain in the United States"
+      }
     },
     {
       "id": "qng_boxer_crisis",
@@ -3085,7 +3090,12 @@
       ],
       "sources": [
         "smithsonian"
-      ]
+      ],
+      "image": {
+        "ref": "ill_qng_eight_nation_alliance",
+        "credit": "Torajirō Kasai; Library of Congress source",
+        "license": "Public domain in the United States; Commons page records public-domain status"
+      }
     },
     {
       "id": "qng_boxer_protocol",
