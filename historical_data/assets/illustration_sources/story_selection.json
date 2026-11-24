@@ -2851,7 +2851,7 @@
     },
     {
       "type": "illustration_event",
-      "subject": "pru_wilhelm_coronation_1861",
+      "subject": "pru_wilhelm_i_accession_1861",
       "commons_file": "Krönung Wilhelm I. zum König von Preußen 1861.png",
       "year": 1861,
       "width": 420,
@@ -2877,7 +2877,7 @@
     },
     {
       "type": "illustration_event",
-      "subject": "pru_bismarck_speech_1862",
+      "subject": "pru_blood_iron_speech_1862",
       "commons_file": "Otto von Bismarck.jpg",
       "year": 1873,
       "width": 350,
@@ -2903,7 +2903,7 @@
     },
     {
       "type": "illustration_event",
-      "subject": "pru_sedan_1870",
+      "subject": "pru_sedan_victory_1870",
       "commons_file": "The battle of Sedan...Die schlacht bei Sedan LCCN2003679775.jpg",
       "year": 1870,
       "width": 9067,
@@ -2929,7 +2929,7 @@
     },
     {
       "type": "illustration_event",
-      "subject": "pru_empire_proclamation_1871",
+      "subject": "pru_german_empire_proclamation_1871",
       "commons_file": "Anton von Werner - Kaiserproklamation in Versailles 1871.jpg",
       "year": 1871,
       "width": 1292,
@@ -2955,7 +2955,7 @@
     },
     {
       "type": "illustration_event",
-      "subject": "pru_reichstag_1894",
+      "subject": "pru_reichstag_building_opens_1894",
       "commons_file": "Reichstag-1894.jpg",
       "year": 1894,
       "width": 2852,
