@@ -82,3 +82,16 @@ Owner nhắn: "Đọc `docs/roadmap/OPEN_WORK_FOR_CHATGPT_2026-11-24_VI.md`, so�
 - **Chưa release-ready:** narratives hiện là mô tả khung song ngữ ngắn, cần nghiên cứu/viết lại theo từng sự kiện; source links chưa được mở xác minh từng claim; chưa có ảnh; chưa chạy data/content builder, runtime, tests, Android build/APK.
 - Claude cần kiểm tra monthly `fire_date`, one-shot journal milestone semantics và tính liên tục entity/regime JAP (registry ghi Tokugawa Japan); không tự ý tạo country ID mới.
 - **Tiếp theo A1:** QNG → RUS → PRU → USA → TUR. MSG-129 tiếp tục IN_PROGRESS.
+
+
+## Cập nhật tiến độ — QNG / Nhà Thanh (CG-62, 2026-11-24)
+
+- **A1 / QNG — initial historical story pack delivered for integration review.** `historical_data/events/story/QNG.json`: 51 sự kiện, 4 journal, 3 source references; dải ngày 1838-12-31 → 1912-02-12.
+- Bao phủ khủng hoảng thuốc phiện và hai cuộc chiến Nha phiến, hệ thống cảng hiệp ước, Thái Bình Thiên Quốc, Tự Cường, chiến tranh Pháp–Thanh và Thanh–Nhật, Mậu Tuất, Nghĩa Hòa Đoàn, Tân Chính, Cách mạng Tân Hợi và thoái vị.
+- Mỗi sự kiện có title/narrative VI+EN, 2 lựa chọn có label_en, mỗi lựa chọn có named timed modifier; modifier keys đã đối chiếu allowlist `src/engine/mods.ts`.
+- Bốn journal dùng tiến độ thời gian +0.5/tháng, tránh lặp milestone `event_fired` vốn có nguy cơ cộng điểm nhiều lần.
+- Đã thêm 2 ứng viên ảnh Commons riêng cho sự kiện Nghĩa Hòa Đoàn / liên quân tám nước vào `historical_data/assets/illustration_sources/story_selection.json`; chưa ingest binary, pipeline phải kiểm tra lại quyền và dung lượng.
+- Commits: QNG initial `2f7d922ff0346f6ff35a33253e8703bee5f360e0`; scheduler/journal adjustment `74a305ae2dedc246e799efed4d48c28a96a27d5e`; image refs `8638289911cade7eb81a2e2319724e969cfcccdd`; image candidates `3c9b74fce3c1bfff2346a2a0a8bb52a348ae5bc0`; checkpoint `e061ad119ae4f089bd9b1accee9d65f1f2701c26`.
+- Báo cáo đầy đủ: `docs/research/history/CG62_QNG_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md`.
+- **Chưa release-ready:** nguồn mới là timeline/bibliography cấp cao, chưa kiểm chứng từng claim; cần Claude kiểm tra monthly `fire_date` và cửa sổ kéo dài sang năm sau; event thoái vị 12-02-1912 trùng ngày registry `hist_to`; hai ảnh mới chỉ là candidate. Chưa chạy `npm run data`, `npm run content`, tests, simulation, Android build/APK.
+- **Tiếp theo A1:** RUS → PRU → USA → TUR. PRU là Phổ, không phải PRS/Ba Tư. MSG-129 vẫn IN_PROGRESS.
