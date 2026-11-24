@@ -95,3 +95,15 @@ Owner nhắn: "Đọc `docs/roadmap/OPEN_WORK_FOR_CHATGPT_2026-11-24_VI.md`, so�
 - Báo cáo đầy đủ: `docs/research/history/CG62_QNG_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md`.
 - **Chưa release-ready:** nguồn mới là timeline/bibliography cấp cao, chưa kiểm chứng từng claim; cần Claude kiểm tra monthly `fire_date` và cửa sổ kéo dài sang năm sau; event thoái vị 12-02-1912 trùng ngày registry `hist_to`; hai ảnh mới chỉ là candidate. Chưa chạy `npm run data`, `npm run content`, tests, simulation, Android build/APK.
 - **Tiếp theo A1:** RUS → PRU → USA → TUR. PRU là Phổ, không phải PRS/Ba Tư. MSG-129 vẫn IN_PROGRESS.
+
+
+## Cập nhật tiến độ — RUS / Đế quốc Nga (CG-63, 2026-11-24)
+
+- **A1 / RUS — initial historical story pack delivered for integration review.** `historical_data/events/story/RUS.json`: 54 sự kiện, 5 journal, 5 source references; dải ngày 1837-02-10 → 1917-03-15.
+- Bao phủ Nicholas I, chiến tranh Krym, Đại cải cách và giải phóng nông nô, zemstvo/tư pháp, Caucasus và Viễn Đông, chiến tranh Nga–Ottoman, Aleksandr II bị ám sát, đường sắt xuyên Siberia, Nicholas II, công nghiệp hóa, chiến tranh Nga–Nhật, Cách mạng 1905, Duma/Stolypin, Thế chiến I, Brusilov, Cách mạng tháng Hai và thoái vị.
+- Mỗi event có narrative VI+EN, 2 lựa chọn có label_en và named timed modifier; modifier keys đã đối chiếu `src/engine/mods.ts`. Năm journal dùng tiến độ thời gian +1/tháng, không dùng `event_fired` để tránh cộng điểm lặp.
+- Đã thêm 3 ứng viên ảnh riêng: Bloody Sunday (tranh tái dựng 1925), Duma khóa I (ảnh gốc rất lớn ~124 MB, cần derivative), ảnh Nicholas II sau thoái vị (rights còn provisional). Chưa ingest binary.
+- Commits: RUS data `bf32b6b75266e4042d07d8a507b006d8cbb1f9de`; image refs `1cfcb140e341d96067d05172dccad8b712d88995`; candidates `b65104e64a5989a5956cb01e2cb7ad5f9dd57144`; checkpoint `68398132f75769f180f61a7ef26f2a5ac791a638`.
+- Báo cáo đầy đủ: `docs/research/history/CG63_RUS_STORY_EVENT_BATCH_CHECKPOINT_2026-11-24_VI.md`.
+- **Chưa release-ready:** cần xác minh lịch Julian/Gregorian, scheduler tháng với fire_date giữa tháng, event thoái vị trùng `hist_to=1917-03-15`, nguồn từng claim và rights/size ảnh. Chưa chạy builders, tests, simulation, Android build/APK.
+- **Tiếp theo A1:** PRU → USA → TUR. PRU là Phổ, không phải PRS/Ba Tư. MSG-129 vẫn IN_PROGRESS.
